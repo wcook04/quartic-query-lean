@@ -1,0 +1,1892 @@
+[
+ {
+  "id": "def-log-convention",
+  "kind": "definition",
+  "section": "1.3",
+  "source_line": 118,
+  "statement": "log means log_2, except where changing the base only changes an absolute constant. Ledger pinning: log in T (prop-3.2), r and l (eq-6) and L (eq-5) is exactly log_2.",
+  "depends_on": [],
+  "external_inputs": [],
+  "model_needed": "none",
+  "formalisation_difficulty": "trivial",
+  "first_lean_target": "Use Nat.clog 2 for T and r, Nat.log 2 for l, and Real.logb 2 for L.",
+  "proof_notes": "Load-bearing in T: with natural log, 2m/2^T is unbounded (computed value 64 at m=4^20). See doubt D1."
+ },
+ {
+  "id": "def-partial-query",
+  "kind": "definition",
+  "section": "1.3",
+  "source_line": 120,
+  "statement": "A partial Boolean function is a pair (D,P) with D a subset of {0,1}^N and P:D->{0,1}. An algorithm computes it if it is correct, with the stated error, on every x in D; behaviour off D is unconstrained.",
+  "depends_on": [],
+  "external_inputs": [],
+  "model_needed": "classical_finite",
+  "formalisation_difficulty": "trivial",
+  "first_lean_target": "structure PartialBool (N : Nat) with dom : Finset (Fin N -> Bool) and val : dom -> Bool; a total function is the case dom = univ.",
+  "proof_notes": "Keep one structure for partial and total functions so that R and Q need a single definition."
+ },
+ {
+  "id": "def-R",
+  "kind": "definition",
+  "section": "1",
+  "source_line": 18,
+  "statement": "For a (partial) Boolean function f, R(f) is the least q such that some probability distribution on deterministic decision trees of depth at most q satisfies Pr[T(x)=f(x)] >= 2/3 for every x in dom f. The query cap holds on every branch and every coin outcome.",
+  "depends_on": [
+   "def-partial-query"
+  ],
+  "external_inputs": [],
+  "model_needed": "randomized_query",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "noncomputable def R (f : PartialBool N) : Nat := sInf {q | exists mu : PMF (DTree N q), forall x in f.dom, 2/3 <= mu.toMeasure {T | T.eval x = f x}}.",
+  "proof_notes": "Paper says 'minimum worst-case numbers of bit queries'. Worst-case randomized cost equals a mixture of depth-q trees; the paper states this at line 576-577. Set the definition as a mixture so that minimax applies directly."
+ },
+ {
+  "id": "def-query-oracle",
+  "kind": "definition",
+  "section": "1",
+  "source_line": 22,
+  "statement": "For x in {0,1}^n the bit oracle is the unitary O_x|i,b,z> = |i, b xor x_i, z>, with i in [n], b a bit, z a workspace label. It is self-inverse.",
+  "depends_on": [],
+  "external_inputs": [],
+  "model_needed": "quantum_query",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "def bitOracle (x : Fin n -> Bool) : unitary on EuclideanSpace C (Fin n x Bool x Z), with theorem bitOracle_sq.",
+  "proof_notes": "Phase queries come from b=|->. Controlled queries are simulated by load, use, unload, two queries (line 510)."
+ },
+ {
+  "id": "def-Q",
+  "kind": "definition",
+  "section": "1",
+  "source_line": 20,
+  "statement": "Q(f) is the least q such that some quantum algorithm, with unrestricted query-free computation between uses of O_x and with at most q queries on every branch including all measurement outcomes, outputs f(x) with probability >= 2/3 for every x in dom f.",
+  "depends_on": [
+   "def-partial-query",
+   "def-query-oracle"
+  ],
+  "external_inputs": [],
+  "model_needed": "quantum_query",
+  "formalisation_difficulty": "hard",
+  "first_lean_target": "Two-layer model: AdaptiveQAlg, a tree whose nodes are unitary-oracle circuits followed by a measurement, and PurifiedQAlg, a fixed-length alternation U_T O U_{T-1} ... O U_0. Define Q from AdaptiveQAlg and prove purify : AdaptiveQAlg q -> PurifiedQAlg (C*q) with the same output law.",
+  "proof_notes": "The paper never gives a formal model. The upper bound uses intermediate measurement, classical control and fresh registers; lem-A.2 purifies to a fixed sequence. The single definition must serve both directions. See doubt D2."
+ },
+ {
+  "id": "eq-1",
+  "kind": "definition",
+  "section": "1",
+  "source_line": 30,
+  "statement": "alpha_tot = inf{alpha >= 0 : exists C_alpha < infinity such that for every n >= 1 and every total f:{0,1}^n->{0,1}, R(f) <= C_alpha (1+Q(f))^alpha}.",
+  "depends_on": [
+   "def-R",
+   "def-Q"
+  ],
+  "external_inputs": [],
+  "model_needed": "quantum_query",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "def alphaTot : Real := sInf {a : Real | 0 <= a and exists C, forall n >= 1, forall f : (Fin n -> Bool) -> Bool, (R f : Real) <= C * (1 + Q f)^a}.",
+  "proof_notes": "Uses rpow. Set is nonempty by thm-A.1. Note n is unbounded and F_{k,m} has n growing with m."
+ },
+ {
+  "id": "eq-2",
+  "kind": "equation",
+  "section": "1",
+  "source_line": 39,
+  "statement": "For fixed integer k>=2 and all sufficiently large powers of four m: Q(F_{k,m}) <= C_k sqrt(m) (log m)^{b_k} and R(F_{k,m}) >= c_k m^{2-1/k}/(log m)^2, with c_k,C_k,b_k>0 depending only on k.",
+  "depends_on": [
+   "prop-3.3",
+   "claim-floor"
+  ],
+  "external_inputs": [],
+  "model_needed": "quantum_query",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "theorem family_bounds (k) (hk : 2 <= k) (hBS : BansalSinha k) : exists c C b > 0, forall^f t, let m := 4^t; (Q (F k m) <= C * sqrt m * log m ^ b) and (c * m^(2-1/k) / log m ^ 2 <= R (F k m)).",
+  "proof_notes": "Asymptotic packaging of prop-3.3 and prop-4.2; no new mathematics."
+ },
+ {
+  "id": "thm-1.1",
+  "kind": "theorem",
+  "section": "1",
+  "source_line": 34,
+  "statement": "alpha_tot = 4. More precisely, R(f) = O((1+Q(f))^4) for every total Boolean f, and eq-2 holds for each fixed integer k>=2.",
+  "depends_on": [
+   "eq-1",
+   "eq-2",
+   "thm-A.1",
+   "claim-exponent-ratio",
+   "claim-no-smaller-exponent"
+  ],
+  "external_inputs": [
+   "[6] Bansal-Sinha, Theorem 1.3 and Corollary 1.4 (checked against arXiv:2008.07003): randomized decision trees of error 1/3 for (2^{-5k},k)-Forrelation need Omega(k^{-29}(N/log(kN))^{1-1/k}) queries"
+  ],
+  "model_needed": "quantum_query",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "theorem alphaTot_eq_four (hBS : forall k >= 2, BansalSinha k) : alphaTot = 4. Assembly only; the Bansal-Sinha lower bound is an explicit hypothesis.",
+  "proof_notes": "Audit: inf proof is sound. 4 lies in the set by thm-A.1; every alpha in [0,4) is excluded by claim-no-smaller-exponent. No upward-closure of the set is needed."
+ },
+ {
+  "id": "cor-cubic-refuted",
+  "kind": "corollary",
+  "section": "1.1",
+  "source_line": 66,
+  "statement": "It is false that R(f) = O(Q(f)^3) for all total Boolean f ([3, Conjecture 2]). Equivalently no C satisfies R(f) <= C Q(f)^3 for all total f with Q(f)>=1.",
+  "depends_on": [
+   "thm-1.1"
+  ],
+  "external_inputs": [
+   "[3] ABKRT Conjecture 2 (checked against arXiv:2010.12629: 'R(f)=O(Q(f)^3)' is Conjecture 2)"
+  ],
+  "model_needed": "quantum_query",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "theorem not_cubic (hBS : BansalSinha 3) : not exists C, forall n f, (R f : Real) <= C * (Q f)^3.",
+  "proof_notes": "k=3 already suffices: R >= Q^{10/3 - o(1)}. Needs Q(F_{3,m})>=1, immediate since F is nonconstant (claim-Y-values). k=2 gives only exponent 3 up to logs."
+ },
+ {
+  "id": "def-walsh-sign",
+  "kind": "definition",
+  "section": "2.1",
+  "source_line": 136,
+  "statement": "m=4^t. H is the m x m normalized Walsh-Hadamard matrix, H_{a,b}=m^{-1/2}(-1)^{<a,b>} for a,b in {0,1}^{log_2 m}. u=m^{-1/2}(1,...,1)^T. A bit a is identified with the sign (-1)^a. For z in {+-1}^m, D_z=diag(z).",
+  "depends_on": [
+   "def-log-convention"
+  ],
+  "external_inputs": [],
+  "model_needed": "none",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "def walsh (t) : Matrix (Fin (2*t) -> Bool) (Fin (2*t) -> Bool) Int with entries (-1)^(dot a b); H := (sqrt m)^-1 * walsh; theorem walsh_mul_self : walsh * walsh = m * 1.",
+  "proof_notes": "Index by bit vectors, not Fin m. Not found in mathlib by a search for 'walsh'."
+ },
+ {
+  "id": "eq-3",
+  "kind": "definition",
+  "section": "2.1",
+  "source_line": 140,
+  "statement": "For z_1,...,z_k in {+-1}^m: Phi(z_1,...,z_k) = u^T D_{z_1} H D_{z_2} H ... H D_{z_k} u (k diagonals, k-1 copies of H), and delta = 2^{-5k}.",
+  "depends_on": [
+   "def-walsh-sign"
+  ],
+  "external_inputs": [],
+  "model_needed": "none",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "def Phi (z : Fin k -> Idx -> Int) : Real, defined by recursion on k, with delta k := (2:Real)^(-(5*k:Int)).",
+  "proof_notes": "Agrees exactly with forr_k in eq (1.1)-(1.2) of [6] (checked), including the absence of an H after D_{z_k}."
+ },
+ {
+  "id": "eq-4",
+  "kind": "definition",
+  "section": "2.1",
+  "source_line": 145,
+  "statement": "P=P_{k,m} is the partial function on km bits with P=1 if Phi>=delta, P=0 if |Phi|<=delta/2, undefined otherwise. The two cases are disjoint.",
+  "depends_on": [
+   "eq-3",
+   "def-partial-query"
+  ],
+  "external_inputs": [],
+  "model_needed": "classical_finite",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "def Forr (k t) : PartialBool (k*4^t), with dom := filter (delta <= Phi or |Phi| <= delta/2) and theorem forr_cases_disjoint.",
+  "proof_notes": "Disjoint because delta>0. Agrees with eq (1.3) of [6] (checked)."
+ },
+ {
+  "id": "eq-5",
+  "kind": "definition",
+  "section": "2.1",
+  "source_line": 155,
+  "statement": "L = L_{k,m} = floor(m^{1-1/k}/(log_2 m)^2), and for all sufficiently large powers of four m, R(P_{k,m}) > L.",
+  "depends_on": [
+   "eq-4",
+   "def-R",
+   "def-log-convention"
+  ],
+  "external_inputs": [
+   "[6] Bansal-Sinha, Theorem 1.3 and Corollary 1.4 (checked against arXiv:2008.07003): randomized decision trees of error 1/3 for (2^{-5k},k)-Forrelation need Omega(k^{-29}(N/log(kN))^{1-1/k}) queries"
+  ],
+  "model_needed": "randomized_query",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "def Lval (k t) : Nat := Nat.floor (m^(1-1/k) / (logb 2 m)^2). The inequality itself enters as the Prop BansalSinha k := forall^f t, Lval k t < R (Forr k t).",
+  "proof_notes": "Weakest form actually consumed. See lem-2.1.i."
+ },
+ {
+  "id": "claim-bs-to-L",
+  "kind": "inline_claim",
+  "section": "2.1",
+  "source_line": 173,
+  "statement": "For fixed k: for large m, c k^{-29} (m/log(km))^{1-1/k} > floor(m^{1-1/k}/(log_2 m)^2).",
+  "depends_on": [
+   "eq-5"
+  ],
+  "external_inputs": [
+   "[6] Bansal-Sinha, Theorem 1.3 and Corollary 1.4 (checked against arXiv:2008.07003): randomized decision trees of error 1/3 for (2^{-5k},k)-Forrelation need Omega(k^{-29}(N/log(kN))^{1-1/k}) queries"
+  ],
+  "model_needed": "none",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "theorem bs_exceeds_L (k c) (hc : 0 < c) : forall^f m, Lval k m < c * (m / log (k*m))^(1-1/k).",
+  "proof_notes": "Ratio is of order (log m)^{2-(1-1/k)} tending to infinity. Only needed to discharge BansalSinha from a literal transcription of [6, Cor 1.4]."
+ },
+ {
+  "id": "lem-2.1.i",
+  "kind": "lemma",
+  "section": "2.1",
+  "source_line": 152,
+  "statement": "For fixed k>=2 and all sufficiently large powers of four m, R(P_{k,m})>L with L as in eq-5.",
+  "depends_on": [
+   "eq-5",
+   "claim-bs-to-L"
+  ],
+  "external_inputs": [
+   "[6] Bansal-Sinha, Theorem 1.3 and Corollary 1.4 (checked against arXiv:2008.07003): randomized decision trees of error 1/3 for (2^{-5k},k)-Forrelation need Omega(k^{-29}(N/log(kN))^{1-1/k}) queries"
+  ],
+  "model_needed": "randomized_query",
+  "formalisation_difficulty": "very_hard",
+  "first_lean_target": "Named hypothesis BansalSinha k. Do not prove. Optionally state BansalSinhaCor14 := exists c>0, for each k>=2 and all large n, c/k^29*(2^n/log(k 2^n))^(1-1/k) <= R (forr k n), and derive BansalSinha.",
+  "proof_notes": "Checked against [6]: normalisation, delta=2^{-5k}, the delta/2 threshold and error 1/3 all match. The paper's 'Omega_k' absorbs k^{-29}. [6] takes N=2^n, covering powers of four. Proving it means formalising the Gaussian interpolation argument of [6]; out of scope."
+ },
+ {
+  "id": "claim-proj-prob",
+  "kind": "inline_claim",
+  "section": "2.1",
+  "source_line": 176,
+  "statement": "Prepare u, apply D_{z_1} H ... H D_{z_k} right to left, measure the projection onto u. Each D uses one bit query (phase kickback), H and the projection use none. Success probability is exactly Phi^2: >=delta^2 on 1-inputs, <=delta^2/4 on 0-inputs.",
+  "depends_on": [
+   "eq-3",
+   "eq-4",
+   "def-query-oracle"
+  ],
+  "external_inputs": [],
+  "model_needed": "quantum_query",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "theorem forr_circuit_prob : ||projU (circ z u)||^2 = Phi z ^ 2, plus inequalities on Forr 1-inputs and 0-inputs.",
+  "proof_notes": "Audit: correct; uses k queries rather than ceil(k/2) of [6, Prop 1.2], which is irrelevant for fixed k."
+ },
+ {
+  "id": "lem-2.1.ii",
+  "kind": "lemma",
+  "section": "2.1",
+  "source_line": 158,
+  "statement": "For every 0<eta<1/2 there is a quantum algorithm using O_k(1+log(1/eta)) bit queries that outputs P_{k,m}(z) with error <=eta for every z in dom P. It has a coherent implementation retaining all workspace. On every input, promised or not, measuring its output register yields a bit.",
+  "depends_on": [
+   "claim-proj-prob",
+   "def-Q"
+  ],
+  "external_inputs": [
+   "Chernoff or Hoeffding bound for repeated Bernoulli trials (standard; not cited)"
+  ],
+  "model_needed": "quantum_query",
+  "formalisation_difficulty": "hard",
+  "first_lean_target": "def forrDecode (k t) (eta) : ComparisonUnitary, a unitary with explicit query count n(eta) <= C_k*(1+log(1/eta)); theorem forrDecode_correct on dom. Totality is automatic because the output is a basis-measured register.",
+  "proof_notes": "Threshold between delta^2/4 and delta^2 after O(delta^{-2} log 1/eta) repetitions by multiplicative Chernoff, or O(delta^{-4} log 1/eta) by Hoeffding; either is O_k. Coherent form computes the outcomes into fresh registers (deferred measurement)."
+ },
+ {
+  "id": "claim-N-phi",
+  "kind": "inline_claim",
+  "section": "2.1",
+  "source_line": 183,
+  "statement": "With W=sqrt(m) H (entries +-1), N = z_1^T W D_{z_2} W ... W D_{z_k} (1,...,1)^T is an integer, Phi=N/M_{k,m}, and M_{k,m}=m (sqrt m)^{k-1} is a positive integer because m is a power of four.",
+  "depends_on": [
+   "eq-3",
+   "def-walsh-sign"
+  ],
+  "external_inputs": [],
+  "model_needed": "none",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "theorem Phi_eq_N_div_M : Phi z = (N z : Real) / (M k t) with N z : Int, M k t : Nat := 4^t * 2^(t*(k-1)).",
+  "proof_notes": "Checked numerically for (m,k)=(4,2),(4,3),(16,2),(16,3),(16,5),(64,4). Integrality of M is the only use of 'power of four' rather than power of two."
+ },
+ {
+  "id": "claim-integer-tests",
+  "kind": "inline_claim",
+  "section": "2.1",
+  "source_line": 195,
+  "statement": "Phi>=delta iff 2^{5k} N >= M_{k,m}; and |Phi|<=delta/2 iff 2^{5k+1}|N| <= M_{k,m}. d is the disjunction, b the first comparison.",
+  "depends_on": [
+   "claim-N-phi",
+   "eq-4"
+  ],
+  "external_inputs": [],
+  "model_needed": "none",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "theorem forr_integer_tests : (delta <= Phi z <-> M <= 2^(5k)*N z) and (|Phi z| <= delta/2 <-> 2^(5k+1)*|N z| <= M).",
+  "proof_notes": "Cross-multiplication. Gives a decidable exact definition of Forr without reals, which is the preferred Lean definition."
+ },
+ {
+  "id": "claim-circuit-size",
+  "kind": "inline_claim",
+  "section": "2.1",
+  "source_line": 190,
+  "statement": "N is computed by k-1 unnormalized Walsh-Hadamard transforms, coordinate sign changes and a final signed sum. Each transform uses O(m log m) additions and subtractions; all intermediate integers have absolute value at most m^{O(k)}, so O_k(log m) bits suffice; hence Boolean size O_k(m (log m)^2).",
+  "depends_on": [
+   "claim-N-phi",
+   "def-transcript"
+  ],
+  "external_inputs": [],
+  "model_needed": "classical_finite",
+  "formalisation_difficulty": "hard",
+  "first_lean_target": "def forrCircuit (k t) : BoolCircuit (k*m) 2 with explicit size bound size <= C k * m * t^2 and theorem forrCircuit_eval relating outputs to N.",
+  "proof_notes": "Audit: correct. Needs a verified fixed-width adder, negation, comparator and butterfly in a gate-level circuit type. Laborious, not deep. Size enters only the quantum bound via K; existence alone suffices for the randomized bound (trivial table circuit would do there)."
+ },
+ {
+  "id": "lem-2.1.iii",
+  "kind": "lemma",
+  "section": "2.1",
+  "source_line": 162,
+  "statement": "There is a Boolean circuit C=C_{k,m} of fan-in at most two and size S=S_{k,m}=O_k(m (log m)^2), counting non-input gates, with output bits d,b such that for every input z: d=1 iff P_{k,m} is defined at z, and d=1 implies b=P_{k,m}(z). The circuit computes these outputs exactly on every input.",
+  "depends_on": [
+   "claim-integer-tests",
+   "claim-circuit-size"
+  ],
+  "external_inputs": [],
+  "model_needed": "classical_finite",
+  "formalisation_difficulty": "hard",
+  "first_lean_target": "theorem forrCircuit_spec : forall z, (eval d z = true <-> z in dom) and (eval d z = true -> eval b z = Forr z), and size <= C k * m * t^2.",
+  "proof_notes": "Fan-in includes constant gates; the paper leaves that implicit (doubt D4). Constants are harmless: a constant gate test uses one query."
+ },
+ {
+  "id": "lem-2.1",
+  "kind": "lemma",
+  "section": "2.1",
+  "source_line": 151,
+  "statement": "Conjunction of lem-2.1.i, lem-2.1.ii and lem-2.1.iii for each fixed k>=2.",
+  "depends_on": [
+   "lem-2.1.i",
+   "lem-2.1.ii",
+   "lem-2.1.iii"
+  ],
+  "external_inputs": [
+   "[6] Bansal-Sinha, Theorem 1.3 and Corollary 1.4 (checked against arXiv:2008.07003): randomized decision trees of error 1/3 for (2^{-5k},k)-Forrelation need Omega(k^{-29}(N/log(kN))^{1-1/k}) queries"
+  ],
+  "model_needed": "quantum_query",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "No separate Lean statement: consumers cite the three parts. Bundle as structure AddressablePartial so that the construction is generic in P.",
+  "proof_notes": "Key design fact: Sections 2-4 use exactly these three properties of P, so the construction should be generic."
+ },
+ {
+  "id": "def-transcript",
+  "kind": "definition",
+  "section": "1.3",
+  "source_line": 122,
+  "statement": "For a fixed circuit, a transcript assigns a proposed bit to each non-input gate, including output gates. Input-wire values are not copied; they are read from the actual input.",
+  "depends_on": [],
+  "external_inputs": [],
+  "model_needed": "classical_finite",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "structure BoolCircuit (nIn nOut) with gates in topological order, each of fan-in <= 2; def Transcript C := Fin C.size -> Bool; def gateOK C x t g : Prop.",
+  "proof_notes": "Topological indexing makes the induction in lem-2.2.i a Fin induction."
+ },
+ {
+  "id": "eq-6",
+  "kind": "definition",
+  "section": "2.2",
+  "source_line": 207,
+  "statement": "r = ceil(20 log_2 m), l = log_2 m.",
+  "depends_on": [
+   "def-log-convention"
+  ],
+  "external_inputs": [],
+  "model_needed": "none",
+  "formalisation_difficulty": "trivial",
+  "first_lean_target": "def rval (t) := 40*t and lval (t) := 2*t for m=4^t, since then 20 log_2 m = 40t is an integer.",
+  "proof_notes": "For m=4^t the ceiling is exact."
+ },
+ {
+  "id": "def-column-layout",
+  "kind": "construction",
+  "section": "2.2",
+  "source_line": 208,
+  "statement": "The input has m columns. Column i contains: X_i in {0,1}^m; strings A_{i,1},...,A_{i,r} in {0,1}^{km} with no promise; and for each s in {0,1}^r a cell B_{i,s} holding, for each j != i, a pointer p_{i,s,j} in [m] encoded in l bits by a fixed bijection, and for each h in [r] an alleged evaluation transcript of C_{k,m} on A_{i,h}.",
+  "depends_on": [
+   "eq-6",
+   "def-transcript"
+  ],
+  "external_inputs": [],
+  "model_needed": "classical_finite",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "structure Input (cfg) with X, A, ptr, tr as dependent functions; def equivBits : Input cfg ~= (Fin (nBits cfg) -> Bool). Prefer BitLoc, an inductive location type with Fintype, and functions BitLoc -> Bool, over flat Fin indices.",
+  "proof_notes": "Input length n = m(m + r k m + 2^r((m-1) l + r S)), polynomial in m with 2^r=m^20. All l-bit strings are valid pointers since m=2^l, so no invalid-pointer case arises."
+ },
+ {
+  "id": "def-eval-transcript",
+  "kind": "definition",
+  "section": "2.2",
+  "source_line": 218,
+  "statement": "An evaluation transcript of C_{k,m} on A_{i,h} has one bit per non-input gate including output gates, and these gates are the count S. It is correct iff every bit equals the true value of that gate on input A_{i,h}.",
+  "depends_on": [
+   "def-transcript"
+  ],
+  "external_inputs": [],
+  "model_needed": "classical_finite",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "def Transcript.correct C x t := forall g, t g = C.eval x g.",
+  "proof_notes": "Same object as def-transcript; this row records the counting convention S = number of non-input gates."
+ },
+ {
+  "id": "eq-7",
+  "kind": "definition",
+  "section": "2.2",
+  "source_line": 223,
+  "statement": "If every P(A_{i,h}) is defined, the true address of column i is s_i=(P(A_{i,1}),...,P(A_{i,r})) in {0,1}^r.",
+  "depends_on": [
+   "eq-4",
+   "def-column-layout"
+  ],
+  "external_inputs": [],
+  "model_needed": "classical_finite",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "def trueAddr (y) (i) (h : forall b, y.A i b in P.dom) : Fin r -> Bool.",
+  "proof_notes": "Partial: well defined only when all r instances are in dom P."
+ },
+ {
+  "id": "eq-8",
+  "kind": "definition",
+  "section": "2.2",
+  "source_line": 227,
+  "statement": "Outward pointer condition: X_j[p_{i,s_i,j}] = 0 for every j != i.",
+  "depends_on": [
+   "eq-7"
+  ],
+  "external_inputs": [],
+  "model_needed": "classical_finite",
+  "formalisation_difficulty": "trivial",
+  "first_lean_target": "def ptrOK (y) (i) (s) : Prop := forall j, j != i -> y.X j (y.ptr i s j) = false.",
+  "proof_notes": "Orientation is the crux of the construction: only a true winner defeats every rival."
+ },
+ {
+  "id": "def-winner",
+  "kind": "definition",
+  "section": "2.2",
+  "source_line": 221,
+  "statement": "Column i is a winner iff X_i=1^m, every P(A_{i,h}) is defined, and the cell B_{i,s_i} contains correct evaluation transcripts on all A_{i,h} and pointers satisfying eq-8.",
+  "depends_on": [
+   "eq-7",
+   "eq-8",
+   "def-eval-transcript"
+  ],
+  "external_inputs": [],
+  "model_needed": "classical_finite",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "def IsWinner (y) (i) : Prop, stated via a Sigma over dom membership, or equivalently via exists s, WinsAt y i s.",
+  "proof_notes": "Prefer defining WinsAt first and IsWinner y i := exists s, WinsAt y i s to avoid dependent address types."
+ },
+ {
+  "id": "def-F",
+  "kind": "definition",
+  "section": "2.2",
+  "source_line": 229,
+  "statement": "F_{k,m}(y)=1 if some column of y is a winner, else 0. It is a total Boolean function on all input bit strings.",
+  "depends_on": [
+   "def-winner",
+   "def-column-layout"
+  ],
+  "external_inputs": [],
+  "model_needed": "classical_finite",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "def F (cfg) : PartialBool (nBits cfg) with dom = univ, or a total function Input cfg -> Bool via Classical.decide or a decidable instance.",
+  "proof_notes": "Generic in (P,C,m,r). No promise on A, pointers or transcripts."
+ },
+ {
+  "id": "cor-unique-winner",
+  "kind": "corollary",
+  "section": "2.2",
+  "source_line": 235,
+  "statement": "For every input, at most one column is a winner.",
+  "depends_on": [
+   "def-winner"
+  ],
+  "external_inputs": [],
+  "model_needed": "classical_finite",
+  "formalisation_difficulty": "trivial",
+  "first_lean_target": "theorem winner_unique (y) (i j) (hi : IsWinner y i) (hj : IsWinner y j) : i = j.",
+  "proof_notes": "i's pointer to j names a zero of X_j, contradicting X_j=1^m. Not used in the proofs of prop-3.3 or prop-4.2, but useful as a sanity theorem."
+ },
+ {
+  "id": "def-win-at-address",
+  "kind": "definition",
+  "section": "2.2",
+  "source_line": 264,
+  "statement": "For (i,s) in [m] x {0,1}^r, i wins at address s iff i is a winner and s=s_i.",
+  "depends_on": [
+   "def-winner"
+  ],
+  "external_inputs": [],
+  "model_needed": "classical_finite",
+  "formalisation_difficulty": "trivial",
+  "first_lean_target": "def WinsAt (y) (i) (s) : Prop := Xall y i and (forall h, TranscriptCheck y i s h) and ptrOK y i s.",
+  "proof_notes": "Recommended primitive; see def-winner note."
+ },
+ {
+  "id": "def-K",
+  "kind": "definition",
+  "section": "2.2",
+  "source_line": 269,
+  "statement": "K_{k,m} = m + (m-1) + r(S_{k,m}+2) = O_k(m (log m)^3).",
+  "depends_on": [
+   "eq-6",
+   "lem-2.1.iii"
+  ],
+  "external_inputs": [],
+  "model_needed": "none",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "def Kval (cfg) : Nat with theorem Kval_le : Kval cfg <= C k * m * t^3, and an index type TestIdx cfg with card = Kval cfg.",
+  "proof_notes": "Tests: m on X_i; m-1 pointers; for each transcript S gate tests and 2 output tests."
+ },
+ {
+  "id": "lem-2.2.i",
+  "kind": "lemma",
+  "section": "2.2",
+  "source_line": 266,
+  "statement": "For every input y and (i,s) in [m] x {0,1}^r: i wins at s iff all K_{k,m} tests pass, namely (a) X_i[b]=1 for each b; (b) for each j != i, X_j[p_{i,s,j}]=0; (c) for each h and each non-input gate, the claimed value equals the gate function of its predecessors, read from the transcript or from A_{i,h}; (d) for each h, claimed d=1 and claimed b=s_h. Each test is a function of O(log m) input bits, at most l+1 for (b) and at most 3 for (c).",
+  "depends_on": [
+   "def-win-at-address",
+   "def-K",
+   "lem-2.1.iii"
+  ],
+  "external_inputs": [],
+  "model_needed": "classical_finite",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "theorem winsAt_iff_tests (y i s) : WinsAt y i s <-> forall e : TestIdx cfg, test y i s e = true; and each test depends on at most l+1 bits, stated through DTree depth.",
+  "proof_notes": "Induction in topological order: all gate tests pass iff transcript equals true evaluation. Audit: correct."
+ },
+ {
+  "id": "lem-2.2.ii",
+  "kind": "lemma",
+  "section": "2.2",
+  "source_line": 271,
+  "statement": "Each test is evaluated exactly with O(log m) bit queries, also coherently with the same bound with test indices in superposition. The number of tests and the indexing convention are the same for every (i,s).",
+  "depends_on": [
+   "lem-2.2.i",
+   "claim-coherent-access"
+  ],
+  "external_inputs": [],
+  "model_needed": "quantum_query",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "def testUnitary (cfg) : unitary on index, flag and workspace, with queries <= C*l and theorem computing flag = test y i s e on basis states, with loaded bits unloaded.",
+  "proof_notes": "Load, compute reversibly, unload. Bit oracle self-inverse. Includes the input-dependent pointer lookup."
+ },
+ {
+  "id": "lem-2.2",
+  "kind": "lemma",
+  "section": "2.2",
+  "source_line": 266,
+  "statement": "Conjunction of lem-2.2.i and lem-2.2.ii.",
+  "depends_on": [
+   "lem-2.2.i",
+   "lem-2.2.ii"
+  ],
+  "external_inputs": [],
+  "model_needed": "quantum_query",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "No separate Lean statement.",
+  "proof_notes": "Parent row kept for citation."
+ },
+ {
+  "id": "cor-local-dichotomy",
+  "kind": "corollary",
+  "section": "2.2",
+  "source_line": 290,
+  "statement": "A winner has an address at which every test passes; a nonwinner has a failing test at every address.",
+  "depends_on": [
+   "lem-2.2.i"
+  ],
+  "external_inputs": [],
+  "model_needed": "classical_finite",
+  "formalisation_difficulty": "trivial",
+  "first_lean_target": "theorem nonwinner_fails (y i) (h : not IsWinner y i) (s) : exists e, test y i s e = false.",
+  "proof_notes": "This is what makes an unpromised decoded address safe in claim-verify."
+ },
+ {
+  "id": "def-grover-trial",
+  "kind": "construction",
+  "section": "3.1",
+  "source_line": 332,
+  "statement": "M = ceil(10/sqrt(gamma)). A trial picks with probability 1/2 l=0, and with probability 1/2 a uniform l in {0,...,M-1}, applies l Grover iterations to A|0>, and measures the success bit. The procedure runs ceil(log(1/eta)/log(40/31)) trials with fresh registers, stopping at the first success.",
+  "depends_on": [
+   "def-Q"
+  ],
+  "external_inputs": [],
+  "model_needed": "quantum_query",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "def amplify (A) (gamma eta) : AdaptiveQAlg, with explicit call count.",
+  "proof_notes": "Fixed number of trials gives the worst-case bound on every branch."
+ },
+ {
+  "id": "claim-grover-state",
+  "kind": "inline_claim",
+  "section": "3.1",
+  "source_line": 328,
+  "statement": "For 0<p<1 write A|0>=sin(theta)|g>+cos(theta)|b>, 0<theta<pi/2, with g,b normalized in the successful and unsuccessful subspaces. After l Grover iterations the state is sin((2l+1)theta)|g>+cos((2l+1)theta)|b>. Hence measuring success yields |g> up to global phase, independently of l.",
+  "depends_on": [
+   "def-grover-trial"
+  ],
+  "external_inputs": [
+   "[11] Boyer et al., [12] Brassard et al. (rotation fact, proved in the paper)"
+  ],
+  "model_needed": "quantum_query",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "theorem grover_iterate (A) (hp : 0 < p < 1) (l) : Q^l (A0) = sin((2l+1)theta) g + cos((2l+1)theta) b, for Q := -A S0 A^-1 Sg.",
+  "proof_notes": "Two-dimensional invariant-subspace computation on a generic finite-dimensional Hilbert space."
+ },
+ {
+  "id": "claim-sin2theta",
+  "kind": "inline_claim",
+  "section": "3.1",
+  "source_line": 336,
+  "statement": "If gamma<=p<=1/2 then sin(2theta)=2 sqrt(p(1-p)) >= sqrt(gamma).",
+  "depends_on": [],
+  "external_inputs": [],
+  "model_needed": "none",
+  "formalisation_difficulty": "trivial",
+  "first_lean_target": "theorem sin_two_theta_ge (hg : gamma <= p) (hp : p <= 1/2) : sqrt gamma <= 2 * sqrt (p*(1-p)).",
+  "proof_notes": "In fact 2 sqrt(p(1-p)) >= sqrt(2p)."
+ },
+ {
+  "id": "eq-9",
+  "kind": "equation",
+  "section": "3.1",
+  "source_line": 341,
+  "statement": "If gamma<=p<=1/2 and M=ceil(10/sqrt(gamma)), then (1/M) sum_{l=0}^{M-1} sin^2((2l+1)theta) >= 1/2 - 1/(2M|sin 2theta|) >= 9/20.",
+  "depends_on": [
+   "claim-sin2theta"
+  ],
+  "external_inputs": [],
+  "model_needed": "none",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "theorem grover_average (M) (h : sin (2*theta) != 0) : 1/2 - 1/(2*M*|sin (2*theta)|) <= (1/M) * sum l in range M, sin((2*l+1)*theta)^2.",
+  "proof_notes": "Exact sum: M/2 - sin(4M theta)/(4 sin 2theta), so the true constant is 1/(4M|sin 2theta|). The paper's bound is weaker and valid. Numerically checked."
+ },
+ {
+  "id": "lem-3.1",
+  "kind": "lemma",
+  "section": "3.1",
+  "source_line": 310,
+  "statement": "Let A be a state preparation with a success bit, success probability p and, if p>0, normalized successful state |g>. For 0<gamma<=1/2 and 0<eta<1/2 there is a procedure using O(gamma^{-1/2} log(1/eta)) calls to A and A^{-1}, for every p and on every branch, that reports failure or produces a successful outcome. Conditional on success the output is |g> up to global phase. If p>=gamma, failure probability <=eta. If p=0 it always reports failure.",
+  "depends_on": [
+   "def-grover-trial",
+   "claim-grover-state",
+   "eq-9"
+  ],
+  "external_inputs": [],
+  "model_needed": "quantum_query",
+  "formalisation_difficulty": "hard",
+  "first_lean_target": "theorem amplify_spec (A) (gamma eta): calls <= C*gamma^(-1/2)*log(1/eta), (gamma <= p -> failProb <= eta), (p = 0 -> failProb = 1), and output state on success is projectively g.",
+  "proof_notes": "Audit: correct. Per-trial success >=9/40, trial count from (31/40)^n<=eta; cases p>=1/2 and p=0,1 separately. The exact conditional state is the feature prop-3.2 consumes."
+ },
+ {
+  "id": "def-aij",
+  "kind": "definition",
+  "section": "3.2",
+  "source_line": 356,
+  "statement": "For a fixed oracle input and a coherent comparison circuit, a_{ij} is the probability that i is reported as defeating j when the result is measured, using one circuit per unordered pair; a_{ii}=0.",
+  "depends_on": [
+   "def-Q"
+  ],
+  "external_inputs": [],
+  "model_needed": "quantum_query",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "def compProb (C : ComparisonCircuit) (x) (i j) : Real := ||projWin i (C.run x i j)||^2.",
+  "proof_notes": "Probabilities depend on the input; the result is pointwise in it."
+ },
+ {
+  "id": "eq-10",
+  "kind": "equation",
+  "section": "3.2",
+  "source_line": 359,
+  "statement": "a_{ij}+a_{ji}=1 for i != j, and a_{ii}=0.",
+  "depends_on": [],
+  "external_inputs": [],
+  "model_needed": "none",
+  "formalisation_difficulty": "trivial",
+  "first_lean_target": "structure ProbTournament (m) with a : Fin m -> Fin m -> Real, 0<=a<=1, a_add : i != j -> a i j + a j i = 1, a_self : a i i = 0.",
+  "proof_notes": "Sole structural assumption on comparisons. No gap, order or transitivity. An instance is built in claim-comparison-state."
+ },
+ {
+  "id": "def-T-eps",
+  "kind": "definition",
+  "section": "3.2",
+  "source_line": 365,
+  "statement": "For m>=2: T=ceil(log_2(1000m)), epsilon=1/(1000T).",
+  "depends_on": [
+   "def-log-convention"
+  ],
+  "external_inputs": [],
+  "model_needed": "none",
+  "formalisation_difficulty": "trivial",
+  "first_lean_target": "def Tval m := Nat.clog 2 (1000*m); def epsval m : Real := 1/(1000*Tval m).",
+  "proof_notes": "Base 2 is essential: 2m/2^T<=1/500."
+ },
+ {
+  "id": "eq-11",
+  "kind": "definition",
+  "section": "3.2",
+  "source_line": 377,
+  "statement": "i_* is dominant if a_{i_* j} >= 1-epsilon for every j != i_*.",
+  "depends_on": [
+   "eq-10",
+   "def-T-eps"
+  ],
+  "external_inputs": [],
+  "model_needed": "none",
+  "formalisation_difficulty": "trivial",
+  "first_lean_target": "def Dominant (a) (s) : Prop := forall j, j != s -> 1 - epsval m <= a s j.",
+  "proof_notes": "No claim is made about comparisons between non-dominant candidates."
+ },
+ {
+  "id": "def-ideal-process",
+  "kind": "construction",
+  "section": "3.2",
+  "source_line": 381,
+  "statement": "Ideal process: w_i=1 for all i, W=sum_i w_i. While W>0 sample p with probability w_p/W, append p to the list, update by eq-12. If W=0, leave list and weights unchanged. Run T steps.",
+  "depends_on": [
+   "eq-10"
+  ],
+  "external_inputs": [],
+  "model_needed": "classical_finite",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "def idealStep (a) (w) : PMF (Fin m x Weights), with idealRun a T : PMF (List (Fin m) x Weights).",
+  "proof_notes": "For a Lean-friendly form, define by recursion over the finite pivot-history tree so that expectations are finite sums."
+ },
+ {
+  "id": "eq-12",
+  "kind": "equation",
+  "section": "3.2",
+  "source_line": 384,
+  "statement": "Update w_i <- w_i a_{ip} for all i in [m].",
+  "depends_on": [
+   "eq-10"
+  ],
+  "external_inputs": [],
+  "model_needed": "none",
+  "formalisation_difficulty": "trivial",
+  "first_lean_target": "def updateW (a) (p) (w) := fun i => w i * a i p.",
+  "proof_notes": "Selecting p sets w_p to 0 because a_{pp}=0."
+ },
+ {
+  "id": "eq-13",
+  "kind": "equation",
+  "section": "3.2",
+  "source_line": 390,
+  "statement": "For W>0: E[W_new | w] = (1/W) sum_{p,i} w_p w_i a_{ip} = (W^2 - sum_i w_i^2)/(2W) <= W/2.",
+  "depends_on": [
+   "def-ideal-process",
+   "eq-12"
+  ],
+  "external_inputs": [],
+  "model_needed": "none",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "theorem drift_identity (a : ProbTournament m) (w) (hw : 0 <= w) (hW : 0 < W) : (sum p, (w p / W) * sum i, w i * a i p) = (W^2 - sum i, w i^2)/(2*W) and <= W/2.",
+  "proof_notes": "Symmetrise over unordered pairs using a_{ip}+a_{pi}=1 off the diagonal. Numerically checked. A lane already has lean/QuarticQuery/Tournament/Drift.lean in place; I did not assess it."
+ },
+ {
+  "id": "claim-expected-WT",
+  "kind": "inline_claim",
+  "section": "3.2",
+  "source_line": 397,
+  "statement": "The bound of eq-13 also holds when W=0, hence E[W_T] <= m/2^T.",
+  "depends_on": [
+   "eq-13"
+  ],
+  "external_inputs": [],
+  "model_needed": "classical_finite",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "theorem expected_final_weight (a) (T) : E[W_T] <= m / 2^T.",
+  "proof_notes": "Tower of conditional expectations, or induction on the history tree."
+ },
+ {
+  "id": "claim-weight-lb",
+  "kind": "inline_claim",
+  "section": "3.2",
+  "source_line": 398,
+  "statement": "If i_* satisfies eq-11 and has not been selected in t<=T steps, then w_{i_*} >= (1-epsilon)^t >= 1-T epsilon > 1/2. Hence W>0 until it is selected.",
+  "depends_on": [
+   "eq-11",
+   "eq-12"
+  ],
+  "external_inputs": [],
+  "model_needed": "none",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "theorem dominant_weight_lb (hdom) (hist) (hnot : s not in hist) : 1/2 < weight hist s.",
+  "proof_notes": "Bernoulli inequality."
+ },
+ {
+  "id": "eq-14",
+  "kind": "equation",
+  "section": "3.2",
+  "source_line": 407,
+  "statement": "Pr[i_* absent from the ideal list] <= Pr[W_T >= 1/2] <= 2m/2^T.",
+  "depends_on": [
+   "claim-expected-WT",
+   "claim-weight-lb"
+  ],
+  "external_inputs": [],
+  "model_needed": "classical_finite",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "theorem ideal_miss_le (hdom) : idealRun.prob (s not in list) <= 2*m/2^T.",
+  "proof_notes": "Markov's inequality. Exact tree enumeration for m=5, T=4 satisfied the bound on 30 random instances."
+ },
+ {
+  "id": "construct-sampler",
+  "kind": "construction",
+  "section": "3.2",
+  "source_line": 409,
+  "statement": "Given pivots p_1,...,p_t with t<T: prepare uniform |i> over [m], compare i with each pivot in a fresh workspace, set the success bit iff every comparison says i defeats its pivot, keeping all garbage. Apply lem-3.1 with gamma=1/(2m), eta=epsilon. On failure stop and return the accumulated list; otherwise measure the index, append, and continue for at most T stages.",
+  "depends_on": [
+   "lem-3.1",
+   "def-aij",
+   "def-T-eps"
+  ],
+  "external_inputs": [],
+  "model_needed": "quantum_query",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "def tournamentAlg (C : ComparisonCircuit) : AdaptiveQAlg returning List (Fin m), with depth at most T.",
+  "proof_notes": "Adaptive: the pivot list is classical data controlling the next circuit."
+ },
+ {
+  "id": "eq-15",
+  "kind": "equation",
+  "section": "3.2",
+  "source_line": 416,
+  "statement": "Pre-success state: m^{-1/2} sum_{i=1}^m |i> tensor_{b=1}^t |phi(i,p_b)>.",
+  "depends_on": [
+   "construct-sampler"
+  ],
+  "external_inputs": [],
+  "model_needed": "quantum_query",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "def samplerState (C) (pivots) : tensor state vector on index and t workspaces.",
+  "proof_notes": "Tensor structure over the b workspaces is what yields the product in claim-success-prob. Choose a Lean representation of fresh registers early: PiLp over a Fin t index, or a product index type."
+ },
+ {
+  "id": "claim-success-prob",
+  "kind": "inline_claim",
+  "section": "3.2",
+  "source_line": 420,
+  "statement": "Conditional on index i the success probability is prod_{b=1}^t a_{i p_b} = w_i (empty product 1). Total success probability is W/m, and conditional on success the index has law w_i/W exactly.",
+  "depends_on": [
+   "eq-15",
+   "eq-12"
+  ],
+  "external_inputs": [],
+  "model_needed": "quantum_query",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "theorem sampler_law (pivots) : successProb = W/m and condIndexLaw i = w i / W.",
+  "proof_notes": "Orthogonality of index registers; product over independent workspaces. Self-comparison gives a_{ii}=0, so selected pivots have weight zero."
+ },
+ {
+  "id": "claim-coupling",
+  "kind": "inline_claim",
+  "section": "3.2",
+  "source_line": 432,
+  "statement": "Until i_* is first selected, W/m >= 1/(2m), so at each such history the sampler fails with probability <=epsilon and otherwise follows the exact ideal pivot law. The real list contains i_* except with probability <= 2m/2^T + T epsilon.",
+  "depends_on": [
+   "claim-weight-lb",
+   "claim-success-prob",
+   "lem-3.1",
+   "eq-14"
+  ],
+  "external_inputs": [],
+  "model_needed": "classical_finite",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "theorem real_miss_le (real : history-dependent kernel) (hstep : at histories avoiding s, kernel = (1-f(h)) * idealStep + f(h) * stop, with f(h) <= eps) : Pr[s not in list] <= idealMiss + T*eps.",
+  "proof_notes": "Purely classical once the kernel is given. f may depend on history; the paper notes this. After i_* is listed, later termination cannot remove it."
+ },
+ {
+  "id": "claim-tournament-cost",
+  "kind": "inline_claim",
+  "section": "3.2",
+  "source_line": 440,
+  "statement": "Stage t uses O(c(t+1)) queries per call; lem-3.1 uses O(sqrt(m) log(1/epsilon)) calls; the sum over t<T is O(c sqrt(m) T^2 log T), a fixed cap on every branch.",
+  "depends_on": [
+   "lem-3.1",
+   "construct-sampler"
+  ],
+  "external_inputs": [],
+  "model_needed": "none",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "theorem tournament_queries_le : queries (tournamentAlg C) <= K0 * c * sqrt m * T^2 * log T.",
+  "proof_notes": "T>=11 for m>=2, so log T>0."
+ },
+ {
+  "id": "prop-3.2",
+  "kind": "proposition",
+  "section": "3.2",
+  "source_line": 363,
+  "statement": "Let m>=2, T=ceil(log_2(1000m)), epsilon=1/(1000T). For a coherent comparison circuit controlled by two candidate indices, reversible with all workspace retained, using at most c>=1 bit queries, with probabilities a_{ij} satisfying eq-10, there is a quantum algorithm making O(c sqrt(m) T^2 log T) queries on every branch and returning a list of at most T candidates such that, for every fixed oracle input and every i_* satisfying eq-11, the list contains i_* with probability >= 1-2m/2^T-T epsilon.",
+  "depends_on": [
+   "eq-14",
+   "claim-coupling",
+   "claim-tournament-cost"
+  ],
+  "external_inputs": [],
+  "model_needed": "quantum_query",
+  "formalisation_difficulty": "hard",
+  "first_lean_target": "theorem tournament_spec (C) (hc) (x) (s) (hdom : Dominant (compProb C x) s) : 1 - 2*m/2^T - T*eps <= Pr[s in tournamentAlg C x], with the query cap, for all x.",
+  "proof_notes": "Audit: sound. Only complementarity and exact sampling are used. Split into the classical ideal part (Stage 1) and the quantum sampling part (Stage 5)."
+ },
+ {
+  "id": "def-decode",
+  "kind": "construction",
+  "section": "3.3",
+  "source_line": 452,
+  "statement": "decode(i): run the algorithm of lem-2.1.ii on each A_{i,h}, h in [r], with error <= epsilon/r, retaining workspace. Output a string in {0,1}^r on every input.",
+  "depends_on": [
+   "lem-2.1.ii",
+   "eq-6",
+   "def-T-eps"
+  ],
+  "external_inputs": [],
+  "model_needed": "quantum_query",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "def decodeU (cfg) : unitary, with address register plus garbage.",
+  "proof_notes": "The paper's 'repetition and a majority computation' restates the amplification already inside lem-2.1.ii."
+ },
+ {
+  "id": "claim-decode-cost",
+  "kind": "inline_claim",
+  "section": "3.3",
+  "source_line": 456,
+  "statement": "decode uses O_k(r log(r/epsilon)) = (log m)^{O_k(1)} queries. If all r instances are defined, the address is correct with probability >=1-epsilon. Otherwise it still returns some address.",
+  "depends_on": [
+   "def-decode"
+  ],
+  "external_inputs": [],
+  "model_needed": "quantum_query",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "theorem decode_correct (hdom : all A in dom) : 1 - eps <= Pr[decode i = trueAddr y i], with queries <= poly(log m).",
+  "proof_notes": "Union bound over r independent workspaces."
+ },
+ {
+  "id": "def-comparison",
+  "kind": "construction",
+  "section": "3.3",
+  "source_line": 466,
+  "statement": "Comparison of distinct columns, in sorted order: decode each in separate workspaces; read each column's pointer towards the other at its decoded address and inspect the pointed bit of the other's X string. A column disqualifies its opponent if that bit is 0. If exactly one disqualifies the other it is victorious, otherwise the smaller index. A self-comparison returns false without reading a pointer.",
+  "depends_on": [
+   "def-decode",
+   "def-column-layout"
+  ],
+  "external_inputs": [],
+  "model_needed": "quantum_query",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "def compareU (cfg) : ComparisonCircuit, controlled on (i,j) with sorted-pair symmetry.",
+  "proof_notes": "Sorted order is what forces eq-10."
+ },
+ {
+  "id": "claim-comparison-state",
+  "kind": "inline_claim",
+  "section": "3.3",
+  "source_line": 472,
+  "statement": "The comparison uses c=(log m)^{O_k(1)} queries; its reversal costs the same. Measurement probabilities agree with the classical description, since later operations are controlled on the decoded registers in the computational basis. The resulting a_{ij} satisfy eq-10.",
+  "depends_on": [
+   "def-comparison",
+   "claim-decode-cost",
+   "eq-10",
+   "claim-coherent-access"
+  ],
+  "external_inputs": [],
+  "model_needed": "quantum_query",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "theorem compareU_tournament (y) : ProbTournament m with a := compProb compareU y; theorem compare_queries_le.",
+  "proof_notes": "Different address outcomes are orthogonal, so no interference."
+ },
+ {
+  "id": "claim-winner-dominates",
+  "kind": "inline_claim",
+  "section": "3.3",
+  "source_line": 477,
+  "statement": "If i_* is a winner then for every j != i_*, a_{i_* j} >= 1-epsilon, on every input, whether or not the opponent's instances are defined.",
+  "depends_on": [
+   "claim-comparison-state",
+   "def-winner",
+   "claim-decode-cost"
+  ],
+  "external_inputs": [],
+  "model_needed": "quantum_query",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "theorem winner_dominant (hw : IsWinner y s) : Dominant (compProb compareU y) s.",
+  "proof_notes": "No opponent can point to a zero in X_{i_*}; correct decoding of i_* gives a disqualification. Bound decoding of i_* alone. This is the central idea of the upper bound."
+ },
+ {
+  "id": "def-verify",
+  "kind": "construction",
+  "section": "3.3",
+  "source_line": 483,
+  "statement": "verify(i): decode and measure an address s afresh. Let A prepare a uniform test index and an exact failing-test flag at (i,s), with K tests. Apply lem-3.1 with gamma=1/K and eta=epsilon. Reject if a failed test is found, otherwise accept. Output 1 iff some listed candidate is accepted.",
+  "depends_on": [
+   "lem-3.1",
+   "lem-2.2.ii",
+   "def-decode"
+  ],
+  "external_inputs": [],
+  "model_needed": "quantum_query",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "def verifyAlg (cfg) (i) : AdaptiveQAlg returning Bool.",
+  "proof_notes": "K need not be a power of two; a uniform superposition on K indices is a legal query-free unitary."
+ },
+ {
+  "id": "claim-verify",
+  "kind": "inline_claim",
+  "section": "3.3",
+  "source_line": 490,
+  "statement": "A non-winner is accepted with probability <=epsilon, at every address. A true winner is rejected with probability <=epsilon, only by decoding error. Verification costs O(sqrt(K) log(1/epsilon) log m) = sqrt(m)(log m)^{O_k(1)} queries for the search, plus decoding.",
+  "depends_on": [
+   "def-verify",
+   "cor-local-dichotomy",
+   "claim-decode-cost",
+   "lem-3.1"
+  ],
+  "external_inputs": [],
+  "model_needed": "quantum_query",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "theorem verify_sound (hn : not IsWinner y i) : Pr[verify accepts] <= eps; theorem verify_complete (hw : IsWinner y i) : 1 - eps <= Pr[verify accepts].",
+  "proof_notes": "The paper's display omits the polylog decoding cost, which is dominated (doubt D5). p=0 means lem-3.1 always fails, so an all-pass address is accepted."
+ },
+ {
+  "id": "claim-error",
+  "kind": "inline_claim",
+  "section": "3.3",
+  "source_line": 497,
+  "statement": "On a 0-input the error is at most T epsilon. On a 1-input it is at most 2m/2^T + T epsilon + epsilon < 1/3.",
+  "depends_on": [
+   "prop-3.2",
+   "claim-verify",
+   "claim-winner-dominates"
+  ],
+  "external_inputs": [],
+  "model_needed": "none",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "theorem total_error_lt : 2*m/2^T + T*eps + eps < 1/3.",
+  "proof_notes": "Value is about 0.003 for all m (checked for m=4 to 4^20)."
+ },
+ {
+  "id": "claim-coherent-access",
+  "kind": "inline_claim",
+  "section": "3.3",
+  "source_line": 507,
+  "statement": "All superposed array accesses are ordinary bit queries. The global bit index is computed reversibly; a pointer is read in O(log m) queries; a controlled query uses load, use, unload, two queries.",
+  "depends_on": [
+   "def-query-oracle",
+   "def-column-layout"
+  ],
+  "external_inputs": [],
+  "model_needed": "quantum_query",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "theorem controlled_query_sim, a circuit using two bitOracle queries equal to controlled-O_x on the relevant subspace, with garbage cleaned.",
+  "proof_notes": "Global index needs BitLoc equivalent to Fin n."
+ },
+ {
+  "id": "prop-3.3",
+  "kind": "proposition",
+  "section": "3.3",
+  "source_line": 503,
+  "statement": "For every fixed k>=2, Q(F_{k,m}) <= sqrt(m) (log m)^{O_k(1)}.",
+  "depends_on": [
+   "prop-3.2",
+   "claim-winner-dominates",
+   "claim-verify",
+   "claim-error",
+   "lem-2.1.iii",
+   "claim-comparison-state"
+  ],
+  "external_inputs": [],
+  "model_needed": "quantum_query",
+  "formalisation_difficulty": "hard",
+  "first_lean_target": "theorem Q_F_le (k) : exists b, forall t >= 1, Q (F k (4^t)) <= sqrt m * (log m)^b, as a composition of bounds. Also a generic form for any AddressablePartial spec.",
+  "proof_notes": "Audit: sound. The worst-case cap covers every branch. No property of the Forrelation promise is used beyond lem-2.1.ii and lem-2.1.iii."
+ },
+ {
+  "id": "claim-product-law",
+  "kind": "inline_claim",
+  "section": "4.1",
+  "source_line": 539,
+  "statement": "For a deterministic algorithm, at every transcript tau of positive probability, the conditional law of (U_1,...,U_r) given tau is a product of separate conditional laws, because the event of obtaining tau is a Cartesian product of constraints on each input.",
+  "depends_on": [
+   "def-R"
+  ],
+  "external_inputs": [],
+  "model_needed": "classical_finite",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "theorem cond_product (A : MultiTree) (tau) : the set of tuples reaching tau is a product set; hence mu^r conditioned on tau is the product of conditioned mu.",
+  "proof_notes": "Any tuple satisfying the observed bits follows the same schedule, by induction along the path."
+ },
+ {
+  "id": "def-value-V",
+  "kind": "definition",
+  "section": "4.1",
+  "source_line": 544,
+  "statement": "With q_h queries already made to U_h, V_h(tau) is the largest success probability for computing P(U_h) under its conditional law given tau using at most L-q_h further queries.",
+  "depends_on": [
+   "claim-product-law"
+  ],
+  "external_inputs": [],
+  "model_needed": "classical_finite",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "noncomputable def val (nu : measure on D) (b : Nat) : Real, defined by recursion on b as max(best guess, max over query i of expected val of the conditioned laws).",
+  "proof_notes": "Recursive Bellman definition eliminates 'optimal tree'. Then only val 0 and the one-step inequality are needed. Show val nu L <= beta from the hypothesis by extracting a tree."
+ },
+ {
+  "id": "eq-16",
+  "kind": "equation",
+  "section": "4.1",
+  "source_line": 549,
+  "statement": "If the next query at tau addresses U_h then E[V_h(tau') | tau] <= V_h(tau). The conditional laws and budgets of the other inputs do not change.",
+  "depends_on": [
+   "def-value-V",
+   "claim-product-law"
+  ],
+  "external_inputs": [],
+  "model_needed": "classical_finite",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "theorem val_query_le (nu) (b) (i) : expected val (nu | answer at i) b <= val nu (b+1).",
+  "proof_notes": "Immediate from the Bellman recursion. Repeated queries consume budget and are covered."
+ },
+ {
+  "id": "claim-supermartingale",
+  "kind": "inline_claim",
+  "section": "4.1",
+  "source_line": 554,
+  "statement": "E[prod_j V_j(tau') | tau] <= prod_j V_j(tau). The product is a supermartingale over at most rL queries.",
+  "depends_on": [
+   "eq-16"
+  ],
+  "external_inputs": [],
+  "model_needed": "classical_finite",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "theorem product_val_ineq, by induction on the deterministic multi-tree rather than via mathlib martingales.",
+  "proof_notes": "Recommended proof: tree induction on a MultiTree of finite depth. Then the whole of lem-4.1 is a finite-sum identity and the Martingale library is unnecessary."
+ },
+ {
+  "id": "claim-final-bound",
+  "kind": "inline_claim",
+  "section": "4.1",
+  "source_line": 562,
+  "statement": "At the final transcript tau, Pr[chosen vector correct | tau] <= prod_h max_b Pr(P(U_h)=b | tau) <= prod_h V_h(tau).",
+  "depends_on": [
+   "claim-product-law",
+   "def-value-V"
+  ],
+  "external_inputs": [],
+  "model_needed": "classical_finite",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "theorem leaf_bound (nu_1 ... nu_r) (guess) : prod Pr[P=guess h under nu_h] <= prod val nu_h (b_h).",
+  "proof_notes": "Uses the no-query option in val."
+ },
+ {
+  "id": "lem-4.1",
+  "kind": "lemma",
+  "section": "4.1",
+  "source_line": 528,
+  "statement": "Let P:D->{0,1}, D subset {0,1}^n, mu a distribution on D, L a nonnegative integer. Suppose every deterministic algorithm making at most L queries computes P under mu with success probability <=beta. If U_1,...,U_r are iid mu, every classical algorithm making at most L queries to each U_h, possibly randomized, adaptive among the r inputs, and given arbitrary additional information independent of (U_1,...,U_r), outputs (P(U_1),...,P(U_r)) with probability <=beta^r.",
+  "depends_on": [
+   "claim-supermartingale",
+   "claim-final-bound"
+  ],
+  "external_inputs": [
+   "[13] Drucker Section 1.3 and Lemmas 3.1-3.2, [22] Shaltiel (attribution only; the paper's proof is self-contained)"
+  ],
+  "model_needed": "randomized_query",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "theorem capped_direct_product (P) (mu) (L) (beta) (hyp : forall T : DTree n L, mu.prob (T.eval = P) <= beta) (A : MultiTree r n) (hcap : forall h, A.depthOn h <= L) : (mu^r).prob (A.output = (P (U h))_h) <= beta^r. Then extend to side information and coins by averaging.",
+  "proof_notes": "Audit: sound. Cap is per input, so interleaving is permitted. I re-derived each step; the Bellman route avoids measurable-transcript machinery."
+ },
+ {
+  "id": "claim-minimax-mu",
+  "kind": "inline_claim",
+  "section": "4.1",
+  "source_line": 586,
+  "statement": "If 1<=L<R(P), there is a distribution mu on dom P such that every deterministic tree of depth <=L has success probability <=2/3 under mu. Consequently the guess of r independent answers succeeds with probability <=(2/3)^r.",
+  "depends_on": [
+   "def-R",
+   "lem-4.1"
+  ],
+  "external_inputs": [
+   "[27] Yao 1977, finite minimax in query form (von Neumann minimax for a finite matrix game)"
+  ],
+  "model_needed": "randomized_query",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "theorem yao_hard_dist (P) (L) (h : L < R P) : exists mu : PMF P.dom, forall T : DTree n L, mu.prob (T.eval = P) <= 2/3.",
+  "proof_notes": "Mathlib at the pinned commit has Mathlib/Topology/Sion.lean. Derive finite von Neumann minimax on simplices from it, or prove a finite LP-duality form. Name a hypothesis only if that stalls; it is a provable fact."
+ },
+ {
+  "id": "eq-17",
+  "kind": "equation",
+  "section": "4.2",
+  "source_line": 597,
+  "statement": "G = floor(mL/100), and for every sufficiently large power of four m, R(F_{k,m}) > G.",
+  "depends_on": [
+   "eq-5"
+  ],
+  "external_inputs": [],
+  "model_needed": "randomized_query",
+  "formalisation_difficulty": "trivial",
+  "first_lean_target": "def Gval (k t) : Nat := m * Lval k t / 100.",
+  "proof_notes": "The inequality itself is prop-4.2."
+ },
+ {
+  "id": "def-dummy",
+  "kind": "construction",
+  "section": "4.2",
+  "source_line": 600,
+  "statement": "Dummy input Y^(0): independently for each i, J_i uniform in [m], X_i has a single 0 at position J_i. All A_{i,h} are iid mu independent of the J_i. All cells B_{i,s} are one fixed blank pattern.",
+  "depends_on": [
+   "claim-minimax-mu",
+   "def-column-layout"
+  ],
+  "external_inputs": [],
+  "model_needed": "randomized_query",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "def dummyDist : PMF Input as product of uniform J and mu^(m r), pushforward of a Sample type with fields J and A.",
+  "proof_notes": "Work on the finite sample space Sample x I. All expectations are finite sums."
+ },
+ {
+  "id": "def-planted",
+  "kind": "construction",
+  "section": "4.2",
+  "source_line": 604,
+  "statement": "I is uniform in [m] and independent of Y^(0). Y^(1) is Y^(0) with X_I:=1^m and B_{I,s_I} filled with the correct transcripts and pointers p_{I,s_I,j}=J_j for j != I.",
+  "depends_on": [
+   "def-dummy",
+   "eq-7"
+  ],
+  "external_inputs": [],
+  "model_needed": "randomized_query",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "def plantedOf (omega : Sample) (I) : Input, a deterministic function of the sample.",
+  "proof_notes": "s_I is well defined because mu lives on dom P."
+ },
+ {
+  "id": "claim-Y-values",
+  "kind": "inline_claim",
+  "section": "4.2",
+  "source_line": 603,
+  "statement": "F_{k,m}(Y^(0))=0 and F_{k,m}(Y^(1))=1 for all sample points.",
+  "depends_on": [
+   "def-dummy",
+   "def-planted",
+   "def-F",
+   "lem-2.1.iii"
+  ],
+  "external_inputs": [],
+  "model_needed": "classical_finite",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "theorem F_dummy (omega) : F (dummyOf omega) = false; theorem F_planted (omega I) : F (plantedOf omega I) = true.",
+  "proof_notes": "Only correctness of the circuit is used, not its size. Column I is a winner by construction."
+ },
+ {
+  "id": "eq-18",
+  "kind": "equation",
+  "section": "4.2",
+  "source_line": 613,
+  "statement": "For a deterministic algorithm with at most G queries, |Pr[outputs 1 on Y^(1)]-Pr[outputs 1 on Y^(0)]| <= Pr(the dummy run queries X_I[J_I]) + Pr(the dummy run queries any bit of B_{I,s_I}).",
+  "depends_on": [
+   "def-planted"
+  ],
+  "external_inputs": [],
+  "model_needed": "randomized_query",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "theorem tree_agree_unless_query (T) (y y') (hdiff : forall loc, y loc != y' loc -> loc in S) (hnot : T.path y misses S) : T.eval y = T.eval y'; then a probability corollary.",
+  "proof_notes": "Induction on the tree. Counting a visit to the cell over-counts harmlessly."
+ },
+ {
+  "id": "def-Z",
+  "kind": "definition",
+  "section": "4.2",
+  "source_line": 618,
+  "statement": "Z is the number of columns whose zero is discovered in the dummy run.",
+  "depends_on": [
+   "def-dummy"
+  ],
+  "external_inputs": [],
+  "model_needed": "randomized_query",
+  "formalisation_difficulty": "trivial",
+  "first_lean_target": "def Zcount (T) (omega) : Nat := card {i | T.path (dummyOf omega) contains (X i (J i))}.",
+  "proof_notes": ""
+ },
+ {
+  "id": "claim-uniform-zero",
+  "kind": "inline_claim",
+  "section": "4.2",
+  "source_line": 619,
+  "statement": "Before the zero in a column is found, its location is uniform among positions of that column not yet queried, conditional on the full adaptive transcript.",
+  "depends_on": [
+   "def-dummy",
+   "def-Z"
+  ],
+  "external_inputs": [],
+  "model_needed": "randomized_query",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "theorem zero_cond_uniform: at any tree node with zero of column i unfound and Q_i queried X_i positions, Pr[J_i = b | node] = 1/(m-|Q_i|) for b not in Q_i.",
+  "proof_notes": "Independence of J_i from everything else. The conditioning 'not yet found' is implicit in the paper."
+ },
+ {
+  "id": "claim-EZ",
+  "kind": "inline_claim",
+  "section": "4.2",
+  "source_line": 632,
+  "statement": "E Z <= 4G/m: an early discovery (fewer than m/2 distinct positions queried in that column before it) has probability <=2/m per query, giving <=2G/m in expectation; any other discovery lies in one of at most 2G/m columns receiving >=m/2 queries.",
+  "depends_on": [
+   "claim-uniform-zero"
+  ],
+  "external_inputs": [],
+  "model_needed": "randomized_query",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "theorem expected_Z_le (T : DTree nBits G) : E[Z T] <= 4*G/m.",
+  "proof_notes": "Audit: correct. Tree induction accumulates the early-discovery bound. Do not replace this by a per-column bound using a run with that column all ones: those runs differ between columns, so their query counts do not sum to G."
+ },
+ {
+  "id": "eq-19",
+  "kind": "equation",
+  "section": "4.2",
+  "source_line": 636,
+  "statement": "Pr(the dummy run queries X_I[J_I]) = E Z/m <= 4G/m^2.",
+  "depends_on": [
+   "claim-EZ",
+   "def-planted"
+  ],
+  "external_inputs": [],
+  "model_needed": "randomized_query",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "theorem hit_zero_le : Pr[T queries X I (J I)] <= 4*G/m^2.",
+  "proof_notes": "I is independent of the dummy run."
+ },
+ {
+  "id": "def-heavy",
+  "kind": "definition",
+  "section": "4.2",
+  "source_line": 639,
+  "statement": "Column i is heavy if, over the entire dummy run, the algorithm makes more than L queries in total to A_{i,1},...,A_{i,r}. Repeats count.",
+  "depends_on": [
+   "def-dummy"
+  ],
+  "external_inputs": [],
+  "model_needed": "randomized_query",
+  "formalisation_difficulty": "trivial",
+  "first_lean_target": "def IsHeavy (T) (omega) (i) : Prop := L < count (A-query in column i) (T.path (dummyOf omega)).",
+  "proof_notes": "Must use the same repeat-counting convention as the simulator cap."
+ },
+ {
+  "id": "eq-20",
+  "kind": "equation",
+  "section": "4.2",
+  "source_line": 643,
+  "statement": "Pr(I is heavy) <= G/(mL).",
+  "depends_on": [
+   "def-heavy"
+  ],
+  "external_inputs": [],
+  "model_needed": "randomized_query",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "theorem heavy_prob_le : Pr[IsHeavy T omega I] <= G/(m*L).",
+  "proof_notes": "At most G/L heavy columns on each run; I is independent. Needs L>=1."
+ },
+ {
+  "id": "def-simulator",
+  "kind": "construction",
+  "section": "4.2",
+  "source_line": 647,
+  "statement": "Fix i and t in {1,...,G}. A simulator receives all of the dummy input outside A_{i,1},...,A_{i,r}, runs the deterministic algorithm up to its proposed t-th query, and aborts before an (L+1)st query to those r strings in total. If it reaches time t and the proposed query is to a cell B_{i,s}, it outputs s; otherwise it outputs a fixed vector.",
+  "depends_on": [
+   "def-dummy",
+   "lem-4.1"
+  ],
+  "external_inputs": [],
+  "model_needed": "randomized_query",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "def simTree (T) (i) (t) (side : SideInfo) : MultiTree r (k*m), obtained from T by restricting to A-queries of column i.",
+  "proof_notes": "Key fact: answers to all other queries are determined by side, so the projected tree has a valid depth bound. Blank cells carry no information."
+ },
+ {
+  "id": "eq-21",
+  "kind": "equation",
+  "section": "4.2",
+  "source_line": 657,
+  "statement": "For each i and t: Pr(i is nonheavy and the t-th query is in B_{i,s_i}) <= (2/3)^r.",
+  "depends_on": [
+   "def-simulator",
+   "def-heavy",
+   "claim-minimax-mu"
+  ],
+  "external_inputs": [],
+  "model_needed": "randomized_query",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "theorem capped_address (T i t) : Pr[not IsHeavy T omega i and T.query t in B i (s_i omega)] <= (2/3)^r.",
+  "proof_notes": "Audit: the event is contained in simulator success; no conditioning on nonheaviness occurs. This is the correct way to avoid the conditioning trap."
+ },
+ {
+  "id": "eq-22",
+  "kind": "equation",
+  "section": "4.2",
+  "source_line": 663,
+  "statement": "Pr(the dummy run queries B_{I,s_I}) <= G/(mL) + G(2/3)^r.",
+  "depends_on": [
+   "eq-20",
+   "eq-21"
+  ],
+  "external_inputs": [],
+  "model_needed": "randomized_query",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "theorem hit_cell_le : Pr[T queries B I (s_I)] <= G/(m*L) + G*(2/3)^r.",
+  "proof_notes": "Union over t, average over I."
+ },
+ {
+  "id": "eq-23",
+  "kind": "equation",
+  "section": "4.2",
+  "source_line": 668,
+  "statement": "The output-probability difference is at most 4G/m^2 + G/(mL) + G(2/3)^r.",
+  "depends_on": [
+   "eq-18",
+   "eq-19",
+   "eq-22"
+  ],
+  "external_inputs": [],
+  "model_needed": "randomized_query",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "theorem distinguishing_le : |p1 - p0| <= 4*G/m^2 + G/(m*L) + G*(2/3)^r.",
+  "proof_notes": ""
+ },
+ {
+  "id": "claim-tail",
+  "kind": "inline_claim",
+  "section": "4.2",
+  "source_line": 673,
+  "statement": "G(2/3)^r <= (1/100) m^{2-20 log_2(3/2)} = o(1).",
+  "depends_on": [
+   "eq-6",
+   "eq-17"
+  ],
+  "external_inputs": [],
+  "model_needed": "none",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "theorem tail_le : G*(2/3)^r <= (1/100)*m^(-9).",
+  "proof_notes": "Exponent is -9.699. With L<=m this is a uniform bound for all m>=2, no limit needed."
+ },
+ {
+  "id": "claim-numeric",
+  "kind": "inline_claim",
+  "section": "4.2",
+  "source_line": 670,
+  "statement": "For 1<=L<=m and G<=mL/100: 4G/m^2<=4/100, G/(mL)<=1/100, so eq-23 < 1/3.",
+  "depends_on": [
+   "eq-23",
+   "claim-tail"
+  ],
+  "external_inputs": [],
+  "model_needed": "none",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "theorem bound_lt_third (hL : 1 <= L) (hLm : L <= m) : 4*G/m^2 + G/(m*L) + G*(2/3)^r < 1/3.",
+  "proof_notes": "Non-asymptotic. 'Sufficiently large' in prop-4.2 is needed only for 1<=L<R(P)."
+ },
+ {
+  "id": "prop-4.2",
+  "kind": "proposition",
+  "section": "4.2",
+  "source_line": 592,
+  "statement": "For each fixed integer k>=2 and every sufficiently large power of four m, R(F_{k,m}) > G=floor(mL/100), with L=floor(m^{1-1/k}/(log_2 m)^2).",
+  "depends_on": [
+   "eq-17",
+   "lem-2.1.i",
+   "claim-Y-values",
+   "claim-minimax-mu",
+   "claim-numeric"
+  ],
+  "external_inputs": [
+   "[6] Bansal-Sinha, Theorem 1.3 and Corollary 1.4 (checked against arXiv:2008.07003): randomized decision trees of error 1/3 for (2^{-5k},k)-Forrelation need Omega(k^{-29}(N/log(kN))^{1-1/k}) queries"
+  ],
+  "model_needed": "randomized_query",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "theorem R_F_gt (cfg) (hL1 : 1 <= L) (hLm : L <= m) (hP : L < R P) : Gval cfg < R (F cfg). Non-asymptotic and generic in P; the Forrelation form follows from BansalSinha k.",
+  "proof_notes": "Audit: sound. A randomized algorithm of cost G would give output gap >=1/3, contradicted by claim-numeric after fixing coins."
+ },
+ {
+  "id": "cor-R-omega",
+  "kind": "corollary",
+  "section": "4.2",
+  "source_line": 682,
+  "statement": "For fixed k, R(F_{k,m}) = Omega_k(m^{2-1/k}/(log m)^2).",
+  "depends_on": [
+   "prop-4.2"
+  ],
+  "external_inputs": [],
+  "model_needed": "none",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "theorem R_F_ge (k) (hBS) : exists c>0, forall^f t, c*m^(2-1/k)/(log m)^2 <= R (F k m).",
+  "proof_notes": "Floor removal."
+ },
+ {
+  "id": "claim-floor",
+  "kind": "inline_claim",
+  "section": "5",
+  "source_line": 698,
+  "statement": "For sufficiently large m, floor((m/100) floor(m^{1-1/k}/(log m)^2)) >= c_k m^{2-1/k}/(log m)^2 after decreasing c_k>0.",
+  "depends_on": [
+   "prop-4.2",
+   "cor-R-omega"
+  ],
+  "external_inputs": [],
+  "model_needed": "none",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "Same statement as R_F_ge after the elementary floor inequality.",
+  "proof_notes": ""
+ },
+ {
+  "id": "claim-exponent-ratio",
+  "kind": "inline_claim",
+  "section": "5",
+  "source_line": 706,
+  "statement": "For fixed 0<=alpha<4 and integer k>=2 with 2-1/k>alpha/2: R(F_{k,m})/(1+Q(F_{k,m}))^alpha >= c_{k,alpha} m^{2-1/k-alpha/2}/(log m)^{2+alpha b_k}, which tends to infinity.",
+  "depends_on": [
+   "eq-2"
+  ],
+  "external_inputs": [],
+  "model_needed": "none",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "theorem ratio_tendsto : Tendsto (fun t => R (F k (4^t)) / (1 + Q (F k (4^t)))^alpha) atTop atTop.",
+  "proof_notes": "Audit: correct. Use 1+C sqrt(m) L^b <= 2C sqrt(m) L^b for large m and monotonicity of rpow with alpha>=0. isLittleO for log powers is in mathlib."
+ },
+ {
+  "id": "claim-no-smaller-exponent",
+  "kind": "inline_claim",
+  "section": "5",
+  "source_line": 703,
+  "statement": "For every 0<=alpha<4, alpha does not belong to the set in eq-1, because a suitable k exists with k > 1/(2-alpha/2).",
+  "depends_on": [
+   "claim-exponent-ratio",
+   "eq-1"
+  ],
+  "external_inputs": [],
+  "model_needed": "none",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "theorem not_mem_of_lt_four (hBS) (ha : alpha < 4) : alpha not in alphaSet.",
+  "proof_notes": "Only the family and the ratio are used; the quartic upper bound is not."
+ },
+ {
+  "id": "def-D",
+  "kind": "definition",
+  "section": "A",
+  "source_line": 725,
+  "statement": "D(f) is the least depth of a deterministic decision tree computing f exactly on every input.",
+  "depends_on": [
+   "def-R"
+  ],
+  "external_inputs": [],
+  "model_needed": "classical_finite",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "def D (f) : Nat := sInf {q | exists T : DTree n q, forall x, T.eval x = f x}; theorem R_le_D.",
+  "proof_notes": "R<=D by a point-mass distribution."
+ },
+ {
+  "id": "def-deg",
+  "kind": "definition",
+  "section": "A",
+  "source_line": 725,
+  "statement": "deg(f) is the degree of the unique real multilinear polynomial agreeing with f on the cube. It is unchanged by replacing input or output bits by signs.",
+  "depends_on": [],
+  "external_inputs": [],
+  "model_needed": "classical_finite",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "def deg (f) : Nat := sup of |S| over S with fourier f S != 0.",
+  "proof_notes": "Define by Fourier support, then the sign invariance is built in, and the restriction facts in lem-A.4 and lem-A.5 follow from one coefficient formula."
+ },
+ {
+  "id": "def-bs",
+  "kind": "definition",
+  "section": "A",
+  "source_line": 727,
+  "statement": "A nonempty B subset [n] is a sensitive block at x if flipping all bits of B changes f(x). bs(f) is the maximum over x of the number of pairwise disjoint sensitive blocks at x.",
+  "depends_on": [],
+  "external_inputs": [],
+  "model_needed": "classical_finite",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "def bs (f) : Nat := sup over x of sup over pairwise-disjoint Finsets of sensitive blocks at x, of card.",
+  "proof_notes": ""
+ },
+ {
+  "id": "def-Gamma-i",
+  "kind": "definition",
+  "section": "A",
+  "source_line": 743,
+  "statement": "For an input-indexed matrix Gamma, (Gamma_i)_{xy}=Gamma_{xy} 1{x_i != y_i}. Matrix norms are operator norms for the Euclidean norm.",
+  "depends_on": [],
+  "external_inputs": [],
+  "model_needed": "none",
+  "formalisation_difficulty": "trivial",
+  "first_lean_target": "def restrictCoord (G) (i) : Matrix.of (fun x y => if x i != y i then G x y else 0); use the l2 operator norm on Matrix.",
+  "proof_notes": "Mathlib provides the l2 op norm in a scoped instance."
+ },
+ {
+  "id": "claim-perron",
+  "kind": "inline_claim",
+  "section": "A",
+  "source_line": 755,
+  "statement": "A nonzero real symmetric entrywise nonnegative Gamma has a nonnegative unit eigenvector v of eigenvalue ||Gamma||.",
+  "depends_on": [
+   "def-Gamma-i"
+  ],
+  "external_inputs": [
+   "Perron-Frobenius theorem (cited by name)"
+  ],
+  "model_needed": "none",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "theorem nonneg_top_rayleigh (G symmetric nonneg) : exists v >= 0, ||v|| = 1 and v ⬝ G v = ||G||.",
+  "proof_notes": "The Rayleigh form is enough and is elementary: the top |eigenvalue| vector v gives |v| with Rayleigh quotient >= ||G||. The eigenvector property itself is unused beyond W_0=||Gamma||. Mathlib has no Perron-Frobenius by name search, so take this route."
+ },
+ {
+  "id": "def-adv-progress",
+  "kind": "definition",
+  "section": "A",
+  "source_line": 757,
+  "statement": "W_t = sum_{x,y} v_x v_y Gamma_{xy} <psi_x^t | psi_y^t>, where psi_x^t is the purified state after t queries on input x.",
+  "depends_on": [
+   "claim-perron",
+   "def-Q"
+  ],
+  "external_inputs": [],
+  "model_needed": "quantum_query",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "def advProgress (A : PurifiedQAlg) (v) (G) (t) : Complex.",
+  "proof_notes": "W_0=||Gamma||. Query-free unitaries preserve all overlaps."
+ },
+ {
+  "id": "claim-per-query",
+  "kind": "inline_claim",
+  "section": "A",
+  "source_line": 772,
+  "statement": "Each query changes W by at most: |W_{t+1}-W_t| <= 2 sum_i u_i^T Gamma_i u_i <= 2 max_i ||Gamma_i||, where u_i(x)=v_x ||phi_{x,i}||.",
+  "depends_on": [
+   "def-adv-progress",
+   "def-Gamma-i",
+   "def-query-oracle"
+  ],
+  "external_inputs": [],
+  "model_needed": "quantum_query",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "theorem adv_step_le (A) (t) : |W (t+1) - W t| <= 2 * max_i ||G_i||.",
+  "proof_notes": "Oracles at x and y agree on index i unless x_i != y_i. Uses Gamma,v >= 0. Standard."
+ },
+ {
+  "id": "claim-final-overlap",
+  "kind": "inline_claim",
+  "section": "A",
+  "source_line": 786,
+  "statement": "If Pr[output 1] is <=1/3 on one state and >=2/3 on another, their overlap has absolute value <=2 sqrt(2)/3. Hence |W_final| <= (2 sqrt(2)/3)||Gamma||.",
+  "depends_on": [
+   "def-adv-progress"
+  ],
+  "external_inputs": [],
+  "model_needed": "quantum_query",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "theorem final_overlap_le (psi phi) (P projector) (hp : ||P psi||^2 <= 1/3) (hq : 2/3 <= ||P phi||^2) : |<psi,phi>| <= 2*sqrt 2/3.",
+  "proof_notes": "Split by output projector, then Cauchy-Schwarz twice; bound sqrt(pq)+sqrt((1-p)(1-q))."
+ },
+ {
+  "id": "lem-A.2",
+  "kind": "lemma",
+  "section": "A",
+  "source_line": 739,
+  "statement": "Let f be a nonconstant total Boolean function, Gamma a nonzero real symmetric entrywise nonnegative input-indexed matrix with Gamma_{xy}=0 whenever f(x)=f(y). Then Q(f) >= c ||Gamma|| / max_i ||Gamma_i|| for an absolute constant c>0.",
+  "depends_on": [
+   "claim-per-query",
+   "claim-final-overlap",
+   "claim-perron",
+   "def-Q"
+  ],
+  "external_inputs": [
+   "[7] Barnum-Saks-Szegedy, [24] Spalek-Szegedy (attribution; proof in the paper)"
+  ],
+  "model_needed": "quantum_query",
+  "formalisation_difficulty": "hard",
+  "first_lean_target": "theorem adversary_bound (f) (G) (hsym hnonneg hzero hne) : c * ||G|| <= (Q f : Real) * sup_i ||G_i||.",
+  "proof_notes": "Audit: sound; explicit constant before purification overhead is (1-2 sqrt(2)/3)/2=0.0286. Depends on the purification lemma of def-Q. For a fixed-length model, the constant is direct."
+ },
+ {
+  "id": "def-Sf",
+  "kind": "definition",
+  "section": "A",
+  "source_line": 794,
+  "statement": "S_f is the adjacency matrix on {0,1}^n of the graph joining inputs that differ in exactly one bit and have different f-values. lambda(f)=||S_f||.",
+  "depends_on": [
+   "def-Gamma-i"
+  ],
+  "external_inputs": [],
+  "model_needed": "classical_finite",
+  "formalisation_difficulty": "trivial",
+  "first_lean_target": "def sensMatrix (f); def lam (f) : Real := ||sensMatrix f||.",
+  "proof_notes": ""
+ },
+ {
+  "id": "lem-A.3.bs",
+  "kind": "lemma",
+  "section": "A",
+  "source_line": 800,
+  "statement": "For nonconstant total f, bs(f)=O(Q(f)^2).",
+  "depends_on": [
+   "lem-A.2",
+   "def-bs"
+  ],
+  "external_inputs": [],
+  "model_needed": "quantum_query",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "theorem bs_le_Q_sq (f) (hf : nonconstant) : (bs f : Real) <= C * (Q f)^2.",
+  "proof_notes": "Gamma is the star at x with b leaves: norm sqrt(b); each Gamma_i has at most one undirected edge, norm <=1."
+ },
+ {
+  "id": "lem-A.3.lambda",
+  "kind": "lemma",
+  "section": "A",
+  "source_line": 800,
+  "statement": "For nonconstant total f, lambda(f)=O(Q(f)).",
+  "depends_on": [
+   "lem-A.2",
+   "def-Sf"
+  ],
+  "external_inputs": [],
+  "model_needed": "quantum_query",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "theorem lam_le_Q (f) (hf) : lam f <= C * Q f.",
+  "proof_notes": "Each coordinate slice is a partial matching with norm <=1. Nonconstant implies S_f nonzero."
+ },
+ {
+  "id": "lem-A.3",
+  "kind": "lemma",
+  "section": "A",
+  "source_line": 798,
+  "statement": "Conjunction of lem-A.3.bs and lem-A.3.lambda.",
+  "depends_on": [
+   "lem-A.3.bs",
+   "lem-A.3.lambda"
+  ],
+  "external_inputs": [],
+  "model_needed": "quantum_query",
+  "formalisation_difficulty": "trivial",
+  "first_lean_target": "No separate Lean statement.",
+  "proof_notes": "Parent row."
+ },
+ {
+  "id": "claim-restrict-parity",
+  "kind": "inline_claim",
+  "section": "A",
+  "source_line": 818,
+  "statement": "With f in sign form and d=deg f>=1, restricting variables outside a degree-d monomial's support gives g on the d-cube with nonzero parity correlation. So for some sigma in {-1,1}, U={x:g(x)=sigma x_1...x_d} has |U|>2^{d-1}, and every cube edge inside U changes g.",
+  "depends_on": [
+   "def-deg"
+  ],
+  "external_inputs": [],
+  "model_needed": "classical_finite",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "theorem exists_large_parity_agree (f) (hd : deg f = d) : exists (restriction rho) sigma, 2^(d-1) < card U; and theorem U_edge_sensitive.",
+  "proof_notes": "Coefficient survives because any strictly larger monomial would exceed degree d."
+ },
+ {
+  "id": "def-huang",
+  "kind": "definition",
+  "section": "A",
+  "source_line": 826,
+  "statement": "H'_1=[[0,1],[1,0]], H'_{j+1}=[[H'_j,I],[I,-H'_j]]. Its entrywise absolute value is the cube adjacency matrix.",
+  "depends_on": [],
+  "external_inputs": [],
+  "model_needed": "none",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "Reuse the recursive linear map f from Archive/Sensitivity.lean; f_matrix already gives entries of absolute value equal to adjacency.",
+  "proof_notes": "Archive/Sensitivity.lean exists at the pinned mathlib, but Archive is not importable from Mathlib. Vendor it with attribution, or restate."
+ },
+ {
+  "id": "claim-huang-spectrum",
+  "kind": "inline_claim",
+  "section": "A",
+  "source_line": 831,
+  "statement": "(H'_j)^2=jI, trace H'_j=0, so H'_d has eigenvalues +-sqrt(d), each of multiplicity 2^{d-1}.",
+  "depends_on": [
+   "def-huang"
+  ],
+  "external_inputs": [],
+  "model_needed": "none",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "Vendor f_squared and exists_eigenvalue from Archive/Sensitivity.lean.",
+  "proof_notes": "Checked numerically for d<=7. The Archive's exists_eigenvalue already gives a sqrt(d)-eigenvector in the span of a set of 2^{d-1}+1 vertices."
+ },
+ {
+  "id": "claim-interlace",
+  "kind": "inline_claim",
+  "section": "A",
+  "source_line": 838,
+  "statement": "There is a nonzero v in the sqrt(d)-eigenspace supported on U; with u=|v|, u^T A_U u >= v^T H'_d v = sqrt(d)||u||^2.",
+  "depends_on": [
+   "claim-huang-spectrum",
+   "claim-restrict-parity"
+  ],
+  "external_inputs": [],
+  "model_needed": "none",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "theorem huang_rayleigh (U) (hU : 2^(d-1) < card U) : exists u >= 0, u != 0, supported on U, sqrt d * ||u||^2 <= u ⬝ A_U u.",
+  "proof_notes": "Archive's huang_degree_theorem yields a max-degree vertex in U, a weaker conclusion than this Rayleigh form. Replace its final step. Dimension count 2^{d-1}+|U|>2^d."
+ },
+ {
+  "id": "lem-A.4",
+  "kind": "lemma",
+  "section": "A",
+  "source_line": 812,
+  "statement": "Every nonconstant total Boolean f satisfies deg(f) <= lambda(f)^2.",
+  "depends_on": [
+   "claim-restrict-parity",
+   "claim-interlace",
+   "def-Sf"
+  ],
+  "external_inputs": [
+   "[3] ABKRT, [17] Huang (proof in the paper)"
+  ],
+  "model_needed": "classical_finite",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "theorem deg_le_lam_sq (f) (hf) : (deg f : Real) <= lam f ^ 2.",
+  "proof_notes": "Audit: sound. Random 4-variable functions confirmed it numerically. S_f dominates A_U entrywise on nonnegative u, and the embedded subcube preserves the bound."
+ },
+ {
+  "id": "claim-round-block",
+  "kind": "inline_claim",
+  "section": "A",
+  "source_line": 852,
+  "statement": "In each round of the algorithm on input x, with S the selected maximum-degree monomial's support in the current restriction, the restriction to S with all other unqueried variables set as in x is nonconstant. So some nonempty subset of S is a sensitive block at x. Blocks of different rounds are disjoint.",
+  "depends_on": [
+   "def-bs",
+   "def-deg"
+  ],
+  "external_inputs": [],
+  "model_needed": "classical_finite",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "theorem round_block (rho) (S maximal) (x agreeing with rho) : exists B subset S, B nonempty and sensitive at x.",
+  "proof_notes": "Nonempty S because the restriction is nonconstant."
+ },
+ {
+  "id": "lem-A.5",
+  "kind": "lemma",
+  "section": "A",
+  "source_line": 844,
+  "statement": "Every total Boolean f satisfies D(f) <= bs(f) deg(f).",
+  "depends_on": [
+   "claim-round-block",
+   "def-D"
+  ],
+  "external_inputs": [
+   "[19] Midrijanis (proof in the paper)"
+  ],
+  "model_needed": "classical_finite",
+  "formalisation_difficulty": "moderate",
+  "first_lean_target": "theorem D_le_bs_mul_deg (f) : D f <= bs f * deg f.",
+  "proof_notes": "Audit: sound. The algorithm stops after at most bs(f) rounds, each with <=deg f queries, since restriction does not raise degree. Build the tree by recursion on the restricted function."
+ },
+ {
+  "id": "thm-A.1",
+  "kind": "theorem",
+  "section": "A",
+  "source_line": 731,
+  "statement": "Every total Boolean function satisfies R(f) <= D(f) = O((1+Q(f))^4), with an absolute constant.",
+  "depends_on": [
+   "lem-A.3",
+   "lem-A.4",
+   "lem-A.5",
+   "def-D"
+  ],
+  "external_inputs": [
+   "[3] ABKRT (proof in the paper)"
+  ],
+  "model_needed": "quantum_query",
+  "formalisation_difficulty": "easy",
+  "first_lean_target": "theorem R_le_D_le_quartic : exists C, forall n (f : (Fin n -> Bool) -> Bool), (R f : Real) <= D f and (D f : Real) <= C * (1 + Q f)^4.",
+  "proof_notes": "Audit: sound. Constant functions have D=0. Composition: D <= bs deg <= O(Q^2) lam^2 <= O(Q^4)."
+ }
+]

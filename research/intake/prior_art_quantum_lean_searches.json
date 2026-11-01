@@ -1,0 +1,261 @@
+{
+ "searches_run": [
+  {
+   "tool": "gh search repos",
+   "query": "Grover",
+   "scope": "language:lean",
+   "hits": 5
+  },
+  {
+   "tool": "gh search repos",
+   "query": "Hadamard",
+   "scope": "language:lean",
+   "hits": 12
+  },
+  {
+   "tool": "gh search repos",
+   "query": "unitary",
+   "scope": "language:lean",
+   "hits": 9
+  },
+  {
+   "tool": "gh search repos",
+   "query": "qubit",
+   "scope": "language:lean",
+   "hits": 19
+  },
+  {
+   "tool": "gh search repos",
+   "query": "quantum circuit",
+   "scope": "language:lean",
+   "hits": 5
+  },
+  {
+   "tool": "gh search repos",
+   "query": "query complexity",
+   "scope": "language:lean",
+   "hits": 3
+  },
+  {
+   "tool": "gh search repos",
+   "query": "amplitude amplification",
+   "scope": "language:lean",
+   "hits": 0
+  },
+  {
+   "tool": "gh search repos",
+   "query": "quantum",
+   "scope": "language:lean",
+   "hits": 100
+  },
+  {
+   "tool": "gh search repos",
+   "query": "Forrelation",
+   "scope": "language:lean",
+   "hits": 0
+  },
+  {
+   "tool": "gh search repos",
+   "query": "Deutsch-Jozsa",
+   "scope": "language:lean",
+   "hits": 2
+  },
+  {
+   "tool": "gh search repos",
+   "query": "Shor",
+   "scope": "language:lean",
+   "hits": 18
+  },
+  {
+   "tool": "gh search repos",
+   "query": "quantum algorithm",
+   "scope": "language:lean",
+   "hits": 6
+  },
+  {
+   "tool": "gh search repos",
+   "query": "quantum query",
+   "scope": "language:lean",
+   "hits": 2
+  },
+  {
+   "tool": "gh search repos",
+   "query": "Bernstein-Vazirani",
+   "scope": "language:lean",
+   "hits": 1
+  },
+  {
+   "tool": "gh search repos",
+   "query": "Walsh-Hadamard",
+   "scope": "language:lean",
+   "hits": 1
+  },
+  {
+   "tool": "gh search code",
+   "query": "Grover language:lean",
+   "result": "73"
+  },
+  {
+   "tool": "gh search code",
+   "query": "Hadamard language:lean",
+   "result": "100"
+  },
+  {
+   "tool": "gh search code",
+   "query": "unitary language:lean",
+   "result": "100"
+  },
+  {
+   "tool": "gh search code",
+   "query": "qubit language:lean",
+   "result": "100"
+  },
+  {
+   "tool": "gh search code",
+   "query": "quantum circuit language:lean",
+   "result": "30"
+  },
+  {
+   "tool": "gh search code",
+   "query": "query complexity language:lean",
+   "result": "46"
+  },
+  {
+   "tool": "gh search code",
+   "query": "amplitude amplification language:lean",
+   "result": "19"
+  },
+  {
+   "tool": "gh search code",
+   "query": "quantum query language:lean",
+   "result": "23"
+  },
+  {
+   "tool": "gh search code",
+   "query": "Forrelation language:lean",
+   "result": "0"
+  },
+  {
+   "tool": "gh search code",
+   "query": "Bernstein-Vazirani language:lean",
+   "result": "0 repos ; err=HTTP 403: API rate limit exceeded for user ID 46428721. If you reach out to GitH"
+  },
+  {
+   "tool": "gh search code",
+   "query": "quantum minimum finding language:lean",
+   "result": "0 repos ; err=HTTP 403: API rate limit exceeded for user ID 46428721. If you reach out to GitH"
+  },
+  {
+   "tool": "gh search code",
+   "query": "Durr Hoyer language:lean",
+   "result": "0 repos ; err=HTTP 403: API rate limit exceeded for user ID 46428721. If you reach out to GitH"
+  },
+  {
+   "tool": "gh search code",
+   "query": "quantum oracle language:lean",
+   "result": "0 repos ; err=HTTP 403: API rate limit exceeded for user ID 46428721. If you reach out to GitH"
+  },
+  {
+   "tool": "gh search code",
+   "query": "Deutsch-Jozsa language:lean",
+   "result": "0 repos ; err=HTTP 403: API rate limit exceeded for user ID 46428721. If you reach out to GitH"
+  },
+  {
+   "tool": "gh search code",
+   "query": "Born rule language:lean",
+   "result": "22 repos ; err="
+  },
+  {
+   "tool": "gh search code",
+   "query": "unitary circuit language:lean",
+   "result": "1 repos ; err="
+  },
+  {
+   "tool": "gh search code",
+   "query": "Grover language:lean",
+   "result": "19 repos ; err="
+  },
+  {
+   "tool": "gh search code",
+   "query": "amplitude amplification language:lean",
+   "result": "6 repos ; err="
+  },
+  {
+   "tool": "gh search code",
+   "query": "query complexity language:lean",
+   "result": "15 repos ; err="
+  },
+  {
+   "tool": "gh search code",
+   "query": "Forrelation language:lean",
+   "result": "0 repos ; err="
+  },
+  {
+   "tool": "gh search code",
+   "query": "forrelation language:lean",
+   "result": "0 repos ; err="
+  },
+  {
+   "tool": "gh search code",
+   "query": "Simon's algorithm language:lean",
+   "result": "1 repos ; err="
+  },
+  {
+   "tool": "gh search code",
+   "query": "polynomial method language:lean",
+   "result": "7 repos ; err="
+  },
+  {
+   "tool": "gh search repos",
+   "query": "quantum --limit 100 sorted by stars, reviewed top ~50",
+   "hits": 100
+  },
+  {
+   "tool": "gh api git trees",
+   "query": "filename grep (quantum|hadamard|walsh|grover|forrel|query|oracle|unitary|qubit) on openai/math, mathlib4, formal-conjectures, cslib, complexitylib, cs trees",
+   "note": "openai/math recursive tree truncated; used directory listing for QuantumFactoring"
+  },
+  {
+   "tool": "WebSearch",
+   "query": "Lean 4 formalization quantum query complexity Grover amplitude amplification zulip",
+   "hits": 10
+  },
+  {
+   "tool": "WebSearch",
+   "query": "leanprover.zulipchat.com quantum computing Lean 4 Grover Hadamard unitary circuit mathlib",
+   "hits": 10
+  },
+  {
+   "tool": "WebSearch",
+   "query": "quantum circuit Grover formalization Lean Zulip (domains zulip/archive)",
+   "hits": 9,
+   "note": "only a 2020 Lean-for-teaching 'Quantum computing' archive topic; not opened"
+  },
+  {
+   "tool": "WebSearch",
+   "query": "Forrelation OR quantum query complexity formalized Lean OR Isabelle OR Coq",
+   "hits": 10,
+   "note": "no formalisation found; Forrelation: zero code hits"
+  },
+  {
+   "note": "Rate-limited code searches (HTTP 403) were repeated successfully except Bernstein-Vazirani, quantum minimum finding, Durr Hoyer, quantum oracle, Deutsch-Jozsa, whose retry also hit 403 in the first pass; Durr Hoyer / quantum minimum finding retry returned 0 repos.",
+   "unlisted_repos_seen_not_opened": [
+    "Hayata-Yamasaki-Group/lean-quantum",
+    "Stavan-Jain/QECLean",
+    "LionSR/TNLean",
+    "LionSR/QICLean",
+    "Alektronnik/Quantum4Lean",
+    "qedia/quantum-formal-verification",
+    "urikol/QuantumOptimization",
+    "Javernus/Quantum-Lean",
+    "guest2180/lean4-quantum",
+    "Shreyas4991/Algolean",
+    "LeanPool/lean-pool",
+    "competemath/tengoku",
+    "TUMcps/CORALean",
+    "Zhang-Liao/oai-ten-proofs-QuantumParallelRepetition",
+    "arXiv 2607.14082 Shor in Lean"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,574 @@
+[
+  {
+    "name": "cslib-community/complexitylib (Complexity.Computability.QueryComplexity, DecisionTree, Communication, Foundations.BooleanAnalysis, Probability)",
+    "url": "https://github.com/cslib-community/complexitylib",
+    "commit_sha": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a",
+    "prover": "Lean 4 + Mathlib + CSLib",
+    "licence": "Apache-2.0 (LICENSE file read)",
+    "toolchain": "leanprover/lean4:v4.36.0-rc2",
+    "last_commit_date": "2026-11-01T21:52:10Z",
+    "stars": 16,
+    "files_inspected": [
+      "Complexity/Computability/DecisionTree/Basic.lean",
+      "DecisionTree/Certificate.lean",
+      "DecisionTree/Sensitivity.lean",
+      "DecisionTree/Fourier.lean",
+      "DecisionTree/Cost.lean",
+      "Complexity/Computability/QueryComplexity/Randomized.lean",
+      "QueryComplexity/Randomized/Nisan.lean",
+      "QueryComplexity/Yao.lean",
+      "QueryComplexity/Huang.lean",
+      "QueryComplexity/NisanSzegedy.lean",
+      "QueryComplexity/Degree.lean",
+      "QueryComplexity/ApproximateDegree.lean",
+      "QueryComplexity/Relations.lean",
+      "QueryComplexity/SensitivityBounds.lean",
+      "QueryComplexity/SensitivitySeparation.lean",
+      "QueryComplexity/Midrijanis.lean",
+      "QueryComplexity/OneSided.lean",
+      "QueryComplexity/Monotone.lean",
+      "QueryComplexity/Threshold.lean",
+      "QueryComplexity/Restriction.lean",
+      "QueryComplexity/SpectralSensitivity.lean",
+      "QueryComplexity/Quantum/Adversary.lean",
+      "QueryComplexity/Quantum/Polynomial.lean",
+      "Complexity/Foundations/BooleanAnalysis/Fourier.lean",
+      "BooleanAnalysis/Hadamard.lean",
+      "BooleanAnalysis/HadamardRectangles.lean",
+      "BooleanAnalysis/Degree.lean",
+      "Complexity/Foundations/Analysis/MarkovBrothersInequality.lean",
+      "Complexity/Probability/Minimax.lean",
+      "Probability/Chernoff.lean",
+      "Probability/Concentration.lean",
+      "Probability/BoundedDifferences.lean",
+      "Probability/AdaptiveWeights.lean",
+      "Probability/PMF/Expect.lean",
+      "Complexity/Computability/Communication/Distributional.lean",
+      "README.md",
+      "LICENSE",
+      "lean-toolchain"
+    ],
+    "provides": "Total Boolean functions BooleanFunction n := BitString n -> Bool. DecisionTree (inductive, eval, depth, queries, Computes, graft, queryAll), DecisionTree.complexity. Sensitivity: sensitivity, sensitivityAt, sensitivityFor, spectralSensitivity, sensitivityGraph. Block sensitivity (flipBlock, IsSensitiveBlock, blockSensitivity/At/For), certificateComplexity/At/For, degree (exact, = totalDegree of sign val), approxDegree. Relations: certificateComplexity_le_blockSensitivity_sq, certificateComplexity_le_sensitivity_mul_blockSensitivity, complexity_le_blockSensitivityFor_mul_certificateComplexityFor, complexity_le_degree_mul_blockSensitivity, complexity_le_two_mul_degree_pow_three (Midrijanis), blockSensitivity_le_two_mul_degree_sq and blockSensitivity_le_six_mul_approxDegree_sq (Nisan-Szegedy), degree_le_sensitivity_sq / sqrt_degree_le_sensitivity (Huang), complexity_le_two_mul_sensitivity_pow_six, certificateComplexity_le_two_mul_sensitivity_pow_five. Randomized: RandomizedDecisionTree (distribution over trees via StdSimplex), errorProb, Computes mu eps f, randomizedComplexity, Nisan: blockSensitivity_le_three_mul_randomizedComplexity, approxDegree_le_randomizedComplexity, complexity_le_mul_randomizedComplexity_pow_three. Yao: distributionalError, distributionalComplexity, randomizedComplexity_eq_iSup_distributionalComplexity, exists_distributionalComplexity_eq_randomizedComplexity. Sensitivity separation: port of the OpenAI result (exists_mul_sensitivity_sq_lt_blockSensitivity, exists_sensitivity_rpow_le_complexity, exists_mul_sensitivity_sq_lt_certificateComplexity). Quantum side: Quantum/Adversary (spectralSensitivity_le_thirty_six_mul, complexity_le_mul_pow_four), Quantum/Polynomial (approxDegree_le_two_mul, blockSensitivity_le_eight_mul_sq, complexity_le_mul_pow_six), Grover, Search, Composition. Fourier on the cube: chi, chiChar : AddChar, chi_mul_chi, DecisionTree/Fourier (fourierCoeff_eq_zero_of_depth_lt), BooleanAnalysis (Influence, Noise, Hypercontractivity incl. Bonami and tensorization, KahnKalaiLinial, FriedgutJunta, Symmetrization, LowDegree, MultilinearExtension, SignApproximation). Hadamard: HadamardRectangles (card_mul_le_two_pow_of_dotProduct_eq, sq_sum_mul_signVal_dotProduct_le), Hadamard code BLR. Markov Brothers inequality (sqrt_mul_abs_eval_derivative_le, sub_mul_abs_eval_derivative_le) behind Nisan-Szegedy degree bounds. Probability: StdSimplex minimax (exists_forall_sum_le_of_forall_exists_sum_le), PMF algebra (PMF/Expect, Bind, Map, Uniform), Chernoff (pi_sum_ge_le_exp), Concentration, BoundedDifferences (McDiarmid-style), KWiseIndependent, AdaptiveWeights. Communication: Protocol, DagProtocol, Randomized, Distributional (ecomplexity_le_iff_forall_distributionalComplexity_le), Newman, Discrepancy, Lifting (Gadget, Simulation), Rectangle, KarchmerWigderson. Circuit/Boolean/WeightedThreshold/TranscriptTree.",
+    "paper_needs_covered": [
+      "Boolean functions (total only; promise/partial functions only in Classes/Promise for languages, not for query functions)",
+      "decision trees",
+      "deterministic and randomized query complexity",
+      "certificate complexity",
+      "sensitivity and block sensitivity",
+      "polynomial degree and approximate degree",
+      "Yao's principle (query model)",
+      "Fourier analysis on the Boolean cube",
+      "Boolean circuits and transcripts (partial)",
+      "Markov brothers inequality (not the finite-space Markov inequality)",
+      "Hadamard matrices (rectangle and dot-product lemmas only)",
+      "concentration and minimax on finite spaces",
+      "multiplicative-weights-like AdaptiveWeights (partial)",
+      "communication-complexity direct-product-adjacent lifting (not a direct product theorem)"
+    ],
+    "relation": "reusable_dependency",
+    "maintenance_state": "very active: commits within hours of 2026-11-01, 5,095 Lean files, AI-assisted development with Comparator suites; API still moving (toolchain v4.36.0-rc2).",
+    "notes": "Strongest single find. Same Lean/Mathlib toolchain as current mathlib master. Statements are for total functions BooleanFunction n; the paper's partial functions (promise problems) must be added by us. No direct-product theorem and no explicit Hadamard-matrix/multiplicative-weights-over-Boolean-cube development was found; AdaptiveWeights and Probability/Minimax should be read before deciding. Query model is a tree over bit queries (alphabet Bool), so non-Boolean-alphabet inputs need adaptation. Check that the sensitivity separation port is faithful before relying on it."
+  },
+  {
+    "name": "leanprover/cslib (Cslib.Computability.QueryComplexity, Circuit.Boolean)",
+    "url": "https://github.com/leanprover/cslib",
+    "commit_sha": "52897fc2059b1a550cd7fb06bbd00713e490b8d6",
+    "prover": "Lean 4 + Mathlib",
+    "licence": "Apache-2.0 (GitHub licence metadata)",
+    "toolchain": "leanprover/lean4:v4.36.0-rc2",
+    "last_commit_date": "2026-11-01T20:37:43Z",
+    "stars": 789,
+    "files_inspected": [
+      "Cslib/Computability/QueryComplexity/Defs.lean",
+      "Cslib/Computability/QueryComplexity/Measures.lean",
+      "Cslib/Computability/Circuit/Boolean/Basic.lean",
+      "Cslib/Computability/Circuit/Boolean/Complexity.lean"
+    ],
+    "provides": "Upstream home of definitions complexitylib builds on: BitString, flipBlock, Block, IsSensitiveCoord, sensitiveCoords, sensitivityAt, sensitivity, card_le_sensitivity_of_forall_isSensitiveCoord, plus block sensitivity and certificate complexity in Measures.lean; Boolean circuits over a signature with fan-in-two lemmas (Circuit.fanInAtMost_two), Shannon counting, Lupanov synthesis in Circuit/Boolean.",
+    "paper_needs_covered": [
+      "Boolean functions",
+      "sensitivity and block sensitivity",
+      "certificate complexity (per code search hit)",
+      "Boolean circuits"
+    ],
+    "relation": "reusable_dependency",
+    "maintenance_state": "very active, community library under the Lean FRO umbrella.",
+    "notes": "Small query-complexity core; the richer theorems live in complexitylib. Prefer depending on complexitylib, which imports this."
+  },
+  {
+    "name": "Polarnova/FABL (Formal Analysis of Boolean Functions in Lean)",
+    "url": "https://github.com/Polarnova/FABL",
+    "commit_sha": "164f830312946ccac6e7fdc7bb9493f0149e820d",
+    "prover": "Lean 4 + Mathlib + CSLib",
+    "licence": "Apache-2.0 (GitHub metadata)",
+    "toolchain": "leanprover/lean4:v4.32.0 (release v0.6.5)",
+    "last_commit_date": "2026-08-30T18:58:33Z",
+    "stars": 0,
+    "files_inspected": [
+      "README.md",
+      "FABL/Chapter01/BasicFourierFormulas.lean",
+      "FABL/Chapter02/TotalInfluence/Basic.lean",
+      "FABL/Chapter03/SubspacesAndDecisionTrees/DecisionTrees.lean",
+      "FABL/Chapter08/RandomizedDecisionTreeComplexity.lean",
+      "FABL/Chapter08/DecisionTreeInequalities.lean",
+      "FABL/Chapter08/DecisionTreeSymmetrization.lean"
+    ],
+    "provides": "README claims chapters 1-9 of O'Donnell's book complete: 790 book items, 5,335 Lean declarations. Read: BooleanFunction n, parseval, plancherel, fourierCoeff, variance, covariance; totalInfluence, sensitivity, totalInfluence_toReal_eq_expect_sensitivity; F2DecisionTree (eval, depth, leafCount, completeTree, deterministicDepth, deterministicSize); FiniteDecisionTree over finite alphabets (queryTrace, querySet, queryCount, Computes), RandomizedDecisionTree (treePMF, inputCost, worstCaseCost, averageCost, revealment, averageCost_le_card_mul_revealment); DecisionTreeSymmetrization; Chapter 9 hypercontractivity, KKL, Friedgut. No certificate complexity, block sensitivity or Yao principle found by filename grep.",
+    "paper_needs_covered": [
+      "Fourier analysis on the Boolean cube",
+      "decision trees (deterministic and randomized, including non-Boolean alphabets)",
+      "sensitivity (average and max)",
+      "hypercontractivity"
+    ],
+    "relation": "adaptable_with_licence_check",
+    "maintenance_state": "active through Aug 2026; single author; pinned to v4.32.0, behind mathlib master.",
+    "notes": "Most complete Fourier/decision-tree reference but older toolchain; needs a bump to v4.36. Randomized tree model here is a distribution over trees with PMF, different from complexitylib's StdSimplex; pick one. Licence from GitHub metadata only; LICENSE file not opened."
+  },
+  {
+    "name": "openai/math lean/OAI/Combinatorics/Sensitivity (Paper320)",
+    "url": "https://github.com/openai/math/tree/main/lean/OAI/Combinatorics/Sensitivity",
+    "commit_sha": "4eaee87548250b2682affda7d05d947c05554bae",
+    "prover": "Lean 4 + Mathlib",
+    "licence": "Apache-2.0 (lean/LICENSE read)",
+    "toolchain": "leanprover/lean4:v4.34.1 (mathlib rev d13f23b723b8a846827a245b89c10fc7d3f11612)",
+    "last_commit_date": "2026-10-30T00:35:35Z (Sensitivity directory last changed adc7f1241b42e322a6451854ab7e4b4c146bf78a, 2026-10-06T21:58:50Z)",
+    "stars": 17245,
+    "files_inspected": [
+      "lean/OAI/Combinatorics/Sensitivity/Model.lean",
+      "Sensitivity/Basic.lean",
+      "Sensitivity/Main.lean",
+      "Sensitivity/Separation.lean",
+      "lean/lean-toolchain",
+      "lean/lake-manifest.json",
+      "lean/LICENSE",
+      "CONTENTS.md (entry 132)"
+    ],
+    "provides": "50 files. Paper320.flip, sensitivityAt, sensitivity, blockSensitivityAt, blockSensitivity for f : (I -> Bool) -> Bool over any Fintype I. Theorems quantitative_separation (bs/s^2 >= 2^d/(4(d+2)^2)), unbounded_quadratic_separation, fixed_power_separation (exists alpha>2, s^alpha <= bs at the zero input). Supporting: Composition, Recursive*, Tower, Tournament, Labeling*, PowerAmplification, HammingBase.",
+    "paper_needs_covered": [
+      "sensitivity and block sensitivity",
+      "Boolean functions (total)"
+    ],
+    "relation": "adaptable_with_licence_check",
+    "maintenance_state": "active mirror of OpenAI math release; Sensitivity directory frozen since 2026-10-06.",
+    "notes": "The cslib-community port already adopts the separation, so depend on that where possible. This repo is a monolithic library (compile small portions). The paper under study is a different OpenAI release; it was not located in CONTENTS.md by keyword and no query-complexity separation formalisation was found in this repo."
+  },
+  {
+    "name": "openai/math lean/OAI/Combinatorics/{BooleanFunctions,GotsmanLinial,SharpThreshold} (Walsh/Fourier files)",
+    "url": "https://github.com/openai/math/tree/main/lean/OAI/Combinatorics",
+    "commit_sha": "4eaee87548250b2682affda7d05d947c05554bae",
+    "prover": "Lean 4 + Mathlib",
+    "licence": "Apache-2.0",
+    "toolchain": "leanprover/lean4:v4.34.1",
+    "last_commit_date": "2026-10-30T00:35:35Z",
+    "stars": 17245,
+    "files_inspected": [
+      "BooleanFunctions/Walsh.lean",
+      "GotsmanLinial/Statement.lean",
+      "GotsmanLinial/PolynomialDegree.lean",
+      "SharpThreshold/FourierBasis.lean",
+      "ComparatorChallenges/HadamardCubeFiber.lean",
+      "ComparatorChallenges/ExactFourier.lean"
+    ],
+    "provides": "SquareRootDegree.character, fourierCoeff, fourierDegree, fourier_inversion, fourierDegree_le_iff; GotsmanLinial Walsh filtration fourierSpace with fourierSpace_mul, polynomialValue_mem_fourierSpace (multilinear polynomial bridge); biased-cube Fourier (Problem313.BiasedFourier: char, coeff, inversion, parseval, inner_parseval). ComparatorChallenges: complex Hadamard 6x6 statements with sorry, and ExactFourier circuit model (Gate, Program, Circuit).",
+    "paper_needs_covered": [
+      "Fourier analysis on the Boolean cube",
+      "polynomial degree (multilinear bridge)",
+      "Hadamard matrices (statement only)",
+      "Boolean circuits as straight-line programs (ExactFourier)"
+    ],
+    "relation": "design_reference",
+    "maintenance_state": "active mirror",
+    "notes": "Overlaps with complexitylib and Mathlib AddChar; use as a cross-check. Hadamard files are open challenges with sorry, not proofs."
+  },
+  {
+    "name": "mathlib4 (Boolean characters, Hadamard matrices, Markov, Hamming, PMF, Huang archive)",
+    "url": "https://github.com/leanprover-community/mathlib4",
+    "commit_sha": "16b5a1bae01ff8aadfe0e4bcf490c12a66a965c3",
+    "prover": "Lean 4",
+    "licence": "Apache-2.0",
+    "toolchain": "leanprover/lean4:v4.36.0-rc2",
+    "last_commit_date": "2026-11-01T22:20:31Z",
+    "stars": 4411,
+    "files_inspected": [
+      "Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean",
+      "Mathlib/Analysis/Fourier/FiniteAbelian/Orthogonality.lean",
+      "Mathlib/Analysis/Fourier/ZMod.lean",
+      "Mathlib/MeasureTheory/Integral/Lebesgue/Markov.lean",
+      "Mathlib/InformationTheory/Hamming.lean",
+      "Mathlib/Probability/ProbabilityMassFunction/Basic.lean",
+      "Mathlib/Probability/Distributions/SetBernoulli.lean",
+      "Mathlib/Probability/Moments/SubGaussian.lean",
+      "Archive/Sensitivity.lean"
+    ],
+    "provides": "Matrix.IsHadamard (structure, new 2026) with IsHadamard.kronecker, four_dvd_card, det_ne_zero, of_mul_conjTranspose. AddChar orthogonality: AddChar.expect_eq_ite, wInner_cWeight_eq_boole (characters of finite abelian groups, usable for (ZMod 2)^n); Analysis/Fourier/FiniteAbelian/PontryaginDuality. Markov: MeasureTheory.mul_meas_ge_le_lintegral, meas_ge_le_lintegral_div (also ChebyshevMarkov for Lp); finite spaces via counting measure or PMF. hammingDist and triangle lemmas. PMF with PMF.toOuterMeasure; setBernoulli. HasSubgaussianMGF (Hoeffding-style tools; exact Hoeffding statement not verified). Archive/Sensitivity.lean: Huang's lemma on hypercube (adjacent, V n, degree). Chebyshev polynomials. No Boolean-function Fourier library, decision trees or query complexity in Mathlib proper.",
+    "paper_needs_covered": [
+      "Hadamard matrices",
+      "Fourier characters on the cube (via AddChar)",
+      "Markov inequality on finite spaces",
+      "finite probability (PMF)",
+      "Hamming distance",
+      "Huang hypercube lemma (Archive only, not importable)"
+    ],
+    "relation": "reusable_dependency",
+    "maintenance_state": "very active",
+    "notes": "Archive/ is not part of the Mathlib library import, so the Huang lemma must be copied or taken from complexitylib/SamuelSchlesinger. Mathlib files were located by tree filename grep; the grep did not surface any BooleanFunction, DecisionTree or Walsh module."
+  },
+  {
+    "name": "SamuelSchlesinger/sensitivity-conjecture",
+    "url": "https://github.com/SamuelSchlesinger/sensitivity-conjecture",
+    "commit_sha": "9d2cff46ed11b43973a38d6150cf74dc8ab9a751",
+    "prover": "Lean 4 + Mathlib",
+    "licence": "Apache-2.0",
+    "toolchain": "leanprover/lean4:v4.28.0",
+    "last_commit_date": "2026-03-02T04:52:16Z",
+    "stars": 6,
+    "files_inspected": [
+      "README.md",
+      "Sensitivity/Defs.lean",
+      "Sensitivity/Main.lean",
+      "Sensitivity/Consequences.lean",
+      "Sensitivity/HuangBridge.lean"
+    ],
+    "provides": "BoolFun n, flipBit, sensitiveAt, localSensitivity, sensitivity, flipCoords; sensitivity_ge_sqrt_degree; degree_le_sensitivity_sq; huang_finset (bridge from Mathlib Archive).",
+    "paper_needs_covered": [
+      "sensitivity",
+      "polynomial degree (multilinear)",
+      "Huang theorem"
+    ],
+    "relation": "design_reference",
+    "maintenance_state": "stale since March 2026; superseded in practice by complexitylib QueryComplexity/Huang.lean.",
+    "notes": "Self-contained and proof-complete per README."
+  },
+  {
+    "name": "troyjlee/quantum-query-complexity",
+    "url": "https://github.com/troyjlee/quantum-query-complexity",
+    "commit_sha": "517ba85eb211232771429804d8583e3f52b9d541",
+    "prover": "Lean 4 + Mathlib",
+    "licence": "Apache-2.0",
+    "toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "last_commit_date": "2026-09-27T11:45:06Z",
+    "stars": 1,
+    "files_inspected": [
+      "README.md",
+      "QuantumQueryComplexity/Defs.lean",
+      "QuantumQueryComplexity/DecisionTree.lean",
+      "LICENSE"
+    ],
+    "provides": "Finite quantum query algorithms, adversary matrices (IsAdvMatrix, adv, advPM), adversary duality and composition, QueryTree (eval, depth, maxPathCost, bind), conversion of dual certificates to algorithms, polynomial method (Polynomial/Boolean.lean listed), amplitude amplification/estimation, robust search, MNRS walks. 275 Lean files.",
+    "paper_needs_covered": [
+      "decision trees (QueryTree with weighted cost)",
+      "polynomial degree (quantum side)",
+      "quantum side counterpart for the separation"
+    ],
+    "relation": "design_reference",
+    "maintenance_state": "active (v0.1.0 early public release, Palomar package)",
+    "notes": "Quantum side, outside the classical scope but the comparison point for the separation; overlaps complexitylib's Quantum/Adversary."
+  },
+  {
+    "name": "SamuelSchlesinger/circuit-complexity",
+    "url": "https://github.com/SamuelSchlesinger/circuit-complexity",
+    "commit_sha": "def6aca37be6b0bef80ae08ea9bce9031f46998e",
+    "prover": "Lean 4 + Mathlib",
+    "licence": "Apache-2.0",
+    "toolchain": "leanprover/lean4:v4.29.0-rc4",
+    "last_commit_date": "2026-05-29T11:41:00Z",
+    "stars": 4,
+    "files_inspected": [
+      "README.md",
+      "Circ/Basic.lean",
+      "LICENSE"
+    ],
+    "provides": "BitString, BoolFunFamily, Basis, Gate, Circuit B N M G with wireValue; AC0, AON, XOR, NF, Nondeterminism, Shannon counting, Valiant, Schnorr.",
+    "paper_needs_covered": [
+      "Boolean circuits"
+    ],
+    "relation": "design_reference",
+    "maintenance_state": "idle since May 2026",
+    "notes": "cslib Circuit.Boolean and complexitylib are preferred."
+  },
+  {
+    "name": "Timeroot/CircuitComp",
+    "url": "https://github.com/Timeroot/CircuitComp",
+    "commit_sha": "4a3c44d86a6515e685ba1d787ddcefb49b3aac4d",
+    "prover": "Lean 4 + Mathlib",
+    "licence": "none declared",
+    "toolchain": "leanprover/lean4:v4.28.0",
+    "last_commit_date": "2026-03-15T19:38:40Z",
+    "stars": 9,
+    "files_inspected": [
+      "CircuitComp/Circuit.lean"
+    ],
+    "provides": "FeedForward circuit structures (GateOp, Gate, FeedForward), branching programs (Barrington), AC/NC, growth rates.",
+    "paper_needs_covered": [
+      "Boolean circuits"
+    ],
+    "relation": "not_useful",
+    "maintenance_state": "idle since March 2026",
+    "notes": "No licence; do not copy."
+  },
+  {
+    "name": "Communication-Complexity-Group-Project/communication-complexity-lean",
+    "url": "https://github.com/Communication-Complexity-Group-Project/communication-complexity-lean",
+    "commit_sha": "02942c34d9be493ac64037d2104dae9d5d09d0a3",
+    "prover": "Lean 4 + Mathlib",
+    "licence": "none declared",
+    "toolchain": "leanprover/lean4:v4.28.0",
+    "last_commit_date": "2026-05-07T21:12:21Z",
+    "stars": 2,
+    "files_inspected": [
+      "CommunicationComplexity/Basic.lean",
+      "file tree (PublicCoin/Minimax.lean, PublicCoin/Newman.lean, Deterministic/Transcript.lean, FiniteProbabilitySpace.lean)"
+    ],
+    "provides": "Deterministic, public-coin and private-coin protocols, transcripts, rectangles, Newman, minimax (Yao) for public-coin, discrepancy, Disjointness, Equality, InnerProduct, Pinsker, KL.",
+    "paper_needs_covered": [
+      "Yao's principle (communication)",
+      "transcripts"
+    ],
+    "relation": "design_reference",
+    "maintenance_state": "idle since May 2026",
+    "notes": "Overlaps complexitylib Communication; no licence."
+  },
+  {
+    "name": "Mintpath/kw-games-lean",
+    "url": "https://github.com/Mintpath/kw-games-lean",
+    "commit_sha": "c0e3b65e84cebccbdc64b614c906f57dedf04e35",
+    "prover": "Lean 4 + Mathlib",
+    "licence": "Apache-2.0 (GitHub metadata)",
+    "toolchain": "leanprover/lean4:v4.28.0",
+    "last_commit_date": "2026-07-25T20:24:04Z",
+    "stars": 2,
+    "files_inspected": [
+      "KW88/KW.lean"
+    ],
+    "provides": "Karchmer-Wigderson connection: commComplexity_le_circuitDepth, protocol_to_circuit, circuitDepth_eq_commComplexity.",
+    "paper_needs_covered": [
+      "Boolean circuits and transcripts (protocol-to-circuit)"
+    ],
+    "relation": "design_reference",
+    "maintenance_state": "idle since July 2026",
+    "notes": "Small, three Lean files."
+  },
+  {
+    "name": "google-deepmind/formal-conjectures StrongSensitivityConjecture",
+    "url": "https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/Paper/StrongSensitivityConjecture.lean",
+    "commit_sha": "d995ef5d306637c0a2e489c7e579647168d7df2f",
+    "prover": "Lean 4 + Mathlib",
+    "licence": "Apache-2.0",
+    "toolchain": "not read",
+    "last_commit_date": "2026-11-01T21:12:36Z",
+    "stars": 1341,
+    "files_inspected": [
+      "FormalConjectures/Paper/StrongSensitivityConjecture.lean"
+    ],
+    "provides": "Statement-level definitions flip, sensitivityAt, sensitivity, block sensitivity for Fin n -> Bool; the conjecture bs(f) <= s(f)^2, with a docstring recording that [OAI26] disproved it.",
+    "paper_needs_covered": [
+      "sensitivity and block sensitivity (statements)"
+    ],
+    "relation": "design_reference",
+    "maintenance_state": "very active",
+    "notes": "Definitions are identical to openai/math Paper320; docstring is the only place this session saw the quadratic bound recorded as disproved."
+  },
+  {
+    "name": "facebookresearch/atlas-lean (CSLibExt.MachineLearning.Hedge)",
+    "url": "https://github.com/facebookresearch/atlas-lean",
+    "commit_sha": "4b1c449f04bcb7f7bff6a83a15e0d82bbde3773a",
+    "prover": "Lean 4 + Mathlib",
+    "licence": "NOASSERTION by GitHub; LICENSE file begins with a restriction against using the codebase to train, fine-tune, distill or evaluate ML models",
+    "toolchain": "leanprover/lean4:v4.35.0",
+    "last_commit_date": "2026-11-01T21:03:17Z",
+    "stars": 327,
+    "files_inspected": [
+      "CSLibExt/MachineLearning/Hedge.lean",
+      "LICENSE (first lines)"
+    ],
+    "provides": "Multiplicative weights / Hedge: update, weights, roundLoss, algLoss, total_update_le, algLoss_le_sq, algLoss_append, expertLoss.",
+    "paper_needs_covered": [
+      "multiplicative weights (Hedge regret, partial)"
+    ],
+    "relation": "design_reference",
+    "maintenance_state": "very active",
+    "notes": "Licence restricts ML use; do not copy without reading the full licence. Rewrite from the standard analysis if needed."
+  },
+  {
+    "name": "elazarg/GameTheory (GameTheory.Math.OnlineLearning)",
+    "url": "https://github.com/elazarg/GameTheory",
+    "commit_sha": "656cabb49b0c7df09d90063d49404df569fa6870",
+    "prover": "Lean 4 + Mathlib",
+    "licence": "Apache-2.0 (GitHub metadata)",
+    "toolchain": "leanprover/lean4:v4.35.0",
+    "last_commit_date": "2026-10-28T17:53:54Z",
+    "stars": 8,
+    "files_inspected": [
+      "GameTheory/Math/OnlineLearning.lean"
+    ],
+    "provides": "Exponential-weights online learning: cumGain, weight, denominator, probability, positivity lemmas; plus Approachability, counterfactual regret files in tree.",
+    "paper_needs_covered": [
+      "multiplicative weights"
+    ],
+    "relation": "adaptable_with_licence_check",
+    "maintenance_state": "active; 1,208 Lean files",
+    "notes": "Regret bound theorem not located in the lines read."
+  },
+  {
+    "name": "roos-j/lean-booleanfun",
+    "url": "https://github.com/roos-j/lean-booleanfun",
+    "commit_sha": "3a75a656104e18dec6169c3f06f340ed9da43370",
+    "prover": "Lean 4 + Mathlib",
+    "licence": "Apache-2.0",
+    "toolchain": "leanprover/lean4:v4.34.0-rc2",
+    "last_commit_date": "2026-09-01T22:24:04Z",
+    "stars": 6,
+    "files_inspected": [
+      "BooleanFun/Basic.lean",
+      "README.md"
+    ],
+    "provides": "BooleanFunc n := (Fin n -> Fin 2) -> R, expectation, walshCharacter chi S x, basic Fourier setup; Arrow and BooleanValued files.",
+    "paper_needs_covered": [
+      "Fourier analysis on the Boolean cube (small)"
+    ],
+    "relation": "design_reference",
+    "maintenance_state": "light activity",
+    "notes": "Five Lean files only."
+  },
+  {
+    "name": "SamuelSchlesinger/analysis-of-boolean-functions",
+    "url": "https://github.com/SamuelSchlesinger/analysis-of-boolean-functions",
+    "commit_sha": "8fcfb4c1c201c071930efb311ee7f9f00dcf23bd",
+    "prover": "Lean 4 + Mathlib",
+    "licence": "none declared",
+    "toolchain": "leanprover/lean4:v4.29.0-rc6",
+    "last_commit_date": "2026-03-31T00:53:33Z",
+    "stars": 3,
+    "files_inspected": [
+      "BooleanAnalysis/FourierExpansion/Defs.lean"
+    ],
+    "provides": "Cube n := Fin n -> ZMod 2; BooleanFunction as real-valued functions; Fourier expansion definitions.",
+    "paper_needs_covered": [
+      "Fourier analysis (small)"
+    ],
+    "relation": "not_useful",
+    "maintenance_state": "idle; no licence; superseded by FABL and complexitylib",
+    "notes": "Four Lean files."
+  },
+  {
+    "name": "Anchen-AI4Math/average-sensitivity-lean",
+    "url": "https://github.com/Anchen-AI4Math/average-sensitivity-lean",
+    "commit_sha": "f783ed3669fcfe122785d2a06220d19c8f6da1e7",
+    "prover": "Lean 4 + Mathlib",
+    "licence": "Apache-2.0 (GitHub metadata)",
+    "toolchain": "leanprover/lean4:v4.33.1",
+    "last_commit_date": "2026-10-17T02:52:53Z",
+    "stars": 0,
+    "files_inspected": [
+      "AverageSensitivity/PolynomialBound.lean",
+      "file tree"
+    ],
+    "provides": "Standalone repackaging of the OpenAI Gotsman-Linial average-sensitivity proof (AverageSensitivity.sensitivity_refined_of_grading, polynomial_refined) including copies of OAI/Combinatorics/GotsmanLinial.",
+    "paper_needs_covered": [
+      "average sensitivity of polynomial threshold functions (not needed by paper)"
+    ],
+    "relation": "not_useful",
+    "maintenance_state": "one-off",
+    "notes": "Copy of openai/math files."
+  },
+  {
+    "name": "SamuelSchlesinger/hadamard-conjecture",
+    "url": "https://github.com/SamuelSchlesinger/hadamard-conjecture",
+    "commit_sha": "d1f22fc03782292dddf44b9052eb5d8aee2be96b",
+    "prover": "Lean 4 + Mathlib",
+    "licence": "none declared",
+    "toolchain": "leanprover/lean4:v4.28.0",
+    "last_commit_date": "2026-06-10T02:40:29Z",
+    "stars": 0,
+    "files_inspected": [
+      "README.md",
+      "file tree (Hadamard/Defs, Kronecker, Jacobsthal, Constructions)"
+    ],
+    "provides": "Hadamard matrices over integers, Kronecker (Sylvester) and Jacobsthal constructions.",
+    "paper_needs_covered": [
+      "Hadamard matrices"
+    ],
+    "relation": "not_useful",
+    "maintenance_state": "idle; Mathlib now has Matrix.IsHadamard with kronecker",
+    "notes": "Use Mathlib."
+  },
+  {
+    "name": "Shreyas4991/Algolean",
+    "url": "https://github.com/Shreyas4991/Algolean",
+    "commit_sha": "ee30a010e03ac870690c8ce6f7e0aaf75494eb58",
+    "prover": "Lean 4 + Mathlib",
+    "licence": "Apache-2.0",
+    "toolchain": "leanprover/lean4:v4.35.0",
+    "last_commit_date": "2026-11-01T14:54:15Z",
+    "stars": 31,
+    "files_inspected": [
+      "README.md"
+    ],
+    "provides": "Query-combinator free-monad model of algorithms with cost accounting; algorithms (Karatsuba, KMP, sorting, small circuits).",
+    "paper_needs_covered": [
+      "design pattern for charging queries"
+    ],
+    "relation": "design_reference",
+    "maintenance_state": "very active",
+    "notes": "Not a Boolean-function query library in the decision-tree sense."
+  },
+  {
+    "name": "inQWIRE/SQIR (Rocq/Coq)",
+    "url": "https://github.com/inQWIRE/SQIR",
+    "commit_sha": "134fb942265091baa3e3972f78f72da41827351f",
+    "prover": "Rocq/Coq",
+    "licence": "MIT",
+    "toolchain": "coq-sqir.opam (Coq version pins in opam file; coq-interval dependency)",
+    "last_commit_date": "2025-07-30T02:27:23Z",
+    "stars": 107,
+    "files_inspected": [
+      "examples/examples/Grover.v",
+      "examples/examples/DeutschJozsa.v",
+      "coq-sqir.opam"
+    ],
+    "provides": "Grover (grover, body, diff, generalized_Toffoli, count0 based marked count), Deutsch-Jozsa (balanced, constant, boolean_oracle), Bernstein-Vazirani, Simon files, VOQC/BooleanCompilation.v.",
+    "paper_needs_covered": [
+      "quantum oracle query algorithms (design reference only)"
+    ],
+    "relation": "design_reference",
+    "maintenance_state": "slow; last push April 2026",
+    "notes": "Oracle presented as Boolean function nat -> bool; useful as a model for quantum-algorithm statement shape only."
+  },
+  {
+    "name": "coq-quantum/CoqQ (coq-mathcomp-quantum)",
+    "url": "https://github.com/coq-quantum/CoqQ",
+    "commit_sha": "b169ea462b13d20b05e03615ad1d56cc8d8f5784",
+    "prover": "Rocq/Coq with MathComp",
+    "licence": "MIT",
+    "toolchain": "coq 8.18.0 (opam file)",
+    "last_commit_date": "2024-12-28T17:29:06Z",
+    "stars": 30,
+    "files_inspected": [
+      "coq-mathcomp-quantum.opam",
+      "file tree (src/dirac, src/example/coqq_paper/qhl.v, qwhile.v, mxpred.v, hspace.v)"
+    ],
+    "provides": "Dirac notation, Hilbert-space and matrix predicates, quantum while-language, quantum Hoare logic examples.",
+    "paper_needs_covered": [],
+    "relation": "design_reference",
+    "maintenance_state": "slow; last commit Dec 2024",
+    "notes": "Design reference for Dirac-notation automation only."
+  },
+  {
+    "name": "Isabelle AFP: Quantum Hoare Logic (QHLProver) including Grover theory",
+    "url": "https://www.isa-afp.org/entries/QHLProver.html",
+    "commit_sha": "not applicable (AFP release; entry dated 2019-03-24)",
+    "prover": "Isabelle/HOL",
+    "licence": "BSD License (AFP page)",
+    "toolchain": "Isabelle AFP; depends on Jordan_Normal_Form and Expressiveness of Deep Learning entries",
+    "last_commit_date": "2019-03-24 (entry date)",
+    "stars": null,
+    "files_inspected": [
+      "AFP entry page (abstract, session theories: Complex_Matrix, Matrix_Limit, Quantum_Program, Partial_State, Gates, Quantum_Hoare, Grover)"
+    ],
+    "provides": "Quantum Hoare logic syntax, denotational semantics, soundness and completeness; Grover correctness theory.",
+    "paper_needs_covered": [],
+    "relation": "design_reference",
+    "maintenance_state": "stable AFP entry; used by CHSH and Uncertainty Principle entries",
+    "notes": "Only the entry page was read, not the theory sources. No separate AFP 'Isabelle Grover' entry found (Grover_Algorithm.html returned no content); the Grover theory is inside QHLProver."
+  }
+]

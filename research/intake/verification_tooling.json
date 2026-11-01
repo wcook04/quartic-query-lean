@@ -1,0 +1,223 @@
+{
+  "generated": "2026-11-01",
+  "note": "Read-only research. Nothing submitted or changed on GitHub. 'verified' = read in a primary source this pass; 'unverified' flagged inline.",
+  "recommended_stack": {
+    "toolchain": "leanprover/lean4:v4.35.0",
+    "mathlib_rev": "v4.35.0 (56a005855ea17e0b0958f73ec801ae140b0a1679)",
+    "statement_check": "lake comparator --config comparator.json --paranoid (Linux only)",
+    "replay_checks": "lake env leanchecker --fresh <Root>; #print axioms audit file",
+    "metadata": "formalization.yaml v0.4",
+    "catalogue_data": "doc-gen4 declarations/*.bmp (JSON) + LeanArchitect lake build :blueprintJson",
+    "palomar_toolchain_floor": "v4.35.0-rc2 (so v4.34.1 is not eligible)"
+  },
+  "tools": [
+    {
+      "tool": "lake comparator / lake check (Comparator merged into Lean core)",
+      "url": "https://github.com/leanprover/lean4/blob/v4.35.0/src/lake/Lake/CLI/Check.lean",
+      "pinned_version": "leanprover/lean4:v4.35.0 (Palomar floor v4.35.0-rc2)",
+      "install_commands": [
+        "elan toolchain install leanprover/lean4:v4.35.0",
+        "# Linux: install bubblewrap (bwrap) and git",
+        "lake exe cache get",
+        "lake comparator --config comparator.json",
+        "lake comparator --config comparator.json --paranoid",
+        "lake check --paranoid"
+      ],
+      "config_shape": {
+        "required": ["challenge_module", "solution_module", "theorem_names", "permitted_axioms"],
+        "optional": ["definition_names", "enable_nanoda", "external_kernels"],
+        "notes": "enable_nanoda and external_kernels are mutually exclusive. Palomar accepts only the four required keys plus definition_names and enable_nanoda (ignored), rejects external_kernels, and limits permitted_axioms to propext, Quot.sound, Classical.choice.",
+        "exit_codes": {"0": "accepted", "1": "rejected or build failed", "2": "could not start (bwrap or manifest missing, bad config)"}
+      },
+      "macos_supported": false,
+      "data_outputs": ["stdout 'Your solution is okay!' plus 'Uses axioms: ...'", "exit code", "optional NDJSON exports via --challenge-from-export / --solution-from-export"],
+      "traps": [
+        "Sandbox needs Linux bwrap; on macOS only --inadvisably-no-sandbox (prints 'not trustworthy'), valid for trusted own code only",
+        "Project must have a committed lake-manifest.json",
+        "Full ConstantInfo equality for every constant reached from compared statements (value, hints, kind), not just types",
+        "Solution aliasing Challenge defs (abbrev X := Src.X) or re-declaring text under different imports fails; share a Mathlib-only Statement module imported by Solution",
+        "Challenge must be self-contained (Palomar: no project-specific source in its import closure) so Statement.lean must be kept byte-identical to Challenge minus theorems",
+        "set_option autoImplicit false in every Challenge or missing helpers auto-bind and change the theorem silently",
+        "Names in theorem_names/definition_names are holes: body not compared; definition holes need human review for vacuity",
+        "Both Challenge and Solution must import the default prelude",
+        "Do not compile the Solution before the Challenge",
+        "Green lake build and axiom audits say nothing about identity; always run a real replay"
+      ]
+    },
+    {
+      "tool": "leanprover/comparator (standalone, for Lean < 4.35)",
+      "url": "https://github.com/leanprover/comparator",
+      "pinned_version": "tag v4.34.0 = d03acab154d269c06e60e4de7e4cc85deebff94b (lean-toolchain v4.34.0); repo archived 2026-10-14; no v4.34.1 tag",
+      "install_commands": [
+        "git clone https://github.com/leanprover/comparator && git -C comparator checkout d03acab154d269c06e60e4de7e4cc85deebff94b",
+        "(cd comparator && lake build comparator)",
+        "lake env /path/to/comparator/.lake/build/bin/comparator comparator.json",
+        "# env overrides: COMPARATOR_LANDRUN, COMPARATOR_LEAN4EXPORT, COMPARATOR_NANODA",
+        "# security wrapper: systemd-run --property=RestrictAddressFamilies=~AF_UNIX --user --pty -E PATH=\"$PATH\" --working-directory $(pwd) -- bash -c 'lake env <comparator> <config>'"
+      ],
+      "config_shape": {"required": ["challenge_module", "solution_module", "theorem_names", "permitted_axioms"], "optional": ["definition_names", "enable_nanoda", "external_kernels"]},
+      "macos_supported": "no for sandboxing (landrun is Linux Landlock only); scripts/fake-landrun.sh gives a no-sandbox development mode",
+      "data_outputs": ["stdout/exit code"],
+      "traps": [
+        "Retargeting to v4.34.1 needs changing the toolchain pin in disposable copies of comparator and lean4export (local receipt: tests passed on Ubuntu 24.04 aarch64)",
+        "fake-landrun is not security evidence",
+        "Historical Comparator exports built modules from the Lean search path; export-only checks do not authenticate cached compiled modules"
+      ]
+    },
+    {
+      "tool": "lean4export (leanexport in 4.35+ toolchains)",
+      "url": "https://github.com/leanprover/lean4export",
+      "pinned_version": "tag v4.34.0 = 076e8e57707e813375e8f9da8bf989799ace9680; tag v4.35.0 = 5a9a355dc6; bundled as leanexport in release toolchains",
+      "install_commands": [
+        "git clone https://github.com/leanprover/lean4export && git -C lean4export checkout 076e8e57707e813375e8f9da8bf989799ace9680",
+        "(cd lean4export && lake build lean4export)",
+        "lake env ../lean4export/.lake/build/bin/lean4export Mathlib > out.ndjson"
+      ],
+      "config_shape": "none; CLI: lean4export <Module>+ [-- <decl names>] [--export-unsafe] [--export-mdata]",
+      "macos_supported": true,
+      "data_outputs": ["NDJSON declaration export (format_ndjson.md)"],
+      "traps": ["Exporter version must match the compiler that produced the oleans", "Export version line is discarded by the parser, so a valid export is not proof of compatibility"]
+    },
+    {
+      "tool": "landrun",
+      "url": "https://github.com/Zouuup/landrun",
+      "pinned_version": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4 (our CI pin); Comparator README says build from main",
+      "install_commands": ["git clone https://github.com/Zouuup/landrun && cd landrun && go build -o landrun cmd/landrun/main.go"],
+      "config_shape": "CLI flags",
+      "macos_supported": false,
+      "data_outputs": [],
+      "traps": ["Linux kernel 5.13+ with Landlock; older Linux needs --best-effort", "Not needed with Lean >= 4.35 (bwrap used instead)"]
+    },
+    {
+      "tool": "formalization.yaml",
+      "url": "https://github.com/mathlib-initiative/formalization.yaml",
+      "pinned_version": "version: \"v0.4\" (schema/v0.4.schema.json; repo HEAD 99c678e5, 2026-08-25; only GitHub release is stale v0.2)",
+      "install_commands": [
+        "check-jsonschema --schemafile https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json formalization.yaml"
+      ],
+      "config_shape": {
+        "schema_required": {"project": ["name", "authors", "license"], "sources": "minItems 1, each with title", "automation": {"methods": "each with method in manual|copilot|agent|autonomous|other"}, "review": ["status"]},
+        "optional": ["project.description", "project.responsible_maintainers", "repository.{role,substantive_formalization.{id,revision}}", "sources[].{authors,contributors,id,type,location,relationship,note,license,author_endorsement}", "related_formalizations[].{id,relationship}", "classification.{arxiv,msc2020}", "status.{scope,sorry_count,sorry_in_definitions,axioms,main_results[]}", "fidelity.divergences", "alignment (free YAML)", "acknowledgements"],
+        "palomar_extra_mandatory": ["project.description (<=10000 chars)", "project.responsible_maintainers (humans)", "classification.arxiv 1-8 codes", "source origin rule (original-proof or formalizes/adapts/independently-proves)", "license equals SPDX id of root LICENSE", "file <=256 KiB, no duplicate or merge keys"]
+      },
+      "macos_supported": true,
+      "data_outputs": ["YAML at repo root; alignment.statements and status.main_results[].comparator_config usable as a catalogue source"],
+      "traps": ["Sorry counts exclude the deliberate Challenge sorry", "Unknown keys tolerated by schema, but Palomar intake is stricter", "Set version explicitly to v0.4"]
+    },
+    {
+      "tool": "PalomarSubmission / PalomarTemplate / PalomarPolicy",
+      "url": "https://github.com/PalomarRegistry/PalomarSubmission",
+      "pinned_version": "PalomarSubmission 14aa8d6b3c2f14a8540605e37144560b9a00e7e7 (2026-10-28); toolchains.json minimum v4.35.0-rc2; PalomarTemplate main (not pinned)",
+      "install_commands": [
+        "# prepare only (no submission): clone PalomarSubmission, venv with PyYAML, Bundler-run licensee",
+        "python scripts/verify_submission.py prepare --event <event.json> --work-dir <dir> --output <out.json> --licensee 'bundle exec ruby scripts/detect_license.rb'",
+        "# from PalomarTemplate: python3 scripts/check-lean-sources.py ; ruby scripts/validate-formalization.rb ; ./scripts/verify-comparator.sh (Linux)"
+      ],
+      "config_shape": "Repo root: lean-toolchain (>= v4.35.0-rc2), lakefile.toml|lean, lake-manifest.json, formalization.yaml, Challenge.lean, Solution.lean, comparator.json, LICENSE; submit exact 40-char SHA + one comparator config path",
+      "macos_supported": "prepare yes (runs locally, per our rehearsal); full execute no (Linux bwrap)",
+      "data_outputs": ["mechanical report JSON (diagnostics-v1, phase, profile digest) as a run artifact", "registry record PALOMAR-YYYY-MM-DD-NNNNNN on registration"],
+      "traps": [
+        "Every .lean file must use the module system and be <=10,000 lines; Challenge <=1,000 lines and 100 KiB",
+        "Challenge import closure: Lean core, Mathlib, Tau Ceti or CSLib only",
+        "lean-toolchain must exactly equal the resolved Mathlib revision's toolchain",
+        "Git deps: public https://github.com/owner/repo URLs pinned to 40-char SHAs; no submodules, no LFS, no compiled artifacts",
+        "prepare traps: --licensee must be the Bundler executable; PALOMAR_JOB_STARTED_AT epoch seconds; request_id 12 lowercase alphanumerics; send options.formalization_metadata_path if metadata not at root",
+        "prepare does not run execute (protected Challenge build, sandboxed Comparator) or rendering",
+        "Registration is permanent public history: public forks in PalomarArchive, preservation tags, redacted review published; mechanical run is public from submission; submission and registration are consent steps for Will",
+        "source type preprint is not allowed; AI models may not be listed as authors or maintainers",
+        "Memory note's toolchain floor v4.28.0 is stale; now v4.35.0-rc2",
+        "Reusable preflight workflow on GitHub consumes Actions minutes; needs approval"
+      ]
+    },
+    {
+      "tool": "leanchecker (formerly lean4checker)",
+      "url": "https://github.com/leanprover/lean4checker",
+      "pinned_version": "built into every toolchain since v4.28.0; standalone repo archived 2026-03-25",
+      "install_commands": ["lake env leanchecker <Module>", "lake env leanchecker --fresh <Module>"],
+      "config_shape": "CLI only",
+      "macos_supported": true,
+      "data_outputs": ["exit code / stderr"],
+      "traps": ["Uses the Lean kernel itself: detects environment hacking, not kernel bugs", "Without --fresh it replays only the module, not imports"]
+    },
+    {
+      "tool": "nanoda (nanoda_bin)",
+      "url": "https://github.com/ammkrn/nanoda_lib",
+      "pinned_version": "bundled in v4.35+ toolchains; our CI builds robsimmons/nanoda_lib at 68d5ca9db226849b41a6fff59d796ff19d0a8840; upstream master 8de7e0c4 (2026-10-29)",
+      "install_commands": ["git clone https://github.com/ammkrn/nanoda_lib && cd nanoda_lib && cargo build --release --locked --bin nanoda_bin"],
+      "config_shape": {"keys": ["export_file_path", "use_stdin", "num_threads", "stack_size_bytes", "permitted_axioms", "unpermitted_axiom_hard_error", "unsafe_permit_all_axioms", "nat_extension", "string_extension", "pp_declars", "pp_options", "pp_output_path", "print_success_message"]},
+      "macos_supported": "likely (Rust, cargo present on this Mac); unverified",
+      "data_outputs": ["exit code", "optional pretty-printed declarations"],
+      "traps": ["Nat and String extensions are off by default", "Comparator detects nanoda-style kernels by 'noda' in the name and passes a config file", "In Lean >= 4.35 use enable_nanoda or external_kernels, never both"]
+    },
+    {
+      "tool": "con-ron / con-leche / lean4lean / leanchecker-paranoid",
+      "url": "https://github.com/digama0/lean4lean",
+      "pinned_version": "bundled in v4.35+ release toolchains; Palomar con-ron pin: release v4.36.0-rc1 commit c9afcddf514a6772bd4d649f7cfc04eff0b9f15e (checker-revisions.json)",
+      "install_commands": ["lake comparator --paranoid --config comparator.json"],
+      "config_shape": "none (selected by --paranoid)",
+      "macos_supported": "unverified (bundled binaries; check ls $(lean --print-prefix)/bin)",
+      "data_outputs": ["exit code"],
+      "traps": ["Palomar attempts con-ron advisorily after mandatory Lean kernel and NanoDa pass; capacity declines are recorded without claiming acceptance"]
+    },
+    {
+      "tool": "SafeVerify",
+      "url": "https://github.com/GasStationManager/SafeVerify",
+      "pinned_version": "main (last push 2026-04-22); version branches for old toolchains",
+      "install_commands": ["lake env lean -o submission.olean submission.lean", "lake exe safe_verify target.olean submission.olean"],
+      "config_shape": "CLI over two .olean files",
+      "macos_supported": true,
+      "data_outputs": ["exit code / text"],
+      "traps": ["Does not sandbox compilation", "Bans partial/unsafe definitions", "Weaker than Comparator on transitive closure; not recommended as primary"]
+    },
+    {
+      "tool": "doc-gen4",
+      "url": "https://github.com/leanprover/doc-gen4",
+      "pinned_version": "tag v4.35.0 (match toolchain); openai/math pins 953c8992d174b4e56955e01e101d46668c68f2bb for v4.34.1",
+      "install_commands": [
+        "mkdir docbuild  # lakefile.toml: packagesDir=\"../.lake/packages\"; require doc-gen4 rev=\"v4.35.0\"; require parent path=\"../\"",
+        "(cd docbuild && MATHLIB_NO_CACHE_ON_UPDATE=1 lake update doc-gen4)",
+        "(cd docbuild && lake build QuarticQueryLean:docs)",
+        "(cd docbuild/.lake/build/doc && python3 -m http.server)"
+      ],
+      "config_shape": "env: DOCGEN_SRC=github|file|vscode, DISABLE_EQUATIONS=1",
+      "macos_supported": true,
+      "data_outputs": [
+        "docbuild/.lake/build/doc/declarations/declaration-data-<Module>.bmp (minified JSON: name, declarations[info{name,kind,doc,docLink,sourceLink,line},header], instances, imports)",
+        "declarations/declaration-data.bmp (global index: declarations, instances, modules importedBy/url, instancesFor)",
+        "declarations/header-data.bmp, backrefs-<Module>.json, references.json",
+        "HTML pages per module"
+      ],
+      "traps": ["Library must compile", "Always documents Lean, Init, Lake, Std too", ".bmp extension is JSON, not an image", "Needs a C compiler (Xcode CLT)", "Serve over HTTP; file:// partly broken"]
+    },
+    {
+      "tool": "leanblueprint",
+      "url": "https://github.com/PatrickMassot/leanblueprint",
+      "pinned_version": "PyPI 0.0.20 (2025-12-23); plastexdepgraph 0.0.5",
+      "install_commands": ["brew install graphviz", "pip install leanblueprint", "leanblueprint new", "leanblueprint web", "leanblueprint pdf", "leanblueprint checkdecls", "leanblueprint serve"],
+      "config_shape": "blueprint/src/{web.tex,print.tex,content.tex,macros/}; macros \\lean{}, \\leanok, \\uses{}, \\notready, \\mathlibok, \\proves{}, \\discussion{}",
+      "macos_supported": true,
+      "data_outputs": ["blueprint/web/ HTML incl. dependency graph page", "blueprint PDF", "no stable JSON export found in its README (unverified)"],
+      "traps": ["Needs graphviz dev libraries", "Run pdf before web for bibliography", "checkdecls needs a built project", "Do not load depgraph package separately"]
+    },
+    {
+      "tool": "LeanArchitect",
+      "url": "https://github.com/hanwenzhu/LeanArchitect",
+      "pinned_version": "tag v4.35.0 (Apache-2.0; push 2026-10-28)",
+      "install_commands": ["# lakefile.toml: [[require]] name=\"LeanArchitect\" git=\"https://github.com/hanwenzhu/LeanArchitect.git\" rev=\"v4.35.0\"", "lake build :blueprint", "lake build :blueprintJson"],
+      "config_shape": "@[blueprint \"label\" (statement := /-- ... -/)] attribute on declarations",
+      "macos_supported": true,
+      "data_outputs": [".lake/build/blueprint/library/<Module>.tex", ".lake/build/blueprint/*.json (nodes, uses edges, sorryless status)"],
+      "traps": ["import Architect must stay out of Challenge/Statement modules", "Extracted LaTeX may need manual fixes"]
+    },
+    {
+      "tool": "Mathlib cache and Lake pinning",
+      "url": "https://github.com/leanprover-community/mathlib4",
+      "pinned_version": "v4.35.0 = 56a005855ea17e0b0958f73ec801ae140b0a1679 (toolchain v4.35.0); v4.34.1 = d13f23b723b8a846827a245b89c10fc7d3f11612 (toolchain v4.34.1); v4.35.0-rc2 = 065356127b1dc0016f66b7283ce0ce2c4055aa55",
+      "install_commands": ["echo 'leanprover/lean4:v4.35.0' > lean-toolchain", "# lakefile.toml [[require]] name=\"mathlib\" scope=\"leanprover-community\" rev=\"v4.35.0\"", "lake update", "lake exe cache get", "lake build"],
+      "config_shape": "lakefile.toml require block; lake-manifest.json records the resolved commit",
+      "macos_supported": true,
+      "data_outputs": ["lake-manifest.json", ".lake/packages/mathlib", ".lake/build"],
+      "traps": ["lean-toolchain must match Mathlib's own at the resolved rev, including patch and rc suffix", "Commit lake-manifest.json", "Budget about 8 GiB for .lake; this Mac has about 18 GiB free (92% full)", "MATHLIB_NO_CACHE_ON_UPDATE=1 when updating doc-gen4 inside docbuild", "cache trust: cache outputs are accepted without rebuild; Palomar recompiles the Challenge itself"]
+    }
+  ]
+}

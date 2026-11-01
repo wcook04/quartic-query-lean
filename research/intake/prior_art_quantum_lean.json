@@ -1,0 +1,451 @@
+[
+ {
+  "name": "troyjlee/quantum-query-complexity",
+  "url": "https://github.com/troyjlee/quantum-query-complexity",
+  "commit_sha": "517ba85eb211232771429804d8583e3f52b9d541",
+  "licence": "Apache-2.0",
+  "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+  "mathlib_dependency": "mathlib 065356127b1dc0016f66b7283ce0ce2c4055aa55 (v4.35.0-rc2)",
+  "last_commit_date": "2026-09-27",
+  "stars": 1,
+  "files_inspected": [
+   "README.md",
+   "docs/quantum-query/VERIFICATION.md",
+   "QuantumQueryComplexity/Quantum/Algorithm.lean",
+   "QuantumQueryComplexity/Quantum/Oracle.lean",
+   "QuantumQueryComplexity/Quantum/XorOracle.lean",
+   "QuantumQueryComplexity/Quantum/Amplitude/Amplification.lean",
+   "QuantumQueryComplexity/Quantum/Amplitude/Search.lean",
+   "QuantumQueryComplexity/Quantum/Amplitude/Estimation.lean",
+   "QuantumQueryComplexity/Quantum/MaxApplications.lean",
+   "QuantumQueryComplexity/Max/Defs.lean"
+  ],
+  "provides": [
+   "QAlg (init, step t unitary, readout; query-count-indexed runs)",
+   "QAlg.state, QAlg.prob, prob_nonneg, prob_le_one, state_isQState",
+   "ComputesWithErrorOn",
+   "oracleMap/oraclePerm/oracleMat (native value oracle, QBasis = Option ι × Option σ × W)",
+   "xorOracleMat, xorOracleMat_mem_unitaryGroup",
+   "amplified, amplified_prob_some, amplified_prob_none, amplifiedBudget_eq (amplitude amplification, 4x trial budget)",
+   "searchAlg, searchAlg_prob_some_of_unmarked, two_thirds_le_search_returnProb, searchAlg_prob_none_of_no_marked (unknown-count Grover search, budget 8m, cost <= 16 sqrt(n/k))",
+   "Amplitude.Estimation (normSq_sinSum_add_cosSum etc.)",
+   "maxFun, hasDual_maxFun; Theta(sqrt n) bounded-error maximum finding in native and one-hot models, via weighted adversary dual (not Durr-Hoyer)",
+   "Quantum.PolynomialMethod, Quantum.Characterization (adversary characterisation), Composition/*, RobustSearch.Public, Walk.MNRS"
+  ],
+  "paper_needs_covered": [
+   "quantum oracle/query model",
+   "unitary circuits (step unitary matrices, abstract; no gate set)",
+   "measurement probabilities (QAlg.prob)",
+   "Grover search (unknown count)",
+   "amplitude amplification",
+   "quantum minimum/maximum finding (query bounds only)"
+  ],
+  "relation": "reusable_dependency",
+  "maintenance_state": "Active, v0.1.0 tagged 27 Sep 2026; six axiom audits (only propext, Classical.choice, Quot.sound) and Comparator replay recorded in VERIFICATION.md. Single commit author; 1 star; early public release, public definitions may change.",
+  "notes": "Strongest find for the query model. Not read: Quantum/Complexity.lean, Composition/, Promise/. Lean toolchain is a release candidate newer than openai/math (v4.34.1), so pin Mathlib to its rev. No Hadamard/Walsh transform, no Forrelation or Fourier-sampling states, no gate-level circuits; those must be added on top. Models oracle with idle and blank sectors (docs state conventions); Boolean XOR simulation constants are explicit. Min finding here is Theta(sqrt n) via adversary duality, not Durr-Hoyer, so quantum minimum finding as an algorithm with success probability is not present."
+ },
+ {
+  "name": "cslib-community/complexitylib",
+  "url": "https://github.com/cslib-community/complexitylib",
+  "commit_sha": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a",
+  "licence": "Apache-2.0",
+  "lean_toolchain": "leanprover/lean4:v4.36.0-rc2",
+  "mathlib_dependency": "mathlib 69552756cd8a2d2d48763cf7279fd814d6a1224d (also builds on leanprover/cslib)",
+  "last_commit_date": "2026-11-01",
+  "stars": 16,
+  "files_inspected": [
+   "README.md",
+   "Complexity/Computability/QueryComplexity/Quantum/Search.lean",
+   "Complexity/Computability/QueryComplexity/Quantum/Grover.lean",
+   "Complexity/Computability/QueryComplexity/Quantum/UnknownSearch.lean",
+   "Complexity/Computability/QueryComplexity/Quantum/Polynomial.lean",
+   "Complexity/Computability/QueryComplexity/Quantum/Adversary.lean",
+   "Complexity/Computability/QueryComplexity/Randomized.lean",
+   "Complexity/Computability/Circuit/Quantum/Basic.lean",
+   "Complexity/Computability/Complexity/Classes/BQP/Amplification.lean",
+   "Complexity/Foundations/Quantum/Measurement.lean"
+  ],
+  "provides": [
+   "Cslib.Quantum.State N W (EuclideanSpace over Fin N x Bool x W)",
+   "phaseOracle, run, regProb, uniform, diffusion, grover, groverAngle, searchAngle",
+   "run_grover, regProb_run_grover, grover_success (success >= 1-1/N with floor(pi/(4 theta)) iterations)",
+   "randomGrover, sum_regProb_run_grover (unknown count)",
+   "amplitude_mem_lowDegree, measureProb_run_mem_lowDegree, approxDegree_le_two_mul, degree_le_two_mul (polynomial method)",
+   "spectralSensitivity_le_thirty_six_mul, degree_le_mul_sq (adversary/sensitivity relations)",
+   "RandomizedDecisionTree, Computes, errorProb, depth (randomized query complexity)",
+   "Circuit/Quantum/Basic: Qubits, Gate k := unitaryGroup, PlacedGate, place (gate on embedded wires)",
+   "BQP classes, BQP/Amplification, Foundations/Quantum/Measurement: ket, measureProb",
+   "QueryComplexity.* classical: Degree, ApproximateDegree, Huang, NisanSzegedy, SensitivitySeparation"
+  ],
+  "paper_needs_covered": [
+   "quantum oracle/query model",
+   "unitary circuits (gate-level placement)",
+   "measurement probabilities",
+   "Grover search",
+   "randomized query model (needed for the R vs Q separation statement)"
+  ],
+  "relation": "adaptable_with_licence_check",
+  "maintenance_state": "Very active (commit 1 Nov 2026), AI-assisted, community library; files tagged '-- upstream: candidate' for cslib. Namespace and file layout may move.",
+  "notes": "Second strongest. Query model here is a phase-oracle model with trivial workspace (separate from troyjlee's native-value oracle), so the two do not interoperate directly. Quantum.Search/Grover contain the BBBV lower bound (card_sub_two_le per header) which is a useful sanity reference. Apache-2.0, Mathlib toolchain v4.36.0-rc2 is later than troyjlee's. Does not contain amplitude amplification in general form (only Grover and unknown-count search). I did not open the Circuit/Quantum/Uniform or BQP time files."
+ },
+ {
+  "name": "QudeLeap/Lean-QuantumAlg",
+  "url": "https://github.com/QudeLeap/Lean-QuantumAlg",
+  "commit_sha": "971dc8be8a153a116b6d7cd748f984d545861b00",
+  "licence": "Apache-2.0",
+  "lean_toolchain": "leanprover/lean4:v4.33.1",
+  "mathlib_dependency": "mathlib 0df444a360eaa60ab8c11dca51a86af692955474 (v4.33.1); also CSLib per web listing",
+  "last_commit_date": "2026-10-26",
+  "stars": 13,
+  "files_inspected": [
+   "README.md",
+   "QuantumAlg/Algorithms/Grover/Specification.lean",
+   "QuantumAlg/Algorithms/Grover/Endpoint/Results.lean",
+   "QuantumAlg/Primitives/WalshHadamard.lean",
+   "QuantumAlg/Primitives/WalshHadamard/Mathematics.lean",
+   "QuantumAlg/Primitives/AmplitudeAmplification.lean (listing and header)"
+  ],
+  "provides": [
+   "GroverSearch.exactSuccessProbability (sin((2k+1) arcsin sqrt(t/2^n))^2)",
+   "GroverSearch.algorithm_outputProbability_eq, algorithm_queryCount, algorithm_elementaryGateCount, algorithm_singleQubitCount",
+   "WalshHadamard.Oracle n := Fin (2^n) -> Bool, phaseSign, bit, dotParity, walshSign (normalised Walsh character matrix) with native Hadamard layer + XOR query construction",
+   "Primitives/AmplitudeAmplification (Construction, Context, Counts, Endpoint)",
+   "Algorithms/AmplitudeEstimation, QPE, QFT, DeutschJozsa, BernsteinVazirani, Simon, OrderFinding, Factoring",
+   "Core/Algorithm (Solves, AlgorithmRun), Core/Execution, Components/Gates, Components/Oracle (Xor.Model, Reflection, ZeroReflection)"
+  ],
+  "paper_needs_covered": [
+   "quantum oracle/query model (explicit execution model with query counts)",
+   "unitary circuits (gate-level, with gate and query accounting)",
+   "Hadamard/Walsh transforms",
+   "measurement probabilities",
+   "Grover search",
+   "amplitude amplification"
+  ],
+  "relation": "adaptable_with_licence_check",
+  "maintenance_state": "Active, 3.4.1 release, arXiv 2610.30216; 6307 Lean files; uses the Lean `module` system with public/import all, which constrains downstream use. Toolchain v4.33.1 is older than the others.",
+  "notes": "Only project with a Walsh-Hadamard layer tied to an XOR phase query, plus resource-counted Grover. Heavy and framework-bound (execution contexts, storage, restoration), so extracting walshSign/dotParity lemmas is realistic while adopting the whole Core is not. Did not inspect AmplitudeAmplification theorem statements or Forrelation-style states (none found by file name or code search). Mirrors exist in LeanPool/lean-pool and competemath/tengoku (path hits only, not opened)."
+ },
+ {
+  "name": "openai/math",
+  "url": "https://github.com/openai/math",
+  "commit_sha": "4eaee87548250b2682affda7d05d947c05554bae",
+  "licence": "Apache-2.0",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_dependency": "mathlib d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "last_commit_date": "2026-10-30",
+  "stars": 17245,
+  "files_inspected": [
+   "lean/ComparatorChallenges/ExactQuantumFactoring.json",
+   "lean/ComparatorChallenges/ExactQuantumFactoring.lean",
+   "lean/OAI/Computability/QuantumFactoring/Main.lean",
+   "lean/OAI/Computability/QuantumFactoring/Basic.lean",
+   "lean/OAI/Computability/QuantumFactoring/GateSemantics.lean",
+   "lean/OAI/Computability/QuantumFactoring/SuperpositionGates.lean",
+   "lean/OAI/Computability/QuantumFactoring/HadamardAction.lean",
+   "lean/OAI/Computability/QuantumFactoring/ControlledHadamard.lean",
+   "lean/OAI/Computability/QuantumFactoring/PhaseOracle.lean",
+   "lean/OAI/Computability/QuantumFactoring/PhysicalAmplification.lean",
+   "lean/OAI/Computability/QuantumFactoring/CoherentSampling.lean",
+   "lean/OAI/Computability/QuantumFactoring/FairOracle.lean",
+   "lean/OAI/Computability/QuantumFactoring/QuantumCore.lean",
+   "lean/OAI/Computability/QuantumFactoring/TreeAmplified.lean"
+  ],
+  "provides": [
+   "solution_module OAI.Computability.QuantumFactoring.Main proves OAI.ExactQuantumFactoring.exact_quantum_factoring (MainTheorem) using PhysicalTree.finalCircuit",
+   "Primitive {not,cnot,toffoli,hadamard,phase}; Gate (primitive, inverse, controlled); Instruction q (gate on injective wires); Circuit (qubits, instruction list); Circuit.apply, Circuit.outputState, Circuit.correctProbability (Born sum); Circuit.encode, Uniform, PolynomialResources",
+   "Primitive.matrix, Gate.matrix, Instruction.matrix; Gate.local_unitary, Primitive.local_unitary, permutationMatrix_unitary, controlledMatrix_unitary",
+   "hadamardAt, phaseAt, hadamardAt_matrix, hadamardAt_basis, controlledHadamardAt_*, localHadamard, encoded_hadamard",
+   "phaseOracle (BooleanNetwork -> phase on target), phaseOracle_basis, phaseOracle_state, fairOracle_state/mass, sampleProgram_amplitude",
+   "physical_quarter_amplification (one exact amplification round from success mass 1/4 to amplitude -2 * goodPart), amplificationProgram, RespectsSector",
+   "phase/triangle trigonometric helper lemmas in QuantumCore (phase_lipschitz etc.)"
+  ],
+  "paper_needs_covered": [
+   "unitary circuits (exact gate-level model, finite gate set)",
+   "Hadamard (single qubit, hadamardAt, controlled version, tensor action)",
+   "measurement probabilities (Born sum correctProbability)",
+   "amplitude amplification (single exact quarter-to-half round only)"
+  ],
+  "relation": "adaptable_with_licence_check",
+  "maintenance_state": "Snapshot release, last commit 30 Oct 2026; Apache-2.0. Not a maintained library: ComparatorChallenges file keeps the statement with sorry, solution lives in OAI namespace under a ~640-file QuantumFactoring directory. The complete proof is in the repo (Main.lean has no sorry).",
+  "notes": "Circuit model is a concrete gate-level model with fixed 20 gate names, Boolean-wire basis Basis q := Fin q -> Bool, State q := Basis q -> C, circuit applied by foldl of matrix mulVec. There is no query oracle in this model other than classical Boolean networks compiled to reversible circuits (BooleanNetwork, phaseOracle), no Walsh-Hadamard n-fold lemma beyond hadamardAt on one wire, and no Grover/minimum finding. Useful as a design reference for exact-gate circuits and as evidence that the target Lean toolchain (v4.34.1) matches what OpenAI used; the file ExactQuantumFactoring.lean is the challenge only. Directory listing was via contents API; recursive tree was truncated so file inventory is from directory listing."
+ },
+ {
+  "name": "Timeroot/Lean-QuantumInfo",
+  "url": "https://github.com/Timeroot/Lean-QuantumInfo",
+  "commit_sha": "56e83a9288a3c616285038748e273b3c0e1a36bf",
+  "licence": "MIT",
+  "lean_toolchain": "leanprover/lean4:v4.28.0",
+  "mathlib_dependency": "mathlib 8f9d9cff6bd728b17a24e163c9402775d9e6a365",
+  "last_commit_date": "2026-05-05 (default branch head); repo pushed 2026-09-10",
+  "stars": 146,
+  "files_inspected": [
+   "QuantumInfo/Finite/Qubit/Basic.lean",
+   "QuantumInfo/Finite/Unitary.lean",
+   "QuantumInfo/Finite/POVM.lean",
+   "QuantumInfo/Finite/MState.lean"
+  ],
+  "provides": [
+   "Qubit := Fin 2; Z, X, Y, H, S, T : U(Qubit)",
+   "H_sq-style single-qubit lemmas (Z_sq shown)",
+   "MState (density matrices), U_conj, U_conj_spectrum_eq, inner_U_conj, no_cloning",
+   "POVM, POVM.measure, measurementMap, measurement CPTP maps"
+  ],
+  "paper_needs_covered": [
+   "measurement probabilities (POVM.measure on density matrices)",
+   "Hadamard (single qubit only)"
+  ],
+  "relation": "design_reference",
+  "maintenance_state": "Maintained by Timeroot and contributors; default-branch head dates May 2026 though the repo was pushed Sep 2026 (other branches). Info-theory focus (entropies, channels, Stein's lemma).",
+  "notes": "No circuits, no oracle model, no n-qubit Hadamard, no algorithms. Mixed-state formalism is heavier than the pure-state setting the paper needs. Toolchain v4.28.0 is old. Utility limited to POVM/measurement conventions and the U(d) notation."
+ },
+ {
+  "name": "leanprover-community/mathlib4",
+  "url": "https://github.com/leanprover-community/mathlib4",
+  "commit_sha": "16b5a1bae01ff8aadfe0e4bcf490c12a66a965c3",
+  "licence": "Apache-2.0",
+  "lean_toolchain": "leanprover/lean4:v4.36.0-rc2",
+  "mathlib_dependency": "self",
+  "last_commit_date": "2026-11-01",
+  "stars": 4411,
+  "files_inspected": [
+   "Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean",
+   "Mathlib/LinearAlgebra/Matrix/Kronecker.lean",
+   "Mathlib/LinearAlgebra/UnitaryGroup.lean",
+   "Mathlib/Analysis/Fourier/FiniteAbelian/Orthogonality.lean",
+   "Mathlib/Analysis/Complex/Hadamard.lean"
+  ],
+  "provides": [
+   "Matrix.IsHadamard (structure), IsHadamard.kronecker, IsHadamard.conjTranspose, IsHadamard.reindex (Sylvester construction)",
+   "Matrix.unitaryGroup, kronecker_mem_unitary, diagonal_mem_unitary, submatrix_equiv_mem_unitary",
+   "Matrix.kroneckerMap",
+   "AddChar orthogonality: expect_eq_ite, wInner_cWeight_eq_boole, wInner_cWeight_eq_zero_iff_ne (characters of finite abelian groups, usable for Walsh characters on (ZMod 2)^n)"
+  ],
+  "paper_needs_covered": [
+   "Hadamard/Walsh transforms (algebraic ingredients only)",
+   "unitary circuits (unitary group and Kronecker closure)"
+  ],
+  "relation": "reusable_dependency",
+  "maintenance_state": "Core library; no quantum-computing module. Mathlib/Analysis/Complex/Hadamard.lean is the three-lines theorem and is irrelevant.",
+  "notes": "No namespace named quantum, Grover, qubit, or Walsh in the 9479-file tree (case-insensitive filename grep). Matrix.IsHadamard is in the current master (HadamardMatrix.lean authored 2026), possibly absent from older pins such as openai/math's rev d13f23b. Useful pieces: IsHadamard.kronecker plus AddChar orthogonality give most of the Walsh-Hadamard algebra."
+ },
+ {
+  "name": "google-deepmind/formal-conjectures",
+  "url": "https://github.com/google-deepmind/formal-conjectures",
+  "commit_sha": "d995ef5d306637c0a2e489c7e579647168d7df2f",
+  "licence": "Apache-2.0",
+  "lean_toolchain": "leanprover/lean4:v4.33.1",
+  "mathlib_dependency": "not read from manifest",
+  "last_commit_date": "2026-11-01 (push)",
+  "stars": 1341,
+  "files_inspected": [
+   "FormalConjectures/OpenQuantumProblems/13.lean",
+   "FormalConjectures/OpenQuantumProblems/23.lean",
+   "FormalConjectures/OpenQuantumProblems/35.lean"
+  ],
+  "provides": [
+   "Open Quantum Problems 13 (mutually unbiased bases), 23 (SIC-POVMs), 35 (AME states) as statements"
+  ],
+  "paper_needs_covered": [
+   "measurement probabilities (POVM-style definitions in OQP 23 only, not opened in detail)"
+  ],
+  "relation": "not_useful",
+  "maintenance_state": "Active.",
+  "notes": "File-name grep over 2087 files: no quantum query, Grover, Forrelation or circuit files. OpenQuantumProblems are quantum-information conjectures, not computation. FormalConjectures/Arxiv/2402.13202/CirculantHadamard.lean and Wikipedia/Hadamard.lean concern Hadamard matrices, not Walsh transforms of oracles."
+ },
+ {
+  "name": "QuCompLean/QCLib",
+  "url": "https://github.com/QuCompLean/QCLib",
+  "commit_sha": "20dae29f5f4600907783fcb3d9dfaf98d05064d3",
+  "licence": "Apache-2.0",
+  "lean_toolchain": "leanprover/lean4:v4.31.0-rc1",
+  "mathlib_dependency": "mathlib d568c8c09630de097a046763c17b9ea99f95f950",
+  "last_commit_date": "2026-07-07",
+  "stars": 2,
+  "files_inspected": [
+   "QCLib/Circuit/Hadamard.lean",
+   "QCLib/Circuit/Complexity.lean"
+  ],
+  "provides": [
+   "HH n := tensor of n Hadamards, HH_def, HH_sq (HH*HH=1), HH_isHermitian, HadamardBasisVector, HH_apply, HH_hadarmardBasis (sic), hadarmardBasisVector_eq_prod",
+   "TwoQubitGate, Circuit n := List (TwoQubitGate n), TwoQubitGate.Unitary, Circuits U, ComplexityMeasure",
+   "QCLib/Circuit/QFT"
+  ],
+  "paper_needs_covered": [
+   "Hadamard/Walsh transforms (n-fold Hadamard involution)",
+   "unitary circuits (two-qubit gate lists)"
+  ],
+  "relation": "design_reference",
+  "maintenance_state": "Small, slowly moving project (2 stars, last commit July 2026).",
+  "notes": "Cleanest standalone statement of HH n and its involution, written over Mathlib unitary group with Register n basis. No oracle or query notion. Candidate for lifting HH lemmas if the query library lacks them."
+ },
+ {
+  "name": "inQWIRE/LeanQuantum",
+  "url": "https://github.com/inQWIRE/LeanQuantum",
+  "commit_sha": "44fc4eb1f4ba512e659deacd3468fda0a764d162",
+  "licence": "MIT",
+  "lean_toolchain": "leanprover/lean4:v4.30.0-rc2",
+  "mathlib_dependency": "mathlib c1e30e172c8fda21e6776bf1f10351e882ee31b9",
+  "last_commit_date": "2026-05-16 (head); pushed 2026-07-14",
+  "stars": 27,
+  "files_inspected": [
+   "Quantumlib/Data/Gate/Basic.lean",
+   "Quantumlib/Data/Gate/Unitary.lean",
+   "Quantumlib/Computation.lean"
+  ],
+  "provides": [
+   "hadamard : CSquare 2, hadamardK k : CSquare (2^k)",
+   "controlM, cnot, notc, swap",
+   "hadamard_isUnitary, rotate_isUnitary, phaseShift_isUnitary, sigma_*_isUnitary",
+   "solve_matrix tactic"
+  ],
+  "paper_needs_covered": [
+   "Hadamard/Walsh transforms (hadamardK)",
+   "unitary circuits (matrix-level gate library)"
+  ],
+  "relation": "design_reference",
+  "maintenance_state": "Moderately maintained port of Coq QWIRE Quantumlib; 31 Lean files.",
+  "notes": "hadamardK is the k-fold Hadamard matrix; no circuits as syntax, no oracles, no algorithms. Gate library only."
+ },
+ {
+  "name": "duckki/quantum-computing-lean",
+  "url": "https://github.com/duckki/quantum-computing-lean",
+  "commit_sha": "127ace2fa4a00bfb1f2e40fa7ede1a1de7d86ca2",
+  "licence": "none found (repo API reports null licence)",
+  "lean_toolchain": "leanprover/lean4:v4.33.1",
+  "mathlib_dependency": "mathlib 0df444a360eaa60ab8c11dca51a86af692955474",
+  "last_commit_date": "2026-09-15",
+  "stars": 38,
+  "files_inspected": [
+   "QuantumComputing/Gates/Basic.lean",
+   "QuantumComputing/Measurement/Computational.lean",
+   "QuantumComputing/Theorems/RandomNumberGenerator.lean"
+  ],
+  "provides": [
+   "X, Z, H, CNOT, TOFFOLI, CZ, SWAP, controlledGate",
+   "Measurement.Computational: proj, projectors, prob, postMeasure, prob_basis_self, prob_nonneg",
+   "H_ket0_uniform, H2_mul_ket00",
+   "Theorems.NoCloning"
+  ],
+  "paper_needs_covered": [
+   "measurement probabilities (computational basis)",
+   "Hadamard (1-2 qubits)"
+  ],
+  "relation": "design_reference",
+  "maintenance_state": "Active in September 2026; no licence file so reuse needs permission.",
+  "notes": "Textbook-style small library; no n-qubit generality, no oracle model."
+ },
+ {
+  "name": "Millennights/quantum-computing-in-Lean4",
+  "url": "https://github.com/Millennights/quantum-computing-in-Lean4",
+  "commit_sha": "5f28b2fe8e0b6fa28668f7efcd85c0889d2ba2d8",
+  "licence": "none found (null)",
+  "lean_toolchain": "leanprover/lean4:v4.30.0-rc1",
+  "mathlib_dependency": "mathlib 0c154d67103f74be3a0f2c509f72ccbf5be9f2a7",
+  "last_commit_date": "2026-07-19",
+  "stars": 2,
+  "files_inspected": [
+   "Qcircuits/Grover.lean",
+   "Qcircuits/Basic.lean"
+  ],
+  "provides": [
+   "numMarked, goodVec, badVec, ketp_n_eq_good_bad, groverPhase, groverPhase_ketp, grover_phase_kickback_ketp, groverDiff",
+   "Deutsch-Jozsa, Bernstein-Vazirani, Simon (file names only)"
+  ],
+  "paper_needs_covered": [
+   "Grover search (single-iteration decomposition; per README only single-run expected outputs are verified)"
+  ],
+  "relation": "design_reference",
+  "maintenance_state": "Small student-style project, last push Jul 2026.",
+  "notes": "Matrix-over-Fin(2^n) representation of the Grover step, good/bad decomposition. No full multi-iteration success probability found in the files I read. No licence, so adapt ideas only."
+ },
+ {
+  "name": "jpatel2005/SymbolicQuantum",
+  "url": "https://github.com/jpatel2005/SymbolicQuantum",
+  "commit_sha": "f1b4e92146d3d7e346859cbaff547fb2027e936f",
+  "licence": "Apache-2.0",
+  "lean_toolchain": "leanprover/lean4:v4.25.0",
+  "mathlib_dependency": "mathlib 1ccd71f89cbbd82ae7d097723ce1722ca7b01c33",
+  "last_commit_date": "2026-10-03",
+  "stars": 1,
+  "files_inspected": [
+   "SymbolicQuantum/QuantumDefs.lean",
+   "SymbolicQuantum/DJA/DJA.lean"
+  ],
+  "provides": [
+   "QState n, BitString, basis_state, ket0n, ketPn, tensor_product, mask_left/right",
+   "Deutsch-Jozsa lemmas H_init_ket0n, H_init_action_dja",
+   "Simon and Shor reduction files (names only)"
+  ],
+  "paper_needs_covered": [
+   "Hadamard/Walsh transforms (H-on-all-wires init for Deutsch-Jozsa)",
+   "oracle algorithms (Deutsch-Jozsa, Simon)"
+  ],
+  "relation": "design_reference",
+  "maintenance_state": "Small, last commit 3 Oct 2026, Lean v4.25.0 (old).",
+  "notes": "Contains the uniform-superposition-after-H^n calculation for Deutsch-Jozsa, the closest small precedent for a Fourier-sampling analysis like Forrelation, but not Forrelation itself."
+ },
+ {
+  "name": "Maokami/vqc_in_lean",
+  "url": "https://github.com/Maokami/vqc_in_lean",
+  "commit_sha": "00b7e012c2c867535f2f4561e5d931a336b5fc5d",
+  "licence": "MIT",
+  "lean_toolchain": "leanprover/lean4:v4.15.0-rc1",
+  "mathlib_dependency": "mathlib 839e3f6ba9240d043d4ef510140f10d00cad36f5",
+  "last_commit_date": "2026-02-16",
+  "stars": 6,
+  "files_inspected": [
+   "VqcInLean/SQIR.lean"
+  ],
+  "provides": [
+   "SQIR Gate inductive (G_I, G_H, G_X ...), Com (circuit syntax: skip, app, seq)"
+  ],
+  "paper_needs_covered": [
+   "unitary circuits (circuit syntax only)"
+  ],
+  "relation": "not_useful",
+  "maintenance_state": "WIP personal port, Lean v4.15.0, effectively stalled since Feb 2026.",
+  "notes": "Verified Quantum Computing port. Too old and incomplete."
+ },
+ {
+  "name": "DakeBU/QuantumComputinglib-QuantumComputingBench",
+  "url": "https://github.com/DakeBU/QuantumComputinglib-QuantumComputingBench",
+  "commit_sha": "4e2c5b2c0be522670efb54a56c042b9145770e34",
+  "licence": "MIT",
+  "lean_toolchain": "leanprover/lean4:v4.29.1",
+  "mathlib_dependency": "mathlib 5e932f97dd25535344f80f9dd8da3aab83df0fe6",
+  "last_commit_date": "2026-10-23",
+  "stars": 3,
+  "files_inspected": [
+   "ABEISTests/Basic.lean"
+  ],
+  "provides": [
+   "StatePreparationTarget, VerifiedStatePreparation, GateMatrix over Rat (block-encoding certificates)"
+  ],
+  "paper_needs_covered": [],
+  "relation": "not_useful",
+  "maintenance_state": "Active Oct 2026 but about block-encoding certificates, not query algorithms.",
+  "notes": "Name suggests relevance; content is gate-level block-encoding and state preparation certificates."
+ },
+ {
+  "name": "leanprover/cslib",
+  "url": "https://github.com/leanprover/cslib",
+  "commit_sha": "52897fc2059b1a550cd7fb06bbd00713e490b8d6",
+  "licence": "Apache-2.0",
+  "lean_toolchain": "leanprover/lean4:v4.36.0-rc2",
+  "mathlib_dependency": "mathlib c1cc962aa0ead632c537be6c1f5b24ebc5540bc1",
+  "last_commit_date": "2026-11-01",
+  "stars": 789,
+  "files_inspected": [
+   "Cslib/Computability/QueryComplexity/Defs.lean"
+  ],
+  "provides": [
+   "flipBlock and BitString helpers for query complexity; classical Query/ (FreeM, Sort lower bounds)"
+  ],
+  "paper_needs_covered": [
+   "classical query model only"
+  ],
+  "relation": "design_reference",
+  "maintenance_state": "Very active.",
+  "notes": "No quantum directory in the 341-file tree (filename grep). Quantum query material lives in cslib-community/complexitylib, tagged as upstream candidates for this repo."
+ }
+]
