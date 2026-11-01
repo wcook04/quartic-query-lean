@@ -6,10 +6,15 @@ nearly quartic query-complexity separation. Start with the
 [ledger notes](intake/statement_ledger_notes.md) for the source locations,
 interpretations, unresolved questions and proposed formalisation order.
 
-These materials were prepared by AI agents and have not been independently
+The intake records were prepared by AI agents and have not been independently
 reviewed. A cited source, a proposed Lean statement and a successful proof check
-are different kinds of evidence. The files record research and proposals;
+are different kinds of evidence. The intake files record research and proposals;
 they are not build receipts or proof certificates.
+
+[requests/](requests/) holds the maintained instructions for further reviews.
+The [packet builder](../tools/build_research_packets.py) combines these
+instructions with source files for reviewers. The requests describe planned
+checking; they do not establish that proofs have been checked.
 
 ## Find the relevant files
 
@@ -32,9 +37,17 @@ sources available in this clone.
 ## Build research ZIPs
 
 [tools/build_research_packets.py](../tools/build_research_packets.py) prepares
-three independent ZIPs: a paper audit, a literature review and a Lean/checking
-plan. Each ZIP includes a research request, source files and a manifest of their
-SHA-256 hashes. The builder checks the archived bytes against that manifest.
+three independent ZIPs, using these authored requests:
+
+- [Understand and audit the paper](requests/1_understand_the_paper.md).
+- [Ground every step in the literature](requests/2_ground_in_literature.md).
+- [Plan full Lean and Comparator checking](requests/3_lean_and_comparator.md).
+
+The [common template](requests/common.md) and [boundaries](requests/boundaries.md)
+combine with each request to produce its `READ_ME_FIRST.md`. Edit these source
+files rather than instructions inside a generated ZIP. Each ZIP also includes
+source files and a manifest of their SHA-256 hashes. The builder checks the
+archived bytes against that manifest.
 
 The original local defaults read papers and extracted text from sibling/private
 checkouts, plus the current local Lean files. Those inputs are not supplied by

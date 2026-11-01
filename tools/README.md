@@ -24,6 +24,12 @@ a paper audit, a literature review, and a formalisation planning packet. Each
 contains instructions and a manifest with SHA-256 hashes. The builder reopens
 each archive and verifies its contents against those hashes.
 
+Instruction text belongs in [research/requests/](../research/requests/). The
+builder combines the common template, one job request and the boundaries into
+`READ_ME_FIRST.md`. Edit those authored files and rebuild rather than editing
+instructions inside generated ZIPs. See the [research guide](../research/README.md)
+for the three requests and the evidence they ask reviewers to assess.
+
 ```sh
 python3 tools/build_research_packets.py --help
 ```

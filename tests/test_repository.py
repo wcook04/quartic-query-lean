@@ -95,6 +95,16 @@ class RepositoryTests(unittest.TestCase):
         self.assertTrue(any("LICENSE: required" in e for e in self.errors(index=True)))
         self.assertEqual([], self.errors())
 
+    def test_staged_request_deletion_cannot_be_masked_by_working_restore(self):
+        for name in ("common", "boundaries", "1_understand_the_paper",
+                     "2_ground_in_literature", "3_lean_and_comparator"):
+            with self.subTest(request=name):
+                path = f"research/requests/{name}.md"
+                self.git("rm", "--cached", path)
+                self.assertTrue(any(f"{path}: required" in e for e in self.errors(index=True)))
+                self.assertEqual([], self.errors())
+                self.git("add", path)
+
     def test_deleted_optional_file_is_not_a_candidate(self):
         self.write("research/old.txt")
         self.git("add", "research/old.txt")
@@ -111,7 +121,7 @@ class RepositoryTests(unittest.TestCase):
         self.assertTrue(any("escapes repository" in e for e in self.errors()))
 
     def test_symlink_is_rejected_in_both_views(self):
-        (self.root / "research").mkdir()
+        (self.root / "research").mkdir(exist_ok=True)
         (self.root / "research/link.txt").symlink_to("../LICENSE")
         self.git("add", "research/link.txt")
         self.assertTrue(any("regular files" in e for e in self.errors()))

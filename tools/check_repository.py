@@ -13,7 +13,11 @@ from urllib.parse import unquote, urlsplit
 ROOT_FILES = {"README.md", "LICENSE", ".gitignore", "Makefile", "AGENTS.md"}
 REQUIRED = {"README.md", "LICENSE", ".gitignore", "Makefile",
             "tools/check_repository.py", "tests/test_repository.py",
-            ".github/workflows/check.yml"}
+            ".github/workflows/check.yml",
+            "research/requests/common.md", "research/requests/boundaries.md",
+            "research/requests/1_understand_the_paper.md",
+            "research/requests/2_ground_in_literature.md",
+            "research/requests/3_lean_and_comparator.md"}
 EVIDENCE_SUFFIXES = {".md", ".json", ".txt", ".bib", ".csv", ".yaml", ".yml", ".toml"}
 CACHE_PARTS = {".lake", "__pycache__", ".pytest_cache", ".mypy_cache", "node_modules"}
 OUTPUT_SUFFIXES = {".zip", ".olean", ".ilean", ".pyc", ".o", ".so", ".dylib"}

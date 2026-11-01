@@ -1,14 +1,18 @@
 # Working in quartic-query-lean
 
 Read [README.md](README.md) and [research/README.md](research/README.md) first.
-This repository owns research intake, Lean source and the tools that package
-that work. It does not inherit the private ai_workflow runtime or its commands.
+This repository owns research intake, review requests, Lean source and the tools
+that package them. It does not inherit the private ai_workflow runtime or its
+commands.
 
 ## Ownership
 
 - `research/intake/` holds original advisory research records. Keep their source
   references and uncertainty intact. Design proposals there are not implemented
   interfaces or verified mathematical claims.
+- `research/requests/` owns maintained review instructions. Edit these source
+  files and rebuild packets; do not edit generated ZIP instructions. Requests
+  describe planned checking and are not proof evidence.
 - `lean/` is the Lean project. Its toolchain and dependency files own the build.
   Do not infer successful compilation from a file's presence.
 - `tools/` holds maintenance programs; `tests/` holds their regression tests.
