@@ -10,7 +10,6 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 INTAKE = ROOT / "research" / "intake"
 SOURCES = pathlib.Path.home() / "src" / "quartic-query-sources" / "papers"
 ANNEX = pathlib.Path.home() / "src/ai_workflow/annexes/openai-math-284-quartic-query-separation"
-SIBLINGS = pathlib.Path.home() / "src/ai_workflow/annexes"
 
 BOUNDARY = """## Boundaries
 
@@ -95,48 +94,41 @@ We want to check the whole paper in Lean, with Comparator on each published stat
 """),
 }
 
-SHARED = {
-    "corpus/statement_ledger.json": INTAKE / "statement_ledger.json",
-    "corpus/statement_ledger_notes.md": INTAKE / "statement_ledger_notes.md",
-    "corpus/commentary.json": INTAKE / "commentary.json",
-    "paper/quartic-query-separation.pdf": ANNEX / "source.pdf",
-    "paper/extracted.md": ANNEX / "extracted.md",
-}
-LITERATURE = {"literature/references_resolved.json": INTAKE / "references_resolved.json"}
-LEAN = {
-    "lean/prior_art_quantum_lean.json": INTAKE / "prior_art_quantum_lean.json",
-    "lean/prior_art_classical_lean.json": INTAKE / "prior_art_classical_lean.json",
-    "lean/verification_tooling.md": INTAKE / "verification_tooling.md",
-    "lean/organisation_exemplars.md": INTAKE / "organisation_exemplars.md",
-    "lean/internal_inheritance.md": INTAKE / "internal_inheritance.md",
-    "lean/current/Drift.lean": ROOT / "lean/QuarticQuery/Tournament/Drift.lean",
-    "lean/current/lakefile.toml": ROOT / "lean/lakefile.toml",
-    "lean/current/lean-toolchain": ROOT / "lean/lean-toolchain",
-}
-
-
 def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def papers():
-    return {f"literature/papers/{p.name}": p for p in sorted(SOURCES.glob("*.pdf"))}
-
-
-def members(job):
-    out = dict(SHARED)
-    if job.startswith("1_"):
-        out |= LITERATURE | papers() | {"lean/current/Drift.lean": LEAN["lean/current/Drift.lean"]}
-    elif job.startswith("2_"):
-        out |= LITERATURE | papers()
-    else:
-        out |= LITERATURE | LEAN
+def members(job, *, intake=INTAKE, papers_dir=SOURCES, paper_annex=ANNEX,
+            lean_dir=ROOT / "lean"):
+    """Map stable archive names to configurable source owners."""
+    if job not in JOBS:
+        raise ValueError(f"unknown packet: {job}")
+    out = {
+        "corpus/statement_ledger.json": intake / "statement_ledger.json",
+        "corpus/statement_ledger_notes.md": intake / "statement_ledger_notes.md",
+        "corpus/commentary.json": intake / "commentary.json",
+        "paper/quartic-query-separation.pdf": paper_annex / "source.pdf",
+        "paper/extracted.md": paper_annex / "extracted.md",
+        "literature/references_resolved.json": intake / "references_resolved.json",
+    }
+    if job.startswith(("1_", "2_")):
+        out.update({f"literature/papers/{p.name}": p
+                    for p in sorted(papers_dir.glob("*.pdf"))})
+    if job.startswith(("1_", "3_")):
+        out["lean/current/Drift.lean"] = lean_dir / "QuarticQuery/Tournament/Drift.lean"
+    if job.startswith("3_"):
+        for name in ("prior_art_quantum_lean.json", "prior_art_classical_lean.json",
+                     "verification_tooling.md", "organisation_exemplars.md",
+                     "internal_inheritance.md"):
+            out[f"lean/{name}"] = intake / name
+        for name in ("lakefile.toml", "lean-toolchain"):
+            out[f"lean/current/{name}"] = lean_dir / name
     return out
 
 
-def build(job, spec, dest):
+def build(job, spec, dest, **sources):
     title, text = spec
-    files = members(job)
+    files = members(job, **sources)
     missing = [str(v) for v in files.values() if not v.is_file()]
     if missing:
         raise SystemExit("missing sources: " + ", ".join(missing))
@@ -167,7 +159,17 @@ def build(job, spec, dest):
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--dest", type=pathlib.Path, default=pathlib.Path.home() / "Downloads" / "quartic_type_b_20261101")
+    ap.add_argument("--papers-dir", type=pathlib.Path, default=SOURCES,
+                    help="directory containing cited-paper PDFs")
+    ap.add_argument("--paper-annex", type=pathlib.Path, default=ANNEX,
+                    help="directory containing source.pdf and extracted.md")
+    ap.add_argument("--intake-dir", type=pathlib.Path, default=INTAKE,
+                    help="directory containing research intake records")
+    ap.add_argument("--lean-dir", type=pathlib.Path, default=ROOT / "lean",
+                    help="Lean project containing QuarticQuery/ and Lake configuration")
     args = ap.parse_args()
     args.dest.mkdir(parents=True, exist_ok=True)
     for job, spec in JOBS.items():
-        build(job, spec, args.dest)
+        build(job, spec, args.dest, intake=args.intake_dir,
+              papers_dir=args.papers_dir, paper_annex=args.paper_annex,
+              lean_dir=args.lean_dir)
