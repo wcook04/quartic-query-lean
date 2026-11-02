@@ -570,4 +570,27 @@ theorem abs_cf_le (s : ℝ) {ε : ℝ} (hε : 0 ≤ ε) (hH : ∀ a b, |H a b| �
     calc _ ≤ ε * 1 * 3 * (3 * ε) ^ e := by gcongr
       _ = _ := by ring
 
+/-- Each edge contributes at most `3ε/16`, with the scalar factors grouped together. -/
+theorem abs_cf_le_sharp (s : ℝ) {ε : ℝ} (hε : 0 ≤ ε)
+    (hH : ∀ a b, |H a b| ≤ ε) (e : ℕ) :
+    ∀ (j : ℕ) (a : n) (q : Fin e → n) (u : PC l n → ℝ),
+      |cf H s e j a q u| ≤ ((3 / 16 : ℝ) * ε) ^ e := by
+  induction e with
+  | zero => intro j a q u; simp [cf]
+  | succ e ih =>
+    intro j a q u
+    simp only [cf]
+    rw [abs_mul, abs_mul, abs_mul, abs_of_pos (psiS_pos _),
+      abs_of_pos (dphi_pos _), pow_succ']
+    calc _ = |H (q 0) a| * (psiS (Uc u j a) * dphi (Vc H u j (q 0))) *
+          |cf H s e (j + 1) (q 0) (Fin.tail q) u| := by ring
+      _ ≤ ε * (3 / 16) * (((3 / 16 : ℝ) * ε) ^ e) := by
+          have hstep : |H (q 0) a| *
+              (psiS (Uc u j a) * dphi (Vc H u j (q 0))) ≤ ε * (3 / 16) :=
+            mul_le_mul (hH (q 0) a) (psi_dphi_le_sharp _ _)
+              (mul_pos (psiS_pos _) (dphi_pos _)).le hε
+          exact mul_le_mul hstep (ih (j + 1) (q 0) (Fin.tail q) u)
+            (abs_nonneg _) (by positivity)
+      _ = _ := by ring
+
 end QuarticQuery.ForrelationLower

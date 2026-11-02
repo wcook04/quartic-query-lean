@@ -2,26 +2,28 @@
   "schema": "round2_reviewed_tie_candidates_v1",
   "review_date": "2026-11-02",
   "purpose": "Candidate reviewed source relations only; parent owns corpus ingestion after actual validated builds.",
-  "repo_head": "804c9aa1269af0a727effb6f6c138eaf86951f4c",
+  "repo_head": "237f981d8f20bfed3c20b748a0bb82eef290a041",
   "source_state": {
     "kind": "dirty_working_tree_observation",
     "source_sha256": {
       "lean/QuarticQuery/ForrelationLower/Stein.lean": "6238d7e6f8ade6044eb623899069f35d0a5b860699c722e7007fd71046ffff9e",
       "lean/QuarticQuery/ForrelationLower/Walk.lean": "c9394068bc3a583178fcae1e11d6eafdc7dcfc17bcd8a0b269f9a13ccee209ba",
       "lean/QuarticQuery/ForrelationLower/Cascade.lean": "9438575752bdbb664cecbf15b97afc96f2f235fabcab8f6261ab5f15bb9d7ab9",
-      "lean/QuarticQuery/ForrelationLower/Main.lean": "272c22762c43f449c5e2d260104285a9cf4f12c4f10b7b5f976eb4f7b8849672",
-      "lean/QuarticQuery/ForrelationLower/Uniform.lean": "fbbb2cc99f388a8543b358a611aab4e443e5ad12fcbd1ae79f242ef48c8a6a67",
+      "lean/QuarticQuery/ForrelationLower/Main.lean": "f877e9c4d11874d3e80ad7627972b1a8a0eca596f26fb96a3898bfdace564ed1",
+      "lean/QuarticQuery/ForrelationLower/Uniform.lean": "d6bc1f4399394810fca63abdaadd67a420616371c501ab978841898f2bda049c",
       "lean/QuarticQuery/Upper/Bound.lean": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303",
       "lean/QuarticQuery/Statement.lean": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
       "lean/QuarticQuery/Model/Classical.lean": "a820d0804ee722ee74eef97ea8efeb2a15da55107d6a908e35ba60ef39932e9e"
     },
     "full_transitive_build_snapshot": false,
-    "note": "These explicit source hashes identify the reviewed files. Root build receipt must separately bind the complete source/dependency closure. Refresh after any proof repair."
+    "note": "These explicit hashes identify the source/type review. Each focused native module record below separately retains its complete local source/configuration input hash set and was checked against current bytes; aggregate root receipt remains pending."
   },
   "authority": {
-    "source_review": "AI source/type inspection complete for candidate relations",
-    "compilation": "pending",
-    "comparison": "not_run",
+    "source_review": "accepted AI source/type/correspondence review within exact recorded hypotheses",
+    "compilation": "focused_native_passed_for_all_six_owned_modules",
+    "aggregate_root_build": "pending",
+    "comparison": "not_run_for_new_endpoints",
+    "reach": "not_recomputed",
     "human_review": "not_claimed"
   },
   "preserve_existing_ties": true,
@@ -37,7 +39,7 @@
     "No arbitrary power-of-two family beyond m=4^t is formalized here.",
     "No coherent BHMT decoder or 2^(5*k) quantum endpoint is formalized here.",
     "No explicit single-family rate or fixed-k diagonal limit is formalized by these additions.",
-    "Pending source is not compilation or Comparator evidence."
+    "Focused native compilation is not aggregate root, Comparator, headline reach, external acceptance or human review."
   ],
   "tie_additions": {
     "sf-uniform-forrelation": [
@@ -51,13 +53,15 @@
         "source": {
           "declaration": "QuarticQuery.forrelation_lower_uniform_existing_constants",
           "path": "lean/QuarticQuery/ForrelationLower/Uniform.lean",
-          "line": 505,
-          "source_sha256": "fbbb2cc99f388a8543b358a611aab4e443e5ad12fcbd1ae79f242ef48c8a6a67",
+          "line": 508,
+          "source_sha256": "d6bc1f4399394810fca63abdaadd67a420616371c501ab978841898f2bda049c",
           "declaration_header": "theorem forrelation_lower_uniform_existing_constants\n    (k t : ℕ) (hk : 2 ≤ k) (ht : 15 * k + 2 ≤ 2 * t) :\n    (1 / 2332800 : ℝ) *\n        Real.rpow (mValue t : ℝ) (1 - 1 / (k : ℝ)) /\n        ((k : ℝ) ^ 2 * Real.log (4 * (k : ℝ) * (mValue t : ℝ))) <\n      (R (P k t) : ℝ)",
           "declaration_header_sha256": "697912205d99605ae582e40e2e70f7ea55c997fbdb2e1391b658f2529ab7e85e",
           "source_review": "reviewed_exact_type",
-          "compilation": "pending",
-          "comparison": "not_run"
+          "compilation": "focused_native_passed",
+          "comparison": "not_run",
+          "reach": "not_recomputed",
+          "compilation_evidence_target": "QuarticQuery.ForrelationLower.Uniform"
         }
       }
     ],
@@ -72,13 +76,15 @@
         "source": {
           "declaration": "QuarticQuery.uniform_budget_floor_bounds",
           "path": "lean/QuarticQuery/ForrelationLower/Uniform.lean",
-          "line": 599,
-          "source_sha256": "fbbb2cc99f388a8543b358a611aab4e443e5ad12fcbd1ae79f242ef48c8a6a67",
+          "line": 572,
+          "source_sha256": "d6bc1f4399394810fca63abdaadd67a420616371c501ab978841898f2bda049c",
           "declaration_header": "theorem uniform_budget_floor_bounds (k t : ℕ) (hk : 2 ≤ k) (hkt : k ≤ t) (ht : 41 ≤ t) :\n    let X := (1 / 2332800 : ℝ) *\n      Real.rpow (mValue t : ℝ) (1 - 1 / (k : ℝ)) /\n      ((k : ℝ) ^ 2 * Real.log (4 * (k : ℝ) * (mValue t : ℝ)))\n    2 ≤ X ∧ 1 ≤ ⌊X⌋₊ ∧ ⌊X⌋₊ ≤ mValue t ∧ X / 2 ≤ (⌊X⌋₊ : ℝ)",
           "declaration_header_sha256": "52fb1752efb29fe1617d0757d3a11ddb5f5a70867a46d70eca60a7b37a41bce2",
           "source_review": "reviewed_exact_type",
-          "compilation": "pending",
-          "comparison": "not_run"
+          "compilation": "focused_native_passed",
+          "comparison": "not_run",
+          "reach": "not_recomputed",
+          "compilation_evidence_target": "QuarticQuery.ForrelationLower.Uniform"
         }
       }
     ],
@@ -98,8 +104,10 @@
           "declaration_header": "theorem budgetConst_eq_expanded (k : ℕ) :\n    budgetConst k = 2972284080 * k * (1 + 1920000 * 2 ^ (10 * k)) +\n      79491312000 * (k + 1) ^ 2 + 1131887160",
           "declaration_header_sha256": "cf4b9b5f6174ac8be658e6fa6026fb88fbfb64ffa1b7a650d2a9d09f0405c587",
           "source_review": "reviewed_exact_type",
-          "compilation": "pending",
-          "comparison": "not_run"
+          "compilation": "focused_native_passed",
+          "comparison": "not_run",
+          "reach": "not_recomputed",
+          "compilation_evidence_target": "QuarticQuery.Upper.Bound"
         }
       },
       {
@@ -117,8 +125,10 @@
           "declaration_header": "theorem budgetConst_le_exponential {k : ℕ} (hk : 1 ≤ k) :\n    budgetConst k ≤ 2 ^ 53 * k * 2 ^ (10 * k)",
           "declaration_header_sha256": "25704b0105a2df42ecbfc1d66f7f8489a676f2c043417f9091b9ffa820ae9166",
           "source_review": "reviewed_exact_type",
-          "compilation": "pending",
-          "comparison": "not_run"
+          "compilation": "focused_native_passed",
+          "comparison": "not_run",
+          "reach": "not_recomputed",
+          "compilation_evidence_target": "QuarticQuery.Upper.Bound"
         }
       }
     ],
@@ -133,13 +143,15 @@
         "source": {
           "declaration": "QuarticQuery.forrelation_lower_uniform_sharp",
           "path": "lean/QuarticQuery/ForrelationLower/Uniform.lean",
-          "line": 554,
-          "source_sha256": "fbbb2cc99f388a8543b358a611aab4e443e5ad12fcbd1ae79f242ef48c8a6a67",
+          "line": 527,
+          "source_sha256": "d6bc1f4399394810fca63abdaadd67a420616371c501ab978841898f2bda049c",
           "declaration_header": "theorem forrelation_lower_uniform_sharp\n    (k t : ℕ) (hk : 2 ≤ k) (ht : 15 * k + 2 ≤ 2 * t) :\n    (2 / 18225 : ℝ) *\n        Real.rpow (mValue t : ℝ) (1 - 1 / (k : ℝ)) /\n        ((k : ℝ) ^ 2 * Real.log (4 * (k : ℝ) * (mValue t : ℝ))) <\n      (R (P k t) : ℝ)",
           "declaration_header_sha256": "4b6e33dd96d10f6df7d9db9fc443fb5c5f3d6d8e406f8d3fa45626ed95f17ad1",
           "source_review": "reviewed_exact_type",
-          "compilation": "pending",
-          "comparison": "not_run"
+          "compilation": "focused_native_passed",
+          "comparison": "not_run",
+          "reach": "not_recomputed",
+          "compilation_evidence_target": "QuarticQuery.ForrelationLower.Uniform"
         }
       }
     ],
@@ -154,13 +166,15 @@
         "source": {
           "declaration": "QuarticQuery.forrelation_lower_uniform_sharp",
           "path": "lean/QuarticQuery/ForrelationLower/Uniform.lean",
-          "line": 554,
-          "source_sha256": "fbbb2cc99f388a8543b358a611aab4e443e5ad12fcbd1ae79f242ef48c8a6a67",
+          "line": 527,
+          "source_sha256": "d6bc1f4399394810fca63abdaadd67a420616371c501ab978841898f2bda049c",
           "declaration_header": "theorem forrelation_lower_uniform_sharp\n    (k t : ℕ) (hk : 2 ≤ k) (ht : 15 * k + 2 ≤ 2 * t) :\n    (2 / 18225 : ℝ) *\n        Real.rpow (mValue t : ℝ) (1 - 1 / (k : ℝ)) /\n        ((k : ℝ) ^ 2 * Real.log (4 * (k : ℝ) * (mValue t : ℝ))) <\n      (R (P k t) : ℝ)",
           "declaration_header_sha256": "4b6e33dd96d10f6df7d9db9fc443fb5c5f3d6d8e406f8d3fa45626ed95f17ad1",
           "source_review": "reviewed_exact_type",
-          "compilation": "pending",
-          "comparison": "not_run"
+          "compilation": "focused_native_passed",
+          "comparison": "not_run",
+          "reach": "not_recomputed",
+          "compilation_evidence_target": "QuarticQuery.ForrelationLower.Uniform"
         }
       }
     ],
@@ -175,13 +189,15 @@
         "source": {
           "declaration": "QuarticQuery.forrelation_lower_uniform_sharp",
           "path": "lean/QuarticQuery/ForrelationLower/Uniform.lean",
-          "line": 554,
-          "source_sha256": "fbbb2cc99f388a8543b358a611aab4e443e5ad12fcbd1ae79f242ef48c8a6a67",
+          "line": 527,
+          "source_sha256": "d6bc1f4399394810fca63abdaadd67a420616371c501ab978841898f2bda049c",
           "declaration_header": "theorem forrelation_lower_uniform_sharp\n    (k t : ℕ) (hk : 2 ≤ k) (ht : 15 * k + 2 ≤ 2 * t) :\n    (2 / 18225 : ℝ) *\n        Real.rpow (mValue t : ℝ) (1 - 1 / (k : ℝ)) /\n        ((k : ℝ) ^ 2 * Real.log (4 * (k : ℝ) * (mValue t : ℝ))) <\n      (R (P k t) : ℝ)",
           "declaration_header_sha256": "4b6e33dd96d10f6df7d9db9fc443fb5c5f3d6d8e406f8d3fa45626ed95f17ad1",
           "source_review": "reviewed_exact_type",
-          "compilation": "pending",
-          "comparison": "not_run"
+          "compilation": "focused_native_passed",
+          "comparison": "not_run",
+          "reach": "not_recomputed",
+          "compilation_evidence_target": "QuarticQuery.ForrelationLower.Uniform"
         }
       }
     ],
@@ -201,8 +217,10 @@
           "declaration_header": "theorem psi_dphi_le_sharp (x y : ℝ) : psiS x * dphi y ≤ 3 / 16",
           "declaration_header_sha256": "adc29d9cdfbf64c138aa8d104cef1af9acb9102f1dd5dee3f1d7755d765f976e",
           "source_review": "reviewed_exact_type",
-          "compilation": "pending",
-          "comparison": "not_run"
+          "compilation": "focused_native_passed",
+          "comparison": "not_run",
+          "reach": "not_recomputed",
+          "compilation_evidence_target": "QuarticQuery.ForrelationLower.Stein"
         }
       },
       {
@@ -220,8 +238,10 @@
           "declaration_header": "theorem psi_dphi_eq_sharp_at_zero : psiS 0 * dphi 0 = 3 / 16",
           "declaration_header_sha256": "30d40246d4472eb5cbbfddc88be2a26bc96c55f2aec42770ed31e81a3f4750f1",
           "source_review": "reviewed_exact_type",
-          "compilation": "pending",
-          "comparison": "not_run"
+          "compilation": "focused_native_passed",
+          "comparison": "not_run",
+          "reach": "not_recomputed",
+          "compilation_evidence_target": "QuarticQuery.ForrelationLower.Stein"
         }
       }
     ],
@@ -241,8 +261,10 @@
           "declaration_header": "theorem psi_dphi_le_sharp (x y : ℝ) : psiS x * dphi y ≤ 3 / 16",
           "declaration_header_sha256": "adc29d9cdfbf64c138aa8d104cef1af9acb9102f1dd5dee3f1d7755d765f976e",
           "source_review": "reviewed_exact_type",
-          "compilation": "pending",
-          "comparison": "not_run"
+          "compilation": "focused_native_passed",
+          "comparison": "not_run",
+          "reach": "not_recomputed",
+          "compilation_evidence_target": "QuarticQuery.ForrelationLower.Stein"
         }
       },
       {
@@ -260,8 +282,10 @@
           "declaration_header": "theorem psi_dphi_eq_sharp_at_zero : psiS 0 * dphi 0 = 3 / 16",
           "declaration_header_sha256": "30d40246d4472eb5cbbfddc88be2a26bc96c55f2aec42770ed31e81a3f4750f1",
           "source_review": "reviewed_exact_type",
-          "compilation": "pending",
-          "comparison": "not_run"
+          "compilation": "focused_native_passed",
+          "comparison": "not_run",
+          "reach": "not_recomputed",
+          "compilation_evidence_target": "QuarticQuery.ForrelationLower.Stein"
         }
       }
     ]
@@ -270,7 +294,7 @@
     {
       "id": "r2-live-uniform-sharp-old-threshold",
       "statement": "For every natural k,t with k>=2 and 15k+2<=2t, (2/18225)*m^(1-1/k)/(k^2*ln(4km)) < R(P k t), where m=mValue t=4^t.",
-      "evidence_class": "source_present_reviewed_compilation_pending",
+      "evidence_class": "source_correspondence_reviewed_focused_native_passed",
       "tie": {
         "declaration": "QuarticQuery.forrelation_lower_uniform_sharp",
         "relation": "exact",
@@ -281,24 +305,26 @@
           "15k+2<=2t"
         ],
         "reviewed_by": "ai:round2-forrelation-exponent",
-        "note": "Exact source type reviewed; pending compilation must not be converted to built or compared evidence."
+        "note": "Exact source type/correspondence reviewed and its owning module passed a current focused native build. Aggregate root, Comparator and reach evidence remain separate."
       },
       "source": {
         "declaration": "QuarticQuery.forrelation_lower_uniform_sharp",
         "path": "lean/QuarticQuery/ForrelationLower/Uniform.lean",
-        "line": 554,
-        "source_sha256": "fbbb2cc99f388a8543b358a611aab4e443e5ad12fcbd1ae79f242ef48c8a6a67",
+        "line": 527,
+        "source_sha256": "d6bc1f4399394810fca63abdaadd67a420616371c501ab978841898f2bda049c",
         "declaration_header": "theorem forrelation_lower_uniform_sharp\n    (k t : ℕ) (hk : 2 ≤ k) (ht : 15 * k + 2 ≤ 2 * t) :\n    (2 / 18225 : ℝ) *\n        Real.rpow (mValue t : ℝ) (1 - 1 / (k : ℝ)) /\n        ((k : ℝ) ^ 2 * Real.log (4 * (k : ℝ) * (mValue t : ℝ))) <\n      (R (P k t) : ℝ)",
         "declaration_header_sha256": "4b6e33dd96d10f6df7d9db9fc443fb5c5f3d6d8e406f8d3fa45626ed95f17ad1",
         "source_review": "reviewed_exact_type",
-        "compilation": "pending",
-        "comparison": "not_run"
+        "compilation": "focused_native_passed",
+        "comparison": "not_run",
+        "reach": "not_recomputed",
+        "compilation_evidence_target": "QuarticQuery.ForrelationLower.Uniform"
       }
     },
     {
       "id": "r2-live-kernel-product-upper",
       "statement": "For every real x,y, psiS x * dphi y <= 3/16.",
-      "evidence_class": "source_present_reviewed_compilation_pending",
+      "evidence_class": "source_correspondence_reviewed_focused_native_passed",
       "tie": {
         "declaration": "QuarticQuery.ForrelationLower.psi_dphi_le_sharp",
         "relation": "exact",
@@ -307,7 +333,7 @@
           "x,y real"
         ],
         "reviewed_by": "ai:round2-forrelation-exponent",
-        "note": "Exact source type reviewed; pending compilation must not be converted to built or compared evidence."
+        "note": "Exact source type/correspondence reviewed and its owning module passed a current focused native build. Aggregate root, Comparator and reach evidence remain separate."
       },
       "source": {
         "declaration": "QuarticQuery.ForrelationLower.psi_dphi_le_sharp",
@@ -317,21 +343,23 @@
         "declaration_header": "theorem psi_dphi_le_sharp (x y : ℝ) : psiS x * dphi y ≤ 3 / 16",
         "declaration_header_sha256": "adc29d9cdfbf64c138aa8d104cef1af9acb9102f1dd5dee3f1d7755d765f976e",
         "source_review": "reviewed_exact_type",
-        "compilation": "pending",
-        "comparison": "not_run"
+        "compilation": "focused_native_passed",
+        "comparison": "not_run",
+        "reach": "not_recomputed",
+        "compilation_evidence_target": "QuarticQuery.ForrelationLower.Stein"
       }
     },
     {
       "id": "r2-live-kernel-product-attained",
       "statement": "psiS 0 * dphi 0 = 3/16.",
-      "evidence_class": "source_present_reviewed_compilation_pending",
+      "evidence_class": "source_correspondence_reviewed_focused_native_passed",
       "tie": {
         "declaration": "QuarticQuery.ForrelationLower.psi_dphi_eq_sharp_at_zero",
         "relation": "exact",
         "route": "same",
         "hypotheses": [],
         "reviewed_by": "ai:round2-forrelation-exponent",
-        "note": "Exact source type reviewed; pending compilation must not be converted to built or compared evidence."
+        "note": "Exact source type/correspondence reviewed and its owning module passed a current focused native build. Aggregate root, Comparator and reach evidence remain separate."
       },
       "source": {
         "declaration": "QuarticQuery.ForrelationLower.psi_dphi_eq_sharp_at_zero",
@@ -341,14 +369,16 @@
         "declaration_header": "theorem psi_dphi_eq_sharp_at_zero : psiS 0 * dphi 0 = 3 / 16",
         "declaration_header_sha256": "30d40246d4472eb5cbbfddc88be2a26bc96c55f2aec42770ed31e81a3f4750f1",
         "source_review": "reviewed_exact_type",
-        "compilation": "pending",
-        "comparison": "not_run"
+        "compilation": "focused_native_passed",
+        "comparison": "not_run",
+        "reach": "not_recomputed",
+        "compilation_evidence_target": "QuarticQuery.ForrelationLower.Stein"
       }
     },
     {
       "id": "r2-live-uniform-cutoff-floor",
       "statement": "For natural k,t with k>=2, k<=t and t>=41, set X=m^(1-1/k)/(2332800*k^2*ln(4km)), m=4^t. Then X>=2, 1<=floor(X)<=m and floor(X)>=X/2.",
-      "evidence_class": "source_present_reviewed_compilation_pending",
+      "evidence_class": "source_correspondence_reviewed_focused_native_passed",
       "tie": {
         "declaration": "QuarticQuery.uniform_budget_floor_bounds",
         "relation": "exact",
@@ -360,24 +390,26 @@
           "t>=41"
         ],
         "reviewed_by": "ai:round2-forrelation-exponent",
-        "note": "Exact source type reviewed; pending compilation must not be converted to built or compared evidence."
+        "note": "Exact source type/correspondence reviewed and its owning module passed a current focused native build. Aggregate root, Comparator and reach evidence remain separate."
       },
       "source": {
         "declaration": "QuarticQuery.uniform_budget_floor_bounds",
         "path": "lean/QuarticQuery/ForrelationLower/Uniform.lean",
-        "line": 599,
-        "source_sha256": "fbbb2cc99f388a8543b358a611aab4e443e5ad12fcbd1ae79f242ef48c8a6a67",
+        "line": 572,
+        "source_sha256": "d6bc1f4399394810fca63abdaadd67a420616371c501ab978841898f2bda049c",
         "declaration_header": "theorem uniform_budget_floor_bounds (k t : ℕ) (hk : 2 ≤ k) (hkt : k ≤ t) (ht : 41 ≤ t) :\n    let X := (1 / 2332800 : ℝ) *\n      Real.rpow (mValue t : ℝ) (1 - 1 / (k : ℝ)) /\n      ((k : ℝ) ^ 2 * Real.log (4 * (k : ℝ) * (mValue t : ℝ)))\n    2 ≤ X ∧ 1 ≤ ⌊X⌋₊ ∧ ⌊X⌋₊ ≤ mValue t ∧ X / 2 ≤ (⌊X⌋₊ : ℝ)",
         "declaration_header_sha256": "52fb1752efb29fe1617d0757d3a11ddb5f5a70867a46d70eca60a7b37a41bce2",
         "source_review": "reviewed_exact_type",
-        "compilation": "pending",
-        "comparison": "not_run"
+        "compilation": "focused_native_passed",
+        "comparison": "not_run",
+        "reach": "not_recomputed",
+        "compilation_evidence_target": "QuarticQuery.ForrelationLower.Uniform"
       }
     },
     {
       "id": "r2-live-budget-expansion",
       "statement": "For every natural k, budgetConst k = 2972284080*k*(1+1920000*2^(10*k))+79491312000*(k+1)^2+1131887160.",
-      "evidence_class": "source_present_reviewed_compilation_pending",
+      "evidence_class": "source_correspondence_reviewed_focused_native_passed",
       "tie": {
         "declaration": "QuarticQuery.Upper.budgetConst_eq_expanded",
         "relation": "exact",
@@ -386,7 +418,7 @@
           "k natural"
         ],
         "reviewed_by": "ai:round2-forrelation-exponent",
-        "note": "Exact source type reviewed; pending compilation must not be converted to built or compared evidence."
+        "note": "Exact source type/correspondence reviewed and its owning module passed a current focused native build. Aggregate root, Comparator and reach evidence remain separate."
       },
       "source": {
         "declaration": "QuarticQuery.Upper.budgetConst_eq_expanded",
@@ -396,14 +428,16 @@
         "declaration_header": "theorem budgetConst_eq_expanded (k : ℕ) :\n    budgetConst k = 2972284080 * k * (1 + 1920000 * 2 ^ (10 * k)) +\n      79491312000 * (k + 1) ^ 2 + 1131887160",
         "declaration_header_sha256": "cf4b9b5f6174ac8be658e6fa6026fb88fbfb64ffa1b7a650d2a9d09f0405c587",
         "source_review": "reviewed_exact_type",
-        "compilation": "pending",
-        "comparison": "not_run"
+        "compilation": "focused_native_passed",
+        "comparison": "not_run",
+        "reach": "not_recomputed",
+        "compilation_evidence_target": "QuarticQuery.Upper.Bound"
       }
     },
     {
       "id": "r2-live-budget-envelope",
       "statement": "For every natural k>=1, budgetConst k <= 2^53*k*2^(10*k).",
-      "evidence_class": "source_present_reviewed_compilation_pending",
+      "evidence_class": "source_correspondence_reviewed_focused_native_passed",
       "tie": {
         "declaration": "QuarticQuery.Upper.budgetConst_le_exponential",
         "relation": "exact",
@@ -413,7 +447,7 @@
           "k>=1"
         ],
         "reviewed_by": "ai:round2-forrelation-exponent",
-        "note": "Exact source type reviewed; pending compilation must not be converted to built or compared evidence."
+        "note": "Exact source type/correspondence reviewed and its owning module passed a current focused native build. Aggregate root, Comparator and reach evidence remain separate."
       },
       "source": {
         "declaration": "QuarticQuery.Upper.budgetConst_le_exponential",
@@ -423,14 +457,16 @@
         "declaration_header": "theorem budgetConst_le_exponential {k : ℕ} (hk : 1 ≤ k) :\n    budgetConst k ≤ 2 ^ 53 * k * 2 ^ (10 * k)",
         "declaration_header_sha256": "25704b0105a2df42ecbfc1d66f7f8489a676f2c043417f9091b9ffa820ae9166",
         "source_review": "reviewed_exact_type",
-        "compilation": "pending",
-        "comparison": "not_run"
+        "compilation": "focused_native_passed",
+        "comparison": "not_run",
+        "reach": "not_recomputed",
+        "compilation_evidence_target": "QuarticQuery.Upper.Bound"
       }
     },
     {
       "id": "r2-live-repetition-quantum-explicit",
       "statement": "For natural l,t with t>=1, Q(totalise(Fkm (l+1) t (forrCircuit l t))) <= 2^53*(l+1)*2^(10*(l+1))*2^t*(2*t)^6.",
-      "evidence_class": "source_present_reviewed_compilation_pending",
+      "evidence_class": "source_correspondence_reviewed_focused_native_passed",
       "tie": {
         "declaration": "QuarticQuery.Upper.Q_Fkm_le_exponential",
         "relation": "exact",
@@ -440,7 +476,7 @@
           "t>=1"
         ],
         "reviewed_by": "ai:round2-forrelation-exponent",
-        "note": "Exact source type reviewed; pending compilation must not be converted to built or compared evidence."
+        "note": "Exact source type/correspondence reviewed and its owning module passed a current focused native build. Aggregate root, Comparator and reach evidence remain separate."
       },
       "source": {
         "declaration": "QuarticQuery.Upper.Q_Fkm_le_exponential",
@@ -450,19 +486,264 @@
         "declaration_header": "theorem Q_Fkm_le_exponential (l t : ℕ) (ht : 1 ≤ t) :\n    (Q (totalise (Fkm (l + 1) t (forrCircuit l t))) : ℝ) ≤\n      (2 : ℝ) ^ 53 * (l + 1 : ℕ) * 2 ^ (10 * (l + 1)) *\n        2 ^ t * (2 * (t : ℝ)) ^ 6",
         "declaration_header_sha256": "09f6dac5271ef6e78cdc817e893b70772fd883005c8a5cb771ba798c897a2c6b",
         "source_review": "reviewed_exact_type",
-        "compilation": "pending",
-        "comparison": "not_run"
+        "compilation": "focused_native_passed",
+        "comparison": "not_run",
+        "reach": "not_recomputed",
+        "compilation_evidence_target": "QuarticQuery.Upper.Bound"
       }
     }
   ],
   "parent_integration_required": [
-    "Confirm focused and root Lean success against these exact source bytes.",
-    "Refresh line numbers, file hashes, and source-currentness after all proof repairs.",
-    "Decide new statement IDs against existing source ledger; preserve historical rows.",
-    "Use exact new endpoint rows where original returns package strictly broader claims.",
-    "Generate corpus through existing owner and record new comparison only after actual execution."
+    "Retain the source-current focused native evidence above, then record aggregate root receipt separately after an actual successful root build.",
+    "Keep original returned-row scope/partial relations and preserve exact r2-live proposals without automatic paper-only corpus ingestion.",
+    "Do not infer Comparator acceptance or headline reach from these target builds.",
+    "Generate corpus only through its source owners, with correct statement provenance, and record comparison/reach only after actual executions."
   ],
-  "validation_request": {
+  "validation_evidence": {
+    "kind": "focused_native_target_records",
+    "targets": {
+      "QuarticQuery.ForrelationLower.Stein": {
+        "target": "QuarticQuery.ForrelationLower.Stein",
+        "status": "passed",
+        "exit_code": 0,
+        "seconds": 28.12,
+        "native_argv": [
+          "lake",
+          "--no-cache",
+          "build",
+          "QuarticQuery.ForrelationLower.Stein:olean"
+        ],
+        "record_file": "/Users/willcook/src/_builds/quartic-r2-ssd/native-inventory/results.json",
+        "record_selector": {
+          "target": "QuarticQuery.ForrelationLower.Stein",
+          "status": "passed"
+        },
+        "target_record_sha256": "6b763329a883d4487e846a3326a421fbb7620b3b0e45bb6bc15874a03ce3677d",
+        "record_hash_encoding": "UTF-8 JSON, ensure_ascii=false, sort_keys=true, separators comma/colon",
+        "log": "/Users/willcook/src/_builds/quartic-r2-ssd/native-inventory/QuarticQuery_ForrelationLower_Stein.log",
+        "inputs_unchanged_during_run": true,
+        "inputs_match_current": true,
+        "input_hashes": {
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Cube.lean": "16db4f9b7e4e42029c839537075eff0ec0f6fd6261d4a8a038bec8566ce4e2fe",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Stein.lean": "6238d7e6f8ade6044eb623899069f35d0a5b860699c722e7007fd71046ffff9e",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Statement.lean": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+          "/Users/willcook/src/quartic-query-lean/lean/lean-toolchain": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3",
+          "/Users/willcook/src/quartic-query-lean/lean/lake-manifest.json": "d670a8101d900b62e17a1d51c8b1b36fd60919bcad472700b0a5e1c0b38b104d",
+          "/Users/willcook/src/quartic-query-lean/lean/lakefile.toml": "255abcc3c689d0258d4cea520447fdc8da26e26a191331aa95559b2fb4818647"
+        },
+        "scope": "focused native :olean target only; not aggregate root, Comparator, reach or human review"
+      },
+      "QuarticQuery.ForrelationLower.Walk": {
+        "target": "QuarticQuery.ForrelationLower.Walk",
+        "status": "passed",
+        "exit_code": 0,
+        "seconds": 31.13,
+        "native_argv": [
+          "lake",
+          "--no-cache",
+          "build",
+          "QuarticQuery.ForrelationLower.Walk:olean"
+        ],
+        "record_file": "/Users/willcook/src/_builds/quartic-r2-ssd/native-inventory/results.json",
+        "record_selector": {
+          "target": "QuarticQuery.ForrelationLower.Walk",
+          "status": "passed"
+        },
+        "target_record_sha256": "ca203420666568aa9cd4e7b7732fcdf592df1e36f0cd899bebae31167213ddd8",
+        "record_hash_encoding": "UTF-8 JSON, ensure_ascii=false, sort_keys=true, separators comma/colon",
+        "log": "/Users/willcook/src/_builds/quartic-r2-ssd/native-inventory/QuarticQuery_ForrelationLower_Walk.log",
+        "inputs_unchanged_during_run": true,
+        "inputs_match_current": true,
+        "input_hashes": {
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Cube.lean": "16db4f9b7e4e42029c839537075eff0ec0f6fd6261d4a8a038bec8566ce4e2fe",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Stein.lean": "6238d7e6f8ade6044eb623899069f35d0a5b860699c722e7007fd71046ffff9e",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/TreeGrowth.lean": "13614823a433518dea7138242182dc2abee1dbcdf0127157edf8cc9b6a756010",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Walk.lean": "c9394068bc3a583178fcae1e11d6eafdc7dcfc17bcd8a0b269f9a13ccee209ba",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Statement.lean": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+          "/Users/willcook/src/quartic-query-lean/lean/lean-toolchain": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3",
+          "/Users/willcook/src/quartic-query-lean/lean/lake-manifest.json": "d670a8101d900b62e17a1d51c8b1b36fd60919bcad472700b0a5e1c0b38b104d",
+          "/Users/willcook/src/quartic-query-lean/lean/lakefile.toml": "255abcc3c689d0258d4cea520447fdc8da26e26a191331aa95559b2fb4818647"
+        },
+        "scope": "focused native :olean target only; not aggregate root, Comparator, reach or human review"
+      },
+      "QuarticQuery.ForrelationLower.Cascade": {
+        "target": "QuarticQuery.ForrelationLower.Cascade",
+        "status": "passed",
+        "exit_code": 0,
+        "seconds": 12.05,
+        "native_argv": [
+          "lake",
+          "--no-cache",
+          "build",
+          "QuarticQuery.ForrelationLower.Cascade:olean"
+        ],
+        "record_file": "/Users/willcook/src/_builds/quartic-r2-ssd/native-inventory/results.json",
+        "record_selector": {
+          "target": "QuarticQuery.ForrelationLower.Cascade",
+          "status": "passed"
+        },
+        "target_record_sha256": "f361a44e2b4fa1838f47542c9e2fa5a921da0207684b81c7f82ce7667f2783b6",
+        "record_hash_encoding": "UTF-8 JSON, ensure_ascii=false, sort_keys=true, separators comma/colon",
+        "log": "/Users/willcook/src/_builds/quartic-r2-ssd/native-inventory/QuarticQuery_ForrelationLower_Cascade.log",
+        "inputs_unchanged_during_run": true,
+        "inputs_match_current": true,
+        "input_hashes": {
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Cascade.lean": "9438575752bdbb664cecbf15b97afc96f2f235fabcab8f6261ab5f15bb9d7ab9",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Cube.lean": "16db4f9b7e4e42029c839537075eff0ec0f6fd6261d4a8a038bec8566ce4e2fe",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Stein.lean": "6238d7e6f8ade6044eb623899069f35d0a5b860699c722e7007fd71046ffff9e",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/TreeGrowth.lean": "13614823a433518dea7138242182dc2abee1dbcdf0127157edf8cc9b6a756010",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Walk.lean": "c9394068bc3a583178fcae1e11d6eafdc7dcfc17bcd8a0b269f9a13ccee209ba",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Statement.lean": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+          "/Users/willcook/src/quartic-query-lean/lean/lean-toolchain": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3",
+          "/Users/willcook/src/quartic-query-lean/lean/lake-manifest.json": "d670a8101d900b62e17a1d51c8b1b36fd60919bcad472700b0a5e1c0b38b104d",
+          "/Users/willcook/src/quartic-query-lean/lean/lakefile.toml": "255abcc3c689d0258d4cea520447fdc8da26e26a191331aa95559b2fb4818647"
+        },
+        "scope": "focused native :olean target only; not aggregate root, Comparator, reach or human review"
+      },
+      "QuarticQuery.Upper.Bound": {
+        "target": "QuarticQuery.Upper.Bound",
+        "status": "passed",
+        "exit_code": 0,
+        "seconds": 66.3,
+        "native_argv": [
+          "lake",
+          "--no-cache",
+          "build",
+          "QuarticQuery.Upper.Bound:olean"
+        ],
+        "record_file": "/Users/willcook/src/_builds/quartic-r2-ssd/native-inventory/results.json",
+        "record_selector": {
+          "target": "QuarticQuery.Upper.Bound",
+          "status": "passed"
+        },
+        "target_record_sha256": "97a0a077076e5815f5eb8ff3bda278d28a58242e78a005d9adc5cffdc43a9bc3",
+        "record_hash_encoding": "UTF-8 JSON, ensure_ascii=false, sort_keys=true, separators comma/colon",
+        "log": "/Users/willcook/src/_builds/quartic-r2-ssd/native-inventory/QuarticQuery_Upper_Bound.log",
+        "inputs_unchanged_during_run": true,
+        "inputs_match_current": true,
+        "input_hashes": {
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Amplification/Average.lean": "fd837b83033d2df6d833a0fdecaef7110339d5747b8aaa1f674c14d3e50473b6",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Amplification/Bounded.lean": "6a6465ae0cbd0503cf327c5f33f6509f492a707795c0358880c8f12c9624c96d",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Amplification/Geometry.lean": "ff5e758a77d21bc133a930d545672cb5faa76aa422019413c634085881142dc9",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Amplification/Procedure.lean": "45413af39419cf952c26204dfd3ae1b86e7dcde1423194ca473187cc6b64edb1",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Construction/LocalTests.lean": "56357d934fab301222130c92ef36cfbf122af4ad90fb2a94ba90178139dbeb13",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Construction/Transcript.lean": "e2fd95c77c8ef1616201219302415069411aaac88060f3f75ec24e7b0626608f",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Construction/Winner.lean": "3c6b894e842fc90acd7a09b9ff14ce3ae2f09bfbf2dc7f2195751a396db7017c",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Forrelation/Arithmetic.lean": "5a7336764ee8cd299b9e19fd3164374fcebab98b7df8d9c956a457334b9dc243",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Forrelation/Builder.lean": "32e1ff4623c8bbceda26da74e53961d8c2bc660ff9b831cf19d4cc32ce1abc23",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Forrelation/Circuit.lean": "b17824d0a3b6ee5a689822b04c18d20de9e72e1db119105584e9cbba60ae8f01",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Forrelation/Product.lean": "f0ceced9021b45de546dfc01aadabde913f8ecdf1a0d085992c5b61b8a1ef425",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Forrelation/Promise.lean": "96b967a27458107549e38ce4fe001d707a4c240ad4e4b582729a6ce9526d2cf1",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Forrelation/Repetition.lean": "1526168486cdc4e78213c6048199676df0520445666b60d3ece9c62678e90e70",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Forrelation/Walsh.lean": "e3eae0cf1455ef1471fd4f42458b324bbe3bfe1b1879989366ce476657653069",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Model/Classical.lean": "a820d0804ee722ee74eef97ea8efeb2a15da55107d6a908e35ba60ef39932e9e",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Model/Quantum.lean": "6a61d326b216fa39f6ac1d7694727528dd5028bfac8d939f118bf1a4f4a35662",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Results/Exponent.lean": "91d1c021f9b920f9bf0017dfe03817194c6a1ff5f4776e39a669bbd3b832a931",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Statement.lean": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Tournament/Drift.lean": "850fbfdfba830a17930f0a8e60fdc0d7b27f7f50c45710b5e77997343528c077",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Tournament/Ideal.lean": "6f7379abfb1d9fb37d6ef7f0f25049893490aa717171c875feb97fca343ab8ef",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Upper/Amplify.lean": "49e808cc6acbb47ad066b1dcf33ac8d47da2f28d88c51d537564e6591eb0d9e1",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Upper/Bound.lean": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Upper/Circuit.lean": "7686a3b72476d902ec9ff504b38bea9ac25e90724e93d82033ea05339080190f",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Upper/Columns.lean": "e5b2b164deb6a010f952cefb5edba15bb5437a03fff815c39b028341b23b592e",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Upper/Compile.lean": "ead2d229ad8a97541dd648806b64813745e8502b5f7314ced43e7a95a0708a27",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Upper/Decode.lean": "4755c92be7627e4a58b1487d831a93765a3510647682e903c6abfed39f61411b",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Upper/Sampler.lean": "43cb604188f041ebd34c8003f01f4ec6c570023e465cd2b730ee4f1f765b2b79",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Upper/Tournament.lean": "43df9db7997f88667de7a3cfa7d7c7751aa1f32c40e9de474895335bcdb87b7c",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Upper/Verify.lean": "8144c5c26e7bf0515b24eb638b57412264032e144844887adc615b8076207239",
+          "/Users/willcook/src/quartic-query-lean/lean/lean-toolchain": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3",
+          "/Users/willcook/src/quartic-query-lean/lean/lake-manifest.json": "d670a8101d900b62e17a1d51c8b1b36fd60919bcad472700b0a5e1c0b38b104d",
+          "/Users/willcook/src/quartic-query-lean/lean/lakefile.toml": "255abcc3c689d0258d4cea520447fdc8da26e26a191331aa95559b2fb4818647"
+        },
+        "scope": "focused native :olean target only; not aggregate root, Comparator, reach or human review"
+      },
+      "QuarticQuery.ForrelationLower.Main": {
+        "target": "QuarticQuery.ForrelationLower.Main",
+        "status": "passed",
+        "exit_code": 0,
+        "seconds": 33.14,
+        "native_argv": [
+          "lake",
+          "--no-cache",
+          "build",
+          "QuarticQuery.ForrelationLower.Main:olean"
+        ],
+        "record_file": "/Users/willcook/src/_builds/quartic-r2-ssd/native-retry-1/results.json",
+        "record_selector": {
+          "target": "QuarticQuery.ForrelationLower.Main",
+          "status": "passed"
+        },
+        "target_record_sha256": "3a585b4c09937530b1cffc38465e8492c190397d864bc42e3e1aacfed4aaba94",
+        "record_hash_encoding": "UTF-8 JSON, ensure_ascii=false, sort_keys=true, separators comma/colon",
+        "log": "/Users/willcook/src/_builds/quartic-r2-ssd/native-retry-1/QuarticQuery_ForrelationLower_Main.log",
+        "inputs_unchanged_during_run": true,
+        "inputs_match_current": true,
+        "input_hashes": {
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Forrelation/Product.lean": "f0ceced9021b45de546dfc01aadabde913f8ecdf1a0d085992c5b61b8a1ef425",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Forrelation/Walsh.lean": "e3eae0cf1455ef1471fd4f42458b324bbe3bfe1b1879989366ce476657653069",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Amplify.lean": "93f8e1c04768b8d01263f4a6b5a594b2d7b3334a1380432af6a33779109fc10a",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Cascade.lean": "9438575752bdbb664cecbf15b97afc96f2f235fabcab8f6261ab5f15bb9d7ab9",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Cube.lean": "16db4f9b7e4e42029c839537075eff0ec0f6fd6261d4a8a038bec8566ce4e2fe",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Main.lean": "f877e9c4d11874d3e80ad7627972b1a8a0eca596f26fb96a3898bfdace564ed1",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Promise.lean": "2877dc60a4af03e98321ac9e47c501a63508936aa49e5018d280258b24862efb",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Stein.lean": "6238d7e6f8ade6044eb623899069f35d0a5b860699c722e7007fd71046ffff9e",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/TreeGrowth.lean": "13614823a433518dea7138242182dc2abee1dbcdf0127157edf8cc9b6a756010",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Walk.lean": "c9394068bc3a583178fcae1e11d6eafdc7dcfc17bcd8a0b269f9a13ccee209ba",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Model/Classical.lean": "a820d0804ee722ee74eef97ea8efeb2a15da55107d6a908e35ba60ef39932e9e",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Statement.lean": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+          "/Users/willcook/src/quartic-query-lean/lean/lean-toolchain": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3",
+          "/Users/willcook/src/quartic-query-lean/lean/lake-manifest.json": "d670a8101d900b62e17a1d51c8b1b36fd60919bcad472700b0a5e1c0b38b104d",
+          "/Users/willcook/src/quartic-query-lean/lean/lakefile.toml": "255abcc3c689d0258d4cea520447fdc8da26e26a191331aa95559b2fb4818647"
+        },
+        "scope": "focused native :olean target only; not aggregate root, Comparator, reach or human review"
+      },
+      "QuarticQuery.ForrelationLower.Uniform": {
+        "target": "QuarticQuery.ForrelationLower.Uniform",
+        "status": "passed",
+        "exit_code": 0,
+        "seconds": 30.14,
+        "native_argv": [
+          "lake",
+          "--no-cache",
+          "build",
+          "QuarticQuery.ForrelationLower.Uniform:olean"
+        ],
+        "record_file": "/Users/willcook/src/_builds/quartic-r2-ssd/native-retry-3/results.json",
+        "record_selector": {
+          "target": "QuarticQuery.ForrelationLower.Uniform",
+          "status": "passed"
+        },
+        "target_record_sha256": "99d34463e46b4e0195216ab7ccd6f779e3e63487d69a2d8e85433f1131a1fa66",
+        "record_hash_encoding": "UTF-8 JSON, ensure_ascii=false, sort_keys=true, separators comma/colon",
+        "log": "/Users/willcook/src/_builds/quartic-r2-ssd/native-retry-3/QuarticQuery_ForrelationLower_Uniform.log",
+        "inputs_unchanged_during_run": true,
+        "inputs_match_current": true,
+        "input_hashes": {
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Forrelation/Product.lean": "f0ceced9021b45de546dfc01aadabde913f8ecdf1a0d085992c5b61b8a1ef425",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Forrelation/Walsh.lean": "e3eae0cf1455ef1471fd4f42458b324bbe3bfe1b1879989366ce476657653069",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Amplify.lean": "93f8e1c04768b8d01263f4a6b5a594b2d7b3334a1380432af6a33779109fc10a",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Cascade.lean": "9438575752bdbb664cecbf15b97afc96f2f235fabcab8f6261ab5f15bb9d7ab9",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Cube.lean": "16db4f9b7e4e42029c839537075eff0ec0f6fd6261d4a8a038bec8566ce4e2fe",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Main.lean": "f877e9c4d11874d3e80ad7627972b1a8a0eca596f26fb96a3898bfdace564ed1",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Promise.lean": "2877dc60a4af03e98321ac9e47c501a63508936aa49e5018d280258b24862efb",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Stein.lean": "6238d7e6f8ade6044eb623899069f35d0a5b860699c722e7007fd71046ffff9e",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/TreeGrowth.lean": "13614823a433518dea7138242182dc2abee1dbcdf0127157edf8cc9b6a756010",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Uniform.lean": "d6bc1f4399394810fca63abdaadd67a420616371c501ab978841898f2bda049c",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Walk.lean": "c9394068bc3a583178fcae1e11d6eafdc7dcfc17bcd8a0b269f9a13ccee209ba",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Model/Classical.lean": "a820d0804ee722ee74eef97ea8efeb2a15da55107d6a908e35ba60ef39932e9e",
+          "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Statement.lean": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+          "/Users/willcook/src/quartic-query-lean/lean/lean-toolchain": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3",
+          "/Users/willcook/src/quartic-query-lean/lean/lake-manifest.json": "d670a8101d900b62e17a1d51c8b1b36fd60919bcad472700b0a5e1c0b38b104d",
+          "/Users/willcook/src/quartic-query-lean/lean/lakefile.toml": "255abcc3c689d0258d4cea520447fdc8da26e26a191331aa95559b2fb4818647"
+        },
+        "scope": "focused native :olean target only; not aggregate root, Comparator, reach or human review"
+      }
+    },
+    "record_files_may_gain_other_target_rows": true,
+    "stable_identity": "per-target canonical row hash plus exact input hashes; full results-file hash is not used while its other rows may still be appended",
+    "aggregate_root_receipt": "pending_parent_integration"
+  },
+  "historical_validation_request": {
     "job_id": "cf_bf3d0271e57c43479b86",
     "state_at_submission": "waiting_host_admission",
     "argv": [
@@ -475,6 +756,13 @@
     "host_admission": true,
     "seat_budget_seconds": 7200,
     "compile_status": "pending",
-    "initial_scalar_future_cancelled_before_lean_child": "cf_a603fc09c674403bbb2e"
+    "initial_scalar_future_cancelled_before_lean_child": "cf_a603fc09c674403bbb2e",
+    "disposition": "superseded_by_sole_coordinator_SSD_native_inventory; not used as pass evidence"
+  },
+  "ingestion_policy": {
+    "new_r2_live_rows": "proposals_only_preserve_in_this_research_adjudication_file",
+    "auto_ingest_into_paper_only_corpus": false,
+    "reason": "The existing paper-only corpus path hardcodes OpenAI preprint provenance; do not label new research statements as OpenAI paper statements. Root must resolve provenance support before any new row ingestion.",
+    "returned_id_ties": "candidate semantic relations only; no corpus/ties mutation in this lane"
   }
 }

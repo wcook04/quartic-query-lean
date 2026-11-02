@@ -1,6 +1,7 @@
 module
 
 public import QuarticQuery.Upper.Tournament
+public import QuarticQuery.Paper.QuantumUpper
 
 /-!
 # Proposition 3.2 in the paper's list-valued form
@@ -10,6 +11,11 @@ form. Here the same stages are composed with a continuation that outputs the lis
 itself, so the program's classical result is a list of at most `T` candidates, and the
 guarantee is list membership with probability at least `1 - 2m/2^T - Tε`, as in the
 paper.
+
+`QuantumUpper` also exports a coherent list-output witness, an explicit physical
+query bound, and a separate literal tensor-state preparation. The latter has the
+same successful-index law as the short-circuit sampler without asserting equality
+of their complete states. The declarations below preserve the earlier interface.
 -/
 
 public section
@@ -269,11 +275,13 @@ theorem prop_3_2 {cc : ℕ} {a : BitInput ι → Col → Col → ℝ}
       · rw [Fintype.sum_option]
         simp only [K, Option.elim, ampLaw, hratio, listLaw, Finset.mul_sum, mul_assoc]
   refine ⟨fun x o => listLaw (a x) (fun L => f L x) T [] o.1, ?_, fun x s hd => ?_⟩
-  · exact (hrunT T [] (by simp)).mono le_rfl
+  · exact (hrunT T [] (by simp)).mono (by rw [hCs])
   · have hT' : (T : ℝ) * ε < 1 / 2 := by rw [hTε]; norm_num
     obtain ⟨v, hv⟩ : ∃ v : Col → ℝ, v = fun c => if s = c then 1 else 0 := ⟨_, rfl⟩
     have hv01 : ∀ c, 0 ≤ v c ∧ v c ≤ 1 := fun c => by
-      rw [hv]; split_ifs <;> norm_num
+      rw [hv]
+      dsimp only
+      split_ifs <;> norm_num
     have hfail : ∀ L : List Col, L.length ≤ T → s ∉ L → f L x ≤ ε := fun L hL hs => by
       refine hfγ L x ?_
       rw [sum_stageLaw_some]
@@ -293,7 +301,7 @@ theorem prop_3_2 {cc : ℕ} {a : BitInput ι → Col → Col → ℝ}
     have hsum : ∑ o : BList Col T,
         (if s ∈ o.1 then listLaw (a x) (fun L => f L x) T [] o.1 else 0) =
         tval (a x) v (fun L => f L x) T [] := by
-      rw [← sum_listLaw_vall (a x) (fun L => f L x) v T [] (by simp)]
+      rw [← sum_listLaw_vall (T := T) (a x) (fun L => f L x) v T [] (by simp)]
       refine Finset.sum_congr rfl fun o _ => ?_
       rw [hv, vall_indicator]
       split_ifs <;> simp

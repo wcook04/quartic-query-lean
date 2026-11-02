@@ -8,26 +8,20 @@ the integrating edits under `lean/`.
 
 ## Integration state
 
-The returned sources are copied into the existing `QuarticQuery/Paper/` source
-family for focused elaboration. At this checkpoint they remain **unelaborated
-candidates**, not accepted compilation or Comparator evidence. The original
-Section 2 and Section 3 declaration names are retained. No shared definition in
+The integrated construction and quantum helper modules, including the complete
+retained-state Lemmas 2.1 and 2.2, the coherent bounded-list tournament and the
+literal tensor-state construction, now pass native Lake compilation at the
+pinned toolchain. `Paper.Section2` and `Paper.Section3` also pass, preserving
+the original public declaration names. Their source hashes and per-module
+results are retained in the tie-candidate JSON. Final source-bound root evidence,
+axiom auditing, Comparator and dependency reach remain separate integration steps. No shared definition in
 `Statement.lean`, reviewed tie or generated corpus record is edited by this lane.
 
-A bounded direct Lean check was submitted, but the host guard returned exit 75
-and queued a command future; this is resource deferral, not theorem failure.
-The initial inventory launcher continued past that typed defer and queued
-later modules before their dependencies had completed. Those 21 dependent
-futures were cancelled through the owner API, then the initial one-module
-future was replaced by `cf_952e3e2332e04112bbcd`, one governed serial inventory.
-It reported `waiting_host_admission` / `shared_lean_host_lock_busy`, with no
-Lean output. The replacement runner stops on exit 75 and skips imports of
-failed modules. It excludes the four modules depending on the concurrently
-changing `ForrelationLower.Main` until that dependency is rebuilt. Direct
-Lean output objects do not create Lake trace evidence; the later native Lake
-build must validate the integrated source and produce its own current traces.
-Build evidence will be inserted below only after actual terminal compiler
-results are read.
+The earlier HDD checks were deferred or exhausted their resource budget without
+a mathematical verdict. The current native results come from ordinary Lake on
+the operator-authorized SSD cache, with continuous 8 GiB reserve monitoring.
+Only terminal passes with unchanged local source closures are recorded as
+passes; failed and blocked attempts remain in the runtime history.
 
 ## Mathematical dispositions
 
@@ -112,9 +106,10 @@ before executing them, and run self-writing checks outside preserved custody.
 
 ## Per-target crosswalk
 
-Compilation in the table is pending until the focused terminal results below
-exist. An entry in a returned manifest establishes a proposed source target,
-not type correctness, a reviewed tie, dependency reach or Comparator acceptance.
+Every primary declaration below now belongs to a native-passed helper module
+at the reviewed live source hash. The table records focused compilation only;
+relation review, final root validation, dependency reach and Comparator
+acceptance remain separate facts.
 
 The [scoped tie candidates](round2_construction_quantum_ties.json) retain all
 54 statement IDs, the original and amended texts, per-declaration relations,
@@ -125,70 +120,72 @@ are a source-review handoff; they do not edit the corpus or claim a build.
 
 | Statement | Candidate declaration | Compilation |
 | --- | --- | --- |
-| `def-log-convention` | `QuarticQuery.Paper.construction_log2_mValue` | pending |
-| `def-partial-query` | `QuarticQuery.Paper.construction_correct_on_domain_iff` | pending |
-| `def-query-oracle` | `QuarticQuery.Paper.construction_query_oracle` | pending |
-| `eq-1` | `QuarticQuery.Paper.construction_alphaTot_eq_inf` | pending |
-| `eq-2` | `QuarticQuery.Paper.construction_equation_two` | pending |
-| `def-transcript` | `QuarticQuery.Paper.construction_transcript_definition` | pending |
-| `def-walsh-sign` | `QuarticQuery.Paper.construction_walsh_definitions` | pending |
-| `eq-3` | `QuarticQuery.Paper.construction_equation_3` | pending |
-| `eq-4` | `QuarticQuery.Paper.construction_equation_4` | pending |
-| `eq-5` | `QuarticQuery.Paper.construction_equation_5` | pending |
-| `claim-bs-to-L` | `QuarticQuery.Paper.construction_claim_bs_to_L` | pending |
-| `claim-proj-prob` | `QuarticQuery.Paper.construction_projection_test` | pending |
-| `lem-2.1.ii` | `QuarticQuery.Paper.construction_lemma_2_1_ii_complete` | pending |
-| `claim-N-phi` | `QuarticQuery.Paper.construction_N_phi` | pending |
-| `claim-integer-tests` | `QuarticQuery.Paper.construction_integer_tests` | pending |
-| `claim-circuit-size` | `QuarticQuery.Paper.construction_circuit_costs` | pending |
-| `lem-2.1` | `QuarticQuery.Paper.construction_lemma_2_1_complete` | pending |
-| `eq-6` | `QuarticQuery.Paper.construction_eq6` | pending |
-| `def-column-layout` | `QuarticQuery.Paper.construction_column_layout` | pending |
-| `eq-7` | `QuarticQuery.Paper.construction_trueAddress_iff` | pending |
-| `eq-8` | `QuarticQuery.Paper.constructionOutwardPointers` | pending |
-| `def-winner` | `QuarticQuery.Paper.constructionWinner` | pending |
-| `cor-unique-winner` | `QuarticQuery.Paper.construction_unique_winner` | pending |
-| `def-win-at-address` | `QuarticQuery.Paper.construction_winsAt_iff_winner_and_address` | pending |
-| `def-K` | `QuarticQuery.Paper.construction_K_count` | pending |
-| `lem-2.2.i` | `QuarticQuery.Paper.construction_lemma_2_2_i` | pending |
-| `lem-2.2.ii` | `QuarticQuery.Paper.construction_lemma_2_2_ii` | pending |
-| `lem-2.2` | `QuarticQuery.Paper.construction_lemma_2_2_complete` | pending |
-| `cor-local-dichotomy` | `QuarticQuery.Paper.construction_local_dichotomy` | pending |
+| `def-log-convention` | `QuarticQuery.Paper.construction_log2_mValue` | native passed |
+| `def-partial-query` | `QuarticQuery.Paper.construction_correct_on_domain_iff` | native passed |
+| `def-query-oracle` | `QuarticQuery.Paper.construction_query_oracle` | native passed |
+| `eq-1` | `QuarticQuery.Paper.construction_alphaTot_eq_inf` | native passed |
+| `eq-2` | `QuarticQuery.Paper.construction_equation_two` | native passed |
+| `def-transcript` | `QuarticQuery.Paper.construction_transcript_definition` | native passed |
+| `def-walsh-sign` | `QuarticQuery.Paper.construction_walsh_definitions` | native passed |
+| `eq-3` | `QuarticQuery.Paper.construction_equation_3` | native passed |
+| `eq-4` | `QuarticQuery.Paper.construction_equation_4` | native passed |
+| `eq-5` | `QuarticQuery.Paper.construction_equation_5` | native passed |
+| `claim-bs-to-L` | `QuarticQuery.Paper.construction_claim_bs_to_L` | native passed |
+| `claim-proj-prob` | `QuarticQuery.Paper.construction_projection_test` | native passed |
+| `lem-2.1.ii` | `QuarticQuery.Paper.construction_lemma_2_1_ii_complete` | native passed |
+| `claim-N-phi` | `QuarticQuery.Paper.construction_N_phi` | native passed |
+| `claim-integer-tests` | `QuarticQuery.Paper.construction_integer_tests` | native passed |
+| `claim-circuit-size` | `QuarticQuery.Paper.construction_circuit_costs` | native passed |
+| `lem-2.1` | `QuarticQuery.Paper.construction_lemma_2_1_complete` | native passed |
+| `eq-6` | `QuarticQuery.Paper.construction_eq6` | native passed |
+| `def-column-layout` | `QuarticQuery.Paper.construction_column_layout` | native passed |
+| `eq-7` | `QuarticQuery.Paper.construction_trueAddress_iff` | native passed |
+| `eq-8` | `QuarticQuery.Paper.constructionOutwardPointers` | native passed |
+| `def-winner` | `QuarticQuery.Paper.constructionWinner` | native passed |
+| `cor-unique-winner` | `QuarticQuery.Paper.construction_unique_winner` | native passed |
+| `def-win-at-address` | `QuarticQuery.Paper.construction_winsAt_iff_winner_and_address` | native passed |
+| `def-K` | `QuarticQuery.Paper.construction_K_count` | native passed |
+| `lem-2.2.i` | `QuarticQuery.Paper.construction_lemma_2_2_i` | native passed |
+| `lem-2.2.ii` | `QuarticQuery.Paper.construction_lemma_2_2_ii` | native passed |
+| `lem-2.2` | `QuarticQuery.Paper.construction_lemma_2_2_complete` | native passed |
+| `cor-local-dichotomy` | `QuarticQuery.Paper.construction_local_dichotomy` | native passed |
 
 ### 3_lean_quantum_upper
 
 | Statement | Candidate declaration | Compilation |
 | --- | --- | --- |
-| `prop-3.2` | `QuarticQuery.Paper.quantumTournament` | pending |
-| `claim-coupling` | `QuarticQuery.Paper.quantumList_coupling` | pending |
-| `claim-tournament-cost` | `QuarticQuery.Paper.quantumTournament_cost` | pending |
-| `def-grover-trial` | `QuarticQuery.Paper.quantum_grover_parameters` | pending |
-| `claim-grover-state` | `QuarticQuery.Paper.quantum_grover_state` | pending |
-| `claim-sin2theta` | `QuarticQuery.Paper.quantum_sin_two_angle` | pending |
-| `eq-9` | `QuarticQuery.Paper.quantum_eq_9` | pending |
-| `claim-coherent-access` | `QuarticQuery.Paper.quantum_controlled_bit_query` | pending |
-| `def-aij` | `QuarticQuery.Paper.quantumComparison_unordered_state` | pending |
-| `eq-10` | `QuarticQuery.Paper.quantumComparison_complementary` | pending |
-| `def-decode` | `QuarticQuery.Paper.quantumDecode` | pending |
-| `claim-decode-cost` | `QuarticQuery.Paper.quantumDecode_correct` | pending |
-| `def-comparison` | `QuarticQuery.Paper.quantumComparison_sorted` | pending |
-| `claim-comparison-state` | `QuarticQuery.Paper.quantumComparison_state` | pending |
-| `claim-winner-dominates` | `QuarticQuery.Paper.quantumWinner_dominates` | pending |
-| `def-verify` | `QuarticQuery.Paper.quantumVerify_fixedAddress` | pending |
-| `claim-verify` | `QuarticQuery.Paper.quantumVerify` | pending |
-| `claim-error` | `QuarticQuery.Paper.quantumError_bound` | pending |
-| `construct-sampler` | `QuarticQuery.Paper.quantumTensorStage_of_samples` | pending |
-| `eq-15` | `QuarticQuery.Paper.equation_15` | pending |
-| `claim-success-prob` | `QuarticQuery.Paper.quantumStage_success` | pending |
-| `eq-13` | `QuarticQuery.Paper.quantumDrift` | pending |
-| `claim-weight-lb` | `QuarticQuery.Paper.quantumWeight_lower` | pending |
-| `def-T-eps` | `QuarticQuery.Paper.quantumTournament_parameters` | pending |
-| `eq-11` | `QuarticQuery.Paper.quantumDominant_iff` | pending |
+| `prop-3.2` | `QuarticQuery.Paper.quantumTournament` | native passed |
+| `claim-coupling` | `QuarticQuery.Paper.quantumList_coupling` | native passed |
+| `claim-tournament-cost` | `QuarticQuery.Paper.quantumTournament_cost` | native passed |
+| `def-grover-trial` | `QuarticQuery.Paper.quantum_grover_parameters` | native passed |
+| `claim-grover-state` | `QuarticQuery.Paper.quantum_grover_state` | native passed |
+| `claim-sin2theta` | `QuarticQuery.Paper.quantum_sin_two_angle` | native passed |
+| `eq-9` | `QuarticQuery.Paper.quantum_eq_9` | native passed |
+| `claim-coherent-access` | `QuarticQuery.Paper.quantum_controlled_bit_query` | native passed |
+| `def-aij` | `QuarticQuery.Paper.quantumComparison_unordered_state` | native passed |
+| `eq-10` | `QuarticQuery.Paper.quantumComparison_complementary` | native passed |
+| `def-decode` | `QuarticQuery.Paper.quantumDecode` | native passed |
+| `claim-decode-cost` | `QuarticQuery.Paper.quantumDecode_correct` | native passed |
+| `def-comparison` | `QuarticQuery.Paper.quantumComparison_sorted` | native passed |
+| `claim-comparison-state` | `QuarticQuery.Paper.quantumComparison_state` | native passed |
+| `claim-winner-dominates` | `QuarticQuery.Paper.quantumWinner_dominates` | native passed |
+| `def-verify` | `QuarticQuery.Paper.quantumVerify_fixedAddress` | native passed |
+| `claim-verify` | `QuarticQuery.Paper.quantumVerify` | native passed |
+| `claim-error` | `QuarticQuery.Paper.quantumError_bound` | native passed |
+| `construct-sampler` | `QuarticQuery.Paper.quantumTensorStage_of_samples` | native passed |
+| `eq-15` | `QuarticQuery.Paper.equation_15` | native passed |
+| `claim-success-prob` | `QuarticQuery.Paper.quantumStage_success` | native passed |
+| `eq-13` | `QuarticQuery.Paper.quantumDrift` | native passed |
+| `claim-weight-lb` | `QuarticQuery.Paper.quantumWeight_lower` | native passed |
+| `def-T-eps` | `QuarticQuery.Paper.quantumTournament_parameters` | native passed |
+| `eq-11` | `QuarticQuery.Paper.quantumDominant_iff` | native passed |
 
 ## Focused validation
 
-Pending. Source-present, build-attempted, build-passed and Comparator-accepted
-states must be recorded separately against the exact integrating source.
+Focused construction/quantum module validation passed. Source-present,
+build-attempted, build-passed and Comparator-accepted states remain separate
+against the exact integrating source. The following records preserve the
+unsuccessful setup and repair history as well as the later native passes.
 
 At 16:22:13 UTC, serial future `cf_952e3e2332e04112bbcd` entered the shared host
 slot after an 18.4-minute admission wait. Its first Lean child was actually
@@ -199,6 +196,52 @@ compiler diagnostics or module result. This is measured import overhead, not
 a tactic failure or a successful check. Every helper imports the whole Mathlib
 umbrella transitively through `Statement.lean`; no claim of a warm cache is
 made from the presence of those object files.
+
+The original HDD serial run was terminated with exit 117 before it supplied a
+module verdict. After the operator authorized SSD recovery, the canonical
+project received a verified APFS-cloned package cache. The replacement native
+inventory is `cf_58aaa94feb484c52ad9e`, with runtime evidence under
+`/Users/willcook/src/_builds/quartic-r2-ssd/native-inventory/`. It runs ordinary
+`lake --no-cache build <module>:olean` targets sequentially, with an 8 GiB disk
+reserve and an 1800-second admitted seat budget. It records per-target local
+source-closure hashes before and after, compiler output and native Lake traces.
+
+The Lean-only dependency-exporter regression passed (exit 0, 15.07 seconds),
+after verifying that its exporter implementation exactly matches the current
+`scripts/Reach.lean`. The first native mathematical target, `ForrelationLower.Stein`,
+also passed (exit 0, 28.12 seconds): Lake rebuilt `Statement`, `Cube` and `Stein`
+while reusing the rest of its 18182-job cone. This is an observation of usable
+native caching after SSD recovery, not a proof verdict for the new Paper
+modules. The subsequent per-target terminal results are recorded below.
+
+That first SSD inventory ended at 17:30:25 UTC with exit 1. Its 46 records
+include the exporter fixture, all 39 Paper targets and six changed Forrelation/
+upper targets. Nine records passed, 13 failed elaboration and 24 were skipped
+because an imported module failed. The remaining SSD reserve was 16.68 GiB.
+Within this lane, `ConstructionPhase`, `QuantumAmplification`,
+`QuantumComparison` and `QuantumWorkspace` passed; these are per-target results
+with unchanged local source-closure hashes, not a whole-corpus success.
+
+The released failed sources received the following repairs before retry:
+the pinned `abs_add_le` name; removal of a tactic after simplification had
+already closed its goal; an explicit product cardinality rewrite; a stable
+true-address equality rewrite; reconstruction through the proved domain and
+Option interfaces rather than dependent-if unfolding; exposed recursive tensor
+register definitions and explicit finite/classical contexts; an empty-tensor
+normalization proof; and beta reduction and an explicit bounded-list cap in
+the tournament proof. These repairs preserve all saved candidate statement
+texts. Their new source hashes are recorded in the tie-candidate JSON; all construction and quantum helper declarations subsequently passed native retries.
+
+
+The accepted construction and quantum passes span the initial inventory and
+retries 1–3. Every candidate declaration's current module, source hash, terminal
+receipt, compiler log, object and Lake trace is bound in
+`native_validation_observations` in the tie-candidate JSON. All 120 saved
+candidate statement texts remain exact substrings of the reviewed live sources.
+`Section2` then passed in 26.11 seconds and `Section3` in 13.06 seconds in retry 4,
+with their complete local source closures unchanged. These module passes do not
+assert that a row is reached by the headline theorem or that a partial tie has
+become exact.
 
 ## Consequence handoff
 
@@ -220,19 +263,19 @@ made from the presence of those object files.
   completion and the source-current next asks.
 
 `tao_pipeline_receipt`: input_stage = advisory proof drafts; output_stage =
-source review and pending formal verification; artifact = this report and the
+source review and focused native verification; artifact = this report and the
 integrating Paper modules; human_understanding_delta = the exact state and
 query interfaces are separated; verification_state = package/finite checks
-passed, Lean pending; publication_or_review_state = AI integration review,
+and focused native construction/quantum modules passed; publication_or_review_state = AI integration review,
 no human review; canonicalization_state = existing Paper family, old public
-names preserved; unresolved_downstream_bottleneck = focused and integrated
-Lean checks, reviewed ties and Comparator; next_stage_owner = root integration.
+names preserved; unresolved_downstream_bottleneck = integrated
+source-bound root build, complete axiom audit, reviewed ties and Comparator; next_stage_owner = root integration.
 
 `paper_assimilation`: paper = OpenAI nearly quartic separation; section = 2–3;
 canonical_mechanism_family = addressed winner tests and amplified tournament;
 relation = statement-fidelity extension; understanding_delta = distinguish
 retained states from output laws and logical reads from physical queries;
-evidence_boundary = advisory sources plus finite checks until Lean completes;
+evidence_boundary = reviewed source and focused native passes; final root/axiom/Comparator evidence is separate;
 hard_step = coherent retained-register trial/list composition and common tensor
 workspace; meaningful_failed_route = identical success law does not imply the
 same full state; open_remainder = tight full projection physical witness and

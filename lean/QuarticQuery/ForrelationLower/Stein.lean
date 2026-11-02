@@ -133,6 +133,36 @@ theorem dphi_le (x : ℝ) : dphi x ≤ 3 := by
   have : 1 ≤ qf x ^ 5 := one_le_pow₀ h
   linarith
 
+/-- The sharp product bound for one edge of the Gaussian chain. -/
+theorem psi_dphi_le_sharp (x y : ℝ) : psiS x * dphi y ≤ 3 / 16 := by
+  have hx := qf_pos x
+  have hy := qf_pos y
+  have hxy : 2 ≤ qf x * qf y := by
+    have hsq : 4 ≤ (qf x * qf y) ^ 2 := by
+      rw [mul_pow, qf_sq, qf_sq]
+      nlinarith [sq_nonneg x, sq_nonneg y, mul_nonneg (sq_nonneg x) (sq_nonneg y)]
+    nlinarith [mul_pos hx hy]
+  have hy4 : 4 ≤ qf y ^ 4 := by
+    have h2 := qf_sq y
+    nlinarith [sq_nonneg y, sq_nonneg (qf y ^ 2 - 2)]
+  have hden : 16 ≤ 2 * qf x * qf y ^ 5 := by
+    have := mul_le_mul hxy hy4 (by norm_num) (by positivity : 0 ≤ qf x * qf y)
+    nlinarith [show (qf x * qf y) * qf y ^ 4 = qf x * qf y ^ 5 by ring]
+  unfold psiS dphi
+  rw [div_mul_div_comm, div_le_div_iff₀ (by positivity) (by norm_num)]
+  nlinarith
+
+/-- The product bound is attained when both Gaussian coordinates vanish. -/
+theorem psi_dphi_eq_sharp_at_zero : psiS 0 * dphi 0 = 3 / 16 := by
+  have hq := qf_sq 0
+  have hp := qf_pos 0
+  have h6 : qf 0 ^ 6 = 8 := by
+    calc qf 0 ^ 6 = (qf 0 ^ 2) ^ 3 := by ring
+      _ = 8 := by rw [qf_sq]; norm_num
+  unfold psiS dphi
+  field_simp
+  nlinarith [h6]
+
 /-- Stein in one variable. -/
 theorem stein_one {g g' : ℝ → ℝ} {C C' : ℝ} (hg : Continuous g) (hg' : Continuous g')
     (hb : ∀ x, |g x| ≤ C) (hb' : ∀ x, |g' x| ≤ C') (hd : ∀ x, HasDerivAt g (g' x) x) :

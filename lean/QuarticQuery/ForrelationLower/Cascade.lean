@@ -381,13 +381,13 @@ theorem Lpath_inj : Function.Injective fun p : n × (Fin l → n) => (Lpath l p)
   rw [plist_inj (by omega) this]
 
 /-- M1. The advantage of a depth-`d` tree over the uniform measure. -/
-theorem advantage_le (hl : 0 < l) (hH : RowsOrth H) {ε : ℝ} (hε : 0 ≤ ε) (hHb : ∀ a b, |H a b| ≤ ε)
+theorem advantage_le_sharp (hl : 0 < l) (hH : RowsOrth H) {ε : ℝ} (hε : 0 ≤ ε) (hHb : ∀ a b, |H a b| ≤ ε)
     {Λ K : ℝ} {d : ℕ} (hd : 0 < d) (hK : 0 < K) (hKsq : K ^ 2 = 2 * d * 2 ^ 2 * Λ)
     (hn : 1 ≤ Fintype.card (BC l n)) (T : QueryTree (BC l n)) (hT : T.depth ≤ d) (v : Bool → ℝ)
     (hv : ∀ b, |v b| ≤ 1) :
     |∫ u, ext (fun z => v (T.eval z)) (wv H 1 u) ∂(gP (PC l n)) -
         ext (fun z => v (T.eval z)) 0| ≤
-      (3 * ε) ^ l * (K ^ (l + 1) + (Fintype.card (BC l n) * 2) ^ (l + 1) *
+      ((3 / 16 : ℝ) * ε) ^ l * (K ^ (l + 1) + (Fintype.card (BC l n) * 2) ^ (l + 1) *
         ((4 * Fintype.card (BC l n) : ℝ) ^ (l + 1) * Real.exp (-Λ))) := by
   set g : (BC l n → Bool) → ℝ := fun z => v (T.eval z) with hg
   obtain ⟨s, hs, hid⟩ := exists_identity H hl g
@@ -397,28 +397,43 @@ theorem advantage_le (hl : 0 < l) (hH : RowsOrth H) {ε : ℝ} (hε : 0 ≤ ε) 
   rw [← integral_finsetSum _ fun a _ => (bcf_Int H hs1 l 0 a _).integrable]
   set W := K ^ (l + 1) + (Fintype.card (BC l n) * 2 : ℝ) ^ (l + 1) *
         ((4 * Fintype.card (BC l n) : ℝ) ^ (l + 1) * Real.exp (-Λ)) with hW
-  have hpt : ∀ u : PC l n → ℝ, ‖∑ a, Int H s l 0 a (D (cn 0 a) g) u‖ ≤ (3 * ε) ^ l * W := by
+  have hpt : ∀ u : PC l n → ℝ, ‖∑ a, Int H s l 0 a (D (cn 0 a) g) u‖ ≤ ((3 / 16 : ℝ) * ε) ^ l * W := by
     intro u
     have hμ : ∀ c, |wv H s u c| ≤ 1 / 2 := abs_wv_le_half H hl hs1 u
     have hgrow := sum_abs_ext_Dl_le (Lpath l) Lpath_nodup (k := l + 1)
       (fun p => by simp [Lpath, plist_length]) Lpath_inj hμ hd hK hKsq hn T hT v hv
     rw [Fintype.sum_prod_type] at hgrow
     calc ‖∑ a, Int H s l 0 a (D (cn 0 a) g) u‖
-        ≤ ∑ a, ∑ q : Fin l → n, (3 * ε) ^ l *
+        ≤ ∑ a, ∑ q : Fin l → n, ((3 / 16 : ℝ) * ε) ^ l *
             |ext (Dl (plist l 0 q) (D (cn 0 a) g)) (wv H s u)| := by
           refine (norm_sum_le _ _).trans (sum_le_sum fun a _ => ?_)
           rw [Int_eq_paths]
           refine (norm_sum_le _ _).trans (sum_le_sum fun q _ => ?_)
           rw [Real.norm_eq_abs, abs_mul]
-          exact mul_le_mul_of_nonneg_right (abs_cf_le H s hε hHb l 0 a q u) (abs_nonneg _)
-      _ = (3 * ε) ^ l * ∑ a, ∑ q : Fin l → n,
+          exact mul_le_mul_of_nonneg_right (abs_cf_le_sharp H s hε hHb l 0 a q u) (abs_nonneg _)
+      _ = ((3 / 16 : ℝ) * ε) ^ l * ∑ a, ∑ q : Fin l → n,
             |ext (Dl (plist l 0 q) (D (cn 0 a) g)) (wv H s u)| := by
           simp only [mul_sum]
-      _ ≤ (3 * ε) ^ l * W := by
+      _ ≤ ((3 / 16 : ℝ) * ε) ^ l * W := by
           refine mul_le_mul_of_nonneg_left ?_ (by positivity)
           exact hgrow
   have := norm_integral_le_of_norm_le_const (μ := gP (PC l n))
     (.of_forall hpt)
   simpa using this
+
+
+/-- The earlier coarse advantage bound, retained for its existing consumers. -/
+theorem advantage_le (hl : 0 < l) (hH : RowsOrth H) {ε : ℝ} (hε : 0 ≤ ε) (hHb : ∀ a b, |H a b| ≤ ε)
+    {Λ K : ℝ} {d : ℕ} (hd : 0 < d) (hK : 0 < K) (hKsq : K ^ 2 = 2 * d * 2 ^ 2 * Λ)
+    (hn : 1 ≤ Fintype.card (BC l n)) (T : QueryTree (BC l n)) (hT : T.depth ≤ d) (v : Bool → ℝ)
+    (hv : ∀ b, |v b| ≤ 1) :
+    |∫ u, ext (fun z => v (T.eval z)) (wv H 1 u) ∂(gP (PC l n)) -
+        ext (fun z => v (T.eval z)) 0| ≤
+      (3 * ε) ^ l * (K ^ (l + 1) + (Fintype.card (BC l n) * 2) ^ (l + 1) *
+        ((4 * Fintype.card (BC l n) : ℝ) ^ (l + 1) * Real.exp (-Λ))) := by
+  refine (advantage_le_sharp H hl hH hε hHb hd hK hKsq hn T hT v hv).trans ?_
+  exact mul_le_mul_of_nonneg_right
+    (pow_le_pow_left₀ (by positivity) (by nlinarith : (3 / 16 : ℝ) * ε ≤ 3 * ε) l)
+    (by positivity)
 
 end QuarticQuery.ForrelationLower

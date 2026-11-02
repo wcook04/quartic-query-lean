@@ -1,12 +1,13 @@
 # Round-two uniform Forrelation and single-family adjudication
 
-The sharp scalar coefficient `3/16` yields a uniform Forrelation lower bound with
-constant `2/18225`, a factor `256` above `1/2332800`, under the existing dimension
-condition `k ≥ 2`, `m = 4^t`, `15k + 2 ≤ 2t`. The live source now contains the
-scalar, path, advantage and parameter assembly for that endpoint, preserving the
-older theorem interfaces. **Compilation is pending at this draft checkpoint.**
-The existing repetition decoder also admits the exact budget expansion and the
-envelope `B10(k) ≤ 2^53 k 2^(10k)` for `k ≥ 1`; source for both is added.
+Native Lean checks the uniform Forrelation lower bound with numerical constant
+`2/18225`, a factor `256` above `1/2332800`, for every natural `k ≥ 2` and
+`m = 4^t` with `15k + 2 ≤ 2t`. The sharp scalar coefficient `3/16`, path
+coefficient, advantage comparison and complete parameter assembly have current
+focused native passes. Lean also checks the existing repetition decoder's exact
+budget expansion and `B10(k) ≤ 2^53 k 2^(10k)` for `k ≥ 1`, and the auxiliary
+floor-cutoff bounds from `t ≥ 41` when `2 ≤ k ≤ t`. Aggregate root validation,
+Comparator and headline reach remain separate pending integration steps.
 
 This file adjudicates returns `6_sharp_uniform_forrelation` (54 statement
 records, eight change records) and `7_single_family_exponent` (32 statement
@@ -88,26 +89,43 @@ Return-6 `checks.py` SHA-256:
 Return-7 `checks.py` SHA-256:
 `71a311c33b9a09182d9ed82b37f2540f326affe22f0bdc182cd0f47023bcb446`.
 
-Focused build checkpoint: the original governed request for
-`QuarticQuery.ForrelationLower.Stein` was deferred with exit `75`, job
-`cf_a603fc09c674403bbb2e`, then cancelled through the owner API before a Lean
-child started. Its terminal receipt is `cancelled`, exit `130`; stdout is empty
-and stderr contains only capacity waits. The separate Section4 diagnostic
-subsequently exhausted its 1500-second seat budget with exit `117`, without
-proof diagnostics. These are execution/admission outcomes, not theorem verdicts.
-After its process group ended, the scalar attainment rewrite, explicit path
-multiplication/positivity, and B10 multiplication bound were repaired.
+The sole coordinator's SSD-native passes were inspected as exact per-target
+records. Each row has exit zero, `inputs_unchanged = true`, and every recorded
+source/configuration hash still matches the current checkout:
 
-Exactly one native targeted build is now queued as
-`cf_bf3d0271e57c43479b86`: ordinary guarded
-`lake build QuarticQuery.ForrelationLower.Uniform QuarticQuery.Upper.Bound`,
-through `command_future --lean-host-admission`, with 41 local source/configuration
-paths and a 7200-second admitted seat budget reflecting the observed cold-cache
-cost. The source closure is frozen. Candidate hashes were refreshed after the
-repairs. The initial state is `waiting_host_admission` behind the disjoint
-construction/quantum batch. The terminal result and parent-controlled root
-build are required before recording kernel acceptance. No new Comparator
-receipt is claimed here. No commit is made in this lane.
+| Target | Accepted record | Elapsed seconds | Current input hashes |
+| --- | --- | ---: | ---: |
+| `ForrelationLower.Stein` | `native-inventory/results.json` | 28.12 | 6 |
+| `ForrelationLower.Walk` | `native-inventory/results.json` | 31.13 | 8 |
+| `ForrelationLower.Cascade` | `native-inventory/results.json` | 12.05 | 9 |
+| `ForrelationLower.Main` | `native-retry-1/results.json` | 33.14 | 15 |
+| `ForrelationLower.Uniform` | `native-retry-3/results.json` | 30.14 | 16 |
+| `Upper.Bound` | `native-inventory/results.json` | 66.30 | 32 |
+
+These paths are under `/Users/willcook/src/_builds/quartic-r2-ssd/`. Each accepted
+command is ordinary guarded `lake --no-cache build <target>:olean`; targets
+include their full `QuarticQuery.` prefix. The exact native command, log path,
+canonical target-record hash and input hashes are retained in
+`round2_forrelation_exponent_ties.json`. Canonical per-target row hashes are
+used because a results file can gain unrelated target rows while the serial
+inventory continues. Native `:olean` completion with the successful Lake record
+is the evidence here; an output file's presence alone is not the criterion.
+The six source modules remain frozen.
+
+Earlier admission waits, a cancelled unstarted scalar future, the cold-HDD
+Section4 seat-budget expiry, and failed native attempts remain historical
+execution records. Main's parser error and Uniform's six first-pass errors plus
+its final explicit `Nat.cast_one` conversion were repaired before the accepted
+source-current passes above. The old coarse endpoint now uses `RLe_R` directly,
+which preserves its type and removes a cast-mismatched floor detour. These
+superseded attempts do not invalidate the later current target passes, and the
+passes do not certify any broader SSW or BHMT statement.
+
+Source-level/correspondence review is accepted within the recorded quantifier
+boundaries. Focused native compilation is accepted for these modules. A final
+aggregate root receipt, new-endpoint Comparator acceptance and recomputed
+headline reach are still pending parent integration. No commit is made in this
+lane.
 
 ## Primary-source adjudication
 
@@ -148,8 +166,8 @@ OpenAI for the total function construction and nearly quartic separation.
 ## Disposition vocabulary
 
 `existing` means the cited live source already supplies the restricted local
-claim. `landed-source` means a proof was added by this lane; the build checkpoint
-above determines whether it is kernel evidence. `ordinary` means the argument
+claim. `native-passed` means a proof added by this lane has a current successful
+focused native build of its owning module, as recorded above. `ordinary` means the argument
 survives source and mathematical inspection but has uncompiled formal
 obligations. `partial` identifies a strictly narrower live statement. `external`
 means an identified primary theorem that remains a hypothesis for local
@@ -167,16 +185,16 @@ a new statement corpus.
 | --- | --- | --- |
 | `r2-sharp-ssw-input` | external | SSW Fourier estimate; no local proof of existence of its absolute constant. |
 | `r2-sharp-sharp-result` | ordinary | Full variable-error and improved-dimension theorem; requires restriction transfer, SSW and tail assembly. |
-| `r2-sharp-elementary-result` | partial | landed-source endpoint at m=4^t and old threshold; smaller tail threshold and arbitrary powers of two remain ordinary. |
+| `r2-sharp-elementary-result` | partial | native-passed endpoint at m=4^t and old threshold; smaller tail threshold and arbitrary powers of two remain ordinary. |
 | `r2-sharp-scope` | ordinary | Exact n=km substitution; no removal of the k factor when measuring total length. |
 | `r2-sharp-extension` | partial | Cube ext/D/Dl algebra exists; the packaged Fourier expansion wrapper remains uncompiled. |
-| `r2-sharp-kernel` | landed-source | Sharp product and equality added to Stein; existing derivative/oddness/bias bounds reused. |
+| `r2-sharp-kernel` | native-passed | Sharp product and equality added to Stein; existing derivative/oddness/bias bounds reused. |
 | `r2-sharp-stein` | existing | stein_one has the required bounded/continuous derivative hypotheses. |
 | `r2-sharp-chain` | partial | wv and endpoint half bound exist; quarter bound for interior coordinates remains a small formal obligation. |
 | `r2-sharp-zero-endpoint` | existing | integral_ext_wv_zero under RowsOrth; chain length and orthogonality remain hypotheses. |
 | `r2-sharp-path-identity` | partial | Existing exists_identity is a mean-value identity; literal integration in s needs its own regularity proof. |
 | `r2-sharp-worked-chain` | ordinary | k=3 expansion and Fourier differentiation are finite identities, not new compiled wrappers. |
-| `r2-sharp-advantage` | landed-source | advantage_le_sharp uses the mean-value form sufficient for the endpoint. |
+| `r2-sharp-advantage` | native-passed | advantage_le_sharp uses the mean-value form sufficient for the endpoint. |
 | `r2-sharp-moments` | partial | Walsh mass_ge and uniform moments exist; broader arbitrary-orthogonal statement is uncompiled. |
 | `r2-sharp-subgaussian` | ordinary | Endpoint conditioning gives coefficient norm 1/m pointwise; MGF and two-sided exponential tail remain to formalize. |
 | `r2-sharp-gap` | ordinary | Exact denominator 1-delta, min-tail and improved Gamma* are sound; live finite proof deliberately retains the weaker old gap. |
@@ -190,18 +208,18 @@ a new statement corpus.
 | `r2-sharp-threshold` | ordinary | Smaller exponential-tail threshold sound; no new tail theorem in the live Lean delta. |
 | `r2-sharp-sharp-proof` | ordinary | Variable-error ceiling/cancellation gives 1/(162 e C^2); no local kernel theorem. |
 | `r2-sharp-elementary-proof` | partial | main_term_le_sharp and old-threshold assembly landed; improved-tail version remains ordinary. |
-| `r2-sharp-original-constant` | landed-source | forrelation_lower_uniform_sharp preserves old dimension condition and gains exactly factor 256. |
+| `r2-sharp-original-constant` | native-passed | forrelation_lower_uniform_sharp preserves old dimension condition and gains exactly factor 256. |
 | `r2-sharp-finite-range` | ordinary | Equivalent Markov-gap positivity criterion with positive denominators; not a necessity theorem for all methods. |
 | `r2-sharp-small-dimension` | ordinary | Empty no-promise at m=1 and m=2,k=2; second example is outside current powers-of-four family. |
 | `r2-sharp-comparison` | ordinary | Distinct elementary/Tal/SSW consequences; no optimality claim for residual log loss. |
 | `r2-sharp-bs-failure` | audit | Public v3 display has the asserted exponent mismatch; repaired exponent concerns its bound expressions. |
 | `r2-audit-bs-sum-counterexample` | audit | Exact exponent algebra and asymptotic comparison of two upper-bound sums; not an actual decision-tree counterexample. |
 | `r2-audit-bs-gap-geometric` | audit | Reciprocal correction and geometric tail bound are sound ordinary deductions; source theorem imports are separate. |
-| `r2-impl-kernel` | landed-source | psi_dphi_le_sharp and psi_dphi_eq_sharp_at_zero. |
+| `r2-impl-kernel` | native-passed | psi_dphi_le_sharp and psi_dphi_eq_sharp_at_zero. |
 | `r2-impl-bias` | ordinary | Interior quarter bound not added; existing half bound suffices for landed endpoint. |
-| `r2-impl-coefficient` | landed-source | abs_cf_le_sharp. |
+| `r2-impl-coefficient` | native-passed | abs_cf_le_sharp. |
 | `r2-impl-growth` | partial | Parameterized growth reused, specialization is not a new local declaration. |
-| `r2-impl-advantage` | landed-source | advantage_le_sharp. |
+| `r2-impl-advantage` | native-passed | advantage_le_sharp. |
 | `r2-impl-restriction` | ordinary | Coordinate-dependent exact finite identity remains a formalization task. |
 | `r2-impl-weights` | ordinary | Weights are nonnegative and sum to one under stated inequalities; no compiled interface. |
 | `r2-impl-tree-restriction` | ordinary | Depth cannot increase after fixing variables; no compiled restricted-tree wrapper added. |
@@ -232,7 +250,7 @@ a new statement corpus.
 | `sf-total-lower` | ordinary | Use generic Gvalue_lt_R_addressedF with L=floor X; stronger fixed-L corollary is unnecessary. |
 | `sf-schedule` | ordinary | Both floor-sqrt schedules satisfy conditions for t>=80; no schedule theorem added here. |
 | `sf-T-and-repetitions` | ordinary | Exact Tval identity/refined substitution differs from existing upper bound Tval_mValue_le. |
-| `sf-B10` | landed-source | budgetConst_eq_expanded and budgetConst_le_exponential, with Q_Fkm_le_exponential consumer. |
+| `sf-B10` | native-passed | budgetConst_eq_expanded and budgetConst_le_exponential, with Q_Fkm_le_exponential consumer. |
 | `sf-circuit-arithmetic` | ordinary | Existing size bound suffices; exact recurrence/closed formula remains uncompiled. |
 | `sf-amplitude-estimation-interface` | ordinary | BHMT theorem checked in primary source; retained coherent local implementation and compiler cap remain unproved. |
 | `sf-AE-margins` | ordinary | 25/64 and 47/64 margins checked rationally; this is not a proof of BHMT. |
@@ -282,8 +300,9 @@ current evidence.
 
 ## Next proof consumers, in dependency order
 
-1. Compile the sharp elementary endpoint and exact existing-decoder budget.
-   Both improve named live consumers while preserving statement meaning.
+1. Consume the accepted sharp elementary endpoint, auxiliary cutoff and exact
+   existing-decoder budget. Their focused native modules pass; parent integration
+   still owns the aggregate root receipt and downstream evidence binding.
 2. For the single-family baseline, consume `uniform_budget_floor_bounds`
    (which supplies the needed bounds from `t ≥ 41`), then instantiate the generic
    planted theorem at `L = floor X`. Here
@@ -314,21 +333,26 @@ packet is prepared before the entire current batch is assimilated and validated.
 ## Mathematical consequence handoff
 
 - Canonical mathematics: the sharp coefficient/endpoint and B10 arithmetic live
-  in Lean source; this note records the complete return dispositions and exact
-  still-ordinary claims.
+  in Lean source with current focused native passes; this note records the complete
+  return dispositions and exact still-ordinary claims.
 - Prior art and credit: primary source loci checked above; all numerical
   constants and the power-of-four domain remain explicit. The SSW constant is
   not assigned a numerical value. No novelty or optimality verdict is inferred.
-- Lean obligations: exact declarations and pending builds are named above;
-  imports alone are not proof evidence.
+- Lean obligations: exact declarations and accepted focused native records are
+  named above; aggregate root validation remains pending. Imports alone are not
+  proof evidence.
 - Paper: return manuscripts are preserved as research. Updating public prose
   requires the final build boundary and a separate manuscript review; the
   smaller-dimension and BHMT statements cannot be labeled kernel-checked.
 - Comparator: no new endpoint challenge or acceptance receipt in this lane.
   Parent integration owns statement ties, generation and comparison decisions.
-  Candidate relations, seven narrowly exact new rows, explicit source hashes and
-  separate pending compilation status are in
+  Candidate relations, seven narrowly exact proposed new rows, current source
+  hashes and focused native evidence are in
   `round2_forrelation_exponent_ties.json`; broad returned rows remain partial.
+  These research-row proposals must not be automatically inserted into the
+  paper-only corpus, whose current ingestion path hardcodes OpenAI preprint
+  provenance. Root owns that distinct provenance limitation and any future
+  ingestion route.
 - Reviewer/public route: no human review or author confirmation. This work is a
   local AI-agent proof implementation and source audit.
 - Publication destinations: no submission requested or made here. Existing

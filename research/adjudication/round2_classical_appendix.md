@@ -1,5 +1,20 @@
 # Round 2: classical lower bound and Appendix A
 
+The completed Appendix route proves `D(f) ≤ 1500625 Q(f)^4` and `R(f) ≤ D(f)`
+for every total Boolean function, using the general matrix adversary, literal
+star, genuine face restriction, recursive Huang matrix and Midrijānis bound.
+The separate polynomial block-sensitivity hybrid proves the coefficient
+`19600`. These checked routes preserve the existing `20736` route separately;
+no novelty claim is made for the constants.
+
+All four classical modules, ten Appendix modules and `Section4` now have
+successful focused native receipts whose full local input closures match the
+frozen current source. Every one of the candidate review's 149 declaration
+references has a current file hash, exact source signature, signature hash and
+location. All 44 primary candidates have focused compilation evidence.
+Compilation remains separate from whole-row fidelity, Comparator acceptance,
+headline reach and the parent integration's aggregate gate.
+
 This review owns returns `4_lean_classical_lower` and `5_lean_appendix_a`.
 Both submissions explicitly mark every new Lean declaration unelaborated.
 Their coverage tables are proposed correspondences, not compilation or
@@ -125,10 +140,11 @@ This is incomplete validation, not a proved theorem failure or build success.
 No automatic UI wake is promised; the source freeze has been released and the
 integration owner must choose the next admitted validation action.
 
-The four `Classical*.lean` and ten `AppendixA*.lean` proposed modules have
-been copied into the live `Paper/` source owner for repair. They retain their
-unelaborated headers and are not imported by the library entry point. No
-declaration in those files is accepted or eligible for corpus promotion yet.
+The four `Classical*.lean` and ten `AppendixA*.lean` proposed modules were
+copied into the live `Paper/` source owner for repair. Their unelaborated
+headers describe the supplied review snapshot; the bound receipts below own
+current compilation status. At this initial stage no candidate declaration
+was accepted or eligible for corpus promotion.
 The bounded order after the initial check is:
 
 ```text
@@ -145,6 +161,168 @@ AppendixAStar + AppendixAHuangRoute -> AppendixA
 ```
 
 ## Consumer handoff
+
+### SSD compiler repair pass
+
+The sole integration compiler produced actual module diagnostics in
+`/Users/willcook/src/_builds/quartic-r2-ssd/native-inventory/` after the cold-HDD
+attempt. The first released failures were `AppendixAAdversary`,
+`AppendixASensitivity`, `AppendixAHuang`, `AppendixAHuangMatrix` and
+`ClassicalDirectProduct`. Their source repairs address module exposure,
+explicit imports, nonnegative scalar norm normalization, concrete finite-index
+identities and explicit rewrite arguments. They preserve the mathematical
+statements. The sensitivity bridge explicitly imports all of the pinned
+`SpectralSensitivity` module to access its unexposed defining body; it does not
+modify that dependency or replace its definition.
+
+The first retry reduced `AppendixAAdversary` to one unresolved inner-product
+scalar, repaired by specifying `𝕜 := ℂ`. The remaining sensitivity bridge
+diagnostic came from automatic definitional-equality attribute registration,
+not an invalid proof. The pinned `Lean/DefEqAttrib.lean` documents that a
+syntactic `:= rfl` registers exported `defeq`/`backward_defeq` attributes, which
+require every unfolded definition to be exposed. It explicitly prescribes
+`:= (rfl)` to suppress that attribute inference. The bridge now uses that
+supported form, with its type unchanged, and awaits the next serial recheck.
+
+`QuarticQuery.Paper.ClassicalDirectProduct` passed the sole coordinator's
+`lake --no-cache build QuarticQuery.Paper.ClassicalDirectProduct:olean`
+command with exit zero. The native retry receipt records 11.04 seconds and
+unchanged inputs, including source SHA-256
+`5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f`.
+The log reports a successful module build with ordinary lint warnings.
+Receipt and log are under `native-retry-1/` in the SSD inventory root.
+The exact recorded declaration signatures still match the repaired source,
+so the candidate JSON rebinds those references and records focused compilation.
+Comparator acceptance and headline dependency reach have not been measured
+for these new declarations, and the original compound-row limitations remain.
+
+`QuarticQuery.Paper.Section4` also passed its focused `:olean` target with exit
+zero, 21.09 seconds and unchanged inputs in the same retry receipt. This checks
+the existing all-circuit eventual Proposition 4.2 and Omega wrappers; its
+candidate declaration references now carry that separate build observation.
+The asymptotics module reached compilation and reported two log-base
+normalization mismatches. Both are repaired by explicitly rewriting
+`logb_mValue` before `mValue_cast`; its full statements are unchanged and its
+recheck remains pending.
+
+### Explicit Boolean grouping correction
+
+The second Huang retry exposed a source-type grouping issue. Lean parsed
+`a ^^ p = c` as `(a ^^ decide (p = c)) = true`; the intended direct shape is
+`(a ^^ p) = c`. These propositions are logically equivalent: all eight
+assignments of the three Boolean variables give the same result. The change
+therefore restores the intended formal presentation and proof matching without
+weakening or strengthening the mathematics. It must still be reviewed as a
+formal signature change, rather than described as an unchanged-header repair.
+
+`AppendixAHuang`, the blocked `AppendixARestriction` and the blocked
+`AppendixAHuangRoute` now parenthesize their XOR outputs explicitly. The
+restricted-face conclusion was compared again with the ledger: Boolean
+`(g(x) XOR parity(x)) = c` is exactly the sign-form condition
+`sign(g(x)) = (-1)^c * parity_character(x)`. The large fiber and its sensitive
+internal edges remain the intended claim, for every outside assignment.
+Original source/signature snapshots are retained; corrected candidates carry
+their own hashes and await compilation. An initial description of this as a
+mathematical misstatement was too strong; the exact truth-table check resolved
+it as an equivalent formal-shape correction.
+
+The reusable lesson is captured with authority-visible Task Ledger event
+`wie_20261102T174904Z_2329b58a`, subject
+`cap_quick_review_parsed_boolean_types_and_preserve_3f4e6aefdb0b`.
+The capture is claimable; its card projection was deliberately not rebuilt.
+
+The coordinator's second retry passed `AppendixASensitivity`,
+`ClassicalAsymptotics` and `ClassicalPlanted`, each with exit zero and unchanged
+input hashes. Their unchanged declaration signatures have been checked against
+the repaired source and rebound in the candidate review. Thus the conditional
+product route, the full planted output-gap estimate, the literal tail/quotient
+asymptotics and the sensitivity/degree/Midrijānis bridges have focused module
+compilation evidence. The general adversary, explicit Huang route and
+adaptive hidden-zero posterior still await their own successful targets.
+
+The third retry passed `AppendixAAdversary`, `AppendixAPerron` and
+`AppendixAHuangMatrix` with unchanged input closures. Their candidate references
+now carry the checked source hashes and signatures. This establishes focused
+compilation for the complex arbitrary-matrix progress argument, its nonnegative
+norm-eigenvector supplier, and the literal recursive Huang matrix's spectrum
+and supported positive-root vector. The explicit Unit block annotations and
+Boolean-negation parentheses in the matrix module were reviewed as the same
+intended initial matrix and bit-flip statement before rebinding.
+
+The newly reached spectral-adversary assembly exposed a coercion issue: an
+outer real type annotation made the finite supremum seek `OrderBot ℝ`.
+Its repaired definition now takes the supremum explicitly in `ℝ≥0`, then
+coerces the result to `ℝ`, retaining zero for the empty coordinate set.
+That assembly and its descendants still require successful rechecks.
+
+The fifth retry passed `AppendixASpectralAdversary` with exit zero in 37.15
+seconds and unchanged inputs. The full Lemma A.2 candidate, including the
+positive coordinate-norm denominator and explicit coefficient `1/35`, now has
+focused compilation evidence. Its reviewed theorem signatures are unchanged
+and rebound to the checked source.
+
+The fourth retry exposed an additional notation boundary in that repair:
+without its notation scope, `ℝ≥0` was parsed as a comparison of types. The
+source now writes the unambiguous type name `NNReal`. The face restriction's
+remaining expectation rewrite now beta-reduces the unfolded Fourier function
+application before applying the coordinate-restriction equality. Neither
+repair changes its theorem type; both remain pending successful rechecks.
+
+The direct expectation proof then exposed the actual remaining mismatch:
+the generic theorem enumerated the face with `Subtype.fintype`, while the
+finite-set face used `Finset.Subtype.fintype`. The source now proves equality
+of those two `Fintype S` structures with `Subsingleton.elim`, transports the
+existing restriction-expectation equality, and applies it to the unchanged
+Fourier statement. This is enumeration-instance coherence; no new Fourier
+premise or weakened normalization is introduced.
+
+`ClassicalUniformZero` passed exit zero in 13.06 seconds with unchanged inputs
+in the completed third retry. Its posterior theorem and exact reviewed source
+signatures are now bound to focused compilation. Together with the other three
+classical modules and `Section4`, this completes focused compilation of return
+4's live source integration. The early/late `claim-EZ` clause and arbitrary
+external side-information transport remain the stated fidelity boundaries;
+successful compilation does not remove them.
+
+The corrected `AppendixAHuang` module also passed, with its explicit Boolean
+grouping reviewed against the original sign-form statement. Its corrected
+signature record now carries a successful build pointer while retaining the
+original snapshot and exact Boolean equivalence explanation.
+
+### Final focused validation
+
+The final successful stages were:
+
+| Target in `QuarticQuery.Paper` | Native receipt | Seconds | Exit |
+| --- | --- | ---: | ---: |
+| `AppendixAStar` | `native-retry-7/results.json` | 28.12 | 0 |
+| `AppendixARestriction` | `native-retry-7/results.json` | 15.07 | 0 |
+| `AppendixAHuangRoute` | `native-retry-8/results.json` | 26.10 | 0 |
+| `AppendixA` | `native-retry-9/results.json` | 26.11 | 0 |
+
+These receipt paths are under
+`/Users/willcook/src/_builds/quartic-r2-ssd/`. Each command was the sole
+coordinator's `lake --no-cache build <target>:olean`, and each recorded
+`inputs_unchanged=true`. The candidate JSON records the complete target names,
+arguments, source/dependency hashes, logs and receipt-row digests. The final
+assembly source SHA-256 is
+`5a28f11e95c0153ef162337a8c81d4523f0092361b785425ee166924b1dd9815`.
+The earlier pending/failure observations above describe the assimilation
+history; there are no pending focused targets in this review's frozen source.
+
+The remaining mathematical fidelity boundaries have not been erased by these
+builds: the paper's early/late discovery decomposition, arbitrary external
+side-information pushforward, the concrete `Fkm` specialization of the generic
+planted-value theorem, and the recorded compound-row/sign-convention clauses.
+The candidate ties retain their reviewed exact, stronger or partial relations.
+No commits were made by this lane.
+
+These repairs are frozen for the coordinator's serial recheck; no compiler was
+launched by a repair worker. `ClassicalPlanted` has separate concrete diagnostics
+and has also been repaired and frozen for recheck. A failed module target and its skipped descendants receive
+no build credit. The candidate JSON retains the reviewed source snapshot and
+marks subsequently changed source hashes stale until successful compilation
+and declaration-signature review permit rebinding.
 
 [The candidate tie review](round2_classical_appendix_ties.json) compares 44
 primary declarations to the whole canonical statement while retaining the

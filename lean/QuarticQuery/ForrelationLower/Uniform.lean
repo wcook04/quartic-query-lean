@@ -92,7 +92,8 @@ theorem exists_P_yes {l t : ℕ} (hl : 0 < l) :
       ∂(gP (PC l (Nm t))) ≤ ∫ _u, dl (l + 1) ∂(gP (PC l (Nm t))) := by
     refine integral_mono hbcP.integrable (integrable_const _) fun u => ?_
     have := ext_mono (g := (PhiF t : (BC l (Nm t) → Bool) → ℝ))
-      (h := fun _ => dl (l + 1)) hlt (fun c => abs_wv_le (H t) (by simp) u c)
+      (h := fun _ => dl (l + 1)) (μ := wv (H t) 1 u) hlt
+      (fun c => abs_wv_le (H t) (s := 1) (by norm_num) u c)
     rwa [ext_const] at this
   have hc : ∫ _u, dl (l + 1) ∂(gP (PC l (Nm t))) = dl (l + 1) := by simp
   have h18 := dl_le l
@@ -237,7 +238,8 @@ theorem main_term_le {l t : ℕ} {L lg K : ℝ} (hL1 : 1 ≤ L) (hlg : 0 < lg)
     mul_nonneg (pow_nonneg (by linarith) _) (pow_nonneg hK0 _)
   have hsq : ((3 * w) ^ l * K ^ (l + 1)) ^ 2 ≤ ((1 / 18 : ℝ) ^ l / 48) ^ 2 := by
     have e1 : ((3 * w) ^ l * K ^ (l + 1)) ^ 2 = ((3 * w) ^ 2) ^ l * (K ^ 2) ^ (l + 1) := by
-      ring
+      rw [mul_pow]
+      congr 1 <;> rw [← pow_mul, ← pow_mul, Nat.mul_comm]
     have e0 : (3 * w) ^ 2 = 9 * N⁻¹ := by rw [mul_pow, hw2]; norm_num
     have e2 : (9 * N⁻¹) ^ l * N ^ l = 9 ^ l := by
       rw [← mul_pow]
@@ -262,6 +264,30 @@ theorem main_term_le {l t : ℕ} {L lg K : ℝ} (hL1 : 1 ≤ L) (hlg : 0 < lg)
           have : (0 : ℝ) ≤ (1 / 324 : ℝ) ^ l := by positivity
           nlinarith
   exact (sq_le_sq₀ hM0 (by positivity)).mp hsq
+
+/-- The sharp main term follows from the coarse arithmetic by scaling `K` and `lg`.
+The edge constant is smaller by `16`, so the budget constant grows by `256`. -/
+theorem main_term_le_sharp {l t : ℕ} {L lg K : ℝ} (hL1 : 1 ≤ L) (hlg : 0 < lg)
+    (hL : L ≤ (2 / 18225 : ℝ) * Real.rpow (mValue t : ℝ) (1 - 1 / ((l + 1 : ℕ) : ℝ)) /
+      (((l + 1 : ℕ) : ℝ) ^ 2 * lg))
+    (hK0 : 0 ≤ K)
+    (hKsq : K ^ 2 = 16 * ((l + 1 : ℕ) : ℝ) * (50 * ((l + 1 : ℕ) : ℝ) * L + 1) * lg) :
+    ((3 / 16 : ℝ) * ((2 : ℝ) ^ t)⁻¹) ^ l * K ^ (l + 1) ≤ (1 / 18 : ℝ) ^ l / 3 := by
+  have hL' : L ≤ (1 / 2332800 : ℝ) *
+      Real.rpow (mValue t : ℝ) (1 - 1 / ((l + 1 : ℕ) : ℝ)) /
+      (((l + 1 : ℕ) : ℝ) ^ 2 * (lg / 256)) := by
+    convert hL using 1 <;> field_simp <;> ring
+  have hKsq' : (K / 16) ^ 2 = 16 * ((l + 1 : ℕ) : ℝ) *
+      (50 * ((l + 1 : ℕ) : ℝ) * L + 1) * (lg / 256) := by
+    nlinarith [hKsq]
+  have h := main_term_le (l := l) (t := t) hL1 (by positivity : 0 < lg / 256)
+    hL' (by positivity : 0 ≤ K / 16) hKsq'
+  have heq : ((3 / 16 : ℝ) * ((2 : ℝ) ^ t)⁻¹) ^ l * K ^ (l + 1) =
+      16 * ((3 * ((2 : ℝ) ^ t)⁻¹) ^ l * (K / 16) ^ (l + 1)) := by
+    simp only [mul_pow, div_pow, pow_succ]
+    field_simp
+  rw [heq]
+  linarith
 
 /-- The residual term. With `Λ = 2k ln(4n)` it equals `(3/√m)^(k-1) 2^(-k) ≤ 18^(-(k-1)) / 4`. -/
 theorem tail_le {l t : ℕ} (ht : 6 ≤ t) (hl : 0 < l) {cd : ℝ} (hcd : 1 ≤ cd) :
@@ -374,6 +400,103 @@ theorem not_RLe_uniform {l t L : ℕ} (hl : 0 < l) (ht : 15 * (l + 1) + 2 ≤ 2 
   rw [e]
   linarith
 
+
+/-- The sharp edge coefficient increases the uniform budget constant by `256`. -/
+theorem not_RLe_uniform_sharp {l t L : ℕ} (hl : 0 < l) (ht : 15 * (l + 1) + 2 ≤ 2 * t)
+    (hL : (L : ℝ) ≤ (2 / 18225 : ℝ) *
+        Real.rpow (mValue t : ℝ) (1 - 1 / ((l + 1 : ℕ) : ℝ)) /
+        (((l + 1 : ℕ) : ℝ) ^ 2 *
+          Real.log (4 * ((l + 1 : ℕ) : ℝ) * (mValue t : ℝ)))) :
+    ¬ RLe (P (l + 1) t) L := by
+  rcases Nat.eq_zero_or_pos L with rfl | hLpos
+  · obtain ⟨z₁, h₁⟩ := exists_P_yes (t := t) hl
+    obtain ⟨z₀, h₀⟩ := exists_P_no (l := l) (t := t) (by omega)
+    exact not_RLe_zero_of_yes_no h₁ h₀
+  have hL1 : (1 : ℝ) ≤ L := by exact_mod_cast hLpos
+  have hcard : ((Fintype.card (BC l (Fin (mValue t))) : ℕ) : ℝ) =
+      ((l + 1 : ℕ) : ℝ) * (mValue t : ℝ) := by
+    rw [Fintype.card_prod, Fintype.card_fin, Fintype.card_fin, Nat.cast_mul]
+  have hm1 : (1 : ℝ) ≤ (mValue t : ℝ) := by
+    have : 1 ≤ mValue t := Nat.one_le_two_pow
+    exact_mod_cast this
+  have hk1 : (1 : ℝ) ≤ ((l + 1 : ℕ) : ℝ) := by
+    push_cast; linarith [(Nat.cast_nonneg l : (0 : ℝ) ≤ l)]
+  have hcd1 : (1 : ℝ) ≤ ((Fintype.card (BC l (Fin (mValue t))) : ℕ) : ℝ) := by
+    rw [hcard]; nlinarith
+  have h4cd : 4 * ((Fintype.card (BC l (Fin (mValue t))) : ℕ) : ℝ) =
+      4 * ((l + 1 : ℕ) : ℝ) * (mValue t : ℝ) := by
+    rw [hcard]; ring
+  have hlg : 0 < Real.log (4 * ((l + 1 : ℕ) : ℝ) * (mValue t : ℝ)) :=
+    Real.log_pos (by nlinarith)
+  have hS0 : (0 : ℝ) < 2 * ((2 * (25 * (l + 1)) * L + 1 : ℕ) : ℝ) * 2 ^ 2 *
+      (((2 * (l + 1) : ℕ) : ℝ) *
+        Real.log (4 * ((Fintype.card (BC l (Fin (mValue t))) : ℕ) : ℝ))) := by
+    rw [h4cd]
+    exact mul_pos (by positivity) (mul_pos (by positivity) hlg)
+  have hK0 := Real.sqrt_pos.mpr hS0
+  have hKsq := Real.sq_sqrt hS0.le
+  have hKsq' : Real.sqrt (2 * ((2 * (25 * (l + 1)) * L + 1 : ℕ) : ℝ) * 2 ^ 2 *
+      (((2 * (l + 1) : ℕ) : ℝ) *
+        Real.log (4 * ((Fintype.card (BC l (Fin (mValue t))) : ℕ) : ℝ)))) ^ 2 =
+      16 * ((l + 1 : ℕ) : ℝ) * (50 * ((l + 1 : ℕ) : ℝ) * L + 1) *
+        Real.log (4 * ((l + 1 : ℕ) : ℝ) * (mValue t : ℝ)) := by
+    rw [hKsq, h4cd]
+    push_cast
+    ring
+  have hmain := main_term_le_sharp (t := t) hL1 hlg hL (Real.sqrt_nonneg _) hKsq'
+  have htail_coarse := tail_le (l := l) (t := t) (by omega) hl hcd1
+  have htail : ((3 / 16 : ℝ) * ((2 : ℝ) ^ t)⁻¹) ^ l *
+      (((Fintype.card (BC l (Fin (mValue t))) : ℕ) : ℝ) * 2) ^ (l + 1) *
+      ((4 * ((Fintype.card (BC l (Fin (mValue t))) : ℕ) : ℝ)) ^ (l + 1) *
+        Real.exp (-(((2 * (l + 1) : ℕ) : ℝ) *
+          Real.log (4 * ((Fintype.card (BC l (Fin (mValue t))) : ℕ) : ℝ))))) ≤
+      (1 / 18 : ℝ) ^ l / 4 := by
+    have hinv : (0 : ℝ) ≤ ((2 : ℝ) ^ t)⁻¹ := by positivity
+    have hedge : (3 / 16 : ℝ) * ((2 : ℝ) ^ t)⁻¹ ≤
+        3 * ((2 : ℝ) ^ t)⁻¹ := by linarith
+    have hcoeff : ((3 / 16 : ℝ) * ((2 : ℝ) ^ t)⁻¹) ^ l ≤
+        (3 * ((2 : ℝ) ^ t)⁻¹) ^ l :=
+      pow_le_pow_left₀ (by positivity) hedge l
+    have htail' := mul_le_mul_of_nonneg_right hcoeff
+      (show (0 : ℝ) ≤
+        (((Fintype.card (BC l (Fin (mValue t))) : ℕ) : ℝ) * 2) ^ (l + 1) *
+        ((4 * ((Fintype.card (BC l (Fin (mValue t))) : ℕ) : ℝ)) ^ (l + 1) *
+          Real.exp (-(((2 * (l + 1) : ℕ) : ℝ) *
+            Real.log (4 * ((Fintype.card (BC l (Fin (mValue t))) : ℕ) : ℝ))))) by positivity)
+    simpa only [mul_assoc] using htail'.trans htail_coarse
+  have hA : ((3 / 16 : ℝ) * ((2 : ℝ) ^ t)⁻¹) ^ l *
+      (Real.sqrt (2 * ((2 * (25 * (l + 1)) * L + 1 : ℕ) : ℝ) * 2 ^ 2 *
+        (((2 * (l + 1) : ℕ) : ℝ) *
+          Real.log (4 * ((Fintype.card (BC l (Fin (mValue t))) : ℕ) : ℝ)))) ^ (l + 1) +
+        (((Fintype.card (BC l (Fin (mValue t))) : ℕ) : ℝ) * 2) ^ (l + 1) *
+        ((4 * ((Fintype.card (BC l (Fin (mValue t))) : ℕ) : ℝ)) ^ (l + 1) *
+          Real.exp (-(((2 * (l + 1) : ℕ) : ℝ) *
+            Real.log (4 * ((Fintype.card (BC l (Fin (mValue t))) : ℕ) : ℝ)))))) ≤
+      (1 / 18 : ℝ) ^ l / 3 + (1 / 18 : ℝ) ^ l / 4 := by
+    rw [mul_add]
+    simpa only [mul_assoc] using add_le_add hmain htail
+  refine not_RLe_of_gap_sharp (t := t) (L := L) (τ := 25 * (l + 1)) hl hK0 hKsq hA
+    (pow_le_one₀ (by norm_num) (by norm_num)) ?_
+  -- the promise gap
+  have hε0 : (0 : ℝ) ≤ (8 / 9 : ℝ) ^ (25 * (l + 1)) := by positivity
+  have hε : (8 / 9 : ℝ) ^ (25 * (l + 1)) ≤ (1 / 18 : ℝ) ^ l / 18 := by
+    have := eps_le (l + 1)
+    have e : (1 / 18 : ℝ) ^ (l + 1) = (1 / 18 : ℝ) ^ l / 18 := by ring
+    linarith
+  have hδ := dl_le l
+  have hδ0 := dl_pos l
+  have hq := q_le (l := l) (t := t) ht
+  have ha1 : (1 / 18 : ℝ) ^ l ≤ 1 := pow_le_one₀ (by norm_num) (by norm_num)
+  have ha0 : (0 : ℝ) < (1 / 18 : ℝ) ^ l := by positivity
+  have hεa : (8 / 9 : ℝ) ^ (25 * (l + 1)) * ((1 / 18 : ℝ) ^ l - dl (l + 1)) ≤
+      (8 / 9 : ℝ) ^ (25 * (l + 1)) :=
+    mul_le_of_le_one_right hε0 (by linarith)
+  have e : (1 - (8 / 9 : ℝ) ^ (25 * (l + 1))) * ((1 / 18 : ℝ) ^ l - dl (l + 1)) =
+      ((1 / 18 : ℝ) ^ l - dl (l + 1)) -
+        (8 / 9 : ℝ) ^ (25 * (l + 1)) * ((1 / 18 : ℝ) ^ l - dl (l + 1)) := by ring
+  rw [e]
+  linarith
+
 end QuarticQuery.ForrelationLower
 
 namespace QuarticQuery
@@ -389,45 +512,28 @@ theorem forrelation_lower_uniform_existing_constants
         ((k : ℝ) ^ 2 * Real.log (4 * (k : ℝ) * (mValue t : ℝ))) <
       (R (P k t) : ℝ) := by
   obtain ⟨l, rfl⟩ : ∃ l, k = l + 1 := ⟨k - 1, by omega⟩
-  have hl : 0 < l := by omega
-  have hm1 : (1 : ℝ) ≤ (mValue t : ℝ) := by
-    have : 1 ≤ mValue t := Nat.one_le_two_pow
-    exact_mod_cast this
-  have hk1 : (1 : ℝ) ≤ ((l + 1 : ℕ) : ℝ) := by
-    push_cast; linarith [(Nat.cast_nonneg l : (0 : ℝ) ≤ l)]
-  have hlg : 0 < Real.log (4 * ((l + 1 : ℕ) : ℝ) * (mValue t : ℝ)) :=
-    Real.log_pos (by nlinarith)
-  have hX0 : (0 : ℝ) ≤ (1 / 2332800 : ℝ) *
-      Real.rpow (mValue t : ℝ) (1 - 1 / ((l + 1 : ℕ) : ℝ)) /
-      (((l + 1 : ℕ) : ℝ) ^ 2 * Real.log (4 * ((l + 1 : ℕ) : ℝ) * (mValue t : ℝ))) := by
-    have := Real.rpow_nonneg (by positivity : (0 : ℝ) ≤ (mValue t : ℝ))
-      (1 - 1 / ((l + 1 : ℕ) : ℝ))
-    exact div_nonneg (mul_nonneg (by norm_num) this) (mul_nonneg (by positivity) hlg.le)
-  have hnot := not_RLe_uniform (L := ⌊(1 / 2332800 : ℝ) *
-      Real.rpow (mValue t : ℝ) (1 - 1 / ((l + 1 : ℕ) : ℝ)) /
-      (((l + 1 : ℕ) : ℝ) ^ 2 * Real.log (4 * ((l + 1 : ℕ) : ℝ) * (mValue t : ℝ)))⌋₊)
-    hl (by omega) (Nat.floor_le hX0)
-  have h1 := lt_R_of_not_RLe hnot
-  have h2 := Nat.lt_floor_add_one ((1 / 2332800 : ℝ) *
-      Real.rpow (mValue t : ℝ) (1 - 1 / ((l + 1 : ℕ) : ℝ)) /
-      (((l + 1 : ℕ) : ℝ) ^ 2 * Real.log (4 * ((l + 1 : ℕ) : ℝ) * (mValue t : ℝ))))
-  have h3 : ((⌊(1 / 2332800 : ℝ) *
-      Real.rpow (mValue t : ℝ) (1 - 1 / ((l + 1 : ℕ) : ℝ)) /
-      (((l + 1 : ℕ) : ℝ) ^ 2 * Real.log (4 * ((l + 1 : ℕ) : ℝ) * (mValue t : ℝ)))⌋₊ + 1 : ℕ) : ℝ) ≤
-      (R (P (l + 1) t) : ℝ) := by
-    have h1' : ⌊(1 / 2332800 : ℝ) *
-      Real.rpow (mValue t : ℝ) (1 - 1 / ((l + 1 : ℕ) : ℝ)) /
-      (((l + 1 : ℕ) : ℝ) ^ 2 * Real.log (4 * ((l + 1 : ℕ) : ℝ) * (mValue t : ℝ)))⌋₊ + 1 ≤
-        R (P (l + 1) t) := h1
-    exact_mod_cast h1'
-  push_cast at h3
-  linarith
+  by_contra h
+  exact not_RLe_uniform (t := t) (L := R (P (l + 1) t)) (by omega)
+    ht (le_of_not_gt h) (RLe_R _)
 
 end QuarticQuery
 
 namespace QuarticQuery
 
 open ForrelationLower
+
+/-- For every `k ≥ 2` and `m = 4^t ≥ 2^(15k+2)`, the uniform lower bound
+has numerical constant `2/18225`, a factor `256` above the coarse endpoint. -/
+theorem forrelation_lower_uniform_sharp
+    (k t : ℕ) (hk : 2 ≤ k) (ht : 15 * k + 2 ≤ 2 * t) :
+    (2 / 18225 : ℝ) *
+        Real.rpow (mValue t : ℝ) (1 - 1 / (k : ℝ)) /
+        ((k : ℝ) ^ 2 * Real.log (4 * (k : ℝ) * (mValue t : ℝ))) <
+      (R (P k t) : ℝ) := by
+  obtain ⟨l, rfl⟩ : ∃ l, k = l + 1 := ⟨k - 1, by omega⟩
+  by_contra h
+  exact not_RLe_uniform_sharp (t := t) (L := R (P (l + 1) t)) (by omega)
+    ht (le_of_not_gt h) (RLe_R _)
 
 /-- `ln(4km) ≤ 6t` once `k ≤ t`, for `m = 4^t`. -/
 theorem log_four_k_m_le {k t : ℕ} (hk : 1 ≤ k) (hkt : k ≤ t) :
@@ -444,6 +550,94 @@ theorem log_four_k_m_le {k t : ℕ} (hk : 1 ≤ k) (hkt : k ≤ t) :
     push_cast
     nlinarith [(Nat.cast_nonneg t : (0 : ℝ) ≤ t)]
   linarith
+
+/-- The exponential estimate used by the growing-order auxiliary cutoff.
+The base `41` is stronger than the sufficient base `64` in the return. -/
+theorem uniform_cutoff_power {t : ℕ} (ht : 41 ≤ t) :
+    (27993600 : ℝ) * (t : ℝ) ^ 3 ≤ (2 : ℝ) ^ t := by
+  induction t, ht using Nat.le_induction with
+  | base => norm_num
+  | succ n hn ih =>
+    have hn' : (41 : ℝ) ≤ n := by exact_mod_cast hn
+    have hstep : ((n : ℝ) + 1) ^ 3 ≤ 2 * (n : ℝ) ^ 3 := by
+      have hn4 : 0 ≤ (n : ℝ) - 4 := by linarith
+      nlinarith [mul_nonneg hn4 (sq_nonneg (n : ℝ)),
+        mul_nonneg hn4 (show (0 : ℝ) ≤ n by positivity)]
+    rw [pow_succ (2 : ℝ) n]
+    push_cast
+    nlinarith
+
+/-- The auxiliary classical cutoff is nonzero, at most the block size, and loses
+at most a factor two to its floor. Its threshold is uniform in the order. -/
+theorem uniform_budget_floor_bounds (k t : ℕ) (hk : 2 ≤ k) (hkt : k ≤ t) (ht : 41 ≤ t) :
+    let X := (1 / 2332800 : ℝ) *
+      Real.rpow (mValue t : ℝ) (1 - 1 / (k : ℝ)) /
+      ((k : ℝ) ^ 2 * Real.log (4 * (k : ℝ) * (mValue t : ℝ)))
+    2 ≤ X ∧ 1 ≤ ⌊X⌋₊ ∧ ⌊X⌋₊ ≤ mValue t ∧ X / 2 ≤ (⌊X⌋₊ : ℝ) := by
+  intro X
+  have hk2 : (2 : ℝ) ≤ k := by exact_mod_cast hk
+  have hk0 : (0 : ℝ) < k := by linarith
+  have hkt' : (k : ℝ) ≤ t := by exact_mod_cast hkt
+  have ht0 : (0 : ℝ) < t := by exact_mod_cast (by omega : 0 < t)
+  have hm1 : (1 : ℝ) ≤ (mValue t : ℝ) := by
+    have : 1 ≤ mValue t := Nat.one_le_two_pow
+    exact_mod_cast this
+  have hm : (mValue t : ℝ) = (2 : ℝ) ^ (2 * t) := by simp [mValue]
+  have hlg0 : 0 < Real.log (4 * (k : ℝ) * (mValue t : ℝ)) :=
+    Real.log_pos (by nlinarith)
+  have hlg := log_four_k_m_le (by omega) hkt
+  have hYlo : (2 : ℝ) ^ t ≤ Real.rpow (mValue t : ℝ) (1 - 1 / (k : ℝ)) := by
+    have hhalf : (1 / 2 : ℝ) ≤ 1 - 1 / (k : ℝ) := by
+      have := one_div_le_one_div_of_le two_pos hk2
+      linarith
+    have hroot : (mValue t : ℝ) ^ (1 / 2 : ℝ) = (2 : ℝ) ^ t := by
+      rw [hm, ← Real.rpow_natCast, ← Real.rpow_mul (by norm_num), ← Real.rpow_natCast]
+      congr 1
+      push_cast
+      ring
+    rw [← hroot]
+    exact Real.rpow_le_rpow_of_exponent_le hm1 hhalf
+  have hYhi : Real.rpow (mValue t : ℝ) (1 - 1 / (k : ℝ)) ≤ (mValue t : ℝ) := by
+    calc _ ≤ (mValue t : ℝ) ^ (1 : ℝ) :=
+        Real.rpow_le_rpow_of_exponent_le hm1 (by
+          have : (0 : ℝ) ≤ 1 / (k : ℝ) := by positivity
+          linarith)
+      _ = _ := Real.rpow_one _
+  have hden0 : 0 < (k : ℝ) ^ 2 * Real.log (4 * (k : ℝ) * (mValue t : ℝ)) := by positivity
+  have hdenlo : 1 ≤ (k : ℝ) ^ 2 * Real.log (4 * (k : ℝ) * (mValue t : ℝ)) := by
+    have hlog2 := Real.log_le_log (by norm_num : (0 : ℝ) < 2)
+      (by nlinarith : (2 : ℝ) ≤ 4 * (k : ℝ) * (mValue t : ℝ))
+    have hloghalf : (1 / 2 : ℝ) ≤ Real.log (4 * (k : ℝ) * (mValue t : ℝ)) := by
+      have := Real.log_two_gt_d9
+      linarith
+    have hmul := mul_le_mul (show (4 : ℝ) ≤ (k : ℝ) ^ 2 by nlinarith)
+      hloghalf (by norm_num : (0 : ℝ) ≤ 1 / 2) (sq_nonneg (k : ℝ))
+    linarith
+  have hdenhi : (k : ℝ) ^ 2 * Real.log (4 * (k : ℝ) * (mValue t : ℝ)) ≤ 6 * (t : ℝ) ^ 3 := by
+    have hksq : (k : ℝ) ^ 2 ≤ (t : ℝ) ^ 2 := by nlinarith
+    calc _ ≤ (k : ℝ) ^ 2 * (6 * t) := mul_le_mul_of_nonneg_left hlg (by positivity)
+      _ ≤ (t : ℝ) ^ 2 * (6 * t) := mul_le_mul_of_nonneg_right hksq (by positivity)
+      _ = _ := by ring
+  have hX2 : 2 ≤ X := by
+    dsimp only [X]
+    rw [le_div_iff₀ hden0]
+    have hp := uniform_cutoff_power ht
+    linarith
+  have hXm : X ≤ (mValue t : ℝ) := by
+    dsimp only [X]
+    rw [div_le_iff₀ hden0]
+    have hY0 := Real.rpow_nonneg (show (0 : ℝ) ≤ (mValue t : ℝ) by positivity)
+      (1 - 1 / (k : ℝ))
+    have hmul := le_mul_of_one_le_right (show (0 : ℝ) ≤ (mValue t : ℝ) by positivity) hdenlo
+    nlinarith
+  have hfloor1 : 1 ≤ ⌊X⌋₊ := by
+    apply Nat.le_floor
+    rw [Nat.cast_one]
+    linarith
+  refine ⟨hX2, hfloor1, ?_, ?_⟩
+  · exact_mod_cast (Nat.floor_le (by linarith : 0 ≤ X)).trans hXm
+  · have := Nat.lt_floor_add_one X
+    linarith
 
 /-- The conclusion of `BansalSinhaLower` above an explicit threshold: for every `k ≥ 2` and
 every `t ≥ 3499200 k²`, `Lvalue k t < R (P k t)`. -/

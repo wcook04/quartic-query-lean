@@ -6,6 +6,14 @@ public import QuarticQuery.Upper.Verify
 public import QuarticQuery.Upper.Decode
 public import QuarticQuery.Forrelation.Circuit
 public import QuarticQuery.ForrelationLower.Main
+public import QuarticQuery.Paper.ConstructionModels
+public import QuarticQuery.Paper.ConstructionFamily
+public import QuarticQuery.Paper.ConstructionForrelationComparison
+public import QuarticQuery.Paper.ConstructionForrelationComplete
+public import QuarticQuery.Paper.ConstructionComplete
+public import QuarticQuery.Paper.ConstructionPointerSupport
+public import QuarticQuery.Paper.ConstructionPhase
+public import QuarticQuery.Paper.ConstructionArithmetic
 
 /-!
 # Section 2 of the preprint, statement by statement
@@ -14,6 +22,10 @@ Each declaration here states one named result of Section 2 as the preprint write
 or in a documented corrected form, and derives it from the existing development.
 `F_{k,m}` is `Fkm k t C` with `m = 4 ^ t`, `ℓ = 2 t`, `r = 40 t`, for a circuit `C`
 realising `P k t`.
+
+The `Construction*` modules expose the retained-state physical witnesses, arbitrary
+test-index superpositions, exact definitions and explicit finite bounds supplied by
+the round-two integration. The declarations below retain the earlier public names.
 -/
 
 public section
@@ -129,9 +141,7 @@ theorem claim_bs_to_L_log2 (k : ℕ) (hk : 2 ≤ k) (c : ℝ) (hc : 0 < c) :
       have : 0 < mValue t := by simp [mValue]
       exact_mod_cast this
     have htR : (1 : ℝ) ≤ t := by exact_mod_cast (show 1 ≤ t by omega)
-    rw [Real.logb_mul hk0.ne' hm.ne', logb_mValue]
-  · linarith
-  · linarith
+    rw [Real.logb_mul hk0.ne' hm.ne', logb_mValue] <;> linarith
 
 /-- The unfloored middle comparison of the corrected `claim-bs-to-L`:
 `L ≤ m^(1 - 1/k) / (log₂ m)²`. -/

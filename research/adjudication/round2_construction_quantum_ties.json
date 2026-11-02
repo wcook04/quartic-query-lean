@@ -18,22 +18,22 @@
     "lean/QuarticQuery/Paper/ConstructionAudit.lean": "bf7d2c90de5e5c690c9a1a1589cd1b2d59b1f63a93eed3bd846170ae996ca6d6",
     "lean/QuarticQuery/Paper/ConstructionForrelationQuantum.lean": "f31face68a9c47906d9a728cced9aa8a24ec73d3079c6196ae1853130151391b",
     "lean/QuarticQuery/Paper/ConstructionPointerSupport.lean": "8a2d8befa3225ab54114492b35c5a326fc17bd8f0a5eaa9acba966c18db53938",
-    "lean/QuarticQuery/Paper/ConstructionArithmetic.lean": "f06202f8f7e18d3ab2a084029c996e090ede817dbc763361f08628c1c29a09c6",
-    "lean/QuarticQuery/Paper/ConstructionModels.lean": "c395c9abfd497ed39b5390a5e1a01ce9d8d4c18b20f1c07aaae04ceefb232223",
-    "lean/QuarticQuery/Paper/ConstructionForrelationComparison.lean": "5e2da5d395fcadbda7e8e434f01141caff8f3a2ea2ef257f4591352b6ee843dd",
+    "lean/QuarticQuery/Paper/ConstructionArithmetic.lean": "2c355a3eb5e76cd5db70a6990bb9d6b37d652e0eece3b31ed0661219d3635ad0",
+    "lean/QuarticQuery/Paper/ConstructionModels.lean": "19826ab2f9f9ef8a329f5880faf2426727b158321af4a418d519d55b56674d61",
+    "lean/QuarticQuery/Paper/ConstructionForrelationComparison.lean": "e9bb18d1e0ea9482762e89a9ced002c720f9b7d2311a455a9904bd820c5b4a01",
     "lean/QuarticQuery/Paper/ConstructionForrelationComplete.lean": "733526015ad9a2013512d8f6216b8f73c41566a803d92602dd30e40e90d7ad06",
-    "lean/QuarticQuery/Paper/ConstructionCoherent.lean": "f079bfbe992a05f1ba22e16b7bc3941307d3b12940768f777f93225952b13d59",
+    "lean/QuarticQuery/Paper/ConstructionCoherent.lean": "5e5f5c2321e7c1ce23235e69e1f430fd951f13cc92b5a2d1b2d974aad0607cec",
     "lean/QuarticQuery/Paper/ConstructionFamily.lean": "b7e1203086e38c00b964355ac71537a7fc5be7053d537ccd56cba8017cdd085a",
-    "lean/QuarticQuery/Paper/ConstructionDefinitions.lean": "8fad21686ef8b5de87b1eac1347862e5612cc93b75f768f868c02c0aaca8ba3f",
+    "lean/QuarticQuery/Paper/ConstructionDefinitions.lean": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
     "lean/QuarticQuery/Paper/ConstructionPhase.lean": "f9dc9564aa8741a6aa3059fcea3563c740fed802666ae251fbebbe9085668405",
     "lean/QuarticQuery/Paper/ConstructionComplete.lean": "a79e9f0cdbf85df0e86605711fa6c8bde2a19cbe043c36302243b42a7f8fbc6c",
-    "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean": "a0c9229577a4dbc24eeebc85f013101ad871538d62679ca0ddab5ca241387ff5",
+    "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean": "14f92345b8885036e862885aad3db82d77cff6e71642e669c2ba7dc8ba087aa1",
     "lean/QuarticQuery/Paper/QuantumWorkspace.lean": "a5ed4638bef1d1e15508ea5b96a0edf99a2281693de03f39f23e5afadd7ba07b",
-    "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean": "ab72f2d710bc5d74c624053884ba995c4d72cee1a18131fe4e683f4ede8361be",
+    "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
     "lean/QuarticQuery/Paper/QuantumUpper.lean": "4d2966b64f95a3706113159a8afd4a5b1954a895d7d1e91c569d2f59a24bcb26",
     "lean/QuarticQuery/Paper/QuantumAmplification.lean": "95d89237e766b59ffdd52f1324e440e2127b06353b2c8de2482b9f55c4adb30b",
-    "lean/QuarticQuery/Paper/QuantumTournament.lean": "f6ad658e5664ff7a1fa04c5a4521252e096880b0bc5ea5af0a67540cdefa7387",
-    "lean/QuarticQuery/Paper/QuantumTensor.lean": "4876b2d18401989364ab176424663a7d0f8c1974a739dae1b8e140da6d813483",
+    "lean/QuarticQuery/Paper/QuantumTournament.lean": "8cf87e74aa0364c9bc6b9078ff62e88c45d297625166fe31a8efeea765a34adf",
+    "lean/QuarticQuery/Paper/QuantumTensor.lean": "7a2f03d6ae2d8d3ff2af9837f6cb1e1f1f3d5b4983dc34e753792621443835ac",
     "lean/QuarticQuery/Paper/QuantumComparison.lean": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d"
   },
   "rows": [
@@ -51,7 +51,7 @@
         {
           "declaration": "QuarticQuery.Paper.construction_log2_mValue",
           "file": "lean/QuarticQuery/Paper/ConstructionModels.lean",
-          "declaration_line": 186,
+          "declaration_line": 198,
           "relation": "partial",
           "relation_to_original_ledger": "partial",
           "route": "none",
@@ -63,7 +63,7 @@
           "interface": "mathematical_statement",
           "note": "Checks base-two logarithms on the construction powers of four only. The global prose convention and the independent T, r and L definitions are not all stated by this one identity.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "c395c9abfd497ed39b5390a5e1a01ce9d8d4c18b20f1c07aaae04ceefb232223",
+          "source_sha256": "19826ab2f9f9ef8a329f5880faf2426727b158321af4a418d519d55b56674d61",
           "signature_sha256": "55ee8abed0b4a53c2cc04386d3f86ccabb2573e1286be4253dbba18ba8ae685e",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_log2_mValue (t : ℕ) :\n    Real.logb 2 (mValue t : ℝ) = 2 * (t : ℝ)"
@@ -83,7 +83,7 @@
           "interface": "mathematical_statement",
           "note": "Pins both l=2t and r=ceil(20 log₂m)=40t.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "8fad21686ef8b5de87b1eac1347862e5612cc93b75f768f868c02c0aaca8ba3f",
+          "source_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
           "signature_sha256": "ac8beba2f9d5d0bbf2e5b389ea1c4f28230c142c446874bcc274af0668c1eb45",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_eq6 (t : ℕ) :\n    Real.logb 2 (mValue t : ℝ) = (2 * t : ℕ) ∧\n      ⌈20 * Real.logb 2 (mValue t : ℝ)⌉₊ = 40 * t"
@@ -91,7 +91,7 @@
         {
           "declaration": "QuarticQuery.Paper.quantumTournament_parameters",
           "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
-          "declaration_line": 56,
+          "declaration_line": 57,
           "relation": "partial",
           "relation_to_original_ledger": "partial",
           "route": "none",
@@ -103,7 +103,7 @@
           "interface": "mathematical_statement",
           "note": "Pins T and epsilon in integer-log vocabulary.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "ab72f2d710bc5d74c624053884ba995c4d72cee1a18131fe4e683f4ede8361be",
+          "source_sha256": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
           "signature_sha256": "3fe0eaf497158cbe6fcfd21dead6e50ce351c4a53d5b29fd846b267457bdb98c",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem quantumTournament_parameters (m : ℕ) :\n    Tval m = Nat.clog 2 (1000 * m) ∧\n      epsval m = 1 / (1000 * (Tval m : ℝ))"
@@ -123,7 +123,7 @@
           "interface": "mathematical_statement",
           "note": "Pins the base-two logarithm in L.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "a0c9229577a4dbc24eeebc85f013101ad871538d62679ca0ddab5ca241387ff5",
+          "source_sha256": "14f92345b8885036e862885aad3db82d77cff6e71642e669c2ba7dc8ba087aa1",
           "signature_sha256": "ba21e864faf1b641fa9d928e9f7881041f9faced4577fd12b4c5b8f343ea1bca",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_equation_5 (k t : ℕ) :\n    Lvalue k t =\n      ⌊Real.rpow (mValue t : ℝ) (1 - 1 / (k : ℝ)) /\n        (Real.logb 2 (mValue t : ℝ)) ^ 2⌋₊"
@@ -155,7 +155,7 @@
           "interface": "mathematical_statement",
           "note": "The domain-and-value pair is constructionPartial D f. This equivalence states correctness exactly on D for an arbitrary success predicate and imposes no off-domain condition. Reconstruction supplies the reverse representation.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "c395c9abfd497ed39b5390a5e1a01ce9d8d4c18b20f1c07aaae04ceefb232223",
+          "source_sha256": "19826ab2f9f9ef8a329f5880faf2426727b158321af4a418d519d55b56674d61",
           "signature_sha256": "3194d339c81e2b9089dc7eb9642994d7506d007aedcab5f25155248c98adeedb",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_correct_on_domain_iff {ι : Type}\n    (D : Set (BitInput ι)) (f : D → Bool)\n    (Correct : BitInput ι → Bool → Prop) :\n    (∀ x b, constructionPartial D f x = some b → Correct x b) ↔\n      ∀ x (hx : x ∈ D), Correct x (f ⟨x, hx⟩)"
@@ -175,7 +175,7 @@
           "interface": "mathematical_statement",
           "note": "Every Option Bool function is recovered from its promised domain and chosen values.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "c395c9abfd497ed39b5390a5e1a01ce9d8d4c18b20f1c07aaae04ceefb232223",
+          "source_sha256": "19826ab2f9f9ef8a329f5880faf2426727b158321af4a418d519d55b56674d61",
           "signature_sha256": "0464956ae655efc5015c4ecdd467559566a1e7574f9cbcebfd551356ffecf5c1",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem constructionPartial_reconstruct {ι : Type} (f : PartialBool ι) :\n    constructionPartial {x | promised f x}\n      (fun x => Classical.choose x.property) = f"
@@ -195,7 +195,7 @@
           "interface": "mathematical_statement",
           "note": "The promise of constructionPartial is exactly the supplied domain.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "c395c9abfd497ed39b5390a5e1a01ce9d8d4c18b20f1c07aaae04ceefb232223",
+          "source_sha256": "19826ab2f9f9ef8a329f5880faf2426727b158321af4a418d519d55b56674d61",
           "signature_sha256": "60b299489f243a89afe5e385d5487c373ed7c782924852c302c2bc3c30e506b7",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_promised_iff {ι : Type}\n    (D : Set (BitInput ι)) (f : D → Bool) (x : BitInput ι) :\n    promised (constructionPartial D f) x ↔ x ∈ D"
@@ -215,7 +215,7 @@
           "interface": "mathematical_statement",
           "note": "Randomized correctness on the domain, with all-input program depth unchanged.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "c395c9abfd497ed39b5390a5e1a01ce9d8d4c18b20f1c07aaae04ceefb232223",
+          "source_sha256": "19826ab2f9f9ef8a329f5880faf2426727b158321af4a418d519d55b56674d61",
           "signature_sha256": "7b228082482ecace77bfced3dcc53925b26460d7204904ccd700173895c5c249",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_RLe_domain_iff {ι : Type}\n    (D : Set (BitInput ι)) (f : D → Bool) (budget : ℕ) :\n    RLe (constructionPartial D f) budget ↔\n      ∃ A : RandomizedProgram ι, A.depth ≤ budget ∧\n        ∀ x (hx : x ∈ D), (2 / 3 : ℝ) ≤ A.success x (f ⟨x, hx⟩)"
@@ -235,7 +235,7 @@
           "interface": "mathematical_statement",
           "note": "Quantum correctness on the domain, with normalized start state and all-branch cap unchanged.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "c395c9abfd497ed39b5390a5e1a01ce9d8d4c18b20f1c07aaae04ceefb232223",
+          "source_sha256": "19826ab2f9f9ef8a329f5880faf2426727b158321af4a418d519d55b56674d61",
           "signature_sha256": "e3e45d7c5f846ebdee39203fda655296a7d492d1601e7b23b35efd186e9d3b4b",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_QLe_domain_iff {ι : Type} [Fintype ι]\n    (D : Set (BitInput ι)) (f : D → Bool) (budget : ℕ) :\n    QLe (constructionPartial D f) budget ↔\n      (∃ b : Bool, ∀ x (hx : x ∈ D), f ⟨x, hx⟩ = b) ∨\n      ∃ (w : ℕ) (ψ₀ : State ι w) (A : AdaptiveProgram ι w),\n        ‖ψ₀‖ = 1 ∧ A.queryCap ≤ budget ∧\n        ∀ x (hx : x ∈ D), (2 / 3 : ℝ) ≤ A.outputMass x ψ₀ (f ⟨x, hx⟩)"
@@ -257,7 +257,7 @@
         {
           "declaration": "QuarticQuery.Paper.construction_query_oracle",
           "file": "lean/QuarticQuery/Paper/ConstructionModels.lean",
-          "declaration_line": 168,
+          "declaration_line": 180,
           "relation": "exact",
           "relation_to_original_ledger": "exact",
           "route": "none",
@@ -269,7 +269,7 @@
           "interface": "mathematical_statement",
           "note": "States the basis XOR action, involution and complex-linear isometry witness on the finite physical query space.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "c395c9abfd497ed39b5390a5e1a01ce9d8d4c18b20f1c07aaae04ceefb232223",
+          "source_sha256": "19826ab2f9f9ef8a329f5880faf2426727b158321af4a418d519d55b56674d61",
           "signature_sha256": "bed3eabeb69c2c26e2a3d7f71da7519c22c158fc7a016a7a0b792ecd8d42e6ed",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_query_oracle {ι : Type} [Fintype ι] {w : ℕ}\n    (x : BitInput ι) :\n    (∀ (i : ι) (b : Bool) (z : Fin (w + 1)),\n      bitOracle x (ket (i, b, z)) = ket (i, xor b (x i), z)) ∧\n    (∀ ψ : State ι w, bitOracle x (bitOracle x ψ) = ψ) ∧\n    ∃ U : State ι w ≃ₗᵢ[ℂ] State ι w, ∀ ψ, U ψ = bitOracle x ψ"
@@ -301,7 +301,7 @@
           "interface": "mathematical_statement",
           "note": "The defining infimum uses all n>=1 and total Boolean functions, finite real constants and (1+Q)^alpha. The positive-constant version in UniversalPower is equivalent by construction_universalPower_iff.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "c395c9abfd497ed39b5390a5e1a01ce9d8d4c18b20f1c07aaae04ceefb232223",
+          "source_sha256": "19826ab2f9f9ef8a329f5880faf2426727b158321af4a418d519d55b56674d61",
           "signature_sha256": "d3be43d031b7a70f83de8284da7f04793cbf80cf1ea69ab94fca36fe8b80e2c5",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_alphaTot_eq_inf :\n    alphaTot = sInf {α : ℝ | 0 ≤ α ∧ ∃ C : ℝ,\n      ∀ n : ℕ, 1 ≤ n → ∀ f : TotalBool (Fin n),\n        (R (totalise f) : ℝ) ≤ C * Real.rpow (1 + (Q (totalise f) : ℝ)) α}"
@@ -321,7 +321,7 @@
           "interface": "mathematical_statement",
           "note": "The real constant can be chosen positive without changing the exponent set.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "c395c9abfd497ed39b5390a5e1a01ce9d8d4c18b20f1c07aaae04ceefb232223",
+          "source_sha256": "19826ab2f9f9ef8a329f5880faf2426727b158321af4a418d519d55b56674d61",
           "signature_sha256": "279534d853de06808975922e9ec0e1d0a412f6d264426043cb69795f155e05d1",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_universalPower_iff (α : ℝ) :\n    UniversalPower α ↔\n      0 ≤ α ∧ ∃ C : ℝ, ∀ n : ℕ, 1 ≤ n → ∀ f : TotalBool (Fin n),\n        (R (totalise f) : ℝ) ≤ C * Real.rpow (1 + (Q (totalise f) : ℝ)) α"
@@ -339,7 +339,7 @@
           "interface": "mathematical_statement",
           "note": "The exponent set is nonempty and bounded below by zero.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "c395c9abfd497ed39b5390a5e1a01ce9d8d4c18b20f1c07aaae04ceefb232223",
+          "source_sha256": "19826ab2f9f9ef8a329f5880faf2426727b158321af4a418d519d55b56674d61",
           "signature_sha256": "ce1afa6e6067eeaf9a015cc6090a30fb5b5551801256e0c82e5a2fefa4364f91",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_exponent_set_wellDefined :\n    ({α : ℝ | UniversalPower α}).Nonempty ∧\n      BddBelow {α : ℝ | UniversalPower α}"
@@ -425,7 +425,7 @@
           "interface": "mathematical_statement",
           "note": "The transcript type has one proposed bit for each non-input gate, including outputs; the expansion uses predecessorValue, whose input branch reads x and whose gate branch reads an earlier transcript bit.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "8fad21686ef8b5de87b1eac1347862e5612cc93b75f768f868c02c0aaca8ba3f",
+          "source_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
           "signature_sha256": "cc389b1e258b2ee08896977281dff42999eaf2e76b0178ea98a10379516639a0",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_transcript_definition {κ : Type} (C : Circuit κ)\n    (x : BitInput κ) (tr : Fin C.size → Bool) :\n    GateConsistent C x tr ↔ ∀ g : Fin C.size,\n      tr g = (C.gate g).table\n        (predecessorValue C x tr g (C.gate g).left)\n        (predecessorValue C x tr g (C.gate g).right)"
@@ -445,7 +445,7 @@
           "interface": "mathematical_statement",
           "note": "Input predecessors read the actual input independently of tr.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "8fad21686ef8b5de87b1eac1347862e5612cc93b75f768f868c02c0aaca8ba3f",
+          "source_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
           "signature_sha256": "db27e800287ecad2801a0a25a7911bf5cdd265eb64caa54313a5835e88ad495b",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_transcript_input_wire {κ : Type} (C : Circuit κ)\n    (x : BitInput κ) (tr : Fin C.size → Bool) (g : Fin C.size) (q : κ) :\n    predecessorValue C x tr g (some (.inl q)) = x q"
@@ -465,7 +465,7 @@
           "interface": "mathematical_statement",
           "note": "Non-input predecessors read earlier transcript coordinates.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "8fad21686ef8b5de87b1eac1347862e5612cc93b75f768f868c02c0aaca8ba3f",
+          "source_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
           "signature_sha256": "aa60ab4117eb49031174d714033f077a9d565d51941f5cea19b619006083ee6a",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_transcript_gate_wire {κ : Type} (C : Circuit κ)\n    (x : BitInput κ) (tr : Fin C.size → Bool) (g : Fin C.size) (h : Fin g.val) :\n    predecessorValue C x tr g (some (.inr h)) =\n      tr ⟨h.val, lt_trans h.isLt g.isLt⟩"
@@ -485,7 +485,7 @@
           "interface": "mathematical_statement",
           "note": "Topological evaluation is the unique consistent transcript.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "8fad21686ef8b5de87b1eac1347862e5612cc93b75f768f868c02c0aaca8ba3f",
+          "source_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
           "signature_sha256": "7bea50979da5dfb268355e876c26af4bf6cda0a84cb45d7960ee7620e934cb22",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_transcript_correct {κ : Type} (C : Circuit κ)\n    (x : BitInput κ) (tr : Fin C.size → Bool) :\n    (GateConsistent C x tr ↔ tr = circuitEval C x) ∧\n      ∃! tr' : Fin C.size → Bool, GateConsistent C x tr'"
@@ -519,7 +519,7 @@
           "interface": "mathematical_statement",
           "note": "States the bit-sign convention, Walsh parity, normalized H, uniform u and sign diagonal together, with sqrt(m)=2^t on the prescribed powers of four.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "a0c9229577a4dbc24eeebc85f013101ad871538d62679ca0ddab5ca241387ff5",
+          "source_sha256": "14f92345b8885036e862885aad3db82d77cff6e71642e669c2ba7dc8ba087aa1",
           "signature_sha256": "f0ee1bff73fb07132f16dbab28e347da430f03d4d221452e3da3bc389549d773",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_walsh_definitions (k t : ℕ)\n    (z : BitInput (ForrelationCoord k t)) :\n    (∀ b : Bool, bitSign b = (-1 : ℤ) ^ (if b then (1 : ℕ) else 0)) ∧\n    (∀ i j : Fin (mValue t), walshSign t i j =\n      (-1 : ℤ) ^ (∑ b ∈ range (2 * t),\n        if i.val.testBit b && j.val.testBit b then (1 : ℕ) else 0)) ∧\n    (∀ i j : Fin (mValue t), H t i j =\n      (Real.sqrt (mValue t : ℝ))⁻¹ * (walshSign t i j : ℝ)) ∧\n    (∀ i : Fin (mValue t), u t i = (Real.sqrt (mValue t : ℝ))⁻¹) ∧\n    (∀ h : Fin k, signDiag z h = Matrix.diagonal fun i => (bitSign (z (h, i)) : ℝ))"
@@ -553,7 +553,7 @@
           "interface": "mathematical_statement",
           "note": "The matrix word has k sign diagonals and k-1 H factors; the theorem also states delta=2^(-5k).",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "a0c9229577a4dbc24eeebc85f013101ad871538d62679ca0ddab5ca241387ff5",
+          "source_sha256": "14f92345b8885036e862885aad3db82d77cff6e71642e669c2ba7dc8ba087aa1",
           "signature_sha256": "edd9085d250f49320872c16f22912ad804633f46aaf60efce55798c3755f0087",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_equation_3 (k t : ℕ) (hk : 1 ≤ k)\n    (z : BitInput (ForrelationCoord k t)) :\n    Phi k t z = u t ⬝ᵥ\n      (alternate (H t) (List.ofFn fun h : Fin k => signDiag z h) *ᵥ u t) ∧\n    delta k = (2 : ℝ) ^ (-(5 * (k : ℤ)))"
@@ -587,7 +587,7 @@
           "interface": "mathematical_statement",
           "note": "States the input count, both promise-value equivalences, undefined case and disjointness together, on every input.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "a0c9229577a4dbc24eeebc85f013101ad871538d62679ca0ddab5ca241387ff5",
+          "source_sha256": "14f92345b8885036e862885aad3db82d77cff6e71642e669c2ba7dc8ba087aa1",
           "signature_sha256": "405a9370e749a629bd5bfdea35d498b378a7a626be78bd04ac652ee61e4f7091",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_equation_4 (k t : ℕ)\n    (z : BitInput (ForrelationCoord k t)) :\n    Fintype.card (ForrelationCoord k t) = k * mValue t ∧\n    (P k t z = some true ↔ delta k ≤ Phi k t z) ∧\n    (P k t z = some false ↔ |Phi k t z| ≤ delta k / 2) ∧\n    (P k t z = none ↔ ¬ delta k ≤ Phi k t z ∧ ¬ |Phi k t z| ≤ delta k / 2) ∧\n    ¬ (delta k ≤ Phi k t z ∧ |Phi k t z| ≤ delta k / 2)"
@@ -619,7 +619,7 @@
           "interface": "mathematical_statement",
           "note": "Exact definition of L after the maintained split of equation (5). The randomized inequality in the original ledger row is separately Lemma 2.1(i); it is not proved by this definition.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "a0c9229577a4dbc24eeebc85f013101ad871538d62679ca0ddab5ca241387ff5",
+          "source_sha256": "14f92345b8885036e862885aad3db82d77cff6e71642e669c2ba7dc8ba087aa1",
           "signature_sha256": "ba21e864faf1b641fa9d928e9f7881041f9faced4577fd12b4c5b8f343ea1bca",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_equation_5 (k t : ℕ) :\n    Lvalue k t =\n      ⌊Real.rpow (mValue t : ℝ) (1 - 1 / (k : ℝ)) /\n        (Real.logb 2 (mValue t : ℝ)) ^ 2⌋₊"
@@ -661,7 +661,7 @@
         {
           "declaration": "QuarticQuery.Paper.construction_claim_bs_to_L",
           "file": "lean/QuarticQuery/Paper/ConstructionForrelationComparison.lean",
-          "declaration_line": 113,
+          "declaration_line": 112,
           "relation": "stronger",
           "relation_to_original_ledger": "partial",
           "route": "same",
@@ -673,7 +673,7 @@
           "interface": "mathematical_statement",
           "note": "Proves the corrected numerical comparison for every positive c and fixed k>=2, with the paper's base-two convention; it does not assert the sharp Bansal-Sinha randomized theorem. The source also exports the unfloored middle inequality.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "5e2da5d395fcadbda7e8e434f01141caff8f3a2ea2ef257f4591352b6ee843dd",
+          "source_sha256": "e9bb18d1e0ea9482762e89a9ced002c720f9b7d2311a455a9904bd820c5b4a01",
           "signature_sha256": "1c724d1eebf052f2d8e334937c5fa95d363bb8f1792ec9442d2f7d50c6f5554f",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_claim_bs_to_L (k : ℕ) (hk : 2 ≤ k)\n    (c : ℝ) (hc : 0 < c) :\n    ∃ t₀ : ℕ, ∀ t : ℕ, t₀ ≤ t →\n      (Lvalue k t : ℝ) < c * (k : ℝ) ^ (-29 : ℤ) *\n        ((mValue t : ℝ) / Real.logb 2 ((k : ℝ) * (mValue t : ℝ))) ^\n          (1 - 1 / (k : ℝ))"
@@ -693,7 +693,7 @@
           "interface": "mathematical_statement",
           "note": "Includes the unfloored middle term in the strict comparison chain.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "5e2da5d395fcadbda7e8e434f01141caff8f3a2ea2ef257f4591352b6ee843dd",
+          "source_sha256": "e9bb18d1e0ea9482762e89a9ced002c720f9b7d2311a455a9904bd820c5b4a01",
           "signature_sha256": "6f7b4dbf347a626d2c70350145fed48c7768d17d3c677ead091906122296d548",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_bs_comparison_chain (k : ℕ) (hk : 2 ≤ k)\n    (c : ℝ) (hc : 0 < c) :\n    ∃ t₀ : ℕ, ∀ t : ℕ, t₀ ≤ t →\n      (Lvalue k t : ℝ) ≤ (mValue t : ℝ) ^ (1 - 1 / (k : ℝ)) /\n        (Real.logb 2 (mValue t : ℝ)) ^ 2 ∧\n      (mValue t : ℝ) ^ (1 - 1 / (k : ℝ)) /\n          (Real.logb 2 (mValue t : ℝ)) ^ 2 <\n        c * (k : ℝ) ^ (-29 : ℤ) *\n          ((mValue t : ℝ) / Real.logb 2 ((k : ℝ) * (mValue t : ℝ))) ^\n            (1 - 1 / (k : ℝ))"
@@ -825,7 +825,7 @@
         {
           "declaration": "QuarticQuery.Paper.construction_N_phi",
           "file": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
-          "declaration_line": 142,
+          "declaration_line": 141,
           "relation": "exact",
           "relation_to_original_ledger": "exact",
           "route": "same",
@@ -837,7 +837,7 @@
           "interface": "mathematical_statement",
           "note": "The integer numerator, positive integer denominator m sqrt(m)^(k-1), normalized Phi and Walsh scaling/±1 entries are stated together. The first diagonal in the ones-vector matrix word is the ledger's z1 transpose.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "a0c9229577a4dbc24eeebc85f013101ad871538d62679ca0ddab5ca241387ff5",
+          "source_sha256": "14f92345b8885036e862885aad3db82d77cff6e71642e669c2ba7dc8ba087aa1",
           "signature_sha256": "883abaac67edb684fceb5ada9142043846e1c9677336fcfa349aa5e88ea8d255",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_N_phi (k t : ℕ) (hk : 1 ≤ k)\n    (z : BitInput (ForrelationCoord k t)) :\n    (forrelationNumerator k t z : ℝ) =\n      (fun _ : Fin (mValue t) => (1 : ℝ)) ⬝ᵥ\n        (alternate (W t) (List.ofFn fun h : Fin k => signDiag z h) *ᵥ\n          fun _ => (1 : ℝ)) ∧\n    Phi k t z = (forrelationNumerator k t z : ℝ) / (forrelationDenominator k t : ℝ) ∧\n    0 < forrelationDenominator k t ∧\n    (forrelationDenominator k t : ℝ) =\n      (mValue t : ℝ) * (Real.sqrt (mValue t : ℝ)) ^ (k - 1) ∧\n    W t = Real.sqrt (mValue t : ℝ) • H t ∧\n    (∀ i j : Fin (mValue t), W t i j = 1 ∨ W t i j = -1)"
@@ -859,7 +859,7 @@
         {
           "declaration": "QuarticQuery.Paper.construction_integer_tests",
           "file": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
-          "declaration_line": 169,
+          "declaration_line": 168,
           "relation": "partial",
           "relation_to_original_ledger": "partial",
           "route": "same",
@@ -873,7 +873,7 @@
           "interface": "mathematical_statement",
           "note": "Gives both integer comparison equivalences and the promised/true-value rules. The d and b bits of the actual circuit are provided by the separate output theorem, so this individual statement does not contain every clause of the row.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "a0c9229577a4dbc24eeebc85f013101ad871538d62679ca0ddab5ca241387ff5",
+          "source_sha256": "14f92345b8885036e862885aad3db82d77cff6e71642e669c2ba7dc8ba087aa1",
           "signature_sha256": "00eb29812dabff039c2482014d6e0f9d24b6ddf08addaea1da5b157808da2e26",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_integer_tests (k t : ℕ)\n    (z : BitInput (ForrelationCoord k t)) :\n    (delta k ≤ Phi k t z ↔\n      (2 : ℤ) ^ (5 * k) * forrelationNumerator k t z ≥ forrelationDenominator k t) ∧\n    (|Phi k t z| ≤ delta k / 2 ↔\n      (2 : ℤ) ^ (5 * k + 1) * |forrelationNumerator k t z| ≤ forrelationDenominator k t) ∧\n    (promised (P k t) z ↔\n      ((2 : ℤ) ^ (5 * k) * forrelationNumerator k t z ≥ forrelationDenominator k t ∨\n       (2 : ℤ) ^ (5 * k + 1) * |forrelationNumerator k t z| ≤ forrelationDenominator k t)) ∧\n    (P k t z = some true ↔\n      (2 : ℤ) ^ (5 * k) * forrelationNumerator k t z ≥ forrelationDenominator k t)"
@@ -949,7 +949,7 @@
           "interface": "mathematical_statement",
           "note": "Every ideal integer walk coordinate has magnitude at most m^l for signs of magnitude at most one.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "f06202f8f7e18d3ab2a084029c996e090ede817dbc763361f08628c1c29a09c6",
+          "source_sha256": "2c355a3eb5e76cd5db70a6990bb9d6b37d652e0eece3b31ed0661219d3635ad0",
           "signature_sha256": "03751353ec8456a5842e1ecc34a5a6030a2bc37b88f75fa50f3851c432df2ad9",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_walkN_bound (n l : ℕ) (σ : ℕ → ℕ → ℤ)\n    (hσ : ∀ h i, |σ h i| ≤ 1) (i : ℕ) :\n    |walkN n l σ i| ≤ ((2 ^ n : ℕ) : ℤ) ^ l"
@@ -969,7 +969,7 @@
           "interface": "mathematical_statement",
           "note": "Every prefix of the ideal final signed sum has the stated polynomial magnitude bound.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "f06202f8f7e18d3ab2a084029c996e090ede817dbc763361f08628c1c29a09c6",
+          "source_sha256": "2c355a3eb5e76cd5db70a6990bb9d6b37d652e0eece3b31ed0661219d3635ad0",
           "signature_sha256": "daf7a50c36b4dd4febd2584be86d910c099732859bd3d15052af9839a0d18f31",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_walkN_prefix_bound (n l a : ℕ) (σ : ℕ → ℕ → ℤ)\n    (hσ : ∀ h i, |σ h i| ≤ 1) :\n    |∑ j ∈ range a, walkN n l σ j| ≤ (a : ℤ) * ((2 ^ n : ℕ) : ℤ) ^ l"
@@ -989,7 +989,7 @@
           "interface": "mathematical_statement",
           "note": "Every ideal partial butterfly block has magnitude at most its term count times its input bound.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "f06202f8f7e18d3ab2a084029c996e090ede817dbc763361f08628c1c29a09c6",
+          "source_sha256": "2c355a3eb5e76cd5db70a6990bb9d6b37d652e0eece3b31ed0661219d3635ad0",
           "signature_sha256": "f4c0e27e71af0abeb386a76a4c91078a8bb81f491dce809b2eadeeb56e714961",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_butterfly_block_bound (q i offset : ℕ)\n    (v : ℕ → ℤ) (B : ℤ)\n    (hv : ∀ j, j < 2 ^ q → |v (offset + j)| ≤ B) :\n    |∑ j ∈ range (2 ^ q), walshN q i j * v (offset + j)| ≤\n      ((2 ^ q : ℕ) : ℤ) * B"
@@ -1057,7 +1057,7 @@
           "interface": "mathematical_statement",
           "note": "The logarithmic length identity and the ceil(20 log₂m)=40t identity occur together, including t=0.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "8fad21686ef8b5de87b1eac1347862e5612cc93b75f768f868c02c0aaca8ba3f",
+          "source_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
           "signature_sha256": "ac8beba2f9d5d0bbf2e5b389ea1c4f28230c142c446874bcc274af0668c1eb45",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_eq6 (t : ℕ) :\n    Real.logb 2 (mValue t : ℝ) = (2 * t : ℕ) ∧\n      ⌈20 * Real.logb 2 (mValue t : ℝ)⌉₊ = 40 * t"
@@ -1089,7 +1089,7 @@
           "interface": "mathematical_statement",
           "note": "The BitLoc equality expands the physical X, unrestricted A, pointer and transcript coordinate summands; arbitrary BitInput functions impose no promise. Pointer encoding and dimensions are checked separately below.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "8fad21686ef8b5de87b1eac1347862e5612cc93b75f768f868c02c0aaca8ba3f",
+          "source_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
           "signature_sha256": "6ae275b2d5c7ca39e6dc6126e832d04cb19f78ff41572c56d9756d658ad51499",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_column_layout (ℓ r S : ℕ) (κ : Type) :\n    BitLoc ℓ r S κ =\n      ((Column ℓ × Column ℓ) ⊕\n        (Column ℓ × Fin r × κ) ⊕\n        (Σ i : Column ℓ, Address r × {j : Column ℓ // j ≠ i} × Fin ℓ) ⊕\n        (Column ℓ × Address r × Fin r × Fin S))"
@@ -1109,7 +1109,7 @@
           "interface": "mathematical_statement",
           "note": "Every pointer bitstring encodes one destination and every destination has a unique encoding.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "8fad21686ef8b5de87b1eac1347862e5612cc93b75f768f868c02c0aaca8ba3f",
+          "source_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
           "signature_sha256": "d1c35f3f58f32db6cb33a526fc2fb0cac3f0e947da7448d5117a2f0d6bd5e084",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_pointer_encoding (ℓ : ℕ) :\n    Function.Bijective (pointerEquiv ℓ) ∧\n      ∀ j : Column ℓ, ∃! w : Fin ℓ → Bool, pointerEquiv ℓ w = j"
@@ -1129,7 +1129,7 @@
           "interface": "mathematical_statement",
           "note": "The specialized layout has m columns, km partial-input bits and 2^r addresses.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "8fad21686ef8b5de87b1eac1347862e5612cc93b75f768f868c02c0aaca8ba3f",
+          "source_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
           "signature_sha256": "1f68389c47835000b9237eb86bf9f07f6ed71a0f09735bd14ffeadf8b533458d",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_layout_cardinalities (k t : ℕ) :\n    Fintype.card (Column (2 * t)) = mValue t ∧\n    Fintype.card (ForrelationCoord k t) = k * mValue t ∧\n    Fintype.card (Address (40 * t)) = 2 ^ (40 * t)"
@@ -1151,7 +1151,7 @@
         {
           "declaration": "QuarticQuery.Paper.construction_trueAddress_iff",
           "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
-          "declaration_line": 101,
+          "declaration_line": 103,
           "relation": "stronger",
           "relation_to_original_ledger": "stronger",
           "route": "none",
@@ -1163,7 +1163,7 @@
           "interface": "mathematical_statement",
           "note": "Characterizes the true address for arbitrary partial functions and addressed circuits, with exactly the premise that every instance in the selected column is defined. No promise is required elsewhere.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "8fad21686ef8b5de87b1eac1347862e5612cc93b75f768f868c02c0aaca8ba3f",
+          "source_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
           "signature_sha256": "896031cd1ebbfa01bbb5b8209accb1f4ea68a950cdc9df60192a8f2938a389e6",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_trueAddress_iff\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ)\n    (hdef : ∀ h, promised f (readA x i h)) (s : Address r) :\n    (∀ h, f (readA x i h) = some (s h)) ↔ s = trueAddress f x i hdef"
@@ -1185,7 +1185,7 @@
         {
           "declaration": "QuarticQuery.Paper.constructionOutwardPointers",
           "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
-          "declaration_line": 115,
+          "declaration_line": 117,
           "relation": "exact",
           "relation_to_original_ledger": "exact",
           "route": "none",
@@ -1195,7 +1195,7 @@
           "interface": "mathematical_statement",
           "note": "Definition of the outward-zero condition at any supplied address. Substituting the true address yields the ledger's displayed condition; it is not asserted for arbitrary nonwinning columns.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "8fad21686ef8b5de87b1eac1347862e5612cc93b75f768f868c02c0aaca8ba3f",
+          "source_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
           "signature_sha256": "b4d6265fd39a19430bbd750db40c2a1074b363935b8fa8253d4144ee02836cec",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "def constructionOutwardPointers {S : ℕ} (x : BitInput (BitLoc ℓ r S κ))\n    (i : Column ℓ) (s : Address r) : Prop"
@@ -1203,7 +1203,7 @@
         {
           "declaration": "QuarticQuery.Paper.construction_eq8_of_winsAt",
           "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
-          "declaration_line": 122,
+          "declaration_line": 124,
           "relation": "partial",
           "relation_to_original_ledger": "partial",
           "route": "same",
@@ -1215,7 +1215,7 @@
           "interface": "mathematical_statement",
           "note": "A winning address satisfies the defined outward-zero condition.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "8fad21686ef8b5de87b1eac1347862e5612cc93b75f768f868c02c0aaca8ba3f",
+          "source_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
           "signature_sha256": "2ffb9fa3484ff5d7b0c72ed1f29db5ad0eb752c1dd3e4ee19d65386c13b2d9e9",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_eq8_of_winsAt\n    {x : BitInput (BitLoc ℓ r C.size κ)} {i : Column ℓ} {s : Address r}\n    (hw : WinsAt f C ℓ r x i s) : constructionOutwardPointers x i s"
@@ -1237,7 +1237,7 @@
         {
           "declaration": "QuarticQuery.Paper.constructionWinner",
           "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
-          "declaration_line": 129,
+          "declaration_line": 131,
           "relation": "exact",
           "relation_to_original_ledger": "exact",
           "route": "none",
@@ -1247,7 +1247,7 @@
           "interface": "mathematical_statement",
           "note": "The generic winner predicate states all-one X, defined selected-column instances, correct transcripts and outward zeros at its true address. No circuit-size premise is needed.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "8fad21686ef8b5de87b1eac1347862e5612cc93b75f768f868c02c0aaca8ba3f",
+          "source_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
           "signature_sha256": "bbba069728ff59ab755ecbf5a0610c6485f56b34007bb8a1f9c06a0abbf2bafb",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "def constructionWinner (f : PartialBool κ) (C : Circuit κ) (ℓ r : ℕ)\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) : Prop"
@@ -1255,7 +1255,7 @@
         {
           "declaration": "QuarticQuery.Paper.construction_winner_iff_exists_winsAt",
           "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
-          "declaration_line": 139,
+          "declaration_line": 141,
           "relation": "stronger",
           "relation_to_original_ledger": "stronger",
           "route": "none",
@@ -1267,7 +1267,7 @@
           "interface": "mathematical_statement",
           "note": "This paper-style winner predicate is equivalent to existence of a public WinsAt address.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "8fad21686ef8b5de87b1eac1347862e5612cc93b75f768f868c02c0aaca8ba3f",
+          "source_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
           "signature_sha256": "20060dc6a61c4842f5ada99ad465ceca7f5090d877c2fea8f186a18308f0a773",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_winner_iff_exists_winsAt\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) :\n    constructionWinner f C ℓ r x i ↔ ∃ s, WinsAt f C ℓ r x i s"
@@ -1289,7 +1289,7 @@
         {
           "declaration": "QuarticQuery.Paper.construction_unique_winner",
           "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
-          "declaration_line": 184,
+          "declaration_line": 185,
           "relation": "stronger",
           "relation_to_original_ledger": "stronger",
           "route": "same",
@@ -1301,7 +1301,7 @@
           "interface": "mathematical_statement",
           "note": "Uniqueness holds for every circuit and partial function, without needing circuit realization or hardness.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "8fad21686ef8b5de87b1eac1347862e5612cc93b75f768f868c02c0aaca8ba3f",
+          "source_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
           "signature_sha256": "a8352b656d29777b71bc71f6e17764a5be6896a3991f79bf497b99ee9dfc1120",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_unique_winner (x : BitInput (BitLoc ℓ r C.size κ))\n    (i j : Column ℓ) (hi : constructionWinner f C ℓ r x i)\n    (hj : constructionWinner f C ℓ r x j) : i = j"
@@ -1323,7 +1323,7 @@
         {
           "declaration": "QuarticQuery.Paper.construction_winsAt_iff_winner_and_address",
           "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
-          "declaration_line": 153,
+          "declaration_line": 155,
           "relation": "stronger",
           "relation_to_original_ledger": "stronger",
           "route": "none",
@@ -1333,7 +1333,7 @@
           "interface": "mathematical_statement",
           "note": "The public WinsAt predicate is equivalent to being a winner and having the supplied address equal to the true defined-answer address, for arbitrary partial functions and circuits.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "8fad21686ef8b5de87b1eac1347862e5612cc93b75f768f868c02c0aaca8ba3f",
+          "source_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
           "signature_sha256": "1061a533d29330f86726f1f5fc4eb5832e76ca78912b26dbbc349eb6efaa7ad5",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_winsAt_iff_winner_and_address\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) (s : Address r) :\n    WinsAt f C ℓ r x i s ↔\n      constructionWinner f C ℓ r x i ∧\n        ∃ hdef : ∀ h, promised f (readA x i h), s = trueAddress f x i hdef"
@@ -1341,7 +1341,7 @@
         {
           "declaration": "QuarticQuery.Paper.construction_win_at_address_outputs",
           "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
-          "declaration_line": 172,
+          "declaration_line": 173,
           "relation": "partial",
           "relation_to_original_ledger": "partial",
           "route": "same",
@@ -1353,7 +1353,7 @@
           "interface": "mathematical_statement",
           "note": "Under circuit realization, the same condition is expressed by the d and b output bits.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "8fad21686ef8b5de87b1eac1347862e5612cc93b75f768f868c02c0aaca8ba3f",
+          "source_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
           "signature_sha256": "762b1393ecc611fe542ebd2199260936c0b6ceb36d9f8017de4fac7cdb5ce7c3",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_win_at_address_outputs (hC : CircuitRealises C f)\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) (s : Address r) :\n    WinsAt f C ℓ r x i s ↔\n      (∀ j, readX x i j = true) ∧\n      (∀ h, readTranscript x i s h = circuitEval C (readA x i h)) ∧\n      (∀ h, readTranscript x i s h C.domainOut = true) ∧\n      (∀ h, readTranscript x i s h C.valueOut = s h) ∧\n      constructionOutwardPointers x i s"
@@ -1517,7 +1517,7 @@
           "interface": "arbitrary-index logical state theorem plus linked physical continuation companion",
           "note": "The primary declaration gives arbitrary complex index superpositions and zero wrong-label amplitudes at a common logical-read cap. The physical continuation cap is stated in construction_lemma_2_2_complete for the specified circuit family.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "f079bfbe992a05f1ba22e16b7bc3941307d3b12940768f777f93225952b13d59",
+          "source_sha256": "5e5f5c2321e7c1ce23235e69e1f430fd951f13cc92b5a2d1b2d974aad0607cec",
           "signature_sha256": "e6bc0598081123485ae97677e4fa69a6a1265c730caedb60afb7f6054b9daa53",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem construction_lemma_2_2_ii {κ : Type} (C : Circuit κ) (ℓ r : ℕ)\n    (i : Column ℓ) (s : Address r) :\n    ∃ (Z : TestIndex ℓ r C.size → Type) (instZ : ∀ e, Fintype (Z e)),\n      let _ := instZ\n      ∃ (o : ∀ e, Z e) (out : ∀ e, Z e → Bool)\n        (F : ∀ e, BitInput (BitLoc ℓ r C.size κ) → Reg (Z e) ≃ₗᵢ[ℂ] Reg (Z e)),\n        (∀ e, IsCirc (max 3 (ℓ + 1)) (F e)) ∧\n        IsCirc (max 3 (ℓ + 1)) (fun x => sigmaOp fun e => F e x) ∧\n        (∀ (x : BitInput (BitLoc ℓ r C.size κ))\n            (a : TestIndex ℓ r C.size → ℂ) (e : TestIndex ℓ r C.size),\n          slice e (sigmaOp (fun e => F e x) (constructionIndexStart o a)) =\n            a e • F e x (rket (o e))) ∧\n        (∀ (x : BitInput (BitLoc ℓ r C.size κ))\n            (e : TestIndex ℓ r C.size) (z : Z e),\n          out e z ≠ localTest C ℓ r x i s e →\n            (F e x (rket (o e))).ofLp z = 0)"
@@ -1627,7 +1627,7 @@
         {
           "declaration": "QuarticQuery.Paper.quantumTournament",
           "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
-          "declaration_line": 286,
+          "declaration_line": 287,
           "relation": "stronger",
           "relation_to_original_ledger": "stronger",
           "route": "same",
@@ -1639,7 +1639,7 @@
           "interface": "coherent bounded-list output plus physical measured law",
           "note": "Returns an actual finite bounded-list law with Samples and physical Runs witnesses, total probability one, nonnegative mass and the exact membership bound. Its uniform physical cap is at most 6072 cc sqrt(m) T² log(T). An ordinary c-bit-query coherent comparison supplies c logical reads through quantumBitOracle_isCirc, so the compiler's constant factor does not change the paper's order.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "ab72f2d710bc5d74c624053884ba995c4d72cee1a18131fe4e683f4ede8361be",
+          "source_sha256": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
           "signature_sha256": "c2823cd43a9a5c6f2de6bda8b8b8abcaaf2a558382dcd47c4bfcbfded7d60737",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem quantumTournament {ι Col : Type} [Fintype ι] [Inhabited ι]\n    [Fintype Col] [DecidableEq Col] {cc : ℕ} {a : BitInput ι → Col → Col → ℝ}\n    (hm : 2 ≤ Fintype.card Col) (hc : ∀ x, IsComparison (a x))\n    (hcmp : ∀ i p, Samples cc fun x b => bern (a x i p) b) :\n    let m := Fintype.card Col\n    let T := Tval m\n    let ε := epsval m\n    ∃ C : ℕ, ∃ law : BitInput ι → QuantumCandidateList Col T → ℝ,\n      (C : ℝ) ≤ 6072 * (cc : ℝ) * Real.sqrt (m : ℝ) *\n        (T : ℝ) ^ 2 * Real.log (T : ℝ) ∧\n      Samples (T * quantumStageReads m T cc ε) law ∧\n      Runs C law ∧\n      (∀ x o, 0 ≤ law x o) ∧\n      (∀ x, ∑ o, law x o = 1) ∧\n      ∀ x s, Dominant (a x) ε s →\n        1 - 2 * (m : ℝ) / 2 ^ T - T * ε ≤\n          ∑ o : QuantumCandidateList Col T, if s ∈ o.1 then law x o else 0"
@@ -1675,7 +1675,7 @@
           "interface": "mathematical_statement",
           "note": "The perfect-indicator coupling removes the extra verifier epsilon. Its statement is an abstract continuation lower bound under an explicit per-history failure premise; the actual list membership conclusion is exported separately.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "f6ad658e5664ff7a1fa04c5a4521252e096880b0bc5ea5af0a67540cdefa7387",
+          "source_sha256": "8cf87e74aa0364c9bc6b9078ff62e88c45d297625166fe31a8efeea765a34adf",
           "signature_sha256": "02e22543fc117801d84a488e34c290f87df4e2b64aeadd3995b4360c6d13672b",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem quantumList_coupling (ha : UnitValued a) (hv : ∀ c, 0 ≤ v c ∧ v c ≤ 1)\n    (hf : ∀ L, 0 ≤ f L ∧ f L ≤ 1) (hz : ∀ L, total (weight a L) = 0 → f L = 1) {s : Col}\n    {ε : ℝ} (hε0 : 0 ≤ ε) (hε1 : ε ≤ 1) (hd : Dominant a ε s) (hvs : v s = 1) {T₀ : ℕ}\n    (hT : (T₀ : ℝ) * ε < 1 / 2) (hfail : ∀ L : List Col, L.length ≤ T₀ → s ∉ L → f L ≤ ε)\n    (T : ℕ) (L : List Col) (hL : L.length + T ≤ T₀) :\n    1 - missFrom a s T L - T * ε ≤ tval a v f T L"
@@ -1695,7 +1695,7 @@
           "interface": "mathematical_statement",
           "note": "Implements the amplified stages and returns a coherent bounded list with membership at least 1-2m/2^T-T epsilon.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "f6ad658e5664ff7a1fa04c5a4521252e096880b0bc5ea5af0a67540cdefa7387",
+          "source_sha256": "8cf87e74aa0364c9bc6b9078ff62e88c45d297625166fe31a8efeea765a34adf",
           "signature_sha256": "8a65270768a50f2b4251fadf77132614b01d75c9cd27d00307d8760777469649",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem quantumTournament_list {cc : ℕ} {a : BitInput ι → Col → Col → ℝ}\n    (hm : 2 ≤ Fintype.card Col) (hc : ∀ x, IsComparison (a x))\n    (hcmp : ∀ i p, Samples cc fun x b => bern (a x i p) b) :\n    let m := Fintype.card Col\n    let T := Tval m\n    let ε := epsval m\n    ∃ law : BitInput ι → QuantumCandidateList Col T → ℝ,\n      Samples (T * quantumStageReads m T cc ε) law ∧\n      Runs (T * stageCost m T cc ε) law ∧\n      (∀ x o, 0 ≤ law x o) ∧\n      (∀ x, ∑ o, law x o = 1) ∧\n      ∀ x s, Dominant (a x) ε s →\n        1 - 2 * (m : ℝ) / 2 ^ T - T * ε ≤ ∑ o : QuantumCandidateList Col T, if s ∈ o.1 then law x o else 0"
@@ -1717,7 +1717,7 @@
         {
           "declaration": "QuarticQuery.Paper.quantumTournament_cost",
           "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
-          "declaration_line": 237,
+          "declaration_line": 238,
           "relation": "stronger",
           "relation_to_original_ledger": "stronger",
           "route": "same",
@@ -1729,7 +1729,7 @@
           "interface": "mathematical_statement",
           "note": "Bounds the full charged T*stageCost product in physical bit queries, with uniform constant 6072, rather than just the cap of an abstract smaller Proc.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "ab72f2d710bc5d74c624053884ba995c4d72cee1a18131fe4e683f4ede8361be",
+          "source_sha256": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
           "signature_sha256": "08ca1ceab3651b2d0cd8e6a3efc4cc3b57bb8705ff88b687e53a473fb9c9c96f",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem quantumTournament_cost {m : ℕ} (hm : 2 ≤ m) (cc : ℕ) :\n    ((Tval m * stageCost m (Tval m) cc (epsval m) : ℕ) : ℝ) ≤\n      6072 * (cc : ℝ) * Real.sqrt (m : ℝ) *\n        (Tval m : ℝ) ^ 2 * Real.log (Tval m : ℝ)"
@@ -2069,7 +2069,7 @@
         {
           "declaration": "QuarticQuery.Paper.quantumBitOracle_isCirc",
           "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
-          "declaration_line": 47,
+          "declaration_line": 48,
           "relation": "partial",
           "relation_to_original_ledger": "partial",
           "route": "same",
@@ -2081,7 +2081,7 @@
           "interface": "physical read compiler on arbitrary embedded states",
           "note": "One ordinary bit-oracle query is a single logical read.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "ab72f2d710bc5d74c624053884ba995c4d72cee1a18131fe4e683f4ede8361be",
+          "source_sha256": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
           "signature_sha256": "c53e609463ddc879a69dea0b72212a0d00d416e30a2699b92d82efbe6134df4c",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem quantumBitOracle_isCirc {ι : Type} [Fintype ι] (w : ℕ) :\n    IsCirc 1 (fun x : BitInput ι => bitOracleL (w := w) x)"
@@ -2881,7 +2881,7 @@
         {
           "declaration": "QuarticQuery.Paper.quantumTensorStage_of_samples",
           "file": "lean/QuarticQuery/Paper/QuantumTensor.lean",
-          "declaration_line": 320,
+          "declaration_line": 328,
           "relation": "partial",
           "relation_to_original_ledger": "partial",
           "route": "same",
@@ -2895,7 +2895,7 @@
           "interface": "literal tensor preparation versus separate coherent list law",
           "note": "This is the literal fresh-register tensor preparation with product successful-index law, not the whole amplified stopping/list procedure. The actual coherent list theorem uses the short-circuit stage law with the same successful masses.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "4876b2d18401989364ab176424663a7d0f8c1974a739dae1b8e140da6d813483",
+          "source_sha256": "7a2f03d6ae2d8d3ff2af9837f6cb1e1f1f3d5b4983dc34e753792621443835ac",
           "signature_sha256": "2f2967b8304563ffa18b59ad46af0aa072e59c6628f85e9a6834294b5e7655db",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem quantumTensorStage_of_samples {ι Col : Type} [Fintype Col] [Nonempty Col]\n    {c : ℕ} {a : BitInput ι → Col → Col → ℝ}\n    (hcmp : ∀ i j, Samples c fun x b => bern (a x i j) b)\n    (p : ℕ → Col) (t : ℕ) :\n    ∃ L : BitInput ι → Option Col → ℝ,\n      Samples (t * c) L ∧\n      ∀ x i, L x (some i) =\n        (∏ b ∈ Finset.range t, a x i (p b)) / Fintype.card Col"
@@ -2935,7 +2935,7 @@
           "interface": "literal tensor preparation versus separate coherent list law",
           "note": "The stopping/appending loop returns the actual bounded candidate list.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "f6ad658e5664ff7a1fa04c5a4521252e096880b0bc5ea5af0a67540cdefa7387",
+          "source_sha256": "8cf87e74aa0364c9bc6b9078ff62e88c45d297625166fe31a8efeea765a34adf",
           "signature_sha256": "8a65270768a50f2b4251fadf77132614b01d75c9cd27d00307d8760777469649",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem quantumTournament_list {cc : ℕ} {a : BitInput ι → Col → Col → ℝ}\n    (hm : 2 ≤ Fintype.card Col) (hc : ∀ x, IsComparison (a x))\n    (hcmp : ∀ i p, Samples cc fun x b => bern (a x i p) b) :\n    let m := Fintype.card Col\n    let T := Tval m\n    let ε := epsval m\n    ∃ law : BitInput ι → QuantumCandidateList Col T → ℝ,\n      Samples (T * quantumStageReads m T cc ε) law ∧\n      Runs (T * stageCost m T cc ε) law ∧\n      (∀ x o, 0 ≤ law x o) ∧\n      (∀ x, ∑ o, law x o = 1) ∧\n      ∀ x s, Dominant (a x) ε s →\n        1 - 2 * (m : ℝ) / 2 ^ T - T * ε ≤ ∑ o : QuantumCandidateList Col T, if s ∈ o.1 then law x o else 0"
@@ -2957,7 +2957,7 @@
         {
           "declaration": "QuarticQuery.Paper.equation_15",
           "file": "lean/QuarticQuery/Paper/QuantumTensor.lean",
-          "declaration_line": 118,
+          "declaration_line": 120,
           "relation": "exact",
           "relation_to_original_ledger": "exact",
           "route": "same",
@@ -2969,7 +2969,7 @@
           "interface": "literal retained tensor state, separate from short-circuit implementation",
           "note": "Constructs a coherent unitary whose every candidate slice is exactly 1/sqrt(m) times the tensor of all fresh comparison states, retaining every register. No later comparison is skipped after a failure.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "4876b2d18401989364ab176424663a7d0f8c1974a739dae1b8e140da6d813483",
+          "source_sha256": "7a2f03d6ae2d8d3ff2af9837f6cb1e1f1f3d5b4983dc34e753792621443835ac",
           "signature_sha256": "fb5948fb3d89c0511d333f8126b4d098703979edba7933195eb30c7b4a971fc9",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem equation_15 {ι Col Z : Type} [Fintype Col] [Nonempty Col] [Fintype Z]\n    {c : ℕ} (o : Z)\n    (F : Col → Col → BitInput ι → Reg Z ≃ₗᵢ[ℂ] Reg Z)\n    (hF : ∀ i j, IsCirc c (F i j)) (p : ℕ → Col) (t : ℕ) :\n    ∃ (i₀ : Col)\n      (A : BitInput ι → Reg (Σ _ : Col, TensorBasis Z t) ≃ₗᵢ[ℂ]\n        Reg (Σ _ : Col, TensorBasis Z t)),\n      IsCirc (t * c) A ∧\n      ∀ x i, slice i (A x (rket (⟨i₀, tensorOrigin o t⟩ :\n          Σ _ : Col, TensorBasis Z t))) =\n        (((Real.sqrt ((Fintype.card Col : ℝ)⁻¹) : ℝ) : ℂ) •\n          tensorVector (fun b => F i (p b) x (rket o)) t)"
@@ -2991,7 +2991,7 @@
         {
           "declaration": "QuarticQuery.Paper.quantumStage_success",
           "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
-          "declaration_line": 157,
+          "declaration_line": 158,
           "relation": "exact",
           "relation_to_original_ledger": "exact",
           "route": "same",
@@ -3003,7 +3003,7 @@
           "interface": "normalized stage probability law plus separate literal tensor mass/probability companions",
           "note": "With unit-valued comparisons and positive W, the complete normalized stage law has joint mass w_i/m, total success W/m and conditional index mass w_i/W. weight is the product along the history; the product identity is explicit below. Literal tensor probability laws are separately available.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "ab72f2d710bc5d74c624053884ba995c4d72cee1a18131fe4e683f4ede8361be",
+          "source_sha256": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
           "signature_sha256": "ca1aec7efe00ec5d63781effadf02af0503472f798bf8b78007b9ea6a1823951",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem quantumStage_success {Col : Type} [Fintype Col] [Nonempty Col]\n    (a : Col → Col → ℝ) (ha : UnitValued a)\n    (L : List Col) (hW : 0 < total (weight a L)) :\n    (∀ o, 0 ≤ stageLaw a L o) ∧\n    (∑ o, stageLaw a L o) = 1 ∧\n    (0 < ∑ i, stageLaw a L (some i)) ∧\n    (∀ i, stageLaw a L (some i) = weight a L i / Fintype.card Col) ∧\n    (∑ i, stageLaw a L (some i)) = total (weight a L) / Fintype.card Col ∧\n    (∀ i, stageLaw a L (some i) / (∑ j, stageLaw a L (some j)) =\n      weight a L i / total (weight a L))"
@@ -3011,7 +3011,7 @@
         {
           "declaration": "QuarticQuery.Paper.quantumWeight_product",
           "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
-          "declaration_line": 87,
+          "declaration_line": 88,
           "relation": "partial",
           "relation_to_original_ledger": "partial",
           "route": "none",
@@ -3023,7 +3023,7 @@
           "interface": "normalized stage probability law plus separate literal tensor mass/probability companions",
           "note": "The recursive weight is exactly the product of comparison probabilities.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "ab72f2d710bc5d74c624053884ba995c4d72cee1a18131fe4e683f4ede8361be",
+          "source_sha256": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
           "signature_sha256": "34dfc595cec1bc967ba23eac81f3e12fd03988f5d3ca5772495f579fe07cf11f",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem quantumWeight_product {Col : Type} (a : Col → Col → ℝ) (L : List Col) (i : Col) :\n    weight a L i = (L.map fun p => a i p).prod"
@@ -3031,7 +3031,7 @@
         {
           "declaration": "QuarticQuery.Paper.equation_15_success_probability",
           "file": "lean/QuarticQuery/Paper/QuantumTensor.lean",
-          "declaration_line": 250,
+          "declaration_line": 258,
           "relation": "partial",
           "relation_to_original_ledger": "partial",
           "route": "same",
@@ -3043,7 +3043,7 @@
           "interface": "normalized stage probability law plus separate literal tensor mass/probability companions",
           "note": "The actual tensor-state slices give total success mass equal to the sum of products divided by m.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "4876b2d18401989364ab176424663a7d0f8c1974a739dae1b8e140da6d813483",
+          "source_sha256": "7a2f03d6ae2d8d3ff2af9837f6cb1e1f1f3d5b4983dc34e753792621443835ac",
           "signature_sha256": "e8fddee9477fc9e84aef12a281da3d18a7af7d93a5e0e7f3a538af0d9ec40336",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem equation_15_success_probability {Col Z : Type} [Fintype Col] [Fintype Z]\n    (ψ : Col → ℕ → Reg Z) (out : Col → ℕ → Z → Bool) (t : ℕ)\n    (v : Reg (Σ _ : Col, TensorBasis Z t))\n    (hv : ∀ i, slice i v =\n      (((Real.sqrt ((Fintype.card Col : ℝ)⁻¹) : ℝ) : ℂ) • tensorVector (ψ i) t)) :\n    (∑ i, lawOf v (tensorIndexOut out t) (some i)) =\n      (∑ i, ∏ b ∈ Finset.range t, lawOf (ψ i b) (out i b) true) /\n        Fintype.card Col"
@@ -3051,7 +3051,7 @@
         {
           "declaration": "QuarticQuery.Paper.equation_15_conditional_index",
           "file": "lean/QuarticQuery/Paper/QuantumTensor.lean",
-          "declaration_line": 264,
+          "declaration_line": 272,
           "relation": "partial",
           "relation_to_original_ledger": "partial",
           "route": "same",
@@ -3063,7 +3063,7 @@
           "interface": "normalized stage probability law plus separate literal tensor mass/probability companions",
           "note": "For positive total success mass, the literal tensor conditional law is the normalized product.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "4876b2d18401989364ab176424663a7d0f8c1974a739dae1b8e140da6d813483",
+          "source_sha256": "7a2f03d6ae2d8d3ff2af9837f6cb1e1f1f3d5b4983dc34e753792621443835ac",
           "signature_sha256": "7f6a9cea83955a31c0d10c05f4e2ebb9d875c86ea85226450ddc08db2de1e82c",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem equation_15_conditional_index {Col Z : Type} [Fintype Col] [Nonempty Col]\n    [Fintype Z] (ψ : Col → ℕ → Reg Z) (out : Col → ℕ → Z → Bool) (t : ℕ)\n    (v : Reg (Σ _ : Col, TensorBasis Z t))\n    (hv : ∀ i, slice i v =\n      (((Real.sqrt ((Fintype.card Col : ℝ)⁻¹) : ℝ) : ℂ) • tensorVector (ψ i) t))\n    (hW : 0 < ∑ i, ∏ b ∈ Finset.range t, lawOf (ψ i b) (out i b) true) (i : Col) :\n    0 < (∑ j, lawOf v (tensorIndexOut out t) (some j)) ∧\n    lawOf v (tensorIndexOut out t) (some i) /\n        (∑ j, lawOf v (tensorIndexOut out t) (some j)) =\n      (∏ b ∈ Finset.range t, lawOf (ψ i b) (out i b) true) /\n        (∑ j, ∏ b ∈ Finset.range t, lawOf (ψ j b) (out j b) true)"
@@ -3085,7 +3085,7 @@
         {
           "declaration": "QuarticQuery.Paper.quantumDrift",
           "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
-          "declaration_line": 68,
+          "declaration_line": 69,
           "relation": "stronger",
           "relation_to_original_ledger": "stronger",
           "route": "same",
@@ -3097,7 +3097,7 @@
           "interface": "mathematical_statement",
           "note": "The full drift chain is algebraic for arbitrary real weights with positive total W and a complementary zero-diagonal comparison table. For its probabilistic interpretation the process supplies nonnegative weights; no such sign premise is needed for the identity and inequality themselves.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "ab72f2d710bc5d74c624053884ba995c4d72cee1a18131fe4e683f4ede8361be",
+          "source_sha256": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
           "signature_sha256": "18b71a6ba661ff790e70352b28a626f62f7327bdcfc94b7c7e55441aae817d89",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem quantumDrift {Col : Type} [Fintype Col] [DecidableEq Col]\n    (w : Col → ℝ) {a : Col → Col → ℝ} (ha : IsComparison a)\n    {W : ℝ} (hW : W = ∑ i, w i) (hpos : 0 < W) :\n    (∑ p, (w p / W) * ∑ i, w i * a i p) =\n        (1 / W) * ∑ p, ∑ i, w p * w i * a i p ∧\n    (1 / W) * (∑ p, ∑ i, w p * w i * a i p) =\n        (W ^ 2 - ∑ i, w i ^ 2) / (2 * W) ∧\n    (W ^ 2 - ∑ i, w i ^ 2) / (2 * W) ≤ W / 2"
@@ -3119,7 +3119,7 @@
         {
           "declaration": "QuarticQuery.Paper.quantumWeight_lower",
           "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
-          "declaration_line": 97,
+          "declaration_line": 98,
           "relation": "exact",
           "relation_to_original_ledger": "exact",
           "route": "same",
@@ -3131,7 +3131,7 @@
           "interface": "mathematical_statement",
           "note": "Exports the history-length power bound, Bernoulli lower bound, strict surviving-weight >1/2 and total positivity until the dominant candidate is selected.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "ab72f2d710bc5d74c624053884ba995c4d72cee1a18131fe4e683f4ede8361be",
+          "source_sha256": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
           "signature_sha256": "678ce1424afa6555fb709d2dcf5a3c5ecbedfbab3c509f0e21dd8dd42043779c",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem quantumWeight_lower {Col : Type} [Fintype Col]\n    {a : Col → Col → ℝ} {ε : ℝ} {s : Col} (ha : UnitValued a)\n    (hε0 : 0 ≤ ε) (hε1 : ε ≤ 1) (hd : Dominant a ε s)\n    {T : ℕ} (hT : (T : ℝ) * ε < 1 / 2) (L : List Col)\n    (hL : L.length ≤ T) (hs : s ∉ L) :\n    (1 - ε) ^ L.length ≤ weight a L s ∧\n    1 - (T : ℝ) * ε ≤ (1 - ε) ^ L.length ∧\n    1 / 2 < weight a L s ∧ 0 < total (weight a L)"
@@ -3153,7 +3153,7 @@
         {
           "declaration": "QuarticQuery.Paper.quantumTournament_parameters",
           "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
-          "declaration_line": 56,
+          "declaration_line": 57,
           "relation": "exact",
           "relation_to_original_ledger": "exact",
           "route": "none",
@@ -3163,7 +3163,7 @@
           "interface": "mathematical_statement",
           "note": "Pins T=Nat.clog 2 (1000m), the integer encoding of ceil(log₂(1000m)), and epsilon=1/(1000T). The theorem covers all natural m; the paper uses m>=2.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "ab72f2d710bc5d74c624053884ba995c4d72cee1a18131fe4e683f4ede8361be",
+          "source_sha256": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
           "signature_sha256": "3fe0eaf497158cbe6fcfd21dead6e50ce351c4a53d5b29fd846b267457bdb98c",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem quantumTournament_parameters (m : ℕ) :\n    Tval m = Nat.clog 2 (1000 * m) ∧\n      epsval m = 1 / (1000 * (Tval m : ℝ))"
@@ -3185,7 +3185,7 @@
         {
           "declaration": "QuarticQuery.Paper.quantumDominant_iff",
           "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
-          "declaration_line": 62,
+          "declaration_line": 63,
           "relation": "exact",
           "relation_to_original_ledger": "exact",
           "route": "none",
@@ -3195,7 +3195,7 @@
           "interface": "mathematical_statement",
           "note": "Dominant unfolds to exactly the specified probability lower bound against every distinct opponent.",
           "reviewed_by": "ai:round2-construction-quantum-source-review",
-          "source_sha256": "ab72f2d710bc5d74c624053884ba995c4d72cee1a18131fe4e683f4ede8361be",
+          "source_sha256": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
           "signature_sha256": "ff677347dba019f9b659271a4b8f3b21031a9578679391e7c3728e7e5f2af7f2",
           "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
           "lean_statement": "theorem quantumDominant_iff {Col : Type} (a : Col → Col → ℝ) (ε : ℝ) (s : Col) :\n    Dominant a ε s ↔ ∀ j, j ≠ s → 1 - ε ≤ a s j"
@@ -3203,5 +3203,218 @@
       ],
       "reviewed_by": "ai:round2-construction-quantum-source-review"
     }
-  ]
+  ],
+  "proof_repair_review": "2026-11-02: focused native compiler repairs completed; all120 saved candidate statement substrings remain unchanged. Live file hashes and line locators refreshed after native Section2/Section3 acceptance.",
+  "native_validation_observations": {
+    "QuarticQuery.Paper.ConstructionModels": {
+      "status": "current_native_pass",
+      "receipt": "/Users/willcook/src/_builds/quartic-r2-ssd/native-retry-1/results.json",
+      "log": "/Users/willcook/src/_builds/quartic-r2-ssd/native-retry-1/QuarticQuery_Paper_ConstructionModels.log",
+      "seconds": 10.05,
+      "native_artifacts": {
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/ConstructionModels.olean": "fe23e4a2a1b96eb52b79da3103093a9533f633db2a8a2a485c6fe92c2a0c0597",
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/ConstructionModels.trace": "8082f3639394af095640d8bb8bac9a46011c646b52d0edf6dc827af0650a8858"
+      },
+      "source_sha256": "19826ab2f9f9ef8a329f5880faf2426727b158321af4a418d519d55b56674d61"
+    },
+    "QuarticQuery.Paper.ConstructionDefinitions": {
+      "status": "current_native_pass",
+      "receipt": "/Users/willcook/src/_builds/quartic-r2-ssd/native-retry-2/results.json",
+      "log": "/Users/willcook/src/_builds/quartic-r2-ssd/native-retry-2/QuarticQuery_Paper_ConstructionDefinitions.log",
+      "seconds": 11.04,
+      "native_artifacts": {
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/ConstructionDefinitions.olean": "60910c55cb73afae59c33667284effa7ebd2f670913bb401ad7c876b1f7f59b2",
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/ConstructionDefinitions.trace": "ed0383bbacfca06d14d1dce5e81b13bafd46f917bc4ec4fa6b8771e1803a144e"
+      },
+      "source_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd"
+    },
+    "QuarticQuery.Paper.QuantumTournamentFacts": {
+      "status": "current_native_pass",
+      "receipt": "/Users/willcook/src/_builds/quartic-r2-ssd/native-retry-2/results.json",
+      "log": "/Users/willcook/src/_builds/quartic-r2-ssd/native-retry-2/QuarticQuery_Paper_QuantumTournamentFacts.log",
+      "seconds": 23.11,
+      "native_artifacts": {
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/QuantumTournamentFacts.olean": "847e4ae9a8c474d35bc24cc57eb5aa4b81996929fd749bd06747922cdd2705bc",
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/QuantumTournamentFacts.trace": "4bf11333126f7de94c1f4f0fbe1a0a4989696c34d71f1a7a26b1479e5dbc0a04"
+      },
+      "source_sha256": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef"
+    },
+    "QuarticQuery.Paper.ConstructionForrelationDefinitions": {
+      "status": "current_native_pass",
+      "receipt": "/Users/willcook/src/_builds/quartic-r2-ssd/native-retry-1/results.json",
+      "log": "/Users/willcook/src/_builds/quartic-r2-ssd/native-retry-1/QuarticQuery_Paper_ConstructionForrelationDefinitions.log",
+      "seconds": 9.04,
+      "native_artifacts": {
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.olean": "961bcbc22bab22c4b2e2ba75cbe5e7516a14161db1dfe10cac43a4212fe78e0f",
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.trace": "97edb18e3f0972e090e1c558e7445b4173cc71cf267fd187dbeb0528ac2438ac"
+      },
+      "source_sha256": "14f92345b8885036e862885aad3db82d77cff6e71642e669c2ba7dc8ba087aa1"
+    },
+    "QuarticQuery.Paper.ConstructionFamily": {
+      "status": "current_native_pass",
+      "receipt": "/Users/willcook/src/_builds/quartic-r2-ssd/native-retry-1/results.json",
+      "log": "/Users/willcook/src/_builds/quartic-r2-ssd/native-retry-1/QuarticQuery_Paper_ConstructionFamily.log",
+      "seconds": 11.05,
+      "native_artifacts": {
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/ConstructionFamily.olean": "8cea3db6ceb2110af98eec99b32aa47c6d10b97bcaef54e6aef28d4440edf47a",
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/ConstructionFamily.trace": "7385bf9c9c84d88706c9c8145b795ee57540c7fb6b6a1e70136308a1519e74f0"
+      },
+      "source_sha256": "b7e1203086e38c00b964355ac71537a7fc5be7053d537ccd56cba8017cdd085a"
+    },
+    "QuarticQuery.Paper.ConstructionForrelationQuantum": {
+      "status": "current_native_pass",
+      "receipt": "/Users/willcook/src/_builds/quartic-r2-ssd/native-retry-1/results.json",
+      "log": "/Users/willcook/src/_builds/quartic-r2-ssd/native-retry-1/QuarticQuery_Paper_ConstructionForrelationQuantum.log",
+      "seconds": 11.05,
+      "native_artifacts": {
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/ConstructionForrelationQuantum.olean": "b5719705ed285609f401ba2c9641ae87725371d51620ef77504970025d394101",
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/ConstructionForrelationQuantum.trace": "5e14d61f12d059ef10b35911608b8291db436371a3ffc63b395fcd01099c7695"
+      },
+      "source_sha256": "f31face68a9c47906d9a728cced9aa8a24ec73d3079c6196ae1853130151391b"
+    },
+    "QuarticQuery.Paper.ConstructionForrelationComparison": {
+      "status": "current_native_pass",
+      "receipt": "/Users/willcook/src/_builds/quartic-r2-ssd/native-retry-2/results.json",
+      "log": "/Users/willcook/src/_builds/quartic-r2-ssd/native-retry-2/QuarticQuery_Paper_ConstructionForrelationComparison.log",
+      "seconds": 24.1,
+      "native_artifacts": {
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/ConstructionForrelationComparison.olean": "cf7b97d1d087a4e74e968c13a6917ce66e0f8a37142c821978035fb725cbee00",
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/ConstructionForrelationComparison.trace": "6b7659ae0978f3f279efb9d071c62d01c740896d3c9a13a78f0eccacddcb2400"
+      },
+      "source_sha256": "e9bb18d1e0ea9482762e89a9ced002c720f9b7d2311a455a9904bd820c5b4a01"
+    },
+    "QuarticQuery.Paper.ConstructionPhase": {
+      "status": "current_native_pass",
+      "receipt": "/Users/willcook/src/_builds/quartic-r2-ssd/native-inventory/results.json",
+      "log": "/Users/willcook/src/_builds/quartic-r2-ssd/native-inventory/QuarticQuery_Paper_ConstructionPhase.log",
+      "seconds": 24.19,
+      "native_artifacts": {
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/ConstructionPhase.olean": "5429e8c3b661d34dcede25e909dbdda3c7dcca5f43e9383134ea442aa332b9cb",
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/ConstructionPhase.trace": "dba8741a0f212d575eef355ea1c957c26e6fbc76dc9903a6c84ce91765a3696b"
+      },
+      "source_sha256": "f9dc9564aa8741a6aa3059fcea3563c740fed802666ae251fbebbe9085668405"
+    },
+    "QuarticQuery.Paper.ConstructionForrelationComplete": {
+      "status": "current_native_pass",
+      "receipt": "/Users/willcook/src/_builds/quartic-r2-ssd/native-retry-1/results.json",
+      "log": "/Users/willcook/src/_builds/quartic-r2-ssd/native-retry-1/QuarticQuery_Paper_ConstructionForrelationComplete.log",
+      "seconds": 10.05,
+      "native_artifacts": {
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/ConstructionForrelationComplete.olean": "af93001b09ab588db0cc9f2098df6763f1533319716d03b09860e9d3f7dcd799",
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/ConstructionForrelationComplete.trace": "5cfb4064f6311385ec2ae43ac82fba8d41fb437eec5e7ac181476da55d17233c"
+      },
+      "source_sha256": "733526015ad9a2013512d8f6216b8f73c41566a803d92602dd30e40e90d7ad06"
+    },
+    "QuarticQuery.Paper.ConstructionForrelationCircuit": {
+      "status": "current_native_pass",
+      "receipt": "/Users/willcook/src/_builds/quartic-r2-ssd/native-retry-1/results.json",
+      "log": "/Users/willcook/src/_builds/quartic-r2-ssd/native-retry-1/QuarticQuery_Paper_ConstructionForrelationCircuit.log",
+      "seconds": 28.12,
+      "native_artifacts": {
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/ConstructionForrelationCircuit.olean": "9a8c38efd55b64077dc0be79a097aecfcab64cd6dbd8c79fc6202404f528779e",
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/ConstructionForrelationCircuit.trace": "c3a428fae22bd1dd0cce5d61b347f255dd616e22c691c3d35ca5b3965dfb1a77"
+      },
+      "source_sha256": "860e8653027d64fe7d5cc5f35357d81ed5fa27e027899047ab819c821e3c8b32"
+    },
+    "QuarticQuery.Paper.ConstructionArithmetic": {
+      "status": "current_native_pass",
+      "receipt": "/Users/willcook/src/_builds/quartic-r2-ssd/native-retry-1/results.json",
+      "log": "/Users/willcook/src/_builds/quartic-r2-ssd/native-retry-1/QuarticQuery_Paper_ConstructionArithmetic.log",
+      "seconds": 10.04,
+      "native_artifacts": {
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/ConstructionArithmetic.olean": "90f88dd830f13a9dd87641e0e161f277667268b744f1761742d6e82e66776ada",
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/ConstructionArithmetic.trace": "2ab8b5a75c82d3132b256ba350a8bb057530b2a72bb0d93ffb7a1e02d55593b9"
+      },
+      "source_sha256": "2c355a3eb5e76cd5db70a6990bb9d6b37d652e0eece3b31ed0661219d3635ad0"
+    },
+    "QuarticQuery.Paper.ConstructionTests": {
+      "status": "current_native_pass",
+      "receipt": "/Users/willcook/src/_builds/quartic-r2-ssd/native-retry-2/results.json",
+      "log": "/Users/willcook/src/_builds/quartic-r2-ssd/native-retry-2/QuarticQuery_Paper_ConstructionTests.log",
+      "seconds": 11.04,
+      "native_artifacts": {
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/ConstructionTests.olean": "0991019c4f9fb60afde7f65734cc39534753f3e9655f8f67b0c89600cb3c38ed",
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/ConstructionTests.trace": "2fd3cf798859afc67898f167bd415da4638fb072ac2d8d98145289e43917276a"
+      },
+      "source_sha256": "06f1b3bc883881351e5e9cfa9ba8777f2f907897e69275b507132cc01ba0dccb"
+    },
+    "QuarticQuery.Paper.ConstructionPointerSupport": {
+      "status": "current_native_pass",
+      "receipt": "/Users/willcook/src/_builds/quartic-r2-ssd/native-retry-2/results.json",
+      "log": "/Users/willcook/src/_builds/quartic-r2-ssd/native-retry-2/QuarticQuery_Paper_ConstructionPointerSupport.log",
+      "seconds": 24.08,
+      "native_artifacts": {
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/ConstructionPointerSupport.olean": "e6b92f28c0da5fdd2f526f82e64535c9620f8d00aeeefac3c310b1ab2406db1d",
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/ConstructionPointerSupport.trace": "d6e2f0ed675d84da4af1078d58ce74caa810b96f06f0b21d0058d1a96e2a5048"
+      },
+      "source_sha256": "8a2d8befa3225ab54114492b35c5a326fc17bd8f0a5eaa9acba966c18db53938"
+    },
+    "QuarticQuery.Paper.ConstructionCoherent": {
+      "status": "current_native_pass",
+      "receipt": "/Users/willcook/src/_builds/quartic-r2-ssd/native-retry-3/results.json",
+      "log": "/Users/willcook/src/_builds/quartic-r2-ssd/native-retry-3/QuarticQuery_Paper_ConstructionCoherent.log",
+      "seconds": 11.05,
+      "native_artifacts": {
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/ConstructionCoherent.olean": "8b96b0b2516a0f6e6b17a694231aa6fa76c545f14272d342cbf0ff58358cd53f",
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/ConstructionCoherent.trace": "f9f78d5390ff5e4ebc3bbdbce92a43c48bd123966fd403f1436b6d752437ae0d"
+      },
+      "source_sha256": "5e5f5c2321e7c1ce23235e69e1f430fd951f13cc92b5a2d1b2d974aad0607cec"
+    },
+    "QuarticQuery.Paper.ConstructionComplete": {
+      "status": "current_native_pass",
+      "receipt": "/Users/willcook/src/_builds/quartic-r2-ssd/native-retry-3/results.json",
+      "log": "/Users/willcook/src/_builds/quartic-r2-ssd/native-retry-3/QuarticQuery_Paper_ConstructionComplete.log",
+      "seconds": 25.11,
+      "native_artifacts": {
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/ConstructionComplete.olean": "aabdc0570fad50a70b2e5a901335bed22db3ff42ec6b76788fcc278a574b97a2",
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/ConstructionComplete.trace": "310fedbc14f97af22f835a13ca38c22fe0f0ff5b182b24c282ae8cf745b1bd3e"
+      },
+      "source_sha256": "a79e9f0cdbf85df0e86605711fa6c8bde2a19cbe043c36302243b42a7f8fbc6c"
+    },
+    "QuarticQuery.Paper.QuantumTournament": {
+      "status": "current_native_pass",
+      "receipt": "/Users/willcook/src/_builds/quartic-r2-ssd/native-retry-1/results.json",
+      "log": "/Users/willcook/src/_builds/quartic-r2-ssd/native-retry-1/QuarticQuery_Paper_QuantumTournament.log",
+      "seconds": 12.06,
+      "native_artifacts": {
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/QuantumTournament.olean": "8a50bf7c4e83c8ce6197878f7d6664907968c4d4918776e6b182e2f43dd5319f",
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/QuantumTournament.trace": "4e4a1648c37a120e4339afb8fdfde6c640f2abf74c3573cb7981a66484b4d511"
+      },
+      "source_sha256": "8cf87e74aa0364c9bc6b9078ff62e88c45d297625166fe31a8efeea765a34adf"
+    },
+    "QuarticQuery.Paper.QuantumAmplification": {
+      "status": "current_native_pass",
+      "receipt": "/Users/willcook/src/_builds/quartic-r2-ssd/native-inventory/results.json",
+      "log": "/Users/willcook/src/_builds/quartic-r2-ssd/native-inventory/QuarticQuery_Paper_QuantumAmplification.log",
+      "seconds": 13.09,
+      "native_artifacts": {
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/QuantumAmplification.olean": "5c29abd1ff8a3703a5be5506080048e0225fdb53c3692d04d37ff0dfaf770d26",
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/QuantumAmplification.trace": "c0e143d5ef5bb15aa6d31d510b3cd7ec0036234fd096532568f9d8baad903a41"
+      },
+      "source_sha256": "95d89237e766b59ffdd52f1324e440e2127b06353b2c8de2482b9f55c4adb30b"
+    },
+    "QuarticQuery.Paper.QuantumComparison": {
+      "status": "current_native_pass",
+      "receipt": "/Users/willcook/src/_builds/quartic-r2-ssd/native-inventory/results.json",
+      "log": "/Users/willcook/src/_builds/quartic-r2-ssd/native-inventory/QuarticQuery_Paper_QuantumComparison.log",
+      "seconds": 21.11,
+      "native_artifacts": {
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/QuantumComparison.olean": "db29857e7b0e15505b6d0f66c35c80bf5bde6e7f05f1d08167867226f965c606",
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/QuantumComparison.trace": "39e98988cb36271678ab903bf1425cad2b8d97929b8f5d2395a077db54493162"
+      },
+      "source_sha256": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d"
+    },
+    "QuarticQuery.Paper.QuantumTensor": {
+      "status": "current_native_pass",
+      "receipt": "/Users/willcook/src/_builds/quartic-r2-ssd/native-retry-3/results.json",
+      "log": "/Users/willcook/src/_builds/quartic-r2-ssd/native-retry-3/QuarticQuery_Paper_QuantumTensor.log",
+      "seconds": 11.05,
+      "native_artifacts": {
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/QuantumTensor.olean": "15ab5b5189b351b35234f510b71d66200f467936f5fccb00f1c8e1db608ec23a",
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/QuantumTensor.trace": "1a44d12a191a787d8c4b035ae9f081bbac6aa0dbd3b1303629e27a0e88e94efa"
+      },
+      "source_sha256": "7a2f03d6ae2d8d3ff2af9837f6cb1e1f1f3d5b4983dc34e753792621443835ac"
+    }
+  },
+  "native_validation_boundary": "Every candidate helper module has a current native olean pass at the cited unchanged local source closure. These observations do not substitute for the final source-bound root receipt, axiom allowlist audit, Comparator or dependency reach. Relation review stays separate."
 }

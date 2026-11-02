@@ -56,6 +56,33 @@ def budgetConst (k : ℕ) : ℕ :=
   let CK := 42 + 20 * forrConstant k
   6 * (48002 * 258 * Cc) + 6 * (40 * R * k + 48002 * 69 * CK)
 
+/-- The exact dependence of the existing repetition algorithm on the Forrelation order. -/
+theorem budgetConst_eq_expanded (k : ℕ) :
+    budgetConst k = 2972284080 * k * (1 + 1920000 * 2 ^ (10 * k)) +
+      79491312000 * (k + 1) ^ 2 + 1131887160 := by
+  simp only [budgetConst, forrConstant]
+  ring
+
+/-- An explicit exponential envelope for the existing algorithm; no new decoder is used. -/
+theorem budgetConst_le_exponential {k : ℕ} (hk : 1 ≤ k) :
+    budgetConst k ≤ 2 ^ 53 * k * 2 ^ (10 * k) := by
+  have hkP : k ≤ 2 ^ (10 * k) := by
+    calc k ≤ 2 ^ k := (Nat.lt_two_pow_self (n := k)).le
+      _ ≤ 2 ^ (10 * k) := Nat.pow_le_pow_right (by norm_num) (by omega)
+  have hP : 1 ≤ 2 ^ (10 * k) := Nat.one_le_two_pow
+  rw [budgetConst_eq_expanded]
+  generalize 2 ^ (10 * k) = P at *
+  have hkp : k ≤ k * P := by nlinarith
+  have h1kp : 1 ≤ k * P := by nlinarith
+  have hk2 : k ^ 2 ≤ k * P := by
+    simpa only [pow_two] using Nat.mul_le_mul_left k hkP
+  have hpol : (k + 1) ^ 2 ≤ 4 * k * P := by nlinarith
+  have hsum : 2972284080 * k * (1 + 1920000 * P) +
+        79491312000 * (k + 1) ^ 2 + 1131887160 ≤
+      (2972284080 * (1 + 1920000) + 4 * 79491312000 + 1131887160) * k * P := by
+    nlinarith
+  exact hsum.trans (by norm_num; nlinarith)
+
 /-- Ledger: claim-tournament-cost, prop-3.3. The query count of the algorithm. -/
 theorem budget_le {k t : ℕ} {C : Circuit (ForrelationCoord k t)} (ht : 1 ≤ t)
     (hSz : C.size ≤ forrConstant k * mValue t * (2 * t) ^ 2) :
@@ -255,6 +282,18 @@ theorem Q_Fkm_le (l t : ℕ) (ht : 1 ≤ t) :
   have hc : ((Q (totalise (Fkm (l + 1) t (forrCircuit l t))) : ℕ) : ℝ) ≤
       ((budgetConst (l + 1) * 2 ^ t * (2 * t) ^ 6 : ℕ) : ℝ) := by exact_mod_cast h
   simpa using hc
+
+/-- The quantum upper bound with its order dependence exposed, for `m = 4^t`. -/
+theorem Q_Fkm_le_exponential (l t : ℕ) (ht : 1 ≤ t) :
+    (Q (totalise (Fkm (l + 1) t (forrCircuit l t))) : ℝ) ≤
+      (2 : ℝ) ^ 53 * (l + 1 : ℕ) * 2 ^ (10 * (l + 1)) *
+        2 ^ t * (2 * (t : ℝ)) ^ 6 := by
+  refine (Q_Fkm_le l t ht).trans ?_
+  have hB : (budgetConst (l + 1) : ℝ) ≤
+      (2 : ℝ) ^ 53 * (l + 1 : ℕ) * 2 ^ (10 * (l + 1)) := by
+    exact_mod_cast budgetConst_le_exponential (k := l + 1) (by omega)
+  exact mul_le_mul_of_nonneg_right
+    (mul_le_mul_of_nonneg_right hB (by positivity)) (by positivity)
 
 theorem budgetConst_pos (k : ℕ) : 0 < budgetConst k := by
   simp only [budgetConst]

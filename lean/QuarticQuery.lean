@@ -30,3 +30,11 @@ public import QuarticQuery.Results.Exponent
 public import QuarticQuery.Results.Headline
 public import QuarticQuery.Results.Conditional
 public import QuarticQuery.Results.Unconditional
+public import QuarticQuery.Paper.Section2
+public import QuarticQuery.Paper.Section3
+public import QuarticQuery.Paper.Section4
+public import QuarticQuery.Paper.ClassicalAsymptotics
+public import QuarticQuery.Paper.ClassicalDirectProduct
+public import QuarticQuery.Paper.ClassicalUniformZero
+public import QuarticQuery.Paper.AppendixA
+public import QuarticQuery.ForrelationLower.Uniform

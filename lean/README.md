@@ -30,6 +30,7 @@ Its two libraries have different jobs: `QuarticQuery` contains the development;
 | [Upper/](QuarticQuery/Upper/) | The quantum upper-bound implementation and its component procedures. |
 | [Bridge/](QuarticQuery/Bridge/) and [Appendix/](QuarticQuery/Appendix/) | Interfaces to the imported query-complexity development and Theorem A.1. |
 | [Results/](QuarticQuery/Results/) | Exponents, headline statements and the final assembly. |
+| [Paper/](QuarticQuery/Paper/) | Statement-alignment companions and returned proof candidates; consult their build evidence before relying on a declaration. |
 
 ## Checking and recorded evidence
 
@@ -47,3 +48,9 @@ The [corpus guide](../corpus/README.md) explains their recorded outputs.
 
 Module paths and declaration names are referenced by statement ties, challenge
 configurations and receipts. Preserve those interfaces when organising files.
+
+Some `Paper/` module headers retain the submitted reviewers' descriptions of
+their drafts as unelaborated or written without a compiler. Those comments
+record the submission environment. Use the current source-bound receipts and
+reviewed statement ties in [the corpus](../corpus/README.md) for acceptance of
+the integrated source; the original returns remain unchanged.

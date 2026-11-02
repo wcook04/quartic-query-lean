@@ -78,9 +78,9 @@ theorem P_no {z : BC l (Nm t) → Bool} (h : |PhiF t z| ≤ dl (l + 1) / 2) :
   rw [if_neg hnot, if_pos hNi]
 
 /-- The core: a family of bounded trees cannot beat the gap. -/
-theorem not_RLe_of_gap (hl : 0 < l) {L τ : ℕ} {Λ K A : ℝ} (hK : 0 < K)
+theorem not_RLe_of_gap_sharp (hl : 0 < l) {L τ : ℕ} {Λ K A : ℝ} (hK : 0 < K)
     (hKsq : K ^ 2 = 2 * (2 * τ * L + 1 : ℕ) * 2 ^ 2 * Λ)
-    (hA : ((3 : ℝ) * ((2 : ℝ) ^ t)⁻¹) ^ l * (K ^ (l + 1) +
+    (hA : ((3 / 16 : ℝ) * ((2 : ℝ) ^ t)⁻¹) ^ l * (K ^ (l + 1) +
         (Fintype.card (BC l (Nm t)) * 2) ^ (l + 1) *
         ((4 * Fintype.card (BC l (Nm t)) : ℝ) ^ (l + 1) * Real.exp (-Λ))) ≤ A)
     (hε1 : (8 / 9 : ℝ) ^ τ ≤ 1)
@@ -199,7 +199,7 @@ theorem not_RLe_of_gap (hl : 0 < l) {L τ : ℕ} {Λ K A : ℝ} (hK : 0 < K)
     have hcard : 1 ≤ Fintype.card (BC l (Nm t)) := by
       have hne : Nonempty (BC l (Nm t)) := ⟨(0, ⟨0, by simp [mValue]⟩)⟩
       exact Fintype.card_pos
-    have := advantage_le (H t) hl (rowsOrth_H t) (ε := ((2 : ℝ) ^ t)⁻¹) (by positivity) abs_H_le
+    have := advantage_le_sharp (H t) hl (rowsOrth_H t) (ε := ((2 : ℝ) ^ t)⁻¹) (by positivity) abs_H_le
       (d := 2 * τ * L + 1) (Nat.succ_pos _) hK hKsq hcard (T j) ((hdepth j).trans (Nat.le_succ _))
       v hv
     have h2 := (abs_le.mp (this.trans hA)).2
@@ -216,6 +216,25 @@ theorem not_RLe_of_gap (hl : 0 < l) {L τ : ℕ} {Λ K A : ℝ} (hK : 0 < K)
   have h1e : 0 ≤ 1 - ε := by linarith
   have hE2 := mul_le_mul_of_nonneg_left (sub_le_sub_right hmass δ) h1e
   linarith
+
+
+/-- The coarse finite contradiction, retained with its original coefficient. -/
+theorem not_RLe_of_gap (hl : 0 < l) {L τ : ℕ} {Λ K A : ℝ} (hK : 0 < K)
+    (hKsq : K ^ 2 = 2 * (2 * τ * L + 1 : ℕ) * 2 ^ 2 * Λ)
+    (hA : ((3 : ℝ) * ((2 : ℝ) ^ t)⁻¹) ^ l * (K ^ (l + 1) +
+        (Fintype.card (BC l (Nm t)) * 2) ^ (l + 1) *
+        ((4 * Fintype.card (BC l (Nm t)) : ℝ) ^ (l + 1) * Real.exp (-Λ))) ≤ A)
+    (hε1 : (8 / 9 : ℝ) ^ τ ≤ 1)
+    (hgap : (8 / 9 : ℝ) ^ τ + 4 / dl (l + 1) ^ 2 * ((2 : ℝ) ^ (2 * t))⁻¹ + A <
+      (1 - (8 / 9 : ℝ) ^ τ) * ((1 / 18 : ℝ) ^ l - dl (l + 1))) :
+    ¬ RLe (P (l + 1) t) L := by
+  apply not_RLe_of_gap_sharp hl hK hKsq _ hε1 hgap
+  refine le_trans ?_ hA
+  have hinv : (0 : ℝ) ≤ ((2 : ℝ) ^ t)⁻¹ := by positivity
+  have hcoeff : (3 / 16 : ℝ) * ((2 : ℝ) ^ t)⁻¹ ≤ 3 * ((2 : ℝ) ^ t)⁻¹ := by
+    linarith
+  exact mul_le_mul_of_nonneg_right
+    (pow_le_pow_left₀ (by positivity) hcoeff l) (by positivity)
 
 /-! ## M2. Parameters -/
 
