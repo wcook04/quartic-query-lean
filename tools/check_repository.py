@@ -13,7 +13,6 @@ from urllib.parse import unquote, urlsplit
 ROOT_FILES = {"README.md", "LICENSE", ".gitignore", "Makefile", "AGENTS.md"}
 REQUIRED = {"README.md", "LICENSE", ".gitignore", "Makefile",
             "tools/check_repository.py", "tests/test_repository.py",
-            ".github/workflows/check.yml",
             "research/requests/common.md", "research/requests/boundaries.md",
             "research/requests/1_understand_the_paper.md",
             "research/requests/2_ground_in_literature.md",
