@@ -22,18 +22,23 @@ python3 tools/check_repository.py --index
 
 ## Generate and check the Lean evidence
 
-Run these after a successful `lake build QuarticQuery`:
+Freeze the intended Lean inputs before recording evidence:
 
 | Command | Effect |
 | --- | --- |
 | `python3 tools/build_challenges.py` | Regenerates each Comparator challenge from the statement file and its solution. |
-| `python3 tools/record_evidence.py` | Records the compiled dependency closure and a build receipt. |
+| `python3 tools/record_evidence.py` | Builds `QuarticQuery`, then records its compiled dependency closure and a source-bound build receipt. |
 | `python3 tools/run_comparator.py` | Runs each bundle and negative control and writes receipts. |
 | `python3 tools/build_corpus.py` | Regenerates the corpus from the ledger, ties and receipts. |
 
 [build_challenges.py](build_challenges.py) keeps a challenge and its solution in
 agreement by construction. A negative control counts only when Comparator rejects it
 with the expected diagnostic, and a build deferred by a lock judges nothing.
+Build and comparison producers append timestamped receipts; old runs remain
+historical. Both check that their source/configuration hashes remain unchanged
+during execution. The hashes bind local source and dependency pins, not the
+bytes of external dependency checkouts. These are local verification runs, not
+fresh-clone reproducibility certificates.
 
 ## Build research packets
 
@@ -101,16 +106,18 @@ python3 tools/build_funnel_packets.py --only 3_examples_first_exposition --dest 
 [build_round2_packets.py](build_round2_packets.py) packages the seven
 [round-two requests](../research/requests/round2/). Each ZIP adds the five
 first-round returns, their adjudication, every annexed paper of the quartic
-cluster with a reading order for its job, a record skeleton generated from the
-compiled dependency closure, and `BUILD_STATUS.md`, which reports which Lean
-modules have an up-to-date `.olean`. The fidelity and four Lean coverage packets
-also carry complexitylib's query-complexity source.
+cluster with a reading order for its job, and a record skeleton generated from
+the recorded dependency export with its source currentness. `BUILD_STATUS.md`
+classifies the named saved build receipt against current source hashes and
+reports local `.olean` existence and mtime as artifact observations only. Those
+observations establish no source-current build or dependency reach. The fidelity
+and four Lean coverage packets also carry complexitylib's query-complexity source.
 
 ```sh
 python3 tools/build_round2_packets.py --only 1_statement_fidelity --dest /path/to/output
 ```
 
-Omit `--only` to build all five. This builder reads the current repository,
+Omit `--only` to build all seven. This builder reads the current repository,
 private annexes under `~/src/ai_workflow/annexes`, writing references under
 `~/.claude/skills/formal-math-exposition/references`, and exemplar files from
 `origin/main` in `~/src/lean-exposition`. Those external inputs are not included
@@ -123,6 +130,100 @@ The ZIPs include their current paths for README navigation.
 For compatibility, they also carry them at their original
 `repository/research/returns/adjudication*` member names, which the packet
 instructions reference.
+
+## Prepare focused round-three packets
+
+[build_round3_packets.py](build_round3_packets.py) prepares the ten bounded
+[round-three requests](../research/requests/round3/SELECTION.md). Use `--only`
+with one or more job keys to select fewer. Each packet includes its selected
+primary literature, a primary source reading list, the existing long-record
+return, relevant earlier returns, maintained adjudications, and the complete
+local Lean/configuration scope used by receipt hashes. It excludes `.lake`
+and build artifacts. Writing guidance is included as readable text; the
+exemplars are writing models about a different theorem.
+
+All external inputs have explicit paths. Validate first; this command writes no
+ZIPs and prints a digest of the exact inputs:
+
+```sh
+python3 tools/build_round3_packets.py \
+  --paper-annex /path/to/openai-preprint-annex \
+  --annexes /path/to/literature-annexes \
+  --writing-skill /path/to/formal-math-exposition/SKILL.md \
+  --writing-guides /path/to/formal-math-exposition/references \
+  --exemplar-repo /path/to/lean-exposition \
+  --exemplar-ref COMMIT \
+  --only 01_models_evidence
+```
+
+The writing-reference directory must contain `the-deliverable.md`,
+`mathematical-writing-mechanics.md`, `full-exposition-guide.md`, and
+`register-from-literature.md`. The exemplar ref is resolved to a commit before
+reading the four existing exemplar paths. The paper annex needs `source.pdf`
+and `extracted.md`; selected literature needs its full extracted text and an
+original PDF or TeX source. The exact supplied Špalek–Szegedy publisher edition
+is selected explicitly. Missing primary sources fail rather than falling back
+to locator notes. The manifest binds the supplied paper PDF by its actual hash
+and includes supplied annex metadata, without inventing an upstream Git pin.
+
+Job 09 requires actual external contracts via `--backend-source MEMBER=PATH`.
+Under the `lean-exposition/` member prefix, supply `docs/contracts.md`,
+`docs/verification.md`, `src/lean_exposition/{contracts,cli,extraction,consumer,verification}.py`, and
+`src/lean_exposition/resources/schemas/{graph,artifact,bundle}.schema.json`.
+Supply primary Comparator documentation or source under `comparator/`, identifying
+an installed toolchain source edition when that is the source being supplied.
+If a group cannot be supplied, explicitly record
+`--backend-unavailable 'comparator=reason'` or the corresponding
+`lean-exposition` reason. `BACKEND_INPUT_STATUS.json` then marks the assignment
+limited: dependent extraction or validation remains unassessed. An empty
+backend input set cannot silently satisfy job 09.
+
+After the source owners settle the intended inputs and approve that digest,
+repeat the same command with `--build --freeze-digest DIGEST --dest /path/to/new-output`.
+The destination must be outside the repository. A changed input or an existing
+selected archive stops the build. The builder checks source/input hashes before
+and after packaging, checks each temporary ZIP with
+[check_packets.py](check_packets.py), and publishes without replacing existing
+files. No sent packet is updated in place.
+
+`EVIDENCE_SNAPSHOT.json` recomputes raw receipt and dependency-export currentness
+against the included Lean/configuration bytes. `BUILD_STATUS.md` preserves
+recorded statuses, including pending/running states, separately from currentness;
+it never infers a live build from a missing receipt or a pass from an artifact's
+mtime. Generated corpus booleans are supplied as recorded, not used to upgrade
+evidence. Packaging runs no Lean build and establishes no mathematical review.
+The existing round-one and round-two builder interfaces remain available.
+
+Use `--native-result MEMBER=PATH` for optional raw native-run JSON,
+`--native-log MEMBER=PATH` for accompanying logs, and
+`--native-source MEMBER=PATH` for actual fixture or runner sources outside this
+repository. Records retain their original statuses and hashes. Per-target
+`inputs_before` labels map to included bytes only under the selected canonical
+repository or to explicitly supplied native sources. A matching subset is
+reported as current for those inputs only; foreign labels, skipped targets,
+source drift and input changes during execution remain distinct. Module runs
+do not establish declaration membership, Comparator success or a global build.
+
+The ZIP is a focused research snapshot rather than a full checkout capable of
+`make check`. In particular, selected round-two context does not contain every
+custody archive required by that batch's intake manifest. Use a full checkout
+for repository-wide checks.
+
+## Check independent finite semantics
+
+[return_checks/semantic_controls.py](return_checks/semantic_controls.py) compares
+independently specified small examples with deliberately mutated Python models:
+
+```sh
+python3 tools/return_checks/semantic_controls.py
+```
+
+It covers zero-query promises, worst-case depth, the inclusive success threshold,
+a Forrelation witness and a toy shared impossible comparison. The shared toy
+truth tables agree while admitting no witness. The command does not read Lean,
+compare any Lean definition or run Comparator; its output is finite diagnostic
+evidence only. [Its tests](../tests/test_semantic_controls.py) exercise each
+mutation and the independently specified answers.
 
 ## Reproduce checks supplied with reviews
 
