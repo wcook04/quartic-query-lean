@@ -114,7 +114,7 @@ square root in transcribing the 2006 display; that note has been corrected.
 The following SHA-256 values describe the bytes supplied for this check. The
 five publisher or variant PDFs marked “supplement” are retained locally beside
 the existing work-level annex, without replacing its primary substrate. The
-two byte-identical sources are already present. Each local copy is subject to
+four byte-identical sources are already present. Each local copy is subject to
 its own rights review before redistribution; local retention is not permission
 to publish. The Wu publisher page expressly states CC BY 4.0.
 
