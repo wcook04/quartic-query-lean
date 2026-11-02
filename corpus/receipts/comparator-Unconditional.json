@@ -2,7 +2,7 @@
  "kind": "comparator",
  "name": "Unconditional",
  "status": "passed",
- "commit": "16adedc16acca1e3a8d2963d4fd5655dcd0492d7",
+ "commit": "d42fb67a7e060fb5386867dadf20a5903df39141",
  "toolchain": "leanprover/lean4:v4.36.0-rc2",
  "sandboxed": false,
  "command": [
@@ -10,11 +10,12 @@
   "comparator",
   "--config",
   "QuarticCorpus/Unconditional/comparator.json",
-  "--inadvisably-no-sandbox"
+  "--inadvisably-no-sandbox",
+  "--paranoid"
  ],
  "tool": "lake comparator, unsandboxed local run",
- "log_sha256": "27e69fc2153e86e1e1333f56e73457f22e3ff19ff0faffbd3e9fda2e979b04bc",
- "ran_at": "2026-11-02T07:06:53+00:00",
+ "log_sha256": "66130ace53224ecc852c83fae11e43b60bb7edcfccbaed96772a16aba919448f",
+ "ran_at": "2026-11-02T07:27:00+00:00",
  "declarations": [
   "QuarticQuery.Checked.alpha_tot_eq_four",
   "QuarticQuery.Checked.theorem_one_one",
@@ -25,6 +26,6 @@
   "QuarticQuery.cubic_bound_fails_unconditional",
   "QuarticQuery.ForrelationLower.bansalSinhaLower"
  ],
- "paranoid": false,
+ "paranoid": true,
  "exit_code": 0
 }

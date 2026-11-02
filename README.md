@@ -32,7 +32,7 @@ what is already known. No person has reviewed it yet.
 | --- | --- |
 | Proofs | The `QuarticQuery` target builds at the recorded commit with no `sorry`, no custom axioms and no `native_decide`. |
 | Statements | [Statement.lean](lean/QuarticQuery/Statement.lean) fixes every definition a theorem means. It imports Mathlib only. |
-| Comparison | Comparator runs each bundle in [lean/QuarticCorpus/](lean/QuarticCorpus/) against an independently compiled challenge. Runs on this machine are unsandboxed local rehearsals, and [corpus/receipts/](corpus/receipts/) records them as such. |
+| Comparison | Comparator accepts each bundle in [lean/QuarticCorpus/](lean/QuarticCorpus/) against an independently compiled challenge, and rejects five deliberately wrong solutions for the intended reason. The unconditional bundle also passes every external kernel bundled with Lean (`--paranoid`). Runs on this machine are unsandboxed local rehearsals, and [corpus/receipts/](corpus/receipts/) records them as such. |
 | Fidelity | [The review](docs/statement_fidelity_review.md) compares Lean statements with the preprint. It was done by an AI agent that did not write the proofs. No human has reviewed it. |
 | Literature | Claims about cited sources were checked against those sources by AI agents; see [the adjudication](research/returns/adjudication_notes.md). |
 

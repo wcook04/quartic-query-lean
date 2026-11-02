@@ -3170,7 +3170,8 @@
     "comparator",
     "--config",
     "QuarticCorpus/Unconditional/comparator.json",
-    "--inadvisably-no-sandbox"
+    "--inadvisably-no-sandbox",
+    "--paranoid"
    ],
    "tool": "lake comparator, unsandboxed local run",
    "source_ids": [
