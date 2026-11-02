@@ -19,15 +19,35 @@ The evidence fields answer separate questions, and none of them implies another:
 | Field | Question |
 | --- | --- |
 | `formal_statement` | Does a Lean statement say this: `exact`, `stronger`, `partial`, `weaker`, or `none`? |
-| `build` | Is the declaration in the compiled environment at the recorded commit? |
-| `comparator` | Did Comparator accept it against an independent challenge? |
+| `build` | Is the declaration in the compiled environment for the current recorded source bytes? |
+| `comparator` | Did Comparator accept it against an independently compiled challenge? |
 | `conditional` | Does the checked theorem carry an open hypothesis? |
 | `route` | Does the Lean proof follow the preprint's, take an `alternative` route, or neither? |
 | `reach` | Does the headline's proof depend on it? |
 
+The current challenge generator shares the maintained vocabulary and theorem
+statements with the solutions. Separate compilation checks their agreement;
+source review and independently specified semantic tests assess their intended
+meaning.
+
 A Lean doc comment reading `Ledger: <id>` only proposes a tie. A statement counts as
 checked through a reviewed relation and a receipt naming the declaration. See
 [the contract](../docs/statement_evidence_contract.md).
+
+Evidence freshness is also explicit: source-bound receipts can be `current` or
+`stale`; older receipts without source hashes are `legacy_unbound`. Historical
+success is preserved, but only current receipts count toward current build and
+comparison fields. Source binding is deliberately conservative: a change to
+another maintained Lean module also requires a fresh receipt. The public
+dependency graph follows hidden helpers before filtering its display and keeps
+witness paths through those helpers.
+
+Reviewed ties may distinguish `premises` of the statement from additional
+`open_assumptions` of the cited declaration. A depth bound or circuit-realization
+premise does not make an otherwise matching theorem conditional. An explicit
+hardness assumption absent from the target statement does. Legacy `hypotheses`
+remain conservative until reviewed; the availability of a proof elsewhere does
+not silently remove a binder from the cited declaration.
 
 ## Producers and inputs
 

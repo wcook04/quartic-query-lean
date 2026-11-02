@@ -16,8 +16,10 @@ includes the construction of the total functions, the randomized lower bound,
 the quantum upper bound in an adaptive bit-query model, the exact Forrelation
 circuit with its size bound, the universal quartic upper bound, and the
 Forrelation randomized lower bound that the preprint imports from Bansal and
-Sinha. Comparator accepts these statements against an independent challenge that
-imports Mathlib only.
+Sinha. Recorded Comparator runs accept these statements against separately
+compiled challenges that import Mathlib only. The challenges share the maintained
+statement vocabulary and theorem specifications; agreement does not replace
+review of their mathematical meaning.
 
 The Forrelation lower bound is proved along a shorter route than the published
 one, in the weaker form the separation needs: fixed `k`, error `1/3`, and an
@@ -45,6 +47,11 @@ what is already known. No person has reviewed it yet.
 | Comparison | Comparator accepts each bundle in [lean/QuarticCorpus/](lean/QuarticCorpus/) against an independently compiled challenge, and rejects five deliberately wrong solutions for the intended reason. The unconditional bundle also passes every external kernel bundled with Lean (`--paranoid`). Runs on this machine are unsandboxed local rehearsals, and [corpus/receipts/](corpus/receipts/) records them as such. |
 | Fidelity | [The review](docs/statement_fidelity_review.md) compares Lean statements with the preprint. It was done by an AI agent that did not write the proofs. No human has reviewed it. |
 | Literature | Claims about cited sources were checked against those sources by AI agents; see [the adjudication](research/adjudication/adjudication_notes.md). |
+
+The [round-two integration record](research/adjudication/round2_integration.md)
+tracks the seven new returns and their validation. New proof candidates do not
+inherit the earlier build results. Current corpus evidence distinguishes
+source-bound passes from stale or historically unbound receipts.
 
 A compiled proof shows that a statement follows. Whether it says what the preprint
 says is a separate question, which is why [corpus/](corpus/README.md) keeps these

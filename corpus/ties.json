@@ -418,7 +418,13 @@
     "hQreindex (proved as Q_reindex)"
    ],
    "note": "Refutes the weaker bound R <= C(1+Q)^3, which is stronger than the row, at k=3 and conditional on the family.",
-   "reviewed_by": "ai:truth-auditor"
+   "reviewed_by": "ai:truth-auditor",
+   "premises": [],
+   "open_assumptions": [
+    "FamilyBoundsAt 3",
+    "hRreindex (proved as R_reindex)",
+    "hQreindex (proved as Q_reindex)"
+   ]
   },
   {
    "declaration": "QuarticQuery.cubic_refuted_bare",
@@ -430,7 +436,13 @@
     "hQreindex (proved as Q_reindex)"
    ],
    "note": "The row's form, no C with R <= C Q^3, with the reindex binders left open.",
-   "reviewed_by": "ai:truth-auditor"
+   "reviewed_by": "ai:truth-auditor",
+   "premises": [],
+   "open_assumptions": [
+    "FamilyBoundsAt 3",
+    "hRreindex (proved as R_reindex)",
+    "hQreindex (proved as Q_reindex)"
+   ]
   },
   {
    "declaration": "QuarticQuery.cubic_bound_fails",
@@ -440,7 +452,11 @@
     "FamilyBoundsAt 3"
    ],
    "note": "The row's form with reindexing discharged; conditional only on the family at k=3.",
-   "reviewed_by": "ai:truth-auditor"
+   "reviewed_by": "ai:truth-auditor",
+   "premises": [],
+   "open_assumptions": [
+    "FamilyBoundsAt 3"
+   ]
   },
   {
    "declaration": "QuarticQuery.cubic_bound_fails_of_bansalSinha",
@@ -450,7 +466,11 @@
     "BansalSinhaLower"
    ],
    "note": "The row's statement with the external input as a binder. The proof uses the hypothesis at k=3 only, though the binder quantifies over all k>=2.",
-   "reviewed_by": "ai:truth-auditor"
+   "reviewed_by": "ai:truth-auditor",
+   "premises": [],
+   "open_assumptions": [
+    "BansalSinhaLower"
+   ]
   },
   {
    "declaration": "QuarticQuery.cubic_bound_fails_unconditional",
@@ -2291,13 +2311,17 @@
  "eq-19": [
   {
    "declaration": "QuarticQuery.avg_foundZero_I_le",
-   "relation": "stronger",
+   "relation": "partial",
    "route": "alternative",
    "hypotheses": [
     "T.depth <= G"
    ],
-   "note": "2G/m^2, for each fixed A, against the row's 4G/m^2. Reviewed as a real improvement, not double counting. The coefficient 2 is sharp for the expected-cost inequality zero_search_sum: scanning until the zero gives a ratio M/(M+1). Scanning has worst-case cost M, so this does not show sharpness under a worst-case depth cap G. Only the inequality is formalised: the row's identity with EZ/m has no counterpart, since Z is never defined.",
-   "reviewed_by": "ai:truth-auditor"
+   "note": "Proves the stronger probability inequality 2G/m^2, but not the equality Pr(...)=E Z/m in this compound row. The budget T.depth<=G is an ordinary premise. See research/adjudication/round2_assumption_review.json.",
+   "reviewed_by": "ai:truth-auditor",
+   "premises": [
+    "T.depth <= G"
+   ],
+   "open_assumptions": []
   },
   {
    "declaration": "QuarticQuery.zero_search_sum",
@@ -2349,7 +2373,12 @@
     "1<=L"
    ],
    "note": "For every fixed run of length at most G, not only on average over the dummy run. Heavy means more than L queries in total to the r strings, as in the paper.",
-   "reviewed_by": "ai:truth-auditor"
+   "reviewed_by": "ai:truth-auditor",
+   "premises": [
+    "1<=L",
+    "l.length <= G"
+   ],
+   "open_assumptions": []
   }
  ],
  "eq-21": [
@@ -2396,7 +2425,7 @@
    "relation": "partial",
    "route": "same",
    "hypotheses": [
-    "hμ",
+    "h\u03bc",
     "hdom",
     "hguess: rho bounds every capped guesser",
     "T.depth <= G"
@@ -2412,7 +2441,7 @@
    "route": "same",
    "hypotheses": [
     "1<=L",
-    "μ a distribution on the domain",
+    "\u03bc a distribution on the domain",
     "hguess with rho",
     "T.depth <= G"
    ],
@@ -2468,7 +2497,15 @@
     "L < R(P k t)"
    ],
    "note": "From t=8 for every realising circuit, with the row's external input as a hypothesis at that t. With BansalSinhaLower it gives the row from max(t0,8). Same circuit as Q_Fkm_le at the instantiation in family_bounds.",
-   "reviewed_by": "ai:truth-auditor"
+   "reviewed_by": "ai:truth-auditor",
+   "premises": [
+    "2<=k",
+    "8<=t",
+    "C realises P k t"
+   ],
+   "open_assumptions": [
+    "L < R(P k t)"
+   ]
   }
  ],
  "cor-R-omega": [
@@ -2548,7 +2585,15 @@
     "hQreindex (proved as Q_reindex)"
    ],
    "note": "Every alpha<4 fails to be in the set of (1), conditional on eq-2. The k > 1/(2-alpha/2) of the row is exists_nat_exponent.",
-   "reviewed_by": "ai:truth-auditor"
+   "reviewed_by": "ai:truth-auditor",
+   "premises": [
+    "alpha < 4"
+   ],
+   "open_assumptions": [
+    "FamilyBounds",
+    "hRreindex (proved as R_reindex)",
+    "hQreindex (proved as Q_reindex)"
+   ]
   },
   {
    "declaration": "QuarticQuery.no_universal_power",
@@ -2749,7 +2794,14 @@
     "L < R f"
    ],
    "note": "The row, for any partial function on any finite type and any t. Only exists_transcript is used from the circuit. eq-19 inside the proof is the alternative route.",
-   "reviewed_by": "ai:truth-auditor"
+   "reviewed_by": "ai:truth-auditor",
+   "premises": [
+    "C realises f",
+    "1<=L",
+    "L<=m",
+    "L < R f"
+   ],
+   "open_assumptions": []
   },
   {
    "declaration": "QuarticQuery.addressedF_lower",
