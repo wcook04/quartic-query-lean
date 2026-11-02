@@ -19,7 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 LEAN = ROOT / "lean"
 CORPUS = ROOT / "corpus"
 LAKE = os.environ.get("LAKE", str(Path.home() / ".elan/bin/lake"))
-ROOTS = ["QuarticQuery.theorem_1_1", "QuarticQuery.cubic_bound_fails_of_bansalSinha"]
+ROOTS = ["QuarticQuery.theorem_1_1_unconditional", "QuarticQuery.cubic_bound_fails_unconditional"]
 
 
 def main():

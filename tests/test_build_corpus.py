@@ -85,6 +85,17 @@ class EvidenceTests(unittest.TestCase):
         runs = [{"kind": "comparator", "status": "failed", "declarations": ["A.b"]}]
         self.assertEqual(self.record(reviewed, runs)["comparator"], "not_run")
 
+    def test_unconditional_compared_tie_is_preferred(self):
+        ties = {"s": [{"declaration": d, "kind": "theorem", "file": "f", "line": 1}
+                      for d in ("A.cond", "A.uncond")]}
+        reviewed = {"s": [{"declaration": "A.cond", "relation": "exact", "route": "same",
+                           "hypotheses": ["H"]},
+                          {"declaration": "A.uncond", "relation": "exact", "route": "same"}]}
+        runs = [{"kind": kind, "status": "passed", "declarations": ["A.cond", "A.uncond"]}
+                for kind in ("lean_build", "comparator")]
+        evidence = MODULE.statement_records(self.ROW, ties, reviewed, runs)[0]["evidence"]
+        self.assertFalse(evidence["conditional"])
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -18,7 +18,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -42,9 +42,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Renaming invariance of RLe; the promise semantics is in RLe itself, which carries no tag.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.DLe_reindex_iff",
@@ -55,19 +55,19 @@
     "route": "none",
     "hypotheses": [],
     "note": "Renaming invariance of DLe; does not pin correctness on the domain.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "outside"
   }
  },
  {
@@ -93,9 +93,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Deterministic implies randomized; a fact about RLe, not its definition.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.RLe_R",
@@ -106,9 +106,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Attainment of the infimum only.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.R_le_iff",
@@ -119,9 +119,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Pins R as the least budget at which RLe holds; RLe is a finite mixture of trees of depth at most t with success 2/3 on the domain.",
-    "built": false,
-    "compared": false,
-    "reached": null
+    "built": true,
+    "compared": true,
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.lt_R_iff",
@@ -132,9 +132,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Pins R from below: t < R f iff no budget up to t suffices.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.lt_R_of_not_RLe",
@@ -145,9 +145,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "One direction of lt_R_iff, using monotonicity.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.R_reindex",
@@ -158,19 +158,19 @@
     "route": "none",
     "hypotheses": [],
     "note": "Renaming invariance; does not pin R.",
-    "built": false,
-    "compared": false,
-    "reached": null
+    "built": true,
+    "compared": true,
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "exact",
    "formal_origin": "ours",
-   "build": "not_run",
-   "comparator": "not_run",
+   "build": "built_at_pin",
+   "comparator": "compared",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -194,9 +194,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Hadamard on the answer qubit, in complexitylib's state space; bridge gadget, not O_x.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.hadamardL_hadamardL",
@@ -207,9 +207,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Involution of the bridge Hadamard, not of O_x.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.norm_hadamardL",
@@ -220,9 +220,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Norm of the bridge Hadamard.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.hadamard",
@@ -233,9 +233,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Bridge Hadamard as a gate.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.hadamard_hadamard",
@@ -246,9 +246,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Involution of the bridge Hadamard.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.hadamard_phaseOracle_hadamard",
@@ -259,9 +259,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Relates O_x to complexitylib's controlled phase oracle: useful evidence, but not the row.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.hadamard_bitOracle_hadamard",
@@ -272,9 +272,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Converse conjugation of the same relation.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.bitRun",
@@ -285,9 +285,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "A fixed query sequence in O_x; no claim about O_x itself.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.phaseGates",
@@ -298,9 +298,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Gate conjugation for the bridge.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.run_phaseGates",
@@ -311,9 +311,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Fixed bit-query sequence equals a fixed phase-query sequence.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.bitOracleL",
@@ -324,9 +324,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "O_x as a linear isometry equivalence by permuting basis labels: unitarity and the action, not self-inverse.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.bitOracle_add",
@@ -337,9 +337,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Additivity only.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.bitOracle_smul",
@@ -350,9 +350,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Homogeneity only.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.norm_bitOracle",
@@ -363,9 +363,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Norm preservation only.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.bitOracle_bitOracle",
@@ -376,19 +376,19 @@
     "route": "none",
     "hypotheses": [],
     "note": "Self-inverse part of the row; the action formula is in Statement.bitOracle, which carries no tag.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -415,9 +415,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Branch masses are nonnegative; supports reading outputMass as a probability.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.AdaptiveProgram.outputMass_true_add_false",
@@ -428,9 +428,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Output masses sum to the squared norm, so outputMass is a distribution on unit states.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Q_le_of_QLe",
@@ -441,9 +441,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Upper-bound direction of Q_le_iff.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.QLe.reindex",
@@ -454,9 +454,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Renaming invariance, one direction.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.QLe_reindex_iff",
@@ -467,9 +467,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Renaming invariance of QLe.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.Q_reindex",
@@ -480,9 +480,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Renaming invariance of Q.",
-    "built": false,
-    "compared": false,
-    "reached": null
+    "built": true,
+    "compared": true,
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.DLe.toQLe",
@@ -493,9 +493,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "A decision tree compiles to a program of equal queryCap; a sanity bound on the model.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.QLe_card",
@@ -506,9 +506,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Read-all witness; makes the sInf a true minimum.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.QLe_Q",
@@ -519,9 +519,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Attainment of the infimum only.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Q_le_iff",
@@ -532,9 +532,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Pins Q as the least budget at which QLe holds; QLe is the row's model, audited in the review.",
-    "built": false,
-    "compared": false,
-    "reached": null
+    "built": true,
+    "compared": true,
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.Upper.Runs",
@@ -545,9 +545,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Internal notion, not the definition of Q: an AdaptiveProgram with cap c, in continuation form, on all large workspaces.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.Runs.bind",
@@ -558,9 +558,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Classical sequential composition; caps add.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.Runs.toQLePartial",
@@ -571,9 +571,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Connects Runs to QLe: cap on every input, output mass equal to the law. Takes QLe's second disjunct, never the constant one.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.Runs.toQLe",
@@ -584,19 +584,19 @@
     "route": "none",
     "hypotheses": [],
     "note": "toQLePartial for a total function.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "exact",
    "formal_origin": "ours",
-   "build": "not_run",
-   "comparator": "not_run",
+   "build": "built_at_pin",
+   "comparator": "compared",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -621,7 +621,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -651,9 +651,9 @@
      "per t: 8<=t and L<R(P k t), for the R half only"
     ],
     "note": "S, A, b before t, one circuit of size at most S m (2t)^2 at each t>=1. The Q half is unconditional, with b=6 for every k. The R half is the floor form G<R, conditional at that t. No Omega form, no BansalSinhaLower.",
-    "built": false,
-    "compared": false,
-    "reached": null
+    "built": true,
+    "compared": true,
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.familyBounds_of_bansalSinha",
@@ -666,9 +666,9 @@
      "BansalSinhaLower"
     ],
     "note": "Both bounds of eq-2 with constants from k alone, in the Omega form, from t0. FamilyBoundsAt hides the circuit behind an existential with no size bound, so this speaks of some realising circuit at each t. The witness is forrCircuit, but the statement does not say so.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.familyBoundsAt_of_parts",
@@ -681,9 +681,9 @@
      "hypothesis h: for t>=t0 some realising circuit has Q <= C 2^t (2t)^b and G < R"
     ],
     "note": "Implication only: assembles FamilyBoundsAt k from the two bounds at one circuit and converts G<R to the Omega form. Superseded by familyBounds_of_bansalSinha, which consumes it. FamilyBoundsAt carries no size bound on the circuit; family_bounds does.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.familyBoundsAt_of_lower",
@@ -696,19 +696,19 @@
      "hR: for t>=t0, G < R of F built on forrCircuit"
     ],
     "note": "Reduction of FamilyBoundsAt to the R half at one named circuit. The Q half is discharged by Q_Fkm_le.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -742,9 +742,9 @@
      "BansalSinhaLower"
     ],
     "note": "alpha_tot=4 from the one external input, with no other hypothesis. The Section 5 argument is the paper's. The row also asserts R=O((1+Q)^4) and eq-2, which are the separate declarations universalPower_four and familyBounds_of_bansalSinha, so the strict rule leaves this partial. Two steps below it use other routes: thm-A.1 is imported from complexitylib and eq-19 is a different argument.",
-    "built": false,
-    "compared": false,
-    "reached": null
+    "built": true,
+    "compared": true,
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.theorem_1_1",
@@ -755,9 +755,9 @@
     "route": "unassessed",
     "hypotheses": [],
     "note": "",
-    "built": false,
-    "compared": false,
-    "reached": null
+    "built": true,
+    "compared": true,
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.alphaTot_eq_four_of",
@@ -773,9 +773,9 @@
      "hQreindex (proved as Q_reindex)"
     ],
     "note": "Same conclusion with reindexing and the quartic bound as further binders. The Section 5 argument alone.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.alphaTot_eq_four",
@@ -788,19 +788,45 @@
      "FamilyBounds"
     ],
     "note": "alpha_tot=4 under all of eq-2 as a hypothesis, with the quartic half discharged. Superseded as the headline by alphaTot_eq_four_of_bansalSinha, which proves FamilyBounds from the one external input.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
+   },
+   {
+    "declaration": "QuarticQuery.alphaTot_eq_four_unconditional",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Results/Unconditional.lean",
+    "line": 18,
+    "relation": "partial",
+    "route": "alternative",
+    "hypotheses": [],
+    "note": "The optimal power alone; theorem_1_1_unconditional carries the whole row.",
+    "built": true,
+    "compared": true,
+    "reached": true
+   },
+   {
+    "declaration": "QuarticQuery.theorem_1_1_unconditional",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Results/Unconditional.lean",
+    "line": 23,
+    "relation": "exact",
+    "route": "alternative",
+    "hypotheses": [],
+    "note": "All of Theorem 1.1 with no hypothesis. The lower bound is in the floor form G < R, for t beyond an unspecified t0.",
+    "built": true,
+    "compared": true,
+    "reached": true
    }
   ],
   "evidence": {
-   "formal_statement": "partial",
+   "formal_statement": "exact",
    "formal_origin": "ours",
-   "build": "not_run",
-   "comparator": "not_run",
+   "build": "built_at_pin",
+   "comparator": "compared",
    "conditional": false,
-   "route": "none",
-   "reach": "not_computed"
+   "route": "alternative",
+   "reach": "reached"
   }
  },
  {
@@ -830,9 +856,9 @@
      "BansalSinhaLower"
     ],
     "note": "The row's statement with the external input as a binder. The proof uses the hypothesis at k=3 only, though the binder quantifies over all k>=2.",
-    "built": false,
-    "compared": false,
-    "reached": null
+    "built": true,
+    "compared": true,
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.cubic_refuted",
@@ -847,9 +873,9 @@
      "hQreindex (proved as Q_reindex)"
     ],
     "note": "Refutes the weaker bound R <= C(1+Q)^3, which is stronger than the row, at k=3 and conditional on the family.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.cubic_refuted_bare",
@@ -864,9 +890,9 @@
      "hQreindex (proved as Q_reindex)"
     ],
     "note": "The row's form, no C with R <= C Q^3, with the reindex binders left open.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.cubic_bound_fails",
@@ -879,19 +905,32 @@
      "FamilyBoundsAt 3"
     ],
     "note": "The row's form with reindexing discharged; conditional only on the family at k=3.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
+   },
+   {
+    "declaration": "QuarticQuery.cubic_bound_fails_unconditional",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Results/Unconditional.lean",
+    "line": 42,
+    "relation": "exact",
+    "route": "same",
+    "hypotheses": [],
+    "note": "With bare Q cubed, the form the adjudication adopted.",
+    "built": true,
+    "compared": true,
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "exact",
    "formal_origin": "ours",
-   "build": "not_run",
-   "comparator": "not_run",
+   "build": "built_at_pin",
+   "comparator": "compared",
    "conditional": false,
-   "route": "none",
-   "reach": "not_computed"
+   "route": "same",
+   "reach": "reached"
   }
  },
  {
@@ -917,9 +956,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "walshSign with natural-number indices: the sign entry only, not H, u, the bit convention or D_z.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Forrelation.sum_walshN_mul",
@@ -930,9 +969,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Character orthogonality, a property of the matrix.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Forrelation.walshZ",
@@ -943,9 +982,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "W as an integer matrix, entries walshSign.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Forrelation.W",
@@ -956,9 +995,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "W over the reals.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Forrelation.walshZ_mul_transpose",
@@ -969,9 +1008,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "W W^T = m I over the integers, which supports normalisation.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Forrelation.W_mul_transpose",
@@ -982,19 +1021,19 @@
     "route": "none",
     "hypotheses": [],
     "note": "W W^T = m I over the reals.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -1020,9 +1059,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "The vector u only.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Forrelation.signDiag",
@@ -1033,9 +1072,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "D_z only, with bitSign, so true maps to -1.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Forrelation.alternate",
@@ -1046,9 +1085,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "The alternating matrix word only.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Forrelation.Phi_eq_matrix_product",
@@ -1059,9 +1098,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Pins Phi=N/M to u^T D_1 H ... H D_k u for k>=1, every t. Does not state delta, so partial under the strict rule; with Forrelation.delta the row is fully pinned.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Forrelation.Phi_sq_le_one",
@@ -1072,9 +1111,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Consequence of unitarity, not in the row.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Forrelation.abs_Phi_le_one",
@@ -1085,9 +1124,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Consequence of unitarity, not in the row.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Forrelation.delta",
@@ -1098,9 +1137,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Pins delta = 2^(-5k) only.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Forrelation.H",
@@ -1111,9 +1150,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "H = W / 2^t, the normalised matrix only.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Forrelation.H_mul_H",
@@ -1124,9 +1163,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Involution of H.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Forrelation.H_mem_orthogonalGroup",
@@ -1137,19 +1176,19 @@
     "route": "none",
     "hypotheses": [],
     "note": "Orthogonality of H.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -1176,9 +1215,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "The disjointness sentence only.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Forrelation.P_eq_some_true_iff",
@@ -1189,9 +1228,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "The 1-branch of (4).",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Forrelation.P_eq_some_false_iff",
@@ -1202,9 +1241,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "The 0-branch of (4).",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Forrelation.P_eq_none_iff",
@@ -1215,9 +1254,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "The undefined branch, including large negative Phi.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.Forrelation.P_eq_cases",
@@ -1228,9 +1267,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Pins the value of P at every input in the real-valued form of (4); omits the disjointness sentence, so partial under the strict rule. With cases_disjoint the row is fully pinned.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.Forrelation.census_true",
@@ -1241,9 +1280,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Finite count at k=2, t=1: sanity instance.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.Forrelation.census_false",
@@ -1254,9 +1293,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Finite count at k=2, t=1: sanity instance.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.Forrelation.census_none",
@@ -1267,9 +1306,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Finite count at k=2, t=1: sanity instance.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.Forrelation.promise_nonempty_two_one",
@@ -1280,9 +1319,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Non-vacuity of the promise at k=2, t=1.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.Forrelation.Phi_negativeWitness",
@@ -1293,9 +1332,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Phi=-1 occurs at k=2, t=1.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.Forrelation.P_negativeWitness",
@@ -1306,19 +1345,19 @@
     "route": "none",
     "hypotheses": [],
     "note": "That witness is outside the promise, which matches the one-sided 1-case of (4).",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -1342,7 +1381,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -1360,15 +1399,29 @@
   "external_inputs": [
    "[6] Bansal-Sinha, Theorem 1.3 and Corollary 1.4 (checked against arXiv:2008.07003): randomized decision trees of error 1/3 for (2^{-5k},k)-Forrelation need Omega(k^{-29}(N/log(kN))^{1-1/k}) queries"
   ],
-  "lean": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.ForrelationLower.bansalSinhaLower",
+    "kind": "definition",
+    "file": "lean/QuarticQuery/Statement.lean",
+    "line": null,
+    "relation": "exact",
+    "route": "alternative",
+    "hypotheses": [],
+    "note": "Proved directly, so no translation from the published bound is used.",
+    "built": true,
+    "compared": true,
+    "reached": true
+   }
+  ],
   "evidence": {
-   "formal_statement": "none",
-   "formal_origin": "none",
-   "build": "not_run",
-   "comparator": "not_run",
+   "formal_statement": "exact",
+   "formal_origin": "ours",
+   "build": "built_at_pin",
+   "comparator": "compared",
    "conditional": false,
-   "route": "none",
-   "reach": "not_computed"
+   "route": "alternative",
+   "reach": "reached"
   }
  },
  {
@@ -1389,15 +1442,29 @@
   "external_inputs": [
    "[6] Bansal-Sinha, Theorem 1.3 and Corollary 1.4 (checked against arXiv:2008.07003): randomized decision trees of error 1/3 for (2^{-5k},k)-Forrelation need Omega(k^{-29}(N/log(kN))^{1-1/k}) queries"
   ],
-  "lean": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.ForrelationLower.bansalSinhaLower",
+    "kind": "definition",
+    "file": "lean/QuarticQuery/Statement.lean",
+    "line": null,
+    "relation": "exact",
+    "route": "alternative",
+    "hypotheses": [],
+    "note": "The preprint imports this from Bansal and Sinha. The Lean proof uses a different route; see docs/forrelation_lower_bound_review.md.",
+    "built": true,
+    "compared": true,
+    "reached": true
+   }
+  ],
   "evidence": {
-   "formal_statement": "none",
-   "formal_origin": "none",
-   "build": "not_run",
-   "comparator": "not_run",
+   "formal_statement": "exact",
+   "formal_origin": "ours",
+   "build": "built_at_pin",
+   "comparator": "compared",
    "conditional": false,
-   "route": "none",
-   "reach": "not_computed"
+   "route": "alternative",
+   "reach": "reached"
   }
  },
  {
@@ -1425,9 +1492,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Squared length of the projection; a real-vector quantity, with no quantum program or query count.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Forrelation.successProb_eq",
@@ -1438,9 +1505,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Projection probability equals Phi^2, as real linear algebra; the query count and phase kickback are not stated.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Forrelation.failureProb_eq",
@@ -1451,9 +1518,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Complementary mass.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.Forrelation.successProb_of_true",
@@ -1464,9 +1531,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "At least delta^2 on 1-inputs.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Forrelation.successProb_of_false",
@@ -1477,9 +1544,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "At most delta^2/4 on 0-inputs.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.forr_samples",
@@ -1492,19 +1559,19 @@
      "1<=k"
     ],
     "note": "The test on any k locations, as a sampler: label true with probability exactly Phi^2. k reads, so 2k bit queries after compilation, against the row's one bit query per D. Constant only.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -1533,9 +1600,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Binomial tail bound on real numbers.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Forrelation.binomTail_large",
@@ -1546,9 +1613,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Binomial tail bound on real numbers.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Forrelation.repetitions",
@@ -1559,9 +1626,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Count formula only. The algorithm that uses it is Upper.decode_samples.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Forrelation.repetitions_le",
@@ -1572,9 +1639,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Count is 1 + 16 2^(10k) log(1/eta), the O_k(1+log(1/eta)) part.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Forrelation.threshold_correct",
@@ -1585,9 +1652,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Thresholded repetition of a Bernoulli(successProb) has error at most eta on the promise. Real-valued only; Upper.decodeProb_correct carries it to the program of Upper.decode_samples.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Forrelation.threshold_correct_third",
@@ -1598,9 +1665,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Concrete count at error 1/3. Upper.P_QLe turns it into a QLe bound on the bit oracle, which supersedes the doc comment's unstated cost of k queries.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.Upper.Samples.count",
@@ -1611,9 +1678,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "n independent coherent copies: the retained success count is binomial.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.Samples.threshold",
@@ -1624,9 +1691,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Threshold on the retained count. No separate majority step is needed.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.Samples.pi",
@@ -1637,9 +1704,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Independent samplers in product; used for the r instances of a column. Not itself part of this row.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.hGate",
@@ -1650,9 +1717,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "H as a unitary.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.forr_samples",
@@ -1665,9 +1732,9 @@
      "1<=k"
     ],
     "note": "One test on any k locations, with Phi^2 as its label probability.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.decode_samples",
@@ -1680,9 +1747,9 @@
      "1<=k"
     ],
     "note": "The coherent clause: n k reads, all workspace retained, a law on Bool on every input, promised or not. No error statement.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.decodeProb_correct",
@@ -1697,9 +1764,9 @@
      "repetitions k eta <= n"
     ],
     "note": "The error clause on the domain, for the law of decode_samples. No program in the statement.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.P_runs",
@@ -1714,9 +1781,9 @@
      "repetitions k eta <= n"
     ],
     "note": "Bit-query program: cap 2 n k on every branch of every input, error at most eta on the domain. With repetitions_le this is the row's count. Coherence is in decode_samples, not here, so one conjunction short of exact.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.Upper.P_QLe",
@@ -1729,19 +1796,19 @@
      "1<=k"
     ],
     "note": "QLe (P k t) (2 (2^(10k+5) k)) for every t: the constant-query quantum bound at error 1/3, on the real oracle.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -1768,9 +1835,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Circuit layer builder for the walk; a construction, not the claim.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Forrelation.walkN",
@@ -1781,9 +1848,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Right-to-left recursion for N.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Forrelation.numerator_eq_walk",
@@ -1794,9 +1861,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Path expansion of N equals the walk.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Forrelation.Phi_eq_matrix_product",
@@ -1807,19 +1874,19 @@
     "route": "same",
     "hypotheses": [],
     "note": "Gives Phi = N/M as the matrix product; integrality is by type, but W's +-1 entries and M>0 are stated elsewhere.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -1846,9 +1913,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "P in terms of three sign tests; the circuit form, not the iffs.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Forrelation.forrCore_spec",
@@ -1859,9 +1926,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Wires compute the three signs; d and b are assembled later in forrCircuit_realises.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Forrelation.delta_le_Phi_iff",
@@ -1872,9 +1939,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "First iff of the row.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Forrelation.abs_Phi_le_iff",
@@ -1885,19 +1952,19 @@
     "route": "same",
     "hypotheses": [],
     "note": "Second iff of the row.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -1924,19 +1991,19 @@
     "route": "same",
     "hypotheses": [],
     "note": "|N|<=M only; the transform count and the size bound are in forrCircuit_size_le, tagged lem-2.1.iii.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -1963,9 +2030,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Packaging lemma from gate lists to CircuitRealises.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Forrelation.forrCircuit",
@@ -1976,9 +2043,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "The circuit, for k=l+1.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Forrelation.forrCircuit_realises",
@@ -1989,9 +2056,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Correctness half, for every k>=1 and t; no size.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Forrelation.forrConstant",
@@ -2002,9 +2069,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "The constant c_k.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Forrelation.forrCircuit_size_le",
@@ -2015,9 +2082,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Size half, S <= c_k m (2t)^2, for t>=1.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Forrelation.exists_circuit",
@@ -2028,19 +2095,19 @@
     "route": "same",
     "hypotheses": [],
     "note": "Both halves with an explicit c_k, for every k>=1 and every t>=1; the row asks only k>=2.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    }
   ],
   "evidence": {
    "formal_statement": "stronger",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
-   "route": "none",
-   "reach": "not_computed"
+   "route": "same",
+   "reach": "reached"
   }
  },
  {
@@ -2068,7 +2135,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -2092,9 +2159,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "At most one consistent transcript; the object is typed in Statement, which carries no tag.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.existsUnique_gateConsistent",
@@ -2105,19 +2172,19 @@
     "route": "none",
     "hypotheses": [],
     "note": "Exactly one consistent transcript per input.",
-    "built": false,
-    "compared": false,
-    "reached": null
+    "built": true,
+    "compared": true,
+    "reached": false
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "outside"
   }
  },
  {
@@ -2143,19 +2210,19 @@
     "route": "none",
     "hypotheses": [],
     "note": "Gives log_2 m = 2t, so l=2t. r=40t is written directly in Fkm and is not stated as ceil(20 log_2 m).",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -2182,9 +2249,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "The fixed bijection only; the layout itself is BitLoc, which carries no tag.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.existsUnique_pointer",
@@ -2195,19 +2262,19 @@
     "route": "none",
     "hypotheses": [],
     "note": "No invalid pointer pattern.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "outside"
   }
  },
  {
@@ -2233,9 +2300,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "The true evaluation is consistent: one direction.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.gateConsistent_iff_eq_circuitEval",
@@ -2246,19 +2313,19 @@
     "route": "none",
     "hypotheses": [],
     "note": "Pins correctness: a transcript in Fin C.size -> Bool is consistent iff it equals the true evaluation, on every input.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    }
   ],
   "evidence": {
    "formal_statement": "exact",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "outside"
   }
  },
  {
@@ -2285,19 +2352,19 @@
     "route": "none",
     "hypotheses": [],
     "note": "Uniqueness of the address; the definition of s_i is trueAddress, which carries no tag.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "outside"
   }
  },
  {
@@ -2321,7 +2388,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -2345,7 +2412,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -2372,9 +2439,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Pins F=1 iff exists i s, WinsAt; totality is by type. Stated for the generic addressedF, with Fkm its instance. With winsAt_iff_paperWinsAt this is the paper's winner.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.addressedF_eq_true_iff_localTests",
@@ -2387,9 +2454,9 @@
      "CircuitRealises C f (discharged for P by forrCircuit_realises)"
     ],
     "note": "Decided by the local tests, under a circuit hypothesis.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.winsAt_column_unique",
@@ -2400,9 +2467,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "This is cor-unique-winner, not the definition.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.winsAt_unique",
@@ -2413,19 +2480,19 @@
     "route": "none",
     "hypotheses": [],
     "note": "This is cor-unique-winner with the address, not the definition.",
-    "built": false,
-    "compared": false,
-    "reached": null
+    "built": true,
+    "compared": true,
+    "reached": false
    }
   ],
   "evidence": {
    "formal_statement": "exact",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -2449,7 +2516,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -2475,7 +2542,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -2502,19 +2569,19 @@
     "route": "none",
     "hypotheses": [],
     "note": "The exact count of tests. The bound O_k(m (log m)^3) is not stated.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -2542,9 +2609,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "The index type: pins one index type for every (i,s).",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.localTest",
@@ -2555,9 +2622,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "The tests (a)-(d) as Boolean functions.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.localTestTree",
@@ -2568,9 +2635,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "The decision trees, fixed before the input.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.localTestTree_eval",
@@ -2581,9 +2648,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Each tree computes its test exactly, on every input.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.localTestTree_depth_le",
@@ -2594,9 +2661,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Depth at most max(3,l+1).",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.winsAt_iff_localTests",
@@ -2609,9 +2676,9 @@
      "CircuitRealises C f (discharged for P by forrCircuit_realises)"
     ],
     "note": "Wins at (i,s) iff every test passes: the first sentence of the row. Depths are separate.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.exists_failing_localTest",
@@ -2624,9 +2691,9 @@
      "CircuitRealises C f (discharged for P by forrCircuit_realises)"
     ],
     "note": "This is half of cor-local-dichotomy.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.winsAt_iff_outputs",
@@ -2639,19 +2706,19 @@
      "CircuitRealises C f (discharged for P by forrCircuit_realises)"
     ],
     "note": "This is the def-win-at-address form.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -2678,9 +2745,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Uniform test index and exact failing flag, coherently, max(3,2t+1) reads. Index set Tests t C does not depend on (i,s).",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.search_runs",
@@ -2693,9 +2760,9 @@
      "0<eps"
     ],
     "note": "The search of Section 3.3 at a fixed address: accepts with probability 1 if no test fails, at most eps if one does. Belongs to claim-verify more than to this row.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.verifyProb",
@@ -2706,19 +2773,19 @@
     "route": "none",
     "hypotheses": [],
     "note": "Definition of the acceptance probability of verifying a column; def-verify, not this row.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -2743,7 +2810,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -2767,7 +2834,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -2793,9 +2860,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Gate alphabet; only prepare and unprepare touch A.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Amplification.Circuit",
@@ -2806,9 +2873,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Gate lists.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Amplification.Circuit.calls",
@@ -2819,9 +2886,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Call counter.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Amplification.groverStep",
@@ -2832,9 +2899,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "One Grover step.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Amplification.groverCircuit",
@@ -2845,9 +2912,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "G^l A.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Amplification.Preparation.grover",
@@ -2858,9 +2925,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "G as an operator.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Amplification.Proc",
@@ -2871,9 +2938,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Classical control. restart models fresh registers by a reset, which has no direct AdaptiveProgram step.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.Amplification.trialWeight",
@@ -2884,9 +2951,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Law of l: 1/2 on 0 plus 1/2 uniform on {0,...,M-1}, matching the row.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Amplification.attempts",
@@ -2897,9 +2964,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "The trial loop with stop at first success; M and the count are parameters here.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.Amplification.iterationBound",
@@ -2910,9 +2977,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "M = ceil(10/sqrt gamma).",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Amplification.trialCount",
@@ -2923,9 +2990,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "ceil(log(1/eta)/log(40/31)).",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Amplification.Preparation.trialFail",
@@ -2936,9 +3003,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Failure probability of one trial.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Amplification.Preparation.trialGain",
@@ -2949,9 +3016,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Success payoff of one trial.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.Amplification.expect_attempts",
@@ -2962,9 +3029,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Payoff recursion for attempts.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.Amplification.attemptValue_eq_sum",
@@ -2975,9 +3042,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Geometric law of first success.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.Amplification.expect_attempts_eq_sum",
@@ -2988,9 +3055,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Explicit outcome law from |0>.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.Amplification.Preparation.one_sub_trialFail",
@@ -3001,19 +3068,19 @@
     "route": "same",
     "hypotheses": [],
     "note": "Success of one trial as the two halves of the mixture.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -3041,9 +3108,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Trigonometric identity for the amplitude recursion.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Amplification.Preparation.iterate",
@@ -3054,9 +3121,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "G^l A|0> as a state.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Amplification.Preparation.grover_apply",
@@ -3067,9 +3134,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "G as a reflection.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Amplification.Preparation.grover_parts",
@@ -3080,9 +3147,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "G on the two-dimensional plane.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Amplification.Preparation.iterate_eq_amp",
@@ -3093,9 +3160,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Unnormalised form of the iteration.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Amplification.Preparation.angle",
@@ -3106,9 +3173,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "theta with sin theta = sqrt p.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Amplification.Preparation.angle_mem",
@@ -3119,9 +3186,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "0<theta<pi/2 for 0<p<1.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.Amplification.Preparation.state_eq",
@@ -3132,9 +3199,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "A|0> = sin theta |g> + cos theta |b>.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.Amplification.Preparation.iterate_eq",
@@ -3145,9 +3212,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "The iteration formula, for every p, stronger on that clause; omits the measurement conclusion.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Amplification.Preparation.grover_rotation",
@@ -3158,9 +3225,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "G rotates the plane by 2 theta.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.Amplification.Preparation.good_iterate",
@@ -3171,9 +3238,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Successful component after l iterations.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Amplification.Preparation.norm_good_iterate_sq",
@@ -3184,9 +3251,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Success mass.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Amplification.Preparation.norm_bad_iterate_sq",
@@ -3197,9 +3264,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Failure mass.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.Amplification.Preparation.phaseEq_normalised_good_iterate",
@@ -3210,9 +3277,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "The conclusion: the normalised successful component is |g> up to phase, when its mass is nonzero.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Amplification.Preparation.good_iterate_of_prob_zero",
@@ -3223,19 +3290,19 @@
     "route": "same",
     "hypotheses": [],
     "note": "The p=0 case, which the row excludes.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -3259,19 +3326,19 @@
     "route": "same",
     "hypotheses": [],
     "note": "The equality only. The inequality >= sqrt gamma is not stated here; it occurs inside nine_fortieths_le.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -3297,9 +3364,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Telescoping identity behind the average.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Amplification.average_sin_sq",
@@ -3310,9 +3377,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Exact average.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Amplification.average_sin_sq_ge",
@@ -3323,9 +3390,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "First inequality of (9), with no constraint on gamma or p.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Amplification.average_sin_sq_ge_nine_twentieths",
@@ -3336,19 +3403,19 @@
     "route": "same",
     "hypotheses": [],
     "note": "Endpoint 9/20 under sqrt gamma <= sin 2 theta, not the row's hypothesis gamma<=p<=1/2.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -3376,9 +3443,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "(31/40)^n <= eta.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Amplification.callCap_amplify_le",
@@ -3389,9 +3456,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Call bound only.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.Amplification.Preparation.nine_fortieths_le",
@@ -3402,9 +3469,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "One trial succeeds with probability at least 9/40.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Amplification.Preparation.trialFail_of_prob_zero",
@@ -3415,9 +3482,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "p=0 case for one trial.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Amplification.Proc.successProb",
@@ -3428,9 +3495,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Definition of success probability.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.Amplification.Proc.failProb",
@@ -3441,9 +3508,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Definition of failure probability.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.Amplification.Proc.conditional",
@@ -3454,9 +3521,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Definition of conditional payoff.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.Amplification.expect_attempts_of_phase",
@@ -3467,9 +3534,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Phase-blind payoffs see one state.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.Amplification.bounded_amplification",
@@ -3480,9 +3547,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "All clauses: one Proc from gamma and eta for every A and every H, calls at most 138 sqrt(gamma)^-1 log(1/eta) on every branch, output |g> up to phase, failure bound, p=0. Not on the path of Q_Fkm_le: Upper uses Preparation geometry through Samples.amplify and never compiles Proc.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.Amplification.IndexRegister",
@@ -3493,9 +3560,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Index register structure for Proposition 3.2.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.Amplification.IndexRegister.norm_read_goodState_sq",
@@ -3506,9 +3573,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Index law in |g>; consumed by Proposition 3.2.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.Amplification.IndexRegister.norm_read_normalised_iterate_sq",
@@ -3519,9 +3586,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Index law after iterations.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.Amplification.IndexRegister.index_law_of_amplified",
@@ -3532,9 +3599,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Index law conditional on amplified success.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.Amplification.Preparation",
@@ -3545,9 +3612,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Preparation with an orthogonal success projector; black-box object of the row.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Amplification.calls_groverCircuit",
@@ -3558,9 +3625,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "l iterations use 2l+1 calls.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Amplification.Preparation.prob",
@@ -3571,9 +3638,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "p as the squared norm of the successful part.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Amplification.Preparation.norm_sq_split",
@@ -3584,9 +3651,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Measurement splits the squared norm.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Amplification.Proc.callCap",
@@ -3597,9 +3664,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Syntactic call cap.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.Amplification.Proc.expect",
@@ -3610,9 +3677,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Branch-mass semantics.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.Amplification.amplify",
@@ -3623,9 +3690,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "The procedure, parameters depending on gamma and eta only. It pins def-grover-trial, but is tagged only here.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.Amplification.callCap_attempts",
@@ -3636,9 +3703,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "A trial uses at most 2M+1 calls.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.Upper.prepOf",
@@ -3649,9 +3716,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "A unitary, a basis start and a label set as a Preparation.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.lawOf_iterate_some",
@@ -3662,9 +3729,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "After l iterations a successful label keeps the sampler's law, scaled by the success mass. Law form of 'independently of l'.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.Samples.attempts",
@@ -3677,9 +3744,9 @@
      "M<>0"
     ],
     "note": "Trials on a sampler as a program on the bit oracle, each a full measurement followed by a reset to the start state, in place of fresh registers. Law on success exact; failure probability the t-th power of one trial's.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.Samples.amplify",
@@ -3693,9 +3760,9 @@
      "0<eta"
     ],
     "note": "Lemma 3.1 on the bit oracle, for samplers: cap, eta failure when p>=gamma, certain failure at p=0, and the exact law on success labels. It states a label law, not the state |g>, and it is for circuits, not black-box. This, not bounded_amplification, is what Q_Fkm_le consumes.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.trialCount_le",
@@ -3706,9 +3773,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Crude polynomial bound on the trial count, for budget_le.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.iterationBound_inv_le",
@@ -3719,19 +3786,19 @@
     "route": "none",
     "hypotheses": [],
     "note": "Bound on the iteration count, for budget_le.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "exact",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
-   "route": "none",
-   "reach": "not_computed"
+   "route": "same",
+   "reach": "reached"
   }
  },
  {
@@ -3755,7 +3822,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -3779,19 +3846,19 @@
     "route": "same",
     "hypotheses": [],
     "note": "Comparison probabilities from one sorted-pair circuit, 1 minus it in the other order and 0 on the diagonal. The equation itself is the untagged cmpProb_isComparison.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -3817,9 +3884,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "T epsilon = 1/1000, a consequence; the definitions Tval and epsval carry no tag.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Tournament.miss_bound_le",
@@ -3830,9 +3897,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "2m/2^T <= 1/500, a consequence.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Tournament.total_error_lt",
@@ -3843,19 +3910,19 @@
     "route": "none",
     "hypotheses": [],
     "note": "Numeric consequence used in Section 3.3.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -3880,7 +3947,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -3906,19 +3973,19 @@
     "route": "none",
     "hypotheses": [],
     "note": "The process as an expectation functional: pivot p has probability w_p/W, W=0 is absorbing, T steps; start weights come from weight a [].",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "exact",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -3944,19 +4011,19 @@
     "route": "none",
     "hypotheses": [],
     "note": "w_i is the product of a_ip over the history, so appending p multiplies w_i by a_ip.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "exact",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -3981,7 +4048,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -4007,19 +4074,19 @@
     "route": "same",
     "hypotheses": [],
     "note": "E[W_T] <= m/2^T under (10) and a in [0,1].",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "exact",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
-   "route": "none",
-   "reach": "not_computed"
+   "route": "same",
+   "reach": "reached"
   }
  },
  {
@@ -4046,19 +4113,19 @@
     "route": "same",
     "hypotheses": [],
     "note": "Weight bounds at exponent T, where the row has t. W>0 until selected is half_lt_total, which carries no tag.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -4085,19 +4152,19 @@
     "route": "same",
     "hypotheses": [],
     "note": "Both inequalities, under (10), a in [0,1], dominance and T eps < 1/2.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "exact",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
-   "route": "none",
-   "reach": "not_computed"
+   "route": "same",
+   "reach": "reached"
   }
  },
  {
@@ -4125,9 +4192,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Law of one stage's label.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.stageLaw_some",
@@ -4138,9 +4205,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Index i succeeds with probability w_i/m. This is also claim-success-prob.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.stage_samples",
@@ -4151,19 +4218,19 @@
     "route": "same",
     "hypotheses": [],
     "note": "Equation (15) as a sampler, one comparison per pivot with all workspace retained. Amplification and the stopping rule are in tournament_runs.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -4187,7 +4254,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -4212,7 +4279,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -4246,19 +4313,19 @@
      "T eps < 1/2"
     ],
     "note": "The coupling, by induction over histories, with failure charged at the history where it occurs. It bounds acceptance through a verifier v, not list membership, and carries a factor (1-eps).",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -4288,9 +4355,9 @@
      "C.size <= forrConstant k m (2t)^2"
     ],
     "note": "The whole algorithm's count against C_k 2^t (2t)^6, crude: logarithms are bounded by their arguments. Not the row's formula in c, m and T.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.vall_runs",
@@ -4301,9 +4368,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Verifying a list, cV per candidate.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.tournament_runs",
@@ -4316,19 +4383,19 @@
      "see prop-3.2"
     ],
     "note": "Cap T stageCost + T cV on every branch of every input. Every stage is charged for T pivots, which gives the row's order.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -4356,9 +4423,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Ideal process only: list length, miss probability 2m/2^T and the numerics. Upper.tournament_runs supplies the quantum algorithm, the query bound and the T eps sampling term.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.tval_le",
@@ -4373,9 +4440,9 @@
      "every v c <= eps"
     ],
     "note": "Soundness of the list consumer: acceptance at most (length+T) eps. Section 3.3's union bound, not part of this row.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.tournament_runs",
@@ -4392,19 +4459,19 @@
      "hv: verifier programs of cV queries"
     ],
     "note": "The quantum tournament, pointwise in x, on the bit oracle, with no order assumed. The list is not returned: it is consumed by the verifier v in continuation form, and the guarantee is 1-2m/2^T-T eps-eps <= acceptance when v s >= 1-eps. Taking v the indicator of s recovers list membership with one extra eps against the row. The total error in claim-error is unaffected.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -4430,7 +4497,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -4454,7 +4521,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -4479,7 +4546,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -4506,7 +4573,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -4534,9 +4601,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Boolean half: no incoming pointer finds a zero in a winner. The probability a_{i*j}>=1-eps is not stated.",
-    "built": false,
-    "compared": false,
-    "reached": null
+    "built": true,
+    "compared": true,
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.winner_finds_zero",
@@ -4547,9 +4614,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Boolean half: the winner's correct cell finds a zero. The probability is not stated.",
-    "built": false,
-    "compared": false,
-    "reached": null
+    "built": true,
+    "compared": true,
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.cmpProb_winner",
@@ -4563,19 +4630,19 @@
      "j<>i"
     ],
     "note": "a_{ij} is at least the decoding probability of the winner's own address, whatever the opponent's instances are. 1-eps comes from addrLaw_good, combined at Upper/Verify.lean:191.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -4601,7 +4668,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -4628,7 +4695,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -4654,7 +4721,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -4681,9 +4748,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Definition of one read: a signed involution with a location per basis label.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.ReadSpec.op",
@@ -4694,9 +4761,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Unitary of one read; x enters only here.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.sigmaOp",
@@ -4707,9 +4774,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Direct sum over a classical label.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.IsCirc",
@@ -4720,9 +4787,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Fixed gates around n reads. The gate constructor has no access to x, which is what makes the model honest.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.IsCirc.comp",
@@ -4733,9 +4800,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Composition adds reads.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.IsCirc.symm",
@@ -4746,9 +4813,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Reversal costs the same reads, the row's 'reversing' clause.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.IsCirc.congr",
@@ -4759,9 +4826,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Relabelling.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.IsCirc.sigma",
@@ -4772,9 +4839,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Coherent control: circuits with a common read count on the blocks of a label are one circuit, with one superposed read per step.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.addrLaw",
@@ -4785,9 +4852,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Law of a decoded address; belongs to def-decode.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.addrLaw_good",
@@ -4800,9 +4867,9 @@
      "instances of column i defined, equal to s"
     ],
     "note": "Decoding succeeds with probability 1-eps; belongs to claim-decode-cost.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.core_samples",
@@ -4815,9 +4882,9 @@
      "1<=k"
     ],
     "note": "The sorted-pair comparison of Section 3.3 as a sampler, with both pointers read at decoded addresses. Belongs to claim-comparison-state.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.exists_gate_orth",
@@ -4828,9 +4895,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "A gate can take any orthonormal family to any other.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.compile_read",
@@ -4841,9 +4908,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "The row's last clause: a read costs exactly two bit queries, load, act, unload, with the location supplied in superposition.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.compile_circ",
@@ -4854,9 +4921,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "n reads compile to at most 2n bit queries in AdaptiveProgram.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.Samples.runs",
@@ -4867,9 +4934,9 @@
     "route": "alternative",
     "hypotheses": [],
     "note": "Measure every label, branch classically and swap back to the start state. The paper keeps fresh registers; the bit-query count is unaffected.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.Samples",
@@ -4880,9 +4947,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Definition of a coherent sampler. All workspace retained, nothing measured.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.Samples.bind",
@@ -4893,9 +4960,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Control on a sampled label composes classical laws, since the second stage is block diagonal. This replaces reversible bookkeeping by one lemma; it is the paper's 'different address outcomes are orthogonal'.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.Samples.tree",
@@ -4906,19 +4973,19 @@
     "route": "same",
     "hypotheses": [],
     "note": "A decision tree of depth d as a sampler of d reads; used for pointer lookups and local tests.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -4952,9 +5019,9 @@
      "C.size <= forrConstant k m (2t)^2"
     ],
     "note": "budget <= C_k 2^t (2t)^6. Arithmetic only.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.Fkm_forrCircuit_QLe",
@@ -4965,9 +5032,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Implies the row for forrCircuit: an actual program of at most C_k 2^t (2t)^6 queries for all t>=1 and all k=l+1>=1, with the power 6 independent of k.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.Q_Fkm_le",
@@ -4978,9 +5045,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "The same bound on the number Q. C_k <= (log m)^(O_k(1)) since log2 m >= 2, so this gives the row, with power 6 plus a k-dependent term. Stated for forrCircuit, the paper's construction scheme.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Upper.Fkm_QLe",
@@ -4996,19 +5063,19 @@
      "repetitions bound on n"
     ],
     "note": "One t, any realising circuit, cap budget k t n K on every branch of every input, in QLe's second disjunct. The bound is the expression budget, not a polylog form; budget_le supplies that.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "stronger",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
-   "route": "none",
-   "reach": "not_computed"
+   "route": "same",
+   "reach": "reached"
   }
  },
  {
@@ -5032,7 +5099,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -5056,7 +5123,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -5081,7 +5148,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -5105,7 +5172,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -5130,7 +5197,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -5159,9 +5226,9 @@
     "route": "alternative",
     "hypotheses": [],
     "note": "Deterministic adaptive trees with per-instance caps; no coins or side information.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.direct_product_average",
@@ -5172,9 +5239,9 @@
     "route": "alternative",
     "hypotheses": [],
     "note": "Row in full, with coins and side information as one finite S. Weight mu need not be normalised. Induction on sub-distributions, not the supermartingale.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.direct_product_randomized",
@@ -5185,9 +5252,9 @@
     "route": "alternative",
     "hypotheses": [],
     "note": "Row in full, with S and Omega separate and finite. Same proof route as direct_product_average.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.direct_product_of_depth_le",
@@ -5198,19 +5265,19 @@
     "route": "alternative",
     "hypotheses": [],
     "note": "Covers only algorithms with a total cap of L across instances, a narrower class than the per-instance cap of the row; no coins or side information.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    }
   ],
   "evidence": {
    "formal_statement": "exact",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
-   "route": "none",
-   "reach": "not_computed"
+   "route": "alternative",
+   "reach": "reached"
   }
  },
  {
@@ -5238,19 +5305,19 @@
     "route": "same",
     "hypotheses": [],
     "note": "Hypothesis is not RLe f L, equivalent to L<R by lt_R_iff and monotonicity. mu is a probability weight supported on the domain.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "exact",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
-   "route": "none",
-   "reach": "not_computed"
+   "route": "same",
+   "reach": "reached"
   }
  },
  {
@@ -5274,7 +5341,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -5301,9 +5368,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Independence as one identity on finite product weights. Replaces every conditional probability in the paper's wording.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.dummy",
@@ -5314,19 +5381,19 @@
     "route": "same",
     "hypotheses": [],
     "note": "The sample point Y^(0) as a function of J and A, with blank cells false. The law is in coupledAvg, not here.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -5353,9 +5420,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "s_i as a total function, default false off the promise, which has weight zero.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.planted",
@@ -5366,19 +5433,19 @@
     "route": "same",
     "hypotheses": [],
     "note": "The sample point Y^(1) as a function of J, A, I and a transcript chooser. It differs from dummy only at X_I[J_I] and in the cell (eq_of_dummy_ne_planted).",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -5407,9 +5474,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "The zero half, on every sample point, for any f and C.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.addressedF_planted",
@@ -5423,19 +5490,19 @@
      "htr: tr gives consistent transcripts"
     ],
     "note": "The one half, on the support of the hard distribution.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -5461,9 +5528,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Different outputs force a query, on the dummy run, at a location where the inputs differ.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.eq_of_dummy_ne_planted",
@@ -5474,9 +5541,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "The inputs differ only at X_I[J_I] and in the cell at the true address.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.output_gap_le",
@@ -5487,19 +5554,19 @@
     "route": "same",
     "hypotheses": [],
     "note": "Run by run, one-sided: planted minus dummy output is at most found zero + heavy + reachedCell. No absolute value, which the proof never needs, and the cell term is already split.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -5523,7 +5590,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -5548,7 +5615,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -5572,7 +5639,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -5599,9 +5666,9 @@
     "route": "alternative",
     "hypotheses": [],
     "note": "|U| #{found} <= 2 sum of column queries, on any set U of worlds, by induction on the tree. No conditioning, no early and late discoveries.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.foundZero",
@@ -5612,9 +5679,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "The indicator that the dummy run queries X_i[J_i].",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.column_zero_bound",
@@ -5625,9 +5692,9 @@
     "route": "alternative",
     "hypotheses": [],
     "note": "zero_search_sum for one column of the dummy input.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.avg_foundZero_le",
@@ -5638,9 +5705,9 @@
     "route": "alternative",
     "hypotheses": [],
     "note": "Column by column after averaging over J, by avg_resample.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.sum_xQueries_le",
@@ -5651,9 +5718,9 @@
     "route": "alternative",
     "hypotheses": [],
     "note": "Queries to the X columns sum to at most the depth. Each query is charged to one column.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.avg_foundZero_I_le",
@@ -5666,19 +5733,19 @@
      "T.depth <= G"
     ],
     "note": "2G/m^2, for each fixed A, against the row's 4G/m^2. Reviewed as a real improvement, not double counting, and the constant 2 is tight: scanning until the zero gives a ratio M/(M+1). The row's identity with EZ/m has no counterpart, since Z is never defined.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "stronger",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
-   "conditional": false,
-   "route": "none",
-   "reach": "not_computed"
+   "conditional": true,
+   "route": "alternative",
+   "reach": "reached"
   }
  },
  {
@@ -5702,7 +5769,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -5730,19 +5797,19 @@
      "1<=L"
     ],
     "note": "For every fixed run of length at most G, not only on average over the dummy run. Heavy means more than L queries in total to the r strings, as in the paper.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "stronger",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
-   "conditional": false,
-   "route": "none",
-   "reach": "not_computed"
+   "conditional": true,
+   "route": "same",
+   "reach": "reached"
   }
  },
  {
@@ -5767,7 +5834,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -5795,9 +5862,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "The simulator: the row's def-simulator. It stops before spending more than its budget, and base answers everything outside the target.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.depth_simTree_le",
@@ -5808,9 +5875,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "The simulator makes at most c target queries on every input.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.eval_simTree",
@@ -5825,9 +5892,9 @@
      "at most c target queries before time t"
     ],
     "note": "If the run reaches a location naming s at time t within budget, the simulator outputs s.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.reachedCell",
@@ -5838,19 +5905,19 @@
     "route": "none",
     "hypotheses": [],
     "note": "The joint event over the whole run. The per-time probability of the row is not stated; avg_reachedCell_le bounds the union directly.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -5882,19 +5949,19 @@
      "T.depth <= G"
     ],
     "note": "Joint event only, G rho, pointwise over U and with no conditioning on nonheavy. The heavy term G/(mL) joins in tree_gap_le, so the row as stated is not one declaration.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -5927,19 +5994,19 @@
      "T.depth <= G"
     ],
     "note": "2G/m^2 + G/(mL) + G rho for planted minus dummy on one tree. Sharper in the first term; one-sided, with rho=(2/3)^r supplied only at the call in addressedF_not_RLe.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -5966,19 +6033,19 @@
     "route": "alternative",
     "hypotheses": [],
     "note": "(2/3)^(40t) <= m^-10, against the row's exponent 20 log_2(3/2) = 11.70. Row's G factor and o(1) are absent; m^-10 is enough for the use.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "weaker",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -6006,9 +6073,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "The sum is at most 6/100 under the row's hypotheses; the three sub-bounds stay inside the proof.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.discrepancy_lt_third",
@@ -6019,9 +6086,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "The final <1/3 only.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.discrepancy_parameters",
@@ -6032,19 +6099,19 @@
     "route": "same",
     "hypotheses": [],
     "note": "The estimate at the actual L and G for t>=8.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -6078,19 +6145,19 @@
      "L < R(P k t)"
     ],
     "note": "From t=8 for every realising circuit, with the row's external input as a hypothesis at that t. With BansalSinhaLower it gives the row from max(t0,8). Same circuit as Q_Fkm_le at the instantiation in family_bounds.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "stronger",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
-   "conditional": false,
-   "route": "none",
-   "reach": "not_computed"
+   "conditional": true,
+   "route": "same",
+   "reach": "reached"
   }
  },
  {
@@ -6119,19 +6186,19 @@
      "hr: G < r"
     ],
     "note": "Arithmetic step: G<r implies the Omega bound with constant 1/400 for t>=8. R and F do not occur.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -6158,19 +6225,19 @@
     "route": "same",
     "hypotheses": [],
     "note": "Explicit constant 1/400 uniform in k and threshold t>=8; the row allows c_k and an unspecified threshold.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "stronger",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
-   "route": "none",
-   "reach": "not_computed"
+   "route": "same",
+   "reach": "reached"
   }
  },
  {
@@ -6198,9 +6265,9 @@
      "hQ, hR: eventual bounds on the two sequences"
     ],
     "note": "Abstract sequences: eventually R_t > D(1+Q_t)^alpha for every D. The ratio's explicit lower bound is not stated.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.exists_nat_exponent",
@@ -6211,19 +6278,19 @@
     "route": "same",
     "hypotheses": [],
     "note": "The choice of k only.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -6254,9 +6321,9 @@
      "hQreindex (proved as Q_reindex)"
     ],
     "note": "One k and one constant.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.not_universalPower_of_familyBoundsAt",
@@ -6271,9 +6338,9 @@
      "hQreindex (proved as Q_reindex)"
     ],
     "note": "One k with 2-1/k>alpha/2.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.not_universalPower_of_family",
@@ -6288,9 +6355,9 @@
      "hQreindex (proved as Q_reindex)"
     ],
     "note": "Every alpha<4 fails to be in the set of (1), conditional on eq-2. The k > 1/(2-alpha/2) of the row is exists_nat_exponent.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.no_universal_power",
@@ -6303,19 +6370,19 @@
      "FamilyBoundsAt k"
     ],
     "note": "One k, with reindexing discharged.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    }
   ],
   "evidence": {
    "formal_statement": "exact",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
-   "conditional": false,
-   "route": "none",
-   "reach": "not_computed"
+   "conditional": true,
+   "route": "same",
+   "reach": "reached"
   }
  },
  {
@@ -6341,9 +6408,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Constructor renaming for the bridge.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.QueryTree.ofDecisionTree",
@@ -6354,9 +6421,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Constructor renaming for the bridge.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.QueryTree.eval_toDecisionTree",
@@ -6367,9 +6434,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Bridge keeps evaluation.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.QueryTree.depth_toDecisionTree",
@@ -6380,9 +6447,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Bridge keeps depth.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.D_totalise_eq_complexity",
@@ -6393,9 +6460,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "D of a total function equals complexitylib's DecisionTree.complexity, the least depth of a tree computing f: an independent statement of the row.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.DLe_length",
@@ -6406,9 +6473,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Read-list witness.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.DLe_card",
@@ -6419,9 +6486,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Read-all witness; makes the sInf a true minimum.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.DLe_D",
@@ -6432,9 +6499,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Attainment only.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.D_le_iff",
@@ -6445,9 +6512,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Pins D as the least budget at which DLe holds.",
-    "built": false,
-    "compared": false,
-    "reached": null
+    "built": true,
+    "compared": true,
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.lt_D_iff",
@@ -6458,9 +6525,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "Pins D from below.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.lt_D_of_not_DLe",
@@ -6471,9 +6538,9 @@
     "route": "none",
     "hypotheses": [],
     "note": "One direction, using monotonicity.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.D_reindex",
@@ -6484,19 +6551,19 @@
     "route": "none",
     "hypotheses": [],
     "note": "Renaming invariance; does not pin D.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    }
   ],
   "evidence": {
    "formal_statement": "exact",
    "formal_origin": "ours",
-   "build": "not_run",
-   "comparator": "not_run",
+   "build": "built_at_pin",
+   "comparator": "compared",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -6518,7 +6585,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -6540,7 +6607,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -6562,7 +6629,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -6588,7 +6655,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -6613,7 +6680,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -6639,7 +6706,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -6663,7 +6730,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -6694,9 +6761,9 @@
     "route": "alternative",
     "hypotheses": [],
     "note": "Deferred measurement only: this is the proof's first step with no query overhead, not the adversary bound. Tag misplaced.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.exists_fixedSequence",
@@ -6707,19 +6774,19 @@
     "route": "alternative",
     "hypotheses": [],
     "note": "Same step in theorem form; Lemma A.2 itself has no declaration here.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "partial",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "reached"
   }
  },
  {
@@ -6743,7 +6810,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -6768,7 +6835,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -6793,7 +6860,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -6818,7 +6885,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -6842,7 +6909,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -6864,7 +6931,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -6888,7 +6955,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -6913,7 +6980,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -6941,7 +7008,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -6966,7 +7033,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -6993,7 +7060,7 @@
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "not_computed"
+   "reach": "none"
   }
  },
  {
@@ -7024,9 +7091,9 @@
     "route": "alternative",
     "hypotheses": [],
     "note": "D <= 20736 t^4 from a t-query program; no R. Stronger on D, with no +1. Through complexitylib.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.D_le_Q_pow_four",
@@ -7037,9 +7104,9 @@
     "route": "alternative",
     "hypotheses": [],
     "note": "D <= 20736 Q^4; omits R <= D. Stronger on D, with no +1.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.R_le_D_le_one_add_Q_pow_four",
@@ -7050,9 +7117,9 @@
     "route": "alternative",
     "hypotheses": [],
     "note": "R <= D and D <= 20736 (1+Q)^4 for every n and total f. Through complexitylib's complexity_le_mul_pow_four, not Lemmas A.2 to A.5.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.universalPower_four",
@@ -7063,19 +7130,19 @@
     "route": "alternative",
     "hypotheses": [],
     "note": "Membership of 4 in the set of (1); omits D.",
-    "built": false,
-    "compared": false,
-    "reached": null
+    "built": true,
+    "compared": true,
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "exact",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
-   "route": "none",
-   "reach": "not_computed"
+   "route": "alternative",
+   "reach": "reached"
   }
  },
  {
@@ -7102,9 +7169,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Deterministic capped tree; no side information.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.address_guess_average",
@@ -7115,9 +7182,9 @@
     "route": "same",
     "hypotheses": [],
     "note": "Row in full, with side information or coins as finite S.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    },
    {
     "declaration": "QuarticQuery.exists_address_guess_bound",
@@ -7128,19 +7195,19 @@
     "route": "same",
     "hypotheses": [],
     "note": "Bundles minimax and the deterministic guess; no side information.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "exact",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
-   "route": "none",
-   "reach": "not_computed"
+   "route": "same",
+   "reach": "reached"
   }
  },
  {
@@ -7176,9 +7243,9 @@
      "discrepancy with 4G/m^2 below 1/3"
     ],
     "note": "The core statement for any G. Its hypothesis keeps the paper's 4G/m^2 although the proof needs only 2G/m^2.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.addressedF_lower",
@@ -7194,9 +7261,9 @@
      "1<=L"
     ],
     "note": "At G=Gvalue, for any l and r, with the numeric condition still a hypothesis.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": true
    },
    {
     "declaration": "QuarticQuery.Gvalue_lt_R_addressedF",
@@ -7212,19 +7279,19 @@
      "L < R f"
     ],
     "note": "The row, for any partial function on any finite type and any t. Only exists_transcript is used from the circuit. eq-19 inside the proof is the alternative route.",
-    "built": false,
-    "compared": false,
-    "reached": null
+    "built": true,
+    "compared": true,
+    "reached": true
    }
   ],
   "evidence": {
    "formal_statement": "stronger",
    "formal_origin": "ours",
-   "build": "not_run",
-   "comparator": "not_run",
-   "conditional": false,
-   "route": "none",
-   "reach": "not_computed"
+   "build": "built_at_pin",
+   "comparator": "compared",
+   "conditional": true,
+   "route": "same",
+   "reach": "reached"
   }
  },
  {
@@ -7252,19 +7319,19 @@
     "route": "same",
     "hypotheses": [],
     "note": "The iff with no circuit hypothesis, because WinsAt names f directly; the row assumes correctness of the circuit.",
-    "built": false,
+    "built": true,
     "compared": false,
-    "reached": null
+    "reached": false
    }
   ],
   "evidence": {
    "formal_statement": "stronger",
    "formal_origin": "ours",
-   "build": "not_run",
+   "build": "built_at_pin",
    "comparator": "not_run",
    "conditional": false,
-   "route": "none",
-   "reach": "not_computed"
+   "route": "same",
+   "reach": "outside"
   }
  }
 ]

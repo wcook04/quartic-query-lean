@@ -160,7 +160,9 @@ def statement_records(ledger, proposed, reviewed, runs, reached=None):
                          "built": tie["declaration"] in built,
                          "compared": tie["declaration"] in compared,
                          "reached": None if reached is None else tie["declaration"] in reached})
-        best = next((t for t in ties if t["relation"] in CHECKED and t["built"]), None)
+        # The strongest evidence wins: compared before merely built, unconditional first.
+        best = min((t for t in ties if t["relation"] in CHECKED and t["built"]),
+                   key=lambda t: (not t["compared"], bool(t["hypotheses"])), default=None)
         records.append({
             "id": ident,
             "kind": row["kind"],

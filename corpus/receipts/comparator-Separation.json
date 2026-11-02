@@ -2,7 +2,7 @@
  "kind": "comparator",
  "name": "Separation",
  "status": "passed",
- "commit": "efc70f325c1db3b15b98c17643709e2ca778207b",
+ "commit": "16adedc16acca1e3a8d2963d4fd5655dcd0492d7",
  "toolchain": "leanprover/lean4:v4.36.0-rc2",
  "sandboxed": false,
  "command": [
@@ -13,14 +13,21 @@
   "--inadvisably-no-sandbox"
  ],
  "tool": "lake comparator, unsandboxed local run",
- "log_sha256": "99558b7a773a2120daa12ff0670256340ed567090f3037332227b7688d4420a7",
- "ran_at": "2026-11-02T04:43:43+00:00",
+ "log_sha256": "b7fb7652549cbb5d442c4badc207c9fdd69d82ff1a90b7c60faceaca0a1ab314",
+ "ran_at": "2026-11-02T07:00:01+00:00",
  "declarations": [
   "QuarticQuery.Checked.alphaTot_eq_four_of_bansalSinha",
+  "QuarticQuery.Checked.theorem_1_1",
   "QuarticQuery.Checked.universal_quartic_bound",
   "QuarticQuery.Checked.cubic_bound_fails_of_bansalSinha",
   "QuarticQuery.Checked.family_bounds",
-  "QuarticQuery.Checked.addressed_lower_bound"
+  "QuarticQuery.Checked.addressed_lower_bound",
+  "QuarticQuery.alphaTot_eq_four_of_bansalSinha",
+  "QuarticQuery.theorem_1_1",
+  "QuarticQuery.universalPower_four",
+  "QuarticQuery.cubic_bound_fails_of_bansalSinha",
+  "QuarticQuery.family_bounds",
+  "QuarticQuery.Gvalue_lt_R_addressedF"
  ],
  "paranoid": false,
  "exit_code": 0

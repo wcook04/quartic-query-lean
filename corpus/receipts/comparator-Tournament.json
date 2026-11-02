@@ -1,0 +1,24 @@
+{
+ "kind": "comparator",
+ "name": "Tournament",
+ "status": "passed",
+ "commit": "16adedc16acca1e3a8d2963d4fd5655dcd0492d7",
+ "toolchain": "leanprover/lean4:v4.36.0-rc2",
+ "sandboxed": false,
+ "command": [
+  "lake",
+  "comparator",
+  "--config",
+  "QuarticCorpus/Tournament/comparator.json",
+  "--inadvisably-no-sandbox"
+ ],
+ "tool": "lake comparator, unsandboxed local run",
+ "log_sha256": "4b5e292938e89d729ea6eee608ccd8321129b47f2a39d17a26ca9a728fde1616",
+ "ran_at": "2026-11-02T07:00:42+00:00",
+ "declarations": [
+  "QuarticQuery.Checked.expected_weight_eq",
+  "QuarticQuery.Checked.expected_weight_le_half"
+ ],
+ "paranoid": false,
+ "exit_code": 0
+}

@@ -5,19 +5,26 @@ quantum query complexity in
 [OpenAI's preprint](https://github.com/openai/math/blob/main/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf).
 The preprint and its mathematics are OpenAI's.
 
-Lean checks Theorem 1.1 of the preprint from one mathematical hypothesis, the
-Bansal–Sinha randomized lower bound for Forrelation:
+Lean checks Theorem 1.1 of the preprint with no hypothesis:
 
 ```lean
-theorem alphaTot_eq_four_of_bansalSinha (h : BansalSinhaLower) : alphaTot = 4
+theorem alphaTot_eq_four_unconditional : alphaTot = 4
 ```
 
-`alphaTot` is the optimal exponent in equation (1) of the preprint. The checked
-development includes the construction of the total functions, the randomized
-lower bound, the quantum upper bound in an adaptive bit-query model, the exact
-Forrelation circuit with its size bound, and the universal quartic upper bound.
-`BansalSinhaLower` is an ordinary hypothesis in the theorem's type. It remains
-unproved here, and the bound it states is imported from the published paper.
+`alphaTot` is the optimal exponent in equation (1). The checked development
+includes the construction of the total functions, the randomized lower bound,
+the quantum upper bound in an adaptive bit-query model, the exact Forrelation
+circuit with its size bound, the universal quartic upper bound, and the
+Forrelation randomized lower bound that the preprint imports from Bansal and
+Sinha. Comparator accepts these statements against an independent challenge that
+imports Mathlib only.
+
+The Forrelation lower bound is proved along a shorter route than the published
+one, in the weaker form the separation needs: fixed `k`, error `1/3`, and an
+unspecified threshold in `m`. [The blueprint](docs/forrelation_lower_bound_blueprint.md)
+describes the route, [an independent reading](docs/forrelation_lower_bound_review.md)
+checks it, and [a prior-art search](docs/forrelation_route_prior_art.md) records
+what is already known. No person has reviewed it yet.
 
 ## What is checked, and what that means
 
@@ -34,11 +41,11 @@ says is a separate question, which is why [corpus/](corpus/README.md) keeps thes
 facts apart for every statement and computes no overall score.
 
 Some steps are proved along a different route from the preprint's, and each such
-tie records this. Theorem A.1 goes through
+tie records this. The search for the erased zero gives `2G/m²` in place of
+`4G/m²`. Theorem A.1 goes through
 [complexitylib](https://github.com/cslib-community/complexitylib) instead of
 Appendix A. Lemma 4.1 uses an induction on sub-distributions in place of the
-supermartingale, and the search for the erased zero gives `2G/m²` in place of
-`4G/m²`. [The contract](docs/statement_evidence_contract.md) explains how
+supermartingale. [The contract](docs/statement_evidence_contract.md) explains how
 statements and proofs stay aligned as derivations improve.
 
 ## Repository map
@@ -47,7 +54,7 @@ statements and proofs stay aligned as derivations improve.
 | --- | --- |
 | [lean/](lean/) | The Lake project: `QuarticQuery` holds the proofs, `QuarticCorpus` the Comparator bundles. |
 | [corpus/](corpus/README.md) | Statement records, reviewed ties, receipts and the evidence graph. |
-| [docs/](docs/) | The evidence contract, the fidelity review and the lower-bound blueprint. |
+| [docs/](docs/) | The evidence contract, the fidelity review, and the lower-bound blueprint, review and prior-art search. |
 | [research/](research/README.md) | The statement ledger, research records and review requests. |
 | [tools/](tools/README.md) | Generators and checks. |
 | [tests/](tests/) | Tests for the tools. |

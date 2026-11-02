@@ -1,0 +1,22 @@
+{
+ "kind": "comparator",
+ "name": "negative-ChangedDefinition",
+ "status": "passed",
+ "commit": "16adedc16acca1e3a8d2963d4fd5655dcd0492d7",
+ "toolchain": "leanprover/lean4:v4.36.0-rc2",
+ "sandboxed": false,
+ "command": [
+  "lake",
+  "comparator",
+  "--config",
+  "QuarticCorpus/Negative/ChangedDefinition.json",
+  "--inadvisably-no-sandbox"
+ ],
+ "tool": "lake comparator, unsandboxed local run",
+ "log_sha256": "4ea5fed4bfc2ecab294c975f663f6275608705ec407a881760d968e7ca750531",
+ "ran_at": "2026-11-02T07:08:42+00:00",
+ "declarations": [],
+ "expected_diagnostic": "IsComparison",
+ "exit_code": 1,
+ "negative_control": "rejected_as_expected"
+}

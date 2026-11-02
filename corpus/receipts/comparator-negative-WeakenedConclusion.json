@@ -1,0 +1,22 @@
+{
+ "kind": "comparator",
+ "name": "negative-WeakenedConclusion",
+ "status": "passed",
+ "commit": "16adedc16acca1e3a8d2963d4fd5655dcd0492d7",
+ "toolchain": "leanprover/lean4:v4.36.0-rc2",
+ "sandboxed": false,
+ "command": [
+  "lake",
+  "comparator",
+  "--config",
+  "QuarticCorpus/Negative/WeakenedConclusion.json",
+  "--inadvisably-no-sandbox"
+ ],
+ "tool": "lake comparator, unsandboxed local run",
+ "log_sha256": "c05c34f1ea38f02a2d6cebe87c19cdca15a6a7c970dae53f2a31c380530d1244",
+ "ran_at": "2026-11-02T07:20:45+00:00",
+ "declarations": [],
+ "expected_diagnostic": "statement do not match",
+ "exit_code": 1,
+ "negative_control": "rejected_as_expected"
+}

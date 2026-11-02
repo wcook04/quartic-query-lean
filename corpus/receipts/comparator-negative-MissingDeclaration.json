@@ -1,0 +1,22 @@
+{
+ "kind": "comparator",
+ "name": "negative-MissingDeclaration",
+ "status": "passed",
+ "commit": "16adedc16acca1e3a8d2963d4fd5655dcd0492d7",
+ "toolchain": "leanprover/lean4:v4.36.0-rc2",
+ "sandboxed": false,
+ "command": [
+  "lake",
+  "comparator",
+  "--config",
+  "QuarticCorpus/Negative/MissingDeclaration.json",
+  "--inadvisably-no-sandbox"
+ ],
+ "tool": "lake comparator, unsandboxed local run",
+ "log_sha256": "ec595622e666da62fc071b15aa37cfb3e59d96e2b1b78a7502c7815f54b11e18",
+ "ran_at": "2026-11-02T07:13:13+00:00",
+ "declarations": [],
+ "expected_diagnostic": "expected_weight_le_half",
+ "exit_code": 1,
+ "negative_control": "rejected_as_expected"
+}

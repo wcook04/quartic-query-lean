@@ -1,0 +1,22 @@
+{
+ "kind": "comparator",
+ "name": "negative-SorryProof",
+ "status": "passed",
+ "commit": "16adedc16acca1e3a8d2963d4fd5655dcd0492d7",
+ "toolchain": "leanprover/lean4:v4.36.0-rc2",
+ "sandboxed": false,
+ "command": [
+  "lake",
+  "comparator",
+  "--config",
+  "QuarticCorpus/Negative/SorryProof.json",
+  "--inadvisably-no-sandbox"
+ ],
+ "tool": "lake comparator, unsandboxed local run",
+ "log_sha256": "e72bc16e23c20e7b2fcfcbbbe99ae11c1b3a418da6ee12604e84ac85c6cbf245",
+ "ran_at": "2026-11-02T07:15:14+00:00",
+ "declarations": [],
+ "expected_diagnostic": "sorryAx",
+ "exit_code": 1,
+ "negative_control": "rejected_as_expected"
+}

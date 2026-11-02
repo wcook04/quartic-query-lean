@@ -27,7 +27,7 @@ RECEIPTS = ROOT / "corpus/receipts"
 LAKE = os.environ.get("LAKE", str(Path.home() / ".elan/bin/lake"))
 DEFERRED = "Child exited with 75"
 EXPECTED = {
-    "WeakenedConclusion": "does not match",
+    "WeakenedConclusion": "statement do not match",
     "SorryProof": "sorryAx",
     "ForeignAxiom": "cheat",
     "MissingDeclaration": "expected_weight_le_half",

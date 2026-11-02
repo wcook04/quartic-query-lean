@@ -379,6 +379,22 @@
    ],
    "note": "alpha_tot=4 from the one external input, with no other hypothesis. The Section 5 argument is the paper's. The row also asserts R=O((1+Q)^4) and eq-2, which are the separate declarations universalPower_four and familyBounds_of_bansalSinha, so the strict rule leaves this partial. Two steps below it use other routes: thm-A.1 is imported from complexitylib and eq-19 is a different argument.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.alphaTot_eq_four_unconditional",
+   "relation": "partial",
+   "route": "alternative",
+   "hypotheses": [],
+   "note": "The optimal power alone; theorem_1_1_unconditional carries the whole row.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.theorem_1_1_unconditional",
+   "relation": "exact",
+   "route": "alternative",
+   "hypotheses": [],
+   "note": "All of Theorem 1.1 with no hypothesis. The lower bound is in the floor form G < R, for t beyond an unspecified t0.",
+   "reviewed_by": "ai:truth-auditor"
   }
  ],
  "cor-cubic-refuted": [
@@ -424,6 +440,14 @@
     "BansalSinhaLower"
    ],
    "note": "The row's statement with the external input as a binder. The proof uses the hypothesis at k=3 only, though the binder quantifies over all k>=2.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.cubic_bound_fails_unconditional",
+   "relation": "exact",
+   "route": "same",
+   "hypotheses": [],
+   "note": "With bare Q cubed, the form the adjudication adopted.",
    "reviewed_by": "ai:truth-auditor"
   }
  ],
@@ -2751,6 +2775,26 @@
    "route": "same",
    "hypotheses": [],
    "note": "The iff with no circuit hypothesis, because WinsAt names f directly; the row assumes correctness of the circuit.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "lem-2.1.i": [
+  {
+   "declaration": "QuarticQuery.ForrelationLower.bansalSinhaLower",
+   "relation": "exact",
+   "route": "alternative",
+   "hypotheses": [],
+   "note": "The preprint imports this from Bansal and Sinha. The Lean proof uses a different route; see docs/forrelation_lower_bound_review.md.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "claim-bs-to-L": [
+  {
+   "declaration": "QuarticQuery.ForrelationLower.bansalSinhaLower",
+   "relation": "exact",
+   "route": "alternative",
+   "hypotheses": [],
+   "note": "Proved directly, so no translation from the published bound is used.",
    "reviewed_by": "ai:truth-auditor"
   }
  ]

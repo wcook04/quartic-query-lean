@@ -29,3 +29,4 @@ public import QuarticQuery.Appendix.TheoremA1
 public import QuarticQuery.Results.Exponent
 public import QuarticQuery.Results.Headline
 public import QuarticQuery.Results.Conditional
+public import QuarticQuery.Results.Unconditional

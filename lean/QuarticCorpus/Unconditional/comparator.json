@@ -1,0 +1,12 @@
+{
+  "challenge_module": "QuarticCorpus.Unconditional.Challenge",
+  "solution_module": "QuarticCorpus.Unconditional.Solution",
+  "theorem_names": [
+    "QuarticQuery.Checked.alpha_tot_eq_four",
+    "QuarticQuery.Checked.theorem_one_one",
+    "QuarticQuery.Checked.cubic_bound_fails",
+    "QuarticQuery.Checked.forrelation_lower_bound"
+  ],
+  "definition_names": [],
+  "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"]
+}
