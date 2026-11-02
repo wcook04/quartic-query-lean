@@ -1,0 +1,141 @@
+{
+  "schema": "quartic_round3_integrated_review_v2",
+  "status": "accepted",
+  "reviewer": "Codex independent mathematical scout",
+  "review_scope": "Independent ordinary-proof read of sections 1–7 and Appendices A and D, structural and final-prose delta review including eight execution-attribution corrections, selected primary-source checks, final catalogue/correspondence/19-receipt and 21 native-artifact audit, and visual review of the exact PDF. The 162 individual source-tie judgments are separate imported independent reviews, not 121 line-by-line tie reviews by this reviewer.",
+  "record_sha256": "c2b6f11a7a4b3f318ebf419a9959c1d154f8e2b74e3ec02a8e25fb92ba9cfd25",
+  "pdf_sha256": "40bc5c71e61de0fb7b38707b9938e796ad69e0ea2868d7b9eb80e43b7518c7dd",
+  "reviewed_files": {
+    "docs/reasoning_record.bib": "8204d03bbc81e9fa06d029293c512621a51525ff297e576e884593cf819dc1d2",
+    "docs/reasoning_record_correspondence.json": "cef26a86dbc9d89c200df77f35d3b4046e43fe7023bafa854b8d646fa7a9e346",
+    "corpus/statements.json": "a83236b606dbe14731d7501230dfffe83b6cd6b6b99a4a790063ff3d3b9ba8c7"
+  },
+  "source_snapshot_sha256": "43f007e0916f14d513d076e8036b9bb05aa29897b5b9eb7bc4a8d6551d63c2b3",
+  "acceptance": "Accepted for the final integrated record and this exact rendered layout, with the mathematical and evidence limitations stated below; this is independent AI review, not human peer review or a claim that all definitions are semantically correct.",
+  "review_coverage": {
+    "ordinary_proof": "Full ordinary-proof read of sections 1–7 and Appendices A and D in the earlier frozen snapshot; full structural and final-prose delta checked against it. Critical source editions and load-bearing passages were checked separately.",
+    "catalogue": "121 literal quotations match current corpus, 121 current correspondence rows match corpus byte-for-data, 339 unique anchors have no missing internal targets.",
+    "source_ties": "The separate source-review cohort records 162 current judgments covering all 121 rows; 327 other declaration ties remain unreviewed. This reviewer audited their bindings and scope, not all of their individual judgments.",
+    "evidence": "All 19 targeted/global/paranoid receipts bind the exact 152-source inventory. They document 12 targeted build targets, 18 declaration/axiom inspections, three targeted and five global positive comparisons, two targeted and five global expected rejections, one accepted shared-bad-spec blind-spot control and one separate paranoid pass. Three native extraction cases have complete local scopes but partial graphs at external dependencies; all 21 described artifacts matched their hashes and sizes.",
+    "row_counts": "121 current-reviewed rows and built rows; 51 exact, 31 stronger and 39 partial relations; 12 rows compared and 109 not_run under current policy.",
+    "visual": "Corrected 116-page PDF independently inspected on pages 3, 8, 21, 37, 40–42, 47, 54, 63, 68, 70, 72, 76, 83, 89–92, 108 and 116, in addition to the earlier full replacement review. These cover all 12 retained table treatments, all eight attribution edits and sampled catalogue grouping; earlier crowded rows and detached backlinks remain repaired.",
+    "limits": "This does not establish independent formal specifications for all claims, review all 327 other ties, establish human comprehension or peer review, or validate growth in k. The retained-state amplifier and arbitrary-independent-information transport remain explicit formal boundaries."
+  },
+  "final_artifacts": {
+    "pdf": "/Users/willcook/src/_builds/quartic-r3/render/final/reasoning_record.pdf",
+    "render_receipt": "/Users/willcook/src/_builds/quartic-r3/render/final/render.json",
+    "render_receipt_sha256": "b725e11311e57be6918d45886bb5e66c3dd6ef1401ea12b993544daece5f7ff6",
+    "native_descriptor": "research/adjudication/round3_formal.json",
+    "native_descriptor_sha256": "87e981e356c1d1defe596362c0f7092e70320e8ce7a0c4281c7d9b27dd25874d"
+  },
+  "history": {
+    "provisional_findings": [
+      {
+        "id": "PROV-01",
+        "status": "fixed_in_structural_snapshot_recheck_final",
+        "issue": "Narrow statement excluding all growing-k-uniform estimates to absence of joint uniform control for the total-family schedule."
+      },
+      {
+        "id": "PROV-02",
+        "status": "fixed_in_structural_snapshot_recheck_final",
+        "issue": "claim-huang-spectrum corrected in provisional catalogue but not in then-current generated corpus statement."
+      },
+      {
+        "id": "PROV-03",
+        "status": "pending_evidence_refresh",
+        "issue": "Rebind manuscript catalogue and prose evidence to exact final source, receipt, comparison and dependency state."
+      },
+      {
+        "id": "PROV-04",
+        "status": "fixed_in_structural_snapshot_recheck_final",
+        "issue": "Section-4 heading and exponent superscript corrected after this snapshot."
+      },
+      {
+        "id": "PROV-05",
+        "status": "withdrawn_reviewer_error",
+        "issue": "A newline followed by u was misread as TeX nu in tool output; raw snapshot defines u correctly."
+      },
+      {
+        "id": "PROV-06",
+        "status": "fixed_in_structural_snapshot_recheck_final",
+        "issue": "Direct-pointer discussion in ABBLSS arXiv v3 is §1.3 balanced-tree paragraph, not §1.2 as cited in provisional §4.8."
+      },
+      {
+        "id": "PROV-07",
+        "status": "fixed_in_structural_snapshot_recheck_final",
+        "issue": "§3 opening retains return-specific replacement wording and points to §2.2 instead of the quantum model in §§2.3–2.4; other inherited this-return references need context."
+      }
+    ],
+    "reviewed_snapshot": {
+      "docs/reasoning_record.md": "239773f7c8667897e420cdca849ece07e4eabdb3d7f173ba03b6669ae30d5cb5",
+      "docs/reasoning_record.bib": "afe62222e10c07c02269f138bd99258f85e7d21b84c8af1e16772b01da9b575f",
+      "docs/reasoning_record_correspondence.json": "bac9e4f0129ca8f6c54b57f4d70b95612eeb5744f15c1db83172f8ff3df5efcd"
+    },
+    "structural_review": {
+      "status": "provisional",
+      "source_sha256": "a7a552ae880c5d07cf16872fbc5bac5de4357665b91ca1d15c5e5f7b1fe4a0e4",
+      "pdf_sha256": "44b40a252de82766a4e85aab1f8a11d08f9535e2ecd4419a9b4a399a8459c610",
+      "proof_delta": "Read structural source changes relative to the earlier ordinary-proof snapshot; full-width model, local-test, quantum correspondence and new independence example preserve reviewed mathematical boundaries.",
+      "catalogue_checks": [
+        "121 unique IDs and literal quotations match current corpus",
+        "no prior claim marker occurrences lost",
+        "all 816 unique names previously linked in catalogue retained in correspondence sidecar",
+        "per-claim comparison retained all old declaration links in their corresponding sidecar rows",
+        "all 121 catalogue entries retain their exact previous sets of argument-anchor targets"
+      ],
+      "images_inspected": [
+        3,
+        8,
+        10,
+        11,
+        20,
+        39,
+        40,
+        41,
+        42,
+        53,
+        62,
+        67,
+        71,
+        75,
+        88,
+        89,
+        90,
+        106
+      ],
+      "layout_findings": [
+        "Page 3 proof-map multiline rows run together.",
+        "Page 88 quartic-route multiline rows run together.",
+        "Page 75 simulator rows are crowded.",
+        "Pages 90 and 106 detach an Argument backlink from its claim."
+      ],
+      "boundary": "Final source, corpus and evidence refresh, renderer repair and final output visual review remain pending."
+    },
+    "provisional_visual_review": {
+      "status": "pagination_repairs_inspected_final_source_render_pending",
+      "rejected_witness": "trial-2 page 11: five-column evidence matrix fragments prose and declaration names",
+      "exemplar_inspected": "/Users/willcook/src/lean-exposition/papers/qaoa-sk/long/reasoning-record.pdf pages 1 and 70",
+      "scope_required": "Reinspect all remaining table treatments and the three prose replacements in the final source-current render, including catalogue grouping.",
+      "boundary": "Technical no-clipping checks and a single screenshot do not establish structural or visual acceptance.",
+      "other257_exemplar": {
+        "source": "/Users/willcook/src/plectis-erdos-integration/paper/257/erdos257-mersenne-reasoning-surface.tex",
+        "source_sha256": "781868f903af0624baed4f556a46eccb225f88c087adcd04ce488e9606204131",
+        "pdf": "/Users/willcook/src/plectis-erdos-integration/paper/erdos257-mersenne-reasoning-surface.pdf",
+        "page_inspected": 33,
+        "source_pdf_binding": "not verified"
+      },
+      "pagination_trial": {
+        "pdf": "/Users/willcook/src/_builds/quartic-r3/render/structural-pagination/reasoning_record.pdf",
+        "pages_inspected": [
+          3,
+          75,
+          88,
+          90,
+          91
+        ],
+        "finding": "Previously crowded proof-map, simulator and route-comparison rows and detached catalogue backlinks are repaired on these pages. This is a trial of the a7a552ae source, not the final source-current render."
+      }
+    }
+  },
+  "resolved_issue": "The eight historical execution-attribution passages now distinguish the earlier section reviews from the present integration; §A.6 explicitly avoids asserting a new Appendix-specific type-and-axiom audit. Reversing these eight changes reconstructs the previously reviewed manuscript SHA 78ee9b8975a978f82e77f6f007a8e1c88714120aa74e684bdb05f7b72d1d8453 exactly."
+}

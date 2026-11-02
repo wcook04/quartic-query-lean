@@ -1,0 +1,1123 @@
+{
+  "schema": "quartic_round3_individual_tie_reviews_v1",
+  "scope": "Direct statement/type/definition review only; no Lean elaboration, build, Comparator or binding is asserted. Source signatures are lexical Lean source with section context, not printed compiler types. Refresh source hashes after concurrent work and individually bind only after exact row and reviewed judgment are settled.",
+  "records": [
+    {
+      "id": "def-winner",
+      "declaration": "QuarticQuery.Paper.constructionWinner",
+      "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+      "line_at_review": 131,
+      "source_file_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
+      "ledger_statement": "Column i is a winner iff X_i=1^m, every P(A_{i,h}) is defined, and the cell B_{i,s_i} contains correct evaluation transcripts on all A_{i,h} and pointers satisfying eq-8.",
+      "source_signature": "@[expose] def constructionWinner (f : PartialBool κ) (C : Circuit κ) (ℓ r : ℕ)\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) : Prop :=\n  (∀ j, readX x i j = true) ∧\n  ∃ hdef : ∀ h, promised f (readA x i h),\n    (∀ h, readTranscript x i (trueAddress f x i hdef) h =\n      circuitEval C (readA x i h)) ∧\n    constructionOutwardPointers x i (trueAddress f x i hdef)",
+      "section_context": "namespace QuarticQuery.Paper; variable {κ : Type} {f : PartialBool κ} {C : Circuit κ} {ℓ r : ℕ} (only free section variables in the declaration are generalized).",
+      "relation": "exact",
+      "route": "none",
+      "premises": [],
+      "open_assumptions": [],
+      "comparison_and_scope": "Definition contains all-one column, promised instances, actual transcripts at true address and outward pointers. Actual circuit evaluation is the unique consistent transcript (construction_transcript_correct). No realization premise is needed for this semantic definition.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+        "lean/QuarticQuery/Statement.lean",
+        "lean/QuarticQuery/Construction/Transcript.lean"
+      ]
+    },
+    {
+      "id": "def-winner",
+      "declaration": "QuarticQuery.Paper.construction_winner_iff_exists_winsAt",
+      "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+      "line_at_review": 141,
+      "source_file_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
+      "ledger_statement": "Column i is a winner iff X_i=1^m, every P(A_{i,h}) is defined, and the cell B_{i,s_i} contains correct evaluation transcripts on all A_{i,h} and pointers satisfying eq-8.",
+      "source_signature": "theorem construction_winner_iff_exists_winsAt\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) :\n    constructionWinner f C ℓ r x i ↔ ∃ s, WinsAt f C ℓ r x i s",
+      "section_context": "namespace QuarticQuery.Paper; variable {κ : Type} {f : PartialBool κ} {C : Circuit κ} {ℓ r : ℕ} (only free section variables in the declaration are generalized).",
+      "relation": "stronger",
+      "route": "none",
+      "premises": [],
+      "open_assumptions": [],
+      "comparison_and_scope": "The equivalence is for arbitrary circuit and partial function; WinsAt is defined by actual promised values and gate consistency in Statement.lean. Realization is not assumed.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+        "lean/QuarticQuery/Statement.lean",
+        "lean/QuarticQuery/Construction/Winner.lean"
+      ]
+    },
+    {
+      "id": "def-win-at-address",
+      "declaration": "QuarticQuery.Paper.construction_winsAt_iff_winner_and_address",
+      "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+      "line_at_review": 155,
+      "source_file_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
+      "ledger_statement": "WinsAt(y,i,s) holds iff X_i=1^m, for every h the transcript in B_{i,s} on A_{i,h} is correct with outputs d=1 and b=s_h, and eq-8 holds at s. The paper's wording, i is a winner and s=s_i, is equivalent by claim-winner-fidelity.",
+      "source_signature": "theorem construction_winsAt_iff_winner_and_address\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) (s : Address r) :\n    WinsAt f C ℓ r x i s ↔\n      constructionWinner f C ℓ r x i ∧\n        ∃ hdef : ∀ h, promised f (readA x i h), s = trueAddress f x i hdef",
+      "section_context": "namespace QuarticQuery.Paper; variable {κ : Type} {f : PartialBool κ} {C : Circuit κ} {ℓ r : ℕ} (only free section variables in the declaration are generalized).",
+      "relation": "partial",
+      "route": "none",
+      "premises": [],
+      "open_assumptions": [],
+      "comparison_and_scope": "Gives the paper winner/true-address equivalence for arbitrary circuit, but the corrected row also contains the output-test iff, which needs a separate realization-dependent declaration. Treat the single declaration as partial, not stronger for the whole composite row.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+        "lean/QuarticQuery/Statement.lean",
+        "lean/QuarticQuery/Construction/Winner.lean"
+      ]
+    },
+    {
+      "id": "def-win-at-address",
+      "declaration": "QuarticQuery.Paper.construction_win_at_address_outputs",
+      "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+      "line_at_review": 173,
+      "source_file_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
+      "ledger_statement": "WinsAt(y,i,s) holds iff X_i=1^m, for every h the transcript in B_{i,s} on A_{i,h} is correct with outputs d=1 and b=s_h, and eq-8 holds at s. The paper's wording, i is a winner and s=s_i, is equivalent by claim-winner-fidelity.",
+      "source_signature": "theorem construction_win_at_address_outputs (hC : CircuitRealises C f)\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) (s : Address r) :\n    WinsAt f C ℓ r x i s ↔\n      (∀ j, readX x i j = true) ∧\n      (∀ h, readTranscript x i s h = circuitEval C (readA x i h)) ∧\n      (∀ h, readTranscript x i s h C.domainOut = true) ∧\n      (∀ h, readTranscript x i s h C.valueOut = s h) ∧\n      constructionOutwardPointers x i s",
+      "section_context": "namespace QuarticQuery.Paper; variable {κ : Type} {f : PartialBool κ} {C : Circuit κ} {ℓ r : ℕ} (only free section variables in the declaration are generalized).",
+      "relation": "partial",
+      "route": "same",
+      "premises": [
+        "CircuitRealises C f; this is the paper’s specified realizing circuit premise."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "States the corrected output-test equivalence under realization. The row separately asserts equivalence with winner plus true address, proved by construction_winsAt_iff_winner_and_address; this declaration alone is partial for the compound row.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+        "lean/QuarticQuery/Statement.lean",
+        "lean/QuarticQuery/Construction/LocalTests.lean"
+      ]
+    },
+    {
+      "id": "cor-local-dichotomy",
+      "declaration": "QuarticQuery.Paper.construction_local_dichotomy",
+      "file": "lean/QuarticQuery/Paper/ConstructionTests.lean",
+      "line_at_review": 110,
+      "source_file_sha256": "06f1b3bc883881351e5e9cfa9ba8777f2f907897e69275b507132cc01ba0dccb",
+      "ledger_statement": "A winner has an address at which every test passes; a nonwinner has a failing test at every address.",
+      "source_signature": "theorem construction_local_dichotomy {κ : Type} {f : PartialBool κ}\n    {C : Circuit κ} {ℓ r : ℕ} (hC : CircuitRealises C f)\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) :\n    (constructionWinner f C ℓ r x i →\n      ∃ s : Address r, ∀ e : TestIndex ℓ r C.size,\n        localTest C ℓ r x i s e = true) ∧\n    (¬ constructionWinner f C ℓ r x i →\n      ∀ s : Address r, ∃ e : TestIndex ℓ r C.size,\n        localTest C ℓ r x i s e = false)",
+      "section_context": "namespace QuarticQuery.Paper; the complete binders appear in source_signature.",
+      "relation": "stronger",
+      "route": "same",
+      "premises": [
+        "CircuitRealises C f, supplied for the construction."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "Winner has some all-passing address and every address of a nonwinner has a failing test, generalized to arbitrary partial functions, circuits, inputs and dimensions. Local-test equality uses circuit realization.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/ConstructionTests.lean",
+        "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+        "lean/QuarticQuery/Construction/LocalTests.lean"
+      ]
+    },
+    {
+      "id": "lem-2.2",
+      "declaration": "QuarticQuery.Paper.construction_lemma_2_2_complete",
+      "file": "lean/QuarticQuery/Paper/ConstructionComplete.lean",
+      "line_at_review": 28,
+      "source_file_sha256": "a79e9f0cdbf85df0e86605711fa6c8bde2a19cbe043c36302243b42a7f8fbc6c",
+      "ledger_statement": "Conjunction of lem-2.2.i and lem-2.2.ii.",
+      "source_signature": "theorem construction_lemma_2_2_complete {k t : ℕ}\n    (C : Circuit (ForrelationCoord k t)) (A : ℕ) (ht : 1 ≤ t)\n    (hC : CircuitRealises C (P k t))\n    (hS : C.size ≤ A * mValue t * (2 * t) ^ 2) :\n    Fintype.card (TestIndex (2 * t) (40 * t) C.size) =\n      mValue t + (mValue t - 1) + 40 * t * (C.size + 2) ∧\n    Fintype.card (TestIndex (2 * t) (40 * t) C.size) ≤\n      (42 + 20 * A) * mValue t * (2 * t) ^ 3 ∧\n    (∀ (x : BitInput (Loc k t C)) (i : Column (2 * t)) (s : Address (40 * t)),\n      PaperWinsAt (P k t) C (2 * t) (40 * t) x i s ↔\n        ∀ e : TestIndex (2 * t) (40 * t) C.size,\n          localTest C (2 * t) (40 * t) x i s e = true) ∧\n    (∀ (i : Column (2 * t)) (s : Address (40 * t))\n        (e : TestIndex (2 * t) (40 * t) C.size),\n      (∀ x, (localTestTree C (2 * t) (40 * t) i s e).eval x =\n        localTest C (2 * t) (40 * t) x i s e) ∧\n      (localTestTree C (2 * t) (40 * t) i s e).depth ≤ 2 * t + 1) ∧\n    (∀ (i : Column (2 * t)) (s : Address (40 * t)),\n      ∃ (Z : TestIndex (2 * t) (40 * t) C.size → Type)\n        (instZ : ∀ e, Fintype (Z e)),\n        let _ := instZ\n        ∃ (o : ∀ e, Z e) (out : ∀ e, Z e → Bool)\n          (F : ∀ e, BitInput (Loc k t C) → Reg (Z e) ≃ₗᵢ[ℂ] Reg (Z e)),\n          (∀ e, IsCirc (max 3 (2 * t + 1)) (F e)) ∧\n          IsCirc (max 3 (2 * t + 1)) (fun x => sigmaOp fun e => F e x) ∧\n          (∀ (x : BitInput (Loc k t C))\n              (a : TestIndex (2 * t) (40 * t) C.size → ℂ)\n              (e : TestIndex (2 * t) (40 * t) C.size),\n            slice e (sigmaOp (fun e => F e x) (constructionIndexStart o a)) =\n              a e • F e x (rket (o e))) ∧\n          (∀ (x : BitInput (Loc k t C))\n              (e : TestIndex (2 * t) (40 * t) C.size) (z : Z e),\n            out e z ≠ localTest C (2 * t) (40 * t) x i s e →\n              (F e x (rket (o e))).ofLp z = 0) ∧\n          ∃ (w : ℕ) (emb : (Σ e, Z e) ↪ Fin (w + 1))\n            (P : AdaptiveProgram (Loc k t C) w → AdaptiveProgram (Loc k t C) w),\n            ∀ next, (P next).queryCap ≤ 2 * (2 * t + 1) + next.queryCap ∧\n              ∀ x ψ b, (P next).outputMass x (clEmb emb ψ) b =\n                next.outputMass x\n                  (clEmb emb (sigmaOp (fun e => F e x) ψ)) b)",
+      "section_context": "namespace QuarticQuery.Paper; open QuarticQuery.Upper; all theorem variables appear in source_signature.",
+      "relation": "partial",
+      "route": "same",
+      "premises": [
+        "t >= 1; C realizes P k t; C.size <= A*mValue t*(2*t)^2 for a size constant A fixed with k."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "Contains exact count and size, winning-test equivalence, adaptive depth, fixed-(i,s) coherent superposed test-index evaluation and compiled physical query bound. Corrected lem-2.2.i additionally asserts every pointer/target physical coordinate is essential; this conclusion is not in this declaration. construction_pointer_every_physical_coordinate covers it separately. Thus the prior stronger whole-conjunction tie is not warranted by this declaration alone.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/ConstructionComplete.lean",
+        "lean/QuarticQuery/Paper/ConstructionTests.lean",
+        "lean/QuarticQuery/Paper/ConstructionPointerSupport.lean",
+        "lean/QuarticQuery/Paper/ConstructionCoherent.lean"
+      ]
+    },
+    {
+      "id": "claim-winner-dominates",
+      "declaration": "QuarticQuery.Paper.quantumWinner_dominates",
+      "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+      "line_at_review": 296,
+      "source_file_sha256": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+      "ledger_statement": "If i_* is a winner then for every j != i_*, a_{i_* j} >= 1-epsilon, on every input, whether or not the opponent's instances are defined.",
+      "source_signature": "theorem quantumWinner_dominates (hk : 1 ≤ k) (ht : 1 ≤ t)\n    {n : ℕ} {ε : ℝ} (hε : 0 < ε) (hε1 : ε ≤ 1)\n    (hn : repetitions k (ε / (40 * t : ℕ)) ≤ n)\n    {x : BitInput (Loc k t C)} {i : Col t} {s : Addr t}\n    (hw : WinsAt (P k t) C (2 * t) (40 * t) x i s)\n    (j : Col t) (hji : j ≠ i) :\n    1 - ε ≤ cmpProb n x i j",
+      "section_context": "namespace QuarticQuery.Paper; open QuarticQuery.Upper QuarticQuery.Forrelation; variable {k t : ℕ} {C : Circuit (ForrelationCoord k t)}.",
+      "relation": "exact",
+      "route": "same",
+      "premises": [
+        "1 <= k and t; 0 < ε <= 1; repetition count n at least the prescribed value; a WinsAt witness; j ≠ i."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "The inequality is pointwise in arbitrary raw x and does not assume anything about the opponent’s promise. Existing source defines cmpProb from the actual comparison algorithm; the chosen n is the paper decoder repetition schedule.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/QuantumComparison.lean",
+        "lean/QuarticQuery/Upper/Columns.lean",
+        "lean/QuarticQuery/Construction/Winner.lean",
+        "lean/QuarticQuery/Statement.lean"
+      ]
+    },
+    {
+      "id": "claim-product-law",
+      "declaration": "QuarticQuery.Paper.classical_transcript_product_law",
+      "file": "lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+      "line_at_review": 275,
+      "source_file_sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+      "ledger_statement": "For a deterministic algorithm, at every transcript tau of positive probability, the conditional law of (U_1,...,U_r) given tau is a product of separate conditional laws, because the event of obtaining tau is a Cartesian product of constraints on each input.",
+      "source_signature": "theorem classical_transcript_product_law {β : Type}\n    (T : OutTree (Fin r × κ) β) (τ : ClassicalTranscript r κ)\n    (μ : Fin r → BitInput κ → ℝ)\n    (hm : 0 < ∑ V : Fin r → BitInput κ,\n      if classicalPrefix T τ V then ∏ h, μ h (V h) else 0)\n    (U : Fin r → BitInput κ) :\n    (if classicalPrefix T τ U then ∏ h, μ h (U h) else 0) /\n        (∑ V : Fin r → BitInput κ,\n          if classicalPrefix T τ V then ∏ h, μ h (V h) else 0) =\n      ∏ h, classicalLaw (classicalTranscriptWeight μ τ h) (U h)",
+      "section_context": "namespace QuarticQuery.Paper; variable {κ : Type} [Fintype κ] [DecidableEq κ] {r : ℕ}.",
+      "relation": "exact",
+      "route": "same",
+      "premises": [
+        "Actual transcript has strictly positive joint mass; independent nonnegative priors for probability interpretation."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "The actual adaptive prefix factors as a schedule constraint and per-instance rectangle by classical_prefix_iff. The conclusion normalizes that rectangle into a product of classicalLaw of restricted weights. Algebra accepts real weights; probability requires nonnegativity.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "lean/QuarticQuery/LowerBound/DirectProduct.lean"
+      ]
+    },
+    {
+      "id": "eq-16",
+      "declaration": "QuarticQuery.Paper.classical_eq_16_transcript",
+      "file": "lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+      "line_at_review": 439,
+      "source_file_sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+      "ledger_statement": "If the next query at tau addresses U_h then E[V_h(tau') | tau] <= V_h(tau). The conditional laws and budgets of the other inputs do not change.",
+      "source_signature": "theorem classical_eq_16_transcript (f : PartialBool κ)\n    {μ : Fin r → BitInput κ → ℝ} (hμ : ∀ j x, 0 ≤ μ j x)\n    (τ : ClassicalTranscript r κ) (L : ℕ) (h : Fin r) (q : κ)\n    (hc : classicalQueriesTo τ h < L) :\n    classicalBranchProbability (classicalTranscriptWeight μ τ h) q false *\n        classicalTranscriptValue f μ (τ ++ [((h, q), false)]) L h +\n      classicalBranchProbability (classicalTranscriptWeight μ τ h) q true *\n        classicalTranscriptValue f μ (τ ++ [((h, q), true)]) L h ≤\n      classicalTranscriptValue f μ τ L h",
+      "section_context": "namespace QuarticQuery.Paper; variable {κ : Type} [Fintype κ] [DecidableEq κ] {r : ℕ}.",
+      "relation": "partial",
+      "route": "same",
+      "premises": [
+        "Nonnegative prior weights; queried instance has one unit of remaining budget; q is the next query when applying to a run."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "Proves the conditional expected value inequality for the queried factor. It does not itself assert other factors unchanged, which is separately stated by classicalTranscriptValue_unchanged. Hence partial for the compound ledger row.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "lean/QuarticQuery/LowerBound/DirectProduct.lean"
+      ]
+    },
+    {
+      "id": "eq-16",
+      "declaration": "QuarticQuery.Paper.classicalTranscriptValue_unchanged",
+      "file": "lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+      "line_at_review": 457,
+      "source_file_sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+      "ledger_statement": "If the next query at tau addresses U_h then E[V_h(tau') | tau] <= V_h(tau). The conditional laws and budgets of the other inputs do not change.",
+      "source_signature": "theorem classicalTranscriptValue_unchanged (f : PartialBool κ)\n    (μ : Fin r → BitInput κ → ℝ) (τ : ClassicalTranscript r κ)\n    (L : ℕ) (h j : Fin r) (q : κ) (b : Bool) (hj : j ≠ h) :\n    classicalTranscriptValue f μ (τ ++ [((h, q), b)]) L j =\n      classicalTranscriptValue f μ τ L j",
+      "section_context": "namespace QuarticQuery.Paper; variable {κ : Type} [Fintype κ] [DecidableEq κ] {r : ℕ}.",
+      "relation": "partial",
+      "route": "same",
+      "premises": [
+        "j ≠ h; the appended query is to instance h."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "Proves each other instance’s continuation value unchanged after the query. The row also explicitly mentions conditional laws and budgets and the queried-factor inequality; these are separate definitions/components, so this declaration alone is partial.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "lean/QuarticQuery/LowerBound/DirectProduct.lean"
+      ]
+    },
+    {
+      "id": "claim-final-bound",
+      "declaration": "QuarticQuery.Paper.classical_final_bound",
+      "file": "lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+      "line_at_review": 733,
+      "source_file_sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+      "ledger_statement": "At the final transcript tau, Pr[chosen vector correct | tau] <= prod_h max_b Pr(P(U_h)=b | tau) <= prod_h V_h(tau).",
+      "source_signature": "theorem classical_final_bound (f : PartialBool κ)\n    (ν : Fin r → BitInput κ → ℝ) (c : Fin r → ℕ)\n    (hν : ∀ h x, 0 ≤ ν h x) (s : Fin r → Bool) :\n    guessSuccess f (fun h => classicalLaw (ν h)) (.leaf s) ≤\n        ∏ h, max (constSuccess f (classicalLaw (ν h)) false)\n          (constSuccess f (classicalLaw (ν h)) true) ∧\n      (∏ h, max (constSuccess f (classicalLaw (ν h)) false)\n          (constSuccess f (classicalLaw (ν h)) true)) ≤\n        classicalProductValue f ν c",
+      "section_context": "namespace QuarticQuery.Paper; variable {κ : Type} [Fintype κ] [DecidableEq κ] {r : ℕ}.",
+      "relation": "exact",
+      "route": "same",
+      "premises": [
+        "Nonnegative per-instance weights; leaf output vector s; positive transcript masses when interpreting normalized laws as conditional probabilities."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "The conclusion contains both product inequalities: correctness of a fixed vector at the leaf is bounded by the product of the best constant guesses, itself by the product of continuation values. For an actual positive transcript instantiate ν with transcript-restricted weights, c with remaining caps, and use product law.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "lean/QuarticQuery/LowerBound/DirectProduct.lean"
+      ]
+    },
+    {
+      "id": "claim-uniform-zero",
+      "declaration": "QuarticQuery.Paper.uniform_zero_given_transcript",
+      "file": "lean/QuarticQuery/Paper/ClassicalUniformZero.lean",
+      "line_at_review": 252,
+      "source_file_sha256": "b0778f75c9717011e9b115eb3b15cf132b85486fa2f8c83eff0e4ce4a05fca19",
+      "ledger_statement": "Before the zero in a column is found, its location is uniform among positions of that column not yet queried, conditional on the full adaptive transcript.",
+      "source_signature": "theorem uniform_zero_given_transcript (μ : BitInput κ → ℝ)\n    (_hμ : ∀ x, 0 ≤ μ x) (_hμ1 : ∑ x, μ x = 1)\n    (T : QueryTree (BitLoc ℓ r S κ)) (τ : List (BitLoc ℓ r S κ × Bool))\n    (i p : Column ℓ) (hτ : NoZeroSeen i τ) (hpos : 0 < dummyTraceMass μ T τ) :\n    dummyTraceZeroMass μ T τ i p / dummyTraceMass μ T τ =\n      if p ∈ unqueriedRows i τ then 1 / ((unqueriedRows i τ).card : ℝ) else 0",
+      "section_context": "namespace QuarticQuery.Paper; variable {κ : Type} [Fintype κ] [DecidableEq κ] {ℓ r S : ℕ}.",
+      "relation": "exact",
+      "route": "same",
+      "premises": [
+        "Nonnegative normalized address prior; no zero seen in the selected column; positive dummy transcript mass."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "The exact ratio conditions on an actual adaptive transcript prefix and assigns 1/card(unqueriedRows) to each unqueried position, zero elsewhere. Prefix definitions include the schedule and the returned answers; repeated queries remove a row only once.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/ClassicalUniformZero.lean",
+        "lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+        "lean/QuarticQuery/LowerBound/Planted/Inputs.lean"
+      ]
+    },
+    {
+      "id": "eq-21",
+      "declaration": "QuarticQuery.Paper.eq_21",
+      "file": "lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+      "line_at_review": 342,
+      "source_file_sha256": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+      "ledger_statement": "For each i and t: Pr(i is nonheavy and the t-th query is in B_{i,s_i}) <= (2/3)^r.",
+      "source_signature": "theorem eq_21 {f : PartialBool κ} {μ : BitInput κ → ℝ} {L : ℕ}\n    (hμ : ∀ x, 0 ≤ μ x) (hμ1 : ∑ x, μ x = 1)\n    (hdom : ∀ x, μ x ≠ 0 → promised f x)\n    (hard : ∀ U : QueryTree κ, U.depth ≤ L → treeSuccess f μ U ≤ 2 / 3)\n    (T : QueryTree (BitLoc ℓ r S κ)) (i : Column ℓ) (t : ℕ) :\n    avg (prodW (prodW μ)) (fun A => avg (prodW (unif ℓ)) fun J =>\n      reachedCellAt f L T J A i t) ≤ ((2 : ℝ) / 3) ^ r",
+      "section_context": "namespace QuarticQuery.Paper; variable {κ : Type} [Fintype κ] [DecidableEq κ] {ℓ r S : ℕ}.",
+      "relation": "exact",
+      "route": "same",
+      "premises": [
+        "μ nonnegative, normalized and supported on the promise; each depth-L one-instance tree succeeds with probability at most 2/3."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "The event reachedCellAt includes nonheaviness of the full dummy path and a true-address cell query at zero-based t. Nested averages are original independent address and uniform zero-position laws. No hardness claim after conditioning on nonheaviness is used.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+        "lean/QuarticQuery/LowerBound/Planted/Heavy.lean",
+        "lean/QuarticQuery/LowerBound/Planted/Inputs.lean",
+        "lean/QuarticQuery/LowerBound/DirectProduct.lean"
+      ]
+    },
+    {
+      "id": "eq-22",
+      "declaration": "QuarticQuery.Paper.eq_22",
+      "file": "lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+      "line_at_review": 408,
+      "source_file_sha256": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+      "ledger_statement": "Pr(the dummy run queries B_{I,s_I}) <= G/(mL) + G(2/3)^r.",
+      "source_signature": "theorem eq_22 {f : PartialBool κ} {μ : BitInput κ → ℝ} {L G : ℕ}\n    (hL : 1 ≤ L) (hμ : ∀ x, 0 ≤ μ x) (hμ1 : ∑ x, μ x = 1)\n    (hdom : ∀ x, μ x ≠ 0 → promised f x)\n    (hard : ∀ U : QueryTree κ, U.depth ≤ L → treeSuccess f μ U ≤ 2 / 3)\n    (T : QueryTree (BitLoc ℓ r S κ)) (hT : T.depth ≤ G) :\n    coupledAvg μ (fun A J I => cellVisit f T J A I) ≤\n      (G : ℝ) / (((2 ^ ℓ : ℕ) : ℝ) * (L : ℝ)) + (G : ℝ) * ((2 : ℝ) / 3) ^ r",
+      "section_context": "namespace QuarticQuery.Paper; variable {κ : Type} [Fintype κ] [DecidableEq κ] {ℓ r S : ℕ}.",
+      "relation": "exact",
+      "route": "same",
+      "premises": [
+        "L >= 1; μ nonnegative, normalized and promise-supported; depth-L one-input hardness; T.depth <= G."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "The conclusion is the average original-law cellVisit event bounded by G/(mL)+G(2/3)^r with m=2^ℓ. coupledAvg samples an independent uniformly chosen I. The event is an unsplit cell encounter, not a conditional distribution.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+        "lean/QuarticQuery/LowerBound/Planted/Main.lean",
+        "lean/QuarticQuery/LowerBound/Planted/Heavy.lean"
+      ]
+    },
+    {
+      "id": "claim-tail",
+      "declaration": "QuarticQuery.Paper.classical_tail_parameters",
+      "file": "lean/QuarticQuery/Paper/ClassicalAsymptotics.lean",
+      "line_at_review": 139,
+      "source_file_sha256": "b156b061ecab3a011c31224f9ff0719d07a52e8e8eb86becbb18cb5c959c17af",
+      "ledger_statement": "G(2/3)^r <= (1/100) m^{2-20 log_2(3/2)} = o(1).",
+      "source_signature": "theorem classical_tail_parameters (k : ℕ) (hk : 1 ≤ k) :\n    (∀ t : ℕ,\n      (Gvalue (mValue t) (Lvalue k t) : ℝ) * ((2 : ℝ) / 3) ^ (40 * t) ≤\n        (1 / 100 : ℝ) *\n          (mValue t : ℝ) ^ (2 - 20 * Real.logb 2 ((3 : ℝ) / 2))) ∧\n    Tendsto (fun t : ℕ =>\n      (Gvalue (mValue t) (Lvalue k t) : ℝ) * ((2 : ℝ) / 3) ^ (40 * t))\n      atTop (nhds 0)",
+      "section_context": "namespace QuarticQuery.Paper; open Filter; all theorem variables appear in source_signature.",
+      "relation": "partial",
+      "route": "same",
+      "premises": [
+        "k >= 1 fixed; m=4^t and actual floored L and G as t varies."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "Contains the inequality against the exact logarithmic envelope and convergence of the left-hand tail. The displayed row literally also asserts the envelope is o(1); this is the separate classical_tail_envelope_tendsto, so this declaration by itself is partial for the complete row.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/ClassicalAsymptotics.lean",
+        "lean/QuarticQuery/Statement.lean"
+      ]
+    },
+    {
+      "id": "lem-2.2.i",
+      "declaration": "QuarticQuery.Paper.construction_lemma_2_2_i",
+      "file": "lean/QuarticQuery/Paper/ConstructionTests.lean",
+      "line_at_review": 22,
+      "source_file_sha256": "06f1b3bc883881351e5e9cfa9ba8777f2f907897e69275b507132cc01ba0dccb",
+      "ledger_statement": "For every input y and (i,s) in [m] x {0,1}^r: i wins at s iff all K_{k,m} tests pass, namely (a) X_i[b]=1 for each b; (b) for each j != i, X_j[p_{i,s,j}]=0; (c) for each h and each non-input gate, the claimed value equals the gate function of its predecessors, read from the transcript or from A_{i,h}; (d) for each h, claimed d=1 and claimed b=s_h. Each test is computed by a deterministic adaptive bit-query decision tree of depth at most max(3,l+1), which is l+1 for m>=4: a pointer test reads l pointer bits, then the one target bit they select, while gate tests read at most three fixed bits. A pointer test is not a function of a small fixed set of bits: it can depend on all l+m pointer and target coordinates.",
+      "source_signature": "theorem construction_lemma_2_2_i {κ : Type} {f : PartialBool κ} (C : Circuit κ)\n    (ℓ r : ℕ) (hC : CircuitRealises C f) :\n    (∀ (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) (s : Address r),\n      PaperWinsAt f C ℓ r x i s ↔\n        ∀ e : TestIndex ℓ r C.size, localTest C ℓ r x i s e = true) ∧\n    (∀ (i : Column ℓ) (s : Address r) (e : TestIndex ℓ r C.size),\n      (∀ x, (localTestTree C ℓ r i s e).eval x = localTest C ℓ r x i s e) ∧\n      (localTestTree C ℓ r i s e).depth ≤ max 3 (ℓ + 1))",
+      "section_context": "namespace QuarticQuery.Paper; all theorem variables appear in source_signature.",
+      "relation": "partial",
+      "route": "same",
+      "premises": [
+        "CircuitRealises C f, supplied by the construction."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "Proves exact all-input semantic win/local-test equivalence and common adaptive depth max(3,ℓ+1). Corrected row additionally requires physical-coordinate essentiality; the separate construction_pointer_every_physical_coordinate states it.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/ConstructionTests.lean",
+        "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+        "lean/QuarticQuery/Construction/LocalTests.lean"
+      ]
+    },
+    {
+      "id": "lem-2.2.i",
+      "declaration": "QuarticQuery.Paper.construction_pointer_every_physical_coordinate",
+      "file": "lean/QuarticQuery/Paper/ConstructionPointerSupport.lean",
+      "line_at_review": 79,
+      "source_file_sha256": "8a2d8befa3225ab54114492b35c5a326fc17bd8f0a5eaa9acba966c18db53938",
+      "ledger_statement": "For every input y and (i,s) in [m] x {0,1}^r: i wins at s iff all K_{k,m} tests pass, namely (a) X_i[b]=1 for each b; (b) for each j != i, X_j[p_{i,s,j}]=0; (c) for each h and each non-input gate, the claimed value equals the gate function of its predecessors, read from the transcript or from A_{i,h}; (d) for each h, claimed d=1 and claimed b=s_h. Each test is computed by a deterministic adaptive bit-query decision tree of depth at most max(3,l+1), which is l+1 for m>=4: a pointer test reads l pointer bits, then the one target bit they select, while gate tests read at most three fixed bits. A pointer test is not a function of a small fixed set of bits: it can depend on all l+m pointer and target coordinates.",
+      "source_signature": "theorem construction_pointer_every_physical_coordinate {κ : Type} (C : Circuit κ)\n    (ℓ r : ℕ) (i : Column ℓ) (s : Address r) (e : Fin (2 ^ ℓ - 1))\n    (q : Fin ℓ ⊕ Column ℓ) :\n    ∃ X Y : BitInput (BitLoc ℓ r C.size κ),\n      (∀ p, p ≠ constructionPointerLoc C ℓ r i s e q → X p = Y p) ∧\n        localTest C ℓ r X i s (.inr (.inl e)) ≠\n          localTest C ℓ r Y i s (.inr (.inl e))",
+      "section_context": "namespace QuarticQuery.Paper; all theorem variables appear in source_signature.",
+      "relation": "partial",
+      "route": "same",
+      "premises": [],
+      "open_assumptions": [],
+      "comparison_and_scope": "For each chosen physical pointer or target coordinate supplies two full BitLoc inputs agreeing away from that coordinate but with differing local-test outputs. This is the essential-support clause only, not the win-equivalence and evaluation-depth clauses.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/ConstructionPointerSupport.lean",
+        "lean/QuarticQuery/Paper/ConstructionTests.lean",
+        "lean/QuarticQuery/Construction/LocalTests.lean"
+      ]
+    },
+    {
+      "id": "lem-2.2.ii",
+      "declaration": "QuarticQuery.Paper.construction_lemma_2_2_ii",
+      "file": "lean/QuarticQuery/Paper/ConstructionCoherent.lean",
+      "line_at_review": 99,
+      "source_file_sha256": "5e5f5c2321e7c1ce23235e69e1f430fd951f13cc92b5a2d1b2d974aad0607cec",
+      "ledger_statement": "Each test is evaluated exactly with O(log m) bit queries, also coherently with the same bound with test indices in superposition. The number of tests and the indexing convention are the same for every (i,s).",
+      "source_signature": "theorem construction_lemma_2_2_ii {κ : Type} (C : Circuit κ) (ℓ r : ℕ)\n    (i : Column ℓ) (s : Address r) :\n    ∃ (Z : TestIndex ℓ r C.size → Type) (instZ : ∀ e, Fintype (Z e)),\n      let _ := instZ\n      ∃ (o : ∀ e, Z e) (out : ∀ e, Z e → Bool)\n        (F : ∀ e, BitInput (BitLoc ℓ r C.size κ) → Reg (Z e) ≃ₗᵢ[ℂ] Reg (Z e)),\n        (∀ e, IsCirc (max 3 (ℓ + 1)) (F e)) ∧\n        IsCirc (max 3 (ℓ + 1)) (fun x => sigmaOp fun e => F e x) ∧\n        (∀ (x : BitInput (BitLoc ℓ r C.size κ))\n            (a : TestIndex ℓ r C.size → ℂ) (e : TestIndex ℓ r C.size),\n          slice e (sigmaOp (fun e => F e x) (constructionIndexStart o a)) =\n            a e • F e x (rket (o e))) ∧\n        (∀ (x : BitInput (BitLoc ℓ r C.size κ))\n            (e : TestIndex ℓ r C.size) (z : Z e),\n          out e z ≠ localTest C ℓ r x i s e →\n            (F e x (rket (o e))).ofLp z = 0)",
+      "section_context": "namespace QuarticQuery.Paper; all theorem variables appear in source_signature.",
+      "relation": "partial",
+      "route": "same",
+      "premises": [],
+      "open_assumptions": [],
+      "comparison_and_scope": "Supplies coherent retained-workspace exact evaluation of arbitrary superpositions over a common test-index type for each fixed (i,s), at logical read cap max(3,ℓ+1). Physical bit-query compilation of those witnesses requires the separate construction_controlled_compile or construction_lemma_2_2_complete.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/ConstructionCoherent.lean",
+        "lean/QuarticQuery/Construction/LocalTests.lean",
+        "lean/QuarticQuery/Paper/ConstructionComplete.lean"
+      ]
+    },
+    {
+      "id": "lem-2.2.ii",
+      "declaration": "QuarticQuery.Paper.construction_lemma_2_2_complete",
+      "file": "lean/QuarticQuery/Paper/ConstructionComplete.lean",
+      "line_at_review": 28,
+      "source_file_sha256": "a79e9f0cdbf85df0e86605711fa6c8bde2a19cbe043c36302243b42a7f8fbc6c",
+      "ledger_statement": "Each test is evaluated exactly with O(log m) bit queries, also coherently with the same bound with test indices in superposition. The number of tests and the indexing convention are the same for every (i,s).",
+      "source_signature": "theorem construction_lemma_2_2_complete {k t : ℕ}\n    (C : Circuit (ForrelationCoord k t)) (A : ℕ) (ht : 1 ≤ t)\n    (hC : CircuitRealises C (P k t))\n    (hS : C.size ≤ A * mValue t * (2 * t) ^ 2) :\n    Fintype.card (TestIndex (2 * t) (40 * t) C.size) =\n      mValue t + (mValue t - 1) + 40 * t * (C.size + 2) ∧\n    Fintype.card (TestIndex (2 * t) (40 * t) C.size) ≤\n      (42 + 20 * A) * mValue t * (2 * t) ^ 3 ∧\n    (∀ (x : BitInput (Loc k t C)) (i : Column (2 * t)) (s : Address (40 * t)),\n      PaperWinsAt (P k t) C (2 * t) (40 * t) x i s ↔\n        ∀ e : TestIndex (2 * t) (40 * t) C.size,\n          localTest C (2 * t) (40 * t) x i s e = true) ∧\n    (∀ (i : Column (2 * t)) (s : Address (40 * t))\n        (e : TestIndex (2 * t) (40 * t) C.size),\n      (∀ x, (localTestTree C (2 * t) (40 * t) i s e).eval x =\n        localTest C (2 * t) (40 * t) x i s e) ∧\n      (localTestTree C (2 * t) (40 * t) i s e).depth ≤ 2 * t + 1) ∧\n    (∀ (i : Column (2 * t)) (s : Address (40 * t)),\n      ∃ (Z : TestIndex (2 * t) (40 * t) C.size → Type)\n        (instZ : ∀ e, Fintype (Z e)),\n        let _ := instZ\n        ∃ (o : ∀ e, Z e) (out : ∀ e, Z e → Bool)\n          (F : ∀ e, BitInput (Loc k t C) → Reg (Z e) ≃ₗᵢ[ℂ] Reg (Z e)),\n          (∀ e, IsCirc (max 3 (2 * t + 1)) (F e)) ∧\n          IsCirc (max 3 (2 * t + 1)) (fun x => sigmaOp fun e => F e x) ∧\n          (∀ (x : BitInput (Loc k t C))\n              (a : TestIndex (2 * t) (40 * t) C.size → ℂ)\n              (e : TestIndex (2 * t) (40 * t) C.size),\n            slice e (sigmaOp (fun e => F e x) (constructionIndexStart o a)) =\n              a e • F e x (rket (o e))) ∧\n          (∀ (x : BitInput (Loc k t C))\n              (e : TestIndex (2 * t) (40 * t) C.size) (z : Z e),\n            out e z ≠ localTest C (2 * t) (40 * t) x i s e →\n              (F e x (rket (o e))).ofLp z = 0) ∧\n          ∃ (w : ℕ) (emb : (Σ e, Z e) ↪ Fin (w + 1))\n            (P : AdaptiveProgram (Loc k t C) w → AdaptiveProgram (Loc k t C) w),\n            ∀ next, (P next).queryCap ≤ 2 * (2 * t + 1) + next.queryCap ∧\n              ∀ x ψ b, (P next).outputMass x (clEmb emb ψ) b =\n                next.outputMass x\n                  (clEmb emb (sigmaOp (fun e => F e x) ψ)) b)",
+      "section_context": "namespace QuarticQuery.Paper; open QuarticQuery.Upper; all theorem variables appear in source_signature.",
+      "relation": "stronger",
+      "route": "same",
+      "premises": [
+        "t >= 1; C realizes P k t; C.size <= A*mValue t*(2*t)^2 with A fixed for k."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "The theorem includes each fixed-candidate arbitrary test-index superposition, zero wrong output amplitude and physical compiler continuation with explicit 2(2t+1) query cap, beyond the coherent big-O claim in this individual row. It also contains the test count. Its lack of physical-coordinate support matters for the separate lem-2.2.i and combined lem-2.2 rows, not this row.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/ConstructionComplete.lean",
+        "lean/QuarticQuery/Paper/ConstructionTests.lean",
+        "lean/QuarticQuery/Paper/ConstructionCoherent.lean"
+      ]
+    },
+    {
+      "id": "def-aij",
+      "declaration": "QuarticQuery.Paper.quantumComparison_unordered_state",
+      "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+      "line_at_review": 230,
+      "source_file_sha256": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+      "ledger_statement": "For a fixed oracle input and a coherent comparison circuit, a_{ij} is the probability that i is reported as defeating j when the result is measured, using one circuit per unordered pair; a_{ii}=0.",
+      "source_signature": "theorem quantumComparison_unordered_state (hk : 1 ≤ k) (n : ℕ)\n    (i j : Col t) (hij : i ≠ j) :\n    ∃ (Z : Type) (_ : Fintype Z) (o : Z) (out : Z → Bool)\n      (F : BitInput (Loc k t C) → Reg Z ≃ₗᵢ[ℂ] Reg Z),\n      IsCirc (cmpCost k t n) F ∧\n      ∀ x b,\n        lawOf (F x (rket o)) out b = bern (cmpProb n x i j) b ∧\n        lawOf (F x (rket o)) (fun z => !(out z)) b = bern (cmpProb n x j i) b",
+      "section_context": "namespace QuarticQuery.Paper; open QuarticQuery.Upper QuarticQuery.Forrelation; variable {k t : ℕ} {C : Circuit (ForrelationCoord k t)}.",
+      "relation": "partial",
+      "route": "same",
+      "premises": [
+        "k ≥ 1; i ≠ j."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "Constructs one retained-workspace circuit and complementary output labels for the two ordered probabilities. The diagonal zero clause is a separate declaration.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/QuantumComparison.lean",
+        "lean/QuarticQuery/Upper/Columns.lean"
+      ]
+    },
+    {
+      "id": "eq-10",
+      "declaration": "QuarticQuery.Paper.quantumComparison_complementary",
+      "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+      "line_at_review": 198,
+      "source_file_sha256": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+      "ledger_statement": "a_{ij}+a_{ji}=1 for i != j, and a_{ii}=0.",
+      "source_signature": "theorem quantumComparison_complementary (n : ℕ)\n    (x : BitInput (Loc k t C)) (i j : Col t) (hij : i ≠ j) :\n    cmpProb n x i j + cmpProb n x j i = 1",
+      "section_context": "namespace QuarticQuery.Paper; open QuarticQuery.Upper QuarticQuery.Forrelation; variable {k t : ℕ} {C : Circuit (ForrelationCoord k t)}.",
+      "relation": "partial",
+      "route": "same",
+      "premises": [
+        "i ≠ j."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "Gives the complementarity equation on arbitrary input; self-zero is a separate declaration.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/QuantumComparison.lean",
+        "lean/QuarticQuery/Upper/Columns.lean",
+        "lean/QuarticQuery/Statement.lean"
+      ]
+    },
+    {
+      "id": "def-T-eps",
+      "declaration": "QuarticQuery.Paper.quantumTournament_parameters",
+      "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+      "line_at_review": 57,
+      "source_file_sha256": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
+      "ledger_statement": "For m>=2: T=ceil(log_2(1000m)), epsilon=1/(1000T).",
+      "source_signature": "theorem quantumTournament_parameters (m : ℕ) :\n    Tval m = Nat.clog 2 (1000 * m) ∧\n      epsval m = 1 / (1000 * (Tval m : ℝ))",
+      "section_context": "namespace QuarticQuery.Paper; open QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification; all theorem variables appear in signature.",
+      "relation": "exact",
+      "route": "none",
+      "premises": [
+        "Paper uses m ≥ 2; theorem is general."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "Defines T with the integer base-two ceiling logarithm and ε as its reciprocal formula.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+        "lean/QuarticQuery/Tournament/Ideal.lean"
+      ]
+    },
+    {
+      "id": "eq-11",
+      "declaration": "QuarticQuery.Paper.quantumDominant_iff",
+      "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+      "line_at_review": 63,
+      "source_file_sha256": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
+      "ledger_statement": "i_* is dominant if a_{i_* j} >= 1-epsilon for every j != i_*.",
+      "source_signature": "theorem quantumDominant_iff {Col : Type} (a : Col → Col → ℝ) (ε : ℝ) (s : Col) :\n    Dominant a ε s ↔ ∀ j, j ≠ s → 1 - ε ≤ a s j",
+      "section_context": "namespace QuarticQuery.Paper; open QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification; all theorem variables appear in signature.",
+      "relation": "exact",
+      "route": "none",
+      "premises": [],
+      "open_assumptions": [],
+      "comparison_and_scope": "Definitionally equates Dominant with the displayed all-distinct-opponent condition.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+        "lean/QuarticQuery/Tournament/Ideal.lean"
+      ]
+    },
+    {
+      "id": "def-ideal-process",
+      "declaration": "QuarticQuery.Tournament.expectFrom",
+      "file": "lean/QuarticQuery/Tournament/Ideal.lean",
+      "line_at_review": 42,
+      "source_file_sha256": "6f7379abfb1d9fb37d6ef7f0f25049893490aa717171c875feb97fca343ab8ef",
+      "ledger_statement": "Ideal process: w_i=1 for all i, W=sum_i w_i. While W>0 sample p with probability w_p/W, append p to the list, update by eq-12. If W=0, leave list and weights unchanged. Run T steps.",
+      "source_signature": "@[expose] noncomputable def expectFrom (a : ι → ι → ℝ) :\n    ℕ → List ι → ((ι → ℝ) → List ι → ℝ) → ℝ\n  | 0, L, g => g (weight a L) L\n  | T + 1, L, g =>\n      if total (weight a L) = 0 then expectFrom a T L g\n      else ∑ p, weight a L p / total (weight a L) * expectFrom a T (p :: L) g",
+      "section_context": "namespace QuarticQuery.Tournament; variable {ι : Type} [Fintype ι].",
+      "relation": "exact",
+      "route": "none",
+      "premises": [],
+      "open_assumptions": [],
+      "comparison_and_scope": "Recursive finite expectation starts at the history L, takes weight/total normalized pivots and leaves the state unchanged at total zero; use L=[] for paper initialization.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Tournament/Ideal.lean",
+        "lean/QuarticQuery/Tournament/Drift.lean"
+      ]
+    },
+    {
+      "id": "eq-12",
+      "declaration": "QuarticQuery.Tournament.weight",
+      "file": "lean/QuarticQuery/Tournament/Ideal.lean",
+      "line_at_review": 35,
+      "source_file_sha256": "6f7379abfb1d9fb37d6ef7f0f25049893490aa717171c875feb97fca343ab8ef",
+      "ledger_statement": "Update w_i <- w_i a_{ip} for all i in [m].",
+      "source_signature": "@[expose] def weight (a : ι → ι → ℝ) : List ι → ι → ℝ\n  | [], _ => 1\n  | p :: L, i => weight a L i * a i p",
+      "section_context": "namespace QuarticQuery.Tournament; variable {ι : Type} [Fintype ι], omitted automatically if unused.",
+      "relation": "exact",
+      "route": "none",
+      "premises": [],
+      "open_assumptions": [],
+      "comparison_and_scope": "Recursive definition starts every weight at one and appends a pivot by multiplication with a i p.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Tournament/Ideal.lean",
+        "lean/QuarticQuery/Tournament/Drift.lean"
+      ]
+    },
+    {
+      "id": "claim-expected-WT",
+      "declaration": "QuarticQuery.Tournament.expected_final_weight",
+      "file": "lean/QuarticQuery/Tournament/Ideal.lean",
+      "line_at_review": 212,
+      "source_file_sha256": "6f7379abfb1d9fb37d6ef7f0f25049893490aa717171c875feb97fca343ab8ef",
+      "ledger_statement": "The bound of eq-13 also holds when W=0, hence E[W_T] <= m/2^T.",
+      "source_signature": "theorem expected_final_weight {a : ι → ι → ℝ} (hc : IsComparison a) (ha : UnitValued a)\n    (T : ℕ) :\n    expectAfter a T (fun w _ => total w) ≤ (Fintype.card ι : ℝ) / 2 ^ T",
+      "section_context": "namespace QuarticQuery.Tournament; variable {ι : Type} [Fintype ι].",
+      "relation": "exact",
+      "route": "same",
+      "premises": [
+        "Comparisons are complementary and unit valued."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "Directly bounds expected total weight after T steps from the empty history by card ι / 2^T, including the zero absorbing case.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Tournament/Ideal.lean",
+        "lean/QuarticQuery/Tournament/Drift.lean"
+      ]
+    },
+    {
+      "id": "claim-weight-lb",
+      "declaration": "QuarticQuery.Paper.quantumWeight_lower",
+      "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+      "line_at_review": 98,
+      "source_file_sha256": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
+      "ledger_statement": "If i_* satisfies eq-11 and has not been selected in t<=T steps, then w_{i_*} >= (1-epsilon)^t >= 1-T epsilon > 1/2. Hence W>0 until it is selected.",
+      "source_signature": "theorem quantumWeight_lower {Col : Type} [Fintype Col]\n    {a : Col → Col → ℝ} {ε : ℝ} {s : Col} (ha : UnitValued a)\n    (hε0 : 0 ≤ ε) (hε1 : ε ≤ 1) (hd : Dominant a ε s)\n    {T : ℕ} (hT : (T : ℝ) * ε < 1 / 2) (L : List Col)\n    (hL : L.length ≤ T) (hs : s ∉ L) :\n    (1 - ε) ^ L.length ≤ weight a L s ∧\n    1 - (T : ℝ) * ε ≤ (1 - ε) ^ L.length ∧\n    1 / 2 < weight a L s ∧ 0 < total (weight a L)",
+      "section_context": "namespace QuarticQuery.Paper; open QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification; all theorem variables appear in signature.",
+      "relation": "exact",
+      "route": "same",
+      "premises": [
+        "Comparison values in [0,1], dominant candidate, 0 ≤ ε ≤ 1 and T ε < 1/2, candidate absent from history of length ≤ T."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "States the full power, Bernoulli, half and positive-total chain.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+        "lean/QuarticQuery/Tournament/Ideal.lean"
+      ]
+    },
+    {
+      "id": "eq-14",
+      "declaration": "QuarticQuery.Tournament.ideal_miss_le",
+      "file": "lean/QuarticQuery/Tournament/Ideal.lean",
+      "line_at_review": 263,
+      "source_file_sha256": "6f7379abfb1d9fb37d6ef7f0f25049893490aa717171c875feb97fca343ab8ef",
+      "ledger_statement": "Pr[i_* absent from the ideal list] <= Pr[W_T >= 1/2] <= 2m/2^T.",
+      "source_signature": "theorem ideal_miss_le {a : ι → ι → ℝ} {ε : ℝ} {s : ι}\n    (hc : IsComparison a) (ha : UnitValued a) (hε0 : 0 ≤ ε) (hε : ε ≤ 1)\n    (hd : Dominant a ε s) {T : ℕ} (hT : (T : ℝ) * ε < 1 / 2) :\n    prob a T (fun _ l => s ∉ l) ≤ prob a T (fun w _ => 1 / 2 ≤ total w) ∧\n      prob a T (fun w _ => 1 / 2 ≤ total w) ≤ 2 * (Fintype.card ι : ℝ) / 2 ^ T",
+      "section_context": "namespace QuarticQuery.Tournament; variable {ι : Type} [Fintype ι] [DecidableEq ι].",
+      "relation": "exact",
+      "route": "same",
+      "premises": [
+        "Comparison and unit-valued laws; dominant candidate; 0 ≤ ε ≤ 1 and T ε < 1/2."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "Contains both inequalities of the exact absent-candidate/large-weight chain.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Tournament/Ideal.lean",
+        "lean/QuarticQuery/Tournament/Drift.lean"
+      ]
+    },
+    {
+      "id": "construct-sampler",
+      "declaration": "QuarticQuery.Paper.quantumTensorStage_of_samples",
+      "file": "lean/QuarticQuery/Paper/QuantumTensor.lean",
+      "line_at_review": 328,
+      "source_file_sha256": "7a2f03d6ae2d8d3ff2af9837f6cb1e1f1f3d5b4983dc34e753792621443835ac",
+      "ledger_statement": "Given pivots p_1,...,p_t with t<T: prepare uniform |i> over [m], compare i with each pivot in a fresh workspace, set the success bit iff every comparison says i defeats its pivot, keeping all garbage. Apply lem-3.1 with gamma=1/(2m), eta=epsilon. On failure stop and return the accumulated list; otherwise measure the index, append, and continue for at most T stages.",
+      "source_signature": "theorem quantumTensorStage_of_samples {ι Col : Type} [Fintype Col] [Nonempty Col]\n    {c : ℕ} {a : BitInput ι → Col → Col → ℝ}\n    (hcmp : ∀ i j, Samples c fun x b => bern (a x i j) b)\n    (p : ℕ → Col) (t : ℕ) :\n    ∃ L : BitInput ι → Option Col → ℝ,\n      Samples (t * c) L ∧\n      ∀ x i, L x (some i) =\n        (∏ b ∈ Finset.range t, a x i (p b)) / Fintype.card Col",
+      "section_context": "namespace QuarticQuery.Paper; open relevant Upper and tensor namespaces; theorem binds all displayed variables.",
+      "relation": "partial",
+      "route": "same",
+      "premises": [
+        "Finite nonempty candidates and a coherent Samples witness for each comparison."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "Builds a coherent sampled stage with exact joint success-index law; it does not by itself provide amplification, stop-on-failure, bounded list execution, or literal uniform tensor state.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/QuantumTensor.lean",
+        "lean/QuarticQuery/Upper/Sampler.lean",
+        "lean/QuarticQuery/Paper/QuantumTournament.lean"
+      ]
+    },
+    {
+      "id": "eq-15",
+      "declaration": "QuarticQuery.Paper.equation_15",
+      "file": "lean/QuarticQuery/Paper/QuantumTensor.lean",
+      "line_at_review": 120,
+      "source_file_sha256": "7a2f03d6ae2d8d3ff2af9837f6cb1e1f1f3d5b4983dc34e753792621443835ac",
+      "ledger_statement": "Pre-success state: m^{-1/2} sum_{i=1}^m |i> tensor_{b=1}^t |phi(i,p_b)>.",
+      "source_signature": "theorem equation_15 {ι Col Z : Type} [Fintype Col] [Nonempty Col] [Fintype Z]\n    {c : ℕ} (o : Z)\n    (F : Col → Col → BitInput ι → Reg Z ≃ₗᵢ[ℂ] Reg Z)\n    (hF : ∀ i j, IsCirc c (F i j)) (p : ℕ → Col) (t : ℕ) :\n    ∃ (i₀ : Col)\n      (A : BitInput ι → Reg (Σ _ : Col, TensorBasis Z t) ≃ₗᵢ[ℂ]\n        Reg (Σ _ : Col, TensorBasis Z t)),\n      IsCirc (t * c) A ∧\n      ∀ x i, slice i (A x (rket (⟨i₀, tensorOrigin o t⟩ :\n          Σ _ : Col, TensorBasis Z t))) =\n        (((Real.sqrt ((Fintype.card Col : ℝ)⁻¹) : ℝ) : ℂ) •\n          tensorVector (fun b => F i (p b) x (rket o)) t)",
+      "section_context": "namespace QuarticQuery.Paper; theorem binds finite candidate and workspace types and circuit witnesses.",
+      "relation": "exact",
+      "route": "same",
+      "premises": [
+        "Common finite workspace and fixed initial label; each comparison F i j has logical read cap c."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "For every input and candidate, the slice of the single prepared state is exactly the specified uniform scalar times tensor of fresh comparison states; IsCirc budget t*c is explicit.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/QuantumTensor.lean",
+        "lean/QuarticQuery/Upper/Sampler.lean"
+      ]
+    },
+    {
+      "id": "claim-success-prob",
+      "declaration": "QuarticQuery.Paper.quantumStage_success",
+      "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+      "line_at_review": 158,
+      "source_file_sha256": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
+      "ledger_statement": "Conditional on index i the success probability is prod_{b=1}^t a_{i p_b} = w_i (empty product 1). Total success probability is W/m, and conditional on success the index has law w_i/W exactly.",
+      "source_signature": "theorem quantumStage_success {Col : Type} [Fintype Col] [Nonempty Col]\n    (a : Col → Col → ℝ) (ha : UnitValued a)\n    (L : List Col) (hW : 0 < total (weight a L)) :\n    (∀ o, 0 ≤ stageLaw a L o) ∧\n    (∑ o, stageLaw a L o) = 1 ∧\n    (0 < ∑ i, stageLaw a L (some i)) ∧\n    (∀ i, stageLaw a L (some i) = weight a L i / Fintype.card Col) ∧\n    (∑ i, stageLaw a L (some i)) = total (weight a L) / Fintype.card Col ∧\n    (∀ i, stageLaw a L (some i) / (∑ j, stageLaw a L (some j)) =\n      weight a L i / total (weight a L))",
+      "section_context": "namespace QuarticQuery.Paper; open QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification; all theorem variables appear in signature.",
+      "relation": "exact",
+      "route": "same",
+      "premises": [
+        "Nonempty finite candidates; comparisons unit-valued; total weight positive for conditioning."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "Contains normalization, all joint successful-index masses, total success W/m and exact conditional law. Weight is defined as product along the pivot list.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+        "lean/QuarticQuery/Tournament/Ideal.lean",
+        "lean/QuarticQuery/Upper/Tournament.lean"
+      ]
+    },
+    {
+      "id": "claim-coupling",
+      "declaration": "QuarticQuery.Paper.quantumList_coupling",
+      "file": "lean/QuarticQuery/Paper/QuantumTournament.lean",
+      "line_at_review": 175,
+      "source_file_sha256": "8cf87e74aa0364c9bc6b9078ff62e88c45d297625166fe31a8efeea765a34adf",
+      "ledger_statement": "Until i_* is first selected, W/m >= 1/(2m), so at each such history the sampler fails with probability <=epsilon and otherwise follows the exact ideal pivot law. The real list contains i_* except with probability <= 2m/2^T + T epsilon.",
+      "source_signature": "theorem quantumList_coupling (ha : UnitValued a) (hv : ∀ c, 0 ≤ v c ∧ v c ≤ 1)\n    (hf : ∀ L, 0 ≤ f L ∧ f L ≤ 1) (hz : ∀ L, total (weight a L) = 0 → f L = 1) {s : Col}\n    {ε : ℝ} (hε0 : 0 ≤ ε) (hε1 : ε ≤ 1) (hd : Dominant a ε s) (hvs : v s = 1) {T₀ : ℕ}\n    (hT : (T₀ : ℝ) * ε < 1 / 2) (hfail : ∀ L : List Col, L.length ≤ T₀ → s ∉ L → f L ≤ ε)\n    (T : ℕ) (L : List Col) (hL : L.length + T ≤ T₀) :\n    1 - missFrom a s T L - T * ε ≤ tval a v f T L",
+      "section_context": "namespace QuarticQuery.Paper; variable {Col : Type} [Fintype Col] [DecidableEq Col] {a : Col → Col → ℝ} {v : Col → ℝ} {f : List Col → ℝ}.",
+      "relation": "partial",
+      "route": "same",
+      "premises": [
+        "Unit-valued comparison and verifier, bounded failure law, dominant candidate, T₀ ε < 1/2 and error bound for histories without the candidate."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "Provides the induction/coupling inequality under an explicit per-history failure hypothesis. The row also states why the physical sampler meets that hypothesis and the final specialized probability, supplied separately.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/QuantumTournament.lean",
+        "lean/QuarticQuery/Tournament/Ideal.lean",
+        "lean/QuarticQuery/Upper/Tournament.lean"
+      ]
+    },
+    {
+      "id": "claim-tournament-cost",
+      "declaration": "QuarticQuery.Paper.quantumTournament_cost",
+      "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+      "line_at_review": 238,
+      "source_file_sha256": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
+      "ledger_statement": "Stage t uses O(c(t+1)) queries per call; lem-3.1 uses O(sqrt(m) log(1/epsilon)) calls; the sum over t<T is O(c sqrt(m) T^2 log T), a fixed cap on every branch.",
+      "source_signature": "theorem quantumTournament_cost {m : ℕ} (hm : 2 ≤ m) (cc : ℕ) :\n    ((Tval m * stageCost m (Tval m) cc (epsval m) : ℕ) : ℝ) ≤\n      6072 * (cc : ℝ) * Real.sqrt (m : ℝ) *\n        (Tval m : ℝ) ^ 2 * Real.log (Tval m : ℝ)",
+      "section_context": "namespace QuarticQuery.Paper; open QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification; all theorem variables appear in signature.",
+      "relation": "partial",
+      "route": "same",
+      "premises": [
+        "m ≥ 2."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "Explicit 6072 upper bound for the assembled padded budget; the row also states per-stage construction and amplification accounting, separate ingredients.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+        "lean/QuarticQuery/Upper/Tournament.lean"
+      ]
+    },
+    {
+      "id": "prop-3.2",
+      "declaration": "QuarticQuery.Paper.quantumTournament",
+      "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+      "line_at_review": 287,
+      "source_file_sha256": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
+      "ledger_statement": "Let m>=2, T=ceil(log_2(1000m)), epsilon=1/(1000T). For a coherent comparison circuit controlled by two candidate indices, reversible with all workspace retained, using at most c>=1 bit queries, with probabilities a_{ij} satisfying eq-10, there is a quantum algorithm making O(c sqrt(m) T^2 log T) queries on every branch and returning a list of at most T candidates such that, for every fixed oracle input and every i_* satisfying eq-11, the list contains i_* with probability >= 1-2m/2^T-T epsilon.",
+      "source_signature": "theorem quantumTournament {ι Col : Type} [Fintype ι] [Inhabited ι]\n    [Fintype Col] [DecidableEq Col] {cc : ℕ} {a : BitInput ι → Col → Col → ℝ}\n    (hm : 2 ≤ Fintype.card Col) (hc : ∀ x, IsComparison (a x))\n    (hcmp : ∀ i p, Samples cc fun x b => bern (a x i p) b) :\n    let m := Fintype.card Col\n    let T := Tval m\n    let ε := epsval m\n    ∃ C : ℕ, ∃ law : BitInput ι → QuantumCandidateList Col T → ℝ,\n      (C : ℝ) ≤ 6072 * (cc : ℝ) * Real.sqrt (m : ℝ) *\n        (T : ℝ) ^ 2 * Real.log (T : ℝ) ∧\n      Samples (T * quantumStageReads m T cc ε) law ∧\n      Runs C law ∧\n      (∀ x o, 0 ≤ law x o) ∧\n      (∀ x, ∑ o, law x o = 1) ∧\n      ∀ x s, Dominant (a x) ε s →\n        1 - 2 * (m : ℝ) / 2 ^ T - T * ε ≤\n          ∑ o : QuantumCandidateList Col T, if s ∈ o.1 then law x o else 0",
+      "section_context": "namespace QuarticQuery.Paper; open QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification; all theorem variables appear in signature.",
+      "relation": "stronger",
+      "route": "same",
+      "premises": [
+        "At least two candidates, comparison laws satisfying IsComparison and uniform coherent Samples cap."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "One bounded-list law with logical Samples witness, physical Runs witness, normalization, candidate inclusion inequality and explicit 6072 cap; law and budget are chosen before input and dominant candidate.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+        "lean/QuarticQuery/Paper/QuantumTournament.lean",
+        "lean/QuarticQuery/Upper/Sampler.lean"
+      ]
+    },
+    {
+      "id": "def-decode",
+      "declaration": "QuarticQuery.Paper.quantumDecode",
+      "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+      "line_at_review": 33,
+      "source_file_sha256": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+      "ledger_statement": "decode(i): run the algorithm of lem-2.1.ii on each A_{i,h}, h in [r], with error <= epsilon/r, retaining workspace. Output a string in {0,1}^r on every input.",
+      "source_signature": "theorem quantumDecode (hk : 1 ≤ k) (n : ℕ) (i : Col t) :\n    Samples (addrCost k t n) fun (x : BitInput (Loc k t C)) s =>\n      addrLaw n x i s",
+      "section_context": "namespace QuarticQuery.Paper; open QuarticQuery.Upper QuarticQuery.Forrelation; variable {k t : ℕ} {C : Circuit (ForrelationCoord k t)}.",
+      "relation": "partial",
+      "route": "same",
+      "premises": [
+        "k ≥ 1."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "Supplies a coherent Samples witness for the product address law with all outputs in Addr; per-coordinate low-error and target error guarantees are separate.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/QuantumComparison.lean",
+        "lean/QuarticQuery/Upper/Columns.lean"
+      ]
+    },
+    {
+      "id": "claim-decode-cost",
+      "declaration": "QuarticQuery.Paper.quantumDecode_correct",
+      "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+      "line_at_review": 54,
+      "source_file_sha256": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+      "ledger_statement": "decode uses O_k(r log(r/epsilon)) = (log m)^{O_k(1)} queries. If all r instances are defined, the address is correct with probability >=1-epsilon. Otherwise it still returns some address.",
+      "source_signature": "theorem quantumDecode_correct (hk : 1 ≤ k) (ht : 1 ≤ t)\n    {n : ℕ} {ε : ℝ} (hε : 0 < ε) (hε1 : ε ≤ 1)\n    (hn : repetitions k (ε / (40 * t : ℕ)) ≤ n)\n    {x : BitInput (Loc k t C)} {i : Col t} {s : Addr t}\n    (hs : ∀ h, P k t (readA x i h) = some (s h)) :\n    1 - ε ≤ addrLaw n x i s",
+      "section_context": "namespace QuarticQuery.Paper; open QuarticQuery.Upper QuarticQuery.Forrelation; variable {k t : ℕ} {C : Circuit (ForrelationCoord k t)}.",
+      "relation": "partial",
+      "route": "same",
+      "premises": [
+        "k,t ≥ 1; 0 < ε ≤ 1; enough repetitions; all address instances promised with answers s."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "Proves correct-address probability ≥1−ε. Query bounds and total address law are separate.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/QuantumComparison.lean",
+        "lean/QuarticQuery/Upper/Columns.lean"
+      ]
+    },
+    {
+      "id": "def-comparison",
+      "declaration": "QuarticQuery.Paper.quantumComparison_sorted",
+      "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+      "line_at_review": 188,
+      "source_file_sha256": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+      "ledger_statement": "Comparison of distinct columns, in sorted order: decode each in separate workspaces; read each column's pointer towards the other at its decoded address and inspect the pointed bit of the other's X string. A column disqualifies its opponent if that bit is 0. If exactly one disqualifies the other it is victorious, otherwise the smaller index. A self-comparison returns false without reading a pointer.",
+      "source_signature": "theorem quantumComparison_sorted (n : ℕ) (x : BitInput (Loc k t C))\n    (i j : Col t) (hij : i < j) :\n    cmpProb n x i j =\n      ∑ s₁, addrLaw n x i s₁ * ∑ s₂, addrLaw n x j s₂ *\n        (if firstWins (disq x i s₁ j hij.ne')\n          (disq x j s₂ i hij.ne) then (1 : ℝ) else 0)",
+      "section_context": "namespace QuarticQuery.Paper; open QuarticQuery.Upper QuarticQuery.Forrelation; variable {k t : ℕ} {C : Circuit (ForrelationCoord k t)}.",
+      "relation": "partial",
+      "route": "same",
+      "premises": [
+        "i < j."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "Gives exact smaller-index outcome law as a sum over decoded addresses and the disqualification rule. The self case, physical circuit, and exact definition of the tie-breaking rule are separate.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/QuantumComparison.lean",
+        "lean/QuarticQuery/Upper/Columns.lean"
+      ]
+    },
+    {
+      "id": "claim-comparison-state",
+      "declaration": "QuarticQuery.Paper.quantumComparison_state",
+      "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+      "line_at_review": 218,
+      "source_file_sha256": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+      "ledger_statement": "The comparison uses c=(log m)^{O_k(1)} queries; its reversal costs the same. Measurement probabilities agree with the classical description, since later operations are controlled on the decoded registers in the computational basis. The resulting a_{ij} satisfy eq-10.",
+      "source_signature": "theorem quantumComparison_state (hk : 1 ≤ k) (n : ℕ) (i j : Col t) :\n    ∃ (Z : Type) (_ : Fintype Z) (o : Z) (out : Z → Bool)\n      (F : BitInput (Loc k t C) → Reg Z ≃ₗᵢ[ℂ] Reg Z),\n      IsCirc (cmpCost k t n) F ∧\n      IsCirc (cmpCost k t n) (fun x => (F x).symm) ∧\n      ∀ x b, lawOf (F x (rket o)) out b = bern (cmpProb n x i j) b",
+      "section_context": "namespace QuarticQuery.Paper; open QuarticQuery.Upper QuarticQuery.Forrelation; variable {k t : ℕ} {C : Circuit (ForrelationCoord k t)}.",
+      "relation": "partial",
+      "route": "same",
+      "premises": [
+        "k ≥ 1."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "Provides retained-workspace coherent circuit, its equal-budget inverse and its measured Bernoulli law. Polylog query estimate and complementarity are separate.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/QuantumComparison.lean",
+        "lean/QuarticQuery/Upper/Columns.lean"
+      ]
+    },
+    {
+      "id": "def-verify",
+      "declaration": "QuarticQuery.Paper.quantumVerify_fixedAddress",
+      "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+      "line_at_review": 344,
+      "source_file_sha256": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+      "ledger_statement": "verify(i): decode and measure an address s afresh. Let A prepare a uniform test index and an exact failing-test flag at (i,s), with K tests. Apply lem-3.1 with gamma=1/K and eta=epsilon. Reject if a failed test is found, otherwise accept. Output 1 iff some listed candidate is accepted.",
+      "source_signature": "theorem quantumVerify_fixedAddress (i : Col t) (s : Addr t)\n    {ε : ℝ} (hε : 0 < ε) :\n    ∃ f : BitInput (Loc k t C) → ℝ,\n      (∀ x, 0 ≤ f x ∧ f x ≤ 1) ∧\n      (∀ x e, localTest C (2 * t) (40 * t) x i s e = false → f x ≤ ε) ∧\n      (∀ x, (∀ e, localTest C (2 * t) (40 * t) x i s e = true) → f x = 1) ∧\n      Runs (searchCost t (Fintype.card (Tests t C)) ε) fun x b => bern (f x) b",
+      "section_context": "namespace QuarticQuery.Paper; open QuarticQuery.Upper QuarticQuery.Forrelation; variable {k t : ℕ} {C : Circuit (ForrelationCoord k t)}.",
+      "relation": "partial",
+      "route": "same",
+      "premises": [
+        "ε > 0."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "Constructs a fixed-address physical search witness with exact success on all passing tests and error bound when a test fails. Fresh address decoding and list verification are separate.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/QuantumComparison.lean",
+        "lean/QuarticQuery/Upper/Verify.lean"
+      ]
+    },
+    {
+      "id": "claim-verify",
+      "declaration": "QuarticQuery.Paper.quantumVerify",
+      "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+      "line_at_review": 498,
+      "source_file_sha256": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+      "ledger_statement": "A non-winner is accepted with probability <=epsilon, at every address. A true winner is rejected with probability <=epsilon, only by decoding error. Verification costs O(sqrt(K) log(1/epsilon) log m) = sqrt(m)(log m)^{O_k(1)} queries for the search, plus decoding.",
+      "source_signature": "theorem quantumVerify (hk : 1 ≤ k) (ht : 1 ≤ t)\n    (hC : CircuitRealises C (P k t)) {n : ℕ} {ε : ℝ}\n    (hε : 0 < ε) (hε1 : ε ≤ 1)\n    (hn : repetitions k (ε / (40 * t : ℕ)) ≤ n) :\n    ∃ v : BitInput (Loc k t C) → Col t → ℝ,\n      (∀ c, Runs (2 * addrCost k t n + searchCost t (Fintype.card (Tests t C)) ε)\n        fun x b => bern (v x c) b) ∧\n      (∀ x c, 0 ≤ v x c ∧ v x c ≤ 1) ∧\n      (∀ x c, (¬ ∃ s, WinsAt (P k t) C (2 * t) (40 * t) x c s) → v x c ≤ ε) ∧\n      (∀ x c s, WinsAt (P k t) C (2 * t) (40 * t) x c s → 1 - ε ≤ v x c)",
+      "section_context": "namespace QuarticQuery.Paper; open QuarticQuery.Upper QuarticQuery.Forrelation; variable {k t : ℕ} {C : Circuit (ForrelationCoord k t)}.",
+      "relation": "partial",
+      "route": "same",
+      "premises": [
+        "k,t ≥ 1; realizing circuit; 0 < ε ≤ 1; prescribed repetitions."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "Supplies a bounded physical verifier and both winner/nonwinner guarantees. It states the symbolic searchCost plus decoder cost; the explicit asymptotic bound is separate.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/QuantumComparison.lean",
+        "lean/QuarticQuery/Upper/Verify.lean",
+        "lean/QuarticQuery/Upper/Columns.lean"
+      ]
+    },
+    {
+      "id": "claim-error",
+      "declaration": "QuarticQuery.Paper.quantumError_bound",
+      "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+      "line_at_review": 539,
+      "source_file_sha256": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+      "ledger_statement": "On a 0-input the error is at most T epsilon. On a 1-input it is at most 2m/2^T + T epsilon + epsilon < 1/3.",
+      "source_signature": "theorem quantumError_bound (hk : 1 ≤ k) (ht : 1 ≤ t)\n    (hC : CircuitRealises C (P k t)) {n : ℕ}\n    (hn : repetitions k (epsval (mValue t) / (40 * t : ℕ)) ≤ n) :\n    ∃ val : BitInput (Loc k t C) → ℝ,\n      Runs (budget k t n (Fintype.card (Tests t C)))\n        (fun x b => bern (val x) b) ∧\n      (∀ x, Fkm k t C x = false →\n        val x ≤ (Tval (mValue t) : ℝ) * epsval (mValue t)) ∧\n      (∀ x, Fkm k t C x = true →\n        1 - val x ≤ 2 * (mValue t : ℝ) / 2 ^ Tval (mValue t) +\n          (Tval (mValue t) : ℝ) * epsval (mValue t) + epsval (mValue t))",
+      "section_context": "namespace QuarticQuery.Paper; open QuarticQuery.Upper QuarticQuery.Forrelation; variable {k t : ℕ} {C : Circuit (ForrelationCoord k t)}.",
+      "relation": "partial",
+      "route": "same",
+      "premises": [
+        "k,t ≥ 1; realizing circuit; enough decoder repetitions."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "States the zero-input and one-input error inequalities for one fixed physical program. Strict <1/3 numeric bound is a separate declaration.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/QuantumComparison.lean",
+        "lean/QuarticQuery/Upper/Tournament.lean"
+      ]
+    },
+    {
+      "id": "claim-coherent-access",
+      "declaration": "QuarticQuery.Paper.quantum_coherent_tree",
+      "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+      "line_at_review": 413,
+      "source_file_sha256": "95d89237e766b59ffdd52f1324e440e2127b06353b2c8de2482b9f55c4adb30b",
+      "ledger_statement": "All superposed array accesses are ordinary bit queries. The global bit index is computed reversibly; a pointer is read in O(log m) queries; a controlled query uses load, use, unload, two queries.",
+      "source_signature": "theorem quantum_coherent_tree {ι : Type} [Nonempty ι] (T : QueryTree ι) :\n    Samples T.depth (fun (x : BitInput ι) b => pt (T.eval x) b)",
+      "section_context": "namespace QuarticQuery.Paper; open QuarticQuery.Amplification QuarticQuery.Upper.",
+      "relation": "partial",
+      "route": "same",
+      "premises": [
+        "Nonempty input-coordinate type."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "Gives coherent exact sampling at logical decision-tree depth; ordinary bit-oracle loading and unloading and the pointer bound are separate declarations.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+        "lean/QuarticQuery/Upper/Sampler.lean"
+      ]
+    },
+    {
+      "id": "def-value-V",
+      "declaration": "QuarticQuery.Paper.classicalTranscriptValue",
+      "file": "lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+      "line_at_review": 387,
+      "source_file_sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+      "ledger_statement": "With q_h queries already made to U_h, V_h(tau) is the largest success probability for computing P(U_h) under its conditional law given tau using at most L-q_h further queries.",
+      "source_signature": "noncomputable def classicalTranscriptValue (f : PartialBool κ)\n    (μ : Fin r → BitInput κ → ℝ) (τ : ClassicalTranscript r κ)\n    (L : ℕ) (h : Fin r) : ℝ :=\n  classicalValue f (L - classicalQueriesTo τ h) (classicalTranscriptWeight μ τ h)",
+      "section_context": "namespace QuarticQuery.Paper; variable {κ : Type} [Fintype κ] [DecidableEq κ] {r : ℕ}.",
+      "relation": "partial",
+      "route": "same",
+      "premises": [],
+      "open_assumptions": [],
+      "comparison_and_scope": "Defines the normalized weighted continuation optimum with remaining budget L minus the counted transcript queries. Attainment and maximality are separate source theorems, so definition alone only partially covers the row.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "lean/QuarticQuery/LowerBound/DirectProduct.lean"
+      ]
+    },
+    {
+      "id": "claim-supermartingale",
+      "declaration": "QuarticQuery.Paper.classical_transcript_conditional_expectation",
+      "file": "lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+      "line_at_review": 615,
+      "source_file_sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+      "ledger_statement": "E[prod_j V_j(tau') | tau] <= prod_j V_j(tau). The product is a supermartingale over at most rL queries.",
+      "source_signature": "theorem classical_transcript_conditional_expectation {β : Type}\n    (T : OutTree (Fin r × κ) β) (f : PartialBool κ)\n    {μ : Fin r → BitInput κ → ℝ} (hμ : ∀ j x, 0 ≤ μ j x)\n    (τ : ClassicalTranscript r κ) (L : ℕ) (h : Fin r) (q : κ)\n    (hm : 0 < ∑ V : Fin r → BitInput κ,\n      if classicalPrefix T τ V then ∏ j, μ j (V j) else 0)\n    (hc : classicalQueriesTo τ h < L) :\n    (∑ U : Fin r → BitInput κ,\n      ((if classicalPrefix T τ U then ∏ j, μ j (U j) else 0) /\n        (∑ V : Fin r → BitInput κ,\n          if classicalPrefix T τ V then ∏ j, μ j (V j) else 0)) *\n        (∏ j, classicalTranscriptValue f μ (τ ++ [((h, q), U h q)]) L j)) ≤\n      ∏ j, classicalTranscriptValue f μ τ L j",
+      "section_context": "namespace QuarticQuery.Paper; variable {κ : Type} [Fintype κ] [DecidableEq κ] {r : ℕ}.",
+      "relation": "partial",
+      "route": "same",
+      "premises": [
+        "Nonnegative input priors; actual transcript has positive mass; proposed target has budget remaining."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "States the one-step conditional product inequality in the actual transcript law. Finite iteration over all rL queries is a separate theorem.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "lean/QuarticQuery/LowerBound/DirectProduct.lean"
+      ]
+    },
+    {
+      "id": "lem-4.1",
+      "declaration": "QuarticQuery.Paper.classical_direct_product_average",
+      "file": "lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+      "line_at_review": 902,
+      "source_file_sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+      "ledger_statement": "Let P:D->{0,1}, D subset {0,1}^n, mu a distribution on D, L a nonnegative integer. Suppose every deterministic algorithm making at most L queries computes P under mu with success probability <=beta. If U_1,...,U_r are iid mu, every classical algorithm making at most L queries to each U_h, possibly randomized, adaptive among the r inputs, and given arbitrary additional information independent of (U_1,...,U_r), outputs (P(U_1),...,P(U_r)) with probability <=beta^r.",
+      "source_signature": "theorem classical_direct_product_average {S : Type} [Fintype S]\n    {f : PartialBool κ} {μ : BitInput κ → ℝ} {L : ℕ} {β : ℝ}\n    (hμ : ∀ x, 0 ≤ μ x) (hμ1 : classicalMass μ = 1)\n    (hard : ∀ T : QueryTree κ, T.depth ≤ L → treeSuccess f μ T ≤ β)\n    {p : S → ℝ} (hp : ∀ s, 0 ≤ p s) (hp1 : ∑ s, p s = 1)\n    (T : S → OutTree (Fin r × κ) (Fin r → Bool))\n    (hT : ∀ s, (T s).capped fun _ => L) :\n    ∑ s, p s * guessSuccess f (fun _ => μ) (T s) ≤ β ^ r",
+      "section_context": "namespace QuarticQuery.Paper; variable {κ : Type} [Fintype κ] [DecidableEq κ] {r : ℕ}.",
+      "relation": "partial",
+      "route": "same",
+      "premises": [
+        "Normalized nonnegative μ; depth-L one-input hardness; finite normalized seed type S; every branch separately capped."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "The proof is an adaptive conditional-value route with finite seed averaging. It does not itself quantify arbitrary external independent information or provide probability-space pushforward.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "lean/QuarticQuery/LowerBound/DirectProduct.lean"
+      ]
+    },
+    {
+      "id": "claim-address-guess",
+      "declaration": "QuarticQuery.address_guess_average",
+      "file": "lean/QuarticQuery/LowerBound/Minimax.lean",
+      "line_at_review": 188,
+      "source_file_sha256": "d235fef08374ca71229f5a2a5985e1bb0c60e3ec39a0ad2b1a13b286df9c194e",
+      "ledger_statement": "Under mu from claim-minimax-mu, for U_1,...,U_r iid mu, every classical algorithm making at most L queries to each U_h, given information independent of (U_1,...,U_r), outputs (P(U_1),...,P(U_r)) with probability <=(2/3)^r.",
+      "source_signature": "theorem address_guess_average {S : Type} [Fintype S] {f : PartialBool κ} {μ : BitInput κ → ℝ}\n    {L r : ℕ} (hμ : ∀ x, 0 ≤ μ x)\n    (hard : ∀ T : QueryTree κ, T.depth ≤ L → treeSuccess f μ T ≤ 2 / 3)\n    {p : S → ℝ} (hp : ∀ s, 0 ≤ p s) (hp1 : ∑ s, p s = 1)\n    (T : S → OutTree (Fin r × κ) (Fin r → Bool)) (hT : ∀ s, (T s).capped fun _ => L) :\n    ∑ s, p s * guessSuccess f (fun _ => μ) (T s) ≤ (2 / 3) ^ r",
+      "section_context": "namespace QuarticQuery; inspect local section variables and the complete type in source signature.",
+      "relation": "partial",
+      "route": "same",
+      "premises": [
+        "Finite seed and independent outside data type with their weights, capped algorithms and given single-instance hardness."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "Supplies a finite-mixture version of the address-guessing bound. The row states arbitrary independent information; no probability-space-to-finite-behavior pushforward is part of this declaration.",
+      "inspected_sources": [
+        "lean/QuarticQuery/LowerBound/Minimax.lean",
+        "lean/QuarticQuery/Paper/ClassicalDirectProduct.lean"
+      ]
+    },
+    {
+      "id": "prop-3.3",
+      "declaration": "QuarticQuery.Upper.Q_Fkm_le",
+      "file": "lean/QuarticQuery/Upper/Bound.lean",
+      "line_at_review": 278,
+      "source_file_sha256": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303",
+      "ledger_statement": "For every fixed k>=2, Q(F_{k,m}) <= sqrt(m) (log m)^{O_k(1)}.",
+      "source_signature": "theorem Q_Fkm_le (l t : ℕ) (ht : 1 ≤ t) :\n    (Q (totalise (Fkm (l + 1) t (forrCircuit l t))) : ℝ) ≤\n      (budgetConst (l + 1) : ℝ) * 2 ^ t * (2 * (t : ℝ)) ^ 6",
+      "section_context": "namespace QuarticQuery.Upper; all binders appear in signature.",
+      "relation": "stronger",
+      "route": "same",
+      "premises": [
+        "t ≥ 1; k=l+1 is fixed and the canonical Forrelation circuit is used."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "Explicit C_k*2^t*(2t)^6 bound specializes to sqrt(m) polylog(m), as m=4^t, and supplies a uniform finite constant for the specified same circuit family.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Upper/Bound.lean",
+        "lean/QuarticQuery/Statement.lean",
+        "lean/QuarticQuery/Upper/Columns.lean"
+      ]
+    },
+    {
+      "id": "claim-minimax-mu",
+      "declaration": "QuarticQuery.exists_hard_distribution",
+      "file": "lean/QuarticQuery/LowerBound/Minimax.lean",
+      "line_at_review": 138,
+      "source_file_sha256": "d235fef08374ca71229f5a2a5985e1bb0c60e3ec39a0ad2b1a13b286df9c194e",
+      "ledger_statement": "If L<R(P), there is a distribution mu on dom P, which is in particular nonempty, such that every deterministic tree of depth <=L has success probability <=2/3 under mu.",
+      "source_signature": "theorem exists_hard_distribution {f : PartialBool κ} {L : ℕ} (h : ¬ RLe f L) :\n    ∃ μ : BitInput κ → ℝ, (∀ x, 0 ≤ μ x) ∧ ∑ x, μ x = 1 ∧ (∀ x, μ x ≠ 0 → promised f x) ∧\n      ∀ T : QueryTree κ, T.depth ≤ L → treeSuccess f μ T ≤ 2 / 3",
+      "section_context": "namespace QuarticQuery; variable {κ : Type} [Fintype κ] [DecidableEq κ].",
+      "relation": "exact",
+      "route": "same",
+      "premises": [
+        "¬RLe f L, the finite-model form of L < R(f)."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "Constructs normalized nonnegative promise-supported μ bounding success of every depth-L tree by 2/3. Normalization also forces a nonempty promise; h is a premise from the lemma, not an additional conjecture.",
+      "inspected_sources": [
+        "lean/QuarticQuery/LowerBound/Minimax.lean",
+        "lean/QuarticQuery/Model/Classical.lean"
+      ]
+    },
+    {
+      "id": "lem-2.2.i",
+      "declaration": "QuarticQuery.Paper.construction_lemma_2_2_with_support",
+      "file": "lean/QuarticQuery/Paper/ConstructionFull.lean",
+      "line_at_review": 23,
+      "source_file_sha256": "6e1d5e93d723edc703e34ee590e764402712129193337389ba43f7d0a63b2ebe",
+      "ledger_statement": "For every input y and (i,s) in [m] x {0,1}^r: i wins at s iff all K_{k,m} tests pass, namely (a) X_i[b]=1 for each b; (b) for each j != i, X_j[p_{i,s,j}]=0; (c) for each h and each non-input gate, the claimed value equals the gate function of its predecessors, read from the transcript or from A_{i,h}; (d) for each h, claimed d=1 and claimed b=s_h. Each test is computed by a deterministic adaptive bit-query decision tree of depth at most max(3,l+1), which is l+1 for m>=4: a pointer test reads l pointer bits, then the one target bit they select, while gate tests read at most three fixed bits. A pointer test is not a function of a small fixed set of bits: it can depend on all l+m pointer and target coordinates.",
+      "source_signature": "theorem construction_lemma_2_2_with_support {k t : ℕ}\n    (C : Circuit (ForrelationCoord k t)) (A : ℕ) (ht : 1 ≤ t)\n    (hC : CircuitRealises C (P k t))\n    (hS : C.size ≤ A * mValue t * (2 * t) ^ 2) :\n    (∀ (i : Column (2 * t)) (s : Address (40 * t))\n        (e : Fin (2 ^ (2 * t) - 1)) (q : Fin (2 * t) ⊕ Column (2 * t)),\n      ∃ X Y : BitInput (Loc k t C),\n        (∀ p, p ≠ constructionPointerLoc C (2 * t) (40 * t) i s e q →\n          X p = Y p) ∧\n        localTest C (2 * t) (40 * t) X i s (.inr (.inl e)) ≠\n          localTest C (2 * t) (40 * t) Y i s (.inr (.inl e))) ∧\n    Fintype.card (TestIndex (2 * t) (40 * t) C.size) =\n      mValue t + (mValue t - 1) + 40 * t * (C.size + 2) ∧\n    Fintype.card (TestIndex (2 * t) (40 * t) C.size) ≤\n      (42 + 20 * A) * mValue t * (2 * t) ^ 3 ∧\n    (∀ (x : BitInput (Loc k t C)) (i : Column (2 * t)) (s : Address (40 * t)),\n      PaperWinsAt (P k t) C (2 * t) (40 * t) x i s ↔\n        ∀ e : TestIndex (2 * t) (40 * t) C.size,\n          localTest C (2 * t) (40 * t) x i s e = true) ∧\n    (∀ (i : Column (2 * t)) (s : Address (40 * t))\n        (e : TestIndex (2 * t) (40 * t) C.size),\n      (∀ x, (localTestTree C (2 * t) (40 * t) i s e).eval x =\n        localTest C (2 * t) (40 * t) x i s e) ∧\n      (localTestTree C (2 * t) (40 * t) i s e).depth ≤ 2 * t + 1) ∧\n    (∀ (i : Column (2 * t)) (s : Address (40 * t)),\n      ∃ (Z : TestIndex (2 * t) (40 * t) C.size → Type)\n        (instZ : ∀ e, Fintype (Z e)),\n        let _ := instZ\n        ∃ (o : ∀ e, Z e) (out : ∀ e, Z e → Bool)\n          (F : ∀ e, BitInput (Loc k t C) → Reg (Z e) ≃ₗᵢ[ℂ] Reg (Z e)),\n          (∀ e, IsCirc (max 3 (2 * t + 1)) (F e)) ∧\n          IsCirc (max 3 (2 * t + 1)) (fun x => sigmaOp fun e => F e x) ∧\n          (∀ (x : BitInput (Loc k t C))\n              (a : TestIndex (2 * t) (40 * t) C.size → ℂ)\n              (e : TestIndex (2 * t) (40 * t) C.size),\n            slice e (sigmaOp (fun e => F e x) (constructionIndexStart o a)) =\n              a e • F e x (rket (o e))) ∧\n          (∀ (x : BitInput (Loc k t C))\n              (e : TestIndex (2 * t) (40 * t) C.size) (z : Z e),\n            out e z ≠ localTest C (2 * t) (40 * t) x i s e →\n              (F e x (rket (o e))).ofLp z = 0) ∧\n          ∃ (w : ℕ) (emb : (Σ e, Z e) ↪ Fin (w + 1))\n            (P : AdaptiveProgram (Loc k t C) w → AdaptiveProgram (Loc k t C) w),\n            ∀ next, (P next).queryCap ≤ 2 * (2 * t + 1) + next.queryCap ∧\n              ∀ x ψ b, (P next).outputMass x (clEmb emb ψ) b =\n                next.outputMass x\n                  (clEmb emb (sigmaOp (fun e => F e x) ψ)) b)",
+      "section_context": "namespace QuarticQuery.Paper; open QuarticQuery.Upper; all theorem variables are explicit.",
+      "relation": "stronger",
+      "route": "same",
+      "premises": [
+        "t ≥ 1; C realizes P k t; C.size ≤ A*mValue t*(2t)^2 with A fixed for k."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "Contains physical-coordinate essential witnesses for every valid candidate, rival test and q as well as exact all-input test equivalence and adaptive depth; additional coherent and count clauses strengthen this row. Loc is definitionally BitLoc at (2t,40t); constructionPointerLoc is injective, so all ℓ+m q values denote distinct physical coordinates.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/ConstructionFull.lean",
+        "lean/QuarticQuery/Paper/ConstructionComplete.lean",
+        "lean/QuarticQuery/Paper/ConstructionPointerSupport.lean",
+        "lean/QuarticQuery/Upper/Columns.lean"
+      ]
+    },
+    {
+      "id": "lem-2.2.ii",
+      "declaration": "QuarticQuery.Paper.construction_lemma_2_2_with_support",
+      "file": "lean/QuarticQuery/Paper/ConstructionFull.lean",
+      "line_at_review": 23,
+      "source_file_sha256": "6e1d5e93d723edc703e34ee590e764402712129193337389ba43f7d0a63b2ebe",
+      "ledger_statement": "Each test is evaluated exactly with O(log m) bit queries, also coherently with the same bound with test indices in superposition. The number of tests and the indexing convention are the same for every (i,s).",
+      "source_signature": "theorem construction_lemma_2_2_with_support {k t : ℕ}\n    (C : Circuit (ForrelationCoord k t)) (A : ℕ) (ht : 1 ≤ t)\n    (hC : CircuitRealises C (P k t))\n    (hS : C.size ≤ A * mValue t * (2 * t) ^ 2) :\n    (∀ (i : Column (2 * t)) (s : Address (40 * t))\n        (e : Fin (2 ^ (2 * t) - 1)) (q : Fin (2 * t) ⊕ Column (2 * t)),\n      ∃ X Y : BitInput (Loc k t C),\n        (∀ p, p ≠ constructionPointerLoc C (2 * t) (40 * t) i s e q →\n          X p = Y p) ∧\n        localTest C (2 * t) (40 * t) X i s (.inr (.inl e)) ≠\n          localTest C (2 * t) (40 * t) Y i s (.inr (.inl e))) ∧\n    Fintype.card (TestIndex (2 * t) (40 * t) C.size) =\n      mValue t + (mValue t - 1) + 40 * t * (C.size + 2) ∧\n    Fintype.card (TestIndex (2 * t) (40 * t) C.size) ≤\n      (42 + 20 * A) * mValue t * (2 * t) ^ 3 ∧\n    (∀ (x : BitInput (Loc k t C)) (i : Column (2 * t)) (s : Address (40 * t)),\n      PaperWinsAt (P k t) C (2 * t) (40 * t) x i s ↔\n        ∀ e : TestIndex (2 * t) (40 * t) C.size,\n          localTest C (2 * t) (40 * t) x i s e = true) ∧\n    (∀ (i : Column (2 * t)) (s : Address (40 * t))\n        (e : TestIndex (2 * t) (40 * t) C.size),\n      (∀ x, (localTestTree C (2 * t) (40 * t) i s e).eval x =\n        localTest C (2 * t) (40 * t) x i s e) ∧\n      (localTestTree C (2 * t) (40 * t) i s e).depth ≤ 2 * t + 1) ∧\n    (∀ (i : Column (2 * t)) (s : Address (40 * t)),\n      ∃ (Z : TestIndex (2 * t) (40 * t) C.size → Type)\n        (instZ : ∀ e, Fintype (Z e)),\n        let _ := instZ\n        ∃ (o : ∀ e, Z e) (out : ∀ e, Z e → Bool)\n          (F : ∀ e, BitInput (Loc k t C) → Reg (Z e) ≃ₗᵢ[ℂ] Reg (Z e)),\n          (∀ e, IsCirc (max 3 (2 * t + 1)) (F e)) ∧\n          IsCirc (max 3 (2 * t + 1)) (fun x => sigmaOp fun e => F e x) ∧\n          (∀ (x : BitInput (Loc k t C))\n              (a : TestIndex (2 * t) (40 * t) C.size → ℂ)\n              (e : TestIndex (2 * t) (40 * t) C.size),\n            slice e (sigmaOp (fun e => F e x) (constructionIndexStart o a)) =\n              a e • F e x (rket (o e))) ∧\n          (∀ (x : BitInput (Loc k t C))\n              (e : TestIndex (2 * t) (40 * t) C.size) (z : Z e),\n            out e z ≠ localTest C (2 * t) (40 * t) x i s e →\n              (F e x (rket (o e))).ofLp z = 0) ∧\n          ∃ (w : ℕ) (emb : (Σ e, Z e) ↪ Fin (w + 1))\n            (P : AdaptiveProgram (Loc k t C) w → AdaptiveProgram (Loc k t C) w),\n            ∀ next, (P next).queryCap ≤ 2 * (2 * t + 1) + next.queryCap ∧\n              ∀ x ψ b, (P next).outputMass x (clEmb emb ψ) b =\n                next.outputMass x\n                  (clEmb emb (sigmaOp (fun e => F e x) ψ)) b)",
+      "section_context": "namespace QuarticQuery.Paper; open QuarticQuery.Upper; all theorem variables are explicit.",
+      "relation": "stronger",
+      "route": "same",
+      "premises": [
+        "t ≥ 1; C realizes P k t; C.size ≤ A*mValue t*(2t)^2 with A fixed for k."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "Contains test-index superposition evaluation, exact outputs and a physical continuation compiler with explicit 2(2t+1) query cap, plus support, count and classical clauses. Loc is definitionally BitLoc at (2t,40t); constructionPointerLoc is injective, so all ℓ+m q values denote distinct physical coordinates.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/ConstructionFull.lean",
+        "lean/QuarticQuery/Paper/ConstructionComplete.lean",
+        "lean/QuarticQuery/Paper/ConstructionPointerSupport.lean",
+        "lean/QuarticQuery/Upper/Columns.lean"
+      ]
+    },
+    {
+      "id": "lem-2.2",
+      "declaration": "QuarticQuery.Paper.construction_lemma_2_2_with_support",
+      "file": "lean/QuarticQuery/Paper/ConstructionFull.lean",
+      "line_at_review": 23,
+      "source_file_sha256": "6e1d5e93d723edc703e34ee590e764402712129193337389ba43f7d0a63b2ebe",
+      "ledger_statement": "Conjunction of lem-2.2.i and lem-2.2.ii.",
+      "source_signature": "theorem construction_lemma_2_2_with_support {k t : ℕ}\n    (C : Circuit (ForrelationCoord k t)) (A : ℕ) (ht : 1 ≤ t)\n    (hC : CircuitRealises C (P k t))\n    (hS : C.size ≤ A * mValue t * (2 * t) ^ 2) :\n    (∀ (i : Column (2 * t)) (s : Address (40 * t))\n        (e : Fin (2 ^ (2 * t) - 1)) (q : Fin (2 * t) ⊕ Column (2 * t)),\n      ∃ X Y : BitInput (Loc k t C),\n        (∀ p, p ≠ constructionPointerLoc C (2 * t) (40 * t) i s e q →\n          X p = Y p) ∧\n        localTest C (2 * t) (40 * t) X i s (.inr (.inl e)) ≠\n          localTest C (2 * t) (40 * t) Y i s (.inr (.inl e))) ∧\n    Fintype.card (TestIndex (2 * t) (40 * t) C.size) =\n      mValue t + (mValue t - 1) + 40 * t * (C.size + 2) ∧\n    Fintype.card (TestIndex (2 * t) (40 * t) C.size) ≤\n      (42 + 20 * A) * mValue t * (2 * t) ^ 3 ∧\n    (∀ (x : BitInput (Loc k t C)) (i : Column (2 * t)) (s : Address (40 * t)),\n      PaperWinsAt (P k t) C (2 * t) (40 * t) x i s ↔\n        ∀ e : TestIndex (2 * t) (40 * t) C.size,\n          localTest C (2 * t) (40 * t) x i s e = true) ∧\n    (∀ (i : Column (2 * t)) (s : Address (40 * t))\n        (e : TestIndex (2 * t) (40 * t) C.size),\n      (∀ x, (localTestTree C (2 * t) (40 * t) i s e).eval x =\n        localTest C (2 * t) (40 * t) x i s e) ∧\n      (localTestTree C (2 * t) (40 * t) i s e).depth ≤ 2 * t + 1) ∧\n    (∀ (i : Column (2 * t)) (s : Address (40 * t)),\n      ∃ (Z : TestIndex (2 * t) (40 * t) C.size → Type)\n        (instZ : ∀ e, Fintype (Z e)),\n        let _ := instZ\n        ∃ (o : ∀ e, Z e) (out : ∀ e, Z e → Bool)\n          (F : ∀ e, BitInput (Loc k t C) → Reg (Z e) ≃ₗᵢ[ℂ] Reg (Z e)),\n          (∀ e, IsCirc (max 3 (2 * t + 1)) (F e)) ∧\n          IsCirc (max 3 (2 * t + 1)) (fun x => sigmaOp fun e => F e x) ∧\n          (∀ (x : BitInput (Loc k t C))\n              (a : TestIndex (2 * t) (40 * t) C.size → ℂ)\n              (e : TestIndex (2 * t) (40 * t) C.size),\n            slice e (sigmaOp (fun e => F e x) (constructionIndexStart o a)) =\n              a e • F e x (rket (o e))) ∧\n          (∀ (x : BitInput (Loc k t C))\n              (e : TestIndex (2 * t) (40 * t) C.size) (z : Z e),\n            out e z ≠ localTest C (2 * t) (40 * t) x i s e →\n              (F e x (rket (o e))).ofLp z = 0) ∧\n          ∃ (w : ℕ) (emb : (Σ e, Z e) ↪ Fin (w + 1))\n            (P : AdaptiveProgram (Loc k t C) w → AdaptiveProgram (Loc k t C) w),\n            ∀ next, (P next).queryCap ≤ 2 * (2 * t + 1) + next.queryCap ∧\n              ∀ x ψ b, (P next).outputMass x (clEmb emb ψ) b =\n                next.outputMass x\n                  (clEmb emb (sigmaOp (fun e => F e x) ψ)) b)",
+      "section_context": "namespace QuarticQuery.Paper; open QuarticQuery.Upper; all theorem variables are explicit.",
+      "relation": "stronger",
+      "route": "same",
+      "premises": [
+        "t ≥ 1; C realizes P k t; C.size ≤ A*mValue t*(2t)^2 with A fixed for k."
+      ],
+      "open_assumptions": [],
+      "comparison_and_scope": "Conjoins the essential physical-coordinate witnesses with the entire older complete theorem, hence covers corrected i and ii together with explicit count, size and physical cap. Loc is definitionally BitLoc at (2t,40t); constructionPointerLoc is injective, so all ℓ+m q values denote distinct physical coordinates.",
+      "inspected_sources": [
+        "lean/QuarticQuery/Paper/ConstructionFull.lean",
+        "lean/QuarticQuery/Paper/ConstructionComplete.lean",
+        "lean/QuarticQuery/Paper/ConstructionPointerSupport.lean",
+        "lean/QuarticQuery/Upper/Columns.lean"
+      ]
+    }
+  ],
+  "inspected_source_sha256": {
+    "lean/QuarticQuery/Construction/LocalTests.lean": "56357d934fab301222130c92ef36cfbf122af4ad90fb2a94ba90178139dbeb13",
+    "lean/QuarticQuery/Construction/Transcript.lean": "e2fd95c77c8ef1616201219302415069411aaac88060f3f75ec24e7b0626608f",
+    "lean/QuarticQuery/Construction/Winner.lean": "3c6b894e842fc90acd7a09b9ff14ce3ae2f09bfbf2dc7f2195751a396db7017c",
+    "lean/QuarticQuery/LowerBound/DirectProduct.lean": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+    "lean/QuarticQuery/LowerBound/Minimax.lean": "d235fef08374ca71229f5a2a5985e1bb0c60e3ec39a0ad2b1a13b286df9c194e",
+    "lean/QuarticQuery/LowerBound/Planted/Heavy.lean": "6b5772603583908e293c4301594ef313e68ddff67dedd5eced436744b0f110bb",
+    "lean/QuarticQuery/LowerBound/Planted/Inputs.lean": "8a51b7b7696acdda52b0762b65c2f9e8bec13da8d896c47102c447195509411f",
+    "lean/QuarticQuery/LowerBound/Planted/Main.lean": "a32a6e24bccace37d46742acc9450fe33b6081430484138336014048f3fe835c",
+    "lean/QuarticQuery/Model/Classical.lean": "a820d0804ee722ee74eef97ea8efeb2a15da55107d6a908e35ba60ef39932e9e",
+    "lean/QuarticQuery/Paper/ClassicalAsymptotics.lean": "b156b061ecab3a011c31224f9ff0719d07a52e8e8eb86becbb18cb5c959c17af",
+    "lean/QuarticQuery/Paper/ClassicalDirectProduct.lean": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+    "lean/QuarticQuery/Paper/ClassicalPlanted.lean": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+    "lean/QuarticQuery/Paper/ClassicalUniformZero.lean": "b0778f75c9717011e9b115eb3b15cf132b85486fa2f8c83eff0e4ce4a05fca19",
+    "lean/QuarticQuery/Paper/ConstructionCoherent.lean": "5e5f5c2321e7c1ce23235e69e1f430fd951f13cc92b5a2d1b2d974aad0607cec",
+    "lean/QuarticQuery/Paper/ConstructionComplete.lean": "a79e9f0cdbf85df0e86605711fa6c8bde2a19cbe043c36302243b42a7f8fbc6c",
+    "lean/QuarticQuery/Paper/ConstructionDefinitions.lean": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
+    "lean/QuarticQuery/Paper/ConstructionFull.lean": "6e1d5e93d723edc703e34ee590e764402712129193337389ba43f7d0a63b2ebe",
+    "lean/QuarticQuery/Paper/ConstructionPointerSupport.lean": "8a2d8befa3225ab54114492b35c5a326fc17bd8f0a5eaa9acba966c18db53938",
+    "lean/QuarticQuery/Paper/ConstructionTests.lean": "06f1b3bc883881351e5e9cfa9ba8777f2f907897e69275b507132cc01ba0dccb",
+    "lean/QuarticQuery/Paper/QuantumAmplification.lean": "95d89237e766b59ffdd52f1324e440e2127b06353b2c8de2482b9f55c4adb30b",
+    "lean/QuarticQuery/Paper/QuantumComparison.lean": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+    "lean/QuarticQuery/Paper/QuantumTensor.lean": "7a2f03d6ae2d8d3ff2af9837f6cb1e1f1f3d5b4983dc34e753792621443835ac",
+    "lean/QuarticQuery/Paper/QuantumTournament.lean": "8cf87e74aa0364c9bc6b9078ff62e88c45d297625166fe31a8efeea765a34adf",
+    "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
+    "lean/QuarticQuery/Statement.lean": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+    "lean/QuarticQuery/Tournament/Drift.lean": "850fbfdfba830a17930f0a8e60fdc0d7b27f7f50c45710b5e77997343528c077",
+    "lean/QuarticQuery/Tournament/Ideal.lean": "6f7379abfb1d9fb37d6ef7f0f25049893490aa717171c875feb97fca343ab8ef",
+    "lean/QuarticQuery/Upper/Bound.lean": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303",
+    "lean/QuarticQuery/Upper/Columns.lean": "e5b2b164deb6a010f952cefb5edba15bb5437a03fff815c39b028341b23b592e",
+    "lean/QuarticQuery/Upper/Sampler.lean": "43cb604188f041ebd34c8003f01f4ec6c570023e465cd2b730ee4f1f765b2b79",
+    "lean/QuarticQuery/Upper/Tournament.lean": "43df9db7997f88667de7a3cfa7d7c7751aa1f32c40e9de474895335bcdb87b7c",
+    "lean/QuarticQuery/Upper/Verify.lean": "8144c5c26e7bf0515b24eb638b57412264032e144844887adc615b8076207239"
+  }
+}

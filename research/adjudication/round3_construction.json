@@ -1,0 +1,161 @@
+{
+  "schema": "quartic-round3-construction-adjudication-v1",
+  "scope": "Returns 04\u201307; source inspection and rerun of selected finite examples. No new Lean or Comparator execution.",
+  "research_actor_mode": "type_b_advisory_with_type_a_source_inspection",
+  "returns": [
+    {
+      "id": "04_addressed_construction",
+      "source": "research/returns/round3/members/04_addressed_construction/LEAN_GAPS.md",
+      "decisions": [
+        {
+          "finding": "semantic winner vs output tests",
+          "status": "existing components; circuit-realization hypothesis required",
+          "sources": [
+            "lean/QuarticQuery/Paper/ConstructionComplete.lean"
+          ]
+        },
+        {
+          "finding": "pointer essential-coordinate support vs adaptive depth",
+          "status": "existing formal theorem; old fixed-support claim already corrected",
+          "sources": [
+            "lean/QuarticQuery/Paper/ConstructionPointerSupport.lean"
+          ]
+        },
+        {
+          "finding": "clean XOR test oracle, and specialization coherent over candidate pairs and test indices",
+          "status": "ordinary constructions; exact formal packages not supplied",
+          "obligation": "Specify fixed registers, arbitrary superpositions, inverse, reset workspace and physical query bound; distinguish the fixed-pair theorem."
+        },
+        {
+          "finding": "finite board, omitted-domain counterexample, equal decoder projection law",
+          "status": "finite examples rerun and passed; not universal Lean proofs",
+          "check": "python3 examples/check_example.py"
+        }
+      ]
+    },
+    {
+      "id": "05_quantum_upper",
+      "source": "research/returns/round3/members/05_quantum_upper/LEAN_GAPS.md",
+      "decisions": [
+        {
+          "finding": "abstract output-state theorem vs physical label-law witness",
+          "status": "genuine open physical-state fidelity bridge; measured-label upper bound does not require it",
+          "sources": [
+            "lean/QuarticQuery/Amplification/Bounded.lean",
+            "lean/QuarticQuery/Upper/Sampler.lean",
+            "lean/QuarticQuery/Upper/Amplify.lean",
+            "lean/QuarticQuery/Paper/QuantumAmplification.lean"
+          ],
+          "obligation": "Build parameter-only finite physical template with designated original subsystem, success flag, zero-success behavior, branchwise good-state tensor factorization, and arbitrary-state compiler continuation with query cap."
+        },
+        {
+          "finding": "equal label laws do not imply equal subsystem states",
+          "status": "exact finite counterexample rerun; not an impossibility theorem",
+          "check": "python3 checks/state_example.py"
+        },
+        {
+          "finding": "bounded list-valued tournament",
+          "status": "present in current source; older Boolean-only account stale",
+          "sources": [
+            "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean"
+          ],
+          "check": "python3 checks/tournament_example.py"
+        }
+      ]
+    },
+    {
+      "id": "06_direct_product",
+      "source": "research/returns/round3/members/06_direct_product/LEAN_GAPS.md",
+      "decisions": [
+        {
+          "finding": "direct product conditional-value and weighted induction routes",
+          "status": "source components present; literal rows may require several declarations",
+          "sources": [
+            "lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+            "lean/QuarticQuery/LowerBound/DirectProduct.lean"
+          ],
+          "obligation": "Review eq-16 queried-factor and unchanged-factor components together; bind terminal bounds and success connections separately."
+        },
+        {
+          "finding": "arbitrary independent information",
+          "status": "finite mixtures formalized; arbitrary probability-space transfer not supplied",
+          "obligation": "Prove finite-behavior pushforward with joint independence from the entire input tuple."
+        },
+        {
+          "finding": "correctness and realized caps for an uncapped algorithm",
+          "status": "ordinary truncation argument; formal generic corollary not supplied",
+          "obligation": "Define realized path counts and truncation; prove all-path cap and agreement before first excess query."
+        },
+        {
+          "finding": "adaptive AND and independent-advice counterexamples",
+          "status": "finite evidence; adaptive enumeration rerun and passed",
+          "check": "python3 checks/check_adaptive_example.py"
+        },
+        {
+          "finding": "historical UNELABORATED header",
+          "status": "stale according to returned byte-bound receipts; independently verify before source update",
+          "sources": [
+            "lean/QuarticQuery/Paper/ClassicalDirectProduct.lean"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "07_planted_lower_bound",
+      "source": "research/returns/round3/members/07_planted_lower_bound/LEAN_GAPS.md",
+      "decisions": [
+        {
+          "finding": "equation (19) equality and bound",
+          "status": "component declarations present; returned full conjunction is uncompiled proposal",
+          "sources": [
+            "lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+            "research/returns/round3/members/07_planted_lower_bound/lean/Eq19Complete.lean"
+          ],
+          "obligation": "Compile exact conjunction, check type and axioms, then review corpus tie."
+        },
+        {
+          "finding": "early/late decomposition",
+          "status": "paper-route intermediate claims not formalized; endpoint has stronger coefficient-two alternative proof",
+          "sources": [
+            "lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean"
+          ],
+          "obligation": "Define trace counts and prove partition, adaptive early expectation and pathwise late bounds."
+        },
+        {
+          "finding": "simulator nonheaviness",
+          "status": "joint original-law event is required; conditioning on nonheavy runs is invalid in general",
+          "obligation": "Preserve joint-event and outside-data isolation in any formal route."
+        },
+        {
+          "finding": "absolute discrepancies and tail clauses",
+          "status": "absolute-value eq18/eq23 strengthen one-sided source estimates; exact tail/envelope limits are separate components",
+          "sources": [
+            "lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+            "lean/QuarticQuery/Paper/ClassicalAsymptotics.lean"
+          ]
+        },
+        {
+          "finding": "fixed-k lower-bound quantification",
+          "status": "modular theorem retains hardness binder; later prop_4_2 source wrapper discharges it; preserve same circuit and threshold order"
+        },
+        {
+          "finding": "planted example and floor arithmetic",
+          "status": "finite checks rerun and passed; 187 floor cases do not establish a universal theorem",
+          "checks": [
+            "python3 checks/planted_example.py",
+            "python3 checks/check_floors.py"
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "lean_build": "not run by adjudicator",
+    "comparator": "not run by adjudicator",
+    "finite_examples": "all six listed scripts passed against extracted advisory returns",
+    "human_review": "not performed",
+    "receipt_policy": "Returned reports of source-bound receipts are not new compiler executions; independently rebind before tie promotion."
+  },
+  "proposed_canonical_statement_changes": false,
+  "manuscript_integration": "not performed"
+}

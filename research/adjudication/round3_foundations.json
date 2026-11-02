@@ -1,0 +1,699 @@
+{
+  "schema": "quartic_round3_foundations_adjudication_v1",
+  "date": "2026-11-02",
+  "checkout_head_observed": "1dd469dd0042b937b739da3bc211eeb60bdf7462",
+  "scope": "Adjudication only; no manuscript, Lean or corpus edits. The historical baseline is not silently revised.",
+  "returns": {
+    "01": {
+      "sha256": "5e12651baa2c5b5236af9dada9a9aed2efa51b5c04e078a0ac466c0bc4f11af1"
+    },
+    "02": {
+      "sha256": "12e14b0f5b16a83ebb3877773fb63ec52bc61de62c668e4319b1f5079d808261"
+    },
+    "03": {
+      "sha256": "b9498d8285ac987f479fbd7c04ee196510e43686000d5d8ffc78eb1d0f6cfedc"
+    },
+    "08": {
+      "sha256": "7cd562eeab45e1d763def08905fb8e7dc393091c0b2d0d0ecf2789e0c08a8730"
+    },
+    "10": {
+      "sha256": "3aeaf44d373ba54f05aca5f5a8f79e6992771cbc7a135420551e3f475278085f"
+    }
+  },
+  "verdict_definition": {
+    "incorporated": "Already present in live source or reviewed existing record; not a claim that this report edited it.",
+    "proposed": "Supported correction for an owner to integrate and verify.",
+    "deferred": "Candidate or stronger claim retained without formal acceptance.",
+    "rejected": "Inference is unsound or exceeds the evidence.",
+    "superseded": "Prior missing-work claim is overtaken by current source."
+  },
+  "findings": [
+    {
+      "id": "F01",
+      "returns": [
+        "01",
+        "08",
+        "10"
+      ],
+      "verdict": "proposed",
+      "finding": "fixed k and same family",
+      "rationale": "Choose k after alpha, then hold it fixed while m grows; preserve both bounds for the same F and do not claim a fixed k reaches four."
+    },
+    {
+      "id": "F02",
+      "returns": [
+        "01",
+        "02",
+        "03",
+        "08",
+        "10"
+      ],
+      "verdict": "proposed",
+      "finding": "evidence refresh",
+      "rationale": "Replace historical no-receipt, no-conjunction and no-ratio assertions with exact current declarations and source-bound receipts; distinguish build, axioms, comparison, dependency reach, and semantic fidelity."
+    },
+    {
+      "id": "F03",
+      "returns": [
+        "01"
+      ],
+      "verdict": "proposed",
+      "finding": "classical promise and cap",
+      "rationale": "One input-independent algorithm; success only on promise; cap on every syntactic branch including off promise. totalise embeds a total function and is not replacement of undefined values by false."
+    },
+    {
+      "id": "F04",
+      "returns": [
+        "01"
+      ],
+      "verdict": "proposed",
+      "finding": "oracle and deferred semantics",
+      "rationale": "Hadamard conjugacy uses controlled phase or an idle/reference facility; bare index-only phase has a global-phase obstruction. Deferred padding preserves output mass under an embedding, not necessarily final state or stopping time."
+    },
+    {
+      "id": "F05",
+      "returns": [
+        "01"
+      ],
+      "verdict": "proposed",
+      "finding": "two-bit OR boundary",
+      "rationale": "Equal mixture of 1,x0,x1 attains classical cap-one success 2/3, and a three-input distribution bounds it above; strict success requires two. Bounded fair flips cannot exactly realize the forced thirds; unbounded almost-sure sampling is not excluded. No quantum success ceiling follows."
+    },
+    {
+      "id": "F06",
+      "returns": [
+        "01"
+      ],
+      "verdict": "proposed",
+      "finding": "edition-specific references",
+      "rationale": "Separate Beals 1998 expected-cost convention from 2001 worst-case count and use de Wolf v6 §2.4 for controlled oracle discussion; retain source-specific locators."
+    },
+    {
+      "id": "F07",
+      "returns": [
+        "02"
+      ],
+      "verdict": "proposed",
+      "finding": "coherent Forrelation resource",
+      "rationale": "Describe retained projection state and tensor repetitions, reversible output and binomial law. Complete wrapper has common isometry/law/continuation, but the proposed literal tensor identity is ordinary proof."
+    },
+    {
+      "id": "F08",
+      "returns": [
+        "02"
+      ],
+      "verdict": "proposed",
+      "finding": "query count",
+      "rationale": "Ordinary phase-query argument gives qk; current generic compiled route gives 2qk. Do not equate a local phase identity with a compiled Runs implementation."
+    },
+    {
+      "id": "F09",
+      "returns": [
+        "02"
+      ],
+      "verdict": "proposed",
+      "finding": "circuit arithmetic",
+      "rationale": "Separate ideal integers from modular register words; justify signed recovery only for final comparisons. Incorporate independent positive, zero and negative examples without asserting asymptotic evidence."
+    },
+    {
+      "id": "F10",
+      "returns": [
+        "02"
+      ],
+      "verdict": "incorporated",
+      "finding": "Forrelation equation and conjunction declarations",
+      "rationale": "construction_equation_5, construction_N_phi and construction_lemma_2_1_complete exist in live source; obsolete requests to create them are superseded, while exact comparison status remains separate."
+    },
+    {
+      "id": "F11",
+      "returns": [
+        "03",
+        "10"
+      ],
+      "verdict": "proposed",
+      "finding": "Bansal–Sinha display",
+      "rationale": "For v3 §5.4 the stated theorem and the displayed proof must be separated. At level ℓ>k the comparison loses L^((ℓ/k−1)/2); k=2 has no such level. This is not a counterexample to the theorem."
+    },
+    {
+      "id": "F12",
+      "returns": [
+        "03"
+      ],
+      "verdict": "proposed",
+      "finding": "lower-bound proof quantifiers",
+      "rationale": "Do not assume either hard distribution is promise-supported; preserve all-input acceptance and 4/(mδ²) exception. Show k=3 cancellations, earlier-only invariant, and one common MVT parameter."
+    },
+    {
+      "id": "F13",
+      "returns": [
+        "03"
+      ],
+      "verdict": "proposed",
+      "finding": "stopping and growth hypotheses",
+      "rationale": "Use fresh-coordinate cylinder law and stopping on absolute contracted coefficients, not conditioning on a future good event. Keep positivity and depth hypotheses and literal Boolean leaves distinct from the proposed bounded-real generalization."
+    },
+    {
+      "id": "F14",
+      "returns": [
+        "03"
+      ],
+      "verdict": "incorporated",
+      "finding": "uniform constant and threshold",
+      "rationale": "The exact 2/18225 uniform endpoint and explicit 3499200 k² threshold exist in live Uniform.lean. The proposed 13669 k² is an ordinary consequence, not the named Lean threshold."
+    },
+    {
+      "id": "F15",
+      "returns": [
+        "03"
+      ],
+      "verdict": "deferred",
+      "finding": "stronger external and variable regimes",
+      "rationale": "Variable error, arbitrary powers of two, tighter null-tail, bounded-real leaves and SSW-dependent sharpening require separately stated proof and/or formal interfaces. Do not conflate with the local fixed-k endpoint."
+    },
+    {
+      "id": "F16",
+      "returns": [
+        "03"
+      ],
+      "verdict": "proposed",
+      "finding": "preserve historical threshold",
+      "rationale": "Retain NEW-FOR-25’s prior four-term threshold and its proof as historical material if using the shorter ordinary consequence; relocation is not removal."
+    },
+    {
+      "id": "F17",
+      "returns": [
+        "08"
+      ],
+      "verdict": "proposed",
+      "finding": "positive dimension",
+      "rationale": "Correct canonical claim-huang-spectrum: square and trace identities hold at dimension zero, but the two distinct eigenvalues and equal multiplicity assertion requires d≥1; d=0 is a singleton zero matrix."
+    },
+    {
+      "id": "F18",
+      "returns": [
+        "08"
+      ],
+      "verdict": "proposed",
+      "finding": "adversary prefactor",
+      "rationale": "The printed Špalek–Szegedy theorem, with its equation (3.1) normalization, omits a factor 1/2: two-bit parity has one-query exact algorithm and spectral ratio 2. Cite the inspected edition and use the separately established correct bound; do not claim an author-confirmed erratum."
+    },
+    {
+      "id": "F19",
+      "returns": [
+        "08"
+      ],
+      "verdict": "proposed",
+      "finding": "quartic routes",
+      "rationale": "Keep 20736 headline dependency, 1500625 literal Appendix route, and 19600 hybrid distinct. The no-plus Appendix result uses appendixA_D_le_Q_pow_four with R≤D separately, rather than changing the type of appendixA_theoremA1."
+    },
+    {
+      "id": "F20",
+      "returns": [
+        "08"
+      ],
+      "verdict": "proposed",
+      "finding": "matrix and monomial scope",
+      "rationale": "Do not identify block-sensitive star with sensitivity graph or infer bs≤lambda²; maximal-monomial lemma is applied to nonconstant restrictions and the same input throughout the tree."
+    },
+    {
+      "id": "F21",
+      "returns": [
+        "08",
+        "10"
+      ],
+      "verdict": "proposed",
+      "finding": "fixed-parameter exponent proof",
+      "rationale": "Use the literal quotient with positive epsilon and denominator 1+Q, including alpha=0. At alpha=4−2/k this estimate does not force divergence; growing-k is a separate result."
+    },
+    {
+      "id": "F22",
+      "returns": [
+        "10"
+      ],
+      "verdict": "proposed",
+      "finding": "long-record architecture",
+      "rationale": "Move detailed Forrelation proof behind a clear construction-first route without deleting it or historical catalogue; cross-link the later short and examples-first pieces to exact proof anchors and refresh their evidence."
+    },
+    {
+      "id": "F23",
+      "returns": [
+        "10"
+      ],
+      "verdict": "proposed",
+      "finding": "quantum and planted evidence types",
+      "rationale": "A candidate-list theorem is not a Boolean verifier, a prepared distribution is not a coherent physical state, and a lower bound with a rational constant is not automatically the sharper prose bound. Follow exact return 10 repairs R-E01–R-E15."
+    },
+    {
+      "id": "F24",
+      "returns": [
+        "10"
+      ],
+      "verdict": "deferred",
+      "finding": "publication readiness",
+      "rationale": "Short paper is not ready for final release until integrated long record, proof links, current source/evidence audit, and independent review are complete; draft writing can proceed in parallel with these gates."
+    },
+    {
+      "id": "F25",
+      "returns": [
+        "03",
+        "10"
+      ],
+      "verdict": "rejected",
+      "finding": "refutation of published theorem",
+      "rationale": "A false intermediate comparison does not prove the stronger claimed theorem false. The local unconditional theorem is a separate proof of the weaker fixed-parameter endpoint."
+    },
+    {
+      "id": "F26",
+      "returns": [
+        "01",
+        "02",
+        "03",
+        "08",
+        "10"
+      ],
+      "verdict": "rejected",
+      "finding": "finite checks as general formal proof",
+      "rationale": "Return checkers test finite arithmetic, internal structure and/or hashes; they do not run Lean, Comparator or establish all-parameter statements."
+    },
+    {
+      "id": "F27",
+      "returns": [
+        "01",
+        "03",
+        "08",
+        "10"
+      ],
+      "verdict": "superseded",
+      "finding": "missing Lean ratio and sharp wrappers",
+      "rationale": "Live source contains classical_Fkm_ratio, construction_family_named, complete conjunction and sharp uniform endpoint. Replacing them as new tasks would duplicate existing work; check exact source-bound receipt and compare status instead."
+    }
+  ],
+  "statement_proposals": [
+    {
+      "return_id": "01",
+      "file": "NEW_STATEMENTS.json",
+      "id": "sanity-randomized-support-nonempty",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "01",
+      "file": "NEW_STATEMENTS.json",
+      "id": "sanity-randomized-mass",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "01",
+      "file": "NEW_STATEMENTS.json",
+      "id": "sanity-randomized-full-support-cap",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "01",
+      "file": "NEW_STATEMENTS.json",
+      "id": "NCL-finite-capped",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "01",
+      "file": "NEW_STATEMENTS.json",
+      "id": "r3-01-query-tree-pruning",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "01",
+      "file": "NEW_STATEMENTS.json",
+      "id": "ROOT-MASS",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "01",
+      "file": "NEW_STATEMENTS.json",
+      "id": "sf-q-cap-max",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "01",
+      "file": "NEW_STATEMENTS.json",
+      "id": "sf-q-bitruns-representable",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "01",
+      "file": "NEW_STATEMENTS.json",
+      "id": "sanity-R-zero-characterization",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "01",
+      "file": "NEW_STATEMENTS.json",
+      "id": "sanity-D-zero-characterization",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "01",
+      "file": "NEW_STATEMENTS.json",
+      "id": "sf-q-zero-input-independent",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "01",
+      "file": "NEW_STATEMENTS.json",
+      "id": "sf-q-zero-iff-constant",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "01",
+      "file": "NEW_STATEMENTS.json",
+      "id": "sanity-identity-one-bit-classical",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "01",
+      "file": "NEW_STATEMENTS.json",
+      "id": "sf-q-dictator",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "01",
+      "file": "NEW_STATEMENTS.json",
+      "id": "sanity-or-two-classical",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "01",
+      "file": "NEW_STATEMENTS.json",
+      "id": "sf-q-or-two",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "01",
+      "file": "NEW_STATEMENTS.json",
+      "id": "r3-01-or2-sharp-success",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "01",
+      "file": "NEW_STATEMENTS.json",
+      "id": "r3-01-or2-optimal-weights",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "01",
+      "file": "NEW_STATEMENTS.json",
+      "id": "r3-01-or2-bounded-fair-coins",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "01",
+      "file": "NEW_STATEMENTS.json",
+      "id": "sanity-one-label-promise-classical",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "01",
+      "file": "NEW_STATEMENTS.json",
+      "id": "sanity-empty-promise-classical",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "01",
+      "file": "NEW_STATEMENTS.json",
+      "id": "sanity-empty-coordinates-classical",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "01",
+      "file": "NEW_STATEMENTS.json",
+      "id": "sanity-xor-two-classical",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "01",
+      "file": "NEW_STATEMENTS.json",
+      "id": "sf-q-xor-two",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "01",
+      "file": "NEW_STATEMENTS.json",
+      "id": "r3-01-shifted-family-bound",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "01",
+      "file": "NEW_STATEMENTS.json",
+      "id": "r3-01-tree-depth",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "01",
+      "file": "NEW_STATEMENTS.json",
+      "id": "r3-01-classical-minimum-laws",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "01",
+      "file": "NEW_STATEMENTS.json",
+      "id": "r3-01-controlled-phase",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "01",
+      "file": "NEW_STATEMENTS.json",
+      "id": "r3-01-uncontrolled-phase-limit",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "01",
+      "file": "NEW_STATEMENTS.json",
+      "id": "r3-01-measure-mass-recursion",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "01",
+      "file": "NEW_STATEMENTS.json",
+      "id": "r3-01-quantum-minimum-laws",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "01",
+      "file": "NEW_STATEMENTS.json",
+      "id": "r3-01-reindex-costs",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "01",
+      "file": "NEW_STATEMENTS.json",
+      "id": "r3-01-deferred-mass",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "01",
+      "file": "NEW_STATEMENTS.json",
+      "id": "r3-01-deferred-measure-entry",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "01",
+      "file": "NEW_STATEMENTS.json",
+      "id": "r3-01-deferred-query-step",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "01",
+      "file": "NEW_STATEMENTS.json",
+      "id": "r3-01-parity-interference",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "02",
+      "file": "NEW_STATEMENTS.json",
+      "id": "R3-FOR-COHERENT-LAW",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "02",
+      "file": "NEW_STATEMENTS.json",
+      "id": "R3-FOR-THREE-EXAMPLES",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "02",
+      "file": "NEW_STATEMENTS.json",
+      "id": "R3-FOR-CIRCUIT-SIZE",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "03",
+      "file": "NEW_STATEMENTS.json",
+      "id": "r3-forr-polynomial-interpolation",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "03",
+      "file": "NEW_STATEMENTS.json",
+      "id": "r3-forr-explicit-fixed-threshold",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "03",
+      "file": "NEW_STATEMENTS.json",
+      "id": "r3-forr-bounded-real-leaves",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "03",
+      "file": "STATEMENT_CHANGES.json",
+      "id": "lem-2.1.i",
+      "verdict": "proposed",
+      "rationale": "Integrate the narrower correction or clarification with actual current owner; do not overwrite historical claims."
+    },
+    {
+      "return_id": "03",
+      "file": "STATEMENT_CHANGES.json",
+      "id": "claim-bs-to-L",
+      "verdict": "proposed",
+      "rationale": "Preserve conditional implication with explicit source-status separation; no refutation of published theorem."
+    },
+    {
+      "return_id": "03",
+      "file": "STATEMENT_CHANGES.json",
+      "id": "NEW-FOR-08",
+      "verdict": "proposed",
+      "rationale": "Integrate the narrower correction or clarification with actual current owner; do not overwrite historical claims."
+    },
+    {
+      "return_id": "03",
+      "file": "STATEMENT_CHANGES.json",
+      "id": "NEW-FOR-13",
+      "verdict": "proposed",
+      "rationale": "Integrate the narrower correction or clarification with actual current owner; do not overwrite historical claims."
+    },
+    {
+      "return_id": "03",
+      "file": "STATEMENT_CHANGES.json",
+      "id": "NEW-FOR-18",
+      "verdict": "proposed",
+      "rationale": "Integrate the narrower correction or clarification with actual current owner; do not overwrite historical claims."
+    },
+    {
+      "return_id": "03",
+      "file": "STATEMENT_CHANGES.json",
+      "id": "NEW-FOR-25",
+      "verdict": "proposed",
+      "rationale": "Integrate the narrower correction or clarification with actual current owner; do not overwrite historical claims."
+    },
+    {
+      "return_id": "03",
+      "file": "STATEMENT_CHANGES.json",
+      "id": "new-eq-04",
+      "verdict": "incorporated",
+      "rationale": "The 2/18225 endpoint is in live Uniform.lean; update evidence classification, not theorem source."
+    },
+    {
+      "return_id": "03",
+      "file": "STATEMENT_CHANGES.json",
+      "id": "r2-sharp-sharp-result",
+      "verdict": "proposed",
+      "rationale": "Integrate the narrower correction or clarification with actual current owner; do not overwrite historical claims."
+    },
+    {
+      "return_id": "03",
+      "file": "STATEMENT_CHANGES.json",
+      "id": "r2-sharp-bs-failure",
+      "verdict": "proposed",
+      "rationale": "Integrate the narrower correction or clarification with actual current owner; do not overwrite historical claims."
+    },
+    {
+      "return_id": "08",
+      "file": "STATEMENT_CHANGES.json",
+      "id": "claim-huang-spectrum",
+      "verdict": "proposed",
+      "rationale": "Correct positive-dimensional spectrum in its canonical owner; not yet applied here."
+    },
+    {
+      "return_id": "10",
+      "file": "NEW_STATEMENTS.json",
+      "id": "R3-BS-LOG-DEFICIT",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "10",
+      "file": "NEW_STATEMENTS.json",
+      "id": "R3-BS-WEAK-LOG",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "10",
+      "file": "NEW_STATEMENTS.json",
+      "id": "R3-STEIN-K3",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "10",
+      "file": "NEW_STATEMENTS.json",
+      "id": "R3-BIASED-DEGREE3",
+      "verdict": "deferred",
+      "rationale": "Ordinary, explanatory or candidate statement; preserve source proposal without claiming a new Lean proof or committing each as a canonical statement."
+    },
+    {
+      "return_id": "10",
+      "file": "STATEMENT_CHANGES.json",
+      "id": "claim-bs-to-L",
+      "verdict": "incorporated",
+      "rationale": "Return says requested k, positivity and powers-of-four scope already exists in its source snapshot; verify live corpus before changing."
+    }
+  ],
+  "primary_sources": [
+    "https://arxiv.org/html/2008.07003",
+    "https://theoryofcomputing.org/articles/v002a001/v002a001.pdf",
+    "https://arxiv.org/html/quant-ph/0611054",
+    "https://arxiv.org/abs/2008.10223"
+  ],
+  "validation": "Executed finite/structural checks from returns 01, 02, 03 and 08, and the return 10 finite check; these passed. Return 10 structural validator requires the original input packet and was not run. These are not fresh Lean or Comparator. Live declarations were inspected; execution receipts remain source-bound historical evidence and must be matched to current bytes."
+}

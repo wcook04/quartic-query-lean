@@ -10,6 +10,7 @@ graph schema, and the statement text is the join key for everything else.
 | `ties.json` | Reviewed | How each Lean declaration relates to a statement. |
 | `receipts/` | Recorded | Results of actual builds and Comparator runs. |
 | `lean_dependencies.json` | Recorded | The dependency closure read from the compiled environment. |
+| [native_extractions/round3/](native_extractions/round3/README.md) | Recorded | Focused native dependency reports, graphs, selected views and their adapter/CLI receipts. |
 | `statements.json` | Generated | Statements, hashes and separate evidence fields. |
 | `evidence-graph.json` | Generated | The same statements in the graph schema. |
 | `coverage.json` | Generated | A count for each evidence field. |
@@ -19,6 +20,7 @@ The evidence fields answer separate questions, and none of them implies another:
 | Field | Question |
 | --- | --- |
 | `formal_statement` | Does a Lean statement say this: `exact`, `stronger`, `partial`, `weaker`, or `none`? |
+| `review` | Is the authored relation bound to the current statement, tie and local Lean/configuration snapshot? |
 | `build` | Is the declaration in the compiled environment for the current recorded source bytes? |
 | `comparator` | Did Comparator accept it against an independently compiled challenge? |
 | `conditional` | Does the checked theorem carry an open hypothesis? |
@@ -34,6 +36,13 @@ A Lean doc comment reading `Ledger: <id>` only proposes a tie. A statement count
 checked through a reviewed relation and a receipt naming the declaration. See
 [the contract](../docs/statement_evidence_contract.md).
 
+`coverage.json` also reports source-comment IDs that have no canonical row.
+The retained `def-P` tag accompanies the valid `eq-4` tag, while
+`claim-butterfly` labels internal Walsh-transform ingredients. These are not
+two missing preprint rows or dangling graph prerequisites. Their declarations
+remain inspectable in source; promoting additional research statements requires
+their own provenance rather than relabelling them as preprint claims.
+
 Evidence freshness is also explicit: source-bound receipts can be `current` or
 `stale`; older receipts without source hashes are `legacy_unbound`. Historical
 success is preserved, but only current receipts count toward current build and
@@ -41,6 +50,23 @@ comparison fields. Source binding is deliberately conservative: a change to
 another maintained Lean module also requires a fresh receipt. The public
 dependency graph follows hidden helpers before filtering its display and keeps
 witness paths through those helpers.
+
+Statement review has its own freshness boundary. The optional `review_binding`
+on an authored tie binds its exact row and judgment, declaration and complete
+local source/configuration snapshot. Generated ties expose `review_evidence` as
+`current`, `stale`, `legacy_unbound` or `not_reviewed`; old judgments survive as
+`reviewed_relation` and `reviewed_route`. Only current reviews supply effective
+relations and current statement credit. A new build or Comparator receipt never
+updates a review. Graph metadata receipts retain those ties and their freshness
+states even when no current declaration is selected; graph nodes remain
+unverified or external. The [contract](../docs/statement_evidence_contract.md#binding-a-completed-review)
+defines the binding and the deliberate, reviewed migration of existing ties.
+
+This graph currently admits preprint rows only. `r2-live-*` helper proposals
+stay in their research adjudication source with their own provenance. The
+builder refuses those rows, explicitly nonpreprint source IDs, and missing
+prerequisite rows rather than silently attributing or dropping them. Their
+ingestion needs source-aware graph support; no alternative registry is created.
 
 Reviewed ties may distinguish `premises` of the statement from additional
 `open_assumptions` of the cited declaration. A depth bound or circuit-realization
@@ -62,3 +88,9 @@ intact; maintained decisions have their own owner.
 
 Use the [maintenance commands](../tools/README.md) to refresh outputs. Do not
 hand-edit generated files or replace historical receipts during a tree cleanup.
+
+The [focused native views](native_extractions/round3/README.md) retain actual
+reports and consumer operations for selected equation (19) and semantic goals.
+Their local dependency scopes and external package boundaries remain explicit.
+They are separate recorded inputs from the informal statement graph above;
+native extraction does not establish paper fidelity or human review.

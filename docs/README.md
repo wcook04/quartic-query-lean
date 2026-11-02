@@ -6,6 +6,7 @@ a review describes the revision it read, not every later change.
 
 | Document | Purpose and scope |
 | --- | --- |
+| [Long reasoning record](reasoning_record.md) | Maintained integration of the eight round-three section returns, with a [bibliography](reasoning_record.bib), [correspondence](reasoning_record_correspondence.json) and [version-bound review](reasoning_record_review.json). |
 | [Statement evidence contract](statement_evidence_contract.md) | Rules for relating printed statements, Lean declarations and recorded checks. |
 | [Statement fidelity review](statement_fidelity_review.md) | Independent AI reading of the conditional development at `efc70f3`; it did not run Lean. Preserve its findings as a record of that revision. |
 | [Forrelation lower-bound blueprint](forrelation_lower_bound_blueprint.md) | The implementation route and its development notes. Its status passages reflect the stages at which they were written. |
@@ -16,3 +17,8 @@ For the current declaration locations, use the [Lean guide](../lean/README.md).
 For recorded builds, comparisons and reviewed statement relations, use the
 [corpus guide](../corpus/README.md). Neither a directory listing nor a prose review
 replaces those records.
+
+The [round-three integration](../research/adjudication/round3_integration.md)
+records the accepted changes, remaining fidelity work and validation boundary.
+The short and examples-first manuscripts under `research/returns/funnel/` remain
+historical inputs until their revised companions are separately reviewed.

@@ -1,0 +1,224 @@
+{
+  "schema": "quartic-structure-sources-v1",
+  "purpose": "Source-based structure handoff for the long-record writer; no manuscript edits.",
+  "sources": [
+    {
+      "path": "/Users/willcook/src/lean-exposition/papers/qaoa-sk/long/reasoning-record.md",
+      "sha256": "c4249feffa26e48c24c5690f73e0de4886e40504c8c5c0e6dcb22ec94ea334da",
+      "repository": "wcook04/lean-exposition",
+      "revision": "bbeafdb561e4dbf5f4f17c9150cb61392c264458",
+      "anchors": [
+        "§1 model-and-three-targets",
+        "§2.1 argument-map",
+        "§12.1–12.4 formal-interfaces",
+        "§13 verification"
+      ],
+      "observation": "The argument begins with concrete model definitions, directs the reader through named dependencies, then gives full-width exact formal scopes, index correspondences and named transport obligations; source checks follow separately.",
+      "license": "Apache-2.0 original documentation; upstream sources retain their own licences."
+    },
+    {
+      "path": "/Users/willcook/src/lean-exposition/skills/graph-to-long/SKILL.md",
+      "sha256": "819bf48c70b0840272b81a331a9de63a346491382d6b588805de4ef469032959",
+      "repository": "wcook04/lean-exposition",
+      "revision": "bbeafdb561e4dbf5f4f17c9150cb61392c264458",
+      "anchors": [
+        "intro: table policy",
+        "steps 6–9"
+      ],
+      "observation": "Compact comparisons belong in tables; multi-sentence hypotheses and constructions belong in full-width prose, with explicit local assumptions, correspondence and validation.",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/Users/willcook/src/lean-exposition/papers/qaoa-sk/expository/main.md",
+      "sha256": "93145ef5687bb57439b6b2cb17b3f040069f7144f8a92e8bed7d3d18237af961",
+      "repository": "wcook04/lean-exposition",
+      "revision": "bbeafdb561e4dbf5f4f17c9150cb61392c264458",
+      "anchors": [
+        "§1 finite optimisation problem",
+        "§2 what a gap means",
+        "§5 contact and strict curvature"
+      ],
+      "observation": "Starts from finite spins and an elementary gap to prepare the later variational proof; preserves role and limits of the motivating examples.",
+      "license": "Apache-2.0 original documentation; upstream sources retain their own licences."
+    },
+    {
+      "path": "/Users/willcook/src/lean-exposition/papers/qaoa-sk/short/paper.md",
+      "sha256": "267b41919f95376c728c2f90f5c80e4bf7aa13ca3418d4931ff608c908902e54",
+      "repository": "wcook04/lean-exposition",
+      "revision": "bbeafdb561e4dbf5f4f17c9150cb61392c264458",
+      "anchors": [
+        "§1 result and mechanism",
+        "§2 contact and curvature",
+        "Formal scope"
+      ],
+      "observation": "Gives a theorem and mechanism first, keeps the formal scope in a separate section, and directs omitted detail to the long proof.",
+      "license": "Apache-2.0 original documentation; upstream sources retain their own licences."
+    },
+    {
+      "path": "/Users/willcook/src/plectis-erdos-integration/paper/257/erdos257-mersenne-reasoning-surface.tex",
+      "sha256": "781868f903af0624baed4f556a46eccb225f88c087adcd04ce488e9606204131",
+      "repository": "wcook04/plectis-erdos",
+      "revision": "ac4d19c579390b2b4f7733f56b434be637c4556a",
+      "anchors": [
+        "lines 235–255 reading and evidence",
+        "lines 321–403 reciprocal-summable proof",
+        "lines 1014–1047 universal and half-value questions",
+        "lines 2121–2150 linear vs reference",
+        "lines 2545–2600 reported finite checks"
+      ],
+      "observation": "Names the displacement mechanism, derives the identity, controls the two limits in their actual order and states what the method cannot settle. Separate linear and reference routes retain exact finite boundaries.",
+      "license": "CC-BY-4.0 (file SPDX)."
+    },
+    {
+      "path": "/Users/willcook/src/plectis-erdos-integration/paper/257/erdos-257-mersenne-support-subseries.tex",
+      "sha256": "257ba6b57ef2bc5d8db6066b2f7a5ea1cc8f9640c0756e7c8bc9bc5116909483",
+      "repository": "wcook04/plectis-erdos",
+      "revision": "ac4d19c579390b2b4f7733f56b434be637c4556a",
+      "anchors": [
+        "Introduction and main results, weighted-support theorem",
+        "proof of displacement averaging"
+      ],
+      "observation": "States the theorem with quantified premises, a concrete prime-power example and explicit limitations, then develops algebra in full-width proof and displayed equations.",
+      "license": "CC-BY-4.0 (file SPDX)."
+    }
+  ],
+  "inspected_renderings": [
+    {
+      "pdf": "/Users/willcook/src/lean-exposition/papers/qaoa-sk/long/reasoning-record.pdf",
+      "sha256": "4678e0f16e26ed8bf0058823b426c142db889e6c4c06868001b4f10b91ee0beb",
+      "pages": [
+        70,
+        71
+      ],
+      "inspection": "Rendered at 105 dpi: broad lines, compact headings and full-width paragraphs establish exact support and scalar interfaces, then named model-transport obligations. This is dense but avoids narrow columns.",
+      "qualification": "Locally rendered or retained PDF; source-to-PDF currentness has not been independently verified. Use as a historical visual specimen, not an evidence receipt."
+    },
+    {
+      "pdf": "/Users/willcook/src/plectis-erdos-integration/paper/erdos257-mersenne-reasoning-surface.pdf",
+      "sha256": "6162e5c2060b2a9cefaf374830fdabf0a2d03bf8578e7cc0e0c6767a8abc8b85",
+      "pages": [
+        6,
+        33
+      ],
+      "inspection": "Rendered at 105 dpi: page 6 is the detailed contents separating outstanding obligations and provenance; page 33 gives finite versus cofinal requirements and cited versus formalized results in full-width named prose, with a centered displayed identity.",
+      "qualification": "Locally rendered or retained PDF; source-to-PDF currentness has not been independently verified. Use as a historical visual specimen, not an evidence receipt."
+    },
+    {
+      "pdf": "/Users/willcook/src/plectis-erdos-integration/paper/erdos-257-mersenne-support-subseries.pdf",
+      "sha256": "b7635e96da57a679d715c552af4e1f0b31b555b9ca9ba9ca1dc075e7526563a2",
+      "pages": [
+        5
+      ],
+      "inspection": "Rendered at 105 dpi: actual averaging proof alternates compact full-width paragraphs and displayed estimates; a split of cases keeps the calculation readable.",
+      "qualification": "Locally rendered or retained PDF; source-to-PDF currentness has not been independently verified. Use as a historical visual specimen, not an evidence receipt."
+    }
+  ],
+  "alternate_SK_attempts": {
+    "paper_funnel_commit": "3372d95d80e5336df766e56811331f8a5ff20776",
+    "family_sync_commit": "3a60ed29204591461381a5c355e858185942847c",
+    "observation": "Both have the same long-record SHA-256 c4249feffa26e48c24c5690f73e0de4886e40504c8c5c0e6dcb22ec94ea334da as the selected source. The portfolio attempt at d6e54a2045027473b6b6f2ed37f9f8212ffea836 has SHA-256 a19893f62d1211681ed0cb9cbb8bb454214d97f231f6a6d091b6f198fca35a89 and differs only by three AI-assistance disclosure lines near its opening; no independent structural variant identified."
+  },
+  "table_inventory": [
+    {
+      "line": 104,
+      "section": "1.1",
+      "columns_approx": 3,
+      "assessment": "short comparison"
+    },
+    {
+      "line": 325,
+      "section": "2.6",
+      "columns_approx": 6,
+      "assessment": "finite examples"
+    },
+    {
+      "line": 388,
+      "section": "2.7",
+      "columns_approx": 5,
+      "assessment": "priority: tall multiline prose, code, assumptions and receipts mixed"
+    },
+    {
+      "line": 783,
+      "section": "3.5",
+      "columns_approx": 7,
+      "assessment": "finite value comparison"
+    },
+    {
+      "line": 795,
+      "section": "3.5",
+      "columns_approx": 6,
+      "assessment": "finite value comparison"
+    },
+    {
+      "line": 1812,
+      "section": "4.2",
+      "columns_approx": 2,
+      "assessment": "compact block/content map"
+    },
+    {
+      "line": 1891,
+      "section": "4.3",
+      "columns_approx": 5,
+      "assessment": "finite example"
+    },
+    {
+      "line": 1906,
+      "section": "4.3",
+      "columns_approx": 5,
+      "assessment": "finite example"
+    },
+    {
+      "line": 1934,
+      "section": "4.4",
+      "columns_approx": 4,
+      "assessment": "test classifications"
+    },
+    {
+      "line": 2415,
+      "section": "5.2",
+      "columns_approx": 5,
+      "assessment": "finite tournament values"
+    },
+    {
+      "line": 2765,
+      "section": "5.5",
+      "columns_approx": 2,
+      "assessment": "priority: multiple long prose/declaration cells"
+    },
+    {
+      "line": 3061,
+      "section": "6.1",
+      "columns_approx": 6,
+      "assessment": "finite direct-product example"
+    },
+    {
+      "line": 3358,
+      "section": "6.3",
+      "columns_approx": 6,
+      "assessment": "finite coupling example"
+    },
+    {
+      "line": 3544,
+      "section": "6.5",
+      "columns_approx": 4,
+      "assessment": "finite simulator comparison"
+    },
+    {
+      "line": 4141,
+      "section": "A.6",
+      "columns_approx": 4,
+      "assessment": "three compact quartic-route constants"
+    }
+  ],
+  "recommendations": [
+    "Replace §2.7 five-column model inventory with connected full-width subsections: domain and promise; classical budgets; quantum program, oracle and output masses; deferred measurement; family and headline statements. Keep source names and precise quantifiers near claims; preserve ordinary versus open premises and individually scoped build/Comparator evidence.",
+    "Replace the six long prose cells in §5.5 with named full-width paragraphs on abstract amplification, physical label law, tensor state, tournament, component bounds and proposition. Preserve the designated-subsystem gap, dependency reach, and distinction between new wrappers and compared roots.",
+    "Preserve compact numeric/case and finite example tables where they aid comparison; verify all 15 tables at the actual target page size rather than equating column count with a defect. Do not replace the small §A.6 route comparison if readable.",
+    "Preserve stable passage IDs, exact declaration/receipt links, data-source provenance and ordinary-proof vs kernel/comparison/human-review boundaries. Inspect the new render and its siblings at intended size; no visual acceptance follows from Markdown or a hash alone."
+  ],
+  "quartic_inventory_source": {
+    "path": "docs/reasoning_record.md",
+    "sha256_at_inventory": "a29979693e95f5d591ce1bae0df2314daa61029fb9be184a72aa492df8a46460",
+    "boundary": "The 15-table inventory is a source-text scan at this snapshot; section lines can move with concurrent revisions. Rendered quartic output was not inspected by this scout."
+  }
+}

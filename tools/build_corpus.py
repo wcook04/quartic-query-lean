@@ -43,6 +43,7 @@ EXTERNAL = {"lem-2.1.i"}
 RELATIONS = {"exact", "stronger", "partial", "weaker"}
 ROUTES = {"same", "alternative", "none"}
 CHECKED = {"exact", "stronger"}
+REVIEW_SCHEMA = "quartic-tie-review-v1"
 DOC_TIE = re.compile(r"Ledger:\s*")
 TIE_ID = re.compile(r"[A-Za-z][\w.-]*\w")
 DECLARATION = re.compile(
@@ -161,6 +162,59 @@ def currentness(record, hashes=None):
     return "current" if recorded == (source_hashes() if hashes is None else hashes) else "stale"
 
 
+def canonical_sha256(value):
+    return sha256(json.dumps(value, sort_keys=True, ensure_ascii=False, separators=(",", ":")))
+
+
+def expected_review_binding(ident, row, review, hashes):
+    """The bytes a reviewer must bind after reviewing, never a review itself.
+
+    The complete local-source snapshot includes declaration types, implicit
+    context and all locally defined terms, as well as pinned dependencies.
+    This deliberately invalidates on proof-only edits too. No producer writes
+    this binding into authored ties or upgrades an old review automatically.
+    """
+    return {
+        "schema": REVIEW_SCHEMA,
+        "statement_id": ident,
+        "statement_sha256": sha256(row["statement"]),
+        "row_sha256": canonical_sha256(row),
+        "declaration": review["declaration"],
+        "judgment_sha256": canonical_sha256(
+            {key: value for key, value in review.items() if key != "review_binding"}),
+        "source_snapshot_sha256": canonical_sha256(hashes),
+    }
+
+
+def review_currentness(ident, row, review, hashes):
+    """A fresh proof/comparison receipt cannot refresh a statement review."""
+    if review is None:
+        return "not_reviewed"
+    if "review_binding" not in review:
+        return "legacy_unbound"
+    binding = review["review_binding"]
+    expected = expected_review_binding(ident, row, review, hashes)
+    if (not isinstance(binding, dict) or set(binding) != set(expected)
+            or binding.get("schema") != REVIEW_SCHEMA
+            or not all(isinstance(value, str) for value in binding.values())
+            or any(not re.fullmatch(r"[0-9a-f]{64}", binding[key])
+                   for key in expected if key.endswith("sha256"))):
+        raise ValueError(f"{ident}/{review['declaration']}: malformed review_binding")
+    return "current" if binding == expected else "stale"
+
+
+def require_preprint_row(ident, row):
+    """Withhold separately derived rows until mixed-source projection is supported.
+
+    r2-live proposals retain their own source and dependency data in their
+    adjudication owner. Even an explicit preprint source label must not silently
+    turn those known helper statements into claims of the OpenAI preprint.
+    """
+    if ident.startswith("r2-live-") or row.get("source_id", "openai_preprint") != "openai_preprint":
+        raise ValueError(f"{ident}: withheld from the preprint-only corpus; "
+                         "preserve its own provenance and dependencies in the source owner")
+
+
 def receipts():
     return [{**json.loads(path.read_text(encoding="utf-8")), "receipt_file": str(path.relative_to(ROOT)),
              "receipt_sha256": hashlib.sha256(path.read_bytes()).hexdigest()}
@@ -197,6 +251,7 @@ def statement_records(ledger, proposed, reviewed, runs, reached=None, hashes=Non
     hashes = source_hashes() if hashes is None else hashes
     records = []
     for ident, row in ledger.items():
+        require_preprint_row(ident, row)
         ties = []
         declared = proposed.get(ident, [])
         names = {tie["declaration"] for tie in declared}
@@ -207,11 +262,17 @@ def statement_records(ledger, proposed, reviewed, runs, reached=None, hashes=Non
         for tie in declared + extra:
             review = next((r for r in reviewed.get(ident, [])
                            if r["declaration"] == tie["declaration"]), None)
+            review_state = review_currentness(ident, row, review, hashes)
             build = declaration_evidence(runs, "lean_build", tie["declaration"], hashes)
             comparison = declaration_evidence(runs, "comparator", tie["declaration"], hashes)
             ties.append({**tie,
-                         "relation": review["relation"] if review else "unassessed",
-                         "route": review["route"] if review else "unassessed",
+                         "relation": review["relation"] if review_state == "current" else "unassessed",
+                         "route": review["route"] if review_state == "current" else "unassessed",
+                         "reviewed_relation": review["relation"] if review else "unassessed",
+                         "reviewed_route": review["route"] if review else "unassessed",
+                         "review_evidence": review_state,
+                         **({"review_binding": review["review_binding"]}
+                            if review and "review_binding" in review else {}),
                          **reviewed_assumptions(review),
                          "note": review.get("note", "") if review else "",
                          "build_evidence": build,
@@ -236,6 +297,8 @@ def statement_records(ledger, proposed, reviewed, runs, reached=None, hashes=Non
             "external_inputs": row.get("external_inputs", []),
             "lean": ties,
             "evidence": {
+                "review": next((state for state in ("current", "stale", "legacy_unbound")
+                                if any(t["review_evidence"] == state for t in ties)), "not_reviewed"),
                 "formal_statement": (
                     "none" if not ties else
                     next((t["relation"] for t in ties if t["relation"] in CHECKED), None)
@@ -276,6 +339,11 @@ def node_kind(record):
 def evidence_graph(records, runs, hashes=None):
     hashes = source_hashes() if hashes is None else hashes
     ids = {record["id"] for record in records}
+    for record in records:
+        require_preprint_row(record["id"], record)
+        missing = set(record["depends_on"]) - ids
+        if missing:
+            raise ValueError(f"{record['id']}: missing prerequisite rows: {', '.join(sorted(missing))}")
     evidence = [{"id": "paper_hash", "kind": "source_hash", "status": "not_run", "command": [],
                  "tool": "Pinned by revision; byte hash is recorded in the annex",
                  "source_ids": ["openai_preprint"], "subject_ids": [],
@@ -311,18 +379,20 @@ def evidence_graph(records, runs, hashes=None):
         metadata = {"boundary": "Informal statement projection; no native formal declaration export or independent semantic verification."}
         evidence_ids = ["fidelity_review", *[item["id"] for item in evidence
                                             if record["id"] in item["subject_ids"]]]
-        if "assumption_declaration" in selected:
+        if record["lean"]:
             metadata_id = f"tie_review_{record['id']}"
             evidence_ids.append(metadata_id)
             evidence.append({
                 "id": metadata_id, "kind": "semantic_review", "status": "not_run", "command": [],
-                "tool": "Authored reviewed tie in corpus/ties.json",
+                "tool": "Projection of authored reviews and proposed statement ties",
                 "source_ids": ["openai_preprint"], "subject_ids": [record["id"]],
-                "details": "Reviewed premise/open-assumption classification; not an independent semantic review or proof receipt.",
-                "receipt": {"statement_evidence": selected,
+                "details": "Historical judgments and independent freshness states; not an independent semantic review or proof receipt.",
+                "receipt": {"statement_evidence": selected, "ties": record["lean"],
                             **{field: selected[field]
-                               for field in ("assumption_declaration", "premises", "open_assumptions")}},
+                               for field in ("assumption_declaration", "premises", "open_assumptions")
+                               if field in selected}},
             })
+        if "assumption_declaration" in selected:
             metadata = {"declaration": selected["assumption_declaration"],
                         "boundary": (metadata["boundary"] + " Selected tied theorem metadata. Ordinary premises: "
                                      + ("; ".join(selected["premises"]) or "none")
@@ -338,7 +408,7 @@ def evidence_graph(records, runs, hashes=None):
             "statement": record["statement"],
         })
     edges = [{"from": record["id"], "to": dep, "kind": "supports", "evidence_ids": []}
-             for record in records for dep in record["depends_on"] if dep in ids]
+             for record in records for dep in record["depends_on"]]
     return {
         "schema_version": "1.2",
         "id": "quartic-query-separation",
@@ -360,6 +430,8 @@ def evidence_graph(records, runs, hashes=None):
                   "explicit open_assumptions do, with hypotheses as the legacy fallback. "
                   "Selected assumption metadata is omitted when no current built tie exists; "
                   "its absence is unknown, whereas [] is an explicitly empty list. "
+                  "Current statement alignment additionally requires a source-bound authored review; "
+                  "builds and comparisons cannot refresh it. Separately derived r2-live rows are withheld. "
                   "Historical receipt status is preserved separately from currentness."),
         "extraction_status": "not_run",
         "notes": ["Generated by tools/build_corpus.py; edit the inputs, not this file."],
@@ -367,7 +439,7 @@ def evidence_graph(records, runs, hashes=None):
 
 
 def coverage(records, unknown=()):
-    fields = ["formal_statement", "formal_origin", "build", "comparator", "route", "reach"]
+    fields = ["review", "formal_statement", "formal_origin", "build", "comparator", "route", "reach"]
     return {
         "statements": len(records),
         "corrected": sum(r["corrected"] for r in records),

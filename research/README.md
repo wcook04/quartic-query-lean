@@ -15,6 +15,15 @@ were prepared by AI agents and have not been independently reviewed by a person.
 are different kinds of evidence. The intake files record research and proposals;
 they are not build receipts or proof certificates.
 
+The ten [round-three returns](returns/round3/README.md) have source-specific
+[integration decisions](adjudication/round3_integration.md), including the
+[foundations review](adjudication/round3_foundations.md),
+[construction review](adjudication/round3_construction.md),
+[evidence backend](adjudication/round3_backend.md), and
+[complete claim-appendix audit](adjudication/round3_appendix_audit.md).
+The maintained manuscript is now [the long reasoning record](../docs/reasoning_record.md);
+returned manuscript bytes remain unchanged.
+
 [requests/](requests/README.md) holds the maintained instructions for further reviews.
 The [packet builder](../tools/build_research_packets.py) combines these
 instructions with source files for reviewers. The requests describe planned

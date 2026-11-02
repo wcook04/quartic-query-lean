@@ -38,3 +38,6 @@ public import QuarticQuery.Paper.ClassicalDirectProduct
 public import QuarticQuery.Paper.ClassicalUniformZero
 public import QuarticQuery.Paper.AppendixA
 public import QuarticQuery.ForrelationLower.Uniform
+public import QuarticQuery.Paper.Eq19Whole
+public import QuarticQuery.Paper.Eq19Complete
+public import QuarticQuery.Paper.ConstructionFull

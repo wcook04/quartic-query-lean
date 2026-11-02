@@ -1,0 +1,818 @@
+{
+  "schema": "round3-render-adjudication-v1",
+  "status": "accepted_exact_final_render_metadata_frozen",
+  "renderer": "tools/render_reasoning_record.py",
+  "renderer_sha256": "5c6089991fe24e45afb5b8c6fb98b22a9a0583177e22f9058d643061b213e72b",
+  "reused_implementation": "research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks/render_section.py",
+  "reused_layout": [
+    "pdf_header.tex",
+    "pdf_layout.lua"
+  ],
+  "runtime_bundle": "26.1026.10807",
+  "operation_marker": {
+    "script": "/Users/willcook/.codex/plugins/cache/openai-primary-runtime/pdf/26.1026.10807/skills/pdf/container_tools/mark_artifact_operation_started.mjs",
+    "operation": "create",
+    "expected_output_count": 1,
+    "output_format": "pdf",
+    "success": true,
+    "invocations": 1
+  },
+  "manuscript_edits_by_renderer": false,
+  "citation_policy": "Inspect Pandoc AST; citeproc only for actual Cite nodes with supplied or metadata bibliography. Current manuscript uses Markdown reference links, not citeproc syntax. Retain Appendix C.",
+  "validation": [
+    "Synthetic preflight preserves dollar and single-backslash math and tables.",
+    "Missing bibliography with actual citation nodes fails preflight.",
+    "Reserve guard rejects insufficient free capacity.",
+    "Latest layout trial emits zero overfull or missing-glyph diagnostics.",
+    "All 74,369 extracted word boxes from 168-page trial fit within physical page bounds.",
+    "Working repository role/navigation check and Python compilation pass."
+  ],
+  "review_boundary": "Acceptance binds the corrected source and exact final PDF below. Actual image review covers all 12 retained compact tables, the eight attribution edits and sampled full-width replacements, execution paragraphs and catalogue; it does not claim visual reading of all 116 pages or human peer review.",
+  "trials": [
+    {
+      "source_sha256": "239773f7c8667897e420cdca849ece07e4eabdb3d7f173ba03b6669ae30d5cb5",
+      "output": "/Users/willcook/src/_builds/quartic-r3/render/layout-trial",
+      "disposition": "superseded; exposed long-code overflow and missing font glyphs"
+    },
+    {
+      "source_sha256": "891de584ceaf5b3bb3766fdcad8c32b5a9be3477cd4dc721412b404ccbd19b1e",
+      "output": "/Users/willcook/src/_builds/quartic-r3/render/layout-trial2",
+      "disposition": "Rejected for dense table treatment; mechanics useful for future structurally rewritten source.",
+      "latest_pdf_sha256": "39de4f4e42a0222fd8556aaddd98b270431ab0ed0709ea52b79322f6e28fd2af",
+      "pages": 168,
+      "layout_diagnostics": [],
+      "sampled_visual_review": {
+        "agent": "backend",
+        "pages": [
+          1,
+          11,
+          20,
+          63,
+          147,
+          163,
+          168
+        ],
+        "result": "Readable headings, tables, ordinary math, exact catalogue quotes and final proof; no visible clipping or missing glyphs on samples."
+      },
+      "parent_inspection": {
+        "scope": "Earlier trial2 sampled PNGs only; not final-source acceptance",
+        "pages": [
+          11,
+          20,
+          149,
+          167
+        ],
+        "result": "Tables, equations, catalogue and references readable; no clipping visible."
+      }
+    }
+  ],
+  "commit": "not_created",
+  "design_acceptance": {
+    "status": "historical_rejection_resolved_by_structural_rewrite_and_final_review",
+    "by": "operator via parent",
+    "scope": "Dense five-column prose/code correspondence table on trial2 page11",
+    "required_change": "Astra-authored structural rewrite borrowing actual257 and SK long reasoning papers; no shrinking table to fit.",
+    "prior_inspection_limit": "Readable and unclipped samples established technical legibility only; they did not establish acceptable paper structure or design.",
+    "final_pdf_gate": "Accepted on exact corrected PDF SHA256 40bc5c71e61de0fb7b38707b9938e796ad69e0ea2868d7b9eb80e43b7518c7dd; see final_render."
+  },
+  "structural_trial": {
+    "source_sha256": "612828c668a5a45bebc57416283e7bd77928dd26e45a4357c799415e9f1e6e6f",
+    "pdf": "/Users/willcook/src/_builds/quartic-r3/render/structural-trial/reasoning_record.pdf",
+    "pdf_sha256": "7b3919642a0b3882b31c09fcb86b37b635fabadbc7e33a5493bcae84b563f4ab",
+    "render_receipt": "/Users/willcook/src/_builds/quartic-r3/render/structural-trial/render.json",
+    "pages": 112,
+    "word_boxes": 54173,
+    "outside_page_words": 0,
+    "layout_diagnostics": [],
+    "tables": [
+      {
+        "name": "argument map",
+        "pages": [
+          3
+        ],
+        "visual_result": "readable at 1400px page image; no clipping",
+        "remaining_issue": null
+      },
+      {
+        "name": "two-bit OR",
+        "pages": [
+          8
+        ],
+        "visual_result": "readable at 1400px page image; no clipping",
+        "remaining_issue": null
+      },
+      {
+        "name": "Forrelation values",
+        "pages": [
+          19
+        ],
+        "visual_result": "readable at 1400px page image; no clipping",
+        "remaining_issue": null
+      },
+      {
+        "name": "Forrelation numerator counts",
+        "pages": [
+          20
+        ],
+        "visual_result": "readable at 1400px page image; no clipping",
+        "remaining_issue": null
+      },
+      {
+        "name": "column blocks",
+        "pages": [
+          38
+        ],
+        "visual_result": "readable at 1400px page image; no clipping",
+        "remaining_issue": null
+      },
+      {
+        "name": "eight-bit values",
+        "pages": [
+          39
+        ],
+        "visual_result": "readable at 1400px page image; no clipping",
+        "remaining_issue": null
+      },
+      {
+        "name": "four-column board",
+        "pages": [
+          40
+        ],
+        "visual_result": "readable at 1400px page image; no clipping",
+        "remaining_issue": null
+      },
+      {
+        "name": "local test families",
+        "pages": [
+          40,
+          41
+        ],
+        "visual_result": "readable at 1400px page image; no clipping",
+        "remaining_issue": "Split between pages; passing-condition column too narrow for this classification table"
+      },
+      {
+        "name": "tournament matrix",
+        "pages": [
+          52
+        ],
+        "visual_result": "readable at 1400px page image; no clipping",
+        "remaining_issue": null
+      },
+      {
+        "name": "adaptive product counts",
+        "pages": [
+          65
+        ],
+        "visual_result": "readable at 1400px page image; no clipping",
+        "remaining_issue": null
+      },
+      {
+        "name": "planted board",
+        "pages": [
+          70
+        ],
+        "visual_result": "readable at 1400px page image; no clipping",
+        "remaining_issue": null
+      },
+      {
+        "name": "simulator trace",
+        "pages": [
+          74
+        ],
+        "visual_result": "readable at 1400px page image; no clipping",
+        "remaining_issue": null
+      },
+      {
+        "name": "quartic routes",
+        "pages": [
+          86
+        ],
+        "visual_result": "readable at 1400px page image; no clipping",
+        "remaining_issue": null
+      }
+    ],
+    "full_width_routes_inspected": [
+      10,
+      11,
+      60,
+      61
+    ],
+    "catalogue_inspected": [
+      87,
+      88,
+      104,
+      107
+    ],
+    "final_proof_inspected": [
+      112
+    ],
+    "historical_specimens_inspected": [
+      {
+        "pdf": "/Users/willcook/src/lean-exposition/papers/qaoa-sk/long/reasoning-record.pdf",
+        "pages": [
+          70
+        ]
+      },
+      {
+        "pdf": "/Users/willcook/src/plectis-erdos-integration/paper/erdos257-mersenne-reasoning-surface.pdf",
+        "pages": [
+          33
+        ]
+      }
+    ],
+    "specimen_boundary": "Historical layout/structure specimens only, no source-to-PDF proof or currentness claim.",
+    "review_result": "Full-width formal explanations and separate evidence have replaced the rejected tables. One remaining local-test classification table needs width/placement attention; parent acceptance pending.",
+    "final_evidence_freeze": false
+  },
+  "latest_structural_trial": {
+    "source_sha256": "a7a552ae880c5d07cf16872fbc5bac5de4357665b91ca1d15c5e5f7b1fe4a0e4",
+    "pdf": "/Users/willcook/src/_builds/quartic-r3/render/structural-trial3/reasoning_record.pdf",
+    "pdf_sha256": "44b40a252de82766a4e85aab1f8a11d08f9535e2ecd4419a9b4a399a8459c610",
+    "pages": 114,
+    "layout_diagnostics": [],
+    "page_box_check": {
+      "pages": 114,
+      "words": 54975,
+      "outside_page": []
+    },
+    "source_tables": 12,
+    "table_visual_reviews": [
+      {
+        "name": "argument map",
+        "page": 3,
+        "result": "Compact, readable at 1400px page image; no clipping or missing glyphs."
+      },
+      {
+        "name": "OR successes",
+        "page": 8,
+        "result": "Compact, readable at 1400px page image; no clipping or missing glyphs."
+      },
+      {
+        "name": "Forrelation values",
+        "page": 20,
+        "result": "Compact, readable at 1400px page image; no clipping or missing glyphs."
+      },
+      {
+        "name": "numerator count",
+        "page": 20,
+        "result": "Compact, readable at 1400px page image; no clipping or missing glyphs."
+      },
+      {
+        "name": "column blocks",
+        "page": 39,
+        "result": "Compact, readable at 1400px page image; no clipping or missing glyphs."
+      },
+      {
+        "name": "eight-bit values",
+        "page": 40,
+        "result": "Compact, readable at 1400px page image; no clipping or missing glyphs."
+      },
+      {
+        "name": "four-column board",
+        "page": 41,
+        "result": "Compact, readable at 1400px page image; no clipping or missing glyphs."
+      },
+      {
+        "name": "tournament matrix",
+        "page": 53,
+        "result": "Compact, readable at 1400px page image; no clipping or missing glyphs."
+      },
+      {
+        "name": "adaptive count",
+        "page": 67,
+        "result": "Compact, readable at 1400px page image; no clipping or missing glyphs."
+      },
+      {
+        "name": "planted board",
+        "page": 71,
+        "result": "Compact, readable at 1400px page image; no clipping or missing glyphs."
+      },
+      {
+        "name": "simulator trace",
+        "page": 75,
+        "result": "Compact, readable at 1400px page image; no clipping or missing glyphs."
+      },
+      {
+        "name": "quartic route comparison",
+        "page": 88,
+        "result": "Compact, readable at 1400px page image; no clipping or missing glyphs."
+      }
+    ],
+    "replaced_treatment": {
+      "local_test_definition_pages": [
+        41,
+        42
+      ],
+      "result": "Full-width named definitions explain counts and query depths; no passing-condition table remains. No font shrinking."
+    },
+    "model_route_pages": [
+      10,
+      11
+    ],
+    "quantum_route_page": 62,
+    "catalogue_locator_pages": [
+      89,
+      90,
+      106
+    ],
+    "minor_pagination_findings": [
+      "Catalogue Argument backlink at start of page90 belongs to preceding claim; generic submitted Needspace for bold-start paragraphs can detach such one-line backlinks. Address mechanically at final pagination if persistent."
+    ],
+    "author_inspection": "paths sent; receipt pending",
+    "parent_inspection": "pending",
+    "final_source_evidence_freeze": false
+  },
+  "parent_structural_acceptance": {
+    "source_sha256": "a7a552ae880c5d07cf16872fbc5bac5de4357665b91ca1d15c5e5f7b1fe4a0e4",
+    "sampled_pages": [
+      41,
+      62,
+      90
+    ],
+    "result": "Full-width source replacements accepted structurally; detached Argument backlink identified for repair. Not final manuscript acceptance."
+  },
+  "pagination_spacing_trial": {
+    "source_sha256": "a7a552ae880c5d07cf16872fbc5bac5de4357665b91ca1d15c5e5f7b1fe4a0e4",
+    "source_unchanged": true,
+    "pdf": "/Users/willcook/src/_builds/quartic-r3/render/structural-pagination/reasoning_record.pdf",
+    "pdf_sha256": "249dd7ab0caa91a87910c677fbe144acadaf82bbbc99483a558bae0bfbb6eede",
+    "render_receipt": "/Users/willcook/src/_builds/quartic-r3/render/structural-pagination/render.json",
+    "pages": 115,
+    "page_box_check": {
+      "pages": 115,
+      "words": 54976,
+      "outside_page": []
+    },
+    "layout_diagnostics": [],
+    "paired_catalogue_blocks": 121,
+    "table_spacing_scopes": 12,
+    "detached_argument_at_page_start": false,
+    "sampled_visual_review": [
+      {
+        "page": 3,
+        "result": "Argument-map rows now visibly separated at unchanged font size."
+      },
+      {
+        "page": 75,
+        "result": "Simulator trace rows have breathing room; each action and target count remains visibly aligned."
+      },
+      {
+        "page": 88,
+        "result": "Quartic routes are separated into three clearly distinct multiline rows."
+      },
+      {
+        "page": 90,
+        "result": "Each claim quotation and Argument backlink remain together; earlier detached top-of-page backlink removed."
+      },
+      {
+        "page": 91,
+        "result": "Later catalogue blocks retain quotation/backlink grouping."
+      }
+    ],
+    "images": [
+      "/Users/willcook/src/_builds/quartic-r3/render/structural-pagination/page-003.png",
+      "/Users/willcook/src/_builds/quartic-r3/render/structural-pagination/page-075.png",
+      "/Users/willcook/src/_builds/quartic-r3/render/structural-pagination/page-088.png",
+      "/Users/willcook/src/_builds/quartic-r3/render/structural-pagination/page-089.png",
+      "/Users/willcook/src/_builds/quartic-r3/render/structural-pagination/page-090.png",
+      "/Users/willcook/src/_builds/quartic-r3/render/structural-pagination/page-091.png"
+    ],
+    "source_scope": "Exact copied a7a552ae snapshot; final evidence paragraph refresh still pending.",
+    "parent_inspection": "pending latest pages88/90/91",
+    "parent_feedback_previous_iteration": "Row spacing improved; route table still needed a visible horizontal gutter and catalogue entry gaps were inconsistent.",
+    "latest_repairs": [
+      "9pt column padding for quartic-route table at fixed full width and unchanged 11pt font",
+      "121 native catalogue headings grouped with quotations/backlinks and one consistent external gap"
+    ],
+    "latest_sampled_visual_review": [
+      {
+        "page": 88,
+        "result": "Clear horizontal gutter between route labels and block-sensitivity formulas."
+      },
+      {
+        "page": 90,
+        "result": "Each heading has consistent separation after preceding Argument; no detached backlinks."
+      },
+      {
+        "page": 91,
+        "result": "Following catalogue entries keep the same spacing and quote/backlink grouping."
+      }
+    ],
+    "measured_entry_gaps_after_argument_points": [
+      [
+        "def-partial-query",
+        28.083
+      ],
+      [
+        "def-R",
+        28.083
+      ],
+      [
+        "def-query-oracle",
+        28.083
+      ],
+      [
+        "def-Q",
+        28.083
+      ],
+      [
+        "eq-1",
+        28.083
+      ]
+    ],
+    "final_manuscript_acceptance": false
+  },
+  "final_render_command": [
+    "python3",
+    "tools/render_reasoning_record.py",
+    "--source",
+    "docs/reasoning_record.md",
+    "--output-dir",
+    "/Users/willcook/src/_builds/quartic-r3/render/final"
+  ],
+  "marker_policy": "Operation marker already executed successfully once in this task; do not repeat for subsequent/final renders.",
+  "final_link_observation": {
+    "status": "accepted_source_relative_links_resolve_from_distribution_docs_root",
+    "observed_with": "pdfinfo -url",
+    "local_annotation_count": 55,
+    "examples": [
+      "../research/returns/round3/members/01_models_evidence/model_contract.json",
+      "../research/returns/round3/members/01_models_evidence/correspondence.json",
+      "reasoning_record_review.json",
+      "../lean/QuarticCorpus/Independent/Semantics.lean"
+    ],
+    "boundary": "Standalone external render staging is not the portable reading root. Relative targets are resolved and checked beside the Markdown in repository/docs.",
+    "resolution": "The external render directory is build staging only. Final PDF is placed byte-exact beside Markdown at repository/docs/reasoning_record.pdf, with relative targets supplied and checked from that distribution root. Do not inject absolute local paths or remove useful link actions.",
+    "owner": "Parent and packet distribution lane",
+    "final_url_count": 55,
+    "final_distribution_audit": "Parent reports actual corrected final PDF URL resolver: all 55 local annotations resolve from docs-root layout.",
+    "staging_location_limitation_only": true,
+    "pdf_sha256": "40bc5c71e61de0fb7b38707b9938e796ad69e0ea2868d7b9eb80e43b7518c7dd"
+  },
+  "final_render": {
+    "status": "accepted_exact_artifact_metadata_frozen",
+    "source": "/Users/willcook/src/quartic-query-lean/docs/reasoning_record.md",
+    "source_sha256": "c2b6f11a7a4b3f318ebf419a9959c1d154f8e2b74e3ec02a8e25fb92ba9cfd25",
+    "source_unchanged_during_render": true,
+    "bibliography_sha256": "8204d03bbc81e9fa06d029293c512621a51525ff297e576e884593cf819dc1d2",
+    "renderer": "tools/render_reasoning_record.py",
+    "renderer_sha256": "5c6089991fe24e45afb5b8c6fb98b22a9a0583177e22f9058d643061b213e72b",
+    "pdf": "/Users/willcook/src/_builds/quartic-r3/render/final/reasoning_record.pdf",
+    "pdf_sha256": "40bc5c71e61de0fb7b38707b9938e796ad69e0ea2868d7b9eb80e43b7518c7dd",
+    "local_review_pdf": "/Users/willcook/src/quartic-query-lean/docs/reasoning_record.pdf",
+    "local_review_pdf_sha256": "40bc5c71e61de0fb7b38707b9938e796ad69e0ea2868d7b9eb80e43b7518c7dd",
+    "local_review_copy_byte_exact": true,
+    "render_receipt": "/Users/willcook/src/_builds/quartic-r3/render/final/render.json",
+    "render_receipt_sha256": "b725e11311e57be6918d45886bb5e66c3dd6ef1401ea12b993544daece5f7ff6",
+    "tex_sha256": "6e13436369e2f798000564e0838b01490ca5f0c06a87e8fb7c2bb3a027430b15",
+    "pandoc_log_sha256": "e174f98bfc9724810b9f40acecdc8fd4248f543e44b575b9d2917f4f20159ee7",
+    "tectonic_log_sha256": "f6228306961d13fb9894f9fcff1bf9ca52b1ae036dc776bb52f6365f0bf14fb9",
+    "page_box_check": {
+      "pages": 116,
+      "words": 55545,
+      "outside_page": []
+    },
+    "layout_diagnostics": [],
+    "catalogue_backlink_groups": 121,
+    "detached_argument_page_starts": [],
+    "all_twelve_tables": [
+      {
+        "name": "argument map",
+        "page": 3,
+        "result": "Inspected corrected final PNG at 1400px page height: readable at unchanged 11pt, rows separated, no clipping or missing glyphs."
+      },
+      {
+        "name": "OR successes",
+        "page": 8,
+        "result": "Inspected corrected final PNG at 1400px page height: readable at unchanged 11pt, rows separated, no clipping or missing glyphs."
+      },
+      {
+        "name": "Forrelation values",
+        "page": 21,
+        "result": "Inspected corrected final PNG at 1400px page height: readable at unchanged 11pt, rows separated, no clipping or missing glyphs."
+      },
+      {
+        "name": "numerator counts",
+        "page": 21,
+        "result": "Inspected corrected final PNG at 1400px page height: readable at unchanged 11pt, rows separated, no clipping or missing glyphs."
+      },
+      {
+        "name": "column blocks",
+        "page": 40,
+        "result": "Inspected corrected final PNG at 1400px page height: readable at unchanged 11pt, rows separated, no clipping or missing glyphs."
+      },
+      {
+        "name": "eight-bit values",
+        "page": 41,
+        "result": "Inspected corrected final PNG at 1400px page height: readable at unchanged 11pt, rows separated, no clipping or missing glyphs."
+      },
+      {
+        "name": "four-column board",
+        "page": 42,
+        "result": "Inspected corrected final PNG at 1400px page height: readable at unchanged 11pt, rows separated, no clipping or missing glyphs."
+      },
+      {
+        "name": "tournament matrix",
+        "page": 54,
+        "result": "Inspected corrected final PNG at 1400px page height: readable at unchanged 11pt, rows separated, no clipping or missing glyphs."
+      },
+      {
+        "name": "adaptive counts",
+        "page": 68,
+        "result": "Inspected corrected final PNG at 1400px page height: readable at unchanged 11pt, rows separated, no clipping or missing glyphs."
+      },
+      {
+        "name": "planted board",
+        "page": 72,
+        "result": "Inspected corrected final PNG at 1400px page height: readable at unchanged 11pt, rows separated, no clipping or missing glyphs."
+      },
+      {
+        "name": "simulator trace",
+        "page": 76,
+        "result": "Inspected corrected final PNG at 1400px page height: readable at unchanged 11pt, rows separated, no clipping or missing glyphs."
+      },
+      {
+        "name": "quartic route comparison",
+        "page": 89,
+        "result": "Inspected corrected final PNG at 1400px page height: readable at unchanged 11pt, rows separated, no clipping or missing glyphs."
+      }
+    ],
+    "replacement_samples": {
+      "formal_models": [
+        10,
+        11
+      ],
+      "local_test_definitions": [
+        42,
+        43
+      ],
+      "quantum_correspondence": [
+        63
+      ],
+      "catalogue": [
+        91,
+        92,
+        108
+      ]
+    },
+    "execution_paragraphs_inspected": [
+      11,
+      12,
+      13
+    ],
+    "eight_attribution_edits": [
+      {
+        "passage": "Forrelation source/evidence scope",
+        "pages": [
+          21,
+          22
+        ]
+      },
+      {
+        "passage": "Forrelation endpoint/formal scope",
+        "pages": [
+          37
+        ]
+      },
+      {
+        "passage": "construction correspondence",
+        "pages": [
+          47
+        ]
+      },
+      {
+        "passage": "quantum correspondence earlier/current executions",
+        "pages": [
+          63
+        ]
+      },
+      {
+        "passage": "direct product source receipts",
+        "pages": [
+          70
+        ]
+      },
+      {
+        "passage": "exponent correspondence",
+        "pages": [
+          83
+        ]
+      },
+      {
+        "passage": "Appendix A.6 historical audit versus current integration",
+        "pages": [
+          90
+        ]
+      },
+      {
+        "passage": "threshold conclusion",
+        "pages": [
+          116
+        ]
+      }
+    ],
+    "inspected_images": [
+      "/Users/willcook/src/_builds/quartic-r3/render/final/page-003.png",
+      "/Users/willcook/src/_builds/quartic-r3/render/final/page-008.png",
+      "/Users/willcook/src/_builds/quartic-r3/render/final/page-010.png",
+      "/Users/willcook/src/_builds/quartic-r3/render/final/page-011.png",
+      "/Users/willcook/src/_builds/quartic-r3/render/final/page-012.png",
+      "/Users/willcook/src/_builds/quartic-r3/render/final/page-013.png",
+      "/Users/willcook/src/_builds/quartic-r3/render/final/page-021.png",
+      "/Users/willcook/src/_builds/quartic-r3/render/final/page-022.png",
+      "/Users/willcook/src/_builds/quartic-r3/render/final/page-037.png",
+      "/Users/willcook/src/_builds/quartic-r3/render/final/page-039.png",
+      "/Users/willcook/src/_builds/quartic-r3/render/final/page-040.png",
+      "/Users/willcook/src/_builds/quartic-r3/render/final/page-041.png",
+      "/Users/willcook/src/_builds/quartic-r3/render/final/page-042.png",
+      "/Users/willcook/src/_builds/quartic-r3/render/final/page-043.png",
+      "/Users/willcook/src/_builds/quartic-r3/render/final/page-047.png",
+      "/Users/willcook/src/_builds/quartic-r3/render/final/page-054.png",
+      "/Users/willcook/src/_builds/quartic-r3/render/final/page-063.png",
+      "/Users/willcook/src/_builds/quartic-r3/render/final/page-068.png",
+      "/Users/willcook/src/_builds/quartic-r3/render/final/page-070.png",
+      "/Users/willcook/src/_builds/quartic-r3/render/final/page-072.png",
+      "/Users/willcook/src/_builds/quartic-r3/render/final/page-076.png",
+      "/Users/willcook/src/_builds/quartic-r3/render/final/page-083.png",
+      "/Users/willcook/src/_builds/quartic-r3/render/final/page-089.png",
+      "/Users/willcook/src/_builds/quartic-r3/render/final/page-090.png",
+      "/Users/willcook/src/_builds/quartic-r3/render/final/page-091.png",
+      "/Users/willcook/src/_builds/quartic-r3/render/final/page-092.png",
+      "/Users/willcook/src/_builds/quartic-r3/render/final/page-108.png",
+      "/Users/willcook/src/_builds/quartic-r3/render/final/page-116.png"
+    ],
+    "actual_visual_scope": "All 12 remaining table treatments and the eight attribution edits; sampled full-width formal models, local-test definitions, quantum correspondence, current execution paragraphs, catalogue grouping and final proof page. Not a visual reading of every page.",
+    "backend_visual_result": "passed for listed corrected final pages",
+    "receiving_parent_review": {
+      "status": "accepted",
+      "pages": [
+        90,
+        116
+      ],
+      "pdf_sha256": "40bc5c71e61de0fb7b38707b9938e796ad69e0ea2868d7b9eb80e43b7518c7dd",
+      "scope": "Corrected attribution clarity and layout, reported directly by parent."
+    },
+    "independent_math_review": {
+      "status": "accepted",
+      "receipt": "research/adjudication/round3_integrated_review.json",
+      "receipt_sha256": "cca3ebbc06212696502de2c1384147d654ab3cc0083f53239eae80eb11a1828b",
+      "source_sha256": "c2b6f11a7a4b3f318ebf419a9959c1d154f8e2b74e3ec02a8e25fb92ba9cfd25",
+      "pdf_sha256": "40bc5c71e61de0fb7b38707b9938e796ad69e0ea2868d7b9eb80e43b7518c7dd",
+      "visual_scope": "Corrected 116-page PDF independently inspected on pages 3, 8, 21, 37, 40–42, 47, 54, 63, 68, 70, 72, 76, 83, 89–92, 108 and 116, in addition to the earlier full replacement review. These cover all 12 retained table treatments, all eight attribution edits and sampled catalogue grouping; earlier crowded rows and detached backlinks remain repaired.",
+      "boundary": "Independent AI review; see gate for mathematical and evidence limitations."
+    },
+    "distribution_policy": "PDF bytes unchanged; source-relative links resolve from repository/docs distribution root, not external build staging. Parent verified all 55 local annotations.",
+    "manuscript_prose_edited_by_renderer": false,
+    "native_rerun_for_attribution_correction": false,
+    "render_receipt_scope": "Immutable production receipt records pending_page_image_review at generation time; completed receiving acceptance is bound here and in the independent gate without rewriting production evidence."
+  },
+  "superseded_final_renders": [
+    {
+      "source": "/Users/willcook/src/quartic-query-lean/docs/reasoning_record.md",
+      "source_sha256": "78ee9b8975a978f82e77f6f007a8e1c88714120aa74e684bdb05f7b72d1d8453",
+      "source_unchanged_during_render": true,
+      "renderer": "tools/render_reasoning_record.py",
+      "renderer_sha256": "5c6089991fe24e45afb5b8c6fb98b22a9a0583177e22f9058d643061b213e72b",
+      "pdf": "/Users/willcook/src/_builds/quartic-r3/render/final-before-attribution/reasoning_record.pdf",
+      "pdf_sha256": "2e2df3d169eea0b4215e6db4d07ee72311af6ef177352af93ac67249856b64a9",
+      "render_receipt": "/Users/willcook/src/_builds/quartic-r3/render/final-before-attribution/render.json",
+      "render_receipt_sha256": "5c5b2cc7ab8b844f15dc5bac6fba073f36b29492a2024b14d780ccbd6e05c43d",
+      "tex_sha256": "5b0e792889272d468e92a50e6375245221b2d406340f9f43b97564c3f9151ee9",
+      "pandoc_log_sha256": "e174f98bfc9724810b9f40acecdc8fd4248f543e44b575b9d2917f4f20159ee7",
+      "tectonic_log_sha256": "ed6978575baf0dc1a71f7cad27aafbe64f8a42810d3e6df03e3383812ee0d962",
+      "page_box_check": {
+        "pages": 116,
+        "words": 55409,
+        "outside_page": []
+      },
+      "layout_diagnostics": [],
+      "catalogue_backlink_groups": 121,
+      "detached_argument_page_starts": [],
+      "all_twelve_tables": [
+        {
+          "name": "argument map",
+          "page": 3,
+          "result": "Inspected final PNG at 1400px page height: readable at unchanged 11pt, rows separated, no clipping or missing glyphs."
+        },
+        {
+          "name": "OR successes",
+          "page": 8,
+          "result": "Inspected final PNG at 1400px page height: readable at unchanged 11pt, rows separated, no clipping or missing glyphs."
+        },
+        {
+          "name": "Forrelation values",
+          "page": 21,
+          "result": "Inspected final PNG at 1400px page height: readable at unchanged 11pt, rows separated, no clipping or missing glyphs."
+        },
+        {
+          "name": "numerator counts",
+          "page": 21,
+          "result": "Inspected final PNG at 1400px page height: readable at unchanged 11pt, rows separated, no clipping or missing glyphs."
+        },
+        {
+          "name": "column blocks",
+          "page": 39,
+          "result": "Inspected final PNG at 1400px page height: readable at unchanged 11pt, rows separated, no clipping or missing glyphs."
+        },
+        {
+          "name": "eight-bit values",
+          "page": 41,
+          "result": "Inspected final PNG at 1400px page height: readable at unchanged 11pt, rows separated, no clipping or missing glyphs."
+        },
+        {
+          "name": "four-column board",
+          "page": 41,
+          "result": "Inspected final PNG at 1400px page height: readable at unchanged 11pt, rows separated, no clipping or missing glyphs."
+        },
+        {
+          "name": "tournament matrix",
+          "page": 53,
+          "result": "Inspected final PNG at 1400px page height: readable at unchanged 11pt, rows separated, no clipping or missing glyphs."
+        },
+        {
+          "name": "adaptive counts",
+          "page": 67,
+          "result": "Inspected final PNG at 1400px page height: readable at unchanged 11pt, rows separated, no clipping or missing glyphs."
+        },
+        {
+          "name": "planted board",
+          "page": 72,
+          "result": "Inspected final PNG at 1400px page height: readable at unchanged 11pt, rows separated, no clipping or missing glyphs."
+        },
+        {
+          "name": "simulator trace",
+          "page": 76,
+          "result": "Inspected final PNG at 1400px page height: readable at unchanged 11pt, rows separated, no clipping or missing glyphs."
+        },
+        {
+          "name": "quartic route comparison",
+          "page": 89,
+          "result": "Inspected final PNG at 1400px page height: readable at unchanged 11pt, rows separated, no clipping or missing glyphs."
+        }
+      ],
+      "replacement_samples": {
+        "formal_models": [
+          10,
+          11
+        ],
+        "local_test_definitions": [
+          42,
+          43
+        ],
+        "quantum_correspondence": [
+          62,
+          63
+        ],
+        "catalogue": [
+          90,
+          91,
+          92,
+          108
+        ]
+      },
+      "execution_paragraphs_inspected": [
+        12,
+        13
+      ],
+      "opening_and_final_page_inspected": [
+        1,
+        116
+      ],
+      "inspected_images": [
+        "/Users/willcook/src/_builds/quartic-r3/render/final-before-attribution/page-001.png",
+        "/Users/willcook/src/_builds/quartic-r3/render/final-before-attribution/page-003.png",
+        "/Users/willcook/src/_builds/quartic-r3/render/final-before-attribution/page-008.png",
+        "/Users/willcook/src/_builds/quartic-r3/render/final-before-attribution/page-010.png",
+        "/Users/willcook/src/_builds/quartic-r3/render/final-before-attribution/page-011.png",
+        "/Users/willcook/src/_builds/quartic-r3/render/final-before-attribution/page-012.png",
+        "/Users/willcook/src/_builds/quartic-r3/render/final-before-attribution/page-013.png",
+        "/Users/willcook/src/_builds/quartic-r3/render/final-before-attribution/page-021.png",
+        "/Users/willcook/src/_builds/quartic-r3/render/final-before-attribution/page-039.png",
+        "/Users/willcook/src/_builds/quartic-r3/render/final-before-attribution/page-041.png",
+        "/Users/willcook/src/_builds/quartic-r3/render/final-before-attribution/page-042.png",
+        "/Users/willcook/src/_builds/quartic-r3/render/final-before-attribution/page-043.png",
+        "/Users/willcook/src/_builds/quartic-r3/render/final-before-attribution/page-053.png",
+        "/Users/willcook/src/_builds/quartic-r3/render/final-before-attribution/page-063.png",
+        "/Users/willcook/src/_builds/quartic-r3/render/final-before-attribution/page-067.png",
+        "/Users/willcook/src/_builds/quartic-r3/render/final-before-attribution/page-072.png",
+        "/Users/willcook/src/_builds/quartic-r3/render/final-before-attribution/page-076.png",
+        "/Users/willcook/src/_builds/quartic-r3/render/final-before-attribution/page-089.png",
+        "/Users/willcook/src/_builds/quartic-r3/render/final-before-attribution/page-091.png",
+        "/Users/willcook/src/_builds/quartic-r3/render/final-before-attribution/page-092.png",
+        "/Users/willcook/src/_builds/quartic-r3/render/final-before-attribution/page-108.png",
+        "/Users/willcook/src/_builds/quartic-r3/render/final-before-attribution/page-116.png",
+        "/Users/willcook/src/_builds/quartic-r3/render/final-before-attribution/page-062.png",
+        "/Users/willcook/src/_builds/quartic-r3/render/final-before-attribution/page-090.png"
+      ],
+      "actual_visual_scope": "Every remaining table plus sampled full-width replacements, catalogue, final execution paragraphs, opening and last page. This is not a claim to have visually read all 116 pages.",
+      "backend_visual_result": "passed for inspected final pages",
+      "receiving_parent_review": "pending exact final PDF hash",
+      "independent_math_review": "math_scout inspecting exact final PDF hash",
+      "distribution_policy": "PDF bytes unchanged; source-relative links resolve from repository/docs distribution root, not external build staging.",
+      "manuscript_prose_edited_by_renderer": false,
+      "preserved_output_directory": "/Users/willcook/src/_builds/quartic-r3/render/final-before-attribution",
+      "superseded_reason": "Eight historical/current execution-attribution prose corrections; no mathematics or structure changed.",
+      "acceptance_revoked": true
+    }
+  ]
+}

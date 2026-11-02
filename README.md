@@ -37,6 +37,9 @@ what is already known. No person has reviewed it yet.
 - Read the [document guide](docs/README.md) for the contract, reviews and their
   revision scope, or the [research guide](research/README.md) for source research,
   review decisions and writing requests.
+- Read the maintained [long reasoning record](docs/reasoning_record.md) for the
+  complete argument and its source correspondence. Its review sidecar identifies
+  the assessed edition; the original returned drafts remain immutable evidence.
 
 ## What is checked, and what that means
 
@@ -48,10 +51,12 @@ what is already known. No person has reviewed it yet.
 | Fidelity | [The review](docs/statement_fidelity_review.md) compares Lean statements with the preprint. It was done by an AI agent that did not write the proofs. No human has reviewed it. |
 | Literature | Claims about cited sources were checked against those sources by AI agents; see [the adjudication](research/adjudication/adjudication_notes.md). |
 
-The [round-two integration record](research/adjudication/round2_integration.md)
-tracks the seven new returns and their validation. New proof candidates do not
+The [round-three integration record](research/adjudication/round3_integration.md)
+tracks the ten latest returns and their validation, following the
+[round-two checkpoint](research/adjudication/round2_integration.md). New proof candidates do not
 inherit the earlier build results. Current corpus evidence distinguishes
-source-bound passes from stale or historically unbound receipts.
+source-bound passes from stale or historically unbound receipts, and tracks
+statement-review freshness independently of build and comparison freshness.
 
 A compiled proof shows that a statement follows. Whether it says what the preprint
 says is a separate question, which is why [corpus/](corpus/README.md) keeps these

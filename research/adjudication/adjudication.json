@@ -1366,6 +1366,10 @@
   },
   "prop-3.3": {
    "proof_notes": "Reader audit. Cost is O_k(sqrt m (log m)^4), so b=4 with a k-dependent constant also works. The worst-case cap covers every branch. No property of the Forrelation promise is used beyond lem-2.1.ii and lem-2.1.iii."
+  },
+  "claim-huang-spectrum": {
+   "statement": "For d>=1, (H'_d)^2=dI and trace H'_d=0; H'_d has eigenvalues +-sqrt(d), each of multiplicity 2^{d-1}.",
+   "proof_notes": "The d>=1 condition is necessary for the multiplicity conclusion: at d=0 the two roots coincide. See round 3 return 08 section A.4 and research/adjudication/round3_ties.md. The original Appendix A source locator and intake statement are retained."
   }
  }
 }

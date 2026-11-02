@@ -59,6 +59,14 @@ class TieTests(unittest.TestCase):
         self.assertEqual(found["def-K"][0]["declaration"], "Top.third")
 
 
+def bound_reviews(ledger, reviewed, hashes):
+    """Explicitly reviewed synthetic fixtures; never apply to real corpus ties."""
+    return {ident: [{**review, "review_binding":
+                     MODULE.expected_review_binding(ident, ledger[ident], review, hashes)}
+                    for review in reviews]
+            for ident, reviews in reviewed.items()}
+
+
 class EvidenceTests(unittest.TestCase):
     HASHES = {"lean/A.lean": "current-source-hash"}
     ROW = {"s": {"kind": "lemma", "statement": "x", "original_statement_sha256": None,
@@ -66,7 +74,7 @@ class EvidenceTests(unittest.TestCase):
     TIE = {"s": [{"declaration": "A.b", "kind": "theorem", "file": "f", "line": 1}]}
 
     def record(self, reviewed, runs):
-        return MODULE.statement_records(self.ROW, self.TIE, reviewed, runs,
+        return MODULE.statement_records(self.ROW, self.TIE, bound_reviews(self.ROW, reviewed, self.HASHES), runs,
                                         hashes=self.HASHES)[0]["evidence"]
 
     def runs(self, declarations):
@@ -101,7 +109,7 @@ class EvidenceTests(unittest.TestCase):
                            "hypotheses": ["H"]},
                           {"declaration": "A.uncond", "relation": "exact", "route": "same"}]}
         runs = self.runs(["A.cond", "A.uncond"])
-        evidence = MODULE.statement_records(self.ROW, ties, reviewed, runs,
+        evidence = MODULE.statement_records(self.ROW, ties, bound_reviews(self.ROW, reviewed, self.HASHES), runs,
                                             hashes=self.HASHES)[0]["evidence"]
         self.assertFalse(evidence["conditional"])
 
@@ -109,7 +117,7 @@ class EvidenceTests(unittest.TestCase):
         reviewed = {"s": [{"declaration": "A.b", "relation": "exact", "route": "same",
                            "hypotheses": ["n > 0"], "premises": ["n > 0"],
                            "open_assumptions": []}]}
-        records = MODULE.statement_records(self.ROW, self.TIE, reviewed, self.runs(["A.b"]),
+        records = MODULE.statement_records(self.ROW, self.TIE, bound_reviews(self.ROW, reviewed, self.HASHES), self.runs(["A.b"]),
                                            hashes=self.HASHES)
         record = records[0]
         self.assertEqual(record["lean"][0]["hypotheses"], ["n > 0"])
@@ -134,7 +142,7 @@ class EvidenceTests(unittest.TestCase):
     def test_explicit_open_hardness_makes_exact_checked_theorem_conditional(self):
         reviewed = {"s": [{"declaration": "A.b", "relation": "exact", "route": "same",
                            "premises": ["k >= 2"], "open_assumptions": ["BansalSinhaLower"]}]}
-        records = MODULE.statement_records(self.ROW, self.TIE, reviewed, self.runs(["A.b"]),
+        records = MODULE.statement_records(self.ROW, self.TIE, bound_reviews(self.ROW, reviewed, self.HASHES), self.runs(["A.b"]),
                                            hashes=self.HASHES)
         self.assertTrue(records[0]["evidence"]["conditional"])
         self.assertEqual(records[0]["evidence"]["premises"], ["k >= 2"])
@@ -150,7 +158,7 @@ class EvidenceTests(unittest.TestCase):
             with self.subTest(fields=fields):
                 reviewed = {"s": [{"declaration": "A.b", "relation": "exact", "route": "same",
                                    "hypotheses": ["H"], **fields}]}
-                record = MODULE.statement_records(self.ROW, self.TIE, reviewed, self.runs(["A.b"]),
+                record = MODULE.statement_records(self.ROW, self.TIE, bound_reviews(self.ROW, reviewed, self.HASHES), self.runs(["A.b"]),
                                                   hashes=self.HASHES)[0]
                 self.assertTrue(record["evidence"]["conditional"])
                 self.assertEqual(record["lean"][0]["open_assumptions"], ["H"])
@@ -160,7 +168,7 @@ class EvidenceTests(unittest.TestCase):
                            "open_assumptions": ["hardness"]},
                           {"declaration": "A.premise", "relation": "exact", "route": "alternative",
                            "hypotheses": ["n > 0"], "premises": ["n > 0"], "open_assumptions": []}]}
-        record = MODULE.statement_records(self.ROW, {}, reviewed, self.runs(["A.open", "A.premise"]),
+        record = MODULE.statement_records(self.ROW, {}, bound_reviews(self.ROW, reviewed, self.HASHES), self.runs(["A.open", "A.premise"]),
                                           hashes=self.HASHES)[0]
         self.assertFalse(record["evidence"]["conditional"])
         self.assertEqual(record["evidence"]["route"], "alternative")
@@ -175,7 +183,7 @@ class EvidenceTests(unittest.TestCase):
     def test_unselected_assumption_metadata_is_unknown_not_an_empty_list(self):
         reviewed = {"s": [{"declaration": "A.b", "relation": "exact", "route": "same",
                            "premises": ["k >= 2"], "open_assumptions": ["hardness"]}]}
-        records = MODULE.statement_records(self.ROW, self.TIE, reviewed, [], hashes=self.HASHES)
+        records = MODULE.statement_records(self.ROW, self.TIE, bound_reviews(self.ROW, reviewed, self.HASHES), [], hashes=self.HASHES)
         self.assertEqual(records[0]["lean"][0]["open_assumptions"], ["hardness"])
         node = MODULE.evidence_graph(records, [], self.HASHES)["nodes"][0]
         for field in ("assumption_declaration", "premises", "open_assumptions"):
@@ -188,7 +196,7 @@ class EvidenceTests(unittest.TestCase):
     def test_changed_source_does_not_inherit_historical_pass(self):
         reviewed = {"s": [{"declaration": "A.b", "relation": "exact", "route": "same"}]}
         runs = self.runs(["A.b"])
-        records = MODULE.statement_records(self.ROW, self.TIE, reviewed, runs,
+        records = MODULE.statement_records(self.ROW, self.TIE, bound_reviews(self.ROW, reviewed, self.HASHES), runs,
                                            hashes={"lean/A.lean": "changed-source-hash"})
         self.assertFalse(records[0]["lean"][0]["built"])
         self.assertEqual(records[0]["lean"][0]["build_evidence"], "stale")
@@ -212,7 +220,7 @@ class EvidenceTests(unittest.TestCase):
         runs = self.runs([])
         runs[0]["declarations"] = ["A.built"]
         runs[1]["declarations"] = ["A.compared"]
-        record = MODULE.statement_records(self.ROW, ties, reviewed, runs,
+        record = MODULE.statement_records(self.ROW, ties, bound_reviews(self.ROW, reviewed, self.HASHES), runs,
                                           hashes=self.HASHES)[0]
         self.assertEqual(record["evidence"]["build"], "built_at_pin")
         self.assertEqual(record["evidence"]["comparator"], "not_run")
@@ -298,7 +306,7 @@ class ConsumerContractTests(unittest.TestCase):
         runs = [{"kind": kind, "status": "passed", "declarations": ["A.b"],
                  "source_hashes": hashes, "command": ["lake", "fixture"], "tool": "mock local operation"}
                 for kind in ("lean_build", "comparator")]
-        records = MODULE.statement_records(ledger, {}, reviewed, runs, hashes=hashes)
+        records = MODULE.statement_records(ledger, {}, bound_reviews(ledger, reviewed, hashes), runs, hashes=hashes)
         self.assertEqual(records[0]["evidence"]["comparator"], "compared")
         graph = MODULE.evidence_graph(records, runs, hashes)
         self.assertTrue(all(node["status"] == "unverified" for node in graph["nodes"]))
@@ -314,6 +322,20 @@ class ConsumerContractTests(unittest.TestCase):
             selected = Path(folder) / "selected.json"
             path.write_text(json.dumps(graph))
             invoke("validate", path)  # schema and contracts.validate_graph
+            # Historical review metadata must survive the actual consumer too.
+            legacy = {key: [{k: v for k, v in review.items() if k != "review_binding"}
+                            for review in values] for key, values in reviewed.items()}
+            legacy_records = MODULE.statement_records(ledger, {}, legacy, runs, hashes=hashes)
+            legacy_path = Path(folder) / "legacy.json"
+            legacy_graph = MODULE.evidence_graph(legacy_records, runs, hashes)
+            legacy_path.write_text(json.dumps(legacy_graph))
+            invoke("validate", legacy_path)
+            legacy_summary = json.loads(invoke("inspect", legacy_path))
+            self.assertEqual(set(legacy_summary["argument_closure"]), {"thm-1.1", "middle", "leaf"})
+            metadata = next(item for item in legacy_graph["evidence"]
+                            if item["id"] == "tie_review_thm-1.1")
+            self.assertEqual(metadata["receipt"]["ties"][0]["review_evidence"], "legacy_unbound")
+            self.assertNotIn("declaration", legacy_graph["nodes"][0])
             invoke("select", path, "--goal", "thm-1.1", "--out", selected)
             result = json.loads(selected.read_text())
             # select preserves the recorded corpus and changes active goals;

@@ -16,6 +16,7 @@ Test modules mirror the commands they exercise:
 | [test_check_packets.py](test_check_packets.py) | Completed ZIP integrity, manifest coverage and batch failure reporting, using temporary fixtures. |
 | [test_build_challenges.py](test_build_challenges.py) | Generated Comparator challenges. |
 | [test_build_corpus.py](test_build_corpus.py) | Statement ties and separate evidence fields. |
+| [test_review_freshness.py](test_review_freshness.py) | Source-bound relation reviews, retained graph metadata and preprint-only provenance guards. |
 | [test_build_research_packets.py](test_build_research_packets.py) | Review requests, source overrides and ZIP contents. |
 | [test_build_funnel_packets.py](test_build_funnel_packets.py) | Writing requests, source selection and archive compatibility. |
 | [test_build_round3_packets.py](test_build_round3_packets.py) | Focused primary literature and pinned dependency closures, portable writing inputs, source-bound receipt snapshots, frozen-input consistency and exclusive archive publication. |

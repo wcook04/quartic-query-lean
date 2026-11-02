@@ -54,3 +54,30 @@ their drafts as unelaborated or written without a compiler. Those comments
 record the submission environment. Use the current source-bound receipts and
 reviewed statement ties in [the corpus](../corpus/README.md) for acceptance of
 the integrated source; the original returns remain unchanged.
+
+## Independent round-three checks
+
+[Eq19Whole.lean](QuarticQuery/Paper/Eq19Whole.lean) states both the equality and
+probability bound in equation (19). [Eq19Complete.lean](QuarticQuery/Paper/Eq19Complete.lean)
+states the same display with the bound on the expected-count quotient.
+[Independent/Eq19/](QuarticCorpus/Independent/Eq19/) gives a separately authored
+product-law specification, bridges to the maintained definitions and direct and
+independent Comparator targets. These authored challenges are outside the
+one-level generated-bundle route and must not be regenerated from the solutions.
+Audit modules should import each inspected target module directly: a private
+intermediary import does not make its names available to the audit in Lean's
+module system.
+
+[Independent/Semantics.lean](QuarticCorpus/Independent/Semantics.lean) proves
+finite expectations against the actual query and promise definitions;
+[SemanticMutations.lean](QuarticCorpus/Independent/SemanticMutations.lean)
+shows which answers change under deliberately incorrect alternatives.
+[SharedAudit.lean](QuarticCorpus/Independent/Controls/SharedAudit.lean) distinguishes
+a concrete comparison witness from an impossible shared premise that Comparator
+can accept vacuously. Use the [native runner](../tools/return_checks/round3_formal.py)
+and [adjudication](../research/adjudication/round3_formal.md) for current outcomes.
+
+[ConstructionFull.lean](QuarticQuery/Paper/ConstructionFull.lean) conjoins the
+finite-count/coherent-query construction theorem with full physical-coordinate
+essentiality witnesses. The older `construction_lemma_2_2_complete` declaration
+keeps its existing interface and does not itself assert that support clause.

@@ -1,0 +1,118 @@
+{
+  "scope": "Actual installed CLI validate/select/inspect runs on focused native graph",
+  "module": "QuarticCorpus.Independent.SemanticMutations",
+  "goals": [
+    "QuarticQuery.SemanticReview.identity_not_zero",
+    "QuarticQuery.SemanticReview.orTwo_R_eq_one",
+    "QuarticQuery.SemanticReview.trueOnly_R_eq_zero",
+    "QuarticQuery.SemanticReview.trueOnly_Q_eq_zero",
+    "QuarticQuery.SemanticReview.negativePair_Phi",
+    "QuarticQuery.SemanticReview.negativePair_P_none",
+    "QuarticQuery.SemanticReview.comparison_has_witness",
+    "QuarticQuery.SemanticReview.wrong_quantifier_order_changes_answer",
+    "QuarticQuery.SemanticReview.strict_threshold_mutant_rejects_mixture",
+    "QuarticQuery.SemanticReview.absolute_high_changes_answer",
+    "QuarticQuery.SemanticReview.off_promise_false_changes_zero_query_answer"
+  ],
+  "graph_sha256": "84dd5d93826e9ea9034576e9531f58df0c3342bd10de42f1bc6b74c9d1d3a473",
+  "selected_sha256": "4af3006f03204a67e38ffd81057694964743ed0b2d1ffb476149c7c426532156",
+  "projection": "Recorded command/status and original output digests; verbose stdout/stderr omitted. The compact actual inspect result is retained separately.",
+  "views": [
+    {
+      "view": "validate",
+      "command": [
+        "/Users/willcook/src/lean-exposition/.venv/bin/lean-exposition",
+        "validate",
+        "/Users/willcook/src/_builds/quartic-r3-formal-native/extraction/semantics-graph.json"
+      ],
+      "started_at": "2026-11-02T21:29:40.835955+00:00",
+      "finished_at": "2026-11-02T21:29:41.317062+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "e45d4ab252b02b7dd5623b22455b3b19a85a09d78d8cc95124cd554cf48eab9c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "log": "/Users/willcook/src/_builds/quartic-r3-formal-native/extraction/semantics-validate.log",
+      "log_sha256": "e45d4ab252b02b7dd5623b22455b3b19a85a09d78d8cc95124cd554cf48eab9c",
+      "stdout_bytes": 37800,
+      "stderr_bytes": 0
+    },
+    {
+      "view": "select",
+      "command": [
+        "/Users/willcook/src/lean-exposition/.venv/bin/lean-exposition",
+        "select",
+        "/Users/willcook/src/_builds/quartic-r3-formal-native/extraction/semantics-graph.json",
+        "--goal",
+        "QuarticQuery.SemanticReview.identity_not_zero",
+        "--out",
+        "/Users/willcook/src/_builds/quartic-r3-formal-native/extraction/semantics-selected.json"
+      ],
+      "started_at": "2026-11-02T21:29:41.317113+00:00",
+      "finished_at": "2026-11-02T21:29:41.870519+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "07ddeadb39ee2d8ea6ccce22cdd4cc987173876e800ddbdbfbf1cdf2c1b5cea2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "log": "/Users/willcook/src/_builds/quartic-r3-formal-native/extraction/semantics-select.log",
+      "log_sha256": "07ddeadb39ee2d8ea6ccce22cdd4cc987173876e800ddbdbfbf1cdf2c1b5cea2",
+      "stdout_bytes": 18183,
+      "stderr_bytes": 0
+    },
+    {
+      "view": "prerequisites",
+      "command": [
+        "/Users/willcook/src/lean-exposition/.venv/bin/lean-exposition",
+        "inspect",
+        "/Users/willcook/src/_builds/quartic-r3-formal-native/extraction/semantics-selected.json",
+        "--goal",
+        "QuarticQuery.SemanticReview.identity_not_zero",
+        "--view",
+        "declarations",
+        "--direction",
+        "prerequisites"
+      ],
+      "started_at": "2026-11-02T21:29:41.870568+00:00",
+      "finished_at": "2026-11-02T21:29:42.255900+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "5626db6f7952609d6687068a47fd52b978b9635e365d2f4911568ee746b1f64d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "log": "/Users/willcook/src/_builds/quartic-r3-formal-native/extraction/semantics-prerequisites.log",
+      "log_sha256": "5626db6f7952609d6687068a47fd52b978b9635e365d2f4911568ee746b1f64d",
+      "stdout_bytes": 1950952,
+      "stderr_bytes": 0
+    },
+    {
+      "view": "provenance",
+      "command": [
+        "/Users/willcook/src/lean-exposition/.venv/bin/lean-exposition",
+        "inspect",
+        "/Users/willcook/src/_builds/quartic-r3-formal-native/extraction/semantics-selected.json",
+        "--view",
+        "provenance"
+      ],
+      "started_at": "2026-11-02T21:29:42.258737+00:00",
+      "finished_at": "2026-11-02T21:29:42.751610+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "5fdf3df735082e1c36301a82407b90a0a3c2066e355f7113ff4a2ec2057919e0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "log": "/Users/willcook/src/_builds/quartic-r3-formal-native/extraction/semantics-provenance.log",
+      "log_sha256": "5fdf3df735082e1c36301a82407b90a0a3c2066e355f7113ff4a2ec2057919e0",
+      "stdout_bytes": 1225002,
+      "stderr_bytes": 0
+    }
+  ],
+  "original_local_receipt_sha256": "0b2f9d77c9f19fb34e7e736961aac4c792977b7079b18c4662c0063b77efccba",
+  "compact_inspection": {
+    "command": [
+      "/Users/willcook/src/lean-exposition/.venv/bin/lean-exposition",
+      "inspect",
+      "/Users/willcook/src/quartic-query-lean/corpus/native_extractions/round3/semantics-selected.json",
+      "--goal",
+      "QuarticQuery.SemanticReview.identity_not_zero"
+    ],
+    "started_at": "2026-11-02T21:37:26.238573+00:00",
+    "exit_code": 0,
+    "stdout_file": "corpus/native_extractions/round3/semantics-inspection.json",
+    "stdout_sha256": "8485c5a1c99ca7b6f1bcb5a75f995d39a8029bd99b02f1d2148c291663c7d79f",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "selected_input_sha256": "4af3006f03204a67e38ffd81057694964743ed0b2d1ffb476149c7c426532156"
+  }
+}

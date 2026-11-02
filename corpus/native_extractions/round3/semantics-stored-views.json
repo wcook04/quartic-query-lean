@@ -1,0 +1,39 @@
+{
+  "scope": "Actual CLI validation/inspection after byte-exact copy to recorded-input owner",
+  "projection": "Recorded command/status and original output digests; verbose stdout/stderr omitted. The compact actual inspect result is retained separately.",
+  "views": [
+    {
+      "view": "validate",
+      "command": [
+        "/Users/willcook/src/lean-exposition/.venv/bin/lean-exposition",
+        "validate",
+        "/Users/willcook/src/quartic-query-lean/corpus/native_extractions/round3/semantics-graph.json"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "e45d4ab252b02b7dd5623b22455b3b19a85a09d78d8cc95124cd554cf48eab9c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 37800,
+      "stderr_bytes": 0
+    },
+    {
+      "view": "prerequisites",
+      "command": [
+        "/Users/willcook/src/lean-exposition/.venv/bin/lean-exposition",
+        "inspect",
+        "/Users/willcook/src/quartic-query-lean/corpus/native_extractions/round3/semantics-selected.json",
+        "--goal",
+        "QuarticQuery.SemanticReview.identity_not_zero",
+        "--view",
+        "declarations",
+        "--direction",
+        "prerequisites"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "5626db6f7952609d6687068a47fd52b978b9635e365d2f4911568ee746b1f64d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 1950952,
+      "stderr_bytes": 0
+    }
+  ],
+  "original_local_receipt_sha256": "2a5a801c1c0f41b136bf9a3945c5855a109d87fa6fea7704470668c1cea6719d"
+}

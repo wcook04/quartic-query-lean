@@ -1,0 +1,108 @@
+{
+  "scope": "Actual installed CLI validate/select/inspect runs on focused native graph",
+  "module": "QuarticCorpus.Independent.Eq19.Solution",
+  "goals": [
+    "QuarticQuery.Independent.Eq19.checked_eq19"
+  ],
+  "graph_sha256": "4c767dd857de6d72fb02899117a9c59768b495e06e8080652ffe3cc35ee5aed2",
+  "selected_sha256": "e9afb8e731d340502a6f5602fae6928709c809604e3b4dbd415f1d7df7a69b85",
+  "projection": "Recorded command/status and original output digests; verbose stdout/stderr omitted. The compact actual inspect result is retained separately.",
+  "views": [
+    {
+      "view": "validate",
+      "command": [
+        "/Users/willcook/src/lean-exposition/.venv/bin/lean-exposition",
+        "validate",
+        "/Users/willcook/src/_builds/quartic-r3-formal-native/extraction/eq19-independent-graph.json"
+      ],
+      "started_at": "2026-11-02T21:27:34.907767+00:00",
+      "finished_at": "2026-11-02T21:27:35.260830+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "07f1a9f4f2979b66777f2d27652a1ff54a724a5c69586103faf4f955ac0ae9a1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "log": "/Users/willcook/src/_builds/quartic-r3-formal-native/extraction/eq19-independent-validate.log",
+      "log_sha256": "07f1a9f4f2979b66777f2d27652a1ff54a724a5c69586103faf4f955ac0ae9a1",
+      "stdout_bytes": 35657,
+      "stderr_bytes": 0
+    },
+    {
+      "view": "select",
+      "command": [
+        "/Users/willcook/src/lean-exposition/.venv/bin/lean-exposition",
+        "select",
+        "/Users/willcook/src/_builds/quartic-r3-formal-native/extraction/eq19-independent-graph.json",
+        "--goal",
+        "QuarticQuery.Independent.Eq19.checked_eq19",
+        "--out",
+        "/Users/willcook/src/_builds/quartic-r3-formal-native/extraction/eq19-independent-selected.json"
+      ],
+      "started_at": "2026-11-02T21:27:35.260941+00:00",
+      "finished_at": "2026-11-02T21:27:35.770344+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "07f1a9f4f2979b66777f2d27652a1ff54a724a5c69586103faf4f955ac0ae9a1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "log": "/Users/willcook/src/_builds/quartic-r3-formal-native/extraction/eq19-independent-select.log",
+      "log_sha256": "07f1a9f4f2979b66777f2d27652a1ff54a724a5c69586103faf4f955ac0ae9a1",
+      "stdout_bytes": 35657,
+      "stderr_bytes": 0
+    },
+    {
+      "view": "prerequisites",
+      "command": [
+        "/Users/willcook/src/lean-exposition/.venv/bin/lean-exposition",
+        "inspect",
+        "/Users/willcook/src/_builds/quartic-r3-formal-native/extraction/eq19-independent-selected.json",
+        "--goal",
+        "QuarticQuery.Independent.Eq19.checked_eq19",
+        "--view",
+        "declarations",
+        "--direction",
+        "prerequisites"
+      ],
+      "started_at": "2026-11-02T21:27:35.770428+00:00",
+      "finished_at": "2026-11-02T21:27:36.221522+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "bac19b1035689c0763c508bf305d83c45b5a676e4d7fcf11ed2d1a50bcdf4bc2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "log": "/Users/willcook/src/_builds/quartic-r3-formal-native/extraction/eq19-independent-prerequisites.log",
+      "log_sha256": "bac19b1035689c0763c508bf305d83c45b5a676e4d7fcf11ed2d1a50bcdf4bc2",
+      "stdout_bytes": 8458690,
+      "stderr_bytes": 0
+    },
+    {
+      "view": "provenance",
+      "command": [
+        "/Users/willcook/src/lean-exposition/.venv/bin/lean-exposition",
+        "inspect",
+        "/Users/willcook/src/_builds/quartic-r3-formal-native/extraction/eq19-independent-selected.json",
+        "--view",
+        "provenance"
+      ],
+      "started_at": "2026-11-02T21:27:36.232121+00:00",
+      "finished_at": "2026-11-02T21:27:36.662351+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "1e03278439b5aad6f62fd4820b7f3f70091b90976ad3523d8b1e6d9b0c044eda",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "log": "/Users/willcook/src/_builds/quartic-r3-formal-native/extraction/eq19-independent-provenance.log",
+      "log_sha256": "1e03278439b5aad6f62fd4820b7f3f70091b90976ad3523d8b1e6d9b0c044eda",
+      "stdout_bytes": 1163461,
+      "stderr_bytes": 0
+    }
+  ],
+  "original_local_receipt_sha256": "2f896121d8c3bf4c62717734acc6e4ce0cba97ec13adafe4069ea98f54c30915",
+  "compact_inspection": {
+    "command": [
+      "/Users/willcook/src/lean-exposition/.venv/bin/lean-exposition",
+      "inspect",
+      "/Users/willcook/src/quartic-query-lean/corpus/native_extractions/round3/eq19-independent-selected.json",
+      "--goal",
+      "QuarticQuery.Independent.Eq19.checked_eq19"
+    ],
+    "started_at": "2026-11-02T21:37:25.574802+00:00",
+    "exit_code": 0,
+    "stdout_file": "corpus/native_extractions/round3/eq19-independent-inspection.json",
+    "stdout_sha256": "b9422424e27cb6e8074ba29f850899af60f257bba0452388a17b408ee35823d4",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "selected_input_sha256": "e9afb8e731d340502a6f5602fae6928709c809604e3b4dbd415f1d7df7a69b85"
+  }
+}

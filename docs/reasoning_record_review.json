@@ -1,0 +1,404 @@
+{
+  "schema": "quartic_integrated_reasoning_review_v1",
+  "status": "accepted",
+  "record_sha256": "c2b6f11a7a4b3f318ebf419a9959c1d154f8e2b74e3ec02a8e25fb92ba9cfd25",
+  "bibliography_sha256": "8204d03bbc81e9fa06d029293c512621a51525ff297e576e884593cf819dc1d2",
+  "authorship": "AI-assisted integration; no human review claimed",
+  "read_scope": {
+    "section_returns_01_through_08": "All mathematical sections assessed, with per-return historical evidence distinguished.",
+    "baseline": "Architecture, seam 3.17–3.18 and complete catalogue consumed; replaced proofs checked through complete new section returns.",
+    "baseline_whole_review": "Review10 decisions and exact repairs consumed; its independent reading is inherited provenance, not this author’s full external-source reading.",
+    "external_sources": "Source-specific assessments supplied by returns and independent scouts; no assertion of complete fresh reading.",
+    "appendix_B": "All121 exact maintained claims validated against final core generated corpus; all historic and current tie snapshots preserved separately;51exact31stronger39partial mathematical-fidelity rows.",
+    "appendix_C": "All28 BibTeX entries reconciled with retained source provenance; direct-pointer locator corrected against independent PDF reading; exact edition distinctions retained.",
+    "native_sources": "Read complete newEq19/support/semantic/independent-experiment source and bridge; inspected native type/axiom output; checked exact152-file source dictionary for19core receipts and all3nativeview cases against their declared136-source scope and artifact hashes."
+  },
+  "decisions": [
+    {
+      "issue": "Full-state amplification versus label law",
+      "decision": "Ordinary full-state construction retained; missing physical factorization theorem explicit; checked final upper-bound uses labels."
+    },
+    {
+      "issue": "Bansal–Sinha logarithmic display",
+      "decision": "Keep stated theorem, disputed v3 comparison, weaker sufficient estimate and direct proof separate."
+    },
+    {
+      "issue": "Early/late versus stronger search",
+      "decision": "Both complete ordinary arguments retained. Whole equation19 conjunctions have current native builds/axiom audits; eq19_whole and independent product-law target have exact positive Comparators. Early/late decomposition itself remains outside that formal proof route."
+    },
+    {
+      "issue": "Section order",
+      "decision": "Retain numbered full analytic proof for locator stability; dependency map supplies direct construction path through §3.17. No proof deleted."
+    },
+    {
+      "issue": "Short expert paper",
+      "decision": "The required independent integrated review is now accepted. Expert and expository drafting can proceed from this frozen record while retaining its source-version and formal-boundary qualifications. No short draft or next ZIP is created by this review receipt."
+    },
+    {
+      "issue": "Dense prose tables and repeated execution inventory",
+      "decision": "Adapted actual SK§12/13 full-width scope and transport exposition and257 claim/mechanism/boundary plus reference-catalogue organization. Removed2 prose-heavy tables; retained13 compact mathematical comparisons subject to render review."
+    },
+    {
+      "issue": "Full conjunctions",
+      "decision": "Complete maintained Eq19Whole,Eq19Complete andConstructionFull source read. Current exact-declaration build, axiom and comparison evidence bound; Eq19Complete has no borrowed Comparator status."
+    }
+  ],
+  "independent_integrated_review": {
+    "status": "accepted",
+    "source": "research/adjudication/round3_integrated_review.json",
+    "sha256": "cca3ebbc06212696502de2c1384147d654ab3cc0083f53239eae80eb11a1828b",
+    "review_scope": "Independent ordinary-proof read of sections 1–7 and Appendices A and D, structural and final-prose delta review including eight execution-attribution corrections, selected primary-source checks, final catalogue/correspondence/19-receipt and 21 native-artifact audit, and visual review of the exact PDF. The 162 individual source-tie judgments are separate imported independent reviews, not 121 line-by-line tie reviews by this reviewer.",
+    "acceptance": "Accepted for the final integrated record and this exact rendered layout, with the mathematical and evidence limitations stated below; this is independent AI review, not human peer review or a claim that all definitions are semantically correct.",
+    "gate_sha256": "7ee0d8d1ab4729c1ed60fd44c9c144ed1d7a60c750ed8da63c125bed20a62ccd",
+    "gate_record": {
+      "status": "accepted",
+      "reviewer": "Codex independent mathematical scout",
+      "review_scope": "Independent ordinary-proof read of sections 1–7 and Appendices A and D, structural and final-prose delta review including eight execution-attribution corrections, selected primary-source checks, final catalogue/correspondence/19-receipt and 21 native-artifact audit, and visual review of the exact PDF. The 162 individual source-tie judgments are separate imported independent reviews, not 121 line-by-line tie reviews by this reviewer.",
+      "record_sha256": "c2b6f11a7a4b3f318ebf419a9959c1d154f8e2b74e3ec02a8e25fb92ba9cfd25",
+      "pdf_sha256": "40bc5c71e61de0fb7b38707b9938e796ad69e0ea2868d7b9eb80e43b7518c7dd",
+      "reviewed_files": {
+        "docs/reasoning_record.bib": "8204d03bbc81e9fa06d029293c512621a51525ff297e576e884593cf819dc1d2",
+        "docs/reasoning_record_correspondence.json": "cef26a86dbc9d89c200df77f35d3b4046e43fe7023bafa854b8d646fa7a9e346",
+        "corpus/statements.json": "a83236b606dbe14731d7501230dfffe83b6cd6b6b99a4a790063ff3d3b9ba8c7"
+      },
+      "source_snapshot_sha256": "43f007e0916f14d513d076e8036b9bb05aa29897b5b9eb7bc4a8d6551d63c2b3"
+    }
+  },
+  "validation": [
+    {
+      "record_sha256": "c2b6f11a7a4b3f318ebf419a9959c1d154f8e2b74e3ec02a8e25fb92ba9cfd25",
+      "bibliography_sha256": "8204d03bbc81e9fa06d029293c512621a51525ff297e576e884593cf819dc1d2",
+      "correspondence_sha256": "cef26a86dbc9d89c200df77f35d3b4046e43fe7023bafa854b8d646fa7a9e346",
+      "anchors": 339,
+      "passages": 289,
+      "baseline_claim_markers_retained": 165,
+      "catalogue_rows": 121,
+      "local_link_targets_checked": 290,
+      "reference_keys": 27,
+      "bibliography_entries": 28,
+      "immutable_source_hashes_checked": 60,
+      "status": "pass"
+    },
+    {
+      "command": "make check",
+      "status": "passed",
+      "tests": 168,
+      "skips": 0,
+      "observation": "Parent-reported final full repository validation; not rerun by the paper author."
+    }
+  ],
+  "rendering": "Accepted exact final PDF after bounded execution-attribution correction; independent reviewer and parent inspected the final output. Author directly re-rendered and inspected corrected Appendix page90 at1400px height.",
+  "unresolved": [],
+  "tao_pipeline_receipt": {
+    "input_stage": "verification and separate section expositions",
+    "output_stage": "Accepted integrated exposition at the stated independent AI-review scope",
+    "artifact": "docs/reasoning_record.md",
+    "human_understanding_delta": "Complete proofs, explicit same-function conjunction, source-version corrections and all121 claims in one navigable record.",
+    "verification_state": "Current root build, targeted type/axiom audits, exact comparison scope, paranoid check, negative controls and21nativeview artifacts verified and bound. Partial mathematical-fidelity boundaries retained.",
+    "publication_or_review_state": "Independent AI integrated review and rendered-output acceptance recorded; no human peer review or publication acceptance claimed.",
+    "canonicalization_state": "Single maintained long record with frozen manuscript,bibliography,correspondence; immutable returns retained.",
+    "unresolved_downstream_bottleneck": "None for long-record integration; mathematical/formal limitations remain explicit and do not become solved through this acceptance.",
+    "next_stage_owner": "Parent continuation and subsequent expert/expository authorship"
+  },
+  "observed_utc": "2026-11-02T20:07:47.756684+00:00",
+  "correspondence_sha256": "cef26a86dbc9d89c200df77f35d3b4046e43fe7023bafa854b8d646fa7a9e346",
+  "structural_adaptation": {
+    "reason": "Operator rejected dense evidence tables in rendered record; author read and adapted actual long mathematical records.",
+    "sources": [
+      {
+        "path": "/Users/willcook/src/lean-exposition/papers/qaoa-sk/long/reasoning-record.md",
+        "sha256": "c4249feffa26e48c24c5690f73e0de4886e40504c8c5c0e6dcb22ec94ea334da",
+        "read_spans": [
+          "5141–5385"
+        ],
+        "adaptation": "Full-width mathematical scope, explicit common-witness/transport requirements, followed by separate execution checks."
+      },
+      {
+        "path": "/Users/willcook/src/plectis-erdos-integration/paper/257/erdos257-mersenne-reasoning-surface.tex",
+        "sha256": "781868f903af0624baed4f556a46eccb225f88c087adcd04ce488e9606204131",
+        "read_spans": [
+          "321–403",
+          "1014–1047",
+          "2121–2150"
+        ],
+        "adaptation": "Claim then mechanism then exact boundary; inline formal destinations; distinguish linear argument from reference catalogue."
+      }
+    ],
+    "preservation": "All mathematical scope, assumptions, type content and historical evidence distinctions are retained in the revised prose and exact linked model contract; prior table bytes retained here for audit.",
+    "render_acceptance": "Accepted after source-grounded restructuring, all12 surviving table-family inspection, spacing and catalogue-backlink repair, and final evidence-attribution rerender.",
+    "catalogue_design": "All121 exact maintained claims and proof anchors retained in ten mathematical groups; substantive formal boundaries introduced per group; exhaustive execution/tie data retained in current_catalogue_snapshot and historical audit.",
+    "surviving_tables": 12,
+    "replaced_sections": [
+      "2.7: five-column definition/evidence grid",
+      "5.5: long-prose formal-scope table",
+      "4.4: narrow passing-condition table"
+    ],
+    "catalogue": "Ten mathematical stages, exact121 source claims and185 paragraph links with readable§labels; raw original catalogue and all tie metadata retained in correspondence."
+  },
+  "addressed_review_findings": [
+    {
+      "id": "growing_k_scope",
+      "resolution": "Narrowed opening claim to lack of joint growing-k total-family control; retained quantitative uniform Forrelation result."
+    },
+    {
+      "id": "section4_heading",
+      "resolution": "Corrected main section4 heading level."
+    },
+    {
+      "id": "F1_display_width",
+      "resolution": "Split definition into aligned lines. Claimed nu/u typo was withdrawn by reviewer; raw source had u."
+    },
+    {
+      "id": "ABBLSS_locator",
+      "resolution": "Changed all3 occurrences to§1.3 Use of a balanced tree,pp5–6, independently checked in supplied PDF."
+    },
+    {
+      "id": "return_editorial_language",
+      "resolution": "Removed orphaned replacement instruction, corrected model section references, changed nonhistorical this-return phrases."
+    },
+    {
+      "id": "independence_control",
+      "resolution": "Retained explicit256-world ordinary proof; independent reviewer enumerated EZ1,independent hit1/4,uniform-marginal selected hit175/256."
+    },
+    {
+      "id": "passage_balance",
+      "resolution": "Removed orphaned Forrelation bibliography passage opener left by integration; all289 passage markers now balanced and mapped."
+    },
+    {
+      "id": "catalogue_reader_locators",
+      "resolution": "Replaced185 printed machine passage-ID labels with section locators, preserving every exact link target."
+    },
+    {
+      "id": "local_test_table_render",
+      "resolution": "Replaced remaining narrow prose table in§4.4 with definitions giving counts, passing conditions and exact query-depth reasoning; preserved all source content."
+    },
+    {
+      "id": "printed_lemma_vs_expanded_support_row",
+      "resolution": "Clarified§4.8 andB.3: fullsupport conjunction strengthens literal printedLemma2.2; partial status ofoldcomplete refers toexpandedmaintainedrow only. No mathematical orLean change."
+    },
+    {
+      "id": "historical_vs_current_native_execution",
+      "resolution": "Clarified8inheritedexecution passages, includingAppendixA: earliersection-specificaudits retained; currentroot/build/comparisons separate in§2.8; nofreshAppendix-specificaudit claimed. Ordinarymathematics/nativebindings unchanged."
+    }
+  ],
+  "author_visual_inspection": {
+    "source_snapshot": "612828c668a5a45bebc57416283e7bd77928dd26e45a4357c799415e9f1e6e6f",
+    "pages": [
+      11,
+      61,
+      88
+    ],
+    "observations": "Full-width scope paragraphs and catalogue are legible at page viewing size. Later source revisions correct arbitrary-vector probability wording, section locator and long namespace prefixes visible in this render. Catalogue argument labels changed from machine passage IDs to section locators while preserving link destinations. Final render remains required.",
+    "specimen_pages_inspected": [
+      "SK long record p70",
+      "Erdos257 long record p33"
+    ],
+    "acceptance": "provisional structural inspection only",
+    "additional_receiving_inspection": {
+      "source_snapshot": "a7a552ae880c5d07cf16872fbc5bac5de4357665b91ca1d15c5e5f7b1fe4a0e4",
+      "images": [
+        "structural-pagination/page-003.png",
+        "structural-pagination/page-075.png",
+        "structural-pagination/page-088.png",
+        "structural-pagination/page-090.png",
+        "structural-trial3/page-041.png"
+      ],
+      "observations": "Genuine comparison rows now visually separated, trace readable, catalogue statements paired with argument locators. Full-width local-test definitions retain counts and adaptive-cost rationale. No clipping or missing glyphs observed on these pages. Final evidence paragraph changes pagination and requires final render check."
+    }
+  },
+  "author_checked_native_audits": {
+    "scope": "Author checked the three final2 operations at their exact scope; later registered Comparator/root/reach and native-export evidence is separately recorded under core_execution and native_views.",
+    "run_receipt": "/Users/willcook/src/_builds/quartic-r3-formal-native/final2/run.json",
+    "source_hash_count": 152,
+    "source_hashes_match_current": true,
+    "operations": [
+      {
+        "label": "targeted-build",
+        "status": "passed",
+        "log": "/Users/willcook/src/_builds/quartic-r3-formal-native/final2/targeted-build.log",
+        "sha256": "4ff7dfa8f717d4fc57fda9b7612bd41ced4290e17b0f0008a2ad54357c642f56"
+      },
+      {
+        "label": "audit-Eq19-Audit",
+        "status": "passed",
+        "log": "/Users/willcook/src/_builds/quartic-r3-formal-native/final2/audit-Eq19-Audit.log",
+        "sha256": "d9e30aaf65135674e90c46cfc833d320db80c37ec27d59d6c0a1258a3861d73b"
+      },
+      {
+        "label": "audit-Inspect",
+        "status": "passed",
+        "log": "/Users/willcook/src/_builds/quartic-r3-formal-native/final2/audit-Inspect.log",
+        "sha256": "fbbac0ac5cb5d4318f0f1a54084a3b742e1dd597605a05a39d0c286f8355a758"
+      }
+    ],
+    "excluded_superseded_log": "/Users/willcook/src/_builds/quartic-r3-formal-native/final/audit-Eq19-Audit.log",
+    "excluded_reason": "Earlier audit import failure, superseded by final2 successful source-matched operation."
+  },
+  "next_event": "No further long-record work required. Use the frozen record and explicit mathematical/formal boundaries for subsequent expert/expository drafting.",
+  "current_targeted_execution": {
+    "registered_receipts": [
+      {
+        "path": "corpus/receipts/lean-build-round3-targeted-2026-11-02T204814950389+0000.json",
+        "sha256": "5b4371ab2c5e4ea6672fb3cfc3e6a9fb5edc5ed4f4c67970391521e8334ac1d5"
+      },
+      {
+        "path": "corpus/receipts/comparator-round3-construction-support-2026-11-02T204814950389+0000.json",
+        "sha256": "3aeff212198af1b70da7d8abdbed1be4a2bdadbac64e25204386e9dd43bffff5"
+      },
+      {
+        "path": "corpus/receipts/comparator-round3-eq19-independent-2026-11-02T204814950389+0000.json",
+        "sha256": "afbd4075268b9eb58e018b5ffd1af68eca9dd56eb21f86fc31658f586a75587d"
+      },
+      {
+        "path": "corpus/receipts/comparator-round3-eq19-direct-2026-11-02T204814950389+0000.json",
+        "sha256": "44b0085528d930660cecd70324ab180da10333b223ffedd5a4e07db77aa2a0f5"
+      },
+      {
+        "path": "corpus/receipts/comparator-round3-eq19-missing-equality-2026-11-02T204814950389+0000.json",
+        "sha256": "4482d8d522ea517638a112a88d16f8902830ae10dd52917ef5dc0a225f9951f3"
+      },
+      {
+        "path": "corpus/receipts/comparator-round3-threshold-mutation-2026-11-02T204814950389+0000.json",
+        "sha256": "44f2151e0b9a8d609f36915498bc46c701db799523bbb308d190288a6501d8aa"
+      },
+      {
+        "path": "corpus/receipts/comparator-round3-shared-bad-spec-blindness-2026-11-02T204814950389+0000.json",
+        "sha256": "8fb69f54ed9ad733fcb13350ebe630529eeaa4308b143e7afe58d7eea0322934"
+      }
+    ],
+    "build_audited_declarations": 18,
+    "positive_comparisons": [
+      "QuarticQuery.Paper.construction_lemma_2_2_with_support",
+      "QuarticQuery.Independent.Eq19.checked_eq19",
+      "QuarticQuery.Paper.eq19_whole"
+    ],
+    "build_and_axiom_only": "QuarticQuery.Paper.eq_19_complete",
+    "deliberate_rejections": [
+      "missing equality clause",
+      "changed threshold definition"
+    ],
+    "accepted_blind_spot_control": "Shared impossible premise; no credited paper declarations; not a semantic correctness certificate.",
+    "source_hashes_verified_against_current_files": true
+  },
+  "core_execution": {
+    "source_inventory_sha256": "43f007e0916f14d513d076e8036b9bb05aa29897b5b9eb7bc4a8d6551d63c2b3",
+    "source_bound_current_receipts": 19,
+    "receipt_inventory_in": "reasoning_record_correspondence.json::current_core_execution",
+    "catalogue_counts": {
+      "review": {
+        "current": 121
+      },
+      "formal_statement": {
+        "partial": 39,
+        "exact": 51,
+        "stronger": 31
+      },
+      "build": {
+        "built_at_pin": 121
+      },
+      "comparator": {
+        "not_run": 109,
+        "compared": 12
+      },
+      "reach": {
+        "outside": 56,
+        "reached": 65
+      }
+    },
+    "corpus_sha256": "a83236b606dbe14731d7501230dfffe83b6cd6b6b99a4a790063ff3d3b9ba8c7",
+    "dependency_export_sha256": "6e2f1fff81b02e8be578775731969c99941246715b88c4adea83ede196569a1e",
+    "scope": "All core native gates passed at their exact named scope. 39 partial mathematical-fidelity rows remain; no blanket formal equivalence or comparison credit."
+  },
+  "native_views": {
+    "descriptor": "research/adjudication/round3_formal.json",
+    "descriptor_sha256": "87e981e356c1d1defe596362c0f7092e70320e8ce7a0c4281c7d9b27dd25874d",
+    "checks": [
+      {
+        "case": "eq19",
+        "status": "pass",
+        "artifacts_checked": 7,
+        "reported_source_hashes_checked": 136,
+        "local_declarations": 65,
+        "external_boundaries": 532,
+        "local_scope_complete": true,
+        "whole_graph_status": "partial",
+        "module_roots": {
+          "Batteries": 2,
+          "Init": 189,
+          "Mathlib": 341
+        }
+      },
+      {
+        "case": "eq19-independent",
+        "status": "pass",
+        "artifacts_checked": 7,
+        "reported_source_hashes_checked": 136,
+        "local_declarations": 83,
+        "external_boundaries": 545,
+        "local_scope_complete": true,
+        "whole_graph_status": "partial",
+        "module_roots": {
+          "Batteries": 2,
+          "Init": 200,
+          "Mathlib": 343
+        }
+      },
+      {
+        "case": "semantics",
+        "status": "pass",
+        "artifacts_checked": 7,
+        "reported_source_hashes_checked": 136,
+        "local_declarations": 135,
+        "external_boundaries": 556,
+        "local_scope_complete": true,
+        "whole_graph_status": "partial",
+        "module_roots": {
+          "Batteries": 2,
+          "Init": 235,
+          "Mathlib": 319
+        }
+      }
+    ],
+    "status": "passed_at_declared_scope"
+  },
+  "final_author_receiving_inspection": {
+    "record_sha256": "78ee9b8975a978f82e77f6f007a8e1c88714120aa74e684bdb05f7b72d1d8453",
+    "pdf_sha256": "2e2df3d169eea0b4215e6db4d07ee72311af6ef177352af93ac67249856b64a9",
+    "local_pdf": "/Users/willcook/src/_builds/quartic-r3/render/final/reasoning_record.pdf",
+    "inspected_images": [
+      "final/page-013.png",
+      "final/page-043.png",
+      "final/page-063.png",
+      "final/page-090.png",
+      "final/page-091.png"
+    ],
+    "result": "pass for inspected final samples",
+    "observations": "Targeted/global/native evidence scopes are legible and separate. Local-test proof and physical-state boundary display readable without clipping. Catalogue exact literal statements remain paired with readable section backlinks. Earlier independent/parent full table-family review is separate evidence; author does not claim individual inspection of all116 final pages.",
+    "distribution_boundary": "Standalone staging PDF relative links require the repository/docs distribution root and accompanying files; parent/packet lane owns final link-target audit.",
+    "disposition": "Historical prior finalrender; superseded by final_corrected_render below."
+  },
+  "closed_utc": "2026-11-02T21:54:22.230646+00:00",
+  "final_corrected_render": {
+    "source_sha256": "c2b6f11a7a4b3f318ebf419a9959c1d154f8e2b74e3ec02a8e25fb92ba9cfd25",
+    "pdf_sha256": "40bc5c71e61de0fb7b38707b9938e796ad69e0ea2868d7b9eb80e43b7518c7dd",
+    "local_pdf": "/Users/willcook/src/_builds/quartic-r3/render/final/reasoning_record.pdf",
+    "render_receipt_sha256": "b725e11311e57be6918d45886bb5e66c3dd6ef1401ea12b993544daece5f7ff6",
+    "pages": 116,
+    "layout_diagnostics": [],
+    "outside_page_boxes": [],
+    "author_receiving_inspection": {
+      "method": "pdftoppm of exact hash-checked final PDF, page90, scale-to1400; viewed resulting PNG directly.",
+      "image": "/tmp/quartic-final-author-appendix.png",
+      "result": "Corrected earlier-Appendix-specific/current-global execution distinction is visible and readable; no clipping or missing glyphs observed. Prior structural samples and independent whole-table-family review are separately recorded."
+    },
+    "independent_visual_acceptance": "Accepted for the final integrated record and this exact rendered layout, with the mathematical and evidence limitations stated below; this is independent AI review, not human peer review or a claim that all definitions are semantically correct.",
+    "distribution_boundary": "Relative file links resolve from repository/docs with accompanying source files; parent/packet distribution lane owns that final placement/link audit."
+  },
+  "remaining_formal_boundaries": [
+    "Physical successful-state subsystem bridge is not supplied by the successful-label law.",
+    "Arbitrary independent information has an ordinary finite-behaviour reduction; finite-seed formal interfaces remain narrower.",
+    "Whole equation19 formal wrappers use the alternative search estimate, not the early/late decomposition.",
+    "Ordinary sharpqk phase-query construction and compiled2qk route remain distinct.",
+    "39catalogue mathematical-fidelity rows remainpartial; build/comparison/graph extraction are not blanket semantic orhuman-review certificates."
+  ]
+}

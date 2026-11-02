@@ -1,0 +1,143 @@
+{
+  "schema": "quartic-round3-integration-v1",
+  "status": "integration_accepted",
+  "objective": "Assimilate the ten round-three returns into a faithful long record and source-bound formal/evidence corpus before preparing the next independent research batch.",
+  "inputs": {
+    "intake": "research/returns/round3/intake.json",
+    "intake_sha256": "d503881d21e10ed1aff132f8c679f3450e6aaf64119a44a2280ed72251b91bb3",
+    "archives": 10,
+    "extracted_members": 307,
+    "pasted_inputs": 10,
+    "private_input_10": "preserved locally, ignored by Git and excluded from successor packets"
+  },
+  "source_snapshot_sha256": "43f007e0916f14d513d076e8036b9bb05aa29897b5b9eb7bc4a8d6551d63c2b3",
+  "paper": {
+    "manuscript_sha256": "c2b6f11a7a4b3f318ebf419a9959c1d154f8e2b74e3ec02a8e25fb92ba9cfd25",
+    "reviewed_files": {
+      "docs/reasoning_record.bib": "8204d03bbc81e9fa06d029293c512621a51525ff297e576e884593cf819dc1d2",
+      "docs/reasoning_record_correspondence.json": "cef26a86dbc9d89c200df77f35d3b4046e43fe7023bafa854b8d646fa7a9e346",
+      "corpus/statements.json": "a83236b606dbe14731d7501230dfffe83b6cd6b6b99a4a790063ff3d3b9ba8c7"
+    },
+    "pdf_sha256": "40bc5c71e61de0fb7b38707b9938e796ad69e0ea2868d7b9eb80e43b7518c7dd",
+    "local_reading_copy": "docs/reasoning_record.pdf",
+    "portable_reading_copy": "repository/docs/reasoning_record.pdf",
+    "relative_pdf_annotation_targets_resolved": 55
+  },
+  "acceptance": {
+    "gate_sha256": "7ee0d8d1ab4729c1ed60fd44c9c144ed1d7a60c750ed8da63c125bed20a62ccd",
+    "gate_local_path": "/Users/willcook/src/_builds/quartic-r3/review/round3_accepted_gate.json",
+    "independent_review": "research/adjudication/round3_integrated_review.json",
+    "scope": "Independent ordinary-proof read of sections 1–7 and Appendices A and D, structural and final-prose delta review including eight execution-attribution corrections, selected primary-source checks, final catalogue/correspondence/19-receipt and 21 native-artifact audit, and visual review of the exact PDF. The 162 individual source-tie judgments are separate imported independent reviews, not 121 line-by-line tie reviews by this reviewer."
+  },
+  "coverage": {
+    "statements": 121,
+    "corrected": 12,
+    "ledger_ids_without_a_row": [
+      "claim-butterfly",
+      "def-P"
+    ],
+    "review": {
+      "current": 121
+    },
+    "formal_statement": {
+      "exact": 51,
+      "partial": 39,
+      "stronger": 31
+    },
+    "formal_origin": {
+      "ours": 121
+    },
+    "build": {
+      "built_at_pin": 121
+    },
+    "comparator": {
+      "compared": 12,
+      "not_run": 109
+    },
+    "route": {
+      "alternative": 9,
+      "none": 58,
+      "same": 54
+    },
+    "reach": {
+      "outside": 56,
+      "reached": 65
+    }
+  },
+  "formal_validation": {
+    "owner": "research/adjudication/round3_formal.json",
+    "owner_sha256": "87e981e356c1d1defe596362c0f7092e70320e8ce7a0c4281c7d9b27dd25874d",
+    "current_source_bound_receipts": 19,
+    "targeted_build_modules": 12,
+    "audited_declarations": 18,
+    "new_positive_comparisons": 3,
+    "new_intended_negative_rejections": 2,
+    "shared_bad_specification_control": "expected acceptance only; no paper-theorem credit",
+    "baseline_positive_comparisons": 5,
+    "baseline_intended_negative_rejections": 5,
+    "unconditional_paranoid_check": "passed",
+    "native_extraction_cases": 3,
+    "native_artifacts": 21,
+    "native_scope": "complete selected local reports; graphs explicitly partial at external boundaries"
+  },
+  "repository_validation": {
+    "command": "make check",
+    "exit_code": 0,
+    "tests": 168,
+    "skipped": 0,
+    "optional_integrations": [
+      "actual Lean Reach traversal fixture",
+      "isolated installed lean-exposition consumer from exported packet source"
+    ],
+    "log_sha256": "158042cc51c93b6298c9a5aa7d8e2f4d4d73d819424ebf43ac2985de908c1f36",
+    "index_check": "performed after exact owned paths are staged; outcome recorded in external closeout audit",
+    "whitespace": {
+      "code_and_other_sources": "git diff --cached --check passed excluding the frozen reviewed manuscript",
+      "manuscript": "Preserved the accepted source bytes: six end-of-line TeX control spaces and one non-semantic prose trailing space are reported by Git whitespace checking. No source change or fresh PDF claim is inferred from that cosmetic warning."
+    }
+  },
+  "structural_revision": {
+    "source_dossier": "research/adjudication/round3_structure_sources.json",
+    "sources": [
+      "actual SK long/short/expository sources and transition skills",
+      "actual Erdos 257 long and short sources"
+    ],
+    "full_width_replacements": [
+      "models and formal correspondence",
+      "local tests and query depths",
+      "quantum-state and output-law correspondence"
+    ],
+    "catalogue_claims_preserved": 121,
+    "compact_tables_reviewed": 12,
+    "historical_execution_attribution_passages_corrected": 8,
+    "render_review": "research/adjudication/round3_render.json"
+  },
+  "packet_context_preflight": {
+    "scope": "provisional context selection and exported-runtime installation, before final source/PDF freeze; final ZIP audit is external to this source snapshot",
+    "review": "research/adjudication/round3_next_scope.json",
+    "context_report_sha256": "fd17796bd91a1d132399edb1d32b17af34a4bf707e293f03957691e4b5f4f37f",
+    "isolated_exported_backend_install_receipt_sha256": "d4d5fa9c170fb3eb0e322f0367c3e8ed0acbc69cecc9c38f58ac3395972e1f26",
+    "installed_consumer_fixture_tests": 22,
+    "installed_consumer_fixture_skips": 0
+  },
+  "next_batch": {
+    "selection": "research/requests/round4/SELECTION.md",
+    "jobs": [
+      "02_short_expert",
+      "03_examples_first",
+      "04_quantum_completion",
+      "05_classical_completion",
+      "06_corpus_fidelity",
+      "07_publication_backend",
+      "08_adversarial_audit"
+    ],
+    "contract": "Substantial independently useful deliverables, authority to pursue valuable adjacent solutions, role-matched full context and no assumed future sibling outputs."
+  },
+  "boundaries": [
+    "Current build evidence is not an automatic mathematical-fidelity review.",
+    "The 121 rows have 162 current reviewed ties; 327 other authored ties remain legacy_unbound, and 360 proposed ties have no authored review.",
+    "There are 39 partial row correspondences and 109 rows without current qualifying comparison evidence.",
+    "Native extraction is scoped source inspection, not another proof or complete external-library traversal.",
+    "Independent AI review is not human peer review, public release or acceptance."
+  ]
+}

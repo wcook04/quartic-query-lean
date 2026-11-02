@@ -54,13 +54,62 @@ result from another tie. The dependency export traverses private and generated
 intermediates before displaying public declarations; an absent edge in an old,
 unbound export does not prove that the theorem is unused.
 
-Reviewed statement relations remain authored judgments. The current builder
-does not automatically bind an `exact` or `stronger` classification to the
-reviewed type and its defining terms. Round-two integration checks the candidate
-source and signature hashes before applying those classifications. A later
-semantic edit requires renewed review even if rebuilding and comparison pass;
-[the evidence-path request](../research/requests/round3/09_evidence_backend.md)
-targets enforcement of that separate freshness boundary.
+Reviewed statement relations remain authored judgments. They have a freshness
+boundary independent of build and comparison evidence. A reviewed tie in
+`corpus/ties.json` may carry a `review_binding` with schema
+`quartic-tie-review-v1`. The binding commits to the statement ID, exact statement
+text, complete corrected row, declaration name, all authored tie fields except
+the binding itself, and the complete local Lean/configuration snapshot. Thus a
+change to `premises`, `open_assumptions`, relation, route or reviewer also
+invalidates the old review. Missing bindings are `legacy_unbound`; mismatching
+bindings are `stale`; malformed bindings stop generation.
+
+Only a `current` review supplies the effective `relation` and `route` used for
+present statement credit. The generated tie retains the historical
+`reviewed_relation`, `reviewed_route`, assumptions, note and binding alongside
+`review_evidence`. Build and comparison facts remain independent: both can be
+current while the old statement review is stale. Such a tie supplies no current
+exact/stronger statement credit, no selected assumption metadata, and no
+statement-level comparison credit. A current review alone supplies no proof
+or comparison evidence.
+
+### Binding a completed review
+
+After inspecting the complete theorem type, its implicit context, definitions,
+paper row and premise classification, the reviewer may record the result of
+`expected_review_binding(id, rows()[id], reviewed_tie, source_hashes())` on that
+same tie. This helper calculates an expected fingerprint; it does not establish
+that a review occurred. Neither corpus generation nor an evidence producer
+writes or refreshes authored review bindings. Do not bulk stamp old ties. Keep
+the reviewed source bytes frozen until the binding is recorded, and retain the
+actual source/type reading in the existing adjudication owner.
+
+The binding fields are `schema`, `statement_id`, `statement_sha256`,
+`row_sha256`, `declaration`, `judgment_sha256`, and
+`source_snapshot_sha256`. Object digests use UTF-8 JSON with sorted keys,
+`ensure_ascii=False` and separators `(',', ':')`; `statement_sha256` hashes the
+exact UTF-8 statement text. The snapshot digest hashes the existing complete
+path-to-SHA-256 map returned by `source_hashes`. It binds theorem source and all
+local definitions, rather than only the text of a theorem header: changing a
+definition while keeping that header unchanged still invalidates review.
+
+This policy is conservative. A local proof-only edit or unrelated local Lean
+addition also invalidates review, as do pinned configuration changes. Prose
+outside the reviewed row/tie and local source snapshot does not. Dependency
+pins are bound, but installed dependency checkout bytes and executable bytes
+are not; a binding does not prove a clean reconstruction or authenticate the
+reviewer. Narrow semantic-closure bindings would require a separately validated
+extractor and are not inferred from an old dependency graph.
+
+### Provenance of derived helpers
+
+The current graph is a preprint-only projection. Separately derived `r2-live-*`
+proposals remain in their existing research adjudication owner, with their own
+source records. The builder refuses those IDs and explicitly nonpreprint source
+IDs instead of relabelling them as OpenAI preprint statements. It also refuses
+missing prerequisite rows, so a dependency on a withheld helper cannot silently
+disappear. Ingestion awaits a source-aware projection preserving each helper's
+own provenance and authored dependencies; this change creates no second registry.
 
 ## Collapsing onto the elegant path
 

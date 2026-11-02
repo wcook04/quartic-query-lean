@@ -1,0 +1,148 @@
+{
+  "schema": "round3-backend-adjudication-v1",
+  "date": "2026-11-02",
+  "source_return": {
+    "archive": "quartic_r3_09_evidence_backend_return.zip",
+    "sha256": "bba500509fdd0189072710e139e8737f741c88233ffcb47d5dd3b3794ee6f9e2",
+    "preserved_root": "research/returns/round3/members/09_evidence_backend"
+  },
+  "scope": "Python corpus backend and technical evidence contract only; no new proof, native extraction, Comparator, independent review or generated-output acceptance claimed.",
+  "accepted": [
+    {
+      "change": "Source-bound authored relation freshness",
+      "owner": "tools/build_corpus.py",
+      "schema": "quartic-tie-review-v1",
+      "api": "expected_review_binding(ident, row, review, hashes)",
+      "states": [
+        "current",
+        "stale",
+        "legacy_unbound",
+        "not_reviewed"
+      ],
+      "binding_fields": [
+        "statement_id",
+        "statement_sha256",
+        "row_sha256",
+        "declaration",
+        "judgment_sha256",
+        "source_snapshot_sha256"
+      ],
+      "policy": "Only current reviews supply effective relation and route. Builds and comparisons cannot refresh reviews. Historical authored relation/route and assumptions are retained."
+    },
+    {
+      "change": "Preprint-only provenance and complete curated prerequisites",
+      "owner": "tools/build_corpus.py::evidence_graph",
+      "policy": "Refuse known r2-live helpers, explicit nonpreprint source_id values, and missing prerequisite rows instead of relabelling or silently dropping edges."
+    },
+    {
+      "change": "Retain all historical/current ties in graph metadata",
+      "owner": "tools/build_corpus.py::evidence_graph",
+      "policy": "tie_review metadata receipts retain statement evidence and ties even when no declaration is selected. They remain semantic_review/not_run and nodes stay unverified/external."
+    }
+  ],
+  "adaptations": [
+    "Read live code and inspect returned diff before applying matching hunks; no return script executed.",
+    "Extend the returned graph projection so withholding stale reviews does not erase historical tie metadata.",
+    "Exercise the available installed consumer, rather than retaining the return's skipped consumer status."
+  ],
+  "rejected": [
+    "Automatically bind legacy authored reviews or infer relation freshness from successful new builds/comparisons.",
+    "Treat Python mocked operation receipts or installed graph validation as Lean, Comparator or extraction evidence.",
+    "Ingest derived helper rows into the current preprint-only graph."
+  ],
+  "deferred": [
+    {
+      "item": "Native extraction/build/axiom and Comparator checks of proposed Lean endpoints",
+      "owner": "Lean/native evidence lane",
+      "reason": "Separate evidence class; backend changes neither perform nor inherit those checks."
+    },
+    {
+      "item": "Mixed-source helper ingestion",
+      "reason": "Needs source-aware graph projection plus authored dependencies; proposals retain original adjudication provenance."
+    },
+    {
+      "item": "Narrow semantic dependency fingerprints",
+      "reason": "Would require a separately validated native extractor; conservative full local snapshot reused instead."
+    },
+    {
+      "item": "Renewed tie bindings and generated corpus refresh",
+      "owner": "Tie assimilation and integration lanes",
+      "reason": "Proof-source edits are concurrent; bindings require actual reviewed frozen source bytes."
+    }
+  ],
+  "validation": {
+    "python": "3.12.7",
+    "focused": [
+      {
+        "command": "QUARTIC_LEAN_EXPOSITION=/Users/willcook/src/lean-exposition/.venv/bin/lean-exposition python3 -m unittest discover -s tests -p test_build_corpus.py",
+        "tests": 22,
+        "passed": 22,
+        "skipped": 0
+      },
+      {
+        "command": "python3 -m unittest discover -s tests -p test_review_freshness.py",
+        "tests": 12,
+        "passed": 12,
+        "skipped": 0
+      }
+    ],
+    "full_python": {
+      "command": "QUARTIC_LEAN_EXPOSITION=/Users/willcook/src/lean-exposition/.venv/bin/lean-exposition python3 -m unittest discover -s tests -p test_*.py",
+      "tests": 142,
+      "passed": 141,
+      "skipped": 1,
+      "skip": "Optional native Lean Reach fixture not enabled",
+      "exit_code": 0
+    },
+    "actual_in_memory_graph": {
+      "operations": [
+        "validate graph.json",
+        "select graph.json --goal thm-1.1 --out selected.json",
+        "inspect selected.json"
+      ],
+      "exit_codes": [
+        0,
+        0,
+        0
+      ],
+      "argument_closure_count": 116,
+      "graph_sha256": "2b2cbe1af61300bbb144ff316ce0c4a9f6d29d2dea537c68df35001cf76af2c7",
+      "source_snapshot_sha256": "5d71c56f20eaac2ec13e6b732604ee4b881e8d52086a28b38d1b36e2bbd5bc7a",
+      "output_location": "temporary directory, removed after validation",
+      "boundary": "Observed snapshot only; concurrent later source edits require recomputation."
+    },
+    "consumer": {
+      "executable": "/Users/willcook/src/lean-exposition/.venv/bin/lean-exposition",
+      "checkout_head": "bbeafdb561e4dbf5f4f17c9150cb61392c264458",
+      "module_sha256": {
+        "src/lean_exposition/contracts.py": "0b3ea9350e9bbdca8a4fd11998be35409057a037c1d7078fc2bc9c11ab1379ba",
+        "src/lean_exposition/cli.py": "e541595c434a2c23b1c69fc3eedaf62d7f8f1673daf88bfcf940c950c7abffe5",
+        "src/lean_exposition/consumer.py": "7e7b509c4fb38c39256fd9886242b0b1815bd969121ca9fd877f6d1f30d5cd0a"
+      }
+    },
+    "working_layout_at_backend_validation": {
+      "exit_code": 1,
+      "scope": "Only newly preserved round3 return members and immutable return02 section.pdf links were reported. Intake lane owns custody-manifest exemption; no owned backend path error reported.",
+      "requires_integration_rerun": true
+    },
+    "generated_outputs_written": false,
+    "maintained_ties_or_receipts_written": false,
+    "native_extraction": "not_run_in_this_lane",
+    "commit": "not_created",
+    "working_layout_latest_observation": {
+      "exit_code": 1,
+      "diagnostic": "research/returns/round3/attachments/input_10.txt: local-only submitted input must stay untracked",
+      "owner": "Round-three intake lane",
+      "requires_integration_rerun": true
+    },
+    "diff_whitespace": {
+      "command": "git diff --check",
+      "exit_code": 0
+    }
+  },
+  "implementation_sha256": {
+    "tools/build_corpus.py": "8b63f7e81ff616f7e0af1d22935d98b41740a5527d83aa1874c6fe5c35cedd5c",
+    "tests/test_build_corpus.py": "15a2a5269d95f3257746acf3b8628e19337f71494e0356466b42b882c850fed8",
+    "tests/test_review_freshness.py": "49c734c9f5ffa81a2f00f2049eeb98305e19588137d0704f461a233464d90bb4"
+  }
+}

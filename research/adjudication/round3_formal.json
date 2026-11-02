@@ -1,0 +1,984 @@
+{
+  "schema": "round3-formal-adjudication-v1",
+  "status": "validated",
+  "frozen_source_inventory_sha256": "43f007e0916f14d513d076e8036b9bb05aa29897b5b9eb7bc4a8d6551d63c2b3",
+  "source_hashes": {
+    "lean/QuarticCorpus/Construction/Challenge.lean": "d554e5a96889c4c9c3aa6bd3231f984fa7cf695aa103ebcd092ac2c7a08240b1",
+    "lean/QuarticCorpus/Construction/Solution.lean": "63cfe11442f76eb9b0f1b579e2a925a19fc9312f870e8480bfbf3eacfb9bb9de",
+    "lean/QuarticCorpus/Construction/comparator.json": "c18c76b87a777251e70ec3f55c5704be82d52dbba0220e5adb2cf3063709dd78",
+    "lean/QuarticCorpus/Foundations/Challenge.lean": "8a94b4d4e065267e606d7738f72a620ab249b563a1ebf66992fbae90995423c3",
+    "lean/QuarticCorpus/Foundations/Solution.lean": "836000d335f1d8ba10f711895d142a6202c8484b6c9b100a2765d6f5f4bac9bd",
+    "lean/QuarticCorpus/Foundations/comparator.json": "7e5f89ab55e35fc5b3088528b260d3c9bbeabbb5dc173913a8be94a2521943e7",
+    "lean/QuarticCorpus/Independent/ConstructionFull/Challenge.lean": "1f190d9ed12e73a663ca9672be3063cc568d14045fcc00b1d49a89ca5d295645",
+    "lean/QuarticCorpus/Independent/ConstructionFull/Solution.lean": "5f247b62ac0f92e07f30d1669ebf5f934c1e4d4fcdb24def1786d332ec6b3290",
+    "lean/QuarticCorpus/Independent/ConstructionFull/comparator.json": "3839caeec19bb1adc44c7f05abc2620f912c9e51db082aac1afe110c60f94ae3",
+    "lean/QuarticCorpus/Independent/Controls/SharedAudit.lean": "9ad375fc24f21757beba1e6b538e72db4d3749cd1816f949076e92cd4389299f",
+    "lean/QuarticCorpus/Independent/Controls/SharedChallenge.lean": "df4b12ec080e645245f65e6102b9537d21455cb962da0b4f9c56c77e9370608f",
+    "lean/QuarticCorpus/Independent/Controls/SharedSolution.lean": "b9ac0f56d8981bee533f2f9969c4970a9945636670e84c5e88c7b218aefdc217",
+    "lean/QuarticCorpus/Independent/Controls/ThresholdChallenge.lean": "98a98ec7f54031c3e508aa432cf744dd779eae53d9a99019893ff5992fa0a1be",
+    "lean/QuarticCorpus/Independent/Controls/ThresholdSolution.lean": "2d9df972a1c4818d1674dfcba5b5378bd74e52dacfa2e50b201f8536d75f77ea",
+    "lean/QuarticCorpus/Independent/Controls/shared_blind_spot.json": "386c8f789546dc88fcf90d14a15f06dd8a5f79cd7d5a20d8cc0f848dd2417e19",
+    "lean/QuarticCorpus/Independent/Controls/threshold_mutation.json": "0851b1084261243a143929849cef25091f9d6ad3fefc36f4f0c2de5a6cebd21f",
+    "lean/QuarticCorpus/Independent/Eq19/Audit.lean": "02a75af637d0d6dab035f3120ceb945b68518aae438e1bd3883e3d51e16afea4",
+    "lean/QuarticCorpus/Independent/Eq19/Bridge.lean": "a4884c8d671eac839f2854399fc85128771a06037a3325119d0dbe6eee7163fa",
+    "lean/QuarticCorpus/Independent/Eq19/Challenge.lean": "2baac26612cdbfe04ac88cb2267502da9531a7df20758af3a66158a22c03e47c",
+    "lean/QuarticCorpus/Independent/Eq19/NegativeInequalityOnly.lean": "44a5d5cb701c13ea168761a79c21ea2f7a516e771fc435bc4deb03ebaf927c4d",
+    "lean/QuarticCorpus/Independent/Eq19/PathControls.lean": "182caaf55fbeee086b36d0f42d86d68e5401baafd1c2252f3cd5996efaf7ee4d",
+    "lean/QuarticCorpus/Independent/Eq19/Solution.lean": "4a49e3011c9b45a02cb11a5a08392a7a10ee084f0ddafef49ab28ae9085752a7",
+    "lean/QuarticCorpus/Independent/Eq19/Spec.lean": "66a5248637ebd495ca5d5cba3fcfcaf64bffe5d129531bf1abb40ff8f37c60ff",
+    "lean/QuarticCorpus/Independent/Eq19/WholeChallenge.lean": "f19a156f448816d0cff936af053cb40a620a558f7622d46e7a8fb5e2e3929b51",
+    "lean/QuarticCorpus/Independent/Eq19/WholeSolution.lean": "cd554ef84bac19f729761351a2929960922700796f2dcf29e2bc10789313c0ca",
+    "lean/QuarticCorpus/Independent/Eq19/comparator.json": "de8beea386de8853e2a07c5c86bc63561639e110ec0b8e39a3c4e7ac6603db3b",
+    "lean/QuarticCorpus/Independent/Eq19/negative-inequality-only.json": "0ce89380b84b8f2858c4e5b8afc132d8da522a29a959e6881e56e44148d93428",
+    "lean/QuarticCorpus/Independent/Eq19/whole-comparator.json": "f4c7bca4828a084a3cde7cbbded06a497a82f8c55ad09802a42386db50840ba9",
+    "lean/QuarticCorpus/Independent/Inspect.lean": "b4d12d56d008de5e3ca38b1c23422f4c7216811cc4d389ea7d69b6340ae11f0d",
+    "lean/QuarticCorpus/Independent/SemanticMutations.lean": "fd4b9ca0312bdcacffb4cbe689df03ffc4433675c72592f98c17a08d073c4b03",
+    "lean/QuarticCorpus/Independent/Semantics.lean": "dc0dac69644c1c92a383208f91b70930d0e8934ff4d124a077a4ce27b55d23d6",
+    "lean/QuarticCorpus/Negative/ChangedDefinition.json": "c0e471ee9f1d52fb81e15c959133a062b4e95da345e836e6c95916b8dc6ea2dd",
+    "lean/QuarticCorpus/Negative/ChangedDefinition.lean": "4a3b0a97b2fd35e6c8e31fdd8fa8017b0e428cc8b6b41eccaa36f9e2cf445264",
+    "lean/QuarticCorpus/Negative/ForeignAxiom.json": "3ac0d024b346f5bff94a50a556a55d827a5dc19d4f9a754f1603dd7eef6d893d",
+    "lean/QuarticCorpus/Negative/ForeignAxiom.lean": "d896cdd50a42a4c32cb24e636198ef33909078e6f62edadbf04fbca3cf44a2ed",
+    "lean/QuarticCorpus/Negative/MissingDeclaration.json": "b3f976bd6117762d52949c51b02032554789c88c9e952f84ec475d93304d8eae",
+    "lean/QuarticCorpus/Negative/MissingDeclaration.lean": "c03b0d0c245a2d4e392a4de43648d5b55858542e15e54d9ea977ca019eef682c",
+    "lean/QuarticCorpus/Negative/SorryProof.json": "36243ab16c60debb8b5e19d286abd8010f773b9a7aa0ff1da8cd9d4b6c195cda",
+    "lean/QuarticCorpus/Negative/SorryProof.lean": "59295ee8a529797d52a6cf8f97eb3ee32cd4878b97e441a1d6a982e07806a7d5",
+    "lean/QuarticCorpus/Negative/WeakenedConclusion.json": "9cd55a4b578d744703319b8b153b90a78af553fd8ffbe323d31c074378204f09",
+    "lean/QuarticCorpus/Negative/WeakenedConclusion.lean": "f51706cc2337149223db50cd23d800e5b7138f61727e4f3db1deb39db07f4f82",
+    "lean/QuarticCorpus/Separation/Challenge.lean": "85cf70b1364ee037ddfef280668b6ca036aadb1cb7e57e6734e94706112c2bd9",
+    "lean/QuarticCorpus/Separation/Solution.lean": "5cdcdb99b1c1ff250d45b8e983756ea3a3bf7013af1f46b4e02495c3209bb724",
+    "lean/QuarticCorpus/Separation/comparator.json": "93324800e1d372cf1a3e801fe7181a29f77b13edb01deb590bc8158a263c7276",
+    "lean/QuarticCorpus/Tournament/Challenge.lean": "8bc45cfe55e8a124bb7dfa7fcd3566f80b4db98fe4e99c92242f413edf8ec27c",
+    "lean/QuarticCorpus/Tournament/Solution.lean": "f02baea95b83312fe3d3c4fcfb64f3aec6ff9658c26189c4ce7d70a7ccd03f6b",
+    "lean/QuarticCorpus/Tournament/comparator.json": "309293414b5271ac9092ddd56aa40707f533da448792b9971310b092f3ef641a",
+    "lean/QuarticCorpus/Unconditional/Challenge.lean": "c88be0b70754cb6f93448694002a16e1eb6a25135fa71648d4651f01104e399d",
+    "lean/QuarticCorpus/Unconditional/Solution.lean": "19725ad42b615a8881db00417ee6375c8982b0de08e618f06f901fe4db2e2cd3",
+    "lean/QuarticCorpus/Unconditional/comparator.json": "fbaaee77d1b1a3daff788267ec15963ea06a6340a219a2da890c8c9642998dd7",
+    "lean/QuarticQuery.lean": "a11e582f6f4aaffd7510a6278b25c68968c5203213a320a2b583f2cc67812635",
+    "lean/QuarticQuery/Amplification/Average.lean": "fd837b83033d2df6d833a0fdecaef7110339d5747b8aaa1f674c14d3e50473b6",
+    "lean/QuarticQuery/Amplification/Bounded.lean": "6a6465ae0cbd0503cf327c5f33f6509f492a707795c0358880c8f12c9624c96d",
+    "lean/QuarticQuery/Amplification/Geometry.lean": "ff5e758a77d21bc133a930d545672cb5faa76aa422019413c634085881142dc9",
+    "lean/QuarticQuery/Amplification/Procedure.lean": "45413af39419cf952c26204dfd3ae1b86e7dcde1423194ca473187cc6b64edb1",
+    "lean/QuarticQuery/Appendix/TheoremA1.lean": "777567c2e5878223a187030b4200293a0c8f78927fa0488e62ff36bf129a0128",
+    "lean/QuarticQuery/Bridge/DecisionTree.lean": "f0dc14884f30cb5238b4e71a4358e43a244a45a38f655323a34b5e83af7ed13e",
+    "lean/QuarticQuery/Bridge/Deferred.lean": "666c5741a5a19324b7229a350bc35130627da42584c751d5444231f402c45931",
+    "lean/QuarticQuery/Bridge/Oracle.lean": "06f073c300891be8d343434d4cbc4e3d9c2c37584bb5247a339e6f5c020ba385",
+    "lean/QuarticQuery/Construction/LocalTests.lean": "56357d934fab301222130c92ef36cfbf122af4ad90fb2a94ba90178139dbeb13",
+    "lean/QuarticQuery/Construction/Transcript.lean": "e2fd95c77c8ef1616201219302415069411aaac88060f3f75ec24e7b0626608f",
+    "lean/QuarticQuery/Construction/Winner.lean": "3c6b894e842fc90acd7a09b9ff14ce3ae2f09bfbf2dc7f2195751a396db7017c",
+    "lean/QuarticQuery/Forrelation/Arithmetic.lean": "5a7336764ee8cd299b9e19fd3164374fcebab98b7df8d9c956a457334b9dc243",
+    "lean/QuarticQuery/Forrelation/Builder.lean": "32e1ff4623c8bbceda26da74e53961d8c2bc660ff9b831cf19d4cc32ce1abc23",
+    "lean/QuarticQuery/Forrelation/Circuit.lean": "b17824d0a3b6ee5a689822b04c18d20de9e72e1db119105584e9cbba60ae8f01",
+    "lean/QuarticQuery/Forrelation/Product.lean": "f0ceced9021b45de546dfc01aadabde913f8ecdf1a0d085992c5b61b8a1ef425",
+    "lean/QuarticQuery/Forrelation/Promise.lean": "96b967a27458107549e38ce4fe001d707a4c240ad4e4b582729a6ce9526d2cf1",
+    "lean/QuarticQuery/Forrelation/Repetition.lean": "1526168486cdc4e78213c6048199676df0520445666b60d3ece9c62678e90e70",
+    "lean/QuarticQuery/Forrelation/Sanity.lean": "bf287a0ff1f6022582b6d8daae3a89ad34d8aa51986531a649f133ee692eae70",
+    "lean/QuarticQuery/Forrelation/Walsh.lean": "e3eae0cf1455ef1471fd4f42458b324bbe3bfe1b1879989366ce476657653069",
+    "lean/QuarticQuery/ForrelationLower/Amplify.lean": "93f8e1c04768b8d01263f4a6b5a594b2d7b3334a1380432af6a33779109fc10a",
+    "lean/QuarticQuery/ForrelationLower/Cascade.lean": "9438575752bdbb664cecbf15b97afc96f2f235fabcab8f6261ab5f15bb9d7ab9",
+    "lean/QuarticQuery/ForrelationLower/Cube.lean": "16db4f9b7e4e42029c839537075eff0ec0f6fd6261d4a8a038bec8566ce4e2fe",
+    "lean/QuarticQuery/ForrelationLower/Main.lean": "f877e9c4d11874d3e80ad7627972b1a8a0eca596f26fb96a3898bfdace564ed1",
+    "lean/QuarticQuery/ForrelationLower/Promise.lean": "2877dc60a4af03e98321ac9e47c501a63508936aa49e5018d280258b24862efb",
+    "lean/QuarticQuery/ForrelationLower/Stein.lean": "6238d7e6f8ade6044eb623899069f35d0a5b860699c722e7007fd71046ffff9e",
+    "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean": "13614823a433518dea7138242182dc2abee1dbcdf0127157edf8cc9b6a756010",
+    "lean/QuarticQuery/ForrelationLower/Uniform.lean": "d6bc1f4399394810fca63abdaadd67a420616371c501ab978841898f2bda049c",
+    "lean/QuarticQuery/ForrelationLower/Walk.lean": "c9394068bc3a583178fcae1e11d6eafdc7dcfc17bcd8a0b269f9a13ccee209ba",
+    "lean/QuarticQuery/LowerBound/DirectProduct.lean": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+    "lean/QuarticQuery/LowerBound/Minimax.lean": "d235fef08374ca71229f5a2a5985e1bb0c60e3ec39a0ad2b1a13b286df9c194e",
+    "lean/QuarticQuery/LowerBound/Planted/Average.lean": "471bb74964c7c841f12a8e90a184d13f26ffc173bf2855bdf1d59e93f490610e",
+    "lean/QuarticQuery/LowerBound/Planted/Coupling.lean": "35d0f76652f6aa52acb73dfe3b5c01eb70eefdf9397cc83f4b4469017de61824",
+    "lean/QuarticQuery/LowerBound/Planted/Heavy.lean": "6b5772603583908e293c4301594ef313e68ddff67dedd5eced436744b0f110bb",
+    "lean/QuarticQuery/LowerBound/Planted/Inputs.lean": "8a51b7b7696acdda52b0762b65c2f9e8bec13da8d896c47102c447195509411f",
+    "lean/QuarticQuery/LowerBound/Planted/Main.lean": "a32a6e24bccace37d46742acc9450fe33b6081430484138336014048f3fe835c",
+    "lean/QuarticQuery/LowerBound/Planted/Simulator.lean": "71bcf25db0309331ebda232bcad3ab2e895d543ffadcc521e99117253c0dab09",
+    "lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean": "86a2064e0fb6c6ba9b4a79785932a203314d8433d938083a420288d642bf8bf8",
+    "lean/QuarticQuery/Model/Classical.lean": "a820d0804ee722ee74eef97ea8efeb2a15da55107d6a908e35ba60ef39932e9e",
+    "lean/QuarticQuery/Model/Quantum.lean": "6a61d326b216fa39f6ac1d7694727528dd5028bfac8d939f118bf1a4f4a35662",
+    "lean/QuarticQuery/Paper/AppendixA.lean": "5a28f11e95c0153ef162337a8c81d4523f0092361b785425ee166924b1dd9815",
+    "lean/QuarticQuery/Paper/AppendixAAdversary.lean": "f95cdeea5040ba7082c33a76faddef2da122d5bb4d76cec2b192598894c50aa6",
+    "lean/QuarticQuery/Paper/AppendixAHuang.lean": "adb9065a0262325c396b5eeadc4f27f61768fe182e1818b9a2e4b91e0376459b",
+    "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean": "a90282494f069991f80b7ec4af0cd8898a2d4b84a7a69aa180e1ed061dd9a549",
+    "lean/QuarticQuery/Paper/AppendixAHuangRoute.lean": "9a16919921fe4f06d2db77e75b88fe1bd5f7350bc9132360ebc496450a06a5b7",
+    "lean/QuarticQuery/Paper/AppendixAPerron.lean": "e95a404b217afc2f03eaa35256c713827f1400231702daea1b5b38a3aa204c9a",
+    "lean/QuarticQuery/Paper/AppendixARestriction.lean": "5e7b16febef2b95ffc6ed9e735bbb8b24cbaf1d713fda51452a13ef17745534b",
+    "lean/QuarticQuery/Paper/AppendixASensitivity.lean": "b45034f8e12d480523140f3a491ef29d2fc7fa83930ff6e17a993c8acb7ca0b0",
+    "lean/QuarticQuery/Paper/AppendixASpectralAdversary.lean": "75c971c8627dc3e1e17e1a58e21522f845d0830246ab93939994d24d08da1ca4",
+    "lean/QuarticQuery/Paper/AppendixAStar.lean": "84d2b315859098c5030f6772a06dcd652f3d08e695456ece32acb61a6e0142d6",
+    "lean/QuarticQuery/Paper/ClassicalAsymptotics.lean": "b156b061ecab3a011c31224f9ff0719d07a52e8e8eb86becbb18cb5c959c17af",
+    "lean/QuarticQuery/Paper/ClassicalDirectProduct.lean": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+    "lean/QuarticQuery/Paper/ClassicalPlanted.lean": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+    "lean/QuarticQuery/Paper/ClassicalUniformZero.lean": "b0778f75c9717011e9b115eb3b15cf132b85486fa2f8c83eff0e4ce4a05fca19",
+    "lean/QuarticQuery/Paper/ConstructionArithmetic.lean": "2c355a3eb5e76cd5db70a6990bb9d6b37d652e0eece3b31ed0661219d3635ad0",
+    "lean/QuarticQuery/Paper/ConstructionAudit.lean": "bf7d2c90de5e5c690c9a1a1589cd1b2d59b1f63a93eed3bd846170ae996ca6d6",
+    "lean/QuarticQuery/Paper/ConstructionCoherent.lean": "5e5f5c2321e7c1ce23235e69e1f430fd951f13cc92b5a2d1b2d974aad0607cec",
+    "lean/QuarticQuery/Paper/ConstructionComplete.lean": "a79e9f0cdbf85df0e86605711fa6c8bde2a19cbe043c36302243b42a7f8fbc6c",
+    "lean/QuarticQuery/Paper/ConstructionDefinitions.lean": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
+    "lean/QuarticQuery/Paper/ConstructionFamily.lean": "b7e1203086e38c00b964355ac71537a7fc5be7053d537ccd56cba8017cdd085a",
+    "lean/QuarticQuery/Paper/ConstructionForrelationCircuit.lean": "860e8653027d64fe7d5cc5f35357d81ed5fa27e027899047ab819c821e3c8b32",
+    "lean/QuarticQuery/Paper/ConstructionForrelationComparison.lean": "e9bb18d1e0ea9482762e89a9ced002c720f9b7d2311a455a9904bd820c5b4a01",
+    "lean/QuarticQuery/Paper/ConstructionForrelationComplete.lean": "733526015ad9a2013512d8f6216b8f73c41566a803d92602dd30e40e90d7ad06",
+    "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean": "14f92345b8885036e862885aad3db82d77cff6e71642e669c2ba7dc8ba087aa1",
+    "lean/QuarticQuery/Paper/ConstructionForrelationQuantum.lean": "f31face68a9c47906d9a728cced9aa8a24ec73d3079c6196ae1853130151391b",
+    "lean/QuarticQuery/Paper/ConstructionFull.lean": "6e1d5e93d723edc703e34ee590e764402712129193337389ba43f7d0a63b2ebe",
+    "lean/QuarticQuery/Paper/ConstructionModels.lean": "19826ab2f9f9ef8a329f5880faf2426727b158321af4a418d519d55b56674d61",
+    "lean/QuarticQuery/Paper/ConstructionPhase.lean": "f9dc9564aa8741a6aa3059fcea3563c740fed802666ae251fbebbe9085668405",
+    "lean/QuarticQuery/Paper/ConstructionPointerSupport.lean": "8a2d8befa3225ab54114492b35c5a326fc17bd8f0a5eaa9acba966c18db53938",
+    "lean/QuarticQuery/Paper/ConstructionTests.lean": "06f1b3bc883881351e5e9cfa9ba8777f2f907897e69275b507132cc01ba0dccb",
+    "lean/QuarticQuery/Paper/Eq19Complete.lean": "1b5de65cb6b83b57393626282352eebd2f69dd0cd96914535e26bae0937b6cb2",
+    "lean/QuarticQuery/Paper/Eq19Whole.lean": "c6f294ab9565c8a1e03b0cb2f9d8e17cb7d6e731f9fa67b30b18e396a93d74d1",
+    "lean/QuarticQuery/Paper/QuantumAmplification.lean": "95d89237e766b59ffdd52f1324e440e2127b06353b2c8de2482b9f55c4adb30b",
+    "lean/QuarticQuery/Paper/QuantumComparison.lean": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+    "lean/QuarticQuery/Paper/QuantumTensor.lean": "7a2f03d6ae2d8d3ff2af9837f6cb1e1f1f3d5b4983dc34e753792621443835ac",
+    "lean/QuarticQuery/Paper/QuantumTournament.lean": "8cf87e74aa0364c9bc6b9078ff62e88c45d297625166fe31a8efeea765a34adf",
+    "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
+    "lean/QuarticQuery/Paper/QuantumUpper.lean": "4d2966b64f95a3706113159a8afd4a5b1954a895d7d1e91c569d2f59a24bcb26",
+    "lean/QuarticQuery/Paper/QuantumWorkspace.lean": "a5ed4638bef1d1e15508ea5b96a0edf99a2281693de03f39f23e5afadd7ba07b",
+    "lean/QuarticQuery/Paper/Section2.lean": "34fb705db7f672de0faf3e18fcc3dda4862033e157a325d8c9016936361f84cf",
+    "lean/QuarticQuery/Paper/Section3.lean": "aa49e092c11c915bc5a3a904054589dbed18c840f84a00c5edc0e37d57d661ad",
+    "lean/QuarticQuery/Paper/Section4.lean": "da6bda0feda0448bc05b11c85aed7b666d01aa8d30a8914a4ffd7d9fbe6643fb",
+    "lean/QuarticQuery/Results/Conditional.lean": "c3d4acfd49f8725f21fa4e895be9773e44a52786a16e3606e68dfda27c808330",
+    "lean/QuarticQuery/Results/Exponent.lean": "91d1c021f9b920f9bf0017dfe03817194c6a1ff5f4776e39a669bbd3b832a931",
+    "lean/QuarticQuery/Results/Headline.lean": "fec7d0c565b8ab345568ae6082c5fb346435493f4eb2d9112cda498652909c35",
+    "lean/QuarticQuery/Results/Unconditional.lean": "46e6f51f713109bab717956bd2536711dc927a356027748712e571ce12f0b85e",
+    "lean/QuarticQuery/Statement.lean": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+    "lean/QuarticQuery/Tournament/Drift.lean": "850fbfdfba830a17930f0a8e60fdc0d7b27f7f50c45710b5e77997343528c077",
+    "lean/QuarticQuery/Tournament/Ideal.lean": "6f7379abfb1d9fb37d6ef7f0f25049893490aa717171c875feb97fca343ab8ef",
+    "lean/QuarticQuery/Upper/Amplify.lean": "49e808cc6acbb47ad066b1dcf33ac8d47da2f28d88c51d537564e6591eb0d9e1",
+    "lean/QuarticQuery/Upper/Bound.lean": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303",
+    "lean/QuarticQuery/Upper/Circuit.lean": "7686a3b72476d902ec9ff504b38bea9ac25e90724e93d82033ea05339080190f",
+    "lean/QuarticQuery/Upper/Columns.lean": "e5b2b164deb6a010f952cefb5edba15bb5437a03fff815c39b028341b23b592e",
+    "lean/QuarticQuery/Upper/Compile.lean": "ead2d229ad8a97541dd648806b64813745e8502b5f7314ced43e7a95a0708a27",
+    "lean/QuarticQuery/Upper/Decode.lean": "4755c92be7627e4a58b1487d831a93765a3510647682e903c6abfed39f61411b",
+    "lean/QuarticQuery/Upper/Sampler.lean": "43cb604188f041ebd34c8003f01f4ec6c570023e465cd2b730ee4f1f765b2b79",
+    "lean/QuarticQuery/Upper/Tournament.lean": "43df9db7997f88667de7a3cfa7d7c7751aa1f32c40e9de474895335bcdb87b7c",
+    "lean/QuarticQuery/Upper/Verify.lean": "8144c5c26e7bf0515b24eb638b57412264032e144844887adc615b8076207239",
+    "lean/lake-manifest.json": "d670a8101d900b62e17a1d51c8b1b36fd60919bcad472700b0a5e1c0b38b104d",
+    "lean/lakefile.toml": "255abcc3c689d0258d4cea520447fdc8da26e26a191331aa95559b2fb4818647",
+    "lean/lean-toolchain": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3",
+    "lean/scripts/Reach.lean": "44ce6c1ace1e3914109b959c5d3466f00eba4090621d73d3b3ee2626be1f796b"
+  },
+  "new_declarations": [
+    "QuarticQuery.Paper.eq_19_complete",
+    "QuarticQuery.Paper.eq19_whole",
+    "QuarticQuery.Independent.Eq19.checked_eq19",
+    "QuarticQuery.Paper.construction_lemma_2_2_with_support"
+  ],
+  "advisory_returns": {
+    "quartic_r3_07_planted_lower_bound_return.zip": "edefe23d0449f485a1c0dc530e47dcf36977c7ee4aaf14ddd28ecb3a7ba2419b",
+    "quartic_r3_09_evidence_backend_return.zip": "bba500509fdd0189072710e139e8737f741c88233ffcb47d5dd3b3794ee6f9e2"
+  },
+  "ordinary_finite_checks": [
+    {
+      "file": "/Users/willcook/src/_builds/quartic-r3-formal-native/finite-semantic-controls.json",
+      "sha256": "c42cffe97e37377003f9583c07b5e021350fcd3d73be275a499c2935d8a3bcfa",
+      "status": "passed",
+      "evidence_kind": "exact_finite_python_only"
+    },
+    {
+      "file": "/Users/willcook/src/_builds/quartic-r3-formal-native/finite-eq19-independence.json",
+      "sha256": "c7ceb010ca02210a79744996f32a1e110a3b14d137d266c003291e6beb609ce6",
+      "status": "passed",
+      "evidence_kind": "exact_finite_python_only"
+    },
+    {
+      "file": "/Users/willcook/src/_builds/quartic-r3-formal-native/finite-floors.json",
+      "sha256": "d14107be5930af4d8c4770629cb4fdd0cf67cd22c016c28f172d0c9262ae399a",
+      "status": "passed",
+      "evidence_kind": "exact_finite_python_only"
+    }
+  ],
+  "native_evidence_directory": "/Users/willcook/src/_builds/quartic-r3-formal-native",
+  "evidence_boundaries": [
+    "Finite Python checks are not Lean or Comparator evidence.",
+    "A direct vocabulary-sharing comparison is not an independent semantic review.",
+    "Shared impossible-premise acceptance is a blind-spot demonstration, not positive theorem evidence.",
+    "No human expert review or fresh-clone reproducibility is established."
+  ],
+  "bridge_repair": {
+    "changed_paths_from_prior_snapshot": [
+      "lean/QuarticCorpus/Independent/Eq19/Bridge.lean"
+    ],
+    "native_probe_exit_code": 0,
+    "log": "/Users/willcook/src/_builds/quartic-r3-formal-native/bridge-repair-probe.log",
+    "log_sha256": "9cf900cb50e176c59a3fc349616af3ca990c7cea027af59df2342623f60f957f"
+  },
+  "audit_import_repair": {
+    "file": "lean/QuarticCorpus/Independent/Eq19/Audit.lean",
+    "change": "Explicit Eq19Whole import only",
+    "native_probe_exit_code": 0,
+    "log": "/Users/willcook/src/_builds/quartic-r3-formal-native/audit-import-probe.log"
+  },
+  "native_target_build": {
+    "status": "passed",
+    "source_inputs_unchanged": true,
+    "operation": {
+      "label": "targeted-build",
+      "command": [
+        "lake",
+        "build",
+        "QuarticQuery.Paper.Eq19Complete:olean",
+        "QuarticQuery.Paper.Eq19Whole:olean",
+        "QuarticQuery.Paper.ConstructionFull:olean",
+        "QuarticCorpus.Independent.Eq19.Spec:olean",
+        "QuarticCorpus.Independent.Eq19.PathControls:olean",
+        "QuarticCorpus.Independent.Eq19.Bridge:olean",
+        "QuarticCorpus.Independent.Eq19.Solution:olean",
+        "QuarticCorpus.Independent.Eq19.WholeSolution:olean",
+        "QuarticCorpus.Independent.Semantics:olean",
+        "QuarticCorpus.Independent.SemanticMutations:olean",
+        "QuarticCorpus.Independent.Controls.SharedSolution:olean",
+        "QuarticCorpus.Independent.Controls.SharedAudit:olean"
+      ],
+      "expected_exit": 0,
+      "expected_diagnostic": null,
+      "log": "/Users/willcook/src/_builds/quartic-r3-formal-native/final2/targeted-build.log",
+      "started_at": "2026-11-02T20:13:59.500297+00:00",
+      "free_bytes_before": 15174184960,
+      "exit_code": 0,
+      "seconds": 1.01,
+      "log_sha256": "4ff7dfa8f717d4fc57fda9b7612bd41ced4290e17b0f0008a2ad54357c642f56",
+      "source_inputs_unchanged": true,
+      "free_bytes_after": 15173849088,
+      "status": "passed"
+    }
+  },
+  "type_and_axiom_audits": [
+    {
+      "label": "audit-Eq19-Audit",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "QuarticCorpus/Independent/Eq19/Audit.lean"
+      ],
+      "expected_exit": 0,
+      "expected_diagnostic": null,
+      "log": "/Users/willcook/src/_builds/quartic-r3-formal-native/final2/audit-Eq19-Audit.log",
+      "started_at": "2026-11-02T20:14:00.541568+00:00",
+      "free_bytes_before": 15173828608,
+      "exit_code": 0,
+      "seconds": 36.81,
+      "log_sha256": "d9e30aaf65135674e90c46cfc833d320db80c37ec27d59d6c0a1258a3861d73b",
+      "source_inputs_unchanged": true,
+      "free_bytes_after": 15154167808,
+      "axiom_sets": [
+        [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      ],
+      "axiom_policy_passed": true,
+      "status": "passed"
+    },
+    {
+      "label": "audit-Inspect",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "QuarticCorpus/Independent/Inspect.lean"
+      ],
+      "expected_exit": 0,
+      "expected_diagnostic": null,
+      "log": "/Users/willcook/src/_builds/quartic-r3-formal-native/final2/audit-Inspect.log",
+      "started_at": "2026-11-02T20:14:37.370480+00:00",
+      "free_bytes_before": 15154163712,
+      "exit_code": 0,
+      "seconds": 16.65,
+      "log_sha256": "fbbac0ac5cb5d4318f0f1a54084a3b742e1dd597605a05a39d0c286f8355a758",
+      "source_inputs_unchanged": true,
+      "free_bytes_after": 15143813120,
+      "axiom_sets": [
+        [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      ],
+      "axiom_policy_passed": true,
+      "status": "passed"
+    }
+  ],
+  "audited_compiled_declarations": [
+    "QuarticQuery.Independent.Eq19.checked_eq19",
+    "QuarticQuery.Independent.Eq19.repeatedZero_counts_once",
+    "QuarticQuery.Paper.construction_lemma_2_2_with_support",
+    "QuarticQuery.Paper.eq19_whole",
+    "QuarticQuery.Paper.eq_19_complete",
+    "QuarticQuery.SemanticReview.absolute_high_changes_answer",
+    "QuarticQuery.SemanticReview.comparison_has_witness",
+    "QuarticQuery.SemanticReview.identity_not_zero",
+    "QuarticQuery.SemanticReview.negativePair_P_none",
+    "QuarticQuery.SemanticReview.negativePair_Phi",
+    "QuarticQuery.SemanticReview.off_promise_false_changes_zero_query_answer",
+    "QuarticQuery.SemanticReview.orMixture_success",
+    "QuarticQuery.SemanticReview.orTwo_RLe_one",
+    "QuarticQuery.SemanticReview.strict_threshold_mutant_rejects_mixture",
+    "QuarticQuery.SemanticReview.trueOnly_Q_eq_zero",
+    "QuarticQuery.SemanticReview.trueOnly_R_eq_zero",
+    "QuarticQuery.SemanticReview.wrong_quantifier_order_changes_answer",
+    "Round3.SharedAudit.shared_bad_spec_has_no_witness"
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "dedicated_comparisons_status": "passed",
+  "primary_source_review": {
+    "title": "A Nearly Quartic Separation Between Randomized and Quantum Query Complexity",
+    "authors": "OpenAI",
+    "date": "2026-10-05",
+    "section": "4.2",
+    "equation": "19",
+    "printed_pages": [
+      12,
+      13
+    ],
+    "pdf_sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e",
+    "reviewed_extracted_lines": [
+      591,
+      637
+    ],
+    "observations": [
+      "The dummy input has one independent uniform zero in every column, independent address strings, and fixed blank cell bits.",
+      "The further uniform column I is independent of the entire dummy input.",
+      "Z counts columns with a discovered zero; the display includes both equality with E Z/m and the coefficient-four inequality.",
+      "The isolated discovery argument does not use promise support or hardness of P; the formal theorem safely generalizes the address distribution."
+    ]
+  },
+  "registered_targeted_receipts": [
+    {
+      "file": "corpus/receipts/lean-build-round3-targeted-2026-11-02T204814950389+0000.json",
+      "sha256": "5b4371ab2c5e4ea6672fb3cfc3e6a9fb5edc5ed4f4c67970391521e8334ac1d5",
+      "kind": "lean_build",
+      "name": "round3-targeted",
+      "declarations": [
+        "QuarticQuery.Independent.Eq19.checked_eq19",
+        "QuarticQuery.Independent.Eq19.repeatedZero_counts_once",
+        "QuarticQuery.Paper.construction_lemma_2_2_with_support",
+        "QuarticQuery.Paper.eq19_whole",
+        "QuarticQuery.Paper.eq_19_complete",
+        "QuarticQuery.SemanticReview.absolute_high_changes_answer",
+        "QuarticQuery.SemanticReview.comparison_has_witness",
+        "QuarticQuery.SemanticReview.identity_not_zero",
+        "QuarticQuery.SemanticReview.negativePair_P_none",
+        "QuarticQuery.SemanticReview.negativePair_Phi",
+        "QuarticQuery.SemanticReview.off_promise_false_changes_zero_query_answer",
+        "QuarticQuery.SemanticReview.orMixture_success",
+        "QuarticQuery.SemanticReview.orTwo_RLe_one",
+        "QuarticQuery.SemanticReview.strict_threshold_mutant_rejects_mixture",
+        "QuarticQuery.SemanticReview.trueOnly_Q_eq_zero",
+        "QuarticQuery.SemanticReview.trueOnly_R_eq_zero",
+        "QuarticQuery.SemanticReview.wrong_quantifier_order_changes_answer",
+        "Round3.SharedAudit.shared_bad_spec_has_no_witness"
+      ]
+    },
+    {
+      "file": "corpus/receipts/comparator-round3-construction-support-2026-11-02T204814950389+0000.json",
+      "sha256": "3aeff212198af1b70da7d8abdbed1be4a2bdadbac64e25204386e9dd43bffff5",
+      "kind": "comparator",
+      "name": "round3-construction-support",
+      "declarations": [
+        "QuarticQuery.Paper.construction_lemma_2_2_with_support"
+      ]
+    },
+    {
+      "file": "corpus/receipts/comparator-round3-eq19-independent-2026-11-02T204814950389+0000.json",
+      "sha256": "afbd4075268b9eb58e018b5ffd1af68eca9dd56eb21f86fc31658f586a75587d",
+      "kind": "comparator",
+      "name": "round3-eq19-independent",
+      "declarations": [
+        "QuarticQuery.Independent.Eq19.checked_eq19"
+      ]
+    },
+    {
+      "file": "corpus/receipts/comparator-round3-eq19-direct-2026-11-02T204814950389+0000.json",
+      "sha256": "44b0085528d930660cecd70324ab180da10333b223ffedd5a4e07db77aa2a0f5",
+      "kind": "comparator",
+      "name": "round3-eq19-direct",
+      "declarations": [
+        "QuarticQuery.Paper.eq19_whole"
+      ]
+    },
+    {
+      "file": "corpus/receipts/comparator-round3-eq19-missing-equality-2026-11-02T204814950389+0000.json",
+      "sha256": "4482d8d522ea517638a112a88d16f8902830ae10dd52917ef5dc0a225f9951f3",
+      "kind": "comparator",
+      "name": "round3-eq19-missing-equality",
+      "declarations": [],
+      "negative_control": "rejected_as_expected"
+    },
+    {
+      "file": "corpus/receipts/comparator-round3-threshold-mutation-2026-11-02T204814950389+0000.json",
+      "sha256": "44f2151e0b9a8d609f36915498bc46c701db799523bbb308d190288a6501d8aa",
+      "kind": "comparator",
+      "name": "round3-threshold-mutation",
+      "declarations": [],
+      "negative_control": "rejected_as_expected"
+    },
+    {
+      "file": "corpus/receipts/comparator-round3-shared-bad-spec-blindness-2026-11-02T204814950389+0000.json",
+      "sha256": "8fb69f54ed9ad733fcb13350ebe630529eeaa4308b143e7afe58d7eea0322934",
+      "kind": "comparator",
+      "name": "round3-shared-bad-spec-blindness",
+      "declarations": [],
+      "negative_control": "accepted_shared_bad_spec_blind_spot"
+    }
+  ],
+  "dedicated_comparisons": [
+    {
+      "label": "construction-support",
+      "command": [
+        "lake",
+        "comparator",
+        "--config",
+        "QuarticCorpus/Independent/ConstructionFull/comparator.json",
+        "--inadvisably-no-sandbox"
+      ],
+      "expected_exit": 0,
+      "expected_diagnostic": null,
+      "log": "/Users/willcook/src/_builds/quartic-r3-formal-native/final2/construction-support.log",
+      "started_at": "2026-11-02T20:14:54.069975+00:00",
+      "free_bytes_before": 15143813120,
+      "exit_code": 0,
+      "seconds": 560.77,
+      "log_sha256": "80eedea03f15ff9d0b0b3245bade46fb2641fbd5e9caab6d8b5d31ac524991db",
+      "source_inputs_unchanged": true,
+      "free_bytes_after": 14985007104,
+      "status": "passed"
+    },
+    {
+      "label": "eq19-independent",
+      "command": [
+        "lake",
+        "comparator",
+        "--config",
+        "QuarticCorpus/Independent/Eq19/comparator.json",
+        "--inadvisably-no-sandbox"
+      ],
+      "expected_exit": 0,
+      "expected_diagnostic": null,
+      "log": "/Users/willcook/src/_builds/quartic-r3-formal-native/final2/eq19-independent.log",
+      "started_at": "2026-11-02T20:24:14.902384+00:00",
+      "free_bytes_before": 14985007104,
+      "exit_code": 0,
+      "seconds": 239.21,
+      "log_sha256": "8ad0a3ad53252e50f7ff5acc6b24086c27909c801e21354cb891cebf7b35ba5e",
+      "source_inputs_unchanged": true,
+      "free_bytes_after": 14971232256,
+      "status": "passed"
+    },
+    {
+      "label": "eq19-direct",
+      "command": [
+        "lake",
+        "comparator",
+        "--config",
+        "QuarticCorpus/Independent/Eq19/whole-comparator.json",
+        "--inadvisably-no-sandbox"
+      ],
+      "expected_exit": 0,
+      "expected_diagnostic": null,
+      "log": "/Users/willcook/src/_builds/quartic-r3-formal-native/final2/eq19-direct.log",
+      "started_at": "2026-11-02T20:28:14.163504+00:00",
+      "free_bytes_before": 14971228160,
+      "exit_code": 0,
+      "seconds": 268.19,
+      "log_sha256": "0e75440629d64250d12d7a5c955d46846f4cddef0670b11907be2bdaac59bed2",
+      "source_inputs_unchanged": true,
+      "free_bytes_after": 14985224192,
+      "status": "passed"
+    },
+    {
+      "label": "eq19-missing-equality",
+      "command": [
+        "lake",
+        "comparator",
+        "--config",
+        "QuarticCorpus/Independent/Eq19/negative-inequality-only.json",
+        "--inadvisably-no-sandbox"
+      ],
+      "expected_exit": 1,
+      "expected_diagnostic": "statement do not match",
+      "log": "/Users/willcook/src/_builds/quartic-r3-formal-native/final2/eq19-missing-equality.log",
+      "started_at": "2026-11-02T20:32:42.401060+00:00",
+      "free_bytes_before": 14985216000,
+      "exit_code": 1,
+      "seconds": 327.16,
+      "log_sha256": "e29d19a89c7cca7cb608f8dd63c39dda86cc59670d1f8dc25bb2834af279972c",
+      "source_inputs_unchanged": true,
+      "free_bytes_after": 14843146240,
+      "status": "passed"
+    },
+    {
+      "label": "threshold-mutation",
+      "command": [
+        "lake",
+        "comparator",
+        "--config",
+        "QuarticCorpus/Independent/Controls/threshold_mutation.json",
+        "--inadvisably-no-sandbox"
+      ],
+      "expected_exit": 1,
+      "expected_diagnostic": "Const does not match between challenge and target 'Round3.ThresholdSpec.Eligible'",
+      "log": "/Users/willcook/src/_builds/quartic-r3-formal-native/final2/threshold-mutation.log",
+      "started_at": "2026-11-02T20:38:09.619505+00:00",
+      "free_bytes_before": 14843146240,
+      "exit_code": 1,
+      "seconds": 241.94,
+      "log_sha256": "d26b66a7ec062b7b3d39240b6ddfff1420ef50fe94dab10ceafe88bb45f59e4e",
+      "source_inputs_unchanged": true,
+      "free_bytes_after": 13700952064,
+      "status": "passed"
+    },
+    {
+      "label": "shared-bad-spec-blindness",
+      "command": [
+        "lake",
+        "comparator",
+        "--config",
+        "QuarticCorpus/Independent/Controls/shared_blind_spot.json",
+        "--inadvisably-no-sandbox"
+      ],
+      "expected_exit": 0,
+      "expected_diagnostic": null,
+      "log": "/Users/willcook/src/_builds/quartic-r3-formal-native/final2/shared-bad-spec-blindness.log",
+      "started_at": "2026-11-02T20:42:11.600854+00:00",
+      "free_bytes_before": 13700952064,
+      "exit_code": 0,
+      "seconds": 363.2,
+      "log_sha256": "3787b980e365d9fe09caf2aa59d81e2a598e7ca56346996d3a2f3fed2f2e01a2",
+      "source_inputs_unchanged": true,
+      "free_bytes_after": 13630222336,
+      "status": "passed"
+    }
+  ],
+  "new_declaration_evidence": {
+    "QuarticQuery.Paper.eq_19_complete": {
+      "build": "passed",
+      "type_and_allowed_axioms": "passed",
+      "build_receipt": "corpus/receipts/lean-build-round3-targeted-2026-11-02T204814950389+0000.json",
+      "comparison_receipt": null
+    },
+    "QuarticQuery.Paper.eq19_whole": {
+      "build": "passed",
+      "type_and_allowed_axioms": "passed",
+      "build_receipt": "corpus/receipts/lean-build-round3-targeted-2026-11-02T204814950389+0000.json",
+      "comparison_receipt": "corpus/receipts/comparator-round3-eq19-direct-2026-11-02T204814950389+0000.json"
+    },
+    "QuarticQuery.Independent.Eq19.checked_eq19": {
+      "build": "passed",
+      "type_and_allowed_axioms": "passed",
+      "build_receipt": "corpus/receipts/lean-build-round3-targeted-2026-11-02T204814950389+0000.json",
+      "comparison_receipt": "corpus/receipts/comparator-round3-eq19-independent-2026-11-02T204814950389+0000.json"
+    },
+    "QuarticQuery.Paper.construction_lemma_2_2_with_support": {
+      "build": "passed",
+      "type_and_allowed_axioms": "passed",
+      "build_receipt": "corpus/receipts/lean-build-round3-targeted-2026-11-02T204814950389+0000.json",
+      "comparison_receipt": "corpus/receipts/comparator-round3-construction-support-2026-11-02T204814950389+0000.json"
+    }
+  },
+  "root_native_build": {
+    "status": "passed",
+    "receipt": "corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+    "sha256": "e66335d221495326007987df74c0b1a426f35e29c6f91d701ea308b990772711",
+    "compiled_environment_declarations": 2655,
+    "headline_reached_declarations": 1354,
+    "new_paper_declarations_present": true
+  },
+  "dependency_export": {
+    "file": "corpus/lean_dependencies.json",
+    "sha256": "6e2f1fff81b02e8be578775731969c99941246715b88c4adea83ede196569a1e",
+    "source_current": true
+  },
+  "global_comparisons_status": "passed",
+  "native_extractions_status": "passed",
+  "global_comparator_receipts": [
+    {
+      "name": "Construction",
+      "file": "corpus/receipts/comparator-Construction-2026-11-02T205620278544+0000.json",
+      "sha256": "8a887de4f77b256fceb77bd635c381510e7d068075f42c465f866dcf12ff312d",
+      "status": "passed"
+    },
+    {
+      "name": "Foundations",
+      "file": "corpus/receipts/comparator-Foundations-2026-11-02T205755119082+0000.json",
+      "sha256": "bd6d1bd41a27bc2b3d114fa3be0d011beed67556c964eb49d68e5a6238611647",
+      "status": "passed"
+    },
+    {
+      "name": "Separation",
+      "file": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
+      "sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
+      "status": "passed"
+    },
+    {
+      "name": "Tournament",
+      "file": "corpus/receipts/comparator-Tournament-2026-11-02T210431678518+0000.json",
+      "sha256": "9f7e857ff90d731b18b5e0344d029534d74a3d5f0c33e4156640e66d3e296367",
+      "status": "passed"
+    },
+    {
+      "name": "Unconditional",
+      "file": "corpus/receipts/comparator-Unconditional-2026-11-02T211003816536+0000.json",
+      "sha256": "cbf7fe163b8014802dec471b0eec8e2b0786a050541a3dc40e6c4a1cd8207ee6",
+      "status": "passed"
+    },
+    {
+      "name": "negative-ChangedDefinition",
+      "file": "corpus/receipts/comparator-negative-ChangedDefinition-2026-11-02T211115341473+0000.json",
+      "sha256": "a7223b6f53eb3849a984933d775b4fa30b6233b8c31895f4fd676cb99851e98b",
+      "status": "passed",
+      "negative_control": "rejected_as_expected"
+    },
+    {
+      "name": "negative-ForeignAxiom",
+      "file": "corpus/receipts/comparator-negative-ForeignAxiom-2026-11-02T211205280485+0000.json",
+      "sha256": "a5c1f24dcb853ba7abac9263df42a50b37f2d9eaaef8b282e721a686fa1d3287",
+      "status": "passed",
+      "negative_control": "rejected_as_expected"
+    },
+    {
+      "name": "negative-MissingDeclaration",
+      "file": "corpus/receipts/comparator-negative-MissingDeclaration-2026-11-02T211309274909+0000.json",
+      "sha256": "f1d9d8aef769c03d0c6917391d3ce9752e32a3e2c91df565a944314c664f4c73",
+      "status": "passed",
+      "negative_control": "rejected_as_expected"
+    },
+    {
+      "name": "negative-SorryProof",
+      "file": "corpus/receipts/comparator-negative-SorryProof-2026-11-02T211526259263+0000.json",
+      "sha256": "a391afd0f5e4264a3e98848f24a39855ecf9efa327d8fc510103068f8a201835",
+      "status": "passed",
+      "negative_control": "rejected_as_expected"
+    },
+    {
+      "name": "negative-WeakenedConclusion",
+      "file": "corpus/receipts/comparator-negative-WeakenedConclusion-2026-11-02T211627936602+0000.json",
+      "sha256": "2b0b435637ccdf585624bf57f8c000cb6a9e729553edd3be77bcd10810cfac5b",
+      "status": "passed",
+      "negative_control": "rejected_as_expected"
+    }
+  ],
+  "paranoid_status": "passed",
+  "paranoid_receipt": {
+    "file": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
+    "sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
+    "status": "passed",
+    "paranoid": true
+  },
+  "native_extractions": {
+    "eq19": {
+      "status": "passed",
+      "module": "QuarticQuery.Paper.Eq19Whole",
+      "goals": [
+        "QuarticQuery.Paper.eq19_whole"
+      ],
+      "raw_local_build_receipt_sha256": "0fdbadfbede5aa311bc93d46434cef0d18162344f679110517dd65f5b9bd21ef",
+      "module_prefixes": [
+        "QuarticQuery"
+      ],
+      "tool_revision": "bbeafdb561e4dbf5f4f17c9150cb61392c264458",
+      "tool_packages": {
+        "lean-exposition": "0.1.0",
+        "jsonschema": "4.26.0"
+      },
+      "scope_complete": true,
+      "in_scope_declarations": 65,
+      "external_boundaries": 532,
+      "source_inventory_sha256": "43f007e0916f14d513d076e8036b9bb05aa29897b5b9eb7bc4a8d6551d63c2b3",
+      "scope": "Selected local-module traversal is complete; the overall graph remains partial because explicit external dependencies are outside scope. This is distinct from the informal corpus graph.",
+      "artifacts": [
+        {
+          "file": "corpus/native_extractions/round3/eq19-build.json",
+          "sha256": "704955f21182ee8a2d5273be9df2e1e38d72a759a753ec6fdb0ea51793ebf441",
+          "bytes": 16552
+        },
+        {
+          "file": "corpus/native_extractions/round3/eq19-graph.json",
+          "sha256": "bc1470ba09fab77ff93b2f37cb7b708cb407fdd3ec47549d336787395dedf27e",
+          "bytes": 1052645
+        },
+        {
+          "file": "corpus/native_extractions/round3/eq19-inspection.json",
+          "sha256": "8637570b4cc0e6dccb3639263c258489e029b180510ebb50bd22bb45c8f367f4",
+          "bytes": 1422911
+        },
+        {
+          "file": "corpus/native_extractions/round3/eq19-report.json",
+          "sha256": "d4d671e517468337626ada49ade21be360fbbc5afa4b5a1fdf24a08323fc85fb",
+          "bytes": 525766
+        },
+        {
+          "file": "corpus/native_extractions/round3/eq19-selected.json",
+          "sha256": "71ff7624f52d2d0bd2101bf9d7a81f097bc373ffc3a1322679a0e195d3696ca7",
+          "bytes": 1049676
+        },
+        {
+          "file": "corpus/native_extractions/round3/eq19-stored-views.json",
+          "sha256": "cb7907b7c46f66706d18d29dfab0e7c005f7932d69e0bbbd00d8acec3932f0bd",
+          "bytes": 1565
+        },
+        {
+          "file": "corpus/native_extractions/round3/eq19-views.json",
+          "sha256": "fd6b643ca4cd6299b71902a28c36f8c70779ea9594570996ed674163f9f3717c",
+          "bytes": 4965
+        }
+      ],
+      "report_schema_version": 2,
+      "graph_schema_version": "1.1",
+      "graph_extraction_status": "partial",
+      "local_report_scope_complete": true,
+      "external_module_roots": {
+        "Batteries": 2,
+        "Init": 189,
+        "Mathlib": 341
+      },
+      "receipt_storage": "Raw native report, graph, selected graph and compact inspect output are byte-exact; build receipt is the native adapter public projection; command receipts omit verbose text but retain original full-output digests."
+    },
+    "eq19-independent": {
+      "status": "passed",
+      "module": "QuarticCorpus.Independent.Eq19.Solution",
+      "goals": [
+        "QuarticQuery.Independent.Eq19.checked_eq19"
+      ],
+      "raw_local_build_receipt_sha256": "912f28ea987dafd45d184c35a35a9bdbc82ad42e4faf3be685c7a11fa0f2f9e8",
+      "module_prefixes": [
+        "QuarticQuery",
+        "QuarticCorpus.Independent"
+      ],
+      "tool_revision": "bbeafdb561e4dbf5f4f17c9150cb61392c264458",
+      "tool_packages": {
+        "lean-exposition": "0.1.0",
+        "jsonschema": "4.26.0"
+      },
+      "scope_complete": true,
+      "in_scope_declarations": 83,
+      "external_boundaries": 545,
+      "source_inventory_sha256": "43f007e0916f14d513d076e8036b9bb05aa29897b5b9eb7bc4a8d6551d63c2b3",
+      "scope": "Selected local-module traversal is complete; the overall graph remains partial because explicit external dependencies are outside scope. This is distinct from the informal corpus graph.",
+      "artifacts": [
+        {
+          "file": "corpus/native_extractions/round3/eq19-independent-build.json",
+          "sha256": "92a6c78765fae24b003580394e1953fcba21f75841675696c35cf2eda0dbad62",
+          "bytes": 16574
+        },
+        {
+          "file": "corpus/native_extractions/round3/eq19-independent-graph.json",
+          "sha256": "4c767dd857de6d72fb02899117a9c59768b495e06e8080652ffe3cc35ee5aed2",
+          "bytes": 1249409
+        },
+        {
+          "file": "corpus/native_extractions/round3/eq19-independent-inspection.json",
+          "sha256": "b9422424e27cb6e8074ba29f850899af60f257bba0452388a17b408ee35823d4",
+          "bytes": 1638954
+        },
+        {
+          "file": "corpus/native_extractions/round3/eq19-independent-report.json",
+          "sha256": "d7119bb57200170876fa37acffcb4df2068818697aa4794bb5e75027df8ee180",
+          "bytes": 614752
+        },
+        {
+          "file": "corpus/native_extractions/round3/eq19-independent-selected.json",
+          "sha256": "e9afb8e731d340502a6f5602fae6928709c809604e3b4dbd415f1d7df7a69b85",
+          "bytes": 1245440
+        },
+        {
+          "file": "corpus/native_extractions/round3/eq19-independent-stored-views.json",
+          "sha256": "e77c4aa4613a82f477c8041fad031cbfcfec1404a324f7d67b8cfe80bca2ab13",
+          "bytes": 1602
+        },
+        {
+          "file": "corpus/native_extractions/round3/eq19-independent-views.json",
+          "sha256": "ed743d16eb17f2a88bb4866408ddbcdc4f4fd08a656fe869bf69f85ddf0e2f50",
+          "bytes": 5160
+        }
+      ],
+      "report_schema_version": 2,
+      "graph_schema_version": "1.1",
+      "graph_extraction_status": "partial",
+      "local_report_scope_complete": true,
+      "external_module_roots": {
+        "Batteries": 2,
+        "Init": 200,
+        "Mathlib": 343
+      },
+      "receipt_storage": "Raw native report, graph, selected graph and compact inspect output are byte-exact; build receipt is the native adapter public projection; command receipts omit verbose text but retain original full-output digests."
+    },
+    "semantics": {
+      "status": "passed",
+      "module": "QuarticCorpus.Independent.SemanticMutations",
+      "goals": [
+        "QuarticQuery.SemanticReview.identity_not_zero",
+        "QuarticQuery.SemanticReview.orTwo_R_eq_one",
+        "QuarticQuery.SemanticReview.trueOnly_R_eq_zero",
+        "QuarticQuery.SemanticReview.trueOnly_Q_eq_zero",
+        "QuarticQuery.SemanticReview.negativePair_Phi",
+        "QuarticQuery.SemanticReview.negativePair_P_none",
+        "QuarticQuery.SemanticReview.comparison_has_witness",
+        "QuarticQuery.SemanticReview.wrong_quantifier_order_changes_answer",
+        "QuarticQuery.SemanticReview.strict_threshold_mutant_rejects_mixture",
+        "QuarticQuery.SemanticReview.absolute_high_changes_answer",
+        "QuarticQuery.SemanticReview.off_promise_false_changes_zero_query_answer"
+      ],
+      "raw_local_build_receipt_sha256": "1063f57adc0c51faf415ea8731c83b384f153b72a9a4943c7f07ae59d439bd41",
+      "module_prefixes": [
+        "QuarticQuery",
+        "QuarticCorpus.Independent"
+      ],
+      "tool_revision": "bbeafdb561e4dbf5f4f17c9150cb61392c264458",
+      "tool_packages": {
+        "lean-exposition": "0.1.0",
+        "jsonschema": "4.26.0"
+      },
+      "scope_complete": true,
+      "in_scope_declarations": 135,
+      "external_boundaries": 556,
+      "source_inventory_sha256": "43f007e0916f14d513d076e8036b9bb05aa29897b5b9eb7bc4a8d6551d63c2b3",
+      "scope": "Selected local-module traversal is complete; the overall graph remains partial because explicit external dependencies are outside scope. This is distinct from the informal corpus graph.",
+      "artifacts": [
+        {
+          "file": "corpus/native_extractions/round3/semantics-build.json",
+          "sha256": "0b2415177c546a8e5fd1eec7e34bb1f007d9baee3bfae83094377b2b59bde901",
+          "bytes": 16582
+        },
+        {
+          "file": "corpus/native_extractions/round3/semantics-graph.json",
+          "sha256": "84dd5d93826e9ea9034576e9531f58df0c3342bd10de42f1bc6b74c9d1d3a473",
+          "bytes": 1375026
+        },
+        {
+          "file": "corpus/native_extractions/round3/semantics-inspection.json",
+          "sha256": "8485c5a1c99ca7b6f1bcb5a75f995d39a8029bd99b02f1d2148c291663c7d79f",
+          "bytes": 1787092
+        },
+        {
+          "file": "corpus/native_extractions/round3/semantics-report.json",
+          "sha256": "0c8cc4c4f579c00c14bd81236f6328312f1b549b301ad32241024d077f3fcb76",
+          "bytes": 706812
+        },
+        {
+          "file": "corpus/native_extractions/round3/semantics-selected.json",
+          "sha256": "4af3006f03204a67e38ffd81057694964743ed0b2d1ffb476149c7c426532156",
+          "bytes": 1372100
+        },
+        {
+          "file": "corpus/native_extractions/round3/semantics-stored-views.json",
+          "sha256": "b36fe989714c8a6a4e289126743a734c6be853287f2c84f9a3ec8d5c4f3e97ba",
+          "bytes": 1591
+        },
+        {
+          "file": "corpus/native_extractions/round3/semantics-views.json",
+          "sha256": "f46ad29f3a9d45fcd6ae596f5709d48fbed4e22a971db8ab9c04b310789fc6d0",
+          "bytes": 5713
+        }
+      ],
+      "report_schema_version": 2,
+      "graph_schema_version": "1.1",
+      "graph_extraction_status": "partial",
+      "local_report_scope_complete": true,
+      "external_module_roots": {
+        "Batteries": 2,
+        "Init": 235,
+        "Mathlib": 319
+      },
+      "receipt_storage": "Raw native report, graph, selected graph and compact inspect output are byte-exact; build receipt is the native adapter public projection; command receipts omit verbose text but retain original full-output digests."
+    }
+  },
+  "native_scope_note": "Native reports use schema 2 with complete selected local scope; their graph schema is 1.1 and overall extraction status remains partial because explicit external boundaries are retained.",
+  "validation": {
+    "repository_layout": "passed",
+    "focused_repository_tests": 40,
+    "native_targets": "passed",
+    "type_axiom_inspections": "passed",
+    "new_positive_comparisons": 3,
+    "new_expected_rejections": 2,
+    "shared_bad_spec_expected_acceptance": "passed_control_only",
+    "baseline_positive_bundles": 5,
+    "baseline_expected_rejections": 5,
+    "unconditional_paranoid": "passed",
+    "native_consumer_cases": 3
+  }
+}

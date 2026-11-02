@@ -61,7 +61,7 @@ python3 tools/check_packets.py /path/to/one-packet.zip
 
 It checks unique member paths, complete manifest coverage, byte lengths and
 SHA-256 hashes. Every ZIP gets a result, and any failure returns a nonzero exit
-code. It accepts the review, funnel, round-two and round-three manifest formats, including
+code. It accepts the review, funnel, round-two, round-three and round-four manifest formats, including
 compatibility aliases and historical source labels that are unavailable locally.
 It reads stored or deflated members, the formats used by these builders.
 Directory selection includes only ZIPs directly inside that directory.
@@ -69,8 +69,8 @@ Directory selection includes only ZIPs directly inside that directory.
 Run it after construction finishes. A pass establishes agreement with the
 embedded manifest, not source freshness, mathematical correctness or whether
 every expected job in a campaign is present. The checker requires a readable `READ_ME_FIRST.md` and manifest, but does not
-compare them with an earlier version. Round three additionally records
-`request_sha256` in its manifest; verify it when auditing that campaign. The
+compare them with an earlier version. Rounds three and four additionally record
+`request_sha256` in their manifests; verify it when auditing those campaigns. The
 manifest itself is not self-hashed. Preserve sent archives as snapshots;
 make revised packets in a new output directory.
 

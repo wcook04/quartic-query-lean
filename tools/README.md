@@ -5,6 +5,31 @@ The top-level Python tools use only the standard library; commands that invoke
 Lean or Comparator also need their pinned external tools. The imported finite
 checker described below additionally needs NumPy.
 
+The latest intake uses [intake_round3_returns.py](intake_round3_returns.py) to
+preserve and verify exact archive/member bytes. It does not execute submitted
+code. The [round-four builder](build_round4_packets.py) reuses the preceding
+packet machinery and requires an accepted review of the current integrated
+record, bibliography, correspondence, corpus, Lean snapshot and exact rendered
+PDF before writing archives. The accepted review's `pdf_sha256` must match the
+PDF supplied through `--record-render`; a mechanical render does not certify its
+own visual acceptance. The [selection](../research/requests/round4/SELECTION.md)
+explains the seven substantial jobs and their shared release gate.
+
+The explicit `--backend-sources`, `--method-sources` and
+`--structural-exemplars` inputs select pinned implementations, task-relevant
+skills with their supporting references, and actual SK/257 specimens. Use
+`--context-report` for an external validation-only report of the per-job reading
+maps, context manifests and source/link checks; it writes no ZIPs. Use `--help`
+for the complete inputs and freeze procedure. Each packet carries the editable
+long record and its matching PDF beside it, preserving relative reading links.
+Curated packets support their named focused checks; they do not contain the
+whole historical custody tree needed for every repository maintenance check.
+
+[render_reasoning_record.py](render_reasoning_record.py) renders a copied
+manuscript snapshot with Pandoc and Tectonic, reusing the submitted round-three
+layout sources. PDF and layout receipts belong outside the source tree. A
+successful render is separate from inspection and mathematical review.
+
 ## Check the repository
 
 ```sh
@@ -262,3 +287,24 @@ The printed output identifies the generated file. These programs reproduce finit
 examples from advisory reviews; their output is not a Lean proof or a replacement
 for the saved review records. The original return instructions and manifests
 remain under [research/returns/](../research/returns/README.md).
+
+## Run the independent round-three Lean checks
+
+[return_checks/round3_formal.py](return_checks/round3_formal.py) runs the authored
+equation (19), the construction theorem with physical-coordinate support, and
+finite semantic modules serially, inspects theorem types and
+axioms, then runs their six dedicated Comparator cases. It records the whole
+local Lean/configuration inventory before and after execution, command logs and
+an 8 GiB free-space reserve. It does not update corpus receipts or ties.
+
+```sh
+python3 tools/return_checks/round3_formal.py --timeout 900 --output /path/to/native-results
+```
+
+Use `--phase build`, `--phase audit` or `--phase compare` for a bounded rerun.
+The intentionally shared impossible-premise case should be accepted: this
+shows that agreement alone cannot establish mathematical meaning. The omitted
+equality and changed threshold cases must be rejected with their intended
+diagnostics; an unrelated build failure does not count. Outcomes and the
+remaining evidence boundaries are in the
+[formal adjudication](../research/adjudication/round3_formal.md).

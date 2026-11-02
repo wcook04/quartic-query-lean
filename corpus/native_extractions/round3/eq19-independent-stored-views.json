@@ -1,0 +1,39 @@
+{
+  "scope": "Actual CLI validation/inspection after byte-exact copy to recorded-input owner",
+  "projection": "Recorded command/status and original output digests; verbose stdout/stderr omitted. The compact actual inspect result is retained separately.",
+  "views": [
+    {
+      "view": "validate",
+      "command": [
+        "/Users/willcook/src/lean-exposition/.venv/bin/lean-exposition",
+        "validate",
+        "/Users/willcook/src/quartic-query-lean/corpus/native_extractions/round3/eq19-independent-graph.json"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "07f1a9f4f2979b66777f2d27652a1ff54a724a5c69586103faf4f955ac0ae9a1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 35657,
+      "stderr_bytes": 0
+    },
+    {
+      "view": "prerequisites",
+      "command": [
+        "/Users/willcook/src/lean-exposition/.venv/bin/lean-exposition",
+        "inspect",
+        "/Users/willcook/src/quartic-query-lean/corpus/native_extractions/round3/eq19-independent-selected.json",
+        "--goal",
+        "QuarticQuery.Independent.Eq19.checked_eq19",
+        "--view",
+        "declarations",
+        "--direction",
+        "prerequisites"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "bac19b1035689c0763c508bf305d83c45b5a676e4d7fcf11ed2d1a50bcdf4bc2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 8458690,
+      "stderr_bytes": 0
+    }
+  ],
+  "original_local_receipt_sha256": "7e526595870756921b3b2362a2502de0980bb81931380dfa7fc281eba9bab865"
+}

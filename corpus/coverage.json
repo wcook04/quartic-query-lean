@@ -1,13 +1,16 @@
 {
  "statements": 121,
- "corrected": 11,
+ "corrected": 12,
  "ledger_ids_without_a_row": [
   "claim-butterfly",
   "def-P"
  ],
+ "review": {
+  "current": 121
+ },
  "formal_statement": {
-  "exact": 55,
-  "partial": 35,
+  "exact": 51,
+  "partial": 39,
   "stronger": 31
  },
  "formal_origin": {
@@ -17,16 +20,16 @@
   "built_at_pin": 121
  },
  "comparator": {
-  "compared": 7,
-  "not_run": 114
+  "compared": 12,
+  "not_run": 109
  },
  "route": {
   "alternative": 9,
-  "none": 56,
-  "same": 56
+  "none": 58,
+  "same": 54
  },
  "reach": {
-  "outside": 57,
-  "reached": 64
+  "outside": 56,
+  "reached": 65
  }
 }
