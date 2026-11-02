@@ -28,3 +28,17 @@ The evidence fields answer separate questions, and none of them implies another:
 A Lean doc comment reading `Ledger: <id>` only proposes a tie. A statement counts as
 checked through a reviewed relation and a receipt naming the declaration. See
 [the contract](../docs/statement_evidence_contract.md).
+
+## Producers and inputs
+
+[record_evidence.py](../tools/record_evidence.py) records the compiled dependency
+closure and build receipt. [run_comparator.py](../tools/run_comparator.py) writes
+comparison receipts. [build_corpus.py](../tools/build_corpus.py) combines those
+records with [ties.json](ties.json), the original
+[statement ledger](../research/intake/statement_ledger.json) and
+[adjudicated corrections](../research/adjudication/adjudication.json) to generate
+statements, the graph and coverage. Keep the original ledger and review returns
+intact; maintained decisions have their own owner.
+
+Use the [maintenance commands](../tools/README.md) to refresh outputs. Do not
+hand-edit generated files or replace historical receipts during a tree cleanup.

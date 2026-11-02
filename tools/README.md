@@ -1,7 +1,9 @@
 # Maintenance commands
 
 Run these commands from the repository root with Python 3.10 or newer.
-They use only the standard library.
+The top-level Python tools use only the standard library; commands that invoke
+Lean or Comparator also need their pinned external tools. The imported finite
+checker described below additionally needs NumPy.
 
 ## Check the repository
 
@@ -9,7 +11,8 @@ They use only the standard library.
 make check
 ```
 
-This checks file placement and local README links, then runs the Python tests.
+This checks file placement, local README links and generated challenges/corpus
+files, then runs the Python tests.
 It does not compile Lean or check mathematical claims. To check the staged
 version of files before committing, run:
 
@@ -39,7 +42,7 @@ a paper audit, a literature review, and a formalisation planning packet. Each
 contains instructions and a manifest with SHA-256 hashes. The builder reopens
 each archive and verifies its contents against those hashes.
 
-Instruction text belongs in [research/requests/](../research/requests/). The
+Review instruction text belongs in [research/requests/review/](../research/requests/review/). The
 builder combines the common template, one job request and the boundaries into
 `READ_ME_FIRST.md`. Edit those authored files and rebuild rather than editing
 instructions inside generated ZIPs. See the [research guide](../research/README.md)
@@ -83,3 +86,52 @@ does not grant rights to those source papers.
 Archive member names remain stable when source locations change. They are
 consumed by the research instructions inside each packet; update both together
 if the archive contract changes.
+
+## Build writing packets
+
+[build_funnel_packets.py](build_funnel_packets.py) packages the five
+[writing requests](../research/requests/README.md): long record, short paper,
+exposition, route note, and reader/film plan.
+
+```sh
+python3 tools/build_funnel_packets.py --help
+python3 tools/build_funnel_packets.py --only 3_examples_first_exposition --dest /path/to/output
+```
+
+Omit `--only` to build all five. This builder reads the current repository,
+private annexes under `~/src/ai_workflow/annexes`, writing references under
+`~/.claude/skills/formal-math-exposition/references`, and exemplar files from
+`origin/main` in `~/src/lean-exposition`. Those external inputs are not included
+in a clone. Unlike the review builder, its CLI exposes only job selection and
+the output directory; inspect its source configuration before using a different
+local setup. Packaging does not constitute review, publication or submission.
+
+The maintained adjudication files now live in `research/adjudication/`.
+The ZIPs include their current paths for README navigation.
+For compatibility, they also carry them at their original
+`repository/research/returns/adjudication*` member names, which the packet
+instructions reference.
+
+## Reproduce checks supplied with reviews
+
+[return_checks/verify_examples.py](return_checks/verify_examples.py) uses the
+standard library and accepts an explicit output path:
+
+```sh
+python3 tools/return_checks/verify_examples.py --output /path/to/exact_example_results.json
+```
+
+[return_checks/finite_checks.py](return_checks/finite_checks.py) requires NumPy
+and writes beside its own script. Keep the imported script unchanged; run a copy
+in a temporary directory so generated JSON does not enter `tools/`:
+
+```sh
+check_dir=$(mktemp -d)
+cp tools/return_checks/finite_checks.py "$check_dir/finite_checks.py"
+python3 "$check_dir/finite_checks.py"
+```
+
+The printed output identifies the generated file. These programs reproduce finite
+examples from advisory reviews; their output is not a Lean proof or a replacement
+for the saved review records. The original return instructions and manifests
+remain under [research/returns/](../research/returns/README.md).

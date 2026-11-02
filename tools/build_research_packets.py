@@ -12,7 +12,7 @@ INTAKE = ROOT / "research" / "intake"
 SOURCES = pathlib.Path.home() / "src" / "quartic-query-sources" / "papers"
 ANNEX = pathlib.Path.home() / "src/ai_workflow/annexes/openai-math-284-quartic-query-separation"
 
-REQUESTS = ROOT / "research" / "requests"
+REQUESTS = ROOT / "research" / "requests" / "review"
 
 JOBS = {
     "1_understand_the_paper": "Understand and audit the paper",

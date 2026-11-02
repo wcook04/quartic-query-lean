@@ -7,15 +7,30 @@ nearly quartic query-complexity separation. Start with the
 interpretations, unresolved questions and proposed formalisation order.
 
 Three later reviews are in [returns/](returns/README.md), with a verdict on each
-finding in the [adjudication](returns/adjudication_notes.md). The intake records
+finding in the [adjudication](adjudication/adjudication_notes.md). The intake records
 were prepared by AI agents and have not been independently reviewed by a person. A cited source, a proposed Lean statement and a successful proof check
 are different kinds of evidence. The intake files record research and proposals;
 they are not build receipts or proof certificates.
 
-[requests/](requests/) holds the maintained instructions for further reviews.
+[requests/](requests/README.md) holds the maintained instructions for further reviews.
 The [packet builder](../tools/build_research_packets.py) combines these
 instructions with source files for reviewers. The requests describe planned
 checking; they do not establish that proofs have been checked.
+
+## Folder responsibilities
+
+| Folder | Role |
+| --- | --- |
+| [intake/](intake/) | Initial research and the original statement ledger, still an input to corpus generation. |
+| [returns/](returns/README.md) | Preserved reviewer submissions, with their original filenames and manifests. |
+| [adjudication/](adjudication/adjudication_notes.md) | Maintained verdicts and corrections in `adjudication.json`, with explanatory notes. |
+| [requests/](requests/README.md) | Two campaigns: source review in `review/`, explanation and writing in `funnel/`. |
+
+For current statement evidence, begin with the [corpus guide](../corpus/README.md).
+The research files explain where the inputs and decisions came from.
+Adjudication notes record the development at the time of that review; their
+remarks about compilation or open hypotheses are historical. Use corpus
+records and their receipts for current evidence.
 
 ## Find the relevant files
 
@@ -40,11 +55,11 @@ sources available in this clone.
 [tools/build_research_packets.py](../tools/build_research_packets.py) prepares
 three independent ZIPs, using these authored requests:
 
-- [Understand and audit the paper](requests/1_understand_the_paper.md).
-- [Ground every step in the literature](requests/2_ground_in_literature.md).
-- [Plan full Lean and Comparator checking](requests/3_lean_and_comparator.md).
+- [Understand and audit the paper](requests/review/1_understand_the_paper.md).
+- [Ground every step in the literature](requests/review/2_ground_in_literature.md).
+- [Plan full Lean and Comparator checking](requests/review/3_lean_and_comparator.md).
 
-The [common template](requests/common.md) and [boundaries](requests/boundaries.md)
+The [common template](requests/review/common.md) and [boundaries](requests/review/boundaries.md)
 combine with each request to produce its `READ_ME_FIRST.md`. Edit these source
 files rather than instructions inside a generated ZIP. Each ZIP also includes
 source files and a manifest of their SHA-256 hashes. The builder checks the
@@ -64,3 +79,22 @@ Producing a ZIP checks its packaging; it does not review the enclosed claims or
 submit anything to an external service.
 
 Return to the [repository overview](../README.md) for the local check command.
+
+## Writing and explanation requests
+
+The [funnel campaign](requests/funnel/) contains five maintained requests:
+[long reasoning record](requests/funnel/1_long_reasoning_record.md),
+[short expert paper](requests/funnel/2_short_expert_paper.md),
+[examples-first exposition](requests/funnel/3_examples_first_exposition.md),
+[Forrelation route note](requests/funnel/4_forrelation_route_note.md), and
+[reader and film plan](requests/funnel/5_reader_and_film.md). These are requested
+deliverables, not completed publications. Use the
+[writing-packet command](../tools/README.md#build-writing-packets) to package them.
+
+## Path changes
+
+The original five `requests/*.md` files now live under `requests/review/`.
+The two `returns/adjudication*` files now live under `adjudication/`, separating
+maintained decisions from submitted reviews. Their contents are unchanged.
+Existing packet member names are retained by the builders, so packet instructions
+and historical manifests continue to refer to the same archive paths.

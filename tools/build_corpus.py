@@ -3,7 +3,7 @@
 
 Authored inputs:
   research/intake/statement_ledger.json   the statements of the preprint
-  research/returns/adjudication.json      accepted corrections and added rows
+  research/adjudication/adjudication.json      accepted corrections and added rows
   corpus/ties.json                        reviewed statement-to-Lean relations
   corpus/receipts/*.json                  results of actual builds and comparisons
   corpus/lean_dependencies.json           the compiled dependency closure
@@ -29,7 +29,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "research/intake/statement_ledger.json"
-ADJUDICATION = ROOT / "research/returns/adjudication.json"
+ADJUDICATION = ROOT / "research/adjudication/adjudication.json"
 LEAN = ROOT / "lean/QuarticQuery"
 CORPUS = ROOT / "corpus"
 PAPER_REVISION = "4eaee875"

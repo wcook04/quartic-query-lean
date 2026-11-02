@@ -1,6 +1,6 @@
 # Research returns
 
-Three independent reviews answered the requests in [requests/](../requests/). Each
+Three independent reviews answered the requests in [review requests](../requests/review/). Each
 folder holds the text records of one return. Source PDFs, copied papers and copied
 ledgers were left out. The two Python checkers that came with the returns are in
 [tools/return_checks/](../../tools/return_checks/).
@@ -13,7 +13,7 @@ ledgers were left out. The two Python checkers that came with the returns are in
 
 The returns are advisory. Their findings were checked against the preprint and
 the cited sources, and each finding has a verdict in
-[adjudication.json](adjudication.json), summarised in
-[adjudication_notes.md](adjudication_notes.md). Use those verdicts rather than the
+[adjudication.json](../adjudication/adjudication.json), summarised in
+[adjudication_notes.md](../adjudication/adjudication_notes.md). Use those verdicts rather than the
 returns' own conclusions. The Lean and Comparator return was written without a
 compiler, so its signatures are drafts until a build says otherwise.

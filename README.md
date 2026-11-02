@@ -26,6 +26,16 @@ describes the route, [an independent reading](docs/forrelation_lower_bound_revie
 checks it, and [a prior-art search](docs/forrelation_route_prior_art.md) records
 what is already known. No person has reviewed it yet.
 
+## Start reading
+
+- Follow the [Lean source map](lean/README.md) from the shared definitions to
+  [the unconditional result](lean/QuarticQuery/Results/Unconditional.lean).
+- Use the [statement corpus](corpus/README.md) to distinguish statement alignment,
+  compilation and comparison evidence.
+- Read the [document guide](docs/README.md) for the contract, reviews and their
+  revision scope, or the [research guide](research/README.md) for source research,
+  review decisions and writing requests.
+
 ## What is checked, and what that means
 
 | Layer | State |
@@ -34,7 +44,7 @@ what is already known. No person has reviewed it yet.
 | Statements | [Statement.lean](lean/QuarticQuery/Statement.lean) fixes every definition a theorem means. It imports Mathlib only. |
 | Comparison | Comparator accepts each bundle in [lean/QuarticCorpus/](lean/QuarticCorpus/) against an independently compiled challenge, and rejects five deliberately wrong solutions for the intended reason. The unconditional bundle also passes every external kernel bundled with Lean (`--paranoid`). Runs on this machine are unsandboxed local rehearsals, and [corpus/receipts/](corpus/receipts/) records them as such. |
 | Fidelity | [The review](docs/statement_fidelity_review.md) compares Lean statements with the preprint. It was done by an AI agent that did not write the proofs. No human has reviewed it. |
-| Literature | Claims about cited sources were checked against those sources by AI agents; see [the adjudication](research/returns/adjudication_notes.md). |
+| Literature | Claims about cited sources were checked against those sources by AI agents; see [the adjudication](research/adjudication/adjudication_notes.md). |
 
 A compiled proof shows that a statement follows. Whether it says what the preprint
 says is a separate question, which is why [corpus/](corpus/README.md) keeps these
@@ -52,12 +62,12 @@ statements and proofs stay aligned as derivations improve.
 
 | Path | Purpose |
 | --- | --- |
-| [lean/](lean/) | The Lake project: `QuarticQuery` holds the proofs, `QuarticCorpus` the Comparator bundles. |
+| [lean/](lean/README.md) | The Lake project: `QuarticQuery` holds the proofs, `QuarticCorpus` the Comparator bundles. |
 | [corpus/](corpus/README.md) | Statement records, reviewed ties, receipts and the evidence graph. |
-| [docs/](docs/) | The evidence contract, the fidelity review, and the lower-bound blueprint, review and prior-art search. |
+| [docs/](docs/README.md) | The evidence contract, the fidelity review, and the lower-bound blueprint, review and prior-art search. |
 | [research/](research/README.md) | The statement ledger, research records and review requests. |
 | [tools/](tools/README.md) | Generators and checks. |
-| [tests/](tests/) | Tests for the tools. |
+| [tests/](tests/README.md) | Tests for the tools. |
 
 ## Check it
 
@@ -65,7 +75,8 @@ statements and proofs stay aligned as derivations improve.
 make check
 ```
 
-This checks layout, generated files and the Python tests. Lean needs a Mathlib
+Use Python 3.10 or newer, Git and Make for this command. It checks layout,
+generated files and the Python tests. Lean needs a Mathlib
 checkout at the pinned revision; the toolchain and dependencies are fixed by
 [lean-toolchain](lean/lean-toolchain) and [lake-manifest.json](lean/lake-manifest.json).
 

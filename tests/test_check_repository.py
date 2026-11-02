@@ -54,6 +54,19 @@ class RepositoryTests(unittest.TestCase):
         self.write("research/intake/extract.py")
         self.assertTrue(any("executable code" in e for e in self.errors()))
 
+    def test_retired_source_locations_cannot_return(self):
+        for path in sorted(CHECKER.RETIRED):
+            with self.subTest(path=path):
+                self.write(path)
+                self.assertTrue(any("superseded source location" in e for e in self.errors()))
+                (self.root / path).unlink()
+
+    def test_funnel_request_is_required_in_index(self):
+        path = "research/requests/funnel/5_reader_and_film.md"
+        self.git("rm", "--cached", path)
+        self.assertEqual([], self.errors())
+        self.assertTrue(any(path + ": required" in e for e in self.errors(index=True)))
+
     def test_unowned_root_file_is_rejected(self):
         self.write("extract.py")
         self.assertTrue(any("root file" in e for e in self.errors()))
@@ -99,7 +112,7 @@ class RepositoryTests(unittest.TestCase):
         for name in ("common", "boundaries", "1_understand_the_paper",
                      "2_ground_in_literature", "3_lean_and_comparator"):
             with self.subTest(request=name):
-                path = f"research/requests/{name}.md"
+                path = f"research/requests/review/{name}.md"
                 self.git("rm", "--cached", path)
                 self.assertTrue(any(f"{path}: required" in e for e in self.errors(index=True)))
                 self.assertEqual([], self.errors())

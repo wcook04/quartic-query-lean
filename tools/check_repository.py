@@ -12,11 +12,24 @@ from urllib.parse import unquote, urlsplit
 
 ROOT_FILES = {"README.md", "LICENSE", ".gitignore", "Makefile", "AGENTS.md"}
 REQUIRED = {"README.md", "LICENSE", ".gitignore", "Makefile",
-            "tools/check_repository.py", "tests/test_repository.py",
-            "research/requests/common.md", "research/requests/boundaries.md",
-            "research/requests/1_understand_the_paper.md",
-            "research/requests/2_ground_in_literature.md",
-            "research/requests/3_lean_and_comparator.md"}
+            "tools/check_repository.py", "tests/test_check_repository.py",
+            "research/requests/review/common.md", "research/requests/review/boundaries.md",
+            "research/requests/review/1_understand_the_paper.md",
+            "research/requests/review/2_ground_in_literature.md",
+            "research/requests/review/3_lean_and_comparator.md"}
+REQUIRED |= {
+    "docs/README.md", "lean/README.md", "tests/README.md", "research/requests/README.md",
+    "research/adjudication/adjudication.json", "research/adjudication/adjudication_notes.md",
+    *{f"research/requests/funnel/{name}.md" for name in (
+        "common", "boundaries", "1_long_reasoning_record", "2_short_expert_paper",
+        "3_examples_first_exposition", "4_forrelation_route_note", "5_reader_and_film")},
+}
+RETIRED = {
+    "research/returns/adjudication.json", "research/returns/adjudication_notes.md",
+    *{f"research/requests/{name}.md" for name in (
+        "common", "boundaries", "1_understand_the_paper", "2_ground_in_literature",
+        "3_lean_and_comparator")},
+}
 EVIDENCE_SUFFIXES = {".md", ".json", ".txt", ".bib", ".csv", ".yaml", ".yml", ".toml"}
 CACHE_PARTS = {".lake", "__pycache__", ".pytest_cache", ".mypy_cache", "node_modules"}
 OUTPUT_SUFFIXES = {".zip", ".olean", ".ilean", ".pyc", ".o", ".so", ".dylib"}
@@ -71,6 +84,8 @@ class GitView:
 
 
 def placement(path):
+    if path in RETIRED:
+        return "superseded source location; see research/README.md for the maintained owner"
     p = PurePosixPath(path)
     if any(part in CACHE_PARTS for part in p.parts) or p.parts[0] == "build":
         return "generated output/cache must stay untracked"

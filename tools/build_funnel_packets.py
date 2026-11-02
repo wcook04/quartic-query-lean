@@ -54,9 +54,10 @@ LITERATURE = {
                                  "arxiv-2103-11604"],
     "5_reader_and_film": [],
 }
-REPOSITORY_FILES = ["README.md", "corpus/README.md", "corpus/statements.json",
+REPOSITORY_FILES = ["README.md", "lean/README.md", "corpus/README.md", "corpus/statements.json",
                     "corpus/coverage.json", "corpus/evidence-graph.json", "corpus/ties.json",
                     "corpus/lean_dependencies.json", "research/intake/statement_ledger_notes.md",
+                    "research/adjudication/adjudication.json", "research/adjudication/adjudication_notes.md",
                     "research/returns/adjudication.json", "research/returns/adjudication_notes.md"]
 
 
@@ -110,8 +111,10 @@ def members(job, *, root=ROOT, guides=GUIDES, annexes=ANNEXES,
     paper = annexes / "openai-math-284-quartic-query-separation"
     out = {"paper/quartic-query-separation.pdf": paper / "source.pdf",
            "paper/extracted.md": paper / "extracted.md"}
+    # Preserve the original packet paths while maintained decisions have their own home.
     for name in REPOSITORY_FILES:
-        out[f"repository/{name}"] = root / name
+        source = name.replace("research/returns/adjudication", "research/adjudication/adjudication")
+        out[f"repository/{name}"] = root / source
     for path in sorted((root / "docs").glob("*.md")):
         out[f"repository/docs/{path.name}"] = path
     lean = root / "lean"

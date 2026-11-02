@@ -10,15 +10,17 @@ commands.
 - `research/intake/` holds original advisory research records. Keep their source
   references and uncertainty intact. Design proposals there are not implemented
   interfaces or verified mathematical claims.
-- `research/requests/` owns maintained review instructions. Edit these source
+- `research/requests/review/` and `research/requests/funnel/` own review and writing instructions. Edit these source
   files and rebuild packets; do not edit generated ZIP instructions. Requests
   describe planned checking and are not proof evidence.
-- `lean/` is the Lean project. Its toolchain and dependency files own the build.
+- `research/returns/` preserves reviewer submissions. `research/adjudication/`
+  owns the decisions and corrections consumed by the corpus builder.
+- `lean/` is the Lean project; [its guide](lean/README.md) maps the modules. Its toolchain and dependency files own the build.
   Do not infer successful compilation from a file's presence.
   `lean/QuarticQuery/Statement.lean` fixes what theorems mean: change it only on
   purpose, because every challenge and bundle depends on it.
-- `corpus/` holds statement records. `ties.json` and `receipts/` are inputs; the
-  other files are generated. See [corpus/README.md](corpus/README.md).
+- `corpus/` holds statement records. `ties.json` is reviewed input; `lean_dependencies.json` and `receipts/`
+  are recorded inputs. The statement, graph and coverage files are generated. See [corpus/README.md](corpus/README.md).
 - `tools/` holds maintenance programs; `tests/` holds their regression tests.
 - `README.md` and the directory READMEs explain current use. Keep commands and
   links aligned with the files they describe.
