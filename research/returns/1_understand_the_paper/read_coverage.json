@@ -1,0 +1,255 @@
+{
+  "main_paper": {
+    "status": "read in full and manually audited",
+    "sections": "Sections 1-5, Appendix A and references",
+    "visual_checks": "Original PDF pages 4,8,9,12,13,15,16 inspected across reviewers; text read in full.",
+    "line_convention": "Physical LF-delimited lines, using split(\"\\n\"); 19 form feeds do not add line numbers."
+  },
+  "packet_files": [
+    {
+      "path": "READ_ME_FIRST.md",
+      "status": "read in full"
+    },
+    {
+      "path": "manifest.json",
+      "status": "read in full"
+    },
+    {
+      "path": "corpus/statement_ledger.json",
+      "status": "read in full"
+    },
+    {
+      "path": "corpus/statement_ledger_notes.md",
+      "status": "read in full"
+    },
+    {
+      "path": "corpus/commentary.json",
+      "status": "read in full"
+    },
+    {
+      "path": "literature/references_resolved.json",
+      "status": "read in full"
+    },
+    {
+      "path": "lean/current/Drift.lean",
+      "status": "read in full"
+    }
+  ],
+  "ledger": {
+    "rows": 118,
+    "coverage": "Every ID exactly once",
+    "verdict_counts": {
+      "correct": 116,
+      "corrected": 2
+    },
+    "meaning": "Correct means faithful and manually supported in the stated context; it does not mean a compiled formal proof. Corrected entries address the pointer-support wording and the degree-zero convention."
+  },
+  "trace": {
+    "file": "Pasted text(20261101-233050).txt",
+    "bytes": 3449511,
+    "status": "Bounded structural and contextual review, not line-by-line semantic reading of all duplicated tool transcripts",
+    "scope": "Read root requests/progress/endpoints, all eight child-task summaries, relevant original proof-check outputs, original Drift write, final build outputs, conditional theorem plan and omissions. See trace_context_review.md.",
+    "evidence_boundary": "Eight embedded traces contain repeated sources, missing outputs and omitted excerpts. No hidden reasoning or absent output inferred."
+  },
+  "literature": [
+    {
+      "ref_number": 1,
+      "file": "ref-01-aaronson-2018.pdf",
+      "readable": true,
+      "scope": "Abstract, introduction and original Forrelation definition/model; not the full Gaussian distinguishing or simulation proof.",
+      "url": "https://arxiv.org/abs/1411.5729"
+    },
+    {
+      "ref_number": 2,
+      "file": "ref-02-aaronson-2016.pdf",
+      "readable": true,
+      "scope": "Abstract/introduction, Sections 3.1-3.2 including construction and lower-bound context; Section 6 used as the general framework locator, not a complete re-audit of every framework theorem.",
+      "url": "https://arxiv.org/abs/1511.01937"
+    },
+    {
+      "ref_number": 3,
+      "file": "ref-03-aaronson-2021.pdf",
+      "readable": true,
+      "scope": "Introductory proof of Theorem 2, polynomial definitions, Section 3 including Theorem 1 and Lemma 9, Section 7 including Conjecture 2.",
+      "url": "https://arxiv.org/abs/2010.12629"
+    },
+    {
+      "ref_number": 4,
+      "file": "ref-04-ambainis-2017.pdf",
+      "readable": true,
+      "scope": "Abstract and introduction for pointer-history attribution; full pointer lower-bound proofs not audited.",
+      "url": "https://arxiv.org/abs/1506.04719"
+    },
+    {
+      "ref_number": 5,
+      "file": "ref-05-ambainis-2026.pdf",
+      "readable": true,
+      "scope": "Cited arXiv v2 Sections 1-2, comparison idea in Section 4, relevant portions of Sections 6.1-6.3; technical appendices not fully audited.",
+      "url": "https://arxiv.org/abs/2609.11664"
+    },
+    {
+      "ref_number": 6,
+      "file": "ref-06-bansal-2021.pdf",
+      "readable": true,
+      "scope": "Definitions Eqs. (1.1)-(1.3), Proposition 1.2, Theorem 1.3, Corollaries 1.4-1.5, surrounding discussion and beginning of Section 1.2 proof overview. Exact interface checked; full Gaussian/Fourier lower-bound proof not independently reproved.",
+      "url": "https://arxiv.org/abs/2008.07003"
+    },
+    {
+      "ref_number": 8,
+      "file": "ref-08-beals-2001.pdf",
+      "readable": true,
+      "scope": "Abstract, introduction and summary of results, for total/partial query models and historical sixth-power bound; polynomial-method proof not independently audited.",
+      "url": "https://arxiv.org/abs/quant-ph/9802049"
+    },
+    {
+      "ref_number": 9,
+      "file": "ref-09-bendavid-2026.pdf",
+      "readable": true,
+      "scope": "Full main mathematical text Sections 1-3 and acknowledgments in the attached v1.",
+      "url": "https://arxiv.org/abs/2609.15063"
+    },
+    {
+      "ref_number": 10,
+      "file": "ref-10-bennett-1997.pdf",
+      "readable": true,
+      "scope": "Abstract/introduction and Section 3 hybrid/query-magnitude Theorem 3.3 and Corollary 3.4; later permutation-oracle and subroutine proofs not fully read.",
+      "url": "https://arxiv.org/abs/quant-ph/9701001"
+    },
+    {
+      "ref_number": 11,
+      "file": "ref-11-boyer-1998.pdf",
+      "readable": true,
+      "scope": "Section 4, Lemmas 1-2; finite trigonometric sum independently derived. Other material searched for context, not audited cover to cover.",
+      "url": "https://arxiv.org/abs/quant-ph/9605034"
+    },
+    {
+      "ref_number": 12,
+      "file": "ref-12-brassard-2002.pdf",
+      "readable": true,
+      "scope": "Section 2 through Theorem 3 and proof, especially Lemma 1 and Eq. (8); later estimation/derandomization developments not fully read.",
+      "url": "https://arxiv.org/abs/quant-ph/0005055"
+    },
+    {
+      "ref_number": 13,
+      "file": "ref-13-drucker-2012.pdf",
+      "readable": true,
+      "scope": "Section 1.3, Lemmas 3.1-3.2 and surrounding proof in Section 3; proof interface independently reconstructed.",
+      "url": "https://arxiv.org/abs/1005.0644"
+    },
+    {
+      "ref_number": 14,
+      "file": "ref-14-durr-1996.pdf",
+      "readable": true,
+      "scope": "Complete two-page article including proof and references.",
+      "url": "https://arxiv.org/abs/quant-ph/9607014"
+    },
+    {
+      "ref_number": 15,
+      "file": "ref-15-goos-2015.pdf",
+      "readable": true,
+      "scope": "Abstract and introduction for historical pointer-construction attribution; full proof not audited.",
+      "url": "https://eccc.weizmann.ac.il/report/2015/050/"
+    },
+    {
+      "ref_number": 16,
+      "file": "ref-16-grover-1996.pdf",
+      "readable": true,
+      "scope": "Introduction, model and algorithm in Sections 1-3, plus the start of the diffusion calculation.",
+      "url": "https://arxiv.org/abs/quant-ph/9605043"
+    },
+    {
+      "ref_number": 17,
+      "file": "ref-17-huang-2019.pdf",
+      "readable": true,
+      "scope": "All substantive text, Sections 1-3, including Lemma 2.2 and the proof and spectral remark after Theorem 1.1.",
+      "url": "https://arxiv.org/abs/1907.00847"
+    },
+    {
+      "ref_number": 18,
+      "file": "ref-18-mande-2023.pdf",
+      "readable": true,
+      "scope": "Abstract, introductory Sections 1.1-1.2, king definition, Theorems 1.2-1.3 and start of quantum upper-bound overview; full king-finding proof not audited.",
+      "url": "https://arxiv.org/abs/2308.02472"
+    },
+    {
+      "ref_number": 19,
+      "file": "ref-19-midrijanis-2004.pdf",
+      "readable": true,
+      "scope": "Complete attached paper, including Lemma 3 and proof of Theorem 4.",
+      "url": "https://arxiv.org/abs/quant-ph/0403168"
+    },
+    {
+      "ref_number": 22,
+      "file": "ref-22-shaltiel-2003.pdf",
+      "readable": true,
+      "scope": "Introduction and Section 5 fair-tree theorem/proof in the ECCC 2001 preprint; unrelated communication sections not re-audited.",
+      "url": "https://eccc.weizmann.ac.il/report/2001/009/"
+    },
+    {
+      "ref_number": 23,
+      "file": "ref-23-sherstov-2023.pdf",
+      "readable": true,
+      "scope": "Abstract, Sections 1.1-1.5 and beginning of Section 1.6, including Theorems 1.1,1.5,1.9; full Fourier proof not re-proved.",
+      "url": "https://arxiv.org/abs/2008.10223"
+    },
+    {
+      "ref_number": 24,
+      "file": "ref-24-spalek-2006.pdf",
+      "readable": true,
+      "scope": "Section 2.1 model and Section 3 spectral definition/Theorem 3.1; full equivalence proofs not re-audited.",
+      "url": "https://arxiv.org/abs/quant-ph/0409116"
+    },
+    {
+      "ref_number": 25,
+      "file": "ref-25-sun-2004.pdf",
+      "readable": true,
+      "scope": "Abstract/introduction, Section 2’s SINK description and the concluding SINK comparison after Theorem 10; full Scorpion algorithm proof not re-audited.",
+      "url": "https://doi.org/10.1109/CCC.2004.1313851"
+    },
+    {
+      "ref_number": 26,
+      "file": "ref-26-tal-2020.pdf",
+      "readable": true,
+      "scope": "Introduction, Rorrelation definition and the total-function exponent-8/3 application; beginning of Section 1.1 techniques. Full Fourier/orthogonal-matrix proof not re-audited.",
+      "url": "https://arxiv.org/abs/1912.12561"
+    }
+  ],
+  "verification": {
+    "manual": "All main-paper proof steps reconstructed; Bansal-Sinha interface checked against original theorem.",
+    "computational": "Exact finite examples in verify_examples.py executed successfully; all 256 m=4,k=2 pairs enumerated.",
+    "not_done": [
+      "No Lean compilation or Comparator execution in this review.",
+      "No new proof of the Bansal-Sinha external lower-bound theorem.",
+      "No complete gate-level instantiation of circuit C or simulation of the full quantum algorithm.",
+      "No exhaustive search establishing the current state of all human review or formalizations."
+    ]
+  },
+  "unavailable_or_unread_originals": [
+    {
+      "ref_number": 7,
+      "title": "Quantum query complexity and semi-definite programming",
+      "status": "Not supplied; metadata-only original, not read in this review."
+    },
+    {
+      "ref_number": 20,
+      "title": "CREW PRAMs and decision trees",
+      "status": "Not supplied; metadata-only original, not read in this review."
+    },
+    {
+      "ref_number": 21,
+      "title": "On the degree of Boolean functions as real polynomials",
+      "status": "Not supplied; metadata-only original, not read in this review."
+    },
+    {
+      "ref_number": 27,
+      "title": "Probabilistic computations: Toward a unified measure of complexity",
+      "status": "Not supplied; metadata-only original, not read in this review."
+    }
+  ],
+  "access_notes": [
+    "All supplied attachments and all 23 supplied literature PDFs were readable. Text extraction succeeded; font/annotation warnings did not block extraction.",
+    "The public GitHub landing page for the main manuscript opened; its raw PDF URL did not fetch through the web tool. Mathematical audit used the supplied hash-identified PDF.",
+    "The arXiv page for ref-05 did not fetch reliably; the cited attached v2 was used. Ref-09 arXiv metadata opened for the parent reviewer; its full attached v1 was read.",
+    "No mailboxes or private accounts were accessed, no messages sent, and no repositories modified."
+  ]
+}

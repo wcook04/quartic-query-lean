@@ -1,0 +1,139 @@
+{
+  "audit_type": "source_read_only",
+  "date": "2026-11-01",
+  "lean_built": false,
+  "comparator_run": false,
+  "palomar_submitted": false,
+  "sources": [
+    {
+      "file": "Axioms.lean",
+      "bytes": 3360,
+      "sha256": "cab443f378bc1395eb56e95e3cd19fe48c91847b4e7436495687809f25849b61"
+    },
+    {
+      "file": "Check.lean",
+      "bytes": 30905,
+      "sha256": "7652fb04c004e54b2b5c1c19d1c91aca3cf831f5df12a50c621bb2eec3ab5b1e"
+    },
+    {
+      "file": "Compare.lean",
+      "bytes": 4029,
+      "sha256": "39e58572f86f4ff95f43b472547e1f306e4c0e33c5398d74a7a997b6100b9abf"
+    },
+    {
+      "file": "Lean_LICENSE",
+      "bytes": 9161,
+      "sha256": "67fea334e08f06d3ab876499adbee41873a42d4cd86e8136a502420b9b655844"
+    },
+    {
+      "file": "PalomarPolicy_CONTRIBUTING.md",
+      "bytes": 59487,
+      "sha256": "868afa4b641d1b983343f82f7fb0c1e3b43e298db481382a539d255ecc25e2cc"
+    },
+    {
+      "file": "PalomarPolicy_LICENSE",
+      "bytes": 208,
+      "sha256": "c926f6af5b7e05a2248344a8282c9762515a68136f2837f5e39f8c6f0061e4b0"
+    },
+    {
+      "file": "PalomarSubmission_LICENSE",
+      "bytes": 1070,
+      "sha256": "82091497a49727907855ec392241189a3c1e5cf4259d8ad7e437178b4d8bcfa6"
+    },
+    {
+      "file": "PalomarSubmission_README.md",
+      "bytes": 27986,
+      "sha256": "f0bbde0352c97da9a2dda8816b69eb1a12747b1dc8acdeec6a52ade33eb48a1f"
+    },
+    {
+      "file": "PalomarTemplate_LICENSE",
+      "bytes": 11358,
+      "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+    },
+    {
+      "file": "allowed-challenge-repositories.json",
+      "bytes": 851,
+      "sha256": "6141bb140239d7ddd760687e4056829f7dbb5559f560c576762a12410aed1fc3"
+    },
+    {
+      "file": "comparator-declaration-closure.md",
+      "bytes": 3427,
+      "sha256": "fa31b3d7c5a7ee14ff326e3c110c35ce404311db32b0d5720de8c25de44c7463"
+    },
+    {
+      "file": "complexitylib_lake-manifest.json",
+      "bytes": 3518,
+      "sha256": "ebc7470991f26e22eefa543798d863973a34a4e5aea63323fa3fadc48898720d"
+    },
+    {
+      "file": "complexitylib_lean-toolchain",
+      "bytes": 30,
+      "sha256": "84a4f44c4a8e2f235e0c9598d333cac9338d44c10e3f3d81452025f9557e25f2"
+    },
+    {
+      "file": "cslib_lean-toolchain",
+      "bytes": 30,
+      "sha256": "84a4f44c4a8e2f235e0c9598d333cac9338d44c10e3f3d81452025f9557e25f2"
+    },
+    {
+      "file": "formalization.schema.json",
+      "bytes": 12695,
+      "sha256": "69377af4b43a5eadc5525b43567b2ebf78f03864edb77d9b05ed10a9e497201c"
+    },
+    {
+      "file": "formalization_LICENSE",
+      "bytes": 11358,
+      "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+    },
+    {
+      "file": "mathlib_lean-toolchain",
+      "bytes": 30,
+      "sha256": "84a4f44c4a8e2f235e0c9598d333cac9338d44c10e3f3d81452025f9557e25f2"
+    },
+    {
+      "file": "pins.json",
+      "bytes": 1768,
+      "sha256": "7cc0b2197c4fe0c0f0d614fec9535a1757cefeebd896335d2afa681cb8e0cc1e"
+    },
+    {
+      "file": "source_requirements.py",
+      "bytes": 5613,
+      "sha256": "91f22f3165f4bdb71af3f821971bd70738297a440f40b9eda8f217256502e025"
+    },
+    {
+      "file": "submission_contract.py",
+      "bytes": 50311,
+      "sha256": "1403b961c11c655a08726e7606b11215a012cd1e3dd2c4a76e5fd95b5f534006"
+    },
+    {
+      "file": "template_Challenge.lean",
+      "bytes": 497,
+      "sha256": "43f965c6a21ba45838c944f30ff11705064790bc1d6133dcfe872871ed66ccc4"
+    },
+    {
+      "file": "template_formalization.yaml",
+      "bytes": 6420,
+      "sha256": "ecadb4353317545dc32f7ce5bd28dc7808a85b8bdbe1ad6ebec0a7804e65a9a2"
+    },
+    {
+      "file": "toolchains.json",
+      "bytes": 55,
+      "sha256": "0a70c3896ed0b59ee2057914f1ec877a7de46e6c9811df56f0912d284521b07b"
+    },
+    {
+      "file": "verify-comparator.sh",
+      "bytes": 2364,
+      "sha256": "26b2baf67aad725770797625090a69f3a3ff7b79eb08e637a1c4ce31081c61bc"
+    },
+    {
+      "file": "verify_submission.py",
+      "bytes": 277925,
+      "sha256": "627c7dbf7243a1f8c08a007e420b41b0db5546ae8b7bbcae9cbc91afa9d7b16a"
+    },
+    {
+      "file": "workflow_inputs.py",
+      "bytes": 2826,
+      "sha256": "49adb9bb594de653678ba9ba894b17a6f4489afee1efb70df5398ffd17cc3a0f"
+    }
+  ]
+}

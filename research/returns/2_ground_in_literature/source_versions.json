@@ -1,0 +1,411 @@
+[
+  {
+    "ref_number": 1,
+    "title": "Forrelation: A problem that optimally separates quantum from classical computing",
+    "bibliography_year": 2018,
+    "packet_file": "/Users/willcook/src/quartic-query-sources/papers/ref-01-aaronson-2018.pdf",
+    "packet_sha256": "c27966b5b6cf12d61e3877f6ac23b48c9a21fe0a86e6b96ef527b02503e4e1fe",
+    "inspected_version_and_locator": [
+      "Supplied arXiv:1411.5729v1 (21 Nov 2014), §1.1.3 p.4; §3.1 pp.12–13; §3.2 and Proposition 6 pp.13–14. Printed and PDF pages coincide."
+    ],
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "version_rule": "The page/theorem numbers in the audit refer to the identified inspected edition, not automatically to the publication year in the filename."
+  },
+  {
+    "ref_number": 2,
+    "title": "Separations in query complexity using cheat sheets",
+    "bibliography_year": 2016,
+    "packet_file": "/Users/willcook/src/quartic-query-sources/papers/ref-02-aaronson-2016.pdf",
+    "packet_sha256": "64380c861d0e0296a53c998a0109d62bf446529414001f8e46615991b558e4bc",
+    "inspected_version_and_locator": [
+      {
+        "file": "literature/papers/ref-02-aaronson-2016.pdf",
+        "version": "arXiv:1511.01937v2, 9 July 2019 (STOC 2016 paper)",
+        "pages": "2, 9-13, 20-22",
+        "results": "Theorem 1; Lemma 6; Definitions 14-15; Theorem 16; Lemma 17"
+      },
+      {
+        "url": "https://arxiv.org/abs/1511.01937",
+        "location": "version history and abstract"
+      }
+    ],
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "version_rule": "The page/theorem numbers in the audit refer to the identified inspected edition, not automatically to the publication year in the filename."
+  },
+  {
+    "ref_number": 3,
+    "title": "Degree vs. approximate degree and quantum implications of Huang's sensitivity theorem",
+    "bibliography_year": 2021,
+    "packet_file": "/Users/willcook/src/quartic-query-sources/papers/ref-03-aaronson-2021.pdf",
+    "packet_sha256": "445a34b0653042ad482bd95bc2c333d476df7ade6ce5d9ec45714f5b249e39ab",
+    "inspected_version_and_locator": [
+      "Supplied arXiv:2010.12629v1, 23 October 2020: Theorem 1 pp.1 and 6–7; Theorems 2 and 3 p.2; Definition 7 p.6; Definition 8 pp.7–8; Lemma 9 p.8; Conjecture 2 p.20."
+    ],
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "version_rule": "The page/theorem numbers in the audit refer to the identified inspected edition, not automatically to the publication year in the filename."
+  },
+  {
+    "ref_number": 4,
+    "title": "Separations in query complexity based on pointer functions",
+    "bibliography_year": 2017,
+    "packet_file": "/Users/willcook/src/quartic-query-sources/papers/ref-04-ambainis-2017.pdf",
+    "packet_sha256": "1b7803487ac696b1f8d81ee7bc26d55ed7a3c4ff4b78928faa269b71358fe66c",
+    "inspected_version_and_locator": [
+      {
+        "file": "literature/papers/ref-04-ambainis-2017.pdf",
+        "version": "arXiv:1506.04719v3, 26 October 2015 (JACM 2017 publication)",
+        "pages": "9-15",
+        "results": "unnumbered amplitude-amplification statement p.9; §3 construction pp.10-11; Theorems 2 and 5; Corollary 7"
+      },
+      {
+        "url": "https://arxiv.org/abs/1506.04719",
+        "location": "abstract and version history"
+      }
+    ],
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "version_rule": "The page/theorem numbers in the audit refer to the identified inspected edition, not automatically to the publication year in the filename."
+  },
+  {
+    "ref_number": 5,
+    "title": "Near-optimal separations of certificate complexity from randomized and quantum query complexity",
+    "bibliography_year": 2026,
+    "packet_file": "/Users/willcook/src/quartic-query-sources/papers/ref-05-ambainis-2026.pdf",
+    "packet_sha256": "f1dded462ff8114378d9070ac78114df71934d0030fdddad2c714c286f0798b6",
+    "inspected_version_and_locator": [
+      {
+        "file": "literature/papers/ref-05-ambainis-2026.pdf",
+        "version": "arXiv:2609.11664v2 printed 17 September 2026",
+        "pages": "2-4, 6-8, 12-16, 20-21",
+        "results": "Theorems 2.1-2.2; §4; Algorithm 4; Lemmas 6.1-6.8"
+      },
+      {
+        "url": "https://arxiv.org/abs/2609.11664",
+        "location": "current primary page could not be retrieved in this session; search indexes report a v3"
+      }
+    ],
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "version_rule": "The page/theorem numbers in the audit refer to the identified inspected edition, not automatically to the publication year in the filename."
+  },
+  {
+    "ref_number": 6,
+    "title": "k-Forrelation optimally separates quantum and classical query complexity",
+    "bibliography_year": 2021,
+    "packet_file": "/Users/willcook/src/quartic-query-sources/papers/ref-06-bansal-2021.pdf",
+    "packet_sha256": "afe53c8bd918d07590f29a947ef044453db73959043135082d1a3c29b2863a35",
+    "inspected_version_and_locator": [
+      "Supplied arXiv:2008.07003v3 (17 Nov 2020): equations (1.1)–(1.3), pp.2–3; Theorem 1.3 and Corollaries 1.4–1.5, p.4. PDF and printed pages coincide. Proof architecture in §3 pp.15–18; final derivation §5.4 p.38."
+    ],
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "version_rule": "The page/theorem numbers in the audit refer to the identified inspected edition, not automatically to the publication year in the filename."
+  },
+  {
+    "ref_number": 7,
+    "title": "Quantum query complexity and semi-definite programming",
+    "bibliography_year": 2003,
+    "packet_file": null,
+    "packet_sha256": null,
+    "inspected_version_and_locator": [
+      "CCC 2003 original: Section 9.2, Theorem 4. Public author-uploaded full text on ResearchGate; theorem text at web lines 5578–5644 and proof at 5646–5783. Exact printed page number not recovered reliably from that HTML extraction."
+    ],
+    "original_full_text_status": "recovered_public_author_text",
+    "version_rule": "The page/theorem numbers in the audit refer to the identified inspected edition, not automatically to the publication year in the filename."
+  },
+  {
+    "ref_number": 8,
+    "title": "Quantum lower bounds by polynomials",
+    "bibliography_year": 2001,
+    "packet_file": "/Users/willcook/src/quartic-query-sources/papers/ref-08-beals-2001.pdf",
+    "packet_sha256": "afec116657493976b70df7dcb8b174c8c0be55a9337d9e035afd5f1fc4d9cd4c",
+    "inspected_version_and_locator": [
+      "Supplied arXiv:quant-ph/9802049v3 (30 September 1998), not the typeset 2001 JACM version: Lemma 4.2 PDF p.5; Theorem 4.13 PDF p.7; Theorem 5.4 PDF p.8; Lemmas 5.2 and 5.3 PDF pp.7–8."
+    ],
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "version_rule": "The page/theorem numbers in the audit refer to the identified inspected edition, not automatically to the publication year in the filename."
+  },
+  {
+    "ref_number": 9,
+    "title": "Randomized query complexity can beat certificate complexity",
+    "bibliography_year": 2026,
+    "packet_file": "/Users/willcook/src/quartic-query-sources/papers/ref-09-bendavid-2026.pdf",
+    "packet_sha256": "ba61287bc2555ce5ffe739e8308b9087c1d0743a683565d4b922a179bd6149c0",
+    "inspected_version_and_locator": [
+      "Supplied arXiv:2609.15063v1, 14 September 2026: Theorem 1 p.1; Lemma 2 pp.2–3; Lemma 3 p.3; Lemma 5 pp.3–5, especially the second stage p.4."
+    ],
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "version_rule": "The page/theorem numbers in the audit refer to the identified inspected edition, not automatically to the publication year in the filename."
+  },
+  {
+    "ref_number": 10,
+    "title": "Strengths and weaknesses of quantum computing",
+    "bibliography_year": 1997,
+    "packet_file": "/Users/willcook/src/quartic-query-sources/papers/ref-10-bennett-1997.pdf",
+    "packet_sha256": "7ade70e376984bcf3ee1770cd3b7670633d02d24afa680039b9058c2e1f8c76e",
+    "inspected_version_and_locator": [
+      "Supplied quant-ph/9701001: Section 3.1, especially Theorem 3.3 and Corollary 3.4, printed pp.7–8; the search application is discussed before Theorem 3.3 and in the proof of Theorem 3.5."
+    ],
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "version_rule": "The page/theorem numbers in the audit refer to the identified inspected edition, not automatically to the publication year in the filename."
+  },
+  {
+    "ref_number": 11,
+    "title": "Tight bounds on quantum searching",
+    "bibliography_year": 1998,
+    "packet_file": "/Users/willcook/src/quartic-query-sources/papers/ref-11-boyer-1998.pdf",
+    "packet_sha256": "badd64e3db8079ee2428fc9f869e202d584412b0a003be64464437019d252fde",
+    "inspected_version_and_locator": [
+      {
+        "file": "literature/papers/ref-11-boyer-1998.pdf",
+        "version": "arXiv:quant-ph/9605034v1, 23 May 1996; later Fortschr. Phys. 1998",
+        "pages": "2-4",
+        "results": "§3 equation (3); §4 Lemmas 1-2; Theorem 3"
+      },
+      {
+        "url": "https://arxiv.org/abs/quant-ph/9605034",
+        "location": "abstract, publication metadata and single-version history"
+      }
+    ],
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "version_rule": "The page/theorem numbers in the audit refer to the identified inspected edition, not automatically to the publication year in the filename."
+  },
+  {
+    "ref_number": 12,
+    "title": "Quantum amplitude amplification and estimation",
+    "bibliography_year": 2002,
+    "packet_file": "/Users/willcook/src/quartic-query-sources/papers/ref-12-brassard-2002.pdf",
+    "packet_sha256": "badedce80b0fe53e6cd93f915ce79c9680e375bb6565f83d2f572bc4114b0278",
+    "inspected_version_and_locator": [
+      {
+        "file": "literature/papers/ref-12-brassard-2002.pdf",
+        "version": "arXiv:quant-ph/0005055v1, 15 May 2000; supplied title page says Quantum Amplitude Amplification; 2002 published title includes and Estimation",
+        "pages": "5-9",
+        "results": "Lemma 1; Eqs.(1), (5), (8); Theorems 2-3"
+      },
+      {
+        "url": "https://arxiv.org/abs/quant-ph/0005055",
+        "location": "abstract, publication metadata and version history"
+      }
+    ],
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "version_rule": "The page/theorem numbers in the audit refer to the identified inspected edition, not automatically to the publication year in the filename."
+  },
+  {
+    "ref_number": 13,
+    "title": "Improved direct product theorems for randomized query complexity",
+    "bibliography_year": 2012,
+    "packet_file": "/Users/willcook/src/quartic-query-sources/papers/ref-13-drucker-2012.pdf",
+    "packet_sha256": "6a67da06a0f07d0f86bb6389b7143314cade50294e2c0c454f3cc9853643faff",
+    "inspected_version_and_locator": [
+      "Supplied arXiv:1005.0644v2 (9 May 2014, journal-aligned): end of §1.2 p.6; §1.3 pp.6–7; §3 Lemmas 3.1–3.2 pp.11–12 and final paragraph p.13. Printed/PDF pages coincide."
+    ],
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "version_rule": "The page/theorem numbers in the audit refer to the identified inspected edition, not automatically to the publication year in the filename."
+  },
+  {
+    "ref_number": 14,
+    "title": "A quantum algorithm for finding the minimum",
+    "bibliography_year": 1996,
+    "packet_file": "/Users/willcook/src/quartic-query-sources/papers/ref-14-durr-1996.pdf",
+    "packet_sha256": "ff5c2ff71415e22f0ddf799b31e9b82d1990db9c1fc9d62ea2aabea5907e06cf",
+    "inspected_version_and_locator": [
+      {
+        "file": "literature/papers/ref-14-durr-1996.pdf",
+        "version": "arXiv:quant-ph/9607014v2, 7 January 1999",
+        "pages": "1-2",
+        "results": "Theorem 1; Lemmas 1-2; §3"
+      },
+      {
+        "url": "https://arxiv.org/abs/quant-ph/9607014",
+        "location": "abstract and version history"
+      }
+    ],
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "version_rule": "The page/theorem numbers in the audit refer to the identified inspected edition, not automatically to the publication year in the filename."
+  },
+  {
+    "ref_number": 15,
+    "title": "Deterministic communication vs. partition number",
+    "bibliography_year": 2015,
+    "packet_file": "/Users/willcook/src/quartic-query-sources/papers/ref-15-goos-2015.pdf",
+    "packet_sha256": "ab57c3fb4fb3fe9932a04f9197300244903aca9085760d24679859b5b342489b",
+    "inspected_version_and_locator": [
+      {
+        "file": "literature/papers/ref-15-goos-2015.pdf",
+        "version": "ECCC TR15-050 original report, 1 April 2015 title-page date",
+        "pages": "3-5",
+        "results": "Theorem 5; §2.1 construction and adversary argument"
+      },
+      {
+        "url": "https://eccc.weizmann.ac.il/report/2015/050/",
+        "location": "original report and 15 May 2018 revision links"
+      },
+      {
+        "url": "https://eccc.weizmann.ac.il/report/2015/050/revision/1/download",
+        "location": "revised PDF Theorem 5 and §2.1, pp.3-5; title page September 2017, ECCC posting May 2018"
+      }
+    ],
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "version_rule": "The page/theorem numbers in the audit refer to the identified inspected edition, not automatically to the publication year in the filename."
+  },
+  {
+    "ref_number": 16,
+    "title": "A fast quantum mechanical algorithm for database search",
+    "bibliography_year": 1996,
+    "packet_file": "/Users/willcook/src/quartic-query-sources/papers/ref-16-grover-1996.pdf",
+    "packet_sha256": "630528f5297271288797900dffc9ae2a8e14854759b54d87f6bb7b75c5b770db",
+    "inspected_version_and_locator": [
+      {
+        "file": "literature/papers/ref-16-grover-1996.pdf",
+        "version": "STOC 1996/arXiv:quant-ph/9605043 copy",
+        "pages": "1, 3-7",
+        "results": "§3 algorithm; §5 Theorems 1-3, especially Theorem 3"
+      },
+      {
+        "url": "https://arxiv.org/abs/quant-ph/9605043",
+        "location": "original arXiv paper identity"
+      }
+    ],
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "version_rule": "The page/theorem numbers in the audit refer to the identified inspected edition, not automatically to the publication year in the filename."
+  },
+  {
+    "ref_number": 17,
+    "title": "Induced subgraphs of hypercubes and a proof of the Sensitivity Conjecture",
+    "bibliography_year": 2019,
+    "packet_file": "/Users/willcook/src/quartic-query-sources/papers/ref-17-huang-2019.pdf",
+    "packet_sha256": "9193d2dac7b3f6b6a84270884c6143913ae5a0ba9bf3db19273f9703db0ed6a2",
+    "inspected_version_and_locator": [
+      "Supplied arXiv:1907.00847v2: Theorem 1.1 p.1; Theorem 1.3 p.3; Lemmas 2.1–2.3 and proof of Theorem 1.1 pp.3–5; unnumbered spectral-radius remark p.5. The explicit function inequality is [3], Theorem 1 pp.6–7."
+    ],
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "version_rule": "The page/theorem numbers in the audit refer to the identified inspected edition, not automatically to the publication year in the filename."
+  },
+  {
+    "ref_number": 18,
+    "title": "Randomized and quantum query complexities of finding a king in a tournament",
+    "bibliography_year": 2023,
+    "packet_file": "/Users/willcook/src/quartic-query-sources/papers/ref-18-mande-2023.pdf",
+    "packet_sha256": "2bc8e533bc6728d75561bae841c49758ac14661d37e6476ecb339c17a5d5cd53",
+    "inspected_version_and_locator": [
+      {
+        "file": "literature/papers/ref-18-mande-2023.pdf",
+        "version": "arXiv:2308.02472v1, 4 August 2023",
+        "pages": "2-4, 10-15",
+        "results": "Definition 1.1; Theorem 1.2; Observation 4.1; Lemma 4.2; Theorem 4.4"
+      },
+      {
+        "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.FSTTCS.2023.30",
+        "location": "published metadata, abstract, CC BY 4.0 license and PDF link"
+      }
+    ],
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "version_rule": "The page/theorem numbers in the audit refer to the identified inspected edition, not automatically to the publication year in the filename."
+  },
+  {
+    "ref_number": 19,
+    "title": "Exact quantum query complexity for total Boolean functions",
+    "bibliography_year": 2004,
+    "packet_file": "/Users/willcook/src/quartic-query-sources/papers/ref-19-midrijanis-2004.pdf",
+    "packet_sha256": "0cdb580bd48d513b33a1c65bd27faa361bd2e4ebaceff29bbf24b16586e4ab21",
+    "inspected_version_and_locator": [
+      "Supplied quant-ph/0403168v2: Lemma 3 p.3; proof of Theorem 4 pp.3–4, especially its final paragraph on p.4. Theorem 4 itself states D(f) <= 2 deg(f)^3; Theorem 5 concerns exact quantum complexity Q_E."
+    ],
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "version_rule": "The page/theorem numbers in the audit refer to the identified inspected edition, not automatically to the publication year in the filename."
+  },
+  {
+    "ref_number": 20,
+    "title": "CREW PRAMs and decision trees",
+    "bibliography_year": 1991,
+    "packet_file": null,
+    "packet_sha256": null,
+    "inspected_version_and_locator": [
+      "1991 SIAM J. Comput. 20(6):999–1007. Original full text not recovered. Publisher abstract read. Beals et al. [8] cite Nisan Lemma 2.4 for C<=bs^2, Lemma 4.1 for the deterministic certificate argument, and Theorem 4 for D=O(R^3); these original locators are indirect, not independently confirmed."
+    ],
+    "original_full_text_status": "not_recovered",
+    "version_rule": "The page/theorem numbers in the audit refer to the identified inspected edition, not automatically to the publication year in the filename."
+  },
+  {
+    "ref_number": 21,
+    "title": "On the degree of Boolean functions as real polynomials",
+    "bibliography_year": 1994,
+    "packet_file": null,
+    "packet_sha256": null,
+    "inspected_version_and_locator": [
+      "Recovered exact 1994 Computational Complexity journal scan: Definition 3.6 pp.309; Lemma 3.8 and Theorem 3.9 p.310; supporting symmetrization and approximation inequalities in Section 3, pp.307–310."
+    ],
+    "original_full_text_status": "recovered_journal_scan",
+    "version_rule": "The page/theorem numbers in the audit refer to the identified inspected edition, not automatically to the publication year in the filename."
+  },
+  {
+    "ref_number": 22,
+    "title": "Towards proving strong direct product theorems",
+    "bibliography_year": 2003,
+    "packet_file": "/Users/willcook/src/quartic-query-sources/papers/ref-22-shaltiel-2003.pdf",
+    "packet_sha256": "70248ab80df12ff9fab1b2708a2fda7947bf6f22c44db5f7713e6252aaad2436",
+    "inspected_version_and_locator": [
+      "Supplied ECCC TR01-009 (2001 version of the cited 2003 journal article), §1 p.1 footnotes 1–2; §5 Definition 4 and Theorem 5 printed p.11 (PDF p.12); Lemma 7 proof printed p.12 (PDF p.13)."
+    ],
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "version_rule": "The page/theorem numbers in the audit refer to the identified inspected edition, not automatically to the publication year in the filename."
+  },
+  {
+    "ref_number": 23,
+    "title": "An optimal separation of randomized and quantum query complexity",
+    "bibliography_year": 2023,
+    "packet_file": "/Users/willcook/src/quartic-query-sources/papers/ref-23-sherstov-2023.pdf",
+    "packet_sha256": "bafc286d1955c4b26a05af69f078b6f08acf6f9cb353cf1a787a6aacf441d325",
+    "inspected_version_and_locator": [
+      "Supplied arXiv:2008.10223v4 (29 Jan 2023, journal version): Theorem 1.1 and Corollaries 1.2–1.3 p.3; Corollary 1.4 and Theorem 1.5 p.4; §1.8 p.10. Printed/PDF pages coincide."
+    ],
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "version_rule": "The page/theorem numbers in the audit refer to the identified inspected edition, not automatically to the publication year in the filename."
+  },
+  {
+    "ref_number": 24,
+    "title": "All quantum adversary methods are equivalent",
+    "bibliography_year": 2006,
+    "packet_file": "/Users/willcook/src/quartic-query-sources/papers/ref-24-spalek-2006.pdf",
+    "packet_sha256": "24006189a0397c2517ecff25b33d499ea955dc19ef7c6429e96f50bd5de3270b",
+    "inspected_version_and_locator": [
+      "Supplied quant-ph/0409116v3, Theorem 3.1 p.6 and spectral formula Eq.(3.1); final publisher PDF has the same locator."
+    ],
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "version_rule": "The page/theorem numbers in the audit refer to the identified inspected edition, not automatically to the publication year in the filename."
+  },
+  {
+    "ref_number": 25,
+    "title": "Graph properties and circular functions: how low can quantum query complexity go?",
+    "bibliography_year": 2004,
+    "packet_file": "/Users/willcook/src/quartic-query-sources/papers/ref-25-sun-2004.pdf",
+    "packet_sha256": "f1690f3380a8b78c1896a153e2951906039bb8a3553881bad4da4760e2e35ff6",
+    "inspected_version_and_locator": [
+      "Supplied CCC 2004 author PDF: Theorem 2 PDF p.2 (directed graph invariant complexity); Section 2 PDF pp.2–5, where SINK is the explicit example achieving the upper bound. The extended abstract omits the analogous SINK algorithm details while giving SCORPION algorithms."
+    ],
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "version_rule": "The page/theorem numbers in the audit refer to the identified inspected edition, not automatically to the publication year in the filename."
+  },
+  {
+    "ref_number": 26,
+    "title": "Towards optimal separations between quantum and randomized query complexities",
+    "bibliography_year": 2020,
+    "packet_file": "/Users/willcook/src/quartic-query-sources/papers/ref-26-tal-2020.pdf",
+    "packet_sha256": "01a6417eaf8ec0cbc84b0f3be169bf2535673ad2885e6676352d2685c2296ef1",
+    "inspected_version_and_locator": [
+      "Supplied arXiv:1912.12561v1, displayed manuscript date 12 Feb 2020: introduction “Application: Power-(2+2/3) Separations for Total Boolean Functions,” printed pp.2–3 (PDF pp.4–5); Corollary 3.2 printed p.10 (PDF p.12); Theorem 5.9 printed p.16 (PDF p.18)."
+    ],
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "version_rule": "The page/theorem numbers in the audit refer to the identified inspected edition, not automatically to the publication year in the filename."
+  },
+  {
+    "ref_number": 27,
+    "title": "Probabilistic computations: Toward a unified measure of complexity",
+    "bibliography_year": 1977,
+    "packet_file": null,
+    "packet_sha256": null,
+    "inspected_version_and_locator": [
+      "Yao 1977 FOCS pp.222–227: original theorem number not recovered because full text was inaccessible. The actual formulation being used is written explicitly in quartic Section 4.1 p.12. Modern source: Eric Blais CS860, Chapter 4, named Worst-case randomized complexity variant of the Minimax Principle."
+    ],
+    "original_full_text_status": "not_recovered",
+    "version_rule": "The page/theorem numbers in the audit refer to the identified inspected edition, not automatically to the publication year in the filename."
+  }
+]

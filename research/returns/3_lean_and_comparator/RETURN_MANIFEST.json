@@ -1,0 +1,157 @@
+{
+  "package": "quartic_3_lean_and_comparator_return",
+  "review_date": "2026-11-01",
+  "kind": "advisory formalisation design; Lean unbuilt",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 6460,
+      "sha256": "138aa5a1d529fd280cced4cc4345fc509f976f6b246f74e42f09198ef23cf0ac"
+    },
+    {
+      "path": "checks/finite_checks.json",
+      "bytes": 2219,
+      "sha256": "d3aa8afa8f6df6e6f0bfdd476003b1b688823538c1bf01f1c405deca74f8342f"
+    },
+    {
+      "path": "checks/finite_checks.py",
+      "bytes": 5544,
+      "sha256": "3f36bc27796151aaefaa524ed22fae486e027f2cf2dc49ff052a78d6bd6b4b5a"
+    },
+    {
+      "path": "checks/input_manifest_verification.json",
+      "bytes": 3076,
+      "sha256": "f4836ce8a5181efd0cbca101a09147c52eb1271dc23181e10e5baa4aa7c13e1f"
+    },
+    {
+      "path": "checks/plan_validation.json",
+      "bytes": 345,
+      "sha256": "d916daaa75dbcaff466faabb7d34fd4728049c64c5159fef61d4fa47b2f85c86"
+    },
+    {
+      "path": "checks/validate_return.py",
+      "bytes": 4445,
+      "sha256": "12934743389b783f1e6b8c2ed99fe1a2edf76fad7fb539c3a007299aee634623"
+    },
+    {
+      "path": "checks/validation_report.json",
+      "bytes": 896,
+      "sha256": "33437aa7e8a36eaba9ebcbf18df705ccf70ad58ac4228dabc3782ab4995cafff"
+    },
+    {
+      "path": "comparator_design.md",
+      "bytes": 30073,
+      "sha256": "1aef0b360ca9075479ef95571118ff0d315c48cb0669dcb11b76b1b165821a71"
+    },
+    {
+      "path": "core_definitions.lean",
+      "bytes": 15500,
+      "sha256": "61a495a2f877500f0b58ffe799b452fc7f792f23d79a091dade14e4afc976a0c"
+    },
+    {
+      "path": "corpus/statement_ledger.json",
+      "bytes": 82583,
+      "sha256": "baae822271b38aa322e9fec62c47621de20bb61eb82b077d92bd9c133685c143"
+    },
+    {
+      "path": "dependency_order.txt",
+      "bytes": 1444,
+      "sha256": "15aaa1e68dcf92ea92322f48a93a91ffd282d4022c81dca99b426d782fffd3c5"
+    },
+    {
+      "path": "formalisation_plan.json",
+      "bytes": 244821,
+      "sha256": "0207cca59efdb2bb7e88c208213eb7beb3dfe19947dd68ad1c65e637cde99f94"
+    },
+    {
+      "path": "lean/current/Drift.lean",
+      "bytes": 3276,
+      "sha256": "4d72ad1b9aa67c5d1f572705cc3e64f87356f5e96023bc93d2b156d7523b3644"
+    },
+    {
+      "path": "lean/current/lakefile.toml",
+      "bytes": 292,
+      "sha256": "e1b8f178146db7a08c32b24d6c15602f40c16f59de057f729497d26b4d627498"
+    },
+    {
+      "path": "lean/current/lean-toolchain",
+      "bytes": 29,
+      "sha256": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3"
+    },
+    {
+      "path": "ledger_audit_findings.md",
+      "bytes": 12790,
+      "sha256": "1f737c9b81085e6bd2820a2fe0ecc4a0e10115543aa2ad0b2d6e6c8e2301a4db"
+    },
+    {
+      "path": "milestones.md",
+      "bytes": 10079,
+      "sha256": "26e0d7d94455790a83291244ba17104b09a774cf06d762e844b277496cc64eb6"
+    },
+    {
+      "path": "model_decision.md",
+      "bytes": 23247,
+      "sha256": "25fc8c6c2c33e9500d5f909df645d8ad348231cd23c1a6525d470dda08f553c5"
+    },
+    {
+      "path": "new_prior_art.json",
+      "bytes": 17198,
+      "sha256": "c7979446e1cba5a3b40f7b4e25275404dfcd51837060f4eabf3b3bdaa977244a"
+    },
+    {
+      "path": "paper/extracted.md",
+      "bytes": 64021,
+      "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a"
+    },
+    {
+      "path": "paper/quartic-query-separation.pdf",
+      "bytes": 433829,
+      "sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e"
+    },
+    {
+      "path": "read_coverage.md",
+      "bytes": 4205,
+      "sha256": "c851286d879712a0d4de462ac7c9ea3c4cc4ad59bb332c51af3d2e1da4190cf6"
+    },
+    {
+      "path": "research_findings.md",
+      "bytes": 13493,
+      "sha256": "6c3d1d2be867b42f19b22720db36bf8d984e1e8f04edbf5b604ed243a2752350"
+    },
+    {
+      "path": "reuse_checked.json",
+      "bytes": 37194,
+      "sha256": "8e927675a9d0b4dd4a19e31152f8f86409a1027ae612f40d3edd3385b0d5771a"
+    },
+    {
+      "path": "search_receipts.json",
+      "bytes": 5693,
+      "sha256": "644a263f6f9572c0ec385b20464d71c412ad2a0158d687dc8e14f316c342dcd9"
+    },
+    {
+      "path": "signature_glossary.md",
+      "bytes": 9272,
+      "sha256": "3ae7edafee76a3843bd181ee6c1af90d84fe09edbbfd0d7d0ca11aef211ff93b"
+    },
+    {
+      "path": "source_findings.md",
+      "bytes": 14844,
+      "sha256": "45e383af5963d1cd3a016ca99370ef7888062cc420b3871b1aeac5424dbf617d"
+    },
+    {
+      "path": "sources/input_manifest.json",
+      "bytes": 3559,
+      "sha256": "e6ad49fdb312daf125db6389f77e4f8f46991ba6f7cec203c15f8f5b1f56143f"
+    },
+    {
+      "path": "sources/tooling_source_receipt.json",
+      "bytes": 4232,
+      "sha256": "6e93872566e36e197f699747b361be1edd57efe3f3d8b140d2a7882a85f360b5"
+    },
+    {
+      "path": "tooling_findings.md",
+      "bytes": 10530,
+      "sha256": "31a77c02ff0addf334067b36a7731b8bcf33a448565c6a6ebf405dca3e141b4f"
+    }
+  ]
+}

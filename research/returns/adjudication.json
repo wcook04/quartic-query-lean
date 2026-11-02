@@ -1,0 +1,1357 @@
+{
+ "schema": "adjudication of three advisory returns on OpenAI 'A Nearly Quartic Separation Between Randomized and Quantum Query Complexity'",
+ "date": "2026-11-02",
+ "paper_locator_convention": "Page numbers are the printed pages; line numbers are LF lines of annexes/openai-math-284-quartic-query-separation/extracted.md",
+ "ledger": "research/intake/statement_ledger.json (118 rows, unchanged by this file)",
+ "counts": {
+  "total": 84,
+  "by_verdict": {
+   "accepted_modified": 14,
+   "accepted": 60,
+   "unverified": 7,
+   "rejected": 3
+  },
+  "by_return": {
+   "adjudicator": {
+    "accepted": 6
+   },
+   "adjudicator check": {
+    "accepted": 6
+   },
+   "r1": {
+    "accepted_modified": 4,
+    "accepted": 22,
+    "unverified": 1
+   },
+   "r2": {
+    "accepted_modified": 3,
+    "accepted": 9,
+    "unverified": 3
+   },
+   "r3": {
+    "accepted": 17,
+    "accepted_modified": 7,
+    "unverified": 3,
+    "rejected": 3
+   }
+  }
+ },
+ "ledger_rows_changed": [
+  "claim-floor",
+  "claim-grover-state",
+  "claim-minimax-mu",
+  "claim-numeric",
+  "claim-tail",
+  "cor-R-omega",
+  "cor-cubic-refuted",
+  "def-Q",
+  "def-R",
+  "def-column-layout",
+  "def-deg",
+  "def-log-convention",
+  "def-transcript",
+  "def-win-at-address",
+  "def-winner",
+  "eq-17",
+  "eq-2",
+  "eq-21",
+  "eq-5",
+  "eq-8",
+  "lem-2.1.i",
+  "lem-2.2.i",
+  "lem-3.1",
+  "lem-4.1",
+  "lem-A.4",
+  "lem-A.5",
+  "prop-3.2",
+  "prop-3.3",
+  "prop-4.2",
+  "thm-1.1",
+  "thm-A.1"
+ ],
+ "ledger_rows_added": [
+  "claim-address-guess",
+  "claim-winner-fidelity",
+  "prop-4.2-generic"
+ ],
+ "findings": [
+  {
+   "id": "R1-AF-00",
+   "return": "r1",
+   "claim": "lem-2.2.i confuses adaptive query depth with a fixed small set of input bits.",
+   "verdict": "accepted_modified",
+   "paper_locus": "Lemma 2.2, p.6, lines 266-288",
+   "primary_source_locus": null,
+   "reason": "Paper says each test is evaluated with O(log m) queries; it never claims small support. Exhaustive check at m=4: a 2-bit pointer test is relevant in all 6 variables with depth 3 (own_checks.py). Modified to merge r1's support count (l+m), r2's gate wording and r3's exact cap max(3,l+1); depends_on keeps lem-2.1.iii, see R3-DEP-03.",
+   "ledger_rows_affected": [
+    "lem-2.2.i"
+   ],
+   "replacement_text": "See ledger_row_changes.lem-2.2.i."
+  },
+  {
+   "id": "R1-AF-01",
+   "return": "r1",
+   "claim": "def-deg needs an explicit zero-function degree convention.",
+   "verdict": "accepted_modified",
+   "paper_locus": "Appendix A, p.14, lines 725-727",
+   "primary_source_locus": null,
+   "reason": "Sign invariance fails for deg(0)=-infinity and is true with deg(constant)=0. The ledger's first_lean_target (sup of |S| over Fourier support, in Nat) already gives 0, so this is a statement wording fix, not a change of Lean target. D=bs=deg=0 on constants keeps lem-A.5 true.",
+   "ledger_rows_affected": [
+    "def-deg"
+   ],
+   "replacement_text": "See ledger_row_changes.def-deg."
+  },
+  {
+   "id": "R1-AF-02",
+   "return": "r1",
+   "claim": "Use LF-delimited line numbers; source_line drift is a splitlines artefact.",
+   "verdict": "accepted",
+   "paper_locus": "whole extract",
+   "primary_source_locus": null,
+   "reason": "Counted 19 form feeds in extracted.md. Anchors checked by reading: Lemma 2.1 at 151, Proposition 3.2 at 363, Lemma 4.1 at 528, Proposition 4.2 at 592.",
+   "ledger_rows_affected": []
+  },
+  {
+   "id": "R1-AF-03",
+   "return": "r1",
+   "claim": "A main theorem proved under a BansalSinha hypothesis is conditional, not an unconditional verification.",
+   "verdict": "accepted",
+   "paper_locus": "Lemma 2.1(i), p.4, lines 152-173; Theorem 1.1, p.1",
+   "primary_source_locus": "Bansal-Sinha arXiv:2008.07003v3 Theorem 1.3 and Corollary 1.4, p.4",
+   "reason": "The ledger's alphaTot_eq_four takes hBS as a hypothesis. Its evidence class must say conditional on the published Forrelation bound.",
+   "ledger_rows_affected": [
+    "thm-1.1",
+    "lem-2.1.i"
+   ],
+   "replacement_text": "See ledger_row_changes.thm-1.1."
+  },
+  {
+   "id": "R1-AF-04",
+   "return": "r1",
+   "claim": "The trace does not establish that Drift.lean compiled.",
+   "verdict": "accepted",
+   "paper_locus": null,
+   "primary_source_locus": null,
+   "reason": "Stronger local evidence: quartic-query-lean/lean/.lake/build holds only Drift.setup.json for this module and no project .olean was found, so no compile receipt exists locally. Also the live Drift.lean now differs from the packet copy: it is a module, and IsComparison moved to QuarticQuery/Statement.lean line 302. No build was run here.",
+   "ledger_rows_affected": [
+    "eq-13"
+   ]
+  },
+  {
+   "id": "R1-AF-05",
+   "return": "r1",
+   "claim": "The finite drift identity is only one part of the tournament proof.",
+   "verdict": "accepted",
+   "paper_locus": "Proposition 3.2, p.8, Eqs. 12-14",
+   "primary_source_locus": null,
+   "reason": "Read live Drift.lean: real w, comparison hypotheses only, W>0. Expectation reading needs w>=0, a in [0,1], W=0 absorption, iteration and Markov, which are claim-expected-WT, eq-14 and claim-coupling.",
+   "ledger_rows_affected": [
+    "eq-13",
+    "claim-expected-WT"
+   ]
+  },
+  {
+   "id": "R1-AF-06",
+   "return": "r1",
+   "claim": "The imported Forrelation bound matches the gadget: normalisation, block length, delta, one-sided 1-case, absolute 0-case, error 1/3.",
+   "verdict": "accepted",
+   "paper_locus": "Eqs. 3-5, pp.3-4",
+   "primary_source_locus": "Bansal-Sinha v3 Eqs. 1.1-1.3 pp.2-3; Theorem 1.3 and Corollary 1.4 p.4",
+   "reason": "Read directly. (1/N) z1^T(H Z2 ... H) zk equals u^T Dz1 H ... Dzk u. N=2^n covers m=4^t. Their tree measure is depth, the error is on each valid input (Section 5.4 p.38), matching def-R. Statement match only: see R1-AF-06a.",
+   "ledger_rows_affected": [
+    "lem-2.1.i",
+    "eq-4"
+   ]
+  },
+  {
+   "id": "R1-AF-06a",
+   "return": "r1",
+   "claim": "The Bansal-Sinha lower-bound proof itself holds.",
+   "verdict": "unverified",
+   "paper_locus": "Lemma 2.1(i)",
+   "primary_source_locus": "Bansal-Sinha v3 Sections 3-5",
+   "reason": "No return re-proved it and neither did this adjudication. It is the single external mathematical input.",
+   "ledger_rows_affected": [
+    "lem-2.1.i"
+   ]
+  },
+  {
+   "id": "R1-AF-07",
+   "return": "r1",
+   "claim": "Exact circuit and quantum decoder have different obligations; Phi=-1 is off-promise but the projection test can answer 1.",
+   "verdict": "accepted",
+   "paper_locus": "Lemma 2.1(ii)-(iii), p.4",
+   "primary_source_locus": null,
+   "reason": "Projection probability is Phi^2, so Phi=-1 gives 1; the integer tests give d=0. The r1 script's 256-case enumeration confirms d and b for m=4, k=2 (104 P1, 48 P0, 104 undefined).",
+   "ledger_rows_affected": [
+    "lem-2.1.ii",
+    "lem-2.1.iii"
+   ]
+  },
+  {
+   "id": "R1-AF-08",
+   "return": "r1",
+   "claim": "F is total; pointer encodings have no invalid patterns; define WinsAt as a total predicate.",
+   "verdict": "accepted",
+   "paper_locus": "Section 2.2, p.5, lines 206-231",
+   "primary_source_locus": null,
+   "reason": "m=2^l gives a bijection of l-bit words onto [m]. Adopted with the fidelity row claim-winner-fidelity.",
+   "ledger_rows_affected": [
+    "def-win-at-address",
+    "def-winner"
+   ]
+  },
+  {
+   "id": "R1-AF-09",
+   "return": "r1",
+   "claim": "Only the genuine winner's decoder needs to succeed.",
+   "verdict": "accepted",
+   "paper_locus": "Section 3.3, p.10, lines 466-482",
+   "primary_source_locus": null,
+   "reason": "Rederived: all opponent pointers land on ones in X_i*, and correct decoding of i* (probability >=1-eps) gives a disqualification, so the winner takes the pair whatever the index order.",
+   "ledger_rows_affected": [
+    "claim-winner-dominates"
+   ]
+  },
+  {
+   "id": "R1-AF-10",
+   "return": "r1",
+   "claim": "Drift identity, exact sampler and history-dependent coupling are sound.",
+   "verdict": "accepted",
+   "paper_locus": "Proposition 3.2, pp.8-9",
+   "primary_source_locus": null,
+   "reason": "Rederived each step, including W/m success and law w_i/W from Eq. 15, and the (1-f)ideal+f stop kernel with f<=eps. Script checks passed on finite instances.",
+   "ledger_rows_affected": [
+    "prop-3.2",
+    "claim-coupling"
+   ]
+  },
+  {
+   "id": "R1-AF-11",
+   "return": "r1",
+   "claim": "Exact-unitary uniform preparations over m and K items need an approximation bridge in a finite-gate library.",
+   "verdict": "accepted_modified",
+   "paper_locus": "Lemma 3.1, Section 3.3 lines 484-489",
+   "primary_source_locus": null,
+   "reason": "Unrestricted computation makes this legal, as r1 says. No approximation theorem is needed for this construction: m=4^t needs only Hadamards, and K can be padded to the next power of two with always-passing dummy tests, which changes gamma by at most a factor 2. Adaptive-to-purified bridge stays required.",
+   "ledger_rows_affected": [
+    "def-verify"
+   ]
+  },
+  {
+   "id": "R1-AF-12",
+   "return": "r1",
+   "claim": "Dominance does not imply a true winner; final verification is essential.",
+   "verdict": "accepted",
+   "paper_locus": "Section 3.3, p.10",
+   "primary_source_locus": null,
+   "reason": "Script assertion confirms the broken-pointer board: no winner, comparison matrix unchanged.",
+   "ledger_rows_affected": [
+    "claim-verify"
+   ]
+  },
+  {
+   "id": "R1-AF-13",
+   "return": "r1",
+   "claim": "Error and query budget: 2m/2^T<=1/500, T eps=1/1000, eps<=1/11000; tournament O_k(sqrt m x^3 (log x)^2), verifications O_k(sqrt m x^(7/2) log x).",
+   "verdict": "accepted",
+   "paper_locus": "Proposition 3.2 and Section 3.3",
+   "primary_source_locus": null,
+   "reason": "Recomputed: largest total error over m=4..4^199 is 0.00304; T>=11. Cost: c=O_k(x log x), sqrt K=O_k(sqrt m x^(3/2)), each call x, at most T verifications. So Q=O_k(sqrt m (log m)^4): b_k may be the absolute value 4 (r1 proof_audit line 215).",
+   "ledger_rows_affected": [
+    "claim-error",
+    "prop-3.3"
+   ]
+  },
+  {
+   "id": "R1-AF-14",
+   "return": "r1",
+   "claim": "Lemma 4.1 is correct with per-input caps and jointly independent side information.",
+   "verdict": "accepted",
+   "paper_locus": "Lemma 4.1, pp.11-12, lines 528-573",
+   "primary_source_locus": "Drucker v2 Lemmas 3.1-3.2 pp.11-12",
+   "reason": "Rederived; the budget L-q_h stays nonnegative because of the cap, which (16) silently uses.",
+   "ledger_rows_affected": [
+    "lem-4.1"
+   ]
+  },
+  {
+   "id": "R1-AF-15",
+   "return": "r1",
+   "claim": "The lower bound avoids conditioning on nonheaviness; AND example: conditional success 1, joint 1/2.",
+   "verdict": "accepted",
+   "paper_locus": "Eqs. 20-22, p.13",
+   "primary_source_locus": null,
+   "reason": "Exact values from the script: 1, 1/2 and one-query optimum 3/4. See T-AND.",
+   "ledger_rows_affected": [
+    "eq-21",
+    "def-simulator"
+   ]
+  },
+  {
+   "id": "R1-AF-16",
+   "return": "r1",
+   "claim": "The removed-zero estimate holds under adaptive queries.",
+   "verdict": "accepted",
+   "paper_locus": "Eq. 19, pp.12-13",
+   "primary_source_locus": null,
+   "reason": "Rederived E Z<=4G/m and the exact equality Pr=EZ/m from independence of I.",
+   "ledger_rows_affected": [
+    "claim-EZ",
+    "eq-19"
+   ]
+  },
+  {
+   "id": "R1-AF-17",
+   "return": "r1",
+   "claim": "With 2^31<3^20, G(2/3)^r<1/(100 m^9) and the total is <1/20+1/(100 m^9).",
+   "verdict": "accepted",
+   "paper_locus": "Eqs. 17, 23, p.13",
+   "primary_source_locus": null,
+   "reason": "3^20=3486784401, 2^31=2147483648. Checked exactly for t=1..29 at L in {1,m/2,m}.",
+   "ledger_rows_affected": [
+    "claim-tail",
+    "claim-numeric"
+   ]
+  },
+  {
+   "id": "R1-AF-18",
+   "return": "r1",
+   "claim": "eq-5 and eq-17 combine definitions with theorem conclusions.",
+   "verdict": "accepted",
+   "paper_locus": "Eq. 5, p.4 line 155; Eq. 17, p.12 line 597",
+   "primary_source_locus": null,
+   "reason": "Both displays do define and assert. prop-4.2 depending on eq-17 and lem-2.1.i depending on eq-5 is circular at row level though not in the paper. Split; adjudicates against r3's alternative, see R3-DEP-04.",
+   "ledger_rows_affected": [
+    "eq-5",
+    "eq-17",
+    "lem-2.1.i",
+    "prop-4.2"
+   ],
+   "replacement_text": "See ledger_row_changes.eq-5 and eq-17."
+  },
+  {
+   "id": "R1-AF-19",
+   "return": "r1",
+   "claim": "Optimal exponent four, not an exact fourth-power family; k>2/(4-alpha); k=3 refutes cubic, k=2 does not.",
+   "verdict": "accepted",
+   "paper_locus": "Section 5, p.14",
+   "primary_source_locus": null,
+   "reason": "2-1/k>alpha/2 is equivalent to k>2/(4-alpha). See T-K3.",
+   "ledger_rows_affected": [
+    "thm-1.1",
+    "cor-cubic-refuted"
+   ]
+  },
+  {
+   "id": "R1-AF-20",
+   "return": "r1",
+   "claim": "m=4,k=2: r=40, 2^40 cells, L=0; K=87+40S; input bits 1296+2^42(6+40S).",
+   "verdict": "accepted",
+   "paper_locus": "Section 2.2",
+   "primary_source_locus": null,
+   "reason": "Recomputed. L>=1 first holds at t=8 for k=2.",
+   "ledger_rows_affected": []
+  },
+  {
+   "id": "R1-AF-21",
+   "return": "r1",
+   "claim": "Appendix A rederived; c0=(1-2 sqrt 2/3)/2; Midrijanis inequality sits inside his proof of Theorem 4.",
+   "verdict": "accepted",
+   "paper_locus": "Appendix A, pp.14-17",
+   "primary_source_locus": "Midrijanis quant-ph/0403168v2 p.4 line 'hence D(f) <= deg(f)*bs(f)'",
+   "reason": "I rederived A.2-A.5 and the assembly. c0=0.0286. Perron-Frobenius can be replaced by a nonnegative top Rayleigh vector.",
+   "ledger_rows_affected": [
+    "lem-A.2",
+    "lem-A.5"
+   ]
+  },
+  {
+   "id": "R1-AF-22",
+   "return": "r1",
+   "claim": "bs(F)>=m and deg(F)>=m by freezing a planted input except X_I.",
+   "verdict": "accepted",
+   "paper_locus": "Section 4.2 construction",
+   "primary_source_locus": null,
+   "reason": "Other columns keep a zero, so the restriction is AND_m. Restrictions do not increase bs or deg. Upper bounds are corollaries of Q, not independent checks.",
+   "ledger_rows_affected": []
+  },
+  {
+   "id": "R1-AF-23",
+   "return": "r1",
+   "claim": "Absence of review found in search is not absence of review.",
+   "verdict": "accepted",
+   "paper_locus": null,
+   "primary_source_locus": null,
+   "reason": "Method point; no mathematics.",
+   "ledger_rows_affected": []
+  },
+  {
+   "id": "R1-AF-24",
+   "return": "r1",
+   "claim": "References 7, 20, 21, 27 are not in the packet.",
+   "verdict": "accepted",
+   "paper_locus": null,
+   "primary_source_locus": "ls annexes shows no quartic-ref-07, 20, 21, 27",
+   "reason": "Confirmed for the local annexes. r2 reports reading 7 and 21 online; not repeated here.",
+   "ledger_rows_affected": []
+  },
+  {
+   "id": "R1-SR-SUM",
+   "return": "r1",
+   "claim": "statement_review.json: 116 rows 'correct', 2 'corrected'.",
+   "verdict": "accepted_modified",
+   "paper_locus": "all",
+   "primary_source_locus": null,
+   "reason": "I read all 118 rows against the paper. The two corrections stand. Blanket 'correct' does not survive for rows whose defect is dependency or target text: see ledger_row_changes (def-log-convention, cor-cubic-refuted, claim-minimax-mu and others).",
+   "ledger_rows_affected": [
+    "def-log-convention",
+    "cor-cubic-refuted",
+    "claim-minimax-mu"
+   ]
+  },
+  {
+   "id": "R2-LR1",
+   "return": "r2",
+   "claim": "Replace fixed-support wording in lem-2.2.i.",
+   "verdict": "accepted_modified",
+   "paper_locus": "Lemma 2.2, p.6 (r2 says pp.6-7; the proof ends on p.6)",
+   "primary_source_locus": null,
+   "reason": "Six relevant variables and depth 3 at m=4 confirmed. Merged with R1-AF-00.",
+   "ledger_rows_affected": [
+    "lem-2.2.i"
+   ],
+   "replacement_text": "See ledger_row_changes.lem-2.2.i."
+  },
+  {
+   "id": "R2-LR2",
+   "return": "r2",
+   "claim": "Split claim-minimax-mu into generic minimax, Forrelation instantiation and r-fold bound.",
+   "verdict": "accepted_modified",
+   "paper_locus": "Section 4.1, p.12, lines 575-589",
+   "primary_source_locus": null,
+   "reason": "Lemma 4.1 is not used for existence of mu, and Lemma 2.1(i) discharges only L<R(P). Modified: instantiation lands in prop-4.2 through hP, so two rows rather than three: claim-minimax-mu (generic) and new claim-address-guess. Also drop the needless 1<=L.",
+   "ledger_rows_affected": [
+    "claim-minimax-mu",
+    "eq-21",
+    "prop-4.2"
+   ],
+   "replacement_text": "See ledger_row_changes.claim-minimax-mu and claim-address-guess."
+  },
+  {
+   "id": "R2-LR3",
+   "return": "r2",
+   "claim": "Preserve the order: for alpha<4 fix k, then m to infinity.",
+   "verdict": "accepted",
+   "paper_locus": "Section 5, p.14",
+   "primary_source_locus": null,
+   "reason": "4-2/k>alpha is equivalent to the paper's 2-1/k>alpha/2. Ledger rows already keep this; no text change.",
+   "ledger_rows_affected": [
+    "claim-no-smaller-exponent"
+   ]
+  },
+  {
+   "id": "R2-LR4",
+   "return": "r2",
+   "claim": "Preserve worst-branch cap and normalised successful state; randomised iteration count preserves the conditional density matrix.",
+   "verdict": "accepted",
+   "paper_locus": "Lemma 3.1, pp.7-8",
+   "primary_source_locus": "BHMT quant-ph/0005055 Lemma 1 and Eq. 8, pp.5-7",
+   "reason": "Eq. 8 scales the good component uniformly. See also M-1, which adds the missing quantifier.",
+   "ledger_rows_affected": [
+    "lem-3.1"
+   ]
+  },
+  {
+   "id": "R2-LR5",
+   "return": "r2",
+   "claim": "Keep eq-21 as a joint-event containment.",
+   "verdict": "accepted",
+   "paper_locus": "Eq. 21, p.13",
+   "primary_source_locus": null,
+   "reason": "Retention only.",
+   "ledger_rows_affected": [
+    "eq-21"
+   ]
+  },
+  {
+   "id": "R2-C-MID",
+   "return": "r2",
+   "claim": "The Midrijanis inequality is in the proof of Theorem 4, not its statement.",
+   "verdict": "accepted",
+   "paper_locus": "Lemma A.5, p.16",
+   "primary_source_locus": "quartic-ref-19 extracted lines 120, 159: Theorem 4 states D<=2deg^3; line 159 'D(f) <= deg(f)*bs(f)'",
+   "reason": "Read directly. Not Theorem 5, which concerns exact QE.",
+   "ledger_rows_affected": [
+    "lem-A.5"
+   ],
+   "replacement_text": "See ledger_row_changes.lem-A.5."
+  },
+  {
+   "id": "R2-C-LAMBDA",
+   "return": "r2",
+   "claim": "Appendix needs deg<=lambda^2, not Huang's headline deg<=s^2; s need not be O(Q).",
+   "verdict": "accepted",
+   "paper_locus": "Lemma A.4, p.16",
+   "primary_source_locus": "ABKRT v1 Theorem 1 pp.1 and 6; Lemma 9 p.8; Eq. deg<=s^2 p.1. Huang arXiv:1907.00847 remark near extract line 208",
+   "reason": "Read directly. OR has s=n and Q=Theta(sqrt n), so the s form cannot give deg=O(Q^2).",
+   "ledger_rows_affected": [
+    "lem-A.4"
+   ],
+   "replacement_text": "See ledger_row_changes.lem-A.4."
+  },
+  {
+   "id": "R2-C-DRUCKER",
+   "return": "r2",
+   "claim": "Lemma 4.1 rests on Drucker Section 1.3 and Lemmas 3.1-3.2, not headline Theorem 1.1.",
+   "verdict": "accepted",
+   "paper_locus": "Lemma 4.1, p.11, lines 524-526",
+   "primary_source_locus": "Drucker v2: Theorem 1.1 restated, extract line 145, gives (2^(alpha eps)(1-eps))^k for a global budget; Section 1.3 pp.6-7; Lemmas 3.1-3.2 pp.11-12; fair-algorithm remark extract line 200; partial functions extract line 69",
+   "reason": "Read directly. The paper already cites correctly. Ledger notes D9 ('not read at source') is now closed. Drucker defines fair as exactly T queries per input; his final remark uses only |u|<=T, which covers the paper's at-most cap.",
+   "ledger_rows_affected": [
+    "lem-4.1"
+   ],
+   "replacement_text": "See ledger_row_changes.lem-4.1."
+  },
+  {
+   "id": "R2-C-ABKT",
+   "return": "r2",
+   "claim": "D=O(Q^4) and the cubic conjecture originate in the 2020 four-author preprint, not only the five-author paper.",
+   "verdict": "accepted_modified",
+   "paper_locus": "Section 1.1, p.2, lines 64-66; Theorem A.1",
+   "primary_source_locus": "ABKRT v1 p.1 footnote 'subsumes an earlier preprint by a subset of the authors [ABKT20]'; bibliography entry arXiv:2004.13231",
+   "reason": "Existence and authorship verified from ABKRT. Contents (Theorem 1 p.2, Conjecture 4 p.9 as r2 reports) are not held locally, so unverified here. ABKRT Conjecture 2 p.20 and Theorems 1-3 verified in the held PDF.",
+   "ledger_rows_affected": [
+    "thm-A.1",
+    "cor-cubic-refuted"
+   ],
+   "replacement_text": "See ledger_row_changes.thm-A.1."
+  },
+  {
+   "id": "R2-C-BD15",
+   "return": "r2",
+   "claim": "Ben-David 2015 (arXiv:1506.08106) has priority for power 5/2 over ABK.",
+   "verdict": "unverified",
+   "paper_locus": "Section 1.1, p.2, lines 58-60",
+   "primary_source_locus": "Not held. ABK ref-02 text and Tal ref-26 p.2 do not mention it; Tal credits ABK16 for power 2.5",
+   "reason": "Plausible but the primary source is absent and I used no network. It changes historical prose only, no ledger row.",
+   "ledger_rows_affected": []
+  },
+  {
+   "id": "R2-C-GPW",
+   "return": "r2",
+   "claim": "Pointer ancestry: GPW has a unique all-1 column and a pointer chain through one zero per rival.",
+   "verdict": "accepted",
+   "paper_locus": "Section 1.1 line 56; Section 2.2 lines 232-236",
+   "primary_source_locus": "GPW ECCC TR15-050 Theorem 5 and Section 2.1, pp.3-5",
+   "reason": "Read directly: follow pointers for k-1 steps. Consequence: the novelty of the paper's pointers is direct, hard-addressed, per-rival access, not outward zero witnesses as such.",
+   "ledger_rows_affected": [
+    "eq-8"
+   ],
+   "replacement_text": "See ledger_row_changes.eq-8 proof_notes."
+  },
+  {
+   "id": "R2-C-BS",
+   "return": "r2",
+   "claim": "BS numbering and promise; mu comes from minimax because p0,p1 have off-promise mass; pin v3.",
+   "verdict": "accepted",
+   "paper_locus": "Lemma 2.1 proof, p.4; Section 4.1, p.12",
+   "primary_source_locus": "Bansal-Sinha v3 p.4; input-distribution theorem: p1 gives 1-inputs with probability only >=6 delta",
+   "reason": "Read directly. Whether earlier versions were weaker was not checked; held copy is v3.",
+   "ledger_rows_affected": [
+    "lem-2.1.i",
+    "claim-minimax-mu"
+   ]
+  },
+  {
+   "id": "R2-C-BHMT",
+   "return": "r2",
+   "claim": "State preservation sourced to BHMT Lemma 1 and Eq. 8.",
+   "verdict": "accepted",
+   "paper_locus": "Section 3.1",
+   "primary_source_locus": "quant-ph/0005055v1 Lemma 1 p.5, Eq. 8",
+   "reason": "Read directly.",
+   "ledger_rows_affected": [
+    "claim-grover-state"
+   ],
+   "replacement_text": "See ledger_row_changes.claim-grover-state."
+  },
+  {
+   "id": "R2-C-BSS",
+   "return": "r2",
+   "claim": "BSS Section 9.2 Theorem 4 gives the spectral adversary bound.",
+   "verdict": "unverified",
+   "paper_locus": "Lemma A.2",
+   "primary_source_locus": "Not held (r2 used an online copy)",
+   "reason": "Spalek-Szegedy held but not reread. The paper proves A.2 itself, so no proof depends on it.",
+   "ledger_rows_affected": [
+    "lem-A.2"
+   ]
+  },
+  {
+   "id": "R2-C-HIST",
+   "return": "r2",
+   "claim": "historical_corrections.json: AA simulation error, ECCC notes, Tal revision; Nisan, Yao locators.",
+   "verdict": "unverified",
+   "paper_locus": null,
+   "primary_source_locus": "Blog and ECCC pages not held; refs 20, 27 not held",
+   "reason": "None touches a statement the construction uses: the AA error concerns the classical simulation, and no proof uses it.",
+   "ledger_rows_affected": []
+  },
+  {
+   "id": "R3-LA-01",
+   "return": "r3",
+   "claim": "Pointer tests are decision trees; generic cap max(3,l+1).",
+   "verdict": "accepted",
+   "paper_locus": "Lemma 2.2, p.6",
+   "primary_source_locus": null,
+   "reason": "Gate test reads up to 3 bits, pointer l+1. Equals l+1 for t>=1.",
+   "ledger_rows_affected": [
+    "lem-2.2.i"
+   ]
+  },
+  {
+   "id": "R3-LA-02",
+   "return": "r3",
+   "claim": "Q needs a semantic bridge; adaptive and purified forms differ by a constant factor; library workspace claim.",
+   "verdict": "accepted_modified",
+   "paper_locus": "Conventions lines 118-123; Lemma A.2 lines 750-754",
+   "primary_source_locus": null,
+   "reason": "Bridge obligation accepted. The complexitylib facts (arbitrary workspace, controlled phase) are unverified: no local clone, no network. Phase and bit oracles are conjugate by a Hadamard on b: true mathematically.",
+   "ledger_rows_affected": [
+    "def-Q",
+    "def-query-oracle"
+   ]
+  },
+  {
+   "id": "R3-LA-03",
+   "return": "r3",
+   "claim": "Read-all witnesses must precede minimum-complexity lower bounds.",
+   "verdict": "accepted_modified",
+   "paper_locus": "Definitions, Section 1",
+   "primary_source_locus": null,
+   "reason": "Needed exactly for conclusions of the form G<R(F): with sInf of the empty set equal 0 that conclusion needs nonemptiness. Not needed to use the hypothesis L<R(P), which already excludes L from the set.",
+   "ledger_rows_affected": [
+    "def-R",
+    "def-Q"
+   ],
+   "replacement_text": "See ledger_row_changes.def-R."
+  },
+  {
+   "id": "R3-LA-04",
+   "return": "r3",
+   "claim": "Fixed k, growing m must survive every shortened statement.",
+   "verdict": "accepted",
+   "paper_locus": "Section 5",
+   "primary_source_locus": null,
+   "reason": "As R1-AF-19.",
+   "ledger_rows_affected": [
+    "thm-1.1"
+   ]
+  },
+  {
+   "id": "R3-LA-05",
+   "return": "r3",
+   "claim": "The planted theorem should be generic in P and C and take 1<=L<=m, L<R(P).",
+   "verdict": "accepted",
+   "paper_locus": "Proposition 4.2 and lines 575, 670",
+   "primary_source_locus": null,
+   "reason": "The proof uses circuit correctness only. A family must then instantiate the same efficient circuit for both bounds, since F depends on C.",
+   "ledger_rows_affected": [
+    "prop-4.2"
+   ],
+   "replacement_text": "See ledger_row_changes.prop-4.2-generic."
+  },
+  {
+   "id": "R3-LA-06",
+   "return": "r3",
+   "claim": "Capped direct product via finite Bellman values.",
+   "verdict": "accepted",
+   "paper_locus": "Lemma 4.1",
+   "primary_source_locus": "Drucker v2 Lemmas 3.1-3.2",
+   "reason": "Matches rederivation.",
+   "ledger_rows_affected": [
+    "lem-4.1"
+   ]
+  },
+  {
+   "id": "R3-LA-07",
+   "return": "r3",
+   "claim": "Nonheavy event stays inside the probability.",
+   "verdict": "accepted",
+   "paper_locus": "Eq. 21",
+   "primary_source_locus": null,
+   "reason": "Same as R1-AF-15.",
+   "ledger_rows_affected": [
+    "eq-21"
+   ]
+  },
+  {
+   "id": "R3-LA-08",
+   "return": "r3",
+   "claim": "Removed-zero argument needs distinct positions; heavy and simulator budgets count repeats.",
+   "verdict": "accepted",
+   "paper_locus": "lines 618-644",
+   "primary_source_locus": null,
+   "reason": "Confirmed. Lean form 2q<m avoids m/2.",
+   "ledger_rows_affected": [
+    "claim-EZ",
+    "def-heavy"
+   ]
+  },
+  {
+   "id": "R3-LA-09",
+   "return": "r3",
+   "claim": "(2/3)^(40t)<=(1/2)^(20t)=m^-10, so G tail<=1/(100 m^8).",
+   "verdict": "accepted",
+   "paper_locus": "Eqs. 6, 17, 23, p.13",
+   "primary_source_locus": null,
+   "reason": "See T-TAIL.",
+   "ledger_rows_affected": [
+    "claim-tail"
+   ]
+  },
+  {
+   "id": "R3-LA-10",
+   "return": "r3",
+   "claim": "Drift.lean gives the sum identity for arbitrary real weights.",
+   "verdict": "accepted_modified",
+   "paper_locus": null,
+   "primary_source_locus": null,
+   "reason": "True of the live file too, but r3 audited a superseded copy; see R1-AF-04.",
+   "ledger_rows_affected": [
+    "eq-13"
+   ]
+  },
+  {
+   "id": "R3-LA-11",
+   "return": "r3",
+   "claim": "Troy Lee's library has amplified_cond_law and a Grover state theorem.",
+   "verdict": "unverified",
+   "paper_locus": "Lemma 3.1",
+   "primary_source_locus": null,
+   "reason": "No local clone. The mathematical point stands: a conditional output law is enough for sampling and weaker than Lemma 3.1 as written.",
+   "ledger_rows_affected": [
+    "lem-3.1"
+   ]
+  },
+  {
+   "id": "R3-LA-12",
+   "return": "r3",
+   "claim": "complexity_le_mul_pow_four gives D<=20736 T^4 and does not cover the intermediate rows.",
+   "verdict": "accepted_modified",
+   "paper_locus": "Theorem A.1",
+   "primary_source_locus": null,
+   "reason": "The logic is right: importing an endpoint leaves A.2-A.5 rows unproved. Existence and constant of the library theorem are unverified.",
+   "ledger_rows_affected": [
+    "thm-A.1",
+    "lem-A.2"
+   ]
+  },
+  {
+   "id": "R3-LA-13",
+   "return": "r3",
+   "claim": "Intake 'sound' labels must not be promoted to a verification result.",
+   "verdict": "accepted",
+   "paper_locus": null,
+   "primary_source_locus": null,
+   "reason": "They are one reader's audit. This adjudication is a second reading, also not a formal check.",
+   "ledger_rows_affected": [
+    "thm-1.1"
+   ]
+  },
+  {
+   "id": "R3-RF-01",
+   "return": "r3",
+   "claim": "Three-branch structure; inf proof needs 4 in the set and no alpha<4.",
+   "verdict": "accepted",
+   "paper_locus": "Section 5",
+   "primary_source_locus": null,
+   "reason": "No upward closure needed.",
+   "ledger_rows_affected": [
+    "thm-1.1"
+   ]
+  },
+  {
+   "id": "R3-RF-02",
+   "return": "r3",
+   "claim": "Section 2: pointer test at m=4 has all four targets relevant.",
+   "verdict": "accepted",
+   "paper_locus": "Lemma 2.2",
+   "primary_source_locus": null,
+   "reason": "Exhaustive check.",
+   "ledger_rows_affected": [
+    "lem-2.2.i"
+   ]
+  },
+  {
+   "id": "R3-RF-03",
+   "return": "r3",
+   "claim": "Section 3: drift file seed needs a probability wrapper and W=0 absorption.",
+   "verdict": "accepted",
+   "paper_locus": "Eqs. 12-14",
+   "primary_source_locus": null,
+   "reason": "As R1-AF-05.",
+   "ledger_rows_affected": [
+    "eq-13"
+   ]
+  },
+  {
+   "id": "R3-RF-04",
+   "return": "r3",
+   "claim": "Section 4: transport lower bounds from every public algorithm; empty coordinates; sInf empties.",
+   "verdict": "accepted",
+   "paper_locus": "Section 1; Lemma A.2",
+   "primary_source_locus": null,
+   "reason": "Directions cannot be swapped. n=0 is outside eq-1 (n>=1), so that case only concerns library totality.",
+   "ledger_rows_affected": [
+    "def-Q"
+   ]
+  },
+  {
+   "id": "R3-RF-05",
+   "return": "r3",
+   "claim": "Section 5: three amplification obligations; fresh workspaces for the product.",
+   "verdict": "accepted",
+   "paper_locus": "Lemma 3.1, Eq. 15",
+   "primary_source_locus": null,
+   "reason": "Mathematics accepted; library claims as R3-LA-11. M-1 adds a fourth.",
+   "ledger_rows_affected": [
+    "lem-3.1",
+    "construct-sampler"
+   ]
+  },
+  {
+   "id": "R3-RF-06",
+   "return": "r3",
+   "claim": "Section 6: AND warning example: conditional success 1, best one-query 3/4.",
+   "verdict": "accepted",
+   "paper_locus": "Eq. 21",
+   "primary_source_locus": null,
+   "reason": "See T-AND.",
+   "ledger_rows_affected": [
+    "eq-21"
+   ]
+  },
+  {
+   "id": "R3-RF-07",
+   "return": "r3",
+   "claim": "Section 6: finite tail removes limit machinery; 6/100.",
+   "verdict": "accepted",
+   "paper_locus": "Eq. 23",
+   "primary_source_locus": null,
+   "reason": "See T-TAIL.",
+   "ledger_rows_affected": [
+    "claim-numeric"
+   ]
+  },
+  {
+   "id": "R3-RF-08",
+   "return": "r3",
+   "claim": "Section 7: exact integer P; circuit size separate; persistent hypothesis L<R(P).",
+   "verdict": "accepted",
+   "paper_locus": "Lemma 2.1",
+   "primary_source_locus": "Bansal-Sinha v3",
+   "reason": "Integer tests rederived. M-3 adds a constraint on the literal Corollary 1.4 form.",
+   "ledger_rows_affected": [
+    "claim-integer-tests",
+    "lem-2.1.i"
+   ]
+  },
+  {
+   "id": "R3-RF-09",
+   "return": "r3",
+   "claim": "Section 8: no matching Lean Forrelation or capped DPT found (bounded search).",
+   "verdict": "unverified",
+   "paper_locus": null,
+   "primary_source_locus": null,
+   "reason": "Search not repeated; no network.",
+   "ledger_rows_affected": []
+  },
+  {
+   "id": "R3-DEP-01",
+   "return": "r3",
+   "claim": "eq-2 uses cor-R-omega; claim-floor becomes a pure inequality feeding cor-R-omega.",
+   "verdict": "accepted",
+   "paper_locus": "Section 5, line 698",
+   "primary_source_locus": null,
+   "reason": "The ledger had the floor fact depending on its own consumer.",
+   "ledger_rows_affected": [
+    "eq-2",
+    "cor-R-omega",
+    "claim-floor"
+   ],
+   "replacement_text": "See ledger_row_changes."
+  },
+  {
+   "id": "R3-DEP-02",
+   "return": "r3",
+   "claim": "Make WinsAt primitive; eq-8 at a general address; def-winner depends on it.",
+   "verdict": "accepted_modified",
+   "paper_locus": "lines 221-227, 264-265",
+   "primary_source_locus": null,
+   "reason": "Accepted with a new fidelity row, since the paper's wording defines it the other way round.",
+   "ledger_rows_affected": [
+    "eq-8",
+    "def-win-at-address",
+    "def-winner"
+   ],
+   "replacement_text": "See ledger_row_changes.claim-winner-fidelity."
+  },
+  {
+   "id": "R3-DEP-03",
+   "return": "r3",
+   "claim": "Drop lem-2.1.iii from lem-2.2.i.",
+   "verdict": "rejected",
+   "paper_locus": "Lemma 2.2 proof line 281",
+   "primary_source_locus": null,
+   "reason": "The paper's lemma says the output tests mean P(A) is defined and equals s_h, which needs the correctness half of lem-2.1.iii (not size). r3's form is only the definitional unfolding of WinsAt.",
+   "ledger_rows_affected": [
+    "lem-2.2.i"
+   ]
+  },
+  {
+   "id": "R3-DEP-04",
+   "return": "r3",
+   "claim": "eq-17 stays as an assertion and gains a dependency on prop-4.2.",
+   "verdict": "rejected",
+   "paper_locus": "Eq. 17",
+   "primary_source_locus": null,
+   "reason": "Superseded by the split: a definition row should not depend on the theorem it names. r1's form wins.",
+   "ledger_rows_affected": [
+    "eq-17"
+   ]
+  },
+  {
+   "id": "R3-DEP-05",
+   "return": "r3",
+   "claim": "prop-4.2 drops lem-2.1.i and eq-17; claim-Y-values drops lem-2.1.iii; claim-tail, claim-numeric lose edges.",
+   "verdict": "accepted_modified",
+   "paper_locus": "Proposition 4.2",
+   "primary_source_locus": null,
+   "reason": "The concrete row needs lem-2.1.i. Resolved by a new prop-4.2-generic carrying r3's shape. claim-Y-values keeps the dependency as spec only. With the eq-17 split the tail edges are harmless.",
+   "ledger_rows_affected": [
+    "prop-4.2",
+    "claim-Y-values"
+   ]
+  },
+  {
+   "id": "R3-DEP-06",
+   "return": "r3",
+   "claim": "cor-cubic-refuted depends on claim-exponent-ratio and eq-2, not thm-1.1.",
+   "verdict": "accepted_modified",
+   "paper_locus": "Section 5",
+   "primary_source_locus": null,
+   "reason": "Accepted; eq-2 is redundant given claim-exponent-ratio. See M-4.",
+   "ledger_rows_affected": [
+    "cor-cubic-refuted"
+   ]
+  },
+  {
+   "id": "R3-DEP-07",
+   "return": "r3",
+   "claim": "lem-A.3.*, lem-A.4, lem-A.5, thm-A.1 lose their paper dependencies.",
+   "verdict": "rejected",
+   "paper_locus": "Appendix A",
+   "primary_source_locus": null,
+   "reason": "That is an import route through unverified library theorems, not a correction of the paper's dependency structure. Keep the paper edges in the ledger; record the alternative in the plan.",
+   "ledger_rows_affected": [
+    "lem-A.3.bs",
+    "lem-A.3.lambda",
+    "lem-A.4",
+    "lem-A.5",
+    "thm-A.1"
+   ]
+  },
+  {
+   "id": "R3-SF-SUM",
+   "return": "r3",
+   "claim": "source_findings.md: 11 corrections to the intake's library descriptions.",
+   "verdict": "unverified",
+   "paper_locus": null,
+   "primary_source_locus": null,
+   "reason": "All concern external Lean repositories at pinned commits. No clone found under ~/src, no network used. None changes a ledger statement.",
+   "ledger_rows_affected": []
+  },
+  {
+   "id": "T-RT",
+   "return": "adjudicator check",
+   "claim": "r=40t, m=4^t, l=2t, T uses base-2 ceiling.",
+   "verdict": "accepted",
+   "paper_locus": "Eq. 6 p.5; Proposition 3.2 p.8; Conventions p.3",
+   "primary_source_locus": null,
+   "reason": "r=ceil(20 log2 m)=40t exactly and 2^r=m^20. T must be base 2 or smaller: at m=4^20 natural log gives T=35 and 2m/2^T=64. T is not defined by Nat.clog of the same argument as r: see def-log-convention change.",
+   "ledger_rows_affected": [
+    "eq-6",
+    "def-T-eps",
+    "def-log-convention"
+   ]
+  },
+  {
+   "id": "T-TAIL",
+   "return": "adjudicator check",
+   "claim": "(2/3)^(40t)<=m^-10 discrepancy.",
+   "verdict": "accepted",
+   "paper_locus": "p.13 line 673",
+   "primary_source_locus": null,
+   "reason": "No discrepancy: the exact value is m^-11.699. r3's m^-10 on (2/3)^r gives G tail<=1/(100 m^8); r1's m^-11 gives 1/(100 m^9), the ledger's target; the paper's exponent is 2-11.699. All are true (checked exactly, t=1..39) and any suffices. The r3 proof is the shortest: 4/9<=1/2.",
+   "ledger_rows_affected": [
+    "claim-tail"
+   ]
+  },
+  {
+   "id": "T-AND",
+   "return": "adjudicator check",
+   "claim": "AND counterexample to conditioning.",
+   "verdict": "accepted",
+   "paper_locus": "Eq. 21",
+   "primary_source_locus": null,
+   "reason": "Correct, and r1 and r3 quote different numbers truthfully: conditional success 1, joint 1/2, one-query optimum 3/4. Joint 1/2<=3/4 obeys the bound; conditional 1>3/4 breaks it.",
+   "ledger_rows_affected": [
+    "eq-21"
+   ]
+  },
+  {
+   "id": "T-N",
+   "return": "adjudicator check",
+   "claim": "n=O_k(m^22 log^3 m).",
+   "verdict": "accepted",
+   "paper_locus": "Section 2.2 items (i)-(iii); not stated in the paper",
+   "primary_source_locus": null,
+   "reason": "n=m(m+rkm+m^20((m-1)l+rS)). With S=C m log^2 m the ratio n/(m^22 log^3 m) tends to 20C at k=2 (computed to t=40). A derived fact from r1 and r2, not a paper claim.",
+   "ledger_rows_affected": [
+    "def-column-layout"
+   ]
+  },
+  {
+   "id": "T-BS",
+   "return": "adjudicator check",
+   "claim": "Bansal-Sinha promise and threshold match.",
+   "verdict": "accepted",
+   "paper_locus": "Eqs. 3-4",
+   "primary_source_locus": "Bansal-Sinha v3 Eqs. 1.1-1.3",
+   "reason": "Statement match, see R1-AF-06. Truth unverified, R1-AF-06a.",
+   "ledger_rows_affected": [
+    "eq-3",
+    "eq-4"
+   ]
+  },
+  {
+   "id": "T-K3",
+   "return": "adjudicator check",
+   "claim": "k=3 refutes cubic.",
+   "verdict": "accepted",
+   "paper_locus": "Theorem 1.1 Eq. 2",
+   "primary_source_locus": null,
+   "reason": "m^(5/3)/log^2 m against (sqrt m polylog)^3=m^(3/2)polylog: ratio m^(1/6)/polylog tends to infinity. k=2 gives m^(3/2)/log^2 m and does not refute.",
+   "ledger_rows_affected": [
+    "cor-cubic-refuted"
+   ]
+  },
+  {
+   "id": "M-1",
+   "return": "adjudicator",
+   "claim": "Lemma 3.1 hides a quantifier: the procedure must be black-box in A, with call counts depending only on gamma, eta.",
+   "verdict": "accepted",
+   "paper_locus": "Lemma 3.1 lines 310-320; line 354 'Fix an input' and line 361 'pointwise'",
+   "primary_source_locus": null,
+   "reason": "Read literally, 'there is a procedure' for a given A allows dependence on p or theta, which depend on the oracle input and would break the query model. The proof is uniform (M, trial count). Prop 3.2 has the same literal issue; r3 flagged the order there, no return flagged it for Lemma 3.1. Needed: exists procedure, for all A.",
+   "ledger_rows_affected": [
+    "lem-3.1",
+    "def-grover-trial"
+   ],
+   "replacement_text": "See ledger_row_changes.lem-3.1."
+  },
+  {
+   "id": "M-2",
+   "return": "adjudicator",
+   "claim": "With WinsAt primitive, the bridge to the paper's 'winner' needs the circuit's correctness.",
+   "verdict": "accepted",
+   "paper_locus": "lines 221-227, 281",
+   "primary_source_locus": null,
+   "reason": "IsWinner := exists s, WinsAt is not the paper's definition until the d,b tests are tied to P. Otherwise a wrong circuit makes the theorem about a different function.",
+   "ledger_rows_affected": [
+    "def-winner"
+   ],
+   "replacement_text": "See ledger_row_changes.claim-winner-fidelity."
+  },
+  {
+   "id": "M-3",
+   "return": "adjudicator",
+   "claim": "The literal Bansal-Sinha statement holds only for large N depending on k.",
+   "verdict": "accepted",
+   "paper_locus": "Lemma 2.1 proof",
+   "primary_source_locus": "Bansal-Sinha v3 Section 5.4 p.38: 'for large enough N'",
+   "reason": "The ledger's BansalSinhaCor14 has the right order (absolute c, then k, then large n). A form with one threshold for all k is stronger than the proof gives. Also the printed term in their display reads delta^2/(4N) where their Theorem 3.1 gives 4/(delta^2 N); harmless for fixed k, no reliance on it here.",
+   "ledger_rows_affected": [
+    "lem-2.1.i"
+   ]
+  },
+  {
+   "id": "M-4",
+   "return": "adjudicator",
+   "claim": "cor-cubic-refuted does not need Q>=1.",
+   "verdict": "accepted",
+   "paper_locus": "Section 5",
+   "primary_source_locus": null,
+   "reason": "If R<=C Q^3 then R<=C(1+Q)^3, contradicting claim-exponent-ratio at alpha=3, k=3. The ledger's note and 'equivalently' clause add a nonconstancy lemma for nothing.",
+   "ledger_rows_affected": [
+    "cor-cubic-refuted"
+   ]
+  },
+  {
+   "id": "M-5",
+   "return": "adjudicator",
+   "claim": "def-log-convention's target misdefines r.",
+   "verdict": "accepted",
+   "paper_locus": "Eq. 6",
+   "primary_source_locus": null,
+   "reason": "It says Nat.clog 2 for T and r, but 20*clog is the wrong shape in general and eq-6 uses 40t. Harmless at m=4^t, misleading in code.",
+   "ledger_rows_affected": [
+    "def-log-convention"
+   ]
+  },
+  {
+   "id": "M-6",
+   "return": "adjudicator",
+   "claim": "A generic circuit must have d and b as non-input gates, or output tests must read inputs.",
+   "verdict": "accepted",
+   "paper_locus": "lines 218-220, 279",
+   "primary_source_locus": null,
+   "reason": "The transcript holds only non-input gates. True of the Forrelation circuit; must be a field of a generic structure.",
+   "ledger_rows_affected": [
+    "def-transcript"
+   ]
+  }
+ ],
+ "ledger_row_changes": {
+  "lem-2.2.i": {
+   "statement": "For every input y and (i,s) in [m] x {0,1}^r: i wins at s iff all K_{k,m} tests pass, namely (a) X_i[b]=1 for each b; (b) for each j != i, X_j[p_{i,s,j}]=0; (c) for each h and each non-input gate, the claimed value equals the gate function of its predecessors, read from the transcript or from A_{i,h}; (d) for each h, claimed d=1 and claimed b=s_h. Each test is computed by a deterministic adaptive bit-query decision tree of depth at most max(3,l+1), which is l+1 for m>=4: a pointer test reads l pointer bits, then the one target bit they select, while gate tests read at most three fixed bits. A pointer test is not a function of a small fixed set of bits: it can depend on all l+m pointer and target coordinates.",
+   "first_lean_target": "theorem winsAt_iff_tests (y i s) : WinsAt y i s <-> forall e : TestIdx cfg, test y i s e = true; and def testTree (e) : DTree with depth <= max 3 (l+1) and testTree.eval y = test y i s e. State no support bound.",
+   "proof_notes": "Induction in topological order: all gate tests pass iff transcript equals true evaluation. Uses the correctness half of lem-2.1.iii for the meaning of (d), not its size bound. Corrected from 'function of O(log m) input bits' (r1, r2, r3)."
+  },
+  "def-deg": {
+   "statement": "deg(f) is the degree of the unique real multilinear polynomial agreeing with f on the cube, with degree 0 for every constant function, including the zero function. With this convention it is unchanged by replacing input or output bits by signs."
+  },
+  "eq-5": {
+   "statement": "L = L_{k,m} = floor(m^{1-1/k}/(log_2 m)^2).",
+   "depends_on": [
+    "def-log-convention"
+   ],
+   "external_inputs": [],
+   "model_needed": "none",
+   "formalisation_difficulty": "trivial",
+   "first_lean_target": "def Lval (k t) : Nat := Nat.floor (m^(1-1/k) / (logb 2 m)^2).",
+   "proof_notes": "Definition only. The inequality displayed in Eq. 5 is lem-2.1.i."
+  },
+  "lem-2.1.i": {
+   "depends_on": [
+    "eq-4",
+    "eq-5",
+    "def-R",
+    "claim-bs-to-L"
+   ],
+   "first_lean_target": "Named hypothesis BansalSinha k := forall^f t, Lval k t < R (Forr k t). Do not prove. Optionally state BansalSinhaCor14 := exists c>0, for each k>=2, for all large n (threshold depending on k), c/k^29*(2^n/log(k 2^n))^(1-1/k) <= R (forr k n), and derive BansalSinha.",
+   "proof_notes": "Checked against arXiv:2008.07003v3 Eqs. 1.1-1.3, Theorem 1.3, Corollary 1.4 (p.4): normalisation, delta=2^{-5k}, delta/2 threshold, depth, error 1/3 on valid inputs all match. Statement match only; their proof was not rechecked. Their proof needs 'large enough N' (Section 5.4, p.38), so the threshold depends on k. Pin v3."
+  },
+  "eq-17": {
+   "statement": "G = floor(mL/100).",
+   "depends_on": [
+    "eq-5"
+   ],
+   "model_needed": "none",
+   "first_lean_target": "def Gval (m L) : Nat := m * L / 100.",
+   "proof_notes": "Definition only. The inequality displayed in Eq. 17 is prop-4.2."
+  },
+  "claim-minimax-mu": {
+   "statement": "If L<R(P), there is a distribution mu on dom P, which is in particular nonempty, such that every deterministic tree of depth <=L has success probability <=2/3 under mu.",
+   "depends_on": [
+    "def-R"
+   ],
+   "first_lean_target": "theorem yao_hard_dist (P) (L) (h : L < R P) : exists mu : PMF P.dom, forall T : DTree n L, mu.prob (T.eval = P) <= 2/3.",
+   "proof_notes": "Generic finite minimax over promised inputs. The value is <2/3, the paper records <=2/3 afterwards. Does not use Lemma 4.1 or Lemma 2.1(i). An empty domain gives R=0, so it contradicts the hypothesis."
+  },
+  "claim-address-guess": {
+   "new_row": true,
+   "kind": "inline_claim",
+   "section": "4.1",
+   "source_line": 588,
+   "statement": "Under mu from claim-minimax-mu, for U_1,...,U_r iid mu, every classical algorithm making at most L queries to each U_h, given information independent of (U_1,...,U_r), outputs (P(U_1),...,P(U_r)) with probability <=(2/3)^r.",
+   "depends_on": [
+    "claim-minimax-mu",
+    "lem-4.1"
+   ],
+   "external_inputs": [],
+   "model_needed": "randomized_query",
+   "formalisation_difficulty": "easy",
+   "first_lean_target": "theorem address_guess_le (P L mu hmu) : direct corollary of capped_direct_product with beta=2/3.",
+   "proof_notes": "Second half of the old claim-minimax-mu."
+  },
+  "eq-21": {
+   "depends_on": [
+    "def-simulator",
+    "def-heavy",
+    "claim-address-guess"
+   ]
+  },
+  "prop-4.2-generic": {
+   "new_row": true,
+   "kind": "proposition",
+   "section": "4.2",
+   "source_line": 592,
+   "statement": "Let m=4^t with t>=1 and r=40t. Let P be a partial function on km bits with an exact circuit C (d=1 iff defined, and d=1 implies b=P), and F the total function built from (P,C). If 1<=L<=m and L<R(P), then R(F)>floor(mL/100).",
+   "depends_on": [
+    "eq-17",
+    "def-dummy",
+    "def-planted",
+    "claim-Y-values",
+    "eq-23",
+    "claim-numeric"
+   ],
+   "external_inputs": [],
+   "model_needed": "randomized_query",
+   "formalisation_difficulty": "moderate",
+   "first_lean_target": "theorem R_F_gt (cfg) (hL1 : 1 <= L) (hLm : L <= m) (hP : L < R P) : Gval m L < R (F cfg).",
+   "proof_notes": "Non-asymptotic. Circuit size and the quantum decoder are absent. Needs the read-all witness for R(F)."
+  },
+  "prop-4.2": {
+   "depends_on": [
+    "prop-4.2-generic",
+    "lem-2.1.i"
+   ],
+   "first_lean_target": "Instance of R_F_gt with the efficient forrCircuit, hP from BansalSinha k, and 1<=L<=m eventually in t.",
+   "proof_notes": "Concrete corollary. It must use the same circuit as prop-3.3."
+  },
+  "claim-tail": {
+   "proof_notes": "Paper's exponent is 2-11.699=-9.699. With L<=m, G<=m^2/100. Either 3^20>2^31 gives (2/3)^(40t)<m^-11 and the target m^-9, or the shorter 4/9<=1/2 gives <=m^-10 and (1/100) m^-8; each suffices. Uniform in t>=1, no limit needed."
+  },
+  "claim-numeric": {
+   "statement": "For m=4^t, r=40t, 1<=L<=m and G<=mL/100: 4G/m^2<=4/100, G/(mL)<=1/100, G(2/3)^r<=1/100, so eq-23 is at most 6/100<1/3.",
+   "depends_on": [
+    "eq-17",
+    "eq-23",
+    "claim-tail"
+   ]
+  },
+  "cor-cubic-refuted": {
+   "statement": "It is false that R(f) = O(Q(f)^3) for all total Boolean f ([3, Conjecture 2]): no C satisfies R(f) <= C Q(f)^3 for all total f.",
+   "depends_on": [
+    "claim-exponent-ratio"
+   ],
+   "external_inputs": [
+    "[3] ABKRT arXiv:2010.12629v1 Conjecture 2, p.20 (checked); ABKRT p.1 says it subsumes arXiv:2004.13231, whose text was not held"
+   ],
+   "proof_notes": "k=3 suffices: R >= Q^{10/3 - o(1)}. From R<=C Q^3 get R<=C(1+Q)^3 and contradict claim-exponent-ratio at alpha=3; Q>=1 is not needed. k=2 gives only exponent 3 up to logs."
+  },
+  "def-log-convention": {
+   "first_lean_target": "Use Nat.clog 2 (1000*m) for T, rval t := 40*t for r, lval t := 2*t for l, and Real.logb 2 for L."
+  },
+  "eq-2": {
+   "depends_on": [
+    "prop-3.3",
+    "cor-R-omega"
+   ],
+   "proof_notes": "Asymptotic packaging of prop-3.3 and prop-4.2; no new mathematics. b_k may be taken as 4 for every k (the k-dependence sits in C_k)."
+  },
+  "cor-R-omega": {
+   "depends_on": [
+    "prop-4.2",
+    "claim-floor"
+   ]
+  },
+  "claim-floor": {
+   "depends_on": [
+    "eq-5",
+    "eq-17"
+   ]
+  },
+  "eq-8": {
+   "statement": "Outward pointer condition at address s: X_j[p_{i,s,j}] = 0 for every j != i. Eq. 8 of the paper is the case s=s_i.",
+   "depends_on": [
+    "def-column-layout"
+   ],
+   "proof_notes": "Orientation is the crux of the construction: only a true winner defeats every rival. GPW [15] Section 2.1 already has a pointer chain through one zero per rival; the direct, hard-addressed per-rival pointers are what is specific here."
+  },
+  "def-win-at-address": {
+   "statement": "WinsAt(y,i,s) holds iff X_i=1^m, for every h the transcript in B_{i,s} on A_{i,h} is correct with outputs d=1 and b=s_h, and eq-8 holds at s. The paper's wording, i is a winner and s=s_i, is equivalent by claim-winner-fidelity.",
+   "depends_on": [
+    "eq-8",
+    "def-eval-transcript",
+    "def-column-layout"
+   ]
+  },
+  "def-winner": {
+   "depends_on": [
+    "def-win-at-address"
+   ],
+   "proof_notes": "Lean: IsWinner y i := exists s, WinsAt y i s. This agrees with the paper's definition only through claim-winner-fidelity."
+  },
+  "claim-winner-fidelity": {
+   "new_row": true,
+   "kind": "inline_claim",
+   "section": "2.2",
+   "source_line": 264,
+   "statement": "Given the correctness half of lem-2.1.iii: WinsAt(y,i,s) iff X_i=1^m, every P(A_{i,h}) is defined, s=s_i, the transcripts in B_{i,s} are correct, and eq-8 holds. Hence exists s, WinsAt(y,i,s) is the paper's winner condition.",
+   "depends_on": [
+    "def-win-at-address",
+    "eq-7",
+    "lem-2.1.iii"
+   ],
+   "external_inputs": [],
+   "model_needed": "classical_finite",
+   "formalisation_difficulty": "easy",
+   "first_lean_target": "theorem winsAt_iff_paper (hC : CircuitSpec C P) : WinsAt y i s <-> PaperWinner y i s.",
+   "proof_notes": "Spec only, no size bound."
+  },
+  "lem-3.1": {
+   "statement": "For 0<gamma<=1/2 and 0<eta<1/2 there is a single procedure, black-box in A and A^{-1} and with call counts depending only on gamma and eta, using O(gamma^{-1/2} log(1/eta)) calls for every p and on every branch, such that for every state preparation A with a success bit, success probability p and, if p>0, normalized successful state |g>: it reports failure or produces a successful outcome; conditional on success the output is |g> up to global phase; if p>=gamma, failure probability <=eta; if p=0 it always reports failure.",
+   "first_lean_target": "def amplify (gamma eta) (A : oracle-access to a preparation) : program, whose structure does not inspect A; theorem amplify_spec: calls <= C*gamma^(-1/2)*log(1/eta), (gamma <= p -> failProb <= eta), (p = 0 -> failProb = 1), and output state on success is projectively g."
+  },
+  "prop-3.2": {
+   "proof_notes": "The paper's 'Fix an input' (line 354) concerns the analysis only: the algorithm is chosen before x, from the comparison circuit alone. Only complementarity and exact sampling are used. Split into the classical ideal part (Stage 1) and the quantum sampling part (Stage 5)."
+  },
+  "def-R": {
+   "proof_notes": "Paper says 'minimum worst-case numbers of bit queries'. Worst-case randomized cost equals a mixture of depth-q trees (line 576-577). Set the definition as a mixture so that minimax applies directly. Prove a read-all witness: concluding G<R f from a sInf needs the feasible set nonempty."
+  },
+  "def-Q": {
+   "proof_notes": "The paper never gives a formal model. The upper bound uses intermediate measurement, classical control and fresh registers; lem-A.2 purifies to a fixed sequence. The single definition must serve both directions. Algorithms are chosen before x. A read-all witness makes the sInf meaningful. See doubt D2."
+  },
+  "lem-4.1": {
+   "external_inputs": [
+    "[13] Drucker v2 Section 1.3 pp.6-7, Lemmas 3.1-3.2 pp.11-12 and the fair-algorithm remark (checked; his Theorem 1.1 is a different global-budget statement), [22] Shaltiel (attribution only; the paper's proof is self-contained)"
+   ]
+  },
+  "lem-A.4": {
+   "external_inputs": [
+    "[3] ABKRT Theorem 1, pp.1 and 6 (checked), [17] Huang (proof in the paper). The form deg<=s^2 would be too weak: s need not be O(Q)"
+   ]
+  },
+  "lem-A.5": {
+   "external_inputs": [
+    "[19] Midrijanis quant-ph/0403168v2, inside the proof of Theorem 4, p.4 (checked; Theorem 4 itself states D<=2deg^3). Proof in the paper"
+   ]
+  },
+  "thm-A.1": {
+   "external_inputs": [
+    "[3] ABKRT Theorem 2 (proof in the paper); ABKRT p.1 records that it subsumes the earlier four-author preprint arXiv:2004.13231, whose text was not held"
+   ]
+  },
+  "thm-1.1": {
+   "proof_notes": "Reader audit: 4 lies in the set by thm-A.1; every alpha in [0,4) is excluded by claim-no-smaller-exponent; no upward closure needed. Evidence class of alphaTot_eq_four is conditional on BansalSinha k for all k>=2, and it must be labelled so. Two readings are not a verification."
+  },
+  "claim-grover-state": {
+   "external_inputs": [
+    "[12] BHMT Lemma 1 and Eq. 8, pp.5-7 (checked); [11] Boyer et al. (rotation fact, proved in the paper)"
+   ]
+  },
+  "def-column-layout": {
+   "proof_notes": "Input length n = m(m + r k m + 2^r((m-1) l + r S)) with 2^r=m^20, hence n=O_k(m^22 log^3 m) (derived, not in the paper). All l-bit strings are valid pointers since m=2^l, so no invalid-pointer case arises."
+  },
+  "def-transcript": {
+   "first_lean_target": "structure BoolCircuit (nIn nOut) with gates in topological order, each of fan-in <= 2, and outputs d,b among the non-input gates; def Transcript C := Fin C.size -> Bool; def gateOK C x t g : Prop."
+  },
+  "prop-3.3": {
+   "proof_notes": "Reader audit. Cost is O_k(sqrt m (log m)^4), so b=4 with a k-dependent constant also works. The worst-case cap covers every branch. No property of the Forrelation promise is used beyond lem-2.1.ii and lem-2.1.iii."
+  }
+ }
+}

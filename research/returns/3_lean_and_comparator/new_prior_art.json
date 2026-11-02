@@ -1,0 +1,263 @@
+[
+  {
+    "name": "cslib-community/complexitylib",
+    "url": "https://github.com/cslib-community/complexitylib",
+    "commit_sha": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a",
+    "licence": "Apache-2.0; LICENSE fetched and inspected at this commit",
+    "lean_toolchain": "leanprover/lean4:v4.36.0-rc2",
+    "mathlib_dependency": "mathlib 69552756cd8a2d2d48763cf7279fd814d6a1224d; cslib 254e30e6d4299c51323aaeaf5f51a4763b375d4a",
+    "last_commit_date": null,
+    "stars": null,
+    "files_inspected": [
+      "Complexity/Computability/QueryComplexity/Quantum/Search.lean",
+      "Complexity/Computability/QueryComplexity/Quantum/Adversary.lean",
+      "Complexity/Computability/QueryComplexity/Quantum/Polynomial.lean",
+      "Complexity/Computability/QueryComplexity/Midrijanis.lean",
+      "Complexity/Computability/QueryComplexity/Randomized.lean",
+      "Complexity/Computability/QueryComplexity/Huang.lean",
+      "Complexity/Computability/QueryComplexity/SpectralSensitivity.lean",
+      "Complexity/Computability/DecisionTree/Basic.lean",
+      "Complexity/Foundations/BooleanAnalysis/Fourier.lean",
+      "Complexity/Probability/Minimax.lean",
+      "Complexity/Probability/AdaptiveWeights.lean",
+      "lean-toolchain",
+      "lake-manifest.json",
+      "LICENSE"
+    ],
+    "provides": [
+      "Cslib.Quantum.State N W with arbitrary finite workspace W; controlled phaseOracle; run; norm_run",
+      "Cslib.RandomizedDecisionTree (StdSimplex over trees), worst-case depth, errorProb, Computes",
+      "Cslib.QueryComplexity.randomizedComplexity and exists_computes_depth_eq_randomizedComplexity",
+      "Cslib.Quantum.complexity_le_mul_pow_four: D(f) <= 20736*T^4 for every normalized T-query algorithm with error <= 1/3",
+      "Cslib.QueryComplexity.degree_le_spectralSensitivity_sq",
+      "Cslib.BitString.sum_fourierCoeff_mul_chi, expect_sq_eq_sum_fourierCoeff_sq",
+      "Convexity.StdSimplex.exists_forall_sum_le_of_forall_exists_sum_le; Cslib.Probability.PMF.ofStdSimplex and toStdSimplex"
+    ],
+    "paper_needs_covered": [
+      "Classical and quantum query semantics",
+      "Known quartic upper bound after explicit model transport",
+      "Finite minimax",
+      "Fourier algebra"
+    ],
+    "relation": "reusable_dependency",
+    "maintenance_state": "Source inspected at an immutable commit on 2026-11-01; no build or axiom replay performed here. Unchecked popularity metadata deliberately omitted.",
+    "notes": "Rechecked existing source with material corrections. Intake wrongly said trivial workspace: W is arbitrary finite. There is no Q minimization definition here: quantum results quantify over each algorithm. PhaseOracle is controlled, not a phase-only model that identifies complementary inputs. New public R/Q definitions need exact or constant-cost bridges. The pinned manifest uses cslib254e30, not the independently sampled cslib52897. AdaptiveWeights is a weighted branching/transcript development, not Hedge or this tournament theorem. Partial Boolean query promises require an added domain-aware interface. No compilation or semantic-equivalence proof was run."
+  },
+  {
+    "name": "troyjlee/quantum-query-complexity",
+    "url": "https://github.com/troyjlee/quantum-query-complexity",
+    "commit_sha": "517ba85eb211232771429804d8583e3f52b9d541",
+    "licence": "Apache-2.0; LICENSE fetched and inspected at this commit",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "mathlib_dependency": "mathlib 065356127b1dc0016f66b7283ce0ce2c4055aa55",
+    "last_commit_date": "2026-09-27T11:45:06Z",
+    "stars": null,
+    "files_inspected": [
+      "QuantumQueryComplexity/Quantum/Algorithm.lean",
+      "QuantumQueryComplexity/Quantum/Oracle.lean",
+      "QuantumQueryComplexity/Quantum/XorOracle.lean",
+      "QuantumQueryComplexity/Quantum/Complexity.lean",
+      "QuantumQueryComplexity/Quantum/Simulation.lean",
+      "QuantumQueryComplexity/Quantum/Amplitude/Amplification.lean",
+      "QuantumQueryComplexity/Quantum/Amplitude/Geometry.lean",
+      "QuantumQueryComplexity/Quantum/Amplitude/Randomized.lean",
+      "lean-toolchain",
+      "lake-manifest.json",
+      "LICENSE"
+    ],
+    "provides": [
+      "QuantumQueryComplexity.QAlg, ComputesWithErrorOn, qQueryOn, xorQQueryOn",
+      "AmpSetup.amplified_cond_law: exact conditional output law",
+      "AmpSetup.two_thirds_le_returnProb; amplified_prob_none_of_succProb_eq_zero",
+      "AmpSetup.amplifiedBudget_le_real <= 16*(prep.len+mark.len)/sqrt(p0)",
+      "GroverSplit.grover_pow_mulVec: exact invariant-plane state calculation",
+      "xorQueryCounts_nonempty under observational determinacy; qQueryOn_le_two_mul_xorQQueryOn; xorQQueryOn_le_two_mul_qQueryOn"
+    ],
+    "paper_needs_covered": [
+      "Bounded amplitude amplification",
+      "Exact conditional candidate distribution",
+      "Oracle conversion and query counting",
+      "Promise-aware quantum complexity"
+    ],
+    "relation": "adaptable_with_licence_check",
+    "maintenance_state": "Source inspected at an immutable commit on 2026-11-01; no build or axiom replay performed here. Unchecked popularity metadata deliberately omitted.",
+    "notes": "Rechecked and expanded beyond intake. Best algorithmic donor, especially the exact conditional law which the tournament needs. Native oracle swaps blank with the observed alphabet symbol; it is not the paper bit oracle. Existing native/optional-XOR bridges cost factor2 each direction. A separate bridge to the public literal bit model remains, as does a toolchain port. Distribution preservation alone is weaker than Lemma3.1 full successful-state preservation; use Geometry.grover_pow_mulVec and a state-level wrapper. Repeat fixed-budget trials to attain arbitrary eta. The sInf-natural complexity API explicitly requires nonempty feasible query counts for lower bounds."
+  },
+  {
+    "name": "QudeLeap/Lean-QuantumAlg",
+    "url": "https://github.com/QudeLeap/Lean-QuantumAlg",
+    "commit_sha": "971dc8be8a153a116b6d7cd748f984d545861b00",
+    "licence": "Apache-2.0; LICENSE fetched and inspected at this commit",
+    "lean_toolchain": "leanprover/lean4:v4.33.1",
+    "mathlib_dependency": "mathlib 0df444a360eaa60ab8c11dca51a86af692955474; no cslib package in the inspected manifest",
+    "last_commit_date": null,
+    "stars": null,
+    "files_inspected": [
+      "QuantumAlg/Core/Algorithm.lean",
+      "QuantumAlg/Core/Algorithm/AlgorithmRun.lean",
+      "QuantumAlg/Core/Algorithm/Solves.lean",
+      "QuantumAlg/Primitives/AmplitudeAmplification.lean",
+      "QuantumAlg/Primitives/AmplitudeAmplification/Construction.lean",
+      "QuantumAlg/Primitives/AmplitudeAmplification/Endpoint/Results.lean",
+      "QuantumAlg/Primitives/WalshHadamard/Mathematics.lean",
+      "lean-toolchain",
+      "lake-manifest.json",
+      "LICENSE"
+    ],
+    "provides": [
+      "QuantumAlg.Algorithm.Solves ties output success, state promises, borrowed restoration, native event limits, space and time to the same execution",
+      "QuantumAlg.AmplitudeAmplification.algorithm_solves; preparationCount=k+1, inversePreparationCount=k, goodReflectionCount=k",
+      "QuantumAlg.WalshHadamard.dotParity; walshSign; sum_walshSign_mul_walshSign_eq; hadamardLayerOperator"
+    ],
+    "paper_needs_covered": [
+      "Walsh-Hadamard transform",
+      "State-level amplitude amplification endpoint",
+      "Explicit physical resource accounting"
+    ],
+    "relation": "design_reference",
+    "maintenance_state": "Source inspected at an immutable commit on 2026-11-01; no build or axiom replay performed here. Unchecked popularity metadata deliberately omitted.",
+    "notes": "Rechecked existing source and actually opened amplitude-amplification endpoint, which intake had only listed. Strong complete execution discipline, but far more infrastructure and resources than unrestricted-interquery computation needs. Prefer narrowly porting mathematical Walsh lemmas, or use as an independent implementation comparison. All algorithm contracts remain relative to their execution environment and source model; do not erase those parameters. Native resource limits in Solves are on supported paths and subject to validity/initialization; the paper additionally needs a fixed cap on off-promise inputs. Endpoint count theorems quantify over paths and help discharge that separately. Do not combine its old Mathlib binary artifacts with v4.36."
+  },
+  {
+    "name": "openai/math",
+    "url": "https://github.com/openai/math",
+    "commit_sha": "4eaee87548250b2682affda7d05d947c05554bae",
+    "licence": "Apache-2.0; LICENSE fetched and inspected at this commit",
+    "lean_toolchain": "leanprover/lean4:v4.34.1",
+    "mathlib_dependency": "mathlib d13f23b723b8a846827a245b89c10fc7d3f11612",
+    "last_commit_date": null,
+    "stars": null,
+    "files_inspected": [
+      "lean/OAI/Computability/QuantumFactoring/Basic.lean",
+      "lean/OAI/Computability/QuantumFactoring/PhysicalAmplification.lean",
+      "lean/lean-toolchain",
+      "lean/lake-manifest.json",
+      "lean/LICENSE"
+    ],
+    "provides": [
+      "OAI.ExactQuantumFactoring.Primitive, Gate, Instruction, Circuit, Circuit.apply, Circuit.correctProbability",
+      "Five primitive gates and fixed inverse/control variants, explicit wire injection",
+      "OAI.ExactQuantumFactoring.physical_quarter_amplification"
+    ],
+    "paper_needs_covered": [
+      "Concrete finite-gate circuit reference",
+      "Single exact quarter-success amplification round"
+    ],
+    "relation": "design_reference",
+    "maintenance_state": "Source inspected at an immutable commit on 2026-11-01; no build or axiom replay performed here. Unchecked popularity metadata deliberately omitted.",
+    "notes": "Rechecked code, not just Comparator challenge. This factors integers using actual input wires and gate resources; it is not a black-box query-complexity model. Adopting it as Q would impose gate/uniformity restrictions absent from the paper, and its amplification endpoint assumes success mass exactly1/4 rather than arbitrary unknown p. Use design ideas only; no evidence from these files of a Forrelation or quartic-separation proof. Apache licence checked for lean/ code; manuscript rights are a separate issue."
+  },
+  {
+    "name": "leanprover-community/mathlib4",
+    "url": "https://github.com/leanprover-community/mathlib4",
+    "commit_sha": "69552756cd8a2d2d48763cf7279fd814d6a1224d",
+    "licence": "Apache-2.0; LICENSE fetched and inspected at this commit",
+    "lean_toolchain": "leanprover/lean4:v4.36.0-rc2",
+    "mathlib_dependency": "self; exact target pin from complexitylib lake-manifest",
+    "last_commit_date": null,
+    "stars": null,
+    "files_inspected": [
+      "Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean",
+      "LICENSE",
+      "public GitHub history for this path at target pin",
+      "PR 38582 metadata and source commit 545bd043025d40d8f925d89d3f4ba7a8976530ee"
+    ],
+    "provides": [
+      "Matrix.IsHadamard",
+      "Matrix.IsHadamard.kronecker",
+      "Matrix.IsHadamard.of_mul_conjTranspose"
+    ],
+    "paper_needs_covered": [
+      "Unnormalized Walsh matrix construction and unitary normalization"
+    ],
+    "relation": "reusable_dependency",
+    "maintenance_state": "Source inspected at an immutable commit on 2026-11-01; no build or axiom replay performed here. Unchecked popularity metadata deliberately omitted.",
+    "notes": "Additional exact-pin/PR verification: this module is already at the target 69552756 pin, so a speculative upgrade to master is unnecessary. The feature entered via PR https://github.com/leanprover-community/mathlib4/pull/38582, source commit 545bd043025d40d8f925d89d3f4ba7a8976530ee dated 2026-06-16. Current PR API says closed and title Merged by Bors, with merged_at=null; source availability at target pin is the operative verification. These are Hadamard matrix algebra, not a Fourier-growth lower bound. The full root Apache-2.0 LICENSE was fetched and inspected."
+  },
+  {
+    "name": "meelgroup/arlib",
+    "url": "https://github.com/meelgroup/arlib",
+    "commit_sha": "8d08f89a6d05c5e8368e91659bd6e117fbb74c4e",
+    "licence": "Apache-2.0; LICENSE fetched and inspected at this commit",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "mathlib_dependency": "mathlib 56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "last_commit_date": "2026-10-17T03:06:45Z",
+    "stars": null,
+    "files_inspected": [
+      "Arlib/Probability/SequentialKernel.lean",
+      "Arlib/Probability/SequentialDominate.lean",
+      "Arlib/Probability/ProductFiber.lean",
+      "lean-toolchain",
+      "lake-manifest.json",
+      "LICENSE"
+    ],
+    "provides": [
+      "Arlib.Probability.seqWeight, sum_seqWeight, seqFinProb",
+      "Arlib.Probability.seqWeight_le_of_step_le, seqWeight_le_of_step_le_const",
+      "Arlib.Probability.CoinSpace.condPr_eq_blockPr, condPr_fiber_eq, Pr_inter_of_dependsOn"
+    ],
+    "paper_needs_covered": [
+      "Finite history-dependent probability kernels",
+      "Product-space conditioning building blocks",
+      "Adaptive-law domination"
+    ],
+    "relation": "adaptable_with_licence_check",
+    "maintenance_state": "Source inspected at an immutable commit on 2026-11-01; no build or axiom replay performed here. Unchecked popularity metadata deliberately omitted.",
+    "notes": "New repository absent from intake. Useful substrate, not a proof of Lemma4.1. ProductFiber conditions on fixed coordinate blocks; the hard missing work is showing an adaptive transcript event factors into per-instance constraints and then proving Bellman-product decay. Some docstrings use old Arlib.* shorthand; actual namespaces are Arlib.Probability.*. Port selected lemmas if genuinely shorter than using existing PMF/StdSimplex; avoid introducing a third probability representation merely for names. No Forrelation lower bound located in inspected code."
+  },
+  {
+    "name": "girving/debate",
+    "url": "https://github.com/girving/debate",
+    "commit_sha": "0dab8ad4b58b7a0e82f1738e86135d444462b953",
+    "licence": "Apache-2.0; LICENSE fetched and inspected at this commit",
+    "lean_toolchain": "leanprover/lean4:v4.22.0-rc4",
+    "mathlib_dependency": "mathlib 34120efeac1cb5eb96761e811263fc2c0b0fb26a",
+    "last_commit_date": "2025-07-26T19:43:52Z",
+    "stars": null,
+    "files_inspected": [
+      "Learn/Indistinguishable.lean",
+      "lean-toolchain",
+      "lake-manifest.json",
+      "LICENSE",
+      "Zulip public archive Outcome indistinguishability, 2025-05-15"
+    ],
+    "provides": [
+      "Indistinguishable.reweight and step",
+      "Indistinguishable.potential, steps_converge",
+      "Indistinguishable.exists_small: finite indistinguishable circuit with explicit size bound"
+    ],
+    "paper_needs_covered": [
+      "Multiplicative weights and potential-method precedent"
+    ],
+    "relation": "design_reference",
+    "maintenance_state": "Source inspected at an immutable commit on 2026-11-01; no build or axiom replay performed here. Unchecked popularity metadata deliberately omitted.",
+    "notes": "New repository and public Zulip lead, actually opened: https://leanprover-community.github.io/archive/stream/236449-Program-verification/topic/Outcome.20indistinguishability.html . The author explicitly limits the result to circuit existence, not sample-complexity/distinguisher-count claims. This is an exponential/KL potential for outcome indistinguishability, not the paper quadratic-complementarity drift. Old toolchain and custom Prob type make importing it more expensive than the short new drift proof. Cite only as prior formalized MW, not as verification of Proposition3.2."
+  },
+  {
+    "name": "VerifiedQC/ForShor",
+    "url": "https://github.com/VerifiedQC/ForShor",
+    "commit_sha": "a3178a47e1275476c172dd7acd95ec2d43c105c8",
+    "licence": "Apache-2.0; LICENSE fetched and inspected at this commit",
+    "lean_toolchain": "leanprover/lean4:v4.36.0-rc1",
+    "mathlib_dependency": "mathlib 4dc43842a11f257ffba2a611c943a133a65cb4b2",
+    "last_commit_date": "2026-11-01T21:21:22Z",
+    "stars": null,
+    "files_inspected": [
+      "FastMultiplication/ShorVerification/Implementation/Shared/Hadamard.lean",
+      "README.md",
+      "lean-toolchain",
+      "lake-manifest.json",
+      "LICENSE"
+    ],
+    "provides": [
+      "Shor.eval_Hreg_zero_uniform",
+      "Shor.RegisterHadamardSemantics.eval_H_mem; eval_foldl_H_mem"
+    ],
+    "paper_needs_covered": [
+      "Gate-level uniform superposition and register preservation reference"
+    ],
+    "relation": "design_reference",
+    "maintenance_state": "Source inspected at an immutable commit on 2026-11-01; no build or axiom replay performed here. Unchecked popularity metadata deliberately omitted.",
+    "notes": "New repository absent from intake; discovered from VQC Lab official projects page https://www.vqc.cs.umd.edu/projects.html. Inspected Hadamard module works under explicit QSemantics/RegEncoding/GateSemanticsCore/HadamardSemantics typeclass assumptions. A concrete instance is a separate proof obligation; do not call these assumptions discharged by the lemma itself. No need to import the Shor/gate-cost infrastructure for this query separation. README proof-complete claims were not replayed here."
+  }
+]

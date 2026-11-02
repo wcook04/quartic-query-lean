@@ -1,0 +1,182 @@
+[
+  {
+    "url": "https://lowrank.github.io/latent-seminar/OpenAI-Math/284-quartic-randomized-quantum-queries",
+    "author": "Latent Seminar; no named article author verified",
+    "date": "2026-10-07",
+    "source_kind": "secondary",
+    "topic": "explanation",
+    "paraphrase": "Existing article explains the addressed certificate, probabilistic tournament, adaptive product argument and upper bound. Its scope section expressly excludes an independent audit of the imported Forrelation theorem and a Lean build.",
+    "reliability_note": "Full rendered article read, including its verification-scope sections. Useful exposition, not external certification. The earlier packet described a second-hand fetch; this review read the page directly."
+  },
+  {
+    "url": "https://lowrank.github.io/latent-seminar/OpenAI-Math/",
+    "author": "Latent Seminar index",
+    "date": "2026-10 (exact initial date not re-established)",
+    "source_kind": "aggregator",
+    "topic": "reaction",
+    "paraphrase": "The collection index links a dedicated family-284 explanation. It is an organized reading resource and distinguishes exposition from complete proof checking.",
+    "reliability_note": "Index and linked family page inspected. An index entry supplies navigation, not evidence of mathematical correctness."
+  },
+  {
+    "url": "https://scottaaronson.blog/?p=10169",
+    "author": "Scott Aaronson",
+    "date": "2026-10-07",
+    "source_kind": "first_hand",
+    "topic": "reaction",
+    "paraphrase": "The post singles out the nearly quartic query separation as a long-standing problem of particular interest to Aaronson and discusses the release’s claimed progress.",
+    "reliability_note": "Expert reaction; the relevant post passage does not provide a full proof audit of family 284. Names absent from a search of comments would not prove those researchers have not reviewed it elsewhere."
+  },
+  {
+    "url": "https://scottaaronson.blog/?p=10169",
+    "author": "Timothy Chow (displayed comment 235)",
+    "date": "2026-10-10",
+    "source_kind": "first_hand",
+    "topic": "formalisation",
+    "paraphrase": "Warns about possible mismatches between natural-language claims and formal definitions in some comparator challenges and discusses examples elsewhere in the release.",
+    "reliability_note": "Comment 235 and date were read directly. General discussion, not an identified defect in this query-separation proof. Displayed comment numbers were not verified as WordPress permalink IDs, so the record uses the post URL."
+  },
+  {
+    "url": "https://scottaaronson.blog/?p=10169",
+    "author": "Scott Aaronson (displayed comment 294)",
+    "date": "2026-10-12",
+    "source_kind": "first_hand",
+    "topic": "simplification",
+    "paraphrase": "Advocates simplifying and explaining the new results in forms people can understand, as work alongside verification and discovery.",
+    "reliability_note": "Comment text inspected. General to the release; it is not a request for, or endorsement of, this project. Use the displayed comment number as a locator."
+  },
+  {
+    "url": "https://scottaaronson.blog/?p=10169",
+    "author": "Tanay Wakhare (displayed comment 337)",
+    "date": "2026-10-15",
+    "source_kind": "secondary",
+    "topic": "explanation",
+    "paraphrase": "Links the MathVisionAI/openai-deslop repository as a project providing enhanced versions of the OpenAI manuscripts.",
+    "reliability_note": "The comment and target URL were checked. The repository could not be inspected in this session, so coverage of family 284 and the quality of any rewrite remain unknown."
+  },
+  {
+    "url": "https://scottaaronson.blog/?p=10169",
+    "author": "Matteo Vitturi (displayed comment 345)",
+    "date": "2026-10-23",
+    "source_kind": "first_hand",
+    "topic": "reaction",
+    "paraphrase": "Asks for short digests of the results to help readers and potential referees identify what to inspect.",
+    "reliability_note": "Comment inspected. The packet’s inference that no per-result digests existed is unsupported: this is a request, not an exhaustive survey of existing explanations."
+  },
+  {
+    "url": "https://vibemathed.com/problem/randomized-quantum-query-cubic-conjecture",
+    "author": "VibeMathed; changelog credits Rasmus Lindahl",
+    "date": "2026-10-07",
+    "source_kind": "aggregator",
+    "topic": "verification",
+    "paraphrase": "Lists the result as a candidate awaiting review and summarizes the fixed-k exponent. Its reading scope is restricted to selected manuscript passages.",
+    "reliability_note": "Entry and changelog inspected. The earlier “no named author” description is incomplete. Its statement about absent independent checking is the site’s assessment, not proof that no one has checked the theorem."
+  },
+  {
+    "url": "https://www.qtransitionlabs.com/news/2026-10-openai-math-pqc-security-map/",
+    "author": "QTransition Labs",
+    "date": "2026-10-07",
+    "source_kind": "aggregator",
+    "topic": "reaction",
+    "paraphrase": "Includes family 284 in a security-oriented map of the release and assigns it direct quantum-threat-model relevance.",
+    "reliability_note": "The family entry and page date were inspected. The packet’s “only indirect relevance” paraphrase does not match this entry. The catalogue’s classification supplies no reduction or concrete cryptographic application, so it should not establish practical security consequences."
+  },
+  {
+    "url": "https://lance.fortnow.com/openai-math-tcs.htm",
+    "author": "Lance Fortnow catalogue",
+    "date": "2026-10-15",
+    "source_kind": "aggregator",
+    "topic": "reaction",
+    "paraphrase": "Catalogues family 284 and summarizes the claimed optimal exponent and refutation of the cubic conjecture. The page distinguishes prepared summaries from quoted manuscript abstracts.",
+    "reliability_note": "Relevant entry and introduction inspected. No complete proof review is supplied by this entry. “Optimal” refers to the universal exponent, not a constant-factor fourth-power family."
+  },
+  {
+    "url": "https://blog.computationalcomplexity.org/",
+    "author": "Computational Complexity blog",
+    "date": "2026-11-01 (front-page check)",
+    "source_kind": "first_hand",
+    "topic": "reaction",
+    "paraphrase": "The front-page material inspected discusses the broader mathematics release. No quartic-specific passage was found in that limited view.",
+    "reliability_note": "This is a scoped negative result from the retrieved front page. It does not establish absence of relevant archive posts or comments; the individual historical posts were not fully reviewed."
+  },
+  {
+    "url": "https://mintresearch.org/newsletters/yinai/2026-10-09/",
+    "author": "Mint Research, Yesterday in AI newsletter",
+    "date": "2026-10-09",
+    "source_kind": "aggregator",
+    "topic": "reaction",
+    "paraphrase": "The newsletter mentions the nearly quartic claim and the cubic conjecture. Its editorial notes disclose that the editor read the abstract and introduction and did not check the proof.",
+    "reliability_note": "The previously unlocated passage was found on the page, together with the explicit review limitation. This is announcement coverage, not verification."
+  },
+  {
+    "url": "https://arxiv.org/abs/2609.15063",
+    "author": "Shalev Ben-David and Robin Kothari",
+    "date": "2026-09-14",
+    "source_kind": "first_hand",
+    "topic": "improvement",
+    "paraphrase": "Precursor about separating certificate complexity from randomized and quantum query complexity. Its fixed-tournament candidate comparisons help explain the ancestry of the later construction.",
+    "reliability_note": "Supplied arXiv v1 read through the relevant proofs. Predates the October preprint; this is related research, not commentary on it and not an earlier quartic R-versus-Q separation."
+  },
+  {
+    "url": "https://arxiv.org/abs/2609.11664",
+    "author": "Andris Ambainis, Jānis Iraids and Martins Kokainis",
+    "date": "2026-09 (supplied v2 dated 17 September)",
+    "source_kind": "first_hand",
+    "topic": "improvement",
+    "paraphrase": "Certificate-complexity predecessor with comparison-based source finding. The supplied v2 was inspected; indexes report a v3 dated 5 October.",
+    "reliability_note": "The latest v3 could not be retrieved and was not compared. No relationship between that revision and the same-day OpenAI manuscript is established. Citation audit [5] is explicitly a v2 audit."
+  },
+  {
+    "url": "https://github.com/cslib-community/complexitylib/pull/2069",
+    "author": "complexitylib PR 2069; attribution in supplied packet not independently reverified",
+    "date": "2026-10-31 (packet date; unverified)",
+    "source_kind": "first_hand",
+    "topic": "formalisation",
+    "paraphrase": "The supplied packet reports a Lean implementation of the older quartic upper bound, with explicit constant 20736. The PR itself could not be inspected during this review.",
+    "reliability_note": "Do not repeat “merged”, “builds”, the exact theorem type, or authorship as independently verified facts. Even if the packet’s account is correct, an upper-bound formalization would not certify the new randomized lower-bound construction."
+  },
+  {
+    "url": "https://github.com/openai/math/blob/main/lean/formalization.yaml",
+    "author": "OpenAI",
+    "date": "2026-11-01 (rolling catalogue inspected)",
+    "source_kind": "first_hand",
+    "topic": "verification",
+    "paraphrase": "The README and accessible formalization catalogue were inspected. Searches of the retrieved catalogue found no entry matching the nearly quartic title.",
+    "reliability_note": "A rolling catalogue search is narrower than a pinned source-code audit. It does not prove all related formalization is absent. Release-wide coverage percentages do not establish theorem-specific verification; no Lean or Comparator run was performed here."
+  },
+  {
+    "url": "https://kokunoyumeto.github.io/open-math-courses-public/courses/randomized-versus-quantum-query-complexity/",
+    "author": "Claude Opus 5.5 (course credit)",
+    "date": "2026-10 (exact day not established)",
+    "source_kind": "secondary",
+    "topic": "explanation",
+    "paraphrase": "Six lessons cover query models, Forrelation, amplification, the tournament, classical lower bound and quartic upper bound.",
+    "reliability_note": "Index, providers and selected lessons inspected. The course identifies itself as AI-written and self-checked, with independent review incomplete. Existing exposition does not settle correctness."
+  },
+  {
+    "url": "https://mathcommunity.github.io/oai-math-revised/papers/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/",
+    "author": "Mathcommunity revision index",
+    "date": "2026-10-30 (displayed update)",
+    "source_kind": "aggregator",
+    "topic": "verification",
+    "paraphrase": "The family page collects context, prior literature and explanatory links, including the six-lesson course. It labels the collected AI notes unreviewed and supplies no human review note in the inspected page.",
+    "reliability_note": "Page inspected, not all linked issues or repositories. This is a discovery index and its own review-status report, not independent evidence that the proof is correct."
+  },
+  {
+    "url": "https://aiproofwatch.com/updates/openai-reports-a-nearly-quartic-quantum-query-separation-75dd39e7",
+    "author": "AI Proof Watch",
+    "date": "2026-10-18 (assessment reviewed 2026-11-01)",
+    "source_kind": "aggregator",
+    "topic": "verification",
+    "paraphrase": "Rates the result as reported and states that its reviewed sources do not document a completed check of the full claim.",
+    "reliability_note": "Full entry inspected. These are default evidence-based categories on that site. They do not demonstrate that no unpublished check or unindexed review exists."
+  },
+  {
+    "url": "https://closedform.nishachay.tech/e/openai-math-2026-284/",
+    "author": "Closed Form; page labels the explanation AI-generated",
+    "date": "undated; page labels manuscript 2026-10-05",
+    "source_kind": "secondary",
+    "topic": "explanation",
+    "paraphrase": "A short public explanation gives the fixed-k power comparison, but incorrectly describes the family as having about m input bits and supplies numerical examples after discarding constants.",
+    "reliability_note": "Full explanation inspected. The input-size wording conflicts with manuscript §2.2: the m column strings alone contain m² bits, before the large certificate arrays. The asymptotic constants depend on k, so the illustrative numbers are not certified finite-instance query counts. Its assertions about absent review or Lean checks are not independently established."
+  }
+]

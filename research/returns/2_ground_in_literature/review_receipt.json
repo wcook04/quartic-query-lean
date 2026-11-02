@@ -1,0 +1,360 @@
+{
+  "review_date": "2026-11-01",
+  "target": {
+    "title": "A Nearly Quartic Separation Between Randomized and Quantum Query Complexity",
+    "author": "OpenAI",
+    "manuscript_date": "2026-10-05",
+    "family": 284,
+    "source_commit_reported_by_packet": "4eaee875",
+    "source_pin_scope": "Input metadata plus checksums; no repository checkout or independent commit-to-bytes comparison in this round."
+  },
+  "attachments": [
+    {
+      "filename": "Pasted text(20261101-233051).txt",
+      "bytes": 3449511,
+      "sha256": "6512b242c6a4946ce9c4e7157febb51266ae23a2b23d75320e76f6ead76b072b"
+    },
+    {
+      "filename": "quartic_2_ground_in_literature.zip",
+      "bytes": 7391313,
+      "sha256": "08d8d92779623edd056439b6849824672848501204b8afdb3f2baa19e8188b84"
+    }
+  ],
+  "input_manifest_verification": [
+    {
+      "path_in_packet": "corpus/statement_ledger.json",
+      "bytes": 82583,
+      "sha256": "baae822271b38aa322e9fec62c47621de20bb61eb82b077d92bd9c133685c143",
+      "matches_supplied_manifest": true
+    },
+    {
+      "path_in_packet": "corpus/statement_ledger_notes.md",
+      "bytes": 14396,
+      "sha256": "2a04261acab3957b33720662f49cd42be483e4a85cb1b89a7dc3b324fdf317a1",
+      "matches_supplied_manifest": true
+    },
+    {
+      "path_in_packet": "corpus/commentary.json",
+      "bytes": 8398,
+      "sha256": "7349c779ab34a30781bdec729b86e44012e0b3445aed1a112117ea68dec8e556",
+      "matches_supplied_manifest": true
+    },
+    {
+      "path_in_packet": "paper/quartic-query-separation.pdf",
+      "bytes": 433829,
+      "sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e",
+      "matches_supplied_manifest": true
+    },
+    {
+      "path_in_packet": "paper/extracted.md",
+      "bytes": 64021,
+      "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+      "matches_supplied_manifest": true
+    },
+    {
+      "path_in_packet": "literature/references_resolved.json",
+      "bytes": 22691,
+      "sha256": "602b355d0ebf9e1819d3c627b93a5bf184207c8107071d8435d94a426d5274dc",
+      "matches_supplied_manifest": true
+    },
+    {
+      "path_in_packet": "literature/papers/ref-01-aaronson-2018.pdf",
+      "bytes": 569568,
+      "sha256": "c27966b5b6cf12d61e3877f6ac23b48c9a21fe0a86e6b96ef527b02503e4e1fe",
+      "matches_supplied_manifest": true
+    },
+    {
+      "path_in_packet": "literature/papers/ref-02-aaronson-2016.pdf",
+      "bytes": 393155,
+      "sha256": "64380c861d0e0296a53c998a0109d62bf446529414001f8e46615991b558e4bc",
+      "matches_supplied_manifest": true
+    },
+    {
+      "path_in_packet": "literature/papers/ref-03-aaronson-2021.pdf",
+      "bytes": 827322,
+      "sha256": "445a34b0653042ad482bd95bc2c333d476df7ade6ce5d9ec45714f5b249e39ab",
+      "matches_supplied_manifest": true
+    },
+    {
+      "path_in_packet": "literature/papers/ref-04-ambainis-2017.pdf",
+      "bytes": 313343,
+      "sha256": "1b7803487ac696b1f8d81ee7bc26d55ed7a3c4ff4b78928faa269b71358fe66c",
+      "matches_supplied_manifest": true
+    },
+    {
+      "path_in_packet": "literature/papers/ref-05-ambainis-2026.pdf",
+      "bytes": 556093,
+      "sha256": "f1dded462ff8114378d9070ac78114df71934d0030fdddad2c714c286f0798b6",
+      "matches_supplied_manifest": true
+    },
+    {
+      "path_in_packet": "literature/papers/ref-06-bansal-2021.pdf",
+      "bytes": 986784,
+      "sha256": "afe53c8bd918d07590f29a947ef044453db73959043135082d1a3c29b2863a35",
+      "matches_supplied_manifest": true
+    },
+    {
+      "path_in_packet": "literature/papers/ref-08-beals-2001.pdf",
+      "bytes": 215459,
+      "sha256": "afec116657493976b70df7dcb8b174c8c0be55a9337d9e035afd5f1fc4d9cd4c",
+      "matches_supplied_manifest": true
+    },
+    {
+      "path_in_packet": "literature/papers/ref-09-bendavid-2026.pdf",
+      "bytes": 325090,
+      "sha256": "ba61287bc2555ce5ffe739e8308b9087c1d0743a683565d4b922a179bd6149c0",
+      "matches_supplied_manifest": true
+    },
+    {
+      "path_in_packet": "literature/papers/ref-10-bennett-1997.pdf",
+      "bytes": 234713,
+      "sha256": "7ade70e376984bcf3ee1770cd3b7670633d02d24afa680039b9058c2e1f8c76e",
+      "matches_supplied_manifest": true
+    },
+    {
+      "path_in_packet": "literature/papers/ref-11-boyer-1998.pdf",
+      "bytes": 185341,
+      "sha256": "badd64e3db8079ee2428fc9f869e202d584412b0a003be64464437019d252fde",
+      "matches_supplied_manifest": true
+    },
+    {
+      "path_in_packet": "literature/papers/ref-12-brassard-2002.pdf",
+      "bytes": 295305,
+      "sha256": "badedce80b0fe53e6cd93f915ce79c9680e375bb6565f83d2f572bc4114b0278",
+      "matches_supplied_manifest": true
+    },
+    {
+      "path_in_packet": "literature/papers/ref-13-drucker-2012.pdf",
+      "bytes": 405185,
+      "sha256": "6a67da06a0f07d0f86bb6389b7143314cade50294e2c0c454f3cc9853643faff",
+      "matches_supplied_manifest": true
+    },
+    {
+      "path_in_packet": "literature/papers/ref-14-durr-1996.pdf",
+      "bytes": 77176,
+      "sha256": "ff5c2ff71415e22f0ddf799b31e9b82d1990db9c1fc9d62ea2aabea5907e06cf",
+      "matches_supplied_manifest": true
+    },
+    {
+      "path_in_packet": "literature/papers/ref-15-goos-2015.pdf",
+      "bytes": 710143,
+      "sha256": "ab57c3fb4fb3fe9932a04f9197300244903aca9085760d24679859b5b342489b",
+      "matches_supplied_manifest": true
+    },
+    {
+      "path_in_packet": "literature/papers/ref-16-grover-1996.pdf",
+      "bytes": 67338,
+      "sha256": "630528f5297271288797900dffc9ae2a8e14854759b54d87f6bb7b75c5b770db",
+      "matches_supplied_manifest": true
+    },
+    {
+      "path_in_packet": "literature/papers/ref-17-huang-2019.pdf",
+      "bytes": 108376,
+      "sha256": "9193d2dac7b3f6b6a84270884c6143913ae5a0ba9bf3db19273f9703db0ed6a2",
+      "matches_supplied_manifest": true
+    },
+    {
+      "path_in_packet": "literature/papers/ref-18-mande-2023.pdf",
+      "bytes": 281082,
+      "sha256": "2bc8e533bc6728d75561bae841c49758ac14661d37e6476ecb339c17a5d5cd53",
+      "matches_supplied_manifest": true
+    },
+    {
+      "path_in_packet": "literature/papers/ref-19-midrijanis-2004.pdf",
+      "bytes": 115109,
+      "sha256": "0cdb580bd48d513b33a1c65bd27faa361bd2e4ebaceff29bbf24b16586e4ab21",
+      "matches_supplied_manifest": true
+    },
+    {
+      "path_in_packet": "literature/papers/ref-22-shaltiel-2003.pdf",
+      "bytes": 191585,
+      "sha256": "70248ab80df12ff9fab1b2708a2fda7947bf6f22c44db5f7713e6252aaad2436",
+      "matches_supplied_manifest": true
+    },
+    {
+      "path_in_packet": "literature/papers/ref-23-sherstov-2023.pdf",
+      "bytes": 534209,
+      "sha256": "bafc286d1955c4b26a05af69f078b6f08acf6f9cb353cf1a787a6aacf441d325",
+      "matches_supplied_manifest": true
+    },
+    {
+      "path_in_packet": "literature/papers/ref-24-spalek-2006.pdf",
+      "bytes": 198345,
+      "sha256": "24006189a0397c2517ecff25b33d499ea955dc19ef7c6429e96f50bd5de3270b",
+      "matches_supplied_manifest": true
+    },
+    {
+      "path_in_packet": "literature/papers/ref-25-sun-2004.pdf",
+      "bytes": 318085,
+      "sha256": "f1690f3380a8b78c1896a153e2951906039bb8a3553881bad4da4760e2e35ff6",
+      "matches_supplied_manifest": true
+    },
+    {
+      "path_in_packet": "literature/papers/ref-26-tal-2020.pdf",
+      "bytes": 412315,
+      "sha256": "01a6417eaf8ec0cbc84b0f3be169bf2535673ad2885e6676352d2685c2296ef1",
+      "matches_supplied_manifest": true
+    }
+  ],
+  "coverage": {
+    "main_manuscript": "All sections and Appendix A read; formulas on selected pages visually checked against the PDF.",
+    "packet_metadata": "READ_ME_FIRST, manifest, reference records, all 118 ledger rows, ledger notes, and all 16 commentary records read.",
+    "supplied_reference_pdfs": 23,
+    "supplied_reference_reading_scope": "Every supplied paper read far enough to identify the exact result, assumptions and role used here; key source proof passages followed. Not every page of every long paper independently re-proved.",
+    "missing_originals_recovered": [
+      7,
+      21
+    ],
+    "missing_originals_not_recovered": [
+      20,
+      27
+    ],
+    "original_sources_with_relevant_full_text_passages_available": 25,
+    "citation_records": 27,
+    "citation_fits": {
+      "yes": 23,
+      "partly": 4
+    },
+    "ranked_download_records": 52,
+    "attribution_records": 30,
+    "statement_navigation_records": 118,
+    "original_commentary_entries_rechecked": 16,
+    "new_or_revised_commentary_records": 20,
+    "prior_trace": "Read as a contextual transcript with targeted extraction of top-level user requests, relevant quartic discussion and prior citation/formalization claims. Nested tool dumps and embedded external pages were not all reread as independent sources; their claims were not inherited as verified facts."
+  },
+  "mathematical_checks": [
+    "Bansal–Sinha promise, normalization, error parameter, input length and fixed-k weakening to R(P)>L.",
+    "Exact arithmetic verifier and circuit-transcript role; adaptive pointer-query depth distinguished from fixed variable support.",
+    "Amplitude-amplification conditional-state contract, endpoint cases and every-branch cap.",
+    "Tournament drift identity, fresh-workspace product sampling, conditional index distribution and history-conditional coupling.",
+    "Off-promise winner guarantee and all-address verifier soundness.",
+    "Finite minimax applicability, fair-product supermartingale and nonheavy-and-hit event containment.",
+    "Planted input coupling, query charging, fixed-k exponent argument, and Appendix A inequality chain."
+  ],
+  "not_claimed": [
+    "Complete independent reconstruction of the Bansal–Sinha Gaussian/interpolation proof or every cited proof.",
+    "An exhaustive novelty or priority search over the entire literature.",
+    "A completed independent human verification of the new preprint.",
+    "A Lean or Comparator run, a successful build, or a formal-to-informal equivalence audit.",
+    "A practical runtime or cryptographic consequence of the query separation.",
+    "Absence of unindexed, private or unpublished reviews."
+  ],
+  "search_surfaces": [
+    {
+      "surface": "arXiv",
+      "scope": "Primary paper/version pages and PDFs for cited sources, correction literature, 2026 predecessors and related Forrelation work.",
+      "limitations": "Some current-version requests were blocked; inspected editions are pinned separately."
+    },
+    {
+      "surface": "ECCC",
+      "scope": "Original/revised Shaltiel, GPW, Drucker/Tal records, 2021 simulation correction, related Raz–Tal work, authorized Wegener book.",
+      "limitations": "Revision records and downloaded PDFs are distinguished; correction revision-2 PDF retrieval timed out."
+    },
+    {
+      "surface": "DBLP",
+      "scope": "Targeted title/author/venue searches used for bibliographic cross-checks.",
+      "limitations": "Bibliographic evidence only; not a theorem source or a complete cited-by export."
+    },
+    {
+      "surface": "Semantic Scholar",
+      "scope": "Targeted site/title searches attempted using both available search systems.",
+      "limitations": "No useful matching results were returned for the targeted queries; coverage was inadequate. No comprehensive citation-graph search was completed."
+    },
+    {
+      "surface": "Authors and university pages",
+      "scope": "CWI de Wolf materials, Ben-David author page, Microsoft-hosted ABKT, Saks author-uploaded BSS text, university-hosted Nisan–Szegedy, Blais course, Hoeffding scan, O’Donnell book, Pei Wu thesis.",
+      "limitations": "Books/theses were inspected selectively; versions and download-only leads are identified per record."
+    },
+    {
+      "surface": "Publisher pages",
+      "scope": "Dagstuhl ITCS/FSTTCS/TQC papers, Theory of Computing adversary paper/licence, SIAM and IEEE metadata.",
+      "limitations": "Public abstracts do not substitute for unread originals."
+    },
+    {
+      "surface": "Talks and slides",
+      "scope": "Official QIP 2021 and Simons 2023 records for Makrand Sinha; linked slides/video identified.",
+      "limitations": "No recording watched and no full transcript reviewed."
+    },
+    {
+      "surface": "Public discussion and repositories",
+      "scope": "All 16 supplied commentary leads rechecked; family-specific course, community index, AI Proof Watch and Closed Form added; current OpenAI formalization catalogue inspected for the target.",
+      "limitations": "Some GitHub targets inaccessible; no repository checkout/build and no exhaustive archive search."
+    }
+  ],
+  "source_access_boundaries": [
+    {
+      "source": "[7] Barnum–Saks–Szegedy, CCC 2003",
+      "status": "Relevant original full author text read publicly.",
+      "locator": "§9.2 Theorem 4 and proof; direct linked PDF returned 404. Original printed page not reliably recovered.",
+      "url": "https://www.researchgate.net/publication/4023789_Quantum_query_complexity_and_semi-definite_programming"
+    },
+    {
+      "source": "[21] Nisan–Szegedy 1994",
+      "status": "Original journal scan recovered.",
+      "locator": "§3 pp.307–310; Lemma 3.8 p.310.",
+      "url": "https://web.vu.lt/mif/s.jukna/boolean/Nisan-Szegedy.pdf"
+    },
+    {
+      "source": "[20] Nisan 1991",
+      "status": "Original full text not recovered.",
+      "locator": "Publisher metadata/abstract and later primary/survey formulations inspected; original theorem locators remain indirect.",
+      "url": "https://doi.org/10.1137/0220062"
+    },
+    {
+      "source": "[27] Yao 1977",
+      "status": "Original full text not recovered.",
+      "locator": "Metadata and modern minimax exposition inspected; target finite-game application checked directly.",
+      "url": "https://doi.org/10.1109/SFCS.1977.24"
+    },
+    {
+      "source": "[5] arXiv:2609.11664v3",
+      "status": "Reported newer version not retrieved or diffed.",
+      "locator": "Supplied v2 is the inspected source.",
+      "url": "https://arxiv.org/pdf/2609.11664v3"
+    },
+    {
+      "source": "ECCC TR21-115 revision 2",
+      "status": "Landing/revision record read; PDF retrieval timed out.",
+      "url": "https://eccc.weizmann.ac.il/report/2021/115/revision/2/download"
+    },
+    {
+      "source": "De Wolf lecture notes",
+      "status": "Unversioned URL returned inconsistent cached version metadata across retrievals.",
+      "locator": "Root-inspected front matter v5, 16 Jan 2023; another retrieval indicated v6, 27 Aug 2026. Explicit v6 resolution failed. Do not silently mix editions.",
+      "url": "https://homepages.cwi.nl/~rdewolf/qcnotes.pdf"
+    },
+    {
+      "source": "complexitylib PR 2069",
+      "status": "PR and diff could not be inspected; packet’s merged/build/authorship claims not reverified.",
+      "url": "https://github.com/cslib-community/complexitylib/pull/2069"
+    },
+    {
+      "source": "MathVisionAI/openai-deslop",
+      "status": "Repository contents not accessible; coverage of family 284 unknown.",
+      "url": "https://github.com/MathVisionAI/openai-deslop"
+    },
+    {
+      "source": "Six-lesson course archive",
+      "status": "Index, providers page and selected lessons read; downloadable archive not opened.",
+      "url": "https://kokunoyumeto.github.io/open-math-courses-public/downloads/randomized-versus-quantum-query-complexity.zip"
+    },
+    {
+      "source": "Supplementary bibliography",
+      "status": "Several records are abstract/contents/revision-record or download targets rather than theorem audits.",
+      "locator": "See each downloads.json read_status, availability, verification_level, and why field. This includes Pabbaraju, Xinyu Wu, the Nisan–Rudich–Saks precursor, talk recordings and whole-book/thesis coverage."
+    }
+  ],
+  "public_check_status": "No completed independent verification or specific published fatal error for this preprint was found in the inspected sources. Existing explanations and review labels are documented with their limits; older correction reports concern other papers.",
+  "validation": {
+    "all_27_references_exactly_once": true,
+    "all_linked_statement_ids_valid": true,
+    "all_118_ledger_ids_navigable": true,
+    "all_16_original_commentary_entries_have_disposition": true,
+    "new_commentary_matches_input_keys": true,
+    "download_priorities_in_required_enum": true,
+    "duplicate_download_urls": false,
+    "second_consistency_review": "Separate consistency pass over source audits; corrected tournament scope of ref25 and exact Theorem4.4 locator for ref18. This is not an independent proof certificate.",
+    "zip_validation": "All members tested for CRC and read-back equality after packaging."
+  },
+  "changes_to_external_or_private_systems": "None. Public research and local advisory deliverables only; no mailbox/account connection, message, repository mutation or publishing action."
+}

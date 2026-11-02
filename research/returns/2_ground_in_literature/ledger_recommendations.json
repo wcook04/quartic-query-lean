@@ -1,0 +1,67 @@
+[
+  {
+    "id": "LR1",
+    "statement_ids": [
+      "lem-2.2.i"
+    ],
+    "type": "incorrect_fixed_support_wording",
+    "current_claim": "Each test is a function of O(log m) input bits, at most ell+1 for a pointer test.",
+    "recommended_statement": "Each test is evaluable by a deterministic adaptive bit-query decision tree of depth O(log m). A pointer test first reads ell pointer bits and then the selected target bit, using at most ell+1 queries. Gate tests inspect at most three fixed bits.",
+    "reason": "At m=4, a two-bit pointer selects one of x0,x1,x2,x3. The resulting function depends on all six variables but has decision-tree depth three. Thus query depth and number of relevant variables differ.",
+    "source": "paper/quartic-query-separation.pdf, Lemma 2.2 pp.6–7; corpus/statement_ledger.json row lem-2.2.i",
+    "formal_target": "Model a pointer test as an adaptive decision tree of depth ell+1; coherent evaluation follows by retaining and uncomputing pointer/index registers.",
+    "impact": "Correct the ledger and its proof_notes; no correction to the manuscript lemma is indicated."
+  },
+  {
+    "id": "LR2",
+    "statement_ids": [
+      "claim-minimax-mu",
+      "lem-2.1.i",
+      "lem-4.1"
+    ],
+    "type": "separate_generic_theorem_from_instantiation",
+    "current_claim": "One row combines generic hard-distribution existence assuming L<R(P) with the product-success consequence; its dependency list names def-R and lem-4.1.",
+    "recommended_statement": "Separate (a) finite minimax assuming L<R(P), (b) its instantiation for P_{k,m} using Lemma 2.1(i), and (c) the r-fold success bound using Lemma 4.1. If retaining a single instantiated row, include lem-2.1.i in depends_on.",
+    "reason": "Lemma 4.1 is not needed for hard-distribution existence; the imported randomized lower bound is needed to discharge its hypothesis in this construction. The existing conditional mathematical statement is not false.",
+    "source": "paper/extracted.md lines575–589; paper/quartic-query-separation.pdf §4.1 p.12; existing ledger row claim-minimax-mu",
+    "formal_target": "Generic finite-game theorem -> Forrelation hardness instantiation -> independent product instance.",
+    "impact": "Clarify the proof graph and avoid accidentally treating the required hardness hypothesis as already discharged."
+  },
+  {
+    "id": "LR3",
+    "statement_ids": [
+      "thm-1.1",
+      "claim-exponent-ratio",
+      "claim-no-smaller-exponent"
+    ],
+    "type": "preserve_quantifier_order",
+    "recommended_statement": "For every alpha<4, choose a fixed integer k with 4-2/k>alpha; then let m tend to infinity through sufficiently large powers of four. Constants and thresholds may depend on k.",
+    "source": "paper/quartic-query-separation.pdf, Theorem 1.1 p.1; §5 p.14",
+    "impact": "Retention recommendation, not a newly discovered defect. Do not replace the result with R=Theta(Q^4) or assume uniformity in growing k."
+  },
+  {
+    "id": "LR4",
+    "statement_ids": [
+      "claim-grover-state",
+      "lem-3.1",
+      "claim-success-prob",
+      "claim-coupling"
+    ],
+    "type": "preserve_full_algorithm_contract",
+    "recommended_statement": "State both the every-input, every-branch query cap and equality of the normalized successful state, up to global phase. Retain all workspace; randomization over iterations and trials preserves the same conditional density matrix.",
+    "source": "paper/quartic-query-separation.pdf §3.1 pp.7–8; [12] Lemma1/Eq.(8), pp.5–7; [11] Lemma2 p.3",
+    "impact": "An expected-runtime or success-probability-only surrogate would not imply Proposition 3.2 as written."
+  },
+  {
+    "id": "LR5",
+    "statement_ids": [
+      "def-heavy",
+      "def-simulator",
+      "eq-21"
+    ],
+    "type": "preserve_joint_event_argument",
+    "recommended_statement": "Prove {column i is nonheavy and time t hits its true cell} is contained in capped-simulator success. Do not replace this with a conditional claim about the address distribution given nonheaviness.",
+    "source": "paper/quartic-query-separation.pdf §4.2 p.13, Eq.(21)",
+    "impact": "Retention recommendation: the original paper correctly avoids selection bias."
+  }
+]

@@ -1,0 +1,164 @@
+{
+  "source_paper_revision_as_supplied": "openai/math 4eaee875",
+  "source_archive": {
+    "filename": "quartic_1_understand_the_paper.zip",
+    "sha256": "f2a161b94f49333fdee7fdf7b065f7ed7e44c1edd22de3904484b76a86594488"
+  },
+  "trace": {
+    "filename": "Pasted text(20261101-233050).txt",
+    "sha256": "6512b242c6a4946ce9c4e7157febb51266ae23a2b23d75320e76f6ead76b072b"
+  },
+  "checked_members": [
+    {
+      "path": "corpus/statement_ledger.json",
+      "bytes": 82583,
+      "sha256": "baae822271b38aa322e9fec62c47621de20bb61eb82b077d92bd9c133685c143"
+    },
+    {
+      "path": "corpus/statement_ledger_notes.md",
+      "bytes": 14396,
+      "sha256": "2a04261acab3957b33720662f49cd42be483e4a85cb1b89a7dc3b324fdf317a1"
+    },
+    {
+      "path": "corpus/commentary.json",
+      "bytes": 8398,
+      "sha256": "7349c779ab34a30781bdec729b86e44012e0b3445aed1a112117ea68dec8e556"
+    },
+    {
+      "path": "paper/quartic-query-separation.pdf",
+      "bytes": 433829,
+      "sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e"
+    },
+    {
+      "path": "paper/extracted.md",
+      "bytes": 64021,
+      "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a"
+    },
+    {
+      "path": "literature/references_resolved.json",
+      "bytes": 22691,
+      "sha256": "602b355d0ebf9e1819d3c627b93a5bf184207c8107071d8435d94a426d5274dc"
+    },
+    {
+      "path": "literature/papers/ref-01-aaronson-2018.pdf",
+      "bytes": 569568,
+      "sha256": "c27966b5b6cf12d61e3877f6ac23b48c9a21fe0a86e6b96ef527b02503e4e1fe"
+    },
+    {
+      "path": "literature/papers/ref-02-aaronson-2016.pdf",
+      "bytes": 393155,
+      "sha256": "64380c861d0e0296a53c998a0109d62bf446529414001f8e46615991b558e4bc"
+    },
+    {
+      "path": "literature/papers/ref-03-aaronson-2021.pdf",
+      "bytes": 827322,
+      "sha256": "445a34b0653042ad482bd95bc2c333d476df7ade6ce5d9ec45714f5b249e39ab"
+    },
+    {
+      "path": "literature/papers/ref-04-ambainis-2017.pdf",
+      "bytes": 313343,
+      "sha256": "1b7803487ac696b1f8d81ee7bc26d55ed7a3c4ff4b78928faa269b71358fe66c"
+    },
+    {
+      "path": "literature/papers/ref-05-ambainis-2026.pdf",
+      "bytes": 556093,
+      "sha256": "f1dded462ff8114378d9070ac78114df71934d0030fdddad2c714c286f0798b6"
+    },
+    {
+      "path": "literature/papers/ref-06-bansal-2021.pdf",
+      "bytes": 986784,
+      "sha256": "afe53c8bd918d07590f29a947ef044453db73959043135082d1a3c29b2863a35"
+    },
+    {
+      "path": "literature/papers/ref-08-beals-2001.pdf",
+      "bytes": 215459,
+      "sha256": "afec116657493976b70df7dcb8b174c8c0be55a9337d9e035afd5f1fc4d9cd4c"
+    },
+    {
+      "path": "literature/papers/ref-09-bendavid-2026.pdf",
+      "bytes": 325090,
+      "sha256": "ba61287bc2555ce5ffe739e8308b9087c1d0743a683565d4b922a179bd6149c0"
+    },
+    {
+      "path": "literature/papers/ref-10-bennett-1997.pdf",
+      "bytes": 234713,
+      "sha256": "7ade70e376984bcf3ee1770cd3b7670633d02d24afa680039b9058c2e1f8c76e"
+    },
+    {
+      "path": "literature/papers/ref-11-boyer-1998.pdf",
+      "bytes": 185341,
+      "sha256": "badd64e3db8079ee2428fc9f869e202d584412b0a003be64464437019d252fde"
+    },
+    {
+      "path": "literature/papers/ref-12-brassard-2002.pdf",
+      "bytes": 295305,
+      "sha256": "badedce80b0fe53e6cd93f915ce79c9680e375bb6565f83d2f572bc4114b0278"
+    },
+    {
+      "path": "literature/papers/ref-13-drucker-2012.pdf",
+      "bytes": 405185,
+      "sha256": "6a67da06a0f07d0f86bb6389b7143314cade50294e2c0c454f3cc9853643faff"
+    },
+    {
+      "path": "literature/papers/ref-14-durr-1996.pdf",
+      "bytes": 77176,
+      "sha256": "ff5c2ff71415e22f0ddf799b31e9b82d1990db9c1fc9d62ea2aabea5907e06cf"
+    },
+    {
+      "path": "literature/papers/ref-15-goos-2015.pdf",
+      "bytes": 710143,
+      "sha256": "ab57c3fb4fb3fe9932a04f9197300244903aca9085760d24679859b5b342489b"
+    },
+    {
+      "path": "literature/papers/ref-16-grover-1996.pdf",
+      "bytes": 67338,
+      "sha256": "630528f5297271288797900dffc9ae2a8e14854759b54d87f6bb7b75c5b770db"
+    },
+    {
+      "path": "literature/papers/ref-17-huang-2019.pdf",
+      "bytes": 108376,
+      "sha256": "9193d2dac7b3f6b6a84270884c6143913ae5a0ba9bf3db19273f9703db0ed6a2"
+    },
+    {
+      "path": "literature/papers/ref-18-mande-2023.pdf",
+      "bytes": 281082,
+      "sha256": "2bc8e533bc6728d75561bae841c49758ac14661d37e6476ecb339c17a5d5cd53"
+    },
+    {
+      "path": "literature/papers/ref-19-midrijanis-2004.pdf",
+      "bytes": 115109,
+      "sha256": "0cdb580bd48d513b33a1c65bd27faa361bd2e4ebaceff29bbf24b16586e4ab21"
+    },
+    {
+      "path": "literature/papers/ref-22-shaltiel-2003.pdf",
+      "bytes": 191585,
+      "sha256": "70248ab80df12ff9fab1b2708a2fda7947bf6f22c44db5f7713e6252aaad2436"
+    },
+    {
+      "path": "literature/papers/ref-23-sherstov-2023.pdf",
+      "bytes": 534209,
+      "sha256": "bafc286d1955c4b26a05af69f078b6f08acf6f9cb353cf1a787a6aacf441d325"
+    },
+    {
+      "path": "literature/papers/ref-24-spalek-2006.pdf",
+      "bytes": 198345,
+      "sha256": "24006189a0397c2517ecff25b33d499ea955dc19ef7c6429e96f50bd5de3270b"
+    },
+    {
+      "path": "literature/papers/ref-25-sun-2004.pdf",
+      "bytes": 318085,
+      "sha256": "f1690f3380a8b78c1896a153e2951906039bb8a3553881bad4da4760e2e35ff6"
+    },
+    {
+      "path": "literature/papers/ref-26-tal-2020.pdf",
+      "bytes": 412315,
+      "sha256": "01a6417eaf8ec0cbc84b0f3be169bf2535673ad2885e6676352d2685c2296ef1"
+    },
+    {
+      "path": "lean/current/Drift.lean",
+      "bytes": 3276,
+      "sha256": "4d72ad1b9aa67c5d1f572705cc3e64f87356f5e96023bc93d2b156d7523b3644"
+    }
+  ],
+  "verification": "All 30 manifest member hashes and byte sizes matched the supplied files. Source files were not modified."
+}

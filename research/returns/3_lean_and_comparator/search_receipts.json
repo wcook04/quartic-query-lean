@@ -1,0 +1,134 @@
+{
+  "as_of": "2026-11-01",
+  "note": "Public GitHub code search is an incomplete index; negative results do not establish nonexistence. Rate-limited queries are not negative results.",
+  "queries": [
+    {
+      "query": "\"Durr\" language:Lean",
+      "count": 43,
+      "items": [
+        {
+          "repo": "facebookresearch/atlas-lean",
+          "path": "WantedExt/Biology/PopulationGenetics/Coalescent/PartitionCoalescentWanted.lean",
+          "url": "https://github.com/facebookresearch/atlas-lean/blob/3f70f584a53ddc825342d5bc1ef4b8304a574f28/WantedExt/Biology/PopulationGenetics/Coalescent/PartitionCoalescentWanted.lean"
+        },
+        {
+          "repo": "facebookresearch/atlas-lean",
+          "path": "MathlibExt/Probability/CondExpAntitoneLimit.lean",
+          "url": "https://github.com/facebookresearch/atlas-lean/blob/3f70f584a53ddc825342d5bc1ef4b8304a574f28/MathlibExt/Probability/CondExpAntitoneLimit.lean"
+        },
+        {
+          "repo": "formal-applied-math/formal-mathfin",
+          "path": "MathFin/BlackScholes/SVI/Assembly.lean",
+          "url": "https://github.com/formal-applied-math/formal-mathfin/blob/61d945b970561fcce6996fac0a5f18a424eb851f/MathFin/BlackScholes/SVI/Assembly.lean"
+        },
+        {
+          "repo": "formal-applied-math/formal-mathfin",
+          "path": "MathFin/BlackScholes/SVI/Reduction.lean",
+          "url": "https://github.com/formal-applied-math/formal-mathfin/blob/61d945b970561fcce6996fac0a5f18a424eb851f/MathFin/BlackScholes/SVI/Reduction.lean"
+        },
+        {
+          "repo": "formal-applied-math/formal-mathfin",
+          "path": "MathFin/BlackScholes/SVI/BlackSmile.lean",
+          "url": "https://github.com/formal-applied-math/formal-mathfin/blob/61d945b970561fcce6996fac0a5f18a424eb851f/MathFin/BlackScholes/SVI/BlackSmile.lean"
+        },
+        {
+          "repo": "linglib-community/linglib",
+          "path": "Linglib/Fragments/German/Case.lean",
+          "url": "https://github.com/linglib-community/linglib/blob/21610d34bbce06bfcf233ae596ddbb849ac440a2/Linglib/Fragments/German/Case.lean"
+        },
+        {
+          "repo": "formal-applied-math/formal-mathfin",
+          "path": "MathFin/BlackScholes/SVI/Polynomial.lean",
+          "url": "https://github.com/formal-applied-math/formal-mathfin/blob/61d945b970561fcce6996fac0a5f18a424eb851f/MathFin/BlackScholes/SVI/Polynomial.lean"
+        },
+        {
+          "repo": "linglib-community/linglib",
+          "path": "Linglib/Fragments/German/Modals.lean",
+          "url": "https://github.com/linglib-community/linglib/blob/21610d34bbce06bfcf233ae596ddbb849ac440a2/Linglib/Fragments/German/Modals.lean"
+        }
+      ]
+    },
+    {
+      "query": "\"Hoyer\" language:Lean",
+      "error": {
+        "content": [
+          {
+            "type": "text",
+            "text": "GitHub API error 429: {\"message\":\"try again in 7.031589315s\",\"documentation_url\":\"https://docs.github.com/rest/search/search#search-code\",\"status\":\"429\"}"
+          }
+        ],
+        "structuredContent": {
+          "error": "GitHub API error 429: {\"message\":\"try again in 7.031589315s\",\"documentation_url\":\"https://docs.github.com/rest/search/search#search-code\",\"status\":\"429\"}",
+          "error_code": "RATE_LIMITED",
+          "error_data": {
+            "message": "try again in 7.031589315s",
+            "documentation_url": "https://docs.github.com/rest/search/search#search-code",
+            "status": "429"
+          },
+          "retry_after": "7",
+          "retry_after_seconds": 7
+        },
+        "isError": true
+      }
+    },
+    {
+      "query": "\"Drucker\" language:Lean",
+      "error": {
+        "content": [
+          {
+            "type": "text",
+            "text": "GitHub API error 429: {\"message\":\"try again in 7.018631266s\",\"documentation_url\":\"https://docs.github.com/rest/search/search#search-code\",\"status\":\"429\"}"
+          }
+        ],
+        "structuredContent": {
+          "error": "GitHub API error 429: {\"message\":\"try again in 7.018631266s\",\"documentation_url\":\"https://docs.github.com/rest/search/search#search-code\",\"status\":\"429\"}",
+          "error_code": "RATE_LIMITED",
+          "error_data": {
+            "message": "try again in 7.018631266s",
+            "documentation_url": "https://docs.github.com/rest/search/search#search-code",
+            "status": "429"
+          },
+          "retry_after": "7",
+          "retry_after_seconds": 7
+        },
+        "isError": true
+      }
+    },
+    {
+      "query": "\"Shaltiel\" language:Lean",
+      "count": 0,
+      "items": []
+    },
+    {
+      "query": "\"Bansal\" \"Sinha\" language:Lean",
+      "count": 0,
+      "items": []
+    },
+    {
+      "query": "\"Fourier\" \"growth\" repo:cslib-community/complexitylib",
+      "count": 3,
+      "items": [
+        {
+          "repo": "cslib-community/complexitylib",
+          "path": "ROADMAP.md",
+          "url": "https://github.com/cslib-community/complexitylib/blob/2ddfd57553a75ac1a838873bd8980353065b2fda/ROADMAP.md"
+        },
+        {
+          "repo": "cslib-community/complexitylib",
+          "path": "references.bib",
+          "url": "https://github.com/cslib-community/complexitylib/blob/2ddfd57553a75ac1a838873bd8980353065b2fda/references.bib"
+        },
+        {
+          "repo": "cslib-community/complexitylib",
+          "path": "Complexity.lean",
+          "url": "https://github.com/cslib-community/complexitylib/blob/2ddfd57553a75ac1a838873bd8980353065b2fda/Complexity.lean"
+        }
+      ]
+    },
+    {
+      "query": "\"HadamardMatrix\" repo:leanprover-community/mathlib4",
+      "count": 0,
+      "items": []
+    }
+  ]
+}

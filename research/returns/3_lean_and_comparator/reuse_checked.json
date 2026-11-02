@@ -1,0 +1,492 @@
+[
+  {
+    "declaration": "Cslib.Quantum.State",
+    "commit_sha": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a",
+    "repository": "cslib-community/complexitylib",
+    "file": "Complexity/Computability/QueryComplexity/Quantum/Search.lean",
+    "source_line": 83,
+    "url": "https://github.com/cslib-community/complexitylib/blob/62ca5c21461b2482e8bd12b7cb9b4937d887a33a/Complexity/Computability/QueryComplexity/Quantum/Search.lean#L83",
+    "signature": "abbrev State (N : ℕ) (W : Type*) := EuclideanSpace ℂ (Fin N × Bool × W)",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "Cslib.Quantum.phaseOracle",
+    "commit_sha": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a",
+    "repository": "cslib-community/complexitylib",
+    "file": "Complexity/Computability/QueryComplexity/Quantum/Search.lean",
+    "source_line": 87,
+    "url": "https://github.com/cslib-community/complexitylib/blob/62ca5c21461b2482e8bd12b7cb9b4937d887a33a/Complexity/Computability/QueryComplexity/Quantum/Search.lean#L87",
+    "signature": "noncomputable def phaseOracle (x : Fin N → Bool) : State N W →ₗ[ℂ] State N W where",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "Cslib.Quantum.phaseOracle_apply",
+    "commit_sha": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a",
+    "repository": "cslib-community/complexitylib",
+    "file": "Complexity/Computability/QueryComplexity/Quantum/Search.lean",
+    "source_line": 98,
+    "url": "https://github.com/cslib-community/complexitylib/blob/62ca5c21461b2482e8bd12b7cb9b4937d887a33a/Complexity/Computability/QueryComplexity/Quantum/Search.lean#L98",
+    "signature": "@[simp] theorem phaseOracle_apply (x : Fin N → Bool) (ψ : State N W) (p : Fin N × Bool × W) :\n    (phaseOracle x ψ).ofLp p = (if p.2.1 && x p.1 then -1 else 1) * ψ.ofLp p := rfl",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "Cslib.Quantum.run",
+    "commit_sha": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a",
+    "repository": "cslib-community/complexitylib",
+    "file": "Complexity/Computability/QueryComplexity/Quantum/Search.lean",
+    "source_line": 118,
+    "url": "https://github.com/cslib-community/complexitylib/blob/62ca5c21461b2482e8bd12b7cb9b4937d887a33a/Complexity/Computability/QueryComplexity/Quantum/Search.lean#L118",
+    "signature": "noncomputable def run (U : ℕ → State N W →ₗᵢ[ℂ] State N W) (ψ₀ : State N W)\n    (x : Fin N → Bool) : ℕ → State N W\n  | 0 => U 0 ψ₀\n  | t + 1 => U (t + 1) (phaseOracle x (run U ψ₀ x t))\n\n/-- Query algorithms preserve norms. -/\ntheorem norm_run (U : ℕ → State N W →ₗᵢ[ℂ] State N W) (ψ₀ : State N W) (x : Fin N → Bool)\n    (t : ℕ) : ‖run U ψ₀ x t‖ = ‖ψ₀‖ := by",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "Cslib.Quantum.norm_run",
+    "commit_sha": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a",
+    "repository": "cslib-community/complexitylib",
+    "file": "Complexity/Computability/QueryComplexity/Quantum/Search.lean",
+    "source_line": 124,
+    "url": "https://github.com/cslib-community/complexitylib/blob/62ca5c21461b2482e8bd12b7cb9b4937d887a33a/Complexity/Computability/QueryComplexity/Quantum/Search.lean#L124",
+    "signature": "theorem norm_run (U : ℕ → State N W →ₗᵢ[ℂ] State N W) (ψ₀ : State N W) (x : Fin N → Bool)\n    (t : ℕ) : ‖run U ψ₀ x t‖ = ‖ψ₀‖ := by",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "Cslib.Quantum.spectralSensitivity_le_thirty_six_mul",
+    "commit_sha": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a",
+    "repository": "cslib-community/complexitylib",
+    "file": "Complexity/Computability/QueryComplexity/Quantum/Adversary.lean",
+    "source_line": 276,
+    "url": "https://github.com/cslib-community/complexitylib/blob/62ca5c21461b2482e8bd12b7cb9b4937d887a33a/Complexity/Computability/QueryComplexity/Quantum/Adversary.lean#L276",
+    "signature": "theorem spectralSensitivity_le_thirty_six_mul {f : BooleanFunction N}\n    (U : ℕ → State N W →ₗᵢ[ℂ] State N W) {ψ₀ : State N W} (hψ₀ : ‖ψ₀‖ = 1) (T : ℕ)\n    (S : Finset (Fin N × Bool × W))\n    (h : ∀ x, |measureProb (run U ψ₀ x T) S - bitVal ℝ (f x)| ≤ 1 / 3) :\n    spectralSensitivity f ≤ 36 * T := by",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "Cslib.Quantum.degree_le_mul_sq",
+    "commit_sha": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a",
+    "repository": "cslib-community/complexitylib",
+    "file": "Complexity/Computability/QueryComplexity/Quantum/Adversary.lean",
+    "source_line": 292,
+    "url": "https://github.com/cslib-community/complexitylib/blob/62ca5c21461b2482e8bd12b7cb9b4937d887a33a/Complexity/Computability/QueryComplexity/Quantum/Adversary.lean#L292",
+    "signature": "theorem degree_le_mul_sq {f : BooleanFunction N}\n    (U : ℕ → State N W →ₗᵢ[ℂ] State N W) {ψ₀ : State N W} (hψ₀ : ‖ψ₀‖ = 1) (T : ℕ)\n    (S : Finset (Fin N × Bool × W))\n    (h : ∀ x, |measureProb (run U ψ₀ x T) S - bitVal ℝ (f x)| ≤ 1 / 3) :\n    degree f ≤ 1296 * T ^ 2 := by",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "Cslib.Quantum.complexity_le_mul_pow_four",
+    "commit_sha": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a",
+    "repository": "cslib-community/complexitylib",
+    "file": "Complexity/Computability/QueryComplexity/Quantum/Adversary.lean",
+    "source_line": 308,
+    "url": "https://github.com/cslib-community/complexitylib/blob/62ca5c21461b2482e8bd12b7cb9b4937d887a33a/Complexity/Computability/QueryComplexity/Quantum/Adversary.lean#L308",
+    "signature": "theorem complexity_le_mul_pow_four {f : BooleanFunction N}\n    (U : ℕ → State N W →ₗᵢ[ℂ] State N W) {ψ₀ : State N W} (hψ₀ : ‖ψ₀‖ = 1) (T : ℕ)\n    (S : Finset (Fin N × Bool × W))\n    (h : ∀ x, |measureProb (run U ψ₀ x T) S - bitVal ℝ (f x)| ≤ 1 / 3) :\n    DecisionTree.complexity f ≤ 20736 * T ^ 4 :=",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "Cslib.Quantum.blockSensitivity_le_sixteen_mul_sq",
+    "commit_sha": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a",
+    "repository": "cslib-community/complexitylib",
+    "file": "Complexity/Computability/QueryComplexity/Quantum/Polynomial.lean",
+    "source_line": 252,
+    "url": "https://github.com/cslib-community/complexitylib/blob/62ca5c21461b2482e8bd12b7cb9b4937d887a33a/Complexity/Computability/QueryComplexity/Quantum/Polynomial.lean#L252",
+    "signature": "theorem blockSensitivity_le_sixteen_mul_sq {f : BooleanFunction N}\n    (U : ℕ → State N W →ₗᵢ[ℂ] State N W) {ψ₀ : State N W} (hψ₀ : ‖ψ₀‖ = 1) (T : ℕ)\n    (S : Finset (Fin N × Bool × W))\n    (h : ∀ x, |measureProb (run U ψ₀ x T) S - bitVal ℝ (f x)| ≤ 1 / 3) :\n    blockSensitivity f ≤ 16 * T ^ 2 := by",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "Cslib.DecisionTree.complexity_le_degree_mul_blockSensitivity",
+    "commit_sha": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a",
+    "repository": "cslib-community/complexitylib",
+    "file": "Complexity/Computability/QueryComplexity/Midrijanis.lean",
+    "source_line": 86,
+    "url": "https://github.com/cslib-community/complexitylib/blob/62ca5c21461b2482e8bd12b7cb9b4937d887a33a/Complexity/Computability/QueryComplexity/Midrijanis.lean#L86",
+    "signature": "theorem complexity_le_degree_mul_blockSensitivity (f : BooleanFunction n) :\n    complexity f ≤ degree f * blockSensitivity f := by",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "Cslib.QueryComplexity.degree_le_spectralSensitivity_sq",
+    "commit_sha": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a",
+    "repository": "cslib-community/complexitylib",
+    "file": "Complexity/Computability/QueryComplexity/SpectralSensitivity.lean",
+    "source_line": 269,
+    "url": "https://github.com/cslib-community/complexitylib/blob/62ca5c21461b2482e8bd12b7cb9b4937d887a33a/Complexity/Computability/QueryComplexity/SpectralSensitivity.lean#L269",
+    "signature": "theorem degree_le_spectralSensitivity_sq (f : BooleanFunction n) :\n    (degree f : ℝ) ≤ spectralSensitivity f ^ 2 := by",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "Cslib.QueryComplexity.randomizedComplexity",
+    "commit_sha": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a",
+    "repository": "cslib-community/complexitylib",
+    "file": "Complexity/Computability/QueryComplexity/Randomized.lean",
+    "source_line": 230,
+    "url": "https://github.com/cslib-community/complexitylib/blob/62ca5c21461b2482e8bd12b7cb9b4937d887a33a/Complexity/Computability/QueryComplexity/Randomized.lean#L230",
+    "signature": "noncomputable def randomizedComplexity (ε : ℝ) (f : (ι → Bool) → β) : ℕ :=",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "Cslib.QueryComplexity.exists_computes_depth_eq_randomizedComplexity",
+    "commit_sha": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a",
+    "repository": "cslib-community/complexitylib",
+    "file": "Complexity/Computability/QueryComplexity/Randomized.lean",
+    "source_line": 247,
+    "url": "https://github.com/cslib-community/complexitylib/blob/62ca5c21461b2482e8bd12b7cb9b4937d887a33a/Complexity/Computability/QueryComplexity/Randomized.lean#L247",
+    "signature": "theorem exists_computes_depth_eq_randomizedComplexity (hε : 0 ≤ ε) (f : (ι → Bool) → β) :\n    ∃ μ : RandomizedDecisionTree ι β, μ.Computes ε f ∧ μ.depth = randomizedComplexity ε f := by",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "Cslib.QueryComplexity.randomizedComplexity_le_iff",
+    "commit_sha": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a",
+    "repository": "cslib-community/complexitylib",
+    "file": "Complexity/Computability/QueryComplexity/Randomized.lean",
+    "source_line": 254,
+    "url": "https://github.com/cslib-community/complexitylib/blob/62ca5c21461b2482e8bd12b7cb9b4937d887a33a/Complexity/Computability/QueryComplexity/Randomized.lean#L254",
+    "signature": "theorem randomizedComplexity_le_iff (hε : 0 ≤ ε) :\n    randomizedComplexity ε f ≤ d ↔ ∃ μ : RandomizedDecisionTree ι β, μ.Computes ε f ∧ μ.depth ≤ d :=",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "Cslib.QueryComplexity.le_randomizedComplexity_iff",
+    "commit_sha": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a",
+    "repository": "cslib-community/complexitylib",
+    "file": "Complexity/Computability/QueryComplexity/Randomized.lean",
+    "source_line": 261,
+    "url": "https://github.com/cslib-community/complexitylib/blob/62ca5c21461b2482e8bd12b7cb9b4937d887a33a/Complexity/Computability/QueryComplexity/Randomized.lean#L261",
+    "signature": "theorem le_randomizedComplexity_iff (hε : 0 ≤ ε) :\n    d ≤ randomizedComplexity ε f ↔ ∀ μ : RandomizedDecisionTree ι β, μ.Computes ε f → d ≤ μ.depth :=",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "Convexity.StdSimplex.exists_forall_sum_le_of_forall_exists_sum_le",
+    "commit_sha": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a",
+    "repository": "cslib-community/complexitylib",
+    "file": "Complexity/Probability/Minimax.lean",
+    "source_line": 129,
+    "url": "https://github.com/cslib-community/complexitylib/blob/62ca5c21461b2482e8bd12b7cb9b4937d887a33a/Complexity/Probability/Minimax.lean#L129",
+    "signature": "theorem exists_forall_sum_le_of_forall_exists_sum_le {I J : Type*} [Fintype I] [Fintype J]\n    [Nonempty I] (M : I → J → ℝ) {c : ℝ}\n    (h : ∀ q : StdSimplex ℝ J, ∃ i, ∑ j, q.weights j * M i j ≤ c) :\n    ∃ p : StdSimplex ℝ I, ∀ j, ∑ i, p.weights i * M i j ≤ c := by",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "Cslib.Probability.PMF.exists_forall_toOuterMeasure_le",
+    "commit_sha": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a",
+    "repository": "cslib-community/complexitylib",
+    "file": "Complexity/Probability/Minimax.lean",
+    "source_line": 315,
+    "url": "https://github.com/cslib-community/complexitylib/blob/62ca5c21461b2482e8bd12b7cb9b4937d887a33a/Complexity/Probability/Minimax.lean#L315",
+    "signature": "theorem exists_forall_toOuterMeasure_le {I J : Type*} [Finite J] [Nonempty I] (E : I → J → Prop)\n    {ε : ℝ} (h : ∀ ν : PMF J, ∃ i, (ν.toOuterMeasure {j | E i j}).toReal ≤ ε) :\n    ∃ μ : PMF I, μ.support.Finite ∧ ∀ j, (μ.toOuterMeasure {i | E i j}).toReal ≤ ε := by",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "Cslib.Probability.PMF.ofStdSimplex",
+    "commit_sha": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a",
+    "repository": "cslib-community/complexitylib",
+    "file": "Complexity/Probability/Minimax.lean",
+    "source_line": 260,
+    "url": "https://github.com/cslib-community/complexitylib/blob/62ca5c21461b2482e8bd12b7cb9b4937d887a33a/Complexity/Probability/Minimax.lean#L260",
+    "signature": "def ofStdSimplex (p : StdSimplex ℝ I) : PMF I :=",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "Cslib.Probability.PMF.toStdSimplex",
+    "commit_sha": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a",
+    "repository": "cslib-community/complexitylib",
+    "file": "Complexity/Probability/Minimax.lean",
+    "source_line": 272,
+    "url": "https://github.com/cslib-community/complexitylib/blob/62ca5c21461b2482e8bd12b7cb9b4937d887a33a/Complexity/Probability/Minimax.lean#L272",
+    "signature": "noncomputable def toStdSimplex (μ : PMF I) : StdSimplex ℝ I where",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "Cslib.BitString.fourierCoeff_eq_sum",
+    "commit_sha": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a",
+    "repository": "cslib-community/complexitylib",
+    "file": "Complexity/Foundations/BooleanAnalysis/Fourier.lean",
+    "source_line": 256,
+    "url": "https://github.com/cslib-community/complexitylib/blob/62ca5c21461b2482e8bd12b7cb9b4937d887a33a/Complexity/Foundations/BooleanAnalysis/Fourier.lean#L256",
+    "signature": "theorem fourierCoeff_eq_sum (f : (ι → Bool) → ℝ) (S : Finset ι) :\n    fourierCoeff f S = (∑ x, f x * chi ℝ S x) / 2 ^ Fintype.card ι := by",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "Cslib.BitString.fourierCoeff_chi",
+    "commit_sha": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a",
+    "repository": "cslib-community/complexitylib",
+    "file": "Complexity/Foundations/BooleanAnalysis/Fourier.lean",
+    "source_line": 287,
+    "url": "https://github.com/cslib-community/complexitylib/blob/62ca5c21461b2482e8bd12b7cb9b4937d887a33a/Complexity/Foundations/BooleanAnalysis/Fourier.lean#L287",
+    "signature": "theorem fourierCoeff_chi (S T : Finset ι) :\n    fourierCoeff (chi ℝ S) T = if S = T then 1 else 0 :=",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "Cslib.BitString.sum_fourierCoeff_mul_chi",
+    "commit_sha": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a",
+    "repository": "cslib-community/complexitylib",
+    "file": "Complexity/Foundations/BooleanAnalysis/Fourier.lean",
+    "source_line": 305,
+    "url": "https://github.com/cslib-community/complexitylib/blob/62ca5c21461b2482e8bd12b7cb9b4937d887a33a/Complexity/Foundations/BooleanAnalysis/Fourier.lean#L305",
+    "signature": "theorem sum_fourierCoeff_mul_chi (f : (ι → Bool) → ℝ) (x : ι → Bool) :\n    ∑ S, fourierCoeff f S * chi ℝ S x = f x := by",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "Cslib.BitString.expect_mul_eq_sum_fourierCoeff_mul",
+    "commit_sha": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a",
+    "repository": "cslib-community/complexitylib",
+    "file": "Complexity/Foundations/BooleanAnalysis/Fourier.lean",
+    "source_line": 360,
+    "url": "https://github.com/cslib-community/complexitylib/blob/62ca5c21461b2482e8bd12b7cb9b4937d887a33a/Complexity/Foundations/BooleanAnalysis/Fourier.lean#L360",
+    "signature": "theorem expect_mul_eq_sum_fourierCoeff_mul (f g : (ι → Bool) → ℝ) :\n    𝔼 x, f x * g x = ∑ S, fourierCoeff f S * fourierCoeff g S := by",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "Cslib.BitString.expect_sq_eq_sum_fourierCoeff_sq",
+    "commit_sha": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a",
+    "repository": "cslib-community/complexitylib",
+    "file": "Complexity/Foundations/BooleanAnalysis/Fourier.lean",
+    "source_line": 373,
+    "url": "https://github.com/cslib-community/complexitylib/blob/62ca5c21461b2482e8bd12b7cb9b4937d887a33a/Complexity/Foundations/BooleanAnalysis/Fourier.lean#L373",
+    "signature": "theorem expect_sq_eq_sum_fourierCoeff_sq (f : (ι → Bool) → ℝ) :\n    𝔼 x, f x ^ 2 = ∑ S, fourierCoeff f S ^ 2 := by",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "QuantumQueryComplexity.AmpSetup.amplified_cond_law",
+    "commit_sha": "517ba85eb211232771429804d8583e3f52b9d541",
+    "repository": "troyjlee/quantum-query-complexity",
+    "file": "QuantumQueryComplexity/Quantum/Amplitude/Amplification.lean",
+    "source_line": 191,
+    "url": "https://github.com/troyjlee/quantum-query-complexity/blob/517ba85eb211232771429804d8583e3f52b9d541/QuantumQueryComplexity/Quantum/Amplitude/Amplification.lean#L191",
+    "signature": "theorem amplified_cond_law (hP : P.Marks read Good) (x : X) {m : ℕ} (hm : 0 < m) (y : O)\n    (hp : 0 < P.succProb read Good x) (hs : 0 < P.returnProb read x m hm) :\n    (P.amplified m hm).prob (read x) (P.amplifiedBudget m) (some y) / P.returnProb read x m hm\n      = P.goodWeight read Good x y / P.succProb read Good x := by",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "QuantumQueryComplexity.AmpSetup.two_thirds_le_returnProb",
+    "commit_sha": "517ba85eb211232771429804d8583e3f52b9d541",
+    "repository": "troyjlee/quantum-query-complexity",
+    "file": "QuantumQueryComplexity/Quantum/Amplitude/Amplification.lean",
+    "source_line": 166,
+    "url": "https://github.com/troyjlee/quantum-query-complexity/blob/517ba85eb211232771429804d8583e3f52b9d541/QuantumQueryComplexity/Quantum/Amplitude/Amplification.lean#L166",
+    "signature": "theorem two_thirds_le_returnProb (hP : P.Marks read Good) (x : X) {m : ℕ} (hm : 0 < m)\n    {p₀ : ℝ} (hp₀ : 0 < p₀) (hpp : p₀ ≤ P.succProb read Good x)\n    (hmp : 1 ≤ (m : ℝ) * Real.sqrt p₀) : 2 / 3 ≤ P.returnProb read x m hm := by",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "QuantumQueryComplexity.AmpSetup.amplified_prob_none_of_succProb_eq_zero",
+    "commit_sha": "517ba85eb211232771429804d8583e3f52b9d541",
+    "repository": "troyjlee/quantum-query-complexity",
+    "file": "QuantumQueryComplexity/Quantum/Amplitude/Amplification.lean",
+    "source_line": 159,
+    "url": "https://github.com/troyjlee/quantum-query-complexity/blob/517ba85eb211232771429804d8583e3f52b9d541/QuantumQueryComplexity/Quantum/Amplitude/Amplification.lean#L159",
+    "signature": "theorem amplified_prob_none_of_succProb_eq_zero (hP : P.Marks read Good) (x : X) {m : ℕ}\n    (hm : 0 < m) (h0 : P.succProb read Good x = 0) :\n    (P.amplified m hm).prob (read x) (P.amplifiedBudget m) none = 1 := by",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "QuantumQueryComplexity.AmpSetup.amplifiedBudget_le_real",
+    "commit_sha": "517ba85eb211232771429804d8583e3f52b9d541",
+    "repository": "troyjlee/quantum-query-complexity",
+    "file": "QuantumQueryComplexity/Quantum/Amplitude/Amplification.lean",
+    "source_line": 263,
+    "url": "https://github.com/troyjlee/quantum-query-complexity/blob/517ba85eb211232771429804d8583e3f52b9d541/QuantumQueryComplexity/Quantum/Amplitude/Amplification.lean#L263",
+    "signature": "theorem AmpSetup.amplifiedBudget_le_real (P : AmpSetup ι σ W O) {p₀ : ℝ} (hp₀ : 0 < p₀)\n    (hp1 : p₀ ≤ 1) :\n    (P.amplifiedBudget (ampIterations p₀) : ℝ)\n      ≤ 16 * ((P.prep.len : ℝ) + P.mark.len) / Real.sqrt p₀ := by",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "QuantumQueryComplexity.GroverSplit.grover_pow_mulVec",
+    "commit_sha": "517ba85eb211232771429804d8583e3f52b9d541",
+    "repository": "troyjlee/quantum-query-complexity",
+    "file": "QuantumQueryComplexity/Quantum/Amplitude/Geometry.lean",
+    "source_line": 239,
+    "url": "https://github.com/troyjlee/quantum-query-complexity/blob/517ba85eb211232771429804d8583e3f52b9d541/QuantumQueryComplexity/Quantum/Amplitude/Geometry.lean#L239",
+    "signature": "theorem grover_pow_mulVec (h : GroverSplit ψ g b) {S : Matrix H H ℂ} (hSg : S *ᵥ g = -g)\n    (hSb : S *ᵥ b = b) (j : ℕ) :\n    ((stateRefl ψ * S) ^ j) *ᵥ ψ\n      = ((ampA (qNormSq g) j : ℝ) : ℂ) • g + ((ampB (qNormSq g) j : ℝ) : ℂ) • b :=",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "QuantumQueryComplexity.xorQueryCounts_nonempty",
+    "commit_sha": "517ba85eb211232771429804d8583e3f52b9d541",
+    "repository": "troyjlee/quantum-query-complexity",
+    "file": "QuantumQueryComplexity/Quantum/Simulation.lean",
+    "source_line": 510,
+    "url": "https://github.com/troyjlee/quantum-query-complexity/blob/517ba85eb211232771429804d8583e3f52b9d541/QuantumQueryComplexity/Quantum/Simulation.lean#L510",
+    "signature": "theorem xorQueryCounts_nonempty {read : X → ι → Bool} {f : X → O} {ε : ℝ}\n    (hdet : ∀ x y, read x = read y → f x = f y) (hε0 : 0 ≤ ε) :\n    (XorQueryCounts read f ε).Nonempty := by",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "QuantumQueryComplexity.qQueryOn_le_two_mul_xorQQueryOn",
+    "commit_sha": "517ba85eb211232771429804d8583e3f52b9d541",
+    "repository": "troyjlee/quantum-query-complexity",
+    "file": "QuantumQueryComplexity/Quantum/Simulation.lean",
+    "source_line": 518,
+    "url": "https://github.com/troyjlee/quantum-query-complexity/blob/517ba85eb211232771429804d8583e3f52b9d541/QuantumQueryComplexity/Quantum/Simulation.lean#L518",
+    "signature": "theorem qQueryOn_le_two_mul_xorQQueryOn {read : X → ι → Bool} {f : X → O}\n    {ε : ℝ} (hdet : ∀ x y, read x = read y → f x = f y) (hε0 : 0 ≤ ε) :\n    qQueryOn read f ε ≤ 2 * xorQQueryOn read f ε := by",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "QuantumQueryComplexity.xorQQueryOn_le_two_mul_qQueryOn",
+    "commit_sha": "517ba85eb211232771429804d8583e3f52b9d541",
+    "repository": "troyjlee/quantum-query-complexity",
+    "file": "QuantumQueryComplexity/Quantum/Simulation.lean",
+    "source_line": 528,
+    "url": "https://github.com/troyjlee/quantum-query-complexity/blob/517ba85eb211232771429804d8583e3f52b9d541/QuantumQueryComplexity/Quantum/Simulation.lean#L528",
+    "signature": "theorem xorQQueryOn_le_two_mul_qQueryOn {read : X → ι → Bool} {f : X → O}\n    {ε : ℝ} (hdet : ∀ x y, read x = read y → f x = f y) (hε0 : 0 ≤ ε) :\n    xorQQueryOn read f ε ≤ 2 * qQueryOn read f ε := by",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "Matrix.IsHadamard",
+    "commit_sha": "69552756cd8a2d2d48763cf7279fd814d6a1224d",
+    "repository": "leanprover-community/mathlib4",
+    "file": "Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean",
+    "source_line": 51,
+    "url": "https://github.com/leanprover-community/mathlib4/blob/69552756cd8a2d2d48763cf7279fd814d6a1224d/Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean#L51",
+    "signature": "@[mk_iff] structure IsHadamard (A : Matrix n n R) : Prop where",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "Matrix.IsHadamard.kronecker",
+    "commit_sha": "69552756cd8a2d2d48763cf7279fd814d6a1224d",
+    "repository": "leanprover-community/mathlib4",
+    "file": "Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean",
+    "source_line": 86,
+    "url": "https://github.com/leanprover-community/mathlib4/blob/69552756cd8a2d2d48763cf7279fd814d6a1224d/Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean#L86",
+    "signature": "theorem IsHadamard.kronecker {A : Matrix m m R} {B : Matrix n n R}\n    (hA : A.IsHadamard) (hB : B.IsHadamard) : (A ⊗ₖ B).IsHadamard := by",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "Matrix.IsHadamard.of_mul_conjTranspose",
+    "commit_sha": "69552756cd8a2d2d48763cf7279fd814d6a1224d",
+    "repository": "leanprover-community/mathlib4",
+    "file": "Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean",
+    "source_line": 214,
+    "url": "https://github.com/leanprover-community/mathlib4/blob/69552756cd8a2d2d48763cf7279fd814d6a1224d/Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean#L214",
+    "signature": "theorem IsHadamard.of_mul_conjTranspose\n    (hentry : ∀ i j, A i j ∈ unitary R)\n    (hmul : A * Aᴴ = (Fintype.card n : R) • (1 : Matrix n n R))\n    (hcard : IsRegular (Fintype.card n : R)) : A.IsHadamard := by",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "QuantumAlg.WalshHadamard.dotParity",
+    "commit_sha": "971dc8be8a153a116b6d7cd748f984d545861b00",
+    "repository": "QudeLeap/Lean-QuantumAlg",
+    "file": "QuantumAlg/Primitives/WalshHadamard/Mathematics.lean",
+    "source_line": 54,
+    "url": "https://github.com/QudeLeap/Lean-QuantumAlg/blob/971dc8be8a153a116b6d7cd748f984d545861b00/QuantumAlg/Primitives/WalshHadamard/Mathematics.lean#L54",
+    "signature": "public def dotParity (x y : Fin (2 ^ n)) : Bool :=",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "QuantumAlg.WalshHadamard.walshSign",
+    "commit_sha": "971dc8be8a153a116b6d7cd748f984d545861b00",
+    "repository": "QudeLeap/Lean-QuantumAlg",
+    "file": "QuantumAlg/Primitives/WalshHadamard/Mathematics.lean",
+    "source_line": 58,
+    "url": "https://github.com/QudeLeap/Lean-QuantumAlg/blob/971dc8be8a153a116b6d7cd748f984d545861b00/QuantumAlg/Primitives/WalshHadamard/Mathematics.lean#L58",
+    "signature": "public def walshSign (x y : Fin (2 ^ n)) : ℂ := if dotParity x y then -1 else 1",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "QuantumAlg.WalshHadamard.sum_walshSign_mul_walshSign_eq",
+    "commit_sha": "971dc8be8a153a116b6d7cd748f984d545861b00",
+    "repository": "QudeLeap/Lean-QuantumAlg",
+    "file": "QuantumAlg/Primitives/WalshHadamard/Mathematics.lean",
+    "source_line": 264,
+    "url": "https://github.com/QudeLeap/Lean-QuantumAlg/blob/971dc8be8a153a116b6d7cd748f984d545861b00/QuantumAlg/Primitives/WalshHadamard/Mathematics.lean#L264",
+    "signature": "lemma sum_walshSign_mul_walshSign_eq (y s : Fin (2 ^ n)) :\n    ∑ x, walshSign y x * walshSign s x =\n      if y = s then ((2 ^ n : ℕ) : ℂ) else 0 := by",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "QuantumAlg.WalshHadamard.hadamardLayerOperator",
+    "commit_sha": "971dc8be8a153a116b6d7cd748f984d545861b00",
+    "repository": "QudeLeap/Lean-QuantumAlg",
+    "file": "QuantumAlg/Primitives/WalshHadamard/Mathematics.lean",
+    "source_line": 298,
+    "url": "https://github.com/QudeLeap/Lean-QuantumAlg/blob/971dc8be8a153a116b6d7cd748f984d545861b00/QuantumAlg/Primitives/WalshHadamard/Mathematics.lean#L298",
+    "signature": "public def hadamardLayerOperator (n : ℕ) : UnitaryOperator (Qubits n) :=",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "QuantumAlg.AmplitudeAmplification.algorithm_solves",
+    "commit_sha": "971dc8be8a153a116b6d7cd748f984d545861b00",
+    "repository": "QudeLeap/Lean-QuantumAlg",
+    "file": "QuantumAlg/Primitives/AmplitudeAmplification/Endpoint/Results.lean",
+    "source_line": 54,
+    "url": "https://github.com/QudeLeap/Lean-QuantumAlg/blob/971dc8be8a153a116b6d7cd748f984d545861b00/QuantumAlg/Primitives/AmplitudeAmplification/Endpoint/Results.lean#L54",
+    "signature": "public lemma algorithm_solves (n k : Nat) :\n    (algorithm n k).Solves (problem n k) := complete_correct n k",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "QuantumAlg.AmplitudeAmplification.algorithm_preparationCount",
+    "commit_sha": "971dc8be8a153a116b6d7cd748f984d545861b00",
+    "repository": "QudeLeap/Lean-QuantumAlg",
+    "file": "QuantumAlg/Primitives/AmplitudeAmplification/Endpoint/Results.lean",
+    "source_line": 71,
+    "url": "https://github.com/QudeLeap/Lean-QuantumAlg/blob/971dc8be8a153a116b6d7cd748f984d545861b00/QuantumAlg/Primitives/AmplitudeAmplification/Endpoint/Results.lean#L71",
+    "signature": "public lemma algorithm_preparationCount (n : Nat)\n    (k : Nat) (path : (algorithm n k).run.code.Path) :\n    ResourcePool.count\n      (model := .quantum AlgorithmGate.model",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "QuantumAlg.AmplitudeAmplification.algorithm_inversePreparationCount",
+    "commit_sha": "971dc8be8a153a116b6d7cd748f984d545861b00",
+    "repository": "QudeLeap/Lean-QuantumAlg",
+    "file": "QuantumAlg/Primitives/AmplitudeAmplification/Endpoint/Results.lean",
+    "source_line": 81,
+    "url": "https://github.com/QudeLeap/Lean-QuantumAlg/blob/971dc8be8a153a116b6d7cd748f984d545861b00/QuantumAlg/Primitives/AmplitudeAmplification/Endpoint/Results.lean#L81",
+    "signature": "public lemma algorithm_inversePreparationCount (n : Nat) (k : Nat)\n    (path : (algorithm n k).run.code.Path) :\n    ResourcePool.count\n      (model := .quantum AlgorithmGate.model",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "QuantumAlg.AmplitudeAmplification.algorithm_goodReflectionCount",
+    "commit_sha": "971dc8be8a153a116b6d7cd748f984d545861b00",
+    "repository": "QudeLeap/Lean-QuantumAlg",
+    "file": "QuantumAlg/Primitives/AmplitudeAmplification/Endpoint/Results.lean",
+    "source_line": 91,
+    "url": "https://github.com/QudeLeap/Lean-QuantumAlg/blob/971dc8be8a153a116b6d7cd748f984d545861b00/QuantumAlg/Primitives/AmplitudeAmplification/Endpoint/Results.lean#L91",
+    "signature": "public lemma algorithm_goodReflectionCount (n : Nat) (k : Nat)\n    (path : (algorithm n k).run.code.Path) :\n    ResourcePool.count\n      (model := .quantum AlgorithmGate.model",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "Arlib.Probability.seqWeight",
+    "commit_sha": "8d08f89a6d05c5e8368e91659bd6e117fbb74c4e",
+    "repository": "meelgroup/arlib",
+    "file": "Arlib/Probability/SequentialKernel.lean",
+    "source_line": 72,
+    "url": "https://github.com/meelgroup/arlib/blob/8d08f89a6d05c5e8368e91659bd6e117fbb74c4e/Arlib/Probability/SequentialKernel.lean#L72",
+    "signature": "noncomputable def seqWeight {S : Type} [Fintype S] {q : ℕ}\n    (k : (i : Fin q) → (Fin i.val → S) → S → ℝ) (c : Fin q → S) : ℝ :=",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "Arlib.Probability.sum_seqWeight",
+    "commit_sha": "8d08f89a6d05c5e8368e91659bd6e117fbb74c4e",
+    "repository": "meelgroup/arlib",
+    "file": "Arlib/Probability/SequentialKernel.lean",
+    "source_line": 124,
+    "url": "https://github.com/meelgroup/arlib/blob/8d08f89a6d05c5e8368e91659bd6e117fbb74c4e/Arlib/Probability/SequentialKernel.lean#L124",
+    "signature": "theorem sum_seqWeight {S : Type} [Fintype S] [DecidableEq S] {q : ℕ}\n    (k : (i : Fin q) → (Fin i.val → S) → S → ℝ)\n    (hk : ∀ (i : Fin q) (h : Fin i.val → S), ∑ s, k i h s = 1) :\n    ∑ c : Fin q → S, seqWeight k c = 1 :=",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "Arlib.Probability.CoinSpace.condPr_eq_blockPr",
+    "commit_sha": "8d08f89a6d05c5e8368e91659bd6e117fbb74c4e",
+    "repository": "meelgroup/arlib",
+    "file": "Arlib/Probability/ProductFiber.lean",
+    "source_line": 497,
+    "url": "https://github.com/meelgroup/arlib/blob/8d08f89a6d05c5e8368e91659bd6e117fbb74c4e/Arlib/Probability/ProductFiber.lean#L497",
+    "signature": "theorem condPr_eq_blockPr {S : Finset C.ι} {E F : Event C.toFinProb}\n    (hE : C.DependsOn E Sᶜ) (hF : C.DependsOn F S) (hFpos : 0 < C.toFinProb.Pr F) :\n    C.toFinProb.condPr E F = (C.block Sᶜ).toFinProb.Pr (C.project Sᶜ E) := by",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "Arlib.Probability.CoinSpace.condPr_fiber_eq",
+    "commit_sha": "8d08f89a6d05c5e8368e91659bd6e117fbb74c4e",
+    "repository": "meelgroup/arlib",
+    "file": "Arlib/Probability/ProductFiber.lean",
+    "source_line": 511,
+    "url": "https://github.com/meelgroup/arlib/blob/8d08f89a6d05c5e8368e91659bd6e117fbb74c4e/Arlib/Probability/ProductFiber.lean#L511",
+    "signature": "theorem condPr_fiber_eq {S : Finset C.ι} {E : Event C.toFinProb}\n    (hE : C.DependsOn E Sᶜ) (a : C.BlockΩ S) (ha : 0 < (C.block S).toFinProb.mass a) :\n    C.toFinProb.condPr E (fiber (C.restrict S) a)\n      = (C.block Sᶜ).toFinProb.Pr (C.project Sᶜ E) :=",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "Indistinguishable.steps_converge",
+    "commit_sha": "0dab8ad4b58b7a0e82f1738e86135d444462b953",
+    "repository": "girving/debate",
+    "file": "Learn/Indistinguishable.lean",
+    "source_line": 195,
+    "url": "https://github.com/girving/debate/blob/0dab8ad4b58b7a0e82f1738e86135d444462b953/Learn/Indistinguishable.lean#L195",
+    "signature": "lemma steps_converge {μ q p} (s : Safe μ q p) (As : Set (Distinguisher X Y)) (ε : ℝ) (ε0 : 0 < ε)\n   (ε1 : ε ≤ 1) : AdvLe μ q ((step μ q As ε (ε / 2))^[⌈4 * potential μ q p / ε ^ 2⌉₊] p) As ε := by",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  },
+  {
+    "declaration": "Indistinguishable.exists_small",
+    "commit_sha": "0dab8ad4b58b7a0e82f1738e86135d444462b953",
+    "repository": "girving/debate",
+    "file": "Learn/Indistinguishable.lean",
+    "source_line": 437,
+    "url": "https://github.com/girving/debate/blob/0dab8ad4b58b7a0e82f1738e86135d444462b953/Learn/Indistinguishable.lean#L437",
+    "signature": "lemma exists_small (μ : Prob X) (q : X → Prob Y) (As : Set (Distinguisher X Y))\n    (ε : ℝ) (ε0 : 0 < ε) (ε1 : ε ≤ 1) :\n    ∃ p : Mimic As, AdvLe μ q p.eval As ε ∧\n      Circuit.total p ≤ 6 * Fintype.card Y * ⌈4 * log (Fintype.card Y) / ε ^ 2⌉₊ + 1 := by",
+    "note": "Source inspected; not built in this environment. Transport required if toolchain differs."
+  }
+]

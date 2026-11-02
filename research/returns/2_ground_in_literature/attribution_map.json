@@ -1,0 +1,741 @@
+[
+  {
+    "idea": "Two-fold Fourier Checking/Forrelation",
+    "originators": [
+      "Scott Aaronson"
+    ],
+    "evidence": [
+      "AA v1 §1.1.1 pp.2–3 explicitly credits Aaronson’s earlier work; https://arxiv.org/abs/0910.4698"
+    ],
+    "status": "verified origin attribution",
+    "statement_ids": [
+      "eq-3"
+    ],
+    "attribution_id": "A01",
+    "credited_to": [
+      "Scott Aaronson"
+    ]
+  },
+  {
+    "idea": "k-fold Forrelation and alternating Hadamard/phase-query circuit",
+    "originators": [
+      "Scott Aaronson",
+      "Andris Ambainis"
+    ],
+    "evidence": [
+      "AA v1 §1.1.3 p.4; §3.2 Proposition6 pp.13–14"
+    ],
+    "status": "verified",
+    "statement_ids": [
+      "eq-3",
+      "lem-2.1.ii"
+    ],
+    "attribution_id": "A02",
+    "credited_to": [
+      "Scott Aaronson",
+      "Andris Ambainis"
+    ]
+  },
+  {
+    "idea": "δ=2^(−5k) promise and near-maximal explicit Hadamard randomized lower bound",
+    "originators": [
+      "Nikhil Bansal",
+      "Makrand Sinha"
+    ],
+    "evidence": [
+      "BS v3 equations(1.1)–(1.3), Theorem1.3 and Corollary1.4 pp.2–4"
+    ],
+    "status": "verified exact source match",
+    "statement_ids": [
+      "eq-4",
+      "lem-2.1.i"
+    ],
+    "attribution_id": "A03",
+    "credited_to": [
+      "Nikhil Bansal",
+      "Makrand Sinha"
+    ]
+  },
+  {
+    "idea": "Random-orthogonal rorrelation and exponent8/3−o(1) via cheat sheets",
+    "originators": [
+      "Avishay Tal"
+    ],
+    "shared_credit": [
+      "The cheat-sheet transformation is Aaronson–Ben-David–Kothari."
+    ],
+    "evidence": [
+      "Tal v1 introduction application printedpp.2–3; Corollary3.2 p.10; Theorem5.9 p.16"
+    ],
+    "status": "verified historical attribution",
+    "statement_ids": [
+      "cor-cubic-refuted"
+    ],
+    "attribution_id": "A04",
+    "credited_to": [
+      "Avishay Tal"
+    ]
+  },
+  {
+    "idea": "Independent exponent3−o(1) via improved decision-tree Fourier weight and rorrelation",
+    "originators": [
+      "Alexander A. Sherstov",
+      "Andrey A. Storozhenko",
+      "Pei Wu"
+    ],
+    "shared_credit": [
+      "ABK totalization; Tal rorrelation setup."
+    ],
+    "evidence": [
+      "SSW v4 Theorem1.5 p.4, §1.8 p.10"
+    ],
+    "status": "verified historical attribution",
+    "statement_ids": [
+      "cor-cubic-refuted"
+    ],
+    "attribution_id": "A05",
+    "credited_to": [
+      "Alexander A. Sherstov",
+      "Andrey A. Storozhenko",
+      "Pei Wu"
+    ]
+  },
+  {
+    "idea": "Capped/fair direct-product principle",
+    "originators": [
+      "Ronen Shaltiel"
+    ],
+    "later_formulation": [
+      "Andrew Drucker"
+    ],
+    "evidence": [
+      "Shaltiel ECCC §5 Definition4/Theorem5; Drucker §1.3 pp.6–7, Lemmas3.1–3.2 pp.11–12, §3 p.13"
+    ],
+    "status": "verified; arbitrary-µ vector form best sourced through Drucker",
+    "statement_ids": [
+      "lem-4.1"
+    ],
+    "attribution_id": "A06",
+    "credited_to": [
+      "Ronen Shaltiel"
+    ]
+  },
+  {
+    "idea": "Product of conditional optimal-success values under adaptive interleaving",
+    "originators": [
+      "Andrew Drucker"
+    ],
+    "antecedents": [
+      "Ronen Shaltiel"
+    ],
+    "evidence": [
+      "Drucker §1.3 expressly calls his rephrasing a perspective on Shaltiel’s proof; §3 proves conditional independence and value inequality."
+    ],
+    "status": "verified attribution, not a new quartic technique in isolation",
+    "statement_ids": [
+      "claim-product-law",
+      "def-value-V",
+      "eq-16",
+      "claim-supermartingale",
+      "claim-final-bound"
+    ],
+    "attribution_id": "A07",
+    "credited_to": [
+      "Andrew Drucker"
+    ]
+  },
+  {
+    "idea": "Planted uniformly selected winner, distinct address arrays, and event-containment simulator for the joint nonheavy-and-hit event",
+    "originators": [
+      "OpenAI preprint authors"
+    ],
+    "evidence": [
+      "Quartic §4.2 pp.12–13, equations(18)–(23)"
+    ],
+    "status": "presented in this preprint; this review does not establish absolute novelty across all literature",
+    "statement_ids": [
+      "def-dummy",
+      "def-planted",
+      "def-simulator",
+      "eq-21",
+      "prop-4.2"
+    ],
+    "attribution_id": "A08",
+    "credited_to": [
+      "OpenAI preprint authors"
+    ]
+  },
+  {
+    "idea": "Correct classical simulation theorem for few-query quantum algorithms after the AA proof error",
+    "originators": [
+      "Sergey Bravyi",
+      "David Gosset",
+      "Daniel Grier",
+      "Luke Schaeffer"
+    ],
+    "error_documentation": [
+      "Scott Aaronson",
+      "Andris Ambainis",
+      "Andrej Bogdanov",
+      "Tsun Ming Cheung",
+      "Krishnamoorthy Dinesh"
+    ],
+    "evidence": [
+      "https://arxiv.org/pdf/2102.06963v2 pp.3–4, Theorems2–4; https://eccc.weizmann.ac.il/report/2021/115/ revision2; https://scottaaronson.blog/?p=5706"
+    ],
+    "status": "verified adjacent correction; not a defect in quartic’s imported lower bound",
+    "statement_ids": [
+      "eq-3",
+      "lem-2.1.i"
+    ],
+    "attribution_id": "A09",
+    "credited_to": [
+      "Sergey Bravyi",
+      "David Gosset",
+      "Daniel Grier",
+      "Luke Schaeffer"
+    ]
+  },
+  {
+    "idea": "Answer-addressed certificates that certify both promise membership and output",
+    "credited_to": [
+      "Aaronson",
+      "Ben-David",
+      "Kothari"
+    ],
+    "evidence": [
+      "[2] Definitions 14-15, pp.20-21; §3 pp.9-13",
+      "Quartic §2.2 credits the cheat-sheet role"
+    ],
+    "statement_ids": [
+      "def-column-layout",
+      "def-winner",
+      "def-F"
+    ],
+    "status": "verified attribution",
+    "attribution_id": "A10"
+  },
+  {
+    "idea": "Accepting all-one column with witnesses to zeros in other columns",
+    "credited_to": [
+      "Göös",
+      "Pitassi",
+      "Watson"
+    ],
+    "evidence": [
+      "[15] §2.1, pp.4-5: a pointer chain starts in the accepting column and visits one zero per rival"
+    ],
+    "statement_ids": [
+      "eq-8",
+      "def-winner",
+      "cor-unique-winner"
+    ],
+    "status": "verified earlier construction",
+    "attribution_id": "A11"
+  },
+  {
+    "idea": "Pointer trees/backlinks and near-quartic deterministic-versus-quantum separation",
+    "credited_to": [
+      "Ambainis",
+      "Balodis",
+      "Belovs",
+      "Lee",
+      "Santha",
+      "Smotrovs"
+    ],
+    "evidence": [
+      "[4] §3 pp.10-15; Theorems 2 and 5; Corollary 7"
+    ],
+    "statement_ids": [
+      "eq-8",
+      "def-winner",
+      "thm-1.1"
+    ],
+    "status": "verified earlier construction",
+    "attribution_id": "A12"
+  },
+  {
+    "idea": "Square-root quantum search via repeated reflections",
+    "credited_to": [
+      "Grover"
+    ],
+    "evidence": [
+      "[16] §3 algorithm and §5 Theorems 1-3"
+    ],
+    "statement_ids": [
+      "lem-3.1",
+      "def-verify"
+    ],
+    "status": "verified historical attribution",
+    "qualifier": "The original paper treats a unique marked item; the total OR variants need later extensions.",
+    "attribution_id": "A13"
+  },
+  {
+    "idea": "Randomized iteration counts for unknown success probability",
+    "credited_to": [
+      "Boyer",
+      "Brassard",
+      "Høyer",
+      "Tapp"
+    ],
+    "evidence": [
+      "[11] §4 Lemma 2, p.3, and Theorem 3, p.4"
+    ],
+    "statement_ids": [
+      "eq-9",
+      "def-grover-trial",
+      "lem-3.1"
+    ],
+    "status": "verified attribution",
+    "attribution_id": "A14"
+  },
+  {
+    "idea": "Amplitude amplification of a full successful subspace preserves its normalized state",
+    "credited_to": [
+      "Brassard",
+      "Høyer",
+      "Mosca",
+      "Tapp"
+    ],
+    "evidence": [
+      "[12] §2 Lemma 1 and Eq.(8), pp.5-7; [12] credits the original generalization to Brassard-Høyer",
+      "[4] p.9 already states a known-lower-bound variant"
+    ],
+    "statement_ids": [
+      "claim-grover-state",
+      "claim-success-prob",
+      "lem-3.1"
+    ],
+    "status": "verified attribution",
+    "attribution_id": "A15"
+  },
+  {
+    "idea": "Finding a source/candidate by sampling survivors of earlier comparisons",
+    "credited_to": [
+      "Dürr-Høyer (ordered minimum)",
+      "Mande-Paraashar-Saurabh (fixed tournament)",
+      "Ambainis-Iraids-Kokainis (certificate construction)",
+      "Ben-David-Kothari (certificate construction, independently audited by other pass)"
+    ],
+    "evidence": [
+      "[14] Theorem 1 and rank Lemma 1",
+      "[18] §1.2.2 and Lemma 4.2",
+      "[5] §4 and §6 Algorithm 4"
+    ],
+    "statement_ids": [
+      "def-ideal-process",
+      "construct-sampler",
+      "prop-3.2"
+    ],
+    "status": "verified conceptual precedents",
+    "qualifier": "Do not identify these statements with the new arbitrary fractional-comparison model.",
+    "attribution_id": "A16"
+  },
+  {
+    "idea": "Hard-addressed direct per-rival outward pointers guarantee winner superiority even when an opponent is off promise",
+    "credited_to": [
+      "OpenAI quartic preprint"
+    ],
+    "evidence": [
+      "Quartic §§2.2 and 3.3: winner's own decoded cell targets a zero in every rival; no rival address can point to a zero in winner's all-one column"
+    ],
+    "statement_ids": [
+      "eq-8",
+      "def-comparison",
+      "claim-winner-dominates"
+    ],
+    "status": "specific combination identified in supplied preprint",
+    "qualifier": "An inference of contribution from compared sources, not an exhaustive priority certification; earlier outward pointer certificates exist in [15,4].",
+    "would_overturn": "An earlier source implementing the same hard-addressed direct-comparison mechanism and off-promise guarantee.",
+    "attribution_id": "A17"
+  },
+  {
+    "idea": "Fractional tournament weights, exact drift, coherent product sampling and capped list recovery",
+    "credited_to": [
+      "OpenAI quartic preprint, building on standard amplification and comparison search"
+    ],
+    "evidence": [
+      "Quartic Proposition 3.2, Eqs.(10)-(15); explicit mixture-free conditional sampling with fresh workspaces"
+    ],
+    "statement_ids": [
+      "eq-13",
+      "eq-15",
+      "claim-success-prob",
+      "claim-coupling",
+      "prop-3.2"
+    ],
+    "status": "specific statement/proof in supplied preprint",
+    "qualifier": "The sampling primitive is standard amplitude amplification; the theorem accommodates arbitrary probabilities for pairs of nonwinners without a fixed underlying tournament.",
+    "would_overturn": "A prior theorem with the same coherent probabilistic-comparison assumptions and recovery guarantee, or a flaw in the stated coupling/probability argument.",
+    "attribution_id": "A18"
+  },
+  {
+    "idea": "Universal quartic simulation R <= D = O(Q^4)",
+    "attributed_to": [
+      "Scott Aaronson",
+      "Shalev Ben-David",
+      "Robin Kothari",
+      "Avishay Tal"
+    ],
+    "later_expanded_authors": [
+      "Scott Aaronson",
+      "Shalev Ben-David",
+      "Robin Kothari",
+      "Shravas Rao",
+      "Avishay Tal"
+    ],
+    "classification": "established_prior_result",
+    "evidence": [
+      {
+        "source": "https://www.microsoft.com/en-us/research/wp-content/uploads/2020/04/2004.13231.pdf",
+        "location": "Theorem 1 p.2",
+        "finding": "Earlier 2020 result",
+        "status": "read_primary"
+      },
+      {
+        "source": "literature/papers/ref-03-aaronson-2021.pdf",
+        "location": "Theorem 2 p.2 and footnote p.1",
+        "finding": "Expanded 2020 preprint / STOC 2021 account",
+        "status": "read_primary"
+      }
+    ],
+    "statement_ids": [
+      "thm-A.1"
+    ],
+    "notes": "The 2026 Appendix A re-explains the chain. Do not assign discovery of the upper bound to OpenAI.",
+    "attribution_id": "A19",
+    "credited_to": [
+      "Scott Aaronson",
+      "Shalev Ben-David",
+      "Robin Kothari",
+      "Avishay Tal"
+    ],
+    "status": "established_prior_result"
+  },
+  {
+    "idea": "Cubic randomized-versus-quantum conjecture",
+    "attributed_to": [
+      "Scott Aaronson",
+      "Shalev Ben-David",
+      "Robin Kothari",
+      "Shravas Rao",
+      "Avishay Tal"
+    ],
+    "earlier_source_authors": [
+      "Scott Aaronson",
+      "Shalev Ben-David",
+      "Robin Kothari",
+      "Avishay Tal"
+    ],
+    "classification": "prior_conjecture",
+    "evidence": [
+      {
+        "source": "literature/papers/ref-03-aaronson-2021.pdf",
+        "location": "Conjecture 2 p.20",
+        "finding": "Exact conjecture used in the target",
+        "status": "read_primary"
+      },
+      {
+        "source": "https://www.microsoft.com/en-us/research/wp-content/uploads/2020/04/2004.13231.pdf",
+        "location": "Conjecture 4 p.9",
+        "finding": "Earlier formulation",
+        "status": "read_primary"
+      }
+    ],
+    "statement_ids": [
+      "cor-cubic-refuted"
+    ],
+    "attribution_id": "A20",
+    "credited_to": [
+      "Scott Aaronson",
+      "Shalev Ben-David",
+      "Robin Kothari",
+      "Shravas Rao",
+      "Avishay Tal"
+    ],
+    "status": "prior_conjecture"
+  },
+  {
+    "idea": "Signed hypercube matrix and >half-cube spectral lower bound",
+    "attributed_to": [
+      "Hao Huang"
+    ],
+    "classification": "established_prior_proof_method",
+    "evidence": [
+      {
+        "source": "literature/papers/ref-17-huang-2019.pdf",
+        "location": "Lemma 2.2 and Theorem 1.1 proof / remark pp.4–5",
+        "finding": "Signed cube construction, equal eigenspace dimensions, spectral-radius conclusion",
+        "status": "read_primary"
+      }
+    ],
+    "statement_ids": [
+      "def-huang",
+      "claim-huang-spectrum",
+      "claim-interlace"
+    ],
+    "attribution_id": "A21",
+    "credited_to": [
+      "Hao Huang"
+    ],
+    "status": "established_prior_proof_method"
+  },
+  {
+    "idea": "Explicit spectral sensitivity inequality deg <= lambda^2 and lambda <= O(Q)",
+    "attributed_to": [
+      "Scott Aaronson",
+      "Shalev Ben-David",
+      "Robin Kothari",
+      "Shravas Rao",
+      "Avishay Tal"
+    ],
+    "classification": "prior_formulation_and_application_of_Huang",
+    "evidence": [
+      {
+        "source": "literature/papers/ref-03-aaronson-2021.pdf",
+        "location": "Theorem 1 pp.6–7 and Lemma 9 p.8",
+        "finding": "Assembles the function-degree and quantum implications",
+        "status": "read_primary"
+      }
+    ],
+    "statement_ids": [
+      "lem-A.4",
+      "lem-A.3.lambda"
+    ],
+    "notes": "Original graph method remains Huang’s; the query-complexity connection is credited to the later paper.",
+    "attribution_id": "A22",
+    "credited_to": [
+      "Scott Aaronson",
+      "Shalev Ben-David",
+      "Robin Kothari",
+      "Shravas Rao",
+      "Avishay Tal"
+    ],
+    "status": "prior_formulation_and_application_of_Huang"
+  },
+  {
+    "idea": "Nonnegative spectral adversary lower bound",
+    "attributed_to": [
+      "Howard Barnum",
+      "Michael E. Saks",
+      "Mario Szegedy"
+    ],
+    "classification": "established_prior_result",
+    "evidence": [
+      {
+        "source": "https://www.researchgate.net/publication/4023789_Quantum_query_complexity_and_semi-definite_programming",
+        "location": "Section 9.2, Theorem 4",
+        "finding": "Exact original statement",
+        "status": "read_primary"
+      },
+      {
+        "source": "literature/papers/ref-24-spalek-2006.pdf",
+        "location": "Theorem 3.1 / Eq.(3.1)",
+        "finding": "Equivalent formulation",
+        "status": "read_primary"
+      }
+    ],
+    "statement_ids": [
+      "lem-A.2"
+    ],
+    "attribution_id": "A23",
+    "credited_to": [
+      "Howard Barnum",
+      "Michael E. Saks",
+      "Mario Szegedy"
+    ],
+    "status": "established_prior_result"
+  },
+  {
+    "idea": "D <= bs * deg by adaptive maximum-monomial queries",
+    "attributed_to": [
+      "Gatis Midrijanis"
+    ],
+    "classification": "established_prior_result",
+    "evidence": [
+      {
+        "source": "literature/papers/ref-19-midrijanis-2004.pdf",
+        "location": "Proof of Theorem 4 pp.3–4",
+        "finding": "Precise sharpening used",
+        "status": "read_primary"
+      }
+    ],
+    "statement_ids": [
+      "lem-A.5",
+      "claim-round-block"
+    ],
+    "notes": "Earlier maxonomial observation and approach are attributed to Noam Nisan and Roman Smolensky in Buhrman–de Wolf 2002, Section 5.1, Lemmas 5–6 and Theorem 12, pp.16. That prior bound is D<=deg^2*bs, not the sharper inequality used here.",
+    "attribution_id": "A24",
+    "credited_to": [
+      "Gatis Midrijanis"
+    ],
+    "status": "established_prior_result"
+  },
+  {
+    "idea": "Block sensitivity and polynomial degree as complexity measures",
+    "attributed_to": [
+      "Noam Nisan",
+      "Mario Szegedy"
+    ],
+    "classification": "historical_foundation",
+    "evidence": [
+      {
+        "source": "https://epubs.siam.org/doi/abs/10.1137/0220062",
+        "location": "abstract",
+        "finding": "Nisan introduces block sensitivity",
+        "status": "publisher_abstract"
+      },
+      {
+        "source": "https://web.vu.lt/mif/s.jukna/boolean/Nisan-Szegedy.pdf",
+        "location": "Section 3, Lemma 3.8",
+        "finding": "Polynomial and approximate-degree bounds",
+        "status": "read_primary"
+      }
+    ],
+    "statement_ids": [
+      "def-bs",
+      "def-deg"
+    ],
+    "attribution_id": "A25",
+    "credited_to": [
+      "Noam Nisan",
+      "Mario Szegedy"
+    ],
+    "status": "historical_foundation"
+  },
+  {
+    "idea": "Sixth-power deterministic simulation and polynomial method",
+    "attributed_to": [
+      "Robert Beals",
+      "Harry Buhrman",
+      "Richard Cleve",
+      "Michele Mosca",
+      "Ronald de Wolf"
+    ],
+    "classification": "established_prior_result",
+    "evidence": [
+      {
+        "source": "literature/papers/ref-08-beals-2001.pdf",
+        "location": "Lemma 4.2 and Theorems 4.13,5.4",
+        "finding": "Acceptance-degree method and earlier total-function bound",
+        "status": "read_primary"
+      }
+    ],
+    "statement_ids": [
+      "lem-A.3.bs",
+      "def-Q"
+    ],
+    "attribution_id": "A26",
+    "credited_to": [
+      "Robert Beals",
+      "Harry Buhrman",
+      "Richard Cleve",
+      "Michele Mosca",
+      "Ronald de Wolf"
+    ],
+    "status": "established_prior_result"
+  },
+  {
+    "idea": "Candidate comparisons that preserve a genuine certificate holder",
+    "attributed_to": [
+      "Shalev Ben-David",
+      "Robin Kothari"
+    ],
+    "classification": "close_construction_precursor",
+    "evidence": [
+      {
+        "source": "literature/papers/ref-09-bendavid-2026.pdf",
+        "location": "Lemmas 3,5 pp.3–5",
+        "finding": "Local comparison tournament over candidate champions",
+        "status": "read_primary"
+      }
+    ],
+    "statement_ids": [
+      "prop-3.2",
+      "prop-3.3"
+    ],
+    "notes": "This antecedent is a fixed tournament. The target’s handling of arbitrary probabilities among non-winners is a further argument; no priority claim beyond the inspected sources is established.",
+    "attribution_id": "A27",
+    "credited_to": [
+      "Shalev Ben-David",
+      "Robin Kothari"
+    ],
+    "status": "close_construction_precursor"
+  },
+  {
+    "idea": "Hard distribution from finite minimax",
+    "attributed_to": [
+      "John von Neumann",
+      "Andrew Chi-Chih Yao"
+    ],
+    "classification": "established_general_principle",
+    "evidence": [
+      {
+        "source": "paper/quartic-query-separation.pdf",
+        "location": "Section 4.1 p.12",
+        "finding": "Actual finite matrix game",
+        "status": "read_primary"
+      },
+      {
+        "source": "https://cs.uwaterloo.ca/~eblais/cs860/w25/minimax",
+        "location": "named bounded-error and zero-error variants",
+        "finding": "Modern versus original formulation",
+        "status": "read_primary"
+      }
+    ],
+    "statement_ids": [
+      "claim-minimax-mu"
+    ],
+    "notes": "Yao’s original 1977 full text was not read; avoid an invented theorem number. The target’s finite game application can be checked directly.",
+    "attribution_id": "A28",
+    "credited_to": [
+      "John von Neumann",
+      "Andrew Chi-Chih Yao"
+    ],
+    "status": "established_general_principle"
+  },
+  {
+    "idea": "First power-5/2 total randomized-versus-quantum separation announced before the general cheat-sheet framework",
+    "credited_to": [
+      "Shalev Ben-David"
+    ],
+    "evidence": [
+      {
+        "source": "https://arxiv.org/pdf/1506.08106v1",
+        "location": "Abstract and §1 p.1; §3 pp.2–5",
+        "finding": "2015 announcement; subsequently generalized by Aaronson–Ben-David–Kothari."
+      }
+    ],
+    "statement_ids": [
+      "cor-cubic-refuted",
+      "def-column-layout"
+    ],
+    "status": "verified historical addition",
+    "qualifier": "The served v1 PDF has a later internal date; distinguish first arXiv submission from the date printed inside it.",
+    "attribution_id": "A29"
+  },
+  {
+    "idea": "Exact small verifier circuit, arithmetic transcript, and local gate consistency",
+    "credited_to": [
+      "Standard Walsh–Hadamard butterfly and Boolean arithmetic",
+      "OpenAI quartic preprint for this explicit assembly"
+    ],
+    "evidence": [
+      {
+        "source": "paper/quartic-query-separation.pdf",
+        "location": "Lemma 2.1(iii), p.4; Lemma 2.2, pp.6–7",
+        "finding": "Integer numerator and denominator permit exact promise checks; gate transcripts certify all inputs, including off-promise inputs."
+      }
+    ],
+    "statement_ids": [
+      "claim-N-phi",
+      "claim-integer-tests",
+      "claim-circuit-size",
+      "lem-2.1.iii",
+      "lem-2.2.i"
+    ],
+    "status": "direct proof in supplied preprint; elementary ingredients are standard",
+    "qualifier": "The pointer test has small adaptive query depth, not small fixed variable support. Do not credit ordinary addition or transcript consistency as new mathematical inventions.",
+    "attribution_id": "A30"
+  }
+]

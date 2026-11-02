@@ -1,0 +1,204 @@
+[
+  {
+    "title": "OpenAI — A Nearly Quartic Separation Between Randomized and Quantum Query Complexity",
+    "url": "https://github.com/openai/math/blob/4eaee875/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf",
+    "why": "Primary audited manuscript. Start with Section 2’s winner definition, Proposition 3.2, and the simulator in Section 4.2. Audit target is the exact attached PDF, SHA256 a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e; the pinned URL follows the source revision declared in the supplied manifest.",
+    "statement_ids": [
+      "thm-1.1",
+      "def-winner",
+      "prop-3.2",
+      "lem-4.1",
+      "prop-4.2"
+    ]
+  },
+  {
+    "title": "Nikhil Bansal, Makrand Sinha — k-Forrelation optimally separates quantum and classical query complexity",
+    "url": "https://arxiv.org/abs/2008.07003",
+    "why": "Start with equations (1.1)-(1.3), Theorem 1.3 and Corollary 1.4 (supplied arXiv v3 pp. 2-4). This is the external lower-bound interface: normalization, delta=2^(-5k), one-sided 1-case, error 1/3 and dimension convention must all match. Corollary 1.5 records the prior near-cubic total separation. The Gaussian proof is deeper further reading, not re-proved in this return.",
+    "statement_ids": [
+      "eq-3",
+      "eq-4",
+      "eq-5",
+      "claim-bs-to-L",
+      "lem-2.1.i",
+      "thm-1.1"
+    ]
+  },
+  {
+    "title": "Scott Aaronson, Shalev Ben-David, Robin Kothari — Separations in query complexity using cheat sheets",
+    "url": "https://arxiv.org/abs/1511.01937",
+    "why": "Read Sections 3.1-3.2 and the general cheat-sheet framework in Section 6 to distinguish inherited address/certificate/Grover ideas from the new per-column construction. The supplied v2 Lemma 6 uses an Omega(R(f)/c^2) bound; do not substitute a different older-version snippet.",
+    "statement_ids": [
+      "def-column-layout",
+      "def-transcript",
+      "def-F",
+      "lem-2.2",
+      "prop-4.2"
+    ]
+  },
+  {
+    "title": "Scott Aaronson, Shalev Ben-David, Robin Kothari, Shravas Rao, Avishay Tal — Degree vs. approximate degree and quantum implications of Huang's sensitivity theorem",
+    "url": "https://arxiv.org/abs/2010.12629",
+    "why": "Read Theorem 2, Section 3 (including the spectral-sensitivity inequality and Lemma 9), and Section 7 Conjecture 2. This supplies the known universal quartic bound and states the cubic conjecture being refuted.",
+    "statement_ids": [
+      "thm-A.1",
+      "lem-A.3",
+      "lem-A.4",
+      "cor-cubic-refuted",
+      "thm-1.1"
+    ]
+  },
+  {
+    "title": "Andrew Drucker — Improved direct product theorems for randomized query complexity",
+    "url": "https://arxiv.org/abs/1005.0644",
+    "why": "Read Section 1.3 and Lemmas 3.1-3.2 in the supplied arXiv v2. These give the Bellman-value and posterior-product reasoning behind the capped direct product; they explain why adaptation is harmless under separate caps.",
+    "statement_ids": [
+      "claim-product-law",
+      "def-value-V",
+      "eq-16",
+      "claim-supermartingale",
+      "lem-4.1",
+      "eq-21"
+    ]
+  },
+  {
+    "title": "Gilles Brassard, Peter Hoyer, Michele Mosca, Alain Tapp — Quantum amplitude amplification and estimation",
+    "url": "https://arxiv.org/abs/quant-ph/0005055",
+    "why": "Read Section 2, the two-dimensional Grover rotation and Eq. (8). It is the full successful state that is preserved by amplification, so nonuniform candidate weights survive. Later amplitude-estimation theory is not needed for this proof.",
+    "statement_ids": [
+      "claim-grover-state",
+      "lem-3.1",
+      "construct-sampler",
+      "claim-success-prob"
+    ]
+  },
+  {
+    "title": "Michel Boyer, Gilles Brassard, Peter Hoyer, Alain Tapp — Tight bounds on quantum searching",
+    "url": "https://arxiv.org/abs/quant-ph/9605034",
+    "why": "Read Section 4, especially Lemma 2 for random Grover iteration counts. The exact averaged sin-squared identity confirms the bounded unknown-success search used in Lemma 3.1.",
+    "statement_ids": [
+      "def-grover-trial",
+      "eq-9",
+      "lem-3.1"
+    ]
+  },
+  {
+    "title": "Alexander A. Sherstov, Andrey A. Storozhenko, Pei Wu — An optimal separation of randomized and quantum query complexity",
+    "url": "https://arxiv.org/abs/2008.10223",
+    "why": "Read Theorems 1.1, 1.5 and 1.9 and introductory Sections 1.1-1.6. This independently reaches a near-cubic total separation via Rorrelation and cheat sheets; its random orthogonal gadget is distinct from the explicit Walsh gadget needed for the exact circuit here.",
+    "statement_ids": [
+      "lem-2.1.i",
+      "def-F",
+      "thm-1.1"
+    ]
+  },
+  {
+    "title": "Shalev Ben-David, Robin Kothari — Randomized query complexity can beat certificate complexity",
+    "url": "https://arxiv.org/abs/2609.15063",
+    "why": "Read Theorem 1 and Section 3 (the sporting-event construction): comparisons and source/sink search precede certificate verification. This is close prior art but separates certificate complexity from R and Q, not a near-quartic R/Q separation.",
+    "statement_ids": [
+      "def-comparison",
+      "prop-3.2",
+      "prop-3.3"
+    ]
+  },
+  {
+    "title": "Andris Ambainis, Janis Iraids, Martins Kokainis — Near-optimal separations of certificate complexity from randomized and quantum query complexity",
+    "url": "https://arxiv.org/abs/2609.11664v2",
+    "why": "Use the cited v2, especially Section 4 and Sections 6.1-6.3. Compare its exact graph orientation and purified routines with the manuscript’s actual fractional comparison probabilities. The attached copy is the evidence; the current abstract URL did not load reliably in this review.",
+    "statement_ids": [
+      "def-comparison",
+      "prop-3.2",
+      "prop-3.3"
+    ]
+  },
+  {
+    "title": "Scott Aaronson, Andris Ambainis — Forrelation: A problem that optimally separates quantum from classical computing",
+    "url": "https://arxiv.org/abs/1411.5729",
+    "why": "Read the introductory Forrelation definitions and quantum-query model, then its k-fold generalization if more background is needed. The original paper uses different example thresholds; use Bansal-Sinha for the exact thresholds of the current manuscript.",
+    "statement_ids": [
+      "def-query-oracle",
+      "def-walsh-sign",
+      "eq-3",
+      "claim-proj-prob"
+    ]
+  },
+  {
+    "title": "Hao Huang — Induced subgraphs of hypercubes and a proof of the Sensitivity Conjecture",
+    "url": "https://arxiv.org/abs/1907.00847",
+    "why": "Read Lemma 2.2, the signed-cube recursion and the spectral remark after Theorem 1.1. The spectral conclusion, not only the headline sensitivity inequality, is needed to obtain degree<=lambda^2.",
+    "statement_ids": [
+      "def-huang",
+      "claim-huang-spectrum",
+      "claim-interlace",
+      "lem-A.4"
+    ]
+  },
+  {
+    "title": "Gatis Midrijanis — Exact quantum query complexity for total Boolean functions",
+    "url": "https://arxiv.org/abs/quant-ph/0403168",
+    "why": "Read Lemma 3 and the proof of Theorem 4. The proof establishes D<=bs*deg before substituting the separate block-sensitivity bound into its displayed cubic-degree theorem.",
+    "statement_ids": [
+      "claim-round-block",
+      "lem-A.5",
+      "thm-A.1"
+    ]
+  },
+  {
+    "title": "Robert Spalek, Mario Szegedy — All quantum adversary methods are equivalent",
+    "url": "https://arxiv.org/abs/quant-ph/0409116",
+    "why": "Read Section 2.1’s fixed-query model and Section 3’s spectral-adversary definition/Theorem 3.1. This gives an accessible original source supporting the convention used in Appendix A.",
+    "statement_ids": [
+      "def-adv-progress",
+      "claim-per-query",
+      "claim-final-overlap",
+      "lem-A.2"
+    ]
+  },
+  {
+    "title": "Ronen Shaltiel — Towards proving strong direct product theorems",
+    "url": "https://eccc.weizmann.ac.il/eccc-reports/2001/TR01-009/index.html",
+    "why": "Read Section 5, Definition 4 and Theorem 5 in the supplied ECCC 2001 preprint for the earlier fair-tree direct-product/XOR perspective. Use Drucker for the closest proof-level match. The journal date is 2003, but preprint and journal pagination differ.",
+    "statement_ids": [
+      "lem-4.1",
+      "claim-product-law",
+      "claim-supermartingale"
+    ]
+  },
+  {
+    "title": "Christoph Durr, Peter Hoyer — A quantum algorithm for finding the minimum",
+    "url": "https://arxiv.org/abs/quant-ph/9607014",
+    "why": "The complete short article gives ordered minimum finding. It is useful for explaining why a probabilistic comparator with cyclic and off-promise nonwinners requires a different argument.",
+    "statement_ids": [
+      "prop-3.2"
+    ]
+  },
+  {
+    "title": "Nikhil S. Mande, Manaswi Paraashar, Nitin Saurabh — Randomized and quantum query complexities of finding a king in a tournament",
+    "url": "https://arxiv.org/abs/2308.02472",
+    "why": "Read the definition of a tournament king, Theorem 1.2 and the quantum-search overview. A king reaches every vertex in at most two directed steps; it is not the same as a column satisfying the current winner certificate.",
+    "statement_ids": [
+      "prop-3.2",
+      "claim-winner-dominates"
+    ]
+  },
+  {
+    "title": "Andris Ambainis, Kaspars Balodis, Aleksandrs Belovs, Troy Lee, Miklos Santha, Juris Smotrovs — Separations in query complexity based on pointer functions",
+    "url": "https://arxiv.org/abs/1506.04719",
+    "why": "Introduction and pointer-function constructions supply context for the earlier near-quartic D/Q separation. Keep exact deterministic D separate from bounded-error randomized R.",
+    "statement_ids": [
+      "def-winner",
+      "eq-8",
+      "thm-1.1"
+    ]
+  },
+  {
+    "title": "Avishay Tal — Towards optimal separations between quantum and randomized query complexities",
+    "url": "https://arxiv.org/abs/1912.12561",
+    "why": "Read the introductory Rorrelation definition and the application yielding exponent 8/3-o(1). This locates the intermediate historical milestone without confusing its random orthogonal matrix with the current explicit Walsh circuit.",
+    "statement_ids": [
+      "eq-3",
+      "thm-1.1"
+    ]
+  }
+]

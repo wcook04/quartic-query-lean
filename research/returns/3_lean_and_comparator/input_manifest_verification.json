@@ -1,0 +1,100 @@
+[
+  {
+    "member": "corpus/statement_ledger.json",
+    "bytes_actual": 82583,
+    "bytes_expected": 82583,
+    "sha256_actual": "baae822271b38aa322e9fec62c47621de20bb61eb82b077d92bd9c133685c143",
+    "matches": true
+  },
+  {
+    "member": "corpus/statement_ledger_notes.md",
+    "bytes_actual": 14396,
+    "bytes_expected": 14396,
+    "sha256_actual": "2a04261acab3957b33720662f49cd42be483e4a85cb1b89a7dc3b324fdf317a1",
+    "matches": true
+  },
+  {
+    "member": "corpus/commentary.json",
+    "bytes_actual": 8398,
+    "bytes_expected": 8398,
+    "sha256_actual": "7349c779ab34a30781bdec729b86e44012e0b3445aed1a112117ea68dec8e556",
+    "matches": true
+  },
+  {
+    "member": "paper/quartic-query-separation.pdf",
+    "bytes_actual": 433829,
+    "bytes_expected": 433829,
+    "sha256_actual": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e",
+    "matches": true
+  },
+  {
+    "member": "paper/extracted.md",
+    "bytes_actual": 64021,
+    "bytes_expected": 64021,
+    "sha256_actual": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+    "matches": true
+  },
+  {
+    "member": "literature/references_resolved.json",
+    "bytes_actual": 22691,
+    "bytes_expected": 22691,
+    "sha256_actual": "602b355d0ebf9e1819d3c627b93a5bf184207c8107071d8435d94a426d5274dc",
+    "matches": true
+  },
+  {
+    "member": "lean/prior_art_quantum_lean.json",
+    "bytes_actual": 25127,
+    "bytes_expected": 25127,
+    "sha256_actual": "e31bcf75cfc215094a0c05df4c47ecd48eda5d06f08333ceda1f16f3c3219065",
+    "matches": true
+  },
+  {
+    "member": "lean/prior_art_classical_lean.json",
+    "bytes_actual": 32357,
+    "bytes_expected": 32357,
+    "sha256_actual": "5fa01df09f6801147c32eb91f20222d885784d1ec8b25dea466ec844f16f3cb9",
+    "matches": true
+  },
+  {
+    "member": "lean/verification_tooling.md",
+    "bytes_actual": 27513,
+    "bytes_expected": 27513,
+    "sha256_actual": "b8789bf42722589f58eafdb0dd425a6a081c123a4f32776e35860a587230539f",
+    "matches": true
+  },
+  {
+    "member": "lean/organisation_exemplars.md",
+    "bytes_actual": 22066,
+    "bytes_expected": 22066,
+    "sha256_actual": "91930c9f7b6f6dc33fb96a3cd8e82d1e4fb5e1e1fe9d3a6238ca326e831e1be0",
+    "matches": true
+  },
+  {
+    "member": "lean/internal_inheritance.md",
+    "bytes_actual": 10393,
+    "bytes_expected": 10393,
+    "sha256_actual": "524440fbaf90243309105898faba0ff9db625790532487ed2359705e568be082",
+    "matches": true
+  },
+  {
+    "member": "lean/current/Drift.lean",
+    "bytes_actual": 3276,
+    "bytes_expected": 3276,
+    "sha256_actual": "4d72ad1b9aa67c5d1f572705cc3e64f87356f5e96023bc93d2b156d7523b3644",
+    "matches": true
+  },
+  {
+    "member": "lean/current/lakefile.toml",
+    "bytes_actual": 292,
+    "bytes_expected": 292,
+    "sha256_actual": "e1b8f178146db7a08c32b24d6c15602f40c16f59de057f729497d26b4d627498",
+    "matches": true
+  },
+  {
+    "member": "lean/current/lean-toolchain",
+    "bytes_actual": 29,
+    "bytes_expected": 29,
+    "sha256_actual": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3",
+    "matches": true
+  }
+]

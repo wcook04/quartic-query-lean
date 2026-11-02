@@ -1,0 +1,1262 @@
+[
+  {
+    "title": "k-Forrelation optimally separates quantum and classical query complexity",
+    "authors": [
+      "Nikhil Bansal",
+      "Makrand Sinha"
+    ],
+    "year": 2021,
+    "url": "https://arxiv.org/pdf/2008.07003v3",
+    "open_access": true,
+    "licence": "No open reuse licence independently established for this specific PDF; readable online. Preserve attribution; public availability is not a blanket redistribution grant.",
+    "priority": "essential",
+    "statement_ids": [
+      "lem-2.1.i",
+      "claim-bs-to-L"
+    ],
+    "why": "The exact external lower-bound theorem; retain v3 (17 Nov 2020).",
+    "ref_number": 6,
+    "availability": "already supplied and relevant sections read",
+    "read_status": "already supplied and relevant sections read",
+    "already_supplied": true,
+    "review_date": "2026-11-01",
+    "rank": 1,
+    "source_id": "D01"
+  },
+  {
+    "title": "Improved direct product theorems for randomized query complexity",
+    "authors": [
+      "Andrew Drucker"
+    ],
+    "year": 2012,
+    "url": "https://arxiv.org/pdf/1005.0644v2",
+    "open_access": true,
+    "licence": "No open reuse licence independently established for this specific PDF; readable online. Preserve attribution; public availability is not a blanket redistribution grant.",
+    "priority": "essential",
+    "statement_ids": [
+      "lem-4.1",
+      "claim-product-law",
+      "eq-16"
+    ],
+    "why": "Read the proof ingredients actually cited, not only the global-budget headline theorem; retain v2.",
+    "ref_number": 13,
+    "availability": "already supplied and relevant sections read",
+    "read_status": "already supplied and relevant sections read",
+    "already_supplied": true,
+    "review_date": "2026-11-01",
+    "rank": 2,
+    "source_id": "D02"
+  },
+  {
+    "title": "Quantum Amplitude Amplification and Estimation",
+    "authors": [
+      "Gilles Brassard",
+      "Peter Høyer",
+      "Michele Mosca",
+      "Alain Tapp"
+    ],
+    "year": 2002,
+    "url": "https://arxiv.org/pdf/quant-ph/0005055v1",
+    "open_access": true,
+    "licence": "Publicly accessible copy; no reuse licence independently verified",
+    "priority": "essential",
+    "statement_ids": [
+      "claim-grover-state",
+      "lem-3.1",
+      "claim-success-prob"
+    ],
+    "why": "Already supplied. Lemma 1 and Eq.(8), pp.5-7, are the exact foundation for preserving the full successful state and hence the weighted sampling law.",
+    "already_supplied": true,
+    "ref_number": 12,
+    "read_status": "Relevant source or source record inspected; see why and citation_audit.json for the precise boundary.",
+    "review_date": "2026-11-01",
+    "rank": 3,
+    "source_id": "D03"
+  },
+  {
+    "title": "Tight bounds on quantum searching",
+    "authors": [
+      "Michel Boyer",
+      "Gilles Brassard",
+      "Peter Høyer",
+      "Alain Tapp"
+    ],
+    "year": 1998,
+    "url": "https://arxiv.org/pdf/quant-ph/9605034v1",
+    "open_access": true,
+    "licence": "Publicly accessible copy; no reuse licence independently verified",
+    "priority": "essential",
+    "statement_ids": [
+      "def-grover-trial",
+      "eq-9",
+      "lem-3.1"
+    ],
+    "why": "Already supplied. Lemma 2, p.3, gives the random-iteration identity; Theorem 3 and timeout discussion, p.4, clarify the distinction between expected and capped cost.",
+    "already_supplied": true,
+    "ref_number": 11,
+    "read_status": "Relevant source or source record inspected; see why and citation_audit.json for the precise boundary.",
+    "review_date": "2026-11-01",
+    "rank": 4,
+    "source_id": "D04"
+  },
+  {
+    "title": "Separations in query complexity using cheat sheets",
+    "authors": [
+      "Scott Aaronson",
+      "Shalev Ben-David",
+      "Robin Kothari"
+    ],
+    "year": 2016,
+    "url": "https://arxiv.org/pdf/1511.01937v2",
+    "open_access": true,
+    "licence": "Publicly accessible copy; no reuse licence independently verified",
+    "priority": "essential",
+    "statement_ids": [
+      "def-column-layout",
+      "def-winner",
+      "def-F",
+      "lem-2.2"
+    ],
+    "why": "Already supplied. Keep v2 pinned. Read pp.9-13 for intuition and pp.20-22 for exact certifying-function and totalization conditions.",
+    "already_supplied": true,
+    "ref_number": 2,
+    "read_status": "Relevant source or source record inspected; see why and citation_audit.json for the precise boundary.",
+    "review_date": "2026-11-01",
+    "rank": 5,
+    "source_id": "D05"
+  },
+  {
+    "title": "Degree vs. Approximate Degree and Quantum Implications of Huang’s Sensitivity Theorem",
+    "authors": [
+      "Scott Aaronson",
+      "Shalev Ben-David",
+      "Robin Kothari",
+      "Shravas Rao",
+      "Avishay Tal"
+    ],
+    "year": 2020,
+    "url": "https://arxiv.org/pdf/2010.12629v1",
+    "open_access": true,
+    "licence": "No explicit reusable licence verified; public availability does not settle redistribution.",
+    "priority": "essential",
+    "statement_ids": [
+      "thm-A.1",
+      "lem-A.4",
+      "cor-cubic-refuted"
+    ],
+    "why": "Already supplied. Pin the arXiv v1 for its theorem numbers; the cited publication year is 2021.",
+    "local_packet": "literature/papers/ref-03-aaronson-2021.pdf",
+    "ref_number": 3,
+    "read_status": "Relevant source or source record inspected; see why and citation_audit.json for the precise boundary.",
+    "already_supplied": true,
+    "review_date": "2026-11-01",
+    "rank": 6,
+    "source_id": "D06"
+  },
+  {
+    "title": "Exact quantum query complexity for total Boolean functions",
+    "authors": [
+      "Gatis Midrijanis"
+    ],
+    "year": 2004,
+    "url": "https://arxiv.org/pdf/quant-ph/0403168v2",
+    "open_access": true,
+    "licence": "No explicit reusable licence verified; public availability does not settle redistribution.",
+    "priority": "essential",
+    "statement_ids": [
+      "lem-A.5",
+      "claim-round-block"
+    ],
+    "why": "Already supplied. Read Lemma 3 and the proof of Theorem 4 pp.3–4 for D<=bs*deg, rather than citing exact-quantum Theorem 5.",
+    "local_packet": "literature/papers/ref-19-midrijanis-2004.pdf",
+    "ref_number": 19,
+    "read_status": "Relevant source or source record inspected; see why and citation_audit.json for the precise boundary.",
+    "already_supplied": true,
+    "review_date": "2026-11-01",
+    "rank": 7,
+    "source_id": "D07"
+  },
+  {
+    "title": "Induced subgraphs of hypercubes and a proof of the Sensitivity Conjecture",
+    "authors": [
+      "Hao Huang"
+    ],
+    "year": 2019,
+    "url": "https://arxiv.org/pdf/1907.00847v2",
+    "open_access": true,
+    "licence": "No explicit reusable licence verified; public availability does not settle redistribution.",
+    "priority": "essential",
+    "statement_ids": [
+      "def-huang",
+      "claim-huang-spectrum",
+      "claim-interlace",
+      "lem-A.4"
+    ],
+    "why": "Already supplied. Lemma 2.2 plus the spectral-radius remark after Theorem 1.1 underlie Appendix A.",
+    "local_packet": "literature/papers/ref-17-huang-2019.pdf",
+    "ref_number": 17,
+    "read_status": "Relevant source or source record inspected; see why and citation_audit.json for the precise boundary.",
+    "already_supplied": true,
+    "review_date": "2026-11-01",
+    "rank": 8,
+    "source_id": "D08"
+  },
+  {
+    "title": "Quantum query complexity and semi-definite programming",
+    "authors": [
+      "Howard Barnum",
+      "Michael E. Saks",
+      "Mario Szegedy"
+    ],
+    "year": 2003,
+    "url": "https://www.researchgate.net/publication/4023789_Quantum_query_complexity_and_semi-definite_programming",
+    "open_access": true,
+    "licence": "No explicit reusable licence verified; public availability does not settle redistribution.",
+    "priority": "essential",
+    "statement_ids": [
+      "lem-A.2"
+    ],
+    "why": "Public author-uploaded original full text: Section 9.2 Theorem 4, exact nonnegative spectral adversary bound. The direct PDF link returned 404; preserve this working full-text route.",
+    "read_status": "Original theorem and proof inspected; no local PDF retrieved",
+    "direct_pdf_url": null,
+    "ref_number": 7,
+    "already_supplied": false,
+    "review_date": "2026-11-01",
+    "rank": 9,
+    "source_id": "D09"
+  },
+  {
+    "title": "All Quantum Adversary Methods are Equivalent",
+    "authors": [
+      "Robert Spalek",
+      "Mario Szegedy"
+    ],
+    "year": 2006,
+    "url": "https://theoryofcomputing.org/articles/v002a001/v002a001.pdf",
+    "open_access": true,
+    "licence": "CC BY-ND 2.0, linked by the publisher at https://theoryofcomputing.org/articles/v002a001/ .",
+    "priority": "essential",
+    "statement_ids": [
+      "lem-A.2",
+      "lem-A.3.lambda"
+    ],
+    "why": "Final publisher PDF with directly usable Theorem 3.1 and Eq.(3.1); replaces imprecise packet licence metadata.",
+    "read_status": "Theorem and publisher licence link inspected",
+    "ref_number": 24,
+    "already_supplied": false,
+    "review_date": "2026-11-01",
+    "rank": 10,
+    "source_id": "D10"
+  },
+  {
+    "title": "Randomized query complexity can beat certificate complexity",
+    "authors": [
+      "Shalev Ben-David",
+      "Robin Kothari"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/pdf/2609.15063v1",
+    "open_access": true,
+    "licence": "No explicit reusable licence verified; public availability does not settle redistribution.",
+    "priority": "essential",
+    "statement_ids": [
+      "def-winner",
+      "prop-3.2",
+      "prop-3.3"
+    ],
+    "why": "Closest comparison-based precursor: Theorem 1 and Lemma 5, especially fixed-tournament construction p.4. Also explicitly flags the SINK finding versus decision distinction.",
+    "local_packet": "literature/papers/ref-09-bendavid-2026.pdf",
+    "ref_number": 9,
+    "read_status": "Relevant source or source record inspected; see why and citation_audit.json for the precise boundary.",
+    "already_supplied": true,
+    "review_date": "2026-11-01",
+    "rank": 11,
+    "source_id": "D11"
+  },
+  {
+    "title": "Classical algorithms for Forrelation",
+    "authors": [
+      "Sergey Bravyi",
+      "David Gosset",
+      "Daniel Grier",
+      "Luke Schaeffer"
+    ],
+    "year": 2021,
+    "url": "https://arxiv.org/pdf/2102.06963v2",
+    "open_access": true,
+    "licence": "Not independently established for the exact linked file; do not infer an open reuse licence from access.",
+    "priority": "essential",
+    "statement_ids": [
+      "eq-3",
+      "lem-2.1.i"
+    ],
+    "why": "Repairs the earlier AA classical-simulation proof and gives the correct surrounding optimality theorem. Read pp.3–4, Theorems 2–4 and §3. Needed if explaining optimal partial-function separations; not a dependency of quartic’s randomized lower bound.",
+    "availability": "PDF pp.1–4 and relevant discussion read; version v2 31 Oct 2021.",
+    "read_status": "PDF pp.1–4 and relevant discussion read; version v2 31 Oct 2021.",
+    "already_supplied": false,
+    "review_date": "2026-11-01",
+    "rank": 12,
+    "source_id": "D12"
+  },
+  {
+    "title": "On quantum versus classical query complexity (revision 2)",
+    "authors": [
+      "Scott Aaronson",
+      "Andris Ambainis",
+      "Andrej Bogdanov",
+      "Tsun Ming Cheung",
+      "Krishnamoorthy Dinesh"
+    ],
+    "year": 2021,
+    "url": "https://eccc.weizmann.ac.il/report/2021/115/revision/2/download",
+    "open_access": true,
+    "licence": "Not independently established for the exact linked file; do not infer an open reuse licence from access.",
+    "priority": "essential",
+    "statement_ids": [
+      "eq-3",
+      "lem-2.1.i"
+    ],
+    "why": "Primary correction of the AA simulation proof. Revision 2 records the repaired bound from Bravyi et al.; never use the initial note’s open status without this update.",
+    "availability": "Landing page and correction statement read; revision-2 PDF fetch timed out. Direct link comes from the verified ECCC landing page.",
+    "read_status": "Landing page and correction statement read; revision-2 PDF fetch timed out. Direct link comes from the verified ECCC landing page.",
+    "already_supplied": false,
+    "review_date": "2026-11-01",
+    "rank": 13,
+    "source_id": "D13"
+  },
+  {
+    "title": "Quantum Implications of Huang’s Sensitivity Theorem",
+    "authors": [
+      "Scott Aaronson",
+      "Shalev Ben-David",
+      "Robin Kothari",
+      "Avishay Tal"
+    ],
+    "year": 2020,
+    "url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2020/04/2004.13231.pdf",
+    "open_access": true,
+    "licence": "No explicit reusable licence verified; public availability does not settle redistribution.",
+    "priority": "essential",
+    "statement_ids": [
+      "thm-A.1",
+      "cor-cubic-refuted"
+    ],
+    "why": "Missing earlier source of the quartic upper bound: Theorem 1 p.2; the same cubic conjecture is Conjecture 4 p.9. This separates initial discovery from the expanded five-author publication.",
+    "alternate_url": "https://arxiv.org/pdf/2004.13231v1",
+    "read_status": "Theorem 1, source introduction, Section 5 and relevant attribution inspected",
+    "related_ref_number": 3,
+    "already_supplied": false,
+    "review_date": "2026-11-01",
+    "rank": 14,
+    "source_id": "D14"
+  },
+  {
+    "title": "Randomized Complexity Theory: Chapter 4, Minimax Principle",
+    "authors": [
+      "Eric Blais"
+    ],
+    "year": 2025,
+    "url": "https://cs.uwaterloo.ca/~eblais/cs860/w25/minimax",
+    "open_access": true,
+    "licence": "No explicit reusable licence verified; public availability does not settle redistribution.",
+    "priority": "essential",
+    "statement_ids": [
+      "claim-minimax-mu",
+      "def-R"
+    ],
+    "why": "Short university course account of the exact bounded-error worst-case-cost variant, with a clear distinction from Yao’s original average-cost zero-error principle.",
+    "read_status": "Chapter inspected; HTML source",
+    "already_supplied": false,
+    "review_date": "2026-11-01",
+    "rank": 15,
+    "source_id": "D15"
+  },
+  {
+    "title": "A Super-Grover Separation Between Randomized and Quantum Query Complexities",
+    "authors": [
+      "Shalev Ben-David"
+    ],
+    "year": 2015,
+    "url": "https://arxiv.org/pdf/1506.08106v1",
+    "open_access": true,
+    "licence": "Publicly readable; no explicit reuse licence verified for this exact version.",
+    "priority": "useful",
+    "statement_ids": [
+      "thm-1.1",
+      "cor-cubic-refuted",
+      "def-column-layout",
+      "def-winner"
+    ],
+    "why": "Earlier 2015 account of the power-5/2 separation, before the general cheat-sheet paper. Read abstract/introduction p.1 and §3 pp.2–5. The result is not a numbered theorem in this short note.",
+    "read_status": "Primary PDF abstract, introduction, and construction sketch inspected",
+    "version_note": "arXiv sidebar says v1, 26 June 2015; the served PDF title page displays 16 September 2018. Preserve this distinction; do not relabel the first announcement as 2018.",
+    "already_supplied": false,
+    "review_date": "2026-11-01",
+    "rank": 16,
+    "source_id": "D16"
+  },
+  {
+    "title": "An optimal separation of randomized and quantum query complexity",
+    "authors": [
+      "Alexander A. Sherstov",
+      "Andrey A. Storozhenko",
+      "Pei Wu"
+    ],
+    "year": 2023,
+    "url": "https://arxiv.org/pdf/2008.10223v4",
+    "open_access": true,
+    "licence": "No open reuse licence independently established for this specific PDF; readable online. Preserve attribution; public availability is not a blanket redistribution grant.",
+    "priority": "useful",
+    "statement_ids": [
+      "cor-cubic-refuted"
+    ],
+    "why": "Independent near-cubic total-function predecessor and comparison with Bansal–Sinha.",
+    "ref_number": 23,
+    "availability": "already supplied and relevant sections read",
+    "read_status": "already supplied and relevant sections read",
+    "already_supplied": true,
+    "review_date": "2026-11-01",
+    "rank": 17,
+    "source_id": "D17"
+  },
+  {
+    "title": "Complexity Measures and Decision Tree Complexity: A Survey",
+    "authors": [
+      "Harry Buhrman",
+      "Ronald de Wolf"
+    ],
+    "year": 2002,
+    "url": "https://homepages.cwi.nl/~rdewolf/publ/qc/dectree.pdf",
+    "open_access": true,
+    "licence": "No explicit reusable licence verified; public availability does not settle redistribution.",
+    "priority": "useful",
+    "statement_ids": [
+      "def-bs",
+      "def-deg",
+      "def-D",
+      "def-R",
+      "claim-round-block"
+    ],
+    "why": "Read Sections 2–5. Theorems 4/7 support polynomial bounds; Section 5.1 records the earlier Nisan–Smolensky maxonomial idea behind Midrijanis; Theorem 16 and Corollary 3 trace Nisan’s randomized simulation.",
+    "read_status": "Sections 4–5 selectively inspected; dated 10 October 2002 author version",
+    "already_supplied": false,
+    "review_date": "2026-11-01",
+    "rank": 18,
+    "source_id": "D18"
+  },
+  {
+    "title": "Deterministic Communication vs. Partition Number, revision 1",
+    "authors": [
+      "Mika Göös",
+      "Toniann Pitassi",
+      "Thomas Watson"
+    ],
+    "year": 2018,
+    "url": "https://eccc.weizmann.ac.il/report/2015/050/revision/1/download",
+    "open_access": true,
+    "licence": "Publicly accessible copy; no reuse licence independently verified",
+    "priority": "useful",
+    "statement_ids": [
+      "eq-8",
+      "def-winner",
+      "cor-unique-winner"
+    ],
+    "why": "The packet includes the April 2015 report. The revised PDF has a September 2017 title-page date and was posted to ECCC in May 2018. Its Theorem 5 and §2.1, pp.3-5, retain the relevant pointer construction; keep both versions when archiving final bibliographic locators.",
+    "version_status": "Revised source opened; Theorem 5 and §2.1 inspected and consistent with supplied original",
+    "ref_number": 15,
+    "read_status": "Revised source opened; Theorem 5 and §2.1 inspected and consistent with supplied original",
+    "already_supplied": false,
+    "review_date": "2026-11-01",
+    "rank": 19,
+    "source_id": "D19"
+  },
+  {
+    "title": "Forrelation Is Extremally Hard",
+    "authors": [
+      "Uma Girish",
+      "Rocco Servedio"
+    ],
+    "year": 2026,
+    "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol362-itcs2026/LIPIcs.ITCS.2026.72/LIPIcs.ITCS.2026.72.pdf",
+    "open_access": true,
+    "licence": "CC BY 4.0, explicitly printed on PDF page72:1 and publisher landing page.",
+    "priority": "useful",
+    "statement_ids": [
+      "eq-3",
+      "claim-proj-prob",
+      "lem-2.1.i"
+    ],
+    "why": "Modern linear-algebra and bent-function explanation of extremal two-fold Forrelation; Theorem4 p.72:4 gives exact one-query quantum vs ~Omega(2^(n/4)) randomized for the sign promise Phi=+1 versus -1. It is not a replacement for BS: input promise and exponent differ, and arbitrary-k extremal optimality remains Conjecture7. Quartic Phi-squared decoder erases the sign.",
+    "availability": "Publisher PDF pp.72:1–72:7 read; official publication23Jan2026. Earlier arXiv:2508.02514. This predates the quartic preprint.",
+    "read_status": "Publisher PDF pp.72:1–72:7 read; official publication23Jan2026. Earlier arXiv:2508.02514. This predates the quartic preprint.",
+    "already_supplied": false,
+    "review_date": "2026-11-01",
+    "rank": 20,
+    "source_id": "D20"
+  },
+  {
+    "title": "Forrelation: A problem that optimally separates quantum from classical computing",
+    "authors": [
+      "Scott Aaronson",
+      "Andris Ambainis"
+    ],
+    "year": 2018,
+    "url": "https://arxiv.org/pdf/1411.5729v1",
+    "open_access": true,
+    "licence": "No open reuse licence independently established for this specific PDF; readable online. Preserve attribution; public availability is not a blanket redistribution grant.",
+    "priority": "useful",
+    "statement_ids": [
+      "eq-3",
+      "claim-proj-prob",
+      "lem-2.1.ii"
+    ],
+    "why": "Original k-fold construction and two-query/one-query explanation; pair with the 2021 correction sources.",
+    "ref_number": 1,
+    "availability": "already supplied and relevant sections read",
+    "read_status": "already supplied and relevant sections read",
+    "already_supplied": true,
+    "review_date": "2026-11-01",
+    "rank": 21,
+    "source_id": "D21"
+  },
+  {
+    "title": "Graph properties and circular functions: how low can quantum query complexity go?",
+    "authors": [
+      "Xiaoming Sun",
+      "Andrew C. Yao",
+      "Shengyu Zhang"
+    ],
+    "year": 2004,
+    "url": "http://www.cse.cuhk.edu.hk/~syzhang/papers/Scorpion.pdf",
+    "open_access": true,
+    "licence": "No explicit reusable licence verified; public availability does not settle redistribution.",
+    "priority": "useful",
+    "statement_ids": [
+      "prop-3.2"
+    ],
+    "why": "Already supplied historical SINK decision predecessor. Theorem 2 / Section 2 are relevant, with omitted SINK search detail recorded.",
+    "local_packet": "literature/papers/ref-25-sun-2004.pdf",
+    "ref_number": 25,
+    "read_status": "Relevant source or source record inspected; see why and citation_audit.json for the precise boundary.",
+    "already_supplied": true,
+    "review_date": "2026-11-01",
+    "rank": 22,
+    "source_id": "D22"
+  },
+  {
+    "title": "k-Forrelation Optimally Separates Quantum and Classical Query Complexity — QIP 2021 slides",
+    "authors": [
+      "Makrand Sinha"
+    ],
+    "year": 2021,
+    "url": "https://indico.physik.uni-muenchen.de/event/84/attachments/247/501/S1B.Sinha.slides.pdf",
+    "open_access": true,
+    "licence": "Publicly readable; no explicit reuse licence verified for this exact version.",
+    "priority": "useful",
+    "statement_ids": [
+      "eq-3",
+      "lem-2.1.i"
+    ],
+    "why": "Author slides linked from the official QIP 2021 Thursday programme; useful companion to the source theorem and Simons lecture.",
+    "read_status": "Official programme and linked-slide metadata inspected; slides and recording not audited",
+    "landing_page": "https://www.mcqst.de/qip2021/program/thursday.html",
+    "already_supplied": false,
+    "review_date": "2026-11-01",
+    "rank": 23,
+    "source_id": "D23"
+  },
+  {
+    "title": "Lower Bounds on Quantum Query Complexity",
+    "authors": [
+      "Peter Høyer",
+      "Robert Špalek"
+    ],
+    "year": 2005,
+    "url": "https://www.ucw.cz/~robert/papers/lowerb-survey.pdf",
+    "open_access": true,
+    "licence": "No explicit reusable licence verified; public availability does not settle redistribution.",
+    "priority": "useful",
+    "statement_ids": [
+      "lem-A.2",
+      "def-adv-progress",
+      "claim-per-query",
+      "claim-final-overlap"
+    ],
+    "why": "Sections 3–4 pp.5–8 give a direct progress-function proof of the spectral adversary theorem closer to Appendix A than the original SDP proof.",
+    "read_status": "Sections 3–4, Theorem 2 inspected",
+    "already_supplied": false,
+    "review_date": "2026-11-01",
+    "rank": 24,
+    "source_id": "D24"
+  },
+  {
+    "title": "Near-Optimal Separations of Certificate Complexity from Randomized and Quantum Query Complexity",
+    "authors": [
+      "Andris Ambainis",
+      "Jānis Iraids",
+      "Martins Kokainis"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/pdf/2609.11664v3",
+    "open_access": true,
+    "licence": "Publicly accessible copy; no reuse licence independently verified",
+    "priority": "useful",
+    "statement_ids": [
+      "def-comparison",
+      "prop-3.2",
+      "construct-sampler"
+    ],
+    "why": "Recover and diff latest v3 against supplied v2, especially Theorem 2.1 and §6. The v2 comparison/source-finding mechanism is an immediate antecedent. Latest primary retrieval failed; the v3 reference remains a download/check target, not reviewed evidence.",
+    "version_status": "v2 inspected; v3 reported in indexes, primary full text not retrieved",
+    "open_access_status": "arXiv target; retrieval blocked in this session",
+    "ref_number": 5,
+    "reviewed_version_url": "https://arxiv.org/pdf/2609.11664v2",
+    "already_supplied": false,
+    "read_status": "v2 inspected; v3 reported in indexes, primary full text not retrieved",
+    "review_date": "2026-11-01",
+    "rank": 25,
+    "source_id": "D25"
+  },
+  {
+    "title": "Nearly quartic quantum query speedups: addressed witnesses and probabilistic tournaments",
+    "authors": [
+      "Latent Seminar; no named article author verified"
+    ],
+    "year": 2026,
+    "url": "https://lowrank.github.io/latent-seminar/OpenAI-Math/284-quartic-randomized-quantum-queries",
+    "open_access": true,
+    "licence": "Publicly readable; no explicit reuse licence verified for this exact version.",
+    "priority": "useful",
+    "statement_ids": [
+      "thm-1.1",
+      "prop-3.2",
+      "lem-4.1",
+      "prop-4.2",
+      "thm-A.1"
+    ],
+    "why": "A substantial existing exposition. Its stated review excludes an audit of the imported Forrelation theorem and formal verification.",
+    "read_status": "Full rendered article inspected",
+    "already_supplied": false,
+    "review_date": "2026-11-01",
+    "rank": 26,
+    "source_id": "D26"
+  },
+  {
+    "title": "On the degree of Boolean functions as real polynomials",
+    "authors": [
+      "Noam Nisan",
+      "Mario Szegedy"
+    ],
+    "year": 1994,
+    "url": "https://web.vu.lt/mif/s.jukna/boolean/Nisan-Szegedy.pdf",
+    "open_access": true,
+    "licence": "No explicit reusable licence verified; public availability does not settle redistribution.",
+    "priority": "useful",
+    "statement_ids": [
+      "def-deg",
+      "def-bs",
+      "lem-A.3.bs"
+    ],
+    "why": "Recovered original journal scan. Lemma 3.8, printed p.310, is the precise approximate-degree versus block-sensitivity theorem.",
+    "read_status": "Section 3, pp.307–310 inspected; public full text recovered, not downloaded locally",
+    "ref_number": 21,
+    "already_supplied": false,
+    "review_date": "2026-11-01",
+    "rank": 27,
+    "source_id": "D27"
+  },
+  {
+    "title": "Probability Inequalities for Sums of Bounded Random Variables",
+    "authors": [
+      "Wassily Hoeffding"
+    ],
+    "year": 1963,
+    "url": "https://www.cs.rpi.edu/academics/courses/spring06/random/hoefding.pdf",
+    "open_access": true,
+    "licence": "Public university-hosted scan; no explicit reuse licence verified.",
+    "priority": "useful",
+    "statement_ids": [
+      "lem-2.1.ii"
+    ],
+    "why": "Supplies the uncited concentration input for independent repeated projection tests. Applying the bounded independent variable inequality to Bernoulli outcomes and to their complements proves the logarithmic dependence on 1/eta for fixed k. This citation supports concentration; the coherent implementation remains the separate deferred-measurement argument in the paper.",
+    "source_location": "Journal of the American Statistical Association 58 (1963), 13–30. Section 2: Theorem 1, inequality (2.3), printed p15 / PDF page4; Theorem 2, inequality (2.6), printed p16 / PDF page5.",
+    "exact_result": "For independent Xi in [0,1], P(mean(Xi)−mean(E Xi)>=t)<=exp(−2 n t^2), with the stated range and trivial endpoint extension. Theorem 2 gives P(mean(Xi)−mean(E Xi)>=t)<=exp(−2 n^2 t^2/sum_i (bi−ai)^2) when ai<=Xi<=bi and t>0.",
+    "verification_level": "Original scan downloaded; theorem statements and hypotheses visually inspected on PDF pages4–5. Full proof not audited in this supplement.",
+    "notes": "Web PDF extraction contained no usable text; verification used local rendered scan pages. Both iid and nonidentical independent forms are sufficient here; the target's trials are iid for each fixed oracle input. This is a recommended bibliography supplement, not a new proof dependency beyond the standard concentration step already used.",
+    "read_status": "Original scan downloaded; theorem statements and hypotheses visually inspected on PDF pages4–5. Full proof not audited in this supplement.",
+    "already_supplied": false,
+    "rank": 28,
+    "source_id": "D28",
+    "review_date": "2026-11-01"
+  },
+  {
+    "title": "Quantum Computing: Lecture Notes",
+    "authors": [
+      "Ronald de Wolf"
+    ],
+    "year": 2019,
+    "url": "https://homepages.cwi.nl/~rdewolf/qcnotes.pdf",
+    "open_access": true,
+    "licence": "No explicit reusable licence verified; public availability does not settle redistribution.",
+    "priority": "useful",
+    "statement_ids": [
+      "def-Q",
+      "def-query-oracle",
+      "lem-A.2"
+    ],
+    "why": "First published 2019; unversioned author URL returned inconsistent cached front matter across workers (v5 dated 16 January 2023 versus v6 dated 27 August 2026). Chapter 11 locators pp.89–97 agree, but pin the actual downloaded version before assigning a current date. Introductory circuit chapters support the query model.",
+    "version_note": "Explicit arXiv v6 abstract/PDF requests were blocked (DisabledError), so v6 was not independently resolved. Prefer the root-inspected v5 bytes and record their title-page date.",
+    "read_status": "Front matter, contents, Chapter 11 entry inspected; full volume not audited",
+    "already_supplied": false,
+    "review_date": "2026-11-01",
+    "rank": 29,
+    "source_id": "D29"
+  },
+  {
+    "title": "Quantum Search on Bounded-Error Inputs",
+    "authors": [
+      "Peter Høyer",
+      "Michele Mosca",
+      "Ronald de Wolf"
+    ],
+    "year": 2003,
+    "url": "https://arxiv.org/pdf/quant-ph/0304052v2",
+    "open_access": true,
+    "licence": "Publicly accessible copy; no reuse licence independently verified",
+    "priority": "useful",
+    "statement_ids": [
+      "lem-2.1.ii",
+      "def-comparison",
+      "prop-3.2"
+    ],
+    "why": "Missing useful comparison source. §1 and §3 Fact 2 make explicit that ordinary robust search assumes each subroutine approximates a fixed bit with a uniform constant bias. That assumption fails for arbitrary off-promise nonwinner comparisons; this explains why standard error reduction alone does not establish Proposition 3.2.",
+    "inspected_location": "PDF pp.1-4, especially §3 Facts 1-2 and fixed-bit assumption",
+    "read_status": "Relevant source or source record inspected; see why and citation_audit.json for the precise boundary.",
+    "already_supplied": false,
+    "review_date": "2026-11-01",
+    "rank": 30,
+    "source_id": "D30"
+  },
+  {
+    "title": "Randomized and Quantum Query Complexities of Finding a King in a Tournament",
+    "authors": [
+      "Nikhil S. Mande",
+      "Manaswi Paraashar",
+      "Nitin Saurabh"
+    ],
+    "year": 2023,
+    "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol284-fsttcs2023/LIPIcs.FSTTCS.2023.30/LIPIcs.FSTTCS.2023.30.pdf",
+    "open_access": true,
+    "licence": "CC BY 4.0, verified on Dagstuhl publication page",
+    "priority": "useful",
+    "statement_ids": [
+      "def-aij",
+      "construct-sampler",
+      "prop-3.2"
+    ],
+    "why": "Get the published 19-page version as well as the bundled arXiv v1. It gives a precise fixed-tournament comparison baseline; p.3 Theorem 1.2 and arXiv pp.10-15 explain conditional sampling.",
+    "ref_number": 18,
+    "read_status": "Relevant source or source record inspected; see why and citation_audit.json for the precise boundary.",
+    "already_supplied": false,
+    "review_date": "2026-11-01",
+    "rank": 31,
+    "source_id": "D31"
+  },
+  {
+    "title": "Randomized versus quantum query complexity — six-lesson course",
+    "authors": [
+      "Claude Opus 5.5 (credited by course)"
+    ],
+    "year": 2026,
+    "url": "https://kokunoyumeto.github.io/open-math-courses-public/downloads/randomized-versus-quantum-query-complexity.zip",
+    "open_access": true,
+    "licence": "CC0 stated on the inspected lesson; archive contents not separately inspected.",
+    "priority": "useful",
+    "statement_ids": [
+      "thm-1.1",
+      "lem-3.1",
+      "prop-3.2",
+      "prop-4.2",
+      "thm-A.1"
+    ],
+    "why": "Existing explanatory comparator. Read alongside primary sources; independent review remains incomplete.",
+    "read_status": "Course index, providers page, and tournament/lower-bound lessons inspected; downloadable archive not opened",
+    "landing_page": "https://kokunoyumeto.github.io/open-math-courses-public/courses/randomized-versus-quantum-query-complexity/",
+    "already_supplied": false,
+    "review_date": "2026-11-01",
+    "rank": 32,
+    "source_id": "D32"
+  },
+  {
+    "title": "Separating Quantum from Classical with k-fold Forrelation and Friends",
+    "authors": [
+      "Makrand Sinha"
+    ],
+    "year": 2023,
+    "url": "https://simons.berkeley.edu/talks/makrand-sinha-simons-institute-2023-06-29",
+    "open_access": true,
+    "licence": "Not independently established for the exact linked file; do not infer an open reuse licence from access.",
+    "priority": "useful",
+    "statement_ids": [
+      "eq-3",
+      "lem-2.1.i"
+    ],
+    "why": "Author’s overview of Fourier growth and interpolation; useful for the explanation stage. Video linked by the official page: https://www.youtube.com/live/b-cZ7wECI_8.",
+    "availability": "Official abstract and video link read; video/audio and transcript not watched or retrieved.",
+    "read_status": "Official abstract and video link read; video/audio and transcript not watched or retrieved.",
+    "already_supplied": false,
+    "review_date": "2026-11-01",
+    "rank": 33,
+    "source_id": "D33"
+  },
+  {
+    "title": "Separations in Query Complexity Based on Pointer Functions",
+    "authors": [
+      "Andris Ambainis",
+      "Kaspars Balodis",
+      "Aleksandrs Belovs",
+      "Troy Lee",
+      "Miklos Santha",
+      "Juris Smotrovs"
+    ],
+    "year": 2017,
+    "url": "https://arxiv.org/pdf/1506.04719v3",
+    "open_access": true,
+    "licence": "Publicly accessible copy; no reuse licence independently verified",
+    "priority": "useful",
+    "statement_ids": [
+      "eq-8",
+      "def-winner",
+      "lem-3.1",
+      "thm-1.1"
+    ],
+    "why": "Already supplied. Corollary 7 is the precise near-quartic D-versus-Q precedent; pp.9-15 also exhibit normalized-success-state amplification and root-to-rival zero certificates.",
+    "already_supplied": true,
+    "ref_number": 4,
+    "read_status": "Relevant source or source record inspected; see why and citation_audit.json for the precise boundary.",
+    "review_date": "2026-11-01",
+    "rank": 34,
+    "source_id": "D34"
+  },
+  {
+    "title": "The Complexity of Boolean Functions",
+    "authors": [
+      "Ingo Wegener"
+    ],
+    "year": 1987,
+    "url": "https://eccc.weizmann.ac.il/resources/pdf/cobf.pdf",
+    "open_access": true,
+    "licence": "ECCC landing page states copyright 1987 John Wiley and Sons Ltd and B. G. Teubner; no explicit open reuse licence verified.",
+    "priority": "useful",
+    "statement_ids": [
+      "claim-circuit-size",
+      "lem-2.1.iii"
+    ],
+    "why": "A precise pedagogical citation for the linear Boolean cost of binary arithmetic used to convert the exact Walsh butterfly computation into a fan-in-two Boolean circuit. The paper should retain the short Walsh recursion argument rather than treating a cyclic DFT theorem as the Walsh result.",
+    "source_location": "Chapter 3, Section 3.1 Addition and subtraction, Theorem 1.1, printed p40 / PDF page51: school addition has size 5n−3 and depth 2n−1. Subtraction via binary complements is discussed on printed p50 / PDF page61. For related FFT background only: Chapter 3, Section 3.2, Theorem 2.6, printed p64 / PDF page75, states O(n log n) arithmetic size and O(log n) depth for the DFT; proof continues to p65.",
+    "exact_result": "n-bit binary addition has O(n) size using gates of fan-in at most two. The complement discussion supports the same asymptotic bound for subtraction. Negation and comparison can be implemented with complements/addition and a sign/carry test. For Walsh butterflies, the separate recurrence T(m)=2T(m/2)+m yields m log2(m) additions/subtractions; O_k(log m)-bit arithmetic then yields O_k(m log^2 m) Boolean size.",
+    "verification_level": "Entire ECCC PDF downloaded and text extracted; relevant theorem, preceding full-adder construction, subtraction discussion, and DFT theorem/proof excerpt inspected. No full-book audit.",
+    "landing_page": "https://eccc.weizmann.ac.il/static/books/The_Complexity_of_Boolean_Functions/",
+    "notes": "The ECCC file is a LaTeX reconstruction of the 1987 book; the landing page explains that numbered items retain their original printed pages. Theorem 2.6 concerns a DFT over suitable rings, not literally the Walsh-Hadamard transform. The arithmetic-to-Boolean application and comparator construction here are elementary derivations, not assertions that Wegener states the target lemma verbatim.",
+    "read_status": "Entire ECCC PDF downloaded and text extracted; relevant theorem, preceding full-adder construction, subtraction discussion, and DFT theorem/proof excerpt inspected. No full-book audit.",
+    "already_supplied": false,
+    "rank": 35,
+    "source_id": "D35",
+    "review_date": "2026-11-01"
+  },
+  {
+    "title": "Towards optimal separations between quantum and randomized query complexities",
+    "authors": [
+      "Avishay Tal"
+    ],
+    "year": 2020,
+    "url": "https://arxiv.org/pdf/1912.12561v1",
+    "open_access": true,
+    "licence": "No open reuse licence independently established for this specific PDF; readable online. Preserve attribution; public availability is not a blanket redistribution grant.",
+    "priority": "useful",
+    "statement_ids": [
+      "cor-cubic-refuted"
+    ],
+    "why": "Earlier 8/3−o(1) record, rorrelation construction and Fourier-growth context.",
+    "ref_number": 26,
+    "availability": "already supplied and relevant sections read",
+    "read_status": "already supplied and relevant sections read",
+    "already_supplied": true,
+    "review_date": "2026-11-01",
+    "rank": 36,
+    "source_id": "D36"
+  },
+  {
+    "title": "Towards proving strong direct product theorems",
+    "authors": [
+      "Ronen Shaltiel"
+    ],
+    "year": 2003,
+    "url": "https://eccc.weizmann.ac.il/report/2001/009/download",
+    "open_access": true,
+    "licence": "No open reuse licence independently established for this specific PDF; readable online. Preserve attribution; public availability is not a blanket redistribution grant.",
+    "priority": "useful",
+    "statement_ids": [
+      "lem-4.1"
+    ],
+    "why": "Historical fair-decision-tree antecedent; supplied ECCC theorem numbers differ from any journal pagination.",
+    "ref_number": 22,
+    "availability": "already supplied and relevant sections read",
+    "read_status": "already supplied and relevant sections read",
+    "already_supplied": true,
+    "review_date": "2026-11-01",
+    "rank": 37,
+    "source_id": "D37"
+  },
+  {
+    "title": "A fast quantum mechanical algorithm for database search",
+    "authors": [
+      "Lov K. Grover"
+    ],
+    "year": 1996,
+    "url": "https://arxiv.org/pdf/quant-ph/9605043",
+    "open_access": true,
+    "licence": "Publicly readable; no explicit reuse licence verified for this exact version.",
+    "priority": "background",
+    "statement_ids": [
+      "lem-3.1",
+      "def-verify",
+      "thm-1.1"
+    ],
+    "why": "Already supplied. Read the exact historical result at the locator in citation_audit.json; do not substitute it for a stronger later formulation.",
+    "ref_number": 16,
+    "already_supplied": true,
+    "read_status": "Relevant supplied primary passages inspected",
+    "review_date": "2026-11-01",
+    "rank": 38,
+    "source_id": "D38"
+  },
+  {
+    "title": "A Quantum Algorithm for Finding the Minimum",
+    "authors": [
+      "Christoph Dürr",
+      "Peter Høyer"
+    ],
+    "year": 1996,
+    "url": "https://arxiv.org/pdf/quant-ph/9607014v2",
+    "open_access": true,
+    "licence": "Publicly accessible copy; no reuse licence independently verified",
+    "priority": "background",
+    "statement_ids": [
+      "def-ideal-process",
+      "prop-3.2"
+    ],
+    "why": "Already supplied. Two pages suffice to understand randomized thresholds, uniform search below a threshold, rank analysis and a fixed timeout; explain why an arbitrary cyclic comparison matrix does not meet its ordering assumption.",
+    "already_supplied": true,
+    "ref_number": 14,
+    "read_status": "Relevant source or source record inspected; see why and citation_audit.json for the precise boundary.",
+    "review_date": "2026-11-01",
+    "rank": 39,
+    "source_id": "D39"
+  },
+  {
+    "title": "A stochastic calculus approach to the oracle separation of BQP and PH",
+    "authors": [
+      "Xinyu Wu"
+    ],
+    "year": 2020,
+    "url": "https://arxiv.org/pdf/2007.02431",
+    "open_access": true,
+    "licence": "Not independently established for the exact linked file; do not infer an open reuse licence from access.",
+    "priority": "background",
+    "statement_ids": [
+      "lem-2.1.i"
+    ],
+    "why": "Six-page simplification of the Raz–Tal proof explicitly cited by BS; useful for prerequisites, not a replacement for arbitrary-k BS. Do not confuse Xinyu Wu with Pei Wu.",
+    "availability": "arXiv abstract and BS citation checked; full PDF not read.",
+    "read_status": "arXiv abstract and BS citation checked; full PDF not read.",
+    "already_supplied": false,
+    "review_date": "2026-11-01",
+    "rank": 40,
+    "source_id": "D40"
+  },
+  {
+    "title": "Analysis of Boolean Functions (May 2021 arXiv edition)",
+    "authors": [
+      "Ryan O’Donnell"
+    ],
+    "year": 2021,
+    "url": "https://arxiv.org/pdf/2105.10386v1",
+    "open_access": true,
+    "licence": "arXiv licence link explicitly points to CC BY-NC-ND 4.0. PDF front matter also permits single paper or electronic copies for noncommercial personal use and otherwise reserves rights.",
+    "priority": "background",
+    "statement_ids": [
+      "def-walsh-sign",
+      "claim-N-phi",
+      "claim-circuit-size"
+    ],
+    "why": "Optional background for parity characters, Fourier normalization, and orthogonality when reading the Walsh-based forrelation construction. It is not needed as an extra load-bearing result and is not a citation for the butterfly's Boolean gate count.",
+    "source_location": "Chapter 1, Sections 1.2–1.4: Theorem 1.1 (unique multilinear/Fourier expansion), printed/PDF p22; Definition 1.2 (characters on F2^n), p23; Theorem 1.5 (orthonormal parity basis), p24; Proposition 1.8 and the unnumbered Parseval's Theorem, p25. These locators are for the inspected May 2021 arXiv edition.",
+    "exact_result": "Every real function on the Boolean cube has a unique multilinear expansion; parity characters form an orthonormal basis under the uniform-average inner product; coefficients are inner products with characters, and Parseval equates the squared norm to the sum of squared Fourier coefficients.",
+    "verification_level": "Full primary textbook available in web PDF text; front matter and Chapter 1 passages inspected. Not locally downloaded; no full-book audit.",
+    "notes": "Original book published April 2014. The May 2021 revision corrects 100+ typos/errors, preserves theorem numbering, and changes pagination slightly. Use this edition label with these page locators. Licence link was opened from the arXiv landing page.",
+    "read_status": "Full primary textbook available in web PDF text; front matter and Chapter 1 passages inspected. Not locally downloaded; no full-book audit.",
+    "already_supplied": false,
+    "rank": 41,
+    "source_id": "D41",
+    "review_date": "2026-11-01"
+  },
+  {
+    "title": "BQP and the Polynomial Hierarchy",
+    "authors": [
+      "Scott Aaronson"
+    ],
+    "year": 2010,
+    "url": "https://www.scottaaronson.com/papers/bqpph.pdf",
+    "open_access": true,
+    "licence": "Not independently established for the exact linked file; do not infer an open reuse licence from access.",
+    "priority": "background",
+    "statement_ids": [
+      "eq-3"
+    ],
+    "why": "Origin of the two-fold Fourier Checking/Forrelation problem before the AA k-fold generalization. Read §3.2 for the problem and §5 for its original analysis.",
+    "availability": "Source identity and relevance checked against AA introduction and author-hosted search result; not a fresh theorem audit.",
+    "read_status": "Source identity and relevance checked against AA introduction and author-hosted search result; not a fresh theorem audit.",
+    "already_supplied": false,
+    "review_date": "2026-11-01",
+    "rank": 42,
+    "source_id": "D42"
+  },
+  {
+    "title": "Communication and Complexity (PhD dissertation)",
+    "authors": [
+      "Pei Wu"
+    ],
+    "year": 2021,
+    "url": "https://pwu.netlify.app/files/dissertation.pdf",
+    "open_access": true,
+    "licence": "Not independently established for the exact linked file; do not infer an open reuse licence from access.",
+    "priority": "background",
+    "statement_ids": [
+      "def-R",
+      "def-Q",
+      "eq-3",
+      "cor-cubic-refuted"
+    ],
+    "why": "Long-form treatment: §2.7 printed pp.26–30; Chapter6 pp.274–334; especially §6.5 pp.325–334. Use after the shorter SSW journal paper if more foundations are needed.",
+    "availability": "Title, author, table of contents and relevant chapter introduction verified; not read in full.",
+    "read_status": "Title, author, table of contents and relevant chapter introduction verified; not read in full.",
+    "already_supplied": false,
+    "review_date": "2026-11-01",
+    "rank": 43,
+    "source_id": "D43"
+  },
+  {
+    "title": "CREW PRAMs and Decision Trees",
+    "authors": [
+      "Noam Nisan"
+    ],
+    "year": 1991,
+    "url": "https://doi.org/10.1137/0220062",
+    "open_access": false,
+    "licence": "No explicit reusable licence verified; public availability does not settle redistribution.",
+    "priority": "background",
+    "statement_ids": [
+      "def-bs",
+      "def-D",
+      "def-R"
+    ],
+    "why": "Original archival source is still needed for complete historical provenance. Current access is publisher abstract only; use the survey for the actual inequalities until acquired.",
+    "read_status": "Publisher abstract and bibliographic data only",
+    "direct_pdf_url": null,
+    "ref_number": 20,
+    "already_supplied": false,
+    "review_date": "2026-11-01",
+    "rank": 44,
+    "source_id": "D44"
+  },
+  {
+    "title": "Improved Algorithm and Lower Bound for Variable Time Quantum Search",
+    "authors": [
+      "Andris Ambainis",
+      "Martins Kokainis",
+      "Jevgēnijs Vihrovs"
+    ],
+    "year": 2023,
+    "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol266-tqc2023/LIPIcs.TQC.2023.7/LIPIcs.TQC.2023.7.pdf",
+    "open_access": true,
+    "licence": "Dagstuhl open-access publication; verify CC BY notice in downloaded copy",
+    "priority": "background",
+    "statement_ids": [
+      "prop-3.2",
+      "claim-tournament-cost"
+    ],
+    "why": "The source behind [5]'s source-finding algorithm. Useful for comparing cost accounting and conditional samples, but not required for the simpler uniformly capped tournament proof in this preprint. Its upper bound uses an estimate of sum_i t_i^2 rather than knowing all times individually.",
+    "read_status": "Relevant source or source record inspected; see why and citation_audit.json for the precise boundary.",
+    "already_supplied": false,
+    "review_date": "2026-11-01",
+    "rank": 45,
+    "source_id": "D45"
+  },
+  {
+    "title": "Optimal Unambiguous DNFs and Alon-Saks-Seymour",
+    "authors": [
+      "Chirag Pabbaraju"
+    ],
+    "year": 2026,
+    "url": "https://arxiv.org/pdf/2608.02533",
+    "open_access": true,
+    "licence": "Publicly accessible copy; no reuse licence independently verified",
+    "priority": "background",
+    "statement_ids": [
+      "def-column-layout",
+      "def-winner"
+    ],
+    "why": "Source explicitly credited by [5], pp.2 and 7, for the incompatible-DNF, partial-function, and cheat-sheet construction. Helps complete attribution of the certificate-complexity side branch; it is not a black-box input to the randomized separation. Primary full text not retrieved in this review.",
+    "verification_status": "Title/abstract found; dependency attribution checked in supplied [5]; exact theorem not audited",
+    "read_status": "Title/abstract found; dependency attribution checked in supplied [5]; exact theorem not audited",
+    "already_supplied": false,
+    "review_date": "2026-11-01",
+    "rank": 46,
+    "source_id": "D46"
+  },
+  {
+    "title": "Oracle Separation of BQP and PH",
+    "authors": [
+      "Ran Raz",
+      "Avishay Tal"
+    ],
+    "year": 2019,
+    "url": "https://eccc.weizmann.ac.il/report/2018/107/download/",
+    "open_access": true,
+    "licence": "Not independently established for the exact linked file; do not infer an open reuse licence from access.",
+    "priority": "background",
+    "statement_ids": [
+      "lem-2.1.i"
+    ],
+    "why": "One of the explicit methodological antecedents named by BS §1.2. Read §2 pp.4–6 for the Gaussian-to-Boolean distribution, then BS to see what changes at k>2. This concerns an oracle separation, not the quartic total-function theorem.",
+    "availability": "Original 2018 ECCC version pp.1–6 inspected; STOC publication 2019 and journal 2022.",
+    "read_status": "Original 2018 ECCC version pp.1–6 inspected; STOC publication 2019 and journal 2022.",
+    "already_supplied": false,
+    "review_date": "2026-11-01",
+    "rank": 47,
+    "source_id": "D47"
+  },
+  {
+    "title": "Probabilistic computations: Toward a unified measure of complexity",
+    "authors": [
+      "Andrew Chi-Chih Yao"
+    ],
+    "year": 1977,
+    "url": "https://doi.org/10.1109/SFCS.1977.24",
+    "open_access": false,
+    "licence": "No explicit reusable licence verified; public availability does not settle redistribution.",
+    "priority": "background",
+    "statement_ids": [
+      "claim-minimax-mu",
+      "def-R"
+    ],
+    "why": "Original historical source remains unavailable in full. Do not block finite minimax verification on it: the exact finite game is displayed in the target paper.",
+    "read_status": "Bibliographic record only",
+    "direct_pdf_url": null,
+    "ref_number": 27,
+    "already_supplied": false,
+    "review_date": "2026-11-01",
+    "rank": 48,
+    "source_id": "D48"
+  },
+  {
+    "title": "Products and Help Bits in Decision Trees",
+    "authors": [
+      "Noam Nisan",
+      "Steven Rudich",
+      "Michael Saks"
+    ],
+    "year": 1994,
+    "url": "https://www.brics.dk/NS/94/3/BRICS-NS-94-3.pdf",
+    "open_access": true,
+    "licence": "Not independently established for the exact linked file; do not infer an open reuse licence from access.",
+    "priority": "background",
+    "statement_ids": [
+      "lem-4.1"
+    ],
+    "why": "Earlier decision-forest direct-product lineage cited by Shaltiel. Different algorithmic model from capped interleaving; use for attribution, not as a drop-in lemma.",
+    "availability": "Primary repository search result and Shaltiel §1.2 checked; direct PDF fetch timed out.",
+    "read_status": "Primary repository search result and Shaltiel §1.2 checked; direct PDF fetch timed out.",
+    "already_supplied": false,
+    "review_date": "2026-11-01",
+    "rank": 49,
+    "source_id": "D49"
+  },
+  {
+    "title": "Quantum Decision Trees and Semidefinite Programming",
+    "authors": [
+      "Howard Barnum",
+      "Michael E. Saks",
+      "Mario Szegedy"
+    ],
+    "year": 2002,
+    "url": "https://www.osti.gov/servlets/purl/975874/",
+    "open_access": true,
+    "licence": "OSTI cover says approved for public release, distribution unlimited; no Creative Commons licence observed.",
+    "priority": "background",
+    "statement_ids": [
+      "lem-A.2",
+      "def-Q"
+    ],
+    "why": "Earlier BSS draft, dated 23 May 2002. Useful for query-model and SDP background, but it is not the cited CCC 2003 version.",
+    "read_status": "Sections 6–8 and Theorem 4 inspected",
+    "already_supplied": false,
+    "review_date": "2026-11-01",
+    "rank": 50,
+    "source_id": "D50"
+  },
+  {
+    "title": "Quantum lower bounds by polynomials",
+    "authors": [
+      "Robert Beals",
+      "Harry Buhrman",
+      "Richard Cleve",
+      "Michele Mosca",
+      "Ronald de Wolf"
+    ],
+    "year": 2001,
+    "url": "https://arxiv.org/pdf/quant-ph/9802049v3",
+    "open_access": true,
+    "licence": "Publicly readable; no explicit reuse licence verified for this exact version.",
+    "priority": "background",
+    "statement_ids": [
+      "lem-A.3.bs",
+      "def-bs",
+      "def-Q"
+    ],
+    "why": "Already supplied. Read the exact historical result at the locator in citation_audit.json; do not substitute it for a stronger later formulation.",
+    "ref_number": 8,
+    "already_supplied": true,
+    "read_status": "Relevant supplied primary passages inspected",
+    "review_date": "2026-11-01",
+    "rank": 51,
+    "source_id": "D51"
+  },
+  {
+    "title": "Strengths and weaknesses of quantum computing",
+    "authors": [
+      "Charles H. Bennett",
+      "Ethan Bernstein",
+      "Gilles Brassard",
+      "Umesh Vazirani"
+    ],
+    "year": 1997,
+    "url": "https://arxiv.org/pdf/quant-ph/9701001",
+    "open_access": true,
+    "licence": "Publicly readable; no explicit reuse licence verified for this exact version.",
+    "priority": "background",
+    "statement_ids": [
+      "def-query-oracle",
+      "def-Q",
+      "lem-A.3.bs"
+    ],
+    "why": "Already supplied. Read the exact historical result at the locator in citation_audit.json; do not substitute it for a stronger later formulation.",
+    "ref_number": 10,
+    "already_supplied": true,
+    "read_status": "Relevant supplied primary passages inspected",
+    "review_date": "2026-11-01",
+    "rank": 52,
+    "source_id": "D52"
+  }
+]

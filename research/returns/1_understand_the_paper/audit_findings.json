@@ -1,0 +1,177 @@
+[
+  {
+    "location": "corpus/statement_ledger.json: lem-2.2.i; P Lemma 2.2, LF lines 266-288",
+    "severity": "medium",
+    "claim": "The ledger confuses adaptive query depth with dependence on a fixed small set of input bits.",
+    "reasoning": "The pointer test is X_j[p]. It needs ell pointer-bit queries followed by one data query, but each of the m data bits can affect the test for an appropriate pointer value. Thus its support can have m+ell coordinates. The paper correctly claims O(log m) query evaluation; the ledger adds an invalid small-junta interpretation.",
+    "how_to_confirm": "Replace that phrase and its proposed dependence target with an adaptive decision-tree depth bound ell+1. For any target coordinate v, hold the pointer at v and flip X_j[v]; this witnesses its relevance. This would cease to be a defect only if “function of” were explicitly defined as a per-execution query bound rather than fixed support."
+  },
+  {
+    "location": "corpus/statement_ledger.json: def-deg; P Appendix A, LF lines 725-727",
+    "severity": "low",
+    "claim": "The degree-zero convention must be explicit when translating Boolean degree to a polynomial library.",
+    "reasoning": "The Boolean-complexity convention assigns degree zero to constants. With an algebraic convention degree(0)=-infinity, converting the zero Boolean output into the constant sign output -1 changes polynomial degree. The appendix treats constants separately and its nonconstant argument is sound.",
+    "how_to_confirm": "Define Boolean degree to return zero on constants, or scope encoding invariance to nonconstant functions. Check that constants have D=R=Q=0. A library already using natDegree with zero at the zero polynomial resolves the issue."
+  },
+  {
+    "location": "paper/extracted.md and all ledger source_line fields",
+    "severity": "info",
+    "claim": "Use LF-delimited line numbers; the apparent locator drift is not a source-ledger defect.",
+    "reasoning": "The original extraction contains 19 form-feed page separators. Python splitlines() treats them as new lines, whereas the ledger builder explicitly used split(\"\\n\"). The original LF anchors match: Lemma 2.1=151, Proposition 3.2=363, Lemma 4.1=528, Proposition 4.2=592. This review initially observed an apparent drift and corrected its counting convention after inspecting the trace.",
+    "how_to_confirm": "Read with text.split(\"\\n\") or use the original PDF page/section. Do not silently rewrite source_line fields from splitlines() output. The return consistently uses physical LF locations for the main paper."
+  },
+  {
+    "location": "corpus/statement_ledger_notes.md: external-results plan and final alphaTot statement; ledger thm-1.1",
+    "severity": "high",
+    "claim": "A main theorem proved under a BansalSinha hypothesis is a conditional formalization, not an unconditional verification of the separation.",
+    "reasoning": "The manuscript legitimately invokes the published Bansal–Sinha lower bound. The proposed Lean endpoint still takes that theorem as an explicit hypothesis. Kernel-checking the implication would verify the reduction and its assumptions; it would not discharge that hypothesis. Comparator agreement likewise cannot prove an assumed external theorem.",
+    "how_to_confirm": "Keep the hypothesis visible in the theorem statement and claim metadata. An unconditional status requires a checked imported theorem or a formal proof of the external result with the same domain, thresholds, error model and definition of R, plus successful build/statement checks."
+  },
+  {
+    "location": "attached trace: root turn 22 and O116; lean/current/Drift.lean",
+    "severity": "medium",
+    "claim": "The supplied trace does not establish successful compilation of Drift.lean.",
+    "reasoning": "The later root task notification says b982m25tv failed with exit code 144. Original O116 ends during Mathlib post-update/setup work with that exit code; a later cache probe returns 69 and another diagnostic has no captured result. The older “still running” progress note is superseded. This is not evidence that the Lean theorem itself is false or that its source has a compiler error.",
+    "how_to_confirm": "Run the intended build in a working pinned environment and retain its successful terminal receipt; then run the required statement/comparator checks. No such new run was performed by this advisory review. The attached source is byte-identical to the original trace write."
+  },
+  {
+    "location": "lean/current/Drift.lean: IsComparison, expected_weight_eq, expected_weight_le_half",
+    "severity": "medium",
+    "claim": "The finite algebraic identity is only one part of the probabilistic tournament proof.",
+    "reasoning": "IsComparison requires complementarity and zero diagonal but not probability ranges. The displayed algebra is valid for more general real arrays and weights, so this is not a false theorem. To interpret its left side as an expectation, prove w_i>=0, W>0 and 0<=a_ij<=1, construct the pivot probability distribution, and handle W=0 separately. The file does not model the repeated process or quantum sampler.",
+    "how_to_confirm": "Add a probability-level wrapper and prove the process invariant, iterated expectation, survival bound and coupling. Preserve the broader algebra lemma if useful. Do not mark Proposition 3.2 or Theorem 1.1 complete merely because this helper builds."
+  },
+  {
+    "location": "P Section 2.1 and Bansal–Sinha [6], Theorem 1.3 / Corollary 1.4",
+    "severity": "info",
+    "claim": "The imported Forrelation lower bound matches the concrete gadget used in the manuscript.",
+    "reasoning": "The normalized Walsh form, block dimension, delta=2^(-5k), positive one-case, absolute-value zero-case and error 1/3 all agree. The source dimension N is this paper’s m; total gadget length is km. The published bound dominates L for each fixed k because the logarithmic ratio tends to infinity.",
+    "how_to_confirm": "Compare source Eqs. (1.1)-(1.3) and Corollary 1.4 with P Eqs. (3)-(5). A changed promise, normalization or query/error convention would remove this match. The full Gaussian/Fourier proof was not independently re-proved in this review."
+  },
+  {
+    "location": "P Lemma 2.1(ii)-(iii), LF lines 158-207; integer arithmetic circuit",
+    "severity": "low",
+    "claim": "The exact circuit and the quantum decoder have different obligations, and both are needed.",
+    "reasoning": "The quantum test sees Phi squared and may output one on Phi=-1, which is outside the promise. The exact circuit must report d=0 there. Integer comparisons avoid approximation; fast Walsh arithmetic gives O_k(m log^2 m) gates only if fixed-width arithmetic has sufficient headroom and all gate/output conventions are counted.",
+    "how_to_confirm": "Prove Phi=N/M, both integer comparisons, bounded intermediate magnitudes, arithmetic gate correctness and the final size bound. The small examples check the thresholds but not the complete unspecified gate implementation."
+  },
+  {
+    "location": "P Section 2.2, LF lines 206-236; definition of the input",
+    "severity": "info",
+    "claim": "The function is total and pointer encodings have no invalid bit patterns.",
+    "reasoning": "For m=4^t, ell=2t and every ell-bit word names one of the m rows. Invalid transcripts or unpromised A-strings simply make a candidate fail its winner predicate. Define WinsAt as a total predicate to avoid assigning an arbitrary true address where P is undefined.",
+    "how_to_confirm": "Prove the equivalence between WinsAt and the local conjunction on all inputs, then prove F is total. Introducing a promise on F or defaulting an undefined address without its domain test would invalidate the construction."
+  },
+  {
+    "location": "P Section 3.3, LF lines 466-482",
+    "severity": "info",
+    "claim": "The off-promise comparison argument is valid: only the genuine winner’s decoder needs to succeed.",
+    "reasoning": "An opponent’s pointer always lands on a one in the winner’s all-one string, at every decoded address. When the winner’s own decode is correct, its outward pointer finds a zero in the opponent. This yields a_i*j>=1-epsilon independently of the opponent’s promise status. A wrong transcript in the opponent is irrelevant to this one-sided argument.",
+    "how_to_confirm": "Check both pointer directions on the supplied worked board and on the undefined Phi=-1 opponent. Reversing pointers or allowing the opponent a nonstandard query oracle would require a different proof."
+  },
+  {
+    "location": "P Proposition 3.2, LF lines 353-448",
+    "severity": "info",
+    "claim": "The drift identity, exact weighted sampler and history-dependent coupling are sound under the stated coherent model.",
+    "reasoning": "One shared unordered-pair circuit ensures complementarity. Pairing ordered weighted terms gives (W^2-sum w_i^2)/(2W). Fresh comparison workspaces give product probabilities conditional on the candidate index. Amplification preserves the full normalized good state, hence exactly the law w_i/W. Failure probabilities may depend on the pivot history; summing at most T conditional bounds still costs at most T epsilon.",
+    "how_to_confirm": "Retain all workspaces and run actual inverses. Verify the product tensor structure and good-state law, not merely total success probability. A comparator implemented separately in the two directions or an approximate sampler without an added error analysis would break the current proof interface."
+  },
+  {
+    "location": "P Lemma 3.1 and Proposition 3.2; exact-unitary query model",
+    "severity": "low",
+    "claim": "The stated algorithm is legal with arbitrary exact query-free unitaries; a finite-gate implementation needs an extra approximation bridge.",
+    "reasoning": "The sampler and verifier prepare uniform states over m and K items. K need not be a power of two. This is allowed by unrestricted query-free computation, but a Lean quantum-circuit library with only a fixed exact gate basis may not represent these preparations exactly. Likewise adaptive measurement/control must be bridged to the purified model used in Appendix A.",
+    "how_to_confirm": "Choose a semantics that matches the paper, or prove an approximation and purification theorem with explicit query overhead and accumulated error. This is a formal model obligation, not a gap in the stated query-complexity proof."
+  },
+  {
+    "location": "P Section 3.3 verification, LF lines 483-502; worked_examples.md Section 3",
+    "severity": "info",
+    "claim": "Tournament dominance does not imply that a true winner exists; final verification is essential.",
+    "reasoning": "In the worked board, redirecting column 1’s pointer to a one makes its certificate invalid and F=0. The comparison against that opponent then ties, and the smaller-index tie-break still picks column 1; the entire comparison matrix remains unchanged. The manuscript handles this correctly by checking exact local tests.",
+    "how_to_confirm": "Run verify_examples.py and inspect the broken-pointer variant. Keep the verifier in any explanation or implementation. Removing it produces a concrete false-accept counterexample."
+  },
+  {
+    "location": "P Section 3 parameters and query/error accounting",
+    "severity": "info",
+    "claim": "The quantum error and worst-case query bounds have ample slack.",
+    "reasoning": "Binary T gives 2m/2^T<=1/500, T epsilon=1/1000 and epsilon<=1/11000 for m>=2. Fixed stage counts, trial counts and Grover-length caps cover every input and branch. With x=log_2 m, the tournament costs O_k(sqrt(m)x^3(log x)^2) and all verifications O_k(sqrt(m)x^(7/2)log x); fresh decoding is dominated.",
+    "how_to_confirm": "Keep all iteration caps explicit. A repeat-until-success implementation would prove an expected-cost result instead without further truncation analysis. Changing log base in T without adjusting its multiplier can destroy the displayed error estimate."
+  },
+  {
+    "location": "P Lemma 4.1, LF lines 528-573",
+    "severity": "info",
+    "claim": "The adaptive direct-product proof is correct with separate query caps and jointly independent side information.",
+    "reasoning": "After coins and side information are fixed, a transcript is a Cartesian product of input restrictions. Only one Bellman success value changes at each query, so the product of values is a supermartingale. At a leaf the probability of the chosen whole answer vector is bounded by that product. Arbitrary products of supermartingales would not have this property without the one-factor update argument.",
+    "how_to_confirm": "Formalise transcript rectangles at positive-probability nodes, the per-instance caps, and independence of side information from the entire input tuple. Do not replace the separate cap by only an aggregate rL budget."
+  },
+  {
+    "location": "P Section 4.2 simulator, LF lines 639-666",
+    "severity": "info",
+    "claim": "The lower bound avoids the dangerous conditioning on nonheaviness.",
+    "reasoning": "The simulator aborts before exceeding L target queries and bounds the joint event that the original target column is nonheavy and the t-th query touches its true cell. It does not condition the hard input distribution on that adaptive event. The AND example demonstrates why such conditioning would be invalid: conditional success is 1 but the joint probability is only 1/2.",
+    "how_to_confirm": "Keep the event inclusion and capped simulator explicit. Use the independent blank dummy data as free side information, not planted certificate contents. Check that averaging over uniform I cancels the column sum rather than adding a spurious factor m."
+  },
+  {
+    "location": "P Section 4.2 dummy/planted coupling, LF lines 600-638",
+    "severity": "info",
+    "claim": "The removed-zero estimate remains valid under adaptive queries.",
+    "reasoning": "Before a zero is queried, its location is uniform among unqueried positions conditional on the observed transcript. Early discoveries have probability at most 2/m per query; later discovered columns each consume at least m/2 queries. Thus E Z<=4G/m and a hidden independent uniform I is hit with probability at most 4G/m^2. All events are measured in the same dummy run.",
+    "how_to_confirm": "Maintain independence of I and the dummy input, and count actual queried zeros. A planted index chosen using the transcript, or side information revealing zero locations, would invalidate these bounds."
+  },
+  {
+    "location": "P Eqs. (17)-(23), LF lines 592-678",
+    "severity": "info",
+    "claim": "The classical numerical contradiction can be certified without logarithm approximations once hardness assumptions hold.",
+    "reasoning": "For m=2^ell, r=20ell, 1<=L<=m and G=floor(mL/100), 2^31<3^20 gives G(2/3)^r<1/(100m^9). The total distinguishing bound is <1/20+1/(100m^9)<1/3 for m>=4. Sufficiently large m is still needed for L>=1 and the external L<R(P), whose threshold is not made explicit.",
+    "how_to_confirm": "Check the integer inequality 2147483648<3486784401 and the three budget terms. Keep r’s definition attached to claim-numeric; bounding just the first two terms does not bound the address-guessing tail."
+  },
+  {
+    "location": "ledger eq-5, eq-17, lem-2.1.i, prop-4.2 and their depends_on edges",
+    "severity": "medium",
+    "claim": "Numbered-display rows combine definitions with theorem conclusions; proof assembly must not treat the conclusions as established prerequisites.",
+    "reasoning": "eq-5 defines L and asserts L<R(P); eq-17 defines G and asserts R(F)>G. The consumers depend on these rows partly to get notation. If a formal graph treats every row as a proved theorem, it could import the desired lower-bound assertion as an assumption of its own proof. The paper’s logical argument is not circular.",
+    "how_to_confirm": "Split each budget definition from the inequality, or mark the inequality portion as a theorem alias resolved only after its proof. Validate the dependency graph at the actual theorem/definition level, not merely by syntactic acyclicity of row IDs."
+  },
+  {
+    "location": "P Section 5, LF lines 692-717",
+    "severity": "info",
+    "claim": "The result is optimal exponent four, not an exact fourth-power family.",
+    "reasoning": "For each alpha<4 choose one fixed k>2/(4-alpha), then let m tend to infinity. The ratio of the lower R bound to (1+Q)^alpha grows as a positive power of m divided by a polylogarithm. k=2 alone does not refute a cubic upper bound; k=3 already does.",
+    "how_to_confirm": "Retain quantifier order and logarithmic losses in every synopsis. A claim R>=c Q^4 for the displayed fixed-k family is not established by these estimates."
+  },
+  {
+    "location": "P Section 2 layout; worked_examples.md Sections 1-3",
+    "severity": "low",
+    "claim": "A four-column illustration is not a finite demonstration of the asymptotic lower bound.",
+    "reasoning": "The actual m=4,k=2 parameters are r=40, 2^40 cells per column and L=0. The examples specify the relevant cells and truthful circuit transcripts by rule while suppressing the huge unused table. They do not expand the paper’s unspecified gate circuit.",
+    "how_to_confirm": "Keep the explicit m=4 parameter table and full input-length formula. Label reduced-address toys as variants rather than claiming they instantiate the manuscript’s hardness bound."
+  },
+  {
+    "location": "P Appendix A; quantum model bridge and denominator in Lemma A.2",
+    "severity": "info",
+    "claim": "The universal quartic upper bound was rederived successfully, with standard conventions made explicit.",
+    "reasoning": "The spectral denominator is positive because a nonzero opposite-output entry differs in some coordinate. A nonnegative top Rayleigh vector suffices without an irreducible Perron theorem. The overlap calculation gives c0=(1-2sqrt(2)/3)/2 before any controlled-query conversion overhead. Stars, coordinate matchings, Huang’s signed cube and the maximum-monomial algorithm then yield D<=bs*deg=O(Q^4).",
+    "how_to_confirm": "Prove the adaptive-to-purified model conversion in the same definition of Q, then follow the four appendix inequalities. The cited Midrijanis product inequality occurs inside the proof of his Theorem 4 rather than as its displayed headline statement."
+  },
+  {
+    "location": "corpus/statement_ledger_notes.md: consistency check on degree and block sensitivity",
+    "severity": "info",
+    "claim": "The notes’ unexpanded bs and degree estimate has a valid short derivation.",
+    "reasoning": "Freeze a valid planted input except for its winning X_I string. The remaining function is AND_m, giving deg(F)>=m and bs(F)>=m. Appendix A together with the quantum upper bound gives both upper bounds m times a polylogarithm for fixed k. This is a deduction using the proved upper bound, not an independent check of it.",
+    "how_to_confirm": "Add the AND restriction proof and label the upper bounds as corollaries of the quantum bound. This would fail if the frozen nonwinning columns could become winners when X_I changed; their fixed zeros prevent that."
+  },
+  {
+    "location": "corpus/commentary.json and attached trace research summaries",
+    "severity": "low",
+    "claim": "Search-based absence and expert-reaction summaries cannot establish full review or formalization status.",
+    "reasoning": "The packet itself records summarizing fetches, snippets, incomplete comment scans and unavailable outputs. “No independent reviewer found” is not “nobody reviewed it.” The visible Aaronson reply is truncated. The review uses the primary mathematics for proof claims rather than treating these commentary leads as validation.",
+    "how_to_confirm": "For a public review-status statement, obtain a direct dated review or checked formal artifact. Reopen the exact primary post/comment for any quoted reaction. This return makes no claim to know the complete current expert-review landscape."
+  },
+  {
+    "location": "literature/references_resolved.json: refs 7,20,21,27; read_coverage.json",
+    "severity": "info",
+    "claim": "Four bibliography originals are absent from the packet and were not read; external proof-reading scope is limited explicitly.",
+    "reasoning": "Barnum–Saks–Szegedy, Nisan, Nisan–Szegedy and Yao are metadata-only in the attachment. All 23 supplied literature PDFs were readable and relevant portions were examined, but their whole proofs were not all re-audited. In particular the long Forrelation lower-bound proof is a published dependency, not a new verified result of this review.",
+    "how_to_confirm": "Consult read_coverage.json for each source’s actual scope. Use the manuscript’s self-contained adversary proof plus available primary sources for that bound, and an independently checked finite minimax theorem in formalization. Do not report all 27 originals or all proofs as read and verified."
+  }
+]

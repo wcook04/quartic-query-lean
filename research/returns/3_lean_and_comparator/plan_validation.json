@@ -1,0 +1,18 @@
+{
+  "rows": 118,
+  "unique_ids": 118,
+  "all_input_ids_present": true,
+  "no_unknown_dependencies": true,
+  "dependency_graph_acyclic": true,
+  "routes": {
+    "prove": 111,
+    "import": 6,
+    "hypothesis": 1
+  },
+  "estimated_incremental_lines": {
+    "min": 12220,
+    "max": 35330
+  },
+  "lean_compiled": false,
+  "comparator_run": false
+}

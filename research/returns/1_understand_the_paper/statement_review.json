@@ -1,0 +1,1405 @@
+[
+  {
+    "id": "def-log-convention",
+    "verdict": "correct",
+    "plain_meaning": "All parameter logarithms are binary, particularly those defining L, r, ell and T.",
+    "why_needed": "The exponential shrinkage estimate uses 2^T, so its numerical choice of T requires this base.",
+    "hard_step": "A base change is harmless in an asymptotic polylogarithm but not in the literal choice T=ceil(log_2(1000m)). On m=4^t, use r=40t and ell=2t.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md physical LF lines 117-123, 206-207, 363-378; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result."
+    ]
+  },
+  {
+    "id": "def-partial-query",
+    "verdict": "correct",
+    "plain_meaning": "A partial Boolean function assigns an answer only to inputs in a specified domain; correctness is required only there.",
+    "why_needed": "Forrelation supplies a large quantum advantage under a promise, which the construction must safely embed into a total function.",
+    "hard_step": "Off-domain correctness is unconstrained. The decoder used here nevertheless terminates, outputs a bit and respects its fixed query cap on every input; do not interpret unconstrained behaviour as permitting unbounded query cost.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md physical LF lines 117-123, 142-150; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result."
+    ]
+  },
+  {
+    "id": "def-R",
+    "verdict": "correct",
+    "plain_meaning": "R is the smallest worst-case depth of a randomized decision tree that succeeds with probability at least 2/3 separately on every allowed input.",
+    "why_needed": "Defines the classical resource being lower bounded and makes finite minimax applicable.",
+    "hard_step": "A distribution over depth-q deterministic trees has a branchwise cap q, including every random coin outcome. Average query cost is a different quantity.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md physical LF lines 18-25, 575-589; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result."
+    ]
+  },
+  {
+    "id": "def-query-oracle",
+    "verdict": "correct",
+    "plain_meaning": "The input oracle flips an answer bit by the indexed input bit and leaves the index and workspace unchanged.",
+    "why_needed": "Fixes the exact resource charged by every quantum routine and prevents silently using a stronger cell oracle.",
+    "hard_step": "The basis map is a permutation and an involution. A phase query follows by using the answer register in |->; controlled input access can be simulated by load, controlled use, unload.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md physical LF lines 20-25, 283-288, 507-512; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result."
+    ]
+  },
+  {
+    "id": "def-Q",
+    "verdict": "correct",
+    "plain_meaning": "Q is the least worst-case number of standard bit-oracle calls in a quantum procedure with error at most 1/3 on each allowed input.",
+    "why_needed": "Both the new algorithm and the known universal quartic upper bound must refer to this same measure.",
+    "hard_step": "Input-independent computation is free. Intermediate measurements and classical control must be reconciled with a purified fixed-query model by a proved simulation, with constant overhead if needed. Exact arbitrary finite unitaries are permitted here.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md physical LF lines 18-25, 310-320, 750-754; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result."
+    ]
+  },
+  {
+    "id": "eq-1",
+    "verdict": "correct",
+    "plain_meaning": "alpha_tot is the infimum of exponents that bound randomized cost by a universal constant times (1+quantum cost)^alpha for every total Boolean function.",
+    "why_needed": "Makes optimal power precise without committing to a logarithmic factor in a matching family.",
+    "hard_step": "The constant for a proposed universal exponent is independent of the function and its input length. Adding 1 handles constant functions; the set is nonempty because exponent 4 belongs to it.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md physical LF lines 26-32, 703-712; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result."
+    ]
+  },
+  {
+    "id": "eq-2",
+    "verdict": "correct",
+    "plain_meaning": "For every fixed k>=2, sufficiently large powers of four give a family with Q at most sqrt(m) times a polylogarithm and R at least c_k m^(2-1/k)/(log m)^2.",
+    "why_needed": "These quantitative estimates give separation power 4-2/k and exclude every smaller universal exponent.",
+    "hard_step": "The order of quantifiers matters: fix k first, then let m grow. Constants and the threshold may depend on k. The bounds are inequalities, not exact growth equalities.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md physical LF lines 34-43, 695-708; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result."
+    ]
+  },
+  {
+    "id": "thm-1.1",
+    "verdict": "correct",
+    "plain_meaning": "The universal optimal exponent is 4: the known quartic bound holds, and the new families refute every universal exponent below 4.",
+    "why_needed": "It is the paper’s final result.",
+    "hard_step": "Combine the independent classical lower bound, quantum upper bound and universal upper bound. The Forrelation lower bound remains an external published input to this paper and an explicit obligation in any unconditional formal proof.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md physical LF lines 34-43, 692-712, 862-864; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result.",
+      "Bansal–Sinha, supplied ref-06, Theorem 1.3 and Corollary 1.4; https://arxiv.org/abs/2008.07003 ."
+    ]
+  },
+  {
+    "id": "cor-cubic-refuted",
+    "verdict": "correct",
+    "plain_meaning": "No constant C can bound R(f) by C Q(f)^3 for all nonconstant total Boolean functions.",
+    "why_needed": "Explains the result’s significance relative to the conjectured cubic bound.",
+    "hard_step": "Use k=3, giving exponent 10/3 up to logarithms. k=2 alone only gives exponent 3 and does not refute a cubic upper bound.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md physical LF lines 64-68, 703-708; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result.",
+      "Aaronson–Ben-David–Kothari–Rao–Tal, supplied ref-03, Conjecture 2; https://arxiv.org/abs/2010.12629 ."
+    ]
+  },
+  {
+    "id": "def-walsh-sign",
+    "verdict": "correct",
+    "plain_meaning": "Use the normalized real Walsh–Hadamard transform on m coordinates, the uniform unit vector u, and diagonal sign matrices for input bits.",
+    "why_needed": "Defines the linear-algebraic gadget whose query complexity is sharply separated.",
+    "hard_step": "Bit-vector indexing gives H_ab=(-1)^(a dot b)/sqrt(m). Orthogonality follows from character cancellation. Since m=4^t, sqrt(m)=2^t is an integer.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md physical LF lines 131-140; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result."
+    ]
+  },
+  {
+    "id": "eq-3",
+    "verdict": "correct",
+    "plain_meaning": "Phi is the real amplitude obtained by alternating k input-dependent sign changes with k-1 Walsh transforms, starting and ending at the uniform vector; delta=2^(-5k).",
+    "why_needed": "Connects a cheap quantum experiment to the published Forrelation hardness theorem and to exact arithmetic certification.",
+    "hard_step": "Keep precisely k diagonals and k-1 transforms. Multiplying u^T D_z1 and D_zk u yields the same normalized quadratic form as Bansal–Sinha.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md physical LF lines 134-140; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result.",
+      "Bansal–Sinha, ref-06, equations (1.1)-(1.3), printed pp. 2-3; https://arxiv.org/abs/2008.07003 ."
+    ]
+  },
+  {
+    "id": "eq-4",
+    "verdict": "correct",
+    "plain_meaning": "P outputs 1 for Phi>=delta, outputs 0 for |Phi|<=delta/2, and is undefined otherwise.",
+    "why_needed": "This exact domain is the interface to the external lower bound.",
+    "hard_step": "The positive threshold is one-sided. In particular Phi=-1 is outside the promise, not a 1-input. The two allowed cases are disjoint since delta>0.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md physical LF lines 142-150; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result.",
+      "Bansal–Sinha, ref-06, equation (1.3), printed p. 3."
+    ]
+  },
+  {
+    "id": "eq-5",
+    "verdict": "correct",
+    "plain_meaning": "L is floor(m^(1-1/k)/(log_2 m)^2), and the Forrelation randomized complexity eventually exceeds L.",
+    "why_needed": "L is the per-instance hardness budget used in the direct-product and planted-input lower bounds.",
+    "hard_step": "Separate the definition of L from its proved inequality in the dependency graph. The definition is immediate; the inequality comes from Bansal–Sinha and fixed-k asymptotics. L can be zero for small m.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md physical LF lines 151-173; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result.",
+      "Bansal–Sinha, ref-06, Theorem 1.3 and Corollary 1.4, printed p. 4."
+    ]
+  },
+  {
+    "id": "claim-bs-to-L",
+    "verdict": "correct",
+    "plain_meaning": "For any fixed k and positive constant in the published lower bound, that bound eventually exceeds the weaker integer budget L.",
+    "why_needed": "Translates the published theorem into exactly the form consumed later.",
+    "hard_step": "The ratio of the unfloored expressions is a positive fixed-k constant times (log m)^(1+1/k), which tends to infinity. Require c>0; the comparison does not hold for an arbitrary signed constant.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md physical LF lines 166-173; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result."
+    ]
+  },
+  {
+    "id": "lem-2.1.i",
+    "verdict": "correct",
+    "plain_meaning": "The promised Forrelation gadget remains hard for every bounded-error classical decision tree of depth L.",
+    "why_needed": "Supplies the only imported deep randomized lower bound for the new construction.",
+    "hard_step": "Match the source’s block dimension N to this paper’s m, not km; match delta, one-sided 1-case and error 1/3. Restricting source dimensions 2^n to powers of four is allowed. This audit verifies the theorem interface, not the entire Gaussian proof.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md physical LF lines 151-173; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result.",
+      "Bansal–Sinha, ref-06, equations (1.1)-(1.3), Theorem 1.3 and Corollary 1.4; https://arxiv.org/abs/2008.07003 ."
+    ]
+  },
+  {
+    "id": "claim-proj-prob",
+    "verdict": "correct",
+    "plain_meaning": "One k-query quantum experiment has probability exactly Phi^2 of projecting back onto the uniform state.",
+    "why_needed": "Provides a constant gap, for fixed k, between promised 0- and 1-inputs.",
+    "hard_step": "Born’s rule squares the real amplitude. This intentionally loses its sign; correctness survives because strongly negative values are excluded from the promise. Query-free Walsh transforms and the final projection do not cost input queries.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md physical LF lines 174-180; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result."
+    ]
+  },
+  {
+    "id": "lem-2.1.ii",
+    "verdict": "correct",
+    "plain_meaning": "Repeating the experiment and coherently thresholding its outcomes yields an address-bit decoder with error eta and O_k(1+log(1/eta)) queries.",
+    "why_needed": "Makes each complete address cheap quantumly and reversible inside the tournament sampler.",
+    "hard_step": "For example threshold the empirical success rate at 5 delta^2/8. Hoeffding gives error <=exp(-9 n delta^4/32), so n>=32 log(1/eta)/(9 delta^4) suffices. Retain independent outcome registers and compute the threshold reversibly. Constants can grow very rapidly with k.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md physical LF lines 158-161, 174-180; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result."
+    ]
+  },
+  {
+    "id": "claim-N-phi",
+    "verdict": "correct",
+    "plain_meaning": "Phi equals an exactly computed integer N divided by M=m(sqrt(m))^(k-1).",
+    "why_needed": "Replaces approximate real-number comparisons with exact Boolean-circuit predicates.",
+    "hard_step": "The uniform endpoint factors contribute 1/m and the k-1 transforms contribute m^(-(k-1)/2). W=sqrt(m)H has integer entries; m=4^t makes M integral.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md physical LF lines 181-193; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result."
+    ]
+  },
+  {
+    "id": "claim-integer-tests",
+    "verdict": "correct",
+    "plain_meaning": "Membership in each promise case can be decided by the integer tests 2^(5k) N>=M and 2^(5k+1)|N|<=M.",
+    "why_needed": "The transcript can certify both domain membership and the correct address bit, including arbitrary unpromised inputs.",
+    "hard_step": "Cross-multiply by positive M without rounding. d is the disjunction of the tests and b the first test; if neither passes, d=0 and the exact verifier rejects any alleged valid address.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md physical LF lines 194-197; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result."
+    ]
+  },
+  {
+    "id": "claim-circuit-size",
+    "verdict": "correct",
+    "plain_meaning": "The exact arithmetic for the gadget can be implemented by a bounded-fan-in Boolean circuit of size O_k(m(log m)^2).",
+    "why_needed": "Keeps the number of local transcript tests small enough for square-root quantum verification.",
+    "hard_step": "Use k-1 fast Walsh transforms, each with O(m log m) additions/subtractions on O_k(log m)-bit signed integers. A safe magnitude bound is m^k including the final sum; fixed-width arithmetic needs a sign bit and enough headroom. Serial summation is allowed since size, not depth, is bounded.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md physical LF lines 188-197; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result."
+    ]
+  },
+  {
+    "id": "lem-2.1.iii",
+    "verdict": "correct",
+    "plain_meaning": "An exact fan-in-two circuit outputs whether P is defined, and if so its value, on every input.",
+    "why_needed": "The total function cannot trust a decoder off its promise, so it verifies a purported address using this exact circuit.",
+    "hard_step": "Compile arithmetic to actual gates and account for outputs among non-input gates. Existence of an enormous truth-table circuit would establish exactness, but would not establish the near-linear size needed by the quantum bound.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md physical LF lines 162-165, 181-203; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result."
+    ]
+  },
+  {
+    "id": "lem-2.1",
+    "verdict": "correct",
+    "plain_meaning": "The gadget simultaneously has a classical hardness budget, a cheap coherent quantum decoder, and a small exact domain-and-answer circuit.",
+    "why_needed": "These three properties are the construction’s modular interface.",
+    "hard_step": "They play different roles: hardness for the classical bound, decoder cost for comparison, circuit size and correctness for certification. Bundling these as hypotheses proves a generic construction, not their Forrelation instantiation automatically.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md physical LF lines 151-203; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result."
+    ]
+  },
+  {
+    "id": "def-transcript",
+    "verdict": "correct",
+    "plain_meaning": "A transcript stores alleged values of all non-input gates of a fixed circuit, including its output gates.",
+    "why_needed": "Makes the whole computation checkable by many constant-query gate constraints.",
+    "hard_step": "Actual input wires must be read from the input, not from an untrusted copied input. Acyclic, topologically indexed gates make local consistency imply the true evaluation.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md physical LF lines 121-123, 218-220, 276-282; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result."
+    ]
+  },
+  {
+    "id": "eq-6",
+    "verdict": "correct",
+    "plain_meaning": "There are r=ceil(20 log_2 m) address instances per column and ell=log_2 m bits per pointer.",
+    "why_needed": "r suppresses adaptive address guessing, while ell encodes exactly the m possible pointer targets.",
+    "hard_step": "For m=4^t these are the integers r=40t and ell=2t. The construction should use t>=1; its asymptotic lower bound needs a still larger threshold.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md physical LF lines 206-207; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result."
+    ]
+  },
+  {
+    "id": "def-column-layout",
+    "verdict": "correct",
+    "plain_meaning": "Each column has m visible bits, r independent address instances, and one pointer-plus-transcript cell for every possible r-bit address.",
+    "why_needed": "Separate cell arrays prevent one address computation from locating certificates for all candidate winners.",
+    "hard_step": "Every ell-bit pointer string is valid because m=2^ell. Total input length is m[m+rkm+2^r((m-1)ell+rS)]; 2^r=m^20, so it is large but polynomial in m. A cell access still costs bit queries.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md physical LF lines 208-220; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result."
+    ]
+  },
+  {
+    "id": "def-eval-transcript",
+    "verdict": "correct",
+    "plain_meaning": "Correctness means every stored gate bit equals the circuit’s actual value on the chosen address instance.",
+    "why_needed": "Relates the existential winner definition to the local checks used by the algorithm.",
+    "hard_step": "Count precisely S non-input gate bits per transcript. Input bits are not duplicated; gate consistency alone certifies every stored bit by topological induction.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md physical LF lines 218-220, 276-282; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result."
+    ]
+  },
+  {
+    "id": "eq-7",
+    "verdict": "correct",
+    "plain_meaning": "The true address is the vector of the r promised-function answers in a column.",
+    "why_needed": "Identifies the single cell whose correctness may certify that column.",
+    "hard_step": "This address is defined only if every instance is in the domain. For all-input implementation, a total predicate WinsAt(y,i,s) is cleaner than inventing a default true address.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md physical LF lines 221-224; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result."
+    ]
+  },
+  {
+    "id": "eq-8",
+    "verdict": "correct",
+    "plain_meaning": "The candidate’s selected cell must name a zero in every other column.",
+    "why_needed": "Ensures a genuine winner can defeat all opponents using its own information.",
+    "hard_step": "Pointers point outward, and each destination has to be checked at the indexed bit. The winner’s own string is all ones, so no incoming pointer can disqualify it.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md physical LF lines 225-227; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result."
+    ]
+  },
+  {
+    "id": "def-winner",
+    "verdict": "correct",
+    "plain_meaning": "A winner has an all-one string, all address instances defined, correct transcripts at their true address, and valid zero pointers to every rival.",
+    "why_needed": "Specifies the accepting witness for F and the candidate that dominates comparisons.",
+    "hard_step": "All clauses are essential. An all-one column with an invalid domain bit, wrong transcript or incorrect outward pointer is not a winner.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md physical LF lines 221-236; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result."
+    ]
+  },
+  {
+    "id": "def-F",
+    "verdict": "correct",
+    "plain_meaning": "F returns 1 exactly when some column is a winner, and otherwise returns 0.",
+    "why_needed": "Produces a total Boolean decision problem from a partial-function ingredient.",
+    "hard_step": "Every input has a determinate answer, including malformed certificates and unpromised address instances. Exact domain tests reject invalid claimed witnesses; no promise is passed to F.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md physical LF lines 229-236; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result."
+    ]
+  },
+  {
+    "id": "cor-unique-winner",
+    "verdict": "correct",
+    "plain_meaning": "Two distinct columns cannot both win.",
+    "why_needed": "Confirms that the winner language and dominance target are unambiguous, although existence is enough for the final verifier.",
+    "hard_step": "One purported winner points to a zero in the other, contradicting the other’s all-one requirement. This is a local contradiction independent of all Forrelation calculations.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md physical LF lines 234-236; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result."
+    ]
+  },
+  {
+    "id": "def-win-at-address",
+    "verdict": "correct",
+    "plain_meaning": "The pair (i,s) is accepting exactly when column i wins and s is its true address.",
+    "why_needed": "Gives a total predicate that can be checked at any proposed address.",
+    "hard_step": "To avoid an undefined s_i outside the domain, define it by local tests or by existential domain evidence, then prove equivalence to winner-and-true-address.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md physical LF lines 264-265, 276-282; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result."
+    ]
+  },
+  {
+    "id": "def-K",
+    "verdict": "correct",
+    "plain_meaning": "Verification uses K=m+(m-1)+r(S+2) tests, of order m(log m)^3 for fixed k.",
+    "why_needed": "This is the search space for quantum detection of a failing test.",
+    "hard_step": "The two extra tests per transcript check d=1 and b=s_h, in addition to the S gate-consistency checks. The constant 2 is not a second count of output gates; it is a distinct check of their required values.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md physical LF lines 266-273; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result."
+    ]
+  },
+  {
+    "id": "lem-2.2.i",
+    "verdict": "corrected",
+    "plain_meaning": "The witness condition at (i,s) is equivalent to every gate, output, visible-bit and pointer test passing.",
+    "why_needed": "Reduces total-function verification to searching for one failure.",
+    "hard_step": "Gate consistency implies honest evaluation by topological induction. A pointer test is an adaptive lookup, not a small fixed-support Boolean function.",
+    "correction": "Replace “Each test is a function of O(log m) input bits” and the corresponding dependency-language target with “Each test is computable exactly by an adaptive decision tree of depth O(log m). A pointer test uses ell+1 queries and can depend on all ell+m pointer/payload coordinates.” The fixed-junta interpretation is false: selecting a payload coordinate makes that coordinate relevant. Other gate tests have at most three fixed queried bits.",
+    "evidence": [
+      "paper/extracted.md physical LF lines 266-282; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result."
+    ]
+  },
+  {
+    "id": "lem-2.2.ii",
+    "verdict": "correct",
+    "plain_meaning": "Each local test has an exact coherent implementation using O(log m) ordinary bit-oracle calls, uniformly over its test index.",
+    "why_needed": "Allows quantum search over all tests without introducing a stronger random-access model.",
+    "hard_step": "Read pointer bits into ancillas, reversibly compute the target index, query the payload, compute the flag, and uncompute. Coherently controlling oracle access can add a factor of two, which is already permitted by the big-O claim.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md physical LF lines 271-288, 507-512; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result."
+    ]
+  },
+  {
+    "id": "lem-2.2",
+    "verdict": "correct",
+    "plain_meaning": "Local-test equivalence and cheap coherent test evaluation hold for every input and every proposed column/address pair.",
+    "why_needed": "Provides the exact verifier interface consumed in Section 3.",
+    "hard_step": "Keep all-input quantification. Corrected wording in child row lem-2.2.i changes only the ledger’s dependency interpretation, not this theorem or its query bound.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md physical LF lines 266-292; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result."
+    ]
+  },
+  {
+    "id": "cor-local-dichotomy",
+    "verdict": "correct",
+    "plain_meaning": "A winner has a fully passing address; a nonwinner fails at least one test at every address.",
+    "why_needed": "Ensures that an arbitrary off-promise decoded address cannot fool exact verification except through the bounded search error.",
+    "hard_step": "Negate the finite conjunction from Lemma 2.2 and retain the universal quantifier over proposed addresses. This is stronger than merely checking the intended promised address.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md physical LF lines 290-292; supplied paper/quartic-query-separation.pdf, corresponding section.",
+      "Independent manual check against the supplied paper; this verdict is not a Lean or Comparator result."
+    ]
+  },
+  {
+    "id": "def-grover-trial",
+    "verdict": "correct",
+    "plain_meaning": "Mix a zero-iteration trial with a uniformly random Grover length below M; repeat a fixed number of trials and retain the first success.",
+    "why_needed": "Handles both large and small unknown success probabilities while keeping a worst-case call cap.",
+    "hard_step": "The zero-iteration branch handles p≥1/2. For γ≤p≤1/2 the random-length branch succeeds with probability at least 9/20, making each mixed trial succeed with probability at least 9/40.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md lines 332–351; quartic-query-separation.pdf p. 7–8."
+    ]
+  },
+  {
+    "id": "claim-grover-state",
+    "verdict": "correct",
+    "plain_meaning": "Grover iterations rotate only the coefficients of the normalized good and bad states. The normalized good vector itself is unchanged.",
+    "why_needed": "The tournament must preserve the conditional distribution of candidate indices, not merely raise the chance of some success.",
+    "hard_step": "Take G=(2|ψ⟩⟨ψ|−I)(I−2Π_good). Its two-dimensional matrix sends (sinθ,cosθ) to (sin3θ,cos3θ). On a successful trial the good coefficient cancels on normalization; a negative coefficient gives only a global phase.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md lines 321–330; quartic-query-separation.pdf p. 7.",
+      "Brassard–Høyer–Mosca–Tapp, Quantum amplitude amplification and estimation, §2, Eq. (8), https://arxiv.org/abs/quant-ph/0005055."
+    ]
+  },
+  {
+    "id": "claim-sin2theta",
+    "verdict": "correct",
+    "plain_meaning": "A promised lower bound on p supplies a lower bound on the angular step used in randomized Grover amplification.",
+    "why_needed": "Bounds the oscillating term in the averaged success probability.",
+    "hard_step": "For γ≤p≤1/2, 4p(1−p)≥2p≥γ; take nonnegative square roots. The displayed lower bound is deliberately loose.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md lines 334–336; quartic-query-separation.pdf p. 7."
+    ]
+  },
+  {
+    "id": "eq-9",
+    "verdict": "correct",
+    "plain_meaning": "A uniformly random Grover length has constant average success whenever γ≤p≤1/2.",
+    "why_needed": "Produces a cap independent of the unknown exact p.",
+    "hard_step": "The exact mean is 1/2−sin(4Mθ)/(4M sin2θ). This is at least the paper’s weaker 1/2−1/(2M|sin2θ|), hence at least 9/20 for M≥10/√γ.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md lines 338–344; quartic-query-separation.pdf p. 7.",
+      "Boyer–Brassard–Høyer–Tapp, Tight bounds on quantum searching, §4, Lemma 2, https://arxiv.org/abs/quant-ph/9605034."
+    ]
+  },
+  {
+    "id": "lem-3.1",
+    "verdict": "correct",
+    "plain_meaning": "There is a bounded-cost procedure that either declares failure or returns precisely the original conditional successful state. If p≥γ it fails with probability at most η, and if p=0 it never manufactures success.",
+    "why_needed": "Provides the sampler and certificate-search primitive with a worst-case rather than expected query bound.",
+    "hard_step": "After J=ceil(log(1/η)/log(40/31)) independent fresh trials, failure is at most (31/40)^J≤η. Each trial uses at most 2M−1 calls to A or A⁻¹. Conditional output is the same good state for every successful length and stopping time.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md lines 310–351; quartic-query-separation.pdf p. 7–8.",
+      "Brassard–Høyer–Mosca–Tapp §2 Eq. (8) proves the general-state rotation; BBHT §4 Lemma 2 proves the averaged length identity."
+    ]
+  },
+  {
+    "id": "def-aij",
+    "verdict": "correct",
+    "plain_meaning": "For each fixed oracle input, a_ij is the probability that the shared pair-comparison circuit declares i the winner over j. A self-comparison always loses.",
+    "why_needed": "Turns the quantum routine into a pointwise probabilistic tournament.",
+    "hard_step": "The two directed probabilities must refer to the same unordered-pair experiment; independently defined ordered-pair circuits would not imply complementarity.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md lines 354–359; quartic-query-separation.pdf p. 8."
+    ]
+  },
+  {
+    "id": "eq-10",
+    "verdict": "correct",
+    "plain_meaning": "Exactly one candidate wins each distinct pair comparison, while nobody defeats themselves.",
+    "why_needed": "This symmetry alone drives the weight contraction, with no order or transitivity assumption.",
+    "hard_step": "Use 0≤a_ij≤1 because these are probabilities; a_ij+a_ji=1 follows from a shared binary experiment. The inequalities should be explicit in an abstract formal tournament structure.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md lines 354–359; quartic-query-separation.pdf p. 8."
+    ]
+  },
+  {
+    "id": "def-T-eps",
+    "verdict": "correct",
+    "plain_meaning": "Run at most T binary-logarithmic stages and allow comparison or sampling error ε=1/(1000T).",
+    "why_needed": "Keeps both the ideal miss probability and accumulated sampling failures small.",
+    "hard_step": "T≥11 for m≥2, 2^T≥1000m, and Tε=1/1000. Binary logarithms, as in the paper’s convention, are required here.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md lines 363–378; quartic-query-separation.pdf p. 8."
+    ]
+  },
+  {
+    "id": "eq-11",
+    "verdict": "correct",
+    "plain_meaning": "A distinguished candidate beats every other candidate with probability at least 1−ε.",
+    "why_needed": "This is the entire reliability assumption needed by the search algorithm.",
+    "hard_step": "The condition is required only against the distinguished candidate; other comparison probabilities may equal 1/2 or form arbitrary cycles.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md lines 376–378; quartic-query-separation.pdf p. 8."
+    ]
+  },
+  {
+    "id": "def-ideal-process",
+    "verdict": "correct",
+    "plain_meaning": "Start all candidate weights at one, choose each pivot proportionally to its weight, record it, and discount other weights by their probabilities of beating that pivot. Stop changes once total weight is zero.",
+    "why_needed": "Separates the finite probabilistic argument from its quantum implementation.",
+    "hard_step": "Use a separate zero-weight branch so no 0/0 probability is formed. All weights stay in [0,1]. This process is conceptual: the algorithm need not numerically compute its weights.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md lines 379–387; quartic-query-separation.pdf p. 8."
+    ]
+  },
+  {
+    "id": "eq-12",
+    "verdict": "correct",
+    "plain_meaning": "After pivot p, replace each candidate’s weight by its old weight times its chance of beating p.",
+    "why_needed": "Encodes survival against all previously chosen pivots as a product.",
+    "hard_step": "The pivot’s own weight becomes zero, ensuring no already selected pivot can be sampled again. The product is over fresh comparison experiments conditional on a candidate index.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md lines 381–387; quartic-query-separation.pdf p. 8."
+    ]
+  },
+  {
+    "id": "eq-13",
+    "verdict": "correct",
+    "plain_meaning": "The expected remaining total weight is exactly (W²−Σ_i w_i²)/(2W), and is at most W/2.",
+    "why_needed": "Gives exponential contraction despite arbitrary nonwinner comparisons.",
+    "hard_step": "Pair terms (p,i) and (i,p); their probabilities sum to one. Diagonal terms vanish. Nonnegative weights are needed to interpret the algebra as a sampling expectation, though the algebraic identity itself is more general.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md lines 388–397; quartic-query-separation.pdf p. 8."
+    ]
+  },
+  {
+    "id": "claim-expected-WT",
+    "verdict": "correct",
+    "plain_meaning": "After T ideal stages, expected total weight is at most m/2^T.",
+    "why_needed": "Quantifies how small the remaining mass becomes.",
+    "hard_step": "Apply the one-step conditional expectation inequality recursively; extend it by zero at W=0. No independence across stages is required.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md lines 397; quartic-query-separation.pdf p. 8."
+    ]
+  },
+  {
+    "id": "claim-weight-lb",
+    "verdict": "correct",
+    "plain_meaning": "Until the distinguished candidate has been selected, its weight remains at least (1−ε)^t≥1−Tε=999/1000.",
+    "why_needed": "A missed winner forces substantial surviving mass and keeps the quantum sampler above its success threshold.",
+    "hard_step": "Every recorded pivot is different from the unselected winner; each relevant factor is at least 1−ε. Bernoulli’s inequality applies because 0<ε<1.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md lines 397–404; quartic-query-separation.pdf p. 8–9."
+    ]
+  },
+  {
+    "id": "eq-14",
+    "verdict": "correct",
+    "plain_meaning": "The chance that the ideal list misses the winner is at most 2m/2^T.",
+    "why_needed": "Converts the expected total weight bound into a search-success guarantee.",
+    "hard_step": "The miss event implies W_T>1/2; Markov gives Pr(W_T≥1/2)≤2E W_T. This is an upper bound, not an identity for miss probability.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md lines 404–408; quartic-query-separation.pdf p. 9."
+    ]
+  },
+  {
+    "id": "construct-sampler",
+    "verdict": "correct",
+    "plain_meaning": "Prepare candidates uniformly, run each previous-pivot comparison in a fresh workspace, and regard defeating every pivot as success. Amplify, measure a successful index, or stop after a reported failure.",
+    "why_needed": "Implements the ideal weighted choice without accessing or approximating the numerical probabilities a_ij.",
+    "hard_step": "Keep all comparison garbage and separate workspaces, so the preparation is reversible and the conditional good component has exactly the required product weights.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md lines 409–431; quartic-query-separation.pdf p. 9."
+    ]
+  },
+  {
+    "id": "eq-15",
+    "verdict": "correct",
+    "plain_meaning": "Conditional on the candidate index i, the comparison workspaces form a tensor product of the states for its comparisons against past pivots.",
+    "why_needed": "Establishes the factorization needed for the successful-sampling probability.",
+    "hard_step": "The overall state is generally entangled with i. Independence is conditional on i, and follows from initializing and acting on separate workspaces while retaining the index.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md lines 409–417; quartic-query-separation.pdf p. 9."
+    ]
+  },
+  {
+    "id": "claim-success-prob",
+    "verdict": "correct",
+    "plain_meaning": "A candidate i succeeds with probability w_i; total success probability is W/m; conditional on success, i is sampled with probability w_i/W.",
+    "why_needed": "Identifies the exact classical kernel implemented by the quantum state.",
+    "hard_step": "Compute the norm squared of the good projection: tensor norms multiply, and different index basis vectors are orthogonal. The conditional law is only asserted when W>0.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md lines 419–429; quartic-query-separation.pdf p. 9."
+    ]
+  },
+  {
+    "id": "claim-coupling",
+    "verdict": "correct",
+    "plain_meaning": "Before the winner is selected, each real sampling step either aborts with probability at most ε or chooses exactly according to the ideal next-pivot law.",
+    "why_needed": "Transfers the ideal miss bound to the actual bounded-cost quantum algorithm.",
+    "hard_step": "At each complete classical history, couple an ideal pivot to the real successful output; charge only the abort event. Sum at most T conditional failure bounds. No independence of history-dependent abort probabilities is needed.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md lines 432–438; quartic-query-separation.pdf p. 9."
+    ]
+  },
+  {
+    "id": "claim-tournament-cost",
+    "verdict": "correct",
+    "plain_meaning": "The sum of all preparation, reversal, and amplification calls is O(c√m T² log T) in every branch.",
+    "why_needed": "Shows the winner can be located much more cheaply than checking all m certificates.",
+    "hard_step": "A stage t uses O(c(t+1)) queries per preparation. There are O(√m log(1/ε)) calls per stage and Σ_{t<T}(t+1)=T(T+1)/2. Since ε=1/(1000T), log(1/ε)=O(logT).",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md lines 440–444; quartic-query-separation.pdf p. 9."
+    ]
+  },
+  {
+    "id": "prop-3.2",
+    "verdict": "correct",
+    "plain_meaning": "A reversible probabilistic comparator with a dominant candidate yields a short list containing that candidate with high probability, using O(c√m T² logT) queries.",
+    "why_needed": "The main quantum search ingredient tolerating completely unreliable comparisons among nonwinners.",
+    "hard_step": "Combines the drift identity, persistent winner weight, exact conditional sampling, and history-dependent failure coupling. Exact uniform preparation for arbitrary m is legal in the paper’s unrestricted query-free-unitary model.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md lines 363–448; quartic-query-separation.pdf p. 8–9."
+    ]
+  },
+  {
+    "id": "def-decode",
+    "verdict": "correct",
+    "plain_meaning": "Coherently compute one approximate Forrelation answer for each of r address bits using error ε/r per bit; keep all work registers.",
+    "why_needed": "Supplies cheap candidate addresses while still returning some valid binary address outside the promise.",
+    "hard_step": "Use the fixed-repetition coherent decoder of Lemma 2.1(ii), not a measured repeat-until-success routine inside a superposition.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md lines 450–465; quartic-query-separation.pdf p. 9–10."
+    ]
+  },
+  {
+    "id": "claim-decode-cost",
+    "verdict": "correct",
+    "plain_meaning": "The address decoder costs O_k(r log(r/ε)) queries and is correct with probability at least 1−ε when every address instance is promised.",
+    "why_needed": "Makes comparisons polylogarithmic in m.",
+    "hard_step": "The union bound needs only r individual error bounds; independence is not necessary for that bound. Off-promise inputs have no accuracy guarantee but still incur the same query cap.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md lines 452–465; quartic-query-separation.pdf p. 9–10."
+    ]
+  },
+  {
+    "id": "def-comparison",
+    "verdict": "correct",
+    "plain_meaning": "At each decoded address, use the stored pointer to look for a zero in the opponent’s string; if exactly one succeeds it wins, otherwise the smaller index wins.",
+    "why_needed": "Uses certificate direction to compare candidates cheaply before validating their whole certificates.",
+    "hard_step": "Sort the pair first, retain both decoded addresses, and use one shared binary outcome. Self-comparisons return false separately.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md lines 466–471; quartic-query-separation.pdf p. 10."
+    ]
+  },
+  {
+    "id": "claim-comparison-state",
+    "verdict": "correct",
+    "plain_meaning": "The comparison and its inverse have polylogarithmic query cost and their probabilities satisfy complementarity.",
+    "why_needed": "Makes the construction meet every hypothesis of Proposition 3.2.",
+    "hard_step": "Later operations are controlled on retained address registers; branches with different addresses remain orthogonal. Reversing all operations restores workspace.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md lines 472–476; quartic-query-separation.pdf p. 10."
+    ]
+  },
+  {
+    "id": "claim-winner-dominates",
+    "verdict": "correct",
+    "plain_meaning": "A genuine winner defeats any other column with probability at least 1−ε, even if the other column’s address problems are outside their promise.",
+    "why_needed": "This is the central structural bridge from a partial-function speedup to a total-function algorithm.",
+    "hard_step": "No opponent pointer can find a zero in the winner’s all-one string. If the winner alone is decoded correctly, its outward pointer finds an actual zero in the opponent. Therefore only the winner’s decoding error enters this bound.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md lines 477–482; quartic-query-separation.pdf p. 10."
+    ]
+  },
+  {
+    "id": "def-verify",
+    "verdict": "correct",
+    "plain_meaning": "For a listed candidate, freshly decode a classical address and quantum-search the exact local tests for a violation. Accept only when no violation is found.",
+    "why_needed": "Converts a plausible candidate into a bounded-error decision about the total function.",
+    "hard_step": "Every nonwinner fails some test at every address; a winner at its true address fails none. Uniform test preparation works for any finite K because query-free computation is unrestricted.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md lines 483–494; quartic-query-separation.pdf p. 10."
+    ]
+  },
+  {
+    "id": "claim-verify",
+    "verdict": "correct",
+    "plain_meaning": "A nonwinner is falsely accepted with probability at most ε. A true winner is rejected with probability at most ε. Search costs O(√K log(1/ε) logm), plus decoding.",
+    "why_needed": "Allows a union bound over the short list and protects totality on all malformed inputs.",
+    "hard_step": "For any fixed bad address there is a failure with probability at least 1/K under a uniform test. At a correct winner address p=0, so exact tests cannot report a failure. The fresh decoder cost is additive and asymptotically dominated.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md lines 483–493; quartic-query-separation.pdf p. 10."
+    ]
+  },
+  {
+    "id": "claim-error",
+    "verdict": "correct",
+    "plain_meaning": "A zero-input causes error at most Tε; a one-input causes error at most 2m/2^T+Tε+ε.",
+    "why_needed": "Verifies the conventional error threshold 1/3 for every input.",
+    "hard_step": "On a one-input, false acceptance of a nonwinner is harmless; only omission or rejection of the genuine winner matters. With T≥11, the displayed bound is at most 1/500+1/1000+1/11000<1/3.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md lines 494–501; quartic-query-separation.pdf p. 10."
+    ]
+  },
+  {
+    "id": "claim-coherent-access",
+    "verdict": "correct",
+    "plain_meaning": "Addressed and controlled accesses can be implemented using the ordinary bit oracle, with only constant-factor overhead.",
+    "why_needed": "Ensures that no stronger memory oracle is hidden in the quantum algorithm.",
+    "hard_step": "Load x_i into a zero ancilla with one query, use that bit under a control, then unload with a second identical query. Read a pointer’s log₂m bits individually, then reversibly compute its target index.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md lines 507–512; quartic-query-separation.pdf p. 10."
+    ]
+  },
+  {
+    "id": "prop-3.3",
+    "verdict": "correct",
+    "plain_meaning": "For fixed k, the constructed total function has Q(F_{k,m})≤√m times a fixed power of logm.",
+    "why_needed": "Supplies the quantum side of the nearly quartic separation.",
+    "hard_step": "Combine polylogarithmic comparisons with the tournament and at most T verification searches; all loops are bounded on off-promise inputs too. From the displayed component bounds one may take O_k(√m(logm)^4) for sufficiently large m, although the paper does not optimize this logarithmic factor.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md lines 501–512; quartic-query-separation.pdf p. 10."
+    ]
+  },
+  {
+    "id": "claim-product-law",
+    "verdict": "correct",
+    "plain_meaning": "After fixing the algorithm and its independent auxiliary information, a particular observed adaptive transcript restricts each hidden input separately. The inputs therefore remain independent under their separate posterior laws.",
+    "why_needed": "This is the structural reason success probabilities for a complete address can be multiplied, despite adaptively interleaving queries among instances.",
+    "hard_step": "Prove the transcript event is a Cartesian product: every tuple with the same queried bits follows exactly the same deterministic schedule. Conditioning on another adaptively chosen event, such as being nonheavy, would not justify this conclusion.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md, physical LF lines 539–543; paper/quartic-query-separation.pdf, p. 11. Source locations use the original ledger’s LF convention (form-feed page breaks are not extra lines); ledger source_line=539.",
+      "Verification: independent manual derivation of this step in the supplied proof, with the paper’s global definitions and parameter assumptions. Not a Lean or Comparator verification.",
+      "Drucker, Improved Direct Product Theorems for Randomized Query Complexity, supplied literature/papers/ref-13-drucker-2012.pdf, §1.3 and Lemmas 3.1–3.2 (printed pp. 6–7 and 10–12); https://arxiv.org/abs/1005.0644 ."
+    ]
+  },
+  {
+    "id": "def-value-V",
+    "verdict": "correct",
+    "plain_meaning": "V_h is the best remaining chance of computing the h-th answer, given its current posterior and the unused part of its own L-query budget.",
+    "why_needed": "This turns partial information into a bounded numerical potential which measures future success, rather than merely current confidence.",
+    "hard_step": "The maximum ranges over all finite deterministic continuation trees. Query counts satisfy q_h<=L, count repeats, and the zero-query strategy is always allowed; only positive-probability transcripts need conditional laws.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md, physical LF lines 544–547; paper/quartic-query-separation.pdf, p. 11. Source locations use the original ledger’s LF convention (form-feed page breaks are not extra lines); ledger source_line=544.",
+      "Verification: independent manual derivation of this step in the supplied proof, with the paper’s global definitions and parameter assumptions. Not a Lean or Comparator verification.",
+      "Drucker, Improved Direct Product Theorems for Randomized Query Complexity, supplied literature/papers/ref-13-drucker-2012.pdf, §1.3 and Lemmas 3.1–3.2 (printed pp. 6–7 and 10–12); https://arxiv.org/abs/1005.0644 ."
+    ]
+  },
+  {
+    "id": "eq-16",
+    "verdict": "correct",
+    "plain_meaning": "Making the next chosen query cannot improve the expected value of an already optimal continuation strategy.",
+    "why_needed": "It is the one-step inequality from which the product potential bound follows.",
+    "hard_step": "Combine this particular query with the separately optimal continuation on each answer branch; that combined strategy is allowed in the pre-query maximum. Repeated queries still consume one unit of the budget and do not defeat the inequality.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md, physical LF lines 547–553; paper/quartic-query-separation.pdf, p. 11. Source locations use the original ledger’s LF convention (form-feed page breaks are not extra lines); ledger source_line=549.",
+      "Verification: independent manual derivation of this step in the supplied proof, with the paper’s global definitions and parameter assumptions. Not a Lean or Comparator verification.",
+      "Drucker, Improved Direct Product Theorems for Randomized Query Complexity, supplied literature/papers/ref-13-drucker-2012.pdf, §1.3 and Lemmas 3.1–3.2 (printed pp. 6–7 and 10–12); https://arxiv.org/abs/1005.0644 ."
+    ]
+  },
+  {
+    "id": "claim-supermartingale",
+    "verdict": "correct",
+    "plain_meaning": "The product of all remaining success values cannot increase on average after any query.",
+    "why_needed": "It transfers the initial upper bound beta^r to the algorithm’s terminal information state.",
+    "hard_step": "Only one factor changes at a query. Conditional product structure makes the other posterior laws unchanged, so they are nonnegative constants in the conditional expectation. A product of arbitrary supermartingales need not have this property.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md, physical LF lines 553–561; paper/quartic-query-separation.pdf, p. 11. Source locations use the original ledger’s LF convention (form-feed page breaks are not extra lines); ledger source_line=554.",
+      "Verification: independent manual derivation of this step in the supplied proof, with the paper’s global definitions and parameter assumptions. Not a Lean or Comparator verification.",
+      "Drucker, Improved Direct Product Theorems for Randomized Query Complexity, supplied literature/papers/ref-13-drucker-2012.pdf, §1.3 and Lemmas 3.1–3.2 (printed pp. 6–7 and 10–12); https://arxiv.org/abs/1005.0644 ."
+    ]
+  },
+  {
+    "id": "claim-final-bound",
+    "verdict": "correct",
+    "plain_meaning": "For the final answer vector to be entirely right, each independent posterior answer must match its chosen coordinate. This probability is bounded by the product of the best coordinate guesses, and hence by the product of the remaining values.",
+    "why_needed": "It connects the potential to the actual event that the full r-bit address is guessed correctly.",
+    "hard_step": "Use posterior independence at the complete transcript; then use the option to stop immediately in the definition of each V_h. The vector guess can depend on the entire transcript.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md, physical LF lines 562–573; paper/quartic-query-separation.pdf, p. 11–12. Source locations use the original ledger’s LF convention (form-feed page breaks are not extra lines); ledger source_line=562.",
+      "Verification: independent manual derivation of this step in the supplied proof, with the paper’s global definitions and parameter assumptions. Not a Lean or Comparator verification.",
+      "Drucker, Improved Direct Product Theorems for Randomized Query Complexity, supplied literature/papers/ref-13-drucker-2012.pdf, §1.3 and Lemmas 3.1–3.2 (printed pp. 6–7 and 10–12); https://arxiv.org/abs/1005.0644 ."
+    ]
+  },
+  {
+    "id": "lem-4.1",
+    "verdict": "correct",
+    "plain_meaning": "If an L-query algorithm has success at most beta on one hard input, an algorithm with at most L queries to each of r independent inputs has success at most beta^r on the whole answer vector, even with adaptive interleaving and independent side information.",
+    "why_needed": "It suppresses accidental guesses of a certificate address exponentially in r.",
+    "hard_step": "Fix auxiliary information and randomness without changing the product input law; prove the transcript rectangle property, the Bellman inequality, and the final product bound. This lemma assumes a separate cap on every input, not only an aggregate rL cap.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md, physical LF lines 528–573; paper/quartic-query-separation.pdf, p. 11–12. Source locations use the original ledger’s LF convention (form-feed page breaks are not extra lines); ledger source_line=528.",
+      "Verification: independent manual derivation of this step in the supplied proof, with the paper’s global definitions and parameter assumptions. Not a Lean or Comparator verification.",
+      "Drucker, Improved Direct Product Theorems for Randomized Query Complexity, supplied literature/papers/ref-13-drucker-2012.pdf, §1.3 and Lemmas 3.1–3.2 (printed pp. 6–7 and 10–12); https://arxiv.org/abs/1005.0644 .",
+      "Shaltiel, Towards proving strong direct product theorems, supplied literature/papers/ref-22-shaltiel-2003.pdf is the ECCC 2001 version, §5, Definition 4 and Theorem 5 (printed pp. 11–12), fair-tree predecessor; https://eccc.weizmann.ac.il/eccc-reports/2001/TR01-009/index.html ."
+    ]
+  },
+  {
+    "id": "claim-minimax-mu",
+    "verdict": "correct",
+    "plain_meaning": "Since no L-query randomized algorithm attains worst-case success 2/3 on P, there is a single distribution mu on promised inputs under which every deterministic L-query algorithm has success at most 2/3. Lemma 4.1 then applies to independently sampled address instances with its per-instance cap.",
+    "why_needed": "It turns worst-case Forrelation hardness into the common distribution needed by the planted-input experiment.",
+    "hard_step": "Both sets in the finite matrix game are finite and the mixed-strategy optimum is attained. Therefore L<R(P) gives a strict minimax value below 2/3, which implies the weaker <=2/3 distributional guarantee. The final guessing conclusion retains Lemma 4.1’s caps and independence assumptions.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md, physical LF lines 575–589; paper/quartic-query-separation.pdf, p. 12. Source locations use the original ledger’s LF convention (form-feed page breaks are not extra lines); ledger source_line=586.",
+      "Verification: independent manual derivation of this step in the supplied proof, with the paper’s global definitions and parameter assumptions. Not a Lean or Comparator verification.",
+      "Bansal–Sinha, supplied literature/papers/ref-06-bansal-2021.pdf, Eqs. (1.1)–(1.3), Theorem 1.3 and Corollary 1.4, printed pp. 2–4; https://arxiv.org/abs/2008.07003 . The normalization and promise thresholds match the main paper."
+    ]
+  },
+  {
+    "id": "eq-17",
+    "verdict": "correct",
+    "plain_meaning": "G=floor(mL/100) is the budget at which the paper proves the total function cannot be computed with worst-case error 1/3.",
+    "why_needed": "It specifies the quantitative classical lower bound and the budget used throughout the coupling argument.",
+    "hard_step": "The definition of G is immediate; the inequality R(F)>G is Proposition 4.2 itself and requires the entire argument below. Do not use that inequality as a prerequisite for proving Proposition 4.2 merely because the ledger labels it as equation 17.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md, physical LF lines 592–598; paper/quartic-query-separation.pdf, p. 12. Source locations use the original ledger’s LF convention (form-feed page breaks are not extra lines); ledger source_line=597.",
+      "Verification: independent manual derivation of this step in the supplied proof, with the paper’s global definitions and parameter assumptions. Not a Lean or Comparator verification."
+    ]
+  },
+  {
+    "id": "def-dummy",
+    "verdict": "correct",
+    "plain_meaning": "The zero-input distribution gives every column one independent uniform zero, draws all address instances independently from the hard promised distribution, and makes every certificate cell the same fixed bit pattern.",
+    "why_needed": "It is always a no-instance and prevents cells from leaking information about either hidden zero locations or hard addresses.",
+    "hard_step": "The cells must be fixed independently of all A and J data. No special falsity property of the blank pattern is needed because each column’s X string already contains a zero.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md, physical LF lines 600–603; paper/quartic-query-separation.pdf, p. 12. Source locations use the original ledger’s LF convention (form-feed page breaks are not extra lines); ledger source_line=600.",
+      "Verification: independent manual derivation of this step in the supplied proof, with the paper’s global definitions and parameter assumptions. Not a Lean or Comparator verification."
+    ]
+  },
+  {
+    "id": "def-planted",
+    "verdict": "correct",
+    "plain_meaning": "Choose an independent uniform column, erase its zero, and populate only its true-address cell with correct circuit transcripts and pointers to the other columns’ zeros.",
+    "why_needed": "It creates a coupled yes-instance differing from the dummy input in a tightly controlled set of locations.",
+    "hard_step": "The address is well defined because mu is supported on the promise domain. All correct transcripts and all pointer destinations exist. The independent choice I is not revealed to the algorithm.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md, physical LF lines 604–607; paper/quartic-query-separation.pdf, p. 12. Source locations use the original ledger’s LF convention (form-feed page breaks are not extra lines); ledger source_line=604.",
+      "Verification: independent manual derivation of this step in the supplied proof, with the paper’s global definitions and parameter assumptions. Not a Lean or Comparator verification."
+    ]
+  },
+  {
+    "id": "claim-Y-values",
+    "verdict": "correct",
+    "plain_meaning": "Every dummy sample has output zero and every planted sample has output one.",
+    "why_needed": "A correct algorithm must distinguish these two distributions by an output-probability gap of at least 1/3.",
+    "hard_step": "The dummy case uses the zero in every own string; the planted case checks every condition in the winner definition, including all promised addresses, exact transcripts, and outward zero pointers.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md, physical LF lines 600–607; paper/quartic-query-separation.pdf, p. 12. Source locations use the original ledger’s LF convention (form-feed page breaks are not extra lines); ledger source_line=603.",
+      "Verification: independent manual derivation of this step in the supplied proof, with the paper’s global definitions and parameter assumptions. Not a Lean or Comparator verification."
+    ]
+  },
+  {
+    "id": "eq-18",
+    "verdict": "correct",
+    "plain_meaning": "An algorithm can distinguish the two coupled inputs only by reading the erased-zero position or touching the newly filled cell.",
+    "why_needed": "It reduces the classical lower bound to two hitting-probability estimates.",
+    "hard_step": "Up to their first queried difference, the coupled executions have the same transcript and therefore the same next query. Counting any query into the planted cell safely overestimates the event of reading an actually changed bit.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md, physical LF lines 608–616; paper/quartic-query-separation.pdf, p. 12. Source locations use the original ledger’s LF convention (form-feed page breaks are not extra lines); ledger source_line=613.",
+      "Verification: independent manual derivation of this step in the supplied proof, with the paper’s global definitions and parameter assumptions. Not a Lean or Comparator verification."
+    ]
+  },
+  {
+    "id": "def-Z",
+    "verdict": "correct",
+    "plain_meaning": "Z counts columns for which the dummy execution actually queries the unique zero.",
+    "why_needed": "Averaging over the independent planted column converts Z into the probability of hitting the erased zero.",
+    "hard_step": "Count each column once. Inferring the last unqueried position of a zero is not itself a query to that zero and is not a discovery for this definition.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md, physical LF lines 618–622; paper/quartic-query-separation.pdf, p. 12. Source locations use the original ledger’s LF convention (form-feed page breaks are not extra lines); ledger source_line=618.",
+      "Verification: independent manual derivation of this step in the supplied proof, with the paper’s global definitions and parameter assumptions. Not a Lean or Comparator verification."
+    ]
+  },
+  {
+    "id": "claim-uniform-zero",
+    "verdict": "correct",
+    "plain_meaning": "If a column’s zero has not yet been queried, its posterior location is uniform over that column’s unqueried positions.",
+    "why_needed": "It bounds the chance of finding a zero before substantially searching its column.",
+    "hard_step": "The assertion is conditional on a positive-probability complete adaptive transcript and the zero being unfound. Independence and fixed blank cells ensure the transcript constrains J_i only by excluding the X_i positions already observed to be one.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md, physical LF lines 618–622; paper/quartic-query-separation.pdf, p. 12. Source locations use the original ledger’s LF convention (form-feed page breaks are not extra lines); ledger source_line=619.",
+      "Verification: independent manual derivation of this step in the supplied proof, with the paper’s global definitions and parameter assumptions. Not a Lean or Comparator verification."
+    ]
+  },
+  {
+    "id": "claim-EZ",
+    "verdict": "correct",
+    "plain_meaning": "With G total queries, the expected number of discovered zeros is at most 4G/m.",
+    "why_needed": "It gives the probability of discovering the particular zero erased by planting.",
+    "hard_step": "Split first discoveries into those preceded by fewer than m/2 distinct same-column positions, each with conditional probability at most 2/m, and the remaining discoveries, whose columns each consume at least m/2 queries. These counts are taken in the same dummy execution.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md, physical LF lines 626–633; paper/quartic-query-separation.pdf, p. 13. Source locations use the original ledger’s LF convention (form-feed page breaks are not extra lines); ledger source_line=632.",
+      "Verification: independent manual derivation of this step in the supplied proof, with the paper’s global definitions and parameter assumptions. Not a Lean or Comparator verification."
+    ]
+  },
+  {
+    "id": "eq-19",
+    "verdict": "correct",
+    "plain_meaning": "Because the planted index is independent and uniform, the erased zero is among the zeros found with probability E[Z]/m, at most 4G/m^2.",
+    "why_needed": "It bounds the first possible source of distinguishing the coupled distributions.",
+    "hard_step": "The algorithm is run on the dummy input when Z is defined. Its entire run is independent of I, allowing the averaging identity; a planted run would not have that independence.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md, physical LF lines 634–637; paper/quartic-query-separation.pdf, p. 13. Source locations use the original ledger’s LF convention (form-feed page breaks are not extra lines); ledger source_line=636.",
+      "Verification: independent manual derivation of this step in the supplied proof, with the paper’s global definitions and parameter assumptions. Not a Lean or Comparator verification."
+    ]
+  },
+  {
+    "id": "def-heavy",
+    "verdict": "correct",
+    "plain_meaning": "A column is heavy if the complete dummy run spends more than L address queries in that column, summed across all r instances.",
+    "why_needed": "It divides possible planted-cell hits into expensive address learning and inexpensive address guesses.",
+    "hard_step": "Heavy is defined using the entire run and total address queries in the column, not the maximum over individual instances. Repeated queries count. This event can depend on the unknown address inputs, so conditioning on it is unsafe.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md, physical LF lines 639–641; paper/quartic-query-separation.pdf, p. 13. Source locations use the original ledger’s LF convention (form-feed page breaks are not extra lines); ledger source_line=639.",
+      "Verification: independent manual derivation of this step in the supplied proof, with the paper’s global definitions and parameter assumptions. Not a Lean or Comparator verification."
+    ]
+  },
+  {
+    "id": "eq-20",
+    "verdict": "correct",
+    "plain_meaning": "Only at most G/L columns can be heavy; hence an independent uniform planted column is heavy with probability at most G/(mL).",
+    "why_needed": "It charges expensive address investigations against the single global G-query budget.",
+    "hard_step": "Use L>=1 and a pathwise count before averaging. The sharper count G/(L+1) is available but unnecessary.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md, physical LF lines 639–644; paper/quartic-query-separation.pdf, p. 13. Source locations use the original ledger’s LF convention (form-feed page breaks are not extra lines); ledger source_line=643.",
+      "Verification: independent manual derivation of this step in the supplied proof, with the paper’s global definitions and parameter assumptions. Not a Lean or Comparator verification."
+    ]
+  },
+  {
+    "id": "def-simulator",
+    "verdict": "correct",
+    "plain_meaning": "For a fixed column and a fixed original query number, simulate the dummy run with all outside bits supplied free; stop before the target column receives its (L+1)-st address query and output the address of its proposed cell query, if any.",
+    "why_needed": "It converts a cheap visit to the true cell into a valid capped address-guessing algorithm.",
+    "hard_step": "All supplied outside information is independent of the target r inputs only in the dummy distribution. The simulator outputs the proposed address before making the cell query. It has at most L total target-input queries, a stronger condition than the lemma’s per-input cap.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md, physical LF lines 647–654; paper/quartic-query-separation.pdf, p. 13. Source locations use the original ledger’s LF convention (form-feed page breaks are not extra lines); ledger source_line=647.",
+      "Verification: independent manual derivation of this step in the supplied proof, with the paper’s global definitions and parameter assumptions. Not a Lean or Comparator verification."
+    ]
+  },
+  {
+    "id": "eq-21",
+    "verdict": "correct",
+    "plain_meaning": "The joint probability that a fixed column stays nonheavy and the algorithm touches its true cell at a fixed query number is at most (2/3)^r.",
+    "why_needed": "It is the adaptive-safe bound used to union over possible cell visits.",
+    "hard_step": "That joint event is a subset of simulator success; apply Lemma 4.1 to the unconditional product distribution. Do not replace this with a conditional probability given nonheavy, which can be much larger.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md, physical LF lines 653–659; paper/quartic-query-separation.pdf, p. 13. Source locations use the original ledger’s LF convention (form-feed page breaks are not extra lines); ledger source_line=657.",
+      "Verification: independent manual derivation of this step in the supplied proof, with the paper’s global definitions and parameter assumptions. Not a Lean or Comparator verification."
+    ]
+  },
+  {
+    "id": "eq-22",
+    "verdict": "correct",
+    "plain_meaning": "The planted cell can be reached either in a heavy chosen column or through at most G guesses of a hard full address, giving G/(mL)+G(2/3)^r.",
+    "why_needed": "It bounds the second possible source of distinguishing the coupled distributions.",
+    "hard_step": "For each fixed column union bound over t, then average over uniform I. The sum over m possible columns is divided by m, so no extra multiplicative m survives.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md, physical LF lines 660–664; paper/quartic-query-separation.pdf, p. 13. Source locations use the original ledger’s LF convention (form-feed page breaks are not extra lines); ledger source_line=663.",
+      "Verification: independent manual derivation of this step in the supplied proof, with the paper’s global definitions and parameter assumptions. Not a Lean or Comparator verification."
+    ]
+  },
+  {
+    "id": "eq-23",
+    "verdict": "correct",
+    "plain_meaning": "The two coupled input distributions induce output probabilities differing by at most 4G/m^2+G/(mL)+G(2/3)^r.",
+    "why_needed": "This is the complete quantitative indistinguishability estimate.",
+    "hard_step": "Combine the first-difference coupling with the two dummy-run hitting bounds; the same inequality holds after fixing and averaging the random tape of any worst-case G-query randomized algorithm.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md, physical LF lines 665–679; paper/quartic-query-separation.pdf, p. 13. Source locations use the original ledger’s LF convention (form-feed page breaks are not extra lines); ledger source_line=668.",
+      "Verification: independent manual derivation of this step in the supplied proof, with the paper’s global definitions and parameter assumptions. Not a Lean or Comparator verification."
+    ]
+  },
+  {
+    "id": "claim-tail",
+    "verdict": "correct",
+    "plain_meaning": "The chance of successfully guessing a planted address, even over every allowed query, vanishes as m grows with r=ceil(20 log_2 m).",
+    "why_needed": "It shows the large address space defeats blind or adaptively informed guesses within the query budget.",
+    "hard_step": "Use L<=m, G<=m^2/100, and the monotonicity of (2/3)^r. The exponent is 2-20 log_2(3/2)=-9.6992500144... . For m=2^ell, an entirely rational proof gives G(2/3)^r <1/(100m^9), using 2^31<3^20.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md, physical LF lines 670–675; paper/quartic-query-separation.pdf, p. 13. Source locations use the original ledger’s LF convention (form-feed page breaks are not extra lines); ledger source_line=673.",
+      "Verification: independent manual derivation of this step in the supplied proof, with the paper’s global definitions and parameter assumptions. Not a Lean or Comparator verification."
+    ]
+  },
+  {
+    "id": "claim-numeric",
+    "verdict": "correct",
+    "plain_meaning": "With the paper’s address length and 1<=L<=m, the distinguishing estimate is strictly below the 1/3 gap required of a correct algorithm.",
+    "why_needed": "It closes the numerical contradiction without losing a hidden constant in the error threshold.",
+    "hard_step": "The first terms are <=0.04 and <=0.01. Together with r=20 log_2 m for powers of four, the tail is <1/(100m^9); thus the total is <0.05+1/(100m^9)<1/3 already for m>=4. These inequalities still require the paper’s r choice.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md, physical LF lines 670–679; paper/quartic-query-separation.pdf, p. 13. Source locations use the original ledger’s LF convention (form-feed page breaks are not extra lines); ledger source_line=670.",
+      "Verification: independent manual derivation of this step in the supplied proof, with the paper’s global definitions and parameter assumptions. Not a Lean or Comparator verification."
+    ]
+  },
+  {
+    "id": "prop-4.2",
+    "verdict": "correct",
+    "plain_meaning": "A bounded-error classical randomized algorithm needs more than floor(mL/100) bit queries for the constructed total function.",
+    "why_needed": "It supplies the classical side of the near-quartic separation.",
+    "hard_step": "Construct hard mu by finite minimax, preserve the dummy/planted coupling, bound address guesses through a capped simulator, and then fix and average arbitrary random tapes. This conclusion concerns a worst-case query cap; expected-cost conventions would require an additional conversion.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md, physical LF lines 592–679; paper/quartic-query-separation.pdf, p. 12–13. Source locations use the original ledger’s LF convention (form-feed page breaks are not extra lines); ledger source_line=592.",
+      "Verification: independent manual derivation of this step in the supplied proof, with the paper’s global definitions and parameter assumptions. Not a Lean or Comparator verification.",
+      "Bansal–Sinha, supplied literature/papers/ref-06-bansal-2021.pdf, Eqs. (1.1)–(1.3), Theorem 1.3 and Corollary 1.4, printed pp. 2–4; https://arxiv.org/abs/2008.07003 . The normalization and promise thresholds match the main paper."
+    ]
+  },
+  {
+    "id": "cor-R-omega",
+    "verdict": "correct",
+    "plain_meaning": "For each fixed k, classical query complexity grows at least proportionally to m^(2-1/k)/(log m)^2.",
+    "why_needed": "It puts the lower bound into the form that can be compared with the quantum sqrt(m) bound.",
+    "hard_step": "Remove the two floors only after m is large enough that their unfloored quantities exceed fixed constants. The sufficient-size threshold may depend on k through Forrelation hardness.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md, physical LF lines 682–689; paper/quartic-query-separation.pdf, p. 14. Source locations use the original ledger’s LF convention (form-feed page breaks are not extra lines); ledger source_line=682.",
+      "Verification: independent manual derivation of this step in the supplied proof, with the paper’s global definitions and parameter assumptions. Not a Lean or Comparator verification."
+    ]
+  },
+  {
+    "id": "claim-floor",
+    "verdict": "correct",
+    "plain_meaning": "The nested integer floors lose only a constant factor once m is sufficiently large.",
+    "why_needed": "It justifies the positive multiplicative constant in the asymptotic lower bound.",
+    "hard_step": "Let A=m^(1-1/k)/(log_2 m)^2. If A>=2 and m floor(A)/100>=2, then floor((m/100)floor(A))>=mA/400. Thus 1/400 is one valid coefficient after imposing the necessary threshold.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md, physical LF lines 695–702; paper/quartic-query-separation.pdf, p. 14. Source locations use the original ledger’s LF convention (form-feed page breaks are not extra lines); ledger source_line=698.",
+      "Verification: independent manual derivation of this step in the supplied proof, with the paper’s global definitions and parameter assumptions. Not a Lean or Comparator verification."
+    ]
+  },
+  {
+    "id": "claim-exponent-ratio",
+    "verdict": "correct",
+    "plain_meaning": "For any proposed universal exponent alpha<4, choose a fixed k with 4-2/k>alpha; the classical lower bound divided by the alpha-th power of the quantum upper bound tends to infinity.",
+    "why_needed": "It refutes every candidate universal power below four, not only the cubic conjecture.",
+    "hard_step": "Keep k fixed while m tends to infinity, absorb the additive 1 in 1+Q into a constant, and use that a positive power of m outruns every fixed power of log m. The proof needs only an upper bound on Q and a lower bound on R.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md, physical LF lines 703–708; paper/quartic-query-separation.pdf, p. 14. Source locations use the original ledger’s LF convention (form-feed page breaks are not extra lines); ledger source_line=706.",
+      "Verification: independent manual derivation of this step in the supplied proof, with the paper’s global definitions and parameter assumptions. Not a Lean or Comparator verification."
+    ]
+  },
+  {
+    "id": "claim-no-smaller-exponent",
+    "verdict": "correct",
+    "plain_meaning": "No alpha in [0,4) can satisfy a universal inequality R(f)<=C_alpha(1+Q(f))^alpha for every total Boolean function.",
+    "why_needed": "Together with the independently known quartic upper bound, it identifies alpha_tot=4.",
+    "hard_step": "For each fixed alpha<4 choose an integer k>=2 larger than 2/(4-alpha), then apply the divergent ratio. This order of quantifiers does not assert one family attaining an exact fourth-power relation.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md, physical LF lines 703–712; paper/quartic-query-separation.pdf, p. 14. Source locations use the original ledger’s LF convention (form-feed page breaks are not extra lines); ledger source_line=703.",
+      "Verification: independent manual derivation of this step in the supplied proof, with the paper’s global definitions and parameter assumptions. Not a Lean or Comparator verification."
+    ]
+  },
+  {
+    "id": "def-D",
+    "verdict": "correct",
+    "plain_meaning": "D(f) counts how many input bits an exact classical decision tree must inspect on its longest execution path.",
+    "why_needed": "It supplies the intermediate upper bound R(f) <= D(f) and the target of the degree-times-block-sensitivity algorithm.",
+    "hard_step": "A decision tree is chosen for the known function f; arbitrary computation to choose its next coordinate is free. The depth bound must cover every input, not an average input.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md:725-729 and 862-864; PDF pp. 14 and 17"
+    ]
+  },
+  {
+    "id": "def-deg",
+    "verdict": "corrected",
+    "plain_meaning": "The exact degree is the largest number of distinct variables in a monomial with a nonzero coefficient in the unique multilinear representation of the Boolean function; all constant functions have complexity degree zero.",
+    "why_needed": "Degree bounds the number of coordinates queried per round in Lemma A.5, and Lemma A.4 bounds it using the sensitivity graph.",
+    "hard_step": "An invertible affine change between bit and sign coordinates preserves the highest nonzero degree of a nonconstant polynomial. The zero function needs an explicit degree convention: algebraic degree(0) is often -infinity, whereas Boolean-function complexity degree is defined to be zero for constants.",
+    "correction": "Add 'Use degree zero for every constant Boolean function, including the identically zero function.' With this convention the stated input/output sign-invariance is valid for all Boolean functions. Without it, restrict the sign-invariance sentence to nonconstant functions. This is a definition/convention repair, not a flaw in the quartic bound, whose proof treats constants separately.",
+    "evidence": [
+      "paper/extracted.md:725-727, 814-818, 859 and 862-864; PDF pp. 14, 16-17",
+      "literature/papers/ref-03-aaronson-2021.pdf: Section 2, polynomial/Fourier definitions; Section 3, Theorem 1"
+    ]
+  },
+  {
+    "id": "def-bs",
+    "verdict": "correct",
+    "plain_meaning": "At one fixed input, count how many disjoint sets of bits can each change the answer when that set alone is flipped; block sensitivity maximizes this count over inputs.",
+    "why_needed": "It bounds the number of rounds of the deterministic algorithm and produces a star-shaped adversary matrix giving a quantum lower bound.",
+    "hard_step": "All blocks in one witness are sensitive at the same original input. Sensitivity at changing restrictions or at different inputs would not establish the required bound.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md:727-729, 802-807 and 849-859; PDF pp. 14, 16-17",
+      "literature/papers/ref-19-midrijanis-2004.pdf: Section 2.2 and proof of Theorem 4"
+    ]
+  },
+  {
+    "id": "def-Gamma-i",
+    "verdict": "correct",
+    "plain_meaning": "Gamma_i keeps precisely those adversary weights joining two inputs whose i-th bits differ. All matrix norms here are Euclidean operator norms.",
+    "why_needed": "Only pairs differing at the queried coordinate can have their state overlap changed by that query.",
+    "hard_step": "Use the operator norm induced by l2, not an entrywise maximum or Frobenius norm; the later star and matching calculations depend on that choice.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md:737-748 and 767-781; PDF p. 15",
+      "literature/papers/ref-24-spalek-2006.pdf: Section 3, Theorem 3.1, spectral adversary formula (3.1)"
+    ]
+  },
+  {
+    "id": "claim-perron",
+    "verdict": "correct",
+    "plain_meaning": "A nonnegative symmetric matrix achieves its operator norm at a unit eigenvector whose coordinates are all nonnegative.",
+    "why_needed": "The nonnegative vector makes the adversary potential start at ||Gamma|| and permits termwise triangle bounds without cancellations from signed weights.",
+    "hard_step": "No irreducibility assumption is needed. An elementary proof starts with an eigenvector z for an eigenvalue of largest absolute value, replaces z by |z|, and uses |z|^T Gamma |z| >= |z^T Gamma z| = ||Gamma||; the operator norm gives the reverse inequality.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md:755-761; PDF p. 15",
+      "Independent Rayleigh-quotient derivation in appendix_literature_audit.md, Section A.2"
+    ]
+  },
+  {
+    "id": "def-adv-progress",
+    "verdict": "correct",
+    "plain_meaning": "The potential is a weighted sum of inner products between the algorithm's states on inputs with different correct answers. It measures how much these states still resemble one another.",
+    "why_needed": "It connects an input-independent starting state to distinguishable final states and lets one charge the necessary change to individual oracle queries.",
+    "hard_step": "All states must live in one common purified Hilbert space with an input-independent starting vector and input-independent intervening unitaries. Measurements and classical branches are retained coherently rather than silently discarded.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md:750-766; PDF p. 15",
+      "literature/papers/ref-24-spalek-2006.pdf: Section 2.1, fixed-query unitary model"
+    ]
+  },
+  {
+    "id": "claim-per-query",
+    "verdict": "correct",
+    "plain_meaning": "One oracle call changes the weighted state-overlap potential by at most twice the largest coordinate-restricted adversary norm.",
+    "why_needed": "Dividing the required total change by this per-query limit gives the spectral adversary lower bound.",
+    "hard_step": "For each queried index i, the relevant overlap difference is bounded by 2||phi_x,i|| ||phi_y,i||. Then sum with nonnegative weights and use sum_i ||u_i||^2 = sum_x v_x^2 sum_i ||phi_x,i||^2 = 1. No orthogonality between different inputs is assumed.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md:762-781; PDF p. 15",
+      "Independent expansion and norm bound in appendix_literature_audit.md, Section A.2"
+    ]
+  },
+  {
+    "id": "claim-final-overlap",
+    "verdict": "correct",
+    "plain_meaning": "Two unit states producing opposite answers with error at most one third cannot have inner product larger than 2 sqrt(2)/3 in magnitude.",
+    "why_needed": "It gives a positive constant reduction in the adversary potential by the end of a successful algorithm.",
+    "hard_step": "Splitting by the common output projector bounds the overlap by sqrt(pq)+sqrt((1-p)(1-q)). Its maximum over p<=1/3 and q>=2/3 is attained at p=1/3, q=2/3. Normalization of both states is essential.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md:784-790; PDF p. 15",
+      "Independent angle/Cauchy-Schwarz calculation in appendix_literature_audit.md, Section A.2"
+    ]
+  },
+  {
+    "id": "lem-A.2",
+    "verdict": "correct",
+    "plain_meaning": "A large weighted disagreement graph whose edges are weakly exposed by any single coordinate forces many quantum queries.",
+    "why_needed": "It yields both bs(f)=O(Q(f)^2) and lambda(f)=O(Q(f)), the two quantum ingredients of the quartic upper bound.",
+    "hard_step": "The purified fixed-query model must represent the paper's adaptive worst-case model with a universal constant overhead. Also max_i ||Gamma_i|| is positive: a positive Gamma_xy joins distinct inputs, so at least one differing coordinate retains that entry.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md:739-792; PDF p. 15 (rendered and inspected)",
+      "literature/papers/ref-24-spalek-2006.pdf: Theorem 3.1 and formula (3.1)",
+      "The paper's proof gives c0=(1-2 sqrt(2)/3)/2 for fixed query length; a two-query controlled-oracle conversion permits c=c0/2 for the adaptive model."
+    ]
+  },
+  {
+    "id": "def-Sf",
+    "verdict": "correct",
+    "plain_meaning": "The sensitivity graph joins two Boolean inputs when one bit flip changes the answer; lambda(f) is the operator norm of its adjacency matrix.",
+    "why_needed": "This graph bridges exact polynomial degree, via Huang's signed-cube argument, to quantum query complexity, via the adversary bound.",
+    "hard_step": "The graph includes every input vertex, including isolated ones, and only genuine cube edges. Restricting coordinates gives an embedded subcube whose sensitivity edges remain edges of the original graph.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md:794-795 and 840-842; PDF pp. 15-16",
+      "literature/papers/ref-03-aaronson-2021.pdf: Section 3, Definition 7"
+    ]
+  },
+  {
+    "id": "lem-A.3.bs",
+    "verdict": "correct",
+    "plain_meaning": "Many disjoint ways of changing one input's answer require at least a constant times the square root of that number of quantum queries.",
+    "why_needed": "It bounds the number of rounds in the deterministic algorithm by O(Q(f)^2).",
+    "hard_step": "The star with b leaves has norm sqrt(b), and disjointness ensures that any coordinate slice contains at most one edge and therefore has norm at most one. Edges between leaves are not included in this chosen adversary matrix.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md:798-807; PDF p. 16 (rendered and inspected)",
+      "Independent star-eigenvalue calculation in appendix_literature_audit.md, Section A.3"
+    ]
+  },
+  {
+    "id": "lem-A.3.lambda",
+    "verdict": "correct",
+    "plain_meaning": "Quantum query complexity is at least a constant multiple of the sensitivity graph's spectral norm.",
+    "why_needed": "Together with deg(f)<=lambda(f)^2, it bounds exact degree by O(Q(f)^2).",
+    "hard_step": "In each coordinate the sensitivity edges form a matching, with norm at most one. A nonconstant total function has at least one sensitive edge because the full cube is connected, so the adversary matrix is nonzero.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md:798-800 and 808-810; PDF p. 16",
+      "literature/papers/ref-03-aaronson-2021.pdf: Section 3, Lemma 9"
+    ]
+  },
+  {
+    "id": "lem-A.3",
+    "verdict": "correct",
+    "plain_meaning": "This row bundles the block-sensitivity and spectral-sensitivity consequences of the adversary method.",
+    "why_needed": "The final quartic estimate uses both consequences, with universal constants.",
+    "hard_step": "The substantive work is in lem-A.3.bs and lem-A.3.lambda; this conjunction adds no independent mathematical obstacle.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md:798-810; PDF p. 16"
+    ]
+  },
+  {
+    "id": "claim-restrict-parity",
+    "verdict": "correct",
+    "plain_meaning": "An exact degree-d Boolean function has a d-dimensional restriction that agrees with either parity or its negative on strictly more than half the inputs, and cube edges within that agreement set are sensitive.",
+    "why_needed": "It supplies the large vertex set to which the signed-cube spectral argument applies.",
+    "hard_step": "Choose a monomial of maximum degree before restriction. Its coefficient cannot cancel after outside variables are fixed, since any other term contributing to the same full-support monomial would strictly contain its support and have larger degree. Its coefficient is the nonzero parity correlation.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md:814-823; PDF p. 16",
+      "literature/papers/ref-03-aaronson-2021.pdf: Section 3, proof of Theorem 1"
+    ]
+  },
+  {
+    "id": "def-huang",
+    "verdict": "correct",
+    "plain_meaning": "The recursively signed cube adjacency matrix puts signs on ordinary cube edges so its square is especially simple.",
+    "why_needed": "Its spectrum makes every vertex subset larger than half the cube contain a vector with a large Rayleigh quotient.",
+    "hard_step": "Fix a cube ordering in which the two diagonal blocks represent its two (j-1)-dimensional halves and the identity blocks match corresponding vertices. The absolute-value statement then follows inductively.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md:824-831; PDF p. 16",
+      "literature/papers/ref-17-huang-2019.pdf: Lemma 2.2 and proof of Theorem 1.1",
+      "The ledger's suggested Mathlib reuse was not independently checked in this mathematical audit; this verdict covers the statement, not the implementation hint."
+    ]
+  },
+  {
+    "id": "claim-huang-spectrum",
+    "verdict": "correct",
+    "plain_meaning": "In dimension d>=1, the signed matrix has only eigenvalues sqrt(d) and -sqrt(d), with exactly half its dimension at each eigenvalue.",
+    "why_needed": "The positive eigenspace is large enough to intersect any coordinate subspace supported on more than half the vertices.",
+    "hard_step": "Block multiplication cancels both off-diagonal blocks and adds one identity to each diagonal square. Symmetry gives a real orthonormal eigenbasis; zero trace, together with d>0, forces equal multiplicities.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md:824-835; PDF p. 16",
+      "literature/papers/ref-17-huang-2019.pdf: Lemma 2.2"
+    ]
+  },
+  {
+    "id": "claim-interlace",
+    "verdict": "correct",
+    "plain_meaning": "A set containing more than half the cube vertices supports a nonzero positive-eigenvalue vector of the signed matrix; taking coordinatewise absolute values yields a large Rayleigh quotient for its unsigned induced graph.",
+    "why_needed": "It upgrades the combinatorial parity agreement to the bound lambda(f)>=sqrt(deg(f)).",
+    "hard_step": "Use dim(E_positive)+|U|>2^d to obtain an intersection vector, then bound each signed term H'_xy v_x v_y by |H'_xy| |v_x| |v_y|. The vector is extended by zero outside U. The row name mentions interlacing, but the supplied proof only needs a dimension argument and the Rayleigh quotient.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md:833-842; PDF p. 16",
+      "literature/papers/ref-17-huang-2019.pdf: Section 2, proof of Theorem 1.1 and the following spectral remark"
+    ]
+  },
+  {
+    "id": "lem-A.4",
+    "verdict": "correct",
+    "plain_meaning": "The exact polynomial degree is at most the square of the sensitivity graph's operator norm.",
+    "why_needed": "This is the step improving the general quantum-to-deterministic relation to exponent four.",
+    "hard_step": "The strong conclusion comes from the signed-cube proof's spectral estimate. The weaker headline inequality deg(f)<=s(f)^2 alone would not yield deg(f)=O(Q(f)^2), because s(f) is not bounded by O(Q(f)).",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md:812-842; PDF p. 16 (rendered and inspected)",
+      "literature/papers/ref-03-aaronson-2021.pdf: Section 3, Theorem 1; literature/papers/ref-17-huang-2019.pdf: spectral remark after Theorem 1.1"
+    ]
+  },
+  {
+    "id": "claim-round-block",
+    "verdict": "correct",
+    "plain_meaning": "Each round that queries a maximum-degree monomial exposes a new sensitive block at the fixed original input, disjoint from the blocks exposed in earlier rounds.",
+    "why_needed": "It limits the total number of rounds to block sensitivity.",
+    "hard_step": "After the algorithm has fixed earlier queried bits to their actual values, fix the remaining coordinates outside the selected monomial to their actual values as well. The maximum-degree coefficient survives, so changing only some nonempty subset of that monomial must change the original f-value.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md:846-859; PDF pp. 16-17",
+      "literature/papers/ref-19-midrijanis-2004.pdf: Lemma 3 and proof of Theorem 4"
+    ]
+  },
+  {
+    "id": "lem-A.5",
+    "verdict": "correct",
+    "plain_meaning": "An exact classical algorithm can evaluate any total Boolean function using at most block sensitivity times exact degree queries.",
+    "why_needed": "It multiplies the two O(Q(f)^2) estimates to obtain the O(Q(f)^4) upper bound.",
+    "hard_step": "Choose a maximum-degree monomial by a fixed deterministic tie-break rule. Query only still-unqueried variables, update the restricted function, and terminate once it is constant. There are at most bs(f) rounds and at most deg(f) queries per round because restriction cannot increase degree.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md:844-860; PDF pp. 16-17",
+      "literature/papers/ref-19-midrijanis-2004.pdf: Section 3, final paragraph of the proof of Theorem 4 (the product bound is in the proof, not the theorem's displayed headline)"
+    ]
+  },
+  {
+    "id": "thm-A.1",
+    "verdict": "correct",
+    "plain_meaning": "Every total Boolean function has a deterministic, hence randomized, algorithm whose query cost is at most a universal constant times the fourth power of one plus its bounded-error quantum query complexity.",
+    "why_needed": "The separation family only rules out exponents below four. This known universal upper bound shows that four itself is admissible, completing alpha_tot=4.",
+    "hard_step": "Combine D<=bs*deg, bs<=C1 Q^2, deg<=lambda^2 and lambda<=C2 Q. All constants are absolute; constants in the constructed family are a separate matter. Handle constant functions with D=R=Q=0.",
+    "correction": null,
+    "evidence": [
+      "paper/extracted.md:731-733 and 862-864; PDF pp. 14 and 17",
+      "literature/papers/ref-03-aaronson-2021.pdf: Theorem 2 and its proof in Section 1"
+    ]
+  }
+]

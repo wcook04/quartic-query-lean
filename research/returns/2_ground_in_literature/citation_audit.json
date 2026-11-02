@@ -1,0 +1,1220 @@
+[
+  {
+    "ref_number": 1,
+    "exact_result_used": "The k-fold Forrelation expression and its quantum interpretation; this is an origin/definition citation in quartic §2.1, rather than an invocation of the original two-fold lower bound or of the classical-simulation theorem.",
+    "source_location": [
+      "Supplied arXiv:1411.5729v1 (21 Nov 2014), §1.1.3 p.4; §3.1 pp.12–13; §3.2 and Proposition 6 pp.13–14. Printed and PDF pages coincide."
+    ],
+    "fits_use": "yes",
+    "evidence": [
+      {
+        "file": "literature/papers/ref-01-aaronson-2018.pdf",
+        "location": "§1.1.3 p.4 and §3.2 pp.13–14",
+        "supports": "The scalar is the normalized alternating Hadamard/diagonal product; the direct k-query circuit has return amplitude Φ. Proposition 6 uses a control-qubit construction for acceptance probability (1+Φ)/2 and ceil(k/2) queries.",
+        "url": "https://arxiv.org/pdf/1411.5729v1"
+      },
+      {
+        "file": "paper/extracted.md",
+        "location": "lines 134–180",
+        "supports": "Quartic explicitly credits AA for the k-fold problem and BS for its thresholds; it supplies its own k-query Φ² routine.",
+        "url": null
+      }
+    ],
+    "notes": [
+      "The supplied AA promise has |Φ|≤1/100 versus Φ≥3/5, not the quartic δ/2 versus δ promise. Bansal–Sinha supplies the exact new promise. Do not source the literal thresholds only to AA.",
+      "AA §3.1 uses error at most 1/2−ε for some constant ε>0; Proposition 6 obtains error 0.4, not error 1/3 without extra repetitions.",
+      "The original two-fold problem first appeared as Fourier Checking in Aaronson, BQP and the Polynomial Hierarchy (2009/2010); AA introduced the k-fold generalization.",
+      "A separate AA result has a documented proof error: the general classical-simulation argument, not the Forrelation lower bound or definition. Add ECCC TR21-115 revision 2 and Bravyi–Gosset–Grier–Schaeffer arXiv:2102.06963v2 if the explanation discusses optimal partial-function simulation. The latter repairs the quantum-algorithm simulation theorem; it does not establish every stronger low-degree-polynomial assertion."
+    ],
+    "statement_ids": [
+      "def-walsh-sign",
+      "eq-3",
+      "eq-4",
+      "claim-proj-prob",
+      "lem-2.1.ii"
+    ],
+    "verification_scope": "Read definition, model conventions, full Proposition 6 proof, and relevant introduction; read current primary correction sources. Did not independently reprove the 60-page paper.",
+    "what_would_overturn": "A mismatch in normalization/oracle model after translating signs to bits; no such mismatch found. A claim that the exact quartic thresholds are already AA’s would require correction.",
+    "title": "Forrelation: A problem that optimally separates quantum from classical computing",
+    "authors": [
+      "Scott Aaronson",
+      "Andris Ambainis"
+    ],
+    "publication_year_in_bibliography": 2018,
+    "citation_role": "Exact scoped use described in exact_result_used; see notes for limitations.",
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "review_date": "2026-11-01"
+  },
+  {
+    "ref_number": 2,
+    "exact_result_used": "Historical Theorem 1: there is a total Boolean family with R(f) = Omega-tilde(Q(f)^(5/2)). The construction borrows the certifying-function/addressed-cell mechanism, precisely Definitions 14 and 15; Theorem 16 describes ordinary cheat-sheet complexity and Lemma 17 its quantum upper bound. The quartic paper does not instantiate Theorem 16 as its whole proof.",
+    "source_location": [
+      {
+        "file": "literature/papers/ref-02-aaronson-2016.pdf",
+        "version": "arXiv:1511.01937v2, 9 July 2019 (STOC 2016 paper)",
+        "pages": "2, 9-13, 20-22",
+        "results": "Theorem 1; Lemma 6; Definitions 14-15; Theorem 16; Lemma 17"
+      },
+      {
+        "url": "https://arxiv.org/abs/1511.01937",
+        "location": "version history and abstract"
+      }
+    ],
+    "fits_use": "yes",
+    "evidence": [
+      "Theorem 1 is on supplied p.2 and repeated p.10. Sections 3.1-3.2, pp.9-12, explain hiding certificates at the vector of answers to logarithmically many partial instances.",
+      "Definition 14, p.20, requires certification of both domain membership and the claimed answer, and excludes an all-zero certificate. Definition 15 and p.21 specify the indexed array. Lemma 17, p.22, computes an address then verifies it, rejecting off-promise cases through the certifying function.",
+      "Quartic §§1.1, 2.2 expressly credit the cheat-sheet role; §§3-4 prove separate bounds for the multi-column construction."
+    ],
+    "notes": [
+      "Keep the distinction between a candidate address and a certified address: cheap decoding alone does not test promise membership.",
+      "Neither Theorem 16 nor the historical 5/2 separation supplies the extra m factor in the quartic classical lower bound. That is established by the new multi-column planting/charging argument.",
+      "The bundled PDF is the 2019 v2 revision; use its theorem numbers, not an unpinned STOC-page locator.",
+      "Conclusion would change if the preprint's acceptance rule omitted domain verification or relied on the generic cheat-sheet theorem for its multi-column lower bound; it does neither."
+    ],
+    "statement_ids": [
+      "def-column-layout",
+      "def-eval-transcript",
+      "def-winner",
+      "def-F",
+      "lem-2.2",
+      "thm-1.1"
+    ],
+    "citation_role": "historical result and construction attribution",
+    "title": "Separations in query complexity using cheat sheets",
+    "authors": [
+      "Scott Aaronson",
+      "Shalev Ben-David",
+      "Robin Kothari"
+    ],
+    "publication_year_in_bibliography": 2016,
+    "verification_scope": "Relevant primary passages inspected; source scope and access limits are recorded in evidence and notes. This is not a complete reproof of the source.",
+    "what_would_overturn": "A source correction or a mismatch in the exact hypotheses described here; this audit does not certify every source proof independently.",
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "review_date": "2026-11-01"
+  },
+  {
+    "ref_number": 3,
+    "exact_result_used": "For every total Boolean function, deg(f) <= lambda(f)^2, lambda(f) = O(Q(f)), and D(f) = O(Q(f)^4). Conjecture 2 asserts R(f) = O(Q(f)^3).",
+    "source_location": [
+      "Supplied arXiv:2010.12629v1, 23 October 2020: Theorem 1 pp.1 and 6–7; Theorems 2 and 3 p.2; Definition 7 p.6; Definition 8 pp.7–8; Lemma 9 p.8; Conjecture 2 p.20."
+    ],
+    "fits_use": "yes",
+    "evidence": [
+      {
+        "source": "literature/papers/ref-03-aaronson-2021.pdf",
+        "location": "pp.2, 6–8, 20",
+        "finding": "The theorem, model, and conjecture match the quartic preprint. Theorem 2 is obtained from Midrijanis plus the quantum bounds on degree and block sensitivity.",
+        "status": "read_primary"
+      },
+      {
+        "source": "https://arxiv.org/abs/2010.12629",
+        "location": "title, authors, comments",
+        "finding": "The five-author paper explicitly subsumes arXiv:2004.13231.",
+        "status": "read_primary"
+      },
+      {
+        "source": "https://www.microsoft.com/en-us/research/wp-content/uploads/2020/04/2004.13231.pdf",
+        "location": "Theorem 1 p.2; Conjecture 4 p.9",
+        "finding": "The earlier four-author paper already states the quartic upper bound and cubic conjecture, under different numbering.",
+        "status": "read_primary"
+      }
+    ],
+    "notes": [
+      "The supplied filename uses the STOC 2021 publication year, but its page/theorem locators are for the 2020 arXiv v1. Credit the earlier 2020 Aaronson–Ben-David–Kothari–Tal paper as the initial upper-bound source and the five-author 2021 publication as the cited combined account. The 2026 preprint contributes the randomized lower-bound family, not this upper bound. All functions in the upper-bound theorem are total; Lemma 9 itself also admits partial functions."
+    ],
+    "statement_ids": [
+      "thm-A.1",
+      "lem-A.4",
+      "lem-A.3.lambda",
+      "cor-cubic-refuted",
+      "thm-1.1"
+    ],
+    "what_would_overturn": "A mismatch in the chosen query/error model, or a mathematical defect in the spectral-degree chain. Neither was found in the audited passages; full independent verification of every theorem in the cited paper was not attempted.",
+    "title": "Degree vs. approximate degree and quantum implications of Huang's sensitivity theorem",
+    "authors": [
+      "Scott Aaronson",
+      "Shalev Ben-David",
+      "Robin Kothari",
+      "Shravas Rao",
+      "Avishay Tal"
+    ],
+    "publication_year_in_bibliography": 2021,
+    "citation_role": "Exact scoped use described in exact_result_used; see notes for limitations.",
+    "verification_scope": "Relevant primary passages inspected; source scope and access limits are recorded in evidence and notes. This is not a complete reproof of the source.",
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "review_date": "2026-11-01"
+  },
+  {
+    "ref_number": 4,
+    "exact_result_used": "Corollary 7 gives a total Boolean family with Q(f) = O-tilde(D(f)^(1/4)), using Theorem 2 (D(f_n,m) >= m^2 for n=2m), Theorem 5 (Q(f_n,m)=O-tilde(sqrt(n)+sqrt(m))), and Booleanization. Its pointer construction and state-preserving amplification subroutine are methodological precedents.",
+    "source_location": [
+      {
+        "file": "literature/papers/ref-04-ambainis-2017.pdf",
+        "version": "arXiv:1506.04719v3, 26 October 2015 (JACM 2017 publication)",
+        "pages": "9-15",
+        "results": "unnumbered amplitude-amplification statement p.9; §3 construction pp.10-11; Theorems 2 and 5; Corollary 7"
+      },
+      {
+        "url": "https://arxiv.org/abs/1506.04719",
+        "location": "abstract and version history"
+      }
+    ],
+    "fits_use": "yes",
+    "evidence": [
+      "At p.11, conditions (1)-(4) require a unique all-one marked column, a special root, tree paths to zeros in all other columns, and backlinks from those zeros to the marked column.",
+      "Theorem 5 and Algorithm 2, pp.13-14, use approximate counting, Grover search and amplification to improve candidate columns. Corollary 7, p.15, obtains the near-quartic D-versus-Q gap after a logarithmic Boolean-encoding overhead.",
+      "The p.9 amplification statement already says that a known lower bound p on success permits O(1/sqrt(p)) calls that either fail or produce the normalized successful state, with constant success probability."
+    ],
+    "notes": [
+      "This is a deterministic-versus-quantum separation. It is not a bounded-error randomized-versus-quantum near-quartic separation.",
+      "Outward paths from an accepting column to zeros in other columns are already present here. Attribute to the quartic preprint the hard-addressed direct per-opponent witnesses and off-promise robust comparison, not the first outward zero certificate of any kind.",
+      "The original construction queries symbols in a polynomial-size alphabet; p.10 explicitly accounts for logarithmic overhead when converted to Boolean bit queries.",
+      "Earlier identical hard-addressed direct-comparison construction, if located, would alter the narrower novelty assessment."
+    ],
+    "statement_ids": [
+      "eq-8",
+      "def-winner",
+      "cor-unique-winner",
+      "claim-grover-state",
+      "lem-3.1",
+      "thm-1.1"
+    ],
+    "citation_role": "historical result and construction/subroutine precedent",
+    "title": "Separations in query complexity based on pointer functions",
+    "authors": [
+      "Andris Ambainis",
+      "Kaspars Balodis",
+      "Aleksandrs Belovs",
+      "Troy Lee",
+      "Miklos Santha",
+      "Juris Smotrovs"
+    ],
+    "publication_year_in_bibliography": 2017,
+    "verification_scope": "Relevant primary passages inspected; source scope and access limits are recorded in evidence and notes. This is not a complete reproof of the source.",
+    "what_would_overturn": "A source correction or a mismatch in the exact hypotheses described here; this audit does not certify every source proof independently.",
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "review_date": "2026-11-01"
+  },
+  {
+    "ref_number": 5,
+    "exact_result_used": "The supplied v2 Theorem 2.1 constructs total F_n with C(F_n) >= n(ceil(n/2)+1) and Q(F_n)=O(sqrt(n) ln^3 n). Theorem 2.2 gives C(f)=Theta(n^2), R_1(f)=O(n). The relevant comparison mechanism is §4 and FindSource in §6, especially Lemma 6.6, not a theorem used as a black box in the quartic proof.",
+    "source_location": [
+      {
+        "file": "literature/papers/ref-05-ambainis-2026.pdf",
+        "version": "arXiv:2609.11664v2 printed 17 September 2026",
+        "pages": "2-4, 6-8, 12-16, 20-21",
+        "results": "Theorems 2.1-2.2; §4; Algorithm 4; Lemmas 6.1-6.8"
+      },
+      {
+        "url": "https://arxiv.org/abs/2609.11664",
+        "location": "current primary page could not be retrieved in this session; search indexes report a v3"
+      }
+    ],
+    "fits_use": "yes",
+    "evidence": [
+      "Theorem 2.1 is stated p.4; the paper itself consistently describes a C-versus-Q gap, not an R-versus-Q gap.",
+      "At pp.7-8 the graph direction is a fixed comparison of first-one positions m_ij, with a deterministic index tie-break; a satisfied term's block is a source.",
+      "Algorithm 4, pp.12-13, maintains U(W)={v: v points to every w in W}; it uses variable-time search. Lemma 6.6, p.15, gives source recovery with fixed O(sqrt(n) ln^2 n) query count. Lemma 6.8, p.16, uses robust address recovery and certificate checks.",
+      "At pp.2 and 7 the authors explicitly attribute the DNF/cheat-sheet ancestry to Pabbaraju, while explaining their alterations. Ref.4 of that paper is Ambainis-Kokainis-Vihrovs, arXiv:2302.06749v3."
+    ],
+    "notes": [
+      "The quartic preprint's historical description fits this bundled version. This judgment does not certify the complete proof of [5].",
+      "Current primary v3 abstract/PDF/HTML fetches were blocked by the web service; secondary indexes indicate a 5 October 2026 v3. Do not claim that v2-v3 differences were checked. Download and diff v3 before saying the literature is current.",
+      "The fixed graph of [5] is unlike arbitrary probabilistic comparisons without a gap at 1/2 in quartic Proposition 3.2.",
+      "A v3 revision changing the theorem or retracting a proof would require this row to be revisited."
+    ],
+    "statement_ids": [
+      "def-comparison",
+      "prop-3.2",
+      "construct-sampler",
+      "prop-3.3"
+    ],
+    "citation_role": "recent related construction; no black-box dependence",
+    "title": "Near-optimal separations of certificate complexity from randomized and quantum query complexity",
+    "authors": [
+      "Andris Ambainis",
+      "Janis Iraids",
+      "Martins Kokainis"
+    ],
+    "publication_year_in_bibliography": 2026,
+    "verification_scope": "Relevant primary passages inspected; source scope and access limits are recorded in evidence and notes. This is not a complete reproof of the source.",
+    "what_would_overturn": "A source correction or a mismatch in the exact hypotheses described here; this audit does not certify every source proof independently.",
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "review_date": "2026-11-01"
+  },
+  {
+    "ref_number": 6,
+    "exact_result_used": "For k≥2, δ=2^(−5k), and normalized N×N Hadamard with N a power of two: the promise is Φ≥δ (1) versus |Φ|≤δ/2 (0). Theorem 1.3 lower-bounds randomized queries at error ≤1/2−η/2 by Ω(k^(−29)(N/log(kN))^(1−1/k)η²). Corollary 1.4 gives error-1/3 randomized cost Ω(k^(−29)(N/log(kN))^(1−1/k)) and quantum cost O(k·2^(10k)). Corollary 1.5 supplies the historical total-function exponent 3−o(1).",
+    "source_location": [
+      "Supplied arXiv:2008.07003v3 (17 Nov 2020): equations (1.1)–(1.3), pp.2–3; Theorem 1.3 and Corollaries 1.4–1.5, p.4. PDF and printed pages coincide. Proof architecture in §3 pp.15–18; final derivation §5.4 p.38."
+    ],
+    "fits_use": "yes",
+    "evidence": [
+      {
+        "file": "literature/papers/ref-06-bansal-2021.pdf",
+        "location": "equations (1.1)–(1.3), pp.2–3; Theorem 1.3/Corollary 1.4 p.4",
+        "supports": "Exact promise, normalization, domain size, error and lower-bound exponent match.",
+        "url": "https://arxiv.org/pdf/2008.07003v3"
+      },
+      {
+        "file": "paper/extracted.md",
+        "location": "lines 134–173",
+        "supports": "Quartic sets N=m, keeps k fixed, restricts m to powers of four, and weakens the lower bound to L=floor(m^(1−1/k)/(log₂m)²).",
+        "url": null
+      },
+      {
+        "file": "literature/papers/ref-06-bansal-2021.pdf",
+        "location": "§3 Figure 1, Theorems 3.1–3.4 pp.16–17; §5.4 p.38",
+        "supports": "The source proves a worst-case randomized query lower bound; its internal Gaussian-derived distributions are not directly the µ subsequently used in quartic §4.",
+        "url": null
+      }
+    ],
+    "notes": [
+      "The substitution N=m is exact at the block length level; there are km input bits. Powers of four are a permissible subsequence of the source’s powers of two.",
+      "Theorem 1.3’s η is an advantage parameter; setting η=1/3 gives error 1/3. It is different from the arbitrarily small failure probability called η in quartic Lemma 2.1(ii).",
+      "For fixed k, c·k^(−29)(m/log(km))^(1−1/k) divided by m^(1−1/k)/(log₂m)² grows like a positive k-dependent constant times (log m)^(1+1/k); hence the strict R(P)>L statement holds eventually. No uniform-in-k threshold is justified.",
+      "Quartic’s hard µ is obtained from this worst-case bound by finite minimax. It is not obtained merely by taking the unconditioned p0/p1 mixture from BS Figure 1; those distributions have off-promise support.",
+      "Pin v3. Earlier BS versions had weaker advantage dependence; an arbitrary early ECCC/arXiv copy is not interchangeable.",
+      "The original source’s discussion of the classical simulation upper bound predates the 2021 correction. Its randomized lower bound remains the correct external input; the AA simulation error does not remove it."
+    ],
+    "statement_ids": [
+      "eq-4",
+      "eq-5",
+      "claim-bs-to-L",
+      "lem-2.1.i",
+      "lem-2.1",
+      "claim-minimax-mu",
+      "prop-4.2",
+      "thm-1.1",
+      "cor-cubic-refuted"
+    ],
+    "verification_scope": "Exact source theorem and hypotheses checked; the displayed asymptotic weakening re-derived; source proof architecture read. No independent reconstruction or formal verification of the entire Gaussian interpolation proof.",
+    "what_would_overturn": "A published correction to BS Theorem 1.3/Corollary 1.4, a changed Forrelation promise, or allowing k to grow without a new quantitative argument. None found in reviewed sources.",
+    "title": "k-Forrelation optimally separates quantum and classical query complexity",
+    "authors": [
+      "Nikhil Bansal",
+      "Makrand Sinha"
+    ],
+    "publication_year_in_bibliography": 2021,
+    "citation_role": "Exact scoped use described in exact_result_used; see notes for limitations.",
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "review_date": "2026-11-01"
+  },
+  {
+    "ref_number": 7,
+    "exact_result_used": "Nonnegative spectral adversary bound: Q_epsilon(f) >= (1 - 2 sqrt(epsilon(1-epsilon))) ||Gamma|| / (2 max_i ||Gamma_i||), for a nonnegative symmetric adversary matrix supported on opposite-output input pairs.",
+    "source_location": [
+      "CCC 2003 original: Section 9.2, Theorem 4. Public author-uploaded full text on ResearchGate; theorem text at web lines 5578–5644 and proof at 5646–5783. Exact printed page number not recovered reliably from that HTML extraction."
+    ],
+    "fits_use": "yes",
+    "evidence": [
+      {
+        "source": "https://www.researchgate.net/publication/4023789_Quantum_query_complexity_and_semi-definite_programming",
+        "location": "Author content uploaded by Michael E. Saks; Section 9.2, Theorem 4",
+        "finding": "The original theorem has exactly the matrix hypotheses required by Lemma A.2, including the denominator factor 2.",
+        "status": "read_primary"
+      },
+      {
+        "source": "literature/papers/ref-24-spalek-2006.pdf",
+        "location": "Theorem 3.1, p.6, Eq.(3.1)",
+        "finding": "Independent primary restatement gives the same asymptotic spectral-adversary quantity.",
+        "status": "read_primary"
+      },
+      {
+        "source": "https://www.osti.gov/servlets/purl/975874/",
+        "location": "Title page dated 23 May 2002; Section 8.1",
+        "finding": "An earlier draft with a different title is available. It must not be silently identified with the CCC 2003 text.",
+        "status": "read_primary"
+      }
+    ],
+    "notes": [
+      "Recovered readable original author content without login. Its direct PDF link returned 404, so the local packet remains without the CCC PDF. The 2002 OSTI draft is useful historically, but its Theorem 4 is expressed differently. For the Boolean opposite-output block structure, the greatest eigenvalue equals the operator norm. The paper fixes epsilon=1/3; its unspecified absolute constant absorbs any fixed-length purification overhead."
+    ],
+    "statement_ids": [
+      "lem-A.2",
+      "claim-perron",
+      "def-adv-progress",
+      "claim-per-query",
+      "claim-final-overlap",
+      "lem-A.3"
+    ],
+    "what_would_overturn": "A discrepancy between the author-uploaded theorem and the archival CCC text, or a proof that the oracle convention changes complexity by more than a constant factor.",
+    "title": "Quantum query complexity and semi-definite programming",
+    "authors": [
+      "Howard Barnum",
+      "Michael E. Saks",
+      "Mario Szegedy"
+    ],
+    "publication_year_in_bibliography": 2003,
+    "citation_role": "Exact scoped use described in exact_result_used; see notes for limitations.",
+    "verification_scope": "Relevant primary passages inspected; source scope and access limits are recorded in evidence and notes. This is not a complete reproof of the source.",
+    "original_full_text_status": "recovered_public_author_text",
+    "review_date": "2026-11-01"
+  },
+  {
+    "ref_number": 8,
+    "exact_result_used": "D(f) <= 4096 Q_2(f)^6 for total Boolean f; Q_2(f) >= sqrt(bs(f)/16); acceptance probabilities of T-query algorithms are real multilinear polynomials of degree <= 2T.",
+    "source_location": [
+      "Supplied arXiv:quant-ph/9802049v3 (30 September 1998), not the typeset 2001 JACM version: Lemma 4.2 PDF p.5; Theorem 4.13 PDF p.7; Theorem 5.4 PDF p.8; Lemmas 5.2 and 5.3 PDF pp.7–8."
+    ],
+    "fits_use": "yes",
+    "evidence": [
+      {
+        "source": "literature/papers/ref-08-beals-2001.pdf",
+        "location": "Theorems 4.13 and 5.4, PDF pp.7–8",
+        "finding": "The historical sixth-power bound and block-sensitivity relation are explicitly present. Q_2 is bounded-error quantum query complexity with error at most 1/3.",
+        "status": "read_primary"
+      },
+      {
+        "source": "paper/quartic-query-separation.pdf",
+        "location": "Section 1.1 and Lemma A.3",
+        "finding": "The new paper uses the first result historically and reproves the second by a star adversary.",
+        "status": "read_primary"
+      }
+    ],
+    "notes": [
+      "Do not replace bounded-error Q_2 by exact Q_E when transferring the result. The source notes how the block-sensitivity lower bound can also be interpreted for partial functions, but the sixth-power upper bound is for total functions. Cite the source version with these theorem numbers; the journal pagination is different."
+    ],
+    "statement_ids": [
+      "lem-A.3.bs",
+      "def-bs",
+      "def-Q"
+    ],
+    "what_would_overturn": "A switch from total to partial functions in the sixth-power statement, or confusion between exact and bounded-error quantum computation.",
+    "title": "Quantum lower bounds by polynomials",
+    "authors": [
+      "Robert Beals",
+      "Harry Buhrman",
+      "Richard Cleve",
+      "Michele Mosca",
+      "Ronald de Wolf"
+    ],
+    "publication_year_in_bibliography": 2001,
+    "citation_role": "Exact scoped use described in exact_result_used; see notes for limitations.",
+    "verification_scope": "Relevant primary passages inspected; source scope and access limits are recorded in evidence and notes. This is not a complete reproof of the source.",
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "review_date": "2026-11-01"
+  },
+  {
+    "ref_number": 9,
+    "exact_result_used": "A total Boolean function on N = O_tilde(n^3) bits with C(f) = Omega(n^2), R(f) = O_tilde(n), Q(f) = O_tilde(sqrt(n)); candidate-comparison tournaments that preserve a genuine champion.",
+    "source_location": [
+      "Supplied arXiv:2609.15063v1, 14 September 2026: Theorem 1 p.1; Lemma 2 pp.2–3; Lemma 3 p.3; Lemma 5 pp.3–5, especially the second stage p.4."
+    ],
+    "fits_use": "yes",
+    "evidence": [
+      {
+        "source": "literature/papers/ref-09-bendavid-2026.pdf",
+        "location": "Theorem 1 and proof of Lemma 5",
+        "finding": "The nearly quartic separation is certificate complexity versus quantum complexity. The randomized complexity in the same family is only about the square of Q.",
+        "status": "read_primary"
+      },
+      {
+        "source": "https://research.google/pubs/randomized-query-complexity-can-beat-certificate-complexity/",
+        "location": "official publication page",
+        "finding": "Confirms title, Ben-David/Kothari authors, 2026, and the certificate-complexity subject.",
+        "status": "read_primary"
+      }
+    ],
+    "notes": [
+      "This is a close construction/algorithm ancestor, not a prior randomized-versus-quantum quartic separation. Its comparisons induce a fixed oriented tournament from deterministic local checks. The quartic preprint needs a probabilistic comparison primitive because partial-function inputs may be off promise. Its Section 3 is therefore an additional argument, not a direct invocation of this lemma. The source itself distinguishes SINK decision from locating a sink and uses [18] to make the latter rigorous."
+    ],
+    "statement_ids": [
+      "def-winner",
+      "prop-3.2",
+      "prop-3.3",
+      "cor-unique-winner"
+    ],
+    "what_would_overturn": "Evidence that the 2026 paper already proves the same arbitrary-probability tournament lemma or the same R-versus-Q separation. The inspected text does neither.",
+    "title": "Randomized query complexity can beat certificate complexity",
+    "authors": [
+      "Shalev Ben-David",
+      "Robin Kothari"
+    ],
+    "publication_year_in_bibliography": 2026,
+    "citation_role": "Exact scoped use described in exact_result_used; see notes for limitations.",
+    "verification_scope": "Relevant primary passages inspected; source scope and access limits are recorded in evidence and notes. This is not a complete reproof of the source.",
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "review_date": "2026-11-01"
+  },
+  {
+    "ref_number": 10,
+    "exact_result_used": "Hybrid/search lower bound: constant-error identification or detection of a marked item among N possibilities requires Omega(sqrt(N)) quantum queries.",
+    "source_location": [
+      "Supplied quant-ph/9701001: Section 3.1, especially Theorem 3.3 and Corollary 3.4, printed pp.7–8; the search application is discussed before Theorem 3.3 and in the proof of Theorem 3.5."
+    ],
+    "fits_use": "yes",
+    "evidence": [
+      {
+        "source": "literature/papers/ref-10-bennett-1997.pdf",
+        "location": "Section 3.1, pp.7–10",
+        "finding": "Theorem 3.3 controls the change of final state when low-query-magnitude oracle answers change; Corollary 3.4 limits how many single-location changes can be distinguished.",
+        "status": "read_primary"
+      }
+    ],
+    "notes": [
+      "The source develops the hybrid method in an oracle-Turing-machine language; the OR lower bound is its standard query consequence, not a theorem literally titled OR. In this packet it is historical context, and Appendix A provides its own adversary proof of the needed bs lower bound. Grover supplies the matching upper bound, not Bennett et al."
+    ],
+    "statement_ids": [
+      "def-query-oracle",
+      "def-Q",
+      "lem-A.3.bs"
+    ],
+    "what_would_overturn": "A model that supplies additional information about the marked position or permits non-query-dependent input access.",
+    "title": "Strengths and weaknesses of quantum computing",
+    "authors": [
+      "Charles H. Bennett",
+      "Ethan Bernstein",
+      "Gilles Brassard",
+      "Umesh Vazirani"
+    ],
+    "publication_year_in_bibliography": 1997,
+    "citation_role": "Exact scoped use described in exact_result_used; see notes for limitations.",
+    "verification_scope": "Relevant primary passages inspected; source scope and access limits are recorded in evidence and notes. This is not a complete reproof of the source.",
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "review_date": "2026-11-01"
+  },
+  {
+    "ref_number": 11,
+    "exact_result_used": "Lemma 2 gives the exact mean success probability for a uniformly random Grover iteration count j in {0,...,M-1}: 1/2 - sin(4M theta)/(4M sin(2 theta)). Theorem 3 gives unknown-solution-count search in expected O(sqrt(N/t)) time. The quartic Lemma 3.1 uses the rotation/averaging argument and supplies its own fixed-cap wrapper.",
+    "source_location": [
+      {
+        "file": "literature/papers/ref-11-boyer-1998.pdf",
+        "version": "arXiv:quant-ph/9605034v1, 23 May 1996; later Fortschr. Phys. 1998",
+        "pages": "2-4",
+        "results": "§3 equation (3); §4 Lemmas 1-2; Theorem 3"
+      },
+      {
+        "url": "https://arxiv.org/abs/quant-ph/9605034",
+        "location": "abstract, publication metadata and single-version history"
+      }
+    ],
+    "fits_use": "yes",
+    "evidence": [
+      "The random-iteration identity is Lemma 2 on p.3; it implies a constant success probability once M sin(2 theta) is sufficiently large.",
+      "Theorem 3, p.4, is explicitly an expected-time theorem; the discussion after its proof treats zero solutions using a timeout.",
+      "Quartic §3.1 independently sets M=ceil(10/sqrt(gamma)), mixes a zero-iteration trial with a random-iteration trial, and fixes the repetition count. The inequality used there is weaker than BBHT's exact identity but valid."
+    ],
+    "notes": [
+      "Do not substitute the expected-time statement of Theorem 3 for the quartic paper's every-branch cap. The fixed M and repetition counts in Lemma 3.1 are necessary.",
+      "BBHT's simple starting distribution is uniform on indices; preservation of an arbitrary successful vector, with retained workspace, is most directly justified by BHMT [12], Eq.(8).",
+      "At p=0 a measured success is impossible. At p>=1/2 the zero-iteration half of the mixed trial gives at least 1/4 success. These endpoints avoid a small sin(2 theta) near p=1.",
+      "Failure of reversibility or using a measurement-discarding implementation of A would invalidate the application, but the quartic construction retains its workspaces."
+    ],
+    "statement_ids": [
+      "def-grover-trial",
+      "eq-9",
+      "lem-3.1",
+      "construct-sampler",
+      "def-verify"
+    ],
+    "citation_role": "amplification subroutine foundation",
+    "title": "Tight bounds on quantum searching",
+    "authors": [
+      "Michel Boyer",
+      "Gilles Brassard",
+      "Peter Hoyer",
+      "Alain Tapp"
+    ],
+    "publication_year_in_bibliography": 1998,
+    "verification_scope": "Relevant primary passages inspected; source scope and access limits are recorded in evidence and notes. This is not a complete reproof of the source.",
+    "what_would_overturn": "A source correction or a mismatch in the exact hypotheses described here; this audit does not certify every source proof independently.",
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "review_date": "2026-11-01"
+  },
+  {
+    "ref_number": 12,
+    "exact_result_used": "Section 2 Lemma 1 and Eq.(8) show that Grover iterates preserve the two-dimensional span of the original successful and unsuccessful components, scaling the successful component uniformly. Thus conditioning on success preserves its normalized state. Theorem 3 treats unknown success probability in expected time; the quartic lemma proves the fixed-cap version it needs.",
+    "source_location": [
+      {
+        "file": "literature/papers/ref-12-brassard-2002.pdf",
+        "version": "arXiv:quant-ph/0005055v1, 15 May 2000; supplied title page says Quantum Amplitude Amplification; 2002 published title includes and Estimation",
+        "pages": "5-9",
+        "results": "Lemma 1; Eqs.(1), (5), (8); Theorems 2-3"
+      },
+      {
+        "url": "https://arxiv.org/abs/quant-ph/0005055",
+        "location": "abstract, publication metadata and version history"
+      }
+    ],
+    "fits_use": "yes",
+    "evidence": [
+      "On p.5, A is explicitly assumed to make no measurements, permitting A^{-1}; Q=-A S_0 A^{-1} S_chi.",
+      "On p.7, Eq.(8) expresses Q^j A|0> as sin((2j+1)theta)/sqrt(a) times the same good component plus the corresponding bad component. This is exactly the preservation needed for the weighted index distribution.",
+      "Theorem 3, p.8, uses expected Theta(1/sqrt(a)) calls and runs forever if a=0; quartic Lemma 3.1 uses gamma and a timeout instead."
+    ],
+    "notes": [
+      "All comparison garbage belongs to the full state on which A and A^{-1} act. One must not discard the workspace or replace a coherent success test with an irreversible measurement inside the Grover iterate.",
+      "The random choice of iteration count and first successful trial may mix different global phases, but their conditional density operator is the same pure good state; its index measurement law is unchanged.",
+      "The main proof does not use amplitude estimation, exact amplitude amplification with adjusted phases, or the theorem about expected unknown-probability runtime as its final cap.",
+      "The minor title mismatch of the supplied 2000 version is not a wrong-source error; arXiv metadata verifies the 2002 publication."
+    ],
+    "statement_ids": [
+      "claim-grover-state",
+      "lem-3.1",
+      "eq-15",
+      "claim-success-prob",
+      "claim-coherent-access"
+    ],
+    "citation_role": "core quantum subroutine foundation",
+    "title": "Quantum amplitude amplification and estimation",
+    "authors": [
+      "Gilles Brassard",
+      "Peter Hoyer",
+      "Michele Mosca",
+      "Alain Tapp"
+    ],
+    "publication_year_in_bibliography": 2002,
+    "verification_scope": "Relevant primary passages inspected; source scope and access limits are recorded in evidence and notes. This is not a complete reproof of the source.",
+    "what_would_overturn": "A source correction or a mismatch in the exact hypotheses described here; this audit does not certify every source proof independently.",
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "review_date": "2026-11-01"
+  },
+  {
+    "ref_number": 13,
+    "exact_result_used": "The fair/per-input-capped direct-product proof: a conditional optimal-success value is a supermartingale (Lemma 3.1), adaptive transcripts preserve the product conditional law (Lemma 3.2), and the product potential bounds success. For at most L queries per independent input and single-instance optimum ≤β, joint success is ≤β^r.",
+    "source_location": [
+      "Supplied arXiv:1005.0644v2 (9 May 2014, journal-aligned): end of §1.2 p.6; §1.3 pp.6–7; §3 Lemmas 3.1–3.2 pp.11–12 and final paragraph p.13. Printed/PDF pages coincide."
+    ],
+    "fits_use": "yes",
+    "evidence": [
+      {
+        "file": "literature/papers/ref-13-drucker-2012.pdf",
+        "location": "§1.3 pp.6–7; Lemmas 3.1–3.2 pp.11–12; §3 last paragraph p.13",
+        "supports": "Precisely the value-function, conditional independence and product-supermartingale argument reused by quartic Lemma 4.1.",
+        "url": "https://arxiv.org/pdf/1005.0644v2"
+      },
+      {
+        "file": "literature/papers/ref-13-drucker-2012.pdf",
+        "location": "p.6, end of §1.2",
+        "supports": "Drucker explicitly states the results/proofs extend to partial functions with restricted domain.",
+        "url": null
+      },
+      {
+        "file": "paper/extracted.md",
+        "location": "lines 523–574, Lemma 4.1",
+        "supports": "Quartic includes a complete proof and explicitly cites the appropriate proof ingredients, rather than passing off a new arbitrary-total-budget theorem as a citation.",
+        "url": null
+      }
+    ],
+    "notes": [
+      "Do not quote Drucker Theorem 1.1 alone as the literal β^r result: its global budget αεTr has success (2^(αε)(1−ε))^r. The exact fair bound comes from §1.3 and the capped special case of the §3 proof.",
+      "Arbitrary independent side information and randomized coins are handled by fixing them before the deterministic transcript argument and averaging afterward. This is a valid extension.",
+      "Per-input caps matter. A mere total budget rL does not automatically imply the ideal β^r success bound.",
+      "Quartic’s later simulator aborts before its (L+1)st query to all target address strings combined, which is stronger than the per-instance cap required. The joint nonheavy-and-hit event is contained in simulator success; the proof does not condition on nonheaviness."
+    ],
+    "statement_ids": [
+      "claim-product-law",
+      "def-value-V",
+      "eq-16",
+      "claim-supermartingale",
+      "claim-final-bound",
+      "lem-4.1",
+      "def-simulator",
+      "eq-21"
+    ],
+    "verification_scope": "Read and checked the full relevant source proof and independently traced quartic Lemma 4.1 and its application through equations (18)–(23).",
+    "what_would_overturn": "Correlated target inputs, side information depending on their values, a missing per-input cap, or conditioning on the algorithm-selected nonheavy event. Quartic’s stated construction avoids each issue.",
+    "title": "Improved direct product theorems for randomized query complexity",
+    "authors": [
+      "Andrew Drucker"
+    ],
+    "publication_year_in_bibliography": 2012,
+    "citation_role": "Exact scoped use described in exact_result_used; see notes for limitations.",
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "review_date": "2026-11-01"
+  },
+  {
+    "ref_number": 14,
+    "exact_result_used": "Theorem 1: an index of a minimum among N ordered values is found with probability at least 1/2 using O(sqrt(N)) queries/time in the paper's model. Section 3 amplifies to failure 2^{-c} with O(c sqrt(N)) cost. This is a comparison-search analogy, not a direct proof of the arbitrary probabilistic tournament.",
+    "source_location": [
+      {
+        "file": "literature/papers/ref-14-durr-1996.pdf",
+        "version": "arXiv:quant-ph/9607014v2, 7 January 1999",
+        "pages": "1-2",
+        "results": "Theorem 1; Lemmas 1-2; §3"
+      },
+      {
+        "url": "https://arxiv.org/abs/quant-ph/9607014",
+        "location": "abstract and version history"
+      }
+    ],
+    "fits_use": "yes",
+    "evidence": [
+      "The algorithm selects a threshold uniformly, then searches for a smaller value and repeats with an explicit timeout.",
+      "Its proof uses an ordered table: Lemma 1 says a rank-r item becomes a threshold with probability 1/r. Section 3 permits duplicate values with an inequality in place of that equality.",
+      "Quartic §1.1 labels minimum finding a related search procedure rather than invoking Theorem 1 in §3."
+    ],
+    "notes": [
+      "An arbitrary comparison matrix a_ij need not arise from any ordering and can cycle. Theorem 1 cannot be applied directly to such data.",
+      "Avoid explaining Proposition 3.2 merely as ordinary quantum minimum finding with noisy comparisons; reliable comparisons are required only for the genuine winner, with no uniform reliability guarantee elsewhere.",
+      "An additional theorem extending minimum finding to the exact fractional-comparison model would change the attribution assessment, but none was identified in this review."
+    ],
+    "statement_ids": [
+      "prop-3.2",
+      "def-ideal-process"
+    ],
+    "citation_role": "related algorithm, not a proof input",
+    "title": "A quantum algorithm for finding the minimum",
+    "authors": [
+      "Christoph Durr",
+      "Peter Hoyer"
+    ],
+    "publication_year_in_bibliography": 1996,
+    "verification_scope": "Relevant primary passages inspected; source scope and access limits are recorded in evidence and notes. This is not a complete reproof of the source.",
+    "what_would_overturn": "A source correction or a mismatch in the exact hypotheses described here; this audit does not certify every source proof independently.",
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "review_date": "2026-11-01"
+  },
+  {
+    "ref_number": 15,
+    "exact_result_used": "Theorem 5 and its proof in §2.1 construct a Boolean function with deterministic decision-tree complexity at least a near-square of unambiguous 1-certificate complexity. The mechanism is a unique all-one column linked by a pointer chain to a zero in every other column. This is the pointer-function ancestry credited by the quartic paper.",
+    "source_location": [
+      {
+        "file": "literature/papers/ref-15-goos-2015.pdf",
+        "version": "ECCC TR15-050 original report, 1 April 2015 title-page date",
+        "pages": "3-5",
+        "results": "Theorem 5; §2.1 construction and adversary argument"
+      },
+      {
+        "url": "https://eccc.weizmann.ac.il/report/2015/050/",
+        "location": "original report and 15 May 2018 revision links"
+      },
+      {
+        "url": "https://eccc.weizmann.ac.il/report/2015/050/revision/1/download",
+        "location": "revised PDF Theorem 5 and §2.1, pp.3-5; title page September 2017, ECCC posting May 2018"
+      }
+    ],
+    "fits_use": "yes",
+    "evidence": [
+      "At p.4 the motivating matrix has a unique all-one column; a certificate reads it and one zero from each other column.",
+      "At p.5 a non-null pointer in the all-one column begins a chain visiting every other column at a zero. This makes the accepting certificate unambiguous and yields the deterministic adversary lower bound.",
+      "The Booleanization at the end of §2.1 loses only logarithmic factors."
+    ],
+    "notes": [
+      "This source does not establish a randomized-versus-quantum separation; its role here is ancestry of the construction.",
+      "Its outward traversal is already an accepting-column certificate against rivals. The quartic paper's distinction is direct, hard-addressed per-rival access and the robust probabilistic-comparison analysis.",
+      "The packet carries the original report. The May 2018 ECCC revision was opened and its relevant Theorem 5 and §2.1 construction, pp.3-5, checked; they retain the earlier outward pointer chain."
+    ],
+    "statement_ids": [
+      "eq-8",
+      "def-column-layout",
+      "def-winner",
+      "cor-unique-winner"
+    ],
+    "citation_role": "construction attribution",
+    "title": "Deterministic communication vs. partition number",
+    "authors": [
+      "Mika Goos",
+      "Toniann Pitassi",
+      "Thomas Watson"
+    ],
+    "publication_year_in_bibliography": 2015,
+    "verification_scope": "Relevant primary passages inspected; source scope and access limits are recorded in evidence and notes. This is not a complete reproof of the source.",
+    "what_would_overturn": "A source correction or a mismatch in the exact hypotheses described here; this audit does not certify every source proof independently.",
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "review_date": "2026-11-01"
+  },
+  {
+    "ref_number": 16,
+    "exact_result_used": "Section 3 gives the database search algorithm and §5 Theorem 3 supplies the amplitude-growth argument yielding O(sqrt(N)) search for a unique marked item with constant success. The quartic introduction uses this as the historical source of the quadratic search speedup for OR; the zero/unknown/multiple-marked-item variants are supplied more explicitly by [11] and the preprint's own Lemma 3.1.",
+    "source_location": [
+      {
+        "file": "literature/papers/ref-16-grover-1996.pdf",
+        "version": "STOC 1996/arXiv:quant-ph/9605043 copy",
+        "pages": "1, 3-7",
+        "results": "§3 algorithm; §5 Theorems 1-3, especially Theorem 3"
+      },
+      {
+        "url": "https://arxiv.org/abs/quant-ph/9605043",
+        "location": "original arXiv paper identity"
+      }
+    ],
+    "fits_use": "partly",
+    "evidence": [
+      "The supplied paper's abstract and algorithm assume one item satisfies the predicate. Theorem 3, stated on p.5 and proved pp.6-7, gives growth of its amplitude until constant success.",
+      "Total OR must also handle no marked item and an unknown number of marked items. BBHT [11] §4 and quartic Lemma 3.1 explicitly cover these extra cases."
+    ],
+    "notes": [
+      "This is a citation-precision qualification, not a flaw in the claimed quadratic OR speedup or in the quartic proof.",
+      "For an exact source supporting the total bounded-error OR algorithm, cite [16] together with [11], or explain the standard extension.",
+      "Theorem 3 in the supplied original has no Theorem 1-style one-line O(sqrt(N)) formulation; do not invent such a locator."
+    ],
+    "statement_ids": [
+      "lem-3.1",
+      "def-verify",
+      "thm-1.1"
+    ],
+    "citation_role": "historical search attribution; original theorem is promise-restricted",
+    "title": "A fast quantum mechanical algorithm for database search",
+    "authors": [
+      "Lov K. Grover"
+    ],
+    "publication_year_in_bibliography": 1996,
+    "verification_scope": "Relevant primary passages inspected; source scope and access limits are recorded in evidence and notes. This is not a complete reproof of the source.",
+    "what_would_overturn": "A source correction or a mismatch in the exact hypotheses described here; this audit does not certify every source proof independently.",
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "review_date": "2026-11-01"
+  },
+  {
+    "ref_number": 17,
+    "exact_result_used": "Huang’s signed hypercube matrix has eigenvalues plus/minus sqrt(d), each with multiplicity 2^(d-1); any induced subgraph on more than half of the cube has adjacency spectral radius at least sqrt(d). This yields deg(f) <= lambda(f)^2 when paired with the parity-correlation reduction.",
+    "source_location": [
+      "Supplied arXiv:1907.00847v2: Theorem 1.1 p.1; Theorem 1.3 p.3; Lemmas 2.1–2.3 and proof of Theorem 1.1 pp.3–5; unnumbered spectral-radius remark p.5. The explicit function inequality is [3], Theorem 1 pp.6–7."
+    ],
+    "fits_use": "yes",
+    "evidence": [
+      {
+        "source": "literature/papers/ref-17-huang-2019.pdf",
+        "location": "Lemma 2.2; proof of Theorem 1.1; remark p.5",
+        "finding": "The recursive signed cube matrix and its spectrum appear explicitly. The stronger spectral-radius conclusion is stated after the proof.",
+        "status": "read_primary"
+      },
+      {
+        "source": "literature/papers/ref-03-aaronson-2021.pdf",
+        "location": "Theorem 1, pp.6–7",
+        "finding": "Connects nonzero top Fourier coefficient to a >half-sized parity agreement set and hence spectral sensitivity.",
+        "status": "read_primary"
+      }
+    ],
+    "notes": [
+      "Distinguish Huang’s graph theorem from the explicit spectral-sensitivity formulation in the later paper. Quoting only deg <= s^2 is too weak for the quartic argument: s need not be O(Q). Appendix A correctly retains lambda. The signed matrix is an auxiliary proof object; it is not the Walsh–Hadamard matrix used for Forrelation."
+    ],
+    "statement_ids": [
+      "def-huang",
+      "claim-huang-spectrum",
+      "claim-interlace",
+      "claim-restrict-parity",
+      "lem-A.4"
+    ],
+    "what_would_overturn": "Failure of the parity-correlation restriction, the eigenvalue multiplicity calculation, or the entrywise absolute-value comparison. Each was checked mathematically in the displayed Appendix A argument.",
+    "title": "Induced subgraphs of hypercubes and a proof of the Sensitivity Conjecture",
+    "authors": [
+      "Hao Huang"
+    ],
+    "publication_year_in_bibliography": 2019,
+    "citation_role": "Exact scoped use described in exact_result_used; see notes for limitations.",
+    "verification_scope": "Relevant primary passages inspected; source scope and access limits are recorded in evidence and notes. This is not a complete reproof of the source.",
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "review_date": "2026-11-01"
+  },
+  {
+    "ref_number": 18,
+    "exact_result_used": "Theorem 1.2 gives R(KING_n)=Theta-tilde(n) and Q(KING_n)=Theta-tilde(sqrt(n)); the quantum upper bound is Theorem 4.4. Observation 4.1 and Lemma 4.2 implement coherent membership in a fixed tournament's surviving in-neighborhood and uniform sampling from it. These are relevant precursors, not the fractional-comparison theorem used in the new proof.",
+    "source_location": [
+      {
+        "file": "literature/papers/ref-18-mande-2023.pdf",
+        "version": "arXiv:2308.02472v1, 4 August 2023",
+        "pages": "2-4, 10-15",
+        "results": "Definition 1.1; Theorem 1.2; Observation 4.1; Lemma 4.2; Theorem 4.4"
+      },
+      {
+        "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.FSTTCS.2023.30",
+        "location": "published metadata, abstract, CC BY 4.0 license and PDF link"
+      }
+    ],
+    "fits_use": "yes",
+    "evidence": [
+      "Definition 1.1, p.2, encodes each edge of a fixed tournament as a bit; a king reaches every vertex by paths of length at most two.",
+      "Section 1.2.2, pp.3-4, explains the retained set of pivots W and amplitude amplification conditioned on membership in their common in-neighborhood. Lemma 4.2 formalizes uniform sampling; Theorem 4.4 gives the O(sqrt(n) polylog(n)) query bound.",
+      "Quartic §§1.1 and 3 explicitly distinguish fixed-tournament comparisons from arbitrary outcome probabilities."
+    ],
+    "notes": [
+      "A king need not beat every other candidate directly. If a source beating everyone exists, it is the unique king, so the related method helps intuition in that special fixed-graph case.",
+      "The relevant new requirement is robust handling of a_ij arbitrarily close to 1/2 for nonwinners. No fixed edge-bit oracle with uniform bounded error follows from these probabilities; standard amplification cannot supply it without a gap.",
+      "Use arXiv-v1 page/theorem locators for this bundled file; a separate 19-page FSTTCS published version is openly available under CC BY 4.0.",
+      "Precise supplied-v1 locations: Lemma 4.2 begins on p.10; Theorem 4.4 is stated on p.13 and proved through p.15."
+    ],
+    "statement_ids": [
+      "def-aij",
+      "construct-sampler",
+      "claim-success-prob",
+      "prop-3.2"
+    ],
+    "citation_role": "related algorithm, not a proof input",
+    "title": "Randomized and quantum query complexities of finding a king in a tournament",
+    "authors": [
+      "Nikhil S. Mande",
+      "Manaswi Paraashar",
+      "Nitin Saurabh"
+    ],
+    "publication_year_in_bibliography": 2023,
+    "verification_scope": "Relevant primary passages inspected; source scope and access limits are recorded in evidence and notes. This is not a complete reproof of the source.",
+    "what_would_overturn": "A source correction or a mismatch in the exact hypotheses described here; this audit does not certify every source proof independently.",
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "review_date": "2026-11-01"
+  },
+  {
+    "ref_number": 19,
+    "exact_result_used": "For every total Boolean function, D(f) <= bs(f) deg(f), obtained by repeatedly querying a maximum-degree monomial of the current restriction.",
+    "source_location": [
+      "Supplied quant-ph/0403168v2: Lemma 3 p.3; proof of Theorem 4 pp.3–4, especially its final paragraph on p.4. Theorem 4 itself states D(f) <= 2 deg(f)^3; Theorem 5 concerns exact quantum complexity Q_E."
+    ],
+    "fits_use": "yes",
+    "evidence": [
+      {
+        "source": "literature/papers/ref-19-midrijanis-2004.pdf",
+        "location": "Lemma 3 and proof of Theorem 4",
+        "finding": "Each round yields a sensitive block at the actual input; round supports are disjoint, so there are at most bs(f) rounds and at most deg(f) queries per round.",
+        "status": "read_primary"
+      }
+    ],
+    "notes": [
+      "The lemma used in Appendix A is an intermediate inequality explicitly proved by Midrijanis, not the displayed statement of Theorem 4. Avoid citing Theorem 5 as a bounded-error quantum upper bound: it uses exact Q_E. Midrijanis credits the earlier maxonomial approach of Nisan–Smolensky, recorded in the Buhrman–de Wolf survey, but his bs*deg sharpening is the precise result used here."
+    ],
+    "statement_ids": [
+      "lem-A.5",
+      "claim-round-block"
+    ],
+    "what_would_overturn": "A partial-function setting where the polynomial need not determine valid values on all restricted assignments, or a failure to query disjoint round supports.",
+    "title": "Exact quantum query complexity for total Boolean functions",
+    "authors": [
+      "Gatis Midrijanis"
+    ],
+    "publication_year_in_bibliography": 2004,
+    "citation_role": "Exact scoped use described in exact_result_used; see notes for limitations.",
+    "verification_scope": "Relevant primary passages inspected; source scope and access limits are recorded in evidence and notes. This is not a complete reproof of the source.",
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "review_date": "2026-11-01"
+  },
+  {
+    "ref_number": 20,
+    "exact_result_used": "Historical block-sensitivity framework and polynomial relation between randomized and deterministic decision trees. Relevant descendants are C(f) <= bs(f)^2 and D(f) = O(R(f)^3). No separate numerical bound from [20] is invoked in the main construction.",
+    "source_location": [
+      "1991 SIAM J. Comput. 20(6):999–1007. Original full text not recovered. Publisher abstract read. Beals et al. [8] cite Nisan Lemma 2.4 for C<=bs^2, Lemma 4.1 for the deterministic certificate argument, and Theorem 4 for D=O(R^3); these original locators are indirect, not independently confirmed."
+    ],
+    "fits_use": "partly",
+    "evidence": [
+      {
+        "source": "https://epubs.siam.org/doi/abs/10.1137/0220062",
+        "location": "abstract and publication details",
+        "finding": "Confirms the introduction of block sensitivity and polynomial simulation of randomized decision trees.",
+        "status": "publisher_abstract"
+      },
+      {
+        "source": "literature/papers/ref-08-beals-2001.pdf",
+        "location": "PDF pp.7–8, Section 5",
+        "finding": "Contains the descendant lemmas and attributes them to Nisan.",
+        "status": "read_primary"
+      },
+      {
+        "source": "https://homepages.cwi.nl/~rdewolf/publ/qc/dectree.pdf",
+        "location": "Theorem 16 and Corollary 3, pp.17–18",
+        "finding": "Gives the explicit bs <= 3R_2 and D <= 27R_2^3 facts.",
+        "status": "read_primary"
+      }
+    ],
+    "notes": [
+      "The historical use fits the sources checked; exact original theorem numbers remain unverified. Attempts at the SIAM PDF returned an access page; ACM STOC 1989 PDF access was also blocked. Retain the citation but label original_text_unread rather than treating bibliographic metadata as a proof check. This does not leave an external gap in Appendix A, which proves its inequalities."
+    ],
+    "statement_ids": [
+      "def-bs",
+      "def-D",
+      "def-R"
+    ],
+    "what_would_overturn": "An original-source examination contradicting the indirect locators or historical attribution. Obtain the archival text before claiming a completed original-paper citation audit.",
+    "title": "CREW PRAMs and decision trees",
+    "authors": [
+      "Noam Nisan"
+    ],
+    "publication_year_in_bibliography": 1991,
+    "citation_role": "Exact scoped use described in exact_result_used; see notes for limitations.",
+    "verification_scope": "Relevant primary passages inspected; source scope and access limits are recorded in evidence and notes. This is not a complete reproof of the source.",
+    "original_full_text_status": "not_recovered",
+    "review_date": "2026-11-01"
+  },
+  {
+    "ref_number": 21,
+    "exact_result_used": "For total Boolean f, deg(f) >= sqrt(bs(f)/2) and approximate degree >= sqrt(bs(f)/6), hence polynomial relations among decision-tree complexity, degree and approximate degree.",
+    "source_location": [
+      "Recovered exact 1994 Computational Complexity journal scan: Definition 3.6 pp.309; Lemma 3.8 and Theorem 3.9 p.310; supporting symmetrization and approximation inequalities in Section 3, pp.307–310."
+    ],
+    "fits_use": "yes",
+    "evidence": [
+      {
+        "source": "https://web.vu.lt/mif/s.jukna/boolean/Nisan-Szegedy.pdf",
+        "location": "Lemma 3.8, printed p.310 (PDF p.10)",
+        "finding": "Read original journal scan; reduces disjoint sensitive blocks to a function distinguishing all-zero from Hamming weight one, then applies polynomial symmetrization.",
+        "status": "read_primary"
+      },
+      {
+        "source": "literature/papers/ref-03-aaronson-2021.pdf",
+        "location": "proof of Theorem 2, p.2",
+        "finding": "Combining the approximate-degree bound with [8] gives bs=O(Q^2), although the quartic preprint uses the shorter star-adversary proof.",
+        "status": "read_primary"
+      }
+    ],
+    "notes": [
+      "The supplied metadata incorrectly reported no available copy; the university-hosted journal scan is readable. Its historical D-versus-degree exponent is eight; do not substitute later improvements into its statement. Exact and approximate degree are different quantities and must retain different notation."
+    ],
+    "statement_ids": [
+      "def-deg",
+      "def-bs",
+      "lem-A.3.bs"
+    ],
+    "what_would_overturn": "A different approximation convention without a constant conversion, or erroneous OCR of the constants. The constants were cross-checked against the subsequent Buhrman–de Wolf survey, Theorems 4 and 7.",
+    "title": "On the degree of Boolean functions as real polynomials",
+    "authors": [
+      "Noam Nisan",
+      "Mario Szegedy"
+    ],
+    "publication_year_in_bibliography": 1994,
+    "citation_role": "Exact scoped use described in exact_result_used; see notes for limitations.",
+    "verification_scope": "Relevant primary passages inspected; source scope and access limits are recorded in evidence and notes. This is not a complete reproof of the source.",
+    "original_full_text_status": "recovered_journal_scan",
+    "review_date": "2026-11-01"
+  },
+  {
+    "ref_number": 22,
+    "exact_result_used": "Historical antecedent: optimal direct-product/XOR hardness for fair decision trees with at most d queries to each input on every root-to-leaf path. In the supplied version, Theorem 5 bounds parity advantage by the kth power of the single-input advantage.",
+    "source_location": [
+      "Supplied ECCC TR01-009 (2001 version of the cited 2003 journal article), §1 p.1 footnotes 1–2; §5 Definition 4 and Theorem 5 printed p.11 (PDF p.12); Lemma 7 proof printed p.12 (PDF p.13)."
+    ],
+    "fits_use": "yes",
+    "evidence": [
+      {
+        "file": "literature/papers/ref-22-shaltiel-2003.pdf",
+        "location": "§5 Definition 4/Theorem 5; Lemma 7",
+        "supports": "Fairness is a per-instance cap along each path, not a nonadaptive schedule; the proof allows adaptive interleaving.",
+        "url": "https://eccc.weizmann.ac.il/report/2001/009/download"
+      },
+      {
+        "file": "literature/papers/ref-13-drucker-2012.pdf",
+        "location": "§1.3 p.6 and p.3 footnote 3",
+        "supports": "Drucker explicitly attributes the fair argument to Shaltiel, explains the XOR-to-direct-product relation, and presents the arbitrary-distribution value-function proof.",
+        "url": null
+      }
+    ],
+    "notes": [
+      "Fits the actual wording “following earlier work of Shaltiel.” It would fit only partly if treated as a verbatim source for quartic Lemma 4.1: the supplied Shaltiel version is stated for uniform inputs and parity advantage, not arbitrary µ and vector-output success.",
+      "Source theorem numbering must be labelled as the supplied 2001 ECCC version; do not silently claim this is the numbering in the 2003 journal typesetting.",
+      "Do not attribute the capped direct-product idea or its basic product induction to OpenAI."
+    ],
+    "statement_ids": [
+      "lem-4.1",
+      "claim-product-law",
+      "claim-supermartingale"
+    ],
+    "verification_scope": "Read the introduction’s distribution convention and full §5 proof; no 2003 journal pagination check.",
+    "what_would_overturn": "A claim that the source directly proves the arbitrary-distribution vector statement under only a total rL budget; it does not say that.",
+    "title": "Towards proving strong direct product theorems",
+    "authors": [
+      "Ronen Shaltiel"
+    ],
+    "publication_year_in_bibliography": 2003,
+    "citation_role": "Exact scoped use described in exact_result_used; see notes for limitations.",
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "review_date": "2026-11-01"
+  },
+  {
+    "ref_number": 23,
+    "exact_result_used": "Historical total Boolean separation R_1/3(f)≥Q_1/3(f)^(3−o(1)), Theorem 1.5, obtained from a near-maximal partial-function separation via the Aaronson–Ben-David–Kothari cheat-sheet construction.",
+    "source_location": [
+      "Supplied arXiv:2008.10223v4 (29 Jan 2023, journal version): Theorem 1.1 and Corollaries 1.2–1.3 p.3; Corollary 1.4 and Theorem 1.5 p.4; §1.8 p.10. Printed/PDF pages coincide."
+    ],
+    "fits_use": "yes",
+    "evidence": [
+      {
+        "file": "literature/papers/ref-23-sherstov-2023.pdf",
+        "location": "§1.3, Theorem 1.5 p.4",
+        "supports": "Exact historical cubic separation with error 1/3 for both measures.",
+        "url": "https://arxiv.org/pdf/2008.10223v4"
+      },
+      {
+        "file": "literature/papers/ref-23-sherstov-2023.pdf",
+        "location": "§1.8 p.10",
+        "supports": "States independence/concurrency with Bansal–Sinha and distinguishes random orthogonal-matrix rorrelation from the explicit Hadamard Forrelation result.",
+        "url": null
+      }
+    ],
+    "notes": [
+      "This is an independent route to the historical near-cubic total-function record, not a substitute proof for the exact Hadamard gadget in quartic Lemma 2.1.",
+      "For the few-query partial-function result, Corollary 1.2 uses Q_(1/2−Ω(1)); reducing error to 1/3 costs a constant depending on the fixed parameter. The total-function Theorem 1.5 is explicitly in the 1/3 convention.",
+      "Credit Tal’s random-orthogonal rorrelation construction and the improved Fourier-weight bound; the totalization belongs to ABK."
+    ],
+    "statement_ids": [
+      "cor-cubic-refuted"
+    ],
+    "verification_scope": "Read relevant introduction, exact theorem statements and independent-work comparison; did not reprove all Fourier-weight estimates.",
+    "what_would_overturn": "Replacing this random-orthogonal source with an assertion that it proves the identical explicit small-circuit Hadamard gadget without additional work.",
+    "title": "An optimal separation of randomized and quantum query complexity",
+    "authors": [
+      "Alexander A. Sherstov",
+      "Andrey A. Storozhenko",
+      "Pei Wu"
+    ],
+    "publication_year_in_bibliography": 2023,
+    "citation_role": "Exact scoped use described in exact_result_used; see notes for limitations.",
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "review_date": "2026-11-01"
+  },
+  {
+    "ref_number": 24,
+    "exact_result_used": "The nonnegative spectral adversary ratio is a quantum lower bound and is equivalent to the listed positive-weight adversary formulations; only the lower-bound direction is used in Appendix A.",
+    "source_location": [
+      "Supplied quant-ph/0409116v3, Theorem 3.1 p.6 and spectral formula Eq.(3.1); final publisher PDF has the same locator."
+    ],
+    "fits_use": "yes",
+    "evidence": [
+      {
+        "source": "literature/papers/ref-24-spalek-2006.pdf",
+        "location": "Theorem 3.1 p.6",
+        "finding": "The admissible Gamma is nonnegative symmetric, with support only where f differs; masks D_i agree exactly with the Appendix A coordinate masks.",
+        "status": "read_primary"
+      },
+      {
+        "source": "https://theoryofcomputing.org/articles/v002a001/",
+        "location": "publisher page, DOI and license link",
+        "finding": "Author and DOI metadata verified; final publication date 31 January 2006, and the publisher links CC BY-ND 2.0.",
+        "status": "read_primary"
+      }
+    ],
+    "notes": [
+      "This title concerns the then-known nonnegative adversary methods; it should not be paraphrased as an assertion that all later general adversary methods with negative weights are equivalent to the positive method. The input references file labels its 2004 arXiv submission with an assumed-1991-2003 licence, an unreliable metadata field. Prefer the final publisher copy and its explicit licence rather than that inferred label."
+    ],
+    "statement_ids": [
+      "lem-A.2",
+      "lem-A.3.lambda"
+    ],
+    "what_would_overturn": "Using arbitrary negative Gamma entries with this positive-adversary proof, or importing a later tight-adversary upper bound that this 2006 theorem does not state.",
+    "title": "All quantum adversary methods are equivalent",
+    "authors": [
+      "Robert Spalek",
+      "Mario Szegedy"
+    ],
+    "publication_year_in_bibliography": 2006,
+    "citation_role": "Exact scoped use described in exact_result_used; see notes for limitations.",
+    "verification_scope": "Relevant primary passages inspected; source scope and access limits are recorded in evidence and notes. This is not a complete reproof of the source.",
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "review_date": "2026-11-01"
+  },
+  {
+    "ref_number": 25,
+    "exact_result_used": "A directed-graph SINK decision problem on n vertices has quantum query complexity O_tilde(sqrt(n)); related candidate elimination/search algorithms motivate the comparison viewpoint.",
+    "source_location": [
+      "Supplied CCC 2004 author PDF: Theorem 2 PDF p.2 (directed graph invariant complexity); Section 2 PDF pp.2–5, where SINK is the explicit example achieving the upper bound. The extended abstract omits the analogous SINK algorithm details while giving SCORPION algorithms."
+    ],
+    "fits_use": "partly",
+    "evidence": [
+      {
+        "source": "literature/papers/ref-25-sun-2004.pdf",
+        "location": "Theorem 2 and Section 2, PDF p.2",
+        "finding": "States SINK decision upper bound, defines a sink by in-degree n-1 and out-degree zero, and says the similar quantum SINK algorithms are omitted.",
+        "status": "read_primary"
+      },
+      {
+        "source": "literature/papers/ref-09-bendavid-2026.pdf",
+        "location": "p.4, second stage",
+        "finding": "Explicitly notes that [25] does not claim locating the sink, and uses Mande–Paraashar–Saurabh king-finding to justify that search task.",
+        "status": "read_primary"
+      }
+    ],
+    "notes": [
+      "Fine as historical context; for a literal sink-finding theorem, supplement with [18] or spell out search-to-decision. In the tournament setting, with all edges reversed, a king search returns the sink whenever a sink exists. None of these fixed-tournament results by themselves establish the arbitrary-probability/off-promise tournament lemma in the quartic paper.",
+      "Scope of the repair: for a tournament, reverse every edge and use king finding; if an original sink exists, it is the unique king of the reversed tournament. This does not extend the king-finding theorem to all directed graphs considered elsewhere in Sun–Yao–Zhang."
+    ],
+    "statement_ids": [
+      "prop-3.2"
+    ],
+    "what_would_overturn": "A full version of [25] with an explicit locating theorem could remove this locator limitation. A reduction that treats independent noisy comparisons as queries to a fixed orientation would not be justified by [25].",
+    "title": "Graph properties and circular functions: how low can quantum query complexity go?",
+    "authors": [
+      "Xiaoming Sun",
+      "Andrew C. Yao",
+      "Shengyu Zhang"
+    ],
+    "publication_year_in_bibliography": 2004,
+    "citation_role": "Exact scoped use described in exact_result_used; see notes for limitations.",
+    "verification_scope": "Relevant primary passages inspected; source scope and access limits are recorded in evidence and notes. This is not a complete reproof of the source.",
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "review_date": "2026-11-01"
+  },
+  {
+    "ref_number": 26,
+    "exact_result_used": "Historical exponent 8/3−o(1) for total randomized versus quantum complexity. The supplied source states this in the unnumbered application paragraph of the introduction; it follows from rorrelation quantum Corollary 3.2 and randomized Theorem 5.9 combined with ABK cheat sheets.",
+    "source_location": [
+      "Supplied arXiv:1912.12561v1, displayed manuscript date 12 Feb 2020: introduction “Application: Power-(2+2/3) Separations for Total Boolean Functions,” printed pp.2–3 (PDF pp.4–5); Corollary 3.2 printed p.10 (PDF p.12); Theorem 5.9 printed p.16 (PDF p.18)."
+    ],
+    "fits_use": "yes",
+    "evidence": [
+      {
+        "file": "literature/papers/ref-26-tal-2020.pdf",
+        "location": "Introduction application printed pp.2–3",
+        "supports": "Explicit R(f_CS)≥Q(f_CS)^(8/3−o(1)); no separate numbered theorem for this sentence.",
+        "url": "https://arxiv.org/pdf/1912.12561v1"
+      },
+      {
+        "file": "literature/papers/ref-26-tal-2020.pdf",
+        "location": "Corollary 3.2 printed p.10; Theorem 5.9 printed p.16",
+        "supports": "Quantum O(k·4^k) queries; for good orthogonal U and 16·8^k≤N, randomized lower bound Ω(N^(2(k−1)/(3k−1))/(k log(kN))).",
+        "url": null
+      }
+    ],
+    "notes": [
+      "The input primitive is k-fold rorrelation with a typical random orthogonal U, rather than Hadamard k-fold Forrelation. Its unitaries need not have efficient gate implementations; query complexity alone permits this.",
+      "At finite k, the partial exponent is 2(k−1)/(3k−1), tending to 2/3. The total exponent follows after the existing ABK totalization.",
+      "ECCC TR19-179 revision 1 (26 Dec 2019) records a major Lemma 6.1 bug fix. The supplied arXiv submission is later (29 Dec 2019, PDF dated Feb 2020). Preserve version provenance; the correction record is not evidence that the supplied version remains wrong."
+    ],
+    "statement_ids": [
+      "cor-cubic-refuted"
+    ],
+    "verification_scope": "Read definitions, introduction application, quantum proof/amplification and exact randomized theorem hypotheses; not a fresh audit of all moment calculations.",
+    "what_would_overturn": "Using the December 7 unrevised ECCC manuscript or claiming Theorem 5.9 applies to the Hadamard matrix; its good-matrix hypotheses are essential.",
+    "title": "Towards optimal separations between quantum and randomized query complexities",
+    "authors": [
+      "Avishay Tal"
+    ],
+    "publication_year_in_bibliography": 2020,
+    "citation_role": "Exact scoped use described in exact_result_used; see notes for limitations.",
+    "original_full_text_status": "supplied_pdf_relevant_passages_read",
+    "review_date": "2026-11-01"
+  },
+  {
+    "ref_number": 27,
+    "exact_result_used": "Finite minimax for the correctness payoff over depth-L deterministic decision trees and inputs in the finite promise domain: if L<R(P), a distribution mu exists on dom(P) such that every depth-L tree has success at most 2/3.",
+    "source_location": [
+      "Yao 1977 FOCS pp.222–227: original theorem number not recovered because full text was inaccessible. The actual formulation being used is written explicitly in quartic Section 4.1 p.12. Modern source: Eric Blais CS860, Chapter 4, named Worst-case randomized complexity variant of the Minimax Principle."
+    ],
+    "fits_use": "partly",
+    "evidence": [
+      {
+        "source": "https://doi.org/10.1109/SFCS.1977.24",
+        "location": "IEEE bibliographic record",
+        "finding": "Title, author, venue, and pages verified, not full theorem text.",
+        "status": "metadata_only"
+      },
+      {
+        "source": "https://cs.uwaterloo.ca/~eblais/cs860/w25/minimax",
+        "location": "Worst-case randomized complexity variant; distinction from average zero-error variant",
+        "finding": "Separates the modern bounded-error fixed-cost formulation from the original average-cost zero-error version.",
+        "status": "read_primary"
+      },
+      {
+        "source": "paper/quartic-query-separation.pdf",
+        "location": "Section 4.1, p.12",
+        "finding": "Finite game equality is explicitly displayed; L<R(P) and attainment give a hard distribution.",
+        "status": "read_primary"
+      }
+    ],
+    "notes": [
+      "Mathematical application checked: the game has finitely many inputs and bounded-depth deterministic trees; randomized algorithms are distributions over these trees. The citation is appropriate ancestry, but do not assign an invented theorem number in Yao 1977 or say its original theorem is literally this bounded-error statement. The hard-distribution conclusion uses full minimax, not just the easy direction of Yao. No balance assumption on mu is needed.",
+      "The generic hard-distribution theorem assumes L<R(P). For the concrete Forrelation instantiation, Lemma 2.1(i) discharges that assumption. The subsequent product-success conclusion separately invokes Lemma 4.1."
+    ],
+    "statement_ids": [
+      "claim-minimax-mu",
+      "lem-4.1",
+      "def-R"
+    ],
+    "what_would_overturn": "Changing the query cap to an expectation, permitting an infinite algorithm class without compactness, or dropping the strict L<R(P) hypothesis. Those changes would require a modified minimax argument.",
+    "title": "Probabilistic computations: Toward a unified measure of complexity",
+    "authors": [
+      "Andrew Chi-Chih Yao"
+    ],
+    "publication_year_in_bibliography": 1977,
+    "citation_role": "Exact scoped use described in exact_result_used; see notes for limitations.",
+    "verification_scope": "Relevant primary passages inspected; source scope and access limits are recorded in evidence and notes. This is not a complete reproof of the source.",
+    "original_full_text_status": "not_recovered",
+    "review_date": "2026-11-01"
+  }
+]

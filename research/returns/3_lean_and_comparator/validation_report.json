@@ -1,0 +1,31 @@
+{
+  "status": "pass",
+  "required_deliverables_present": true,
+  "ledger_rows": 118,
+  "exact_original_id_coverage": true,
+  "dependency_graph_acyclic": true,
+  "unknown_dependencies": [],
+  "routes": {
+    "prove": 111,
+    "hypothesis": 1,
+    "import": 6
+  },
+  "prior_art_records": 8,
+  "prior_art_schema_matches_input": true,
+  "full_commit_pins_valid": true,
+  "source_pdf_hash_matches": true,
+  "input_manifest_matches": "14/14",
+  "core_status": "unbuilt definitions and obligations",
+  "plan_status": "schematic unbuilt signatures",
+  "finite_checks_status": "passed; not formal proofs",
+  "lean_compiled": false,
+  "comparator_run": false,
+  "independent_kernel_replay": false,
+  "palomar_submission": false,
+  "estimated_incremental_lines": {
+    "min": 12220,
+    "max": 35330,
+    "confidence": "rough planning ranges, not measurements"
+  },
+  "relative_markdown_links_checked": 0
+}

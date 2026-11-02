@@ -1,0 +1,70 @@
+{
+  "kind": "finite checks, not formal proofs",
+  "forrelation": {
+    "m": 4,
+    "k": 2,
+    "inputs_checked": 256,
+    "result": "exact integer thresholds and Walsh orthogonality agree"
+  },
+  "tournament": {
+    "m": 6,
+    "T": 4,
+    "eps": "1/100",
+    "histories": 360,
+    "drift_instances": 157,
+    "expected_final_weight": "4505947942664514688034906363713407667657262243608462016246243788608996363078621949915372863439429075453658220185026952064063536967167358460010888571493815822389/113836898544623900724026082252343568836120209522500288116675146887284967415377066549413780826571230937978898336497842496620101493811426082649680002462831371775000",
+    "winner_miss_probability": "3706161382631314488208282010424750381265680692541017795180624556509019206557166595949609663024874288532677675558235519490589988324530000000000000/98483207339522274998429747742349294215241142895458082546405290309502645478426865326681098433034696914242069750137947577560328050535677654269829107",
+    "result": "passed exactly"
+  },
+  "capped_product": [
+    {
+      "function": "AND",
+      "copies": 1,
+      "per_copy_cap": 1,
+      "optimal_success": "3/4",
+      "beta_power": "3/4"
+    },
+    {
+      "function": "AND",
+      "copies": 2,
+      "per_copy_cap": 1,
+      "optimal_success": "9/16",
+      "beta_power": "9/16"
+    },
+    {
+      "function": "AND",
+      "copies": 3,
+      "per_copy_cap": 1,
+      "optimal_success": "27/64",
+      "beta_power": "27/64"
+    },
+    {
+      "function": "XOR",
+      "copies": 1,
+      "per_copy_cap": 1,
+      "optimal_success": "1/2",
+      "beta_power": "1/2"
+    },
+    {
+      "function": "XOR",
+      "copies": 2,
+      "per_copy_cap": 1,
+      "optimal_success": "1/4",
+      "beta_power": "1/4"
+    },
+    {
+      "function": "XOR",
+      "copies": 3,
+      "per_copy_cap": 1,
+      "optimal_success": "1/8",
+      "beta_power": "1/8"
+    },
+    {
+      "conditioning_counterexample": "AND, uniform two-bit input",
+      "unconditional_optimal_one_query_success": "3/4",
+      "adaptive_algorithm_success_given_nonheavy": "1",
+      "joint_nonheavy_and_success_probability": "1/2",
+      "conclusion": "conditioning on nonheavy invalidates the beta bound"
+    }
+  ]
+}

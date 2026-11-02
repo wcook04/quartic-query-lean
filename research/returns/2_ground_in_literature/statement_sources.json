@@ -1,0 +1,2846 @@
+[
+  {
+    "statement_id": "def-log-convention",
+    "kind": "definition",
+    "section": "1.3",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 118
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "def-partial-query",
+    "kind": "definition",
+    "section": "1.3",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 120
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "def-R",
+    "kind": "definition",
+    "section": "1",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 18
+    },
+    "direct_audit_ref_numbers": [
+      20,
+      27
+    ],
+    "section_background_ref_numbers": [
+      2,
+      3,
+      8,
+      10,
+      16
+    ],
+    "download_source_ids": [
+      "D15",
+      "D18",
+      "D43",
+      "D44",
+      "D48"
+    ],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "def-query-oracle",
+    "kind": "definition",
+    "section": "1",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 22
+    },
+    "direct_audit_ref_numbers": [
+      10
+    ],
+    "section_background_ref_numbers": [
+      2,
+      3,
+      8,
+      10,
+      16
+    ],
+    "download_source_ids": [
+      "D29",
+      "D52"
+    ],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "def-Q",
+    "kind": "definition",
+    "section": "1",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 20
+    },
+    "direct_audit_ref_numbers": [
+      8,
+      10
+    ],
+    "section_background_ref_numbers": [
+      2,
+      3,
+      8,
+      10,
+      16
+    ],
+    "download_source_ids": [
+      "D29",
+      "D43",
+      "D50",
+      "D51",
+      "D52"
+    ],
+    "attribution_ids": [
+      "A26"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "eq-1",
+    "kind": "definition",
+    "section": "1",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 30
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      2,
+      3,
+      8,
+      10,
+      16
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "eq-2",
+    "kind": "equation",
+    "section": "1",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 39
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      2,
+      3,
+      8,
+      10,
+      16
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "thm-1.1",
+    "kind": "theorem",
+    "section": "1",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 34
+    },
+    "direct_audit_ref_numbers": [
+      2,
+      3,
+      4,
+      6,
+      16
+    ],
+    "section_background_ref_numbers": [
+      2,
+      3,
+      8,
+      10,
+      16
+    ],
+    "download_source_ids": [
+      "D16",
+      "D26",
+      "D32",
+      "D34",
+      "D38"
+    ],
+    "attribution_ids": [
+      "A12"
+    ],
+    "ledger_recommendation_ids": [
+      "LR3"
+    ],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "cor-cubic-refuted",
+    "kind": "corollary",
+    "section": "1.1",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 66
+    },
+    "direct_audit_ref_numbers": [
+      3,
+      6,
+      23,
+      26
+    ],
+    "section_background_ref_numbers": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      9,
+      15,
+      18,
+      20,
+      21,
+      23,
+      25,
+      26
+    ],
+    "download_source_ids": [
+      "D06",
+      "D14",
+      "D16",
+      "D17",
+      "D36",
+      "D43"
+    ],
+    "attribution_ids": [
+      "A04",
+      "A05",
+      "A20",
+      "A29"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "def-walsh-sign",
+    "kind": "definition",
+    "section": "2.1",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 136
+    },
+    "direct_audit_ref_numbers": [
+      1
+    ],
+    "section_background_ref_numbers": [
+      1,
+      6
+    ],
+    "download_source_ids": [
+      "D41"
+    ],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "eq-3",
+    "kind": "definition",
+    "section": "2.1",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 140
+    },
+    "direct_audit_ref_numbers": [
+      1
+    ],
+    "section_background_ref_numbers": [
+      1,
+      6
+    ],
+    "download_source_ids": [
+      "D12",
+      "D13",
+      "D20",
+      "D21",
+      "D23",
+      "D33",
+      "D42",
+      "D43"
+    ],
+    "attribution_ids": [
+      "A01",
+      "A02",
+      "A09"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "eq-4",
+    "kind": "definition",
+    "section": "2.1",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 145
+    },
+    "direct_audit_ref_numbers": [
+      1,
+      6
+    ],
+    "section_background_ref_numbers": [
+      1,
+      6
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [
+      "A03"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "eq-5",
+    "kind": "definition",
+    "section": "2.1",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 155
+    },
+    "direct_audit_ref_numbers": [
+      6
+    ],
+    "section_background_ref_numbers": [
+      1,
+      6
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-bs-to-L",
+    "kind": "inline_claim",
+    "section": "2.1",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 173
+    },
+    "direct_audit_ref_numbers": [
+      6
+    ],
+    "section_background_ref_numbers": [
+      1,
+      6
+    ],
+    "download_source_ids": [
+      "D01"
+    ],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "lem-2.1.i",
+    "kind": "lemma",
+    "section": "2.1",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 152
+    },
+    "direct_audit_ref_numbers": [
+      6
+    ],
+    "section_background_ref_numbers": [
+      1,
+      6
+    ],
+    "download_source_ids": [
+      "D01",
+      "D12",
+      "D13",
+      "D20",
+      "D23",
+      "D33",
+      "D40",
+      "D47"
+    ],
+    "attribution_ids": [
+      "A03",
+      "A09"
+    ],
+    "ledger_recommendation_ids": [
+      "LR2"
+    ],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-proj-prob",
+    "kind": "inline_claim",
+    "section": "2.1",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 176
+    },
+    "direct_audit_ref_numbers": [
+      1
+    ],
+    "section_background_ref_numbers": [
+      1,
+      6
+    ],
+    "download_source_ids": [
+      "D20",
+      "D21"
+    ],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "lem-2.1.ii",
+    "kind": "lemma",
+    "section": "2.1",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 158
+    },
+    "direct_audit_ref_numbers": [
+      1
+    ],
+    "section_background_ref_numbers": [
+      1,
+      6
+    ],
+    "download_source_ids": [
+      "D21",
+      "D28",
+      "D30"
+    ],
+    "attribution_ids": [
+      "A02"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-N-phi",
+    "kind": "inline_claim",
+    "section": "2.1",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 183
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      1,
+      6
+    ],
+    "download_source_ids": [
+      "D41"
+    ],
+    "attribution_ids": [
+      "A30"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-integer-tests",
+    "kind": "inline_claim",
+    "section": "2.1",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 195
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      1,
+      6
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [
+      "A30"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-circuit-size",
+    "kind": "inline_claim",
+    "section": "2.1",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 190
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      1,
+      6
+    ],
+    "download_source_ids": [
+      "D35",
+      "D41"
+    ],
+    "attribution_ids": [
+      "A30"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "lem-2.1.iii",
+    "kind": "lemma",
+    "section": "2.1",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 162
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      1,
+      6
+    ],
+    "download_source_ids": [
+      "D35"
+    ],
+    "attribution_ids": [
+      "A30"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "lem-2.1",
+    "kind": "lemma",
+    "section": "2.1",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 151
+    },
+    "direct_audit_ref_numbers": [
+      6
+    ],
+    "section_background_ref_numbers": [
+      1,
+      6
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "def-transcript",
+    "kind": "definition",
+    "section": "1.3",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 122
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "eq-6",
+    "kind": "definition",
+    "section": "2.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 207
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      2,
+      4,
+      15
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "def-column-layout",
+    "kind": "construction",
+    "section": "2.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 208
+    },
+    "direct_audit_ref_numbers": [
+      2,
+      15
+    ],
+    "section_background_ref_numbers": [
+      2,
+      4,
+      15
+    ],
+    "download_source_ids": [
+      "D05",
+      "D16",
+      "D46"
+    ],
+    "attribution_ids": [
+      "A10",
+      "A29"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "def-eval-transcript",
+    "kind": "definition",
+    "section": "2.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 218
+    },
+    "direct_audit_ref_numbers": [
+      2
+    ],
+    "section_background_ref_numbers": [
+      2,
+      4,
+      15
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "eq-7",
+    "kind": "definition",
+    "section": "2.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 223
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      2,
+      4,
+      15
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "eq-8",
+    "kind": "definition",
+    "section": "2.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 227
+    },
+    "direct_audit_ref_numbers": [
+      4,
+      15
+    ],
+    "section_background_ref_numbers": [
+      2,
+      4,
+      15
+    ],
+    "download_source_ids": [
+      "D19",
+      "D34"
+    ],
+    "attribution_ids": [
+      "A11",
+      "A12",
+      "A17"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "def-winner",
+    "kind": "definition",
+    "section": "2.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 221
+    },
+    "direct_audit_ref_numbers": [
+      2,
+      4,
+      9,
+      15
+    ],
+    "section_background_ref_numbers": [
+      2,
+      4,
+      15
+    ],
+    "download_source_ids": [
+      "D05",
+      "D11",
+      "D16",
+      "D19",
+      "D34",
+      "D46"
+    ],
+    "attribution_ids": [
+      "A10",
+      "A11",
+      "A12"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "def-F",
+    "kind": "definition",
+    "section": "2.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 229
+    },
+    "direct_audit_ref_numbers": [
+      2
+    ],
+    "section_background_ref_numbers": [
+      2,
+      4,
+      15
+    ],
+    "download_source_ids": [
+      "D05"
+    ],
+    "attribution_ids": [
+      "A10"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "cor-unique-winner",
+    "kind": "corollary",
+    "section": "2.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 235
+    },
+    "direct_audit_ref_numbers": [
+      4,
+      9,
+      15
+    ],
+    "section_background_ref_numbers": [
+      2,
+      4,
+      15
+    ],
+    "download_source_ids": [
+      "D19"
+    ],
+    "attribution_ids": [
+      "A11"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "def-win-at-address",
+    "kind": "definition",
+    "section": "2.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 264
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      2,
+      4,
+      15
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "def-K",
+    "kind": "definition",
+    "section": "2.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 269
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      2,
+      4,
+      15
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "lem-2.2.i",
+    "kind": "lemma",
+    "section": "2.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 266
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      2,
+      4,
+      15
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [
+      "A30"
+    ],
+    "ledger_recommendation_ids": [
+      "LR1"
+    ],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "lem-2.2.ii",
+    "kind": "lemma",
+    "section": "2.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 271
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      2,
+      4,
+      15
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "lem-2.2",
+    "kind": "lemma",
+    "section": "2.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 266
+    },
+    "direct_audit_ref_numbers": [
+      2
+    ],
+    "section_background_ref_numbers": [
+      2,
+      4,
+      15
+    ],
+    "download_source_ids": [
+      "D05"
+    ],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "cor-local-dichotomy",
+    "kind": "corollary",
+    "section": "2.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 290
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      2,
+      4,
+      15
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "def-grover-trial",
+    "kind": "construction",
+    "section": "3.1",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 332
+    },
+    "direct_audit_ref_numbers": [
+      11
+    ],
+    "section_background_ref_numbers": [
+      11,
+      12
+    ],
+    "download_source_ids": [
+      "D04"
+    ],
+    "attribution_ids": [
+      "A14"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-grover-state",
+    "kind": "inline_claim",
+    "section": "3.1",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 328
+    },
+    "direct_audit_ref_numbers": [
+      4,
+      12
+    ],
+    "section_background_ref_numbers": [
+      11,
+      12
+    ],
+    "download_source_ids": [
+      "D03"
+    ],
+    "attribution_ids": [
+      "A15"
+    ],
+    "ledger_recommendation_ids": [
+      "LR4"
+    ],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-sin2theta",
+    "kind": "inline_claim",
+    "section": "3.1",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 336
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      11,
+      12
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "eq-9",
+    "kind": "equation",
+    "section": "3.1",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 341
+    },
+    "direct_audit_ref_numbers": [
+      11
+    ],
+    "section_background_ref_numbers": [
+      11,
+      12
+    ],
+    "download_source_ids": [
+      "D04"
+    ],
+    "attribution_ids": [
+      "A14"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "lem-3.1",
+    "kind": "lemma",
+    "section": "3.1",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 310
+    },
+    "direct_audit_ref_numbers": [
+      4,
+      11,
+      12,
+      16
+    ],
+    "section_background_ref_numbers": [
+      11,
+      12
+    ],
+    "download_source_ids": [
+      "D03",
+      "D04",
+      "D32",
+      "D34",
+      "D38"
+    ],
+    "attribution_ids": [
+      "A13",
+      "A14",
+      "A15"
+    ],
+    "ledger_recommendation_ids": [
+      "LR4"
+    ],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "def-aij",
+    "kind": "definition",
+    "section": "3.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 356
+    },
+    "direct_audit_ref_numbers": [
+      18
+    ],
+    "section_background_ref_numbers": [
+      5,
+      9,
+      14,
+      18
+    ],
+    "download_source_ids": [
+      "D31"
+    ],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "eq-10",
+    "kind": "equation",
+    "section": "3.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 359
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      5,
+      9,
+      14,
+      18
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "def-T-eps",
+    "kind": "definition",
+    "section": "3.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 365
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      5,
+      9,
+      14,
+      18
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "eq-11",
+    "kind": "definition",
+    "section": "3.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 377
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      5,
+      9,
+      14,
+      18
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "def-ideal-process",
+    "kind": "construction",
+    "section": "3.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 381
+    },
+    "direct_audit_ref_numbers": [
+      14
+    ],
+    "section_background_ref_numbers": [
+      5,
+      9,
+      14,
+      18
+    ],
+    "download_source_ids": [
+      "D39"
+    ],
+    "attribution_ids": [
+      "A16"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "eq-12",
+    "kind": "equation",
+    "section": "3.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 384
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      5,
+      9,
+      14,
+      18
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "eq-13",
+    "kind": "equation",
+    "section": "3.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 390
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      5,
+      9,
+      14,
+      18
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [
+      "A18"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-expected-WT",
+    "kind": "inline_claim",
+    "section": "3.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 397
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      5,
+      9,
+      14,
+      18
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-weight-lb",
+    "kind": "inline_claim",
+    "section": "3.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 398
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      5,
+      9,
+      14,
+      18
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "eq-14",
+    "kind": "equation",
+    "section": "3.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 407
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      5,
+      9,
+      14,
+      18
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "construct-sampler",
+    "kind": "construction",
+    "section": "3.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 409
+    },
+    "direct_audit_ref_numbers": [
+      5,
+      11,
+      18
+    ],
+    "section_background_ref_numbers": [
+      5,
+      9,
+      14,
+      18
+    ],
+    "download_source_ids": [
+      "D25",
+      "D31"
+    ],
+    "attribution_ids": [
+      "A16"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "eq-15",
+    "kind": "equation",
+    "section": "3.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 416
+    },
+    "direct_audit_ref_numbers": [
+      12
+    ],
+    "section_background_ref_numbers": [
+      5,
+      9,
+      14,
+      18
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [
+      "A18"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-success-prob",
+    "kind": "inline_claim",
+    "section": "3.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 420
+    },
+    "direct_audit_ref_numbers": [
+      12,
+      18
+    ],
+    "section_background_ref_numbers": [
+      5,
+      9,
+      14,
+      18
+    ],
+    "download_source_ids": [
+      "D03"
+    ],
+    "attribution_ids": [
+      "A15",
+      "A18"
+    ],
+    "ledger_recommendation_ids": [
+      "LR4"
+    ],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-coupling",
+    "kind": "inline_claim",
+    "section": "3.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 432
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      5,
+      9,
+      14,
+      18
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [
+      "A18"
+    ],
+    "ledger_recommendation_ids": [
+      "LR4"
+    ],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-tournament-cost",
+    "kind": "inline_claim",
+    "section": "3.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 440
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      5,
+      9,
+      14,
+      18
+    ],
+    "download_source_ids": [
+      "D45"
+    ],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "prop-3.2",
+    "kind": "proposition",
+    "section": "3.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 363
+    },
+    "direct_audit_ref_numbers": [
+      5,
+      9,
+      14,
+      18,
+      25
+    ],
+    "section_background_ref_numbers": [
+      5,
+      9,
+      14,
+      18
+    ],
+    "download_source_ids": [
+      "D11",
+      "D22",
+      "D25",
+      "D26",
+      "D30",
+      "D31",
+      "D32",
+      "D39",
+      "D45"
+    ],
+    "attribution_ids": [
+      "A16",
+      "A18",
+      "A27"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "def-decode",
+    "kind": "construction",
+    "section": "3.3",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 452
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      2,
+      11,
+      12
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-decode-cost",
+    "kind": "inline_claim",
+    "section": "3.3",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 456
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      2,
+      11,
+      12
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "def-comparison",
+    "kind": "construction",
+    "section": "3.3",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 466
+    },
+    "direct_audit_ref_numbers": [
+      5
+    ],
+    "section_background_ref_numbers": [
+      2,
+      11,
+      12
+    ],
+    "download_source_ids": [
+      "D25",
+      "D30"
+    ],
+    "attribution_ids": [
+      "A17"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-comparison-state",
+    "kind": "inline_claim",
+    "section": "3.3",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 472
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      2,
+      11,
+      12
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-winner-dominates",
+    "kind": "inline_claim",
+    "section": "3.3",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 477
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      2,
+      11,
+      12
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [
+      "A17"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "def-verify",
+    "kind": "construction",
+    "section": "3.3",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 483
+    },
+    "direct_audit_ref_numbers": [
+      11,
+      16
+    ],
+    "section_background_ref_numbers": [
+      2,
+      11,
+      12
+    ],
+    "download_source_ids": [
+      "D38"
+    ],
+    "attribution_ids": [
+      "A13"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-verify",
+    "kind": "inline_claim",
+    "section": "3.3",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 490
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      2,
+      11,
+      12
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-error",
+    "kind": "inline_claim",
+    "section": "3.3",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 497
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      2,
+      11,
+      12
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-coherent-access",
+    "kind": "inline_claim",
+    "section": "3.3",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 507
+    },
+    "direct_audit_ref_numbers": [
+      12
+    ],
+    "section_background_ref_numbers": [
+      2,
+      11,
+      12
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "prop-3.3",
+    "kind": "proposition",
+    "section": "3.3",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 503
+    },
+    "direct_audit_ref_numbers": [
+      5,
+      9
+    ],
+    "section_background_ref_numbers": [
+      2,
+      11,
+      12
+    ],
+    "download_source_ids": [
+      "D11"
+    ],
+    "attribution_ids": [
+      "A27"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-product-law",
+    "kind": "inline_claim",
+    "section": "4.1",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 539
+    },
+    "direct_audit_ref_numbers": [
+      13,
+      22
+    ],
+    "section_background_ref_numbers": [
+      13,
+      22,
+      27
+    ],
+    "download_source_ids": [
+      "D02"
+    ],
+    "attribution_ids": [
+      "A07"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "def-value-V",
+    "kind": "definition",
+    "section": "4.1",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 544
+    },
+    "direct_audit_ref_numbers": [
+      13
+    ],
+    "section_background_ref_numbers": [
+      13,
+      22,
+      27
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [
+      "A07"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "eq-16",
+    "kind": "equation",
+    "section": "4.1",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 549
+    },
+    "direct_audit_ref_numbers": [
+      13
+    ],
+    "section_background_ref_numbers": [
+      13,
+      22,
+      27
+    ],
+    "download_source_ids": [
+      "D02"
+    ],
+    "attribution_ids": [
+      "A07"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-supermartingale",
+    "kind": "inline_claim",
+    "section": "4.1",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 554
+    },
+    "direct_audit_ref_numbers": [
+      13,
+      22
+    ],
+    "section_background_ref_numbers": [
+      13,
+      22,
+      27
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [
+      "A07"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-final-bound",
+    "kind": "inline_claim",
+    "section": "4.1",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 562
+    },
+    "direct_audit_ref_numbers": [
+      13
+    ],
+    "section_background_ref_numbers": [
+      13,
+      22,
+      27
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [
+      "A07"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "lem-4.1",
+    "kind": "lemma",
+    "section": "4.1",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 528
+    },
+    "direct_audit_ref_numbers": [
+      13,
+      22,
+      27
+    ],
+    "section_background_ref_numbers": [
+      13,
+      22,
+      27
+    ],
+    "download_source_ids": [
+      "D02",
+      "D26",
+      "D37",
+      "D49"
+    ],
+    "attribution_ids": [
+      "A06"
+    ],
+    "ledger_recommendation_ids": [
+      "LR2"
+    ],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-minimax-mu",
+    "kind": "inline_claim",
+    "section": "4.1",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 586
+    },
+    "direct_audit_ref_numbers": [
+      6,
+      27
+    ],
+    "section_background_ref_numbers": [
+      13,
+      22,
+      27
+    ],
+    "download_source_ids": [
+      "D15",
+      "D48"
+    ],
+    "attribution_ids": [
+      "A28"
+    ],
+    "ledger_recommendation_ids": [
+      "LR2"
+    ],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "eq-17",
+    "kind": "equation",
+    "section": "4.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 597
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      6,
+      13,
+      27
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "def-dummy",
+    "kind": "construction",
+    "section": "4.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 600
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      6,
+      13,
+      27
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [
+      "A08"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "def-planted",
+    "kind": "construction",
+    "section": "4.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 604
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      6,
+      13,
+      27
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [
+      "A08"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-Y-values",
+    "kind": "inline_claim",
+    "section": "4.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 603
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      6,
+      13,
+      27
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "eq-18",
+    "kind": "equation",
+    "section": "4.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 613
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      6,
+      13,
+      27
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "def-Z",
+    "kind": "definition",
+    "section": "4.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 618
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      6,
+      13,
+      27
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-uniform-zero",
+    "kind": "inline_claim",
+    "section": "4.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 619
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      6,
+      13,
+      27
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-EZ",
+    "kind": "inline_claim",
+    "section": "4.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 632
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      6,
+      13,
+      27
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "eq-19",
+    "kind": "equation",
+    "section": "4.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 636
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      6,
+      13,
+      27
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "def-heavy",
+    "kind": "definition",
+    "section": "4.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 639
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      6,
+      13,
+      27
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [
+      "LR5"
+    ],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "eq-20",
+    "kind": "equation",
+    "section": "4.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 643
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      6,
+      13,
+      27
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "def-simulator",
+    "kind": "construction",
+    "section": "4.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 647
+    },
+    "direct_audit_ref_numbers": [
+      13
+    ],
+    "section_background_ref_numbers": [
+      6,
+      13,
+      27
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [
+      "A08"
+    ],
+    "ledger_recommendation_ids": [
+      "LR5"
+    ],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "eq-21",
+    "kind": "equation",
+    "section": "4.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 657
+    },
+    "direct_audit_ref_numbers": [
+      13
+    ],
+    "section_background_ref_numbers": [
+      6,
+      13,
+      27
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [
+      "A08"
+    ],
+    "ledger_recommendation_ids": [
+      "LR5"
+    ],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "eq-22",
+    "kind": "equation",
+    "section": "4.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 663
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      6,
+      13,
+      27
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "eq-23",
+    "kind": "equation",
+    "section": "4.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 668
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      6,
+      13,
+      27
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-tail",
+    "kind": "inline_claim",
+    "section": "4.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 673
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      6,
+      13,
+      27
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-numeric",
+    "kind": "inline_claim",
+    "section": "4.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 670
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      6,
+      13,
+      27
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "prop-4.2",
+    "kind": "proposition",
+    "section": "4.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 592
+    },
+    "direct_audit_ref_numbers": [
+      6
+    ],
+    "section_background_ref_numbers": [
+      6,
+      13,
+      27
+    ],
+    "download_source_ids": [
+      "D26",
+      "D32"
+    ],
+    "attribution_ids": [
+      "A08"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "cor-R-omega",
+    "kind": "corollary",
+    "section": "4.2",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 682
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      6,
+      13,
+      27
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-floor",
+    "kind": "inline_claim",
+    "section": "5",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 698
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      3,
+      6
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-exponent-ratio",
+    "kind": "inline_claim",
+    "section": "5",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 706
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      3,
+      6
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [
+      "LR3"
+    ],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-no-smaller-exponent",
+    "kind": "inline_claim",
+    "section": "5",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 703
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      3,
+      6
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [
+      "LR3"
+    ],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "def-D",
+    "kind": "definition",
+    "section": "A",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 725
+    },
+    "direct_audit_ref_numbers": [
+      20
+    ],
+    "section_background_ref_numbers": [
+      3,
+      7,
+      8,
+      17,
+      19,
+      21,
+      24
+    ],
+    "download_source_ids": [
+      "D18",
+      "D44"
+    ],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "def-deg",
+    "kind": "definition",
+    "section": "A",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 725
+    },
+    "direct_audit_ref_numbers": [
+      21
+    ],
+    "section_background_ref_numbers": [
+      3,
+      7,
+      8,
+      17,
+      19,
+      21,
+      24
+    ],
+    "download_source_ids": [
+      "D18",
+      "D27"
+    ],
+    "attribution_ids": [
+      "A25"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "def-bs",
+    "kind": "definition",
+    "section": "A",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 727
+    },
+    "direct_audit_ref_numbers": [
+      8,
+      20,
+      21
+    ],
+    "section_background_ref_numbers": [
+      3,
+      7,
+      8,
+      17,
+      19,
+      21,
+      24
+    ],
+    "download_source_ids": [
+      "D18",
+      "D27",
+      "D44",
+      "D51"
+    ],
+    "attribution_ids": [
+      "A25"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "def-Gamma-i",
+    "kind": "definition",
+    "section": "A",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 743
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      3,
+      7,
+      8,
+      17,
+      19,
+      21,
+      24
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-perron",
+    "kind": "inline_claim",
+    "section": "A",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 755
+    },
+    "direct_audit_ref_numbers": [
+      7
+    ],
+    "section_background_ref_numbers": [
+      3,
+      7,
+      8,
+      17,
+      19,
+      21,
+      24
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "def-adv-progress",
+    "kind": "definition",
+    "section": "A",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 757
+    },
+    "direct_audit_ref_numbers": [
+      7
+    ],
+    "section_background_ref_numbers": [
+      3,
+      7,
+      8,
+      17,
+      19,
+      21,
+      24
+    ],
+    "download_source_ids": [
+      "D24"
+    ],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-per-query",
+    "kind": "inline_claim",
+    "section": "A",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 772
+    },
+    "direct_audit_ref_numbers": [
+      7
+    ],
+    "section_background_ref_numbers": [
+      3,
+      7,
+      8,
+      17,
+      19,
+      21,
+      24
+    ],
+    "download_source_ids": [
+      "D24"
+    ],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-final-overlap",
+    "kind": "inline_claim",
+    "section": "A",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 786
+    },
+    "direct_audit_ref_numbers": [
+      7
+    ],
+    "section_background_ref_numbers": [
+      3,
+      7,
+      8,
+      17,
+      19,
+      21,
+      24
+    ],
+    "download_source_ids": [
+      "D24"
+    ],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "lem-A.2",
+    "kind": "lemma",
+    "section": "A",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 739
+    },
+    "direct_audit_ref_numbers": [
+      7,
+      24
+    ],
+    "section_background_ref_numbers": [
+      3,
+      7,
+      8,
+      17,
+      19,
+      21,
+      24
+    ],
+    "download_source_ids": [
+      "D09",
+      "D10",
+      "D24",
+      "D29",
+      "D50"
+    ],
+    "attribution_ids": [
+      "A23"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "def-Sf",
+    "kind": "definition",
+    "section": "A",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 794
+    },
+    "direct_audit_ref_numbers": [],
+    "section_background_ref_numbers": [
+      3,
+      7,
+      8,
+      17,
+      19,
+      21,
+      24
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "lem-A.3.bs",
+    "kind": "lemma",
+    "section": "A",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 800
+    },
+    "direct_audit_ref_numbers": [
+      8,
+      10,
+      21
+    ],
+    "section_background_ref_numbers": [
+      3,
+      7,
+      8,
+      17,
+      19,
+      21,
+      24
+    ],
+    "download_source_ids": [
+      "D27",
+      "D51",
+      "D52"
+    ],
+    "attribution_ids": [
+      "A26"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "lem-A.3.lambda",
+    "kind": "lemma",
+    "section": "A",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 800
+    },
+    "direct_audit_ref_numbers": [
+      3,
+      24
+    ],
+    "section_background_ref_numbers": [
+      3,
+      7,
+      8,
+      17,
+      19,
+      21,
+      24
+    ],
+    "download_source_ids": [
+      "D10"
+    ],
+    "attribution_ids": [
+      "A22"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "lem-A.3",
+    "kind": "lemma",
+    "section": "A",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 798
+    },
+    "direct_audit_ref_numbers": [
+      7
+    ],
+    "section_background_ref_numbers": [
+      3,
+      7,
+      8,
+      17,
+      19,
+      21,
+      24
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-restrict-parity",
+    "kind": "inline_claim",
+    "section": "A",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 818
+    },
+    "direct_audit_ref_numbers": [
+      17
+    ],
+    "section_background_ref_numbers": [
+      3,
+      7,
+      8,
+      17,
+      19,
+      21,
+      24
+    ],
+    "download_source_ids": [],
+    "attribution_ids": [],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "def-huang",
+    "kind": "definition",
+    "section": "A",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 826
+    },
+    "direct_audit_ref_numbers": [
+      17
+    ],
+    "section_background_ref_numbers": [
+      3,
+      7,
+      8,
+      17,
+      19,
+      21,
+      24
+    ],
+    "download_source_ids": [
+      "D08"
+    ],
+    "attribution_ids": [
+      "A21"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-huang-spectrum",
+    "kind": "inline_claim",
+    "section": "A",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 831
+    },
+    "direct_audit_ref_numbers": [
+      17
+    ],
+    "section_background_ref_numbers": [
+      3,
+      7,
+      8,
+      17,
+      19,
+      21,
+      24
+    ],
+    "download_source_ids": [
+      "D08"
+    ],
+    "attribution_ids": [
+      "A21"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-interlace",
+    "kind": "inline_claim",
+    "section": "A",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 838
+    },
+    "direct_audit_ref_numbers": [
+      17
+    ],
+    "section_background_ref_numbers": [
+      3,
+      7,
+      8,
+      17,
+      19,
+      21,
+      24
+    ],
+    "download_source_ids": [
+      "D08"
+    ],
+    "attribution_ids": [
+      "A21"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "lem-A.4",
+    "kind": "lemma",
+    "section": "A",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 812
+    },
+    "direct_audit_ref_numbers": [
+      3,
+      17
+    ],
+    "section_background_ref_numbers": [
+      3,
+      7,
+      8,
+      17,
+      19,
+      21,
+      24
+    ],
+    "download_source_ids": [
+      "D06",
+      "D08"
+    ],
+    "attribution_ids": [
+      "A22"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "claim-round-block",
+    "kind": "inline_claim",
+    "section": "A",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 852
+    },
+    "direct_audit_ref_numbers": [
+      19
+    ],
+    "section_background_ref_numbers": [
+      3,
+      7,
+      8,
+      17,
+      19,
+      21,
+      24
+    ],
+    "download_source_ids": [
+      "D07",
+      "D18"
+    ],
+    "attribution_ids": [
+      "A24"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "lem-A.5",
+    "kind": "lemma",
+    "section": "A",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 844
+    },
+    "direct_audit_ref_numbers": [
+      19
+    ],
+    "section_background_ref_numbers": [
+      3,
+      7,
+      8,
+      17,
+      19,
+      21,
+      24
+    ],
+    "download_source_ids": [
+      "D07"
+    ],
+    "attribution_ids": [
+      "A24"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  },
+  {
+    "statement_id": "thm-A.1",
+    "kind": "theorem",
+    "section": "A",
+    "manuscript_locator": {
+      "source": "paper/extracted.md",
+      "line": 731
+    },
+    "direct_audit_ref_numbers": [
+      3
+    ],
+    "section_background_ref_numbers": [
+      3,
+      7,
+      8,
+      17,
+      19,
+      21,
+      24
+    ],
+    "download_source_ids": [
+      "D06",
+      "D14",
+      "D26",
+      "D32"
+    ],
+    "attribution_ids": [
+      "A19"
+    ],
+    "ledger_recommendation_ids": [],
+    "scope": "Citation/reading navigation only. An empty external list usually indicates a definition or a step proved inside the manuscript; it is not a missing-proof judgment. No Lean status is asserted."
+  }
+]

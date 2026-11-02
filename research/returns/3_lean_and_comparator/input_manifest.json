@@ -1,0 +1,90 @@
+{
+ "packet": "3_lean_and_comparator",
+ "source_paper": "openai/math 4eaee875",
+ "members": [
+  {
+   "member": "corpus/statement_ledger.json",
+   "source": "/Users/willcook/src/quartic-query-lean/research/intake/statement_ledger.json",
+   "bytes": 82583,
+   "sha256": "baae822271b38aa322e9fec62c47621de20bb61eb82b077d92bd9c133685c143"
+  },
+  {
+   "member": "corpus/statement_ledger_notes.md",
+   "source": "/Users/willcook/src/quartic-query-lean/research/intake/statement_ledger_notes.md",
+   "bytes": 14396,
+   "sha256": "2a04261acab3957b33720662f49cd42be483e4a85cb1b89a7dc3b324fdf317a1"
+  },
+  {
+   "member": "corpus/commentary.json",
+   "source": "/Users/willcook/src/quartic-query-lean/research/intake/commentary.json",
+   "bytes": 8398,
+   "sha256": "7349c779ab34a30781bdec729b86e44012e0b3445aed1a112117ea68dec8e556"
+  },
+  {
+   "member": "paper/quartic-query-separation.pdf",
+   "source": "/Users/willcook/src/ai_workflow/annexes/openai-math-284-quartic-query-separation/source.pdf",
+   "bytes": 433829,
+   "sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e"
+  },
+  {
+   "member": "paper/extracted.md",
+   "source": "/Users/willcook/src/ai_workflow/annexes/openai-math-284-quartic-query-separation/extracted.md",
+   "bytes": 64021,
+   "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a"
+  },
+  {
+   "member": "literature/references_resolved.json",
+   "source": "/Users/willcook/src/quartic-query-lean/research/intake/references_resolved.json",
+   "bytes": 22691,
+   "sha256": "602b355d0ebf9e1819d3c627b93a5bf184207c8107071d8435d94a426d5274dc"
+  },
+  {
+   "member": "lean/prior_art_quantum_lean.json",
+   "source": "/Users/willcook/src/quartic-query-lean/research/intake/prior_art_quantum_lean.json",
+   "bytes": 25127,
+   "sha256": "e31bcf75cfc215094a0c05df4c47ecd48eda5d06f08333ceda1f16f3c3219065"
+  },
+  {
+   "member": "lean/prior_art_classical_lean.json",
+   "source": "/Users/willcook/src/quartic-query-lean/research/intake/prior_art_classical_lean.json",
+   "bytes": 32357,
+   "sha256": "5fa01df09f6801147c32eb91f20222d885784d1ec8b25dea466ec844f16f3cb9"
+  },
+  {
+   "member": "lean/verification_tooling.md",
+   "source": "/Users/willcook/src/quartic-query-lean/research/intake/verification_tooling.md",
+   "bytes": 27513,
+   "sha256": "b8789bf42722589f58eafdb0dd425a6a081c123a4f32776e35860a587230539f"
+  },
+  {
+   "member": "lean/organisation_exemplars.md",
+   "source": "/Users/willcook/src/quartic-query-lean/research/intake/organisation_exemplars.md",
+   "bytes": 22066,
+   "sha256": "91930c9f7b6f6dc33fb96a3cd8e82d1e4fb5e1e1fe9d3a6238ca326e831e1be0"
+  },
+  {
+   "member": "lean/internal_inheritance.md",
+   "source": "/Users/willcook/src/quartic-query-lean/research/intake/internal_inheritance.md",
+   "bytes": 10393,
+   "sha256": "524440fbaf90243309105898faba0ff9db625790532487ed2359705e568be082"
+  },
+  {
+   "member": "lean/current/Drift.lean",
+   "source": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Tournament/Drift.lean",
+   "bytes": 3276,
+   "sha256": "4d72ad1b9aa67c5d1f572705cc3e64f87356f5e96023bc93d2b156d7523b3644"
+  },
+  {
+   "member": "lean/current/lakefile.toml",
+   "source": "/Users/willcook/src/quartic-query-lean/lean/lakefile.toml",
+   "bytes": 292,
+   "sha256": "e1b8f178146db7a08c32b24d6c15602f40c16f59de057f729497d26b4d627498"
+  },
+  {
+   "member": "lean/current/lean-toolchain",
+   "source": "/Users/willcook/src/quartic-query-lean/lean/lean-toolchain",
+   "bytes": 29,
+   "sha256": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3"
+  }
+ ]
+}
