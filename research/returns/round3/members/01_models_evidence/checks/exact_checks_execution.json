@@ -1,0 +1,65 @@
+{
+  "scope": "Exact finite Python checks; no Lean, Lake, Comparator or external kernel execution.",
+  "python_version": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "assertions": "Enabled; -E ignores PYTHONOPTIMIZE and other Python environment variables. No -O/-OO option was used.",
+  "scripts": [
+    {
+      "script": "check_models_exact.py",
+      "command": [
+        "python3",
+        "-E",
+        "checks/check_models_exact.py"
+      ],
+      "exit_code": 0,
+      "json_output": "classical_exact_output.json",
+      "stderr_empty": true,
+      "script_sha256": "f5d1d3bc371e8e1c2ce1d4f098a5339407b867a5280668e2463f74bdea9ed157",
+      "output_sha256": "ce1589fc9a4181d90a18c01a7c5b7a4b338861ff72338e65f0ece6cbe330924a",
+      "output_parses_as_json": true
+    },
+    {
+      "script": "quantum_controls.py",
+      "command": [
+        "python3",
+        "-E",
+        "checks/quantum_controls.py"
+      ],
+      "exit_code": 0,
+      "json_output": "quantum_exact_output.json",
+      "stderr_empty": true,
+      "script_sha256": "df230b0290c3ed20dbcb07a5ea02333d18c70d0571c1db11e083430aee9f3fa3",
+      "output_sha256": "70a629b1e89618e274ae0b60771c8b6be6e578ce886465ed514d833ea8e2916b",
+      "output_parses_as_json": true
+    },
+    {
+      "script": "semantic_controls.py",
+      "command": [
+        "python3",
+        "-E",
+        "checks/semantic_controls.py"
+      ],
+      "exit_code": 0,
+      "json_output": "supplied_semantic_controls_output.json",
+      "stderr_empty": true,
+      "script_sha256": "cfd4e4bccef22510c83a843f99c5ac59ec33ca5b654651bfdb8aa210fd583670",
+      "output_sha256": "c42cffe97e37377003f9583c07b5e021350fcd3d73be275a499c2935d8a3bcfa",
+      "output_parses_as_json": true
+    }
+  ],
+  "custody": {
+    "check_models_exact.py": {
+      "original_source": "work_classical/check_models_exact.py",
+      "original_sha256": "a7ab21c3338202bb24f2942fd54732a1082ba04a39809b06ca806207063362c8",
+      "change": "Only the module docstring reference classical_review.md was replaced by section.md §2.6; executable code bytes are unchanged."
+    },
+    "quantum_controls.py": {
+      "original_source": "work_quantum/quantum_controls.py",
+      "byte_identical": true
+    },
+    "semantic_controls.py": {
+      "original_packet_member": "repository/tools/return_checks/semantic_controls.py",
+      "source_sha256": "cfd4e4bccef22510c83a843f99c5ac59ec33ca5b654651bfdb8aa210fd583670",
+      "byte_identical": true
+    }
+  }
+}

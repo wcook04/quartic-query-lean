@@ -1,0 +1,100 @@
+[
+  {
+    "move": "State the exact problem and its consumer before constructing the proof",
+    "source": {
+      "member": "writing/SKILL.md",
+      "locator": "First-time reader contract and claim-fidelity gate, lines181–249",
+      "bytes": 29787,
+      "sha256": "dcad856e7363b81876e4ab0784bcc0a3e51ccab11017eb9e08d81d345d2d6c74"
+    },
+    "applied_to": [
+      "forr_target",
+      "forr_proof_spine"
+    ],
+    "implementation": "Restate normalized Walsh statistic, positive yes promise, error and all-branch query cap; give quantifiers and the §3.17 interface; then describe the proof stages.",
+    "limit": "Does not strengthen the total-function theorem or imply a growing-k conclusion."
+  },
+  {
+    "move": "Expose normalization and use a small instance to reveal the hard mechanism",
+    "source": {
+      "member": "exemplars/long-reasoning-record.md",
+      "locator": "Sampled overview/§§1–2 opening and proof transitions lines1–170,429–572",
+      "bytes": 278844,
+      "sha256": "a19893f62d1211681ed0cb9cbb8bb454214d97f231f6a6d091b6f198fca35a89"
+    },
+    "applied_to": [
+      "forr_target",
+      "forr_cube",
+      "forr_three_blocks"
+    ],
+    "implementation": "Show unit normalization and raw derivative factors; write both complete k=3 coordinate derivatives, including the two zero repeated-derivative terms.",
+    "limit": "QAOA exemplar supplies an expository move only; no theorem or wording transferred."
+  },
+  {
+    "move": "Write the proof in dependency order with each premise discharged where used",
+    "source": {
+      "member": "writing/mathematical-writing-mechanics.md",
+      "locator": "§2 lines144–216; §5 lines275–308",
+      "bytes": 45312,
+      "sha256": "0ba857f70a724a2676f91b01e7ee95cc3518dcd261b53fec27b743935d1caa0f"
+    },
+    "applied_to": [
+      "forr_distribution",
+      "forr_path_formula",
+      "forr_tree_stopping",
+      "forr_promise_gap"
+    ],
+    "implementation": "Prove the same chain is uniform at zero; state earlier-only dependence before Stein; stop before unsafe increments; prove all-input inequalities before taking expectations.",
+    "limit": "The continuous argument remains ordinary mathematics, not a list of Lean tactics."
+  },
+  {
+    "move": "Separate theorem use, method credit and mathematical comparison in citation wording",
+    "source": {
+      "member": "writing/mathematical-writing-mechanics.md",
+      "locator": "§9 and proof-support/scholarly-credit discussion, lines396–443",
+      "bytes": 45312,
+      "sha256": "0ba857f70a724a2676f91b01e7ee95cc3518dcd261b53fec27b743935d1caa0f"
+    },
+    "applied_to": [
+      "forr_bs_translation",
+      "forr_credit",
+      "forr_bs_mismatch",
+      "forr_ssw_comparison",
+      "SOURCE_USAGE.md"
+    ],
+    "implementation": "Credit BS theorem/chain, GTW adaptive martingale, and SSW external Fourier theorem at exact versions; identify local independent proofs and avoid transferring rorrelation distributions.",
+    "limit": "No novelty, exhaustive-search, author-approval or theorem-refutation claim."
+  },
+  {
+    "move": "Use formal interfaces to detect scope differences without exporting workflow into the mathematical proof",
+    "source": {
+      "member": "writing/SKILL.md",
+      "locator": "Lean support and architecture gates, lines250–307",
+      "bytes": 29787,
+      "sha256": "dcad856e7363b81876e4ab0784bcc0a3e51ccab11017eb9e08d81d345d2d6c74"
+    },
+    "applied_to": [
+      "forr_validation_scope",
+      "correspondence.json",
+      "LEAN_GAPS.md"
+    ],
+    "implementation": "Keep full interfaces, hypotheses and receipt memberships in sidecars; retain only a short scope paragraph in the section; distinguish exact source type from supplied elaborated type.",
+    "limit": "Do not treat module import or source text as individual Comparator acceptance."
+  },
+  {
+    "move": "Attempt a concrete simplification and preserve a useful superseded derivation",
+    "source": {
+      "member": "writing/mathematical-writing-mechanics.md",
+      "locator": "Mathematical taste rubric and long-record discussion, lines571–643",
+      "bytes": 45312,
+      "sha256": "0ba857f70a724a2676f91b01e7ee95cc3518dcd261b53fec27b743935d1caa0f"
+    },
+    "applied_to": [
+      "forr_identity",
+      "forr_threshold",
+      "historical_threshold.md"
+    ],
+    "implementation": "Replace the exposition’s differentiation interchange with a finite-polynomial argument; derive t≥13669k² from the current sharp bound; preserve the old four-term proof separately.",
+    "limit": "No claim that the threshold or complexity constant is optimal; new formulations are not freshly formalized."
+  }
+]

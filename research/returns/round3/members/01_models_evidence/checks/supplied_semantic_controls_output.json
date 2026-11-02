@@ -1,0 +1,50 @@
+{
+  "baseline_mismatches": [],
+  "expected": {
+    "comparison_has_witness": true,
+    "identity_zero_query": false,
+    "negative_forrelation_promise": null,
+    "negative_forrelation_value": "-1",
+    "one_label_promise_zero_query": true,
+    "or_two_inclusive_mixture": true,
+    "worst_case_cap": 2
+  },
+  "mutations_detected": {
+    "absolute_high_promise": [
+      "negative_forrelation_promise"
+    ],
+    "algorithm_per_input": [
+      "identity_zero_query"
+    ],
+    "half_success_threshold": [
+      "identity_zero_query"
+    ],
+    "minimum_branch_cap": [
+      "worst_case_cap"
+    ],
+    "off_promise_false": [
+      "one_label_promise_zero_query"
+    ],
+    "shared_impossible_comparison": [
+      "comparison_has_witness"
+    ],
+    "strict_success_threshold": [
+      "or_two_inclusive_mixture"
+    ]
+  },
+  "observed": {
+    "comparison_has_witness": true,
+    "identity_zero_query": false,
+    "negative_forrelation_promise": null,
+    "negative_forrelation_value": "-1",
+    "one_label_promise_zero_query": true,
+    "or_two_inclusive_mixture": true,
+    "worst_case_cap": 2
+  },
+  "scope": "independent finite Python models; no Lean source comparison or Comparator run",
+  "toy_shared_bad_spec": {
+    "comparator_executed": false,
+    "finite_truth_tables_agree": true,
+    "has_valid_comparison": false
+  }
+}

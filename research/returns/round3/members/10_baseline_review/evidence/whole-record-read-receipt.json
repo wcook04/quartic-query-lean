@@ -1,0 +1,611 @@
+{
+  "reviewer": "whole_record_review",
+  "kind": "independent_complete_baseline_reader",
+  "packet": "10_baseline_record_review",
+  "manifest_repository_commit": "1dd469dd0042b937b739da3bc211eeb60bdf7462",
+  "baseline_historical_source_commit": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+  "paper_pin": "openai/math 4eaee875",
+  "files": [
+    {
+      "member": "READ_ME_FIRST.md",
+      "sha256": "652edb80248d9fd0544db98dc116a9bc97d08a81bf300f66001bae7664a4c70e",
+      "bytes": 12384,
+      "lines": 52,
+      "status": "assessed",
+      "line_scopes": [
+        [
+          1,
+          52
+        ]
+      ],
+      "assessment": "Complete supplied text read; used as editorial instructions, not mathematical authority."
+    },
+    {
+      "member": "writing/the-deliverable.md",
+      "sha256": "5b234d4446bf4b7ac79c38586147730dc41370581daa38661326875d5b50951c",
+      "bytes": 8402,
+      "lines": 137,
+      "status": "assessed",
+      "line_scopes": [
+        [
+          1,
+          137
+        ]
+      ],
+      "assessment": "Complete supplied text read; used as editorial instructions, not mathematical authority."
+    },
+    {
+      "member": "writing/SKILL.md",
+      "sha256": "dcad856e7363b81876e4ab0784bcc0a3e51ccab11017eb9e08d81d345d2d6c74",
+      "bytes": 29787,
+      "lines": 496,
+      "status": "assessed",
+      "line_scopes": [
+        [
+          1,
+          496
+        ]
+      ],
+      "assessment": "Complete supplied text read; used as editorial instructions, not mathematical authority."
+    },
+    {
+      "member": "writing/mathematical-writing-mechanics.md",
+      "sha256": "0ba857f70a724a2676f91b01e7ee95cc3518dcd261b53fec27b743935d1caa0f",
+      "bytes": 45312,
+      "lines": 799,
+      "status": "assessed",
+      "line_scopes": [
+        [
+          1,
+          799
+        ]
+      ],
+      "assessment": "Complete supplied text read; used as editorial instructions, not mathematical authority."
+    },
+    {
+      "member": "writing/full-exposition-guide.md",
+      "sha256": "c7baa3c8b195647b00cdd37c38c48b122371ce9c3cd92798e2e9d55f3d1c4eca",
+      "bytes": 103236,
+      "lines": 1597,
+      "status": "assessed",
+      "line_scopes": [
+        [
+          1,
+          1597
+        ]
+      ],
+      "assessment": "Complete supplied text read; used as editorial instructions, not mathematical authority."
+    },
+    {
+      "member": "writing/register-from-literature.md",
+      "sha256": "2278000b36133a13c0e83f785bdb2a89b94b8ed1927daeaf12d2b1ed30545d7d",
+      "bytes": 4106,
+      "lines": 50,
+      "status": "assessed",
+      "line_scopes": [
+        [
+          1,
+          50
+        ]
+      ],
+      "assessment": "Complete supplied text read; used as editorial instructions, not mathematical authority."
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+      "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+      "bytes": 353091,
+      "lines": 4766,
+      "status": "assessed",
+      "line_scopes": [
+        [
+          1,
+          4766
+        ]
+      ],
+      "assessment": "Complete text read, all sections and Appendices A, B and C; ordinary mathematical and cold-reader assessment. Does not certify every current Lean type or external source."
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/LEAN_GAPS.md",
+      "sha256": "5e17659decd217a381f5dd5348f26161766e4b153133ea4fe75b327246a9c8bf",
+      "bytes": 63908,
+      "lines": 302,
+      "status": "assessed",
+      "line_scopes": [
+        [
+          1,
+          302
+        ]
+      ],
+      "assessment": "Complete supplied file read. Historical observations remain historical; bibliography metadata reading is not source-paper reading."
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/review_notes.md",
+      "sha256": "b84751f817c6f9661047fbb3b4fbb16709e0efeebe8d382c9cd6c639f8e7d20b",
+      "bytes": 45823,
+      "lines": 287,
+      "status": "assessed",
+      "line_scopes": [
+        [
+          1,
+          287
+        ]
+      ],
+      "assessment": "Complete supplied file read. Historical observations remain historical; bibliography metadata reading is not source-paper reading."
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/STATEMENT_CHANGES.json",
+      "sha256": "7550e71faa407b9b700d38b9ad0b82786cac34d9772ea24bb46c63c121465155",
+      "bytes": 2653,
+      "lines": 30,
+      "status": "assessed",
+      "line_scopes": [
+        [
+          1,
+          30
+        ]
+      ],
+      "assessment": "Complete supplied file read. Historical observations remain historical; bibliography metadata reading is not source-paper reading."
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/validation.json",
+      "sha256": "42e25af3d7b60d93484e963696380de3ca17907eaa7bab690294ebc8910e368f",
+      "bytes": 2811,
+      "lines": 63,
+      "status": "assessed",
+      "line_scopes": [
+        [
+          1,
+          63
+        ]
+      ],
+      "assessment": "Complete supplied file read. Historical observations remain historical; bibliography metadata reading is not source-paper reading."
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/references.bib",
+      "sha256": "3d676076acedfb08f40cee1a8b185df4657ebd11d36d7d8c9a74189b08fc482f",
+      "bytes": 12667,
+      "lines": 297,
+      "status": "assessed",
+      "line_scopes": [
+        [
+          1,
+          297
+        ]
+      ],
+      "assessment": "Complete supplied file read. Historical observations remain historical; bibliography metadata reading is not source-paper reading."
+    },
+    {
+      "member": "repository/research/returns/funnel/2_short_expert_paper/paper.md",
+      "sha256": "d74bef7d77eb5dd96a8fe5b6ba5f3cb4a105fd62d76ad5e730ad26f2ae15f277",
+      "bytes": 51114,
+      "lines": 644,
+      "status": "assessed",
+      "line_scopes": [
+        [
+          1,
+          644
+        ]
+      ],
+      "assessment": "Complete manuscript read for cross-document structure, scope and differences; not an independent mathematical authority."
+    },
+    {
+      "member": "repository/research/returns/funnel/3_examples_first_exposition/exposition.md",
+      "sha256": "99360e133b3114f90528b40833d2bdc9d18194d427f21cf322a336af4683ed0f",
+      "bytes": 59773,
+      "lines": 747,
+      "status": "assessed",
+      "line_scopes": [
+        [
+          1,
+          747
+        ]
+      ],
+      "assessment": "Complete manuscript read for examples, boundaries and cross-document differences. No script execution claimed."
+    },
+    {
+      "member": "exemplars/long-reasoning-record.md",
+      "sha256": "a19893f62d1211681ed0cb9cbb8bb454214d97f231f6a6d091b6f198fca35a89",
+      "bytes": 278844,
+      "lines": 5659,
+      "status": "sampled",
+      "line_scopes": [
+        [
+          1,
+          209
+        ],
+        [
+          5144,
+          5445
+        ]
+      ],
+      "assessment": "Overview and section1; dependency map section2.1; entire formal/source-correspondence sections12–13. Remaining sections unassessed. Form only, no SK mathematical audit."
+    },
+    {
+      "member": "exemplars/short-paper.md",
+      "sha256": "4b34070c1152369eec9bef536de51f8929c68f3a851f291e962a0c51a3b31ebb",
+      "bytes": 59587,
+      "lines": 1149,
+      "status": "sampled",
+      "line_scopes": [
+        [
+          1,
+          112
+        ]
+      ],
+      "assessment": "Opening sampled for form only; remainder unassessed."
+    },
+    {
+      "member": "exemplars/expository.md",
+      "sha256": "67d89307e8131e8c2ca1f21749dce062218534d1ac25d4c5860f2500e234e33f",
+      "bytes": 67972,
+      "lines": 1514,
+      "status": "sampled",
+      "line_scopes": [
+        [
+          1,
+          112
+        ]
+      ],
+      "assessment": "Opening sampled for form only; remainder unassessed."
+    },
+    {
+      "member": "repository/research/adjudication/round2_literature.md",
+      "sha256": "3f3c0a6053778070a6b02c828ad4fea24d068cfc8255c803411b53cc6cd221f5",
+      "bytes": 9869,
+      "lines": 140,
+      "status": "assessed",
+      "line_scopes": [
+        [
+          1,
+          140
+        ]
+      ],
+      "assessment": "Complete adjudication text read. It is secondary evidence of a prior source check, not my fresh full primary-source inspection."
+    },
+    {
+      "member": "repository/research/adjudication/bansal_sinha_section54_second_reading.md",
+      "sha256": "db831723bb41c8847718747651adce262ce60cb8a6b1a3b20b1346eea001f6ca",
+      "bytes": 9152,
+      "lines": 100,
+      "status": "assessed",
+      "line_scopes": [
+        [
+          1,
+          100
+        ]
+      ],
+      "assessment": "Complete adjudication text read. It is secondary evidence of a prior source check, not my fresh full primary-source inspection."
+    },
+    {
+      "member": "SOURCE_ROLES.md",
+      "sha256": "e1916ab76f349582fea82b8833529ab7eb90fabba24a8eebddba5b7acfdb0c9f",
+      "bytes": 2560,
+      "lines": 25,
+      "status": "assessed",
+      "line_scopes": [
+        [
+          1,
+          25
+        ]
+      ],
+      "assessment": "Complete supplied reading/evidence role guidance read."
+    },
+    {
+      "member": "BUILD_STATUS.md",
+      "sha256": "50d8890437452a047a7eba252ec14f41a54e5cf06a297b61a03cb17898bdc4dc",
+      "bytes": 28218,
+      "lines": 202,
+      "status": "sampled",
+      "line_scopes": [
+        [
+          1,
+          37
+        ]
+      ],
+      "assessment": "Current status table and scope read; later optional native run inventory not assessed. Raw receipts not audited by this reviewer."
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/correspondence.json",
+      "sha256": "cf429a5555eab691a801ecd362c37329b3c0449f0da4dab437ab5a8b9be88761",
+      "bytes": 108656,
+      "lines": 3314,
+      "status": "sampled",
+      "line_scopes": [
+        [
+          2,
+          32
+        ],
+        [
+          153,
+          169
+        ],
+        [
+          283,
+          292
+        ],
+        [
+          352,
+          366
+        ],
+        [
+          469,
+          485
+        ],
+        [
+          556,
+          570
+        ],
+        [
+          890,
+          908
+        ],
+        [
+          909,
+          927
+        ],
+        [
+          1400,
+          1414
+        ],
+        [
+          1505,
+          1531
+        ],
+        [
+          1576,
+          1590
+        ],
+        [
+          1628,
+          1641
+        ],
+        [
+          1931,
+          1942
+        ],
+        [
+          2175,
+          2184
+        ],
+        [
+          3128,
+          3140
+        ],
+        [
+          3251,
+          3265
+        ]
+      ],
+      "assessment": "All229 records parsed; all passage IDs, roles, statement IDs and declaration counts inspected. Sixteen selected records read in full. All229 exact from/to boundary excerpts independently checked inside named baseline passages; this is a structural check, not all-declaration semantic verification.",
+      "json_selectors": [
+        "CAT-claim-bs-to-L",
+        "CAT-def-win-at-address",
+        "CAT-lem-A.2",
+        "CAT-thm-A.1",
+        "CL-fidelity",
+        "CL-joint-event",
+        "ROOT-ADVERSARY-FINAL",
+        "ROOT-APPENDIX-INTRO",
+        "ROOT-EVIDENCE-CONVENTION",
+        "ROOT-FAMILY-ASSEMBLY",
+        "ROOT-RESULT",
+        "forr_bs_translation",
+        "forr_bundle",
+        "forr_identity",
+        "upper-continuation-induction",
+        "upper-tournament-evidence"
+      ]
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/NEW_STATEMENTS.json",
+      "sha256": "d2964002bad5c1626a1e2c72ac301b7615373ad2576f9604d561dd10c7fe0ccd",
+      "bytes": 110569,
+      "lines": 1384,
+      "status": "sampled",
+      "line_scopes": [
+        [
+          2,
+          12
+        ]
+      ],
+      "assessment": "Schema, count and first ROOT-MASS record inspected; remaining proposed Lean signatures unassessed by this reviewer. Related prose statements appear in the completely read baseline.",
+      "json_selectors": [
+        "$[0]"
+      ]
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/source_read_receipt.json",
+      "sha256": "d4bf142f438a2b2c5964f9317edcbb3a0d9264e69ae8b3cda422ce59fa57732c",
+      "bytes": 85737,
+      "lines": 1996,
+      "status": "sampled",
+      "line_scopes": [
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          1897,
+          1947
+        ],
+        [
+          1948,
+          1981
+        ],
+        [
+          1982,
+          1988
+        ],
+        [
+          1989,
+          1996
+        ]
+      ],
+      "assessment": "Top-level schema and the named historical scope fields read; source_reviews file-by-file records not independently audited. These are original authors reading claims, not this reviewers reading coverage.",
+      "json_selectors": [
+        "repository_commit",
+        "source_paper",
+        "root_reading",
+        "exemplar_form_review",
+        "not_rerun",
+        "not_available"
+      ]
+    },
+    {
+      "member": "manifest.json",
+      "sha256": "b4f858c886330adf510d84a6266aaf5a1c5cb6554173b665336df2ce4bac5518",
+      "bytes": 220317,
+      "lines": 3626,
+      "status": "sampled",
+      "line_scopes": [],
+      "assessment": "Parsed packet/repository/provenance fields and selected member metadata. Full raw manifest not read line by line. Hashing a member does not mean its content was assessed.",
+      "json_selectors": [
+        "campaign",
+        "packet",
+        "repository_commit",
+        "paper_provenance",
+        "members selected",
+        "input_sha256 selected"
+      ]
+    },
+    {
+      "member": "paper/source.pdf",
+      "sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e",
+      "bytes": 433829,
+      "status": "unassessed",
+      "line_scopes": [],
+      "assessment": "Principal OpenAI source assigned to parent and primary-mathematics reviewer."
+    },
+    {
+      "member": "EVIDENCE_SNAPSHOT.json",
+      "sha256": "25f46742c3d019459dc43846f23234c107212625b8c76f3eeef787fd721f1213",
+      "bytes": 716734,
+      "lines": 10986,
+      "status": "unassessed",
+      "line_scopes": [],
+      "assessment": "Current source/evidence audit assigned to evidence reviewer. This reviewer read BUILD_STATUS current summary only."
+    },
+    {
+      "member": "repository/research/returns/funnel/3_examples_first_exposition/examples.py",
+      "status": "unavailable",
+      "line_scopes": [],
+      "assessment": "Referenced by exposition lines719–725 but absent from this selected packet. No claim it is absent from the original repository or return."
+    }
+  ],
+  "baseline_section_coverage": [
+    {
+      "section": "Section1",
+      "line_scope": [
+        1,
+        62
+      ],
+      "status": "assessed",
+      "note": "Complete text read; source/type verification limited as separately stated."
+    },
+    {
+      "section": "Section2",
+      "line_scope": [
+        63,
+        145
+      ],
+      "status": "assessed",
+      "note": "Complete text read; source/type verification limited as separately stated."
+    },
+    {
+      "section": "Section3",
+      "line_scope": [
+        146,
+        868
+      ],
+      "status": "assessed",
+      "note": "Complete text read; source/type verification limited as separately stated."
+    },
+    {
+      "section": "Section4",
+      "line_scope": [
+        869,
+        1001
+      ],
+      "status": "assessed",
+      "note": "Complete text read; source/type verification limited as separately stated."
+    },
+    {
+      "section": "Section5",
+      "line_scope": [
+        1002,
+        1566
+      ],
+      "status": "assessed",
+      "note": "Complete text read; source/type verification limited as separately stated."
+    },
+    {
+      "section": "Section6",
+      "line_scope": [
+        1567,
+        1979
+      ],
+      "status": "assessed",
+      "note": "Complete text read; source/type verification limited as separately stated."
+    },
+    {
+      "section": "Section7",
+      "line_scope": [
+        1980,
+        2035
+      ],
+      "status": "assessed",
+      "note": "Complete text read; source/type verification limited as separately stated."
+    },
+    {
+      "section": "AppendixA",
+      "line_scope": [
+        2036,
+        2258
+      ],
+      "status": "assessed",
+      "note": "Complete text read; source/type verification limited as separately stated."
+    },
+    {
+      "section": "AppendixB",
+      "line_scope": [
+        2259,
+        4733
+      ],
+      "status": "assessed",
+      "note": "Complete text read; source/type verification limited as separately stated."
+    },
+    {
+      "section": "AppendixC",
+      "line_scope": [
+        4734,
+        4766
+      ],
+      "status": "assessed",
+      "note": "Complete text read; source/type verification limited as separately stated."
+    }
+  ],
+  "structural_check": {
+    "correspondence_entries": 229,
+    "all_literal_boundaries_inside_named_passage": true,
+    "errors": [],
+    "semantics": "Not a Lean or mathematical validity check."
+  },
+  "not_performed": [
+    "Fresh Lean build",
+    "Comparator execution",
+    "Kernel replay",
+    "Rendered PDF inspection",
+    "Complete audit of current Lean theorem types",
+    "Complete primary-source inspection",
+    "Inspection or synthesis of concurrent section returns"
+  ],
+  "delegated_not_my_coverage": [
+    "Current source hashes, exact theorem types and receipt membership: lean_evidence reviewer",
+    "Primary mathematical sources and source-display checks: parent and primary-mathematics reviewer"
+  ],
+  "receipt_role": "Exact reviewer-specific source reading receipt; delegated audits are not counted as this reviewer reading."
+}

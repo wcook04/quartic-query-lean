@@ -1,0 +1,95 @@
+{
+  "kind": "independent source-byte and recorded-membership check",
+  "packet_commit": "1dd469dd0042b937b739da3bc211eeb60bdf7462",
+  "recorded_build_commit": "31e17dee667d1d72fa621da8e7d3d8ff5fc3960a",
+  "packet_members_checked": 390,
+  "receipt_input_bindings": [
+    {
+      "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "sha256": "bc11e3fec8581f89ce56b110bf76db2469abea4b7be00fa476f9d2cee9455c2e",
+      "source_hashes_checked": 124,
+      "mismatches": []
+    },
+    {
+      "receipt": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+      "sha256": "3c26718576384a76fca10f1f44bf42ffd2f23130b0aabcf35b3f5c34f2b4a1e0",
+      "source_hashes_checked": 124,
+      "mismatches": []
+    },
+    {
+      "receipt": "repository/corpus/lean_dependencies.json",
+      "sha256": "56ae4752273f7cfba92ee6f35a4acc6ee0eea6e32a44116ccaf9d7354094e1fb",
+      "source_hashes_checked": 124,
+      "mismatches": []
+    }
+  ],
+  "focused_native_target": "QuarticQuery.Paper.ClassicalDirectProduct",
+  "focused_recorded_status": "passed",
+  "focused_recorded_exit_code": 0,
+  "focused_local_inputs_checked": 6,
+  "focused_recorded_inputs_unchanged": true,
+  "focused_input_mismatches": [],
+  "audit_log_and_source_hashes_match": true,
+  "selected_declaration_membership": [
+    {
+      "declaration": "QuarticQuery.guessSuccess_le_prod",
+      "build_inventory": true,
+      "dependency_inventory": true,
+      "headline_reached": true
+    },
+    {
+      "declaration": "QuarticQuery.direct_product",
+      "build_inventory": true,
+      "dependency_inventory": true,
+      "headline_reached": true
+    },
+    {
+      "declaration": "QuarticQuery.exists_hard_distribution",
+      "build_inventory": true,
+      "dependency_inventory": true,
+      "headline_reached": true
+    },
+    {
+      "declaration": "QuarticQuery.address_guess_le",
+      "build_inventory": true,
+      "dependency_inventory": true,
+      "headline_reached": true
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classical_transcript_product_law",
+      "build_inventory": true,
+      "dependency_inventory": true,
+      "headline_reached": false
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classical_transcript_conditional_expectation",
+      "build_inventory": true,
+      "dependency_inventory": true,
+      "headline_reached": false
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classical_success_le_terminal",
+      "build_inventory": true,
+      "dependency_inventory": true,
+      "headline_reached": false
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classical_direct_product",
+      "build_inventory": true,
+      "dependency_inventory": true,
+      "headline_reached": false
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classical_direct_product_average",
+      "build_inventory": true,
+      "dependency_inventory": true,
+      "headline_reached": false
+    }
+  ],
+  "all_byte_checks_passed": true,
+  "failures": [],
+  "fresh_lean_execution": false,
+  "compiled_root_artifact_supplied": false,
+  "independent_execution_reproduction": false,
+  "scope": "Hash agreement and supplied record contents only; no new Lean, Comparator, or human review."
+}

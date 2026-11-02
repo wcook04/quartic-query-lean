@@ -1,0 +1,178 @@
+{
+  "format": "quartic-r3-04-return-manifest-v1",
+  "review_date": "2026-11-02",
+  "job": "04_addressed_construction",
+  "status": "advisory replacement; no accepted integration or native Lean rerun",
+  "exclusions": [
+    "manifest.json itself, to avoid a recursive self-digest"
+  ],
+  "input_archive": {
+    "file": "quartic_r3_04_addressed_construction.zip",
+    "bytes": 3607820,
+    "sha256": "20b5fb057ad0e4a5b1ff70ff10244327bc4bf69f8b15e2f26b6e2c43836d9a0b",
+    "repository_commit": "1dd469dd0042b937b739da3bc211eeb60bdf7462"
+  },
+  "source_versions": [
+    {
+      "file": "paper/source.pdf",
+      "version": "OpenAI preprint, supplied 5 October 2026 PDF",
+      "bytes": 433829,
+      "sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e"
+    },
+    {
+      "file": "literature/quartic-ref-02-separations-in-query-complexity-using-chea/source.pdf",
+      "version": "arXiv:1511.01937v2, 9 July 2019",
+      "bytes": 393155,
+      "sha256": "64380c861d0e0296a53c998a0109d62bf446529414001f8e46615991b558e4bc"
+    },
+    {
+      "file": "literature/quartic-ref-04-separations-in-query-complexity-based-on-p/source.pdf",
+      "version": "arXiv:1506.04719v3, 26 October 2015",
+      "bytes": 313343,
+      "sha256": "1b7803487ac696b1f8d81ee7bc26d55ed7a3c4ff4b78928faa269b71358fe66c"
+    },
+    {
+      "file": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+      "version": "frozen baseline supplied in the addressed-construction packet",
+      "bytes": 353091,
+      "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff"
+    }
+  ],
+  "members": [
+    {
+      "member": "LEAN_GAPS.md",
+      "bytes": 8503,
+      "sha256": "1a0804a3915e3eaaa9290a856cce97839b4f896aa461b8e9409c264d1dd00612"
+    },
+    {
+      "member": "NEW_STATEMENTS.json",
+      "bytes": 3609,
+      "sha256": "d8770b63bd24b2d6d8ade1dc4270df84bc040120907ba4576d2c8cec3beda009"
+    },
+    {
+      "member": "README.md",
+      "bytes": 4163,
+      "sha256": "7b140fa57886c02cc238fb071ed4ffae18503f3bb7191c4df7abdea5b2aa4abd"
+    },
+    {
+      "member": "STATEMENT_CHANGES.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "member": "STYLE_RULES.json",
+      "bytes": 10152,
+      "sha256": "04250382c54dd3581f587c2b9979ba86819ff70b28aa8f3ea7e6aa1634fd1e25"
+    },
+    {
+      "member": "checks/validate_return.py",
+      "bytes": 11040,
+      "sha256": "c454dd964034698ec539e573ddb0cdff0920df80c66994738b3b37c057c27383"
+    },
+    {
+      "member": "checks/validation.json",
+      "bytes": 1551,
+      "sha256": "a7c6f0c4d1ee1a929946aee58a0f00756a1b34ca7ae214374c736e309497813f"
+    },
+    {
+      "member": "correspondence.json",
+      "bytes": 263584,
+      "sha256": "26679b8e9493dc08903409feef64b7c0a8f8903fce6e27ce6f1a43c1aa6b36f8"
+    },
+    {
+      "member": "evidence/final_peer_reviews.md",
+      "bytes": 2469,
+      "sha256": "e49935f8a97c2c23f386012f6d17ac903e289ae0c377bdc40b6d4cec4da2bce3"
+    },
+    {
+      "member": "evidence/input_integrity.json",
+      "bytes": 133,
+      "sha256": "c5efc3938e27a45a73895c72b3204a585845a4a7fe4f16995b21b06b84ffb0e6"
+    },
+    {
+      "member": "evidence/interface_definitions.json",
+      "bytes": 17902,
+      "sha256": "712ccd4c11c48ea6186c0504d3828df02c3c2f9b4519cb7dac31ac826ab8ee47"
+    },
+    {
+      "member": "evidence/lean_audit.json",
+      "bytes": 159597,
+      "sha256": "db2d81ef3cfc470304e5d65c4f80092479b7d107f65c31042f55d4b2e24e539a"
+    },
+    {
+      "member": "evidence/lean_audit.md",
+      "bytes": 13527,
+      "sha256": "ecc3a34d666316c7f1cbfc8d8dc1ca3b825da8b26ff31a07ebc07b99d94bfaca"
+    },
+    {
+      "member": "evidence/section_lean_peer_review.md",
+      "bytes": 7678,
+      "sha256": "516325e5ab056704f1b0f3962f5fe13de5a31a56cd66e6039e07a2b06c2e3d86"
+    },
+    {
+      "member": "evidence/section_source_peer_review.md",
+      "bytes": 8261,
+      "sha256": "7e4c924f4ddb0ca8f9320c13e6a31cdebd3387598fe3326517f6347bf18b1e93"
+    },
+    {
+      "member": "evidence/source_audit.md",
+      "bytes": 14177,
+      "sha256": "3f917491043262c19ee37c3d4f7b8c6b615deff5c647a58508fac22a4fc58a50"
+    },
+    {
+      "member": "examples/README.md",
+      "bytes": 9158,
+      "sha256": "212924b5d154d1ffa37d025141cb4333a1f6c5c60a6e2ee4a5d8189e6b478737"
+    },
+    {
+      "member": "examples/board.json",
+      "bytes": 9363,
+      "sha256": "5ddac453327ec30841d2eb2e8b921c29f953bc75b0555a7a81e84ce3e9c99c83"
+    },
+    {
+      "member": "examples/check_example.py",
+      "bytes": 21834,
+      "sha256": "79abb067288f08831a68256a213cfc88c3e702cb3b6ad99139f2c66f2eb0b0f4"
+    },
+    {
+      "member": "examples/circuit.json",
+      "bytes": 28090,
+      "sha256": "0f84ef8db3526a5d166307846bf4ef3d9268ad60c8a1e5353005fac9885a0004"
+    },
+    {
+      "member": "examples/output.json",
+      "bytes": 15742,
+      "sha256": "b129476e9a98cb4f81a0e803f69f2c44f08435b45785060e36fdcb5ca506808d"
+    },
+    {
+      "member": "examples/validation.json",
+      "bytes": 1406,
+      "sha256": "daea784833b4af115a6feb0687a446eeec79a4812203919e97b049bc7aff2041"
+    },
+    {
+      "member": "integration_map.json",
+      "bytes": 1405,
+      "sha256": "a1815e08acb0b9f65eb7bc6bb9372ac6c5984ef6a230c4efabf94af76b66ffe8"
+    },
+    {
+      "member": "references.bib",
+      "bytes": 2183,
+      "sha256": "4e79380cb3dc8aa5c6f4142ac71e976314c4a84bfa0af4ee5d49d9f526e8ea89"
+    },
+    {
+      "member": "review_notes.md",
+      "bytes": 14255,
+      "sha256": "7f6c8a5100a71f46232c5c8b46f89c0f84e8e743f73cbdfba4184f461207fe76"
+    },
+    {
+      "member": "section.md",
+      "bytes": 29123,
+      "sha256": "423e2375540b07a4c6b6a9ceec9c64fe243f7d2be067bc169d918258f60859d0"
+    },
+    {
+      "member": "source_read_receipt.json",
+      "bytes": 177784,
+      "sha256": "ab1a1eaf11334f04c57a529c28e17dd90a771779925a18c5b2c54825fe584811"
+    }
+  ]
+}

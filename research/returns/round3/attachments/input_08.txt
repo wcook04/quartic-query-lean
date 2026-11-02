@@ -1,0 +1,321 @@
+I read the available ZIP, followed its focused job-09 research brief, checked the relevant mathematics and Lean sources, and prepared the requested return.
+
+**The main finding is a real gap in how semantic reviews remain current:** a fresh build and comparison could reactivate an old “exact” correspondence judgment after a definition changed. I reproduced that behavior and included a tested patch. I also supplied the requested independent semantic examples and a complete equation-(19) challenge, while keeping their uncompiled status explicit.
+
+## Deliverable
+
+quartic_r3_09_evidence_backend_return.zip[quartic_r3_09_evidence_backend_return.zip](sandbox:/workspace/scratch/5af1aa6131c8/quartic_r3_09_evidence_backend_return.zip)
+
+Start with **`evidence-path.md`**. It contains the mathematical arguments, findings, source correspondences, and integration steps. The ZIP also includes the proposed Lean files, minimal backend patch, actual test logs, 50 clearly labelled acceptance cases, bibliography, reading-scope ledger, and an exact file manifest.
+
+Here is the distinction that governs the whole return:
+
+| Work | Result |
+|---|---|
+| Supplied packet integrity | All **400 payload files** match their manifest; the extracted originals remain unchanged |
+| Supplied Lean/configuration snapshot | All **124 inputs** match the recorded source snapshot |
+| Existing receipt classification | **12 current** and **11 legacy-unbound** receipts distinguished |
+| Backend patch | Applies cleanly; **44 Python tests passed**, with **2 native integrations skipped** |
+| Finite semantic controls | Existing seven mutation controls passed |
+| Additional independence example | Exact enumeration of all **256 cases** passed |
+| New actual-definition Lean examples | Complete proposed files; **uncompiled** |
+| Complete equation-(19) theorem and comparisons | Complete proposed files/configurations; **uncompiled and unrun** |
+| Native `lean-exposition` extraction | Actual launch attempted; exited **127** because the executable is missing |
+
+The supplied current receipts are evidence about recorded executions whose input bytes match the packet. I did not rerun those native executions here.
+
+## 1. The most consequential issue: a current build does not make an old semantic review current
+
+There are three separate questions:
+
+1. Does a formal proposition have an accepted proof?
+2. Does that proposition, including its referenced definitions, agree with the challenge?
+3. Does it express the mathematics intended by the paper?
+
+Lean’s official validation documentation explicitly separates proof validity from the meaning of the theorem statement. Reviewing the proposition and the definitions that determine its meaning remains necessary. [lean-lang.org](https://lean-lang.org/doc/reference/latest/ValidatingProofs/?utm_source=chatgpt.com)
+
+The packet already handles much of the operational evidence correctly: source-bound receipts, declaration identity, legacy records, and hidden dependencies. The remaining defect concerns the **review judgment**.
+
+For example, suppose a reviewer decides that a theorem exactly represents a paper statement. Later, someone changes a predicate used by that theorem while leaving its displayed theorem source unchanged. A new build can succeed. A regenerated challenge using the changed predicate can also agree with the solution. Neither event establishes that the original review assessed the new meaning.
+
+The regression reproduces precisely that situation using mocked native-operation receipts. The original producer restores statement-level comparison credit. With the patch, the producer preserves the fresh build and comparison facts but marks the old review stale.
+
+### What the patch binds
+
+The patch adds a `review_binding` to the existing tie records. It binds the review to:
+
+- The statement ID and exact statement text.
+- The complete corrected statement row.
+- The declaration identity.
+- The authored judgment, including relation, proof route, premises, additional assumptions, reviewer, and notes.
+- The existing complete local Lean/configuration snapshot.
+
+The producer does **not** create or refresh these bindings automatically. Otherwise, rebuilding the corpus would effectively claim that a mathematical review had happened.
+
+This implementation is conservative: an unrelated Lean change or a proof-only edit also invalidates the binding. That is a deliberate tradeoff. A narrower check would need reliable evidence of which elaborated definitions determine the statement’s meaning.
+
+### What integration would change
+
+In the actual dry run against the supplied corpus:
+
+- All **477 authored judgments** lack the new binding and therefore remain historically visible as `legacy_unbound`.
+- Build evidence remains visible on all **840 ties**, representing **816 distinct declarations**.
+- Comparison evidence remains visible on **19 ties**.
+- Statement-level compared rows fall from **seven to zero** until the corresponding reviews are explicitly bound.
+
+This does not invalidate the existing proofs. It prevents those proofs and comparisons from silently renewing an old interpretation of what they establish. The exact regression, migration counts, and limits are documented in `evidence-path.md` §6 and `backend/`.
+
+## 2. Equation (19) needs its equality and its bound
+
+The complete mathematical target is
+
+\[
+\Pr\!\left[T(Y^{(0)})\text{ queries }X_I[J_I]\right]
+=
+\frac{\mathbb E Z}{m}
+\le
+\frac{4G}{m^2}.
+\]
+
+That contains two claims:
+
+- An **equality**, connecting the independently selected column to the expected number of discovered zeros.
+- An **upper bound**, controlling the discovery probability.
+
+The paper’s authority here is §4.2, equation (19), in the [pinned OpenAI preprint](https://github.com/openai/math/blob/4eaee875/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf). I used the supplied, hash-identified paper text for the mathematics.
+
+The existing declarations separate these claims:
+
+| Existing declaration, with prefix `QuarticQuery.` | What it concludes |
+|---|---|
+| `Paper.erasedZero_eq_expectedZeros_div` | The equality with \(\mathbb E Z/m\) |
+| `Paper.expectedZeros_le_four` | \(\mathbb E Z\le 4G/m\) |
+| `Paper.eq_19` | The probability upper bound only |
+| `avg_foundZero_I_le` | A stronger coefficient-two bound with address data fixed |
+
+The supplied source-current root-build receipt names these declarations. No direct comparison receipt for these individual equation-(19) declarations was supplied.
+
+**A stronger inequality does not establish an omitted equality.** The maintained corpus already labels the old `eq-19` tie `partial`, which is appropriate. The baseline Appendix B’s older `stronger` classification needs an evidence-prose correction.
+
+### The equality’s essential premise
+
+Fix the complete dummy run. Suppose it discovers the designated zeros in exactly \(Z\) columns. If \(I\) is chosen uniformly and **independently of that run**, it selects one of those columns with probability \(Z/m\). Averaging gives
+
+\[
+\Pr(\text{hit the selected zero})=\mathbb E[Z/m]=\frac{\mathbb E Z}{m}.
+\]
+
+Repeated queries do not increase \(Z\): \(Z\) counts discovered columns, not query occurrences.
+
+The isolated equality is algebraic in the address weights. Nonnegativity and normalization are needed to interpret the weighted sums as probabilities and to establish the probability bound.
+
+### The paper’s upper-bound argument
+
+Before a column’s zero has been discovered, condition on a positive-probability query-and-answer history **up to the current time**. Its zero remains uniform among that column’s unqueried positions. Fixing that history fixes the adaptive query schedule; the event imposes the recorded answer constraints.
+
+Call a discovery early when fewer than \(m/2\) distinct positions in its column were queried beforehand.
+
+- At any query time, the conditional probability of an early discovery is at most \(2/m\). Over at most \(G\) queries, the expected early count is at most \(2G/m\).
+- Each remaining discovered column has received at least \(m/2\) queries. There can be at most \(2G/m\) such columns on any run.
+
+Therefore,
+
+\[
+\mathbb E Z\le \frac{4G}{m},
+\]
+
+and the equality gives the required probability bound.
+
+The supplied Lean development uses a different finite-tree induction that gives the stronger coefficient-two endpoint. The return explains that induction explicitly and labels it an **alternative proof route**. It does not claim that this route formalizes the printed early/late intermediate assertions.
+
+### The proposed full theorem
+
+I supplied `QuarticQuery.Paper.eq19_whole`, whose type contains the full conjunction, under the finite-coordinate, distribution, normalization, and depth premises.
+
+I also supplied a separately authored finite experiment that writes out:
+
+- The dummy input.
+- The product sampling law.
+- The distinct discovered-zero count.
+- The independently selected-column event.
+
+Proposed bridge theorems connect those definitions to the project’s actual quantities. This specification shares the project’s tree, coordinate, path, and depth interfaces; that remaining shared boundary is explicitly stated.
+
+There are two separate positive comparison configurations: one for the direct whole theorem, and one for the independently specified theorem. Their results must remain attached to their own declaration identities. **Both are currently unrun.**
+
+## 3. A concrete reason independence cannot be weakened to “uniform marginal”
+
+This was the most useful additional mathematical control.
+
+Take four columns, each with its zero independently uniform among four rows. Query the first row in every column. Then each column’s zero is discovered with probability \(1/4\), so
+
+\[
+\mathbb E Z=1.
+\]
+
+An independent uniform \(I\) gives hit probability \(1/4\).
+
+Now change the selection law:
+
+- If at least one zero was discovered, choose \(I\) uniformly among the discovered columns.
+- Otherwise, choose \(I\) uniformly among all four columns.
+
+By symmetry, each column still has marginal selection probability \(1/4\). Nevertheless,
+
+\[
+\Pr(\text{hit the selected zero})
+=
+\Pr(Z>0)
+=
+1-\left(\frac34\right)^4
+=
+\frac{175}{256},
+\]
+
+whereas
+
+\[
+\frac{\mathbb E Z}{4}=\frac14.
+\]
+
+I checked all 256 zero-location vectors using exact rational arithmetic, including all four uniform marginals.
+
+This is a deliberately different sampling law, not a counterexample to the paper. It demonstrates that **uniformity of \(I\)’s marginal is insufficient for the equality**. In this example \(G=m=4\), so the paper’s final upper bound is \(1\); checking that inequality alone would not expose the changed law.
+
+The proof, script, and actual result are included under `EVID-INDEPENDENCE` and `checks/`.
+
+## 4. The four requested semantic examples
+
+Each example has an ordinary mathematical argument and a proposed Lean proof against the **actual project definitions**.
+
+### One-bit identity cannot have randomized zero-query complexity
+
+A zero-query deterministic tree returns a constant. A randomized mixture of such trees therefore has an input-independent true-output probability \(p\).
+
+Correctness on input \(1\) requires
+
+\[
+p\ge\frac23.
+\]
+
+Correctness on input \(0\) requires
+
+\[
+1-p\ge\frac23.
+\]
+
+Together these imply \(1\ge4/3\), a contradiction.
+
+This example detects a quantifier error: allowing a different algorithm to be chosen after seeing each input would make the zero-query claim trivially true. The proposed proof derives input-independence and normalization from the actual tree and program definitions.
+
+### The specified one-query OR mixture attains the inclusive threshold
+
+Choose each of these with probability \(1/3\):
+
+- Return true.
+- Query and return the first bit.
+- Query and return the second bit.
+
+Its success probabilities are:
+
+| Input | Success |
+|---|---:|
+| \(00\) | \(2/3\) |
+| \(01\) | \(2/3\) |
+| \(10\) | \(2/3\) |
+| \(11\) | \(1\) |
+
+Every tree has depth at most one. The mixture therefore proves the one-query upper bound. Since OR takes both labels, the zero-query argument gives the matching lower bound, hence \(R(\mathrm{OR}_2)=1\).
+
+The threshold control is deliberately precise: changing “at least \(2/3\)” to “strictly greater than \(2/3\)” makes **this mixture** fail. I do not turn that observation into an unsupported general impossibility claim about every stricter threshold.
+
+### The true-only promise has \(R=Q=0\)
+
+Define a partial function only on the true one-bit input, where its value is true. A constant-true algorithm is correct on every promised input and uses no queries.
+
+The proposed classical proof provides that witness. The quantum proof uses the actual model’s constant-on-promise branch. Neither relies on an empty-infimum convention.
+
+If the undefined input were silently changed to false, the function would become total one-bit identity and the zero-query claim would fail. This example therefore checks the promise domain as well as constant-output behavior. Its quantum scope is the zero-query branch, not all quantum oracle or measurement semantics.
+
+### Negative Forrelation must remain outside the promise
+
+For \(k=2\), \(t=1\), and \(m=4\), take both sign vectors to be
+
+\[
+z=(-1,1,1,1)^T.
+\]
+
+For the corresponding unnormalized Walsh matrix, \(Wz=-2z\), so
+
+\[
+z^TWz=-8.
+\]
+
+The normalization denominator is \(8\), giving \(\Phi=-1\).
+
+The high branch requires \(\Phi\ge2^{-10}\); the low branch requires \(|\Phi|\le2^{-11}\). Both fail. This input is outside the promise. Replacing the high branch by an absolute-value condition would wrongly admit it. These conventions come from the preprint’s §2.1, equations (3)–(4).
+
+The supplied development already contains a related Sanity witness. The new proposed test recomputes the concrete value without importing that witness; I make no novelty claim for the example.
+
+**All four new Lean examples remain uncompiled.** Their mathematical explanations and source reviews are distinct from an observed Lean pass.
+
+## 5. The negative controls distinguish three different outcomes
+
+The return keeps these experiments separate.
+
+**A changed referenced definition should produce a comparison rejection.** In the threshold specimen, only the solution changes a predicate from inclusive to strict. The target theorem’s displayed form stays the same. The expected result is a referenced-constant mismatch. A missing executable or import failure does not count as passing that test.
+
+**A shared impossible premise can still match.** Another specimen adds `impossible : False` to a comparison structure on both sides. A conditional theorem under that premise is vacuous, and matching the shared specification is expected to succeed. A separate witness test distinguishes the actual comparison predicate—satisfied by the two-candidate matrix with zero diagonal and off-diagonal entries \(1/2\)—from the deliberately impossible variant.
+
+**A toy calculation has a narrower scope.** The existing Python controls really ran and detected all seven named mutations. They do not execute Lean or Comparator.
+
+Comparator’s documented role is to compare the formal challenge and solution and check the permitted proof dependencies. The intended mathematical specification still needs assessment. [lean-lang.org](https://lean-lang.org/doc/reference/latest/Build-Tools-and-Distribution/Lake/?utm_source=chatgpt.com) The new native acceptance and rejection experiments are therefore recorded as predictions awaiting execution.
+
+## 6. What the supplied evidence does support
+
+The source audit supports retaining the packet’s existing evidence at its stated level.
+
+The repository commit named by the packet differs from the commit named by the current native receipts, but the complete 124-file source inventories match. A different overall commit identifier does not, by itself, make those source-bound records stale.
+
+Several distinctions matter for the written account:
+
+- **Declared and built does not mean reached from the headline theorem.** The equality and `Paper.eq_19` are declared by the root build but are outside the two headline roots’ reached set. The coefficient-two `avg_foundZero_I_le` is reached.
+- **The old `UNELABORATED` header is historical.** Later source-bound build evidence matches that source file. The header should not override the later receipt, nor should the later receipt be rewritten as something that happened in the earlier authoring environment.
+- **The supplied reader acceptance is real evidence for its retained informal graph.** Its recorded `validate`, `select`, and `inspect` operations do not constitute native Lean extraction.
+- **That retained graph and the later graph are different artifacts.** I verified that their difference is the subsequently added paranoid comparison record and resulting evidence references.
+- **Hash consistency has limits.** It cannot recover omitted full logs, authenticate the original host, or independently reproduce the recorded runs.
+
+The seven derived `r2-live-*` helper proposals also remain explicitly withheld from the preprint-only graph. Their proposal records do not supply authored dependency lists. The patch enforces that boundary instead of relabelling them as preprint material or silently dropping missing prerequisite edges.
+
+## 7. The native endpoint remains genuinely open
+
+I selected the existing equality declaration
+
+`QuarticQuery.Paper.erasedZero_eq_expectedZeros_div`
+
+from module `QuarticQuery.Paper.ClassicalPlanted`, after verifying its supplied source-current acceptance evidence.
+
+The actual `lean-exposition extract … --build` launch failed with:
+
+```text
+lean-exposition: not found
+```
+
+It exited 127 and produced no graph.
+
+This environment also lacks Lean, Lake, and Elan. The packet contains selected consumer source files, but omits parts required for a complete installation, including the Lean extractor resource. No exact consumer Git revision was supplied.
+
+Consequently, the return does not claim completed extraction, schema validation of a native result, goal selection, or prerequisite inspection. It contains the exact target, actual launch record, missing prerequisites, and command arrays for re-entry.
+
+The next native pass needs to:
+
+1. Restore the pinned project environment and the complete matching consumer.
+2. Extract and inspect the accepted unchanged equality target.
+3. Install the proposed overlays in a disposable project copy.
+4. Build the new semantic proofs, conjunction, bridges, and controls.
+5. Inspect their complete types and transitive axioms, then execute the specified comparisons.
+6. Record fresh operation receipts and explicit review bindings against that enlarged source snapshot.
+
+The ZIP is ready for that review and native pass. Its final archive integrity check passed, including all 75 payload entries in its manifest.
+
+**Scope:** I assessed the packet’s assigned passages and relevant neighboring sources, not the entire quartic-separation proof campaign. The separate `Pasted text(20261102-190840-1).txt` attachment was unavailable and was not used.

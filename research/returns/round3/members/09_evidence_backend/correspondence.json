@@ -1,0 +1,956 @@
+[
+  {
+    "id": "result-boundary",
+    "passage": "EVID-RESULT",
+    "from": "## 1. Result and remaining boundary",
+    "to": "The source audit verified all 400 payload members against the packet manifest, all 124 local Lean/configuration inputs against the source snapshot, and the distinction between 12 current supplied receipts and 11 legacy-unbound receipts. These checks establish agreement of supplied bytes and recorded fields. They do not independently reproduce the recorded native executions. The attached text file `Pasted text(20261102-190840-1).txt` was unavailable and has not been used.",
+    "role": "explains",
+    "statement_ids": [],
+    "lean": [],
+    "claim": "Summary of the completed advisory work and incomplete native endpoints.",
+    "complete_lean_types": [],
+    "ordinary_premises": [],
+    "open_assumptions": [],
+    "relation": "backend_assessment",
+    "route": "source and receipt audit plus executed Python tests",
+    "citation_role": [
+      {
+        "source": "QUARTIC",
+        "role": "implementation and recorded evidence"
+      },
+      {
+        "source": "acceptance_cases.json",
+        "role": "actual/proposed case inventory"
+      }
+    ],
+    "evidence_state": {
+      "kind": "mixed_explicitly_separated",
+      "executed_python": true,
+      "new_native_lean": false,
+      "native_extraction": "launch_failed_127"
+    }
+  },
+  {
+    "id": "identity-proof",
+    "passage": "EVID-IDENTITY",
+    "from": "## 3. Independent model expectations",
+    "to": "The proposed `QuarticQuery.SemanticReview.identity_not_zero` proves this against the actual `QueryTree`, `RandomizedProgram`, and `RLe`. It first derives input-independence from the tree structure and then proves that the two output masses sum to one using the actual weight normalization. It does not assume these properties in a parallel model. Moving the algorithm existential inside the input quantifier changes the answer: on each input separately one can choose the correct constant leaf. `SemanticMutations.lean` states both sides of this distinction.",
+    "role": "proves",
+    "statement_ids": [
+      "def-R",
+      "r3-semantic-identity-zero"
+    ],
+    "lean": [
+      "QuarticQuery.SemanticReview.identity_not_zero",
+      "QuarticQuery.SemanticReview.both_labels_preclude_zero"
+    ],
+    "claim": "A zero-query randomized program cannot compute a function taking both labels; in particular it cannot compute one-bit identity.",
+    "complete_lean_types": [
+      {
+        "declaration": "QuarticQuery.SemanticReview.identity_not_zero",
+        "type": "¬ QuarticQuery.RLe QuarticQuery.SemanticReview.oneBitIdentity 0",
+        "source": "semantic/lean/QuarticCorpus/Independent/Semantics.lean",
+        "type_evidence": "proposed_source_type_uncompiled",
+        "notation_context": "Lean real/natural notation, BigOperators where used; namespaces shown or stated in type. Section and implicit binders are included. This is source-type transcription, not a fresh elaborated printout.",
+        "notes": ""
+      },
+      {
+        "declaration": "QuarticQuery.SemanticReview.both_labels_preclude_zero",
+        "type": "∀ {ι : Type} (f : QuarticQuery.PartialBool ι) (x₀ x₁ : QuarticQuery.BitInput ι), f x₀ = some false → f x₁ = some true → ¬ QuarticQuery.RLe f 0",
+        "source": "semantic/lean/QuarticCorpus/Independent/Semantics.lean",
+        "type_evidence": "proposed_source_type_uncompiled",
+        "notation_context": "Lean real/natural notation, BigOperators where used; namespaces shown or stated in type. Section and implicit binders are included. This is source-type transcription, not a fresh elaborated printout.",
+        "notes": ""
+      }
+    ],
+    "ordinary_premises": [],
+    "open_assumptions": [],
+    "relation": "derived_example_of_definition",
+    "route": "two constant-output masses sum to one; both required masses at least 2/3",
+    "citation_role": [
+      {
+        "source": "OAI26 §1 and §1.3",
+        "role": "pointwise bounded-error bit-query convention"
+      },
+      {
+        "source": "repository/lean/QuarticQuery/Statement.lean",
+        "role": "actual RLe and program definitions"
+      }
+    ],
+    "evidence_state": {
+      "kind": "ordinary_argument_and_proposed_actual_definition_lean",
+      "lean_build": "not_run",
+      "comparator": "not_run",
+      "source_review": "additional AI source review, no definite defect found; not human review"
+    }
+  },
+  {
+    "id": "or-mixture-proof",
+    "passage": "EVID-OR",
+    "from": "### 3.2. Two-bit OR tests the inclusive threshold",
+    "to": "This proves the upper bound of one query at the inclusive threshold. Since OR has both output labels, the preceding zero-query argument also gives a lower bound of one. Hence $R(\\mathrm{OR}_2)=1$. The proposed files state the success probabilities, the cap, and the exact complexity. A strict-$2/3$ mutation is detected by input 00, where the specified mixture attains equality. This shows that **this mixture** fails the strict threshold; it does not assert that every one-query algorithm fails every stricter threshold without a separate argument.",
+    "role": "proves",
+    "statement_ids": [
+      "def-R",
+      "r3-semantic-or-mixture"
+    ],
+    "lean": [
+      "QuarticQuery.SemanticReview.orMixture_success",
+      "QuarticQuery.SemanticReview.orMixture_depth_le_one",
+      "QuarticQuery.SemanticReview.orTwo_RLe_one",
+      "QuarticQuery.SemanticReview.orTwo_R_eq_one"
+    ],
+    "claim": "The specified OR mixture has successes (2/3,2/3,2/3,1), worst-case cap one, and R(OR₂)=1.",
+    "complete_lean_types": [
+      {
+        "declaration": "QuarticQuery.SemanticReview.orMixture_success",
+        "type": "∀ x : QuarticQuery.BitInput (Fin 2), QuarticQuery.SemanticReview.orMixture.success x (x 0 || x 1) = (if x 0 && x 1 then (1 : ℝ) else 2 / 3)",
+        "source": "semantic/lean/QuarticCorpus/Independent/Semantics.lean",
+        "type_evidence": "proposed_source_type_uncompiled",
+        "notation_context": "Lean real/natural notation, BigOperators where used; namespaces shown or stated in type. Section and implicit binders are included. This is source-type transcription, not a fresh elaborated printout.",
+        "notes": ""
+      },
+      {
+        "declaration": "QuarticQuery.SemanticReview.orMixture_depth_le_one",
+        "type": "QuarticQuery.SemanticReview.orMixture.depth ≤ 1",
+        "source": "semantic/lean/QuarticCorpus/Independent/Semantics.lean",
+        "type_evidence": "proposed_source_type_uncompiled",
+        "notation_context": "Lean real/natural notation, BigOperators where used; namespaces shown or stated in type. Section and implicit binders are included. This is source-type transcription, not a fresh elaborated printout.",
+        "notes": ""
+      },
+      {
+        "declaration": "QuarticQuery.SemanticReview.orTwo_RLe_one",
+        "type": "QuarticQuery.RLe QuarticQuery.SemanticReview.orTwo 1",
+        "source": "semantic/lean/QuarticCorpus/Independent/Semantics.lean",
+        "type_evidence": "proposed_source_type_uncompiled",
+        "notation_context": "Lean real/natural notation, BigOperators where used; namespaces shown or stated in type. Section and implicit binders are included. This is source-type transcription, not a fresh elaborated printout.",
+        "notes": ""
+      },
+      {
+        "declaration": "QuarticQuery.SemanticReview.orTwo_R_eq_one",
+        "type": "QuarticQuery.R QuarticQuery.SemanticReview.orTwo = 1",
+        "source": "semantic/lean/QuarticCorpus/Independent/Semantics.lean",
+        "type_evidence": "proposed_source_type_uncompiled",
+        "notation_context": "Lean real/natural notation, BigOperators where used; namespaces shown or stated in type. Section and implicit binders are included. This is source-type transcription, not a fresh elaborated printout.",
+        "notes": ""
+      }
+    ],
+    "ordinary_premises": [],
+    "open_assumptions": [],
+    "relation": "derived_example_of_definition",
+    "route": "three equal mixture weights; exact truth table and both-label lower bound",
+    "citation_role": [
+      {
+        "source": "OAI26 §1",
+        "role": "inclusive success threshold"
+      },
+      {
+        "source": "semantic/lean/QuarticCorpus/Independent/Semantics.lean",
+        "role": "proposed actual-model witness"
+      }
+    ],
+    "evidence_state": {
+      "kind": "ordinary_argument_and_proposed_actual_definition_lean",
+      "lean_build": "not_run",
+      "comparator": "not_run",
+      "source_review": "additional AI source review, no definite defect found; not human review"
+    }
+  },
+  {
+    "id": "or-strict-threshold-limit",
+    "passage": "EVID-OR",
+    "from": "### 3.2. Two-bit OR tests the inclusive threshold",
+    "to": "This proves the upper bound of one query at the inclusive threshold. Since OR has both output labels, the preceding zero-query argument also gives a lower bound of one. Hence $R(\\mathrm{OR}_2)=1$. The proposed files state the success probabilities, the cap, and the exact complexity. A strict-$2/3$ mutation is detected by input 00, where the specified mixture attains equality. This shows that **this mixture** fails the strict threshold; it does not assert that every one-query algorithm fails every stricter threshold without a separate argument.",
+    "role": "explains",
+    "statement_ids": [
+      "def-R",
+      "r3-semantic-or-mixture"
+    ],
+    "lean": [
+      "QuarticQuery.SemanticReview.strict_threshold_mutant_rejects_mixture"
+    ],
+    "claim": "This particular mixture fails a strict threshold; no general stronger lower bound is asserted.",
+    "complete_lean_types": [
+      {
+        "declaration": "QuarticQuery.SemanticReview.strict_threshold_mutant_rejects_mixture",
+        "type": "¬ (∀ (x : QuarticQuery.BitInput (Fin 2)) (b : Bool), QuarticQuery.SemanticReview.orTwo x = some b → (2 / 3 : ℝ) < QuarticQuery.SemanticReview.orMixture.success x b)",
+        "source": "semantic/lean/QuarticCorpus/Independent/SemanticMutations.lean",
+        "type_evidence": "proposed_source_type_uncompiled",
+        "notation_context": "Lean real/natural notation, BigOperators where used; namespaces shown or stated in type. Section and implicit binders are included. This is source-type transcription, not a fresh elaborated printout.",
+        "notes": ""
+      }
+    ],
+    "ordinary_premises": [],
+    "open_assumptions": [],
+    "relation": "discriminating_control",
+    "route": "input 00 attains exactly 2/3",
+    "citation_role": [
+      {
+        "source": "OAI26 §1",
+        "role": "threshold convention"
+      }
+    ],
+    "evidence_state": {
+      "kind": "ordinary_argument_and_proposed_actual_definition_lean",
+      "lean_build": "not_run",
+      "comparator": "not_run",
+      "source_review": "additional AI source review, no definite defect found; not human review"
+    }
+  },
+  {
+    "id": "promise-zero-proof",
+    "passage": "EVID-PROMISE",
+    "from": "### 3.3. The true-only promise has zero-query complexity",
+    "to": "Replacing the undefined value by false makes $g$ the total one-bit identity, for which the zero-query claim fails. This example tests the domain convention as well as zero-query behavior. It does not claim that arbitrary off-promise behavior is correct on an enlarged domain.",
+    "role": "proves",
+    "statement_ids": [
+      "def-partial-query",
+      "def-R",
+      "def-Q",
+      "r3-semantic-true-only-zero"
+    ],
+    "lean": [
+      "QuarticQuery.SemanticReview.trueOnly_R_eq_zero",
+      "QuarticQuery.SemanticReview.trueOnly_Q_eq_zero",
+      "QuarticQuery.SemanticReview.trueOnly_false_is_unpromised"
+    ],
+    "claim": "Promise only at the true input gives R=Q=0; replacing undefined by false changes the domain.",
+    "complete_lean_types": [
+      {
+        "declaration": "QuarticQuery.SemanticReview.trueOnly_R_eq_zero",
+        "type": "QuarticQuery.R QuarticQuery.SemanticReview.trueOnly = 0",
+        "source": "semantic/lean/QuarticCorpus/Independent/Semantics.lean",
+        "type_evidence": "proposed_source_type_uncompiled",
+        "notation_context": "Lean real/natural notation, BigOperators where used; namespaces shown or stated in type. Section and implicit binders are included. This is source-type transcription, not a fresh elaborated printout.",
+        "notes": ""
+      },
+      {
+        "declaration": "QuarticQuery.SemanticReview.trueOnly_Q_eq_zero",
+        "type": "QuarticQuery.Q QuarticQuery.SemanticReview.trueOnly = 0",
+        "source": "semantic/lean/QuarticCorpus/Independent/Semantics.lean",
+        "type_evidence": "proposed_source_type_uncompiled",
+        "notation_context": "Lean real/natural notation, BigOperators where used; namespaces shown or stated in type. Section and implicit binders are included. This is source-type transcription, not a fresh elaborated printout.",
+        "notes": ""
+      },
+      {
+        "declaration": "QuarticQuery.SemanticReview.trueOnly_false_is_unpromised",
+        "type": "QuarticQuery.SemanticReview.trueOnly (fun _ => false) = none",
+        "source": "semantic/lean/QuarticCorpus/Independent/Semantics.lean",
+        "type_evidence": "proposed_source_type_uncompiled",
+        "notation_context": "Lean real/natural notation, BigOperators where used; namespaces shown or stated in type. Section and implicit binders are included. This is source-type transcription, not a fresh elaborated printout.",
+        "notes": ""
+      }
+    ],
+    "ordinary_premises": [],
+    "open_assumptions": [],
+    "relation": "derived_example_of_definition",
+    "route": "explicit constant-true classical and ConstantOnPromise witnesses",
+    "citation_role": [
+      {
+        "source": "OAI26 §1.3",
+        "role": "off-promise unconstrained convention"
+      },
+      {
+        "source": "repository/lean/QuarticQuery/Statement.lean",
+        "role": "actual QLe alternative"
+      }
+    ],
+    "evidence_state": {
+      "kind": "ordinary_argument_and_proposed_actual_definition_lean",
+      "lean_build": "not_run",
+      "comparator": "not_run",
+      "source_review": "additional AI source review, no definite defect found; not human review"
+    }
+  },
+  {
+    "id": "forrelation-negative-proof",
+    "passage": "EVID-FORRELATION",
+    "from": "### 3.4. The negative Forrelation example tests the sign of the high branch",
+    "to": "The proposed semantic test computes the actual integer numerator, denominator and promise definition, using kernel reduction rather than native evaluation. It does not import the existing `Forrelation.Sanity` witness theorem. That existing theorem is acknowledged; the finite example is not claimed as a new result. The proposed file still requires actual Lean elaboration before its behavior can be reported as checked.",
+    "role": "proves",
+    "statement_ids": [
+      "eq-3",
+      "eq-4",
+      "r3-semantic-negative-forrelation"
+    ],
+    "lean": [
+      "QuarticQuery.SemanticReview.negativePair_numerator",
+      "QuarticQuery.SemanticReview.negativePair_denominator",
+      "QuarticQuery.SemanticReview.negativePair_Phi",
+      "QuarticQuery.SemanticReview.negativePair_P_none"
+    ],
+    "claim": "Two (-1,1,1,1) sign vectors give Φ=-1 and lie outside the promise.",
+    "complete_lean_types": [
+      {
+        "declaration": "QuarticQuery.SemanticReview.negativePair_numerator",
+        "type": "QuarticQuery.forrelationNumerator 2 1 QuarticQuery.SemanticReview.negativePair = -8",
+        "source": "semantic/lean/QuarticCorpus/Independent/Semantics.lean",
+        "type_evidence": "proposed_source_type_uncompiled",
+        "notation_context": "Lean real/natural notation, BigOperators where used; namespaces shown or stated in type. Section and implicit binders are included. This is source-type transcription, not a fresh elaborated printout.",
+        "notes": ""
+      },
+      {
+        "declaration": "QuarticQuery.SemanticReview.negativePair_denominator",
+        "type": "QuarticQuery.forrelationDenominator 2 1 = 8",
+        "source": "semantic/lean/QuarticCorpus/Independent/Semantics.lean",
+        "type_evidence": "proposed_source_type_uncompiled",
+        "notation_context": "Lean real/natural notation, BigOperators where used; namespaces shown or stated in type. Section and implicit binders are included. This is source-type transcription, not a fresh elaborated printout.",
+        "notes": ""
+      },
+      {
+        "declaration": "QuarticQuery.SemanticReview.negativePair_Phi",
+        "type": "QuarticQuery.Phi 2 1 QuarticQuery.SemanticReview.negativePair = -1",
+        "source": "semantic/lean/QuarticCorpus/Independent/Semantics.lean",
+        "type_evidence": "proposed_source_type_uncompiled",
+        "notation_context": "Lean real/natural notation, BigOperators where used; namespaces shown or stated in type. Section and implicit binders are included. This is source-type transcription, not a fresh elaborated printout.",
+        "notes": ""
+      },
+      {
+        "declaration": "QuarticQuery.SemanticReview.negativePair_P_none",
+        "type": "QuarticQuery.P 2 1 QuarticQuery.SemanticReview.negativePair = none",
+        "source": "semantic/lean/QuarticCorpus/Independent/Semantics.lean",
+        "type_evidence": "proposed_source_type_uncompiled",
+        "notation_context": "Lean real/natural notation, BigOperators where used; namespaces shown or stated in type. Section and implicit binders are included. This is source-type transcription, not a fresh elaborated printout.",
+        "notes": ""
+      }
+    ],
+    "ordinary_premises": [],
+    "open_assumptions": [],
+    "relation": "derived_known_example",
+    "route": "Walsh eigenvector calculation and signed high/absolute low thresholds",
+    "citation_role": [
+      {
+        "source": "OAI26 §2.1 equations (3)–(4), pp. 3–4",
+        "role": "normalization and signed promise authority"
+      },
+      {
+        "source": "repository/lean/QuarticQuery/Forrelation/Sanity.lean",
+        "role": "existing witness acknowledged, not imported"
+      }
+    ],
+    "evidence_state": {
+      "kind": "ordinary_argument_and_proposed_actual_definition_lean",
+      "lean_build": "not_run",
+      "comparator": "not_run",
+      "source_review": "additional AI source review, no definite defect found; not human review"
+    }
+  },
+  {
+    "id": "comparison-nonvacuity",
+    "passage": "EVID-CONTROLS",
+    "from": "## 4. What the negative controls distinguish",
+    "to": "These controls require no custom axioms in proof-bearing candidates. Intentional `sorry` placeholders occur only in specification-only Challenge files; solutions must be checked with the standard permitted axioms. A source scan for holes is weaker evidence than a native transitive axiom audit, so the former is not reported as the latter.",
+    "role": "proves",
+    "statement_ids": [
+      "eq-10",
+      "r3-semantic-comparison-witness"
+    ],
+    "lean": [
+      "QuarticQuery.SemanticReview.comparison_has_witness",
+      "Round3.SharedAudit.shared_bad_spec_has_no_witness",
+      "Round3.SharedBadSpec.vacuous_claim"
+    ],
+    "claim": "Matching an impossible shared premise can be accepted by comparison; a separate concrete witness detects nonvacuity failure.",
+    "complete_lean_types": [
+      {
+        "declaration": "QuarticQuery.SemanticReview.comparison_has_witness",
+        "type": "∃ a : Fin 2 → Fin 2 → ℝ, QuarticQuery.Tournament.IsComparison a",
+        "source": "semantic/lean/QuarticCorpus/Independent/Semantics.lean",
+        "type_evidence": "proposed_source_type_uncompiled",
+        "notation_context": "Lean real/natural notation, BigOperators where used; namespaces shown or stated in type. Section and implicit binders are included. This is source-type transcription, not a fresh elaborated printout.",
+        "notes": ""
+      },
+      {
+        "declaration": "Round3.SharedAudit.shared_bad_spec_has_no_witness",
+        "type": "¬ ∃ a : Fin 2 → Fin 2 → ℝ, Round3.SharedBadSpec.IsComparison a",
+        "source": "semantic/lean/QuarticCorpus/Independent/Controls/SharedAudit.lean",
+        "type_evidence": "proposed_source_type_uncompiled",
+        "notation_context": "Lean real/natural notation, BigOperators where used; namespaces shown or stated in type. Section and implicit binders are included. This is source-type transcription, not a fresh elaborated printout.",
+        "notes": ""
+      },
+      {
+        "declaration": "Round3.SharedBadSpec.vacuous_claim",
+        "type": "∀ (a : Fin 2 → Fin 2 → ℝ), Round3.SharedBadSpec.IsComparison a → (1 : ℝ) = 0",
+        "source": "semantic/lean/QuarticCorpus/Independent/Controls/SharedSolution.lean",
+        "type_evidence": "proposed_source_type_uncompiled",
+        "notation_context": "Lean real/natural notation, BigOperators where used; namespaces shown or stated in type. Section and implicit binders are included. This is source-type transcription, not a fresh elaborated printout.",
+        "notes": "Deliberately bad premise has an impossible : False field. This is a vacuity control, not the intended comparison predicate."
+      }
+    ],
+    "ordinary_premises": [
+      "The deliberately altered specimen assumes its own IsComparison predicate containing impossible : False; this is not an ordinary premise of the preprint."
+    ],
+    "open_assumptions": [],
+    "relation": "discriminating_control",
+    "route": "actual witness and intentional shared-vacuity specimen",
+    "citation_role": [
+      {
+        "source": "OAI26 §3.2 equation (10)",
+        "role": "actual comparison condition"
+      },
+      {
+        "source": "LAKE436",
+        "role": "matching formal definitions can be jointly wrong"
+      }
+    ],
+    "evidence_state": {
+      "kind": "source_predicted_control",
+      "lean_build": "not_run",
+      "shared_bad_spec_comparator": "predicted_acceptance_unrun",
+      "semantic_witness": "proposed_uncompiled"
+    }
+  },
+  {
+    "id": "control-execution-boundary",
+    "passage": "EVID-CONTROLS",
+    "from": "## 4. What the negative controls distinguish",
+    "to": "These controls require no custom axioms in proof-bearing candidates. Intentional `sorry` placeholders occur only in specification-only Challenge files; solutions must be checked with the standard permitted axioms. A source scan for holes is weaker evidence than a native transitive axiom audit, so the former is not reported as the latter.",
+    "role": "explains",
+    "statement_ids": [],
+    "lean": [],
+    "claim": "Seven finite Python mutation controls passed; no new native Comparator judgment was executed.",
+    "complete_lean_types": [],
+    "ordinary_premises": [],
+    "open_assumptions": [],
+    "relation": "software_evidence",
+    "route": "actual finite toy run versus proposed native controls",
+    "citation_role": [
+      {
+        "source": "semantic/receipts/existing-toy-controls-run.json",
+        "role": "executed finite Python evidence"
+      },
+      {
+        "source": "LAKE436",
+        "role": "predicted mismatch diagnostic and proof-checking contract"
+      }
+    ],
+    "evidence_state": {
+      "toy_controls": "executed_pass",
+      "mutation_count": 7,
+      "changed_threshold_comparator": "not_run",
+      "shared_impossible_comparator": "not_run"
+    }
+  },
+  {
+    "id": "eq19-full-target",
+    "passage": "EVID-EQ19",
+    "from": "## 5. Equation (19) requires both clauses",
+    "to": "The maintained corpus already calls the original `eq-19` tie **partial**. The old baseline Appendix B calls its inequality-only declaration `stronger`; that evidence paragraph should be corrected. The wrapper does not upgrade the separate compound `claim-EZ` row, which includes the early/late explanation as well as an endpoint bound.",
+    "role": "states",
+    "statement_ids": [
+      "eq-19",
+      "def-dummy",
+      "def-planted",
+      "def-Z"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.eq19_whole"
+    ],
+    "claim": "Both hit probability = EZ/m and hit probability ≤4G/m², under the explicit product law and depth premises.",
+    "complete_lean_types": [
+      {
+        "declaration": "QuarticQuery.Paper.eq19_whole",
+        "type": "∀ {κ : Type} [Fintype κ] [DecidableEq κ] {ℓ r S : ℕ} {μ : QuarticQuery.BitInput κ → ℝ} (hμ : ∀ x, 0 ≤ μ x) (hμ1 : ∑ x, μ x = 1) {G : ℕ} (T : QuarticQuery.QueryTree (QuarticQuery.BitLoc ℓ r S κ)) (hT : T.depth ≤ G), (QuarticQuery.coupledAvg μ (fun A J I => QuarticQuery.foundZero T A J I) = QuarticQuery.Paper.expectedZeros μ T / ((2 ^ ℓ : ℕ) : ℝ)) ∧ (QuarticQuery.coupledAvg μ (fun A J I => QuarticQuery.foundZero T A J I) ≤ 4 * (G : ℝ) / ((2 ^ ℓ : ℕ) : ℝ) ^ 2)",
+        "source": "eq19/overlay/lean/QuarticQuery/Paper/Eq19Whole.lean",
+        "type_evidence": "proposed_source_type_uncompiled",
+        "notation_context": "Lean real/natural notation, BigOperators where used; namespaces shown or stated in type. Section and implicit binders are included. This is source-type transcription, not a fresh elaborated printout.",
+        "notes": ""
+      }
+    ],
+    "ordinary_premises": [
+      "κ is finite and its equality decidable.",
+      "ℓ,r,S,G are natural numbers; m=2^ℓ>0.",
+      "μ has nonnegative real weights and sum one.",
+      "Address strings are iid μ, zero positions independently uniform, and the further uniform index I is independent; encoded in the definitions.",
+      "All cell bits are fixed false; T.depth ≤ G counts every query, including repeats."
+    ],
+    "open_assumptions": [],
+    "relation": "proposed_full_correspondence_not_accepted",
+    "route": "conjunction of existing equality and coefficient-four bound; alternative proof route for bound",
+    "citation_role": [
+      {
+        "source": "OAI26 §4.2 equation (19), pp. 12–13",
+        "role": "full compound mathematical target"
+      },
+      {
+        "source": "OAI26 §2.2 equation (6), p. 5",
+        "role": "paper parameter specialization"
+      }
+    ],
+    "evidence_state": {
+      "kind": "proposed_new_wrapper",
+      "lean_build": "not_run",
+      "axiom_audit": "not_run",
+      "direct_comparator": "not_run",
+      "must_not_borrow_component_evidence": true
+    }
+  },
+  {
+    "id": "eq19-existing-equality",
+    "passage": "EVID-EQ19",
+    "from": "## 5. Equation (19) requires both clauses",
+    "to": "The maintained corpus already calls the original `eq-19` tie **partial**. The old baseline Appendix B calls its inequality-only declaration `stronger`; that evidence paragraph should be corrected. The wrapper does not upgrade the separate compound `claim-EZ` row, which includes the early/late explanation as well as an endpoint bound.",
+    "role": "proves",
+    "statement_ids": [
+      "eq-19",
+      "def-Z",
+      "def-dummy",
+      "def-planted"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.erasedZero_eq_expectedZeros_div"
+    ],
+    "claim": "The equality is separately proved and does not require μ positivity/normalization as an algebraic identity.",
+    "complete_lean_types": [
+      {
+        "declaration": "QuarticQuery.Paper.erasedZero_eq_expectedZeros_div",
+        "type": "∀ {κ : Type} [Fintype κ] [DecidableEq κ] {ℓ r S : ℕ} (μ : QuarticQuery.BitInput κ → ℝ) (T : QuarticQuery.QueryTree (QuarticQuery.BitLoc ℓ r S κ)), QuarticQuery.coupledAvg μ (fun A J I => QuarticQuery.foundZero T A J I) = QuarticQuery.Paper.expectedZeros μ T / ((2 ^ ℓ : ℕ) : ℝ)",
+        "source": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+        "type_evidence": "supplied_source_signature_with_current_build",
+        "notation_context": "Lean real/natural notation, BigOperators where used; namespaces shown or stated in type. Section and implicit binders are included. This is source-type transcription, not a fresh elaborated printout.",
+        "notes": ""
+      }
+    ],
+    "ordinary_premises": [
+      "Finite κ with decidable equality; ℓ,r,S natural; arbitrary real weights μ for the algebraic identity.",
+      "Independent uniform I is encoded in coupledAvg; distinct-zero count is encoded in expectedZeros."
+    ],
+    "open_assumptions": [],
+    "relation": "equality_clause_only",
+    "route": "finite indicator sum; independent index averages to Z/m",
+    "citation_role": [
+      {
+        "source": "OAI26 §4.2 equation (19)",
+        "role": "equality clause"
+      },
+      {
+        "source": "QUARTIC",
+        "role": "existing source proof and supplied current build"
+      }
+    ],
+    "evidence_state": {
+      "kind": "supplied_source_current_build",
+      "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "direct_comparator": "none_supplied",
+      "headline_root_reach": "outside",
+      "fresh_native_run": false
+    }
+  },
+  {
+    "id": "eq19-paper-route",
+    "passage": "EVID-EQ19",
+    "from": "## 5. Equation (19) requires both clauses",
+    "to": "The maintained corpus already calls the original `eq-19` tie **partial**. The old baseline Appendix B calls its inequality-only declaration `stronger`; that evidence paragraph should be corrected. The wrapper does not upgrade the separate compound `claim-EZ` row, which includes the early/late explanation as well as an endpoint bound.",
+    "role": "proves",
+    "statement_ids": [
+      "claim-EZ",
+      "eq-19"
+    ],
+    "lean": [],
+    "claim": "The paper early/late proof gives EZ≤4G/m; conditional uniformity is stated only for a realized history up to the current time.",
+    "complete_lean_types": [],
+    "ordinary_premises": [
+      "κ is finite and its equality decidable.",
+      "ℓ,r,S,G are natural numbers; m=2^ℓ>0.",
+      "μ has nonnegative real weights and sum one.",
+      "Address strings are iid μ, zero positions independently uniform, and the further uniform index I is independent; encoded in the definitions.",
+      "All cell bits are fixed false; T.depth ≤ G counts every query, including repeats."
+    ],
+    "open_assumptions": [],
+    "relation": "ordinary_paper_argument_not_claimed_as_lean_route",
+    "route": "adaptive early/late accounting: expected early ≤2G/m and late count ≤2G/m",
+    "citation_role": [
+      {
+        "source": "OAI26 §4.2, pp. 12–13",
+        "role": "printed proof route"
+      }
+    ],
+    "evidence_state": {
+      "kind": "ordinary_mathematical_derivation_and_source_review",
+      "native_lean_for_intermediate_claims": "none_claimed"
+    }
+  },
+  {
+    "id": "eq19-alternative-induction",
+    "passage": "EVID-EQ19",
+    "from": "## 5. Equation (19) requires both clauses",
+    "to": "The maintained corpus already calls the original `eq-19` tie **partial**. The old baseline Appendix B calls its inequality-only declaration `stronger`; that evidence paragraph should be corrected. The wrapper does not upgrade the separate compound `claim-EZ` row, which includes the early/late explanation as well as an endpoint bound.",
+    "role": "proves",
+    "statement_ids": [
+      "eq-19",
+      "claim-EZ"
+    ],
+    "lean": [
+      "QuarticQuery.zero_search_sum",
+      "QuarticQuery.avg_foundZero_I_le",
+      "QuarticQuery.Paper.expectedZeros_le_four",
+      "QuarticQuery.Paper.eq_19"
+    ],
+    "claim": "|U|D_U≤2Q_U gives a stronger endpoint; it supplies neither an omitted equality nor the printed early/late intermediate proofs.",
+    "complete_lean_types": [
+      {
+        "declaration": "QuarticQuery.zero_search_sum",
+        "type": "∀ {ι α : Type} [DecidableEq α] (e : α → ι) (he : Function.Injective e) (c : ι → Bool) (hc1 : ∀ p, c (e p) = true) (hc2 : ∀ q, c q = true → ∃ p, e p = q) (x : α → QuarticQuery.BitInput ι) (hout : ∀ j j' q, c q = false → x j q = x j' q) (hin : ∀ j p, x j (e p) = decide (p ≠ j)) (T : QuarticQuery.QueryTree ι) (U : Finset α), (U.card : ℝ) * ∑ j ∈ U, QuarticQuery.ind (e j ∈ T.path (x j)) ≤ 2 * ∑ j ∈ U, ((T.path (x j)).countP c : ℝ)",
+        "source": "repository/lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean",
+        "type_evidence": "supplied_source_signature",
+        "notation_context": "Lean real/natural notation, BigOperators where used; namespaces shown or stated in type. Section and implicit binders are included. This is source-type transcription, not a fresh elaborated printout.",
+        "notes": ""
+      },
+      {
+        "declaration": "QuarticQuery.avg_foundZero_I_le",
+        "type": "∀ {κ : Type} {ℓ r S : ℕ} (T : QuarticQuery.QueryTree (QuarticQuery.BitLoc ℓ r S κ)) (A : QuarticQuery.Column ℓ → Fin r → QuarticQuery.BitInput κ) {G : ℕ}, T.depth ≤ G → QuarticQuery.avg (QuarticQuery.prodW (QuarticQuery.unif ℓ)) (fun J => QuarticQuery.avg (QuarticQuery.unif ℓ) (QuarticQuery.foundZero T A J)) ≤ 2 * (G : ℝ) / ((2 ^ ℓ : ℕ) : ℝ) ^ 2",
+        "source": "repository/lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean",
+        "type_evidence": "supplied_source_signature_with_current_build",
+        "notation_context": "Lean real/natural notation, BigOperators where used; namespaces shown or stated in type. Section and implicit binders are included. This is source-type transcription, not a fresh elaborated printout.",
+        "notes": ""
+      },
+      {
+        "declaration": "QuarticQuery.Paper.expectedZeros_le_four",
+        "type": "∀ {κ : Type} [Fintype κ] [DecidableEq κ] {ℓ r S : ℕ} {μ : QuarticQuery.BitInput κ → ℝ} (hμ : ∀ x, 0 ≤ μ x) (hμ1 : ∑ x, μ x = 1) {G : ℕ} (T : QuarticQuery.QueryTree (QuarticQuery.BitLoc ℓ r S κ)) (hT : T.depth ≤ G), QuarticQuery.Paper.expectedZeros μ T ≤ 4 * (G : ℝ) / ((2 ^ ℓ : ℕ) : ℝ)",
+        "source": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+        "type_evidence": "supplied_source_signature_with_current_build",
+        "notation_context": "Lean real/natural notation, BigOperators where used; namespaces shown or stated in type. Section and implicit binders are included. This is source-type transcription, not a fresh elaborated printout.",
+        "notes": ""
+      },
+      {
+        "declaration": "QuarticQuery.Paper.eq_19",
+        "type": "∀ {κ : Type} [Fintype κ] [DecidableEq κ] {ℓ r S : ℕ} {μ : QuarticQuery.BitInput κ → ℝ} (hμ : ∀ x, 0 ≤ μ x) (hμ1 : ∑ x, μ x = 1) {G : ℕ} (T : QuarticQuery.QueryTree (QuarticQuery.BitLoc ℓ r S κ)) (hT : T.depth ≤ G), QuarticQuery.coupledAvg μ (fun A J I => QuarticQuery.foundZero T A J I) ≤ 4 * (G : ℝ) / ((2 ^ ℓ : ℕ) : ℝ) ^ 2",
+        "source": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+        "type_evidence": "supplied_source_signature_with_current_build",
+        "notation_context": "Lean real/natural notation, BigOperators where used; namespaces shown or stated in type. Section and implicit binders are included. This is source-type transcription, not a fresh elaborated printout.",
+        "notes": ""
+      }
+    ],
+    "ordinary_premises": [
+      "κ is finite and its equality decidable.",
+      "ℓ,r,S,G are natural numbers; m=2^ℓ>0.",
+      "μ has nonnegative real weights and sum one.",
+      "Address strings are iid μ, zero positions independently uniform, and the further uniform index I is independent; encoded in the definitions.",
+      "All cell bits are fixed false; T.depth ≤ G counts every query, including repeats.",
+      "Abstract induction: e is injective; c recognizes its column; worlds agree off the column and have one zero on it."
+    ],
+    "open_assumptions": [],
+    "relation": "partial_for_compound_eq19_and_claim_EZ",
+    "route": "alternative finite-world induction proves coefficient-two endpoint; weaken to four",
+    "citation_role": [
+      {
+        "source": "QUARTIC ZeroSearch.lean and ClassicalPlanted.lean",
+        "role": "actual alternative proof route"
+      },
+      {
+        "source": "OAI26 §4.2",
+        "role": "weaker endpoint and distinct printed route"
+      }
+    ],
+    "evidence_state": {
+      "kind": "ordinary_reconstruction_and_supplied_source_current_build",
+      "direct_comparator": "none_supplied",
+      "avg_foundZero_I_le_reach": "reached",
+      "paper_endpoint_declarations_reach": "outside",
+      "fresh_native_run": false
+    }
+  },
+  {
+    "id": "eq19-independent-law",
+    "passage": "EVID-EQ19",
+    "from": "## 5. Equation (19) requires both clauses",
+    "to": "The maintained corpus already calls the original `eq-19` tie **partial**. The old baseline Appendix B calls its inequality-only declaration `stronger`; that evidence paragraph should be corrected. The wrapper does not upgrade the separate compound `claim-EZ` row, which includes the early/late explanation as well as an endpoint bound.",
+    "role": "explains",
+    "statement_ids": [
+      "eq-19",
+      "def-dummy",
+      "def-planted",
+      "def-Z"
+    ],
+    "lean": [
+      "QuarticQuery.Independent.Eq19.specification_eq19",
+      "QuarticQuery.Independent.Eq19.checked_eq19"
+    ],
+    "claim": "The independent theorem and direct whole wrapper have different declaration identities; their comparison evidence cannot be exchanged.",
+    "complete_lean_types": [
+      {
+        "declaration": "QuarticQuery.Independent.Eq19.specification_eq19",
+        "type": "∀ {κ : Type} [Fintype κ] [DecidableEq κ] {ℓ r S : ℕ} {μ : QuarticQuery.BitInput κ → ℝ} (hμ : ∀ x, 0 ≤ μ x) (hμ1 : ∑ x, μ x = 1) {G : ℕ} (T : QuarticQuery.QueryTree (QuarticQuery.BitLoc ℓ r S κ)) (hT : T.depth ≤ G), (QuarticQuery.Independent.Eq19.hitProbability μ T = QuarticQuery.Independent.Eq19.expectedCount μ T / ((2 ^ ℓ : ℕ) : ℝ)) ∧ (QuarticQuery.Independent.Eq19.hitProbability μ T ≤ 4 * (G : ℝ) / ((2 ^ ℓ : ℕ) : ℝ) ^ 2)",
+        "source": "eq19/overlay/lean/QuarticCorpus/Independent/Eq19/Bridge.lean",
+        "type_evidence": "proposed_source_type_uncompiled",
+        "notation_context": "Lean real/natural notation, BigOperators where used; namespaces shown or stated in type. Section and implicit binders are included. This is source-type transcription, not a fresh elaborated printout.",
+        "notes": ""
+      },
+      {
+        "declaration": "QuarticQuery.Independent.Eq19.checked_eq19",
+        "type": "∀ {κ : Type} [Fintype κ] [DecidableEq κ] {ℓ r S : ℕ} {μ : QuarticQuery.BitInput κ → ℝ} (hμ : ∀ x, 0 ≤ μ x) (hμ1 : ∑ x, μ x = 1) {G : ℕ} (T : QuarticQuery.QueryTree (QuarticQuery.BitLoc ℓ r S κ)) (hT : T.depth ≤ G), (QuarticQuery.Independent.Eq19.hitProbability μ T = QuarticQuery.Independent.Eq19.expectedCount μ T / ((2 ^ ℓ : ℕ) : ℝ)) ∧ (QuarticQuery.Independent.Eq19.hitProbability μ T ≤ 4 * (G : ℝ) / ((2 ^ ℓ : ℕ) : ℝ) ^ 2)",
+        "source": "eq19/overlay/lean/QuarticCorpus/Independent/Eq19/Solution.lean",
+        "type_evidence": "proposed_source_type_uncompiled",
+        "notation_context": "Lean real/natural notation, BigOperators where used; namespaces shown or stated in type. Section and implicit binders are included. This is source-type transcription, not a fresh elaborated printout.",
+        "notes": ""
+      }
+    ],
+    "ordinary_premises": [
+      "κ is finite and its equality decidable.",
+      "ℓ,r,S,G are natural numbers; m=2^ℓ>0.",
+      "μ has nonnegative real weights and sum one.",
+      "Address strings are iid μ, zero positions independently uniform, and the further uniform index I is independent; encoded in the definitions.",
+      "All cell bits are fixed false; T.depth ≤ G counts every query, including repeats."
+    ],
+    "open_assumptions": [],
+    "relation": "proposed_independent_specification_and_bridges",
+    "route": "explicit finite product sums, dummy and discovery definitions; bridge to actual functions",
+    "citation_role": [
+      {
+        "source": "OAI26 §4.2",
+        "role": "experiment authority"
+      },
+      {
+        "source": "eq19/overlay/lean/QuarticCorpus/Independent/Eq19/Spec.lean",
+        "role": "independently authored proposed formal specification"
+      }
+    ],
+    "evidence_state": {
+      "kind": "proposed_uncompiled",
+      "bridge_elaboration": "not_run",
+      "independent_comparator": "not_run",
+      "direct_whole_comparator": "separate_unrun_target",
+      "shared_interfaces": [
+        "QueryTree",
+        "BitLoc",
+        "path",
+        "depth"
+      ]
+    }
+  },
+  {
+    "id": "eq19-repeat-control",
+    "passage": "EVID-EQ19",
+    "from": "## 5. Equation (19) requires both clauses",
+    "to": "The maintained corpus already calls the original `eq-19` tie **partial**. The old baseline Appendix B calls its inequality-only declaration `stronger`; that evidence paragraph should be corrected. The wrapper does not upgrade the separate compound `claim-EZ` row, which includes the early/late explanation as well as an endpoint bound.",
+    "role": "explains",
+    "statement_ids": [
+      "def-Z",
+      "r3-semantic-repeated-query-count"
+    ],
+    "lean": [
+      "QuarticQuery.Independent.Eq19.askTwice_path",
+      "QuarticQuery.Independent.Eq19.askTwice_depth",
+      "QuarticQuery.Independent.Eq19.repeatedZero_counts_once"
+    ],
+    "claim": "Two visits are two queries and one discovered column.",
+    "complete_lean_types": [
+      {
+        "declaration": "QuarticQuery.Independent.Eq19.askTwice_path",
+        "type": "∀ {ι : Type} (q : ι) (x : QuarticQuery.BitInput ι), (QuarticQuery.Independent.Eq19.askTwice q).path x = [q, q]",
+        "source": "eq19/overlay/lean/QuarticCorpus/Independent/Eq19/PathControls.lean",
+        "type_evidence": "proposed_source_type_uncompiled",
+        "notation_context": "Lean real/natural notation, BigOperators where used; namespaces shown or stated in type. Section and implicit binders are included. This is source-type transcription, not a fresh elaborated printout.",
+        "notes": ""
+      },
+      {
+        "declaration": "QuarticQuery.Independent.Eq19.askTwice_depth",
+        "type": "∀ {ι : Type} (q : ι), (QuarticQuery.Independent.Eq19.askTwice q).depth = 2",
+        "source": "eq19/overlay/lean/QuarticCorpus/Independent/Eq19/PathControls.lean",
+        "type_evidence": "proposed_source_type_uncompiled",
+        "notation_context": "Lean real/natural notation, BigOperators where used; namespaces shown or stated in type. Section and implicit binders are included. This is source-type transcription, not a fresh elaborated printout.",
+        "notes": ""
+      },
+      {
+        "declaration": "QuarticQuery.Independent.Eq19.repeatedZero_counts_once",
+        "type": "∀ {κ : Type} {ℓ r S : ℕ} (J : QuarticQuery.Column ℓ → QuarticQuery.Column ℓ) (A : QuarticQuery.Column ℓ → Fin r → QuarticQuery.BitInput κ) (i : QuarticQuery.Column ℓ), QuarticQuery.Independent.Eq19.zerosSeen (S := S) (QuarticQuery.Independent.Eq19.askTwice (.inl (i, J i))) A J = 1",
+        "source": "eq19/overlay/lean/QuarticCorpus/Independent/Eq19/PathControls.lean",
+        "type_evidence": "proposed_source_type_uncompiled",
+        "notation_context": "Lean real/natural notation, BigOperators where used; namespaces shown or stated in type. Section and implicit binders are included. This is source-type transcription, not a fresh elaborated printout.",
+        "notes": ""
+      }
+    ],
+    "ordinary_premises": [],
+    "open_assumptions": [],
+    "relation": "discriminating_control",
+    "route": "repeated path, structural depth and distinct-discovery cardinality",
+    "citation_role": [
+      {
+        "source": "def-Z in the corrected supplied corpus",
+        "role": "distinct-discovery convention"
+      }
+    ],
+    "evidence_state": {
+      "kind": "ordinary_argument_and_proposed_actual_definition_lean",
+      "lean_build": "not_run",
+      "comparator": "not_run",
+      "source_review": "additional AI source review, no definite defect found; not human review"
+    }
+  },
+  {
+    "id": "index-independence-control",
+    "passage": "EVID-INDEPENDENCE",
+    "from": "### 5.5. A finite control for independence",
+    "to": "The returned exact-rational script enumerated all 256 zero-location vectors and verified these values and all four uniform marginals. This is a deliberately different sampling law, not a counterexample to the preprint. It explains why the independent product specification is a substantive test and why validating only the final inequality would miss a different clause.",
+    "role": "proves",
+    "statement_ids": [
+      "eq-19",
+      "def-planted",
+      "r3-evidence-independent-index-control"
+    ],
+    "lean": [],
+    "claim": "Uniform I marginals alone permit hit probability 175/256 while EZ/4=1/4; the altered law is not the preprint experiment.",
+    "complete_lean_types": [],
+    "ordinary_premises": [
+      "Four independent zero positions, each uniform on four rows.",
+      "Fixed tree queries first row in each column.",
+      "Altered I law selects uniformly among discovered columns when nonempty; otherwise uniformly among all columns."
+    ],
+    "open_assumptions": [],
+    "relation": "derived_countermodel_to_marginal_only_premise",
+    "route": "symmetry and exact 256-world enumeration",
+    "citation_role": [
+      {
+        "source": "OAI26 §4.2",
+        "role": "original independent law being distinguished"
+      },
+      {
+        "source": "checks/eq19_independence_control.py",
+        "role": "exact finite computation"
+      }
+    ],
+    "evidence_state": {
+      "kind": "ordinary_proof_and_executed_exact_python",
+      "receipt": "checks/eq19_independence_control.json",
+      "native_lean": "not_proposed"
+    }
+  },
+  {
+    "id": "review-freshness",
+    "passage": "EVID-FRESHNESS",
+    "from": "## 6. Enforcing review freshness",
+    "to": "The patch changes only the corpus producer, its existing tests, one added regression file, and the two existing evidence guides. The eleven acceptance cases and exact output are under `backend/`.",
+    "role": "explains",
+    "statement_ids": [],
+    "lean": [],
+    "claim": "Review binding is independent of fresh build/comparison records; 11 new Python regressions pass; 477 authored reviews remain unbound.",
+    "complete_lean_types": [],
+    "ordinary_premises": [],
+    "open_assumptions": [],
+    "relation": "software_or_evidence_assessment",
+    "route": "specific executed checks with native limits",
+    "citation_role": [
+      {
+        "source": "backend/logs/patched-python-tests.log",
+        "role": "local operation evidence or proposed integration specification"
+      },
+      {
+        "source": "backend/logs/backend-acceptance.json",
+        "role": "local operation evidence or proposed integration specification"
+      },
+      {
+        "source": "backend/backend.patch",
+        "role": "local operation evidence or proposed integration specification"
+      }
+    ],
+    "evidence_state": {
+      "kind": "actual_python_regression_and_real_corpus_dry_run",
+      "passed": 44,
+      "skipped": 2,
+      "native_transitions": "mocked",
+      "patch_applied_to_original": false
+    }
+  },
+  {
+    "id": "derived-provenance",
+    "passage": "EVID-PROVENANCE",
+    "from": "## 7. Derived statements retain their own provenance",
+    "to": "The resulting informal graph still has 121 nodes and 225 support edges, with 120 unverified nodes and one external assumption. It has extraction status `not_run`. Build facts attached as metadata remain build facts; they are not converted into native formal-node verification.",
+    "role": "explains",
+    "statement_ids": [],
+    "lean": [],
+    "claim": "The seven helper proposals remain explicitly withheld; the producer patch refuses relabelling and missing edges.",
+    "complete_lean_types": [],
+    "ordinary_premises": [],
+    "open_assumptions": [],
+    "relation": "software_or_evidence_assessment",
+    "route": "specific executed checks with native limits",
+    "citation_role": [
+      {
+        "source": "backend/backend.patch",
+        "role": "local operation evidence or proposed integration specification"
+      },
+      {
+        "source": "backend/backend_acceptance_cases.json",
+        "role": "local operation evidence or proposed integration specification"
+      }
+    ],
+    "evidence_state": {
+      "kind": "actual_python_regressions_and_source_review",
+      "native_graph": "not_created",
+      "registry": "existing_owner_only"
+    }
+  },
+  {
+    "id": "supplied-snapshot",
+    "passage": "EVID-SNAPSHOT",
+    "from": "## 8. What the supplied native records establish",
+    "to": "The complete byte and receipt audit is `checks/snapshot_audit.json`. Complete original build/comparison output is not always supplied: several retained logs are only summaries. Hash consistency cannot recreate unavailable full logs, authenticate the original host, prove clean-clone reproducibility, or detect a transient change-and-revert between the original recorder's boundary observations.",
+    "role": "explains",
+    "statement_ids": [],
+    "lean": [],
+    "claim": "Currentness follows matching input bytes; declaration/reach/comparison and actual reader graph identity remain distinct.",
+    "complete_lean_types": [],
+    "ordinary_premises": [],
+    "open_assumptions": [],
+    "relation": "software_or_evidence_assessment",
+    "route": "specific executed checks with native limits",
+    "citation_role": [
+      {
+        "source": "checks/snapshot_audit.json",
+        "role": "local operation evidence or proposed integration specification"
+      },
+      {
+        "source": "checks/packet-check.json",
+        "role": "local operation evidence or proposed integration specification"
+      },
+      {
+        "source": "checks/reader_graph_delta.json",
+        "role": "local operation evidence or proposed integration specification"
+      }
+    ],
+    "evidence_state": {
+      "kind": "actual_byte_checks_of_supplied_records",
+      "receipt_counts": {
+        "current": 12,
+        "legacy_unbound": 11
+      },
+      "fresh_native_run": false
+    }
+  },
+  {
+    "id": "native-extraction-boundary",
+    "passage": "EVID-EXTRACTION",
+    "from": "## 9. Native extraction was attempted and remains incomplete",
+    "to": "To close this endpoint, obtain the complete matching tool distribution and pinned project environment, run extraction on the unmodified accepted target, retain the real native report and build/extraction receipts, validate the graph, select the equality, and inspect its prerequisites and provenance. `eq19/reentry-plan.json` supplies exact argument arrays. For new candidates, use a disposable copy with both returned Lean overlays and obtain fresh receipts for their enlarged source snapshot. The old receipts cannot certify newly added source files.",
+    "role": "explains",
+    "statement_ids": [],
+    "lean": [],
+    "claim": "An accepted source-current equality target was chosen; actual extract launch failed before native execution and produced no graph.",
+    "complete_lean_types": [],
+    "ordinary_premises": [],
+    "open_assumptions": [],
+    "relation": "software_or_evidence_assessment",
+    "route": "specific executed checks with native limits",
+    "citation_role": [
+      {
+        "source": "eq19/native-extraction-attempt.json",
+        "role": "local operation evidence or proposed integration specification"
+      },
+      {
+        "source": "eq19/accepted-target-source-check.json",
+        "role": "local operation evidence or proposed integration specification"
+      },
+      {
+        "source": "eq19/reentry-plan.json",
+        "role": "local operation evidence or proposed integration specification"
+      }
+    ],
+    "evidence_state": {
+      "kind": "actual_failed_process_launch",
+      "exit_code": 127,
+      "native_extraction_started": false,
+      "schema_select_inspect": "not_run"
+    }
+  }
+]

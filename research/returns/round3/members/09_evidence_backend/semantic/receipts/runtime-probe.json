@@ -1,0 +1,52 @@
+{
+  "schema": "quartic-r3-native-prerequisite-probe-v1",
+  "ran_at": "2026-11-02T19:14:57.400410+00:00",
+  "status": "unavailable",
+  "scope": "Actual command attempts in this environment. No Lean module, Comparator comparison, or lean-exposition extraction was executed.",
+  "commands": [
+    {
+      "command": [
+        "lean",
+        "--version"
+      ],
+      "cwd": "repository/lean",
+      "exit_code": null,
+      "exception": "[Errno 2] No such file or directory: 'lean'",
+      "available_on_path": null,
+      "native_run_started": false
+    },
+    {
+      "command": [
+        "lake",
+        "--version"
+      ],
+      "cwd": "repository/lean",
+      "exit_code": null,
+      "exception": "[Errno 2] No such file or directory: 'lake'",
+      "available_on_path": null,
+      "native_run_started": false
+    },
+    {
+      "command": [
+        "elan",
+        "--version"
+      ],
+      "cwd": "repository/lean",
+      "exit_code": null,
+      "exception": "[Errno 2] No such file or directory: 'elan'",
+      "available_on_path": null,
+      "native_run_started": false
+    },
+    {
+      "command": [
+        "lean-exposition",
+        "--version"
+      ],
+      "cwd": "repository/lean",
+      "exit_code": null,
+      "exception": "[Errno 2] No such file or directory: 'lean-exposition'",
+      "available_on_path": null,
+      "native_run_started": false
+    }
+  ]
+}

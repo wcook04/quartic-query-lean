@@ -1,0 +1,123 @@
+{
+  "schema": "forrelation_route_boundaries_v1",
+  "original_fixed_k_endpoint": {
+    "name": "QuarticQuery.ForrelationLower.bansalSinhaLower",
+    "expanded_target": "∀ k : ℕ, 2 ≤ k → ∃ t₀ : ℕ, ∀ t : ℕ, t₀ ≤ t → Lvalue k t < R (P k t)",
+    "ordinary_assumptions": [],
+    "exact_comparator": true,
+    "structure": [
+      "Frozen finite randomized-query model and one-sided partial promise.",
+      "Finite biased polynomial extension and Boolean derivative identities.",
+      "Explicit bounded algebraic truncation and Gaussian integration by parts.",
+      "Mean-value first-block interpolation and Stein elimination along a single path.",
+      "Successive Gaussian reflections at s=0; injective path coordinate sets.",
+      "Direct finite stopped-process estimate for biased level-k derivatives.",
+      "Hard first moment and uniform second moment for the Walsh family.",
+      "Independent 2tau-run amplification; all-input promise inequalities.",
+      "Explicit large-t closure; natural minimum of query budgets."
+    ]
+  },
+  "sharp_uniform_endpoint": {
+    "name": "QuarticQuery.forrelation_lower_uniform_sharp",
+    "quantified_parameters": [
+      "k : ℕ",
+      "t : ℕ"
+    ],
+    "ordinary_hypotheses": [
+      "2 ≤ k",
+      "15*k+2 ≤ 2*t"
+    ],
+    "dimension": "m=mValue t=2^(2t)=4^t",
+    "error": "1/3 via the frozen RLe/R definitions",
+    "threshold": "δ=2^(-5k)=32^(-k)",
+    "constant": "2/18225=256*(1/2332800)",
+    "conclusion": "(2/18225)*m^(1-1/k)/(k^2*ln(4*k*m)) < R(P k t)",
+    "theorem_is_current": true,
+    "has_ssw_hypothesis": false,
+    "has_eta_parameter": false,
+    "exact_comparator": false,
+    "individually_axiom_audited": true,
+    "in_headline_closure": false
+  },
+  "genuine_assumption_boundaries": [
+    {
+      "stage": "Product biases",
+      "premise": "|mu_i|<=1 for probabilistic weights; |mu_i|<1 for derivative characters; |mu_i|<=1/2 for bound2.",
+      "discharged_by": "abs_wv_le_half and elementary inequalities."
+    },
+    {
+      "stage": "Stein step",
+      "premise": "Continuous bounded integrand/derivative and coordinate derivative law; earlier weights invariant under current/future updates.",
+      "discharged_by": "BCf and EarlyOnly induction in integral_walk."
+    },
+    {
+      "stage": "Null endpoint",
+      "premise": "RowsOrth H.",
+      "discharged_by": "rowsOrth_H for normalized Walsh matrix."
+    },
+    {
+      "stage": "Tree growth",
+      "premise": "Positive depth proxy d,K; exact K^2=8d Lambda; tree depth<=d; |v|<=1; no repeated coordinates in a derivative list; injective coordinate-set path map.",
+      "discharged_by": "d=2tauL+1, K chosen by square root; Lpath_nodup/Lpath_inj; acceptance values0/1."
+    },
+    {
+      "stage": "Moment estimate",
+      "premise": "Positive chain length and the concrete Walsh family.",
+      "discharged_by": "k>=2 and Phi_eq_PhiF; no arbitrary-orthogonal moment theorem is claimed."
+    },
+    {
+      "stage": "Promise gap",
+      "premise": "Moment inequalities and amplified correctness on the actual promise.",
+      "discharged_by": "P_yes/P_no, exists_amplified, mass_ge plus ext_PhiF_zero, ext_PhiF_sq; pointwise inequalities extend comparison to all inputs."
+    }
+  ],
+  "ranked_gaps": [
+    {
+      "rank": 1,
+      "severity": "scope boundary, not a missing proof",
+      "item": "No current formal arbitrary-eta lower-bound endpoint or SSW-derived 1/(162 e C^2) theorem.",
+      "action": "State those as external/ordinary extensions with explicit SSW hypothesis; do not attribute them to forrelation_lower_uniform_sharp."
+    },
+    {
+      "rank": 2,
+      "severity": "evidence boundary",
+      "item": "Sharp uniform theorem is absent from exact Comparator theorem lists.",
+      "action": "Credit current root/native compilation and individually audited axioms. Reserve Comparator claim for fixed-k BansalSinhaLower endpoint."
+    },
+    {
+      "rank": 3,
+      "severity": "scope boundary",
+      "item": "Current endpoints specialize m=4^t; smaller improved exponential-tail dimension and arbitrary powers-of-two extension are not supplied endpoints.",
+      "action": "Retain 15k+2<=2t and frozen family. Distinguish ordinary extensions."
+    },
+    {
+      "rank": 4,
+      "severity": "packaging difference",
+      "item": "exists_identity is mean-value form with one common s, not a literal integral in s.",
+      "action": "State the actual source identity; if integrating in s, provide separate ordinary regularity argument and do not label it exact source theorem."
+    },
+    {
+      "rank": 5,
+      "severity": "packaging difference",
+      "item": "All-path hard-mean derivative formula is not separately named; source uses Int_Rs and nested Yy/TT sums.",
+      "action": "Explain its equivalence as expanded ordinary proof, with explicit derivative signs/index orientation."
+    },
+    {
+      "rank": 6,
+      "severity": "replay limitation",
+      "item": "No Lean executable or full dependency installation is available in this review environment.",
+      "action": "Describe verification as supplied-evidence audit, including independently matched bytes; make no fresh kernel replay claim."
+    }
+  ],
+  "not_gaps": [
+    "No unexplained analytic lower-bound assumption appears in bansalSinhaLower.",
+    "The biased Fourier-growth hard step is proved internally by a finite stopped-process argument.",
+    "Reflection invariance and differentiation/integration regularity premises are explicit and discharged.",
+    "Sharp scalar coefficient and complete restricted uniform endpoint already have current evidence."
+  ],
+  "superseded_documentary_claims": [
+    "Baseline/review statements treating scalar3/16 and uniform sharp endpoint as only proposed.",
+    "Round-two adjudication statements that aggregate root acceptance and recomputed headline reach are pending. Exact new-endpoint Comparator remains absent.",
+    "Historical native-inventory blocked status and retry1/retry2 failed source versions do not describe the accepted retry3 bytes."
+  ]
+}

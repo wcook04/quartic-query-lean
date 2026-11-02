@@ -1,0 +1,200 @@
+{
+  "kind": "proposed_future_integration_map",
+  "units": [
+    {
+      "unit": "scope_and_quantifiers",
+      "long": {
+        "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "anchors": [
+          "ROOT-RESULT",
+          "ROOT-RATIO"
+        ],
+        "rendered_anchors_present": true
+      },
+      "short": {
+        "member": "repository/research/returns/funnel/2_short_expert_paper/paper.md",
+        "passage_comments": [
+          "headline",
+          "exponent"
+        ],
+        "rendered_anchors_present": false
+      },
+      "examples": {
+        "member": "repository/research/returns/funnel/3_examples_first_exposition/exposition.md",
+        "passage_comments": [
+          "main-theorem",
+          "optimal-exponent"
+        ],
+        "rendered_anchors_present": false
+      },
+      "action": "Add real anchors at selected companion passage comments; create bidirectional links. Preserve exact example parameter limits."
+    },
+    {
+      "unit": "winner_and_off_promise_asymmetry",
+      "long": {
+        "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "anchors": [
+          "CL-address-winner",
+          "CL-fidelity",
+          "upper-winner-dominates"
+        ],
+        "rendered_anchors_present": true
+      },
+      "short": {
+        "member": "repository/research/returns/funnel/2_short_expert_paper/paper.md",
+        "passage_comments": [
+          "winner-definition",
+          "comparison"
+        ],
+        "rendered_anchors_present": false
+      },
+      "examples": {
+        "member": "repository/research/returns/funnel/3_examples_first_exposition/exposition.md",
+        "passage_comments": [
+          "opening-board",
+          "comparisons-and-false-positive"
+        ],
+        "rendered_anchors_present": false
+      },
+      "action": "Add real anchors at selected companion passage comments; create bidirectional links. Preserve exact example parameter limits."
+    },
+    {
+      "unit": "local_tests",
+      "long": {
+        "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "anchors": [
+          "CL-local-tests",
+          "CL-local-equivalence"
+        ],
+        "rendered_anchors_present": true
+      },
+      "short": {
+        "member": "repository/research/returns/funnel/2_short_expert_paper/paper.md",
+        "passage_comments": [
+          "local-tests"
+        ],
+        "rendered_anchors_present": false
+      },
+      "examples": {
+        "member": "repository/research/returns/funnel/3_examples_first_exposition/exposition.md",
+        "passage_comments": [
+          "local-checks"
+        ],
+        "rendered_anchors_present": false
+      },
+      "action": "Add real anchors at selected companion passage comments; create bidirectional links. Preserve exact example parameter limits."
+    },
+    {
+      "unit": "amplification_and_exact_sampling",
+      "long": {
+        "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "anchors": [
+          "upper-amplification-proof",
+          "upper-stage-law"
+        ],
+        "rendered_anchors_present": true
+      },
+      "short": {
+        "member": "repository/research/returns/funnel/2_short_expert_paper/paper.md",
+        "passage_comments": [
+          "amplification-proof",
+          "tournament-sampler"
+        ],
+        "rendered_anchors_present": false
+      },
+      "examples": {
+        "member": "repository/research/returns/funnel/3_examples_first_exposition/exposition.md",
+        "passage_comments": [
+          "amplification-general",
+          "weighted-quantum-sampling"
+        ],
+        "rendered_anchors_present": false
+      },
+      "action": "Add real anchors at selected companion passage comments; create bidirectional links. Preserve exact example parameter limits."
+    },
+    {
+      "unit": "arbitrary_comparisons",
+      "long": {
+        "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "anchors": [
+          "upper-weight-drift",
+          "upper-coupling"
+        ],
+        "rendered_anchors_present": true
+      },
+      "short": {
+        "member": "repository/research/returns/funnel/2_short_expert_paper/paper.md",
+        "passage_comments": [
+          "tournament-drift"
+        ],
+        "rendered_anchors_present": false
+      },
+      "examples": {
+        "member": "repository/research/returns/funnel/3_examples_first_exposition/exposition.md",
+        "passage_comments": [
+          "cycle-weights",
+          "fractional-example"
+        ],
+        "rendered_anchors_present": false
+      },
+      "action": "Add real anchors at selected companion passage comments; create bidirectional links. Preserve exact example parameter limits."
+    },
+    {
+      "unit": "capped_product_and_simulator",
+      "long": {
+        "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "anchors": [
+          "CL-direct-product-statement",
+          "CL-joint-event"
+        ],
+        "rendered_anchors_present": true
+      },
+      "short": {
+        "member": "repository/research/returns/funnel/2_short_expert_paper/paper.md",
+        "passage_comments": [
+          "direct-product",
+          "heavy-simulator"
+        ],
+        "rendered_anchors_present": false
+      },
+      "examples": {
+        "member": "repository/research/returns/funnel/3_examples_first_exposition/exposition.md",
+        "passage_comments": [
+          "and-example",
+          "capped-product",
+          "heavy-and-capped"
+        ],
+        "rendered_anchors_present": false
+      },
+      "action": "Add real anchors at selected companion passage comments; create bidirectional links. Preserve exact example parameter limits."
+    },
+    {
+      "unit": "forrelation_interface_and_example",
+      "long": {
+        "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "anchors": [
+          "forr_small_instance",
+          "forr_bundle"
+        ],
+        "rendered_anchors_present": true
+      },
+      "short": {
+        "member": "repository/research/returns/funnel/2_short_expert_paper/paper.md",
+        "passage_comments": [
+          "forrelation-definition",
+          "forrelation-properties"
+        ],
+        "rendered_anchors_present": false
+      },
+      "examples": {
+        "member": "repository/research/returns/funnel/3_examples_first_exposition/exposition.md",
+        "passage_comments": [
+          "forrelation-example",
+          "forrelation-general"
+        ],
+        "rendered_anchors_present": false
+      },
+      "action": "Add real anchors at selected companion passage comments; create bidirectional links. Preserve exact example parameter limits."
+    }
+  ]
+}

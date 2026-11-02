@@ -1,0 +1,250 @@
+{
+  "agent": "circuit_examples",
+  "source_scope": [
+    {
+      "member": "READ_ME_FIRST.md",
+      "status": "assessed",
+      "coverage": "complete",
+      "bytes": 11535,
+      "sha256": "70484ef7c8b98be3c487c7ee736afe9128c74ebfa7c60d3c0445e59acfbd274c",
+      "lines": 52
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Forrelation/Arithmetic.lean",
+      "status": "assessed",
+      "coverage": "complete",
+      "bytes": 20491,
+      "sha256": "5a7336764ee8cd299b9e19fd3164374fcebab98b7df8d9c956a457334b9dc243",
+      "lines": 477
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Forrelation/Builder.lean",
+      "status": "assessed",
+      "coverage": "complete",
+      "bytes": 9577,
+      "sha256": "32e1ff4623c8bbceda26da74e53961d8c2bc660ff9b831cf19d4cc32ce1abc23",
+      "lines": 245
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Forrelation/Circuit.lean",
+      "status": "assessed",
+      "coverage": "complete",
+      "bytes": 23023,
+      "sha256": "b17824d0a3b6ee5a689822b04c18d20de9e72e1db119105584e9cbba60ae8f01",
+      "lines": 488
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Forrelation/Sanity.lean",
+      "status": "assessed",
+      "coverage": "complete",
+      "bytes": 2662,
+      "sha256": "bf287a0ff1f6022582b6d8daae3a89ad34d8aa51986531a649f133ee692eae70",
+      "lines": 67
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Forrelation/Promise.lean",
+      "status": "assessed",
+      "coverage": "complete",
+      "bytes": 4434,
+      "sha256": "96b967a27458107549e38ce4fe001d707a4c240ad4e4b582729a6ce9526d2cf1",
+      "lines": 117
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionArithmetic.lean",
+      "status": "assessed",
+      "coverage": "complete",
+      "bytes": 4291,
+      "sha256": "2c355a3eb5e76cd5db70a6990bb9d6b37d652e0eece3b31ed0661219d3635ad0",
+      "lines": 105
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+      "status": "assessed",
+      "coverage": "complete",
+      "bytes": 8709,
+      "sha256": "14f92345b8885036e862885aad3db82d77cff6e71642e669c2ba7dc8ba087aa1",
+      "lines": 183
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationCircuit.lean",
+      "status": "assessed",
+      "coverage": "complete",
+      "bytes": 5743,
+      "sha256": "860e8653027d64fe7d5cc5f35357d81ed5fa27e027899047ab819c821e3c8b32",
+      "lines": 120
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationComplete.lean",
+      "status": "assessed",
+      "coverage": "complete",
+      "bytes": 4796,
+      "sha256": "733526015ad9a2013512d8f6216b8f73c41566a803d92602dd30e40e90d7ad06",
+      "lines": 95
+    },
+    {
+      "member": "repository/research/returns/round2/2_lean_construction/source_records/review_forrelation.md",
+      "status": "assessed",
+      "coverage": "complete",
+      "bytes": 6878,
+      "sha256": "f74b9dbeaa519a4995a918270ad38c87f372560b60ab12cc74bb83adceb64fa9",
+      "lines": 41
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+      "status": "assessed_at_selected_locators",
+      "coverage": {
+        "line_ranges": [
+          [
+            51,
+            63
+          ],
+          [
+            100,
+            136
+          ],
+          [
+            146,
+            391
+          ],
+          [
+            834,
+            869
+          ]
+        ],
+        "scope": "roadmap, quantum interface, whole assigned §§3.1–3.5, complete-ingredient consumer and source list"
+      },
+      "bytes": 353091,
+      "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff"
+    },
+    {
+      "member": "paper/extracted.md",
+      "status": "assessed_at_selected_locators",
+      "coverage": {
+        "line_ranges": [
+          [
+            125,
+            211
+          ]
+        ],
+        "scope": "Section 2 opening and full §2.1 including Lemma 2.1 and proof"
+      },
+      "bytes": 64021,
+      "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Statement.lean",
+      "status": "assessed_at_selected_locators",
+      "coverage": {
+        "line_ranges": [
+          [
+            95,
+            235
+          ]
+        ],
+        "scope": "bit-query model, Forrelation definitions, circuits and complete CircuitRealises structure"
+      },
+      "bytes": 13769,
+      "sha256": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced"
+    },
+    {
+      "member": "repository/research/returns/round2/2_lean_construction/blueprint.md",
+      "status": "assessed_at_selected_locators",
+      "coverage": {
+        "line_ranges": [
+          [
+            513,
+            681
+          ]
+        ],
+        "scope": "claim-N-phi, claim-integer-tests, claim-circuit-size sections assessed; additional search hits sampled elsewhere"
+      },
+      "bytes": 111601,
+      "sha256": "25769ece47b6b064401348c3e6129b6026fefdc47313bea7083f12e7e614e1f0"
+    },
+    {
+      "member": "repository/research/returns/round2/2_lean_construction/REVIEW_NOTES.md",
+      "status": "assessed_at_selected_locators",
+      "coverage": {
+        "line_ranges": [
+          [
+            1,
+            145
+          ]
+        ],
+        "scope": "review §§1–7 sampled beyond circuit remit; §§2–4 assessed"
+      },
+      "bytes": 11709,
+      "sha256": "52da4b6132ddec76823f3e1cf6b83e9cd13bc9e8572d632c6e62e2cce328eba0"
+    },
+    {
+      "member": "repository/research/returns/round2/2_lean_construction/LEAN_GAPS.md",
+      "status": "assessed_at_selected_locators",
+      "coverage": {
+        "line_ranges": [
+          [
+            65,
+            85
+          ]
+        ],
+        "scope": "integer/circuit gaps assessed; other search hits sampled"
+      },
+      "bytes": 12134,
+      "sha256": "f6351a5037867e9693482c7cef2c66c44e4620388705f69d566553d243b48829"
+    },
+    {
+      "member": "repository/research/adjudication/round2_construction_quantum.md",
+      "status": "assessed_at_selected_locators",
+      "coverage": {
+        "line_ranges": [
+          [
+            1,
+            190
+          ]
+        ],
+        "scope": "maintained current compilation/semantic review and primary crosswalk sampled; circuit/projection qualifications assessed"
+      },
+      "bytes": 18402,
+      "sha256": "49924c2982b6d42f5b8feb989604dcb447bd6e5f9f4b921d9b3a0c2ea1572068"
+    },
+    {
+      "member": "repository/research/adjudication/round2_construction_quantum_ties.json",
+      "status": "assessed_at_selected_locators",
+      "coverage": {
+        "json_row_ids": [
+          "claim-N-phi",
+          "claim-integer-tests",
+          "claim-circuit-size",
+          "lem-2.1"
+        ],
+        "scope": "complete selected rows assessed; other rows unassessed"
+      },
+      "bytes": 260597,
+      "sha256": "99a0d39b328d4f6c71b816d8b65a40e4439d60c23de85bc83a5f9259377e28e6"
+    },
+    {
+      "member": "manifest.json",
+      "status": "assessed_at_selected_locators",
+      "coverage": {
+        "json_fields": [
+          "input_sha256"
+        ],
+        "scope": "relevant source hashes checked; no full semantic reading of manifest"
+      },
+      "bytes": 224521,
+      "sha256": "53528c475a467609c2f1d5640e7db843711ae80764d80ed87077f1b292d53b7a"
+    }
+  ],
+  "new_execution": {
+    "command": "python agent_circuit/exact_example_checker.py --json agent_circuit/exact_example_results.json",
+    "exit_code": 0,
+    "checks": "256 + 4096 complete sign inputs, with exact rational promises and reconstructed Boolean gates; 8193 synthetic integer thresholds"
+  },
+  "not_claimed": [
+    "fresh Lean build",
+    "fresh Comparator run",
+    "kernel census replay",
+    "read of all packet files",
+    "new external literature search by this auditor"
+  ],
+  "files_unchanged": "No source input edited."
+}

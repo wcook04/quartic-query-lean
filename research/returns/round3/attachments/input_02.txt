@@ -1,0 +1,327 @@
+I read the available ZIP, followed the section-authoring assignment inside it, and completed the requested return package.
+
+**[quartic_r3_02_forrelation_promise_circuit_return.zip](https://chatgpt.com/library?file_id=libfile_61cc04ad37b88191954b76bd0b6b18bd&account_id=personal)**
+
+It contains the rewritten §§3.1–3.5 in Markdown and a **nine-page PDF**, the exact source/Lean correspondence, references, review notes, remaining formalization limits, reproducible checkers, and a manifest of the delivered files.
+
+**My assessment:** the assigned quantum and circuit conclusions admit a complete ordinary mathematical account. The most consequential repairs concern the relationship between the coherent state and its measured law, the distinction between the ordinary and formally packaged query counts, the circuit’s modular arithmetic, and several obsolete statements about the available Lean evidence. The return makes those repairs while preserving the canonical definitions and theorem statements.
+
+## 1. The asymmetric promise is the central distinction
+
+With \(k\ge 2\), \(t\ge 1\), and \(m=4^t\), the section fixes
+\[
+W_{ab}=(-1)^{a\cdot b},\qquad
+H=m^{-1/2}W,\qquad
+u=m^{-1/2}(1,\ldots,1)^{\mathsf T},
+\]
+and
+\[
+\Phi(z)
+=
+u^{\mathsf T}D_{z_0}H D_{z_1}H\cdots H D_{z_{k-1}}u,
+\qquad
+\delta=2^{-5k}.
+\]
+
+The promise is
+\[
+P_{k,m}(z)=
+\begin{cases}
+1,&\Phi(z)\ge\delta,\\
+0,&|\Phi(z)|\le\delta/2,\\
+\text{undefined},&\text{otherwise}.
+\end{cases}
+\]
+
+That positive sign in the first condition matters. A large negative value is outside the promise. This is the parameterized promise in Bansal–Sinha’s equations (1.1)–(1.3), with their block length \(N\) specialized to this project’s \(m=4^t\). [arxiv.org](https://arxiv.org/html/2008.07003v3?utm_source=chatgpt.com)
+
+The quantum projection experiment has success probability \(\Phi^2\). It therefore succeeds with certainty at both \(\Phi=1\) and \(\Phi=-1\), although only the former is a yes-instance. This is entirely compatible with a promise algorithm: its accuracy requirement applies on the promise.
+
+It also explains why the later construction needs **two separate capabilities**:
+
+- A quantum procedure proposes the value accurately on promised inputs.
+- An exact Boolean circuit certifies that the input is promised and identifies its value.
+
+The rewrite states this purpose before introducing the notation, then returns to it in the worked example and the transcript interface.
+
+## 2. The integer tests are exact, including their boundaries
+
+Removing the normalization factors from the Walsh product gives an integer numerator \(N(z)\) and a positive denominator
+\[
+M=m(\sqrt m)^{k-1}=2^{t(k+1)},
+\qquad
+\Phi(z)=\frac{N(z)}{M}.
+\]
+
+There are \(k+1\) factors of \(m^{-1/2}\): two from the boundary vectors and \(k-1\) from the Walsh matrices. Keeping that count explicit prevents normalization errors.
+
+Multiplication by the positive denominator gives
+\[
+\Phi\ge\delta
+\quad\Longleftrightarrow\quad
+2^{5k}N\ge M,
+\]
+and
+\[
+|\Phi|\le\delta/2
+\quad\Longleftrightarrow\quad
+2^{5k+1}|N|\le M.
+\]
+
+Both are exact integer comparisons. Equality belongs to the corresponding promised case.
+
+Writing their truth values as \(p_1\) and \(p_0\), the concrete circuit outputs
+\[
+d=p_1\lor p_0,\qquad b=p_1.
+\]
+
+Consequently:
+
+- \(d=1\) exactly when the partial function is defined.
+- When \(d=1\), \(b\) is its value.
+- For this particular circuit, an unpromised input has \(d=b=0\).
+
+The last statement is stronger than a generic circuit-realization contract that constrains the value bit only on the domain. The correspondence therefore connects it to the actual output equations, rather than inferring it from the generic contract.
+
+The package proves these statements directly and identifies the supporting declarations in the supplied source. It also records a remaining packaging distinction: the comparison theorem and the actual-output theorem are separate, individually partial ties to the broader combined claim.
+
+## 3. The coherent preparation and its output law now belong to the same construction
+
+The revised quantum proof begins with
+\[
+\psi_z=D_{z_0}H\cdots H D_{z_{k-1}}u,
+\qquad
+\Pi=|u\rangle\langle u|.
+\]
+Its projection probability is
+\[
+p(z)=\|\Pi\psi_z\|^2=\Phi(z)^2.
+\]
+
+This projection experiment appears in Aaronson–Ambainis’s quantum discussion. Their Proposition 6 also gives a different interference procedure, with probability \((1+\Phi)/2\) and \(\lceil k/2\rceil\) queries. Those two probabilities must remain distinct when explaining the algorithm used here. [arxiv.org](https://arxiv.org/pdf/1411.5729?utm_source=chatgpt.com)
+
+### The retained state
+
+Set
+\[
+\alpha_1=\Pi\psi_z,\qquad
+\alpha_0=(I-\Pi)\psi_z.
+\]
+These vectors are orthogonal and satisfy
+\[
+\|\alpha_1\|^2=p,\qquad
+\|\alpha_0\|^2=1-p.
+\]
+
+A query-free unitary records the projection outcome coherently in a fresh flag, producing
+\[
+\alpha_0\otimes|0\rangle+\alpha_1\otimes|1\rangle.
+\]
+
+For \(q\) fresh trials, after a fixed register permutation, the retained state is
+\[
+\sum_{h\in\{0,1\}^q}
+\left(\bigotimes_{j=1}^{q}\alpha_{h_j}\right)\otimes|h\rangle.
+\]
+
+The flag strings occupy orthogonal subspaces. A string of weight \(s\) has squared norm \(p^s(1-p)^{q-s}\). Reversibly computing its weight and the threshold bit therefore gives the output law
+\[
+\mathcal L_z(1)
+=
+\sum_{s=0}^{q}
+\mathbf1_{\{s\ge q\delta^2/2\}}
+{q\choose s}p(z)^s(1-p(z))^{q-s},
+\]
+with \(\mathcal L_z(0)=1-\mathcal L_z(1)\).
+
+This derivation establishes the measured law of **that same preparation**, with the address, flag, and count registers retained. It also establishes a normalized Boolean output law on every input, including unpromised ones.
+
+### The error and query bounds
+
+The promised probability gap is
+\[
+p\ge\delta^2 \quad\text{on yes-inputs},\qquad
+p\le\delta^2/4 \quad\text{on zero-inputs}.
+\]
+
+The section proves the two tail estimates explicitly and takes
+\[
+q=\left\lceil16\,2^{10k}\ln(1/\eta)\right\rceil,
+\qquad 0<\eta<\tfrac12.
+\]
+Both error probabilities are then at most \(\eta\).
+
+The direct phase implementation uses one ordinary bit query per diagonal matrix, so it gives the ordinary bound
+\[
+Q_\eta(P_{k,m})
+\le
+k\left\lceil16\,2^{10k}\ln(1/\eta)\right\rceil
+=
+O_k\!\left(1+\log(1/\eta)\right).
+\]
+The repetition count is selected before the input, giving the same cap on every input.
+
+The formal evidence needs a more precise description:
+
+| Construction or claim | Supported query accounting |
+|---|---|
+| Direct phase implementation proved in the rewritten mathematics | \(qk\) ordinary bit queries |
+| Supplied abstract coherent sampler | \(qk\) abstract reads |
+| Supplied complete physical implementation through the generic compiler | \(2qk\) bit queries |
+| Compiled local phase-kickback identity | Supports the local one-query action; does not by itself assemble the full tight implementation |
+
+The current complete wrapper does connect one retained isometry, its output law, and its physical continuation. The old claim that this same-witness connection was missing is obsolete. The remaining tight-count formalization gap is narrower: the packet does not supply a complete physical `Runs k` trial theorem assembled from the local phase identity.
+
+There is also no supplied theorem identifying the source’s concrete register representation with the literal tensor display above. The return labels that display as an ordinary mathematical derivation.
+
+## 4. Modular arithmetic is sufficient for the circuit’s exact output
+
+A major clarification concerns what the implemented registers represent.
+
+The arithmetic constructors maintain congruences modulo \(2^w\). That invariant propagates through addition, subtraction, sign multiplication, and the Walsh recursion. Correctness of the final comparisons then requires signed-range bounds for the integers actually inspected at the end.
+
+Put
+\[
+w=5k+3+t(k+1)
+\]
+and define
+\[
+A=2^{5k}N-M,\qquad
+B=M-2^{5k+1}N,\qquad
+C=M+2^{5k+1}N.
+\]
+
+Walsh orthogonality gives \(|\Phi|\le1\), hence \(|N|\le M\). Therefore
+\[
+|A|,\ |B|,\ |C|
+\le (2^{5k+1}+1)M
+<2^{w-1}.
+\]
+
+Their residues lie in the range where the high bit correctly identifies the sign of the ordinary integer. Thus
+\[
+p_1=[A\ge0],\qquad
+p_0=[B\ge0]\land[C\ge0]
+\]
+are exactly the required comparisons.
+
+This proves the endpoint using the invariant the implementation actually maintains. The ideal intermediate-integer bounds are useful mathematical facts, but they do not automatically identify every stored word with an unrestricted signed intermediate integer. The rewritten section keeps those claims separate.
+
+### A shorter circuit-size calculation
+
+I also included a concrete simplification of the cost proof. For the supplied constructors, the Walsh recurrence gives
+\[
+\operatorname{whtCost}(w,2t)=tm(12w+1).
+\]
+
+Combining the numerator layers, final sum, repeated doublings, comparisons, constants, and output gates gives the exact count
+\[
+S=
+6w\bigl((k+1)m+5k+t(k+1)+4\bigr)
++(k-1)tm(12w+1)+7.
+\]
+
+With \(a=k+1\), one has
+\[
+w\le6at,\qquad
+(k+1)m+5k+t(k+1)+4\le7amt.
+\]
+Bounding the three cost contributions then yields
+\[
+S\le337a^2mt^2
+\le800a^2mt^2
+=
+200(k+1)^2m(\log_2m)^2.
+\]
+
+This recovers the existing bound through a direct count of the actual constructors. The new closed-form equality and the coefficient-\(337\) accounting are recorded as ordinary derivations; the return does not claim a newly compiled Lean theorem for them.
+
+## 5. The smallest example makes the distinction visible
+
+At \(k=2,t=1,m=4\), use coordinate order \(00,01,10,11\), fix
+\[
+z_1=g=(-1,1,1,1),
+\qquad
+Wg=(2,-2,-2,-2),
+\]
+and recall \(M=8\).
+
+The three first blocks below give:
+
+| First sign block \(z_0\) | \(N=z_0^{\mathsf T}Wg\) | \(\Phi\) | Promise value | Projection probability \(\Phi^2\) | Circuit \((d,b)\) |
+|---|---:|---:|---|---:|---|
+| \((1,-1,-1,-1)\) | \(8\) | \(1\) | \(1\) | \(1\) | \((1,1)\) |
+| \((1,-1,1,1)\) | \(0\) | \(0\) | \(0\) | \(0\) | \((1,0)\) |
+| \((-1,1,1,1)\) | \(-8\) | \(-1\) | Undefined | \(1\) | \((0,0)\) |
+
+The negative example is especially useful: the quantum proposal is certainly one, while the exact circuit correctly reports failure of the promise.
+
+The rewritten section also proves the complete \(256\)-input census through an even/odd parity classification. The executable checker independently compares direct path sums, dense Walsh multiplication, butterfly arithmetic, exact rational promise tests, and a reconstruction of the Boolean gates.
+
+The executed checks give:
+
+| Complete input family | Inputs checked | One-inputs | Zero-inputs | Unpromised inputs |
+|---|---:|---:|---:|---:|
+| \(k=2,t=1\) | 256 | 104 | 48 | 104 |
+| \(k=3,t=1\) | 4,096 | 1,472 | 1,152 | 1,472 |
+
+A further **8,193 synthetic integer numerators** check threshold equality, the positive gap, and recovery of the final signs. Their realizability as actual Forrelation inputs is not asserted.
+
+These are finite semantic checks. The parameterized conclusions have separate ordinary proofs in the section.
+
+## 6. Several old evidence statements needed correction
+
+The current packet is materially stronger than some passages of the baseline describe.
+
+| Baseline evidence issue | What the supplied current records support |
+|---|---|
+| No complete tie for the lower-bound scale \(L\) | `construction_equation_5` has a current exact tie. |
+| No single declaration containing the numerator/scaling bundle | `construction_N_phi` supplies that bundle. |
+| Missing connection between the retained quantum preparation and physical implementation | `construction_lemma_2_1_ii_complete` supplies the same-witness connection. |
+| No complete Forrelation conjunction theorem | `construction_lemma_2_1_complete` is present in the current source and recorded build/type audit. |
+| Historical `UNELABORATED` comments describe the current status | Later source-matched execution records supersede those comments for the relevant integrated files. |
+
+The suggested correction to §3.17 is included in `review_notes.md` as an explicitly located recommendation. That neighboring section was not silently edited.
+
+The evidence audit checked:
+
+- **453** manifest-member size/hash records;
+- **448** input-hash entries;
+- **124** local Lean/configuration files against the timestamped root receipt;
+- the dependency-export binding;
+- the presence and expected axiom output of **258** recorded type/axiom audit entries.
+
+The final correspondence maps **81 declarations**, with complete source types and explicit premises, routes, and evidence states. Every one of the rewritten section’s **32 display blocks and two Markdown tables** is covered by an exact located mapping.
+
+**These results concern inspected, source-matched records of prior executions. I did not run Lean or Comparator anew.** No current Comparator receipt names the Forrelation helpers assessed here. The neighboring transcript-uniqueness declaration has its own Comparator membership, which the correspondence records separately.
+
+The packet’s commit label and the root receipt’s commit label differ. The return establishes their relevant source agreement through the complete matching local hashes, rather than treating the labels as identical.
+
+## 7. Citation roles are explicit
+
+The bibliography and source receipt distinguish mathematical authority, historical attribution, implementation evidence, and writing examples.
+
+- **OpenAI, supplied preprint, 5 October 2026, §2.1, equations (3)–(5), Lemma 2.1(ii)–(iii), pp. 3–5:** the controlling assignment source. The mathematical reading used the supplied PDF; the pinned public PDF retrieval was unavailable.
+- **Aaronson–Ambainis, inspected arXiv v1, §1.1.3 and §3.2/Proposition 6:** the \(k\)-fold antecedent and quantum constructions. Their original numerical promise differs, and their improved interference test has a different acceptance law. Journal publication metadata is identified separately from the inspected preprint pagination. [arxiv.org](https://arxiv.org/abs/1411.5729?utm_source=chatgpt.com)
+- **Bansal–Sinha, arXiv v3, equations (1.1)–(1.3), Proposition 1.2, and the statement context of Theorem 1.3/Corollary 1.4:** the exact parameterized asymmetric promise and quantum comparison. The return does not re-audit their full classical lower-bound proof. [arxiv.org](https://arxiv.org/html/2008.07003v3?utm_source=chatgpt.com)
+
+The unrelated writing exemplars inform exposition only. They supply no mathematical evidence for this result.
+
+## What to open in the ZIP
+
+Start with **`section.pdf`** for the mathematical argument or **`section.md`** for the editable replacement. The other principal files are:
+
+| File | Purpose |
+|---|---|
+| `correspondence.json` | Exact passages, statement IDs, Lean types, premises, relations, routes, citations, and evidence |
+| `LEAN_GAPS.md` | Precise remaining formal correspondence and verification limits |
+| `review_notes.md` | Ranked corrections, the §3.17 recommendation, simplifications, and authoring receipt |
+| `NEW_STATEMENTS.json` | The three added ordinary statements |
+| `STATEMENT_CHANGES.json` | Empty: no canonical mathematical statement was changed |
+| `references.bib` and `source_read_receipt.json` | Versioned citations and honest reading scope |
+| `checks/` | Exact finite checker, evidence audit, renderer, and package validator |
+| `evidence/` | Supporting audit records, declaration registry, coverage report, and PDF review |
+
+The final package validation passed, and all nine PDF pages were visually inspected.
+
+The additional attachment **`Pasted text(20261102-190823).txt` remained unavailable**. I did not infer its contents; this completed return follows the full assignment contained in the available ZIP.

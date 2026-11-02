@@ -1,0 +1,167 @@
+{
+  "schema": "quartic-r3-backend-source-scope-v1",
+  "role": "review freshness and derived helper provenance subtask only",
+  "packet": "09_evidence_backend",
+  "repository_commit_from_packet": "1dd469dd0042b937b739da3bc211eeb60bdf7462",
+  "sources": [
+    {
+      "path": "repository/AGENTS.md",
+      "sha256": "5686db5032ef5a9d272aa4942d8601873ad3c4c72173f985b99caf3d7587064f",
+      "status": "assessed",
+      "scope": "Complete source text relevant to backend ownership, implementation, producer or regression contract; this is not a proof audit."
+    },
+    {
+      "path": "repository/README.md",
+      "sha256": "47fadd7a6d94c2bdb47d3155e289ed0956649449ae370d13f656d191e36ad947",
+      "status": "assessed",
+      "scope": "Complete source text relevant to backend ownership, implementation, producer or regression contract; this is not a proof audit."
+    },
+    {
+      "path": "repository/research/README.md",
+      "sha256": "b02ef7b53c07e06f71bf3d381bea77a346caf1e7d160f7d35b3b54eb9d3cca1b",
+      "status": "assessed",
+      "scope": "Complete source text relevant to backend ownership, implementation, producer or regression contract; this is not a proof audit."
+    },
+    {
+      "path": "repository/CONTRIBUTING.md",
+      "sha256": "52ab21f70fb11e6b5815fcd56dd20223f464e9df981f2c7a2895fb7362069a1f",
+      "status": "assessed",
+      "scope": "Complete source text relevant to backend ownership, implementation, producer or regression contract; this is not a proof audit."
+    },
+    {
+      "path": "repository/corpus/README.md",
+      "sha256": "8c80cd1b22e577000a1820ad5b7490958ed72118ce118fc1541cafde5de92c20",
+      "status": "assessed",
+      "scope": "Complete source text relevant to backend ownership, implementation, producer or regression contract; this is not a proof audit."
+    },
+    {
+      "path": "repository/docs/statement_evidence_contract.md",
+      "sha256": "0828e5ecb304c0133f597e999f6cb09426bf87955df65d40a569d8b5b1e18fe4",
+      "status": "assessed",
+      "scope": "Complete source text relevant to backend ownership, implementation, producer or regression contract; this is not a proof audit."
+    },
+    {
+      "path": "repository/research/adjudication/round2_backend.md",
+      "sha256": "0aee9ed6f4335f6e792becc58a91d04fd634d67ce2256757eff9e60cf74d7b71",
+      "status": "assessed",
+      "scope": "Complete source text relevant to backend ownership, implementation, producer or regression contract; this is not a proof audit."
+    },
+    {
+      "path": "repository/research/adjudication/round2_assumption_review.json",
+      "sha256": "5191b17e5dcbffed15182fa417a6c6b3f27583b06f934fc2259c091b5744a397",
+      "status": "assessed",
+      "scope": "Complete source text relevant to backend ownership, implementation, producer or regression contract; this is not a proof audit."
+    },
+    {
+      "path": "repository/research/adjudication/round2_fidelity.md",
+      "sha256": "71282486058c71566d1bcb72b6a84a8dfc5fd65531378151960954ade1023a28",
+      "status": "assessed",
+      "scope": "Complete source text relevant to backend ownership, implementation, producer or regression contract; this is not a proof audit."
+    },
+    {
+      "path": "repository/tools/build_corpus.py",
+      "sha256": "b208d0c23530c48a60062b2fbea7c9166804612d69f8a95854c5728bd94dec4d",
+      "status": "assessed",
+      "scope": "Complete source text relevant to backend ownership, implementation, producer or regression contract; this is not a proof audit."
+    },
+    {
+      "path": "repository/tools/build_challenges.py",
+      "sha256": "7d4bc7588431a975301e55bd9cd2a25e587cddcd7e09b841f145b2f53e9e1497",
+      "status": "assessed",
+      "scope": "Complete source text relevant to backend ownership, implementation, producer or regression contract; this is not a proof audit."
+    },
+    {
+      "path": "repository/tools/record_evidence.py",
+      "sha256": "8491f1282e406d2cbd26495b30815031fc365d3dd99574b43bfa96e0a8b6706b",
+      "status": "assessed",
+      "scope": "Complete source text relevant to backend ownership, implementation, producer or regression contract; this is not a proof audit."
+    },
+    {
+      "path": "repository/tools/run_comparator.py",
+      "sha256": "01879fa71d3e25a4706a85b7f4aa59ef3574d3d785e3a3a80a61cc95e7c84190",
+      "status": "assessed",
+      "scope": "Complete source text relevant to backend ownership, implementation, producer or regression contract; this is not a proof audit."
+    },
+    {
+      "path": "repository/tests/test_build_corpus.py",
+      "sha256": "5aa1f94c74d6fd801b812411b2f912e8bd11cf3d5d96ba3fb6c6cf7b0fc43662",
+      "status": "assessed",
+      "scope": "Complete source text relevant to backend ownership, implementation, producer or regression contract; this is not a proof audit."
+    },
+    {
+      "path": "repository/tests/test_record_evidence.py",
+      "sha256": "3899fe10f305ece9bebadee1ca94950d4ff7591cb43e1dc82edcd8974db4f349",
+      "status": "assessed",
+      "scope": "Complete source text relevant to backend ownership, implementation, producer or regression contract; this is not a proof audit."
+    },
+    {
+      "path": "repository/tests/test_build_challenges.py",
+      "sha256": "17cea961d8b01cc08647c0b1a7d63d700b36be916411285ea365adf373fdd6ac",
+      "status": "assessed",
+      "scope": "Complete source text relevant to backend ownership, implementation, producer or regression contract; this is not a proof audit."
+    },
+    {
+      "path": "READ_ME_FIRST.md",
+      "sha256": "f1617783cc77ee0bd354f8e3d18db9d58ddcdc008b371e76928c4a7fed859417",
+      "status": "sampled",
+      "scope": "Assignment/authority, backend endpoints, residuals, common return boundary; whole-text intake was shared with parent."
+    },
+    {
+      "path": "requests/09_evidence_backend.md",
+      "sha256": "b5ad5d2de258300dc600b8f34067bd2adcb9642b27062bfe9b5590535caac12a",
+      "status": "sampled",
+      "scope": "Endpoint/residual obligations and native-evidence boundary."
+    },
+    {
+      "path": "manifest.json",
+      "sha256": "65d41a7a94e99ca5feb864503faba9d00b7d02c479369506d7645f7bb82010bb",
+      "status": "sampled",
+      "scope": "Top-level packet/commit/source versions and exact hashes; not semantic assessment of every member."
+    },
+    {
+      "path": "repository/research/adjudication/round2_forrelation_exponent_ties.json",
+      "sha256": "5015bdd1c7845c2862b18bbb5bc88dc2b6116862dbeab60fe894375377504127",
+      "status": "sampled",
+      "scope": "Metadata, source_state, authority, all seven new_statement_records, ingestion_policy, existing candidate source/type examples; native record assertions not independently rerun."
+    },
+    {
+      "path": "repository/corpus/ties.json",
+      "sha256": "2cf66121360fafbf8ca77d32d36feba192b839b6f3503e466ffe7857b6086bac",
+      "status": "sampled",
+      "scope": "All 477 entries parsed and counted, field inventory; selected def-Q, eq-19, thm-1.1 entries read; no global mathematical re-review."
+    },
+    {
+      "path": "repository/research/intake/statement_ledger.json",
+      "sha256": "baae822271b38aa322e9fec62c47621de20bb61eb82b077d92bd9c133685c143",
+      "status": "sampled",
+      "scope": "All rows parsed by actual producer; original rows/proposed additions and missing dependencies inventoried; not full mathematical reading."
+    },
+    {
+      "path": "repository/research/adjudication/adjudication.json",
+      "sha256": "c5028e1a3046113879eb63754f1496b1787859be9a5abe8aad5ce32129ce0fc7",
+      "status": "sampled",
+      "scope": "All row changes parsed by actual producer; added-row metadata and dependency checks; not full mathematical reading."
+    },
+    {
+      "path": "repository/corpus/lean_dependencies.json",
+      "sha256": "56ae4752273f7cfba92ee6f35a4acc6ee0eea6e32a44116ccaf9d7354094e1fb",
+      "status": "sampled",
+      "scope": "Read by producer for source-current reach facts; no native extraction rerun."
+    },
+    {
+      "path": "external_backend/lean-exposition/src/lean_exposition/resources/schemas/graph.schema.json",
+      "sha256": "529f2ea9695edbb74ab9d381bae2e8736515eca9533041dc391b0bc8dbf64a50",
+      "status": "sampled",
+      "scope": "Schema version metadata only; jsonschema and installed consumer were not available to this subtask."
+    }
+  ],
+  "programmatic_hash_scope": "The existing source_hashes helper read all 124 local Lean/configuration inputs. Hashing is not semantic reading. Both before/after maps are equal; the acceptance report records their canonical digest.",
+  "native_scope": "No Lean/Lake/Comparator/native extraction or installed consumer execution; parent agents own those endpoints.",
+  "not_assessed_in_this_subtask": [
+    "full preprint mathematical proofs",
+    "baseline long record mathematics",
+    "all 477 statement relations for semantic correctness",
+    "Lean proof bodies outside the exact residual test design",
+    "native tool execution or human review"
+  ]
+}

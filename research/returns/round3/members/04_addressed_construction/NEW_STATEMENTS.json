@@ -1,0 +1,49 @@
+[
+  {
+    "id": "r3-addressed-finite-example",
+    "statement": "For actual P_{2,4}, δ=2^-10, the fully specified four-column board in examples/board.json with schematic r=2 and the exact 180-gate circuit in examples/circuit.json has K=371 local tests at every pair and exactly one winning pair, (column 1,address 10). Its second column contains an off-promise instance with Φ=-1/2. Every one of the 16 candidate pairs satisfies the equivalence between the semantic winner predicate and the conjunction of local tests.",
+    "why_needed": "Supplies the requested reproducible small board and calculates the local tests.",
+    "depends_on": [
+      "def-winner",
+      "def-F",
+      "lem-2.2.i",
+      "examples/check_example.py"
+    ],
+    "proposed_lean": null,
+    "route_note": "Finite exact computation only. r=2 replaces the paper choice r=40 at m=4; no asymptotic separation or Lean validation is inferred."
+  },
+  {
+    "id": "r3-addressed-domain-test-counterexample",
+    "statement": "The explicitly generated board with X strings (1110,1111,1011,1101), unchanged actual address inputs, true transcripts, and pointers redirected to zeros has semantic F=0. At its off-promise all-one column 2 and address 00, precisely one of the 371 tests fails: the first domain-output test. Removing both domain-output tests leaves 369/369 tests passing.",
+    "why_needed": "Shows by an exact witness why transcript consistency and value-output agreement do not suffice without domain recognition.",
+    "depends_on": [
+      "r3-addressed-finite-example",
+      "lem-2.1.iii",
+      "def-win-at-address"
+    ],
+    "proposed_lean": null,
+    "route_note": "New finite discriminating example of a deleted-clause failure; source proof requirements are unchanged."
+  },
+  {
+    "id": "r3-addressed-equal-projection-law",
+    "statement": "For a+=00000000 and a-=11110000 in P_{2,4}, Φ(a+)=1/2 and Φ(a-)=-1/2, so the specified projection test has Bernoulli(1/4) law on both. Any fixed number n of independent repetitions, followed by any fixed decision rule using only those outcome bits, has the same output law on the two inputs, although a+ is a promised 1-input and a- is unpromised.",
+    "why_needed": "Explains concretely how the promised decoder can return a plausible label on a garbage instance while exact domain verification rejects it.",
+    "depends_on": [
+      "claim-proj-prob",
+      "r3-addressed-finite-example"
+    ],
+    "proposed_lean": null,
+    "route_note": "Exact finite Φ calculation plus product-law deduction for this particular projection decoder. Three-trial patterns are additionally checked; no claim about all quantum algorithms or all retained information."
+  },
+  {
+    "id": "r3-addressed-clean-test-oracle",
+    "statement": "For each fixed candidate (i,s), let E be the common finite test set and q*=max(3,ℓ+1). If its retained-workspace exact controlled evaluator uses at most 2q* ordinary bit-oracle queries, compute-copy-uncompute implements |e,b,0>→|e,b XOR g_e(y;i,s),0> with at most 4q* physical queries, for all raw inputs and arbitrary superpositions of the test label and target bit.",
+    "why_needed": "States explicitly the stronger clean XOR interface separately from the native retained-workspace theorem.",
+    "depends_on": [
+      "lem-2.2.ii",
+      "QuarticQuery.Paper.construction_controlled_compile"
+    ],
+    "proposed_lean": null,
+    "route_note": "Ordinary proof in AC-clean-oracle. No exact Lean declaration or receipt for this clean interface is supplied or claimed. It is not needed as a new hypothesis for the paper construction."
+  }
+]

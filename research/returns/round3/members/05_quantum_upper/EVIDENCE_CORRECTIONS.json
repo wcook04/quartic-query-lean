@@ -1,0 +1,106 @@
+[
+  {
+    "id": "physical-state-versus-label-law",
+    "priority": 1,
+    "passages": [
+      "upper-amplification-statement",
+      "upper-returned-register",
+      "upper-missing-physical-state"
+    ],
+    "old": "Baseline calls the abstract Proc tie exact without a physical returned-register bridge.",
+    "new": "State assertion is exact abstractly; both physical interfaces certify a measured label law. Full designated-output factorization remains a formal target.",
+    "mathematics_changed": false,
+    "evidence": [
+      "Amplification.bounded_amplification",
+      "Upper.Samples.amplify",
+      "Paper.quantum_amplify_samples",
+      "round2_construction_quantum.md"
+    ]
+  },
+  {
+    "id": "list-theorem-now-compiled",
+    "priority": 1,
+    "passages": [
+      "upper-tournament-evidence",
+      "upper-current-formal-scope"
+    ],
+    "old": "Baseline says inspected endpoint is only Boolean and list-valued formalization is missing.",
+    "new": "Current Paper.quantumTournament is list-valued and source-current compiled. Older Boolean endpoint remains reached by headline roots.",
+    "mathematics_changed": false
+  },
+  {
+    "id": "tensor-state-distinguished",
+    "priority": 1,
+    "passages": [
+      "upper-stage-state",
+      "upper-stage-law"
+    ],
+    "old": "Earlier correspondence associated literal equation (15) with short-circuit Upper.stage_samples.",
+    "new": "Use Paper.equation_15 and common-workspace bridge for full state. Short-circuit sampler agrees on successful index law only.",
+    "mathematics_changed": false
+  },
+  {
+    "id": "padded-product-and-physical-units",
+    "priority": 2,
+    "passages": [
+      "upper-amplification-proof",
+      "upper-padded-tournament-budget",
+      "upper-finite-budget"
+    ],
+    "old": "A bound on a smaller Proc.callCap was liable to be used as a bound on N(2M+1).",
+    "new": "Use amplification_budget_le directly; physical compiler factor two appears once; 6072 is physical cap for cc logical reads.",
+    "mathematics_changed": false
+  },
+  {
+    "id": "probability-domain",
+    "priority": 2,
+    "passages": [
+      "upper-stage-law",
+      "upper-quantum-tournament"
+    ],
+    "old": "Algebraic ratios may be totalized at zero and range assumptions can be hidden.",
+    "new": "Specify [0,1] values, normalized state, W>0 and f<1; W=0 means failure, not conditional sampling.",
+    "mathematics_changed": false
+  },
+  {
+    "id": "published-mps-locator",
+    "priority": 2,
+    "passages": [
+      "upper-purpose"
+    ],
+    "old": "Mande–Paraashar–Saurabh FSTTCS 2023 linked with Theorem 4.4.",
+    "new": "The linked published edition uses Theorem 19, Section 4, pp.30:11–30:13.",
+    "mathematics_changed": false,
+    "url": "https://doi.org/10.4230/LIPIcs.FSTTCS.2023.30"
+  },
+  {
+    "id": "amplification-reference-role",
+    "priority": 2,
+    "passages": [
+      "upper-amplification-statement"
+    ],
+    "old": "Potential reliance on generic BHMT theorem number or expected-time search.",
+    "new": "BHMT v1 Lemma1/equation8 for rotation; BBHT v1 Lemma2 for average; Theorem12 is estimation; capped algorithm proved separately.",
+    "mathematics_changed": false
+  },
+  {
+    "id": "evidence-byte-currentness",
+    "priority": 2,
+    "passages": [
+      "upper-current-formal-scope"
+    ],
+    "old": "Historical unelaborated comments and older commit labels can be mistaken for current status.",
+    "new": "All 124 local source/config hashes agree with current root receipt and export/verdict; exact-name Comparator and root reach remain separate.",
+    "mathematics_changed": false
+  },
+  {
+    "id": "literal-budget-constant",
+    "priority": 3,
+    "passages": [
+      "upper-explicit-log6"
+    ],
+    "old": "Generic circuit-size constant was identified with the exact source budgetConst.",
+    "new": "Set C_F(k)=200(k+1)^2 for the actual forrCircuit before asserting the literal identity.",
+    "mathematics_changed": false
+  }
+]

@@ -1,0 +1,82 @@
+{
+  "accepted-target-source-check.json": {
+    "bytes": 40661,
+    "sha256": "7c2a44453715e0fa51c3425a8f4d4de4adbf2fda70e7d3bf8f61bc09d0d1c9be"
+  },
+  "eq19-acceptance-cases.json": {
+    "bytes": 5411,
+    "sha256": "be53ddb9b38106bd621782e0d00db342659f31ac6778fbcd1bf2e20d0ae3148a"
+  },
+  "eq19-extraction-notes.md": {
+    "bytes": 12577,
+    "sha256": "27aa8d562649555b41bc586479882af5804af5e7f3719a07bcd7db8ebcb228f4"
+  },
+  "independent-source-review.json": {
+    "bytes": 828,
+    "sha256": "4ef97400a4e78eb60a59df0989557d130d8d37c385186fab068a919b8e697d6b"
+  },
+  "native-extraction-attempt.json": {
+    "bytes": 1160,
+    "sha256": "31276c5c1167097c2660cc58299e53a60d9837730a448ede2a504da43fd9b2ba"
+  },
+  "overlay/lean/QuarticCorpus/Independent/Eq19/Audit.lean": {
+    "bytes": 569,
+    "sha256": "fd582b68a729eff290acf57d11a4196ab7eeab6f531ed73eed644be7639fa4b3"
+  },
+  "overlay/lean/QuarticCorpus/Independent/Eq19/Bridge.lean": {
+    "bytes": 2312,
+    "sha256": "c5e4df0b4f37c0293af04fd3fd5bb303204e6569491909f344248454a987ebb4"
+  },
+  "overlay/lean/QuarticCorpus/Independent/Eq19/Challenge.lean": {
+    "bytes": 822,
+    "sha256": "eb1bfe994248b419057952ea173a7d73b17e4dd476843df600218cc0ef1aba61"
+  },
+  "overlay/lean/QuarticCorpus/Independent/Eq19/NegativeInequalityOnly.lean": {
+    "bytes": 845,
+    "sha256": "a7f33019abc2feb98132114c5abe97a7ad0445584dc2b7206b22852fb87b96aa"
+  },
+  "overlay/lean/QuarticCorpus/Independent/Eq19/PathControls.lean": {
+    "bytes": 2243,
+    "sha256": "1819b6efff58218059c8c126bcebe6c1f11d0551c43c9403ba47571d027ef1c1"
+  },
+  "overlay/lean/QuarticCorpus/Independent/Eq19/Solution.lean": {
+    "bytes": 761,
+    "sha256": "872b854273c1bb4b1f4b625a972601127a3d2776e23d57151fe4388188217a9a"
+  },
+  "overlay/lean/QuarticCorpus/Independent/Eq19/Spec.lean": {
+    "bytes": 3114,
+    "sha256": "b6e0fb79c7baff7a65d19d986b389bada1e1b29f7fb676298065935ccb2555bc"
+  },
+  "overlay/lean/QuarticCorpus/Independent/Eq19/WholeChallenge.lean": {
+    "bytes": 969,
+    "sha256": "b58c261c86ea161fd6235b5bcadaa04ea8f4b276d01138d6641e69a1ab2d19d2"
+  },
+  "overlay/lean/QuarticCorpus/Independent/Eq19/WholeSolution.lean": {
+    "bytes": 215,
+    "sha256": "75bef6e4a63ac525c65ea779dab112833586f9f8ae3c79aeb24916193cbab96d"
+  },
+  "overlay/lean/QuarticCorpus/Independent/Eq19/comparator.json": {
+    "bytes": 295,
+    "sha256": "de8beea386de8853e2a07c5c86bc63561639e110ec0b8e39a3c4e7ac6603db3b"
+  },
+  "overlay/lean/QuarticCorpus/Independent/Eq19/negative-inequality-only.json": {
+    "bytes": 309,
+    "sha256": "0ce89380b84b8f2858c4e5b8afc132d8da522a29a959e6881e56e44148d93428"
+  },
+  "overlay/lean/QuarticCorpus/Independent/Eq19/whole-comparator.json": {
+    "bytes": 292,
+    "sha256": "f4c7bca4828a084a3cde7cbbded06a497a82f8c55ad09802a42386db50840ba9"
+  },
+  "overlay/lean/QuarticQuery/Paper/Eq19Whole.lean": {
+    "bytes": 1298,
+    "sha256": "54b39d5160f886e5cd0f8c199149b8046bcd51148aa36f10409fd0fc6a0c74ff"
+  },
+  "reentry-plan.json": {
+    "bytes": 4983,
+    "sha256": "03a99471c0039513a5a68738d445d5cb9cf67096f01ac381239f542da7dbefa4"
+  },
+  "source-scope.json": {
+    "bytes": 13197,
+    "sha256": "2b465fb4d67dff062d939f9d3a6833b6247f5eb9a60bd071eff1f5bb445552aa"
+  }
+}

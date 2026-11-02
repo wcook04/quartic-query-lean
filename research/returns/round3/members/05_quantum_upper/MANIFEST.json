@@ -1,0 +1,241 @@
+{
+  "schema": "quartic-r3-05-return-manifest-v1",
+  "task": "05_quantum_upper",
+  "created_at_utc": "2026-11-02 19:30:08 UTC",
+  "deliverable": "Advisory replacement for long reasoning record Section 5, with proof, correspondence and review evidence.",
+  "input_zip": {
+    "filename": "quartic_r3_05_quantum_upper.zip",
+    "bytes": 4053207,
+    "sha256": "845205a4c78af2c413b2128a2c4ad986ed4e00b311d61f7a6de7e45f47799c81"
+  },
+  "input_packet_manifest_sha256": "c6e9e25c6cf2c855c27ceeb05f96c5ac58556a18c7e1306f7cb4ceb4967e4809",
+  "source_versions": {
+    "packet_commit": "1dd469dd0042b937b739da3bc211eeb60bdf7462",
+    "build_receipt_commit": "31e17dee667d1d72fa621da8e7d3d8ff5fc3960a",
+    "toolchain": "leanprover/lean4:v4.36.0-rc2",
+    "paper_pdf_sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e",
+    "dependency_pins": {
+      "lake_packages": [
+        {
+          "name": "complexitylib",
+          "revision": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a",
+          "url": "https://github.com/cslib-community/complexitylib.git"
+        },
+        {
+          "name": "cslib",
+          "revision": "254e30e6d4299c51323aaeaf5f51a4763b375d4a",
+          "url": "https://github.com/leanprover/cslib"
+        },
+        {
+          "name": "mathlib",
+          "revision": "69552756cd8a2d2d48763cf7279fd814d6a1224d",
+          "url": "https://github.com/leanprover-community/mathlib4"
+        },
+        {
+          "name": "plausible",
+          "revision": "129d1ba9a16bc0660f46c79e9fb041ef5d5d80de",
+          "url": "https://github.com/leanprover-community/plausible"
+        },
+        {
+          "name": "LeanSearchClient",
+          "revision": "c61286b7b63cbfd563b28e11e81d0a18233a044a",
+          "url": "https://github.com/leanprover-community/LeanSearchClient"
+        },
+        {
+          "name": "importGraph",
+          "revision": "b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60",
+          "url": "https://github.com/leanprover-community/import-graph"
+        },
+        {
+          "name": "proofwidgets",
+          "revision": "16259c0d07d61ee37d999d05b5cf96338b8daa11",
+          "url": "https://github.com/leanprover-community/ProofWidgets4"
+        },
+        {
+          "name": "aesop",
+          "revision": "7d11bfa88558f8d3d90afdf6bd877ed70001498d",
+          "url": "https://github.com/leanprover-community/aesop"
+        },
+        {
+          "name": "Qq",
+          "revision": "b0256621cb88178e9ad932a53633077b3029e621",
+          "url": "https://github.com/leanprover-community/quote4"
+        },
+        {
+          "name": "batteries",
+          "revision": "d4c39b228d4a06f3b00748c2c445a7b9f056a6e3",
+          "url": "https://github.com/leanprover-community/batteries"
+        },
+        {
+          "name": "Cli",
+          "revision": "c09cb1e4f1e6e1c231a1175a12b681b075054a1b",
+          "url": "https://github.com/leanprover/lean4-cli"
+        }
+      ],
+      "toolchain": "leanprover/lean4:v4.36.0-rc2"
+    }
+  },
+  "unavailable_input": [
+    {
+      "filename": "Pasted text(20261102-190835).txt",
+      "status": "unavailable",
+      "reason": "Attachment could not be materialized by the environment. It was not read or used; user was asked to re-upload or paste it."
+    }
+  ],
+  "mathematical_and_evidence_scope": {
+    "replacement_passages": 39,
+    "proof_claim": "Ordinary reconstruction of the scoped quantum upper bound; no new separation claim.",
+    "remaining_formal_obligation": "Physical designated-output-state amplification bridge.",
+    "fresh_lean_execution": false,
+    "fresh_comparator_execution": false,
+    "repository_integration": false,
+    "pdf_rendering": false,
+    "human_review": false,
+    "input_files_modified": false
+  },
+  "validation_reports": [
+    "checks/input_integrity.json",
+    "checks/source_binding.json",
+    "checks/tournament_example.json",
+    "checks/state_example.json",
+    "checks/validation.json"
+  ],
+  "hash_policy": "SHA-256 over exact uncompressed file bytes. All return files except MANIFEST.json are listed; the manifest cannot include its own digest.",
+  "members": [
+    {
+      "member": "EVIDENCE_CORRECTIONS.json",
+      "bytes": 3951,
+      "sha256": "94a127c6ac8c7f487a83c5ec9ffcd200b38385c9f7ed6c56deb593ab0ad8acda"
+    },
+    {
+      "member": "LEAN_GAPS.md",
+      "bytes": 25835,
+      "sha256": "1437c5743a755507c735bbf6b4eca03df503d93b0825144cc8e91ff771852401"
+    },
+    {
+      "member": "NEW_STATEMENTS.json",
+      "bytes": 4117,
+      "sha256": "fe83791cc23bf2851b562354a5a0dc1128b99a236a954169ef1d9c6952b044a1"
+    },
+    {
+      "member": "README.md",
+      "bytes": 6005,
+      "sha256": "afa6b2d2cd58eb3fa6f851bc3cc1122bd645ec074d6276204ecc15e149f9c750"
+    },
+    {
+      "member": "STATEMENT_CHANGES.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "member": "STYLE_RULES.json",
+      "bytes": 17687,
+      "sha256": "6be4e97e471036f5ff2351864f4118c2d5411415892dc39d4abc609c12a3d868"
+    },
+    {
+      "member": "checks/amplification_audit.md",
+      "bytes": 16695,
+      "sha256": "944dd8704f41a5df8fc453d540aa2ad4650de089ddaa364b14ce4e87d16a1adb"
+    },
+    {
+      "member": "checks/amplification_draft_review.md",
+      "bytes": 8485,
+      "sha256": "fdc33f0ad234984f71a1c6d15d8c71abcfa89c5625a93568d672e71d5e18f9b1"
+    },
+    {
+      "member": "checks/input_integrity.json",
+      "bytes": 518,
+      "sha256": "874b36d5f9fb8c2d29844f0b2e8833dfbad0b9355e933fd4c319e50f08a95758"
+    },
+    {
+      "member": "checks/lean_audit.md",
+      "bytes": 13125,
+      "sha256": "994f92da6ca0413b086e0f8badc42df2ef60406837aa1b5c0dcb7ee75d48151e"
+    },
+    {
+      "member": "checks/lean_evidence_audit.json",
+      "bytes": 932700,
+      "sha256": "3a8e2622d8c2276b80d066821543a2b357140393c5f3137e2522b7f15235e3c6"
+    },
+    {
+      "member": "checks/source_binding.json",
+      "bytes": 1784,
+      "sha256": "e5f6fcda7e64f444b6057030db7c6d14e1f42063f8f169b8058f29c16d21ede3"
+    },
+    {
+      "member": "checks/state_example.json",
+      "bytes": 3071,
+      "sha256": "037de8a80ac937e76cfbbd758262e0f08730b51ecce9fabca7746cb54355458f"
+    },
+    {
+      "member": "checks/state_example.py",
+      "bytes": 7174,
+      "sha256": "eff382d5d847719aaafc4359fd5ba78cec613293a69c9ba979fd5af2a1c3ca18"
+    },
+    {
+      "member": "checks/tournament_audit.md",
+      "bytes": 19377,
+      "sha256": "d1e675a0442bdcdb1313736874c1ab00eea69936b818f7b7cc6ef0d069a1bcef"
+    },
+    {
+      "member": "checks/tournament_example.json",
+      "bytes": 3443,
+      "sha256": "8ec2e3221f055dedf6425d62e8ea2360ada27511ebcfe9847dfc260708c60bb9"
+    },
+    {
+      "member": "checks/tournament_example.py",
+      "bytes": 5260,
+      "sha256": "7dea10b26fc9f8994b79de894c7de2ce4af7a2db02fec68a4456e1a46b894a84"
+    },
+    {
+      "member": "checks/validate_return.py",
+      "bytes": 10989,
+      "sha256": "83c6f3b2a4534e9f00e3678bad0b21408da7e72bf1402943567ff73ed099eb2a"
+    },
+    {
+      "member": "checks/validation.json",
+      "bytes": 4894,
+      "sha256": "ecc3ea1a2bc7a3ed20f2a77c63b7658e9b1766e17f16f8e1158e78e1fd96e2fd"
+    },
+    {
+      "member": "correspondence.json",
+      "bytes": 398872,
+      "sha256": "7a36799c2a338735112dcbaeafe61d6de398b8cf659494ac7442598c6c3ef394"
+    },
+    {
+      "member": "cyclic_example.md",
+      "bytes": 2008,
+      "sha256": "502020c5c24eee1ad7d7fb6a6e9192449ca0ec3071f16378715d12df7c156efc"
+    },
+    {
+      "member": "declaration_types.json",
+      "bytes": 153251,
+      "sha256": "6747915f25ea39de99f6646f1c1abb1f5c392e1dd49d26461ac21c9b305092af"
+    },
+    {
+      "member": "references.bib",
+      "bytes": 4960,
+      "sha256": "c7380c372fc6160f3057fcdc99ffd659e5cc04af19d624fcd3c9fcd844323c7a"
+    },
+    {
+      "member": "review_notes.md",
+      "bytes": 33784,
+      "sha256": "823100d2bd3455aa48fc46d581f72df3173b20b9492470d33f9280a8c8466b83"
+    },
+    {
+      "member": "section.md",
+      "bytes": 70924,
+      "sha256": "d5c7d42bc2f2afc128b34e126ae1dfbd7c4db4d8a4626dcdfa1ec012b6ebffd1"
+    },
+    {
+      "member": "source_read_receipt.json",
+      "bytes": 150560,
+      "sha256": "7caa4e08d07b2ceedb90b31d8b22065fe96c7f42568bf3b8bebff71edc635d18"
+    },
+    {
+      "member": "statement_catalogue.json",
+      "bytes": 210310,
+      "sha256": "f992026a1c47e04005afc1d6ee5de49eaf9be2258b05db4716342491f5f52b63"
+    }
+  ]
+}

@@ -1,0 +1,394 @@
+I read the ZIP, reconstructed the proof, checked the specified primary literature, and prepared the complete replacement section and review package.
+
+**My assessment is that the requested fixed-\(k\) lower bound has a complete direct proof in the supplied development.** The main corrections concern the status of the sharper theorem, the final threshold calculation, and the precise treatment of the Bansal–Sinha display issue.
+
+[quartic_r3_03_forrelation_lower_bound_return.zip](https://chatgpt.com/library?file_id=libfile_170d871feb1c8191900bc70df21baabe&account_id=personal)
+
+The package contains the approximately 5,600-word replacement for §§3.6–3.16, all requested correspondence files, a version-specific bibliography, source and evidence audits, the preserved historical threshold argument, and reproducible integrity checks.
+
+## 1. The mathematical result
+
+The replacement keeps the exact promise and normalization. For \(k\ge2\), \(m=4^t\), normalized Walsh matrix \(H\), and \(u=m^{-1/2}(1,\ldots,1)^{\mathsf T}\), write
+\[
+\Phi(z)=u^{\mathsf T}D_{z_0}H D_{z_1}H\cdots H D_{z_{k-1}}u,
+\qquad \delta=32^{-k}.
+\]
+The partial function has value \(1\) when \(\Phi\ge\delta\), value \(0\) when \(|\Phi|\le\delta/2\), and is undefined otherwise. In particular, a large negative value is outside the promise.
+
+The main conclusion is
+\[
+R(P_{k,4^t})
+>
+\left\lfloor
+\frac{(4^t)^{1-1/k}}{(\log_2 4^t)^2}
+\right\rfloor
+\]
+for every fixed \(k\ge2\) and all sufficiently large \(t\). Here \(R\) uses error at most \(1/3\) on promised inputs and a query cap that holds on every input and random branch.
+
+### The sharper result is already in the current source
+
+A significant finding is that the supplied snapshot already proves
+\[
+\boxed{
+R(P_{k,m})
+>
+\frac{2}{18225}\,
+\frac{m^{1-1/k}}{k^2\ln(4km)}
+}
+\]
+for
+\[
+m=4^t,\qquad k\ge2,\qquad 15k+2\le2t.
+\]
+
+The exact declaration is `QuarticQuery.forrelation_lower_uniform_sharp`. Its coefficient is exactly \(256\) times the older coefficient \(1/2332800\).
+
+The request and some earlier notes describe this as proposed. The later source-matched build and audit records supersede that description. Its evidence is substantial, but its precise scope still matters: it fixes error \(1/3\), uses the powers-of-four family, and retains the stated dimension condition.
+
+### A much shorter sufficient threshold follows
+
+The revised section proves the explicit choice
+\[
+\boxed{t_0(k)=13669k^2.}
+\]
+
+The calculation is short. For \(1\le k\le t\),
+\[
+\ln(4km)
+=\ln(4k)+2t\ln2
+\le6t.
+\]
+Consequently,
+\[
+R(P_{k,4^t})
+>
+\frac{m^{1-1/k}}{54675k^2t}.
+\]
+When \(t\ge13669k^2\),
+\[
+4t\ge54676k^2>54675k^2,
+\]
+so
+\[
+R(P_{k,4^t})
+>
+\frac{m^{1-1/k}}{4t^2}
+\ge
+\left\lfloor\frac{m^{1-1/k}}{(2t)^2}\right\rfloor.
+\]
+This is exactly the required floor because \(\log_2m=2t\). The other hypotheses of the sharp theorem also hold at this threshold.
+
+The slightly smaller threshold
+\[
+t\ge\left\lceil\frac{54675k^2}{4}\right\rceil
+\]
+works as well, using the strict inequality already supplied by the uniform theorem.
+
+**These thresholds are ordinary deductions proved in the return.** I have not represented them as newly compiled Lean declarations. The existing named explicit-threshold theorem in the source uses the coarser \(3499200k^2\) threshold. The former four-term threshold argument is also preserved in a companion note.
+
+## 2. The hard steps that needed careful reconstruction
+
+The complete proof is in `section.md`. These are the points on which its correctness principally depends.
+
+### The rounded Gaussian chain really has a uniform zero endpoint
+
+The proof uses
+\[
+\Psi(x)=\frac1{2\sqrt{2+x^2}},
+\qquad
+\varphi(x)=\frac{x(3+x^2)}{2(2+x^2)^{3/2}},
+\qquad
+\varphi'(x)=\frac3{(2+x^2)^{5/2}}.
+\]
+They satisfy
+\[
+|\varphi(x)|\le\frac12,
+\qquad
+0<\Psi(x)\varphi'(y)\le\frac3{16},
+\]
+and the transformed Gaussian integration identity
+\[
+\mathbb E[\varphi(Z)G(Z)]
+=
+\mathbb E[\Psi(Z)G'(Z)]
+\]
+for bounded continuously differentiable \(G\) with bounded derivative.
+
+Take independent Gaussian layers \(U_j\), put \(V_j=HU_j\), and form the block biases
+\[
+w_s=
+\bigl(
+s\varphi(U_0),\
+\varphi(V_0)\varphi(U_1),\
+\ldots,\
+\varphi(V_{k-3})\varphi(U_{k-2}),\
+\varphi(V_{k-2})
+\bigr).
+\]
+Conditional on the Gaussian layers, the signs are independent with these means.
+
+At \(s=0\), the first block is unbiased. The remaining blocks can be cleared successively by reflecting a Gaussian layer across a Walsh row. Such a reflection flips the selected coordinate of \(HU\), preserves the other coordinates of \(HU\), and preserves the Gaussian law. It may change coordinates of \(U\), but those occur in the preceding block, which has already been cleared. Affinity of the multilinear extension then replaces the selected bias by zero without changing the expectation.
+
+This establishes the whole uniform distribution at the zero endpoint. Merely showing zero individual means would not establish that fact.
+
+### The three-block calculation exposes the cancellation
+
+For \(k=3\), let
+\[
+w_s=
+\bigl(s\varphi(U),\ \varphi(V)\varphi(U'),\ \varphi(V')\bigr),
+\qquad V=HU,\quad V'=HU',
+\]
+and let \(F\) be the multilinear extension of the test function.
+
+The first full coordinate derivative is
+\[
+\frac{\partial}{\partial U_a}F_{0a}(w_s)
+=
+s\varphi'(U_a)\underbrace{F_{0a,0a}(w_s)}_{0}
++
+\sum_bH_{ba}\varphi'(V_b)\varphi(U'_b)F_{0a,1b}(w_s).
+\]
+The repeated derivative vanishes by multilinearity. After the first Stein step, the earlier weight is \(\Psi(U_a)\varphi'(V_b)\), which is independent of the entire layer \(U'\).
+
+The second derivative is
+\[
+\frac{\partial}{\partial U'_b}F_{0a,1b}(w_s)
+=
+\varphi(V_b)\varphi'(U'_b)
+\underbrace{F_{0a,1b,1b}(w_s)}_{0}
++
+\sum_cH_{cb}\varphi'(V'_c)F_{0a,1b,2c}(w_s).
+\]
+Thus the final path weight is
+\[
+H_{ba}H_{cb}\,
+\Psi(U_a)\varphi'(V_b)\,
+\Psi(U'_b)\varphi'(V'_c),
+\]
+multiplying the derivative in the three selected coordinates.
+
+For general \(k\), the invariant is that all accumulated weights depend only on earlier Gaussian layers. The next Stein operation therefore leaves them unchanged. That is what makes the induction work.
+
+There is also a useful simplification: the interpolation average is a finite polynomial in \(s\), of degree at most \(m\). Its coefficients are bounded functions of the Gaussian variables. Differentiation under expectation can therefore be justified by averaging finitely many coefficients, without an additional limiting argument.
+
+### Biased derivatives still contain higher uniform Fourier levels
+
+An order-\(k\) derivative at a biased point does not isolate uniform Fourier degree \(k\). The exact identity is
+\[
+\partial_SF_g(\mu)
+=
+\sum_{T\supseteq S}\widehat g(T)
+\prod_{i\in T\setminus S}\mu_i.
+\]
+
+The proof therefore needs a derivative estimate that is uniform over the relevant biases. It cannot simply discard the higher uniform degrees.
+
+The replacement proves
+\[
+\sum_{S\in\mathcal J}|\partial_SF_g(\mu)|
+\le
+\bigl(16rd\ln(4n)\bigr)^{r/2}+2^{-r}
+\]
+for depth-\(d\) trees, \(|\mu_i|\le1/2\), and a family \(\mathcal J\) of distinct \(r\)-element coordinate sets.
+
+The centered variables are
+\[
+\xi_i=\frac{z_i-\mu_i}{1-\mu_i^2},
+\qquad
+\mathbb E_\mu\xi_i=0,
+\qquad
+|\xi_i|\le2.
+\]
+The proof follows the adaptive query path and stops before a contracted coefficient becomes too large in absolute value. This preserves the centered-increment law. Conditioning on the future event that all coefficients remain small would invalidate that reasoning. The methodological credit belongs to the ordinary-tree discussion in Girish–Tal–Kewen Wu; the exact biased normalization and numerical constants are proved in the replacement. [arxiv.org](https://arxiv.org/html/2103.11604v2?utm_source=chatgpt.com)
+
+Combining this estimate with the path formula gives
+\[
+\left|\mathbb E_{\nu_1}g-\mathbb E_{\mathcal U}g\right|
+\le
+\left(\frac{3}{16\sqrt m}\right)^{k-1}
+\left[
+\bigl(16kd\ln(4km)\bigr)^{k/2}+2^{-k}
+\right].
+\]
+There is no extra \(k!\): a path selects one coordinate in each labelled block, and different paths yield different coordinate sets.
+
+### The moment and amplification arguments handle unpromised inputs
+
+For the same hard and uniform distributions, the proof establishes
+\[
+\mathbb E_{\mathcal U}\Phi=0,
+\qquad
+\mathbb E_{\mathcal U}\Phi^2=\frac1m,
+\qquad
+\mathbb E_{\nu_1}\Phi\ge a_k:=18^{-(k-1)}.
+\]
+
+The hard-mean calculation uses marginal Gaussian second moments. It does not assume independence between a coordinate of \(U\) and its correlated coordinate of \(HU\).
+
+Because neither distribution is wholly promise supported, the acceptance argument must be valid on the entire cube. If \(A\in[0,1]\) has promise error at most \(\varepsilon\), then
+\[
+(1-\varepsilon)(\Phi-\delta)
+\le A
+\le
+\varepsilon+\frac{4\Phi^2}{\delta^2}.
+\]
+Hence
+\[
+\mathbb E_{\nu_1}A-\mathbb E_{\mathcal U}A
+\ge
+(1-\varepsilon)(a_k-\delta)
+-\varepsilon-\frac4{m\delta^2}.
+\]
+
+Majority of \(2\tau\) independent runs gives error at most
+\[
+(8/9)^\tau
+\]
+and depth at most \(2\tau D\). With \(\tau=25k\), the dimension condition makes the required expectation gap at least
+\[
+\frac{119}{144}a_k.
+\]
+The supposed small-depth algorithm would instead have advantage at most
+\[
+\frac7{12}a_k.
+\]
+The difference is the strictly positive margin
+\[
+\frac{35}{144}a_k.
+\]
+
+That is the quantitative contradiction behind the \(2/18225\) theorem.
+
+## 3. What the Bansal–Sinha issue actually shows
+
+The finding is precise and version-specific. In the supplied arXiv v3 source, the disputed comparison is at physical `main.tex:1181`, following line 1180. Line 1184 states the subsequent depth threshold. The public v3 rendering contains the same comparison. [arxiv.org](https://arxiv.org/html/2008.07003v3?utm_source=chatgpt.com)
+
+Write
+\[
+\alpha=1-\frac1k,\qquad L=\log(kN).
+\]
+The preceding level-\(r\) term has logarithmic exponent
+\[
+\frac{r-1}{2},
+\]
+whereas the next display uses
+\[
+\frac{\alpha r}{2}.
+\]
+Their difference is
+\[
+\frac{r-1}{2}-\frac{\alpha r}{2}
+=
+\frac{r/k-1}{2}.
+\]
+Thus the comparison loses the factor
+\[
+\boxed{L^{(r/k-1)/2}.}
+\]
+
+At \(r=k\), the factor is one. At the largest level \(r=k(k-1)\), it is
+\[
+L^{(k-2)/2},
+\]
+which grows without bound for every fixed \(k\ge3\).
+
+The return checks this as a failure of the comparison between the two displayed upper-bound expressions. It does **not** construct a distinguishing algorithm or establish that the published lower-bound theorem is false.
+
+The same preceding estimates do support the sufficient replacement
+\[
+d_1
+\lesssim
+k^{-28}
+\frac{N^{1-1/k}}
+{\log(kN)^{\,1-1/[k(k-1)]}}.
+\]
+Substitution makes every remaining logarithmic exponent nonpositive. For fixed \(k\), even this weaker logarithmic denominator still eventually beats the \((\log_2N)^2\) denominator required by the attached construction.
+
+There is a separate reciprocal typo in equation (5.31): the displayed subtraction is \(\delta^2/(4N)\), whereas the exceptional uniform probability supplied by the moment estimate is \(4/(N\delta^2)\). The replacement keeps that exceptional mass explicitly throughout its own proof. [arxiv.org](https://arxiv.org/html/2008.07003v3?utm_source=chatgpt.com)
+
+## 4. What needs citation, and what is independently proved
+
+The bibliography and `SOURCE_USAGE.md` make the roles explicit.
+
+| Source | Role in the replacement |
+|---|---|
+| OpenAI preprint, §2.1 | Exact normalization, promise, target floor bound, and connection to the construction |
+| Bansal–Sinha, arXiv:2008.07003v3 | Original quantitative theorem; Gaussian-chain and transformed integration antecedents; precisely located §5.4 comparison |
+| Girish–Tal–Kewen Wu, arXiv:2103.11604v2 | Adaptive martingale and contracted-coefficient method for decision-tree growth |
+| Sherstov–Storozhenko–Pei Wu, arXiv:2008.10223v4 | Stronger external Fourier theorem, used only in the separate comparison |
+| Tal’s earlier work | Historical Fourier-growth and rorrelation context |
+
+Two distinctions matter for attribution. The algebraic truncation used locally defines a different hard distribution from the Bansal–Sinha truncation, so its uniform endpoint and hard moments are proved locally. Also, a theorem for a random-orthogonal rorrelation distribution cannot automatically be applied to the explicit Walsh promise.
+
+### The SSW comparison is stronger, with an explicit external premise
+
+The relevant SSW theorem supplies an absolute \(C\ge1\) such that
+\[
+\sum_{|S|=r}|\widehat g(S)|
+\le
+C^r\sqrt{\binom dr}\,
+(1+\ln n)^{(r-1)/2},
+\qquad 1\le r\le n.
+\]
+The supplied v4 PDF labels the relevant results Corollaries 4.14–4.15; its HTML conversion labels them 4.12–4.13. The constant \(C\) is unspecified. [arxiv.org](https://arxiv.org/html/2008.10223v4?utm_source=chatgpt.com)
+
+The replacement explains the restriction transfer rather than merely quoting a resulting bound. Endpoint coordinates can remain free with probability \(1/2\), and interior coordinates with probability \(3/4\). Every path then has the same product of free probabilities. Combining its reciprocal with the sharp edge coefficient gives
+\[
+\left(\frac3{16}\right)^{k-1}
+4\left(\frac43\right)^{k-2}
+=
+\frac3{4^{k-1}}.
+\]
+
+This yields the conditional comparison
+\[
+\boxed{
+R_{(1-\eta)/2}(P_{k,m})
+\ge
+\frac{\eta^2}{162eC^2}
+\left(\frac{m}{1+\ln(km)}\right)^{1-1/k}
+}
+\]
+for \(k\ge2\), \(0<\eta\le1\), and power-of-two \(m\ge2^{15k+2}\).
+
+The binomial factor is what supplies a factor of \(k\), after inversion, to cancel the order-\(k/\eta^2\) amplification cost. This is a proved ordinary comparison conditional on the external Fourier theorem. It is not the signature of either current local Lean endpoint.
+
+## 5. What the supplied verification evidence establishes
+
+The evidence ledger keeps the following statuses separate.
+
+| Result | Current supplied evidence | Limit |
+|---|---|---|
+| Fixed-\(k\) `ForrelationLower.bansalSinhaLower` | Root-build membership and exact ordinary and paranoid Unconditional Comparator membership | Does not itself state the full published quantitative Bansal–Sinha theorem |
+| Sharp `forrelation_lower_uniform_sharp` | Root-build membership, accepted focused Uniform build, and individual elaborated type/axiom output | No exact Comparator membership |
+| New \(t\ge13669k^2\) threshold | Complete ordinary derivation in the return | No newly compiled wrapper claimed |
+| SSW-dependent variable-error bound | Ordinary proof with an explicit external Fourier theorem | Outside current local formal coverage |
+
+For the sharp uniform theorem, the supplied audit prints exactly the standard axioms
+`propext`, `Classical.choice`, and `Quot.sound`.
+
+The integrity checks found that:
+
+- All **405 input-manifest members** match their recorded sizes and hashes.
+- All **124 recorded local source/configuration bindings** in the relevant evidence checks match the supplied source.
+- All **16 inputs** of the accepted focused Uniform build match.
+- The return records **143 declaration interfaces**, with exact supplied elaborated output for five selected declarations.
+- All **81 numbered and unnumbered mathematical displays**, across the replacement and historical note, are mapped to their correspondence entries.
+
+**I did not run Lean afresh.** Neither Lean nor Lake was available in the review environment. The execution claims therefore concern supplied successful records whose source bindings were checked. Complete source interfaces and ambient contexts are provided where a separately printed elaborated type was unavailable.
+
+The mathematical review and the source/evidence review found no remaining substantive gap in the assigned fixed-\(k\) proof. The remaining boundaries are documented explicitly: the new threshold wrapper, arbitrary real leaf labels, variable error, arbitrary-power-of-two formal endpoints, the external SSW theorem, and the stronger subgaussian cutoff from other notes.
+
+## 6. What is ready in the return
+
+The ZIP includes:
+
+- **`section.md`** — the complete replacement, with the explicit three-block calculation and 60 numbered displays.
+- **`correspondence.json`**, **`NEW_STATEMENTS.json`**, and **`STATEMENT_CHANGES.json`** — exact passage boundaries, statement identities, premises, source interfaces, and validation scope.
+- **`references.bib`** and **`SOURCE_USAGE.md`** — exact editions, locators, and citation roles.
+- **`LEAN_GAPS.md`** and **`evidence/`** — formal coverage, supplied receipt checks, and remaining boundaries.
+- **`historical_threshold.md`** — the preserved earlier threshold proof.
+- **Review reports, reading receipts, writing rules, a checker, and a manifest** — the supporting record needed for integration review.
+
+The separate attachment named `Pasted text(20261102-190827).txt` was unavailable. This completed return is based on the ZIP and its internal assignment.

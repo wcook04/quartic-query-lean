@@ -1,0 +1,142 @@
+{
+  "status": "instructions_only_not_executed",
+  "project_argument": "PROJECT is an absolute path to the Lean project directory (contains lean-toolchain and lakefile.toml).",
+  "out_argument": "OUT is a new absolute output directory; output files must not already exist.",
+  "prerequisites": [
+    "Install exact leanprover/lean4:v4.36.0-rc2 and pinned lake-manifest dependencies.",
+    "Obtain the complete lean-exposition distribution matching the packet source hashes; retain its actual revision/package hash, since none was supplied.",
+    "Do not substitute a partial import shim or synthetic graph for the actual installed consumer."
+  ],
+  "frozen_target_steps": [
+    {
+      "argv": [
+        "lean-exposition",
+        "extract",
+        "PROJECT",
+        "--module",
+        "QuarticQuery.Paper.ClassicalPlanted",
+        "--goal",
+        "QuarticQuery.Paper.erasedZero_eq_expectedZeros_div",
+        "--module-prefix",
+        "QuarticQuery",
+        "--build",
+        "--timeout",
+        "120",
+        "--max-declarations",
+        "10000",
+        "--out",
+        "OUT/extracted-graph.json"
+      ],
+      "expect": "Successful real build/extraction, or retain actual failure unchanged. Capture actual stdout/raw report through the installed API if additional raw retention is required; the CLI graph contains sanitized receipt hashes, not raw process diagnostics."
+    },
+    {
+      "argv": [
+        "lean-exposition",
+        "validate",
+        "OUT/extracted-graph.json"
+      ],
+      "expect": "Current graph schema, references and evidence contract checks pass."
+    },
+    {
+      "argv": [
+        "lean-exposition",
+        "select",
+        "OUT/extracted-graph.json",
+        "--goal",
+        "QuarticQuery.Paper.erasedZero_eq_expectedZeros_div",
+        "--out",
+        "OUT/selected-graph.json"
+      ],
+      "expect": "Selected-goal list changes; whole graph is preserved."
+    },
+    {
+      "argv": [
+        "lean-exposition",
+        "inspect",
+        "OUT/selected-graph.json",
+        "--goal",
+        "QuarticQuery.Paper.erasedZero_eq_expectedZeros_div",
+        "--view",
+        "declarations",
+        "--direction",
+        "prerequisites",
+        "--include-assumptions"
+      ],
+      "stdout_file": "OUT/prerequisites.json",
+      "expect": "Actual declaration dependencies, source identities and assumption/boundary records."
+    },
+    {
+      "argv": [
+        "lean-exposition",
+        "inspect",
+        "OUT/selected-graph.json",
+        "--goal",
+        "QuarticQuery.Paper.erasedZero_eq_expectedZeros_div",
+        "--view",
+        "provenance"
+      ],
+      "stdout_file": "OUT/provenance.json",
+      "expect": "Actual retained sources and receipts, with no synthetic statuses."
+    }
+  ],
+  "candidate_steps": [
+    {
+      "operation": "Copy overlay/lean children into a disposable copy of the frozen project. Do not silently overwrite unrelated work. Existing QuarticQuery and QuarticCorpus libraries already own the module namespaces; no lakefile patch is needed."
+    },
+    {
+      "argv": [
+        "lake",
+        "build",
+        "QuarticQuery.Paper.Eq19Whole",
+        "QuarticCorpus.Independent.Eq19.Solution",
+        "QuarticCorpus.Independent.Eq19.PathControls"
+      ],
+      "cwd": "PROJECT",
+      "expect_exit": 0
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "QuarticCorpus/Independent/Eq19/Audit.lean"
+      ],
+      "cwd": "PROJECT",
+      "expect_exit": 0,
+      "expect": "Named complete types and #print axioms output; no nonstandard axiom or sorryAx for proof-bearing declarations."
+    },
+    {
+      "argv": [
+        "lake",
+        "comparator",
+        "--config",
+        "QuarticCorpus/Independent/Eq19/whole-comparator.json"
+      ],
+      "cwd": "PROJECT",
+      "expect_exit": 0
+    },
+    {
+      "argv": [
+        "lake",
+        "comparator",
+        "--config",
+        "QuarticCorpus/Independent/Eq19/comparator.json"
+      ],
+      "cwd": "PROJECT",
+      "expect_exit": 0
+    },
+    {
+      "argv": [
+        "lake",
+        "comparator",
+        "--config",
+        "QuarticCorpus/Independent/Eq19/negative-inequality-only.json"
+      ],
+      "cwd": "PROJECT",
+      "expect_exit": 1,
+      "expect_diagnostic": "Challenge and solution theorem statement do not match: 'QuarticQuery.Independent.Eq19.checked_eq19'"
+    }
+  ],
+  "source_binding": "Use the existing repository/tools/build_corpus.py::source_hashes on the repository root immediately before and after each command; retain actual command/exit/stdout/stderr/source inventories and the exact declared target. Candidate addition changes the whole-source snapshot, so no old root receipt becomes current for the enlarged project.",
+  "schema_scope": "Native extract and select already call validate_graph in the supplied CLI. validate provides an explicit recorded repeat. Do not call full bundle validation: this target is a graph, not an authored three-paper bundle."
+}

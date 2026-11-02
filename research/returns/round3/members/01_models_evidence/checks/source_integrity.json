@@ -1,0 +1,476 @@
+{
+  "manifest_members": 408,
+  "manifest_failures": [],
+  "input_sha256_entries": 403,
+  "input_sha256_failures": [],
+  "local_source_count": 124,
+  "local_source_failures": [],
+  "receipts": [
+    {
+      "member": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+      "receipt_hash_matches_snapshot": true,
+      "binding_recomputed": "current",
+      "matches_recorded_binding": true,
+      "source_count": 124,
+      "source_failures": [],
+      "status": "passed",
+      "declarations_count": 8,
+      "exit_code": 0,
+      "command": [
+        "lake",
+        "comparator",
+        "--config",
+        "QuarticCorpus/Construction/comparator.json",
+        "--inadvisably-no-sandbox"
+      ],
+      "log_sha256": "79752d28f54f3561e17b8322d94d3017dcd43e6ebddbdee0eaf06725213b5c19"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Construction.json",
+      "receipt_hash_matches_snapshot": true,
+      "binding_recomputed": "legacy_unbound",
+      "matches_recorded_binding": true,
+      "source_count": 0,
+      "source_failures": [],
+      "status": "passed",
+      "declarations_count": 8,
+      "exit_code": 0,
+      "command": [
+        "lake",
+        "comparator",
+        "--config",
+        "QuarticCorpus/Construction/comparator.json",
+        "--inadvisably-no-sandbox"
+      ],
+      "log_sha256": "2e49548504c27a60f586a8ff7ae1ba19568e75db53f2dc9f4389032dc1364d90"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Foundations-2026-11-02T182842333798+0000.json",
+      "receipt_hash_matches_snapshot": true,
+      "binding_recomputed": "current",
+      "matches_recorded_binding": true,
+      "source_count": 124,
+      "source_failures": [],
+      "status": "passed",
+      "declarations_count": 16,
+      "exit_code": 0,
+      "command": [
+        "lake",
+        "comparator",
+        "--config",
+        "QuarticCorpus/Foundations/comparator.json",
+        "--inadvisably-no-sandbox"
+      ],
+      "log_sha256": "4fec8c2079a2539d96078cdc73a522ee7083ade88b16e296888859ddba2c06e9"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Foundations.json",
+      "receipt_hash_matches_snapshot": true,
+      "binding_recomputed": "legacy_unbound",
+      "matches_recorded_binding": true,
+      "source_count": 0,
+      "source_failures": [],
+      "status": "passed",
+      "declarations_count": 16,
+      "exit_code": 0,
+      "command": [
+        "lake",
+        "comparator",
+        "--config",
+        "QuarticCorpus/Foundations/comparator.json",
+        "--inadvisably-no-sandbox"
+      ],
+      "log_sha256": "3d0c34ae707f6800e82efdc85ff42acd3a300c6448b489e1a9dc7ded44f69548"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Separation-2026-11-02T183102343043+0000.json",
+      "receipt_hash_matches_snapshot": true,
+      "binding_recomputed": "current",
+      "matches_recorded_binding": true,
+      "source_count": 124,
+      "source_failures": [],
+      "status": "passed",
+      "declarations_count": 12,
+      "exit_code": 0,
+      "command": [
+        "lake",
+        "comparator",
+        "--config",
+        "QuarticCorpus/Separation/comparator.json",
+        "--inadvisably-no-sandbox"
+      ],
+      "log_sha256": "45213ebb2f1bad5451803a4b900f7a1aefef8b875420d42b7e91d138c9973e66"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Separation.json",
+      "receipt_hash_matches_snapshot": true,
+      "binding_recomputed": "legacy_unbound",
+      "matches_recorded_binding": true,
+      "source_count": 0,
+      "source_failures": [],
+      "status": "passed",
+      "declarations_count": 12,
+      "exit_code": 0,
+      "command": [
+        "lake",
+        "comparator",
+        "--config",
+        "QuarticCorpus/Separation/comparator.json",
+        "--inadvisably-no-sandbox"
+      ],
+      "log_sha256": "b7fb7652549cbb5d442c4badc207c9fdd69d82ff1a90b7c60faceaca0a1ab314"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Tournament-2026-11-02T183226253908+0000.json",
+      "receipt_hash_matches_snapshot": true,
+      "binding_recomputed": "current",
+      "matches_recorded_binding": true,
+      "source_count": 124,
+      "source_failures": [],
+      "status": "passed",
+      "declarations_count": 2,
+      "exit_code": 0,
+      "command": [
+        "lake",
+        "comparator",
+        "--config",
+        "QuarticCorpus/Tournament/comparator.json",
+        "--inadvisably-no-sandbox"
+      ],
+      "log_sha256": "a931d85fe58bc61b78205daef2c8a367a07e66b3cb8015195cadd4adb1169b77"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Tournament.json",
+      "receipt_hash_matches_snapshot": true,
+      "binding_recomputed": "legacy_unbound",
+      "matches_recorded_binding": true,
+      "source_count": 0,
+      "source_failures": [],
+      "status": "passed",
+      "declarations_count": 2,
+      "exit_code": 0,
+      "command": [
+        "lake",
+        "comparator",
+        "--config",
+        "QuarticCorpus/Tournament/comparator.json",
+        "--inadvisably-no-sandbox"
+      ],
+      "log_sha256": "4b5e292938e89d729ea6eee608ccd8321129b47f2a39d17a26ca9a728fde1616"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Unconditional-2026-11-02T183450037875+0000.json",
+      "receipt_hash_matches_snapshot": true,
+      "binding_recomputed": "current",
+      "matches_recorded_binding": true,
+      "source_count": 124,
+      "source_failures": [],
+      "status": "passed",
+      "declarations_count": 8,
+      "exit_code": 0,
+      "command": [
+        "lake",
+        "comparator",
+        "--config",
+        "QuarticCorpus/Unconditional/comparator.json",
+        "--inadvisably-no-sandbox"
+      ],
+      "log_sha256": "468d4a57c0162f2560fffdb9daa051a146b4af2433ed57de4b2ea70510a8f774"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Unconditional-2026-11-02T184546477430+0000.json",
+      "receipt_hash_matches_snapshot": true,
+      "binding_recomputed": "current",
+      "matches_recorded_binding": true,
+      "source_count": 124,
+      "source_failures": [],
+      "status": "passed",
+      "declarations_count": 8,
+      "exit_code": 0,
+      "command": [
+        "lake",
+        "comparator",
+        "--config",
+        "QuarticCorpus/Unconditional/comparator.json",
+        "--inadvisably-no-sandbox",
+        "--paranoid"
+      ],
+      "log_sha256": "968fbb413a5a92ee2f65968c442689788e60b9935b3cd67843f89889b2731df5"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Unconditional.json",
+      "receipt_hash_matches_snapshot": true,
+      "binding_recomputed": "legacy_unbound",
+      "matches_recorded_binding": true,
+      "source_count": 0,
+      "source_failures": [],
+      "status": "passed",
+      "declarations_count": 8,
+      "exit_code": 0,
+      "command": [
+        "lake",
+        "comparator",
+        "--config",
+        "QuarticCorpus/Unconditional/comparator.json",
+        "--inadvisably-no-sandbox",
+        "--paranoid"
+      ],
+      "log_sha256": "66130ace53224ecc852c83fae11e43b60bb7edcfccbaed96772a16aba919448f"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-negative-ChangedDefinition-2026-11-02T183607437119+0000.json",
+      "receipt_hash_matches_snapshot": true,
+      "binding_recomputed": "current",
+      "matches_recorded_binding": true,
+      "source_count": 124,
+      "source_failures": [],
+      "status": "passed",
+      "declarations_count": 0,
+      "exit_code": 1,
+      "command": [
+        "lake",
+        "comparator",
+        "--config",
+        "QuarticCorpus/Negative/ChangedDefinition.json",
+        "--inadvisably-no-sandbox"
+      ],
+      "log_sha256": "65a310d4658fd160abee914befa7106e6a13bccb7d20cd36aa8cd9567c1f8383"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-negative-ChangedDefinition.json",
+      "receipt_hash_matches_snapshot": true,
+      "binding_recomputed": "legacy_unbound",
+      "matches_recorded_binding": true,
+      "source_count": 0,
+      "source_failures": [],
+      "status": "passed",
+      "declarations_count": 0,
+      "exit_code": 1,
+      "command": [
+        "lake",
+        "comparator",
+        "--config",
+        "QuarticCorpus/Negative/ChangedDefinition.json",
+        "--inadvisably-no-sandbox"
+      ],
+      "log_sha256": "4ea5fed4bfc2ecab294c975f663f6275608705ec407a881760d968e7ca750531"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-negative-ForeignAxiom-2026-11-02T183708690272+0000.json",
+      "receipt_hash_matches_snapshot": true,
+      "binding_recomputed": "current",
+      "matches_recorded_binding": true,
+      "source_count": 124,
+      "source_failures": [],
+      "status": "passed",
+      "declarations_count": 0,
+      "exit_code": 1,
+      "command": [
+        "lake",
+        "comparator",
+        "--config",
+        "QuarticCorpus/Negative/ForeignAxiom.json",
+        "--inadvisably-no-sandbox"
+      ],
+      "log_sha256": "e8d71d0bdcdc958dc90d3adfe147111f8d2865d9e01a229828af3e168a337003"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-negative-ForeignAxiom.json",
+      "receipt_hash_matches_snapshot": true,
+      "binding_recomputed": "legacy_unbound",
+      "matches_recorded_binding": true,
+      "source_count": 0,
+      "source_failures": [],
+      "status": "passed",
+      "declarations_count": 0,
+      "exit_code": 1,
+      "command": [
+        "lake",
+        "comparator",
+        "--config",
+        "QuarticCorpus/Negative/ForeignAxiom.json",
+        "--inadvisably-no-sandbox"
+      ],
+      "log_sha256": "1e27e90f138929ad09542cca30265e2b265e99b26ca6a497c4d76a2563560d1e"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-negative-MissingDeclaration-2026-11-02T183824782468+0000.json",
+      "receipt_hash_matches_snapshot": true,
+      "binding_recomputed": "current",
+      "matches_recorded_binding": true,
+      "source_count": 124,
+      "source_failures": [],
+      "status": "passed",
+      "declarations_count": 0,
+      "exit_code": 1,
+      "command": [
+        "lake",
+        "comparator",
+        "--config",
+        "QuarticCorpus/Negative/MissingDeclaration.json",
+        "--inadvisably-no-sandbox"
+      ],
+      "log_sha256": "024cc17416e19a8862239cc819ca5566c91f32f13328510eaab1133d90f29791"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-negative-MissingDeclaration.json",
+      "receipt_hash_matches_snapshot": true,
+      "binding_recomputed": "legacy_unbound",
+      "matches_recorded_binding": true,
+      "source_count": 0,
+      "source_failures": [],
+      "status": "passed",
+      "declarations_count": 0,
+      "exit_code": 1,
+      "command": [
+        "lake",
+        "comparator",
+        "--config",
+        "QuarticCorpus/Negative/MissingDeclaration.json",
+        "--inadvisably-no-sandbox"
+      ],
+      "log_sha256": "ec595622e666da62fc071b15aa37cfb3e59d96e2b1b78a7502c7815f54b11e18"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-negative-SorryProof-2026-11-02T183912954843+0000.json",
+      "receipt_hash_matches_snapshot": true,
+      "binding_recomputed": "current",
+      "matches_recorded_binding": true,
+      "source_count": 124,
+      "source_failures": [],
+      "status": "passed",
+      "declarations_count": 0,
+      "exit_code": 1,
+      "command": [
+        "lake",
+        "comparator",
+        "--config",
+        "QuarticCorpus/Negative/SorryProof.json",
+        "--inadvisably-no-sandbox"
+      ],
+      "log_sha256": "230789056f822bb7e422cbe32c693b3ee19337355eed7b498749a12ea3eb9e97"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-negative-SorryProof.json",
+      "receipt_hash_matches_snapshot": true,
+      "binding_recomputed": "legacy_unbound",
+      "matches_recorded_binding": true,
+      "source_count": 0,
+      "source_failures": [],
+      "status": "passed",
+      "declarations_count": 0,
+      "exit_code": 1,
+      "command": [
+        "lake",
+        "comparator",
+        "--config",
+        "QuarticCorpus/Negative/SorryProof.json",
+        "--inadvisably-no-sandbox"
+      ],
+      "log_sha256": "e72bc16e23c20e7b2fcfcbbbe99ae11c1b3a418da6ee12604e84ac85c6cbf245"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-negative-WeakenedConclusion-2026-11-02T184050714051+0000.json",
+      "receipt_hash_matches_snapshot": true,
+      "binding_recomputed": "current",
+      "matches_recorded_binding": true,
+      "source_count": 124,
+      "source_failures": [],
+      "status": "passed",
+      "declarations_count": 0,
+      "exit_code": 1,
+      "command": [
+        "lake",
+        "comparator",
+        "--config",
+        "QuarticCorpus/Negative/WeakenedConclusion.json",
+        "--inadvisably-no-sandbox"
+      ],
+      "log_sha256": "dde23b41aece217415c83a49e565b623e4d436447a312965cd240b6f929c8c47"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-negative-WeakenedConclusion.json",
+      "receipt_hash_matches_snapshot": true,
+      "binding_recomputed": "legacy_unbound",
+      "matches_recorded_binding": true,
+      "source_count": 0,
+      "source_failures": [],
+      "status": "passed",
+      "declarations_count": 0,
+      "exit_code": 1,
+      "command": [
+        "lake",
+        "comparator",
+        "--config",
+        "QuarticCorpus/Negative/WeakenedConclusion.json",
+        "--inadvisably-no-sandbox"
+      ],
+      "log_sha256": "c05c34f1ea38f02a2d6cebe87c19cdca15a6a7c970dae53f2a31c380530d1244"
+    },
+    {
+      "member": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "receipt_hash_matches_snapshot": true,
+      "binding_recomputed": "current",
+      "matches_recorded_binding": true,
+      "source_count": 124,
+      "source_failures": [],
+      "status": "passed",
+      "declarations_count": 2652,
+      "exit_code": null,
+      "command": [
+        "lake",
+        "build",
+        "QuarticQuery"
+      ],
+      "log_sha256": "e43fab200fabadfdf2a86ff2aa808088a496b3a38b6fdca7ac16ab64e23c1c0e"
+    },
+    {
+      "member": "repository/corpus/receipts/lean-build-root.json",
+      "receipt_hash_matches_snapshot": true,
+      "binding_recomputed": "legacy_unbound",
+      "matches_recorded_binding": true,
+      "source_count": 0,
+      "source_failures": [],
+      "status": "passed",
+      "declarations_count": 2021,
+      "exit_code": null,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "--run",
+        "scripts/Reach.lean",
+        "QuarticQuery.theorem_1_1_unconditional",
+        "QuarticQuery.cubic_bound_fails_unconditional"
+      ],
+      "log_sha256": null
+    }
+  ],
+  "dependency_export": {
+    "receipt_hash_matches_snapshot": true,
+    "source_count": 124,
+    "source_failures": [],
+    "declared": 2652,
+    "reached": 1354,
+    "roots": [
+      "QuarticQuery.theorem_1_1_unconditional",
+      "QuarticQuery.cubic_bound_fails_unconditional"
+    ],
+    "unresolved_constants": [],
+    "public_bfs_matches": true,
+    "hidden_witness_projection_consistent": true
+  },
+  "independently_enumerated_source_set_matches": true,
+  "final_operation_log_hashes": {
+    "prepare-reviewed-audit": true,
+    "record-evidence": true,
+    "reviewed-type-axiom-audit": true,
+    "verify-reviewed-audit": true,
+    "comparator-positive-negative": true,
+    "comparator-unconditional-paranoid": true
+  },
+  "axiom_audit_source_hash_matches": true,
+  "axiom_audit_log_hash_matches": true,
+  "native_artifact_rehash": "unavailable: .olean and .trace files are not supplied",
+  "lean_or_comparator_rerun": false
+}

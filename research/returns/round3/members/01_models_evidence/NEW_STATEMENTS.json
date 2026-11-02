@@ -1,0 +1,1356 @@
+[
+  {
+    "id": "sanity-randomized-support-nonempty",
+    "statement": "Every randomized program has positive support size.",
+    "why_needed": "Explains why the maximum over the program support has a nonempty index set.",
+    "depends_on": [
+      "def-R"
+    ],
+    "proposed_lean": "-- Unelaborated signature; inside namespace QuarticQuery.\ntheorem fidelity_randomized_support_nonempty {ι : Type} (A : RandomizedProgram ι) : 0 < A.size",
+    "proposed_lean_status": "Inherited unelaborated proposal retained as data; not an existing declaration or a successful proof run.",
+    "status": "inherited_proposal_not_accepted_into_canonical_registry",
+    "origin": {
+      "kind": "inherited_advisory_proposal",
+      "file": "repository/research/returns/round2/1_statement_fidelity/sanity_theorems.json",
+      "id": "sanity-randomized-support-nonempty",
+      "file_sha256": "6f4e0968baf90c6ad2193ed3fc322e888c7316dc8fee7f2eb29daae00a5eb13c"
+    },
+    "source_proposal_depends_on": [
+      "def-R"
+    ],
+    "scope_and_section_instantiation": "For every coordinate type I and A : RandomizedProgram I, A.size > 0.",
+    "section_relation": "same mathematical statement",
+    "ordinary_proof_location": {
+      "file": "section.md",
+      "section": "2.2",
+      "passage": "R3-01-CLASSICAL"
+    },
+    "route_note": "If A.size=0, the finite sum of its weights is zero, contradicting the required sum one. This is the normalization observation in the section.",
+    "formal_ingredients": [
+      "QuarticQuery.RandomizedProgram"
+    ],
+    "evidence": {
+      "ordinary_mathematics": "Argument supplied in the identified section or the explicit route note; finite checks only where identified.",
+      "exact_proposed_wrapper_lean_build": "unknown; no successful run for this proposed wrapper is asserted",
+      "exact_proposed_wrapper_comparator": "unknown; no comparison of this proposed wrapper is asserted",
+      "new_lean_execution": false,
+      "canonical_registry_mutated": false,
+      "formal_ingredient_evidence": "Existing definitions/theorems are named separately; their source-bound evidence is owned by model_contract.json and correspondence.json. It is not transferred to this proposed wrapper."
+    }
+  },
+  {
+    "id": "sanity-randomized-mass",
+    "statement": "Both output masses are nonnegative, and their sum is one on every input.",
+    "why_needed": "Justifies the probability interpretation and the zero-query two-label contradiction.",
+    "depends_on": [
+      "def-R"
+    ],
+    "proposed_lean": "-- Unelaborated signature; inside namespace QuarticQuery.\ntheorem fidelity_randomized_mass {ι : Type} (A : RandomizedProgram ι) (x : BitInput ι) :\n    0 ≤ A.success x true ∧ 0 ≤ A.success x false ∧\n    A.success x true + A.success x false = 1",
+    "proposed_lean_status": "Inherited unelaborated proposal retained as data; not an existing declaration or a successful proof run.",
+    "status": "inherited_proposal_not_accepted_into_canonical_registry",
+    "origin": {
+      "kind": "inherited_advisory_proposal",
+      "file": "repository/research/returns/round2/1_statement_fidelity/sanity_theorems.json",
+      "id": "sanity-randomized-mass",
+      "file_sha256": "6f4e0968baf90c6ad2193ed3fc322e888c7316dc8fee7f2eb29daae00a5eb13c"
+    },
+    "source_proposal_depends_on": [
+      "def-R"
+    ],
+    "scope_and_section_instantiation": "For every A : RandomizedProgram I and every underlying input x, both success masses are nonnegative and A.success x true + A.success x false = 1. Off-promise inputs are included.",
+    "section_relation": "same mathematical statement",
+    "ordinary_proof_location": {
+      "file": "section.md",
+      "section": "2.2 and 2.6",
+      "passage": "R3-01-CLASSICAL"
+    },
+    "route_note": "Each mass is a sum of positive support weights. Each tree outputs exactly one Boolean value, so the two sums partition the normalized weights. This finite partition argument supplies the ordinary proof; no stale compilation labels from the old proposal are inherited.",
+    "formal_ingredients": [
+      "QuarticQuery.RandomizedProgram",
+      "QuarticQuery.RandomizedProgram.success"
+    ],
+    "evidence": {
+      "ordinary_mathematics": "Argument supplied in the identified section or the explicit route note; finite checks only where identified.",
+      "exact_proposed_wrapper_lean_build": "unknown; no successful run for this proposed wrapper is asserted",
+      "exact_proposed_wrapper_comparator": "unknown; no comparison of this proposed wrapper is asserted",
+      "new_lean_execution": false,
+      "canonical_registry_mutated": false,
+      "formal_ingredient_evidence": "Existing definitions/theorems are named separately; their source-bound evidence is owned by model_contract.json and correspondence.json. It is not transferred to this proposed wrapper."
+    }
+  },
+  {
+    "id": "sanity-randomized-full-support-cap",
+    "statement": "Every supported tree is bounded by the randomized program depth.",
+    "why_needed": "Records that a rare positive-probability tree is charged in full.",
+    "depends_on": [
+      "def-R"
+    ],
+    "proposed_lean": "-- Unelaborated signature; inside namespace QuarticQuery.\ntheorem fidelity_randomized_support_cap {ι : Type} (A : RandomizedProgram ι) (j : Fin A.size) :\n    (A.tree j).depth ≤ A.depth",
+    "proposed_lean_status": "Inherited unelaborated proposal retained as data; not an existing declaration or a successful proof run.",
+    "status": "inherited_proposal_not_accepted_into_canonical_registry",
+    "origin": {
+      "kind": "inherited_advisory_proposal",
+      "file": "repository/research/returns/round2/1_statement_fidelity/sanity_theorems.json",
+      "id": "sanity-randomized-full-support-cap",
+      "file_sha256": "6f4e0968baf90c6ad2193ed3fc322e888c7316dc8fee7f2eb29daae00a5eb13c"
+    },
+    "source_proposal_depends_on": [
+      "def-R"
+    ],
+    "scope_and_section_instantiation": "For every A and j : Fin A.size, (A.tree j).depth <= A.depth.",
+    "section_relation": "same mathematical statement",
+    "ordinary_proof_location": {
+      "file": "section.md",
+      "section": "2.2",
+      "passage": "R3-01-CLASSICAL"
+    },
+    "route_note": "The depth of A is the finite supremum of its listed tree depths, so each is bounded by it. Positivity means every listed tree is in the probabilistic support.",
+    "formal_ingredients": [
+      "QuarticQuery.RandomizedProgram.depth",
+      "QuarticQuery.QueryTree.depth"
+    ],
+    "evidence": {
+      "ordinary_mathematics": "Argument supplied in the identified section or the explicit route note; finite checks only where identified.",
+      "exact_proposed_wrapper_lean_build": "unknown; no successful run for this proposed wrapper is asserted",
+      "exact_proposed_wrapper_comparator": "unknown; no comparison of this proposed wrapper is asserted",
+      "new_lean_execution": false,
+      "canonical_registry_mutated": false,
+      "formal_ingredient_evidence": "Existing definitions/theorems are named separately; their source-bound evidence is owned by model_contract.json and correspondence.json. It is not transferred to this proposed wrapper."
+    }
+  },
+  {
+    "id": "NCL-finite-capped",
+    "statement": "On a finite coordinate type, for fixed natural r and L there are only finitely many deterministic output-vector trees having at most L queries to each of the r instances on every branch. Consequently arbitrary independent side information and coins can be grouped by the induced tree into a finite mixture.",
+    "why_needed": "Reuses the earlier finite-tree/grouping statement for the finite-mixture model explanation instead of minting a duplicate finiteness claim.",
+    "depends_on": [
+      "def-R"
+    ],
+    "proposed_lean": "namespace QuarticQuery\ntheorem finite_capped_output_trees_record {κ : Type} [Fintype κ] [DecidableEq κ]\n    (r L : ℕ) :\n    {T : OutTree (Fin r × κ) (Fin r → Bool) | T.capped (fun _ => L)}.Finite\nend QuarticQuery",
+    "proposed_lean_status": "Inherited unelaborated proposal retained as data; not an existing declaration or a successful proof run.",
+    "status": "inherited_proposal_not_accepted_into_canonical_registry",
+    "origin": {
+      "kind": "inherited_advisory_proposal",
+      "file": "repository/research/returns/funnel/1_long_reasoning_record/NEW_STATEMENTS.json",
+      "id": "NCL-finite-capped",
+      "file_sha256": "d2964002bad5c1626a1e2c72ac301b7615373ad2576f9604d561dd10c7fe0ccd"
+    },
+    "source_proposal_depends_on": [
+      "def-R"
+    ],
+    "scope_and_section_instantiation": "The earlier proposal is for r output-vector instances with per-instance cap L. Section 2.2 uses only r=1, identifies Fin 1 × I with I and Fin 1 → Bool with Bool, and writes q for L. Thus the section is a Boolean one-instance specialization, not the full original output-vector statement.",
+    "section_relation": "Boolean r=1 specialization of an inherited general advisory claim; the original statement text and proposed signature are preserved",
+    "ordinary_proof_location": {
+      "file": "section.md",
+      "section": "2.2",
+      "passage": "R3-01-CLASSICAL"
+    },
+    "route_note": "QuarticQuery.finite_depth_le proves the Boolean bounded-depth finiteness directly. Grouping the outcomes of a fixed input-independent randomness source by the induced bounded tree preserves evaluation probabilities. Zero weights can be removed using exists_program_of_mixture. Conversely, an already finite distribution is sampled with finitely many input-independent biased coin choices (successive conditional probabilities); this is the conventional finite-mixture representation explained in Buhrman–de Wolf §3.2, not an extra stronger output-vector theorem. No separate new representation identifier is introduced.",
+    "formal_ingredients": [
+      "QuarticQuery.finite_depth_le",
+      "QuarticQuery.exists_program_of_mixture"
+    ],
+    "evidence": {
+      "ordinary_mathematics": "Argument supplied in the identified section or the explicit route note; finite checks only where identified.",
+      "exact_proposed_wrapper_lean_build": "unknown; no successful run for this proposed wrapper is asserted",
+      "exact_proposed_wrapper_comparator": "unknown; no comparison of this proposed wrapper is asserted",
+      "new_lean_execution": false,
+      "canonical_registry_mutated": false,
+      "formal_ingredient_evidence": "Existing definitions/theorems are named separately; their source-bound evidence is owned by model_contract.json and correspondence.json. It is not transferred to this proposed wrapper."
+    }
+  },
+  {
+    "id": "r3-01-query-tree-pruning",
+    "statement": "For every finite coordinate set I and finite Boolean query tree T, there is a query tree Tprime with Tprime(x)=T(x) for every x in {0,1}^I, with no coordinate queried twice along a root-to-leaf path, and depth(Tprime) <= max_x queries_made_by_T_on_x <= depth(T). Every root-to-leaf path of Tprime is consistent with an input. Therefore minimum syntactic-depth complexity agrees with minimum worst-input execution-length complexity in this model.",
+    "why_needed": "Makes explicit why unreachable repeated-query branches do not change the intended minimum complexity.",
+    "depends_on": [
+      "def-D",
+      "def-R"
+    ],
+    "proposed_lean": null,
+    "proposed_lean_status": "No Lean signature is proposed; no exact Lean declaration is asserted.",
+    "status": "new_editorial_statement_proposal_not_accepted_into_canonical_registry",
+    "origin": {
+      "kind": "round3_job01_ordinary_proof_claim"
+    },
+    "scope_and_section_instantiation": "All finite coordinate sets, all underlying inputs; query counts include repeated queries. Empty I has one input and only leaf trees.",
+    "section_relation": "Exact ordinary claim or explicit justification of the section convention; no canonical statement is changed.",
+    "ordinary_proof_location": {
+      "file": "section.md",
+      "section": "2.2",
+      "passage": "R3-01-CLASSICAL"
+    },
+    "route_note": "Carry a partial assignment down T. When a queried coordinate is already assigned, retain only the child matching that assignment; otherwise retain the query and extend the assignment in its two children. Induction preserves evaluation on inputs extending the assignment. Each path of the resulting tree fixes distinct bits and extends to a whole input, even when I is empty. The original execution on such an input visits all retained query nodes and possibly additional removed repeated queries, proving the execution-length bound and hence the equality of minima. This is an ordinary proof, not a newly located Lean pruning theorem.",
+    "formal_ingredients": [
+      "QuarticQuery.QueryTree",
+      "QuarticQuery.QueryTree.eval",
+      "QuarticQuery.QueryTree.depth"
+    ],
+    "finite_checks": [],
+    "evidence": {
+      "ordinary_mathematics": "Ordinary argument supplied; not a claim of new mathematical discovery.",
+      "exact_lean_statement": "none supplied",
+      "exact_lean_build": "unknown",
+      "exact_comparator": "unknown",
+      "new_lean_execution": false,
+      "canonical_registry_mutated": false
+    }
+  },
+  {
+    "id": "ROOT-MASS",
+    "statement": "For every finite coordinate type I, workspace w, adaptive program A, input x, state psi and bit b, outputMass A x psi b is nonnegative and outputMass A x psi false + outputMass A x psi true = norm(psi)^2.",
+    "why_needed": "Retains the baseline conjunction that makes unnormalized branch masses into output probabilities.",
+    "depends_on": [
+      "def-Q",
+      "def-query-oracle"
+    ],
+    "proposed_lean": "theorem reasoning_record_output_mass {ι : Type} [Fintype ι] {w : ℕ} (A : QuarticQuery.AdaptiveProgram ι w) (x : QuarticQuery.BitInput ι) (ψ : QuarticQuery.State ι w) : (∀ b, 0 ≤ A.outputMass x ψ b) ∧ A.outputMass x ψ false + A.outputMass x ψ true = ‖ψ‖ ^ 2",
+    "proposed_lean_status": "Inherited unelaborated proposal retained as data; not an existing declaration or a successful proof run.",
+    "status": "inherited_proposal_not_accepted_into_canonical_registry",
+    "origin": {
+      "kind": "inherited_advisory_proposal",
+      "file": "repository/research/returns/funnel/1_long_reasoning_record/NEW_STATEMENTS.json",
+      "id": "ROOT-MASS",
+      "file_sha256": "d2964002bad5c1626a1e2c72ac301b7615373ad2576f9604d561dd10c7fe0ccd"
+    },
+    "source_proposal_depends_on": [
+      "def-Q",
+      "def-query-oracle"
+    ],
+    "scope_and_section_instantiation": "Any finite coordinate type, any workspace, adaptive program, underlying input, vector (including zero), and Boolean output. Unit norm is required only for interpreting the total mass as one.",
+    "section_relation": "Same conjunction, with the two summands commuted; no duplicate identifier and no canonical statement change",
+    "ordinary_proof_location": {
+      "file": "section.md",
+      "section": "2.4",
+      "passage": "R3-01-ADAPTIVE"
+    },
+    "route_note": "The section gives the structural induction. The two existing components are AdaptiveProgram.outputMass_nonneg and AdaptiveProgram.outputMass_true_add_false. The displayed order of the Boolean masses is reversed from the inherited proposal by commutativity of addition. The combined proposed wrapper remains distinct from these existing component theorems.",
+    "formal_ingredients": [
+      "QuarticQuery.AdaptiveProgram.outputMass_nonneg",
+      "QuarticQuery.AdaptiveProgram.outputMass_true_add_false"
+    ],
+    "evidence": {
+      "ordinary_mathematics": "Argument supplied in the identified section or the explicit route note; finite checks only where identified.",
+      "exact_proposed_wrapper_lean_build": "unknown; no successful run for this proposed wrapper is asserted",
+      "exact_proposed_wrapper_comparator": "unknown; no comparison of this proposed wrapper is asserted",
+      "new_lean_execution": false,
+      "canonical_registry_mutated": false,
+      "formal_ingredient_evidence": "Existing definitions/theorems are named separately; their source-bound evidence is owned by model_contract.json and correspondence.json. It is not transferred to this proposed wrapper."
+    }
+  },
+  {
+    "id": "sf-q-cap-max",
+    "statement": "Even an unreachable syntactic measurement branch containing two queries contributes two to the worst-case cap.",
+    "why_needed": "Reuses the earlier semantic control illustrating that an unreachable measurement branch is still included in the syntactic query cap.",
+    "depends_on": [
+      "def-Q"
+    ],
+    "proposed_lean": "theorem fidelity_queryCap_max {ι : Type} [Fintype ι] {w : ℕ} : (QuarticQuery.AdaptiveProgram.measure (∅ : Finset (QuarticQuery.Basis ι w)) (.query (.query (.output true))) (.output false)).queryCap = 2",
+    "proposed_lean_status": "Inherited unelaborated proposal retained as data; not an existing declaration or a successful proof run.",
+    "status": "inherited_proposal_not_accepted_into_canonical_registry",
+    "origin": {
+      "kind": "inherited_advisory_proposal",
+      "file": "repository/research/returns/round2/1_statement_fidelity/sanity_theorems.json",
+      "id": "sf-q-cap-max",
+      "file_sha256": "6f4e0968baf90c6ad2193ed3fc322e888c7316dc8fee7f2eb29daae00a5eb13c"
+    },
+    "source_proposal_depends_on": [
+      "def-Q"
+    ],
+    "scope_and_section_instantiation": "The inherited proposal specifies the concrete empty-projector measurement whose unreachable branch contains two queries; section 2.4 states the general maximum-branch convention of which this is an instance.",
+    "section_relation": "Concrete inherited control for the general max-branch convention; not a new displayed example or a new kernel result",
+    "ordinary_proof_location": {
+      "file": "section.md",
+      "section": "2.4",
+      "passage": "R3-01-ADAPTIVE"
+    },
+    "route_note": "By the queryCap recursion the two branch caps are 2 and 0, so their maximum is 2. Empty-projector probability zero does not alter that syntactic computation. The section uses the convention; it does not claim that this proposed concrete Lean wrapper was compiled.",
+    "formal_ingredients": [
+      "QuarticQuery.AdaptiveProgram.queryCap"
+    ],
+    "evidence": {
+      "ordinary_mathematics": "Argument supplied in the identified section or the explicit route note; finite checks only where identified.",
+      "exact_proposed_wrapper_lean_build": "unknown; no successful run for this proposed wrapper is asserted",
+      "exact_proposed_wrapper_comparator": "unknown; no comparison of this proposed wrapper is asserted",
+      "new_lean_execution": false,
+      "canonical_registry_mutated": false,
+      "formal_ingredient_evidence": "Existing definitions/theorems are named separately; their source-bound evidence is owned by model_contract.json and correspondence.json. It is not transferred to this proposed wrapper."
+    }
+  },
+  {
+    "id": "sf-q-bitruns-representable",
+    "statement": "A fixed bit-query sequence with a final binary coordinate measurement is representable at the same query budget.",
+    "why_needed": "Tracks the converse representation claim separately from the supplied deferred-measurement theorem.",
+    "depends_on": [
+      "def-Q",
+      "def-query-oracle"
+    ],
+    "proposed_lean": "theorem fidelity_bitRun_to_QLe {n w T : ℕ} (f : QuarticQuery.PartialBool (Fin n)) (V : ℕ → QuarticQuery.State (Fin n) w →ₗᵢ[ℂ] QuarticQuery.State (Fin n) w) (ψ : QuarticQuery.State (Fin n) w) (hψ : ‖ψ‖ = 1) (S : Finset (QuarticQuery.Basis (Fin n) w)) (h : ∀ x b, f x = some b → (2 / 3 : ℝ) ≤ if b then ‖QuarticQuery.project S (QuarticQuery.bitRun V ψ x T)‖ ^ 2 else ‖QuarticQuery.bitRun V ψ x T - QuarticQuery.project S (QuarticQuery.bitRun V ψ x T)‖ ^ 2) : QuarticQuery.QLe f T",
+    "proposed_lean_status": "Inherited unelaborated proposal retained as data; not an existing declaration or a successful proof run.",
+    "status": "inherited_proposal_not_accepted_into_canonical_registry",
+    "origin": {
+      "kind": "inherited_advisory_proposal",
+      "file": "repository/research/returns/round2/1_statement_fidelity/sanity_theorems.json",
+      "id": "sf-q-bitruns-representable",
+      "file_sha256": "6f4e0968baf90c6ad2193ed3fc322e888c7316dc8fee7f2eb29daae00a5eb13c"
+    },
+    "source_proposal_depends_on": [
+      "def-Q",
+      "def-query-oracle"
+    ],
+    "scope_and_section_instantiation": "A finite fixed bit-query sequence, fixed input-independent gates, unit initial state and final binary coordinate measurement satisfying the promise correctness condition yields QLe at the same query budget.",
+    "section_relation": "same mathematical statement",
+    "ordinary_proof_location": {
+      "file": "section.md",
+      "section": "2.5",
+      "passage": "R3-01-BRIDGES"
+    },
+    "route_note": "Write the finite gate/query sequence as successive AdaptiveProgram.unitary and AdaptiveProgram.query constructors, followed by a measure node with Boolean-output children. Structural evaluation gives the same measurement masses and query cap. The supplied proposed signature is retained as unelaborated data; this section does not claim an existing exact wrapper.",
+    "formal_ingredients": [
+      "QuarticQuery.AdaptiveProgram",
+      "QuarticQuery.AdaptiveProgram.queryCap",
+      "QuarticQuery.AdaptiveProgram.outputMass",
+      "QuarticQuery.bitRun",
+      "QuarticQuery.QLe"
+    ],
+    "evidence": {
+      "ordinary_mathematics": "Argument supplied in the identified section or the explicit route note; finite checks only where identified.",
+      "exact_proposed_wrapper_lean_build": "unknown; no successful run for this proposed wrapper is asserted",
+      "exact_proposed_wrapper_comparator": "unknown; no comparison of this proposed wrapper is asserted",
+      "new_lean_execution": false,
+      "canonical_registry_mutated": false,
+      "formal_ingredient_evidence": "Existing definitions/theorems are named separately; their source-bound evidence is owned by model_contract.json and correspondence.json. It is not transferred to this proposed wrapper."
+    }
+  },
+  {
+    "id": "sanity-R-zero-characterization",
+    "statement": "Randomized complexity is zero exactly when the partial function is constant on its promise.",
+    "why_needed": "Supplies the randomized part of the zero-query equivalence used by the examples.",
+    "depends_on": [
+      "def-partial-query",
+      "def-R",
+      "sanity-randomized-mass"
+    ],
+    "proposed_lean": "-- Unelaborated signature; inside namespace QuarticQuery.\ntheorem fidelity_R_zero_iff {ι : Type} [Fintype ι] (f : PartialBool ι) :\n    R f = 0 ↔ ConstantOnPromise f",
+    "proposed_lean_status": "Inherited unelaborated proposal retained as data; not an existing declaration or a successful proof run.",
+    "status": "inherited_proposal_not_accepted_into_canonical_registry",
+    "origin": {
+      "kind": "inherited_advisory_proposal",
+      "file": "repository/research/returns/round2/1_statement_fidelity/sanity_theorems.json",
+      "id": "sanity-R-zero-characterization",
+      "file_sha256": "6f4e0968baf90c6ad2193ed3fc322e888c7316dc8fee7f2eb29daae00a5eb13c"
+    },
+    "source_proposal_depends_on": [
+      "def-partial-query",
+      "def-R",
+      "sanity-randomized-mass"
+    ],
+    "scope_and_section_instantiation": "Every finite-coordinate partial Boolean function, inclusive success threshold 2/3, including an empty promise.",
+    "section_relation": "same mathematical statement",
+    "ordinary_proof_location": {
+      "file": "section.md",
+      "section": "2.6",
+      "passage": "R3-01-ZERO"
+    },
+    "route_note": "Attainment supplies a zero-depth mixture. It is a fixed distribution on constant leaves. Two promised labels would require total mass at least 4/3; one promised label or none is handled by a constant leaf. This is the ordinary proof in the section.",
+    "formal_ingredients": [
+      "QuarticQuery.RLe_R",
+      "QuarticQuery.R_le_iff",
+      "QuarticQuery.ConstantOnPromise"
+    ],
+    "evidence": {
+      "ordinary_mathematics": "Argument supplied in the identified section or the explicit route note; finite checks only where identified.",
+      "exact_proposed_wrapper_lean_build": "unknown; no successful run for this proposed wrapper is asserted",
+      "exact_proposed_wrapper_comparator": "unknown; no comparison of this proposed wrapper is asserted",
+      "new_lean_execution": false,
+      "canonical_registry_mutated": false,
+      "formal_ingredient_evidence": "Existing definitions/theorems are named separately; their source-bound evidence is owned by model_contract.json and correspondence.json. It is not transferred to this proposed wrapper."
+    }
+  },
+  {
+    "id": "sanity-D-zero-characterization",
+    "statement": "Deterministic complexity is zero exactly when the partial function is constant on its promise.",
+    "why_needed": "Supplies the deterministic part of the zero-query equivalence.",
+    "depends_on": [
+      "def-partial-query",
+      "def-D"
+    ],
+    "proposed_lean": "-- Unelaborated signature; inside namespace QuarticQuery.\ntheorem fidelity_D_zero_iff {ι : Type} [Fintype ι] (f : PartialBool ι) :\n    D f = 0 ↔ ConstantOnPromise f",
+    "proposed_lean_status": "Inherited unelaborated proposal retained as data; not an existing declaration or a successful proof run.",
+    "status": "inherited_proposal_not_accepted_into_canonical_registry",
+    "origin": {
+      "kind": "inherited_advisory_proposal",
+      "file": "repository/research/returns/round2/1_statement_fidelity/sanity_theorems.json",
+      "id": "sanity-D-zero-characterization",
+      "file_sha256": "6f4e0968baf90c6ad2193ed3fc322e888c7316dc8fee7f2eb29daae00a5eb13c"
+    },
+    "source_proposal_depends_on": [
+      "def-partial-query",
+      "def-D"
+    ],
+    "scope_and_section_instantiation": "Every finite-coordinate partial Boolean function, including empty coordinates and empty promise.",
+    "section_relation": "same mathematical statement",
+    "ordinary_proof_location": {
+      "file": "section.md",
+      "section": "2.6",
+      "passage": "R3-01-ZERO"
+    },
+    "route_note": "An attained zero-depth tree is a leaf. It is correct exactly when its fixed answer equals every promised label; conversely such a leaf witnesses depth zero.",
+    "formal_ingredients": [
+      "QuarticQuery.DLe_D",
+      "QuarticQuery.D_le_iff",
+      "QuarticQuery.ConstantOnPromise"
+    ],
+    "evidence": {
+      "ordinary_mathematics": "Argument supplied in the identified section or the explicit route note; finite checks only where identified.",
+      "exact_proposed_wrapper_lean_build": "unknown; no successful run for this proposed wrapper is asserted",
+      "exact_proposed_wrapper_comparator": "unknown; no comparison of this proposed wrapper is asserted",
+      "new_lean_execution": false,
+      "canonical_registry_mutated": false,
+      "formal_ingredient_evidence": "Existing definitions/theorems are named separately; their source-bound evidence is owned by model_contract.json and correspondence.json. It is not transferred to this proposed wrapper."
+    }
+  },
+  {
+    "id": "sf-q-zero-input-independent",
+    "statement": "A zero-query adaptive program assigns the same mass to a Boolean answer on every input when started at the same vector.",
+    "why_needed": "Exposes the input-independence argument needed for the quantum zero-query lower bound.",
+    "depends_on": [
+      "def-Q",
+      "def-query-oracle"
+    ],
+    "proposed_lean": "theorem fidelity_zero_query_input_independent {ι : Type} [Fintype ι] {w : ℕ} (A : QuarticQuery.AdaptiveProgram ι w) (hA : A.queryCap = 0) (x y : QuarticQuery.BitInput ι) (ψ : QuarticQuery.State ι w) (b : Bool) : A.outputMass x ψ b = A.outputMass y ψ b",
+    "proposed_lean_status": "Inherited unelaborated proposal retained as data; not an existing declaration or a successful proof run.",
+    "status": "inherited_proposal_not_accepted_into_canonical_registry",
+    "origin": {
+      "kind": "inherited_advisory_proposal",
+      "file": "repository/research/returns/round2/1_statement_fidelity/sanity_theorems.json",
+      "id": "sf-q-zero-input-independent",
+      "file_sha256": "6f4e0968baf90c6ad2193ed3fc322e888c7316dc8fee7f2eb29daae00a5eb13c"
+    },
+    "source_proposal_depends_on": [
+      "def-Q",
+      "def-query-oracle"
+    ],
+    "scope_and_section_instantiation": "Every finite coordinate type, workspace, A with A.queryCap=0, every pair of underlying inputs x,y, every fixed starting vector and output bit.",
+    "section_relation": "same mathematical statement",
+    "ordinary_proof_location": {
+      "file": "section.md",
+      "section": "2.6",
+      "passage": "R3-01-ZERO"
+    },
+    "route_note": "Induct on A. A query constructor contradicts cap zero. Output, unitary and measurement constructors depend on the same initial vector and input-independent data, so the inductive masses coincide. No normalization is needed for this invariance statement.",
+    "formal_ingredients": [
+      "QuarticQuery.AdaptiveProgram.queryCap",
+      "QuarticQuery.AdaptiveProgram.outputMass"
+    ],
+    "evidence": {
+      "ordinary_mathematics": "Argument supplied in the identified section or the explicit route note; finite checks only where identified.",
+      "exact_proposed_wrapper_lean_build": "unknown; no successful run for this proposed wrapper is asserted",
+      "exact_proposed_wrapper_comparator": "unknown; no comparison of this proposed wrapper is asserted",
+      "new_lean_execution": false,
+      "canonical_registry_mutated": false,
+      "formal_ingredient_evidence": "Existing definitions/theorems are named separately; their source-bound evidence is owned by model_contract.json and correspondence.json. It is not transferred to this proposed wrapper."
+    }
+  },
+  {
+    "id": "sf-q-zero-iff-constant",
+    "statement": "For every finite Boolean promise problem, Q(f)=0 exactly when its defined outputs are constant.",
+    "why_needed": "Supplies the quantum part of the zero-query equivalence and its empty-register case.",
+    "depends_on": [
+      "def-Q",
+      "sf-q-zero-input-independent",
+      "ROOT-MASS"
+    ],
+    "proposed_lean": "theorem fidelity_Q_zero_iff_constant {ι : Type} [Fintype ι] (f : QuarticQuery.PartialBool ι) : QuarticQuery.Q f = 0 ↔ QuarticQuery.ConstantOnPromise f",
+    "proposed_lean_status": "Inherited unelaborated proposal retained as data; not an existing declaration or a successful proof run.",
+    "status": "inherited_proposal_not_accepted_into_canonical_registry",
+    "origin": {
+      "kind": "inherited_advisory_proposal",
+      "file": "repository/research/returns/round2/1_statement_fidelity/sanity_theorems.json",
+      "id": "sf-q-zero-iff-constant",
+      "file_sha256": "6f4e0968baf90c6ad2193ed3fc322e888c7316dc8fee7f2eb29daae00a5eb13c"
+    },
+    "source_proposal_depends_on": [
+      "def-Q",
+      "sf-q-zero-input-independent",
+      "sf-q-mass-conservation"
+    ],
+    "scope_and_section_instantiation": "Every finite-coordinate partial Boolean function, including empty coordinates and empty promise.",
+    "section_relation": "same mathematical statement",
+    "ordinary_proof_location": {
+      "file": "section.md",
+      "section": "2.6",
+      "passage": "R3-01-ZERO"
+    },
+    "route_note": "Use Q attainment. The constant disjunct already gives ConstantOnPromise. In the other disjunct, zero-query input-independence and total mass one rule out both promised labels; the converse uses the constant disjunct. The empty indexed Hilbert space is handled by that explicit disjunct.",
+    "formal_ingredients": [
+      "QuarticQuery.QLe_Q",
+      "QuarticQuery.Q_le_iff",
+      "QuarticQuery.AdaptiveProgram.outputMass_true_add_false",
+      "QuarticQuery.ConstantOnPromise"
+    ],
+    "evidence": {
+      "ordinary_mathematics": "Argument supplied in the identified section or the explicit route note; finite checks only where identified.",
+      "exact_proposed_wrapper_lean_build": "unknown; no successful run for this proposed wrapper is asserted",
+      "exact_proposed_wrapper_comparator": "unknown; no comparison of this proposed wrapper is asserted",
+      "new_lean_execution": false,
+      "canonical_registry_mutated": false,
+      "formal_ingredient_evidence": "Existing definitions/theorems are named separately; their source-bound evidence is owned by model_contract.json and correspondence.json. It is not transferred to this proposed wrapper."
+    }
+  },
+  {
+    "id": "sanity-identity-one-bit-classical",
+    "statement": "The one-bit identity has randomized and deterministic complexity one.",
+    "why_needed": "Tests a nonconstant one-bit problem and the algorithm-before-input quantifier.",
+    "depends_on": [
+      "def-R",
+      "def-D",
+      "sanity-R-zero-characterization",
+      "sanity-D-zero-characterization"
+    ],
+    "proposed_lean": "-- Unelaborated signature; inside namespace QuarticQuery.\ntheorem fidelity_identity_one_classical :\n    R (totalise (fun x : BitInput (Fin 1) => x 0)) = 1 ∧\n    D (totalise (fun x : BitInput (Fin 1) => x 0)) = 1",
+    "proposed_lean_status": "Inherited unelaborated proposal retained as data; not an existing declaration or a successful proof run.",
+    "status": "inherited_proposal_not_accepted_into_canonical_registry",
+    "origin": {
+      "kind": "inherited_advisory_proposal",
+      "file": "repository/research/returns/round2/1_statement_fidelity/sanity_theorems.json",
+      "id": "sanity-identity-one-bit-classical",
+      "file_sha256": "6f4e0968baf90c6ad2193ed3fc322e888c7316dc8fee7f2eb29daae00a5eb13c"
+    },
+    "source_proposal_depends_on": [
+      "def-R",
+      "def-D",
+      "sanity-R-zero-characterization",
+      "sanity-D-zero-characterization"
+    ],
+    "scope_and_section_instantiation": "Total one-bit identity, hard-cap queries and inclusive success threshold 2/3: R=D=1.",
+    "section_relation": "same mathematical statement",
+    "ordinary_proof_location": {
+      "file": "section.md",
+      "section": "2.6",
+      "passage": "R3-01-IDENTITY"
+    },
+    "route_note": "A single query is exact. The presence of both labels excludes zero queries by the preceding characterizations. The new finite checker verifies the elementary truth table.",
+    "formal_ingredients": [
+      "QuarticQuery.DLe_of_tree",
+      "QuarticQuery.DLe.toRLe"
+    ],
+    "evidence": {
+      "ordinary_mathematics": "Argument supplied in the identified section or the explicit route note; finite checks only where identified.",
+      "exact_proposed_wrapper_lean_build": "unknown; no successful run for this proposed wrapper is asserted",
+      "exact_proposed_wrapper_comparator": "unknown; no comparison of this proposed wrapper is asserted",
+      "new_lean_execution": false,
+      "canonical_registry_mutated": false,
+      "formal_ingredient_evidence": "Existing definitions/theorems are named separately; their source-bound evidence is owned by model_contract.json and correspondence.json. It is not transferred to this proposed wrapper."
+    }
+  },
+  {
+    "id": "sf-q-dictator",
+    "statement": "Reading the only input bit has quantum complexity one.",
+    "why_needed": "Checks that the oracle response bit supplies the one-bit input and that no hidden input access gives cost zero.",
+    "depends_on": [
+      "def-Q",
+      "def-query-oracle",
+      "sf-q-zero-iff-constant"
+    ],
+    "proposed_lean": "theorem fidelity_Q_dictator : QuarticQuery.Q (QuarticQuery.totalise (fun x : QuarticQuery.BitInput (Fin 1) => x 0)) = 1",
+    "proposed_lean_status": "Inherited unelaborated proposal retained as data; not an existing declaration or a successful proof run.",
+    "status": "inherited_proposal_not_accepted_into_canonical_registry",
+    "origin": {
+      "kind": "inherited_advisory_proposal",
+      "file": "repository/research/returns/round2/1_statement_fidelity/sanity_theorems.json",
+      "id": "sf-q-dictator",
+      "file_sha256": "6f4e0968baf90c6ad2193ed3fc322e888c7316dc8fee7f2eb29daae00a5eb13c"
+    },
+    "source_proposal_depends_on": [
+      "def-Q",
+      "def-D",
+      "sf-q-zero-iff-constant"
+    ],
+    "scope_and_section_instantiation": "Total one-bit identity: Q=1 under the bit-oracle model.",
+    "section_relation": "same mathematical statement",
+    "ordinary_proof_location": {
+      "file": "section.md",
+      "section": "2.6",
+      "passage": "R3-01-IDENTITY"
+    },
+    "route_note": "Prepare the unique query coordinate with response bit zero, query once and measure the response. Both labels occur, so the quantum zero-query characterization supplies the lower bound.",
+    "formal_ingredients": [
+      "QuarticQuery.bitOracle",
+      "QuarticQuery.QLe"
+    ],
+    "evidence": {
+      "ordinary_mathematics": "Argument supplied in the identified section or the explicit route note; finite checks only where identified.",
+      "exact_proposed_wrapper_lean_build": "unknown; no successful run for this proposed wrapper is asserted",
+      "exact_proposed_wrapper_comparator": "unknown; no comparison of this proposed wrapper is asserted",
+      "new_lean_execution": false,
+      "canonical_registry_mutated": false,
+      "formal_ingredient_evidence": "Existing definitions/theorems are named separately; their source-bound evidence is owned by model_contract.json and correspondence.json. It is not transferred to this proposed wrapper."
+    }
+  },
+  {
+    "id": "sanity-or-two-classical",
+    "statement": "OR on two bits has randomized complexity one and deterministic complexity two at error at most 1/3.",
+    "why_needed": "Tests the inclusive 2/3 success boundary and a genuine finite random mixture.",
+    "depends_on": [
+      "def-R",
+      "def-D",
+      "sanity-R-zero-characterization"
+    ],
+    "proposed_lean": "-- Unelaborated signature; inside namespace QuarticQuery.\ntheorem fidelity_or_two_classical :\n    R (totalise (fun x : BitInput (Fin 2) => x 0 || x 1)) = 1 ∧\n    D (totalise (fun x : BitInput (Fin 2) => x 0 || x 1)) = 2",
+    "proposed_lean_status": "Inherited unelaborated proposal retained as data; not an existing declaration or a successful proof run.",
+    "status": "inherited_proposal_not_accepted_into_canonical_registry",
+    "origin": {
+      "kind": "inherited_advisory_proposal",
+      "file": "repository/research/returns/round2/1_statement_fidelity/sanity_theorems.json",
+      "id": "sanity-or-two-classical",
+      "file_sha256": "6f4e0968baf90c6ad2193ed3fc322e888c7316dc8fee7f2eb29daae00a5eb13c"
+    },
+    "source_proposal_depends_on": [
+      "def-R",
+      "def-D",
+      "sanity-R-zero-characterization"
+    ],
+    "scope_and_section_instantiation": "Total OR on two bits: R=1 and D=2 at inclusive success 2/3, with arbitrary real mixing probabilities.",
+    "section_relation": "same mathematical statement",
+    "ordinary_proof_location": {
+      "file": "section.md",
+      "section": "2.6",
+      "passage": "R3-01-OR"
+    },
+    "route_note": "The equal mixture of 1,x0,x1 has success 2/3,2/3,2/3,1. Both labels exclude zero queries; a one-query deterministic tree misses an input bit whose change can alter OR, while reading both bits suffices. Exact rational enumeration checks the displayed success table.",
+    "formal_ingredients": [
+      "QuarticQuery.RandomizedProgram",
+      "QuarticQuery.R_le_iff",
+      "QuarticQuery.D_le_iff"
+    ],
+    "evidence": {
+      "ordinary_mathematics": "Argument supplied in the identified section or the explicit route note; finite checks only where identified.",
+      "exact_proposed_wrapper_lean_build": "unknown; no successful run for this proposed wrapper is asserted",
+      "exact_proposed_wrapper_comparator": "unknown; no comparison of this proposed wrapper is asserted",
+      "new_lean_execution": false,
+      "canonical_registry_mutated": false,
+      "formal_ingredient_evidence": "Existing definitions/theorems are named separately; their source-bound evidence is owned by model_contract.json and correspondence.json. It is not transferred to this proposed wrapper."
+    }
+  },
+  {
+    "id": "sf-q-or-two",
+    "statement": "At inclusive error threshold1/3, the two-bit OR has quantum complexity one.",
+    "why_needed": "Records the concrete quantum implementation of the same three-way selector.",
+    "depends_on": [
+      "def-Q",
+      "sanity-or-two-classical",
+      "sf-q-zero-iff-constant"
+    ],
+    "proposed_lean": "theorem fidelity_Q_or_two : QuarticQuery.Q (QuarticQuery.totalise (fun x : QuarticQuery.BitInput (Fin 2) => x 0 || x 1)) = 1",
+    "proposed_lean_status": "Inherited unelaborated proposal retained as data; not an existing declaration or a successful proof run.",
+    "status": "inherited_proposal_not_accepted_into_canonical_registry",
+    "origin": {
+      "kind": "inherited_advisory_proposal",
+      "file": "repository/research/returns/round2/1_statement_fidelity/sanity_theorems.json",
+      "id": "sf-q-or-two",
+      "file_sha256": "6f4e0968baf90c6ad2193ed3fc322e888c7316dc8fee7f2eb29daae00a5eb13c"
+    },
+    "source_proposal_depends_on": [
+      "def-Q",
+      "sf-q-classical-random-simulation",
+      "sanity-or-two-classical",
+      "sf-q-zero-iff-constant"
+    ],
+    "scope_and_section_instantiation": "Total OR on two bits: Q=1 at inclusive success 2/3.",
+    "section_relation": "same mathematical statement",
+    "ordinary_proof_location": {
+      "file": "section.md",
+      "section": "2.6",
+      "passage": "R3-01-OR"
+    },
+    "route_note": "Prepare equal amplitudes on three orthogonal selector states and sample them by binary coordinate measurements before any input query. Continue with the constant-one or the corresponding one-bit program. The cap is one and the success table agrees with the classical mixture. Nonconstantness excludes zero queries. This concrete route does not assume the earlier proposed general theorem sf-q-classical-random-simulation.",
+    "formal_ingredients": [
+      "QuarticQuery.AdaptiveProgram",
+      "QuarticQuery.QLe"
+    ],
+    "evidence": {
+      "ordinary_mathematics": "Argument supplied in the identified section or the explicit route note; finite checks only where identified.",
+      "exact_proposed_wrapper_lean_build": "unknown; no successful run for this proposed wrapper is asserted",
+      "exact_proposed_wrapper_comparator": "unknown; no comparison of this proposed wrapper is asserted",
+      "new_lean_execution": false,
+      "canonical_registry_mutated": false,
+      "formal_ingredient_evidence": "Existing definitions/theorems are named separately; their source-bound evidence is owned by model_contract.json and correspondence.json. It is not transferred to this proposed wrapper."
+    }
+  },
+  {
+    "id": "r3-01-or2-sharp-success",
+    "statement": "Among all finite randomized Boolean decision-tree mixtures on two bits with every supported tree of depth at most one, the largest possible minimum success probability for OR2 is exactly 2/3. It is attained by the equal mixture of the constant-one, first-bit and second-bit response functions. Consequently requiring success strictly greater than 2/3 on every input needs and is achieved by cap two.",
+    "why_needed": "Shows that inclusive versus strict success is a mathematical model distinction on the supplied small example.",
+    "depends_on": [
+      "def-R",
+      "sanity-or-two-classical"
+    ],
+    "proposed_lean": null,
+    "proposed_lean_status": "No Lean signature is proposed; no exact Lean declaration is asserted.",
+    "status": "new_editorial_statement_proposal_not_accepted_into_canonical_registry",
+    "origin": {
+      "kind": "round3_job01_ordinary_proof_claim"
+    },
+    "scope_and_section_instantiation": "Classical mixtures only; arbitrary fixed real probabilities and all underlying two-bit inputs. This is not an upper bound on one-query quantum success.",
+    "section_relation": "Exact ordinary claim or explicit justification of the section convention; no canonical statement is changed.",
+    "ordinary_proof_location": {
+      "file": "section.md",
+      "section": "2.6",
+      "passage": "R3-01-OR"
+    },
+    "route_note": "Under the uniform law on 00,01,10, each depth-at-most-one deterministic tree is correct on at most two inputs. A mixture has average success at most 2/3, so at least one input has success at most 2/3. The displayed equal mixture attains that minimum. A deterministic read-both tree has success one and cap two.",
+    "formal_ingredients": [
+      "QuarticQuery.QueryTree",
+      "QuarticQuery.RandomizedProgram"
+    ],
+    "finite_checks": [
+      "Exact enumeration of the six distinct depth-one response truth tables and their means on 00,01,10."
+    ],
+    "evidence": {
+      "ordinary_mathematics": "Ordinary argument supplied; not a claim of new mathematical discovery.",
+      "exact_lean_statement": "none supplied",
+      "exact_lean_build": "unknown",
+      "exact_comparator": "unknown",
+      "new_lean_execution": false,
+      "canonical_registry_mutated": false
+    }
+  },
+  {
+    "id": "r3-01-or2-optimal-weights",
+    "statement": "Let A be a finite input-independent randomized mixture of trees of depth at most one on two coordinates, with strictly positive support weights and success at least 2/3 on all four OR2 inputs. Every supported tree computes one of the three functions constant one, x0 or x1. After grouping trees by response function, the aggregate weight of each of these three functions is exactly 1/3.",
+    "why_needed": "Supplies the exact premise for the bounded-fair-coin caveat; a convenient 1/3-weight example alone would not prove it.",
+    "depends_on": [
+      "r3-01-or2-sharp-success"
+    ],
+    "proposed_lean": null,
+    "proposed_lean_status": "No Lean signature is proposed; no exact Lean declaration is asserted.",
+    "status": "new_editorial_statement_proposal_not_accepted_into_canonical_registry",
+    "origin": {
+      "kind": "round3_job01_ordinary_proof_claim"
+    },
+    "scope_and_section_instantiation": "Classical depth-one mixture; grouping by response truth table allows distinct syntactic trees with the same function. No uniqueness of syntactic tree representation is claimed.",
+    "section_relation": "Exact ordinary claim or explicit justification of the section convention; no canonical statement is changed.",
+    "ordinary_proof_location": {
+      "file": "section.md",
+      "section": "2.6",
+      "passage": "R3-01-OR"
+    },
+    "route_note": "The six possible response functions are 0,1,x0,not x0,x1,not x1. Only 1,x0,x1 achieve average success 2/3 under the three-input law; the other three achieve 1/3. Positive weights and total average at least 2/3 exclude the latter. If the aggregate weights are c,a,b, success at 00,01,10 respectively forces c<=1/3,a<=1/3,b<=1/3. They sum to one, so all equal 1/3.",
+    "formal_ingredients": [
+      "QuarticQuery.RandomizedProgram",
+      "QuarticQuery.RandomizedProgram.success"
+    ],
+    "finite_checks": [
+      "Exact enumeration identifies the three response functions achieving the maximum three-input mean. The aggregate-weight conclusion is an ordinary linear argument."
+    ],
+    "evidence": {
+      "ordinary_mathematics": "Ordinary argument supplied; not a claim of new mathematical discovery.",
+      "exact_lean_statement": "none supplied",
+      "exact_lean_build": "unknown",
+      "exact_comparator": "unknown",
+      "new_lean_execution": false,
+      "canonical_registry_mutated": false
+    }
+  },
+  {
+    "id": "r3-01-or2-bounded-fair-coins",
+    "statement": "For every finite B, no classical randomized algorithm whose only random source is independent fair coin flips, with at most B flips and at most one input-bit query on every execution, computes OR2 with success at least 2/3 on every input.",
+    "why_needed": "Delimits exactly which fair-coin restriction fails to preserve the endpoint convention.",
+    "depends_on": [
+      "r3-01-or2-optimal-weights",
+      "NCL-finite-capped"
+    ],
+    "proposed_lean": null,
+    "proposed_lean_status": "No Lean signature is proposed; no exact Lean declaration is asserted.",
+    "status": "new_editorial_statement_proposal_not_accepted_into_canonical_registry",
+    "origin": {
+      "kind": "round3_job01_ordinary_proof_claim"
+    },
+    "scope_and_section_instantiation": "Uniform finite worst-case bound B on coin flips; no additional biased randomness. The statement makes no claim about fair-coin rejection sampling with an unbounded number of flips and almost-sure termination.",
+    "section_relation": "Exact ordinary claim or explicit justification of the section convention; no canonical statement is changed.",
+    "ordinary_proof_location": {
+      "file": "section.md",
+      "section": "2.6",
+      "passage": "R3-01-OR"
+    },
+    "route_note": "Pre-sample B independent fair bits and pad any early stopping with unused bits. Each tape determines a depth-at-most-one tree; every aggregate response-function probability is an integer multiple of 2^(-B). The preceding optimal-weight statement requires 1/3, which is not dyadic. This argument applies even when the program chooses when to flip coins adaptively.",
+    "formal_ingredients": [],
+    "finite_checks": [
+      "No exhaustive enumeration over all B is claimed; the denominator argument is an ordinary proof."
+    ],
+    "evidence": {
+      "ordinary_mathematics": "Ordinary argument supplied; not a claim of new mathematical discovery.",
+      "exact_lean_statement": "none supplied",
+      "exact_lean_build": "unknown",
+      "exact_comparator": "unknown",
+      "new_lean_execution": false,
+      "canonical_registry_mutated": false
+    }
+  },
+  {
+    "id": "sanity-one-label-promise-classical",
+    "statement": "The promise true-on-x0=true and undefined-on-x0=false has zero randomized and deterministic cost.",
+    "why_needed": "Tests that undefined values are not automatically false obligations.",
+    "depends_on": [
+      "def-partial-query",
+      "def-R",
+      "def-D"
+    ],
+    "proposed_lean": "-- Unelaborated signature; inside namespace QuarticQuery.\ntheorem fidelity_one_label_promise_classical :\n    R (fun x : BitInput (Fin 1) => if x 0 then some true else none) = 0 ∧\n    D (fun x : BitInput (Fin 1) => if x 0 then some true else none) = 0",
+    "proposed_lean_status": "Inherited unelaborated proposal retained as data; not an existing declaration or a successful proof run.",
+    "status": "inherited_proposal_not_accepted_into_canonical_registry",
+    "origin": {
+      "kind": "inherited_advisory_proposal",
+      "file": "repository/research/returns/round2/1_statement_fidelity/sanity_theorems.json",
+      "id": "sanity-one-label-promise-classical",
+      "file_sha256": "6f4e0968baf90c6ad2193ed3fc322e888c7316dc8fee7f2eb29daae00a5eb13c"
+    },
+    "source_proposal_depends_on": [
+      "def-partial-query",
+      "def-R",
+      "def-D"
+    ],
+    "scope_and_section_instantiation": "The one-bit partial function defined only at x0=true with value true has R=D=0. The section also obtains Q=0 by specializing sf-q-zero-iff-constant; that quantum conclusion is not silently added to this classical proposal.",
+    "section_relation": "same mathematical statement",
+    "ordinary_proof_location": {
+      "file": "section.md",
+      "section": "2.6",
+      "passage": "R3-01-OFFPROMISE"
+    },
+    "route_note": "The constant-one leaf is correct on the whole promise. Completing the undefined value by false yields identity, whose costs were established separately.",
+    "formal_ingredients": [
+      "QuarticQuery.DLe_of_tree",
+      "QuarticQuery.DLe.toRLe",
+      "QuarticQuery.ConstantOnPromise"
+    ],
+    "evidence": {
+      "ordinary_mathematics": "Argument supplied in the identified section or the explicit route note; finite checks only where identified.",
+      "exact_proposed_wrapper_lean_build": "unknown; no successful run for this proposed wrapper is asserted",
+      "exact_proposed_wrapper_comparator": "unknown; no comparison of this proposed wrapper is asserted",
+      "new_lean_execution": false,
+      "canonical_registry_mutated": false,
+      "formal_ingredient_evidence": "Existing definitions/theorems are named separately; their source-bound evidence is owned by model_contract.json and correspondence.json. It is not transferred to this proposed wrapper."
+    }
+  },
+  {
+    "id": "sanity-empty-promise-classical",
+    "statement": "An empty promise costs no classical queries.",
+    "why_needed": "Records the empty-domain boundary of the classical minima.",
+    "depends_on": [
+      "def-partial-query",
+      "def-R",
+      "def-D"
+    ],
+    "proposed_lean": "-- Unelaborated signature; inside namespace QuarticQuery.\ntheorem fidelity_empty_promise_classical {ι : Type} [Fintype ι] :\n    R (fun _ : BitInput ι => (none : Option Bool)) = 0 ∧\n    D (fun _ : BitInput ι => (none : Option Bool)) = 0",
+    "proposed_lean_status": "Inherited unelaborated proposal retained as data; not an existing declaration or a successful proof run.",
+    "status": "inherited_proposal_not_accepted_into_canonical_registry",
+    "origin": {
+      "kind": "inherited_advisory_proposal",
+      "file": "repository/research/returns/round2/1_statement_fidelity/sanity_theorems.json",
+      "id": "sanity-empty-promise-classical",
+      "file_sha256": "6f4e0968baf90c6ad2193ed3fc322e888c7316dc8fee7f2eb29daae00a5eb13c"
+    },
+    "source_proposal_depends_on": [
+      "def-partial-query",
+      "def-R",
+      "def-D"
+    ],
+    "scope_and_section_instantiation": "Every finite coordinate set with no promised inputs has R=D=0. Quantum cost zero is the separate specialization of sf-q-zero-iff-constant.",
+    "section_relation": "same mathematical statement",
+    "ordinary_proof_location": {
+      "file": "section.md",
+      "section": "2.6",
+      "passage": "R3-01-OFFPROMISE"
+    },
+    "route_note": "Any fixed leaf satisfies all promised correctness conditions vacuously. A one-point mixture gives randomized cap zero.",
+    "formal_ingredients": [
+      "QuarticQuery.DLe_of_tree",
+      "QuarticQuery.DLe.toRLe"
+    ],
+    "evidence": {
+      "ordinary_mathematics": "Argument supplied in the identified section or the explicit route note; finite checks only where identified.",
+      "exact_proposed_wrapper_lean_build": "unknown; no successful run for this proposed wrapper is asserted",
+      "exact_proposed_wrapper_comparator": "unknown; no comparison of this proposed wrapper is asserted",
+      "new_lean_execution": false,
+      "canonical_registry_mutated": false,
+      "formal_ingredient_evidence": "Existing definitions/theorems are named separately; their source-bound evidence is owned by model_contract.json and correspondence.json. It is not transferred to this proposed wrapper."
+    }
+  },
+  {
+    "id": "sanity-empty-coordinates-classical",
+    "statement": "Every partial function on zero coordinates costs zero classical queries.",
+    "why_needed": "Records the empty-coordinate boundary without assuming a nonempty query register.",
+    "depends_on": [
+      "def-partial-query",
+      "def-R",
+      "def-D"
+    ],
+    "proposed_lean": "-- Unelaborated signature; inside namespace QuarticQuery.\ntheorem fidelity_empty_coordinates_classical (f : PartialBool (Fin 0)) : R f = 0 ∧ D f = 0",
+    "proposed_lean_status": "Inherited unelaborated proposal retained as data; not an existing declaration or a successful proof run.",
+    "status": "inherited_proposal_not_accepted_into_canonical_registry",
+    "origin": {
+      "kind": "inherited_advisory_proposal",
+      "file": "repository/research/returns/round2/1_statement_fidelity/sanity_theorems.json",
+      "id": "sanity-empty-coordinates-classical",
+      "file_sha256": "6f4e0968baf90c6ad2193ed3fc322e888c7316dc8fee7f2eb29daae00a5eb13c"
+    },
+    "source_proposal_depends_on": [
+      "def-partial-query",
+      "def-R",
+      "def-D"
+    ],
+    "scope_and_section_instantiation": "The inherited proposed Lean wrapper uses Fin 0. The section states the corresponding fact for any finite empty coordinate type; this follows by card=0 or coordinate equivalence. The quantum conclusion uses its constant disjunct separately.",
+    "section_relation": "Same zero-coordinate statement under coordinate equivalence; original Fin 0 proposed signature retained",
+    "ordinary_proof_location": {
+      "file": "section.md",
+      "section": "2.6",
+      "passage": "R3-01-OFFPROMISE"
+    },
+    "route_note": "R_le_D and D_le_card imply both complexities are at most zero when the coordinate cardinality is zero; natural nonnegativity gives equality. No historical stale-object claim from the earlier proposal is adopted as current evidence.",
+    "formal_ingredients": [
+      "QuarticQuery.R_le_D",
+      "QuarticQuery.D_le_card"
+    ],
+    "evidence": {
+      "ordinary_mathematics": "Argument supplied in the identified section or the explicit route note; finite checks only where identified.",
+      "exact_proposed_wrapper_lean_build": "unknown; no successful run for this proposed wrapper is asserted",
+      "exact_proposed_wrapper_comparator": "unknown; no comparison of this proposed wrapper is asserted",
+      "new_lean_execution": false,
+      "canonical_registry_mutated": false,
+      "formal_ingredient_evidence": "Existing definitions/theorems are named separately; their source-bound evidence is owned by model_contract.json and correspondence.json. It is not transferred to this proposed wrapper."
+    }
+  },
+  {
+    "id": "sanity-xor-two-classical",
+    "statement": "XOR on two bits has randomized and deterministic complexity two.",
+    "why_needed": "Tests the hard-cap convention independently of the expected-cost figure in the older Beals source.",
+    "depends_on": [
+      "def-R",
+      "def-D"
+    ],
+    "proposed_lean": "-- Unelaborated signature; inside namespace QuarticQuery.\ntheorem fidelity_xor_two_classical :\n    R (totalise (fun x : BitInput (Fin 2) => if x 0 then !(x 1) else x 1)) = 2 ∧\n    D (totalise (fun x : BitInput (Fin 2) => if x 0 then !(x 1) else x 1)) = 2",
+    "proposed_lean_status": "Inherited unelaborated proposal retained as data; not an existing declaration or a successful proof run.",
+    "status": "inherited_proposal_not_accepted_into_canonical_registry",
+    "origin": {
+      "kind": "inherited_advisory_proposal",
+      "file": "repository/research/returns/round2/1_statement_fidelity/sanity_theorems.json",
+      "id": "sanity-xor-two-classical",
+      "file_sha256": "6f4e0968baf90c6ad2193ed3fc322e888c7316dc8fee7f2eb29daae00a5eb13c"
+    },
+    "source_proposal_depends_on": [
+      "def-R",
+      "def-D"
+    ],
+    "scope_and_section_instantiation": "Total XOR on two bits: R=D=2 under worst-case caps and inclusive success 2/3.",
+    "section_relation": "same mathematical statement",
+    "ordinary_proof_location": {
+      "file": "section.md",
+      "section": "2.6",
+      "passage": "R3-01-PARITY"
+    },
+    "route_note": "Every deterministic depth-at-most-one response has exactly one-half success under the uniform input law. Averaging preserves one-half, excluding pointwise success 2/3. Reading both bits is exact. The finite checker enumerates the relevant response functions.",
+    "formal_ingredients": [
+      "QuarticQuery.QueryTree",
+      "QuarticQuery.RandomizedProgram"
+    ],
+    "evidence": {
+      "ordinary_mathematics": "Argument supplied in the identified section or the explicit route note; finite checks only where identified.",
+      "exact_proposed_wrapper_lean_build": "unknown; no successful run for this proposed wrapper is asserted",
+      "exact_proposed_wrapper_comparator": "unknown; no comparison of this proposed wrapper is asserted",
+      "new_lean_execution": false,
+      "canonical_registry_mutated": false,
+      "formal_ingredient_evidence": "Existing definitions/theorems are named separately; their source-bound evidence is owned by model_contract.json and correspondence.json. It is not transferred to this proposed wrapper."
+    }
+  },
+  {
+    "id": "sf-q-xor-two",
+    "statement": "The two-bit parity has quantum complexity one, contrasting with worst-case R=D=2.",
+    "why_needed": "Checks the one-call quantum interference calculation and contrasts it with classical hard-cap parity.",
+    "depends_on": [
+      "def-Q",
+      "def-query-oracle",
+      "sf-q-zero-iff-constant"
+    ],
+    "proposed_lean": "theorem fidelity_Q_xor_two : QuarticQuery.Q (QuarticQuery.totalise (fun x : QuarticQuery.BitInput (Fin 2) => Bool.xor (x 0) (x 1))) = 1",
+    "proposed_lean_status": "Inherited unelaborated proposal retained as data; not an existing declaration or a successful proof run.",
+    "status": "inherited_proposal_not_accepted_into_canonical_registry",
+    "origin": {
+      "kind": "inherited_advisory_proposal",
+      "file": "repository/research/returns/round2/1_statement_fidelity/sanity_theorems.json",
+      "id": "sf-q-xor-two",
+      "file_sha256": "6f4e0968baf90c6ad2193ed3fc322e888c7316dc8fee7f2eb29daae00a5eb13c"
+    },
+    "source_proposal_depends_on": [
+      "def-Q",
+      "def-query-oracle",
+      "sf-q-oracle-basis",
+      "sf-q-zero-iff-constant"
+    ],
+    "scope_and_section_instantiation": "Total XOR on two bits: Q=1; the R=D=2 conclusion is the separate classical proposal.",
+    "section_relation": "same mathematical statement",
+    "ordinary_proof_location": {
+      "file": "section.md",
+      "section": "2.6",
+      "passage": "R3-01-PARITY"
+    },
+    "route_note": "Prepare equal index amplitudes with the answer bit in the minus state, apply one bit query and a Hadamard on the index. The index amplitudes are ((-1)^x0+(-1)^x1)/2 and ((-1)^x0-(-1)^x1)/2, so the measured index is parity with probability one. Both labels exclude zero queries.",
+    "formal_ingredients": [
+      "QuarticQuery.bitOracle",
+      "QuarticQuery.QLe"
+    ],
+    "evidence": {
+      "ordinary_mathematics": "Argument supplied in the identified section or the explicit route note; finite checks only where identified.",
+      "exact_proposed_wrapper_lean_build": "unknown; no successful run for this proposed wrapper is asserted",
+      "exact_proposed_wrapper_comparator": "unknown; no comparison of this proposed wrapper is asserted",
+      "new_lean_execution": false,
+      "canonical_registry_mutated": false,
+      "formal_ingredient_evidence": "Existing definitions/theorems are named separately; their source-bound evidence is owned by model_contract.json and correspondence.json. It is not transferred to this proposed wrapper."
+    }
+  },
+  {
+    "id": "r3-01-shifted-family-bound",
+    "kind": "intermediate_statement",
+    "statement": "If Q_m <= C sqrt(m)(log_2 m)^b, C>0, and sqrt(m)(log_2 m)^b >= 1, then 1+Q_m <= (1+C)sqrt(m)(log_2 m)^b.",
+    "why_needed": "Gives a stable advisory row to a displayed or load-bearing step in the replacement; no claim of mathematical novelty.",
+    "depends_on": [
+      "eq-2"
+    ],
+    "proposed_lean": null,
+    "proposed_lean_status": "No new Lean wrapper or proof file proposed.",
+    "status": "new_editorial_proposal_not_accepted_into_canonical_registry",
+    "ordinary_proof_location": {
+      "file": "section.md",
+      "passage": "R3-01-QUANTIFIERS"
+    },
+    "formal_ingredients": [
+      "QuarticQuery.Paper.classical_ratio_arithmetic"
+    ],
+    "route_note": "Add one and use 1 <= sqrt(m)(log_2 m)^b. This is an internal arithmetic step, not a separately named source theorem.",
+    "evidence": {
+      "exact_new_wrapper_build": "unknown; no such new wrapper compiled",
+      "exact_new_wrapper_comparator": "unknown; no such new wrapper compared",
+      "existing_ingredient_evidence": "See exact declaration-specific entries in model_contract.json.",
+      "new_lean_execution": false,
+      "canonical_registry_mutated": false
+    }
+  },
+  {
+    "id": "r3-01-tree-depth",
+    "kind": "definition",
+    "statement": "A leaf has depth zero, and a query node has depth one plus the maximum depth of its two children.",
+    "why_needed": "Gives a stable advisory row to a displayed or load-bearing step in the replacement; no claim of mathematical novelty.",
+    "depends_on": [
+      "def-D",
+      "def-R"
+    ],
+    "proposed_lean": null,
+    "proposed_lean_status": "No new Lean wrapper or proof file proposed.",
+    "status": "new_editorial_proposal_not_accepted_into_canonical_registry",
+    "ordinary_proof_location": {
+      "file": "section.md",
+      "passage": "R3-01-CLASSICAL"
+    },
+    "formal_ingredients": [
+      "QuarticQuery.QueryTree.depth"
+    ],
+    "route_note": "Literal recursion of QueryTree.depth; repeated or impossible branches remain syntactically charged.",
+    "evidence": {
+      "exact_new_wrapper_build": "unknown; no such new wrapper compiled",
+      "exact_new_wrapper_comparator": "unknown; no such new wrapper compared",
+      "existing_ingredient_evidence": "See exact declaration-specific entries in model_contract.json.",
+      "new_lean_execution": false,
+      "canonical_registry_mutated": false
+    }
+  },
+  {
+    "id": "r3-01-classical-minimum-laws",
+    "kind": "intermediate_statement",
+    "statement": "For every partial Boolean function on a finite coordinate type and every natural q, R(f)<=q iff RLe(f,q), D(f)<=q iff DLe(f,q), and R(f)<=D(f)<=|I|.",
+    "why_needed": "Gives a stable advisory row to a displayed or load-bearing step in the replacement; no claim of mathematical novelty.",
+    "depends_on": [
+      "def-R",
+      "def-D",
+      "def-partial-query"
+    ],
+    "proposed_lean": null,
+    "proposed_lean_status": "No new Lean wrapper or proof file proposed.",
+    "status": "new_editorial_proposal_not_accepted_into_canonical_registry",
+    "ordinary_proof_location": {
+      "file": "section.md",
+      "passage": "R3-01-CLASSICAL"
+    },
+    "formal_ingredients": [
+      "QuarticQuery.R_le_iff",
+      "QuarticQuery.D_le_iff",
+      "QuarticQuery.R_le_D",
+      "QuarticQuery.D_le_card"
+    ],
+    "route_note": "Read-all makes each budget set nonempty; monotonicity identifies its infimum with its least admissible budget. The conjunction assembles separately built and compared components.",
+    "evidence": {
+      "exact_new_wrapper_build": "unknown; no such new wrapper compiled",
+      "exact_new_wrapper_comparator": "unknown; no such new wrapper compared",
+      "existing_ingredient_evidence": "See exact declaration-specific entries in model_contract.json.",
+      "new_lean_execution": false,
+      "canonical_registry_mutated": false
+    }
+  },
+  {
+    "id": "r3-01-controlled-phase",
+    "kind": "intermediate_statement",
+    "statement": "For the controlled phase query P_x|i,b,z>=(-1)^(b x_i)|i,b,z>, Hadamard conjugation on b gives H_b P_x H_b=O_x and H_b O_x H_b=P_x, at one query.",
+    "why_needed": "Gives a stable advisory row to a displayed or load-bearing step in the replacement; no claim of mathematical novelty.",
+    "depends_on": [
+      "def-query-oracle"
+    ],
+    "proposed_lean": null,
+    "proposed_lean_status": "No new Lean wrapper or proof file proposed.",
+    "status": "new_editorial_proposal_not_accepted_into_canonical_registry",
+    "ordinary_proof_location": {
+      "file": "section.md",
+      "passage": "ROOT-ORACLE"
+    },
+    "formal_ingredients": [
+      "QuarticQuery.hadamard_phaseOracle_hadamard",
+      "QuarticQuery.hadamard_bitOracle_hadamard"
+    ],
+    "route_note": "Check the answer-bit matrices: H I H=I and H Z H=X. The source theorems prove the two pointwise vector identities; the finite checker verifies both bit values.",
+    "evidence": {
+      "exact_new_wrapper_build": "unknown; no such new wrapper compiled",
+      "exact_new_wrapper_comparator": "unknown; no such new wrapper compared",
+      "existing_ingredient_evidence": "See exact declaration-specific entries in model_contract.json.",
+      "new_lean_execution": false,
+      "canonical_registry_mutated": false
+    }
+  },
+  {
+    "id": "r3-01-uncontrolled-phase-limit",
+    "kind": "intermediate_statement",
+    "statement": "A bare sign oracle S_x|i>=(-1)^x_i|i>, without a controlled or idle/reference facility, does not in general simulate a bit query at equal cost: S_(not x)=-S_x, so fixed-call quantum algorithms cannot distinguish complementary inputs using it.",
+    "why_needed": "Gives a stable advisory row to a displayed or load-bearing step in the replacement; no claim of mathematical novelty.",
+    "depends_on": [
+      "def-query-oracle"
+    ],
+    "proposed_lean": null,
+    "proposed_lean_status": "No new Lean wrapper or proof file proposed.",
+    "status": "new_editorial_proposal_not_accepted_into_canonical_registry",
+    "ordinary_proof_location": {
+      "file": "section.md",
+      "passage": "ROOT-ORACLE"
+    },
+    "formal_ingredients": [],
+    "route_note": "Each call changes the two computations only by a global sign; all final measurement probabilities coincide. One-bit identity is a witness to the obstruction.",
+    "evidence": {
+      "exact_new_wrapper_build": "unknown; no such new wrapper compiled",
+      "exact_new_wrapper_comparator": "unknown; no such new wrapper compared",
+      "existing_ingredient_evidence": "See exact declaration-specific entries in model_contract.json.",
+      "new_lean_execution": false,
+      "canonical_registry_mutated": false
+    }
+  },
+  {
+    "id": "r3-01-measure-mass-recursion",
+    "kind": "definition",
+    "statement": "For a binary coordinate measurement with continuations A1,A0, M_A(x,psi,b)=M_A1(x,Pi_S psi,b)+M_A0(x,psi-Pi_S psi,b), with branch vectors unnormalized.",
+    "why_needed": "Gives a stable advisory row to a displayed or load-bearing step in the replacement; no claim of mathematical novelty.",
+    "depends_on": [
+      "def-Q"
+    ],
+    "proposed_lean": null,
+    "proposed_lean_status": "No new Lean wrapper or proof file proposed.",
+    "status": "new_editorial_proposal_not_accepted_into_canonical_registry",
+    "ordinary_proof_location": {
+      "file": "section.md",
+      "passage": "R3-01-ADAPTIVE"
+    },
+    "formal_ingredients": [
+      "QuarticQuery.AdaptiveProgram.outputMass"
+    ],
+    "route_note": "Literal measurement clause of the outputMass definition. The absence of branch renormalization is essential.",
+    "evidence": {
+      "exact_new_wrapper_build": "unknown; no such new wrapper compiled",
+      "exact_new_wrapper_comparator": "unknown; no such new wrapper compared",
+      "existing_ingredient_evidence": "See exact declaration-specific entries in model_contract.json.",
+      "new_lean_execution": false,
+      "canonical_registry_mutated": false
+    }
+  },
+  {
+    "id": "r3-01-quantum-minimum-laws",
+    "kind": "intermediate_statement",
+    "statement": "For every partial Boolean function on a finite coordinate type and every natural q, Q(f)<=D(f)<=|I| and Q(f)<=q iff QLe(f,q).",
+    "why_needed": "Gives a stable advisory row to a displayed or load-bearing step in the replacement; no claim of mathematical novelty.",
+    "depends_on": [
+      "def-Q",
+      "def-D",
+      "def-partial-query"
+    ],
+    "proposed_lean": null,
+    "proposed_lean_status": "No new Lean wrapper or proof file proposed.",
+    "status": "new_editorial_proposal_not_accepted_into_canonical_registry",
+    "ordinary_proof_location": {
+      "file": "section.md",
+      "passage": "R3-01-ADAPTIVE"
+    },
+    "formal_ingredients": [
+      "QuarticQuery.Q_le_D",
+      "QuarticQuery.D_le_card",
+      "QuarticQuery.Q_le_iff"
+    ],
+    "route_note": "Simulate a deterministic query tree with a query and answer measurement at each node; the constant-on-promise clause handles an empty coordinate type. Apply nonemptiness and monotonicity.",
+    "evidence": {
+      "exact_new_wrapper_build": "unknown; no such new wrapper compiled",
+      "exact_new_wrapper_comparator": "unknown; no such new wrapper compared",
+      "existing_ingredient_evidence": "See exact declaration-specific entries in model_contract.json.",
+      "new_lean_execution": false,
+      "canonical_registry_mutated": false
+    }
+  },
+  {
+    "id": "r3-01-reindex-costs",
+    "kind": "intermediate_statement",
+    "statement": "For finite coordinate types I,J, a bijection e:I->J, and f^e(y)=f(y composed with e), R(f^e)=R(f), D(f^e)=D(f), and Q(f^e)=Q(f).",
+    "why_needed": "Gives a stable advisory row to a displayed or load-bearing step in the replacement; no claim of mathematical novelty.",
+    "depends_on": [
+      "def-R",
+      "def-D",
+      "def-Q"
+    ],
+    "proposed_lean": null,
+    "proposed_lean_status": "No new Lean wrapper or proof file proposed.",
+    "status": "new_editorial_proposal_not_accepted_into_canonical_registry",
+    "ordinary_proof_location": {
+      "file": "section.md",
+      "passage": "R3-01-BRIDGES"
+    },
+    "formal_ingredients": [
+      "QuarticQuery.R_reindex",
+      "QuarticQuery.D_reindex",
+      "QuarticQuery.Q_reindex"
+    ],
+    "route_note": "Relabel query nodes or the query-register basis and conjugate gates/projectors; the inverse bijection gives the reverse inequality. The conjunction has no newly compiled wrapper.",
+    "evidence": {
+      "exact_new_wrapper_build": "unknown; no such new wrapper compiled",
+      "exact_new_wrapper_comparator": "unknown; no such new wrapper compared",
+      "existing_ingredient_evidence": "See exact declaration-specific entries in model_contract.json.",
+      "new_lean_execution": false,
+      "canonical_registry_mutated": false
+    }
+  },
+  {
+    "id": "r3-01-deferred-mass",
+    "kind": "intermediate_statement",
+    "statement": "For any AdaptiveProgram on Fin n with query cap at most T, there exist a finite larger workspace, an input-independent entry isometry E, gates U, and an accepting coordinate projector Pi, fixed before every input x and vector psi, such that a fixed sequence of exactly T controlled phase queries has accepting squared norm equal to A.outputMass x psi true.",
+    "why_needed": "Gives a stable advisory row to a displayed or load-bearing step in the replacement; no claim of mathematical novelty.",
+    "depends_on": [
+      "def-Q",
+      "def-query-oracle",
+      "ROOT-MASS"
+    ],
+    "proposed_lean": null,
+    "proposed_lean_status": "No new Lean wrapper or proof file proposed.",
+    "status": "new_editorial_proposal_not_accepted_into_canonical_registry",
+    "ordinary_proof_location": {
+      "file": "section.md",
+      "passage": "R3-01-BRIDGES"
+    },
+    "formal_ingredients": [
+      "QuarticQuery.FixedSim",
+      "QuarticQuery.FixedSim.build",
+      "QuarticQuery.exists_fixedSequence"
+    ],
+    "route_note": "Structural induction using an oracle-compatible embedding, a gate extending an isometry, and direct sums. Acceptance mass is preserved; equality of final states is not asserted.",
+    "evidence": {
+      "exact_new_wrapper_build": "unknown; no such new wrapper compiled",
+      "exact_new_wrapper_comparator": "unknown; no such new wrapper compared",
+      "existing_ingredient_evidence": "See exact declaration-specific entries in model_contract.json.",
+      "new_lean_execution": false,
+      "canonical_registry_mutated": false
+    }
+  },
+  {
+    "id": "r3-01-deferred-measure-entry",
+    "kind": "intermediate_statement",
+    "statement": "If E1 and E0 are isometric continuation entries and Pi_S is a coordinate orthogonal projector, psi maps to E1 Pi_S psi direct-sum E0(I-Pi_S)psi isometrically; block-diagonal gates and the phase oracle make its two acceptance masses add.",
+    "why_needed": "Gives a stable advisory row to a displayed or load-bearing step in the replacement; no claim of mathematical novelty.",
+    "depends_on": [
+      "r3-01-deferred-mass",
+      "ROOT-MASS"
+    ],
+    "proposed_lean": null,
+    "proposed_lean_status": "No new Lean wrapper or proof file proposed.",
+    "status": "new_editorial_proposal_not_accepted_into_canonical_registry",
+    "ordinary_proof_location": {
+      "file": "section.md",
+      "passage": "R3-01-BRIDGES"
+    },
+    "formal_ingredients": [
+      "QuarticQuery.FixedSim.measure",
+      "QuarticQuery.norm_sq_eq_project_add"
+    ],
+    "route_note": "The squared norm is the sum of the two orthogonal projected squared norms. This describes the witness in FixedSim.measure, not a newly named equality theorem.",
+    "evidence": {
+      "exact_new_wrapper_build": "unknown; no such new wrapper compiled",
+      "exact_new_wrapper_comparator": "unknown; no such new wrapper compared",
+      "existing_ingredient_evidence": "See exact declaration-specific entries in model_contract.json.",
+      "new_lean_execution": false,
+      "canonical_registry_mutated": false
+    }
+  },
+  {
+    "id": "r3-01-deferred-query-step",
+    "kind": "intermediate_statement",
+    "statement": "Let L,J be isometries into the same larger finite Hilbert space, with P'_x J=J P_x, and let a unitary Z extend J phi maps to L H_b phi. Then Z P'_x J H_b psi = L H_b P_x H_b psi = L O_x psi for all x,psi.",
+    "why_needed": "Gives a stable advisory row to a displayed or load-bearing step in the replacement; no claim of mathematical novelty.",
+    "depends_on": [
+      "r3-01-deferred-mass",
+      "r3-01-controlled-phase"
+    ],
+    "proposed_lean": null,
+    "proposed_lean_status": "No new Lean wrapper or proof file proposed.",
+    "status": "new_editorial_proposal_not_accepted_into_canonical_registry",
+    "ordinary_proof_location": {
+      "file": "section.md",
+      "passage": "R3-01-BRIDGES"
+    },
+    "formal_ingredients": [
+      "QuarticQuery.exists_gate",
+      "QuarticQuery.FixedSim.query",
+      "QuarticQuery.hadamard_phaseOracle_hadamard"
+    ],
+    "route_note": "Intertwine the oracle through J, apply the extension identity, and use Hadamard conjugacy. Finite equal-dimensional orthogonal complements permit the extension.",
+    "evidence": {
+      "exact_new_wrapper_build": "unknown; no such new wrapper compiled",
+      "exact_new_wrapper_comparator": "unknown; no such new wrapper compared",
+      "existing_ingredient_evidence": "See exact declaration-specific entries in model_contract.json.",
+      "new_lean_execution": false,
+      "canonical_registry_mutated": false
+    }
+  },
+  {
+    "id": "r3-01-parity-interference",
+    "kind": "intermediate_statement",
+    "statement": "On two input bits, prepare the equal superposition of the two indices with answer bit |->; after one bit query and an index Hadamard, index amplitudes are ((-1)^x0+(-1)^x1)/2 and ((-1)^x0-(-1)^x1)/2. Their squared masses select x0 xor x1 with certainty.",
+    "why_needed": "Gives a stable advisory row to a displayed or load-bearing step in the replacement; no claim of mathematical novelty.",
+    "depends_on": [
+      "def-query-oracle"
+    ],
+    "proposed_lean": null,
+    "proposed_lean_status": "No new Lean wrapper or proof file proposed.",
+    "status": "new_editorial_proposal_not_accepted_into_canonical_registry",
+    "ordinary_proof_location": {
+      "file": "section.md",
+      "passage": "R3-01-PARITY"
+    },
+    "formal_ingredients": [
+      "QuarticQuery.bitOracle"
+    ],
+    "route_note": "Direct two-dimensional interference calculation, checked with exact rational amplitudes after cancelling common square-root factors. No exact example theorem was compiled.",
+    "evidence": {
+      "exact_new_wrapper_build": "unknown; no such new wrapper compiled",
+      "exact_new_wrapper_comparator": "unknown; no such new wrapper compared",
+      "existing_ingredient_evidence": "See exact declaration-specific entries in model_contract.json.",
+      "new_lean_execution": false,
+      "canonical_registry_mutated": false
+    }
+  }
+]

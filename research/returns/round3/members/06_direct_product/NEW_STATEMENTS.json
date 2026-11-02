@@ -1,0 +1,50 @@
+[
+  {
+    "id": "NCL-joint-cap",
+    "statement": "Let P:D→{0,1} on D⊆{0,1}^n, let μ be a probability law supported on D, and let L,r be nonnegative integers. Assume every deterministic depth-at-most-L one-input tree has μ-success at most β. For independent U_1,…,U_r~μ and any finite adaptive vector-output algorithm whose combined seed is independent of the whole input tuple, let Q_h be its realized terminal number of queries to U_h, counting repetitions. Then Pr[all r answers correct AND ∀h Q_h≤L]≤β^r, without an all-branches cap on the original algorithm.",
+    "why_needed": "The requested event formulation is not the literal all-paths-capped canonical Lemma 4.1. It needs a separately visible truncation bridge.",
+    "depends_on": [
+      "lem-4.1",
+      "NCL-finite-capped"
+    ],
+    "proposed_lean": null,
+    "formalization_target": "Define realized per-instance path counts and cap truncation for OutTree; prove all-path cap and agreement on cap-respecting runs, then apply direct_product. No candidate implementation or new build supplied.",
+    "route_note": "Complete ordinary proof by stopping immediately before the first excess query; event containment under the original product law. No novelty claim.",
+    "passage": "CL-joint-cap",
+    "evidence": "ordinary proof; no exact supplied generic Lean declaration"
+  },
+  {
+    "id": "NCL-product-normalization",
+    "statement": "For a deterministic capped tree under μ^⊗r, at any actual history τ of positive probability let E_h(τ) be its per-input consistency set, q_h its call count, ν_h^τ=μ·1_{E_h(τ)}, W_c the optimal weighted success under cap c, and V_h the optimal conditional success under remaining cap L−q_h. Then V_h(τ)=W_{L−q_h}(ν_h^τ)/μ(E_h(τ)) and Pr(H_τ)·∏_h V_h(τ)=∏_h W_{L−q_h}(ν_h^τ).",
+    "why_needed": "Explains exactly how the conditional-value proof and unnormalized induction use the same product calculation.",
+    "depends_on": [
+      "claim-product-law",
+      "def-value-V",
+      "NCL-weighted-value"
+    ],
+    "proposed_lean": null,
+    "route_note": "Normalize each finite weighted optimum by its positive mass, then cancel the rectangle mass product. Individual components exist; no single checked combined identity is claimed.",
+    "passage": "CL-normalization",
+    "evidence": "ordinary algebra from existing definitions and proved rectangle law"
+  },
+  {
+    "id": "NCL-adaptive-cap-example",
+    "statement": "For two independent uniform two-bit inputs A,B and P(x)=x_0 AND x_1 with L=1, the one-input optimum is β=3/4. Query A0=a, query B_a=t, repeat A0 if a≠t, then output (0,0). If C is vector correctness and E is respecting both per-input caps, then E={a=t}, Pr(E)=1/2, Pr(C)=9/16, Pr(C∩E)=5/16, and Pr(C|E)=5/8>β²=9/16. The four two-query histories are product rectangles; conditioning on E creates dependence with Pr(A0=0|E)=1/2, Pr(B0=0|E)=3/4, and Pr(A0=B0=0|E)=1/2≠3/8. A separate total-budget-rL=2 tree computes P(A) exactly and guesses zero for P(B), succeeding with probability 3/4.",
+    "why_needed": "A minimal adaptive example simultaneously exhibits counted repeats, positive-history product conditioning, failure of conditioning on cap compliance, and the total-budget distinction.",
+    "depends_on": [],
+    "proposed_lean": null,
+    "route_note": "Ordinary finite counting plus an executed independently authored Fraction checker over 16 input tuples, 10 one-input trees and 5188 capped two-input trees. Finite evidence only.",
+    "passage": "CL-adaptive-example",
+    "evidence": "exact ordinary calculation and checks/check_result.json"
+  },
+  {
+    "id": "NCL-separate-independence-counterexample",
+    "statement": "Let P(x)=x on one uniform bit, L=0, and X,Y be independent fair inputs. S=X XOR Y is independent of X separately and of Y separately, but the zero-query vector answer (0,S) succeeds with probability 1/2, exceeding (1/2)². Thus separate independence of advice from each input cannot replace independence from the entire input tuple.",
+    "why_needed": "Clarifies the full-tuple independence hypothesis without relying on an undefined informal distinction.",
+    "depends_on": [],
+    "proposed_lean": null,
+    "route_note": "Four-outcome ordinary counting: correctness occurs exactly when X=0. No Lean or new execution claim.",
+    "passage": "CL-independent-information",
+    "evidence": "complete ordinary finite calculation"
+  }
+]

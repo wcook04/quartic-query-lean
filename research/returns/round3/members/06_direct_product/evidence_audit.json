@@ -1,0 +1,57 @@
+{
+  "assessment_date": "2026-11-02",
+  "scope": "Source/type/evidence audit of capped direct product. No fresh Lean invocation. Exact elaborated type fields copy the supplied successful audit log; null means no declaration-specific type printout supplied and the exact source signature plus lexical context are retained instead.",
+  "snapshot_commit": "1dd469dd0042b937b739da3bc211eeb60bdf7462",
+  "recorded_root_commit": "31e17dee667d1d72fa621da8e7d3d8ff5fc3960a",
+  "evidence_hash_checks": {
+    "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json": {
+      "source_count": 124,
+      "mismatches": [],
+      "missing": []
+    },
+    "native_results/final-evidence/reviewed_axiom_audit_verdict.json": {
+      "source_count": 124,
+      "mismatches": [],
+      "missing": []
+    },
+    "repository/corpus/lean_dependencies.json": {
+      "source_count": 124,
+      "mismatches": [],
+      "missing": []
+    },
+    "focused_native_classical_direct_product": {
+      "inputs": 6,
+      "mismatches": [],
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 11.04,
+      "inputs_unchanged": true
+    },
+    "audit_log": {
+      "actual_sha256": "f87b4e78aaa99fb069acc358fd90c6b95a1fd09bb337d4b49b6851ae714d8ae1",
+      "expected_sha256": "f87b4e78aaa99fb069acc358fd90c6b95a1fd09bb337d4b49b6851ae714d8ae1",
+      "match": true
+    },
+    "audit_source": {
+      "actual_sha256": "78da4e0b0d875eedd3898a46f4e885a8fa7e89c2d5fbf2d3205012ff4f640513",
+      "expected_sha256": "78da4e0b0d875eedd3898a46f4e885a8fa7e89c2d5fbf2d3205012ff4f640513",
+      "match": true
+    },
+    "compiled_root_artifact": {
+      "path_recorded": "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery.olean",
+      "sha256_recorded": "e38872c98335e7b228fdc575bb91d79b3c1848d8418196436a7f95c93e365844",
+      "local_bytes_supplied": false,
+      "fresh_hash_verified": false
+    }
+  },
+  "reproducible_check": "checks/audit_packet.py",
+  "reproducible_result": "checks/source_binding_result.json",
+  "source_current_interpretation": "The recorded local source/configuration input hashes match supplied packet bytes. Different commit labels are not equated.",
+  "fresh_lean_execution": false,
+  "fresh_comparator_execution": false,
+  "exact_helper_comparator_evidence": "not supplied",
+  "independent_reproduction_of_native_execution": false,
+  "compiled_root_artifact_bytes_supplied": false,
+  "headline_route": "Core unnormalized guessSuccess_le_prod/direct_product and Minimax address_guess_le; Paper conditional-value declarations are compiled members but not reached from the headline roots.",
+  "human_mathematical_review": false
+}

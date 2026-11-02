@@ -1,0 +1,487 @@
+{
+  "algorithm_runs": [
+    {
+      "final_amplitudes_a_plus_b_sqrt2": [
+        [
+          "0",
+          "1/2"
+        ],
+        [
+          "0",
+          "-1/2"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "input": [
+        0,
+        0
+      ],
+      "oracle_matrix": [
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "output_probabilities_0_1": [
+        "1",
+        "0"
+      ],
+      "parity": 0
+    },
+    {
+      "final_amplitudes_a_plus_b_sqrt2": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1/2"
+        ],
+        [
+          "0",
+          "-1/2"
+        ]
+      ],
+      "input": [
+        0,
+        1
+      ],
+      "oracle_matrix": [
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ]
+      ],
+      "output_probabilities_0_1": [
+        "0",
+        "1"
+      ],
+      "parity": 1
+    },
+    {
+      "final_amplitudes_a_plus_b_sqrt2": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "-1/2"
+        ],
+        [
+          "0",
+          "1/2"
+        ]
+      ],
+      "input": [
+        1,
+        0
+      ],
+      "oracle_matrix": [
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "output_probabilities_0_1": [
+        "0",
+        "1"
+      ],
+      "parity": 1
+    },
+    {
+      "final_amplitudes_a_plus_b_sqrt2": [
+        [
+          "0",
+          "-1/2"
+        ],
+        [
+          "0",
+          "1/2"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "input": [
+        1,
+        1
+      ],
+      "oracle_matrix": [
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ]
+      ],
+      "output_probabilities_0_1": [
+        "1",
+        "0"
+      ],
+      "parity": 0
+    }
+  ],
+  "arithmetic": "integers, fractions.Fraction, and exact Q(sqrt(2))",
+  "coordinate_mask_norms": [
+    1,
+    1
+  ],
+  "coordinate_masks": [
+    [
+      [
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0
+      ]
+    ],
+    [
+      [
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        1,
+        0
+      ]
+    ]
+  ],
+  "error_one_third_constants": {
+    "correct_coefficient": "1/2 - sqrt(2)/3",
+    "hybrid_16_times_35_squared": 19600,
+    "legacy_16_times_36_squared": 20736,
+    "literal_35_to_four": 1500625,
+    "reciprocal": "18 + 12*sqrt(2)",
+    "reciprocal_strictly_below": 35,
+    "reciprocal_times_coefficient": 1,
+    "strict_integer_comparison": {
+      "holds": true,
+      "left": 288,
+      "right": 289
+    }
+  },
+  "feasible_adversary_ratio": 2,
+  "gamma": [
+    [
+      0,
+      1,
+      1,
+      0
+    ],
+    [
+      1,
+      0,
+      0,
+      1
+    ],
+    [
+      1,
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      1,
+      1,
+      0
+    ]
+  ],
+  "gamma_norm": 2,
+  "hilbert_basis_order_address_answer": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      1
+    ]
+  ],
+  "input_order": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      1
+    ]
+  ],
+  "lean_checked": false,
+  "oracle_calls": 1,
+  "orthonormal_eigensystem": [
+    {
+      "eigenvalue": 2,
+      "vector": [
+        "1/2",
+        "1/2",
+        "1/2",
+        "1/2"
+      ]
+    },
+    {
+      "eigenvalue": 0,
+      "vector": [
+        "1/2",
+        "-1/2",
+        "1/2",
+        "-1/2"
+      ]
+    },
+    {
+      "eigenvalue": 0,
+      "vector": [
+        "1/2",
+        "1/2",
+        "-1/2",
+        "-1/2"
+      ]
+    },
+    {
+      "eigenvalue": -2,
+      "vector": [
+        "1/2",
+        "-1/2",
+        "-1/2",
+        "1/2"
+      ]
+    }
+  ],
+  "positive_error_counterexample": {
+    "contradiction_to_printed_prefactor": true,
+    "corrected_coefficient_consistent": true,
+    "corrected_lower_bound_from_witness": "1 - sqrt(99)/50",
+    "epsilon": "1/100",
+    "epsilon_times_one_minus_epsilon": "99/10000",
+    "equivalent_strict_integer_comparison": {
+      "holds": true,
+      "left": 99,
+      "right": 625
+    },
+    "exact_algorithm_upper_bound": 1,
+    "printed_lower_bound_from_witness": "2 - sqrt(99)/25",
+    "strictly_greater_than": 1
+  },
+  "progress": {
+    "after_one_query": "0",
+    "drop": "2",
+    "factor_two_saturated": true,
+    "initial": "2"
+  },
+  "randomized": false,
+  "scope": "finite exact semantic witness; not Lean elaboration, universal proof, or author-confirmed erratum",
+  "signed_cube_cases": [
+    {
+      "absolute_value_is_cube_adjacency": true,
+      "dimension": 0,
+      "distinct_eigenvalue_split_applicable": false,
+      "matrix_order": 1,
+      "multiplicity_each_if_d_positive": null,
+      "parity_conjugation_negates_matrix": true,
+      "square_equals_d_identity": true,
+      "symmetric": true,
+      "trace": 0,
+      "zero_dimension_note": "one zero eigenvalue; no two-root split"
+    },
+    {
+      "absolute_value_is_cube_adjacency": true,
+      "dimension": 1,
+      "distinct_eigenvalue_split_applicable": true,
+      "matrix_order": 2,
+      "multiplicity_each_if_d_positive": 1,
+      "parity_conjugation_negates_matrix": true,
+      "square_equals_d_identity": true,
+      "symmetric": true,
+      "trace": 0,
+      "zero_dimension_note": null
+    },
+    {
+      "absolute_value_is_cube_adjacency": true,
+      "dimension": 2,
+      "distinct_eigenvalue_split_applicable": true,
+      "matrix_order": 4,
+      "multiplicity_each_if_d_positive": 2,
+      "parity_conjugation_negates_matrix": true,
+      "square_equals_d_identity": true,
+      "symmetric": true,
+      "trace": 0,
+      "zero_dimension_note": null
+    },
+    {
+      "absolute_value_is_cube_adjacency": true,
+      "dimension": 3,
+      "distinct_eigenvalue_split_applicable": true,
+      "matrix_order": 8,
+      "multiplicity_each_if_d_positive": 4,
+      "parity_conjugation_negates_matrix": true,
+      "square_equals_d_identity": true,
+      "symmetric": true,
+      "trace": 0,
+      "zero_dimension_note": null
+    },
+    {
+      "absolute_value_is_cube_adjacency": true,
+      "dimension": 4,
+      "distinct_eigenvalue_split_applicable": true,
+      "matrix_order": 16,
+      "multiplicity_each_if_d_positive": 8,
+      "parity_conjugation_negates_matrix": true,
+      "square_equals_d_identity": true,
+      "symmetric": true,
+      "trace": 0,
+      "zero_dimension_note": null
+    }
+  ],
+  "status": "passed"
+}

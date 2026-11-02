@@ -1,0 +1,230 @@
+{
+  "schema": "quartic-r3-style-rules-v1",
+  "scope": "Only source-located moves actually used in this assigned section.",
+  "mathematical_authority_separate_from_writing_specimens": true,
+  "rules": [
+    {
+      "id": "style-bs-parameter-match",
+      "source": "Bansal–Sinha, arXiv:2008.07003v3",
+      "locator": "Printed pp. 2–4: normalized Hadamard and Forrelation definitions (1.1)–(1.3), then Theorem 1.3 and Corollary 1.4; local main.tex lines 212–278",
+      "move": "Specify the underlying object, coordinate scale, promise and error parameter before stating or transferring its complexity bound.",
+      "used_in": [
+        "CL-entry-interface",
+        "CL-forrelation-input",
+        "CL-concrete-lower"
+      ],
+      "application": "The replacement recalls P, the realizing circuit, columns and true addresses before constructing distributions. Its final specialization explicitly identifies m as one Forrelation block dimension, km as total input length, and k as fixed before size grows.",
+      "scope_limit": "This is a writing and hypothesis-matching move. Reading the opening pages does not validate the complete lower-bound proof or resolve the separate section 5.4 display caveat.",
+      "quoted_words": 6,
+      "specimen": {
+        "exact_quote": "Let $k \\ge 2$ and $\\delta=2^{-5k}$.",
+        "locator": "main.tex:263",
+        "quote_format": "literal TeX source fragment"
+      },
+      "genre": "Long mathematical reasoning record; section-level adaptation.",
+      "before": {
+        "file": "supplied baseline reasoning-record.md",
+        "passage": "CL-concrete-lower",
+        "exact_excerpt": "Choose $t$ large enough for the partial-function lower bound and also $t\\geq8$. The same exact circuit $C_{k,m}$ used to define the function and establish its upper bound then satisfies all hypotheses of the generic result. We conclude the concrete Proposition 4.2 and its asymptotic consequence."
+      },
+      "after": {
+        "file": "section.md",
+        "passage": "CL-forrelation-input",
+        "exact_excerpt": "We now return to the Forrelation family. Fix \\(k\\ge2\\), let \\(P=P_{k,m}\\) on \\(km\\) bits, and choose\n\\[\nL=\\left\\lfloor\\frac{m^{1-1/k}}{(\\log_2m)^2}\\right\\rfloor.\n\\]\nThe required prerequisite from §3 is that \\(L<R(P_{k,m})\\) for all sufficiently large powers of four \\(m\\)."
+      },
+      "adoption_status": "Applied locally; no blind-grader adoption or named-author voice imitation claimed."
+    },
+    {
+      "id": "style-abk-procedure-correctness",
+      "source": "Aaronson–Ben-David–Kothari, arXiv:1511.01937v2",
+      "locator": "Section 6.2, Lemma 17 and its proof, printed p. 22; local cheat37_arXiv_v2.tex lines 1671–1701, preceded by definitions in section 6.1",
+      "move": "Describe the concrete sequence of operations, then prove why the resulting procedure has the claimed meaning.",
+      "used_in": [
+        "CL-dummy",
+        "CL-planted",
+        "CL-simulator",
+        "CL-joint-event"
+      ],
+      "application": "The replacement first specifies how the dummy and planted bits are written, then verifies their values. It defines the simulator's free answers, charged queries, abort rule and output before proving the event containment that makes the direct-product lemma applicable.",
+      "scope_limit": "ABK's lemma concerns upper bounds for its own cheat-sheet construction. The adopted order of explanation supplies no mathematical proof of the present multi-column planted lower bound.",
+      "quoted_words": 8,
+      "specimen": {
+        "exact_quote": "The algorithm to evaluate $f_\\CSp$ is the following:",
+        "locator": "cheat37_arXiv_v2.tex:1683",
+        "quote_format": "literal TeX source fragment"
+      },
+      "genre": "Long mathematical reasoning record; section-level adaptation.",
+      "before": {
+        "file": "supplied baseline reasoning-record.md",
+        "passage": "CL-simulator",
+        "exact_excerpt": "Fix a column $i$ and a query time $q\\in\\{1,\\ldots,G\\}$. Give a simulator all the dummy data outside the $r$ strings $A_{i,1},\\ldots,A_{i,r}$, and let those strings be its queried inputs. It receives the full vector $J$, all other columns' $A$-strings, and the fixed blank cells. This information is jointly independent of the target tuple. In particular, it does not receive the target strings themselves, their true address, or a target transcript."
+      },
+      "after": {
+        "file": "section.md",
+        "passage": "CL-simulator",
+        "exact_excerpt": "Fix a column \\(i\\) and a time \\(q\\in\\{1,\\ldots,G\\}\\). The simulator's queried inputs are the \\(r\\) strings of that column. Give it the independent outside data: every \\(J_j\\), all the \\(A\\)-strings of the other columns, and the fixed blank cells. It receives no target string, target address, or target transcript as side information."
+      },
+      "adoption_status": "Applied locally; no blind-grader adoption or named-author voice imitation claimed."
+    },
+    {
+      "id": "style-drucker-transcript-law",
+      "source": "Drucker, arXiv:1005.0644v2",
+      "locator": "Lemma 3.2 and its proof, printed pp. 11–12; local source.tex lines 558–571",
+      "move": "Fix the observable transcript and show exactly which input constraints it imposes before making an independence or conditional-law claim.",
+      "used_in": [
+        "CL-early-late",
+        "CL-erased-zero-identity",
+        "CL-joint-event"
+      ],
+      "application": "The uniform-zero explanation uses a positive-probability transcript prefix and identifies the excluded rows; the selection identity fixes the dummy input before averaging I; the nonheavy event remains inside the probability instead of becoming an unjustified conditioned input law.",
+      "scope_limit": "The style move concerns the order and precision of a finite probability argument. It does not imply that every such conditional-law passage has an identical Lean proof route.",
+      "quoted_words": 5,
+      "specimen": {
+        "exact_quote": "Fix any $j \\in [k]$",
+        "locator": "source.tex:562",
+        "quote_format": "literal TeX source fragment"
+      },
+      "genre": "Long mathematical reasoning record; section-level adaptation.",
+      "before": {
+        "file": "supplied baseline reasoning-record.md",
+        "passage": "CL-early-late",
+        "exact_excerpt": "Let $Z$ be the number of columns whose unique zero is discovered during the dummy run. This is `def-Z`. Before a zero is discovered in column $i$, its location is conditionally uniform among the positions of that column not yet queried. To see this, fix a positive-probability full transcript. The event of realizing that transcript is the conjunction of the recorded constraints on each $J_i$ and each $A_{i,h}$, by the same deterministic-history induction used in the direct-product proof. For an undiscovered zero, its only constraints are exclusions of the distinct queried positions. The uniform prior on $J_i$ therefore remains uniform on the complement. The fixed blank cells impose no further restrictions. This proves `claim-uniform-zero` with the full adaptive history included in the conditioning."
+      },
+      "after": {
+        "file": "section.md",
+        "passage": "CL-early-late",
+        "exact_excerpt": "Before the zero in a column has been discovered, its conditional location is uniform among that column's unqueried rows. To include adaptivity, fix a positive-probability transcript prefix. A deterministic tree follows that prefix exactly on inputs satisfying its recorded query answers: induction over the prefix proves the reverse implication as well as the forward one. Thus the prefix event gives separate constraints on the independent \\(J_i\\)'s and \\(A\\)-strings. For an undiscovered \\(J_i\\), the constraints merely exclude the distinct rows already queried. The blank cells add no constraint. Therefore, if \\(u\\) rows remain,\n<!-- claim:claim-uniform-zero -->\n\\[\n\\Pr[J_i=j\\mid\\text{that prefix}]\n=\n\\begin{cases}\n1/u,&j\\text{ is unqueried in column }i,\\\\\n0,&j\\text{ was queried there}.\n\\end{cases}\n\\]\nPositive probability of the prefix ensures \\(u>0\\). Repeated queries impose no new exclusion."
+      },
+      "adoption_status": "Applied locally; no blind-grader adoption or named-author voice imitation claimed."
+    },
+    {
+      "id": "style-drucker-budget-before-use",
+      "source": "Drucker, arXiv:1005.0644v2",
+      "locator": "Section 1.3, printed pp. 6–7, local source.tex lines 375–381; fair-algorithm specialization at end of section 3, printed p. 13, source.tex line 606",
+      "move": "State which budget holds on every execution before invoking the success-probability theorem, and keep a different budget theorem separately identified.",
+      "used_in": [
+        "CL-address-guess",
+        "CL-heavy",
+        "CL-simulator",
+        "CL-cell-union"
+      ],
+      "application": "The replacement distinguishes the per-input cap from the heavy-column threshold, proves that the simulator's total target cap implies every required per-input cap, and introduces the G factor only when taking the union over query times.",
+      "scope_limit": "The source's fair result and its global-budget theorem are different statements. This writing rule preserves that distinction; it is not a claim that the stronger endpoint follows from an arbitrary total budget.",
+      "quoted_words": 5,
+      "specimen": {
+        "exact_quote": "Consider a fair $Tk$-query algorithm",
+        "locator": "source.tex:379",
+        "quote_format": "literal TeX source fragment"
+      },
+      "genre": "Long mathematical reasoning record; section-level adaptation.",
+      "before": {
+        "file": "supplied baseline reasoning-record.md",
+        "passage": "CL-address-guess",
+        "exact_excerpt": "Apply Lemma 4.1 with this $\\mu$ and $\\beta=2/3$. One distribution works for every number $r$ of independent instances. Every algorithm with at most $L$ queries to each instance, and arbitrary jointly independent additional information, satisfies the address-guessing bound."
+      },
+      "after": {
+        "file": "section.md",
+        "passage": "CL-address-guess",
+        "exact_excerpt": "Apply the frozen baseline's Lemma 4.1 to independent \\(U_1,\\ldots,U_r\\sim\\mu\\). If an algorithm makes at most \\(L\\) queries to each \\(U_h\\) on every execution, then\n<!-- claim:claim-address-guess -->\n\\[\n\\Pr[\\widehat s=(P(U_1),\\ldots,P(U_r))]\\le(2/3)^r.\n\\]\nThe algorithm may interleave its queries and use side information jointly independent of the whole tuple. Fixing that information and its random coins preserves the input law, so the deterministic bound can be averaged."
+      },
+      "adoption_status": "Applied locally; no blind-grader adoption or named-author voice imitation claimed."
+    },
+    {
+      "id": "style-proof-and-type-boundaries",
+      "source": "Supplied writing/mathematical-writing-mechanics.md",
+      "locator": "Section 2 exact statement and evidence gates; Section 9 citation roles; authoring receipt.",
+      "move": "Give an ordinary proof and then identify precisely which statement and proof route the formal endpoint supports.",
+      "specimen": {
+        "exact_quote": null,
+        "reason": "Instructional guideline applied by paraphrase; mathematical-source specimens are quoted separately."
+      },
+      "before": {
+        "file": "supplied baseline reasoning-record.md",
+        "passage": "CL-zero-average",
+        "exact_excerpt": "Take $U=[m]$ in the preceding inequality and divide by $m^2$. Conditional on fixed outside data, the probability that the column's uniform zero is found is at most $2/m$ times the expected number of queries to that column. Average this inequality over the outside data. The resampling identity described above justifies replacing the chosen zero location by each of its possible values while keeping all other data fixed."
+      },
+      "after": {
+        "file": "section.md",
+        "passage": "CL-zero-average",
+        "exact_excerpt": "Take \\(U=[m]\\) and average uniformly over its \\(m\\) worlds. The preceding inequality says that this column's discovery probability is at most \\(2/m\\) times its expected query count. Average over the independent outside data and sum over the columns. If \\(Q_X\\) is the total number of queries to the \\(X\\)-bits, then \\(Q_X\\le G\\) on every run, so\n\\[\n\\mathbb EZ\\le\\frac{2}{m}\\mathbb E Q_X\\le\\frac{2G}{m}.\n\\]\nThe exact selection identity now yields\n<!-- claim:NCL-erased-zero-two -->\n\\[\n\\Pr[T\\text{ on }Y^{(0)}\\text{ queries }X_I[J_I]]\n\\le\\frac{2G}{m^2}.\n\\]\nThis is a stronger endpoint obtained by a different proof. It does not prove that the early/late decomposition was formalized, and it makes no assertion about the optimal distinguishing success at a fixed worst-case budget."
+      },
+      "used_in": [
+        "CL-erased-zero-identity",
+        "CL-early-late",
+        "CL-zero-average",
+        "CL-formal-scope"
+      ],
+      "scope": "Claim fidelity in a long record with formal correspondence.",
+      "limit": "A complete type or source-bound build does not replace the ordinary argument or intended-statement review."
+    },
+    {
+      "id": "style-long-implication-overview",
+      "source": "Supplied exemplars/long-reasoning-record.md",
+      "locator": "Opening overview and roadmap, lines 12-57.",
+      "move": "Explain the sequence of mathematical implications and distinguish its final target from narrower formal endpoints.",
+      "specimen": {
+        "exact_quote": "The proof turns a hypothetical support gap into a constant",
+        "locator": "Opening overview, sentence beginning on line 16."
+      },
+      "before": {
+        "file": "supplied baseline reasoning-record.md",
+        "passage": "CL-generic-statement",
+        "exact_excerpt": "We now prove the following nonasymptotic form of Proposition 4.2. Let $m=4^t$ with $t\\geq1$, let $r=40t$, and let $P$ be a partial Boolean function on $km$ bits with an exact circuit $C$ having the stated domain and value outputs. Let $F$ be the total function built from this same pair $(P,C)$. For every integer $L$ satisfying $1\\leq L\\leq m$ and $L<R(P)$, the conclusion is"
+      },
+      "after": {
+        "file": "section.md",
+        "passage": "CL-entry-interface",
+        "exact_excerpt": "We first recall the objects needed below. Let \\(P:D\\to\\{0,1\\}\\), where \\(D\\subseteq\\{0,1\\}^{n}\\), and let \\(C\\) be a finite fan-in-two Boolean circuit with a domain output and a value output. The domain output is one exactly on \\(D\\); on \\(D\\), the value output equals \\(P\\). A circuit transcript records the values of all non-input gates. Topological evaluation supplies a unique transcript satisfying all gate checks."
+      },
+      "used_in": [
+        "CL-entry-interface",
+        "CL-generic-statement",
+        "CL-concrete-lower"
+      ],
+      "scope": "Organization of a long reasoning record.",
+      "limit": "The QAOA/Parisi mathematics is unrelated and supplies no evidence for a quartic query claim."
+    },
+    {
+      "id": "style-complete-finite-instance",
+      "source": "Supplied exemplars/expository.md",
+      "locator": "Section 1, lines 48-154, especially the two-spin calculation.",
+      "move": "Specify a small instance completely, compute what the definitions do, and state what the instance does not establish.",
+      "specimen": {
+        "exact_quote": "Choosing equal or opposite signs according to the sign",
+        "locator": "Section 1, two-spin calculation."
+      },
+      "before": {
+        "file": "supplied baseline reasoning-record.md",
+        "passage": "CL-planted",
+        "exact_excerpt": "Choose a column $I$ uniformly from $[m]$, independently of the entire dummy input. Form $Y^{(1)}$ from $Y^{(0)}$ by changing $X_I$ to $1^m$ and filling only $B_{I,s_I}$ with the correct transcripts on $A_{I,h}$ and with pointers $p_{I,s_I,j}=J_j$ for every $j\\ne I$. The $A$-strings are unchanged. Since they are sampled from $D$, the true address $s_I$ exists at every sample point when the experiment is viewed directly on $D^{mr}\\times[m]^m\\times[m]$. This is `def-planted`."
+      },
+      "after": {
+        "file": "section.md",
+        "passage": "CL-tiny-planted-example",
+        "exact_excerpt": "**A four-column instance.** To see the planting operation, temporarily take \\(m=4\\), \\(r=2\\), and \\(P(a,b)=a\\mathbin{\\mathrm{xor}}b\\) on all two-bit inputs. A two-gate circuit has domain output \\(1\\) and value output \\(a\\mathbin{\\mathrm{xor}}b\\); its transcript is \\((1,P(a,b))\\). Use zero-based row and column labels in this example."
+      },
+      "used_in": [
+        "CL-tiny-planted-example",
+        "CL-simulator-example",
+        "CL-conditioning-counterexample"
+      ],
+      "scope": "Finite explanatory example within a long proof.",
+      "limit": "Toy r=2, XOR and G=4 do not satisfy the asymptotic Forrelation specialization; no late discoveries occur."
+    }
+  ],
+  "coverage": {
+    "first_four_pages_and_relevant_proof_sections": [
+      "Bansal-Sinha v3",
+      "Aaronson-Ben-David-Kothari v2",
+      "Drucker v2"
+    ],
+    "complete_literature_papers_claimed": false,
+    "abstract_and_introduction_imitation": "Not applicable to this section-only replacement; no new standalone abstract or introduction was requested.",
+    "named_author_voice_imitation": false
+  },
+  "measurement": {
+    "paper_register_before": null,
+    "paper_register_after": null,
+    "reason": "Comparator script/profile not supplied. Manual source-located changes and cold-reader corrections are reported without fabricated statistical scores."
+  }
+}

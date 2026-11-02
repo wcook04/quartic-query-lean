@@ -1,0 +1,4132 @@
+{
+  "schema": "quartic-r3-05-source-read-receipt-v1",
+  "date": "2026-11-02",
+  "input": {
+    "status": "passed",
+    "method": "Independent Python hashlib/zipfile read; no supplied checker executed",
+    "input_zip": "quartic_r3_05_quantum_upper.zip",
+    "input_zip_sha256": "845205a4c78af2c413b2128a2c4ad986ed4e00b311d61f7a6de7e45f47799c81",
+    "manifest_sha256": "c6e9e25c6cf2c855c27ceeb05f96c5ac58556a18c7e1306f7cb4ceb4967e4809",
+    "listed_members_checked": 397,
+    "request_sha256_matches": true,
+    "problems": [],
+    "scope": "Custody/integrity only; not mathematics, Lean, source freshness, or acceptance."
+  },
+  "source_versions": {
+    "packet_commit": "1dd469dd0042b937b739da3bc211eeb60bdf7462",
+    "build_receipt_commit": "31e17dee667d1d72fa621da8e7d3d8ff5fc3960a",
+    "toolchain": "leanprover/lean4:v4.36.0-rc2",
+    "paper_pdf_sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e",
+    "dependency_pins": {
+      "lake_packages": [
+        {
+          "name": "complexitylib",
+          "revision": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a",
+          "url": "https://github.com/cslib-community/complexitylib.git"
+        },
+        {
+          "name": "cslib",
+          "revision": "254e30e6d4299c51323aaeaf5f51a4763b375d4a",
+          "url": "https://github.com/leanprover/cslib"
+        },
+        {
+          "name": "mathlib",
+          "revision": "69552756cd8a2d2d48763cf7279fd814d6a1224d",
+          "url": "https://github.com/leanprover-community/mathlib4"
+        },
+        {
+          "name": "plausible",
+          "revision": "129d1ba9a16bc0660f46c79e9fb041ef5d5d80de",
+          "url": "https://github.com/leanprover-community/plausible"
+        },
+        {
+          "name": "LeanSearchClient",
+          "revision": "c61286b7b63cbfd563b28e11e81d0a18233a044a",
+          "url": "https://github.com/leanprover-community/LeanSearchClient"
+        },
+        {
+          "name": "importGraph",
+          "revision": "b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60",
+          "url": "https://github.com/leanprover-community/import-graph"
+        },
+        {
+          "name": "proofwidgets",
+          "revision": "16259c0d07d61ee37d999d05b5cf96338b8daa11",
+          "url": "https://github.com/leanprover-community/ProofWidgets4"
+        },
+        {
+          "name": "aesop",
+          "revision": "7d11bfa88558f8d3d90afdf6bd877ed70001498d",
+          "url": "https://github.com/leanprover-community/aesop"
+        },
+        {
+          "name": "Qq",
+          "revision": "b0256621cb88178e9ad932a53633077b3029e621",
+          "url": "https://github.com/leanprover-community/quote4"
+        },
+        {
+          "name": "batteries",
+          "revision": "d4c39b228d4a06f3b00748c2c445a7b9f056a6e3",
+          "url": "https://github.com/leanprover-community/batteries"
+        },
+        {
+          "name": "Cli",
+          "revision": "c09cb1e4f1e6e1c231a1175a12b681b075054a1b",
+          "url": "https://github.com/leanprover/lean4-cli"
+        }
+      ],
+      "toolchain": "leanprover/lean4:v4.36.0-rc2"
+    }
+  },
+  "coverage_policy": "Assessment is of the stated scope only. Hashing, name extraction and a file being bundled do not imply its proof or whole content was read. Multiple AI readers are recorded separately. No human review.",
+  "members": [
+    {
+      "member": "repository/README.md",
+      "bytes": 5316,
+      "sha256": "47fadd7a6d94c2bdb47d3155e289ed0956649449ae370d13f656d191e36ad947",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "root",
+          "status": "assessed",
+          "scope": "Full file, source/evidence claims distinguished."
+        },
+        {
+          "reader": "tournament_upper",
+          "status": "assessed",
+          "scope": "entire"
+        },
+        {
+          "reader": "lean_evidence",
+          "status": "assessed",
+          "scope": "Full file read in this formal/evidence subaudit; assessment does not imply independent proof rechecking."
+        }
+      ]
+    },
+    {
+      "member": "repository/AGENTS.md",
+      "bytes": 2706,
+      "sha256": "5686db5032ef5a9d272aa4942d8601873ad3c4c72173f985b99caf3d7587064f",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "root",
+          "status": "assessed",
+          "scope": "Full file."
+        },
+        {
+          "reader": "tournament_upper",
+          "status": "assessed",
+          "scope": "entire"
+        },
+        {
+          "reader": "lean_evidence",
+          "status": "assessed",
+          "scope": "Full file read in this formal/evidence subaudit; assessment does not imply independent proof rechecking."
+        }
+      ]
+    },
+    {
+      "member": "repository/CONTRIBUTING.md",
+      "bytes": 4854,
+      "sha256": "52ab21f70fb11e6b5815fcd56dd20223f464e9df981f2c7a2895fb7362069a1f",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "root",
+          "status": "assessed",
+          "scope": "Full file; no source repository changes performed."
+        }
+      ]
+    },
+    {
+      "member": "repository/LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/Makefile",
+      "bytes": 418,
+      "sha256": "41ec6dc006c5bea21b519aaf3051ef8c592cc6e662f6a2a2d6234a5389c6c435",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/README.md",
+      "bytes": 3438,
+      "sha256": "d7ef30dcd6e14d2733f991efb1822fd2497f2142889efa2917cfc5e3fb9ce1c4",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/corpus/README.md",
+      "bytes": 3663,
+      "sha256": "8c80cd1b22e577000a1820ad5b7490958ed72118ce118fc1541cafde5de92c20",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/returns/README.md",
+      "bytes": 3674,
+      "sha256": "074d6a18cd4ebf06bac309e05ed050eabba3a5a4f694bdbbc3aa01f9da4216b3",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/returns/round2/README.md",
+      "bytes": 2593,
+      "sha256": "5e1985dd5207386754ae52aa6113ec30b6a76e33220cafc305aee37f5a7f99b7",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/returns/round2/intake.json",
+      "bytes": 30800,
+      "sha256": "22b59292f2a96a2307687c10639f13d99471dd5ab7edd1cfba631822dfdde2f8",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/README.md",
+      "bytes": 7467,
+      "sha256": "b02ef7b53c07e06f71bf3d381bea77a346caf1e7d160f7d35b3b54eb9d3cca1b",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "root",
+          "status": "assessed",
+          "scope": "Full file."
+        },
+        {
+          "reader": "tournament_upper",
+          "status": "assessed",
+          "scope": "entire"
+        },
+        {
+          "reader": "lean_evidence",
+          "status": "assessed",
+          "scope": "Full file read in this formal/evidence subaudit; assessment does not imply independent proof rechecking."
+        }
+      ]
+    },
+    {
+      "member": "repository/research/intake/statement_ledger.json",
+      "bytes": 82583,
+      "sha256": "baae822271b38aa322e9fec62c47621de20bb61eb82b077d92bd9c133685c143",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Construction/Challenge.lean",
+      "bytes": 14460,
+      "sha256": "d554e5a96889c4c9c3aa6bd3231f984fa7cf695aa103ebcd092ac2c7a08240b1",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Construction/Solution.lean",
+      "bytes": 1656,
+      "sha256": "63cfe11442f76eb9b0f1b579e2a925a19fc9312f870e8480bfbf3eacfb9bb9de",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Construction/comparator.json",
+      "bytes": 457,
+      "sha256": "c18c76b87a777251e70ec3f55c5704be82d52dbba0220e5adb2cf3063709dd78",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Foundations/Challenge.lean",
+      "bytes": 14276,
+      "sha256": "8a94b4d4e065267e606d7738f72a620ab249b563a1ebf66992fbae90995423c3",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Foundations/Solution.lean",
+      "bytes": 1616,
+      "sha256": "836000d335f1d8ba10f711895d142a6202c8484b6c9b100a2765d6f5f4bac9bd",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Foundations/comparator.json",
+      "bytes": 554,
+      "sha256": "7e5f89ab55e35fc5b3088528b260d3c9bbeabbb5dc173913a8be94a2521943e7",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Negative/ChangedDefinition.json",
+      "bytes": 347,
+      "sha256": "c0e471ee9f1d52fb81e15c959133a062b4e95da345e836e6c95916b8dc6ea2dd",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Negative/ChangedDefinition.lean",
+      "bytes": 1150,
+      "sha256": "4a3b0a97b2fd35e6c8e31fdd8fa8017b0e428cc8b6b41eccaa36f9e2cf445264",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Negative/ForeignAxiom.json",
+      "bytes": 342,
+      "sha256": "3ac0d024b346f5bff94a50a556a55d827a5dc19d4f9a754f1603dd7eef6d893d",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Negative/ForeignAxiom.lean",
+      "bytes": 857,
+      "sha256": "d896cdd50a42a4c32cb24e636198ef33909078e6f62edadbf04fbca3cf44a2ed",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Negative/MissingDeclaration.json",
+      "bytes": 348,
+      "sha256": "b3f976bd6117762d52949c51b02032554789c88c9e952f84ec475d93304d8eae",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Negative/MissingDeclaration.lean",
+      "bytes": 537,
+      "sha256": "c03b0d0c245a2d4e392a4de43648d5b55858542e15e54d9ea977ca019eef682c",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Negative/SorryProof.json",
+      "bytes": 340,
+      "sha256": "36243ab16c60debb8b5e19d286abd8010f773b9a7aa0ff1da8cd9d4b6c195cda",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Negative/SorryProof.lean",
+      "bytes": 803,
+      "sha256": "59295ee8a529797d52a6cf8f97eb3ee32cd4878b97e441a1d6a982e07806a7d5",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Negative/WeakenedConclusion.json",
+      "bytes": 348,
+      "sha256": "9cd55a4b578d744703319b8b153b90a78af553fd8ffbe323d31c074378204f09",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Negative/WeakenedConclusion.lean",
+      "bytes": 902,
+      "sha256": "f51706cc2337149223db50cd23d800e5b7138f61727e4f3db1deb39db07f4f82",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Separation/Challenge.lean",
+      "bytes": 15044,
+      "sha256": "85cf70b1364ee037ddfef280668b6ca036aadb1cb7e57e6734e94706112c2bd9",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Separation/Solution.lean",
+      "bytes": 2396,
+      "sha256": "5cdcdb99b1c1ff250d45b8e983756ea3a3bf7013af1f46b4e02495c3209bb724",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "lean_evidence",
+          "status": "assessed",
+          "scope": "Full file read in this formal/evidence subaudit; assessment does not imply independent proof rechecking."
+        }
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Separation/comparator.json",
+      "bytes": 562,
+      "sha256": "93324800e1d372cf1a3e801fe7181a29f77b13edb01deb590bc8158a263c7276",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "lean_evidence",
+          "status": "assessed",
+          "scope": "Full file read in this formal/evidence subaudit; assessment does not imply independent proof rechecking."
+        }
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Tournament/Challenge.lean",
+      "bytes": 13949,
+      "sha256": "8bc45cfe55e8a124bb7dfa7fcd3566f80b4db98fe4e99c92242f413edf8ec27c",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Tournament/Solution.lean",
+      "bytes": 1056,
+      "sha256": "f02baea95b83312fe3d3c4fcfb64f3aec6ff9658c26189c4ce7d70a7ccd03f6b",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "lean_evidence",
+          "status": "assessed",
+          "scope": "Full file read in this formal/evidence subaudit; assessment does not imply independent proof rechecking."
+        }
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Tournament/comparator.json",
+      "bytes": 340,
+      "sha256": "309293414b5271ac9092ddd56aa40707f533da448792b9971310b092f3ef641a",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "lean_evidence",
+          "status": "assessed",
+          "scope": "Full file read in this formal/evidence subaudit; assessment does not imply independent proof rechecking."
+        }
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "bytes": 14163,
+      "sha256": "c88be0b70754cb6f93448694002a16e1eb6a25135fa71648d4651f01104e399d",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Unconditional/Solution.lean",
+      "bytes": 1378,
+      "sha256": "19725ad42b615a8881db00417ee6375c8982b0de08e618f06f901fe4db2e2cd3",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Unconditional/comparator.json",
+      "bytes": 435,
+      "sha256": "fbaaee77d1b1a3daff788267ec15963ea06a6340a219a2da890c8c9642998dd7",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery.lean",
+      "bytes": 1788,
+      "sha256": "f76b28615af9ebffdda89430586942c5d7d499a0d78585a31ae47a45c92705b0",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Amplification/Average.lean",
+      "bytes": 4096,
+      "sha256": "fd837b83033d2df6d833a0fdecaef7110339d5747b8aaa1f674c14d3e50473b6",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "amplification",
+          "status": "assessed",
+          "scope": "complete, lines1–95"
+        },
+        {
+          "reader": "lean_evidence",
+          "status": "sampled",
+          "scope": "Declaration signatures extracted for exact trigonometric average; not a separate proof audit."
+        }
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Amplification/Bounded.lean",
+      "bytes": 16750,
+      "sha256": "6a6465ae0cbd0503cf327c5f33f6509f492a707795c0358880c8f12c9624c96d",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "amplification",
+          "status": "sampled",
+          "scope": "trial bounds; complete bounded_amplification signature and proof; IndexRegister law"
+        },
+        {
+          "reader": "lean_evidence",
+          "status": "assessed",
+          "scope": "Full file read in this formal/evidence subaudit; assessment does not imply independent proof rechecking."
+        }
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Amplification/Geometry.lean",
+      "bytes": 20075,
+      "sha256": "ff5e758a77d21bc133a930d545672cb5faa76aa422019413c634085881142dc9",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "amplification",
+          "status": "sampled",
+          "scope": "Preparation; PhaseEq; normalised; rotation and iterate theorems lines 354–467"
+        },
+        {
+          "reader": "lean_evidence",
+          "status": "sampled",
+          "scope": "Preparation and Gate definitions (20–80), state geometry and successful projection (295–455), all declaration headers located; not every proof read."
+        }
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Amplification/Procedure.lean",
+      "bytes": 11462,
+      "sha256": "45413af39419cf952c26204dfd3ae1b86e7dcde1423194ca473187cc6b64edb1",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "amplification",
+          "status": "sampled",
+          "scope": "lines1–220, explicit Proc semantics and trial construction"
+        },
+        {
+          "reader": "lean_evidence",
+          "status": "sampled",
+          "scope": "Module semantics and Proc definitions (1–80), complete declaration headers extracted; remainder sampled."
+        }
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Appendix/TheoremA1.lean",
+      "bytes": 3007,
+      "sha256": "777567c2e5878223a187030b4200293a0c8f78927fa0488e62ff36bf129a0128",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Bridge/DecisionTree.lean",
+      "bytes": 2905,
+      "sha256": "f0dc14884f30cb5238b4e71a4358e43a244a45a38f655323a34b5e83af7ed13e",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Bridge/Deferred.lean",
+      "bytes": 13105,
+      "sha256": "666c5741a5a19324b7229a350bc35130627da42584c751d5444231f402c45931",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Bridge/Oracle.lean",
+      "bytes": 6970,
+      "sha256": "06f073c300891be8d343434d4cbc4e3d9c2c37584bb5247a339e6f5c020ba385",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Construction/LocalTests.lean",
+      "bytes": 16356,
+      "sha256": "56357d934fab301222130c92ef36cfbf122af4ad90fb2a94ba90178139dbeb13",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Construction/Transcript.lean",
+      "bytes": 2988,
+      "sha256": "e2fd95c77c8ef1616201219302415069411aaac88060f3f75ec24e7b0626608f",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Construction/Winner.lean",
+      "bytes": 2809,
+      "sha256": "3c6b894e842fc90acd7a09b9ff14ce3ae2f09bfbf2dc7f2195751a396db7017c",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Forrelation/Arithmetic.lean",
+      "bytes": 20491,
+      "sha256": "5a7336764ee8cd299b9e19fd3164374fcebab98b7df8d9c956a457334b9dc243",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Forrelation/Builder.lean",
+      "bytes": 9577,
+      "sha256": "32e1ff4623c8bbceda26da74e53961d8c2bc660ff9b831cf19d4cc32ce1abc23",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Forrelation/Circuit.lean",
+      "bytes": 23023,
+      "sha256": "b17824d0a3b6ee5a689822b04c18d20de9e72e1db119105584e9cbba60ae8f01",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "root",
+          "status": "sampled",
+          "scope": "forrConstant=200(k+1)^2 and circuit size statement."
+        }
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Forrelation/Product.lean",
+      "bytes": 12191,
+      "sha256": "f0ceced9021b45de546dfc01aadabde913f8ecdf1a0d085992c5b61b8a1ef425",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Forrelation/Promise.lean",
+      "bytes": 4434,
+      "sha256": "96b967a27458107549e38ce4fe001d707a4c240ad4e4b582729a6ce9526d2cf1",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Forrelation/Repetition.lean",
+      "bytes": 11700,
+      "sha256": "1526168486cdc4e78213c6048199676df0520445666b60d3ece9c62678e90e70",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "root",
+          "status": "sampled",
+          "scope": "repetitions exact natural ceiling and adjacent bound."
+        }
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Forrelation/Sanity.lean",
+      "bytes": 2662,
+      "sha256": "bf287a0ff1f6022582b6d8daae3a89ad34d8aa51986531a649f133ee692eae70",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Forrelation/Walsh.lean",
+      "bytes": 8806,
+      "sha256": "e3eae0cf1455ef1471fd4f42458b324bbe3bfe1b1879989366ce476657653069",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/ForrelationLower/Amplify.lean",
+      "bytes": 8095,
+      "sha256": "93f8e1c04768b8d01263f4a6b5a594b2d7b3334a1380432af6a33779109fc10a",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/ForrelationLower/Cascade.lean",
+      "bytes": 18807,
+      "sha256": "9438575752bdbb664cecbf15b97afc96f2f235fabcab8f6261ab5f15bb9d7ab9",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "bytes": 14843,
+      "sha256": "16db4f9b7e4e42029c839537075eff0ec0f6fd6261d4a8a038bec8566ce4e2fe",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/ForrelationLower/Main.lean",
+      "bytes": 26676,
+      "sha256": "f877e9c4d11874d3e80ad7627972b1a8a0eca596f26fb96a3898bfdace564ed1",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "bytes": 24897,
+      "sha256": "2877dc60a4af03e98321ac9e47c501a63508936aa49e5018d280258b24862efb",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/ForrelationLower/Stein.lean",
+      "bytes": 17861,
+      "sha256": "6238d7e6f8ade6044eb623899069f35d0a5b860699c722e7007fd71046ffff9e",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "bytes": 38425,
+      "sha256": "13614823a433518dea7138242182dc2abee1dbcdf0127157edf8cc9b6a756010",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+      "bytes": 33291,
+      "sha256": "d6bc1f4399394810fca63abdaadd67a420616371c501ab978841898f2bda049c",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "bytes": 26515,
+      "sha256": "c9394068bc3a583178fcae1e11d6eafdc7dcfc17bcd8a0b269f9a13ccee209ba",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+      "bytes": 16505,
+      "sha256": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/LowerBound/Minimax.lean",
+      "bytes": 10452,
+      "sha256": "d235fef08374ca71229f5a2a5985e1bb0c60e3ec39a0ad2b1a13b286df9c194e",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/LowerBound/Planted/Average.lean",
+      "bytes": 5872,
+      "sha256": "471bb74964c7c841f12a8e90a184d13f26ffc173bf2855bdf1d59e93f490610e",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/LowerBound/Planted/Coupling.lean",
+      "bytes": 2557,
+      "sha256": "35d0f76652f6aa52acb73dfe3b5c01eb70eefdf9397cc83f4b4469017de61824",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/LowerBound/Planted/Heavy.lean",
+      "bytes": 2641,
+      "sha256": "6b5772603583908e293c4301594ef313e68ddff67dedd5eced436744b0f110bb",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/LowerBound/Planted/Inputs.lean",
+      "bytes": 5346,
+      "sha256": "8a51b7b7696acdda52b0762b65c2f9e8bec13da8d896c47102c447195509411f",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/LowerBound/Planted/Main.lean",
+      "bytes": 11387,
+      "sha256": "a32a6e24bccace37d46742acc9450fe33b6081430484138336014048f3fe835c",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/LowerBound/Planted/Simulator.lean",
+      "bytes": 10557,
+      "sha256": "71bcf25db0309331ebda232bcad3ab2e895d543ffadcc521e99117253c0dab09",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean",
+      "bytes": 12056,
+      "sha256": "86a2064e0fb6c6ba9b4a79785932a203314d8433d938083a420288d642bf8bf8",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Model/Classical.lean",
+      "bytes": 13701,
+      "sha256": "a820d0804ee722ee74eef97ea8efeb2a15da55107d6a908e35ba60ef39932e9e",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Model/Quantum.lean",
+      "bytes": 16967,
+      "sha256": "6a61d326b216fa39f6ac1d7694727528dd5028bfac8d939f118bf1a4f4a35662",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/AppendixA.lean",
+      "bytes": 4876,
+      "sha256": "5a28f11e95c0153ef162337a8c81d4523f0092361b785425ee166924b1dd9815",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+      "bytes": 26274,
+      "sha256": "f95cdeea5040ba7082c33a76faddef2da122d5bb4d76cec2b192598894c50aa6",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/AppendixAHuang.lean",
+      "bytes": 7379,
+      "sha256": "adb9065a0262325c396b5eeadc4f27f61768fe182e1818b9a2e4b91e0376459b",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+      "bytes": 23972,
+      "sha256": "a90282494f069991f80b7ec4af0cd8898a2d4b84a7a69aa180e1ed061dd9a549",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/AppendixAHuangRoute.lean",
+      "bytes": 8162,
+      "sha256": "9a16919921fe4f06d2db77e75b88fe1bd5f7350bc9132360ebc496450a06a5b7",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/AppendixAPerron.lean",
+      "bytes": 8029,
+      "sha256": "e95a404b217afc2f03eaa35256c713827f1400231702daea1b5b38a3aa204c9a",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/AppendixARestriction.lean",
+      "bytes": 12176,
+      "sha256": "5e7b16febef2b95ffc6ed9e735bbb8b24cbaf1d713fda51452a13ef17745534b",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+      "bytes": 13481,
+      "sha256": "b45034f8e12d480523140f3a491ef29d2fc7fa83930ff6e17a993c8acb7ca0b0",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/AppendixASpectralAdversary.lean",
+      "bytes": 5499,
+      "sha256": "75c971c8627dc3e1e17e1a58e21522f845d0830246ab93939994d24d08da1ca4",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/AppendixAStar.lean",
+      "bytes": 23184,
+      "sha256": "84d2b315859098c5030f6772a06dcd652f3d08e695456ece32acb61a6e0142d6",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ClassicalAsymptotics.lean",
+      "bytes": 20410,
+      "sha256": "b156b061ecab3a011c31224f9ff0719d07a52e8e8eb86becbb18cb5c959c17af",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+      "bytes": 44006,
+      "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+      "bytes": 28360,
+      "sha256": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ClassicalUniformZero.lean",
+      "bytes": 13199,
+      "sha256": "b0778f75c9717011e9b115eb3b15cf132b85486fa2f8c83eff0e4ce4a05fca19",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionArithmetic.lean",
+      "bytes": 4291,
+      "sha256": "2c355a3eb5e76cd5db70a6990bb9d6b37d652e0eece3b31ed0661219d3635ad0",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionAudit.lean",
+      "bytes": 1585,
+      "sha256": "bf7d2c90de5e5c690c9a1a1589cd1b2d59b1f63a93eed3bd846170ae996ca6d6",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionCoherent.lean",
+      "bytes": 8338,
+      "sha256": "5e5f5c2321e7c1ce23235e69e1f430fd951f13cc92b5a2d1b2d974aad0607cec",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionComplete.lean",
+      "bytes": 4385,
+      "sha256": "a79e9f0cdbf85df0e86605711fa6c8bde2a19cbe043c36302243b42a7f8fbc6c",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+      "bytes": 9043,
+      "sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionFamily.lean",
+      "bytes": 3674,
+      "sha256": "b7e1203086e38c00b964355ac71537a7fc5be7053d537ccd56cba8017cdd085a",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationCircuit.lean",
+      "bytes": 5743,
+      "sha256": "860e8653027d64fe7d5cc5f35357d81ed5fa27e027899047ab819c821e3c8b32",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationComparison.lean",
+      "bytes": 5765,
+      "sha256": "e9bb18d1e0ea9482762e89a9ced002c720f9b7d2311a455a9904bd820c5b4a01",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationComplete.lean",
+      "bytes": 4796,
+      "sha256": "733526015ad9a2013512d8f6216b8f73c41566a803d92602dd30e40e90d7ad06",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+      "bytes": 8709,
+      "sha256": "14f92345b8885036e862885aad3db82d77cff6e71642e669c2ba7dc8ba087aa1",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationQuantum.lean",
+      "bytes": 6028,
+      "sha256": "f31face68a9c47906d9a728cced9aa8a24ec73d3079c6196ae1853130151391b",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionModels.lean",
+      "bytes": 8592,
+      "sha256": "19826ab2f9f9ef8a329f5880faf2426727b158321af4a418d519d55b56674d61",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionPhase.lean",
+      "bytes": 2427,
+      "sha256": "f9dc9564aa8741a6aa3059fcea3563c740fed802666ae251fbebbe9085668405",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionPointerSupport.lean",
+      "bytes": 4365,
+      "sha256": "8a2d8befa3225ab54114492b35c5a326fc17bd8f0a5eaa9acba966c18db53938",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionTests.lean",
+      "bytes": 8025,
+      "sha256": "06f1b3bc883881351e5e9cfa9ba8777f2f907897e69275b507132cc01ba0dccb",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/QuantumAmplification.lean",
+      "bytes": 19877,
+      "sha256": "95d89237e766b59ffdd52f1324e440e2127b06353b2c8de2482b9f55c4adb30b",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "root",
+          "status": "sampled",
+          "scope": "Padded-product proof, measured/coherent law types, compiler declarations, lines125–240 and330–421."
+        },
+        {
+          "reader": "amplification",
+          "status": "assessed",
+          "scope": "complete"
+        },
+        {
+          "reader": "lean_evidence",
+          "status": "assessed",
+          "scope": "Full file read in this formal/evidence subaudit; assessment does not imply independent proof rechecking."
+        }
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/QuantumComparison.lean",
+      "bytes": 28486,
+      "sha256": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "tournament_upper",
+          "status": "assessed",
+          "scope": "entire"
+        },
+        {
+          "reader": "lean_evidence",
+          "status": "sampled",
+          "scope": "All declaration signatures, ambient variables and source comments assessed; selected printed complete native types inspected; not every wrapper proof read."
+        }
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/QuantumTensor.lean",
+      "bytes": 16341,
+      "sha256": "7a2f03d6ae2d8d3ff2af9837f6cb1e1f1f3d5b4983dc34e753792621443835ac",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "root",
+          "status": "sampled",
+          "scope": "Definitions and tensor construction, lines1–115; full equation_15 and common workspace inspected in formal subaudit."
+        },
+        {
+          "reader": "tournament_upper",
+          "status": "assessed",
+          "scope": "entire"
+        },
+        {
+          "reader": "lean_evidence",
+          "status": "sampled",
+          "scope": "All signatures; equation_15 construction (114–155) and quantumTensorStage/of_samples (293–345); arbitrary-vector mass/conditioning interfaces assessed."
+        }
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/QuantumTournament.lean",
+      "bytes": 19132,
+      "sha256": "8cf87e74aa0364c9bc6b9078ff62e88c45d297625166fe31a8efeea765a34adf",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "tournament_upper",
+          "status": "assessed",
+          "scope": "entire"
+        },
+        {
+          "reader": "lean_evidence",
+          "status": "sampled",
+          "scope": "List-law definitions, exact theorem signatures, cost identity, quantified list guarantee and native types assessed; full bind induction not independently reviewed line by line."
+        }
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+      "bytes": 14586,
+      "sha256": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "root",
+          "status": "sampled",
+          "scope": "Stage law, positive conditioning and complete tournament/cost statements and proofs, lines150–end."
+        },
+        {
+          "reader": "tournament_upper",
+          "status": "assessed",
+          "scope": "entire"
+        },
+        {
+          "reader": "lean_evidence",
+          "status": "assessed",
+          "scope": "Full file read in this formal/evidence subaudit; assessment does not imply independent proof rechecking."
+        }
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/QuantumUpper.lean",
+      "bytes": 668,
+      "sha256": "4d2966b64f95a3706113159a8afd4a5b1954a895d7d1e91c569d2f59a24bcb26",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "lean_evidence",
+          "status": "assessed",
+          "scope": "Full file read in this formal/evidence subaudit; assessment does not imply independent proof rechecking."
+        }
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/QuantumWorkspace.lean",
+      "bytes": 2493,
+      "sha256": "a5ed4638bef1d1e15508ea5b96a0edf99a2281693de03f39f23e5afadd7ba07b",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "tournament_upper",
+          "status": "assessed",
+          "scope": "entire"
+        },
+        {
+          "reader": "lean_evidence",
+          "status": "assessed",
+          "scope": "Full file read in this formal/evidence subaudit; assessment does not imply independent proof rechecking."
+        }
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/Section2.lean",
+      "bytes": 16045,
+      "sha256": "34fb705db7f672de0faf3e18fcc3dda4862033e157a325d8c9016936361f84cf",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/Section3.lean",
+      "bytes": 14235,
+      "sha256": "aa49e092c11c915bc5a3a904054589dbed18c840f84a00c5edc0e37d57d661ad",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "lean_evidence",
+          "status": "assessed",
+          "scope": "Full file read in this formal/evidence subaudit; assessment does not imply independent proof rechecking."
+        }
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/Section4.lean",
+      "bytes": 4004,
+      "sha256": "da6bda0feda0448bc05b11c85aed7b666d01aa8d30a8914a4ffd7d9fbe6643fb",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Results/Conditional.lean",
+      "bytes": 3419,
+      "sha256": "c3d4acfd49f8725f21fa4e895be9773e44a52786a16e3606e68dfda27c808330",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Results/Exponent.lean",
+      "bytes": 24525,
+      "sha256": "91d1c021f9b920f9bf0017dfe03817194c6a1ff5f4776e39a669bbd3b832a931",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Results/Headline.lean",
+      "bytes": 1525,
+      "sha256": "fec7d0c565b8ab345568ae6082c5fb346435493f4eb2d9112cda498652909c35",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Results/Unconditional.lean",
+      "bytes": 2031,
+      "sha256": "46e6f51f713109bab717956bd2536711dc927a356027748712e571ce12f0b85e",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Statement.lean",
+      "bytes": 13769,
+      "sha256": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "lean_evidence",
+          "status": "sampled",
+          "scope": "Fkm/winner, comparison and parameter definitions (280–352); no full-model audit by this subagent."
+        }
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Tournament/Drift.lean",
+      "bytes": 3125,
+      "sha256": "850fbfdfba830a17930f0a8e60fdc0d7b27f7f50c45710b5e77997343528c077",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "tournament_upper",
+          "status": "assessed",
+          "scope": "entire"
+        },
+        {
+          "reader": "lean_evidence",
+          "status": "assessed",
+          "scope": "Full file read in this formal/evidence subaudit; assessment does not imply independent proof rechecking."
+        }
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Tournament/Ideal.lean",
+      "bytes": 17087,
+      "sha256": "6f7379abfb1d9fb37d6ef7f0f25049893490aa717171c875feb97fca343ab8ef",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "tournament_upper",
+          "status": "sampled",
+          "scope": "definitions/weights lines1–95 and main proofs/parameters/cycle lines170–400; expectation calculus middle omitted"
+        },
+        {
+          "reader": "lean_evidence",
+          "status": "sampled",
+          "scope": "Process definitions and zero-total-weight branch (1–95), final bound/parameters/ideal_tournament and cycle sanity section (280–390), declaration signatures throughout."
+        }
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Upper/Amplify.lean",
+      "bytes": 15215,
+      "sha256": "49e808cc6acbb47ad066b1dcf33ac8d47da2f28d88c51d537564e6591eb0d9e1",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "root",
+          "status": "sampled",
+          "scope": "prepOf and amplified physical law definitions."
+        },
+        {
+          "reader": "amplification",
+          "status": "assessed",
+          "scope": "complete"
+        },
+        {
+          "reader": "lean_evidence",
+          "status": "assessed",
+          "scope": "Full file read in this formal/evidence subaudit; assessment does not imply independent proof rechecking."
+        }
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Upper/Bound.lean",
+      "bytes": 14147,
+      "sha256": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "root",
+          "status": "sampled",
+          "scope": "Budget definitions, first arithmetic segment, final constant proof and endpoint declarations, lines1–125 and220–end."
+        },
+        {
+          "reader": "tournament_upper",
+          "status": "sampled",
+          "scope": "lines1–125 and263–306; entire baseline §5.4 arithmetic checked against endpoint, middle Lean proof not read line by line"
+        },
+        {
+          "reader": "lean_evidence",
+          "status": "assessed",
+          "scope": "Full file read in this formal/evidence subaudit; assessment does not imply independent proof rechecking."
+        }
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Upper/Circuit.lean",
+      "bytes": 18327,
+      "sha256": "7686a3b72476d902ec9ff504b38bea9ac25e90724e93d82033ea05339080190f",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "lean_evidence",
+          "status": "sampled",
+          "scope": "Source headers and type metadata extracted only; implementation proof audit unassessed."
+        }
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Upper/Columns.lean",
+      "bytes": 13377,
+      "sha256": "e5b2b164deb6a010f952cefb5edba15bb5437a03fff815c39b028341b23b592e",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "lean_evidence",
+          "status": "sampled",
+          "scope": "Sorted comparison, complementarity, probability range and winner-dominance interfaces/proofs (132–245); other headers extracted."
+        }
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Upper/Compile.lean",
+      "bytes": 18841,
+      "sha256": "ead2d229ad8a97541dd648806b64813745e8502b5f7314ced43e7a95a0708a27",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "root",
+          "status": "sampled",
+          "scope": "RunsW/Runs definitions and compilation interfaces."
+        },
+        {
+          "reader": "amplification",
+          "status": "sampled",
+          "scope": "compile_read beginning; compile_circ signature; Samples.runs complete relevant excerpt"
+        },
+        {
+          "reader": "lean_evidence",
+          "status": "assessed",
+          "scope": "Full file read in this formal/evidence subaudit; assessment does not imply independent proof rechecking."
+        }
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Upper/Decode.lean",
+      "bytes": 18048,
+      "sha256": "4755c92be7627e4a58b1487d831a93765a3510647682e903c6abfed39f61411b",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "lean_evidence",
+          "status": "sampled",
+          "scope": "Introduction and coherent independent-repetition construction (1–115); complete signatures programmatically extracted, later proofs unassessed."
+        }
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Upper/Sampler.lean",
+      "bytes": 12319,
+      "sha256": "43cb604188f041ebd34c8003f01f4ec6c570023e465cd2b730ee4f1f765b2b79",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "root",
+          "status": "sampled",
+          "scope": "Exact Samples/lawOf definitions and retained-label bind via subaudit; targeted root definition reads."
+        },
+        {
+          "reader": "amplification",
+          "status": "sampled",
+          "scope": "lines1–210; bind and map/tree lines240–end"
+        },
+        {
+          "reader": "lean_evidence",
+          "status": "sampled",
+          "scope": "law/Samples signatures; Samples definition (105–135); Samples.bind construction (240–291)."
+        }
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Upper/Tournament.lean",
+      "bytes": 21856,
+      "sha256": "43df9db7997f88667de7a3cfa7d7c7751aa1f32c40e9de474895335bcdb87b7c",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "tournament_upper",
+          "status": "sampled",
+          "scope": "stage definitions and source lines1–119; stage cost/tournament interface and construction lines355–440; baseline continuation proof assessed in ordinary form"
+        },
+        {
+          "reader": "lean_evidence",
+          "status": "sampled",
+          "scope": "Stage implementation (1–100), tval_lower proof (225–305), full tournament_runs construction (367–495), other declaration signatures."
+        }
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Upper/Verify.lean",
+      "bytes": 11198,
+      "sha256": "8144c5c26e7bf0515b24eb638b57412264032e144844887adc615b8076207239",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "tournament_upper",
+          "status": "assessed",
+          "scope": "entire"
+        },
+        {
+          "reader": "lean_evidence",
+          "status": "assessed",
+          "scope": "Full file read in this formal/evidence subaudit; assessment does not imply independent proof rechecking."
+        }
+      ]
+    },
+    {
+      "member": "repository/lean/lake-manifest.json",
+      "bytes": 3874,
+      "sha256": "d670a8101d900b62e17a1d51c8b1b36fd60919bcad472700b0a5e1c0b38b104d",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/lakefile.toml",
+      "bytes": 329,
+      "sha256": "255abcc3c689d0258d4cea520447fdc8da26e26a191331aa95559b2fb4818647",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/lean-toolchain",
+      "bytes": 29,
+      "sha256": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/lean/scripts/Reach.lean",
+      "bytes": 4648,
+      "sha256": "44ce6c1ace1e3914109b959c5d3466f00eba4090621d73d3b3ee2626be1f796b",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/corpus/coverage.json",
+      "bytes": 426,
+      "sha256": "d5d0cc3f370f2dac57a3957d2802e4e7f7e8e0a16732868fde64f64214bbc3fc",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/corpus/evidence-graph.json",
+      "bytes": 650532,
+      "sha256": "f5dc1941004a2b4e6909e860e02c665a0af3588af9f3973ae2400989822b4170",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/corpus/lean_dependencies.json",
+      "bytes": 564877,
+      "sha256": "56ae4752273f7cfba92ee6f35a4acc6ee0eea6e32a44116ccaf9d7354094e1fb",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "lean_evidence",
+          "status": "sampled",
+          "scope": "All source hashes independently verified; exact selected name membership and headline roots inspected; graph traversal not re-executed."
+        }
+      ]
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+      "bytes": 15618,
+      "sha256": "e9217e359a4a3295566f8effa82eb9081f0262548e0aee45d2948bab212e3973",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Construction.json",
+      "bytes": 906,
+      "sha256": "a533a5050e68cd34c30d9c7652cc5cb5d63a73fc2e9c0ec750017927d5edaec1",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Foundations-2026-11-02T182842333798+0000.json",
+      "bytes": 15766,
+      "sha256": "83ed7abe952b50df1120316d9af693ffcb38b5665b66e718d6bf4133bd7d01ca",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Foundations.json",
+      "bytes": 1054,
+      "sha256": "df0f2e15550c06a6968628b90e864ec0b861822eb983607bb6302796cb03ea09",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Separation-2026-11-02T183102343043+0000.json",
+      "bytes": 15805,
+      "sha256": "2669347e3720b88e9eaa03e0ba6ebf1068f82efc71a930f6bd35912a23bf7810",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Separation.json",
+      "bytes": 1093,
+      "sha256": "b85ee105297ee8d003dfde99e304b7bcc1e76c3c4278eb813c8c3a88fed57cd9",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Tournament-2026-11-02T183226253908+0000.json",
+      "bytes": 15365,
+      "sha256": "6b3fec1b877d7efc0d13849afed4eab4eb5f8ce83fd4b53484a32a97e2b54a80",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Tournament.json",
+      "bytes": 653,
+      "sha256": "26effdf412658b1dc1abdb76dbfdbcbf5aa085ff3800d42828f342d053de23a0",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Unconditional-2026-11-02T183450037875+0000.json",
+      "bytes": 15651,
+      "sha256": "9f9166bf60b36d9571294af870a0dc1b9da01e352095821fb9bb9ef2704568d5",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Unconditional-2026-11-02T184546477430+0000.json",
+      "bytes": 15666,
+      "sha256": "ee186ea8c9e0bcbe61a7bde6a06c7393c2bb8bebb8facae07fbb785737df04a2",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Unconditional.json",
+      "bytes": 954,
+      "sha256": "3dfb81c66915790534c9ce04daf48a63c12bc26354c548dd4145dff1dcddbc97",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-negative-ChangedDefinition-2026-11-02T183607437119+0000.json",
+      "bytes": 15355,
+      "sha256": "c536729054f3a94c07ad58b7dafe50dc92eadd0e8c2abfcbbb1a4063f89499a5",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-negative-ChangedDefinition.json",
+      "bytes": 643,
+      "sha256": "b21471626fcb2c1fff6c23a6ad445ad2dcde523219b6cc105937f789f229be94",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-negative-ForeignAxiom-2026-11-02T183708690272+0000.json",
+      "bytes": 15338,
+      "sha256": "67344dc638f748131ffacc4fe219648efebb477949a60be0e8706aa2c88ab014",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-negative-ForeignAxiom.json",
+      "bytes": 626,
+      "sha256": "0a6ca6d840cd89ee5415cc909477b7c6b3c9dcfccfc1069b6c0fb063bfda5004",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-negative-MissingDeclaration-2026-11-02T183824782468+0000.json",
+      "bytes": 15368,
+      "sha256": "23e27887ede7d395b2df0ab81bd359d8aecda88a9cd98fb323b17d075e240cd0",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-negative-MissingDeclaration.json",
+      "bytes": 656,
+      "sha256": "9421404cc0538dca29e5c867a8e99109f0b509224c44d513efcc6c98c8fdbebe",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-negative-SorryProof-2026-11-02T183912954843+0000.json",
+      "bytes": 15336,
+      "sha256": "37dcaff39a226f32f9ff14f0747c8b45cf062dc9072810485d50ba607dd7788a",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-negative-SorryProof.json",
+      "bytes": 624,
+      "sha256": "29dd6ad48042ab6deb6d2a7887c07a074a2fd36cf0153ea71933c523fcd84c1b",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-negative-WeakenedConclusion-2026-11-02T184050714051+0000.json",
+      "bytes": 15367,
+      "sha256": "2de7fec03c3233784ba8796036856b620745370be8b99f566460dc1647fc4434",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-negative-WeakenedConclusion.json",
+      "bytes": 655,
+      "sha256": "532fd0ab77a80209d8d3daf3e9e41a2a45daab7effbd4832d8bc80757c6da2a9",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "bytes": 129286,
+      "sha256": "bc11e3fec8581f89ce56b110bf76db2469abea4b7be00fa476f9d2cee9455c2e",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "lean_evidence",
+          "status": "assessed",
+          "scope": "All receipt metadata, full declaration membership and all 124 bound source hashes inspected programmatically; source-bound supplied pass, no new compiler run."
+        }
+      ]
+    },
+    {
+      "member": "repository/corpus/receipts/lean-build-root.json",
+      "bytes": 83739,
+      "sha256": "48a9aa069c51b376db0451704d369ed8578f2b1d03ef2d364212415c4078a2b9",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/corpus/statements.json",
+      "bytes": 553317,
+      "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "lean_evidence",
+          "status": "sampled",
+          "scope": "Focused rows lem-3.1, prop-3.2, prop-3.3, eq-15, claim-success-prob, claim-tournament-cost assessed; other rows unassessed."
+        }
+      ]
+    },
+    {
+      "member": "repository/corpus/ties.json",
+      "bytes": 184669,
+      "sha256": "2cf66121360fafbf8ca77d32d36feba192b839b6f3503e466ffe7857b6086bac",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "lean_evidence",
+          "status": "sampled",
+          "scope": "Focused quantum ties assessed; ordinary-premise interpretation independently checked against source."
+        }
+      ]
+    },
+    {
+      "member": "repository/research/adjudication/adjudication.json",
+      "bytes": 55355,
+      "sha256": "c5028e1a3046113879eb63754f1496b1787859be9a5abe8aad5ce32129ce0fc7",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/adjudication/adjudication_notes.md",
+      "bytes": 5197,
+      "sha256": "df206a68d9cfdce14456042094757e37fa8286c2cf33afbbcc7d74c5aa3547b8",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/adjudication/bansal_sinha_section54_second_reading.md",
+      "bytes": 9152,
+      "sha256": "db831723bb41c8847718747651adce262ce60cb8a6b1a3b20b1346eea001f6ca",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/adjudication/funnel_adjudication.json",
+      "bytes": 38306,
+      "sha256": "cab693c939b187729e6251bed5429de1dd7fc6279153ac37ec1abc735433ff5f",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/adjudication/funnel_adjudication_notes.md",
+      "bytes": 7688,
+      "sha256": "c8a5a611409663e3c8a63c5c71aa345f7cac0281b35e1f03bfc1c8fd188d1155",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/adjudication/round2_assumption_review.json",
+      "bytes": 21864,
+      "sha256": "5191b17e5dcbffed15182fa417a6c6b3f27583b06f934fc2259c091b5744a397",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/adjudication/round2_backend.md",
+      "bytes": 15803,
+      "sha256": "0aee9ed6f4335f6e792becc58a91d04fd634d67ce2256757eff9e60cf74d7b71",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/adjudication/round2_classical_appendix.md",
+      "bytes": 20812,
+      "sha256": "dd112027602ff99a3936ad49b4bdd7aed991d51027f5f9dc0c6ab9fa1e070410",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/adjudication/round2_classical_appendix_ties.json",
+      "bytes": 455585,
+      "sha256": "92965da1bf4fb0ccb606215ff1cff296f1a4dd9a8096f064f96a60858e9ea9c1",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/adjudication/round2_construction_quantum.md",
+      "bytes": 18402,
+      "sha256": "49924c2982b6d42f5b8feb989604dcb447bd6e5f9f4b921d9b3a0c2ea1572068",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "root",
+          "status": "assessed",
+          "scope": "Full mathematical dispositions and current/historical validation chronology."
+        },
+        {
+          "reader": "amplification",
+          "status": "sampled",
+          "scope": "lines 1–84 and 151–185; keyword locators elsewhere"
+        },
+        {
+          "reader": "tournament_upper",
+          "status": "sampled",
+          "scope": "lines 1–190, integration state/math dispositions/per-target crosswalk; native operational logs not audited"
+        },
+        {
+          "reader": "lean_evidence",
+          "status": "sampled",
+          "scope": "Quantum mathematical dispositions, target crosswalk and native validation sections; construction material sampled only."
+        }
+      ]
+    },
+    {
+      "member": "repository/research/adjudication/round2_construction_quantum_ties.json",
+      "bytes": 260597,
+      "sha256": "99a0d39b328d4f6c71b816d8b65a40e4439d60c23de85bc83a5f9259377e28e6",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "lean_evidence",
+          "status": "sampled",
+          "scope": "Schema and quantum row relation/evidence metadata assessed; no independent replay of its source-check script."
+        }
+      ]
+    },
+    {
+      "member": "repository/research/adjudication/round2_fidelity.md",
+      "bytes": 27796,
+      "sha256": "71282486058c71566d1bcb72b6a84a8dfc5fd65531378151960954ade1023a28",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/adjudication/round2_forrelation_exponent.md",
+      "bytes": 28567,
+      "sha256": "557342a03eabb2bc1ee0c2f411bf77ecc9a543511b69ca2c6a83140369e26757",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/adjudication/round2_forrelation_exponent_ties.json",
+      "bytes": 49306,
+      "sha256": "5015bdd1c7845c2862b18bbb5bc88dc2b6116862dbeab60fe894375377504127",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/adjudication/round2_integration.md",
+      "bytes": 12269,
+      "sha256": "8f2b840acee5bb1d184b9660a680dd7c697db313fa14681d17781d5e61e2b4a6",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/adjudication/round2_literature.md",
+      "bytes": 9869,
+      "sha256": "3f3c0a6053778070a6b02c828ad4fea24d068cfc8255c803411b53cc6cd221f5",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/LEAN_GAPS.md",
+      "bytes": 63908,
+      "sha256": "5e17659decd217a381f5dd5348f26161766e4b153133ea4fe75b327246a9c8bf",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/NEW_STATEMENTS.json",
+      "bytes": 110569,
+      "sha256": "d2964002bad5c1626a1e2c72ac301b7615373ad2576f9604d561dd10c7fe0ccd",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/STATEMENT_CHANGES.json",
+      "bytes": 2653,
+      "sha256": "7550e71faa407b9b700d38b9ad0b82786cac34d9772ea24bb46c63c121465155",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/correspondence.json",
+      "bytes": 108656,
+      "sha256": "cf429a5555eab691a801ecd362c37329b3c0449f0da4dab437ab5a8b9be88761",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+      "bytes": 353091,
+      "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "root",
+          "status": "sampled",
+          "scope": "Entire Section5 lines1002–1538; Section4 lines869–1000; Sections1/2 lines1–145 including roadmap and full quantum model. Other sections unassessed."
+        },
+        {
+          "reader": "amplification",
+          "status": "sampled",
+          "scope": "§1.1; §2.2; §5.1 full; §5.2 from drift through continuation; §5.4 full"
+        },
+        {
+          "reader": "tournament_upper",
+          "status": "sampled",
+          "scope": "§1.1, §2.2 and §4 assessed in full; §5.2–§5.4 assessed in full; §5.1 sampled; other sections unassessed"
+        },
+        {
+          "reader": "lean_evidence final supporting-document pass",
+          "status": "sampled",
+          "scope": "Section2.3 evidence convention, targeted follow-up for integration guidance."
+        }
+      ]
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/references.bib",
+      "bytes": 12667,
+      "sha256": "3d676076acedfb08f40cee1a8b185df4657ebd11d36d7d8c9a74189b08fc482f",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/review_notes.md",
+      "bytes": 45823,
+      "sha256": "b84751f817c6f9661047fbb3b4fbb16709e0efeebe8d382c9cd6c639f8e7d20b",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/source_read_receipt.json",
+      "bytes": 85737,
+      "sha256": "d4bf142f438a2b2c5964f9317edcbb3a0d9264e69ae8b3cda422ce59fa57732c",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/validation.json",
+      "bytes": 2811,
+      "sha256": "42e25af3d7b60d93484e963696380de3ca17907eaa7bab690294ebc8910e368f",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/returns/round2/3_lean_quantum_upper/EVIDENCE_CORRECTIONS.json",
+      "bytes": 2604,
+      "sha256": "9481597225d4865e151c78afd45565beea7e1a3f1f4ed2711a6a6f8522f0ffb1",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "root",
+          "status": "assessed",
+          "scope": "Full file; historical status distinguished from current evidence."
+        },
+        {
+          "reader": "amplification",
+          "status": "assessed",
+          "scope": "complete"
+        },
+        {
+          "reader": "tournament_upper",
+          "status": "assessed",
+          "scope": "entire"
+        },
+        {
+          "reader": "lean_evidence",
+          "status": "assessed",
+          "scope": "Full file read in this formal/evidence subaudit; assessment does not imply independent proof rechecking."
+        }
+      ]
+    },
+    {
+      "member": "repository/research/returns/round2/3_lean_quantum_upper/LEAN_GAPS.md",
+      "bytes": 10355,
+      "sha256": "35856f37cf38ed2ecceb4e95645a30b5c94b54f271b37f5d5cd1573a9c5052bb",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "root",
+          "status": "assessed",
+          "scope": "Full file, historical gap comparison."
+        },
+        {
+          "reader": "amplification",
+          "status": "assessed",
+          "scope": "complete"
+        },
+        {
+          "reader": "tournament_upper",
+          "status": "assessed",
+          "scope": "entire as historical return, not current evidence"
+        },
+        {
+          "reader": "lean_evidence",
+          "status": "assessed",
+          "scope": "Full file read in this formal/evidence subaudit; assessment does not imply independent proof rechecking."
+        }
+      ]
+    },
+    {
+      "member": "repository/research/returns/round2/3_lean_quantum_upper/NEW_STATEMENTS.json",
+      "bytes": 29605,
+      "sha256": "6d011b36fdae5873d136ed1beb7012c5be513c9a3427322543823be35ecf2f10",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/returns/round2/3_lean_quantum_upper/README.md",
+      "bytes": 6084,
+      "sha256": "910b326d6f08ed3dc8e29151f0729c5839cf6b33849b29231e3708fc2f077ab4",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/returns/round2/3_lean_quantum_upper/READ_SCOPE.json",
+      "bytes": 23387,
+      "sha256": "32ad22e5f1b99ea8e21a2f25159f900d6804bf7ebae08b2c380db73fb60315e6",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/returns/round2/3_lean_quantum_upper/SOURCE_AUDIT.md",
+      "bytes": 8746,
+      "sha256": "d4db8f38671b29dcf67eb9efb71ea898cee0ca7ae8a3a9307102954b8e512cb4",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/returns/round2/3_lean_quantum_upper/STATEMENT_CHANGES.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/returns/round2/3_lean_quantum_upper/blueprint.md",
+      "bytes": 80265,
+      "sha256": "43ec143be3b91fe7e52a9789557c159a8e35d66b471909ce07ad8be493ccc752",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "root",
+          "status": "sampled",
+          "scope": "Heading/interface inventory and exact statement blocks used via independent subaudits."
+        },
+        {
+          "reader": "amplification",
+          "status": "sampled",
+          "scope": "opening result and §§Why tournament works, full state and sampling law, bounded amplification"
+        },
+        {
+          "reader": "tournament_upper",
+          "status": "sampled",
+          "scope": "overview and rows prop-3.2/claim-coupling lines 1–230 assessed; remaining per-row catalogue unassessed"
+        },
+        {
+          "reader": "lean_evidence",
+          "status": "sampled",
+          "scope": "Headings, relevant state/retention/cost locators; auxiliary amplification clauses around 985–1022 explicitly read."
+        }
+      ]
+    },
+    {
+      "member": "repository/research/returns/round2/3_lean_quantum_upper/checks/lean_checks.lean",
+      "bytes": 1170,
+      "sha256": "db9523964c83da289a58424c0673e0b71add05d5229e840e29406ed9f9476efe",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/returns/round2/3_lean_quantum_upper/checks/mathematical_checks.json",
+      "bytes": 1936,
+      "sha256": "561756202ac4b4c274db0b4dae64138e4ec268bbfc9d03d439b723c6ec0c35a3",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/returns/round2/3_lean_quantum_upper/checks/section3_checks.py",
+      "bytes": 8552,
+      "sha256": "efa7a6d88cdcb8399534a33f8150cdfcd23682afd18673d12e061e2670e06346",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/returns/round2/3_lean_quantum_upper/checks/source_name_resolution.json",
+      "bytes": 24467,
+      "sha256": "1072c3e3dd2c4fa581c2914cdb5e953b46d6e29c93eb81ffb5efd382485a127f",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/returns/round2/3_lean_quantum_upper/checks/static_validation.json",
+      "bytes": 7266,
+      "sha256": "16916b578cba46c1c1891184481c3b0b41f9260644e1db34ac8e5b47e6b850a8",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/returns/round2/3_lean_quantum_upper/checks/validate_bundle.py",
+      "bytes": 9906,
+      "sha256": "092aad3fadc99c03a418246c97e50a0649763b2caba4736119027611313509c1",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/returns/round2/3_lean_quantum_upper/correspondence.json",
+      "bytes": 28378,
+      "sha256": "d94825aa4a344e3b0df6789198925fb5b9bd8102de129f5d4eb6abdd07719cee",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/returns/round2/3_lean_quantum_upper/coverage_plan.json",
+      "bytes": 111949,
+      "sha256": "000558e1f05ef13d1e1901703ea0e8fd98b5a550db80e70de7cbb4b104b806e6",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/returns/round2/3_lean_quantum_upper/declaration_manifest.json",
+      "bytes": 52065,
+      "sha256": "c6e1f815dc9aee7db1ba2372c3ee38c964eb8f3d9bd91d78df51a79dd5ce9963",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/returns/round2/3_lean_quantum_upper/lean/QuarticQuery/Paper/QuantumAmplification.lean",
+      "bytes": 19877,
+      "sha256": "95d89237e766b59ffdd52f1324e440e2127b06353b2c8de2482b9f55c4adb30b",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/returns/round2/3_lean_quantum_upper/lean/QuarticQuery/Paper/QuantumComparison.lean",
+      "bytes": 28486,
+      "sha256": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/returns/round2/3_lean_quantum_upper/lean/QuarticQuery/Paper/QuantumTensor.lean",
+      "bytes": 16049,
+      "sha256": "4876b2d18401989364ab176424663a7d0f8c1974a739dae1b8e140da6d813483",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/returns/round2/3_lean_quantum_upper/lean/QuarticQuery/Paper/QuantumTournament.lean",
+      "bytes": 19101,
+      "sha256": "f6ad658e5664ff7a1fa04c5a4521252e096880b0bc5ea5af0a67540cdefa7387",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/returns/round2/3_lean_quantum_upper/lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+      "bytes": 14542,
+      "sha256": "ab72f2d710bc5d74c624053884ba995c4d72cee1a18131fe4e683f4ede8361be",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/returns/round2/3_lean_quantum_upper/lean/QuarticQuery/Paper/QuantumUpper.lean",
+      "bytes": 668,
+      "sha256": "4d2966b64f95a3706113159a8afd4a5b1954a895d7d1e91c569d2f59a24bcb26",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/returns/round2/3_lean_quantum_upper/lean/QuarticQuery/Paper/QuantumWorkspace.lean",
+      "bytes": 2493,
+      "sha256": "a5ed4638bef1d1e15508ea5b96a0edf99a2281693de03f39f23e5afadd7ba07b",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/returns/round2/3_lean_quantum_upper/references.json",
+      "bytes": 4703,
+      "sha256": "f3d2a169c6749b126cd247b359c5b6fe3ac184f026e8e459fbcdc2f4c7681db4",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/research/returns/round2/3_lean_quantum_upper/source_manifest.json",
+      "bytes": 2633,
+      "sha256": "bae0751d9babba283725ecee2155381234339d362fd69959e937cc4f70e0a4ed",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/tools/build_challenges.py",
+      "bytes": 5241,
+      "sha256": "7d4bc7588431a975301e55bd9cd2a25e587cddcd7e09b841f145b2f53e9e1497",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/tools/build_corpus.py",
+      "bytes": 21226,
+      "sha256": "b208d0c23530c48a60062b2fbea7c9166804612d69f8a95854c5728bd94dec4d",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/tools/build_funnel_packets.py",
+      "bytes": 9136,
+      "sha256": "a68bb6129a1ae62dbbc1bfc84af419545b8ed942fb1ca5fcee16a702439ef2fa",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/tools/build_research_packets.py",
+      "bytes": 5656,
+      "sha256": "a206504b0425116d637d30bafc24ba6bba35c79a261cc936ed09af2bfc18b142",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/tools/build_round2_packets.py",
+      "bytes": 17537,
+      "sha256": "ad7d24c25f0bf08219bc35a103190203877426d2b15a2a9a3d76d8bf421a9589",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/tools/build_round3_packets.py",
+      "bytes": 45194,
+      "sha256": "84eca1ee9316da72e4ef62cbd798c763866a616fd1b00768583fbf36c32d8668",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/tools/check_packets.py",
+      "bytes": 5255,
+      "sha256": "822ad0f18bce6c9b0e8f8b76d1bdcd0d3fe4646f74deafbebfed6220c7040039",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/tools/check_repository.py",
+      "bytes": 15528,
+      "sha256": "437f9405239cb6c103ef1f3c3946a0b0e8a7a35791b58f15c82938f53be6b545",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/tools/record_evidence.py",
+      "bytes": 3447,
+      "sha256": "8491f1282e406d2cbd26495b30815031fc365d3dd99574b43bfa96e0a8b6706b",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "repository/tools/run_comparator.py",
+      "bytes": 5599,
+      "sha256": "01879fa71d3e25a4706a85b7f4aa59ef3574d3d785e3a3a80a61cc95e7c84190",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "requests/common.md",
+      "bytes": 6931,
+      "sha256": "bb64aed8a508657f40a2eb296a05863e0e723b7e545d313fe6e04f4ba35a86e2",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "root",
+          "status": "assessed",
+          "scope": "Full return contract and writing instructions."
+        }
+      ]
+    },
+    {
+      "member": "requests/boundaries.md",
+      "bytes": 2166,
+      "sha256": "1c5f9a6403fd50dc9a0e36a4030413e2d3892cd3609da795119dafdcd3967a34",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "root",
+          "status": "assessed",
+          "scope": "Full scope/authorization boundaries."
+        }
+      ]
+    },
+    {
+      "member": "requests/SELECTION.md",
+      "bytes": 19614,
+      "sha256": "4faed8ce10cf14657afb62f95d81e00a909d2ef2a4d4700447d4673ca1a5a257",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "requests/05_quantum_upper.md",
+      "bytes": 2643,
+      "sha256": "edabe2b0e0b4f7218df676e8339392b698ca1deff0a9ad91a8b4231b6d2569bf",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "root",
+          "status": "assessed",
+          "scope": "Full focused request."
+        }
+      ]
+    },
+    {
+      "member": "paper/source.pdf",
+      "bytes": 433829,
+      "sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "paper/extracted.md",
+      "bytes": 64021,
+      "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "root",
+          "status": "sampled",
+          "scope": "Section3 in full, printed pp7–10, extracted lines296–520, and adjacent local-test consequences."
+        },
+        {
+          "reader": "amplification",
+          "status": "sampled",
+          "scope": "§3.1, extracted lines 304–353; other §3 locators searched"
+        },
+        {
+          "reader": "tournament_upper",
+          "status": "sampled",
+          "scope": "§3 lines 295–513 assessed in full; preceding/later sections unassessed"
+        },
+        {
+          "reader": "lean_evidence",
+          "status": "sampled",
+          "scope": "Lines 303–447, Lemma 3.1 and Proposition 3.2 with proof; no claim to full-paper reading in this subaudit."
+        }
+      ]
+    },
+    {
+      "member": "paper/annex_notes.json",
+      "bytes": 17636,
+      "sha256": "b2a65f141ea2ace3056caa0b058d847192fe1780c30239dd9d81a085741cec7f",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "amplification",
+          "status": "sampled",
+          "scope": "first notes and metadata; long remaining inventory truncated, not relied on"
+        }
+      ]
+    },
+    {
+      "member": "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/extracted.md",
+      "bytes": 88358,
+      "sha256": "9fd98e35695c4bf763e4faa35ac146b18c74c3caf0dee24e3e208923aff71a86",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "amplification",
+          "status": "sampled",
+          "scope": "§2 geometry, equation(8), Theorem3; Theorem12 role"
+        }
+      ]
+    },
+    {
+      "member": "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/source.pdf",
+      "bytes": 295305,
+      "sha256": "badedce80b0fe53e6cd93f915ce79c9680e375bb6565f83d2f572bc4114b0278",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/source.tex",
+      "bytes": 88081,
+      "sha256": "6964cdcef75d28ecd31246b2f354dd5738c0d6607fe81394b29fc9d42293a5d6",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/annex_notes.json",
+      "bytes": 5539,
+      "sha256": "c44c22a02972e65ff8dc893f030b1cdfc7282a03970f9c39ebc6018e5b4ed6b7",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "amplification",
+          "status": "assessed",
+          "scope": "complete"
+        }
+      ]
+    },
+    {
+      "member": "literature/quartic-ref-11-tight-bounds-on-quantum-searching/extracted.md",
+      "bytes": 59793,
+      "sha256": "5f3d4a8f2e6038392ea75490bafdf58150e3d8b2a76c063841cc158531233c8b",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "amplification",
+          "status": "sampled",
+          "scope": "§4 Lemma2 and Theorem3; independent PDF online read resolves two-column extraction"
+        }
+      ]
+    },
+    {
+      "member": "literature/quartic-ref-11-tight-bounds-on-quantum-searching/source.pdf",
+      "bytes": 185341,
+      "sha256": "badd64e3db8079ee2428fc9f869e202d584412b0a003be64464437019d252fde",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "literature/quartic-ref-11-tight-bounds-on-quantum-searching/annex_notes.json",
+      "bytes": 143,
+      "sha256": "78a10975ac0c59512a58d8684db73947786df884ae87ec4926a42ad0d9bd2874",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "literature/quartic-ref-14-a-quantum-algorithm-for-finding-the-minimu/extracted.md",
+      "bytes": 13129,
+      "sha256": "aea6cb99d149fad7a304712f71d4e91403483a1d9bd4e1d2eea5a26c87adf662",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "amplification",
+          "status": "sampled",
+          "scope": "Theorem1 and Lemmas1–2; PDF online independently read"
+        },
+        {
+          "reader": "tournament_upper",
+          "status": "assessed",
+          "scope": "entire two-page paper including Theorem1 and Lemmas1–2; PDF verified through primary web source"
+        }
+      ]
+    },
+    {
+      "member": "literature/quartic-ref-14-a-quantum-algorithm-for-finding-the-minimu/source.pdf",
+      "bytes": 77176,
+      "sha256": "ff5c2ff71415e22f0ddf799b31e9b82d1990db9c1fc9d62ea2aabea5907e06cf",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "literature/quartic-ref-14-a-quantum-algorithm-for-finding-the-minimu/annex_notes.json",
+      "bytes": 152,
+      "sha256": "df16d9ba73ced32ad79435e98a7dab77dfb22d3686df034d1f0739e27ae49472",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "literature/quartic-lit-hoyer-mosca-dewolf-quantum-search-bounded-error/extracted.md",
+      "bytes": 25624,
+      "sha256": "cb04695fcd47585c3989bd3fcb37cfa4d332d691e27763b567d36e5ed976c04b",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "amplification",
+          "status": "sampled",
+          "scope": "§1; §2 query model; §3 hypotheses and algorithm"
+        },
+        {
+          "reader": "tournament_upper",
+          "status": "assessed",
+          "scope": "§§1–3 and5 assessed; §4 read for scope only; full universal HMW analysis not independently reproved"
+        }
+      ]
+    },
+    {
+      "member": "literature/quartic-lit-hoyer-mosca-dewolf-quantum-search-bounded-error/source.tar.gz",
+      "bytes": 10689,
+      "sha256": "05d60dca2deb862e7d43848b4dc181422ab62dcc14b6a0e92e19db8c7a2e0907",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "tournament_upper",
+          "status": "sampled",
+          "scope": "decompressed gzip single-TeX source; file-header/size checked; primary PDF used for version/locators"
+        }
+      ]
+    },
+    {
+      "member": "literature/quartic-lit-hoyer-mosca-dewolf-quantum-search-bounded-error/annex_notes.json",
+      "bytes": 2862,
+      "sha256": "ccf6d80a97d73722a36b72a8d79535020cfc5939b685db184e213038afef44b0",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "amplification",
+          "status": "assessed",
+          "scope": "complete"
+        }
+      ]
+    },
+    {
+      "member": "literature/quartic-lit-dewolf-quantum-computing-lecture-notes/extracted.md",
+      "bytes": 709914,
+      "sha256": "57b133972c5e26ceb41d46e49a77a52ef1b03e0ee522ca1534dd6e48547f7dd5",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "literature/quartic-lit-dewolf-quantum-computing-lecture-notes/source.tar.gz",
+      "bytes": 399313,
+      "sha256": "2ffd080924542b6de1409a1dbd73efcb85e99bc0d3cc2daac5e3eeba84ef2535",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "literature/quartic-lit-dewolf-quantum-computing-lecture-notes/annex_notes.json",
+      "bytes": 799,
+      "sha256": "daeeb6a52d25135ad1c3d1f2b6befc78855e0f8583a9cfa622769342b8718bda",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "writing/SKILL.md",
+      "bytes": 29787,
+      "sha256": "dcad856e7363b81876e4ab0784bcc0a3e51ccab11017eb9e08d81d345d2d6c74",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "root",
+          "status": "sampled",
+          "scope": "First-time reader, claim fidelity and correspondence gates, lines181–280."
+        },
+        {
+          "reader": "lean_evidence final supporting-document pass",
+          "status": "sampled",
+          "scope": "Lines181–280, reread for the final review notes."
+        }
+      ]
+    },
+    {
+      "member": "writing/the-deliverable.md",
+      "bytes": 8402,
+      "sha256": "5b234d4446bf4b7ac79c38586147730dc41370581daa38661326875d5b50951c",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "root",
+          "status": "assessed",
+          "scope": "Full file."
+        },
+        {
+          "reader": "lean_evidence final supporting-document pass",
+          "status": "sampled",
+          "scope": "Full file, reread for the final review notes."
+        }
+      ]
+    },
+    {
+      "member": "writing/mathematical-writing-mechanics.md",
+      "bytes": 45312,
+      "sha256": "0ba857f70a724a2676f91b01e7ee95cc3518dcd261b53fec27b743935d1caa0f",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "root",
+          "status": "sampled",
+          "scope": "First-time reader and Sections1–2 lines72–216; Sections4–6 lines256–338; Section9 lines396–443; taste rubric lines571–643; authoring receipt/acceptance tests lines723–end."
+        },
+        {
+          "reader": "lean_evidence final supporting-document pass",
+          "status": "sampled",
+          "scope": "Lines144–216,275–308,396–443,571–617,644–694,758–800; exact authoring-receipt fields and seven-dimension rubric."
+        }
+      ]
+    },
+    {
+      "member": "writing/full-exposition-guide.md",
+      "bytes": 103236,
+      "sha256": "c7baa3c8b195647b00cdd37c38c48b122371ce9c3cd92798e2e9d55f3d1c4eca",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "root",
+          "status": "sampled",
+          "scope": "Organization/legibility lines298–467 and authority/fidelity lines812–947, with authority opening reread after truncated combined display."
+        },
+        {
+          "reader": "lean_evidence final supporting-document pass",
+          "status": "sampled",
+          "scope": "Lines812–859 and898–948."
+        }
+      ]
+    },
+    {
+      "member": "writing/register-from-literature.md",
+      "bytes": 4106,
+      "sha256": "2278000b36133a13c0e83f785bdb2a89b94b8ed1927daeaf12d2b1ed30545d7d",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "root",
+          "status": "assessed",
+          "scope": "Full file. Private profile/comparator tools not available; no register-score run claimed."
+        }
+      ]
+    },
+    {
+      "member": "exemplars/long-reasoning-record.md",
+      "bytes": 278844,
+      "sha256": "a19893f62d1211681ed0cb9cbb8bb454214d97f231f6a6d091b6f198fca35a89",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "root",
+          "status": "sampled",
+          "scope": "Overview lines1–57; writing exemplar only, no quartic mathematics attributed."
+        }
+      ]
+    },
+    {
+      "member": "exemplars/short-paper.md",
+      "bytes": 59587,
+      "sha256": "4b34070c1152369eec9bef536de51f8929c68f3a851f291e962a0c51a3b31ebb",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "root",
+          "status": "sampled",
+          "scope": "Abstract and Section1 lines1–181; writing exemplar only."
+        }
+      ]
+    },
+    {
+      "member": "exemplars/expository.md",
+      "bytes": 67972,
+      "sha256": "67d89307e8131e8c2ca1f21749dce062218534d1ac25d4c5860f2500e234e33f",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "exemplars/short-correspondence.json",
+      "bytes": 58027,
+      "sha256": "ea31b80e439953d8656d577aab47040525bb65952084d130b81d62bb48155487",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_results/final-evidence/completed_comparator_receipt_integrity_review.json",
+      "bytes": 7102,
+      "sha256": "ac4205eab7ffb8b6037f7d645f54dd2d11c3a041eb800e9c25774c188c197251",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_results/final-evidence/completed_export_axiom_consumption.json",
+      "bytes": 31153,
+      "sha256": "ffa2146723e9d5bdb8963b8426b90eb2bee8681d5b3523925bf0624e666b733f",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "lean_evidence",
+          "status": "sampled",
+          "scope": "Counts, source pin, root receipt, reach distinction and stated consumption boundary inspected."
+        }
+      ]
+    },
+    {
+      "member": "native_results/final-evidence/corpus_merge_applied.json",
+      "bytes": 81345,
+      "sha256": "2fc7d6e7342ddc0fa762111e95bcad7441327fda5f8ab28f643fe98c73639102",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_results/final-evidence/corpus_merge_proposal.json",
+      "bytes": 1060319,
+      "sha256": "57fbb2a2e518facb214dac2220f1ffe4b6b681dc50955f2dd82dd7d3a030b7eb",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_results/final-evidence/current_native_acceptance.json",
+      "bytes": 186998,
+      "sha256": "5182e06d70dccf3f7fca89ae06851e0d95ec3cc4219385a346034643d3959fd4",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "lean_evidence",
+          "status": "sampled",
+          "scope": "Structure and relevant quantum native acceptance records assessed."
+        }
+      ]
+    },
+    {
+      "member": "native_results/final-evidence/final_precommit_checks.json",
+      "bytes": 230,
+      "sha256": "d2aab8f0ecb449a28fba40e3c1a3470aa2727048a48200448b848407cf6fcdde",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_results/final-evidence/independent_native_evidence_consistency.json",
+      "bytes": 1407,
+      "sha256": "f75e3af2a108ad6840de771ee9c839def248ac95ae65fa3069613380fd5bbf95",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_results/final-evidence/operations.json",
+      "bytes": 39093,
+      "sha256": "eb0e6c0a17e8d7a681d25b11a545941a5c11ff0a904d0ab17832675c807ee42b",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_results/final-evidence/reviewed_axiom_audit.json",
+      "bytes": 29954,
+      "sha256": "74d4f0fd54ada1b2dbbda3734cb2d65f50816f0feec70db15748db185f30f3aa",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "lean_evidence",
+          "status": "sampled",
+          "scope": "Schema, declared count, type-audit names and preparation boundary inspected."
+        }
+      ]
+    },
+    {
+      "member": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+      "bytes": 16061,
+      "sha256": "3c26718576384a76fca10f1f44bf42ffd2f23130b0aabcf35b3f5c34f2b4a1e0",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "lean_evidence",
+          "status": "sampled",
+          "scope": "All top-level checks and hashes inspected, 124 source hashes and log/audit-source bindings verified."
+        }
+      ]
+    },
+    {
+      "member": "native_results/native-inventory/results.json",
+      "bytes": 180379,
+      "sha256": "f3c482fc6fb7be28444110c321f1474b61e0c13ebd8fe09ce592e022f0a59024",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_results/native-retry-1/results.json",
+      "bytes": 188138,
+      "sha256": "41010b87d500354711b4c7a880b52d9b9dc0d932ffab9577d8d0af5d91a5aa4e",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_results/native-retry-2/results.json",
+      "bytes": 113357,
+      "sha256": "d9184c86bec0cad8f6a1f1972c4106d0edcfc04d7967ade3010394565a364f32",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_results/native-retry-3/results.json",
+      "bytes": 126117,
+      "sha256": "c318cc4c291fcbcf12b447a3d55a3420694dc6645b03520cd3768c4e908c9e37",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_results/native-retry-4/results.json",
+      "bytes": 39031,
+      "sha256": "43dbb8e60f0b4dc0d3e19790d231a4aaaff255c681cb1424b7e9288786d18530",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_results/native-retry-5/results.json",
+      "bytes": 29032,
+      "sha256": "101ecf2514d9817ed294972306e87d52e831a0c6d47fd74bcf2b63c29231a6b3",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_results/native-retry-6/results.json",
+      "bytes": 18290,
+      "sha256": "e1840bc777aae1f94068e062c8e77f3b49ee23519fba0d6e5d362d2414d20fae",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_results/native-retry-7/results.json",
+      "bytes": 18110,
+      "sha256": "1d701d15a080502881a699e79e304c6ff0cabe2820467fce00e50d58e43f7a00",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_results/native-retry-8/results.json",
+      "bytes": 22867,
+      "sha256": "a4d2d8034f340a8099a7e8a60a8ff19747c3002955ddbe5f527131751fab3ef2",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_results/native-retry-9/results.json",
+      "bytes": 7156,
+      "sha256": "3ab3296ae678ffa478ad12a2c2862cbe3fa6e29d79c93cd3cbf94b135bfac872",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_results/reader-acceptance/evidence-graph.json",
+      "bytes": 633113,
+      "sha256": "27232df156a4442dd802458addc162e117b10e7a06706b5bca2258c479e5db7f",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_results/reader-acceptance/receipt.json",
+      "bytes": 799756,
+      "sha256": "a52deccb993a6e629e47d62ebd7afd7665b3dd8c3f52dedc6b1e23abbd2aae11",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_results/reader-acceptance/selected.json",
+      "bytes": 697150,
+      "sha256": "1119e38e07ddbc78afc4ef381ab4cb81541099c4cfb4650cb7871c5457712c9c",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_results/root-aggregate/operations.json",
+      "bytes": 18245,
+      "sha256": "3f25cc0d4a0a7703e87434e19a9cb654c99d7a9cacbffb9e8789e20186df394b",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/final-evidence/comparator-positive-negative.log",
+      "bytes": 376,
+      "sha256": "13baf986d782aa8e1876bedef218057f9e1ff0ecd5556720df0140eb89b27067",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/final-evidence/comparator-unconditional-paranoid.log",
+      "bytes": 22,
+      "sha256": "889b260876271128482885e78b9ff241883fd3217e6c55bfc83829d04fb62ab0",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/final-evidence/prepare-reviewed-audit.log",
+      "bytes": 74,
+      "sha256": "5727892efe942935aaab78562f26c3fb8d4da40e2cdf0a4b708fddc4fb1d9670",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/final-evidence/record-evidence.log",
+      "bytes": 34,
+      "sha256": "13c54fa511e9e9596a1b8a22344020e88ac44b7736af19157a2402c9a7c7cbca",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "bytes": 169174,
+      "sha256": "f87b4e78aaa99fb069acc358fd90c6b95a1fd09bb337d4b49b6851ae714d8ae1",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "lean_evidence",
+          "status": "sampled",
+          "scope": "Quantum full types and axiom lines inspected; all 258 printed blocks extracted; log bytes match verdict SHA-256."
+        }
+      ]
+    },
+    {
+      "member": "native_logs/final-evidence/verify-reviewed-audit.log",
+      "bytes": 16061,
+      "sha256": "3c26718576384a76fca10f1f44bf42ffd2f23130b0aabcf35b3f5c34f2b4a1e0",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_ForrelationLower_Cascade.log",
+      "bytes": 10914,
+      "sha256": "c69885d5da5246d167def8c39d4c079b447b7b414068c00c42ab075598504d51",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_ForrelationLower_Main.log",
+      "bytes": 15274,
+      "sha256": "758ef1718249cf2e4c0cb0906c00861967e1882a7ad2fffa85a2d303bdbff630",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_ForrelationLower_Stein.log",
+      "bytes": 615,
+      "sha256": "7a545f4c94924c65d1b5d70d2edb18241fa8c22e758852fd8814a4ed665a6102",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_ForrelationLower_Walk.log",
+      "bytes": 8566,
+      "sha256": "dec33216d7ccea974c0011aa0a0074823d6bcc07927ab966af9b165ec39498d9",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_Paper_AppendixAAdversary.log",
+      "bytes": 5201,
+      "sha256": "177f77b141ab216f3b58200c924d5c0cdbca130d741596ba445cfb66b7e5c7bd",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_Paper_AppendixAHuang.log",
+      "bytes": 2983,
+      "sha256": "8ac7c58a4c914bd318564b4974b8a8f64bdbb0485c2edb9d2500bbc2c6112a70",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_Paper_AppendixAHuangMatrix.log",
+      "bytes": 15290,
+      "sha256": "36080caf23b460ccba746dc6124aa26e5468fec32c7e50adf29ea1c99442dfa8",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_Paper_AppendixASensitivity.log",
+      "bytes": 4027,
+      "sha256": "ccb573b5139709a4e2d76dd024dca09b16f3274babf3d272239618c39008fb50",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_Paper_ClassicalDirectProduct.log",
+      "bytes": 10327,
+      "sha256": "d8cdd98e2674cf7c345577cab576e90dbe56bc1b7e80e16d98790464b8f40342",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_Paper_ClassicalPlanted.log",
+      "bytes": 14374,
+      "sha256": "41bf0d452f90120b098cf9a28c70f1b43add12a552bc725b7507ff4b42708bb7",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_Paper_ConstructionArithmetic.log",
+      "bytes": 2757,
+      "sha256": "8d934013645ea774e80127ba59d46b9b29c1250b27ab013a20208a72ac1234e5",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_Paper_ConstructionDefinitions.log",
+      "bytes": 2219,
+      "sha256": "87c083385650b7a8bc70b03398463d463ba7392859c60fb6b5b3a74b538790ba",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_Paper_ConstructionForrelationDefinitions.log",
+      "bytes": 2847,
+      "sha256": "ff4433aff6eb695b695e272ae4993bd1a3891ed38c235f7a862096010164e0a0",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_Paper_ConstructionModels.log",
+      "bytes": 5065,
+      "sha256": "caa2536ffc46bbde9d832ed7ed94469ab676087331d6842a3e481e1cc3898ce2",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_Paper_ConstructionPhase.log",
+      "bytes": 110,
+      "sha256": "d7e6964431aedafd75d0feb6ab906be48adcd35f59b17555a3fca56434ed74c1",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_Paper_QuantumAmplification.log",
+      "bytes": 533,
+      "sha256": "b6584d2979313085c48645085e271ca908ffd7419d8a75cde2f08b629acf21e4",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_Paper_QuantumComparison.log",
+      "bytes": 2139,
+      "sha256": "9f4ec6f3d70f7151fd2700f30e90df5f764a6676241086728c030ce850ebd71c",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_Paper_QuantumTensor.log",
+      "bytes": 8654,
+      "sha256": "7bcc1287c6777e4fa993e8dc2ba5967e5678e55032de057336089bb729caedfd",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_Paper_QuantumTournament.log",
+      "bytes": 8164,
+      "sha256": "dcd206451f622083683850acdfb95cbec3af751678218a9f9e8e250b2fbb00ef",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_Paper_QuantumWorkspace.log",
+      "bytes": 110,
+      "sha256": "917b6085586a17f107ed570e989c9f4df0f955b6ff84914ab566851d54dec75f",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_Upper_Bound.log",
+      "bytes": 2961,
+      "sha256": "9c15bc6559daaf81cf9fb2a26d5c7e45b5d5185419b3fcd1711e3eb8bd6b16f5",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-inventory/ReachRegression.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_ForrelationLower_Main.log",
+      "bytes": 12540,
+      "sha256": "174d114d0f2fea078ca0216b4cb1b73c5f556ada057caac6d56cd8749cebecdc",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_ForrelationLower_Uniform.log",
+      "bytes": 20810,
+      "sha256": "4fa33f2237376cff92ed1894698399f2990be9925041e83d372bb25d93d7f56f",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_AppendixAAdversary.log",
+      "bytes": 3493,
+      "sha256": "1785e49ee96aaf191eab80884fcb5ee9e8a4bb737da9ca9b896fb486eb0c979c",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_AppendixAHuang.log",
+      "bytes": 3315,
+      "sha256": "d5d26f9ada7fa56713301ae15826992de817abcef0f5b7a20b2a392ba7bdd2c6",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_AppendixAHuangMatrix.log",
+      "bytes": 6919,
+      "sha256": "cfdb95c49c2a795b0798a273a7934b26c991adc24d8bb4787b3fe3260d0e7b15",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_AppendixASensitivity.log",
+      "bytes": 2499,
+      "sha256": "54e8e3df90b4effb9fb01cc3aeeae89927327361051894f6203be04732266615",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_ClassicalAsymptotics.log",
+      "bytes": 21997,
+      "sha256": "80a88d554e7e49483e31035f64dba0c8fdfed4aeb71d3bf2567a917bd48ccb55",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_ClassicalDirectProduct.log",
+      "bytes": 4188,
+      "sha256": "d2e586cea5ccea6212fb581e992efb6d8488c512670f399327dd92ca865c8e45",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_ClassicalPlanted.log",
+      "bytes": 8414,
+      "sha256": "d7c3d5f06fa7e28204ba32ca863954a935eeee5037a8ec2d3d4d27b9a10a7a60",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_ConstructionArithmetic.log",
+      "bytes": 917,
+      "sha256": "ebe246a18335e55efba069842b905168c2ce97723fad7e8c5e985b1f9d9c408e",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_ConstructionDefinitions.log",
+      "bytes": 2324,
+      "sha256": "e7b04a872234c722f7b20d11a101da3d6241badbcf0bb161e787eb8bee13c4f8",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_ConstructionFamily.log",
+      "bytes": 17035,
+      "sha256": "607ed2c87173ca32db9765dddb236705bc5531f1f4ce63fafb91104d57c01bb6",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_ConstructionForrelationCircuit.log",
+      "bytes": 924,
+      "sha256": "c7976be2e35f1ef53e86293ea3803b84c4486941b39001aa88ac83326c6bb02f",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_ConstructionForrelationComparison.log",
+      "bytes": 3791,
+      "sha256": "7ba060cb5cf55bdb1b310644e76080dd7467d747d628b349f88be2e47b6ab623",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_ConstructionForrelationComplete.log",
+      "bytes": 15001,
+      "sha256": "06ee6173dc9699500f0107c64bcdf6af5d94bf47db50b68610e1f9bc21232e90",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_ConstructionForrelationDefinitions.log",
+      "bytes": 929,
+      "sha256": "d9185d94d82c45c4afb8b3882a3ac56a966e1236089ab4d2c76db25eb6954937",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_ConstructionForrelationQuantum.log",
+      "bytes": 14923,
+      "sha256": "9abb8d196cbe4be5043bdfe4850fb81881c0fe175d68c59044636723883f2026",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_ConstructionModels.log",
+      "bytes": 787,
+      "sha256": "73dd92d65bb65a51b85d75936c93f94778fba8c3ddedcf7d8b05f6d480ff33b2",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_QuantumTensor.log",
+      "bytes": 5336,
+      "sha256": "4ba3c9fc979bef4c295c511a326089b44124f33866e4363dae628b56cf3f4f5c",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_QuantumTournament.log",
+      "bytes": 2072,
+      "sha256": "4c71022e21030d21fdddcc0c71a61bb103e00678c5447235d00ee38479269675",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_QuantumTournamentFacts.log",
+      "bytes": 5028,
+      "sha256": "74fe0bfa90e0bf7adcdaa23ba90bf6a9e5c86d9eaa272bfa24874f390eca3cfc",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_Section4.log",
+      "bytes": 17538,
+      "sha256": "7242d4241be567c130c4712eafb1f8cbee3dfaf3eb434488738c3870ebcc9473",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-2/QuarticQuery_ForrelationLower_Uniform.log",
+      "bytes": 18903,
+      "sha256": "e3aba304baf6e16ddd366fda9611177ec4f0f5f94672c06519e005c0d837924a",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-2/QuarticQuery_Paper_AppendixAAdversary.log",
+      "bytes": 3467,
+      "sha256": "13d54937c966ecbb81a968bb992583f7994fdfd04ac83ac839c8e3a920e74f63",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-2/QuarticQuery_Paper_AppendixAHuang.log",
+      "bytes": 2249,
+      "sha256": "8dd4d3071240c6f2152261889a548e1856acb4dd879c04c6614ceb6dae496a7c",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-2/QuarticQuery_Paper_AppendixAHuangMatrix.log",
+      "bytes": 6240,
+      "sha256": "7c6aa22f159eeaf504402628e5d5224f25ef6d3e76247e9206f494f0d59930b5",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-2/QuarticQuery_Paper_AppendixASensitivity.log",
+      "bytes": 358,
+      "sha256": "2af78796ab2ebff805099636fd8c4f6a835ae214be6cabccccdecb886ba6aa7b",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-2/QuarticQuery_Paper_ClassicalAsymptotics.log",
+      "bytes": 19084,
+      "sha256": "c96fad68c8660c9e0491a8696eb1b85977d320974bc5a206904a8de67db4ccd2",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-2/QuarticQuery_Paper_ClassicalPlanted.log",
+      "bytes": 6504,
+      "sha256": "3dade59d62a2a900b8c17f2251d62fb752a8ff90997be2ebdb5f54e495d16d3f",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-2/QuarticQuery_Paper_ClassicalUniformZero.log",
+      "bytes": 10865,
+      "sha256": "093512199af95dd5edba787597443c3ff61b9b8ac40409c5f65b3ffb5d6b558d",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-2/QuarticQuery_Paper_ConstructionCoherent.log",
+      "bytes": 3646,
+      "sha256": "5c8ab75fa88a326ad388574efb45ddc9af24af1af63d76b62f5dbeb404b166e3",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-2/QuarticQuery_Paper_ConstructionDefinitions.log",
+      "bytes": 117,
+      "sha256": "bb454fd3b23d92747939da07b98e480bfe52f26e06e1752560e7298cd06d2e32",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-2/QuarticQuery_Paper_ConstructionForrelationComparison.log",
+      "bytes": 2086,
+      "sha256": "1fae2bf91581eb94e39558967bcd02c5160d213f8655e48526db9925db37a38b",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-2/QuarticQuery_Paper_ConstructionPointerSupport.log",
+      "bytes": 1587,
+      "sha256": "8f44911700fc0a02a6fcd765f9ed48653aab9d490e37801d4e1347aea055c793",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-2/QuarticQuery_Paper_ConstructionTests.log",
+      "bytes": 912,
+      "sha256": "f3ff11481d9d89965cfd4d05372e693fba0bcd8c4f75754b5746be562fbfc280",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-2/QuarticQuery_Paper_QuantumTensor.log",
+      "bytes": 3749,
+      "sha256": "cf202eaa168cffb98e751e291f05f54aa17e2b42b2ce1553bd789125b7360921",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-2/QuarticQuery_Paper_QuantumTournamentFacts.log",
+      "bytes": 2702,
+      "sha256": "9b4ea8472737140394a7314bda6161d070c5f3bd3ee1a8cded2f4f0ca4f9c31a",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-3/QuarticQuery_ForrelationLower_Uniform.log",
+      "bytes": 16923,
+      "sha256": "a59d7e883a6c9e5771f410fc3a4ef6f6fbe1ce8fb37e0c2dc7e577b822327de2",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-3/QuarticQuery_Paper_AppendixAAdversary.log",
+      "bytes": 1454,
+      "sha256": "cb3c0c172b448462557bec295c32866f21e031decaf309d53ffa01d8a1bbe1bf",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-3/QuarticQuery_Paper_AppendixAHuang.log",
+      "bytes": 107,
+      "sha256": "13dfbb29913790796a82d11edd8db002d2df64a306782e27c49a2d54756aa86d",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-3/QuarticQuery_Paper_AppendixAHuangMatrix.log",
+      "bytes": 3148,
+      "sha256": "9a3b42a4c8b07eaa0532154bfe1856e71aa34e6d3837a6e861790f6f59411f51",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-3/QuarticQuery_Paper_AppendixAPerron.log",
+      "bytes": 2698,
+      "sha256": "80600c0f8bc48106f1d2a0e3a5b39c8d615599aeff0c33c0045a041b00816bc7",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-3/QuarticQuery_Paper_AppendixARestriction.log",
+      "bytes": 3219,
+      "sha256": "bcb7cb7a12bac4f6ba49ee56e71c398161dcf22b5acbc61ce29e2c11a70f6834",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-3/QuarticQuery_Paper_AppendixASpectralAdversary.log",
+      "bytes": 5345,
+      "sha256": "307260a11e4350a707a7230ca310ffb49cc71f75deb0f63f8bd55f1b86756944",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-3/QuarticQuery_Paper_ClassicalUniformZero.log",
+      "bytes": 8289,
+      "sha256": "74e83ed3e22ac7b847d926da1df82c21f2f29b8750117489630f02b784deec2a",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-3/QuarticQuery_Paper_ConstructionAudit.log",
+      "bytes": 23291,
+      "sha256": "f4d14c3c7b3f6336036be347388311590948975c02131c586f591005aa351a18",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-3/QuarticQuery_Paper_ConstructionCoherent.log",
+      "bytes": 1494,
+      "sha256": "828154ea4b9957894ec78271c937f1b2f67a6dcd1bc8c77f3ff676eca66493c7",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-3/QuarticQuery_Paper_ConstructionComplete.log",
+      "bytes": 2302,
+      "sha256": "77b320e78468cd8dd50333207a2f5155b441335f21a3e819ee68c26f0e2efc8d",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-3/QuarticQuery_Paper_QuantumTensor.log",
+      "bytes": 1308,
+      "sha256": "768615c11307d79be33f3d7c20c063ae67bae1574f3d556034d5fd67da422f79",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-3/QuarticQuery_Paper_QuantumUpper.log",
+      "bytes": 5566,
+      "sha256": "4c6931db15b91fc920de5526747185613dce46adabdb18b360269b70526fa008",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-3/QuarticQuery_Paper_Section2.log",
+      "bytes": 23935,
+      "sha256": "26f9d60781ddc6a7d035bd55abe73148155961c26c1f68b1e9d09cf1a5a0b6c0",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-3/QuarticQuery_Paper_Section3.log",
+      "bytes": 7967,
+      "sha256": "67873427d790fba4c8d8feb396a808b49fc039db276adabd34ef2ae687e51d88",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-4/QuarticQuery_Paper_AppendixARestriction.log",
+      "bytes": 2509,
+      "sha256": "58c9a4ff98ff80d91e7520fa21448ae587c11811553adb8826fda5bb7e6a31c4",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-4/QuarticQuery_Paper_AppendixASpectralAdversary.log",
+      "bytes": 6158,
+      "sha256": "24c36360fb215c61ddee30d430d931fe72d5ce5745eb4f1000c50ede02e9b1ae",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-4/QuarticQuery_Paper_Section2.log",
+      "bytes": 22380,
+      "sha256": "d9bd76deafa687d3d0044828055993a07c49258c56ebc903ea8b9196531ca9f8",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-4/QuarticQuery_Paper_Section3.log",
+      "bytes": 5961,
+      "sha256": "a8ee27b524d826086fb4735d1ae47254efdd7333a914045cd6104deea0f6648d",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-5/QuarticQuery_Paper_AppendixARestriction.log",
+      "bytes": 2458,
+      "sha256": "2520f9bc95e0f42c4a126a319e8f78992fee3130f041caf52a6f553b2e753e62",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-5/QuarticQuery_Paper_AppendixASpectralAdversary.log",
+      "bytes": 2770,
+      "sha256": "2fffc284f26e176c0e1539e9fd31afaa60bbab2c6cbf104c8b7ec1ec237ad195",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-5/QuarticQuery_Paper_AppendixAStar.log",
+      "bytes": 18106,
+      "sha256": "ab4f6f9e94a82f31250b9827cd44f3c48203fa9864340fa2743034a740d8ed89",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-6/QuarticQuery_Paper_AppendixARestriction.log",
+      "bytes": 2689,
+      "sha256": "2aceff718c53bfccb065bfe2f51f35ea9768c5590c1255d1fe8bbd21ad7b3fd2",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-6/QuarticQuery_Paper_AppendixAStar.log",
+      "bytes": 9034,
+      "sha256": "ec23214153ef6b011b7dddc5289c42328af67dceddf3ba9fc501195d9c744186",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-7/QuarticQuery_Paper_AppendixAHuangRoute.log",
+      "bytes": 6837,
+      "sha256": "c225ffcf5a7cc59223adb154c2e50eaf2f6eec9ba23bc39a37b08f00634d25cc",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-7/QuarticQuery_Paper_AppendixARestriction.log",
+      "bytes": 114,
+      "sha256": "0a00d5983e8ada58857a52fb13eb86387ee4ec8eaaf86377cccb9a2008bdf8fc",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-7/QuarticQuery_Paper_AppendixAStar.log",
+      "bytes": 6031,
+      "sha256": "5c9f0eb45112a00f802af318354ba25383f9a2f91bd79e7ef0010f2958a46908",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-8/QuarticQuery_Paper_AppendixA.log",
+      "bytes": 11824,
+      "sha256": "763e769fab5fbc9decf1ea5672a7843a1a2c1b3f4017bdbac5f5383da12f5868",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-8/QuarticQuery_Paper_AppendixAHuangRoute.log",
+      "bytes": 5183,
+      "sha256": "5961b4ef7b4b805b5b68b3581d803d344598a8d82876e9a963dc880816f29fb5",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_logs/native-retry-9/QuarticQuery_Paper_AppendixA.log",
+      "bytes": 9817,
+      "sha256": "de3d0b8905ba91d501c1a0ee92db2f7151e5811f56d44e1da974894548b8827c",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_sources/final-evidence/apply_reviewed_ties.py",
+      "bytes": 4128,
+      "sha256": "0d71ff7f841839d616ec6a8d29457bceedb536b6cfd8c58d00859947e779ad7a",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_sources/final-evidence/final_native_phase.py",
+      "bytes": 8338,
+      "sha256": "cba70733facb39e5f93505688c0e621fd6aef6b3ea74ad5eb99ac9a31509200c",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_sources/final-evidence/prepare_reviewed_audit.py",
+      "bytes": 5121,
+      "sha256": "4f0159fe405587f9bd65752b4d37dc88741a9d719cf842bbf8b5e6cdda8e8c19",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_sources/final-evidence/reviewed_axiom_audit.lean",
+      "bytes": 51176,
+      "sha256": "78da4e0b0d875eedd3898a46f4e885a8fa7e89c2d5fbf2d3205012ff4f640513",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_sources/final-evidence/verify_reviewed_audit.py",
+      "bytes": 2082,
+      "sha256": "bd8eb4a6312bc0b8f6911edd23734df982f0aef17c3457e1b243e9003fec3dd8",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_sources/native-inventory/ReachRegression.lean",
+      "bytes": 6155,
+      "sha256": "3be41c8f056cb06feba16325ca6204d04d3935a8f41105815105a040c2b4a002",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_sources/native-inventory/runner.py",
+      "bytes": 5111,
+      "sha256": "2a7deb18237c57134bb84632d49a1f53ae0de1c0b049cb322a52e14483630365",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_sources/native-retry-1/runner.py",
+      "bytes": 4477,
+      "sha256": "1ddeaf96099e8b554aa9b9baa1aa2af90cc580568e6d16d8742a074dabc4914b",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_sources/native-retry-2/runner.py",
+      "bytes": 4475,
+      "sha256": "c8c5e4abd5b4edff5791c4af44161d2f21d5bc8e394c63126b9cecae7f6a2874",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_sources/native-retry-3/runner.py",
+      "bytes": 4475,
+      "sha256": "2ee989c53af5b043bdde7e8657d3cddbeacc467e49c89af882f52fc78f174e81",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_sources/native-retry-4/runner.py",
+      "bytes": 4475,
+      "sha256": "eb826e3694120c769b09cf6e044523542360173c77257fde0c1f3f8a4067006d",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_sources/native-retry-5/runner.py",
+      "bytes": 4475,
+      "sha256": "24c73b0c90adbf50f02f25c38eb2b7a432cf38970e5e77fe3449a87878abcd06",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_sources/native-retry-6/runner.py",
+      "bytes": 4475,
+      "sha256": "db9907e6695b9dda5ecd648c01ef5944cafe0108ac55cff3a675d8c67036b435",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_sources/native-retry-7/runner.py",
+      "bytes": 4475,
+      "sha256": "6fa400cd11ab3b5cf2a8866675aaaf546816679feddf26e9be79a6128daa7ab0",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_sources/native-retry-8/runner.py",
+      "bytes": 4475,
+      "sha256": "086e525b8f6644b07956a1395ce59ea0b7384d24e2b214351274fb51de13a1cf",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "native_sources/native-retry-9/runner.py",
+      "bytes": 4475,
+      "sha256": "8f5d4a3c1b058248199d909346da29d6c992d9395a895a4bb2c091cabc8d5b93",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    },
+    {
+      "member": "EVIDENCE_SNAPSHOT.json",
+      "bytes": 716734,
+      "sha256": "25f46742c3d019459dc43846f23234c107212625b8c76f3eeef787fd721f1213",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "root",
+          "status": "sampled",
+          "scope": "Top-level metadata; complete local source hash maps compared by formal subaudit."
+        },
+        {
+          "reader": "lean_evidence",
+          "status": "sampled",
+          "scope": "All receipt/native-status schemas and 124 hash bindings inspected programmatically; quantum rows assessed."
+        }
+      ]
+    },
+    {
+      "member": "BUILD_STATUS.md",
+      "bytes": 28218,
+      "sha256": "50d8890437452a047a7eba252ec14f41a54e5cf06a297b61a03cb17898bdc4dc",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "lean_evidence",
+          "status": "sampled",
+          "scope": "Interpretation, current/legacy receipt table and relevant native statuses; source hashes checked independently."
+        }
+      ]
+    },
+    {
+      "member": "DEPENDENCY_SOURCES.json",
+      "bytes": 3654,
+      "sha256": "0771640952f98fa1dd1c20ef596e49cdb04fd8d619cbb20299698454ab3f2ed4",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "root",
+          "status": "assessed",
+          "scope": "Recorded pins, empty external source closure for these seeds, Mathlib stopping boundary."
+        }
+      ]
+    },
+    {
+      "member": "SOURCE_ROLES.md",
+      "bytes": 2708,
+      "sha256": "a3270664fb090a5ab4ffc555b1424fde3f9bb4327eed064bda364789af682e8c",
+      "custody_checked": true,
+      "assessment": "assessed_in_recorded_scope",
+      "reader_scopes": [
+        {
+          "reader": "root",
+          "status": "assessed",
+          "scope": "Full reading-role and source-custody instructions."
+        },
+        {
+          "reader": "lean_evidence",
+          "status": "assessed",
+          "scope": "Full file read in this formal/evidence subaudit; assessment does not imply independent proof rechecking."
+        }
+      ]
+    },
+    {
+      "member": "literature/README.md",
+      "bytes": 1389,
+      "sha256": "43a42c4cd2260db431386a735f5d274d4f57b2091059b34114e711ff083783ec",
+      "custody_checked": true,
+      "assessment": "unassessed",
+      "reader_scopes": []
+    }
+  ],
+  "external_primary_sources": [
+    {
+      "id": "BHMT2000v1",
+      "authors": [
+        "Gilles Brassard",
+        "Peter Høyer",
+        "Michele Mosca",
+        "Alain Tapp"
+      ],
+      "title": "Quantum Amplitude Amplification and Estimation",
+      "version": "arXiv:quant-ph/0005055v1",
+      "year": 2000,
+      "url": "https://arxiv.org/abs/quant-ph/0005055v1",
+      "pdf_url": "https://arxiv.org/pdf/quant-ph/0005055v1",
+      "locators": [
+        "§2, Lemma1, printed pp.5–6",
+        "equation(8), printed p.7",
+        "Theorem3, printed pp.8–9 (expected-time context)",
+        "Theorem12, printed p.19 (amplitude estimation; not used as amplification)"
+      ],
+      "role": "geometry and state-preservation support; distinguish expected-time search and amplitude estimation"
+    },
+    {
+      "id": "BBHT1996v1",
+      "authors": [
+        "Michel Boyer",
+        "Gilles Brassard",
+        "Peter Høyer",
+        "Alain Tapp"
+      ],
+      "title": "Tight bounds on quantum searching",
+      "version": "arXiv:quant-ph/9605034v1",
+      "year": 1996,
+      "url": "https://arxiv.org/abs/quant-ph/9605034v1",
+      "pdf_url": "https://arxiv.org/pdf/quant-ph/9605034v1",
+      "locators": [
+        "§4, Lemma2, printed p.3",
+        "§4, Theorem3 and subsequent timeout remark, printed p.4"
+      ],
+      "role": "exact random-iteration average and unknown-number search context; not direct proof of finite syntactic cap"
+    },
+    {
+      "id": "DurrHoyer1999v2",
+      "authors": [
+        "Christoph Dürr",
+        "Peter Høyer"
+      ],
+      "title": "A Quantum Algorithm for Finding the Minimum",
+      "version": "arXiv:quant-ph/9607014v2 (7 January 1999)",
+      "year": 1996,
+      "url": "https://arxiv.org/abs/quant-ph/9607014v2",
+      "pdf_url": "https://arxiv.org/pdf/quant-ph/9607014v2",
+      "locators": [
+        "§2, Theorem1 and Lemmas1–2, printed pp.1–2"
+      ],
+      "role": "ordered minimum-finding context; total-order ranks unavailable for arbitrary probabilistic comparisons"
+    },
+    {
+      "id": "HMW2003v2",
+      "authors": [
+        "Peter Høyer",
+        "Michele Mosca",
+        "Ronald de Wolf"
+      ],
+      "title": "Quantum Search on Bounded-Error Inputs",
+      "version": "arXiv:quant-ph/0304052v2 (14 April 2003)",
+      "year": 2003,
+      "url": "https://arxiv.org/abs/quant-ph/0304052v2",
+      "pdf_url": "https://arxiv.org/pdf/quant-ph/0304052v2",
+      "locators": [
+        "§1, PDF pp.1–2",
+        "§3, setup and Fact2, PDF p.4",
+        "§3, finite algorithm, PDF pp.6–7"
+      ],
+      "role": "comparison only; every base bit must have bounded error, a hypothesis not available among arbitrary losing candidates"
+    },
+    {
+      "key": "DurrHoyer1996",
+      "authors": [
+        "Christoph Dürr",
+        "Peter Høyer"
+      ],
+      "title": "A Quantum Algorithm for Finding the Minimum",
+      "edition": "arXiv:quant-ph/9607014v2",
+      "version_date": "1999-01-07",
+      "url": "https://arxiv.org/pdf/quant-ph/9607014v2",
+      "locator": "Theorem 1; Lemmas 1–2; pp.1–2",
+      "role": "historical context; ordered-value minimum finding, not a theorem proving the probabilistic tournament",
+      "scope": "entire two-page text"
+    },
+    {
+      "key": "HoyerMoscaDeWolf2003",
+      "authors": [
+        "Peter Høyer",
+        "Michele Mosca",
+        "Ronald de Wolf"
+      ],
+      "title": "Quantum Search on Bounded-Error Inputs",
+      "edition": "arXiv:quant-ph/0304052v2",
+      "version_date": "2003-04-14",
+      "url": "https://arxiv.org/pdf/quant-ph/0304052v2",
+      "locator": "§1 pp.1–3; §3 Facts1–2 and final algorithm pp.4–7; §5 pp.8–9",
+      "role": "bounded-error predicate-search comparison; every fixed Boolean predicate has uniform ≥9/10 correctness, which loser comparisons need not satisfy",
+      "scope": "primary mathematical text §§1–3/5 assessed for assumptions, result and role; not independently reproved"
+    },
+    {
+      "key": "BenDavidKothari2026",
+      "authors": [
+        "Shalev Ben-David",
+        "Robin Kothari"
+      ],
+      "title": "Randomized query complexity can beat certificate complexity",
+      "edition": "arXiv:2609.15063v1",
+      "version_date": "2026-09-14",
+      "url": "https://arxiv.org/pdf/2609.15063v1",
+      "html_url": "https://arxiv.org/html/2609.15063v1",
+      "locator": "§3, Lemma5, pp.3–5",
+      "role": "credit for virtual candidates, tournament and certificate verification organization; exact oriented graph, no invocation in current proof",
+      "scope": "§3 proof assessed; other sections sampled in returned primary text"
+    },
+    {
+      "key": "MandeParaasharSaurabh2023",
+      "authors": [
+        "Nikhil S. Mande",
+        "Manaswi Paraashar",
+        "Nitin Saurabh"
+      ],
+      "title": "Randomized and Quantum Query Complexities of Finding a King in a Tournament",
+      "edition": "FSTTCS 2023, LIPIcs284, article30",
+      "version_date": "2023-12-12",
+      "doi": "10.4230/LIPIcs.FSTTCS.2023.30",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol284-fsttcs2023/LIPIcs.FSTTCS.2023.30/LIPIcs.FSTTCS.2023.30.pdf",
+      "locator": "Theorem19, §4, p.30:11; proof pp.30:11–30:12; Algorithm4 p.30:13",
+      "role": "historical context only, exact edge-direction oracle for a fixed tournament",
+      "scope": "abstract, oracle convention, theorem and nearby proof sampled; theorem statement/edition verified",
+      "correction": "The baseline locator Theorem4.4 does not match this linked published edition."
+    }
+  ],
+  "public_preprint_access": "Official GitHub listing and source title verified by web search; raw PDF fetches failed (disabled for short pinned URL; unsupported octet-stream for main). Mathematical reading uses the supplied PDF/extraction and its exact hash.",
+  "unavailable": [
+    {
+      "filename": "Pasted text(20261102-190835).txt",
+      "status": "unavailable",
+      "reason": "Attachment could not be materialized by the environment. It was not read or used; user was asked to re-upload or paste it."
+    }
+  ],
+  "not_performed": [
+    "Fresh Lean/Lake/Comparator execution",
+    "Whole-record/full-lower-bound/Appendix-A review",
+    "Independent reproduction of the supplied native builds",
+    "Whole Mathlib or external dependency review",
+    "Human review",
+    "Publication or repository integration",
+    "PDF rendering of this return"
+  ]
+}

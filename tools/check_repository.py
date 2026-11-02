@@ -25,6 +25,7 @@ REQUIRED = {"README.md", "CONTRIBUTING.md", "LICENSE", ".gitignore", "Makefile",
 REQUIRED |= {
     "docs/README.md", "lean/README.md", "tests/README.md", "research/requests/README.md",
     "research/returns/round2/README.md", "research/returns/round2/intake.json",
+    "research/returns/round3/README.md", "research/returns/round3/intake.json",
     "research/adjudication/adjudication.json", "research/adjudication/adjudication_notes.md",
     *{f"research/requests/funnel/{name}.md" for name in (
         "common", "boundaries", "1_long_reasoning_record", "2_short_expert_paper",
@@ -47,6 +48,18 @@ SNAPSHOT_IDS = {
     "4_lean_classical_lower", "5_lean_appendix_a", "6_sharp_uniform_forrelation",
     "7_single_family_exponent",
 }
+ROUND3_ROOT = "research/returns/round3"
+ROUND3_MANIFEST = f"{ROUND3_ROOT}/intake.json"
+ROUND3_IDS = {
+    "01_models_evidence", "02_forrelation_promise_circuit", "03_forrelation_lower_bound",
+    "04_addressed_construction", "05_quantum_upper", "06_direct_product",
+    "07_planted_lower_bound", "08_reviewed", "09_evidence_backend", "10_baseline_review",
+}
+# These submitted bytes are preserved locally, not published source candidates.
+ROUND3_LOCAL_MEMBERS = {
+    "members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/section.pdf",
+}
+ROUND3_PRIVATE_ATTACHMENT = "attachments/input_10.txt"
 SHA256 = re.compile(r"[0-9a-f]{64}\Z")
 
 
@@ -172,6 +185,125 @@ def snapshot_members(manifest):
     }
 
 
+def safe_member_path(value):
+    if not isinstance(value, str) or not value or "\\" in value or "\0" in value:
+        return False
+    path = PurePosixPath(value)
+    return (bool(path.parts) and not path.is_absolute() and path.as_posix() == value
+            and all(part not in {".", ".."} for part in path.parts))
+
+
+def byte_record(record):
+    return (type(record.get("bytes")) is int and record["bytes"] >= 0
+            and isinstance(record.get("sha256"), str)
+            and SHA256.fullmatch(record["sha256"]) is not None)
+
+
+def round3_manifest(view):
+    """Return admitted public members, local-only paths and schema errors.
+
+    Read the manifest and source bytes only through the selected Git view. Sender
+    programs are opaque source evidence: this checker never imports or runs them.
+    Local ZIPs, the submitted PDF and the private session packet are not required
+    in either Git view, and are rejected if added to it.
+    """
+    if (ROUND3_MANIFEST not in view.paths or not view.regular(ROUND3_MANIFEST)
+            or ROUND3_MANIFEST in view.conflicts):
+        return None, set(), []
+    try:
+        manifest = json.loads(view.read(ROUND3_MANIFEST), object_pairs_hook=unique_object)
+    except (UnicodeError, OSError, RuntimeError, ValueError) as error:
+        return None, set(), [f"{ROUND3_MANIFEST}: cannot read intake manifest: {error}"]
+    if not isinstance(manifest, dict) or set(manifest) != {"returns", "attachments"}:
+        return None, set(), [f"{ROUND3_MANIFEST}: expected returns and attachments"]
+    errors, members = [], {}
+    local = {f"{ROUND3_ROOT}/{p}" for p in ROUND3_LOCAL_MEMBERS | {ROUND3_PRIVATE_ATTACHMENT}}
+
+    def error(message):
+        errors.append(f"{ROUND3_MANIFEST}: {message}")
+
+    def admit(path, record):
+        full = f"{ROUND3_ROOT}/{path}"
+        if full in members:
+            error(f"duplicate preserved path: {path!r}")
+        elif full not in local:
+            members[full] = {"size": record["bytes"], "sha256": record["sha256"]}
+
+    returns = manifest["returns"]
+    seen_ids = set()
+    if not isinstance(returns, list):
+        error("returns must be a list")
+        returns = []
+    for row in returns:
+        if not isinstance(row, dict) or set(row) != {"id", "archive", "members_root", "members"}:
+            error("invalid return record")
+            continue
+        name = row["id"]
+        if not isinstance(name, str) or name not in ROUND3_IDS:
+            error(f"invalid return ID: {name!r}")
+            continue
+        if name in seen_ids:
+            error(f"duplicate return ID: {name}")
+        seen_ids.add(name)
+        root = f"members/{name}"
+        if row["members_root"] != root:
+            error(f"{name}: members_root must be {root!r}")
+        archive = row["archive"]
+        archive_name = f"quartic_r3_{name}_return.zip"
+        if (not isinstance(archive, dict)
+                or set(archive) != {"source", "preserved", "bytes", "sha256"}
+                or archive["source"] != archive_name
+                or archive["preserved"] != f"archives/{archive_name}" or not byte_record(archive)):
+            error(f"{name}: invalid archive record")
+        local.add(f"{ROUND3_ROOT}/archives/{archive_name}")
+        records = row["members"]
+        if not isinstance(records, list) or not records:
+            error(f"{name}: members must be a nonempty list")
+            continue
+        seen_paths = set()
+        for record in records:
+            if (not isinstance(record, dict) or set(record) != {"path", "bytes", "sha256"}
+                    or not byte_record(record)):
+                error(f"{name}: invalid member record")
+                continue
+            path = record["path"]
+            if not safe_member_path(path):
+                error(f"{name}: invalid member path: {path!r}")
+                continue
+            if path in seen_paths:
+                error(f"{name}: duplicate member path: {path!r}")
+            seen_paths.add(path)
+            admit(f"{root}/{path}", record)
+    if seen_ids != ROUND3_IDS:
+        error("return IDs must match the ten round-three returns")
+    attachments = manifest["attachments"]
+    seen_attachments = set()
+    expected = {f"attachments/input_{i:02d}.txt" for i in range(1, 11)}
+    if not isinstance(attachments, list):
+        error("attachments must be a list")
+        attachments = []
+    for record in attachments:
+        if not isinstance(record, dict):
+            error("invalid attachment record")
+            continue
+        path = record.get("preserved")
+        private = path == ROUND3_PRIVATE_ATTACHMENT
+        keys = {"preserved", "bytes", "sha256"} | ({"local_only", "role"} if private else {"source"})
+        if (set(record) != keys or not byte_record(record)
+                or not isinstance(path, str) or path not in expected
+                or (private and (record["local_only"] is not True or record["role"] != "session_packet"))
+                or (not private and (not isinstance(record["source"], str) or not record["source"]))):
+            error("invalid attachment record")
+            continue
+        if path in seen_attachments:
+            error(f"duplicate attachment path: {path!r}")
+        seen_attachments.add(path)
+        admit(path, record)
+    if seen_attachments != expected:
+        error("attachment paths must match the ten supplied inputs")
+    return (None if errors else members), local, errors
+
+
 def check_archives(manifest, archive_dir):
     """Optionally compare the manifest with the original, externally kept ZIPs."""
     errors = []
@@ -242,6 +374,10 @@ def check(view, archive_dir=None):
     manifest, manifest_errors = snapshot_manifest(view)
     errors.extend(manifest_errors)
     members = snapshot_members(manifest) if manifest is not None else {}
+    round3_members, round3_local, round3_errors = round3_manifest(view)
+    errors.extend(round3_errors)
+    if round3_members is not None:
+        members.update(round3_members)
     for path in sorted(set(members) - view.paths):
         errors.append(f"{path}: submitted snapshot member is missing")
     for path in sorted(view.paths):
@@ -251,10 +387,17 @@ def check(view, archive_dir=None):
         if not view.regular(path):
             errors.append(f"{path}: maintained candidates must be regular files")
             continue
-        in_snapshot = path.startswith(SNAPSHOT_ROOT + "/") and path not in {
+        in_round2 = path.startswith(SNAPSHOT_ROOT + "/") and path not in {
             SNAPSHOT_MANIFEST, f"{SNAPSHOT_ROOT}/README.md",
         }
-        if in_snapshot and manifest is None:
+        in_round3 = path.startswith(ROUND3_ROOT + "/") and path not in {
+            ROUND3_MANIFEST, f"{ROUND3_ROOT}/README.md",
+        }
+        in_snapshot = in_round2 or in_round3
+        if in_round3 and path in round3_local:
+            errors.append(f"{path}: local-only submitted input must stay untracked")
+            continue
+        if (in_round2 and manifest is None) or (in_round3 and round3_members is None):
             # No snapshot is admitted until the manifest is readable and valid.
             continue
         if in_snapshot and path not in members:

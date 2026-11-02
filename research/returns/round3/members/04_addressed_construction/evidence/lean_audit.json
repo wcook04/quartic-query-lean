@@ -1,0 +1,2734 @@
+{
+  "format": "quartic-r3-04-focused-lean-audit-v1",
+  "review_date": "2026-11-02",
+  "root_receipt_commit": "31e17dee667d1d72fa621da8e7d3d8ff5fc3960a",
+  "packet_repository_commit": "1dd469dd0042b937b739da3bc211eeb60bdf7462",
+  "native_execution_this_review": false,
+  "hash_checks": [
+    {
+      "file": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "input_count": 124,
+      "all_matched": true,
+      "problems": []
+    },
+    {
+      "file": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+      "input_count": 124,
+      "all_matched": true,
+      "problems": []
+    },
+    {
+      "file": "repository/corpus/lean_dependencies.json",
+      "input_count": 124,
+      "all_matched": true,
+      "problems": []
+    },
+    {
+      "file": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+      "input_count": 124,
+      "all_matched": true,
+      "problems": []
+    },
+    {
+      "check": "audit_log_hash",
+      "all_matched": true
+    },
+    {
+      "check": "audit_source_hash",
+      "all_matched": true
+    },
+    {
+      "file": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+      "check": "receipt_bytes_hash",
+      "all_matched": true
+    },
+    {
+      "file": "repository/corpus/receipts/comparator-Construction.json",
+      "check": "receipt_bytes_hash",
+      "all_matched": true
+    },
+    {
+      "file": "repository/corpus/receipts/comparator-Foundations-2026-11-02T182842333798+0000.json",
+      "check": "receipt_bytes_hash",
+      "all_matched": true
+    },
+    {
+      "file": "repository/corpus/receipts/comparator-Foundations.json",
+      "check": "receipt_bytes_hash",
+      "all_matched": true
+    },
+    {
+      "file": "repository/corpus/receipts/comparator-Separation-2026-11-02T183102343043+0000.json",
+      "check": "receipt_bytes_hash",
+      "all_matched": true
+    },
+    {
+      "file": "repository/corpus/receipts/comparator-Separation.json",
+      "check": "receipt_bytes_hash",
+      "all_matched": true
+    },
+    {
+      "file": "repository/corpus/receipts/comparator-Tournament-2026-11-02T183226253908+0000.json",
+      "check": "receipt_bytes_hash",
+      "all_matched": true
+    },
+    {
+      "file": "repository/corpus/receipts/comparator-Tournament.json",
+      "check": "receipt_bytes_hash",
+      "all_matched": true
+    },
+    {
+      "file": "repository/corpus/receipts/comparator-Unconditional-2026-11-02T183450037875+0000.json",
+      "check": "receipt_bytes_hash",
+      "all_matched": true
+    },
+    {
+      "file": "repository/corpus/receipts/comparator-Unconditional-2026-11-02T184546477430+0000.json",
+      "check": "receipt_bytes_hash",
+      "all_matched": true
+    },
+    {
+      "file": "repository/corpus/receipts/comparator-Unconditional.json",
+      "check": "receipt_bytes_hash",
+      "all_matched": true
+    },
+    {
+      "file": "repository/corpus/receipts/comparator-negative-ChangedDefinition-2026-11-02T183607437119+0000.json",
+      "check": "receipt_bytes_hash",
+      "all_matched": true
+    },
+    {
+      "file": "repository/corpus/receipts/comparator-negative-ChangedDefinition.json",
+      "check": "receipt_bytes_hash",
+      "all_matched": true
+    },
+    {
+      "file": "repository/corpus/receipts/comparator-negative-ForeignAxiom-2026-11-02T183708690272+0000.json",
+      "check": "receipt_bytes_hash",
+      "all_matched": true
+    },
+    {
+      "file": "repository/corpus/receipts/comparator-negative-ForeignAxiom.json",
+      "check": "receipt_bytes_hash",
+      "all_matched": true
+    },
+    {
+      "file": "repository/corpus/receipts/comparator-negative-MissingDeclaration-2026-11-02T183824782468+0000.json",
+      "check": "receipt_bytes_hash",
+      "all_matched": true
+    },
+    {
+      "file": "repository/corpus/receipts/comparator-negative-MissingDeclaration.json",
+      "check": "receipt_bytes_hash",
+      "all_matched": true
+    },
+    {
+      "file": "repository/corpus/receipts/comparator-negative-SorryProof-2026-11-02T183912954843+0000.json",
+      "check": "receipt_bytes_hash",
+      "all_matched": true
+    },
+    {
+      "file": "repository/corpus/receipts/comparator-negative-SorryProof.json",
+      "check": "receipt_bytes_hash",
+      "all_matched": true
+    },
+    {
+      "file": "repository/corpus/receipts/comparator-negative-WeakenedConclusion-2026-11-02T184050714051+0000.json",
+      "check": "receipt_bytes_hash",
+      "all_matched": true
+    },
+    {
+      "file": "repository/corpus/receipts/comparator-negative-WeakenedConclusion.json",
+      "check": "receipt_bytes_hash",
+      "all_matched": true
+    },
+    {
+      "file": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "check": "receipt_bytes_hash",
+      "all_matched": true
+    },
+    {
+      "file": "repository/corpus/receipts/lean-build-root.json",
+      "check": "receipt_bytes_hash",
+      "all_matched": true
+    }
+  ],
+  "declarations": [
+    {
+      "declaration": "QuarticQuery.Paper.construction_transcript_definition",
+      "statement_ids": [
+        "def-transcript"
+      ],
+      "file": "repository/lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+      "source_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
+      "source_signature": "theorem construction_transcript_definition {κ : Type} (C : Circuit κ)\n    (x : BitInput κ) (tr : Fin C.size → Bool) :\n    GateConsistent C x tr ↔ ∀ g : Fin C.size,\n      tr g = (C.gate g).table\n        (predecessorValue C x tr g (C.gate g).left)\n        (predecessorValue C x tr g (C.gate g).right)",
+      "source_signature_is_exact_substring": true,
+      "section_implicit_binders_needed": [],
+      "namespace": "QuarticQuery.Paper",
+      "open_namespaces": [],
+      "native_printed_type": null,
+      "ordinary_premises": [],
+      "open_unresolved_hypotheses": [],
+      "missing_clauses": [],
+      "relation_to_reviewed_row": "exact",
+      "route": "none",
+      "review_note": "The transcript type has one proposed bit for each non-input gate, including outputs; the expansion uses predecessorValue, whose input branch reads x and whose gate branch reads an earlier transcript bit.",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": true,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": false,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": false,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      },
+      "complete_type_source_restatement": "theorem QuarticQuery.Paper.construction_transcript_definition {κ : Type} (C : Circuit κ)\n    (x : BitInput κ) (tr : Fin C.size → Bool) :\n    GateConsistent C x tr ↔ ∀ g : Fin C.size,\n      tr g = (C.gate g).table\n        (predecessorValue C x tr g (C.gate g).left)\n        (predecessorValue C x tr g (C.gate g).right)"
+    },
+    {
+      "declaration": "QuarticQuery.Paper.construction_transcript_input_wire",
+      "statement_ids": [
+        "def-transcript"
+      ],
+      "file": "repository/lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+      "source_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
+      "source_signature": "theorem construction_transcript_input_wire {κ : Type} (C : Circuit κ)\n    (x : BitInput κ) (tr : Fin C.size → Bool) (g : Fin C.size) (q : κ) :\n    predecessorValue C x tr g (some (.inl q)) = x q",
+      "source_signature_is_exact_substring": true,
+      "section_implicit_binders_needed": [],
+      "namespace": "QuarticQuery.Paper",
+      "open_namespaces": [],
+      "native_printed_type": null,
+      "ordinary_premises": [
+        "Circuit, input, proposed transcript and valid gate/input-wire coordinates."
+      ],
+      "open_unresolved_hypotheses": [],
+      "missing_clauses": [],
+      "relation_to_reviewed_row": "partial",
+      "route": "none",
+      "review_note": "Input predecessors read the actual input independently of tr.",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": true,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": false,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": false,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      },
+      "complete_type_source_restatement": "theorem QuarticQuery.Paper.construction_transcript_input_wire {κ : Type} (C : Circuit κ)\n    (x : BitInput κ) (tr : Fin C.size → Bool) (g : Fin C.size) (q : κ) :\n    predecessorValue C x tr g (some (.inl q)) = x q"
+    },
+    {
+      "declaration": "QuarticQuery.Paper.construction_transcript_gate_wire",
+      "statement_ids": [
+        "def-transcript"
+      ],
+      "file": "repository/lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+      "source_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
+      "source_signature": "theorem construction_transcript_gate_wire {κ : Type} (C : Circuit κ)\n    (x : BitInput κ) (tr : Fin C.size → Bool) (g : Fin C.size) (h : Fin g.val) :\n    predecessorValue C x tr g (some (.inr h)) =\n      tr ⟨h.val, lt_trans h.isLt g.isLt⟩",
+      "source_signature_is_exact_substring": true,
+      "section_implicit_binders_needed": [],
+      "namespace": "QuarticQuery.Paper",
+      "open_namespaces": [],
+      "native_printed_type": null,
+      "ordinary_premises": [
+        "Circuit, input, proposed transcript and an earlier valid gate coordinate."
+      ],
+      "open_unresolved_hypotheses": [],
+      "missing_clauses": [],
+      "relation_to_reviewed_row": "partial",
+      "route": "none",
+      "review_note": "Non-input predecessors read earlier transcript coordinates.",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": true,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": false,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": false,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      },
+      "complete_type_source_restatement": "theorem QuarticQuery.Paper.construction_transcript_gate_wire {κ : Type} (C : Circuit κ)\n    (x : BitInput κ) (tr : Fin C.size → Bool) (g : Fin C.size) (h : Fin g.val) :\n    predecessorValue C x tr g (some (.inr h)) =\n      tr ⟨h.val, lt_trans h.isLt g.isLt⟩"
+    },
+    {
+      "declaration": "QuarticQuery.Paper.construction_transcript_correct",
+      "statement_ids": [
+        "def-transcript"
+      ],
+      "file": "repository/lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+      "source_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
+      "source_signature": "theorem construction_transcript_correct {κ : Type} (C : Circuit κ)\n    (x : BitInput κ) (tr : Fin C.size → Bool) :\n    (GateConsistent C x tr ↔ tr = circuitEval C x) ∧\n      ∃! tr' : Fin C.size → Bool, GateConsistent C x tr'",
+      "source_signature_is_exact_substring": true,
+      "section_implicit_binders_needed": [],
+      "namespace": "QuarticQuery.Paper",
+      "open_namespaces": [],
+      "native_printed_type": "QuarticQuery.Paper.construction_transcript_correct {κ : Type} (C : QuarticQuery.Circuit κ) (x : QuarticQuery.BitInput κ)\n  (tr : Fin C.size → Bool) :\n  And (Iff (QuarticQuery.GateConsistent C x tr) (Eq tr (QuarticQuery.circuitEval C x)))\n    (ExistsUnique fun tr' => QuarticQuery.GateConsistent C x tr')",
+      "ordinary_premises": [
+        "Arbitrary circuit, input and proposed transcript."
+      ],
+      "open_unresolved_hypotheses": [],
+      "missing_clauses": [],
+      "relation_to_reviewed_row": "partial",
+      "route": "same",
+      "review_note": "Topological evaluation is the unique consistent transcript.",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": true,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": false,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": false,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      },
+      "complete_type_source_restatement": "theorem QuarticQuery.Paper.construction_transcript_correct {κ : Type} (C : Circuit κ)\n    (x : BitInput κ) (tr : Fin C.size → Bool) :\n    (GateConsistent C x tr ↔ tr = circuitEval C x) ∧\n      ∃! tr' : Fin C.size → Bool, GateConsistent C x tr'"
+    },
+    {
+      "declaration": "QuarticQuery.Paper.construction_eq6",
+      "statement_ids": [
+        "eq-6"
+      ],
+      "file": "repository/lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+      "source_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
+      "source_signature": "theorem construction_eq6 (t : ℕ) :\n    Real.logb 2 (mValue t : ℝ) = (2 * t : ℕ) ∧\n      ⌈20 * Real.logb 2 (mValue t : ℝ)⌉₊ = 40 * t",
+      "source_signature_is_exact_substring": true,
+      "section_implicit_binders_needed": [],
+      "namespace": "QuarticQuery.Paper",
+      "open_namespaces": [],
+      "native_printed_type": "QuarticQuery.Paper.construction_eq6 (t : Nat) :\n  And (Eq (Real.logb 2 ↑(QuarticQuery.mValue t)) ↑(HMul.hMul 2 t))\n    (Eq (Nat.ceil (HMul.hMul 20 (Real.logb 2 ↑(QuarticQuery.mValue t)))) (HMul.hMul 40 t))",
+      "ordinary_premises": [
+        "m=4^t."
+      ],
+      "open_unresolved_hypotheses": [],
+      "missing_clauses": [],
+      "relation_to_reviewed_row": "exact",
+      "route": "none",
+      "review_note": "The logarithmic length identity and the ceil(20 log₂m)=40t identity occur together, including t=0.",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": true,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": false,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": false,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      },
+      "complete_type_source_restatement": "theorem QuarticQuery.Paper.construction_eq6 (t : ℕ) :\n    Real.logb 2 (mValue t : ℝ) = (2 * t : ℕ) ∧\n      ⌈20 * Real.logb 2 (mValue t : ℝ)⌉₊ = 40 * t"
+    },
+    {
+      "declaration": "QuarticQuery.Paper.construction_column_layout",
+      "statement_ids": [
+        "def-column-layout"
+      ],
+      "file": "repository/lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+      "source_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
+      "source_signature": "theorem construction_column_layout (ℓ r S : ℕ) (κ : Type) :\n    BitLoc ℓ r S κ =\n      ((Column ℓ × Column ℓ) ⊕\n        (Column ℓ × Fin r × κ) ⊕\n        (Σ i : Column ℓ, Address r × {j : Column ℓ // j ≠ i} × Fin ℓ) ⊕\n        (Column ℓ × Address r × Fin r × Fin S))",
+      "source_signature_is_exact_substring": true,
+      "section_implicit_binders_needed": [],
+      "namespace": "QuarticQuery.Paper",
+      "open_namespaces": [],
+      "native_printed_type": "QuarticQuery.Paper.construction_column_layout (ℓ r S : Nat) (κ : Type) :\n  Eq (QuarticQuery.BitLoc ℓ r S κ)\n    (Sum (Prod (QuarticQuery.Column ℓ) (QuarticQuery.Column ℓ))\n      (Sum (Prod (QuarticQuery.Column ℓ) (Prod (Fin r) κ))\n        (Sum (Sigma fun i => Prod (QuarticQuery.Address r) (Prod (Subtype fun j => Ne j i) (Fin ℓ)))\n          (Prod (QuarticQuery.Column ℓ) (Prod (QuarticQuery.Address r) (Prod (Fin r) (Fin S)))))))",
+      "ordinary_premises": [],
+      "open_unresolved_hypotheses": [],
+      "missing_clauses": [],
+      "relation_to_reviewed_row": "exact",
+      "route": "none",
+      "review_note": "The BitLoc equality expands the physical X, unrestricted A, pointer and transcript coordinate summands; arbitrary BitInput functions impose no promise. Pointer encoding and dimensions are checked separately below.",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": true,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": false,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": false,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      },
+      "complete_type_source_restatement": "theorem QuarticQuery.Paper.construction_column_layout (ℓ r S : ℕ) (κ : Type) :\n    BitLoc ℓ r S κ =\n      ((Column ℓ × Column ℓ) ⊕\n        (Column ℓ × Fin r × κ) ⊕\n        (Σ i : Column ℓ, Address r × {j : Column ℓ // j ≠ i} × Fin ℓ) ⊕\n        (Column ℓ × Address r × Fin r × Fin S))"
+    },
+    {
+      "declaration": "QuarticQuery.Paper.construction_pointer_encoding",
+      "statement_ids": [
+        "def-column-layout"
+      ],
+      "file": "repository/lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+      "source_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
+      "source_signature": "theorem construction_pointer_encoding (ℓ : ℕ) :\n    Function.Bijective (pointerEquiv ℓ) ∧\n      ∀ j : Column ℓ, ∃! w : Fin ℓ → Bool, pointerEquiv ℓ w = j",
+      "source_signature_is_exact_substring": true,
+      "section_implicit_binders_needed": [],
+      "namespace": "QuarticQuery.Paper",
+      "open_namespaces": [],
+      "native_printed_type": "QuarticQuery.Paper.construction_pointer_encoding (ℓ : Nat) :\n  And (Function.Bijective ⇑(QuarticQuery.pointerEquiv ℓ))\n    (∀ (j : QuarticQuery.Column ℓ), ExistsUnique fun w => Eq ((QuarticQuery.pointerEquiv ℓ) w) j)",
+      "ordinary_premises": [
+        "Arbitrary natural pointer length."
+      ],
+      "open_unresolved_hypotheses": [],
+      "missing_clauses": [],
+      "relation_to_reviewed_row": "partial",
+      "route": "none",
+      "review_note": "Every pointer bitstring encodes one destination and every destination has a unique encoding.",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": true,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": false,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": false,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      },
+      "complete_type_source_restatement": "theorem QuarticQuery.Paper.construction_pointer_encoding (ℓ : ℕ) :\n    Function.Bijective (pointerEquiv ℓ) ∧\n      ∀ j : Column ℓ, ∃! w : Fin ℓ → Bool, pointerEquiv ℓ w = j"
+    },
+    {
+      "declaration": "QuarticQuery.Paper.construction_layout_cardinalities",
+      "statement_ids": [
+        "def-column-layout"
+      ],
+      "file": "repository/lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+      "source_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
+      "source_signature": "theorem construction_layout_cardinalities (k t : ℕ) :\n    Fintype.card (Column (2 * t)) = mValue t ∧\n    Fintype.card (ForrelationCoord k t) = k * mValue t ∧\n    Fintype.card (Address (40 * t)) = 2 ^ (40 * t)",
+      "source_signature_is_exact_substring": true,
+      "section_implicit_binders_needed": [],
+      "namespace": "QuarticQuery.Paper",
+      "open_namespaces": [],
+      "native_printed_type": "QuarticQuery.Paper.construction_layout_cardinalities (k t : Nat) :\n  And (Eq (Fintype.card (QuarticQuery.Column (HMul.hMul 2 t))) (QuarticQuery.mValue t))\n    (And (Eq (Fintype.card (QuarticQuery.ForrelationCoord k t)) (HMul.hMul k (QuarticQuery.mValue t)))\n      (Eq (Fintype.card (QuarticQuery.Address (HMul.hMul 40 t))) (HPow.hPow 2 (HMul.hMul 40 t))))",
+      "ordinary_premises": [
+        "Natural k,t; m=4^t."
+      ],
+      "open_unresolved_hypotheses": [],
+      "missing_clauses": [],
+      "relation_to_reviewed_row": "partial",
+      "route": "none",
+      "review_note": "The specialized layout has m columns, km partial-input bits and 2^r addresses.",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": true,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": false,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": false,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      },
+      "complete_type_source_restatement": "theorem QuarticQuery.Paper.construction_layout_cardinalities (k t : ℕ) :\n    Fintype.card (Column (2 * t)) = mValue t ∧\n    Fintype.card (ForrelationCoord k t) = k * mValue t ∧\n    Fintype.card (Address (40 * t)) = 2 ^ (40 * t)"
+    },
+    {
+      "declaration": "QuarticQuery.Paper.construction_trueAddress_iff",
+      "statement_ids": [
+        "eq-7"
+      ],
+      "file": "repository/lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+      "source_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
+      "source_signature": "theorem construction_trueAddress_iff\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ)\n    (hdef : ∀ h, promised f (readA x i h)) (s : Address r) :\n    (∀ h, f (readA x i h) = some (s h)) ↔ s = trueAddress f x i hdef",
+      "source_signature_is_exact_substring": true,
+      "section_implicit_binders_needed": [
+        "{κ : Type}",
+        "{f : PartialBool κ}",
+        "{C : Circuit κ}",
+        "{ℓ r : ℕ}"
+      ],
+      "namespace": "QuarticQuery.Paper",
+      "open_namespaces": [],
+      "native_printed_type": "QuarticQuery.Paper.construction_trueAddress_iff {κ : Type} {f : QuarticQuery.PartialBool κ} {C : QuarticQuery.Circuit κ}\n  {ℓ r : Nat} (x : QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r C.size κ)) (i : QuarticQuery.Column ℓ)\n  (hdef : ∀ (h : Fin r), QuarticQuery.promised f (QuarticQuery.readA x i h)) (s : QuarticQuery.Address r) :\n  Iff (∀ (h : Fin r), Eq (f (QuarticQuery.readA x i h)) (some (s h))) (Eq s (QuarticQuery.trueAddress f x i hdef))",
+      "ordinary_premises": [
+        "Every instance of the selected column is promised; arbitrary finite address length."
+      ],
+      "open_unresolved_hypotheses": [],
+      "missing_clauses": [],
+      "relation_to_reviewed_row": "stronger",
+      "route": "none",
+      "review_note": "Characterizes the true address for arbitrary partial functions and addressed circuits, with exactly the premise that every instance in the selected column is defined. No promise is required elsewhere.",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": true,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": false,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": false,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      },
+      "complete_type_source_restatement": "theorem QuarticQuery.Paper.construction_trueAddress_iff {κ : Type} {f : PartialBool κ} {C : Circuit κ} {ℓ r : ℕ}\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ)\n    (hdef : ∀ h, promised f (readA x i h)) (s : Address r) :\n    (∀ h, f (readA x i h) = some (s h)) ↔ s = trueAddress f x i hdef"
+    },
+    {
+      "declaration": "QuarticQuery.Paper.constructionOutwardPointers",
+      "statement_ids": [
+        "eq-8"
+      ],
+      "file": "repository/lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+      "source_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
+      "source_signature": "def constructionOutwardPointers {S : ℕ} (x : BitInput (BitLoc ℓ r S κ))\n    (i : Column ℓ) (s : Address r) : Prop",
+      "source_signature_is_exact_substring": true,
+      "section_implicit_binders_needed": [
+        "{κ : Type}",
+        "{ℓ r : ℕ}"
+      ],
+      "namespace": "QuarticQuery.Paper",
+      "open_namespaces": [],
+      "native_printed_type": "QuarticQuery.Paper.constructionOutwardPointers {κ : Type} {ℓ r S : Nat}\n  (x : QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r S κ)) (i : QuarticQuery.Column ℓ) (s : QuarticQuery.Address r) :\n  Prop",
+      "ordinary_premises": [],
+      "open_unresolved_hypotheses": [],
+      "missing_clauses": [],
+      "relation_to_reviewed_row": "exact",
+      "route": "none",
+      "review_note": "Definition of the outward-zero condition at any supplied address. Substituting the true address yields the ledger's displayed condition; it is not asserted for arbitrary nonwinning columns.",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": true,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": false,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": false,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      },
+      "complete_type_source_restatement": "def QuarticQuery.Paper.constructionOutwardPointers {κ : Type} {ℓ r : ℕ} {S : ℕ} (x : BitInput (BitLoc ℓ r S κ))\n    (i : Column ℓ) (s : Address r) : Prop"
+    },
+    {
+      "declaration": "QuarticQuery.Paper.construction_eq8_of_winsAt",
+      "statement_ids": [
+        "eq-8"
+      ],
+      "file": "repository/lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+      "source_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
+      "source_signature": "theorem construction_eq8_of_winsAt\n    {x : BitInput (BitLoc ℓ r C.size κ)} {i : Column ℓ} {s : Address r}\n    (hw : WinsAt f C ℓ r x i s) : constructionOutwardPointers x i s",
+      "source_signature_is_exact_substring": true,
+      "section_implicit_binders_needed": [
+        "{κ : Type}",
+        "{f : PartialBool κ}",
+        "{C : Circuit κ}",
+        "{ℓ r : ℕ}"
+      ],
+      "namespace": "QuarticQuery.Paper",
+      "open_namespaces": [],
+      "native_printed_type": "QuarticQuery.Paper.construction_eq8_of_winsAt {κ : Type} {f : QuarticQuery.PartialBool κ} {C : QuarticQuery.Circuit κ}\n  {ℓ r : Nat} {x : QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r C.size κ)} {i : QuarticQuery.Column ℓ}\n  {s : QuarticQuery.Address r} (hw : QuarticQuery.WinsAt f C ℓ r x i s) :\n  QuarticQuery.Paper.constructionOutwardPointers x i s",
+      "ordinary_premises": [
+        "A WinsAt witness for the selected circuit, input, column and address."
+      ],
+      "open_unresolved_hypotheses": [],
+      "missing_clauses": [],
+      "relation_to_reviewed_row": "partial",
+      "route": "same",
+      "review_note": "A winning address satisfies the defined outward-zero condition.",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": true,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": false,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": false,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      },
+      "complete_type_source_restatement": "theorem QuarticQuery.Paper.construction_eq8_of_winsAt {κ : Type} {f : PartialBool κ} {C : Circuit κ} {ℓ r : ℕ}\n    {x : BitInput (BitLoc ℓ r C.size κ)} {i : Column ℓ} {s : Address r}\n    (hw : WinsAt f C ℓ r x i s) : constructionOutwardPointers x i s"
+    },
+    {
+      "declaration": "QuarticQuery.Paper.constructionWinner",
+      "statement_ids": [
+        "def-winner"
+      ],
+      "file": "repository/lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+      "source_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
+      "source_signature": "def constructionWinner (f : PartialBool κ) (C : Circuit κ) (ℓ r : ℕ)\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) : Prop",
+      "source_signature_is_exact_substring": true,
+      "section_implicit_binders_needed": [
+        "{κ : Type}"
+      ],
+      "namespace": "QuarticQuery.Paper",
+      "open_namespaces": [],
+      "native_printed_type": "QuarticQuery.Paper.constructionWinner {κ : Type} (f : QuarticQuery.PartialBool κ) (C : QuarticQuery.Circuit κ)\n  (ℓ r : Nat) (x : QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r C.size κ)) (i : QuarticQuery.Column ℓ) : Prop",
+      "ordinary_premises": [],
+      "open_unresolved_hypotheses": [],
+      "missing_clauses": [],
+      "relation_to_reviewed_row": "exact",
+      "route": "none",
+      "review_note": "The generic winner predicate states all-one X, defined selected-column instances, correct transcripts and outward zeros at its true address. No circuit-size premise is needed.",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": true,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": false,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": false,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      },
+      "complete_type_source_restatement": "def QuarticQuery.Paper.constructionWinner {κ : Type} (f : PartialBool κ) (C : Circuit κ) (ℓ r : ℕ)\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) : Prop"
+    },
+    {
+      "declaration": "QuarticQuery.Paper.construction_winner_iff_exists_winsAt",
+      "statement_ids": [
+        "def-winner"
+      ],
+      "file": "repository/lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+      "source_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
+      "source_signature": "theorem construction_winner_iff_exists_winsAt\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) :\n    constructionWinner f C ℓ r x i ↔ ∃ s, WinsAt f C ℓ r x i s",
+      "source_signature_is_exact_substring": true,
+      "section_implicit_binders_needed": [
+        "{κ : Type}",
+        "{f : PartialBool κ}",
+        "{C : Circuit κ}",
+        "{ℓ r : ℕ}"
+      ],
+      "namespace": "QuarticQuery.Paper",
+      "open_namespaces": [],
+      "native_printed_type": "QuarticQuery.Paper.construction_winner_iff_exists_winsAt {κ : Type} {f : QuarticQuery.PartialBool κ}\n  {C : QuarticQuery.Circuit κ} {ℓ r : Nat} (x : QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r C.size κ))\n  (i : QuarticQuery.Column ℓ) :\n  Iff (QuarticQuery.Paper.constructionWinner f C ℓ r x i) (Exists fun s => QuarticQuery.WinsAt f C ℓ r x i s)",
+      "ordinary_premises": [
+        "Arbitrary partial function, circuit, input, column and address lengths."
+      ],
+      "open_unresolved_hypotheses": [],
+      "missing_clauses": [],
+      "relation_to_reviewed_row": "stronger",
+      "route": "none",
+      "review_note": "This paper-style winner predicate is equivalent to existence of a public WinsAt address.",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": true,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": false,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": false,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      },
+      "complete_type_source_restatement": "theorem QuarticQuery.Paper.construction_winner_iff_exists_winsAt {κ : Type} {f : PartialBool κ} {C : Circuit κ} {ℓ r : ℕ}\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) :\n    constructionWinner f C ℓ r x i ↔ ∃ s, WinsAt f C ℓ r x i s"
+    },
+    {
+      "declaration": "QuarticQuery.Paper.construction_unique_winner",
+      "statement_ids": [
+        "cor-unique-winner"
+      ],
+      "file": "repository/lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+      "source_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
+      "source_signature": "theorem construction_unique_winner (x : BitInput (BitLoc ℓ r C.size κ))\n    (i j : Column ℓ) (hi : constructionWinner f C ℓ r x i)\n    (hj : constructionWinner f C ℓ r x j) : i = j",
+      "source_signature_is_exact_substring": true,
+      "section_implicit_binders_needed": [
+        "{κ : Type}",
+        "{f : PartialBool κ}",
+        "{C : Circuit κ}",
+        "{ℓ r : ℕ}"
+      ],
+      "namespace": "QuarticQuery.Paper",
+      "open_namespaces": [],
+      "native_printed_type": "QuarticQuery.Paper.construction_unique_winner {κ : Type} {f : QuarticQuery.PartialBool κ} {C : QuarticQuery.Circuit κ}\n  {ℓ r : Nat} (x : QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r C.size κ)) (i j : QuarticQuery.Column ℓ)\n  (hi : QuarticQuery.Paper.constructionWinner f C ℓ r x i) (hj : QuarticQuery.Paper.constructionWinner f C ℓ r x j) :\n  Eq i j",
+      "ordinary_premises": [
+        "Two columns satisfy the winner predicate on the same input."
+      ],
+      "open_unresolved_hypotheses": [],
+      "missing_clauses": [],
+      "relation_to_reviewed_row": "stronger",
+      "route": "same",
+      "review_note": "Uniqueness holds for every circuit and partial function, without needing circuit realization or hardness.",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": true,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": false,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": false,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      },
+      "complete_type_source_restatement": "theorem QuarticQuery.Paper.construction_unique_winner {κ : Type} {f : PartialBool κ} {C : Circuit κ} {ℓ r : ℕ} (x : BitInput (BitLoc ℓ r C.size κ))\n    (i j : Column ℓ) (hi : constructionWinner f C ℓ r x i)\n    (hj : constructionWinner f C ℓ r x j) : i = j"
+    },
+    {
+      "declaration": "QuarticQuery.Paper.construction_winsAt_iff_winner_and_address",
+      "statement_ids": [
+        "def-win-at-address"
+      ],
+      "file": "repository/lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+      "source_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
+      "source_signature": "theorem construction_winsAt_iff_winner_and_address\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) (s : Address r) :\n    WinsAt f C ℓ r x i s ↔\n      constructionWinner f C ℓ r x i ∧\n        ∃ hdef : ∀ h, promised f (readA x i h), s = trueAddress f x i hdef",
+      "source_signature_is_exact_substring": true,
+      "section_implicit_binders_needed": [
+        "{κ : Type}",
+        "{f : PartialBool κ}",
+        "{C : Circuit κ}",
+        "{ℓ r : ℕ}"
+      ],
+      "namespace": "QuarticQuery.Paper",
+      "open_namespaces": [],
+      "native_printed_type": "QuarticQuery.Paper.construction_winsAt_iff_winner_and_address {κ : Type} {f : QuarticQuery.PartialBool κ}\n  {C : QuarticQuery.Circuit κ} {ℓ r : Nat} (x : QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r C.size κ))\n  (i : QuarticQuery.Column ℓ) (s : QuarticQuery.Address r) :\n  Iff (QuarticQuery.WinsAt f C ℓ r x i s)\n    (And (QuarticQuery.Paper.constructionWinner f C ℓ r x i)\n      (Exists fun hdef => Eq s (QuarticQuery.trueAddress f x i hdef)))",
+      "ordinary_premises": [],
+      "open_unresolved_hypotheses": [],
+      "missing_clauses": [],
+      "relation_to_reviewed_row": "stronger",
+      "route": "none",
+      "review_note": "The public WinsAt predicate is equivalent to being a winner and having the supplied address equal to the true defined-answer address, for arbitrary partial functions and circuits.",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": true,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": false,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": false,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      },
+      "complete_type_source_restatement": "theorem QuarticQuery.Paper.construction_winsAt_iff_winner_and_address {κ : Type} {f : PartialBool κ} {C : Circuit κ} {ℓ r : ℕ}\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) (s : Address r) :\n    WinsAt f C ℓ r x i s ↔\n      constructionWinner f C ℓ r x i ∧\n        ∃ hdef : ∀ h, promised f (readA x i h), s = trueAddress f x i hdef"
+    },
+    {
+      "declaration": "QuarticQuery.Paper.construction_win_at_address_outputs",
+      "statement_ids": [
+        "def-win-at-address"
+      ],
+      "file": "repository/lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+      "source_sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
+      "source_signature": "theorem construction_win_at_address_outputs (hC : CircuitRealises C f)\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) (s : Address r) :\n    WinsAt f C ℓ r x i s ↔\n      (∀ j, readX x i j = true) ∧\n      (∀ h, readTranscript x i s h = circuitEval C (readA x i h)) ∧\n      (∀ h, readTranscript x i s h C.domainOut = true) ∧\n      (∀ h, readTranscript x i s h C.valueOut = s h) ∧\n      constructionOutwardPointers x i s",
+      "source_signature_is_exact_substring": true,
+      "section_implicit_binders_needed": [
+        "{κ : Type}",
+        "{f : PartialBool κ}",
+        "{C : Circuit κ}",
+        "{ℓ r : ℕ}"
+      ],
+      "namespace": "QuarticQuery.Paper",
+      "open_namespaces": [],
+      "native_printed_type": "QuarticQuery.Paper.construction_win_at_address_outputs {κ : Type} {f : QuarticQuery.PartialBool κ}\n  {C : QuarticQuery.Circuit κ} {ℓ r : Nat} (hC : QuarticQuery.CircuitRealises C f)\n  (x : QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r C.size κ)) (i : QuarticQuery.Column ℓ)\n  (s : QuarticQuery.Address r) :\n  Iff (QuarticQuery.WinsAt f C ℓ r x i s)\n    (And (∀ (j : QuarticQuery.Column ℓ), Eq (QuarticQuery.readX x i j) true)\n      (And\n        (∀ (h : Fin r),\n          Eq (QuarticQuery.readTranscript x i s h) (QuarticQuery.circuitEval C (QuarticQuery.readA x i h)))\n        (And (∀ (h : Fin r), Eq (QuarticQuery.readTranscript x i s h C.domainOut) true)\n          (And (∀ (h : Fin r), Eq (QuarticQuery.readTranscript x i s h C.valueOut) (s h))\n            (QuarticQuery.Paper.constructionOutwardPointers x i s)))))",
+      "ordinary_premises": [
+        "Circuit realization of the partial function; arbitrary input and selected address."
+      ],
+      "open_unresolved_hypotheses": [],
+      "missing_clauses": [],
+      "relation_to_reviewed_row": "partial",
+      "route": "same",
+      "review_note": "Under circuit realization, the same condition is expressed by the d and b output bits.",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": true,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": false,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": false,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      },
+      "complete_type_source_restatement": "theorem QuarticQuery.Paper.construction_win_at_address_outputs {κ : Type} {f : PartialBool κ} {C : Circuit κ} {ℓ r : ℕ} (hC : CircuitRealises C f)\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) (s : Address r) :\n    WinsAt f C ℓ r x i s ↔\n      (∀ j, readX x i j = true) ∧\n      (∀ h, readTranscript x i s h = circuitEval C (readA x i h)) ∧\n      (∀ h, readTranscript x i s h C.domainOut = true) ∧\n      (∀ h, readTranscript x i s h C.valueOut = s h) ∧\n      constructionOutwardPointers x i s"
+    },
+    {
+      "declaration": "QuarticQuery.Paper.construction_K_count",
+      "statement_ids": [
+        "def-K"
+      ],
+      "file": "repository/lean/QuarticQuery/Paper/ConstructionTests.lean",
+      "source_sha256": "06f1b3bc883881351e5e9cfa9ba8777f2f907897e69275b507132cc01ba0dccb",
+      "source_signature": "theorem construction_K_count (t S : ℕ) :\n    Fintype.card (TestIndex (2 * t) (40 * t) S) =\n      mValue t + (mValue t - 1) + 40 * t * (S + 2)",
+      "source_signature_is_exact_substring": true,
+      "section_implicit_binders_needed": [],
+      "namespace": "QuarticQuery.Paper",
+      "open_namespaces": [],
+      "native_printed_type": "QuarticQuery.Paper.construction_K_count (t S : Nat) :\n  Eq (Fintype.card (QuarticQuery.TestIndex (HMul.hMul 2 t) (HMul.hMul 40 t) S))\n    (HAdd.hAdd (HAdd.hAdd (QuarticQuery.mValue t) (HSub.hSub (QuarticQuery.mValue t) 1))\n      (HMul.hMul (HMul.hMul 40 t) (HAdd.hAdd S 2)))",
+      "ordinary_premises": [],
+      "open_unresolved_hypotheses": [],
+      "missing_clauses": [
+        "No single minimal declaration packages both the exact count and its uniform-in-t asymptotic quantifier; the component statements cover both."
+      ],
+      "relation_to_reviewed_row": "partial",
+      "route": "none",
+      "review_note": "The primary declaration gives the exact test count. The uniform cubic-logarithmic bound is separately construction_K_family; neither individual declaration conjoins count and bound.",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": true,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": false,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": false,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      },
+      "complete_type_source_restatement": "theorem QuarticQuery.Paper.construction_K_count (t S : ℕ) :\n    Fintype.card (TestIndex (2 * t) (40 * t) S) =\n      mValue t + (mValue t - 1) + 40 * t * (S + 2)"
+    },
+    {
+      "declaration": "QuarticQuery.Paper.construction_K_family",
+      "statement_ids": [
+        "def-K"
+      ],
+      "file": "repository/lean/QuarticQuery/Paper/ConstructionTests.lean",
+      "source_sha256": "06f1b3bc883881351e5e9cfa9ba8777f2f907897e69275b507132cc01ba0dccb",
+      "source_signature": "theorem construction_K_family (k : ℕ) (hk : 1 ≤ k) :\n    ∃ B : ℕ, ∀ t : ℕ, 1 ≤ t → ∃ C : Circuit (ForrelationCoord k t),\n      CircuitRealises C (P k t) ∧\n      Fintype.card (TestIndex (2 * t) (40 * t) C.size) ≤\n        B * mValue t * (2 * t) ^ 3",
+      "source_signature_is_exact_substring": true,
+      "section_implicit_binders_needed": [],
+      "namespace": "QuarticQuery.Paper",
+      "open_namespaces": [],
+      "native_printed_type": "QuarticQuery.Paper.construction_K_family (k : Nat) (hk : LE.le 1 k) :\n  Exists fun B =>\n    ∀ (t : Nat),\n      LE.le 1 t →\n        Exists fun C =>\n          And (QuarticQuery.CircuitRealises C (QuarticQuery.P k t))\n            (LE.le (Fintype.card (QuarticQuery.TestIndex (HMul.hMul 2 t) (HMul.hMul 40 t) C.size))\n              (HMul.hMul (HMul.hMul B (QuarticQuery.mValue t)) (HPow.hPow (HMul.hMul 2 t) 3)))",
+      "ordinary_premises": [
+        "k>=1; t>=1."
+      ],
+      "open_unresolved_hypotheses": [],
+      "missing_clauses": [],
+      "relation_to_reviewed_row": "partial",
+      "route": "same",
+      "review_note": "One k-dependent constant works for the actual realizing circuit at every t>=1.",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": true,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": false,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": false,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      },
+      "complete_type_source_restatement": "theorem QuarticQuery.Paper.construction_K_family (k : ℕ) (hk : 1 ≤ k) :\n    ∃ B : ℕ, ∀ t : ℕ, 1 ≤ t → ∃ C : Circuit (ForrelationCoord k t),\n      CircuitRealises C (P k t) ∧\n      Fintype.card (TestIndex (2 * t) (40 * t) C.size) ≤\n        B * mValue t * (2 * t) ^ 3"
+    },
+    {
+      "declaration": "QuarticQuery.Paper.construction_K_bound",
+      "statement_ids": [
+        "def-K"
+      ],
+      "file": "repository/lean/QuarticQuery/Paper/ConstructionTests.lean",
+      "source_sha256": "06f1b3bc883881351e5e9cfa9ba8777f2f907897e69275b507132cc01ba0dccb",
+      "source_signature": "theorem construction_K_bound (t S A : ℕ) (ht : 1 ≤ t)\n    (hS : S ≤ A * mValue t * (2 * t) ^ 2) :\n    Fintype.card (TestIndex (2 * t) (40 * t) S) ≤\n      (42 + 20 * A) * mValue t * (2 * t) ^ 3",
+      "source_signature_is_exact_substring": true,
+      "section_implicit_binders_needed": [],
+      "namespace": "QuarticQuery.Paper",
+      "open_namespaces": [],
+      "native_printed_type": "QuarticQuery.Paper.construction_K_bound (t S A : Nat) (ht : LE.le 1 t)\n  (hS : LE.le S (HMul.hMul (HMul.hMul A (QuarticQuery.mValue t)) (HPow.hPow (HMul.hMul 2 t) 2))) :\n  LE.le (Fintype.card (QuarticQuery.TestIndex (HMul.hMul 2 t) (HMul.hMul 40 t) S))\n    (HMul.hMul (HMul.hMul (HAdd.hAdd 42 (HMul.hMul 20 A)) (QuarticQuery.mValue t)) (HPow.hPow (HMul.hMul 2 t) 3))",
+      "ordinary_premises": [
+        "t>=1; S<=A*mValue(t)*(2t)^2."
+      ],
+      "open_unresolved_hypotheses": [],
+      "missing_clauses": [],
+      "relation_to_reviewed_row": "partial",
+      "route": "same",
+      "review_note": "A size bound S<=A m (2t)^2 gives K<=(42+20A)m(2t)^3.",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": true,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": false,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": false,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      },
+      "complete_type_source_restatement": "theorem QuarticQuery.Paper.construction_K_bound (t S A : ℕ) (ht : 1 ≤ t)\n    (hS : S ≤ A * mValue t * (2 * t) ^ 2) :\n    Fintype.card (TestIndex (2 * t) (40 * t) S) ≤\n      (42 + 20 * A) * mValue t * (2 * t) ^ 3"
+    },
+    {
+      "declaration": "QuarticQuery.Paper.construction_lemma_2_2_i",
+      "statement_ids": [
+        "lem-2.2.i"
+      ],
+      "file": "repository/lean/QuarticQuery/Paper/ConstructionTests.lean",
+      "source_sha256": "06f1b3bc883881351e5e9cfa9ba8777f2f907897e69275b507132cc01ba0dccb",
+      "source_signature": "theorem construction_lemma_2_2_i {κ : Type} {f : PartialBool κ} (C : Circuit κ)\n    (ℓ r : ℕ) (hC : CircuitRealises C f) :\n    (∀ (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) (s : Address r),\n      PaperWinsAt f C ℓ r x i s ↔\n        ∀ e : TestIndex ℓ r C.size, localTest C ℓ r x i s e = true) ∧\n    (∀ (i : Column ℓ) (s : Address r) (e : TestIndex ℓ r C.size),\n      (∀ x, (localTestTree C ℓ r i s e).eval x = localTest C ℓ r x i s e) ∧\n      (localTestTree C ℓ r i s e).depth ≤ max 3 (ℓ + 1))",
+      "source_signature_is_exact_substring": true,
+      "section_implicit_binders_needed": [],
+      "namespace": "QuarticQuery.Paper",
+      "open_namespaces": [],
+      "native_printed_type": "QuarticQuery.Paper.construction_lemma_2_2_i {κ : Type} {f : QuarticQuery.PartialBool κ} (C : QuarticQuery.Circuit κ)\n  (ℓ r : Nat) (hC : QuarticQuery.CircuitRealises C f) :\n  And\n    (∀ (x : QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r C.size κ)) (i : QuarticQuery.Column ℓ)\n      (s : QuarticQuery.Address r),\n      Iff (QuarticQuery.PaperWinsAt f C ℓ r x i s)\n        (∀ (e : QuarticQuery.TestIndex ℓ r C.size), Eq (QuarticQuery.localTest C ℓ r x i s e) true))\n    (∀ (i : QuarticQuery.Column ℓ) (s : QuarticQuery.Address r) (e : QuarticQuery.TestIndex ℓ r C.size),\n      And\n        (∀ (x : QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r C.size κ)),\n          Eq ((QuarticQuery.localTestTree C ℓ r i s e).eval x) (QuarticQuery.localTest C ℓ r x i s e))\n        (LE.le (QuarticQuery.localTestTree C ℓ r i s e).depth (max 3 (HAdd.hAdd ℓ 1))))",
+      "ordinary_premises": [
+        "C realizes the specified partial function; this is supplied by forrCircuit_realises in the paper instance."
+      ],
+      "open_unresolved_hypotheses": [],
+      "missing_clauses": [
+        "The primary declaration does not conjoin its positive test/depth theorem with the corrected row's essential-coordinate qualification."
+      ],
+      "relation_to_reviewed_row": "partial",
+      "route": "same",
+      "review_note": "The exact conjunction-of-tests characterization and adaptive depth bound match the positive corrected statement. The negative fixed-support qualification is separately proved on full physical inputs; the original support sentence is false.",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": true,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": false,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": false,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      },
+      "complete_type_source_restatement": "theorem QuarticQuery.Paper.construction_lemma_2_2_i {κ : Type} {f : PartialBool κ} (C : Circuit κ)\n    (ℓ r : ℕ) (hC : CircuitRealises C f) :\n    (∀ (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) (s : Address r),\n      PaperWinsAt f C ℓ r x i s ↔\n        ∀ e : TestIndex ℓ r C.size, localTest C ℓ r x i s e = true) ∧\n    (∀ (i : Column ℓ) (s : Address r) (e : TestIndex ℓ r C.size),\n      (∀ x, (localTestTree C ℓ r i s e).eval x = localTest C ℓ r x i s e) ∧\n      (localTestTree C ℓ r i s e).depth ≤ max 3 (ℓ + 1))"
+    },
+    {
+      "declaration": "QuarticQuery.Paper.construction_pointer_every_physical_coordinate",
+      "statement_ids": [
+        "lem-2.2.i"
+      ],
+      "file": "repository/lean/QuarticQuery/Paper/ConstructionPointerSupport.lean",
+      "source_sha256": "8a2d8befa3225ab54114492b35c5a326fc17bd8f0a5eaa9acba966c18db53938",
+      "source_signature": "theorem construction_pointer_every_physical_coordinate {κ : Type} (C : Circuit κ)\n    (ℓ r : ℕ) (i : Column ℓ) (s : Address r) (e : Fin (2 ^ ℓ - 1))\n    (q : Fin ℓ ⊕ Column ℓ) :\n    ∃ X Y : BitInput (BitLoc ℓ r C.size κ),\n      (∀ p, p ≠ constructionPointerLoc C ℓ r i s e q → X p = Y p) ∧\n        localTest C ℓ r X i s (.inr (.inl e)) ≠\n          localTest C ℓ r Y i s (.inr (.inl e))",
+      "source_signature_is_exact_substring": true,
+      "section_implicit_binders_needed": [],
+      "namespace": "QuarticQuery.Paper",
+      "open_namespaces": [],
+      "native_printed_type": "QuarticQuery.Paper.construction_pointer_every_physical_coordinate {κ : Type} (C : QuarticQuery.Circuit κ) (ℓ r : Nat)\n  (i : QuarticQuery.Column ℓ) (s : QuarticQuery.Address r) (e : Fin (HSub.hSub (HPow.hPow 2 ℓ) 1))\n  (q : Sum (Fin ℓ) (QuarticQuery.Column ℓ)) :\n  Exists fun X =>\n    Exists fun Y =>\n      And\n        (∀ (p : QuarticQuery.BitLoc ℓ r C.size κ),\n          Ne p (QuarticQuery.Paper.constructionPointerLoc C ℓ r i s e q) → Eq (X p) (Y p))\n        (Ne (QuarticQuery.localTest C ℓ r X i s (Sum.inr (Sum.inl e)))\n          (QuarticQuery.localTest C ℓ r Y i s (Sum.inr (Sum.inl e))))",
+      "ordinary_premises": [
+        "A valid nonself pointer-test index and a selected pointer/target coordinate."
+      ],
+      "open_unresolved_hypotheses": [],
+      "missing_clauses": [],
+      "relation_to_reviewed_row": "partial",
+      "route": "same",
+      "review_note": "Every physical pointer-word and potential target coordinate is essential, confirming why adaptive depth cannot be replaced by fixed support.",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": true,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": false,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": false,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      },
+      "complete_type_source_restatement": "theorem QuarticQuery.Paper.construction_pointer_every_physical_coordinate {κ : Type} (C : Circuit κ)\n    (ℓ r : ℕ) (i : Column ℓ) (s : Address r) (e : Fin (2 ^ ℓ - 1))\n    (q : Fin ℓ ⊕ Column ℓ) :\n    ∃ X Y : BitInput (BitLoc ℓ r C.size κ),\n      (∀ p, p ≠ constructionPointerLoc C ℓ r i s e q → X p = Y p) ∧\n        localTest C ℓ r X i s (.inr (.inl e)) ≠\n          localTest C ℓ r Y i s (.inr (.inl e))"
+    },
+    {
+      "declaration": "QuarticQuery.Paper.construction_lemma_2_2_ii",
+      "statement_ids": [
+        "lem-2.2.ii"
+      ],
+      "file": "repository/lean/QuarticQuery/Paper/ConstructionCoherent.lean",
+      "source_sha256": "5e5f5c2321e7c1ce23235e69e1f430fd951f13cc92b5a2d1b2d974aad0607cec",
+      "source_signature": "theorem construction_lemma_2_2_ii {κ : Type} (C : Circuit κ) (ℓ r : ℕ)\n    (i : Column ℓ) (s : Address r) :\n    ∃ (Z : TestIndex ℓ r C.size → Type) (instZ : ∀ e, Fintype (Z e)),\n      let _ := instZ\n      ∃ (o : ∀ e, Z e) (out : ∀ e, Z e → Bool)\n        (F : ∀ e, BitInput (BitLoc ℓ r C.size κ) → Reg (Z e) ≃ₗᵢ[ℂ] Reg (Z e)),\n        (∀ e, IsCirc (max 3 (ℓ + 1)) (F e)) ∧\n        IsCirc (max 3 (ℓ + 1)) (fun x => sigmaOp fun e => F e x) ∧\n        (∀ (x : BitInput (BitLoc ℓ r C.size κ))\n            (a : TestIndex ℓ r C.size → ℂ) (e : TestIndex ℓ r C.size),\n          slice e (sigmaOp (fun e => F e x) (constructionIndexStart o a)) =\n            a e • F e x (rket (o e))) ∧\n        (∀ (x : BitInput (BitLoc ℓ r C.size κ))\n            (e : TestIndex ℓ r C.size) (z : Z e),\n          out e z ≠ localTest C ℓ r x i s e →\n            (F e x (rket (o e))).ofLp z = 0)",
+      "source_signature_is_exact_substring": true,
+      "section_implicit_binders_needed": [],
+      "namespace": "QuarticQuery.Paper",
+      "open_namespaces": [
+        "QuarticQuery.Upper"
+      ],
+      "native_printed_type": "QuarticQuery.Paper.construction_lemma_2_2_ii {κ : Type} (C : QuarticQuery.Circuit κ) (ℓ r : Nat)\n  (i : QuarticQuery.Column ℓ) (s : QuarticQuery.Address r) :\n  Exists fun Z =>\n    Exists fun instZ =>\n      let x := instZ;\n      Exists fun o =>\n        Exists fun out =>\n          Exists fun F =>\n            And (∀ (e : QuarticQuery.TestIndex ℓ r C.size), QuarticQuery.Upper.IsCirc (max 3 (HAdd.hAdd ℓ 1)) (F e))\n              (And\n                (QuarticQuery.Upper.IsCirc (max 3 (HAdd.hAdd ℓ 1)) fun x_1 =>\n                  QuarticQuery.Upper.sigmaOp fun e => F e x_1)\n                (And\n                  (∀ (x_1 : QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r C.size κ))\n                    (a : QuarticQuery.TestIndex ℓ r C.size → Complex) (e : QuarticQuery.TestIndex ℓ r C.size),\n                    Eq\n                      ((QuarticQuery.Upper.slice e)\n                        ((QuarticQuery.Upper.sigmaOp fun e => F e x_1) (QuarticQuery.Paper.constructionIndexStart o a)))\n                      (HSMul.hSMul (a e) ((F e x_1) (QuarticQuery.Upper.rket (o e)))))\n                  (∀ (x_1 : QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r C.size κ))\n                    (e : QuarticQuery.TestIndex ℓ r C.size) (z : Z e),\n                    Ne (out e z) (QuarticQuery.localTest C ℓ r x_1 i s e) →\n                      Eq (((F e x_1) (QuarticQuery.Upper.rket (o e))).ofLp z) 0)))",
+      "ordinary_premises": [
+        "Finite local-test index type; arbitrary complex coefficients."
+      ],
+      "open_unresolved_hypotheses": [],
+      "missing_clauses": [],
+      "relation_to_reviewed_row": "partial",
+      "route": "same",
+      "review_note": "The primary declaration gives arbitrary complex index superpositions and zero wrong-label amplitudes at a common logical-read cap. The physical continuation cap is stated in construction_lemma_2_2_complete for the specified circuit family.",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": true,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": false,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": false,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      },
+      "complete_type_source_restatement": "theorem QuarticQuery.Paper.construction_lemma_2_2_ii {κ : Type} (C : Circuit κ) (ℓ r : ℕ)\n    (i : Column ℓ) (s : Address r) :\n    ∃ (Z : TestIndex ℓ r C.size → Type) (instZ : ∀ e, Fintype (Z e)),\n      let _ := instZ\n      ∃ (o : ∀ e, Z e) (out : ∀ e, Z e → Bool)\n        (F : ∀ e, BitInput (BitLoc ℓ r C.size κ) → Reg (Z e) ≃ₗᵢ[ℂ] Reg (Z e)),\n        (∀ e, IsCirc (max 3 (ℓ + 1)) (F e)) ∧\n        IsCirc (max 3 (ℓ + 1)) (fun x => sigmaOp fun e => F e x) ∧\n        (∀ (x : BitInput (BitLoc ℓ r C.size κ))\n            (a : TestIndex ℓ r C.size → ℂ) (e : TestIndex ℓ r C.size),\n          slice e (sigmaOp (fun e => F e x) (constructionIndexStart o a)) =\n            a e • F e x (rket (o e))) ∧\n        (∀ (x : BitInput (BitLoc ℓ r C.size κ))\n            (e : TestIndex ℓ r C.size) (z : Z e),\n          out e z ≠ localTest C ℓ r x i s e →\n            (F e x (rket (o e))).ofLp z = 0)"
+    },
+    {
+      "declaration": "QuarticQuery.Paper.construction_lemma_2_2_complete",
+      "statement_ids": [
+        "lem-2.2.ii",
+        "lem-2.2"
+      ],
+      "file": "repository/lean/QuarticQuery/Paper/ConstructionComplete.lean",
+      "source_sha256": "a79e9f0cdbf85df0e86605711fa6c8bde2a19cbe043c36302243b42a7f8fbc6c",
+      "source_signature": "theorem construction_lemma_2_2_complete {k t : ℕ}\n    (C : Circuit (ForrelationCoord k t)) (A : ℕ) (ht : 1 ≤ t)\n    (hC : CircuitRealises C (P k t))\n    (hS : C.size ≤ A * mValue t * (2 * t) ^ 2) :\n    Fintype.card (TestIndex (2 * t) (40 * t) C.size) =\n      mValue t + (mValue t - 1) + 40 * t * (C.size + 2) ∧\n    Fintype.card (TestIndex (2 * t) (40 * t) C.size) ≤\n      (42 + 20 * A) * mValue t * (2 * t) ^ 3 ∧\n    (∀ (x : BitInput (Loc k t C)) (i : Column (2 * t)) (s : Address (40 * t)),\n      PaperWinsAt (P k t) C (2 * t) (40 * t) x i s ↔\n        ∀ e : TestIndex (2 * t) (40 * t) C.size,\n          localTest C (2 * t) (40 * t) x i s e = true) ∧\n    (∀ (i : Column (2 * t)) (s : Address (40 * t))\n        (e : TestIndex (2 * t) (40 * t) C.size),\n      (∀ x, (localTestTree C (2 * t) (40 * t) i s e).eval x =\n        localTest C (2 * t) (40 * t) x i s e) ∧\n      (localTestTree C (2 * t) (40 * t) i s e).depth ≤ 2 * t + 1) ∧\n    (∀ (i : Column (2 * t)) (s : Address (40 * t)),\n      ∃ (Z : TestIndex (2 * t) (40 * t) C.size → Type)\n        (instZ : ∀ e, Fintype (Z e)),\n        let _ := instZ\n        ∃ (o : ∀ e, Z e) (out : ∀ e, Z e → Bool)\n          (F : ∀ e, BitInput (Loc k t C) → Reg (Z e) ≃ₗᵢ[ℂ] Reg (Z e)),\n          (∀ e, IsCirc (max 3 (2 * t + 1)) (F e)) ∧\n          IsCirc (max 3 (2 * t + 1)) (fun x => sigmaOp fun e => F e x) ∧\n          (∀ (x : BitInput (Loc k t C))\n              (a : TestIndex (2 * t) (40 * t) C.size → ℂ)\n              (e : TestIndex (2 * t) (40 * t) C.size),\n            slice e (sigmaOp (fun e => F e x) (constructionIndexStart o a)) =\n              a e • F e x (rket (o e))) ∧\n          (∀ (x : BitInput (Loc k t C))\n              (e : TestIndex (2 * t) (40 * t) C.size) (z : Z e),\n            out e z ≠ localTest C (2 * t) (40 * t) x i s e →\n              (F e x (rket (o e))).ofLp z = 0) ∧\n          ∃ (w : ℕ) (emb : (Σ e, Z e) ↪ Fin (w + 1))\n            (P : AdaptiveProgram (Loc k t C) w → AdaptiveProgram (Loc k t C) w),\n            ∀ next, (P next).queryCap ≤ 2 * (2 * t + 1) + next.queryCap ∧\n              ∀ x ψ b, (P next).outputMass x (clEmb emb ψ) b =\n                next.outputMass x\n                  (clEmb emb (sigmaOp (fun e => F e x) ψ)) b)",
+      "source_signature_is_exact_substring": true,
+      "section_implicit_binders_needed": [],
+      "namespace": "QuarticQuery.Paper",
+      "open_namespaces": [
+        "QuarticQuery.Upper"
+      ],
+      "native_printed_type": "QuarticQuery.Paper.construction_lemma_2_2_complete {k t : Nat}\n  (C : QuarticQuery.Circuit (QuarticQuery.ForrelationCoord k t)) (A : Nat) (ht : LE.le 1 t)\n  (hC : QuarticQuery.CircuitRealises C (QuarticQuery.P k t))\n  (hS : LE.le C.size (HMul.hMul (HMul.hMul A (QuarticQuery.mValue t)) (HPow.hPow (HMul.hMul 2 t) 2))) :\n  And\n    (Eq (Fintype.card (QuarticQuery.TestIndex (HMul.hMul 2 t) (HMul.hMul 40 t) C.size))\n      (HAdd.hAdd (HAdd.hAdd (QuarticQuery.mValue t) (HSub.hSub (QuarticQuery.mValue t) 1))\n        (HMul.hMul (HMul.hMul 40 t) (HAdd.hAdd C.size 2))))\n    (And\n      (LE.le (Fintype.card (QuarticQuery.TestIndex (HMul.hMul 2 t) (HMul.hMul 40 t) C.size))\n        (HMul.hMul (HMul.hMul (HAdd.hAdd 42 (HMul.hMul 20 A)) (QuarticQuery.mValue t)) (HPow.hPow (HMul.hMul 2 t) 3)))\n      (And\n        (∀ (x : QuarticQuery.BitInput (QuarticQuery.Upper.Loc k t C)) (i : QuarticQuery.Column (HMul.hMul 2 t))\n          (s : QuarticQuery.Address (HMul.hMul 40 t)),\n          Iff (QuarticQuery.PaperWinsAt (QuarticQuery.P k t) C (HMul.hMul 2 t) (HMul.hMul 40 t) x i s)\n            (∀ (e : QuarticQuery.TestIndex (HMul.hMul 2 t) (HMul.hMul 40 t) C.size),\n              Eq (QuarticQuery.localTest C (HMul.hMul 2 t) (HMul.hMul 40 t) x i s e) true))\n        (And\n          (∀ (i : QuarticQuery.Column (HMul.hMul 2 t)) (s : QuarticQuery.Address (HMul.hMul 40 t))\n            (e : QuarticQuery.TestIndex (HMul.hMul 2 t) (HMul.hMul 40 t) C.size),\n            And\n              (∀\n                (x :\n                  QuarticQuery.BitInput\n                    (QuarticQuery.BitLoc (HMul.hMul 2 t) (HMul.hMul 40 t) C.size (QuarticQuery.ForrelationCoord k t))),\n                Eq ((QuarticQuery.localTestTree C (HMul.hMul 2 t) (HMul.hMul 40 t) i s e).eval x)\n                  (QuarticQuery.localTest C (HMul.hMul 2 t) (HMul.hMul 40 t) x i s e))\n              (LE.le (QuarticQuery.localTestTree C (HMul.hMul 2 t) (HMul.hMul 40 t) i s e).depth\n                (HAdd.hAdd (HMul.hMul 2 t) 1)))\n          (∀ (i : QuarticQuery.Column (HMul.hMul 2 t)) (s : QuarticQuery.Address (HMul.hMul 40 t)),\n            Exists fun Z =>\n              Exists fun instZ =>\n                have x := instZ;\n                Exists fun o =>\n                  Exists fun out =>\n                    Exists fun F =>\n                      And\n                        (∀ (e : QuarticQuery.TestIndex (HMul.hMul 2 t) (HMul.hMul 40 t) C.size),\n                          QuarticQuery.Upper.IsCirc (max 3 (HAdd.hAdd (HMul.hMul 2 t) 1)) (F e))\n                        (And\n                          (QuarticQuery.Upper.IsCirc (max 3 (HAdd.hAdd (HMul.hMul 2 t) 1)) fun x_1 =>\n                            QuarticQuery.Upper.sigmaOp fun e => F e x_1)\n                          (And\n                            (∀ (x_1 : QuarticQuery.BitInput (QuarticQuery.Upper.Loc k t C))\n                              (a : QuarticQuery.TestIndex (HMul.hMul 2 t) (HMul.hMul 40 t) C.size → Complex)\n                              (e : QuarticQuery.TestIndex (HMul.hMul 2 t) (HMul.hMul 40 t) C.size),\n                              Eq\n                                ((QuarticQuery.Upper.slice e)\n                                  ((QuarticQuery.Upper.sigmaOp fun e => F e x_1)\n                                    (QuarticQuery.Paper.constructionIndexStart o a)))\n                                (HSMul.hSMul (a e) ((F e x_1) (QuarticQuery.Upper.rket (o e)))))\n                            (And\n                              (∀ (x_1 : QuarticQuery.BitInput (QuarticQuery.Upper.Loc k t C))\n                                (e : QuarticQuery.TestIndex (HMul.hMul 2 t) (HMul.hMul 40 t) C.size) (z : Z e),\n                                Ne (out e z) (QuarticQuery.localTest C (HMul.hMul 2 t) (HMul.hMul 40 t) x_1 i s e) →\n                                  Eq (((F e x_1) (QuarticQuery.Upper.rket (o e))).ofLp z) 0)\n                              (Exists fun w =>\n                                Exists fun emb =>\n                                  Exists fun P =>\n                                    ∀ (next : QuarticQuery.AdaptiveProgram (QuarticQuery.Upper.Loc k t C) w),\n                                      And\n                                        (LE.le (P next).queryCap\n                                          (HAdd.hAdd (HMul.hMul 2 (HAdd.hAdd (HMul.hMul 2 t) 1)) next.queryCap))\n                                        (∀ (x_1 : QuarticQuery.BitInput (QuarticQuery.Upper.Loc k t C))\n                                          (ψ : QuarticQuery.Upper.Reg (Sigma fun e => Z e)) (b : Bool),\n                                          Eq ((P next).outputMass x_1 ((QuarticQuery.Upper.clEmb emb) ψ) b)\n                                            (next.outputMass x_1\n                                              ((QuarticQuery.Upper.clEmb emb)\n                                                ((QuarticQuery.Upper.sigmaOp fun e => F e x_1) ψ))\n                                              b))))))))))",
+      "ordinary_premises": [
+        "t>=1; C realizes P; C.size<=A*mValue(t)*(2t)^2; these properties are supplied for the specified circuit."
+      ],
+      "open_unresolved_hypotheses": [],
+      "missing_clauses": [],
+      "relation_to_reviewed_row": "stronger",
+      "route": "same",
+      "review_note": "For the realizing circuit with its supplied size bound, the same controlled isometry compiles on every state and continuation with at most 2(log₂m+1) bit queries.",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": true,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": false,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": false,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      },
+      "complete_type_source_restatement": "theorem QuarticQuery.Paper.construction_lemma_2_2_complete {k t : ℕ}\n    (C : Circuit (ForrelationCoord k t)) (A : ℕ) (ht : 1 ≤ t)\n    (hC : CircuitRealises C (P k t))\n    (hS : C.size ≤ A * mValue t * (2 * t) ^ 2) :\n    Fintype.card (TestIndex (2 * t) (40 * t) C.size) =\n      mValue t + (mValue t - 1) + 40 * t * (C.size + 2) ∧\n    Fintype.card (TestIndex (2 * t) (40 * t) C.size) ≤\n      (42 + 20 * A) * mValue t * (2 * t) ^ 3 ∧\n    (∀ (x : BitInput (Loc k t C)) (i : Column (2 * t)) (s : Address (40 * t)),\n      PaperWinsAt (P k t) C (2 * t) (40 * t) x i s ↔\n        ∀ e : TestIndex (2 * t) (40 * t) C.size,\n          localTest C (2 * t) (40 * t) x i s e = true) ∧\n    (∀ (i : Column (2 * t)) (s : Address (40 * t))\n        (e : TestIndex (2 * t) (40 * t) C.size),\n      (∀ x, (localTestTree C (2 * t) (40 * t) i s e).eval x =\n        localTest C (2 * t) (40 * t) x i s e) ∧\n      (localTestTree C (2 * t) (40 * t) i s e).depth ≤ 2 * t + 1) ∧\n    (∀ (i : Column (2 * t)) (s : Address (40 * t)),\n      ∃ (Z : TestIndex (2 * t) (40 * t) C.size → Type)\n        (instZ : ∀ e, Fintype (Z e)),\n        let _ := instZ\n        ∃ (o : ∀ e, Z e) (out : ∀ e, Z e → Bool)\n          (F : ∀ e, BitInput (Loc k t C) → Reg (Z e) ≃ₗᵢ[ℂ] Reg (Z e)),\n          (∀ e, IsCirc (max 3 (2 * t + 1)) (F e)) ∧\n          IsCirc (max 3 (2 * t + 1)) (fun x => sigmaOp fun e => F e x) ∧\n          (∀ (x : BitInput (Loc k t C))\n              (a : TestIndex (2 * t) (40 * t) C.size → ℂ)\n              (e : TestIndex (2 * t) (40 * t) C.size),\n            slice e (sigmaOp (fun e => F e x) (constructionIndexStart o a)) =\n              a e • F e x (rket (o e))) ∧\n          (∀ (x : BitInput (Loc k t C))\n              (e : TestIndex (2 * t) (40 * t) C.size) (z : Z e),\n            out e z ≠ localTest C (2 * t) (40 * t) x i s e →\n              (F e x (rket (o e))).ofLp z = 0) ∧\n          ∃ (w : ℕ) (emb : (Σ e, Z e) ↪ Fin (w + 1))\n            (P : AdaptiveProgram (Loc k t C) w → AdaptiveProgram (Loc k t C) w),\n            ∀ next, (P next).queryCap ≤ 2 * (2 * t + 1) + next.queryCap ∧\n              ∀ x ψ b, (P next).outputMass x (clEmb emb ψ) b =\n                next.outputMass x\n                  (clEmb emb (sigmaOp (fun e => F e x) ψ)) b)"
+    },
+    {
+      "declaration": "QuarticQuery.Paper.construction_local_dichotomy",
+      "statement_ids": [
+        "cor-local-dichotomy"
+      ],
+      "file": "repository/lean/QuarticQuery/Paper/ConstructionTests.lean",
+      "source_sha256": "06f1b3bc883881351e5e9cfa9ba8777f2f907897e69275b507132cc01ba0dccb",
+      "source_signature": "theorem construction_local_dichotomy {κ : Type} {f : PartialBool κ}\n    {C : Circuit κ} {ℓ r : ℕ} (hC : CircuitRealises C f)\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) :\n    (constructionWinner f C ℓ r x i →\n      ∃ s : Address r, ∀ e : TestIndex ℓ r C.size,\n        localTest C ℓ r x i s e = true) ∧\n    (¬ constructionWinner f C ℓ r x i →\n      ∀ s : Address r, ∃ e : TestIndex ℓ r C.size,\n        localTest C ℓ r x i s e = false)",
+      "source_signature_is_exact_substring": true,
+      "section_implicit_binders_needed": [],
+      "namespace": "QuarticQuery.Paper",
+      "open_namespaces": [],
+      "native_printed_type": "QuarticQuery.Paper.construction_local_dichotomy {κ : Type} {f : QuarticQuery.PartialBool κ} {C : QuarticQuery.Circuit κ}\n  {ℓ r : Nat} (hC : QuarticQuery.CircuitRealises C f) (x : QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r C.size κ))\n  (i : QuarticQuery.Column ℓ) :\n  And\n    (QuarticQuery.Paper.constructionWinner f C ℓ r x i →\n      Exists fun s => ∀ (e : QuarticQuery.TestIndex ℓ r C.size), Eq (QuarticQuery.localTest C ℓ r x i s e) true)\n    (Not (QuarticQuery.Paper.constructionWinner f C ℓ r x i) →\n      ∀ (s : QuarticQuery.Address r), Exists fun e => Eq (QuarticQuery.localTest C ℓ r x i s e) false)",
+      "ordinary_premises": [
+        "Circuit realization, discharged for the actual circuit."
+      ],
+      "open_unresolved_hypotheses": [],
+      "missing_clauses": [],
+      "relation_to_reviewed_row": "stronger",
+      "route": "same",
+      "review_note": "Winning columns have an all-passing address and nonwinners have a failed test at every address, for arbitrary realizing circuits and partial functions.",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": true,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": false,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": false,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      },
+      "complete_type_source_restatement": "theorem QuarticQuery.Paper.construction_local_dichotomy {κ : Type} {f : PartialBool κ}\n    {C : Circuit κ} {ℓ r : ℕ} (hC : CircuitRealises C f)\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) :\n    (constructionWinner f C ℓ r x i →\n      ∃ s : Address r, ∀ e : TestIndex ℓ r C.size,\n        localTest C ℓ r x i s e = true) ∧\n    (¬ constructionWinner f C ℓ r x i →\n      ∀ s : Address r, ∃ e : TestIndex ℓ r C.size,\n        localTest C ℓ r x i s e = false)"
+    },
+    {
+      "declaration": "QuarticQuery.Paper.quantumWinner_dominates",
+      "statement_ids": [
+        "claim-winner-dominates"
+      ],
+      "file": "repository/lean/QuarticQuery/Paper/QuantumComparison.lean",
+      "source_sha256": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+      "source_signature": "theorem quantumWinner_dominates (hk : 1 ≤ k) (ht : 1 ≤ t)\n    {n : ℕ} {ε : ℝ} (hε : 0 < ε) (hε1 : ε ≤ 1)\n    (hn : repetitions k (ε / (40 * t : ℕ)) ≤ n)\n    {x : BitInput (Loc k t C)} {i : Col t} {s : Addr t}\n    (hw : WinsAt (P k t) C (2 * t) (40 * t) x i s)\n    (j : Col t) (hji : j ≠ i) :\n    1 - ε ≤ cmpProb n x i j",
+      "source_signature_is_exact_substring": true,
+      "section_implicit_binders_needed": [
+        "{k t : ℕ}",
+        "{C : Circuit (ForrelationCoord k t)}"
+      ],
+      "namespace": "QuarticQuery.Paper",
+      "open_namespaces": [
+        "QuarticQuery.Upper",
+        "QuarticQuery.Forrelation",
+        "QuarticQuery.Tournament",
+        "QuarticQuery.Amplification"
+      ],
+      "native_printed_type": "QuarticQuery.Paper.quantumWinner_dominates {k t : Nat} {C : QuarticQuery.Circuit (QuarticQuery.ForrelationCoord k t)}\n  (hk : LE.le 1 k) (ht : LE.le 1 t) {n : Nat} {ε : Real} (hε : LT.lt 0 ε) (hε1 : LE.le ε 1)\n  (hn : LE.le (QuarticQuery.Forrelation.repetitions k (HDiv.hDiv ε ↑(HMul.hMul 40 t))) n)\n  {x : QuarticQuery.BitInput (QuarticQuery.Upper.Loc k t C)} {i : QuarticQuery.Upper.Col t}\n  {s : QuarticQuery.Upper.Addr t}\n  (hw : QuarticQuery.WinsAt (QuarticQuery.P k t) C (HMul.hMul 2 t) (HMul.hMul 40 t) x i s)\n  (j : QuarticQuery.Upper.Col t) (hji : Ne j i) : LE.le (HSub.hSub 1 ε) (QuarticQuery.Upper.cmpProb n x i j)",
+      "ordinary_premises": [
+        "k>=1; t>=1; 0<epsilon<=1; prescribed repetitions; a WinsAt witness for the winner; opponent is distinct."
+      ],
+      "open_unresolved_hypotheses": [],
+      "missing_clauses": [],
+      "relation_to_reviewed_row": "exact",
+      "route": "same",
+      "review_note": "A winner beats every other column with probability at least 1-epsilon, using only the winner's own promised instances. No opponent promise appears.",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": true,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": false,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": false,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      },
+      "complete_type_source_restatement": "theorem QuarticQuery.Paper.quantumWinner_dominates {k t : ℕ} {C : Circuit (ForrelationCoord k t)} (hk : 1 ≤ k) (ht : 1 ≤ t)\n    {n : ℕ} {ε : ℝ} (hε : 0 < ε) (hε1 : ε ≤ 1)\n    (hn : repetitions k (ε / (40 * t : ℕ)) ≤ n)\n    {x : BitInput (Loc k t C)} {i : Col t} {s : Addr t}\n    (hw : WinsAt (P k t) C (2 * t) (40 * t) x i s)\n    (j : Col t) (hji : j ≠ i) :\n    1 - ε ≤ cmpProb n x i j"
+    },
+    {
+      "declaration": "QuarticQuery.gateConsistent_iff_eq_circuitEval",
+      "statement_ids": [
+        "def-eval-transcript"
+      ],
+      "file": "repository/lean/QuarticQuery/Construction/Transcript.lean",
+      "source_sha256": "e2fd95c77c8ef1616201219302415069411aaac88060f3f75ec24e7b0626608f",
+      "complete_type_source_restatement": "theorem QuarticQuery.gateConsistent_iff_eq_circuitEval {ι : Type}\n    {C : QuarticQuery.Circuit ι} {x : QuarticQuery.BitInput ι}\n    {tr : Fin C.size → Bool} :\n    QuarticQuery.GateConsistent C x tr ↔ tr = QuarticQuery.circuitEval C x",
+      "type_origin": "Current source statement with implicit section binders made explicit by source inspection; no new Lean execution.",
+      "ordinary_premises": [],
+      "open_unresolved_hypotheses": [],
+      "relation_to_reviewed_row": "exact",
+      "route": "same",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": false,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": false,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": false,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      }
+    },
+    {
+      "declaration": "QuarticQuery.existsUnique_gateConsistent",
+      "statement_ids": [
+        "def-transcript"
+      ],
+      "file": "repository/lean/QuarticQuery/Construction/Transcript.lean",
+      "source_sha256": "e2fd95c77c8ef1616201219302415069411aaac88060f3f75ec24e7b0626608f",
+      "complete_type_source_restatement": "theorem QuarticQuery.existsUnique_gateConsistent {ι : Type}\n    (C : QuarticQuery.Circuit ι) (x : QuarticQuery.BitInput ι) :\n    ∃! tr : Fin C.size → Bool, QuarticQuery.GateConsistent C x tr",
+      "type_origin": "Current source statement with implicit section binders made explicit by source inspection; no new Lean execution.",
+      "ordinary_premises": [],
+      "open_unresolved_hypotheses": [],
+      "relation_to_reviewed_row": "exact",
+      "route": "same",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": false,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": false,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      }
+    },
+    {
+      "declaration": "QuarticQuery.winsAt_unique",
+      "statement_ids": [
+        "cor-unique-winner"
+      ],
+      "file": "repository/lean/QuarticQuery/Construction/Winner.lean",
+      "source_sha256": "3c6b894e842fc90acd7a09b9ff14ce3ae2f09bfbf2dc7f2195751a396db7017c",
+      "complete_type_source_restatement": "theorem QuarticQuery.winsAt_unique {κ : Type}\n    {f : QuarticQuery.PartialBool κ} {C : QuarticQuery.Circuit κ} {ℓ r : ℕ}\n    {x : QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r C.size κ)}\n    {i i' : QuarticQuery.Column ℓ} {s s' : QuarticQuery.Address r}\n    (h : QuarticQuery.WinsAt f C ℓ r x i s)\n    (h' : QuarticQuery.WinsAt f C ℓ r x i' s') : i = i' ∧ s = s'",
+      "type_origin": "Current source statement with implicit section binders made explicit by source inspection; no new Lean execution.",
+      "ordinary_premises": [
+        "Two alleged winning pairs on the same input. No CircuitRealises premise."
+      ],
+      "open_unresolved_hypotheses": [],
+      "relation_to_reviewed_row": "stronger",
+      "route": "same",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": false,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": false,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      }
+    },
+    {
+      "declaration": "QuarticQuery.winner_no_incoming_zero",
+      "statement_ids": [
+        "claim-winner-dominates"
+      ],
+      "file": "repository/lean/QuarticQuery/Construction/Winner.lean",
+      "source_sha256": "3c6b894e842fc90acd7a09b9ff14ce3ae2f09bfbf2dc7f2195751a396db7017c",
+      "complete_type_source_restatement": "theorem QuarticQuery.winner_no_incoming_zero {κ : Type}\n    {f : QuarticQuery.PartialBool κ} {C : QuarticQuery.Circuit κ} {ℓ r : ℕ}\n    {x : QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r C.size κ)}\n    {i : QuarticQuery.Column ℓ} {s : QuarticQuery.Address r}\n    (h : QuarticQuery.WinsAt f C ℓ r x i s)\n    (c : QuarticQuery.Column ℓ) (a : QuarticQuery.Address r) (hne : i ≠ c) :\n    QuarticQuery.readX x i (QuarticQuery.pointerEquiv ℓ\n      (QuarticQuery.readPointerBit x c a ⟨i, hne⟩)) = true",
+      "type_origin": "Current source statement with implicit section binders made explicit by source inspection; no new Lean execution.",
+      "ordinary_premises": [
+        "A genuine winner; another column and any arbitrary address."
+      ],
+      "open_unresolved_hypotheses": [],
+      "relation_to_reviewed_row": "partial",
+      "route": "same",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": false,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": false,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      }
+    },
+    {
+      "declaration": "QuarticQuery.winner_finds_zero",
+      "statement_ids": [
+        "claim-winner-dominates"
+      ],
+      "file": "repository/lean/QuarticQuery/Construction/Winner.lean",
+      "source_sha256": "3c6b894e842fc90acd7a09b9ff14ce3ae2f09bfbf2dc7f2195751a396db7017c",
+      "complete_type_source_restatement": "theorem QuarticQuery.winner_finds_zero {κ : Type}\n    {f : QuarticQuery.PartialBool κ} {C : QuarticQuery.Circuit κ} {ℓ r : ℕ}\n    {x : QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r C.size κ)}\n    {i : QuarticQuery.Column ℓ} {s : QuarticQuery.Address r}\n    (h : QuarticQuery.WinsAt f C ℓ r x i s)\n    (j : QuarticQuery.Column ℓ) (hne : j ≠ i) :\n    QuarticQuery.readX x j (QuarticQuery.pointerEquiv ℓ\n      (QuarticQuery.readPointerBit x i s ⟨j, hne⟩)) = false",
+      "type_origin": "Current source statement with implicit section binders made explicit by source inspection; no new Lean execution.",
+      "ordinary_premises": [
+        "A genuine winner at its true address and any distinct opponent."
+      ],
+      "open_unresolved_hypotheses": [],
+      "relation_to_reviewed_row": "partial",
+      "route": "same",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": false,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": true,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      }
+    },
+    {
+      "declaration": "QuarticQuery.winsAt_iff_paperWinsAt",
+      "statement_ids": [
+        "claim-winner-fidelity"
+      ],
+      "file": "repository/lean/QuarticQuery/Construction/LocalTests.lean",
+      "source_sha256": "56357d934fab301222130c92ef36cfbf122af4ad90fb2a94ba90178139dbeb13",
+      "complete_type_source_restatement": "theorem QuarticQuery.winsAt_iff_paperWinsAt {κ : Type}\n    {f : QuarticQuery.PartialBool κ} {C : QuarticQuery.Circuit κ} {ℓ r : ℕ}\n    {x : QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r C.size κ)}\n    {i : QuarticQuery.Column ℓ} {s : QuarticQuery.Address r} :\n    QuarticQuery.WinsAt f C ℓ r x i s ↔ QuarticQuery.PaperWinsAt f C ℓ r x i s",
+      "type_origin": "Current source statement with implicit section binders made explicit by source inspection; no new Lean execution.",
+      "ordinary_premises": [],
+      "open_unresolved_hypotheses": [],
+      "relation_to_reviewed_row": "exact",
+      "route": "same",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": false,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": false,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": false,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      }
+    },
+    {
+      "declaration": "QuarticQuery.winsAt_iff_localTests",
+      "statement_ids": [
+        "lem-2.2.i"
+      ],
+      "file": "repository/lean/QuarticQuery/Construction/LocalTests.lean",
+      "source_sha256": "56357d934fab301222130c92ef36cfbf122af4ad90fb2a94ba90178139dbeb13",
+      "complete_type_source_restatement": "theorem QuarticQuery.winsAt_iff_localTests {κ : Type}\n    {f : QuarticQuery.PartialBool κ} {C : QuarticQuery.Circuit κ} {ℓ r : ℕ}\n    {x : QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r C.size κ)}\n    {i : QuarticQuery.Column ℓ} {s : QuarticQuery.Address r}\n    (hC : QuarticQuery.CircuitRealises C f) :\n    QuarticQuery.WinsAt f C ℓ r x i s ↔\n      ∀ e : QuarticQuery.TestIndex ℓ r C.size, QuarticQuery.localTest C ℓ r x i s e = true",
+      "type_origin": "Current source statement with implicit section binders made explicit by source inspection; no new Lean execution.",
+      "ordinary_premises": [
+        "C realizes f on every input."
+      ],
+      "open_unresolved_hypotheses": [],
+      "relation_to_reviewed_row": "partial",
+      "route": "same",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": false,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": false,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": true,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      }
+    },
+    {
+      "declaration": "QuarticQuery.localTestTree_eval",
+      "statement_ids": [
+        "lem-2.2.i"
+      ],
+      "file": "repository/lean/QuarticQuery/Construction/LocalTests.lean",
+      "source_sha256": "56357d934fab301222130c92ef36cfbf122af4ad90fb2a94ba90178139dbeb13",
+      "complete_type_source_restatement": "theorem QuarticQuery.localTestTree_eval {κ : Type}\n    (C : QuarticQuery.Circuit κ) (ℓ r : ℕ)\n    (x : QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r C.size κ))\n    (i : QuarticQuery.Column ℓ) (s : QuarticQuery.Address r)\n    (e : QuarticQuery.TestIndex ℓ r C.size) :\n    (QuarticQuery.localTestTree C ℓ r i s e).eval x = QuarticQuery.localTest C ℓ r x i s e",
+      "type_origin": "Current source statement with implicit section binders made explicit by source inspection; no new Lean execution.",
+      "ordinary_premises": [],
+      "open_unresolved_hypotheses": [],
+      "relation_to_reviewed_row": "partial",
+      "route": "same",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": false,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": false,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": true,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      }
+    },
+    {
+      "declaration": "QuarticQuery.localTestTree_depth_le",
+      "statement_ids": [
+        "lem-2.2.i"
+      ],
+      "file": "repository/lean/QuarticQuery/Construction/LocalTests.lean",
+      "source_sha256": "56357d934fab301222130c92ef36cfbf122af4ad90fb2a94ba90178139dbeb13",
+      "complete_type_source_restatement": "theorem QuarticQuery.localTestTree_depth_le {κ : Type}\n    (C : QuarticQuery.Circuit κ) (ℓ r : ℕ)\n    (i : QuarticQuery.Column ℓ) (s : QuarticQuery.Address r)\n    (e : QuarticQuery.TestIndex ℓ r C.size) :\n    (QuarticQuery.localTestTree C ℓ r i s e).depth ≤ max 3 (ℓ + 1)",
+      "type_origin": "Current source statement with implicit section binders made explicit by source inspection; no new Lean execution.",
+      "ordinary_premises": [],
+      "open_unresolved_hypotheses": [],
+      "relation_to_reviewed_row": "partial",
+      "route": "same",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": false,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": false,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": true,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      }
+    },
+    {
+      "declaration": "QuarticQuery.addressedF_eq_true_iff",
+      "statement_ids": [
+        "def-F"
+      ],
+      "file": "repository/lean/QuarticQuery/Construction/LocalTests.lean",
+      "source_sha256": "56357d934fab301222130c92ef36cfbf122af4ad90fb2a94ba90178139dbeb13",
+      "complete_type_source_restatement": "theorem QuarticQuery.addressedF_eq_true_iff {κ : Type}\n    {f : QuarticQuery.PartialBool κ} {C : QuarticQuery.Circuit κ} {ℓ r : ℕ}\n    {x : QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r C.size κ)} :\n    QuarticQuery.addressedF f C ℓ r x = true ↔\n      ∃ (i : QuarticQuery.Column ℓ) (s : QuarticQuery.Address r),\n        QuarticQuery.WinsAt f C ℓ r x i s",
+      "type_origin": "Current source statement with implicit section binders made explicit by source inspection; no new Lean execution.",
+      "ordinary_premises": [],
+      "open_unresolved_hypotheses": [],
+      "relation_to_reviewed_row": "exact",
+      "route": "same",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": false,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": false,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": true,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      }
+    },
+    {
+      "declaration": "QuarticQuery.exists_failing_localTest",
+      "statement_ids": [
+        "cor-local-dichotomy"
+      ],
+      "file": "repository/lean/QuarticQuery/Construction/LocalTests.lean",
+      "source_sha256": "56357d934fab301222130c92ef36cfbf122af4ad90fb2a94ba90178139dbeb13",
+      "complete_type_source_restatement": "theorem QuarticQuery.exists_failing_localTest {κ : Type}\n    {f : QuarticQuery.PartialBool κ} {C : QuarticQuery.Circuit κ} {ℓ r : ℕ}\n    {x : QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r C.size κ)}\n    {i : QuarticQuery.Column ℓ} (hC : QuarticQuery.CircuitRealises C f)\n    (hn : ¬ ∃ s : QuarticQuery.Address r, QuarticQuery.WinsAt f C ℓ r x i s)\n    (s : QuarticQuery.Address r) :\n    ∃ e : QuarticQuery.TestIndex ℓ r C.size, QuarticQuery.localTest C ℓ r x i s e = false",
+      "type_origin": "Current source statement with implicit section binders made explicit by source inspection; no new Lean execution.",
+      "ordinary_premises": [
+        "C realizes f; i is not a winner."
+      ],
+      "open_unresolved_hypotheses": [],
+      "relation_to_reviewed_row": "partial",
+      "route": "same",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": false,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": false,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": true,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      }
+    },
+    {
+      "declaration": "QuarticQuery.localTests_iff_eq_of_winsAt",
+      "statement_ids": [
+        "cor-local-dichotomy"
+      ],
+      "file": "repository/lean/QuarticQuery/Construction/LocalTests.lean",
+      "source_sha256": "56357d934fab301222130c92ef36cfbf122af4ad90fb2a94ba90178139dbeb13",
+      "complete_type_source_restatement": "theorem QuarticQuery.localTests_iff_eq_of_winsAt {κ : Type}\n    {f : QuarticQuery.PartialBool κ} {C : QuarticQuery.Circuit κ} {ℓ r : ℕ}\n    {x : QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r C.size κ)}\n    {i : QuarticQuery.Column ℓ} {s : QuarticQuery.Address r}\n    (hC : QuarticQuery.CircuitRealises C f)\n    (hw : QuarticQuery.WinsAt f C ℓ r x i s) (s' : QuarticQuery.Address r) :\n    (∀ e : QuarticQuery.TestIndex ℓ r C.size, QuarticQuery.localTest C ℓ r x i s' e = true) ↔ s' = s",
+      "type_origin": "Current source statement with implicit section binders made explicit by source inspection; no new Lean execution.",
+      "ordinary_premises": [
+        "C realizes f; i wins at s."
+      ],
+      "open_unresolved_hypotheses": [],
+      "relation_to_reviewed_row": "partial",
+      "route": "same",
+      "evidence": {
+        "source_present": true,
+        "supplied_source_bound_root_build": {
+          "receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "passed",
+          "exact_declaration_member": true,
+          "all_124_recorded_local_sources_match": true,
+          "ran_at": "2026-11-02T18:25:39.383153+00:00"
+        },
+        "supplied_post_root_type_axiom_audit": {
+          "verdict": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "preparation_inventory": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "passed": true,
+          "exact_declaration_member": false,
+          "allowlist": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "log_sha256_verified": true
+        },
+        "construction_comparator": {
+          "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+          "status": "passed",
+          "exact_declaration_member": false,
+          "sandboxed": false,
+          "paranoid": false,
+          "interpretation": "Independent compilation with mechanically shared statement vocabulary and theorem specification. Only exact listed declarations are compared."
+        },
+        "dependency_export": {
+          "file": "repository/corpus/lean_dependencies.json",
+          "source_current": true,
+          "declared_member": true,
+          "reached_member": false,
+          "roots": [
+            "QuarticQuery.theorem_1_1_unconditional",
+            "QuarticQuery.cubic_bound_fails_unconditional"
+          ],
+          "interpretation": "Not reached means outside this two-root dependency traversal, not uncompiled or mathematically unavailable."
+        },
+        "this_review": "Source reading and SHA-256 verification only; no Lean, Lake, Comparator, or external kernel executed."
+      }
+    }
+  ],
+  "source_read_scopes": [
+    {
+      "file": "READ_ME_FIRST.md",
+      "scope": "full",
+      "status": "assessed"
+    },
+    {
+      "file": "SOURCE_ROLES.md",
+      "scope": "full",
+      "status": "assessed"
+    },
+    {
+      "file": "repository/AGENTS.md",
+      "scope": "full",
+      "status": "assessed"
+    },
+    {
+      "file": "repository/README.md",
+      "scope": "full",
+      "status": "assessed"
+    },
+    {
+      "file": "repository/research/README.md",
+      "scope": "full",
+      "status": "assessed"
+    },
+    {
+      "file": "manifest.json",
+      "scope": "metadata, source-hash maps, packet/repository version; no claim of reading every member record as prose",
+      "status": "sampled"
+    },
+    {
+      "file": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+      "scope": "§1.1, §3.17, §4, §5.3 and §5.4; sections outside this route unassessed",
+      "status": "assessed"
+    },
+    {
+      "file": "paper/extracted.md",
+      "scope": "§1.3 and §2.2, including Lemma 2.2 and its proof",
+      "status": "assessed"
+    },
+    {
+      "file": "repository/lean/QuarticQuery/Statement.lean",
+      "scope": "full file; construction vocabulary and quantum query model analyzed in depth",
+      "status": "assessed"
+    },
+    {
+      "file": "repository/lean/QuarticQuery/Construction/Winner.lean",
+      "scope": "full",
+      "status": "assessed"
+    },
+    {
+      "file": "repository/lean/QuarticQuery/Construction/Transcript.lean",
+      "scope": "full",
+      "status": "assessed"
+    },
+    {
+      "file": "repository/lean/QuarticQuery/Construction/LocalTests.lean",
+      "scope": "full",
+      "status": "assessed"
+    },
+    {
+      "file": "repository/lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+      "scope": "full",
+      "status": "assessed"
+    },
+    {
+      "file": "repository/lean/QuarticQuery/Paper/ConstructionTests.lean",
+      "scope": "full",
+      "status": "assessed"
+    },
+    {
+      "file": "repository/lean/QuarticQuery/Paper/ConstructionCoherent.lean",
+      "scope": "full",
+      "status": "assessed"
+    },
+    {
+      "file": "repository/lean/QuarticQuery/Paper/ConstructionComplete.lean",
+      "scope": "full",
+      "status": "assessed"
+    },
+    {
+      "file": "repository/lean/QuarticQuery/Paper/ConstructionPointerSupport.lean",
+      "scope": "full",
+      "status": "assessed"
+    },
+    {
+      "file": "repository/lean/QuarticQuery/Paper/ConstructionPhase.lean",
+      "scope": "full; auxiliary to query-unit distinction",
+      "status": "assessed"
+    },
+    {
+      "file": "repository/lean/QuarticQuery/Paper/Section2.lean",
+      "scope": "module imports and introduction, first comparison lemmas, lemma_2_2 and immediately surrounding scope comments",
+      "status": "sampled"
+    },
+    {
+      "file": "repository/lean/QuarticQuery/Upper/Decode.lean",
+      "scope": "full",
+      "status": "assessed"
+    },
+    {
+      "file": "repository/lean/QuarticQuery/Upper/Columns.lean",
+      "scope": "Loc/Col/Addr, addrLaw/addrCost/addr_samples/addrLaw_good, disqualification definitions and depth, firstWins/coreProb/cmpCost, range and winner-probability lemmas",
+      "status": "sampled"
+    },
+    {
+      "file": "repository/lean/QuarticQuery/Upper/Verify.lean",
+      "scope": "Tests/testRes/testLaw/testCost/test_samples/testLaw_pass/testLaw_fail; not full verifier or budget",
+      "status": "sampled"
+    },
+    {
+      "file": "repository/lean/QuarticQuery/Upper/Compile.lean",
+      "scope": "through compile_circ, plus measurement/reset and Runs definitions (lines 1–350)",
+      "status": "sampled"
+    },
+    {
+      "file": "repository/lean/QuarticQuery/Upper/Circuit.lean",
+      "scope": "ReadSpec, IsCirc, inverse and direct-sum control constructors (lines 135–165 and 330–455)",
+      "status": "sampled"
+    },
+    {
+      "file": "repository/lean/QuarticQuery/Upper/Sampler.lean",
+      "scope": "Samples definition, congruence, monotonicity and output-law basic lemmas (lines 110–150)",
+      "status": "sampled"
+    },
+    {
+      "file": "repository/lean/QuarticQuery/Paper/QuantumComparison.lean",
+      "scope": "quantumWinner_dominates full type/body, adjacent isDominant and query-count passage; selected native type audit",
+      "status": "sampled"
+    },
+    {
+      "file": "repository/research/returns/round2/2_lean_construction/blueprint.md",
+      "scope": "construction targets lem-2.2/i/ii, uniqueness, local dichotomy; eq-6/7/8; transcripts/layout/winner/win-at-address/K. Long tool return for the second block was truncated; corresponding current Lean declarations were independently read fully. Other row sections unassessed.",
+      "status": "sampled"
+    },
+    {
+      "file": "repository/research/returns/round2/2_lean_construction/LEAN_GAPS.md",
+      "scope": "full historical return; superseded compilation status separated from surviving semantic limits",
+      "status": "assessed"
+    },
+    {
+      "file": "repository/research/adjudication/round2_construction_quantum.md",
+      "scope": "full",
+      "status": "assessed"
+    },
+    {
+      "file": "repository/research/adjudication/round2_fidelity.md",
+      "scope": "full; construction/model/evidence findings analyzed, unrelated numerical claims not independently rechecked",
+      "status": "assessed"
+    },
+    {
+      "file": "repository/research/adjudication/round2_construction_quantum_ties.json",
+      "scope": "14 selected row IDs and their candidate statement signatures, premise and relation records; not all 54 rows reviewed",
+      "status": "sampled"
+    },
+    {
+      "file": "EVIDENCE_SNAPSHOT.json",
+      "scope": "receipt classifications, source maps, dependency roots/membership, 23 receipt byte hashes",
+      "status": "assessed"
+    },
+    {
+      "file": "BUILD_STATUS.md",
+      "scope": "first 180 lines and selected current/final records; historical unrelated retries not fully assessed",
+      "status": "sampled"
+    },
+    {
+      "file": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "scope": "metadata, all 124 source hashes, all membership data programmatically queried for selected names",
+      "status": "assessed"
+    },
+    {
+      "file": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+      "scope": "metadata, all 124 source hashes, all eight explicit members",
+      "status": "assessed"
+    },
+    {
+      "file": "repository/corpus/lean_dependencies.json",
+      "scope": "metadata, all 124 source hashes, declared/reached membership for selected names; individual graph edges not independently reconstructed",
+      "status": "assessed"
+    },
+    {
+      "file": "native_results/final-evidence/reviewed_axiom_audit.json",
+      "scope": "metadata, 258-name inventory, audit-source hash binding",
+      "status": "assessed"
+    },
+    {
+      "file": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+      "scope": "passed verdict, native checks and all 124 source hashes; log and audit-source hashes independently verified",
+      "status": "assessed"
+    },
+    {
+      "file": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "scope": "exact selected construction and winner-dominance type/axiom blocks, final success marker, SHA-256 of full bytes; other 258 audit entries not individually read",
+      "status": "sampled"
+    },
+    {
+      "file": "native_results/final-evidence/operations.json",
+      "scope": "metadata, status/source binding; individual operation history not fully read",
+      "status": "sampled"
+    },
+    {
+      "file": "repository/lean/lean-toolchain",
+      "scope": "full",
+      "status": "assessed"
+    },
+    {
+      "file": "repository/lean/lakefile.toml",
+      "scope": "full",
+      "status": "assessed"
+    },
+    {
+      "file": "writing and external literature supplied in packet",
+      "scope": "delegated to root/other reviewer, not read by this Lean reviewer",
+      "status": "unassessed"
+    }
+  ],
+  "limits": [
+    "Source-bound receipt inspection is not a fresh native execution.",
+    "The root receipt enumerates 2652 declarations; the selected headline roots reach 1354. Reach and build membership differ.",
+    "The native type/axiom audit has 258 selected names, not every declaration.",
+    "The Construction Comparator names only four main statements and four Checked wrappers.",
+    "The complete retained-state theorem fixes (i,s), allows arbitrary test-index coefficients, and retains workspace.",
+    "No named clean-XOR/reset-ancilla theorem is identified. A compute-copy-uncompute corollary would require extra constant-factor queries and a separate correspondence.",
+    "No gate complexity or workspace dimension bound is asserted.",
+    "The no-Fintype-κ generic coherent theorem is in the abstract read calculus; finite physical access is supplied at the actual Forrelation specialization."
+  ]
+}

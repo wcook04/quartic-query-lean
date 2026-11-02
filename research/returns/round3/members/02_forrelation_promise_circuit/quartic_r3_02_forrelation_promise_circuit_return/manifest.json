@@ -1,0 +1,286 @@
+{
+  "schema": "quartic-r3-02-return-manifest-v1",
+  "assignment": "round3/02_forrelation_promise_circuit",
+  "date": "2026-11-02",
+  "scope": "Replacement Sections 3.1--3.5 with exact correspondence, review and reproducible checks.",
+  "input_archive": {
+    "filename": "quartic_r3_02_forrelation_promise_circuit.zip",
+    "sha256": "db412239bd75e1a7fc23d262903265ac5229d2d48c59c0f7ff743901d71cde24",
+    "manifest_sha256": "53528c475a467609c2f1d5640e7db843711ae80764d80ed87077f1b292d53b7a",
+    "repository_commit": "1dd469dd0042b937b739da3bc211eeb60bdf7462",
+    "recorded_root_receipt_commit": "31e17dee667d1d72fa621da8e7d3d8ff5fc3960a",
+    "currentness_rule": "The differing commit labels are not equated. All 124 supplied Lean/configuration source hashes match the timestamped receipt."
+  },
+  "source_versions": {
+    "packet_repository_commit": "1dd469dd0042b937b739da3bc211eeb60bdf7462",
+    "recorded_root_receipt_commit": "31e17dee667d1d72fa621da8e7d3d8ff5fc3960a",
+    "source_currentness": "All 124 local Lean/configuration hashes match the supplied timestamped root receipt; no new Lean execution.",
+    "mathematical_sources": {
+      "paper/source.pdf": {
+        "sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e",
+        "bytes": 433829,
+        "scope": "Section 2.1, equations (3)--(5), Lemma 2.1(ii)--(iii), pp. 3--5; neighboring Lemma 2.1(i) read only to identify its interface."
+      },
+      "literature/quartic-ref-01-forrelation-a-problem-that-optimally-separ/source.pdf": {
+        "sha256": "c27966b5b6cf12d61e3877f6ac23b48c9a21fe0a86e6b96ef527b02503e4e1fe",
+        "bytes": 569568,
+        "scope": "arXiv:1411.5729v1 (21 November 2014), Section 1.1.3 p. 4; Section 3.2, Figure 1 and Proposition 6, pp. 13--14. Other theorems not audited."
+      },
+      "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.pdf": {
+        "sha256": "afe53c8bd918d07590f29a947ef044453db73959043135082d1a3c29b2863a35",
+        "bytes": 986784,
+        "scope": "arXiv:2008.07003v3 (17 November 2020), equations (1.1)--(1.3) and Proposition 1.2 pp. 2--3; Theorem 1.3 and Corollary 1.4 p. 4 read for statement context. Section 5.4 proof unassessed."
+      }
+    },
+    "AA_inspected_edition": "arXiv:1411.5729v1, 21 November 2014; journal metadata 2018 separately identified",
+    "BS_inspected_edition": "arXiv:2008.07003v3, 17 November 2020; proceedings metadata 2021 separately identified",
+    "OpenAI_inspected_edition": "Supplied preprint, 5 October 2026, Section 2.1 pp.3--5",
+    "dependency_foundations": {
+      "lake_packages": [
+        {
+          "name": "complexitylib",
+          "revision": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a",
+          "url": "https://github.com/cslib-community/complexitylib.git"
+        },
+        {
+          "name": "cslib",
+          "revision": "254e30e6d4299c51323aaeaf5f51a4763b375d4a",
+          "url": "https://github.com/leanprover/cslib"
+        },
+        {
+          "name": "mathlib",
+          "revision": "69552756cd8a2d2d48763cf7279fd814d6a1224d",
+          "url": "https://github.com/leanprover-community/mathlib4"
+        },
+        {
+          "name": "plausible",
+          "revision": "129d1ba9a16bc0660f46c79e9fb041ef5d5d80de",
+          "url": "https://github.com/leanprover-community/plausible"
+        },
+        {
+          "name": "LeanSearchClient",
+          "revision": "c61286b7b63cbfd563b28e11e81d0a18233a044a",
+          "url": "https://github.com/leanprover-community/LeanSearchClient"
+        },
+        {
+          "name": "importGraph",
+          "revision": "b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60",
+          "url": "https://github.com/leanprover-community/import-graph"
+        },
+        {
+          "name": "proofwidgets",
+          "revision": "16259c0d07d61ee37d999d05b5cf96338b8daa11",
+          "url": "https://github.com/leanprover-community/ProofWidgets4"
+        },
+        {
+          "name": "aesop",
+          "revision": "7d11bfa88558f8d3d90afdf6bd877ed70001498d",
+          "url": "https://github.com/leanprover-community/aesop"
+        },
+        {
+          "name": "Qq",
+          "revision": "b0256621cb88178e9ad932a53633077b3029e621",
+          "url": "https://github.com/leanprover-community/quote4"
+        },
+        {
+          "name": "batteries",
+          "revision": "d4c39b228d4a06f3b00748c2c445a7b9f056a6e3",
+          "url": "https://github.com/leanprover-community/batteries"
+        },
+        {
+          "name": "Cli",
+          "revision": "c09cb1e4f1e6e1c231a1175a12b681b075054a1b",
+          "url": "https://github.com/leanprover/lean4-cli"
+        }
+      ],
+      "toolchain": "leanprover/lean4:v4.36.0-rc2"
+    }
+  },
+  "review_boundary": {
+    "canonical_statement_changes": 0,
+    "new_ordinary_statements": 3,
+    "fresh_lean_run": false,
+    "fresh_comparator_run": false,
+    "human_review_claimed": false,
+    "complete_paper_or_lower_bound_reaudited": false,
+    "unavailable_attachment": "Pasted text(20261102-190823).txt"
+  },
+  "member_policy": "Every regular output member except this manifest is listed by relative path, bytes and SHA-256. The manifest deliberately omits its own recursively impossible hash. The ZIP contains exactly these files plus this manifest.",
+  "members": [
+    {
+      "path": "LEAN_GAPS.md",
+      "bytes": 14723,
+      "sha256": "1a7e6a89122798589dcead9b8a1161418002457e63194606cf010a34f39f3a6f"
+    },
+    {
+      "path": "NEW_STATEMENTS.json",
+      "bytes": 12596,
+      "sha256": "12f2d61263e2203c1a2209925d1326c1df5b9ed4f76003a4c715ac22201e75c3"
+    },
+    {
+      "path": "README.md",
+      "bytes": 7993,
+      "sha256": "0209de4130a10e865eb98093f49b75805e1ffdfd343188653669030f77142163"
+    },
+    {
+      "path": "STATEMENT_CHANGES.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "STYLE_RULES.json",
+      "bytes": 3936,
+      "sha256": "edb1b8faef4238437ae76c7caa5f986beb0c42dab6dabaf7e9076efaea3f7500"
+    },
+    {
+      "path": "checks/audit_evidence.py",
+      "bytes": 10513,
+      "sha256": "ee8bfbed24a1ebbecfe0acd6638cf6344c20be9fa22aa1ec1b7e12a3ddbd0256"
+    },
+    {
+      "path": "checks/exact_example_checker.py",
+      "bytes": 13180,
+      "sha256": "fe5fa5d77ee4f8454c61eac66d37324342e5e93d4fc5f54bee0aeb2c8de60a7b"
+    },
+    {
+      "path": "checks/exact_example_results.json",
+      "bytes": 3897,
+      "sha256": "a73d66055fa1f45a1f82b0de81bd5ce99072714e4e986b8527af800f20863429"
+    },
+    {
+      "path": "checks/pdf_header.tex",
+      "bytes": 84,
+      "sha256": "9817af5f1cbe1ae754962776f5f5a9cd94c5cda1243a4844fb4810544261e468"
+    },
+    {
+      "path": "checks/pdf_layout.lua",
+      "bytes": 908,
+      "sha256": "fa01ab1345f461ecea15aba9bd4855b55c4683797dbd4040348b045d47557253"
+    },
+    {
+      "path": "checks/render_section.py",
+      "bytes": 701,
+      "sha256": "f52c6ae0ee39915ccce36953afd00c76071f19bb43d6407651694c61032edaab"
+    },
+    {
+      "path": "checks/validate_return.py",
+      "bytes": 13751,
+      "sha256": "50beb37a8c73150dd52f2594955bba45a13dcb82aee9d151326edd54f3c86fe2"
+    },
+    {
+      "path": "correspondence.json",
+      "bytes": 407724,
+      "sha256": "a006370b0382672749f13dd1c2bbf39c3864445fad83e5f0e660da779a5b49bd"
+    },
+    {
+      "path": "evidence/circuit_audit.md",
+      "bytes": 14213,
+      "sha256": "2cb494c74cc7ede8b4dc4caf5816c1e3c19158ef93552ae6174aef00b5e1a7b5"
+    },
+    {
+      "path": "evidence/circuit_peer_review.md",
+      "bytes": 8529,
+      "sha256": "ac8683f58aafaaa27fbee1176efe52e4e644f2c11512935cf2905b72983ccc00"
+    },
+    {
+      "path": "evidence/circuit_source_read_scope.json",
+      "bytes": 7982,
+      "sha256": "1c43eedd693d6a1e106822dc7841b36c3ea6536dd94082e36140618827433e30"
+    },
+    {
+      "path": "evidence/correspondence_coverage.json",
+      "bytes": 3798,
+      "sha256": "c363206f13c9e8a50ff51718c00a4316fa75d272d044e7f6cc2b2a651831d6e3"
+    },
+    {
+      "path": "evidence/current_statement_evidence.json",
+      "bytes": 137716,
+      "sha256": "7650f0477a66c03a34ffb8affe6d5870b8e4cb521ea2f9a1b4dd88187c76f099"
+    },
+    {
+      "path": "evidence/evidence_audit.md",
+      "bytes": 13611,
+      "sha256": "8f279f3ba17545ec2a177620f1b26aa7ebfc127f22d41d5f11ceed7bfde4ff5d"
+    },
+    {
+      "path": "evidence/integrity_summary.json",
+      "bytes": 2228,
+      "sha256": "9316b009c401bebab4ca5a757a1df4bc80c577d7182e6a631b3a537a801149de"
+    },
+    {
+      "path": "evidence/lean_declarations.json",
+      "bytes": 253476,
+      "sha256": "3c23b34e9fbd19f31988b9cc230a01c18d3cdc83292ce98a2caf80685cfddf75"
+    },
+    {
+      "path": "evidence/module_source_versions.json",
+      "bytes": 5260,
+      "sha256": "68946934c0c8ca35f44f0d5d99ba3123ce897cadbf715cfe1aca6474f05a120f"
+    },
+    {
+      "path": "evidence/pdf_review.json",
+      "bytes": 1480,
+      "sha256": "8f2aa9716672e930c818fd8c97b8eeef95c85424fdadabd1ebb59b02bd04cad2"
+    },
+    {
+      "path": "evidence/quantum_audit.md",
+      "bytes": 16801,
+      "sha256": "caaf182d9574da8af70a0f5bbf9f3f41668887e24318136e902121b1502ebcc3"
+    },
+    {
+      "path": "evidence/quantum_evidence_hash_checks.json",
+      "bytes": 24026,
+      "sha256": "6d9dcc2bd5d8fe3bfbc3dff230ea864b63f19da0d00d618091c8eecc490ba96d"
+    },
+    {
+      "path": "evidence/quantum_peer_review.md",
+      "bytes": 6390,
+      "sha256": "9fd151de09af3260bdade79e490bbe65885bc399f6c59dc1d6a31413e183574a"
+    },
+    {
+      "path": "evidence/receipt_audit.json",
+      "bytes": 231149,
+      "sha256": "71dcd1646d536db1658fc1ded218448597dcaef25d430e9331a9bfb3ddf2ad66"
+    },
+    {
+      "path": "evidence/recorded_lean_types.json",
+      "bytes": 19476,
+      "sha256": "abbb41186a533e0ad275c0b4b143150bd487c589ef0844c69ff99d7bbd66e9d9"
+    },
+    {
+      "path": "evidence/return_validation.json",
+      "bytes": 954,
+      "sha256": "923a9ba5d17df7b6ed0a6775c077968877220f058365deeba437c03059085c1f"
+    },
+    {
+      "path": "evidence/round2_tie_proposals.json",
+      "bytes": 34679,
+      "sha256": "d440e99b059df1f6da41a534359a669e6d5dd732d4d1dd8e878c05724791c3bf"
+    },
+    {
+      "path": "references.bib",
+      "bytes": 2319,
+      "sha256": "d4be45dfc118f975c5d5b682a4b0d8e7cd511e216f52cd1d941c0f5af0a6d81c"
+    },
+    {
+      "path": "review_notes.md",
+      "bytes": 24913,
+      "sha256": "f834a06707cb205cf574965566643876acc4bf5968b10148b672299766dee46d"
+    },
+    {
+      "path": "section.md",
+      "bytes": 27306,
+      "sha256": "06d3a346920e61e78834b80dd55b34de7cb38dccf7bfecdfc47a6eba29cda0e2"
+    },
+    {
+      "path": "section.pdf",
+      "bytes": 94788,
+      "sha256": "98f9e94fc14cac1fa90995e11ea11feb534adeaf67dca0cfd9a5920eed9dd3c7"
+    },
+    {
+      "path": "source_read_receipt.json",
+      "bytes": 38054,
+      "sha256": "dd6cea5608a772849828582597d6b87ea74c5facb8441dee1442c5b78a8be397"
+    }
+  ]
+}

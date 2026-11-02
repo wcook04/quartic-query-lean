@@ -1,0 +1,434 @@
+[
+  {
+    "id": "def-walsh-sign",
+    "return": "2_lean_construction",
+    "disposition": "exact_statement_candidate",
+    "statement_basis": "original ledger plus maintained adjudication corrections",
+    "original_statement": "m=4^t. H is the m x m normalized Walsh-Hadamard matrix, H_{a,b}=m^{-1/2}(-1)^{<a,b>} for a,b in {0,1}^{log_2 m}. u=m^{-1/2}(1,...,1)^T. A bit a is identified with the sign (-1)^a. For z in {+-1}^m, D_z=diag(z).",
+    "original_statement_sha256": "cea0c236eec7f144a63eb21757f43457a4d6562214b0ec6e2e96438e9fcbb7e1",
+    "reviewed_statement": "m=4^t. H is the m x m normalized Walsh-Hadamard matrix, H_{a,b}=m^{-1/2}(-1)^{<a,b>} for a,b in {0,1}^{log_2 m}. u=m^{-1/2}(1,...,1)^T. A bit a is identified with the sign (-1)^a. For z in {+-1}^m, D_z=diag(z).",
+    "reviewed_statement_sha256": "cea0c236eec7f144a63eb21757f43457a4d6562214b0ec6e2e96438e9fcbb7e1",
+    "correction_owner": null,
+    "candidate_ties": [
+      {
+        "declaration": "QuarticQuery.Paper.construction_walsh_definitions",
+        "file": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+        "declaration_line": 28,
+        "relation": "exact",
+        "relation_to_original_ledger": "exact",
+        "route": "none",
+        "ordinary_premises": [
+          "m=4^t and k bit-sign strings."
+        ],
+        "open_unresolved_hypotheses": [],
+        "unproved_remaining_clauses": [],
+        "interface": "mathematical_statement",
+        "note": "States the bit-sign convention, Walsh parity, normalized H, uniform u and sign diagonal together, with sqrt(m)=2^t on the prescribed powers of four.",
+        "reviewed_by": "ai:round2-construction-quantum-source-review",
+        "source_sha256": "14f92345b8885036e862885aad3db82d77cff6e71642e669c2ba7dc8ba087aa1",
+        "signature_sha256": "f0ee1bff73fb07132f16dbab28e347da430f03d4d221452e3da3bc389549d773",
+        "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
+        "lean_statement": "theorem construction_walsh_definitions (k t : ℕ)\n    (z : BitInput (ForrelationCoord k t)) :\n    (∀ b : Bool, bitSign b = (-1 : ℤ) ^ (if b then (1 : ℕ) else 0)) ∧\n    (∀ i j : Fin (mValue t), walshSign t i j =\n      (-1 : ℤ) ^ (∑ b ∈ range (2 * t),\n        if i.val.testBit b && j.val.testBit b then (1 : ℕ) else 0)) ∧\n    (∀ i j : Fin (mValue t), H t i j =\n      (Real.sqrt (mValue t : ℝ))⁻¹ * (walshSign t i j : ℝ)) ∧\n    (∀ i : Fin (mValue t), u t i = (Real.sqrt (mValue t : ℝ))⁻¹) ∧\n    (∀ h : Fin k, signDiag z h = Matrix.diagonal fun i => (bitSign (z (h, i)) : ℝ))"
+      }
+    ],
+    "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+    "id": "eq-3",
+    "return": "2_lean_construction",
+    "disposition": "exact_statement_candidate",
+    "statement_basis": "original ledger plus maintained adjudication corrections",
+    "original_statement": "For z_1,...,z_k in {+-1}^m: Phi(z_1,...,z_k) = u^T D_{z_1} H D_{z_2} H ... H D_{z_k} u (k diagonals, k-1 copies of H), and delta = 2^{-5k}.",
+    "original_statement_sha256": "cbebca1057a97b00669f58befe01f6ae34866392f7f897fd8b54fe28832d8bae",
+    "reviewed_statement": "For z_1,...,z_k in {+-1}^m: Phi(z_1,...,z_k) = u^T D_{z_1} H D_{z_2} H ... H D_{z_k} u (k diagonals, k-1 copies of H), and delta = 2^{-5k}.",
+    "reviewed_statement_sha256": "cbebca1057a97b00669f58befe01f6ae34866392f7f897fd8b54fe28832d8bae",
+    "correction_owner": null,
+    "candidate_ties": [
+      {
+        "declaration": "QuarticQuery.Paper.construction_equation_3",
+        "file": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+        "declaration_line": 50,
+        "relation": "exact",
+        "relation_to_original_ledger": "exact",
+        "route": "same",
+        "ordinary_premises": [
+          "k>=1 (the paper uses k>=2); m=4^t."
+        ],
+        "open_unresolved_hypotheses": [],
+        "unproved_remaining_clauses": [],
+        "interface": "mathematical_statement",
+        "note": "The matrix word has k sign diagonals and k-1 H factors; the theorem also states delta=2^(-5k).",
+        "reviewed_by": "ai:round2-construction-quantum-source-review",
+        "source_sha256": "14f92345b8885036e862885aad3db82d77cff6e71642e669c2ba7dc8ba087aa1",
+        "signature_sha256": "edd9085d250f49320872c16f22912ad804633f46aaf60efce55798c3755f0087",
+        "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
+        "lean_statement": "theorem construction_equation_3 (k t : ℕ) (hk : 1 ≤ k)\n    (z : BitInput (ForrelationCoord k t)) :\n    Phi k t z = u t ⬝ᵥ\n      (alternate (H t) (List.ofFn fun h : Fin k => signDiag z h) *ᵥ u t) ∧\n    delta k = (2 : ℝ) ^ (-(5 * (k : ℤ)))"
+      }
+    ],
+    "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+    "id": "eq-4",
+    "return": "2_lean_construction",
+    "disposition": "exact_statement_candidate",
+    "statement_basis": "original ledger plus maintained adjudication corrections",
+    "original_statement": "P=P_{k,m} is the partial function on km bits with P=1 if Phi>=delta, P=0 if |Phi|<=delta/2, undefined otherwise. The two cases are disjoint.",
+    "original_statement_sha256": "d851c47d1b5c5d998eb9c90a501c8a57e7bdb071021c6e7adbac48e388ff6483",
+    "reviewed_statement": "P=P_{k,m} is the partial function on km bits with P=1 if Phi>=delta, P=0 if |Phi|<=delta/2, undefined otherwise. The two cases are disjoint.",
+    "reviewed_statement_sha256": "d851c47d1b5c5d998eb9c90a501c8a57e7bdb071021c6e7adbac48e388ff6483",
+    "correction_owner": null,
+    "candidate_ties": [
+      {
+        "declaration": "QuarticQuery.Paper.construction_equation_4",
+        "file": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+        "declaration_line": 59,
+        "relation": "exact",
+        "relation_to_original_ledger": "exact",
+        "route": "same",
+        "ordinary_premises": [
+          "m=4^t."
+        ],
+        "open_unresolved_hypotheses": [],
+        "unproved_remaining_clauses": [],
+        "interface": "mathematical_statement",
+        "note": "States the input count, both promise-value equivalences, undefined case and disjointness together, on every input.",
+        "reviewed_by": "ai:round2-construction-quantum-source-review",
+        "source_sha256": "14f92345b8885036e862885aad3db82d77cff6e71642e669c2ba7dc8ba087aa1",
+        "signature_sha256": "405a9370e749a629bd5bfdea35d498b378a7a626be78bd04ac652ee61e4f7091",
+        "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
+        "lean_statement": "theorem construction_equation_4 (k t : ℕ)\n    (z : BitInput (ForrelationCoord k t)) :\n    Fintype.card (ForrelationCoord k t) = k * mValue t ∧\n    (P k t z = some true ↔ delta k ≤ Phi k t z) ∧\n    (P k t z = some false ↔ |Phi k t z| ≤ delta k / 2) ∧\n    (P k t z = none ↔ ¬ delta k ≤ Phi k t z ∧ ¬ |Phi k t z| ≤ delta k / 2) ∧\n    ¬ (delta k ≤ Phi k t z ∧ |Phi k t z| ≤ delta k / 2)"
+      }
+    ],
+    "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+    "id": "claim-proj-prob",
+    "return": "2_lean_construction",
+    "disposition": "partial_statement_candidates",
+    "statement_basis": "original ledger plus maintained adjudication corrections",
+    "original_statement": "Prepare u, apply D_{z_1} H ... H D_{z_k} right to left, measure the projection onto u. Each D uses one bit query (phase kickback), H and the projection use none. Success probability is exactly Phi^2: >=delta^2 on 1-inputs, <=delta^2/4 on 0-inputs.",
+    "original_statement_sha256": "1ce97979ffc9963d91470bec06ed87fe9a7c7051a5049a7be983f02d779b32f0",
+    "reviewed_statement": "Prepare u, apply D_{z_1} H ... H D_{z_k} right to left, measure the projection onto u. Each D uses one bit query (phase kickback), H and the projection use none. Success probability is exactly Phi^2: >=delta^2 on 1-inputs, <=delta^2/4 on 0-inputs.",
+    "reviewed_statement_sha256": "1ce97979ffc9963d91470bec06ed87fe9a7c7051a5049a7be983f02d779b32f0",
+    "correction_owner": null,
+    "candidate_ties": [
+      {
+        "declaration": "QuarticQuery.Paper.construction_projection_test",
+        "file": "lean/QuarticQuery/Paper/ConstructionForrelationQuantum.lean",
+        "declaration_line": 26,
+        "relation": "partial",
+        "relation_to_original_ledger": "partial",
+        "route": "same",
+        "ordinary_premises": [
+          "k>=1; m=4^t."
+        ],
+        "open_unresolved_hypotheses": [],
+        "unproved_remaining_clauses": [
+          "A complete physical Runs k witness for the whole projection routine."
+        ],
+        "interface": "projection probability plus logical sampler; separate local physical phase identity",
+        "note": "The exact Phi² projection law and promise gap are paired with a k-logical-read sampler and generic 2k-bit-query implementation. This does not establish the complete tight k-physical-query circuit.",
+        "reviewed_by": "ai:round2-construction-quantum-source-review",
+        "source_sha256": "f31face68a9c47906d9a728cced9aa8a24ec73d3079c6196ae1853130151391b",
+        "signature_sha256": "3bb04ccb61752c261e62f2ae93f65bc8641d09e49031a90cae90e58778effd25",
+        "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
+        "lean_statement": "theorem construction_projection_test (k t : ℕ) (hk : 1 ≤ k) :\n    (∀ z : BitInput (ForrelationCoord k t),\n      successProb z = Phi k t z ^ 2 ∧\n      (P k t z = some true → delta k ^ 2 ≤ successProb z) ∧\n      (P k t z = some false → successProb z ≤ delta k ^ 2 / 4)) ∧\n    Samples k (fun (z : BitInput (ForrelationCoord k t)) b => bern (Phi k t z ^ 2) b) ∧\n    (∀ [Inhabited (ForrelationCoord k t)],\n      Runs (2 * k) (fun (z : BitInput (ForrelationCoord k t)) b => bern (Phi k t z ^ 2) b))"
+      },
+      {
+        "declaration": "QuarticQuery.Paper.construction_bitOracle_phase_kickback",
+        "file": "lean/QuarticQuery/Paper/ConstructionPhase.lean",
+        "declaration_line": 26,
+        "relation": "partial",
+        "relation_to_original_ledger": "partial",
+        "route": "same",
+        "ordinary_premises": [
+          "Finite query type; arbitrary physical state in the minus-answer subspace."
+        ],
+        "open_unresolved_hypotheses": [],
+        "unproved_remaining_clauses": [],
+        "interface": "projection probability plus logical sampler; separate local physical phase identity",
+        "note": "One ordinary bit-oracle call gives the local phase action on arbitrary entangled minus-answer states.",
+        "reviewed_by": "ai:round2-construction-quantum-source-review",
+        "source_sha256": "f9dc9564aa8741a6aa3059fcea3563c740fed802666ae251fbebbe9085668405",
+        "signature_sha256": "9fed775e1798ab11cdbfcb1f3081da5a7d3410e3b6bfcaacd65031a5757d7864",
+        "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
+        "lean_statement": "theorem construction_bitOracle_phase_kickback\n    (x : BitInput ι) (ψ : State ι w)\n    (hminus : ∀ (i : ι) (z : Fin (w + 1)),\n      ψ.ofLp (i, true, z) = -ψ.ofLp (i, false, z))\n    (p : Basis ι w) :\n    (bitOracle x ψ).ofLp p =\n      (if x p.1 then (-1 : ℂ) else 1) * ψ.ofLp p"
+      },
+      {
+        "declaration": "QuarticQuery.Paper.construction_bitOracle_phase_preserves",
+        "file": "lean/QuarticQuery/Paper/ConstructionPhase.lean",
+        "declaration_line": 46,
+        "relation": "partial",
+        "relation_to_original_ledger": "partial",
+        "route": "same",
+        "ordinary_premises": [
+          "Finite query type; norm-one physical state in the minus-answer subspace."
+        ],
+        "open_unresolved_hypotheses": [],
+        "unproved_remaining_clauses": [],
+        "interface": "projection probability plus logical sampler; separate local physical phase identity",
+        "note": "The local phase action preserves norm and the minus-answer subspace.",
+        "reviewed_by": "ai:round2-construction-quantum-source-review",
+        "source_sha256": "f9dc9564aa8741a6aa3059fcea3563c740fed802666ae251fbebbe9085668405",
+        "signature_sha256": "a9cc6602bb5c5a142cd7a90b4aea09c4e0f5f75a78a0da33b447f803f8ef5ba5",
+        "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
+        "lean_statement": "theorem construction_bitOracle_phase_preserves\n    (x : BitInput ι) (ψ : State ι w)\n    (hminus : ∀ (i : ι) (z : Fin (w + 1)),\n      ψ.ofLp (i, true, z) = -ψ.ofLp (i, false, z))\n    (hunit : ‖ψ‖ = 1) :\n    ‖bitOracle x ψ‖ = 1 ∧\n      ∀ (i : ι) (z : Fin (w + 1)),\n        (bitOracle x ψ).ofLp (i, true, z) =\n          -(bitOracle x ψ).ofLp (i, false, z)"
+      }
+    ],
+    "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+    "id": "lem-2.1.ii",
+    "return": "2_lean_construction",
+    "disposition": "exact_statement_candidate",
+    "statement_basis": "original ledger plus maintained adjudication corrections",
+    "original_statement": "For every 0<eta<1/2 there is a quantum algorithm using O_k(1+log(1/eta)) bit queries that outputs P_{k,m}(z) with error <=eta for every z in dom P. It has a coherent implementation retaining all workspace. On every input, promised or not, measuring its output register yields a bit.",
+    "original_statement_sha256": "2709e8d1fab228914261dfbabf19068a5200f10d772b58fbac3be8333df0cb89",
+    "reviewed_statement": "For every 0<eta<1/2 there is a quantum algorithm using O_k(1+log(1/eta)) bit queries that outputs P_{k,m}(z) with error <=eta for every z in dom P. It has a coherent implementation retaining all workspace. On every input, promised or not, measuring its output register yields a bit.",
+    "reviewed_statement_sha256": "2709e8d1fab228914261dfbabf19068a5200f10d772b58fbac3be8333df0cb89",
+    "correction_owner": null,
+    "candidate_ties": [
+      {
+        "declaration": "QuarticQuery.Paper.construction_lemma_2_1_ii_complete",
+        "file": "lean/QuarticQuery/Paper/ConstructionForrelationComplete.lean",
+        "declaration_line": 25,
+        "relation": "exact",
+        "relation_to_original_ledger": "exact",
+        "route": "same",
+        "ordinary_premises": [
+          "Fixed k>=1; m=4^t; 0<eta<1/2."
+        ],
+        "open_unresolved_hypotheses": [],
+        "unproved_remaining_clauses": [],
+        "interface": "retained-state physical implementation linked to its own output law",
+        "note": "The same accurate Boolean isometry and output map are linked to a physical continuation on every embedded logical state. The cap is uniform in m, eta and the input; all-input Boolean normalization is explicit. The compiler's factor two is allowed by O_k.",
+        "reviewed_by": "ai:round2-construction-quantum-source-review",
+        "source_sha256": "733526015ad9a2013512d8f6216b8f73c41566a803d92602dd30e40e90d7ad06",
+        "signature_sha256": "599ede883d5eeb34debdc6fa5dc5e775bf2a559bfb21ea37e0441a3fe4b5634e",
+        "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
+        "lean_statement": "theorem construction_lemma_2_1_ii_complete (k : ℕ) (hk : 1 ≤ k) :\n    ∃ A : ℝ, 0 < A ∧ ∀ (t : ℕ) (η : ℝ), 0 < η → η < 1 / 2 →\n      ∃ (n : ℕ) (L : BitInput (ForrelationCoord k t) → Bool → ℝ)\n        (Z : Type) (instZ : Fintype Z),\n        let _ := instZ\n        ∃ (o : Z) (out : Z → Bool)\n          (F : BitInput (ForrelationCoord k t) → Reg Z ≃ₗᵢ[ℂ] Reg Z),\n          ((2 * (n * k) : ℕ) : ℝ) ≤ A * (1 + Real.log (1 / η)) ∧\n          IsCirc (n * k) F ∧\n          (∀ z b, L z b = lawOf (F z (rket o)) out b) ∧\n          (∀ z, 0 ≤ L z false ∧ 0 ≤ L z true ∧ L z false + L z true = 1) ∧\n          (∀ z b, P k t z = some b → 1 - η ≤ L z b) ∧\n          ∃ instI : Inhabited (ForrelationCoord k t),\n            let _ := instI\n            ∃ (w : ℕ) (emb : Z ↪ Fin (w + 1))\n              (K : AdaptiveProgram (ForrelationCoord k t) w →\n                AdaptiveProgram (ForrelationCoord k t) w),\n              ∀ next, (K next).queryCap ≤ 2 * (n * k) + next.queryCap ∧\n                ∀ z ψ b, (K next).outputMass z (clEmb emb ψ) b =\n                  next.outputMass z (clEmb emb (F z ψ)) b"
+      }
+    ],
+    "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+    "id": "claim-N-phi",
+    "return": "2_lean_construction",
+    "disposition": "exact_statement_candidate",
+    "statement_basis": "original ledger plus maintained adjudication corrections",
+    "original_statement": "With W=sqrt(m) H (entries +-1), N = z_1^T W D_{z_2} W ... W D_{z_k} (1,...,1)^T is an integer, Phi=N/M_{k,m}, and M_{k,m}=m (sqrt m)^{k-1} is a positive integer because m is a power of four.",
+    "original_statement_sha256": "a815e794227b78ce23e065741a5466c2ae632c5d9012a56f8885f73ccf3c5730",
+    "reviewed_statement": "With W=sqrt(m) H (entries +-1), N = z_1^T W D_{z_2} W ... W D_{z_k} (1,...,1)^T is an integer, Phi=N/M_{k,m}, and M_{k,m}=m (sqrt m)^{k-1} is a positive integer because m is a power of four.",
+    "reviewed_statement_sha256": "a815e794227b78ce23e065741a5466c2ae632c5d9012a56f8885f73ccf3c5730",
+    "correction_owner": null,
+    "candidate_ties": [
+      {
+        "declaration": "QuarticQuery.Paper.construction_N_phi",
+        "file": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+        "declaration_line": 141,
+        "relation": "exact",
+        "relation_to_original_ledger": "exact",
+        "route": "same",
+        "ordinary_premises": [
+          "k>=1; m=4^t."
+        ],
+        "open_unresolved_hypotheses": [],
+        "unproved_remaining_clauses": [],
+        "interface": "mathematical_statement",
+        "note": "The integer numerator, positive integer denominator m sqrt(m)^(k-1), normalized Phi and Walsh scaling/±1 entries are stated together. The first diagonal in the ones-vector matrix word is the ledger's z1 transpose.",
+        "reviewed_by": "ai:round2-construction-quantum-source-review",
+        "source_sha256": "14f92345b8885036e862885aad3db82d77cff6e71642e669c2ba7dc8ba087aa1",
+        "signature_sha256": "883abaac67edb684fceb5ada9142043846e1c9677336fcfa349aa5e88ea8d255",
+        "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
+        "lean_statement": "theorem construction_N_phi (k t : ℕ) (hk : 1 ≤ k)\n    (z : BitInput (ForrelationCoord k t)) :\n    (forrelationNumerator k t z : ℝ) =\n      (fun _ : Fin (mValue t) => (1 : ℝ)) ⬝ᵥ\n        (alternate (W t) (List.ofFn fun h : Fin k => signDiag z h) *ᵥ\n          fun _ => (1 : ℝ)) ∧\n    Phi k t z = (forrelationNumerator k t z : ℝ) / (forrelationDenominator k t : ℝ) ∧\n    0 < forrelationDenominator k t ∧\n    (forrelationDenominator k t : ℝ) =\n      (mValue t : ℝ) * (Real.sqrt (mValue t : ℝ)) ^ (k - 1) ∧\n    W t = Real.sqrt (mValue t : ℝ) • H t ∧\n    (∀ i j : Fin (mValue t), W t i j = 1 ∨ W t i j = -1)"
+      }
+    ],
+    "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+    "id": "claim-integer-tests",
+    "return": "2_lean_construction",
+    "disposition": "partial_statement_candidates",
+    "statement_basis": "original ledger plus maintained adjudication corrections",
+    "original_statement": "Phi>=delta iff 2^{5k} N >= M_{k,m}; and |Phi|<=delta/2 iff 2^{5k+1}|N| <= M_{k,m}. d is the disjunction, b the first comparison.",
+    "original_statement_sha256": "3d65de026ffea2b9854731cad2c63b34263eee3ed1df1068b57169f387f6d9d2",
+    "reviewed_statement": "Phi>=delta iff 2^{5k} N >= M_{k,m}; and |Phi|<=delta/2 iff 2^{5k+1}|N| <= M_{k,m}. d is the disjunction, b the first comparison.",
+    "reviewed_statement_sha256": "3d65de026ffea2b9854731cad2c63b34263eee3ed1df1068b57169f387f6d9d2",
+    "correction_owner": null,
+    "candidate_ties": [
+      {
+        "declaration": "QuarticQuery.Paper.construction_integer_tests",
+        "file": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+        "declaration_line": 168,
+        "relation": "partial",
+        "relation_to_original_ledger": "partial",
+        "route": "same",
+        "ordinary_premises": [
+          "m=4^t."
+        ],
+        "open_unresolved_hypotheses": [],
+        "unproved_remaining_clauses": [
+          "No single exported declaration conjoins both Phi comparison equivalences with the actual two circuit output rules."
+        ],
+        "interface": "mathematical_statement",
+        "note": "Gives both integer comparison equivalences and the promised/true-value rules. The d and b bits of the actual circuit are provided by the separate output theorem, so this individual statement does not contain every clause of the row.",
+        "reviewed_by": "ai:round2-construction-quantum-source-review",
+        "source_sha256": "14f92345b8885036e862885aad3db82d77cff6e71642e669c2ba7dc8ba087aa1",
+        "signature_sha256": "00eb29812dabff039c2482014d6e0f9d24b6ddf08addaea1da5b157808da2e26",
+        "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
+        "lean_statement": "theorem construction_integer_tests (k t : ℕ)\n    (z : BitInput (ForrelationCoord k t)) :\n    (delta k ≤ Phi k t z ↔\n      (2 : ℤ) ^ (5 * k) * forrelationNumerator k t z ≥ forrelationDenominator k t) ∧\n    (|Phi k t z| ≤ delta k / 2 ↔\n      (2 : ℤ) ^ (5 * k + 1) * |forrelationNumerator k t z| ≤ forrelationDenominator k t) ∧\n    (promised (P k t) z ↔\n      ((2 : ℤ) ^ (5 * k) * forrelationNumerator k t z ≥ forrelationDenominator k t ∨\n       (2 : ℤ) ^ (5 * k + 1) * |forrelationNumerator k t z| ≤ forrelationDenominator k t)) ∧\n    (P k t z = some true ↔\n      (2 : ℤ) ^ (5 * k) * forrelationNumerator k t z ≥ forrelationDenominator k t)"
+      },
+      {
+        "declaration": "QuarticQuery.Paper.construction_forr_output_bits",
+        "file": "lean/QuarticQuery/Paper/ConstructionForrelationCircuit.lean",
+        "declaration_line": 58,
+        "relation": "partial",
+        "relation_to_original_ledger": "partial",
+        "route": "same",
+        "ordinary_premises": [
+          "Actual forrCircuit l t; a consistent proposed transcript on the supplied input."
+        ],
+        "open_unresolved_hypotheses": [],
+        "unproved_remaining_clauses": [],
+        "interface": "mathematical_statement",
+        "note": "For every consistent transcript of the actual forrCircuit, b is the first integer comparison and d is the disjunction.",
+        "reviewed_by": "ai:round2-construction-quantum-source-review",
+        "source_sha256": "860e8653027d64fe7d5cc5f35357d81ed5fa27e027899047ab819c821e3c8b32",
+        "signature_sha256": "f002928dabec36b0b4b260e414a3d94bb4c8236bf392e0b9f4d82716c671be43",
+        "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
+        "lean_statement": "theorem construction_forr_output_bits (l t : ℕ)\n    (x : BitInput (ForrelationCoord (l + 1) t))\n    (tr : Fin (forrCircuit l t).size → Bool)\n    (htr : GateConsistent (forrCircuit l t) x tr) :\n    tr (forrCircuit l t).valueOut =\n      decide ((2 : ℤ) ^ (5 * (l + 1)) * forrelationNumerator (l + 1) t x ≥\n        forrelationDenominator (l + 1) t) ∧\n    tr (forrCircuit l t).domainOut =\n      decide ((2 : ℤ) ^ (5 * (l + 1)) * forrelationNumerator (l + 1) t x ≥\n          forrelationDenominator (l + 1) t ∨\n        (2 : ℤ) ^ (5 * (l + 1) + 1) * |forrelationNumerator (l + 1) t x| ≤\n          forrelationDenominator (l + 1) t)"
+      }
+    ],
+    "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+    "id": "claim-circuit-size",
+    "return": "2_lean_construction",
+    "disposition": "partial_statement_candidates",
+    "statement_basis": "original ledger plus maintained adjudication corrections",
+    "original_statement": "N is computed by k-1 unnormalized Walsh-Hadamard transforms, coordinate sign changes and a final signed sum. Each transform uses O(m log m) additions and subtractions; all intermediate integers have absolute value at most m^{O(k)}, so O_k(log m) bits suffice; hence Boolean size O_k(m (log m)^2).",
+    "original_statement_sha256": "afe168ec7912be966d64fc23f439bd4b9c8cd2ef8e2c3ea413a2b6b2994fd35a",
+    "reviewed_statement": "N is computed by k-1 unnormalized Walsh-Hadamard transforms, coordinate sign changes and a final signed sum. Each transform uses O(m log m) additions and subtractions; all intermediate integers have absolute value at most m^{O(k)}, so O_k(log m) bits suffice; hence Boolean size O_k(m (log m)^2).",
+    "reviewed_statement_sha256": "afe168ec7912be966d64fc23f439bd4b9c8cd2ef8e2c3ea413a2b6b2994fd35a",
+    "correction_owner": null,
+    "candidate_ties": [
+      {
+        "declaration": "QuarticQuery.Paper.construction_circuit_costs",
+        "file": "lean/QuarticQuery/Paper/ConstructionForrelationCircuit.lean",
+        "declaration_line": 94,
+        "relation": "partial",
+        "relation_to_original_ledger": "partial",
+        "route": "same",
+        "ordinary_premises": [
+          "m=4^t; t>=1; k=l+1."
+        ],
+        "open_unresolved_hypotheses": [],
+        "unproved_remaining_clauses": [
+          "A complete correspondence theorem for every stored modular circuit register and ideal signed intermediate, including all range assertions."
+        ],
+        "interface": "mathematical_statement",
+        "note": "The actual modular circuit has its stated width, transform/layer cost, exact endpoint and quadratic-log size cap. Ideal integer walk/prefix/butterfly growth is separate; these statements do not identify every modular stored register with an unbounded signed intermediate.",
+        "reviewed_by": "ai:round2-construction-quantum-source-review",
+        "source_sha256": "860e8653027d64fe7d5cc5f35357d81ed5fa27e027899047ab819c821e3c8b32",
+        "signature_sha256": "147eafe60dde4634f773fb5e62ed1f1c6feadd5c9c53710b5a4e23307af6a369",
+        "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
+        "lean_statement": "theorem construction_circuit_costs (l t : ℕ) (ht : 1 ≤ t) :\n    widthTop l t + 1 ≤ (3 * l + 5) * (2 * t) ∧\n    (∀ w : ℕ, whtCost w (2 * t) ≤ (2 * t) * mValue t * (6 * w + 1)) ∧\n    (∀ n w : ℕ, layerCost n w l ≤\n      1 + (l + 1) * (whtCost w n + 2 ^ n * (6 * w))) ∧\n    (∀ x : BitInput (ForrelationCoord (l + 1) t),\n      |forrelationNumerator (l + 1) t x| ≤ forrelationDenominator (l + 1) t) ∧\n    CircuitRealises (forrCircuit l t) (P (l + 1) t) ∧\n    (forrCircuit l t).size ≤\n      forrConstant (l + 1) * mValue t * (2 * t) ^ 2"
+      },
+      {
+        "declaration": "QuarticQuery.Paper.construction_walkN_bound",
+        "file": "lean/QuarticQuery/Paper/ConstructionArithmetic.lean",
+        "declaration_line": 57,
+        "relation": "partial",
+        "relation_to_original_ledger": "partial",
+        "route": "same",
+        "ordinary_premises": [
+          "Integer signs sigma with absolute value at most one at every coordinate."
+        ],
+        "open_unresolved_hypotheses": [],
+        "unproved_remaining_clauses": [],
+        "interface": "mathematical_statement",
+        "note": "Every ideal integer walk coordinate has magnitude at most m^l for signs of magnitude at most one.",
+        "reviewed_by": "ai:round2-construction-quantum-source-review",
+        "source_sha256": "2c355a3eb5e76cd5db70a6990bb9d6b37d652e0eece3b31ed0661219d3635ad0",
+        "signature_sha256": "03751353ec8456a5842e1ecc34a5a6030a2bc37b88f75fa50f3851c432df2ad9",
+        "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
+        "lean_statement": "theorem construction_walkN_bound (n l : ℕ) (σ : ℕ → ℕ → ℤ)\n    (hσ : ∀ h i, |σ h i| ≤ 1) (i : ℕ) :\n    |walkN n l σ i| ≤ ((2 ^ n : ℕ) : ℤ) ^ l"
+      },
+      {
+        "declaration": "QuarticQuery.Paper.construction_walkN_prefix_bound",
+        "file": "lean/QuarticQuery/Paper/ConstructionArithmetic.lean",
+        "declaration_line": 85,
+        "relation": "partial",
+        "relation_to_original_ledger": "partial",
+        "route": "same",
+        "ordinary_premises": [
+          "Integer signs sigma with absolute value at most one at every coordinate."
+        ],
+        "open_unresolved_hypotheses": [],
+        "unproved_remaining_clauses": [],
+        "interface": "mathematical_statement",
+        "note": "Every prefix of the ideal final signed sum has the stated polynomial magnitude bound.",
+        "reviewed_by": "ai:round2-construction-quantum-source-review",
+        "source_sha256": "2c355a3eb5e76cd5db70a6990bb9d6b37d652e0eece3b31ed0661219d3635ad0",
+        "signature_sha256": "daf7a50c36b4dd4febd2584be86d910c099732859bd3d15052af9839a0d18f31",
+        "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
+        "lean_statement": "theorem construction_walkN_prefix_bound (n l a : ℕ) (σ : ℕ → ℕ → ℤ)\n    (hσ : ∀ h i, |σ h i| ≤ 1) :\n    |∑ j ∈ range a, walkN n l σ j| ≤ (a : ℤ) * ((2 ^ n : ℕ) : ℤ) ^ l"
+      },
+      {
+        "declaration": "QuarticQuery.Paper.construction_butterfly_block_bound",
+        "file": "lean/QuarticQuery/Paper/ConstructionArithmetic.lean",
+        "declaration_line": 95,
+        "relation": "partial",
+        "relation_to_original_ledger": "partial",
+        "route": "same",
+        "ordinary_premises": [
+          "Integer block inputs bounded in absolute value by B."
+        ],
+        "open_unresolved_hypotheses": [],
+        "unproved_remaining_clauses": [],
+        "interface": "mathematical_statement",
+        "note": "Every ideal partial butterfly block has magnitude at most its term count times its input bound.",
+        "reviewed_by": "ai:round2-construction-quantum-source-review",
+        "source_sha256": "2c355a3eb5e76cd5db70a6990bb9d6b37d652e0eece3b31ed0661219d3635ad0",
+        "signature_sha256": "f4c0e27e71af0abeb386a76a4c91078a8bb81f491dce809b2eadeeb56e714961",
+        "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
+        "lean_statement": "theorem construction_butterfly_block_bound (q i offset : ℕ)\n    (v : ℕ → ℤ) (B : ℤ)\n    (hv : ∀ j, j < 2 ^ q → |v (offset + j)| ≤ B) :\n    |∑ j ∈ range (2 ^ q), walshN q i j * v (offset + j)| ≤\n      ((2 ^ q : ℕ) : ℤ) * B"
+      }
+    ],
+    "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+    "id": "lem-2.1",
+    "return": "2_lean_construction",
+    "disposition": "exact_statement_candidate",
+    "statement_basis": "original ledger plus maintained adjudication corrections",
+    "original_statement": "Conjunction of lem-2.1.i, lem-2.1.ii and lem-2.1.iii for each fixed k>=2.",
+    "original_statement_sha256": "7df2f44d3a848ba73c5b2e446bfc7e0fb52b2f8eff5be64ab56aed026f91167a",
+    "reviewed_statement": "Conjunction of lem-2.1.i, lem-2.1.ii and lem-2.1.iii for each fixed k>=2.",
+    "reviewed_statement_sha256": "7df2f44d3a848ba73c5b2e446bfc7e0fb52b2f8eff5be64ab56aed026f91167a",
+    "correction_owner": null,
+    "candidate_ties": [
+      {
+        "declaration": "QuarticQuery.Paper.construction_lemma_2_1_complete",
+        "file": "lean/QuarticQuery/Paper/ConstructionForrelationComplete.lean",
+        "declaration_line": 66,
+        "relation": "exact",
+        "relation_to_original_ledger": "exact",
+        "route": "alternative",
+        "ordinary_premises": [
+          "Fixed k>=2; m=4^t, with t sufficiently large for the randomized part and t>=1 for the circuit part."
+        ],
+        "open_unresolved_hypotheses": [],
+        "unproved_remaining_clauses": [],
+        "interface": "full conjunction with retained-state physical witness",
+        "note": "Conjoins the fixed-k randomized lower bound, the same retained-state physical quantum witness with accurate all-input Boolean law, and an exact realizing circuit with a uniform size constant. Only the lower-bound part uses the alternative fixed-parameter route.",
+        "reviewed_by": "ai:round2-construction-quantum-source-review",
+        "source_sha256": "733526015ad9a2013512d8f6216b8f73c41566a803d92602dd30e40e90d7ad06",
+        "signature_sha256": "ad90d5116adc1d3436c39804b934b6bf173ca552f86203a5385de59584ed0b80",
+        "evidence_status": "reviewed_source_only; compilation, axiom audit, Comparator and dependency reach not asserted",
+        "lean_statement": "theorem construction_lemma_2_1_complete (k : ℕ) (hk : 2 ≤ k) :\n    (∃ t₀ : ℕ, ∀ t : ℕ, t₀ ≤ t → Lvalue k t < R (P k t)) ∧\n    (∃ A : ℝ, 0 < A ∧ ∀ (t : ℕ) (η : ℝ), 0 < η → η < 1 / 2 →\n      ∃ (n : ℕ) (L : BitInput (ForrelationCoord k t) → Bool → ℝ)\n        (Z : Type) (instZ : Fintype Z),\n        let _ := instZ\n        ∃ (o : Z) (out : Z → Bool)\n          (F : BitInput (ForrelationCoord k t) → Reg Z ≃ₗᵢ[ℂ] Reg Z),\n          ((2 * (n * k) : ℕ) : ℝ) ≤ A * (1 + Real.log (1 / η)) ∧\n          IsCirc (n * k) F ∧\n          (∀ z b, L z b = lawOf (F z (rket o)) out b) ∧\n          (∀ z, 0 ≤ L z false ∧ 0 ≤ L z true ∧ L z false + L z true = 1) ∧\n          (∀ z b, P k t z = some b → 1 - η ≤ L z b) ∧\n          ∃ instI : Inhabited (ForrelationCoord k t),\n            let _ := instI\n            ∃ (w : ℕ) (emb : Z ↪ Fin (w + 1))\n              (K : AdaptiveProgram (ForrelationCoord k t) w →\n                AdaptiveProgram (ForrelationCoord k t) w),\n              ∀ next, (K next).queryCap ≤ 2 * (n * k) + next.queryCap ∧\n                ∀ z ψ b, (K next).outputMass z (clEmb emb ψ) b =\n                  next.outputMass z (clEmb emb (F z ψ)) b) ∧\n    (∃ S : ℕ, 0 < S ∧ ∀ t : ℕ, 1 ≤ t → ∃ C : Circuit (ForrelationCoord k t),\n      CircuitRealises C (P k t) ∧\n      (C.size : ℝ) ≤ (S : ℝ) * (mValue t : ℝ) *\n        (Real.logb 2 (mValue t : ℝ)) ^ 2)"
+      }
+    ],
+    "reviewed_by": "ai:round2-construction-quantum-source-review"
+  }
+]

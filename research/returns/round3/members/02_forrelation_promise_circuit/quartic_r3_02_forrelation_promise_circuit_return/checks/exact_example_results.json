@@ -1,0 +1,201 @@
+{
+  "schema": "forrelation_exact_finite_check_v1",
+  "passed": true,
+  "arithmetic": "Python arbitrary-precision integers and fractions.Fraction",
+  "bit_convention": "bit 1 means sign -1; bit index = block*m+coordinate",
+  "walsh_order": "natural integer index; sign = (-1)^popcount(i & j)",
+  "families": [
+    {
+      "k": 2,
+      "t": 1,
+      "m": 4,
+      "M": 8,
+      "word_width": 16,
+      "input_count": 256,
+      "gate_count": 3563,
+      "census": {
+        "0": 48,
+        "1": 104,
+        "undefined": 104
+      },
+      "numerator_histogram": {
+        "-8": 8,
+        "-4": 96,
+        "0": 48,
+        "4": 96,
+        "8": 8
+      },
+      "checks": [
+        "direct path = dense Walsh = butterfly numerator",
+        "integer thresholds = exact rational promise",
+        "every reconstructed Boolean output matches promise",
+        "N,A,B,C words encode the exact residues",
+        "A,B,C signs recover exact integer comparisons",
+        "gate count matches source-constructor recurrence"
+      ]
+    },
+    {
+      "k": 3,
+      "t": 1,
+      "m": 4,
+      "M": 16,
+      "word_width": 22,
+      "input_count": 4096,
+      "gate_count": 7275,
+      "census": {
+        "0": 1152,
+        "1": 1472,
+        "undefined": 1472
+      },
+      "numerator_histogram": {
+        "-16": 192,
+        "-8": 1280,
+        "0": 1152,
+        "8": 1280,
+        "16": 192
+      },
+      "checks": [
+        "direct path = dense Walsh = butterfly numerator",
+        "integer thresholds = exact rational promise",
+        "every reconstructed Boolean output matches promise",
+        "N,A,B,C words encode the exact residues",
+        "A,B,C signs recover exact integer comparisons",
+        "gate count matches source-constructor recurrence"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "label": "positive",
+      "z0": [
+        1,
+        -1,
+        -1,
+        -1
+      ],
+      "z1": [
+        -1,
+        1,
+        1,
+        1
+      ],
+      "input_mask": 30,
+      "W_z1": [
+        2,
+        -2,
+        -2,
+        -2
+      ],
+      "N": 8,
+      "M": 8,
+      "Phi": "1",
+      "projection_probability": "1",
+      "P": 1,
+      "d": 1,
+      "b": 1
+    },
+    {
+      "label": "zero",
+      "z0": [
+        1,
+        -1,
+        1,
+        1
+      ],
+      "z1": [
+        -1,
+        1,
+        1,
+        1
+      ],
+      "input_mask": 18,
+      "W_z1": [
+        2,
+        -2,
+        -2,
+        -2
+      ],
+      "N": 0,
+      "M": 8,
+      "Phi": "0",
+      "projection_probability": "0",
+      "P": 0,
+      "d": 1,
+      "b": 0
+    },
+    {
+      "label": "negative",
+      "z0": [
+        -1,
+        1,
+        1,
+        1
+      ],
+      "z1": [
+        -1,
+        1,
+        1,
+        1
+      ],
+      "input_mask": 17,
+      "W_z1": [
+        2,
+        -2,
+        -2,
+        -2
+      ],
+      "N": -8,
+      "M": 8,
+      "Phi": "-1",
+      "projection_probability": "1",
+      "P": null,
+      "d": 0,
+      "b": 0
+    }
+  ],
+  "threshold_boundary_checks": {
+    "k": 2,
+    "t": 4,
+    "M": 4096,
+    "numerators_checked": 8193,
+    "status": "synthetic integer numerators; realizability not asserted",
+    "boundary_examples": [
+      {
+        "N": -4,
+        "Phi": "-1/1024",
+        "P": null
+      },
+      {
+        "N": -2,
+        "Phi": "-1/2048",
+        "P": 0
+      },
+      {
+        "N": 0,
+        "Phi": "0",
+        "P": 0
+      },
+      {
+        "N": 2,
+        "Phi": "1/2048",
+        "P": 0
+      },
+      {
+        "N": 3,
+        "Phi": "3/4096",
+        "P": null
+      },
+      {
+        "N": 4,
+        "Phi": "1/1024",
+        "P": 1
+      }
+    ]
+  },
+  "limitations": [
+    "finite checks, not a proof for all k,t",
+    "Boolean reconstruction, not extracted Lean execution",
+    "no Lean build, Comparator result, or kernel replay claimed",
+    "no classical lower bound or growing-k theorem tested"
+  ]
+}

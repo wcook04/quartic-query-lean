@@ -1,0 +1,151 @@
+{
+  "status": "passed",
+  "scope": "finite exact rational illustration only; no universal proof, Lean build, or physical-circuit execution",
+  "candidate_order": [
+    "s",
+    "a",
+    "b",
+    "c"
+  ],
+  "m": 4,
+  "T": 12,
+  "epsilon": "1/12000",
+  "comparison_table": [
+    [
+      "0",
+      "11999/12000",
+      "11999/12000",
+      "11999/12000"
+    ],
+    [
+      "1/12000",
+      "0",
+      "1",
+      "0"
+    ],
+    [
+      "1/12000",
+      "0",
+      "0",
+      "1"
+    ],
+    [
+      "1/12000",
+      "1",
+      "0",
+      "0"
+    ]
+  ],
+  "cycle": "a beats b; b beats c; c beats a, each with probability one",
+  "after_pivot_a": {
+    "weights": [
+      "11999/12000",
+      "0",
+      "0",
+      "1"
+    ],
+    "total": "23999/12000",
+    "stage_success": "23999/48000",
+    "conditional_index_law": [
+      "11999/23999",
+      "0",
+      "0",
+      "12000/23999"
+    ]
+  },
+  "after_pivots_a_c": {
+    "weights": [
+      "143976001/144000000",
+      "0",
+      "0",
+      "0"
+    ],
+    "conditional_next_pivot": "s with probability one"
+  },
+  "initial_expected_next_total_weight": "3/2",
+  "ideal_s_selected_by_third_pivot": true,
+  "histories_with_checked_drift": 23,
+  "artificial_failure_law": "f(L)=epsilon when W(L)>0; f(L)=1 when W(L)=0; demonstration only",
+  "artificial_failure_miss_exact": "407962001/2303904000000",
+  "zero_weight_negative_control_detected": true,
+  "steps": [
+    {
+      "step": 0,
+      "ideal_miss": "1",
+      "artificial_failure_miss": "1",
+      "ideal_expected_total_weight": "4"
+    },
+    {
+      "step": 1,
+      "ideal_miss": "3/4",
+      "artificial_failure_miss": "36001/48000",
+      "ideal_expected_total_weight": "3/2"
+    },
+    {
+      "step": 2,
+      "ideal_miss": "9000/23999",
+      "artificial_failure_miss": "576127986667/1535936000000",
+      "ideal_expected_total_weight": "431987999/1151952000"
+    },
+    {
+      "step": 3,
+      "ideal_miss": "0",
+      "artificial_failure_miss": "407962001/2303904000000",
+      "ideal_expected_total_weight": "0"
+    },
+    {
+      "step": 4,
+      "ideal_miss": "0",
+      "artificial_failure_miss": "407962001/2303904000000",
+      "ideal_expected_total_weight": "0"
+    },
+    {
+      "step": 5,
+      "ideal_miss": "0",
+      "artificial_failure_miss": "407962001/2303904000000",
+      "ideal_expected_total_weight": "0"
+    },
+    {
+      "step": 6,
+      "ideal_miss": "0",
+      "artificial_failure_miss": "407962001/2303904000000",
+      "ideal_expected_total_weight": "0"
+    },
+    {
+      "step": 7,
+      "ideal_miss": "0",
+      "artificial_failure_miss": "407962001/2303904000000",
+      "ideal_expected_total_weight": "0"
+    },
+    {
+      "step": 8,
+      "ideal_miss": "0",
+      "artificial_failure_miss": "407962001/2303904000000",
+      "ideal_expected_total_weight": "0"
+    },
+    {
+      "step": 9,
+      "ideal_miss": "0",
+      "artificial_failure_miss": "407962001/2303904000000",
+      "ideal_expected_total_weight": "0"
+    },
+    {
+      "step": 10,
+      "ideal_miss": "0",
+      "artificial_failure_miss": "407962001/2303904000000",
+      "ideal_expected_total_weight": "0"
+    },
+    {
+      "step": 11,
+      "ideal_miss": "0",
+      "artificial_failure_miss": "407962001/2303904000000",
+      "ideal_expected_total_weight": "0"
+    },
+    {
+      "step": 12,
+      "ideal_miss": "0",
+      "artificial_failure_miss": "407962001/2303904000000",
+      "ideal_expected_total_weight": "0"
+    }
+  ]
+}

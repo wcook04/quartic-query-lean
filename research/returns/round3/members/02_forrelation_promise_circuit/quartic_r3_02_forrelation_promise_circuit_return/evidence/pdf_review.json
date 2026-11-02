@@ -1,0 +1,33 @@
+{
+  "schema": "quartic-pdf-review-v1",
+  "review_date": "2026-11-02",
+  "source": "section.md",
+  "source_sha256": "06d3a346920e61e78834b80dd55b34de7cb38dccf7bfecdfc47a6eba29cda0e2",
+  "rendered": "section.pdf",
+  "rendered_sha256": "98f9e94fc14cac1fa90995e11ea11feb534adeaf67dca0cfd9a5920eed9dd3c7",
+  "pages": 9,
+  "render_command": "python checks/render_section.py",
+  "renderer": "Pandoc with XeLaTeX; Latin Modern Roman and DejaVu Sans Mono",
+  "visual_review": {
+    "pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "method": "Poppler PNG rendering at 1400px with visual inspection of equations, tables, running paragraphs, headings, page boundaries and bibliography.",
+    "corrections": [
+      "Keep the bold coherent-preparation lead with its following equations.",
+      "Widen and rebalance the three-example table columns to prevent tuple collision.",
+      "Allow line breaks inside the SHA-256 in the rendered bibliography."
+    ],
+    "final_disposition": "All nine pages inspected. Corrected regions reinspected. No remaining observed clipping, overlap, unresolved TeX or unreadable table content."
+  },
+  "content_boundary": "PDF layout filters alter spacing/line breaks only; section.md is the mathematical source. The raw 64-character hash remains intact in section.md and source metadata.",
+  "limits": "Visual QA is not mathematical proof, Lean elaboration, Comparator, or human peer review."
+}

@@ -1,0 +1,86 @@
+{
+  "status": "source-located writing moves used in this advisory replacement",
+  "scope": "Sections 1-2 only; no named author's voice copied and no unperformed register-measurement command claimed",
+  "rules": [
+    {
+      "move": "Lead with the exact mathematical result and explain why the model definitions are needed.",
+      "sources": [
+        {"file": "writing/the-deliverable.md", "locator": "The object; The two forms"},
+        {"file": "writing/SKILL.md", "locator": "First-time reader contract; Architecture gate"}
+      ],
+      "used_at": ["ROOT-RESULT", "ROOT-ARCHITECTURE"],
+      "implementation": "The universal exponent and fixed-parameter family precede the model and evidence details. The winner certificate gives a single mechanism tying the later sections together.",
+      "limit": "An early theorem statement does not substitute for its proof or turn an advisory section into an integrated paper."
+    },
+    {
+      "move": "Keep quantifier order, domains, shifts and witnesses visible while changing prose.",
+      "sources": [
+        {"file": "writing/SKILL.md", "locator": "Claim-fidelity gate"},
+        {"file": "writing/full-exposition-guide.md", "locator": "Section 8, Claim fidelity"},
+        {"file": "writing/register-from-literature.md", "locator": "What stays fixed while the register changes"}
+      ],
+      "used_at": ["ROOT-RESULT", "R3-01-QUANTIFIERS", "ROOT-PARTIAL"],
+      "implementation": "Fix k before the size tends to infinity; keep one function/circuit for both bounds; preserve the positive shifted base and the algorithm-before-input quantifier.",
+      "limit": "No uniform growing-k family or exact fourth-power family is inferred."
+    },
+    {
+      "move": "Give a definition, its purpose and an exact small instance.",
+      "sources": [
+        {"file": "writing/full-exposition-guide.md", "locator": "Section 4A, Worked-definition gate"},
+        {"file": "writing/SKILL.md", "locator": "First-time reader contract; Legibility gate"}
+      ],
+      "used_at": ["R3-01-CLASSICAL", "R3-01-ADAPTIVE", "R3-01-IDENTITY", "R3-01-OR", "R3-01-OFFPROMISE"],
+      "implementation": "Identity tests quantifiers, OR tests the inclusive threshold and maximum cap, and the one-label promise tests the meaning of undefined inputs.",
+      "limit": "Finite examples test intended meanings; they do not prove general equivalence of computational models."
+    },
+    {
+      "move": "Expose the hard proof step in forward mathematical order.",
+      "sources": [
+        {"file": "writing/mathematical-writing-mechanics.md", "locator": "Section 2, Internal dependency map; Section 5, Write proofs forward"},
+        {"file": "writing/full-exposition-guide.md", "locator": "Section 4, Organisation"}
+      ],
+      "used_at": ["R3-01-QUANTIFIERS", "R3-01-ADAPTIVE", "R3-01-BRIDGES", "R3-01-OR"],
+      "implementation": "Show the shifted upper envelope before the ratio deduction, the orthogonal norm split before mass conservation, and the compatible embedding plus isometry extension in deferred measurement.",
+      "limit": "A valid alternative proof idea is not attributed to the source when the source uses a different construction."
+    },
+    {
+      "move": "State what a citation contributes and identify the edition at a changed convention.",
+      "sources": [
+        {"file": "writing/mathematical-writing-mechanics.md", "locator": "Section 9, Citation roles and scholarly credit"},
+        {"file": "writing/full-exposition-guide.md", "locator": "Section 8, Literature freshness and locator gate"}
+      ],
+      "used_at": ["ROOT-RESULT", "ROOT-ORACLE", "R3-01-PARITY"],
+      "implementation": "Separate OpenAI's separation theorem, the prior universal upper bound, standard model conventions, and the two Beals editions. Correct the de Wolf v6 locator explicitly.",
+      "limit": "The QAOA exemplar and writing guides supply no evidence about quartic query complexity."
+    },
+    {
+      "move": "Separate statement authority, proof route and dependency use.",
+      "sources": [
+        {"file": "writing/full-exposition-guide.md", "locator": "Section 7, State authority and logical reach on separate axes"},
+        {"file": "writing/SKILL.md", "locator": "Lean support and prose correspondence"},
+        {"file": "repository/docs/statement_evidence_contract.md", "locator": "Three separate facts per statement"}
+      ],
+      "used_at": ["ROOT-EVIDENCE-CONVENTION"],
+      "implementation": "One central verification note explains the distinctions; the model table and crosswalk bind individual claims to exact types and receipts.",
+      "limit": "A build, a comparison against shared specifications, a finite calculation, reachability and human review do not imply one another."
+    },
+    {
+      "move": "Use the exemplar's object-first opening and dependency roadmap, without borrowing its mathematics or phrasing.",
+      "sources": [
+        {"file": "exemplars/long-reasoning-record.md", "locator": "Overview and Section 1, sampled lines 1-150"}
+      ],
+      "used_at": ["ROOT-RESULT", "ROOT-ARCHITECTURE", "ROOT-PARTIAL"],
+      "implementation": "Introduce the precise query object, identify the one mechanism needed to read the proof, then place evidence where the reader can inspect it.",
+      "limit": "The exemplar concerns QAOA and is a structure specimen only. Its mathematical claims were not assessed for this task or imported."
+    },
+    {
+      "move": "Record a cold-reader disposition and the actual validation boundary.",
+      "sources": [
+        {"file": "writing/mathematical-writing-mechanics.md", "locator": "Mathematical understanding/taste rubric; Acceptance tests; Required paper-authoring receipt"}
+      ],
+      "used_at": ["review_notes.md", "LEAN_GAPS.md", "source_read_receipt.json"],
+      "implementation": "Independent AI reviews checked the model examples, evidence claims and quantum construction; exact scripts and structural checks have separate receipts.",
+      "limit": "No PDF was rendered, no new Lean/Comparator run occurred, and no human mathematical review is claimed."
+    }
+  ]
+}

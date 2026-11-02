@@ -1,0 +1,170 @@
+{
+  "schema": "exact-returned-subsystem-example/v1",
+  "status": "passed",
+  "arithmetic": "fractions.Fraction; exact rational density matrices",
+  "basis_order": [
+    "00",
+    "01",
+    "10",
+    "11"
+  ],
+  "first_register_basis": [
+    "0",
+    "1"
+  ],
+  "states": {
+    "product_plus_zero": {
+      "description": "|+> tensor |0>, where |+> = (|0> + |1>)/sqrt(2)",
+      "density_matrix": [
+        [
+          "1/2",
+          "0",
+          "1/2",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "1/2",
+          "0",
+          "1/2",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "first_register_density_matrix": [
+        [
+          "1/2",
+          "1/2"
+        ],
+        [
+          "1/2",
+          "1/2"
+        ]
+      ],
+      "first_register_purity": "1"
+    },
+    "bell": {
+      "description": "(|00> + |11>)/sqrt(2)",
+      "density_matrix": [
+        [
+          "1/2",
+          "0",
+          "0",
+          "1/2"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "1/2",
+          "0",
+          "0",
+          "1/2"
+        ]
+      ],
+      "first_register_density_matrix": [
+        [
+          "1/2",
+          "0"
+        ],
+        [
+          "0",
+          "1/2"
+        ]
+      ],
+      "first_register_purity": "1/2"
+    }
+  },
+  "computational_basis_measurement_on_first_register": {
+    "product_probabilities": [
+      "1/2",
+      "1/2"
+    ],
+    "bell_probabilities": [
+      "1/2",
+      "1/2"
+    ],
+    "laws_equal": true
+  },
+  "plus_minus_measurement_on_first_register": {
+    "plus_projector": [
+      [
+        "1/2",
+        "1/2"
+      ],
+      [
+        "1/2",
+        "1/2"
+      ]
+    ],
+    "product_plus_probability": "1",
+    "bell_plus_probability": "1/2",
+    "laws_equal": false
+  },
+  "cnot_uncomputation": {
+    "control": "first register",
+    "target": "second register",
+    "basis_index_permutation": [
+      0,
+      1,
+      3,
+      2
+    ],
+    "self_inverse": true,
+    "product_maps_to_bell": true,
+    "bell_maps_to_product": true,
+    "uncomputed_density_matrix": [
+      [
+        "1/2",
+        "0",
+        "1/2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "1/2",
+        "0",
+        "1/2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    ],
+    "original_pure_state_restored": true
+  },
+  "conclusion": "Equal computational-label laws do not determine the returned subsystem's quantum state. A specified coherent uncomputation can restore the pure state in this example.",
+  "scope": {
+    "new_lean_run": false,
+    "verifies_samples_bind_implementation": false,
+    "proves_amplification_impossible": false,
+    "purpose": "Exact finite example supporting section 5.1 and LEAN_GAPS.md"
+  }
+}

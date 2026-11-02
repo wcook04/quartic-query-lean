@@ -1,0 +1,187 @@
+{
+  "schema": "quartic-round3-return-manifest-v1",
+  "title": "Fixed-parameter Forrelation lower bound: replacement §§3.6–3.16",
+  "created_date": "2026-11-02",
+  "assignment": "round3/03_forrelation_lower_bound",
+  "scope": "Advisory section return; no repository source modifications or fresh Lean run.",
+  "self_hash_policy": "Every other regular return member is listed with exact byte size and SHA-256. MANIFEST.json excludes itself to avoid recursive hashing.",
+  "source_attachment": {
+    "filename": "quartic_r3_03_forrelation_lower_bound.zip",
+    "bytes": 5095428,
+    "sha256": "0939519b3d31e84d886cc0e7396d987a79f44a1adab831f97eaaf7d1162cb314"
+  },
+  "source_repository_commit_label": "1dd469dd0042b937b739da3bc211eeb60bdf7462",
+  "input_manifest_sha256": "14a31c3477fd5ba114d0c956291d64c6692936d1dad462b7d85cc3c400e45b1e",
+  "source_versions": [
+    {
+      "source": "OpenAI preprint",
+      "version": "5 October2026",
+      "sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e"
+    },
+    {
+      "source": "Bansal–Sinha",
+      "version": "arXiv2008.07003v3,17November2020",
+      "source_archive_sha256": "f48a3225662484d12e19bf03412478cf87a388f7c2e33c69a4d7f2078202e015",
+      "main_tex_sha256": "800119f9f12877392a92e34ac380c61a50b2a297cee0a70511058580061f835b"
+    },
+    {
+      "source": "Girish–Tal–KewenWu",
+      "version": "arXiv2103.11604v2,13May2021"
+    },
+    {
+      "source": "Sherstov–Storozhenko–PeiWu",
+      "version": "arXiv2008.10223v4,29January2023"
+    },
+    {
+      "source": "Tal",
+      "version": "arXiv1912.12561v1,29December2019; FOCS2020context"
+    },
+    {
+      "source": "Lean supplied receipt",
+      "version": "leanprover/lean4:v4.36.0-rc2",
+      "recorded_source_pin": "31e17dee667d1d72fa621da8e7d3d8ff5fc3960a"
+    },
+    {
+      "source": "Mathlib dependency pin",
+      "version": "69552756cd8a2d2d48763cf7279fd814d6a1224d",
+      "coverage": "Pin recorded; full dependency source bytes and compiled installation not independently audited."
+    }
+  ],
+  "members": [
+    {
+      "member": "LEAN_GAPS.md",
+      "bytes": 15190,
+      "sha256": "5ef8f222c1f80f5dd570b40b7b56f2dfd9786dc7cec841fe2ce383cb00d6de8c"
+    },
+    {
+      "member": "NEW_STATEMENTS.json",
+      "bytes": 2983,
+      "sha256": "e21753aed71d0a4c21ed1488d5bd87bbda8e99980e1dcbd954b98f31d1fdaffa"
+    },
+    {
+      "member": "README.md",
+      "bytes": 3238,
+      "sha256": "d4f3084e378f1166bad62d2bd0e7e862ff829edea81ccb8f066b4c935e9e0968"
+    },
+    {
+      "member": "SOURCE_USAGE.md",
+      "bytes": 7724,
+      "sha256": "f0c168cf8d0395225372f46bb545406f15d5dad2a7fdf566977487cfef3f349b"
+    },
+    {
+      "member": "STATEMENT_CHANGES.json",
+      "bytes": 4279,
+      "sha256": "c617b8e9812d8ad6b0b36a45ecc6fe5790a7e06ffcd3075dfbf73ba687bcf3f4"
+    },
+    {
+      "member": "STYLE_RULES.json",
+      "bytes": 4667,
+      "sha256": "020ebc2c3d3a834912d67a6219c93548c97bd8f07593102b6c530e596f0664a3"
+    },
+    {
+      "member": "correspondence.json",
+      "bytes": 531541,
+      "sha256": "4b77a19ce061e9db2785e40caa446d8af682b3525267fb94964c115c3476539d"
+    },
+    {
+      "member": "evidence/LEAN_EVIDENCE_REVIEW.md",
+      "bytes": 15351,
+      "sha256": "b1e90210c4f4afb19f420f93ef02467dd1bc3f5eacf3b58dbe976815abed5c43"
+    },
+    {
+      "member": "evidence/declaration_interfaces.json",
+      "bytes": 331761,
+      "sha256": "5c22ef3e39e90718a0d400ba8bd2243e3669c36b602ea42d3034c08c4b8dbd90"
+    },
+    {
+      "member": "evidence/evidence_verification.json",
+      "bytes": 452073,
+      "sha256": "40b56f03eeb569e540634ca4d952abef9b6f5cfe76ae8ee1cf4bdd0000dfb70d"
+    },
+    {
+      "member": "evidence/route_boundaries.json",
+      "bytes": 6062,
+      "sha256": "4772edfa8ebb80c49ba7ef6a9043254edd5746d04f6b9f9361b09db42c3f9821"
+    },
+    {
+      "member": "evidence/source_read_receipt.json",
+      "bytes": 5882,
+      "sha256": "ca4317b063e0d664081140577c6bd2ad59938b02ed992175a9f4a7bd71f4f6d7"
+    },
+    {
+      "member": "historical_threshold.md",
+      "bytes": 3093,
+      "sha256": "15d7acdcc4ca9e5c89ca2e1296816e411c64c489f7e702c8b816f4fd8ea7fe0e"
+    },
+    {
+      "member": "references.bib",
+      "bytes": 3207,
+      "sha256": "beef30e5c587ef6954293d0c26486cbb0f42b02a602e5fcff1832a2d32f52ef0"
+    },
+    {
+      "member": "review_notes.md",
+      "bytes": 11611,
+      "sha256": "8b869929fc60241be7aeb1683a57d84151dae5cd8e2e8f01c738a5aadddadb59"
+    },
+    {
+      "member": "reviews/lean_cold_read.md",
+      "bytes": 5332,
+      "sha256": "410feb1cefb9226f799bfabbad7a36bd80656d403f15ebdc067d57ac48cc9365"
+    },
+    {
+      "member": "reviews/lean_source_read_receipt.json",
+      "bytes": 5882,
+      "sha256": "ca4317b063e0d664081140577c6bd2ad59938b02ed992175a9f4a7bd71f4f6d7"
+    },
+    {
+      "member": "reviews/literature_audit.md",
+      "bytes": 11664,
+      "sha256": "a9fea3b4d98ee2daa7b545efd262e2da4b258c8b8456904ede701879e1f4daae"
+    },
+    {
+      "member": "reviews/literature_cold_read.md",
+      "bytes": 5156,
+      "sha256": "09b98207e152c1d9de8b1d120cf869e41fb52e7c65e102e2fc0101f6a6bf6abd"
+    },
+    {
+      "member": "reviews/literature_source_read_receipt.json",
+      "bytes": 11310,
+      "sha256": "420144d38b2097886fb978ac56dfe64500704d783ac2f776e827bd5633e56a90"
+    },
+    {
+      "member": "reviews/proof_audit.md",
+      "bytes": 21939,
+      "sha256": "8c97db439ea0e810c156a55529b2e19d6b3e598016bd9d6a53ef6bb4a1e99a66"
+    },
+    {
+      "member": "reviews/proof_cold_read.md",
+      "bytes": 5379,
+      "sha256": "61b40c367a85baab32675634e512af396063519a41be1c5b9c48c615fd854991"
+    },
+    {
+      "member": "reviews/proof_source_read_receipt.json",
+      "bytes": 5681,
+      "sha256": "1ebe6db52cb8e46e5897e4d5a89b726af7bf1b943dbd3831afb62b06ea6a7636"
+    },
+    {
+      "member": "section.md",
+      "bytes": 43429,
+      "sha256": "f6cf9768f260b23da75b90363cfe78cd098e2b59af97aa877c289daac8ee1fd9"
+    },
+    {
+      "member": "source_read_receipt.json",
+      "bytes": 14565,
+      "sha256": "68dcec0f368827f062446b8ddc687384cb55ee245ba020b94fbc3172462fecbb"
+    },
+    {
+      "member": "validation_report.json",
+      "bytes": 1038,
+      "sha256": "e90c20ae5a543a446c8a1479f5dc8624325a6b2b4433a32e5365c4857d5e242f"
+    },
+    {
+      "member": "verify_return.py",
+      "bytes": 8894,
+      "sha256": "7792ad4e28c33a4d7e9db3786e3deb548b3939a173d2942034927dae4c5521ee"
+    }
+  ]
+}

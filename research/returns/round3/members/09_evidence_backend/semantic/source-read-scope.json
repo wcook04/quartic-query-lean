@@ -1,0 +1,137 @@
+{
+  "schema": "quartic-r3-source-read-scope-v1",
+  "subtask": "independent_finite_semantics",
+  "sources": [
+    {
+      "path": "repository/lean/QuarticQuery/Statement.lean",
+      "scope": "assessed",
+      "coverage": "Complete statement vocabulary, especially lines 26–88, 141–195 and 302–304; actual definitions under test.",
+      "sha256": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Model/Classical.lean",
+      "scope": "sampled",
+      "coverage": "Trees, program ofTree/success/depth, natural-infimum attainment and bounds; relevant ranges 1–165 and 245–315. Other classical lemmas not re-audited.",
+      "sha256": "a820d0804ee722ee74eef97ea8efeb2a15da55107d6a908e35ba60ef39932e9e"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Forrelation/Promise.lean",
+      "scope": "assessed",
+      "coverage": "Entire file; semantic interpretation of integer threshold tests.",
+      "sha256": "96b967a27458107549e38ce4fe001d707a4c240ad4e4b582729a6ce9526d2cf1"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Forrelation/Sanity.lean",
+      "scope": "assessed",
+      "coverage": "Entire file; existing concrete negative witness is acknowledged and not imported by new tests.",
+      "sha256": "bf287a0ff1f6022582b6d8daae3a89ad34d8aa51986531a649f133ee692eae70"
+    },
+    {
+      "path": "repository/tools/return_checks/semantic_controls.py",
+      "scope": "assessed",
+      "coverage": "Entire file and exact finite output; execution is Python-only.",
+      "sha256": "cfd4e4bccef22510c83a843f99c5ac59ec33ca5b654651bfdb8aa210fd583670"
+    },
+    {
+      "path": "repository/tools/build_challenges.py",
+      "scope": "assessed",
+      "coverage": "Entire file; vocabulary and theorem text are copied by the existing generator.",
+      "sha256": "7d4bc7588431a975301e55bd9cd2a25e587cddcd7e09b841f145b2f53e9e1497"
+    },
+    {
+      "path": "repository/tools/run_comparator.py",
+      "scope": "assessed",
+      "coverage": "Entire file; expected diagnostic handling and unsandboxed local receipt convention.",
+      "sha256": "01879fa71d3e25a4706a85b7f4aa59ef3574d3d785e3a3a80a61cc95e7c84190"
+    },
+    {
+      "path": "external_backend/comparator/Lake/Check/Compare.lean",
+      "scope": "assessed",
+      "coverage": "Entire file; theorem types and recursively referenced constants, relevant loop lines 37–59 and compareAt lines 67–110.",
+      "sha256": "0281630a33b8f08a9f3f40f229cd843c02441a0cd4d8a6d8548dc2bb8ded4c68"
+    },
+    {
+      "path": "external_backend/comparator/Lake/CLI/Check.lean",
+      "scope": "sampled",
+      "coverage": "Targeted search of comparison dispatch, sandboxing, configuration and axiom-checking calls; not full code review.",
+      "sha256": "55daf430e5adea38453b21798cbdf4cd099f66ec969494022a566a8ae098c00b"
+    },
+    {
+      "path": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+      "scope": "sampled",
+      "coverage": "§§2.1–2.3 and Appendix B def-Q. Other assigned passages are owned by the equation-19 and primary evidence reviewers.",
+      "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff"
+    },
+    {
+      "path": "paper/extracted.md",
+      "scope": "sampled",
+      "coverage": "Abstract/§1 introductory model definitions, §1.3, §2.1 equations (3)–(4) and integer tests, §3.2 equation (10).",
+      "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a"
+    },
+    {
+      "path": "paper/source.pdf",
+      "scope": "unassessed",
+      "coverage": "Hashed for source identity; mathematical text read from supplied extracted.md; no PDF visual review by this subtask.",
+      "sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e"
+    },
+    {
+      "path": "repository/README.md",
+      "scope": "assessed",
+      "coverage": "Complete repository guide.",
+      "sha256": "47fadd7a6d94c2bdb47d3155e289ed0956649449ae370d13f656d191e36ad947"
+    },
+    {
+      "path": "repository/research/README.md",
+      "scope": "assessed",
+      "coverage": "Complete source-ownership guide.",
+      "sha256": "b02ef7b53c07e06f71bf3d381bea77a346caf1e7d160f7d35b3b54eb9d3cca1b"
+    },
+    {
+      "path": "repository/CONTRIBUTING.md",
+      "scope": "assessed",
+      "coverage": "Complete contribution guide.",
+      "sha256": "52ab21f70fb11e6b5815fcd56dd20223f464e9df981f2c7a2895fb7362069a1f"
+    },
+    {
+      "path": "repository/AGENTS.md",
+      "scope": "assessed",
+      "coverage": "Read in inherited parent context.",
+      "sha256": "5686db5032ef5a9d272aa4942d8601873ad3c4c72173f985b99caf3d7587064f"
+    },
+    {
+      "path": "requests/09_evidence_backend.md",
+      "scope": "assessed",
+      "coverage": "Read in inherited parent context and assignment scope.",
+      "sha256": "b5ad5d2de258300dc600b8f34067bd2adcb9642b27062bfe9b5590535caac12a"
+    },
+    {
+      "path": "repository/tools/build_corpus.py",
+      "scope": "sampled",
+      "coverage": "source_hashes function, lines 134–155, plus module import/header context; existing owner is imported and called by final semantic runner.",
+      "sha256": "b208d0c23530c48a60062b2fbea7c9166804612d69f8a95854c5728bd94dec4d"
+    }
+  ],
+  "unavailable": [
+    {
+      "tool": "lean",
+      "status": "not_on_PATH; actual --version invocation raised FileNotFoundError"
+    },
+    {
+      "tool": "lake",
+      "status": "not_on_PATH; actual --version invocation raised FileNotFoundError"
+    },
+    {
+      "tool": "elan",
+      "status": "not_on_PATH; actual --version invocation raised FileNotFoundError"
+    },
+    {
+      "tool": "lean-exposition",
+      "status": "not_on_PATH; actual --version invocation raised FileNotFoundError"
+    }
+  ],
+  "limits": [
+    "This source-reading receipt is not build evidence.",
+    "The semantic Lean modules are uncompiled proposals.",
+    "No human review or independent unseen author is claimed."
+  ]
+}

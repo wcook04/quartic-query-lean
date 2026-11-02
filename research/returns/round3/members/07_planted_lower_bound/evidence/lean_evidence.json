@@ -1,0 +1,3411 @@
+{
+  "scope": "Fresh byte/hash and membership audit of supplied records only; no Lean/Comparator execution in this return.",
+  "root_receipt": {
+    "member": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+    "sha256": "bc11e3fec8581f89ce56b110bf76db2469abea4b7be00fa476f9d2cee9455c2e",
+    "status": "passed",
+    "ran_at": "2026-11-02T18:25:39.383153+00:00",
+    "command": [
+      "lake",
+      "build",
+      "QuarticQuery"
+    ],
+    "inspection_command": [
+      "lake",
+      "env",
+      "lean",
+      "--run",
+      "scripts/Reach.lean",
+      "QuarticQuery.theorem_1_1_unconditional",
+      "QuarticQuery.cubic_bound_fails_unconditional"
+    ],
+    "declared_commit": "31e17dee667d1d72fa621da8e7d3d8ff5fc3960a",
+    "packet_repository_commit": "1dd469dd0042b937b739da3bc211eeb60bdf7462",
+    "binding": {
+      "count": 124,
+      "matched": 124,
+      "mismatches": [],
+      "entries": [
+        {
+          "label": "lean/QuarticCorpus/Construction/Challenge.lean",
+          "member": "repository/lean/QuarticCorpus/Construction/Challenge.lean",
+          "expected": "d554e5a96889c4c9c3aa6bd3231f984fa7cf695aa103ebcd092ac2c7a08240b1",
+          "actual": "d554e5a96889c4c9c3aa6bd3231f984fa7cf695aa103ebcd092ac2c7a08240b1",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Construction/Solution.lean",
+          "member": "repository/lean/QuarticCorpus/Construction/Solution.lean",
+          "expected": "63cfe11442f76eb9b0f1b579e2a925a19fc9312f870e8480bfbf3eacfb9bb9de",
+          "actual": "63cfe11442f76eb9b0f1b579e2a925a19fc9312f870e8480bfbf3eacfb9bb9de",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Construction/comparator.json",
+          "member": "repository/lean/QuarticCorpus/Construction/comparator.json",
+          "expected": "c18c76b87a777251e70ec3f55c5704be82d52dbba0220e5adb2cf3063709dd78",
+          "actual": "c18c76b87a777251e70ec3f55c5704be82d52dbba0220e5adb2cf3063709dd78",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Foundations/Challenge.lean",
+          "member": "repository/lean/QuarticCorpus/Foundations/Challenge.lean",
+          "expected": "8a94b4d4e065267e606d7738f72a620ab249b563a1ebf66992fbae90995423c3",
+          "actual": "8a94b4d4e065267e606d7738f72a620ab249b563a1ebf66992fbae90995423c3",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Foundations/Solution.lean",
+          "member": "repository/lean/QuarticCorpus/Foundations/Solution.lean",
+          "expected": "836000d335f1d8ba10f711895d142a6202c8484b6c9b100a2765d6f5f4bac9bd",
+          "actual": "836000d335f1d8ba10f711895d142a6202c8484b6c9b100a2765d6f5f4bac9bd",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Foundations/comparator.json",
+          "member": "repository/lean/QuarticCorpus/Foundations/comparator.json",
+          "expected": "7e5f89ab55e35fc5b3088528b260d3c9bbeabbb5dc173913a8be94a2521943e7",
+          "actual": "7e5f89ab55e35fc5b3088528b260d3c9bbeabbb5dc173913a8be94a2521943e7",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Negative/ChangedDefinition.json",
+          "member": "repository/lean/QuarticCorpus/Negative/ChangedDefinition.json",
+          "expected": "c0e471ee9f1d52fb81e15c959133a062b4e95da345e836e6c95916b8dc6ea2dd",
+          "actual": "c0e471ee9f1d52fb81e15c959133a062b4e95da345e836e6c95916b8dc6ea2dd",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Negative/ChangedDefinition.lean",
+          "member": "repository/lean/QuarticCorpus/Negative/ChangedDefinition.lean",
+          "expected": "4a3b0a97b2fd35e6c8e31fdd8fa8017b0e428cc8b6b41eccaa36f9e2cf445264",
+          "actual": "4a3b0a97b2fd35e6c8e31fdd8fa8017b0e428cc8b6b41eccaa36f9e2cf445264",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Negative/ForeignAxiom.json",
+          "member": "repository/lean/QuarticCorpus/Negative/ForeignAxiom.json",
+          "expected": "3ac0d024b346f5bff94a50a556a55d827a5dc19d4f9a754f1603dd7eef6d893d",
+          "actual": "3ac0d024b346f5bff94a50a556a55d827a5dc19d4f9a754f1603dd7eef6d893d",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Negative/ForeignAxiom.lean",
+          "member": "repository/lean/QuarticCorpus/Negative/ForeignAxiom.lean",
+          "expected": "d896cdd50a42a4c32cb24e636198ef33909078e6f62edadbf04fbca3cf44a2ed",
+          "actual": "d896cdd50a42a4c32cb24e636198ef33909078e6f62edadbf04fbca3cf44a2ed",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Negative/MissingDeclaration.json",
+          "member": "repository/lean/QuarticCorpus/Negative/MissingDeclaration.json",
+          "expected": "b3f976bd6117762d52949c51b02032554789c88c9e952f84ec475d93304d8eae",
+          "actual": "b3f976bd6117762d52949c51b02032554789c88c9e952f84ec475d93304d8eae",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Negative/MissingDeclaration.lean",
+          "member": "repository/lean/QuarticCorpus/Negative/MissingDeclaration.lean",
+          "expected": "c03b0d0c245a2d4e392a4de43648d5b55858542e15e54d9ea977ca019eef682c",
+          "actual": "c03b0d0c245a2d4e392a4de43648d5b55858542e15e54d9ea977ca019eef682c",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Negative/SorryProof.json",
+          "member": "repository/lean/QuarticCorpus/Negative/SorryProof.json",
+          "expected": "36243ab16c60debb8b5e19d286abd8010f773b9a7aa0ff1da8cd9d4b6c195cda",
+          "actual": "36243ab16c60debb8b5e19d286abd8010f773b9a7aa0ff1da8cd9d4b6c195cda",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Negative/SorryProof.lean",
+          "member": "repository/lean/QuarticCorpus/Negative/SorryProof.lean",
+          "expected": "59295ee8a529797d52a6cf8f97eb3ee32cd4878b97e441a1d6a982e07806a7d5",
+          "actual": "59295ee8a529797d52a6cf8f97eb3ee32cd4878b97e441a1d6a982e07806a7d5",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Negative/WeakenedConclusion.json",
+          "member": "repository/lean/QuarticCorpus/Negative/WeakenedConclusion.json",
+          "expected": "9cd55a4b578d744703319b8b153b90a78af553fd8ffbe323d31c074378204f09",
+          "actual": "9cd55a4b578d744703319b8b153b90a78af553fd8ffbe323d31c074378204f09",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Negative/WeakenedConclusion.lean",
+          "member": "repository/lean/QuarticCorpus/Negative/WeakenedConclusion.lean",
+          "expected": "f51706cc2337149223db50cd23d800e5b7138f61727e4f3db1deb39db07f4f82",
+          "actual": "f51706cc2337149223db50cd23d800e5b7138f61727e4f3db1deb39db07f4f82",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Separation/Challenge.lean",
+          "member": "repository/lean/QuarticCorpus/Separation/Challenge.lean",
+          "expected": "85cf70b1364ee037ddfef280668b6ca036aadb1cb7e57e6734e94706112c2bd9",
+          "actual": "85cf70b1364ee037ddfef280668b6ca036aadb1cb7e57e6734e94706112c2bd9",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Separation/Solution.lean",
+          "member": "repository/lean/QuarticCorpus/Separation/Solution.lean",
+          "expected": "5cdcdb99b1c1ff250d45b8e983756ea3a3bf7013af1f46b4e02495c3209bb724",
+          "actual": "5cdcdb99b1c1ff250d45b8e983756ea3a3bf7013af1f46b4e02495c3209bb724",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Separation/comparator.json",
+          "member": "repository/lean/QuarticCorpus/Separation/comparator.json",
+          "expected": "93324800e1d372cf1a3e801fe7181a29f77b13edb01deb590bc8158a263c7276",
+          "actual": "93324800e1d372cf1a3e801fe7181a29f77b13edb01deb590bc8158a263c7276",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Tournament/Challenge.lean",
+          "member": "repository/lean/QuarticCorpus/Tournament/Challenge.lean",
+          "expected": "8bc45cfe55e8a124bb7dfa7fcd3566f80b4db98fe4e99c92242f413edf8ec27c",
+          "actual": "8bc45cfe55e8a124bb7dfa7fcd3566f80b4db98fe4e99c92242f413edf8ec27c",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Tournament/Solution.lean",
+          "member": "repository/lean/QuarticCorpus/Tournament/Solution.lean",
+          "expected": "f02baea95b83312fe3d3c4fcfb64f3aec6ff9658c26189c4ce7d70a7ccd03f6b",
+          "actual": "f02baea95b83312fe3d3c4fcfb64f3aec6ff9658c26189c4ce7d70a7ccd03f6b",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Tournament/comparator.json",
+          "member": "repository/lean/QuarticCorpus/Tournament/comparator.json",
+          "expected": "309293414b5271ac9092ddd56aa40707f533da448792b9971310b092f3ef641a",
+          "actual": "309293414b5271ac9092ddd56aa40707f533da448792b9971310b092f3ef641a",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Unconditional/Challenge.lean",
+          "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+          "expected": "c88be0b70754cb6f93448694002a16e1eb6a25135fa71648d4651f01104e399d",
+          "actual": "c88be0b70754cb6f93448694002a16e1eb6a25135fa71648d4651f01104e399d",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Unconditional/Solution.lean",
+          "member": "repository/lean/QuarticCorpus/Unconditional/Solution.lean",
+          "expected": "19725ad42b615a8881db00417ee6375c8982b0de08e618f06f901fe4db2e2cd3",
+          "actual": "19725ad42b615a8881db00417ee6375c8982b0de08e618f06f901fe4db2e2cd3",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Unconditional/comparator.json",
+          "member": "repository/lean/QuarticCorpus/Unconditional/comparator.json",
+          "expected": "fbaaee77d1b1a3daff788267ec15963ea06a6340a219a2da890c8c9642998dd7",
+          "actual": "fbaaee77d1b1a3daff788267ec15963ea06a6340a219a2da890c8c9642998dd7",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery.lean",
+          "member": "repository/lean/QuarticQuery.lean",
+          "expected": "f76b28615af9ebffdda89430586942c5d7d499a0d78585a31ae47a45c92705b0",
+          "actual": "f76b28615af9ebffdda89430586942c5d7d499a0d78585a31ae47a45c92705b0",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Amplification/Average.lean",
+          "member": "repository/lean/QuarticQuery/Amplification/Average.lean",
+          "expected": "fd837b83033d2df6d833a0fdecaef7110339d5747b8aaa1f674c14d3e50473b6",
+          "actual": "fd837b83033d2df6d833a0fdecaef7110339d5747b8aaa1f674c14d3e50473b6",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Amplification/Bounded.lean",
+          "member": "repository/lean/QuarticQuery/Amplification/Bounded.lean",
+          "expected": "6a6465ae0cbd0503cf327c5f33f6509f492a707795c0358880c8f12c9624c96d",
+          "actual": "6a6465ae0cbd0503cf327c5f33f6509f492a707795c0358880c8f12c9624c96d",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Amplification/Geometry.lean",
+          "member": "repository/lean/QuarticQuery/Amplification/Geometry.lean",
+          "expected": "ff5e758a77d21bc133a930d545672cb5faa76aa422019413c634085881142dc9",
+          "actual": "ff5e758a77d21bc133a930d545672cb5faa76aa422019413c634085881142dc9",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Amplification/Procedure.lean",
+          "member": "repository/lean/QuarticQuery/Amplification/Procedure.lean",
+          "expected": "45413af39419cf952c26204dfd3ae1b86e7dcde1423194ca473187cc6b64edb1",
+          "actual": "45413af39419cf952c26204dfd3ae1b86e7dcde1423194ca473187cc6b64edb1",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Appendix/TheoremA1.lean",
+          "member": "repository/lean/QuarticQuery/Appendix/TheoremA1.lean",
+          "expected": "777567c2e5878223a187030b4200293a0c8f78927fa0488e62ff36bf129a0128",
+          "actual": "777567c2e5878223a187030b4200293a0c8f78927fa0488e62ff36bf129a0128",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Bridge/DecisionTree.lean",
+          "member": "repository/lean/QuarticQuery/Bridge/DecisionTree.lean",
+          "expected": "f0dc14884f30cb5238b4e71a4358e43a244a45a38f655323a34b5e83af7ed13e",
+          "actual": "f0dc14884f30cb5238b4e71a4358e43a244a45a38f655323a34b5e83af7ed13e",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Bridge/Deferred.lean",
+          "member": "repository/lean/QuarticQuery/Bridge/Deferred.lean",
+          "expected": "666c5741a5a19324b7229a350bc35130627da42584c751d5444231f402c45931",
+          "actual": "666c5741a5a19324b7229a350bc35130627da42584c751d5444231f402c45931",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Bridge/Oracle.lean",
+          "member": "repository/lean/QuarticQuery/Bridge/Oracle.lean",
+          "expected": "06f073c300891be8d343434d4cbc4e3d9c2c37584bb5247a339e6f5c020ba385",
+          "actual": "06f073c300891be8d343434d4cbc4e3d9c2c37584bb5247a339e6f5c020ba385",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Construction/LocalTests.lean",
+          "member": "repository/lean/QuarticQuery/Construction/LocalTests.lean",
+          "expected": "56357d934fab301222130c92ef36cfbf122af4ad90fb2a94ba90178139dbeb13",
+          "actual": "56357d934fab301222130c92ef36cfbf122af4ad90fb2a94ba90178139dbeb13",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Construction/Transcript.lean",
+          "member": "repository/lean/QuarticQuery/Construction/Transcript.lean",
+          "expected": "e2fd95c77c8ef1616201219302415069411aaac88060f3f75ec24e7b0626608f",
+          "actual": "e2fd95c77c8ef1616201219302415069411aaac88060f3f75ec24e7b0626608f",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Construction/Winner.lean",
+          "member": "repository/lean/QuarticQuery/Construction/Winner.lean",
+          "expected": "3c6b894e842fc90acd7a09b9ff14ce3ae2f09bfbf2dc7f2195751a396db7017c",
+          "actual": "3c6b894e842fc90acd7a09b9ff14ce3ae2f09bfbf2dc7f2195751a396db7017c",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Forrelation/Arithmetic.lean",
+          "member": "repository/lean/QuarticQuery/Forrelation/Arithmetic.lean",
+          "expected": "5a7336764ee8cd299b9e19fd3164374fcebab98b7df8d9c956a457334b9dc243",
+          "actual": "5a7336764ee8cd299b9e19fd3164374fcebab98b7df8d9c956a457334b9dc243",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Forrelation/Builder.lean",
+          "member": "repository/lean/QuarticQuery/Forrelation/Builder.lean",
+          "expected": "32e1ff4623c8bbceda26da74e53961d8c2bc660ff9b831cf19d4cc32ce1abc23",
+          "actual": "32e1ff4623c8bbceda26da74e53961d8c2bc660ff9b831cf19d4cc32ce1abc23",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Forrelation/Circuit.lean",
+          "member": "repository/lean/QuarticQuery/Forrelation/Circuit.lean",
+          "expected": "b17824d0a3b6ee5a689822b04c18d20de9e72e1db119105584e9cbba60ae8f01",
+          "actual": "b17824d0a3b6ee5a689822b04c18d20de9e72e1db119105584e9cbba60ae8f01",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Forrelation/Product.lean",
+          "member": "repository/lean/QuarticQuery/Forrelation/Product.lean",
+          "expected": "f0ceced9021b45de546dfc01aadabde913f8ecdf1a0d085992c5b61b8a1ef425",
+          "actual": "f0ceced9021b45de546dfc01aadabde913f8ecdf1a0d085992c5b61b8a1ef425",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Forrelation/Promise.lean",
+          "member": "repository/lean/QuarticQuery/Forrelation/Promise.lean",
+          "expected": "96b967a27458107549e38ce4fe001d707a4c240ad4e4b582729a6ce9526d2cf1",
+          "actual": "96b967a27458107549e38ce4fe001d707a4c240ad4e4b582729a6ce9526d2cf1",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Forrelation/Repetition.lean",
+          "member": "repository/lean/QuarticQuery/Forrelation/Repetition.lean",
+          "expected": "1526168486cdc4e78213c6048199676df0520445666b60d3ece9c62678e90e70",
+          "actual": "1526168486cdc4e78213c6048199676df0520445666b60d3ece9c62678e90e70",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Forrelation/Sanity.lean",
+          "member": "repository/lean/QuarticQuery/Forrelation/Sanity.lean",
+          "expected": "bf287a0ff1f6022582b6d8daae3a89ad34d8aa51986531a649f133ee692eae70",
+          "actual": "bf287a0ff1f6022582b6d8daae3a89ad34d8aa51986531a649f133ee692eae70",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Forrelation/Walsh.lean",
+          "member": "repository/lean/QuarticQuery/Forrelation/Walsh.lean",
+          "expected": "e3eae0cf1455ef1471fd4f42458b324bbe3bfe1b1879989366ce476657653069",
+          "actual": "e3eae0cf1455ef1471fd4f42458b324bbe3bfe1b1879989366ce476657653069",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/ForrelationLower/Amplify.lean",
+          "member": "repository/lean/QuarticQuery/ForrelationLower/Amplify.lean",
+          "expected": "93f8e1c04768b8d01263f4a6b5a594b2d7b3334a1380432af6a33779109fc10a",
+          "actual": "93f8e1c04768b8d01263f4a6b5a594b2d7b3334a1380432af6a33779109fc10a",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+          "member": "repository/lean/QuarticQuery/ForrelationLower/Cascade.lean",
+          "expected": "9438575752bdbb664cecbf15b97afc96f2f235fabcab8f6261ab5f15bb9d7ab9",
+          "actual": "9438575752bdbb664cecbf15b97afc96f2f235fabcab8f6261ab5f15bb9d7ab9",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+          "member": "repository/lean/QuarticQuery/ForrelationLower/Cube.lean",
+          "expected": "16db4f9b7e4e42029c839537075eff0ec0f6fd6261d4a8a038bec8566ce4e2fe",
+          "actual": "16db4f9b7e4e42029c839537075eff0ec0f6fd6261d4a8a038bec8566ce4e2fe",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/ForrelationLower/Main.lean",
+          "member": "repository/lean/QuarticQuery/ForrelationLower/Main.lean",
+          "expected": "f877e9c4d11874d3e80ad7627972b1a8a0eca596f26fb96a3898bfdace564ed1",
+          "actual": "f877e9c4d11874d3e80ad7627972b1a8a0eca596f26fb96a3898bfdace564ed1",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+          "member": "repository/lean/QuarticQuery/ForrelationLower/Promise.lean",
+          "expected": "2877dc60a4af03e98321ac9e47c501a63508936aa49e5018d280258b24862efb",
+          "actual": "2877dc60a4af03e98321ac9e47c501a63508936aa49e5018d280258b24862efb",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+          "member": "repository/lean/QuarticQuery/ForrelationLower/Stein.lean",
+          "expected": "6238d7e6f8ade6044eb623899069f35d0a5b860699c722e7007fd71046ffff9e",
+          "actual": "6238d7e6f8ade6044eb623899069f35d0a5b860699c722e7007fd71046ffff9e",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+          "member": "repository/lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+          "expected": "13614823a433518dea7138242182dc2abee1dbcdf0127157edf8cc9b6a756010",
+          "actual": "13614823a433518dea7138242182dc2abee1dbcdf0127157edf8cc9b6a756010",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/ForrelationLower/Uniform.lean",
+          "member": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+          "expected": "d6bc1f4399394810fca63abdaadd67a420616371c501ab978841898f2bda049c",
+          "actual": "d6bc1f4399394810fca63abdaadd67a420616371c501ab978841898f2bda049c",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+          "member": "repository/lean/QuarticQuery/ForrelationLower/Walk.lean",
+          "expected": "c9394068bc3a583178fcae1e11d6eafdc7dcfc17bcd8a0b269f9a13ccee209ba",
+          "actual": "c9394068bc3a583178fcae1e11d6eafdc7dcfc17bcd8a0b269f9a13ccee209ba",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/LowerBound/DirectProduct.lean",
+          "member": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+          "expected": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+          "actual": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/LowerBound/Minimax.lean",
+          "member": "repository/lean/QuarticQuery/LowerBound/Minimax.lean",
+          "expected": "d235fef08374ca71229f5a2a5985e1bb0c60e3ec39a0ad2b1a13b286df9c194e",
+          "actual": "d235fef08374ca71229f5a2a5985e1bb0c60e3ec39a0ad2b1a13b286df9c194e",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/LowerBound/Planted/Average.lean",
+          "member": "repository/lean/QuarticQuery/LowerBound/Planted/Average.lean",
+          "expected": "471bb74964c7c841f12a8e90a184d13f26ffc173bf2855bdf1d59e93f490610e",
+          "actual": "471bb74964c7c841f12a8e90a184d13f26ffc173bf2855bdf1d59e93f490610e",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/LowerBound/Planted/Coupling.lean",
+          "member": "repository/lean/QuarticQuery/LowerBound/Planted/Coupling.lean",
+          "expected": "35d0f76652f6aa52acb73dfe3b5c01eb70eefdf9397cc83f4b4469017de61824",
+          "actual": "35d0f76652f6aa52acb73dfe3b5c01eb70eefdf9397cc83f4b4469017de61824",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/LowerBound/Planted/Heavy.lean",
+          "member": "repository/lean/QuarticQuery/LowerBound/Planted/Heavy.lean",
+          "expected": "6b5772603583908e293c4301594ef313e68ddff67dedd5eced436744b0f110bb",
+          "actual": "6b5772603583908e293c4301594ef313e68ddff67dedd5eced436744b0f110bb",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/LowerBound/Planted/Inputs.lean",
+          "member": "repository/lean/QuarticQuery/LowerBound/Planted/Inputs.lean",
+          "expected": "8a51b7b7696acdda52b0762b65c2f9e8bec13da8d896c47102c447195509411f",
+          "actual": "8a51b7b7696acdda52b0762b65c2f9e8bec13da8d896c47102c447195509411f",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/LowerBound/Planted/Main.lean",
+          "member": "repository/lean/QuarticQuery/LowerBound/Planted/Main.lean",
+          "expected": "a32a6e24bccace37d46742acc9450fe33b6081430484138336014048f3fe835c",
+          "actual": "a32a6e24bccace37d46742acc9450fe33b6081430484138336014048f3fe835c",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/LowerBound/Planted/Simulator.lean",
+          "member": "repository/lean/QuarticQuery/LowerBound/Planted/Simulator.lean",
+          "expected": "71bcf25db0309331ebda232bcad3ab2e895d543ffadcc521e99117253c0dab09",
+          "actual": "71bcf25db0309331ebda232bcad3ab2e895d543ffadcc521e99117253c0dab09",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean",
+          "member": "repository/lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean",
+          "expected": "86a2064e0fb6c6ba9b4a79785932a203314d8433d938083a420288d642bf8bf8",
+          "actual": "86a2064e0fb6c6ba9b4a79785932a203314d8433d938083a420288d642bf8bf8",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Model/Classical.lean",
+          "member": "repository/lean/QuarticQuery/Model/Classical.lean",
+          "expected": "a820d0804ee722ee74eef97ea8efeb2a15da55107d6a908e35ba60ef39932e9e",
+          "actual": "a820d0804ee722ee74eef97ea8efeb2a15da55107d6a908e35ba60ef39932e9e",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Model/Quantum.lean",
+          "member": "repository/lean/QuarticQuery/Model/Quantum.lean",
+          "expected": "6a61d326b216fa39f6ac1d7694727528dd5028bfac8d939f118bf1a4f4a35662",
+          "actual": "6a61d326b216fa39f6ac1d7694727528dd5028bfac8d939f118bf1a4f4a35662",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/AppendixA.lean",
+          "member": "repository/lean/QuarticQuery/Paper/AppendixA.lean",
+          "expected": "5a28f11e95c0153ef162337a8c81d4523f0092361b785425ee166924b1dd9815",
+          "actual": "5a28f11e95c0153ef162337a8c81d4523f0092361b785425ee166924b1dd9815",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+          "member": "repository/lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+          "expected": "f95cdeea5040ba7082c33a76faddef2da122d5bb4d76cec2b192598894c50aa6",
+          "actual": "f95cdeea5040ba7082c33a76faddef2da122d5bb4d76cec2b192598894c50aa6",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/AppendixAHuang.lean",
+          "member": "repository/lean/QuarticQuery/Paper/AppendixAHuang.lean",
+          "expected": "adb9065a0262325c396b5eeadc4f27f61768fe182e1818b9a2e4b91e0376459b",
+          "actual": "adb9065a0262325c396b5eeadc4f27f61768fe182e1818b9a2e4b91e0376459b",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+          "member": "repository/lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+          "expected": "a90282494f069991f80b7ec4af0cd8898a2d4b84a7a69aa180e1ed061dd9a549",
+          "actual": "a90282494f069991f80b7ec4af0cd8898a2d4b84a7a69aa180e1ed061dd9a549",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/AppendixAHuangRoute.lean",
+          "member": "repository/lean/QuarticQuery/Paper/AppendixAHuangRoute.lean",
+          "expected": "9a16919921fe4f06d2db77e75b88fe1bd5f7350bc9132360ebc496450a06a5b7",
+          "actual": "9a16919921fe4f06d2db77e75b88fe1bd5f7350bc9132360ebc496450a06a5b7",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/AppendixAPerron.lean",
+          "member": "repository/lean/QuarticQuery/Paper/AppendixAPerron.lean",
+          "expected": "e95a404b217afc2f03eaa35256c713827f1400231702daea1b5b38a3aa204c9a",
+          "actual": "e95a404b217afc2f03eaa35256c713827f1400231702daea1b5b38a3aa204c9a",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/AppendixARestriction.lean",
+          "member": "repository/lean/QuarticQuery/Paper/AppendixARestriction.lean",
+          "expected": "5e7b16febef2b95ffc6ed9e735bbb8b24cbaf1d713fda51452a13ef17745534b",
+          "actual": "5e7b16febef2b95ffc6ed9e735bbb8b24cbaf1d713fda51452a13ef17745534b",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+          "member": "repository/lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+          "expected": "b45034f8e12d480523140f3a491ef29d2fc7fa83930ff6e17a993c8acb7ca0b0",
+          "actual": "b45034f8e12d480523140f3a491ef29d2fc7fa83930ff6e17a993c8acb7ca0b0",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/AppendixASpectralAdversary.lean",
+          "member": "repository/lean/QuarticQuery/Paper/AppendixASpectralAdversary.lean",
+          "expected": "75c971c8627dc3e1e17e1a58e21522f845d0830246ab93939994d24d08da1ca4",
+          "actual": "75c971c8627dc3e1e17e1a58e21522f845d0830246ab93939994d24d08da1ca4",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+          "member": "repository/lean/QuarticQuery/Paper/AppendixAStar.lean",
+          "expected": "84d2b315859098c5030f6772a06dcd652f3d08e695456ece32acb61a6e0142d6",
+          "actual": "84d2b315859098c5030f6772a06dcd652f3d08e695456ece32acb61a6e0142d6",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ClassicalAsymptotics.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ClassicalAsymptotics.lean",
+          "expected": "b156b061ecab3a011c31224f9ff0719d07a52e8e8eb86becbb18cb5c959c17af",
+          "actual": "b156b061ecab3a011c31224f9ff0719d07a52e8e8eb86becbb18cb5c959c17af",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+          "expected": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+          "actual": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+          "expected": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+          "actual": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ClassicalUniformZero.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ClassicalUniformZero.lean",
+          "expected": "b0778f75c9717011e9b115eb3b15cf132b85486fa2f8c83eff0e4ce4a05fca19",
+          "actual": "b0778f75c9717011e9b115eb3b15cf132b85486fa2f8c83eff0e4ce4a05fca19",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ConstructionArithmetic.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ConstructionArithmetic.lean",
+          "expected": "2c355a3eb5e76cd5db70a6990bb9d6b37d652e0eece3b31ed0661219d3635ad0",
+          "actual": "2c355a3eb5e76cd5db70a6990bb9d6b37d652e0eece3b31ed0661219d3635ad0",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ConstructionAudit.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ConstructionAudit.lean",
+          "expected": "bf7d2c90de5e5c690c9a1a1589cd1b2d59b1f63a93eed3bd846170ae996ca6d6",
+          "actual": "bf7d2c90de5e5c690c9a1a1589cd1b2d59b1f63a93eed3bd846170ae996ca6d6",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ConstructionCoherent.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ConstructionCoherent.lean",
+          "expected": "5e5f5c2321e7c1ce23235e69e1f430fd951f13cc92b5a2d1b2d974aad0607cec",
+          "actual": "5e5f5c2321e7c1ce23235e69e1f430fd951f13cc92b5a2d1b2d974aad0607cec",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ConstructionComplete.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ConstructionComplete.lean",
+          "expected": "a79e9f0cdbf85df0e86605711fa6c8bde2a19cbe043c36302243b42a7f8fbc6c",
+          "actual": "a79e9f0cdbf85df0e86605711fa6c8bde2a19cbe043c36302243b42a7f8fbc6c",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+          "expected": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
+          "actual": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ConstructionFamily.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ConstructionFamily.lean",
+          "expected": "b7e1203086e38c00b964355ac71537a7fc5be7053d537ccd56cba8017cdd085a",
+          "actual": "b7e1203086e38c00b964355ac71537a7fc5be7053d537ccd56cba8017cdd085a",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ConstructionForrelationCircuit.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationCircuit.lean",
+          "expected": "860e8653027d64fe7d5cc5f35357d81ed5fa27e027899047ab819c821e3c8b32",
+          "actual": "860e8653027d64fe7d5cc5f35357d81ed5fa27e027899047ab819c821e3c8b32",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ConstructionForrelationComparison.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationComparison.lean",
+          "expected": "e9bb18d1e0ea9482762e89a9ced002c720f9b7d2311a455a9904bd820c5b4a01",
+          "actual": "e9bb18d1e0ea9482762e89a9ced002c720f9b7d2311a455a9904bd820c5b4a01",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ConstructionForrelationComplete.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationComplete.lean",
+          "expected": "733526015ad9a2013512d8f6216b8f73c41566a803d92602dd30e40e90d7ad06",
+          "actual": "733526015ad9a2013512d8f6216b8f73c41566a803d92602dd30e40e90d7ad06",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+          "expected": "14f92345b8885036e862885aad3db82d77cff6e71642e669c2ba7dc8ba087aa1",
+          "actual": "14f92345b8885036e862885aad3db82d77cff6e71642e669c2ba7dc8ba087aa1",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ConstructionForrelationQuantum.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationQuantum.lean",
+          "expected": "f31face68a9c47906d9a728cced9aa8a24ec73d3079c6196ae1853130151391b",
+          "actual": "f31face68a9c47906d9a728cced9aa8a24ec73d3079c6196ae1853130151391b",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ConstructionModels.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ConstructionModels.lean",
+          "expected": "19826ab2f9f9ef8a329f5880faf2426727b158321af4a418d519d55b56674d61",
+          "actual": "19826ab2f9f9ef8a329f5880faf2426727b158321af4a418d519d55b56674d61",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ConstructionPhase.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ConstructionPhase.lean",
+          "expected": "f9dc9564aa8741a6aa3059fcea3563c740fed802666ae251fbebbe9085668405",
+          "actual": "f9dc9564aa8741a6aa3059fcea3563c740fed802666ae251fbebbe9085668405",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ConstructionPointerSupport.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ConstructionPointerSupport.lean",
+          "expected": "8a2d8befa3225ab54114492b35c5a326fc17bd8f0a5eaa9acba966c18db53938",
+          "actual": "8a2d8befa3225ab54114492b35c5a326fc17bd8f0a5eaa9acba966c18db53938",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ConstructionTests.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ConstructionTests.lean",
+          "expected": "06f1b3bc883881351e5e9cfa9ba8777f2f907897e69275b507132cc01ba0dccb",
+          "actual": "06f1b3bc883881351e5e9cfa9ba8777f2f907897e69275b507132cc01ba0dccb",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+          "member": "repository/lean/QuarticQuery/Paper/QuantumAmplification.lean",
+          "expected": "95d89237e766b59ffdd52f1324e440e2127b06353b2c8de2482b9f55c4adb30b",
+          "actual": "95d89237e766b59ffdd52f1324e440e2127b06353b2c8de2482b9f55c4adb30b",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+          "member": "repository/lean/QuarticQuery/Paper/QuantumComparison.lean",
+          "expected": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+          "actual": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/QuantumTensor.lean",
+          "member": "repository/lean/QuarticQuery/Paper/QuantumTensor.lean",
+          "expected": "7a2f03d6ae2d8d3ff2af9837f6cb1e1f1f3d5b4983dc34e753792621443835ac",
+          "actual": "7a2f03d6ae2d8d3ff2af9837f6cb1e1f1f3d5b4983dc34e753792621443835ac",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/QuantumTournament.lean",
+          "member": "repository/lean/QuarticQuery/Paper/QuantumTournament.lean",
+          "expected": "8cf87e74aa0364c9bc6b9078ff62e88c45d297625166fe31a8efeea765a34adf",
+          "actual": "8cf87e74aa0364c9bc6b9078ff62e88c45d297625166fe31a8efeea765a34adf",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+          "member": "repository/lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+          "expected": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
+          "actual": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/QuantumUpper.lean",
+          "member": "repository/lean/QuarticQuery/Paper/QuantumUpper.lean",
+          "expected": "4d2966b64f95a3706113159a8afd4a5b1954a895d7d1e91c569d2f59a24bcb26",
+          "actual": "4d2966b64f95a3706113159a8afd4a5b1954a895d7d1e91c569d2f59a24bcb26",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/QuantumWorkspace.lean",
+          "member": "repository/lean/QuarticQuery/Paper/QuantumWorkspace.lean",
+          "expected": "a5ed4638bef1d1e15508ea5b96a0edf99a2281693de03f39f23e5afadd7ba07b",
+          "actual": "a5ed4638bef1d1e15508ea5b96a0edf99a2281693de03f39f23e5afadd7ba07b",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/Section2.lean",
+          "member": "repository/lean/QuarticQuery/Paper/Section2.lean",
+          "expected": "34fb705db7f672de0faf3e18fcc3dda4862033e157a325d8c9016936361f84cf",
+          "actual": "34fb705db7f672de0faf3e18fcc3dda4862033e157a325d8c9016936361f84cf",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/Section3.lean",
+          "member": "repository/lean/QuarticQuery/Paper/Section3.lean",
+          "expected": "aa49e092c11c915bc5a3a904054589dbed18c840f84a00c5edc0e37d57d661ad",
+          "actual": "aa49e092c11c915bc5a3a904054589dbed18c840f84a00c5edc0e37d57d661ad",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/Section4.lean",
+          "member": "repository/lean/QuarticQuery/Paper/Section4.lean",
+          "expected": "da6bda0feda0448bc05b11c85aed7b666d01aa8d30a8914a4ffd7d9fbe6643fb",
+          "actual": "da6bda0feda0448bc05b11c85aed7b666d01aa8d30a8914a4ffd7d9fbe6643fb",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Results/Conditional.lean",
+          "member": "repository/lean/QuarticQuery/Results/Conditional.lean",
+          "expected": "c3d4acfd49f8725f21fa4e895be9773e44a52786a16e3606e68dfda27c808330",
+          "actual": "c3d4acfd49f8725f21fa4e895be9773e44a52786a16e3606e68dfda27c808330",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Results/Exponent.lean",
+          "member": "repository/lean/QuarticQuery/Results/Exponent.lean",
+          "expected": "91d1c021f9b920f9bf0017dfe03817194c6a1ff5f4776e39a669bbd3b832a931",
+          "actual": "91d1c021f9b920f9bf0017dfe03817194c6a1ff5f4776e39a669bbd3b832a931",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Results/Headline.lean",
+          "member": "repository/lean/QuarticQuery/Results/Headline.lean",
+          "expected": "fec7d0c565b8ab345568ae6082c5fb346435493f4eb2d9112cda498652909c35",
+          "actual": "fec7d0c565b8ab345568ae6082c5fb346435493f4eb2d9112cda498652909c35",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Results/Unconditional.lean",
+          "member": "repository/lean/QuarticQuery/Results/Unconditional.lean",
+          "expected": "46e6f51f713109bab717956bd2536711dc927a356027748712e571ce12f0b85e",
+          "actual": "46e6f51f713109bab717956bd2536711dc927a356027748712e571ce12f0b85e",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Statement.lean",
+          "member": "repository/lean/QuarticQuery/Statement.lean",
+          "expected": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+          "actual": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Tournament/Drift.lean",
+          "member": "repository/lean/QuarticQuery/Tournament/Drift.lean",
+          "expected": "850fbfdfba830a17930f0a8e60fdc0d7b27f7f50c45710b5e77997343528c077",
+          "actual": "850fbfdfba830a17930f0a8e60fdc0d7b27f7f50c45710b5e77997343528c077",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Tournament/Ideal.lean",
+          "member": "repository/lean/QuarticQuery/Tournament/Ideal.lean",
+          "expected": "6f7379abfb1d9fb37d6ef7f0f25049893490aa717171c875feb97fca343ab8ef",
+          "actual": "6f7379abfb1d9fb37d6ef7f0f25049893490aa717171c875feb97fca343ab8ef",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Upper/Amplify.lean",
+          "member": "repository/lean/QuarticQuery/Upper/Amplify.lean",
+          "expected": "49e808cc6acbb47ad066b1dcf33ac8d47da2f28d88c51d537564e6591eb0d9e1",
+          "actual": "49e808cc6acbb47ad066b1dcf33ac8d47da2f28d88c51d537564e6591eb0d9e1",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Upper/Bound.lean",
+          "member": "repository/lean/QuarticQuery/Upper/Bound.lean",
+          "expected": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303",
+          "actual": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Upper/Circuit.lean",
+          "member": "repository/lean/QuarticQuery/Upper/Circuit.lean",
+          "expected": "7686a3b72476d902ec9ff504b38bea9ac25e90724e93d82033ea05339080190f",
+          "actual": "7686a3b72476d902ec9ff504b38bea9ac25e90724e93d82033ea05339080190f",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Upper/Columns.lean",
+          "member": "repository/lean/QuarticQuery/Upper/Columns.lean",
+          "expected": "e5b2b164deb6a010f952cefb5edba15bb5437a03fff815c39b028341b23b592e",
+          "actual": "e5b2b164deb6a010f952cefb5edba15bb5437a03fff815c39b028341b23b592e",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Upper/Compile.lean",
+          "member": "repository/lean/QuarticQuery/Upper/Compile.lean",
+          "expected": "ead2d229ad8a97541dd648806b64813745e8502b5f7314ced43e7a95a0708a27",
+          "actual": "ead2d229ad8a97541dd648806b64813745e8502b5f7314ced43e7a95a0708a27",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Upper/Decode.lean",
+          "member": "repository/lean/QuarticQuery/Upper/Decode.lean",
+          "expected": "4755c92be7627e4a58b1487d831a93765a3510647682e903c6abfed39f61411b",
+          "actual": "4755c92be7627e4a58b1487d831a93765a3510647682e903c6abfed39f61411b",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Upper/Sampler.lean",
+          "member": "repository/lean/QuarticQuery/Upper/Sampler.lean",
+          "expected": "43cb604188f041ebd34c8003f01f4ec6c570023e465cd2b730ee4f1f765b2b79",
+          "actual": "43cb604188f041ebd34c8003f01f4ec6c570023e465cd2b730ee4f1f765b2b79",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Upper/Tournament.lean",
+          "member": "repository/lean/QuarticQuery/Upper/Tournament.lean",
+          "expected": "43df9db7997f88667de7a3cfa7d7c7751aa1f32c40e9de474895335bcdb87b7c",
+          "actual": "43df9db7997f88667de7a3cfa7d7c7751aa1f32c40e9de474895335bcdb87b7c",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Upper/Verify.lean",
+          "member": "repository/lean/QuarticQuery/Upper/Verify.lean",
+          "expected": "8144c5c26e7bf0515b24eb638b57412264032e144844887adc615b8076207239",
+          "actual": "8144c5c26e7bf0515b24eb638b57412264032e144844887adc615b8076207239",
+          "matched": true
+        },
+        {
+          "label": "lean/lake-manifest.json",
+          "member": "repository/lean/lake-manifest.json",
+          "expected": "d670a8101d900b62e17a1d51c8b1b36fd60919bcad472700b0a5e1c0b38b104d",
+          "actual": "d670a8101d900b62e17a1d51c8b1b36fd60919bcad472700b0a5e1c0b38b104d",
+          "matched": true
+        },
+        {
+          "label": "lean/lakefile.toml",
+          "member": "repository/lean/lakefile.toml",
+          "expected": "255abcc3c689d0258d4cea520447fdc8da26e26a191331aa95559b2fb4818647",
+          "actual": "255abcc3c689d0258d4cea520447fdc8da26e26a191331aa95559b2fb4818647",
+          "matched": true
+        },
+        {
+          "label": "lean/lean-toolchain",
+          "member": "repository/lean/lean-toolchain",
+          "expected": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3",
+          "actual": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3",
+          "matched": true
+        },
+        {
+          "label": "lean/scripts/Reach.lean",
+          "member": "repository/lean/scripts/Reach.lean",
+          "expected": "44ce6c1ace1e3914109b959c5d3466f00eba4090621d73d3b3ee2626be1f796b",
+          "actual": "44ce6c1ace1e3914109b959c5d3466f00eba4090621d73d3b3ee2626be1f796b",
+          "matched": true
+        }
+      ]
+    },
+    "declaration_count": 2652
+  },
+  "focused_modules": {
+    "QuarticQuery.Paper.ClassicalPlanted": {
+      "receipt_member": "native_results/native-retry-2/results.json",
+      "receipt_sha256": "d9184c86bec0cad8f6a1f1972c4106d0edcfc04d7967ade3010394565a364f32",
+      "row_status": "passed",
+      "exit_code": 0,
+      "inputs_unchanged": true,
+      "command": [
+        "lake",
+        "--no-cache",
+        "build",
+        "QuarticQuery.Paper.ClassicalPlanted:olean"
+      ],
+      "seconds": 34.14,
+      "log_member": "native_logs/native-retry-2/QuarticQuery_Paper_ClassicalPlanted.log",
+      "log_sha256": "3dade59d62a2a900b8c17f2251d62fb752a8ff90997be2ebdb5f54e495d16d3f",
+      "input_binding": {
+        "count": 16,
+        "matched": 16,
+        "mismatches": [],
+        "entries": [
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+            "expected": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+            "actual": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/Minimax.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Minimax.lean",
+            "expected": "d235fef08374ca71229f5a2a5985e1bb0c60e3ec39a0ad2b1a13b286df9c194e",
+            "actual": "d235fef08374ca71229f5a2a5985e1bb0c60e3ec39a0ad2b1a13b286df9c194e",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/Planted/Average.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Average.lean",
+            "expected": "471bb74964c7c841f12a8e90a184d13f26ffc173bf2855bdf1d59e93f490610e",
+            "actual": "471bb74964c7c841f12a8e90a184d13f26ffc173bf2855bdf1d59e93f490610e",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/Planted/Coupling.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Coupling.lean",
+            "expected": "35d0f76652f6aa52acb73dfe3b5c01eb70eefdf9397cc83f4b4469017de61824",
+            "actual": "35d0f76652f6aa52acb73dfe3b5c01eb70eefdf9397cc83f4b4469017de61824",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/Planted/Heavy.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Heavy.lean",
+            "expected": "6b5772603583908e293c4301594ef313e68ddff67dedd5eced436744b0f110bb",
+            "actual": "6b5772603583908e293c4301594ef313e68ddff67dedd5eced436744b0f110bb",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/Planted/Inputs.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Inputs.lean",
+            "expected": "8a51b7b7696acdda52b0762b65c2f9e8bec13da8d896c47102c447195509411f",
+            "actual": "8a51b7b7696acdda52b0762b65c2f9e8bec13da8d896c47102c447195509411f",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/Planted/Main.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Main.lean",
+            "expected": "a32a6e24bccace37d46742acc9450fe33b6081430484138336014048f3fe835c",
+            "actual": "a32a6e24bccace37d46742acc9450fe33b6081430484138336014048f3fe835c",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/Planted/Simulator.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Simulator.lean",
+            "expected": "71bcf25db0309331ebda232bcad3ab2e895d543ffadcc521e99117253c0dab09",
+            "actual": "71bcf25db0309331ebda232bcad3ab2e895d543ffadcc521e99117253c0dab09",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean",
+            "expected": "86a2064e0fb6c6ba9b4a79785932a203314d8433d938083a420288d642bf8bf8",
+            "actual": "86a2064e0fb6c6ba9b4a79785932a203314d8433d938083a420288d642bf8bf8",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Model/Classical.lean",
+            "member": "repository/lean/QuarticQuery/Model/Classical.lean",
+            "expected": "a820d0804ee722ee74eef97ea8efeb2a15da55107d6a908e35ba60ef39932e9e",
+            "actual": "a820d0804ee722ee74eef97ea8efeb2a15da55107d6a908e35ba60ef39932e9e",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+            "expected": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+            "actual": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Results/Exponent.lean",
+            "member": "repository/lean/QuarticQuery/Results/Exponent.lean",
+            "expected": "91d1c021f9b920f9bf0017dfe03817194c6a1ff5f4776e39a669bbd3b832a931",
+            "actual": "91d1c021f9b920f9bf0017dfe03817194c6a1ff5f4776e39a669bbd3b832a931",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Statement.lean",
+            "member": "repository/lean/QuarticQuery/Statement.lean",
+            "expected": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+            "actual": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/lean-toolchain",
+            "member": "repository/lean/lean-toolchain",
+            "expected": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3",
+            "actual": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/lake-manifest.json",
+            "member": "repository/lean/lake-manifest.json",
+            "expected": "d670a8101d900b62e17a1d51c8b1b36fd60919bcad472700b0a5e1c0b38b104d",
+            "actual": "d670a8101d900b62e17a1d51c8b1b36fd60919bcad472700b0a5e1c0b38b104d",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/lakefile.toml",
+            "member": "repository/lean/lakefile.toml",
+            "expected": "255abcc3c689d0258d4cea520447fdc8da26e26a191331aa95559b2fb4818647",
+            "actual": "255abcc3c689d0258d4cea520447fdc8da26e26a191331aa95559b2fb4818647",
+            "matched": true
+          }
+        ]
+      },
+      "supplied_artifact_hashes": {
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/ClassicalPlanted.olean": "f5422ed4287d69d96c49806a70693c744ab7e2342e4cda8ff07b934a0424f919",
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/ClassicalPlanted.trace": "836bd9e472e656d20c01ba433e495b1e58904abe9ce8e4b7c5386e2aa092df12"
+      },
+      "artifacts_available": false
+    },
+    "QuarticQuery.Paper.ClassicalUniformZero": {
+      "receipt_member": "native_results/native-retry-3/results.json",
+      "receipt_sha256": "c318cc4c291fcbcf12b447a3d55a3420694dc6645b03520cd3768c4e908c9e37",
+      "row_status": "passed",
+      "exit_code": 0,
+      "inputs_unchanged": true,
+      "command": [
+        "lake",
+        "--no-cache",
+        "build",
+        "QuarticQuery.Paper.ClassicalUniformZero:olean"
+      ],
+      "seconds": 13.06,
+      "log_member": "native_logs/native-retry-3/QuarticQuery_Paper_ClassicalUniformZero.log",
+      "log_sha256": "74e83ed3e22ac7b847d926da1df82c21f2f29b8750117489630f02b784deec2a",
+      "input_binding": {
+        "count": 17,
+        "matched": 17,
+        "mismatches": [],
+        "entries": [
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+            "expected": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+            "actual": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/Minimax.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Minimax.lean",
+            "expected": "d235fef08374ca71229f5a2a5985e1bb0c60e3ec39a0ad2b1a13b286df9c194e",
+            "actual": "d235fef08374ca71229f5a2a5985e1bb0c60e3ec39a0ad2b1a13b286df9c194e",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/Planted/Average.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Average.lean",
+            "expected": "471bb74964c7c841f12a8e90a184d13f26ffc173bf2855bdf1d59e93f490610e",
+            "actual": "471bb74964c7c841f12a8e90a184d13f26ffc173bf2855bdf1d59e93f490610e",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/Planted/Coupling.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Coupling.lean",
+            "expected": "35d0f76652f6aa52acb73dfe3b5c01eb70eefdf9397cc83f4b4469017de61824",
+            "actual": "35d0f76652f6aa52acb73dfe3b5c01eb70eefdf9397cc83f4b4469017de61824",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/Planted/Heavy.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Heavy.lean",
+            "expected": "6b5772603583908e293c4301594ef313e68ddff67dedd5eced436744b0f110bb",
+            "actual": "6b5772603583908e293c4301594ef313e68ddff67dedd5eced436744b0f110bb",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/Planted/Inputs.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Inputs.lean",
+            "expected": "8a51b7b7696acdda52b0762b65c2f9e8bec13da8d896c47102c447195509411f",
+            "actual": "8a51b7b7696acdda52b0762b65c2f9e8bec13da8d896c47102c447195509411f",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/Planted/Main.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Main.lean",
+            "expected": "a32a6e24bccace37d46742acc9450fe33b6081430484138336014048f3fe835c",
+            "actual": "a32a6e24bccace37d46742acc9450fe33b6081430484138336014048f3fe835c",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/Planted/Simulator.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Simulator.lean",
+            "expected": "71bcf25db0309331ebda232bcad3ab2e895d543ffadcc521e99117253c0dab09",
+            "actual": "71bcf25db0309331ebda232bcad3ab2e895d543ffadcc521e99117253c0dab09",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean",
+            "expected": "86a2064e0fb6c6ba9b4a79785932a203314d8433d938083a420288d642bf8bf8",
+            "actual": "86a2064e0fb6c6ba9b4a79785932a203314d8433d938083a420288d642bf8bf8",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Model/Classical.lean",
+            "member": "repository/lean/QuarticQuery/Model/Classical.lean",
+            "expected": "a820d0804ee722ee74eef97ea8efeb2a15da55107d6a908e35ba60ef39932e9e",
+            "actual": "a820d0804ee722ee74eef97ea8efeb2a15da55107d6a908e35ba60ef39932e9e",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+            "expected": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+            "actual": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Paper/ClassicalUniformZero.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ClassicalUniformZero.lean",
+            "expected": "b0778f75c9717011e9b115eb3b15cf132b85486fa2f8c83eff0e4ce4a05fca19",
+            "actual": "b0778f75c9717011e9b115eb3b15cf132b85486fa2f8c83eff0e4ce4a05fca19",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Results/Exponent.lean",
+            "member": "repository/lean/QuarticQuery/Results/Exponent.lean",
+            "expected": "91d1c021f9b920f9bf0017dfe03817194c6a1ff5f4776e39a669bbd3b832a931",
+            "actual": "91d1c021f9b920f9bf0017dfe03817194c6a1ff5f4776e39a669bbd3b832a931",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Statement.lean",
+            "member": "repository/lean/QuarticQuery/Statement.lean",
+            "expected": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+            "actual": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/lean-toolchain",
+            "member": "repository/lean/lean-toolchain",
+            "expected": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3",
+            "actual": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/lake-manifest.json",
+            "member": "repository/lean/lake-manifest.json",
+            "expected": "d670a8101d900b62e17a1d51c8b1b36fd60919bcad472700b0a5e1c0b38b104d",
+            "actual": "d670a8101d900b62e17a1d51c8b1b36fd60919bcad472700b0a5e1c0b38b104d",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/lakefile.toml",
+            "member": "repository/lean/lakefile.toml",
+            "expected": "255abcc3c689d0258d4cea520447fdc8da26e26a191331aa95559b2fb4818647",
+            "actual": "255abcc3c689d0258d4cea520447fdc8da26e26a191331aa95559b2fb4818647",
+            "matched": true
+          }
+        ]
+      },
+      "supplied_artifact_hashes": {
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/ClassicalUniformZero.olean": "6b6a4fe33d8857864e5b35718159274f91dc4727f768f1a3be36acf5be762e52",
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/ClassicalUniformZero.trace": "b2dc4b7cc67e8b028990fdb71a7f439cb86270f6127949aca8beb1753b43d9cd"
+      },
+      "artifacts_available": false
+    },
+    "QuarticQuery.Paper.ClassicalAsymptotics": {
+      "receipt_member": "native_results/native-retry-2/results.json",
+      "receipt_sha256": "d9184c86bec0cad8f6a1f1972c4106d0edcfc04d7967ade3010394565a364f32",
+      "row_status": "passed",
+      "exit_code": 0,
+      "inputs_unchanged": true,
+      "command": [
+        "lake",
+        "--no-cache",
+        "build",
+        "QuarticQuery.Paper.ClassicalAsymptotics:olean"
+      ],
+      "seconds": 10.05,
+      "log_member": "native_logs/native-retry-2/QuarticQuery_Paper_ClassicalAsymptotics.log",
+      "log_sha256": "c96fad68c8660c9e0491a8696eb1b85977d320974bc5a206904a8de67db4ccd2",
+      "input_binding": {
+        "count": 57,
+        "matched": 57,
+        "mismatches": [],
+        "entries": [
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Amplification/Average.lean",
+            "member": "repository/lean/QuarticQuery/Amplification/Average.lean",
+            "expected": "fd837b83033d2df6d833a0fdecaef7110339d5747b8aaa1f674c14d3e50473b6",
+            "actual": "fd837b83033d2df6d833a0fdecaef7110339d5747b8aaa1f674c14d3e50473b6",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Amplification/Bounded.lean",
+            "member": "repository/lean/QuarticQuery/Amplification/Bounded.lean",
+            "expected": "6a6465ae0cbd0503cf327c5f33f6509f492a707795c0358880c8f12c9624c96d",
+            "actual": "6a6465ae0cbd0503cf327c5f33f6509f492a707795c0358880c8f12c9624c96d",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Amplification/Geometry.lean",
+            "member": "repository/lean/QuarticQuery/Amplification/Geometry.lean",
+            "expected": "ff5e758a77d21bc133a930d545672cb5faa76aa422019413c634085881142dc9",
+            "actual": "ff5e758a77d21bc133a930d545672cb5faa76aa422019413c634085881142dc9",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Amplification/Procedure.lean",
+            "member": "repository/lean/QuarticQuery/Amplification/Procedure.lean",
+            "expected": "45413af39419cf952c26204dfd3ae1b86e7dcde1423194ca473187cc6b64edb1",
+            "actual": "45413af39419cf952c26204dfd3ae1b86e7dcde1423194ca473187cc6b64edb1",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Appendix/TheoremA1.lean",
+            "member": "repository/lean/QuarticQuery/Appendix/TheoremA1.lean",
+            "expected": "777567c2e5878223a187030b4200293a0c8f78927fa0488e62ff36bf129a0128",
+            "actual": "777567c2e5878223a187030b4200293a0c8f78927fa0488e62ff36bf129a0128",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Bridge/DecisionTree.lean",
+            "member": "repository/lean/QuarticQuery/Bridge/DecisionTree.lean",
+            "expected": "f0dc14884f30cb5238b4e71a4358e43a244a45a38f655323a34b5e83af7ed13e",
+            "actual": "f0dc14884f30cb5238b4e71a4358e43a244a45a38f655323a34b5e83af7ed13e",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Bridge/Deferred.lean",
+            "member": "repository/lean/QuarticQuery/Bridge/Deferred.lean",
+            "expected": "666c5741a5a19324b7229a350bc35130627da42584c751d5444231f402c45931",
+            "actual": "666c5741a5a19324b7229a350bc35130627da42584c751d5444231f402c45931",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Bridge/Oracle.lean",
+            "member": "repository/lean/QuarticQuery/Bridge/Oracle.lean",
+            "expected": "06f073c300891be8d343434d4cbc4e3d9c2c37584bb5247a339e6f5c020ba385",
+            "actual": "06f073c300891be8d343434d4cbc4e3d9c2c37584bb5247a339e6f5c020ba385",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Construction/LocalTests.lean",
+            "member": "repository/lean/QuarticQuery/Construction/LocalTests.lean",
+            "expected": "56357d934fab301222130c92ef36cfbf122af4ad90fb2a94ba90178139dbeb13",
+            "actual": "56357d934fab301222130c92ef36cfbf122af4ad90fb2a94ba90178139dbeb13",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Construction/Transcript.lean",
+            "member": "repository/lean/QuarticQuery/Construction/Transcript.lean",
+            "expected": "e2fd95c77c8ef1616201219302415069411aaac88060f3f75ec24e7b0626608f",
+            "actual": "e2fd95c77c8ef1616201219302415069411aaac88060f3f75ec24e7b0626608f",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Construction/Winner.lean",
+            "member": "repository/lean/QuarticQuery/Construction/Winner.lean",
+            "expected": "3c6b894e842fc90acd7a09b9ff14ce3ae2f09bfbf2dc7f2195751a396db7017c",
+            "actual": "3c6b894e842fc90acd7a09b9ff14ce3ae2f09bfbf2dc7f2195751a396db7017c",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Forrelation/Arithmetic.lean",
+            "member": "repository/lean/QuarticQuery/Forrelation/Arithmetic.lean",
+            "expected": "5a7336764ee8cd299b9e19fd3164374fcebab98b7df8d9c956a457334b9dc243",
+            "actual": "5a7336764ee8cd299b9e19fd3164374fcebab98b7df8d9c956a457334b9dc243",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Forrelation/Builder.lean",
+            "member": "repository/lean/QuarticQuery/Forrelation/Builder.lean",
+            "expected": "32e1ff4623c8bbceda26da74e53961d8c2bc660ff9b831cf19d4cc32ce1abc23",
+            "actual": "32e1ff4623c8bbceda26da74e53961d8c2bc660ff9b831cf19d4cc32ce1abc23",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Forrelation/Circuit.lean",
+            "member": "repository/lean/QuarticQuery/Forrelation/Circuit.lean",
+            "expected": "b17824d0a3b6ee5a689822b04c18d20de9e72e1db119105584e9cbba60ae8f01",
+            "actual": "b17824d0a3b6ee5a689822b04c18d20de9e72e1db119105584e9cbba60ae8f01",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Forrelation/Product.lean",
+            "member": "repository/lean/QuarticQuery/Forrelation/Product.lean",
+            "expected": "f0ceced9021b45de546dfc01aadabde913f8ecdf1a0d085992c5b61b8a1ef425",
+            "actual": "f0ceced9021b45de546dfc01aadabde913f8ecdf1a0d085992c5b61b8a1ef425",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Forrelation/Promise.lean",
+            "member": "repository/lean/QuarticQuery/Forrelation/Promise.lean",
+            "expected": "96b967a27458107549e38ce4fe001d707a4c240ad4e4b582729a6ce9526d2cf1",
+            "actual": "96b967a27458107549e38ce4fe001d707a4c240ad4e4b582729a6ce9526d2cf1",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Forrelation/Repetition.lean",
+            "member": "repository/lean/QuarticQuery/Forrelation/Repetition.lean",
+            "expected": "1526168486cdc4e78213c6048199676df0520445666b60d3ece9c62678e90e70",
+            "actual": "1526168486cdc4e78213c6048199676df0520445666b60d3ece9c62678e90e70",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Forrelation/Walsh.lean",
+            "member": "repository/lean/QuarticQuery/Forrelation/Walsh.lean",
+            "expected": "e3eae0cf1455ef1471fd4f42458b324bbe3bfe1b1879989366ce476657653069",
+            "actual": "e3eae0cf1455ef1471fd4f42458b324bbe3bfe1b1879989366ce476657653069",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Amplify.lean",
+            "member": "repository/lean/QuarticQuery/ForrelationLower/Amplify.lean",
+            "expected": "93f8e1c04768b8d01263f4a6b5a594b2d7b3334a1380432af6a33779109fc10a",
+            "actual": "93f8e1c04768b8d01263f4a6b5a594b2d7b3334a1380432af6a33779109fc10a",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Cascade.lean",
+            "member": "repository/lean/QuarticQuery/ForrelationLower/Cascade.lean",
+            "expected": "9438575752bdbb664cecbf15b97afc96f2f235fabcab8f6261ab5f15bb9d7ab9",
+            "actual": "9438575752bdbb664cecbf15b97afc96f2f235fabcab8f6261ab5f15bb9d7ab9",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Cube.lean",
+            "member": "repository/lean/QuarticQuery/ForrelationLower/Cube.lean",
+            "expected": "16db4f9b7e4e42029c839537075eff0ec0f6fd6261d4a8a038bec8566ce4e2fe",
+            "actual": "16db4f9b7e4e42029c839537075eff0ec0f6fd6261d4a8a038bec8566ce4e2fe",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Main.lean",
+            "member": "repository/lean/QuarticQuery/ForrelationLower/Main.lean",
+            "expected": "f877e9c4d11874d3e80ad7627972b1a8a0eca596f26fb96a3898bfdace564ed1",
+            "actual": "f877e9c4d11874d3e80ad7627972b1a8a0eca596f26fb96a3898bfdace564ed1",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Promise.lean",
+            "member": "repository/lean/QuarticQuery/ForrelationLower/Promise.lean",
+            "expected": "2877dc60a4af03e98321ac9e47c501a63508936aa49e5018d280258b24862efb",
+            "actual": "2877dc60a4af03e98321ac9e47c501a63508936aa49e5018d280258b24862efb",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Stein.lean",
+            "member": "repository/lean/QuarticQuery/ForrelationLower/Stein.lean",
+            "expected": "6238d7e6f8ade6044eb623899069f35d0a5b860699c722e7007fd71046ffff9e",
+            "actual": "6238d7e6f8ade6044eb623899069f35d0a5b860699c722e7007fd71046ffff9e",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+            "member": "repository/lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+            "expected": "13614823a433518dea7138242182dc2abee1dbcdf0127157edf8cc9b6a756010",
+            "actual": "13614823a433518dea7138242182dc2abee1dbcdf0127157edf8cc9b6a756010",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Walk.lean",
+            "member": "repository/lean/QuarticQuery/ForrelationLower/Walk.lean",
+            "expected": "c9394068bc3a583178fcae1e11d6eafdc7dcfc17bcd8a0b269f9a13ccee209ba",
+            "actual": "c9394068bc3a583178fcae1e11d6eafdc7dcfc17bcd8a0b269f9a13ccee209ba",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+            "expected": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+            "actual": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/Minimax.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Minimax.lean",
+            "expected": "d235fef08374ca71229f5a2a5985e1bb0c60e3ec39a0ad2b1a13b286df9c194e",
+            "actual": "d235fef08374ca71229f5a2a5985e1bb0c60e3ec39a0ad2b1a13b286df9c194e",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/Planted/Average.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Average.lean",
+            "expected": "471bb74964c7c841f12a8e90a184d13f26ffc173bf2855bdf1d59e93f490610e",
+            "actual": "471bb74964c7c841f12a8e90a184d13f26ffc173bf2855bdf1d59e93f490610e",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/Planted/Coupling.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Coupling.lean",
+            "expected": "35d0f76652f6aa52acb73dfe3b5c01eb70eefdf9397cc83f4b4469017de61824",
+            "actual": "35d0f76652f6aa52acb73dfe3b5c01eb70eefdf9397cc83f4b4469017de61824",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/Planted/Heavy.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Heavy.lean",
+            "expected": "6b5772603583908e293c4301594ef313e68ddff67dedd5eced436744b0f110bb",
+            "actual": "6b5772603583908e293c4301594ef313e68ddff67dedd5eced436744b0f110bb",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/Planted/Inputs.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Inputs.lean",
+            "expected": "8a51b7b7696acdda52b0762b65c2f9e8bec13da8d896c47102c447195509411f",
+            "actual": "8a51b7b7696acdda52b0762b65c2f9e8bec13da8d896c47102c447195509411f",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/Planted/Main.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Main.lean",
+            "expected": "a32a6e24bccace37d46742acc9450fe33b6081430484138336014048f3fe835c",
+            "actual": "a32a6e24bccace37d46742acc9450fe33b6081430484138336014048f3fe835c",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/Planted/Simulator.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Simulator.lean",
+            "expected": "71bcf25db0309331ebda232bcad3ab2e895d543ffadcc521e99117253c0dab09",
+            "actual": "71bcf25db0309331ebda232bcad3ab2e895d543ffadcc521e99117253c0dab09",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean",
+            "expected": "86a2064e0fb6c6ba9b4a79785932a203314d8433d938083a420288d642bf8bf8",
+            "actual": "86a2064e0fb6c6ba9b4a79785932a203314d8433d938083a420288d642bf8bf8",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Model/Classical.lean",
+            "member": "repository/lean/QuarticQuery/Model/Classical.lean",
+            "expected": "a820d0804ee722ee74eef97ea8efeb2a15da55107d6a908e35ba60ef39932e9e",
+            "actual": "a820d0804ee722ee74eef97ea8efeb2a15da55107d6a908e35ba60ef39932e9e",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Model/Quantum.lean",
+            "member": "repository/lean/QuarticQuery/Model/Quantum.lean",
+            "expected": "6a61d326b216fa39f6ac1d7694727528dd5028bfac8d939f118bf1a4f4a35662",
+            "actual": "6a61d326b216fa39f6ac1d7694727528dd5028bfac8d939f118bf1a4f4a35662",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Paper/ClassicalAsymptotics.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ClassicalAsymptotics.lean",
+            "expected": "b156b061ecab3a011c31224f9ff0719d07a52e8e8eb86becbb18cb5c959c17af",
+            "actual": "b156b061ecab3a011c31224f9ff0719d07a52e8e8eb86becbb18cb5c959c17af",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Results/Conditional.lean",
+            "member": "repository/lean/QuarticQuery/Results/Conditional.lean",
+            "expected": "c3d4acfd49f8725f21fa4e895be9773e44a52786a16e3606e68dfda27c808330",
+            "actual": "c3d4acfd49f8725f21fa4e895be9773e44a52786a16e3606e68dfda27c808330",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Results/Exponent.lean",
+            "member": "repository/lean/QuarticQuery/Results/Exponent.lean",
+            "expected": "91d1c021f9b920f9bf0017dfe03817194c6a1ff5f4776e39a669bbd3b832a931",
+            "actual": "91d1c021f9b920f9bf0017dfe03817194c6a1ff5f4776e39a669bbd3b832a931",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Results/Headline.lean",
+            "member": "repository/lean/QuarticQuery/Results/Headline.lean",
+            "expected": "fec7d0c565b8ab345568ae6082c5fb346435493f4eb2d9112cda498652909c35",
+            "actual": "fec7d0c565b8ab345568ae6082c5fb346435493f4eb2d9112cda498652909c35",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Results/Unconditional.lean",
+            "member": "repository/lean/QuarticQuery/Results/Unconditional.lean",
+            "expected": "46e6f51f713109bab717956bd2536711dc927a356027748712e571ce12f0b85e",
+            "actual": "46e6f51f713109bab717956bd2536711dc927a356027748712e571ce12f0b85e",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Statement.lean",
+            "member": "repository/lean/QuarticQuery/Statement.lean",
+            "expected": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+            "actual": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Tournament/Drift.lean",
+            "member": "repository/lean/QuarticQuery/Tournament/Drift.lean",
+            "expected": "850fbfdfba830a17930f0a8e60fdc0d7b27f7f50c45710b5e77997343528c077",
+            "actual": "850fbfdfba830a17930f0a8e60fdc0d7b27f7f50c45710b5e77997343528c077",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Tournament/Ideal.lean",
+            "member": "repository/lean/QuarticQuery/Tournament/Ideal.lean",
+            "expected": "6f7379abfb1d9fb37d6ef7f0f25049893490aa717171c875feb97fca343ab8ef",
+            "actual": "6f7379abfb1d9fb37d6ef7f0f25049893490aa717171c875feb97fca343ab8ef",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Upper/Amplify.lean",
+            "member": "repository/lean/QuarticQuery/Upper/Amplify.lean",
+            "expected": "49e808cc6acbb47ad066b1dcf33ac8d47da2f28d88c51d537564e6591eb0d9e1",
+            "actual": "49e808cc6acbb47ad066b1dcf33ac8d47da2f28d88c51d537564e6591eb0d9e1",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Upper/Bound.lean",
+            "member": "repository/lean/QuarticQuery/Upper/Bound.lean",
+            "expected": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303",
+            "actual": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Upper/Circuit.lean",
+            "member": "repository/lean/QuarticQuery/Upper/Circuit.lean",
+            "expected": "7686a3b72476d902ec9ff504b38bea9ac25e90724e93d82033ea05339080190f",
+            "actual": "7686a3b72476d902ec9ff504b38bea9ac25e90724e93d82033ea05339080190f",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Upper/Columns.lean",
+            "member": "repository/lean/QuarticQuery/Upper/Columns.lean",
+            "expected": "e5b2b164deb6a010f952cefb5edba15bb5437a03fff815c39b028341b23b592e",
+            "actual": "e5b2b164deb6a010f952cefb5edba15bb5437a03fff815c39b028341b23b592e",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Upper/Compile.lean",
+            "member": "repository/lean/QuarticQuery/Upper/Compile.lean",
+            "expected": "ead2d229ad8a97541dd648806b64813745e8502b5f7314ced43e7a95a0708a27",
+            "actual": "ead2d229ad8a97541dd648806b64813745e8502b5f7314ced43e7a95a0708a27",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Upper/Decode.lean",
+            "member": "repository/lean/QuarticQuery/Upper/Decode.lean",
+            "expected": "4755c92be7627e4a58b1487d831a93765a3510647682e903c6abfed39f61411b",
+            "actual": "4755c92be7627e4a58b1487d831a93765a3510647682e903c6abfed39f61411b",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Upper/Sampler.lean",
+            "member": "repository/lean/QuarticQuery/Upper/Sampler.lean",
+            "expected": "43cb604188f041ebd34c8003f01f4ec6c570023e465cd2b730ee4f1f765b2b79",
+            "actual": "43cb604188f041ebd34c8003f01f4ec6c570023e465cd2b730ee4f1f765b2b79",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Upper/Tournament.lean",
+            "member": "repository/lean/QuarticQuery/Upper/Tournament.lean",
+            "expected": "43df9db7997f88667de7a3cfa7d7c7751aa1f32c40e9de474895335bcdb87b7c",
+            "actual": "43df9db7997f88667de7a3cfa7d7c7751aa1f32c40e9de474895335bcdb87b7c",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Upper/Verify.lean",
+            "member": "repository/lean/QuarticQuery/Upper/Verify.lean",
+            "expected": "8144c5c26e7bf0515b24eb638b57412264032e144844887adc615b8076207239",
+            "actual": "8144c5c26e7bf0515b24eb638b57412264032e144844887adc615b8076207239",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/lean-toolchain",
+            "member": "repository/lean/lean-toolchain",
+            "expected": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3",
+            "actual": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/lake-manifest.json",
+            "member": "repository/lean/lake-manifest.json",
+            "expected": "d670a8101d900b62e17a1d51c8b1b36fd60919bcad472700b0a5e1c0b38b104d",
+            "actual": "d670a8101d900b62e17a1d51c8b1b36fd60919bcad472700b0a5e1c0b38b104d",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/lakefile.toml",
+            "member": "repository/lean/lakefile.toml",
+            "expected": "255abcc3c689d0258d4cea520447fdc8da26e26a191331aa95559b2fb4818647",
+            "actual": "255abcc3c689d0258d4cea520447fdc8da26e26a191331aa95559b2fb4818647",
+            "matched": true
+          }
+        ]
+      },
+      "supplied_artifact_hashes": {
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/ClassicalAsymptotics.olean": "771f5abbbf5b9bf341208adb11e2e45df659e834d42831504f71581ef780ac4f",
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/ClassicalAsymptotics.trace": "4999b848a9bb287bf68af4e8c0e7f5433aed39484aa2a949a1e785efe7ebc176"
+      },
+      "artifacts_available": false
+    },
+    "QuarticQuery.Paper.ClassicalDirectProduct": {
+      "receipt_member": "native_results/native-retry-1/results.json",
+      "receipt_sha256": "41010b87d500354711b4c7a880b52d9b9dc0d932ffab9577d8d0af5d91a5aa4e",
+      "row_status": "passed",
+      "exit_code": 0,
+      "inputs_unchanged": true,
+      "command": [
+        "lake",
+        "--no-cache",
+        "build",
+        "QuarticQuery.Paper.ClassicalDirectProduct:olean"
+      ],
+      "seconds": 11.04,
+      "log_member": "native_logs/native-retry-1/QuarticQuery_Paper_ClassicalDirectProduct.log",
+      "log_sha256": "d2e586cea5ccea6212fb581e992efb6d8488c512670f399327dd92ca865c8e45",
+      "input_binding": {
+        "count": 6,
+        "matched": 6,
+        "mismatches": [],
+        "entries": [
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+            "expected": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+            "actual": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+            "expected": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+            "actual": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Statement.lean",
+            "member": "repository/lean/QuarticQuery/Statement.lean",
+            "expected": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+            "actual": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/lean-toolchain",
+            "member": "repository/lean/lean-toolchain",
+            "expected": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3",
+            "actual": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/lake-manifest.json",
+            "member": "repository/lean/lake-manifest.json",
+            "expected": "d670a8101d900b62e17a1d51c8b1b36fd60919bcad472700b0a5e1c0b38b104d",
+            "actual": "d670a8101d900b62e17a1d51c8b1b36fd60919bcad472700b0a5e1c0b38b104d",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/lakefile.toml",
+            "member": "repository/lean/lakefile.toml",
+            "expected": "255abcc3c689d0258d4cea520447fdc8da26e26a191331aa95559b2fb4818647",
+            "actual": "255abcc3c689d0258d4cea520447fdc8da26e26a191331aa95559b2fb4818647",
+            "matched": true
+          }
+        ]
+      },
+      "supplied_artifact_hashes": {
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/ClassicalDirectProduct.olean": "241679337ce3758fe571b6864eb1e2deed94d2e2c6ccebfb9bf627b0b890e2b8",
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/ClassicalDirectProduct.trace": "e4953eb304a19349c437cf5b10dbea3151a82b81939bff7efc7bd20c88555f51"
+      },
+      "artifacts_available": false
+    },
+    "QuarticQuery.Paper.Section4": {
+      "receipt_member": "native_results/native-retry-1/results.json",
+      "receipt_sha256": "41010b87d500354711b4c7a880b52d9b9dc0d932ffab9577d8d0af5d91a5aa4e",
+      "row_status": "passed",
+      "exit_code": 0,
+      "inputs_unchanged": true,
+      "command": [
+        "lake",
+        "--no-cache",
+        "build",
+        "QuarticQuery.Paper.Section4:olean"
+      ],
+      "seconds": 21.09,
+      "log_member": "native_logs/native-retry-1/QuarticQuery_Paper_Section4.log",
+      "log_sha256": "7242d4241be567c130c4712eafb1f8cbee3dfaf3eb434488738c3870ebcc9473",
+      "input_binding": {
+        "count": 57,
+        "matched": 57,
+        "mismatches": [],
+        "entries": [
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Amplification/Average.lean",
+            "member": "repository/lean/QuarticQuery/Amplification/Average.lean",
+            "expected": "fd837b83033d2df6d833a0fdecaef7110339d5747b8aaa1f674c14d3e50473b6",
+            "actual": "fd837b83033d2df6d833a0fdecaef7110339d5747b8aaa1f674c14d3e50473b6",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Amplification/Bounded.lean",
+            "member": "repository/lean/QuarticQuery/Amplification/Bounded.lean",
+            "expected": "6a6465ae0cbd0503cf327c5f33f6509f492a707795c0358880c8f12c9624c96d",
+            "actual": "6a6465ae0cbd0503cf327c5f33f6509f492a707795c0358880c8f12c9624c96d",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Amplification/Geometry.lean",
+            "member": "repository/lean/QuarticQuery/Amplification/Geometry.lean",
+            "expected": "ff5e758a77d21bc133a930d545672cb5faa76aa422019413c634085881142dc9",
+            "actual": "ff5e758a77d21bc133a930d545672cb5faa76aa422019413c634085881142dc9",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Amplification/Procedure.lean",
+            "member": "repository/lean/QuarticQuery/Amplification/Procedure.lean",
+            "expected": "45413af39419cf952c26204dfd3ae1b86e7dcde1423194ca473187cc6b64edb1",
+            "actual": "45413af39419cf952c26204dfd3ae1b86e7dcde1423194ca473187cc6b64edb1",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Appendix/TheoremA1.lean",
+            "member": "repository/lean/QuarticQuery/Appendix/TheoremA1.lean",
+            "expected": "777567c2e5878223a187030b4200293a0c8f78927fa0488e62ff36bf129a0128",
+            "actual": "777567c2e5878223a187030b4200293a0c8f78927fa0488e62ff36bf129a0128",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Bridge/DecisionTree.lean",
+            "member": "repository/lean/QuarticQuery/Bridge/DecisionTree.lean",
+            "expected": "f0dc14884f30cb5238b4e71a4358e43a244a45a38f655323a34b5e83af7ed13e",
+            "actual": "f0dc14884f30cb5238b4e71a4358e43a244a45a38f655323a34b5e83af7ed13e",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Bridge/Deferred.lean",
+            "member": "repository/lean/QuarticQuery/Bridge/Deferred.lean",
+            "expected": "666c5741a5a19324b7229a350bc35130627da42584c751d5444231f402c45931",
+            "actual": "666c5741a5a19324b7229a350bc35130627da42584c751d5444231f402c45931",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Bridge/Oracle.lean",
+            "member": "repository/lean/QuarticQuery/Bridge/Oracle.lean",
+            "expected": "06f073c300891be8d343434d4cbc4e3d9c2c37584bb5247a339e6f5c020ba385",
+            "actual": "06f073c300891be8d343434d4cbc4e3d9c2c37584bb5247a339e6f5c020ba385",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Construction/LocalTests.lean",
+            "member": "repository/lean/QuarticQuery/Construction/LocalTests.lean",
+            "expected": "56357d934fab301222130c92ef36cfbf122af4ad90fb2a94ba90178139dbeb13",
+            "actual": "56357d934fab301222130c92ef36cfbf122af4ad90fb2a94ba90178139dbeb13",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Construction/Transcript.lean",
+            "member": "repository/lean/QuarticQuery/Construction/Transcript.lean",
+            "expected": "e2fd95c77c8ef1616201219302415069411aaac88060f3f75ec24e7b0626608f",
+            "actual": "e2fd95c77c8ef1616201219302415069411aaac88060f3f75ec24e7b0626608f",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Construction/Winner.lean",
+            "member": "repository/lean/QuarticQuery/Construction/Winner.lean",
+            "expected": "3c6b894e842fc90acd7a09b9ff14ce3ae2f09bfbf2dc7f2195751a396db7017c",
+            "actual": "3c6b894e842fc90acd7a09b9ff14ce3ae2f09bfbf2dc7f2195751a396db7017c",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Forrelation/Arithmetic.lean",
+            "member": "repository/lean/QuarticQuery/Forrelation/Arithmetic.lean",
+            "expected": "5a7336764ee8cd299b9e19fd3164374fcebab98b7df8d9c956a457334b9dc243",
+            "actual": "5a7336764ee8cd299b9e19fd3164374fcebab98b7df8d9c956a457334b9dc243",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Forrelation/Builder.lean",
+            "member": "repository/lean/QuarticQuery/Forrelation/Builder.lean",
+            "expected": "32e1ff4623c8bbceda26da74e53961d8c2bc660ff9b831cf19d4cc32ce1abc23",
+            "actual": "32e1ff4623c8bbceda26da74e53961d8c2bc660ff9b831cf19d4cc32ce1abc23",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Forrelation/Circuit.lean",
+            "member": "repository/lean/QuarticQuery/Forrelation/Circuit.lean",
+            "expected": "b17824d0a3b6ee5a689822b04c18d20de9e72e1db119105584e9cbba60ae8f01",
+            "actual": "b17824d0a3b6ee5a689822b04c18d20de9e72e1db119105584e9cbba60ae8f01",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Forrelation/Product.lean",
+            "member": "repository/lean/QuarticQuery/Forrelation/Product.lean",
+            "expected": "f0ceced9021b45de546dfc01aadabde913f8ecdf1a0d085992c5b61b8a1ef425",
+            "actual": "f0ceced9021b45de546dfc01aadabde913f8ecdf1a0d085992c5b61b8a1ef425",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Forrelation/Promise.lean",
+            "member": "repository/lean/QuarticQuery/Forrelation/Promise.lean",
+            "expected": "96b967a27458107549e38ce4fe001d707a4c240ad4e4b582729a6ce9526d2cf1",
+            "actual": "96b967a27458107549e38ce4fe001d707a4c240ad4e4b582729a6ce9526d2cf1",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Forrelation/Repetition.lean",
+            "member": "repository/lean/QuarticQuery/Forrelation/Repetition.lean",
+            "expected": "1526168486cdc4e78213c6048199676df0520445666b60d3ece9c62678e90e70",
+            "actual": "1526168486cdc4e78213c6048199676df0520445666b60d3ece9c62678e90e70",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Forrelation/Walsh.lean",
+            "member": "repository/lean/QuarticQuery/Forrelation/Walsh.lean",
+            "expected": "e3eae0cf1455ef1471fd4f42458b324bbe3bfe1b1879989366ce476657653069",
+            "actual": "e3eae0cf1455ef1471fd4f42458b324bbe3bfe1b1879989366ce476657653069",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Amplify.lean",
+            "member": "repository/lean/QuarticQuery/ForrelationLower/Amplify.lean",
+            "expected": "93f8e1c04768b8d01263f4a6b5a594b2d7b3334a1380432af6a33779109fc10a",
+            "actual": "93f8e1c04768b8d01263f4a6b5a594b2d7b3334a1380432af6a33779109fc10a",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Cascade.lean",
+            "member": "repository/lean/QuarticQuery/ForrelationLower/Cascade.lean",
+            "expected": "9438575752bdbb664cecbf15b97afc96f2f235fabcab8f6261ab5f15bb9d7ab9",
+            "actual": "9438575752bdbb664cecbf15b97afc96f2f235fabcab8f6261ab5f15bb9d7ab9",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Cube.lean",
+            "member": "repository/lean/QuarticQuery/ForrelationLower/Cube.lean",
+            "expected": "16db4f9b7e4e42029c839537075eff0ec0f6fd6261d4a8a038bec8566ce4e2fe",
+            "actual": "16db4f9b7e4e42029c839537075eff0ec0f6fd6261d4a8a038bec8566ce4e2fe",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Main.lean",
+            "member": "repository/lean/QuarticQuery/ForrelationLower/Main.lean",
+            "expected": "f877e9c4d11874d3e80ad7627972b1a8a0eca596f26fb96a3898bfdace564ed1",
+            "actual": "f877e9c4d11874d3e80ad7627972b1a8a0eca596f26fb96a3898bfdace564ed1",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Promise.lean",
+            "member": "repository/lean/QuarticQuery/ForrelationLower/Promise.lean",
+            "expected": "2877dc60a4af03e98321ac9e47c501a63508936aa49e5018d280258b24862efb",
+            "actual": "2877dc60a4af03e98321ac9e47c501a63508936aa49e5018d280258b24862efb",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Stein.lean",
+            "member": "repository/lean/QuarticQuery/ForrelationLower/Stein.lean",
+            "expected": "6238d7e6f8ade6044eb623899069f35d0a5b860699c722e7007fd71046ffff9e",
+            "actual": "6238d7e6f8ade6044eb623899069f35d0a5b860699c722e7007fd71046ffff9e",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+            "member": "repository/lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+            "expected": "13614823a433518dea7138242182dc2abee1dbcdf0127157edf8cc9b6a756010",
+            "actual": "13614823a433518dea7138242182dc2abee1dbcdf0127157edf8cc9b6a756010",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/ForrelationLower/Walk.lean",
+            "member": "repository/lean/QuarticQuery/ForrelationLower/Walk.lean",
+            "expected": "c9394068bc3a583178fcae1e11d6eafdc7dcfc17bcd8a0b269f9a13ccee209ba",
+            "actual": "c9394068bc3a583178fcae1e11d6eafdc7dcfc17bcd8a0b269f9a13ccee209ba",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+            "expected": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+            "actual": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/Minimax.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Minimax.lean",
+            "expected": "d235fef08374ca71229f5a2a5985e1bb0c60e3ec39a0ad2b1a13b286df9c194e",
+            "actual": "d235fef08374ca71229f5a2a5985e1bb0c60e3ec39a0ad2b1a13b286df9c194e",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/Planted/Average.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Average.lean",
+            "expected": "471bb74964c7c841f12a8e90a184d13f26ffc173bf2855bdf1d59e93f490610e",
+            "actual": "471bb74964c7c841f12a8e90a184d13f26ffc173bf2855bdf1d59e93f490610e",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/Planted/Coupling.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Coupling.lean",
+            "expected": "35d0f76652f6aa52acb73dfe3b5c01eb70eefdf9397cc83f4b4469017de61824",
+            "actual": "35d0f76652f6aa52acb73dfe3b5c01eb70eefdf9397cc83f4b4469017de61824",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/Planted/Heavy.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Heavy.lean",
+            "expected": "6b5772603583908e293c4301594ef313e68ddff67dedd5eced436744b0f110bb",
+            "actual": "6b5772603583908e293c4301594ef313e68ddff67dedd5eced436744b0f110bb",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/Planted/Inputs.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Inputs.lean",
+            "expected": "8a51b7b7696acdda52b0762b65c2f9e8bec13da8d896c47102c447195509411f",
+            "actual": "8a51b7b7696acdda52b0762b65c2f9e8bec13da8d896c47102c447195509411f",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/Planted/Main.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Main.lean",
+            "expected": "a32a6e24bccace37d46742acc9450fe33b6081430484138336014048f3fe835c",
+            "actual": "a32a6e24bccace37d46742acc9450fe33b6081430484138336014048f3fe835c",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/Planted/Simulator.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Simulator.lean",
+            "expected": "71bcf25db0309331ebda232bcad3ab2e895d543ffadcc521e99117253c0dab09",
+            "actual": "71bcf25db0309331ebda232bcad3ab2e895d543ffadcc521e99117253c0dab09",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean",
+            "expected": "86a2064e0fb6c6ba9b4a79785932a203314d8433d938083a420288d642bf8bf8",
+            "actual": "86a2064e0fb6c6ba9b4a79785932a203314d8433d938083a420288d642bf8bf8",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Model/Classical.lean",
+            "member": "repository/lean/QuarticQuery/Model/Classical.lean",
+            "expected": "a820d0804ee722ee74eef97ea8efeb2a15da55107d6a908e35ba60ef39932e9e",
+            "actual": "a820d0804ee722ee74eef97ea8efeb2a15da55107d6a908e35ba60ef39932e9e",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Model/Quantum.lean",
+            "member": "repository/lean/QuarticQuery/Model/Quantum.lean",
+            "expected": "6a61d326b216fa39f6ac1d7694727528dd5028bfac8d939f118bf1a4f4a35662",
+            "actual": "6a61d326b216fa39f6ac1d7694727528dd5028bfac8d939f118bf1a4f4a35662",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Paper/Section4.lean",
+            "member": "repository/lean/QuarticQuery/Paper/Section4.lean",
+            "expected": "da6bda0feda0448bc05b11c85aed7b666d01aa8d30a8914a4ffd7d9fbe6643fb",
+            "actual": "da6bda0feda0448bc05b11c85aed7b666d01aa8d30a8914a4ffd7d9fbe6643fb",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Results/Conditional.lean",
+            "member": "repository/lean/QuarticQuery/Results/Conditional.lean",
+            "expected": "c3d4acfd49f8725f21fa4e895be9773e44a52786a16e3606e68dfda27c808330",
+            "actual": "c3d4acfd49f8725f21fa4e895be9773e44a52786a16e3606e68dfda27c808330",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Results/Exponent.lean",
+            "member": "repository/lean/QuarticQuery/Results/Exponent.lean",
+            "expected": "91d1c021f9b920f9bf0017dfe03817194c6a1ff5f4776e39a669bbd3b832a931",
+            "actual": "91d1c021f9b920f9bf0017dfe03817194c6a1ff5f4776e39a669bbd3b832a931",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Results/Headline.lean",
+            "member": "repository/lean/QuarticQuery/Results/Headline.lean",
+            "expected": "fec7d0c565b8ab345568ae6082c5fb346435493f4eb2d9112cda498652909c35",
+            "actual": "fec7d0c565b8ab345568ae6082c5fb346435493f4eb2d9112cda498652909c35",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Results/Unconditional.lean",
+            "member": "repository/lean/QuarticQuery/Results/Unconditional.lean",
+            "expected": "46e6f51f713109bab717956bd2536711dc927a356027748712e571ce12f0b85e",
+            "actual": "46e6f51f713109bab717956bd2536711dc927a356027748712e571ce12f0b85e",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Statement.lean",
+            "member": "repository/lean/QuarticQuery/Statement.lean",
+            "expected": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+            "actual": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Tournament/Drift.lean",
+            "member": "repository/lean/QuarticQuery/Tournament/Drift.lean",
+            "expected": "850fbfdfba830a17930f0a8e60fdc0d7b27f7f50c45710b5e77997343528c077",
+            "actual": "850fbfdfba830a17930f0a8e60fdc0d7b27f7f50c45710b5e77997343528c077",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Tournament/Ideal.lean",
+            "member": "repository/lean/QuarticQuery/Tournament/Ideal.lean",
+            "expected": "6f7379abfb1d9fb37d6ef7f0f25049893490aa717171c875feb97fca343ab8ef",
+            "actual": "6f7379abfb1d9fb37d6ef7f0f25049893490aa717171c875feb97fca343ab8ef",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Upper/Amplify.lean",
+            "member": "repository/lean/QuarticQuery/Upper/Amplify.lean",
+            "expected": "49e808cc6acbb47ad066b1dcf33ac8d47da2f28d88c51d537564e6591eb0d9e1",
+            "actual": "49e808cc6acbb47ad066b1dcf33ac8d47da2f28d88c51d537564e6591eb0d9e1",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Upper/Bound.lean",
+            "member": "repository/lean/QuarticQuery/Upper/Bound.lean",
+            "expected": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303",
+            "actual": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Upper/Circuit.lean",
+            "member": "repository/lean/QuarticQuery/Upper/Circuit.lean",
+            "expected": "7686a3b72476d902ec9ff504b38bea9ac25e90724e93d82033ea05339080190f",
+            "actual": "7686a3b72476d902ec9ff504b38bea9ac25e90724e93d82033ea05339080190f",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Upper/Columns.lean",
+            "member": "repository/lean/QuarticQuery/Upper/Columns.lean",
+            "expected": "e5b2b164deb6a010f952cefb5edba15bb5437a03fff815c39b028341b23b592e",
+            "actual": "e5b2b164deb6a010f952cefb5edba15bb5437a03fff815c39b028341b23b592e",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Upper/Compile.lean",
+            "member": "repository/lean/QuarticQuery/Upper/Compile.lean",
+            "expected": "ead2d229ad8a97541dd648806b64813745e8502b5f7314ced43e7a95a0708a27",
+            "actual": "ead2d229ad8a97541dd648806b64813745e8502b5f7314ced43e7a95a0708a27",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Upper/Decode.lean",
+            "member": "repository/lean/QuarticQuery/Upper/Decode.lean",
+            "expected": "4755c92be7627e4a58b1487d831a93765a3510647682e903c6abfed39f61411b",
+            "actual": "4755c92be7627e4a58b1487d831a93765a3510647682e903c6abfed39f61411b",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Upper/Sampler.lean",
+            "member": "repository/lean/QuarticQuery/Upper/Sampler.lean",
+            "expected": "43cb604188f041ebd34c8003f01f4ec6c570023e465cd2b730ee4f1f765b2b79",
+            "actual": "43cb604188f041ebd34c8003f01f4ec6c570023e465cd2b730ee4f1f765b2b79",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Upper/Tournament.lean",
+            "member": "repository/lean/QuarticQuery/Upper/Tournament.lean",
+            "expected": "43df9db7997f88667de7a3cfa7d7c7751aa1f32c40e9de474895335bcdb87b7c",
+            "actual": "43df9db7997f88667de7a3cfa7d7c7751aa1f32c40e9de474895335bcdb87b7c",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/QuarticQuery/Upper/Verify.lean",
+            "member": "repository/lean/QuarticQuery/Upper/Verify.lean",
+            "expected": "8144c5c26e7bf0515b24eb638b57412264032e144844887adc615b8076207239",
+            "actual": "8144c5c26e7bf0515b24eb638b57412264032e144844887adc615b8076207239",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/lean-toolchain",
+            "member": "repository/lean/lean-toolchain",
+            "expected": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3",
+            "actual": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/lake-manifest.json",
+            "member": "repository/lean/lake-manifest.json",
+            "expected": "d670a8101d900b62e17a1d51c8b1b36fd60919bcad472700b0a5e1c0b38b104d",
+            "actual": "d670a8101d900b62e17a1d51c8b1b36fd60919bcad472700b0a5e1c0b38b104d",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/lean/lakefile.toml",
+            "member": "repository/lean/lakefile.toml",
+            "expected": "255abcc3c689d0258d4cea520447fdc8da26e26a191331aa95559b2fb4818647",
+            "actual": "255abcc3c689d0258d4cea520447fdc8da26e26a191331aa95559b2fb4818647",
+            "matched": true
+          }
+        ]
+      },
+      "supplied_artifact_hashes": {
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/Section4.olean": "e4950cb983c43b58cc7ee26f606e0963caa9c6d1817b3ebc60129485e8934f5b",
+        "/Users/willcook/src/quartic-query-lean/lean/.lake/build/lib/lean/QuarticQuery/Paper/Section4.trace": "c5b5d664a237306c756de1631eeaa36ed7cd7d8ae6a2d093f487ceb951848adb"
+      },
+      "artifacts_available": false
+    }
+  },
+  "axiom_audit": {
+    "preparation_member": "native_results/final-evidence/reviewed_axiom_audit.json",
+    "verdict_member": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+    "verdict_sha256": "3c26718576384a76fca10f1f44bf42ffd2f23130b0aabcf35b3f5c34f2b4a1e0",
+    "passed": true,
+    "checks_as_recorded": {
+      "native_exit_zero": true,
+      "exact_lean_assertion_marker": true,
+      "audit_source_unchanged": true,
+      "candidate_inputs_unchanged": true,
+      "local_lean_config_inputs_unchanged": true,
+      "compiled_root_artifact_unchanged": true,
+      "no_error_diagnostic": true
+    },
+    "operation": {
+      "operation": "reviewed-type-axiom-audit",
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "/Users/willcook/src/_builds/quartic-r2-ssd/reviewed_axiom_audit.lean"
+      ],
+      "cwd": "/Users/willcook/src/quartic-query-lean/lean",
+      "exit_code": 0,
+      "seconds": 17.84,
+      "log": "/Users/willcook/src/_builds/quartic-r2-ssd/final-evidence/reviewed-type-axiom-audit.log",
+      "log_sha256": "f87b4e78aaa99fb069acc358fd90c6b95a1fd09bb337d4b49b6851ae714d8ae1",
+      "inputs_unchanged": true
+    },
+    "allowed_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "source_member": "native_sources/final-evidence/reviewed_axiom_audit.lean",
+    "source_sha256": "78da4e0b0d875eedd3898a46f4e885a8fa7e89c2d5fbf2d3205012ff4f640513",
+    "source_matches_expected": true,
+    "log_member": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+    "log_sha256": "f87b4e78aaa99fb069acc358fd90c6b95a1fd09bb337d4b49b6851ae714d8ae1",
+    "log_matches_expected": true,
+    "success_marker_present": true,
+    "input_binding": {
+      "count": 124,
+      "matched": 124,
+      "mismatches": [],
+      "entries": [
+        {
+          "label": "lean/QuarticCorpus/Construction/Challenge.lean",
+          "member": "repository/lean/QuarticCorpus/Construction/Challenge.lean",
+          "expected": "d554e5a96889c4c9c3aa6bd3231f984fa7cf695aa103ebcd092ac2c7a08240b1",
+          "actual": "d554e5a96889c4c9c3aa6bd3231f984fa7cf695aa103ebcd092ac2c7a08240b1",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Construction/Solution.lean",
+          "member": "repository/lean/QuarticCorpus/Construction/Solution.lean",
+          "expected": "63cfe11442f76eb9b0f1b579e2a925a19fc9312f870e8480bfbf3eacfb9bb9de",
+          "actual": "63cfe11442f76eb9b0f1b579e2a925a19fc9312f870e8480bfbf3eacfb9bb9de",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Construction/comparator.json",
+          "member": "repository/lean/QuarticCorpus/Construction/comparator.json",
+          "expected": "c18c76b87a777251e70ec3f55c5704be82d52dbba0220e5adb2cf3063709dd78",
+          "actual": "c18c76b87a777251e70ec3f55c5704be82d52dbba0220e5adb2cf3063709dd78",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Foundations/Challenge.lean",
+          "member": "repository/lean/QuarticCorpus/Foundations/Challenge.lean",
+          "expected": "8a94b4d4e065267e606d7738f72a620ab249b563a1ebf66992fbae90995423c3",
+          "actual": "8a94b4d4e065267e606d7738f72a620ab249b563a1ebf66992fbae90995423c3",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Foundations/Solution.lean",
+          "member": "repository/lean/QuarticCorpus/Foundations/Solution.lean",
+          "expected": "836000d335f1d8ba10f711895d142a6202c8484b6c9b100a2765d6f5f4bac9bd",
+          "actual": "836000d335f1d8ba10f711895d142a6202c8484b6c9b100a2765d6f5f4bac9bd",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Foundations/comparator.json",
+          "member": "repository/lean/QuarticCorpus/Foundations/comparator.json",
+          "expected": "7e5f89ab55e35fc5b3088528b260d3c9bbeabbb5dc173913a8be94a2521943e7",
+          "actual": "7e5f89ab55e35fc5b3088528b260d3c9bbeabbb5dc173913a8be94a2521943e7",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Negative/ChangedDefinition.json",
+          "member": "repository/lean/QuarticCorpus/Negative/ChangedDefinition.json",
+          "expected": "c0e471ee9f1d52fb81e15c959133a062b4e95da345e836e6c95916b8dc6ea2dd",
+          "actual": "c0e471ee9f1d52fb81e15c959133a062b4e95da345e836e6c95916b8dc6ea2dd",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Negative/ChangedDefinition.lean",
+          "member": "repository/lean/QuarticCorpus/Negative/ChangedDefinition.lean",
+          "expected": "4a3b0a97b2fd35e6c8e31fdd8fa8017b0e428cc8b6b41eccaa36f9e2cf445264",
+          "actual": "4a3b0a97b2fd35e6c8e31fdd8fa8017b0e428cc8b6b41eccaa36f9e2cf445264",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Negative/ForeignAxiom.json",
+          "member": "repository/lean/QuarticCorpus/Negative/ForeignAxiom.json",
+          "expected": "3ac0d024b346f5bff94a50a556a55d827a5dc19d4f9a754f1603dd7eef6d893d",
+          "actual": "3ac0d024b346f5bff94a50a556a55d827a5dc19d4f9a754f1603dd7eef6d893d",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Negative/ForeignAxiom.lean",
+          "member": "repository/lean/QuarticCorpus/Negative/ForeignAxiom.lean",
+          "expected": "d896cdd50a42a4c32cb24e636198ef33909078e6f62edadbf04fbca3cf44a2ed",
+          "actual": "d896cdd50a42a4c32cb24e636198ef33909078e6f62edadbf04fbca3cf44a2ed",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Negative/MissingDeclaration.json",
+          "member": "repository/lean/QuarticCorpus/Negative/MissingDeclaration.json",
+          "expected": "b3f976bd6117762d52949c51b02032554789c88c9e952f84ec475d93304d8eae",
+          "actual": "b3f976bd6117762d52949c51b02032554789c88c9e952f84ec475d93304d8eae",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Negative/MissingDeclaration.lean",
+          "member": "repository/lean/QuarticCorpus/Negative/MissingDeclaration.lean",
+          "expected": "c03b0d0c245a2d4e392a4de43648d5b55858542e15e54d9ea977ca019eef682c",
+          "actual": "c03b0d0c245a2d4e392a4de43648d5b55858542e15e54d9ea977ca019eef682c",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Negative/SorryProof.json",
+          "member": "repository/lean/QuarticCorpus/Negative/SorryProof.json",
+          "expected": "36243ab16c60debb8b5e19d286abd8010f773b9a7aa0ff1da8cd9d4b6c195cda",
+          "actual": "36243ab16c60debb8b5e19d286abd8010f773b9a7aa0ff1da8cd9d4b6c195cda",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Negative/SorryProof.lean",
+          "member": "repository/lean/QuarticCorpus/Negative/SorryProof.lean",
+          "expected": "59295ee8a529797d52a6cf8f97eb3ee32cd4878b97e441a1d6a982e07806a7d5",
+          "actual": "59295ee8a529797d52a6cf8f97eb3ee32cd4878b97e441a1d6a982e07806a7d5",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Negative/WeakenedConclusion.json",
+          "member": "repository/lean/QuarticCorpus/Negative/WeakenedConclusion.json",
+          "expected": "9cd55a4b578d744703319b8b153b90a78af553fd8ffbe323d31c074378204f09",
+          "actual": "9cd55a4b578d744703319b8b153b90a78af553fd8ffbe323d31c074378204f09",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Negative/WeakenedConclusion.lean",
+          "member": "repository/lean/QuarticCorpus/Negative/WeakenedConclusion.lean",
+          "expected": "f51706cc2337149223db50cd23d800e5b7138f61727e4f3db1deb39db07f4f82",
+          "actual": "f51706cc2337149223db50cd23d800e5b7138f61727e4f3db1deb39db07f4f82",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Separation/Challenge.lean",
+          "member": "repository/lean/QuarticCorpus/Separation/Challenge.lean",
+          "expected": "85cf70b1364ee037ddfef280668b6ca036aadb1cb7e57e6734e94706112c2bd9",
+          "actual": "85cf70b1364ee037ddfef280668b6ca036aadb1cb7e57e6734e94706112c2bd9",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Separation/Solution.lean",
+          "member": "repository/lean/QuarticCorpus/Separation/Solution.lean",
+          "expected": "5cdcdb99b1c1ff250d45b8e983756ea3a3bf7013af1f46b4e02495c3209bb724",
+          "actual": "5cdcdb99b1c1ff250d45b8e983756ea3a3bf7013af1f46b4e02495c3209bb724",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Separation/comparator.json",
+          "member": "repository/lean/QuarticCorpus/Separation/comparator.json",
+          "expected": "93324800e1d372cf1a3e801fe7181a29f77b13edb01deb590bc8158a263c7276",
+          "actual": "93324800e1d372cf1a3e801fe7181a29f77b13edb01deb590bc8158a263c7276",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Tournament/Challenge.lean",
+          "member": "repository/lean/QuarticCorpus/Tournament/Challenge.lean",
+          "expected": "8bc45cfe55e8a124bb7dfa7fcd3566f80b4db98fe4e99c92242f413edf8ec27c",
+          "actual": "8bc45cfe55e8a124bb7dfa7fcd3566f80b4db98fe4e99c92242f413edf8ec27c",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Tournament/Solution.lean",
+          "member": "repository/lean/QuarticCorpus/Tournament/Solution.lean",
+          "expected": "f02baea95b83312fe3d3c4fcfb64f3aec6ff9658c26189c4ce7d70a7ccd03f6b",
+          "actual": "f02baea95b83312fe3d3c4fcfb64f3aec6ff9658c26189c4ce7d70a7ccd03f6b",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Tournament/comparator.json",
+          "member": "repository/lean/QuarticCorpus/Tournament/comparator.json",
+          "expected": "309293414b5271ac9092ddd56aa40707f533da448792b9971310b092f3ef641a",
+          "actual": "309293414b5271ac9092ddd56aa40707f533da448792b9971310b092f3ef641a",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Unconditional/Challenge.lean",
+          "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+          "expected": "c88be0b70754cb6f93448694002a16e1eb6a25135fa71648d4651f01104e399d",
+          "actual": "c88be0b70754cb6f93448694002a16e1eb6a25135fa71648d4651f01104e399d",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Unconditional/Solution.lean",
+          "member": "repository/lean/QuarticCorpus/Unconditional/Solution.lean",
+          "expected": "19725ad42b615a8881db00417ee6375c8982b0de08e618f06f901fe4db2e2cd3",
+          "actual": "19725ad42b615a8881db00417ee6375c8982b0de08e618f06f901fe4db2e2cd3",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticCorpus/Unconditional/comparator.json",
+          "member": "repository/lean/QuarticCorpus/Unconditional/comparator.json",
+          "expected": "fbaaee77d1b1a3daff788267ec15963ea06a6340a219a2da890c8c9642998dd7",
+          "actual": "fbaaee77d1b1a3daff788267ec15963ea06a6340a219a2da890c8c9642998dd7",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery.lean",
+          "member": "repository/lean/QuarticQuery.lean",
+          "expected": "f76b28615af9ebffdda89430586942c5d7d499a0d78585a31ae47a45c92705b0",
+          "actual": "f76b28615af9ebffdda89430586942c5d7d499a0d78585a31ae47a45c92705b0",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Amplification/Average.lean",
+          "member": "repository/lean/QuarticQuery/Amplification/Average.lean",
+          "expected": "fd837b83033d2df6d833a0fdecaef7110339d5747b8aaa1f674c14d3e50473b6",
+          "actual": "fd837b83033d2df6d833a0fdecaef7110339d5747b8aaa1f674c14d3e50473b6",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Amplification/Bounded.lean",
+          "member": "repository/lean/QuarticQuery/Amplification/Bounded.lean",
+          "expected": "6a6465ae0cbd0503cf327c5f33f6509f492a707795c0358880c8f12c9624c96d",
+          "actual": "6a6465ae0cbd0503cf327c5f33f6509f492a707795c0358880c8f12c9624c96d",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Amplification/Geometry.lean",
+          "member": "repository/lean/QuarticQuery/Amplification/Geometry.lean",
+          "expected": "ff5e758a77d21bc133a930d545672cb5faa76aa422019413c634085881142dc9",
+          "actual": "ff5e758a77d21bc133a930d545672cb5faa76aa422019413c634085881142dc9",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Amplification/Procedure.lean",
+          "member": "repository/lean/QuarticQuery/Amplification/Procedure.lean",
+          "expected": "45413af39419cf952c26204dfd3ae1b86e7dcde1423194ca473187cc6b64edb1",
+          "actual": "45413af39419cf952c26204dfd3ae1b86e7dcde1423194ca473187cc6b64edb1",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Appendix/TheoremA1.lean",
+          "member": "repository/lean/QuarticQuery/Appendix/TheoremA1.lean",
+          "expected": "777567c2e5878223a187030b4200293a0c8f78927fa0488e62ff36bf129a0128",
+          "actual": "777567c2e5878223a187030b4200293a0c8f78927fa0488e62ff36bf129a0128",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Bridge/DecisionTree.lean",
+          "member": "repository/lean/QuarticQuery/Bridge/DecisionTree.lean",
+          "expected": "f0dc14884f30cb5238b4e71a4358e43a244a45a38f655323a34b5e83af7ed13e",
+          "actual": "f0dc14884f30cb5238b4e71a4358e43a244a45a38f655323a34b5e83af7ed13e",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Bridge/Deferred.lean",
+          "member": "repository/lean/QuarticQuery/Bridge/Deferred.lean",
+          "expected": "666c5741a5a19324b7229a350bc35130627da42584c751d5444231f402c45931",
+          "actual": "666c5741a5a19324b7229a350bc35130627da42584c751d5444231f402c45931",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Bridge/Oracle.lean",
+          "member": "repository/lean/QuarticQuery/Bridge/Oracle.lean",
+          "expected": "06f073c300891be8d343434d4cbc4e3d9c2c37584bb5247a339e6f5c020ba385",
+          "actual": "06f073c300891be8d343434d4cbc4e3d9c2c37584bb5247a339e6f5c020ba385",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Construction/LocalTests.lean",
+          "member": "repository/lean/QuarticQuery/Construction/LocalTests.lean",
+          "expected": "56357d934fab301222130c92ef36cfbf122af4ad90fb2a94ba90178139dbeb13",
+          "actual": "56357d934fab301222130c92ef36cfbf122af4ad90fb2a94ba90178139dbeb13",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Construction/Transcript.lean",
+          "member": "repository/lean/QuarticQuery/Construction/Transcript.lean",
+          "expected": "e2fd95c77c8ef1616201219302415069411aaac88060f3f75ec24e7b0626608f",
+          "actual": "e2fd95c77c8ef1616201219302415069411aaac88060f3f75ec24e7b0626608f",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Construction/Winner.lean",
+          "member": "repository/lean/QuarticQuery/Construction/Winner.lean",
+          "expected": "3c6b894e842fc90acd7a09b9ff14ce3ae2f09bfbf2dc7f2195751a396db7017c",
+          "actual": "3c6b894e842fc90acd7a09b9ff14ce3ae2f09bfbf2dc7f2195751a396db7017c",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Forrelation/Arithmetic.lean",
+          "member": "repository/lean/QuarticQuery/Forrelation/Arithmetic.lean",
+          "expected": "5a7336764ee8cd299b9e19fd3164374fcebab98b7df8d9c956a457334b9dc243",
+          "actual": "5a7336764ee8cd299b9e19fd3164374fcebab98b7df8d9c956a457334b9dc243",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Forrelation/Builder.lean",
+          "member": "repository/lean/QuarticQuery/Forrelation/Builder.lean",
+          "expected": "32e1ff4623c8bbceda26da74e53961d8c2bc660ff9b831cf19d4cc32ce1abc23",
+          "actual": "32e1ff4623c8bbceda26da74e53961d8c2bc660ff9b831cf19d4cc32ce1abc23",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Forrelation/Circuit.lean",
+          "member": "repository/lean/QuarticQuery/Forrelation/Circuit.lean",
+          "expected": "b17824d0a3b6ee5a689822b04c18d20de9e72e1db119105584e9cbba60ae8f01",
+          "actual": "b17824d0a3b6ee5a689822b04c18d20de9e72e1db119105584e9cbba60ae8f01",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Forrelation/Product.lean",
+          "member": "repository/lean/QuarticQuery/Forrelation/Product.lean",
+          "expected": "f0ceced9021b45de546dfc01aadabde913f8ecdf1a0d085992c5b61b8a1ef425",
+          "actual": "f0ceced9021b45de546dfc01aadabde913f8ecdf1a0d085992c5b61b8a1ef425",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Forrelation/Promise.lean",
+          "member": "repository/lean/QuarticQuery/Forrelation/Promise.lean",
+          "expected": "96b967a27458107549e38ce4fe001d707a4c240ad4e4b582729a6ce9526d2cf1",
+          "actual": "96b967a27458107549e38ce4fe001d707a4c240ad4e4b582729a6ce9526d2cf1",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Forrelation/Repetition.lean",
+          "member": "repository/lean/QuarticQuery/Forrelation/Repetition.lean",
+          "expected": "1526168486cdc4e78213c6048199676df0520445666b60d3ece9c62678e90e70",
+          "actual": "1526168486cdc4e78213c6048199676df0520445666b60d3ece9c62678e90e70",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Forrelation/Sanity.lean",
+          "member": "repository/lean/QuarticQuery/Forrelation/Sanity.lean",
+          "expected": "bf287a0ff1f6022582b6d8daae3a89ad34d8aa51986531a649f133ee692eae70",
+          "actual": "bf287a0ff1f6022582b6d8daae3a89ad34d8aa51986531a649f133ee692eae70",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Forrelation/Walsh.lean",
+          "member": "repository/lean/QuarticQuery/Forrelation/Walsh.lean",
+          "expected": "e3eae0cf1455ef1471fd4f42458b324bbe3bfe1b1879989366ce476657653069",
+          "actual": "e3eae0cf1455ef1471fd4f42458b324bbe3bfe1b1879989366ce476657653069",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/ForrelationLower/Amplify.lean",
+          "member": "repository/lean/QuarticQuery/ForrelationLower/Amplify.lean",
+          "expected": "93f8e1c04768b8d01263f4a6b5a594b2d7b3334a1380432af6a33779109fc10a",
+          "actual": "93f8e1c04768b8d01263f4a6b5a594b2d7b3334a1380432af6a33779109fc10a",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+          "member": "repository/lean/QuarticQuery/ForrelationLower/Cascade.lean",
+          "expected": "9438575752bdbb664cecbf15b97afc96f2f235fabcab8f6261ab5f15bb9d7ab9",
+          "actual": "9438575752bdbb664cecbf15b97afc96f2f235fabcab8f6261ab5f15bb9d7ab9",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+          "member": "repository/lean/QuarticQuery/ForrelationLower/Cube.lean",
+          "expected": "16db4f9b7e4e42029c839537075eff0ec0f6fd6261d4a8a038bec8566ce4e2fe",
+          "actual": "16db4f9b7e4e42029c839537075eff0ec0f6fd6261d4a8a038bec8566ce4e2fe",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/ForrelationLower/Main.lean",
+          "member": "repository/lean/QuarticQuery/ForrelationLower/Main.lean",
+          "expected": "f877e9c4d11874d3e80ad7627972b1a8a0eca596f26fb96a3898bfdace564ed1",
+          "actual": "f877e9c4d11874d3e80ad7627972b1a8a0eca596f26fb96a3898bfdace564ed1",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+          "member": "repository/lean/QuarticQuery/ForrelationLower/Promise.lean",
+          "expected": "2877dc60a4af03e98321ac9e47c501a63508936aa49e5018d280258b24862efb",
+          "actual": "2877dc60a4af03e98321ac9e47c501a63508936aa49e5018d280258b24862efb",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+          "member": "repository/lean/QuarticQuery/ForrelationLower/Stein.lean",
+          "expected": "6238d7e6f8ade6044eb623899069f35d0a5b860699c722e7007fd71046ffff9e",
+          "actual": "6238d7e6f8ade6044eb623899069f35d0a5b860699c722e7007fd71046ffff9e",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+          "member": "repository/lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+          "expected": "13614823a433518dea7138242182dc2abee1dbcdf0127157edf8cc9b6a756010",
+          "actual": "13614823a433518dea7138242182dc2abee1dbcdf0127157edf8cc9b6a756010",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/ForrelationLower/Uniform.lean",
+          "member": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+          "expected": "d6bc1f4399394810fca63abdaadd67a420616371c501ab978841898f2bda049c",
+          "actual": "d6bc1f4399394810fca63abdaadd67a420616371c501ab978841898f2bda049c",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+          "member": "repository/lean/QuarticQuery/ForrelationLower/Walk.lean",
+          "expected": "c9394068bc3a583178fcae1e11d6eafdc7dcfc17bcd8a0b269f9a13ccee209ba",
+          "actual": "c9394068bc3a583178fcae1e11d6eafdc7dcfc17bcd8a0b269f9a13ccee209ba",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/LowerBound/DirectProduct.lean",
+          "member": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+          "expected": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+          "actual": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/LowerBound/Minimax.lean",
+          "member": "repository/lean/QuarticQuery/LowerBound/Minimax.lean",
+          "expected": "d235fef08374ca71229f5a2a5985e1bb0c60e3ec39a0ad2b1a13b286df9c194e",
+          "actual": "d235fef08374ca71229f5a2a5985e1bb0c60e3ec39a0ad2b1a13b286df9c194e",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/LowerBound/Planted/Average.lean",
+          "member": "repository/lean/QuarticQuery/LowerBound/Planted/Average.lean",
+          "expected": "471bb74964c7c841f12a8e90a184d13f26ffc173bf2855bdf1d59e93f490610e",
+          "actual": "471bb74964c7c841f12a8e90a184d13f26ffc173bf2855bdf1d59e93f490610e",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/LowerBound/Planted/Coupling.lean",
+          "member": "repository/lean/QuarticQuery/LowerBound/Planted/Coupling.lean",
+          "expected": "35d0f76652f6aa52acb73dfe3b5c01eb70eefdf9397cc83f4b4469017de61824",
+          "actual": "35d0f76652f6aa52acb73dfe3b5c01eb70eefdf9397cc83f4b4469017de61824",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/LowerBound/Planted/Heavy.lean",
+          "member": "repository/lean/QuarticQuery/LowerBound/Planted/Heavy.lean",
+          "expected": "6b5772603583908e293c4301594ef313e68ddff67dedd5eced436744b0f110bb",
+          "actual": "6b5772603583908e293c4301594ef313e68ddff67dedd5eced436744b0f110bb",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/LowerBound/Planted/Inputs.lean",
+          "member": "repository/lean/QuarticQuery/LowerBound/Planted/Inputs.lean",
+          "expected": "8a51b7b7696acdda52b0762b65c2f9e8bec13da8d896c47102c447195509411f",
+          "actual": "8a51b7b7696acdda52b0762b65c2f9e8bec13da8d896c47102c447195509411f",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/LowerBound/Planted/Main.lean",
+          "member": "repository/lean/QuarticQuery/LowerBound/Planted/Main.lean",
+          "expected": "a32a6e24bccace37d46742acc9450fe33b6081430484138336014048f3fe835c",
+          "actual": "a32a6e24bccace37d46742acc9450fe33b6081430484138336014048f3fe835c",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/LowerBound/Planted/Simulator.lean",
+          "member": "repository/lean/QuarticQuery/LowerBound/Planted/Simulator.lean",
+          "expected": "71bcf25db0309331ebda232bcad3ab2e895d543ffadcc521e99117253c0dab09",
+          "actual": "71bcf25db0309331ebda232bcad3ab2e895d543ffadcc521e99117253c0dab09",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean",
+          "member": "repository/lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean",
+          "expected": "86a2064e0fb6c6ba9b4a79785932a203314d8433d938083a420288d642bf8bf8",
+          "actual": "86a2064e0fb6c6ba9b4a79785932a203314d8433d938083a420288d642bf8bf8",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Model/Classical.lean",
+          "member": "repository/lean/QuarticQuery/Model/Classical.lean",
+          "expected": "a820d0804ee722ee74eef97ea8efeb2a15da55107d6a908e35ba60ef39932e9e",
+          "actual": "a820d0804ee722ee74eef97ea8efeb2a15da55107d6a908e35ba60ef39932e9e",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Model/Quantum.lean",
+          "member": "repository/lean/QuarticQuery/Model/Quantum.lean",
+          "expected": "6a61d326b216fa39f6ac1d7694727528dd5028bfac8d939f118bf1a4f4a35662",
+          "actual": "6a61d326b216fa39f6ac1d7694727528dd5028bfac8d939f118bf1a4f4a35662",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/AppendixA.lean",
+          "member": "repository/lean/QuarticQuery/Paper/AppendixA.lean",
+          "expected": "5a28f11e95c0153ef162337a8c81d4523f0092361b785425ee166924b1dd9815",
+          "actual": "5a28f11e95c0153ef162337a8c81d4523f0092361b785425ee166924b1dd9815",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+          "member": "repository/lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+          "expected": "f95cdeea5040ba7082c33a76faddef2da122d5bb4d76cec2b192598894c50aa6",
+          "actual": "f95cdeea5040ba7082c33a76faddef2da122d5bb4d76cec2b192598894c50aa6",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/AppendixAHuang.lean",
+          "member": "repository/lean/QuarticQuery/Paper/AppendixAHuang.lean",
+          "expected": "adb9065a0262325c396b5eeadc4f27f61768fe182e1818b9a2e4b91e0376459b",
+          "actual": "adb9065a0262325c396b5eeadc4f27f61768fe182e1818b9a2e4b91e0376459b",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+          "member": "repository/lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+          "expected": "a90282494f069991f80b7ec4af0cd8898a2d4b84a7a69aa180e1ed061dd9a549",
+          "actual": "a90282494f069991f80b7ec4af0cd8898a2d4b84a7a69aa180e1ed061dd9a549",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/AppendixAHuangRoute.lean",
+          "member": "repository/lean/QuarticQuery/Paper/AppendixAHuangRoute.lean",
+          "expected": "9a16919921fe4f06d2db77e75b88fe1bd5f7350bc9132360ebc496450a06a5b7",
+          "actual": "9a16919921fe4f06d2db77e75b88fe1bd5f7350bc9132360ebc496450a06a5b7",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/AppendixAPerron.lean",
+          "member": "repository/lean/QuarticQuery/Paper/AppendixAPerron.lean",
+          "expected": "e95a404b217afc2f03eaa35256c713827f1400231702daea1b5b38a3aa204c9a",
+          "actual": "e95a404b217afc2f03eaa35256c713827f1400231702daea1b5b38a3aa204c9a",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/AppendixARestriction.lean",
+          "member": "repository/lean/QuarticQuery/Paper/AppendixARestriction.lean",
+          "expected": "5e7b16febef2b95ffc6ed9e735bbb8b24cbaf1d713fda51452a13ef17745534b",
+          "actual": "5e7b16febef2b95ffc6ed9e735bbb8b24cbaf1d713fda51452a13ef17745534b",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+          "member": "repository/lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+          "expected": "b45034f8e12d480523140f3a491ef29d2fc7fa83930ff6e17a993c8acb7ca0b0",
+          "actual": "b45034f8e12d480523140f3a491ef29d2fc7fa83930ff6e17a993c8acb7ca0b0",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/AppendixASpectralAdversary.lean",
+          "member": "repository/lean/QuarticQuery/Paper/AppendixASpectralAdversary.lean",
+          "expected": "75c971c8627dc3e1e17e1a58e21522f845d0830246ab93939994d24d08da1ca4",
+          "actual": "75c971c8627dc3e1e17e1a58e21522f845d0830246ab93939994d24d08da1ca4",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+          "member": "repository/lean/QuarticQuery/Paper/AppendixAStar.lean",
+          "expected": "84d2b315859098c5030f6772a06dcd652f3d08e695456ece32acb61a6e0142d6",
+          "actual": "84d2b315859098c5030f6772a06dcd652f3d08e695456ece32acb61a6e0142d6",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ClassicalAsymptotics.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ClassicalAsymptotics.lean",
+          "expected": "b156b061ecab3a011c31224f9ff0719d07a52e8e8eb86becbb18cb5c959c17af",
+          "actual": "b156b061ecab3a011c31224f9ff0719d07a52e8e8eb86becbb18cb5c959c17af",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+          "expected": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+          "actual": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+          "expected": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+          "actual": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ClassicalUniformZero.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ClassicalUniformZero.lean",
+          "expected": "b0778f75c9717011e9b115eb3b15cf132b85486fa2f8c83eff0e4ce4a05fca19",
+          "actual": "b0778f75c9717011e9b115eb3b15cf132b85486fa2f8c83eff0e4ce4a05fca19",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ConstructionArithmetic.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ConstructionArithmetic.lean",
+          "expected": "2c355a3eb5e76cd5db70a6990bb9d6b37d652e0eece3b31ed0661219d3635ad0",
+          "actual": "2c355a3eb5e76cd5db70a6990bb9d6b37d652e0eece3b31ed0661219d3635ad0",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ConstructionAudit.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ConstructionAudit.lean",
+          "expected": "bf7d2c90de5e5c690c9a1a1589cd1b2d59b1f63a93eed3bd846170ae996ca6d6",
+          "actual": "bf7d2c90de5e5c690c9a1a1589cd1b2d59b1f63a93eed3bd846170ae996ca6d6",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ConstructionCoherent.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ConstructionCoherent.lean",
+          "expected": "5e5f5c2321e7c1ce23235e69e1f430fd951f13cc92b5a2d1b2d974aad0607cec",
+          "actual": "5e5f5c2321e7c1ce23235e69e1f430fd951f13cc92b5a2d1b2d974aad0607cec",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ConstructionComplete.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ConstructionComplete.lean",
+          "expected": "a79e9f0cdbf85df0e86605711fa6c8bde2a19cbe043c36302243b42a7f8fbc6c",
+          "actual": "a79e9f0cdbf85df0e86605711fa6c8bde2a19cbe043c36302243b42a7f8fbc6c",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+          "expected": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
+          "actual": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ConstructionFamily.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ConstructionFamily.lean",
+          "expected": "b7e1203086e38c00b964355ac71537a7fc5be7053d537ccd56cba8017cdd085a",
+          "actual": "b7e1203086e38c00b964355ac71537a7fc5be7053d537ccd56cba8017cdd085a",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ConstructionForrelationCircuit.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationCircuit.lean",
+          "expected": "860e8653027d64fe7d5cc5f35357d81ed5fa27e027899047ab819c821e3c8b32",
+          "actual": "860e8653027d64fe7d5cc5f35357d81ed5fa27e027899047ab819c821e3c8b32",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ConstructionForrelationComparison.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationComparison.lean",
+          "expected": "e9bb18d1e0ea9482762e89a9ced002c720f9b7d2311a455a9904bd820c5b4a01",
+          "actual": "e9bb18d1e0ea9482762e89a9ced002c720f9b7d2311a455a9904bd820c5b4a01",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ConstructionForrelationComplete.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationComplete.lean",
+          "expected": "733526015ad9a2013512d8f6216b8f73c41566a803d92602dd30e40e90d7ad06",
+          "actual": "733526015ad9a2013512d8f6216b8f73c41566a803d92602dd30e40e90d7ad06",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+          "expected": "14f92345b8885036e862885aad3db82d77cff6e71642e669c2ba7dc8ba087aa1",
+          "actual": "14f92345b8885036e862885aad3db82d77cff6e71642e669c2ba7dc8ba087aa1",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ConstructionForrelationQuantum.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationQuantum.lean",
+          "expected": "f31face68a9c47906d9a728cced9aa8a24ec73d3079c6196ae1853130151391b",
+          "actual": "f31face68a9c47906d9a728cced9aa8a24ec73d3079c6196ae1853130151391b",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ConstructionModels.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ConstructionModels.lean",
+          "expected": "19826ab2f9f9ef8a329f5880faf2426727b158321af4a418d519d55b56674d61",
+          "actual": "19826ab2f9f9ef8a329f5880faf2426727b158321af4a418d519d55b56674d61",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ConstructionPhase.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ConstructionPhase.lean",
+          "expected": "f9dc9564aa8741a6aa3059fcea3563c740fed802666ae251fbebbe9085668405",
+          "actual": "f9dc9564aa8741a6aa3059fcea3563c740fed802666ae251fbebbe9085668405",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ConstructionPointerSupport.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ConstructionPointerSupport.lean",
+          "expected": "8a2d8befa3225ab54114492b35c5a326fc17bd8f0a5eaa9acba966c18db53938",
+          "actual": "8a2d8befa3225ab54114492b35c5a326fc17bd8f0a5eaa9acba966c18db53938",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/ConstructionTests.lean",
+          "member": "repository/lean/QuarticQuery/Paper/ConstructionTests.lean",
+          "expected": "06f1b3bc883881351e5e9cfa9ba8777f2f907897e69275b507132cc01ba0dccb",
+          "actual": "06f1b3bc883881351e5e9cfa9ba8777f2f907897e69275b507132cc01ba0dccb",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+          "member": "repository/lean/QuarticQuery/Paper/QuantumAmplification.lean",
+          "expected": "95d89237e766b59ffdd52f1324e440e2127b06353b2c8de2482b9f55c4adb30b",
+          "actual": "95d89237e766b59ffdd52f1324e440e2127b06353b2c8de2482b9f55c4adb30b",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+          "member": "repository/lean/QuarticQuery/Paper/QuantumComparison.lean",
+          "expected": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+          "actual": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/QuantumTensor.lean",
+          "member": "repository/lean/QuarticQuery/Paper/QuantumTensor.lean",
+          "expected": "7a2f03d6ae2d8d3ff2af9837f6cb1e1f1f3d5b4983dc34e753792621443835ac",
+          "actual": "7a2f03d6ae2d8d3ff2af9837f6cb1e1f1f3d5b4983dc34e753792621443835ac",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/QuantumTournament.lean",
+          "member": "repository/lean/QuarticQuery/Paper/QuantumTournament.lean",
+          "expected": "8cf87e74aa0364c9bc6b9078ff62e88c45d297625166fe31a8efeea765a34adf",
+          "actual": "8cf87e74aa0364c9bc6b9078ff62e88c45d297625166fe31a8efeea765a34adf",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+          "member": "repository/lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+          "expected": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
+          "actual": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/QuantumUpper.lean",
+          "member": "repository/lean/QuarticQuery/Paper/QuantumUpper.lean",
+          "expected": "4d2966b64f95a3706113159a8afd4a5b1954a895d7d1e91c569d2f59a24bcb26",
+          "actual": "4d2966b64f95a3706113159a8afd4a5b1954a895d7d1e91c569d2f59a24bcb26",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/QuantumWorkspace.lean",
+          "member": "repository/lean/QuarticQuery/Paper/QuantumWorkspace.lean",
+          "expected": "a5ed4638bef1d1e15508ea5b96a0edf99a2281693de03f39f23e5afadd7ba07b",
+          "actual": "a5ed4638bef1d1e15508ea5b96a0edf99a2281693de03f39f23e5afadd7ba07b",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/Section2.lean",
+          "member": "repository/lean/QuarticQuery/Paper/Section2.lean",
+          "expected": "34fb705db7f672de0faf3e18fcc3dda4862033e157a325d8c9016936361f84cf",
+          "actual": "34fb705db7f672de0faf3e18fcc3dda4862033e157a325d8c9016936361f84cf",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/Section3.lean",
+          "member": "repository/lean/QuarticQuery/Paper/Section3.lean",
+          "expected": "aa49e092c11c915bc5a3a904054589dbed18c840f84a00c5edc0e37d57d661ad",
+          "actual": "aa49e092c11c915bc5a3a904054589dbed18c840f84a00c5edc0e37d57d661ad",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Paper/Section4.lean",
+          "member": "repository/lean/QuarticQuery/Paper/Section4.lean",
+          "expected": "da6bda0feda0448bc05b11c85aed7b666d01aa8d30a8914a4ffd7d9fbe6643fb",
+          "actual": "da6bda0feda0448bc05b11c85aed7b666d01aa8d30a8914a4ffd7d9fbe6643fb",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Results/Conditional.lean",
+          "member": "repository/lean/QuarticQuery/Results/Conditional.lean",
+          "expected": "c3d4acfd49f8725f21fa4e895be9773e44a52786a16e3606e68dfda27c808330",
+          "actual": "c3d4acfd49f8725f21fa4e895be9773e44a52786a16e3606e68dfda27c808330",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Results/Exponent.lean",
+          "member": "repository/lean/QuarticQuery/Results/Exponent.lean",
+          "expected": "91d1c021f9b920f9bf0017dfe03817194c6a1ff5f4776e39a669bbd3b832a931",
+          "actual": "91d1c021f9b920f9bf0017dfe03817194c6a1ff5f4776e39a669bbd3b832a931",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Results/Headline.lean",
+          "member": "repository/lean/QuarticQuery/Results/Headline.lean",
+          "expected": "fec7d0c565b8ab345568ae6082c5fb346435493f4eb2d9112cda498652909c35",
+          "actual": "fec7d0c565b8ab345568ae6082c5fb346435493f4eb2d9112cda498652909c35",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Results/Unconditional.lean",
+          "member": "repository/lean/QuarticQuery/Results/Unconditional.lean",
+          "expected": "46e6f51f713109bab717956bd2536711dc927a356027748712e571ce12f0b85e",
+          "actual": "46e6f51f713109bab717956bd2536711dc927a356027748712e571ce12f0b85e",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Statement.lean",
+          "member": "repository/lean/QuarticQuery/Statement.lean",
+          "expected": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+          "actual": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Tournament/Drift.lean",
+          "member": "repository/lean/QuarticQuery/Tournament/Drift.lean",
+          "expected": "850fbfdfba830a17930f0a8e60fdc0d7b27f7f50c45710b5e77997343528c077",
+          "actual": "850fbfdfba830a17930f0a8e60fdc0d7b27f7f50c45710b5e77997343528c077",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Tournament/Ideal.lean",
+          "member": "repository/lean/QuarticQuery/Tournament/Ideal.lean",
+          "expected": "6f7379abfb1d9fb37d6ef7f0f25049893490aa717171c875feb97fca343ab8ef",
+          "actual": "6f7379abfb1d9fb37d6ef7f0f25049893490aa717171c875feb97fca343ab8ef",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Upper/Amplify.lean",
+          "member": "repository/lean/QuarticQuery/Upper/Amplify.lean",
+          "expected": "49e808cc6acbb47ad066b1dcf33ac8d47da2f28d88c51d537564e6591eb0d9e1",
+          "actual": "49e808cc6acbb47ad066b1dcf33ac8d47da2f28d88c51d537564e6591eb0d9e1",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Upper/Bound.lean",
+          "member": "repository/lean/QuarticQuery/Upper/Bound.lean",
+          "expected": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303",
+          "actual": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Upper/Circuit.lean",
+          "member": "repository/lean/QuarticQuery/Upper/Circuit.lean",
+          "expected": "7686a3b72476d902ec9ff504b38bea9ac25e90724e93d82033ea05339080190f",
+          "actual": "7686a3b72476d902ec9ff504b38bea9ac25e90724e93d82033ea05339080190f",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Upper/Columns.lean",
+          "member": "repository/lean/QuarticQuery/Upper/Columns.lean",
+          "expected": "e5b2b164deb6a010f952cefb5edba15bb5437a03fff815c39b028341b23b592e",
+          "actual": "e5b2b164deb6a010f952cefb5edba15bb5437a03fff815c39b028341b23b592e",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Upper/Compile.lean",
+          "member": "repository/lean/QuarticQuery/Upper/Compile.lean",
+          "expected": "ead2d229ad8a97541dd648806b64813745e8502b5f7314ced43e7a95a0708a27",
+          "actual": "ead2d229ad8a97541dd648806b64813745e8502b5f7314ced43e7a95a0708a27",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Upper/Decode.lean",
+          "member": "repository/lean/QuarticQuery/Upper/Decode.lean",
+          "expected": "4755c92be7627e4a58b1487d831a93765a3510647682e903c6abfed39f61411b",
+          "actual": "4755c92be7627e4a58b1487d831a93765a3510647682e903c6abfed39f61411b",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Upper/Sampler.lean",
+          "member": "repository/lean/QuarticQuery/Upper/Sampler.lean",
+          "expected": "43cb604188f041ebd34c8003f01f4ec6c570023e465cd2b730ee4f1f765b2b79",
+          "actual": "43cb604188f041ebd34c8003f01f4ec6c570023e465cd2b730ee4f1f765b2b79",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Upper/Tournament.lean",
+          "member": "repository/lean/QuarticQuery/Upper/Tournament.lean",
+          "expected": "43df9db7997f88667de7a3cfa7d7c7751aa1f32c40e9de474895335bcdb87b7c",
+          "actual": "43df9db7997f88667de7a3cfa7d7c7751aa1f32c40e9de474895335bcdb87b7c",
+          "matched": true
+        },
+        {
+          "label": "lean/QuarticQuery/Upper/Verify.lean",
+          "member": "repository/lean/QuarticQuery/Upper/Verify.lean",
+          "expected": "8144c5c26e7bf0515b24eb638b57412264032e144844887adc615b8076207239",
+          "actual": "8144c5c26e7bf0515b24eb638b57412264032e144844887adc615b8076207239",
+          "matched": true
+        },
+        {
+          "label": "lean/lake-manifest.json",
+          "member": "repository/lean/lake-manifest.json",
+          "expected": "d670a8101d900b62e17a1d51c8b1b36fd60919bcad472700b0a5e1c0b38b104d",
+          "actual": "d670a8101d900b62e17a1d51c8b1b36fd60919bcad472700b0a5e1c0b38b104d",
+          "matched": true
+        },
+        {
+          "label": "lean/lakefile.toml",
+          "member": "repository/lean/lakefile.toml",
+          "expected": "255abcc3c689d0258d4cea520447fdc8da26e26a191331aa95559b2fb4818647",
+          "actual": "255abcc3c689d0258d4cea520447fdc8da26e26a191331aa95559b2fb4818647",
+          "matched": true
+        },
+        {
+          "label": "lean/lean-toolchain",
+          "member": "repository/lean/lean-toolchain",
+          "expected": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3",
+          "actual": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3",
+          "matched": true
+        },
+        {
+          "label": "lean/scripts/Reach.lean",
+          "member": "repository/lean/scripts/Reach.lean",
+          "expected": "44ce6c1ace1e3914109b959c5d3466f00eba4090621d73d3b3ee2626be1f796b",
+          "actual": "44ce6c1ace1e3914109b959c5d3466f00eba4090621d73d3b3ee2626be1f796b",
+          "matched": true
+        }
+      ]
+    },
+    "candidate_binding": {
+      "count": 3,
+      "matched": 3,
+      "mismatches": [],
+      "entries": [
+        {
+          "label": "/Users/willcook/src/quartic-query-lean/research/adjudication/round2_construction_quantum_ties.json",
+          "member": "repository/research/adjudication/round2_construction_quantum_ties.json",
+          "expected": "99a0d39b328d4f6c71b816d8b65a40e4439d60c23de85bc83a5f9259377e28e6",
+          "actual": "99a0d39b328d4f6c71b816d8b65a40e4439d60c23de85bc83a5f9259377e28e6",
+          "matched": true
+        },
+        {
+          "label": "/Users/willcook/src/quartic-query-lean/research/adjudication/round2_classical_appendix_ties.json",
+          "member": "repository/research/adjudication/round2_classical_appendix_ties.json",
+          "expected": "92965da1bf4fb0ccb606215ff1cff296f1a4dd9a8096f064f96a60858e9ea9c1",
+          "actual": "92965da1bf4fb0ccb606215ff1cff296f1a4dd9a8096f064f96a60858e9ea9c1",
+          "matched": true
+        },
+        {
+          "label": "/Users/willcook/src/quartic-query-lean/research/adjudication/round2_forrelation_exponent_ties.json",
+          "member": "repository/research/adjudication/round2_forrelation_exponent_ties.json",
+          "expected": "5015bdd1c7845c2862b18bbb5bc88dc2b6116862dbeab60fe894375377504127",
+          "actual": "5015bdd1c7845c2862b18bbb5bc88dc2b6116862dbeab60fe894375377504127",
+          "matched": true
+        }
+      ]
+    },
+    "root_artifact_sha256": "e38872c98335e7b228fdc575bb91d79b3c1848d8418196436a7f95c93e365844",
+    "root_artifact_available": false,
+    "explicitly_audited_declarations": [
+      "QuarticQuery.Paper.construction_log2_mValue",
+      "QuarticQuery.Paper.construction_eq6",
+      "QuarticQuery.Paper.quantumTournament_parameters",
+      "QuarticQuery.Paper.construction_equation_5",
+      "QuarticQuery.Paper.construction_correct_on_domain_iff",
+      "QuarticQuery.Paper.constructionPartial_reconstruct",
+      "QuarticQuery.Paper.construction_promised_iff",
+      "QuarticQuery.Paper.construction_RLe_domain_iff",
+      "QuarticQuery.Paper.construction_QLe_domain_iff",
+      "QuarticQuery.Paper.construction_query_oracle",
+      "QuarticQuery.Paper.construction_alphaTot_eq_inf",
+      "QuarticQuery.Paper.construction_universalPower_iff",
+      "QuarticQuery.Paper.construction_exponent_set_wellDefined",
+      "QuarticQuery.Paper.construction_equation_two",
+      "QuarticQuery.Paper.construction_family_named",
+      "QuarticQuery.Paper.construction_transcript_definition",
+      "QuarticQuery.Paper.construction_transcript_input_wire",
+      "QuarticQuery.Paper.construction_transcript_gate_wire",
+      "QuarticQuery.Paper.construction_transcript_correct",
+      "QuarticQuery.Paper.construction_walsh_definitions",
+      "QuarticQuery.Paper.construction_equation_3",
+      "QuarticQuery.Paper.construction_equation_4",
+      "QuarticQuery.Paper.construction_lemma_2_1_i",
+      "QuarticQuery.Paper.construction_claim_bs_to_L",
+      "QuarticQuery.Paper.construction_bs_comparison_chain",
+      "QuarticQuery.Paper.construction_projection_test",
+      "QuarticQuery.Paper.construction_bitOracle_phase_kickback",
+      "QuarticQuery.Paper.construction_bitOracle_phase_preserves",
+      "QuarticQuery.Paper.construction_lemma_2_1_ii_complete",
+      "QuarticQuery.Paper.construction_N_phi",
+      "QuarticQuery.Paper.construction_integer_tests",
+      "QuarticQuery.Paper.construction_forr_output_bits",
+      "QuarticQuery.Paper.construction_circuit_costs",
+      "QuarticQuery.Paper.construction_walkN_bound",
+      "QuarticQuery.Paper.construction_walkN_prefix_bound",
+      "QuarticQuery.Paper.construction_butterfly_block_bound",
+      "QuarticQuery.Paper.construction_lemma_2_1_complete",
+      "QuarticQuery.Paper.construction_column_layout",
+      "QuarticQuery.Paper.construction_pointer_encoding",
+      "QuarticQuery.Paper.construction_layout_cardinalities",
+      "QuarticQuery.Paper.construction_trueAddress_iff",
+      "QuarticQuery.Paper.constructionOutwardPointers",
+      "QuarticQuery.Paper.construction_eq8_of_winsAt",
+      "QuarticQuery.Paper.constructionWinner",
+      "QuarticQuery.Paper.construction_winner_iff_exists_winsAt",
+      "QuarticQuery.Paper.construction_unique_winner",
+      "QuarticQuery.Paper.construction_winsAt_iff_winner_and_address",
+      "QuarticQuery.Paper.construction_win_at_address_outputs",
+      "QuarticQuery.Paper.construction_K_count",
+      "QuarticQuery.Paper.construction_K_family",
+      "QuarticQuery.Paper.construction_K_bound",
+      "QuarticQuery.Paper.construction_lemma_2_2_i",
+      "QuarticQuery.Paper.construction_pointer_every_physical_coordinate",
+      "QuarticQuery.Paper.construction_lemma_2_2_ii",
+      "QuarticQuery.Paper.construction_lemma_2_2_complete",
+      "QuarticQuery.Paper.construction_local_dichotomy",
+      "QuarticQuery.Paper.quantumTournament",
+      "QuarticQuery.Paper.quantumList_coupling",
+      "QuarticQuery.Paper.quantumTournament_list",
+      "QuarticQuery.Paper.quantumTournament_cost",
+      "QuarticQuery.Paper.amplification_budget_le",
+      "QuarticQuery.Paper.quantum_grover_parameters",
+      "QuarticQuery.Paper.quantum_grover_trial_distribution",
+      "QuarticQuery.Paper.quantum_grover_trial_recursion",
+      "QuarticQuery.Paper.quantum_attempts_samples",
+      "QuarticQuery.Paper.quantum_grover_state",
+      "QuarticQuery.Paper.quantum_grover_zero",
+      "QuarticQuery.Paper.quantum_sin_two_angle",
+      "QuarticQuery.Paper.quantum_eq_9",
+      "QuarticQuery.Paper.quantum_controlled_bit_query",
+      "QuarticQuery.Paper.quantum_coherent_tree",
+      "QuarticQuery.Paper.quantum_controlled_reads",
+      "QuarticQuery.Paper.quantum_inverse_reads",
+      "QuarticQuery.Paper.quantumBitOracle_isCirc",
+      "QuarticQuery.Paper.quantumComparison_pointer_queries",
+      "QuarticQuery.Paper.quantumComparison_unordered_state",
+      "QuarticQuery.Paper.quantumComparison_self",
+      "QuarticQuery.Paper.quantumComparison_complementary",
+      "QuarticQuery.Paper.quantumDecode",
+      "QuarticQuery.Paper.quantumDecode_total",
+      "QuarticQuery.Paper.quantumDecode_correct",
+      "QuarticQuery.Paper.quantumDecode_query_bound_real",
+      "QuarticQuery.Paper.quantumDecode_polylog",
+      "QuarticQuery.Paper.quantumComparison_sorted",
+      "QuarticQuery.Paper.quantumComparison_rule",
+      "QuarticQuery.Paper.quantumComparison_disqualification",
+      "QuarticQuery.Paper.quantumComparison_self_zero_reads",
+      "QuarticQuery.Paper.quantumComparison_state",
+      "QuarticQuery.Paper.quantumComparison_polylog",
+      "QuarticQuery.Paper.quantumComparison_runs",
+      "QuarticQuery.Paper.quantumWinner_dominates",
+      "QuarticQuery.Paper.quantumVerify_fixedAddress",
+      "QuarticQuery.Paper.quantumVerify_runs",
+      "QuarticQuery.Paper.quantumVerify_probability",
+      "QuarticQuery.Paper.quantumVerify_list",
+      "QuarticQuery.Paper.quantumVerify",
+      "QuarticQuery.Paper.quantumVerify_search_query_bound",
+      "QuarticQuery.Paper.quantumVerify_forrCircuit_polylog",
+      "QuarticQuery.Paper.quantumError_bound",
+      "QuarticQuery.Paper.quantumError_numeric",
+      "QuarticQuery.Paper.quantumTensorStage_of_samples",
+      "QuarticQuery.Paper.quantum_amplify_samples",
+      "QuarticQuery.Paper.equation_15",
+      "QuarticQuery.Paper.quantumStage_success",
+      "QuarticQuery.Paper.quantumWeight_product",
+      "QuarticQuery.Paper.equation_15_success_probability",
+      "QuarticQuery.Paper.equation_15_conditional_index",
+      "QuarticQuery.Paper.quantumDrift",
+      "QuarticQuery.Paper.quantumWeight_lower",
+      "QuarticQuery.Paper.quantumDominant_iff",
+      "QuarticQuery.Paper.classical_transcript_product_law",
+      "QuarticQuery.Paper.classical_prefix_iff",
+      "QuarticQuery.Paper.classical_transcript_mass_pos",
+      "QuarticQuery.Paper.classical_product_marginal",
+      "QuarticQuery.Paper.classicalTranscriptValue",
+      "QuarticQuery.Paper.classicalTranscriptValue_attained",
+      "QuarticQuery.Paper.classicalTranscriptValue_bounds_tree",
+      "QuarticQuery.Paper.classical_eq_16_transcript",
+      "QuarticQuery.Paper.classicalTranscriptValue_unchanged",
+      "QuarticQuery.Paper.classicalQueriesTo_append",
+      "QuarticQuery.Paper.classical_transcriptWeight_append",
+      "QuarticQuery.Paper.classical_transcript_conditional_expectation",
+      "QuarticQuery.Paper.classical_terminalValue_le",
+      "QuarticQuery.Paper.classical_success_le_terminal",
+      "QuarticQuery.Paper.classical_direct_product",
+      "QuarticQuery.Paper.classical_final_bound",
+      "QuarticQuery.Paper.classical_eq_17_floor",
+      "QuarticQuery.Paper.classical_eq_17",
+      "QuarticQuery.Paper.dummyAvg",
+      "QuarticQuery.Paper.dummyAvg_const",
+      "QuarticQuery.Paper.dummyAvg_nonneg",
+      "QuarticQuery.Paper.dummyAvg_eq_coupledAvg",
+      "QuarticQuery.Paper.plantedAvg",
+      "QuarticQuery.Paper.plantedAvg_const",
+      "QuarticQuery.Paper.plantedAvg_nonneg",
+      "QuarticQuery.Paper.paperCoupledAvg_const",
+      "QuarticQuery.Paper.dummy_planted_values_on_support",
+      "QuarticQuery.Paper.eq_18",
+      "QuarticQuery.Paper.output_gap_abs_le_unsplit",
+      "QuarticQuery.Paper.cellVisit",
+      "QuarticQuery.Paper.discoveredZeros",
+      "QuarticQuery.Paper.discoveredZeros_cast",
+      "QuarticQuery.Paper.uniform_zero_given_transcript",
+      "QuarticQuery.Paper.observedPrefix_dummy_fiber",
+      "QuarticQuery.Paper.dummyTraceMass_factor",
+      "QuarticQuery.Paper.dummyTraceZeroMass_factor",
+      "QuarticQuery.Paper.expectedZeros_le_four",
+      "QuarticQuery.Paper.expectedZeros_le_two",
+      "QuarticQuery.Paper.erasedZero_eq_expectedZeros_div",
+      "QuarticQuery.Paper.HeavyColumn",
+      "QuarticQuery.Paper.heavyColumn_iff",
+      "QuarticQuery.Paper.addressSimulator",
+      "QuarticQuery.Paper.addressSimulator_depth_le",
+      "QuarticQuery.Paper.avg_reachedCellAt_le",
+      "QuarticQuery.Paper.eq_21",
+      "QuarticQuery.Paper.reachedCellAt",
+      "QuarticQuery.Paper.eq_22",
+      "QuarticQuery.Paper.cellVisit_le_heavy_add_reached",
+      "QuarticQuery.Paper.cellVisit_le",
+      "QuarticQuery.Paper.eq_23",
+      "QuarticQuery.Paper.eq_23_two",
+      "QuarticQuery.Paper.eq_23_randomized",
+      "QuarticQuery.Paper.classical_tail_parameters",
+      "QuarticQuery.Paper.classical_twoThirds_exact",
+      "QuarticQuery.Paper.classical_tail_envelope_eq",
+      "QuarticQuery.Paper.classical_tail_exponent_neg",
+      "QuarticQuery.Paper.classical_tail_envelope_tendsto",
+      "QuarticQuery.Paper.classical_numeric_components",
+      "QuarticQuery.Paper.classical_cor_R_omega_log2",
+      "QuarticQuery.Paper.classical_cor_R_omega_log",
+      "QuarticQuery.Paper.classical_Fkm_ratio",
+      "QuarticQuery.Paper.classical_ratio_arithmetic",
+      "QuarticQuery.Paper.classical_power_log_tendsto",
+      "QuarticQuery.Paper.classical_exponent_ratio",
+      "QuarticQuery.Paper.appendixA_degree_le_iff_fourier",
+      "QuarticQuery.Paper.appendixA_degree_le_iff",
+      "QuarticQuery.Paper.appendixA_degree_const",
+      "QuarticQuery.Paper.appendixA_degree_eq_sign",
+      "QuarticQuery.Paper.appendixA_blockSensitivity_eq",
+      "QuarticQuery.Paper.appendixA_isSensitiveBlock_iff",
+      "QuarticQuery.Paper.appendixA_blockSensitivity_const",
+      "QuarticQuery.Paper.appendixAGammaCoord_apply",
+      "QuarticQuery.Paper.appendixAMatrixNorm",
+      "QuarticQuery.Paper.appendixACoordinateMax",
+      "QuarticQuery.Paper.appendixA_coord_le_max",
+      "QuarticQuery.Paper.appendixA_perron",
+      "QuarticQuery.Paper.appendixA_exists_nonneg_unit_eigenvector",
+      "QuarticQuery.Paper.AppendixAPerronWitness",
+      "QuarticQuery.Paper.appendixAProgress",
+      "QuarticQuery.Paper.appendixAProgress_initial",
+      "QuarticQuery.Paper.appendixAProgress_isometry",
+      "QuarticQuery.Paper.appendixA_perQuery_of_bounds",
+      "QuarticQuery.Paper.appendixAProgress_query_quadratic",
+      "QuarticQuery.Paper.appendixAProgress_query_le",
+      "QuarticQuery.Paper.appendixA_query_weights_le_one",
+      "QuarticQuery.Paper.appendixA_unit_states_final_overlap",
+      "QuarticQuery.Paper.appendixAProgress_final",
+      "QuarticQuery.Paper.appendixA_final_overlap",
+      "QuarticQuery.Paper.appendixAProgress_final_of_overlap",
+      "QuarticQuery.Paper.appendixA_lemmaA2",
+      "QuarticQuery.Paper.appendixACoordinateMax_pos",
+      "QuarticQuery.Paper.appendixA_matrixNorm_le_Q",
+      "QuarticQuery.Paper.appendixA_spectralSensitivity_eq",
+      "QuarticQuery.Paper.appendixA_sensitivityMatrix",
+      "QuarticQuery.Paper.appendixA_sensitivityGraph_adj_iff",
+      "QuarticQuery.Paper.appendixA_blockSensitivity_star_le_Q_sq",
+      "QuarticQuery.Paper.appendixA_star_norm_eq_sqrt_card",
+      "QuarticQuery.Paper.appendixA_mask_star_norm_le_one",
+      "QuarticQuery.Paper.appendixA_sensitiveFamily_star_properties",
+      "QuarticQuery.Paper.appendixA_spectralSensitivity_adversary_le_Q",
+      "QuarticQuery.Paper.appendixA_sensitivity_mask_norm_le_one",
+      "QuarticQuery.Paper.appendixA_spectralSensitivity_adversary_le_of_QLe",
+      "QuarticQuery.Paper.appendixA_lemmaA3_adversary",
+      "QuarticQuery.Paper.appendixA_lemmaA3",
+      "QuarticQuery.Paper.appendixA_restriction_parity_face",
+      "QuarticQuery.Paper.appendixA_faceFin_fourier",
+      "QuarticQuery.Paper.appendixA_topFourier_survives",
+      "QuarticQuery.Paper.appendixAFaceEmbedding_sensitive",
+      "QuarticQuery.Paper.huangMatrix",
+      "QuarticQuery.Paper.huangMatrix_one",
+      "QuarticQuery.Paper.abs_huangMatrix",
+      "QuarticQuery.Paper.huangVertexEquivInput",
+      "QuarticQuery.Paper.huangAdjacent_iff_cubeEdge",
+      "QuarticQuery.Paper.huangEnd_eigenspaces_half",
+      "QuarticQuery.Paper.huangMatrix_square",
+      "QuarticQuery.Paper.huangMatrix_trace",
+      "QuarticQuery.Paper.huangMatrix_transpose",
+      "QuarticQuery.Paper.huangEnd_eigenvalue",
+      "QuarticQuery.Paper.huangEnd_eigenspaces_sup",
+      "QuarticQuery.Paper.huangEnd_eigenspaces_inf",
+      "QuarticQuery.Paper.huang_positive_rayleigh_witness",
+      "QuarticQuery.Paper.huang_supported_positive_eigenvector",
+      "QuarticQuery.Paper.huang_absolute_rayleigh_supported",
+      "QuarticQuery.Paper.appendixA4_paper_route",
+      "QuarticQuery.Paper.appendixA_spectral_of_cube_embedding",
+      "QuarticQuery.Paper.appendixA_quadratic_embedding",
+      "QuarticQuery.Paper.appendixA_exists_maximal_round_support",
+      "QuarticQuery.Paper.appendixA_sensitiveBlock_of_restriction",
+      "QuarticQuery.Paper.appendixA_roundBlocks_pairwise_disjoint",
+      "QuarticQuery.Paper.appendixA_round_count_le",
+      "QuarticQuery.Paper.appendixA_round_decreases_blockSensitivity",
+      "QuarticQuery.Paper.appendixA_lemmaA5",
+      "QuarticQuery.Paper.classical_direct_product_average",
+      "QuarticQuery.Paper.prop_4_2",
+      "QuarticQuery.Paper.prop_4_2_forrCircuit",
+      "QuarticQuery.Paper.appendixA_theoremA1",
+      "QuarticQuery.Paper.appendixA_D_le_Q_pow_four",
+      "QuarticQuery.Paper.appendixA_D_le_of_QLe",
+      "QuarticQuery.Paper.appendixA_universalPower_four",
+      "QuarticQuery.Paper.appendixA_D_le_Q_pow_four_hybrid",
+      "QuarticQuery.forrelation_lower_uniform_existing_constants",
+      "QuarticQuery.uniform_budget_floor_bounds",
+      "QuarticQuery.Upper.budgetConst_eq_expanded",
+      "QuarticQuery.Upper.budgetConst_le_exponential",
+      "QuarticQuery.forrelation_lower_uniform_sharp",
+      "QuarticQuery.ForrelationLower.psi_dphi_le_sharp",
+      "QuarticQuery.ForrelationLower.psi_dphi_eq_sharp_at_zero",
+      "QuarticQuery.Upper.Q_Fkm_le_exponential"
+    ]
+  },
+  "eq19_reviewed_ties": [
+    {
+      "declaration": "QuarticQuery.avg_foundZero_I_le",
+      "relation": "partial",
+      "route": "alternative",
+      "hypotheses": [
+        "T.depth <= G"
+      ],
+      "note": "Proves the stronger probability inequality 2G/m^2, but not the equality Pr(...)=E Z/m in this compound row. The budget T.depth<=G is an ordinary premise. See research/adjudication/round2_assumption_review.json.",
+      "reviewed_by": "ai:truth-auditor",
+      "premises": [
+        "T.depth <= G"
+      ],
+      "open_assumptions": []
+    },
+    {
+      "declaration": "QuarticQuery.zero_search_sum",
+      "relation": "partial",
+      "route": "alternative",
+      "hypotheses": [],
+      "note": "|U| #{found} <= 2 sum of column queries, on any set U of worlds, by induction on the tree. No conditioning, no early and late discoveries.",
+      "reviewed_by": "ai:truth-auditor"
+    },
+    {
+      "declaration": "QuarticQuery.column_zero_bound",
+      "relation": "partial",
+      "route": "alternative",
+      "hypotheses": [],
+      "note": "zero_search_sum for one column of the dummy input.",
+      "reviewed_by": "ai:truth-auditor"
+    },
+    {
+      "declaration": "QuarticQuery.avg_foundZero_le",
+      "relation": "partial",
+      "route": "alternative",
+      "hypotheses": [],
+      "note": "Column by column after averaging over J, by avg_resample.",
+      "reviewed_by": "ai:truth-auditor"
+    },
+    {
+      "declaration": "QuarticQuery.sum_xQueries_le",
+      "relation": "partial",
+      "route": "alternative",
+      "hypotheses": [],
+      "note": "Queries to the X columns sum to at most the depth. Each query is charged to one column.",
+      "reviewed_by": "ai:truth-auditor"
+    },
+    {
+      "declaration": "QuarticQuery.foundZero",
+      "relation": "partial",
+      "route": "none",
+      "hypotheses": [],
+      "note": "The indicator that the dummy run queries X_i[J_i].",
+      "reviewed_by": "ai:truth-auditor"
+    }
+  ],
+  "eq19_conjunction_supplied": false,
+  "comparison_boundary": "Root build and transitive axiom audit are distinct from Comparator. No source-bound Comparator receipt names the eq-19 equality or full-row conjunction.",
+  "selected_memberships": {
+    "QuarticQuery.Paper.erasedZero_eq_expectedZeros_div": {
+      "root_compiled": true,
+      "explicit_axiom_audit": true,
+      "current_comparator_receipts": []
+    },
+    "QuarticQuery.Paper.eq_19": {
+      "root_compiled": true,
+      "explicit_axiom_audit": false,
+      "current_comparator_receipts": []
+    },
+    "QuarticQuery.Paper.expectedZeros_le_four": {
+      "root_compiled": true,
+      "explicit_axiom_audit": true,
+      "current_comparator_receipts": []
+    },
+    "QuarticQuery.Paper.uniform_zero_given_transcript": {
+      "root_compiled": true,
+      "explicit_axiom_audit": true,
+      "current_comparator_receipts": []
+    },
+    "QuarticQuery.Paper.prop_4_2": {
+      "root_compiled": true,
+      "explicit_axiom_audit": true,
+      "current_comparator_receipts": []
+    },
+    "QuarticQuery.Paper.prop_4_2_forrCircuit": {
+      "root_compiled": true,
+      "explicit_axiom_audit": true,
+      "current_comparator_receipts": []
+    }
+  }
+}

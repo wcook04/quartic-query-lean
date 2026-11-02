@@ -1,0 +1,660 @@
+{
+  "scope": "Current supplied source and recorded type audit; no new elaboration. Read source.type_origin before treating a fallback as an elaborated type.",
+  "declarations": {
+    "QuarticQuery.Paper.quantumTournament_list": {
+      "source": {
+        "member": "repository/lean/QuarticQuery/Paper/QuantumTournament.lean",
+        "sha256": "8cf87e74aa0364c9bc6b9078ff62e88c45d297625166fe31a8efeea765a34adf",
+        "line_start": 270,
+        "line_end": 282,
+        "source_header": "theorem quantumTournament_list {cc : ℕ} {a : BitInput ι → Col → Col → ℝ}\n    (hm : 2 ≤ Fintype.card Col) (hc : ∀ x, IsComparison (a x))\n    (hcmp : ∀ i p, Samples cc fun x b => bern (a x i p) b) :\n    let m := Fintype.card Col\n    let T := Tval m\n    let ε := epsval m\n    ∃ law : BitInput ι → QuantumCandidateList Col T → ℝ,\n      Samples (T * quantumStageReads m T cc ε) law ∧\n      Runs (T * stageCost m T cc ε) law ∧\n      (∀ x o, 0 ≤ law x o) ∧\n      (∀ x, ∑ o, law x o = 1) ∧\n      ∀ x s, Dominant (a x) ε s →\n        1 - 2 * (m : ℝ) / 2 ^ T - T * ε ≤ ∑ o : QuantumCandidateList Col T, if s ∈ o.1 then law x o else 0",
+        "definition_source": null,
+        "context_headers": [
+          "namespace QuarticQuery.Paper",
+          "open QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification",
+          "section Law",
+          "variable {Col : Type} [Fintype Col]",
+          "variable [DecidableEq Col]",
+          "variable {a : Col → Col → ℝ} {v : Col → ℝ} {f : List Col → ℝ}",
+          "variable {ι Col : Type} [Fintype ι] [Inhabited ι] [Fintype Col] [DecidableEq Col]"
+        ],
+        "type_text": "QuarticQuery.Paper.quantumTournament_list {ι Col : Type} [Fintype ι] [Inhabited ι] [Fintype Col] [DecidableEq Col]\n  {cc : Nat} {a : QuarticQuery.BitInput ι → Col → Col → Real} (hm : LE.le 2 (Fintype.card Col))\n  (hc : ∀ (x : QuarticQuery.BitInput ι), QuarticQuery.Tournament.IsComparison (a x))\n  (hcmp : ∀ (i p : Col), QuarticQuery.Upper.Samples cc fun x b => QuarticQuery.Upper.bern (a x i p) b) :\n  have m := Fintype.card Col;\n  have T := QuarticQuery.Tournament.Tval m;\n  have ε := QuarticQuery.Tournament.epsval m;\n  Exists fun law =>\n    And (QuarticQuery.Upper.Samples (HMul.hMul T (QuarticQuery.Paper.quantumStageReads m T cc ε)) law)\n      (And (QuarticQuery.Upper.Runs (HMul.hMul T (QuarticQuery.Upper.stageCost m T cc ε)) law)\n        (And (∀ (x : QuarticQuery.BitInput ι) (o : QuarticQuery.Paper.QuantumCandidateList Col T), LE.le 0 (law x o))\n          (And (∀ (x : QuarticQuery.BitInput ι), Eq (Finset.univ.sum fun o => law x o) 1)\n            (∀ (x : QuarticQuery.BitInput ι) (s : Col),\n              QuarticQuery.Tournament.Dominant (a x) ε s →\n                LE.le (HSub.hSub (HSub.hSub 1 (HDiv.hDiv (HMul.hMul 2 ↑m) (HPow.hPow 2 T))) (HMul.hMul (↑T) ε))\n                  (Finset.univ.sum fun o => ite (Membership.mem (↑o) s) (law x o) 0)))))",
+        "type_origin": "recorded elaborated #check output",
+        "complete_type_text": "QuarticQuery.Paper.quantumTournament_list {ι Col : Type} [Fintype ι] [Inhabited ι] [Fintype Col] [DecidableEq Col]\n  {cc : Nat} {a : QuarticQuery.BitInput ι → Col → Col → Real} (hm : LE.le 2 (Fintype.card Col))\n  (hc : ∀ (x : QuarticQuery.BitInput ι), QuarticQuery.Tournament.IsComparison (a x))\n  (hcmp : ∀ (i p : Col), QuarticQuery.Upper.Samples cc fun x b => QuarticQuery.Upper.bern (a x i p) b) :\n  have m := Fintype.card Col;\n  have T := QuarticQuery.Tournament.Tval m;\n  have ε := QuarticQuery.Tournament.epsval m;\n  Exists fun law =>\n    And (QuarticQuery.Upper.Samples (HMul.hMul T (QuarticQuery.Paper.quantumStageReads m T cc ε)) law)\n      (And (QuarticQuery.Upper.Runs (HMul.hMul T (QuarticQuery.Upper.stageCost m T cc ε)) law)\n        (And (∀ (x : QuarticQuery.BitInput ι) (o : QuarticQuery.Paper.QuantumCandidateList Col T), LE.le 0 (law x o))\n          (And (∀ (x : QuarticQuery.BitInput ι), Eq (Finset.univ.sum fun o => law x o) 1)\n            (∀ (x : QuarticQuery.BitInput ι) (s : Col),\n              QuarticQuery.Tournament.Dominant (a x) ε s →\n                LE.le (HSub.hSub (HSub.hSub 1 (HDiv.hDiv (HMul.hMul 2 ↑m) (HPow.hPow 2 T))) (HMul.hMul (↑T) ε))\n                  (Finset.univ.sum fun o => ite (Membership.mem (↑o) s) (law x o) 0)))))"
+      },
+      "in_current_root_build": true,
+      "current_root_build_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "current_comparator_receipts": [],
+      "reached_from_headline_roots": false,
+      "in_recorded_258_type_audit": true
+    },
+    "QuarticQuery.Paper.quantumTournament": {
+      "source": {
+        "member": "repository/lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+        "sha256": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
+        "line_start": 287,
+        "line_end": 303,
+        "source_header": "theorem quantumTournament {ι Col : Type} [Fintype ι] [Inhabited ι]\n    [Fintype Col] [DecidableEq Col] {cc : ℕ} {a : BitInput ι → Col → Col → ℝ}\n    (hm : 2 ≤ Fintype.card Col) (hc : ∀ x, IsComparison (a x))\n    (hcmp : ∀ i p, Samples cc fun x b => bern (a x i p) b) :\n    let m := Fintype.card Col\n    let T := Tval m\n    let ε := epsval m\n    ∃ C : ℕ, ∃ law : BitInput ι → QuantumCandidateList Col T → ℝ,\n      (C : ℝ) ≤ 6072 * (cc : ℝ) * Real.sqrt (m : ℝ) *\n        (T : ℝ) ^ 2 * Real.log (T : ℝ) ∧\n      Samples (T * quantumStageReads m T cc ε) law ∧\n      Runs C law ∧\n      (∀ x o, 0 ≤ law x o) ∧\n      (∀ x, ∑ o, law x o = 1) ∧\n      ∀ x s, Dominant (a x) ε s →\n        1 - 2 * (m : ℝ) / 2 ^ T - T * ε ≤\n          ∑ o : QuantumCandidateList Col T, if s ∈ o.1 then law x o else 0",
+        "definition_source": null,
+        "context_headers": [
+          "namespace QuarticQuery.Paper",
+          "open QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification"
+        ],
+        "type_text": "QuarticQuery.Paper.quantumTournament {ι Col : Type} [Fintype ι] [Inhabited ι] [Fintype Col] [DecidableEq Col] {cc : Nat}\n  {a : QuarticQuery.BitInput ι → Col → Col → Real} (hm : LE.le 2 (Fintype.card Col))\n  (hc : ∀ (x : QuarticQuery.BitInput ι), QuarticQuery.Tournament.IsComparison (a x))\n  (hcmp : ∀ (i p : Col), QuarticQuery.Upper.Samples cc fun x b => QuarticQuery.Upper.bern (a x i p) b) :\n  have m := Fintype.card Col;\n  have T := QuarticQuery.Tournament.Tval m;\n  have ε := QuarticQuery.Tournament.epsval m;\n  Exists fun C =>\n    Exists fun law =>\n      And\n        (LE.le (↑C) (HMul.hMul (HMul.hMul (HMul.hMul (HMul.hMul 6072 ↑cc) (↑m).sqrt) (HPow.hPow (↑T) 2)) (Real.log ↑T)))\n        (And (QuarticQuery.Upper.Samples (HMul.hMul T (QuarticQuery.Paper.quantumStageReads m T cc ε)) law)\n          (And (QuarticQuery.Upper.Runs C law)\n            (And\n              (∀ (x : QuarticQuery.BitInput ι) (o : QuarticQuery.Paper.QuantumCandidateList Col T), LE.le 0 (law x o))\n              (And (∀ (x : QuarticQuery.BitInput ι), Eq (Finset.univ.sum fun o => law x o) 1)\n                (∀ (x : QuarticQuery.BitInput ι) (s : Col),\n                  QuarticQuery.Tournament.Dominant (a x) ε s →\n                    LE.le (HSub.hSub (HSub.hSub 1 (HDiv.hDiv (HMul.hMul 2 ↑m) (HPow.hPow 2 T))) (HMul.hMul (↑T) ε))\n                      (Finset.univ.sum fun o => ite (Membership.mem (↑o) s) (law x o) 0))))))",
+        "type_origin": "recorded elaborated #check output",
+        "complete_type_text": "QuarticQuery.Paper.quantumTournament {ι Col : Type} [Fintype ι] [Inhabited ι] [Fintype Col] [DecidableEq Col] {cc : Nat}\n  {a : QuarticQuery.BitInput ι → Col → Col → Real} (hm : LE.le 2 (Fintype.card Col))\n  (hc : ∀ (x : QuarticQuery.BitInput ι), QuarticQuery.Tournament.IsComparison (a x))\n  (hcmp : ∀ (i p : Col), QuarticQuery.Upper.Samples cc fun x b => QuarticQuery.Upper.bern (a x i p) b) :\n  have m := Fintype.card Col;\n  have T := QuarticQuery.Tournament.Tval m;\n  have ε := QuarticQuery.Tournament.epsval m;\n  Exists fun C =>\n    Exists fun law =>\n      And\n        (LE.le (↑C) (HMul.hMul (HMul.hMul (HMul.hMul (HMul.hMul 6072 ↑cc) (↑m).sqrt) (HPow.hPow (↑T) 2)) (Real.log ↑T)))\n        (And (QuarticQuery.Upper.Samples (HMul.hMul T (QuarticQuery.Paper.quantumStageReads m T cc ε)) law)\n          (And (QuarticQuery.Upper.Runs C law)\n            (And\n              (∀ (x : QuarticQuery.BitInput ι) (o : QuarticQuery.Paper.QuantumCandidateList Col T), LE.le 0 (law x o))\n              (And (∀ (x : QuarticQuery.BitInput ι), Eq (Finset.univ.sum fun o => law x o) 1)\n                (∀ (x : QuarticQuery.BitInput ι) (s : Col),\n                  QuarticQuery.Tournament.Dominant (a x) ε s →\n                    LE.le (HSub.hSub (HSub.hSub 1 (HDiv.hDiv (HMul.hMul 2 ↑m) (HPow.hPow 2 T))) (HMul.hMul (↑T) ε))\n                      (Finset.univ.sum fun o => ite (Membership.mem (↑o) s) (law x o) 0))))))"
+      },
+      "in_current_root_build": true,
+      "current_root_build_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "current_comparator_receipts": [],
+      "reached_from_headline_roots": false,
+      "in_recorded_258_type_audit": true
+    },
+    "QuarticQuery.forrelation_lower_uniform_sharp": {
+      "source": {
+        "member": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+        "sha256": "d6bc1f4399394810fca63abdaadd67a420616371c501ab978841898f2bda049c",
+        "line_start": 527,
+        "line_end": 532,
+        "source_header": "theorem forrelation_lower_uniform_sharp\n    (k t : ℕ) (hk : 2 ≤ k) (ht : 15 * k + 2 ≤ 2 * t) :\n    (2 / 18225 : ℝ) *\n        Real.rpow (mValue t : ℝ) (1 - 1 / (k : ℝ)) /\n        ((k : ℝ) ^ 2 * Real.log (4 * (k : ℝ) * (mValue t : ℝ))) <\n      (R (P k t) : ℝ)",
+        "definition_source": null,
+        "context_headers": [
+          "open MeasureTheory Finset QuarticQuery.Forrelation",
+          "namespace QuarticQuery.ForrelationLower",
+          "namespace QuarticQuery",
+          "open ForrelationLower",
+          "namespace QuarticQuery",
+          "open ForrelationLower"
+        ],
+        "type_text": "QuarticQuery.forrelation_lower_uniform_sharp (k t : Nat) (hk : LE.le 2 k)\n  (ht : LE.le (HAdd.hAdd (HMul.hMul 15 k) 2) (HMul.hMul 2 t)) :\n  LT.lt\n    (HDiv.hDiv (HMul.hMul (2 / 18225) ((↑(QuarticQuery.mValue t)).rpow (HSub.hSub 1 (HDiv.hDiv 1 ↑k))))\n      (HMul.hMul (HPow.hPow (↑k) 2) (Real.log (HMul.hMul (HMul.hMul 4 ↑k) ↑(QuarticQuery.mValue t)))))\n    ↑(QuarticQuery.R (QuarticQuery.P k t))",
+        "type_origin": "recorded elaborated #check output",
+        "complete_type_text": "QuarticQuery.forrelation_lower_uniform_sharp (k t : Nat) (hk : LE.le 2 k)\n  (ht : LE.le (HAdd.hAdd (HMul.hMul 15 k) 2) (HMul.hMul 2 t)) :\n  LT.lt\n    (HDiv.hDiv (HMul.hMul (2 / 18225) ((↑(QuarticQuery.mValue t)).rpow (HSub.hSub 1 (HDiv.hDiv 1 ↑k))))\n      (HMul.hMul (HPow.hPow (↑k) 2) (Real.log (HMul.hMul (HMul.hMul 4 ↑k) ↑(QuarticQuery.mValue t)))))\n    ↑(QuarticQuery.R (QuarticQuery.P k t))"
+      },
+      "in_current_root_build": true,
+      "current_root_build_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "current_comparator_receipts": [],
+      "reached_from_headline_roots": false,
+      "in_recorded_258_type_audit": true
+    },
+    "QuarticQuery.forrelation_lower_uniform_existing_constants": {
+      "source": {
+        "member": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+        "sha256": "d6bc1f4399394810fca63abdaadd67a420616371c501ab978841898f2bda049c",
+        "line_start": 508,
+        "line_end": 513,
+        "source_header": "theorem forrelation_lower_uniform_existing_constants\n    (k t : ℕ) (hk : 2 ≤ k) (ht : 15 * k + 2 ≤ 2 * t) :\n    (1 / 2332800 : ℝ) *\n        Real.rpow (mValue t : ℝ) (1 - 1 / (k : ℝ)) /\n        ((k : ℝ) ^ 2 * Real.log (4 * (k : ℝ) * (mValue t : ℝ))) <\n      (R (P k t) : ℝ)",
+        "definition_source": null,
+        "context_headers": [
+          "open MeasureTheory Finset QuarticQuery.Forrelation",
+          "namespace QuarticQuery.ForrelationLower",
+          "namespace QuarticQuery",
+          "open ForrelationLower"
+        ],
+        "type_text": "QuarticQuery.forrelation_lower_uniform_existing_constants (k t : Nat) (hk : LE.le 2 k)\n  (ht : LE.le (HAdd.hAdd (HMul.hMul 15 k) 2) (HMul.hMul 2 t)) :\n  LT.lt\n    (HDiv.hDiv (HMul.hMul (1 / 2332800) ((↑(QuarticQuery.mValue t)).rpow (HSub.hSub 1 (HDiv.hDiv 1 ↑k))))\n      (HMul.hMul (HPow.hPow (↑k) 2) (Real.log (HMul.hMul (HMul.hMul 4 ↑k) ↑(QuarticQuery.mValue t)))))\n    ↑(QuarticQuery.R (QuarticQuery.P k t))",
+        "type_origin": "recorded elaborated #check output",
+        "complete_type_text": "QuarticQuery.forrelation_lower_uniform_existing_constants (k t : Nat) (hk : LE.le 2 k)\n  (ht : LE.le (HAdd.hAdd (HMul.hMul 15 k) 2) (HMul.hMul 2 t)) :\n  LT.lt\n    (HDiv.hDiv (HMul.hMul (1 / 2332800) ((↑(QuarticQuery.mValue t)).rpow (HSub.hSub 1 (HDiv.hDiv 1 ↑k))))\n      (HMul.hMul (HPow.hPow (↑k) 2) (Real.log (HMul.hMul (HMul.hMul 4 ↑k) ↑(QuarticQuery.mValue t)))))\n    ↑(QuarticQuery.R (QuarticQuery.P k t))"
+      },
+      "in_current_root_build": true,
+      "current_root_build_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "current_comparator_receipts": [],
+      "reached_from_headline_roots": false,
+      "in_recorded_258_type_audit": true
+    },
+    "QuarticQuery.lvalue_lt_R_explicit": {
+      "source": {
+        "member": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+        "sha256": "d6bc1f4399394810fca63abdaadd67a420616371c501ab978841898f2bda049c",
+        "line_start": 644,
+        "line_end": 645,
+        "source_header": "theorem lvalue_lt_R_explicit (k t : ℕ) (hk : 2 ≤ k) (ht : 3499200 * k ^ 2 ≤ t) :\n    Lvalue k t < R (P k t)",
+        "definition_source": null,
+        "context_headers": [
+          "open MeasureTheory Finset QuarticQuery.Forrelation",
+          "namespace QuarticQuery.ForrelationLower",
+          "namespace QuarticQuery",
+          "open ForrelationLower",
+          "namespace QuarticQuery",
+          "open ForrelationLower"
+        ],
+        "type_text": null,
+        "type_origin": "source header with enclosing variable context; no fresh elaboration",
+        "complete_type_text": "open MeasureTheory Finset QuarticQuery.Forrelation\nnamespace QuarticQuery.ForrelationLower\nnamespace QuarticQuery\nopen ForrelationLower\nnamespace QuarticQuery\nopen ForrelationLower\n\ntheorem lvalue_lt_R_explicit (k t : ℕ) (hk : 2 ≤ k) (ht : 3499200 * k ^ 2 ≤ t) :\n    Lvalue k t < R (P k t)"
+      },
+      "in_current_root_build": true,
+      "current_root_build_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "current_comparator_receipts": [],
+      "reached_from_headline_roots": false,
+      "in_recorded_258_type_audit": false
+    },
+    "QuarticQuery.Upper.Q_Fkm_le_exponential": {
+      "source": {
+        "member": "repository/lean/QuarticQuery/Upper/Bound.lean",
+        "sha256": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303",
+        "line_start": 287,
+        "line_end": 290,
+        "source_header": "theorem Q_Fkm_le_exponential (l t : ℕ) (ht : 1 ≤ t) :\n    (Q (totalise (Fkm (l + 1) t (forrCircuit l t))) : ℝ) ≤\n      (2 : ℝ) ^ 53 * (l + 1 : ℕ) * 2 ^ (10 * (l + 1)) *\n        2 ^ t * (2 * (t : ℝ)) ^ 6",
+        "definition_source": null,
+        "context_headers": [
+          "namespace QuarticQuery.Upper",
+          "open QuarticQuery.Forrelation QuarticQuery.Tournament QuarticQuery.Amplification"
+        ],
+        "type_text": "QuarticQuery.Upper.Q_Fkm_le_exponential (l t : Nat) (ht : LE.le 1 t) :\n  LE.le\n    (↑(QuarticQuery.Q\n        (QuarticQuery.totalise (QuarticQuery.Fkm (HAdd.hAdd l 1) t (QuarticQuery.Forrelation.forrCircuit l t)))))\n    (HMul.hMul\n      (HMul.hMul (HMul.hMul (HMul.hMul (HPow.hPow 2 53) ↑(HAdd.hAdd l 1)) (HPow.hPow 2 (HMul.hMul 10 (HAdd.hAdd l 1))))\n        (HPow.hPow 2 t))\n      (HPow.hPow (HMul.hMul 2 ↑t) 6))",
+        "type_origin": "recorded elaborated #check output",
+        "complete_type_text": "QuarticQuery.Upper.Q_Fkm_le_exponential (l t : Nat) (ht : LE.le 1 t) :\n  LE.le\n    (↑(QuarticQuery.Q\n        (QuarticQuery.totalise (QuarticQuery.Fkm (HAdd.hAdd l 1) t (QuarticQuery.Forrelation.forrCircuit l t)))))\n    (HMul.hMul\n      (HMul.hMul (HMul.hMul (HMul.hMul (HPow.hPow 2 53) ↑(HAdd.hAdd l 1)) (HPow.hPow 2 (HMul.hMul 10 (HAdd.hAdd l 1))))\n        (HPow.hPow 2 t))\n      (HPow.hPow (HMul.hMul 2 ↑t) 6))"
+      },
+      "in_current_root_build": true,
+      "current_root_build_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "current_comparator_receipts": [],
+      "reached_from_headline_roots": false,
+      "in_recorded_258_type_audit": true
+    },
+    "QuarticQuery.Paper.eq_23_two": {
+      "source": {
+        "member": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+        "sha256": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+        "line_start": 419,
+        "line_end": 428,
+        "source_header": "theorem eq_23_two {f : PartialBool κ} {μ : BitInput κ → ℝ} {L G : ℕ}\n    (tr : BitInput κ → Fin S → Bool) (hL : 1 ≤ L)\n    (hμ : ∀ x, 0 ≤ μ x) (hμ1 : ∑ x, μ x = 1)\n    (hdom : ∀ x, μ x ≠ 0 → promised f x)\n    (hard : ∀ U : QueryTree κ, U.depth ≤ L → treeSuccess f μ U ≤ 2 / 3)\n    (T : QueryTree (BitLoc ℓ r S κ)) (hT : T.depth ≤ G) :\n    |plantedAvg μ f tr (fun x => ind (T.eval x = true)) -\n        dummyAvg μ (fun x => ind (T.eval x = true))| ≤\n      2 * (G : ℝ) / ((2 ^ ℓ : ℕ) : ℝ) ^ 2 +\n        (G : ℝ) / (((2 ^ ℓ : ℕ) : ℝ) * (L : ℝ)) + (G : ℝ) * ((2 : ℝ) / 3) ^ r",
+        "definition_source": null,
+        "context_headers": [
+          "open Finset",
+          "namespace QuarticQuery.Paper",
+          "variable {κ : Type} [Fintype κ] [DecidableEq κ] {ℓ r S : ℕ}"
+        ],
+        "type_text": "QuarticQuery.Paper.eq_23_two {κ : Type} [Fintype κ] [DecidableEq κ] {ℓ r S : Nat} {f : QuarticQuery.PartialBool κ}\n  {μ : QuarticQuery.BitInput κ → Real} {L G : Nat} (tr : QuarticQuery.BitInput κ → Fin S → Bool) (hL : LE.le 1 L)\n  (hμ : ∀ (x : QuarticQuery.BitInput κ), LE.le 0 (μ x)) (hμ1 : Eq (Finset.univ.sum fun x => μ x) 1)\n  (hdom : ∀ (x : QuarticQuery.BitInput κ), Ne (μ x) 0 → QuarticQuery.promised f x)\n  (hard : ∀ (U : QuarticQuery.QueryTree κ), LE.le U.depth L → LE.le (QuarticQuery.treeSuccess f μ U) (2 / 3))\n  (T : QuarticQuery.QueryTree (QuarticQuery.BitLoc ℓ r S κ)) (hT : LE.le T.depth G) :\n  LE.le\n    (abs\n      (HSub.hSub (QuarticQuery.Paper.plantedAvg μ f tr fun x => QuarticQuery.ind (Eq (T.eval x) true))\n        (QuarticQuery.Paper.dummyAvg μ fun x => QuarticQuery.ind (Eq (T.eval x) true))))\n    (HAdd.hAdd\n      (HAdd.hAdd (HDiv.hDiv (HMul.hMul 2 ↑G) (HPow.hPow (↑(HPow.hPow 2 ℓ)) 2))\n        (HDiv.hDiv (↑G) (HMul.hMul ↑(HPow.hPow 2 ℓ) ↑L)))\n      (HMul.hMul (↑G) (HPow.hPow (2 / 3) r)))",
+        "type_origin": "recorded elaborated #check output",
+        "complete_type_text": "QuarticQuery.Paper.eq_23_two {κ : Type} [Fintype κ] [DecidableEq κ] {ℓ r S : Nat} {f : QuarticQuery.PartialBool κ}\n  {μ : QuarticQuery.BitInput κ → Real} {L G : Nat} (tr : QuarticQuery.BitInput κ → Fin S → Bool) (hL : LE.le 1 L)\n  (hμ : ∀ (x : QuarticQuery.BitInput κ), LE.le 0 (μ x)) (hμ1 : Eq (Finset.univ.sum fun x => μ x) 1)\n  (hdom : ∀ (x : QuarticQuery.BitInput κ), Ne (μ x) 0 → QuarticQuery.promised f x)\n  (hard : ∀ (U : QuarticQuery.QueryTree κ), LE.le U.depth L → LE.le (QuarticQuery.treeSuccess f μ U) (2 / 3))\n  (T : QuarticQuery.QueryTree (QuarticQuery.BitLoc ℓ r S κ)) (hT : LE.le T.depth G) :\n  LE.le\n    (abs\n      (HSub.hSub (QuarticQuery.Paper.plantedAvg μ f tr fun x => QuarticQuery.ind (Eq (T.eval x) true))\n        (QuarticQuery.Paper.dummyAvg μ fun x => QuarticQuery.ind (Eq (T.eval x) true))))\n    (HAdd.hAdd\n      (HAdd.hAdd (HDiv.hDiv (HMul.hMul 2 ↑G) (HPow.hPow (↑(HPow.hPow 2 ℓ)) 2))\n        (HDiv.hDiv (↑G) (HMul.hMul ↑(HPow.hPow 2 ℓ) ↑L)))\n      (HMul.hMul (↑G) (HPow.hPow (2 / 3) r)))"
+      },
+      "in_current_root_build": true,
+      "current_root_build_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "current_comparator_receipts": [],
+      "reached_from_headline_roots": false,
+      "in_recorded_258_type_audit": true
+    },
+    "QuarticQuery.Paper.erasedZero_eq_expectedZeros_div": {
+      "source": {
+        "member": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+        "sha256": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+        "line_start": 206,
+        "line_end": 209,
+        "source_header": "theorem erasedZero_eq_expectedZeros_div (μ : BitInput κ → ℝ)\n    (T : QueryTree (BitLoc ℓ r S κ)) :\n    coupledAvg μ (fun A J I => foundZero T A J I) =\n      expectedZeros μ T / ((2 ^ ℓ : ℕ) : ℝ)",
+        "definition_source": null,
+        "context_headers": [
+          "open Finset",
+          "namespace QuarticQuery.Paper",
+          "variable {κ : Type} [Fintype κ] [DecidableEq κ] {ℓ r S : ℕ}"
+        ],
+        "type_text": "QuarticQuery.Paper.erasedZero_eq_expectedZeros_div {κ : Type} [Fintype κ] [DecidableEq κ] {ℓ r S : Nat}\n  (μ : QuarticQuery.BitInput κ → Real) (T : QuarticQuery.QueryTree (QuarticQuery.BitLoc ℓ r S κ)) :\n  Eq (QuarticQuery.coupledAvg μ fun A J I => QuarticQuery.foundZero T A J I)\n    (HDiv.hDiv (QuarticQuery.Paper.expectedZeros μ T) ↑(HPow.hPow 2 ℓ))",
+        "type_origin": "recorded elaborated #check output",
+        "complete_type_text": "QuarticQuery.Paper.erasedZero_eq_expectedZeros_div {κ : Type} [Fintype κ] [DecidableEq κ] {ℓ r S : Nat}\n  (μ : QuarticQuery.BitInput κ → Real) (T : QuarticQuery.QueryTree (QuarticQuery.BitLoc ℓ r S κ)) :\n  Eq (QuarticQuery.coupledAvg μ fun A J I => QuarticQuery.foundZero T A J I)\n    (HDiv.hDiv (QuarticQuery.Paper.expectedZeros μ T) ↑(HPow.hPow 2 ℓ))"
+      },
+      "in_current_root_build": true,
+      "current_root_build_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "current_comparator_receipts": [],
+      "reached_from_headline_roots": false,
+      "in_recorded_258_type_audit": true
+    },
+    "QuarticQuery.Paper.erasedZero_le_two": {
+      "source": {
+        "member": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+        "sha256": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+        "line_start": 215,
+        "line_end": 219,
+        "source_header": "theorem erasedZero_le_two {μ : BitInput κ → ℝ} (hμ : ∀ x, 0 ≤ μ x)\n    (hμ1 : ∑ x, μ x = 1) {G : ℕ}\n    (T : QueryTree (BitLoc ℓ r S κ)) (hT : T.depth ≤ G) :\n    coupledAvg μ (fun A J I => foundZero T A J I) ≤\n      2 * (G : ℝ) / ((2 ^ ℓ : ℕ) : ℝ) ^ 2",
+        "definition_source": null,
+        "context_headers": [
+          "open Finset",
+          "namespace QuarticQuery.Paper",
+          "variable {κ : Type} [Fintype κ] [DecidableEq κ] {ℓ r S : ℕ}"
+        ],
+        "type_text": null,
+        "type_origin": "source header with enclosing variable context; no fresh elaboration",
+        "complete_type_text": "open Finset\nnamespace QuarticQuery.Paper\nvariable {κ : Type} [Fintype κ] [DecidableEq κ] {ℓ r S : ℕ}\n\ntheorem erasedZero_le_two {μ : BitInput κ → ℝ} (hμ : ∀ x, 0 ≤ μ x)\n    (hμ1 : ∑ x, μ x = 1) {G : ℕ}\n    (T : QueryTree (BitLoc ℓ r S κ)) (hT : T.depth ≤ G) :\n    coupledAvg μ (fun A J I => foundZero T A J I) ≤\n      2 * (G : ℝ) / ((2 ^ ℓ : ℕ) : ℝ) ^ 2"
+      },
+      "in_current_root_build": true,
+      "current_root_build_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "current_comparator_receipts": [],
+      "reached_from_headline_roots": false,
+      "in_recorded_258_type_audit": false
+    },
+    "QuarticQuery.Paper.eq_19": {
+      "source": {
+        "member": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+        "sha256": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+        "line_start": 250,
+        "line_end": 254,
+        "source_header": "theorem eq_19 {μ : BitInput κ → ℝ} (hμ : ∀ x, 0 ≤ μ x)\n    (hμ1 : ∑ x, μ x = 1) {G : ℕ}\n    (T : QueryTree (BitLoc ℓ r S κ)) (hT : T.depth ≤ G) :\n    coupledAvg μ (fun A J I => foundZero T A J I) ≤\n      4 * (G : ℝ) / ((2 ^ ℓ : ℕ) : ℝ) ^ 2",
+        "definition_source": null,
+        "context_headers": [
+          "open Finset",
+          "namespace QuarticQuery.Paper",
+          "variable {κ : Type} [Fintype κ] [DecidableEq κ] {ℓ r S : ℕ}"
+        ],
+        "type_text": null,
+        "type_origin": "source header with enclosing variable context; no fresh elaboration",
+        "complete_type_text": "open Finset\nnamespace QuarticQuery.Paper\nvariable {κ : Type} [Fintype κ] [DecidableEq κ] {ℓ r S : ℕ}\n\ntheorem eq_19 {μ : BitInput κ → ℝ} (hμ : ∀ x, 0 ≤ μ x)\n    (hμ1 : ∑ x, μ x = 1) {G : ℕ}\n    (T : QueryTree (BitLoc ℓ r S κ)) (hT : T.depth ≤ G) :\n    coupledAvg μ (fun A J I => foundZero T A J I) ≤\n      4 * (G : ℝ) / ((2 ^ ℓ : ℕ) : ℝ) ^ 2"
+      },
+      "in_current_root_build": true,
+      "current_root_build_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "current_comparator_receipts": [],
+      "reached_from_headline_roots": false,
+      "in_recorded_258_type_audit": false
+    },
+    "QuarticQuery.Paper.eq_23_randomized": {
+      "source": {
+        "member": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+        "sha256": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+        "line_start": 465,
+        "line_end": 474,
+        "source_header": "theorem eq_23_randomized {f : PartialBool κ} {μ : BitInput κ → ℝ} {L G : ℕ}\n    (tr : BitInput κ → Fin S → Bool) (hL : 1 ≤ L)\n    (hμ : ∀ x, 0 ≤ μ x) (hμ1 : ∑ x, μ x = 1)\n    (hdom : ∀ x, μ x ≠ 0 → promised f x)\n    (hard : ∀ U : QueryTree κ, U.depth ≤ L → treeSuccess f μ U ≤ 2 / 3)\n    (P : RandomizedProgram (BitLoc ℓ r S κ)) (hP : P.depth ≤ G) :\n    |plantedAvg μ f tr (fun x => P.success x true) -\n        dummyAvg μ (fun x => P.success x true)| ≤\n      4 * (G : ℝ) / ((2 ^ ℓ : ℕ) : ℝ) ^ 2 +\n        (G : ℝ) / (((2 ^ ℓ : ℕ) : ℝ) * (L : ℝ)) + (G : ℝ) * ((2 : ℝ) / 3) ^ r",
+        "definition_source": null,
+        "context_headers": [
+          "open Finset",
+          "namespace QuarticQuery.Paper",
+          "variable {κ : Type} [Fintype κ] [DecidableEq κ] {ℓ r S : ℕ}"
+        ],
+        "type_text": "QuarticQuery.Paper.eq_23_randomized {κ : Type} [Fintype κ] [DecidableEq κ] {ℓ r S : Nat}\n  {f : QuarticQuery.PartialBool κ} {μ : QuarticQuery.BitInput κ → Real} {L G : Nat}\n  (tr : QuarticQuery.BitInput κ → Fin S → Bool) (hL : LE.le 1 L) (hμ : ∀ (x : QuarticQuery.BitInput κ), LE.le 0 (μ x))\n  (hμ1 : Eq (Finset.univ.sum fun x => μ x) 1)\n  (hdom : ∀ (x : QuarticQuery.BitInput κ), Ne (μ x) 0 → QuarticQuery.promised f x)\n  (hard : ∀ (U : QuarticQuery.QueryTree κ), LE.le U.depth L → LE.le (QuarticQuery.treeSuccess f μ U) (2 / 3))\n  (P : QuarticQuery.RandomizedProgram (QuarticQuery.BitLoc ℓ r S κ)) (hP : LE.le P.depth G) :\n  LE.le\n    (abs\n      (HSub.hSub (QuarticQuery.Paper.plantedAvg μ f tr fun x => P.success x true)\n        (QuarticQuery.Paper.dummyAvg μ fun x => P.success x true)))\n    (HAdd.hAdd\n      (HAdd.hAdd (HDiv.hDiv (HMul.hMul 4 ↑G) (HPow.hPow (↑(HPow.hPow 2 ℓ)) 2))\n        (HDiv.hDiv (↑G) (HMul.hMul ↑(HPow.hPow 2 ℓ) ↑L)))\n      (HMul.hMul (↑G) (HPow.hPow (2 / 3) r)))",
+        "type_origin": "recorded elaborated #check output",
+        "complete_type_text": "QuarticQuery.Paper.eq_23_randomized {κ : Type} [Fintype κ] [DecidableEq κ] {ℓ r S : Nat}\n  {f : QuarticQuery.PartialBool κ} {μ : QuarticQuery.BitInput κ → Real} {L G : Nat}\n  (tr : QuarticQuery.BitInput κ → Fin S → Bool) (hL : LE.le 1 L) (hμ : ∀ (x : QuarticQuery.BitInput κ), LE.le 0 (μ x))\n  (hμ1 : Eq (Finset.univ.sum fun x => μ x) 1)\n  (hdom : ∀ (x : QuarticQuery.BitInput κ), Ne (μ x) 0 → QuarticQuery.promised f x)\n  (hard : ∀ (U : QuarticQuery.QueryTree κ), LE.le U.depth L → LE.le (QuarticQuery.treeSuccess f μ U) (2 / 3))\n  (P : QuarticQuery.RandomizedProgram (QuarticQuery.BitLoc ℓ r S κ)) (hP : LE.le P.depth G) :\n  LE.le\n    (abs\n      (HSub.hSub (QuarticQuery.Paper.plantedAvg μ f tr fun x => P.success x true)\n        (QuarticQuery.Paper.dummyAvg μ fun x => P.success x true)))\n    (HAdd.hAdd\n      (HAdd.hAdd (HDiv.hDiv (HMul.hMul 4 ↑G) (HPow.hPow (↑(HPow.hPow 2 ℓ)) 2))\n        (HDiv.hDiv (↑G) (HMul.hMul ↑(HPow.hPow 2 ℓ) ↑L)))\n      (HMul.hMul (↑G) (HPow.hPow (2 / 3) r)))"
+      },
+      "in_current_root_build": true,
+      "current_root_build_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "current_comparator_receipts": [],
+      "reached_from_headline_roots": false,
+      "in_recorded_258_type_audit": true
+    },
+    "QuarticQuery.Paper.eq_23": {
+      "source": {
+        "member": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+        "sha256": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+        "line_start": 436,
+        "line_end": 445,
+        "source_header": "theorem eq_23 {f : PartialBool κ} {μ : BitInput κ → ℝ} {L G : ℕ}\n    (tr : BitInput κ → Fin S → Bool) (hL : 1 ≤ L)\n    (hμ : ∀ x, 0 ≤ μ x) (hμ1 : ∑ x, μ x = 1)\n    (hdom : ∀ x, μ x ≠ 0 → promised f x)\n    (hard : ∀ U : QueryTree κ, U.depth ≤ L → treeSuccess f μ U ≤ 2 / 3)\n    (T : QueryTree (BitLoc ℓ r S κ)) (hT : T.depth ≤ G) :\n    |plantedAvg μ f tr (fun x => ind (T.eval x = true)) -\n        dummyAvg μ (fun x => ind (T.eval x = true))| ≤\n      4 * (G : ℝ) / ((2 ^ ℓ : ℕ) : ℝ) ^ 2 +\n        (G : ℝ) / (((2 ^ ℓ : ℕ) : ℝ) * (L : ℝ)) + (G : ℝ) * ((2 : ℝ) / 3) ^ r",
+        "definition_source": null,
+        "context_headers": [
+          "open Finset",
+          "namespace QuarticQuery.Paper",
+          "variable {κ : Type} [Fintype κ] [DecidableEq κ] {ℓ r S : ℕ}"
+        ],
+        "type_text": "QuarticQuery.Paper.eq_23 {κ : Type} [Fintype κ] [DecidableEq κ] {ℓ r S : Nat} {f : QuarticQuery.PartialBool κ}\n  {μ : QuarticQuery.BitInput κ → Real} {L G : Nat} (tr : QuarticQuery.BitInput κ → Fin S → Bool) (hL : LE.le 1 L)\n  (hμ : ∀ (x : QuarticQuery.BitInput κ), LE.le 0 (μ x)) (hμ1 : Eq (Finset.univ.sum fun x => μ x) 1)\n  (hdom : ∀ (x : QuarticQuery.BitInput κ), Ne (μ x) 0 → QuarticQuery.promised f x)\n  (hard : ∀ (U : QuarticQuery.QueryTree κ), LE.le U.depth L → LE.le (QuarticQuery.treeSuccess f μ U) (2 / 3))\n  (T : QuarticQuery.QueryTree (QuarticQuery.BitLoc ℓ r S κ)) (hT : LE.le T.depth G) :\n  LE.le\n    (abs\n      (HSub.hSub (QuarticQuery.Paper.plantedAvg μ f tr fun x => QuarticQuery.ind (Eq (T.eval x) true))\n        (QuarticQuery.Paper.dummyAvg μ fun x => QuarticQuery.ind (Eq (T.eval x) true))))\n    (HAdd.hAdd\n      (HAdd.hAdd (HDiv.hDiv (HMul.hMul 4 ↑G) (HPow.hPow (↑(HPow.hPow 2 ℓ)) 2))\n        (HDiv.hDiv (↑G) (HMul.hMul ↑(HPow.hPow 2 ℓ) ↑L)))\n      (HMul.hMul (↑G) (HPow.hPow (2 / 3) r)))",
+        "type_origin": "recorded elaborated #check output",
+        "complete_type_text": "QuarticQuery.Paper.eq_23 {κ : Type} [Fintype κ] [DecidableEq κ] {ℓ r S : Nat} {f : QuarticQuery.PartialBool κ}\n  {μ : QuarticQuery.BitInput κ → Real} {L G : Nat} (tr : QuarticQuery.BitInput κ → Fin S → Bool) (hL : LE.le 1 L)\n  (hμ : ∀ (x : QuarticQuery.BitInput κ), LE.le 0 (μ x)) (hμ1 : Eq (Finset.univ.sum fun x => μ x) 1)\n  (hdom : ∀ (x : QuarticQuery.BitInput κ), Ne (μ x) 0 → QuarticQuery.promised f x)\n  (hard : ∀ (U : QuarticQuery.QueryTree κ), LE.le U.depth L → LE.le (QuarticQuery.treeSuccess f μ U) (2 / 3))\n  (T : QuarticQuery.QueryTree (QuarticQuery.BitLoc ℓ r S κ)) (hT : LE.le T.depth G) :\n  LE.le\n    (abs\n      (HSub.hSub (QuarticQuery.Paper.plantedAvg μ f tr fun x => QuarticQuery.ind (Eq (T.eval x) true))\n        (QuarticQuery.Paper.dummyAvg μ fun x => QuarticQuery.ind (Eq (T.eval x) true))))\n    (HAdd.hAdd\n      (HAdd.hAdd (HDiv.hDiv (HMul.hMul 4 ↑G) (HPow.hPow (↑(HPow.hPow 2 ℓ)) 2))\n        (HDiv.hDiv (↑G) (HMul.hMul ↑(HPow.hPow 2 ℓ) ↑L)))\n      (HMul.hMul (↑G) (HPow.hPow (2 / 3) r)))"
+      },
+      "in_current_root_build": true,
+      "current_root_build_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "current_comparator_receipts": [],
+      "reached_from_headline_roots": false,
+      "in_recorded_258_type_audit": true
+    },
+    "QuarticQuery.theorem_1_1_unconditional": {
+      "source": {
+        "member": "repository/lean/QuarticQuery/Results/Unconditional.lean",
+        "sha256": "46e6f51f713109bab717956bd2536711dc927a356027748712e571ce12f0b85e",
+        "line_start": 23,
+        "line_end": 29,
+        "source_header": "theorem theorem_1_1_unconditional :\n    alphaTot = 4 ∧ UniversalPower 4 ∧\n      ∀ k : ℕ, 2 ≤ k → ∃ (S A : ℕ) (b : ℕ) (t₀ : ℕ), 0 < A ∧ ∀ t, max 1 t₀ ≤ t →\n        ∃ C : Circuit (ForrelationCoord k t), CircuitRealises C (P k t) ∧\n          C.size ≤ S * mValue t * (2 * t) ^ 2 ∧\n          (Q (totalise (Fkm k t C)) : ℝ) ≤ (A : ℝ) * 2 ^ t * (2 * (t : ℝ)) ^ b ∧\n          Gvalue (mValue t) (Lvalue k t) < R (totalise (Fkm k t C))",
+        "definition_source": null,
+        "context_headers": [
+          "namespace QuarticQuery"
+        ],
+        "type_text": null,
+        "type_origin": "source header with enclosing variable context; no fresh elaboration",
+        "complete_type_text": "namespace QuarticQuery\n\ntheorem theorem_1_1_unconditional :\n    alphaTot = 4 ∧ UniversalPower 4 ∧\n      ∀ k : ℕ, 2 ≤ k → ∃ (S A : ℕ) (b : ℕ) (t₀ : ℕ), 0 < A ∧ ∀ t, max 1 t₀ ≤ t →\n        ∃ C : Circuit (ForrelationCoord k t), CircuitRealises C (P k t) ∧\n          C.size ≤ S * mValue t * (2 * t) ^ 2 ∧\n          (Q (totalise (Fkm k t C)) : ℝ) ≤ (A : ℝ) * 2 ^ t * (2 * (t : ℝ)) ^ b ∧\n          Gvalue (mValue t) (Lvalue k t) < R (totalise (Fkm k t C))"
+      },
+      "in_current_root_build": true,
+      "current_root_build_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "current_comparator_receipts": [
+        "repository/corpus/receipts/comparator-Unconditional-2026-11-02T183450037875+0000.json",
+        "repository/corpus/receipts/comparator-Unconditional-2026-11-02T184546477430+0000.json"
+      ],
+      "reached_from_headline_roots": true,
+      "in_recorded_258_type_audit": false
+    },
+    "QuarticQuery.alphaTot_eq_four_unconditional": {
+      "source": {
+        "member": "repository/lean/QuarticQuery/Results/Unconditional.lean",
+        "sha256": "46e6f51f713109bab717956bd2536711dc927a356027748712e571ce12f0b85e",
+        "line_start": 18,
+        "line_end": 18,
+        "source_header": "theorem alphaTot_eq_four_unconditional : alphaTot = 4",
+        "definition_source": null,
+        "context_headers": [
+          "namespace QuarticQuery"
+        ],
+        "type_text": null,
+        "type_origin": "source header with enclosing variable context; no fresh elaboration",
+        "complete_type_text": "namespace QuarticQuery\n\ntheorem alphaTot_eq_four_unconditional : alphaTot = 4"
+      },
+      "in_current_root_build": true,
+      "current_root_build_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "current_comparator_receipts": [
+        "repository/corpus/receipts/comparator-Unconditional-2026-11-02T183450037875+0000.json",
+        "repository/corpus/receipts/comparator-Unconditional-2026-11-02T184546477430+0000.json"
+      ],
+      "reached_from_headline_roots": true,
+      "in_recorded_258_type_audit": false
+    },
+    "QuarticQuery.cubic_bound_fails_unconditional": {
+      "source": {
+        "member": "repository/lean/QuarticQuery/Results/Unconditional.lean",
+        "sha256": "46e6f51f713109bab717956bd2536711dc927a356027748712e571ce12f0b85e",
+        "line_start": 42,
+        "line_end": 44,
+        "source_header": "theorem cubic_bound_fails_unconditional :\n    ¬ ∃ C : ℝ, ∀ n : ℕ, 1 ≤ n → ∀ f : TotalBool (Fin n),\n      (R (totalise f) : ℝ) ≤ C * (Q (totalise f) : ℝ) ^ 3",
+        "definition_source": null,
+        "context_headers": [
+          "namespace QuarticQuery"
+        ],
+        "type_text": null,
+        "type_origin": "source header with enclosing variable context; no fresh elaboration",
+        "complete_type_text": "namespace QuarticQuery\n\ntheorem cubic_bound_fails_unconditional :\n    ¬ ∃ C : ℝ, ∀ n : ℕ, 1 ≤ n → ∀ f : TotalBool (Fin n),\n      (R (totalise f) : ℝ) ≤ C * (Q (totalise f) : ℝ) ^ 3"
+      },
+      "in_current_root_build": true,
+      "current_root_build_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "current_comparator_receipts": [
+        "repository/corpus/receipts/comparator-Unconditional-2026-11-02T183450037875+0000.json",
+        "repository/corpus/receipts/comparator-Unconditional-2026-11-02T184546477430+0000.json"
+      ],
+      "reached_from_headline_roots": true,
+      "in_recorded_258_type_audit": false
+    },
+    "QuarticQuery.Paper.classical_exponent_ratio": {
+      "source": {
+        "member": "repository/lean/QuarticQuery/Paper/ClassicalAsymptotics.lean",
+        "sha256": "b156b061ecab3a011c31224f9ff0719d07a52e8e8eb86becbb18cb5c959c17af",
+        "line_start": 335,
+        "line_end": 348,
+        "source_header": "theorem classical_exponent_ratio {k : ℕ} {c C α : ℝ} (b : ℕ) {Rt Qt : ℕ → ℝ}\n    (hc : 0 < c) (hC : 0 < C) (hα : 0 ≤ α)\n    (hs : α / 2 < 2 - 1 / (k : ℝ))\n    (hQ0 : ∀ t, 0 ≤ Qt t)\n    (hQ : ∀ᶠ t : ℕ in atTop, Qt t ≤ C * 2 ^ t * (2 * (t : ℝ)) ^ b)\n    (hR : ∀ᶠ t : ℕ in atTop,\n      c * ((4 : ℝ) ^ t) ^ (2 - 1 / (k : ℝ)) / (2 * (t : ℝ)) ^ 2 ≤ Rt t) :\n    (∀ᶠ t : ℕ in atTop,\n      c / (1 + C) ^ α * (mValue t : ℝ) ^ (2 - 1 / (k : ℝ) - α / 2) /\n        Real.logb 2 (mValue t : ℝ) ^ (2 + α * (b : ℝ)) ≤ Rt t / (1 + Qt t) ^ α) ∧\n    Tendsto (fun t : ℕ =>\n      c / (1 + C) ^ α * (mValue t : ℝ) ^ (2 - 1 / (k : ℝ) - α / 2) /\n        Real.logb 2 (mValue t : ℝ) ^ (2 + α * (b : ℝ))) atTop atTop ∧\n    Tendsto (fun t : ℕ => Rt t / (1 + Qt t) ^ α) atTop atTop",
+        "definition_source": null,
+        "context_headers": [
+          "namespace QuarticQuery.Paper",
+          "open Filter"
+        ],
+        "type_text": "QuarticQuery.Paper.classical_exponent_ratio {k : Nat} {c C α : Real} (b : Nat) {Rt Qt : Nat → Real} (hc : LT.lt 0 c)\n  (hC : LT.lt 0 C) (hα : LE.le 0 α) (hs : LT.lt (HDiv.hDiv α 2) (HSub.hSub 2 (HDiv.hDiv 1 ↑k)))\n  (hQ0 : ∀ (t : Nat), LE.le 0 (Qt t))\n  (hQ :\n    Filter.Eventually (fun t => LE.le (Qt t) (HMul.hMul (HMul.hMul C (HPow.hPow 2 t)) (HPow.hPow (HMul.hMul 2 ↑t) b)))\n      Filter.atTop)\n  (hR :\n    Filter.Eventually\n      (fun t =>\n        LE.le\n          (HDiv.hDiv (HMul.hMul c (HPow.hPow (HPow.hPow 4 t) (HSub.hSub 2 (HDiv.hDiv 1 ↑k))))\n            (HPow.hPow (HMul.hMul 2 ↑t) 2))\n          (Rt t))\n      Filter.atTop) :\n  And\n    (Filter.Eventually\n      (fun t =>\n        LE.le\n          (HDiv.hDiv\n            (HMul.hMul (HDiv.hDiv c (HPow.hPow (HAdd.hAdd 1 C) α))\n              (HPow.hPow (↑(QuarticQuery.mValue t)) (HSub.hSub (HSub.hSub 2 (HDiv.hDiv 1 ↑k)) (HDiv.hDiv α 2))))\n            (HPow.hPow (Real.logb 2 ↑(QuarticQuery.mValue t)) (HAdd.hAdd 2 (HMul.hMul α ↑b))))\n          (HDiv.hDiv (Rt t) (HPow.hPow (HAdd.hAdd 1 (Qt t)) α)))\n      Filter.atTop)\n    (And\n      (Filter.Tendsto\n        (fun t =>\n          HDiv.hDiv\n            (HMul.hMul (HDiv.hDiv c (HPow.hPow (HAdd.hAdd 1 C) α))\n              (HPow.hPow (↑(QuarticQuery.mValue t)) (HSub.hSub (HSub.hSub 2 (HDiv.hDiv 1 ↑k)) (HDiv.hDiv α 2))))\n            (HPow.hPow (Real.logb 2 ↑(QuarticQuery.mValue t)) (HAdd.hAdd 2 (HMul.hMul α ↑b))))\n        Filter.atTop Filter.atTop)\n      (Filter.Tendsto (fun t => HDiv.hDiv (Rt t) (HPow.hPow (HAdd.hAdd 1 (Qt t)) α)) Filter.atTop Filter.atTop))",
+        "type_origin": "recorded elaborated #check output",
+        "complete_type_text": "QuarticQuery.Paper.classical_exponent_ratio {k : Nat} {c C α : Real} (b : Nat) {Rt Qt : Nat → Real} (hc : LT.lt 0 c)\n  (hC : LT.lt 0 C) (hα : LE.le 0 α) (hs : LT.lt (HDiv.hDiv α 2) (HSub.hSub 2 (HDiv.hDiv 1 ↑k)))\n  (hQ0 : ∀ (t : Nat), LE.le 0 (Qt t))\n  (hQ :\n    Filter.Eventually (fun t => LE.le (Qt t) (HMul.hMul (HMul.hMul C (HPow.hPow 2 t)) (HPow.hPow (HMul.hMul 2 ↑t) b)))\n      Filter.atTop)\n  (hR :\n    Filter.Eventually\n      (fun t =>\n        LE.le\n          (HDiv.hDiv (HMul.hMul c (HPow.hPow (HPow.hPow 4 t) (HSub.hSub 2 (HDiv.hDiv 1 ↑k))))\n            (HPow.hPow (HMul.hMul 2 ↑t) 2))\n          (Rt t))\n      Filter.atTop) :\n  And\n    (Filter.Eventually\n      (fun t =>\n        LE.le\n          (HDiv.hDiv\n            (HMul.hMul (HDiv.hDiv c (HPow.hPow (HAdd.hAdd 1 C) α))\n              (HPow.hPow (↑(QuarticQuery.mValue t)) (HSub.hSub (HSub.hSub 2 (HDiv.hDiv 1 ↑k)) (HDiv.hDiv α 2))))\n            (HPow.hPow (Real.logb 2 ↑(QuarticQuery.mValue t)) (HAdd.hAdd 2 (HMul.hMul α ↑b))))\n          (HDiv.hDiv (Rt t) (HPow.hPow (HAdd.hAdd 1 (Qt t)) α)))\n      Filter.atTop)\n    (And\n      (Filter.Tendsto\n        (fun t =>\n          HDiv.hDiv\n            (HMul.hMul (HDiv.hDiv c (HPow.hPow (HAdd.hAdd 1 C) α))\n              (HPow.hPow (↑(QuarticQuery.mValue t)) (HSub.hSub (HSub.hSub 2 (HDiv.hDiv 1 ↑k)) (HDiv.hDiv α 2))))\n            (HPow.hPow (Real.logb 2 ↑(QuarticQuery.mValue t)) (HAdd.hAdd 2 (HMul.hMul α ↑b))))\n        Filter.atTop Filter.atTop)\n      (Filter.Tendsto (fun t => HDiv.hDiv (Rt t) (HPow.hPow (HAdd.hAdd 1 (Qt t)) α)) Filter.atTop Filter.atTop))"
+      },
+      "in_current_root_build": true,
+      "current_root_build_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "current_comparator_receipts": [],
+      "reached_from_headline_roots": false,
+      "in_recorded_258_type_audit": true
+    },
+    "QuarticQuery.Paper.classical_Fkm_ratio": {
+      "source": {
+        "member": "repository/lean/QuarticQuery/Paper/ClassicalAsymptotics.lean",
+        "sha256": "b156b061ecab3a011c31224f9ff0719d07a52e8e8eb86becbb18cb5c959c17af",
+        "line_start": 372,
+        "line_end": 386,
+        "source_header": "theorem classical_Fkm_ratio (l : ℕ) (hk : 2 ≤ l + 1) {α : ℝ}\n    (hα : 0 ≤ α) (hs : α / 2 < 2 - 1 / ((l + 1 : ℕ) : ℝ)) :\n    ∃ d : ℝ, 0 < d ∧\n      (∀ᶠ t : ℕ in atTop,\n        d * (mValue t : ℝ) ^ (2 - 1 / ((l + 1 : ℕ) : ℝ) - α / 2) /\n          Real.logb 2 (mValue t : ℝ) ^ (2 + α * 6) ≤\n            (R (totalise (Fkm (l + 1) t (Forrelation.forrCircuit l t))) : ℝ) /\n              (1 + (Q (totalise (Fkm (l + 1) t (Forrelation.forrCircuit l t))) : ℝ)) ^ α) ∧\n      Tendsto (fun t : ℕ =>\n        d * (mValue t : ℝ) ^ (2 - 1 / ((l + 1 : ℕ) : ℝ) - α / 2) /\n          Real.logb 2 (mValue t : ℝ) ^ (2 + α * 6)) atTop atTop ∧\n      Tendsto (fun t : ℕ =>\n        (R (totalise (Fkm (l + 1) t (Forrelation.forrCircuit l t))) : ℝ) /\n          (1 + (Q (totalise (Fkm (l + 1) t (Forrelation.forrCircuit l t))) : ℝ)) ^ α)\n        atTop atTop",
+        "definition_source": null,
+        "context_headers": [
+          "namespace QuarticQuery.Paper",
+          "open Filter"
+        ],
+        "type_text": "QuarticQuery.Paper.classical_Fkm_ratio (l : Nat) (hk : LE.le 2 (HAdd.hAdd l 1)) {α : Real} (hα : LE.le 0 α)\n  (hs : LT.lt (HDiv.hDiv α 2) (HSub.hSub 2 (HDiv.hDiv 1 ↑(HAdd.hAdd l 1)))) :\n  Exists fun d =>\n    And (LT.lt 0 d)\n      (And\n        (Filter.Eventually\n          (fun t =>\n            LE.le\n              (HDiv.hDiv\n                (HMul.hMul d\n                  (HPow.hPow (↑(QuarticQuery.mValue t))\n                    (HSub.hSub (HSub.hSub 2 (HDiv.hDiv 1 ↑(HAdd.hAdd l 1))) (HDiv.hDiv α 2))))\n                (HPow.hPow (Real.logb 2 ↑(QuarticQuery.mValue t)) (HAdd.hAdd 2 (HMul.hMul α 6))))\n              (HDiv.hDiv\n                (↑(QuarticQuery.R\n                    (QuarticQuery.totalise\n                      (QuarticQuery.Fkm (HAdd.hAdd l 1) t (QuarticQuery.Forrelation.forrCircuit l t)))))\n                (HPow.hPow\n                  (HAdd.hAdd 1\n                    ↑(QuarticQuery.Q\n                        (QuarticQuery.totalise\n                          (QuarticQuery.Fkm (HAdd.hAdd l 1) t (QuarticQuery.Forrelation.forrCircuit l t)))))\n                  α)))\n          Filter.atTop)\n        (And\n          (Filter.Tendsto\n            (fun t =>\n              HDiv.hDiv\n                (HMul.hMul d\n                  (HPow.hPow (↑(QuarticQuery.mValue t))\n                    (HSub.hSub (HSub.hSub 2 (HDiv.hDiv 1 ↑(HAdd.hAdd l 1))) (HDiv.hDiv α 2))))\n                (HPow.hPow (Real.logb 2 ↑(QuarticQuery.mValue t)) (HAdd.hAdd 2 (HMul.hMul α 6))))\n            Filter.atTop Filter.atTop)\n          (Filter.Tendsto\n            (fun t =>\n              HDiv.hDiv\n                (↑(QuarticQuery.R\n                    (QuarticQuery.totalise\n                      (QuarticQuery.Fkm (HAdd.hAdd l 1) t (QuarticQuery.Forrelation.forrCircuit l t)))))\n                (HPow.hPow\n                  (HAdd.hAdd 1\n                    ↑(QuarticQuery.Q\n                        (QuarticQuery.totalise\n                          (QuarticQuery.Fkm (HAdd.hAdd l 1) t (QuarticQuery.Forrelation.forrCircuit l t)))))\n                  α))\n            Filter.atTop Filter.atTop)))",
+        "type_origin": "recorded elaborated #check output",
+        "complete_type_text": "QuarticQuery.Paper.classical_Fkm_ratio (l : Nat) (hk : LE.le 2 (HAdd.hAdd l 1)) {α : Real} (hα : LE.le 0 α)\n  (hs : LT.lt (HDiv.hDiv α 2) (HSub.hSub 2 (HDiv.hDiv 1 ↑(HAdd.hAdd l 1)))) :\n  Exists fun d =>\n    And (LT.lt 0 d)\n      (And\n        (Filter.Eventually\n          (fun t =>\n            LE.le\n              (HDiv.hDiv\n                (HMul.hMul d\n                  (HPow.hPow (↑(QuarticQuery.mValue t))\n                    (HSub.hSub (HSub.hSub 2 (HDiv.hDiv 1 ↑(HAdd.hAdd l 1))) (HDiv.hDiv α 2))))\n                (HPow.hPow (Real.logb 2 ↑(QuarticQuery.mValue t)) (HAdd.hAdd 2 (HMul.hMul α 6))))\n              (HDiv.hDiv\n                (↑(QuarticQuery.R\n                    (QuarticQuery.totalise\n                      (QuarticQuery.Fkm (HAdd.hAdd l 1) t (QuarticQuery.Forrelation.forrCircuit l t)))))\n                (HPow.hPow\n                  (HAdd.hAdd 1\n                    ↑(QuarticQuery.Q\n                        (QuarticQuery.totalise\n                          (QuarticQuery.Fkm (HAdd.hAdd l 1) t (QuarticQuery.Forrelation.forrCircuit l t)))))\n                  α)))\n          Filter.atTop)\n        (And\n          (Filter.Tendsto\n            (fun t =>\n              HDiv.hDiv\n                (HMul.hMul d\n                  (HPow.hPow (↑(QuarticQuery.mValue t))\n                    (HSub.hSub (HSub.hSub 2 (HDiv.hDiv 1 ↑(HAdd.hAdd l 1))) (HDiv.hDiv α 2))))\n                (HPow.hPow (Real.logb 2 ↑(QuarticQuery.mValue t)) (HAdd.hAdd 2 (HMul.hMul α 6))))\n            Filter.atTop Filter.atTop)\n          (Filter.Tendsto\n            (fun t =>\n              HDiv.hDiv\n                (↑(QuarticQuery.R\n                    (QuarticQuery.totalise\n                      (QuarticQuery.Fkm (HAdd.hAdd l 1) t (QuarticQuery.Forrelation.forrCircuit l t)))))\n                (HPow.hPow\n                  (HAdd.hAdd 1\n                    ↑(QuarticQuery.Q\n                        (QuarticQuery.totalise\n                          (QuarticQuery.Fkm (HAdd.hAdd l 1) t (QuarticQuery.Forrelation.forrCircuit l t)))))\n                  α))\n            Filter.atTop Filter.atTop)))"
+      },
+      "in_current_root_build": true,
+      "current_root_build_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "current_comparator_receipts": [],
+      "reached_from_headline_roots": false,
+      "in_recorded_258_type_audit": true
+    },
+    "QuarticQuery.Paper.classical_transcript_conditional_expectation": {
+      "source": {
+        "member": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line_start": 615,
+        "line_end": 627,
+        "source_header": "theorem classical_transcript_conditional_expectation {β : Type}\n    (T : OutTree (Fin r × κ) β) (f : PartialBool κ)\n    {μ : Fin r → BitInput κ → ℝ} (hμ : ∀ j x, 0 ≤ μ j x)\n    (τ : ClassicalTranscript r κ) (L : ℕ) (h : Fin r) (q : κ)\n    (hm : 0 < ∑ V : Fin r → BitInput κ,\n      if classicalPrefix T τ V then ∏ j, μ j (V j) else 0)\n    (hc : classicalQueriesTo τ h < L) :\n    (∑ U : Fin r → BitInput κ,\n      ((if classicalPrefix T τ U then ∏ j, μ j (U j) else 0) /\n        (∑ V : Fin r → BitInput κ,\n          if classicalPrefix T τ V then ∏ j, μ j (V j) else 0)) *\n        (∏ j, classicalTranscriptValue f μ (τ ++ [((h, q), U h q)]) L j)) ≤\n      ∏ j, classicalTranscriptValue f μ τ L j",
+        "definition_source": null,
+        "context_headers": [
+          "open Finset Classical",
+          "namespace QuarticQuery.Paper",
+          "variable {κ : Type} [Fintype κ] [DecidableEq κ]",
+          "variable {r : ℕ}"
+        ],
+        "type_text": "QuarticQuery.Paper.classical_transcript_conditional_expectation {κ : Type} [Fintype κ] [DecidableEq κ] {r : Nat}\n  {β : Type} (T : QuarticQuery.OutTree (Prod (Fin r) κ) β) (f : QuarticQuery.PartialBool κ)\n  {μ : Fin r → QuarticQuery.BitInput κ → Real} (hμ : ∀ (j : Fin r) (x : QuarticQuery.BitInput κ), LE.le 0 (μ j x))\n  (τ : QuarticQuery.Paper.ClassicalTranscript r κ) (L : Nat) (h : Fin r) (q : κ)\n  (hm :\n    LT.lt 0\n      (Finset.univ.sum fun V => ite (QuarticQuery.Paper.classicalPrefix T τ V) (Finset.univ.prod fun j => μ j (V j)) 0))\n  (hc : LT.lt (QuarticQuery.Paper.classicalQueriesTo τ h) L) :\n  LE.le\n    (Finset.univ.sum fun U =>\n      HMul.hMul\n        (HDiv.hDiv (ite (QuarticQuery.Paper.classicalPrefix T τ U) (Finset.univ.prod fun j => μ j (U j)) 0)\n          (Finset.univ.sum fun V =>\n            ite (QuarticQuery.Paper.classicalPrefix T τ V) (Finset.univ.prod fun j => μ j (V j)) 0))\n        (Finset.univ.prod fun j =>\n          QuarticQuery.Paper.classicalTranscriptValue f μ\n            (HAppend.hAppend τ (List.cons (Prod.mk (Prod.mk h q) (U h q)) List.nil)) L j))\n    (Finset.univ.prod fun j => QuarticQuery.Paper.classicalTranscriptValue f μ τ L j)",
+        "type_origin": "recorded elaborated #check output",
+        "complete_type_text": "QuarticQuery.Paper.classical_transcript_conditional_expectation {κ : Type} [Fintype κ] [DecidableEq κ] {r : Nat}\n  {β : Type} (T : QuarticQuery.OutTree (Prod (Fin r) κ) β) (f : QuarticQuery.PartialBool κ)\n  {μ : Fin r → QuarticQuery.BitInput κ → Real} (hμ : ∀ (j : Fin r) (x : QuarticQuery.BitInput κ), LE.le 0 (μ j x))\n  (τ : QuarticQuery.Paper.ClassicalTranscript r κ) (L : Nat) (h : Fin r) (q : κ)\n  (hm :\n    LT.lt 0\n      (Finset.univ.sum fun V => ite (QuarticQuery.Paper.classicalPrefix T τ V) (Finset.univ.prod fun j => μ j (V j)) 0))\n  (hc : LT.lt (QuarticQuery.Paper.classicalQueriesTo τ h) L) :\n  LE.le\n    (Finset.univ.sum fun U =>\n      HMul.hMul\n        (HDiv.hDiv (ite (QuarticQuery.Paper.classicalPrefix T τ U) (Finset.univ.prod fun j => μ j (U j)) 0)\n          (Finset.univ.sum fun V =>\n            ite (QuarticQuery.Paper.classicalPrefix T τ V) (Finset.univ.prod fun j => μ j (V j)) 0))\n        (Finset.univ.prod fun j =>\n          QuarticQuery.Paper.classicalTranscriptValue f μ\n            (HAppend.hAppend τ (List.cons (Prod.mk (Prod.mk h q) (U h q)) List.nil)) L j))\n    (Finset.univ.prod fun j => QuarticQuery.Paper.classicalTranscriptValue f μ τ L j)"
+      },
+      "in_current_root_build": true,
+      "current_root_build_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "current_comparator_receipts": [],
+      "reached_from_headline_roots": false,
+      "in_recorded_258_type_audit": true
+    },
+    "QuarticQuery.Paper.equation_15": {
+      "source": {
+        "member": "repository/lean/QuarticQuery/Paper/QuantumTensor.lean",
+        "sha256": "7a2f03d6ae2d8d3ff2af9837f6cb1e1f1f3d5b4983dc34e753792621443835ac",
+        "line_start": 120,
+        "line_end": 131,
+        "source_header": "theorem equation_15 {ι Col Z : Type} [Fintype Col] [Nonempty Col] [Fintype Z]\n    {c : ℕ} (o : Z)\n    (F : Col → Col → BitInput ι → Reg Z ≃ₗᵢ[ℂ] Reg Z)\n    (hF : ∀ i j, IsCirc c (F i j)) (p : ℕ → Col) (t : ℕ) :\n    ∃ (i₀ : Col)\n      (A : BitInput ι → Reg (Σ _ : Col, TensorBasis Z t) ≃ₗᵢ[ℂ]\n        Reg (Σ _ : Col, TensorBasis Z t)),\n      IsCirc (t * c) A ∧\n      ∀ x i, slice i (A x (rket (⟨i₀, tensorOrigin o t⟩ :\n          Σ _ : Col, TensorBasis Z t))) =\n        (((Real.sqrt ((Fintype.card Col : ℝ)⁻¹) : ℝ) : ℂ) •\n          tensorVector (fun b => F i (p b) x (rket o)) t)",
+        "definition_source": null,
+        "context_headers": [
+          "namespace QuarticQuery.Paper",
+          "open QuarticQuery.Upper"
+        ],
+        "type_text": "QuarticQuery.Paper.equation_15 {ι Col Z : Type} [Fintype Col] [Nonempty Col] [Fintype Z] {c : Nat} (o : Z)\n  (F :\n    Col →\n      Col →\n        QuarticQuery.BitInput ι →\n          LinearIsometryEquiv (RingHom.id Complex) (QuarticQuery.Upper.Reg Z) (QuarticQuery.Upper.Reg Z))\n  (hF : ∀ (i j : Col), QuarticQuery.Upper.IsCirc c (F i j)) (p : Nat → Col) (t : Nat) :\n  Exists fun i₀ =>\n    Exists fun A =>\n      And (QuarticQuery.Upper.IsCirc (HMul.hMul t c) A)\n        (∀ (x : QuarticQuery.BitInput ι) (i : Col),\n          Eq ((QuarticQuery.Upper.slice i) ((A x) (QuarticQuery.Upper.rket ⟨i₀, QuarticQuery.Paper.tensorOrigin o t⟩)))\n            (HSMul.hSMul (↑(Inv.inv ↑(Fintype.card Col)).sqrt)\n              (QuarticQuery.Paper.tensorVector (fun b => (F i (p b) x) (QuarticQuery.Upper.rket o)) t)))",
+        "type_origin": "recorded elaborated #check output",
+        "complete_type_text": "QuarticQuery.Paper.equation_15 {ι Col Z : Type} [Fintype Col] [Nonempty Col] [Fintype Z] {c : Nat} (o : Z)\n  (F :\n    Col →\n      Col →\n        QuarticQuery.BitInput ι →\n          LinearIsometryEquiv (RingHom.id Complex) (QuarticQuery.Upper.Reg Z) (QuarticQuery.Upper.Reg Z))\n  (hF : ∀ (i j : Col), QuarticQuery.Upper.IsCirc c (F i j)) (p : Nat → Col) (t : Nat) :\n  Exists fun i₀ =>\n    Exists fun A =>\n      And (QuarticQuery.Upper.IsCirc (HMul.hMul t c) A)\n        (∀ (x : QuarticQuery.BitInput ι) (i : Col),\n          Eq ((QuarticQuery.Upper.slice i) ((A x) (QuarticQuery.Upper.rket ⟨i₀, QuarticQuery.Paper.tensorOrigin o t⟩)))\n            (HSMul.hSMul (↑(Inv.inv ↑(Fintype.card Col)).sqrt)\n              (QuarticQuery.Paper.tensorVector (fun b => (F i (p b) x) (QuarticQuery.Upper.rket o)) t)))"
+      },
+      "in_current_root_build": true,
+      "current_root_build_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "current_comparator_receipts": [],
+      "reached_from_headline_roots": false,
+      "in_recorded_258_type_audit": true
+    },
+    "QuarticQuery.Paper.appendixA_adversary_of_perron": {
+      "source": {
+        "member": "repository/lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+        "sha256": "f95cdeea5040ba7082c33a76faddef2da122d5bb4d76cec2b192598894c50aa6",
+        "line_start": 480,
+        "line_end": 494,
+        "source_header": "theorem appendixA_adversary_of_perron\n    (f : TotalBool (Fin n)) (Γ : AppendixAMatrix n)\n    (v : BitInput (Fin n) → ℝ)\n    (U : ℕ → Cslib.Quantum.State n W →ₗᵢ[ℂ] Cslib.Quantum.State n W)\n    {ψ₀ : Cslib.Quantum.State n W} (hψ₀ : ‖ψ₀‖ = 1) (T : ℕ)\n    (S : Finset (Fin n × Bool × W))\n    (h : ∀ x, |Cslib.Quantum.measureProb (Cslib.Quantum.run U ψ₀ x T) S -\n      Cslib.BitString.bitVal ℝ (f x)| ≤ 1 / 3)\n    (hΓ : ∀ x y, 0 ≤ Γ x y)\n    (hzero : ∀ x y, f x = f y → Γ x y = 0)\n    (hv : AppendixAPerronWitness Γ v)\n    {M : ℝ} (hM : 0 ≤ M)\n    (hcoord : ∀ i, appendixAMatrixNorm (appendixAGammaCoord Γ i) ≤ M) :\n    (1 - 2 * Real.sqrt ((1 / 3 : ℝ) * (1 - 1 / 3))) * appendixAMatrixNorm Γ ≤\n      2 * (T : ℝ) * M",
+        "definition_source": null,
+        "context_headers": [
+          "namespace QuarticQuery.Paper",
+          "open Finset",
+          "open scoped BigOperators",
+          "variable {n : ℕ} {W : Type*} [Fintype W]"
+        ],
+        "type_text": null,
+        "type_origin": "source header with enclosing variable context; no fresh elaboration",
+        "complete_type_text": "namespace QuarticQuery.Paper\nopen Finset\nopen scoped BigOperators\nvariable {n : ℕ} {W : Type*} [Fintype W]\n\ntheorem appendixA_adversary_of_perron\n    (f : TotalBool (Fin n)) (Γ : AppendixAMatrix n)\n    (v : BitInput (Fin n) → ℝ)\n    (U : ℕ → Cslib.Quantum.State n W →ₗᵢ[ℂ] Cslib.Quantum.State n W)\n    {ψ₀ : Cslib.Quantum.State n W} (hψ₀ : ‖ψ₀‖ = 1) (T : ℕ)\n    (S : Finset (Fin n × Bool × W))\n    (h : ∀ x, |Cslib.Quantum.measureProb (Cslib.Quantum.run U ψ₀ x T) S -\n      Cslib.BitString.bitVal ℝ (f x)| ≤ 1 / 3)\n    (hΓ : ∀ x y, 0 ≤ Γ x y)\n    (hzero : ∀ x y, f x = f y → Γ x y = 0)\n    (hv : AppendixAPerronWitness Γ v)\n    {M : ℝ} (hM : 0 ≤ M)\n    (hcoord : ∀ i, appendixAMatrixNorm (appendixAGammaCoord Γ i) ≤ M) :\n    (1 - 2 * Real.sqrt ((1 / 3 : ℝ) * (1 - 1 / 3))) * appendixAMatrixNorm Γ ≤\n      2 * (T : ℝ) * M"
+      },
+      "in_current_root_build": true,
+      "current_root_build_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "current_comparator_receipts": [],
+      "reached_from_headline_roots": false,
+      "in_recorded_258_type_audit": false
+    },
+    "QuarticQuery.ForrelationLower.sum_abs_ext_Dl_le": {
+      "source": {
+        "member": "repository/lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+        "sha256": "13614823a433518dea7138242182dc2abee1dbcdf0127157edf8cc9b6a756010",
+        "line_start": 738,
+        "line_end": 745,
+        "source_header": "theorem sum_abs_ext_Dl_le {P : Type} [Fintype P] [DecidableEq P] (Lp : P → List ι)\n    (hnd : ∀ p, (Lp p).Nodup) {k : ℕ} (hlen : ∀ p, (Lp p).length = k)\n    (hinj : Function.Injective fun p => (Lp p).toFinset) {μ : ι → ℝ} (hμ : ∀ a, |μ a| ≤ 1 / 2)\n    {Λ K : ℝ} {d : ℕ} (hd : 0 < d) (hK : 0 < K) (hKsq : K ^ 2 = 2 * d * 2 ^ 2 * Λ)\n    (hn : 1 ≤ Fintype.card ι) (T : QueryTree ι) (hT : T.depth ≤ d) (v : Bool → ℝ)\n    (hv : ∀ b, |v b| ≤ 1) :\n    ∑ p, |ext (Dl (Lp p) fun z => v (T.eval z)) μ| ≤\n      K ^ k + (Fintype.card ι * 2) ^ k * ((4 * Fintype.card ι : ℝ) ^ k * Real.exp (-Λ))",
+        "definition_source": null,
+        "context_headers": [
+          "open Finset",
+          "namespace QuarticQuery.ForrelationLower",
+          "variable {ι : Type} [Fintype ι] [DecidableEq ι]",
+          "open Classical in",
+          "variable {μ : ι → ℝ}",
+          "variable {B₀ : ℝ} {ξ : ι → Bool → ℝ}"
+        ],
+        "type_text": null,
+        "type_origin": "source header with enclosing variable context; no fresh elaboration",
+        "complete_type_text": "open Finset\nnamespace QuarticQuery.ForrelationLower\nvariable {ι : Type} [Fintype ι] [DecidableEq ι]\nopen Classical in\nvariable {μ : ι → ℝ}\nvariable {B₀ : ℝ} {ξ : ι → Bool → ℝ}\n\ntheorem sum_abs_ext_Dl_le {P : Type} [Fintype P] [DecidableEq P] (Lp : P → List ι)\n    (hnd : ∀ p, (Lp p).Nodup) {k : ℕ} (hlen : ∀ p, (Lp p).length = k)\n    (hinj : Function.Injective fun p => (Lp p).toFinset) {μ : ι → ℝ} (hμ : ∀ a, |μ a| ≤ 1 / 2)\n    {Λ K : ℝ} {d : ℕ} (hd : 0 < d) (hK : 0 < K) (hKsq : K ^ 2 = 2 * d * 2 ^ 2 * Λ)\n    (hn : 1 ≤ Fintype.card ι) (T : QueryTree ι) (hT : T.depth ≤ d) (v : Bool → ℝ)\n    (hv : ∀ b, |v b| ≤ 1) :\n    ∑ p, |ext (Dl (Lp p) fun z => v (T.eval z)) μ| ≤\n      K ^ k + (Fintype.card ι * 2) ^ k * ((4 * Fintype.card ι : ℝ) ^ k * Real.exp (-Λ))"
+      },
+      "in_current_root_build": true,
+      "current_root_build_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "current_comparator_receipts": [],
+      "reached_from_headline_roots": true,
+      "in_recorded_258_type_audit": false
+    },
+    "QuarticQuery.ForrelationLower.hit_azuma": {
+      "source": {
+        "member": "repository/lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+        "sha256": "13614823a433518dea7138242182dc2abee1dbcdf0127157edf8cc9b6a756010",
+        "line_start": 414,
+        "line_end": 424,
+        "source_header": "theorem hit_azuma (hμ : ∀ a, |μ a| ≤ 1)\n    (hm : ∀ a, piB (μ a) false * ξ a false + piB (μ a) true * ξ a true = 0)\n    (hB₀ : 0 < B₀) (hξ : ∀ a b, |ξ a b| ≤ B₀)\n    (Y : Finset ι → (ι → Bool) → ℝ) (Y' : ι → Finset ι → (ι → Bool) → ℝ)\n    (hY : ∀ q Q x b, q ∉ Q →\n      Y (insert q Q) (Function.update x q b) = Y Q x + ξ q b * Y' q Q x)\n    {R β lam : ℝ} (hlam : 0 ≤ lam) (hβ : 0 ≤ β) (T : QueryTree ι) (d : ℕ) (hT : T.depth ≤ d)\n    (Q : Finset ι) (x : ι → Bool) :\n    hit μ (fun Q x => R < Y Q x ∨ ∃ q, β < |Y' q Q x|) T Q x ≤\n      Real.exp (lam * (Y Q x - R) + lam ^ 2 * β ^ 2 * B₀ ^ 2 * d / 2) +\n        hit μ (fun Q x => ∃ q, β < |Y' q Q x|) T Q x",
+        "definition_source": null,
+        "context_headers": [
+          "open Finset",
+          "namespace QuarticQuery.ForrelationLower",
+          "variable {ι : Type} [Fintype ι] [DecidableEq ι]",
+          "open Classical in",
+          "variable {μ : ι → ℝ}",
+          "variable {B₀ : ℝ} {ξ : ι → Bool → ℝ}"
+        ],
+        "type_text": null,
+        "type_origin": "source header with enclosing variable context; no fresh elaboration",
+        "complete_type_text": "open Finset\nnamespace QuarticQuery.ForrelationLower\nvariable {ι : Type} [Fintype ι] [DecidableEq ι]\nopen Classical in\nvariable {μ : ι → ℝ}\nvariable {B₀ : ℝ} {ξ : ι → Bool → ℝ}\n\ntheorem hit_azuma (hμ : ∀ a, |μ a| ≤ 1)\n    (hm : ∀ a, piB (μ a) false * ξ a false + piB (μ a) true * ξ a true = 0)\n    (hB₀ : 0 < B₀) (hξ : ∀ a b, |ξ a b| ≤ B₀)\n    (Y : Finset ι → (ι → Bool) → ℝ) (Y' : ι → Finset ι → (ι → Bool) → ℝ)\n    (hY : ∀ q Q x b, q ∉ Q →\n      Y (insert q Q) (Function.update x q b) = Y Q x + ξ q b * Y' q Q x)\n    {R β lam : ℝ} (hlam : 0 ≤ lam) (hβ : 0 ≤ β) (T : QueryTree ι) (d : ℕ) (hT : T.depth ≤ d)\n    (Q : Finset ι) (x : ι → Bool) :\n    hit μ (fun Q x => R < Y Q x ∨ ∃ q, β < |Y' q Q x|) T Q x ≤\n      Real.exp (lam * (Y Q x - R) + lam ^ 2 * β ^ 2 * B₀ ^ 2 * d / 2) +\n        hit μ (fun Q x => ∃ q, β < |Y' q Q x|) T Q x"
+      },
+      "in_current_root_build": true,
+      "current_root_build_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "current_comparator_receipts": [],
+      "reached_from_headline_roots": true,
+      "in_recorded_258_type_audit": false
+    },
+    "QuarticQuery.Paper.appendixA_D_le_Q_pow_four_hybrid": {
+      "source": {
+        "member": "repository/lean/QuarticQuery/Paper/AppendixA.lean",
+        "sha256": "5a28f11e95c0153ef162337a8c81d4523f0092361b785425ee166924b1dd9815",
+        "line_start": 105,
+        "line_end": 106,
+        "source_header": "theorem appendixA_D_le_Q_pow_four_hybrid (f : TotalBool (Fin n)) :\n    D (totalise f) ≤ 19600 * Q (totalise f) ^ 4",
+        "context_headers": [
+          "namespace QuarticQuery.Paper",
+          "variable {n : ℕ}"
+        ],
+        "type_text": "QuarticQuery.Paper.appendixA_D_le_Q_pow_four_hybrid {n : Nat} (f : QuarticQuery.TotalBool (Fin n)) :\n  LE.le (QuarticQuery.D (QuarticQuery.totalise f))\n    (HMul.hMul 19600 (HPow.hPow (QuarticQuery.Q (QuarticQuery.totalise f)) 4))",
+        "type_origin": "recorded elaborated #check output",
+        "complete_type_text": "QuarticQuery.Paper.appendixA_D_le_Q_pow_four_hybrid {n : Nat} (f : QuarticQuery.TotalBool (Fin n)) :\n  LE.le (QuarticQuery.D (QuarticQuery.totalise f))\n    (HMul.hMul 19600 (HPow.hPow (QuarticQuery.Q (QuarticQuery.totalise f)) 4))",
+        "complete_type_text_origin": "recorded elaborated #check output"
+      },
+      "in_current_root_build": true,
+      "current_root_build_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "current_comparator_receipts": [],
+      "reached_from_headline_roots": false,
+      "in_recorded_258_type_audit": true,
+      "relation": "Existing general supplier or alternative bound; new explanatory specializations are not separately compiled.",
+      "route": "same for the Stein identity; alternative hybrid for the named Appendix theorem",
+      "premises": "All source binders and section variables are retained in complete_type_text.",
+      "open_assumptions": []
+    },
+    "QuarticQuery.ForrelationLower.sum_dw_eq": {
+      "source": {
+        "member": "repository/lean/QuarticQuery/ForrelationLower/Walk.lean",
+        "sha256": "c9394068bc3a583178fcae1e11d6eafdc7dcfc17bcd8a0b269f9a13ccee209ba",
+        "line_start": 272,
+        "line_end": 275,
+        "source_header": "theorem sum_dw_eq (s : ℝ) (u : PC l n → ℝ) (E : BC l n → ℝ) (hE : E (cn j a) = 0) :\n    ∑ c : BC l n, (Sf s c * (dY H j a u c.1 c.2 * Xf u c.1 c.2 +\n        Yf H u c.1 c.2 * dX j a u c.1 c.2)) * E c =\n      ∑ b, H b a * dphi (Vc H u j b) * Xf u (j + 1) b * E (cn (j + 1) b)",
+        "context_headers": [
+          "namespace QuarticQuery.ForrelationLower",
+          "variable {n : Type} [Fintype n] [DecidableEq n] {l : ℕ} (H : Matrix n n ℝ)",
+          "variable {j : ℕ} (hj : j < l) (a : n)",
+          "include hj in"
+        ],
+        "type_text": null,
+        "type_origin": "source header with full lexical variable context; not newly elaborated",
+        "complete_type_text": "namespace QuarticQuery.ForrelationLower\nvariable {n : Type} [Fintype n] [DecidableEq n] {l : ℕ} (H : Matrix n n ℝ)\nvariable {j : ℕ} (hj : j < l) (a : n)\ninclude hj in\ntheorem sum_dw_eq (s : ℝ) (u : PC l n → ℝ) (E : BC l n → ℝ) (hE : E (cn j a) = 0) :\n    ∑ c : BC l n, (Sf s c * (dY H j a u c.1 c.2 * Xf u c.1 c.2 +\n        Yf H u c.1 c.2 * dX j a u c.1 c.2)) * E c =\n      ∑ b, H b a * dphi (Vc H u j b) * Xf u (j + 1) b * E (cn (j + 1) b)",
+        "complete_type_text_origin": "source header with full lexical variable context; not newly elaborated"
+      },
+      "in_current_root_build": true,
+      "current_root_build_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "current_comparator_receipts": [],
+      "reached_from_headline_roots": true,
+      "in_recorded_258_type_audit": false,
+      "relation": "Existing general supplier or alternative bound; new explanatory specializations are not separately compiled.",
+      "route": "same for the Stein identity; alternative hybrid for the named Appendix theorem",
+      "premises": "All source binders and section variables are retained in complete_type_text.",
+      "open_assumptions": []
+    },
+    "QuarticQuery.ForrelationLower.integral_walk": {
+      "source": {
+        "member": "repository/lean/QuarticQuery/ForrelationLower/Walk.lean",
+        "sha256": "c9394068bc3a583178fcae1e11d6eafdc7dcfc17bcd8a0b269f9a13ccee209ba",
+        "line_start": 364,
+        "line_end": 367,
+        "source_header": "theorem integral_walk {s : ℝ} (hs : |s| ≤ 1) (e : ℕ) : ∀ (j : ℕ), j + e = l → ∀ (a : n)\n    (g₀ : (BC l n → Bool) → ℝ) (θ : (PC l n → ℝ) → ℝ), BCf θ → EarlyOnly j θ →\n    ∫ u, θ u * (Xf u j a * ext (D (cn j a) g₀) (wv H s u)) ∂(gP (PC l n)) =\n      ∫ u, θ u * Int H s e j a (D (cn j a) g₀) u ∂(gP (PC l n))",
+        "context_headers": [
+          "namespace QuarticQuery.ForrelationLower",
+          "variable {n : Type} [Fintype n] [DecidableEq n] {l : ℕ} (H : Matrix n n ℝ)"
+        ],
+        "type_text": null,
+        "type_origin": "source header with full lexical variable context; not newly elaborated",
+        "complete_type_text": "namespace QuarticQuery.ForrelationLower\nvariable {n : Type} [Fintype n] [DecidableEq n] {l : ℕ} (H : Matrix n n ℝ)\ntheorem integral_walk {s : ℝ} (hs : |s| ≤ 1) (e : ℕ) : ∀ (j : ℕ), j + e = l → ∀ (a : n)\n    (g₀ : (BC l n → Bool) → ℝ) (θ : (PC l n → ℝ) → ℝ), BCf θ → EarlyOnly j θ →\n    ∫ u, θ u * (Xf u j a * ext (D (cn j a) g₀) (wv H s u)) ∂(gP (PC l n)) =\n      ∫ u, θ u * Int H s e j a (D (cn j a) g₀) u ∂(gP (PC l n))",
+        "complete_type_text_origin": "source header with full lexical variable context; not newly elaborated"
+      },
+      "in_current_root_build": true,
+      "current_root_build_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "current_comparator_receipts": [],
+      "reached_from_headline_roots": true,
+      "in_recorded_258_type_audit": false,
+      "relation": "Existing general supplier or alternative bound; new explanatory specializations are not separately compiled.",
+      "route": "same for the Stein identity; alternative hybrid for the named Appendix theorem",
+      "premises": "All source binders and section variables are retained in complete_type_text.",
+      "open_assumptions": []
+    },
+    "QuarticQuery.ForrelationLower.exists_identity": {
+      "source": {
+        "member": "repository/lean/QuarticQuery/ForrelationLower/Walk.lean",
+        "sha256": "c9394068bc3a583178fcae1e11d6eafdc7dcfc17bcd8a0b269f9a13ccee209ba",
+        "line_start": 461,
+        "line_end": 464,
+        "source_header": "theorem exists_identity (hl : 0 < l) (g : (BC l n → Bool) → ℝ) :\n    ∃ s ∈ Set.Ioo (0 : ℝ) 1,\n      ∫ u, ext g (wv H 1 u) ∂(gP (PC l n)) - ∫ u, ext g (wv H 0 u) ∂(gP (PC l n)) =\n        ∑ a, ∫ u, Int H s l 0 a (D (cn 0 a) g) u ∂(gP (PC l n))",
+        "context_headers": [
+          "namespace QuarticQuery.ForrelationLower",
+          "variable {n : Type} [Fintype n] [DecidableEq n] {l : ℕ} (H : Matrix n n ℝ)"
+        ],
+        "type_text": null,
+        "type_origin": "source header with full lexical variable context; not newly elaborated",
+        "complete_type_text": "namespace QuarticQuery.ForrelationLower\nvariable {n : Type} [Fintype n] [DecidableEq n] {l : ℕ} (H : Matrix n n ℝ)\ntheorem exists_identity (hl : 0 < l) (g : (BC l n → Bool) → ℝ) :\n    ∃ s ∈ Set.Ioo (0 : ℝ) 1,\n      ∫ u, ext g (wv H 1 u) ∂(gP (PC l n)) - ∫ u, ext g (wv H 0 u) ∂(gP (PC l n)) =\n        ∑ a, ∫ u, Int H s l 0 a (D (cn 0 a) g) u ∂(gP (PC l n))",
+        "complete_type_text_origin": "source header with full lexical variable context; not newly elaborated"
+      },
+      "in_current_root_build": true,
+      "current_root_build_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "current_comparator_receipts": [],
+      "reached_from_headline_roots": true,
+      "in_recorded_258_type_audit": false,
+      "relation": "Existing general supplier or alternative bound; new explanatory specializations are not separately compiled.",
+      "route": "same for the Stein identity; alternative hybrid for the named Appendix theorem",
+      "premises": "All source binders and section variables are retained in complete_type_text.",
+      "open_assumptions": []
+    },
+    "QuarticQuery.ForrelationLower.Int_eq_paths": {
+      "source": {
+        "member": "repository/lean/QuarticQuery/ForrelationLower/Walk.lean",
+        "sha256": "c9394068bc3a583178fcae1e11d6eafdc7dcfc17bcd8a0b269f9a13ccee209ba",
+        "line_start": 541,
+        "line_end": 543,
+        "source_header": "theorem Int_eq_paths (s : ℝ) (e : ℕ) : ∀ (j : ℕ) (a : n) (g : (BC l n → Bool) → ℝ)\n    (u : PC l n → ℝ), Int H s e j a g u =\n      ∑ q : Fin e → n, cf H s e j a q u * ext (Dl (plist e j q) g) (wv H s u)",
+        "context_headers": [
+          "namespace QuarticQuery.ForrelationLower",
+          "variable {n : Type} [Fintype n] [DecidableEq n] {l : ℕ} (H : Matrix n n ℝ)"
+        ],
+        "type_text": null,
+        "type_origin": "source header with full lexical variable context; not newly elaborated",
+        "complete_type_text": "namespace QuarticQuery.ForrelationLower\nvariable {n : Type} [Fintype n] [DecidableEq n] {l : ℕ} (H : Matrix n n ℝ)\ntheorem Int_eq_paths (s : ℝ) (e : ℕ) : ∀ (j : ℕ) (a : n) (g : (BC l n → Bool) → ℝ)\n    (u : PC l n → ℝ), Int H s e j a g u =\n      ∑ q : Fin e → n, cf H s e j a q u * ext (Dl (plist e j q) g) (wv H s u)",
+        "complete_type_text_origin": "source header with full lexical variable context; not newly elaborated"
+      },
+      "in_current_root_build": true,
+      "current_root_build_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "current_comparator_receipts": [],
+      "reached_from_headline_roots": true,
+      "in_recorded_258_type_audit": false,
+      "relation": "Existing general supplier or alternative bound; new explanatory specializations are not separately compiled.",
+      "route": "same for the Stein identity; alternative hybrid for the named Appendix theorem",
+      "premises": "All source binders and section variables are retained in complete_type_text.",
+      "open_assumptions": []
+    }
+  }
+}

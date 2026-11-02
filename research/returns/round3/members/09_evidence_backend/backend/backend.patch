@@ -1,0 +1,548 @@
+diff --git a/tools/build_corpus.py b/tools/build_corpus.py
+--- a/tools/build_corpus.py
++++ b/tools/build_corpus.py
+@@ -43,6 +43,7 @@
+ RELATIONS = {"exact", "stronger", "partial", "weaker"}
+ ROUTES = {"same", "alternative", "none"}
+ CHECKED = {"exact", "stronger"}
++REVIEW_SCHEMA = "quartic-tie-review-v1"
+ DOC_TIE = re.compile(r"Ledger:\s*")
+ TIE_ID = re.compile(r"[A-Za-z][\w.-]*\w")
+ DECLARATION = re.compile(
+@@ -161,6 +162,59 @@
+     return "current" if recorded == (source_hashes() if hashes is None else hashes) else "stale"
+ 
+ 
++def canonical_sha256(value):
++    return sha256(json.dumps(value, sort_keys=True, ensure_ascii=False, separators=(",", ":")))
++
++
++def expected_review_binding(ident, row, review, hashes):
++    """The bytes a reviewer must bind after reviewing, never a review itself.
++
++    The complete local-source snapshot includes declaration types, implicit
++    context and all locally defined terms, as well as pinned dependencies.
++    This deliberately invalidates on proof-only edits too. No producer writes
++    this binding into authored ties or upgrades an old review automatically.
++    """
++    return {
++        "schema": REVIEW_SCHEMA,
++        "statement_id": ident,
++        "statement_sha256": sha256(row["statement"]),
++        "row_sha256": canonical_sha256(row),
++        "declaration": review["declaration"],
++        "judgment_sha256": canonical_sha256(
++            {key: value for key, value in review.items() if key != "review_binding"}),
++        "source_snapshot_sha256": canonical_sha256(hashes),
++    }
++
++
++def review_currentness(ident, row, review, hashes):
++    """A fresh proof/comparison receipt cannot refresh a statement review."""
++    if review is None:
++        return "not_reviewed"
++    if "review_binding" not in review:
++        return "legacy_unbound"
++    binding = review["review_binding"]
++    expected = expected_review_binding(ident, row, review, hashes)
++    if (not isinstance(binding, dict) or set(binding) != set(expected)
++            or binding.get("schema") != REVIEW_SCHEMA
++            or not all(isinstance(value, str) for value in binding.values())
++            or any(not re.fullmatch(r"[0-9a-f]{64}", binding[key])
++                   for key in expected if key.endswith("sha256"))):
++        raise ValueError(f"{ident}/{review['declaration']}: malformed review_binding")
++    return "current" if binding == expected else "stale"
++
++
++def require_preprint_row(ident, row):
++    """Withhold separately derived rows until mixed-source projection is supported.
++
++    r2-live proposals retain their own source and dependency data in their
++    adjudication owner. Even an explicit preprint source label must not silently
++    turn those known helper statements into claims of the OpenAI preprint.
++    """
++    if ident.startswith("r2-live-") or row.get("source_id", "openai_preprint") != "openai_preprint":
++        raise ValueError(f"{ident}: withheld from the preprint-only corpus; "
++                         "preserve its own provenance and dependencies in the source owner")
++
++
+ def receipts():
+     return [{**json.loads(path.read_text(encoding="utf-8")), "receipt_file": str(path.relative_to(ROOT)),
+              "receipt_sha256": hashlib.sha256(path.read_bytes()).hexdigest()}
+@@ -197,6 +251,7 @@
+     hashes = source_hashes() if hashes is None else hashes
+     records = []
+     for ident, row in ledger.items():
++        require_preprint_row(ident, row)
+         ties = []
+         declared = proposed.get(ident, [])
+         names = {tie["declaration"] for tie in declared}
+@@ -207,11 +262,17 @@
+         for tie in declared + extra:
+             review = next((r for r in reviewed.get(ident, [])
+                            if r["declaration"] == tie["declaration"]), None)
++            review_state = review_currentness(ident, row, review, hashes)
+             build = declaration_evidence(runs, "lean_build", tie["declaration"], hashes)
+             comparison = declaration_evidence(runs, "comparator", tie["declaration"], hashes)
+             ties.append({**tie,
+-                         "relation": review["relation"] if review else "unassessed",
+-                         "route": review["route"] if review else "unassessed",
++                         "relation": review["relation"] if review_state == "current" else "unassessed",
++                         "route": review["route"] if review_state == "current" else "unassessed",
++                         "reviewed_relation": review["relation"] if review else "unassessed",
++                         "reviewed_route": review["route"] if review else "unassessed",
++                         "review_evidence": review_state,
++                         **({"review_binding": review["review_binding"]}
++                            if review and "review_binding" in review else {}),
+                          **reviewed_assumptions(review),
+                          "note": review.get("note", "") if review else "",
+                          "build_evidence": build,
+@@ -236,6 +297,8 @@
+             "external_inputs": row.get("external_inputs", []),
+             "lean": ties,
+             "evidence": {
++                "review": next((state for state in ("current", "stale", "legacy_unbound")
++                                if any(t["review_evidence"] == state for t in ties)), "not_reviewed"),
+                 "formal_statement": (
+                     "none" if not ties else
+                     next((t["relation"] for t in ties if t["relation"] in CHECKED), None)
+@@ -276,6 +339,11 @@
+ def evidence_graph(records, runs, hashes=None):
+     hashes = source_hashes() if hashes is None else hashes
+     ids = {record["id"] for record in records}
++    for record in records:
++        require_preprint_row(record["id"], record)
++        missing = set(record["depends_on"]) - ids
++        if missing:
++            raise ValueError(f"{record['id']}: missing prerequisite rows: {', '.join(sorted(missing))}")
+     evidence = [{"id": "paper_hash", "kind": "source_hash", "status": "not_run", "command": [],
+                  "tool": "Pinned by revision; byte hash is recorded in the annex",
+                  "source_ids": ["openai_preprint"], "subject_ids": [],
+@@ -338,7 +406,7 @@
+             "statement": record["statement"],
+         })
+     edges = [{"from": record["id"], "to": dep, "kind": "supports", "evidence_ids": []}
+-             for record in records for dep in record["depends_on"] if dep in ids]
++             for record in records for dep in record["depends_on"]]
+     return {
+         "schema_version": "1.2",
+         "id": "quartic-query-separation",
+@@ -360,6 +428,8 @@
+                   "explicit open_assumptions do, with hypotheses as the legacy fallback. "
+                   "Selected assumption metadata is omitted when no current built tie exists; "
+                   "its absence is unknown, whereas [] is an explicitly empty list. "
++                  "Current statement alignment additionally requires a source-bound authored review; "
++                  "builds and comparisons cannot refresh it. Separately derived r2-live rows are withheld. "
+                   "Historical receipt status is preserved separately from currentness."),
+         "extraction_status": "not_run",
+         "notes": ["Generated by tools/build_corpus.py; edit the inputs, not this file."],
+@@ -367,7 +437,7 @@
+ 
+ 
+ def coverage(records, unknown=()):
+-    fields = ["formal_statement", "formal_origin", "build", "comparator", "route", "reach"]
++    fields = ["review", "formal_statement", "formal_origin", "build", "comparator", "route", "reach"]
+     return {
+         "statements": len(records),
+         "corrected": sum(r["corrected"] for r in records),
+diff --git a/tests/test_build_corpus.py b/tests/test_build_corpus.py
+--- a/tests/test_build_corpus.py
++++ b/tests/test_build_corpus.py
+@@ -59,6 +59,14 @@
+         self.assertEqual(found["def-K"][0]["declaration"], "Top.third")
+ 
+ 
++def bound_reviews(ledger, reviewed, hashes):
++    """Explicitly reviewed synthetic fixtures; never apply to real corpus ties."""
++    return {ident: [{**review, "review_binding":
++                     MODULE.expected_review_binding(ident, ledger[ident], review, hashes)}
++                    for review in reviews]
++            for ident, reviews in reviewed.items()}
++
++
+ class EvidenceTests(unittest.TestCase):
+     HASHES = {"lean/A.lean": "current-source-hash"}
+     ROW = {"s": {"kind": "lemma", "statement": "x", "original_statement_sha256": None,
+@@ -66,7 +74,7 @@
+     TIE = {"s": [{"declaration": "A.b", "kind": "theorem", "file": "f", "line": 1}]}
+ 
+     def record(self, reviewed, runs):
+-        return MODULE.statement_records(self.ROW, self.TIE, reviewed, runs,
++        return MODULE.statement_records(self.ROW, self.TIE, bound_reviews(self.ROW, reviewed, self.HASHES), runs,
+                                         hashes=self.HASHES)[0]["evidence"]
+ 
+     def runs(self, declarations):
+@@ -101,7 +109,7 @@
+                            "hypotheses": ["H"]},
+                           {"declaration": "A.uncond", "relation": "exact", "route": "same"}]}
+         runs = self.runs(["A.cond", "A.uncond"])
+-        evidence = MODULE.statement_records(self.ROW, ties, reviewed, runs,
++        evidence = MODULE.statement_records(self.ROW, ties, bound_reviews(self.ROW, reviewed, self.HASHES), runs,
+                                             hashes=self.HASHES)[0]["evidence"]
+         self.assertFalse(evidence["conditional"])
+ 
+@@ -109,7 +117,7 @@
+         reviewed = {"s": [{"declaration": "A.b", "relation": "exact", "route": "same",
+                            "hypotheses": ["n > 0"], "premises": ["n > 0"],
+                            "open_assumptions": []}]}
+-        records = MODULE.statement_records(self.ROW, self.TIE, reviewed, self.runs(["A.b"]),
++        records = MODULE.statement_records(self.ROW, self.TIE, bound_reviews(self.ROW, reviewed, self.HASHES), self.runs(["A.b"]),
+                                            hashes=self.HASHES)
+         record = records[0]
+         self.assertEqual(record["lean"][0]["hypotheses"], ["n > 0"])
+@@ -134,7 +142,7 @@
+     def test_explicit_open_hardness_makes_exact_checked_theorem_conditional(self):
+         reviewed = {"s": [{"declaration": "A.b", "relation": "exact", "route": "same",
+                            "premises": ["k >= 2"], "open_assumptions": ["BansalSinhaLower"]}]}
+-        records = MODULE.statement_records(self.ROW, self.TIE, reviewed, self.runs(["A.b"]),
++        records = MODULE.statement_records(self.ROW, self.TIE, bound_reviews(self.ROW, reviewed, self.HASHES), self.runs(["A.b"]),
+                                            hashes=self.HASHES)
+         self.assertTrue(records[0]["evidence"]["conditional"])
+         self.assertEqual(records[0]["evidence"]["premises"], ["k >= 2"])
+@@ -150,7 +158,7 @@
+             with self.subTest(fields=fields):
+                 reviewed = {"s": [{"declaration": "A.b", "relation": "exact", "route": "same",
+                                    "hypotheses": ["H"], **fields}]}
+-                record = MODULE.statement_records(self.ROW, self.TIE, reviewed, self.runs(["A.b"]),
++                record = MODULE.statement_records(self.ROW, self.TIE, bound_reviews(self.ROW, reviewed, self.HASHES), self.runs(["A.b"]),
+                                                   hashes=self.HASHES)[0]
+                 self.assertTrue(record["evidence"]["conditional"])
+                 self.assertEqual(record["lean"][0]["open_assumptions"], ["H"])
+@@ -160,7 +168,7 @@
+                            "open_assumptions": ["hardness"]},
+                           {"declaration": "A.premise", "relation": "exact", "route": "alternative",
+                            "hypotheses": ["n > 0"], "premises": ["n > 0"], "open_assumptions": []}]}
+-        record = MODULE.statement_records(self.ROW, {}, reviewed, self.runs(["A.open", "A.premise"]),
++        record = MODULE.statement_records(self.ROW, {}, bound_reviews(self.ROW, reviewed, self.HASHES), self.runs(["A.open", "A.premise"]),
+                                           hashes=self.HASHES)[0]
+         self.assertFalse(record["evidence"]["conditional"])
+         self.assertEqual(record["evidence"]["route"], "alternative")
+@@ -175,7 +183,7 @@
+     def test_unselected_assumption_metadata_is_unknown_not_an_empty_list(self):
+         reviewed = {"s": [{"declaration": "A.b", "relation": "exact", "route": "same",
+                            "premises": ["k >= 2"], "open_assumptions": ["hardness"]}]}
+-        records = MODULE.statement_records(self.ROW, self.TIE, reviewed, [], hashes=self.HASHES)
++        records = MODULE.statement_records(self.ROW, self.TIE, bound_reviews(self.ROW, reviewed, self.HASHES), [], hashes=self.HASHES)
+         self.assertEqual(records[0]["lean"][0]["open_assumptions"], ["hardness"])
+         node = MODULE.evidence_graph(records, [], self.HASHES)["nodes"][0]
+         for field in ("assumption_declaration", "premises", "open_assumptions"):
+@@ -188,7 +196,7 @@
+     def test_changed_source_does_not_inherit_historical_pass(self):
+         reviewed = {"s": [{"declaration": "A.b", "relation": "exact", "route": "same"}]}
+         runs = self.runs(["A.b"])
+-        records = MODULE.statement_records(self.ROW, self.TIE, reviewed, runs,
++        records = MODULE.statement_records(self.ROW, self.TIE, bound_reviews(self.ROW, reviewed, self.HASHES), runs,
+                                            hashes={"lean/A.lean": "changed-source-hash"})
+         self.assertFalse(records[0]["lean"][0]["built"])
+         self.assertEqual(records[0]["lean"][0]["build_evidence"], "stale")
+@@ -212,7 +220,7 @@
+         runs = self.runs([])
+         runs[0]["declarations"] = ["A.built"]
+         runs[1]["declarations"] = ["A.compared"]
+-        record = MODULE.statement_records(self.ROW, ties, reviewed, runs,
++        record = MODULE.statement_records(self.ROW, ties, bound_reviews(self.ROW, reviewed, self.HASHES), runs,
+                                           hashes=self.HASHES)[0]
+         self.assertEqual(record["evidence"]["build"], "built_at_pin")
+         self.assertEqual(record["evidence"]["comparator"], "not_run")
+@@ -298,7 +306,7 @@
+         runs = [{"kind": kind, "status": "passed", "declarations": ["A.b"],
+                  "source_hashes": hashes, "command": ["lake", "fixture"], "tool": "mock local operation"}
+                 for kind in ("lean_build", "comparator")]
+-        records = MODULE.statement_records(ledger, {}, reviewed, runs, hashes=hashes)
++        records = MODULE.statement_records(ledger, {}, bound_reviews(ledger, reviewed, hashes), runs, hashes=hashes)
+         self.assertEqual(records[0]["evidence"]["comparator"], "compared")
+         graph = MODULE.evidence_graph(records, runs, hashes)
+         self.assertTrue(all(node["status"] == "unverified" for node in graph["nodes"]))
+diff --git a/tests/test_review_freshness.py b/tests/test_review_freshness.py
+new file mode 100644
+--- /dev/null
++++ b/tests/test_review_freshness.py
+@@ -0,0 +1,182 @@
++"""Acceptance regressions for the two remaining source-evidence boundaries.
++
++All operation receipts in these tests are explicit Python mocks. A passing
++test is not a Lean build, Comparator run, or native extraction.
++"""
++
++from copy import deepcopy
++import importlib.util
++import json
++from pathlib import Path
++import tempfile
++import unittest
++
++
++PATH = Path(__file__).resolve().parents[1] / "tools/build_corpus.py"
++SPEC = importlib.util.spec_from_file_location("review_build_corpus", PATH)
++MODULE = importlib.util.module_from_spec(SPEC)
++SPEC.loader.exec_module(MODULE)
++
++
++class ReviewFreshnessTests(unittest.TestCase):
++    def setUp(self):
++        self.ledger = {"s": {"kind": "lemma", "statement": "Zero satisfies the equality-to-zero predicate.",
++                             "original_statement_sha256": None, "corrected": False,
++                             "depends_on": []}}
++        self.hashes = {"lean/Definition.lean": "a" * 64, "lean/Theorem.lean": "b" * 64,
++                       "lean/lean-toolchain": "c" * 64}
++        self.review = {"declaration": "A.permits_zero", "relation": "exact", "route": "same",
++                       "premises": ["n is natural"], "open_assumptions": [],
++                       "reviewed_by": "synthetic regression fixture"}
++        self.review["review_binding"] = MODULE.expected_review_binding(
++            "s", self.ledger["s"], self.review, self.hashes)
++
++    def record(self, review=None, hashes=None, ledger=None, declarations=None):
++        hashes = self.hashes if hashes is None else hashes
++        review = self.review if review is None else review
++        ledger = self.ledger if ledger is None else ledger
++        declarations = [review["declaration"]] if declarations is None else declarations
++        runs = [{"kind": kind, "status": "passed", "declarations": declarations,
++                 "source_hashes": deepcopy(hashes), "command": ["mock", kind]}
++                for kind in ("lean_build", "comparator")]
++        reviewed = {ident: [review] for ident in ledger}
++        return MODULE.statement_records(ledger, {}, reviewed, runs, hashes=hashes)[0]
++
++    def assert_review_withheld(self, record, state="stale"):
++        self.assertEqual(record["lean"][0]["review_evidence"], state)
++        self.assertEqual(record["lean"][0]["reviewed_relation"], "exact")
++        self.assertEqual(record["lean"][0]["relation"], "unassessed")
++        self.assertEqual(record["evidence"]["formal_statement"], "unassessed")
++        self.assertEqual(record["evidence"]["comparator"], "not_run")
++        self.assertNotIn("assumption_declaration", record["evidence"])
++        # Actual operation facts and semantic-review freshness are independent.
++        self.assertTrue(record["lean"][0]["built"])
++        self.assertTrue(record["lean"][0]["compared"])
++
++    def test_bound_review_and_matching_receipts_keep_current_statement_credit(self):
++        record = self.record()
++        self.assertEqual(record["lean"][0]["review_evidence"], "current")
++        self.assertEqual(record["evidence"]["formal_statement"], "exact")
++        self.assertEqual(record["evidence"]["comparator"], "compared")
++        self.assertEqual(record["evidence"]["premises"], ["n is natural"])
++        self.assertEqual(record["evidence"]["open_assumptions"], [])
++        self.assertFalse(record["evidence"]["conditional"])
++
++    def test_current_build_and_comparison_cannot_attest_a_legacy_review(self):
++        review = deepcopy(self.review)
++        del review["review_binding"]
++        before = deepcopy(review)
++        self.assert_review_withheld(self.record(review), "legacy_unbound")
++        self.assertEqual(review, before)
++        self.assertNotIn("review_binding", review)
++
++    def test_definition_edit_with_unchanged_theorem_source_and_fresh_runs_stays_stale(self):
++        with tempfile.TemporaryDirectory() as folder:
++            root = Path(folder)
++            lean = root / "lean"
++            lean.mkdir()
++            definition = lean / "Definition.lean"
++            theorem = lean / "Theorem.lean"
++            definition.write_text("def Allowed (n : Nat) : Prop := n = 0\n")
++            theorem.write_text("import Definition\n"
++                               "theorem permits_zero : Allowed 0 := by simp [Allowed]\n")
++            before = MODULE.source_hashes(root)
++            review = deepcopy(self.review)
++            review["review_binding"] = MODULE.expected_review_binding(
++                "s", self.ledger["s"], review, before)
++            theorem_bytes = theorem.read_bytes()
++            definition.write_text("def Allowed (n : Nat) : Prop := n ≤ 1\n")
++            after = MODULE.source_hashes(root)
++            self.assertEqual(theorem.read_bytes(), theorem_bytes)
++            self.assertNotEqual(before, after)
++            record = self.record(review, after)  # fresh mock passes on changed bytes
++            self.assert_review_withheld(record)
++            self.assertEqual(record["lean"][0]["build_evidence"], "current")
++            self.assertEqual(record["lean"][0]["comparison_evidence"], "current")
++            # Only an explicit renewed review may restore alignment credit.
++            review["review_binding"] = MODULE.expected_review_binding(
++                "s", self.ledger["s"], review, after)
++            self.assertEqual(self.record(review, after)["evidence"]["comparator"], "compared")
++
++    def test_source_addition_removal_pin_change_and_proof_change_all_invalidate(self):
++        variants = [
++            {**self.hashes, "lean/New.lean": "d" * 64},
++            {key: value for key, value in self.hashes.items() if key != "lean/Definition.lean"},
++            {**self.hashes, "lean/lean-toolchain": "d" * 64},
++            {**self.hashes, "lean/Theorem.lean": "e" * 64},
++        ]
++        for hashes in variants:
++            with self.subTest(hashes=hashes):
++                self.assert_review_withheld(self.record(hashes=hashes))
++
++    def test_changed_statement_or_context_does_not_inherit_old_review(self):
++        for field, value in (("statement", "Every value satisfies the predicate."),
++                             ("depends_on", ["new-definition"]), ("section", "new source")):
++            ledger = deepcopy(self.ledger)
++            ledger["s"][field] = value
++            with self.subTest(field=field):
++                self.assert_review_withheld(self.record(ledger=ledger))
++
++    def test_changed_declaration_row_identity_or_judgment_requires_new_review(self):
++        for field, value in (("declaration", "A.other"), ("route", "alternative"),
++                             ("premises", []), ("open_assumptions", ["new hardness"]),
++                             ("reviewed_by", "different reviewer")):
++            review = deepcopy(self.review)
++            review[field] = value
++            with self.subTest(field=field):
++                self.assert_review_withheld(self.record(review))
++        review = deepcopy(self.review)
++        review["relation"] = "stronger"
++        record = self.record(review)
++        self.assertEqual(record["lean"][0]["review_evidence"], "stale")
++        self.assertEqual(record["lean"][0]["reviewed_relation"], "stronger")
++        self.assertEqual(record["evidence"]["formal_statement"], "unassessed")
++        ledger = {"renamed": deepcopy(self.ledger["s"])}
++        self.assert_review_withheld(self.record(ledger=ledger))
++
++    def test_malformed_or_partial_binding_fails_closed(self):
++        for binding in (None, {}, {"schema": MODULE.REVIEW_SCHEMA},
++                        {**self.review["review_binding"], "schema": "unknown"},
++                        {**self.review["review_binding"], "source_snapshot_sha256": "not-a-hash"}):
++            review = {**self.review, "review_binding": binding}
++            with self.subTest(binding=binding), self.assertRaisesRegex(ValueError, "malformed review_binding"):
++                self.record(review)
++
++    def test_fresh_review_alone_does_not_supply_build_or_comparison_evidence(self):
++        records = MODULE.statement_records(self.ledger, {}, {"s": [self.review]}, [], hashes=self.hashes)
++        self.assertEqual(records[0]["evidence"]["review"], "current")
++        self.assertEqual(records[0]["evidence"]["formal_statement"], "exact")
++        self.assertEqual(records[0]["evidence"]["build"], "not_run")
++        self.assertEqual(records[0]["evidence"]["comparator"], "not_run")
++
++
++class DerivedProvenanceTests(unittest.TestCase):
++    def row(self, ident="s", **extra):
++        return {"id": ident, "kind": "claim", "statement": "A separately derived helper.",
++                "original_statement_sha256": None, "corrected": False, "depends_on": [], **extra}
++
++    def test_r2_live_helper_is_withheld_even_if_assigned_a_preprint_source(self):
++        for source in ({}, {"source_id": "openai_preprint"}, {"source_id": "derived_research"}):
++            row = self.row("r2-live-helper", **source)
++            with self.subTest(source=source), self.assertRaisesRegex(ValueError, "withheld"):
++                MODULE.statement_records({row["id"]: row}, {}, {}, [], hashes={})
++            with self.subTest(source=source), self.assertRaisesRegex(ValueError, "withheld"):
++                MODULE.evidence_graph([row], [], hashes={})
++
++    def test_nonpreprint_source_is_never_silently_overwritten(self):
++        row = self.row("separately-derived", source_id="derived_research")
++        with self.assertRaisesRegex(ValueError, "withheld"):
++            MODULE.statement_records({row["id"]: row}, {}, {}, [], hashes={})
++        with self.assertRaisesRegex(ValueError, "withheld"):
++            MODULE.evidence_graph([row], [], hashes={})
++
++    def test_missing_helper_dependency_is_not_silently_dropped(self):
++        row = self.row(depends_on=["r2-live-helper"])
++        records = MODULE.statement_records({row["id"]: row}, {}, {}, [], hashes={})
++        self.assertEqual(records[0]["depends_on"], ["r2-live-helper"])
++        with self.assertRaisesRegex(ValueError, "missing prerequisite rows: r2-live-helper"):
++            MODULE.evidence_graph(records, [], hashes={})
++
++
++if __name__ == "__main__":
++    unittest.main()
+diff --git a/docs/statement_evidence_contract.md b/docs/statement_evidence_contract.md
+--- a/docs/statement_evidence_contract.md
++++ b/docs/statement_evidence_contract.md
+@@ -54,13 +54,62 @@
+ intermediates before displaying public declarations; an absent edge in an old,
+ unbound export does not prove that the theorem is unused.
+ 
+-Reviewed statement relations remain authored judgments. The current builder
+-does not automatically bind an `exact` or `stronger` classification to the
+-reviewed type and its defining terms. Round-two integration checks the candidate
+-source and signature hashes before applying those classifications. A later
+-semantic edit requires renewed review even if rebuilding and comparison pass;
+-[the evidence-path request](../research/requests/round3/09_evidence_backend.md)
+-targets enforcement of that separate freshness boundary.
++Reviewed statement relations remain authored judgments. They have a freshness
++boundary independent of build and comparison evidence. A reviewed tie in
++`corpus/ties.json` may carry a `review_binding` with schema
++`quartic-tie-review-v1`. The binding commits to the statement ID, exact statement
++text, complete corrected row, declaration name, all authored tie fields except
++the binding itself, and the complete local Lean/configuration snapshot. Thus a
++change to `premises`, `open_assumptions`, relation, route or reviewer also
++invalidates the old review. Missing bindings are `legacy_unbound`; mismatching
++bindings are `stale`; malformed bindings stop generation.
++
++Only a `current` review supplies the effective `relation` and `route` used for
++present statement credit. The generated tie retains the historical
++`reviewed_relation`, `reviewed_route`, assumptions, note and binding alongside
++`review_evidence`. Build and comparison facts remain independent: both can be
++current while the old statement review is stale. Such a tie supplies no current
++exact/stronger statement credit, no selected assumption metadata, and no
++statement-level comparison credit. A current review alone supplies no proof
++or comparison evidence.
++
++### Binding a completed review
++
++After inspecting the complete theorem type, its implicit context, definitions,
++paper row and premise classification, the reviewer may record the result of
++`expected_review_binding(id, rows()[id], reviewed_tie, source_hashes())` on that
++same tie. This helper calculates an expected fingerprint; it does not establish
++that a review occurred. Neither corpus generation nor an evidence producer
++writes or refreshes authored review bindings. Do not bulk stamp old ties. Keep
++the reviewed source bytes frozen until the binding is recorded, and retain the
++actual source/type reading in the existing adjudication owner.
++
++The binding fields are `schema`, `statement_id`, `statement_sha256`,
++`row_sha256`, `declaration`, `judgment_sha256`, and
++`source_snapshot_sha256`. Object digests use UTF-8 JSON with sorted keys,
++`ensure_ascii=False` and separators `(',', ':')`; `statement_sha256` hashes the
++exact UTF-8 statement text. The snapshot digest hashes the existing complete
++path-to-SHA-256 map returned by `source_hashes`. It binds theorem source and all
++local definitions, rather than only the text of a theorem header: changing a
++definition while keeping that header unchanged still invalidates review.
++
++This policy is conservative. A local proof-only edit or unrelated local Lean
++addition also invalidates review, as do pinned configuration changes. Prose
++outside the reviewed row/tie and local source snapshot does not. Dependency
++pins are bound, but installed dependency checkout bytes and executable bytes
++are not; a binding does not prove a clean reconstruction or authenticate the
++reviewer. Narrow semantic-closure bindings would require a separately validated
++extractor and are not inferred from an old dependency graph.
++
++### Provenance of derived helpers
++
++The current graph is a preprint-only projection. Separately derived `r2-live-*`
++proposals remain in their existing research adjudication owner, with their own
++source records. The builder refuses those IDs and explicitly nonpreprint source
++IDs instead of relabelling them as OpenAI preprint statements. It also refuses
++missing prerequisite rows, so a dependency on a withheld helper cannot silently
++disappear. Ingestion awaits a source-aware projection preserving each helper's
++own provenance and authored dependencies; this change creates no second registry.
+ 
+ ## Collapsing onto the elegant path
+ 
+diff --git a/corpus/README.md b/corpus/README.md
+--- a/corpus/README.md
++++ b/corpus/README.md
+@@ -19,6 +19,7 @@
+ | Field | Question |
+ | --- | --- |
+ | `formal_statement` | Does a Lean statement say this: `exact`, `stronger`, `partial`, `weaker`, or `none`? |
++| `review` | Is the authored relation bound to the current statement, tie and local Lean/configuration snapshot? |
+ | `build` | Is the declaration in the compiled environment for the current recorded source bytes? |
+ | `comparator` | Did Comparator accept it against an independently compiled challenge? |
+ | `conditional` | Does the checked theorem carry an open hypothesis? |
+@@ -42,6 +43,21 @@
+ dependency graph follows hidden helpers before filtering its display and keeps
+ witness paths through those helpers.
+ 
++Statement review has its own freshness boundary. The optional `review_binding`
++on an authored tie binds its exact row and judgment, declaration and complete
++local source/configuration snapshot. Generated ties expose `review_evidence` as
++`current`, `stale`, `legacy_unbound` or `not_reviewed`; old judgments survive as
++`reviewed_relation` and `reviewed_route`. Only current reviews supply effective
++relations and current statement credit. A new build or Comparator receipt never
++updates a review. The [contract](../docs/statement_evidence_contract.md#binding-a-completed-review)
++defines the binding and the deliberate, reviewed migration of existing ties.
++
++This graph currently admits preprint rows only. `r2-live-*` helper proposals
++stay in their research adjudication source with their own provenance. The
++builder refuses those rows, explicitly nonpreprint source IDs, and missing
++prerequisite rows rather than silently attributing or dropping them. Their
++ingestion needs source-aware graph support; no alternative registry is created.
++
+ Reviewed ties may distinguish `premises` of the statement from additional
+ `open_assumptions` of the cited declaration. A depth bound or circuit-realization
+ premise does not make an otherwise matching theorem conditional. An explicit

@@ -1,0 +1,53 @@
+{
+  "replaces": {
+    "file": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+    "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+    "start_heading": "## 4. Transcripts, addressed certificates, and the total function",
+    "ends_immediately_before": "## 5. Quantum evaluation on every input"
+  },
+  "unchanged_interfaces": [
+    "§3.17 supplies exact circuit and promised capped decoder",
+    "§5.3 uses local-test verifier and winner-dominance property"
+  ],
+  "old_passage_to_new_passages": {
+    "CL-construction-context": [
+      "AC-interface",
+      "AC-attribution"
+    ],
+    "CL-transcripts": [
+      "AC-circuit",
+      "AC-transcripts"
+    ],
+    "CL-layout": [
+      "AC-layout"
+    ],
+    "CL-address-winner": [
+      "AC-winner",
+      "AC-total-unique"
+    ],
+    "CL-fidelity": [
+      "AC-winner",
+      "AC-local-equivalence"
+    ],
+    "CL-unique": [
+      "AC-total-unique"
+    ],
+    "CL-local-tests": [
+      "AC-tests"
+    ],
+    "CL-local-equivalence": [
+      "AC-local-equivalence",
+      "AC-pointer-support"
+    ],
+    "CL-coherent-tests": [
+      "AC-coherent",
+      "AC-clean-oracle",
+      "AC-uniform-sampler"
+    ],
+    "CL-dichotomy": [
+      "AC-dichotomy"
+    ]
+  },
+  "canonical_statement_changes": [],
+  "integration_status": "Advisory replacement only; not an integrated or accepted manuscript."
+}

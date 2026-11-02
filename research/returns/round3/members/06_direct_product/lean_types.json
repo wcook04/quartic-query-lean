@@ -1,0 +1,3270 @@
+{
+  "scope": "Source/type/evidence audit of capped direct product. No fresh Lean invocation. Exact elaborated type fields copy the supplied successful audit log; null means no declaration-specific type printout supplied and the exact source signature plus lexical context are retained instead.",
+  "interpretation": "Exact source signatures include namespace and section-variable context. Only non-null elaborated_type_observation fields are supplied Lean #check printouts. Null does not indicate a failed compilation. No fresh Lean invocation.",
+  "snapshot_commit": "1dd469dd0042b937b739da3bc211eeb60bdf7462",
+  "recorded_root_commit": "31e17dee667d1d72fa621da8e7d3d8ff5fc3960a",
+  "declarations": [
+    {
+      "declaration": "QuarticQuery.constSuccess",
+      "source": {
+        "path": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+        "sha256": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+        "line": 27,
+        "signature": "def constSuccess (f : PartialBool κ) (ν : BitInput κ → ℝ) (b : Bool) : ℝ",
+        "section_context": {
+          "namespace": "QuarticQuery",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": null,
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": true,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": []
+    },
+    {
+      "declaration": "QuarticQuery.treeSuccess",
+      "source": {
+        "path": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+        "sha256": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+        "line": 31,
+        "signature": "def treeSuccess (f : PartialBool κ) (ν : BitInput κ → ℝ) (T : QueryTree κ) : ℝ",
+        "section_context": {
+          "namespace": "QuarticQuery",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": null,
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": true,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": []
+    },
+    {
+      "declaration": "QuarticQuery.restrictWeight",
+      "source": {
+        "path": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+        "sha256": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+        "line": 35,
+        "signature": "def restrictWeight (ν : BitInput κ → ℝ) (q : κ) (b : Bool) : BitInput κ → ℝ",
+        "section_context": {
+          "namespace": "QuarticQuery",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": null,
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": true,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": []
+    },
+    {
+      "declaration": "QuarticQuery.budgetValue",
+      "source": {
+        "path": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+        "sha256": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+        "line": 40,
+        "signature": "noncomputable def budgetValue (f : PartialBool κ) : ℕ → (BitInput κ → ℝ) → ℝ",
+        "section_context": {
+          "namespace": "QuarticQuery",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": null,
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": true,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": []
+    },
+    {
+      "declaration": "QuarticQuery.budgetValue_add_le",
+      "source": {
+        "path": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+        "sha256": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+        "line": 56,
+        "signature": "theorem budgetValue_add_le (f : PartialBool κ) (c : ℕ) (ν : BitInput κ → ℝ) (q : κ) :\n    budgetValue f c (restrictWeight ν q false) + budgetValue f c (restrictWeight ν q true)\n      ≤ budgetValue f (c + 1) ν",
+        "section_context": {
+          "namespace": "QuarticQuery",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": null,
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": true,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": []
+    },
+    {
+      "declaration": "QuarticQuery.budgetValue_mono",
+      "source": {
+        "path": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+        "sha256": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+        "line": 65,
+        "signature": "theorem budgetValue_mono (f : PartialBool κ) {c d : ℕ} (h : c ≤ d) (ν : BitInput κ → ℝ) :\n    budgetValue f c ν ≤ budgetValue f d ν",
+        "section_context": {
+          "namespace": "QuarticQuery",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": null,
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": true,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": []
+    },
+    {
+      "declaration": "QuarticQuery.constSuccess_le_budgetValue",
+      "source": {
+        "path": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+        "sha256": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+        "line": 71,
+        "signature": "theorem constSuccess_le_budgetValue (f : PartialBool κ) (c : ℕ) (ν : BitInput κ → ℝ) (b : Bool) :\n    constSuccess f ν b ≤ budgetValue f c ν",
+        "section_context": {
+          "namespace": "QuarticQuery",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": null,
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": true,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": []
+    },
+    {
+      "declaration": "QuarticQuery.budgetValue_nonneg",
+      "source": {
+        "path": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+        "sha256": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+        "line": 82,
+        "signature": "theorem budgetValue_nonneg (f : PartialBool κ) (c : ℕ) {ν : BitInput κ → ℝ}\n    (hν : ∀ x, 0 ≤ ν x) : 0 ≤ budgetValue f c ν",
+        "section_context": {
+          "namespace": "QuarticQuery",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": null,
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": true,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": []
+    },
+    {
+      "declaration": "QuarticQuery.exists_tree_budgetValue_le",
+      "source": {
+        "path": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+        "sha256": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+        "line": 103,
+        "signature": "theorem exists_tree_budgetValue_le (f : PartialBool κ) (c : ℕ) (ν : BitInput κ → ℝ) :\n    ∃ T : QueryTree κ, T.depth ≤ c ∧ budgetValue f c ν ≤ treeSuccess f ν T",
+        "section_context": {
+          "namespace": "QuarticQuery",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": null,
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": true,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": []
+    },
+    {
+      "declaration": "QuarticQuery.budgetValue_le_of_forall",
+      "source": {
+        "path": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+        "sha256": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+        "line": 133,
+        "signature": "theorem budgetValue_le_of_forall {f : PartialBool κ} {c : ℕ} {ν : BitInput κ → ℝ} {β : ℝ}\n    (h : ∀ T : QueryTree κ, T.depth ≤ c → treeSuccess f ν T ≤ β) : budgetValue f c ν ≤ β",
+        "section_context": {
+          "namespace": "QuarticQuery",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": null,
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": true,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": []
+    },
+    {
+      "declaration": "QuarticQuery.treeSuccess_le_budgetValue",
+      "source": {
+        "path": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+        "sha256": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+        "line": 139,
+        "signature": "theorem treeSuccess_le_budgetValue (f : PartialBool κ) {c : ℕ} (ν : BitInput κ → ℝ)\n    {T : QueryTree κ} (hT : T.depth ≤ c) : treeSuccess f ν T ≤ budgetValue f c ν",
+        "section_context": {
+          "namespace": "QuarticQuery",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": null,
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": []
+    },
+    {
+      "declaration": "QuarticQuery.OutTree.capped",
+      "source": {
+        "path": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+        "sha256": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+        "line": 171,
+        "signature": "def OutTree.capped {r : ℕ} {β : Type} :\n    OutTree (Fin r × κ) β → (Fin r → ℕ) → Prop",
+        "section_context": {
+          "namespace": "QuarticQuery",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": null,
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": true,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": []
+    },
+    {
+      "declaration": "QuarticQuery.guessSuccess",
+      "source": {
+        "path": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+        "sha256": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+        "line": 215,
+        "signature": "def guessSuccess (f : PartialBool κ) (ν : Fin r → BitInput κ → ℝ)\n    (T : OutTree (Fin r × κ) (Fin r → Bool)) : ℝ",
+        "section_context": {
+          "namespace": "QuarticQuery",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": null,
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": true,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": []
+    },
+    {
+      "declaration": "QuarticQuery.guessSuccess_leaf",
+      "source": {
+        "path": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+        "sha256": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+        "line": 220,
+        "signature": "theorem guessSuccess_leaf (f : PartialBool κ) (ν : Fin r → BitInput κ → ℝ) (s : Fin r → Bool) :\n    guessSuccess f ν (.leaf s) = ∏ h, constSuccess f (ν h) (s h)",
+        "section_context": {
+          "namespace": "QuarticQuery",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": null,
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": true,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": []
+    },
+    {
+      "declaration": "QuarticQuery.guessSuccess_query",
+      "source": {
+        "path": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+        "sha256": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+        "line": 235,
+        "signature": "theorem guessSuccess_query (f : PartialBool κ) (ν : Fin r → BitInput κ → ℝ) (h : Fin r) (q : κ)\n    (l u : OutTree (Fin r × κ) (Fin r → Bool)) :\n    guessSuccess f ν (.query (h, q) l u) =\n      guessSuccess f (Function.update ν h (restrictWeight (ν h) q false)) l +\n        guessSuccess f (Function.update ν h (restrictWeight (ν h) q true)) u",
+        "section_context": {
+          "namespace": "QuarticQuery",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": null,
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": true,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": []
+    },
+    {
+      "declaration": "QuarticQuery.guessSuccess_le_prod",
+      "source": {
+        "path": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+        "sha256": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+        "line": 258,
+        "signature": "theorem guessSuccess_le_prod (f : PartialBool κ) (T : OutTree (Fin r × κ) (Fin r → Bool))\n    (ν : Fin r → BitInput κ → ℝ) (c : Fin r → ℕ) (hν : ∀ h x, 0 ≤ ν h x) (hT : T.capped c) :\n    guessSuccess f ν T ≤ ∏ h, budgetValue f (c h) (ν h)",
+        "section_context": {
+          "namespace": "QuarticQuery",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": null,
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": true,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": []
+    },
+    {
+      "declaration": "QuarticQuery.direct_product",
+      "source": {
+        "path": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+        "sha256": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+        "line": 304,
+        "signature": "theorem direct_product {f : PartialBool κ} {μ : BitInput κ → ℝ} {L : ℕ} {β : ℝ}\n    (hμ : ∀ x, 0 ≤ μ x)\n    (hβ : ∀ T : QueryTree κ, T.depth ≤ L → treeSuccess f μ T ≤ β)\n    (T : OutTree (Fin r × κ) (Fin r → Bool)) (hT : T.capped fun _ => L) :\n    guessSuccess f (fun _ => μ) T ≤ β ^ r",
+        "section_context": {
+          "namespace": "QuarticQuery",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": null,
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": true,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "lem-4.1",
+          "canonical_statement": "Let P:D->{0,1}, D subset {0,1}^n, mu a distribution on D, L a nonnegative integer. Suppose every deterministic algorithm making at most L queries computes P under mu with success probability <=beta. If U_1,...,U_r are iid mu, every classical algorithm making at most L queries to each U_h, possibly randomized, adaptive among the r inputs, and given arbitrary additional information independent of (U_1,...,U_r), outputs (P(U_1),...,P(U_r)) with probability <=beta^r.",
+          "relation": "partial",
+          "route": "alternative",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "Deterministic adaptive trees with per-instance caps; no coins or side information.",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": true
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.direct_product_average",
+      "source": {
+        "path": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+        "sha256": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+        "line": 316,
+        "signature": "theorem direct_product_average {S : Type} [Fintype S] {f : PartialBool κ} {μ : BitInput κ → ℝ}\n    {L : ℕ} {β : ℝ} (hμ : ∀ x, 0 ≤ μ x)\n    (hβ : ∀ T : QueryTree κ, T.depth ≤ L → treeSuccess f μ T ≤ β)\n    {p : S → ℝ} (hp : ∀ s, 0 ≤ p s) (hp1 : ∑ s, p s = 1)\n    (T : S → OutTree (Fin r × κ) (Fin r → Bool)) (hT : ∀ s, (T s).capped fun _ => L) :\n    ∑ s, p s * guessSuccess f (fun _ => μ) (T s) ≤ β ^ r",
+        "section_context": {
+          "namespace": "QuarticQuery",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": null,
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "lem-4.1",
+          "canonical_statement": "Let P:D->{0,1}, D subset {0,1}^n, mu a distribution on D, L a nonnegative integer. Suppose every deterministic algorithm making at most L queries computes P under mu with success probability <=beta. If U_1,...,U_r are iid mu, every classical algorithm making at most L queries to each U_h, possibly randomized, adaptive among the r inputs, and given arbitrary additional information independent of (U_1,...,U_r), outputs (P(U_1),...,P(U_r)) with probability <=beta^r.",
+          "relation": "exact",
+          "route": "alternative",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "Row in full, with coins and side information as one finite S. Weight mu need not be normalised. Induction on sub-distributions, not the supermartingale.",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.direct_product_randomized",
+      "source": {
+        "path": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+        "sha256": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+        "line": 327,
+        "signature": "theorem direct_product_randomized {S Ω : Type} [Fintype S] [Fintype Ω] {f : PartialBool κ}\n    {μ : BitInput κ → ℝ} {L : ℕ} {β : ℝ} (hμ : ∀ x, 0 ≤ μ x)\n    (hβ : ∀ T : QueryTree κ, T.depth ≤ L → treeSuccess f μ T ≤ β)\n    {p : S → ℝ} {w : Ω → ℝ} (hp : ∀ s, 0 ≤ p s) (hp1 : ∑ s, p s = 1)\n    (hw : ∀ o, 0 ≤ w o) (hw1 : ∑ o, w o = 1)\n    (T : S → Ω → OutTree (Fin r × κ) (Fin r → Bool))\n    (hT : ∀ s o, (T s o).capped fun _ => L) :\n    ∑ s, ∑ o, p s * w o * guessSuccess f (fun _ => μ) (T s o) ≤ β ^ r",
+        "section_context": {
+          "namespace": "QuarticQuery",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": null,
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "lem-4.1",
+          "canonical_statement": "Let P:D->{0,1}, D subset {0,1}^n, mu a distribution on D, L a nonnegative integer. Suppose every deterministic algorithm making at most L queries computes P under mu with success probability <=beta. If U_1,...,U_r are iid mu, every classical algorithm making at most L queries to each U_h, possibly randomized, adaptive among the r inputs, and given arbitrary additional information independent of (U_1,...,U_r), outputs (P(U_1),...,P(U_r)) with probability <=beta^r.",
+          "relation": "exact",
+          "route": "alternative",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "Row in full, with S and Omega separate and finite. Same proof route as direct_product_average.",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.direct_product_of_depth_le",
+      "source": {
+        "path": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+        "sha256": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+        "line": 342,
+        "signature": "theorem direct_product_of_depth_le {f : PartialBool κ} {μ : BitInput κ → ℝ} {L : ℕ} {β : ℝ}\n    (hμ : ∀ x, 0 ≤ μ x)\n    (hβ : ∀ T : QueryTree κ, T.depth ≤ L → treeSuccess f μ T ≤ β)\n    (T : OutTree (Fin r × κ) (Fin r → Bool)) (hT : T.depth ≤ L) :\n    guessSuccess f (fun _ => μ) T ≤ β ^ r",
+        "section_context": {
+          "namespace": "QuarticQuery",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": null,
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "lem-4.1",
+          "canonical_statement": "Let P:D->{0,1}, D subset {0,1}^n, mu a distribution on D, L a nonnegative integer. Suppose every deterministic algorithm making at most L queries computes P under mu with success probability <=beta. If U_1,...,U_r are iid mu, every classical algorithm making at most L queries to each U_h, possibly randomized, adaptive among the r inputs, and given arbitrary additional information independent of (U_1,...,U_r), outputs (P(U_1),...,P(U_r)) with probability <=beta^r.",
+          "relation": "weaker",
+          "route": "alternative",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "Covers only algorithms with a total cap of L across instances, a narrower class than the per-instance cap of the row; no coins or side information.",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classicalMass",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 30,
+        "signature": "def classicalMass (ν : BitInput κ → ℝ) : ℝ",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "def-value-V",
+          "canonical_statement": "With q_h queries already made to U_h, V_h(tau) is the largest success probability for computing P(U_h) under its conditional law given tau using at most L-q_h further queries.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classicalLaw",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 34,
+        "signature": "noncomputable def classicalLaw (ν : BitInput κ → ℝ) : BitInput κ → ℝ",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "def-value-V",
+          "canonical_statement": "With q_h queries already made to U_h, V_h(tau) is the largest success probability for computing P(U_h) under its conditional law given tau using at most L-q_h further queries.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classicalValue",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 39,
+        "signature": "noncomputable def classicalValue (f : PartialBool κ) (c : ℕ)\n    (ν : BitInput κ → ℝ) : ℝ",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "def-value-V",
+          "canonical_statement": "With q_h queries already made to U_h, V_h(tau) is the largest success probability for computing P(U_h) under its conditional law given tau using at most L-q_h further queries.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classicalLaw_sum",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 48,
+        "signature": "theorem classicalLaw_sum {ν : BitInput κ → ℝ} (hm : 0 < classicalMass ν) :\n    ∑ x, classicalLaw ν x = 1",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "def-value-V",
+          "canonical_statement": "With q_h queries already made to U_h, V_h(tau) is the largest success probability for computing P(U_h) under its conditional law given tau using at most L-q_h further queries.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classicalValue_bounds_tree",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 64,
+        "signature": "theorem classicalValue_bounds_tree (f : PartialBool κ) {c : ℕ}\n    {ν : BitInput κ → ℝ} (hν : ∀ x, 0 ≤ ν x)\n    (T : QueryTree κ) (hT : T.depth ≤ c) :\n    treeSuccess f (classicalLaw ν) T ≤ classicalValue f c ν",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "def-value-V",
+          "canonical_statement": "With q_h queries already made to U_h, V_h(tau) is the largest success probability for computing P(U_h) under its conditional law given tau using at most L-q_h further queries.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classicalValue_attained",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 74,
+        "signature": "theorem classicalValue_attained (f : PartialBool κ) (c : ℕ)\n    (ν : BitInput κ → ℝ) :\n    ∃ T : QueryTree κ, T.depth ≤ c ∧\n      treeSuccess f (classicalLaw ν) T = classicalValue f c ν",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "def-value-V",
+          "canonical_statement": "With q_h queries already made to U_h, V_h(tau) is the largest success probability for computing P(U_h) under its conditional law given tau using at most L-q_h further queries.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classical_budgetValue_le_mass",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 85,
+        "signature": "theorem classical_budgetValue_le_mass (f : PartialBool κ) (c : ℕ)\n    {ν : BitInput κ → ℝ} (hν : ∀ x, 0 ≤ ν x) :\n    budgetValue f c ν ≤ classicalMass ν",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "def-value-V",
+          "canonical_statement": "With q_h queries already made to U_h, V_h(tau) is the largest success probability for computing P(U_h) under its conditional law given tau using at most L-q_h further queries.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classical_budgetValue_zero_mass",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 97,
+        "signature": "theorem classical_budgetValue_zero_mass (f : PartialBool κ) (c : ℕ)\n    {ν : BitInput κ → ℝ} (hν : ∀ x, 0 ≤ ν x) (hm : classicalMass ν = 0) :\n    budgetValue f c ν = 0",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "eq-16",
+          "canonical_statement": "If the next query at tau addresses U_h then E[V_h(tau') | tau] <= V_h(tau). The conditional laws and budgets of the other inputs do not change.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classicalValue_nonneg",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 104,
+        "signature": "theorem classicalValue_nonneg (f : PartialBool κ) (c : ℕ)\n    {ν : BitInput κ → ℝ} (hν : ∀ x, 0 ≤ ν x) :\n    0 ≤ classicalValue f c ν",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "claim-supermartingale",
+          "canonical_statement": "E[prod_j V_j(tau') | tau] <= prod_j V_j(tau). The product is a supermartingale over at most rL queries.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classicalBranchProbability",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 110,
+        "signature": "noncomputable def classicalBranchProbability (ν : BitInput κ → ℝ)\n    (q : κ) (b : Bool) : ℝ",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "eq-16",
+          "canonical_statement": "If the next query at tau addresses U_h then E[V_h(tau') | tau] <= V_h(tau). The conditional laws and budgets of the other inputs do not change.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classicalMass_split",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 116,
+        "signature": "theorem classicalMass_split (ν : BitInput κ → ℝ) (q : κ) :\n    classicalMass (restrictWeight ν q false) +\n      classicalMass (restrictWeight ν q true) = classicalMass ν",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "eq-16",
+          "canonical_statement": "If the next query at tau addresses U_h then E[V_h(tau') | tau] <= V_h(tau). The conditional laws and budgets of the other inputs do not change.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classicalBranchProbability_sum",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 127,
+        "signature": "theorem classicalBranchProbability_sum (ν : BitInput κ → ℝ)\n    (q : κ) (hm : 0 < classicalMass ν) :\n    classicalBranchProbability ν q false + classicalBranchProbability ν q true = 1",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "eq-16",
+          "canonical_statement": "If the next query at tau addresses U_h then E[V_h(tau') | tau] <= V_h(tau). The conditional laws and budgets of the other inputs do not change.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classicalBranchProbability_nonneg",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 134,
+        "signature": "theorem classicalBranchProbability_nonneg {ν : BitInput κ → ℝ}\n    (hν : ∀ x, 0 ≤ ν x) (q : κ) (b : Bool) :\n    0 ≤ classicalBranchProbability ν q b",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "eq-16",
+          "canonical_statement": "If the next query at tau addresses U_h then E[V_h(tau') | tau] <= V_h(tau). The conditional laws and budgets of the other inputs do not change.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classical_branchValue",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 142,
+        "signature": "theorem classical_branchValue (f : PartialBool κ) (c : ℕ)\n    {ν : BitInput κ → ℝ} (hν : ∀ x, 0 ≤ ν x) (q : κ) (b : Bool) :\n    classicalBranchProbability ν q b * classicalValue f c (restrictWeight ν q b) =\n      budgetValue f c (restrictWeight ν q b) / classicalMass ν",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "eq-16",
+          "canonical_statement": "If the next query at tau addresses U_h then E[V_h(tau') | tau] <= V_h(tau). The conditional laws and budgets of the other inputs do not change.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classical_eq_16",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 158,
+        "signature": "theorem classical_eq_16 (f : PartialBool κ) (c : ℕ)\n    {ν : BitInput κ → ℝ} (hν : ∀ x, 0 ≤ ν x) (q : κ) :\n    classicalBranchProbability ν q false *\n        classicalValue f c (restrictWeight ν q false) +\n      classicalBranchProbability ν q true *\n        classicalValue f c (restrictWeight ν q true) ≤\n      classicalValue f (c + 1) ν",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "eq-16",
+          "canonical_statement": "If the next query at tau addresses U_h then E[V_h(tau') | tau] <= V_h(tau). The conditional laws and budgets of the other inputs do not change.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.ClassicalTranscript",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 173,
+        "signature": "abbrev ClassicalTranscript (r : ℕ) (κ : Type)",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "claim-product-law",
+          "canonical_statement": "For a deterministic algorithm, at every transcript tau of positive probability, the conditional law of (U_1,...,U_r) given tau is a product of separate conditional laws, because the event of obtaining tau is a Cartesian product of constraints on each input.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classicalLocalConsistent",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 177,
+        "signature": "def classicalLocalConsistent (τ : ClassicalTranscript r κ) (h : Fin r)\n    (x : BitInput κ) : Prop",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "claim-product-law",
+          "canonical_statement": "For a deterministic algorithm, at every transcript tau of positive probability, the conditional law of (U_1,...,U_r) given tau is a product of separate conditional laws, because the event of obtaining tau is a Cartesian product of constraints on each input.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classicalSchedule",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 182,
+        "signature": "def classicalSchedule {β : Type} :\n    OutTree (Fin r × κ) β → ClassicalTranscript r κ → Prop",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "claim-product-law",
+          "canonical_statement": "For a deterministic algorithm, at every transcript tau of positive probability, the conditional law of (U_1,...,U_r) given tau is a product of separate conditional laws, because the event of obtaining tau is a Cartesian product of constraints on each input.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classicalPrefix",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 191,
+        "signature": "def classicalPrefix {β : Type} :\n    OutTree (Fin r × κ) β → ClassicalTranscript r κ →\n      (Fin r → BitInput κ) → Prop",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "claim-product-law",
+          "canonical_statement": "For a deterministic algorithm, at every transcript tau of positive probability, the conditional law of (U_1,...,U_r) given tau is a product of separate conditional laws, because the event of obtaining tau is a Cartesian product of constraints on each input.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classical_prefix_iff",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 218,
+        "signature": "theorem classical_prefix_iff {β : Type}\n    (T : OutTree (Fin r × κ) β) (τ : ClassicalTranscript r κ)\n    (U : Fin r → BitInput κ) :\n    classicalPrefix T τ U ↔\n      classicalSchedule T τ ∧ ∀ h, classicalLocalConsistent τ h (U h)",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": {
+        "text": "QuarticQuery.Paper.classical_prefix_iff {κ : Type} [Fintype κ] [DecidableEq κ] {r : Nat} {β : Type}\n  (T : QuarticQuery.OutTree (Prod (Fin r) κ) β) (τ : QuarticQuery.Paper.ClassicalTranscript r κ)\n  (U : Fin r → QuarticQuery.BitInput κ) :\n  Iff (QuarticQuery.Paper.classicalPrefix T τ U)\n    (And (QuarticQuery.Paper.classicalSchedule T τ)\n      (∀ (h : Fin r), QuarticQuery.Paper.classicalLocalConsistent τ h (U h)))",
+        "line": 1252,
+        "axiom_observation": "'QuarticQuery.Paper.classical_prefix_iff' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": true,
+        "audit_allowed_axioms": [
+          "propext",
+          "Quot.sound",
+          "Classical.choice"
+        ],
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "claim-product-law",
+          "canonical_statement": "For a deterministic algorithm, at every transcript tau of positive probability, the conditional law of (U_1,...,U_r) given tau is a product of separate conditional laws, because the event of obtaining tau is a Cartesian product of constraints on each input.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classicalTranscriptWeight",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 235,
+        "signature": "noncomputable def classicalTranscriptWeight (μ : Fin r → BitInput κ → ℝ)\n    (τ : ClassicalTranscript r κ) (h : Fin r) : BitInput κ → ℝ",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "claim-product-law",
+          "canonical_statement": "For a deterministic algorithm, at every transcript tau of positive probability, the conditional law of (U_1,...,U_r) given tau is a product of separate conditional laws, because the event of obtaining tau is a Cartesian product of constraints on each input.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classical_rectangle_weight",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 242,
+        "signature": "theorem classical_rectangle_weight (μ : Fin r → BitInput κ → ℝ)\n    (τ : ClassicalTranscript r κ) (U : Fin r → BitInput κ) :\n    (if ∀ h, classicalLocalConsistent τ h (U h) then ∏ h, μ h (U h) else 0) =\n      ∏ h, classicalTranscriptWeight μ τ h (U h)",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "claim-product-law",
+          "canonical_statement": "For a deterministic algorithm, at every transcript tau of positive probability, the conditional law of (U_1,...,U_r) given tau is a product of separate conditional laws, because the event of obtaining tau is a Cartesian product of constraints on each input.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classical_mass_product",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 256,
+        "signature": "theorem classical_mass_product (ν : Fin r → BitInput κ → ℝ) :\n    (∑ U : Fin r → BitInput κ, ∏ h, ν h (U h)) =\n      ∏ h, classicalMass (ν h)",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "claim-product-law",
+          "canonical_statement": "For a deterministic algorithm, at every transcript tau of positive probability, the conditional law of (U_1,...,U_r) given tau is a product of separate conditional laws, because the event of obtaining tau is a Cartesian product of constraints on each input.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classical_product_law",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 266,
+        "signature": "theorem classical_product_law (ν : Fin r → BitInput κ → ℝ)\n    (U : Fin r → BitInput κ) :\n    (∏ h, ν h (U h)) / (∑ V : Fin r → BitInput κ, ∏ h, ν h (V h)) =\n      ∏ h, classicalLaw (ν h) (U h)",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "claim-product-law",
+          "canonical_statement": "For a deterministic algorithm, at every transcript tau of positive probability, the conditional law of (U_1,...,U_r) given tau is a product of separate conditional laws, because the event of obtaining tau is a Cartesian product of constraints on each input.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classical_transcript_product_law",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 275,
+        "signature": "theorem classical_transcript_product_law {β : Type}\n    (T : OutTree (Fin r × κ) β) (τ : ClassicalTranscript r κ)\n    (μ : Fin r → BitInput κ → ℝ)\n    (hm : 0 < ∑ V : Fin r → BitInput κ,\n      if classicalPrefix T τ V then ∏ h, μ h (V h) else 0)\n    (U : Fin r → BitInput κ) :\n    (if classicalPrefix T τ U then ∏ h, μ h (U h) else 0) /\n        (∑ V : Fin r → BitInput κ,\n          if classicalPrefix T τ V then ∏ h, μ h (V h) else 0) =\n      ∏ h, classicalLaw (classicalTranscriptWeight μ τ h) (U h)",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": {
+        "text": "QuarticQuery.Paper.classical_transcript_product_law {κ : Type} [Fintype κ] [DecidableEq κ] {r : Nat} {β : Type}\n  (T : QuarticQuery.OutTree (Prod (Fin r) κ) β) (τ : QuarticQuery.Paper.ClassicalTranscript r κ)\n  (μ : Fin r → QuarticQuery.BitInput κ → Real)\n  (hm :\n    LT.lt 0\n      (Finset.univ.sum fun V => ite (QuarticQuery.Paper.classicalPrefix T τ V) (Finset.univ.prod fun h => μ h (V h)) 0))\n  (U : Fin r → QuarticQuery.BitInput κ) :\n  Eq\n    (HDiv.hDiv (ite (QuarticQuery.Paper.classicalPrefix T τ U) (Finset.univ.prod fun h => μ h (U h)) 0)\n      (Finset.univ.sum fun V => ite (QuarticQuery.Paper.classicalPrefix T τ V) (Finset.univ.prod fun h => μ h (V h)) 0))\n    (Finset.univ.prod fun h =>\n      QuarticQuery.Paper.classicalLaw (QuarticQuery.Paper.classicalTranscriptWeight μ τ h) (U h))",
+        "line": 1239,
+        "axiom_observation": "'QuarticQuery.Paper.classical_transcript_product_law' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": true,
+        "audit_allowed_axioms": [
+          "propext",
+          "Quot.sound",
+          "Classical.choice"
+        ],
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "claim-product-law",
+          "canonical_statement": "For a deterministic algorithm, at every transcript tau of positive probability, the conditional law of (U_1,...,U_r) given tau is a product of separate conditional laws, because the event of obtaining tau is a Cartesian product of constraints on each input.",
+          "relation": "exact",
+          "route": "same",
+          "premises": [
+            "Finite independent nonnegative prior weights for the probabilistic interpretation; the equality itself allows arbitrary real weights.",
+            "The conditioning transcript has strictly positive total mass."
+          ],
+          "open_assumptions": [],
+          "note": "The actual adaptive execution-prefix law is normalized and equals the product of transcript-restricted one-instance laws; positive transcript mass forces a legal schedule. Repeated observations remain in the transcript.",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classical_transcriptWeight_append",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 306,
+        "signature": "theorem classical_transcriptWeight_append (μ : Fin r → BitInput κ → ℝ)\n    (τ : ClassicalTranscript r κ) (h : Fin r) (q : κ) (b : Bool) :\n    classicalTranscriptWeight μ (τ ++ [((h, q), b)]) =\n      Function.update (classicalTranscriptWeight μ τ) h\n        (restrictWeight (classicalTranscriptWeight μ τ h) q b)",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": {
+        "text": "QuarticQuery.Paper.classical_transcriptWeight_append {κ : Type} [Fintype κ] [DecidableEq κ] {r : Nat}\n  (μ : Fin r → QuarticQuery.BitInput κ → Real) (τ : QuarticQuery.Paper.ClassicalTranscript r κ) (h : Fin r) (q : κ)\n  (b : Bool) :\n  Eq (QuarticQuery.Paper.classicalTranscriptWeight μ (HAppend.hAppend τ (List.cons (Prod.mk (Prod.mk h q) b) List.nil)))\n    (Function.update (QuarticQuery.Paper.classicalTranscriptWeight μ τ) h\n      (QuarticQuery.restrictWeight (QuarticQuery.Paper.classicalTranscriptWeight μ τ h) q b))",
+        "line": 1328,
+        "axiom_observation": "'QuarticQuery.Paper.classical_transcriptWeight_append' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": true,
+        "audit_allowed_axioms": [
+          "propext",
+          "Quot.sound",
+          "Classical.choice"
+        ],
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "eq-16",
+          "canonical_statement": "If the next query at tau addresses U_h then E[V_h(tau') | tau] <= V_h(tau). The conditional laws and budgets of the other inputs do not change.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classical_transcriptWeight_nonneg",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 338,
+        "signature": "theorem classical_transcriptWeight_nonneg\n    {μ : Fin r → BitInput κ → ℝ} (hμ : ∀ h x, 0 ≤ μ h x)\n    (τ : ClassicalTranscript r κ) :\n    ∀ h x, 0 ≤ classicalTranscriptWeight μ τ h x",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "claim-product-law",
+          "canonical_statement": "For a deterministic algorithm, at every transcript tau of positive probability, the conditional law of (U_1,...,U_r) given tau is a product of separate conditional laws, because the event of obtaining tau is a Cartesian product of constraints on each input.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classical_transcript_mass_pos",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 350,
+        "signature": "theorem classical_transcript_mass_pos {β : Type}\n    (T : OutTree (Fin r × κ) β) (τ : ClassicalTranscript r κ)\n    {μ : Fin r → BitInput κ → ℝ} (hμ : ∀ h x, 0 ≤ μ h x)\n    (hm : 0 < ∑ V : Fin r → BitInput κ,\n      if classicalPrefix T τ V then ∏ h, μ h (V h) else 0) :\n    ∀ h, 0 < classicalMass (classicalTranscriptWeight μ τ h)",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": {
+        "text": "QuarticQuery.Paper.classical_transcript_mass_pos {κ : Type} [Fintype κ] [DecidableEq κ] {r : Nat} {β : Type}\n  (T : QuarticQuery.OutTree (Prod (Fin r) κ) β) (τ : QuarticQuery.Paper.ClassicalTranscript r κ)\n  {μ : Fin r → QuarticQuery.BitInput κ → Real} (hμ : ∀ (h : Fin r) (x : QuarticQuery.BitInput κ), LE.le 0 (μ h x))\n  (hm :\n    LT.lt 0\n      (Finset.univ.sum fun V => ite (QuarticQuery.Paper.classicalPrefix T τ V) (Finset.univ.prod fun h => μ h (V h)) 0))\n  (h : Fin r) : LT.lt 0 (QuarticQuery.Paper.classicalMass (QuarticQuery.Paper.classicalTranscriptWeight μ τ h))",
+        "line": 1259,
+        "axiom_observation": "'QuarticQuery.Paper.classical_transcript_mass_pos' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": true,
+        "audit_allowed_axioms": [
+          "propext",
+          "Quot.sound",
+          "Classical.choice"
+        ],
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "claim-product-law",
+          "canonical_statement": "For a deterministic algorithm, at every transcript tau of positive probability, the conditional law of (U_1,...,U_r) given tau is a product of separate conditional laws, because the event of obtaining tau is a Cartesian product of constraints on each input.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classicalQueriesTo",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 382,
+        "signature": "def classicalQueriesTo (τ : ClassicalTranscript r κ) (h : Fin r) : ℕ",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "def-value-V",
+          "canonical_statement": "With q_h queries already made to U_h, V_h(tau) is the largest success probability for computing P(U_h) under its conditional law given tau using at most L-q_h further queries.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classicalTranscriptValue",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 387,
+        "signature": "noncomputable def classicalTranscriptValue (f : PartialBool κ)\n    (μ : Fin r → BitInput κ → ℝ) (τ : ClassicalTranscript r κ)\n    (L : ℕ) (h : Fin r) : ℝ",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": {
+        "text": "QuarticQuery.Paper.classicalTranscriptValue {κ : Type} [Fintype κ] [DecidableEq κ] {r : Nat}\n  (f : QuarticQuery.PartialBool κ) (μ : Fin r → QuarticQuery.BitInput κ → Real)\n  (τ : QuarticQuery.Paper.ClassicalTranscript r κ) (L : Nat) (h : Fin r) : Real",
+        "line": 1275,
+        "axiom_observation": "'QuarticQuery.Paper.classicalTranscriptValue' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": true,
+        "audit_allowed_axioms": [
+          "propext",
+          "Quot.sound",
+          "Classical.choice"
+        ],
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "def-value-V",
+          "canonical_statement": "With q_h queries already made to U_h, V_h(tau) is the largest success probability for computing P(U_h) under its conditional law given tau using at most L-q_h further queries.",
+          "relation": "partial",
+          "route": "same",
+          "premises": [
+            "Positive transcript mass when the normalized weight is interpreted as a conditional distribution.",
+            "The number of already spent queries is counted with repetitions."
+          ],
+          "open_assumptions": [],
+          "note": "The named definition supplies the exact transcript restriction and remaining budget, but a definition alone does not assert that this is the attained largest success probability.",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classicalTranscriptValue_attained",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 395,
+        "signature": "theorem classicalTranscriptValue_attained (f : PartialBool κ)\n    (μ : Fin r → BitInput κ → ℝ) (τ : ClassicalTranscript r κ)\n    (L : ℕ) (h : Fin r) :\n    ∃ T : QueryTree κ, T.depth ≤ L - classicalQueriesTo τ h ∧\n      treeSuccess f (classicalLaw (classicalTranscriptWeight μ τ h)) T =\n        classicalTranscriptValue f μ τ L h",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": {
+        "text": "QuarticQuery.Paper.classicalTranscriptValue_attained {κ : Type} [Fintype κ] [DecidableEq κ] {r : Nat}\n  (f : QuarticQuery.PartialBool κ) (μ : Fin r → QuarticQuery.BitInput κ → Real)\n  (τ : QuarticQuery.Paper.ClassicalTranscript r κ) (L : Nat) (h : Fin r) :\n  Exists fun T =>\n    And (LE.le T.depth (HSub.hSub L (QuarticQuery.Paper.classicalQueriesTo τ h)))\n      (Eq\n        (QuarticQuery.treeSuccess f\n          (QuarticQuery.Paper.classicalLaw (QuarticQuery.Paper.classicalTranscriptWeight μ τ h)) T)\n        (QuarticQuery.Paper.classicalTranscriptValue f μ τ L h))",
+        "line": 1279,
+        "axiom_observation": "'QuarticQuery.Paper.classicalTranscriptValue_attained' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": true,
+        "audit_allowed_axioms": [
+          "propext",
+          "Quot.sound",
+          "Classical.choice"
+        ],
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "def-value-V",
+          "canonical_statement": "With q_h queries already made to U_h, V_h(tau) is the largest success probability for computing P(U_h) under its conditional law given tau using at most L-q_h further queries.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classicalTranscriptValue_bounds_tree",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 405,
+        "signature": "theorem classicalTranscriptValue_bounds_tree (f : PartialBool κ)\n    {μ : Fin r → BitInput κ → ℝ} (hμ : ∀ h x, 0 ≤ μ h x)\n    (τ : ClassicalTranscript r κ) (L : ℕ) (h : Fin r)\n    (T : QueryTree κ) (hT : T.depth ≤ L - classicalQueriesTo τ h) :\n    treeSuccess f (classicalLaw (classicalTranscriptWeight μ τ h)) T ≤\n      classicalTranscriptValue f μ τ L h",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": {
+        "text": "QuarticQuery.Paper.classicalTranscriptValue_bounds_tree {κ : Type} [Fintype κ] [DecidableEq κ] {r : Nat}\n  (f : QuarticQuery.PartialBool κ) {μ : Fin r → QuarticQuery.BitInput κ → Real}\n  (hμ : ∀ (h : Fin r) (x : QuarticQuery.BitInput κ), LE.le 0 (μ h x)) (τ : QuarticQuery.Paper.ClassicalTranscript r κ)\n  (L : Nat) (h : Fin r) (T : QuarticQuery.QueryTree κ)\n  (hT : LE.le T.depth (HSub.hSub L (QuarticQuery.Paper.classicalQueriesTo τ h))) :\n  LE.le\n    (QuarticQuery.treeSuccess f (QuarticQuery.Paper.classicalLaw (QuarticQuery.Paper.classicalTranscriptWeight μ τ h))\n      T)\n    (QuarticQuery.Paper.classicalTranscriptValue f μ τ L h)",
+        "line": 1289,
+        "axiom_observation": "'QuarticQuery.Paper.classicalTranscriptValue_bounds_tree' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": true,
+        "audit_allowed_axioms": [
+          "propext",
+          "Quot.sound",
+          "Classical.choice"
+        ],
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "def-value-V",
+          "canonical_statement": "With q_h queries already made to U_h, V_h(tau) is the largest success probability for computing P(U_h) under its conditional law given tau using at most L-q_h further queries.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classicalQueriesTo_append",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 415,
+        "signature": "theorem classicalQueriesTo_append (τ : ClassicalTranscript r κ)\n    (h j : Fin r) (q : κ) (b : Bool) :\n    classicalQueriesTo (τ ++ [((h, q), b)]) j =\n      classicalQueriesTo τ j + if h = j then 1 else 0",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": {
+        "text": "QuarticQuery.Paper.classicalQueriesTo_append {κ : Type} [Fintype κ] [DecidableEq κ] {r : Nat}\n  (τ : QuarticQuery.Paper.ClassicalTranscript r κ) (h j : Fin r) (q : κ) (b : Bool) :\n  Eq (QuarticQuery.Paper.classicalQueriesTo (HAppend.hAppend τ (List.cons (Prod.mk (Prod.mk h q) b) List.nil)) j)\n    (HAdd.hAdd (QuarticQuery.Paper.classicalQueriesTo τ j) (ite (Eq h j) 1 0))",
+        "line": 1323,
+        "axiom_observation": "'QuarticQuery.Paper.classicalQueriesTo_append' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": true,
+        "audit_allowed_axioms": [
+          "propext",
+          "Quot.sound",
+          "Classical.choice"
+        ],
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "eq-16",
+          "canonical_statement": "If the next query at tau addresses U_h then E[V_h(tau') | tau] <= V_h(tau). The conditional laws and budgets of the other inputs do not change.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classical_budget_append",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 424,
+        "signature": "theorem classical_budget_append (τ : ClassicalTranscript r κ)\n    (L : ℕ) (h : Fin r) (q : κ) (b : Bool) :\n    (fun j => L - classicalQueriesTo (τ ++ [((h, q), b)]) j) =\n      Function.update (fun j => L - classicalQueriesTo τ j) h\n        (L - classicalQueriesTo τ h - 1)",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "eq-16",
+          "canonical_statement": "If the next query at tau addresses U_h then E[V_h(tau') | tau] <= V_h(tau). The conditional laws and budgets of the other inputs do not change.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classical_eq_16_transcript",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 439,
+        "signature": "theorem classical_eq_16_transcript (f : PartialBool κ)\n    {μ : Fin r → BitInput κ → ℝ} (hμ : ∀ j x, 0 ≤ μ j x)\n    (τ : ClassicalTranscript r κ) (L : ℕ) (h : Fin r) (q : κ)\n    (hc : classicalQueriesTo τ h < L) :\n    classicalBranchProbability (classicalTranscriptWeight μ τ h) q false *\n        classicalTranscriptValue f μ (τ ++ [((h, q), false)]) L h +\n      classicalBranchProbability (classicalTranscriptWeight μ τ h) q true *\n        classicalTranscriptValue f μ (τ ++ [((h, q), true)]) L h ≤\n      classicalTranscriptValue f μ τ L h",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": {
+        "text": "QuarticQuery.Paper.classical_eq_16_transcript {κ : Type} [Fintype κ] [DecidableEq κ] {r : Nat}\n  (f : QuarticQuery.PartialBool κ) {μ : Fin r → QuarticQuery.BitInput κ → Real}\n  (hμ : ∀ (j : Fin r) (x : QuarticQuery.BitInput κ), LE.le 0 (μ j x)) (τ : QuarticQuery.Paper.ClassicalTranscript r κ)\n  (L : Nat) (h : Fin r) (q : κ) (hc : LT.lt (QuarticQuery.Paper.classicalQueriesTo τ h) L) :\n  LE.le\n    (HAdd.hAdd\n      (HMul.hMul\n        (QuarticQuery.Paper.classicalBranchProbability (QuarticQuery.Paper.classicalTranscriptWeight μ τ h) q false)\n        (QuarticQuery.Paper.classicalTranscriptValue f μ\n          (HAppend.hAppend τ (List.cons (Prod.mk (Prod.mk h q) false) List.nil)) L h))\n      (HMul.hMul\n        (QuarticQuery.Paper.classicalBranchProbability (QuarticQuery.Paper.classicalTranscriptWeight μ τ h) q true)\n        (QuarticQuery.Paper.classicalTranscriptValue f μ\n          (HAppend.hAppend τ (List.cons (Prod.mk (Prod.mk h q) true) List.nil)) L h)))\n    (QuarticQuery.Paper.classicalTranscriptValue f μ τ L h)",
+        "line": 1299,
+        "axiom_observation": "'QuarticQuery.Paper.classical_eq_16_transcript' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": true,
+        "audit_allowed_axioms": [
+          "propext",
+          "Quot.sound",
+          "Classical.choice"
+        ],
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "eq-16",
+          "canonical_statement": "If the next query at tau addresses U_h then E[V_h(tau') | tau] <= V_h(tau). The conditional laws and budgets of the other inputs do not change.",
+          "relation": "partial",
+          "route": "same",
+          "premises": [
+            "Nonnegative independent priors.",
+            "The queried instance still has at least one query of its cap available.",
+            "The queried coordinate and instance are the actual proposed next query when applied to execution."
+          ],
+          "open_assumptions": [],
+          "note": "The primary theorem proves the queried factor expectation inequality. The canonical row also asserts that every unqueried factor is unchanged.",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classicalTranscriptValue_unchanged",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 457,
+        "signature": "theorem classicalTranscriptValue_unchanged (f : PartialBool κ)\n    (μ : Fin r → BitInput κ → ℝ) (τ : ClassicalTranscript r κ)\n    (L : ℕ) (h j : Fin r) (q : κ) (b : Bool) (hj : j ≠ h) :\n    classicalTranscriptValue f μ (τ ++ [((h, q), b)]) L j =\n      classicalTranscriptValue f μ τ L j",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": {
+        "text": "QuarticQuery.Paper.classicalTranscriptValue_unchanged {κ : Type} [Fintype κ] [DecidableEq κ] {r : Nat}\n  (f : QuarticQuery.PartialBool κ) (μ : Fin r → QuarticQuery.BitInput κ → Real)\n  (τ : QuarticQuery.Paper.ClassicalTranscript r κ) (L : Nat) (h j : Fin r) (q : κ) (b : Bool) (hj : Ne j h) :\n  Eq\n    (QuarticQuery.Paper.classicalTranscriptValue f μ (HAppend.hAppend τ (List.cons (Prod.mk (Prod.mk h q) b) List.nil))\n      L j)\n    (QuarticQuery.Paper.classicalTranscriptValue f μ τ L j)",
+        "line": 1315,
+        "axiom_observation": "'QuarticQuery.Paper.classicalTranscriptValue_unchanged' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": true,
+        "audit_allowed_axioms": [
+          "propext",
+          "Quot.sound",
+          "Classical.choice"
+        ],
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "eq-16",
+          "canonical_statement": "If the next query at tau addresses U_h then E[V_h(tau') | tau] <= V_h(tau). The conditional laws and budgets of the other inputs do not change.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classicalProductValue",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 467,
+        "signature": "noncomputable def classicalProductValue (f : PartialBool κ)\n    (ν : Fin r → BitInput κ → ℝ) (c : Fin r → ℕ) : ℝ",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "claim-supermartingale",
+          "canonical_statement": "E[prod_j V_j(tau') | tau] <= prod_j V_j(tau). The product is a supermartingale over at most rL queries.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classical_product_step",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 483,
+        "signature": "theorem classical_product_step (f : PartialBool κ)\n    (ν : Fin r → BitInput κ → ℝ) (c : Fin r → ℕ)\n    (hν : ∀ j x, 0 ≤ ν j x) (h : Fin r) (q : κ) (hc : 0 < c h) :\n    classicalBranchProbability (ν h) q false *\n        classicalProductValue f\n          (Function.update ν h (restrictWeight (ν h) q false))\n          (Function.update c h (c h - 1)) +\n      classicalBranchProbability (ν h) q true *\n        classicalProductValue f\n          (Function.update ν h (restrictWeight (ν h) q true))\n          (Function.update c h (c h - 1)) ≤\n      classicalProductValue f ν c",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "claim-supermartingale",
+          "canonical_statement": "E[prod_j V_j(tau') | tau] <= prod_j V_j(tau). The product is a supermartingale over at most rL queries.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classical_product_marginal",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 525,
+        "signature": "theorem classical_product_marginal\n    (ν : Fin r → BitInput κ → ℝ)\n    (hm : ∀ j, 0 < classicalMass (ν j))\n    (h : Fin r) (E : BitInput κ → ℝ) :\n    (∑ U : Fin r → BitInput κ,\n      (∏ j, classicalLaw (ν j) (U j)) * E (U h)) =\n      ∑ x, classicalLaw (ν h) x * E x",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": {
+        "text": "QuarticQuery.Paper.classical_product_marginal {κ : Type} [Fintype κ] [DecidableEq κ] {r : Nat}\n  (ν : Fin r → QuarticQuery.BitInput κ → Real) (hm : ∀ (j : Fin r), LT.lt 0 (QuarticQuery.Paper.classicalMass (ν j)))\n  (h : Fin r) (E : QuarticQuery.BitInput κ → Real) :\n  Eq\n    (Finset.univ.sum fun U =>\n      HMul.hMul (Finset.univ.prod fun j => QuarticQuery.Paper.classicalLaw (ν j) (U j)) (E (U h)))\n    (Finset.univ.sum fun x => HMul.hMul (QuarticQuery.Paper.classicalLaw (ν h) x) (E x))",
+        "line": 1267,
+        "axiom_observation": "'QuarticQuery.Paper.classical_product_marginal' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": true,
+        "audit_allowed_axioms": [
+          "propext",
+          "Quot.sound",
+          "Classical.choice"
+        ],
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "claim-product-law",
+          "canonical_statement": "For a deterministic algorithm, at every transcript tau of positive probability, the conditional law of (U_1,...,U_r) given tau is a product of separate conditional laws, because the event of obtaining tau is a Cartesian product of constraints on each input.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classical_two_branch_expectation",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 567,
+        "signature": "theorem classical_two_branch_expectation (ν : BitInput κ → ℝ)\n    (q : κ) (a b : ℝ) :\n    (∑ x, classicalLaw ν x * (if x q then b else a)) =\n      classicalBranchProbability ν q false * a +\n        classicalBranchProbability ν q true * b",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "eq-16",
+          "canonical_statement": "If the next query at tau addresses U_h then E[V_h(tau') | tau] <= V_h(tau). The conditional laws and budgets of the other inputs do not change.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classical_product_conditional_expectation",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 582,
+        "signature": "theorem classical_product_conditional_expectation (f : PartialBool κ)\n    (ν : Fin r → BitInput κ → ℝ) (c : Fin r → ℕ)\n    (hν : ∀ j x, 0 ≤ ν j x) (hm : ∀ j, 0 < classicalMass (ν j))\n    (h : Fin r) (q : κ) (hc : 0 < c h) :\n    (∑ U : Fin r → BitInput κ, (∏ j, classicalLaw (ν j) (U j)) *\n      classicalProductValue f\n        (Function.update ν h (restrictWeight (ν h) q (U h q)))\n        (Function.update c h (c h - 1))) ≤\n      classicalProductValue f ν c",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "claim-supermartingale",
+          "canonical_statement": "E[prod_j V_j(tau') | tau] <= prod_j V_j(tau). The product is a supermartingale over at most rL queries.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classical_transcript_conditional_expectation",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 615,
+        "signature": "theorem classical_transcript_conditional_expectation {β : Type}\n    (T : OutTree (Fin r × κ) β) (f : PartialBool κ)\n    {μ : Fin r → BitInput κ → ℝ} (hμ : ∀ j x, 0 ≤ μ j x)\n    (τ : ClassicalTranscript r κ) (L : ℕ) (h : Fin r) (q : κ)\n    (hm : 0 < ∑ V : Fin r → BitInput κ,\n      if classicalPrefix T τ V then ∏ j, μ j (V j) else 0)\n    (hc : classicalQueriesTo τ h < L) :\n    (∑ U : Fin r → BitInput κ,\n      ((if classicalPrefix T τ U then ∏ j, μ j (U j) else 0) /\n        (∑ V : Fin r → BitInput κ,\n          if classicalPrefix T τ V then ∏ j, μ j (V j) else 0)) *\n        (∏ j, classicalTranscriptValue f μ (τ ++ [((h, q), U h q)]) L j)) ≤\n      ∏ j, classicalTranscriptValue f μ τ L j",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": {
+        "text": "QuarticQuery.Paper.classical_transcript_conditional_expectation {κ : Type} [Fintype κ] [DecidableEq κ] {r : Nat}\n  {β : Type} (T : QuarticQuery.OutTree (Prod (Fin r) κ) β) (f : QuarticQuery.PartialBool κ)\n  {μ : Fin r → QuarticQuery.BitInput κ → Real} (hμ : ∀ (j : Fin r) (x : QuarticQuery.BitInput κ), LE.le 0 (μ j x))\n  (τ : QuarticQuery.Paper.ClassicalTranscript r κ) (L : Nat) (h : Fin r) (q : κ)\n  (hm :\n    LT.lt 0\n      (Finset.univ.sum fun V => ite (QuarticQuery.Paper.classicalPrefix T τ V) (Finset.univ.prod fun j => μ j (V j)) 0))\n  (hc : LT.lt (QuarticQuery.Paper.classicalQueriesTo τ h) L) :\n  LE.le\n    (Finset.univ.sum fun U =>\n      HMul.hMul\n        (HDiv.hDiv (ite (QuarticQuery.Paper.classicalPrefix T τ U) (Finset.univ.prod fun j => μ j (U j)) 0)\n          (Finset.univ.sum fun V =>\n            ite (QuarticQuery.Paper.classicalPrefix T τ V) (Finset.univ.prod fun j => μ j (V j)) 0))\n        (Finset.univ.prod fun j =>\n          QuarticQuery.Paper.classicalTranscriptValue f μ\n            (HAppend.hAppend τ (List.cons (Prod.mk (Prod.mk h q) (U h q)) List.nil)) L j))\n    (Finset.univ.prod fun j => QuarticQuery.Paper.classicalTranscriptValue f μ τ L j)",
+        "line": 1335,
+        "axiom_observation": "'QuarticQuery.Paper.classical_transcript_conditional_expectation' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]"
+      },
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": true,
+        "audit_allowed_axioms": [
+          "propext",
+          "Quot.sound",
+          "Classical.choice"
+        ],
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "claim-supermartingale",
+          "canonical_statement": "E[prod_j V_j(tau') | tau] <= prod_j V_j(tau). The product is a supermartingale over at most rL queries.",
+          "relation": "partial",
+          "route": "same",
+          "premises": [
+            "Nonnegative product priors and a positive-probability transcript.",
+            "The next queried instance has remaining budget.",
+            "A capped finite output tree supplies the bounded execution to which iteration applies."
+          ],
+          "open_assumptions": [],
+          "note": "The primary type is the one-step product conditional-expectation inequality at an actual positive-probability prefix. The finite-iteration and actual-success statements are separate declarations.",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classicalTerminalValue",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 658,
+        "signature": "noncomputable def classicalTerminalValue (f : PartialBool κ) :\n    OutTree (Fin r × κ) (Fin r → Bool) →\n      (Fin r → BitInput κ → ℝ) → (Fin r → ℕ) → ℝ",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "claim-supermartingale",
+          "canonical_statement": "E[prod_j V_j(tau') | tau] <= prod_j V_j(tau). The product is a supermartingale over at most rL queries.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classical_terminalValue_le",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 675,
+        "signature": "theorem classical_terminalValue_le (f : PartialBool κ)\n    (T : OutTree (Fin r × κ) (Fin r → Bool))\n    (ν : Fin r → BitInput κ → ℝ) (c : Fin r → ℕ)\n    (hν : ∀ h x, 0 ≤ ν h x) (hT : T.capped c) :\n    classicalTerminalValue f T ν c ≤ classicalProductValue f ν c",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": {
+        "text": "QuarticQuery.Paper.classical_terminalValue_le {κ : Type} [Fintype κ] [DecidableEq κ] {r : Nat}\n  (f : QuarticQuery.PartialBool κ) (T : QuarticQuery.OutTree (Prod (Fin r) κ) (Fin r → Bool))\n  (ν : Fin r → QuarticQuery.BitInput κ → Real) (c : Fin r → Nat)\n  (hν : ∀ (h : Fin r) (x : QuarticQuery.BitInput κ), LE.le 0 (ν h x)) (hT : T.capped c) :\n  LE.le (QuarticQuery.Paper.classicalTerminalValue f T ν c) (QuarticQuery.Paper.classicalProductValue f ν c)",
+        "line": 1356,
+        "axiom_observation": "'QuarticQuery.Paper.classical_terminalValue_le' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": true,
+        "audit_allowed_axioms": [
+          "propext",
+          "Quot.sound",
+          "Classical.choice"
+        ],
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "claim-supermartingale",
+          "canonical_statement": "E[prod_j V_j(tau') | tau] <= prod_j V_j(tau). The product is a supermartingale over at most rL queries.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classical_capped_depth",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 696,
+        "signature": "theorem classical_capped_depth {β : Type}\n    (T : OutTree (Fin r × κ) β) (c : Fin r → ℕ) (hT : T.capped c) :\n    T.depth ≤ ∑ h, c h",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "claim-supermartingale",
+          "canonical_statement": "E[prod_j V_j(tau') | tau] <= prod_j V_j(tau). The product is a supermartingale over at most rL queries.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classical_capped_depth_uniform",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 725,
+        "signature": "theorem classical_capped_depth_uniform {β : Type}\n    (T : OutTree (Fin r × κ) β) (L : ℕ) (hT : T.capped fun _ => L) :\n    T.depth ≤ r * L",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "claim-supermartingale",
+          "canonical_statement": "E[prod_j V_j(tau') | tau] <= prod_j V_j(tau). The product is a supermartingale over at most rL queries.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classical_final_bound",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 733,
+        "signature": "theorem classical_final_bound (f : PartialBool κ)\n    (ν : Fin r → BitInput κ → ℝ) (c : Fin r → ℕ)\n    (hν : ∀ h x, 0 ≤ ν h x) (s : Fin r → Bool) :\n    guessSuccess f (fun h => classicalLaw (ν h)) (.leaf s) ≤\n        ∏ h, max (constSuccess f (classicalLaw (ν h)) false)\n          (constSuccess f (classicalLaw (ν h)) true) ∧\n      (∏ h, max (constSuccess f (classicalLaw (ν h)) false)\n          (constSuccess f (classicalLaw (ν h)) true)) ≤\n        classicalProductValue f ν c",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": {
+        "text": "QuarticQuery.Paper.classical_final_bound {κ : Type} [Fintype κ] [DecidableEq κ] {r : Nat}\n  (f : QuarticQuery.PartialBool κ) (ν : Fin r → QuarticQuery.BitInput κ → Real) (c : Fin r → Nat)\n  (hν : ∀ (h : Fin r) (x : QuarticQuery.BitInput κ), LE.le 0 (ν h x)) (s : Fin r → Bool) :\n  And\n    (LE.le (QuarticQuery.guessSuccess f (fun h => QuarticQuery.Paper.classicalLaw (ν h)) (QuarticQuery.OutTree.leaf s))\n      (Finset.univ.prod fun h =>\n        max (QuarticQuery.constSuccess f (QuarticQuery.Paper.classicalLaw (ν h)) false)\n          (QuarticQuery.constSuccess f (QuarticQuery.Paper.classicalLaw (ν h)) true)))\n    (LE.le\n      (Finset.univ.prod fun h =>\n        max (QuarticQuery.constSuccess f (QuarticQuery.Paper.classicalLaw (ν h)) false)\n          (QuarticQuery.constSuccess f (QuarticQuery.Paper.classicalLaw (ν h)) true))\n      (QuarticQuery.Paper.classicalProductValue f ν c))",
+        "line": 1376,
+        "axiom_observation": "'QuarticQuery.Paper.classical_final_bound' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": true,
+        "audit_allowed_axioms": [
+          "propext",
+          "Quot.sound",
+          "Classical.choice"
+        ],
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "claim-final-bound",
+          "canonical_statement": "At the final transcript tau, Pr[chosen vector correct | tau] <= prod_h max_b Pr(P(U_h)=b | tau) <= prod_h V_h(tau).",
+          "relation": "exact",
+          "route": "same",
+          "premises": [
+            "Nonnegative transcript-restricted weights.",
+            "The final transcript fixes the chosen output vector."
+          ],
+          "open_assumptions": [],
+          "note": "The primary type states both terminal inequalities as a conjunction, for any normalized product weights and any fixed output vector. Substitute the transcript-restricted weights and remaining caps, using the product-law theorem.",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classical_restrict_law",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 768,
+        "signature": "theorem classical_restrict_law {ν : BitInput κ → ℝ}\n    (hν : ∀ x, 0 ≤ ν x) (q : κ) (b : Bool) (x : BitInput κ) :\n    restrictWeight (classicalLaw ν) q b x =\n      classicalBranchProbability ν q b * classicalLaw (restrictWeight ν q b) x",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "eq-16",
+          "canonical_statement": "If the next query at tau addresses U_h then E[V_h(tau') | tau] <= V_h(tau). The conditional laws and budgets of the other inputs do not change.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classical_guessSuccess_query",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 818,
+        "signature": "theorem classical_guessSuccess_query (f : PartialBool κ)\n    (ν : Fin r → BitInput κ → ℝ) (hν : ∀ j x, 0 ≤ ν j x)\n    (h : Fin r) (q : κ) (l u : OutTree (Fin r × κ) (Fin r → Bool)) :\n    guessSuccess f (fun j => classicalLaw (ν j)) (.query (h, q) l u) =\n      classicalBranchProbability (ν h) q false *\n        guessSuccess f (fun j => classicalLaw\n          (Function.update ν h (restrictWeight (ν h) q false) j)) l +\n      classicalBranchProbability (ν h) q true *\n        guessSuccess f (fun j => classicalLaw\n          (Function.update ν h (restrictWeight (ν h) q true) j)) u",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "claim-supermartingale",
+          "canonical_statement": "E[prod_j V_j(tau') | tau] <= prod_j V_j(tau). The product is a supermartingale over at most rL queries.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classical_success_le_terminal",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 855,
+        "signature": "theorem classical_success_le_terminal (f : PartialBool κ)\n    (T : OutTree (Fin r × κ) (Fin r → Bool))\n    (ν : Fin r → BitInput κ → ℝ) (c : Fin r → ℕ)\n    (hν : ∀ j x, 0 ≤ ν j x) (hT : T.capped c) :\n    guessSuccess f (fun j => classicalLaw (ν j)) T ≤\n      classicalTerminalValue f T ν c",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": {
+        "text": "QuarticQuery.Paper.classical_success_le_terminal {κ : Type} [Fintype κ] [DecidableEq κ] {r : Nat}\n  (f : QuarticQuery.PartialBool κ) (T : QuarticQuery.OutTree (Prod (Fin r) κ) (Fin r → Bool))\n  (ν : Fin r → QuarticQuery.BitInput κ → Real) (c : Fin r → Nat)\n  (hν : ∀ (j : Fin r) (x : QuarticQuery.BitInput κ), LE.le 0 (ν j x)) (hT : T.capped c) :\n  LE.le (QuarticQuery.guessSuccess f (fun j => QuarticQuery.Paper.classicalLaw (ν j)) T)\n    (QuarticQuery.Paper.classicalTerminalValue f T ν c)",
+        "line": 1362,
+        "axiom_observation": "'QuarticQuery.Paper.classical_success_le_terminal' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": true,
+        "audit_allowed_axioms": [
+          "propext",
+          "Quot.sound",
+          "Classical.choice"
+        ],
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "claim-final-bound",
+          "canonical_statement": "At the final transcript tau, Pr[chosen vector correct | tau] <= prod_h max_b Pr(P(U_h)=b | tau) <= prod_h V_h(tau).",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classical_direct_product",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 880,
+        "signature": "theorem classical_direct_product {f : PartialBool κ} {μ : BitInput κ → ℝ}\n    {L : ℕ} {β : ℝ} (hμ : ∀ x, 0 ≤ μ x) (hμ1 : classicalMass μ = 1)\n    (hard : ∀ T : QueryTree κ, T.depth ≤ L → treeSuccess f μ T ≤ β)\n    (T : OutTree (Fin r × κ) (Fin r → Bool)) (hT : T.capped fun _ => L) :\n    guessSuccess f (fun _ => μ) T ≤ β ^ r",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": {
+        "text": "QuarticQuery.Paper.classical_direct_product {κ : Type} [Fintype κ] [DecidableEq κ] {r : Nat}\n  {f : QuarticQuery.PartialBool κ} {μ : QuarticQuery.BitInput κ → Real} {L : Nat} {β : Real}\n  (hμ : ∀ (x : QuarticQuery.BitInput κ), LE.le 0 (μ x)) (hμ1 : Eq (QuarticQuery.Paper.classicalMass μ) 1)\n  (hard : ∀ (T : QuarticQuery.QueryTree κ), LE.le T.depth L → LE.le (QuarticQuery.treeSuccess f μ T) β)\n  (T : QuarticQuery.OutTree (Prod (Fin r) κ) (Fin r → Bool)) (hT : T.capped fun x => L) :\n  LE.le (QuarticQuery.guessSuccess f (fun x => μ) T) (HPow.hPow β r)",
+        "line": 1369,
+        "axiom_observation": "'QuarticQuery.Paper.classical_direct_product' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": true,
+        "audit_allowed_axioms": [
+          "propext",
+          "Quot.sound",
+          "Classical.choice"
+        ],
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "lem-4.1",
+          "canonical_statement": "Let P:D->{0,1}, D subset {0,1}^n, mu a distribution on D, L a nonnegative integer. Suppose every deterministic algorithm making at most L queries computes P under mu with success probability <=beta. If U_1,...,U_r are iid mu, every classical algorithm making at most L queries to each U_h, possibly randomized, adaptive among the r inputs, and given arbitrary additional information independent of (U_1,...,U_r), outputs (P(U_1),...,P(U_r)) with probability <=beta^r.",
+          "relation": "unassessed",
+          "route": "unassessed",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.Paper.classical_direct_product_average",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+        "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+        "line": 902,
+        "signature": "theorem classical_direct_product_average {S : Type} [Fintype S]\n    {f : PartialBool κ} {μ : BitInput κ → ℝ} {L : ℕ} {β : ℝ}\n    (hμ : ∀ x, 0 ≤ μ x) (hμ1 : classicalMass μ = 1)\n    (hard : ∀ T : QueryTree κ, T.depth ≤ L → treeSuccess f μ T ≤ β)\n    {p : S → ℝ} (hp : ∀ s, 0 ≤ p s) (hp1 : ∑ s, p s = 1)\n    (T : S → OutTree (Fin r × κ) (Fin r → Bool))\n    (hT : ∀ s, (T s).capped fun _ => L) :\n    ∑ s, p s * guessSuccess f (fun _ => μ) (T s) ≤ β ^ r",
+        "section_context": {
+          "namespace": "QuarticQuery.Paper",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Classical",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": {
+        "text": "QuarticQuery.Paper.classical_direct_product_average {κ : Type} [Fintype κ] [DecidableEq κ] {r : Nat} {S : Type}\n  [Fintype S] {f : QuarticQuery.PartialBool κ} {μ : QuarticQuery.BitInput κ → Real} {L : Nat} {β : Real}\n  (hμ : ∀ (x : QuarticQuery.BitInput κ), LE.le 0 (μ x)) (hμ1 : Eq (QuarticQuery.Paper.classicalMass μ) 1)\n  (hard : ∀ (T : QuarticQuery.QueryTree κ), LE.le T.depth L → LE.le (QuarticQuery.treeSuccess f μ T) β) {p : S → Real}\n  (hp : ∀ (s : S), LE.le 0 (p s)) (hp1 : Eq (Finset.univ.sum fun s => p s) 1)\n  (T : S → QuarticQuery.OutTree (Prod (Fin r) κ) (Fin r → Bool)) (hT : ∀ (s : S), (T s).capped fun x => L) :\n  LE.le (Finset.univ.sum fun s => HMul.hMul (p s) (QuarticQuery.guessSuccess f (fun x => μ) (T s))) (HPow.hPow β r)",
+        "line": 2234,
+        "axiom_observation": "'QuarticQuery.Paper.classical_direct_product_average' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": "native_results/native-retry-1/results.json / QuarticQuery.Paper.ClassicalDirectProduct",
+        "direct_type_and_axiom_audit_contains": true,
+        "audit_allowed_axioms": [
+          "propext",
+          "Quot.sound",
+          "Classical.choice"
+        ],
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "lem-4.1",
+          "canonical_statement": "Let P:D->{0,1}, D subset {0,1}^n, mu a distribution on D, L a nonnegative integer. Suppose every deterministic algorithm making at most L queries computes P under mu with success probability <=beta. If U_1,...,U_r are iid mu, every classical algorithm making at most L queries to each U_h, possibly randomized, adaptive among the r inputs, and given arbitrary additional information independent of (U_1,...,U_r), outputs (P(U_1),...,P(U_r)) with probability <=beta^r.",
+          "relation": "partial",
+          "route": "same",
+          "premises": [
+            "Nonnegative normalized prior.",
+            "Every L-query one-instance tree has success at most beta.",
+            "A finite normalized nonnegative law on independent side information and internal coins.",
+            "Every selected output tree obeys the per-instance cap L."
+          ],
+          "open_assumptions": [],
+          "note": "The new average theorem proves the beta^r bound for finite independent side-information/coin mixtures of capped adaptive trees. It is the paper conditional-value route, but the original row literally quantifies arbitrary independent additional information.",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.exists_hard_distribution",
+      "source": {
+        "path": "repository/lean/QuarticQuery/LowerBound/Minimax.lean",
+        "sha256": "d235fef08374ca71229f5a2a5985e1bb0c60e3ec39a0ad2b1a13b286df9c194e",
+        "line": 138,
+        "signature": "theorem exists_hard_distribution {f : PartialBool κ} {L : ℕ} (h : ¬ RLe f L) :\n    ∃ μ : BitInput κ → ℝ, (∀ x, 0 ≤ μ x) ∧ ∑ x, μ x = 1 ∧ (∀ x, μ x ≠ 0 → promised f x) ∧\n      ∀ T : QueryTree κ, T.depth ≤ L → treeSuccess f μ T ≤ 2 / 3",
+        "section_context": {
+          "namespace": "QuarticQuery",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Convexity",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": null,
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": true,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "claim-minimax-mu",
+          "canonical_statement": "If L<R(P), there is a distribution mu on dom P, which is in particular nonempty, such that every deterministic tree of depth <=L has success probability <=2/3 under mu.",
+          "relation": "exact",
+          "route": "same",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "Hypothesis is not RLe f L, equivalent to L<R by lt_R_iff and monotonicity. mu is a probability weight supported on the domain.",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": true
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.address_guess_le",
+      "source": {
+        "path": "repository/lean/QuarticQuery/LowerBound/Minimax.lean",
+        "sha256": "d235fef08374ca71229f5a2a5985e1bb0c60e3ec39a0ad2b1a13b286df9c194e",
+        "line": 179,
+        "signature": "theorem address_guess_le {f : PartialBool κ} {μ : BitInput κ → ℝ} {L r : ℕ}\n    (hμ : ∀ x, 0 ≤ μ x)\n    (hard : ∀ T : QueryTree κ, T.depth ≤ L → treeSuccess f μ T ≤ 2 / 3)\n    (T : OutTree (Fin r × κ) (Fin r → Bool)) (hT : T.capped fun _ => L) :\n    guessSuccess f (fun _ => μ) T ≤ (2 / 3) ^ r",
+        "section_context": {
+          "namespace": "QuarticQuery",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Convexity",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": null,
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": true,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "claim-address-guess",
+          "canonical_statement": "Under mu from claim-minimax-mu, for U_1,...,U_r iid mu, every classical algorithm making at most L queries to each U_h, given information independent of (U_1,...,U_r), outputs (P(U_1),...,P(U_r)) with probability <=(2/3)^r.",
+          "relation": "partial",
+          "route": "same",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "Deterministic capped tree; no side information.",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": true
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.address_guess_average",
+      "source": {
+        "path": "repository/lean/QuarticQuery/LowerBound/Minimax.lean",
+        "sha256": "d235fef08374ca71229f5a2a5985e1bb0c60e3ec39a0ad2b1a13b286df9c194e",
+        "line": 188,
+        "signature": "theorem address_guess_average {S : Type} [Fintype S] {f : PartialBool κ} {μ : BitInput κ → ℝ}\n    {L r : ℕ} (hμ : ∀ x, 0 ≤ μ x)\n    (hard : ∀ T : QueryTree κ, T.depth ≤ L → treeSuccess f μ T ≤ 2 / 3)\n    {p : S → ℝ} (hp : ∀ s, 0 ≤ p s) (hp1 : ∑ s, p s = 1)\n    (T : S → OutTree (Fin r × κ) (Fin r → Bool)) (hT : ∀ s, (T s).capped fun _ => L) :\n    ∑ s, p s * guessSuccess f (fun _ => μ) (T s) ≤ (2 / 3) ^ r",
+        "section_context": {
+          "namespace": "QuarticQuery",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Convexity",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": null,
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": false,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "claim-address-guess",
+          "canonical_statement": "Under mu from claim-minimax-mu, for U_1,...,U_r iid mu, every classical algorithm making at most L queries to each U_h, given information independent of (U_1,...,U_r), outputs (P(U_1),...,P(U_r)) with probability <=(2/3)^r.",
+          "relation": "exact",
+          "route": "same",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "Row in full, with side information or coins as finite S.",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "declaration": "QuarticQuery.exists_address_guess_bound",
+      "source": {
+        "path": "repository/lean/QuarticQuery/LowerBound/Minimax.lean",
+        "sha256": "d235fef08374ca71229f5a2a5985e1bb0c60e3ec39a0ad2b1a13b286df9c194e",
+        "line": 198,
+        "signature": "theorem exists_address_guess_bound {f : PartialBool κ} {L : ℕ} (h : ¬ RLe f L) :\n    ∃ μ : BitInput κ → ℝ, (∀ x, 0 ≤ μ x) ∧ ∑ x, μ x = 1 ∧ (∀ x, μ x ≠ 0 → promised f x) ∧\n      ∀ (r : ℕ) (T : OutTree (Fin r × κ) (Fin r → Bool)), (T.capped fun _ => L) →\n        guessSuccess f (fun _ => μ) T ≤ (2 / 3) ^ r",
+        "section_context": {
+          "namespace": "QuarticQuery",
+          "variables": "{κ : Type} [Fintype κ] [DecidableEq κ]",
+          "r": "{r : ℕ} where used",
+          "open": "Finset Convexity",
+          "kind": "exact source context, not a fresh elaborator printout"
+        }
+      },
+      "elaborated_type_observation": null,
+      "evidence": {
+        "source_hash_verified": true,
+        "root_build_supplied_source_current": true,
+        "root_declaration_inventory_contains": true,
+        "focused_native_pass": null,
+        "direct_type_and_axiom_audit_contains": false,
+        "audit_allowed_axioms": null,
+        "comparator_for_exact_decl": "not_run",
+        "headline_reached": true,
+        "fresh_execution_this_review": false
+      },
+      "canonical_ties": [
+        {
+          "statement_id": "claim-address-guess",
+          "canonical_statement": "Under mu from claim-minimax-mu, for U_1,...,U_r iid mu, every classical algorithm making at most L queries to each U_h, given information independent of (U_1,...,U_r), outputs (P(U_1),...,P(U_r)) with probability <=(2/3)^r.",
+          "relation": "partial",
+          "route": "same",
+          "premises": [],
+          "open_assumptions": [],
+          "note": "Bundles minimax and the deterministic guess; no side information.",
+          "build_evidence": "current",
+          "comparison_evidence": "not_run",
+          "built": true,
+          "compared": false,
+          "reached": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "schema": "quartic-r3-05-local-source-binding-v1",
+  "status": "passed",
+  "checked_at_utc": "2026-11-02 19:30:08 UTC",
+  "method": "Independent root Python comparison of complete local source-hash maps and actual file bytes.",
+  "source_maps": [
+    {
+      "label": "snapshot",
+      "member": "EVIDENCE_SNAPSHOT.json",
+      "sha256": "25f46742c3d019459dc43846f23234c107212625b8c76f3eeef787fd721f1213",
+      "entries": 124
+    },
+    {
+      "label": "root_receipt",
+      "member": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "sha256": "bc11e3fec8581f89ce56b110bf76db2469abea4b7be00fa476f9d2cee9455c2e",
+      "entries": 124
+    },
+    {
+      "label": "dependency_export",
+      "member": "repository/corpus/lean_dependencies.json",
+      "sha256": "56ae4752273f7cfba92ee6f35a4acc6ee0eea6e32a44116ccaf9d7354094e1fb",
+      "entries": 124
+    },
+    {
+      "label": "axiom_verdict",
+      "member": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+      "sha256": "3c26718576384a76fca10f1f44bf42ffd2f23130b0aabcf35b3f5c34f2b4a1e0",
+      "entries": 124
+    }
+  ],
+  "all_four_maps_equal": true,
+  "all_actual_source_hashes_match": true,
+  "root_receipt_bytes_match_recorded_binding": true,
+  "native_type_axiom_log_hash_matches_verdict": true,
+  "root_declarations_equal_export_declared": true,
+  "declared_count": 2652,
+  "headline_reached_count": 1354,
+  "headline_roots": [
+    "QuarticQuery.theorem_1_1_unconditional",
+    "QuarticQuery.cubic_bound_fails_unconditional"
+  ],
+  "paper_names_reached": [],
+  "fresh_lean_or_comparator_execution": false,
+  "scope": "Evidence applicability to exact local bytes; not a new build, reexecution of external dependencies, or proof of informal/formal correspondence."
+}

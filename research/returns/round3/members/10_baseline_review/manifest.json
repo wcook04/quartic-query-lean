@@ -1,0 +1,159 @@
+{
+  "format": "quartic-r3-10-return-manifest-v1",
+  "review_date": "2026-11-02",
+  "assignment": "Independent review of the frozen long-record baseline; no concurrent returns used",
+  "entry_point": "baseline-review.md",
+  "member_hash_algorithm": "SHA-256",
+  "self_hash_policy": "This manifest excludes its own bytes to avoid a circular hash. Every other returned member is listed.",
+  "source_versions": {
+    "original_input_zip_sha256": "dae7bbc91b216c40de6878332e945be84c2a5f4f7d19e71d3da59b12d40f8a70",
+    "input_manifest_sha256": "b4f858c886330adf510d84a6266aaf5a1c5cb6554173b665336df2ce4bac5518",
+    "packet_repository_commit": "1dd469dd0042b937b739da3bc211eeb60bdf7462",
+    "historical_baseline_source_commit": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "current_run_record_commit": "31e17dee667d1d72fa621da8e7d3d8ff5fc3960a",
+    "baseline_sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+    "paper_pdf_sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e"
+  },
+  "members": [
+    {
+      "member": "LEAN_GAPS.md",
+      "bytes": 14687,
+      "sha256": "00413a7e4a6dda100fec50a76acfa3694e290389e3d46e12f10bfd7aa130dda5"
+    },
+    {
+      "member": "NEW_STATEMENTS.json",
+      "bytes": 2625,
+      "sha256": "f097724581f1a12bb106c457d971ed52cf1e89c4cd9a0e192978b9f11c65d184"
+    },
+    {
+      "member": "STATEMENT_CHANGES.json",
+      "bytes": 754,
+      "sha256": "d4c9b4a4b1c4ffe3ec23a39852b9ca6f47b109b95c2ee5dca6cb4a0a2100a5d7"
+    },
+    {
+      "member": "STYLE_RULES.json",
+      "bytes": 2176,
+      "sha256": "d41964a82b37661620b751f84342b1478a359bf5f7bcac670427d0888d0505e0"
+    },
+    {
+      "member": "baseline-review.md",
+      "bytes": 32823,
+      "sha256": "940b5c6e99bb72357cb8262036f6dd12fb90ad0f319a885395cda1906bfd909f"
+    },
+    {
+      "member": "checks/finite-checks.json",
+      "bytes": 1271,
+      "sha256": "2257df5493aefbdab5851bbdfa4bb60172491f618d97992746dc4e6de306c7cc"
+    },
+    {
+      "member": "checks/finite_checks.py",
+      "bytes": 4379,
+      "sha256": "719f5cac440e3f86b8ef5975957a311081a874a74246b85b98de4e31fcda9e50"
+    },
+    {
+      "member": "checks/validate_return.py",
+      "bytes": 8232,
+      "sha256": "42c7d7019576415990ed937a8dba724ae77fb6e498883616f1dd13bad5fd6931"
+    },
+    {
+      "member": "correspondence.json",
+      "bytes": 428003,
+      "sha256": "4e74eb3103dc26a3a3ef738baef43071fbddcc1c22be237dd0a8c23be0f5c48e"
+    },
+    {
+      "member": "coverage-map.json",
+      "bytes": 328104,
+      "sha256": "db73fb8b5d1c71f37dc18547a85e09df47c1426e03087afc89d3b53e6909b363"
+    },
+    {
+      "member": "cross-document-map.json",
+      "bytes": 6909,
+      "sha256": "7d5831deeee53c1b1e620e2db83f76053b3c55b425f533379637c58d90ecb2d3"
+    },
+    {
+      "member": "evidence/auxiliary-types.json",
+      "bytes": 75528,
+      "sha256": "48c85a36d328db15c0181fa814262081e8ee7cfaacc1e76f3228d5aa8da2699e"
+    },
+    {
+      "member": "evidence/hash-membership-audit.json",
+      "bytes": 264015,
+      "sha256": "8ef37734465ae806f4ecd6f71800d934fa05c648bfdd96821be953cdb747fef8"
+    },
+    {
+      "member": "evidence/lean-read-receipt.json",
+      "bytes": 24750,
+      "sha256": "987cbb1ae49c65b3d04595c62e338644246b401ea6b0736e82f88db1c86cbb03"
+    },
+    {
+      "member": "evidence/mathematical-sources-read-receipt.json",
+      "bytes": 20803,
+      "sha256": "25d5f377f0d809dad286b843ca3b67dcf7a50c66eb513374bfda78774037c59e"
+    },
+    {
+      "member": "evidence/recorded-elaborated-types.json",
+      "bytes": 157669,
+      "sha256": "adedda4e8fc2ca4a0ea55a72bb5f0e955ee163b6a82fd597be58fbfc23429d25"
+    },
+    {
+      "member": "evidence/whole-record-read-receipt.json",
+      "bytes": 17972,
+      "sha256": "040b4b10b95069cadc75b097f7ef729231a87b32fa43ce1d2792aaedbcfdb62b"
+    },
+    {
+      "member": "principal-claim-matrix.json",
+      "bytes": 849236,
+      "sha256": "08330340d21c578b235810f4b7581359b92d68dd20f876985c51f011243ff80f"
+    },
+    {
+      "member": "references.bib",
+      "bytes": 4277,
+      "sha256": "7c74496bee1dd8444dd5c0d9e48e035b37ffbea680e759ec2cbe32a711e82665"
+    },
+    {
+      "member": "repairs.json",
+      "bytes": 143699,
+      "sha256": "650c3c0b0f5cde6633235822bb0d73f10999a99e775049a857e64344e761be6a"
+    },
+    {
+      "member": "replacements.md",
+      "bytes": 38613,
+      "sha256": "a669e2a7fff261796e82fb212b5892c3a5efd7ba447d0d0233a124444a6729a5"
+    },
+    {
+      "member": "review_notes.md",
+      "bytes": 14189,
+      "sha256": "ae08b5e1e7d459794af2fa372e6abc4258811c6416301de39c93e2883026b79f"
+    },
+    {
+      "member": "source-audits/bs-source-audit.md",
+      "bytes": 12275,
+      "sha256": "5a11f08691d97188c4c6a4b729986b57c85f4b4d61206e03a7d679db218301ca"
+    },
+    {
+      "member": "source-audits/bs-weak-log-corollary.md",
+      "bytes": 6214,
+      "sha256": "17acfe85662c2ef0caee5c24155367ead81d803511d6b2ef6f07a2735a198263"
+    },
+    {
+      "member": "source-version-manifest.json",
+      "bytes": 108594,
+      "sha256": "7fb4ed2989319ea6bb408ba341443b426306633ef4498bfc762242ad501af066"
+    },
+    {
+      "member": "source_read_receipt.json",
+      "bytes": 2342,
+      "sha256": "5c840159b430d0f4e55589ee149d01577f7e55b5538ef02f479852ea23dd0de2"
+    },
+    {
+      "member": "stein-k3-replacement.md",
+      "bytes": 5362,
+      "sha256": "21b72b3ea3f60097e062b474de178c6dd8f9836c624584ad2ceb444161a28af7"
+    },
+    {
+      "member": "validation.json",
+      "bytes": 894,
+      "sha256": "e430397e5da1b89a193c670d460af62e585abf0421afd2812e703c86c5b1c907"
+    }
+  ]
+}

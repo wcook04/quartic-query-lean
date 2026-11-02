@@ -1,0 +1,67 @@
+[
+  {
+    "id": "proof_spine_and_branches",
+    "source": {
+      "member": "writing/mathematical-writing-mechanics.md",
+      "lines": [
+        587,
+        644
+      ]
+    },
+    "used": "Dimension-by-dimension rubric with exact locators and reader checks; no aggregate score.",
+    "scope": "Whole-record review",
+    "limit": "Editorial judgment is not mathematical or formal certification."
+  },
+  {
+    "id": "front_dependency_map",
+    "source": {
+      "member": "exemplars/long-reasoning-record.md",
+      "lines": [
+        145,
+        209
+      ]
+    },
+    "used": "Give independent proof branches and exact destinations before detailed reconstruction.",
+    "scope": "Proposed front roadmap and Forrelation appendix move",
+    "limit": "QAOA mathematics is a form specimen only."
+  },
+  {
+    "id": "versioned_evidence_history",
+    "source": {
+      "member": "exemplars/long-reasoning-record.md",
+      "lines": [
+        5364,
+        5445
+      ]
+    },
+    "used": "Keep failed, interrupted, historical and later observations at their own versions instead of flattening them.",
+    "scope": "Historical corpus versus current evidence overlay",
+    "limit": "The exemplar supplies no evidence about QuarticQuery."
+  },
+  {
+    "id": "one_small_calculation_before_induction",
+    "source": {
+      "member": "exemplars/expository.md",
+      "lines": [
+        48,
+        112
+      ]
+    },
+    "used": "Introduce the general mechanism through an exact special case with its boundary.",
+    "scope": "The selected k=3 two-step Stein calculation and biased degree-three monomial example; the alternative k=2 draft is not duplicated.",
+    "limit": "No copied phrasing or use of the example as proof of the general growth theorem."
+  },
+  {
+    "id": "strongest_supported_statement",
+    "source": {
+      "member": "writing/mathematical-writing-mechanics.md",
+      "lines": [
+        212,
+        301
+      ]
+    },
+    "used": "State exact theorem quantifiers and make the available explicit constants visible.",
+    "scope": "ROOT-RESULT revision recommendation",
+    "limit": "Do not import growing-k claims or stronger formal evidence by analogy."
+  }
+]

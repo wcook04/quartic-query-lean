@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python3",
+    "tools/return_checks/semantic_controls.py"
+  ],
+  "cwd": "repository",
+  "exit_code": 0,
+  "stderr": "",
+  "ran_at": "2026-11-02T19:16:42.010227+00:00",
+  "output_sha256": "c42cffe97e37377003f9583c07b5e021350fcd3d73be275a499c2935d8a3bcfa",
+  "scope": "Existing finite Python models only; this does not execute Lean or Comparator."
+}

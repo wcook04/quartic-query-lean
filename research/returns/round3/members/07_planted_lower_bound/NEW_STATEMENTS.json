@@ -1,0 +1,41 @@
+[
+  {
+    "id": "r3-classical-eq19-conjunction",
+    "statement": "For normalized nonnegative finite prior mu and depth-G tree T, coupledAvg(mu,foundZero(T)) = expectedZeros(mu,T)/m AND expectedZeros(mu,T)/m <= 4G/m^2, with m=2^ell.",
+    "why_needed": "One inspectable theorem must retain both clauses of the paper row. Both components already have source-bound evidence; the new conjunction does not introduce a new mathematical lower bound.",
+    "depends_on": [
+      "QuarticQuery.Paper.erasedZero_eq_expectedZeros_div",
+      "QuarticQuery.Paper.expectedZeros_le_four",
+      "QuarticQuery.colCard_pos"
+    ],
+    "proposed_lean": {
+      "name": "QuarticQuery.Paper.eq_19_complete",
+      "file": "lean/Eq19Complete.lean",
+      "status": "uncompiled_proposal",
+      "complete_source": "module\n\npublic import QuarticQuery.Paper.ClassicalPlanted\n\n/-!\n# Proposed whole-display wrapper for equation (19)\n\nUNCOMPILED PROPOSAL in this round-three return. The supplied round-three packet\ncontains source-bound native build and transitive axiom-audit evidence for the\ntwo ingredients used below, but no receipt for this new declaration.\n\nThis wrapper preserves both clauses of the display. Its inequality is proved\nby the alternative finite-world zero-search route; it does not formalize the\npaper's early/late decomposition and makes no optimality assertion.\n-/\n\n@[expose] public section\n\nnamespace QuarticQuery.Paper\n\nopen Finset\n\ntheorem eq_19_complete\n    {κ : Type} [Fintype κ] [DecidableEq κ] {ℓ r S : ℕ}\n    {μ : BitInput κ → ℝ} (hμ : ∀ x, 0 ≤ μ x)\n    (hμ1 : ∑ x, μ x = 1) {G : ℕ}\n    (T : QueryTree (BitLoc ℓ r S κ)) (hT : T.depth ≤ G) :\n    (coupledAvg μ (fun A J I => foundZero T A J I) =\n      expectedZeros μ T / ((2 ^ ℓ : ℕ) : ℝ)) ∧\n    expectedZeros μ T / ((2 ^ ℓ : ℕ) : ℝ) ≤\n      4 * (G : ℝ) / ((2 ^ ℓ : ℕ) : ℝ) ^ 2 := by\n  refine ⟨erasedZero_eq_expectedZeros_div μ T, ?_⟩\n  calc\n    expectedZeros μ T / ((2 ^ ℓ : ℕ) : ℝ) ≤\n        (4 * (G : ℝ) / ((2 ^ ℓ : ℕ) : ℝ)) / ((2 ^ ℓ : ℕ) : ℝ) :=\n      div_le_div_of_nonneg_right (expectedZeros_le_four hμ hμ1 T hT)\n        (colCard_pos ℓ).le\n    _ = 4 * (G : ℝ) / ((2 ^ ℓ : ℕ) : ℝ) ^ 2 := by\n      rw [div_div, pow_two]\n\nend QuarticQuery.Paper\n"
+    },
+    "route_note": "Alternative finite-world search endpoint. Compile, inspect full type/axioms, and review tie before promoting whole-row eq19. No proof of early/late decomposition or optimality is supplied by this wrapper."
+  },
+  {
+    "id": "r3-planted-xor-example",
+    "statement": "For the explicitly specified m=4,r=2,n=2 XOR addressed function and four-query tree, with uniform independent zeros and target tuple and fixed other A data, E Z=3/8; Pr(erased-zero hit)=3/32; fixed-target nonheavy true-cell visit at time4 has probability1/8; capped simulator success is1/4; output-one gap is1/16.",
+    "why_needed": "Show the actual information seen by the capped simulator and the physical pointer/transcript layout.",
+    "depends_on": [
+      "checks/planted_example.py",
+      "checks/planted_example.json"
+    ],
+    "proposed_lean": null,
+    "route_note": "Exact finite computation and direct explanation; does not satisfy the Forrelation/large-r/floor-G theorem parameters."
+  },
+  {
+    "id": "r3-nonheavy-conditioning-counterexample",
+    "statement": "For AND on uniform promised inputs {01,10,11}, every one-query tree has success<=2/3, but the described branch-dependent original algorithm has conditional correct success1 on its nonheavy executions (L=1); the capped simulator succeeds2/3 and correct-and-nonheavy has probability1/3.",
+    "why_needed": "Demonstrates why equation21 must bound a joint event under the original law rather than conditional success after selecting nonheavy runs.",
+    "depends_on": [
+      "checks/planted_example.py",
+      "section.md#CL-conditioning-counterexample"
+    ],
+    "proposed_lean": null,
+    "route_note": "Finite counterexample for r=1, with independent exhaustive query-tree calculation. No asymptotic or Lean claim."
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "id": "claim-bs-to-L",
+    "old": "For fixed k: for large m, c k^{-29} (m/log(km))^{1-1/k} > floor(m^{1-1/k}/(log_2 m)^2).",
+    "new": "For fixed k>=2 and the positive constant c of the Bansal-Sinha bound: for all sufficiently large powers of four m, c k^{-29} (m/log(km))^{1-1/k} > floor(m^{1-1/k}/(log_2 m)^2).",
+    "relation": "explicit hypothesis/domain clarification at the current source revision",
+    "reason": "The current corpus explicitly restricts k>=2, c>0 and powers of four. This difference already exists in the supplied snapshot; it is recorded rather than silently overwriting the historical catalogue.",
+    "origin": "Observed supplied-source change; this review proposes no new change to the main fixed-k theorem."
+  }
+]

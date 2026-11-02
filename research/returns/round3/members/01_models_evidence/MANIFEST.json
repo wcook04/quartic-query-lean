@@ -1,0 +1,242 @@
+{
+  "schema_version": "1.0",
+  "artifact": "quartic_r3_01_models_evidence_return.zip",
+  "created_utc": "2026-11-02T19:32:00.669411+00:00",
+  "assignment": "Round 3 job 01: replacement sections 1-2, advisory only",
+  "manifest_convention": "Every other return file is hashed byte for byte. MANIFEST.json excludes itself; archive integrity is checked separately.",
+  "input_archive": {
+    "uploaded_name": "quartic_r3_01_models_evidence.zip",
+    "status": "available",
+    "bytes": 3905193,
+    "sha256": "deb9ad601c86944056fdd35e1ea263b819d8b6b6110f8cae0165be1c8ba10384",
+    "scope": "Archive extracted and its complete manifest verified; member content scopes are enumerated separately below."
+  },
+  "source_snapshot": {
+    "packet_repository_commit": "1dd469dd0042b937b739da3bc211eeb60bdf7462",
+    "current_receipt_source_commit": "31e17dee667d1d72fa621da8e7d3d8ff5fc3960a",
+    "toolchain": "leanprover/lean4:v4.36.0-rc2",
+    "matching_local_source_bindings": 124,
+    "input_manifest_sha256": "f9397413ff738e2f126c1e115abcdfed26b93d848af9cb1a37363eed93447177",
+    "source_read_receipt": "source_read_receipt.json"
+  },
+  "source_versions": [
+    {
+      "key": "OAI26",
+      "title": "A Nearly Quartic Separation Between Randomized and Quantum Query Complexity",
+      "edition": "OpenAI preprint dated 5 October 2026, supplied frozen PDF",
+      "role": "authority for the separation and Theorem 1.1",
+      "supplied_members": [
+        "paper/source.pdf",
+        "paper/extracted.md"
+      ],
+      "authoritative_sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e",
+      "scope": "Section 1 and start of Section 2 only; Theorem 1.1, equations (1)–(2), Sections 1.2–1.3. No complete proof audit.",
+      "reading_method": "Supplied extracted text, with exact PDF byte identity retained separately.",
+      "url": "https://github.com/openai/math/blob/main/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf",
+      "url_role": "Discovery only; public URL byte identity with supplied PDF is not established.",
+      "immutable_url_check": {
+        "url": "https://github.com/openai/math/blob/4eaee875/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf",
+        "status": "unavailable",
+        "effect": "Do not claim the abbreviated public pin was retrieved or verified. The supplied PDF SHA-256 fixes the assessed edition."
+      }
+    },
+    {
+      "key": "BDW02",
+      "title": "Complexity Measures and Decision Tree Complexity: A Survey",
+      "edition": "Author PDF dated 10 October 2002; TCS 288(1), 21–43 (2002)",
+      "role": "classical and quantum model conventions",
+      "supplied_pdf_sha256": "7002019660c498b652611acf5cdbe264ea9c4a139f8f4da6e82e12822e5d9122",
+      "scope": "Sections 3.1–3.3, printed pp.5–8; remaining survey unassessed.",
+      "public_url": "https://homepages.cwi.nl/~rdewolf/publ/qc/dectree.pdf",
+      "public_access": "Named sections rechecked by parent; source byte identity with supplied copy not asserted.",
+      "public_download_sha256": null
+    },
+    {
+      "key": "DW26",
+      "title": "Quantum Computing: Lecture Notes",
+      "edition": "arXiv:1907.09415v6, 27 August 2026",
+      "role": "measurement, oracle, phase-control and fixed-query conventions",
+      "supplied_archive_sha256": "2ffd080924542b6de1409a1dbd73efcb85e99bc0d3cc2daac5e3eeba84ef2535",
+      "scope": "Sections 1.2.2, 2.1.2, 2.3, required Section 2.4 and Chapter 2 Exercise 10; later chapters unassessed.",
+      "public_urls": [
+        "https://arxiv.org/abs/1907.09415v6",
+        "https://homepages.cwi.nl/~rdewolf/qcnotes.pdf"
+      ],
+      "public_access": "Version date and named oracle/control passages checked by quantum reviewer and parent.",
+      "locator_correction": "Query oracle material is Section 2.4, printed pp.17–18 and footnote 7; Section 2.3 is Quantum parallelism. Earlier Section 2.3/footnote 17 locator corrected.",
+      "public_download_sha256": null
+    },
+    {
+      "key": "BBCMW98",
+      "title": "Quantum Lower Bounds by Polynomials",
+      "edition": "Supplied conference/arXiv-era text; extracted header identifies arXiv:quant-ph/9802049v3, 30 September 1998",
+      "role": "edition-sensitive expected-query convention and parity comparison",
+      "supplied_pdf_sha256": "afec116657493976b70df7dcb8b174c8c0be55a9337d9e035afd5f1fc4d9cd4c",
+      "scope": "Section 3.2 (PDF p.4), Proposition 6.4 and adjacent parity discussion (PDF p.9); remaining results unassessed.",
+      "citation_url": "https://arxiv.org/abs/quant-ph/9802049v3",
+      "public_check_url": "https://homepages.cwi.nl/~rdewolf/publ/qc/focs98.pdf",
+      "public_access": "Conference passages rechecked by parent; no newly downloaded arXiv/source-PDF byte identity asserted.",
+      "convention": "Classical randomized query count is expected cost on the worst input in this edition.",
+      "public_download_sha256": null
+    },
+    {
+      "key": "BBCMW01",
+      "title": "Quantum Lower Bounds by Polynomials",
+      "edition": "Journal of the ACM 48(4), 778–797 (2001); author-hosted journal manuscript",
+      "role": "added primary-source edition comparison",
+      "supplied_member": null,
+      "public_url": "https://homepages.cwi.nl/~rdewolf/publ/qc/polynomials.pdf",
+      "public_access": "Section 3.2, printed p.7, and Proposition 6.4 with adjoining classical discussion, printed p.17, assessed by classical reviewer and rechecked by parent.",
+      "scope": "Only model and parity passages plus version identity; no full proof review.",
+      "convention": "The journal version uses worst-case randomized query cost and states the corresponding classical parity bound.",
+      "sha256": null,
+      "sha256_boundary": "Read through public retrieval; no exact local download hash is available."
+    },
+    {
+      "key": "ABKRT20",
+      "title": "Degree vs. Approximate Degree and Quantum Implications of Huang's Sensitivity Theorem",
+      "edition": "arXiv:2010.12629v1, 23 October 2020",
+      "role": "prior universal quartic upper bound and cubic conjecture",
+      "supplied_member": null,
+      "public_url": "https://arxiv.org/pdf/2010.12629v1",
+      "public_access": "Parent assessed Theorem 2, printed p.2, and Conjecture 2, Section 7, printed p.20, with immediate context.",
+      "scope": "These two locators only; full proof unassessed.",
+      "sha256": null,
+      "sha256_boundary": "Public retrieval supplied scoped text; no exact local download hash is available."
+    }
+  ],
+  "source_type_inventory": {
+    "file": "model_contract.json",
+    "count": 152,
+    "provenance": "Inspected source signatures and contexts, not new elaborator output."
+  },
+  "validation_boundary": {
+    "exact_python_checks_executed": true,
+    "lean_executed": false,
+    "comparator_executed": false,
+    "pdf_rendered": false,
+    "human_review_claimed": false
+  },
+  "return_members": [
+    {
+      "path": "LEAN_GAPS.md",
+      "bytes": 10036,
+      "sha256": "9d16338b0988330301311a5be6df6723df216c927642fa28faa92dc225242087"
+    },
+    {
+      "path": "NEW_STATEMENTS.json",
+      "bytes": 79464,
+      "sha256": "445b6ddbfa68f417c1949813f057e4f13b6fbb32f98f5ce8b72fdf439b7f7445"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3436,
+      "sha256": "cab9072d60ac9e0ea6ed0c08821ec7a29c75767c4a261e6ec08e696684cb895c"
+    },
+    {
+      "path": "STATEMENT_CHANGES.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "STYLE_RULES.json",
+      "bytes": 6113,
+      "sha256": "438a41f6094bbe0cf416e0665627c75de0f46fd85e0cd9b2e68d72a36dee5907"
+    },
+    {
+      "path": "checks/README.md",
+      "bytes": 5020,
+      "sha256": "38562c25cdaac5da14f78300b5b92299214e241c7682b65132faab680eaa1fb2"
+    },
+    {
+      "path": "checks/check_models_exact.py",
+      "bytes": 7758,
+      "sha256": "f5d1d3bc371e8e1c2ce1d4f098a5339407b867a5280668e2463f74bdea9ed157"
+    },
+    {
+      "path": "checks/classical_exact_output.json",
+      "bytes": 2215,
+      "sha256": "ce1589fc9a4181d90a18c01a7c5b7a4b338861ff72338e65f0ece6cbe330924a"
+    },
+    {
+      "path": "checks/exact_checks_execution.json",
+      "bytes": 2473,
+      "sha256": "8c5003ff19d2b0c3151e215b34528b31833c89298c22a61981a061bc84ebba16"
+    },
+    {
+      "path": "checks/quantum_controls.py",
+      "bytes": 4967,
+      "sha256": "df230b0290c3ed20dbcb07a5ea02333d18c70d0571c1db11e083430aee9f3fa3"
+    },
+    {
+      "path": "checks/quantum_exact_output.json",
+      "bytes": 2030,
+      "sha256": "70a629b1e89618e274ae0b60771c8b6be6e578ce886465ed514d833ea8e2916b"
+    },
+    {
+      "path": "checks/return_validation.json",
+      "bytes": 715,
+      "sha256": "d7434b6dd916e759b9ce9ed84e5265f86d906047f0f2a4d2322d679f8cb3b83e"
+    },
+    {
+      "path": "checks/semantic_controls.py",
+      "bytes": 6251,
+      "sha256": "cfd4e4bccef22510c83a843f99c5ac59ec33ca5b654651bfdb8aa210fd583670"
+    },
+    {
+      "path": "checks/source_integrity.json",
+      "bytes": 15598,
+      "sha256": "7729b13c69c230e47a266cd3fa5aa72895f4048a1283e894dabf3bd5b8e80293"
+    },
+    {
+      "path": "checks/supplied_semantic_controls_output.json",
+      "bytes": 1332,
+      "sha256": "c42cffe97e37377003f9583c07b5e021350fcd3d73be275a499c2935d8a3bcfa"
+    },
+    {
+      "path": "checks/validate_return.py",
+      "bytes": 11604,
+      "sha256": "ca7def479967f7f4366fc315eceaac9bddbf81201b485a460a7f603ab402a887"
+    },
+    {
+      "path": "correspondence.json",
+      "bytes": 485104,
+      "sha256": "fb5d1e5bcbbb1e10f628b659650a029dfe695d4361b725d60b42bd0979ce30f7"
+    },
+    {
+      "path": "model_contract.json",
+      "bytes": 402091,
+      "sha256": "e98400e0deb46d9dd36847fc4490b285de2d39139ee840e4181cd95704e47d7e"
+    },
+    {
+      "path": "references.bib",
+      "bytes": 5692,
+      "sha256": "4443b81e08459cebff22d5835e029e84369cf53ba7734ac94b120e08fddab6de"
+    },
+    {
+      "path": "review_notes.md",
+      "bytes": 31628,
+      "sha256": "eeeb728dc8ef7882e4b3cc8f363825562547e9f9b22ef317754bb929c77fb88d"
+    },
+    {
+      "path": "section.md",
+      "bytes": 36261,
+      "sha256": "d7507186b60b19f5e300c25b2ef2955e0880bf9f93c9bd8175148a98840bb522"
+    },
+    {
+      "path": "source_read_receipt.json",
+      "bytes": 262849,
+      "sha256": "164f3c6e9f49e5068c36a955e8be1f7ffbdca797db5744d79217278aa5083bda"
+    },
+    {
+      "path": "statement_catalog.json",
+      "bytes": 9654,
+      "sha256": "9cc8113663af26f0ec0aa800748f44dc07e48d28fadbc7f3500274bbdd47b5c6"
+    },
+    {
+      "path": "verification_note.md",
+      "bytes": 983,
+      "sha256": "38b315d7312df453559087065256f1b24eaa59d67a89b27f5511d710325a2f53"
+    }
+  ]
+}

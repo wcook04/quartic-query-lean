@@ -1,0 +1,323 @@
+{
+  "schema": "quartic-r3-backend-acceptance-v1",
+  "executed_at": "2026-11-02T19:17:34.970066+00:00",
+  "python_version": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "script_sha256": "b7c4530196a39393d111868668d6835c0acb776c38e9af7cf691862252aa8d89",
+  "scope": "Actual Python execution, mocked transition receipts, read-only supplied-corpus regeneration. No Lean, Comparator, native extraction or installed-consumer validation claimed.",
+  "definition_edit_and_rebuild": {
+    "operation_receipts": "mocked",
+    "old_snapshot": {
+      "lean/Definition.lean": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "lean/Theorem.lean": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    },
+    "new_snapshot": {
+      "lean/Definition.lean": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "lean/Theorem.lean": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    },
+    "original": {
+      "id": "s",
+      "kind": "lemma",
+      "section": null,
+      "source_line": null,
+      "statement": "Zero satisfies the equality-to-zero predicate.",
+      "statement_sha256": "634c8b36efddcba1603d8eafca01910e41bfe922e44b18102be77ecf9ff96f47",
+      "original_statement_sha256": null,
+      "corrected": false,
+      "depends_on": [],
+      "external_inputs": [],
+      "lean": [
+        {
+          "declaration": "A.permits_zero",
+          "kind": "definition",
+          "file": "lean/QuarticQuery/Statement.lean",
+          "line": null,
+          "relation": "exact",
+          "route": "same",
+          "hypotheses": [],
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "current",
+          "built": true,
+          "compared": true,
+          "reached": null
+        }
+      ],
+      "evidence": {
+        "formal_statement": "exact",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "compared",
+        "conditional": false,
+        "assumption_declaration": "A.permits_zero",
+        "premises": [],
+        "open_assumptions": [],
+        "route": "same",
+        "reach": "not_computed"
+      }
+    },
+    "patched": {
+      "id": "s",
+      "kind": "lemma",
+      "section": null,
+      "source_line": null,
+      "statement": "Zero satisfies the equality-to-zero predicate.",
+      "statement_sha256": "634c8b36efddcba1603d8eafca01910e41bfe922e44b18102be77ecf9ff96f47",
+      "original_statement_sha256": null,
+      "corrected": false,
+      "depends_on": [],
+      "external_inputs": [],
+      "lean": [
+        {
+          "declaration": "A.permits_zero",
+          "kind": "definition",
+          "file": "lean/QuarticQuery/Statement.lean",
+          "line": null,
+          "relation": "unassessed",
+          "route": "unassessed",
+          "reviewed_relation": "exact",
+          "reviewed_route": "same",
+          "review_evidence": "stale",
+          "review_binding": {
+            "schema": "quartic-tie-review-v1",
+            "statement_id": "s",
+            "statement_sha256": "634c8b36efddcba1603d8eafca01910e41bfe922e44b18102be77ecf9ff96f47",
+            "row_sha256": "6085aceb262ac023c3dcd331b48d5a58e5634556f5fd17e99ca77be403c22d8c",
+            "declaration": "A.permits_zero",
+            "judgment_sha256": "fb51c2574d2617e425ba62b8403c3a28057ad301a63c972379ac528639eaba61",
+            "source_snapshot_sha256": "ee58a10a7a0607103562a6c3fa421f2146cfe52f77e8d780350d5e9780ef521f"
+          },
+          "hypotheses": [],
+          "premises": [],
+          "open_assumptions": [],
+          "note": "",
+          "build_evidence": "current",
+          "comparison_evidence": "current",
+          "built": true,
+          "compared": true,
+          "reached": null
+        }
+      ],
+      "evidence": {
+        "review": "stale",
+        "formal_statement": "unassessed",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "not_computed"
+      }
+    }
+  },
+  "derived_helper": {
+    "original_wrong_source_id": "openai_preprint",
+    "patched_rejection": "r2-live-helper: withheld from the preprint-only corpus; preserve its own provenance and dependencies in the source owner"
+  },
+  "missing_dependency": {
+    "original_edges": [],
+    "patched_rejection": "s: missing prerequisite rows: r2-live-helper"
+  },
+  "supplied_source_snapshot": {
+    "inputs": 124,
+    "snapshot_sha256": "f698e6aa3629a32ce8d0039ba3e0db943e964186c7a4d0ab355b307a977d661d",
+    "unchanged_in_patch": true
+  },
+  "authored_and_recorded_inputs_unchanged": {
+    "corpus/ties.json": "2cf66121360fafbf8ca77d32d36feba192b839b6f3503e466ffe7857b6086bac",
+    "research/intake/statement_ledger.json": "baae822271b38aa322e9fec62c47621de20bb61eb82b077d92bd9c133685c143",
+    "research/adjudication/adjudication.json": "c5028e1a3046113879eb63754f1496b1787859be9a5abe8aad5ce32129ce0fc7",
+    "corpus/lean_dependencies.json": "56ae4752273f7cfba92ee6f35a4acc6ee0eea6e32a44116ccaf9d7354094e1fb"
+  },
+  "original_corpus_dry_run": {
+    "coverage": {
+      "statements": 121,
+      "corrected": 11,
+      "ledger_ids_without_a_row": [
+        "claim-butterfly",
+        "def-P"
+      ],
+      "formal_statement": {
+        "exact": 55,
+        "partial": 35,
+        "stronger": 31
+      },
+      "formal_origin": {
+        "ours": 121
+      },
+      "build": {
+        "built_at_pin": 121
+      },
+      "comparator": {
+        "compared": 7,
+        "not_run": 114
+      },
+      "route": {
+        "alternative": 9,
+        "none": 56,
+        "same": 56
+      },
+      "reach": {
+        "outside": 57,
+        "reached": 64
+      }
+    },
+    "lean_tie_count": 840,
+    "review_states": {
+      "not_enforced": 840
+    },
+    "reviewed_relation_counts": {
+      "partial": 375,
+      "unassessed": 363,
+      "exact": 62,
+      "stronger": 38,
+      "weaker": 2
+    },
+    "build_facts": {
+      "current": 840
+    },
+    "comparison_facts": {
+      "not_run": 821,
+      "current": 19
+    },
+    "graph": {
+      "nodes": 121,
+      "edges": 225,
+      "node_statuses": {
+        "unverified": 120,
+        "external": 1
+      },
+      "extraction_status": "not_run",
+      "source_ids": [
+        "openai_preprint"
+      ]
+    },
+    "generated_byte_hashes_not_written_to_corpus": {
+      "corpus/statements.json": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868",
+      "corpus/evidence-graph.json": "f5dc1941004a2b4e6909e860e02c665a0af3588af9f3973ae2400989822b4170",
+      "corpus/coverage.json": "d5d0cc3f370f2dac57a3957d2802e4e7f7e8e0a16732868fde64f64214bbc3fc"
+    }
+  },
+  "patched_corpus_dry_run": {
+    "coverage": {
+      "statements": 121,
+      "corrected": 11,
+      "ledger_ids_without_a_row": [
+        "claim-butterfly",
+        "def-P"
+      ],
+      "review": {
+        "legacy_unbound": 121
+      },
+      "formal_statement": {
+        "unassessed": 121
+      },
+      "formal_origin": {
+        "ours": 121
+      },
+      "build": {
+        "built_at_pin": 121
+      },
+      "comparator": {
+        "not_run": 121
+      },
+      "route": {
+        "none": 121
+      },
+      "reach": {
+        "outside": 57,
+        "reached": 64
+      }
+    },
+    "lean_tie_count": 840,
+    "review_states": {
+      "legacy_unbound": 477,
+      "not_reviewed": 363
+    },
+    "reviewed_relation_counts": {
+      "partial": 375,
+      "unassessed": 363,
+      "exact": 62,
+      "stronger": 38,
+      "weaker": 2
+    },
+    "build_facts": {
+      "current": 840
+    },
+    "comparison_facts": {
+      "not_run": 821,
+      "current": 19
+    },
+    "graph": {
+      "nodes": 121,
+      "edges": 225,
+      "node_statuses": {
+        "unverified": 120,
+        "external": 1
+      },
+      "extraction_status": "not_run",
+      "source_ids": [
+        "openai_preprint"
+      ]
+    },
+    "generated_byte_hashes_not_written_to_corpus": {
+      "corpus/statements.json": "cf20804b47ca0e3a27add27c42c146b4a886c9a6b9beefa9eb037c2cb372b3d8",
+      "corpus/evidence-graph.json": "1f92e25754cd4f13d5d9beb4303a7698009eec71ff14e692110d923877e5c6ea",
+      "corpus/coverage.json": "3a2ef4ac36f76a19fc5d9ed7832ef71381bbacf51e69527c848e2565e97b8cff"
+    }
+  },
+  "test_runs": [
+    {
+      "label": "original",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "cwd": "/workspace/scratch/5af1aa6131c8/quartic_r3_09_evidence_backend/repository",
+      "exit_code": 0,
+      "log": "original-python-tests.log",
+      "log_sha256": "e1523c2512a4df867299f9632010e897b83fb97e3263193d605c53542b1534b1",
+      "scope": "Python tests; external operations mocked; native integrations skipped unless explicitly installed"
+    },
+    {
+      "label": "patched",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "cwd": "/workspace/scratch/5af1aa6131c8/return_work/backend/repository",
+      "exit_code": 0,
+      "log": "patched-python-tests.log",
+      "log_sha256": "a718e7a68aa504b393744a991e2b1c42e57465fcb4a50aae414834b057930969",
+      "scope": "Python tests; external operations mocked; native integrations skipped unless explicitly installed"
+    }
+  ],
+  "original_files": {
+    "tools/build_corpus.py": "b208d0c23530c48a60062b2fbea7c9166804612d69f8a95854c5728bd94dec4d",
+    "tests/test_build_corpus.py": "5aa1f94c74d6fd801b812411b2f912e8bd11cf3d5d96ba3fb6c6cf7b0fc43662",
+    "tests/test_record_evidence.py": "3899fe10f305ece9bebadee1ca94950d4ff7591cb43e1dc82edcd8974db4f349",
+    "tests/test_build_challenges.py": "17cea961d8b01cc08647c0b1a7d63d700b36be916411285ea365adf373fdd6ac",
+    "docs/statement_evidence_contract.md": "0828e5ecb304c0133f597e999f6cb09426bf87955df65d40a569d8b5b1e18fe4",
+    "corpus/README.md": "8c80cd1b22e577000a1820ad5b7490958ed72118ce118fc1541cafde5de92c20"
+  },
+  "patched_files": {
+    "tools/build_corpus.py": "73e5e7649a9875ebcf7dd123206b8c5daae4bf3c5e1e910624f1033775bd889d",
+    "tests/test_build_corpus.py": "4016ad3372e158a60813d9cdf7263337f8ba20983073c8ca11e933bf79a4a17b",
+    "tests/test_record_evidence.py": "3899fe10f305ece9bebadee1ca94950d4ff7591cb43e1dc82edcd8974db4f349",
+    "tests/test_build_challenges.py": "17cea961d8b01cc08647c0b1a7d63d700b36be916411285ea365adf373fdd6ac",
+    "tests/test_review_freshness.py": "7cdaaef54fa0972f67822bba57c192916da2db713659061770281242e811dd31",
+    "docs/statement_evidence_contract.md": "a72d2788536ddad29fc2616868bb33382e8f4bdff65c96225b9560a1f201f4ea",
+    "corpus/README.md": "d3310fb2c6d235c794e4aa8bcf0e8ffd7565631be4eb56f52e1aa3e2e882e979"
+  }
+}

@@ -1,0 +1,65 @@
+[
+  {
+    "id": "lem-2.1.i",
+    "old": "Fixed-k endpoint with sufficiently large powers-of-four dimension; baseline coarse threshold proof.",
+    "new": "Same exact endpoint and promise, with a complete direct proof and ordinary sufficient threshold13669k².",
+    "relation": "unchanged canonical statement; new sufficient threshold",
+    "reason": "Use current source sharp uniform theorem to shorten final assembly."
+  },
+  {
+    "id": "claim-bs-to-L",
+    "old": "Published lower bound implies fixed-k floor target.",
+    "new": "Preserve published-theorem implication in F4–F5, identify the v3 display issue separately, and independently prove the target in F6–F51.",
+    "relation": "unchanged implication; proof routes separated",
+    "reason": "A source defect does not justify treating the theorem as false, and the formal fixed-k statement is not the full published quantitative theorem."
+  },
+  {
+    "id": "NEW-FOR-08",
+    "old": "Algebraic truncation with coarser edge-product estimate used in the baseline.",
+    "new": "Same functions and identities; use the separately registered r2-sharp-kernel bound3/16 and its equality at zero.",
+    "relation": "old statement retained; stronger known statement used",
+    "reason": "The sharp scalar bound is already current-built and reviewed."
+  },
+  {
+    "id": "NEW-FOR-13",
+    "old": "Stein path identity and one mean-value parameter in source, with alternative integral packaging in route notes.",
+    "new": "Display the two repeated-derivative cancellations for k=3, prove the general earlier-only invariant, and retain one common MVT parameter.",
+    "relation": "expository expansion of source MVT statement",
+    "reason": "Avoid silently equating a proposed integrated wrapper with the literal current declaration."
+  },
+  {
+    "id": "NEW-FOR-18",
+    "old": "Derivative bound with residual1.",
+    "new": "Preserve the weaker result as a corollary; use existing r2-sharp-growth residual2^-r. Register arbitrary real labels separately as r3-forr-bounded-real-leaves.",
+    "relation": "retained weaker claim plus explicit known sharpening and registered ordinary generalization",
+    "reason": "The source parametric tail gives2^-r after substitution; literal leaf vocabulary remains distinct."
+  },
+  {
+    "id": "NEW-FOR-25",
+    "old": "Four-term t0=max(8,ceil(C/eta0),ceil(2*3^ell/delta),ceil(4/delta³)) proof.",
+    "new": "Retained unchanged and proved in historical_threshold.md; main text uses new r3-forr-explicit-fixed-threshold.",
+    "relation": "relocation, not deletion or silent replacement of canonical statement",
+    "reason": "Preserve significant prior derivation while simplifying the main proof."
+  },
+  {
+    "id": "new-eq-04",
+    "old": "Earlier notes call the sharp2/18225 uniform endpoint proposed, with older aggregate evidence pending.",
+    "new": "The exact frozen powers-of-four,error1/3,15k+2≤2t endpoint is present in current source and explicitly root/native/type-axiom supported; it is not Comparator-listed.",
+    "relation": "evidence status corrected; mathematical statement unchanged",
+    "reason": "Later matching source-bound records supersede older prose."
+  },
+  {
+    "id": "r2-sharp-sharp-result",
+    "old": "SSW-dependent variable-error endpoint with stronger subgaussian dimension cutoff, ordinary/proposed formal route.",
+    "new": "Compare the weaker original cutoff m≥2^(15k+2) via new-eq-03 and prove it explicitly conditional on external SSW; do not claim the smaller cutoff or variable-error endpoint is current Lean.",
+    "relation": "comparison scope restricted; original stronger statement not modified",
+    "reason": "The assessed elementary route needs only second-moment leakage; external theorem and stronger null-tail work remain separate."
+  },
+  {
+    "id": "r2-sharp-bs-failure",
+    "old": "Lost logarithmic factor and corrected sufficient denominator exponent.",
+    "new": "Preserve exact claim, source-locate the comparison at physical1180–1181, distinguish later threshold1184, and separate reciprocal typo1173.",
+    "relation": "source-locator clarification, not theorem refutation",
+    "reason": "Prevents misidentifying a source line or a failure of an upper-bound comparison as an algorithmic counterexample."
+  }
+]

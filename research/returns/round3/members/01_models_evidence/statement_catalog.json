@@ -1,0 +1,200 @@
+{
+  "status": "Read-only excerpt of exact canonical statement texts; no canonical mutation or new evidence judgment.",
+  "source": "repository/corpus/statements.json",
+  "source_sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868",
+  "selection": "Only canonical IDs referred to by this section/crosswalk or proposal dependencies; not a new review of all their proofs or downstream sections.",
+  "statements": [
+    {
+      "id": "claim-exponent-ratio",
+      "kind": "inline_claim",
+      "section": "5",
+      "source_line": 706,
+      "statement": "For fixed 0<=alpha<4 and integer k>=2 with 2-1/k>alpha/2: R(F_{k,m})/(1+Q(F_{k,m}))^alpha >= c_{k,alpha} m^{2-1/k-alpha/2}/(log m)^{2+alpha b_k}, which tends to infinity.",
+      "statement_sha256": "852aa551c2800894e63253673331dc02db991953b7fa724f2e46f2a95a772a00"
+    },
+    {
+      "id": "claim-floor",
+      "kind": "inline_claim",
+      "section": "5",
+      "source_line": 698,
+      "statement": "For sufficiently large m, floor((m/100) floor(m^{1-1/k}/(log m)^2)) >= c_k m^{2-1/k}/(log m)^2 after decreasing c_k>0.",
+      "statement_sha256": "1e359b59fca9fa58322d5627fbb483ae56c0f9df1ecc90bb3883322d370f78c9"
+    },
+    {
+      "id": "claim-no-smaller-exponent",
+      "kind": "inline_claim",
+      "section": "5",
+      "source_line": 703,
+      "statement": "For every 0<=alpha<4, alpha does not belong to the set in eq-1, because a suitable k exists with k > 1/(2-alpha/2).",
+      "statement_sha256": "22d363c3c697ed6fa78a45311ab4a53e1c9bc21a4de98f9e0d4c92dd6cb24e2e"
+    },
+    {
+      "id": "claim-winner-dominates",
+      "kind": "inline_claim",
+      "section": "3.3",
+      "source_line": 477,
+      "statement": "If i_* is a winner then for every j != i_*, a_{i_* j} >= 1-epsilon, on every input, whether or not the opponent's instances are defined.",
+      "statement_sha256": "96b25cc77810cdeae2fbbe938cb04d9339dd0c8e56dbe8a5bf8c6c79392524b4"
+    },
+    {
+      "id": "cor-R-omega",
+      "kind": "corollary",
+      "section": "4.2",
+      "source_line": 682,
+      "statement": "For fixed k, R(F_{k,m}) = Omega_k(m^{2-1/k}/(log m)^2).",
+      "statement_sha256": "4ddd37d908864e268485b73b3a5ea407ded8bb7ee374aa5b66a597cedf7b1233"
+    },
+    {
+      "id": "cor-cubic-refuted",
+      "kind": "corollary",
+      "section": "1.1",
+      "source_line": 66,
+      "statement": "It is false that R(f) = O(Q(f)^3) for all total Boolean f ([3, Conjecture 2]): no C satisfies R(f) <= C Q(f)^3 for all total f.",
+      "statement_sha256": "f3617789532b7ee1ecc45fad1e802baa01bc65c25827a80c6666920d52470489"
+    },
+    {
+      "id": "cor-unique-winner",
+      "kind": "corollary",
+      "section": "2.2",
+      "source_line": 235,
+      "statement": "For every input, at most one column is a winner.",
+      "statement_sha256": "92ab387fade986ce41acb084f7c3f11457c74235a36fb64a2e6bf8e911aeb790"
+    },
+    {
+      "id": "def-D",
+      "kind": "definition",
+      "section": "A",
+      "source_line": 725,
+      "statement": "D(f) is the least depth of a deterministic decision tree computing f exactly on every input.",
+      "statement_sha256": "3562c129ea82e50cf2f8ae9d21a2adce1a457f486f9f8ded342379d182a129ec"
+    },
+    {
+      "id": "def-F",
+      "kind": "definition",
+      "section": "2.2",
+      "source_line": 229,
+      "statement": "F_{k,m}(y)=1 if some column of y is a winner, else 0. It is a total Boolean function on all input bit strings.",
+      "statement_sha256": "39af48a956c951a810d670b576bfe1e0c749155d97f6c2c8041d5f1a117716e2"
+    },
+    {
+      "id": "def-Q",
+      "kind": "definition",
+      "section": "1",
+      "source_line": 20,
+      "statement": "Q(f) is the least q such that some quantum algorithm, with unrestricted query-free computation between uses of O_x and with at most q queries on every branch including all measurement outcomes, outputs f(x) with probability >= 2/3 for every x in dom f.",
+      "statement_sha256": "8fe02040151db3c30650d32bc62bc01985ae25bcdb0ce3d21acf116c11852bb7"
+    },
+    {
+      "id": "def-R",
+      "kind": "definition",
+      "section": "1",
+      "source_line": 18,
+      "statement": "For a (partial) Boolean function f, R(f) is the least q such that some probability distribution on deterministic decision trees of depth at most q satisfies Pr[T(x)=f(x)] >= 2/3 for every x in dom f. The query cap holds on every branch and every coin outcome.",
+      "statement_sha256": "79ddac65db3b047b9c33c0a88c5b4ebd8086b2b94719a7cadd8a5f2d4f69b1ff"
+    },
+    {
+      "id": "def-column-layout",
+      "kind": "construction",
+      "section": "2.2",
+      "source_line": 208,
+      "statement": "The input has m columns. Column i contains: X_i in {0,1}^m; strings A_{i,1},...,A_{i,r} in {0,1}^{km} with no promise; and for each s in {0,1}^r a cell B_{i,s} holding, for each j != i, a pointer p_{i,s,j} in [m] encoded in l bits by a fixed bijection, and for each h in [r] an alleged evaluation transcript of C_{k,m} on A_{i,h}.",
+      "statement_sha256": "d9218ca3945f4873563558e42c95034d55721401eac270bbe30149248b1188f3"
+    },
+    {
+      "id": "def-dummy",
+      "kind": "construction",
+      "section": "4.2",
+      "source_line": 600,
+      "statement": "Dummy input Y^(0): independently for each i, J_i uniform in [m], X_i has a single 0 at position J_i. All A_{i,h} are iid mu independent of the J_i. All cells B_{i,s} are one fixed blank pattern.",
+      "statement_sha256": "2ea15f05e22de9e6b7118603b4e5523c41aca0a179f178f6c41a63654320c2f4"
+    },
+    {
+      "id": "def-log-convention",
+      "kind": "definition",
+      "section": "1.3",
+      "source_line": 118,
+      "statement": "log means log_2, except where changing the base only changes an absolute constant. Ledger pinning: log in T (prop-3.2), r and l (eq-6) and L (eq-5) is exactly log_2.",
+      "statement_sha256": "049e118f97c84619bd9e8bd699ae494e0e5f57f253c142b5f64fb734e3620812"
+    },
+    {
+      "id": "def-partial-query",
+      "kind": "definition",
+      "section": "1.3",
+      "source_line": 120,
+      "statement": "A partial Boolean function is a pair (D,P) with D a subset of {0,1}^N and P:D->{0,1}. An algorithm computes it if it is correct, with the stated error, on every x in D; behaviour off D is unconstrained.",
+      "statement_sha256": "b2754c85eb31367c9c931028f0c7fb02a3b89fc6400f0943644ccf4e21175067"
+    },
+    {
+      "id": "def-planted",
+      "kind": "construction",
+      "section": "4.2",
+      "source_line": 604,
+      "statement": "I is uniform in [m] and independent of Y^(0). Y^(1) is Y^(0) with X_I:=1^m and B_{I,s_I} filled with the correct transcripts and pointers p_{I,s_I,j}=J_j for j != I.",
+      "statement_sha256": "54311cfedf668933f0456ebe8d7a9e270088d7a1bb1133c52e385c44bb44409d"
+    },
+    {
+      "id": "def-query-oracle",
+      "kind": "definition",
+      "section": "1",
+      "source_line": 22,
+      "statement": "For x in {0,1}^n the bit oracle is the unitary O_x|i,b,z> = |i, b xor x_i, z>, with i in [n], b a bit, z a workspace label. It is self-inverse.",
+      "statement_sha256": "d0f18b8c1ae8d5311ad5a1260445f26513d45c27734234adc7d477291b16f8a8"
+    },
+    {
+      "id": "def-winner",
+      "kind": "definition",
+      "section": "2.2",
+      "source_line": 221,
+      "statement": "Column i is a winner iff X_i=1^m, every P(A_{i,h}) is defined, and the cell B_{i,s_i} contains correct evaluation transcripts on all A_{i,h} and pointers satisfying eq-8.",
+      "statement_sha256": "495ca2d2a0ba0d2e53508798fb3052d2cb1105f8a6dd2990d34b04e15302eaae"
+    },
+    {
+      "id": "eq-1",
+      "kind": "definition",
+      "section": "1",
+      "source_line": 30,
+      "statement": "alpha_tot = inf{alpha >= 0 : exists C_alpha < infinity such that for every n >= 1 and every total f:{0,1}^n->{0,1}, R(f) <= C_alpha (1+Q(f))^alpha}.",
+      "statement_sha256": "82e9433b421d9babee4fc9239f683d210a1457799a9726bcbad52a23fb84a354"
+    },
+    {
+      "id": "eq-2",
+      "kind": "equation",
+      "section": "1",
+      "source_line": 39,
+      "statement": "For fixed integer k>=2 and all sufficiently large powers of four m: Q(F_{k,m}) <= C_k sqrt(m) (log m)^{b_k} and R(F_{k,m}) >= c_k m^{2-1/k}/(log m)^2, with c_k,C_k,b_k>0 depending only on k.",
+      "statement_sha256": "945807a863e6b4bd28037c89b20ec3c14bfd8d6e7ba990192c680c3a1b9549a0"
+    },
+    {
+      "id": "prop-3.3",
+      "kind": "proposition",
+      "section": "3.3",
+      "source_line": 503,
+      "statement": "For every fixed k>=2, Q(F_{k,m}) <= sqrt(m) (log m)^{O_k(1)}.",
+      "statement_sha256": "d14a896c411b179bd64264e66c4a81445526cb7587edf3edf648f2c5e80a8493"
+    },
+    {
+      "id": "prop-4.2",
+      "kind": "proposition",
+      "section": "4.2",
+      "source_line": 592,
+      "statement": "For each fixed integer k>=2 and every sufficiently large power of four m, R(F_{k,m}) > G=floor(mL/100), with L=floor(m^{1-1/k}/(log_2 m)^2).",
+      "statement_sha256": "822f72e7136f7fe4455ae0c77ba1c6c7da483649661f46896a9edab798d8acdf"
+    },
+    {
+      "id": "thm-1.1",
+      "kind": "theorem",
+      "section": "1",
+      "source_line": 34,
+      "statement": "alpha_tot = 4. More precisely, R(f) = O((1+Q(f))^4) for every total Boolean f, and eq-2 holds for each fixed integer k>=2.",
+      "statement_sha256": "e50898db33e0335299a75079e637042ed314f4f9f01978a0570e763cd0e2afc1"
+    },
+    {
+      "id": "thm-A.1",
+      "kind": "theorem",
+      "section": "A",
+      "source_line": 731,
+      "statement": "Every total Boolean function satisfies R(f) <= D(f) = O((1+Q(f))^4), with an absolute constant.",
+      "statement_sha256": "22788a1fa29f117736d80e8def67d1785ceaa1dd954018e19c28f45432a16f11"
+    }
+  ]
+}

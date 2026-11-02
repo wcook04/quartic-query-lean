@@ -1,0 +1,172 @@
+{
+  "schema": "quartic-r3-05-validation-receipt-v1",
+  "checked_at_utc": "2026-11-02 19:30:08 UTC",
+  "status": "passed",
+  "return_structure_and_hashes": {
+    "schema": "quartic-r3-05-return-validation-v1",
+    "status": "passed",
+    "checks": [
+      {
+        "check": "required_deliverables",
+        "status": "passed",
+        "detail": {
+          "missing": []
+        }
+      },
+      {
+        "check": "json_parse",
+        "status": "passed",
+        "detail": {
+          "files": 15,
+          "errors": []
+        }
+      },
+      {
+        "check": "passage_pairing",
+        "status": "passed",
+        "detail": {
+          "passages": 39,
+          "unique": 39
+        }
+      },
+      {
+        "check": "correspondence_coverage",
+        "status": "passed",
+        "detail": {
+          "passages": 39,
+          "same_order_as_section": true
+        }
+      },
+      {
+        "check": "exact_correspondence",
+        "status": "passed",
+        "detail": {
+          "mapped_displays": 37,
+          "statement_ids": 46,
+          "selected_declarations": 70,
+          "problems": []
+        }
+      },
+      {
+        "check": "selected_type_coverage",
+        "status": "passed",
+        "detail": {
+          "used": 70,
+          "recorded": 70
+        }
+      },
+      {
+        "check": "new_statement_identity",
+        "status": "passed",
+        "detail": {
+          "entries": 3
+        }
+      },
+      {
+        "check": "canonical_statement_changes",
+        "status": "passed",
+        "detail": "No canonical statement text was changed."
+      },
+      {
+        "check": "bibliography_keys",
+        "status": "passed",
+        "detail": {
+          "entries": 7,
+          "unresolved": []
+        }
+      },
+      {
+        "check": "style_after_excerpts",
+        "status": "passed",
+        "detail": {
+          "rules": 6,
+          "unresolved": []
+        }
+      },
+      {
+        "check": "section_math_delimiters",
+        "status": "passed",
+        "detail": {
+          "control_characters": [],
+          "odd_dollar_lines": []
+        }
+      },
+      {
+        "check": "recorded_finite_checks",
+        "status": "passed",
+        "detail": [
+          "checks/tournament_example.json",
+          "checks/state_example.json"
+        ]
+      },
+      {
+        "check": "input_integrity_record",
+        "status": "passed",
+        "detail": {
+          "members": 397,
+          "scope": "Recorded custody check, not a rerun against the original ZIP."
+        }
+      },
+      {
+        "check": "fresh_lean_execution_boundary",
+        "status": "passed",
+        "detail": "No fresh formal execution claimed."
+      },
+      {
+        "check": "fresh_comparator_execution_boundary",
+        "status": "passed",
+        "detail": "No fresh formal execution claimed."
+      },
+      {
+        "check": "return_byte_manifest",
+        "status": "passed",
+        "detail": {
+          "hashed_members": 27,
+          "self_exclusion": "MANIFEST.json is intentionally not self-hashed.",
+          "problems": []
+        }
+      }
+    ],
+    "errors": [],
+    "scope": "Read-only structure and recorded byte-integrity consistency; not Lean, Comparator, mathematical proof, source-provenance certification, or rendered-page QA."
+  },
+  "arithmetic_checks": [
+    {
+      "script": "checks/tournament_example.py",
+      "report": "checks/tournament_example.json",
+      "exit_code": 0,
+      "status": "passed",
+      "deterministic_report_bytes": true,
+      "script_sha256": "7dea10b26fc9f8994b79de894c7de2ce4af7a2db02fec68a4456e1a46b894a84",
+      "report_sha256": "8ec2e3221f055dedf6425d62e8ea2360ada27511ebcfe9847dfc260708c60bb9"
+    },
+    {
+      "script": "checks/state_example.py",
+      "report": "checks/state_example.json",
+      "exit_code": 0,
+      "status": "passed",
+      "deterministic_report_bytes": true,
+      "script_sha256": "eff382d5d847719aaafc4359fd5ba78cec613293a69c9ba979fd5af2a1c3ca18",
+      "report_sha256": "037de8a80ac937e76cfbbd758262e0f08730b51ecce9fabca7746cb54355458f"
+    }
+  ],
+  "markdown_source_parse": {
+    "tool": "Pandoc markdown+tex_math_dollars to JSON AST",
+    "status": "passed",
+    "math_expressions": 660,
+    "display_math_expressions": 37,
+    "tables": 2,
+    "unbalanced_math_braces": 0,
+    "visual_render_performed": false,
+    "scope": "Source parse and math-delimiter/brace checks only; no typeset or visual inspection."
+  },
+  "source_byte_binding": "checks/source_binding.json",
+  "execution_environment": {
+    "python": "3.12.14",
+    "lean_executable_available": false,
+    "lake_executable_available": false
+  },
+  "fresh_lean_execution": false,
+  "fresh_comparator_execution": false,
+  "scope": "Actual ordinary finite arithmetic, metadata, source-byte and packaging checks. No formal proof execution, external dependency rebuild, human review, or PDF rendering."
+}

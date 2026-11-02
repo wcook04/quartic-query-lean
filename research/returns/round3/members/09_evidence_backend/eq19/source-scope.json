@@ -1,0 +1,290 @@
+{
+  "author_role": "focused eq19/native-extraction reviewer",
+  "sources": [
+    {
+      "member": "READ_ME_FIRST.md",
+      "status": "assessed",
+      "scope": "Full job and return requirements; inherited read plus focused endpoint reread.",
+      "sha256": "f1617783cc77ee0bd354f8e3d18db9d58ddcdc008b371e76928c4a7fed859417"
+    },
+    {
+      "member": "requests/09_evidence_backend.md",
+      "status": "assessed",
+      "scope": "Endpoint 2 and 3 and independent-challenge requirements.",
+      "sha256": "b5ad5d2de258300dc600b8f34067bd2adcb9642b27062bfe9b5590535caac12a"
+    },
+    {
+      "member": "repository/AGENTS.md",
+      "status": "assessed",
+      "scope": "Ownership and validation boundaries.",
+      "sha256": "5686db5032ef5a9d272aa4942d8601873ad3c4c72173f985b99caf3d7587064f"
+    },
+    {
+      "member": "repository/README.md",
+      "status": "assessed",
+      "scope": "Current source-bound versus historical claims.",
+      "sha256": "47fadd7a6d94c2bdb47d3155e289ed0956649449ae370d13f656d191e36ad947"
+    },
+    {
+      "member": "repository/research/README.md",
+      "status": "assessed",
+      "scope": "Read full guide.",
+      "sha256": "b02ef7b53c07e06f71bf3d381bea77a346caf1e7d160f7d35b3b54eb9d3cca1b"
+    },
+    {
+      "member": "repository/CONTRIBUTING.md",
+      "status": "assessed",
+      "scope": "Read full guide.",
+      "sha256": "52ab21f70fb11e6b5815fcd56dd20223f464e9df981f2c7a2895fb7362069a1f"
+    },
+    {
+      "member": "repository/corpus/README.md",
+      "status": "assessed",
+      "scope": "Read full evidence fields/producers guide.",
+      "sha256": "8c80cd1b22e577000a1820ad5b7490958ed72118ce118fc1541cafde5de92c20"
+    },
+    {
+      "member": "repository/docs/statement_evidence_contract.md",
+      "status": "assessed",
+      "scope": "Read full contract.",
+      "sha256": "0828e5ecb304c0133f597e999f6cb09426bf87955df65d40a569d8b5b1e18fe4"
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+      "status": "sampled",
+      "scope": "\u00a71.1, \u00a72.3, \u00a76.3, \u00a76.4, Appendix B def-Q and eq-19 neighborhood only.",
+      "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff"
+    },
+    {
+      "member": "paper/extracted.md",
+      "status": "sampled",
+      "scope": "Introduction and \u00a74.2 setup/erased-zero argument, printed pp.12\u201313; equation (19). PDF mathematical symbols checked through the supplied extraction; this agent did not render the PDF.",
+      "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+      "status": "sampled",
+      "scope": "Lines 1\u2013258 assessed in full; later unrelated simulator declarations sampled only.",
+      "sha256": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean",
+      "status": "assessed",
+      "scope": "Full finite-world induction and averaged inequality.",
+      "sha256": "86a2064e0fb6c6ba9b4a79785932a203314d8433d938083a420288d642bf8bf8"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/LowerBound/Planted/Average.lean",
+      "status": "sampled",
+      "scope": "Indicators, finite averages, product weights and resampling interfaces.",
+      "sha256": "471bb74964c7c841f12a8e90a184d13f26ffc173bf2855bdf1d59e93f490610e"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/LowerBound/Planted/Coupling.lean",
+      "status": "sampled",
+      "scope": "Tree path and depth interface, lines 1\u201338.",
+      "sha256": "35d0f76652f6aa52acb73dfe3b5c01eb70eefdf9397cc83f4b4469017de61824"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/LowerBound/Planted/Inputs.lean",
+      "status": "assessed",
+      "scope": "Dummy/planted definitions and event correspondence.",
+      "sha256": "8a51b7b7696acdda52b0762b65c2f9e8bec13da8d896c47102c447195509411f"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/LowerBound/Planted/Main.lean",
+      "status": "sampled",
+      "scope": "coupledAvg and initial tree-gap theorem, lines 1\u2013110.",
+      "sha256": "a32a6e24bccace37d46742acc9450fe33b6081430484138336014048f3fe835c"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Statement.lean",
+      "status": "sampled",
+      "scope": "Classical tree/depth definitions and BitInput/Column/BitLoc coordinate vocabulary; no copying used to author independent expected finite law.",
+      "sha256": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Model/Classical.lean",
+      "status": "sampled",
+      "scope": "Initial tree helpers and depth/evaluation interfaces.",
+      "sha256": "a820d0804ee722ee74eef97ea8efeb2a15da55107d6a908e35ba60ef39932e9e"
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Foundations/comparator.json",
+      "status": "assessed",
+      "scope": "Full config shape.",
+      "sha256": "7e5f89ab55e35fc5b3088528b260d3c9bbeabbb5dc173913a8be94a2521943e7"
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Foundations/Solution.lean",
+      "status": "assessed",
+      "scope": "Full generator region example.",
+      "sha256": "836000d335f1d8ba10f711895d142a6202c8484b6c9b100a2765d6f5f4bac9bd"
+    },
+    {
+      "member": "repository/tools/build_challenges.py",
+      "status": "assessed",
+      "scope": "Full generated challenge and glob/ownership behavior.",
+      "sha256": "7d4bc7588431a975301e55bd9cd2a25e587cddcd7e09b841f145b2f53e9e1497"
+    },
+    {
+      "member": "repository/tools/run_comparator.py",
+      "status": "assessed",
+      "scope": "Full config selection, command and intended-diagnostic checks.",
+      "sha256": "01879fa71d3e25a4706a85b7f4aa59ef3574d3d785e3a3a80a61cc95e7c84190"
+    },
+    {
+      "member": "repository/tools/build_corpus.py",
+      "status": "sampled",
+      "scope": "Imported and invoked existing source_hashes for exact whole-inventory equality; no backend rebuild.",
+      "sha256": "b208d0c23530c48a60062b2fbea7c9166804612d69f8a95854c5728bd94dec4d"
+    },
+    {
+      "member": "repository/lean/lakefile.toml",
+      "status": "assessed",
+      "scope": "Existing two lean_lib declarations sufficient for candidate module paths.",
+      "sha256": "255abcc3c689d0258d4cea520447fdc8da26e26a191331aa95559b2fb4818647"
+    },
+    {
+      "member": "repository/lean/README.md",
+      "status": "assessed",
+      "scope": "Module map and historical unelaborated-comment boundary.",
+      "sha256": "d7ef30dcd6e14d2733f991efb1822fd2497f2142889efa2917cfc5e3fb9ce1c4"
+    },
+    {
+      "member": "repository/corpus/ties.json",
+      "status": "sampled",
+      "scope": "eq-19 entry only.",
+      "sha256": "2cf66121360fafbf8ca77d32d36feba192b839b6f3503e466ffe7857b6086bac"
+    },
+    {
+      "member": "repository/corpus/lean_dependencies.json",
+      "status": "sampled",
+      "scope": "Metadata and declaration/reach/edge membership for selected equality, eq_19, expectedZeros_le_four, avg_foundZero_I_le.",
+      "sha256": "56ae4752273f7cfba92ee6f35a4acc6ee0eea6e32a44116ccaf9d7354094e1fb"
+    },
+    {
+      "member": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "status": "assessed",
+      "scope": "Receipt fields, selected membership, all source hashes and complete inventory independently checked.",
+      "sha256": "bc11e3fec8581f89ce56b110bf76db2469abea4b7be00fa476f9d2cee9455c2e"
+    },
+    {
+      "member": "native_results/final-evidence/current_native_acceptance.json",
+      "status": "sampled",
+      "scope": "ClassicalPlanted module record and all its source hashes checked.",
+      "sha256": "5182e06d70dccf3f7fca89ae06851e0d95ec3cc4219385a346034643d3959fd4"
+    },
+    {
+      "member": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+      "status": "sampled",
+      "scope": "Audit scope and positive verdict metadata; whole declaration inventory not reassessed.",
+      "sha256": "3c26718576384a76fca10f1f44bf42ffd2f23130b0aabcf35b3f5c34f2b4a1e0"
+    },
+    {
+      "member": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "status": "sampled",
+      "scope": "Selected exact types/axioms around lines 1450\u20131528.",
+      "sha256": "f87b4e78aaa99fb069acc358fd90c6b95a1fd09bb337d4b49b6851ae714d8ae1"
+    },
+    {
+      "member": "external_backend/comparator/Lake/Check/Compare.lean",
+      "status": "assessed",
+      "scope": "Full target-kind, type, non-target constant, and definition-hole rules.",
+      "sha256": "0281630a33b8f08a9f3f40f229cd843c02441a0cd4d8a6d8548dc2bb8ded4c68"
+    },
+    {
+      "member": "external_backend/comparator/Lake/Check/Axioms.lean",
+      "status": "assessed",
+      "scope": "Full transitive axiom traversal.",
+      "sha256": "261fa54494a6a17c23b8588d788ab1080e5c39af2143948f8e140cfa295560d1"
+    },
+    {
+      "member": "external_backend/comparator/Lake/CLI/Check.lean",
+      "status": "sampled",
+      "scope": "Header/context, actual entrypoint/config fields, expected diagnostic scope.",
+      "sha256": "55daf430e5adea38453b21798cbdf4cd099f66ec969494022a566a8ae098c00b"
+    },
+    {
+      "member": "external_backend/lean-exposition/docs/contracts.md",
+      "status": "sampled",
+      "scope": "Architecture/version scope, graph closures, evidence/assumptions, papers/bundles sections through line260; unrelated transport details not assessed.",
+      "sha256": "7ffd46f0d17659a2f126f60e79d1f62e4ad51e20d4ac023ca9061b5dd73830f8"
+    },
+    {
+      "member": "external_backend/lean-exposition/docs/verification.md",
+      "status": "sampled",
+      "scope": "Native extraction/API/receipts/graph/Comparator sections through line230 and selected command context; other research example histories unassessed.",
+      "sha256": "06a03eb7c77976b36d95019927106f8a549edf313129ee376ce7ee8f92d8dfbf"
+    },
+    {
+      "member": "external_backend/lean-exposition/src/lean_exposition/cli.py",
+      "status": "sampled",
+      "scope": "Parser and run dispatcher lines 1\u2013200, actual extract/select/validate/inspect routes.",
+      "sha256": "e541595c434a2c23b1c69fc3eedaf62d7f8f1673daf88bfcf940c950c7abffe5"
+    },
+    {
+      "member": "external_backend/lean-exposition/src/lean_exposition/verification.py",
+      "status": "sampled",
+      "scope": "Import/runtime requirements, bound process and extraction-template paths, comparator process wrapper fields.",
+      "sha256": "3d8f97bf053945308b859b1c414642926925d9dbed4f7b7f816bc8f9302b0290"
+    },
+    {
+      "member": "external_backend/lean-exposition/src/lean_exposition/extraction.py",
+      "status": "sampled",
+      "scope": "Report/source binding checks and graph generation/status fields.",
+      "sha256": "48d93fc6b27c525dc4eb7f6cd47884e9257c967d6e702f43940e1cee6a9002d7"
+    },
+    {
+      "member": "external_backend/lean-exposition/src/lean_exposition/consumer.py",
+      "status": "sampled",
+      "scope": "Imports and documented consumer entrypoints; no successful imported consumer execution.",
+      "sha256": "7e7b509c4fb38c39256fd9886242b0b1815bd969121ca9fd877f6d1f30d5cd0a"
+    },
+    {
+      "member": "external_backend/lean-exposition/src/lean_exposition/contracts.py",
+      "status": "sampled",
+      "scope": "Imports and validation entrypoint references; missing jsonschema prevents native import.",
+      "sha256": "0b3ea9350e9bbdca8a4fd11998be35409057a037c1d7078fc2bc9c11ab1379ba"
+    },
+    {
+      "member": "manifest.json",
+      "status": "sampled",
+      "scope": "Source pin, paper hash and all external tool source edition hashes.",
+      "sha256": "65d41a7a94e99ca5feb864503faba9d00b7d02c479369506d7645f7bb82010bb"
+    },
+    {
+      "member": "BACKEND_INPUT_STATUS.json",
+      "status": "assessed",
+      "scope": "Supplied source group is not an installed package claim.",
+      "sha256": "57c4f070ce179b7594a86a8a19c0ff6d5ab3bd1d63379e87edd5d29a7e40ce59"
+    },
+    {
+      "member": "DEPENDENCY_SOURCES.json",
+      "status": "assessed",
+      "scope": "Pinned versions and omitted toolchain/foundation artifact boundary.",
+      "sha256": "e77c8982ace02b04ef742253dde4999260691a6345428d828cbc9e8b9d8b0517"
+    },
+    {
+      "member": "EVIDENCE_SNAPSHOT.json",
+      "status": "sampled",
+      "scope": "Current root receipt/selected native metadata.",
+      "sha256": "25f46742c3d019459dc43846f23234c107212625b8c76f3eeef787fd721f1213"
+    },
+    {
+      "member": "installed lean-exposition distribution / resources/lean/Extract.lean",
+      "status": "unavailable",
+      "scope": "No installed module or executable; selected source snapshot omits full CLI dependencies and extractor helper."
+    },
+    {
+      "member": "pinned Lean/Lake executable and .lake compiled imports",
+      "status": "unavailable",
+      "scope": "No executables on PATH; no local target .olean or full pinned dependency checkout supplied."
+    },
+    {
+      "member": "rest of packet and literature not listed above",
+      "status": "unassessed",
+      "scope": "No complete-packet reading claim by this focused agent."
+    }
+  ]
+}

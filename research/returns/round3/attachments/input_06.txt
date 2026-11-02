@@ -1,0 +1,328 @@
+I completed the focused return requested in the attachment, including a rewritten §§6.2–6.6, the source and Lean correspondence, exact examples, citations, and an internal file manifest.
+
+**My conclusion is that the planted-input lower-bound argument goes through at the stated fixed-\(k\) scope.** I found no unresolved mathematical implication in the assigned proof. The most consequential corrections concern the evidence attached to the argument—especially the distinction between the exact identity in equation (19), an upper bound, and a formal statement containing the entire equation.
+
+[quartic_r3_07_planted_lower_bound_return.zip](https://chatgpt.com/library?file_id=libfile_859f94f623b4819184cb384684667981&account_id=personal)
+
+Start with **`section.md`** for the mathematics and **`review_notes.md`** for the findings and their disposition.
+
+## 1. The conclusion, with its quantifiers intact
+
+For each **fixed** integer \(k\ge2\), set
+\[
+m=4^t,\qquad r=40t,
+\]
+and
+\[
+L=\left\lfloor
+\frac{m^{1-1/k}}{(\log_2m)^2}
+\right\rfloor,
+\qquad
+G=\left\lfloor\frac{mL}{100}\right\rfloor.
+\]
+
+Once \(t\) is sufficiently large for that fixed \(k\), the argument establishes
+\[
+\boxed{
+R(F_{k,m})>G
+\;\ge\;
+\frac1{400}\,
+\frac{m^{2-1/k}}{(\log_2m)^2}.
+}
+\]
+
+This is the Proposition 4.2 conclusion from the supplied preprint, together with an explicit version of the floor estimate. Two distinctions matter:
+
+- **The arithmetic is uniform:** the displayed lower bound on \(G\) holds for every \(k\ge2\) and \(t\ge8\).
+- **The hardness threshold depends on the fixed \(k\):** the prerequisite \(L<R(P_{k,m})\) is eventually available, but this return does not claim a uniform threshold permitting an arbitrary growing choice \(k=k(m)\).
+
+The lower-bound proof applies to every realizing circuit. Consequently, it applies to the particular circuit already selected for the quantum upper bound, preserving the requirement that both bounds concern the **same function**.
+
+Combining the bounds gives exponent \(4-2/k\), up to logarithms, for fixed \(k\). Choosing successively larger fixed values of \(k\) approaches four. No single fixed \(k\) in this argument yields an exact fourth-power family.
+
+## 2. Equation (19): the central evidence correction
+
+The relevant mathematical statement is
+\[
+\Pr[\text{the dummy run queries the erased zero}]
+=
+\frac{\mathbb E Z}{m}
+\le
+\frac{4G}{m^2},
+\]
+where \(Z\) counts the columns whose unique zero is discovered during the dummy run.
+
+There are three separate assertions here:
+
+1. The exact identity \(p_{\mathrm{erase}}=\mathbb EZ/m\).
+2. The search estimate \(\mathbb EZ\le4G/m\).
+3. A combined statement retaining both clauses.
+
+### The identity has a short, complete proof
+
+Fix the entire dummy input and the resulting deterministic run. Then \(Z\) is fixed. The planted column \(I\) is still independent and uniform among the \(m\) columns, and exactly \(Z\) choices of \(I\) select a discovered zero. Therefore
+\[
+\Pr[\text{erased-zero hit}\mid\text{dummy run}]=Z/m.
+\]
+Averaging gives the identity.
+
+**No depth bound or hardness assumption is needed for this equality.** Those assumptions enter the subsequent estimates.
+
+### The attachment’s “unelaborated” label is stale
+
+The supplied current evidence includes the exact declaration
+`QuarticQuery.Paper.erasedZero_eq_expectedZeros_div`
+in both the successful root-build inventory and the explicit transitive axiom audit.
+
+Its algebraic statement is even more general than its probability interpretation: it accepts arbitrary finite real weights. Nonnegativity and normalization are needed when those sums are interpreted as probabilities.
+
+However, `QuarticQuery.Paper.eq_19` itself states an **inequality**, not the equality. It appears in the root inventory but is not individually one of the 258 explicit axiom-audit targets.
+
+The correct disposition is therefore:
+
+| Item | Status supported by the supplied packet |
+|---|---|
+| Exact erased-zero identity | Present in the current build and explicit axiom audit |
+| Expected-zero upper bound | Separately available |
+| Entire chained equation (19) as one conjunction | No supplied compiled conjunction |
+| Paper’s early/late decomposition | Ordinary proof reconstructed; its separate counts are not formally supplied |
+
+The return includes **`lean/Eq19Complete.lean`**, proposing the precise conjunction
+\[
+p_{\mathrm{erase}}=\mathbb EZ/m
+\quad\land\quad
+\mathbb EZ/m\le4G/m^2.
+\]
+It combines the separately evidenced ingredients. It is explicitly marked **uncompiled**.
+
+This is a remaining formal packaging step. It does not mean that either mathematical clause is unproved.
+
+## 3. Why the planted-input argument works
+
+The proof compares two distributions on inputs to the same total function.
+
+In the **dummy input**, every \(X\)-column has one independently uniform zero, the partial-function inputs are drawn independently from a hard distribution, and all certificate cells are blank.
+
+In the **planted input**, an independent uniform column \(I\) has its zero erased. Its true certificate cell is filled with valid circuit transcripts and pointers to the zeros in the other columns.
+
+The dummy input has function value zero. The planted input has function value one. The inputs differ only at the erased zero and within that one certificate cell.
+
+If a deterministic query tree produces different outputs on the two inputs, its dummy run must encounter a changed coordinate. This yields the two contributions:
+
+| Possible encounter | Bound |
+|---|---:|
+| Erased zero | \(4G/m^2\), or \(2G/m^2\) by the alternative search proof |
+| True certificate cell | \(G/(mL)+G(2/3)^r\) |
+
+The proof must justify these contributions under the adaptive query process. The rewritten section makes those justifications explicit.
+
+### Discovering a zero
+
+For the paper’s early/late argument, fix a positive-probability transcript prefix. Before a column’s zero is discovered, the transcript only excludes the distinct rows already queried in that column. Its zero remains uniform among the unqueried rows.
+
+An early discovery occurs while fewer than \(m/2\) distinct positions have previously been queried in its column. Its conditional probability is at most \(2/m\) per query, giving
+\[
+\mathbb E Z_{\mathrm{early}}\le\frac{2G}{m}.
+\]
+
+Every late-discovered column has consumed at least \(m/2\) queries. Since the entire run uses at most \(G\) queries,
+\[
+Z_{\mathrm{late}}\le\frac{2G}{m}
+\]
+on every execution. Hence
+\[
+\mathbb EZ\le\frac{4G}{m}.
+\]
+
+Repeated queries and branches that stop early are handled explicitly.
+
+The formal source uses a different finite-world induction, giving the stronger endpoint
+\[
+\mathbb EZ\le\frac{2G}{m},
+\qquad
+p_{\mathrm{erase}}\le\frac{2G}{m^2}.
+\]
+I retained and explained both routes. The stronger endpoint supports the numerical bound, but does not certify that the early/late intermediate statements were formalized.
+
+The baseline’s further refinement
+\[
+p_{\mathrm{erase}}\le\frac{2G}{m(m+1)}
+\]
+is also retained with its ordinary proof. Its scan example establishes sharpness for an **expectation-cost inequality**; it does not determine the optimal distinguishing success at every prescribed worst-case budget.
+
+### Querying the true certificate cell
+
+A column is heavy if the complete dummy run makes more than \(L\) queries in total to its partial-function inputs. Counting queries and averaging over the independent uniform \(I\) gives
+\[
+\Pr[I\text{ is heavy}]\le\frac{G}{mL}.
+\]
+
+For a fixed column and proposed query time, the simulator:
+
+- receives data jointly independent of the entire target tuple;
+- answers outside queries from that data;
+- charges queries to the target inputs against a shared counter;
+- aborts **before** target query \(L+1\);
+- outputs a proposed cell’s address before reading that cell’s contents.
+
+The cap holds on every simulator branch. It therefore satisfies the separate input caps required by the direct-product prerequisite, giving success at most \((2/3)^r\).
+
+The critical event containment is
+\[
+\{\text{column nonheavy and proposed query hits its true cell}\}
+\subseteq
+\{\text{capped simulator guesses the true address}\}.
+\]
+
+Thus the proof bounds a **joint event under the original distribution**. It does not condition the hard input distribution on nonheaviness.
+
+Union bounding over the \(G\) query times and then averaging over \(I\) yields
+\[
+\Pr[\text{true-cell visit}]
+\le
+\frac{G}{mL}+G(2/3)^r.
+\]
+There is no additional factor \(m\): the sum over columns is divided by \(m\) when the planted column is averaged.
+
+## 4. Conditioning on nonheaviness is a real potential error
+
+I included a small counterexample showing why the preceding distinction is necessary.
+
+Let \(P\) be AND on the promised inputs
+\[
+\{01,10,11\},
+\]
+with the uniform distribution. Every one-query algorithm succeeds with probability at most \(2/3\).
+
+Now consider an algorithm that queries the first bit, stops with answer zero if that bit is zero, and otherwise queries the second bit. With \(L=1\), its original run is nonheavy exactly on input \(01\). Therefore
+\[
+\Pr[\text{correct}\mid\text{nonheavy}]=1.
+\]
+
+A capped simulator that aborts before the second query and defaults to zero has
+\[
+\Pr[\text{capped simulator correct}]=\frac23,
+\qquad
+\Pr[\text{correct and nonheavy}]=\frac13.
+\]
+
+The unconditional bound remains valid. Applying the same \(2/3\) bound after selecting the nonheavy executions would be false. This example isolates the probability error without changing the theorem’s assumptions.
+
+## 5. The discrepancy and floor estimates can be made explicit
+
+Combining the coupling and the two encounter bounds gives
+\[
+\left|
+\Pr[T(Y^{(1)})=1]-\Pr[T(Y^{(0)})=1]
+\right|
+\le
+\frac{4G}{m^2}
++\frac{G}{mL}
++G(2/3)^r.
+\]
+
+The absolute-value form strengthens the preprint’s one-sided comparison. The replacement says this explicitly, and distinguishes the current absolute-value wrappers from the older core one-sided theorem.
+
+The paper’s exact tail envelope is
+\[
+G(2/3)^r
+\le
+\frac1{100}m^{\,2-20\log_2(3/2)}
+=o(1).
+\]
+That statement and its formal components are preserved.
+
+For the contradiction, a simpler finite estimate suffices:
+\[
+(2/3)^{40t}
+=(4/9)^{20t}
+\le2^{-20t}
+=m^{-10}.
+\]
+Since \(G\le mL/100\) and \(1\le L\le m\),
+\[
+\frac{4G}{m^2}\le\frac4{100},\qquad
+\frac{G}{mL}\le\frac1{100},\qquad
+G(2/3)^r\le\frac1{100m^8}.
+\]
+Consequently,
+\[
+\text{output gap}\le\frac6{100}<\frac13.
+\]
+
+An algorithm correct with probability at least \(2/3\) on every input would have an average output-one gap of at least \(1/3\) between the planted one-inputs and dummy zero-inputs. Fixing and then averaging its random coins gives the contradiction.
+
+There is therefore **no additional asymptotic tail threshold needed for this numerical step** once \(1\le L\le m\).
+
+For the floors, the useful elementary observation is
+\[
+4t^2\le2^t\qquad(t\ge8).
+\]
+Writing \(a=m^{1-1/k}/(2t)^2\), this gives \(a\ge1\). Applying
+\[
+\lfloor x\rfloor\ge x/2\qquad(x\ge1)
+\]
+first to \(a\) and then to \(mL/100\) yields
+\[
+G\ge\frac{mL}{200}\ge\frac{ma}{400}.
+\]
+This proves the explicit constant above. With natural logarithms, the corresponding coefficient is
+\[
+\frac{(\ln2)^2}{400}.
+\]
+
+## 6. What should be cited, and for which claim
+
+The bibliography fixes the inspected editions and separates mathematical inputs from construction ancestry.
+
+**Bansal–Sinha, arXiv:2008.07003v3, Theorem 1.3 and Corollary 1.4, p. 4.** This is the original Forrelation hardness input. Their block dimension \(N\) corresponds to \(m\); the total input length is \(km\). At error \(1/3\), the stated bound is
+\[
+\Omega\!\left(
+k^{-29}
+\left(\frac{m}{\log(km)}\right)^{1-1/k}
+\right).
+\]
+For fixed \(k\), it dominates the chosen \(L\) by a logarithmic factor of order \((\log m)^{1+1/k}\). [arxiv.org](https://arxiv.org/pdf/2008.07003v3?utm_source=chatgpt.com)
+
+The separate §5.4 caveat is retained precisely. My algebraic reading of the supplied v3 source identifies a mismatch of logarithm exponents by \((j/k-1)/2\) for summation levels \(j>k\), at `main.tex:1180–1181`. Line 1184 is the subsequent threshold. This flags a particular displayed comparison; it does not by itself refute the stated theorem. The assigned proof consumes the weaker fixed-\(k\) prerequisite already established in the supplied §3. [arxiv.org](https://arxiv.org/pdf/2008.07003v3?utm_source=chatgpt.com)
+
+**Drucker, arXiv:1005.0644v2, §1.3, Lemmas 3.1–3.2, and the final paragraph of §3.** The relevant antecedent is the fair, or separately capped, direct-product argument and its transcript product law. Drucker attributes the fair case to Shaltiel. The headline global-budget theorem is a different statement. The return uses the exact capped prerequisite already proved in the frozen baseline §6.1. [arxiv.org](https://arxiv.org/pdf/1005.0644v2?utm_source=chatgpt.com)
+
+**Aaronson–Ben-David–Kothari, arXiv:1511.01937v2, §6.1, Definitions 14–15, and §6.2, Lemma 17.** This supplies the cheat-sheet construction ancestry. Lemma 17 proves upper bounds for their construction; it should not be cited as though it proves the present planted lower bound. [arxiv.org](https://arxiv.org/pdf/1511.01937v2?utm_source=chatgpt.com)
+
+The target throughout remains **OpenAI’s supplied preprint, §4.2, equations (17)–(23) and Proposition 4.2, pp. 12–14**. The QAOA materials were used only as writing specimens.
+
+## 7. What was checked—and what the checks establish
+
+The return includes an explicit four-column XOR instance with all **192 physical bit coordinates**, valid transcripts and pointers, an adaptive query tree, and the capped simulator’s trace.
+
+Exact enumeration covers **4,096 dummy configurations** and **16,384 coupled choices**, producing:
+
+| Quantity in the finite example | Exact value |
+|---|---:|
+| Expected discovered zeros | \(3/8\) |
+| Erased-zero hit probability | \(3/32=(3/8)/4\) |
+| True-cell hit probability | \(1/16\) |
+| Output-one probability gap | \(1/16\) |
+| Fixed-target nonheavy true-cell event | \(1/8\) |
+| Capped simulator success | \(1/4\) |
+
+The example also checks the abort branch and the location of every possible changed bit. Its parameters differ from the Forrelation specialization, and it has no late discoveries. The general early/late estimate rests on the proof, not on that finite example.
+
+I also checked **187 floor cases** using exact integer and rational arithmetic. These verify the literal lower bound **without a \(+1\) slack**; the older supplied check allowed that slack. The returned code reproduces the accompanying data exactly.
+
+For the formal evidence:
+
+- All **449 files listed in the input manifest** match their supplied byte counts and hashes.
+- The root-build receipt has **124/124 matching local input hashes**.
+- The final axiom audit has **124/124 matching input hashes** and **3/3 matching candidate files**.
+- The correspondence covers **26 passages and 41 displays**, with complete type information for the selected declarations.
+- The final ZIP passes its archive integrity and member-hash checks.
+
+These are checks of supplied evidence and returned artifacts. **I did not perform a new Lean build or Comparator run.** Neither executable was available, and the recorded compiled binaries were not included. The new conjunction wrapper remains uncompiled.
+
+## What the ZIP contains
+
+The package includes every requested return component: the replacement section; ranked review notes; bibliography and source-reading receipt; exact passage/type correspondence; formal gaps and evidence corrections; new-statement registration; the proposed Lean wrapper; reproducible example and floor-check code/data; style rules; validation results; and the manifest.
+
+One attachment remains outstanding: **`Pasted text(20261102-190839).txt` was unavailable.** Please reattach it if its contents should be incorporated. This completed return follows the full assignment available inside the ZIP.

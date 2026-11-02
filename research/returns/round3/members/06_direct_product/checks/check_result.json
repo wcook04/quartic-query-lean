@@ -1,0 +1,86 @@
+{
+  "arithmetic": "fractions.Fraction (exact rational)",
+  "input_law": "Two independent uniformly distributed pairs of Boolean bits",
+  "function": "f(x0,x1) = x0 AND x1",
+  "per_instance_cap": 1,
+  "single_input_trees_checked": 10,
+  "single_input_optimum_beta": "3/4",
+  "joint_inputs_checked": 16,
+  "capped_two_input_trees_checked": 5188,
+  "capped_two_input_optimum": "9/16",
+  "beta_squared": "9/16",
+  "transcript_rectangle_and_conditional_product_checks": "passed for every input and all four positive two-query histories",
+  "impossible_opposite_repeat_answers": "both have zero mass",
+  "history_rows": [
+    {
+      "first_answer_a": 0,
+      "second_query": "B[0]",
+      "second_answer_t": 0,
+      "history_probability": "1/4",
+      "conditional_success": "1",
+      "per_instance_counts": [
+        1,
+        1
+      ],
+      "cap_respected": true,
+      "joint_success_contribution": "1/4"
+    },
+    {
+      "first_answer_a": 0,
+      "second_query": "B[0]",
+      "second_answer_t": 1,
+      "history_probability": "1/4",
+      "conditional_success": "1/2",
+      "per_instance_counts": [
+        2,
+        1
+      ],
+      "cap_respected": false,
+      "joint_success_contribution": "0"
+    },
+    {
+      "first_answer_a": 1,
+      "second_query": "B[1]",
+      "second_answer_t": 0,
+      "history_probability": "1/4",
+      "conditional_success": "1/2",
+      "per_instance_counts": [
+        2,
+        1
+      ],
+      "cap_respected": false,
+      "joint_success_contribution": "0"
+    },
+    {
+      "first_answer_a": 1,
+      "second_query": "B[1]",
+      "second_answer_t": 1,
+      "history_probability": "1/4",
+      "conditional_success": "1/4",
+      "per_instance_counts": [
+        1,
+        1
+      ],
+      "cap_respected": true,
+      "joint_success_contribution": "1/16"
+    }
+  ],
+  "probability_all_correct": "9/16",
+  "probability_cap_respected": "1/2",
+  "probability_all_correct_and_cap_respected": "5/16",
+  "probability_all_correct_given_cap_respected": "5/8",
+  "conditional_dependence_witness": {
+    "Pr[A0=0|E]": "1/2",
+    "Pr[B0=0|E]": "3/4",
+    "Pr[A0=B0=0|E]": "1/2",
+    "product_of_conditional_marginals": "3/8"
+  },
+  "global_budget_rL_counterexample": {
+    "total_query_cap": 2,
+    "strategy": "Compute P(A) exactly, output 0 for P(B)",
+    "success": "3/4",
+    "strictly_larger_than_beta_squared": true
+  },
+  "scope": "Finite semantic check of this example only; no general proof or Lean-build claim",
+  "all_assertions_passed": true
+}

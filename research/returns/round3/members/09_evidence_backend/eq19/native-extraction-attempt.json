@@ -1,0 +1,38 @@
+{
+  "kind": "native_extraction_launch_attempt",
+  "command": [
+    "lean-exposition",
+    "extract",
+    "/workspace/scratch/5af1aa6131c8/quartic_r3_09_evidence_backend/repository/lean",
+    "--module",
+    "QuarticQuery.Paper.ClassicalPlanted",
+    "--goal",
+    "QuarticQuery.Paper.erasedZero_eq_expectedZeros_div",
+    "--module-prefix",
+    "QuarticQuery",
+    "--build",
+    "--timeout",
+    "120",
+    "--max-declarations",
+    "10000",
+    "--out",
+    "/workspace/scratch/5af1aa6131c8/return_work/eq19_extract/native-extracted-graph.json"
+  ],
+  "cwd": "/workspace/scratch/5af1aa6131c8/quartic_r3_09_evidence_backend",
+  "returncode": 127,
+  "stdout": "",
+  "stderr": "eq19-native-extraction-attempt: line 1: exec: lean-exposition: not found\n",
+  "status": "unavailable",
+  "failure_stage": "process_launch",
+  "graph_created": false,
+  "not_a_native_extraction_receipt": true,
+  "observed_at": "2026-11-02T19:13:53.284600+00:00",
+  "available_executables": {
+    "lean": null,
+    "lake": null,
+    "elan": null,
+    "lean-exposition": null
+  },
+  "python_module_installed": false,
+  "source_target_acceptance": "accepted-target-source-check.json"
+}

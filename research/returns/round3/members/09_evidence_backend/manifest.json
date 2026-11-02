@@ -1,0 +1,554 @@
+{
+  "schema": "quartic-r3-advisory-return-manifest-v1",
+  "campaign": "round3",
+  "job": "09_evidence_backend",
+  "created_at": "2026-11-02T19:32:25.098733+00:00",
+  "input_archive": {
+    "filename": "quartic_r3_09_evidence_backend.zip",
+    "sha256": "4d7c8e32b9c3ae5fd2aaa12a2f0ff8a2b85d48a1e7a14197cc29a8108cf59954",
+    "library_file_id": "libfile_74b878d299448191a408caf689e60294",
+    "archive_members": 402,
+    "manifest_payload_members": 400,
+    "validation_receipt": "checks/packet-check.json"
+  },
+  "source_versions": {
+    "packet_repository_commit": "1dd469dd0042b937b739da3bc211eeb60bdf7462",
+    "current_native_receipt_commit": "31e17dee667d1d72fa621da8e7d3d8ff5fc3960a",
+    "lean_toolchain_requested": "leanprover/lean4:v4.36.0-rc2",
+    "lean_runtime_available_here": false,
+    "paper_public_revision": "4eaee875",
+    "paper_pdf_sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e",
+    "dependency_manifest_sha256": "d670a8101d900b62e17a1d51c8b1b36fd60919bcad472700b0a5e1c0b38b104d",
+    "dependency_pins": [
+      {
+        "name": "complexitylib",
+        "url": "https://github.com/cslib-community/complexitylib.git",
+        "rev": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a",
+        "inputRev": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a"
+      },
+      {
+        "name": "cslib",
+        "url": "https://github.com/leanprover/cslib",
+        "rev": "254e30e6d4299c51323aaeaf5f51a4763b375d4a",
+        "inputRev": "254e30e6d4299c51323aaeaf5f51a4763b375d4a"
+      },
+      {
+        "name": "mathlib",
+        "url": "https://github.com/leanprover-community/mathlib4",
+        "rev": "69552756cd8a2d2d48763cf7279fd814d6a1224d",
+        "inputRev": "69552756cd8a2d2d48763cf7279fd814d6a1224d"
+      },
+      {
+        "name": "plausible",
+        "url": "https://github.com/leanprover-community/plausible",
+        "rev": "129d1ba9a16bc0660f46c79e9fb041ef5d5d80de",
+        "inputRev": "main"
+      },
+      {
+        "name": "LeanSearchClient",
+        "url": "https://github.com/leanprover-community/LeanSearchClient",
+        "rev": "c61286b7b63cbfd563b28e11e81d0a18233a044a",
+        "inputRev": "main"
+      },
+      {
+        "name": "importGraph",
+        "url": "https://github.com/leanprover-community/import-graph",
+        "rev": "b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60",
+        "inputRev": "main"
+      },
+      {
+        "name": "proofwidgets",
+        "url": "https://github.com/leanprover-community/ProofWidgets4",
+        "rev": "16259c0d07d61ee37d999d05b5cf96338b8daa11",
+        "inputRev": "main"
+      },
+      {
+        "name": "aesop",
+        "url": "https://github.com/leanprover-community/aesop",
+        "rev": "7d11bfa88558f8d3d90afdf6bd877ed70001498d",
+        "inputRev": "master"
+      },
+      {
+        "name": "Qq",
+        "url": "https://github.com/leanprover-community/quote4",
+        "rev": "b0256621cb88178e9ad932a53633077b3029e621",
+        "inputRev": "master"
+      },
+      {
+        "name": "batteries",
+        "url": "https://github.com/leanprover-community/batteries",
+        "rev": "d4c39b228d4a06f3b00748c2c445a7b9f056a6e3",
+        "inputRev": "main"
+      },
+      {
+        "name": "Cli",
+        "url": "https://github.com/leanprover/lean4-cli",
+        "rev": "c09cb1e4f1e6e1c231a1175a12b681b075054a1b",
+        "inputRev": "v4.36.0-rc2"
+      }
+    ],
+    "lean_exposition_revision": null,
+    "lean_exposition_version_boundary": "Selected source files only; source hashes identify edition, CLI label 0.1.0 is not a Git revision."
+  },
+  "status": {
+    "new_lean": "proposed_uncompiled",
+    "new_comparator": "not_run",
+    "native_extraction": "blocked_process_launch_127",
+    "backend": "patch_applies_cleanly_44_python_pass_2_skipped",
+    "original_packet": "unchanged",
+    "integrated_paper_or_registry": "not_created"
+  },
+  "manifest_scope": "Every archive file except manifest.json is listed with its exact byte length and SHA-256. The manifest excludes itself. Source-reading and mathematical/evidence acceptance are separate.",
+  "members": [
+    {
+      "member": "LEAN_GAPS.md",
+      "bytes": 7985,
+      "sha256": "21983eea54af94cf431beb98fe0446508e47649625ae4d3218a68141dc3063f6",
+      "role": "advisory_exposition_or_metadata"
+    },
+    {
+      "member": "NEW_STATEMENTS.json",
+      "bytes": 7593,
+      "sha256": "b3d70ff3dfa29e6035f25ff0c8337afa105ac3845d17c736b5cb5ae16a235900",
+      "role": "advisory_exposition_or_metadata"
+    },
+    {
+      "member": "README.md",
+      "bytes": 4928,
+      "sha256": "90ad7982f6ae4ab5e7a7a32403ed3ba001d77c7f5f126830d0c4bad88083e79e",
+      "role": "advisory_exposition_or_metadata"
+    },
+    {
+      "member": "STATEMENT_CHANGES.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "role": "advisory_exposition_or_metadata"
+    },
+    {
+      "member": "STYLE_RULES.json",
+      "bytes": 5164,
+      "sha256": "37ac9a8c745193b5736d1ac0435cb623a6291de5c6c5310edcc882fde1c35ff3",
+      "role": "advisory_exposition_or_metadata"
+    },
+    {
+      "member": "acceptance_cases.json",
+      "bytes": 29347,
+      "sha256": "95d064a2babe6f011b09f8b52e498b7c89327a1e5a25f96c9498d4849195a730",
+      "role": "advisory_exposition_or_metadata"
+    },
+    {
+      "member": "backend/backend.patch",
+      "bytes": 31861,
+      "sha256": "d3ffdabe591751c63c956874514d3467cba550e91123d1d639a80cc2391d8da9",
+      "role": "minimal_backend_patch_and_actual_python_evidence"
+    },
+    {
+      "member": "backend/backend_acceptance_cases.json",
+      "bytes": 5218,
+      "sha256": "eb9a9deaae1a1124a4dca0b205d1998565dfa04ffae2c2b7ab5ca31f160ed29e",
+      "role": "minimal_backend_patch_and_actual_python_evidence"
+    },
+    {
+      "member": "backend/backend_notes.md",
+      "bytes": 9652,
+      "sha256": "8cffc9602838df17094fb50dace0077bc219700d4694e312d6f18bce6e956b11",
+      "role": "minimal_backend_patch_and_actual_python_evidence"
+    },
+    {
+      "member": "backend/backend_source_read_receipt.json",
+      "bytes": 8938,
+      "sha256": "05028e21cd9cd71ebbedb8205dcb3c0d9ebc9a691f6c8eb524c13b852b86c823",
+      "role": "minimal_backend_patch_and_actual_python_evidence"
+    },
+    {
+      "member": "backend/logs/backend-acceptance.json",
+      "bytes": 10947,
+      "sha256": "9076f5a0eaf7814d180aff0e73d6535b87ba1c6196206f01dbfbb12ae84a926d",
+      "role": "minimal_backend_patch_and_actual_python_evidence"
+    },
+    {
+      "member": "backend/logs/original-python-tests.log",
+      "bytes": 5929,
+      "sha256": "e1523c2512a4df867299f9632010e897b83fb97e3263193d605c53542b1534b1",
+      "role": "minimal_backend_patch_and_actual_python_evidence"
+    },
+    {
+      "member": "backend/logs/patch-check.json",
+      "bytes": 2070,
+      "sha256": "bd66feb810f211b10f64c5d4465df5cea24f383e7be8210dbed121332f096088",
+      "role": "minimal_backend_patch_and_actual_python_evidence"
+    },
+    {
+      "member": "backend/logs/patched-python-tests.log",
+      "bytes": 7923,
+      "sha256": "a718e7a68aa504b393744a991e2b1c42e57465fcb4a50aae414834b057930969",
+      "role": "minimal_backend_patch_and_actual_python_evidence"
+    },
+    {
+      "member": "backend/run_backend_acceptance.py",
+      "bytes": 9196,
+      "sha256": "b7c4530196a39393d111868668d6835c0acb776c38e9af7cf691862252aa8d89",
+      "role": "minimal_backend_patch_and_actual_python_evidence"
+    },
+    {
+      "member": "checks/audit_snapshot.py",
+      "bytes": 9997,
+      "sha256": "64a8f3b4a0eedca75ac141fee962d7c77fdce9e7dc3983eaf1964ab28130d805",
+      "role": "reproducible_local_validation_not_native_proof"
+    },
+    {
+      "member": "checks/compare_reader_graphs.py",
+      "bytes": 2436,
+      "sha256": "76c704a4cd980348ea897f02666828f678a7397d9dd5a6146d5cfe8b2f1c3d89",
+      "role": "reproducible_local_validation_not_native_proof"
+    },
+    {
+      "member": "checks/editorial_review.json",
+      "bytes": 2368,
+      "sha256": "15b8bd08f5d7928802b355b0c4f704a163be7f7a337aab37bdc939b40737b98d",
+      "role": "reproducible_local_validation_not_native_proof"
+    },
+    {
+      "member": "checks/eq19_independence_control.json",
+      "bytes": 539,
+      "sha256": "c7ceb010ca02210a79744996f32a1e110a3b14d137d266c003291e6beb609ce6",
+      "role": "reproducible_local_validation_not_native_proof"
+    },
+    {
+      "member": "checks/eq19_independence_control.py",
+      "bytes": 2039,
+      "sha256": "9957d5e4cceec84d79b02a79544d7c83f926cb8ff9f0826f9aa0245342286b72",
+      "role": "reproducible_local_validation_not_native_proof"
+    },
+    {
+      "member": "checks/package_validation.json",
+      "bytes": 1279,
+      "sha256": "c784f73d1e28a136058c36b325981f5a761e57f9f70fa276917f899b55abbce0",
+      "role": "reproducible_local_validation_not_native_proof"
+    },
+    {
+      "member": "checks/packet-check.json",
+      "bytes": 1016,
+      "sha256": "cc165b20951fb2f4e02d5556fd6944c40701f3fd1293156953cd1fa8c1304048",
+      "role": "reproducible_local_validation_not_native_proof"
+    },
+    {
+      "member": "checks/reader_graph_delta.json",
+      "bytes": 1030,
+      "sha256": "e74b94c1215f28683c2ed3f682ae36ea02ed6a0da65e5fb2fab6b0e80392a88b",
+      "role": "reproducible_local_validation_not_native_proof"
+    },
+    {
+      "member": "checks/snapshot_audit.json",
+      "bytes": 267144,
+      "sha256": "b0c0c2f54f6fcfb8544f96c1f5e7f29ec1d0a41a105a62c8e1b374fba5a9e2ad",
+      "role": "reproducible_local_validation_not_native_proof"
+    },
+    {
+      "member": "checks/validate_return.py",
+      "bytes": 5210,
+      "sha256": "052c70424373a3737f24ad71b6f648f53b73dd3b617c5a06f2bee82a9388f28a",
+      "role": "reproducible_local_validation_not_native_proof"
+    },
+    {
+      "member": "correspondence.json",
+      "bytes": 51732,
+      "sha256": "ffa7a6ab7bbfa5fc7fdf979a9047fad9aed2893ee2d5c2340de6073413491266",
+      "role": "advisory_exposition_or_metadata"
+    },
+    {
+      "member": "eq19/accepted-target-source-check.json",
+      "bytes": 40661,
+      "sha256": "7c2a44453715e0fa51c3425a8f4d4de4adbf2fda70e7d3bf8f61bc09d0d1c9be",
+      "role": "proposed_eq19_sources_and_native_extraction_boundary"
+    },
+    {
+      "member": "eq19/eq19-acceptance-cases.json",
+      "bytes": 5411,
+      "sha256": "be53ddb9b38106bd621782e0d00db342659f31ac6778fbcd1bf2e20d0ae3148a",
+      "role": "proposed_eq19_sources_and_native_extraction_boundary"
+    },
+    {
+      "member": "eq19/eq19-extraction-notes.md",
+      "bytes": 12577,
+      "sha256": "27aa8d562649555b41bc586479882af5804af5e7f3719a07bcd7db8ebcb228f4",
+      "role": "proposed_eq19_sources_and_native_extraction_boundary"
+    },
+    {
+      "member": "eq19/files-manifest.json",
+      "bytes": 3210,
+      "sha256": "012baeec84551ee0b8c7f8e88a56e39ba12bea4dcf389c80b04dda063cb5f9ce",
+      "role": "proposed_eq19_sources_and_native_extraction_boundary"
+    },
+    {
+      "member": "eq19/independent-source-review.json",
+      "bytes": 828,
+      "sha256": "4ef97400a4e78eb60a59df0989557d130d8d37c385186fab068a919b8e697d6b",
+      "role": "proposed_eq19_sources_and_native_extraction_boundary"
+    },
+    {
+      "member": "eq19/native-extraction-attempt.json",
+      "bytes": 1160,
+      "sha256": "31276c5c1167097c2660cc58299e53a60d9837730a448ede2a504da43fd9b2ba",
+      "role": "proposed_eq19_sources_and_native_extraction_boundary"
+    },
+    {
+      "member": "eq19/overlay/lean/QuarticCorpus/Independent/Eq19/Audit.lean",
+      "bytes": 569,
+      "sha256": "fd582b68a729eff290acf57d11a4196ab7eeab6f531ed73eed644be7639fa4b3",
+      "role": "proposed_eq19_sources_and_native_extraction_boundary"
+    },
+    {
+      "member": "eq19/overlay/lean/QuarticCorpus/Independent/Eq19/Bridge.lean",
+      "bytes": 2312,
+      "sha256": "c5e4df0b4f37c0293af04fd3fd5bb303204e6569491909f344248454a987ebb4",
+      "role": "proposed_eq19_sources_and_native_extraction_boundary"
+    },
+    {
+      "member": "eq19/overlay/lean/QuarticCorpus/Independent/Eq19/Challenge.lean",
+      "bytes": 822,
+      "sha256": "eb1bfe994248b419057952ea173a7d73b17e4dd476843df600218cc0ef1aba61",
+      "role": "proposed_eq19_sources_and_native_extraction_boundary"
+    },
+    {
+      "member": "eq19/overlay/lean/QuarticCorpus/Independent/Eq19/NegativeInequalityOnly.lean",
+      "bytes": 845,
+      "sha256": "a7f33019abc2feb98132114c5abe97a7ad0445584dc2b7206b22852fb87b96aa",
+      "role": "proposed_eq19_sources_and_native_extraction_boundary"
+    },
+    {
+      "member": "eq19/overlay/lean/QuarticCorpus/Independent/Eq19/PathControls.lean",
+      "bytes": 2243,
+      "sha256": "1819b6efff58218059c8c126bcebe6c1f11d0551c43c9403ba47571d027ef1c1",
+      "role": "proposed_eq19_sources_and_native_extraction_boundary"
+    },
+    {
+      "member": "eq19/overlay/lean/QuarticCorpus/Independent/Eq19/Solution.lean",
+      "bytes": 761,
+      "sha256": "872b854273c1bb4b1f4b625a972601127a3d2776e23d57151fe4388188217a9a",
+      "role": "proposed_eq19_sources_and_native_extraction_boundary"
+    },
+    {
+      "member": "eq19/overlay/lean/QuarticCorpus/Independent/Eq19/Spec.lean",
+      "bytes": 3114,
+      "sha256": "b6e0fb79c7baff7a65d19d986b389bada1e1b29f7fb676298065935ccb2555bc",
+      "role": "proposed_eq19_sources_and_native_extraction_boundary"
+    },
+    {
+      "member": "eq19/overlay/lean/QuarticCorpus/Independent/Eq19/WholeChallenge.lean",
+      "bytes": 969,
+      "sha256": "b58c261c86ea161fd6235b5bcadaa04ea8f4b276d01138d6641e69a1ab2d19d2",
+      "role": "proposed_eq19_sources_and_native_extraction_boundary"
+    },
+    {
+      "member": "eq19/overlay/lean/QuarticCorpus/Independent/Eq19/WholeSolution.lean",
+      "bytes": 215,
+      "sha256": "75bef6e4a63ac525c65ea779dab112833586f9f8ae3c79aeb24916193cbab96d",
+      "role": "proposed_eq19_sources_and_native_extraction_boundary"
+    },
+    {
+      "member": "eq19/overlay/lean/QuarticCorpus/Independent/Eq19/comparator.json",
+      "bytes": 295,
+      "sha256": "de8beea386de8853e2a07c5c86bc63561639e110ec0b8e39a3c4e7ac6603db3b",
+      "role": "proposed_eq19_sources_and_native_extraction_boundary"
+    },
+    {
+      "member": "eq19/overlay/lean/QuarticCorpus/Independent/Eq19/negative-inequality-only.json",
+      "bytes": 309,
+      "sha256": "0ce89380b84b8f2858c4e5b8afc132d8da522a29a959e6881e56e44148d93428",
+      "role": "proposed_eq19_sources_and_native_extraction_boundary"
+    },
+    {
+      "member": "eq19/overlay/lean/QuarticCorpus/Independent/Eq19/whole-comparator.json",
+      "bytes": 292,
+      "sha256": "f4c7bca4828a084a3cde7cbbded06a497a82f8c55ad09802a42386db50840ba9",
+      "role": "proposed_eq19_sources_and_native_extraction_boundary"
+    },
+    {
+      "member": "eq19/overlay/lean/QuarticQuery/Paper/Eq19Whole.lean",
+      "bytes": 1298,
+      "sha256": "54b39d5160f886e5cd0f8c199149b8046bcd51148aa36f10409fd0fc6a0c74ff",
+      "role": "proposed_eq19_sources_and_native_extraction_boundary"
+    },
+    {
+      "member": "eq19/reentry-plan.json",
+      "bytes": 4983,
+      "sha256": "03a99471c0039513a5a68738d445d5cb9cf67096f01ac381239f542da7dbefa4",
+      "role": "proposed_eq19_sources_and_native_extraction_boundary"
+    },
+    {
+      "member": "eq19/source-scope.json",
+      "bytes": 13197,
+      "sha256": "2b465fb4d67dff062d939f9d3a6833b6247f5eb9a60bd071eff1f5bb445552aa",
+      "role": "proposed_eq19_sources_and_native_extraction_boundary"
+    },
+    {
+      "member": "evidence-path.md",
+      "bytes": 33556,
+      "sha256": "0045cf39b6707e86536305d1576f40e3610ae3b9ddf14eefe7a5f1dc6d6a43be",
+      "role": "advisory_exposition_or_metadata"
+    },
+    {
+      "member": "references.bib",
+      "bytes": 3920,
+      "sha256": "fae9e47e515040a0f11b595b19f8935f309aff2156840eaec0cd1a7c1f69dc00",
+      "role": "advisory_exposition_or_metadata"
+    },
+    {
+      "member": "review_notes.md",
+      "bytes": 16138,
+      "sha256": "bc613aa44fe1789f66f8b3f909564426269d1624baca2e284ed48b68233bc601",
+      "role": "advisory_exposition_or_metadata"
+    },
+    {
+      "member": "semantic/acceptance-cases-semantic.json",
+      "bytes": 4132,
+      "sha256": "908675f4951dc42dd867d7e7b615b934bb6cec0d40db25f3eba297d50474e8c5",
+      "role": "proposed_actual_definition_semantics_and_control_evidence"
+    },
+    {
+      "member": "semantic/lean/QuarticCorpus/Independent/Controls/SharedAudit.lean",
+      "bytes": 1007,
+      "sha256": "aad784c1d93800695b3577b3e3404209e2d0cc2a65b9bc7fddfaae87234e4792",
+      "role": "proposed_actual_definition_semantics_and_control_evidence"
+    },
+    {
+      "member": "semantic/lean/QuarticCorpus/Independent/Controls/SharedChallenge.lean",
+      "bytes": 574,
+      "sha256": "df4b12ec080e645245f65e6102b9537d21455cb962da0b4f9c56c77e9370608f",
+      "role": "proposed_actual_definition_semantics_and_control_evidence"
+    },
+    {
+      "member": "semantic/lean/QuarticCorpus/Independent/Controls/SharedSolution.lean",
+      "bytes": 588,
+      "sha256": "b9ac0f56d8981bee533f2f9969c4970a9945636670e84c5e88c7b218aefdc217",
+      "role": "proposed_actual_definition_semantics_and_control_evidence"
+    },
+    {
+      "member": "semantic/lean/QuarticCorpus/Independent/Controls/ThresholdChallenge.lean",
+      "bytes": 497,
+      "sha256": "98a98ec7f54031c3e508aa432cf744dd779eae53d9a99019893ff5992fa0a1be",
+      "role": "proposed_actual_definition_semantics_and_control_evidence"
+    },
+    {
+      "member": "semantic/lean/QuarticCorpus/Independent/Controls/ThresholdSolution.lean",
+      "bytes": 454,
+      "sha256": "3025f291758412fc41f8acddd0a72caaa92890b2c80d6f87507aec6a4c0c8062",
+      "role": "proposed_actual_definition_semantics_and_control_evidence"
+    },
+    {
+      "member": "semantic/lean/QuarticCorpus/Independent/Controls/shared_blind_spot.json",
+      "bytes": 307,
+      "sha256": "386c8f789546dc88fcf90d14a15f06dd8a5f79cd7d5a20d8cc0f848dd2417e19",
+      "role": "proposed_actual_definition_semantics_and_control_evidence"
+    },
+    {
+      "member": "semantic/lean/QuarticCorpus/Independent/Controls/threshold_mutation.json",
+      "bytes": 321,
+      "sha256": "0851b1084261243a143929849cef25091f9d6ad3fefc36f4f0c2de5a6cebd21f",
+      "role": "proposed_actual_definition_semantics_and_control_evidence"
+    },
+    {
+      "member": "semantic/lean/QuarticCorpus/Independent/Inspect.lean",
+      "bytes": 1509,
+      "sha256": "23c760b29b2d823f2ef4f36e452abb567d9e69fadcae83bf02378011027f30cb",
+      "role": "proposed_actual_definition_semantics_and_control_evidence"
+    },
+    {
+      "member": "semantic/lean/QuarticCorpus/Independent/SemanticMutations.lean",
+      "bytes": 2768,
+      "sha256": "a134eedcf7b0095c633b5a2c92d5cf3897d8b35488d3a4623034006e862702c6",
+      "role": "proposed_actual_definition_semantics_and_control_evidence"
+    },
+    {
+      "member": "semantic/lean/QuarticCorpus/Independent/Semantics.lean",
+      "bytes": 7073,
+      "sha256": "d35e0920557c687e21feb2fc5ec117ba23550bee331765093bb90113afb38eab",
+      "role": "proposed_actual_definition_semantics_and_control_evidence"
+    },
+    {
+      "member": "semantic/receipts/eq19-cross-review.json",
+      "bytes": 2141,
+      "sha256": "cd99c371fbae8135b1f1965c67895d899c1a864519d6ecadd2e39d01f7098bda",
+      "role": "proposed_actual_definition_semantics_and_control_evidence"
+    },
+    {
+      "member": "semantic/receipts/existing-toy-controls-run.json",
+      "bytes": 369,
+      "sha256": "ef95c1cf2e88be3e42342a7bbeec821320191b9efef8a9c9947c64858c908551",
+      "role": "proposed_actual_definition_semantics_and_control_evidence"
+    },
+    {
+      "member": "semantic/receipts/existing-toy-controls.json",
+      "bytes": 1332,
+      "sha256": "c42cffe97e37377003f9583c07b5e021350fcd3d73be275a499c2935d8a3bcfa",
+      "role": "proposed_actual_definition_semantics_and_control_evidence"
+    },
+    {
+      "member": "semantic/receipts/final-runner-static-check.json",
+      "bytes": 431,
+      "sha256": "36e9e39e4c76d3cb401426a02fe86deff1922adb6ac5f447473d1656d008376c",
+      "role": "proposed_actual_definition_semantics_and_control_evidence"
+    },
+    {
+      "member": "semantic/receipts/final-source-static-check.json",
+      "bytes": 797,
+      "sha256": "78910720a2cc2584d8ba64591c7512de43efc4b29821416412d24a52af6ff6dc",
+      "role": "proposed_actual_definition_semantics_and_control_evidence"
+    },
+    {
+      "member": "semantic/receipts/preflight/run.json",
+      "bytes": 30646,
+      "sha256": "b98a8edcf54b18d23a7b0c6d61495fd4134b3d7c00b1bb992d3d7ada8ab57e05",
+      "role": "proposed_actual_definition_semantics_and_control_evidence"
+    },
+    {
+      "member": "semantic/receipts/preflight-final/run.json",
+      "bytes": 32278,
+      "sha256": "c189a8db5ea8835812584ce47ffdc531387ed835b80324e00dfa11f96929a5f1",
+      "role": "proposed_actual_definition_semantics_and_control_evidence"
+    },
+    {
+      "member": "semantic/receipts/runtime-probe.json",
+      "bytes": 1385,
+      "sha256": "52c4cad011dc5f47f29674cf05fde728e87847b34cd4ed510e9fb0b4c1190559",
+      "role": "proposed_actual_definition_semantics_and_control_evidence"
+    },
+    {
+      "member": "semantic/run_semantics.py",
+      "bytes": 10865,
+      "sha256": "84184f1aae111fa5b9dc9183c80fe6d88bdea5c7b199c5831de23ef8bcbfd8b7",
+      "role": "proposed_actual_definition_semantics_and_control_evidence"
+    },
+    {
+      "member": "semantic/semantic-evidence.md",
+      "bytes": 10673,
+      "sha256": "c39fbf2ecd2fc362a8626ee71cc189550a34c34f1276d1318ca22ddfe5c79a5e",
+      "role": "proposed_actual_definition_semantics_and_control_evidence"
+    },
+    {
+      "member": "semantic/semantic-expectations.json",
+      "bytes": 6145,
+      "sha256": "faa9af863626bdf9e61224d7bfaa9c5a447bfa2b01cf06b20cd3e53887e43abf",
+      "role": "proposed_actual_definition_semantics_and_control_evidence"
+    },
+    {
+      "member": "semantic/source-hashes.json",
+      "bytes": 1442,
+      "sha256": "36d47205de1fb8612ace998311c1db17b93b1c875d67b9d787b876ac2885e428",
+      "role": "proposed_actual_definition_semantics_and_control_evidence"
+    },
+    {
+      "member": "semantic/source-read-scope.json",
+      "bytes": 5986,
+      "sha256": "f910b9e285d4d3f4aa97fca6bc7aa90721244220b376c629044e96db1d6dbf4c",
+      "role": "proposed_actual_definition_semantics_and_control_evidence"
+    },
+    {
+      "member": "source_read_receipt.json",
+      "bytes": 211230,
+      "sha256": "ab7cb46c03f3989ea87947b6ecda75f64c0bc41eb3db7608ce30544843d0e182",
+      "role": "advisory_exposition_or_metadata"
+    }
+  ]
+}

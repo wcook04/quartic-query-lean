@@ -1,0 +1,3365 @@
+{
+  "schema": "quartic-r3-planted-source-read-receipt-v1",
+  "date": "2026-11-02",
+  "scope": "Focused editorial and mathematical reconstruction of baseline Sections 6.2-6.6 and necessary interfaces.",
+  "source_versions": {
+    "input_archive": {
+      "name": "quartic_r3_07_planted_lower_bound.zip",
+      "bytes": 4885525,
+      "sha256": "6f8cd88daff3369cb638454e32b28143453342bbb6f08b619739777d8fd546c4",
+      "library_file_id_supplied": "libfile_c1a64056310c8191ac58368eccb7d60a"
+    },
+    "input_manifest": {
+      "member": "manifest.json",
+      "sha256": "c814fb70ef87f52ef0312fc95a5c47bc0df3bc8c243712648b6fa5f27a843736",
+      "listed_members": 449
+    },
+    "repository_snapshot_label": "1dd469dd0042b937b739da3bc211eeb60bdf7462",
+    "root_receipt_declared_commit": "31e17dee667d1d72fa621da8e7d3d8ff5fc3960a",
+    "source_binding_rule": "Different commit labels are preserved. Matching exact local source/configuration hashes establish the available receipt binding.",
+    "lean_toolchain": "leanprover/lean4:v4.36.0-rc2",
+    "openai_preprint": {
+      "title": "A Nearly Quartic Separation Between Randomized and Quantum Query Complexity",
+      "date": "2026-10-05",
+      "member": "paper/source.pdf",
+      "sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e",
+      "target": "Section 4.2, equations (17)-(23), Proposition 4.2, printed pp. 12-14; neighboring Section 4.1 and Section 5 interfaces.",
+      "remote_pdf_byte_identity_verified": false
+    },
+    "literature": [
+      {
+        "key": "BS2020v3",
+        "arxiv": "2008.07003v3",
+        "version_date": "2020-11-17",
+        "url": "https://arxiv.org/abs/2008.07003v3",
+        "scope": "Theorem 1.3 and Corollary 1.4 p. 4; separate Section 5.4 displayed comparison p. 38, main.tex:1180-1181; line 1184 is the subsequent threshold.",
+        "supplied_file_versions": [
+          {
+            "member": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/extracted.md",
+            "bytes": 181861,
+            "sha256": "cf1477e44353bbb796581002e8cacef3199e8e153d43f075fc8047c2934de952"
+          },
+          {
+            "member": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.pdf",
+            "bytes": 986784,
+            "sha256": "afe53c8bd918d07590f29a947ef044453db73959043135082d1a3c29b2863a35"
+          },
+          {
+            "member": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.tar.gz",
+            "bytes": 213572,
+            "sha256": "f48a3225662484d12e19bf03412478cf87a388f7c2e33c69a4d7f2078202e015"
+          }
+        ]
+      },
+      {
+        "key": "ABK2019v2",
+        "arxiv": "1511.01937v2",
+        "version_date": "2019-07-09",
+        "url": "https://arxiv.org/abs/1511.01937v2",
+        "proceedings_year": 2016,
+        "scope": "Section 6.1, Definitions 14-15, pp. 20-21; Section 6.2, Lemma 17, p. 22.",
+        "supplied_file_versions": [
+          {
+            "member": "literature/quartic-ref-02-separations-in-query-complexity-using-chea/extracted.md",
+            "bytes": 145399,
+            "sha256": "39745f19fdbaad3fd6542cee69cd8fdabe02771f975e676aa2e375a208873e32"
+          },
+          {
+            "member": "literature/quartic-ref-02-separations-in-query-complexity-using-chea/source.pdf",
+            "bytes": 393155,
+            "sha256": "64380c861d0e0296a53c998a0109d62bf446529414001f8e46615991b558e4bc"
+          },
+          {
+            "member": "literature/quartic-ref-02-separations-in-query-complexity-using-chea/source.tar.gz",
+            "bytes": 38431,
+            "sha256": "8b878b7b4c67206924b8cc32e586c5ad1ec918ffcb60d665b7ea26dddaffa5ff"
+          }
+        ]
+      },
+      {
+        "key": "Drucker2014v2",
+        "arxiv": "1005.0644v2",
+        "version_date": "2014-05-09",
+        "url": "https://arxiv.org/abs/1005.0644v2",
+        "journal_year": 2012,
+        "scope": "Section 1.3 pp. 6-7; Lemmas 3.1-3.2 pp. 11-12; fair specialization at end of Section 3 p. 13.",
+        "supplied_file_versions": [
+          {
+            "member": "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/extracted.md",
+            "bytes": 121771,
+            "sha256": "de4e25127079b849cc18984031442ed939d6c24467d1bd67faaa466f8e17e29a"
+          },
+          {
+            "member": "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/source.pdf",
+            "bytes": 405185,
+            "sha256": "6a67da06a0f07d0f86bb6389b7143314cade50294e2c0c454f3cc9853643faff"
+          },
+          {
+            "member": "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/source.tex",
+            "bytes": 131397,
+            "sha256": "7defbc5925e9554768cf5bab0ab548188d5d264075cfc1f00891544b5aec782d"
+          }
+        ]
+      }
+    ],
+    "mathlib_revision": "69552756cd8a2d2d48763cf7279fd814d6a1224d",
+    "complexitylib_revision": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a"
+  },
+  "coverage_meaning": {
+    "assessed": "The expressly named complete source or section was read and considered for the stated purpose.",
+    "sampled": "File-wide coverage is partial; expressly named subsections were read as specified.",
+    "unavailable": "The source or operation could not be accessed; no contents or successful outcome are inferred.",
+    "unassessed": "Included or known material outside the recorded review scope.",
+    "team_rule": "Separate reader records are preserved. A collaborator reading a file is not represented as an independent full read by the integrating author.",
+    "integrity_rule": "Hashing all bytes is an integrity check, not a semantic read or proof check."
+  },
+  "integrating_author_source_reads": [
+    {
+      "reader": "integrating_author",
+      "member": "READ_ME_FIRST.md",
+      "status": "assessed",
+      "scope": "Complete text",
+      "purpose": "Assignment, return contract, evidence rules and source roles.",
+      "bytes": 11538,
+      "sha256": "72135c03932d1aec820c3ec3065922d4ebcf8eff23b113dcb269097368e08deb",
+      "hash_is_not_a_full_read_claim": true
+    },
+    {
+      "reader": "integrating_author",
+      "member": "requests/common.md",
+      "status": "assessed",
+      "scope": "Complete text",
+      "purpose": "Assignment, return contract, evidence rules and source roles.",
+      "bytes": 6931,
+      "sha256": "bb64aed8a508657f40a2eb296a05863e0e723b7e545d313fe6e04f4ba35a86e2",
+      "hash_is_not_a_full_read_claim": true
+    },
+    {
+      "reader": "integrating_author",
+      "member": "requests/boundaries.md",
+      "status": "assessed",
+      "scope": "Complete text",
+      "purpose": "Assignment, return contract, evidence rules and source roles.",
+      "bytes": 2166,
+      "sha256": "1c5f9a6403fd50dc9a0e36a4030413e2d3892cd3609da795119dafdcd3967a34",
+      "hash_is_not_a_full_read_claim": true
+    },
+    {
+      "reader": "integrating_author",
+      "member": "requests/07_planted_lower_bound.md",
+      "status": "assessed",
+      "scope": "Complete text",
+      "purpose": "Assignment, return contract, evidence rules and source roles.",
+      "bytes": 2420,
+      "sha256": "f3b43387261bb1501fb3dc8d7ea5db784406f214ef45ab364a22dd9284ea8da7",
+      "hash_is_not_a_full_read_claim": true
+    },
+    {
+      "reader": "integrating_author",
+      "member": "SOURCE_ROLES.md",
+      "status": "assessed",
+      "scope": "Complete text",
+      "purpose": "Assignment, return contract, evidence rules and source roles.",
+      "bytes": 2275,
+      "sha256": "8e01e0e4eb89c7e030fe7469ff2de23be15a980a6ca0cacc02d71e624cb710fb",
+      "hash_is_not_a_full_read_claim": true
+    },
+    {
+      "reader": "integrating_author",
+      "member": "manifest.json",
+      "status": "sampled",
+      "scope": "Assignment metadata, paper provenance, source versions, member names and hashes. All 449 listed members were byte/hash checked; this is not a semantic read of all members.",
+      "purpose": "Pin input and verify that original packet bytes were not altered.",
+      "bytes": 221535,
+      "sha256": "c814fb70ef87f52ef0312fc95a5c47bc0df3bc8c243712648b6fa5f27a843736",
+      "hash_is_not_a_full_read_claim": true
+    },
+    {
+      "reader": "integrating_author",
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+      "status": "sampled",
+      "scope": "Section 1.1 roadmap; Section 4 construction and interfaces; complete Sections 6.1-6.6; Section 7 fixed-parameter exponent consumer. Team member probability_audit separately records its complete Section 4 read.",
+      "purpose": "Actual baseline and exact upstream/downstream interfaces; remaining long record unassessed.",
+      "bytes": 353091,
+      "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+      "hash_is_not_a_full_read_claim": true
+    },
+    {
+      "reader": "integrating_author",
+      "member": "paper/extracted.md",
+      "status": "sampled",
+      "scope": "Section 4.1 prerequisite and Section 4.2 in full, equations (17)-(23) and Proposition 4.2; Section 5 consumer.",
+      "purpose": "Target ordinary proof and numbered displays.",
+      "bytes": 64021,
+      "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+      "hash_is_not_a_full_read_claim": true
+    },
+    {
+      "reader": "integrating_author",
+      "member": "writing/the-deliverable.md",
+      "status": "assessed",
+      "scope": "Complete text",
+      "purpose": "Self-contained ordinary proof and delivery boundaries.",
+      "bytes": 8402,
+      "sha256": "5b234d4446bf4b7ac79c38586147730dc41370581daa38661326875d5b50951c",
+      "hash_is_not_a_full_read_claim": true
+    },
+    {
+      "reader": "integrating_author",
+      "member": "writing/SKILL.md",
+      "status": "sampled",
+      "scope": "First-time-reader, claim-fidelity and Lean-correspondence guidance, including lines 181-280.",
+      "purpose": "Applicable section-authoring requirements.",
+      "bytes": 29787,
+      "sha256": "dcad856e7363b81876e4ab0784bcc0a3e51ccab11017eb9e08d81d345d2d6c74",
+      "hash_is_not_a_full_read_claim": true
+    },
+    {
+      "reader": "integrating_author",
+      "member": "writing/mathematical-writing-mechanics.md",
+      "status": "sampled",
+      "scope": "Sections 2, 5, 9; Lean-correspondence and taste gates; lines 571-643 and 723-end including authoring receipt.",
+      "purpose": "Proof-forward structure, exact citation roles and authoring receipt.",
+      "bytes": 45312,
+      "sha256": "0ba857f70a724a2676f91b01e7ee95cc3518dcd261b53fec27b743935d1caa0f",
+      "hash_is_not_a_full_read_claim": true
+    },
+    {
+      "reader": "integrating_author",
+      "member": "writing/full-exposition-guide.md",
+      "status": "sampled",
+      "scope": "Section 4A, lines 348-405; Sections 7-8, lines 812-947; Section 12, lines 1179-1205.",
+      "purpose": "Dependency structure, examples, reader contract and claim fidelity.",
+      "bytes": 103236,
+      "sha256": "c7baa3c8b195647b00cdd37c38c48b122371ce9c3cd92798e2e9d55f3d1c4eca",
+      "hash_is_not_a_full_read_claim": true
+    },
+    {
+      "reader": "integrating_author",
+      "member": "writing/register-from-literature.md",
+      "status": "assessed",
+      "scope": "Complete text",
+      "purpose": "Source-located writing moves; measure tool unavailable in packet.",
+      "bytes": 4106,
+      "sha256": "2278000b36133a13c0e83f785bdb2a89b94b8ed1927daeaf12d2b1ed30545d7d",
+      "hash_is_not_a_full_read_claim": true
+    },
+    {
+      "reader": "integrating_author",
+      "member": "exemplars/long-reasoning-record.md",
+      "status": "sampled",
+      "scope": "Opening overview and roadmap, lines 1-57.",
+      "purpose": "Writing specimen for long implication chain; no quartic mathematical authority.",
+      "bytes": 278844,
+      "sha256": "a19893f62d1211681ed0cb9cbb8bb454214d97f231f6a6d091b6f198fca35a89",
+      "hash_is_not_a_full_read_claim": true
+    },
+    {
+      "reader": "integrating_author",
+      "member": "exemplars/expository.md",
+      "status": "sampled",
+      "scope": "Section 1 finite computation, lines 48-154.",
+      "purpose": "Writing specimen for a fully specified small example and its limits.",
+      "bytes": 67972,
+      "sha256": "67d89307e8131e8c2ca1f21749dce062218534d1ac25d4c5860f2500e234e33f",
+      "hash_is_not_a_full_read_claim": true
+    },
+    {
+      "reader": "integrating_author",
+      "member": "repository/lean/QuarticQuery/Statement.lean",
+      "status": "sampled",
+      "scope": "Lines 188-239 and 270-323: realizing circuit, winning predicate, addressedF/Fkm and L/G/fixed-k premise interfaces.",
+      "purpose": "Complete definition interfaces used by the replacement.",
+      "bytes": 13769,
+      "sha256": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+      "hash_is_not_a_full_read_claim": true
+    },
+    {
+      "reader": "integrating_author",
+      "member": "repository/lean/QuarticQuery/ForrelationLower/Main.lean",
+      "status": "sampled",
+      "scope": "Lines 525-550 fixed-k endpoint and immediate specializations.",
+      "purpose": "Locate the actual fixed-k prerequisite discharge; not a full proof re-audit.",
+      "bytes": 26676,
+      "sha256": "f877e9c4d11874d3e80ad7627972b1a8a0eca596f26fb96a3898bfdace564ed1",
+      "hash_is_not_a_full_read_claim": true
+    },
+    {
+      "reader": "integrating_author",
+      "member": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+      "status": "sampled",
+      "scope": "Exact erased-zero identity and expected-zero definitions/bounds, lines 181-261; equation wrapper interfaces.",
+      "purpose": "Separate equality, probability upper bounds and route.",
+      "bytes": 28360,
+      "sha256": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+      "hash_is_not_a_full_read_claim": true
+    },
+    {
+      "reader": "integrating_author",
+      "member": "repository/lean/QuarticQuery/Paper/Section4.lean",
+      "status": "assessed",
+      "scope": "Complete module",
+      "purpose": "Conditional generic and eventual concrete Proposition 4.2 wrappers.",
+      "bytes": 4004,
+      "sha256": "da6bda0feda0448bc05b11c85aed7b666d01aa8d30a8914a4ffd7d9fbe6643fb",
+      "hash_is_not_a_full_read_claim": true
+    },
+    {
+      "reader": "integrating_author",
+      "member": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.tar.gz",
+      "status": "sampled",
+      "scope": "Embedded main.tex lines 261-278 and 1170-1187 read directly; literature audit records broader assigned sections.",
+      "purpose": "Original theorem parameter transfer and exact Section 5.4 comparison.",
+      "bytes": 213572,
+      "sha256": "f48a3225662484d12e19bf03412478cf87a388f7c2e33c69a4d7f2078202e015",
+      "hash_is_not_a_full_read_claim": true
+    },
+    {
+      "reader": "integrating_author",
+      "member": "literature/quartic-ref-02-separations-in-query-complexity-using-chea/source.tar.gz",
+      "status": "sampled",
+      "scope": "Embedded cheat37_arXiv_v2.tex lines 1671-1690; literature audit records full assigned Sections 6.1-6.2.",
+      "purpose": "Upper-bound role of Lemma 17 and short style specimen.",
+      "bytes": 38431,
+      "sha256": "8b878b7b4c67206924b8cc32e586c5ad1ec918ffcb60d665b7ea26dddaffa5ff",
+      "hash_is_not_a_full_read_claim": true
+    },
+    {
+      "reader": "integrating_author",
+      "member": "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/source.tex",
+      "status": "sampled",
+      "scope": "Lines 374-382 and 550-573; literature audit records complete Section 3 and other assigned locators.",
+      "purpose": "Fair-algorithm distinction, transcript product proof and short style specimens.",
+      "bytes": 131397,
+      "sha256": "7defbc5925e9554768cf5bab0ab548188d5d264075cfc1f00891544b5aec782d",
+      "hash_is_not_a_full_read_claim": true
+    }
+  ],
+  "sub_audits": {
+    "probability_source_coverage.json": {
+      "original_sub_audit_sha256": "41f97528e61369760c2497d4f549c648905d1986a5250b4031eb657dc41637d7",
+      "contents": {
+        "agent": "probability_audit",
+        "scope": "Ordinary mathematical probability proof, exact finite illustration, and source-level simulator interface inspection",
+        "lean_execution": false,
+        "sources": [
+          {
+            "path": "packet/READ_ME_FIRST.md",
+            "status": "assessed",
+            "scope": "Complete assignment and boundary instructions"
+          },
+          {
+            "path": "packet/repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+            "status": "sampled",
+            "assessed_sections": [
+              "§1 and §1.1, lines 1–62",
+              "§4, lines 869–1001",
+              "§6.1–§6.6, lines 1541–1979",
+              "§7–§7.2, lines 1980–2035"
+            ],
+            "unassessed": "Other sections and statement catalogue"
+          },
+          {
+            "path": "packet/paper/extracted.md",
+            "status": "sampled",
+            "assessed_scope": "End of §4.1 hard-distribution argument and complete §4.2 including equations (17)–(23), Proposition 4.2, asymptotic corollary; start of §5, lines 570–700"
+          },
+          {
+            "path": "packet/repository/lean/QuarticQuery/LowerBound/Planted/Inputs.lean",
+            "status": "assessed",
+            "scope": "Complete source read; inspected definitions, changed-coordinate support, zero/one values. No compilation."
+          },
+          {
+            "path": "packet/repository/lean/QuarticQuery/LowerBound/Planted/Coupling.lean",
+            "status": "assessed",
+            "scope": "Complete source read; deterministic first-difference interface and query counting. No compilation."
+          },
+          {
+            "path": "packet/repository/lean/QuarticQuery/LowerBound/Planted/Heavy.lean",
+            "status": "assessed",
+            "scope": "Complete source read; aQueries, sum_aQueries_le, avg_heavy_le. No compilation."
+          },
+          {
+            "path": "packet/repository/lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean",
+            "status": "sampled",
+            "scope": "Lines 1–200; full abstract zero_search_sum proof and concrete one-column definitions through start of avg_foundZero_le. No compilation."
+          },
+          {
+            "path": "packet/repository/lean/QuarticQuery/LowerBound/Planted/Simulator.lean",
+            "status": "sampled",
+            "scope": "Lines 1–220; simTree, depth cap, eval_simTree, cellGuess, resampling invariance, and pointwise union proof. No compilation."
+          },
+          {
+            "path": "packet/repository/lean/QuarticQuery/LowerBound/Planted/Main.lean",
+            "status": "sampled",
+            "scope": "Lines 1–190; coupledAvg, output_gap_le, tree_gap_le, addressedF_not_RLe and addressedF_lower. No compilation."
+          },
+          {
+            "path": "packet/repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+            "status": "sampled",
+            "scope": "Exact erasedZero_eq_expectedZeros_div, erasedZero_le_two, expectedZeros_le_two/four, eq_19 statements and source proofs, lines 206–260; declaration-location search elsewhere. No compilation."
+          },
+          {
+            "path": "packet/repository/lean/QuarticQuery/Paper/ClassicalUniformZero.lean",
+            "status": "sampled",
+            "scope": "Declaration names and source locators only; no proof assessment"
+          },
+          {
+            "path": "packet/repository/lean/QuarticQuery/Paper/ClassicalAsymptotics.lean",
+            "status": "sampled",
+            "scope": "Declaration names and source locators only; no proof assessment"
+          },
+          {
+            "path": "packet/repository/research/returns/round2/4_lean_classical_lower/blueprint.md",
+            "status": "sampled",
+            "scope": "Targeted search passages on planted distributions, erased-zero identity, early/late route, simulator, and absolute bounds; not read in full"
+          },
+          {
+            "path": "packet/repository/research/returns/round2/4_lean_classical_lower/LEAN_GAPS.md",
+            "status": "sampled",
+            "scope": "Targeted search passages on planted and asymptotic evidence boundaries; not read in full"
+          },
+          {
+            "path": "work/planted_example.py",
+            "status": "assessed",
+            "scope": "Independently authored and executed in this audit. All exact assertions passed."
+          },
+          {
+            "path": "work/planted_example.json",
+            "status": "assessed",
+            "scope": "Generated from the independently authored exact enumeration; no asymptotic or formal-validation claim."
+          }
+        ]
+      }
+    },
+    "lean_read_receipt.json": {
+      "original_sub_audit_sha256": "c70b0f50f77dc0a791c4726a6d1ad3c0974b7a5deb992ffe04fd94ea8e43d019",
+      "contents": {
+        "schema": "quartic-r3-planted-lean-source-read-receipt-v1",
+        "reader": "AI subagent /root/lean_evidence_audit",
+        "scope": "Lean source and source-bound receipt audit only. Parent and other agents separately cover literature, style exemplars and new finite examples.",
+        "read_claim_rule": "assessed means the described scope, never automatically the whole containing document; sampled scopes are explicit; byte hashing does not imply full content reading.",
+        "entries": [
+          {
+            "member": "READ_ME_FIRST.md",
+            "status": "assessed",
+            "scope": "Complete text",
+            "purpose": "Task authority, source/evidence discipline and repository organization.",
+            "sha256": "72135c03932d1aec820c3ec3065922d4ebcf8eff23b113dcb269097368e08deb",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/AGENTS.md",
+            "status": "assessed",
+            "scope": "Complete text",
+            "purpose": "Task authority, source/evidence discipline and repository organization.",
+            "sha256": "5686db5032ef5a9d272aa4942d8601873ad3c4c72173f985b99caf3d7587064f",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/README.md",
+            "status": "assessed",
+            "scope": "Complete text",
+            "purpose": "Task authority, source/evidence discipline and repository organization.",
+            "sha256": "47fadd7a6d94c2bdb47d3155e289ed0956649449ae370d13f656d191e36ad947",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/research/README.md",
+            "status": "assessed",
+            "scope": "Complete text",
+            "purpose": "Task authority, source/evidence discipline and repository organization.",
+            "sha256": "b02ef7b53c07e06f71bf3d381bea77a346caf1e7d160f7d35b3b54eb9d3cca1b",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/corpus/README.md",
+            "status": "assessed",
+            "scope": "Complete text",
+            "purpose": "Task authority, source/evidence discipline and repository organization.",
+            "sha256": "8c80cd1b22e577000a1820ad5b7490958ed72118ce118fc1541cafde5de92c20",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Average.lean",
+            "status": "assessed",
+            "scope": "Complete module including signatures and proof bodies",
+            "purpose": "Core planted experiment, finite averaging, coupling, stronger zero-search route, heavy columns, capped simulator and discrepancy proof.",
+            "sha256": "471bb74964c7c841f12a8e90a184d13f26ffc173bf2855bdf1d59e93f490610e",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Coupling.lean",
+            "status": "assessed",
+            "scope": "Complete module including signatures and proof bodies",
+            "purpose": "Core planted experiment, finite averaging, coupling, stronger zero-search route, heavy columns, capped simulator and discrepancy proof.",
+            "sha256": "35d0f76652f6aa52acb73dfe3b5c01eb70eefdf9397cc83f4b4469017de61824",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Inputs.lean",
+            "status": "assessed",
+            "scope": "Complete module including signatures and proof bodies",
+            "purpose": "Core planted experiment, finite averaging, coupling, stronger zero-search route, heavy columns, capped simulator and discrepancy proof.",
+            "sha256": "8a51b7b7696acdda52b0762b65c2f9e8bec13da8d896c47102c447195509411f",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean",
+            "status": "assessed",
+            "scope": "Complete module including signatures and proof bodies",
+            "purpose": "Core planted experiment, finite averaging, coupling, stronger zero-search route, heavy columns, capped simulator and discrepancy proof.",
+            "sha256": "86a2064e0fb6c6ba9b4a79785932a203314d8433d938083a420288d642bf8bf8",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Heavy.lean",
+            "status": "assessed",
+            "scope": "Complete module including signatures and proof bodies",
+            "purpose": "Core planted experiment, finite averaging, coupling, stronger zero-search route, heavy columns, capped simulator and discrepancy proof.",
+            "sha256": "6b5772603583908e293c4301594ef313e68ddff67dedd5eced436744b0f110bb",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Simulator.lean",
+            "status": "assessed",
+            "scope": "Complete module including signatures and proof bodies",
+            "purpose": "Core planted experiment, finite averaging, coupling, stronger zero-search route, heavy columns, capped simulator and discrepancy proof.",
+            "sha256": "71bcf25db0309331ebda232bcad3ab2e895d543ffadcc521e99117253c0dab09",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Main.lean",
+            "status": "assessed",
+            "scope": "Complete module including signatures and proof bodies",
+            "purpose": "Core planted experiment, finite averaging, coupling, stronger zero-search route, heavy columns, capped simulator and discrepancy proof.",
+            "sha256": "a32a6e24bccace37d46742acc9450fe33b6081430484138336014048f3fe835c",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+            "status": "assessed",
+            "scope": "Complete module including signatures and proof bodies",
+            "purpose": "Exact paper-facing types, equality versus bound, adaptive posterior, tail/floor constants and Proposition 4.2 quantifiers; source headers compared to newer receipts.",
+            "sha256": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/lean/QuarticQuery/Paper/ClassicalUniformZero.lean",
+            "status": "assessed",
+            "scope": "Complete module including signatures and proof bodies",
+            "purpose": "Exact paper-facing types, equality versus bound, adaptive posterior, tail/floor constants and Proposition 4.2 quantifiers; source headers compared to newer receipts.",
+            "sha256": "b0778f75c9717011e9b115eb3b15cf132b85486fa2f8c83eff0e4ce4a05fca19",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/lean/QuarticQuery/Paper/ClassicalAsymptotics.lean",
+            "status": "assessed",
+            "scope": "Complete module including signatures and proof bodies",
+            "purpose": "Exact paper-facing types, equality versus bound, adaptive posterior, tail/floor constants and Proposition 4.2 quantifiers; source headers compared to newer receipts.",
+            "sha256": "b156b061ecab3a011c31224f9ff0719d07a52e8e8eb86becbb18cb5c959c17af",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/lean/QuarticQuery/Paper/Section4.lean",
+            "status": "assessed",
+            "scope": "Complete module including signatures and proof bodies",
+            "purpose": "Exact paper-facing types, equality versus bound, adaptive posterior, tail/floor constants and Proposition 4.2 quantifiers; source headers compared to newer receipts.",
+            "sha256": "da6bda0feda0448bc05b11c85aed7b666d01aa8d30a8914a4ffd7d9fbe6643fb",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+            "status": "sampled",
+            "scope": {
+              "assessed_sections": [
+                "§1.1 roadmap",
+                "§6.1 direct-product prerequisite",
+                "§§6.2–6.6 entire assigned baseline",
+                "§7 exponent consumer"
+              ],
+              "sampled_sections": [
+                "§4 addressed-function definition and local-check interfaces"
+              ],
+              "source_ranges_read": [
+                "lines 5–63",
+                "lines 869–956",
+                "parts of lines 959–1001",
+                "lines 1541–1977",
+                "lines 1980–2033"
+              ]
+            },
+            "purpose": "Baseline to improve and exact neighboring inputs/consumers; no claim to have read the full long record.",
+            "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/lean/QuarticQuery/Statement.lean",
+            "status": "sampled",
+            "scope": {
+              "source_ranges_read": [
+                "lines 1–110",
+                "lines 156–330"
+              ],
+              "not_assessed": "Quantum model definitions in the intervening interval"
+            },
+            "purpose": "Addressed function, winning predicate, totalization and family quantifiers.",
+            "sha256": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/lean/QuarticQuery/Results/Exponent.lean",
+            "status": "sampled",
+            "scope": {
+              "source_ranges_read": [
+                "lines 294–489"
+              ],
+              "declaration_signatures_inventoried": "All load-bearing floor and numeric declarations in this interval"
+            },
+            "purpose": "Floor lower bound, uniform arithmetic threshold, power estimate and fixed-parameter exponent consumer.",
+            "sha256": "91d1c021f9b920f9bf0017dfe03817194c6a1ff5f4776e39a669bbd3b832a931",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/lean/QuarticQuery/LowerBound/Minimax.lean",
+            "status": "sampled",
+            "scope": {
+              "source_ranges_read": [
+                "lines 132–211"
+              ],
+              "additional_assessment": "Relevant theorem signatures inventoried; surrounding declarations sampled"
+            },
+            "purpose": "Hard distribution and multiple-address prediction prerequisite.",
+            "sha256": "d235fef08374ca71229f5a2a5985e1bb0c60e3ec39a0ad2b1a13b286df9c194e",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+            "status": "sampled",
+            "scope": {
+              "source_ranges_read": [
+                "lines 900–927"
+              ],
+              "not_assessed": "Complete normalized direct-product development"
+            },
+            "purpose": "Exact budget floor identity and finite-average wrappers; baseline §6.1 supplies assessed prerequisite proof.",
+            "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/research/returns/round2/4_lean_classical_lower/blueprint.md",
+            "status": "sampled",
+            "scope": {
+              "source_ranges_read": [
+                "lines 184–617"
+              ],
+              "scope": "Budget, planted experiment, simulator, tail, numerical and Omega sections; earlier direct-product exposition not read in full"
+            },
+            "purpose": "Historical candidate route and correspondence to current sources.",
+            "sha256": "67d00ba8d3e875ab8804e095a6573f3b2a121691d8930c5870864bf2a9de843b",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/research/returns/round2/4_lean_classical_lower/checks/check_mathematics.py",
+            "status": "assessed",
+            "scope": "Complete file",
+            "purpose": "Historical finite-check scope and formal gaps; finite floor assertion checked as written, not upgraded to exact floor theorem.",
+            "sha256": "bb6382345f90e903af0b1e0d27e9859bfa07decb1f52b2be3ef4ab756bdaab65",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/research/returns/round2/4_lean_classical_lower/validation.json",
+            "status": "assessed",
+            "scope": "Complete file",
+            "purpose": "Historical finite-check scope and formal gaps; finite floor assertion checked as written, not upgraded to exact floor theorem.",
+            "sha256": "484396e638bd0a0f5519b988f50db574dfe47afc05e8e043ac860e81b257703d",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/research/returns/round2/4_lean_classical_lower/LEAN_GAPS.md",
+            "status": "assessed",
+            "scope": "Complete file",
+            "purpose": "Historical finite-check scope and formal gaps; finite floor assertion checked as written, not upgraded to exact floor theorem.",
+            "sha256": "7e0ab8f744c27512000dba5e702c8dbf425fbcca8b9fc06958d9e96b3e49fd06",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/research/adjudication/round2_classical_appendix.md",
+            "status": "sampled",
+            "scope": {
+              "assessed": "Classical planted/asymptotic and final source-current evidence passages",
+              "sampled": "Unrelated Appendix material"
+            },
+            "purpose": "Authoritative reviewed mappings and native-retry currentness; no wholesale adoption of historical labels.",
+            "sha256": "dd112027602ff99a3936ad49b4bdd7aed991d51027f5f9dc0c6ab9fa1e070410",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/research/adjudication/round2_fidelity.md",
+            "status": "sampled",
+            "scope": {
+              "assessed": "Classical claim fidelity and source/hash/currentness passages",
+              "sampled": "Unrelated challenge and negative-control details"
+            },
+            "purpose": "Distinguish whole-row correspondence, compile state and semantic review.",
+            "sha256": "71282486058c71566d1bcb72b6a84a8dfc5fd65531378151960954ade1023a28",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/research/adjudication/round2_classical_appendix_ties.json",
+            "status": "sampled",
+            "scope": {
+              "selected_rows": [
+                "eq-17",
+                "eq-18",
+                "claim-EZ",
+                "eq-21",
+                "eq-22",
+                "eq-23",
+                "claim-tail",
+                "cor-R-omega",
+                "prop-4.2"
+              ],
+              "additional_scope": "Relevant supporting declarations and receipt digests; whole file byte-bound to final audit"
+            },
+            "purpose": "Current candidate mapping and exact names.",
+            "sha256": "92965da1bf4fb0ccb606215ff1cff296f1a4dd9a8096f064f96a60858e9ea9c1",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/research/adjudication/round2_assumption_review.json",
+            "status": "sampled",
+            "scope": "Relevant ordinary-premise versus open-assumption classifications for planted depth, L and hLR",
+            "purpose": "Avoid classifying an intended query cap as an unresolved premise; retain genuinely additional binders at their exact declaration.",
+            "sha256": "5191b17e5dcbffed15182fa417a6c6b3f27583b06f934fc2259c091b5744a397",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/corpus/ties.json",
+            "status": "sampled",
+            "scope": {
+              "selected_rows": [
+                "eq-17",
+                "eq-18",
+                "eq-19",
+                "eq-20",
+                "eq-21",
+                "eq-22",
+                "eq-23",
+                "def-dummy",
+                "def-planted",
+                "claim-Y-values",
+                "claim-uniform-zero",
+                "claim-EZ",
+                "claim-tail",
+                "claim-numeric",
+                "claim-floor",
+                "prop-4.2",
+                "cor-R-omega"
+              ],
+              "automated_checks": "Relevant named declaration ties extracted; full eq-19 tie set preserved in lean_evidence.json"
+            },
+            "purpose": "Current canonical relations and routes; equality/conjunction not silently promoted into eq-19 tie.",
+            "sha256": "2cf66121360fafbf8ca77d32d36feba192b839b6f3503e466ffe7857b6086bac",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "manifest.json",
+            "status": "sampled",
+            "scope": "Source pin and relevant member identity/hash metadata",
+            "purpose": "Determine the actual current evidence level without running a compiler or substituting a metadata label for proof.",
+            "sha256": "c814fb70ef87f52ef0312fc95a5c47bc0df3bc8c243712648b6fa5f27a843736",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "EVIDENCE_SNAPSHOT.json",
+            "status": "sampled",
+            "scope": "Relevant root/native/axiom/currentness entries parsed and compared",
+            "purpose": "Determine the actual current evidence level without running a compiler or substituting a metadata label for proof.",
+            "sha256": "25f46742c3d019459dc43846f23234c107212625b8c76f3eeef787fd721f1213",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "BUILD_STATUS.md",
+            "status": "sampled",
+            "scope": "Current build status, evidence roles and source-currentness statements",
+            "purpose": "Determine the actual current evidence level without running a compiler or substituting a metadata label for proof.",
+            "sha256": "50d8890437452a047a7eba252ec14f41a54e5cf06a297b61a03cb17898bdc4dc",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/corpus/lean_dependencies.json",
+            "status": "sampled",
+            "scope": "Root/declaration/reach/edge counters, selected declaration membership, all bound source hashes",
+            "purpose": "Determine the actual current evidence level without running a compiler or substituting a metadata label for proof.",
+            "sha256": "56ae4752273f7cfba92ee6f35a4acc6ee0eea6e32a44116ccaf9d7354094e1fb",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+            "status": "assessed",
+            "scope": "Full JSON parsed: status, command, timestamp, commit label, all 124 input hashes and declaration membership",
+            "purpose": "Determine the actual current evidence level without running a compiler or substituting a metadata label for proof.",
+            "sha256": "bc11e3fec8581f89ce56b110bf76db2469abea4b7be00fa476f9d2cee9455c2e",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "native_results/final-evidence/operations.json",
+            "status": "sampled",
+            "scope": "Relevant root, final audit and evidence-export operations",
+            "purpose": "Determine the actual current evidence level without running a compiler or substituting a metadata label for proof.",
+            "sha256": "eb0e6c0a17e8d7a681d25b11a545941a5c11ff0a904d0ab17832675c807ee42b",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "native_results/final-evidence/current_native_acceptance.json",
+            "status": "sampled",
+            "scope": "Selected current module objects, source closures and recorded artifact hashes",
+            "purpose": "Determine the actual current evidence level without running a compiler or substituting a metadata label for proof.",
+            "sha256": "5182e06d70dccf3f7fca89ae06851e0d95ec3cc4219385a346034643d3959fd4",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "native_results/final-evidence/reviewed_axiom_audit.json",
+            "status": "assessed",
+            "scope": "Full preparation metadata parsed; explicitly distinguished from execution verdict",
+            "purpose": "Determine the actual current evidence level without running a compiler or substituting a metadata label for proof.",
+            "sha256": "74d4f0fd54ada1b2dbbda3734cb2d65f50816f0feec70db15748db185f30f3aa",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+            "status": "assessed",
+            "scope": "Full verdict parsed, all checks and source/candidate hashes compared",
+            "purpose": "Determine the actual current evidence level without running a compiler or substituting a metadata label for proof.",
+            "sha256": "3c26718576384a76fca10f1f44bf42ffd2f23130b0aabcf35b3f5c34f2b4a1e0",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "native_sources/final-evidence/reviewed_axiom_audit.lean",
+            "status": "sampled",
+            "scope": "Audit imports and run_elab/collectAxioms logic read; 258-name declaration list parsed and tested for target membership",
+            "purpose": "Determine the actual current evidence level without running a compiler or substituting a metadata label for proof.",
+            "sha256": "78da4e0b0d875eedd3898a46f4e885a8fa7e89c2d5fbf2d3205012ff4f640513",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "native_sources/final-evidence/verify_reviewed_audit.py",
+            "status": "assessed",
+            "scope": "Full verification logic read: native exit, marker, sources, ties, root-artifact identity and diagnostics",
+            "purpose": "Determine the actual current evidence level without running a compiler or substituting a metadata label for proof.",
+            "sha256": "bd8eb4a6312bc0b8f6911edd23734df982f0aef17c3457e1b243e9003fec3dd8",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+            "status": "sampled",
+            "scope": "Selected exact #check and #print axioms output; success marker verified; entire log hash checked",
+            "purpose": "Determine the actual current evidence level without running a compiler or substituting a metadata label for proof.",
+            "sha256": "f87b4e78aaa99fb069acc358fd90c6b95a1fd09bb337d4b49b6851ae714d8ae1",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "native_results/native-retry-1/results.json",
+            "status": "sampled",
+            "scope": "Relevant ClassicalPlanted, ClassicalUniformZero, ClassicalAsymptotics, ClassicalDirectProduct and Section4 rows only; successful rows and their input hashes compared",
+            "purpose": "Focused native result and source closure; not a complete audit of the campaign.",
+            "sha256": "41010b87d500354711b4c7a880b52d9b9dc0d932ffab9577d8d0af5d91a5aa4e",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "native_results/native-retry-2/results.json",
+            "status": "sampled",
+            "scope": "Relevant ClassicalPlanted, ClassicalUniformZero, ClassicalAsymptotics, ClassicalDirectProduct and Section4 rows only; successful rows and their input hashes compared",
+            "purpose": "Focused native result and source closure; not a complete audit of the campaign.",
+            "sha256": "d9184c86bec0cad8f6a1f1972c4106d0edcfc04d7967ade3010394565a364f32",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "native_results/native-retry-3/results.json",
+            "status": "sampled",
+            "scope": "Relevant ClassicalPlanted, ClassicalUniformZero, ClassicalAsymptotics, ClassicalDirectProduct and Section4 rows only; successful rows and their input hashes compared",
+            "purpose": "Focused native result and source closure; not a complete audit of the campaign.",
+            "sha256": "c318cc4c291fcbcf12b447a3d55a3420694dc6645b03520cd3768c4e908c9e37",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "native_logs/native-retry-2/QuarticQuery_Paper_ClassicalPlanted.log",
+            "status": "assessed",
+            "scope": "Complete focused-module log read and byte hash compared",
+            "purpose": "Native evidence for QuarticQuery.Paper.ClassicalPlanted; not an execution in this return.",
+            "sha256": "3dade59d62a2a900b8c17f2251d62fb752a8ff90997be2ebdb5f54e495d16d3f",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "native_logs/native-retry-3/QuarticQuery_Paper_ClassicalUniformZero.log",
+            "status": "assessed",
+            "scope": "Complete focused-module log read and byte hash compared",
+            "purpose": "Native evidence for QuarticQuery.Paper.ClassicalUniformZero; not an execution in this return.",
+            "sha256": "74e83ed3e22ac7b847d926da1df82c21f2f29b8750117489630f02b784deec2a",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "native_logs/native-retry-2/QuarticQuery_Paper_ClassicalAsymptotics.log",
+            "status": "assessed",
+            "scope": "Complete focused-module log read and byte hash compared",
+            "purpose": "Native evidence for QuarticQuery.Paper.ClassicalAsymptotics; not an execution in this return.",
+            "sha256": "c96fad68c8660c9e0491a8696eb1b85977d320974bc5a206904a8de67db4ccd2",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "native_logs/native-retry-1/QuarticQuery_Paper_ClassicalDirectProduct.log",
+            "status": "assessed",
+            "scope": "Complete focused-module log read and byte hash compared",
+            "purpose": "Native evidence for QuarticQuery.Paper.ClassicalDirectProduct; not an execution in this return.",
+            "sha256": "d2e586cea5ccea6212fb581e992efb6d8488c512670f399327dd92ca865c8e45",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "native_logs/native-retry-1/QuarticQuery_Paper_Section4.log",
+            "status": "assessed",
+            "scope": "Complete focused-module log read and byte hash compared",
+            "purpose": "Native evidence for QuarticQuery.Paper.Section4; not an execution in this return.",
+            "sha256": "7242d4241be567c130c4712eafb1f8cbee3dfaf3eb434488738c3870ebcc9473",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+            "status": "sampled",
+            "scope": "JSON declaration/challenge/receipt fields parsed for selected-declaration membership; no independent semantic re-audit of each challenge",
+            "purpose": "Check that no source-bound Comparator receipt individually names the equality or complete eq-19 conjunction; distinguish comparator scope from build scope.",
+            "sha256": "e9217e359a4a3295566f8effa82eb9081f0262548e0aee45d2948bab212e3973",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/corpus/receipts/comparator-Construction.json",
+            "status": "sampled",
+            "scope": "JSON declaration/challenge/receipt fields parsed for selected-declaration membership; no independent semantic re-audit of each challenge",
+            "purpose": "Check that no source-bound Comparator receipt individually names the equality or complete eq-19 conjunction; distinguish comparator scope from build scope.",
+            "sha256": "a533a5050e68cd34c30d9c7652cc5cb5d63a73fc2e9c0ec750017927d5edaec1",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/corpus/receipts/comparator-Foundations-2026-11-02T182842333798+0000.json",
+            "status": "sampled",
+            "scope": "JSON declaration/challenge/receipt fields parsed for selected-declaration membership; no independent semantic re-audit of each challenge",
+            "purpose": "Check that no source-bound Comparator receipt individually names the equality or complete eq-19 conjunction; distinguish comparator scope from build scope.",
+            "sha256": "83ed7abe952b50df1120316d9af693ffcb38b5665b66e718d6bf4133bd7d01ca",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/corpus/receipts/comparator-Foundations.json",
+            "status": "sampled",
+            "scope": "JSON declaration/challenge/receipt fields parsed for selected-declaration membership; no independent semantic re-audit of each challenge",
+            "purpose": "Check that no source-bound Comparator receipt individually names the equality or complete eq-19 conjunction; distinguish comparator scope from build scope.",
+            "sha256": "df0f2e15550c06a6968628b90e864ec0b861822eb983607bb6302796cb03ea09",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/corpus/receipts/comparator-Separation-2026-11-02T183102343043+0000.json",
+            "status": "sampled",
+            "scope": "JSON declaration/challenge/receipt fields parsed for selected-declaration membership; no independent semantic re-audit of each challenge",
+            "purpose": "Check that no source-bound Comparator receipt individually names the equality or complete eq-19 conjunction; distinguish comparator scope from build scope.",
+            "sha256": "2669347e3720b88e9eaa03e0ba6ebf1068f82efc71a930f6bd35912a23bf7810",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/corpus/receipts/comparator-Separation.json",
+            "status": "sampled",
+            "scope": "JSON declaration/challenge/receipt fields parsed for selected-declaration membership; no independent semantic re-audit of each challenge",
+            "purpose": "Check that no source-bound Comparator receipt individually names the equality or complete eq-19 conjunction; distinguish comparator scope from build scope.",
+            "sha256": "b85ee105297ee8d003dfde99e304b7bcc1e76c3c4278eb813c8c3a88fed57cd9",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/corpus/receipts/comparator-Tournament-2026-11-02T183226253908+0000.json",
+            "status": "sampled",
+            "scope": "JSON declaration/challenge/receipt fields parsed for selected-declaration membership; no independent semantic re-audit of each challenge",
+            "purpose": "Check that no source-bound Comparator receipt individually names the equality or complete eq-19 conjunction; distinguish comparator scope from build scope.",
+            "sha256": "6b3fec1b877d7efc0d13849afed4eab4eb5f8ce83fd4b53484a32a97e2b54a80",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/corpus/receipts/comparator-Tournament.json",
+            "status": "sampled",
+            "scope": "JSON declaration/challenge/receipt fields parsed for selected-declaration membership; no independent semantic re-audit of each challenge",
+            "purpose": "Check that no source-bound Comparator receipt individually names the equality or complete eq-19 conjunction; distinguish comparator scope from build scope.",
+            "sha256": "26effdf412658b1dc1abdb76dbfdbcbf5aa085ff3800d42828f342d053de23a0",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/corpus/receipts/comparator-Unconditional-2026-11-02T183450037875+0000.json",
+            "status": "sampled",
+            "scope": "JSON declaration/challenge/receipt fields parsed for selected-declaration membership; no independent semantic re-audit of each challenge",
+            "purpose": "Check that no source-bound Comparator receipt individually names the equality or complete eq-19 conjunction; distinguish comparator scope from build scope.",
+            "sha256": "9f9166bf60b36d9571294af870a0dc1b9da01e352095821fb9bb9ef2704568d5",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/corpus/receipts/comparator-Unconditional-2026-11-02T184546477430+0000.json",
+            "status": "sampled",
+            "scope": "JSON declaration/challenge/receipt fields parsed for selected-declaration membership; no independent semantic re-audit of each challenge",
+            "purpose": "Check that no source-bound Comparator receipt individually names the equality or complete eq-19 conjunction; distinguish comparator scope from build scope.",
+            "sha256": "ee186ea8c9e0bcbe61a7bde6a06c7393c2bb8bebb8facae07fbb785737df04a2",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/corpus/receipts/comparator-Unconditional.json",
+            "status": "sampled",
+            "scope": "JSON declaration/challenge/receipt fields parsed for selected-declaration membership; no independent semantic re-audit of each challenge",
+            "purpose": "Check that no source-bound Comparator receipt individually names the equality or complete eq-19 conjunction; distinguish comparator scope from build scope.",
+            "sha256": "3dfb81c66915790534c9ce04daf48a63c12bc26354c548dd4145dff1dcddbc97",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/corpus/receipts/comparator-negative-ChangedDefinition-2026-11-02T183607437119+0000.json",
+            "status": "sampled",
+            "scope": "JSON declaration/challenge/receipt fields parsed for selected-declaration membership; no independent semantic re-audit of each challenge",
+            "purpose": "Check that no source-bound Comparator receipt individually names the equality or complete eq-19 conjunction; distinguish comparator scope from build scope.",
+            "sha256": "c536729054f3a94c07ad58b7dafe50dc92eadd0e8c2abfcbbb1a4063f89499a5",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/corpus/receipts/comparator-negative-ChangedDefinition.json",
+            "status": "sampled",
+            "scope": "JSON declaration/challenge/receipt fields parsed for selected-declaration membership; no independent semantic re-audit of each challenge",
+            "purpose": "Check that no source-bound Comparator receipt individually names the equality or complete eq-19 conjunction; distinguish comparator scope from build scope.",
+            "sha256": "b21471626fcb2c1fff6c23a6ad445ad2dcde523219b6cc105937f789f229be94",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/corpus/receipts/comparator-negative-ForeignAxiom-2026-11-02T183708690272+0000.json",
+            "status": "sampled",
+            "scope": "JSON declaration/challenge/receipt fields parsed for selected-declaration membership; no independent semantic re-audit of each challenge",
+            "purpose": "Check that no source-bound Comparator receipt individually names the equality or complete eq-19 conjunction; distinguish comparator scope from build scope.",
+            "sha256": "67344dc638f748131ffacc4fe219648efebb477949a60be0e8706aa2c88ab014",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/corpus/receipts/comparator-negative-ForeignAxiom.json",
+            "status": "sampled",
+            "scope": "JSON declaration/challenge/receipt fields parsed for selected-declaration membership; no independent semantic re-audit of each challenge",
+            "purpose": "Check that no source-bound Comparator receipt individually names the equality or complete eq-19 conjunction; distinguish comparator scope from build scope.",
+            "sha256": "0a6ca6d840cd89ee5415cc909477b7c6b3c9dcfccfc1069b6c0fb063bfda5004",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/corpus/receipts/comparator-negative-MissingDeclaration-2026-11-02T183824782468+0000.json",
+            "status": "sampled",
+            "scope": "JSON declaration/challenge/receipt fields parsed for selected-declaration membership; no independent semantic re-audit of each challenge",
+            "purpose": "Check that no source-bound Comparator receipt individually names the equality or complete eq-19 conjunction; distinguish comparator scope from build scope.",
+            "sha256": "23e27887ede7d395b2df0ab81bd359d8aecda88a9cd98fb323b17d075e240cd0",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/corpus/receipts/comparator-negative-MissingDeclaration.json",
+            "status": "sampled",
+            "scope": "JSON declaration/challenge/receipt fields parsed for selected-declaration membership; no independent semantic re-audit of each challenge",
+            "purpose": "Check that no source-bound Comparator receipt individually names the equality or complete eq-19 conjunction; distinguish comparator scope from build scope.",
+            "sha256": "9421404cc0538dca29e5c867a8e99109f0b509224c44d513efcc6c98c8fdbebe",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/corpus/receipts/comparator-negative-SorryProof-2026-11-02T183912954843+0000.json",
+            "status": "sampled",
+            "scope": "JSON declaration/challenge/receipt fields parsed for selected-declaration membership; no independent semantic re-audit of each challenge",
+            "purpose": "Check that no source-bound Comparator receipt individually names the equality or complete eq-19 conjunction; distinguish comparator scope from build scope.",
+            "sha256": "37dcaff39a226f32f9ff14f0747c8b45cf062dc9072810485d50ba607dd7788a",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/corpus/receipts/comparator-negative-SorryProof.json",
+            "status": "sampled",
+            "scope": "JSON declaration/challenge/receipt fields parsed for selected-declaration membership; no independent semantic re-audit of each challenge",
+            "purpose": "Check that no source-bound Comparator receipt individually names the equality or complete eq-19 conjunction; distinguish comparator scope from build scope.",
+            "sha256": "29dd6ad48042ab6deb6d2a7887c07a074a2fd36cf0153ea71933c523fcd84c1b",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/corpus/receipts/comparator-negative-WeakenedConclusion-2026-11-02T184050714051+0000.json",
+            "status": "sampled",
+            "scope": "JSON declaration/challenge/receipt fields parsed for selected-declaration membership; no independent semantic re-audit of each challenge",
+            "purpose": "Check that no source-bound Comparator receipt individually names the equality or complete eq-19 conjunction; distinguish comparator scope from build scope.",
+            "sha256": "2de7fec03c3233784ba8796036856b620745370be8b99f566460dc1647fc4434",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          },
+          {
+            "member": "repository/corpus/receipts/comparator-negative-WeakenedConclusion.json",
+            "status": "sampled",
+            "scope": "JSON declaration/challenge/receipt fields parsed for selected-declaration membership; no independent semantic re-audit of each challenge",
+            "purpose": "Check that no source-bound Comparator receipt individually names the equality or complete eq-19 conjunction; distinguish comparator scope from build scope.",
+            "sha256": "532fd0ab77a80209d8d3daf3e9e41a2a45daab7effbd4832d8bc80757c6da2a9",
+            "byte_hash_computed": true,
+            "hash_is_not_a_full_read_claim": true
+          }
+        ],
+        "unavailable": [
+          {
+            "item": "Recorded .olean/.ilean compiled artifacts",
+            "reason": "Hashes are supplied in receipts but artifact binaries are not in this packet; no fresh binary hash is claimed."
+          },
+          {
+            "item": "New successful compilation of proposed_eq19_wrapper.lean",
+            "reason": "No Lean run performed; proposed conjunction is uncompiled."
+          },
+          {
+            "item": "Whole-row eq-19 Comparator receipt",
+            "reason": "No supplied source-bound receipt individually covers the equality or proposed conjunction."
+          }
+        ],
+        "unassessed_by_this_agent": [
+          "Full proof campaign or rebuild",
+          "External literature/web verification (delegated by parent to literature agent)",
+          "Writing exemplars and authoring skill passages (parent responsibility)",
+          "Unrelated Lean modules beyond the stated interfaces",
+          "Source correctness of all 258 audited declarations beyond the selected mathematical domain",
+          "Independent semantic correctness of every Comparator challenge"
+        ],
+        "verification_performed": {
+          "root_input_hashes_matched": "124/124",
+          "final_audit_input_hashes_matched": "124/124",
+          "candidate_tie_files_matched": "3/3",
+          "focused_module_input_hashes": {
+            "QuarticQuery.Paper.ClassicalPlanted": "16/16",
+            "QuarticQuery.Paper.ClassicalUniformZero": "17/17",
+            "QuarticQuery.Paper.ClassicalAsymptotics": "57/57",
+            "QuarticQuery.Paper.ClassicalDirectProduct": "6/6",
+            "QuarticQuery.Paper.Section4": "57/57"
+          },
+          "audit_source_and_log_hashes_match": true,
+          "success_marker_found": "R2_AXIOM_AUDIT_OK declarations=258",
+          "lean_executed": false,
+          "comparator_executed": false,
+          "packet_modified": false
+        },
+        "review_of_parent_draft": {
+          "path": "return/section.md",
+          "scope": "CL-formal-scope and every occurrence of formal evidence language, plus neighboring equation-(18)/(23) passages",
+          "status": "sampled",
+          "findings": [
+            "Formal-scope paragraph is accurate.",
+            "Clarify that preprint numbered displays are one-sided and the replacement uses stronger absolute-value forms.",
+            "Replace ambiguous reference to the one-sided consequence immediately following the absolute coefficient-two inequality."
+          ],
+          "note": "Draft mutable; no frozen hash asserted for final parent text."
+        }
+      }
+    },
+    "literature_source_read_receipt.json": {
+      "original_sub_audit_sha256": "bcbb7eadf50b832a83550be9e40007ef75601d1623f517f8db669c4859c03550",
+      "contents": {
+        "sub_audit": "literature_asymptotics",
+        "date": "2026-11-02",
+        "read_scope_note": "Sampled is file-wide coverage classification; expressly named subsections in scope were read fully unless stated otherwise. Metadata is not proof evidence.",
+        "sources": [
+          {
+            "file": "READ_ME_FIRST.md",
+            "status": "assessed",
+            "scope": "Complete assignment",
+            "size_bytes": 11538,
+            "sha256": "72135c03932d1aec820c3ec3065922d4ebcf8eff23b113dcb269097368e08deb",
+            "manifest_expected_sha256": null,
+            "manifest_hash_match": null
+          },
+          {
+            "file": "manifest.json",
+            "status": "sampled",
+            "scope": "Keys; repository_commit; source_paper; paper_provenance; literature_roles; hashes for this audit",
+            "size_bytes": 221535,
+            "sha256": "c814fb70ef87f52ef0312fc95a5c47bc0df3bc8c243712648b6fa5f27a843736",
+            "manifest_expected_sha256": null,
+            "manifest_hash_match": null
+          },
+          {
+            "file": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+            "status": "sampled",
+            "scope": "Complete §§1–1.1, 3.6, 3.16–3.18, 6.1, 6.5–6.6, 7; §4 read through local-tests opening (lines 869–982)",
+            "size_bytes": 353091,
+            "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+            "manifest_expected_sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+            "manifest_hash_match": true
+          },
+          {
+            "file": "paper/extracted.md",
+            "status": "sampled",
+            "scope": "Lines 552–730: tail of §4.1, all §4.2, Proposition 4.2, equations (17)–(23), and §5 proof of Theorem1.1",
+            "size_bytes": 64021,
+            "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+            "manifest_expected_sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+            "manifest_hash_match": true
+          },
+          {
+            "file": "paper/annex_notes.json",
+            "status": "sampled",
+            "scope": "Complete metadata notes read as historical advisory navigation, not proof evidence",
+            "size_bytes": 17636,
+            "sha256": "b2a65f141ea2ace3056caa0b058d847192fe1780c30239dd9d81a085741cec7f",
+            "manifest_expected_sha256": "b2a65f141ea2ace3056caa0b058d847192fe1780c30239dd9d81a085741cec7f",
+            "manifest_hash_match": true
+          },
+          {
+            "file": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/annex_notes.json",
+            "status": "sampled",
+            "scope": "Complete metadata notes as advisory navigation only",
+            "size_bytes": 7729,
+            "sha256": "0dc0501c90512a1a40a51ebfb28006c9a53c9edaac45db16592f0dabf9400882",
+            "manifest_expected_sha256": "0dc0501c90512a1a40a51ebfb28006c9a53c9edaac45db16592f0dabf9400882",
+            "manifest_hash_match": true
+          },
+          {
+            "file": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.tar.gz",
+            "status": "sampled",
+            "scope": "Embedded main.tex lines 1–35, 110–190, 197–300 (promise/Theorem1.3/Cor1.4), 721–742 (Theorem3.1 input masses), and 1125–1198 (§5.3 tail and complete §5.4)",
+            "size_bytes": 213572,
+            "sha256": "f48a3225662484d12e19bf03412478cf87a388f7c2e33c69a4d7f2078202e015",
+            "manifest_expected_sha256": "f48a3225662484d12e19bf03412478cf87a388f7c2e33c69a4d7f2078202e015",
+            "manifest_hash_match": true
+          },
+          {
+            "file": "literature/quartic-ref-02-separations-in-query-complexity-using-chea/annex_notes.json",
+            "status": "sampled",
+            "scope": "Complete metadata notes as advisory navigation only",
+            "size_bytes": 4595,
+            "sha256": "dc01c312ca7f3a6bdd8886170b73c8de05504dd0862747254ef0d224ab01134c",
+            "manifest_expected_sha256": "dc01c312ca7f3a6bdd8886170b73c8de05504dd0862747254ef0d224ab01134c",
+            "manifest_hash_match": true
+          },
+          {
+            "file": "literature/quartic-ref-02-separations-in-query-complexity-using-chea/source.tar.gz",
+            "status": "sampled",
+            "scope": "Embedded cheat37_arXiv_v2.tex lines 1511–1594 and 1664–1802: certifying/cheat sheet definitions and upper-bound proof section",
+            "size_bytes": 38431,
+            "sha256": "8b878b7b4c67206924b8cc32e586c5ad1ec918ffcb60d665b7ea26dddaffa5ff",
+            "manifest_expected_sha256": "8b878b7b4c67206924b8cc32e586c5ad1ec918ffcb60d665b7ea26dddaffa5ff",
+            "manifest_hash_match": true
+          },
+          {
+            "file": "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/annex_notes.json",
+            "status": "sampled",
+            "scope": "Complete metadata notes as advisory navigation only",
+            "size_bytes": 6350,
+            "sha256": "e585d26476cab5193a20f672a4e19fe948bcfe17dea293895d76cf534be8ef91",
+            "manifest_expected_sha256": "e585d26476cab5193a20f672a4e19fe948bcfe17dea293895d76cf534be8ef91",
+            "manifest_hash_match": true
+          },
+          {
+            "file": "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/source.tex",
+            "status": "sampled",
+            "scope": "§1.3 selected explanatory paragraphs lines 375–381; complete §3 lines 504–608; located search results elsewhere not treated as assessed proofs",
+            "size_bytes": 131397,
+            "sha256": "7defbc5925e9554768cf5bab0ab548188d5d264075cfc1f00891544b5aec782d",
+            "manifest_expected_sha256": "7defbc5925e9554768cf5bab0ab548188d5d264075cfc1f00891544b5aec782d",
+            "manifest_hash_match": true
+          },
+          {
+            "file": "repository/lean/QuarticQuery/Paper/ClassicalAsymptotics.lean",
+            "status": "sampled",
+            "scope": "Lines 1–240: exact tail, uniform numeric components, cor-R-omega signatures/proofs as source inspection only; no compilation",
+            "size_bytes": 20410,
+            "sha256": "b156b061ecab3a011c31224f9ff0719d07a52e8e8eb86becbb18cb5c959c17af",
+            "manifest_expected_sha256": "b156b061ecab3a011c31224f9ff0719d07a52e8e8eb86becbb18cb5c959c17af",
+            "manifest_hash_match": true
+          },
+          {
+            "file": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.pdf",
+            "status": "sampled",
+            "scope": "Printed pp. 1–4 now read completely from pdftotext output; §5.4 p38 read from remote PDF and exact local TeX earlier. Entire Gaussian/branching proof remains unassessed.",
+            "size_bytes": 986784,
+            "sha256": "afe53c8bd918d07590f29a947ef044453db73959043135082d1a3c29b2863a35",
+            "manifest_expected_sha256": "afe53c8bd918d07590f29a947ef044453db73959043135082d1a3c29b2863a35",
+            "manifest_hash_match": true
+          },
+          {
+            "file": "literature/quartic-ref-02-separations-in-query-complexity-using-chea/source.pdf",
+            "status": "sampled",
+            "scope": "Printed pp. 1–2 read completely from primary PDF web output; printed pp. 3–4 now read completely from local pdftotext output. §6.1 definitions and complete §6.2 proof read via exact local TeX earlier, with PDF number/page checks.",
+            "size_bytes": 393155,
+            "sha256": "64380c861d0e0296a53c998a0109d62bf446529414001f8e46615991b558e4bc",
+            "manifest_expected_sha256": "64380c861d0e0296a53c998a0109d62bf446529414001f8e46615991b558e4bc",
+            "manifest_hash_match": true
+          },
+          {
+            "file": "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/source.pdf",
+            "status": "sampled",
+            "scope": "Printed pp. 1–4 now read completely from local pdftotext output. §1.3 and complete §3 proof read via local TeX earlier, with PDF locator checks.",
+            "size_bytes": 405185,
+            "sha256": "6a67da06a0f07d0f86bb6389b7143314cade50294e2c0c454f3cc9853643faff",
+            "manifest_expected_sha256": "6a67da06a0f07d0f86bb6389b7143314cade50294e2c0c454f3cc9853643faff",
+            "manifest_hash_match": true
+          }
+        ],
+        "web_sources": [
+          {
+            "url": "https://arxiv.org/abs/2008.07003v3",
+            "status": "assessed",
+            "scope": "Version date, author/title, full-text link metadata",
+            "reference_id": "turn1view0"
+          },
+          {
+            "url": "https://arxiv.org/pdf/2008.07003v3",
+            "status": "sampled",
+            "scope": "Intro promise, printed Theorem1.3/Cor1.4 on p4; displayed §5.4 on p38; version identity",
+            "reference_id": "turn2view0"
+          },
+          {
+            "url": "https://arxiv.org/abs/1511.01937v2",
+            "status": "assessed",
+            "scope": "Version date, title/authors, proceedings metadata",
+            "reference_id": "turn1view1"
+          },
+          {
+            "url": "https://arxiv.org/pdf/1511.01937v2",
+            "status": "sampled",
+            "scope": "Contents and §6.2 Lem17/18, printed p22, supporting locators",
+            "reference_id": "turn2view1"
+          },
+          {
+            "url": "https://arxiv.org/abs/1005.0644v2",
+            "status": "assessed",
+            "scope": "Version date, title/author, journal metadata",
+            "reference_id": "turn1view2"
+          },
+          {
+            "url": "https://arxiv.org/pdf/1005.0644v2",
+            "status": "sampled",
+            "scope": "§1.3, Lem3.1/3.2 locators pp11–12; product proof and final fair remark p13",
+            "reference_id": "turn2view2"
+          },
+          {
+            "url": "https://github.com/openai/math/blob/4eaee875/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf",
+            "status": "unavailable",
+            "scope": "Remote PDF fetch returned DisabledError. Local supplied text read separately."
+          }
+        ],
+        "unassessed": [
+          "Full Bansal–Sinha Gaussian interpolation/branching proof",
+          "Full ABK paper outside assigned sections",
+          "Full Drucker paper outside assigned sections",
+          "Shaltiel original paper",
+          "Current Lean builds and Comparator receipts (separate audit)",
+          "Any concurrent round-three section return"
+        ],
+        "validations": {
+          "new_lean_build": false,
+          "new_comparator_run": false,
+          "human_review": false,
+          "pdf_rendering": false,
+          "remote_local_byte_identity_claimed": false
+        },
+        "writing_guide_nearest_source_reading": {
+          "first_four_pages_complete_for": [
+            "Bansal–Sinha arXiv2008.07003v3",
+            "ABK arXiv1511.01937v2",
+            "Drucker arXiv1005.0644v2"
+          ],
+          "proof_sections_read": [
+            "Bansal–Sinha §5.4, complete terminal assembly but not entire underlying theorem proof",
+            "ABK §6.2, complete upper-bound section and proof, with preceding §6.1 definitions",
+            "Drucker §3, complete proof and fair specialization"
+          ],
+          "whole_paper_claim": false,
+          "followup_note": "The missing first-page coverage was completed during the section review; earlier receipt described selected locators only."
+        }
+      }
+    }
+  },
+  "input_integrity": {
+    "manifest_members_checked": 449,
+    "all_exist": true,
+    "all_byte_counts_match": true,
+    "all_sha256_match": true,
+    "original_packet_modified": false,
+    "semantic_assessment_of_all_members_claimed": false
+  },
+  "public_source_verification": [
+    {
+      "url": "https://arxiv.org/abs/2008.07003v3",
+      "status": "assessed",
+      "scope": "Official version and bibliographic metadata."
+    },
+    {
+      "url": "https://arxiv.org/pdf/2008.07003v3",
+      "status": "sampled",
+      "scope": "Theorem 1.3/Corollary 1.4 and Section 5.4 locator; primary source."
+    },
+    {
+      "url": "https://arxiv.org/abs/1511.01937v2",
+      "status": "assessed",
+      "scope": "Official version and bibliographic metadata."
+    },
+    {
+      "url": "https://arxiv.org/pdf/1511.01937v2",
+      "status": "sampled",
+      "scope": "Sections 6.1-6.2, Definitions 14-15 and Lemma 17; primary source."
+    },
+    {
+      "url": "https://arxiv.org/abs/1005.0644v2",
+      "status": "assessed",
+      "scope": "Official version and bibliographic metadata."
+    },
+    {
+      "url": "https://arxiv.org/pdf/1005.0644v2",
+      "status": "sampled",
+      "scope": "Section 1.3 and Lemmas 3.1-3.2, fair-algorithm specialization; primary source."
+    },
+    {
+      "url": "https://github.com/openai/math/tree/main/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026",
+      "status": "sampled",
+      "scope": "Official public project/preprint listing metadata only."
+    },
+    {
+      "url": "https://github.com/openai/math/blob/4eaee875/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf",
+      "status": "unavailable",
+      "scope": "Remote PDF fetch returned DisabledError; supplied local paper text read separately."
+    }
+  ],
+  "supplied_evidence_checked": {
+    "root_receipt": {
+      "member": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "sha256": "bc11e3fec8581f89ce56b110bf76db2469abea4b7be00fa476f9d2cee9455c2e",
+      "status": "passed",
+      "ran_at": "2026-11-02T18:25:39.383153+00:00",
+      "command": [
+        "lake",
+        "build",
+        "QuarticQuery"
+      ],
+      "inspection_command": [
+        "lake",
+        "env",
+        "lean",
+        "--run",
+        "scripts/Reach.lean",
+        "QuarticQuery.theorem_1_1_unconditional",
+        "QuarticQuery.cubic_bound_fails_unconditional"
+      ],
+      "declared_commit": "31e17dee667d1d72fa621da8e7d3d8ff5fc3960a",
+      "packet_repository_commit": "1dd469dd0042b937b739da3bc211eeb60bdf7462",
+      "binding": {
+        "count": 124,
+        "matched": 124,
+        "mismatches": [],
+        "entries": [
+          {
+            "label": "lean/QuarticCorpus/Construction/Challenge.lean",
+            "member": "repository/lean/QuarticCorpus/Construction/Challenge.lean",
+            "expected": "d554e5a96889c4c9c3aa6bd3231f984fa7cf695aa103ebcd092ac2c7a08240b1",
+            "actual": "d554e5a96889c4c9c3aa6bd3231f984fa7cf695aa103ebcd092ac2c7a08240b1",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Construction/Solution.lean",
+            "member": "repository/lean/QuarticCorpus/Construction/Solution.lean",
+            "expected": "63cfe11442f76eb9b0f1b579e2a925a19fc9312f870e8480bfbf3eacfb9bb9de",
+            "actual": "63cfe11442f76eb9b0f1b579e2a925a19fc9312f870e8480bfbf3eacfb9bb9de",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Construction/comparator.json",
+            "member": "repository/lean/QuarticCorpus/Construction/comparator.json",
+            "expected": "c18c76b87a777251e70ec3f55c5704be82d52dbba0220e5adb2cf3063709dd78",
+            "actual": "c18c76b87a777251e70ec3f55c5704be82d52dbba0220e5adb2cf3063709dd78",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Foundations/Challenge.lean",
+            "member": "repository/lean/QuarticCorpus/Foundations/Challenge.lean",
+            "expected": "8a94b4d4e065267e606d7738f72a620ab249b563a1ebf66992fbae90995423c3",
+            "actual": "8a94b4d4e065267e606d7738f72a620ab249b563a1ebf66992fbae90995423c3",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Foundations/Solution.lean",
+            "member": "repository/lean/QuarticCorpus/Foundations/Solution.lean",
+            "expected": "836000d335f1d8ba10f711895d142a6202c8484b6c9b100a2765d6f5f4bac9bd",
+            "actual": "836000d335f1d8ba10f711895d142a6202c8484b6c9b100a2765d6f5f4bac9bd",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Foundations/comparator.json",
+            "member": "repository/lean/QuarticCorpus/Foundations/comparator.json",
+            "expected": "7e5f89ab55e35fc5b3088528b260d3c9bbeabbb5dc173913a8be94a2521943e7",
+            "actual": "7e5f89ab55e35fc5b3088528b260d3c9bbeabbb5dc173913a8be94a2521943e7",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Negative/ChangedDefinition.json",
+            "member": "repository/lean/QuarticCorpus/Negative/ChangedDefinition.json",
+            "expected": "c0e471ee9f1d52fb81e15c959133a062b4e95da345e836e6c95916b8dc6ea2dd",
+            "actual": "c0e471ee9f1d52fb81e15c959133a062b4e95da345e836e6c95916b8dc6ea2dd",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Negative/ChangedDefinition.lean",
+            "member": "repository/lean/QuarticCorpus/Negative/ChangedDefinition.lean",
+            "expected": "4a3b0a97b2fd35e6c8e31fdd8fa8017b0e428cc8b6b41eccaa36f9e2cf445264",
+            "actual": "4a3b0a97b2fd35e6c8e31fdd8fa8017b0e428cc8b6b41eccaa36f9e2cf445264",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Negative/ForeignAxiom.json",
+            "member": "repository/lean/QuarticCorpus/Negative/ForeignAxiom.json",
+            "expected": "3ac0d024b346f5bff94a50a556a55d827a5dc19d4f9a754f1603dd7eef6d893d",
+            "actual": "3ac0d024b346f5bff94a50a556a55d827a5dc19d4f9a754f1603dd7eef6d893d",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Negative/ForeignAxiom.lean",
+            "member": "repository/lean/QuarticCorpus/Negative/ForeignAxiom.lean",
+            "expected": "d896cdd50a42a4c32cb24e636198ef33909078e6f62edadbf04fbca3cf44a2ed",
+            "actual": "d896cdd50a42a4c32cb24e636198ef33909078e6f62edadbf04fbca3cf44a2ed",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Negative/MissingDeclaration.json",
+            "member": "repository/lean/QuarticCorpus/Negative/MissingDeclaration.json",
+            "expected": "b3f976bd6117762d52949c51b02032554789c88c9e952f84ec475d93304d8eae",
+            "actual": "b3f976bd6117762d52949c51b02032554789c88c9e952f84ec475d93304d8eae",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Negative/MissingDeclaration.lean",
+            "member": "repository/lean/QuarticCorpus/Negative/MissingDeclaration.lean",
+            "expected": "c03b0d0c245a2d4e392a4de43648d5b55858542e15e54d9ea977ca019eef682c",
+            "actual": "c03b0d0c245a2d4e392a4de43648d5b55858542e15e54d9ea977ca019eef682c",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Negative/SorryProof.json",
+            "member": "repository/lean/QuarticCorpus/Negative/SorryProof.json",
+            "expected": "36243ab16c60debb8b5e19d286abd8010f773b9a7aa0ff1da8cd9d4b6c195cda",
+            "actual": "36243ab16c60debb8b5e19d286abd8010f773b9a7aa0ff1da8cd9d4b6c195cda",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Negative/SorryProof.lean",
+            "member": "repository/lean/QuarticCorpus/Negative/SorryProof.lean",
+            "expected": "59295ee8a529797d52a6cf8f97eb3ee32cd4878b97e441a1d6a982e07806a7d5",
+            "actual": "59295ee8a529797d52a6cf8f97eb3ee32cd4878b97e441a1d6a982e07806a7d5",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Negative/WeakenedConclusion.json",
+            "member": "repository/lean/QuarticCorpus/Negative/WeakenedConclusion.json",
+            "expected": "9cd55a4b578d744703319b8b153b90a78af553fd8ffbe323d31c074378204f09",
+            "actual": "9cd55a4b578d744703319b8b153b90a78af553fd8ffbe323d31c074378204f09",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Negative/WeakenedConclusion.lean",
+            "member": "repository/lean/QuarticCorpus/Negative/WeakenedConclusion.lean",
+            "expected": "f51706cc2337149223db50cd23d800e5b7138f61727e4f3db1deb39db07f4f82",
+            "actual": "f51706cc2337149223db50cd23d800e5b7138f61727e4f3db1deb39db07f4f82",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Separation/Challenge.lean",
+            "member": "repository/lean/QuarticCorpus/Separation/Challenge.lean",
+            "expected": "85cf70b1364ee037ddfef280668b6ca036aadb1cb7e57e6734e94706112c2bd9",
+            "actual": "85cf70b1364ee037ddfef280668b6ca036aadb1cb7e57e6734e94706112c2bd9",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Separation/Solution.lean",
+            "member": "repository/lean/QuarticCorpus/Separation/Solution.lean",
+            "expected": "5cdcdb99b1c1ff250d45b8e983756ea3a3bf7013af1f46b4e02495c3209bb724",
+            "actual": "5cdcdb99b1c1ff250d45b8e983756ea3a3bf7013af1f46b4e02495c3209bb724",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Separation/comparator.json",
+            "member": "repository/lean/QuarticCorpus/Separation/comparator.json",
+            "expected": "93324800e1d372cf1a3e801fe7181a29f77b13edb01deb590bc8158a263c7276",
+            "actual": "93324800e1d372cf1a3e801fe7181a29f77b13edb01deb590bc8158a263c7276",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Tournament/Challenge.lean",
+            "member": "repository/lean/QuarticCorpus/Tournament/Challenge.lean",
+            "expected": "8bc45cfe55e8a124bb7dfa7fcd3566f80b4db98fe4e99c92242f413edf8ec27c",
+            "actual": "8bc45cfe55e8a124bb7dfa7fcd3566f80b4db98fe4e99c92242f413edf8ec27c",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Tournament/Solution.lean",
+            "member": "repository/lean/QuarticCorpus/Tournament/Solution.lean",
+            "expected": "f02baea95b83312fe3d3c4fcfb64f3aec6ff9658c26189c4ce7d70a7ccd03f6b",
+            "actual": "f02baea95b83312fe3d3c4fcfb64f3aec6ff9658c26189c4ce7d70a7ccd03f6b",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Tournament/comparator.json",
+            "member": "repository/lean/QuarticCorpus/Tournament/comparator.json",
+            "expected": "309293414b5271ac9092ddd56aa40707f533da448792b9971310b092f3ef641a",
+            "actual": "309293414b5271ac9092ddd56aa40707f533da448792b9971310b092f3ef641a",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Unconditional/Challenge.lean",
+            "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+            "expected": "c88be0b70754cb6f93448694002a16e1eb6a25135fa71648d4651f01104e399d",
+            "actual": "c88be0b70754cb6f93448694002a16e1eb6a25135fa71648d4651f01104e399d",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Unconditional/Solution.lean",
+            "member": "repository/lean/QuarticCorpus/Unconditional/Solution.lean",
+            "expected": "19725ad42b615a8881db00417ee6375c8982b0de08e618f06f901fe4db2e2cd3",
+            "actual": "19725ad42b615a8881db00417ee6375c8982b0de08e618f06f901fe4db2e2cd3",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Unconditional/comparator.json",
+            "member": "repository/lean/QuarticCorpus/Unconditional/comparator.json",
+            "expected": "fbaaee77d1b1a3daff788267ec15963ea06a6340a219a2da890c8c9642998dd7",
+            "actual": "fbaaee77d1b1a3daff788267ec15963ea06a6340a219a2da890c8c9642998dd7",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery.lean",
+            "member": "repository/lean/QuarticQuery.lean",
+            "expected": "f76b28615af9ebffdda89430586942c5d7d499a0d78585a31ae47a45c92705b0",
+            "actual": "f76b28615af9ebffdda89430586942c5d7d499a0d78585a31ae47a45c92705b0",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Amplification/Average.lean",
+            "member": "repository/lean/QuarticQuery/Amplification/Average.lean",
+            "expected": "fd837b83033d2df6d833a0fdecaef7110339d5747b8aaa1f674c14d3e50473b6",
+            "actual": "fd837b83033d2df6d833a0fdecaef7110339d5747b8aaa1f674c14d3e50473b6",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Amplification/Bounded.lean",
+            "member": "repository/lean/QuarticQuery/Amplification/Bounded.lean",
+            "expected": "6a6465ae0cbd0503cf327c5f33f6509f492a707795c0358880c8f12c9624c96d",
+            "actual": "6a6465ae0cbd0503cf327c5f33f6509f492a707795c0358880c8f12c9624c96d",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Amplification/Geometry.lean",
+            "member": "repository/lean/QuarticQuery/Amplification/Geometry.lean",
+            "expected": "ff5e758a77d21bc133a930d545672cb5faa76aa422019413c634085881142dc9",
+            "actual": "ff5e758a77d21bc133a930d545672cb5faa76aa422019413c634085881142dc9",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Amplification/Procedure.lean",
+            "member": "repository/lean/QuarticQuery/Amplification/Procedure.lean",
+            "expected": "45413af39419cf952c26204dfd3ae1b86e7dcde1423194ca473187cc6b64edb1",
+            "actual": "45413af39419cf952c26204dfd3ae1b86e7dcde1423194ca473187cc6b64edb1",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Appendix/TheoremA1.lean",
+            "member": "repository/lean/QuarticQuery/Appendix/TheoremA1.lean",
+            "expected": "777567c2e5878223a187030b4200293a0c8f78927fa0488e62ff36bf129a0128",
+            "actual": "777567c2e5878223a187030b4200293a0c8f78927fa0488e62ff36bf129a0128",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Bridge/DecisionTree.lean",
+            "member": "repository/lean/QuarticQuery/Bridge/DecisionTree.lean",
+            "expected": "f0dc14884f30cb5238b4e71a4358e43a244a45a38f655323a34b5e83af7ed13e",
+            "actual": "f0dc14884f30cb5238b4e71a4358e43a244a45a38f655323a34b5e83af7ed13e",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Bridge/Deferred.lean",
+            "member": "repository/lean/QuarticQuery/Bridge/Deferred.lean",
+            "expected": "666c5741a5a19324b7229a350bc35130627da42584c751d5444231f402c45931",
+            "actual": "666c5741a5a19324b7229a350bc35130627da42584c751d5444231f402c45931",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Bridge/Oracle.lean",
+            "member": "repository/lean/QuarticQuery/Bridge/Oracle.lean",
+            "expected": "06f073c300891be8d343434d4cbc4e3d9c2c37584bb5247a339e6f5c020ba385",
+            "actual": "06f073c300891be8d343434d4cbc4e3d9c2c37584bb5247a339e6f5c020ba385",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Construction/LocalTests.lean",
+            "member": "repository/lean/QuarticQuery/Construction/LocalTests.lean",
+            "expected": "56357d934fab301222130c92ef36cfbf122af4ad90fb2a94ba90178139dbeb13",
+            "actual": "56357d934fab301222130c92ef36cfbf122af4ad90fb2a94ba90178139dbeb13",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Construction/Transcript.lean",
+            "member": "repository/lean/QuarticQuery/Construction/Transcript.lean",
+            "expected": "e2fd95c77c8ef1616201219302415069411aaac88060f3f75ec24e7b0626608f",
+            "actual": "e2fd95c77c8ef1616201219302415069411aaac88060f3f75ec24e7b0626608f",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Construction/Winner.lean",
+            "member": "repository/lean/QuarticQuery/Construction/Winner.lean",
+            "expected": "3c6b894e842fc90acd7a09b9ff14ce3ae2f09bfbf2dc7f2195751a396db7017c",
+            "actual": "3c6b894e842fc90acd7a09b9ff14ce3ae2f09bfbf2dc7f2195751a396db7017c",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Forrelation/Arithmetic.lean",
+            "member": "repository/lean/QuarticQuery/Forrelation/Arithmetic.lean",
+            "expected": "5a7336764ee8cd299b9e19fd3164374fcebab98b7df8d9c956a457334b9dc243",
+            "actual": "5a7336764ee8cd299b9e19fd3164374fcebab98b7df8d9c956a457334b9dc243",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Forrelation/Builder.lean",
+            "member": "repository/lean/QuarticQuery/Forrelation/Builder.lean",
+            "expected": "32e1ff4623c8bbceda26da74e53961d8c2bc660ff9b831cf19d4cc32ce1abc23",
+            "actual": "32e1ff4623c8bbceda26da74e53961d8c2bc660ff9b831cf19d4cc32ce1abc23",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Forrelation/Circuit.lean",
+            "member": "repository/lean/QuarticQuery/Forrelation/Circuit.lean",
+            "expected": "b17824d0a3b6ee5a689822b04c18d20de9e72e1db119105584e9cbba60ae8f01",
+            "actual": "b17824d0a3b6ee5a689822b04c18d20de9e72e1db119105584e9cbba60ae8f01",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Forrelation/Product.lean",
+            "member": "repository/lean/QuarticQuery/Forrelation/Product.lean",
+            "expected": "f0ceced9021b45de546dfc01aadabde913f8ecdf1a0d085992c5b61b8a1ef425",
+            "actual": "f0ceced9021b45de546dfc01aadabde913f8ecdf1a0d085992c5b61b8a1ef425",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Forrelation/Promise.lean",
+            "member": "repository/lean/QuarticQuery/Forrelation/Promise.lean",
+            "expected": "96b967a27458107549e38ce4fe001d707a4c240ad4e4b582729a6ce9526d2cf1",
+            "actual": "96b967a27458107549e38ce4fe001d707a4c240ad4e4b582729a6ce9526d2cf1",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Forrelation/Repetition.lean",
+            "member": "repository/lean/QuarticQuery/Forrelation/Repetition.lean",
+            "expected": "1526168486cdc4e78213c6048199676df0520445666b60d3ece9c62678e90e70",
+            "actual": "1526168486cdc4e78213c6048199676df0520445666b60d3ece9c62678e90e70",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Forrelation/Sanity.lean",
+            "member": "repository/lean/QuarticQuery/Forrelation/Sanity.lean",
+            "expected": "bf287a0ff1f6022582b6d8daae3a89ad34d8aa51986531a649f133ee692eae70",
+            "actual": "bf287a0ff1f6022582b6d8daae3a89ad34d8aa51986531a649f133ee692eae70",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Forrelation/Walsh.lean",
+            "member": "repository/lean/QuarticQuery/Forrelation/Walsh.lean",
+            "expected": "e3eae0cf1455ef1471fd4f42458b324bbe3bfe1b1879989366ce476657653069",
+            "actual": "e3eae0cf1455ef1471fd4f42458b324bbe3bfe1b1879989366ce476657653069",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/ForrelationLower/Amplify.lean",
+            "member": "repository/lean/QuarticQuery/ForrelationLower/Amplify.lean",
+            "expected": "93f8e1c04768b8d01263f4a6b5a594b2d7b3334a1380432af6a33779109fc10a",
+            "actual": "93f8e1c04768b8d01263f4a6b5a594b2d7b3334a1380432af6a33779109fc10a",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+            "member": "repository/lean/QuarticQuery/ForrelationLower/Cascade.lean",
+            "expected": "9438575752bdbb664cecbf15b97afc96f2f235fabcab8f6261ab5f15bb9d7ab9",
+            "actual": "9438575752bdbb664cecbf15b97afc96f2f235fabcab8f6261ab5f15bb9d7ab9",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+            "member": "repository/lean/QuarticQuery/ForrelationLower/Cube.lean",
+            "expected": "16db4f9b7e4e42029c839537075eff0ec0f6fd6261d4a8a038bec8566ce4e2fe",
+            "actual": "16db4f9b7e4e42029c839537075eff0ec0f6fd6261d4a8a038bec8566ce4e2fe",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/ForrelationLower/Main.lean",
+            "member": "repository/lean/QuarticQuery/ForrelationLower/Main.lean",
+            "expected": "f877e9c4d11874d3e80ad7627972b1a8a0eca596f26fb96a3898bfdace564ed1",
+            "actual": "f877e9c4d11874d3e80ad7627972b1a8a0eca596f26fb96a3898bfdace564ed1",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+            "member": "repository/lean/QuarticQuery/ForrelationLower/Promise.lean",
+            "expected": "2877dc60a4af03e98321ac9e47c501a63508936aa49e5018d280258b24862efb",
+            "actual": "2877dc60a4af03e98321ac9e47c501a63508936aa49e5018d280258b24862efb",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+            "member": "repository/lean/QuarticQuery/ForrelationLower/Stein.lean",
+            "expected": "6238d7e6f8ade6044eb623899069f35d0a5b860699c722e7007fd71046ffff9e",
+            "actual": "6238d7e6f8ade6044eb623899069f35d0a5b860699c722e7007fd71046ffff9e",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+            "member": "repository/lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+            "expected": "13614823a433518dea7138242182dc2abee1dbcdf0127157edf8cc9b6a756010",
+            "actual": "13614823a433518dea7138242182dc2abee1dbcdf0127157edf8cc9b6a756010",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/ForrelationLower/Uniform.lean",
+            "member": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+            "expected": "d6bc1f4399394810fca63abdaadd67a420616371c501ab978841898f2bda049c",
+            "actual": "d6bc1f4399394810fca63abdaadd67a420616371c501ab978841898f2bda049c",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+            "member": "repository/lean/QuarticQuery/ForrelationLower/Walk.lean",
+            "expected": "c9394068bc3a583178fcae1e11d6eafdc7dcfc17bcd8a0b269f9a13ccee209ba",
+            "actual": "c9394068bc3a583178fcae1e11d6eafdc7dcfc17bcd8a0b269f9a13ccee209ba",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/LowerBound/DirectProduct.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+            "expected": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+            "actual": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/LowerBound/Minimax.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Minimax.lean",
+            "expected": "d235fef08374ca71229f5a2a5985e1bb0c60e3ec39a0ad2b1a13b286df9c194e",
+            "actual": "d235fef08374ca71229f5a2a5985e1bb0c60e3ec39a0ad2b1a13b286df9c194e",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/LowerBound/Planted/Average.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Average.lean",
+            "expected": "471bb74964c7c841f12a8e90a184d13f26ffc173bf2855bdf1d59e93f490610e",
+            "actual": "471bb74964c7c841f12a8e90a184d13f26ffc173bf2855bdf1d59e93f490610e",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/LowerBound/Planted/Coupling.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Coupling.lean",
+            "expected": "35d0f76652f6aa52acb73dfe3b5c01eb70eefdf9397cc83f4b4469017de61824",
+            "actual": "35d0f76652f6aa52acb73dfe3b5c01eb70eefdf9397cc83f4b4469017de61824",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/LowerBound/Planted/Heavy.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Heavy.lean",
+            "expected": "6b5772603583908e293c4301594ef313e68ddff67dedd5eced436744b0f110bb",
+            "actual": "6b5772603583908e293c4301594ef313e68ddff67dedd5eced436744b0f110bb",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/LowerBound/Planted/Inputs.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Inputs.lean",
+            "expected": "8a51b7b7696acdda52b0762b65c2f9e8bec13da8d896c47102c447195509411f",
+            "actual": "8a51b7b7696acdda52b0762b65c2f9e8bec13da8d896c47102c447195509411f",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/LowerBound/Planted/Main.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Main.lean",
+            "expected": "a32a6e24bccace37d46742acc9450fe33b6081430484138336014048f3fe835c",
+            "actual": "a32a6e24bccace37d46742acc9450fe33b6081430484138336014048f3fe835c",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/LowerBound/Planted/Simulator.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Simulator.lean",
+            "expected": "71bcf25db0309331ebda232bcad3ab2e895d543ffadcc521e99117253c0dab09",
+            "actual": "71bcf25db0309331ebda232bcad3ab2e895d543ffadcc521e99117253c0dab09",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean",
+            "expected": "86a2064e0fb6c6ba9b4a79785932a203314d8433d938083a420288d642bf8bf8",
+            "actual": "86a2064e0fb6c6ba9b4a79785932a203314d8433d938083a420288d642bf8bf8",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Model/Classical.lean",
+            "member": "repository/lean/QuarticQuery/Model/Classical.lean",
+            "expected": "a820d0804ee722ee74eef97ea8efeb2a15da55107d6a908e35ba60ef39932e9e",
+            "actual": "a820d0804ee722ee74eef97ea8efeb2a15da55107d6a908e35ba60ef39932e9e",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Model/Quantum.lean",
+            "member": "repository/lean/QuarticQuery/Model/Quantum.lean",
+            "expected": "6a61d326b216fa39f6ac1d7694727528dd5028bfac8d939f118bf1a4f4a35662",
+            "actual": "6a61d326b216fa39f6ac1d7694727528dd5028bfac8d939f118bf1a4f4a35662",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/AppendixA.lean",
+            "member": "repository/lean/QuarticQuery/Paper/AppendixA.lean",
+            "expected": "5a28f11e95c0153ef162337a8c81d4523f0092361b785425ee166924b1dd9815",
+            "actual": "5a28f11e95c0153ef162337a8c81d4523f0092361b785425ee166924b1dd9815",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+            "member": "repository/lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+            "expected": "f95cdeea5040ba7082c33a76faddef2da122d5bb4d76cec2b192598894c50aa6",
+            "actual": "f95cdeea5040ba7082c33a76faddef2da122d5bb4d76cec2b192598894c50aa6",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/AppendixAHuang.lean",
+            "member": "repository/lean/QuarticQuery/Paper/AppendixAHuang.lean",
+            "expected": "adb9065a0262325c396b5eeadc4f27f61768fe182e1818b9a2e4b91e0376459b",
+            "actual": "adb9065a0262325c396b5eeadc4f27f61768fe182e1818b9a2e4b91e0376459b",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+            "member": "repository/lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+            "expected": "a90282494f069991f80b7ec4af0cd8898a2d4b84a7a69aa180e1ed061dd9a549",
+            "actual": "a90282494f069991f80b7ec4af0cd8898a2d4b84a7a69aa180e1ed061dd9a549",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/AppendixAHuangRoute.lean",
+            "member": "repository/lean/QuarticQuery/Paper/AppendixAHuangRoute.lean",
+            "expected": "9a16919921fe4f06d2db77e75b88fe1bd5f7350bc9132360ebc496450a06a5b7",
+            "actual": "9a16919921fe4f06d2db77e75b88fe1bd5f7350bc9132360ebc496450a06a5b7",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/AppendixAPerron.lean",
+            "member": "repository/lean/QuarticQuery/Paper/AppendixAPerron.lean",
+            "expected": "e95a404b217afc2f03eaa35256c713827f1400231702daea1b5b38a3aa204c9a",
+            "actual": "e95a404b217afc2f03eaa35256c713827f1400231702daea1b5b38a3aa204c9a",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/AppendixARestriction.lean",
+            "member": "repository/lean/QuarticQuery/Paper/AppendixARestriction.lean",
+            "expected": "5e7b16febef2b95ffc6ed9e735bbb8b24cbaf1d713fda51452a13ef17745534b",
+            "actual": "5e7b16febef2b95ffc6ed9e735bbb8b24cbaf1d713fda51452a13ef17745534b",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+            "member": "repository/lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+            "expected": "b45034f8e12d480523140f3a491ef29d2fc7fa83930ff6e17a993c8acb7ca0b0",
+            "actual": "b45034f8e12d480523140f3a491ef29d2fc7fa83930ff6e17a993c8acb7ca0b0",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/AppendixASpectralAdversary.lean",
+            "member": "repository/lean/QuarticQuery/Paper/AppendixASpectralAdversary.lean",
+            "expected": "75c971c8627dc3e1e17e1a58e21522f845d0830246ab93939994d24d08da1ca4",
+            "actual": "75c971c8627dc3e1e17e1a58e21522f845d0830246ab93939994d24d08da1ca4",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+            "member": "repository/lean/QuarticQuery/Paper/AppendixAStar.lean",
+            "expected": "84d2b315859098c5030f6772a06dcd652f3d08e695456ece32acb61a6e0142d6",
+            "actual": "84d2b315859098c5030f6772a06dcd652f3d08e695456ece32acb61a6e0142d6",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ClassicalAsymptotics.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ClassicalAsymptotics.lean",
+            "expected": "b156b061ecab3a011c31224f9ff0719d07a52e8e8eb86becbb18cb5c959c17af",
+            "actual": "b156b061ecab3a011c31224f9ff0719d07a52e8e8eb86becbb18cb5c959c17af",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+            "expected": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+            "actual": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+            "expected": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+            "actual": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ClassicalUniformZero.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ClassicalUniformZero.lean",
+            "expected": "b0778f75c9717011e9b115eb3b15cf132b85486fa2f8c83eff0e4ce4a05fca19",
+            "actual": "b0778f75c9717011e9b115eb3b15cf132b85486fa2f8c83eff0e4ce4a05fca19",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ConstructionArithmetic.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ConstructionArithmetic.lean",
+            "expected": "2c355a3eb5e76cd5db70a6990bb9d6b37d652e0eece3b31ed0661219d3635ad0",
+            "actual": "2c355a3eb5e76cd5db70a6990bb9d6b37d652e0eece3b31ed0661219d3635ad0",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ConstructionAudit.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ConstructionAudit.lean",
+            "expected": "bf7d2c90de5e5c690c9a1a1589cd1b2d59b1f63a93eed3bd846170ae996ca6d6",
+            "actual": "bf7d2c90de5e5c690c9a1a1589cd1b2d59b1f63a93eed3bd846170ae996ca6d6",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ConstructionCoherent.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ConstructionCoherent.lean",
+            "expected": "5e5f5c2321e7c1ce23235e69e1f430fd951f13cc92b5a2d1b2d974aad0607cec",
+            "actual": "5e5f5c2321e7c1ce23235e69e1f430fd951f13cc92b5a2d1b2d974aad0607cec",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ConstructionComplete.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ConstructionComplete.lean",
+            "expected": "a79e9f0cdbf85df0e86605711fa6c8bde2a19cbe043c36302243b42a7f8fbc6c",
+            "actual": "a79e9f0cdbf85df0e86605711fa6c8bde2a19cbe043c36302243b42a7f8fbc6c",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+            "expected": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
+            "actual": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ConstructionFamily.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ConstructionFamily.lean",
+            "expected": "b7e1203086e38c00b964355ac71537a7fc5be7053d537ccd56cba8017cdd085a",
+            "actual": "b7e1203086e38c00b964355ac71537a7fc5be7053d537ccd56cba8017cdd085a",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ConstructionForrelationCircuit.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationCircuit.lean",
+            "expected": "860e8653027d64fe7d5cc5f35357d81ed5fa27e027899047ab819c821e3c8b32",
+            "actual": "860e8653027d64fe7d5cc5f35357d81ed5fa27e027899047ab819c821e3c8b32",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ConstructionForrelationComparison.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationComparison.lean",
+            "expected": "e9bb18d1e0ea9482762e89a9ced002c720f9b7d2311a455a9904bd820c5b4a01",
+            "actual": "e9bb18d1e0ea9482762e89a9ced002c720f9b7d2311a455a9904bd820c5b4a01",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ConstructionForrelationComplete.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationComplete.lean",
+            "expected": "733526015ad9a2013512d8f6216b8f73c41566a803d92602dd30e40e90d7ad06",
+            "actual": "733526015ad9a2013512d8f6216b8f73c41566a803d92602dd30e40e90d7ad06",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+            "expected": "14f92345b8885036e862885aad3db82d77cff6e71642e669c2ba7dc8ba087aa1",
+            "actual": "14f92345b8885036e862885aad3db82d77cff6e71642e669c2ba7dc8ba087aa1",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ConstructionForrelationQuantum.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationQuantum.lean",
+            "expected": "f31face68a9c47906d9a728cced9aa8a24ec73d3079c6196ae1853130151391b",
+            "actual": "f31face68a9c47906d9a728cced9aa8a24ec73d3079c6196ae1853130151391b",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ConstructionModels.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ConstructionModels.lean",
+            "expected": "19826ab2f9f9ef8a329f5880faf2426727b158321af4a418d519d55b56674d61",
+            "actual": "19826ab2f9f9ef8a329f5880faf2426727b158321af4a418d519d55b56674d61",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ConstructionPhase.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ConstructionPhase.lean",
+            "expected": "f9dc9564aa8741a6aa3059fcea3563c740fed802666ae251fbebbe9085668405",
+            "actual": "f9dc9564aa8741a6aa3059fcea3563c740fed802666ae251fbebbe9085668405",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ConstructionPointerSupport.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ConstructionPointerSupport.lean",
+            "expected": "8a2d8befa3225ab54114492b35c5a326fc17bd8f0a5eaa9acba966c18db53938",
+            "actual": "8a2d8befa3225ab54114492b35c5a326fc17bd8f0a5eaa9acba966c18db53938",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ConstructionTests.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ConstructionTests.lean",
+            "expected": "06f1b3bc883881351e5e9cfa9ba8777f2f907897e69275b507132cc01ba0dccb",
+            "actual": "06f1b3bc883881351e5e9cfa9ba8777f2f907897e69275b507132cc01ba0dccb",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+            "member": "repository/lean/QuarticQuery/Paper/QuantumAmplification.lean",
+            "expected": "95d89237e766b59ffdd52f1324e440e2127b06353b2c8de2482b9f55c4adb30b",
+            "actual": "95d89237e766b59ffdd52f1324e440e2127b06353b2c8de2482b9f55c4adb30b",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+            "member": "repository/lean/QuarticQuery/Paper/QuantumComparison.lean",
+            "expected": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+            "actual": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/QuantumTensor.lean",
+            "member": "repository/lean/QuarticQuery/Paper/QuantumTensor.lean",
+            "expected": "7a2f03d6ae2d8d3ff2af9837f6cb1e1f1f3d5b4983dc34e753792621443835ac",
+            "actual": "7a2f03d6ae2d8d3ff2af9837f6cb1e1f1f3d5b4983dc34e753792621443835ac",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/QuantumTournament.lean",
+            "member": "repository/lean/QuarticQuery/Paper/QuantumTournament.lean",
+            "expected": "8cf87e74aa0364c9bc6b9078ff62e88c45d297625166fe31a8efeea765a34adf",
+            "actual": "8cf87e74aa0364c9bc6b9078ff62e88c45d297625166fe31a8efeea765a34adf",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+            "member": "repository/lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+            "expected": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
+            "actual": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/QuantumUpper.lean",
+            "member": "repository/lean/QuarticQuery/Paper/QuantumUpper.lean",
+            "expected": "4d2966b64f95a3706113159a8afd4a5b1954a895d7d1e91c569d2f59a24bcb26",
+            "actual": "4d2966b64f95a3706113159a8afd4a5b1954a895d7d1e91c569d2f59a24bcb26",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/QuantumWorkspace.lean",
+            "member": "repository/lean/QuarticQuery/Paper/QuantumWorkspace.lean",
+            "expected": "a5ed4638bef1d1e15508ea5b96a0edf99a2281693de03f39f23e5afadd7ba07b",
+            "actual": "a5ed4638bef1d1e15508ea5b96a0edf99a2281693de03f39f23e5afadd7ba07b",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/Section2.lean",
+            "member": "repository/lean/QuarticQuery/Paper/Section2.lean",
+            "expected": "34fb705db7f672de0faf3e18fcc3dda4862033e157a325d8c9016936361f84cf",
+            "actual": "34fb705db7f672de0faf3e18fcc3dda4862033e157a325d8c9016936361f84cf",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/Section3.lean",
+            "member": "repository/lean/QuarticQuery/Paper/Section3.lean",
+            "expected": "aa49e092c11c915bc5a3a904054589dbed18c840f84a00c5edc0e37d57d661ad",
+            "actual": "aa49e092c11c915bc5a3a904054589dbed18c840f84a00c5edc0e37d57d661ad",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/Section4.lean",
+            "member": "repository/lean/QuarticQuery/Paper/Section4.lean",
+            "expected": "da6bda0feda0448bc05b11c85aed7b666d01aa8d30a8914a4ffd7d9fbe6643fb",
+            "actual": "da6bda0feda0448bc05b11c85aed7b666d01aa8d30a8914a4ffd7d9fbe6643fb",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Results/Conditional.lean",
+            "member": "repository/lean/QuarticQuery/Results/Conditional.lean",
+            "expected": "c3d4acfd49f8725f21fa4e895be9773e44a52786a16e3606e68dfda27c808330",
+            "actual": "c3d4acfd49f8725f21fa4e895be9773e44a52786a16e3606e68dfda27c808330",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Results/Exponent.lean",
+            "member": "repository/lean/QuarticQuery/Results/Exponent.lean",
+            "expected": "91d1c021f9b920f9bf0017dfe03817194c6a1ff5f4776e39a669bbd3b832a931",
+            "actual": "91d1c021f9b920f9bf0017dfe03817194c6a1ff5f4776e39a669bbd3b832a931",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Results/Headline.lean",
+            "member": "repository/lean/QuarticQuery/Results/Headline.lean",
+            "expected": "fec7d0c565b8ab345568ae6082c5fb346435493f4eb2d9112cda498652909c35",
+            "actual": "fec7d0c565b8ab345568ae6082c5fb346435493f4eb2d9112cda498652909c35",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Results/Unconditional.lean",
+            "member": "repository/lean/QuarticQuery/Results/Unconditional.lean",
+            "expected": "46e6f51f713109bab717956bd2536711dc927a356027748712e571ce12f0b85e",
+            "actual": "46e6f51f713109bab717956bd2536711dc927a356027748712e571ce12f0b85e",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Statement.lean",
+            "member": "repository/lean/QuarticQuery/Statement.lean",
+            "expected": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+            "actual": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Tournament/Drift.lean",
+            "member": "repository/lean/QuarticQuery/Tournament/Drift.lean",
+            "expected": "850fbfdfba830a17930f0a8e60fdc0d7b27f7f50c45710b5e77997343528c077",
+            "actual": "850fbfdfba830a17930f0a8e60fdc0d7b27f7f50c45710b5e77997343528c077",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Tournament/Ideal.lean",
+            "member": "repository/lean/QuarticQuery/Tournament/Ideal.lean",
+            "expected": "6f7379abfb1d9fb37d6ef7f0f25049893490aa717171c875feb97fca343ab8ef",
+            "actual": "6f7379abfb1d9fb37d6ef7f0f25049893490aa717171c875feb97fca343ab8ef",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Upper/Amplify.lean",
+            "member": "repository/lean/QuarticQuery/Upper/Amplify.lean",
+            "expected": "49e808cc6acbb47ad066b1dcf33ac8d47da2f28d88c51d537564e6591eb0d9e1",
+            "actual": "49e808cc6acbb47ad066b1dcf33ac8d47da2f28d88c51d537564e6591eb0d9e1",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Upper/Bound.lean",
+            "member": "repository/lean/QuarticQuery/Upper/Bound.lean",
+            "expected": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303",
+            "actual": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Upper/Circuit.lean",
+            "member": "repository/lean/QuarticQuery/Upper/Circuit.lean",
+            "expected": "7686a3b72476d902ec9ff504b38bea9ac25e90724e93d82033ea05339080190f",
+            "actual": "7686a3b72476d902ec9ff504b38bea9ac25e90724e93d82033ea05339080190f",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Upper/Columns.lean",
+            "member": "repository/lean/QuarticQuery/Upper/Columns.lean",
+            "expected": "e5b2b164deb6a010f952cefb5edba15bb5437a03fff815c39b028341b23b592e",
+            "actual": "e5b2b164deb6a010f952cefb5edba15bb5437a03fff815c39b028341b23b592e",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Upper/Compile.lean",
+            "member": "repository/lean/QuarticQuery/Upper/Compile.lean",
+            "expected": "ead2d229ad8a97541dd648806b64813745e8502b5f7314ced43e7a95a0708a27",
+            "actual": "ead2d229ad8a97541dd648806b64813745e8502b5f7314ced43e7a95a0708a27",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Upper/Decode.lean",
+            "member": "repository/lean/QuarticQuery/Upper/Decode.lean",
+            "expected": "4755c92be7627e4a58b1487d831a93765a3510647682e903c6abfed39f61411b",
+            "actual": "4755c92be7627e4a58b1487d831a93765a3510647682e903c6abfed39f61411b",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Upper/Sampler.lean",
+            "member": "repository/lean/QuarticQuery/Upper/Sampler.lean",
+            "expected": "43cb604188f041ebd34c8003f01f4ec6c570023e465cd2b730ee4f1f765b2b79",
+            "actual": "43cb604188f041ebd34c8003f01f4ec6c570023e465cd2b730ee4f1f765b2b79",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Upper/Tournament.lean",
+            "member": "repository/lean/QuarticQuery/Upper/Tournament.lean",
+            "expected": "43df9db7997f88667de7a3cfa7d7c7751aa1f32c40e9de474895335bcdb87b7c",
+            "actual": "43df9db7997f88667de7a3cfa7d7c7751aa1f32c40e9de474895335bcdb87b7c",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Upper/Verify.lean",
+            "member": "repository/lean/QuarticQuery/Upper/Verify.lean",
+            "expected": "8144c5c26e7bf0515b24eb638b57412264032e144844887adc615b8076207239",
+            "actual": "8144c5c26e7bf0515b24eb638b57412264032e144844887adc615b8076207239",
+            "matched": true
+          },
+          {
+            "label": "lean/lake-manifest.json",
+            "member": "repository/lean/lake-manifest.json",
+            "expected": "d670a8101d900b62e17a1d51c8b1b36fd60919bcad472700b0a5e1c0b38b104d",
+            "actual": "d670a8101d900b62e17a1d51c8b1b36fd60919bcad472700b0a5e1c0b38b104d",
+            "matched": true
+          },
+          {
+            "label": "lean/lakefile.toml",
+            "member": "repository/lean/lakefile.toml",
+            "expected": "255abcc3c689d0258d4cea520447fdc8da26e26a191331aa95559b2fb4818647",
+            "actual": "255abcc3c689d0258d4cea520447fdc8da26e26a191331aa95559b2fb4818647",
+            "matched": true
+          },
+          {
+            "label": "lean/lean-toolchain",
+            "member": "repository/lean/lean-toolchain",
+            "expected": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3",
+            "actual": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3",
+            "matched": true
+          },
+          {
+            "label": "lean/scripts/Reach.lean",
+            "member": "repository/lean/scripts/Reach.lean",
+            "expected": "44ce6c1ace1e3914109b959c5d3466f00eba4090621d73d3b3ee2626be1f796b",
+            "actual": "44ce6c1ace1e3914109b959c5d3466f00eba4090621d73d3b3ee2626be1f796b",
+            "matched": true
+          }
+        ]
+      },
+      "declaration_count": 2652
+    },
+    "axiom_audit_summary": {
+      "verdict_member": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+      "verdict_sha256": "3c26718576384a76fca10f1f44bf42ffd2f23130b0aabcf35b3f5c34f2b4a1e0",
+      "passed": true,
+      "operation": {
+        "operation": "reviewed-type-axiom-audit",
+        "argv": [
+          "lake",
+          "env",
+          "lean",
+          "/Users/willcook/src/_builds/quartic-r2-ssd/reviewed_axiom_audit.lean"
+        ],
+        "cwd": "/Users/willcook/src/quartic-query-lean/lean",
+        "exit_code": 0,
+        "seconds": 17.84,
+        "log": "/Users/willcook/src/_builds/quartic-r2-ssd/final-evidence/reviewed-type-axiom-audit.log",
+        "log_sha256": "f87b4e78aaa99fb069acc358fd90c6b95a1fd09bb337d4b49b6851ae714d8ae1",
+        "inputs_unchanged": true
+      },
+      "source_member": "native_sources/final-evidence/reviewed_axiom_audit.lean",
+      "source_sha256": "78da4e0b0d875eedd3898a46f4e885a8fa7e89c2d5fbf2d3205012ff4f640513",
+      "source_matches_expected": true,
+      "log_member": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "log_sha256": "f87b4e78aaa99fb069acc358fd90c6b95a1fd09bb337d4b49b6851ae714d8ae1",
+      "log_matches_expected": true,
+      "success_marker_present": true,
+      "input_binding": {
+        "count": 124,
+        "matched": 124,
+        "mismatches": [],
+        "entries": [
+          {
+            "label": "lean/QuarticCorpus/Construction/Challenge.lean",
+            "member": "repository/lean/QuarticCorpus/Construction/Challenge.lean",
+            "expected": "d554e5a96889c4c9c3aa6bd3231f984fa7cf695aa103ebcd092ac2c7a08240b1",
+            "actual": "d554e5a96889c4c9c3aa6bd3231f984fa7cf695aa103ebcd092ac2c7a08240b1",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Construction/Solution.lean",
+            "member": "repository/lean/QuarticCorpus/Construction/Solution.lean",
+            "expected": "63cfe11442f76eb9b0f1b579e2a925a19fc9312f870e8480bfbf3eacfb9bb9de",
+            "actual": "63cfe11442f76eb9b0f1b579e2a925a19fc9312f870e8480bfbf3eacfb9bb9de",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Construction/comparator.json",
+            "member": "repository/lean/QuarticCorpus/Construction/comparator.json",
+            "expected": "c18c76b87a777251e70ec3f55c5704be82d52dbba0220e5adb2cf3063709dd78",
+            "actual": "c18c76b87a777251e70ec3f55c5704be82d52dbba0220e5adb2cf3063709dd78",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Foundations/Challenge.lean",
+            "member": "repository/lean/QuarticCorpus/Foundations/Challenge.lean",
+            "expected": "8a94b4d4e065267e606d7738f72a620ab249b563a1ebf66992fbae90995423c3",
+            "actual": "8a94b4d4e065267e606d7738f72a620ab249b563a1ebf66992fbae90995423c3",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Foundations/Solution.lean",
+            "member": "repository/lean/QuarticCorpus/Foundations/Solution.lean",
+            "expected": "836000d335f1d8ba10f711895d142a6202c8484b6c9b100a2765d6f5f4bac9bd",
+            "actual": "836000d335f1d8ba10f711895d142a6202c8484b6c9b100a2765d6f5f4bac9bd",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Foundations/comparator.json",
+            "member": "repository/lean/QuarticCorpus/Foundations/comparator.json",
+            "expected": "7e5f89ab55e35fc5b3088528b260d3c9bbeabbb5dc173913a8be94a2521943e7",
+            "actual": "7e5f89ab55e35fc5b3088528b260d3c9bbeabbb5dc173913a8be94a2521943e7",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Negative/ChangedDefinition.json",
+            "member": "repository/lean/QuarticCorpus/Negative/ChangedDefinition.json",
+            "expected": "c0e471ee9f1d52fb81e15c959133a062b4e95da345e836e6c95916b8dc6ea2dd",
+            "actual": "c0e471ee9f1d52fb81e15c959133a062b4e95da345e836e6c95916b8dc6ea2dd",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Negative/ChangedDefinition.lean",
+            "member": "repository/lean/QuarticCorpus/Negative/ChangedDefinition.lean",
+            "expected": "4a3b0a97b2fd35e6c8e31fdd8fa8017b0e428cc8b6b41eccaa36f9e2cf445264",
+            "actual": "4a3b0a97b2fd35e6c8e31fdd8fa8017b0e428cc8b6b41eccaa36f9e2cf445264",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Negative/ForeignAxiom.json",
+            "member": "repository/lean/QuarticCorpus/Negative/ForeignAxiom.json",
+            "expected": "3ac0d024b346f5bff94a50a556a55d827a5dc19d4f9a754f1603dd7eef6d893d",
+            "actual": "3ac0d024b346f5bff94a50a556a55d827a5dc19d4f9a754f1603dd7eef6d893d",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Negative/ForeignAxiom.lean",
+            "member": "repository/lean/QuarticCorpus/Negative/ForeignAxiom.lean",
+            "expected": "d896cdd50a42a4c32cb24e636198ef33909078e6f62edadbf04fbca3cf44a2ed",
+            "actual": "d896cdd50a42a4c32cb24e636198ef33909078e6f62edadbf04fbca3cf44a2ed",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Negative/MissingDeclaration.json",
+            "member": "repository/lean/QuarticCorpus/Negative/MissingDeclaration.json",
+            "expected": "b3f976bd6117762d52949c51b02032554789c88c9e952f84ec475d93304d8eae",
+            "actual": "b3f976bd6117762d52949c51b02032554789c88c9e952f84ec475d93304d8eae",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Negative/MissingDeclaration.lean",
+            "member": "repository/lean/QuarticCorpus/Negative/MissingDeclaration.lean",
+            "expected": "c03b0d0c245a2d4e392a4de43648d5b55858542e15e54d9ea977ca019eef682c",
+            "actual": "c03b0d0c245a2d4e392a4de43648d5b55858542e15e54d9ea977ca019eef682c",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Negative/SorryProof.json",
+            "member": "repository/lean/QuarticCorpus/Negative/SorryProof.json",
+            "expected": "36243ab16c60debb8b5e19d286abd8010f773b9a7aa0ff1da8cd9d4b6c195cda",
+            "actual": "36243ab16c60debb8b5e19d286abd8010f773b9a7aa0ff1da8cd9d4b6c195cda",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Negative/SorryProof.lean",
+            "member": "repository/lean/QuarticCorpus/Negative/SorryProof.lean",
+            "expected": "59295ee8a529797d52a6cf8f97eb3ee32cd4878b97e441a1d6a982e07806a7d5",
+            "actual": "59295ee8a529797d52a6cf8f97eb3ee32cd4878b97e441a1d6a982e07806a7d5",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Negative/WeakenedConclusion.json",
+            "member": "repository/lean/QuarticCorpus/Negative/WeakenedConclusion.json",
+            "expected": "9cd55a4b578d744703319b8b153b90a78af553fd8ffbe323d31c074378204f09",
+            "actual": "9cd55a4b578d744703319b8b153b90a78af553fd8ffbe323d31c074378204f09",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Negative/WeakenedConclusion.lean",
+            "member": "repository/lean/QuarticCorpus/Negative/WeakenedConclusion.lean",
+            "expected": "f51706cc2337149223db50cd23d800e5b7138f61727e4f3db1deb39db07f4f82",
+            "actual": "f51706cc2337149223db50cd23d800e5b7138f61727e4f3db1deb39db07f4f82",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Separation/Challenge.lean",
+            "member": "repository/lean/QuarticCorpus/Separation/Challenge.lean",
+            "expected": "85cf70b1364ee037ddfef280668b6ca036aadb1cb7e57e6734e94706112c2bd9",
+            "actual": "85cf70b1364ee037ddfef280668b6ca036aadb1cb7e57e6734e94706112c2bd9",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Separation/Solution.lean",
+            "member": "repository/lean/QuarticCorpus/Separation/Solution.lean",
+            "expected": "5cdcdb99b1c1ff250d45b8e983756ea3a3bf7013af1f46b4e02495c3209bb724",
+            "actual": "5cdcdb99b1c1ff250d45b8e983756ea3a3bf7013af1f46b4e02495c3209bb724",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Separation/comparator.json",
+            "member": "repository/lean/QuarticCorpus/Separation/comparator.json",
+            "expected": "93324800e1d372cf1a3e801fe7181a29f77b13edb01deb590bc8158a263c7276",
+            "actual": "93324800e1d372cf1a3e801fe7181a29f77b13edb01deb590bc8158a263c7276",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Tournament/Challenge.lean",
+            "member": "repository/lean/QuarticCorpus/Tournament/Challenge.lean",
+            "expected": "8bc45cfe55e8a124bb7dfa7fcd3566f80b4db98fe4e99c92242f413edf8ec27c",
+            "actual": "8bc45cfe55e8a124bb7dfa7fcd3566f80b4db98fe4e99c92242f413edf8ec27c",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Tournament/Solution.lean",
+            "member": "repository/lean/QuarticCorpus/Tournament/Solution.lean",
+            "expected": "f02baea95b83312fe3d3c4fcfb64f3aec6ff9658c26189c4ce7d70a7ccd03f6b",
+            "actual": "f02baea95b83312fe3d3c4fcfb64f3aec6ff9658c26189c4ce7d70a7ccd03f6b",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Tournament/comparator.json",
+            "member": "repository/lean/QuarticCorpus/Tournament/comparator.json",
+            "expected": "309293414b5271ac9092ddd56aa40707f533da448792b9971310b092f3ef641a",
+            "actual": "309293414b5271ac9092ddd56aa40707f533da448792b9971310b092f3ef641a",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Unconditional/Challenge.lean",
+            "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+            "expected": "c88be0b70754cb6f93448694002a16e1eb6a25135fa71648d4651f01104e399d",
+            "actual": "c88be0b70754cb6f93448694002a16e1eb6a25135fa71648d4651f01104e399d",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Unconditional/Solution.lean",
+            "member": "repository/lean/QuarticCorpus/Unconditional/Solution.lean",
+            "expected": "19725ad42b615a8881db00417ee6375c8982b0de08e618f06f901fe4db2e2cd3",
+            "actual": "19725ad42b615a8881db00417ee6375c8982b0de08e618f06f901fe4db2e2cd3",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticCorpus/Unconditional/comparator.json",
+            "member": "repository/lean/QuarticCorpus/Unconditional/comparator.json",
+            "expected": "fbaaee77d1b1a3daff788267ec15963ea06a6340a219a2da890c8c9642998dd7",
+            "actual": "fbaaee77d1b1a3daff788267ec15963ea06a6340a219a2da890c8c9642998dd7",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery.lean",
+            "member": "repository/lean/QuarticQuery.lean",
+            "expected": "f76b28615af9ebffdda89430586942c5d7d499a0d78585a31ae47a45c92705b0",
+            "actual": "f76b28615af9ebffdda89430586942c5d7d499a0d78585a31ae47a45c92705b0",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Amplification/Average.lean",
+            "member": "repository/lean/QuarticQuery/Amplification/Average.lean",
+            "expected": "fd837b83033d2df6d833a0fdecaef7110339d5747b8aaa1f674c14d3e50473b6",
+            "actual": "fd837b83033d2df6d833a0fdecaef7110339d5747b8aaa1f674c14d3e50473b6",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Amplification/Bounded.lean",
+            "member": "repository/lean/QuarticQuery/Amplification/Bounded.lean",
+            "expected": "6a6465ae0cbd0503cf327c5f33f6509f492a707795c0358880c8f12c9624c96d",
+            "actual": "6a6465ae0cbd0503cf327c5f33f6509f492a707795c0358880c8f12c9624c96d",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Amplification/Geometry.lean",
+            "member": "repository/lean/QuarticQuery/Amplification/Geometry.lean",
+            "expected": "ff5e758a77d21bc133a930d545672cb5faa76aa422019413c634085881142dc9",
+            "actual": "ff5e758a77d21bc133a930d545672cb5faa76aa422019413c634085881142dc9",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Amplification/Procedure.lean",
+            "member": "repository/lean/QuarticQuery/Amplification/Procedure.lean",
+            "expected": "45413af39419cf952c26204dfd3ae1b86e7dcde1423194ca473187cc6b64edb1",
+            "actual": "45413af39419cf952c26204dfd3ae1b86e7dcde1423194ca473187cc6b64edb1",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Appendix/TheoremA1.lean",
+            "member": "repository/lean/QuarticQuery/Appendix/TheoremA1.lean",
+            "expected": "777567c2e5878223a187030b4200293a0c8f78927fa0488e62ff36bf129a0128",
+            "actual": "777567c2e5878223a187030b4200293a0c8f78927fa0488e62ff36bf129a0128",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Bridge/DecisionTree.lean",
+            "member": "repository/lean/QuarticQuery/Bridge/DecisionTree.lean",
+            "expected": "f0dc14884f30cb5238b4e71a4358e43a244a45a38f655323a34b5e83af7ed13e",
+            "actual": "f0dc14884f30cb5238b4e71a4358e43a244a45a38f655323a34b5e83af7ed13e",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Bridge/Deferred.lean",
+            "member": "repository/lean/QuarticQuery/Bridge/Deferred.lean",
+            "expected": "666c5741a5a19324b7229a350bc35130627da42584c751d5444231f402c45931",
+            "actual": "666c5741a5a19324b7229a350bc35130627da42584c751d5444231f402c45931",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Bridge/Oracle.lean",
+            "member": "repository/lean/QuarticQuery/Bridge/Oracle.lean",
+            "expected": "06f073c300891be8d343434d4cbc4e3d9c2c37584bb5247a339e6f5c020ba385",
+            "actual": "06f073c300891be8d343434d4cbc4e3d9c2c37584bb5247a339e6f5c020ba385",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Construction/LocalTests.lean",
+            "member": "repository/lean/QuarticQuery/Construction/LocalTests.lean",
+            "expected": "56357d934fab301222130c92ef36cfbf122af4ad90fb2a94ba90178139dbeb13",
+            "actual": "56357d934fab301222130c92ef36cfbf122af4ad90fb2a94ba90178139dbeb13",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Construction/Transcript.lean",
+            "member": "repository/lean/QuarticQuery/Construction/Transcript.lean",
+            "expected": "e2fd95c77c8ef1616201219302415069411aaac88060f3f75ec24e7b0626608f",
+            "actual": "e2fd95c77c8ef1616201219302415069411aaac88060f3f75ec24e7b0626608f",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Construction/Winner.lean",
+            "member": "repository/lean/QuarticQuery/Construction/Winner.lean",
+            "expected": "3c6b894e842fc90acd7a09b9ff14ce3ae2f09bfbf2dc7f2195751a396db7017c",
+            "actual": "3c6b894e842fc90acd7a09b9ff14ce3ae2f09bfbf2dc7f2195751a396db7017c",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Forrelation/Arithmetic.lean",
+            "member": "repository/lean/QuarticQuery/Forrelation/Arithmetic.lean",
+            "expected": "5a7336764ee8cd299b9e19fd3164374fcebab98b7df8d9c956a457334b9dc243",
+            "actual": "5a7336764ee8cd299b9e19fd3164374fcebab98b7df8d9c956a457334b9dc243",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Forrelation/Builder.lean",
+            "member": "repository/lean/QuarticQuery/Forrelation/Builder.lean",
+            "expected": "32e1ff4623c8bbceda26da74e53961d8c2bc660ff9b831cf19d4cc32ce1abc23",
+            "actual": "32e1ff4623c8bbceda26da74e53961d8c2bc660ff9b831cf19d4cc32ce1abc23",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Forrelation/Circuit.lean",
+            "member": "repository/lean/QuarticQuery/Forrelation/Circuit.lean",
+            "expected": "b17824d0a3b6ee5a689822b04c18d20de9e72e1db119105584e9cbba60ae8f01",
+            "actual": "b17824d0a3b6ee5a689822b04c18d20de9e72e1db119105584e9cbba60ae8f01",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Forrelation/Product.lean",
+            "member": "repository/lean/QuarticQuery/Forrelation/Product.lean",
+            "expected": "f0ceced9021b45de546dfc01aadabde913f8ecdf1a0d085992c5b61b8a1ef425",
+            "actual": "f0ceced9021b45de546dfc01aadabde913f8ecdf1a0d085992c5b61b8a1ef425",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Forrelation/Promise.lean",
+            "member": "repository/lean/QuarticQuery/Forrelation/Promise.lean",
+            "expected": "96b967a27458107549e38ce4fe001d707a4c240ad4e4b582729a6ce9526d2cf1",
+            "actual": "96b967a27458107549e38ce4fe001d707a4c240ad4e4b582729a6ce9526d2cf1",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Forrelation/Repetition.lean",
+            "member": "repository/lean/QuarticQuery/Forrelation/Repetition.lean",
+            "expected": "1526168486cdc4e78213c6048199676df0520445666b60d3ece9c62678e90e70",
+            "actual": "1526168486cdc4e78213c6048199676df0520445666b60d3ece9c62678e90e70",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Forrelation/Sanity.lean",
+            "member": "repository/lean/QuarticQuery/Forrelation/Sanity.lean",
+            "expected": "bf287a0ff1f6022582b6d8daae3a89ad34d8aa51986531a649f133ee692eae70",
+            "actual": "bf287a0ff1f6022582b6d8daae3a89ad34d8aa51986531a649f133ee692eae70",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Forrelation/Walsh.lean",
+            "member": "repository/lean/QuarticQuery/Forrelation/Walsh.lean",
+            "expected": "e3eae0cf1455ef1471fd4f42458b324bbe3bfe1b1879989366ce476657653069",
+            "actual": "e3eae0cf1455ef1471fd4f42458b324bbe3bfe1b1879989366ce476657653069",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/ForrelationLower/Amplify.lean",
+            "member": "repository/lean/QuarticQuery/ForrelationLower/Amplify.lean",
+            "expected": "93f8e1c04768b8d01263f4a6b5a594b2d7b3334a1380432af6a33779109fc10a",
+            "actual": "93f8e1c04768b8d01263f4a6b5a594b2d7b3334a1380432af6a33779109fc10a",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+            "member": "repository/lean/QuarticQuery/ForrelationLower/Cascade.lean",
+            "expected": "9438575752bdbb664cecbf15b97afc96f2f235fabcab8f6261ab5f15bb9d7ab9",
+            "actual": "9438575752bdbb664cecbf15b97afc96f2f235fabcab8f6261ab5f15bb9d7ab9",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+            "member": "repository/lean/QuarticQuery/ForrelationLower/Cube.lean",
+            "expected": "16db4f9b7e4e42029c839537075eff0ec0f6fd6261d4a8a038bec8566ce4e2fe",
+            "actual": "16db4f9b7e4e42029c839537075eff0ec0f6fd6261d4a8a038bec8566ce4e2fe",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/ForrelationLower/Main.lean",
+            "member": "repository/lean/QuarticQuery/ForrelationLower/Main.lean",
+            "expected": "f877e9c4d11874d3e80ad7627972b1a8a0eca596f26fb96a3898bfdace564ed1",
+            "actual": "f877e9c4d11874d3e80ad7627972b1a8a0eca596f26fb96a3898bfdace564ed1",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+            "member": "repository/lean/QuarticQuery/ForrelationLower/Promise.lean",
+            "expected": "2877dc60a4af03e98321ac9e47c501a63508936aa49e5018d280258b24862efb",
+            "actual": "2877dc60a4af03e98321ac9e47c501a63508936aa49e5018d280258b24862efb",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+            "member": "repository/lean/QuarticQuery/ForrelationLower/Stein.lean",
+            "expected": "6238d7e6f8ade6044eb623899069f35d0a5b860699c722e7007fd71046ffff9e",
+            "actual": "6238d7e6f8ade6044eb623899069f35d0a5b860699c722e7007fd71046ffff9e",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+            "member": "repository/lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+            "expected": "13614823a433518dea7138242182dc2abee1dbcdf0127157edf8cc9b6a756010",
+            "actual": "13614823a433518dea7138242182dc2abee1dbcdf0127157edf8cc9b6a756010",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/ForrelationLower/Uniform.lean",
+            "member": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+            "expected": "d6bc1f4399394810fca63abdaadd67a420616371c501ab978841898f2bda049c",
+            "actual": "d6bc1f4399394810fca63abdaadd67a420616371c501ab978841898f2bda049c",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+            "member": "repository/lean/QuarticQuery/ForrelationLower/Walk.lean",
+            "expected": "c9394068bc3a583178fcae1e11d6eafdc7dcfc17bcd8a0b269f9a13ccee209ba",
+            "actual": "c9394068bc3a583178fcae1e11d6eafdc7dcfc17bcd8a0b269f9a13ccee209ba",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/LowerBound/DirectProduct.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+            "expected": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+            "actual": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/LowerBound/Minimax.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Minimax.lean",
+            "expected": "d235fef08374ca71229f5a2a5985e1bb0c60e3ec39a0ad2b1a13b286df9c194e",
+            "actual": "d235fef08374ca71229f5a2a5985e1bb0c60e3ec39a0ad2b1a13b286df9c194e",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/LowerBound/Planted/Average.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Average.lean",
+            "expected": "471bb74964c7c841f12a8e90a184d13f26ffc173bf2855bdf1d59e93f490610e",
+            "actual": "471bb74964c7c841f12a8e90a184d13f26ffc173bf2855bdf1d59e93f490610e",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/LowerBound/Planted/Coupling.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Coupling.lean",
+            "expected": "35d0f76652f6aa52acb73dfe3b5c01eb70eefdf9397cc83f4b4469017de61824",
+            "actual": "35d0f76652f6aa52acb73dfe3b5c01eb70eefdf9397cc83f4b4469017de61824",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/LowerBound/Planted/Heavy.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Heavy.lean",
+            "expected": "6b5772603583908e293c4301594ef313e68ddff67dedd5eced436744b0f110bb",
+            "actual": "6b5772603583908e293c4301594ef313e68ddff67dedd5eced436744b0f110bb",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/LowerBound/Planted/Inputs.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Inputs.lean",
+            "expected": "8a51b7b7696acdda52b0762b65c2f9e8bec13da8d896c47102c447195509411f",
+            "actual": "8a51b7b7696acdda52b0762b65c2f9e8bec13da8d896c47102c447195509411f",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/LowerBound/Planted/Main.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Main.lean",
+            "expected": "a32a6e24bccace37d46742acc9450fe33b6081430484138336014048f3fe835c",
+            "actual": "a32a6e24bccace37d46742acc9450fe33b6081430484138336014048f3fe835c",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/LowerBound/Planted/Simulator.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/Simulator.lean",
+            "expected": "71bcf25db0309331ebda232bcad3ab2e895d543ffadcc521e99117253c0dab09",
+            "actual": "71bcf25db0309331ebda232bcad3ab2e895d543ffadcc521e99117253c0dab09",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean",
+            "member": "repository/lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean",
+            "expected": "86a2064e0fb6c6ba9b4a79785932a203314d8433d938083a420288d642bf8bf8",
+            "actual": "86a2064e0fb6c6ba9b4a79785932a203314d8433d938083a420288d642bf8bf8",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Model/Classical.lean",
+            "member": "repository/lean/QuarticQuery/Model/Classical.lean",
+            "expected": "a820d0804ee722ee74eef97ea8efeb2a15da55107d6a908e35ba60ef39932e9e",
+            "actual": "a820d0804ee722ee74eef97ea8efeb2a15da55107d6a908e35ba60ef39932e9e",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Model/Quantum.lean",
+            "member": "repository/lean/QuarticQuery/Model/Quantum.lean",
+            "expected": "6a61d326b216fa39f6ac1d7694727528dd5028bfac8d939f118bf1a4f4a35662",
+            "actual": "6a61d326b216fa39f6ac1d7694727528dd5028bfac8d939f118bf1a4f4a35662",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/AppendixA.lean",
+            "member": "repository/lean/QuarticQuery/Paper/AppendixA.lean",
+            "expected": "5a28f11e95c0153ef162337a8c81d4523f0092361b785425ee166924b1dd9815",
+            "actual": "5a28f11e95c0153ef162337a8c81d4523f0092361b785425ee166924b1dd9815",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+            "member": "repository/lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+            "expected": "f95cdeea5040ba7082c33a76faddef2da122d5bb4d76cec2b192598894c50aa6",
+            "actual": "f95cdeea5040ba7082c33a76faddef2da122d5bb4d76cec2b192598894c50aa6",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/AppendixAHuang.lean",
+            "member": "repository/lean/QuarticQuery/Paper/AppendixAHuang.lean",
+            "expected": "adb9065a0262325c396b5eeadc4f27f61768fe182e1818b9a2e4b91e0376459b",
+            "actual": "adb9065a0262325c396b5eeadc4f27f61768fe182e1818b9a2e4b91e0376459b",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+            "member": "repository/lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+            "expected": "a90282494f069991f80b7ec4af0cd8898a2d4b84a7a69aa180e1ed061dd9a549",
+            "actual": "a90282494f069991f80b7ec4af0cd8898a2d4b84a7a69aa180e1ed061dd9a549",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/AppendixAHuangRoute.lean",
+            "member": "repository/lean/QuarticQuery/Paper/AppendixAHuangRoute.lean",
+            "expected": "9a16919921fe4f06d2db77e75b88fe1bd5f7350bc9132360ebc496450a06a5b7",
+            "actual": "9a16919921fe4f06d2db77e75b88fe1bd5f7350bc9132360ebc496450a06a5b7",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/AppendixAPerron.lean",
+            "member": "repository/lean/QuarticQuery/Paper/AppendixAPerron.lean",
+            "expected": "e95a404b217afc2f03eaa35256c713827f1400231702daea1b5b38a3aa204c9a",
+            "actual": "e95a404b217afc2f03eaa35256c713827f1400231702daea1b5b38a3aa204c9a",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/AppendixARestriction.lean",
+            "member": "repository/lean/QuarticQuery/Paper/AppendixARestriction.lean",
+            "expected": "5e7b16febef2b95ffc6ed9e735bbb8b24cbaf1d713fda51452a13ef17745534b",
+            "actual": "5e7b16febef2b95ffc6ed9e735bbb8b24cbaf1d713fda51452a13ef17745534b",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+            "member": "repository/lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+            "expected": "b45034f8e12d480523140f3a491ef29d2fc7fa83930ff6e17a993c8acb7ca0b0",
+            "actual": "b45034f8e12d480523140f3a491ef29d2fc7fa83930ff6e17a993c8acb7ca0b0",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/AppendixASpectralAdversary.lean",
+            "member": "repository/lean/QuarticQuery/Paper/AppendixASpectralAdversary.lean",
+            "expected": "75c971c8627dc3e1e17e1a58e21522f845d0830246ab93939994d24d08da1ca4",
+            "actual": "75c971c8627dc3e1e17e1a58e21522f845d0830246ab93939994d24d08da1ca4",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+            "member": "repository/lean/QuarticQuery/Paper/AppendixAStar.lean",
+            "expected": "84d2b315859098c5030f6772a06dcd652f3d08e695456ece32acb61a6e0142d6",
+            "actual": "84d2b315859098c5030f6772a06dcd652f3d08e695456ece32acb61a6e0142d6",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ClassicalAsymptotics.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ClassicalAsymptotics.lean",
+            "expected": "b156b061ecab3a011c31224f9ff0719d07a52e8e8eb86becbb18cb5c959c17af",
+            "actual": "b156b061ecab3a011c31224f9ff0719d07a52e8e8eb86becbb18cb5c959c17af",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+            "expected": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+            "actual": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+            "expected": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+            "actual": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ClassicalUniformZero.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ClassicalUniformZero.lean",
+            "expected": "b0778f75c9717011e9b115eb3b15cf132b85486fa2f8c83eff0e4ce4a05fca19",
+            "actual": "b0778f75c9717011e9b115eb3b15cf132b85486fa2f8c83eff0e4ce4a05fca19",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ConstructionArithmetic.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ConstructionArithmetic.lean",
+            "expected": "2c355a3eb5e76cd5db70a6990bb9d6b37d652e0eece3b31ed0661219d3635ad0",
+            "actual": "2c355a3eb5e76cd5db70a6990bb9d6b37d652e0eece3b31ed0661219d3635ad0",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ConstructionAudit.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ConstructionAudit.lean",
+            "expected": "bf7d2c90de5e5c690c9a1a1589cd1b2d59b1f63a93eed3bd846170ae996ca6d6",
+            "actual": "bf7d2c90de5e5c690c9a1a1589cd1b2d59b1f63a93eed3bd846170ae996ca6d6",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ConstructionCoherent.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ConstructionCoherent.lean",
+            "expected": "5e5f5c2321e7c1ce23235e69e1f430fd951f13cc92b5a2d1b2d974aad0607cec",
+            "actual": "5e5f5c2321e7c1ce23235e69e1f430fd951f13cc92b5a2d1b2d974aad0607cec",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ConstructionComplete.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ConstructionComplete.lean",
+            "expected": "a79e9f0cdbf85df0e86605711fa6c8bde2a19cbe043c36302243b42a7f8fbc6c",
+            "actual": "a79e9f0cdbf85df0e86605711fa6c8bde2a19cbe043c36302243b42a7f8fbc6c",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+            "expected": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
+            "actual": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ConstructionFamily.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ConstructionFamily.lean",
+            "expected": "b7e1203086e38c00b964355ac71537a7fc5be7053d537ccd56cba8017cdd085a",
+            "actual": "b7e1203086e38c00b964355ac71537a7fc5be7053d537ccd56cba8017cdd085a",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ConstructionForrelationCircuit.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationCircuit.lean",
+            "expected": "860e8653027d64fe7d5cc5f35357d81ed5fa27e027899047ab819c821e3c8b32",
+            "actual": "860e8653027d64fe7d5cc5f35357d81ed5fa27e027899047ab819c821e3c8b32",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ConstructionForrelationComparison.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationComparison.lean",
+            "expected": "e9bb18d1e0ea9482762e89a9ced002c720f9b7d2311a455a9904bd820c5b4a01",
+            "actual": "e9bb18d1e0ea9482762e89a9ced002c720f9b7d2311a455a9904bd820c5b4a01",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ConstructionForrelationComplete.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationComplete.lean",
+            "expected": "733526015ad9a2013512d8f6216b8f73c41566a803d92602dd30e40e90d7ad06",
+            "actual": "733526015ad9a2013512d8f6216b8f73c41566a803d92602dd30e40e90d7ad06",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+            "expected": "14f92345b8885036e862885aad3db82d77cff6e71642e669c2ba7dc8ba087aa1",
+            "actual": "14f92345b8885036e862885aad3db82d77cff6e71642e669c2ba7dc8ba087aa1",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ConstructionForrelationQuantum.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationQuantum.lean",
+            "expected": "f31face68a9c47906d9a728cced9aa8a24ec73d3079c6196ae1853130151391b",
+            "actual": "f31face68a9c47906d9a728cced9aa8a24ec73d3079c6196ae1853130151391b",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ConstructionModels.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ConstructionModels.lean",
+            "expected": "19826ab2f9f9ef8a329f5880faf2426727b158321af4a418d519d55b56674d61",
+            "actual": "19826ab2f9f9ef8a329f5880faf2426727b158321af4a418d519d55b56674d61",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ConstructionPhase.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ConstructionPhase.lean",
+            "expected": "f9dc9564aa8741a6aa3059fcea3563c740fed802666ae251fbebbe9085668405",
+            "actual": "f9dc9564aa8741a6aa3059fcea3563c740fed802666ae251fbebbe9085668405",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ConstructionPointerSupport.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ConstructionPointerSupport.lean",
+            "expected": "8a2d8befa3225ab54114492b35c5a326fc17bd8f0a5eaa9acba966c18db53938",
+            "actual": "8a2d8befa3225ab54114492b35c5a326fc17bd8f0a5eaa9acba966c18db53938",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/ConstructionTests.lean",
+            "member": "repository/lean/QuarticQuery/Paper/ConstructionTests.lean",
+            "expected": "06f1b3bc883881351e5e9cfa9ba8777f2f907897e69275b507132cc01ba0dccb",
+            "actual": "06f1b3bc883881351e5e9cfa9ba8777f2f907897e69275b507132cc01ba0dccb",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+            "member": "repository/lean/QuarticQuery/Paper/QuantumAmplification.lean",
+            "expected": "95d89237e766b59ffdd52f1324e440e2127b06353b2c8de2482b9f55c4adb30b",
+            "actual": "95d89237e766b59ffdd52f1324e440e2127b06353b2c8de2482b9f55c4adb30b",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+            "member": "repository/lean/QuarticQuery/Paper/QuantumComparison.lean",
+            "expected": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+            "actual": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/QuantumTensor.lean",
+            "member": "repository/lean/QuarticQuery/Paper/QuantumTensor.lean",
+            "expected": "7a2f03d6ae2d8d3ff2af9837f6cb1e1f1f3d5b4983dc34e753792621443835ac",
+            "actual": "7a2f03d6ae2d8d3ff2af9837f6cb1e1f1f3d5b4983dc34e753792621443835ac",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/QuantumTournament.lean",
+            "member": "repository/lean/QuarticQuery/Paper/QuantumTournament.lean",
+            "expected": "8cf87e74aa0364c9bc6b9078ff62e88c45d297625166fe31a8efeea765a34adf",
+            "actual": "8cf87e74aa0364c9bc6b9078ff62e88c45d297625166fe31a8efeea765a34adf",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+            "member": "repository/lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+            "expected": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
+            "actual": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/QuantumUpper.lean",
+            "member": "repository/lean/QuarticQuery/Paper/QuantumUpper.lean",
+            "expected": "4d2966b64f95a3706113159a8afd4a5b1954a895d7d1e91c569d2f59a24bcb26",
+            "actual": "4d2966b64f95a3706113159a8afd4a5b1954a895d7d1e91c569d2f59a24bcb26",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/QuantumWorkspace.lean",
+            "member": "repository/lean/QuarticQuery/Paper/QuantumWorkspace.lean",
+            "expected": "a5ed4638bef1d1e15508ea5b96a0edf99a2281693de03f39f23e5afadd7ba07b",
+            "actual": "a5ed4638bef1d1e15508ea5b96a0edf99a2281693de03f39f23e5afadd7ba07b",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/Section2.lean",
+            "member": "repository/lean/QuarticQuery/Paper/Section2.lean",
+            "expected": "34fb705db7f672de0faf3e18fcc3dda4862033e157a325d8c9016936361f84cf",
+            "actual": "34fb705db7f672de0faf3e18fcc3dda4862033e157a325d8c9016936361f84cf",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/Section3.lean",
+            "member": "repository/lean/QuarticQuery/Paper/Section3.lean",
+            "expected": "aa49e092c11c915bc5a3a904054589dbed18c840f84a00c5edc0e37d57d661ad",
+            "actual": "aa49e092c11c915bc5a3a904054589dbed18c840f84a00c5edc0e37d57d661ad",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Paper/Section4.lean",
+            "member": "repository/lean/QuarticQuery/Paper/Section4.lean",
+            "expected": "da6bda0feda0448bc05b11c85aed7b666d01aa8d30a8914a4ffd7d9fbe6643fb",
+            "actual": "da6bda0feda0448bc05b11c85aed7b666d01aa8d30a8914a4ffd7d9fbe6643fb",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Results/Conditional.lean",
+            "member": "repository/lean/QuarticQuery/Results/Conditional.lean",
+            "expected": "c3d4acfd49f8725f21fa4e895be9773e44a52786a16e3606e68dfda27c808330",
+            "actual": "c3d4acfd49f8725f21fa4e895be9773e44a52786a16e3606e68dfda27c808330",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Results/Exponent.lean",
+            "member": "repository/lean/QuarticQuery/Results/Exponent.lean",
+            "expected": "91d1c021f9b920f9bf0017dfe03817194c6a1ff5f4776e39a669bbd3b832a931",
+            "actual": "91d1c021f9b920f9bf0017dfe03817194c6a1ff5f4776e39a669bbd3b832a931",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Results/Headline.lean",
+            "member": "repository/lean/QuarticQuery/Results/Headline.lean",
+            "expected": "fec7d0c565b8ab345568ae6082c5fb346435493f4eb2d9112cda498652909c35",
+            "actual": "fec7d0c565b8ab345568ae6082c5fb346435493f4eb2d9112cda498652909c35",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Results/Unconditional.lean",
+            "member": "repository/lean/QuarticQuery/Results/Unconditional.lean",
+            "expected": "46e6f51f713109bab717956bd2536711dc927a356027748712e571ce12f0b85e",
+            "actual": "46e6f51f713109bab717956bd2536711dc927a356027748712e571ce12f0b85e",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Statement.lean",
+            "member": "repository/lean/QuarticQuery/Statement.lean",
+            "expected": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+            "actual": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Tournament/Drift.lean",
+            "member": "repository/lean/QuarticQuery/Tournament/Drift.lean",
+            "expected": "850fbfdfba830a17930f0a8e60fdc0d7b27f7f50c45710b5e77997343528c077",
+            "actual": "850fbfdfba830a17930f0a8e60fdc0d7b27f7f50c45710b5e77997343528c077",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Tournament/Ideal.lean",
+            "member": "repository/lean/QuarticQuery/Tournament/Ideal.lean",
+            "expected": "6f7379abfb1d9fb37d6ef7f0f25049893490aa717171c875feb97fca343ab8ef",
+            "actual": "6f7379abfb1d9fb37d6ef7f0f25049893490aa717171c875feb97fca343ab8ef",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Upper/Amplify.lean",
+            "member": "repository/lean/QuarticQuery/Upper/Amplify.lean",
+            "expected": "49e808cc6acbb47ad066b1dcf33ac8d47da2f28d88c51d537564e6591eb0d9e1",
+            "actual": "49e808cc6acbb47ad066b1dcf33ac8d47da2f28d88c51d537564e6591eb0d9e1",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Upper/Bound.lean",
+            "member": "repository/lean/QuarticQuery/Upper/Bound.lean",
+            "expected": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303",
+            "actual": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Upper/Circuit.lean",
+            "member": "repository/lean/QuarticQuery/Upper/Circuit.lean",
+            "expected": "7686a3b72476d902ec9ff504b38bea9ac25e90724e93d82033ea05339080190f",
+            "actual": "7686a3b72476d902ec9ff504b38bea9ac25e90724e93d82033ea05339080190f",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Upper/Columns.lean",
+            "member": "repository/lean/QuarticQuery/Upper/Columns.lean",
+            "expected": "e5b2b164deb6a010f952cefb5edba15bb5437a03fff815c39b028341b23b592e",
+            "actual": "e5b2b164deb6a010f952cefb5edba15bb5437a03fff815c39b028341b23b592e",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Upper/Compile.lean",
+            "member": "repository/lean/QuarticQuery/Upper/Compile.lean",
+            "expected": "ead2d229ad8a97541dd648806b64813745e8502b5f7314ced43e7a95a0708a27",
+            "actual": "ead2d229ad8a97541dd648806b64813745e8502b5f7314ced43e7a95a0708a27",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Upper/Decode.lean",
+            "member": "repository/lean/QuarticQuery/Upper/Decode.lean",
+            "expected": "4755c92be7627e4a58b1487d831a93765a3510647682e903c6abfed39f61411b",
+            "actual": "4755c92be7627e4a58b1487d831a93765a3510647682e903c6abfed39f61411b",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Upper/Sampler.lean",
+            "member": "repository/lean/QuarticQuery/Upper/Sampler.lean",
+            "expected": "43cb604188f041ebd34c8003f01f4ec6c570023e465cd2b730ee4f1f765b2b79",
+            "actual": "43cb604188f041ebd34c8003f01f4ec6c570023e465cd2b730ee4f1f765b2b79",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Upper/Tournament.lean",
+            "member": "repository/lean/QuarticQuery/Upper/Tournament.lean",
+            "expected": "43df9db7997f88667de7a3cfa7d7c7751aa1f32c40e9de474895335bcdb87b7c",
+            "actual": "43df9db7997f88667de7a3cfa7d7c7751aa1f32c40e9de474895335bcdb87b7c",
+            "matched": true
+          },
+          {
+            "label": "lean/QuarticQuery/Upper/Verify.lean",
+            "member": "repository/lean/QuarticQuery/Upper/Verify.lean",
+            "expected": "8144c5c26e7bf0515b24eb638b57412264032e144844887adc615b8076207239",
+            "actual": "8144c5c26e7bf0515b24eb638b57412264032e144844887adc615b8076207239",
+            "matched": true
+          },
+          {
+            "label": "lean/lake-manifest.json",
+            "member": "repository/lean/lake-manifest.json",
+            "expected": "d670a8101d900b62e17a1d51c8b1b36fd60919bcad472700b0a5e1c0b38b104d",
+            "actual": "d670a8101d900b62e17a1d51c8b1b36fd60919bcad472700b0a5e1c0b38b104d",
+            "matched": true
+          },
+          {
+            "label": "lean/lakefile.toml",
+            "member": "repository/lean/lakefile.toml",
+            "expected": "255abcc3c689d0258d4cea520447fdc8da26e26a191331aa95559b2fb4818647",
+            "actual": "255abcc3c689d0258d4cea520447fdc8da26e26a191331aa95559b2fb4818647",
+            "matched": true
+          },
+          {
+            "label": "lean/lean-toolchain",
+            "member": "repository/lean/lean-toolchain",
+            "expected": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3",
+            "actual": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3",
+            "matched": true
+          },
+          {
+            "label": "lean/scripts/Reach.lean",
+            "member": "repository/lean/scripts/Reach.lean",
+            "expected": "44ce6c1ace1e3914109b959c5d3466f00eba4090621d73d3b3ee2626be1f796b",
+            "actual": "44ce6c1ace1e3914109b959c5d3466f00eba4090621d73d3b3ee2626be1f796b",
+            "matched": true
+          }
+        ]
+      },
+      "candidate_binding": {
+        "count": 3,
+        "matched": 3,
+        "mismatches": [],
+        "entries": [
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/research/adjudication/round2_construction_quantum_ties.json",
+            "member": "repository/research/adjudication/round2_construction_quantum_ties.json",
+            "expected": "99a0d39b328d4f6c71b816d8b65a40e4439d60c23de85bc83a5f9259377e28e6",
+            "actual": "99a0d39b328d4f6c71b816d8b65a40e4439d60c23de85bc83a5f9259377e28e6",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/research/adjudication/round2_classical_appendix_ties.json",
+            "member": "repository/research/adjudication/round2_classical_appendix_ties.json",
+            "expected": "92965da1bf4fb0ccb606215ff1cff296f1a4dd9a8096f064f96a60858e9ea9c1",
+            "actual": "92965da1bf4fb0ccb606215ff1cff296f1a4dd9a8096f064f96a60858e9ea9c1",
+            "matched": true
+          },
+          {
+            "label": "/Users/willcook/src/quartic-query-lean/research/adjudication/round2_forrelation_exponent_ties.json",
+            "member": "repository/research/adjudication/round2_forrelation_exponent_ties.json",
+            "expected": "5015bdd1c7845c2862b18bbb5bc88dc2b6116862dbeab60fe894375377504127",
+            "actual": "5015bdd1c7845c2862b18bbb5bc88dc2b6116862dbeab60fe894375377504127",
+            "matched": true
+          }
+        ]
+      },
+      "root_artifact_available": false
+    },
+    "full_record": "evidence/lean_evidence.json"
+  },
+  "unavailable": [
+    {
+      "item": "Pasted text(20261102-190839).txt",
+      "library_file_id_supplied": "libfile_b752f92f7e448191a6eb606d3847efe6",
+      "reason": "Attachment access failed; contents neither read nor inferred. Available ZIP assignment was completed."
+    },
+    {
+      "item": "lean and lake executables",
+      "reason": "Not installed in the available execution environment; no fresh Lean or Comparator run."
+    },
+    {
+      "item": "Recorded compiled artifacts",
+      "reason": "Binary .olean/.ilean artifacts absent from supplied packet; recorded binary hashes not re-computed."
+    },
+    {
+      "item": "tools/paper_register.py and register_profiles",
+      "reason": "Not supplied in this packet. No before/after statistical register score was run or fabricated."
+    },
+    {
+      "item": "Halmos and Knuth annexes referenced by writing guide",
+      "reason": "Not supplied under the packet manifest. Their contents were not inferred; available writing guides and selected exemplars were used."
+    }
+  ],
+  "unassessed": [
+    "Most of the 451-file packet outside the named assignment, interfaces and evidence records.",
+    "Full Bansal-Sinha Gaussian interpolation/branching proof and sharper uniform-in-k theorem.",
+    "Full ABK and Drucker papers beyond recorded sampled sections.",
+    "Shaltiel original paper and unrelated historical literature.",
+    "Every source proof among the 258 audit targets and every Comparator challenge.",
+    "Full external Mathlib source closure or compiler implementation.",
+    "Any concurrently assigned round-three rewrite or proposed growing-k result.",
+    "Human review, author confirmation, peer review or priority determination."
+  ],
+  "execution_and_rendering": {
+    "lean_executed": false,
+    "comparator_executed": false,
+    "finite_checks": [
+      "checks/planted_example.py",
+      "checks/check_floors.py"
+    ],
+    "return_structure_check": "checks/validate_return.py",
+    "markdown_parse": "Pandoc Markdown reader with tex_math_single_backslash; successful parse.",
+    "pdf_or_docx_rendered": false,
+    "visual_pdf_qa": false,
+    "statistics_or_human_review_score_claimed": false,
+    "final_check_record": "validation.json"
+  }
+}

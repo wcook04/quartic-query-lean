@@ -1,0 +1,758 @@
+{
+  "schema": "quartic-section-source-read-receipt-v1",
+  "assignment": "round3/02_forrelation_promise_circuit",
+  "date": "2026-11-02",
+  "scope": "Focused replacement of baseline Sections 3.1--3.5 and assessment of their exact neighboring interfaces.",
+  "input_archive": {
+    "filename": "quartic_r3_02_forrelation_promise_circuit.zip",
+    "sha256": "db412239bd75e1a7fc23d262903265ac5229d2d48c59c0f7ff743901d71cde24",
+    "manifest_sha256": "53528c475a467609c2f1d5640e7db843711ae80764d80ed87077f1b292d53b7a",
+    "repository_commit": "1dd469dd0042b937b739da3bc211eeb60bdf7462",
+    "recorded_root_receipt_commit": "31e17dee667d1d72fa621da8e7d3d8ff5fc3960a",
+    "currentness_rule": "The differing commit labels are not equated. All 124 supplied Lean/configuration source hashes match the timestamped receipt."
+  },
+  "reading_rule": "Assessed denotes the expressly named scope only. Hash verification of a file is not a claim to have read its mathematical contents. Team assessments are attributed to their focused reviewer; the primary reviewer reconciled the findings against the rewritten section.",
+  "sources": [
+    {
+      "member": "READ_ME_FIRST.md",
+      "status": "assessed",
+      "coverage": "Complete task and boundary instructions.",
+      "role": "Assignment and evidence scope.",
+      "reader": "primary reviewer",
+      "bytes": 11535,
+      "sha256": "70484ef7c8b98be3c487c7ee736afe9128c74ebfa7c60d3c0445e59acfbd274c"
+    },
+    {
+      "member": "requests/02_forrelation_promise_circuit.md",
+      "status": "assessed",
+      "coverage": "Complete task and boundary instructions.",
+      "role": "Assignment and evidence scope.",
+      "reader": "primary reviewer",
+      "bytes": 2413,
+      "sha256": "f213fe555a5a5f65d5cb99fb2444cca863b4456884e345e11382ff9ead99a082"
+    },
+    {
+      "member": "requests/common.md",
+      "status": "assessed",
+      "coverage": "Complete task and boundary instructions.",
+      "role": "Assignment and evidence scope.",
+      "reader": "primary reviewer",
+      "bytes": 6931,
+      "sha256": "bb64aed8a508657f40a2eb296a05863e0e723b7e545d313fe6e04f4ba35a86e2"
+    },
+    {
+      "member": "requests/boundaries.md",
+      "status": "assessed",
+      "coverage": "Complete task and boundary instructions.",
+      "role": "Assignment and evidence scope.",
+      "reader": "primary reviewer",
+      "bytes": 2166,
+      "sha256": "1c5f9a6403fd50dc9a0e36a4030413e2d3892cd3609da795119dafdcd3967a34"
+    },
+    {
+      "member": "SOURCE_ROLES.md",
+      "status": "assessed",
+      "coverage": "Complete task and boundary instructions.",
+      "role": "Assignment and evidence scope.",
+      "reader": "primary reviewer",
+      "bytes": 2654,
+      "sha256": "e522b34427116e37d294515d48da4725b28c0471bcbd45dc8e87c07c1285d9ed"
+    },
+    {
+      "member": "BUILD_STATUS.md",
+      "status": "assessed",
+      "coverage": "Complete task and boundary instructions.",
+      "role": "Assignment and evidence scope.",
+      "reader": "primary reviewer",
+      "bytes": 28218,
+      "sha256": "50d8890437452a047a7eba252ec14f41a54e5cf06a297b61a03cb17898bdc4dc"
+    },
+    {
+      "member": "manifest.json",
+      "status": "assessed",
+      "coverage": "Metadata and primary-read fields inspected; every member SHA-256/size and every input_sha256 entry checked by the supplied audit script.",
+      "role": "Source inventory and custody; a matching hash is not a semantic reading.",
+      "reader": "primary reviewer",
+      "bytes": 224521,
+      "sha256": "53528c475a467609c2f1d5640e7db843711ae80764d80ed87077f1b292d53b7a"
+    },
+    {
+      "member": "EVIDENCE_SNAPSHOT.json",
+      "status": "assessed",
+      "coverage": "Current receipt bindings, root/source hashes, dependency-export and native-result references checked.",
+      "role": "Evidence metadata.",
+      "reader": "evidence reviewer and primary reviewer",
+      "bytes": 716734,
+      "sha256": "25f46742c3d019459dc43846f23234c107212625b8c76f3eeef787fd721f1213"
+    },
+    {
+      "member": "DEPENDENCY_SOURCES.json",
+      "status": "sampled",
+      "coverage": "Source boundary, package revisions and foundation pins inspected; no full foundation proof audit.",
+      "role": "Dependency custody and stopping boundary.",
+      "reader": "primary reviewer",
+      "bytes": 17983,
+      "sha256": "2f6e83a5cd985c6b048fa03b1b8c0cf3fd60c2d518e12539c69eb59c3c318a13"
+    },
+    {
+      "member": "paper/source.pdf",
+      "status": "assessed",
+      "coverage": "Section 2.1, equations (3)--(5), Lemma 2.1(ii)--(iii), pp. 3--5; neighboring Lemma 2.1(i) read only to identify its interface.",
+      "role": "Controlling mathematical source: supplied 5 October 2026 preprint.",
+      "reader": "primary reviewer",
+      "bytes": 433829,
+      "sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e"
+    },
+    {
+      "member": "paper/extracted.md",
+      "status": "assessed",
+      "coverage": "Section 2 opening and all Section 2.1, checked against the supplied PDF.",
+      "role": "Searchable aid; PDF controls formulas.",
+      "reader": "primary reviewer",
+      "bytes": 64021,
+      "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a"
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+      "status": "assessed",
+      "coverage": "Section 1.1 roadmap; Section 2.2 definitions; all assigned Sections 3.1--3.5; complete consumer Section 3.17 and targeted neighboring Section 3.18. The remaining full record was not read as a whole.",
+      "role": "Baseline draft and neighboring interfaces.",
+      "reader": "primary reviewer and three focused reviewers",
+      "bytes": 353091,
+      "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff"
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/NEW_STATEMENTS.json",
+      "status": "sampled",
+      "coverage": "Forrelation definition, integer, quantum, circuit, census, complete-lemma and evidence-status entries; other entries unassessed.",
+      "role": "Historical statement identity, mapping and editorial context.",
+      "reader": "primary reviewer",
+      "bytes": 110569,
+      "sha256": "d2964002bad5c1626a1e2c72ac301b7615373ad2576f9604d561dd10c7fe0ccd"
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/correspondence.json",
+      "status": "sampled",
+      "coverage": "Forrelation definition, integer, quantum, circuit, census, complete-lemma and evidence-status entries; other entries unassessed.",
+      "role": "Historical statement identity, mapping and editorial context.",
+      "reader": "primary reviewer",
+      "bytes": 108656,
+      "sha256": "cf429a5555eab691a801ecd362c37329b3c0449f0da4dab437ab5a8b9be88761"
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/LEAN_GAPS.md",
+      "status": "sampled",
+      "coverage": "Forrelation definition, integer, quantum, circuit, census, complete-lemma and evidence-status entries; other entries unassessed.",
+      "role": "Historical statement identity, mapping and editorial context.",
+      "reader": "primary reviewer",
+      "bytes": 63908,
+      "sha256": "5e17659decd217a381f5dd5348f26161766e4b153133ea4fe75b327246a9c8bf"
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/review_notes.md",
+      "status": "sampled",
+      "coverage": "Forrelation definition, integer, quantum, circuit, census, complete-lemma and evidence-status entries; other entries unassessed.",
+      "role": "Historical statement identity, mapping and editorial context.",
+      "reader": "primary reviewer",
+      "bytes": 45823,
+      "sha256": "b84751f817c6f9661047fbb3b4fbb16709e0efeebe8d382c9cd6c639f8e7d20b"
+    },
+    {
+      "member": "literature/quartic-ref-01-forrelation-a-problem-that-optimally-separ/source.pdf",
+      "status": "assessed",
+      "coverage": "arXiv:1411.5729v1 (21 November 2014), Section 1.1.3 p. 4; Section 3.2, Figure 1 and Proposition 6, pp. 13--14. Other theorems not audited.",
+      "role": "Antecedent, original thresholds, projection circuit and distinct interference improvement.",
+      "reader": "primary reviewer",
+      "bytes": 569568,
+      "sha256": "c27966b5b6cf12d61e3877f6ac23b48c9a21fe0a86e6b96ef527b02503e4e1fe"
+    },
+    {
+      "member": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.pdf",
+      "status": "assessed",
+      "coverage": "arXiv:2008.07003v3 (17 November 2020), equations (1.1)--(1.3) and Proposition 1.2 pp. 2--3; Theorem 1.3 and Corollary 1.4 p. 4 read for statement context. Section 5.4 proof unassessed.",
+      "role": "Exact normalized promise and quantum comparison; lower-bound proof outside this assignment.",
+      "reader": "primary reviewer",
+      "bytes": 986784,
+      "sha256": "afe53c8bd918d07590f29a947ef044453db73959043135082d1a3c29b2863a35"
+    },
+    {
+      "member": "literature/quartic-ref-01-forrelation-a-problem-that-optimally-separ/extracted.md",
+      "status": "assessed",
+      "coverage": "arXiv:1411.5729v1 (21 November 2014), Section 1.1.3 p. 4; Section 3.2, Figure 1 and Proposition 6, pp. 13--14. Other theorems not audited.",
+      "role": "Antecedent, original thresholds, projection circuit and distinct interference improvement.",
+      "reader": "primary reviewer",
+      "bytes": 226240,
+      "sha256": "3d4e3dc004cfcc018ddd31bc1d750395b31ab84b9accffd4b764db7f6934c8ab"
+    },
+    {
+      "member": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/extracted.md",
+      "status": "assessed",
+      "coverage": "arXiv:2008.07003v3 (17 November 2020), equations (1.1)--(1.3) and Proposition 1.2 pp. 2--3; Theorem 1.3 and Corollary 1.4 p. 4 read for statement context. Section 5.4 proof unassessed.",
+      "role": "Exact normalized promise and quantum comparison; lower-bound proof outside this assignment.",
+      "reader": "primary reviewer",
+      "bytes": 181861,
+      "sha256": "cf1477e44353bbb796581002e8cacef3199e8e153d43f075fc8047c2934de952"
+    },
+    {
+      "member": "literature/quartic-ref-01-forrelation-a-problem-that-optimally-separ/annex_notes.json",
+      "status": "sampled",
+      "coverage": "Edition, navigation and source-role cautions inspected against the primary texts.",
+      "role": "Navigation only; not substituted for reading the mathematical source.",
+      "reader": "primary reviewer",
+      "bytes": 3951,
+      "sha256": "b8a9b9c263fc4be0ae70f9dfa4b7450b2e7d65d45bbb6e29ffd52d9049c9a552"
+    },
+    {
+      "member": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/annex_notes.json",
+      "status": "sampled",
+      "coverage": "Edition, navigation and source-role cautions inspected against the primary texts.",
+      "role": "Navigation only; not substituted for reading the mathematical source.",
+      "reader": "primary reviewer",
+      "bytes": 7729,
+      "sha256": "0dc0501c90512a1a40a51ebfb28006c9a53c9edaac45db16592f0dabf9400882"
+    },
+    {
+      "member": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.tar.gz",
+      "status": "sampled",
+      "coverage": "Archive metadata/hash checked; formulas were assessed through the source-backed extraction and original PDF, not an exhaustive TeX-source audit.",
+      "role": "Version-pinned source custody.",
+      "reader": "primary reviewer",
+      "bytes": 213572,
+      "sha256": "f48a3225662484d12e19bf03412478cf87a388f7c2e33c69a4d7f2078202e015"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Forrelation/Arithmetic.lean",
+      "status": "assessed",
+      "coverage": "complete",
+      "role": "Circuit source, exact type or maintained review assessed by the circuit reviewer.",
+      "reader": "circuit reviewer",
+      "bytes": 20491,
+      "sha256": "5a7336764ee8cd299b9e19fd3164374fcebab98b7df8d9c956a457334b9dc243"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Forrelation/Builder.lean",
+      "status": "assessed",
+      "coverage": "complete",
+      "role": "Circuit source, exact type or maintained review assessed by the circuit reviewer.",
+      "reader": "circuit reviewer",
+      "bytes": 9577,
+      "sha256": "32e1ff4623c8bbceda26da74e53961d8c2bc660ff9b831cf19d4cc32ce1abc23"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Forrelation/Circuit.lean",
+      "status": "assessed",
+      "coverage": "complete",
+      "role": "Circuit source, exact type or maintained review assessed by the circuit reviewer.",
+      "reader": "circuit reviewer",
+      "bytes": 23023,
+      "sha256": "b17824d0a3b6ee5a689822b04c18d20de9e72e1db119105584e9cbba60ae8f01"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Forrelation/Sanity.lean",
+      "status": "assessed",
+      "coverage": "complete",
+      "role": "Circuit source, exact type or maintained review assessed by the circuit reviewer.",
+      "reader": "circuit reviewer",
+      "bytes": 2662,
+      "sha256": "bf287a0ff1f6022582b6d8daae3a89ad34d8aa51986531a649f133ee692eae70"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Forrelation/Promise.lean",
+      "status": "assessed",
+      "coverage": "complete",
+      "role": "Circuit source, exact type or maintained review assessed by the circuit reviewer.",
+      "reader": "circuit reviewer",
+      "bytes": 4434,
+      "sha256": "96b967a27458107549e38ce4fe001d707a4c240ad4e4b582729a6ce9526d2cf1"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionArithmetic.lean",
+      "status": "assessed",
+      "coverage": "complete",
+      "role": "Circuit source, exact type or maintained review assessed by the circuit reviewer.",
+      "reader": "circuit reviewer",
+      "bytes": 4291,
+      "sha256": "2c355a3eb5e76cd5db70a6990bb9d6b37d652e0eece3b31ed0661219d3635ad0"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+      "status": "assessed",
+      "coverage": "complete",
+      "role": "Circuit source, exact type or maintained review assessed by the circuit reviewer.",
+      "reader": "circuit reviewer",
+      "bytes": 8709,
+      "sha256": "14f92345b8885036e862885aad3db82d77cff6e71642e669c2ba7dc8ba087aa1"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationCircuit.lean",
+      "status": "assessed",
+      "coverage": "complete",
+      "role": "Circuit source, exact type or maintained review assessed by the circuit reviewer.",
+      "reader": "circuit reviewer",
+      "bytes": 5743,
+      "sha256": "860e8653027d64fe7d5cc5f35357d81ed5fa27e027899047ab819c821e3c8b32"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationComplete.lean",
+      "status": "assessed",
+      "coverage": "complete",
+      "role": "Circuit source, exact type or maintained review assessed by the circuit reviewer.",
+      "reader": "circuit reviewer",
+      "bytes": 4796,
+      "sha256": "733526015ad9a2013512d8f6216b8f73c41566a803d92602dd30e40e90d7ad06"
+    },
+    {
+      "member": "repository/research/returns/round2/2_lean_construction/source_records/review_forrelation.md",
+      "status": "assessed",
+      "coverage": "complete",
+      "role": "Circuit source, exact type or maintained review assessed by the circuit reviewer.",
+      "reader": "circuit reviewer",
+      "bytes": 6878,
+      "sha256": "f74b9dbeaa519a4995a918270ad38c87f372560b60ab12cc74bb83adceb64fa9"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Statement.lean",
+      "status": "assessed_at_selected_locators",
+      "coverage": {
+        "line_ranges": [
+          [
+            95,
+            235
+          ]
+        ],
+        "scope": "bit-query model, Forrelation definitions, circuits and complete CircuitRealises structure"
+      },
+      "role": "Circuit source, exact type or maintained review assessed by the circuit reviewer.",
+      "reader": "circuit reviewer",
+      "bytes": 13769,
+      "sha256": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced"
+    },
+    {
+      "member": "repository/research/returns/round2/2_lean_construction/blueprint.md",
+      "status": "assessed_at_selected_locators",
+      "coverage": {
+        "line_ranges": [
+          [
+            513,
+            681
+          ]
+        ],
+        "scope": "claim-N-phi, claim-integer-tests, claim-circuit-size sections assessed; additional search hits sampled elsewhere"
+      },
+      "role": "Circuit source, exact type or maintained review assessed by the circuit reviewer.",
+      "reader": "circuit reviewer",
+      "bytes": 111601,
+      "sha256": "25769ece47b6b064401348c3e6129b6026fefdc47313bea7083f12e7e614e1f0"
+    },
+    {
+      "member": "repository/research/returns/round2/2_lean_construction/REVIEW_NOTES.md",
+      "status": "assessed_at_selected_locators",
+      "coverage": {
+        "line_ranges": [
+          [
+            1,
+            145
+          ]
+        ],
+        "scope": "review §§1–7 sampled beyond circuit remit; §§2–4 assessed"
+      },
+      "role": "Circuit source, exact type or maintained review assessed by the circuit reviewer.",
+      "reader": "circuit reviewer",
+      "bytes": 11709,
+      "sha256": "52da4b6132ddec76823f3e1cf6b83e9cd13bc9e8572d632c6e62e2cce328eba0"
+    },
+    {
+      "member": "repository/research/returns/round2/2_lean_construction/LEAN_GAPS.md",
+      "status": "assessed_at_selected_locators",
+      "coverage": {
+        "line_ranges": [
+          [
+            65,
+            85
+          ]
+        ],
+        "scope": "integer/circuit gaps assessed; other search hits sampled"
+      },
+      "role": "Circuit source, exact type or maintained review assessed by the circuit reviewer.",
+      "reader": "circuit reviewer",
+      "bytes": 12134,
+      "sha256": "f6351a5037867e9693482c7cef2c66c44e4620388705f69d566553d243b48829"
+    },
+    {
+      "member": "repository/research/adjudication/round2_construction_quantum.md",
+      "status": "assessed_at_selected_locators",
+      "coverage": {
+        "line_ranges": [
+          [
+            1,
+            190
+          ]
+        ],
+        "scope": "maintained current compilation/semantic review and primary crosswalk sampled; circuit/projection qualifications assessed"
+      },
+      "role": "Circuit source, exact type or maintained review assessed by the circuit reviewer.",
+      "reader": "circuit reviewer",
+      "bytes": 18402,
+      "sha256": "49924c2982b6d42f5b8feb989604dcb447bd6e5f9f4b921d9b3a0c2ea1572068"
+    },
+    {
+      "member": "repository/research/adjudication/round2_construction_quantum_ties.json",
+      "status": "assessed_at_selected_locators",
+      "coverage": {
+        "json_row_ids": [
+          "claim-N-phi",
+          "claim-integer-tests",
+          "claim-circuit-size",
+          "lem-2.1"
+        ],
+        "scope": "complete selected rows assessed; other rows unassessed"
+      },
+      "role": "Circuit source, exact type or maintained review assessed by the circuit reviewer.",
+      "reader": "circuit reviewer",
+      "bytes": 260597,
+      "sha256": "99a0d39b328d4f6c71b816d8b65a40e4439d60c23de85bc83a5f9259377e28e6"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Forrelation/Walsh.lean",
+      "status": "assessed_at_selected_locators",
+      "coverage": "All declarations and proof steps used in the normalized product, projection, repetition, same-witness compilation and complete-wrapper routes; unrelated contents unassessed. Exact locators in evidence/lean_declarations.json and correspondence.json.",
+      "role": "Current Lean source and ordinary proof reconstruction.",
+      "reader": "quantum reviewer and evidence reviewer",
+      "bytes": 8806,
+      "sha256": "e3eae0cf1455ef1471fd4f42458b324bbe3bfe1b1879989366ce476657653069"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Forrelation/Product.lean",
+      "status": "assessed_at_selected_locators",
+      "coverage": "All declarations and proof steps used in the normalized product, projection, repetition, same-witness compilation and complete-wrapper routes; unrelated contents unassessed. Exact locators in evidence/lean_declarations.json and correspondence.json.",
+      "role": "Current Lean source and ordinary proof reconstruction.",
+      "reader": "quantum reviewer and evidence reviewer",
+      "bytes": 12191,
+      "sha256": "f0ceced9021b45de546dfc01aadabde913f8ecdf1a0d085992c5b61b8a1ef425"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Forrelation/Repetition.lean",
+      "status": "assessed_at_selected_locators",
+      "coverage": "All declarations and proof steps used in the normalized product, projection, repetition, same-witness compilation and complete-wrapper routes; unrelated contents unassessed. Exact locators in evidence/lean_declarations.json and correspondence.json.",
+      "role": "Current Lean source and ordinary proof reconstruction.",
+      "reader": "quantum reviewer and evidence reviewer",
+      "bytes": 11700,
+      "sha256": "1526168486cdc4e78213c6048199676df0520445666b60d3ece9c62678e90e70"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Upper/Decode.lean",
+      "status": "assessed_at_selected_locators",
+      "coverage": "All declarations and proof steps used in the normalized product, projection, repetition, same-witness compilation and complete-wrapper routes; unrelated contents unassessed. Exact locators in evidence/lean_declarations.json and correspondence.json.",
+      "role": "Current Lean source and ordinary proof reconstruction.",
+      "reader": "quantum reviewer and evidence reviewer",
+      "bytes": 18048,
+      "sha256": "4755c92be7627e4a58b1487d831a93765a3510647682e903c6abfed39f61411b"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationQuantum.lean",
+      "status": "assessed_at_selected_locators",
+      "coverage": "All declarations and proof steps used in the normalized product, projection, repetition, same-witness compilation and complete-wrapper routes; unrelated contents unassessed. Exact locators in evidence/lean_declarations.json and correspondence.json.",
+      "role": "Current Lean source and ordinary proof reconstruction.",
+      "reader": "quantum reviewer and evidence reviewer",
+      "bytes": 6028,
+      "sha256": "f31face68a9c47906d9a728cced9aa8a24ec73d3079c6196ae1853130151391b"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationComparison.lean",
+      "status": "assessed_at_selected_locators",
+      "coverage": "All declarations and proof steps used in the normalized product, projection, repetition, same-witness compilation and complete-wrapper routes; unrelated contents unassessed. Exact locators in evidence/lean_declarations.json and correspondence.json.",
+      "role": "Current Lean source and ordinary proof reconstruction.",
+      "reader": "quantum reviewer and evidence reviewer",
+      "bytes": 5765,
+      "sha256": "e9bb18d1e0ea9482762e89a9ced002c720f9b7d2311a455a9904bd820c5b4a01"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/Section2.lean",
+      "status": "assessed_at_selected_locators",
+      "coverage": "All declarations and proof steps used in the normalized product, projection, repetition, same-witness compilation and complete-wrapper routes; unrelated contents unassessed. Exact locators in evidence/lean_declarations.json and correspondence.json.",
+      "role": "Current Lean source and ordinary proof reconstruction.",
+      "reader": "quantum reviewer and evidence reviewer",
+      "bytes": 16045,
+      "sha256": "34fb705db7f672de0faf3e18fcc3dda4862033e157a325d8c9016936361f84cf"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationComplete.lean",
+      "status": "assessed_at_selected_locators",
+      "coverage": "Complete-lemma wrapper, current declaration types, relevant Forrelation statement ties and their premises/routes/statuses.",
+      "role": "Exact current evidence interpretation.",
+      "reader": "evidence reviewer",
+      "bytes": 4796,
+      "sha256": "733526015ad9a2013512d8f6216b8f73c41566a803d92602dd30e40e90d7ad06"
+    },
+    {
+      "member": "repository/research/adjudication/round2_construction_quantum_ties.json",
+      "status": "assessed_at_selected_locators",
+      "coverage": "Complete-lemma wrapper, current declaration types, relevant Forrelation statement ties and their premises/routes/statuses.",
+      "role": "Exact current evidence interpretation.",
+      "reader": "evidence reviewer",
+      "bytes": 260597,
+      "sha256": "99a0d39b328d4f6c71b816d8b65a40e4439d60c23de85bc83a5f9259377e28e6"
+    },
+    {
+      "member": "writing/the-deliverable.md",
+      "status": "assessed",
+      "coverage": "Complete supplied guide.",
+      "role": "Writing method only.",
+      "reader": "primary reviewer",
+      "bytes": 8402,
+      "sha256": "5b234d4446bf4b7ac79c38586147730dc41370581daa38661326875d5b50951c"
+    },
+    {
+      "member": "writing/register-from-literature.md",
+      "status": "assessed",
+      "coverage": "Complete supplied guide.",
+      "role": "Writing method only.",
+      "reader": "primary reviewer",
+      "bytes": 4106,
+      "sha256": "2278000b36133a13c0e83f785bdb2a89b94b8ed1927daeaf12d2b1ed30545d7d"
+    },
+    {
+      "member": "writing/SKILL.md",
+      "status": "sampled",
+      "coverage": "First-time-reader, claim-fidelity and Lean correspondence guidance, including lines 181--280 and selected setup instructions.",
+      "role": "Writing method only.",
+      "reader": "primary reviewer",
+      "bytes": 29787,
+      "sha256": "dcad856e7363b81876e4ab0784bcc0a3e51ccab11017eb9e08d81d345d2d6c74"
+    },
+    {
+      "member": "writing/mathematical-writing-mechanics.md",
+      "status": "sampled",
+      "coverage": "Sections 2, 5 and 9; Lean-correspondence, taste-rubric and authoring-receipt gates.",
+      "role": "Writing method only.",
+      "reader": "primary reviewer",
+      "bytes": 45312,
+      "sha256": "0ba857f70a724a2676f91b01e7ee95cc3518dcd261b53fec27b743935d1caa0f"
+    },
+    {
+      "member": "writing/full-exposition-guide.md",
+      "status": "sampled",
+      "coverage": "Selected Section 4A (lines 348--455), Sections 7--8 (lines 812--947), with targeted context. No claim of a complete reading.",
+      "role": "Writing method only.",
+      "reader": "primary reviewer",
+      "bytes": 103236,
+      "sha256": "c7baa3c8b195647b00cdd37c38c48b122371ce9c3cd92798e2e9d55f3d1c4eca"
+    },
+    {
+      "member": "exemplars/long-reasoning-record.md",
+      "status": "sampled",
+      "coverage": "Overview, lines 1--58, for proof-and-source transitions.",
+      "role": "Unrelated mathematical exemplar; style only.",
+      "reader": "primary reviewer",
+      "bytes": 278844,
+      "sha256": "a19893f62d1211681ed0cb9cbb8bb454214d97f231f6a6d091b6f198fca35a89"
+    },
+    {
+      "member": "exemplars/expository.md",
+      "status": "sampled",
+      "coverage": "Section 1, lines 48--154, for a concrete calculation and explanatory transitions.",
+      "role": "Unrelated mathematical exemplar; style only.",
+      "reader": "primary reviewer",
+      "bytes": 67972,
+      "sha256": "67d89307e8131e8c2ca1f21749dce062218534d1ac25d4c5860f2500e234e33f"
+    },
+    {
+      "member": "exemplars/short-paper.md",
+      "status": "unassessed",
+      "coverage": "Not required on the assigned reading route and not used.",
+      "role": "Unused supplied writing specimen.",
+      "reader": "primary reviewer",
+      "bytes": 59587,
+      "sha256": "4b34070c1152369eec9bef536de51f8929c68f3a851f291e962a0c51a3b31ebb"
+    },
+    {
+      "member": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "status": "assessed_at_selected_locators",
+      "coverage": "Source/hash binding, complete declaration membership or audit markers; relevant complete theorem types and allowed-axiom printouts. All 258 type blocks checked structurally; detailed semantic reading is limited to the mapped declarations.",
+      "role": "Recorded previous execution; not a new Lean or Comparator run.",
+      "reader": "evidence reviewer",
+      "bytes": 129286,
+      "sha256": "bc11e3fec8581f89ce56b110bf76db2469abea4b7be00fa476f9d2cee9455c2e"
+    },
+    {
+      "member": "native_results/final-evidence/reviewed_axiom_audit.json",
+      "status": "assessed_at_selected_locators",
+      "coverage": "Source/hash binding, complete declaration membership or audit markers; relevant complete theorem types and allowed-axiom printouts. All 258 type blocks checked structurally; detailed semantic reading is limited to the mapped declarations.",
+      "role": "Recorded previous execution; not a new Lean or Comparator run.",
+      "reader": "evidence reviewer",
+      "bytes": 29954,
+      "sha256": "74d4f0fd54ada1b2dbbda3734cb2d65f50816f0feec70db15748db185f30f3aa"
+    },
+    {
+      "member": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+      "status": "assessed_at_selected_locators",
+      "coverage": "Source/hash binding, complete declaration membership or audit markers; relevant complete theorem types and allowed-axiom printouts. All 258 type blocks checked structurally; detailed semantic reading is limited to the mapped declarations.",
+      "role": "Recorded previous execution; not a new Lean or Comparator run.",
+      "reader": "evidence reviewer",
+      "bytes": 16061,
+      "sha256": "3c26718576384a76fca10f1f44bf42ffd2f23130b0aabcf35b3f5c34f2b4a1e0"
+    },
+    {
+      "member": "native_sources/final-evidence/reviewed_axiom_audit.lean",
+      "status": "assessed_at_selected_locators",
+      "coverage": "Source/hash binding, complete declaration membership or audit markers; relevant complete theorem types and allowed-axiom printouts. All 258 type blocks checked structurally; detailed semantic reading is limited to the mapped declarations.",
+      "role": "Recorded previous execution; not a new Lean or Comparator run.",
+      "reader": "evidence reviewer",
+      "bytes": 51176,
+      "sha256": "78da4e0b0d875eedd3898a46f4e885a8fa7e89c2d5fbf2d3205012ff4f640513"
+    },
+    {
+      "member": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "status": "assessed_at_selected_locators",
+      "coverage": "Source/hash binding, complete declaration membership or audit markers; relevant complete theorem types and allowed-axiom printouts. All 258 type blocks checked structurally; detailed semantic reading is limited to the mapped declarations.",
+      "role": "Recorded previous execution; not a new Lean or Comparator run.",
+      "reader": "evidence reviewer",
+      "bytes": 169174,
+      "sha256": "f87b4e78aaa99fb069acc358fd90c6b95a1fd09bb337d4b49b6851ae714d8ae1"
+    }
+  ],
+  "additional_evidence_scope": {
+    "all_receipts": "Every receipt listed in EVIDENCE_SNAPSHOT was inspected for status, declaration membership, source binding and source-currentness; individual results are in evidence/receipt_audit.json.",
+    "declaration_map": "Relevant 91 declarations from the current statement map were compared with the 2652-name root receipt; principal types were checked in the 258-declaration type/axiom audit. Exact per-declaration correspondence appears in evidence/lean_declarations.json.",
+    "native_results": "Relevant definition, quantum, complete-conjunction and phase-compilation native-result files were source-hash checked; individual results are in evidence/quantum_evidence_hash_checks.json.",
+    "dependency_export": "The supplied export's hash and 124-source binding were verified: two selected roots, 1354 reached public declarations, no unresolved declarations. A root's reachability does not imply its sibling helpers are reached.",
+    "full_inventory": "All 453 manifest member size/hash entries and all 448 input_sha256 entries checked with no mismatch. The complete inventory remains the original manifest; unlisted mathematical contents were not thereby assessed."
+  },
+  "dependency_versions": {
+    "lake_packages": [
+      {
+        "name": "complexitylib",
+        "revision": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a",
+        "url": "https://github.com/cslib-community/complexitylib.git"
+      },
+      {
+        "name": "cslib",
+        "revision": "254e30e6d4299c51323aaeaf5f51a4763b375d4a",
+        "url": "https://github.com/leanprover/cslib"
+      },
+      {
+        "name": "mathlib",
+        "revision": "69552756cd8a2d2d48763cf7279fd814d6a1224d",
+        "url": "https://github.com/leanprover-community/mathlib4"
+      },
+      {
+        "name": "plausible",
+        "revision": "129d1ba9a16bc0660f46c79e9fb041ef5d5d80de",
+        "url": "https://github.com/leanprover-community/plausible"
+      },
+      {
+        "name": "LeanSearchClient",
+        "revision": "c61286b7b63cbfd563b28e11e81d0a18233a044a",
+        "url": "https://github.com/leanprover-community/LeanSearchClient"
+      },
+      {
+        "name": "importGraph",
+        "revision": "b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60",
+        "url": "https://github.com/leanprover-community/import-graph"
+      },
+      {
+        "name": "proofwidgets",
+        "revision": "16259c0d07d61ee37d999d05b5cf96338b8daa11",
+        "url": "https://github.com/leanprover-community/ProofWidgets4"
+      },
+      {
+        "name": "aesop",
+        "revision": "7d11bfa88558f8d3d90afdf6bd877ed70001498d",
+        "url": "https://github.com/leanprover-community/aesop"
+      },
+      {
+        "name": "Qq",
+        "revision": "b0256621cb88178e9ad932a53633077b3029e621",
+        "url": "https://github.com/leanprover-community/quote4"
+      },
+      {
+        "name": "batteries",
+        "revision": "d4c39b228d4a06f3b00748c2c445a7b9f056a6e3",
+        "url": "https://github.com/leanprover-community/batteries"
+      },
+      {
+        "name": "Cli",
+        "revision": "c09cb1e4f1e6e1c231a1175a12b681b075054a1b",
+        "url": "https://github.com/leanprover/lean4-cli"
+      }
+    ],
+    "toolchain": "leanprover/lean4:v4.36.0-rc2"
+  },
+  "web_research": [
+    {
+      "url": "https://arxiv.org/abs/1411.5729v1",
+      "status": "assessed",
+      "scope": "Primary arXiv edition metadata and corresponding PDF, selected Section 1.1.3 and Section 3.2/Proposition 6; journal metadata verified separately.",
+      "role": "Authoritative attribution and comparison."
+    },
+    {
+      "url": "https://arxiv.org/html/2008.07003v3",
+      "status": "assessed",
+      "scope": "Primary versioned HTML, introduction equations (1.1)--(1.3), Proposition 1.2, Theorem 1.3/Corollary 1.4 statement context.",
+      "role": "Verify exact promise and distinguish output laws."
+    },
+    {
+      "url": "https://github.com/openai/math/tree/main/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026",
+      "status": "sampled",
+      "scope": "Official repository listing/abstract and metadata; the mathematical content was read from the supplied PDF.",
+      "role": "Public provenance verification only."
+    },
+    {
+      "url": "https://github.com/openai/math/blob/4eaee875/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf",
+      "status": "unavailable",
+      "scope": "Pinned public PDF request returned a retrieval error; supplied PDF available and read.",
+      "role": "Versioned public reference, not a claim of successful web retrieval."
+    },
+    {
+      "url": "https://doi.org/10.1137/15M1050902",
+      "status": "sampled",
+      "scope": "Publisher/arXiv bibliographic metadata corroborated; direct DOI full-page retrieval unavailable; no journal-page mathematical reading claimed.",
+      "role": "Publication metadata only."
+    },
+    {
+      "url": "https://doi.org/10.1145/3406325.3451040",
+      "status": "sampled",
+      "scope": "Publication metadata corroborated; direct publisher retrieval returned HTTP 403; proofs read from versioned primary arXiv full text.",
+      "role": "Publication metadata only."
+    }
+  ],
+  "unavailable": [
+    {
+      "item": "Pasted text(20261102-190823).txt",
+      "library_file_id": "libfile_2393b993a4cc81918778d263acad42e4",
+      "status": "unavailable",
+      "consequence": "Not read; user was informed. Work follows the complete instructions contained in the available ZIP."
+    },
+    {
+      "item": "Full pinned Lean/lake executable environment, dependency checkout and compiled .olean files",
+      "status": "unavailable",
+      "consequence": "No fresh kernel build or Comparator execution claimed."
+    },
+    {
+      "item": "writing/tools/paper_register.py",
+      "status": "unavailable",
+      "consequence": "No automated register-metric result claimed; source-located editorial review performed manually."
+    }
+  ],
+  "unassessed": [
+    "Unassigned sections of the full long reasoning record, except the exact interfaces expressly listed above.",
+    "Bansal--Sinha Section 5.4 and the full randomized lower-bound proof.",
+    "The later total-construction proof and quartic-exponent result as a whole.",
+    "Unselected Mathlib/foundation proofs and source not bundled in the focused packet.",
+    "A journal-versus-preprint line-by-line comparison of either external paper.",
+    "Human peer review or author confirmation; none was obtained."
+  ],
+  "new_execution": [
+    "Exact Python integer/rational semantic checks: 256 k=2,t=1 inputs, 4096 k=3,t=1 inputs, and 8193 synthetic integer-numerator boundary values.",
+    "Read-only SHA-256/size/source-binding/receipt-membership audit against the supplied packet.",
+    "Pandoc/XeLaTeX rendering of section.md and visual review of all nine pages, with layout corrections and final reinspection.",
+    "Return-package structural validation, full display/table correspondence coverage and manifest integrity checks."
+  ],
+  "not_executed": [
+    "Lean build",
+    "Comparator",
+    "fresh kernel axiom audit",
+    "paper_register.py"
+  ],
+  "input_mutation": "No source input was edited."
+}

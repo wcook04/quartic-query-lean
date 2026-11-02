@@ -1,0 +1,43 @@
+[
+  {
+    "id": "r3-q-cyclic-example",
+    "statement": "For m=4, T=12 and epsilon=1/12000, take a_sj=11999/12000, a_js=1/12000 for j in {a,b,c}, a_ab=a_bc=a_ca=1, complementary reverse probabilities zero, and zero diagonal. After pivot a the weights are (11999/12000,0,0,1), total 23999/12000, stage success 23999/48000, and conditional next-pivot law (11999/23999,0,0,12000/23999). The initial expected next total weight is 3/2; the ideal process contains s after at most three pivots with probability one.",
+    "why_needed": "Concrete exact instance of fractional weights, a dominant vertex, cyclic loser comparisons, and preserved conditional sampling law.",
+    "depends_on": [
+      "eq-10",
+      "def-T-eps",
+      "eq-11",
+      "eq-12",
+      "eq-13",
+      "claim-success-prob"
+    ],
+    "proposed_lean": null,
+    "route_note": "Ordinary finite deduction, independently checked with fractions.Fraction in checks/tournament_example.py. Not a formal Lean theorem or a full addressed-input construction.",
+    "evidence_state": "ordinary_proof_and_exact_finite_arithmetic"
+  },
+  {
+    "id": "r3-q-labels-do-not-determine-state",
+    "statement": "The normalized vectors |+> tensor |0> and (|00>+|11>)/sqrt(2) have the same uniform computational-basis label law on the first register, but that register has reduced density |+><+| in the first case and I/2 in the second. The probability of a + outcome in the +/- basis is respectively 1 and 1/2.",
+    "why_needed": "Demonstrates precisely why retained workspace and a successful-label law do not imply the physical original-output-subsystem statement.",
+    "depends_on": [
+      "lem-3.1",
+      "new-upper-sampler-law"
+    ],
+    "proposed_lean": null,
+    "route_note": "Elementary two-register density-matrix calculation; exact rational matrix checks in checks/state_example.py. A controlled-NOT uncomputes the extra copy in this example, so this is no impossibility result.",
+    "evidence_state": "ordinary_proof_and_exact_finite_arithmetic"
+  },
+  {
+    "id": "r3-q-physical-state-bridge",
+    "statement": "For 0<gamma<=1/2 and 0<eta<1/2 there is a single preparation-oracle-slot procedure, fixed by these parameters and the register/query interface before A and A^{-1} are supplied, with at most N(2M+1) calls. Controlled Grover iterations use unconditional preparation calls and controlled fixed reflections, so no separate controlled opaque-A interface is assumed. For any input-indexed q-read preparation A_x on original register H, the template supplies an input-independent finite auxiliary register J, origin j0, auxiliary success projector Pi_J and routing, giving a coherent circuit B_x on H tensor J. If p_x=||Pi A_x h0||^2 and Psi_x=B_x(h0 tensor j0), then s_x=||(I_H tensor Pi_J)Psi_x||^2 lies in [0,1], p_x>=gamma implies s_x>=1-eta, p_x=0 implies the successful vector is zero, and p_x>0 implies s_x>=p_x/2>0 and existence of xi_x with Pi_J xi_x=xi_x, (I_H tensor Pi_J)Psi_x=g_x tensor xi_x and ||xi_x||^2=s_x, where g_x=Pi A_x h0/sqrt(p_x). The same specified circuit compiles on arbitrary embedded states/continuations with at most 2qN(2M+1) ordinary bit queries. M=ceil(10/sqrt(gamma)), N=ceil(ln(1/eta)/ln(40/31)).",
+    "why_needed": "Exact remaining formal obligation for identifying the abstract returned-state lemma with a physical retained-register implementation.",
+    "depends_on": [
+      "lem-3.1",
+      "r2-q-coherent-amplification",
+      "claim-coherent-access"
+    ],
+    "proposed_lean": "Suggested name: QuarticQuery.Paper.quantum_amplification_retained_state. Exact mathematical input/output type and finite-coordinate schema are in LEAN_GAPS.md. No declaration of that name was authored, elaborated, or checked.",
+    "route_note": "Ordinary fresh-register, controlled-routing construction is described in section.md. Missing Lean correspondence theorem; not an extra premise used by the compiled quantum upper bound. A plain existential Samples witness cannot encode the required original-output subsystem or black-box uniformity.",
+    "evidence_state": "ordinary_construction_with_open_formal_bridge"
+  }
+]

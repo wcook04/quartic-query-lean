@@ -1,0 +1,150 @@
+{
+  "schema": "quartic-r3-independent-semantic-expectations-v1",
+  "status": "proposed_lean_uncompiled",
+  "authority": {
+    "paper": "OpenAI, A Nearly Quartic Separation Between Randomized and Quantum Query Complexity, 5 October 2026",
+    "locators": [
+      "abstract and §1 (error at most 1/3)",
+      "§1.3 (promise convention)",
+      "§2.1, equations (3)–(4) (signed Forrelation promise)",
+      "§3.2, equation (10) (comparison witness)"
+    ]
+  },
+  "query_unit": "one queried input bit; worst-case tree depth across positive-weight support",
+  "independence": "The finite expected answers are specified from mathematical examples, not generated from Solution.lean. Tests import the actual definitions. The Forrelation instance is also already checked by the separate supplied Sanity module; the proposed test recomputes the concrete value without importing that theorem. Independence is a distinction of test specification, not a claim of an unseen human author.",
+  "cases": [
+    {
+      "id": "semantic-identity-zero",
+      "expected": false,
+      "full_type": "¬ QuarticQuery.RLe QuarticQuery.SemanticReview.oneBitIdentity 0",
+      "declaration": "QuarticQuery.SemanticReview.identity_not_zero",
+      "assumptions": [],
+      "source_definition": "RLe",
+      "normalization": "RandomizedProgram positive weights sum to 1; program fixed before x"
+    },
+    {
+      "id": "semantic-or-two-inclusive",
+      "expected_successes": {
+        "00": "2/3",
+        "01": "2/3",
+        "10": "2/3",
+        "11": "1"
+      },
+      "expected_worst_case_queries": 1,
+      "full_type": "QuarticQuery.RLe QuarticQuery.SemanticReview.orTwo 1",
+      "declaration": "QuarticQuery.SemanticReview.orTwo_RLe_one",
+      "assumptions": [],
+      "algorithm": "Equal mixture of constant true, read first bit, read second bit"
+    },
+    {
+      "id": "semantic-true-only",
+      "expected": {
+        "R": 0,
+        "Q": 0,
+        "off_promise_false_input": "none"
+      },
+      "full_types": [
+        "QuarticQuery.R QuarticQuery.SemanticReview.trueOnly = 0",
+        "QuarticQuery.Q QuarticQuery.SemanticReview.trueOnly = 0"
+      ],
+      "declarations": [
+        "QuarticQuery.SemanticReview.trueOnly_R_eq_zero",
+        "QuarticQuery.SemanticReview.trueOnly_Q_eq_zero"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "semantic-forrelation-negative",
+      "input": "k=2,t=1,m=4; both sign vectors (-1,1,1,1)",
+      "expected": {
+        "numerator": -8,
+        "denominator": 8,
+        "Phi": -1,
+        "P": "none"
+      },
+      "full_types": [
+        "QuarticQuery.Phi 2 1 QuarticQuery.SemanticReview.negativePair = -1",
+        "QuarticQuery.P 2 1 QuarticQuery.SemanticReview.negativePair = none"
+      ],
+      "declarations": [
+        "QuarticQuery.SemanticReview.negativePair_Phi",
+        "QuarticQuery.SemanticReview.negativePair_P_none"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "semantic-comparison-witness",
+      "expected": true,
+      "full_type": "∃ a : Fin 2 → Fin 2 → ℝ, QuarticQuery.Tournament.IsComparison a",
+      "declaration": "QuarticQuery.SemanticReview.comparison_has_witness",
+      "witness": "a(i,i)=0; a(i,j)=1/2 if i≠j",
+      "assumptions": []
+    }
+  ],
+  "native_execution": {
+    "schema": "quartic-r3-native-prerequisite-probe-v1",
+    "ran_at": "2026-11-02T19:14:57.400410+00:00",
+    "status": "unavailable",
+    "scope": "Actual command attempts in this environment. No Lean module, Comparator comparison, or lean-exposition extraction was executed.",
+    "commands": [
+      {
+        "command": [
+          "lean",
+          "--version"
+        ],
+        "cwd": "repository/lean",
+        "exit_code": null,
+        "exception": "[Errno 2] No such file or directory: 'lean'",
+        "available_on_path": null,
+        "native_run_started": false
+      },
+      {
+        "command": [
+          "lake",
+          "--version"
+        ],
+        "cwd": "repository/lean",
+        "exit_code": null,
+        "exception": "[Errno 2] No such file or directory: 'lake'",
+        "available_on_path": null,
+        "native_run_started": false
+      },
+      {
+        "command": [
+          "elan",
+          "--version"
+        ],
+        "cwd": "repository/lean",
+        "exit_code": null,
+        "exception": "[Errno 2] No such file or directory: 'elan'",
+        "available_on_path": null,
+        "native_run_started": false
+      },
+      {
+        "command": [
+          "lean-exposition",
+          "--version"
+        ],
+        "cwd": "repository/lean",
+        "exit_code": null,
+        "exception": "[Errno 2] No such file or directory: 'lean-exposition'",
+        "available_on_path": null,
+        "native_run_started": false
+      }
+    ]
+  },
+  "source_hashes": {
+    "repository/lean/QuarticQuery/Statement.lean": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+    "repository/lean/QuarticQuery/Model/Classical.lean": "a820d0804ee722ee74eef97ea8efeb2a15da55107d6a908e35ba60ef39932e9e",
+    "repository/lean/QuarticQuery/Forrelation/Promise.lean": "96b967a27458107549e38ce4fe001d707a4c240ad4e4b582729a6ce9526d2cf1",
+    "repository/lean/QuarticQuery/Forrelation/Sanity.lean": "bf287a0ff1f6022582b6d8daae3a89ad34d8aa51986531a649f133ee692eae70",
+    "repository/tools/return_checks/semantic_controls.py": "cfd4e4bccef22510c83a843f99c5ac59ec33ca5b654651bfdb8aa210fd583670",
+    "repository/tools/build_challenges.py": "7d4bc7588431a975301e55bd9cd2a25e587cddcd7e09b841f145b2f53e9e1497",
+    "repository/tools/run_comparator.py": "01879fa71d3e25a4706a85b7f4aa59ef3574d3d785e3a3a80a61cc95e7c84190",
+    "repository/lean/lean-toolchain": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3",
+    "repository/lean/lakefile.toml": "255abcc3c689d0258d4cea520447fdc8da26e26a191331aa95559b2fb4818647",
+    "repository/lean/lake-manifest.json": "d670a8101d900b62e17a1d51c8b1b36fd60919bcad472700b0a5e1c0b38b104d",
+    "paper/extracted.md": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+    "paper/source.pdf": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e"
+  }
+}

@@ -1,0 +1,214 @@
+{
+  "schema": "quartic-r3-return-manifest-v1",
+  "assignment": "07_planted_lower_bound",
+  "title": "Planted inputs and the randomized lower bound: replacement Sections 6.2-6.6",
+  "date": "2026-11-02",
+  "status": "advisory_return_not_integrated_or_accepted",
+  "source_versions": {
+    "input_archive": {
+      "name": "quartic_r3_07_planted_lower_bound.zip",
+      "bytes": 4885525,
+      "sha256": "6f8cd88daff3369cb638454e32b28143453342bbb6f08b619739777d8fd546c4",
+      "library_file_id_supplied": "libfile_c1a64056310c8191ac58368eccb7d60a"
+    },
+    "input_manifest": {
+      "member": "manifest.json",
+      "sha256": "c814fb70ef87f52ef0312fc95a5c47bc0df3bc8c243712648b6fa5f27a843736",
+      "listed_members": 449
+    },
+    "repository_snapshot_label": "1dd469dd0042b937b739da3bc211eeb60bdf7462",
+    "root_receipt_declared_commit": "31e17dee667d1d72fa621da8e7d3d8ff5fc3960a",
+    "source_binding_rule": "Different commit labels are preserved. Matching exact local source/configuration hashes establish the available receipt binding.",
+    "lean_toolchain": "leanprover/lean4:v4.36.0-rc2",
+    "openai_preprint": {
+      "title": "A Nearly Quartic Separation Between Randomized and Quantum Query Complexity",
+      "date": "2026-10-05",
+      "member": "paper/source.pdf",
+      "sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e",
+      "target": "Section 4.2, equations (17)-(23), Proposition 4.2, printed pp. 12-14; neighboring Section 4.1 and Section 5 interfaces.",
+      "remote_pdf_byte_identity_verified": false
+    },
+    "literature": [
+      {
+        "key": "BS2020v3",
+        "arxiv": "2008.07003v3",
+        "version_date": "2020-11-17",
+        "url": "https://arxiv.org/abs/2008.07003v3",
+        "scope": "Theorem 1.3 and Corollary 1.4 p. 4; separate Section 5.4 displayed comparison p. 38, main.tex:1180-1181; line 1184 is the subsequent threshold.",
+        "supplied_file_versions": [
+          {
+            "member": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/extracted.md",
+            "bytes": 181861,
+            "sha256": "cf1477e44353bbb796581002e8cacef3199e8e153d43f075fc8047c2934de952"
+          },
+          {
+            "member": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.pdf",
+            "bytes": 986784,
+            "sha256": "afe53c8bd918d07590f29a947ef044453db73959043135082d1a3c29b2863a35"
+          },
+          {
+            "member": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.tar.gz",
+            "bytes": 213572,
+            "sha256": "f48a3225662484d12e19bf03412478cf87a388f7c2e33c69a4d7f2078202e015"
+          }
+        ]
+      },
+      {
+        "key": "ABK2019v2",
+        "arxiv": "1511.01937v2",
+        "version_date": "2019-07-09",
+        "url": "https://arxiv.org/abs/1511.01937v2",
+        "proceedings_year": 2016,
+        "scope": "Section 6.1, Definitions 14-15, pp. 20-21; Section 6.2, Lemma 17, p. 22.",
+        "supplied_file_versions": [
+          {
+            "member": "literature/quartic-ref-02-separations-in-query-complexity-using-chea/extracted.md",
+            "bytes": 145399,
+            "sha256": "39745f19fdbaad3fd6542cee69cd8fdabe02771f975e676aa2e375a208873e32"
+          },
+          {
+            "member": "literature/quartic-ref-02-separations-in-query-complexity-using-chea/source.pdf",
+            "bytes": 393155,
+            "sha256": "64380c861d0e0296a53c998a0109d62bf446529414001f8e46615991b558e4bc"
+          },
+          {
+            "member": "literature/quartic-ref-02-separations-in-query-complexity-using-chea/source.tar.gz",
+            "bytes": 38431,
+            "sha256": "8b878b7b4c67206924b8cc32e586c5ad1ec918ffcb60d665b7ea26dddaffa5ff"
+          }
+        ]
+      },
+      {
+        "key": "Drucker2014v2",
+        "arxiv": "1005.0644v2",
+        "version_date": "2014-05-09",
+        "url": "https://arxiv.org/abs/1005.0644v2",
+        "journal_year": 2012,
+        "scope": "Section 1.3 pp. 6-7; Lemmas 3.1-3.2 pp. 11-12; fair specialization at end of Section 3 p. 13.",
+        "supplied_file_versions": [
+          {
+            "member": "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/extracted.md",
+            "bytes": 121771,
+            "sha256": "de4e25127079b849cc18984031442ed939d6c24467d1bd67faaa466f8e17e29a"
+          },
+          {
+            "member": "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/source.pdf",
+            "bytes": 405185,
+            "sha256": "6a67da06a0f07d0f86bb6389b7143314cade50294e2c0c454f3cc9853643faff"
+          },
+          {
+            "member": "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/source.tex",
+            "bytes": 131397,
+            "sha256": "7defbc5925e9554768cf5bab0ab548188d5d264075cfc1f00891544b5aec782d"
+          }
+        ]
+      }
+    ],
+    "mathlib_revision": "69552756cd8a2d2d48763cf7279fd814d6a1224d",
+    "complexitylib_revision": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a"
+  },
+  "member_count_excluding_manifest": 20,
+  "manifest_self_hash_policy": "Every other file is listed with exact bytes and SHA-256. This manifest does not hash itself, avoiding a circular hash.",
+  "members": [
+    {
+      "member": "EVIDENCE_CORRECTIONS.json",
+      "bytes": 2438,
+      "sha256": "a7633f943643de79f7d71b6d376b00c1123cab5a2de820de77e8cb9546ea5619"
+    },
+    {
+      "member": "LEAN_GAPS.md",
+      "bytes": 11323,
+      "sha256": "111644aa3960a863faff886f127403d575fe6d3fc9b67a6e496efe7323a3d1e2"
+    },
+    {
+      "member": "NEW_STATEMENTS.json",
+      "bytes": 4145,
+      "sha256": "373b7c37e0dcab3900e1f2ab0db4886a240747058a65f7e634ab71ca66c3fa6f"
+    },
+    {
+      "member": "README.md",
+      "bytes": 3285,
+      "sha256": "637d7e53d01eade59595e6c98875dcb2a48192ae7e67bd9b03865b3555fe429f"
+    },
+    {
+      "member": "STATEMENT_CHANGES.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "member": "STYLE_RULES.json",
+      "bytes": 17776,
+      "sha256": "2c1fc587405c00a88e6945d1340088eb660ed7d2c606cf30c309b8a69d1e12c7"
+    },
+    {
+      "member": "checks/check_floors.json",
+      "bytes": 36776,
+      "sha256": "d14107be5930af4d8c4770629cb4fdd0cf67cd22c016c28f172d0c9262ae399a"
+    },
+    {
+      "member": "checks/check_floors.py",
+      "bytes": 3170,
+      "sha256": "dc2adacb1f78d622bea84b1bbb706b4db6a523e6aca24f16fff942e19524fe3e"
+    },
+    {
+      "member": "checks/planted_example.json",
+      "bytes": 9514,
+      "sha256": "86d7cf806a4a0a114e7d3bfeab1cad0858714eac1adf1cfd9979c7aa8210c776"
+    },
+    {
+      "member": "checks/planted_example.py",
+      "bytes": 15601,
+      "sha256": "a46d828bf0a0238e447bab597dd1fcfff65a69f3d2b4561265d4e11706d77a99"
+    },
+    {
+      "member": "checks/validate_return.py",
+      "bytes": 11888,
+      "sha256": "3791f14bd888b5370a774c30f988473e7ad9675c7f8e329eab9f29cf797342c4"
+    },
+    {
+      "member": "correspondence.json",
+      "bytes": 325364,
+      "sha256": "49ee3ebbb8a527b30e55e6b110854f5ab34f27841394aa6f3d961ee75b128911"
+    },
+    {
+      "member": "evidence/lean_declarations.json",
+      "bytes": 302377,
+      "sha256": "0fb8ba50a4dad01fef3708cb5e2480a2f77fbb3e439d146dd804419c0ce17cd7"
+    },
+    {
+      "member": "evidence/lean_evidence.json",
+      "bytes": 183663,
+      "sha256": "95e902023c6509a02860e87e7cf5dceae2007266ddffdbe45153930a22e2b33b"
+    },
+    {
+      "member": "lean/Eq19Complete.lean",
+      "bytes": 1507,
+      "sha256": "8b3301ad4501972336296d0347215b2133d691e994fee5501f382c27e641c76b"
+    },
+    {
+      "member": "references.bib",
+      "bytes": 2337,
+      "sha256": "4182a4cb4b90d46dcfcd35efafdeec443ae2bd2a63fd13d5142df8d861247167"
+    },
+    {
+      "member": "review_notes.md",
+      "bytes": 24086,
+      "sha256": "5f354675b0801df08532ab05152a820c27e807ffc771b45fbf36410a5e8dd5d5"
+    },
+    {
+      "member": "section.md",
+      "bytes": 34951,
+      "sha256": "dbef1602d207c377e3c9fee9c3412142f0fedfd5dadadf904022f3ef58cfe58e"
+    },
+    {
+      "member": "source_read_receipt.json",
+      "bytes": 183527,
+      "sha256": "57fe6d1e83c14062facc9293b2d897f35af14a5e8c1e27e5e2ba1c10b393b5fc"
+    },
+    {
+      "member": "validation.json",
+      "bytes": 3545,
+      "sha256": "71054ae17cbf8f0e8a279b42e010772a1669f1cbf74d2bef626e815b261e10a3"
+    }
+  ]
+}

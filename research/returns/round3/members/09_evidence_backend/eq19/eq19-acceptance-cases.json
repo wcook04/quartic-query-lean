@@ -1,0 +1,108 @@
+[
+  {
+    "id": "eq19-existing-source-current",
+    "purpose": "Choose an actually accepted existing declaration before extraction.",
+    "kind": "receipt_source_binding",
+    "executed": true,
+    "result": "passed",
+    "evidence": [
+      "accepted-target-source-check.json"
+    ],
+    "observed": "All 124 root source/config hashes and the exact inventory match; target membership holds; all 16 module input hashes match.",
+    "limits": "Verifies supplied record consistency and bytes, not new native execution or original-host authenticity."
+  },
+  {
+    "id": "eq19-compound-wrapper",
+    "purpose": "Give the entire eq-19 row one named proof-bearing declaration.",
+    "kind": "native_lean_build",
+    "executed": false,
+    "result": "unverified_tool_unavailable",
+    "declaration": "QuarticQuery.Paper.eq19_whole",
+    "files": [
+      "overlay/lean/QuarticQuery/Paper/Eq19Whole.lean"
+    ],
+    "expected": "Successful build and actual type/axiom output containing both equality and inequality under normalization, nonnegativity and depth premises.",
+    "limits": "The existing component receipts do not establish this proposed wrapper."
+  },
+  {
+    "id": "eq19-independent-experiment",
+    "purpose": "Check actual project quantities against a preprint-authored finite experiment instead of copied specifications.",
+    "kind": "native_lean_semantic_bridge",
+    "executed": false,
+    "result": "unverified_tool_unavailable",
+    "declaration": "QuarticQuery.Independent.Eq19.specification_eq19",
+    "files": [
+      "overlay/lean/QuarticCorpus/Independent/Eq19/Spec.lean",
+      "overlay/lean/QuarticCorpus/Independent/Eq19/Bridge.lean"
+    ],
+    "expected": "All bridges and compound conclusion elaborate without sorry or nonstandard axioms.",
+    "limits": "Shares QueryTree, BitLoc, path and depth; does not claim independently authored foundational definitions."
+  },
+  {
+    "id": "eq19-repeated-query-witness",
+    "purpose": "Detect shared path/depth mistakes and distinguish repeated visits from distinct discoveries.",
+    "kind": "native_lean_semantic_test",
+    "executed": false,
+    "result": "unverified_tool_unavailable",
+    "declaration": "QuarticQuery.Independent.Eq19.repeatedZero_counts_once",
+    "files": [
+      "overlay/lean/QuarticCorpus/Independent/Eq19/PathControls.lean"
+    ],
+    "expected": "askTwice has path [q,q], depth 2, and counts a queried designated zero once.",
+    "limits": "Proposed theorem, not a toy Python model or an observed Lean pass."
+  },
+  {
+    "id": "eq19-whole-direct-comparison",
+    "purpose": "Attach comparison only to the exact declaration whose complete type is reviewed.",
+    "kind": "comparator",
+    "executed": false,
+    "result": "unverified_tool_unavailable",
+    "declaration": "QuarticQuery.Paper.eq19_whole",
+    "config": "overlay/lean/QuarticCorpus/Independent/Eq19/whole-comparator.json",
+    "expected": "Comparator accepts the exact whole wrapper, with empty definition_names and only the standard axioms.",
+    "limits": "Shared-vocabulary agreement; independent semantics are a separate Spec/Bridge obligation."
+  },
+  {
+    "id": "eq19-independent-comparison",
+    "purpose": "Compare the full independent experiment statement.",
+    "kind": "comparator",
+    "executed": false,
+    "result": "unverified_tool_unavailable",
+    "declaration": "QuarticQuery.Independent.Eq19.checked_eq19",
+    "config": "overlay/lean/QuarticCorpus/Independent/Eq19/comparator.json",
+    "expected": "Comparator accepts the complete equality-and-bound statement after the semantic bridges build.",
+    "limits": "No comparison was executed in this return; its status must not be copied to eq19_whole."
+  },
+  {
+    "id": "eq19-reject-inequality-only",
+    "purpose": "An inequality, even a correct stronger inequality, does not satisfy a compound equality-and-bound statement.",
+    "kind": "comparator_negative",
+    "executed": false,
+    "result": "unverified_tool_unavailable",
+    "config": "overlay/lean/QuarticCorpus/Independent/Eq19/negative-inequality-only.json",
+    "expected_exit": 1,
+    "expected_diagnostic": "Challenge and solution theorem statement do not match: 'QuarticQuery.Independent.Eq19.checked_eq19'",
+    "limits": "Source-predicted rejection. Missing executable, import/build failure or unrelated rejection does not pass this case."
+  },
+  {
+    "id": "native-consumer-extraction",
+    "purpose": "Run existing lean-exposition on a source-current accepted target.",
+    "kind": "native_extraction",
+    "executed": true,
+    "result": "blocked_process_launch",
+    "command_evidence": "native-extraction-attempt.json",
+    "observed_exit": 127,
+    "observed_stderr": "eq19-native-extraction-attempt: line 1: exec: lean-exposition: not found\n",
+    "graph_created": false,
+    "limits": "The attempted launch is not a native extraction receipt or completed endpoint."
+  },
+  {
+    "id": "native-consumer-selection-inspection",
+    "purpose": "Inspect actual goal prerequisites and existing graph contracts.",
+    "kind": "native_consumer_contract",
+    "executed": false,
+    "result": "blocked_no_native_graph_or_tool",
+    "expected": "Run real validate/select/inspect on the graph from the completed native extraction; retain source identity, typed dependencies, axioms and boundaries.",
+    "limits": "No synthetic graph, corpus projection, or supplied Reach export is used as a substitute."
+  }
+]

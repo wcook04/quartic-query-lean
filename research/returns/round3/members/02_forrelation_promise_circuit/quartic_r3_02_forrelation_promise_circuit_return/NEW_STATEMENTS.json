@@ -1,0 +1,167 @@
+[
+  {
+    "id": "R3-FOR-COHERENT-LAW",
+    "statement": "Fix integers k>=2 and t>=1, let m=4^t, let 0<eta<1/2, and set delta=2^(-5k), c=delta^2 and q=ceil(16*2^(10k)*ln(1/eta)). Index coordinates by G=F_2^(2t), put H_(a,b)=m^(-1/2)*(-1)^(a dot b), u=m^(-1/2)*(1,...,1), and D_v=diag(v), with the dot product taken over F_2. For every sign input z=(z_0,...,z_(k-1)), define U_z=D_(z_0) H D_(z_1) H ... H D_(z_(k-1)), psi_z=U_z u, Pi=|u><u|, alpha_1=Pi psi_z, alpha_0=(I-Pi)psi_z, Phi(z)=<u,U_z u>, and p(z)=Phi(z)^2. Define P_(k,m)(z)=1 when Phi(z)>=delta, P_(k,m)(z)=0 when |Phi(z)|<=delta/2, and leave it undefined otherwise. There is one circuit chosen before z, using at most qk ordinary bit queries on every input, which prepares q fresh copies of psi_z, records the Pi outcome coherently in q flags, and, after a query-free permutation grouping address registers before flags, has exactly the state\nsum_(h in {0,1}^q) (tensor_(j=1)^q alpha_(h_j)) tensor |h>.\nHere alpha_0 and alpha_1 are orthogonal, ||alpha_1||^2=p(z), and ||alpha_0||^2=1-p(z). Reversibly computing the Hamming weight |h| and the bit [|h|>=q*c/2], while retaining all address, flag and count registers, gives an output law\nL_z(1)=sum_(s=0)^q 1_[s>=q*c/2] binom(q,s) p(z)^s (1-p(z))^(q-s), and L_z(0)=1-L_z(1),\nwith 0^0 interpreted as 1 in these polynomial expressions. This law is nonnegative and has total mass one for every input, promised or not. For every promised value b with P_(k,m)(z)=b, L_z(b)>=1-eta. The state identity and the law concern this same ordinary coherent construction; they do not assert that the supplied Lean isometry has been identified with these literal registers.",
+    "why_needed": "Makes the retained coherent preparation and its measured binomial law one explicit mathematical object. The ordinary qk bit-query implementation, the source sampler with qk abstract reads, and the supplied generic 2qk physical implementation must not be conflated.",
+    "role": "proves",
+    "passage": "forr_coherent",
+    "depends_on": [
+      "def-query-oracle",
+      "def-walsh-sign",
+      "eq-3",
+      "eq-4",
+      "NEW-FOR-01",
+      "claim-proj-prob",
+      "NEW-FOR-02"
+    ],
+    "supports": [
+      "NEW-FOR-28",
+      "lem-2.1.ii"
+    ],
+    "proposed_lean": null,
+    "lean": [],
+    "related_existing_lean": [
+      {
+        "declaration": "QuarticQuery.Upper.decode_samples",
+        "relation": "Related coherent sampler and measured threshold law; no exact tie to the displayed literal tensor-register state."
+      },
+      {
+        "declaration": "QuarticQuery.Paper.construction_lemma_2_1_ii_complete",
+        "relation": "Related retained-isometry physical witness with a generic 2nk bit-query cap and accurate all-input Boolean law; not the literal qk tensor-state statement."
+      }
+    ],
+    "ordinary_premises": [
+      "k>=2 and t>=1; m=4^t; the stated bit/sign oracle convention",
+      "0<eta<1/2; q is selected before the input",
+      "Normalized Walsh matrix H and uniform vector u; arbitrary input-independent finite unitaries between queries"
+    ],
+    "open_assumptions": [],
+    "route_note": "Ordinary phase-kickback construction followed by the input-independent projector-controlled flag unitary, tensor expansion, query-free reversible counting, and the explicit two binomial tail estimates. The generic source compiler supplies a different constant in its formally packaged physical cap. No new Lean signature or compiled literal-state refinement is proposed.",
+    "citation_role": "Explains and proves the coherent version of OpenAI Lemma 2.1(ii), using the earlier Aaronson-Ambainis projection experiment; the explicit literal tensor-state formulation is an exposition addition, not a priority claim.",
+    "evidence_status": {
+      "ordinary_proof": "Included in section.md at forr_quantum, forr_repetition and forr_coherent; independently source-reviewed",
+      "finite_check": "Not used to establish this universal state identity",
+      "exact_compiled_literal_tie": "Not supplied",
+      "new_lean_build": "Not run",
+      "comparator_for_this_statement": "Not run",
+      "supplied_formal_evidence": "Current source-bound records support the related integrated sampler/wrapper declarations; exact types and limits are recorded separately in correspondence.json and LEAN_GAPS.md"
+    }
+  },
+  {
+    "id": "R3-FOR-THREE-EXAMPLES",
+    "statement": "At k=2, t=1, m=4, use coordinate order 00,01,10,11, bit 0 for sign +1 and bit 1 for sign -1. Let\nW=[[1,1,1,1],[1,-1,1,-1],[1,1,-1,-1],[1,-1,-1,1]], g=(-1,1,1,1), M=8 and delta=2^(-10).\nThen Wg=(2,-2,-2,-2). Fix the second sign block z_1=g. The first sign blocks (1,-1,-1,-1), (1,-1,1,1), and (-1,1,1,1), whose first bit blocks are respectively (0,1,1,1), (0,1,0,0), and (1,0,0,0), give N=z_0^T Wg equal to 8, 0 and -8, respectively. Their Forrelation values are 1, 0 and -1; their partial-function outcomes are 1, 0 and undefined; their squared-projection success probabilities are 1, 0 and 1; and the actual exact circuit outputs (d,b) are (1,1), (1,0) and (0,0), respectively. The common second bit block is (1,0,0,0). Among all 256 pairs of sign blocks, the exact numerator histogram at N=-8,-4,0,4,8 is 8,96,48,96,8. Consequently there are exactly 104 one-inputs, 48 zero-inputs and 104 unpromised inputs.",
+    "why_needed": "Adds matched positive, zero and negative calculations with the same Walsh indexing and second block, and connects the finite census to both the quantum output and exact circuit. The negative example explains why the total construction must verify the promise even when a quantum proposal is certain. The census itself is an already retained baseline statement, not a newly claimed result.",
+    "role": "proves",
+    "passage": "forr_small_instance",
+    "depends_on": [
+      "def-walsh-sign",
+      "eq-3",
+      "eq-4",
+      "claim-N-phi",
+      "claim-integer-tests",
+      "claim-proj-prob",
+      "NEW-FOR-26"
+    ],
+    "supports": [
+      "eq-4",
+      "lem-2.1.ii",
+      "lem-2.1.iii"
+    ],
+    "proposed_lean": null,
+    "lean": [],
+    "related_existing_lean": [
+      {
+        "declaration": "QuarticQuery.Forrelation.Phi_negativeWitness",
+        "relation": "Exact for the negative Phi=-1 example; only partial for this three-example joint statement."
+      },
+      {
+        "declaration": "QuarticQuery.Forrelation.P_negativeWitness",
+        "relation": "Exact for undefinedness of the negative example; only partial for this joint statement."
+      },
+      {
+        "declaration": "QuarticQuery.Forrelation.census_true",
+        "relation": "Exact for the count of 104 one-inputs; partial for the joint example/histogram statement."
+      },
+      {
+        "declaration": "QuarticQuery.Forrelation.census_false",
+        "relation": "Exact for the count of 48 zero-inputs; partial for the joint example/histogram statement."
+      },
+      {
+        "declaration": "QuarticQuery.Forrelation.census_none",
+        "relation": "Exact for the count of 104 unpromised inputs; partial for the joint example/histogram statement."
+      }
+    ],
+    "ordinary_premises": [
+      "k=2, t=1, m=4; stated coordinate ordering and bit-to-sign convention",
+      "The actual circuit value bit is the positive integer comparison, including off the promise"
+    ],
+    "open_assumptions": [],
+    "route_note": "Direct exact matrix-vector calculations and an independent analytical census: the eight signed Walsh rows yield N=+/-4, and the eight odd-parity second blocks yield twice a sum of four signs. The executable checker independently compares direct path sums, dense multiplication, butterfly arithmetic and reconstructed Boolean gates on every input. No new Lean declaration or kernel replay is claimed.",
+    "citation_role": "Worked example of the unchanged OpenAI/Bansal-Sinha promise; source Sanity.lean records the negative witness and aggregate census. No novelty attribution is made.",
+    "evidence_status": {
+      "ordinary_proof": "Complete calculation and parity proof in section.md at forr_small_instance",
+      "finite_check": "Executed checks/exact_example_checker.py; all 256 inputs at k=2,t=1 passed; exact output recorded in checks/exact_example_results.json",
+      "additional_check": "All 4096 inputs at k=3,t=1 and 8193 synthetic integer-threshold cases also passed; these additional checks are not hypotheses of this statement",
+      "exact_compiled_joint_tie": "Not supplied; existing negative-example and census declarations cover proper components",
+      "new_lean_build": "Not run",
+      "kernel_census_replay": "Not run",
+      "comparator_for_this_statement": "Not run"
+    }
+  },
+  {
+    "id": "R3-FOR-CIRCUIT-SIZE",
+    "statement": "For integers k>=1 and t>=1, put m=4^t, w=5k+3+t(k+1), a=k+1, and let S be the number of gates in the specific supplied circuit Forrelation.forrCircuit(k-1,t), with arbitrary Boolean gates of fan-in at most two, free constant-false predecessor wires and wire reuse, and the explicit true gates and repeated doublings used by its constructors. Then the exact Walsh cost is whtCost(w,2t)=t*m*(12w+1), and the exact complete gate count is\nS=6w*((k+1)m+5k+t(k+1)+4)+(k-1)*t*m*(12w+1)+7.\nMoreover w<=6at, ((k+1)m+5k+t(k+1)+4)<=7amt, and\nS<=337*a^2*m*t^2<=800*a^2*m*t^2=200*(k+1)^2*m*(log_2 m)^2.\nThe coefficient 337 is the sum 252+78+7 from the first cost term, transform term and constant. This exact count concerns the named modular circuit constructors, not an assertion that every stored residue equals a signed ideal intermediate integer.",
+    "why_needed": "Replaces the baseline size proof's auxiliary X,Y,Z bookkeeping with a direct count of the same constructors and a transparent proof of the already stated 200(k+1)^2 bound. It prevents accidentally omitting repeated doublings, constant gates or the three output gates.",
+    "role": "proves",
+    "passage": "forr_circuit_size",
+    "depends_on": [
+      "NEW-FOR-04",
+      "NEW-FOR-05",
+      "claim-circuit-size"
+    ],
+    "supports": [
+      "NEW-FOR-29",
+      "lem-2.1.iii"
+    ],
+    "proposed_lean": null,
+    "lean": [],
+    "related_existing_lean": [
+      {
+        "declaration": "QuarticQuery.Forrelation.whtCost",
+        "relation": "Source recurrence from which the exact Walsh closed form is derived."
+      },
+      {
+        "declaration": "QuarticQuery.Forrelation.layerCost",
+        "relation": "Source recurrence for numerator layers."
+      },
+      {
+        "declaration": "QuarticQuery.Forrelation.coreSize",
+        "relation": "Exact source cost definition before the three output gates."
+      },
+      {
+        "declaration": "QuarticQuery.Forrelation.forrCircuit_size_eq",
+        "relation": "Existing equality of circuit size to coreSize+3; a proper component of the new closed-form accounting."
+      },
+      {
+        "declaration": "QuarticQuery.Forrelation.forrCircuit_size_le",
+        "relation": "Existing 200(k+1)^2 upper bound, already established by a different arithmetic accounting; it does not state the new closed form or coefficient 337."
+      }
+    ],
+    "ordinary_premises": [
+      "k>=1, t>=1, m=4^t",
+      "S denotes the actual supplied forrCircuit(k-1,t), with its stated gate basis and cost conventions",
+      "Addition, subtraction and sign-multiplication counts are 6w, 6w+1 and 6w"
+    ],
+    "open_assumptions": [],
+    "route_note": "Solve the exact Walsh and layer recurrences by induction, add the final sum and threshold-construction costs, then use w<=6at, bracket<=7amt, 12w+1<=13w, and k-1<=a. This is an ordinary proof of a closed-form identity and a deliberately loose upper bound. No new Lean signature, elaboration or constant-337 theorem is asserted.",
+    "citation_role": "Explicit accounting of the supplied implementation for OpenAI Lemma 2.1(iii); the existing asymptotic and 200(k+1)^2 conclusions retain their earlier source credit.",
+    "evidence_status": {
+      "ordinary_proof": "Complete recurrence calculation and 337-versus-800 estimate in section.md at forr_circuit_size, independently checked",
+      "finite_check": "The reconstructed circuits have 3563 gates at k=2,t=1 and 7275 at k=3,t=1, agreeing with the closed form; finite checks do not establish the universal identity",
+      "exact_compiled_closed_form_tie": "Not supplied",
+      "new_lean_build": "Not run",
+      "comparator_for_this_statement": "Not run",
+      "supplied_formal_evidence": "Existing source-bound circuit endpoint and upper-bound records are documented separately; they are not promoted to a proof of this exact new display"
+    }
+  }
+]

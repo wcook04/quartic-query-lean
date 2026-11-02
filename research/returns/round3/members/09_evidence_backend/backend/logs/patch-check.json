@@ -1,0 +1,53 @@
+{
+  "schema": "quartic-r3-backend-patch-verification-v1",
+  "recorded_at": "2026-11-02T19:19:52.061339+00:00",
+  "packet_repository_commit": "1dd469dd0042b937b739da3bc211eeb60bdf7462",
+  "patch_sha256": "d3ffdabe591751c63c956874514d3467cba550e91123d1d639a80cc2391d8da9",
+  "patch_bytes": 31861,
+  "verification": {
+    "command": [
+      "git",
+      "apply",
+      "--check",
+      "--whitespace=error",
+      "/workspace/scratch/5af1aa6131c8/return_work/backend/backend.patch"
+    ],
+    "cwd": "/workspace/scratch/5af1aa6131c8/quartic_r3_09_evidence_backend/repository",
+    "observed_exit_code": 0,
+    "observed_stdout": "",
+    "observed_stderr": "",
+    "effect": "Read-only applicability/whitespace check. Patch was not applied to original."
+  },
+  "changed_files": [
+    {
+      "path": "tools/build_corpus.py",
+      "original_sha256": "b208d0c23530c48a60062b2fbea7c9166804612d69f8a95854c5728bd94dec4d",
+      "patched_sha256": "73e5e7649a9875ebcf7dd123206b8c5daae4bf3c5e1e910624f1033775bd889d",
+      "patched_bytes": 24943
+    },
+    {
+      "path": "tests/test_build_corpus.py",
+      "original_sha256": "5aa1f94c74d6fd801b812411b2f912e8bd11cf3d5d96ba3fb6c6cf7b0fc43662",
+      "patched_sha256": "4016ad3372e158a60813d9cdf7263337f8ba20983073c8ca11e933bf79a4a17b",
+      "patched_bytes": 19212
+    },
+    {
+      "path": "tests/test_review_freshness.py",
+      "original_sha256": null,
+      "patched_sha256": "7cdaaef54fa0972f67822bba57c192916da2db713659061770281242e811dd31",
+      "patched_bytes": 10030
+    },
+    {
+      "path": "docs/statement_evidence_contract.md",
+      "original_sha256": "0828e5ecb304c0133f597e999f6cb09426bf87955df65d40a569d8b5b1e18fe4",
+      "patched_sha256": "a72d2788536ddad29fc2616868bb33382e8f4bdff65c96225b9560a1f201f4ea",
+      "patched_bytes": 7694
+    },
+    {
+      "path": "corpus/README.md",
+      "original_sha256": "8c80cd1b22e577000a1820ad5b7490958ed72118ce118fc1541cafde5de92c20",
+      "patched_sha256": "d3310fb2c6d235c794e4aa8bcf0e8ffd7565631be4eb56f52e1aa3e2e882e979",
+      "patched_bytes": 4816
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+[
+  {
+    "id": "mechanism-before-local-lemmas",
+    "source": {
+      "path": "exemplars/long-reasoning-record.md",
+      "locator": "overview, lines 12–27; transition into §1 at lines58–76",
+      "role": "writing exemplar only"
+    },
+    "specimen": "The proof turns a hypothetical support gap into a constant interval",
+    "move": "State the obstruction and the proof mechanism before introducing auxiliary notation.",
+    "before": "We recover the preprint's conditional argument first, then give the weighted induction used by the supplied Lean source.",
+    "after": "Adaptively choosing which instance to query does not remove this restriction: at a fixed execution history the remaining inputs are still independent, and one query can change only one factor in the product of the one-input continuation values.",
+    "used_at": [
+      "CL-direct-product-statement",
+      "CL-normalization"
+    ],
+    "scope": "Focused long-record proof section",
+    "limit": "The QAOA source supplies no mathematical authority or phrase template for this theorem."
+  },
+  {
+    "id": "query-then-optimal-branches",
+    "source": {
+      "path": "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/source.tex",
+      "locator": "§1.3 and Lemma3.1 proof, arXiv v2 printed pp6–7 and11",
+      "role": "proof source and proof-narration specimen"
+    },
+    "specimen": "it is helpful to sketch how this works first",
+    "move": "Explain the legal strategy behind a displayed expectation inequality before using it.",
+    "before": "Querying that bit and then using an optimal continuation in either resulting branch is one permissible strategy under the old budget.",
+    "after": "For each answer b of positive conditional probability, choose a tree attaining V_h(τb). Querying a first and then running the chosen tree uses at most L−q_h(τ) queries.",
+    "used_at": [
+      "CL-conditional-values"
+    ],
+    "scope": "Finite adaptive-query proof",
+    "limit": "Repeated-call counters differ from Drucker's revealed-coordinate bookkeeping, so preserve the present convention explicitly."
+  },
+  {
+    "id": "strengthen-induction-for-restrictions",
+    "source": {
+      "path": "literature/quartic-ref-22-towards-proving-strong-direct-product-theo/source.pdf",
+      "locator": "§5 Lemma 7 opening, printed p. 12",
+      "role": "earlier proof structure, with a different XOR target"
+    },
+    "specimen": "To have a stronger induction hypothesis",
+    "move": "Allow different weights and budgets before inducting, so each query produces another instance of the induction hypothesis.",
+    "before": "Give input h its own nonnegative weight ν_h and its own remaining cap c_h.",
+    "after": "Give input h its own nonnegative weight ν_h and allowance c_h. At a query, replace only that weight and decrement only that allowance.",
+    "used_at": [
+      "CL-weighted-product"
+    ],
+    "scope": "Weighted product induction",
+    "limit": "Do not relabel Shaltiel's uniform fair-XOR theorem as the arbitrary-law vector-output statement."
+  },
+  {
+    "id": "locate-authority-with-exact-scope",
+    "source": {
+      "path": "writing/mathematical-writing-mechanics.md",
+      "locator": "§9, especially Separate proof support from scholarly credit; §2 Lean architecture",
+      "role": "writing/correspondence guidance"
+    },
+    "specimen": "A citation should let the reader recover both attribution and epistemic role.",
+    "move": "Give one compact source/evidence account after the argument and keep exact component types in the correspondence.",
+    "before": "The supermartingale and terminal claims have no separately checked declarations in the corpus.",
+    "after": "The supplied receipts record successful native compilation of these exact source bytes; this review made no fresh Lean run.",
+    "used_at": [
+      "CL-literature-and-verification",
+      "LEAN_GAPS.md",
+      "correspondence.json"
+    ],
+    "scope": "Evidence-aware mathematical exposition",
+    "limit": "This is a correction justified by current matching receipts, not a stylistic promotion of an unverified claim."
+  }
+]

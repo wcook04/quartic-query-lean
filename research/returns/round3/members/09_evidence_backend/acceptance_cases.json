@@ -1,0 +1,626 @@
+{
+  "schema": "quartic-r3-09-acceptance-cases-v1",
+  "scope": "Focused advisory return; current supplied evidence, actual checks, proposed native cases and failed launches remain distinct.",
+  "status_key": {
+    "executed": "An actual recorded operation occurred; inspect evidence_kind and result. A failed launch is not native execution.",
+    "proposed_uncompiled": "Source candidate exists; no successful Lean elaboration.",
+    "unverified_tool_unavailable": "Native operation not executed; expected result is not an observed result.",
+    "executed_pass": "Only the specifically named check passed."
+  },
+  "cases": [
+    {
+      "id": "SEM01",
+      "description": "One-bit identity has no zero-query randomized program at inclusive 2/3 success.",
+      "declaration": "QuarticQuery.SemanticReview.identity_not_zero",
+      "status": "proposed_uncompiled",
+      "expected": "Lean proof succeeds against actual definition",
+      "executed": false,
+      "component": "semantic",
+      "path_base": "semantic/",
+      "source_case_inventory": "semantic/acceptance-cases-semantic.json"
+    },
+    {
+      "id": "SEM02",
+      "description": "Equal mixture constant true/read bit 0/read bit 1 has successes (2/3,2/3,2/3,1) and one-query cap.",
+      "declarations": [
+        "QuarticQuery.SemanticReview.orMixture_success",
+        "QuarticQuery.SemanticReview.orTwo_RLe_one",
+        "QuarticQuery.SemanticReview.orTwo_R_eq_one"
+      ],
+      "status": "proposed_uncompiled",
+      "expected": "Lean proofs succeed",
+      "executed": false,
+      "component": "semantic",
+      "path_base": "semantic/",
+      "source_case_inventory": "semantic/acceptance-cases-semantic.json"
+    },
+    {
+      "id": "SEM03",
+      "description": "True-only promise has constant-true zero-query R and Q.",
+      "declarations": [
+        "QuarticQuery.SemanticReview.trueOnly_R_eq_zero",
+        "QuarticQuery.SemanticReview.trueOnly_Q_eq_zero"
+      ],
+      "status": "proposed_uncompiled",
+      "expected": "Lean proofs succeed",
+      "executed": false,
+      "component": "semantic",
+      "path_base": "semantic/",
+      "source_case_inventory": "semantic/acceptance-cases-semantic.json"
+    },
+    {
+      "id": "SEM04",
+      "description": "Two (-1,1,1,1) sign vectors have Phi=-1 and are outside the promise.",
+      "declarations": [
+        "QuarticQuery.SemanticReview.negativePair_Phi",
+        "QuarticQuery.SemanticReview.negativePair_P_none"
+      ],
+      "status": "proposed_uncompiled",
+      "expected": "Kernel reduction and real arithmetic proofs succeed",
+      "executed": false,
+      "component": "semantic",
+      "path_base": "semantic/",
+      "source_case_inventory": "semantic/acceptance-cases-semantic.json"
+    },
+    {
+      "id": "SEM05",
+      "description": "Input-dependent algorithm/strict threshold/off-promise-false/absolute-high mutations change the specified answers.",
+      "module": "QuarticCorpus.Independent.SemanticMutations",
+      "status": "proposed_uncompiled",
+      "expected": "Positive detection proofs succeed",
+      "executed": false,
+      "component": "semantic",
+      "path_base": "semantic/",
+      "source_case_inventory": "semantic/acceptance-cases-semantic.json"
+    },
+    {
+      "id": "SEM06",
+      "description": "Only the solution changes the threshold premise from inclusive to strict.",
+      "config": "lean/QuarticCorpus/Independent/Controls/threshold_mutation.json",
+      "status": "proposed_unexecuted",
+      "expected_exit_code": 1,
+      "expected_diagnostic": "Const does not match between challenge and target 'Round3.ThresholdSpec.Eligible'",
+      "executed": false,
+      "evidence_kind": "actual Comparator rejection required; not inferred from source",
+      "component": "semantic",
+      "path_base": "semantic/",
+      "source_case_inventory": "semantic/acceptance-cases-semantic.json"
+    },
+    {
+      "id": "SEM07",
+      "description": "Both challenge and solution share an impossible comparison field.",
+      "config": "lean/QuarticCorpus/Independent/Controls/shared_blind_spot.json",
+      "status": "proposed_unexecuted",
+      "expected_exit_code": 0,
+      "expected": "Matching bad specifications are accepted; independent witness test exposes lack of any valid comparison.",
+      "executed": false,
+      "evidence_kind": "shared-specification blind-spot demonstration, never mathematical acceptance",
+      "component": "semantic",
+      "path_base": "semantic/",
+      "source_case_inventory": "semantic/acceptance-cases-semantic.json"
+    },
+    {
+      "id": "SEM08",
+      "description": "Actual comparison model has concrete two-candidate matrix witness, while deliberately shared bad predicate has none.",
+      "modules": [
+        "QuarticCorpus.Independent.Semantics",
+        "QuarticCorpus.Independent.Controls.SharedAudit"
+      ],
+      "status": "proposed_uncompiled",
+      "expected": "Both detection proofs succeed",
+      "executed": false,
+      "component": "semantic",
+      "path_base": "semantic/",
+      "source_case_inventory": "semantic/acceptance-cases-semantic.json"
+    },
+    {
+      "id": "SEM09",
+      "description": "Existing finite Python model controls.",
+      "command": [
+        "python3",
+        "tools/return_checks/semantic_controls.py"
+      ],
+      "status": "executed_pass",
+      "exit_code": 0,
+      "executed": true,
+      "evidence_kind": "toy finite-model arithmetic; no Lean or Comparator execution",
+      "receipt": "receipts/existing-toy-controls-run.json",
+      "component": "semantic",
+      "path_base": "semantic/",
+      "source_case_inventory": "semantic/acceptance-cases-semantic.json"
+    },
+    {
+      "id": "SEM10",
+      "description": "New native runner preflight against immutable packet.",
+      "status": "executed_blocked",
+      "exit_code": 2,
+      "executed": true,
+      "receipt": "receipts/preflight-final/run.json",
+      "reason": "lake executable missing; overlay intentionally not installed into original packet. All native case statuses not_run.",
+      "historical_receipt": "receipts/preflight/run.json",
+      "binding_owner": "repository/tools/build_corpus.py::source_hashes(project.parent)",
+      "component": "semantic",
+      "path_base": "semantic/",
+      "source_case_inventory": "semantic/acceptance-cases-semantic.json"
+    },
+    {
+      "id": "eq19-existing-source-current",
+      "purpose": "Choose an actually accepted existing declaration before extraction.",
+      "kind": "receipt_source_binding",
+      "executed": true,
+      "result": "passed",
+      "evidence": [
+        "accepted-target-source-check.json"
+      ],
+      "observed": "All 124 root source/config hashes and the exact inventory match; target membership holds; all 16 module input hashes match.",
+      "limits": "Verifies supplied record consistency and bytes, not new native execution or original-host authenticity.",
+      "component": "eq19",
+      "path_base": "eq19/",
+      "source_case_inventory": "eq19/eq19-acceptance-cases.json"
+    },
+    {
+      "id": "eq19-compound-wrapper",
+      "purpose": "Give the entire eq-19 row one named proof-bearing declaration.",
+      "kind": "native_lean_build",
+      "executed": false,
+      "result": "unverified_tool_unavailable",
+      "declaration": "QuarticQuery.Paper.eq19_whole",
+      "files": [
+        "overlay/lean/QuarticQuery/Paper/Eq19Whole.lean"
+      ],
+      "expected": "Successful build and actual type/axiom output containing both equality and inequality under normalization, nonnegativity and depth premises.",
+      "limits": "The existing component receipts do not establish this proposed wrapper.",
+      "component": "eq19",
+      "path_base": "eq19/",
+      "source_case_inventory": "eq19/eq19-acceptance-cases.json"
+    },
+    {
+      "id": "eq19-independent-experiment",
+      "purpose": "Check actual project quantities against a preprint-authored finite experiment instead of copied specifications.",
+      "kind": "native_lean_semantic_bridge",
+      "executed": false,
+      "result": "unverified_tool_unavailable",
+      "declaration": "QuarticQuery.Independent.Eq19.specification_eq19",
+      "files": [
+        "overlay/lean/QuarticCorpus/Independent/Eq19/Spec.lean",
+        "overlay/lean/QuarticCorpus/Independent/Eq19/Bridge.lean"
+      ],
+      "expected": "All bridges and compound conclusion elaborate without sorry or nonstandard axioms.",
+      "limits": "Shares QueryTree, BitLoc, path and depth; does not claim independently authored foundational definitions.",
+      "component": "eq19",
+      "path_base": "eq19/",
+      "source_case_inventory": "eq19/eq19-acceptance-cases.json"
+    },
+    {
+      "id": "eq19-repeated-query-witness",
+      "purpose": "Detect shared path/depth mistakes and distinguish repeated visits from distinct discoveries.",
+      "kind": "native_lean_semantic_test",
+      "executed": false,
+      "result": "unverified_tool_unavailable",
+      "declaration": "QuarticQuery.Independent.Eq19.repeatedZero_counts_once",
+      "files": [
+        "overlay/lean/QuarticCorpus/Independent/Eq19/PathControls.lean"
+      ],
+      "expected": "askTwice has path [q,q], depth 2, and counts a queried designated zero once.",
+      "limits": "Proposed theorem, not a toy Python model or an observed Lean pass.",
+      "component": "eq19",
+      "path_base": "eq19/",
+      "source_case_inventory": "eq19/eq19-acceptance-cases.json"
+    },
+    {
+      "id": "eq19-whole-direct-comparison",
+      "purpose": "Attach comparison only to the exact declaration whose complete type is reviewed.",
+      "kind": "comparator",
+      "executed": false,
+      "result": "unverified_tool_unavailable",
+      "declaration": "QuarticQuery.Paper.eq19_whole",
+      "config": "overlay/lean/QuarticCorpus/Independent/Eq19/whole-comparator.json",
+      "expected": "Comparator accepts the exact whole wrapper, with empty definition_names and only the standard axioms.",
+      "limits": "Shared-vocabulary agreement; independent semantics are a separate Spec/Bridge obligation.",
+      "component": "eq19",
+      "path_base": "eq19/",
+      "source_case_inventory": "eq19/eq19-acceptance-cases.json"
+    },
+    {
+      "id": "eq19-independent-comparison",
+      "purpose": "Compare the full independent experiment statement.",
+      "kind": "comparator",
+      "executed": false,
+      "result": "unverified_tool_unavailable",
+      "declaration": "QuarticQuery.Independent.Eq19.checked_eq19",
+      "config": "overlay/lean/QuarticCorpus/Independent/Eq19/comparator.json",
+      "expected": "Comparator accepts the complete equality-and-bound statement after the semantic bridges build.",
+      "limits": "No comparison was executed in this return; its status must not be copied to eq19_whole.",
+      "component": "eq19",
+      "path_base": "eq19/",
+      "source_case_inventory": "eq19/eq19-acceptance-cases.json"
+    },
+    {
+      "id": "eq19-reject-inequality-only",
+      "purpose": "An inequality, even a correct stronger inequality, does not satisfy a compound equality-and-bound statement.",
+      "kind": "comparator_negative",
+      "executed": false,
+      "result": "unverified_tool_unavailable",
+      "config": "overlay/lean/QuarticCorpus/Independent/Eq19/negative-inequality-only.json",
+      "expected_exit": 1,
+      "expected_diagnostic": "Challenge and solution theorem statement do not match: 'QuarticQuery.Independent.Eq19.checked_eq19'",
+      "limits": "Source-predicted rejection. Missing executable, import/build failure or unrelated rejection does not pass this case.",
+      "component": "eq19",
+      "path_base": "eq19/",
+      "source_case_inventory": "eq19/eq19-acceptance-cases.json"
+    },
+    {
+      "id": "native-consumer-extraction",
+      "purpose": "Run existing lean-exposition on a source-current accepted target.",
+      "kind": "native_extraction",
+      "executed": true,
+      "result": "blocked_process_launch",
+      "command_evidence": "native-extraction-attempt.json",
+      "observed_exit": 127,
+      "observed_stderr": "eq19-native-extraction-attempt: line 1: exec: lean-exposition: not found\n",
+      "graph_created": false,
+      "limits": "The attempted launch is not a native extraction receipt or completed endpoint.",
+      "component": "eq19",
+      "path_base": "eq19/",
+      "source_case_inventory": "eq19/eq19-acceptance-cases.json"
+    },
+    {
+      "id": "native-consumer-selection-inspection",
+      "purpose": "Inspect actual goal prerequisites and existing graph contracts.",
+      "kind": "native_consumer_contract",
+      "executed": false,
+      "result": "blocked_no_native_graph_or_tool",
+      "expected": "Run real validate/select/inspect on the graph from the completed native extraction; retain source identity, typed dependencies, axioms and boundaries.",
+      "limits": "No synthetic graph, corpus projection, or supplied Reach export is used as a substitute.",
+      "component": "eq19",
+      "path_base": "eq19/",
+      "source_case_inventory": "eq19/eq19-acceptance-cases.json"
+    },
+    {
+      "id": "review_definition_body_rebuild",
+      "test": "test_review_freshness.ReviewFreshnessTests.test_definition_edit_with_unchanged_theorem_source_and_fresh_runs_stays_stale",
+      "expected": "A changed definition and fresh mock operations leave the old relation stale; theorem source remains unchanged.",
+      "status": "executed_passed_python",
+      "native_lean_comparator": "not_run",
+      "component": "backend",
+      "path_base": "backend/",
+      "source_case_inventory": "backend/backend_acceptance_cases.json",
+      "executed": true,
+      "evidence_kind": "actual_python_unittest_with_mock_native_transition_receipts",
+      "receipt": "logs/patched-python-tests.log"
+    },
+    {
+      "id": "review_legacy_no_auto_attestation",
+      "test": "test_review_freshness.ReviewFreshnessTests.test_current_build_and_comparison_cannot_attest_a_legacy_review",
+      "expected": "Unbound authored ties cannot inherit current alignment from current operation receipts; inputs are not rewritten.",
+      "status": "executed_passed_python",
+      "native_lean_comparator": "not_run",
+      "component": "backend",
+      "path_base": "backend/",
+      "source_case_inventory": "backend/backend_acceptance_cases.json",
+      "executed": true,
+      "evidence_kind": "actual_python_unittest_with_mock_native_transition_receipts",
+      "receipt": "logs/patched-python-tests.log"
+    },
+    {
+      "id": "review_identity_and_premises",
+      "test": "test_review_freshness.ReviewFreshnessTests.test_changed_declaration_row_identity_or_judgment_requires_new_review",
+      "expected": "Declaration, ID, relation, route, premises, open assumptions and reviewer changes invalidate the old review.",
+      "status": "executed_passed_python",
+      "native_lean_comparator": "not_run",
+      "component": "backend",
+      "path_base": "backend/",
+      "source_case_inventory": "backend/backend_acceptance_cases.json",
+      "executed": true,
+      "evidence_kind": "actual_python_unittest_with_mock_native_transition_receipts",
+      "receipt": "logs/patched-python-tests.log"
+    },
+    {
+      "id": "review_statement_context",
+      "test": "test_review_freshness.ReviewFreshnessTests.test_changed_statement_or_context_does_not_inherit_old_review",
+      "expected": "Statement text and corrected-row context changes invalidate review.",
+      "status": "executed_passed_python",
+      "native_lean_comparator": "not_run",
+      "component": "backend",
+      "path_base": "backend/",
+      "source_case_inventory": "backend/backend_acceptance_cases.json",
+      "executed": true,
+      "evidence_kind": "actual_python_unittest_with_mock_native_transition_receipts",
+      "receipt": "logs/patched-python-tests.log"
+    },
+    {
+      "id": "review_fresh_positive",
+      "test": "test_review_freshness.ReviewFreshnessTests.test_bound_review_and_matching_receipts_keep_current_statement_credit",
+      "expected": "An explicitly bound synthetic review with matching operation receipts retains exact statement credit and ordinary-premise interpretation.",
+      "status": "executed_passed_python",
+      "native_lean_comparator": "not_run",
+      "component": "backend",
+      "path_base": "backend/",
+      "source_case_inventory": "backend/backend_acceptance_cases.json",
+      "executed": true,
+      "evidence_kind": "actual_python_unittest_with_mock_native_transition_receipts",
+      "receipt": "logs/patched-python-tests.log"
+    },
+    {
+      "id": "review_without_build",
+      "test": "test_review_freshness.ReviewFreshnessTests.test_fresh_review_alone_does_not_supply_build_or_comparison_evidence",
+      "expected": "Semantic review does not supply compilation/comparison evidence.",
+      "status": "executed_passed_python",
+      "native_lean_comparator": "not_run",
+      "component": "backend",
+      "path_base": "backend/",
+      "source_case_inventory": "backend/backend_acceptance_cases.json",
+      "executed": true,
+      "evidence_kind": "actual_python_unittest_with_mock_native_transition_receipts",
+      "receipt": "logs/patched-python-tests.log"
+    },
+    {
+      "id": "review_malformed_binding",
+      "test": "test_review_freshness.ReviewFreshnessTests.test_malformed_or_partial_binding_fails_closed",
+      "expected": "Invalid/partial/unknown-schema bindings stop generation.",
+      "status": "executed_passed_python",
+      "native_lean_comparator": "not_run",
+      "component": "backend",
+      "path_base": "backend/",
+      "source_case_inventory": "backend/backend_acceptance_cases.json",
+      "executed": true,
+      "evidence_kind": "actual_python_unittest_with_mock_native_transition_receipts",
+      "receipt": "logs/patched-python-tests.log"
+    },
+    {
+      "id": "review_snapshot_scope",
+      "test": "test_review_freshness.ReviewFreshnessTests.test_source_addition_removal_pin_change_and_proof_change_all_invalidate",
+      "expected": "Conservative source/config scope includes additions, removals, theorem-source and pin changes.",
+      "status": "executed_passed_python",
+      "native_lean_comparator": "not_run",
+      "component": "backend",
+      "path_base": "backend/",
+      "source_case_inventory": "backend/backend_acceptance_cases.json",
+      "executed": true,
+      "evidence_kind": "actual_python_unittest_with_mock_native_transition_receipts",
+      "receipt": "logs/patched-python-tests.log"
+    },
+    {
+      "id": "derived_helper_withheld",
+      "test": "test_review_freshness.DerivedProvenanceTests.test_r2_live_helper_is_withheld_even_if_assigned_a_preprint_source",
+      "expected": "Known r2-live helper rows are rejected in record generation and direct graph projection, including a falsely asserted paper source.",
+      "status": "executed_passed_python",
+      "native_lean_comparator": "not_run",
+      "component": "backend",
+      "path_base": "backend/",
+      "source_case_inventory": "backend/backend_acceptance_cases.json",
+      "executed": true,
+      "evidence_kind": "actual_python_unittest_with_mock_native_transition_receipts",
+      "receipt": "logs/patched-python-tests.log"
+    },
+    {
+      "id": "explicit_provenance_preserved_by_refusal",
+      "test": "test_review_freshness.DerivedProvenanceTests.test_nonpreprint_source_is_never_silently_overwritten",
+      "expected": "An explicitly nonpreprint source cannot be relabelled as OpenAI.",
+      "status": "executed_passed_python",
+      "native_lean_comparator": "not_run",
+      "component": "backend",
+      "path_base": "backend/",
+      "source_case_inventory": "backend/backend_acceptance_cases.json",
+      "executed": true,
+      "evidence_kind": "actual_python_unittest_with_mock_native_transition_receipts",
+      "receipt": "logs/patched-python-tests.log"
+    },
+    {
+      "id": "missing_dependency_refused",
+      "test": "test_review_freshness.DerivedProvenanceTests.test_missing_helper_dependency_is_not_silently_dropped",
+      "expected": "A row depending on a withheld helper retains the dependency and graph generation fails rather than dropping it.",
+      "status": "executed_passed_python",
+      "native_lean_comparator": "not_run",
+      "component": "backend",
+      "path_base": "backend/",
+      "source_case_inventory": "backend/backend_acceptance_cases.json",
+      "executed": true,
+      "evidence_kind": "actual_python_unittest_with_mock_native_transition_receipts",
+      "receipt": "logs/patched-python-tests.log"
+    },
+    {
+      "id": "SOURCE-independent_source_scope_agrees",
+      "description": "independent source scope agrees",
+      "executed": true,
+      "status": "executed_pass",
+      "evidence_kind": "actual_local_byte_or_record_consistency_check",
+      "receipt": "checks/snapshot_audit.json",
+      "native_lean_comparator": "not_run",
+      "limits": "Supplied record consistency does not independently repeat or authenticate the native run."
+    },
+    {
+      "id": "SOURCE-snapshot_source_hashes_match",
+      "description": "snapshot source hashes match",
+      "executed": true,
+      "status": "executed_pass",
+      "evidence_kind": "actual_local_byte_or_record_consistency_check",
+      "receipt": "checks/snapshot_audit.json",
+      "native_lean_comparator": "not_run",
+      "limits": "Supplied record consistency does not independently repeat or authenticate the native run."
+    },
+    {
+      "id": "SOURCE-request_hash_matches",
+      "description": "request hash matches",
+      "executed": true,
+      "status": "executed_pass",
+      "evidence_kind": "actual_local_byte_or_record_consistency_check",
+      "receipt": "checks/snapshot_audit.json",
+      "native_lean_comparator": "not_run",
+      "limits": "Supplied record consistency does not independently repeat or authenticate the native run."
+    },
+    {
+      "id": "SOURCE-paper_pdf_hash_matches",
+      "description": "paper pdf hash matches",
+      "executed": true,
+      "status": "executed_pass",
+      "evidence_kind": "actual_local_byte_or_record_consistency_check",
+      "receipt": "checks/snapshot_audit.json",
+      "native_lean_comparator": "not_run",
+      "limits": "Supplied record consistency does not independently repeat or authenticate the native run."
+    },
+    {
+      "id": "SOURCE-closure_current",
+      "description": "closure current",
+      "executed": true,
+      "status": "executed_pass",
+      "evidence_kind": "actual_local_byte_or_record_consistency_check",
+      "receipt": "checks/snapshot_audit.json",
+      "native_lean_comparator": "not_run",
+      "limits": "Supplied record consistency does not independently repeat or authenticate the native run."
+    },
+    {
+      "id": "SOURCE-closure_unresolved_empty",
+      "description": "closure unresolved empty",
+      "executed": true,
+      "status": "executed_pass",
+      "evidence_kind": "actual_local_byte_or_record_consistency_check",
+      "receipt": "checks/snapshot_audit.json",
+      "native_lean_comparator": "not_run",
+      "limits": "Supplied record consistency does not independently repeat or authenticate the native run."
+    },
+    {
+      "id": "SOURCE-closure_roots_present",
+      "description": "closure roots present",
+      "executed": true,
+      "status": "executed_pass",
+      "evidence_kind": "actual_local_byte_or_record_consistency_check",
+      "receipt": "checks/snapshot_audit.json",
+      "native_lean_comparator": "not_run",
+      "limits": "Supplied record consistency does not independently repeat or authenticate the native run."
+    },
+    {
+      "id": "SOURCE-hidden_witnesses_nonempty_and_projected",
+      "description": "hidden witnesses nonempty and projected",
+      "executed": true,
+      "status": "executed_pass",
+      "evidence_kind": "actual_local_byte_or_record_consistency_check",
+      "receipt": "checks/snapshot_audit.json",
+      "native_lean_comparator": "not_run",
+      "limits": "Supplied record consistency does not independently repeat or authenticate the native run."
+    },
+    {
+      "id": "SOURCE-root_receipt_declared_matches_export",
+      "description": "root receipt declared matches export",
+      "executed": true,
+      "status": "executed_pass",
+      "evidence_kind": "actual_local_byte_or_record_consistency_check",
+      "receipt": "checks/snapshot_audit.json",
+      "native_lean_comparator": "not_run",
+      "limits": "Supplied record consistency does not independently repeat or authenticate the native run."
+    },
+    {
+      "id": "SOURCE-supplied_axiom_audit_source_bound",
+      "description": "supplied axiom audit source bound",
+      "executed": true,
+      "status": "executed_pass",
+      "evidence_kind": "actual_local_byte_or_record_consistency_check",
+      "receipt": "checks/snapshot_audit.json",
+      "native_lean_comparator": "not_run",
+      "limits": "Supplied record consistency does not independently repeat or authenticate the native run."
+    },
+    {
+      "id": "SOURCE-supplied_axiom_audit_log_hash_matches",
+      "description": "supplied axiom audit log hash matches",
+      "executed": true,
+      "status": "executed_pass",
+      "evidence_kind": "actual_local_byte_or_record_consistency_check",
+      "receipt": "checks/snapshot_audit.json",
+      "native_lean_comparator": "not_run",
+      "limits": "Supplied record consistency does not independently repeat or authenticate the native run."
+    },
+    {
+      "id": "SOURCE-supplied_axiom_audit_script_hash_matches",
+      "description": "supplied axiom audit script hash matches",
+      "executed": true,
+      "status": "executed_pass",
+      "evidence_kind": "actual_local_byte_or_record_consistency_check",
+      "receipt": "checks/snapshot_audit.json",
+      "native_lean_comparator": "not_run",
+      "limits": "Supplied record consistency does not independently repeat or authenticate the native run."
+    },
+    {
+      "id": "SOURCE-native_reach_fixture_has_actual_exporter_prefix",
+      "description": "native reach fixture has actual exporter prefix",
+      "executed": true,
+      "status": "executed_pass",
+      "evidence_kind": "actual_local_byte_or_record_consistency_check",
+      "receipt": "checks/snapshot_audit.json",
+      "native_lean_comparator": "not_run",
+      "limits": "Supplied record consistency does not independently repeat or authenticate the native run."
+    },
+    {
+      "id": "SOURCE-supplied_reader_graph_hash_matches_receipt",
+      "description": "supplied reader graph hash matches receipt",
+      "executed": true,
+      "status": "executed_pass",
+      "evidence_kind": "actual_local_byte_or_record_consistency_check",
+      "receipt": "checks/snapshot_audit.json",
+      "native_lean_comparator": "not_run",
+      "limits": "Supplied record consistency does not independently repeat or authenticate the native run."
+    },
+    {
+      "id": "SOURCE-toy_controls_exit_zero",
+      "description": "toy controls exit zero",
+      "executed": true,
+      "status": "executed_pass",
+      "evidence_kind": "actual_local_byte_or_record_consistency_check",
+      "receipt": "checks/snapshot_audit.json",
+      "native_lean_comparator": "not_run",
+      "limits": "Supplied record consistency does not independently repeat or authenticate the native run."
+    },
+    {
+      "id": "PACKET-MANIFEST",
+      "description": "All 400 payload members match the supplied ZIP manifest.",
+      "executed": true,
+      "status": "executed_pass",
+      "evidence_kind": "actual_packet_checker",
+      "receipt": "checks/packet-check.json"
+    },
+    {
+      "id": "EQ19-INDEPENDENT-INDEX",
+      "description": "Enumerate 256 zero-location vectors and distinguish independent uniform I from an adaptively chosen I with uniform marginals.",
+      "executed": true,
+      "status": "executed_pass",
+      "evidence_kind": "actual_exact_fraction_enumeration",
+      "receipt": "checks/eq19_independence_control.json",
+      "native_lean_comparator": "not_run"
+    },
+    {
+      "id": "PATCH-CLEAN-APPLICATION",
+      "description": "Minimal backend patch applies cleanly to frozen supplied repository.",
+      "executed": true,
+      "status": "executed_pass",
+      "evidence_kind": "git_apply_check_only",
+      "receipt": "backend/logs/patch-check.json",
+      "limits": "The original repository is unchanged."
+    },
+    {
+      "id": "CORPUS-MIGRATION",
+      "description": "Patched real corpus preserves operation facts and withholds all 477 unbound authored semantic judgments.",
+      "executed": true,
+      "status": "executed_pass",
+      "evidence_kind": "actual_in_memory_python_producer_on_supplied_sources",
+      "receipt": "backend/logs/backend-acceptance.json",
+      "limits": "No ties, receipts or generated corpus files were written."
+    },
+    {
+      "id": "READER-GRAPH-DELTA",
+      "description": "Retained and final informal graphs differ only by the documented later paranoid comparison and evidence references.",
+      "executed": true,
+      "status": "executed_pass",
+      "evidence_kind": "actual_json_comparison",
+      "receipt": "checks/reader_graph_delta.json",
+      "limits": "Not native consumer execution or native extraction."
+    }
+  ],
+  "python_suite": {
+    "baseline_discovered": 35,
+    "baseline_passed": 33,
+    "baseline_skipped": 2,
+    "patched_discovered": 46,
+    "patched_passed": 44,
+    "patched_skipped": 2
+  },
+  "native_endpoints_completed_here": false
+}

@@ -1,0 +1,21 @@
+{
+  "kind": "actual_owned_packet_checker_and_unpacked_payload_audit",
+  "ran_at": "2026-11-02T19:28:00.368977+00:00",
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "/workspace/scratch/5af1aa6131c8/quartic_r3_09_evidence_backend/repository/tools/check_packets.py",
+    "/workspace/scratch/5af1aa6131c8/upload/quartic_r3_09_evidence_backend.zip"
+  ],
+  "exit_code": 0,
+  "stdout": "PASS quartic_r3_09_evidence_backend.zip: 09_evidence_backend; 400 payload members\n",
+  "stderr": "",
+  "checker_sha256": "822ad0f18bce6c9b0e8f8b76d1bdcd0d3fe4646f74deafbebfed6220c7040039",
+  "archive_sha256": "4d7c8e32b9c3ae5fd2aaa12a2f0ff8a2b85d48a1e7a14197cc29a8108cf59954",
+  "archive_members": 402,
+  "manifest_payload_members": 400,
+  "duplicate_names": false,
+  "unpacked_payload_mismatches": [],
+  "unpacked_payload_unchanged": true,
+  "native_execution": false,
+  "scope": "Exact input archive manifest and extracted payload bytes, not a semantic reading of every file."
+}

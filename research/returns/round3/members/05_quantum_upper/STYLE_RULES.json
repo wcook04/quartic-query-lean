@@ -1,0 +1,169 @@
+{
+  "schema": "quartic-r3-05-style-rules-v1",
+  "status": "candidate moves applied to this return; no adoption, blind grading, human review, or named-author voice imitation claimed",
+  "genre": "long mathematical reasoning record / focused section replacement",
+  "rules": [
+    {
+      "id": "mechanism-before-tool-inventory",
+      "move": "Lead the section with the mathematical reason the algorithm works, then develop its constructions.",
+      "specimens": [
+        {
+          "source": "exemplars/long-reasoning-record.md",
+          "locator": "overview passage, lines 14–35",
+          "short_specimen": "The proof turns a hypothetical support gap into a constant\ninterval for the order parameter.",
+          "source_sha256": "a19893f62d1211681ed0cb9cbb8bb454214d97f231f6a6d091b6f198fca35a89",
+          "authority_role": "Writing and organization only; no quartic-query mathematical authority."
+        },
+        {
+          "source": "writing/mathematical-writing-mechanics.md",
+          "locator": "Section 5, lines 275–291",
+          "short_specimen": "Give the proof spine before local calculations.",
+          "source_sha256": "0ba857f70a724a2676f91b01e7ee95cc3518dcd261b53fec27b743935d1caa0f",
+          "authority_role": "Writing guidance."
+        }
+      ],
+      "before": {
+        "passage": "upper-purpose",
+        "exact_excerpt": "The quantum algorithm has two tasks. It first produces a short list of columns that is likely to contain the winning column, if there is one. It then checks the columns in that list. Both tasks must have a fixed query bound on every input, including inputs on which some of the Forrelation promises fail. This requirement determines the amplification procedure and the comparison rule below."
+      },
+      "after": {
+        "passage": "upper-purpose",
+        "exact_excerpt": "The algorithm first produces a short list likely to contain the winning column, then checks the listed columns. Its central calculation is a drift identity: complementary comparison probabilities make the total surviving weight fall by at least half in expectation, while a true winner retains almost all its weight until it is selected. This works even if the other columns compare cyclically or have meaningless decoded addresses. Exact local verification subsequently rejects incorrect certificates. Both the search and the verification have a fixed query cap on every input, including inputs outside all the partial-function promises."
+      },
+      "scope": "Opening of the long-record section.",
+      "limit": "The roadmap is followed by the complete drift, survival, coupling and cost proofs. It cannot replace any of them."
+    },
+    {
+      "id": "quantifiers-and-probability-domains",
+      "move": "State conditioning, uniformity and zero-mass cases where the probabilistic law is introduced.",
+      "specimens": [
+        {
+          "source": "writing/mathematical-writing-mechanics.md",
+          "locator": "Section 6, lines 311–338",
+          "short_specimen": "Read every quantified sentence in its strongest and weakest plausible senses.",
+          "source_sha256": "0ba857f70a724a2676f91b01e7ee95cc3518dcd261b53fec27b743935d1caa0f",
+          "authority_role": "Writing and claim-fidelity guidance."
+        }
+      ],
+      "before": {
+        "passage": "upper-quantum-tournament",
+        "exact_excerpt": "[\n\\Pr[\\bot]=f_x,\n\\qquad\n\\Pr[b]=(1-f_x)\\frac{q_x(b)}{q_x}\\quad(q_x>0),\n\\qquad\nq_x\\geq\\gamma\\Longrightarrow f_x\\leq\\eta,\n\\qquad\nq_x=0\\Longrightarrow f_x=1.\n\\]\n\nThis follows from the phase-independent success-state assertion just proved, followed by measurement of the label. The source proves this measured-law statement directly for its coherent samplers in `QuarticQuery.Upper.Samples.amplify`. For the tournament, \\(q_x(i)=w_i/m\\), so its normalized law is the ideal pivot law. Fresh trial registers preserve the proof literally. The formal compiler has a second implementation: after an amplified attempt, it measures a complete basis label, keeps the classical result, and applies a known permutation taking that measured basis vector to the fixed starting basis vector. Because the state is known after that full measurement, this reset is legitimate and uses no oracle call. It then runs the continuation. This is the alternative composition route recorded for `QuarticQuery.Upper.Samples.runs`."
+      },
+      "after": {
+        "passage": "upper-quantum-tournament",
+        "exact_excerpt": "This follows from the phase-independent successful-state assertion, followed by measurement of the label. For $q_x>0$ and $f_x<1$, the successful mass is $1-f_x>0$, so division by it gives the conditional law $q_x(b)/q_x$. These are the hypotheses for interpreting the ratio as a conditional probability. For the bounded procedure above, $p>0$ implies $f_x<1$; in the tournament, the stronger bound $f_x\\leq\\varepsilon<1$ holds at every history before the dominant vertex has been selected. At $q_x=0$, the only output is failure. No conditional law is assigned to that event. Substituting $q_x(i)=w_i/m$ gives the ideal pivot law whenever it is used."
+      },
+      "scope": "Successful-label law, the list witness, and the final physical-state target.",
+      "limit": "Clarification must preserve quantifier order and cannot silently add an assumption to a formal theorem. The zero event receives no conditional law."
+    },
+    {
+      "id": "concrete-example-with-explicit-limit",
+      "move": "Use an exact small instance to expose cyclic comparisons and a second small example to expose a false state inference.",
+      "specimens": [
+        {
+          "source": "writing/mathematical-writing-mechanics.md",
+          "locator": "Section 4, lines 256–273",
+          "short_specimen": "Use counterexamples to explain why a hypothesis, sign convention, or\n  direction of implication is necessary.",
+          "source_sha256": "0ba857f70a724a2676f91b01e7ee95cc3518dcd261b53fec27b743935d1caa0f",
+          "authority_role": "Writing and exposition guidance."
+        },
+        {
+          "source": "writing/mathematical-writing-mechanics.md",
+          "locator": "Section 4, lines 256–273",
+          "short_specimen": "Mark exactly where the example stops being representative. Never let an\n  example silently stand in for the theorem.",
+          "source_sha256": "0ba857f70a724a2676f91b01e7ee95cc3518dcd261b53fec27b743935d1caa0f",
+          "authority_role": "Writing and exposition guidance."
+        }
+      ],
+      "before": {
+        "passage": "upper-comparison-model",
+        "exact_excerpt": "No transitivity condition is imposed. Comparisons made in separate fresh registers have their designated probabilities, but the numbers need not be close to zero or one. A cycle of certain wins is allowed, as is a pair with winning probability exactly one half. In the algorithmic theorem, all pair circuits are available coherently, including under control of their indices, with a uniform cap of \\(c\\geq1\\) bit queries per comparison and the same cap for its inverse. When a controlled query is implemented from an ordinary bit query, the constant overhead established below is included in \\(c\\)."
+      },
+      "after": {
+        "passage": "upper-cyclic-example",
+        "exact_excerpt": "s $3\\varepsilon$ if the pivot is $s$,\nand $2-\\varepsilon$ for each of the other three pivots. Since the first\npivot is uniform, its expected value is\n$$\n \\frac{3\\varepsilon+3(2-\\varepsilon)}4=\\frac32\n =\\frac{4^2-4}{2\\cdot4}.\n$$\nThis is the exact drift identity in a cyclic example. The ideal process selects\n$s$ within three pivots with probability one. The example illustrates the\nweight calculation and conditional law; it is neither a construction of the\nfull addressed-certificate input nor a proof of the general tournament bound."
+      },
+      "scope": "Four-candidate example and two-register product/Bell example.",
+      "limit": "The finite calculations do not prove the universal tournament theorem, construct a full addressed-certificate input, or show physical state preservation is impossible."
+    },
+    {
+      "id": "make-the-load-bearing-transition-visible",
+      "move": "Explain the pairing, projection or conditioning step that makes a displayed estimate valid.",
+      "specimens": [
+        {
+          "source": "writing/mathematical-writing-mechanics.md",
+          "locator": "Section 5, lines 275–308",
+          "short_specimen": "After a long display or transformation, say in prose which operations were\n  performed and what they achieved.",
+          "source_sha256": "0ba857f70a724a2676f91b01e7ee95cc3518dcd261b53fec27b743935d1caa0f",
+          "authority_role": "Proof-writing guidance."
+        }
+      ],
+      "before": {
+        "passage": "upper-coupling",
+        "exact_excerpt": "We compare the real process with the ideal one on a common probability space. As long as their lists agree, let \\(f(L)\\) be the failure probability of the amplified sampler for that list. If \\(W>0\\), independently choose a possible ideal next pivot with distribution \\(w_i/W\\), and a Bernoulli variable that reports failure with probability \\(f(L)\\). On nonfailure, give both processes the chosen pivot. On failure, stop the real process and continue the ideal one with its ordinary transitions. This has the correct marginal distribution for each process: the real sampler's successful probability for pivot \\(i\\) is exactly \\((1-f(L))w_i/W\\). Independence here is a way to construct the coupling from that law; it is not an additional property demanded of the implementation.\n\nSuppose \\(s\\) is domi"
+      },
+      "after": {
+        "passage": "upper-coupling",
+        "exact_excerpt": "Suppose $s$ is dominant. At an agreed history of length at most $T$ before $s$ is selected, the preceding lower bound gives $W>1/2$. Thus $W/m\\geq1/(2m)$, and $f(L)\\leq\\varepsilon$. For each of the at most $T$ stages, condition on the event that there has been no earlier disagreement and $s$ has not yet appeared. The conditional chance of a new disagreement is at most $\\varepsilon$. Multiplying by the probability of the conditioning event and summing over the stages gives a total at most $T\\varepsilon$. No independence among these stage failures is needed."
+      },
+      "scope": "Drift, exact averaging identity, successful-label conditioning, and history-dependent coupling.",
+      "limit": "The baseline already supplied much of the complete proof; retained proof-forward material is credited as retained. No novelty follows from improving its explanation."
+    },
+    {
+      "id": "cite-the-inspected-version-and-role",
+      "move": "Distinguish a theorem used in the proof from an antecedent or a hypothesis comparison, with the inspected edition and locator.",
+      "specimens": [
+        {
+          "source": "writing/mathematical-writing-mechanics.md",
+          "locator": "Section 9, lines 396–440",
+          "short_specimen": "A citation should let the reader recover both attribution and epistemic role.",
+          "source_sha256": "0ba857f70a724a2676f91b01e7ee95cc3518dcd261b53fec27b743935d1caa0f",
+          "authority_role": "Citation guidance."
+        }
+      ],
+      "before": {
+        "passage": "upper-purpose",
+        "exact_excerpt": "There are useful precedents for the three steps of generating candidates, comparing them, and checking a certificate. Ben-David and Kothari use this organization in their quantum certificate separation [BenDavidKothari2026, Lemma 5](https://arxiv.org/abs/2609.15063). Quantum minimum finding provides another example of repeatedly searching among candidates [DurrHoyer1996, Theorem 1](https://arxiv.org/abs/quant-ph/9607014). Its comparisons come from a total order. Finding a king in a fixed tournament also has a quantum algorithm using a square root number of vertices, up to logarithmic factors [MandeParaasharSaurabh2023, Theorem 4.4](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.FSTTCS.2023.30). Here a comparison is a quantum experiment whose winning probability can be any real number in the unit interval. In particular, an input outside the Forrelation promises need not determine a reliable orientation of each edge. We therefore prove the probabilistic tournament statement needed for this setting."
+      },
+      "after": {
+        "passage": "upper-purpose",
+        "exact_excerpt": "The organization into candidate generation, comparison and certificate checking also appears in Ben-David and Kothari [BDK2026, §3, Lemma 5, pp. 3–5]. Dürr and Høyer's minimum-finding algorithm uses ordered table values and a decreasing rank [DH1999, Theorem 1 and Lemmas 1–2, pp. 1–2]. Mande, Paraashar and Saurabh give a quantum algorithm for finding a king with exact edge-direction queries [MPS2023, Theorem 19, §4, pp. 30:11–30:13]. These are antecedents and comparisons; the fractional-weight argument here is the one in OpenAI's Proposition 3.2. In particular, the available comparisons need not be bounded-error evaluations of any fixed orientation."
+      },
+      "scope": "All seven bibliography entries, especially BHMT/BBHT, HMW and the published MPS Theorem 19.",
+      "limit": "The locator corrections are grounded in the mathematical sources, not in the style exemplar. Neither a citation nor a formal theorem name substitutes for the ordinary proof."
+    },
+    {
+      "id": "collect-evidence-after-the-mathematics",
+      "move": "Place the detailed evidence distinctions in one formal-correspondence subsection and machine-readable companion records.",
+      "specimens": [
+        {
+          "source": "writing/register-from-literature.md",
+          "locator": "What stays fixed while the register changes, closing paragraph",
+          "short_specimen": "Evidence is reported once and plainly: a short verification paragraph or an appendix,",
+          "source_sha256": "2278000b36133a13c0e83f785bdb2a89b94b8ed1927daeaf12d2b1ed30545d7d",
+          "authority_role": "Writing guidance."
+        },
+        {
+          "source": "exemplars/long-reasoning-record.md",
+          "locator": "overview, lines 49–57",
+          "short_specimen": "The exact formal statements and model comparison are\nin Section 12, followed by the source and checking record in Section 13.",
+          "source_sha256": "a19893f62d1211681ed0cb9cbb8bb454214d97f231f6a6d091b6f198fca35a89",
+          "authority_role": "Writing organization only; no mathematical authority."
+        }
+      ],
+      "before": {
+        "passage": "upper-tournament-evidence",
+        "exact_excerpt": "**Lean evidence and the exact remaining difference for Proposition 3.2.** The declarations `QuarticQuery.Upper.stageLaw_some`, `QuarticQuery.Upper.sum_stageLaw_some`, and `QuarticQuery.Upper.stage_samples` identify and implement the weights. The source implementation may skip a later comparison once a previous one has failed; it retains the failed outcome and never marks that branch successful. The probability of surviving all comparisons is still their product. Thus it realizes the law above, without asserting that its complete workspace is literally the tensor state in equation (15).\n\n`QuarticQuery.Upper.tval_lower` proves the coupling estimate by induction on histories in a form that also includes final verification. `QuarticQuery.Upper.tournament_runs` then produces an actual bit-query program. Its output type is Boolean: it passes the candidate list to a verifier and takes the disjunction of the verifier results. In particular, its theorem does not return a list, and its lower bou"
+      },
+      "after": {
+        "passage": "upper-current-formal-scope",
+        "exact_excerpt": "The current packet contains a successful source-bound root build receipt and later exact-type/axiom auditing, in addition to focused module passes. The former record labels its commit `31e17dee667d1d72fa621da8e7d3d8ff5fc3960a`, while the packet manifest labels its repository commit `1dd469dd0042b937b739da3bc211eeb60bdf7462`. For the local Lean/configuration closure, all 124 supplied source hashes agree across the current files, evidence snapshot, root receipt, dependency export and axiom verdict. This makes the recorded evidence applicable to those exact bytes despite the differing commit labels. It is not a fresh Lean execution in this review. The recorded toolchain is `leanprover/lean4:v4.36.0-rc2`; the dependency pins are preserved in the source receipt.\n\nThe following distinctions determine the formal claims in this section.\n\n| Ordinary statement | Current formal support and its scope |\n|---|---|\n| Grover rotation and returned successful state in Lemma 3.1 | `QuarticQuery.Amplification.bounded_amplification` proves the complete abstract `Proc` assertion, including phase-invariant"
+      },
+      "scope": "Long-record §5 and its evidence appendices.",
+      "limit": "Do not suppress a genuine theorem limitation at the point where it matters. The physical-state distinction is also explained beside amplification, where it changes the meaning."
+    }
+  ],
+  "mathematical_authority": "OpenAI Section 3 and the individually scoped primary sources in references.bib. The QAOA exemplars concern other mathematics and provide no proof support here.",
+  "measurement_boundary": "No paper_register.py profile/comparison tool was available in this packet. No before/after register score is claimed. Concrete before/after passages and applied dispositions are supplied instead.",
+  "before_source_sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff"
+}

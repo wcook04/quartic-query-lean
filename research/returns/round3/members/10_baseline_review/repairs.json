@@ -1,0 +1,908 @@
+{
+  "format": "quartic-r3-10-repairs-v1",
+  "baseline_sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+  "scope": "Advisory replacements for the frozen baseline, not an integrated manuscript. Structural moves depend on preserving all local repairs.",
+  "repairs": [
+    {
+      "id": "R-E01",
+      "priority": "P0",
+      "category": "current-evidence correction",
+      "owner": "09 backend; later integrator",
+      "operation": "replace",
+      "passage": "ROOT-EVIDENCE-CONVENTION",
+      "target": {
+        "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+        "line_start": 142,
+        "line_end": 142,
+        "from": "All packet-relative source paths below refer to repository commit `c7e0c9161f0ad898889bd9166e7b354acd42188d`. The companion files preserve the corpus's original statements and evid",
+        "to": " inventory and limits of the available verification are in `review_notes.md`; `LEAN_GAPS.md` lists every displayed step whose formal support is partial, absent or by another route.",
+        "old_sha256": "6db9dd1e58d7a97f88223847c44c79e2f51ad3a979d26d8cc6292ef81f4829cb",
+        "old": "All packet-relative source paths below refer to repository commit `c7e0c9161f0ad898889bd9166e7b354acd42188d`. The companion files preserve the corpus's original statements and evidence while recording corrections and new expository claims separately. Compilation and comparator statuses are reported evidence from that packet, not a fresh execution during this reading. The full methods, source inventory and limits of the available verification are in `review_notes.md`; `LEAN_GAPS.md` lists every displayed step whose formal support is partial, absent or by another route."
+      },
+      "replacement": "The baseline was written against repository commit `c7e0c9161f0ad898889bd9166e7b354acd42188d`; its historical catalogue and original evidence fields retain that provenance. The frozen review packet is at repository commit `1dd469dd0042b937b739da3bc211eeb60bdf7462`. Its current source-bound Lean and Comparator receipts identify proof-source checkpoint `31e17dee667d1d72fa621da8e7d3d8ff5fc3960a`, and their recorded local input hashes match the supplied files. The current root build, selected module runs, 258-declaration type/axiom audit, and Comparator comparisons are separate evidence records. The comparisons certify their listed declarations against the actual generated challenges; they do not independently establish the intended meaning of shared definitions. No Lean or Comparator execution was performed during this review. The versioned current concordance records exact declaration types, ordinary premises, remaining partial clauses, proof routes, and per-declaration build, comparison, and dependency status.",
+      "reason": "The old global commit sentence is false as a description of the current packet. Distinguish packet assembly, proof-source checkpoint and baseline history. Source hash matching is the binding evidence; commit labels alone are insufficient.",
+      "statement_ids": [
+        "thm-1.1"
+      ],
+      "lean": [],
+      "application_status": "Proposed only; original packet is unchanged. Exact target is unique in the frozen member.",
+      "rank": 1,
+      "validation": "Resolve the unique old span against the recorded SHA-256, apply before structural movement, and recheck the mathematical and evidence boundaries stated here."
+    },
+    {
+      "id": "R-E02",
+      "priority": "P0",
+      "category": "current-evidence correction",
+      "owner": "09 backend; later integrator",
+      "operation": "replace",
+      "passage": "ROOT-RESULT",
+      "target": {
+        "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+        "line_start": 46,
+        "line_end": 46,
+        "from": "**Evidence.** The supplied source states `QuarticQuery.alphaTot_eq_four_unconditional`, `QuarticQuery.theorem_1_1_unconditional` and `QuarticQuery.cubic_bound_fails_unconditional` ",
+        "to": "vailable during this reconstruction. The universal upper endpoint is checked by an imported alternative route; the ordinary proof in Appendix A is separately reconstructed in full.",
+        "old_sha256": "4c72c8edea9b73b0fe7d4c2e8525e46e275365ee588c8631e4a875a4a0fd9473",
+        "old": "**Evidence.** The supplied source states `QuarticQuery.alphaTot_eq_four_unconditional`, `QuarticQuery.theorem_1_1_unconditional` and `QuarticQuery.cubic_bound_fails_unconditional` in `lean/QuarticQuery/Results/Unconditional.lean`. The second theorem gives the family with an explicit floor lower bound; the floor estimates later in this record give the displayed asymptotic form. These are unconditional declarations. The reported compilation and comparison results belong to the supplied source record. No new Lean kernel execution was available during this reconstruction. The universal upper endpoint is checked by an imported alternative route; the ordinary proof in Appendix A is separately reconstructed in full."
+      },
+      "replacement": "**Evidence.** `QuarticQuery.alphaTot_eq_four_unconditional`, `theorem_1_1_unconditional`, and `cubic_bound_fails_unconditional` are unconditional declarations in `Results/Unconditional.lean`. The full headline theorem gives the same circuit in both complexity bounds and states the randomized bound using the integer floor `Gvalue`; `Gvalue_ge` gives the coefficient $1/400$ in equation (2). The current `Paper.construction_family_named` and `Paper.construction_equation_two` also export that literal fixed-$k$ family with $b_k=6$. The supplied source-bound root build covers these declarations; the Unconditional Comparator receipt compares the headline declarations listed in it. The two Paper wrappers have no Comparator receipt. These are reported executions with hashes checked against the frozen source, not new executions during this review. The headline proof uses the imported quartic upper-bound route. Appendix A also has a separate current formal assembly, described at its endpoint.",
+      "reason": "Current wrappers directly close the literal equation(2) type gap while preserving exact comparator membership and route reach.",
+      "statement_ids": [
+        "eq-1",
+        "thm-1.1",
+        "eq-2",
+        "cor-cubic-refuted"
+      ],
+      "lean": [
+        "QuarticQuery.theorem_1_1_unconditional",
+        "QuarticQuery.Paper.construction_equation_two"
+      ],
+      "application_status": "Proposed only; original packet is unchanged. Exact target is unique in the frozen member.",
+      "rank": 2,
+      "validation": "Resolve the unique old span against the recorded SHA-256, apply before structural movement, and recheck the mathematical and evidence boundaries stated here."
+    },
+    {
+      "id": "R01",
+      "priority": "P0",
+      "category": "mathematical source attribution",
+      "owner": "03 Forrelation lower bound; later integrator",
+      "operation": "replace",
+      "passage": "forr_bs_translation",
+      "target": {
+        "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+        "line_start": 392,
+        "line_end": 407,
+        "from": "### 3.6. The published lower bound implies the required scale\n\nBansal and Sinha prove that bounded-error randomized decision trees for the same \\((2^{-5k},k)\\)-Forrelation promise ",
+        "to": "rnative-route witness for `lem-2.1.i`, where its conclusion belongs. Its actual location is `ForrelationLower/Main.lean`, and it is a theorem, not a definition in `Statement.lean`.",
+        "old_sha256": "b67a8d03289ddc5cea4a5bb7f1328a1cdbb0abcede3dab44193914bdb4b274c3",
+        "old": "### 3.6. The published lower bound implies the required scale\n\nBansal and Sinha prove that bounded-error randomized decision trees for the same \\((2^{-5k},k)\\)-Forrelation promise need at least a universal positive constant times \\(k^{-29}(m/\\log(km))^{1-1/k}\\) queries [BS21, Theorem 1.3 and Corollary 1.4](https://arxiv.org/abs/2008.07003). Their \\(N\\) is our \\(m\\), the size of one block; the total input length is \\(km\\). Both normalized products and both promise thresholds agree. Logarithm bases only modify the positive constant.\n\nFix \\(k\\ge2\\), write \\(\\alpha=1-1/k\\), and use base-two logarithms in the comparison. For \\(m\\ge k\\), \\(\\log_2(km)\\le2\\log_2m\\). Dividing the published lower bound by the unfloored expression for \\(L\\) gives a ratio at least \\(c k^{-29}2^{-\\alpha}(\\log_2m)^{2-\\alpha}\\). The exponent is \\(2-\\alpha=1+1/k>0\\). Choose \\(m\\) large enough that this last quantity exceeds one. Positivity of the common numerator then gives\n\n<!-- claim:claim-bs-to-L -->\n\\[\nc k^{-29}\\left(\\frac{m}{\\log_2(km)}\\right)^{1-1/k}\n>\\frac{m^{1-1/k}}{(\\log_2m)^2}\n\\ge\\left\\lfloor\\frac{m^{1-1/k}}{(\\log_2m)^2}\\right\\rfloor=L.\n\\]\n\nThis proves the required strict lower bound by the preprint's literature route. The constant \\(c\\) must be positive; that condition is implicit in its lower-bound origin and should be explicit when the comparison is isolated.\n\n**Evidence correction.** The corpus labels `claim-bs-to-L` an exact alternative-route consequence of `QuarticQuery.ForrelationLower.bansalSinhaLower`. That declaration proves the final assertion \\(R(P)>L\\); it never states the numerical comparison displayed here. Proving an endpoint by another argument does not prove every intermediate claim of the original argument. The comparison therefore has a complete mathematical proof here and a primary-source premise, but no exact formal witness in the supplied tie. Its evidence field should be corrected. The same declaration is an exact alternative-route witness for `lem-2.1.i`, where its conclusion belongs. Its actual location is `ForrelationLower/Main.lean`, and it is a theorem, not a definition in `Statement.lean`."
+      },
+      "replacement": "### 3.6. The published statement and the lower-bound scale needed here\n\nBansal and Sinha state a randomized lower bound of\n\\(c k^{-29}(m/\\log(km))^{1-1/k}\\), for an absolute \\(c>0\\), for error at most \\(1/3\\) on the same \\((2^{-5k},k)\\)-Forrelation promise [BS21, arXiv:2008.07003v3, Theorem 1.3 and Corollary 1.4, p. 4]. Their \\(N\\) is our block length \\(m\\), not the total input length \\(km\\). The normalized product and both promise thresholds agree. Theorem 1.3 parameterizes error as \\(1/2-\\eta/2\\); here \\(\\eta=1/3\\). A fixed change of logarithm base is absorbed into \\(c\\).\n\nThe numerical implication used by the OpenAI preprint is straightforward. Fix \\(k\\ge2\\), put \\(\\alpha=1-1/k\\), and use base-two logarithms. For \\(m\\ge k\\), \\(\\log_2(km)\\le2\\log_2m\\). Dividing the stated lower-bound scale by the unfloored definition of \\(L\\) gives at least\n\\(c k^{-29}2^{-\\alpha}(\\log_2m)^{2-\\alpha}\\), which tends to infinity because \\(2-\\alpha=1+1/k>0\\). Thus, for every \\(c>0\\) and fixed \\(k\\), all sufficiently large powers of four satisfy\n\n<!-- claim:claim-bs-to-L -->\n\\[\nc k^{-29}\\left(\\frac{m}{\\log_2(km)}\\right)^{1-1/k}\n>\\frac{m^{1-1/k}}{(\\log_2m)^2}\n\\ge\\left\\lfloor\\frac{m^{1-1/k}}{(\\log_2m)^2}\\right\\rfloor=L.\n\\]\n\nThe stated theorem and the inspected derivation need separate records. In v3 §5.4, p. 38, the step between `main.tex` lines 1180–1181 replaces the logarithmic exponent \\((\\ell-1)/2\\) by \\(\\ell(1-1/k)/2\\) at levels \\(k\\le\\ell\\le k(k-1)\\). The ratio is \\(\\log(km)^{(\\ell/k-1)/2}\\). It grows with \\(m\\) for every fixed \\(\\ell>k\\); already \\(k=3,\\ell=6\\) leaves a factor \\(\\sqrt{\\log(3m)}\\). The supplied source audit therefore does not establish that displayed implication. This finding concerns that proof step and does not refute Theorem 1.3. The ensuing depth threshold is on line 1184. Equation (5.31) also prints \\(\\delta^2/(4m)\\) where the preceding second-moment estimate gives \\(4/(m\\delta^2)\\); that separate correction affects the sufficient size threshold.\n\nThe separation needs only the weaker fixed-\\(k\\) statement \\(R(P)>L\\). Sections 3.7–3.15 prove it independently by the local interpolation and decision-tree argument. Even a lower-bound scale \\(m^{1-1/k}/\\log(km)\\) would exceed \\(L\\) eventually, since its ratio to the unfloored \\(L\\) grows as \\(\\log m\\). No claim about the exact logarithmic exponent of the published theorem is needed for that internal proof.\n\n**Source correspondence.** The current snapshot contains the numerical comparison itself in `QuarticQuery.Paper.construction_claim_bs_to_L`; `QuarticQuery.Paper.construction_bs_comparison_chain` also states the unfloored middle inequality. Their premises are \\(k\\ge2\\) and \\(c>0\\), and neither asserts a randomized lower bound. By contrast, `QuarticQuery.ForrelationLower.bansalSinhaLower` proves the eventual endpoint \\(L<R(P)\\) by the separate local route. A receipt for the latter endpoint cannot certify the sharp published expression; a receipt for the former arithmetic statement cannot certify the source theorem either. Current source-bound validation is recorded in the evidence appendix.",
+      "reason": "The inspected v3 level sum loses an unbounded logarithmic factor. Preserve theorem credit, distinguish the defective display, and retain the independent local endpoint.",
+      "statement_ids": [
+        "claim-bs-to-L",
+        "lem-2.1.i"
+      ],
+      "lean": [
+        "QuarticQuery.Paper.construction_bs_comparison_chain",
+        "QuarticQuery.ForrelationLower.bansalSinhaLower"
+      ],
+      "application_status": "Proposed only; original packet is unchanged. Exact target is unique in the frozen member.",
+      "rank": 3,
+      "validation": "Resolve the unique old span against the recorded SHA-256, apply before structural movement, and recheck the mathematical and evidence boundaries stated here."
+    },
+    {
+      "id": "R02",
+      "priority": "P0",
+      "category": "mathematical source attribution",
+      "owner": "03 Forrelation lower bound; later integrator",
+      "operation": "replace",
+      "passage": "forr_attribution",
+      "target": {
+        "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+        "line_start": 822,
+        "line_end": 822,
+        "from": "The problem, its alternating Walsh expression, and its small-query quantum algorithm are established Forrelation constructions [AA18](https://arxiv.org/abs/1411.5729). Bansal and S",
+        "to": "(https://arxiv.org/abs/2008.07003). The strict fixed-$k$ lower bound used here is weaker by a polylogarithmic factor. It follows from that theorem by the explicit comparison above.",
+        "old_sha256": "deae730ccd5193cd1388fba8f9b87fde28d3651daae5ac1c8e65d9f78f7b7f7c",
+        "old": "The problem, its alternating Walsh expression, and its small-query quantum algorithm are established Forrelation constructions [AA18](https://arxiv.org/abs/1411.5729). Bansal and Sinha prove a stronger randomized lower bound, including quantitative dependence on advantage and on $k$, for the same small constant threshold [BS21, Theorem 1.3, Corollary 1.4](https://arxiv.org/abs/2008.07003). The strict fixed-$k$ lower bound used here is weaker by a polylogarithmic factor. It follows from that theorem by the explicit comparison above."
+      },
+      "replacement": "The problem, its alternating Walsh expression, and its small-query quantum algorithm are established Forrelation constructions [AA18]. Bansal and Sinha state a quantitatively stronger randomized lower bound, with explicit dependence on the error advantage and on \\(k\\), for the same small threshold [BS21, arXiv:2008.07003v3, Theorem 1.3 and Corollary 1.4, p. 4]. Section 3.6 records both its numerical implication for our target scale and the unresolved logarithmic comparison in the inspected v3 proof. The independent fixed-\\(k\\) proof given here establishes the weaker endpoint required by the total-function construction; it does not resolve that sharper source statement.",
+      "reason": "Remove the unqualified proof attribution without changing the historical ancestry or claiming novelty.",
+      "statement_ids": [
+        "lem-2.1.i"
+      ],
+      "lean": [
+        "QuarticQuery.ForrelationLower.bansalSinhaLower"
+      ],
+      "application_status": "Proposed only; original packet is unchanged. Exact target is unique in the frozen member.",
+      "rank": 4,
+      "validation": "Resolve the unique old span against the recorded SHA-256, apply before structural movement, and recheck the mathematical and evidence boundaries stated here."
+    },
+    {
+      "id": "R03",
+      "priority": "P0",
+      "category": "current-evidence correction",
+      "owner": "01 models/evidence; 03 Forrelation lower; 09 backend",
+      "operation": "replace",
+      "passage": "forr_scope",
+      "target": {
+        "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+        "line_start": 156,
+        "line_end": 156,
+        "from": "The three conclusions are a randomized lower bound, a quantum promise algorithm, and an exact Boolean circuit recognizing the promise and its value. The preprint obtains the first ",
+        "to": " reading did not run Lean or its statement comparator, and the packet contains no build-receipt directory. A reported build therefore remains a supplied claim about a previous run.",
+        "old_sha256": "b56896427c1c1e1d490800b77bf90307c82fbe608f66b37e52aa3c459c47221f",
+        "old": "The three conclusions are a randomized lower bound, a quantum promise algorithm, and an exact Boolean circuit recognizing the promise and its value. The preprint obtains the first conclusion from Bansal and Sinha. The supplied Lean source proves that conclusion by its own Gaussian and decision-tree argument. We give both the short published implication and the entire internal argument. The mathematical comparisons below concern the statements and source proofs inspected in this packet. The corpus reports builds at the supplied pin; this reading did not run Lean or its statement comparator, and the packet contains no build-receipt directory. A reported build therefore remains a supplied claim about a previous run."
+      },
+      "replacement": "The three conclusions are a randomized lower bound, a quantum promise algorithm, and an exact Boolean circuit recognizing the promise and its value. The preprint invokes Bansal and Sinha for the first conclusion; §3.6 distinguishes the published statement from the inspected display boundary. The supplied Lean source proves the required weaker endpoint by its own Gaussian and decision-tree argument, reconstructed in full below. The historical baseline did not contain source-bound receipts. The current frozen packet does: their input hashes match the supplied files, and the versioned evidence appendix identifies each declaration's actual build, comparison and type-audit scope. No new Lean or Comparator execution was performed during this review.",
+      "reason": "Replace the false current-packet absence claim; make the source statement/proof boundary visible at the interface.",
+      "statement_ids": [
+        "lem-2.1.i"
+      ],
+      "lean": [],
+      "application_status": "Proposed only; original packet is unchanged. Exact target is unique in the frozen member.",
+      "rank": 5,
+      "validation": "Resolve the unique old span against the recorded SHA-256, apply before structural movement, and recheck the mathematical and evidence boundaries stated here."
+    },
+    {
+      "id": "R-E03",
+      "priority": "P1",
+      "category": "current-evidence correction",
+      "owner": "05 quantum upper; 09 backend; later integrator",
+      "operation": "replace",
+      "passage": "upper-tournament-evidence",
+      "target": {
+        "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+        "line_start": 1318,
+        "line_end": 1322,
+        "from": "**Lean evidence and the exact remaining difference for Proposition 3.2.** The declarations `QuarticQuery.Upper.stageLaw_some`, `QuarticQuery.Upper.sum_stageLaw_some`, and `QuarticQ",
+        "to": "e changes preserve the claimed asymptotic bound. None of this reasoning requires a classical tournament with a fixed orientation to be extracted from the probabilistic comparisons.",
+        "old_sha256": "21f2b73ace6a941937e55f5ed91e65c6cd20e0364ed991c134ddf27fda9c4763",
+        "old": "**Lean evidence and the exact remaining difference for Proposition 3.2.** The declarations `QuarticQuery.Upper.stageLaw_some`, `QuarticQuery.Upper.sum_stageLaw_some`, and `QuarticQuery.Upper.stage_samples` identify and implement the weights. The source implementation may skip a later comparison once a previous one has failed; it retains the failed outcome and never marks that branch successful. The probability of surviving all comparisons is still their product. Thus it realizes the law above, without asserting that its complete workspace is literally the tensor state in equation (15).\n\n`QuarticQuery.Upper.tval_lower` proves the coupling estimate by induction on histories in a form that also includes final verification. `QuarticQuery.Upper.tournament_runs` then produces an actual bit-query program. Its output type is Boolean: it passes the candidate list to a verifier and takes the disjunction of the verifier results. In particular, its theorem does not return a list, and its lower bound includes a final verifier error \\(\\varepsilon\\). This is why the corpus correctly marks the tie for `prop-3.2` as partial. The ideal list theorem is formalized, and the quantum proof above reconstructs the paper's list statement, but the inspected Lean endpoint is the Boolean continuation needed below. We do not identify that endpoint with the stronger list-valued statement.\n\nThe implementation also pads every stage cost to the maximum possible \\(T\\) comparisons and charges the bit-query compiler's factor of two per abstract read. These changes preserve the claimed asymptotic bound. None of this reasoning requires a classical tournament with a fixed orientation to be extracted from the probabilistic comparisons."
+      },
+      "replacement": "**Lean evidence for Proposition 3.2.** The older `Upper.stageLaw_some`, `sum_stageLaw_some`, and `stage_samples` implement the correct weights through a sampler that may skip later comparisons after a failure. That sampler preserves the success law without claiming equality of its complete workspace to equation (15). The current `Paper.equation_15` separately proves the literal tensor-state slice equality for supplied coherent comparison circuits.\n\nThe current `Paper.quantumTournament_list` returns a finite list-valued probability law, proves that it is normalized, supplies both a coherent `Samples` witness and a physical bit-query `Runs` witness, and proves containment of any specified dominant vertex with probability at least $1-2m/2^T-T\\varepsilon$. `Paper.quantumTournament` packages the physical cap $6072c\\sqrt m\\,T^2\\ln T$ in the source's common logical-read convention. Thus the current source includes the list-valued proposition itself. These declarations belong to the source-bound root build and recorded type audit, but are outside the two headline dependency roots and have no Comparator receipt.\n\nThe original `Upper.tournament_runs` remains the Boolean continuation used by the main proof: it verifies candidates and has an additional verifier error $\\varepsilon$. The next induction explains that original route. Its narrower output type does not limit the separately exported current list theorem. Padding stage costs and the compiler's factor of two preserve the stated asymptotic cap.",
+      "reason": "An actual normalized list law and a separate literal tensor theorem now exist. The old only-Boolean limitation is stale; keep the implementation-state distinction.",
+      "statement_ids": [
+        "claim-success-prob",
+        "eq-15",
+        "claim-coupling",
+        "prop-3.2"
+      ],
+      "lean": [
+        "QuarticQuery.Paper.quantumTournament_list",
+        "QuarticQuery.Paper.quantumTournament",
+        "QuarticQuery.Paper.equation_15"
+      ],
+      "application_status": "Proposed only; original packet is unchanged. Exact target is unique in the frozen member.",
+      "rank": 6,
+      "validation": "Resolve the unique old span against the recorded SHA-256, apply before structural movement, and recheck the mathematical and evidence boundaries stated here."
+    },
+    {
+      "id": "R-E04",
+      "priority": "P1",
+      "category": "current-evidence correction",
+      "owner": "06 direct product; 09 backend; later integrator",
+      "operation": "replace",
+      "passage": "CL-supermartingale",
+      "target": {
+        "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+        "line_start": 1608,
+        "line_end": 1608,
+        "from": "The supermartingale and terminal claims have no separately checked declarations in the corpus. Their endpoint is proved by the following alternative route.",
+        "to": "The supermartingale and terminal claims have no separately checked declarations in the corpus. Their endpoint is proved by the following alternative route.",
+        "old_sha256": "db2931dfed101d6ce64478c9dd256a1f2af8497044e52a7f359625d4d87bc68c",
+        "old": "The supermartingale and terminal claims have no separately checked declarations in the corpus. Their endpoint is proved by the following alternative route."
+      },
+      "replacement": "The current `Paper.classical_transcript_conditional_expectation` proves the finite positive-mass one-step product inequality, and `Paper.classical_final_bound` proves the terminal bound. `Paper.classical_transcript_product_law` and `Paper.classical_eq_16_transcript` supply the conditional factorization and one-step value estimate. Their premises require nonnegative finite product weights, a positive-mass conditioning transcript, and remaining budget for the proposed query. These are the finite conditional formulations used here; they are not a general measure-theoretic supermartingale theorem. The current corpus retains partial labels for equation (16) and the full supermartingale row. The original endpoint is also proved by the following unnormalized-weight route.",
+      "reason": "New finite conditional theorems remove the no-declaration claim, but do not license marking every supermartingale narrative clause exact.",
+      "statement_ids": [
+        "claim-supermartingale",
+        "claim-final-bound",
+        "lem-4.1"
+      ],
+      "lean": [
+        "QuarticQuery.Paper.classical_transcript_conditional_expectation",
+        "QuarticQuery.Paper.classical_final_bound"
+      ],
+      "application_status": "Proposed only; original packet is unchanged. Exact target is unique in the frozen member.",
+      "rank": 7,
+      "validation": "Resolve the unique old span against the recorded SHA-256, apply before structural movement, and recheck the mathematical and evidence boundaries stated here."
+    },
+    {
+      "id": "R-E05",
+      "priority": "P1",
+      "category": "current-evidence correction",
+      "owner": "07 planted lower; 09 backend; later integrator",
+      "operation": "replace",
+      "passage": "CL-first-difference",
+      "target": {
+        "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+        "line_start": 1755,
+        "line_end": 1755,
+        "from": "`QuarticQuery.QueryTree.exists_mem_path_ne` is the first-difference statement, and `QuarticQuery.eq_of_dummy_ne_planted` identifies the two possible classes of differing coordinate",
+        "to": "nt already divided into heavy and nonheavy cases. The absolute-value display is the direct prose consequence just proved; the exact exported final discrepancy theorem is one-sided.",
+        "old_sha256": "6095a16acf41071b157b0e168250a8516e726f7ad4144b418f435b00f7567b4f",
+        "old": "`QuarticQuery.QueryTree.exists_mem_path_ne` is the first-difference statement, and `QuarticQuery.eq_of_dummy_ne_planted` identifies the two possible classes of differing coordinates. `QuarticQuery.output_gap_le` packages the one-sided indicator inequality used later, with the cell event already divided into heavy and nonheavy cases. The absolute-value display is the direct prose consequence just proved; the exact exported final discrepancy theorem is one-sided."
+      },
+      "replacement": "`QuarticQuery.QueryTree.exists_mem_path_ne` proves the first-difference implication, and `eq_of_dummy_ne_planted` identifies the two classes of differing coordinates. The current `Paper.eq_18` packages the displayed absolute difference of the full dummy/planted averages with the two unsplit hit events. The older `output_gap_le` packages the one-sided indicator inequality used in the original main proof, with the cell event already split into heavy and nonheavy cases. These are distinct current declarations, not competing descriptions of one type.",
+      "reason": "An explicit absolute averaged coupling theorem now exists.",
+      "statement_ids": [
+        "eq-18"
+      ],
+      "lean": [
+        "QuarticQuery.Paper.eq_18"
+      ],
+      "application_status": "Proposed only; original packet is unchanged. Exact target is unique in the frozen member.",
+      "rank": 8,
+      "validation": "Resolve the unique old span against the recorded SHA-256, apply before structural movement, and recheck the mathematical and evidence boundaries stated here."
+    },
+    {
+      "id": "R-E06",
+      "priority": "P1",
+      "category": "current-evidence correction",
+      "owner": "07 planted lower; 09 backend; later integrator",
+      "operation": "replace",
+      "passage": "CL-discrepancy",
+      "target": {
+        "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+        "line_start": 1891,
+        "line_end": 1891,
+        "from": "The checked erased-zero induction improves the first summand to $2G/m^2$. The exact conclusion exported by `QuarticQuery.tree_gap_le` is the following one-sided form, which is suff",
+        "to": "tion improves the first summand to $2G/m^2$. The exact conclusion exported by `QuarticQuery.tree_gap_le` is the following one-sided form, which is sufficient for the contradiction.",
+        "old_sha256": "b3fa96fe4cb70fb0067a78fc7d766225a8e2174fc302f3562a02c63e54584d9f",
+        "old": "The checked erased-zero induction improves the first summand to $2G/m^2$. The exact conclusion exported by `QuarticQuery.tree_gap_le` is the following one-sided form, which is sufficient for the contradiction."
+      },
+      "replacement": "The checked erased-zero induction improves the first summand to $2G/m^2$. The current `Paper.eq_23_two` proves the absolute-value bound with this improved coefficient, and `Paper.eq_23` proves the displayed coefficient-four version. Both use normalized promise-supported weights, one-instance hardness, and a worst-case depth cap. The older `QuarticQuery.tree_gap_le`, used in the headline proof, exports the following sufficient one-sided form.",
+      "reason": "The precise older one-sided statement is still correct, but no longer exhausts current exported discrepancy theorems.",
+      "statement_ids": [
+        "eq-23",
+        "NCL-checked-gap"
+      ],
+      "lean": [
+        "QuarticQuery.Paper.eq_23_two",
+        "QuarticQuery.Paper.eq_23"
+      ],
+      "application_status": "Proposed only; original packet is unchanged. Exact target is unique in the frozen member.",
+      "rank": 9,
+      "validation": "Resolve the unique old span against the recorded SHA-256, apply before structural movement, and recheck the mathematical and evidence boundaries stated here."
+    },
+    {
+      "id": "R-E07",
+      "priority": "P1",
+      "category": "current-evidence correction",
+      "owner": "construction/exponent section owners (numbers not supplied); 09 backend; later integrator",
+      "operation": "replace",
+      "passage": "ROOT-FAMILY-ASSEMBLY",
+      "target": {
+        "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+        "line_start": 1989,
+        "line_end": 1989,
+        "from": "**Evidence.** `QuarticQuery.family_bounds` in `Results/Conditional.lean` produces one circuit carrying both the upper bound and the implication needed for the lower bound. `Quartic",
+        "to": " the quantified family. The corpus's partial ties for equation $2$ describe component theorems; their composition with the discharged Forrelation premise proves the full assertion.",
+        "old_sha256": "634c63a829d067b2a23db44dfc5fbf8d411157dceeaf5b314519db697f0e7a61",
+        "old": "**Evidence.** `QuarticQuery.family_bounds` in `Results/Conditional.lean` produces one circuit carrying both the upper bound and the implication needed for the lower bound. `QuarticQuery.ForrelationLower.bansalSinhaLower` supplies its remaining premise. The use of `QuarticQuery.Gvalue_ge` in `Results/Exponent.lean` gives the constant $1/400$. `QuarticQuery.familyBounds_of_bansalSinha`, `QuarticQuery.Upper.familyBoundsAt_of_lower` and `QuarticQuery.theorem_1_1_unconditional` assemble the quantified family. The corpus's partial ties for equation $2$ describe component theorems; their composition with the discharged Forrelation premise proves the full assertion."
+      },
+      "replacement": "**Evidence.** `QuarticQuery.family_bounds` produces one circuit with both the quantum upper bound and the implication used for the randomized lower bound. `ForrelationLower.bansalSinhaLower` discharges that implication's remaining premise, and `Gvalue_ge` supplies $1/400$. The current `Paper.construction_family_named` uses the actual `Forrelation.forrCircuit` and explicitly states both bounds, its realization, and its size estimate; `Paper.construction_equation_two` presents the quantified equation (2) form with positive constants and $b_k=6$. Their fixed-$k$ threshold is chosen before $t$ varies. They are covered by the source-bound root build and recorded type audit, but not a Comparator receipt.",
+      "reason": "The named-circuit and quantified family wrappers are now available; no change to the fixed-k theorem is authorized.",
+      "statement_ids": [
+        "eq-2",
+        "thm-1.1",
+        "claim-floor",
+        "cor-R-omega"
+      ],
+      "lean": [
+        "QuarticQuery.Paper.construction_family_named",
+        "QuarticQuery.Paper.construction_equation_two"
+      ],
+      "application_status": "Proposed only; original packet is unchanged. Exact target is unique in the frozen member.",
+      "rank": 10,
+      "validation": "Resolve the unique old span against the recorded SHA-256, apply before structural movement, and recheck the mathematical and evidence boundaries stated here."
+    },
+    {
+      "id": "R-E08",
+      "priority": "P1",
+      "category": "current-evidence correction",
+      "owner": "exponent section owner (number not supplied); 09 backend; later integrator",
+      "operation": "replace",
+      "passage": "ROOT-RATIO",
+      "target": {
+        "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+        "line_start": 2010,
+        "line_end": 2010,
+        "from": "**Evidence.** `QuarticQuery.eventually_gt_rpow` and its uniform precursor `exists_threshold_gap` prove the eventual strict comparison for arbitrary sequences satisfying the two bou",
+        "to": "l ratio in prose. The Lean limit proof uses the library's exponential-versus-power asymptotic theorem; the integral estimate above gives an elementary route to the same comparison.",
+        "old_sha256": "d074e2803989e10ce15e1625d4478b494532f8a0f6bfe67a074b7db3789c49dd",
+        "old": "**Evidence.** `QuarticQuery.eventually_gt_rpow` and its uniform precursor `exists_threshold_gap` prove the eventual strict comparison for arbitrary sequences satisfying the two bounds. They are partial ties to the displayed explicit ratio because the ratio itself and its particular constant are absent from their conclusions. The arithmetic above proves that literal ratio in prose. The Lean limit proof uses the library's exponential-versus-power asymptotic theorem; the integral estimate above gives an elementary route to the same comparison."
+      },
+      "replacement": "**Evidence.** The current `Paper.classical_exponent_ratio` concludes the displayed lower envelope with the coefficient $c/(1+C)^\\alpha$, proves that envelope tends to $+\\infty$, and proves that the ratio itself tends to $+\\infty$, under the two eventual family bounds and the stated positivity hypotheses. `Paper.classical_Fkm_ratio` instantiates it with the canonical circuit family and $b_k=6$. The older `eventually_gt_rpow` and `exists_threshold_gap` remain sufficient comparisons used in the headline proof; their narrower conclusions no longer describe the whole available source. The current ratio wrappers belong to the source-bound root build and recorded type audit, lie outside the two headline dependency roots, and have no Comparator receipt. The integral estimate above remains an elementary ordinary proof of the same limiting comparison.",
+      "reason": "Literal ratio, its coefficient and its limits now occur in current theorem types.",
+      "statement_ids": [
+        "claim-exponent-ratio"
+      ],
+      "lean": [
+        "QuarticQuery.Paper.classical_exponent_ratio",
+        "QuarticQuery.Paper.classical_Fkm_ratio"
+      ],
+      "application_status": "Proposed only; original packet is unchanged. Exact target is unique in the frozen member.",
+      "rank": 11,
+      "validation": "Resolve the unique old span against the recorded SHA-256, apply before structural movement, and recheck the mathematical and evidence boundaries stated here."
+    },
+    {
+      "id": "R-E09",
+      "priority": "P1",
+      "category": "current-evidence correction",
+      "owner": "Appendix A section owner (number not supplied); 09 backend; later integrator",
+      "operation": "replace",
+      "passage": "ROOT-APPENDIX-INTRO",
+      "target": {
+        "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+        "line_start": 2043,
+        "line_end": 2043,
+        "from": "The Lean endpoint is `QuarticQuery.R_le_D_le_one_add_Q_pow_four` in `Appendix/TheoremA1.lean`. It obtains the explicit constant $20736$ through `Cslib.Quantum.complexity_le_mul_pow",
+        "to": "ve formal route. Lemmas A.2 through A.5 in the preprint's forms are not asserted to have been checked by that endpoint. The following proofs establish them in ordinary mathematics.",
+        "old_sha256": "a7567789f84abf51fb4c4c80253add7f766310d623caaf7b97a8083d8ceecfcc",
+        "old": "The Lean endpoint is `QuarticQuery.R_le_D_le_one_add_Q_pow_four` in `Appendix/TheoremA1.lean`. It obtains the explicit constant $20736$ through `Cslib.Quantum.complexity_le_mul_pow_four` and the query-model bridges. That is an alternative formal route. Lemmas A.2 through A.5 in the preprint's forms are not asserted to have been checked by that endpoint. The following proofs establish them in ordinary mathematics."
+      },
+      "replacement": "The headline proof uses `QuarticQuery.R_le_D_le_one_add_Q_pow_four` in `Appendix/TheoremA1.lean`, which obtains the coefficient $20736$ through `Cslib.Quantum.complexity_le_mul_pow_four` and the query-model bridges. The current packet also contains a separately assembled `Paper.appendixA_theoremA1` following A.2–A.5 through the nonnegative matrix adversary, the star and sensitivity-graph applications, an actual restricted face with Huang's recursive matrix, and Midrijānis's decision-tree bound. Its coefficient is $35^4=1500625$. The following ordinary proofs retain the sharper symbolic adversary constant where displayed; the local evidence notes distinguish that constant from the rational wrapper constants.",
+      "reason": "The current Appendix A assembly is no longer prose-only, while the original headline dependency route and distinct constants remain visible.",
+      "statement_ids": [
+        "thm-A.1"
+      ],
+      "lean": [
+        "QuarticQuery.Paper.appendixA_theoremA1"
+      ],
+      "application_status": "Proposed only; original packet is unchanged. Exact target is unique in the frozen member.",
+      "rank": 12,
+      "validation": "Resolve the unique old span against the recorded SHA-256, apply before structural movement, and recheck the mathematical and evidence boundaries stated here."
+    },
+    {
+      "id": "R-E10",
+      "priority": "P1",
+      "category": "current-evidence correction",
+      "owner": "Appendix A section owner (number not supplied); 09 backend; later integrator",
+      "operation": "replace",
+      "passage": "ROOT-ADVERSARY-FINAL",
+      "target": {
+        "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+        "line_start": 2125,
+        "line_end": 2125,
+        "from": "**Evidence.** `QuarticQuery.FixedSim.build` and `QuarticQuery.exists_fixedSequence` in `Bridge/Deferred.lean` check the conversion from adaptive programs to fixed query sequences. ",
+        "to": "a A.2. No declaration in the packet proves the displayed progress inequality, overlap inequality or spectral adversary statement in these forms. Their proofs here are prose proofs.",
+        "old_sha256": "c35d24a340cd0bdc6c5fe04f2ec0d7578ce2bbe91c5aa92983c106ef74560730",
+        "old": "**Evidence.** `QuarticQuery.FixedSim.build` and `QuarticQuery.exists_fixedSequence` in `Bridge/Deferred.lean` check the conversion from adaptive programs to fixed query sequences. They provide only partial support for Lemma A.2. No declaration in the packet proves the displayed progress inequality, overlap inequality or spectral adversary statement in these forms. Their proofs here are prose proofs."
+      },
+      "replacement": "**Evidence.** `FixedSim.build` and `exists_fixedSequence` supply the adaptive-to-fixed-query conversion. The current `Paper.appendixA_perron` supplies the nonnegative unit eigenvector; `appendixAProgress_query_quadratic`, `appendixAProgress_query_le`, `appendixA_unit_states_final_overlap`, and `appendixAProgress_final` prove the progress and overlap estimates with their displayed normalization and support hypotheses. `appendixA_adversary_of_perron` gives the sharp factor $1-2\\sqrt{(1/3)(1-1/3)}$ for a supplied correct fixed query sequence and Perron witness. The named minimum-query wrapper `appendixA_lemmaA2` instead uses the slightly smaller rational constant $1/35$. Thus it covers the original existential-constant Lemma A.2, while identifying it with the sharper constant fixed in this prose requires supplying the intermediate witnesses and the adaptive bridge. These current declarations are included in the source-bound root build; selected wrappers have recorded type/axiom audits, but none of these Appendix helpers has a Comparator receipt.",
+      "reason": "This resolves the stale no-formal-progress claim without falsely treating 1/35 as at least the sharper symbolic constant.",
+      "statement_ids": [
+        "claim-final-overlap",
+        "lem-A.2"
+      ],
+      "lean": [
+        "QuarticQuery.Paper.appendixA_adversary_of_perron",
+        "QuarticQuery.Paper.appendixA_lemmaA2"
+      ],
+      "application_status": "Proposed only; original packet is unchanged. Exact target is unique in the frozen member.",
+      "rank": 13,
+      "validation": "Resolve the unique old span against the recorded SHA-256, apply before structural movement, and recheck the mathematical and evidence boundaries stated here."
+    },
+    {
+      "id": "R-E11",
+      "priority": "P1",
+      "category": "current-evidence correction",
+      "owner": "Appendix A section owner (number not supplied); 09 backend; later integrator",
+      "operation": "replace",
+      "passage": "ROOT-BS-LAMBDA",
+      "target": {
+        "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+        "line_start": 2157,
+        "line_end": 2157,
+        "from": "**Evidence.** The supplied corpus gives no formal ties for Lemma A.3 or its two components. The explicit star and matching arguments above prove them in prose; the formal upper end",
+        "to": "a A.3 or its two components. The explicit star and matching arguments above prove them in prose; the formal upper endpoint does not by itself certify these individual inequalities.",
+        "old_sha256": "599ad7ff77fb7bb4621cf5a72a72bf5ac1909a7b30bb4c94212215a70e2bb763",
+        "old": "**Evidence.** The supplied corpus gives no formal ties for Lemma A.3 or its two components. The explicit star and matching arguments above prove them in prose; the formal upper endpoint does not by itself certify these individual inequalities."
+      },
+      "replacement": "**Evidence.** The current `Paper.appendixA_blockSensitivity_star_le_Q_sq` and `appendixA_spectralSensitivity_adversary_le_Q` prove the star and sensitivity-mask consequences, with coefficients $1225$ and $35$ respectively, including constant functions. `appendixA_lemmaA3_adversary` packages the two conclusions. These are the rational-$1/35$ versions of the argument. The sharper symbolic coefficients $c^{-2}$ and $c^{-1}$ displayed above follow from the sharper ordinary adversary bound; they should not be attributed verbatim to the rational wrappers. All three current declarations have source-bound build evidence and no Comparator receipt.",
+      "reason": "Both routes now exist; distinguish existential-O ledger strength from the baseline sharpened numerical display.",
+      "statement_ids": [
+        "lem-A.3.bs",
+        "def-Sf",
+        "lem-A.3.lambda",
+        "lem-A.3"
+      ],
+      "lean": [
+        "QuarticQuery.Paper.appendixA_blockSensitivity_star_le_Q_sq",
+        "QuarticQuery.Paper.appendixA_spectralSensitivity_adversary_le_Q"
+      ],
+      "application_status": "Proposed only; original packet is unchanged. Exact target is unique in the frozen member.",
+      "rank": 14,
+      "validation": "Resolve the unique old span against the recorded SHA-256, apply before structural movement, and recheck the mathematical and evidence boundaries stated here."
+    },
+    {
+      "id": "R-E12",
+      "priority": "P1",
+      "category": "current-evidence correction",
+      "owner": "Appendix A section owner (number not supplied); 09 backend; later integrator",
+      "operation": "replace",
+      "passage": "ROOT-HUANG-SPECTRUM",
+      "target": {
+        "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+        "line_start": 2215,
+        "line_end": 2215,
+        "from": "**Evidence.** The restriction, parity, signed-cube, spectrum and subspace claims have no formal ties in the supplied corpus. They are proved here in prose. They also explain explic",
+        "to": "the supplied corpus. They are proved here in prose. They also explain explicitly why the argument controls spectral sensitivity, which is the quantity needed for the quantum bound.",
+        "old_sha256": "5fcc401e35f606e29c059dd873931d9d3ac5c1068ab5d3cc60ce84d3c54257d3",
+        "old": "**Evidence.** The restriction, parity, signed-cube, spectrum and subspace claims have no formal ties in the supplied corpus. They are proved here in prose. They also explain explicitly why the argument controls spectral sensitivity, which is the quantity needed for the quantum bound."
+      },
+      "replacement": "**Evidence.** The current `Paper.appendixA_restriction_parity_face` supplies the actual face and parity-agreement set. `huangMatrix`, its square and absolute-adjacency lemmas, `huangEnd_eigenspaces_half`, and `huang_positive_rayleigh_witness` supply the recursive matrix and supported positive-eigenvalue vector. `appendixA4_paper_route` concludes $\\deg(f)\\leq\\lambda(f)^2$, including constants, after extension by zero to the original sensitivity graph. The formal equal-multiplicity argument uses a parity involution, whereas the prose uses trace zero. Individual catalogue rows for the full spectrum chain remain partial because their displayed clauses are split across declarations. The assembled A.4 endpoint is covered by current source-bound build and type-audit evidence, outside the headline dependency roots, with no Comparator receipt.",
+      "reason": "Current restricted-face/Huang assembly supplies the intended spectral conclusion; do not replace lambda by ordinary sensitivity or flatten all component matches to exact.",
+      "statement_ids": [
+        "def-huang",
+        "claim-huang-spectrum",
+        "claim-interlace",
+        "lem-A.4"
+      ],
+      "lean": [
+        "QuarticQuery.Paper.appendixA4_paper_route",
+        "QuarticQuery.Paper.huang_positive_rayleigh_witness"
+      ],
+      "application_status": "Proposed only; original packet is unchanged. Exact target is unique in the frozen member.",
+      "rank": 15,
+      "validation": "Resolve the unique old span against the recorded SHA-256, apply before structural movement, and recheck the mathematical and evidence boundaries stated here."
+    },
+    {
+      "id": "R-E13",
+      "priority": "P1",
+      "category": "current-evidence correction",
+      "owner": "Appendix A section owner (number not supplied); 09 backend; later integrator",
+      "operation": "replace",
+      "passage": "ROOT-MONOMIAL-TREE",
+      "target": {
+        "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+        "line_start": 2237,
+        "line_end": 2237,
+        "from": "**Evidence.** `claim-round-block` and `lem-A.5` have no formal tie in the supplied corpus. The complete algorithm and its per-input sensitive-block charging argument are the prose ",
+        "to": "aim-round-block` and `lem-A.5` have no formal tie in the supplied corpus. The complete algorithm and its per-input sensitive-block charging argument are the prose proof given here.",
+        "old_sha256": "6ade87c765ec7acb96681620e2d3129187a9daa6f2d8b5f996f3f4ea9d3b82f6",
+        "old": "**Evidence.** `claim-round-block` and `lem-A.5` have no formal tie in the supplied corpus. The complete algorithm and its per-input sensitive-block charging argument are the prose proof given here."
+      },
+      "replacement": "**Evidence.** The current `Paper.appendixA_exists_maximal_round_support` supplies the maximal-degree support with a sensitive subset at each input. Separate restriction-transport and disjoint-support counting lemmas account for the remaining clauses of `claim-round-block`, whose current tie remains partial. `Paper.appendixA_lemmaA5` exports the exact endpoint $D(f)\\leq\\operatorname{bs}(f)\\deg(f)$ through the decision-tree bridge and the imported Midrijānis theorem. The ordinary algorithm above gives the full per-input explanation; its endpoint is no longer without a current formal tie.",
+      "reason": "The endpoint is now exact, while the full procedural round-block narrative still uses several components.",
+      "statement_ids": [
+        "claim-round-block",
+        "lem-A.5"
+      ],
+      "lean": [
+        "QuarticQuery.Paper.appendixA_exists_maximal_round_support",
+        "QuarticQuery.Paper.appendixA_lemmaA5"
+      ],
+      "application_status": "Proposed only; original packet is unchanged. Exact target is unique in the frozen member.",
+      "rank": 16,
+      "validation": "Resolve the unique old span against the recorded SHA-256, apply before structural movement, and recheck the mathematical and evidence boundaries stated here."
+    },
+    {
+      "id": "R-E14",
+      "priority": "P1",
+      "category": "current-evidence correction",
+      "owner": "Appendix A section owner (number not supplied); 09 backend; later integrator",
+      "operation": "replace",
+      "passage": "ROOT-QUARTIC-UPPER",
+      "target": {
+        "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+        "line_start": 2254,
+        "line_end": 2254,
+        "from": "**Evidence.** The same endpoint is checked by an alternative route in `QuarticQuery.D_le_of_QLe`, `D_le_Q_pow_four`, `R_le_D_le_one_add_Q_pow_four` and `universalPower_four`. Its e",
+        "to": "part of this reconstruction's available local environment, so the claim about that imported theorem is based on the checked-source record and its explicit use in the supplied file.",
+        "old_sha256": "13e8ebc379bbbc7ed127037ac98acccb464d055fdb1aab078f706f14a0794faa",
+        "old": "**Evidence.** The same endpoint is checked by an alternative route in `QuarticQuery.D_le_of_QLe`, `D_le_Q_pow_four`, `R_le_D_le_one_add_Q_pow_four` and `universalPower_four`. Its explicit constant $20736$ is the one proved by the imported `Cslib.Quantum.complexity_le_mul_pow_four` route; the elementary adversary constants used in this appendix are not claimed to recover that numerical value. The imported dependency is pinned in the packet's `lake-manifest.json`. Its full source and a runnable Lean installation were not part of this reconstruction's available local environment, so the claim about that imported theorem is based on the checked-source record and its explicit use in the supplied file."
+      },
+      "replacement": "**Evidence.** The headline dependency route remains `D_le_of_QLe`, `D_le_Q_pow_four`, `R_le_D_le_one_add_Q_pow_four`, and `universalPower_four`, using the imported coefficient $20736$. The relevant imported source is now supplied under `dependencies/complexitylib`, and its theorem type is a fixed-query algorithm bound transported to the adaptive minimum by the bridges. Separately, current `Paper.appendixA_D_le_Q_pow_four` and `appendixA_theoremA1` assemble A.2–A.5 with coefficient $1500625=35^4$; the optional polynomial-method/spectral hybrid has coefficient $19600$. These constants belong to different explicit proof routes and are not claims that the preceding sharp prose derivation gives $20736$. The current source-bound root receipt covers the original and new declarations; the new Appendix assembly is outside the two headline dependency roots and has no Comparator receipt. This review checked source hashes and exact types, without a new Lean execution.",
+      "reason": "Update the source-availability statement and separate all three valid constants and dependency routes.",
+      "statement_ids": [
+        "thm-A.1"
+      ],
+      "lean": [
+        "QuarticQuery.R_le_D_le_one_add_Q_pow_four",
+        "QuarticQuery.Paper.appendixA_theoremA1",
+        "QuarticQuery.Paper.appendixA_D_le_Q_pow_four_hybrid"
+      ],
+      "application_status": "Proposed only; original packet is unchanged. Exact target is unique in the frozen member.",
+      "rank": 17,
+      "validation": "Resolve the unique old span against the recorded SHA-256, apply before structural movement, and recheck the mathematical and evidence boundaries stated here."
+    },
+    {
+      "id": "R-E15",
+      "priority": "P1",
+      "category": "current-evidence correction",
+      "owner": "09 backend; later integrator",
+      "operation": "replace",
+      "passage": "ROOT-CATALOGUE-INTRO",
+      "target": {
+        "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+        "line_start": 2264,
+        "line_end": 2264,
+        "from": "This catalogue reproduces the original corpus statements without rewriting their text. Each entry points back to the passages that define, prove or explain it. Its evidence fields ",
+        "to": "rrections. Source paths are relative to the repository in the supplied packet. Mathematical changes and additional displayed claims remain separate in the two statement registries.",
+        "old_sha256": "2ed12b67fdc7f10a32eec604233f6f3934957303e346a3568be071f6c86895a3",
+        "old": "This catalogue reproduces the original corpus statements without rewriting their text. Each entry points back to the passages that define, prove or explain it. Its evidence fields are those supplied by the original corpus, not new judgments or executions. The local evidence notes and LEAN_GAPS.md identify partial matches, alternative routes and corrections. Source paths are relative to the repository in the supplied packet. Mathematical changes and additional displayed claims remain separate in the two statement registries."
+      },
+      "replacement": "This catalogue preserves the original corpus statements and the evidence fields supplied with the historical baseline. Its source version is the baseline checkpoint named in §2.3; it is not a current coverage report. The separately versioned current concordance compares all 121 rows with the frozen review packet, gives exact current types and per-declaration evidence, and records the one changed canonical statement text, `claim-bs-to-L`. Historical quotations are retained verbatim there and are not silently overwritten. A current build, a generated-challenge comparison, a dependency path, and agreement with the intended ordinary statement remain distinct judgments. The current row labels comprise 55 exact, 31 stronger and 35 partial matches; only seven rows have a recorded comparison. Those counts are corpus metadata, not a blanket claim that every displayed sentence has been independently verified.",
+      "reason": "Preserve the historical record rather than rewriting its original evidence fields as though they were always current; give the reader one explicit current overlay.",
+      "statement_ids": [],
+      "lean": [],
+      "application_status": "Proposed only; original packet is unchanged. Exact target is unique in the frozen member.",
+      "rank": 18,
+      "validation": "Resolve the unique old span against the recorded SHA-256, apply before structural movement, and recheck the mathematical and evidence boundaries stated here."
+    },
+    {
+      "id": "R04",
+      "priority": "P1",
+      "category": "current-evidence correction",
+      "owner": "02 Forrelation promise/circuit; 09 backend",
+      "operation": "replace",
+      "passage": "forr_bundle",
+      "target": {
+        "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+        "line_start": 851,
+        "line_end": 851,
+        "from": "There is no single exact conjunction declaration attached to the row **lem-2.1** in the corpus. Its three mathematical parts have been reconstructed separately, with the evidence l",
+        "to": " limitations stated at each part. Their combination in this paragraph is a mathematical conjunction of those results. It should not be relabeled as a newly replayed kernel theorem.",
+        "old_sha256": "2eceab7c5a0e2ce1bf0b173afdb9b5a71b6046269660874e53395357ac2df112",
+        "old": "There is no single exact conjunction declaration attached to the row **lem-2.1** in the corpus. Its three mathematical parts have been reconstructed separately, with the evidence limitations stated at each part. Their combination in this paragraph is a mathematical conjunction of those results. It should not be relabeled as a newly replayed kernel theorem."
+      },
+      "replacement": "The current source contains a conjunction theorem, `QuarticQuery.Paper.construction_lemma_2_1_complete`, for these three parts. Its statement retains the concrete coherent preparation and bit-query compiler premises; the quantum component has the compiled query accounting recorded beside Lemma 2.1(ii). The theorem is covered by the source-bound root build and the recorded type audit, with no individual Comparator receipt. The displayed asymptotic interface is the ordinary consequence of those components, not a claim that this review reran the kernel.",
+      "reason": "A complete conjunction is now supplied; preserve exact compiler and evidence boundaries.",
+      "statement_ids": [
+        "lem-2.1"
+      ],
+      "lean": [
+        "QuarticQuery.Paper.construction_lemma_2_1_complete"
+      ],
+      "application_status": "Proposed only; original packet is unchanged. Exact target is unique in the frozen member.",
+      "rank": 19,
+      "validation": "Resolve the unique old span against the recorded SHA-256, apply before structural movement, and recheck the mathematical and evidence boundaries stated here."
+    },
+    {
+      "id": "R05",
+      "priority": "P1",
+      "category": "resource specification clarification",
+      "owner": "05 quantum upper",
+      "operation": "replace",
+      "passage": "upper-amplification-statement",
+      "target": {
+        "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+        "line_start": 1022,
+        "line_end": 1022,
+        "from": "**Lemma 3.1, with the quantifiers made explicit.** For every pair of real numbers \\(0<\\gamma\\leq 1/2\\) and \\(0<\\eta<1/2\\), there is one procedure, depending on \\(\\gamma,\\eta\\) and ",
+        "to": "(\\gamma^{-1/2}\\ln(1/\\eta))\\) calls to \\(A\\) and \\(A^{-1}\\). In particular, neither the procedure nor its stopping rule depends on knowing \\(p\\). This is corpus statement `lem-3.1`.",
+        "old_sha256": "c91f63ee275fcb56e3af3e8ba42aece32b187dd769f6eb7d350b4f8ea9a8cf61",
+        "old": "**Lemma 3.1, with the quantifiers made explicit.** For every pair of real numbers \\(0<\\gamma\\leq 1/2\\) and \\(0<\\eta<1/2\\), there is one procedure, depending on \\(\\gamma,\\eta\\) and using a preparation \\(A\\) as a black box, with the following property for every unitary \\(A\\), every fixed input oracle, and every designated success subspace. Write \\(p\\) for the probability that measuring \\(A|0\\rangle\\) in that subspace succeeds. The procedure returns either failure or a state. Every returned state is the normalized success component of \\(A|0\\rangle\\), up to global phase. If \\(p\\geq\\gamma\\), its failure probability is at most \\(\\eta\\). If \\(p=0\\), it fails with certainty. On every branch, for every \\(p\\in[0,1]\\), it uses \\(O(\\gamma^{-1/2}\\ln(1/\\eta))\\) calls to \\(A\\) and \\(A^{-1}\\). In particular, neither the procedure nor its stopping rule depends on knowing \\(p\\). This is corpus statement `lem-3.1`."
+      },
+      "replacement": "**Lemma 3.1, with the quantifiers made explicit.** For every pair of real numbers \\(0<\\gamma\\leq 1/2\\) and \\(0<\\eta<1/2\\), there is one procedure, depending on \\(\\gamma,\\eta\\) and using a preparation \\(A\\) as a black box, with the following property for every unitary \\(A\\), every fixed input oracle, and every designated retained success bit. Write \\(p\\) for the probability that measuring \\(A|0\\rangle\\) in that subspace succeeds. The procedure returns either failure or a state. Every returned state is the normalized success component of \\(A|0\\rangle\\), up to global phase. If \\(p\\geq\\gamma\\), its failure probability is at most \\(\\eta\\). If \\(p=0\\), it fails with certainty. On every branch, for every \\(p\\in[0,1]\\), it uses \\(O(\\gamma^{-1/2}\\ln(1/\\eta))\\) calls to \\(A\\) and \\(A^{-1}\\). In particular, neither the procedure nor its stopping rule depends on knowing \\(p\\). This is corpus statement `lem-3.1`. The bit's one-outcome projection is denoted by \\(\\Pi\\). Its phase flip and measurement are fixed input-independent operations and use no bit-oracle queries. More generally, the same argument applies to a success subspace when its reflection and measurement are supplied at no additional query cost; otherwise their cost must be counted.",
+      "reason": "The amplitude-amplification proof uses the success reflection. The actual applications already retain the necessary flag.",
+      "statement_ids": [
+        "lem-3.1"
+      ],
+      "lean": [
+        "QuarticQuery.Amplification.bounded_amplification"
+      ],
+      "application_status": "Proposed only; original packet is unchanged. Exact target is unique in the frozen member.",
+      "rank": 20,
+      "validation": "Resolve the unique old span against the recorded SHA-256, apply before structural movement, and recheck the mathematical and evidence boundaries stated here."
+    },
+    {
+      "id": "R06",
+      "priority": "P1",
+      "category": "worked proof explanation",
+      "owner": "03 Forrelation lower bound",
+      "operation": "replace",
+      "passage": "forr_identity",
+      "target": {
+        "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+        "line_start": 542,
+        "line_end": 544,
+        "from": "Apply the coordinate Stein identity in $U_0(a)$ to the $a$th summand. That Gaussian coordinate affects bias $(0,a)$ through $X_0(a)$ and each bias $(1,b)$ through $Y_0(b)$. Differe",
+        "to": "$ gives $H_{b,a_j}\\varphi'(V_j(b))X_{j+1}(b)$. This produces exactly one additional block index. At $j=\\ell-1$ there is no further $X$ factor to eliminate, and the iteration stops.",
+        "old_sha256": "cf6dcc25e97923069f9e28ad7688cbb7f302b32ae2da463ab5b411bd1feecea0",
+        "old": "Apply the coordinate Stein identity in $U_0(a)$ to the $a$th summand. That Gaussian coordinate affects bias $(0,a)$ through $X_0(a)$ and each bias $(1,b)$ through $Y_0(b)$. Differentiating through $(0,a)$ creates $\\partial_{(0,a)}^2g=0$, so it contributes nothing. Differentiating through $(1,b)$ produces $H_{b,a}\\varphi'(V_0(b))X_1(b)$ and a new cube derivative at $(1,b)$. Stein supplies the factor $\\Psi(U_0(a))$. When $\\ell=1$, the convention is $X_1=1$ because block one is the last block.\n\nFor the general step, suppose indices $a_0,\\ldots,a_j$ have been selected and the current term contains $X_j(a_j)\\mathcal E_{w_s}\\partial_{(0,a_0)}\\cdots\\partial_{(j,a_j)}g$. Every previously produced weight depends only on $U_0,\\ldots,U_{j-1}$. Consequently differentiating with respect to $U_j(a_j)$ leaves that weight unchanged. Its effect on bias $(j,a_j)$ is again killed by the repeated discrete derivative. Its effect on each $(j+1,b)$ gives $H_{b,a_j}\\varphi'(V_j(b))X_{j+1}(b)$. This produces exactly one additional block index. At $j=\\ell-1$ there is no further $X$ factor to eliminate, and the iteration stops."
+      },
+      "replacement": "First take \\(k=3\\), so there are two Gaussian vectors \\(U_0,U_1\\) and the three blocks of biases are\n\\[\nw_s=(sX_0,\\;Y_0X_1,\\;Y_1).\n\\]\nProducts within a block are coordinatewise. For this calculation write \\(D_{r,a}=\\partial_{(r,a)}\\), and keep the same bias \\(w_s(U)\\) in every extension below. The derivative formula just proved is\n\\[\nh'_g(s)=\\sum_a\\mathbb E\\!\\left[X_0(a)\\mathcal E_{w_s}D_{0,a}g\\right].\n\\]\nApply the coordinate Stein identity to \\(X_0(a)=\\varphi(U_0(a))\\). Differentiating the extension with respect to \\(U_0(a)\\) can affect its first or second block. The first-block contribution is\n\\(s\\varphi'(U_0(a))\\mathcal E_{w_s}D_{0,a}^{2}g=0\\), because a multilinear extension has zero second derivative in the same coordinate. The second-block contribution through coordinate \\(b\\) is\n\\(H_{b,a}\\varphi'(V_0(b))X_1(b)\\mathcal E_{w_s}D_{0,a}D_{1,b}g\\). Consequently\n\\[\nh'_g(s)=\\sum_{a,b}H_{b,a}\\,\n\\mathbb E\\!\\left[\n\\Psi(U_0(a))\\varphi'(V_0(b))X_1(b)\n\\mathcal E_{w_s}D_{0,a}D_{1,b}g\n\\right].\n\\]\nNow eliminate \\(X_1(b)=\\varphi(U_1(b))\\) in the same way. The factor \\(\\Psi(U_0(a))\\varphi'(V_0(b))\\) depends only on \\(U_0\\), so differentiation in \\(U_1(b)\\) leaves it unchanged. The contribution through the middle-block bias is\n\\(Y_0(b)\\varphi'(U_1(b))\\mathcal E_{w_s}D_{0,a}D_{1,b}^{2}g=0\\). Differentiation through the last-block coordinate \\(c\\) remains and gives\n\\[\n\\begin{aligned}\nh'_g(s)=\\sum_{a,b,c}H_{b,a}H_{c,b}\\,\n\\mathbb E\\!\\bigl[&\\Psi(U_0(a))\\varphi'(V_0(b))\n\\Psi(U_1(b))\\varphi'(V_1(c))\\\\\n&\\mathcal E_{w_s}D_{0,a}D_{1,b}D_{2,c}g\\bigr].\n\\end{aligned}\n\\]\nThere is now one cube derivative in each block and no remaining \\(X\\) factor to eliminate.\n\nThe general induction repeats these two steps. After choosing \\(a_0,\\ldots,a_j\\), the term still to be eliminated has the factor\n\\(X_j(a_j)\\mathcal E_{w_s}\\partial_{(0,a_0)}\\cdots\\partial_{(j,a_j)}g\\), multiplied by weights depending only on \\(U_0,\\ldots,U_{j-1}\\). Stein in \\(U_j(a_j)\\) leaves those weights unchanged. Its effect on the current-block bias vanishes by the repeated derivative at \\((j,a_j)\\); its effect on bias \\((j+1,b)\\) contributes\n\\(H_{b,a_j}\\varphi'(V_j(b))X_{j+1}(b)\\) and a new cube derivative at \\((j+1,b)\\). At the last block the convention is \\(X_\\ell=1\\), so the iteration stops after \\(\\ell=k-1\\) eliminations. This convention also covers \\(k=2\\) directly.",
+      "reason": "Show both Stein eliminations, the vanished repeated derivatives, and independence of previously created weights.",
+      "statement_ids": [
+        "NEW-FOR-13",
+        "R3-STEIN-K3"
+      ],
+      "lean": [
+        "QuarticQuery.ForrelationLower.sum_dw_eq",
+        "QuarticQuery.ForrelationLower.integral_walk",
+        "QuarticQuery.ForrelationLower.exists_identity",
+        "QuarticQuery.ForrelationLower.Int_eq_paths"
+      ],
+      "application_status": "Proposed only; original packet is unchanged. Exact target is unique in the frozen member.",
+      "rank": 21,
+      "validation": "Resolve the unique old span against the recorded SHA-256, apply before structural movement, and recheck the mathematical and evidence boundaries stated here."
+    },
+    {
+      "id": "R07",
+      "priority": "P1",
+      "category": "proof quantifier clarification",
+      "owner": "03 Forrelation lower bound",
+      "operation": "replace",
+      "passage": "forr_identity",
+      "target": {
+        "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+        "line_start": 562,
+        "line_end": 562,
+        "from": "The parameter may depend on $g$",
+        "to": "The parameter may depend on $g$",
+        "old_sha256": "251af3022cf81075f08e8c5400a331dad1b79a2912b5bbd3688b3f6f88641d10",
+        "old": "The parameter may depend on $g$"
+      },
+      "replacement": "The mean value theorem was applied to the whole scalar function \\(h_g\\), so one parameter \\(s_*\\) serves every path; it may depend on \\(g\\)",
+      "reason": "Do not choose a different mean-value parameter for each path.",
+      "statement_ids": [
+        "NEW-FOR-13"
+      ],
+      "lean": [],
+      "application_status": "Proposed only; original packet is unchanged. Exact target is unique in the frozen member.",
+      "rank": 22,
+      "validation": "Resolve the unique old span against the recorded SHA-256, apply before structural movement, and recheck the mathematical and evidence boundaries stated here."
+    },
+    {
+      "id": "R08",
+      "priority": "P1",
+      "category": "structure and navigation",
+      "owner": "later integrator",
+      "operation": "replace",
+      "passage": "ROOT-ARCHITECTURE",
+      "target": {
+        "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+        "line_start": 59,
+        "line_end": 59,
+        "from": "The proof below follows that dependence. It first fixes the models, then proves the partial-function ingredients, defines the total function, proves the quantum upper bound and ran",
+        "to": "ent catalogue, with pointers to the passages that prove them. An entry with no formal tie is still accompanied by a mathematical proof; its absence of a formal tie remains visible.",
+        "old_sha256": "9ef8051821fe21adb4ef82a79471a4e6ad12db667cdb5a833852e8960f93f3b8",
+        "old": "The proof below follows that dependence. It first fixes the models, then proves the partial-function ingredients, defines the total function, proves the quantum upper bound and randomized lower bound, and finally compares powers. Appendix A supplies the independent universal quartic upper bound. Exact statements from the supplied corpus, including its added rows, are reproduced in the statement catalogue, with pointers to the passages that prove them. An entry with no formal tie is still accompanied by a mathematical proof; its absence of a formal tie remains visible."
+      },
+      "replacement": "The separation has two branches after the same total function is fixed. The quantum branch uses the promise decoder and exact local tests; the classical branch uses the promised hard distribution and the capped direct product. Their bounds meet in the fixed-k exponent calculation. The independent universal quartic upper bound is proved in Appendix A. The Forrelation lower-bound appendix supplies the complete internal proof of the hardness interface. The historical catalogue and current evidence concordance supply statement-level lookup at their respective source versions.",
+      "reason": "Describe the actual branches; apply together with R09 so the named proof appendix exists.",
+      "statement_ids": [
+        "eq-2",
+        "thm-1.1"
+      ],
+      "lean": [],
+      "application_status": "Proposed only; original packet is unchanged. Exact target is unique in the frozen member.",
+      "depends_on_repairs": [
+        "R09"
+      ],
+      "rank": 23,
+      "validation": "Resolve the unique old span against the recorded SHA-256, apply before structural movement, and recheck the mathematical and evidence boundaries stated here."
+    },
+    {
+      "id": "R09",
+      "priority": "P1",
+      "category": "structural move",
+      "owner": "later integrator; 02 promise/circuit; 03 lower bound",
+      "operation": "move_complete_span",
+      "passage": "forr_cube through forr_attribution",
+      "target": {
+        "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+        "line_start": 410,
+        "line_end": 831,
+        "from": "<a id=\"forr_cube\"></a>\n<!-- passage:forr_cube -->\n\n### 3.7. The internal lower-bound proof: finite-cube calculus\n\nWe now prove the required randomized lower bound without invoking ",
+        "to": "ion, the identity, and the resulting quantitative possibilities merit an independent mathematical review before any stronger attribution claim.\n<!-- /passage:forr_attribution -->\n\n",
+        "old_sha256": "6e4337ba1f55401193129a9e847d37edccc3cc4dfc0157e475d0f7293c2a3fd4",
+        "old": "<a id=\"forr_cube\"></a>\n<!-- passage:forr_cube -->\n\n### 3.7. The internal lower-bound proof: finite-cube calculus\n\nWe now prove the required randomized lower bound without invoking the published lower bound as a hypothesis. The probabilistic objects used below are explicit finite-cube distributions obtained by averaging product measures over Gaussian parameters. The main analytic identity measures the effect of changing just the first block of biases.\n\nLet $I$ be a finite coordinate set. Identify a bit assignment with its sign vector $z\\in\\{-1,1\\}^I$. For real biases $\\mu=(\\mu_a)_{a\\in I}$, define the polynomial extension of a real function $g$ by\n\n<!-- claim:NEW-FOR-06 -->\n\\[\np_\\mu(z)=\\prod_{a\\in I}\\frac{1+\\mu_a z_a}{2},\n\\qquad\n\\mathcal E_\\mu g=\\sum_{z\\in\\{-1,1\\}^I}g(z)p_\\mu(z),\n\\qquad\n\\partial_a g(z)=\\frac{g(z_{a\\leftarrow1})-g(z_{a\\leftarrow-1})}{2}.\n\\]\n\nWhen every $|\\mu_a|\\le1$, each factor of $p_\\mu$ is nonnegative. Summing independently over each sign gives $\\sum_zp_\\mu(z)=\\prod_a1=1$. Hence $\\mathcal E_\\mu$ is an expectation: it preserves inequalities, sends constants to themselves, and satisfies $|\\mathcal E_\\mu g|\\le B$ when $|g|\\le B$. At other real biases it remains a polynomial, which permits differentiation without a domain convention.\n\nSeparate the two terms with signs $+1$ and $-1$ in coordinate $a$. This shows that $\\mathcal E_\\mu g$ is affine in $\\mu_a$, with derivative $\\mathcal E_\\mu\\partial_a g$. The discrete derivative is independent of $z_a$, so differentiating twice at the same coordinate gives zero. Derivatives at different coordinates commute because the four updated values and their signs are identical in both orders. Also $|\\partial_a g|\\le B$ if $|g|\\le B$, by the triangle inequality and division by two. These facts iterate to any list of distinct coordinates.\n\nFor a differentiable bias path $c(s)$, differentiate the finite polynomial term by term and group terms according to the differentiated coordinate. For a fixed bias with $|\\mu_a|<1$, set $\\xi_a(z_a)=(z_a-\\mu_a)/(1-\\mu_a^2)$. The two one-coordinate products satisfy $((1+\\mu_a z_a)/2)\\xi_a(z_a)=z_a/2$. Substitution into the finite sum proves the derivative–character identity. The resulting calculus is\n\n<!-- claim:NEW-FOR-07 -->\n\\[\n\\begin{aligned}\n\\frac{d}{ds}\\mathcal E_{c(s)}g\n &=\\sum_{a\\in I}c_a'(s)\\mathcal E_{c(s)}\\partial_a g,\\\\\n\\partial_a^2g&=0,\\qquad\n\\mathcal E_\\mu\\partial_Jg\n =\\mathcal E_\\mu\\!\\left[g\\prod_{a\\in J}\\xi_a\\right],\\\\\n\\mathcal E_\\mu g\n &=\\mathcal E_{\\mu[a\\leftarrow0]}g+\\mu_a\\mathcal E_\\mu\\partial_ag,\n\\qquad\n|\\mu_a|\\le\\tfrac12\\ \\Longrightarrow\\\n\\mathcal E_\\mu\\xi_a=0,\\quad|\\xi_a|\\le2.\n\\end{aligned}\n\\]\n\nThe identity for $J$ assumes distinct coordinates. Its proof applies the one-coordinate identity repeatedly; factors involving other coordinates are unchanged. For the last bound, the numerator of $\\xi_a$ has magnitude at most $3/2$ and its denominator is at least $3/4$. Its mean is zero because the sign has mean $\\mu_a$.\n\nThe source calls the polynomial extension **ext**, the one-coordinate derivative **D**, and iterated derivatives **Dl**. We use $\\partial$ to avoid confusing this derivative with deterministic query complexity. The relevant proofs are **sum_bw**, **abs_ext_le**, **hasDerivAt_ext**, **D_D**, **abs_D_le**, **ext_D_eq_mul_xi**, and **ext_affine** in ForrelationLower/Cube.lean, together with **ext_Dl**, **xi_mean**, and **abs_xi_le** in TreeGrowth.lean. These are additional explanatory statements absent from the original corpus; their sidecar entries identify existing source evidence rather than claim new mathematics.\n<!-- /passage:forr_cube -->\n\n<a id=\"forr_stein\"></a>\n<!-- passage:forr_stein -->\n\n### 3.8. A bounded truncation and its Gaussian integration identity\n\nThe unbounded Gaussian coordinates will become small biases through an odd smooth function. The particular functions used in the source admit direct algebraic estimates:\n\n<!-- claim:NEW-FOR-08 -->\n\\[\n\\begin{gathered}\nq(x)=\\sqrt{2+x^2},\\qquad\n\\Psi(x)=\\frac1{2q(x)},\\qquad\n\\varphi(x)=\\frac{x(3+x^2)}{2q(x)^3},\\\\\n\\varphi'(x)=\\frac3{q(x)^5},\\qquad\n\\Psi'(x)=-\\frac{x}{2q(x)^3},\\qquad\n\\varphi(x)=x\\Psi(x)-\\Psi'(x),\\\\\n\\varphi(-x)=-\\varphi(x),\\qquad\n|\\varphi(x)|\\le\\tfrac12,\\qquad 0<\\Psi(x)\\le1,\\qquad\n0<\\varphi'(x)\\le3.\n\\end{gathered}\n\\]\n\nThe derivative formulas follow from differentiating $q^2=2+x^2$ and the product and quotient rules; $q>0$ everywhere. To verify the less immediate half bound, square the proposed inequality. Both sides are nonnegative, and the difference between $q(x)^6=(2+x^2)^3$ and $x^2(3+x^2)^2$ is $8+3x^2\\ge0$. Oddness follows from the evenness of $q$. The coarser bounds on $\\Psi$ and $\\varphi'$ use $q\\ge1$; these are the constants actually used in the formal advantage estimate.\n\nLet $\\gamma(x)=(2\\pi)^{-1/2}e^{-x^2/2}$. Since $\\gamma'=-x\\gamma$, the preceding relation gives $(\\Psi\\gamma)'=-\\varphi\\gamma$. For a continuously differentiable $G$ with both $G$ and $G'$ bounded, integrate the derivative of $\\Psi G\\gamma$ over $[-R,R]$. The boundary values tend to zero: $\\Psi G$ is bounded and $\\gamma(\\pm R)\\to0$. All terms in the derivative are absolutely integrable, since the bounded factors multiply the probability density. Letting $R\\to\\infty$ proves\n\n<!-- claim:NEW-FOR-09 -->\n\\[\n\\mathbb E[\\varphi(U)G(U)]\n=\\mathbb E[\\Psi(U)G'(U)],\n\\qquad U\\sim N(0,1).\n\\]\n\nFor several independent Gaussian coordinates, hold all but one fixed and apply this identity to the remaining coordinate. A uniform bound on the function and coordinate derivative permits integrating over the other coordinates: the absolute integrals are finite, so iterated integration agrees with the joint integral. This is precisely the form used in each walk step.\n\nWe also need two elementary Gaussian facts. If $e$ is a unit vector, the map $R_e(u)=u-2\\langle e,u\\rangle e$ is an orthogonal reflection. Direct expansion gives $\\|R_eu\\|^2=\\|u\\|^2$ and $R_e^2=I$. Its Jacobian has absolute determinant one. The product Gaussian density depends only on $\\|u\\|^2$, so change of variables preserves the Gaussian integral. Further, independence and symmetry give $\\mathbb E U_iU_j=0$ for $i\\ne j$ and $\\mathbb E U_i^2=1$, whence $\\mathbb E\\langle e,U\\rangle^2=\\sum_i e_i^2=1$. The variance identity follows equally from one-variable integration by parts: $\\int x^2\\gamma(x)\\,dx=-\\int x\\gamma'(x)\\,dx=\\int\\gamma(x)\\,dx=1$, with $x\\gamma(x)\\to0$ at both ends.\n\n<!-- claim:NEW-FOR-10 -->\n\\[\n\\mathbb E F(R_eU)=\\mathbb E F(U)\\quad(\\|e\\|_2=1),\n\\qquad\n\\mathbb E\\langle e,U\\rangle^2=1.\n\\]\n\nThe first equality applies whenever its integrals are defined, in particular to the bounded continuous functions used here. ForrelationLower/Stein.lean proves the displayed formulas as **hasDerivAt_phiS**, **abs_phiS_le**, **stein_one**, **stein_pi**, **integral_reflect**, and **integral_dot_sq**, using the source names **qf**, **psiS**, **phiS**, and **dphi**. The Gaussian integration identity is an instance of the integration-by-parts method used in the Forrelation literature [BS21, Section 4](https://arxiv.org/abs/2008.07003). The particular algebraic truncation and the first-block interpolation below belong to the supplied argument; this attribution does not assert that no earlier equivalent construction exists.\n<!-- /passage:forr_stein -->\n\n<a id=\"forr_distribution\"></a>\n<!-- passage:forr_distribution -->\n\n### 3.9. The hard measure and why its initial endpoint is uniform\n\nWrite $\\ell=k-1$. Draw independent standard Gaussian vectors $U_0,\\ldots,U_{\\ell-1}\\in\\mathbb R^m$, and put $V_j=HU_j$, $X_j(a)=\\varphi(U_j(a))$, $Y_j(a)=\\varphi(V_j(a))$. For $0\\le s\\le1$, form a bias for every input coordinate by\n\n<!-- claim:NEW-FOR-11 -->\n\\[\nw_s(r,a)=\n\\begin{cases}\nsX_0(a),&r=0,\\\\\nY_{r-1}(a)X_r(a),&1\\le r<\\ell,\\\\\nY_{\\ell-1}(a),&r=\\ell.\n\\end{cases}\n\\qquad\nh_g(s)=\\mathbb E_U\\mathcal E_{w_s(U)}g.\n\\]\n\nHere $|w_s(r,a)|\\le1/2$, including the endpoint blocks; middle blocks even have magnitude at most $1/4$. Conditional on the Gaussians, sample the signs independently with these means. Averaging this conditional law gives a probability measure on the finite cube. Call its endpoint at $s=1$ the hard distribution $\\nu_1$. Positivity and total mass one follow from the finite product-weight calculation and expectation. The same construction at $s=0$ gives $\\nu_0$.\n\nWe prove that $\\nu_0$ is exactly uniform. Its block zero is already unbiased. Suppose that blocks below $r$ have been set to zero and that some coordinates of block $r$ have also been cleared. For an uncleared coordinate $a$ of that block, reflect $U_{r-1}$ across the row vector $H_{a,*}$. This vector has length one. Its inner product with $U_{r-1}$ is $V_{r-1}(a)$, and row orthogonality implies that the reflection changes $V_{r-1}(a)$ to its negative while leaving every $V_{r-1}(b)$, $b\\ne a$, unchanged. The reflection may change every coordinate of $X_{r-1}$, but these appear only in block $r-1$, whose biases were already cleared. No other block is affected.\n\nOddness of $\\varphi$ therefore negates exactly the current bias $w(r,a)$ among uncleared coordinates. Gaussian invariance says the average of the extension is unchanged. For each fixed collection of its other biases, the extension is affine in this bias. Averaging its values at opposite biases gives its value at zero. We have cleared coordinate $(r,a)$ without changing the Gaussian expectation. Iterate over the finite set of coordinates in block $r$, then over $r=1,\\ldots,\\ell$. At the end every bias is zero, so\n\n<!-- claim:NEW-FOR-12 -->\n\\[\nh_g(0)=\\mathcal E_0g=\\mathbb E_{\\mathrm{unif}}g.\n\\]\n\nThis argument uses reflection and affine cancellation; it does not assume that $U_j$ and $HU_j$ are independent. Their dependence is the feature producing Forrelation. ForrelationLower/Cascade.lean encodes partial clearing with **mw**, the reflections with **Rf**, the one-coordinate step with **integral_mw_insert**, and the endpoint equality with **integral_ext_wv_zero**. The biases and their bounds are **wv** and **abs_wv_le_half** in Walk.lean.\n<!-- /passage:forr_distribution -->\n\n<a id=\"forr_identity\"></a>\n<!-- passage:forr_identity -->\n\n### 3.10. The Stein elimination identity, one block at a time\n\nDifferentiate $h_g(s)$. Only block zero changes with $s$, so the cube chain rule gives $h_g'(s)=\\sum_a\\mathbb E[X_0(a)\\mathcal E_{w_s}\\partial_{(0,a)}g]$. This differentiation under the Gaussian expectation requires justification. The finite-cube extension and all its discrete derivatives are uniformly bounded on the unit bias cube by the maximum of $|g|$. The coordinates $X,Y,\\Psi,\\varphi'$ are bounded. On a fixed neighborhood of $[0,1]$, the extension is a finite polynomial in bounded biases, and its derivative is bounded by a constant depending only on $g,k,m$. The difference quotients converge pointwise and are dominated by that constant through the one-variable mean value theorem. Dominated convergence therefore gives the derivative formula.\n\nApply the coordinate Stein identity in $U_0(a)$ to the $a$th summand. That Gaussian coordinate affects bias $(0,a)$ through $X_0(a)$ and each bias $(1,b)$ through $Y_0(b)$. Differentiating through $(0,a)$ creates $\\partial_{(0,a)}^2g=0$, so it contributes nothing. Differentiating through $(1,b)$ produces $H_{b,a}\\varphi'(V_0(b))X_1(b)$ and a new cube derivative at $(1,b)$. Stein supplies the factor $\\Psi(U_0(a))$. When $\\ell=1$, the convention is $X_1=1$ because block one is the last block.\n\nFor the general step, suppose indices $a_0,\\ldots,a_j$ have been selected and the current term contains $X_j(a_j)\\mathcal E_{w_s}\\partial_{(0,a_0)}\\cdots\\partial_{(j,a_j)}g$. Every previously produced weight depends only on $U_0,\\ldots,U_{j-1}$. Consequently differentiating with respect to $U_j(a_j)$ leaves that weight unchanged. Its effect on bias $(j,a_j)$ is again killed by the repeated discrete derivative. Its effect on each $(j+1,b)$ gives $H_{b,a_j}\\varphi'(V_j(b))X_{j+1}(b)$. This produces exactly one additional block index. At $j=\\ell-1$ there is no further $X$ factor to eliminate, and the iteration stops.\n\nAll applications of Stein satisfy its boundedness hypotheses: the current function is a product of finitely many bounded smooth weights and a finite polynomial extension; its relevant coordinate derivative is a finite sum of products of the same kind. For a path $p=(p_0,\\ldots,p_\\ell)$ define $\\partial_pg=\\partial_{(0,p_0)}\\cdots\\partial_{(\\ell,p_\\ell)}g$. The usual real mean value theorem applied to $h_g$ now supplies a common parameter $s_*\\in(0,1)$ such that\n\n<!-- claim:NEW-FOR-13 -->\n\\[\n\\begin{aligned}\n\\mathbb E_{\\nu_1}g-\\mathbb E_{\\mathrm{unif}}g\n={}&\\sum_{p\\in[m]^k}\n\\left(\\prod_{j=0}^{\\ell-1}H_{p_{j+1},p_j}\\right)\\\\\n&\\quad\\cdot\\mathbb E_U\\left[\n\\left(\\prod_{j=0}^{\\ell-1}\n\\Psi(U_j(p_j))\\varphi'(V_j(p_{j+1}))\\right)\n\\mathcal E_{w_{s_*}(U)}\\partial_pg\n\\right].\n\\end{aligned}\n\\]\n\nThe parameter may depend on $g$. The identity is exact, not an approximation. Its common biased derivative evaluation is essential: the path weights may have different signs, but every derivative is evaluated at the same bias before applying a bound uniform in that bias.\n\nForrelationLower/Walk.lean proves the local derivative calculation in **sum_dw_eq**, its repeated integration in **integral_walk**, and the common-parameter statement in **exists_identity**. The recursively nested expression **Int** is expanded into the paths by **Int_eq_paths** in Walk.lean. The source uses the mean-value form written here. The review document also writes an integral over $s$; that follows from additional integration of the derivative formula, but is unnecessary for the formal route reconstructed here.\n\nOnly a derivative of order $k$ appears in this identity. This does not restrict $g$ to its degree-$k$ Fourier part. If $g(z)=\\sum_S\\widehat g(S)\\prod_{a\\in S}z_a$, then $\\mathcal E_\\mu\\partial_Jg=\\sum_{S\\supseteq J}\\widehat g(S)\\prod_{a\\in S\\setminus J}\\mu_a$. Thus arbitrary higher uniform degrees occur in the same derivative evaluated at a nonzero bias. The next argument must, and will, be uniform over all these biases.\n<!-- /passage:forr_identity -->\n\n<a id=\"forr_tree_growth\"></a>\n<!-- passage:forr_tree_growth -->\n\n### 3.11. Biased derivative growth for finite decision trees\n\nLet $n=|I|\\ge1$, let $T$ be a deterministic decision tree of depth at most $d\\ge1$, and let $g(z)=v(T(z))$ with $|v(0)|,|v(1)|\\le1$. Fix biases $|\\mu_a|\\le1/2$. We prove a bound on the sum of its absolute order-$r$ biased derivatives. The proof tracks the set of already queried coordinates, so it applies even if the tree queries the same coordinate repeatedly.\n\nTemporarily allow any independent centered variables $\\xi_a$ bounded by a common $B>0$; eventually these will be the derivative characters above with $B=2$. For coefficients $|c(J)|\\le1$ and queried-coordinate set $Q$, write\n\n<!-- claim:NEW-FOR-14 -->\n\\[\nA_{r,c}(Q,z)=\\sum_{\\substack{J\\subseteq Q\\\\|J|=r}}\nc(J)\\prod_{a\\in J}\\xi_a(z_a).\n\\]\n\nIf a fresh coordinate $q\\notin Q$ is queried, split the new subsets according to whether they contain $q$. The change in $A_{r+1,c}$ is $\\xi_q A_{r,c^q}(Q,z)$, where $c^q(J)=c(J\\cup\\{q\\})$. A repeated query makes no change. Conditional on the answers so far, a fresh coordinate retains its original law and hence its centeredness and bound.\n\nHere is why adaptivity does not invalidate that assertion or the later leaf calculation. For any fixed root-to-leaf path, reaching the leaf imposes exactly the listed values of its queried coordinates. Every full assignment satisfying those values follows that path, by induction through the tree. Thus its event is a cylinder on those coordinates; under a product law all other coordinates retain their independent distributions. Given the leaf, a monomial involving an unqueried centered coordinate averages to zero. The conditional expectation of the full-coordinate expression $A_{r,c}(I,z)$ is therefore its restriction to the leaf's queried set $Q$. Since $g$ is constant at that leaf,\n$\\mathbb E_\\mu[g A_{r,c}(I,z)]$ equals the average of $v(T(z))A_{r,c}(Q,z)$ at the leaves. This is the leaf-weight identity used to convert a stopping estimate into a Fourier bound.\n\n\nOne can express the preceding conditional-expectation argument entirely as a finite recursion. A state consists of a set $Q$ of known coordinates and an assignment $x$ containing their answers; values of $x$ outside $Q$ are immaterial. Let $\\operatorname{merge}(Q,x,z)$ use $x$ on $Q$ and $z$ on its complement. For a terminal function $F$ of a tree's output, known set, and assignment, define its walk average recursively. At a leaf with value $b$, use $F(b,Q,x)$. At a query $a\\in Q$, follow the child indexed by the already known answer $x_a$. At a fresh query, average the two children with weights $(1+\\mu_a)/2$ and $(1-\\mu_a)/2$, inserting $a$ into $Q$ and writing its new answer into $x$. A depth induction proves that this recursion is the product expectation of the terminal quantity obtained by running the tree on $\\operatorname{merge}(Q,x,z)$.\n\nFor the fresh-query induction step, split the product sum over the two values of $z_a$. The remaining factors of its weight do not involve $z_a$, so the split gives exactly the two child weights. For a known query the merged assignment has fixed answer $x_a$, giving the single-child rule. At a leaf the terminal function sees no additional queries, giving the base case. This argument also proves that the recursion's weights are nonnegative and sum to one whenever $|\\mu_a|\\le1$.\n\nEquivalently, the weight of a reachable leaf is the product of its one-coordinate answer probabilities over its distinct queried coordinates. Repeated queries contribute no extra probability factor because their answers are fixed by the earlier query. A zero-probability leaf contributes nothing, and the finite recursion remains valid without division by its probability. Thus the proof does not require conditioning on null events.\n\n<!-- claim:NEW-FOR-27 -->\n\\[\n\\mathcal E_\\mu[gA_{r,c}(I,z)]\n=\\sum_{\\lambda\\ {\\rm leaf}}\nw_\\mu(\\lambda)\\,v(b_\\lambda)\nA_{r,c}(Q_\\lambda,x_\\lambda),\n\\qquad\n\\sum_\\lambda w_\\mu(\\lambda)=1.\n\\]\n\nTo check the displayed equality directly, fix a leaf $\\lambda$. Its cylinder event supplies its product weight $w_\\mu(\\lambda)$. Expand the full chaos and average each monomial over the unqueried coordinates. If its subset is contained in $Q_\\lambda$, its product is already fixed and equals the corresponding term on the right. Otherwise choose one unqueried coordinate in it; its centered factor has mean zero, and independence factors it from the rest, killing that term. Sum over subsets and then leaves. This proves the exact identity used before applying any absolute values or probability estimates. In the source, **merge**, **ext_prod_merge**, **walk_eq_ext**, and **walk_chaos** provide these finite equalities. The stopping function **hit** uses the same recursion with value one when its target event has already occurred and with continued averaging otherwise.\n\nWe next prove the elementary exponential estimate underlying the stopping argument. If a centered two-valued random variable $\\xi$ lies in $[-B,B]$, convexity gives\n$e^{a\\xi}\\le\\frac{B-\\xi}{2B}e^{-aB}+\\frac{B+\\xi}{2B}e^{aB}$.\nTaking its expectation gives $\\cosh(aB)$. Comparing power series, $(2j)!\\ge2^j j!$, so $\\cosh x\\le e^{x^2/2}$. Thus\n\n<!-- claim:NEW-FOR-15 -->\n\\[\n\\mathbb E e^{a\\xi}\\le e^{a^2B^2/2}\n\\quad\\text{whenever }\\mathbb E\\xi=0,\\ |\\xi|\\le B.\n\\]\n\nConsider now a process $Y$ along the tree that starts at zero and changes at a fresh query by $\\xi_q C_q$, where $C_q$ is determined by the past. Stop immediately before taking a step whose coefficient has magnitude greater than $\\beta$, and also stop when $Y$ exceeds a positive level $R$. Before either stopping event, the preceding estimate gives\n$\\mathbb E[e^{\\lambda(Y_{j+1}-Y_j)}\\mid\\text{past}]\\le\ne^{\\lambda^2\\beta^2B^2/2}$ for $\\lambda\\ge0$.\nRepeated queries have zero increment and satisfy this bound as well. Pad shorter paths with zero increments to length $d$.\n\nFor an explicit finite proof, multiply at step $j$ by the factor $e^{-\\lambda^2\\beta^2B^2/2}$ when a step is taken and by one after stopping. Conditional expectation never increases the product. Induction over at most $d$ steps bounds its final expectation by one. On paths that first cross $R$ before a bad coefficient, the product is at least $e^{\\lambda R-\\lambda^2\\beta^2B^2d/2}$. Its expectation is therefore at least that quantity times the crossing probability. This proves the required hitting estimate, without invoking an optional-stopping theorem at an unbounded time:\n\n<!-- claim:NEW-FOR-16 -->\n\\[\n\\Pr[\\text{$Y$ ever exceeds $R$}]\n\\le e^{-\\lambda R+\\lambda^2\\beta^2B^2d/2}\n+\\Pr[\\text{some queried coefficient has magnitude $>\\beta$}].\n\\]\n\nA coefficient can be declared bad whenever any possible fresh-query coefficient at the current state exceeds $\\beta$. That larger bad event is what the induction below bounds. Crossing and coefficient failure at the same state is included in the bad event, so the displayed inequality covers that case too.\n\nChoose positive $K,\\Lambda$ with $K^2=2dB^2\\Lambda$. We prove by induction on $r$ that the probability of ever seeing $|A_{r,c}|>K^r$ is at most $(4n)^r e^{-\\Lambda}$. At $r=0$, $A_{0,c}=c(\\varnothing)$ has absolute value at most one, so the event is empty. For $r+1$, the fresh-query coefficient is an order-$r$ expression for one of the $n$ coefficient arrays $c^q$, each still bounded by one. The induction hypothesis and a union bound give failure probability at most $n(4n)^r e^{-\\Lambda}$. Apply the hitting estimate to $A_{r+1,c}$ and its negative with $\\beta=K^r$, $R=K^{r+1}$, and $\\lambda=K/(\\beta B^2d)$. The exponent is $-K^2/(2B^2d)=-\\Lambda$. The two estimates together are at most $2e^{-\\Lambda}+2n(4n)^r e^{-\\Lambda}\\le(4n)^{r+1}e^{-\\Lambda}$, using $n\\ge1$.\n\nAt every leaf a crude deterministic bound is $|A_{r,c}|\\le(nB)^r$: there are at most $n^r$ subsets and each term has magnitude at most $B^r$. On the event without a threshold crossing use $K^r$; on its complement use the crude bound. The leaf-weight identity and $|v|\\le1$ now give\n\n<!-- claim:NEW-FOR-17 -->\n\\[\n\\begin{aligned}\n\\Pr[\\exists\\text{ visited state}:|A_{r,c}|>K^r]\n&\\le(4n)^r e^{-\\Lambda},\\\\\n\\left|\\mathbb E_\\mu[gA_{r,c}(I,z)]\\right|\n&\\le K^r+(nB)^r(4n)^r e^{-\\Lambda}.\n\\end{aligned}\n\\]\n\nTo extract the derivative sum, take $c(J)$ to be the sign of $\\mathcal E_\\mu\\partial_Jg$ for the desired distinct size-$r$ subsets, and zero for all others. The derivative–character identity converts the left side into the sum of absolute derivatives. The arrays need not include all size-$r$ subsets. A family of lists is also permitted provided that every list has length $r$, contains no repeated coordinate, and different lists represent different subsets.\n\nNow set $B=2$ and $\\Lambda=2r\\ln(4n)$ for $r\\ge1$. Then $K^2=16rd\\ln(4n)$ and the residual term is\n$(2n)^r(4n)^r/(4n)^{2r}=2^{-r}\\le1$. We obtain\n\n<!-- claim:NEW-FOR-18 -->\n\\[\n\\sum_{J\\in\\mathcal J}|\\mathcal E_\\mu\\partial_Jg|\n\\le \\bigl(16rd\\ln(4n)\\bigr)^{r/2}+1\n\\]\nfor every family $\\mathcal J$ of distinct size-$r$ subsets.\n\nThe source implements the same finite branching calculation as **walk**, **walk_eq_ext**, **walk_chaos**, **hit**, **hit_azuma**, **hit_chaos_le**, **abs_ext_tree_chaos_le**, and **sum_abs_ext_Dl_le** in ForrelationLower/TreeGrowth.lean. Its final theorem retains the parameters $K,\\Lambda$ and the residual term. The simplified display is a proved mathematical specialization; no separately named source theorem has exactly this compact statement.\n\nThe proof mechanism has identifiable prior art. Girish, Tal, and Wu use martingales along decision-tree paths, smaller-degree contractions to bound increments, stopping, and union bounds [GTW21, Section 1.3, Lemma 1.9](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.CCC.2021.39). The present reconstruction writes that mechanism directly for the bounded centered variables supplied by a biased product measure. Bansal and Sinha instead transfer uniform Fourier bounds to biased measures using random restrictions [BS21, Theorem 3.4 and Section 5.3](https://arxiv.org/abs/2008.07003). Their derivative normalization and the orthonormal biased Fourier normalization differ by products of $\\sqrt{1-\\mu_a^2}$, which are uniformly controlled for $|\\mu_a|\\le1/2$. Sharper decision-tree Fourier bounds appear in Sherstov, Storozhenko, and Wu [SSW23](https://arxiv.org/abs/2008.10223); no sharp Fourier estimate is required in the argument above.\n<!-- /passage:forr_tree_growth -->\n\n<a id=\"forr_advantage\"></a>\n<!-- passage:forr_advantage -->\n\n### 3.12. A depth bound makes the two measures indistinguishable\n\nReturn to the path identity. Each path chooses exactly one coordinate from each of the $k$ blocks. Its list has no repeated coordinate; two paths define the same set only if their entries agree block by block. We may therefore apply the derivative bound with $r=k$, $n=km$, and this path family.\n\nThe product of the absolute matrix entries is $m^{-(k-1)/2}$. The remaining analytic weights have absolute value at most $3^{k-1}$, because $\\Psi\\le1$ and $\\varphi'\\le3$. After the triangle inequality, put the finite path sum inside the Gaussian expectation. Every bias there has coordinates of magnitude at most $1/2$, so the uniform derivative estimate applies pointwise. The Gaussian average of its constant bound is itself. Thus every depth-$d$ tree with output magnitude at most one satisfies\n\n<!-- claim:NEW-FOR-19 -->\n\\[\n\\left|\\mathbb E_{\\nu_1}g-\\mathbb E_{\\mathrm{unif}}g\\right|\n\\le\n\\left(\\frac3{\\sqrt m}\\right)^{k-1}\n\\left[\\bigl(16kd\\ln(4km)\\bigr)^{k/2}+1\\right]\n=:A_{k,m}(d).\n\\]\n\nThe same estimate holds for any mixture of such trees. Indeed, its expectation difference is the weighted sum of the differences of the individual trees; nonnegative weights summing to one and the triangle inequality preserve the bound. In particular it applies to randomized acceptance probabilities.\n\nForrelationLower/Cascade.lean proves the distinctness conditions in **Lpath_nodup** and **Lpath_inj**, then proves **advantage_le**. That theorem permits any row-orthogonal matrix whose entries have magnitude at most a parameter $\\varepsilon$ and replaces $3/\\sqrt m$ by $3\\varepsilon$. As with the growth bound, the source keeps $K,\\Lambda$ explicit. The displayed Walsh specialization follows by substitution and the residual calculation already shown. The blueprint's stronger analytic constants would change the numerical factor; we retain the actual coarse constants used by the source theorem.\n<!-- /passage:forr_advantage -->\n\n<a id=\"forr_moments\"></a>\n<!-- passage:forr_moments -->\n\n### 3.13. The two moments needed to make the promise useful\n\nThe uniform second moment follows directly from the path expansion of $\\Phi$. Under uniform independent signs, a nonempty sign monomial has mean zero: averaging any coordinate appearing once cancels it. Every Forrelation path uses one coordinate from each block, so its mean is zero. Two different paths disagree in some block. In their product, at least one coordinate then appears exactly once, and the mixed expectation is zero. A path multiplied by itself contributes one. There are $m^k$ paths and each squared coefficient is $m^{-(k+1)}$. Hence\n\n<!-- claim:NEW-FOR-20 -->\n\\[\n\\mathbb E_{\\mathrm{unif}}\\Phi=0,\\qquad\n\\mathbb E_{\\mathrm{unif}}\\Phi^2=\\frac1m.\n\\]\n\nTo lower-bound the hard mean, first derive a quantitative positive bound on the analytic weights. The elementary inequality $e^a\\ge1+a$, applied to $a=(x^2-1)/3$, gives $2+x^2\\le3e^{(x^2-1)/3}$. Taking positive square roots and using the explicit formulas for $\\Psi,\\varphi'$ gives\n\n<!-- claim:NEW-FOR-21 -->\n\\[\n\\begin{aligned}\nq(x)&\\le\\sqrt3\\,e^{(x^2-1)/6},\\\\\n\\Psi(x)\\varphi'(y)\n&\\ge\\frac1{18}\n\\exp\\!\\left[-\\frac{x^2-1}{6}-\\frac56(y^2-1)\\right].\n\\end{aligned}\n\\]\n\nFor each path $p$, set $T_p=\\sum_{j<\\ell}[(U_j(p_j)^2-1)/6+(5/6)(V_j(p_{j+1})^2-1)]$. Each selected $U$ coordinate has variance one, and each selected $V$ coordinate is a unit row's linear form in a Gaussian vector, so it also has variance one. Therefore $\\mathbb E T_p=0$. Multiplying the preceding positive inequalities gives a lower bound $18^{-\\ell}e^{-T_p}$ for the path weight. The pointwise inequality $e^{-T_p}\\ge1-T_p$ gives its expectation at least one. Integrability is harmless: every summand of $T_p$ is bounded below by $-1$, so $e^{-T_p}\\le e^\\ell$, while $T_p$ itself has finite absolute expectation.\n\nApply the exact Stein path identity to $g=\\Phi$. A path derivative removes all $k$ sign factors in precisely that path; every other monomial misses at least one of those coordinates and is killed. Thus $\\partial_p\\Phi=m^{-1}\\prod_{j<\\ell}H_{p_j,p_{j+1}}$, a constant. Symmetry of $H$ makes its product with the matrix coefficient in the walk equal to $m^{-1}\\prod H_{p_j,p_{j+1}}^2=m^{-k}$. All contributions are nonnegative. Their analytic expectations are at least $18^{-\\ell}$, and there are $m^k$ paths. The uniform mean vanishes, giving\n\n<!-- claim:NEW-FOR-22 -->\n\\[\n\\mathbb E_{\\nu_1}\\Phi\\ge18^{-(k-1)}\n\\ge32^{-(k-1)}=32\\delta.\n\\]\n\nThe formal source organizes this calculation as nested sums. To make that organization explicit, for an edge from $a$ to $b$ at Gaussian layer $j$, let\n$\\tau_{j,a,b}=(U_j(a)^2-1)/6+(5/6)(V_j(b)^2-1)$.\nLet $T_{0,j,a}=0$ and recursively set\n$T_{e+1,j,a}=m^{-1}\\sum_b(\\tau_{j,a,b}+T_{e,j+1,b})$.\nThe nonnegative nested weight starts at $Y_{0,j,a}=1$ and recurs as\n$Y_{e+1,j,a}=\\sqrt m^{-1}\\sum_b\\Psi(U_j(a))\\varphi'(V_j(b))Y_{e,j+1,b}$.\nInductively it is at least $(\\sqrt m/18)^e e^{-T_{e,j,a}}$. At the induction step, apply the edge inequality and the finite exponential inequality\n$m^{-1}\\sum_b e^{-v_b}\\ge e^{-\\overline v}$, where $\\overline v=m^{-1}\\sum_bv_b$.\nTo prove the latter, apply $e^x\\ge1+x$ to each $x=-(v_b-\\overline v)$ and average. The mean of every $T_{e,j,a}$ is zero, by the variance identities and induction. Therefore its exponential average is at least one. The final sum over $a$ divided by $M=m(\\sqrt m)^\\ell$ gives the same hard mean. This is the source's **Yy_ge**, **integral_TT**, and **mass_ge** argument, with the outer paths expanded in the preceding paragraph.\n\nThe uniform moment is proved in the source by recursively peeling a sign layer in **ext_lin_zero**, **ext_lin_sq_zero**, and **ext_Rs_sq**, culminating in **ext_PhiF_zero** and **ext_PhiF_sq**. The path proof is the expanded version of that orthogonality calculation. The identity **Phi_eq_PhiF** identifies its nested numerator with the frozen Forrelation function. The tangent bound is **qf_le_exp** and **psi_dphi_ge**. All these declarations are in ForrelationLower/Promise.lean.\n<!-- /passage:forr_moments -->\n\n<a id=\"forr_amplification\"></a>\n<!-- passage:forr_amplification -->\n\n### 3.14. Amplification is needed because the distributions include unpromised inputs\n\nSuppose a randomized algorithm of depth at most $L$ computes $P$ with error at most $1/3$ on its domain. Repeat it independently $2\\tau$ times and take majority, breaking ties in any fixed way. On a promised input, an incorrect majority implies at least $\\tau$ incorrect trials. If $E_i$ is the error indicator of trial $i$, then $\\mathbb E2^{E_i}=1+\\Pr[E_i=1]\\le4/3$. Independence and Markov's inequality yield\n$\\Pr[\\sum E_i\\ge\\tau]\\le2^{-\\tau}(4/3)^{2\\tau}=(8/9)^\\tau$.\nThe depth of each resulting tree is at most $2\\tau L$. This proof uses precisely $2\\tau$ runs, matching the Lean source.\n\n<!-- claim:NEW-FOR-23 -->\n\\[\nR_{1/3}(P)\\le L\n\\ \\Longrightarrow\\\n\\text{there is an acceptance function }a\n\\text{ of depth }\\le2\\tau L\n\\text{ with promise error }\\varepsilon=(8/9)^\\tau.\n\\]\n\nA randomized algorithm is a finite mixture of trees after its finite query histories and deterministic responses are collected. Equivalently, one can start with the finite-mixture model in the packet. Independent repetition takes the product of its mixing weights, which still sum to one. The combined tree runs its component trees sequentially, retaining their outcomes. This gives the depth and error statements without changing the worst-case query convention.\n\nThe hard measure need not be supported on yes inputs, and uniform measure need not be supported on no inputs. We therefore use inequalities valid at every point of the whole cube. If $\\Phi\\ge\\delta$, correctness gives $a\\ge1-\\varepsilon$, and $\\Phi-\\delta\\le1$; if $\\Phi<\\delta$, the expression $(1-\\varepsilon)(\\Phi-\\delta)$ is nonpositive. Similarly, if $|\\Phi|\\le\\delta/2$, correctness gives $a\\le\\varepsilon$; otherwise $4\\Phi^2/\\delta^2>1\\ge a$. Consequently\n\n<!-- claim:NEW-FOR-24 -->\n\\[\n(1-\\varepsilon)(\\Phi-\\delta)\\le a\n\\le\\varepsilon+\\frac{4\\Phi^2}{\\delta^2},\n\\quad\n\\begin{cases}\n\\mathbb E_{\\nu_1}a\\ge(1-\\varepsilon)(18^{-(k-1)}-\\delta),\\\\\n\\mathbb E_{\\mathrm{unif}}a\\le\\varepsilon+\\dfrac4{\\delta^2m}.\n\\end{cases}\n\\]\n\nChoose $\\tau$ so that $\\varepsilon<\\delta$. Such an integer exists because $(8/9)^\\tau$ decreases to zero; explicitly any integer greater than $\\ln(1/\\delta)/\\ln(9/8)$ suffices. Then $\\varepsilon<1/2$ and the hard expectation is greater than or equal to $(1/2)\\cdot31\\delta$. If $m$ is large enough that $4/(\\delta^2m)\\le\\delta$ and the tree advantage is at most $\\delta$, the uniform expectation is at most $2\\delta$ and the hard expectation at most $3\\delta$. This contradicts the lower bound $31\\delta/2$.\n\nFor a completely exact test of the needed constants, the contradiction applies whenever\n$\\varepsilon+4/(\\delta^2m)+A_{k,m}(2\\tau L+1)\n<(1-\\varepsilon)(18^{-(k-1)}-\\delta)$.\nThe extra one in the depth parameter ensures positivity for the growth lemma even if $L=0$. ForrelationLower/Amplify.lean proves **exists_amplified** using the explicit sequential tree **runAll** and the majority-error implication **maj_wrong**. ForrelationLower/Main.lean packages the all-input inequalities and the expectation gap in **not_RLe_of_gap**. This is the point where treating $P$ as a total function or silently assuming promise support would invalidate a proof; the two pointwise inequalities avoid both errors.\n<!-- /passage:forr_amplification -->\n\n<a id=\"forr_threshold\"></a>\n<!-- passage:forr_threshold -->\n\n### 3.15. Closing the bound for every sufficiently large power of four\n\nWe finish by proving the required estimates with an explicit sufficient threshold. Fix $k\\ge2$, let $\\ell=k-1$, keep the chosen $\\tau$, and put $m=4^t$. Write $X=m^{1-1/k}/(2t)^2$, so $L=\\lfloor X\\rfloor$. For $t\\ge8$, $X\\ge1$. Indeed $1-1/k\\ge1/2$, so the numerator is at least $2^t$, while $4t^2\\le2^t$. The latter holds with equality at $t=8$ and persists by induction because $(t+1)^2\\le2t^2$ for $t\\ge3$. It follows that $d=2\\tau L+1\\le(2\\tau+1)X$.\n\nAll logarithms in the analytic estimates in this proof are natural. Since\n$\\ln(4km)=\\ln(4k)+2t\\ln2\\le(\\ln(4k)+2)t$ for $t\\ge1$, define\n$C=16k(2\\tau+1)(\\ln(4k)+2)$.\nSet $\\Lambda=2k\\ln(4km)$ and take the positive $K$ satisfying $K^2=16kd\\ln(4km)$. Then $K^2\\le CXt$. Raising $X$ to the integer power $k$ gives $X^k=m^{k-1}/(2t)^{2k}$; this exact cancellation is why the exponent of $m$ in $L$ has its particular value.\n\nThe square of the leading advantage term is at most\n$9^\\ell m^{-\\ell}(CXt)^k=9^\\ell(C/(4t))^k$.\nThe residual term is at most $3^\\ell2^{-t}$, since $\\ell\\ge1$. To make both small, set $\\eta_0=\\min\\{1,\\delta^2/(4\\cdot9^\\ell)\\}$ and choose\n\n<!-- claim:NEW-FOR-25 -->\n\\[\nt_0=\\max\\!\\left\\{\n8,\\\n\\left\\lceil\\frac{C}{\\eta_0}\\right\\rceil,\\\n\\left\\lceil\\frac{2\\cdot3^\\ell}{\\delta}\\right\\rceil,\\\n\\left\\lceil\\frac4{\\delta^3}\\right\\rceil\n\\right\\}.\n\\]\n\nFor every $t\\ge t_0$, $C/t\\le\\eta_0\\le1$, so the squared leading term is at most $9^\\ell\\eta_0^k\\le9^\\ell\\eta_0\\le\\delta^2/4$. Its unsquared value is therefore at most $\\delta/2$. The elementary inequality $2^t\\ge t$ gives residual at most $3^\\ell/t\\le\\delta/2$. Also $m=4^t\\ge t\\ge4/\\delta^3$, so $4/(\\delta^2m)\\le\\delta$. We have now checked every hypothesis of the preceding contradiction for every $t\\ge t_0$, rather than for a selected subsequence.\n\n<!-- claim:lem-2.1.i -->\n\\[\n\\forall k\\ge2\\ \\exists t_0\\ \\forall t\\ge t_0,\\qquad\nR(P_{k,4^t})>\n\\left\\lfloor\\frac{(4^t)^{1-1/k}}{(2t)^2}\\right\\rfloor.\n\\]\n\nTo pass from “no algorithm of depth at most $L$” to the displayed strict inequality, the randomized complexity is a minimum over an inhabited set of integer budgets. Reading all $km$ bits computes any partial Boolean function on its domain, so such a budget exists. A nonempty set of natural numbers has a least element. If that element were at most $L$, its realizing algorithm would contradict what we proved. The same lower bound also ensures both promise values occur for these dimensions: if at most one value occurred, a zero-query constant output would be correct throughout the promise.\n\nForrelationLower/Main.lean makes the estimates in **four_sq_le_two_pow**, **Xk_facts**, **core_bound**, and **exists_threshold**, and closes them in **bansalSinhaLower : BansalSinhaLower**. The source's constants $c_1,c_2,c_3$ satisfy $c_3=C$ above. Its internal threshold has precisely these four kinds of terms. The formal endpoint has no analytic lower-bound assumption: the argument just reconstructed supplies it. The corpus reports this endpoint compared against the frozen statement and built at the pin. Neither report was rerun during the present examination.\n<!-- /passage:forr_threshold -->\n\n<a id=\"forr_attribution\"></a>\n<!-- passage:forr_attribution -->\n\n### 3.16. What this proof uses from earlier work, and what the source establishes\n\nThe problem, its alternating Walsh expression, and its small-query quantum algorithm are established Forrelation constructions [AA18](https://arxiv.org/abs/1411.5729). Bansal and Sinha prove a stronger randomized lower bound, including quantitative dependence on advantage and on $k$, for the same small constant threshold [BS21, Theorem 1.3, Corollary 1.4](https://arxiv.org/abs/2008.07003). The strict fixed-$k$ lower bound used here is weaker by a polylogarithmic factor. It follows from that theorem by the explicit comparison above.\n\nThe internal proof shares substantial ingredients with that literature: correlated Gaussian vectors, coordinatewise truncation, randomized rounding to biased signs, polynomial extensions, Gaussian integration by parts, and a decision-tree Fourier-growth estimate. The supplied source chooses a first-block interpolation and eliminates one Gaussian coordinate at each successive block. Its uniform endpoint is proved by successive reflections. Its decision-tree estimate is a direct biased version of the martingale and contraction method explained by Girish, Tal, and Wu [GTW21, Section 1.3](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.CCC.2021.39). Bansal–Sinha's published interpolation uses multiple Gaussian-variance parameters and bounds biased levels from $k$ through $k(k-1)$ [BS21, Theorem 3.2 and Section 5.1](https://arxiv.org/abs/2008.07003). These are concrete differences between the inspected arguments.\n\nSherstov, Storozhenko, and Wu prove sharp Fourier bounds and an optimal-up-to-logarithms quantum–randomized separation through orthogonal-matrix variants [SSW23](https://arxiv.org/abs/2008.10223). Tal's earlier work develops the random-orthogonal Rorrelation variant and supplies the decision-tree Fourier bound used by Bansal–Sinha [Tal20, Theorem 1.3 and Section 5.1](https://arxiv.org/abs/1912.12561). Their results explain why neither a general Fourier-growth estimate nor the nearly maximal partial-function separation should be presented here as a new theorem. The supplied argument proves exactly the fixed-$k$ proposition needed in this construction; this record does not certify stronger quantitative claims suggested in the informal review.\n\nThe packet's prior-art memorandum says it did not locate this exact first-block reflection-and-elimination route in the references it inspected. A finite literature check cannot establish historical novelty. The defensible statement is that the route differs from the displayed proofs in the primary sources checked here. The algebraic truncation, the identity, and the resulting quantitative possibilities merit an independent mathematical review before any stronger attribution claim.\n<!-- /passage:forr_attribution -->\n\n"
+      },
+      "replacement": null,
+      "reason": "Move the full internal proof while preserving its exact mathematical content. It occupies 5195 of11160 whitespace tokens before the total construction.",
+      "statement_ids": [],
+      "lean": [],
+      "application_status": "Proposed only; original packet is unchanged. Exact target is unique in the frozen member.",
+      "steps": [
+        "First apply the local mathematical and evidence repairs whose targets are inside this span.",
+        "Move complete §§3.7–3.16 to a named Forrelation lower-bound appendix; preserve every existing passage and claim anchor.",
+        "Keep §§3.1–3.6 and §3.17 in the main route. Keep the source-display caveat beside the lower-bound interface.",
+        "Add a direct proof link from forr_bundle to forr_cube; add a backlink from the proof appendix to forr_bundle.",
+        "Reletter appendices, section references and rendered links only during final integration."
+      ],
+      "insertion_at_interface": "The main construction uses the following three properties of the same partial function. The complete internal proof of its randomized lower bound is in the [Forrelation lower-bound appendix](#forr_cube).",
+      "tradeoff": "Moves detail out of the first reading path while retaining the full proof required to avoid relying on the unresolved source display.",
+      "rank": 24,
+      "validation": "Resolve the unique old span against the recorded SHA-256, apply before structural movement, and recheck the mathematical and evidence boundaries stated here."
+    },
+    {
+      "id": "R10",
+      "priority": "P1",
+      "category": "historical provenance",
+      "owner": "later integrator; 09 backend",
+      "operation": "replace",
+      "passage": "ROOT-CATALOGUE-INTRO",
+      "target": {
+        "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+        "line_start": 2259,
+        "line_end": 2259,
+        "from": "## Appendix B. Exact statement catalogue and source correspondence",
+        "to": "## Appendix B. Exact statement catalogue and source correspondence",
+        "old_sha256": "7e724f7065b75411adc28fb220cb787257a4b986ce49841b87b8d0d04bcc41c5",
+        "old": "## Appendix B. Exact statement catalogue and source correspondence"
+      },
+      "replacement": "## Appendix B. Historical statement catalogue and source correspondence",
+      "reason": "The catalogue already preserves old evidence. Clarify its title rather than rewriting its original rows.",
+      "statement_ids": [],
+      "lean": [],
+      "application_status": "Proposed only; original packet is unchanged. Exact target is unique in the frozen member.",
+      "rank": 25,
+      "validation": "Resolve the unique old span against the recorded SHA-256, apply before structural movement, and recheck the mathematical and evidence boundaries stated here."
+    },
+    {
+      "id": "R11",
+      "priority": "P1",
+      "category": "current-evidence correction",
+      "owner": "07 planted lower; 09 backend",
+      "operation": "replace",
+      "passage": "CL-early-late",
+      "target": {
+        "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+        "line_start": 1775,
+        "line_end": 1775,
+        "from": "The equality follows by first conditioning on the complete dummy run: exactly $Z$ choices of the independent uniform $I$ have their zero discovered. This recovers `claim-EZ` and Eq",
+        "to": "ero discovered. This recovers `claim-EZ` and Eq. 19 as stated. The supplied source proves a stronger estimate by the following shorter induction, without conditional probabilities.",
+        "old_sha256": "d701d218fd9110a48782993b9d37f79534e0547391217b425356d12178cca664",
+        "old": "The equality follows by first conditioning on the complete dummy run: exactly $Z$ choices of the independent uniform $I$ have their zero discovered. This recovers `claim-EZ` and Eq. 19 as stated. The supplied source proves a stronger estimate by the following shorter induction, without conditional probabilities."
+      },
+      "replacement": "The equality follows by first conditioning on the complete dummy run: exactly $Z$ choices of the independent uniform $I$ have their zero discovered. This recovers `claim-EZ` and Eq. 19 as stated. The supplied source proves a stronger estimate by the following shorter induction, without conditional probabilities. The current source proves the probability identity in `QuarticQuery.Paper.erasedZero_eq_expectedZeros_div`, the coefficient-four bound in `Paper.eq_19`, and the coefficient-two refinement in `Paper.erasedZero_le_two`. The older selected corpus ties `sum_xQueries_le` and `avg_foundZero_I_le` are only partial correspondences to the full equation; their metadata should not obscure these additional current declarations. This source support does not include the optional denominator \\(m(m+1)\\) proved later. All evidence is per declaration and source-bound; no new kernel run was made here.",
+      "reason": "The exact identity exists as an additional source theorem even though the selected row remains partial.",
+      "statement_ids": [
+        "eq-19"
+      ],
+      "lean": [
+        "QuarticQuery.Paper.erasedZero_eq_expectedZeros_div",
+        "QuarticQuery.Paper.eq_19",
+        "QuarticQuery.Paper.erasedZero_le_two"
+      ],
+      "application_status": "Proposed only; original packet is unchanged. Exact target is unique in the frozen member.",
+      "rank": 26,
+      "validation": "Resolve the unique old span against the recorded SHA-256, apply before structural movement, and recheck the mathematical and evidence boundaries stated here."
+    },
+    {
+      "id": "R120",
+      "priority": "P2",
+      "category": "cross-document navigation",
+      "owner": "later integrator; later companion revision",
+      "operation": "replace",
+      "passage": "headline",
+      "target": {
+        "member": "repository/research/returns/funnel/2_short_expert_paper/paper.md",
+        "sha256": "d74bef7d77eb5dd96a8fe5b6ba5f3cb4a105fd62d76ad5e730ad26f2ae15f277",
+        "line_start": 33,
+        "line_end": 33,
+        "from": "<!-- passage:headline -->",
+        "to": "<!-- passage:headline -->",
+        "old_sha256": "8e329700d77e55b415b6bed308ce30aaace6700630d491c625db5f6931bfc87d",
+        "old": "<!-- passage:headline -->"
+      },
+      "replacement": "<a id=\"headline\"></a>\n<!-- passage:headline -->",
+      "reason": "Passage comments are not rendered anchors. Add actual anchors and then apply the seven-unit proof map.",
+      "statement_ids": [],
+      "lean": [],
+      "application_status": "Proposed only; original packet is unchanged. Exact target is unique in the frozen member.",
+      "follow_on": "For each unit in cross-document-map.json add the listed real anchor and reciprocal relative manuscript link after the later integrated long record is accepted. Validate rendered destinations; do not treat an unseen concurrent return as available.",
+      "rank": 27,
+      "validation": "Resolve the unique old span against the recorded SHA-256, apply before structural movement, and recheck the mathematical and evidence boundaries stated here."
+    },
+    {
+      "id": "R121",
+      "priority": "P2",
+      "category": "cross-document navigation",
+      "owner": "later integrator; later companion revision",
+      "operation": "replace",
+      "passage": "main-theorem",
+      "target": {
+        "member": "repository/research/returns/funnel/3_examples_first_exposition/exposition.md",
+        "sha256": "99360e133b3114f90528b40833d2bdc9d18194d427f21cf322a336af4683ed0f",
+        "line_start": 475,
+        "line_end": 475,
+        "from": "<!-- passage:main-theorem -->",
+        "to": "<!-- passage:main-theorem -->",
+        "old_sha256": "7bcf2b8723992769aa7b9ff2a6f88bbda8d6f28cc585e8962cf59fba64782c92",
+        "old": "<!-- passage:main-theorem -->"
+      },
+      "replacement": "<a id=\"main-theorem\"></a>\n<!-- passage:main-theorem -->",
+      "reason": "Passage comments are not rendered anchors. Add actual anchors and then apply the seven-unit proof map.",
+      "statement_ids": [],
+      "lean": [],
+      "application_status": "Proposed only; original packet is unchanged. Exact target is unique in the frozen member.",
+      "follow_on": "For each unit in cross-document-map.json add the listed real anchor and reciprocal relative manuscript link after the later integrated long record is accepted. Validate rendered destinations; do not treat an unseen concurrent return as available.",
+      "rank": 28,
+      "validation": "Resolve the unique old span against the recorded SHA-256, apply before structural movement, and recheck the mathematical and evidence boundaries stated here."
+    },
+    {
+      "id": "R13",
+      "priority": "P2",
+      "category": "reproducibility access",
+      "owner": "later integrator; packet/backend owner",
+      "operation": "attach_missing_reproducibility_input",
+      "passage": "reproducibility command",
+      "target": {
+        "member": "repository/research/returns/funnel/3_examples_first_exposition/exposition.md",
+        "sha256": "99360e133b3114f90528b40833d2bdc9d18194d427f21cf322a336af4683ed0f",
+        "line_start": 723,
+        "line_end": 723,
+        "from": "python3 examples.py > examples_output.regenerated.txt",
+        "to": "python3 examples.py > examples_output.regenerated.txt",
+        "old_sha256": "7933c2b90e50a67487d54f3e19547740e15ce95303a21725ae378f2f939a6465",
+        "old": "python3 examples.py > examples_output.regenerated.txt"
+      },
+      "replacement": "python3 examples.py > examples_output.regenerated.txt",
+      "reason": "The selected packet includes examples_output.txt but not examples.py. Preserve the original execution claim as historical, and supply an exact script/hash in the eventual reader bundle before claiming fresh reproduction.",
+      "statement_ids": [],
+      "lean": [],
+      "application_status": "Proposed only; original packet is unchanged. Exact target is unique in the frozen member.",
+      "ready_note": "The original exposition reports these calculations from examples.py. That script is not included in this selected review packet; the retained output alone does not permit fresh reproduction here. The independent Forrelation census returned with this review is a separate computation.",
+      "rank": 29,
+      "validation": "Resolve the unique old span against the recorded SHA-256, apply before structural movement, and recheck the mathematical and evidence boundaries stated here."
+    },
+    {
+      "id": "R14",
+      "priority": "P2",
+      "category": "edition-specific citations",
+      "owner": "later integrator",
+      "operation": "merge_bibtex_entries_by_key",
+      "passage": "bibliography",
+      "target": {
+        "member": "repository/research/returns/funnel/1_long_reasoning_record/references.bib",
+        "sha256": "3d676076acedfb08f40cee1a8b185df4657ebd11d36d7d8c9a74189b08fc482f",
+        "line_start": 1,
+        "line_end": 298,
+        "from": "@misc{OpenAI2026,\n  author = {{OpenAI}},\n  title = {A Nearly Quartic Separation Between Randomized and Quantum Query Complexity},\n  year = {2026},\n  month = oct,\n  day = {5},\n  url",
+        "to": "efix = {arXiv},\n  url = {https://arxiv.org/abs/2609.15063},\n  note = {Submitted 14 September 2026; Lemma 5 supplies the candidate-comparison-verification antecedent cited here.}\n}\n",
+        "old_sha256": "3d676076acedfb08f40cee1a8b185df4657ebd11d36d7d8c9a74189b08fc482f",
+        "old": "@misc{OpenAI2026,\n  author = {{OpenAI}},\n  title = {A Nearly Quartic Separation Between Randomized and Quantum Query Complexity},\n  year = {2026},\n  month = oct,\n  day = {5},\n  url = {https://github.com/openai/math/blob/4eaee875/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf},\n  note = {Supplied 19-page PDF, SHA-256 a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e. The supplied manifest pins openai/math at 4eaee875. No DOI or arXiv identifier was located; none is invented.}\n}\n\n@inproceedings{ABKRT2021,\n  author = {Aaronson, Scott and Ben-David, Shalev and Kothari, Robin and Rao, Shravas and Tal, Avishay},\n  title = {Degree vs. Approximate Degree and Quantum Implications of {Huang}'s Sensitivity Theorem},\n  booktitle = {Proceedings of the 53rd Annual ACM SIGACT Symposium on Theory of Computing},\n  year = {2021},\n  doi = {10.1145/3406325.3451047},\n  eprint = {2010.12629},\n  archivePrefix = {arXiv},\n  primaryClass = {quant-ph},\n  url = {https://arxiv.org/abs/2010.12629},\n  note = {Locators in this record use the arXiv v1 PDF: Theorem 1, degree versus spectral sensitivity; Theorem 2, universal quartic upper bound; Definition 7 and Lemma 9, spectral sensitivity; Section 7, Conjecture 2, printed page 20.}\n}\n\n@article{Huang2019,\n  author = {Huang, Hao},\n  title = {Induced Subgraphs of Hypercubes and a Proof of the Sensitivity Conjecture},\n  journal = {Annals of Mathematics},\n  year = {2019},\n  volume = {190},\n  number = {3},\n  pages = {949--955},\n  doi = {10.4007/annals.2019.190.3.6},\n  eprint = {1907.00847},\n  archivePrefix = {arXiv},\n  url = {https://annals.math.princeton.edu/2019/190-3/p06},\n  note = {Lemma 2.2, signed-cube spectrum; proof and subsequent spectral remark for Theorem 1.1.}\n}\n\n@misc{Midrijanis2004,\n  author = {Midrij{\\={a}}nis, Gatis},\n  title = {Exact Quantum Query Complexity for Total Boolean Functions},\n  year = {2004},\n  eprint = {quant-ph/0403168},\n  archivePrefix = {arXiv},\n  doi = {10.48550/arXiv.quant-ph/0403168},\n  url = {https://arxiv.org/abs/quant-ph/0403168},\n  note = {Version 2, 27 March 2004. Lemma 3 and the proof of Theorem 4 give D(f) <= bs(f) deg(f); Theorem 4 itself states the resulting cubic bound in degree.}\n}\n\n@inproceedings{BSS2003,\n  author = {Barnum, Howard and Saks, Michael and Szegedy, Mario},\n  title = {Quantum Decision Trees and Semidefinite Programming},\n  booktitle = {Proceedings of the 18th IEEE Annual Conference on Computational Complexity},\n  year = {2003},\n  pages = {179--193},\n  doi = {10.1109/CCC.2003.1214419},\n  url = {https://doi.org/10.1109/CCC.2003.1214419},\n  note = {Original spectral-adversary attribution confirmed in Spalek and Szegedy, Theorem 3.1 and reference 7. The original full text was not available in the packet or opened in this reconstruction; Appendix A supplies the complete argument used here.}\n}\n\n@article{SpalekSzegedy2006,\n  author = {{\\v S}palek, Robert and Szegedy, Mario},\n  title = {All Quantum Adversary Methods Are Equivalent},\n  journal = {Theory of Computing},\n  volume = {2},\n  number = {1},\n  pages = {1--18},\n  year = {2006},\n  doi = {10.4086/toc.2006.v002a001},\n  eprint = {quant-ph/0409116},\n  archivePrefix = {arXiv},\n  url = {https://theoryofcomputing.org/articles/v002a001/},\n  note = {Theorem 3.1 and equation (3.1) give the nonnegative spectral adversary formulation.}\n}\n\n@misc{QuarticLeanPacket2026,\n  author = {{QuarticQuery project}},\n  title = {Supplied Lean Source and Statement Corpus for the Nearly Quartic Query Separation},\n  year = {2026},\n  note = {Private source packet pinned at c7e0c9161f0ad898889bd9166e7b354acd42188d. Packet-relative source paths are used throughout. No public repository URL, DOI, or arXiv identifier is asserted.}\n}\n\n@misc{ComplexitylibPin2026,\n  author = {{cslib-community contributors}},\n  title = {complexitylib},\n  year = {2026},\n  url = {https://github.com/cslib-community/complexitylib/tree/62ca5c21461b2482e8bd12b7cb9b4937d887a33a},\n  note = {Revision pinned by the supplied Lake manifest. The dependency source could not be retrieved during this reconstruction. Its imported theorem is identified from the supplied Appendix/TheoremA1.lean; no new build is claimed. No DOI or arXiv identifier applies to this pinned code citation.}\n}\n\n@article{AA18,\n  author = {Scott Aaronson and Andris Ambainis},\n  title = {Forrelation: A Problem that Optimally Separates Quantum from Classical Computing},\n  journal = {SIAM Journal on Computing},\n  volume = {47},\n  number = {3},\n  pages = {982--1038},\n  year = {2018},\n  doi = {10.1137/15M1050902},\n  eprint = {1411.5729},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/1411.5729}\n}\n@inproceedings{BS21,\n  author = {Nikhil Bansal and Makrand Sinha},\n  title = {{$k$}-Forrelation Optimally Separates Quantum and Classical Query Complexity},\n  booktitle = {Proceedings of the 53rd Annual ACM SIGACT Symposium on Theory of Computing},\n  pages = {1303--1316},\n  year = {2021},\n  doi = {10.1145/3406325.3451040},\n  eprint = {2008.07003},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2008.07003}\n}\n@inproceedings{GTW21,\n  author = {Uma Girish and Avishay Tal and Kewen Wu},\n  title = {Fourier Growth of Parity Decision Trees},\n  booktitle = {36th Computational Complexity Conference},\n  series = {Leibniz International Proceedings in Informatics},\n  volume = {200},\n  pages = {39:1--39:36},\n  year = {2021},\n  doi = {10.4230/LIPIcs.CCC.2021.39},\n  eprint = {2103.11604},\n  archivePrefix = {arXiv},\n  url = {https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.CCC.2021.39}\n}\n@article{SSW23,\n  author = {Alexander A. Sherstov and Andrey A. Storozhenko and Pei Wu},\n  title = {An Optimal Separation of Randomized and Quantum Query Complexity},\n  journal = {SIAM Journal on Computing},\n  volume = {52},\n  number = {2},\n  pages = {525--567},\n  year = {2023},\n  doi = {10.1137/22M1468943},\n  eprint = {2008.10223},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2008.10223}\n}\n@inproceedings{Tal20,\n  author = {Avishay Tal},\n  title = {Towards Optimal Separations between Quantum and Randomized Query Complexities},\n  booktitle = {61st IEEE Annual Symposium on Foundations of Computer Science},\n  pages = {228--239},\n  year = {2020},\n  eprint = {1912.12561},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/1912.12561}\n}\n\n@article{Drucker2012,\n  author = {Drucker, Andrew},\n  title = {Improved Direct Product Theorems for Randomized Query Complexity},\n  journal = {Computational Complexity},\n  volume = {21},\n  number = {2},\n  pages = {197--244},\n  year = {2012},\n  doi = {10.1007/s00037-012-0043-7},\n  eprint = {1005.0644},\n  archivePrefix = {arXiv},\n  primaryClass = {cs.CC},\n  url = {https://arxiv.org/abs/1005.0644v2},\n  note = {Version 2, 9 May 2014. Relevant locators: Section 1.3; Lemmas 3.1--3.2, printed pp. 11--12; final paragraph of Section 3, printed p. 13. Theorem 1.1 has a different global-budget hypothesis.}\n}\n\n@article{Shaltiel2003,\n  author = {Shaltiel, Ronen},\n  title = {Towards Proving Strong Direct Product Theorems},\n  journal = {Computational Complexity},\n  volume = {12},\n  number = {1--2},\n  pages = {1--22},\n  year = {2003},\n  doi = {10.1007/s00037-003-0175-x},\n  url = {https://eccc.weizmann.ac.il/eccc-reports/2001/TR01-009/index.html},\n  note = {Relevant locator: Section 5, Definition 4, Theorem 5 and Lemma 7, pp. 11--12 of the ECCC version. The statement is an XOR-advantage theorem for fair decision trees.}\n}\n\n@inproceedings{ABK2016,\n  author = {Aaronson, Scott and Ben-David, Shalev and Kothari, Robin},\n  title = {Separations in Query Complexity Using Cheat Sheets},\n  booktitle = {Proceedings of the 48th Annual ACM SIGACT Symposium on Theory of Computing},\n  pages = {863--876},\n  year = {2016},\n  publisher = {Association for Computing Machinery},\n  doi = {10.1145/2897518.2897644},\n  eprint = {1511.01937},\n  archivePrefix = {arXiv},\n  primaryClass = {quant-ph},\n  url = {https://arxiv.org/abs/1511.01937v2},\n  note = {Version 2, 9 July 2019. Relevant locators: Section 6.1, Definitions 14--15, printed pp. 20--21; Section 6.2, Lemma 17, printed p. 22. Use PDF numbering rather than the shifted extracted-TeX numbering.}\n}\n\n@article{GPW2018,\n  author = {G{\\\"o}{\\\"o}s, Mika and Pitassi, Toniann and Watson, Thomas},\n  title = {Deterministic Communication vs. Partition Number},\n  journal = {SIAM Journal on Computing},\n  volume = {47},\n  number = {6},\n  pages = {2435--2450},\n  year = {2018},\n  doi = {10.1137/16M1059369},\n  url = {https://eccc.weizmann.ac.il/report/2015/050/},\n  note = {ECCC TR15-050, revision text dated 5 September 2017. Relevant locators: Theorem 5 and Section 2.1, pp. 3--5 of the revision.}\n}\n\n@misc{ABBLSS2015,\n  author = {Ambainis, Andris and Balodis, Kaspars and Belovs, Aleksandrs and Lee, Troy and Santha, Miklos and Smotrovs, Juris},\n  title = {Separations in Query Complexity Based on Pointer Functions},\n  year = {2015},\n  eprint = {1506.04719},\n  archivePrefix = {arXiv},\n  primaryClass = {quant-ph},\n  url = {https://arxiv.org/abs/1506.04719v3},\n  note = {Version 3, 26 October 2015. Relevant locator: Section 1, Use of a balanced tree, including the explicit discussion of direct pointers to one zero in every non-marked column. Also ECCC TR15-098, revision 2.}\n}\n\n@inproceedings{Yao1977,\n  author = {Yao, Andrew Chi-Chih},\n  title = {Probabilistic Computations: Toward a Unified Measure of Complexity},\n  booktitle = {18th Annual Symposium on Foundations of Computer Science},\n  pages = {222--227},\n  year = {1977},\n  publisher = {IEEE Computer Society},\n  doi = {10.1109/SFCS.1977.24},\n  url = {https://doi.org/10.1109/SFCS.1977.24},\n  note = {Historical attribution for the distributional minimax principle; the needed finite-game proof is given in full in the reasoning record. Publisher metadata was verified; the original full text was not read in this pass.}\n}\n\n@article{BBHT1998,\n  author = {Boyer, Michel and Brassard, Gilles and Høyer, Peter and Tapp, Alain},\n  title = {Tight Bounds on Quantum Searching},\n  journal = {Fortschritte der Physik},\n  year = {1998},\n  volume = {46},\n  number = {4--5},\n  pages = {493--505},\n  doi = {10.1002/(SICI)1521-3978(199806)46:4/5<493::AID-PROP493>3.0.CO;2-P},\n  eprint = {quant-ph/9605034},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/quant-ph/9605034},\n  note = {Supplied text and proof locators refer to arXiv version 1 (23 May 1996), Section 4, Lemma 2 and Theorem 3. Journal pages follow the publisher record; its 493--505 differs from the arXiv metadata's 493--506.}\n}\n\n@incollection{BHMT2002,\n  author = {Brassard, Gilles and Høyer, Peter and Mosca, Michele and Tapp, Alain},\n  title = {Quantum Amplitude Amplification and Estimation},\n  booktitle = {Quantum Computation and Information},\n  series = {Contemporary Mathematics},\n  volume = {305},\n  publisher = {American Mathematical Society},\n  year = {2002},\n  pages = {53--74},\n  doi = {10.1090/conm/305/05215},\n  eprint = {quant-ph/0005055},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/quant-ph/0005055},\n  note = {Proof locators use arXiv version 1 (15 May 2000), Section 2, Lemma 1 and equation (8).}\n}\n\n@misc{DurrHoyer1996,\n  author = {Dürr, Christoph and Høyer, Peter},\n  title = {A Quantum Algorithm for Finding the Minimum},\n  year = {1996},\n  eprint = {quant-ph/9607014},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/quant-ph/9607014},\n  note = {Version 2, revised 7 January 1999; Theorem 1 and Lemmas 1--2.}\n}\n\n@inproceedings{MandeParaasharSaurabh2023,\n  author = {Mande, Nikhil S. and Paraashar, Manaswi and Saurabh, Nitin},\n  title = {Randomized and Quantum Query Complexities of Finding a King in a Tournament},\n  booktitle = {43rd IARCS Annual Conference on Foundations of Software Technology and Theoretical Computer Science (FSTTCS 2023)},\n  series = {Leibniz International Proceedings in Informatics},\n  volume = {284},\n  pages = {30:1--30:19},\n  publisher = {Schloss Dagstuhl -- Leibniz-Zentrum für Informatik},\n  year = {2023},\n  doi = {10.4230/LIPIcs.FSTTCS.2023.30},\n  eprint = {2308.02472},\n  archivePrefix = {arXiv},\n  url = {https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.FSTTCS.2023.30},\n  note = {The proof locator Theorem 4.4 refers to the supplied arXiv text.}\n}\n\n@misc{BenDavidKothari2026,\n  author = {Ben-David, Shalev and Kothari, Robin},\n  title = {Randomized Query Complexity Can Beat Certificate Complexity},\n  year = {2026},\n  eprint = {2609.15063},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2609.15063},\n  note = {Submitted 14 September 2026; Lemma 5 supplies the candidate-comparison-verification antecedent cited here.}\n}\n"
+      },
+      "replacement": null,
+      "reason": "Replace the six principal mathematical entries with the edition-specific entries in this return; retain unrelated entries without implying they were independently audited.",
+      "statement_ids": [],
+      "lean": [],
+      "application_status": "Proposed only; original packet is unchanged. Exact target is unique in the frozen member.",
+      "keys": [
+        "OpenAI2026",
+        "BS21",
+        "GTW21",
+        "BHMT2002",
+        "Drucker2012",
+        "ABKRT2021"
+      ],
+      "source": "references.bib",
+      "preserve": "All unrelated historical entries and credit. Update code-source notes to distinguish packet, baseline and proof-source versions.",
+      "rank": 30,
+      "validation": "Resolve the unique old span against the recorded SHA-256, apply before structural movement, and recheck the mathematical and evidence boundaries stated here."
+    }
+  ]
+}

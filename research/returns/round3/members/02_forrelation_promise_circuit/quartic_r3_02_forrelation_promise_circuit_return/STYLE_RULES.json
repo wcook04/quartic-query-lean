@@ -1,0 +1,62 @@
+[
+  {
+    "id": "STYLE-FOR-01",
+    "move": "State the two jobs of the ingredient before introducing its notation.",
+    "source": "writing/the-deliverable.md, The object; paper/source.pdf, Section 2.1 concluding paragraph",
+    "source_role": "Writing instruction plus mathematical construction context, with distinct authority.",
+    "applied_at": [
+      "forr_scope",
+      "forr_circuit_size"
+    ],
+    "implementation": "The opening states that the quantum procedure proposes a value and the Boolean circuit certifies promise membership and that value. The transcript paragraph later reconnects these jobs to the total construction.",
+    "limit": "No claim about the later classical lower-bound proof follows from this motivation."
+  },
+  {
+    "id": "STYLE-FOR-02",
+    "move": "Fix normalization and hypotheses once, then prove the basic bound before using the promise.",
+    "source": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.pdf, equations (1.1)--(1.3), pp. 2--3; writing/mathematical-writing-mechanics.md, Sections 2 and 5",
+    "source_role": "Bansal--Sinha supplies the exact mathematical promise; mechanics supplies the exposition rule.",
+    "applied_at": [
+      "forr_definition",
+      "forr_integer"
+    ],
+    "implementation": "A sign-pair proof establishes Walsh orthogonality, then norm one gives |Phi| <= 1. All later denominators and inequalities retain m=4^t and delta=2^(-5k).",
+    "limit": "The power-of-four specialization belongs to this project, not to the full range of the cited paper."
+  },
+  {
+    "id": "STYLE-FOR-03",
+    "move": "Place source comparisons immediately after the proof they illuminate.",
+    "source": "exemplars/long-reasoning-record.md, overview lines 1--58; writing/mathematical-writing-mechanics.md, Section 9; literature/quartic-ref-01-forrelation-a-problem-that-optimally-separ/source.pdf, Section 3.2, pp. 13--14",
+    "source_role": "The exemplar informs transitions only; the inspected Aaronson--Ambainis passage supplies the mathematical antecedent.",
+    "applied_at": [
+      "forr_quantum",
+      "forr_coherent"
+    ],
+    "implementation": "The completed projection/repetition proof precedes the comparison with the improved interference test and the exact source implementation.",
+    "limit": "No phrase, voice, mathematical claim or verification status is borrowed from the unrelated exemplar."
+  },
+  {
+    "id": "STYLE-FOR-04",
+    "move": "Use a small explicit calculation and a contrasting input to expose the role of the hypothesis.",
+    "source": "exemplars/expository.md, Section 1, lines 48--154; writing/full-exposition-guide.md, Sections 4A and 7--8",
+    "source_role": "Style and structure only.",
+    "applied_at": [
+      "forr_small_instance"
+    ],
+    "implementation": "One fixed second block gives positive, zero and negative Phi examples in the same table. An elementary parity count proves the entire 256-input census.",
+    "limit": "The finite examples explain the asymmetric promise and test the implementation; the parameterized theorem is proved separately."
+  },
+  {
+    "id": "STYLE-FOR-05",
+    "move": "Give the hard step sufficient space and move detailed audit bookkeeping into sidecars.",
+    "source": "writing/the-deliverable.md, The two forms; writing/SKILL.md, first-time-reader and claim-fidelity guidance; writing/register-from-literature.md",
+    "source_role": "Writing instruction only.",
+    "applied_at": [
+      "forr_coherent",
+      "forr_final_signs",
+      "forr_current_evidence"
+    ],
+    "implementation": "The same coherent preparation and its measured law are derived in full. Modular encoding and the final signed comparisons are proved explicitly. A compact evidence paragraph points to exact types, routes and receipts in correspondence.json.",
+    "limit": "Style does not supply a missing mathematical proof or upgrade an ordinary proof to a compiled theorem."
+  }
+]

@@ -1,0 +1,43 @@
+{
+  "scope": "finite computational example; no Lean execution",
+  "command": "python3 check_example.py",
+  "python": "3.12.14",
+  "exit_code": 0,
+  "stdout_matches_output_json_exactly": true,
+  "artifacts": {
+    "README.md": {
+      "bytes": 9158,
+      "sha256": "212924b5d154d1ffa37d025141cb4333a1f6c5c60a6e2ee4a5d8189e6b478737"
+    },
+    "board.json": {
+      "bytes": 9363,
+      "sha256": "5ddac453327ec30841d2eb2e8b921c29f953bc75b0555a7a81e84ce3e9c99c83"
+    },
+    "check_example.py": {
+      "bytes": 21834,
+      "sha256": "79abb067288f08831a68256a213cfc88c3e702cb3b6ad99139f2c66f2eb0b0f4"
+    },
+    "circuit.json": {
+      "bytes": 28090,
+      "sha256": "0f84ef8db3526a5d166307846bf4ef3d9268ad60c8a1e5353005fac9885a0004"
+    },
+    "output.json": {
+      "bytes": 15742,
+      "sha256": "b129476e9a98cb4f81a0e803f69f2c44f08435b45785060e36fdcb5ca506808d"
+    }
+  },
+  "read_sources": [
+    {
+      "path": "packet/READ_ME_FIRST.md",
+      "scope": "complete"
+    },
+    {
+      "path": "packet/repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+      "scope": "sections 1.1,3.17,4,5.3; remainder unassessed by this example checker author"
+    },
+    {
+      "path": "packet/paper/extracted.md",
+      "scope": "section 2.2 and Lemma2.2, printed pp.5-6; section2.1 quantum projection and repetition paragraph on printed p.4; surrounding excerpts only"
+    }
+  ]
+}

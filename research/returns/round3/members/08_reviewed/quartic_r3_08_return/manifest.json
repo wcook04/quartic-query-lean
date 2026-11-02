@@ -1,0 +1,477 @@
+{
+  "format": "quartic-job08-return-v1",
+  "created_date": "2026-11-02",
+  "kind": "advisory section replacement and evidence correspondence",
+  "scope": "§7 and Appendix A only; not an accepted or integrated whole paper",
+  "input_archive": {
+    "file": "quartic_r3_08_quartic_appendix_exponent.zip",
+    "sha256": "01285bc9b2b47138048778e1725b4922fc1e0ad422e166d4f588438a2d948dbd"
+  },
+  "input_manifest_sha256": "27e509603b9c03f16b4d83b44e4c896a090eb4a4180676aad02779d18e686be3",
+  "source_versions": {
+    "assignment": "quartic_r3_08_quartic_appendix_exponent; focused section return",
+    "packet_repository_commit": "1dd469dd0042b937b739da3bc211eeb60bdf7462",
+    "native_evidence_commit": "31e17dee667d1d72fa621da8e7d3d8ff5fc3960a",
+    "lean_toolchain": "leanprover/lean4:v4.36.0-rc2",
+    "mathlib": "69552756cd8a2d2d48763cf7279fd814d6a1224d",
+    "complexitylib": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a",
+    "cslib": "254e30e6d4299c51323aaeaf5f51a4763b375d4a",
+    "OpenAI2026": {
+      "edition": "Supplied 5 October 2026 preprint",
+      "sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e",
+      "locators": "§5 and Appendix A, printed pp.14–17"
+    },
+    "ABKRT2020": "arXiv:2010.12629v1; original PDF locators",
+    "Huang2019": {
+      "supplied_edition": "arXiv:1907.00847v2",
+      "published_edition": "Annals of Mathematics 190(3),949–955; pp.952–953 inspected",
+      "published_pdf_sha256": "e681931d5dd46ed5637825770e18bc53c0f6fdd0a0dea4f6ecc541f8669937a9"
+    },
+    "Midrijanis2004": "arXiv:quant-ph/0403168v2",
+    "SS2006": "Theory of Computing 2(1), publisher PDF,18 pages",
+    "HLS2007": "29-page author PDF; not byte-identified with the arXiv v2 copy",
+    "BSS2003": "Indirect historical attribution only; original full text not inspected"
+  },
+  "source_hash_inventory": "evidence_validation.json contains all 472 original enumerated input hashes, the relevant execution-receipt hashes and formal-source checks. source_read_receipt.json separately identifies actual reading scope.",
+  "known_statement_ids": [
+    "NCL-explicit-floor",
+    "claim-exponent-ratio",
+    "claim-final-overlap",
+    "claim-floor",
+    "claim-huang-spectrum",
+    "claim-interlace",
+    "claim-no-smaller-exponent",
+    "claim-per-query",
+    "claim-perron",
+    "claim-restrict-parity",
+    "claim-round-block",
+    "cor-R-omega",
+    "cor-cubic-refuted",
+    "def-Gamma-i",
+    "def-Q",
+    "def-R",
+    "def-Sf",
+    "def-adv-progress",
+    "def-bs",
+    "def-deg",
+    "def-huang",
+    "eq-1",
+    "eq-17",
+    "eq-2",
+    "eq-5",
+    "lem-A.2",
+    "lem-A.3",
+    "lem-A.3.bs",
+    "lem-A.3.lambda",
+    "lem-A.4",
+    "lem-A.5",
+    "new-A-A3-explicit",
+    "new-A-adversary-budget",
+    "new-A-degree-budget",
+    "new-A-general-error-adversary",
+    "new-A-imported-pair",
+    "new-A-matching-mask",
+    "new-A-maximal-coefficient",
+    "new-A-parity-two-adversary",
+    "new-A-parity-two-exact-query",
+    "new-A-positive-error-arithmetic",
+    "new-A-progress-factor-two-saturation",
+    "new-A-quartic-budget",
+    "new-A-quartic-full",
+    "new-A-quartic-hybrid",
+    "new-A-quartic-minimum",
+    "new-A-star-norm",
+    "new-upper-log6",
+    "prop-4.2",
+    "sf-diagonal-from-fixed-k",
+    "sf-limit-and-input-size",
+    "thm-1.1",
+    "thm-A.1"
+  ],
+  "statement_id_sources": {
+    "def-R": [
+      {
+        "path": "repository/corpus/statements.json",
+        "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868"
+      }
+    ],
+    "def-Q": [
+      {
+        "path": "repository/corpus/statements.json",
+        "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868"
+      }
+    ],
+    "eq-1": [
+      {
+        "path": "repository/corpus/statements.json",
+        "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868"
+      }
+    ],
+    "eq-2": [
+      {
+        "path": "repository/corpus/statements.json",
+        "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868"
+      }
+    ],
+    "thm-1.1": [
+      {
+        "path": "repository/corpus/statements.json",
+        "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868"
+      }
+    ],
+    "cor-cubic-refuted": [
+      {
+        "path": "repository/corpus/statements.json",
+        "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868"
+      }
+    ],
+    "eq-5": [
+      {
+        "path": "repository/corpus/statements.json",
+        "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868"
+      }
+    ],
+    "eq-17": [
+      {
+        "path": "repository/corpus/statements.json",
+        "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868"
+      }
+    ],
+    "prop-4.2": [
+      {
+        "path": "repository/corpus/statements.json",
+        "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868"
+      }
+    ],
+    "cor-R-omega": [
+      {
+        "path": "repository/corpus/statements.json",
+        "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868"
+      }
+    ],
+    "claim-floor": [
+      {
+        "path": "repository/corpus/statements.json",
+        "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868"
+      }
+    ],
+    "claim-exponent-ratio": [
+      {
+        "path": "repository/corpus/statements.json",
+        "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868"
+      }
+    ],
+    "claim-no-smaller-exponent": [
+      {
+        "path": "repository/corpus/statements.json",
+        "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868"
+      }
+    ],
+    "def-deg": [
+      {
+        "path": "repository/corpus/statements.json",
+        "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868"
+      }
+    ],
+    "def-bs": [
+      {
+        "path": "repository/corpus/statements.json",
+        "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868"
+      }
+    ],
+    "def-Gamma-i": [
+      {
+        "path": "repository/corpus/statements.json",
+        "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868"
+      }
+    ],
+    "claim-perron": [
+      {
+        "path": "repository/corpus/statements.json",
+        "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868"
+      }
+    ],
+    "def-adv-progress": [
+      {
+        "path": "repository/corpus/statements.json",
+        "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868"
+      }
+    ],
+    "claim-per-query": [
+      {
+        "path": "repository/corpus/statements.json",
+        "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868"
+      }
+    ],
+    "claim-final-overlap": [
+      {
+        "path": "repository/corpus/statements.json",
+        "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868"
+      }
+    ],
+    "lem-A.2": [
+      {
+        "path": "repository/corpus/statements.json",
+        "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868"
+      }
+    ],
+    "def-Sf": [
+      {
+        "path": "repository/corpus/statements.json",
+        "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868"
+      }
+    ],
+    "lem-A.3.bs": [
+      {
+        "path": "repository/corpus/statements.json",
+        "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868"
+      }
+    ],
+    "lem-A.3.lambda": [
+      {
+        "path": "repository/corpus/statements.json",
+        "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868"
+      }
+    ],
+    "lem-A.3": [
+      {
+        "path": "repository/corpus/statements.json",
+        "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868"
+      }
+    ],
+    "claim-restrict-parity": [
+      {
+        "path": "repository/corpus/statements.json",
+        "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868"
+      }
+    ],
+    "def-huang": [
+      {
+        "path": "repository/corpus/statements.json",
+        "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868"
+      }
+    ],
+    "claim-huang-spectrum": [
+      {
+        "path": "repository/corpus/statements.json",
+        "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868"
+      }
+    ],
+    "claim-interlace": [
+      {
+        "path": "repository/corpus/statements.json",
+        "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868"
+      }
+    ],
+    "lem-A.4": [
+      {
+        "path": "repository/corpus/statements.json",
+        "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868"
+      }
+    ],
+    "claim-round-block": [
+      {
+        "path": "repository/corpus/statements.json",
+        "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868"
+      }
+    ],
+    "lem-A.5": [
+      {
+        "path": "repository/corpus/statements.json",
+        "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868"
+      }
+    ],
+    "thm-A.1": [
+      {
+        "path": "repository/corpus/statements.json",
+        "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868"
+      }
+    ],
+    "NCL-explicit-floor": [
+      {
+        "path": "repository/research/returns/funnel/1_long_reasoning_record/NEW_STATEMENTS.json",
+        "sha256": "d2964002bad5c1626a1e2c72ac301b7615373ad2576f9604d561dd10c7fe0ccd"
+      }
+    ],
+    "new-upper-log6": [
+      {
+        "path": "repository/research/returns/funnel/1_long_reasoning_record/NEW_STATEMENTS.json",
+        "sha256": "d2964002bad5c1626a1e2c72ac301b7615373ad2576f9604d561dd10c7fe0ccd"
+      }
+    ],
+    "new-A-adversary-budget": [
+      {
+        "path": "repository/research/returns/round2/5_lean_appendix_a/NEW_STATEMENTS.json",
+        "sha256": "1134de43be9803f5114a02dbe2c4a1ebdff5a309e13a09f91b50613a0e02ec73"
+      }
+    ],
+    "new-A-A3-explicit": [
+      {
+        "path": "repository/research/returns/round2/5_lean_appendix_a/NEW_STATEMENTS.json",
+        "sha256": "1134de43be9803f5114a02dbe2c4a1ebdff5a309e13a09f91b50613a0e02ec73"
+      }
+    ],
+    "new-A-imported-pair": [
+      {
+        "path": "repository/research/returns/round2/5_lean_appendix_a/NEW_STATEMENTS.json",
+        "sha256": "1134de43be9803f5114a02dbe2c4a1ebdff5a309e13a09f91b50613a0e02ec73"
+      }
+    ],
+    "new-A-star-norm": [
+      {
+        "path": "repository/research/returns/round2/5_lean_appendix_a/NEW_STATEMENTS.json",
+        "sha256": "1134de43be9803f5114a02dbe2c4a1ebdff5a309e13a09f91b50613a0e02ec73"
+      }
+    ],
+    "new-A-matching-mask": [
+      {
+        "path": "repository/research/returns/round2/5_lean_appendix_a/NEW_STATEMENTS.json",
+        "sha256": "1134de43be9803f5114a02dbe2c4a1ebdff5a309e13a09f91b50613a0e02ec73"
+      }
+    ],
+    "new-A-maximal-coefficient": [
+      {
+        "path": "repository/research/returns/round2/5_lean_appendix_a/NEW_STATEMENTS.json",
+        "sha256": "1134de43be9803f5114a02dbe2c4a1ebdff5a309e13a09f91b50613a0e02ec73"
+      }
+    ],
+    "new-A-degree-budget": [
+      {
+        "path": "repository/research/returns/round2/5_lean_appendix_a/NEW_STATEMENTS.json",
+        "sha256": "1134de43be9803f5114a02dbe2c4a1ebdff5a309e13a09f91b50613a0e02ec73"
+      }
+    ],
+    "new-A-quartic-budget": [
+      {
+        "path": "repository/research/returns/round2/5_lean_appendix_a/NEW_STATEMENTS.json",
+        "sha256": "1134de43be9803f5114a02dbe2c4a1ebdff5a309e13a09f91b50613a0e02ec73"
+      }
+    ],
+    "new-A-quartic-minimum": [
+      {
+        "path": "repository/research/returns/round2/5_lean_appendix_a/NEW_STATEMENTS.json",
+        "sha256": "1134de43be9803f5114a02dbe2c4a1ebdff5a309e13a09f91b50613a0e02ec73"
+      }
+    ],
+    "new-A-quartic-full": [
+      {
+        "path": "repository/research/returns/round2/5_lean_appendix_a/NEW_STATEMENTS.json",
+        "sha256": "1134de43be9803f5114a02dbe2c4a1ebdff5a309e13a09f91b50613a0e02ec73"
+      }
+    ],
+    "new-A-quartic-hybrid": [
+      {
+        "path": "repository/research/returns/round2/5_lean_appendix_a/NEW_STATEMENTS.json",
+        "sha256": "1134de43be9803f5114a02dbe2c4a1ebdff5a309e13a09f91b50613a0e02ec73"
+      }
+    ],
+    "new-A-parity-two-exact-query": [
+      {
+        "path": "repository/research/returns/round2/5_lean_appendix_a/NEW_STATEMENTS.json",
+        "sha256": "1134de43be9803f5114a02dbe2c4a1ebdff5a309e13a09f91b50613a0e02ec73"
+      }
+    ],
+    "new-A-parity-two-adversary": [
+      {
+        "path": "repository/research/returns/round2/5_lean_appendix_a/NEW_STATEMENTS.json",
+        "sha256": "1134de43be9803f5114a02dbe2c4a1ebdff5a309e13a09f91b50613a0e02ec73"
+      }
+    ],
+    "new-A-positive-error-arithmetic": [
+      {
+        "path": "repository/research/returns/round2/5_lean_appendix_a/NEW_STATEMENTS.json",
+        "sha256": "1134de43be9803f5114a02dbe2c4a1ebdff5a309e13a09f91b50613a0e02ec73"
+      }
+    ],
+    "new-A-progress-factor-two-saturation": [
+      {
+        "path": "repository/research/returns/round2/5_lean_appendix_a/NEW_STATEMENTS.json",
+        "sha256": "1134de43be9803f5114a02dbe2c4a1ebdff5a309e13a09f91b50613a0e02ec73"
+      }
+    ],
+    "new-A-general-error-adversary": [
+      {
+        "path": "repository/research/returns/round2/5_lean_appendix_a/NEW_STATEMENTS.json",
+        "sha256": "1134de43be9803f5114a02dbe2c4a1ebdff5a309e13a09f91b50613a0e02ec73"
+      }
+    ],
+    "sf-limit-and-input-size": [
+      {
+        "path": "repository/research/returns/round2/7_single_family_exponent/NEW_STATEMENTS.json",
+        "sha256": "c6551f5bf64798f9aa6c7531268712e8fff8306c25b4f015c028215bc83be440"
+      }
+    ],
+    "sf-diagonal-from-fixed-k": [
+      {
+        "path": "repository/research/returns/round2/7_single_family_exponent/NEW_STATEMENTS.json",
+        "sha256": "c6551f5bf64798f9aa6c7531268712e8fff8306c25b4f015c028215bc83be440"
+      }
+    ]
+  },
+  "files": {
+    "LEAN_GAPS.md": {
+      "size_bytes": 8942,
+      "sha256": "85ba09196d75e565e33ac18386ffef75c5c5d977186be213cca319d9e2b41a4c"
+    },
+    "NEW_STATEMENTS.json": {
+      "size_bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "README.md": {
+      "size_bytes": 3703,
+      "sha256": "f75fe3960b9520d9ffb060c1355e4872312f9c3f57a22f5066e1d9153ed50b5a"
+    },
+    "STATEMENT_CHANGES.json": {
+      "size_bytes": 1231,
+      "sha256": "b8c42c7b911be83753f57c40cc162c35161e662aaa407223d500d5da1f4094b4"
+    },
+    "STYLE_RULES.json": {
+      "size_bytes": 7401,
+      "sha256": "7e677fa5aedce1cebbdccf370df67e716e48e71144747834126f3410a4ef13af"
+    },
+    "checks/exact_checks.json": {
+      "size_bytes": 7841,
+      "sha256": "8c5a2cfbd27f6826eda4f7ea61f15b8560ea9d9be60474861eba766970af5ce5"
+    },
+    "checks/exact_checks.py": {
+      "size_bytes": 9167,
+      "sha256": "15b5a040bd47a6db61b6f09ab42f6076b1505608d5afc590bb99207b75ee369a"
+    },
+    "checks/validate_return.py": {
+      "size_bytes": 7791,
+      "sha256": "fb151f8fdbb1df6260947f19ef85a6ab6be4cf563326043dc73b82f6ba2b5880"
+    },
+    "checks/validation_result.json": {
+      "size_bytes": 708,
+      "sha256": "251583011c3847dd5cd9e2148752db66946db74e20d5fbe7f5fb41cc0d9afbdd"
+    },
+    "correspondence.json": {
+      "size_bytes": 934006,
+      "sha256": "a1c719846abc2633df593021344dd2edb2a00dd20fa6bc04298bb9e02e6b4758"
+    },
+    "evidence_validation.json": {
+      "size_bytes": 565630,
+      "sha256": "7923080150fd58988ec3e23b6e28571b6b4d2aaabb8eaf9f961481b0708411cd"
+    },
+    "references.bib": {
+      "size_bytes": 4862,
+      "sha256": "cda047ce4ffbc13429a59b4444a211204c9ef50df44185b921e270030923fdfe"
+    },
+    "review_notes.md": {
+      "size_bytes": 20809,
+      "sha256": "ace975307814698ad8fca161fa9de21d9ab2e276c615fc307f01721271209d24"
+    },
+    "section.md": {
+      "size_bytes": 35563,
+      "sha256": "4eb36b5886671617aa5c8fc5ef65c63ee9964a954e673cb08e17ccdb7da5b8ed"
+    },
+    "source_read_receipt.json": {
+      "size_bytes": 55623,
+      "sha256": "bec75bca2f2fbd32d3a8591b66bb37263db415b09ab2633b872e828a95757baa"
+    }
+  },
+  "manifest_self_hash": "Excluded to avoid a circular digest; the outer ZIP has a separately reported SHA-256.",
+  "new_lean_execution": false,
+  "new_comparator_execution": false,
+  "original_input_modified": false
+}

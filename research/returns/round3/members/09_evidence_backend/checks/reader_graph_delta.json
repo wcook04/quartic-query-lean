@@ -1,0 +1,27 @@
+{
+  "kind": "actual_json_graph_delta_check",
+  "sources": [
+    {
+      "member": "native_results/reader-acceptance/evidence-graph.json",
+      "sha256": "27232df156a4442dd802458addc162e117b10e7a06706b5bca2258c479e5db7f"
+    },
+    {
+      "member": "repository/corpus/evidence-graph.json",
+      "sha256": "f5dc1941004a2b4e6909e860e02c665a0af3588af9f3973ae2400989822b4170"
+    }
+  ],
+  "evidence_counts": [
+    110,
+    111
+  ],
+  "added_evidence_keys": [
+    "receipt:corpus/receipts/comparator-Unconditional-2026-11-02T184546477430+0000.json"
+  ],
+  "removed_evidence_keys": [],
+  "expected_only_added_receipt": true,
+  "normalization": "Rename run evidence IDs to receipt paths, remove the single specified added receipt and its references, sort evidence/reference lists. Do not ignore any other field.",
+  "otherwise_equal": true,
+  "passed": true,
+  "native_execution": false,
+  "boundary": "Describes exact supplied informal graph bytes; does not validate either graph using the consumer or establish native extraction."
+}

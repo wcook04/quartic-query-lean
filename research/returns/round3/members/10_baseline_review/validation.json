@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "scope": "Input hashes, exact locations, JSON/correspondence/type-source consistency and finite arithmetic only; no new Lean, Comparator or theorem certification.",
+  "checks": {
+    "required_files": 17,
+    "json_files_parsed": 19,
+    "original_input_members_checked": 447,
+    "baseline_passages": 229,
+    "coverage_members": 449,
+    "unique_version_bound_repairs": 30,
+    "return_correspondence_passages": 53,
+    "principal_original_claim_rows": 121,
+    "selected_type_ties": 169,
+    "auxiliary_type_records": 27,
+    "current_receipts": 12,
+    "per_module_input_closures": 45,
+    "bibliography_keys": 8,
+    "new_explanatory_statements": 4,
+    "finite_checks": "passed"
+  },
+  "failures": [],
+  "not_performed": [
+    "Lean compilation",
+    "Comparator execution",
+    "Complete imported proof audit",
+    "Final integrated manuscript rendering"
+  ]
+}

@@ -1,0 +1,122 @@
+[
+  {
+    "id": "first-reader-contract",
+    "sources": [
+      {
+        "member": "writing/the-deliverable.md",
+        "locator": "deliverable and reader contract",
+        "sha256": "5b234d4446bf4b7ac79c38586147730dc41370581daa38661326875d5b50951c"
+      },
+      {
+        "member": "writing/SKILL.md",
+        "locator": "first-time reader and claim-fidelity guidance, sampled lines 181–280",
+        "sha256": "dcad856e7363b81876e4ab0784bcc0a3e51ccab11017eb9e08d81d345d2d6c74"
+      }
+    ],
+    "move": "State the contribution and open boundary before introducing proof and evidence details.",
+    "used_at": [
+      "EVID-RESULT",
+      "EVID-EXTRACTION"
+    ],
+    "scope": "Focused advisory backend return; not a new full manuscript.",
+    "limits": "No claim to have rendered or integrated the long record."
+  },
+  {
+    "id": "proof-forward-small-instance",
+    "sources": [
+      {
+        "member": "writing/mathematical-writing-mechanics.md",
+        "locator": "§§2 and 5: proof structure and proof-forward reasoning",
+        "sha256": "0ba857f70a724a2676f91b01e7ee95cc3518dcd261b53fec27b743935d1caa0f"
+      },
+      {
+        "member": "writing/full-exposition-guide.md",
+        "locator": "§4A, §7 and §8, targeted reading",
+        "sha256": "c7baa3c8b195647b00cdd37c38c48b122371ce9c3cd92798e2e9d55f3d1c4eca"
+      }
+    ],
+    "move": "Define an object, show its discriminating finite example, then expose the argument that proves the stated conclusion.",
+    "used_at": [
+      "EVID-IDENTITY",
+      "EVID-OR",
+      "EVID-PROMISE",
+      "EVID-FORRELATION",
+      "EVID-INDEPENDENCE"
+    ],
+    "scope": "Assigned finite semantic examples and the sampling law.",
+    "limits": "Examples do not certify all model semantics or establish a new quartic theorem."
+  },
+  {
+    "id": "visible-hard-step",
+    "sources": [
+      {
+        "member": "writing/mathematical-writing-mechanics.md",
+        "locator": "§5: proof-forward reasoning",
+        "sha256": "0ba857f70a724a2676f91b01e7ee95cc3518dcd261b53fec27b743935d1caa0f"
+      }
+    ],
+    "move": "Spell out the adaptive conditioning and finite-world induction instead of replacing the proof with a theorem name.",
+    "used_at": [
+      "EVID-EQ19"
+    ],
+    "scope": "Equality, early/late probability bound and alternative coefficient-two route.",
+    "limits": "Ordinary proof does not imply that the new Lean proof elaborates.",
+    "before_after_example": {
+      "before": "Condition on the complete adaptive transcript.",
+      "after": "Condition on a positive-probability query-and-answer history up to the current time; fixing that history fixes the adaptive query schedule.",
+      "kind": "actual cold-reader revision of this return, not a source quotation"
+    }
+  },
+  {
+    "id": "citation-role-and-edition",
+    "sources": [
+      {
+        "member": "writing/mathematical-writing-mechanics.md",
+        "locator": "§9: citation roles",
+        "sha256": "0ba857f70a724a2676f91b01e7ee95cc3518dcd261b53fec27b743935d1caa0f"
+      },
+      {
+        "member": "writing/register-from-literature.md",
+        "locator": "entire guide; learn moves rather than a named voice",
+        "sha256": "2278000b36133a13c0e83f785bdb2a89b94b8ed1927daeaf12d2b1ed30545d7d"
+      }
+    ],
+    "move": "Identify mathematical authority, implementation meaning, operation evidence and structural exemplars separately, with exact source editions.",
+    "used_at": [
+      "References and exact source locations",
+      "source_read_receipt.json",
+      "references.bib"
+    ],
+    "scope": "Pinned preprint and supplied source files; current official documentation labelled as such.",
+    "limits": "No genre-wide measurement, three-paper register study, author confirmation or unseen source reading is claimed."
+  },
+  {
+    "id": "correspondence-before-status-inflation",
+    "sources": [
+      {
+        "member": "exemplars/long-reasoning-record.md",
+        "locator": "sampled overview 1–56; formal correspondence 5144–5203; limits 5335–5408",
+        "sha256": "a19893f62d1211681ed0cb9cbb8bb454214d97f231f6a6d091b6f198fca35a89"
+      },
+      {
+        "member": "writing/mathematical-writing-mechanics.md",
+        "locator": "Lean-correspondence, taste-rubric and authoring-receipt gates",
+        "sha256": "0ba857f70a724a2676f91b01e7ee95cc3518dcd261b53fec27b743935d1caa0f"
+      }
+    ],
+    "move": "After the ordinary proof, give exact source correspondences and an explicit account of what each evidence kind does and does not establish.",
+    "used_at": [
+      "EVID-EQ19",
+      "EVID-SNAPSHOT",
+      "LEAN_GAPS.md",
+      "review_notes.md"
+    ],
+    "scope": "Structure learned from the QAOA exemplar; all mathematics and prose are newly authored for the assigned packet.",
+    "limits": "The exemplar is neither quartic authority nor a voice to imitate; it was sampled, not read in full.",
+    "before_after_example": {
+      "before": "The existing producer now refuses derived helper rows.",
+      "after": "With the returned patch, the producer refuses derived helper rows.",
+      "kind": "actual correction to avoid implying integration"
+    }
+  }
+]

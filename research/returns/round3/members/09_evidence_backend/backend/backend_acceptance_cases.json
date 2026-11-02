@@ -1,0 +1,102 @@
+{
+  "schema": "quartic-r3-backend-acceptance-cases-v1",
+  "execution": "All listed tests executed successfully in actual Python unittest run; build/comparison transition receipts are mocks, not native executions.",
+  "log": "logs/patched-python-tests.log",
+  "log_sha256": "a718e7a68aa504b393744a991e2b1c42e57465fcb4a50aae414834b057930969",
+  "cases": [
+    {
+      "id": "review_definition_body_rebuild",
+      "test": "test_review_freshness.ReviewFreshnessTests.test_definition_edit_with_unchanged_theorem_source_and_fresh_runs_stays_stale",
+      "expected": "A changed definition and fresh mock operations leave the old relation stale; theorem source remains unchanged.",
+      "status": "executed_passed_python",
+      "native_lean_comparator": "not_run"
+    },
+    {
+      "id": "review_legacy_no_auto_attestation",
+      "test": "test_review_freshness.ReviewFreshnessTests.test_current_build_and_comparison_cannot_attest_a_legacy_review",
+      "expected": "Unbound authored ties cannot inherit current alignment from current operation receipts; inputs are not rewritten.",
+      "status": "executed_passed_python",
+      "native_lean_comparator": "not_run"
+    },
+    {
+      "id": "review_identity_and_premises",
+      "test": "test_review_freshness.ReviewFreshnessTests.test_changed_declaration_row_identity_or_judgment_requires_new_review",
+      "expected": "Declaration, ID, relation, route, premises, open assumptions and reviewer changes invalidate the old review.",
+      "status": "executed_passed_python",
+      "native_lean_comparator": "not_run"
+    },
+    {
+      "id": "review_statement_context",
+      "test": "test_review_freshness.ReviewFreshnessTests.test_changed_statement_or_context_does_not_inherit_old_review",
+      "expected": "Statement text and corrected-row context changes invalidate review.",
+      "status": "executed_passed_python",
+      "native_lean_comparator": "not_run"
+    },
+    {
+      "id": "review_fresh_positive",
+      "test": "test_review_freshness.ReviewFreshnessTests.test_bound_review_and_matching_receipts_keep_current_statement_credit",
+      "expected": "An explicitly bound synthetic review with matching operation receipts retains exact statement credit and ordinary-premise interpretation.",
+      "status": "executed_passed_python",
+      "native_lean_comparator": "not_run"
+    },
+    {
+      "id": "review_without_build",
+      "test": "test_review_freshness.ReviewFreshnessTests.test_fresh_review_alone_does_not_supply_build_or_comparison_evidence",
+      "expected": "Semantic review does not supply compilation/comparison evidence.",
+      "status": "executed_passed_python",
+      "native_lean_comparator": "not_run"
+    },
+    {
+      "id": "review_malformed_binding",
+      "test": "test_review_freshness.ReviewFreshnessTests.test_malformed_or_partial_binding_fails_closed",
+      "expected": "Invalid/partial/unknown-schema bindings stop generation.",
+      "status": "executed_passed_python",
+      "native_lean_comparator": "not_run"
+    },
+    {
+      "id": "review_snapshot_scope",
+      "test": "test_review_freshness.ReviewFreshnessTests.test_source_addition_removal_pin_change_and_proof_change_all_invalidate",
+      "expected": "Conservative source/config scope includes additions, removals, theorem-source and pin changes.",
+      "status": "executed_passed_python",
+      "native_lean_comparator": "not_run"
+    },
+    {
+      "id": "derived_helper_withheld",
+      "test": "test_review_freshness.DerivedProvenanceTests.test_r2_live_helper_is_withheld_even_if_assigned_a_preprint_source",
+      "expected": "Known r2-live helper rows are rejected in record generation and direct graph projection, including a falsely asserted paper source.",
+      "status": "executed_passed_python",
+      "native_lean_comparator": "not_run"
+    },
+    {
+      "id": "explicit_provenance_preserved_by_refusal",
+      "test": "test_review_freshness.DerivedProvenanceTests.test_nonpreprint_source_is_never_silently_overwritten",
+      "expected": "An explicitly nonpreprint source cannot be relabelled as OpenAI.",
+      "status": "executed_passed_python",
+      "native_lean_comparator": "not_run"
+    },
+    {
+      "id": "missing_dependency_refused",
+      "test": "test_review_freshness.DerivedProvenanceTests.test_missing_helper_dependency_is_not_silently_dropped",
+      "expected": "A row depending on a withheld helper retains the dependency and graph generation fails rather than dropping it.",
+      "status": "executed_passed_python",
+      "native_lean_comparator": "not_run"
+    }
+  ],
+  "real_supplied_corpus_dry_run": {
+    "status": "executed_passed",
+    "scope": "Actual producer read actual frozen source/receipts, generated values in memory only; no review bindings, source, receipts or generated corpus files written.",
+    "report": "logs/backend-acceptance.json"
+  },
+  "skipped_integrations": [
+    "ConsumerContractTests: installed lean-exposition CLI required",
+    "ReachTests: native Lean fixture opt-in toolchain required"
+  ],
+  "validation_summary": {
+    "baseline_discovered": 35,
+    "baseline_passed": 33,
+    "baseline_skipped": 2,
+    "patched_discovered": 46,
+    "patched_passed": 44,
+    "patched_skipped": 2
+  }
+}

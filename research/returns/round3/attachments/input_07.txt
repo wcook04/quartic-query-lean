@@ -1,0 +1,250 @@
+I completed the §7 and Appendix A assignment in the attached ZIP, including the proof rewrite, primary-source research, exact finite checks, and claim-by-claim Lean correspondence.
+
+**[quartic_r3_08_reviewed_return.zip](https://chatgpt.com/library?file_id=libfile_7f93ef7245488191a33d4a29229b4dd7&account_id=personal)**
+
+**My assessment:** within the assigned scope, the fixed-parameter exponent argument and the universal quartic proof are sound. The most consequential revisions concern stale descriptions of the formal evidence, the normalization of the adversary bound, and hypotheses that need to remain explicit. The return supplies complete ordinary proofs and preserves the distinction between those proofs, the supplied Lean execution records, and the exact computations performed for this review.
+
+## 1. The exponent argument works with a fixed parameter
+
+The essential point is to carry **one family of total functions, using one named circuit**, through both complexity estimates. Separately existential upper and lower bounds would leave a gap if their witnesses differed.
+
+For each fixed integer \(k\ge2\), the supplied development gives, for sufficiently large \(m=4^t\),
+\[
+Q(F_{k,m})\le C_k\sqrt m\,(\log_2m)^6,
+\qquad
+R(F_{k,m})\ge
+\frac1{400}\frac{m^{2-1/k}}{(\log_2m)^2}.
+\]
+The threshold and \(C_k\) may depend on \(k\). Both inequalities concern the same constructed function.
+
+To rule out a proposed universal exponent \(0\le\alpha<4\), choose
+\[
+k>\frac{2}{4-\alpha}.
+\]
+Then
+\[
+\delta=2-\frac1k-\frac\alpha2>0.
+\]
+Keep that \(k\) fixed while \(t\) grows. The two estimates imply
+\[
+\frac{R(F_{k,m})}{(1+Q(F_{k,m}))^\alpha}
+\ge
+\frac{1}{400(1+C_k)^\alpha}
+\frac{m^\delta}{(\log_2m)^{2+6\alpha}}
+\longrightarrow+\infty.
+\]
+
+This defeats every proposed positive universal constant \(K\). The quantifier order is
+\[
+\alpha<4
+\quad\longrightarrow\quad
+k=k(\alpha)
+\quad\longrightarrow\quad
+K>0
+\quad\longrightarrow\quad
+t\text{ sufficiently large}.
+\]
+
+The replacement proves the logarithmic limit directly, removes the nested floors with their correct inequality directions, and explains why relabelling the constructed finite coordinate set gives a legitimate Boolean function on \(n\) bits.
+
+Three consequences deserve explicit wording:
+
+- **A growing-\(k\) construction is unnecessary for this theorem.** Such a construction would require additional uniform estimates.
+- **\(k=2\) does not itself refute the cubic bound.** Its threshold is three, and the argument needs a strict exponent gap. Taking \(k=3\) supplies threshold \(10/3\), which is enough to exclude a universal cubic bound.
+- **No fixed finite \(k\) here attains a fourth power.** At \(\alpha=4-2/k\), the positive power gap disappears, and this quotient estimate alone gives no divergence.
+
+The cubic conjecture being contradicted is the universal \(R=O(Q^3)\) conjecture recorded in ABKRT’s original arXiv version, Conjecture 2 on printed p. 20. [arxiv.org](https://arxiv.org/pdf/2010.12629v1?utm_source=chatgpt.com)
+
+Once Appendix A makes exponent four admissible, the admissible set is nonempty, every member is at least four, and four belongs to it. Thus four is both its minimum and its infimum.
+
+## 2. The quartic upper bound needs two distinct adversary applications
+
+The reconstructed Appendix keeps the full chain visible:
+\[
+\operatorname{bs}(f)\le35^2Q(f)^2,
+\qquad
+\lambda(f)\le35Q(f),
+\]
+\[
+\deg(f)\le\lambda(f)^2,
+\qquad
+D(f)\le\operatorname{bs}(f)\deg(f).
+\]
+Consequently,
+\[
+R(f)\le D(f)\le35^4Q(f)^4
+=1{,}500{,}625\,Q(f)^4.
+\]
+
+The universal quartic theorem is due to Aaronson, Ben-David, Kothari, Rao and Tal. Their Theorem 1 supplies the degree-versus-spectral-sensitivity relationship, and their Theorem 2 gives the quartic conclusion. The return retains that attribution. [arxiv.org](https://arxiv.org/pdf/2010.12629v1?utm_source=chatgpt.com)
+
+### Why the two graph matrices must stay separate
+
+For block sensitivity, the adversary is a **star**: its center is an input \(x\), and its leaves are the inputs obtained by flipping pairwise disjoint sensitive blocks. With \(b\) leaves, the star has operator norm \(\sqrt b\); each coordinate mask has norm at most one.
+
+For spectral sensitivity, the adversary is the **sensitivity graph** itself. Its edges flip exactly one bit. Each coordinate mask is a matching, again with norm at most one.
+
+A sensitive block can contain several coordinates, so a star edge need not be a sensitivity-graph edge. The proof uses the two estimates separately; it does not infer
+\[
+\operatorname{bs}(f)\le\lambda(f)^2.
+\]
+
+### The degree step is proved on an actual coordinate face
+
+The replacement spells out the step that is easy to hide behind a citation. Choose a nonzero coefficient of maximum degree \(d\), and fix the other coordinates. That coefficient survives: a nonzero strict superset of its support would contradict maximal degree.
+
+On the resulting \(d\)-dimensional face, the sign-valued function has nonzero correlation with parity. After choosing a global sign, it agrees with parity on more than half the vertices. Every cube edge within that set is sensitive.
+
+Huang’s signed cube has positive eigenspace dimension \(2^{d-1}\). The subspace supported on the majority set has dimension greater than \(2^{d-1}\), so the two subspaces intersect nontrivially. Taking coordinatewise absolute values of a vector in their intersection transfers its Rayleigh-quotient lower bound to the ordinary induced cube graph. This yields \(\lambda(f)\ge\sqrt d\). The relevant published signed-matrix calculation and spectral remark are on Annals pp. 952–953. [annals.math.princeton.edu](https://annals.math.princeton.edu/wp-content/uploads/annals-v190-n3-p06-s.pdf?utm_source=chatgpt.com)
+
+The dimension argument gives a direct explanation of the spectral conclusion needed here.
+
+### The deterministic tree charges every round at the same input
+
+The Midrijānis step queries the support of a maximum-degree monomial in the current nonconstant restriction. Fix one original input throughout the execution. Each round produces a sensitive block at that input, and different rounds use disjoint coordinates. Hence there are at most \(\operatorname{bs}(f,x)\) rounds, each costing at most \(\deg(f)\) queries.
+
+Two qualifications are retained:
+
+- The maximal-monomial lemma is used for **nonconstant restrictions**; a constant polynomial’s empty monomial cannot supply a nonempty sensitive block.
+- The product estimate \(D\le\operatorname{bs}\deg\) occurs **inside the proof of Theorem 4**. The stated theorem continues to a cubic degree bound, while Theorem 5 concerns exact quantum complexity. [arxiv.org](https://arxiv.org/pdf/quant-ph/0403168v2?utm_source=chatgpt.com)
+
+## 3. The adversary prefactor discrepancy has an exact witness
+
+The correctly normalized nonnegative adversary bound is
+\[
+Q_\epsilon(f)\ge
+\frac{1-2\sqrt{\epsilon(1-\epsilon)}}{2}
+\frac{\|\Gamma\|}{\max_i\|\Gamma_i\|},
+\qquad 0\le\epsilon<\frac12.
+\]
+Høyer–Lee–Špalek state this coefficient in Definition 1 and Theorem 1 of the inspected 29-page author PDF, printed p. 3. [ucw.cz](https://www.ucw.cz/~robert/papers/madv.pdf?utm_source=chatgpt.com)
+
+In the inspected Špalek–Szegedy publisher PDF, **Theorem 3.1’s query lower-bound display omits the factor \(1/2\)** under its stated bit-oracle and operator-norm conventions. Equation (3.1) defines the spectral adversary ratio; that definition is not the problematic coefficient. [theoryofcomputing.org](https://theoryofcomputing.org/articles/v002a001/v002a001.pdf?utm_source=chatgpt.com)
+
+The return establishes the discrepancy using two-bit parity.
+
+Let
+\[
+f(x_0,x_1)=x_0\oplus x_1.
+\]
+Prepare
+\[
+\frac{|0\rangle+|1\rangle}{\sqrt2}\otimes|-\rangle.
+\]
+One ordinary bit-oracle call produces
+\[
+\frac{(-1)^{x_0}|0\rangle+(-1)^{x_1}|1\rangle}{\sqrt2}
+\otimes|-\rangle.
+\]
+A Hadamard on the index register reveals parity exactly.
+
+For inputs ordered \(00,01,10,11\), take
+\[
+\Gamma=
+\begin{pmatrix}
+0&1&1&0\\
+1&0&0&1\\
+1&0&0&1\\
+0&1&1&0
+\end{pmatrix}.
+\]
+Its eigenvalues are \(2,0,0,-2\), so \(\|\Gamma\|=2\). Both coordinate masks have norm one. The weighted progress drops from two to zero in that single query, attaining the factor two in the per-query progress estimate.
+
+At the strictly positive error value \(\epsilon=1/100\), the printed coefficient would require
+\[
+Q_{1/100}(f)\ge2-\frac{\sqrt{99}}{25}>1,
+\]
+contradicting the exact one-query algorithm. The strict comparison uses only \(99<625\). The corrected coefficient gives the compatible lower bound
+\[
+1-\frac{\sqrt{99}}{50}.
+\]
+
+The delivered checker verifies all four input states, the oracle permutations, eigenbasis, mask norms, output probabilities, and progress drop with exact arithmetic.
+
+This is also **separate from the older annex’s extra-square-root transcription error**. Removing that transcription error correctly reproduces the source but does not repair the source’s missing factor two. The return identifies a discrepancy in the printed prefactor; it makes no claim of an author-confirmed erratum or a failure of the adversary-equivalence results.
+
+For error \(1/3\), the reconstructed progress proof gives
+\[
+\frac{1-2\sqrt2/3}{2}\ge\frac1{35},
+\]
+which justifies the convenient constant 35 used in the literal Appendix route.
+
+## 4. The three formal quartic constants represent different routes
+
+The return distinguishes these explicitly:
+
+| Formal route | Block-sensitivity estimate | Spectral estimate | Quartic coefficient | Recorded role |
+|---|---:|---:|---:|---|
+| Existing complexitylib route | \(\operatorname{bs}\le16Q^2\) | \(\lambda\le36Q\) | \(20{,}736\) | Used by the current headline proof |
+| Literal Appendix A route | \(\operatorname{bs}\le35^2Q^2\) | \(\lambda\le35Q\) | \(1{,}500{,}625\) | Separately compiled reconstruction |
+| Hybrid route | \(\operatorname{bs}\le16Q^2\) | \(\lambda\le35Q\) | \(19{,}600\) | Separately compiled alternative |
+
+A smaller coefficient does not establish which route the headline theorem actually uses. That question is answered by the supplied dependency export.
+
+There is also a clause-level correspondence issue: the no-plus bound
+\[
+D(f)\le1{,}500{,}625\,Q(f)^4
+\]
+is supplied by `appendixA_D_le_Q_pow_four`. The declaration `appendixA_theoremA1` packages \(R\le D\) together with a **one-plus** quartic estimate. The full no-plus display therefore needs the appropriate composition of declarations. The correspondence records that composition instead of assigning the whole display to a nearby theorem with a different type.
+
+None of these numerical coefficients is claimed to be optimal.
+
+## 5. The baseline understates the current formal support
+
+Several baseline evidence paragraphs say that the literal ratio, general adversary argument, star and matching estimates, actual-face spectral argument, or monomial-tree bridge have no formal ties. Those descriptions are stale relative to the supplied current source and receipts.
+
+In particular:
+
+- `construction_family_named` carries the same circuit, its realization and size bound, and both complexity inequalities.
+- `classical_ratio_arithmetic`, `classical_exponent_ratio`, and `classical_Fkm_ratio` support the finite quotient and its limits.
+- The `Paper/AppendixA*.lean` modules supply the intermediate Appendix results that the baseline describes as prose-only.
+
+I checked the supplied execution records against their source hashes. The evidence includes a successful root-build receipt listing **2,652 declarations**, a reviewed type-and-axiom audit covering **258 declarations**, and the latest Unconditional Comparator receipt for its **eight listed declarations**. The relevant records bind **124 source and configuration hashes**, which match the supplied bytes.
+
+**No fresh Lean or Comparator execution was performed for this editorial return.** The return consumes the frozen records and distinguishes their scopes. Compilation, printed types and allowed axioms, Comparator membership, actual dependency reach, and intended mathematical meaning remain separate questions.
+
+The remaining qualifications are explicit:
+
+- Some compound paper claims require several declarations.
+- The sharper fixed-error adversary coefficient is supported by a composition of checked components.
+- The arbitrary-error \(Q_\epsilon\) extension is presented as ordinary mathematics.
+- The exact parity algorithm has an ordinary proof and exact computational checks, with no claimed supplied Lean theorem for that algorithm.
+- Comparator coverage is confined to its listed targets.
+
+## 6. The spectrum hypothesis and citation versions are explicit
+
+The statement that the signed cube has **two distinct** eigenvalues
+\[
++\sqrt d,\qquad-\sqrt d
+\]
+with equal multiplicity requires **\(d\ge1\)**. At \(d=0\), the convenient extension is a singleton zero matrix. Square and trace identities still make sense, but the two-root split does not.
+
+The canonical spectrum statement still omits that qualification. I recorded the proposed correction in `STATEMENT_CHANGES.json`, preserving the original ledger.
+
+The bibliography also identifies the editions actually used:
+
+- **OpenAI:** the supplied October 5, 2026 PDF, §5 and Appendix A, printed pp. 14–17.
+- **ABKRT:** arXiv:2010.12629v1, with original PDF theorem numbering.
+- **Huang:** the supplied PDF is arXiv version 2; the actual Annals edition was additionally inspected at pp. 952–953.
+- **Midrijānis:** arXiv:quant-ph/0403168v2, Lemma 3 and the proof of Theorem 4.
+- **Høyer–Lee–Špalek:** the 29-page author PDF, printed p. 3.
+- **Špalek–Szegedy:** the publisher PDF, including its oracle, norm, and prefactor displays.
+- **BSS:** historical attribution through inspected later sources. The original full text was unavailable and is not represented as directly inspected.
+
+## What is in the return
+
+The ZIP contains the complete replacement `section.md`, all requested correspondence and statement files, `LEAN_GAPS.md`, versioned bibliography, source-read receipt, ranked review notes with the full authoring receipt, writing rules, exact checker and output, integrity checker, and an internal byte manifest.
+
+The final checks passed:
+
+| Check | Result |
+|---|---:|
+| Anchored passages | 15 |
+| Claim records | 73 |
+| Displayed equations mapped | 40 |
+| Distinct named Lean declarations documented | 135 |
+| Original recorded input hashes rechecked | 472, all matching |
+| Exact finite checker | Passed and reproduced |
+| ZIP integrity and payload hashes | Passed |
+
+The review is scoped to the assigned sections and their required dependencies; it does not claim a full review of every file in the packet. The separate attachment named `Pasted text(20261102-190840).txt` was unavailable, so the completed return follows the available ZIP’s self-contained assignment.

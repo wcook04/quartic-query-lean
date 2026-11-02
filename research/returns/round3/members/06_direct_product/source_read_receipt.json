@@ -1,0 +1,493 @@
+{
+  "assessment_date": "2026-11-02",
+  "input_packet": "quartic_r3_06_direct_product.zip",
+  "input_packet_sha256": "8f3c1bccea8543ffb87b8a26dfcd1dc4ca2ad28c186b08027a5772c42a61e705",
+  "scope_rule": "Only the listed scopes were read and assessed. Byte hashing other source files is not semantic assessment. Unlisted packet contents remain unassessed.",
+  "readers": "Primary authoring agent, independent mathematical reader, primary-literature reader, and Lean/source-evidence reader; all AI, no human review.",
+  "local_sources": [
+    {
+      "path": "paper/source.pdf",
+      "status": "sampled",
+      "scope": "Local PDF independently text-extracted; §4.1 pp.11–12 and §4.2 fixed-column/time simulator p.13. No whole-paper review.",
+      "version": "OpenAI, preprint dated 5 October 2026",
+      "bytes": 433829,
+      "sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e",
+      "assessment_unit": "Only the stated scope is assessed; the remaining file is unassessed.",
+      "selected_scope_status": "assessed"
+    },
+    {
+      "path": "paper/extracted.md",
+      "status": "sampled",
+      "scope": "§4.1 fully; §4.2 simulator, eqs.20–22; introduction and bibliography sampled.",
+      "version": "Supplied extraction of supplied OpenAI PDF",
+      "bytes": 64021,
+      "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+      "assessment_unit": "Only the stated scope is assessed; the remaining file is unassessed.",
+      "selected_scope_status": "assessed"
+    },
+    {
+      "path": "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/source.tex",
+      "status": "sampled",
+      "scope": "§1.3 fully; §3 proof fully including Lemmas3.1–3.2 and fair remark; terminology and partial-function notes sampled.",
+      "version": "Pinned arXiv:1005.0644v2 per annex custody; independently compared relevant passages with public v2",
+      "bytes": 131397,
+      "sha256": "7defbc5925e9554768cf5bab0ab548188d5d264075cfc1f00891544b5aec782d",
+      "assessment_unit": "Only the stated scope is assessed; the remaining file is unassessed.",
+      "selected_scope_status": "assessed"
+    },
+    {
+      "path": "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/source.pdf",
+      "status": "sampled",
+      "scope": "Original PDF text independently extracted; relevant pp.6–7 and11–13 checked. No whole-edition comparison.",
+      "version": "Earlier retained PDF acquisition; do not claim byte equality with public arXiv v2",
+      "bytes": 405185,
+      "sha256": "6a67da06a0f07d0f86bb6389b7143314cade50294e2c0c454f3cc9853643faff",
+      "assessment_unit": "Only the stated scope is assessed; the remaining file is unassessed.",
+      "selected_scope_status": "assessed"
+    },
+    {
+      "path": "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/extracted.md",
+      "status": "sampled",
+      "scope": "Navigation/claims around introduction, lemma labels and direct-product proof; authority confirmed in TeX/PDF.",
+      "version": "Supplied TeX-backed extraction; numbering differs from printed PDF",
+      "bytes": 121771,
+      "sha256": "de4e25127079b849cc18984031442ed939d6c24467d1bd67faaa466f8e17e29a",
+      "assessment_unit": "Only the stated scope is assessed; the remaining file is unassessed.",
+      "selected_scope_status": "assessed"
+    },
+    {
+      "path": "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/annex_notes.json",
+      "status": "assessed",
+      "scope": "Version custody notes n001–n005.",
+      "version": "Supplied advisory custody notes, not mathematical authority",
+      "bytes": 6350,
+      "sha256": "e585d26476cab5193a20f672a4e19fe948bcfe17dea293895d76cf534be8ef91",
+      "assessment_unit": "Only the stated scope is assessed; the remaining file is unassessed."
+    },
+    {
+      "path": "literature/quartic-ref-22-towards-proving-strong-direct-product-theo/source.pdf",
+      "status": "sampled",
+      "scope": "§5 Def4 Thm5 Lemma7, printed pp.11–12/PDF12–13; rendered originals visually inspected. §1.1 definitions and footnotes text-extracted.",
+      "version": "ECCC TR01-009 (2001), 15 pages",
+      "bytes": 191585,
+      "sha256": "70248ab80df12ff9fab1b2708a2fda7947bf6f22c44db5f7713e6252aaad2436",
+      "assessment_unit": "Only the stated scope is assessed; the remaining file is unassessed.",
+      "selected_scope_status": "assessed"
+    },
+    {
+      "path": "literature/quartic-ref-22-towards-proving-strong-direct-product-theo/extracted.md",
+      "status": "sampled",
+      "scope": "§1.1 definition of advantage and footnotes1–2; §5 entirely; adjacent §6 sampled.",
+      "version": "Supplied extraction, checked against original PDF",
+      "bytes": 52339,
+      "sha256": "1713dc1cac7a31a4daa12f10ae21bfbdf8e5ab2443f25053843035a2a185e929",
+      "assessment_unit": "Only the stated scope is assessed; the remaining file is unassessed.",
+      "selected_scope_status": "assessed"
+    },
+    {
+      "path": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+      "status": "sampled",
+      "scope": "§§1.1,2.1,6.1,6.5 only; no whole-record reading.",
+      "version": "Frozen baseline supplied in round3 packet",
+      "bytes": 353091,
+      "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+      "assessment_unit": "Only the stated scope is assessed; the remaining file is unassessed.",
+      "selected_scope_status": "assessed"
+    },
+    {
+      "path": "READ_ME_FIRST.md",
+      "status": "assessed",
+      "scope": "Entire supplied text.",
+      "role": "assignment, navigation, and authority boundaries; not proof certification",
+      "bytes": 11324,
+      "sha256": "9fede4595d620b5ba25c0c14d2ca1353753acdfeb91c9ac424641ef5a7fd5dea"
+    },
+    {
+      "path": "SOURCE_ROLES.md",
+      "status": "assessed",
+      "scope": "Entire supplied text.",
+      "role": "assignment, navigation, and authority boundaries; not proof certification",
+      "bytes": 1811,
+      "sha256": "958fe7e2080bab0a231ce9497822ee320f56b100c82571f2e04a99405aeaafb4"
+    },
+    {
+      "path": "literature/README.md",
+      "status": "assessed",
+      "scope": "Entire supplied text.",
+      "role": "assignment, navigation, and authority boundaries; not proof certification",
+      "bytes": 633,
+      "sha256": "151d9088485642b6cf222f533d6bc3b0ec74a20c40e71a554c94d6bebf5703a2"
+    },
+    {
+      "path": "repository/AGENTS.md",
+      "status": "assessed",
+      "scope": "Entire supplied text.",
+      "role": "assignment, navigation, and authority boundaries; not proof certification",
+      "bytes": 2706,
+      "sha256": "5686db5032ef5a9d272aa4942d8601873ad3c4c72173f985b99caf3d7587064f"
+    },
+    {
+      "path": "repository/README.md",
+      "status": "assessed",
+      "scope": "Entire supplied text.",
+      "role": "assignment, navigation, and authority boundaries; not proof certification",
+      "bytes": 5316,
+      "sha256": "47fadd7a6d94c2bdb47d3155e289ed0956649449ae370d13f656d191e36ad947"
+    },
+    {
+      "path": "repository/research/README.md",
+      "status": "assessed",
+      "scope": "Entire supplied text.",
+      "role": "assignment, navigation, and authority boundaries; not proof certification",
+      "bytes": 7467,
+      "sha256": "b02ef7b53c07e06f71bf3d381bea77a346caf1e7d160f7d35b3b54eb9d3cca1b"
+    },
+    {
+      "path": "manifest.json",
+      "status": "assessed",
+      "scope": "Metadata, source version fields, and all 390 member hash/byte bindings.",
+      "role": "input provenance",
+      "bytes": 188955,
+      "sha256": "25c807d5cca64e6e407f7ba37a7a3812d627f798917d8d387c385158d38b747e"
+    },
+    {
+      "path": "writing/the-deliverable.md",
+      "status": "assessed",
+      "scope": "Entire supplied guide.",
+      "role": "writing structure only",
+      "bytes": 8402,
+      "sha256": "5b234d4446bf4b7ac79c38586147730dc41370581daa38661326875d5b50951c"
+    },
+    {
+      "path": "writing/SKILL.md",
+      "status": "sampled",
+      "scope": "First-time-reader, claim-fidelity, Lean-correspondence, architecture, legibility, style, and validation guidance. Private runtime references treated as provenance, not prerequisites.",
+      "role": "writing guidance only",
+      "bytes": 29787,
+      "sha256": "dcad856e7363b81876e4ab0784bcc0a3e51ccab11017eb9e08d81d345d2d6c74"
+    },
+    {
+      "path": "writing/mathematical-writing-mechanics.md",
+      "status": "sampled",
+      "scope": "First-time-reader contract; §2 maps and Lean architecture; §5 proof-forward writing; §9 citation roles; taste rubric; acceptance tests and authoring receipt.",
+      "role": "writing guidance only",
+      "bytes": 45312,
+      "sha256": "0ba857f70a724a2676f91b01e7ee95cc3518dcd261b53fec27b743935d1caa0f"
+    },
+    {
+      "path": "writing/full-exposition-guide.md",
+      "status": "sampled",
+      "scope": "§4A reader and worked-definition gates; §§7–8 authority and fidelity; §10 literal mathematical writing.",
+      "role": "writing guidance only",
+      "bytes": 103236,
+      "sha256": "c7baa3c8b195647b00cdd37c38c48b122371ce9c3cd92798e2e9d55f3d1c4eca"
+    },
+    {
+      "path": "writing/register-from-literature.md",
+      "status": "assessed",
+      "scope": "Entire supplied guide; applicable moves used. Private comparison scripts and full-paper calibration were not run for this focused section.",
+      "role": "writing guidance only",
+      "bytes": 4106,
+      "sha256": "2278000b36133a13c0e83f785bdb2a89b94b8ed1927daeaf12d2b1ed30545d7d"
+    },
+    {
+      "path": "exemplars/long-reasoning-record.md",
+      "status": "sampled",
+      "scope": "Opening overview and transition into §1, lines 1–90 only.",
+      "role": "QAOA structure exemplar; no quartic mathematical authority",
+      "bytes": 278844,
+      "sha256": "a19893f62d1211681ed0cb9cbb8bb454214d97f231f6a6d091b6f198fca35a89"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+      "status": "assessed",
+      "scope": "Entire module; proof semantics, exact types, and relevant receipt membership.",
+      "role": "formal proof source",
+      "bytes": 16505,
+      "sha256": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/LowerBound/Minimax.lean",
+      "status": "assessed",
+      "scope": "Entire module; proof semantics, exact types, and relevant receipt membership.",
+      "role": "formal proof source",
+      "bytes": 10452,
+      "sha256": "d235fef08374ca71229f5a2a5985e1bb0c60e3ec39a0ad2b1a13b286df9c194e"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+      "status": "assessed",
+      "scope": "Entire module; proof semantics, exact types, and relevant receipt membership.",
+      "role": "formal proof source",
+      "bytes": 44006,
+      "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Statement.lean",
+      "status": "sampled",
+      "scope": "BitInput, PartialBool, promised, QueryTree/eval/depth, RandomizedProgram, RLe/R classical definitions.",
+      "role": "neighboring model definitions",
+      "bytes": 13769,
+      "sha256": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced"
+    },
+    {
+      "path": "repository/research/returns/funnel/1_long_reasoning_record/NEW_STATEMENTS.json",
+      "status": "sampled",
+      "scope": "Direct-product and neighboring classical rows, especially NCL-weighted-value, NCL-weighted-product, NCL-finite-capped.",
+      "role": "source/proof/evidence comparison as scoped",
+      "bytes": 110569,
+      "sha256": "d2964002bad5c1626a1e2c72ac301b7615373ad2576f9604d561dd10c7fe0ccd"
+    },
+    {
+      "path": "repository/research/returns/funnel/1_long_reasoning_record/STATEMENT_CHANGES.json",
+      "status": "sampled",
+      "scope": "Checked for direct-product canonical statement changes.",
+      "role": "source/proof/evidence comparison as scoped",
+      "bytes": 2653,
+      "sha256": "7550e71faa407b9b700d38b9ad0b82786cac34d9772ea24bb46c63c121465155"
+    },
+    {
+      "path": "repository/research/returns/funnel/1_long_reasoning_record/LEAN_GAPS.md",
+      "status": "sampled",
+      "scope": "Direct-product evidence neighborhood only; complete unrelated gap record not assessed.",
+      "role": "source/proof/evidence comparison as scoped",
+      "bytes": 63908,
+      "sha256": "5e17659decd217a381f5dd5348f26161766e4b153133ea4fe75b327246a9c8bf"
+    },
+    {
+      "path": "repository/research/returns/round2/4_lean_classical_lower/blueprint.md",
+      "status": "sampled",
+      "scope": "All direct-product entries and their evidence boundaries.",
+      "role": "source/proof/evidence comparison as scoped",
+      "bytes": 52992,
+      "sha256": "67d00ba8d3e875ab8804e095a6573f3b2a121691d8930c5870864bf2a9de843b"
+    },
+    {
+      "path": "repository/research/returns/round2/4_lean_classical_lower/LEAN_GAPS.md",
+      "status": "sampled",
+      "scope": "Original return gap record, including historical unelaborated status.",
+      "role": "source/proof/evidence comparison as scoped",
+      "bytes": 10296,
+      "sha256": "7e0ab8f744c27512000dba5e702c8dbf425fbcca8b9fc06958d9e96b3e49fd06"
+    },
+    {
+      "path": "repository/research/returns/round2/4_lean_classical_lower/checks/direct_product_sanity.json",
+      "status": "sampled",
+      "scope": "Original direct-product check metadata and scope; not treated as new execution.",
+      "role": "source/proof/evidence comparison as scoped",
+      "bytes": 317,
+      "sha256": "6d30448609ed983d8fca9fcbf239222dba52f02a9358f887bf79b09091e61007"
+    },
+    {
+      "path": "repository/research/adjudication/round2_classical_appendix.md",
+      "status": "sampled",
+      "scope": "Entire supplied classical/appendix adjudication; only direct-product findings used.",
+      "role": "source/proof/evidence comparison as scoped",
+      "bytes": 20812,
+      "sha256": "dd112027602ff99a3936ad49b4bdd7aed991d51027f5f9dc0c6ab9fa1e070410"
+    },
+    {
+      "path": "repository/research/adjudication/round2_classical_appendix_ties.json",
+      "status": "sampled",
+      "scope": "Direct-product candidate rows and their compound-statement distinctions.",
+      "role": "source/proof/evidence comparison as scoped",
+      "bytes": 455585,
+      "sha256": "92965da1bf4fb0ccb606215ff1cff296f1a4dd9a8096f064f96a60858e9ea9c1"
+    },
+    {
+      "path": "repository/corpus/ties.json",
+      "status": "sampled",
+      "scope": "Direct-product/minimax rows.",
+      "role": "source/proof/evidence comparison as scoped",
+      "bytes": 184669,
+      "sha256": "2cf66121360fafbf8ca77d32d36feba192b839b6f3503e466ffe7857b6086bac"
+    },
+    {
+      "path": "repository/corpus/statements.json",
+      "status": "sampled",
+      "scope": "Direct-product/minimax rows and canonical wording.",
+      "role": "source/proof/evidence comparison as scoped",
+      "bytes": 553317,
+      "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868"
+    },
+    {
+      "path": "repository/corpus/lean_dependencies.json",
+      "status": "sampled",
+      "scope": "All124 recorded local hash bindings; selected direct-product declaration membership and headline reach.",
+      "role": "source/proof/evidence comparison as scoped",
+      "bytes": 564877,
+      "sha256": "56ae4752273f7cfba92ee6f35a4acc6ee0eea6e32a44116ccaf9d7354094e1fb"
+    },
+    {
+      "path": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "status": "sampled",
+      "scope": "All124 recorded local hash bindings; status, toolchain, and selected declarations.",
+      "role": "source/proof/evidence comparison as scoped",
+      "bytes": 129286,
+      "sha256": "bc11e3fec8581f89ce56b110bf76db2469abea4b7be00fa476f9d2cee9455c2e"
+    },
+    {
+      "path": "native_results/native-retry-1/results.json",
+      "status": "sampled",
+      "scope": "ClassicalDirectProduct result, exit 0, unchanged-input flag and all 6 input bindings.",
+      "role": "source/proof/evidence comparison as scoped",
+      "bytes": 188138,
+      "sha256": "41010b87d500354711b4c7a880b52d9b9dc0d932ffab9577d8d0af5d91a5aa4e"
+    },
+    {
+      "path": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+      "status": "sampled",
+      "scope": "Verdict, allowed axioms, input binding and log/audit-source hashes.",
+      "role": "source/proof/evidence comparison as scoped",
+      "bytes": 16061,
+      "sha256": "3c26718576384a76fca10f1f44bf42ffd2f23130b0aabcf35b3f5c34f2b4a1e0"
+    },
+    {
+      "path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "status": "sampled",
+      "scope": "17 selected direct-product #check and axiom observations; complete file hash verified.",
+      "role": "source/proof/evidence comparison as scoped",
+      "bytes": 169174,
+      "sha256": "f87b4e78aaa99fb069acc358fd90c6b95a1fd09bb337d4b49b6851ae714d8ae1"
+    },
+    {
+      "path": "native_sources/final-evidence/reviewed_axiom_audit.lean",
+      "status": "sampled",
+      "scope": "Selected type/axiom-check generation and full file hash.",
+      "role": "source/proof/evidence comparison as scoped",
+      "bytes": 51176,
+      "sha256": "78da4e0b0d875eedd3898a46f4e885a8fa7e89c2d5fbf2d3205012ff4f640513"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/LowerBound/Planted/Simulator.lean",
+      "status": "sampled",
+      "scope": "Concrete simulator, depth cap and execution-agreement interfaces only.",
+      "role": "source/proof/evidence comparison as scoped",
+      "bytes": 10557,
+      "sha256": "71bcf25db0309331ebda232bcad3ab2e895d543ffadcc521e99117253c0dab09"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+      "status": "sampled",
+      "scope": "Per-time nonheavy/cell-visit event interface only.",
+      "role": "source/proof/evidence comparison as scoped",
+      "bytes": 28360,
+      "sha256": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f"
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Construction/comparator.json",
+      "status": "assessed",
+      "scope": "Configuration targets checked for exact direct-product helper comparisons.",
+      "role": "comparison scope only",
+      "bytes": 457,
+      "sha256": "c18c76b87a777251e70ec3f55c5704be82d52dbba0220e5adb2cf3063709dd78"
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Foundations/comparator.json",
+      "status": "assessed",
+      "scope": "Configuration targets checked for exact direct-product helper comparisons.",
+      "role": "comparison scope only",
+      "bytes": 554,
+      "sha256": "7e5f89ab55e35fc5b3088528b260d3c9bbeabbb5dc173913a8be94a2521943e7"
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Separation/comparator.json",
+      "status": "assessed",
+      "scope": "Configuration targets checked for exact direct-product helper comparisons.",
+      "role": "comparison scope only",
+      "bytes": 562,
+      "sha256": "93324800e1d372cf1a3e801fe7181a29f77b13edb01deb590bc8158a263c7276"
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Tournament/comparator.json",
+      "status": "assessed",
+      "scope": "Configuration targets checked for exact direct-product helper comparisons.",
+      "role": "comparison scope only",
+      "bytes": 340,
+      "sha256": "309293414b5271ac9092ddd56aa40707f533da448792b9971310b092f3ef641a"
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Unconditional/comparator.json",
+      "status": "assessed",
+      "scope": "Configuration targets checked for exact direct-product helper comparisons.",
+      "role": "comparison scope only",
+      "bytes": 435,
+      "sha256": "fbaaee77d1b1a3daff788267ec15963ea06a6340a219a2da890c8c9642998dd7"
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Foundations/Solution.lean",
+      "status": "sampled",
+      "scope": "Headline/foundations wrapper context.",
+      "role": "comparison scope only",
+      "bytes": 1616,
+      "sha256": "836000d335f1d8ba10f711895d142a6202c8484b6c9b100a2765d6f5f4bac9bd"
+    }
+  ],
+  "public_sources": [
+    {
+      "url": "https://arxiv.org/abs/1005.0644v2",
+      "status": "assessed",
+      "scope": "Metadata/version date/journal reference"
+    },
+    {
+      "url": "https://arxiv.org/pdf/1005.0644v2",
+      "status": "assessed",
+      "scope": "Exact §3 definitions Lemmas3.1–3.2 product proof and fair remark; relevant public text compared with supplied source"
+    },
+    {
+      "url": "https://eccc.weizmann.ac.il/report/2001/009/",
+      "status": "assessed",
+      "scope": "Metadata/abstract"
+    },
+    {
+      "url": "https://eccc.weizmann.ac.il/report/2001/009/download/",
+      "status": "assessed",
+      "scope": "§1.1 definitions/uniformity footnote; §5 theorem displays"
+    },
+    {
+      "url": "https://github.com/openai/math/blob/main/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf",
+      "status": "sampled",
+      "scope": "Landing page file identity/metadata only"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf",
+      "status": "unavailable",
+      "scope": "Web fetch failed: unsupported application/octet-stream; local supplied PDF used instead"
+    },
+    {
+      "url": "https://doi.org/10.1007/s00037-012-0043-7",
+      "status": "unavailable",
+      "scope": "Web fetch failed after redirect to publisher"
+    },
+    {
+      "url": "https://doi.org/10.1007/s00037-003-0175-x",
+      "status": "unavailable",
+      "scope": "Web fetch inaccessible"
+    }
+  ],
+  "unavailable": [
+    {
+      "name": "Pasted text(20261102-190836).txt",
+      "reason": "Attachment materialization failed; no bytes were available and no content was read."
+    },
+    {
+      "name": "compiled QuarticQuery.olean root",
+      "reason": "Not included in input packet; recorded digest not independently recomputed."
+    }
+  ],
+  "not_run": [
+    "Fresh Lean compilation",
+    "Fresh Comparator",
+    "Independent native execution reproduction",
+    "Integrated PDF/HTML build",
+    "Private writing-tool comparison scripts"
+  ],
+  "unassessed": [
+    "All baseline sections outside §§1.1,2.1,6.1,6.5 and the named nearby evidence rows.",
+    "The full Forrelation, quantum upper bound, construction, planted lower bound, AppendixA, and exponent arguments.",
+    "The full Drucker and Shaltiel papers outside the listed scopes; journal-edition theorem-number equivalence.",
+    "Short and expository QAOA exemplar files; only the named long-record overview was sampled.",
+    "A new novelty/priority literature survey; this is a reconstruction of an attributed known argument."
+  ],
+  "rendering": "Original Shaltiel PDF theorem pages rendered and visually inspected by the literature reader. Return Markdown checked in source form; no integrated paper render claimed."
+}

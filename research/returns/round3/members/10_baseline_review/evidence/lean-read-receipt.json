@@ -1,0 +1,514 @@
+{
+  "agent": "lean_evidence",
+  "task": "Independent current-source/type/evidence lane of job10 baseline review",
+  "packet_repository_commit": "1dd469dd0042b937b739da3bc211eeb60bdf7462",
+  "proof_source_checkpoint": "31e17dee667d1d72fa621da8e7d3d8ff5fc3960a",
+  "baseline_sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+  "read_sources": [
+    {
+      "member": "READ_ME_FIRST.md",
+      "sha256": "652edb80248d9fd0544db98dc116a9bc97d08a81bf300f66001bae7664a4c70e",
+      "status": "assessed",
+      "scope": "full file",
+      "lines": 52
+    },
+    {
+      "member": "requests/boundaries.md",
+      "sha256": "1c5f9a6403fd50dc9a0e36a4030413e2d3892cd3609da795119dafdcd3967a34",
+      "status": "assessed",
+      "scope": "full file",
+      "lines": 8
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Statement.lean",
+      "sha256": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+      "status": "assessed",
+      "scope": "full file",
+      "lines": 331
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Results/Conditional.lean",
+      "sha256": "c3d4acfd49f8725f21fa4e895be9773e44a52786a16e3606e68dfda27c808330",
+      "status": "assessed",
+      "scope": "full file",
+      "lines": 70
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Results/Unconditional.lean",
+      "sha256": "46e6f51f713109bab717956bd2536711dc927a356027748712e571ce12f0b85e",
+      "status": "assessed",
+      "scope": "full file",
+      "lines": 47
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Results/Headline.lean",
+      "sha256": "fec7d0c565b8ab345568ae6082c5fb346435493f4eb2d9112cda498652909c35",
+      "status": "assessed",
+      "scope": "full file",
+      "lines": 38
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionFamily.lean",
+      "sha256": "b7e1203086e38c00b964355ac71537a7fc5be7053d537ccd56cba8017cdd085a",
+      "status": "assessed",
+      "scope": "full file",
+      "lines": 76
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionComplete.lean",
+      "sha256": "a79e9f0cdbf85df0e86605711fa6c8bde2a19cbe043c36302243b42a7f8fbc6c",
+      "status": "assessed",
+      "scope": "full file",
+      "lines": 91
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Appendix/TheoremA1.lean",
+      "sha256": "777567c2e5878223a187030b4200293a0c8f78927fa0488e62ff36bf129a0128",
+      "status": "assessed",
+      "scope": "full file",
+      "lines": 79
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/AppendixA.lean",
+      "sha256": "5a28f11e95c0153ef162337a8c81d4523f0092361b785425ee166924b1dd9815",
+      "status": "assessed",
+      "scope": "full file",
+      "lines": 109
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/AppendixASpectralAdversary.lean",
+      "sha256": "75c971c8627dc3e1e17e1a58e21522f845d0830246ab93939994d24d08da1ca4",
+      "status": "assessed",
+      "scope": "full file",
+      "lines": 119
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/AppendixAHuangRoute.lean",
+      "sha256": "9a16919921fe4f06d2db77e75b88fe1bd5f7350bc9132360ebc496450a06a5b7",
+      "status": "assessed",
+      "scope": "full file",
+      "lines": 176
+    },
+    {
+      "member": "literature/quartic-ref-03-degree-vs-approximate-degree-and-quantum-i/annex_notes.json",
+      "sha256": "e7ff9467b29025d30eb5646ca3d509146b2478f96e04f435f5526f07dcc580cc",
+      "status": "assessed",
+      "scope": "full file",
+      "lines": 60
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+      "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+      "status": "sampled",
+      "scope": [
+        "1-145",
+        "869-1001",
+        "1010-1040",
+        "1290-1375",
+        "1590-1755",
+        "1799-1825",
+        "1855-1960",
+        "1980-2255",
+        "all121 catalogue blocks machine-extracted; selected row text assessed with the matrix"
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Results/Exponent.lean",
+      "sha256": "91d1c021f9b920f9bf0017dfe03817194c6a1ff5f4776e39a669bbd3b832a931",
+      "status": "sampled",
+      "scope": [
+        "1-292",
+        "selected later declaration headers and all corpus-tied selected types"
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+      "sha256": "f95cdeea5040ba7082c33a76faddef2da122d5bb4d76cec2b192598894c50aa6",
+      "status": "sampled",
+      "scope": [
+        "1-130",
+        "210-218",
+        "300-end including sharp theorem480-494",
+        "selected type headers"
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/AppendixAStar.lean",
+      "sha256": "84d2b315859098c5030f6772a06dcd652f3d08e695456ece32acb61a6e0142d6",
+      "status": "sampled",
+      "scope": [
+        "370-end",
+        "selected type headers"
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ClassicalAsymptotics.lean",
+      "sha256": "b156b061ecab3a011c31224f9ff0719d07a52e8e8eb86becbb18cb5c959c17af",
+      "status": "sampled",
+      "scope": [
+        "226-end",
+        "all selected type headers"
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+      "sha256": "d6bc1f4399394810fca63abdaadd67a420616371c501ab978841898f2bda049c",
+      "status": "sampled",
+      "scope": [
+        "508-655",
+        "named theorem type headers; no complete proof-body rereading"
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "sha256": "13614823a433518dea7138242182dc2abee1dbcdf0127157edf8cc9b6a756010",
+      "status": "sampled",
+      "scope": [
+        "1-35",
+        "408-446",
+        "650-end"
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/QuantumTournament.lean",
+      "sha256": "8cf87e74aa0364c9bc6b9078ff62e88c45d297625166fe31a8efeea765a34adf",
+      "status": "sampled",
+      "scope": [
+        "270-325",
+        "selected theorem types"
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+      "sha256": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+      "status": "sampled",
+      "scope": [
+        "184-270",
+        "395-485",
+        "selected theorem types"
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "sha256": "c88be0b70754cb6f93448694002a16e1eb6a25135fa71648d4651f01104e399d",
+      "status": "sampled",
+      "scope": [
+        "1-50",
+        "generated challenge header and vocabulary provenance"
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Unconditional/Solution.lean",
+      "sha256": "19725ad42b615a8881db00417ee6375c8982b0de08e618f06f901fe4db2e2cd3",
+      "status": "sampled",
+      "scope": [
+        "full file"
+      ]
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Computability/QueryComplexity/Quantum/Adversary.lean",
+      "sha256": "6b941c7daa0184ac46bf1f599c0211218981bf385b65c20424eefe3298246c7d",
+      "status": "sampled",
+      "scope": [
+        "1-87",
+        "278-end"
+      ]
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Computability/QueryComplexity/Quantum/Polynomial.lean",
+      "sha256": "0323e359ee2eecfe0bca7c16e59bdd6489d8a80ca0963ca1960999fc73b09cc1",
+      "status": "sampled",
+      "scope": [
+        "238-268"
+      ]
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Amplification/Bounded.lean",
+      "sha256": "6a6465ae0cbd0503cf327c5f33f6509f492a707795c0358880c8f12c9624c96d",
+      "status": "sampled",
+      "scope": "Selected declaration headers/types and local context listed in principal-claim-matrix or auxiliary-types; do not infer full proof-body reading."
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Construction/LocalTests.lean",
+      "sha256": "56357d934fab301222130c92ef36cfbf122af4ad90fb2a94ba90178139dbeb13",
+      "status": "sampled",
+      "scope": "Selected declaration headers/types and local context listed in principal-claim-matrix or auxiliary-types; do not infer full proof-body reading."
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Construction/Transcript.lean",
+      "sha256": "e2fd95c77c8ef1616201219302415069411aaac88060f3f75ec24e7b0626608f",
+      "status": "sampled",
+      "scope": "Selected declaration headers/types and local context listed in principal-claim-matrix or auxiliary-types; do not infer full proof-body reading."
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Forrelation/Circuit.lean",
+      "sha256": "b17824d0a3b6ee5a689822b04c18d20de9e72e1db119105584e9cbba60ae8f01",
+      "status": "sampled",
+      "scope": "Selected declaration headers/types and local context listed in principal-claim-matrix or auxiliary-types; do not infer full proof-body reading."
+    },
+    {
+      "member": "repository/lean/QuarticQuery/ForrelationLower/Main.lean",
+      "sha256": "f877e9c4d11874d3e80ad7627972b1a8a0eca596f26fb96a3898bfdace564ed1",
+      "status": "sampled",
+      "scope": "Selected declaration headers/types and local context listed in principal-claim-matrix or auxiliary-types; do not infer full proof-body reading."
+    },
+    {
+      "member": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+      "sha256": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+      "status": "sampled",
+      "scope": "Selected declaration headers/types and local context listed in principal-claim-matrix or auxiliary-types; do not infer full proof-body reading."
+    },
+    {
+      "member": "repository/lean/QuarticQuery/LowerBound/Minimax.lean",
+      "sha256": "d235fef08374ca71229f5a2a5985e1bb0c60e3ec39a0ad2b1a13b286df9c194e",
+      "status": "sampled",
+      "scope": "Selected declaration headers/types and local context listed in principal-claim-matrix or auxiliary-types; do not infer full proof-body reading."
+    },
+    {
+      "member": "repository/lean/QuarticQuery/LowerBound/Planted/Heavy.lean",
+      "sha256": "6b5772603583908e293c4301594ef313e68ddff67dedd5eced436744b0f110bb",
+      "status": "sampled",
+      "scope": "Selected declaration headers/types and local context listed in principal-claim-matrix or auxiliary-types; do not infer full proof-body reading."
+    },
+    {
+      "member": "repository/lean/QuarticQuery/LowerBound/Planted/Main.lean",
+      "sha256": "a32a6e24bccace37d46742acc9450fe33b6081430484138336014048f3fe835c",
+      "status": "sampled",
+      "scope": "Selected declaration headers/types and local context listed in principal-claim-matrix or auxiliary-types; do not infer full proof-body reading."
+    },
+    {
+      "member": "repository/lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean",
+      "sha256": "86a2064e0fb6c6ba9b4a79785932a203314d8433d938083a420288d642bf8bf8",
+      "status": "sampled",
+      "scope": "Selected declaration headers/types and local context listed in principal-claim-matrix or auxiliary-types; do not infer full proof-body reading."
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Model/Classical.lean",
+      "sha256": "a820d0804ee722ee74eef97ea8efeb2a15da55107d6a908e35ba60ef39932e9e",
+      "status": "sampled",
+      "scope": "Selected declaration headers/types and local context listed in principal-claim-matrix or auxiliary-types; do not infer full proof-body reading."
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Model/Quantum.lean",
+      "sha256": "6a61d326b216fa39f6ac1d7694727528dd5028bfac8d939f118bf1a4f4a35662",
+      "status": "sampled",
+      "scope": "Selected declaration headers/types and local context listed in principal-claim-matrix or auxiliary-types; do not infer full proof-body reading."
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+      "sha256": "a90282494f069991f80b7ec4af0cd8898a2d4b84a7a69aa180e1ed061dd9a549",
+      "status": "sampled",
+      "scope": "Selected declaration headers/types and local context listed in principal-claim-matrix or auxiliary-types; do not infer full proof-body reading."
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/AppendixAPerron.lean",
+      "sha256": "e95a404b217afc2f03eaa35256c713827f1400231702daea1b5b38a3aa204c9a",
+      "status": "sampled",
+      "scope": "Selected declaration headers/types and local context listed in principal-claim-matrix or auxiliary-types; do not infer full proof-body reading."
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/AppendixARestriction.lean",
+      "sha256": "5e7b16febef2b95ffc6ed9e735bbb8b24cbaf1d713fda51452a13ef17745534b",
+      "status": "sampled",
+      "scope": "Selected declaration headers/types and local context listed in principal-claim-matrix or auxiliary-types; do not infer full proof-body reading."
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+      "sha256": "b45034f8e12d480523140f3a491ef29d2fc7fa83930ff6e17a993c8acb7ca0b0",
+      "status": "sampled",
+      "scope": "Selected declaration headers/types and local context listed in principal-claim-matrix or auxiliary-types; do not infer full proof-body reading."
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+      "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+      "status": "sampled",
+      "scope": "Selected declaration headers/types and local context listed in principal-claim-matrix or auxiliary-types; do not infer full proof-body reading."
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ClassicalUniformZero.lean",
+      "sha256": "b0778f75c9717011e9b115eb3b15cf132b85486fa2f8c83eff0e4ce4a05fca19",
+      "status": "sampled",
+      "scope": "Selected declaration headers/types and local context listed in principal-claim-matrix or auxiliary-types; do not infer full proof-body reading."
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionArithmetic.lean",
+      "sha256": "2c355a3eb5e76cd5db70a6990bb9d6b37d652e0eece3b31ed0661219d3635ad0",
+      "status": "sampled",
+      "scope": "Selected declaration headers/types and local context listed in principal-claim-matrix or auxiliary-types; do not infer full proof-body reading."
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+      "sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
+      "status": "sampled",
+      "scope": "Selected declaration headers/types and local context listed in principal-claim-matrix or auxiliary-types; do not infer full proof-body reading."
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationCircuit.lean",
+      "sha256": "860e8653027d64fe7d5cc5f35357d81ed5fa27e027899047ab819c821e3c8b32",
+      "status": "sampled",
+      "scope": "Selected declaration headers/types and local context listed in principal-claim-matrix or auxiliary-types; do not infer full proof-body reading."
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationComparison.lean",
+      "sha256": "e9bb18d1e0ea9482762e89a9ced002c720f9b7d2311a455a9904bd820c5b4a01",
+      "status": "sampled",
+      "scope": "Selected declaration headers/types and local context listed in principal-claim-matrix or auxiliary-types; do not infer full proof-body reading."
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationComplete.lean",
+      "sha256": "733526015ad9a2013512d8f6216b8f73c41566a803d92602dd30e40e90d7ad06",
+      "status": "sampled",
+      "scope": "Selected declaration headers/types and local context listed in principal-claim-matrix or auxiliary-types; do not infer full proof-body reading."
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+      "sha256": "14f92345b8885036e862885aad3db82d77cff6e71642e669c2ba7dc8ba087aa1",
+      "status": "sampled",
+      "scope": "Selected declaration headers/types and local context listed in principal-claim-matrix or auxiliary-types; do not infer full proof-body reading."
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationQuantum.lean",
+      "sha256": "f31face68a9c47906d9a728cced9aa8a24ec73d3079c6196ae1853130151391b",
+      "status": "sampled",
+      "scope": "Selected declaration headers/types and local context listed in principal-claim-matrix or auxiliary-types; do not infer full proof-body reading."
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionModels.lean",
+      "sha256": "19826ab2f9f9ef8a329f5880faf2426727b158321af4a418d519d55b56674d61",
+      "status": "sampled",
+      "scope": "Selected declaration headers/types and local context listed in principal-claim-matrix or auxiliary-types; do not infer full proof-body reading."
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionPhase.lean",
+      "sha256": "f9dc9564aa8741a6aa3059fcea3563c740fed802666ae251fbebbe9085668405",
+      "status": "sampled",
+      "scope": "Selected declaration headers/types and local context listed in principal-claim-matrix or auxiliary-types; do not infer full proof-body reading."
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionPointerSupport.lean",
+      "sha256": "8a2d8befa3225ab54114492b35c5a326fc17bd8f0a5eaa9acba966c18db53938",
+      "status": "sampled",
+      "scope": "Selected declaration headers/types and local context listed in principal-claim-matrix or auxiliary-types; do not infer full proof-body reading."
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionTests.lean",
+      "sha256": "06f1b3bc883881351e5e9cfa9ba8777f2f907897e69275b507132cc01ba0dccb",
+      "status": "sampled",
+      "scope": "Selected declaration headers/types and local context listed in principal-claim-matrix or auxiliary-types; do not infer full proof-body reading."
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/QuantumAmplification.lean",
+      "sha256": "95d89237e766b59ffdd52f1324e440e2127b06353b2c8de2482b9f55c4adb30b",
+      "status": "sampled",
+      "scope": "Selected declaration headers/types and local context listed in principal-claim-matrix or auxiliary-types; do not infer full proof-body reading."
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/QuantumComparison.lean",
+      "sha256": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+      "status": "sampled",
+      "scope": "Selected declaration headers/types and local context listed in principal-claim-matrix or auxiliary-types; do not infer full proof-body reading."
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/QuantumTensor.lean",
+      "sha256": "7a2f03d6ae2d8d3ff2af9837f6cb1e1f1f3d5b4983dc34e753792621443835ac",
+      "status": "sampled",
+      "scope": "Selected declaration headers/types and local context listed in principal-claim-matrix or auxiliary-types; do not infer full proof-body reading."
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+      "sha256": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
+      "status": "sampled",
+      "scope": "Selected declaration headers/types and local context listed in principal-claim-matrix or auxiliary-types; do not infer full proof-body reading."
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/Section4.lean",
+      "sha256": "da6bda0feda0448bc05b11c85aed7b666d01aa8d30a8914a4ffd7d9fbe6643fb",
+      "status": "sampled",
+      "scope": "Selected declaration headers/types and local context listed in principal-claim-matrix or auxiliary-types; do not infer full proof-body reading."
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Tournament/Ideal.lean",
+      "sha256": "6f7379abfb1d9fb37d6ef7f0f25049893490aa717171c875feb97fca343ab8ef",
+      "status": "sampled",
+      "scope": "Selected declaration headers/types and local context listed in principal-claim-matrix or auxiliary-types; do not infer full proof-body reading."
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Upper/Bound.lean",
+      "sha256": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303",
+      "status": "sampled",
+      "scope": "Selected declaration headers/types and local context listed in principal-claim-matrix or auxiliary-types; do not infer full proof-body reading."
+    },
+    {
+      "member": "repository/corpus/statements.json",
+      "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868",
+      "status": "assessed",
+      "scope": "Machine-extracted all named evidence records or type blocks; manually inspected summaries and selected exact types. This is evidence-data assessment, not all underlying proofs."
+    },
+    {
+      "member": "repository/corpus/coverage.json",
+      "sha256": "d5d0cc3f370f2dac57a3957d2802e4e7f7e8e0a16732868fde64f64214bbc3fc",
+      "status": "assessed",
+      "scope": "Machine-extracted all named evidence records or type blocks; manually inspected summaries and selected exact types. This is evidence-data assessment, not all underlying proofs."
+    },
+    {
+      "member": "repository/corpus/lean_dependencies.json",
+      "sha256": "56ae4752273f7cfba92ee6f35a4acc6ee0eea6e32a44116ccaf9d7354094e1fb",
+      "status": "assessed",
+      "scope": "Machine-extracted all named evidence records or type blocks; manually inspected summaries and selected exact types. This is evidence-data assessment, not all underlying proofs."
+    },
+    {
+      "member": "native_results/final-evidence/current_native_acceptance.json",
+      "sha256": "5182e06d70dccf3f7fca89ae06851e0d95ec3cc4219385a346034643d3959fd4",
+      "status": "assessed",
+      "scope": "Machine-extracted all named evidence records or type blocks; manually inspected summaries and selected exact types. This is evidence-data assessment, not all underlying proofs."
+    },
+    {
+      "member": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+      "sha256": "3c26718576384a76fca10f1f44bf42ffd2f23130b0aabcf35b3f5c34f2b4a1e0",
+      "status": "assessed",
+      "scope": "Machine-extracted all named evidence records or type blocks; manually inspected summaries and selected exact types. This is evidence-data assessment, not all underlying proofs."
+    },
+    {
+      "member": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "sha256": "f87b4e78aaa99fb069acc358fd90c6b95a1fd09bb337d4b49b6851ae714d8ae1",
+      "status": "assessed",
+      "scope": "Machine-extracted all named evidence records or type blocks; manually inspected summaries and selected exact types. This is evidence-data assessment, not all underlying proofs."
+    },
+    {
+      "member": "literature/quartic-ref-03-degree-vs-approximate-degree-and-quantum-i/source.pdf",
+      "sha256": "445a34b0653042ad482bd95bc2c333d476df7ade6ce5d9ec45714f5b249e39ab",
+      "status": "sampled",
+      "scope": "Original v1 PDF printed pp1-2: Theorem1, Theorems2-3 and proof of Theorem2 using equation4; bibliographic metadata and first150pdftotext lines inspected. Remaining paper not independently reread in this evidence lane.",
+      "primary_url": "https://arxiv.org/pdf/2010.12629v1",
+      "web_refs": [
+        "turn3view0",
+        "turn4view0"
+      ],
+      "numbering_warning": "extracted.md theorem numbering is shifted; use printed PDF Theorem2 for D=O(Q^4)."
+    },
+    {
+      "member": "literature/quartic-ref-03-degree-vs-approximate-degree-and-quantum-i/source.tar.gz",
+      "sha256": "b5ba1f3805fe2027b148ddcd64bc2689fa1a22265cfc3f5c5901d9d5b0c3897c",
+      "status": "unassessed",
+      "scope": "Archive members inventoried, TeX proof not independently read; PDF supplied authoritative required statement."
+    }
+  ],
+  "execution_boundary": {
+    "new_lean_execution": false,
+    "new_comparator_execution": false,
+    "proof_body_review": "targeted; not all2652 declarations",
+    "compiled_artifacts": "unavailable locally; supplied hashes/logs inspected",
+    "historical_receipts": "retained as historical when not source-bound",
+    "concurrent_section_returns": "not used",
+    "external_primary_research": "ABKRT official v1 page/PDF opened; other literature assigned to parent/math lane"
+  },
+  "matrix_validation": {
+    "rows": 121,
+    "selected_ties": 169,
+    "auxiliary_types": 22,
+    "null_source_objects": 0,
+    "null_complete_type_text": 0,
+    "all_selected_ties_root_built": true,
+    "repairs_unique_against_baseline": 15
+  }
+}

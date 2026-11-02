@@ -1,0 +1,45 @@
+[
+  {
+    "id": "r3-forr-polynomial-interpolation",
+    "passage": "forr_identity",
+    "statement": "For any finite k-block cube with m coordinates per block, any real test g, and the chain biases w_s whose first block is sX0 and whose remaining blocks are independent of s, with bounded factors, h_g(s)=E_U F_g(w_s(U)) is a polynomial in s of degree at most m. Coefficients are integrable bounded functions before averaging, and hprime(s)=sum_a E[X0(a) partial_(0,a) F_g(w_s)].",
+    "why_needed": "Makes differentiation under expectation a finite algebraic operation and removes an unnecessary analytic interchange from the exposition.",
+    "depends_on": [
+      "NEW-FOR-06",
+      "NEW-FOR-07",
+      "NEW-FOR-11"
+    ],
+    "proposed_lean": null,
+    "route_note": "Ordinary proof only; source uses its existing analytic derivative route. No new declaration proposed or compiled."
+  },
+  {
+    "id": "r3-forr-explicit-fixed-threshold",
+    "passage": "forr_threshold",
+    "statement": "For every natural k≥2 and natural t≥13669*k^2, Lvalue k t < R(P k t). More sharply, t≥ceil(54675*k^2/4) suffices. The frozen mValue t is4^t and the initial error is1/3.",
+    "why_needed": "Supplies a simple all-t threshold directly from the current sharp uniform theorem, replacing the long four-term route in the main exposition.",
+    "depends_on": [
+      "r2-sharp-original-constant",
+      "new-eq-04",
+      "eq-5"
+    ],
+    "proposed_lean": "-- Proposed interface only; NOT elaborated or compiled in this return.\n-- Available imports would include QuarticQuery.ForrelationLower.Uniform.\ntheorem QuarticQuery.lvalue_lt_R_sharp_explicit\n    (k t : Nat) (hk : 2 <= k) (ht : 13669 * k ^ 2 <= t) :\n    QuarticQuery.Lvalue k t < QuarticQuery.R (QuarticQuery.P k t)",
+    "route_note": "Use forrelation_lower_uniform_sharp and log_four_k_m_le; 4*13669=54676>54675. Existing lvalue_lt_R_explicit uses3499200*k², so do not label this exact threshold currently checked."
+  },
+  {
+    "id": "r3-forr-bounded-real-leaves",
+    "passage": "forr_tree_growth",
+    "statement": "For n≥1, integer d≥1,r≥1, any deterministic tree with arbitrary real leaf labels in[-1,1] and depth≤d, any coordinate biases|mu_i|≤1/2 and any family of distinct r-subsets, sum_J|partial_J F_g(mu)|≤(16rd ln(4n))^(r/2)+2^-r. Consequently F33 holds for such trees and finite convex mixtures with a uniform cap.",
+    "why_needed": "Records the exact extra scope of the ordinary proof, instead of silently identifying it with the local two-output Boolean-tree encoding.",
+    "depends_on": [
+      "NEW-FOR-14",
+      "NEW-FOR-15",
+      "NEW-FOR-16",
+      "NEW-FOR-17",
+      "NEW-FOR-27",
+      "r2-sharp-growth",
+      "r2-sharp-advantage"
+    ],
+    "proposed_lean": null,
+    "route_note": "The proof uses only the bounded real value at each terminal leaf. Current source takes QueryTree with v:Bool→Real; this broader formulation has no separately named checked Lean declaration."
+  }
+]

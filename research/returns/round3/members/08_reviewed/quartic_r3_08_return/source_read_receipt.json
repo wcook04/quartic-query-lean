@@ -1,0 +1,1152 @@
+{
+  "review_date": "2026-11-02",
+  "job": "08 — §7 and Appendix A",
+  "section_sha256": "4eb36b5886671617aa5c8fc5ef65c63ee9964a954e673cb08e17ccdb7da5b8ed",
+  "scope_convention": "Assessed means complete in the named scope; sampled means selected portions of a larger source. The scope field controls. Hash verification is not a read receipt.",
+  "root_sources": [
+    {
+      "path": "READ_ME_FIRST.md",
+      "status": "assessed",
+      "scope": "Complete assignment and return contract.",
+      "role": "assignment",
+      "sha256": "58306797cc9195935da5f25428d216e3f4895ed562fe942906d22508ce355948",
+      "size_bytes": 11839
+    },
+    {
+      "path": "manifest.json",
+      "status": "assessed",
+      "scope": "Complete metadata and hash inventory; all 472 enumerated hashes checked.",
+      "role": "provenance",
+      "sha256": "27e509603b9c03f16b4d83b44e4c896a090eb4a4180676aad02779d18e686be3",
+      "size_bytes": 236938
+    },
+    {
+      "path": "SOURCE_ROLES.md",
+      "status": "assessed",
+      "scope": "Complete source-role guidance.",
+      "role": "source authority",
+      "sha256": "f16a43bbaa71a77ae1aba851f1325172908456f957dfdb2cd4e2693026f14511",
+      "size_bytes": 2546
+    },
+    {
+      "path": "EVIDENCE_SNAPSHOT.json",
+      "status": "sampled",
+      "scope": "Current receipt inventory, 124 source/configuration hash map, relevant Appendix native records, and dependency-export entry.",
+      "role": "evidence index",
+      "sha256": "25f46742c3d019459dc43846f23234c107212625b8c76f3eeef787fd721f1213",
+      "size_bytes": 716734
+    },
+    {
+      "path": "repository/AGENTS.md",
+      "status": "assessed",
+      "scope": "Complete local project guidance supplied as context.",
+      "role": "project context",
+      "sha256": "5686db5032ef5a9d272aa4942d8601873ad3c4c72173f985b99caf3d7587064f",
+      "size_bytes": 2706
+    },
+    {
+      "path": "repository/README.md",
+      "status": "assessed",
+      "scope": "Complete supplied project overview.",
+      "role": "project context",
+      "sha256": "47fadd7a6d94c2bdb47d3155e289ed0956649449ae370d13f656d191e36ad947",
+      "size_bytes": 5316
+    },
+    {
+      "path": "repository/research/README.md",
+      "status": "assessed",
+      "scope": "Complete supplied research overview.",
+      "role": "project context",
+      "sha256": "b02ef7b53c07e06f71bf3d381bea77a346caf1e7d160f7d35b3b54eb9d3cca1b",
+      "size_bytes": 7467
+    },
+    {
+      "path": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+      "status": "sampled",
+      "scope": "§1 and §1.1, §3.17, §5.4, §6.6, all of §7 and Appendix A, plus relevant canonical catalogue rows. Other sections not given a complete review.",
+      "role": "baseline",
+      "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+      "size_bytes": 353091
+    },
+    {
+      "path": "paper/source.pdf",
+      "status": "sampled",
+      "scope": "§5 and complete Appendix A, printed pp.14–17; original displays cross-checked against text. Source page renders 14 and 16 visually inspected by root; this is not a full-PDF review.",
+      "role": "target mathematical source",
+      "sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e",
+      "size_bytes": 433829
+    },
+    {
+      "path": "paper/extracted.md",
+      "status": "sampled",
+      "scope": "§5 and Appendix A, lines 692–865, plus immediately needed source statements.",
+      "role": "text aid checked against PDF",
+      "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+      "size_bytes": 64021
+    },
+    {
+      "path": "writing/the-deliverable.md",
+      "status": "assessed",
+      "scope": "Complete.",
+      "role": "writing guidance",
+      "sha256": "5b234d4446bf4b7ac79c38586147730dc41370581daa38661326875d5b50951c",
+      "size_bytes": 8402
+    },
+    {
+      "path": "writing/SKILL.md",
+      "status": "sampled",
+      "scope": "First-time-reader, claim-fidelity and Lean-correspondence guidance, including lines 181–281.",
+      "role": "writing guidance",
+      "sha256": "dcad856e7363b81876e4ab0784bcc0a3e51ccab11017eb9e08d81d345d2d6c74",
+      "size_bytes": 29787
+    },
+    {
+      "path": "writing/mathematical-writing-mechanics.md",
+      "status": "sampled",
+      "scope": "§§2,5,9; taste rubric; acceptance and authoring-receipt gates, including lines 571–643 and 723–799.",
+      "role": "writing guidance",
+      "sha256": "0ba857f70a724a2676f91b01e7ee95cc3518dcd261b53fec27b743935d1caa0f",
+      "size_bytes": 45312
+    },
+    {
+      "path": "writing/full-exposition-guide.md",
+      "status": "sampled",
+      "scope": "Organization and authority guidance, including lines 298–405 and 812–948.",
+      "role": "writing guidance",
+      "sha256": "c7baa3c8b195647b00cdd37c38c48b122371ce9c3cd92798e2e9d55f3d1c4eca",
+      "size_bytes": 103236
+    },
+    {
+      "path": "writing/register-from-literature.md",
+      "status": "assessed",
+      "scope": "Complete; measurement command unavailable in supplied packet.",
+      "role": "writing guidance",
+      "sha256": "2278000b36133a13c0e83f785bdb2a89b94b8ed1927daeaf12d2b1ed30545d7d",
+      "size_bytes": 4106
+    },
+    {
+      "path": "exemplars/long-reasoning-record.md",
+      "status": "sampled",
+      "scope": "Overview and roadmap, lines1–100, and complete §10.4 exact one-step example. No separate appendix is present; this is a complete finite-example specimen.",
+      "role": "writing exemplar only",
+      "sha256": "a19893f62d1211681ed0cb9cbb8bb454214d97f231f6a6d091b6f198fca35a89",
+      "size_bytes": 278844
+    },
+    {
+      "path": "exemplars/short-paper.md",
+      "status": "sampled",
+      "scope": "Abstract and complete §1, lines1–181; adjacent early §2 sampled.",
+      "role": "writing exemplar only",
+      "sha256": "4b34070c1152369eec9bef536de51f8929c68f3a851f291e962a0c51a3b31ebb",
+      "size_bytes": 59587
+    },
+    {
+      "path": "repository/research/returns/round2/5_lean_appendix_a/blueprint.md",
+      "status": "assessed",
+      "scope": "Complete relevant Appendix proof blueprint, together with agent source audit.",
+      "role": "prior return",
+      "sha256": "d2164a5842a10525a4403b54554e2579ca3ea02f1ac14412784bda2be70ae0ff",
+      "size_bytes": 54436
+    },
+    {
+      "path": "repository/research/returns/round2/5_lean_appendix_a/SOURCE_COEFFICIENT_CHECK.md",
+      "status": "assessed",
+      "scope": "Complete coefficient comparison and exact witness discussion.",
+      "role": "prior return",
+      "sha256": "19d97e4523ee270e4aa4ad802d932be84b5df35beddafca0d6a426f49a204a8f",
+      "size_bytes": 8709
+    },
+    {
+      "path": "repository/research/adjudication/round2_classical_appendix.md",
+      "status": "sampled",
+      "scope": "Current adjudication and relevant historical Appendix/classical ties; historical state kept distinct.",
+      "role": "adjudication",
+      "sha256": "dd112027602ff99a3936ad49b4bdd7aed991d51027f5f9dc0c6ab9fa1e070410",
+      "size_bytes": 20812
+    },
+    {
+      "path": "repository/research/adjudication/round2_literature.md",
+      "status": "sampled",
+      "scope": "Spectral adversary normalization section and source-role conclusions.",
+      "role": "adjudication",
+      "sha256": "3f3c0a6053778070a6b02c828ad4fea24d068cfc8255c803411b53cc6cd221f5",
+      "size_bytes": 9869
+    },
+    {
+      "path": "repository/research/adjudication/round2_forrelation_exponent.md",
+      "status": "sampled",
+      "scope": "Fixed-parameter exponent and current-family support, with full relevant audit by exponent assessor.",
+      "role": "adjudication",
+      "sha256": "557342a03eabb2bc1ee0c2f411bf77ecc9a543511b69ca2c6a83140369e26757",
+      "size_bytes": 28567
+    },
+    {
+      "path": "repository/corpus/statements.json",
+      "status": "sampled",
+      "scope": "Every statement ID used in the return checked for identity; spectrum text and relevant formal ties inspected. Not a whole-ledger mathematical audit.",
+      "role": "canonical registry",
+      "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868",
+      "size_bytes": 553317
+    }
+  ],
+  "delegated_assessments": {
+    "exponent": {
+      "reader": "exponent_audit subtask",
+      "date": "2026-11-02",
+      "sources": [
+        {
+          "source": "READ_ME_FIRST.md",
+          "status": "assessed",
+          "scope": "Complete assignment and boundaries.",
+          "sha256": "58306797cc9195935da5f25428d216e3f4895ed562fe942906d22508ce355948"
+        },
+        {
+          "source": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+          "status": "sampled",
+          "scope": "§1.1, §3.17, §5.4, §6.6, and §7 read completely; unrelated sections unassessed by this lane.",
+          "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff"
+        },
+        {
+          "source": "paper/source.pdf",
+          "status": "sampled",
+          "scope": "Printed p.14: §5 and start of Appendix A; extracted directly from supplied PDF with pdftotext.",
+          "sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e"
+        },
+        {
+          "source": "paper/extracted.md",
+          "status": "sampled",
+          "scope": "§5 and start of Appendix A, cross-checked with supplied PDF text.",
+          "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a"
+        },
+        {
+          "source": "repository/lean/QuarticQuery/Statement.lean",
+          "status": "assessed",
+          "scope": "Complete definitions and statement vocabulary.",
+          "sha256": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced"
+        },
+        {
+          "source": "repository/lean/QuarticQuery/Results/Exponent.lean",
+          "status": "assessed",
+          "scope": "Complete module; exponent, family, reindex, floors and discrepancy calculations.",
+          "sha256": "91d1c021f9b920f9bf0017dfe03817194c6a1ff5f4776e39a669bbd3b832a931"
+        },
+        {
+          "source": "repository/lean/QuarticQuery/Results/Conditional.lean",
+          "status": "assessed",
+          "scope": "Complete module; inspect all binders and same-circuit witness.",
+          "sha256": "c3d4acfd49f8725f21fa4e895be9773e44a52786a16e3606e68dfda27c808330"
+        },
+        {
+          "source": "repository/lean/QuarticQuery/Results/Headline.lean",
+          "status": "assessed",
+          "scope": "Complete module; discharges reindex and quartic hypotheses.",
+          "sha256": "fec7d0c565b8ab345568ae6082c5fb346435493f4eb2d9112cda498652909c35"
+        },
+        {
+          "source": "repository/lean/QuarticQuery/Results/Unconditional.lean",
+          "status": "assessed",
+          "scope": "Complete module; final endpoints with no open mathematical assumptions.",
+          "sha256": "46e6f51f713109bab717956bd2536711dc927a356027748712e571ce12f0b85e"
+        },
+        {
+          "source": "repository/lean/QuarticQuery/Paper/ConstructionFamily.lean",
+          "status": "assessed",
+          "scope": "Complete current named-circuit and existential simultaneous family bounds.",
+          "sha256": "b7e1203086e38c00b964355ac71537a7fc5be7053d537ccd56cba8017cdd085a"
+        },
+        {
+          "source": "repository/lean/QuarticQuery/Paper/ClassicalAsymptotics.lean",
+          "status": "assessed",
+          "scope": "Complete module, including finite ratio arithmetic and both divergences.",
+          "sha256": "b156b061ecab3a011c31224f9ff0719d07a52e8e8eb86becbb18cb5c959c17af"
+        },
+        {
+          "source": "repository/lean/QuarticQuery/Upper/Bound.lean",
+          "status": "sampled",
+          "scope": "budgetConst definition and expansion; Q_Fkm_le, Q_Fkm_le_exponential, familyBoundsAt_of_lower; internal budget proof not reassessed.",
+          "sha256": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303"
+        },
+        {
+          "source": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+          "status": "sampled",
+          "scope": "Definitions relevant to endpoint and complete final challenge signatures.",
+          "sha256": "c88be0b70754cb6f93448694002a16e1eb6a25135fa71648d4651f01104e399d"
+        },
+        {
+          "source": "repository/lean/QuarticCorpus/Unconditional/Solution.lean",
+          "status": "assessed",
+          "scope": "Complete compared wrappers.",
+          "sha256": "19725ad42b615a8881db00417ee6375c8982b0de08e618f06f901fe4db2e2cd3"
+        },
+        {
+          "source": "repository/lean/QuarticCorpus/Unconditional/comparator.json",
+          "status": "assessed",
+          "scope": "Complete compared-name and allowed-axiom configuration.",
+          "sha256": "fbaaee77d1b1a3daff788267ec15963ea06a6340a219a2da890c8c9642998dd7"
+        },
+        {
+          "source": "repository/corpus/ties.json",
+          "status": "sampled",
+          "scope": "eq-1, eq-2, claim-floor, cor-R-omega, claim-exponent-ratio, claim-no-smaller-exponent, thm-1.1 and cor-cubic-refuted.",
+          "sha256": "2cf66121360fafbf8ca77d32d36feba192b839b6f3503e466ffe7857b6086bac"
+        },
+        {
+          "source": "repository/research/adjudication/round2_forrelation_exponent.md",
+          "status": "sampled",
+          "scope": "Current endpoint/status, growing-k boundary, native evidence and relevant disposition passages; table truncation not silently treated as read.",
+          "sha256": "557342a03eabb2bc1ee0c2f411bf77ecc9a543511b69ca2c6a83140369e26757"
+        },
+        {
+          "source": "repository/research/adjudication/round2_integration.md",
+          "status": "assessed",
+          "scope": "Complete integration record (preserved historical status distinguished from final evidence).",
+          "sha256": "8f2b840acee5bb1d184b9660a680dd7c697db313fa14681d17781d5e61e2b4a6"
+        },
+        {
+          "source": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+          "status": "assessed",
+          "scope": "Record fields, selected declaration membership, and all 124 source hashes checked.",
+          "sha256": "bc11e3fec8581f89ce56b110bf76db2469abea4b7be00fa476f9d2cee9455c2e"
+        },
+        {
+          "source": "repository/corpus/receipts/comparator-Unconditional-2026-11-02T184546477430+0000.json",
+          "status": "assessed",
+          "scope": "Record fields, all compared declaration membership, and all 124 source hashes checked.",
+          "sha256": "ee186ea8c9e0bcbe61a7bde6a06c7393c2bb8bebb8facae07fbb785737df04a2"
+        },
+        {
+          "source": "native_results/final-evidence/reviewed_axiom_audit.json",
+          "status": "sampled",
+          "scope": "Selected declaration membership, audit hash and source binding.",
+          "sha256": "74d4f0fd54ada1b2dbbda3734cb2d65f50816f0feec70db15748db185f30f3aa"
+        },
+        {
+          "source": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "status": "assessed",
+          "scope": "Verdict fields, audit log/source hashes and all 124 local hashes checked.",
+          "sha256": "3c26718576384a76fca10f1f44bf42ffd2f23130b0aabcf35b3f5c34f2b4a1e0"
+        },
+        {
+          "source": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+          "status": "sampled",
+          "scope": "Relevant named-family and quotient elaborated types and axiom lines extracted; no blanket audit of all 258 names.",
+          "sha256": "f87b4e78aaa99fb069acc358fd90c6b95a1fd09bb337d4b49b6851ae714d8ae1"
+        },
+        {
+          "source": "native_sources/final-evidence/reviewed_axiom_audit.lean",
+          "status": "sampled",
+          "scope": "Relevant #check/#print commands located and full bytes hash-checked; unrelated code not reviewed.",
+          "sha256": "78da4e0b0d875eedd3898a46f4e885a8fa7e89c2d5fbf2d3205012ff4f640513"
+        },
+        {
+          "source": "EVIDENCE_SNAPSHOT.json",
+          "status": "sampled",
+          "scope": "Receipt metadata and selected declaration reach/membership; source hash inputs cross-checked through current receipts.",
+          "sha256": "25f46742c3d019459dc43846f23234c107212625b8c76f3eeef787fd721f1213"
+        },
+        {
+          "source": "writing/the-deliverable.md",
+          "status": "assessed",
+          "scope": "Complete writing target.",
+          "sha256": "5b234d4446bf4b7ac79c38586147730dc41370581daa38661326875d5b50951c"
+        },
+        {
+          "source": "writing/SKILL.md",
+          "status": "sampled",
+          "scope": "Activation, first-time-reader, claim-fidelity, formal-correspondence, architecture, legibility, taste guidance.",
+          "sha256": "dcad856e7363b81876e4ab0784bcc0a3e51ccab11017eb9e08d81d345d2d6c74"
+        },
+        {
+          "source": "writing/mathematical-writing-mechanics.md",
+          "status": "sampled",
+          "scope": "§§2,5,9; taste rubric and paper-authoring receipt.",
+          "sha256": "0ba857f70a724a2676f91b01e7ee95cc3518dcd261b53fec27b743935d1caa0f"
+        },
+        {
+          "source": "writing/full-exposition-guide.md",
+          "status": "sampled",
+          "scope": "§§4 and 4A; organization and reader/definition guidance.",
+          "sha256": "c7baa3c8b195647b00cdd37c38c48b122371ce9c3cd92798e2e9d55f3d1c4eca"
+        },
+        {
+          "source": "writing/register-from-literature.md",
+          "status": "sampled",
+          "scope": "Procedure and fixed invariants; private measuring tool not used.",
+          "sha256": "2278000b36133a13c0e83f785bdb2a89b94b8ed1927daeaf12d2b1ed30545d7d"
+        }
+      ],
+      "limitations": [
+        "No external web search or additional primary literature inspected in this lane; literature assigned elsewhere.",
+        "No Lean build, no Comparator replay, no PDF visual rendering.",
+        "Pasted text(20261102-190840).txt unavailable in this environment."
+      ]
+    },
+    "appendix": {
+      "reviewer": "AI appendix audit subtask",
+      "new_lean_execution": false,
+      "coverage": [
+        {
+          "path": "review_input/READ_ME_FIRST.md",
+          "sha256": "58306797cc9195935da5f25428d216e3f4895ed562fe942906d22508ce355948",
+          "status": "assessed",
+          "scope": "complete",
+          "role": "assignment"
+        },
+        {
+          "path": "review_input/repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+          "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+          "status": "sampled",
+          "scope": "§1.1 completely; Appendix A completely; relevant associated headings and no other full-section claim",
+          "role": "baseline"
+        },
+        {
+          "path": "review_input/repository/lean/QuarticQuery/Paper/AppendixA.lean",
+          "sha256": "5a28f11e95c0153ef162337a8c81d4523f0092361b785425ee166924b1dd9815",
+          "status": "assessed",
+          "scope": "entire declaration and proof text; no independent Lean execution",
+          "role": "formal mathematics"
+        },
+        {
+          "path": "review_input/repository/lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+          "sha256": "f95cdeea5040ba7082c33a76faddef2da122d5bb4d76cec2b192598894c50aa6",
+          "status": "assessed",
+          "scope": "entire declaration and proof text; no independent Lean execution",
+          "role": "formal mathematics"
+        },
+        {
+          "path": "review_input/repository/lean/QuarticQuery/Paper/AppendixAHuang.lean",
+          "sha256": "adb9065a0262325c396b5eeadc4f27f61768fe182e1818b9a2e4b91e0376459b",
+          "status": "assessed",
+          "scope": "entire declaration and proof text; no independent Lean execution",
+          "role": "formal mathematics"
+        },
+        {
+          "path": "review_input/repository/lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+          "sha256": "a90282494f069991f80b7ec4af0cd8898a2d4b84a7a69aa180e1ed061dd9a549",
+          "status": "assessed",
+          "scope": "entire declaration and proof text; no independent Lean execution",
+          "role": "formal mathematics"
+        },
+        {
+          "path": "review_input/repository/lean/QuarticQuery/Paper/AppendixAHuangRoute.lean",
+          "sha256": "9a16919921fe4f06d2db77e75b88fe1bd5f7350bc9132360ebc496450a06a5b7",
+          "status": "assessed",
+          "scope": "entire declaration and proof text; no independent Lean execution",
+          "role": "formal mathematics"
+        },
+        {
+          "path": "review_input/repository/lean/QuarticQuery/Paper/AppendixAPerron.lean",
+          "sha256": "e95a404b217afc2f03eaa35256c713827f1400231702daea1b5b38a3aa204c9a",
+          "status": "assessed",
+          "scope": "entire declaration and proof text; no independent Lean execution",
+          "role": "formal mathematics"
+        },
+        {
+          "path": "review_input/repository/lean/QuarticQuery/Paper/AppendixARestriction.lean",
+          "sha256": "5e7b16febef2b95ffc6ed9e735bbb8b24cbaf1d713fda51452a13ef17745534b",
+          "status": "assessed",
+          "scope": "entire declaration and proof text; no independent Lean execution",
+          "role": "formal mathematics"
+        },
+        {
+          "path": "review_input/repository/lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+          "sha256": "b45034f8e12d480523140f3a491ef29d2fc7fa83930ff6e17a993c8acb7ca0b0",
+          "status": "assessed",
+          "scope": "entire declaration and proof text; no independent Lean execution",
+          "role": "formal mathematics"
+        },
+        {
+          "path": "review_input/repository/lean/QuarticQuery/Paper/AppendixASpectralAdversary.lean",
+          "sha256": "75c971c8627dc3e1e17e1a58e21522f845d0830246ab93939994d24d08da1ca4",
+          "status": "assessed",
+          "scope": "entire declaration and proof text; no independent Lean execution",
+          "role": "formal mathematics"
+        },
+        {
+          "path": "review_input/repository/lean/QuarticQuery/Paper/AppendixAStar.lean",
+          "sha256": "84d2b315859098c5030f6772a06dcd652f3d08e695456ece32acb61a6e0142d6",
+          "status": "assessed",
+          "scope": "entire declaration and proof text; no independent Lean execution",
+          "role": "formal mathematics"
+        },
+        {
+          "path": "review_input/repository/lean/QuarticQuery/Appendix/TheoremA1.lean",
+          "sha256": "777567c2e5878223a187030b4200293a0c8f78927fa0488e62ff36bf129a0128",
+          "status": "assessed",
+          "scope": "entire file",
+          "role": "existing alternative quartic route"
+        },
+        {
+          "path": "review_input/repository/lean/QuarticQuery/Results/Headline.lean",
+          "sha256": "fec7d0c565b8ab345568ae6082c5fb346435493f4eb2d9112cda498652909c35",
+          "status": "assessed",
+          "scope": "entire file",
+          "role": "actual headline use and imports"
+        },
+        {
+          "path": "review_input/repository/lean/QuarticQuery/Results/Unconditional.lean",
+          "sha256": "46e6f51f713109bab717956bd2536711dc927a356027748712e571ce12f0b85e",
+          "status": "assessed",
+          "scope": "entire file",
+          "role": "actual headline use and imports"
+        },
+        {
+          "path": "review_input/repository/lean/QuarticQuery.lean",
+          "sha256": "f76b28615af9ebffdda89430586942c5d7d499a0d78585a31ae47a45c92705b0",
+          "status": "assessed",
+          "scope": "entire file",
+          "role": "actual headline use and imports"
+        },
+        {
+          "path": "review_input/repository/lean/QuarticCorpus/Separation/Solution.lean",
+          "sha256": "5cdcdb99b1c1ff250d45b8e983756ea3a3bf7013af1f46b4e02495c3209bb724",
+          "status": "sampled",
+          "scope": "through universal_quartic_bound and family_bounds",
+          "role": "Comparator scope"
+        },
+        {
+          "path": "review_input/repository/lean/QuarticCorpus/Separation/comparator.json",
+          "sha256": "93324800e1d372cf1a3e801fe7181a29f77b13edb01deb590bc8158a263c7276",
+          "status": "assessed",
+          "scope": "entire configuration",
+          "role": "Comparator scope"
+        },
+        {
+          "path": "review_input/repository/lean/QuarticCorpus/Foundations/comparator.json",
+          "sha256": "7e5f89ab55e35fc5b3088528b260d3c9bbeabbb5dc173913a8be94a2521943e7",
+          "status": "assessed",
+          "scope": "entire configuration",
+          "role": "Comparator scope"
+        },
+        {
+          "path": "review_input/repository/research/returns/round2/5_lean_appendix_a/blueprint.md",
+          "sha256": "d2164a5842a10525a4403b54554e2579ca3ea02f1ac14412784bda2be70ae0ff",
+          "status": "sampled",
+          "scope": "§§1–4 read fully; §5 verification/integration sampled via earlier output; old status distinguished from current receipts",
+          "role": "historical advisory proof blueprint"
+        },
+        {
+          "path": "review_input/repository/research/returns/round2/5_lean_appendix_a/SOURCE_COEFFICIENT_CHECK.md",
+          "sha256": "19d97e4523ee270e4aa4ad802d932be84b5df35beddafca0d6a426f49a204a8f",
+          "status": "assessed",
+          "scope": "entire note; independent parity reconstruction checked in prose; source PDF comparison belongs to parent literature lane",
+          "role": "historical advisory coefficient check"
+        },
+        {
+          "path": "review_input/repository/research/adjudication/round2_classical_appendix.md",
+          "sha256": "dd112027602ff99a3936ad49b4bdd7aed991d51027f5f9dc0c6ab9fa1e070410",
+          "status": "assessed",
+          "scope": "entire text",
+          "role": "maintained adjudications"
+        },
+        {
+          "path": "review_input/repository/research/adjudication/round2_literature.md",
+          "sha256": "3f3c0a6053778070a6b02c828ad4fea24d068cfc8255c803411b53cc6cd221f5",
+          "status": "assessed",
+          "scope": "entire text",
+          "role": "maintained adjudications"
+        },
+        {
+          "path": "review_input/repository/corpus/ties.json",
+          "sha256": "2cf66121360fafbf8ca77d32d36feba192b839b6f3503e466ffe7857b6086bac",
+          "status": "sampled",
+          "scope": "all 20 Appendix primary rows and their supporting declarations; no claim about unrelated lower-bound rows",
+          "role": "maintained correspondence"
+        },
+        {
+          "path": "review_input/repository/research/adjudication/round2_classical_appendix_ties.json",
+          "sha256": "92965da1bf4fb0ccb606215ff1cff296f1a4dd9a8096f064f96a60858e9ea9c1",
+          "status": "sampled",
+          "scope": "all 20 Appendix primary rows and their supporting declarations; no claim about unrelated lower-bound rows",
+          "role": "maintained correspondence"
+        },
+        {
+          "path": "review_input/native_results/final-evidence/current_native_acceptance.json",
+          "sha256": "5182e06d70dccf3f7fca89ae06851e0d95ec3cc4219385a346034643d3959fd4",
+          "status": "sampled",
+          "scope": "ten Appendix modules; complete local input hashes rechecked for those modules",
+          "role": "source-bound evidence"
+        },
+        {
+          "path": "review_input/native_results/final-evidence/reviewed_axiom_audit.json",
+          "sha256": "74d4f0fd54ada1b2dbbda3734cb2d65f50816f0feec70db15748db185f30f3aa",
+          "status": "sampled",
+          "scope": "metadata and Appendix declaration membership/source hashes; audit artifact/log digests rechecked",
+          "role": "source-bound evidence"
+        },
+        {
+          "path": "review_input/native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+          "sha256": "3c26718576384a76fca10f1f44bf42ffd2f23130b0aabcf35b3f5c34f2b4a1e0",
+          "status": "sampled",
+          "scope": "metadata and Appendix declaration membership/source hashes; audit artifact/log digests rechecked",
+          "role": "source-bound evidence"
+        },
+        {
+          "path": "review_input/native_logs/final-evidence/reviewed-type-axiom-audit.log",
+          "sha256": "f87b4e78aaa99fb069acc358fd90c6b95a1fd09bb337d4b49b6851ae714d8ae1",
+          "status": "sampled",
+          "scope": "73 Appendix native elaborated type/axiom blocks extracted; selected critical blocks semantically inspected; full artifact SHA256 verified",
+          "role": "native type and axiom evidence"
+        },
+        {
+          "path": "review_input/dependencies/complexitylib/Complexity/Computability/QueryComplexity/Midrijanis.lean",
+          "sha256": "d35fc5e2709691ad1b5c104a33ae38c3fe7a83a980dab3b37a09ddfb4c39ed90",
+          "status": "assessed",
+          "scope": "entire file",
+          "role": "pinned formal dependency"
+        },
+        {
+          "path": "review_input/dependencies/complexitylib/Complexity/Foundations/BooleanAnalysis/MaximalSupport.lean",
+          "sha256": "69adb157930bdcc5de24e595d64fb5f64370a935d5c75a27999117377534b784",
+          "status": "assessed",
+          "scope": "entire file",
+          "role": "pinned formal dependency"
+        },
+        {
+          "path": "review_input/dependencies/complexitylib/Complexity/Foundations/Quantum/Measurement/Overlap.lean",
+          "sha256": "351d45c390d300407f516e8e6eb5f686b7baa427d69eb455674c32b72a8d0356",
+          "status": "assessed",
+          "scope": "entire file",
+          "role": "pinned formal dependency"
+        },
+        {
+          "path": "review_input/dependencies/complexitylib/Complexity/Computability/QueryComplexity/Quantum/Adversary.lean",
+          "sha256": "6b941c7daa0184ac46bf1f599c0211218981bf385b65c20424eefe3298246c7d",
+          "status": "sampled",
+          "scope": "module overview; core source-mapping comments; lines245–end containing sensitivity, degree and quartic endpoint proofs",
+          "role": "pinned formal dependency"
+        },
+        {
+          "path": "review_input/dependencies/complexitylib/Complexity/Foundations/BooleanAnalysis/FourierRestriction.lean",
+          "sha256": "cc2725a32a35c559bf78e8c8262bc3248332b9ce280d2abeb64edea83008dde2",
+          "status": "sampled",
+          "scope": "declaration search and use in complete AppendixARestriction proof; dependency proof body not fully read",
+          "role": "pinned formal dependency"
+        },
+        {
+          "path": "review_input/paper/source.pdf",
+          "sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e",
+          "status": "sampled",
+          "scope": "§5/Appendix A consumed from supplied extracted.md lines680–869; no visual PDF inspection in this lane",
+          "role": "target primary preprint"
+        },
+        {
+          "path": "review_input/paper/extracted.md",
+          "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+          "status": "sampled",
+          "scope": "§5 and Appendix A fully",
+          "role": "target primary preprint extraction"
+        },
+        {
+          "path": "review_input/literature/quartic-ref-03-degree-vs-approximate-degree-and-quantum-i/source.pdf",
+          "sha256": "445a34b0653042ad482bd95bc2c333d476df7ade6ce5d9ec45714f5b249e39ab",
+          "status": "sampled",
+          "scope": "actual PDF text extraction printed pp6–8: definitions, full Thm1 proof, spectral adversary definition and Lem9 proof. Other locators provided by literature lane.",
+          "role": "primary mathematics"
+        },
+        {
+          "path": "review_input/literature/quartic-ref-19-exact-quantum-query-complexity-for-total-b/source.pdf",
+          "sha256": "0cdb580bd48d513b33a1c65bd27faa361bd2e4ebaceff29bbf24b16586e4ab21",
+          "status": "sampled",
+          "scope": "actual PDF text extraction printed pp3–4: Lemma3 and proof; Theorem4 algorithm and full proof; Theorem5 distinguished",
+          "role": "primary mathematics"
+        },
+        {
+          "path": "agent_work/literature/sources/huang_annals_2019.pdf",
+          "sha256": "e681931d5dd46ed5637825770e18bc53c0f6fdd0a0dea4f6ecc541f8669937a9",
+          "status": "sampled",
+          "scope": "actual Annals PDF text extraction pp952–953: Lemma2.2, signed-cube proof, spectral remark",
+          "role": "primary mathematics, fetched by teammate"
+        },
+        {
+          "path": "review_input/writing/the-deliverable.md",
+          "sha256": "5b234d4446bf4b7ac79c38586147730dc41370581daa38661326875d5b50951c",
+          "status": "assessed",
+          "scope": "entire text",
+          "role": "writing guidance"
+        },
+        {
+          "path": "review_input/writing/SKILL.md",
+          "sha256": "dcad856e7363b81876e4ab0784bcc0a3e51ccab11017eb9e08d81d345d2d6c74",
+          "status": "sampled",
+          "scope": "first-time-reader and claim-fidelity/formal-correspondence gates",
+          "role": "writing guidance"
+        },
+        {
+          "path": "review_input/writing/mathematical-writing-mechanics.md",
+          "sha256": "0ba857f70a724a2676f91b01e7ee95cc3518dcd261b53fec27b743935d1caa0f",
+          "status": "sampled",
+          "scope": "§§2,5,9 and paper-authoring receipt",
+          "role": "writing guidance"
+        },
+        {
+          "path": "review_input/writing/full-exposition-guide.md",
+          "sha256": "c7baa3c8b195647b00cdd37c38c48b122371ce9c3cd92798e2e9d55f3d1c4eca",
+          "status": "sampled",
+          "scope": "§4 and §4A; §8 fidelity and source-locator gate",
+          "role": "writing guidance"
+        },
+        {
+          "path": "review_input/writing/register-from-literature.md",
+          "sha256": "2278000b36133a13c0e83f785bdb2a89b94b8ed1927daeaf12d2b1ed30545d7d",
+          "status": "assessed",
+          "scope": "entire text; unavailable private calibration tools not invoked",
+          "role": "writing guidance"
+        },
+        {
+          "path": "review_input/exemplars/long-reasoning-record.md",
+          "sha256": "a19893f62d1211681ed0cb9cbb8bb454214d97f231f6a6d091b6f198fca35a89",
+          "status": "sampled",
+          "scope": "overview and first150 lines; no mathematical reliance",
+          "role": "writing exemplar only"
+        },
+        {
+          "path": "review_input/exemplars/short-paper.md",
+          "sha256": "4b34070c1152369eec9bef536de51f8929c68f3a851f291e962a0c51a3b31ebb",
+          "status": "sampled",
+          "scope": "abstract and first130 lines (part of §1); no mathematical reliance",
+          "role": "writing exemplar only"
+        },
+        {
+          "path": "Barnum–Saks–Szegedy original full text",
+          "status": "unavailable",
+          "scope": "not supplied and not read",
+          "role": "historical attribution through inspected later sources only"
+        },
+        {
+          "path": "return/quartic_r3_08_return/section.md",
+          "sha256": "4eb36b5886671617aa5c8fc5ef65c63ee9964a954e673cb08e17ccdb7da5b8ed",
+          "status": "assessed",
+          "scope": "all eleven R3-A-* anchored passages completely; no final bibliography whole-file-read claim",
+          "role": "final integrated passage correspondence"
+        },
+        {
+          "path": "review_input/repository/lean/QuarticQuery/Bridge/Deferred.lean",
+          "sha256": "666c5741a5a19324b7229a350bc35130627da42584c751d5444231f402c45931",
+          "status": "sampled",
+          "scope": "module documentation and ambient declarations; exists_fixedSequence complete statement/proof and adjacent FixedSim.build clauses",
+          "role": "same-cost deferral exact type and route qualification"
+        },
+        {
+          "path": "review_input/repository/lean/QuarticQuery/Model/Classical.lean",
+          "sha256": "a820d0804ee722ee74eef97ea8efeb2a15da55107d6a908e35ba60ef39932e9e",
+          "status": "sampled",
+          "scope": "ambient variable and Attainment section scope; R_le_D complete statement/proof",
+          "role": "complete binder and deterministic-to-randomized bridge"
+        }
+      ],
+      "additional_unassessed_scope": "All other packet files, except metadata scans, are unassessed in this lane; the parent and other independent lanes have their own receipts."
+    },
+    "literature": {
+      "review_date": "2026-11-02",
+      "reviewer_role": "literature and finite-witness subtask; this is not full-project coverage",
+      "local_sources": [
+        {
+          "path": "literature/quartic-ref-03-degree-vs-approximate-degree-and-quantum-i/source.pdf",
+          "sha256": "445a34b0653042ad482bd95bc2c333d476df7ade6ce5d9ec45714f5b249e39ab",
+          "size_bytes": 827322,
+          "version": "arXiv:2010.12629v1, 23 October 2020",
+          "status": "assessed",
+          "scope_assessed": [
+            "Original PDF pp.1--2: Theorems1--3, attribution, deduction of D=O(Q^4)",
+            "Original PDF pp.6--8: definitions and complete proof of Theorem1; Definition8 and Lemma9",
+            "Original PDF p.20: Conjecture2 R=O(Q^3), surrounding attribution and context"
+          ],
+          "remaining_scope": "Unassessed except as explicitly listed. Hashing complete bytes does not mean full-content review.",
+          "citation_role": "mathematical authority",
+          "visual_inspection": null
+        },
+        {
+          "path": "literature/quartic-ref-17-induced-subgraphs-of-hypercubes-and-a-proo/source.pdf",
+          "sha256": "9193d2dac7b3f6b6a84270884c6143913ae5a0ba9bf3db19273f9703db0ed6a2",
+          "size_bytes": 108376,
+          "version": "arXiv:1907.00847v2, 29 August 2019; NOT Annals pagination",
+          "status": "assessed",
+          "scope_assessed": [
+            "Original PDF p.1: edition identification and Theorem1.1",
+            "Original PDF pp.3--5: Lemmas2.1--2.3, complete signed-cube argument and spectral-radius remark"
+          ],
+          "remaining_scope": "Unassessed except as explicitly listed. Hashing complete bytes does not mean full-content review.",
+          "citation_role": "mathematical authority",
+          "visual_inspection": null
+        },
+        {
+          "path": "literature/quartic-ref-19-exact-quantum-query-complexity-for-total-b/source.pdf",
+          "sha256": "0cdb580bd48d513b33a1c65bd27faa361bd2e4ebaceff29bbf24b16586e4ab21",
+          "size_bytes": 115109,
+          "version": "arXiv:quant-ph/0403168v2, 27 March 2004",
+          "status": "assessed",
+          "scope_assessed": [
+            "Original PDF p.2: exact query convention and definitions",
+            "Original PDF pp.3--4: Lemma3 and full proof of Theorem4, plus Theorem5 scope"
+          ],
+          "remaining_scope": "Unassessed except as explicitly listed. Hashing complete bytes does not mean full-content review.",
+          "citation_role": "mathematical authority",
+          "visual_inspection": null
+        },
+        {
+          "path": "literature/quartic-lit-hoyer-lee-spalek-negative-weights/source.pdf",
+          "sha256": "45a0ed9c6122452c70db57da2356434ffba87389238eb11d0f3ae502842befad",
+          "size_bytes": 327152,
+          "version": "29-page author PDF from https://www.ucw.cz/~robert/papers/madv.pdf; arXiv v2 metadata corroborated, byte identity not established",
+          "status": "assessed",
+          "scope_assessed": [
+            "Original PDF pp.1--3: authors, context, Definition1, Theorems1--2",
+            "BSS03 bibliography entry inspected for title, initials, venue, pages and year"
+          ],
+          "remaining_scope": "Unassessed except as explicitly listed. Hashing complete bytes does not mean full-content review.",
+          "citation_role": "mathematical authority",
+          "visual_inspection": {
+            "pages": [
+              3
+            ],
+            "method": "pdftoppm plus view_image"
+          }
+        },
+        {
+          "path": "literature/quartic-ref-24-all-quantum-adversary-methods-are-equivale/supplements/toc-2006-supplied.pdf",
+          "sha256": "c7b946356a14102eef38037b32520b3e40f87896b8140dbcdac02a6969e20ee1",
+          "size_bytes": 232179,
+          "version": "Theory of Computing2 (2006), pp.1--18, supplied publisher edition",
+          "status": "assessed",
+          "scope_assessed": [
+            "Original PDF pp.3--6: scope, bit-oracle and norm conventions, Theorem3.1 and equation3.1",
+            "Original PDF p.14: concluding proof of Theorem3.1"
+          ],
+          "remaining_scope": "Unassessed except as explicitly listed. Hashing complete bytes does not mean full-content review.",
+          "citation_role": "mathematical authority",
+          "visual_inspection": {
+            "pages": [
+              6
+            ],
+            "method": "pdftoppm plus view_image; coefficient legible, some unrelated glyphs poorly rendered"
+          }
+        },
+        {
+          "path": "literature/quartic-ref-24-all-quantum-adversary-methods-are-equivale/source.pdf",
+          "sha256": "24006189a0397c2517ecff25b33d499ea955dc19ef7c6429e96f50bd5de3270b",
+          "size_bytes": 198345,
+          "version": "arXiv:quant-ph/0409116v3, 1 February 2006",
+          "status": "sampled",
+          "scope_assessed": [
+            "PDF text edition header and search-located coefficient/norm/oracle snippets"
+          ],
+          "remaining_scope": "Unassessed except as explicitly listed. Hashing complete bytes does not mean full-content review.",
+          "citation_role": "Version comparison only; publisher edition controls the display audit",
+          "visual_inspection": null
+        },
+        {
+          "path": "repository/research/returns/round2/5_lean_appendix_a/SOURCE_COEFFICIENT_CHECK.md",
+          "sha256": "19d97e4523ee270e4aa4ad802d932be84b5df35beddafca0d6a426f49a204a8f",
+          "size_bytes": 8709,
+          "version": "frozen round2 return",
+          "status": "assessed",
+          "scope_assessed": [
+            "Full note"
+          ],
+          "remaining_scope": "Unassessed except as explicitly listed. Hashing complete bytes does not mean full-content review.",
+          "citation_role": "Prior advisory report, independently checked against originals",
+          "visual_inspection": null
+        },
+        {
+          "path": "repository/research/returns/round2/5_lean_appendix_a/checks/source_coefficient_check.py",
+          "sha256": "f26f6b5fda2a82efbe0d74690d292101f83f0c4a6f3068cba5bffdcb17a1c85a",
+          "size_bytes": 4984,
+          "version": "frozen round2 return",
+          "status": "assessed",
+          "scope_assessed": [
+            "Full source read; not executed here"
+          ],
+          "remaining_scope": "Unassessed except as explicitly listed. Hashing complete bytes does not mean full-content review.",
+          "citation_role": "Prior finite-check implementation; current check independently authored",
+          "visual_inspection": null
+        },
+        {
+          "path": "repository/research/adjudication/round2_classical_appendix.md",
+          "sha256": "dd112027602ff99a3936ad49b4bdd7aed991d51027f5f9dc0c6ab9fa1e070410",
+          "size_bytes": 20812,
+          "version": "frozen adjudication",
+          "status": "sampled",
+          "scope_assessed": [
+            "Mathematical assessment and source-prefactor finding; validation history sampled"
+          ],
+          "remaining_scope": "Unassessed except as explicitly listed. Hashing complete bytes does not mean full-content review.",
+          "citation_role": "Historical adjudication; not current proof evidence by itself",
+          "visual_inspection": null
+        },
+        {
+          "path": "repository/research/adjudication/round2_literature.md",
+          "sha256": "3f3c0a6053778070a6b02c828ad4fea24d068cfc8255c803411b53cc6cd221f5",
+          "size_bytes": 9869,
+          "version": "frozen adjudication",
+          "status": "sampled",
+          "scope_assessed": [
+            "Literature review sampled, including Appendix/source-prefactor context"
+          ],
+          "remaining_scope": "Unassessed except as explicitly listed. Hashing complete bytes does not mean full-content review.",
+          "citation_role": "Prior literature adjudication",
+          "visual_inspection": null
+        },
+        {
+          "path": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+          "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+          "size_bytes": 353091,
+          "version": "frozen baseline",
+          "status": "sampled",
+          "scope_assessed": [
+            "Section1.1",
+            "AppendixA A.1--A.5 up to final displayed D<=bs*deg statement"
+          ],
+          "remaining_scope": "Unassessed except as explicitly listed. Hashing complete bytes does not mean full-content review.",
+          "citation_role": "Baseline being revised; not independent primary authority",
+          "visual_inspection": null
+        },
+        {
+          "path": "paper/extracted.md",
+          "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+          "size_bytes": 64021,
+          "version": "frozen OpenAI supplied preprint extraction",
+          "status": "sampled",
+          "scope_assessed": [
+            "Section5 ending and AppendixA pp.14--16 excerpt"
+          ],
+          "remaining_scope": "Unassessed except as explicitly listed. Hashing complete bytes does not mean full-content review.",
+          "citation_role": "Target preprint correspondence; root owns original-PDF review",
+          "visual_inspection": null
+        },
+        {
+          "path": "agent_work/literature/sources/huang_annals_2019.pdf",
+          "source_url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v190-n3-p06-s.pdf",
+          "sha256": "e681931d5dd46ed5637825770e18bc53c0f6fdd0a0dea4f6ecc541f8669937a9",
+          "size_bytes": 283531,
+          "version": "Annals of Mathematics190(3) (2019), printedpp.949--955; seven pages",
+          "status": "assessed",
+          "scope_assessed": [
+            "Printedp.952/PDFp.4: Lemmas2.1--2.3; recursive square and trace proof",
+            "Printedp.953/PDFp.5: interlacing finish and spectral-radius remark"
+          ],
+          "remaining_scope": "Other pages unassessed beyond metadata and web opening context.",
+          "visual_inspection": {
+            "pages": [
+              952,
+              953
+            ],
+            "method": "pdftoppm plus view_image"
+          },
+          "citation_role": "Requested published primary edition, retrieved after detecting supplied-version difference",
+          "retrieved_on": "2026-11-02"
+        },
+        {
+          "title": "Barnum--Saks--Szegedy, Quantum decision trees and semidefinite programming",
+          "status": "unavailable",
+          "scope_assessed": [],
+          "reason": "Original full text not supplied or fetched; attribution and bibliographic metadata checked through HLS Theorem1 and SS reference7 only",
+          "citation_role": "Historical attribution only"
+        },
+        {
+          "path": "paper/source.pdf",
+          "sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e",
+          "size_bytes": 433829,
+          "status": "sampled",
+          "scope_assessed": [
+            "Original PDF p.1: title, institutional author OpenAI, date5October2026, Theorem1.1",
+            "Search-located reference entries3 and7 for bibliographic cross-check"
+          ],
+          "remaining_scope": "Unassessed except named portions",
+          "citation_role": "Metadata and version pin verification"
+        },
+        {
+          "path": "DEPENDENCY_SOURCES.json",
+          "sha256": "ebd93d51f03cc169c357ea8d1374572a50885997f6c10a78fb90fd109b5d900e",
+          "size_bytes": 18370,
+          "status": "sampled",
+          "scope_assessed": [
+            "foundation_pins and package metadata for complexitylib revision"
+          ],
+          "remaining_scope": "Unassessed except named portions",
+          "citation_role": "Metadata and version pin verification"
+        },
+        {
+          "path": "repository/lean/lake-manifest.json",
+          "sha256": "d670a8101d900b62e17a1d51c8b1b36fd60919bcad472700b0a5e1c0b38b104d",
+          "size_bytes": 3874,
+          "status": "sampled",
+          "scope_assessed": [
+            "complexitylib/cslib/Mathlib revisions and URLs"
+          ],
+          "remaining_scope": "Unassessed except named portions",
+          "citation_role": "Metadata and version pin verification"
+        }
+      ],
+      "web_sources": [
+        {
+          "url": "https://arxiv.org/abs/2010.12629v1",
+          "refs": [
+            "turn2view0"
+          ],
+          "scope": "Author list, v1 date, abstract, subsumes earlier subset preprint"
+        },
+        {
+          "url": "https://arxiv.org/pdf/2010.12629v1",
+          "refs": [
+            "turn4view1"
+          ],
+          "scope": "Public primary source for theorem citations; same visible v1 designation as supplied PDF"
+        },
+        {
+          "url": "https://annals.math.princeton.edu/2019/190-3/p06",
+          "refs": [
+            "turn1view2"
+          ],
+          "scope": "Journal pagination, DOI, author and publication dates"
+        },
+        {
+          "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v190-n3-p06-s.pdf",
+          "refs": [
+            "turn4view0",
+            "turn6view0",
+            "turn6view1"
+          ],
+          "scope": "Published Lemma2.2 and spectral remark; actual PDF separately materialized and visually inspected"
+        },
+        {
+          "url": "https://arxiv.org/abs/quant-ph/0403168v2",
+          "refs": [
+            "turn1view0"
+          ],
+          "scope": "Version2 date, author, five-page length"
+        },
+        {
+          "url": "https://arxiv.org/pdf/quant-ph/0403168v2",
+          "refs": [
+            "turn4view2"
+          ],
+          "scope": "Public primary source for Lemma3 and Theorem4 proof"
+        },
+        {
+          "url": "https://arxiv.org/abs/quant-ph/0611054v2",
+          "refs": [
+            "turn2view1"
+          ],
+          "scope": "Authors, v2 date,29-page length, conference reference and DOI"
+        },
+        {
+          "url": "https://www.ucw.cz/~robert/papers/madv.pdf",
+          "refs": [
+            "turn2view2",
+            "turn6view3"
+          ],
+          "scope": "Definition1 and Theorem1 on printedp.3"
+        },
+        {
+          "url": "https://theoryofcomputing.org/articles/v002a001/",
+          "refs": [
+            "turn1view1"
+          ],
+          "scope": "Publisher metadata, authors, DOI, volume/pages and publication date"
+        },
+        {
+          "url": "https://theoryofcomputing.org/articles/v002a001/v002a001.pdf",
+          "refs": [
+            "turn2view3",
+            "turn6view2"
+          ],
+          "scope": "Theorem3.1 display and conventions"
+        },
+        {
+          "url": "https://cs.uwaterloo.ca/~s4bendav/publication/abk-21/",
+          "refs": [
+            "turn12view0"
+          ],
+          "scope": "Author-maintained publication page verifies five authors and STOC conference context; no transfer of arXiv theorem page locators to proceedings"
+        }
+      ],
+      "unassessed": [
+        "Other original-paper sections not named above",
+        "Original BSS proof (unavailable)",
+        "Prior round2 growing-k arguments",
+        "Current Lean source receipts (owned by separate audit agents)",
+        "Other baseline sections"
+      ],
+      "validation": {
+        "command": "python3 agent_work/literature/exact_checks.py > agent_work/literature/exact_checks.json",
+        "exit_code": 0,
+        "result": "passed",
+        "method": "Exact integers, rational numbers and Q(sqrt2); no numerical tolerance or random sample",
+        "lean_or_comparator_run": false,
+        "new_lean_theorems": []
+      },
+      "source_material_delivery": "Source PDFs are research intermediates, not proposed contents of the final return ZIP.",
+      "web_access_limits": [
+        {
+          "url": "https://doi.org/10.1109/CCC.2003.1214419",
+          "status": "unavailable",
+          "result": "web open internal error",
+          "consequence": "No direct BSS text or publisher metadata inspection; metadata remains indirect as stated."
+        }
+      ],
+      "integration_review": {
+        "path": "return/quartic_r3_08_return/section.md",
+        "sha256_at_review": "635c87f1fa47f8490e2e9a7b0d485ca5ec75d6dc2446c7290000cb7088bf48c7",
+        "scope": "Whole replacement read; mathematical and citation audit focused on AppendixA, arbitrary-error coefficient and finite parity witness; ABKRT Conjecture2 checked for §7",
+        "result": "No correction required in audited mathematical/citation claims; check Annals source-read range949--953 against root-owned coverage because subagent directly assessed952--953."
+      }
+    }
+  },
+  "root_web_verification": [
+    {
+      "url": "https://arxiv.org/pdf/2010.12629v1",
+      "scope": "Theorems1–2, §3 and Lemma9, Conjecture2, original PDF locators.",
+      "status": "assessed named passages"
+    },
+    {
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v190-n3-p06-s.pdf",
+      "scope": "Published edition identity, Lemma2.2 p.952 and spectral argument/remark p.953; agent additionally downloaded and visually inspected those pages.",
+      "status": "assessed named passages"
+    },
+    {
+      "url": "https://arxiv.org/pdf/quant-ph/0403168v2",
+      "scope": "Lemma3 and proof of Theorem4 pp.3–4; Theorem5 exact-query scope.",
+      "status": "assessed named passages"
+    },
+    {
+      "url": "https://www.ucw.cz/~robert/papers/madv.pdf",
+      "scope": "29-page author PDF, Definition1 and Theorem1 p.3, original coefficient visually inspected.",
+      "status": "assessed named passages"
+    },
+    {
+      "url": "https://theoryofcomputing.org/articles/v002a001/v002a001.pdf",
+      "scope": "Oracle/norm conventions pp.4–5, Theorem3.1 p.6 visually inspected, repeated coefficient p.14, BSS attribution.",
+      "status": "assessed named passages"
+    }
+  ],
+  "unavailable": [
+    {
+      "source": "Pasted text(20261102-190840).txt",
+      "library_file_id": "libfile_5ebea1b92e00819195c0aa750839ead5",
+      "consequence": "Not read or incorporated; the available ZIP contains the operative self-contained assignment."
+    },
+    {
+      "source": "Original BSS2003 full text",
+      "consequence": "Not supplied or independently inspected. Attribution through inspected HLS and SS only."
+    },
+    {
+      "source": "Pinned public OpenAI GitHub PDF",
+      "consequence": "Public tool open failed; supplied PDF bytes and hash are the authority for this review."
+    },
+    {
+      "source": "Generic writing-guide paper_register.py and genre profile",
+      "consequence": "Not supplied; no numerical pre/post register measurement claimed."
+    }
+  ],
+  "unassessed": [
+    "All baseline sections outside the named reading route and targeted follow-up.",
+    "Unrelated packet source proofs and native transcripts.",
+    "Quantitative growing-k proposals and their extra prerequisites.",
+    "Whole-record synthesis, short-paper production and human review."
+  ],
+  "final_scope_correction": "The reference paragraph now states direct Annals inspection at pp.952–953. This bibliography-only correction leaves all mathematical passage hashes unchanged from the independent final reviews.",
+  "new_lean_execution": false,
+  "new_comparator_execution": false,
+  "external_human_review_claimed": false
+}

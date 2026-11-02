@@ -1,0 +1,128 @@
+{
+  "schema": "agent_source_read_receipt_v1",
+  "agent": "lean_evidence_audit",
+  "full_source_files": [
+    {
+      "member": "repository/lean/QuarticQuery/Statement.lean",
+      "sha256": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+      "line_count": 331,
+      "read_scope": "full source, statements and proofs"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "sha256": "16db4f9b7e4e42029c839537075eff0ec0f6fd6261d4a8a038bec8566ce4e2fe",
+      "line_count": 350,
+      "read_scope": "full source, statements and proofs"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/ForrelationLower/Stein.lean",
+      "sha256": "6238d7e6f8ade6044eb623899069f35d0a5b860699c722e7007fd71046ffff9e",
+      "line_count": 423,
+      "read_scope": "full source, statements and proofs"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "sha256": "c9394068bc3a583178fcae1e11d6eafdc7dcfc17bcd8a0b269f9a13ccee209ba",
+      "line_count": 596,
+      "read_scope": "full source, statements and proofs"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/ForrelationLower/Cascade.lean",
+      "sha256": "9438575752bdbb664cecbf15b97afc96f2f235fabcab8f6261ab5f15bb9d7ab9",
+      "line_count": 439,
+      "read_scope": "full source, statements and proofs"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "sha256": "13614823a433518dea7138242182dc2abee1dbcdf0127157edf8cc9b6a756010",
+      "line_count": 809,
+      "read_scope": "full source, statements and proofs"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "sha256": "2877dc60a4af03e98321ac9e47c501a63508936aa49e5018d280258b24862efb",
+      "line_count": 576,
+      "read_scope": "full source, statements and proofs"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/ForrelationLower/Amplify.lean",
+      "sha256": "93f8e1c04768b8d01263f4a6b5a594b2d7b3334a1380432af6a33779109fc10a",
+      "line_count": 176,
+      "read_scope": "full source, statements and proofs"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/ForrelationLower/Main.lean",
+      "sha256": "f877e9c4d11874d3e80ad7627972b1a8a0eca596f26fb96a3898bfdace564ed1",
+      "line_count": 564,
+      "read_scope": "full source, statements and proofs"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+      "sha256": "d6bc1f4399394810fca63abdaadd67a420616371c501ab978841898f2bda049c",
+      "line_count": 679,
+      "read_scope": "full source, statements and proofs"
+    }
+  ],
+  "full_document_reads": [
+    "READ_ME_FIRST.md",
+    "repository/README.md",
+    "repository/AGENTS.md",
+    "repository/research/README.md",
+    "repository/docs/forrelation_lower_bound_blueprint.md",
+    "repository/docs/forrelation_lower_bound_review.md",
+    "repository/lean/QuarticQuery/Results/Unconditional.lean",
+    "repository/lean/QuarticCorpus/Unconditional/Solution.lean",
+    "repository/lean/QuarticCorpus/Unconditional/comparator.json"
+  ],
+  "scoped_document_reads": [
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+      "scope": "Section1.1; sections3.6 through3.16, complete. Section3.17 also read; other sections not assessed."
+    },
+    {
+      "member": "repository/research/adjudication/round2_forrelation_exponent.md",
+      "scope": "Lines1-220 read; relevant later entries searched. Do not imply the whole single-family analysis was assessed."
+    },
+    {
+      "member": "repository/research/adjudication/round2_forrelation_exponent_ties.json",
+      "scope": "Relevant lower-bound endpoint ties and validation fields inspected; other subject ties not adjudicated."
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "scope": "Frozen definitions target context and final BansalSinhaLower/wrapper declarations inspected; not all unrelated challenge material."
+    },
+    {
+      "member": "repository/tools/build_round3_packets.py",
+      "scope": "Evidence snapshot and native_binding functions only, to understand metadata hash scope."
+    }
+  ],
+  "evidence_inspected": [
+    "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+    "repository/corpus/receipts/comparator-Unconditional-2026-11-02T183450037875+0000.json",
+    "repository/corpus/receipts/comparator-Unconditional-2026-11-02T184546477430+0000.json",
+    "native_results/final-evidence/reviewed_axiom_audit.json",
+    "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+    "native_sources/final-evidence/reviewed_axiom_audit.lean",
+    "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+    "native_results/native-retry-3/results.json",
+    "native_logs/native-retry-3/QuarticQuery_ForrelationLower_Uniform.log",
+    "repository/corpus/lean_dependencies.json",
+    "EVIDENCE_SNAPSHOT.json",
+    "native_results/final-evidence/current_native_acceptance.json",
+    "native_results/final-evidence/completed_export_axiom_consumption.json"
+  ],
+  "unassessed_by_this_agent": [
+    "Primary literature (separate literature agent responsibility).",
+    "Mathlib full sources and compiled artifacts (not supplied as inspected foundations here).",
+    "Remaining packet modules unrelated to the lower-bound route.",
+    "Historical failed native logs except metadata/currentness comparisons."
+  ],
+  "independent_operations": [
+    "Read source and supplied execution records.",
+    "Recompute SHA-256 for all124 bound local source/config files for root, Comparator, audit and dependency export.",
+    "Recompute all16 Uniform native-input hashes.",
+    "Recompute audit source/log and receipt-file hashes."
+  ],
+  "no_fresh_lean_run": true,
+  "no_original_snapshot_edits": true
+}

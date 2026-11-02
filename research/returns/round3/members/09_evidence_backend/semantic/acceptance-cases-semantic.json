@@ -1,0 +1,107 @@
+[
+  {
+    "id": "SEM01",
+    "description": "One-bit identity has no zero-query randomized program at inclusive 2/3 success.",
+    "declaration": "QuarticQuery.SemanticReview.identity_not_zero",
+    "status": "proposed_uncompiled",
+    "expected": "Lean proof succeeds against actual definition",
+    "executed": false
+  },
+  {
+    "id": "SEM02",
+    "description": "Equal mixture constant true/read bit 0/read bit 1 has successes (2/3,2/3,2/3,1) and one-query cap.",
+    "declarations": [
+      "QuarticQuery.SemanticReview.orMixture_success",
+      "QuarticQuery.SemanticReview.orTwo_RLe_one",
+      "QuarticQuery.SemanticReview.orTwo_R_eq_one"
+    ],
+    "status": "proposed_uncompiled",
+    "expected": "Lean proofs succeed",
+    "executed": false
+  },
+  {
+    "id": "SEM03",
+    "description": "True-only promise has constant-true zero-query R and Q.",
+    "declarations": [
+      "QuarticQuery.SemanticReview.trueOnly_R_eq_zero",
+      "QuarticQuery.SemanticReview.trueOnly_Q_eq_zero"
+    ],
+    "status": "proposed_uncompiled",
+    "expected": "Lean proofs succeed",
+    "executed": false
+  },
+  {
+    "id": "SEM04",
+    "description": "Two (-1,1,1,1) sign vectors have Phi=-1 and are outside the promise.",
+    "declarations": [
+      "QuarticQuery.SemanticReview.negativePair_Phi",
+      "QuarticQuery.SemanticReview.negativePair_P_none"
+    ],
+    "status": "proposed_uncompiled",
+    "expected": "Kernel reduction and real arithmetic proofs succeed",
+    "executed": false
+  },
+  {
+    "id": "SEM05",
+    "description": "Input-dependent algorithm/strict threshold/off-promise-false/absolute-high mutations change the specified answers.",
+    "module": "QuarticCorpus.Independent.SemanticMutations",
+    "status": "proposed_uncompiled",
+    "expected": "Positive detection proofs succeed",
+    "executed": false
+  },
+  {
+    "id": "SEM06",
+    "description": "Only the solution changes the threshold premise from inclusive to strict.",
+    "config": "lean/QuarticCorpus/Independent/Controls/threshold_mutation.json",
+    "status": "proposed_unexecuted",
+    "expected_exit_code": 1,
+    "expected_diagnostic": "Const does not match between challenge and target 'Round3.ThresholdSpec.Eligible'",
+    "executed": false,
+    "evidence_kind": "actual Comparator rejection required; not inferred from source"
+  },
+  {
+    "id": "SEM07",
+    "description": "Both challenge and solution share an impossible comparison field.",
+    "config": "lean/QuarticCorpus/Independent/Controls/shared_blind_spot.json",
+    "status": "proposed_unexecuted",
+    "expected_exit_code": 0,
+    "expected": "Matching bad specifications are accepted; independent witness test exposes lack of any valid comparison.",
+    "executed": false,
+    "evidence_kind": "shared-specification blind-spot demonstration, never mathematical acceptance"
+  },
+  {
+    "id": "SEM08",
+    "description": "Actual comparison model has concrete two-candidate matrix witness, while deliberately shared bad predicate has none.",
+    "modules": [
+      "QuarticCorpus.Independent.Semantics",
+      "QuarticCorpus.Independent.Controls.SharedAudit"
+    ],
+    "status": "proposed_uncompiled",
+    "expected": "Both detection proofs succeed",
+    "executed": false
+  },
+  {
+    "id": "SEM09",
+    "description": "Existing finite Python model controls.",
+    "command": [
+      "python3",
+      "tools/return_checks/semantic_controls.py"
+    ],
+    "status": "executed_pass",
+    "exit_code": 0,
+    "executed": true,
+    "evidence_kind": "toy finite-model arithmetic; no Lean or Comparator execution",
+    "receipt": "receipts/existing-toy-controls-run.json"
+  },
+  {
+    "id": "SEM10",
+    "description": "New native runner preflight against immutable packet.",
+    "status": "executed_blocked",
+    "exit_code": 2,
+    "executed": true,
+    "receipt": "receipts/preflight-final/run.json",
+    "reason": "lake executable missing; overlay intentionally not installed into original packet. All native case statuses not_run.",
+    "historical_receipt": "receipts/preflight/run.json",
+    "binding_owner": "repository/tools/build_corpus.py::source_hashes(project.parent)"
+  }
+]

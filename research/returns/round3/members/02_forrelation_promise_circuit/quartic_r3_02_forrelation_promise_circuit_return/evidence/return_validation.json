@@ -1,0 +1,25 @@
+{
+  "schema": "quartic-r3-02-return-validation-v1",
+  "passed": true,
+  "section_sha256": "06d3a346920e61e78834b80dd55b34de7cb38dccf7bfecdfc47a6eba29cda0e2",
+  "checks": {
+    "required_files": 22,
+    "parsed_json_files": 19,
+    "correspondence_entries": 55,
+    "passage_anchors": 13,
+    "mapped_declarations": 81,
+    "display_blocks": 32,
+    "markdown_tables": 2,
+    "substantive_lines_covered": 239,
+    "unique_content_blocks": 103,
+    "finite_checks_recorded_passed": true,
+    "canonical_statements_changed": 0,
+    "optional_packet_source_records_checked": 142,
+    "pdf_pages_recorded_visually_reviewed": 9,
+    "manifest_members_verified": 35
+  },
+  "errors": [],
+  "scope": "Structural correspondence, source/hash integrity, recorded finite-check status and PDF metadata/text. Ordinary proofs were reviewed separately; this script is not Lean, Comparator or a kernel proof.",
+  "fresh_lean_run": false,
+  "fresh_comparator_run": false
+}

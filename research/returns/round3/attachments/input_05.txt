@@ -1,0 +1,375 @@
+**The capped direct-product argument is sound. I completed the requested §6.1 replacement and the accompanying evidence and citation audit.** The main improvements are to prove the joint-event version explicitly, explain exactly why adaptivity preserves the needed conditional independence, and correct the stale description of the Lean evidence.
+
+[**quartic_r3_06_direct_product_return.zip**](https://chatgpt.com/library?file_id=libfile_fabd8650fd5c819198b13406b82b6f38&account_id=personal)
+
+The ZIP contains the replacement section, a worked example with an exact checker, declaration-by-declaration correspondence, corrected references, source-reading and verification records, and the requested manifests. This is a completed contribution for the assigned section and its immediate interfaces; it does not claim to verify the entire quartic-separation result.
+
+## 1. The distinction the section needs to make explicit
+
+There are two closely related statements.
+
+### The original theorem: the algorithm always respects the caps
+
+Let \(P:D\to\{0,1\}\), where \(D\) is a finite promised input domain, and let \(\mu\) be a probability distribution on \(D\). Suppose every deterministic algorithm making at most \(L\) queries to one input succeeds with probability at most \(\beta\).
+
+For independent inputs
+\[
+U_1,\ldots,U_r\sim\mu,
+\]
+an adaptive algorithm that makes at most \(L\) queries to **each** input on **every** run satisfies
+\[
+\Pr\!\left[A(U_1,\ldots,U_r)
+       =(P(U_1),\ldots,P(U_r))\right]
+\le \beta^r.
+\]
+
+The algorithm may interleave its queries among the inputs and use randomness or side information, provided that this information is independent of the **whole input tuple**.
+
+This is the target statement in §4.1, Lemma 4.1, of the supplied copy of [OpenAI’s October 5, 2026 preprint](https://github.com/openai/math/blob/main/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf). The baseline explanation already contains the sound core mechanism.
+
+### The additional corollary: count success only on cap-respecting runs
+
+Now allow an algorithm \(A\) that can exceed the caps on some runs. Let
+\[
+E=\{Q_h\le L\text{ for every }h\},
+\]
+where \(Q_h\) is the number of queries made to input \(h\), counting repeated queries.
+
+The useful conclusion is
+\[
+\boxed{\Pr[A(U)=P^r(U)\ \land E]\le\beta^r.}
+\]
+
+This follows by a short truncation argument:
+
+1. Run \(A\) until it is about to make a query that would increase some input’s count from \(L\) to \(L+1\).
+2. Stop immediately before that query and return a fixed output vector.
+3. On every original run in \(E\), the truncated algorithm follows the original execution and returns the same output.
+4. Consequently,
+   \[
+   \{\text{original algorithm correct}\}\cap E
+   \subseteq
+   \{\text{truncated algorithm correct}\}.
+   \]
+5. The truncated algorithm respects every cap on every run, so the original theorem applies.
+
+I kept the canonical theorem unchanged and registered this corollary separately. Its ordinary mathematical proof is complete in the return. The supplied Lean material does **not** contain an exact generic theorem formalizing this event-and-truncation bridge, so the return does not label the new corollary Lean-checked.
+
+## 2. Why the adaptive proof works
+
+The proof needs more than the observation that the inputs started independently. It must establish what remains true after the algorithm has chosen queries using earlier answers.
+
+### A fixed actual history determines a rectangle
+
+First fix the algorithm’s randomness and independent side information, leaving a deterministic decision tree.
+
+For an actual transcript \(\tau\), let \(E_h(\tau)\subseteq D\) be the inputs consistent with the answers observed from input \(h\). The execution event is
+\[
+H_\tau
+=
+\{U_1\in E_1(\tau),\ldots,U_r\in E_r(\tau)\}.
+\]
+
+The query schedule is adaptive, but it is also deterministic once the earlier answers are fixed. Replaying those answers therefore reproduces the same schedule. This is what justifies identifying the execution event with the product of its local consistency conditions.
+
+When \(H_\tau\) has positive probability,
+\[
+\mathcal L(U_1,\ldots,U_r\mid H_\tau)
+=
+\bigotimes_{h=1}^r
+\mu(\,\cdot\mid E_h(\tau)).
+\]
+
+Thus the inputs remain independent **after conditioning on one actual positive-probability history**.
+
+Two details matter here:
+
+- Consistent bit constraints alone do not make an arbitrary syntactic transcript executable. Its named query schedule must also agree with the algorithm.
+- Contradictory answers to repeated queries have probability zero. No conditional distribution needs to be assigned to such a history.
+
+These are the points at which an informal explanation can otherwise hide an assumption.
+
+### Each factor is an optimal continuation value
+
+Let \(q_h(\tau)\) count all queries already made to input \(h\), including repetitions. Define
+\[
+V_h(\tau)
+=
+\max_{\substack{T\text{ a one-input tree}\\
+                 \operatorname{depth}(T)\le L-q_h(\tau)}}
+\Pr[T(U_h)=P(U_h)\mid H_\tau].
+\]
+
+This is the best possible success probability for input \(h\), under its current posterior distribution, using its remaining allowance.
+
+Because the input domain, query labels, output labels, and depth bound are finite, the maximum is attained. That makes the next step particularly clean: an optimal continuation can be selected separately after each possible answer.
+
+Suppose the next query addresses input \(h\). Asking that query and then using the best continuation for the observed answer is a permitted strategy under the old remaining budget. Therefore
+\[
+\mathbb E[V_h(\tau')\mid\tau]\le V_h(\tau).
+\]
+
+For each \(j\ne h\), the posterior on input \(j\) and its remaining allowance stay unchanged, so
+\[
+V_j(\tau')=V_j(\tau).
+\]
+
+Repeated queries fit this formulation. They reveal no new information, but they still consume one unit of the query allowance.
+
+### The product step uses the fact that only one factor changes
+
+Set
+\[
+Z(\tau)=\prod_{h=1}^r V_h(\tau).
+\]
+
+At the next query, only the factor for the queried input can change. All other factors are nonnegative and already determined by the current history. Hence
+\[
+\begin{aligned}
+\mathbb E[Z(\tau')\mid\tau]
+&=
+\left(\prod_{j\ne h}V_j(\tau)\right)
+\mathbb E[V_h(\tau')\mid\tau]\\
+&\le
+\prod_{j=1}^r V_j(\tau).
+\end{aligned}
+\]
+
+This is the precise reason the product has nonincreasing conditional expectation. A general product of supermartingales does not automatically have that property.
+
+Initially, the one-input hardness assumption gives \(V_h(\varnothing)\le\beta\), and therefore
+\[
+Z(\varnothing)\le\beta^r.
+\]
+
+Every capped execution has at most \(rL\) queries. Holding the values constant after termination reduces the argument to finite iteration; no unbounded stopping-time argument is required.
+
+### Terminal success is bounded conditionally
+
+At a terminal history \(\tau\), the output vector is fixed. The posterior product law gives
+\[
+\Pr[\text{all outputs correct}\mid H_\tau]
+=
+\prod_h
+\Pr[P(U_h)=a_h(\tau)\mid H_\tau].
+\]
+
+Each factor is at most \(V_h(\tau)\), since simply returning the proposed bit is a permitted zero-query continuation. Thus
+\[
+\Pr[\text{all outputs correct}\mid H_\tau]\le Z(\tau).
+\]
+
+Averaging over terminal histories completes the bound.
+
+The potential bounds **conditional success probability**. It need not bound the success indicator pointwise on each individual input. That distinction is explicit in the replacement and visible in the worked example.
+
+Finally, independent randomness and side information can be handled by averaging over the resulting deterministic capped behavior trees. With finite query and output alphabets and bounded depth, there are only finitely many such trees. The return separates this ordinary reduction from the narrower literal averaging statements available in the supplied Lean types.
+
+## 3. An exact example shows why conditioning on the cap event is unsafe
+
+The return includes a small example that separates conditioning on a fixed history from conditioning on cap compliance.
+
+Let
+\[
+P(x_0,x_1)=x_0\land x_1
+\]
+under the uniform distribution on two bits. With at most one query, the optimal success probability is
+\[
+\beta=\frac34.
+\]
+
+Take two independent inputs
+\[
+A=(A_0,A_1),\qquad B=(B_0,B_1),
+\]
+and set the per-input cap to \(L=1\).
+
+Consider this algorithm:
+
+1. Query \(A_0=a\).
+2. Query \(B_a=t\). The coordinate queried in \(B\) depends on the answer from \(A\).
+3. If \(a\ne t\), query \(A_0\) again.
+4. Output \((0,0)\).
+
+The repeat adds no information, but it makes the first input exceed its cap. Therefore the cap event is
+\[
+E=\{a=t\}.
+\]
+
+Each history after the first two queries has probability \(1/4\):
+
+| \(a\) | Queried coordinate in \(B\) | \(t\) | Conditional probability both outputs are correct | Final query counts | Caps respected? |
+|---:|---|---:|---:|---|---|
+| 0 | \(B_0\) | 0 | \(1\) | \((1,1)\) | Yes |
+| 0 | \(B_0\) | 1 | \(1/2\) | \((2,1)\) | No |
+| 1 | \(B_1\) | 0 | \(1/2\) | \((2,1)\) | No |
+| 1 | \(B_1\) | 1 | \(1/4\) | \((1,1)\) | Yes |
+
+Writing \(C\) for correctness of both outputs, exact calculation gives
+\[
+\Pr(C)=\frac9{16},\qquad
+\Pr(E)=\frac12,\qquad
+\Pr(C\cap E)=\frac5{16}.
+\]
+
+But
+\[
+\boxed{
+\Pr(C\mid E)=\frac58
+>
+\frac9{16}
+=
+\beta^2.
+}
+\]
+
+The joint-event bound holds. The tempting conditional bound fails.
+
+Conditioning on \(E\) also creates dependence between the inputs:
+\[
+\Pr(A_0=0\mid E)=\frac12,\qquad
+\Pr(B_0=0\mid E)=\frac34,
+\]
+while
+\[
+\Pr(A_0=0,\ B_0=0\mid E)
+=
+\frac12
+\ne
+\frac12\cdot\frac34.
+\]
+
+A cap event can select a union of transcript rectangles, and the resulting conditional distribution need not remain a product distribution.
+
+There is a logical qualification here that I corrected explicitly: **if** one actually proved
+\[
+\Pr(C\mid E)\le\beta^r,
+\]
+then multiplying by \(\Pr(E)\le1\) would indeed imply the joint bound. The invalid step is applying the original independence and hardness assumptions after conditioning on \(E\), without establishing that those assumptions still hold.
+
+The checker uses exact rational arithmetic. It checks all 16 input pairs, the positive-history posterior identities, impossible repeated-answer branches, the 10 single-input depth-at-most-one trees, and the 5,188 two-input trees respecting caps \((1,1)\). The finite checks support the example and its interpretation; the general result is established by the proof above.
+
+## 4. Two assumptions that must remain visible
+
+### A total budget of \(rL\) does not impose a cap of \(L\) on each input
+
+In the same two-AND example, an algorithm with total budget two can compute \(P(A)\) exactly using two queries and guess zero for \(P(B)\). It succeeds on both with probability
+\[
+\frac34>\frac9{16}.
+\]
+
+Thus the total budget \(rL\) cannot simply replace the separate caps.
+
+A total budget of **\(L\)** does imply every separate cap \(L\). This is the stronger total target-query restriction used by the planted simulator in the supplied application, so that use of the capped theorem is valid.
+
+### Side information must be independent of the whole tuple
+
+Let \(X,Y\) be independent fair bits and suppose the task is to output both without making any queries. Each individual bit has optimal guessing probability \(1/2\).
+
+The advice
+\[
+S=X\oplus Y
+\]
+is independent of \(X\) separately and independent of \(Y\) separately. Nevertheless, the output \((0,S)\) is correct whenever \(X=0\), giving success probability
+\[
+\frac12>\left(\frac12\right)^2.
+\]
+
+Separate independence from each input is therefore insufficient. The advice must be independent of the joint tuple. This condition is retained in the statement and correspondence.
+
+## 5. The Lean evidence supports a stronger status than the old “uncompiled” description
+
+The evidence correction is significant: **the current transcript-based source is covered by a supplied successful native build receipt.** The historical blueprint and `UNELABORATED` wording do not accurately describe those current bytes.
+
+I checked the recorded inputs against the supplied files. All six local inputs recorded for the focused native target matched. All 124 recorded local inputs matched in each of the root-build, final-audit, and dependency-export records. The audit-log and generated audit-source hashes also matched.
+
+That establishes that the supplied records refer to the checked local source bytes. It does not amount to a new compilation performed in this review.
+
+| Question | Supported conclusion |
+|---|---|
+| Does the core weighted direct-product proof exist? | Yes. It is part of the recorded dependency route used for the headline result. |
+| Does the transcript-based `Paper/ClassicalDirectProduct.lean` route have current compilation evidence? | Yes. Its current bytes are covered by a successful supplied native receipt. |
+| Does that Paper route include the difficult semantic steps? | Yes: actual transcript law, positive masses, continuation values, conditional product inequality, finite iteration, and the bridge to actual success. |
+| Is the Paper route itself on the recorded headline dependency route? | No. The recorded route reaches the core proof instead. |
+| Is there an exact-helper Comparator pass for these direct-product lemmas? | None was supplied. |
+| Is the new generic joint-event corollary already formalized by an exact supplied declaration? | No. The return supplies its ordinary proof and identifies the formal boundary. |
+| Was Lean freshly run during this review? | No. This review checked the supplied source-bound evidence. |
+
+The correspondence also avoids treating one convenient theorem name as covering an entire compound mathematical claim. For example:
+
+- Defining an optimal continuation value requires the value definition, attainment, and a bound for every permitted continuation tree.
+- The one-step argument needs both the queried-factor inequality and the unchanged-factor result for the other inputs.
+- The final probability bound needs the product step, finite horizon, iteration, and terminal-success bridge.
+
+The return records all required components. It also distinguishes exact source signatures from the supplied elaborated type observations.
+
+The differing snapshot and receipt commit labels are preserved in the gap record. The positive evidence is equality of the recorded local input bytes. The compiled root artifact itself was not available for an independent byte check, and no external dependency rebuild, new Comparator run, or human review is claimed.
+
+### How the two proof routes fit together
+
+The core proof uses unnormalized input weights; the Paper route uses normalized conditional probabilities. Their relationship is direct.
+
+For a nonnegative weight function \(\nu\), define
+\[
+W_c(\nu)
+=
+\max_{\operatorname{depth}(T)\le c}
+\sum_{x\in D}\nu(x)\,
+\mathbf 1\{T(x)=P(x)\}.
+\]
+
+At a positive-probability history, put
+\[
+\nu_h^\tau(x)=
+\mu(x)\mathbf 1\{x\in E_h(\tau)\}.
+\]
+
+Then
+\[
+V_h(\tau)
+=
+\frac{W_{L-q_h(\tau)}(\nu_h^\tau)}
+     {\mu(E_h(\tau))}.
+\]
+
+Since the history probability is the product of the local masses,
+\[
+\boxed{
+\Pr(H_\tau)\prod_hV_h(\tau)
+=
+\prod_hW_{L-q_h(\tau)}(\nu_h^\tau).
+}
+\]
+
+This explains why the two approaches track the same underlying quantity, expressed with different normalization. The replacement includes the identity and its ordinary derivation, while keeping its formalization status explicit.
+
+## 6. Which references are needed, and what each supports
+
+The bibliography now assigns each source a precise role.
+
+| Source | Location to cite | Role |
+|---|---|---|
+| OpenAI, October 5, 2026 preprint | §4.1, Lemma 4.1, pp. 11–12; §4.2, equation (21), p. 13 | Target capped theorem and its planted-simulation application |
+| Andrew Drucker, arXiv:1005.0644v2 | §1.3; Lemmas 3.1–3.2, pp. 11–12; final paragraph of §3, p. 13 | Closest source for conditional continuation values, adaptive-history independence, and the fair specialization |
+| Ronen Shaltiel, ECCC TR01-009 | §5, Definition 4, Theorem 5, Lemma 7, printed pp. 11–12 | Earlier fairness condition and fair XOR direct-product argument |
+
+**Drucker is the closest proof citation.** His conditional-value construction and transcript argument support the mechanism used here. His Theorem 1.1 concerns a global query budget and includes a different success bound, so that theorem should be identified separately rather than used as though it were the exact capped statement. The fair specialization at the end of §3 is the relevant connection. [arxiv.org](https://arxiv.org/pdf/1005.0644v2?utm_source=chatgpt.com)
+
+**Shaltiel needs a precise description.** Definition 4 uses *at most* the allotted number of queries to each input on every root-to-leaf path. The report’s Theorem 5 is an XOR-advantage result under its uniform-input convention; it is not literally the arbitrary-distribution, all-output-bits success statement above. A vector consequence requires an additional argument. The report also has a cover page, so printed pages 11–12 are PDF pages 12–13. [eccc.weizmann.ac.il](https://eccc.weizmann.ac.il/report/2001/009/download?utm_source=chatgpt.com)
+
+The source record preserves edition distinctions. In particular, the pinned Drucker TeX is associated with arXiv v2, while the retained local PDF is an earlier, byte-distinct acquisition. I checked the relevant passages against public v2 without claiming full byte identity between those editions.
+
+## 7. What is in the completed return
+
+The single ZIP includes:
+
+- **`section.md`** — the complete replacement §6.1, with stable passage anchors and numbered displays.
+- **`worked_example.md`** and an exact Python checker — the adaptive AND example, cap-event calculations, posterior checks, and finite tree enumeration.
+- **`correspondence.json`** and **`lean_types.json`** — the mathematical-to-formal mapping, including the components needed for compound claims.
+- **`NEW_STATEMENTS.json`** and **`STATEMENT_CHANGES.json`** — separately registered additions, with no changes asserted to the canonical mathematical statements.
+- **`LEAN_GAPS.md`** and evidence audit records — the remaining formalization boundaries and exact scope of the supplied verification evidence.
+- **`references.bib`**, **`source_read_receipt.json`**, **`review_notes.md`**, **`STYLE_RULES.json`**, validation records, and a byte-and-hash manifest.
+
+All 390 entries in the supplied manifest matched their recorded byte counts and hashes. The final archive’s member hashes and ZIP integrity checks passed. An additional independent AI mathematical review found no mathematical must-fix in the replacement; its clarity suggestions were incorporated. The Markdown and equations were checked, but no integrated paper edition was rendered.
+
+One attachment remains unread: **`Pasted text(20261102-190836).txt`** was inaccessible in this session. The completed work is based on the ZIP. Please reupload that text if it contains additional instructions or material that should be incorporated.

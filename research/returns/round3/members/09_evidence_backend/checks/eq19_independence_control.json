@@ -1,0 +1,18 @@
+{
+  "scope": "exact finite Python probability model; no project Lean execution",
+  "m": 4,
+  "query_cap": 4,
+  "zero_configurations": 256,
+  "expected_distinct_discoveries": "1",
+  "independent_uniform_index_hit_probability": "1/4",
+  "expected_discoveries_div_m": "1/4",
+  "dependent_index_marginals": [
+    "1/4",
+    "1/4",
+    "1/4",
+    "1/4"
+  ],
+  "dependent_index_hit_probability": "175/256",
+  "conclusion": "A uniform marginal for I does not replace independence from the dummy run.",
+  "actual_preprint_counterexample": false
+}

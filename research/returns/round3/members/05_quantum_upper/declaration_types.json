@@ -1,0 +1,2520 @@
+{
+  "schema": "quartic-r3-05-selected-declaration-types-v1",
+  "source_audit": "checks/lean_evidence_audit.json",
+  "declarations": [
+    {
+      "name": "QuarticQuery.Amplification.Preparation.nine_fortieths_le",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Amplification/Bounded.lean",
+      "source_sha256": "6a6465ae0cbd0503cf327c5f33f6509f492a707795c0358880c8f12c9624c96d",
+      "source_start_line": 127,
+      "source_end_line": 128,
+      "source_statement": "theorem nine_fortieths_le {γ : ℝ} (hγ : 0 < γ) (hp : γ ≤ A.prob) :\n    (9 / 40 : ℝ) ≤ 1 - A.trialFail (iterationBound γ)",
+      "ambient_source_variables": [
+        {
+          "line": 118,
+          "text": "variable {H : Type u} [NormedAddCommGroup H] [InnerProductSpace ℂ H]"
+        },
+        {
+          "line": 124,
+          "text": "variable (A : Preparation H)"
+        }
+      ],
+      "namespace": "QuarticQuery.Amplification.Preparation",
+      "ambient_opens_and_universes": [
+        {
+          "line": 28,
+          "text": "open Finset"
+        },
+        {
+          "line": 30,
+          "text": "universe u"
+        }
+      ],
+      "printed_full_type": null,
+      "type_boundary": "No printed elaborated type is supplied in the reviewed audit log for this name. Source statement and ambient variables are recorded verbatim; they must be interpreted in the original namespace/import context.",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": true,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": false
+      }
+    },
+    {
+      "name": "QuarticQuery.Amplification.Preparation.phaseEq_normalised_good_iterate",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Amplification/Geometry.lean",
+      "source_sha256": "ff5e758a77d21bc133a930d545672cb5faa76aa422019413c634085881142dc9",
+      "source_start_line": 437,
+      "source_end_line": 439,
+      "source_statement": "theorem phaseEq_normalised_good_iterate {ℓ : ℕ}\n    (hs : Real.sin ((2 * ℓ + 1) * A.angle) ≠ 0) :\n    PhaseEq (normalised (A.good (A.iterate ℓ))) A.goodState",
+      "ambient_source_variables": [
+        {
+          "line": 113,
+          "text": "variable {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℂ H]"
+        },
+        {
+          "line": 188,
+          "text": "variable (A : Preparation H)"
+        }
+      ],
+      "namespace": "QuarticQuery.Amplification.Preparation",
+      "ambient_opens_and_universes": [],
+      "printed_full_type": null,
+      "type_boundary": "No printed elaborated type is supplied in the reviewed audit log for this name. Source statement and ambient variables are recorded verbatim; they must be interpreted in the original namespace/import context.",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": true,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": false
+      }
+    },
+    {
+      "name": "QuarticQuery.Amplification.average_sin_sq",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Amplification/Average.lean",
+      "source_sha256": "fd837b83033d2df6d833a0fdecaef7110339d5747b8aaa1f674c14d3e50473b6",
+      "source_start_line": 41,
+      "source_end_line": 43,
+      "source_statement": "theorem average_sin_sq {θ : ℝ} {M : ℕ} (hM : M ≠ 0) (hs : Real.sin (2 * θ) ≠ 0) :\n    (1 / (M : ℝ)) * ∑ ℓ ∈ range M, Real.sin ((2 * ℓ + 1) * θ) ^ 2\n      = 1 / 2 - Real.sin (4 * M * θ) / (4 * M * Real.sin (2 * θ))",
+      "ambient_source_variables": [],
+      "namespace": "QuarticQuery.Amplification",
+      "ambient_opens_and_universes": [
+        {
+          "line": 17,
+          "text": "open Finset"
+        }
+      ],
+      "printed_full_type": null,
+      "type_boundary": "No printed elaborated type is supplied in the reviewed audit log for this name. Source statement and ambient variables are recorded verbatim; they must be interpreted in the original namespace/import context.",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": true,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": false
+      }
+    },
+    {
+      "name": "QuarticQuery.Amplification.bounded_amplification",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Amplification/Bounded.lean",
+      "source_sha256": "6a6465ae0cbd0503cf327c5f33f6509f492a707795c0358880c8f12c9624c96d",
+      "source_start_line": 242,
+      "source_end_line": 257,
+      "source_statement": "theorem bounded_amplification {γ η : ℝ} (hγ : 0 < γ) (hγ1 : γ ≤ 1 / 2) (hη : 0 < η)\n    (hη1 : η < 1 / 2) :\n    (amplify γ η).callCap ≤ trialCount η * (2 * iterationBound γ + 1) ∧\n    ((amplify γ η).callCap : ℝ) ≤ 138 * (Real.sqrt γ)⁻¹ * Real.log (1 / η) ∧\n    ∀ {H : Type u} [NormedAddCommGroup H] [InnerProductSpace ℂ H] (A : Preparation H),\n      (amplify γ η).successProb A + (amplify γ η).failProb A = 1 ∧\n      (∀ h : Option H → ℝ, PhaseInvariant h →\n        (amplify γ η).expect A h A.zero =\n          (amplify γ η).successProb A * h (some A.goodState) +\n          (amplify γ η).failProb A * h none) ∧\n      (∀ k : H → ℝ, (∀ c : ℂ, ‖c‖ = 1 → ∀ v, k (c • v) = k v) →\n        (amplify γ η).successProb A ≠ 0 →\n        (amplify γ η).conditional A k = k A.goodState) ∧\n      (amplify γ η).wrongStateMass A = 0 ∧\n      (γ ≤ A.prob → (amplify γ η).failProb A ≤ η) ∧\n      (A.prob = 0 → (amplify γ η).failProb A = 1)",
+      "ambient_source_variables": [
+        {
+          "line": 118,
+          "text": "variable {H : Type u} [NormedAddCommGroup H] [InnerProductSpace ℂ H]"
+        }
+      ],
+      "namespace": "QuarticQuery.Amplification",
+      "ambient_opens_and_universes": [
+        {
+          "line": 28,
+          "text": "open Finset"
+        },
+        {
+          "line": 30,
+          "text": "universe u"
+        },
+        {
+          "line": 233,
+          "text": "open Classical in"
+        }
+      ],
+      "printed_full_type": null,
+      "type_boundary": "No printed elaborated type is supplied in the reviewed audit log for this name. Source statement and ambient variables are recorded verbatim; they must be interpreted in the original namespace/import context.",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": false
+      }
+    },
+    {
+      "name": "QuarticQuery.Amplification.sin_two_mul_sum_sin_sq",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Amplification/Average.lean",
+      "source_sha256": "fd837b83033d2df6d833a0fdecaef7110339d5747b8aaa1f674c14d3e50473b6",
+      "source_start_line": 20,
+      "source_end_line": 22,
+      "source_statement": "theorem sin_two_mul_sum_sin_sq (θ : ℝ) (M : ℕ) :\n    Real.sin (2 * θ) * ∑ ℓ ∈ range M, Real.sin ((2 * ℓ + 1) * θ) ^ 2\n      = M * Real.sin (2 * θ) / 2 - Real.sin (4 * M * θ) / 4",
+      "ambient_source_variables": [],
+      "namespace": "QuarticQuery.Amplification",
+      "ambient_opens_and_universes": [
+        {
+          "line": 17,
+          "text": "open Finset"
+        }
+      ],
+      "printed_full_type": null,
+      "type_boundary": "No printed elaborated type is supplied in the reviewed audit log for this name. Source statement and ambient variables are recorded verbatim; they must be interpreted in the original namespace/import context.",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": true,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": false
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.amplification_budget_le",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumAmplification.lean",
+      "source_sha256": "95d89237e766b59ffdd52f1324e440e2127b06353b2c8de2482b9f55c4adb30b",
+      "source_start_line": 156,
+      "source_end_line": 159,
+      "source_statement": "theorem amplification_budget_le {γ η : ℝ} (hγ : 0 < γ) (hγ1 : γ ≤ 1 / 2)\n    (hη : 0 < η) (hη1 : η < 1 / 2) :\n    (trialCount η : ℝ) * (2 * (iterationBound γ : ℝ) + 1) ≤\n      138 * (Real.sqrt γ)⁻¹ * Real.log (1 / η)",
+      "ambient_source_variables": [],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 27,
+          "text": "open QuarticQuery.Amplification QuarticQuery.Upper"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.amplification_budget_le {γ η : Real} (hγ : LT.lt 0 γ) (hγ1 : LE.le γ (1 / 2)) (hη : LT.lt 0 η)\n  (hη1 : LT.lt η (1 / 2)) :\n  LE.le\n    (HMul.hMul (↑(QuarticQuery.Amplification.trialCount η))\n      (HAdd.hAdd (HMul.hMul 2 ↑(QuarticQuery.Amplification.iterationBound γ)) 1))\n    (HMul.hMul (HMul.hMul 138 (Inv.inv γ.sqrt)) (Real.log (HDiv.hDiv 1 η)))",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 741,
+      "type_log_end_line": 746,
+      "axiom_log_line": 747,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.equation_15",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumTensor.lean",
+      "source_sha256": "7a2f03d6ae2d8d3ff2af9837f6cb1e1f1f3d5b4983dc34e753792621443835ac",
+      "source_start_line": 120,
+      "source_end_line": 131,
+      "source_statement": "theorem equation_15 {ι Col Z : Type} [Fintype Col] [Nonempty Col] [Fintype Z]\n    {c : ℕ} (o : Z)\n    (F : Col → Col → BitInput ι → Reg Z ≃ₗᵢ[ℂ] Reg Z)\n    (hF : ∀ i j, IsCirc c (F i j)) (p : ℕ → Col) (t : ℕ) :\n    ∃ (i₀ : Col)\n      (A : BitInput ι → Reg (Σ _ : Col, TensorBasis Z t) ≃ₗᵢ[ℂ]\n        Reg (Σ _ : Col, TensorBasis Z t)),\n      IsCirc (t * c) A ∧\n      ∀ x i, slice i (A x (rket (⟨i₀, tensorOrigin o t⟩ :\n          Σ _ : Col, TensorBasis Z t))) =\n        (((Real.sqrt ((Fintype.card Col : ℝ)⁻¹) : ℝ) : ℂ) •\n          tensorVector (fun b => F i (p b) x (rket o)) t)",
+      "ambient_source_variables": [],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 26,
+          "text": "open QuarticQuery.Upper"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.equation_15 {ι Col Z : Type} [Fintype Col] [Nonempty Col] [Fintype Z] {c : Nat} (o : Z)\n  (F :\n    Col →\n      Col →\n        QuarticQuery.BitInput ι →\n          LinearIsometryEquiv (RingHom.id Complex) (QuarticQuery.Upper.Reg Z) (QuarticQuery.Upper.Reg Z))\n  (hF : ∀ (i j : Col), QuarticQuery.Upper.IsCirc c (F i j)) (p : Nat → Col) (t : Nat) :\n  Exists fun i₀ =>\n    Exists fun A =>\n      And (QuarticQuery.Upper.IsCirc (HMul.hMul t c) A)\n        (∀ (x : QuarticQuery.BitInput ι) (i : Col),\n          Eq ((QuarticQuery.Upper.slice i) ((A x) (QuarticQuery.Upper.rket ⟨i₀, QuarticQuery.Paper.tensorOrigin o t⟩)))\n            (HSMul.hSMul (↑(Inv.inv ↑(Fintype.card Col)).sqrt)\n              (QuarticQuery.Paper.tensorVector (fun b => (F i (p b) x) (QuarticQuery.Upper.rket o)) t)))",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 1146,
+      "type_log_end_line": 1159,
+      "axiom_log_line": 1160,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantumComparison_complementary",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumComparison.lean",
+      "source_sha256": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+      "source_start_line": 198,
+      "source_end_line": 200,
+      "source_statement": "theorem quantumComparison_complementary (n : ℕ)\n    (x : BitInput (Loc k t C)) (i j : Col t) (hij : i ≠ j) :\n    cmpProb n x i j + cmpProb n x j i = 1",
+      "ambient_source_variables": [
+        {
+          "line": 27,
+          "text": "variable {k t : ℕ} {C : Circuit (ForrelationCoord k t)}"
+        }
+      ],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 23,
+          "text": "open QuarticQuery.Upper QuarticQuery.Forrelation"
+        },
+        {
+          "line": 24,
+          "text": "open QuarticQuery.Tournament QuarticQuery.Amplification"
+        },
+        {
+          "line": 25,
+          "text": "open scoped BigOperators"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.quantumComparison_complementary {k t : Nat}\n  {C : QuarticQuery.Circuit (QuarticQuery.ForrelationCoord k t)} (n : Nat)\n  (x : QuarticQuery.BitInput (QuarticQuery.Upper.Loc k t C)) (i j : QuarticQuery.Upper.Col t) (hij : Ne i j) :\n  Eq (HAdd.hAdd (QuarticQuery.Upper.cmpProb n x i j) (QuarticQuery.Upper.cmpProb n x j i)) 1",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 881,
+      "type_log_end_line": 884,
+      "axiom_log_line": 885,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantumComparison_sorted",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumComparison.lean",
+      "source_sha256": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+      "source_start_line": 188,
+      "source_end_line": 193,
+      "source_statement": "theorem quantumComparison_sorted (n : ℕ) (x : BitInput (Loc k t C))\n    (i j : Col t) (hij : i < j) :\n    cmpProb n x i j =\n      ∑ s₁, addrLaw n x i s₁ * ∑ s₂, addrLaw n x j s₂ *\n        (if firstWins (disq x i s₁ j hij.ne')\n          (disq x j s₂ i hij.ne) then (1 : ℝ) else 0)",
+      "ambient_source_variables": [
+        {
+          "line": 27,
+          "text": "variable {k t : ℕ} {C : Circuit (ForrelationCoord k t)}"
+        }
+      ],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 23,
+          "text": "open QuarticQuery.Upper QuarticQuery.Forrelation"
+        },
+        {
+          "line": 24,
+          "text": "open QuarticQuery.Tournament QuarticQuery.Amplification"
+        },
+        {
+          "line": 25,
+          "text": "open scoped BigOperators"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.quantumComparison_sorted {k t : Nat} {C : QuarticQuery.Circuit (QuarticQuery.ForrelationCoord k t)}\n  (n : Nat) (x : QuarticQuery.BitInput (QuarticQuery.Upper.Loc k t C)) (i j : QuarticQuery.Upper.Col t)\n  (hij : LT.lt i j) :\n  Eq (QuarticQuery.Upper.cmpProb n x i j)\n    (Finset.univ.sum fun s₁ =>\n      HMul.hMul (QuarticQuery.Upper.addrLaw n x i s₁)\n        (Finset.univ.sum fun s₂ =>\n          HMul.hMul (QuarticQuery.Upper.addrLaw n x j s₂)\n            (ite\n              (Eq\n                (QuarticQuery.Upper.firstWins (QuarticQuery.Upper.disq x i s₁ j ⋯) (QuarticQuery.Upper.disq x j s₂ i ⋯))\n                true)\n              1 0)))",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 921,
+      "type_log_end_line": 933,
+      "axiom_log_line": 934,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantumComparison_state",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumComparison.lean",
+      "source_sha256": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+      "source_start_line": 218,
+      "source_end_line": 223,
+      "source_statement": "theorem quantumComparison_state (hk : 1 ≤ k) (n : ℕ) (i j : Col t) :\n    ∃ (Z : Type) (_ : Fintype Z) (o : Z) (out : Z → Bool)\n      (F : BitInput (Loc k t C) → Reg Z ≃ₗᵢ[ℂ] Reg Z),\n      IsCirc (cmpCost k t n) F ∧\n      IsCirc (cmpCost k t n) (fun x => (F x).symm) ∧\n      ∀ x b, lawOf (F x (rket o)) out b = bern (cmpProb n x i j) b",
+      "ambient_source_variables": [
+        {
+          "line": 27,
+          "text": "variable {k t : ℕ} {C : Circuit (ForrelationCoord k t)}"
+        }
+      ],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 23,
+          "text": "open QuarticQuery.Upper QuarticQuery.Forrelation"
+        },
+        {
+          "line": 24,
+          "text": "open QuarticQuery.Tournament QuarticQuery.Amplification"
+        },
+        {
+          "line": 25,
+          "text": "open scoped BigOperators"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.quantumComparison_state {k t : Nat} {C : QuarticQuery.Circuit (QuarticQuery.ForrelationCoord k t)}\n  (hk : LE.le 1 k) (n : Nat) (i j : QuarticQuery.Upper.Col t) :\n  Exists fun Z =>\n    Exists fun x =>\n      Exists fun o =>\n        Exists fun out =>\n          Exists fun F =>\n            And (QuarticQuery.Upper.IsCirc (QuarticQuery.Upper.cmpCost k t n) F)\n              (And (QuarticQuery.Upper.IsCirc (QuarticQuery.Upper.cmpCost k t n) fun x_1 => (F x_1).symm)\n                (∀ (x_1 : QuarticQuery.BitInput (QuarticQuery.Upper.Loc k t C)) (b : Bool),\n                  Eq (QuarticQuery.Upper.lawOf ((F x_1) (QuarticQuery.Upper.rket o)) out b)\n                    (QuarticQuery.Upper.bern (QuarticQuery.Upper.cmpProb n x_1 i j) b)))",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 950,
+      "type_log_end_line": 961,
+      "axiom_log_line": 962,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantumComparison_unordered_state",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumComparison.lean",
+      "source_sha256": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+      "source_start_line": 230,
+      "source_end_line": 237,
+      "source_statement": "theorem quantumComparison_unordered_state (hk : 1 ≤ k) (n : ℕ)\n    (i j : Col t) (hij : i ≠ j) :\n    ∃ (Z : Type) (_ : Fintype Z) (o : Z) (out : Z → Bool)\n      (F : BitInput (Loc k t C) → Reg Z ≃ₗᵢ[ℂ] Reg Z),\n      IsCirc (cmpCost k t n) F ∧\n      ∀ x b,\n        lawOf (F x (rket o)) out b = bern (cmpProb n x i j) b ∧\n        lawOf (F x (rket o)) (fun z => !(out z)) b = bern (cmpProb n x j i) b",
+      "ambient_source_variables": [
+        {
+          "line": 27,
+          "text": "variable {k t : ℕ} {C : Circuit (ForrelationCoord k t)}"
+        }
+      ],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 23,
+          "text": "open QuarticQuery.Upper QuarticQuery.Forrelation"
+        },
+        {
+          "line": 24,
+          "text": "open QuarticQuery.Tournament QuarticQuery.Amplification"
+        },
+        {
+          "line": 25,
+          "text": "open scoped BigOperators"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.quantumComparison_unordered_state {k t : Nat}\n  {C : QuarticQuery.Circuit (QuarticQuery.ForrelationCoord k t)} (hk : LE.le 1 k) (n : Nat)\n  (i j : QuarticQuery.Upper.Col t) (hij : Ne i j) :\n  Exists fun Z =>\n    Exists fun x =>\n      Exists fun o =>\n        Exists fun out =>\n          Exists fun F =>\n            And (QuarticQuery.Upper.IsCirc (QuarticQuery.Upper.cmpCost k t n) F)\n              (∀ (x_1 : QuarticQuery.BitInput (QuarticQuery.Upper.Loc k t C)) (b : Bool),\n                And\n                  (Eq (QuarticQuery.Upper.lawOf ((F x_1) (QuarticQuery.Upper.rket o)) out b)\n                    (QuarticQuery.Upper.bern (QuarticQuery.Upper.cmpProb n x_1 i j) b))\n                  (Eq (QuarticQuery.Upper.lawOf ((F x_1) (QuarticQuery.Upper.rket o)) (fun z => (out z).not) b)\n                    (QuarticQuery.Upper.bern (QuarticQuery.Upper.cmpProb n x_1 j i) b)))",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 861,
+      "type_log_end_line": 875,
+      "axiom_log_line": 876,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantumDecode",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumComparison.lean",
+      "source_sha256": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+      "source_start_line": 33,
+      "source_end_line": 35,
+      "source_statement": "theorem quantumDecode (hk : 1 ≤ k) (n : ℕ) (i : Col t) :\n    Samples (addrCost k t n) fun (x : BitInput (Loc k t C)) s =>\n      addrLaw n x i s",
+      "ambient_source_variables": [
+        {
+          "line": 27,
+          "text": "variable {k t : ℕ} {C : Circuit (ForrelationCoord k t)}"
+        }
+      ],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 23,
+          "text": "open QuarticQuery.Upper QuarticQuery.Forrelation"
+        },
+        {
+          "line": 24,
+          "text": "open QuarticQuery.Tournament QuarticQuery.Amplification"
+        },
+        {
+          "line": 25,
+          "text": "open scoped BigOperators"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.quantumDecode {k t : Nat} {C : QuarticQuery.Circuit (QuarticQuery.ForrelationCoord k t)}\n  (hk : LE.le 1 k) (n : Nat) (i : QuarticQuery.Upper.Col t) :\n  QuarticQuery.Upper.Samples (QuarticQuery.Upper.addrCost k t n) fun x s => QuarticQuery.Upper.addrLaw n x i s",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 886,
+      "type_log_end_line": 888,
+      "axiom_log_line": 889,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantumDecode_correct",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumComparison.lean",
+      "source_sha256": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+      "source_start_line": 54,
+      "source_end_line": 59,
+      "source_statement": "theorem quantumDecode_correct (hk : 1 ≤ k) (ht : 1 ≤ t)\n    {n : ℕ} {ε : ℝ} (hε : 0 < ε) (hε1 : ε ≤ 1)\n    (hn : repetitions k (ε / (40 * t : ℕ)) ≤ n)\n    {x : BitInput (Loc k t C)} {i : Col t} {s : Addr t}\n    (hs : ∀ h, P k t (readA x i h) = some (s h)) :\n    1 - ε ≤ addrLaw n x i s",
+      "ambient_source_variables": [
+        {
+          "line": 27,
+          "text": "variable {k t : ℕ} {C : Circuit (ForrelationCoord k t)}"
+        }
+      ],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 23,
+          "text": "open QuarticQuery.Upper QuarticQuery.Forrelation"
+        },
+        {
+          "line": 24,
+          "text": "open QuarticQuery.Tournament QuarticQuery.Amplification"
+        },
+        {
+          "line": 25,
+          "text": "open scoped BigOperators"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.quantumDecode_correct {k t : Nat} {C : QuarticQuery.Circuit (QuarticQuery.ForrelationCoord k t)}\n  (hk : LE.le 1 k) (ht : LE.le 1 t) {n : Nat} {ε : Real} (hε : LT.lt 0 ε) (hε1 : LE.le ε 1)\n  (hn : LE.le (QuarticQuery.Forrelation.repetitions k (HDiv.hDiv ε ↑(HMul.hMul 40 t))) n)\n  {x : QuarticQuery.BitInput (QuarticQuery.Upper.Loc k t C)} {i : QuarticQuery.Upper.Col t}\n  {s : QuarticQuery.Upper.Addr t}\n  (hs : ∀ (h : Fin (HMul.hMul 40 t)), Eq (QuarticQuery.P k t (QuarticQuery.readA x i h)) (some (s h))) :\n  LE.le (HSub.hSub 1 ε) (QuarticQuery.Upper.addrLaw n x i s)",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 895,
+      "type_log_end_line": 901,
+      "axiom_log_line": 902,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantumDecode_polylog",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumComparison.lean",
+      "source_sha256": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+      "source_start_line": 153,
+      "source_end_line": 155,
+      "source_statement": "theorem quantumDecode_polylog (ht : 1 ≤ t) :\n    2 * addrCost k t (repetitions k (epsval (mValue t) / (40 * t : ℕ))) ≤\n      40 * (1 + 1920000 * 2 ^ (10 * k)) * k * (2 * t) ^ 3",
+      "ambient_source_variables": [
+        {
+          "line": 27,
+          "text": "variable {k t : ℕ} {C : Circuit (ForrelationCoord k t)}"
+        }
+      ],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 23,
+          "text": "open QuarticQuery.Upper QuarticQuery.Forrelation"
+        },
+        {
+          "line": 24,
+          "text": "open QuarticQuery.Tournament QuarticQuery.Amplification"
+        },
+        {
+          "line": 25,
+          "text": "open scoped BigOperators"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.quantumDecode_polylog {k t : Nat} (ht : LE.le 1 t) :\n  LE.le\n    (HMul.hMul 2\n      (QuarticQuery.Upper.addrCost k t\n        (QuarticQuery.Forrelation.repetitions k\n          (HDiv.hDiv (QuarticQuery.Tournament.epsval (QuarticQuery.mValue t)) ↑(HMul.hMul 40 t)))))\n    (HMul.hMul (HMul.hMul (HMul.hMul 40 (HAdd.hAdd 1 (HMul.hMul 1920000 (HPow.hPow 2 (HMul.hMul 10 k))))) k)\n      (HPow.hPow (HMul.hMul 2 t) 3))",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 912,
+      "type_log_end_line": 919,
+      "axiom_log_line": 920,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantumDecode_query_bound_real",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumComparison.lean",
+      "source_sha256": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+      "source_start_line": 65,
+      "source_end_line": 69,
+      "source_statement": "theorem quantumDecode_query_bound_real (ht : 1 ≤ t) {ε : ℝ}\n    (hε : 0 < ε) (hε1 : ε ≤ 1) :\n    ((2 * addrCost k t (repetitions k (ε / (40 * t : ℕ))) : ℕ) : ℝ) ≤\n      80 * (t : ℝ) * (k : ℝ) *\n        (1 + 16 * (2 : ℝ) ^ (10 * k) * Real.log ((40 * t : ℕ) / ε))",
+      "ambient_source_variables": [
+        {
+          "line": 27,
+          "text": "variable {k t : ℕ} {C : Circuit (ForrelationCoord k t)}"
+        }
+      ],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 23,
+          "text": "open QuarticQuery.Upper QuarticQuery.Forrelation"
+        },
+        {
+          "line": 24,
+          "text": "open QuarticQuery.Tournament QuarticQuery.Amplification"
+        },
+        {
+          "line": 25,
+          "text": "open scoped BigOperators"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.quantumDecode_query_bound_real {k t : Nat} (ht : LE.le 1 t) {ε : Real} (hε : LT.lt 0 ε)\n  (hε1 : LE.le ε 1) :\n  LE.le\n    (↑(HMul.hMul 2\n        (QuarticQuery.Upper.addrCost k t (QuarticQuery.Forrelation.repetitions k (HDiv.hDiv ε ↑(HMul.hMul 40 t))))))\n    (HMul.hMul (HMul.hMul (HMul.hMul 80 ↑t) ↑k)\n      (HAdd.hAdd 1\n        (HMul.hMul (HMul.hMul 16 (HPow.hPow 2 (HMul.hMul 10 k))) (Real.log (HDiv.hDiv (↑(HMul.hMul 40 t)) ε)))))",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 903,
+      "type_log_end_line": 910,
+      "axiom_log_line": 911,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantumDominant_iff",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+      "source_sha256": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
+      "source_start_line": 63,
+      "source_end_line": 64,
+      "source_statement": "theorem quantumDominant_iff {Col : Type} (a : Col → Col → ℝ) (ε : ℝ) (s : Col) :\n    Dominant a ε s ↔ ∀ j, j ≠ s → 1 - ε ≤ a s j",
+      "ambient_source_variables": [],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 20,
+          "text": "open QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.quantumDominant_iff {Col : Type} (a : Col → Col → Real) (ε : Real) (s : Col) :\n  Iff (QuarticQuery.Tournament.Dominant a ε s) (∀ (j : Col), Ne j s → LE.le (HSub.hSub 1 ε) (a s j))",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 1236,
+      "type_log_end_line": 1237,
+      "axiom_log_line": 1238,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantumDrift",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+      "source_sha256": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
+      "source_start_line": 69,
+      "source_end_line": 76,
+      "source_statement": "theorem quantumDrift {Col : Type} [Fintype Col] [DecidableEq Col]\n    (w : Col → ℝ) {a : Col → Col → ℝ} (ha : IsComparison a)\n    {W : ℝ} (hW : W = ∑ i, w i) (hpos : 0 < W) :\n    (∑ p, (w p / W) * ∑ i, w i * a i p) =\n        (1 / W) * ∑ p, ∑ i, w p * w i * a i p ∧\n    (1 / W) * (∑ p, ∑ i, w p * w i * a i p) =\n        (W ^ 2 - ∑ i, w i ^ 2) / (2 * W) ∧\n    (W ^ 2 - ∑ i, w i ^ 2) / (2 * W) ≤ W / 2",
+      "ambient_source_variables": [],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 20,
+          "text": "open QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.quantumDrift {Col : Type} [Fintype Col] [DecidableEq Col] (w : Col → Real) {a : Col → Col → Real}\n  (ha : QuarticQuery.Tournament.IsComparison a) {W : Real} (hW : Eq W (Finset.univ.sum fun i => w i))\n  (hpos : LT.lt 0 W) :\n  And\n    (Eq (Finset.univ.sum fun p => HMul.hMul (HDiv.hDiv (w p) W) (Finset.univ.sum fun i => HMul.hMul (w i) (a i p)))\n      (HMul.hMul (HDiv.hDiv 1 W)\n        (Finset.univ.sum fun p => Finset.univ.sum fun i => HMul.hMul (HMul.hMul (w p) (w i)) (a i p))))\n    (And\n      (Eq\n        (HMul.hMul (HDiv.hDiv 1 W)\n          (Finset.univ.sum fun p => Finset.univ.sum fun i => HMul.hMul (HMul.hMul (w p) (w i)) (a i p)))\n        (HDiv.hDiv (HSub.hSub (HPow.hPow W 2) (Finset.univ.sum fun i => HPow.hPow (w i) 2)) (HMul.hMul 2 W)))\n      (LE.le (HDiv.hDiv (HSub.hSub (HPow.hPow W 2) (Finset.univ.sum fun i => HPow.hPow (w i) 2)) (HMul.hMul 2 W))\n        (HDiv.hDiv W 2)))",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 1212,
+      "type_log_end_line": 1225,
+      "axiom_log_line": 1226,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantumError_bound",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumComparison.lean",
+      "source_sha256": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+      "source_start_line": 539,
+      "source_end_line": 549,
+      "source_statement": "theorem quantumError_bound (hk : 1 ≤ k) (ht : 1 ≤ t)\n    (hC : CircuitRealises C (P k t)) {n : ℕ}\n    (hn : repetitions k (epsval (mValue t) / (40 * t : ℕ)) ≤ n) :\n    ∃ val : BitInput (Loc k t C) → ℝ,\n      Runs (budget k t n (Fintype.card (Tests t C)))\n        (fun x b => bern (val x) b) ∧\n      (∀ x, Fkm k t C x = false →\n        val x ≤ (Tval (mValue t) : ℝ) * epsval (mValue t)) ∧\n      (∀ x, Fkm k t C x = true →\n        1 - val x ≤ 2 * (mValue t : ℝ) / 2 ^ Tval (mValue t) +\n          (Tval (mValue t) : ℝ) * epsval (mValue t) + epsval (mValue t))",
+      "ambient_source_variables": [
+        {
+          "line": 27,
+          "text": "variable {k t : ℕ} {C : Circuit (ForrelationCoord k t)}"
+        }
+      ],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 23,
+          "text": "open QuarticQuery.Upper QuarticQuery.Forrelation"
+        },
+        {
+          "line": 24,
+          "text": "open QuarticQuery.Tournament QuarticQuery.Amplification"
+        },
+        {
+          "line": 25,
+          "text": "open scoped BigOperators"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.quantumError_bound {k t : Nat} {C : QuarticQuery.Circuit (QuarticQuery.ForrelationCoord k t)}\n  (hk : LE.le 1 k) (ht : LE.le 1 t) (hC : QuarticQuery.CircuitRealises C (QuarticQuery.P k t)) {n : Nat}\n  (hn :\n    LE.le\n      (QuarticQuery.Forrelation.repetitions k\n        (HDiv.hDiv (QuarticQuery.Tournament.epsval (QuarticQuery.mValue t)) ↑(HMul.hMul 40 t)))\n      n) :\n  Exists fun val =>\n    And\n      (QuarticQuery.Upper.Runs (QuarticQuery.Upper.budget k t n (Fintype.card (QuarticQuery.Upper.Tests t C)))\n        fun x b => QuarticQuery.Upper.bern (val x) b)\n      (And\n        (∀\n          (x :\n            QuarticQuery.BitInput\n              (QuarticQuery.BitLoc (HMul.hMul 2 t) (HMul.hMul 40 t) C.size (QuarticQuery.ForrelationCoord k t))),\n          Eq (QuarticQuery.Fkm k t C x) false →\n            LE.le (val x)\n              (HMul.hMul (↑(QuarticQuery.Tournament.Tval (QuarticQuery.mValue t)))\n                (QuarticQuery.Tournament.epsval (QuarticQuery.mValue t))))\n        (∀\n          (x :\n            QuarticQuery.BitInput\n              (QuarticQuery.BitLoc (HMul.hMul 2 t) (HMul.hMul 40 t) C.size (QuarticQuery.ForrelationCoord k t))),\n          Eq (QuarticQuery.Fkm k t C x) true →\n            LE.le (HSub.hSub 1 (val x))\n              (HAdd.hAdd\n                (HAdd.hAdd\n                  (HDiv.hDiv (HMul.hMul 2 ↑(QuarticQuery.mValue t))\n                    (HPow.hPow 2 (QuarticQuery.Tournament.Tval (QuarticQuery.mValue t))))\n                  (HMul.hMul (↑(QuarticQuery.Tournament.Tval (QuarticQuery.mValue t)))\n                    (QuarticQuery.Tournament.epsval (QuarticQuery.mValue t))))\n                (QuarticQuery.Tournament.epsval (QuarticQuery.mValue t)))))",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 1082,
+      "type_log_end_line": 1114,
+      "axiom_log_line": 1115,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantumList_coupling",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumTournament.lean",
+      "source_sha256": "8cf87e74aa0364c9bc6b9078ff62e88c45d297625166fe31a8efeea765a34adf",
+      "source_start_line": 175,
+      "source_end_line": 180,
+      "source_statement": "theorem quantumList_coupling (ha : UnitValued a) (hv : ∀ c, 0 ≤ v c ∧ v c ≤ 1)\n    (hf : ∀ L, 0 ≤ f L ∧ f L ≤ 1) (hz : ∀ L, total (weight a L) = 0 → f L = 1) {s : Col}\n    {ε : ℝ} (hε0 : 0 ≤ ε) (hε1 : ε ≤ 1) (hd : Dominant a ε s) (hvs : v s = 1) {T₀ : ℕ}\n    (hT : (T₀ : ℝ) * ε < 1 / 2) (hfail : ∀ L : List Col, L.length ≤ T₀ → s ∉ L → f L ≤ ε)\n    (T : ℕ) (L : List Col) (hL : L.length + T ≤ T₀) :\n    1 - missFrom a s T L - T * ε ≤ tval a v f T L",
+      "ambient_source_variables": [
+        {
+          "line": 70,
+          "text": "variable {Col : Type} [Fintype Col]"
+        },
+        {
+          "line": 81,
+          "text": "variable [DecidableEq Col]"
+        },
+        {
+          "line": 171,
+          "text": "variable {a : Col → Col → ℝ} {v : Col → ℝ} {f : List Col → ℝ}"
+        }
+      ],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 25,
+          "text": "open QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.quantumList_coupling {Col : Type} [Fintype Col] [DecidableEq Col] {a : Col → Col → Real}\n  {v : Col → Real} {f : List Col → Real} (ha : QuarticQuery.Tournament.UnitValued a)\n  (hv : ∀ (c : Col), And (LE.le 0 (v c)) (LE.le (v c) 1)) (hf : ∀ (L : List Col), And (LE.le 0 (f L)) (LE.le (f L) 1))\n  (hz : ∀ (L : List Col), Eq (QuarticQuery.Tournament.total (QuarticQuery.Tournament.weight a L)) 0 → Eq (f L) 1)\n  {s : Col} {ε : Real} (hε0 : LE.le 0 ε) (hε1 : LE.le ε 1) (hd : QuarticQuery.Tournament.Dominant a ε s)\n  (hvs : Eq (v s) 1) {T₀ : Nat} (hT : LT.lt (HMul.hMul (↑T₀) ε) (1 / 2))\n  (hfail : ∀ (L : List Col), LE.le L.length T₀ → Not (Membership.mem L s) → LE.le (f L) ε) (T : Nat) (L : List Col)\n  (hL : LE.le (HAdd.hAdd L.length T) T₀) :\n  LE.le (HSub.hSub (HSub.hSub 1 (QuarticQuery.Upper.missFrom a s T L)) (HMul.hMul (↑T) ε))\n    (QuarticQuery.Upper.tval a v f T L)",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 706,
+      "type_log_end_line": 715,
+      "axiom_log_line": 716,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantumStage_success",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+      "source_sha256": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
+      "source_start_line": 158,
+      "source_end_line": 167,
+      "source_statement": "theorem quantumStage_success {Col : Type} [Fintype Col] [Nonempty Col]\n    (a : Col → Col → ℝ) (ha : UnitValued a)\n    (L : List Col) (hW : 0 < total (weight a L)) :\n    (∀ o, 0 ≤ stageLaw a L o) ∧\n    (∑ o, stageLaw a L o) = 1 ∧\n    (0 < ∑ i, stageLaw a L (some i)) ∧\n    (∀ i, stageLaw a L (some i) = weight a L i / Fintype.card Col) ∧\n    (∑ i, stageLaw a L (some i)) = total (weight a L) / Fintype.card Col ∧\n    (∀ i, stageLaw a L (some i) / (∑ j, stageLaw a L (some j)) =\n      weight a L i / total (weight a L))",
+      "ambient_source_variables": [],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 20,
+          "text": "open QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.quantumStage_success {Col : Type} [Fintype Col] [Nonempty Col] (a : Col → Col → Real)\n  (ha : QuarticQuery.Tournament.UnitValued a) (L : List Col)\n  (hW : LT.lt 0 (QuarticQuery.Tournament.total (QuarticQuery.Tournament.weight a L))) :\n  And (∀ (o : Option Col), LE.le 0 (QuarticQuery.Upper.stageLaw a L o))\n    (And (Eq (Finset.univ.sum fun o => QuarticQuery.Upper.stageLaw a L o) 1)\n      (And (LT.lt 0 (Finset.univ.sum fun i => QuarticQuery.Upper.stageLaw a L (some i)))\n        (And\n          (∀ (i : Col),\n            Eq (QuarticQuery.Upper.stageLaw a L (some i))\n              (HDiv.hDiv (QuarticQuery.Tournament.weight a L i) ↑(Fintype.card Col)))\n          (And\n            (Eq (Finset.univ.sum fun i => QuarticQuery.Upper.stageLaw a L (some i))\n              (HDiv.hDiv (QuarticQuery.Tournament.total (QuarticQuery.Tournament.weight a L)) ↑(Fintype.card Col)))\n            (∀ (i : Col),\n              Eq\n                (HDiv.hDiv (QuarticQuery.Upper.stageLaw a L (some i))\n                  (Finset.univ.sum fun j => QuarticQuery.Upper.stageLaw a L (some j)))\n                (HDiv.hDiv (QuarticQuery.Tournament.weight a L i)\n                  (QuarticQuery.Tournament.total (QuarticQuery.Tournament.weight a L))))))))",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 1161,
+      "type_log_end_line": 1179,
+      "axiom_log_line": 1180,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantumTensorStage_of_samples",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumTensor.lean",
+      "source_sha256": "7a2f03d6ae2d8d3ff2af9837f6cb1e1f1f3d5b4983dc34e753792621443835ac",
+      "source_start_line": 328,
+      "source_end_line": 335,
+      "source_statement": "theorem quantumTensorStage_of_samples {ι Col : Type} [Fintype Col] [Nonempty Col]\n    {c : ℕ} {a : BitInput ι → Col → Col → ℝ}\n    (hcmp : ∀ i j, Samples c fun x b => bern (a x i j) b)\n    (p : ℕ → Col) (t : ℕ) :\n    ∃ L : BitInput ι → Option Col → ℝ,\n      Samples (t * c) L ∧\n      ∀ x i, L x (some i) =\n        (∏ b ∈ Finset.range t, a x i (p b)) / Fintype.card Col",
+      "ambient_source_variables": [],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 26,
+          "text": "open QuarticQuery.Upper"
+        },
+        {
+          "line": 204,
+          "text": "open Classical in"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.quantumTensorStage_of_samples {ι Col : Type} [Fintype Col] [Nonempty Col] {c : Nat}\n  {a : QuarticQuery.BitInput ι → Col → Col → Real}\n  (hcmp : ∀ (i j : Col), QuarticQuery.Upper.Samples c fun x b => QuarticQuery.Upper.bern (a x i j) b) (p : Nat → Col)\n  (t : Nat) :\n  Exists fun L =>\n    And (QuarticQuery.Upper.Samples (HMul.hMul t c) L)\n      (∀ (x : QuarticQuery.BitInput ι) (i : Col),\n        Eq (L x (some i)) (HDiv.hDiv ((Finset.range t).prod fun b => a x i (p b)) ↑(Fintype.card Col)))",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 1125,
+      "type_log_end_line": 1132,
+      "axiom_log_line": 1133,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantumTournament",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+      "source_sha256": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
+      "source_start_line": 287,
+      "source_end_line": 303,
+      "source_statement": "theorem quantumTournament {ι Col : Type} [Fintype ι] [Inhabited ι]\n    [Fintype Col] [DecidableEq Col] {cc : ℕ} {a : BitInput ι → Col → Col → ℝ}\n    (hm : 2 ≤ Fintype.card Col) (hc : ∀ x, IsComparison (a x))\n    (hcmp : ∀ i p, Samples cc fun x b => bern (a x i p) b) :\n    let m := Fintype.card Col\n    let T := Tval m\n    let ε := epsval m\n    ∃ C : ℕ, ∃ law : BitInput ι → QuantumCandidateList Col T → ℝ,\n      (C : ℝ) ≤ 6072 * (cc : ℝ) * Real.sqrt (m : ℝ) *\n        (T : ℝ) ^ 2 * Real.log (T : ℝ) ∧\n      Samples (T * quantumStageReads m T cc ε) law ∧\n      Runs C law ∧\n      (∀ x o, 0 ≤ law x o) ∧\n      (∀ x, ∑ o, law x o = 1) ∧\n      ∀ x s, Dominant (a x) ε s →\n        1 - 2 * (m : ℝ) / 2 ^ T - T * ε ≤\n          ∑ o : QuantumCandidateList Col T, if s ∈ o.1 then law x o else 0",
+      "ambient_source_variables": [],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 20,
+          "text": "open QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.quantumTournament {ι Col : Type} [Fintype ι] [Inhabited ι] [Fintype Col] [DecidableEq Col] {cc : Nat}\n  {a : QuarticQuery.BitInput ι → Col → Col → Real} (hm : LE.le 2 (Fintype.card Col))\n  (hc : ∀ (x : QuarticQuery.BitInput ι), QuarticQuery.Tournament.IsComparison (a x))\n  (hcmp : ∀ (i p : Col), QuarticQuery.Upper.Samples cc fun x b => QuarticQuery.Upper.bern (a x i p) b) :\n  have m := Fintype.card Col;\n  have T := QuarticQuery.Tournament.Tval m;\n  have ε := QuarticQuery.Tournament.epsval m;\n  Exists fun C =>\n    Exists fun law =>\n      And\n        (LE.le (↑C) (HMul.hMul (HMul.hMul (HMul.hMul (HMul.hMul 6072 ↑cc) (↑m).sqrt) (HPow.hPow (↑T) 2)) (Real.log ↑T)))\n        (And (QuarticQuery.Upper.Samples (HMul.hMul T (QuarticQuery.Paper.quantumStageReads m T cc ε)) law)\n          (And (QuarticQuery.Upper.Runs C law)\n            (And\n              (∀ (x : QuarticQuery.BitInput ι) (o : QuarticQuery.Paper.QuantumCandidateList Col T), LE.le 0 (law x o))\n              (And (∀ (x : QuarticQuery.BitInput ι), Eq (Finset.univ.sum fun o => law x o) 1)\n                (∀ (x : QuarticQuery.BitInput ι) (s : Col),\n                  QuarticQuery.Tournament.Dominant (a x) ε s →\n                    LE.le (HSub.hSub (HSub.hSub 1 (HDiv.hDiv (HMul.hMul 2 ↑m) (HPow.hPow 2 T))) (HMul.hMul (↑T) ε))\n                      (Finset.univ.sum fun o => ite (Membership.mem (↑o) s) (law x o) 0))))))",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 685,
+      "type_log_end_line": 704,
+      "axiom_log_line": 705,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantumTournament_cost",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+      "source_sha256": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
+      "source_start_line": 238,
+      "source_end_line": 241,
+      "source_statement": "theorem quantumTournament_cost {m : ℕ} (hm : 2 ≤ m) (cc : ℕ) :\n    ((Tval m * stageCost m (Tval m) cc (epsval m) : ℕ) : ℝ) ≤\n      6072 * (cc : ℝ) * Real.sqrt (m : ℝ) *\n        (Tval m : ℝ) ^ 2 * Real.log (Tval m : ℝ)",
+      "ambient_source_variables": [],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 20,
+          "text": "open QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.quantumTournament_cost {m : Nat} (hm : LE.le 2 m) (cc : Nat) :\n  LE.le\n    (↑(HMul.hMul (QuarticQuery.Tournament.Tval m)\n        (QuarticQuery.Upper.stageCost m (QuarticQuery.Tournament.Tval m) cc (QuarticQuery.Tournament.epsval m))))\n    (HMul.hMul (HMul.hMul (HMul.hMul (HMul.hMul 6072 ↑cc) (↑m).sqrt) (HPow.hPow (↑(QuarticQuery.Tournament.Tval m)) 2))\n      (Real.log ↑(QuarticQuery.Tournament.Tval m)))",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 734,
+      "type_log_end_line": 739,
+      "axiom_log_line": 740,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantumTournament_cost_log",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+      "source_sha256": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
+      "source_start_line": 204,
+      "source_end_line": 207,
+      "source_statement": "theorem quantumTournament_cost_log {m : ℕ} (hm : 2 ≤ m) (cc : ℕ) :\n    ((Tval m * stageCost m (Tval m) cc (epsval m) : ℕ) : ℝ) ≤\n      276 * (cc : ℝ) * (Real.sqrt ((2 * (m : ℝ))⁻¹))⁻¹ *\n        (Tval m : ℝ) ^ 2 * Real.log (1 / epsval m)",
+      "ambient_source_variables": [],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 20,
+          "text": "open QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification"
+        }
+      ],
+      "printed_full_type": null,
+      "type_boundary": "No printed elaborated type is supplied in the reviewed audit log for this name. Source statement and ambient variables are recorded verbatim; they must be interpreted in the original namespace/import context.",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": false
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantumTournament_list",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumTournament.lean",
+      "source_sha256": "8cf87e74aa0364c9bc6b9078ff62e88c45d297625166fe31a8efeea765a34adf",
+      "source_start_line": 270,
+      "source_end_line": 282,
+      "source_statement": "theorem quantumTournament_list {cc : ℕ} {a : BitInput ι → Col → Col → ℝ}\n    (hm : 2 ≤ Fintype.card Col) (hc : ∀ x, IsComparison (a x))\n    (hcmp : ∀ i p, Samples cc fun x b => bern (a x i p) b) :\n    let m := Fintype.card Col\n    let T := Tval m\n    let ε := epsval m\n    ∃ law : BitInput ι → QuantumCandidateList Col T → ℝ,\n      Samples (T * quantumStageReads m T cc ε) law ∧\n      Runs (T * stageCost m T cc ε) law ∧\n      (∀ x o, 0 ≤ law x o) ∧\n      (∀ x, ∑ o, law x o = 1) ∧\n      ∀ x s, Dominant (a x) ε s →\n        1 - 2 * (m : ℝ) / 2 ^ T - T * ε ≤ ∑ o : QuantumCandidateList Col T, if s ∈ o.1 then law x o else 0",
+      "ambient_source_variables": [
+        {
+          "line": 255,
+          "text": "variable {ι Col : Type} [Fintype ι] [Inhabited ι] [Fintype Col] [DecidableEq Col]"
+        }
+      ],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 25,
+          "text": "open QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.quantumTournament_list {ι Col : Type} [Fintype ι] [Inhabited ι] [Fintype Col] [DecidableEq Col]\n  {cc : Nat} {a : QuarticQuery.BitInput ι → Col → Col → Real} (hm : LE.le 2 (Fintype.card Col))\n  (hc : ∀ (x : QuarticQuery.BitInput ι), QuarticQuery.Tournament.IsComparison (a x))\n  (hcmp : ∀ (i p : Col), QuarticQuery.Upper.Samples cc fun x b => QuarticQuery.Upper.bern (a x i p) b) :\n  have m := Fintype.card Col;\n  have T := QuarticQuery.Tournament.Tval m;\n  have ε := QuarticQuery.Tournament.epsval m;\n  Exists fun law =>\n    And (QuarticQuery.Upper.Samples (HMul.hMul T (QuarticQuery.Paper.quantumStageReads m T cc ε)) law)\n      (And (QuarticQuery.Upper.Runs (HMul.hMul T (QuarticQuery.Upper.stageCost m T cc ε)) law)\n        (And (∀ (x : QuarticQuery.BitInput ι) (o : QuarticQuery.Paper.QuantumCandidateList Col T), LE.le 0 (law x o))\n          (And (∀ (x : QuarticQuery.BitInput ι), Eq (Finset.univ.sum fun o => law x o) 1)\n            (∀ (x : QuarticQuery.BitInput ι) (s : Col),\n              QuarticQuery.Tournament.Dominant (a x) ε s →\n                LE.le (HSub.hSub (HSub.hSub 1 (HDiv.hDiv (HMul.hMul 2 ↑m) (HPow.hPow 2 T))) (HMul.hMul (↑T) ε))\n                  (Finset.univ.sum fun o => ite (Membership.mem (↑o) s) (law x o) 0)))))",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 717,
+      "type_log_end_line": 732,
+      "axiom_log_line": 733,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantumTournament_parameters",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+      "source_sha256": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
+      "source_start_line": 57,
+      "source_end_line": 59,
+      "source_statement": "theorem quantumTournament_parameters (m : ℕ) :\n    Tval m = Nat.clog 2 (1000 * m) ∧\n      epsval m = 1 / (1000 * (Tval m : ℝ))",
+      "ambient_source_variables": [],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 20,
+          "text": "open QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.quantumTournament_parameters (m : Nat) :\n  And (Eq (QuarticQuery.Tournament.Tval m) (Nat.clog 2 (HMul.hMul 1000 m)))\n    (Eq (QuarticQuery.Tournament.epsval m) (HDiv.hDiv 1 (HMul.hMul 1000 ↑(QuarticQuery.Tournament.Tval m))))",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 7,
+      "type_log_end_line": 9,
+      "axiom_log_line": 10,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantumVerify",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumComparison.lean",
+      "source_sha256": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+      "source_start_line": 498,
+      "source_end_line": 507,
+      "source_statement": "theorem quantumVerify (hk : 1 ≤ k) (ht : 1 ≤ t)\n    (hC : CircuitRealises C (P k t)) {n : ℕ} {ε : ℝ}\n    (hε : 0 < ε) (hε1 : ε ≤ 1)\n    (hn : repetitions k (ε / (40 * t : ℕ)) ≤ n) :\n    ∃ v : BitInput (Loc k t C) → Col t → ℝ,\n      (∀ c, Runs (2 * addrCost k t n + searchCost t (Fintype.card (Tests t C)) ε)\n        fun x b => bern (v x c) b) ∧\n      (∀ x c, 0 ≤ v x c ∧ v x c ≤ 1) ∧\n      (∀ x c, (¬ ∃ s, WinsAt (P k t) C (2 * t) (40 * t) x c s) → v x c ≤ ε) ∧\n      (∀ x c s, WinsAt (P k t) C (2 * t) (40 * t) x c s → 1 - ε ≤ v x c)",
+      "ambient_source_variables": [
+        {
+          "line": 27,
+          "text": "variable {k t : ℕ} {C : Circuit (ForrelationCoord k t)}"
+        }
+      ],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 23,
+          "text": "open QuarticQuery.Upper QuarticQuery.Forrelation"
+        },
+        {
+          "line": 24,
+          "text": "open QuarticQuery.Tournament QuarticQuery.Amplification"
+        },
+        {
+          "line": 25,
+          "text": "open scoped BigOperators"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.quantumVerify {k t : Nat} {C : QuarticQuery.Circuit (QuarticQuery.ForrelationCoord k t)}\n  (hk : LE.le 1 k) (ht : LE.le 1 t) (hC : QuarticQuery.CircuitRealises C (QuarticQuery.P k t)) {n : Nat} {ε : Real}\n  (hε : LT.lt 0 ε) (hε1 : LE.le ε 1)\n  (hn : LE.le (QuarticQuery.Forrelation.repetitions k (HDiv.hDiv ε ↑(HMul.hMul 40 t))) n) :\n  Exists fun v =>\n    And\n      (∀ (c : QuarticQuery.Upper.Col t),\n        QuarticQuery.Upper.Runs\n          (HAdd.hAdd (HMul.hMul 2 (QuarticQuery.Upper.addrCost k t n))\n            (QuarticQuery.Upper.searchCost t (Fintype.card (QuarticQuery.Upper.Tests t C)) ε))\n          fun x b => QuarticQuery.Upper.bern (v x c) b)\n      (And\n        (∀ (x : QuarticQuery.BitInput (QuarticQuery.Upper.Loc k t C)) (c : QuarticQuery.Upper.Col t),\n          And (LE.le 0 (v x c)) (LE.le (v x c) 1))\n        (And\n          (∀\n            (x :\n              QuarticQuery.BitInput\n                (QuarticQuery.BitLoc (HMul.hMul 2 t) (HMul.hMul 40 t) C.size (QuarticQuery.ForrelationCoord k t)))\n            (c : QuarticQuery.Column (HMul.hMul 2 t)),\n            Not (Exists fun s => QuarticQuery.WinsAt (QuarticQuery.P k t) C (HMul.hMul 2 t) (HMul.hMul 40 t) x c s) →\n              LE.le (v x c) ε)\n          (∀\n            (x :\n              QuarticQuery.BitInput\n                (QuarticQuery.BitLoc (HMul.hMul 2 t) (HMul.hMul 40 t) C.size (QuarticQuery.ForrelationCoord k t)))\n            (c : QuarticQuery.Column (HMul.hMul 2 t)) (s : QuarticQuery.Address (HMul.hMul 40 t)),\n            QuarticQuery.WinsAt (QuarticQuery.P k t) C (HMul.hMul 2 t) (HMul.hMul 40 t) x c s →\n              LE.le (HSub.hSub 1 ε) (v x c))))",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 1034,
+      "type_log_end_line": 1062,
+      "axiom_log_line": 1063,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantumVerify_fixedAddress",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumComparison.lean",
+      "source_sha256": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+      "source_start_line": 344,
+      "source_end_line": 350,
+      "source_statement": "theorem quantumVerify_fixedAddress (i : Col t) (s : Addr t)\n    {ε : ℝ} (hε : 0 < ε) :\n    ∃ f : BitInput (Loc k t C) → ℝ,\n      (∀ x, 0 ≤ f x ∧ f x ≤ 1) ∧\n      (∀ x e, localTest C (2 * t) (40 * t) x i s e = false → f x ≤ ε) ∧\n      (∀ x, (∀ e, localTest C (2 * t) (40 * t) x i s e = true) → f x = 1) ∧\n      Runs (searchCost t (Fintype.card (Tests t C)) ε) fun x b => bern (f x) b",
+      "ambient_source_variables": [
+        {
+          "line": 27,
+          "text": "variable {k t : ℕ} {C : Circuit (ForrelationCoord k t)}"
+        }
+      ],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 23,
+          "text": "open QuarticQuery.Upper QuarticQuery.Forrelation"
+        },
+        {
+          "line": 24,
+          "text": "open QuarticQuery.Tournament QuarticQuery.Amplification"
+        },
+        {
+          "line": 25,
+          "text": "open scoped BigOperators"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.quantumVerify_fixedAddress {k t : Nat} {C : QuarticQuery.Circuit (QuarticQuery.ForrelationCoord k t)}\n  (i : QuarticQuery.Upper.Col t) (s : QuarticQuery.Upper.Addr t) {ε : Real} (hε : LT.lt 0 ε) :\n  Exists fun f =>\n    And (∀ (x : QuarticQuery.BitInput (QuarticQuery.Upper.Loc k t C)), And (LE.le 0 (f x)) (LE.le (f x) 1))\n      (And\n        (∀\n          (x :\n            QuarticQuery.BitInput\n              (QuarticQuery.BitLoc (HMul.hMul 2 t) (HMul.hMul 40 t) C.size (QuarticQuery.ForrelationCoord k t)))\n          (e : QuarticQuery.TestIndex (HMul.hMul 2 t) (HMul.hMul 40 t) C.size),\n          Eq (QuarticQuery.localTest C (HMul.hMul 2 t) (HMul.hMul 40 t) x i s e) false → LE.le (f x) ε)\n        (And\n          (∀\n            (x :\n              QuarticQuery.BitInput\n                (QuarticQuery.BitLoc (HMul.hMul 2 t) (HMul.hMul 40 t) C.size (QuarticQuery.ForrelationCoord k t))),\n            (∀ (e : QuarticQuery.TestIndex (HMul.hMul 2 t) (HMul.hMul 40 t) C.size),\n                Eq (QuarticQuery.localTest C (HMul.hMul 2 t) (HMul.hMul 40 t) x i s e) true) →\n              Eq (f x) 1)\n          (QuarticQuery.Upper.Runs (QuarticQuery.Upper.searchCost t (Fintype.card (QuarticQuery.Upper.Tests t C)) ε)\n            fun x b => QuarticQuery.Upper.bern (f x) b)))",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 987,
+      "type_log_end_line": 1007,
+      "axiom_log_line": 1008,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantumWeight_lower",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+      "source_sha256": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
+      "source_start_line": 98,
+      "source_end_line": 105,
+      "source_statement": "theorem quantumWeight_lower {Col : Type} [Fintype Col]\n    {a : Col → Col → ℝ} {ε : ℝ} {s : Col} (ha : UnitValued a)\n    (hε0 : 0 ≤ ε) (hε1 : ε ≤ 1) (hd : Dominant a ε s)\n    {T : ℕ} (hT : (T : ℝ) * ε < 1 / 2) (L : List Col)\n    (hL : L.length ≤ T) (hs : s ∉ L) :\n    (1 - ε) ^ L.length ≤ weight a L s ∧\n    1 - (T : ℝ) * ε ≤ (1 - ε) ^ L.length ∧\n    1 / 2 < weight a L s ∧ 0 < total (weight a L)",
+      "ambient_source_variables": [],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 20,
+          "text": "open QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.quantumWeight_lower {Col : Type} [Fintype Col] {a : Col → Col → Real} {ε : Real} {s : Col}\n  (ha : QuarticQuery.Tournament.UnitValued a) (hε0 : LE.le 0 ε) (hε1 : LE.le ε 1)\n  (hd : QuarticQuery.Tournament.Dominant a ε s) {T : Nat} (hT : LT.lt (HMul.hMul (↑T) ε) (1 / 2)) (L : List Col)\n  (hL : LE.le L.length T) (hs : Not (Membership.mem L s)) :\n  And (LE.le (HPow.hPow (HSub.hSub 1 ε) L.length) (QuarticQuery.Tournament.weight a L s))\n    (And (LE.le (HSub.hSub 1 (HMul.hMul (↑T) ε)) (HPow.hPow (HSub.hSub 1 ε) L.length))\n      (And (LT.lt (1 / 2) (QuarticQuery.Tournament.weight a L s))\n        (LT.lt 0 (QuarticQuery.Tournament.total (QuarticQuery.Tournament.weight a L)))))",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 1227,
+      "type_log_end_line": 1234,
+      "axiom_log_line": 1235,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantumWeight_product",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+      "source_sha256": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
+      "source_start_line": 88,
+      "source_end_line": 89,
+      "source_statement": "theorem quantumWeight_product {Col : Type} (a : Col → Col → ℝ) (L : List Col) (i : Col) :\n    weight a L i = (L.map fun p => a i p).prod",
+      "ambient_source_variables": [],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 20,
+          "text": "open QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.quantumWeight_product {Col : Type} (a : Col → Col → Real) (L : List Col) (i : Col) :\n  Eq (QuarticQuery.Tournament.weight a L i) (List.map (fun p => a i p) L).prod",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 1181,
+      "type_log_end_line": 1182,
+      "axiom_log_line": 1183,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantumWinner_dominates",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumComparison.lean",
+      "source_sha256": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+      "source_start_line": 296,
+      "source_end_line": 302,
+      "source_statement": "theorem quantumWinner_dominates (hk : 1 ≤ k) (ht : 1 ≤ t)\n    {n : ℕ} {ε : ℝ} (hε : 0 < ε) (hε1 : ε ≤ 1)\n    (hn : repetitions k (ε / (40 * t : ℕ)) ≤ n)\n    {x : BitInput (Loc k t C)} {i : Col t} {s : Addr t}\n    (hw : WinsAt (P k t) C (2 * t) (40 * t) x i s)\n    (j : Col t) (hji : j ≠ i) :\n    1 - ε ≤ cmpProb n x i j",
+      "ambient_source_variables": [
+        {
+          "line": 27,
+          "text": "variable {k t : ℕ} {C : Circuit (ForrelationCoord k t)}"
+        }
+      ],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 23,
+          "text": "open QuarticQuery.Upper QuarticQuery.Forrelation"
+        },
+        {
+          "line": 24,
+          "text": "open QuarticQuery.Tournament QuarticQuery.Amplification"
+        },
+        {
+          "line": 25,
+          "text": "open scoped BigOperators"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.quantumWinner_dominates {k t : Nat} {C : QuarticQuery.Circuit (QuarticQuery.ForrelationCoord k t)}\n  (hk : LE.le 1 k) (ht : LE.le 1 t) {n : Nat} {ε : Real} (hε : LT.lt 0 ε) (hε1 : LE.le ε 1)\n  (hn : LE.le (QuarticQuery.Forrelation.repetitions k (HDiv.hDiv ε ↑(HMul.hMul 40 t))) n)\n  {x : QuarticQuery.BitInput (QuarticQuery.Upper.Loc k t C)} {i : QuarticQuery.Upper.Col t}\n  {s : QuarticQuery.Upper.Addr t}\n  (hw : QuarticQuery.WinsAt (QuarticQuery.P k t) C (HMul.hMul 2 t) (HMul.hMul 40 t) x i s)\n  (j : QuarticQuery.Upper.Col t) (hji : Ne j i) : LE.le (HSub.hSub 1 ε) (QuarticQuery.Upper.cmpProb n x i j)",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 979,
+      "type_log_end_line": 985,
+      "axiom_log_line": 986,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantumWorkspace_uniformize",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumWorkspace.lean",
+      "source_sha256": "a5ed4638bef1d1e15508ea5b96a0edf99a2281693de03f39f23e5afadd7ba07b",
+      "source_start_line": 28,
+      "source_end_line": 34,
+      "source_statement": "theorem quantumWorkspace_uniformize {ι J β : Type} [Fintype J] [Nonempty J]\n    {c : ℕ} {L : J → BitInput ι → β → ℝ}\n    (h : ∀ j, Samples c (L j)) :\n    ∃ (Z : Type) (_ : Fintype Z) (o : Z) (out : Z → β)\n      (F : J → BitInput ι → Reg Z ≃ₗᵢ[ℂ] Reg Z),\n      (∀ j, IsCirc c (F j)) ∧\n      ∀ j x b, lawOf (F j x (rket o)) out b = L j x b",
+      "ambient_source_variables": [],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 21,
+          "text": "open QuarticQuery.Upper"
+        }
+      ],
+      "printed_full_type": null,
+      "type_boundary": "No printed elaborated type is supplied in the reviewed audit log for this name. Source statement and ambient variables are recorded verbatim; they must be interpreted in the original namespace/import context.",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": false
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantum_amplified_conditional",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumAmplification.lean",
+      "source_sha256": "95d89237e766b59ffdd52f1324e440e2127b06353b2c8de2482b9f55c4adb30b",
+      "source_start_line": 216,
+      "source_end_line": 223,
+      "source_statement": "theorem quantum_amplified_conditional {β : Type} [Fintype β] (q : β → ℝ)\n    (hq0 : ∀ b, 0 ≤ q b) (hq : 0 < ∑ c, q c) {f : ℝ}\n    (hf0 : 0 ≤ f) (hf1 : f < 1) :\n    (∀ o : Option β, 0 ≤ ampLaw f q o) ∧\n    (∑ o : Option β, ampLaw f q o) = 1 ∧\n    0 < ∑ c, ampLaw f q (some c) ∧\n    ∀ b, ampLaw f q (some b) / (∑ c, ampLaw f q (some c)) =\n      q b / ∑ c, q c",
+      "ambient_source_variables": [],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 27,
+          "text": "open QuarticQuery.Amplification QuarticQuery.Upper"
+        }
+      ],
+      "printed_full_type": null,
+      "type_boundary": "No printed elaborated type is supplied in the reviewed audit log for this name. Source statement and ambient variables are recorded verbatim; they must be interpreted in the original namespace/import context.",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": false
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantum_amplified_label_law",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumAmplification.lean",
+      "source_sha256": "95d89237e766b59ffdd52f1324e440e2127b06353b2c8de2482b9f55c4adb30b",
+      "source_start_line": 202,
+      "source_end_line": 210,
+      "source_statement": "theorem quantum_amplified_label_law {ι β : Type} [Fintype ι] [Inhabited ι] [Fintype β]\n    {n : ℕ} {L : BitInput ι → Option β → ℝ} (h : Samples n L)\n    {γ η : ℝ} (hγ : 0 < γ) (hη : 0 < η) :\n    ∃ f : BitInput ι → ℝ,\n      (∀ x, 0 ≤ f x ∧ f x ≤ 1) ∧\n      (∀ x, γ ≤ ∑ b, L x (some b) → f x ≤ η) ∧\n      (∀ x, ∑ b, L x (some b) = 0 → f x = 1) ∧\n      Runs (trialCount η * (2 * ((2 * iterationBound γ + 1) * n)))\n        (fun x => ampLaw (f x) (fun b => L x (some b)))",
+      "ambient_source_variables": [],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 27,
+          "text": "open QuarticQuery.Amplification QuarticQuery.Upper"
+        }
+      ],
+      "printed_full_type": null,
+      "type_boundary": "No printed elaborated type is supplied in the reviewed audit log for this name. Source statement and ambient variables are recorded verbatim; they must be interpreted in the original namespace/import context.",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": false
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantum_amplify_samples",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumAmplification.lean",
+      "source_sha256": "95d89237e766b59ffdd52f1324e440e2127b06353b2c8de2482b9f55c4adb30b",
+      "source_start_line": 355,
+      "source_end_line": 361,
+      "source_statement": "theorem quantum_amplify_samples {n : ℕ} {L : BitInput ι → Option β → ℝ} (h : Samples n L) {γ η : ℝ}\n    (hγ : 0 < γ) (hη : 0 < η) : ∃ f : BitInput ι → ℝ,\n      (∀ x, 0 ≤ f x ∧ f x ≤ 1) ∧\n      (∀ x, γ ≤ ∑ b, L x (some b) → f x ≤ η) ∧\n      (∀ x, ∑ b, L x (some b) = 0 → f x = 1) ∧\n      Samples (trialCount η * ((2 * iterationBound γ + 1) * n))\n        fun x => ampLaw (f x) fun b => L x (some b)",
+      "ambient_source_variables": [
+        {
+          "line": 248,
+          "text": "variable {ι β : Type} [Fintype ι] [Inhabited ι] [Fintype β]"
+        }
+      ],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 27,
+          "text": "open QuarticQuery.Amplification QuarticQuery.Upper"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.quantum_amplify_samples {ι β : Type} [Fintype ι] [Inhabited ι] [Fintype β] {n : Nat}\n  {L : QuarticQuery.BitInput ι → Option β → Real} (h : QuarticQuery.Upper.Samples n L) {γ η : Real} (hγ : LT.lt 0 γ)\n  (hη : LT.lt 0 η) :\n  Exists fun f =>\n    And (∀ (x : QuarticQuery.BitInput ι), And (LE.le 0 (f x)) (LE.le (f x) 1))\n      (And (∀ (x : QuarticQuery.BitInput ι), LE.le γ (Finset.univ.sum fun b => L x (some b)) → LE.le (f x) η)\n        (And (∀ (x : QuarticQuery.BitInput ι), Eq (Finset.univ.sum fun b => L x (some b)) 0 → Eq (f x) 1)\n          (QuarticQuery.Upper.Samples\n            (HMul.hMul (QuarticQuery.Amplification.trialCount η)\n              (HMul.hMul (HAdd.hAdd (HMul.hMul 2 (QuarticQuery.Amplification.iterationBound γ)) 1) n))\n            fun x => QuarticQuery.Upper.ampLaw (f x) fun b => L x (some b))))",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 1134,
+      "type_log_end_line": 1144,
+      "axiom_log_line": 1145,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantum_coherent_tree",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumAmplification.lean",
+      "source_sha256": "95d89237e766b59ffdd52f1324e440e2127b06353b2c8de2482b9f55c4adb30b",
+      "source_start_line": 413,
+      "source_end_line": 414,
+      "source_statement": "theorem quantum_coherent_tree {ι : Type} [Nonempty ι] (T : QueryTree ι) :\n    Samples T.depth (fun (x : BitInput ι) b => pt (T.eval x) b)",
+      "ambient_source_variables": [],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 27,
+          "text": "open QuarticQuery.Amplification QuarticQuery.Upper"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.quantum_coherent_tree {ι : Type} [Nonempty ι] (T : QuarticQuery.QueryTree ι) :\n  QuarticQuery.Upper.Samples T.depth fun x b => QuarticQuery.Upper.pt (T.eval x) b",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 835,
+      "type_log_end_line": 836,
+      "axiom_log_line": 837,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantum_compile_circuit",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumAmplification.lean",
+      "source_sha256": "95d89237e766b59ffdd52f1324e440e2127b06353b2c8de2482b9f55c4adb30b",
+      "source_start_line": 402,
+      "source_end_line": 408,
+      "source_statement": "theorem quantum_compile_circuit {ι Z : Type} [Fintype ι] [Inhabited ι]\n    [Fintype Z] {w n : ℕ} (e : Z ↪ Fin (w + 1))\n    {F : BitInput ι → Reg Z ≃ₗᵢ[ℂ] Reg Z} (hF : IsCirc n F) :\n    ∃ P : AdaptiveProgram ι w → AdaptiveProgram ι w, ∀ next,\n      (P next).queryCap ≤ 2 * n + next.queryCap ∧\n      ∀ x ψ b, (P next).outputMass x (clEmb e ψ) b =\n        next.outputMass x (clEmb e (F x ψ)) b",
+      "ambient_source_variables": [],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 27,
+          "text": "open QuarticQuery.Amplification QuarticQuery.Upper"
+        }
+      ],
+      "printed_full_type": null,
+      "type_boundary": "No printed elaborated type is supplied in the reviewed audit log for this name. Source statement and ambient variables are recorded verbatim; they must be interpreted in the original namespace/import context.",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": false
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantum_controlled_bit_query",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumAmplification.lean",
+      "source_sha256": "95d89237e766b59ffdd52f1324e440e2127b06353b2c8de2482b9f55c4adb30b",
+      "source_start_line": 392,
+      "source_end_line": 397,
+      "source_statement": "theorem quantum_controlled_bit_query {ι Z : Type} [Fintype ι] [Inhabited ι]\n    [Fintype Z] {w : ℕ} (e : Z ↪ Fin (w + 1)) (R : ReadSpec ι Z) :\n    ∃ P : AdaptiveProgram ι w → AdaptiveProgram ι w, ∀ next,\n      (P next).queryCap = 2 + next.queryCap ∧\n      ∀ x ψ b, (P next).outputMass x (clEmb e ψ) b =\n        next.outputMass x (clEmb e (R.op x ψ)) b",
+      "ambient_source_variables": [],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 27,
+          "text": "open QuarticQuery.Amplification QuarticQuery.Upper"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.quantum_controlled_bit_query {ι Z : Type} [Fintype ι] [Inhabited ι] [Fintype Z] {w : Nat}\n  (e : Function.Embedding Z (Fin (HAdd.hAdd w 1))) (R : QuarticQuery.Upper.ReadSpec ι Z) :\n  Exists fun P =>\n    ∀ (next : QuarticQuery.AdaptiveProgram ι w),\n      And (Eq (P next).queryCap (HAdd.hAdd 2 next.queryCap))\n        (∀ (x : QuarticQuery.BitInput ι) (ψ : QuarticQuery.Upper.Reg Z) (b : Bool),\n          Eq ((P next).outputMass x ((QuarticQuery.Upper.clEmb e) ψ) b)\n            (next.outputMass x ((QuarticQuery.Upper.clEmb e) ((R.op x) ψ)) b))",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 826,
+      "type_log_end_line": 833,
+      "axiom_log_line": 834,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantum_controlled_reads",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumAmplification.lean",
+      "source_sha256": "95d89237e766b59ffdd52f1324e440e2127b06353b2c8de2482b9f55c4adb30b",
+      "source_start_line": 383,
+      "source_end_line": 387,
+      "source_statement": "theorem quantum_controlled_reads {ι Γ : Type} [Fintype Γ] {Z : Γ → Type}\n    [∀ c, Fintype (Z c)] {n : ℕ}\n    {F : ∀ c, BitInput ι → Reg (Z c) ≃ₗᵢ[ℂ] Reg (Z c)}\n    (hF : ∀ c, IsCirc n (F c)) :\n    IsCirc n (fun x => sigmaOp (fun c => F c x))",
+      "ambient_source_variables": [],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 27,
+          "text": "open QuarticQuery.Amplification QuarticQuery.Upper"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.quantum_controlled_reads {ι Γ : Type} [Fintype Γ] {Z : Γ → Type} [(c : Γ) → Fintype (Z c)] {n : Nat}\n  {F :\n    (c : Γ) →\n      QuarticQuery.BitInput ι →\n        LinearIsometryEquiv (RingHom.id Complex) (QuarticQuery.Upper.Reg (Z c)) (QuarticQuery.Upper.Reg (Z c))}\n  (hF : ∀ (c : Γ), QuarticQuery.Upper.IsCirc n (F c)) :\n  QuarticQuery.Upper.IsCirc n fun x => QuarticQuery.Upper.sigmaOp fun c => F c x",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 838,
+      "type_log_end_line": 844,
+      "axiom_log_line": 845,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantum_eq_9",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumAmplification.lean",
+      "source_sha256": "95d89237e766b59ffdd52f1324e440e2127b06353b2c8de2482b9f55c4adb30b",
+      "source_start_line": 93,
+      "source_end_line": 99,
+      "source_statement": "theorem quantum_eq_9 (A : Preparation H) {γ : ℝ} (hγ : 0 < γ)\n    (hp : γ ≤ A.prob) (hhalf : A.prob ≤ 1 / 2) :\n    let M := iterationBound γ\n    (1 / 2 - 1 / (2 * (M : ℝ) * |Real.sin (2 * A.angle)|) ≤\n      (1 / (M : ℝ)) * ∑ ℓ ∈ Finset.range M,\n        Real.sin ((2 * ℓ + 1) * A.angle) ^ 2) ∧\n    (9 / 20 : ℝ) ≤ 1 / 2 - 1 / (2 * (M : ℝ) * |Real.sin (2 * A.angle)|)",
+      "ambient_source_variables": [
+        {
+          "line": 33,
+          "text": "variable {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℂ H]"
+        }
+      ],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 27,
+          "text": "open QuarticQuery.Amplification QuarticQuery.Upper"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.quantum_eq_9.{u_1} {H : Type u_1} [NormedAddCommGroup H] [InnerProductSpace Complex H]\n  (A : QuarticQuery.Amplification.Preparation H) {γ : Real} (hγ : LT.lt 0 γ) (hp : LE.le γ A.prob)\n  (hhalf : LE.le A.prob (1 / 2)) :\n  have M := QuarticQuery.Amplification.iterationBound γ;\n  And\n    (LE.le (HSub.hSub (1 / 2) (HDiv.hDiv 1 (HMul.hMul (HMul.hMul 2 ↑M) (abs (Real.sin (HMul.hMul 2 A.angle))))))\n      (HMul.hMul (HDiv.hDiv 1 ↑M)\n        ((Finset.range M).sum fun ℓ => HPow.hPow (Real.sin (HMul.hMul (HAdd.hAdd (HMul.hMul 2 ↑ℓ) 1) A.angle)) 2)))\n    (LE.le (9 / 20)\n      (HSub.hSub (1 / 2) (HDiv.hDiv 1 (HMul.hMul (HMul.hMul 2 ↑M) (abs (Real.sin (HMul.hMul 2 A.angle)))))))",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 815,
+      "type_log_end_line": 824,
+      "axiom_log_line": 825,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantum_grover_call_cap",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumAmplification.lean",
+      "source_sha256": "95d89237e766b59ffdd52f1324e440e2127b06353b2c8de2482b9f55c4adb30b",
+      "source_start_line": 149,
+      "source_end_line": 150,
+      "source_statement": "theorem quantum_grover_call_cap (γ η : ℝ) :\n    (amplify γ η).callCap ≤ trialCount η * (2 * iterationBound γ + 1)",
+      "ambient_source_variables": [],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 27,
+          "text": "open QuarticQuery.Amplification QuarticQuery.Upper"
+        }
+      ],
+      "printed_full_type": null,
+      "type_boundary": "No printed elaborated type is supplied in the reviewed audit log for this name. Source statement and ambient variables are recorded verbatim; they must be interpreted in the original namespace/import context.",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": false
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantum_grover_parameters",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumAmplification.lean",
+      "source_sha256": "95d89237e766b59ffdd52f1324e440e2127b06353b2c8de2482b9f55c4adb30b",
+      "source_start_line": 125,
+      "source_end_line": 128,
+      "source_statement": "theorem quantum_grover_parameters (γ η : ℝ) :\n    iterationBound γ = ⌈10 / Real.sqrt γ⌉₊ ∧\n    trialCount η = ⌈Real.log (1 / η) / Real.log (40 / 31)⌉₊ ∧\n    amplify γ η = attempts (iterationBound γ) (trialCount η)",
+      "ambient_source_variables": [],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 27,
+          "text": "open QuarticQuery.Amplification QuarticQuery.Upper"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.quantum_grover_parameters (γ η : Real) :\n  And (Eq (QuarticQuery.Amplification.iterationBound γ) (Nat.ceil (HDiv.hDiv 10 γ.sqrt)))\n    (And\n      (Eq (QuarticQuery.Amplification.trialCount η)\n        (Nat.ceil (HDiv.hDiv (Real.log (HDiv.hDiv 1 η)) (Real.log (40 / 31)))))\n      (Eq (QuarticQuery.Amplification.amplify γ η)\n        (QuarticQuery.Amplification.attempts (QuarticQuery.Amplification.iterationBound γ)\n          (QuarticQuery.Amplification.trialCount η))))",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 748,
+      "type_log_end_line": 755,
+      "axiom_log_line": 756,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantum_grover_state",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumAmplification.lean",
+      "source_sha256": "95d89237e766b59ffdd52f1324e440e2127b06353b2c8de2482b9f55c4adb30b",
+      "source_start_line": 38,
+      "source_end_line": 50,
+      "source_statement": "theorem quantum_grover_state (A : Preparation H) (h0 : 0 < A.prob) (h1 : A.prob < 1) :\n    (0 < A.angle ∧ A.angle < Real.pi / 2) ∧\n    ‖A.goodState‖ = 1 ∧ ‖A.badState‖ = 1 ∧\n    A.good A.goodState = A.goodState ∧ A.good A.badState = 0 ∧\n    inner ℂ A.goodState A.badState = 0 ∧\n    A.state = ((Real.sin A.angle : ℝ) : ℂ) • A.goodState +\n      ((Real.cos A.angle : ℝ) : ℂ) • A.badState ∧\n    ∀ ℓ : ℕ,\n      A.iterate ℓ =\n        ((Real.sin ((2 * ℓ + 1) * A.angle) : ℝ) : ℂ) • A.goodState +\n        ((Real.cos ((2 * ℓ + 1) * A.angle) : ℝ) : ℂ) • A.badState ∧\n      (A.good (A.iterate ℓ) ≠ 0 →\n        PhaseEq (normalised (A.good (A.iterate ℓ))) A.goodState)",
+      "ambient_source_variables": [
+        {
+          "line": 33,
+          "text": "variable {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℂ H]"
+        }
+      ],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 27,
+          "text": "open QuarticQuery.Amplification QuarticQuery.Upper"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.quantum_grover_state.{u_1} {H : Type u_1} [NormedAddCommGroup H] [InnerProductSpace Complex H]\n  (A : QuarticQuery.Amplification.Preparation H) (h0 : LT.lt 0 A.prob) (h1 : LT.lt A.prob 1) :\n  And (And (LT.lt 0 A.angle) (LT.lt A.angle (HDiv.hDiv Real.pi 2)))\n    (And (Eq (norm A.goodState) 1)\n      (And (Eq (norm A.badState) 1)\n        (And (Eq (A.good A.goodState) A.goodState)\n          (And (Eq (A.good A.badState) 0)\n            (And (Eq (inner Complex A.goodState A.badState) 0)\n              (And\n                (Eq A.state\n                  (HAdd.hAdd (HSMul.hSMul (↑(Real.sin A.angle)) A.goodState)\n                    (HSMul.hSMul (↑(Real.cos A.angle)) A.badState)))\n                (∀ (ℓ : Nat),\n                  And\n                    (Eq (A.iterate ℓ)\n                      (HAdd.hAdd\n                        (HSMul.hSMul (↑(Real.sin (HMul.hMul (HAdd.hAdd (HMul.hMul 2 ↑ℓ) 1) A.angle))) A.goodState)\n                        (HSMul.hSMul (↑(Real.cos (HMul.hMul (HAdd.hAdd (HMul.hMul 2 ↑ℓ) 1) A.angle))) A.badState)))\n                    (Ne (A.good (A.iterate ℓ)) 0 →\n                      QuarticQuery.Amplification.PhaseEq (QuarticQuery.Amplification.normalised (A.good (A.iterate ℓ)))\n                        A.goodState))))))))",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 785,
+      "type_log_end_line": 805,
+      "axiom_log_line": 806,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantum_grover_trial_distribution",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumAmplification.lean",
+      "source_sha256": "95d89237e766b59ffdd52f1324e440e2127b06353b2c8de2482b9f55c4adb30b",
+      "source_start_line": 133,
+      "source_end_line": 137,
+      "source_statement": "theorem quantum_grover_trial_distribution {M : ℕ} (hM : M ≠ 0) :\n    (∀ ℓ : Fin M, trialWeight M ℓ =\n      (if (ℓ : ℕ) = 0 then 1 / 2 else 0) + 1 / (2 * (M : ℝ))) ∧\n    (∀ ℓ : Fin M, 0 ≤ trialWeight M ℓ) ∧\n    (∑ ℓ : Fin M, trialWeight M ℓ) = 1",
+      "ambient_source_variables": [],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 27,
+          "text": "open QuarticQuery.Amplification QuarticQuery.Upper"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.quantum_grover_trial_distribution {M : Nat} (hM : Ne M 0) :\n  And\n    (∀ (ℓ : Fin M),\n      Eq (QuarticQuery.Amplification.trialWeight M ↑ℓ)\n        (HAdd.hAdd (ite (Eq (↑ℓ) 0) (1 / 2) 0) (HDiv.hDiv 1 (HMul.hMul 2 ↑M))))\n    (And (∀ (ℓ : Fin M), LE.le 0 (QuarticQuery.Amplification.trialWeight M ↑ℓ))\n      (Eq (Finset.univ.sum fun ℓ => QuarticQuery.Amplification.trialWeight M ↑ℓ) 1))",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 757,
+      "type_log_end_line": 763,
+      "axiom_log_line": 764,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantum_grover_trial_recursion",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumAmplification.lean",
+      "source_sha256": "95d89237e766b59ffdd52f1324e440e2127b06353b2c8de2482b9f55c4adb30b",
+      "source_start_line": 142,
+      "source_end_line": 145,
+      "source_statement": "theorem quantum_grover_trial_recursion (M n : ℕ) :\n    attempts M (n + 1) =\n      .mix M (fun ℓ => trialWeight M ℓ) (fun ℓ =>\n        .restart (.run (groverCircuit ℓ) (.measure .success (attempts M n))))",
+      "ambient_source_variables": [],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 27,
+          "text": "open QuarticQuery.Amplification QuarticQuery.Upper"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.quantum_grover_trial_recursion (M n : Nat) :\n  Eq (QuarticQuery.Amplification.attempts M (HAdd.hAdd n 1))\n    (QuarticQuery.Amplification.Proc.mix M (fun ℓ => QuarticQuery.Amplification.trialWeight M ↑ℓ) fun ℓ =>\n      (QuarticQuery.Amplification.Proc.run (QuarticQuery.Amplification.groverCircuit ↑ℓ)\n          (QuarticQuery.Amplification.Proc.success.measure (QuarticQuery.Amplification.attempts M n))).restart)",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 765,
+      "type_log_end_line": 769,
+      "axiom_log_line": 770,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantum_grover_zero",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumAmplification.lean",
+      "source_sha256": "95d89237e766b59ffdd52f1324e440e2127b06353b2c8de2482b9f55c4adb30b",
+      "source_start_line": 74,
+      "source_end_line": 75,
+      "source_statement": "theorem quantum_grover_zero (A : Preparation H) (h : A.prob = 0) (ℓ : ℕ) :\n    A.good (A.iterate ℓ) = 0",
+      "ambient_source_variables": [
+        {
+          "line": 33,
+          "text": "variable {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℂ H]"
+        }
+      ],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 27,
+          "text": "open QuarticQuery.Amplification QuarticQuery.Upper"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.quantum_grover_zero.{u_1} {H : Type u_1} [NormedAddCommGroup H] [InnerProductSpace Complex H]\n  (A : QuarticQuery.Amplification.Preparation H) (h : Eq A.prob 0) (ℓ : Nat) : Eq (A.good (A.iterate ℓ)) 0",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 807,
+      "type_log_end_line": 808,
+      "axiom_log_line": 809,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantum_inverse_reads",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumAmplification.lean",
+      "source_sha256": "95d89237e766b59ffdd52f1324e440e2127b06353b2c8de2482b9f55c4adb30b",
+      "source_start_line": 377,
+      "source_end_line": 379,
+      "source_statement": "theorem quantum_inverse_reads {ι Z : Type} [Fintype Z] {n : ℕ}\n    {F : BitInput ι → Reg Z ≃ₗᵢ[ℂ] Reg Z} (hF : IsCirc n F) :\n    IsCirc n (fun x => (F x).symm)",
+      "ambient_source_variables": [],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 27,
+          "text": "open QuarticQuery.Amplification QuarticQuery.Upper"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.quantum_inverse_reads {ι Z : Type} [Fintype Z] {n : Nat}\n  {F :\n    QuarticQuery.BitInput ι →\n      LinearIsometryEquiv (RingHom.id Complex) (QuarticQuery.Upper.Reg Z) (QuarticQuery.Upper.Reg Z)}\n  (hF : QuarticQuery.Upper.IsCirc n F) : QuarticQuery.Upper.IsCirc n fun x => (F x).symm",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 846,
+      "type_log_end_line": 850,
+      "axiom_log_line": 851,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Paper.quantum_sin_two_angle",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Paper/QuantumAmplification.lean",
+      "source_sha256": "95d89237e766b59ffdd52f1324e440e2127b06353b2c8de2482b9f55c4adb30b",
+      "source_start_line": 81,
+      "source_end_line": 84,
+      "source_statement": "theorem quantum_sin_two_angle (A : Preparation H) {γ : ℝ}\n    (hp : γ ≤ A.prob) (hhalf : A.prob ≤ 1 / 2) :\n    Real.sin (2 * A.angle) = 2 * Real.sqrt (A.prob * (1 - A.prob)) ∧\n    Real.sqrt γ ≤ Real.sin (2 * A.angle)",
+      "ambient_source_variables": [
+        {
+          "line": 33,
+          "text": "variable {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℂ H]"
+        }
+      ],
+      "namespace": "QuarticQuery.Paper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 27,
+          "text": "open QuarticQuery.Amplification QuarticQuery.Upper"
+        }
+      ],
+      "printed_full_type": "QuarticQuery.Paper.quantum_sin_two_angle.{u_1} {H : Type u_1} [NormedAddCommGroup H] [InnerProductSpace Complex H]\n  (A : QuarticQuery.Amplification.Preparation H) {γ : Real} (hp : LE.le γ A.prob) (hhalf : LE.le A.prob (1 / 2)) :\n  And (Eq (Real.sin (HMul.hMul 2 A.angle)) (HMul.hMul 2 (HMul.hMul A.prob (HSub.hSub 1 A.prob)).sqrt))\n    (LE.le γ.sqrt (Real.sin (HMul.hMul 2 A.angle)))",
+      "type_log_path": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "type_log_start_line": 810,
+      "type_log_end_line": 813,
+      "axiom_log_line": 814,
+      "observed_axioms_text": "[propext, Classical.choice, Quot.sound]",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": false,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": true
+      }
+    },
+    {
+      "name": "QuarticQuery.Tournament.UnitValued",
+      "kind": "def",
+      "source_path": "repository/lean/QuarticQuery/Tournament/Ideal.lean",
+      "source_sha256": "6f7379abfb1d9fb37d6ef7f0f25049893490aa717171c875feb97fca343ab8ef",
+      "source_start_line": 29,
+      "source_end_line": 29,
+      "source_statement": "@[expose] def UnitValued (a : ι → ι → ℝ) : Prop := ∀ i j, 0 ≤ a i j ∧ a i j ≤ 1",
+      "ambient_source_variables": [
+        {
+          "line": 26,
+          "text": "variable {ι : Type} [Fintype ι]"
+        }
+      ],
+      "namespace": "QuarticQuery.Tournament",
+      "ambient_opens_and_universes": [],
+      "printed_full_type": null,
+      "type_boundary": "No printed elaborated type is supplied in the reviewed audit log for this name. Source statement and ambient variables are recorded verbatim; they must be interpreted in the original namespace/import context.",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": true,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": false
+      }
+    },
+    {
+      "name": "QuarticQuery.Tournament.expectFrom",
+      "kind": "def",
+      "source_path": "repository/lean/QuarticQuery/Tournament/Ideal.lean",
+      "source_sha256": "6f7379abfb1d9fb37d6ef7f0f25049893490aa717171c875feb97fca343ab8ef",
+      "source_start_line": 42,
+      "source_end_line": 47,
+      "source_statement": "@[expose] noncomputable def expectFrom (a : ι → ι → ℝ) :\n    ℕ → List ι → ((ι → ℝ) → List ι → ℝ) → ℝ\n  | 0, L, g => g (weight a L) L\n  | T + 1, L, g =>\n      if total (weight a L) = 0 then expectFrom a T L g\n      else ∑ p, weight a L p / total (weight a L) * expectFrom a T (p :: L) g",
+      "ambient_source_variables": [
+        {
+          "line": 26,
+          "text": "variable {ι : Type} [Fintype ι]"
+        }
+      ],
+      "namespace": "QuarticQuery.Tournament",
+      "ambient_opens_and_universes": [],
+      "printed_full_type": null,
+      "type_boundary": "No printed elaborated type is supplied in the reviewed audit log for this name. Source statement and ambient variables are recorded verbatim; they must be interpreted in the original namespace/import context.",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": true,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": false
+      }
+    },
+    {
+      "name": "QuarticQuery.Tournament.expected_final_weight",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Tournament/Ideal.lean",
+      "source_sha256": "6f7379abfb1d9fb37d6ef7f0f25049893490aa717171c875feb97fca343ab8ef",
+      "source_start_line": 212,
+      "source_end_line": 214,
+      "source_statement": "theorem expected_final_weight {a : ι → ι → ℝ} (hc : IsComparison a) (ha : UnitValued a)\n    (T : ℕ) :\n    expectAfter a T (fun w _ => total w) ≤ (Fintype.card ι : ℝ) / 2 ^ T",
+      "ambient_source_variables": [
+        {
+          "line": 26,
+          "text": "variable {ι : Type} [Fintype ι]"
+        },
+        {
+          "line": 181,
+          "text": "variable [DecidableEq ι]"
+        }
+      ],
+      "namespace": "QuarticQuery.Tournament",
+      "ambient_opens_and_universes": [
+        {
+          "line": 54,
+          "text": "open Classical in"
+        }
+      ],
+      "printed_full_type": null,
+      "type_boundary": "No printed elaborated type is supplied in the reviewed audit log for this name. Source statement and ambient variables are recorded verbatim; they must be interpreted in the original namespace/import context.",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": true,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": false
+      }
+    },
+    {
+      "name": "QuarticQuery.Tournament.ideal_miss_le",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Tournament/Ideal.lean",
+      "source_sha256": "6f7379abfb1d9fb37d6ef7f0f25049893490aa717171c875feb97fca343ab8ef",
+      "source_start_line": 263,
+      "source_end_line": 267,
+      "source_statement": "theorem ideal_miss_le {a : ι → ι → ℝ} {ε : ℝ} {s : ι}\n    (hc : IsComparison a) (ha : UnitValued a) (hε0 : 0 ≤ ε) (hε : ε ≤ 1)\n    (hd : Dominant a ε s) {T : ℕ} (hT : (T : ℝ) * ε < 1 / 2) :\n    prob a T (fun _ l => s ∉ l) ≤ prob a T (fun w _ => 1 / 2 ≤ total w) ∧\n      prob a T (fun w _ => 1 / 2 ≤ total w) ≤ 2 * (Fintype.card ι : ℝ) / 2 ^ T",
+      "ambient_source_variables": [
+        {
+          "line": 26,
+          "text": "variable {ι : Type} [Fintype ι]"
+        },
+        {
+          "line": 181,
+          "text": "variable [DecidableEq ι]"
+        }
+      ],
+      "namespace": "QuarticQuery.Tournament",
+      "ambient_opens_and_universes": [
+        {
+          "line": 54,
+          "text": "open Classical in"
+        }
+      ],
+      "printed_full_type": null,
+      "type_boundary": "No printed elaborated type is supplied in the reviewed audit log for this name. Source statement and ambient variables are recorded verbatim; they must be interpreted in the original namespace/import context.",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": true,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": false
+      }
+    },
+    {
+      "name": "QuarticQuery.Tournament.ideal_tournament",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Tournament/Ideal.lean",
+      "source_sha256": "6f7379abfb1d9fb37d6ef7f0f25049893490aa717171c875feb97fca343ab8ef",
+      "source_start_line": 338,
+      "source_end_line": 349,
+      "source_statement": "theorem ideal_tournament {a : ι → ι → ℝ} {s : ι}\n    (hc : IsComparison a) (ha : UnitValued a)\n    (hm : 2 ≤ Fintype.card ι) (hd : Dominant a (epsval (Fintype.card ι)) s) :\n    let m := Fintype.card ι\n    let T := Tval m\n    prob a T (fun _ l => l.length ≤ T) = 1 ∧\n    prob a T (fun _ l => s ∉ l) ≤ 2 * (m : ℝ) / 2 ^ T ∧\n    1 - 2 * (m : ℝ) / 2 ^ T ≤ prob a T (fun _ l => s ∈ l) ∧\n    (∀ L : List ι, L.length ≤ T → s ∉ L → 1 / 2 < total (weight a L)) ∧\n    2 * (m : ℝ) / 2 ^ T ≤ 1 / 500 ∧\n    (T : ℝ) * epsval m = 1 / 1000 ∧\n    2 * (m : ℝ) / 2 ^ T + (T : ℝ) * epsval m + epsval m < 1 / 3",
+      "ambient_source_variables": [
+        {
+          "line": 26,
+          "text": "variable {ι : Type} [Fintype ι]"
+        },
+        {
+          "line": 181,
+          "text": "variable [DecidableEq ι]"
+        }
+      ],
+      "namespace": "QuarticQuery.Tournament",
+      "ambient_opens_and_universes": [
+        {
+          "line": 54,
+          "text": "open Classical in"
+        }
+      ],
+      "printed_full_type": null,
+      "type_boundary": "No printed elaborated type is supplied in the reviewed audit log for this name. Source statement and ambient variables are recorded verbatim; they must be interpreted in the original namespace/import context.",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": true,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": false
+      }
+    },
+    {
+      "name": "QuarticQuery.Tournament.weight",
+      "kind": "def",
+      "source_path": "repository/lean/QuarticQuery/Tournament/Ideal.lean",
+      "source_sha256": "6f7379abfb1d9fb37d6ef7f0f25049893490aa717171c875feb97fca343ab8ef",
+      "source_start_line": 35,
+      "source_end_line": 37,
+      "source_statement": "@[expose] def weight (a : ι → ι → ℝ) : List ι → ι → ℝ\n  | [], _ => 1\n  | p :: L, i => weight a L i * a i p",
+      "ambient_source_variables": [
+        {
+          "line": 26,
+          "text": "variable {ι : Type} [Fintype ι]"
+        }
+      ],
+      "namespace": "QuarticQuery.Tournament",
+      "ambient_opens_and_universes": [],
+      "printed_full_type": null,
+      "type_boundary": "No printed elaborated type is supplied in the reviewed audit log for this name. Source statement and ambient variables are recorded verbatim; they must be interpreted in the original namespace/import context.",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": true,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": false
+      }
+    },
+    {
+      "name": "QuarticQuery.Upper.Fkm_QLe",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Upper/Verify.lean",
+      "source_sha256": "8144c5c26e7bf0515b24eb638b57412264032e144844887adc615b8076207239",
+      "source_start_line": 138,
+      "source_end_line": 140,
+      "source_statement": "theorem Fkm_QLe (hk : 1 ≤ k) (ht : 1 ≤ t) (hC : CircuitRealises C (P k t)) {n : ℕ}\n    (hn : repetitions k (epsval (mValue t) / (40 * t : ℕ)) ≤ n) :\n    QLe (totalise (Fkm k t C)) (budget k t n (Fintype.card (Tests t C)))",
+      "ambient_source_variables": [
+        {
+          "line": 22,
+          "text": "variable {k t : ℕ} {C : Circuit (ForrelationCoord k t)}"
+        }
+      ],
+      "namespace": "QuarticQuery.Upper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 20,
+          "text": "open QuarticQuery.Forrelation QuarticQuery.Tournament QuarticQuery.Amplification"
+        }
+      ],
+      "printed_full_type": null,
+      "type_boundary": "No printed elaborated type is supplied in the reviewed audit log for this name. Source statement and ambient variables are recorded verbatim; they must be interpreted in the original namespace/import context.",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": true,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": false
+      }
+    },
+    {
+      "name": "QuarticQuery.Upper.Fkm_forrCircuit_QLe",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Upper/Bound.lean",
+      "source_sha256": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303",
+      "source_start_line": 272,
+      "source_end_line": 273,
+      "source_statement": "theorem Fkm_forrCircuit_QLe (l t : ℕ) (ht : 1 ≤ t) :\n    QLe (totalise (Fkm (l + 1) t (forrCircuit l t))) (budgetConst (l + 1) * 2 ^ t * (2 * t) ^ 6)",
+      "ambient_source_variables": [],
+      "namespace": "QuarticQuery.Upper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 18,
+          "text": "open QuarticQuery.Forrelation QuarticQuery.Tournament QuarticQuery.Amplification"
+        }
+      ],
+      "printed_full_type": null,
+      "type_boundary": "No printed elaborated type is supplied in the reviewed audit log for this name. Source statement and ambient variables are recorded verbatim; they must be interpreted in the original namespace/import context.",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": true,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": false
+      }
+    },
+    {
+      "name": "QuarticQuery.Upper.Q_Fkm_le",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Upper/Bound.lean",
+      "source_sha256": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303",
+      "source_start_line": 278,
+      "source_end_line": 280,
+      "source_statement": "theorem Q_Fkm_le (l t : ℕ) (ht : 1 ≤ t) :\n    (Q (totalise (Fkm (l + 1) t (forrCircuit l t))) : ℝ) ≤\n      (budgetConst (l + 1) : ℝ) * 2 ^ t * (2 * (t : ℝ)) ^ 6",
+      "ambient_source_variables": [],
+      "namespace": "QuarticQuery.Upper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 18,
+          "text": "open QuarticQuery.Forrelation QuarticQuery.Tournament QuarticQuery.Amplification"
+        }
+      ],
+      "printed_full_type": null,
+      "type_boundary": "No printed elaborated type is supplied in the reviewed audit log for this name. Source statement and ambient variables are recorded verbatim; they must be interpreted in the original namespace/import context.",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": true,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": false
+      }
+    },
+    {
+      "name": "QuarticQuery.Upper.Samples.amplify",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Upper/Amplify.lean",
+      "source_sha256": "49e808cc6acbb47ad066b1dcf33ac8d47da2f28d88c51d537564e6591eb0d9e1",
+      "source_start_line": 346,
+      "source_end_line": 352,
+      "source_statement": "theorem Samples.amplify {n : ℕ} {L : BitInput ι → Option β → ℝ} (h : Samples n L) {γ η : ℝ}\n    (hγ : 0 < γ) (hη : 0 < η) : ∃ f : BitInput ι → ℝ,\n      (∀ x, 0 ≤ f x ∧ f x ≤ 1) ∧\n      (∀ x, γ ≤ ∑ b, L x (some b) → f x ≤ η) ∧\n      (∀ x, ∑ b, L x (some b) = 0 → f x = 1) ∧\n      Runs (trialCount η * (2 * ((2 * iterationBound γ + 1) * n)))\n        fun x => ampLaw (f x) fun b => L x (some b)",
+      "ambient_source_variables": [
+        {
+          "line": 243,
+          "text": "variable {ι β : Type} [Fintype ι] [Inhabited ι] [Fintype β]"
+        }
+      ],
+      "namespace": "QuarticQuery.Upper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 26,
+          "text": "open QuarticQuery.Amplification"
+        }
+      ],
+      "printed_full_type": null,
+      "type_boundary": "No printed elaborated type is supplied in the reviewed audit log for this name. Source statement and ambient variables are recorded verbatim; they must be interpreted in the original namespace/import context.",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": true,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": false
+      }
+    },
+    {
+      "name": "QuarticQuery.Upper.Samples.runs",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Upper/Compile.lean",
+      "source_sha256": "ead2d229ad8a97541dd648806b64813745e8502b5f7314ced43e7a95a0708a27",
+      "source_start_line": 396,
+      "source_end_line": 397,
+      "source_statement": "theorem Samples.runs [Fintype α] {n : ℕ} {L : BitInput ι → α → ℝ} (h : Samples n L) :\n    Runs (2 * n) L",
+      "ambient_source_variables": [
+        {
+          "line": 318,
+          "text": "variable {ι α β : Type} [Fintype ι] [Inhabited ι]"
+        }
+      ],
+      "namespace": "QuarticQuery.Upper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 27,
+          "text": "open QuarticQuery.AdaptiveProgram"
+        }
+      ],
+      "printed_full_type": null,
+      "type_boundary": "No printed elaborated type is supplied in the reviewed audit log for this name. Source statement and ambient variables are recorded verbatim; they must be interpreted in the original namespace/import context.",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": true,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": false
+      }
+    },
+    {
+      "name": "QuarticQuery.Upper.budget",
+      "kind": "def",
+      "source_path": "repository/lean/QuarticQuery/Upper/Verify.lean",
+      "source_sha256": "8144c5c26e7bf0515b24eb638b57412264032e144844887adc615b8076207239",
+      "source_start_line": 132,
+      "source_end_line": 134,
+      "source_statement": "noncomputable def budget (k t n K : ℕ) : ℕ :=\n  Tval (mValue t) * stageCost (mValue t) (Tval (mValue t)) (cmpCost k t n) (epsval (mValue t)) +\n    Tval (mValue t) * (2 * addrCost k t n + searchCost t K (epsval (mValue t)))",
+      "ambient_source_variables": [
+        {
+          "line": 22,
+          "text": "variable {k t : ℕ} {C : Circuit (ForrelationCoord k t)}"
+        }
+      ],
+      "namespace": "QuarticQuery.Upper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 20,
+          "text": "open QuarticQuery.Forrelation QuarticQuery.Tournament QuarticQuery.Amplification"
+        }
+      ],
+      "printed_full_type": null,
+      "type_boundary": "No printed elaborated type is supplied in the reviewed audit log for this name. Source statement and ambient variables are recorded verbatim; they must be interpreted in the original namespace/import context.",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": true,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": false
+      }
+    },
+    {
+      "name": "QuarticQuery.Upper.budgetConst",
+      "kind": "def",
+      "source_path": "repository/lean/QuarticQuery/Upper/Bound.lean",
+      "source_sha256": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303",
+      "source_start_line": 53,
+      "source_end_line": 57,
+      "source_statement": "def budgetConst (k : ℕ) : ℕ :=\n  let R := 1 + 1920000 * 2 ^ (10 * k)\n  let Cc := 40 * R * k + 4\n  let CK := 42 + 20 * forrConstant k\n  6 * (48002 * 258 * Cc) + 6 * (40 * R * k + 48002 * 69 * CK)",
+      "ambient_source_variables": [],
+      "namespace": "QuarticQuery.Upper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 18,
+          "text": "open QuarticQuery.Forrelation QuarticQuery.Tournament QuarticQuery.Amplification"
+        }
+      ],
+      "printed_full_type": null,
+      "type_boundary": "No printed elaborated type is supplied in the reviewed audit log for this name. Source statement and ambient variables are recorded verbatim; they must be interpreted in the original namespace/import context.",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": true,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": false
+      }
+    },
+    {
+      "name": "QuarticQuery.Upper.budget_le",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Upper/Bound.lean",
+      "source_sha256": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303",
+      "source_start_line": 87,
+      "source_end_line": 90,
+      "source_statement": "theorem budget_le {k t : ℕ} {C : Circuit (ForrelationCoord k t)} (ht : 1 ≤ t)\n    (hSz : C.size ≤ forrConstant k * mValue t * (2 * t) ^ 2) :\n    budget k t (repetitions k (epsval (mValue t) / (40 * t : ℕ))) (Fintype.card (Tests t C)) ≤\n      budgetConst k * 2 ^ t * (2 * t) ^ 6",
+      "ambient_source_variables": [],
+      "namespace": "QuarticQuery.Upper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 18,
+          "text": "open QuarticQuery.Forrelation QuarticQuery.Tournament QuarticQuery.Amplification"
+        }
+      ],
+      "printed_full_type": null,
+      "type_boundary": "No printed elaborated type is supplied in the reviewed audit log for this name. Source statement and ambient variables are recorded verbatim; they must be interpreted in the original namespace/import context.",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": true,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": false
+      }
+    },
+    {
+      "name": "QuarticQuery.Upper.search_runs",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Upper/Verify.lean",
+      "source_sha256": "8144c5c26e7bf0515b24eb638b57412264032e144844887adc615b8076207239",
+      "source_start_line": 108,
+      "source_end_line": 112,
+      "source_statement": "theorem search_runs (i : Col t) (s : Addr t) {ε : ℝ} (hε : 0 < ε) :\n    ∃ f : BitInput (Loc k t C) → ℝ, (∀ x, 0 ≤ f x ∧ f x ≤ 1) ∧\n      (∀ x e, localTest C (2 * t) (40 * t) x i s e = false → f x ≤ ε) ∧\n      (∀ x, (∀ e, localTest C (2 * t) (40 * t) x i s e = true) → f x = 1) ∧\n      Runs (searchCost t (Fintype.card (Tests t C)) ε) fun x b => bern (f x) b",
+      "ambient_source_variables": [
+        {
+          "line": 22,
+          "text": "variable {k t : ℕ} {C : Circuit (ForrelationCoord k t)}"
+        }
+      ],
+      "namespace": "QuarticQuery.Upper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 20,
+          "text": "open QuarticQuery.Forrelation QuarticQuery.Tournament QuarticQuery.Amplification"
+        }
+      ],
+      "printed_full_type": null,
+      "type_boundary": "No printed elaborated type is supplied in the reviewed audit log for this name. Source statement and ambient variables are recorded verbatim; they must be interpreted in the original namespace/import context.",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": true,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": false
+      }
+    },
+    {
+      "name": "QuarticQuery.Upper.stage_samples",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Upper/Tournament.lean",
+      "source_sha256": "43df9db7997f88667de7a3cfa7d7c7751aa1f32c40e9de474895335bcdb87b7c",
+      "source_start_line": 63,
+      "source_end_line": 65,
+      "source_statement": "theorem stage_samples {cc : ℕ} {a : BitInput ι → Col → Col → ℝ}\n    (hcmp : ∀ i p, Samples cc fun x b => bern (a x i p) b) (L : List Col) :\n    Samples (L.length * cc) fun x o => stageLaw (a x) L o",
+      "ambient_source_variables": [
+        {
+          "line": 32,
+          "text": "variable {Col : Type} [Fintype Col]"
+        },
+        {
+          "line": 60,
+          "text": "variable {ι : Type} [Nonempty ι] [Nonempty Col]"
+        }
+      ],
+      "namespace": "QuarticQuery.Upper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 26,
+          "text": "open QuarticQuery.Tournament QuarticQuery.Amplification"
+        }
+      ],
+      "printed_full_type": null,
+      "type_boundary": "No printed elaborated type is supplied in the reviewed audit log for this name. Source statement and ambient variables are recorded verbatim; they must be interpreted in the original namespace/import context.",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": true,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": false
+      }
+    },
+    {
+      "name": "QuarticQuery.Upper.testLaw_fail",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Upper/Verify.lean",
+      "source_sha256": "8144c5c26e7bf0515b24eb638b57412264032e144844887adc615b8076207239",
+      "source_start_line": 68,
+      "source_end_line": 70,
+      "source_statement": "theorem testLaw_fail {x : BitInput (Loc k t C)} {i : Col t} {s : Addr t} {e₀ : Tests t C}\n    (h : localTest C (2 * t) (40 * t) x i s e₀ = false) :\n    (Fintype.card (Tests t C) : ℝ)⁻¹ ≤ ∑ b, testLaw x i s (some b)",
+      "ambient_source_variables": [
+        {
+          "line": 22,
+          "text": "variable {k t : ℕ} {C : Circuit (ForrelationCoord k t)}"
+        }
+      ],
+      "namespace": "QuarticQuery.Upper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 20,
+          "text": "open QuarticQuery.Forrelation QuarticQuery.Tournament QuarticQuery.Amplification"
+        }
+      ],
+      "printed_full_type": null,
+      "type_boundary": "No printed elaborated type is supplied in the reviewed audit log for this name. Source statement and ambient variables are recorded verbatim; they must be interpreted in the original namespace/import context.",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": true,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": false
+      }
+    },
+    {
+      "name": "QuarticQuery.Upper.testLaw_pass",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Upper/Verify.lean",
+      "source_sha256": "8144c5c26e7bf0515b24eb638b57412264032e144844887adc615b8076207239",
+      "source_start_line": 62,
+      "source_end_line": 64,
+      "source_statement": "theorem testLaw_pass {x : BitInput (Loc k t C)} {i : Col t} {s : Addr t}\n    (h : ∀ e, localTest C (2 * t) (40 * t) x i s e = true) :\n    ∑ b, testLaw x i s (some b) = 0",
+      "ambient_source_variables": [
+        {
+          "line": 22,
+          "text": "variable {k t : ℕ} {C : Circuit (ForrelationCoord k t)}"
+        }
+      ],
+      "namespace": "QuarticQuery.Upper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 20,
+          "text": "open QuarticQuery.Forrelation QuarticQuery.Tournament QuarticQuery.Amplification"
+        }
+      ],
+      "printed_full_type": null,
+      "type_boundary": "No printed elaborated type is supplied in the reviewed audit log for this name. Source statement and ambient variables are recorded verbatim; they must be interpreted in the original namespace/import context.",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": true,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": false
+      }
+    },
+    {
+      "name": "QuarticQuery.Upper.test_samples",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Upper/Verify.lean",
+      "source_sha256": "8144c5c26e7bf0515b24eb638b57412264032e144844887adc615b8076207239",
+      "source_start_line": 42,
+      "source_end_line": 43,
+      "source_statement": "theorem test_samples (i : Col t) (s : Addr t) :\n    Samples (testCost t) fun (x : BitInput (Loc k t C)) o => testLaw x i s o",
+      "ambient_source_variables": [
+        {
+          "line": 22,
+          "text": "variable {k t : ℕ} {C : Circuit (ForrelationCoord k t)}"
+        }
+      ],
+      "namespace": "QuarticQuery.Upper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 20,
+          "text": "open QuarticQuery.Forrelation QuarticQuery.Tournament QuarticQuery.Amplification"
+        }
+      ],
+      "printed_full_type": null,
+      "type_boundary": "No printed elaborated type is supplied in the reviewed audit log for this name. Source statement and ambient variables are recorded verbatim; they must be interpreted in the original namespace/import context.",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": true,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": false
+      }
+    },
+    {
+      "name": "QuarticQuery.Upper.tournament_runs",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Upper/Tournament.lean",
+      "source_sha256": "43df9db7997f88667de7a3cfa7d7c7751aa1f32c40e9de474895335bcdb87b7c",
+      "source_start_line": 367,
+      "source_end_line": 378,
+      "source_statement": "theorem tournament_runs {cc cV : ℕ} {a : BitInput ι → Col → Col → ℝ} {v : BitInput ι → Col → ℝ}\n    (hm : 2 ≤ Fintype.card Col) (hc : ∀ x, IsComparison (a x)) (hu : ∀ x, UnitValued (a x))\n    (hcmp : ∀ i p, Samples cc fun x b => bern (a x i p) b)\n    (hv : ∀ c, Runs cV fun x b => bern (v x c) b) (hv01 : ∀ x c, 0 ≤ v x c ∧ v x c ≤ 1) :\n    let m := Fintype.card Col\n    let T := Tval m\n    let ε := epsval m\n    ∃ val : BitInput ι → ℝ,\n      Runs (T * stageCost m T cc ε + T * cV) (fun x b => bern (val x) b) ∧\n      (∀ x, (∀ c, v x c ≤ ε) → val x ≤ T * ε) ∧\n      (∀ x s, Dominant (a x) ε s → 1 - ε ≤ v x s →\n        1 - 2 * (m : ℝ) / 2 ^ T - T * ε - ε ≤ val x)",
+      "ambient_source_variables": [
+        {
+          "line": 336,
+          "text": "variable {ι Col : Type} [Fintype ι] [Inhabited ι] [Fintype Col] [DecidableEq Col]"
+        }
+      ],
+      "namespace": "QuarticQuery.Upper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 26,
+          "text": "open QuarticQuery.Tournament QuarticQuery.Amplification"
+        }
+      ],
+      "printed_full_type": null,
+      "type_boundary": "No printed elaborated type is supplied in the reviewed audit log for this name. Source statement and ambient variables are recorded verbatim; they must be interpreted in the original namespace/import context.",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": true,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": false
+      }
+    },
+    {
+      "name": "QuarticQuery.Upper.tval_le",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Upper/Tournament.lean",
+      "source_sha256": "43df9db7997f88667de7a3cfa7d7c7751aa1f32c40e9de474895335bcdb87b7c",
+      "source_start_line": 178,
+      "source_end_line": 180,
+      "source_statement": "theorem tval_le (ha : UnitValued a) (hv : ∀ c, 0 ≤ v c ∧ v c ≤ 1) {ε : ℝ} (hε0 : 0 ≤ ε)\n    (hε : ∀ c, v c ≤ ε) (hf : ∀ L, 0 ≤ f L ∧ f L ≤ 1) (T : ℕ) (L : List Col) :\n    tval a v f T L ≤ (L.length + T : ℕ) * ε",
+      "ambient_source_variables": [
+        {
+          "line": 104,
+          "text": "variable {Col : Type} [Fintype Col]"
+        },
+        {
+          "line": 161,
+          "text": "variable {a : Col → Col → ℝ} {v : Col → ℝ} {f : List Col → ℝ}"
+        }
+      ],
+      "namespace": "QuarticQuery.Upper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 26,
+          "text": "open QuarticQuery.Tournament QuarticQuery.Amplification"
+        }
+      ],
+      "printed_full_type": null,
+      "type_boundary": "No printed elaborated type is supplied in the reviewed audit log for this name. Source statement and ambient variables are recorded verbatim; they must be interpreted in the original namespace/import context.",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": true,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": false
+      }
+    },
+    {
+      "name": "QuarticQuery.Upper.tval_lower",
+      "kind": "theorem",
+      "source_path": "repository/lean/QuarticQuery/Upper/Tournament.lean",
+      "source_sha256": "43df9db7997f88667de7a3cfa7d7c7751aa1f32c40e9de474895335bcdb87b7c",
+      "source_start_line": 239,
+      "source_end_line": 244,
+      "source_statement": "theorem tval_lower (ha : UnitValued a) (hv : ∀ c, 0 ≤ v c ∧ v c ≤ 1) (hf : ∀ L, 0 ≤ f L ∧ f L ≤ 1)\n    (hz : ∀ L, total (weight a L) = 0 → f L = 1) {s : Col} {ε : ℝ} (hε0 : 0 ≤ ε) (hε1 : ε ≤ 1)\n    (hd : Dominant a ε s) (hvs : 1 - ε ≤ v s) {T₀ : ℕ} (hT : (T₀ : ℝ) * ε < 1 / 2)\n    (hfail : ∀ L : List Col, L.length ≤ T₀ → s ∉ L → f L ≤ ε) (T : ℕ) (L : List Col)\n    (hL : L.length + T ≤ T₀) :\n    (1 - ε) * (1 - missFrom a s T L - T * ε) ≤ tval a v f T L",
+      "ambient_source_variables": [
+        {
+          "line": 104,
+          "text": "variable {Col : Type} [Fintype Col]"
+        },
+        {
+          "line": 161,
+          "text": "variable {a : Col → Col → ℝ} {v : Col → ℝ} {f : List Col → ℝ}"
+        }
+      ],
+      "namespace": "QuarticQuery.Upper",
+      "ambient_opens_and_universes": [
+        {
+          "line": 26,
+          "text": "open QuarticQuery.Tournament QuarticQuery.Amplification"
+        },
+        {
+          "line": 224,
+          "text": "open Classical in"
+        }
+      ],
+      "printed_full_type": null,
+      "type_boundary": "No printed elaborated type is supplied in the reviewed audit log for this name. Source statement and ambient variables are recorded verbatim; they must be interpreted in the original namespace/import context.",
+      "evidence": {
+        "source_present": true,
+        "current_root_declaration_member": true,
+        "current_root_receipt": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+        "headline_reached": true,
+        "dependency_export": "repository/corpus/lean_dependencies.json",
+        "exact_name_comparator_receipts": [],
+        "new_compile_run_in_this_review": false,
+        "audited_in_supplied_native_type_axiom_log": false
+      }
+    }
+  ]
+}

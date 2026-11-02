@@ -1,0 +1,49 @@
+Bundle: exit 0
+Bundle: deferred by the shared build lock, nothing judged
+negative WeakenedConclusion: deferred by the shared build lock, nothing judged
+2 of 2 declarations reached
+test_challenge_imports_mathlib_only (test_build_challenges.ChallengeTests.test_challenge_imports_mathlib_only) ... ok
+test_missing_markers_are_rejected (test_build_challenges.ChallengeTests.test_missing_markers_are_rejected) ... ok
+test_region_keeps_statements_and_drops_proofs (test_build_challenges.ChallengeTests.test_region_keeps_statements_and_drops_proofs) ... ok
+test_region_without_a_proof_marker_is_rejected (test_build_challenges.ChallengeTests.test_region_without_a_proof_marker_is_rejected) ... ok
+test_theorem_names_are_qualified (test_build_challenges.ChallengeTests.test_theorem_names_are_qualified) ... ok
+test_current_positive_statement_graph_validates_and_selects_its_prerequisites (test_build_corpus.ConsumerContractTests.test_current_positive_statement_graph_validates_and_selects_its_prerequisites) ... skipped 'set QUARTIC_LEAN_EXPOSITION to an installed lean-exposition CLI'
+test_assumption_fields_reject_null_or_nonlist_values (test_build_corpus.EvidenceTests.test_assumption_fields_reject_null_or_nonlist_values) ... ok
+test_build_and_comparison_of_different_ties_do_not_combine (test_build_corpus.EvidenceTests.test_build_and_comparison_of_different_ties_do_not_combine) ... ok
+test_changed_source_does_not_inherit_historical_pass (test_build_corpus.EvidenceTests.test_changed_source_does_not_inherit_historical_pass) ... ok
+test_comparison_of_partial_tie_does_not_check_exact_tie (test_build_corpus.EvidenceTests.test_comparison_of_partial_tie_does_not_check_exact_tie) ... ok
+test_exact_theorem_with_ordinary_premises_is_not_conditional (test_build_corpus.EvidenceTests.test_exact_theorem_with_ordinary_premises_is_not_conditional) ... ok
+test_explicit_open_hardness_makes_exact_checked_theorem_conditional (test_build_corpus.EvidenceTests.test_explicit_open_hardness_makes_exact_checked_theorem_conditional) ... ok
+test_failed_receipt_counts_for_nothing (test_build_corpus.EvidenceTests.test_failed_receipt_counts_for_nothing) ... ok
+test_graph_keeps_historical_pass_separate_from_currentness (test_build_corpus.EvidenceTests.test_graph_keeps_historical_pass_separate_from_currentness) ... ok
+test_legacy_hypotheses_remain_open_without_explicit_classification (test_build_corpus.EvidenceTests.test_legacy_hypotheses_remain_open_without_explicit_classification) ... ok
+test_legacy_receipt_is_explicitly_unbound (test_build_corpus.EvidenceTests.test_legacy_receipt_is_explicitly_unbound) ... ok
+test_presence_alone_is_unassessed_and_unbuilt (test_build_corpus.EvidenceTests.test_presence_alone_is_unassessed_and_unbuilt) ... ok
+test_review_and_receipts_give_a_checked_statement (test_build_corpus.EvidenceTests.test_review_and_receipts_give_a_checked_statement) ... ok
+test_review_without_a_receipt_is_not_compared (test_build_corpus.EvidenceTests.test_review_without_a_receipt_is_not_compared) ... ok
+test_stale_reach_is_not_reported_as_current_membership (test_build_corpus.EvidenceTests.test_stale_reach_is_not_reported_as_current_membership) ... ok
+test_tie_preference_uses_open_assumptions_rather_than_ordinary_premises (test_build_corpus.EvidenceTests.test_tie_preference_uses_open_assumptions_rather_than_ordinary_premises) ... ok
+test_unconditional_compared_tie_is_preferred (test_build_corpus.EvidenceTests.test_unconditional_compared_tie_is_preferred) ... ok
+test_unselected_assumption_metadata_is_unknown_not_an_empty_list (test_build_corpus.EvidenceTests.test_unselected_assumption_metadata_is_unknown_not_an_empty_list) ... ok
+test_build_cache_is_excluded_but_comparator_config_is_bound (test_build_corpus.SourceSnapshotTests.test_build_cache_is_excluded_but_comparator_config_is_bound) ... ok
+test_source_edits_additions_and_removals_invalidate_receipt (test_build_corpus.SourceSnapshotTests.test_source_edits_additions_and_removals_invalidate_receipt) ... ok
+test_declarations_get_their_namespace_after_a_section_ends (test_build_corpus.TieTests.test_declarations_get_their_namespace_after_a_section_ends) ... ok
+test_ids_keep_their_dots (test_build_corpus.TieTests.test_ids_keep_their_dots) ... ok
+test_changed_sources_invalidate_successful_comparison (test_record_evidence.ComparatorTests.test_changed_sources_invalidate_successful_comparison) ... Bundle: inputs changed during comparison; receipt cannot establish current evidence
+ok
+test_guard_deferral_writes_no_receipt (test_record_evidence.ComparatorTests.test_guard_deferral_writes_no_receipt) ... ok
+test_new_comparison_receipt_does_not_replace_historical_file (test_record_evidence.ComparatorTests.test_new_comparison_receipt_does_not_replace_historical_file) ... ok
+test_public_leaf_is_reached_through_private_and_other_namespace_wrappers (test_record_evidence.ReachTests.test_public_leaf_is_reached_through_private_and_other_namespace_wrappers) ... skipped 'set QUARTIC_TEST_LEAN=1 for Lean-only fixture'
+test_failed_build_never_reads_stale_olean_or_writes_evidence (test_record_evidence.RecordTests.test_failed_build_never_reads_stale_olean_or_writes_evidence) ... build failed
+ok
+test_missing_root_or_unresolved_constant_cannot_record_pass (test_record_evidence.RecordTests.test_missing_root_or_unresolved_constant_cannot_record_pass) ... Incomplete dependency inspection; no evidence recorded
+Incomplete dependency inspection; no evidence recorded
+ok
+test_source_change_during_build_cannot_record_pass (test_record_evidence.RecordTests.test_source_change_during_build_cannot_record_pass) ... Lean inputs changed during build/inspection; no evidence recorded
+ok
+test_success_builds_before_inspection_and_preserves_old_receipt (test_record_evidence.RecordTests.test_success_builds_before_inspection_and_preserves_old_receipt) ... ok
+
+----------------------------------------------------------------------
+Ran 35 tests in 0.016s
+
+OK (skipped=2)

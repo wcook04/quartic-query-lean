@@ -1,0 +1,489 @@
+**I completed the focused review and prepared the full return packet. My main finding is that the ordinary quantum upper-bound argument is sound within the reviewed scope, while its formal correspondence needs a precise correction: the current packet already contains the list-valued tournament theorem, but a stronger theorem about the physical returned quantum state remains to be supplied.**
+
+[quartic_r3_05_quantum_upper_return.zip](https://chatgpt.com/library?file_id=libfile_e949e6e4363c819196a5ffbf7f519e4e&account_id=personal)
+
+The ZIP contains the replacement **§5**, complete ordinary proofs, passage-by-passage correspondence, exact available declaration types, the gap specification, versioned bibliography, reading and review receipts, and reproducible checks.
+
+The result established in the replacement is
+
+\[
+Q(F_{k,4^t})\leq C_k\,2^t(2t)^6
+\qquad
+\text{for each fixed }k\geq2,\quad t\geq1,
+\]
+
+with a query cap that holds **on every input and every execution branch**. The constant \(C_k\) depends on the fixed parameter \(k\).
+
+## 1. The principal findings
+
+Three conclusions should guide any integration of this section.
+
+**First, the proof survives the difficult input cases.** The losing columns can have meaningless decoded addresses, their comparisons can be cyclic, and their winning probabilities can lie arbitrarily close to \(1/2\). The tournament proof uses complementary probabilities, a weight-drift identity, and a strong property of the true winner. It does not need reliable decoding or a consistent ordering among all the other columns.
+
+**Second, the older description of the formal tournament result is stale.** The supplied current source and bound execution receipts support `QuarticQuery.Paper.quantumTournament`, which has an actual bounded-list output law and the required dominant-vertex membership guarantee. The earlier statement that only a Boolean endpoint exists should be replaced.
+
+**Third, a correct classical output distribution does not establish the full quantum output-state assertion.** The abstract amplification theorem states the successful-state property. The physical amplification interfaces supply the needed label distributions, including a coherent realization. Their types do not yet identify a designated physical output subsystem with the complete original normalized success component.
+
+These distinctions matter because the final query upper bound consumes classical candidate labels. Its existing measured-label route is sufficient. The stronger physical interpretation of the successful-state sentence in Lemma 3.1 requires an additional correspondence theorem.
+
+### What the current formal evidence supports
+
+| Component | Finding |
+|---|---|
+| Abstract bounded amplification | The complete abstract state assertion is present, including the call cap, zero-success behavior, and phase-invariant successful-state statements. |
+| Physical amplified label law | Present through both the measured `Runs` route and a coherent `Samples` realization. |
+| Literal fresh-register tensor state in equation (15) | Present through the dedicated tensor construction. It must be distinguished from the alternative short-circuit sampler. |
+| Bounded-list tournament theorem | Present in the current packet, with a normalized law, dominant-membership guarantee, physical realization, and explicit query bound. |
+| Final fixed-\(k\) quantum upper bound | Supported through the existing measured/Boolean proof route. |
+| Full physical returned-state correspondence | Still requires the designated-output-subsystem theorem specified in the return. |
+
+I also checked the source binding behind these conclusions. All **124 local Lean and configuration hashes** agree across the actual supplied files, evidence snapshot, root receipt, dependency export, and final axiom verdict. This explains why the supplied build evidence applies to those bytes despite differing commit labels in the records.
+
+**I did not run a new Lean build or Comparator check.** Compilation, membership in the dependency closure of a headline theorem, exact-name Comparator coverage, and correspondence with the intended mathematical statement remain separate evidence claims.
+
+## 2. Amplification: the stopping bound and returned state both need proof
+
+The amplification argument has two obligations:
+
+1. Increase the chance of obtaining a successful result, with a fixed maximum number of preparation calls.
+2. Preserve the normalized successful state of the original preparation.
+
+The replacement proves both in ordinary mathematics.
+
+Let
+
+\[
+\psi=A|0\rangle,\qquad
+p=\|\Pi\psi\|^2,
+\]
+
+where \(\Pi\) projects onto success. When \(0<p<1\), write
+
+\[
+g=\frac{\Pi\psi}{\sqrt p},
+\qquad
+b=\frac{(I-\Pi)\psi}{\sqrt{1-p}},
+\qquad
+\sin^2\theta=p.
+\]
+
+The Grover iterate
+
+\[
+G=-AS_0A^{-1}S_\chi
+\]
+
+satisfies
+
+\[
+G^\ell\psi
+=
+\sin((2\ell+1)\theta)\,g
++
+\cos((2\ell+1)\theta)\,b.
+\]
+
+Projection onto success therefore leaves \(g\) up to a phase whenever that branch has positive success probability. This is the relevant rotation mechanism in BHMT’s §2, Lemma 1 and equation (8). BHMT’s Theorem 12 is about amplitude estimation. [arxiv.org](https://arxiv.org/pdf/quant-ph/0005055v1?utm_source=chatgpt.com)
+
+For the packet’s capped construction, take
+
+\[
+M=\left\lceil\frac{10}{\sqrt\gamma}\right\rceil,
+\qquad
+N=\left\lceil
+\frac{\ln(1/\eta)}{\ln(40/31)}
+\right\rceil.
+\]
+
+In one trial, choose zero iterations with probability \(1/2\); otherwise choose an iteration count uniformly from \(0,\dots,M-1\). Run at most \(N\) fresh trials.
+
+The exact averaging identity is
+
+\[
+\frac1M\sum_{\ell=0}^{M-1}
+\sin^2((2\ell+1)\theta)
+=
+\frac12-
+\frac{\sin(4M\theta)}{4M\sin(2\theta)}.
+\]
+
+BBHT gives this random-iteration identity in §4, Lemma 2. Its expected-time search theorem is a separate statement; the fixed cap used here still has to be established. [arxiv.org](https://arxiv.org/pdf/quant-ph/9605034v1?utm_source=chatgpt.com)
+
+When \(\gamma\leq p\leq1/2\), the uniform-iteration part gives a trial success probability of at least \(9/40\). When \(p\geq1/2\), the zero-iteration half alone gives at least \(1/4\). Consequently,
+
+\[
+\Pr[\text{all \(N\) trials fail}]
+\leq
+(31/40)^N
+\leq\eta.
+\]
+
+The implementation’s actual padded product satisfies
+
+\[
+N(2M+1)
+\leq
+138\,\gamma^{-1/2}\ln(1/\eta).
+\]
+
+That last point is a substantive accounting correction. A bound on a possibly smaller abstract procedure’s call count does not automatically bound the larger padded product charged by an implementation. The replacement bounds the product directly.
+
+The endpoint cases are also explicit:
+
+- At \(p=0\), failure is certain.
+- At \(p=1\), success is certain.
+- At every \(p>0\), successful conditioning is legitimate, since the first trial alone succeeds with probability at least \(p/2>0\).
+
+### Why the output register matters
+
+Consider the states
+
+\[
+|+\rangle|0\rangle
+\quad\text{and}\quad
+\frac{|00\rangle+|11\rangle}{\sqrt2}.
+\]
+
+Measuring the first register in the computational basis gives the same distribution in both cases:
+
+\[
+\Pr[0]=\Pr[1]=\frac12.
+\]
+
+Their first-register density matrices are nevertheless different:
+
+\[
+\rho_{\mathrm{product}}
+=
+\begin{pmatrix}
+1/2&1/2\\
+1/2&1/2
+\end{pmatrix},
+\qquad
+\rho_{\mathrm{Bell}}
+=
+\begin{pmatrix}
+1/2&0\\
+0&1/2
+\end{pmatrix}.
+\]
+
+A measurement in the \(+/-\) basis returns \(+\) with probability \(1\) in the first case and \(1/2\) in the second.
+
+This is an exact counterexample to the inference that equality of a classical label law determines the returned quantum state. I checked the calculation with rational density matrices. The included script also verifies that a CNOT uncomputes the copied label in this example and restores the product state, so the example does not suggest that state recovery is impossible.
+
+### A useful refinement: controlled access to an opaque \(A\) is unnecessary
+
+I made the coherent construction more explicit than the earlier draft.
+
+Run all \(N\) fresh trial registers, record their success flags coherently, and then route the first successful trial’s entire original register into a fixed output slot. Each successful history has the same original-register factor \(g\); its phase and remaining records belong to auxiliary registers.
+
+The variable iteration count can be implemented without assuming a controlled version of an opaque preparation unitary. A controlled Grover iterate can use **unconditional** calls to \(A\) and \(A^{-1}\), while controlling only the fixed reflections and the minus sign. On the false-control branch, the reflections are identities and \(AA^{-1}\) cancels. On the true-control branch, the operation is \(G\).
+
+Thus the preparation-call schedule remains fixed, and the same padded cap applies. This supplies a concrete ordinary construction for the stronger formal target.
+
+The remaining theorem should identify an original register \(H\), auxiliary register \(J\), fixed initial state, and auxiliary success projector such that
+
+\[
+(I_H\otimes\Pi_J)\Psi_x=g_x\otimes\xi_x,
+\]
+
+with
+
+\[
+p_x>0
+\Longrightarrow
+s_x\geq p_x/2>0,
+\qquad
+\|\xi_x\|^2=s_x,
+\]
+
+together with the promised success bound, certain failure at \(p_x=0\), and compilation of that **same circuit** with the stated physical query cap. Its template must be fixed before the preparation and input are supplied. The return spells out these quantifiers and initialization requirements.
+
+## 3. The probabilistic tournament works through weight drift
+
+The comparison assumptions are
+
+\[
+0\leq a_{ij}\leq1,\qquad
+a_{ij}+a_{ji}=1\quad(i\neq j),\qquad
+a_{ii}=0.
+\]
+
+No transitivity assumption is needed.
+
+Start with weights \(w_i=1\), and let \(W=\sum_iw_i\). An ideal step chooses pivot \(p\) with probability \(w_p/W\) and updates
+
+\[
+w_i\longleftarrow w_i a_{ip}.
+\]
+
+The central calculation is
+
+\[
+\begin{aligned}
+\mathbb E[W_{\mathrm{new}}\mid w]
+&=\frac1W\sum_{p,i}w_pw_i a_{ip}\\
+&=\frac{W^2-\sum_iw_i^2}{2W}\\
+&\leq\frac W2.
+\end{aligned}
+\]
+
+The equality pairs the terms for \((i,p)\) and \((p,i)\), using \(a_{ip}+a_{pi}=1\). It works for cyclic and fractional comparisons. At \(W=0\), the process is defined to remain at zero.
+
+Now set
+
+\[
+T=\left\lceil\log_2(1000m)\right\rceil,
+\qquad
+\varepsilon=\frac1{1000T}.
+\]
+
+A dominant vertex \(s\) satisfies \(a_{sj}\geq1-\varepsilon\) for every \(j\neq s\). Until it is selected,
+
+\[
+w_s(t)
+\geq(1-\varepsilon)^t
+\geq1-t\varepsilon
+\geq\frac{999}{1000}
+>\frac12.
+\]
+
+Meanwhile, repeated drift gives \(\mathbb E W_T\leq m/2^T\). Therefore the ideal process misses \(s\) with probability at most
+
+\[
+\frac{2m}{2^T}.
+\]
+
+### The exact conditional law is the essential bridge
+
+At a history with surviving weights \(w_i\), the quantum preparation has
+
+\[
+\Pr[\text{success and index }i]=\frac{w_i}{m},
+\qquad
+\Pr[\text{success}]=\frac Wm.
+\]
+
+Hence, when \(W>0\),
+
+\[
+\Pr[i\mid\text{success}]=\frac{w_i}{W}.
+\]
+
+Amplification preserves this conditional law exactly. A lower bound on the chance of producing *some* successful index would be insufficient: it would not justify using the ideal process’s weight calculation.
+
+Before the dominant vertex appears, \(W>1/2\), so the stage success probability exceeds \(1/(2m)\). The capped amplifier consequently fails with probability at most \(\varepsilon\) on every relevant history.
+
+Coupling the real process to the ideal one gives
+
+\[
+\Pr[\text{real list misses }s]
+\leq
+\frac{2m}{2^T}+T\varepsilon.
+\]
+
+The proof charges a disagreement only before \(s\) enters the list. Later failures cannot remove an existing entry. It uses conditional bounds at successive histories and a union bound; it does not require independent tournament-stage failures.
+
+The list theorem has the correct order of quantifiers: **one sampler is chosen before the input and before the distinguished dominant vertex**. A membership indicator for a particular vertex is used only in the analysis.
+
+### Exact cyclic example
+
+The return includes this four-candidate instance, with
+
+\[
+m=4,\qquad T=12,\qquad \varepsilon=\frac1{12000}.
+\]
+
+Each entry is the probability that the row candidate defeats the column candidate.
+
+| \(a_{ij}\) | \(s\) | \(a\) | \(b\) | \(c\) |
+|---|---:|---:|---:|---:|
+| \(s\) | \(0\) | \(1-\varepsilon\) | \(1-\varepsilon\) | \(1-\varepsilon\) |
+| \(a\) | \(\varepsilon\) | \(0\) | \(1\) | \(0\) |
+| \(b\) | \(\varepsilon\) | \(0\) | \(0\) | \(1\) |
+| \(c\) | \(\varepsilon\) | \(1\) | \(0\) | \(0\) |
+
+The three losing candidates form the certain cycle \(a\to b\to c\to a\).
+
+After first pivot \(a\),
+
+\[
+(w_s,w_a,w_b,w_c)
+=
+\left(\frac{11999}{12000},0,0,1\right),
+\qquad
+W=\frac{23999}{12000}.
+\]
+
+The unamplified stage succeeds with probability
+
+\[
+\frac W4=\frac{23999}{48000}.
+\]
+
+Conditioned on success, the next pivot is \(s\) with probability \(11999/23999\), and \(c\) with probability \(12000/23999\). If it is \(c\), the only remaining positive weight is
+
+\[
+w_s=\left(\frac{11999}{12000}\right)^2,
+\]
+
+so the following successful pivot is \(s\).
+
+The first-step expected total weight is exactly
+
+\[
+\frac{3\varepsilon+3(2-\varepsilon)}4=\frac32.
+\]
+
+The ideal process selects \(s\) within three pivots with probability one. The included rational-arithmetic check verifies normalization and drift across **23 reachable histories**. This is an illustration of the mechanism; the general result is established by the proof above.
+
+## 4. Decoding and verification remain valid off promise
+
+The delicate point in the comparison argument is how little must be known about an opponent.
+
+A true winning column has an all-one \(X\)-block. Consequently, no pointer from an opponent can disqualify it, regardless of that opponent’s decoded address. When the winner’s **own** address is decoded correctly, its pointers disqualify every opponent. Since its own decoding succeeds with probability at least \(1-\varepsilon\),
+
+\[
+a_{i^\star j}\geq1-\varepsilon
+\qquad(j\neq i^\star).
+\]
+
+That is the dominance property the tournament needs.
+
+For verification, fix the candidate’s freshly decoded address. The local checks are exact Boolean tests on the raw input. Their number is
+
+\[
+K=m+(m-1)+r(S+2),
+\]
+
+and their maximum decision-tree depth is
+
+\[
+\max\{3,\ell+1\}.
+\]
+
+The depth qualification matters because a pointer check adaptively determines the coordinate it reads.
+
+If \(h\) of these tests fail, uniform test preparation succeeds with probability \(h/K\), where “success” means finding a failed test. Therefore:
+
+- If \(h=0\), search reports no failed test with certainty, and the verifier accepts.
+- If \(h\geq1\), capped amplification with threshold \(1/K\) finds a failed test except with probability at most \(\varepsilon\).
+
+Every nonwinner has a failed test at **every** possible address. Otherwise, passing circuit-consistency and output tests would establish a genuine winning address. Thus a nonwinner’s arbitrary decoded label causes no soundness gap.
+
+For a true winner, correct decoding leads to acceptance with certainty. Its rejection probability is therefore at most \(\varepsilon\), coming from decoding. There is no additional search error on the correctly decoded winning address.
+
+Combining these facts gives
+
+\[
+\Pr[\text{error on a zero input}]
+\leq T\varepsilon
+\]
+
+and
+
+\[
+\Pr[\text{error on a one input}]
+\leq
+\frac{2m}{2^T}+T\varepsilon+\varepsilon
+\leq\frac1{250}<\frac13.
+\]
+
+These guarantees survive conditioning on the preceding tournament transcript because verification is fresh and its guarantees hold for every fixed candidate and address.
+
+## 5. The query accounting is explicit
+
+The replacement distinguishes logical reads from ordinary physical bit-oracle queries. The compiler charges at most two physical queries per logical read.
+
+For the tournament, if a comparison costs \(c_{\mathrm{rd}}\) logical reads, padding each stage to \(T\) comparisons gives
+
+\[
+B_{\mathrm{list}}
+=
+2T^2c_{\mathrm{rd}}N(2M_0+1)
+\leq
+6072\,c_{\mathrm{rd}}\sqrt m\,T^2\ln T,
+\]
+
+where
+
+\[
+M_0=\lceil10\sqrt{2m}\rceil.
+\]
+
+The constant follows from the padded amplification bound, then
+
+\[
+\ln(1000T)\leq11\ln T,
+\qquad
+\sqrt{2m}\leq2\sqrt m.
+\]
+
+The compiler factor of two is included once.
+
+For the complete algorithm, let \(a=rnk\) be the address decoder’s logical-read count, and set
+
+\[
+c_c=2a+2(2t+1),
+\qquad
+c_0=\max\{3,2t+1\},
+\qquad
+M_1=\lceil10\sqrt K\rceil.
+\]
+
+The exact integer budget is
+
+\[
+B_{k,t}
+=
+T\bigl[2N(2M_0+1)T c_c\bigr]
++
+T\bigl[2a+2N(2M_1+1)c_0\bigr].
+\]
+
+The first term pays for the padded tournament; the second pays for at most \(T\) fresh verifications. All branches obey this budget, including branches on which no amplification success promise holds.
+
+For the chosen realizing circuit, the explicit size constant is
+
+\[
+C_F(k)=200(k+1)^2.
+\]
+
+Substituting that bound and the repetition parameters yields the stated logarithmic exponent six.
+
+The qualification **“for each fixed \(k\)”** remains essential. This section proves the quantum upper bound with a constant depending on \(k\). It does not independently establish the randomized lower bound or assert that one fixed \(k\) gives an exact fourth-power separation.
+
+## 6. The citations now have specific jobs
+
+I retained the source preprint as the attribution and mathematical target, and checked the surrounding literature for the exact statements needed.
+
+| Source and inspected edition | Appropriate use in the section |
+|---|---|
+| **OpenAI, 5 October 2026**, supplied PDF, §3, Lemma 3.1 and Propositions 3.2–3.3 | The capped amplification construction, probabilistic tournament, and quantum upper-bound argument being reconstructed. |
+| **Brassard–Høyer–Mosca–Tapp, arXiv v1, 2000** | §2, Lemma 1 and equation (8) for amplification geometry. Theorem 12 concerns estimation. [arxiv.org](https://arxiv.org/pdf/quant-ph/0005055v1?utm_source=chatgpt.com) |
+| **Boyer–Brassard–Høyer–Tapp, arXiv v1, 1996** | §4, Lemma 2 for the exact random-iteration average; Theorem 3 for expected-time search context. [arxiv.org](https://arxiv.org/pdf/quant-ph/9605034v1?utm_source=chatgpt.com) |
+| **Dürr–Høyer, arXiv v2, 1999** | Ordered minimum-finding context, using table values and ranks. Its order structure is stronger than the comparison assumptions here. [arxiv.org](https://arxiv.org/pdf/quant-ph/9607014v2?utm_source=chatgpt.com) |
+| **Høyer–Mosca–de Wolf, arXiv v2, 2003** | Search with bounded-error access to fixed Boolean predicates. The stated correctness hypothesis does not automatically hold for arbitrary loser–loser comparisons. [arxiv.org](https://arxiv.org/pdf/quant-ph/0304052v2?utm_source=chatgpt.com) |
+| **Ben-David–Kothari, arXiv v1, 2026** | §3, Lemma 5 as an antecedent for candidate generation, comparison, and certificate checking. [arxiv.org](https://arxiv.org/html/2609.15063v1?utm_source=chatgpt.com) |
+| **Mande–Paraashar–Saurabh, published FSTTCS 2023 edition** | Exact-orientation tournament context. The linked published result is **Theorem 19**, rather than the baseline’s Theorem 4.4 locator. [drops.dagstuhl.de](https://drops.dagstuhl.de/storage/00lipics/lipics-vol284-fsttcs2023/LIPIcs.FSTTCS.2023.30/LIPIcs.FSTTCS.2023.30.pdf?utm_source=chatgpt.com) |
+
+The Høyer–Mosca–de Wolf distinction deserves particular care. Their search framework assumes bounded-error access to an underlying Boolean answer. A loser–loser comparison here may have winning probability exactly \(1/2\), so no such reliable orientation follows. The fractional-weight proof avoids needing that additional hypothesis.
+
+The bibliography records editions and theorem/page locators, and the reading receipt separates inspected passages from material merely present in the packet. For the OpenAI preprint, the reviewed edition is identified by the supplied PDF’s exact hash; I did not assume that an unsuccessful public PDF download verified identical bytes.
+
+## 7. What is finished, and the precise remaining task
+
+The return contains **28 files**, with an internal byte manifest. Its principal deliverables include:
+
+- A complete replacement **section.md**, with **39 stable passage anchors** and **37 mapped display formulas**.
+- Correspondence covering **46 statement identifiers** and **70 selected declaration records**, with available printed types distinguished from source signatures and ambient context.
+- An exact **LEAN_GAPS.md** specification for the physical output-state theorem.
+- Seven versioned references, ranked review findings, reading scope, and the required authoring receipt.
+- Exact tournament and density-matrix checks, plus structural and hash validation.
+
+The input-integrity check covered all **397 manifest-listed input members**. Both finite examples reproduced identical report bytes. The assembled archive and its manifest passed the final checks.
+
+The remaining formal task is concrete: construct the uniform retained-state amplifier, prove its successful original-subsystem factorization and all-input logical cap, and apply the compiler to that same circuit. That future theorem should receive its own source-bound build and type audit. The current measured-label upper bound already has the interface it needs.
+
+This review covers the requested quantum upper-bound section and its necessary neighboring interfaces. The separate pasted-text attachment was unavailable and is not covered. The return is ready for integration review; no repository integration, fresh formal execution, or revised-PDF rendering is claimed.

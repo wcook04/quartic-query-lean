@@ -1,0 +1,530 @@
+{
+  "schema": "quartic_r3_planted_toy_v1",
+  "parameters": {
+    "m": 4,
+    "ell": 2,
+    "r": 2,
+    "L": 1,
+    "G": 4,
+    "n": 2,
+    "S": 2,
+    "coordinate_count": 192
+  },
+  "limits": [
+    "Finite illustration only; r=2 differs from the theorem's r=40t.",
+    "G=4 is not floor(mL/100), which is zero for these toy parameters.",
+    "P is two-bit XOR, not Forrelation.",
+    "Enumerated measure fixes other columns' A inputs, conditions appropriate for the fixed-target simulator; target inputs are independent uniform two-bit strings.",
+    "No Lean compilation, Comparator result, or asymptotic proof is certified."
+  ],
+  "circuit": {
+    "gate_0": "constant 1 (domain output)",
+    "gate_1": "XOR(input0,input1) (value output)",
+    "transcript_order": [
+      "domain",
+      "value"
+    ]
+  },
+  "sample": {
+    "J": [
+      2,
+      0,
+      3,
+      1
+    ],
+    "A": [
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    ],
+    "I": 1,
+    "true_address": [
+      1,
+      0
+    ],
+    "X_dummy": [
+      [
+        1,
+        1,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1
+      ]
+    ],
+    "X_planted": [
+      [
+        1,
+        1,
+        0,
+        1
+      ],
+      [
+        1,
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1
+      ]
+    ],
+    "planted_transcripts": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "planted_pointers": {
+      "0": [
+        1,
+        0
+      ],
+      "2": [
+        1,
+        1
+      ],
+      "3": [
+        0,
+        1
+      ]
+    },
+    "F_dummy": 0,
+    "F_planted": 1,
+    "algorithm_dummy_trace": [
+      {
+        "time": 1,
+        "coordinate": [
+          "X",
+          0,
+          0
+        ],
+        "answer": 1
+      },
+      {
+        "time": 2,
+        "coordinate": [
+          "A",
+          1,
+          0,
+          0
+        ],
+        "answer": 1
+      },
+      {
+        "time": 3,
+        "coordinate": [
+          "X",
+          2,
+          1
+        ],
+        "answer": 1
+      },
+      {
+        "time": 4,
+        "coordinate": [
+          "B",
+          "transcript",
+          1,
+          [
+            1,
+            0
+          ],
+          0,
+          0
+        ],
+        "answer": 0
+      }
+    ],
+    "algorithm_planted_trace": [
+      {
+        "time": 1,
+        "coordinate": [
+          "X",
+          0,
+          0
+        ],
+        "answer": 1
+      },
+      {
+        "time": 2,
+        "coordinate": [
+          "A",
+          1,
+          0,
+          0
+        ],
+        "answer": 1
+      },
+      {
+        "time": 3,
+        "coordinate": [
+          "X",
+          2,
+          1
+        ],
+        "answer": 1
+      },
+      {
+        "time": 4,
+        "coordinate": [
+          "B",
+          "transcript",
+          1,
+          [
+            1,
+            0
+          ],
+          0,
+          0
+        ],
+        "answer": 1
+      }
+    ],
+    "algorithm_outputs": [
+      0,
+      1
+    ],
+    "simulator": {
+      "guess": [
+        1,
+        0
+      ],
+      "target_queries_used": 1,
+      "aborted": false,
+      "trace": [
+        {
+          "time": 1,
+          "coordinate": [
+            "X",
+            0,
+            0
+          ],
+          "action": "independent outside data (free)",
+          "answer": 1,
+          "target_queries_used": 0,
+          "bit_read": true
+        },
+        {
+          "time": 2,
+          "coordinate": [
+            "A",
+            1,
+            0,
+            0
+          ],
+          "action": "target oracle (charged)",
+          "answer": 1,
+          "target_queries_used": 1,
+          "bit_read": true
+        },
+        {
+          "time": 3,
+          "coordinate": [
+            "X",
+            2,
+            1
+          ],
+          "action": "independent outside data (free)",
+          "answer": 1,
+          "target_queries_used": 1,
+          "bit_read": true
+        },
+        {
+          "time": 4,
+          "coordinate": [
+            "B",
+            "transcript",
+            1,
+            [
+              1,
+              0
+            ],
+            0,
+            0
+          ],
+          "action": "return proposed address",
+          "guess": [
+            1,
+            0
+          ],
+          "target_queries_used": 1,
+          "bit_read": false
+        }
+      ]
+    },
+    "abort_case": {
+      "target_inputs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "simulation": {
+        "guess": [
+          0,
+          0
+        ],
+        "target_queries_used": 1,
+        "aborted": true,
+        "trace": [
+          {
+            "time": 1,
+            "coordinate": [
+              "X",
+              0,
+              0
+            ],
+            "action": "independent outside data (free)",
+            "answer": 1,
+            "target_queries_used": 0,
+            "bit_read": true
+          },
+          {
+            "time": 2,
+            "coordinate": [
+              "A",
+              1,
+              0,
+              0
+            ],
+            "action": "target oracle (charged)",
+            "answer": 0,
+            "target_queries_used": 1,
+            "bit_read": true
+          },
+          {
+            "time": 3,
+            "coordinate": [
+              "A",
+              1,
+              1,
+              0
+            ],
+            "action": "abort before target query",
+            "guess": [
+              0,
+              0
+            ],
+            "target_queries_used": 1,
+            "bit_read": false
+          }
+        ]
+      }
+    }
+  },
+  "exact_enumeration": {
+    "dummy_samples": 4096,
+    "coupled_samples": 16384,
+    "changed_coordinate_checks": 3145728,
+    "counts": {
+      "sum_Z": 1536,
+      "sum_early": 1536,
+      "sum_late": 0,
+      "erased_zero_hits": 1536,
+      "true_cell_hits": 1024,
+      "output_disagreements": 1024,
+      "signed_output_gap": 1024,
+      "nonheavy_true_cell": 512,
+      "simulator_success": 1024,
+      "heavy_target": 2048,
+      "heavy_selected": 2048
+    },
+    "E_Z": {
+      "numerator": 3,
+      "denominator": 8,
+      "text": "3/8"
+    },
+    "Pr_hit_erased_zero": {
+      "numerator": 3,
+      "denominator": 32,
+      "text": "3/32"
+    },
+    "E_Z_over_m": {
+      "numerator": 3,
+      "denominator": 32,
+      "text": "3/32"
+    },
+    "Pr_hit_true_cell": {
+      "numerator": 1,
+      "denominator": 16,
+      "text": "1/16"
+    },
+    "output_one_probability_gap": {
+      "numerator": 1,
+      "denominator": 16,
+      "text": "1/16"
+    },
+    "Pr_fixed_target_nonheavy_and_true_cell_at_time4": {
+      "numerator": 1,
+      "denominator": 8,
+      "text": "1/8"
+    },
+    "Pr_capped_simulator_correct": {
+      "numerator": 1,
+      "denominator": 4,
+      "text": "1/4"
+    },
+    "one_instance_one_query_optimum": {
+      "numerator": 1,
+      "denominator": 2,
+      "text": "1/2"
+    },
+    "direct_product_bound": {
+      "numerator": 1,
+      "denominator": 4,
+      "text": "1/4"
+    },
+    "Pr_target_heavy": {
+      "numerator": 1,
+      "denominator": 2,
+      "text": "1/2"
+    },
+    "Pr_selected_column_heavy": {
+      "numerator": 1,
+      "denominator": 8,
+      "text": "1/8"
+    },
+    "early_late_partition_checked": true,
+    "coupling_support_checked": true,
+    "zero_one_input_values_checked": true,
+    "joint_event_implies_capped_success_checked": true
+  },
+  "selection_bias_counterexample": {
+    "P": "AND on promised domain {01,10,11}",
+    "mu": "uniform on the three promised inputs",
+    "r": 1,
+    "L": 1,
+    "one_query_optimum": {
+      "numerator": 2,
+      "denominator": 3,
+      "text": "2/3"
+    },
+    "cases": [
+      {
+        "input": [
+          0,
+          1
+        ],
+        "P": 0,
+        "full_query_count": 1,
+        "nonheavy": true,
+        "capped_guess": 0,
+        "capped_success": true
+      },
+      {
+        "input": [
+          1,
+          0
+        ],
+        "P": 0,
+        "full_query_count": 2,
+        "nonheavy": false,
+        "capped_guess": 0,
+        "capped_success": true
+      },
+      {
+        "input": [
+          1,
+          1
+        ],
+        "P": 1,
+        "full_query_count": 2,
+        "nonheavy": false,
+        "capped_guess": 0,
+        "capped_success": false
+      }
+    ],
+    "Pr_nonheavy": {
+      "numerator": 1,
+      "denominator": 3,
+      "text": "1/3"
+    },
+    "Pr_correct_and_nonheavy": {
+      "numerator": 1,
+      "denominator": 3,
+      "text": "1/3"
+    },
+    "Pr_capped_correct": {
+      "numerator": 2,
+      "denominator": 3,
+      "text": "2/3"
+    },
+    "Pr_correct_given_nonheavy": {
+      "numerator": 1,
+      "denominator": 1,
+      "text": "1"
+    },
+    "lesson": "The joint event is bounded by 2/3; the conditional success is 1, so a direct-product bound cannot be applied after conditioning on nonheaviness."
+  }
+}

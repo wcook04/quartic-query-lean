@@ -1,0 +1,326 @@
+I completed the research and the replacement §§1–2 requested inside the attachment, together with the source correspondence, bibliography, review notes, and reproducible checks.
+
+**My main finding:** I did not find a mathematical error in the theorem statements, fixed-\(k\) exponent argument, or model arguments reviewed for this assignment. The substantial corrections concern **which cost convention a citation uses, what the quantum simulation actually preserves, and exactly which declarations the recorded formal evidence supports**.
+
+[quartic_r3_01_models_evidence_return.zip](https://chatgpt.com/library?file_id=libfile_4cb115451e3881919972ef9f9d8873a3&account_id=personal)
+
+The ZIP contains the complete replacement in `section.md`, detailed findings in `review_notes.md`, the requested correspondence files, and exact Python checkers with their outputs. The crosswalk covers **all 26 displayed equations and 51 load-bearing claims**, with **152 inspected source signatures and their enclosing parameters**. Its internal consistency and archive hashes passed the final checks.
+
+## 1. The theorem’s quantifier order is the central mathematical point
+
+The result concerns the optimal **universal exponent** relating bounded-error randomized and quantum query complexity for total Boolean functions:
+
+\[
+\alpha_{\mathrm{tot}}
+=
+\inf\left\{
+\alpha\ge 0:
+\exists C_\alpha>0\
+\forall n\ge1\
+\forall f:\{0,1\}^{n}\to\{0,1\},
+\quad
+R(f)\le C_\alpha(1+Q(f))^\alpha
+\right\}.
+\]
+
+The claimed value is
+
+\[
+\boxed{\alpha_{\mathrm{tot}}=4.}
+\]
+
+The upper-bound direction was already known: Aaronson, Ben-David, Kothari, Rao and Tal proved \(D(f)=O(Q(f)^4)\), which also bounds \(R(f)\) because a deterministic algorithm is a randomized algorithm with no randomness. The new separation supplies the lower-bound direction needed to exclude every smaller universal exponent. These are different contributions, and the rewrite preserves their separate attribution. [arxiv.org](https://arxiv.org/pdf/2010.12629v1?utm_source=chatgpt.com)
+
+The family statement in the supplied preprint has this order:
+
+1. Fix an integer \(k\ge2\).
+2. Choose constants and a sufficiently large threshold depending on \(k\).
+3. Let \(m\) grow through powers of four.
+4. At each such size, use the **same total function** \(F_{k,m}\) for both inequalities:
+
+\[
+Q(F_{k,m})
+\le C_k\sqrt m\,(\log_2m)^{b_k},
+\qquad
+R(F_{k,m})
+\ge c_k\frac{m^{2-1/k}}{(\log_2m)^2}.
+\]
+
+That common-function requirement matters. Separate constructions giving an upper bound and a lower bound would not establish the separation.
+
+Here is the complete reason the fixed-parameter family suffices. Given a proposed universal exponent \(0\le\alpha<4\), choose a fixed integer
+
+\[
+k>\frac{2}{4-\alpha}.
+\]
+
+Then
+
+\[
+\delta=2-\frac1k-\frac{\alpha}{2}>0.
+\]
+
+For sufficiently large \(m\),
+
+\[
+1+Q(F_{k,m})
+\le (1+C_k)\sqrt m\,(\log_2m)^{b_k}.
+\]
+
+Consequently,
+
+\[
+\frac{R(F_{k,m})}{(1+Q(F_{k,m}))^\alpha}
+\ge
+\frac{c_k}{(1+C_k)^\alpha}
+\frac{m^\delta}{(\log_2m)^{2+\alpha b_k}}
+\longrightarrow\infty.
+\]
+
+A positive power of \(m\) dominates every fixed power of its logarithm. Therefore no constant \(C_\alpha\) can work universally.
+
+**There is no need to let \(k\) grow with \(m\).** For each exponent being ruled out, one fixes a suitable \(k\) and then takes the size large. Conversely, the stated theorem does not justify a uniform growing-\(k\) claim: that would require quantitative control of the constants and thresholds.
+
+For one fixed \(k\), the construction excludes powers strictly below \(4-2/k\). It does not give an exact fourth-power separation for that fixed parameter. Already \(k=3\) gives \(10/3>3\), which is enough to refute the cubic conjecture identified in Aaronson et al., Conjecture 2. [arxiv.org](https://arxiv.org/pdf/2010.12629v1?utm_source=chatgpt.com)
+
+I also found a useful strengthening of the evidence trail: the supplied source contains a later wrapper, `Paper.classical_Fkm_ratio`, that states the lower envelope and divergence for the actual named circuit family. Thus the ratio need not be described as merely an informal calculation with only loosely related formal ingredients. Its exact type is now in the contract, with its own build and comparison status.
+
+## 2. The construction becomes clearer once the outward pointers are explained
+
+The essential mechanism is a certificate that lets one candidate disqualify every other candidate.
+
+A column can win only if its own string is all ones, its address is defined, its certificate is correct, and its certificate points to a zero in every other column. This immediately proves uniqueness: if columns \(i\) and \(j\) both won, the certificate in \(i\) would point to a zero in \(j\), contradicting the requirement that \(j\)’s string be all ones.
+
+That observation does more than establish uniqueness. It explains why the quantum comparison procedure can tolerate off-promise address inputs in losing columns:
+
+- A genuine winner has its own valid address and certificate.
+- That certificate supplies a way to disqualify every rival.
+- No rival’s pointer can identify a zero in the winner’s all-one string.
+- Comparisons between two losing columns may behave arbitrarily; the tournament needs reliable comparisons involving the winner.
+
+The rewrite brings this mechanism forward, before introducing the technical construction. It gives the reader a reason for the direction of the pointers and for the promise handling.
+
+The randomized lower-bound overview has a different job. Start with one hidden zero in each column and blank certificate cells. Then erase the zero in a randomly selected column and populate its correctly addressed cell. To distinguish the original and modified inputs, a classical algorithm must encounter one of those changes.
+
+The hard part is proving that adaptive classical querying cannot find the populated cell cheaply. That is where the later direct-product argument enters. The short winner argument does not prove this lower bound, and the replacement keeps that dependency explicit.
+
+## 3. Several model details genuinely change the numerical answers
+
+The definitions need to pin down more than “a randomized algorithm” or “a quantum algorithm.”
+
+| Model choice | Precise meaning used in the replacement | Why it matters |
+|---|---|---|
+| Query cost | A worst-case cap on the number of queries | A rare expensive branch still contributes to the cap. |
+| Success | At least \(2/3\) on every promised input | Average success over an input distribution is a different requirement. |
+| Quantifier order | One algorithm, distribution, and initial state chosen before the input | Choosing an algorithm separately for each input would trivialize the definition. |
+| Partial functions | Undefined inputs impose no correctness requirement | Treating undefined as false changes the problem. |
+| Randomization | Finite mixtures with real probabilities | Restricting to a bounded number of fair flips can matter at the exact \(2/3\) endpoint. |
+| Quantum branching | Unnormalized branch vectors and maximum branch cap | Renormalizing branches without restoring their probabilities corrupts the output-mass calculation. |
+
+The distribution-over-trees model and its allowance for biased coins are supported by Buhrman–de Wolf’s survey. Its classical convention takes the maximum depth of supported trees, rather than their weighted average. [homepages.cwi.nl](https://homepages.cwi.nl/~rdewolf/publ/qc/dectree.pdf?utm_source=chatgpt.com)
+
+### Why finite mixtures are enough
+
+For a finite coordinate set and a fixed cap \(q\), there are finitely many syntactic decision trees of depth at most \(q\). Fixing an algorithm’s random choices selects one of those trees; grouping random outcomes by the selected tree produces a finite distribution.
+
+Conversely, a finite distribution can be sampled with finitely many appropriately biased choices before querying the input.
+
+The supplied source has useful formal ingredients here: it proves bounded-depth tree finiteness and constructs a `RandomizedProgram` from a finite nonnegative normalized mixture, discarding zero weights. Those results do not, by themselves, constitute a separately stated formal theorem about every random-tape presentation. The replacement gives the remaining representation argument as ordinary mathematics and labels it accordingly.
+
+Repeated queries also deserve attention. A syntactic tree can contain a branch inconsistent with an earlier answer to the same coordinate. Carrying known answers down the tree and pruning such repeated queries preserves evaluation and cannot increase depth. In the pruned tree every path is consistent with an input, so syntactic maximum depth agrees with an attained worst-case cost. This explains why the source’s convenient depth convention preserves the intended minimum.
+
+### Why the minima exist
+
+The source defines the complexities using natural-number infima. That notation is justified by an actual feasible algorithm: query every coordinate, then output the prescribed value on the promise and any value elsewhere.
+
+This gives a budget at most \(|I|\), so the admissible-budget sets are nonempty. Their monotonicity then yields the expected least-budget equivalences, such as
+
+\[
+R(f)\le q\iff R_{\le}(f,q),
+\qquad
+Q(f)\le q\iff Q_{\le}(f,q).
+\]
+
+The value of an empty infimum is therefore irrelevant to these complexities.
+
+## 4. The small examples expose the conventions sharply
+
+Under the inclusive success threshold \(2/3\), the exact values are:
+
+| Function or promise problem | \(D\) | \(R\) | \(Q\) |
+|---|---:|---:|---:|
+| One-bit identity | 1 | 1 | 1 |
+| Two-bit OR | 2 | 1 | 1 |
+| Two-bit XOR | 2 | 2 | 1 |
+| One-bit promise: true at \(1\), undefined at \(0\) | 0 | 0 | 0 |
+| Empty promise | 0 | 0 | 0 |
+
+These are ordinary proofs in the replacement, accompanied by exact finite checks. I have not promoted their proposed Lean declarations into checked theorems without receipts.
+
+### OR: the endpoint \(2/3\) is substantive
+
+Choose each of the following with probability \(1/3\):
+
+- Output \(1\) without querying.
+- Query \(x_0\) and output it.
+- Query \(x_1\) and output it.
+
+The successes are
+
+\[
+\begin{array}{c|cccc}
+x&00&01&10&11\\ \hline
+\Pr[\text{correct}]&2/3&2/3&2/3&1.
+\end{array}
+\]
+
+The query cap is one. The expected number of queries for this particular algorithm is \(2/3\). Those are distinct costs.
+
+The lower bound is also short. Under the uniform distribution on \(00,01,10\), any deterministic tree making at most one query is correct on at most two inputs. Therefore every mixture has average success at most \(2/3\), and cannot have success strictly greater than \(2/3\) on all inputs.
+
+So:
+
+- Inclusive success at least \(2/3\) permits classical cap one.
+- Strict success greater than \(2/3\) requires classical cap two.
+
+The optimal cap-one distribution also reveals the finite-fair-coin issue. Equality in that three-input bound forces the supported response functions to be among \(1,x_0,x_1\); the pointwise constraints force their aggregate weights to be \(1/3\) each. A bounded number of fair flips produces dyadic probabilities, so it cannot realize those weights exactly. This observation does not exclude almost-sure sampling with an unbounded possible number of free fair flips.
+
+Quantumly, the same selector can be prepared and measured before any input query, followed by the chosen constant or one-query branch. That establishes \(Q(\mathrm{OR}_2)=1\). The classical success ceiling just proved is **not** a claim about optimal one-query quantum success.
+
+### Undefined is not false
+
+Let \(f(1)=1\), with \(f(0)\) undefined. Outputting \(1\) always computes this promise problem exactly with zero queries.
+
+If the undefined value is replaced by false, the resulting total function is one-bit identity and all three complexities become one.
+
+That is a numerical witness that false completion changes the mathematical problem. The source operation `totalise` instead embeds an already total function by wrapping each value as defined.
+
+### Parity checks both the cost convention and the oracle convention
+
+For two-bit XOR, every classical depth-one response is correct on exactly half of the four inputs. Averaging over mixtures therefore rules out pointwise success \(2/3\). Reading both bits is exact, so \(D=R=2\).
+
+A quantum algorithm prepares equal index amplitudes with the answer bit in the minus state. After one query and a Hadamard on the index, the amplitudes are
+
+\[
+\frac{(-1)^{x_0}+(-1)^{x_1}}2,
+\qquad
+\frac{(-1)^{x_0}-(-1)^{x_1}}2.
+\]
+
+Exactly one is nonzero, and its index is the parity. Hence \(Q=1\).
+
+The checker verifies these cases with exact arithmetic; no floating-point tolerance is involved.
+
+## 5. The quantum bridge needed a precise explanation of its invariant
+
+Two distinctions are essential.
+
+### The phase-query converse requires the control bit
+
+The bit oracle acts as
+
+\[
+O_x|i,b,z\rangle=|i,b\oplus x_i,z\rangle.
+\]
+
+The relevant phase oracle is the **controlled** one,
+
+\[
+P_x|i,b,z\rangle=(-1)^{b x_i}|i,b,z\rangle.
+\]
+
+Hadamard conjugation on the answer bit gives
+
+\[
+H_bP_xH_b=O_x.
+\]
+
+A bare sign oracle on the index alone has a different limitation: complementing every input bit changes it only by a global sign. Without a control or reference facility, that does not support the same converse to a bit query. De Wolf’s notes explicitly distinguish these oracle forms. [homepages.cwi.nl](https://homepages.cwi.nl/~rdewolf/qcnotes.pdf?utm_source=chatgpt.com)
+
+### Deferred measurement preserves acceptance mass
+
+The source’s theorem says that a capped adaptive program can be embedded into a larger finite workspace and simulated by a fixed sequence of exactly \(T\) controlled phase queries, with the same accepting mass for **every input and every starting vector**.
+
+It does not assert equality of final states.
+
+The mass invariant is
+
+\[
+M_A(x,\psi,1)+M_A(x,\psi,0)=\|\psi\|^2.
+\]
+
+At a measurement, the continuation vectors remain unnormalized. Their squared norms add because the projected subspaces are orthogonal. This handles zero-probability branches without dividing by their norms.
+
+The difficult query step in the actual source uses two maps:
+
+- An entry map \(L\) for the continuation.
+- An auxiliary isometry \(J\) compatible with the phase oracle:
+  \[
+  P'_xJ=JP_x.
+  \]
+
+Extend the isometry \(J\phi\mapsto LH_b\phi\) to an input-independent unitary \(Z\) of the larger finite space. Then
+
+\[
+ZP'_xJH_b\psi
+=
+LH_bP_xH_b\psi
+=
+LO_x\psi.
+\]
+
+That identity explains how one fixed phase query performs the required adaptive bit-query step before handing over to the continuation.
+
+Measurement branches enter a direct sum of their continuation spaces. Completed branches accept either their whole space or the empty set, so padding queries preserve their acceptance mass by norm preservation—even if the state changes. The revised exposition follows this source construction explicitly.
+
+## 6. The citation corrections are material
+
+The bibliography now identifies both the source’s role and the edition actually inspected.
+
+**Beals et al.: the 1998 and 2001 texts use different classical cost conventions.** The supplied conference-era version defines randomized cost using expected queries on a worst-case input. The later author-hosted journal manuscript uses worst-case query count. Their parity discussions must be read under those respective conventions. A citation to “Beals et al.” without distinguishing editions can therefore support the wrong classical statement. [homepages.cwi.nl](https://homepages.cwi.nl/~rdewolf/publ/qc/focs98.pdf?utm_source=chatgpt.com)
+
+**De Wolf: the requested locator needed correction.** In version 6, §2.3 is “Quantum parallelism.” The relevant oracle discussion is §2.4, with footnote 7 and Chapter 2 Exercise 10 providing the controlled/uncontrolled distinction. Measurement conventions are separately located in §§1.2.2 and 2.1.2. [homepages.cwi.nl](https://homepages.cwi.nl/~rdewolf/qcnotes.pdf?utm_source=chatgpt.com)
+
+**Aaronson et al.: upper bound and conjecture receive separate locators.** Theorem 2, printed p. 2 of the identified arXiv version, supplies the quartic deterministic upper bound. Conjecture 2 in §7, printed p. 20, is the cubic randomized-versus-quantum conjecture being refuted. [arxiv.org](https://arxiv.org/pdf/2010.12629v1?utm_source=chatgpt.com)
+
+For the OpenAI preprint, the supplied PDF’s hash fixes the assessed edition. The abbreviated immutable public URL could not be fetched during this review, so the return does not pretend that the moving public link establishes byte identity with that PDF.
+
+## 7. What the formal evidence supports—and where its scope ends
+
+The current packet contains stronger evidence than some of its older prose descriptions suggest. In particular, stale “unelaborated” comments do not describe the later source-bound build record.
+
+The review checked:
+
+- **408 manifest entries:** sizes and hashes matched.
+- **403 input-hash entries:** matched.
+- **124 local Lean/configuration bindings:** matched the current receipts.
+- **23 corpus receipts:** 12 current and source-bound; 11 historical and unbound.
+- The supplied dependency export: 2,652 declared names and 1,354 reached names, with its public traversal and hidden-path consistency checked.
+
+The packet’s snapshot label and the successful receipts’ source label differ. The complete local byte bindings agree; both labels are retained rather than treating a commit label alone as proof of freshness.
+
+The evidence distinctions in the return are:
+
+| Claim | Supported status |
+|---|---|
+| Root build and selected comparisons | Successful runs are recorded in supplied source-bound receipts; their bindings and exact declaration memberships were checked. |
+| Unconditional headline theorem | Named comparison evidence is supplied, including a recorded paranoid pass. |
+| Literal real-power family and ratio wrappers | Current build evidence is supplied; their own named comparison status remains unknown where no receipt exists. |
+| Small identity, OR, promise and parity equalities | Ordinary proofs and exact finite checks; no invented formal receipt for a proposed example wrapper. |
+| Intended meaning of the specification | Assessed through source reading and independent mathematical examples; comparison alone does not settle it. |
+| Dependency use | Taken from the checked supplied export, distinct from whether a declaration merely compiled. |
+| Fresh Lean or Comparator execution in this review | None. |
+
+The separately compiled challenges **mechanically share the maintained definitions and theorem specifications**. Their agreement establishes conformity to that specification. It cannot, by itself, establish that both sides formalize the intended mathematics.
+
+The supplied semantic controls illustrate that distinction. All seven deliberately incorrect variants were detected, with no baseline mismatch. But the shared-bad-specification example is a Python truth-table control; it is not an actual execution of a bad challenge through Comparator.
+
+All three exact-check scripts passed, and the final package validator passed. The full external dependency checkout and native compiled artifacts needed for a clean formal replay were not enclosed. The return therefore makes no claim of a fresh end-to-end proof replay or human mathematical review.
+
+## What remains for integration
+
+The replacement is complete for the assigned §§1–2. Its main integration issue is a stale sentence in the neighboring baseline §3 claiming that no receipt directory is present; the current packet does contain such evidence, so that sentence should be reconciled with the central verification note.
+
+The canonical statement registry was preserved. Existing advisory example identifiers were reused, and additional displayed intermediate claims are explicitly proposed rather than silently marked accepted. General pruning and full random-tape representation arguments remain ordinary proofs unless their exact formal counterparts are separately established.
+
+The separately attached `Pasted text(20261102-190821).txt` was unavailable. This completed return is based on the available ZIP and the primary-source passages identified in its source receipt.

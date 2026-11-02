@@ -1,0 +1,17 @@
+[
+  {
+    "id": "claim-huang-spectrum",
+    "old": "(H'_j)^2=jI, trace H'_j=0, so H'_d has eigenvalues +-sqrt(d), each of multiplicity 2^{d-1}.",
+    "new": "For every integer j >= 0, the recursively defined signed-cube matrix satisfies (H'_j)^2 = j I and trace(H'_j) = 0, with H'_0 the singleton zero matrix. For every integer d >= 1, H'_d has the two distinct eigenvalues +sqrt(d) and -sqrt(d), each with multiplicity 2^(d-1).",
+    "relation": "scope correction; positive dimension is required only for the two-distinct-eigenvalue and multiplicity assertion",
+    "reason": "At d=0 the matrix is singleton zero, the two written roots coincide, and a split into two equal multiplicities is inapplicable. Current formal multiplicity types require positive dimension. The same qualification was proposed in supplied return 5; the current canonical statement still omits it.",
+    "depends_on": [
+      "def-huang"
+    ],
+    "source": "repository/corpus/statements.json",
+    "source_sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868",
+    "old_statement_sha256": "9d724d932abfb02ff01856c8e7a86ae977171c7035b965489b6673dc827bc44e",
+    "passage": "R3-A-HUANG",
+    "canonical_source_modified": false
+  }
+]

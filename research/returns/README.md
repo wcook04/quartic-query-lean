@@ -49,3 +49,9 @@ including Lean and Python, as advisory evidence. Their [intake manifest](round2/
 binds the original archive hashes to the submitted member paths and bytes. The
 repository checker validates those snapshots without running the submitted code;
 decisions and corrections remain under [adjudication](../adjudication/).
+
+## Round-three returns
+
+The ten [round-three snapshots](round3/README.md) preserve original archive
+members and pasted inputs as advisory evidence. Their manifest records original
+archive and member hashes; decisions belong under [adjudication](../adjudication/).

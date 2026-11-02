@@ -1,0 +1,35 @@
+{
+  "status": "passed",
+  "mode": "structural checks, exact scalar arithmetic and optional byte checks",
+  "passages": 25,
+  "numbered_displays": 63,
+  "all_displays_mapped": 81,
+  "declaration_interfaces": 143,
+  "elaborated_types_supplied": 5,
+  "new_ordinary_statements": 3,
+  "exact_scalar_checks": {
+    "amplification_25": true,
+    "historical_amplification_30": true,
+    "sharp_ratio_256": true,
+    "budget_identity": true,
+    "padding_bound": true,
+    "edge_mean_identity": true,
+    "gap": true,
+    "strict_gap_margin": true,
+    "threshold_constant": true,
+    "threshold_strictness": true,
+    "restriction_base_k2": true,
+    "restriction_inductive_ratio": true,
+    "ssw_gap_factor": true,
+    "ssw_constant": true,
+    "bs_geometric_base": true,
+    "bs_geometric_ratio": true
+  },
+  "fresh_lean_run": false,
+  "finite_checks_are_not_proof_evidence": true,
+  "input_packet": {
+    "manifest_members_verified": 405,
+    "repository_commit_label": "1dd469dd0042b937b739da3bc211eeb60bdf7462",
+    "all_match": true
+  }
+}

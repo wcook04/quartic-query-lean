@@ -1,0 +1,2696 @@
+{
+  "format": "quartic-r3-10-source-manifest-v1",
+  "original_input_zip_sha256": "dae7bbc91b216c40de6878332e945be84c2a5f4f7d19e71d3da59b12d40f8a70",
+  "input_manifest_sha256": "b4f858c886330adf510d84a6266aaf5a1c5cb6554173b665336df2ce4bac5518",
+  "repository_commit": "1dd469dd0042b937b739da3bc211eeb60bdf7462",
+  "paper_provenance": {
+    "metadata_member": "paper/annex_notes.json",
+    "pdf_member": "paper/source.pdf",
+    "sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e",
+    "supplied_annex": "/Users/willcook/src/ai_workflow/annexes/openai-math-284-quartic-query-separation"
+  },
+  "inputs": [
+    {
+      "member": "repository/README.md",
+      "bytes": 5316,
+      "sha256": "47fadd7a6d94c2bdb47d3155e289ed0956649449ae370d13f656d191e36ad947",
+      "role": "repository_context"
+    },
+    {
+      "member": "repository/AGENTS.md",
+      "bytes": 2706,
+      "sha256": "5686db5032ef5a9d272aa4942d8601873ad3c4c72173f985b99caf3d7587064f",
+      "role": "repository_context"
+    },
+    {
+      "member": "repository/CONTRIBUTING.md",
+      "bytes": 4854,
+      "sha256": "52ab21f70fb11e6b5815fcd56dd20223f464e9df981f2c7a2895fb7362069a1f",
+      "role": "repository_context"
+    },
+    {
+      "member": "repository/LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "role": "repository_context"
+    },
+    {
+      "member": "repository/Makefile",
+      "bytes": 418,
+      "sha256": "41ec6dc006c5bea21b519aaf3051ef8c592cc6e662f6a2a2d6234a5389c6c435",
+      "role": "repository_context"
+    },
+    {
+      "member": "repository/lean/README.md",
+      "bytes": 3438,
+      "sha256": "d7ef30dcd6e14d2733f991efb1822fd2497f2142889efa2917cfc5e3fb9ce1c4",
+      "role": "repository_context"
+    },
+    {
+      "member": "repository/corpus/README.md",
+      "bytes": 3663,
+      "sha256": "8c80cd1b22e577000a1820ad5b7490958ed72118ce118fc1541cafde5de92c20",
+      "role": "repository_context"
+    },
+    {
+      "member": "repository/research/returns/README.md",
+      "bytes": 3674,
+      "sha256": "074d6a18cd4ebf06bac309e05ed050eabba3a5a4f694bdbbc3aa01f9da4216b3",
+      "role": "repository_context"
+    },
+    {
+      "member": "repository/research/returns/round2/README.md",
+      "bytes": 2593,
+      "sha256": "5e1985dd5207386754ae52aa6113ec30b6a76e33220cafc305aee37f5a7f99b7",
+      "role": "repository_context"
+    },
+    {
+      "member": "repository/research/returns/round2/intake.json",
+      "bytes": 30800,
+      "sha256": "22b59292f2a96a2307687c10639f13d99471dd5ab7edd1cfba631822dfdde2f8",
+      "role": "repository_context"
+    },
+    {
+      "member": "repository/research/README.md",
+      "bytes": 7467,
+      "sha256": "b02ef7b53c07e06f71bf3d381bea77a346caf1e7d160f7d35b3b54eb9d3cca1b",
+      "role": "repository_context"
+    },
+    {
+      "member": "repository/research/intake/statement_ledger.json",
+      "bytes": 82583,
+      "sha256": "baae822271b38aa322e9fec62c47621de20bb61eb82b077d92bd9c133685c143",
+      "role": "repository_context"
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Construction/Challenge.lean",
+      "bytes": 14460,
+      "sha256": "d554e5a96889c4c9c3aa6bd3231f984fa7cf695aa103ebcd092ac2c7a08240b1",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Construction/Solution.lean",
+      "bytes": 1656,
+      "sha256": "63cfe11442f76eb9b0f1b579e2a925a19fc9312f870e8480bfbf3eacfb9bb9de",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Construction/comparator.json",
+      "bytes": 457,
+      "sha256": "c18c76b87a777251e70ec3f55c5704be82d52dbba0220e5adb2cf3063709dd78",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Foundations/Challenge.lean",
+      "bytes": 14276,
+      "sha256": "8a94b4d4e065267e606d7738f72a620ab249b563a1ebf66992fbae90995423c3",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Foundations/Solution.lean",
+      "bytes": 1616,
+      "sha256": "836000d335f1d8ba10f711895d142a6202c8484b6c9b100a2765d6f5f4bac9bd",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Foundations/comparator.json",
+      "bytes": 554,
+      "sha256": "7e5f89ab55e35fc5b3088528b260d3c9bbeabbb5dc173913a8be94a2521943e7",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Negative/ChangedDefinition.json",
+      "bytes": 347,
+      "sha256": "c0e471ee9f1d52fb81e15c959133a062b4e95da345e836e6c95916b8dc6ea2dd",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Negative/ChangedDefinition.lean",
+      "bytes": 1150,
+      "sha256": "4a3b0a97b2fd35e6c8e31fdd8fa8017b0e428cc8b6b41eccaa36f9e2cf445264",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Negative/ForeignAxiom.json",
+      "bytes": 342,
+      "sha256": "3ac0d024b346f5bff94a50a556a55d827a5dc19d4f9a754f1603dd7eef6d893d",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Negative/ForeignAxiom.lean",
+      "bytes": 857,
+      "sha256": "d896cdd50a42a4c32cb24e636198ef33909078e6f62edadbf04fbca3cf44a2ed",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Negative/MissingDeclaration.json",
+      "bytes": 348,
+      "sha256": "b3f976bd6117762d52949c51b02032554789c88c9e952f84ec475d93304d8eae",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Negative/MissingDeclaration.lean",
+      "bytes": 537,
+      "sha256": "c03b0d0c245a2d4e392a4de43648d5b55858542e15e54d9ea977ca019eef682c",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Negative/SorryProof.json",
+      "bytes": 340,
+      "sha256": "36243ab16c60debb8b5e19d286abd8010f773b9a7aa0ff1da8cd9d4b6c195cda",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Negative/SorryProof.lean",
+      "bytes": 803,
+      "sha256": "59295ee8a529797d52a6cf8f97eb3ee32cd4878b97e441a1d6a982e07806a7d5",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Negative/WeakenedConclusion.json",
+      "bytes": 348,
+      "sha256": "9cd55a4b578d744703319b8b153b90a78af553fd8ffbe323d31c074378204f09",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Negative/WeakenedConclusion.lean",
+      "bytes": 902,
+      "sha256": "f51706cc2337149223db50cd23d800e5b7138f61727e4f3db1deb39db07f4f82",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Separation/Challenge.lean",
+      "bytes": 15044,
+      "sha256": "85cf70b1364ee037ddfef280668b6ca036aadb1cb7e57e6734e94706112c2bd9",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Separation/Solution.lean",
+      "bytes": 2396,
+      "sha256": "5cdcdb99b1c1ff250d45b8e983756ea3a3bf7013af1f46b4e02495c3209bb724",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Separation/comparator.json",
+      "bytes": 562,
+      "sha256": "93324800e1d372cf1a3e801fe7181a29f77b13edb01deb590bc8158a263c7276",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Tournament/Challenge.lean",
+      "bytes": 13949,
+      "sha256": "8bc45cfe55e8a124bb7dfa7fcd3566f80b4db98fe4e99c92242f413edf8ec27c",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Tournament/Solution.lean",
+      "bytes": 1056,
+      "sha256": "f02baea95b83312fe3d3c4fcfb64f3aec6ff9658c26189c4ce7d70a7ccd03f6b",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Tournament/comparator.json",
+      "bytes": 340,
+      "sha256": "309293414b5271ac9092ddd56aa40707f533da448792b9971310b092f3ef641a",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "bytes": 14163,
+      "sha256": "c88be0b70754cb6f93448694002a16e1eb6a25135fa71648d4651f01104e399d",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Unconditional/Solution.lean",
+      "bytes": 1378,
+      "sha256": "19725ad42b615a8881db00417ee6375c8982b0de08e618f06f901fe4db2e2cd3",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Unconditional/comparator.json",
+      "bytes": 435,
+      "sha256": "fbaaee77d1b1a3daff788267ec15963ea06a6340a219a2da890c8c9642998dd7",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery.lean",
+      "bytes": 1788,
+      "sha256": "f76b28615af9ebffdda89430586942c5d7d499a0d78585a31ae47a45c92705b0",
+      "role": "primary_read"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Amplification/Average.lean",
+      "bytes": 4096,
+      "sha256": "fd837b83033d2df6d833a0fdecaef7110339d5747b8aaa1f674c14d3e50473b6",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Amplification/Bounded.lean",
+      "bytes": 16750,
+      "sha256": "6a6465ae0cbd0503cf327c5f33f6509f492a707795c0358880c8f12c9624c96d",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Amplification/Geometry.lean",
+      "bytes": 20075,
+      "sha256": "ff5e758a77d21bc133a930d545672cb5faa76aa422019413c634085881142dc9",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Amplification/Procedure.lean",
+      "bytes": 11462,
+      "sha256": "45413af39419cf952c26204dfd3ae1b86e7dcde1423194ca473187cc6b64edb1",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Appendix/TheoremA1.lean",
+      "bytes": 3007,
+      "sha256": "777567c2e5878223a187030b4200293a0c8f78927fa0488e62ff36bf129a0128",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Bridge/DecisionTree.lean",
+      "bytes": 2905,
+      "sha256": "f0dc14884f30cb5238b4e71a4358e43a244a45a38f655323a34b5e83af7ed13e",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Bridge/Deferred.lean",
+      "bytes": 13105,
+      "sha256": "666c5741a5a19324b7229a350bc35130627da42584c751d5444231f402c45931",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Bridge/Oracle.lean",
+      "bytes": 6970,
+      "sha256": "06f073c300891be8d343434d4cbc4e3d9c2c37584bb5247a339e6f5c020ba385",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Construction/LocalTests.lean",
+      "bytes": 16356,
+      "sha256": "56357d934fab301222130c92ef36cfbf122af4ad90fb2a94ba90178139dbeb13",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Construction/Transcript.lean",
+      "bytes": 2988,
+      "sha256": "e2fd95c77c8ef1616201219302415069411aaac88060f3f75ec24e7b0626608f",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Construction/Winner.lean",
+      "bytes": 2809,
+      "sha256": "3c6b894e842fc90acd7a09b9ff14ce3ae2f09bfbf2dc7f2195751a396db7017c",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Forrelation/Arithmetic.lean",
+      "bytes": 20491,
+      "sha256": "5a7336764ee8cd299b9e19fd3164374fcebab98b7df8d9c956a457334b9dc243",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Forrelation/Builder.lean",
+      "bytes": 9577,
+      "sha256": "32e1ff4623c8bbceda26da74e53961d8c2bc660ff9b831cf19d4cc32ce1abc23",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Forrelation/Circuit.lean",
+      "bytes": 23023,
+      "sha256": "b17824d0a3b6ee5a689822b04c18d20de9e72e1db119105584e9cbba60ae8f01",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Forrelation/Product.lean",
+      "bytes": 12191,
+      "sha256": "f0ceced9021b45de546dfc01aadabde913f8ecdf1a0d085992c5b61b8a1ef425",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Forrelation/Promise.lean",
+      "bytes": 4434,
+      "sha256": "96b967a27458107549e38ce4fe001d707a4c240ad4e4b582729a6ce9526d2cf1",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Forrelation/Repetition.lean",
+      "bytes": 11700,
+      "sha256": "1526168486cdc4e78213c6048199676df0520445666b60d3ece9c62678e90e70",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Forrelation/Sanity.lean",
+      "bytes": 2662,
+      "sha256": "bf287a0ff1f6022582b6d8daae3a89ad34d8aa51986531a649f133ee692eae70",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Forrelation/Walsh.lean",
+      "bytes": 8806,
+      "sha256": "e3eae0cf1455ef1471fd4f42458b324bbe3bfe1b1879989366ce476657653069",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/ForrelationLower/Amplify.lean",
+      "bytes": 8095,
+      "sha256": "93f8e1c04768b8d01263f4a6b5a594b2d7b3334a1380432af6a33779109fc10a",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/ForrelationLower/Cascade.lean",
+      "bytes": 18807,
+      "sha256": "9438575752bdbb664cecbf15b97afc96f2f235fabcab8f6261ab5f15bb9d7ab9",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "bytes": 14843,
+      "sha256": "16db4f9b7e4e42029c839537075eff0ec0f6fd6261d4a8a038bec8566ce4e2fe",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/ForrelationLower/Main.lean",
+      "bytes": 26676,
+      "sha256": "f877e9c4d11874d3e80ad7627972b1a8a0eca596f26fb96a3898bfdace564ed1",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "bytes": 24897,
+      "sha256": "2877dc60a4af03e98321ac9e47c501a63508936aa49e5018d280258b24862efb",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/ForrelationLower/Stein.lean",
+      "bytes": 17861,
+      "sha256": "6238d7e6f8ade6044eb623899069f35d0a5b860699c722e7007fd71046ffff9e",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "bytes": 38425,
+      "sha256": "13614823a433518dea7138242182dc2abee1dbcdf0127157edf8cc9b6a756010",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+      "bytes": 33291,
+      "sha256": "d6bc1f4399394810fca63abdaadd67a420616371c501ab978841898f2bda049c",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "bytes": 26515,
+      "sha256": "c9394068bc3a583178fcae1e11d6eafdc7dcfc17bcd8a0b269f9a13ccee209ba",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+      "bytes": 16505,
+      "sha256": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/LowerBound/Minimax.lean",
+      "bytes": 10452,
+      "sha256": "d235fef08374ca71229f5a2a5985e1bb0c60e3ec39a0ad2b1a13b286df9c194e",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/LowerBound/Planted/Average.lean",
+      "bytes": 5872,
+      "sha256": "471bb74964c7c841f12a8e90a184d13f26ffc173bf2855bdf1d59e93f490610e",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/LowerBound/Planted/Coupling.lean",
+      "bytes": 2557,
+      "sha256": "35d0f76652f6aa52acb73dfe3b5c01eb70eefdf9397cc83f4b4469017de61824",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/LowerBound/Planted/Heavy.lean",
+      "bytes": 2641,
+      "sha256": "6b5772603583908e293c4301594ef313e68ddff67dedd5eced436744b0f110bb",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/LowerBound/Planted/Inputs.lean",
+      "bytes": 5346,
+      "sha256": "8a51b7b7696acdda52b0762b65c2f9e8bec13da8d896c47102c447195509411f",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/LowerBound/Planted/Main.lean",
+      "bytes": 11387,
+      "sha256": "a32a6e24bccace37d46742acc9450fe33b6081430484138336014048f3fe835c",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/LowerBound/Planted/Simulator.lean",
+      "bytes": 10557,
+      "sha256": "71bcf25db0309331ebda232bcad3ab2e895d543ffadcc521e99117253c0dab09",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean",
+      "bytes": 12056,
+      "sha256": "86a2064e0fb6c6ba9b4a79785932a203314d8433d938083a420288d642bf8bf8",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Model/Classical.lean",
+      "bytes": 13701,
+      "sha256": "a820d0804ee722ee74eef97ea8efeb2a15da55107d6a908e35ba60ef39932e9e",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Model/Quantum.lean",
+      "bytes": 16967,
+      "sha256": "6a61d326b216fa39f6ac1d7694727528dd5028bfac8d939f118bf1a4f4a35662",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/AppendixA.lean",
+      "bytes": 4876,
+      "sha256": "5a28f11e95c0153ef162337a8c81d4523f0092361b785425ee166924b1dd9815",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+      "bytes": 26274,
+      "sha256": "f95cdeea5040ba7082c33a76faddef2da122d5bb4d76cec2b192598894c50aa6",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/AppendixAHuang.lean",
+      "bytes": 7379,
+      "sha256": "adb9065a0262325c396b5eeadc4f27f61768fe182e1818b9a2e4b91e0376459b",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+      "bytes": 23972,
+      "sha256": "a90282494f069991f80b7ec4af0cd8898a2d4b84a7a69aa180e1ed061dd9a549",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/AppendixAHuangRoute.lean",
+      "bytes": 8162,
+      "sha256": "9a16919921fe4f06d2db77e75b88fe1bd5f7350bc9132360ebc496450a06a5b7",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/AppendixAPerron.lean",
+      "bytes": 8029,
+      "sha256": "e95a404b217afc2f03eaa35256c713827f1400231702daea1b5b38a3aa204c9a",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/AppendixARestriction.lean",
+      "bytes": 12176,
+      "sha256": "5e7b16febef2b95ffc6ed9e735bbb8b24cbaf1d713fda51452a13ef17745534b",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+      "bytes": 13481,
+      "sha256": "b45034f8e12d480523140f3a491ef29d2fc7fa83930ff6e17a993c8acb7ca0b0",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/AppendixASpectralAdversary.lean",
+      "bytes": 5499,
+      "sha256": "75c971c8627dc3e1e17e1a58e21522f845d0830246ab93939994d24d08da1ca4",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/AppendixAStar.lean",
+      "bytes": 23184,
+      "sha256": "84d2b315859098c5030f6772a06dcd652f3d08e695456ece32acb61a6e0142d6",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ClassicalAsymptotics.lean",
+      "bytes": 20410,
+      "sha256": "b156b061ecab3a011c31224f9ff0719d07a52e8e8eb86becbb18cb5c959c17af",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+      "bytes": 44006,
+      "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+      "bytes": 28360,
+      "sha256": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ClassicalUniformZero.lean",
+      "bytes": 13199,
+      "sha256": "b0778f75c9717011e9b115eb3b15cf132b85486fa2f8c83eff0e4ce4a05fca19",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionArithmetic.lean",
+      "bytes": 4291,
+      "sha256": "2c355a3eb5e76cd5db70a6990bb9d6b37d652e0eece3b31ed0661219d3635ad0",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionAudit.lean",
+      "bytes": 1585,
+      "sha256": "bf7d2c90de5e5c690c9a1a1589cd1b2d59b1f63a93eed3bd846170ae996ca6d6",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionCoherent.lean",
+      "bytes": 8338,
+      "sha256": "5e5f5c2321e7c1ce23235e69e1f430fd951f13cc92b5a2d1b2d974aad0607cec",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionComplete.lean",
+      "bytes": 4385,
+      "sha256": "a79e9f0cdbf85df0e86605711fa6c8bde2a19cbe043c36302243b42a7f8fbc6c",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+      "bytes": 9043,
+      "sha256": "ca7c4f0294fc91535e5cf15fc79ba97584e82fd4bae054d6dc85032f8cf92afd",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionFamily.lean",
+      "bytes": 3674,
+      "sha256": "b7e1203086e38c00b964355ac71537a7fc5be7053d537ccd56cba8017cdd085a",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationCircuit.lean",
+      "bytes": 5743,
+      "sha256": "860e8653027d64fe7d5cc5f35357d81ed5fa27e027899047ab819c821e3c8b32",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationComparison.lean",
+      "bytes": 5765,
+      "sha256": "e9bb18d1e0ea9482762e89a9ced002c720f9b7d2311a455a9904bd820c5b4a01",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationComplete.lean",
+      "bytes": 4796,
+      "sha256": "733526015ad9a2013512d8f6216b8f73c41566a803d92602dd30e40e90d7ad06",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+      "bytes": 8709,
+      "sha256": "14f92345b8885036e862885aad3db82d77cff6e71642e669c2ba7dc8ba087aa1",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionForrelationQuantum.lean",
+      "bytes": 6028,
+      "sha256": "f31face68a9c47906d9a728cced9aa8a24ec73d3079c6196ae1853130151391b",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionModels.lean",
+      "bytes": 8592,
+      "sha256": "19826ab2f9f9ef8a329f5880faf2426727b158321af4a418d519d55b56674d61",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionPhase.lean",
+      "bytes": 2427,
+      "sha256": "f9dc9564aa8741a6aa3059fcea3563c740fed802666ae251fbebbe9085668405",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionPointerSupport.lean",
+      "bytes": 4365,
+      "sha256": "8a2d8befa3225ab54114492b35c5a326fc17bd8f0a5eaa9acba966c18db53938",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionTests.lean",
+      "bytes": 8025,
+      "sha256": "06f1b3bc883881351e5e9cfa9ba8777f2f907897e69275b507132cc01ba0dccb",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/QuantumAmplification.lean",
+      "bytes": 19877,
+      "sha256": "95d89237e766b59ffdd52f1324e440e2127b06353b2c8de2482b9f55c4adb30b",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/QuantumComparison.lean",
+      "bytes": 28486,
+      "sha256": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/QuantumTensor.lean",
+      "bytes": 16341,
+      "sha256": "7a2f03d6ae2d8d3ff2af9837f6cb1e1f1f3d5b4983dc34e753792621443835ac",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/QuantumTournament.lean",
+      "bytes": 19132,
+      "sha256": "8cf87e74aa0364c9bc6b9078ff62e88c45d297625166fe31a8efeea765a34adf",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+      "bytes": 14586,
+      "sha256": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/QuantumUpper.lean",
+      "bytes": 668,
+      "sha256": "4d2966b64f95a3706113159a8afd4a5b1954a895d7d1e91c569d2f59a24bcb26",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/QuantumWorkspace.lean",
+      "bytes": 2493,
+      "sha256": "a5ed4638bef1d1e15508ea5b96a0edf99a2281693de03f39f23e5afadd7ba07b",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/Section2.lean",
+      "bytes": 16045,
+      "sha256": "34fb705db7f672de0faf3e18fcc3dda4862033e157a325d8c9016936361f84cf",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/Section3.lean",
+      "bytes": 14235,
+      "sha256": "aa49e092c11c915bc5a3a904054589dbed18c840f84a00c5edc0e37d57d661ad",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/Section4.lean",
+      "bytes": 4004,
+      "sha256": "da6bda0feda0448bc05b11c85aed7b666d01aa8d30a8914a4ffd7d9fbe6643fb",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Results/Conditional.lean",
+      "bytes": 3419,
+      "sha256": "c3d4acfd49f8725f21fa4e895be9773e44a52786a16e3606e68dfda27c808330",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Results/Exponent.lean",
+      "bytes": 24525,
+      "sha256": "91d1c021f9b920f9bf0017dfe03817194c6a1ff5f4776e39a669bbd3b832a931",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Results/Headline.lean",
+      "bytes": 1525,
+      "sha256": "fec7d0c565b8ab345568ae6082c5fb346435493f4eb2d9112cda498652909c35",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Results/Unconditional.lean",
+      "bytes": 2031,
+      "sha256": "46e6f51f713109bab717956bd2536711dc927a356027748712e571ce12f0b85e",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Statement.lean",
+      "bytes": 13769,
+      "sha256": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+      "role": "primary_read"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Tournament/Drift.lean",
+      "bytes": 3125,
+      "sha256": "850fbfdfba830a17930f0a8e60fdc0d7b27f7f50c45710b5e77997343528c077",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Tournament/Ideal.lean",
+      "bytes": 17087,
+      "sha256": "6f7379abfb1d9fb37d6ef7f0f25049893490aa717171c875feb97fca343ab8ef",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Upper/Amplify.lean",
+      "bytes": 15215,
+      "sha256": "49e808cc6acbb47ad066b1dcf33ac8d47da2f28d88c51d537564e6591eb0d9e1",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Upper/Bound.lean",
+      "bytes": 14147,
+      "sha256": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Upper/Circuit.lean",
+      "bytes": 18327,
+      "sha256": "7686a3b72476d902ec9ff504b38bea9ac25e90724e93d82033ea05339080190f",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Upper/Columns.lean",
+      "bytes": 13377,
+      "sha256": "e5b2b164deb6a010f952cefb5edba15bb5437a03fff815c39b028341b23b592e",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Upper/Compile.lean",
+      "bytes": 18841,
+      "sha256": "ead2d229ad8a97541dd648806b64813745e8502b5f7314ced43e7a95a0708a27",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Upper/Decode.lean",
+      "bytes": 18048,
+      "sha256": "4755c92be7627e4a58b1487d831a93765a3510647682e903c6abfed39f61411b",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Upper/Sampler.lean",
+      "bytes": 12319,
+      "sha256": "43cb604188f041ebd34c8003f01f4ec6c570023e465cd2b730ee4f1f765b2b79",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Upper/Tournament.lean",
+      "bytes": 21856,
+      "sha256": "43df9db7997f88667de7a3cfa7d7c7751aa1f32c40e9de474895335bcdb87b7c",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Upper/Verify.lean",
+      "bytes": 11198,
+      "sha256": "8144c5c26e7bf0515b24eb638b57412264032e144844887adc615b8076207239",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/lake-manifest.json",
+      "bytes": 3874,
+      "sha256": "d670a8101d900b62e17a1d51c8b1b36fd60919bcad472700b0a5e1c0b38b104d",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/lakefile.toml",
+      "bytes": 329,
+      "sha256": "255abcc3c689d0258d4cea520447fdc8da26e26a191331aa95559b2fb4818647",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/lean-toolchain",
+      "bytes": 29,
+      "sha256": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "repository/lean/scripts/Reach.lean",
+      "bytes": 4648,
+      "sha256": "44ce6c1ace1e3914109b959c5d3466f00eba4090621d73d3b3ee2626be1f796b",
+      "role": "local_lean_and_pinned_configuration"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Foundations/BooleanAnalysis/MaximalSupport.lean",
+      "bytes": 4262,
+      "sha256": "69adb157930bdcc5de24e595d64fb5f64370a935d5c75a27999117377534b784",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Foundations/BooleanAnalysis/Influence.lean",
+      "bytes": 15439,
+      "sha256": "7591b77b879d8b263b7c36fd3e00e1ae88d234e33527b3c78f43394413eba695",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Foundations/Data/Finset/Expect.lean",
+      "bytes": 20805,
+      "sha256": "8a428b5ed524960520b25f49fd75e5962b6cfe88571d7d1a1db9d2899e2b183e",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Init.lean",
+      "bytes": 672,
+      "sha256": "043661c5d95ebb78df6706682808529a13bed0386bceaff34736c2aee5a150c2",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/cslib/Cslib/Init.lean",
+      "bytes": 635,
+      "sha256": "e453b900baa1938e94b02c562254de2ab2240611e3f23410f8c35dde0f419b0b",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/cslib/Cslib/Tactic/GrindAttrs.lean",
+      "bytes": 664,
+      "sha256": "039da177090845a88b3a3cc7697f76f33369406a27531cfebfca92518b3b3b9c",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/cslib/Cslib/Foundations/Lint/Basic.lean",
+      "bytes": 1059,
+      "sha256": "b92bb7aac662d4bea332126949702b17563cbaa833826646b7fad8265a087cfa",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Foundations/Data/BitString/Flip.lean",
+      "bytes": 9784,
+      "sha256": "ce7e0976b71f00c057615159c033ba60e9c634177b609871fb0c65488eea16ce",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/cslib/Cslib/Foundations/Data/BitString.lean",
+      "bytes": 650,
+      "sha256": "6c4d53c19bf738b60a123ee4b4a7c1201e53d146a6c06bd2b0d958e1d7c9fe7d",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Foundations/BooleanAnalysis/Fourier.lean",
+      "bytes": 21410,
+      "sha256": "9b8f948a1a008cb897b7cdde2995c6f2c0825546ea9f35b34c6affc0e8d582a9",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Foundations/Data/BitString/Sign.lean",
+      "bytes": 5254,
+      "sha256": "9da3facafc9a579b97f7af61944babb3d28bae2bb2b73bd5189253fe035940a8",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Foundations/Data/BitString/Parity.lean",
+      "bytes": 14442,
+      "sha256": "d84a7587830e4bc6904b20be31a14f17da6cc500ad16eeb0fa5a8abdc8077093",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Foundations/BooleanAnalysis/Degree.lean",
+      "bytes": 12006,
+      "sha256": "b3a7a5192e6b29b9e99192ece2b9ae5f5b6d56b454c188db08c70d8f7a82105b",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Foundations/BooleanAnalysis/LowDegree.lean",
+      "bytes": 14273,
+      "sha256": "403239e42326d90ff38f5167cffeb889254917883fdf89580b3032d867c68074",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Computability/QueryComplexity/SpectralSensitivity.lean",
+      "bytes": 15049,
+      "sha256": "3bda0b56e5c6ac73c9315abec446534f93116f2b10cb455e287f2681fc1e1539",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Computability/QueryComplexity/Huang.lean",
+      "bytes": 6096,
+      "sha256": "5a83d43de6eb44c4df61f60f08e8b5314f6cbdb169cf28e2774c58d4e454909c",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/cslib/Cslib/Computability/QueryComplexity/Measures.lean",
+      "bytes": 20395,
+      "sha256": "b3542fc2bca1f6235a6eeb721a2216768abef90682e97167fa8dbc6184ca5521",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/cslib/Cslib/Computability/QueryComplexity/Defs.lean",
+      "bytes": 6141,
+      "sha256": "8957384eecb3e0ef0fe92f49399a9bfd2d28020281ec5de68594aba425044c68",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Foundations/BooleanAnalysis/Hypercube.lean",
+      "bytes": 16109,
+      "sha256": "1225d370da19b77882d816b3c3d2562cc5294d3aeba1a822c889ef53a35a9545",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Computability/QueryComplexity/Degree.lean",
+      "bytes": 8890,
+      "sha256": "5d746b37eb5a0ed2e9c4d1b984dc26313e90976be6077b92921d2ce4eef53b53",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Foundations/Data/BitString/Threshold.lean",
+      "bytes": 8665,
+      "sha256": "b9f35862fcf05f6b5ef5fa7022d5ad1309b04513ec95a77be113362595501468",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Foundations/Data/BitString/Weight.lean",
+      "bytes": 12146,
+      "sha256": "d8980c777ff62c00c04aac3b8d56b3464c37f02b707a4657d209b40b4a2f349d",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Computability/DecisionTree/Basic.lean",
+      "bytes": 11613,
+      "sha256": "5819df1f05b345936edd967a412939fb9f5cc62ba96a9ed2acd0a5c4339a8542",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Computability/QueryComplexity/Quantum/Adversary.lean",
+      "bytes": 18493,
+      "sha256": "6b941c7daa0184ac46bf1f599c0211218981bf385b65c20424eefe3298246c7d",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Foundations/Quantum/Measurement/Overlap.lean",
+      "bytes": 3762,
+      "sha256": "351d45c390d300407f516e8e6eb5f686b7baa427d69eb455674c32b72a8d0356",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Foundations/Quantum/Measurement.lean",
+      "bytes": 4529,
+      "sha256": "d145f4c280b5fb1f2b5aefc3aa81d73f5d52d89d39af484a727930d531cd1eb9",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Computability/QueryComplexity/Quantum/Polynomial.lean",
+      "bytes": 17174,
+      "sha256": "0323e359ee2eecfe0bca7c16e59bdd6489d8a80ca0963ca1960999fc73b09cc1",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Computability/QueryComplexity/Threshold.lean",
+      "bytes": 12721,
+      "sha256": "13f726bb0d0495d7b6d5d8da2f044f447dfa2741c247e2bff9c7434a70cc32c6",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Computability/QueryComplexity/OneSided.lean",
+      "bytes": 7872,
+      "sha256": "caa551063e7c80da5d21f4dee81d358a363cf601f47129231a483e610222b36e",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Computability/QueryComplexity/NisanSzegedy.lean",
+      "bytes": 14426,
+      "sha256": "f59ddb3454ac90142ef18f56c5e2fa11ddacd60fc255ca42f4e33118bbd4a21d",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Foundations/BooleanAnalysis/Symmetrization.lean",
+      "bytes": 8984,
+      "sha256": "490ffa43c6a18536f1e135730d74b2fcae52d19a982b1a325eb2b2592bb6891a",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Foundations/Analysis/MarkovBrothersInequality.lean",
+      "bytes": 26288,
+      "sha256": "ba2ff308b05dbcbf7620dbf97b2e41c4defbc211c962abb82da4119389d7c352",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Computability/QueryComplexity/Relations.lean",
+      "bytes": 21901,
+      "sha256": "a4971d147d7323a48bf681b2df252b9012152543d680574840e1c04c83fae7fa",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Computability/DecisionTree/Restrict.lean",
+      "bytes": 4207,
+      "sha256": "16cf1df2ca25f3507f3b0379956f9e5645eacfb8de40bce0079053f024ac5e52",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Foundations/Data/BitString/PartialAssignment.lean",
+      "bytes": 19796,
+      "sha256": "2ba8bd64846277c65a66df3a372ebd39db14f68f6fcb5c98808384de00f4375a",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Computability/DecisionTree/NormalForm.lean",
+      "bytes": 6720,
+      "sha256": "b73cde4eb90e1472e0732519ec5d68f47115b15b3c13accdebf9c2982e4fddd7",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Logics/Propositional/DNF.lean",
+      "bytes": 6226,
+      "sha256": "8eeef87377f302e4abd382460e44c928024213fcd8b6b735592c277f3af3c0e5",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Logics/Propositional/CNF.lean",
+      "bytes": 13818,
+      "sha256": "931974cb647d138440f5f0fb2f8dde15c46a469d026f57af42b222101b54b3fd",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Computability/DecisionTree/Certificate.lean",
+      "bytes": 8321,
+      "sha256": "32afd91c9764d0acbf9b59b5a0efb7d9e06421853150abd09292ce4e44fc8334",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Computability/DecisionTree/Sensitivity.lean",
+      "bytes": 5117,
+      "sha256": "59f6c1acb6cabddd352e004eb18bdd0fe5864a78b344eafc293ba00d1e5ad462",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Computability/QueryComplexity/ApproximateDegree.lean",
+      "bytes": 6118,
+      "sha256": "81eca71146fab7bc2ccaf8e55ed749d47ce3a0357ffe1d34e7ed70744abcd233",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Computability/QueryComplexity/Quantum/Search.lean",
+      "bytes": 16011,
+      "sha256": "fd07f6dad412578e7cf52fcaffea0a649421f068b07acc5c2ac92dc52d47f521",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Computability/QueryComplexity/Midrijanis.lean",
+      "bytes": 6020,
+      "sha256": "d35fc5e2709691ad1b5c104a33ae38c3fe7a83a980dab3b37a09ddfb4c39ed90",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/Complexity/Foundations/BooleanAnalysis/FourierRestriction.lean",
+      "bytes": 8354,
+      "sha256": "cc2725a32a35c559bf78e8c8262bc3248332b9ce280d2abeb64edea83008dde2",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/NOTICE",
+      "bytes": 2304,
+      "sha256": "5bb95c00590b93ad624ca3300dea647a6f6048c6c43cc5ca268835e7b11f3a26",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/README.md",
+      "bytes": 17274,
+      "sha256": "47ed1bcfe601a48b3360c37e73f617de493ef80cb3c53780b02eb8ab8ea6a897",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/lake-manifest.json",
+      "bytes": 3517,
+      "sha256": "e9aa0f653aed5d6c27f478a9b016bcd786dc9fd39c72f017bf487d4ffb048365",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/lakefile.toml",
+      "bytes": 2958,
+      "sha256": "5db34a169d1a692336bd2d1b51ece8cf684668708fa0ef4a5ce32675251cd139",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/complexitylib/lean-toolchain",
+      "bytes": 29,
+      "sha256": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/cslib/LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/cslib/README.md",
+      "bytes": 1167,
+      "sha256": "e890647bdd44e73f5b4d2dd57b8002d03dd307e13eea302767b010f3c93fbe02",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/cslib/lake-manifest.json",
+      "bytes": 3176,
+      "sha256": "c8886af329984533313572ff2e0c88ff1167157e28852ee5cef12fc9e9d0ee00",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/cslib/lakefile.toml",
+      "bytes": 1119,
+      "sha256": "841cc2e914b50cc541f4ae8d1cbf842ff5efc48cd9ceb84b3cf5f1e930f0e5b8",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "dependencies/cslib/lean-toolchain",
+      "bytes": 29,
+      "sha256": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3",
+      "role": "pinned_non_mathlib_proof_dependency_source"
+    },
+    {
+      "member": "repository/corpus/coverage.json",
+      "bytes": 426,
+      "sha256": "d5d0cc3f370f2dac57a3957d2802e4e7f7e8e0a16732868fde64f64214bbc3fc",
+      "role": "recorded_evidence"
+    },
+    {
+      "member": "repository/corpus/evidence-graph.json",
+      "bytes": 650532,
+      "sha256": "f5dc1941004a2b4e6909e860e02c665a0af3588af9f3973ae2400989822b4170",
+      "role": "recorded_evidence"
+    },
+    {
+      "member": "repository/corpus/lean_dependencies.json",
+      "bytes": 564877,
+      "sha256": "56ae4752273f7cfba92ee6f35a4acc6ee0eea6e32a44116ccaf9d7354094e1fb",
+      "role": "recorded_evidence"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json",
+      "bytes": 15618,
+      "sha256": "e9217e359a4a3295566f8effa82eb9081f0262548e0aee45d2948bab212e3973",
+      "role": "recorded_evidence"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Construction.json",
+      "bytes": 906,
+      "sha256": "a533a5050e68cd34c30d9c7652cc5cb5d63a73fc2e9c0ec750017927d5edaec1",
+      "role": "recorded_evidence"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Foundations-2026-11-02T182842333798+0000.json",
+      "bytes": 15766,
+      "sha256": "83ed7abe952b50df1120316d9af693ffcb38b5665b66e718d6bf4133bd7d01ca",
+      "role": "recorded_evidence"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Foundations.json",
+      "bytes": 1054,
+      "sha256": "df0f2e15550c06a6968628b90e864ec0b861822eb983607bb6302796cb03ea09",
+      "role": "recorded_evidence"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Separation-2026-11-02T183102343043+0000.json",
+      "bytes": 15805,
+      "sha256": "2669347e3720b88e9eaa03e0ba6ebf1068f82efc71a930f6bd35912a23bf7810",
+      "role": "recorded_evidence"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Separation.json",
+      "bytes": 1093,
+      "sha256": "b85ee105297ee8d003dfde99e304b7bcc1e76c3c4278eb813c8c3a88fed57cd9",
+      "role": "recorded_evidence"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Tournament-2026-11-02T183226253908+0000.json",
+      "bytes": 15365,
+      "sha256": "6b3fec1b877d7efc0d13849afed4eab4eb5f8ce83fd4b53484a32a97e2b54a80",
+      "role": "recorded_evidence"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Tournament.json",
+      "bytes": 653,
+      "sha256": "26effdf412658b1dc1abdb76dbfdbcbf5aa085ff3800d42828f342d053de23a0",
+      "role": "recorded_evidence"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Unconditional-2026-11-02T183450037875+0000.json",
+      "bytes": 15651,
+      "sha256": "9f9166bf60b36d9571294af870a0dc1b9da01e352095821fb9bb9ef2704568d5",
+      "role": "recorded_evidence"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Unconditional-2026-11-02T184546477430+0000.json",
+      "bytes": 15666,
+      "sha256": "ee186ea8c9e0bcbe61a7bde6a06c7393c2bb8bebb8facae07fbb785737df04a2",
+      "role": "recorded_evidence"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Unconditional.json",
+      "bytes": 954,
+      "sha256": "3dfb81c66915790534c9ce04daf48a63c12bc26354c548dd4145dff1dcddbc97",
+      "role": "recorded_evidence"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-negative-ChangedDefinition-2026-11-02T183607437119+0000.json",
+      "bytes": 15355,
+      "sha256": "c536729054f3a94c07ad58b7dafe50dc92eadd0e8c2abfcbbb1a4063f89499a5",
+      "role": "recorded_evidence"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-negative-ChangedDefinition.json",
+      "bytes": 643,
+      "sha256": "b21471626fcb2c1fff6c23a6ad445ad2dcde523219b6cc105937f789f229be94",
+      "role": "recorded_evidence"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-negative-ForeignAxiom-2026-11-02T183708690272+0000.json",
+      "bytes": 15338,
+      "sha256": "67344dc638f748131ffacc4fe219648efebb477949a60be0e8706aa2c88ab014",
+      "role": "recorded_evidence"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-negative-ForeignAxiom.json",
+      "bytes": 626,
+      "sha256": "0a6ca6d840cd89ee5415cc909477b7c6b3c9dcfccfc1069b6c0fb063bfda5004",
+      "role": "recorded_evidence"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-negative-MissingDeclaration-2026-11-02T183824782468+0000.json",
+      "bytes": 15368,
+      "sha256": "23e27887ede7d395b2df0ab81bd359d8aecda88a9cd98fb323b17d075e240cd0",
+      "role": "recorded_evidence"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-negative-MissingDeclaration.json",
+      "bytes": 656,
+      "sha256": "9421404cc0538dca29e5c867a8e99109f0b509224c44d513efcc6c98c8fdbebe",
+      "role": "recorded_evidence"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-negative-SorryProof-2026-11-02T183912954843+0000.json",
+      "bytes": 15336,
+      "sha256": "37dcaff39a226f32f9ff14f0747c8b45cf062dc9072810485d50ba607dd7788a",
+      "role": "recorded_evidence"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-negative-SorryProof.json",
+      "bytes": 624,
+      "sha256": "29dd6ad48042ab6deb6d2a7887c07a074a2fd36cf0153ea71933c523fcd84c1b",
+      "role": "recorded_evidence"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-negative-WeakenedConclusion-2026-11-02T184050714051+0000.json",
+      "bytes": 15367,
+      "sha256": "2de7fec03c3233784ba8796036856b620745370be8b99f566460dc1647fc4434",
+      "role": "recorded_evidence"
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-negative-WeakenedConclusion.json",
+      "bytes": 655,
+      "sha256": "532fd0ab77a80209d8d3daf3e9e41a2a45daab7effbd4832d8bc80757c6da2a9",
+      "role": "recorded_evidence"
+    },
+    {
+      "member": "repository/corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+      "bytes": 129286,
+      "sha256": "bc11e3fec8581f89ce56b110bf76db2469abea4b7be00fa476f9d2cee9455c2e",
+      "role": "recorded_evidence"
+    },
+    {
+      "member": "repository/corpus/receipts/lean-build-root.json",
+      "bytes": 83739,
+      "sha256": "48a9aa069c51b376db0451704d369ed8578f2b1d03ef2d364212415c4078a2b9",
+      "role": "recorded_evidence"
+    },
+    {
+      "member": "repository/corpus/statements.json",
+      "bytes": 553317,
+      "sha256": "1a4816c0147ed369e099ceaff4285e4c0db48836bf243e7d65e673b2cd2d4868",
+      "role": "recorded_evidence"
+    },
+    {
+      "member": "repository/corpus/ties.json",
+      "bytes": 184669,
+      "sha256": "2cf66121360fafbf8ca77d32d36feba192b839b6f3503e466ffe7857b6086bac",
+      "role": "recorded_evidence"
+    },
+    {
+      "member": "repository/research/adjudication/adjudication.json",
+      "bytes": 55355,
+      "sha256": "c5028e1a3046113879eb63754f1496b1787859be9a5abe8aad5ce32129ce0fc7",
+      "role": "maintained_adjudication"
+    },
+    {
+      "member": "repository/research/adjudication/adjudication_notes.md",
+      "bytes": 5197,
+      "sha256": "df206a68d9cfdce14456042094757e37fa8286c2cf33afbbcc7d74c5aa3547b8",
+      "role": "maintained_adjudication"
+    },
+    {
+      "member": "repository/research/adjudication/bansal_sinha_section54_second_reading.md",
+      "bytes": 9152,
+      "sha256": "db831723bb41c8847718747651adce262ce60cb8a6b1a3b20b1346eea001f6ca",
+      "role": "maintained_adjudication"
+    },
+    {
+      "member": "repository/research/adjudication/funnel_adjudication.json",
+      "bytes": 38306,
+      "sha256": "cab693c939b187729e6251bed5429de1dd7fc6279153ac37ec1abc735433ff5f",
+      "role": "maintained_adjudication"
+    },
+    {
+      "member": "repository/research/adjudication/funnel_adjudication_notes.md",
+      "bytes": 7688,
+      "sha256": "c8a5a611409663e3c8a63c5c71aa345f7cac0281b35e1f03bfc1c8fd188d1155",
+      "role": "maintained_adjudication"
+    },
+    {
+      "member": "repository/research/adjudication/round2_assumption_review.json",
+      "bytes": 21864,
+      "sha256": "5191b17e5dcbffed15182fa417a6c6b3f27583b06f934fc2259c091b5744a397",
+      "role": "maintained_adjudication"
+    },
+    {
+      "member": "repository/research/adjudication/round2_backend.md",
+      "bytes": 15803,
+      "sha256": "0aee9ed6f4335f6e792becc58a91d04fd634d67ce2256757eff9e60cf74d7b71",
+      "role": "maintained_adjudication"
+    },
+    {
+      "member": "repository/research/adjudication/round2_classical_appendix.md",
+      "bytes": 20812,
+      "sha256": "dd112027602ff99a3936ad49b4bdd7aed991d51027f5f9dc0c6ab9fa1e070410",
+      "role": "maintained_adjudication"
+    },
+    {
+      "member": "repository/research/adjudication/round2_classical_appendix_ties.json",
+      "bytes": 455585,
+      "sha256": "92965da1bf4fb0ccb606215ff1cff296f1a4dd9a8096f064f96a60858e9ea9c1",
+      "role": "maintained_adjudication"
+    },
+    {
+      "member": "repository/research/adjudication/round2_construction_quantum.md",
+      "bytes": 18402,
+      "sha256": "49924c2982b6d42f5b8feb989604dcb447bd6e5f9f4b921d9b3a0c2ea1572068",
+      "role": "maintained_adjudication"
+    },
+    {
+      "member": "repository/research/adjudication/round2_construction_quantum_ties.json",
+      "bytes": 260597,
+      "sha256": "99a0d39b328d4f6c71b816d8b65a40e4439d60c23de85bc83a5f9259377e28e6",
+      "role": "maintained_adjudication"
+    },
+    {
+      "member": "repository/research/adjudication/round2_fidelity.md",
+      "bytes": 27796,
+      "sha256": "71282486058c71566d1bcb72b6a84a8dfc5fd65531378151960954ade1023a28",
+      "role": "maintained_adjudication"
+    },
+    {
+      "member": "repository/research/adjudication/round2_forrelation_exponent.md",
+      "bytes": 28567,
+      "sha256": "557342a03eabb2bc1ee0c2f411bf77ecc9a543511b69ca2c6a83140369e26757",
+      "role": "maintained_adjudication"
+    },
+    {
+      "member": "repository/research/adjudication/round2_forrelation_exponent_ties.json",
+      "bytes": 49306,
+      "sha256": "5015bdd1c7845c2862b18bbb5bc88dc2b6116862dbeab60fe894375377504127",
+      "role": "maintained_adjudication"
+    },
+    {
+      "member": "repository/research/adjudication/round2_integration.md",
+      "bytes": 12269,
+      "sha256": "8f2b840acee5bb1d184b9660a680dd7c697db313fa14681d17781d5e61e2b4a6",
+      "role": "maintained_adjudication"
+    },
+    {
+      "member": "repository/research/adjudication/round2_literature.md",
+      "bytes": 9869,
+      "sha256": "3f3c0a6053778070a6b02c828ad4fea24d068cfc8255c803411b53cc6cd221f5",
+      "role": "maintained_adjudication"
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/LEAN_GAPS.md",
+      "bytes": 63908,
+      "sha256": "5e17659decd217a381f5dd5348f26161766e4b153133ea4fe75b327246a9c8bf",
+      "role": "primary_read"
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/NEW_STATEMENTS.json",
+      "bytes": 110569,
+      "sha256": "d2964002bad5c1626a1e2c72ac301b7615373ad2576f9604d561dd10c7fe0ccd",
+      "role": "primary_read"
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/STATEMENT_CHANGES.json",
+      "bytes": 2653,
+      "sha256": "7550e71faa407b9b700d38b9ad0b82786cac34d9772ea24bb46c63c121465155",
+      "role": "primary_read"
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/correspondence.json",
+      "bytes": 108656,
+      "sha256": "cf429a5555eab691a801ecd362c37329b3c0449f0da4dab437ab5a8b9be88761",
+      "role": "primary_read"
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+      "bytes": 353091,
+      "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+      "role": "primary_read"
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/references.bib",
+      "bytes": 12667,
+      "sha256": "3d676076acedfb08f40cee1a8b185df4657ebd11d36d7d8c9a74189b08fc482f",
+      "role": "primary_read"
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/review_notes.md",
+      "bytes": 45823,
+      "sha256": "b84751f817c6f9661047fbb3b4fbb16709e0efeebe8d382c9cd6c639f8e7d20b",
+      "role": "primary_read"
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/source_read_receipt.json",
+      "bytes": 85737,
+      "sha256": "d4bf142f438a2b2c5964f9317edcbb3a0d9264e69ae8b3cda422ce59fa57732c",
+      "role": "primary_read"
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/validation.json",
+      "bytes": 2811,
+      "sha256": "42e25af3d7b60d93484e963696380de3ca17907eaa7bab690294ebc8910e368f",
+      "role": "primary_read"
+    },
+    {
+      "member": "repository/research/returns/funnel/2_short_expert_paper/LEAN_GAPS.md",
+      "bytes": 30327,
+      "sha256": "bca6f9c9f8170fa51db18e1d56bb83d961ea422868877f499b3e5f7829462246",
+      "role": "prior_advisory_return"
+    },
+    {
+      "member": "repository/research/returns/funnel/2_short_expert_paper/NEW_STATEMENTS.json",
+      "bytes": 41345,
+      "sha256": "491a2e6a0ec6d44a9c3e8504ae117ecbb9fff65875a541313b6404612e1f499f",
+      "role": "prior_advisory_return"
+    },
+    {
+      "member": "repository/research/returns/funnel/2_short_expert_paper/SOURCE_AUDIT.md",
+      "bytes": 18312,
+      "sha256": "4c38697e22d7ba49cd31e92b37bf8a7118e311c0a8d7ed183f250fb0d894a8ae",
+      "role": "prior_advisory_return"
+    },
+    {
+      "member": "repository/research/returns/funnel/2_short_expert_paper/STATEMENT_CHANGES.json",
+      "bytes": 6943,
+      "sha256": "3ccd637bfb97b5d4968e738e511dc073a9d1b7a0e8c30db4b2490917bb4568ef",
+      "role": "prior_advisory_return"
+    },
+    {
+      "member": "repository/research/returns/funnel/2_short_expert_paper/STYLE_RULES.json",
+      "bytes": 9098,
+      "sha256": "3bf3f377387541fd269922d54815768442671e23d004301fd4605308a81d3094",
+      "role": "prior_advisory_return"
+    },
+    {
+      "member": "repository/research/returns/funnel/2_short_expert_paper/correspondence.json",
+      "bytes": 25175,
+      "sha256": "e79fa0fc3c2c6850df9cb7d0eb07420508dc7162c7ef8a62be1f3c878651ae86",
+      "role": "prior_advisory_return"
+    },
+    {
+      "member": "repository/research/returns/funnel/2_short_expert_paper/paper.md",
+      "bytes": 51114,
+      "sha256": "d74bef7d77eb5dd96a8fe5b6ba5f3cb4a105fd62d76ad5e730ad26f2ae15f277",
+      "role": "primary_read"
+    },
+    {
+      "member": "repository/research/returns/funnel/2_short_expert_paper/paper.pdf",
+      "bytes": 126236,
+      "sha256": "d9d6feaa62e889666f4b2a54d4eaac14357575f2ec625098f6a1ea4626c90d1a",
+      "role": "prior_advisory_return"
+    },
+    {
+      "member": "repository/research/returns/funnel/2_short_expert_paper/referee_report.md",
+      "bytes": 13067,
+      "sha256": "bd78bc96a8a7ac26cdf01a37c379df8d615253a323ecd918917f3ad4d1d9eeb9",
+      "role": "prior_advisory_return"
+    },
+    {
+      "member": "repository/research/returns/funnel/2_short_expert_paper/references.bib",
+      "bytes": 6704,
+      "sha256": "363398df48da8a466e479df70f194b2b2b1ab546eb26c3b4c878e159490a0389",
+      "role": "prior_advisory_return"
+    },
+    {
+      "member": "repository/research/returns/funnel/3_examples_first_exposition/LEAN_GAPS.md",
+      "bytes": 36438,
+      "sha256": "710fa7bf012dc356d22f8eb72395f24daae5ede575a74f36b28392e080d7ff8c",
+      "role": "prior_advisory_return"
+    },
+    {
+      "member": "repository/research/returns/funnel/3_examples_first_exposition/NEW_STATEMENTS.json",
+      "bytes": 34938,
+      "sha256": "03f6cab9eed48e7dfe3b134d0c60ef33a49975b9bb75e5a3b0be0379196a0e0f",
+      "role": "prior_advisory_return"
+    },
+    {
+      "member": "repository/research/returns/funnel/3_examples_first_exposition/STATEMENT_CHANGES.json",
+      "bytes": 756,
+      "sha256": "2f9c742548fd853f7f108c0f48973d430947bcc0ab10d2a9f37f907a0a149250",
+      "role": "prior_advisory_return"
+    },
+    {
+      "member": "repository/research/returns/funnel/3_examples_first_exposition/correspondence.json",
+      "bytes": 19308,
+      "sha256": "c25ba8c945ec8a7340b5526ff91d6930b5d04f933efcd51fe4fa31a7e9cd4d72",
+      "role": "prior_advisory_return"
+    },
+    {
+      "member": "repository/research/returns/funnel/3_examples_first_exposition/examples_output.txt",
+      "bytes": 24768,
+      "sha256": "0775d34f5b8e38654bd0a157df8441dabf46c72474e4f72c06c0844353f88675",
+      "role": "prior_advisory_return"
+    },
+    {
+      "member": "repository/research/returns/funnel/3_examples_first_exposition/exposition.md",
+      "bytes": 59773,
+      "sha256": "99360e133b3114f90528b40833d2bdc9d18194d427f21cf322a336af4683ed0f",
+      "role": "primary_read"
+    },
+    {
+      "member": "repository/research/returns/funnel/3_examples_first_exposition/figures.md",
+      "bytes": 29876,
+      "sha256": "74a5bc36208eaeb61e83a7dbae58d29440dd72b45a9d550f42ea05773a16caa7",
+      "role": "prior_advisory_return"
+    },
+    {
+      "member": "repository/research/returns/funnel/3_examples_first_exposition/references.bib",
+      "bytes": 6445,
+      "sha256": "4b621c82af16f662bd31021e7529da2ebb68b2a8e744b33c67961e7a1f899ff0",
+      "role": "prior_advisory_return"
+    },
+    {
+      "member": "repository/tools/build_challenges.py",
+      "bytes": 5241,
+      "sha256": "7d4bc7588431a975301e55bd9cd2a25e587cddcd7e09b841f145b2f53e9e1497",
+      "role": "evidence_and_packaging_tool_source"
+    },
+    {
+      "member": "repository/tools/build_corpus.py",
+      "bytes": 21226,
+      "sha256": "b208d0c23530c48a60062b2fbea7c9166804612d69f8a95854c5728bd94dec4d",
+      "role": "evidence_and_packaging_tool_source"
+    },
+    {
+      "member": "repository/tools/build_funnel_packets.py",
+      "bytes": 9136,
+      "sha256": "a68bb6129a1ae62dbbc1bfc84af419545b8ed942fb1ca5fcee16a702439ef2fa",
+      "role": "evidence_and_packaging_tool_source"
+    },
+    {
+      "member": "repository/tools/build_research_packets.py",
+      "bytes": 5656,
+      "sha256": "a206504b0425116d637d30bafc24ba6bba35c79a261cc936ed09af2bfc18b142",
+      "role": "evidence_and_packaging_tool_source"
+    },
+    {
+      "member": "repository/tools/build_round2_packets.py",
+      "bytes": 17537,
+      "sha256": "ad7d24c25f0bf08219bc35a103190203877426d2b15a2a9a3d76d8bf421a9589",
+      "role": "evidence_and_packaging_tool_source"
+    },
+    {
+      "member": "repository/tools/build_round3_packets.py",
+      "bytes": 45194,
+      "sha256": "84eca1ee9316da72e4ef62cbd798c763866a616fd1b00768583fbf36c32d8668",
+      "role": "evidence_and_packaging_tool_source"
+    },
+    {
+      "member": "repository/tools/check_packets.py",
+      "bytes": 5255,
+      "sha256": "822ad0f18bce6c9b0e8f8b76d1bdcd0d3fe4646f74deafbebfed6220c7040039",
+      "role": "evidence_and_packaging_tool_source"
+    },
+    {
+      "member": "repository/tools/check_repository.py",
+      "bytes": 15528,
+      "sha256": "437f9405239cb6c103ef1f3c3946a0b0e8a7a35791b58f15c82938f53be6b545",
+      "role": "evidence_and_packaging_tool_source"
+    },
+    {
+      "member": "repository/tools/record_evidence.py",
+      "bytes": 3447,
+      "sha256": "8491f1282e406d2cbd26495b30815031fc365d3dd99574b43bfa96e0a8b6706b",
+      "role": "evidence_and_packaging_tool_source"
+    },
+    {
+      "member": "repository/tools/run_comparator.py",
+      "bytes": 5599,
+      "sha256": "01879fa71d3e25a4706a85b7f4aa59ef3574d3d785e3a3a80a61cc95e7c84190",
+      "role": "evidence_and_packaging_tool_source"
+    },
+    {
+      "member": "requests/common.md",
+      "bytes": 6931,
+      "sha256": "bb64aed8a508657f40a2eb296a05863e0e723b7e545d313fe6e04f4ba35a86e2",
+      "role": "authored_request"
+    },
+    {
+      "member": "requests/boundaries.md",
+      "bytes": 2166,
+      "sha256": "1c5f9a6403fd50dc9a0e36a4030413e2d3892cd3609da795119dafdcd3967a34",
+      "role": "authored_request"
+    },
+    {
+      "member": "requests/SELECTION.md",
+      "bytes": 19614,
+      "sha256": "4faed8ce10cf14657afb62f95d81e00a909d2ef2a4d4700447d4673ca1a5a257",
+      "role": "authored_request"
+    },
+    {
+      "member": "requests/10_baseline_record_review.md",
+      "bytes": 3258,
+      "sha256": "23c80b1e09488953c280f17593671faaa37f2bb50400b2b997c9bed98053a001",
+      "role": "authored_request"
+    },
+    {
+      "member": "paper/source.pdf",
+      "bytes": 433829,
+      "sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e",
+      "role": "primary_preprint"
+    },
+    {
+      "member": "paper/extracted.md",
+      "bytes": 64021,
+      "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+      "role": "primary_preprint"
+    },
+    {
+      "member": "paper/annex_notes.json",
+      "bytes": 17636,
+      "sha256": "b2a65f141ea2ace3056caa0b058d847192fe1780c30239dd9d81a085741cec7f",
+      "role": "supplied_preprint_provenance"
+    },
+    {
+      "member": "literature/quartic-ref-03-degree-vs-approximate-degree-and-quantum-i/extracted.md",
+      "bytes": 162182,
+      "sha256": "fe50f27a93597951aa0e9577d0315a2b4dcdf022122604139232a952d144aa8f",
+      "role": "primary_literature_text"
+    },
+    {
+      "member": "literature/quartic-ref-03-degree-vs-approximate-degree-and-quantum-i/source.pdf",
+      "bytes": 827322,
+      "sha256": "445a34b0653042ad482bd95bc2c333d476df7ade6ce5d9ec45714f5b249e39ab",
+      "role": "primary_literature_original"
+    },
+    {
+      "member": "literature/quartic-ref-03-degree-vs-approximate-degree-and-quantum-i/source.tar.gz",
+      "bytes": 38484,
+      "sha256": "b5ba1f3805fe2027b148ddcd64bc2689fa1a22265cfc3f5c5901d9d5b0c3897c",
+      "role": "primary_literature_original"
+    },
+    {
+      "member": "literature/quartic-ref-03-degree-vs-approximate-degree-and-quantum-i/annex_notes.json",
+      "bytes": 5157,
+      "sha256": "e7ff9467b29025d30eb5646ca3d509146b2478f96e04f435f5526f07dcc580cc",
+      "role": "literature_locator"
+    },
+    {
+      "member": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/extracted.md",
+      "bytes": 181861,
+      "sha256": "cf1477e44353bbb796581002e8cacef3199e8e153d43f075fc8047c2934de952",
+      "role": "primary_literature_text"
+    },
+    {
+      "member": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.pdf",
+      "bytes": 986784,
+      "sha256": "afe53c8bd918d07590f29a947ef044453db73959043135082d1a3c29b2863a35",
+      "role": "primary_literature_original"
+    },
+    {
+      "member": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.tar.gz",
+      "bytes": 213572,
+      "sha256": "f48a3225662484d12e19bf03412478cf87a388f7c2e33c69a4d7f2078202e015",
+      "role": "primary_literature_original"
+    },
+    {
+      "member": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/annex_notes.json",
+      "bytes": 7729,
+      "sha256": "0dc0501c90512a1a40a51ebfb28006c9a53c9edaac45db16592f0dabf9400882",
+      "role": "literature_locator"
+    },
+    {
+      "member": "literature/arxiv-2103-11604/extracted.md",
+      "bytes": 129018,
+      "sha256": "55c19ab29df4e7b5953d1dd73d295a69b8fe3519b5aa2294aadcfbf8faf053b3",
+      "role": "primary_literature_text"
+    },
+    {
+      "member": "literature/arxiv-2103-11604/source.tar.gz",
+      "bytes": 42311,
+      "sha256": "fa4612c9d0a67d270124efda9bb87903a71a330a9662b8c1c844167b4de836c8",
+      "role": "primary_literature_original"
+    },
+    {
+      "member": "literature/arxiv-2103-11604/annex_notes.json",
+      "bytes": 4250,
+      "sha256": "9366b5160dd6abee4632108a6bc6686196ee7afb68b09f976cb08691336f8fa0",
+      "role": "literature_locator"
+    },
+    {
+      "member": "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/extracted.md",
+      "bytes": 88358,
+      "sha256": "9fd98e35695c4bf763e4faa35ac146b18c74c3caf0dee24e3e208923aff71a86",
+      "role": "primary_literature_text"
+    },
+    {
+      "member": "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/source.pdf",
+      "bytes": 295305,
+      "sha256": "badedce80b0fe53e6cd93f915ce79c9680e375bb6565f83d2f572bc4114b0278",
+      "role": "primary_literature_original"
+    },
+    {
+      "member": "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/source.tex",
+      "bytes": 88081,
+      "sha256": "6964cdcef75d28ecd31246b2f354dd5738c0d6607fe81394b29fc9d42293a5d6",
+      "role": "primary_literature_original"
+    },
+    {
+      "member": "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/annex_notes.json",
+      "bytes": 5539,
+      "sha256": "c44c22a02972e65ff8dc893f030b1cdfc7282a03970f9c39ebc6018e5b4ed6b7",
+      "role": "literature_locator"
+    },
+    {
+      "member": "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/extracted.md",
+      "bytes": 121771,
+      "sha256": "de4e25127079b849cc18984031442ed939d6c24467d1bd67faaa466f8e17e29a",
+      "role": "primary_literature_text"
+    },
+    {
+      "member": "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/source.pdf",
+      "bytes": 405185,
+      "sha256": "6a67da06a0f07d0f86bb6389b7143314cade50294e2c0c454f3cc9853643faff",
+      "role": "primary_literature_original"
+    },
+    {
+      "member": "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/source.tex",
+      "bytes": 131397,
+      "sha256": "7defbc5925e9554768cf5bab0ab548188d5d264075cfc1f00891544b5aec782d",
+      "role": "primary_literature_original"
+    },
+    {
+      "member": "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/annex_notes.json",
+      "bytes": 6350,
+      "sha256": "e585d26476cab5193a20f672a4e19fe948bcfe17dea293895d76cf534be8ef91",
+      "role": "literature_locator"
+    },
+    {
+      "member": "writing/SKILL.md",
+      "bytes": 29787,
+      "sha256": "dcad856e7363b81876e4ab0784bcc0a3e51ccab11017eb9e08d81d345d2d6c74",
+      "role": "writing_guidance"
+    },
+    {
+      "member": "writing/the-deliverable.md",
+      "bytes": 8402,
+      "sha256": "5b234d4446bf4b7ac79c38586147730dc41370581daa38661326875d5b50951c",
+      "role": "writing_guidance"
+    },
+    {
+      "member": "writing/mathematical-writing-mechanics.md",
+      "bytes": 45312,
+      "sha256": "0ba857f70a724a2676f91b01e7ee95cc3518dcd261b53fec27b743935d1caa0f",
+      "role": "writing_guidance"
+    },
+    {
+      "member": "writing/full-exposition-guide.md",
+      "bytes": 103236,
+      "sha256": "c7baa3c8b195647b00cdd37c38c48b122371ce9c3cd92798e2e9d55f3d1c4eca",
+      "role": "writing_guidance"
+    },
+    {
+      "member": "writing/register-from-literature.md",
+      "bytes": 4106,
+      "sha256": "2278000b36133a13c0e83f785bdb2a89b94b8ed1927daeaf12d2b1ed30545d7d",
+      "role": "writing_guidance"
+    },
+    {
+      "member": "exemplars/long-reasoning-record.md",
+      "bytes": 278844,
+      "sha256": "a19893f62d1211681ed0cb9cbb8bb454214d97f231f6a6d091b6f198fca35a89",
+      "role": "style_exemplar_not_mathematical_evidence"
+    },
+    {
+      "member": "exemplars/short-paper.md",
+      "bytes": 59587,
+      "sha256": "4b34070c1152369eec9bef536de51f8929c68f3a851f291e962a0c51a3b31ebb",
+      "role": "style_exemplar_not_mathematical_evidence"
+    },
+    {
+      "member": "exemplars/expository.md",
+      "bytes": 67972,
+      "sha256": "67d89307e8131e8c2ca1f21749dce062218534d1ac25d4c5860f2500e234e33f",
+      "role": "style_exemplar_not_mathematical_evidence"
+    },
+    {
+      "member": "exemplars/short-correspondence.json",
+      "bytes": 58027,
+      "sha256": "ea31b80e439953d8656d577aab47040525bb65952084d130b81d62bb48155487",
+      "role": "style_exemplar_not_mathematical_evidence"
+    },
+    {
+      "member": "native_results/final-evidence/completed_comparator_receipt_integrity_review.json",
+      "bytes": 7102,
+      "sha256": "ac4205eab7ffb8b6037f7d645f54dd2d11c3a041eb800e9c25774c188c197251",
+      "role": "native_run_record_not_corpus_receipt"
+    },
+    {
+      "member": "native_results/final-evidence/completed_export_axiom_consumption.json",
+      "bytes": 31153,
+      "sha256": "ffa2146723e9d5bdb8963b8426b90eb2bee8681d5b3523925bf0624e666b733f",
+      "role": "native_run_record_not_corpus_receipt"
+    },
+    {
+      "member": "native_results/final-evidence/corpus_merge_applied.json",
+      "bytes": 81345,
+      "sha256": "2fc7d6e7342ddc0fa762111e95bcad7441327fda5f8ab28f643fe98c73639102",
+      "role": "native_run_record_not_corpus_receipt"
+    },
+    {
+      "member": "native_results/final-evidence/corpus_merge_proposal.json",
+      "bytes": 1060319,
+      "sha256": "57fbb2a2e518facb214dac2220f1ffe4b6b681dc50955f2dd82dd7d3a030b7eb",
+      "role": "native_run_record_not_corpus_receipt"
+    },
+    {
+      "member": "native_results/final-evidence/current_native_acceptance.json",
+      "bytes": 186998,
+      "sha256": "5182e06d70dccf3f7fca89ae06851e0d95ec3cc4219385a346034643d3959fd4",
+      "role": "native_run_record_not_corpus_receipt"
+    },
+    {
+      "member": "native_results/final-evidence/final_precommit_checks.json",
+      "bytes": 230,
+      "sha256": "d2aab8f0ecb449a28fba40e3c1a3470aa2727048a48200448b848407cf6fcdde",
+      "role": "native_run_record_not_corpus_receipt"
+    },
+    {
+      "member": "native_results/final-evidence/independent_native_evidence_consistency.json",
+      "bytes": 1407,
+      "sha256": "f75e3af2a108ad6840de771ee9c839def248ac95ae65fa3069613380fd5bbf95",
+      "role": "native_run_record_not_corpus_receipt"
+    },
+    {
+      "member": "native_results/final-evidence/operations.json",
+      "bytes": 39093,
+      "sha256": "eb0e6c0a17e8d7a681d25b11a545941a5c11ff0a904d0ab17832675c807ee42b",
+      "role": "native_run_record_not_corpus_receipt"
+    },
+    {
+      "member": "native_results/final-evidence/reviewed_axiom_audit.json",
+      "bytes": 29954,
+      "sha256": "74d4f0fd54ada1b2dbbda3734cb2d65f50816f0feec70db15748db185f30f3aa",
+      "role": "native_run_record_not_corpus_receipt"
+    },
+    {
+      "member": "native_results/final-evidence/reviewed_axiom_audit_verdict.json",
+      "bytes": 16061,
+      "sha256": "3c26718576384a76fca10f1f44bf42ffd2f23130b0aabcf35b3f5c34f2b4a1e0",
+      "role": "native_run_record_not_corpus_receipt"
+    },
+    {
+      "member": "native_results/native-inventory/results.json",
+      "bytes": 180379,
+      "sha256": "f3c482fc6fb7be28444110c321f1474b61e0c13ebd8fe09ce592e022f0a59024",
+      "role": "native_run_record_not_corpus_receipt"
+    },
+    {
+      "member": "native_results/native-retry-1/results.json",
+      "bytes": 188138,
+      "sha256": "41010b87d500354711b4c7a880b52d9b9dc0d932ffab9577d8d0af5d91a5aa4e",
+      "role": "native_run_record_not_corpus_receipt"
+    },
+    {
+      "member": "native_results/native-retry-2/results.json",
+      "bytes": 113357,
+      "sha256": "d9184c86bec0cad8f6a1f1972c4106d0edcfc04d7967ade3010394565a364f32",
+      "role": "native_run_record_not_corpus_receipt"
+    },
+    {
+      "member": "native_results/native-retry-3/results.json",
+      "bytes": 126117,
+      "sha256": "c318cc4c291fcbcf12b447a3d55a3420694dc6645b03520cd3768c4e908c9e37",
+      "role": "native_run_record_not_corpus_receipt"
+    },
+    {
+      "member": "native_results/native-retry-4/results.json",
+      "bytes": 39031,
+      "sha256": "43dbb8e60f0b4dc0d3e19790d231a4aaaff255c681cb1424b7e9288786d18530",
+      "role": "native_run_record_not_corpus_receipt"
+    },
+    {
+      "member": "native_results/native-retry-5/results.json",
+      "bytes": 29032,
+      "sha256": "101ecf2514d9817ed294972306e87d52e831a0c6d47fd74bcf2b63c29231a6b3",
+      "role": "native_run_record_not_corpus_receipt"
+    },
+    {
+      "member": "native_results/native-retry-6/results.json",
+      "bytes": 18290,
+      "sha256": "e1840bc777aae1f94068e062c8e77f3b49ee23519fba0d6e5d362d2414d20fae",
+      "role": "native_run_record_not_corpus_receipt"
+    },
+    {
+      "member": "native_results/native-retry-7/results.json",
+      "bytes": 18110,
+      "sha256": "1d701d15a080502881a699e79e304c6ff0cabe2820467fce00e50d58e43f7a00",
+      "role": "native_run_record_not_corpus_receipt"
+    },
+    {
+      "member": "native_results/native-retry-8/results.json",
+      "bytes": 22867,
+      "sha256": "a4d2d8034f340a8099a7e8a60a8ff19747c3002955ddbe5f527131751fab3ef2",
+      "role": "native_run_record_not_corpus_receipt"
+    },
+    {
+      "member": "native_results/native-retry-9/results.json",
+      "bytes": 7156,
+      "sha256": "3ab3296ae678ffa478ad12a2c2862cbe3fa6e29d79c93cd3cbf94b135bfac872",
+      "role": "native_run_record_not_corpus_receipt"
+    },
+    {
+      "member": "native_results/reader-acceptance/evidence-graph.json",
+      "bytes": 633113,
+      "sha256": "27232df156a4442dd802458addc162e117b10e7a06706b5bca2258c479e5db7f",
+      "role": "native_run_record_not_corpus_receipt"
+    },
+    {
+      "member": "native_results/reader-acceptance/receipt.json",
+      "bytes": 799756,
+      "sha256": "a52deccb993a6e629e47d62ebd7afd7665b3dd8c3f52dedc6b1e23abbd2aae11",
+      "role": "native_run_record_not_corpus_receipt"
+    },
+    {
+      "member": "native_results/reader-acceptance/selected.json",
+      "bytes": 697150,
+      "sha256": "1119e38e07ddbc78afc4ef381ab4cb81541099c4cfb4650cb7871c5457712c9c",
+      "role": "native_run_record_not_corpus_receipt"
+    },
+    {
+      "member": "native_results/root-aggregate/operations.json",
+      "bytes": 18245,
+      "sha256": "3f25cc0d4a0a7703e87434e19a9cb654c99d7a9cacbffb9e8789e20186df394b",
+      "role": "native_run_record_not_corpus_receipt"
+    },
+    {
+      "member": "native_logs/final-evidence/comparator-positive-negative.log",
+      "bytes": 376,
+      "sha256": "13baf986d782aa8e1876bedef218057f9e1ff0ecd5556720df0140eb89b27067",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/final-evidence/comparator-unconditional-paranoid.log",
+      "bytes": 22,
+      "sha256": "889b260876271128482885e78b9ff241883fd3217e6c55bfc83829d04fb62ab0",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/final-evidence/prepare-reviewed-audit.log",
+      "bytes": 74,
+      "sha256": "5727892efe942935aaab78562f26c3fb8d4da40e2cdf0a4b708fddc4fb1d9670",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/final-evidence/record-evidence.log",
+      "bytes": 34,
+      "sha256": "13c54fa511e9e9596a1b8a22344020e88ac44b7736af19157a2402c9a7c7cbca",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/final-evidence/reviewed-type-axiom-audit.log",
+      "bytes": 169174,
+      "sha256": "f87b4e78aaa99fb069acc358fd90c6b95a1fd09bb337d4b49b6851ae714d8ae1",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/final-evidence/verify-reviewed-audit.log",
+      "bytes": 16061,
+      "sha256": "3c26718576384a76fca10f1f44bf42ffd2f23130b0aabcf35b3f5c34f2b4a1e0",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_ForrelationLower_Cascade.log",
+      "bytes": 10914,
+      "sha256": "c69885d5da5246d167def8c39d4c079b447b7b414068c00c42ab075598504d51",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_ForrelationLower_Main.log",
+      "bytes": 15274,
+      "sha256": "758ef1718249cf2e4c0cb0906c00861967e1882a7ad2fffa85a2d303bdbff630",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_ForrelationLower_Stein.log",
+      "bytes": 615,
+      "sha256": "7a545f4c94924c65d1b5d70d2edb18241fa8c22e758852fd8814a4ed665a6102",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_ForrelationLower_Walk.log",
+      "bytes": 8566,
+      "sha256": "dec33216d7ccea974c0011aa0a0074823d6bcc07927ab966af9b165ec39498d9",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_Paper_AppendixAAdversary.log",
+      "bytes": 5201,
+      "sha256": "177f77b141ab216f3b58200c924d5c0cdbca130d741596ba445cfb66b7e5c7bd",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_Paper_AppendixAHuang.log",
+      "bytes": 2983,
+      "sha256": "8ac7c58a4c914bd318564b4974b8a8f64bdbb0485c2edb9d2500bbc2c6112a70",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_Paper_AppendixAHuangMatrix.log",
+      "bytes": 15290,
+      "sha256": "36080caf23b460ccba746dc6124aa26e5468fec32c7e50adf29ea1c99442dfa8",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_Paper_AppendixASensitivity.log",
+      "bytes": 4027,
+      "sha256": "ccb573b5139709a4e2d76dd024dca09b16f3274babf3d272239618c39008fb50",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_Paper_ClassicalDirectProduct.log",
+      "bytes": 10327,
+      "sha256": "d8cdd98e2674cf7c345577cab576e90dbe56bc1b7e80e16d98790464b8f40342",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_Paper_ClassicalPlanted.log",
+      "bytes": 14374,
+      "sha256": "41bf0d452f90120b098cf9a28c70f1b43add12a552bc725b7507ff4b42708bb7",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_Paper_ConstructionArithmetic.log",
+      "bytes": 2757,
+      "sha256": "8d934013645ea774e80127ba59d46b9b29c1250b27ab013a20208a72ac1234e5",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_Paper_ConstructionDefinitions.log",
+      "bytes": 2219,
+      "sha256": "87c083385650b7a8bc70b03398463d463ba7392859c60fb6b5b3a74b538790ba",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_Paper_ConstructionForrelationDefinitions.log",
+      "bytes": 2847,
+      "sha256": "ff4433aff6eb695b695e272ae4993bd1a3891ed38c235f7a862096010164e0a0",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_Paper_ConstructionModels.log",
+      "bytes": 5065,
+      "sha256": "caa2536ffc46bbde9d832ed7ed94469ab676087331d6842a3e481e1cc3898ce2",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_Paper_ConstructionPhase.log",
+      "bytes": 110,
+      "sha256": "d7e6964431aedafd75d0feb6ab906be48adcd35f59b17555a3fca56434ed74c1",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_Paper_QuantumAmplification.log",
+      "bytes": 533,
+      "sha256": "b6584d2979313085c48645085e271ca908ffd7419d8a75cde2f08b629acf21e4",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_Paper_QuantumComparison.log",
+      "bytes": 2139,
+      "sha256": "9f4ec6f3d70f7151fd2700f30e90df5f764a6676241086728c030ce850ebd71c",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_Paper_QuantumTensor.log",
+      "bytes": 8654,
+      "sha256": "7bcc1287c6777e4fa993e8dc2ba5967e5678e55032de057336089bb729caedfd",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_Paper_QuantumTournament.log",
+      "bytes": 8164,
+      "sha256": "dcd206451f622083683850acdfb95cbec3af751678218a9f9e8e250b2fbb00ef",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_Paper_QuantumWorkspace.log",
+      "bytes": 110,
+      "sha256": "917b6085586a17f107ed570e989c9f4df0f955b6ff84914ab566851d54dec75f",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-inventory/QuarticQuery_Upper_Bound.log",
+      "bytes": 2961,
+      "sha256": "9c15bc6559daaf81cf9fb2a26d5c7e45b5d5185419b3fcd1711e3eb8bd6b16f5",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-inventory/ReachRegression.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_ForrelationLower_Main.log",
+      "bytes": 12540,
+      "sha256": "174d114d0f2fea078ca0216b4cb1b73c5f556ada057caac6d56cd8749cebecdc",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_ForrelationLower_Uniform.log",
+      "bytes": 20810,
+      "sha256": "4fa33f2237376cff92ed1894698399f2990be9925041e83d372bb25d93d7f56f",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_AppendixAAdversary.log",
+      "bytes": 3493,
+      "sha256": "1785e49ee96aaf191eab80884fcb5ee9e8a4bb737da9ca9b896fb486eb0c979c",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_AppendixAHuang.log",
+      "bytes": 3315,
+      "sha256": "d5d26f9ada7fa56713301ae15826992de817abcef0f5b7a20b2a392ba7bdd2c6",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_AppendixAHuangMatrix.log",
+      "bytes": 6919,
+      "sha256": "cfdb95c49c2a795b0798a273a7934b26c991adc24d8bb4787b3fe3260d0e7b15",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_AppendixASensitivity.log",
+      "bytes": 2499,
+      "sha256": "54e8e3df90b4effb9fb01cc3aeeae89927327361051894f6203be04732266615",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_ClassicalAsymptotics.log",
+      "bytes": 21997,
+      "sha256": "80a88d554e7e49483e31035f64dba0c8fdfed4aeb71d3bf2567a917bd48ccb55",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_ClassicalDirectProduct.log",
+      "bytes": 4188,
+      "sha256": "d2e586cea5ccea6212fb581e992efb6d8488c512670f399327dd92ca865c8e45",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_ClassicalPlanted.log",
+      "bytes": 8414,
+      "sha256": "d7c3d5f06fa7e28204ba32ca863954a935eeee5037a8ec2d3d4d27b9a10a7a60",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_ConstructionArithmetic.log",
+      "bytes": 917,
+      "sha256": "ebe246a18335e55efba069842b905168c2ce97723fad7e8c5e985b1f9d9c408e",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_ConstructionDefinitions.log",
+      "bytes": 2324,
+      "sha256": "e7b04a872234c722f7b20d11a101da3d6241badbcf0bb161e787eb8bee13c4f8",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_ConstructionFamily.log",
+      "bytes": 17035,
+      "sha256": "607ed2c87173ca32db9765dddb236705bc5531f1f4ce63fafb91104d57c01bb6",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_ConstructionForrelationCircuit.log",
+      "bytes": 924,
+      "sha256": "c7976be2e35f1ef53e86293ea3803b84c4486941b39001aa88ac83326c6bb02f",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_ConstructionForrelationComparison.log",
+      "bytes": 3791,
+      "sha256": "7ba060cb5cf55bdb1b310644e76080dd7467d747d628b349f88be2e47b6ab623",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_ConstructionForrelationComplete.log",
+      "bytes": 15001,
+      "sha256": "06ee6173dc9699500f0107c64bcdf6af5d94bf47db50b68610e1f9bc21232e90",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_ConstructionForrelationDefinitions.log",
+      "bytes": 929,
+      "sha256": "d9185d94d82c45c4afb8b3882a3ac56a966e1236089ab4d2c76db25eb6954937",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_ConstructionForrelationQuantum.log",
+      "bytes": 14923,
+      "sha256": "9abb8d196cbe4be5043bdfe4850fb81881c0fe175d68c59044636723883f2026",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_ConstructionModels.log",
+      "bytes": 787,
+      "sha256": "73dd92d65bb65a51b85d75936c93f94778fba8c3ddedcf7d8b05f6d480ff33b2",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_QuantumTensor.log",
+      "bytes": 5336,
+      "sha256": "4ba3c9fc979bef4c295c511a326089b44124f33866e4363dae628b56cf3f4f5c",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_QuantumTournament.log",
+      "bytes": 2072,
+      "sha256": "4c71022e21030d21fdddcc0c71a61bb103e00678c5447235d00ee38479269675",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_QuantumTournamentFacts.log",
+      "bytes": 5028,
+      "sha256": "74fe0bfa90e0bf7adcdaa23ba90bf6a9e5c86d9eaa272bfa24874f390eca3cfc",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-1/QuarticQuery_Paper_Section4.log",
+      "bytes": 17538,
+      "sha256": "7242d4241be567c130c4712eafb1f8cbee3dfaf3eb434488738c3870ebcc9473",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-2/QuarticQuery_ForrelationLower_Uniform.log",
+      "bytes": 18903,
+      "sha256": "e3aba304baf6e16ddd366fda9611177ec4f0f5f94672c06519e005c0d837924a",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-2/QuarticQuery_Paper_AppendixAAdversary.log",
+      "bytes": 3467,
+      "sha256": "13d54937c966ecbb81a968bb992583f7994fdfd04ac83ac839c8e3a920e74f63",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-2/QuarticQuery_Paper_AppendixAHuang.log",
+      "bytes": 2249,
+      "sha256": "8dd4d3071240c6f2152261889a548e1856acb4dd879c04c6614ceb6dae496a7c",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-2/QuarticQuery_Paper_AppendixAHuangMatrix.log",
+      "bytes": 6240,
+      "sha256": "7c6aa22f159eeaf504402628e5d5224f25ef6d3e76247e9206f494f0d59930b5",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-2/QuarticQuery_Paper_AppendixASensitivity.log",
+      "bytes": 358,
+      "sha256": "2af78796ab2ebff805099636fd8c4f6a835ae214be6cabccccdecb886ba6aa7b",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-2/QuarticQuery_Paper_ClassicalAsymptotics.log",
+      "bytes": 19084,
+      "sha256": "c96fad68c8660c9e0491a8696eb1b85977d320974bc5a206904a8de67db4ccd2",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-2/QuarticQuery_Paper_ClassicalPlanted.log",
+      "bytes": 6504,
+      "sha256": "3dade59d62a2a900b8c17f2251d62fb752a8ff90997be2ebdb5f54e495d16d3f",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-2/QuarticQuery_Paper_ClassicalUniformZero.log",
+      "bytes": 10865,
+      "sha256": "093512199af95dd5edba787597443c3ff61b9b8ac40409c5f65b3ffb5d6b558d",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-2/QuarticQuery_Paper_ConstructionCoherent.log",
+      "bytes": 3646,
+      "sha256": "5c8ab75fa88a326ad388574efb45ddc9af24af1af63d76b62f5dbeb404b166e3",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-2/QuarticQuery_Paper_ConstructionDefinitions.log",
+      "bytes": 117,
+      "sha256": "bb454fd3b23d92747939da07b98e480bfe52f26e06e1752560e7298cd06d2e32",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-2/QuarticQuery_Paper_ConstructionForrelationComparison.log",
+      "bytes": 2086,
+      "sha256": "1fae2bf91581eb94e39558967bcd02c5160d213f8655e48526db9925db37a38b",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-2/QuarticQuery_Paper_ConstructionPointerSupport.log",
+      "bytes": 1587,
+      "sha256": "8f44911700fc0a02a6fcd765f9ed48653aab9d490e37801d4e1347aea055c793",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-2/QuarticQuery_Paper_ConstructionTests.log",
+      "bytes": 912,
+      "sha256": "f3ff11481d9d89965cfd4d05372e693fba0bcd8c4f75754b5746be562fbfc280",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-2/QuarticQuery_Paper_QuantumTensor.log",
+      "bytes": 3749,
+      "sha256": "cf202eaa168cffb98e751e291f05f54aa17e2b42b2ce1553bd789125b7360921",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-2/QuarticQuery_Paper_QuantumTournamentFacts.log",
+      "bytes": 2702,
+      "sha256": "9b4ea8472737140394a7314bda6161d070c5f3bd3ee1a8cded2f4f0ca4f9c31a",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-3/QuarticQuery_ForrelationLower_Uniform.log",
+      "bytes": 16923,
+      "sha256": "a59d7e883a6c9e5771f410fc3a4ef6f6fbe1ce8fb37e0c2dc7e577b822327de2",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-3/QuarticQuery_Paper_AppendixAAdversary.log",
+      "bytes": 1454,
+      "sha256": "cb3c0c172b448462557bec295c32866f21e031decaf309d53ffa01d8a1bbe1bf",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-3/QuarticQuery_Paper_AppendixAHuang.log",
+      "bytes": 107,
+      "sha256": "13dfbb29913790796a82d11edd8db002d2df64a306782e27c49a2d54756aa86d",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-3/QuarticQuery_Paper_AppendixAHuangMatrix.log",
+      "bytes": 3148,
+      "sha256": "9a3b42a4c8b07eaa0532154bfe1856e71aa34e6d3837a6e861790f6f59411f51",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-3/QuarticQuery_Paper_AppendixAPerron.log",
+      "bytes": 2698,
+      "sha256": "80600c0f8bc48106f1d2a0e3a5b39c8d615599aeff0c33c0045a041b00816bc7",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-3/QuarticQuery_Paper_AppendixARestriction.log",
+      "bytes": 3219,
+      "sha256": "bcb7cb7a12bac4f6ba49ee56e71c398161dcf22b5acbc61ce29e2c11a70f6834",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-3/QuarticQuery_Paper_AppendixASpectralAdversary.log",
+      "bytes": 5345,
+      "sha256": "307260a11e4350a707a7230ca310ffb49cc71f75deb0f63f8bd55f1b86756944",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-3/QuarticQuery_Paper_ClassicalUniformZero.log",
+      "bytes": 8289,
+      "sha256": "74e83ed3e22ac7b847d926da1df82c21f2f29b8750117489630f02b784deec2a",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-3/QuarticQuery_Paper_ConstructionAudit.log",
+      "bytes": 23291,
+      "sha256": "f4d14c3c7b3f6336036be347388311590948975c02131c586f591005aa351a18",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-3/QuarticQuery_Paper_ConstructionCoherent.log",
+      "bytes": 1494,
+      "sha256": "828154ea4b9957894ec78271c937f1b2f67a6dcd1bc8c77f3ff676eca66493c7",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-3/QuarticQuery_Paper_ConstructionComplete.log",
+      "bytes": 2302,
+      "sha256": "77b320e78468cd8dd50333207a2f5155b441335f21a3e819ee68c26f0e2efc8d",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-3/QuarticQuery_Paper_QuantumTensor.log",
+      "bytes": 1308,
+      "sha256": "768615c11307d79be33f3d7c20c063ae67bae1574f3d556034d5fd67da422f79",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-3/QuarticQuery_Paper_QuantumUpper.log",
+      "bytes": 5566,
+      "sha256": "4c6931db15b91fc920de5526747185613dce46adabdb18b360269b70526fa008",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-3/QuarticQuery_Paper_Section2.log",
+      "bytes": 23935,
+      "sha256": "26f9d60781ddc6a7d035bd55abe73148155961c26c1f68b1e9d09cf1a5a0b6c0",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-3/QuarticQuery_Paper_Section3.log",
+      "bytes": 7967,
+      "sha256": "67873427d790fba4c8d8feb396a808b49fc039db276adabd34ef2ae687e51d88",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-4/QuarticQuery_Paper_AppendixARestriction.log",
+      "bytes": 2509,
+      "sha256": "58c9a4ff98ff80d91e7520fa21448ae587c11811553adb8826fda5bb7e6a31c4",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-4/QuarticQuery_Paper_AppendixASpectralAdversary.log",
+      "bytes": 6158,
+      "sha256": "24c36360fb215c61ddee30d430d931fe72d5ce5745eb4f1000c50ede02e9b1ae",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-4/QuarticQuery_Paper_Section2.log",
+      "bytes": 22380,
+      "sha256": "d9bd76deafa687d3d0044828055993a07c49258c56ebc903ea8b9196531ca9f8",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-4/QuarticQuery_Paper_Section3.log",
+      "bytes": 5961,
+      "sha256": "a8ee27b524d826086fb4735d1ae47254efdd7333a914045cd6104deea0f6648d",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-5/QuarticQuery_Paper_AppendixARestriction.log",
+      "bytes": 2458,
+      "sha256": "2520f9bc95e0f42c4a126a319e8f78992fee3130f041caf52a6f553b2e753e62",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-5/QuarticQuery_Paper_AppendixASpectralAdversary.log",
+      "bytes": 2770,
+      "sha256": "2fffc284f26e176c0e1539e9fd31afaa60bbab2c6cbf104c8b7ec1ec237ad195",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-5/QuarticQuery_Paper_AppendixAStar.log",
+      "bytes": 18106,
+      "sha256": "ab4f6f9e94a82f31250b9827cd44f3c48203fa9864340fa2743034a740d8ed89",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-6/QuarticQuery_Paper_AppendixARestriction.log",
+      "bytes": 2689,
+      "sha256": "2aceff718c53bfccb065bfe2f51f35ea9768c5590c1255d1fe8bbd21ad7b3fd2",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-6/QuarticQuery_Paper_AppendixAStar.log",
+      "bytes": 9034,
+      "sha256": "ec23214153ef6b011b7dddc5289c42328af67dceddf3ba9fc501195d9c744186",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-7/QuarticQuery_Paper_AppendixAHuangRoute.log",
+      "bytes": 6837,
+      "sha256": "c225ffcf5a7cc59223adb154c2e50eaf2f6eec9ba23bc39a37b08f00634d25cc",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-7/QuarticQuery_Paper_AppendixARestriction.log",
+      "bytes": 114,
+      "sha256": "0a00d5983e8ada58857a52fb13eb86387ee4ec8eaaf86377cccb9a2008bdf8fc",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-7/QuarticQuery_Paper_AppendixAStar.log",
+      "bytes": 6031,
+      "sha256": "5c9f0eb45112a00f802af318354ba25383f9a2f91bd79e7ef0010f2958a46908",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-8/QuarticQuery_Paper_AppendixA.log",
+      "bytes": 11824,
+      "sha256": "763e769fab5fbc9decf1ea5672a7843a1a2c1b3f4017bdbac5f5383da12f5868",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-8/QuarticQuery_Paper_AppendixAHuangRoute.log",
+      "bytes": 5183,
+      "sha256": "5961b4ef7b4b805b5b68b3581d803d344598a8d82876e9a963dc880816f29fb5",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_logs/native-retry-9/QuarticQuery_Paper_AppendixA.log",
+      "bytes": 9817,
+      "sha256": "de3d0b8905ba91d501c1a0ee92db2f7151e5811f56d44e1da974894548b8827c",
+      "role": "native_run_log"
+    },
+    {
+      "member": "native_sources/final-evidence/apply_reviewed_ties.py",
+      "bytes": 4128,
+      "sha256": "0d71ff7f841839d616ec6a8d29457bceedb536b6cfd8c58d00859947e779ad7a",
+      "role": "explicit_native_run_source"
+    },
+    {
+      "member": "native_sources/final-evidence/final_native_phase.py",
+      "bytes": 8338,
+      "sha256": "cba70733facb39e5f93505688c0e621fd6aef6b3ea74ad5eb99ac9a31509200c",
+      "role": "explicit_native_run_source"
+    },
+    {
+      "member": "native_sources/final-evidence/prepare_reviewed_audit.py",
+      "bytes": 5121,
+      "sha256": "4f0159fe405587f9bd65752b4d37dc88741a9d719cf842bbf8b5e6cdda8e8c19",
+      "role": "explicit_native_run_source"
+    },
+    {
+      "member": "native_sources/final-evidence/reviewed_axiom_audit.lean",
+      "bytes": 51176,
+      "sha256": "78da4e0b0d875eedd3898a46f4e885a8fa7e89c2d5fbf2d3205012ff4f640513",
+      "role": "explicit_native_run_source"
+    },
+    {
+      "member": "native_sources/final-evidence/verify_reviewed_audit.py",
+      "bytes": 2082,
+      "sha256": "bd8eb4a6312bc0b8f6911edd23734df982f0aef17c3457e1b243e9003fec3dd8",
+      "role": "explicit_native_run_source"
+    },
+    {
+      "member": "native_sources/native-inventory/ReachRegression.lean",
+      "bytes": 6155,
+      "sha256": "3be41c8f056cb06feba16325ca6204d04d3935a8f41105815105a040c2b4a002",
+      "role": "explicit_native_run_source"
+    },
+    {
+      "member": "native_sources/native-inventory/runner.py",
+      "bytes": 5111,
+      "sha256": "2a7deb18237c57134bb84632d49a1f53ae0de1c0b049cb322a52e14483630365",
+      "role": "explicit_native_run_source"
+    },
+    {
+      "member": "native_sources/native-retry-1/runner.py",
+      "bytes": 4477,
+      "sha256": "1ddeaf96099e8b554aa9b9baa1aa2af90cc580568e6d16d8742a074dabc4914b",
+      "role": "explicit_native_run_source"
+    },
+    {
+      "member": "native_sources/native-retry-2/runner.py",
+      "bytes": 4475,
+      "sha256": "c8c5e4abd5b4edff5791c4af44161d2f21d5bc8e394c63126b9cecae7f6a2874",
+      "role": "explicit_native_run_source"
+    },
+    {
+      "member": "native_sources/native-retry-3/runner.py",
+      "bytes": 4475,
+      "sha256": "2ee989c53af5b043bdde7e8657d3cddbeacc467e49c89af882f52fc78f174e81",
+      "role": "explicit_native_run_source"
+    },
+    {
+      "member": "native_sources/native-retry-4/runner.py",
+      "bytes": 4475,
+      "sha256": "eb826e3694120c769b09cf6e044523542360173c77257fde0c1f3f8a4067006d",
+      "role": "explicit_native_run_source"
+    },
+    {
+      "member": "native_sources/native-retry-5/runner.py",
+      "bytes": 4475,
+      "sha256": "24c73b0c90adbf50f02f25c38eb2b7a432cf38970e5e77fe3449a87878abcd06",
+      "role": "explicit_native_run_source"
+    },
+    {
+      "member": "native_sources/native-retry-6/runner.py",
+      "bytes": 4475,
+      "sha256": "db9907e6695b9dda5ecd648c01ef5944cafe0108ac55cff3a675d8c67036b435",
+      "role": "explicit_native_run_source"
+    },
+    {
+      "member": "native_sources/native-retry-7/runner.py",
+      "bytes": 4475,
+      "sha256": "6fa400cd11ab3b5cf2a8866675aaaf546816679feddf26e9be79a6128daa7ab0",
+      "role": "explicit_native_run_source"
+    },
+    {
+      "member": "native_sources/native-retry-8/runner.py",
+      "bytes": 4475,
+      "sha256": "086e525b8f6644b07956a1395ce59ea0b7384d24e2b214351274fb51de13a1cf",
+      "role": "explicit_native_run_source"
+    },
+    {
+      "member": "native_sources/native-retry-9/runner.py",
+      "bytes": 4475,
+      "sha256": "8f5d4a3c1b058248199d909346da29d6c992d9395a895a4bb2c091cabc8d5b93",
+      "role": "explicit_native_run_source"
+    },
+    {
+      "member": "EVIDENCE_SNAPSHOT.json",
+      "bytes": 716734,
+      "sha256": "25f46742c3d019459dc43846f23234c107212625b8c76f3eeef787fd721f1213",
+      "role": "source_bound_evidence_reclassification"
+    },
+    {
+      "member": "BUILD_STATUS.md",
+      "bytes": 28218,
+      "sha256": "50d8890437452a047a7eba252ec14f41a54e5cf06a297b61a03cb17898bdc4dc",
+      "role": "packet_navigation"
+    },
+    {
+      "member": "DEPENDENCY_SOURCES.json",
+      "bytes": 17457,
+      "sha256": "fdc729f3dd256df64865229b147046b05197388eddbe055bfd443f9dcd03495c",
+      "role": "packet_navigation"
+    },
+    {
+      "member": "SOURCE_ROLES.md",
+      "bytes": 2560,
+      "sha256": "e1916ab76f349582fea82b8833529ab7eb90fabba24a8eebddba5b7acfdb0c9f",
+      "role": "packet_navigation"
+    },
+    {
+      "member": "literature/README.md",
+      "bytes": 1315,
+      "sha256": "ff28e00f35b4fedd2421d04c6c2e3a71959a6189a0dc0000ce01c7f3c7f5ebc9",
+      "role": "packet_navigation"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "archive_sha256": "db412239bd75e1a7fc23d262903265ac5229d2d48c59c0f7ff743901d71cde24",
+  "manifest_sha256": "53528c475a467609c2f1d5640e7db843711ae80764d80ed87077f1b292d53b7a",
+  "packet_repository_commit": "1dd469dd0042b937b739da3bc211eeb60bdf7462",
+  "root_receipt_commit": "31e17dee667d1d72fa621da8e7d3d8ff5fc3960a",
+  "manifest_members_checked": 453,
+  "manifest_member_failures": [],
+  "input_sha256_entries_checked": 448,
+  "input_hash_failures": [],
+  "local_lean_config_hashes_checked": 124,
+  "local_hash_failures": [],
+  "local_snapshot_extra_files": [],
+  "local_snapshot_missing_files": [],
+  "root_declaration_count": 2652,
+  "dependency_export_hash_matches_snapshot": true,
+  "dependency_export_source_checks": {
+    "count": 124,
+    "all_match": true
+  },
+  "dependency_export_root_count": 2,
+  "dependency_export_reached_count": 1354,
+  "dependency_export_unresolved": [],
+  "axiom_verdict_passed": true,
+  "axiom_log_hash_matches_verdict": true,
+  "axiom_source_hash_matches_verdict": true,
+  "axiom_audit_declarations": 258,
+  "axiom_audit_unique_names": 258,
+  "axiom_audit_all_names_in_root": true,
+  "axiom_success_marker_present": true,
+  "axiom_printout_unexpected_axioms": [],
+  "axiom_type_blocks_found": 258,
+  "axiom_allowed": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "local_lean_available": null,
+  "local_lake_available": null,
+  "new_build_executed": false,
+  "limits": [
+    "Input bytes and included receipt/log hashes independently checked; recorded external native execution itself was not repeated.",
+    "Dependency manifest revisions are bound, but all dependency checkout bytes and tool executable bytes were not part of the 124-source root receipt.",
+    "No compiled .olean artifact was supplied here for independent hash check of recorded native artifact.",
+    "Before/after source hashes do not detect an intervening edit-and-revert.",
+    "No current Comparator receipt names Forrelation, Upper.decode or Paper.construction Forrelation declarations in this section; root theorem comparisons do not transfer to descendants or sibling helpers."
+  ],
+  "receipt_hash_failures": [],
+  "current_receipt_binding_failures": [],
+  "integrity_checks_passed": true
+}

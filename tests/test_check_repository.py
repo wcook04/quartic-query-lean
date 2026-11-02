@@ -23,7 +23,8 @@ class RepositoryTests(unittest.TestCase):
         self.git("init", "-q")
         for path in CHECKER.REQUIRED:
             self.write(path, "")
-        self.write(".gitignore", ".lake/\n/build/\n__pycache__/\n*.zip\n")
+        self.write(".gitignore", ".lake/\n/build/\n__pycache__/\n*.zip\n*.pdf\n"
+                   f"/{CHECKER.ROUND3_ROOT}/{CHECKER.ROUND3_PRIVATE_ATTACHMENT}\n")
         self.write("README.md", "[tool](tools/check_repository.py) [license](LICENSE)\n")
         self.manifest = {"format": "return-snapshots-v1", "snapshots": {}}
         for name in sorted(CHECKER.SNAPSHOT_IDS):
@@ -42,6 +43,28 @@ class RepositoryTests(unittest.TestCase):
                 "members": members,
             }
         self.save_manifest()
+        self.round3 = {"returns": [], "attachments": []}
+        for name in sorted(CHECKER.ROUND3_IDS):
+            files = {"README.md": "[sender-only](missing.md)\n", "checks/check.py": "raise RuntimeError('do not run')\n"}
+            if name == "02_forrelation_promise_circuit":
+                files["quartic_r3_02_forrelation_promise_circuit_return/section.pdf"] = "local PDF\n"
+            members = []
+            for path, content in files.items():
+                self.write(f"{CHECKER.ROUND3_ROOT}/members/{name}/{path}", content)
+                members.append({"path": path, **self.round3_record(content)})
+            archive = f"quartic_r3_{name}_return.zip"
+            self.round3["returns"].append({
+                "id": name, "members_root": f"members/{name}", "members": members,
+                "archive": {"source": archive, "preserved": f"archives/{archive}",
+                            "bytes": 1, "sha256": "a" * 64},
+            })
+        for i in range(1, 11):
+            path = f"attachments/input_{i:02d}.txt"
+            self.write(f"{CHECKER.ROUND3_ROOT}/{path}", "attachment\n")
+            record = {"preserved": path, **self.round3_record("attachment\n")}
+            record.update({"local_only": True, "role": "session_packet"} if i == 10 else {"source": f"attachment-{i}"})
+            self.round3["attachments"].append(record)
+        self.save_round3()
         self.git("add", ".")
 
     def git(self, *args):
@@ -54,6 +77,14 @@ class RepositoryTests(unittest.TestCase):
 
     def save_manifest(self):
         self.write(CHECKER.SNAPSHOT_MANIFEST, json.dumps(self.manifest) + "\n")
+
+    @staticmethod
+    def round3_record(content):
+        data = content.encode()
+        return {"bytes": len(data), "sha256": hashlib.sha256(data).hexdigest()}
+
+    def save_round3(self):
+        self.write(CHECKER.ROUND3_MANIFEST, json.dumps(self.round3) + "\n")
 
     def errors(self, index=False, archive_dir=None):
         return CHECKER.check(CHECKER.GitView(self.root, index), archive_dir)
@@ -148,6 +179,106 @@ class RepositoryTests(unittest.TestCase):
         self.manifest["snapshots"]["8_unlisted"] = self.manifest["snapshots"]["1_statement_fidelity"]
         self.save_manifest()
         self.assertTrue(any("snapshot IDs" in e for e in self.errors()))
+
+    def test_round3_submitted_code_is_opaque_and_local_binaries_are_optional(self):
+        self.assertEqual([], self.errors())
+        self.assertEqual([], self.errors(index=True))
+        for local in CHECKER.ROUND3_LOCAL_MEMBERS | {CHECKER.ROUND3_PRIVATE_ATTACHMENT}:
+            (self.root / CHECKER.ROUND3_ROOT / local).unlink()
+        self.assertEqual([], self.errors())
+        self.assertEqual([], self.errors(index=True))
+
+    def test_round3_unmanifested_members_are_rejected(self):
+        for relative in ("members/01_models_evidence/extra.md", "members/11_unknown/run.py", "attachments/extra.txt"):
+            with self.subTest(relative=relative):
+                path = f"{CHECKER.ROUND3_ROOT}/{relative}"
+                self.write(path)
+                self.assertTrue(any(path in e and "unmanifested" in e for e in self.errors()))
+                self.git("add", path)
+                (self.root / path).unlink()
+                self.assertTrue(any(path in e and "unmanifested" in e for e in self.errors(index=True)))
+                self.git("rm", "--cached", path)
+
+    def test_round3_hashes_members_and_attachments_in_selected_view(self):
+        for relative in ("members/01_models_evidence/checks/check.py", "attachments/input_01.txt"):
+            with self.subTest(relative=relative):
+                path = f"{CHECKER.ROUND3_ROOT}/{relative}"
+                original = (self.root / path).read_text()
+                self.write(path, "changed bytes\n")
+                self.assertTrue(any(path in e and "bytes differ" in e for e in self.errors()))
+                self.git("add", path)
+                self.write(path, original)
+                self.assertEqual([], self.errors())
+                self.assertTrue(any(path in e and "bytes differ" in e for e in self.errors(index=True)))
+                self.git("add", path)
+
+    def test_round3_staged_manifest_and_member_removal_cannot_be_masked(self):
+        record = self.round3["returns"][0]["members"][0]
+        original = record["sha256"]
+        record["sha256"] = "b" * 64
+        self.save_round3()
+        self.git("add", CHECKER.ROUND3_MANIFEST)
+        record["sha256"] = original
+        self.save_round3()
+        self.assertEqual([], self.errors())
+        self.assertTrue(any("bytes differ" in e for e in self.errors(index=True)))
+        self.git("add", CHECKER.ROUND3_MANIFEST)
+        path = f"{CHECKER.ROUND3_ROOT}/members/{self.round3['returns'][0]['id']}/{record['path']}"
+        self.git("rm", "--cached", path)
+        self.assertEqual([], self.errors())
+        self.assertTrue(any(path in e and "member is missing" in e for e in self.errors(index=True)))
+        (self.root / path).unlink()
+        self.assertTrue(any(path in e and "member is missing" in e for e in self.errors()))
+
+    def test_round3_local_only_files_cannot_be_force_tracked(self):
+        paths = [*CHECKER.ROUND3_LOCAL_MEMBERS, CHECKER.ROUND3_PRIVATE_ATTACHMENT,
+                 "archives/quartic_r3_01_models_evidence_return.zip"]
+        for relative in paths:
+            with self.subTest(relative=relative):
+                path = f"{CHECKER.ROUND3_ROOT}/{relative}"
+                self.write(path)
+                self.git("add", "-f", path)
+                self.assertTrue(any(path in e and "must stay untracked" in e for e in self.errors()))
+                self.assertTrue(any(path in e and "must stay untracked" in e for e in self.errors(index=True)))
+                self.git("rm", "--cached", path)
+                (self.root / path).unlink()
+
+    def test_round3_manifest_rejects_ambiguous_and_malformed_records(self):
+        original = json.dumps(self.round3)
+        mutations = [
+            lambda d: d.update({"extra": True}),
+            lambda d: d.update({"returns": {}}),
+            lambda d: d["returns"].pop(),
+            lambda d: d["returns"].append(d["returns"][0]),
+            lambda d: d["returns"][0].update({"id": []}),
+            lambda d: d["returns"][0].update({"members_root": "members/../escape"}),
+            lambda d: d["returns"][0]["archive"].update({"preserved": "../escape.zip"}),
+            lambda d: d["returns"][0]["archive"].update({"sha256": "bad"}),
+            lambda d: d["returns"][0]["members"].append(d["returns"][0]["members"][0]),
+            lambda d: d["returns"][0]["members"][0].pop("sha256"),
+            lambda d: d["returns"][0]["members"][0].update({"bytes": True}),
+            lambda d: d["returns"][0]["members"][0].update({"sha256": "BAD"}),
+            lambda d: d["attachments"].append(d["attachments"][0]),
+            lambda d: d["attachments"][0].update({"preserved": "../private.txt"}),
+            lambda d: d["attachments"][-1].update({"local_only": False}),
+            lambda d: d["attachments"][-1].update({"source": "private-session-path"}),
+        ]
+        for mutate in mutations:
+            with self.subTest(mutate=mutate):
+                self.round3 = json.loads(original)
+                mutate(self.round3)
+                self.save_round3()
+                self.assertTrue(any(CHECKER.ROUND3_MANIFEST in e for e in self.errors()))
+        self.write(CHECKER.ROUND3_MANIFEST, '{"returns":[],"returns":[],"attachments":[]}')
+        self.assertTrue(any("duplicate JSON key" in e for e in self.errors()))
+
+    def test_round3_manifest_rejects_unsafe_member_paths(self):
+        record = self.round3["returns"][0]["members"][0]
+        for path in ("../escape.py", ".", "/absolute.py", "sub/../file.py", "sub//file.py", "sub\\file.py", "bad\0file.py", [], None):
+            with self.subTest(path=path):
+                record["path"] = path
+                self.save_round3()
+                self.assertTrue(any("invalid member path" in e for e in self.errors()))
 
     def test_manifested_generated_outputs_remain_forbidden(self):
         path = f"{CHECKER.SNAPSHOT_ROOT}/1_statement_fidelity/cache.pyc"

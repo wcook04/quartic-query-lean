@@ -1,0 +1,47 @@
+{
+  "review_date": "2026-11-02",
+  "task": "round3 job10 independent frozen-baseline review",
+  "version_bindings": {
+    "input_zip_sha256": "dae7bbc91b216c40de6878332e945be84c2a5f4f7d19e71d3da59b12d40f8a70",
+    "baseline_sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+    "paper_sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e",
+    "packet_repository_commit": "1dd469dd0042b937b739da3bc211eeb60bdf7462",
+    "historical_baseline_source_commit": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "current_run_record_commit": "31e17dee667d1d72fa621da8e7d3d8ff5fc3960a"
+  },
+  "readers": {
+    "root": "Main mathematical proof, Appendix A, complete supplied preprint extraction and selected exact current types, current hash metadata and source audit; integrated all three review lanes.",
+    "whole_record_review": "Entire baseline, all guides, all required exemplar samples, both actual companion manuscripts and full baseline gap/review records.",
+    "math_sources": "Baseline Forrelation, quantum and classical sections; exact named primary source passages and selected Lean proofs.",
+    "lean_evidence": "All121 original rows,169 selected declaration ties; additional exact current types; hashes and per-declaration receipt membership."
+  },
+  "detailed_scopes": "coverage-map.json and evidence/*read-receipt.json",
+  "public_primary_editions": [
+    {
+      "url": "https://arxiv.org/abs/2008.07003v3",
+      "role": "Exact source statement and audited display; source PDF/TeX in packet"
+    },
+    {
+      "url": "https://arxiv.org/abs/2103.11604v2",
+      "role": "Lemma1.9 method ancestry"
+    },
+    {
+      "url": "https://arxiv.org/abs/quant-ph/0005055v1",
+      "role": "Section2 amplitude-amplification geometry"
+    },
+    {
+      "url": "https://arxiv.org/abs/1005.0644v2",
+      "role": "Lemmas3.1–3.2 direct-product method"
+    },
+    {
+      "url": "https://arxiv.org/abs/2010.12629v1",
+      "role": "Theorem2 quartic upper-bound statement"
+    }
+  ],
+  "limitations": [
+    "Source proofs imported in the optional weak-log deduction were not all independently re-audited.",
+    "A source-bound recorded pass is not a new kernel run.",
+    "No author confirmation of the diagnosed source display was obtained.",
+    "No priority or novelty claim is made."
+  ]
+}

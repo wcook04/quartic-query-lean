@@ -1,0 +1,527 @@
+{
+  "agent": "/root/math_sources",
+  "record_date": "2026-11-02",
+  "packet_root": "/workspace/scratch/4c34b4ed4961/packet",
+  "purpose": "Internal bounded source/math lane coverage for job10 whole-record review; parent merges independent lane coverage",
+  "entries": [
+    {
+      "path": "packet/READ_ME_FIRST.md",
+      "sha256": "652edb80248d9fd0544db98dc116a9bc97d08a81bf300f66001bae7664a4c70e",
+      "bytes": 12384,
+      "status": "assessed",
+      "assessed_scope": "Full assignment/authority and return contract"
+    },
+    {
+      "path": "packet/SOURCE_ROLES.md",
+      "sha256": "e1916ab76f349582fea82b8833529ab7eb90fabba24a8eebddba5b7acfdb0c9f",
+      "bytes": 2560,
+      "status": "assessed",
+      "assessed_scope": "Full source-role and reading-order document"
+    },
+    {
+      "path": "packet/literature/README.md",
+      "sha256": "ff28e00f35b4fedd2421d04c6c2e3a71959a6189a0dc0000ce01c7f3c7f5ebc9",
+      "bytes": 1315,
+      "status": "assessed",
+      "assessed_scope": "Full selected-source map"
+    },
+    {
+      "path": "packet/repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+      "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+      "bytes": 353091,
+      "status": "sampled",
+      "assessed_scope": "Sections 3, 5 and 6 assessed in full; section 1 opening/roadmap and one Appendix B catalogue row sampled",
+      "assessed_line_ranges": [
+        [
+          1,
+          65
+        ],
+        [
+          146,
+          868
+        ],
+        [
+          1002,
+          1979
+        ],
+        [
+          2578,
+          2605
+        ]
+      ],
+      "limits": "Other baseline sections and the rest of Appendix B/C are unassessed by this child lane; parent whole-record lane reads them. Scope is mathematical/prose inspection, not a native proof run."
+    },
+    {
+      "path": "packet/paper/extracted.md",
+      "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+      "bytes": 64021,
+      "status": "sampled",
+      "assessed_scope": "Main target-paper text and Appendix A through proof of Theorem A.1; beginning of references only",
+      "assessed_line_ranges": [
+        [
+          1,
+          879
+        ]
+      ],
+      "limits": "Remaining bibliography unassessed by this lane. Exact packet PDF separately hashed."
+    },
+    {
+      "path": "packet/paper/source.pdf",
+      "sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e",
+      "bytes": 433829,
+      "status": "sampled",
+      "assessed_scope": "Exact packet PDF identity and text-extraction provenance; substantive target-paper main-body reading was through the supplied paper/extracted.md",
+      "inspection_mode": "SHA-256 and pdftotext -layout; no claim of a second full PDF-page reading or raster review",
+      "limits": "The packet extraction, not a new independently verified visual rendering, supplied the main mathematical reading."
+    },
+    {
+      "path": "packet/paper/annex_notes.json",
+      "sha256": "b2a65f141ea2ace3056caa0b058d847192fe1780c30239dd9d81a085741cec7f",
+      "bytes": 17636,
+      "status": "assessed",
+      "assessed_scope": "Full metadata and historical notes; treated as locator/provenance, not present proof authority"
+    },
+    {
+      "path": "packet/repository/research/adjudication/round2_literature.md",
+      "sha256": "3f3c0a6053778070a6b02c828ad4fea24d068cfc8255c803411b53cc6cd221f5",
+      "bytes": 9869,
+      "status": "assessed",
+      "assessed_scope": "Full bounded-source adjudication; BS logarithmic issue, direct-product distinctions and spectral-coefficient boundary"
+    },
+    {
+      "path": "packet/repository/research/adjudication/bansal_sinha_section54_second_reading.md",
+      "sha256": "db831723bb41c8847718747651adce262ce60cb8a6b1a3b20b1346eea001f6ca",
+      "bytes": 9152,
+      "status": "assessed",
+      "assessed_scope": "Full supplied second reading; independently compared named source display and corrected locators"
+    },
+    {
+      "path": "packet/repository/research/adjudication/round2_forrelation_exponent.md",
+      "sha256": "557342a03eabb2bc1ee0c2f411bf77ecc9a543511b69ca2c6a83140369e26757",
+      "bytes": 28567,
+      "status": "sampled",
+      "assessed_scope": "Opening source and quantitative-extension adjudication",
+      "assessed_line_ranges": [
+        [
+          1,
+          160
+        ]
+      ],
+      "limits": "Lines 161 onward not assessed in this lane"
+    },
+    {
+      "path": "packet/literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.tar.gz",
+      "sha256": "f48a3225662484d12e19bf03412478cf87a388f7c2e33c69a4d7f2078202e015",
+      "bytes": 213572,
+      "status": "sampled",
+      "assessed_scope": "Archive identity and extraction of exact main.tex/generalk.tex; only main.tex named ranges assessed",
+      "limits": "Archive inventory/extraction does not mean all members were read"
+    },
+    {
+      "path": "packet/literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.pdf",
+      "sha256": "afe53c8bd918d07590f29a947ef044453db73959043135082d1a3c29b2863a35",
+      "bytes": 986784,
+      "status": "sampled",
+      "assessed_scope": "Theorem statements, input-mass theorem, biased Fourier ingredients and §5.4 display",
+      "assessed_pdf_pages": [
+        4,
+        16,
+        17,
+        18,
+        38
+      ],
+      "inspection_mode": "pdftotext -layout; extracted equations compared with supplied TeX where available; no raster visual review",
+      "limits": "Full proofs of the multilevel theorem and restriction theorem not independently audited"
+    },
+    {
+      "path": "packet/literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/annex_notes.json",
+      "sha256": "0dc0501c90512a1a40a51ebfb28006c9a53c9edaac45db16592f0dabf9400882",
+      "bytes": 7729,
+      "status": "assessed",
+      "assessed_scope": "Full locator/edition metadata including older digest and separate proceedings note; historical digest not proof authority"
+    },
+    {
+      "path": "work/agent_math/sources/quartic-ref-06-k-forrelation-optimally-separates-quantum/main.tex",
+      "sha256": "800119f9f12877392a92e34ac380c61a50b2a297cee0a70511058580061f835b",
+      "bytes": 118162,
+      "status": "sampled",
+      "assessed_scope": "Definitions and Theorem1.3/Cor1.4; input distribution, theorem3.1 proof; Theorems3.2–3.4 and Cor3.5; end of biased coefficient proof and full §5.4",
+      "assessed_line_ranges": [
+        [
+          180,
+          290
+        ],
+        [
+          680,
+          825
+        ],
+        [
+          1157,
+          1195
+        ]
+      ],
+      "limits": "All other source proof ranges unassessed; optional weak-log deduction explicitly imports those theorem ingredients"
+    },
+    {
+      "path": "work/agent_math/sources/quartic-ref-06-k-forrelation-optimally-separates-quantum/generalk.tex",
+      "sha256": "919f247067e58426cc98a3b07313791c915106bd2b3e0d23126a2b4872448ad7",
+      "bytes": 45827,
+      "status": "unassessed",
+      "assessed_scope": "Extracted only; no mathematical assessment"
+    },
+    {
+      "path": "packet/literature/arxiv-2103-11604/source.tar.gz",
+      "sha256": "fa4612c9d0a67d270124efda9bb87903a71a330a9662b8c1c844167b4de836c8",
+      "bytes": 42311,
+      "status": "sampled",
+      "assessed_scope": "Archive identity; exact PDT.tex extracted",
+      "limits": "Other archive members not assessed"
+    },
+    {
+      "path": "packet/literature/arxiv-2103-11604/extracted.md",
+      "sha256": "55c19ab29df4e7b5953d1dd73d295a69b8fe3519b5aa2294aadcfbf8faf053b3",
+      "bytes": 129018,
+      "status": "sampled",
+      "assessed_scope": "Ordinary-tree technical overview and Lemma1.9",
+      "assessed_line_ranges": [
+        [
+          121,
+          161
+        ]
+      ]
+    },
+    {
+      "path": "work/agent_math/sources/arxiv-2103-11604/PDT.tex",
+      "sha256": "8551f01a68753c06d57cacb6debf0f0e968b5be05dde92d4c491279809d3f2d4",
+      "bytes": 121151,
+      "status": "sampled",
+      "assessed_scope": "Ordinary-tree martingale argument, Lemma1.9, stopping-versus-conditioning footnote and contrast with parity cleanup",
+      "assessed_line_ranges": [
+        [
+          360,
+          432
+        ]
+      ],
+      "limits": "No full parity/noisy-tree proof audit; no bundled GTW PDF"
+    },
+    {
+      "path": "packet/literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/source.tex",
+      "sha256": "6964cdcef75d28ecd31246b2f354dd5738c0d6607fe81394b29fc9d42293a5d6",
+      "bytes": 88081,
+      "status": "sampled",
+      "assessed_scope": "Section2 geometry, Lemma1 and equation8; successful-state and endpoint behavior",
+      "assessed_line_ranges": [
+        [
+          380,
+          503
+        ]
+      ],
+      "limits": "Amplitude-estimation theorems and remainder unassessed"
+    },
+    {
+      "path": "packet/literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/source.pdf",
+      "sha256": "badedce80b0fe53e6cd93f915ce79c9680e375bb6565f83d2f572bc4114b0278",
+      "bytes": 295305,
+      "status": "sampled",
+      "assessed_scope": "Section2 Lemma1 and equation8",
+      "assessed_pdf_pages": [
+        5,
+        7
+      ],
+      "inspection_mode": "pdftotext -layout; extracted equations compared with supplied TeX where available; no raster visual review"
+    },
+    {
+      "path": "packet/literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/extracted.md",
+      "sha256": "9fd98e35695c4bf763e4faa35ac146b18c74c3caf0dee24e3e208923aff71a86",
+      "bytes": 88358,
+      "status": "sampled",
+      "assessed_scope": "Named Section2 geometry, Lemma1 and equation8; unknown-amplitude theorem statement. Exact original-TeX ranges separately recorded.",
+      "limits": "Extraction reading was selected and included truncated output beyond the core passage; no full section/page-span coverage asserted from this extraction."
+    },
+    {
+      "path": "packet/literature/quartic-ref-13-improved-direct-product-theorems-for-rando/source.tex",
+      "sha256": "7defbc5925e9554768cf5bab0ab548188d5d264075cfc1f00891544b5aec782d",
+      "bytes": 131397,
+      "status": "sampled",
+      "assessed_scope": "Lemmas3.1–3.2 and basic product-proof mechanism",
+      "assessed_line_ranges": [
+        [
+          520,
+          608
+        ]
+      ],
+      "limits": "No full-paper or full global-budget theorem audit"
+    },
+    {
+      "path": "packet/literature/quartic-ref-13-improved-direct-product-theorems-for-rando/source.pdf",
+      "sha256": "6a67da06a0f07d0f86bb6389b7143314cade50294e2c0c454f3cc9853643faff",
+      "bytes": 405185,
+      "status": "sampled",
+      "assessed_scope": "Lemmas3.1–3.2",
+      "assessed_pdf_pages": [
+        11,
+        12
+      ],
+      "inspection_mode": "pdftotext -layout; extracted equations compared with supplied TeX where available; no raster visual review"
+    },
+    {
+      "path": "packet/literature/quartic-ref-13-improved-direct-product-theorems-for-rando/extracted.md",
+      "sha256": "de4e25127079b849cc18984031442ed939d6c24467d1bd67faaa466f8e17e29a",
+      "bytes": 121771,
+      "status": "sampled",
+      "assessed_scope": "Model and fairness conventions; basic direct-product proof; final fair-algorithm remark",
+      "assessed_line_ranges": [
+        [
+          71,
+          106
+        ],
+        [
+          140,
+          202
+        ]
+      ],
+      "limits": "Extracted heading numbering is flattened; printed PDF/TeX governs lemma labels"
+    },
+    {
+      "path": "packet/literature/quartic-ref-03-degree-vs-approximate-degree-and-quantum-i/source.pdf",
+      "sha256": "445a34b0653042ad482bd95bc2c333d476df7ade6ce5d9ec45714f5b249e39ab",
+      "bytes": 827322,
+      "status": "sampled",
+      "assessed_scope": "Theorem2 and historical Conjecture2",
+      "assessed_pdf_pages": [
+        2,
+        20
+      ],
+      "inspection_mode": "pdftotext -layout; extracted equations compared with supplied TeX where available; no raster visual review",
+      "limits": "The complete ABKRT proof is unassessed by this lane"
+    },
+    {
+      "path": "packet/literature/quartic-ref-03-degree-vs-approximate-degree-and-quantum-i/source.tar.gz",
+      "sha256": "b5ba1f3805fe2027b148ddcd64bc2689fa1a22265cfc3f5c5901d9d5b0c3897c",
+      "bytes": 38484,
+      "status": "sampled",
+      "assessed_scope": "Archive identity and extraction; main file searched for named statements",
+      "limits": "Extraction/keyword search is not a full proof read"
+    },
+    {
+      "path": "work/agent_math/sources/quartic-ref-03-degree-vs-approximate-degree-and-quantum-i/quartic.tex",
+      "sha256": "cf6895de755a981eb1a5054888abcbd1e8731738cc9dbbe283953e843fa1dcdb",
+      "bytes": 111739,
+      "status": "unassessed",
+      "assessed_scope": "Extracted and keyword-located only; mathematical claim read from PDF pages2/20"
+    },
+    {
+      "path": "packet/repository/lean/QuarticQuery/Statement.lean",
+      "sha256": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+      "bytes": 13769,
+      "status": "sampled",
+      "assessed_scope": "BansalSinhaLower proposition and neighboring universal-bound definitions",
+      "assessed_line_ranges": [
+        [
+          310,
+          330
+        ]
+      ],
+      "limits": "Read-only current-source inspection; no new Lean elaboration or compilation"
+    },
+    {
+      "path": "packet/repository/lean/QuarticQuery/ForrelationLower/Main.lean",
+      "sha256": "f877e9c4d11874d3e80ad7627972b1a8a0eca596f26fb96a3898bfdace564ed1",
+      "bytes": 26676,
+      "status": "sampled",
+      "assessed_scope": "Actual endpoint and proof ending",
+      "assessed_line_ranges": [
+        [
+          515,
+          550
+        ]
+      ],
+      "limits": "Read-only current-source inspection; no new Lean elaboration or compilation"
+    },
+    {
+      "path": "packet/repository/lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "sha256": "c9394068bc3a583178fcae1e11d6eafdc7dcfc17bcd8a0b269f9a13ccee209ba",
+      "bytes": 26515,
+      "status": "sampled",
+      "assessed_scope": "Definitions and exact local elimination/identity declarations",
+      "assessed_line_ranges": [
+        [
+          1,
+          37
+        ],
+        [
+          360,
+          381
+        ],
+        [
+          450,
+          482
+        ],
+        [
+          531,
+          555
+        ]
+      ],
+      "limits": "Read-only current-source inspection; no new Lean elaboration or compilation"
+    },
+    {
+      "path": "packet/repository/lean/QuarticQuery/Paper/QuantumTournament.lean",
+      "sha256": "8cf87e74aa0364c9bc6b9078ff62e88c45d297625166fe31a8efeea765a34adf",
+      "bytes": 19132,
+      "status": "sampled",
+      "assessed_scope": "List-valued normalized-law endpoint and initial proof",
+      "assessed_line_ranges": [
+        [
+          260,
+          351
+        ]
+      ],
+      "limits": "Read-only current-source inspection; no new Lean elaboration or compilation"
+    },
+    {
+      "path": "packet/repository/lean/QuarticQuery/Paper/Section3.lean",
+      "sha256": "aa49e092c11c915bc5a3a904054589dbed18c840f84a00c5edc0e37d57d661ad",
+      "bytes": 14235,
+      "status": "sampled",
+      "assessed_scope": "Proposition3.2 list endpoint and initial proof",
+      "assessed_line_ranges": [
+        [
+          185,
+          259
+        ]
+      ],
+      "limits": "Read-only current-source inspection; no new Lean elaboration or compilation"
+    },
+    {
+      "path": "packet/repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+      "sha256": "5f0d4ee001bcb9463fada031b83c2e0787360fff3fc9f99a544ac459c1de3d4f",
+      "bytes": 44006,
+      "status": "sampled",
+      "assessed_scope": "Conditional transcript law, coordinate value inequality and product expectation type/proof portions",
+      "assessed_line_ranges": [
+        [
+          265,
+          302
+        ],
+        [
+          430,
+          471
+        ],
+        [
+          615,
+          655
+        ]
+      ],
+      "limits": "Read-only current-source inspection; no new Lean elaboration or compilation"
+    },
+    {
+      "path": "packet/repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+      "sha256": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+      "bytes": 28360,
+      "status": "sampled",
+      "assessed_scope": "Coefficient-two absolute discrepancy and coefficient-four corollary",
+      "assessed_line_ranges": [
+        [
+          410,
+          456
+        ]
+      ],
+      "limits": "Read-only current-source inspection; no new Lean elaboration or compilation"
+    },
+    {
+      "path": "packet/repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+      "sha256": "d6bc1f4399394810fca63abdaadd67a420616371c501ab978841898f2bda049c",
+      "bytes": 33291,
+      "status": "sampled",
+      "assessed_scope": "Coarse/sharp quantitative lower-bound endpoints",
+      "assessed_line_ranges": [
+        [
+          480,
+          537
+        ]
+      ],
+      "limits": "Read-only current-source inspection; no new Lean elaboration or compilation"
+    },
+    {
+      "path": "packet/repository/lean/QuarticQuery/Amplification/Geometry.lean",
+      "sha256": "ff5e758a77d21bc133a930d545672cb5faa76aa422019413c634085881142dc9",
+      "bytes": 20075,
+      "status": "sampled",
+      "assessed_scope": "Preparation projector, circuit gates and syntactic resource model",
+      "assessed_line_ranges": [
+        [
+          1,
+          100
+        ]
+      ],
+      "limits": "Read-only current-source inspection; no new Lean elaboration or compilation"
+    },
+    {
+      "path": "packet/repository/lean/QuarticQuery/Paper/ConstructionForrelationComparison.lean",
+      "sha256": "e9bb18d1e0ea9482762e89a9ced002c720f9b7d2311a455a9904bd820c5b4a01",
+      "bytes": 5765,
+      "status": "assessed",
+      "assessed_scope": "Full current arithmetic comparison file and exact theorem types",
+      "limits": "Header status is historical; current native receipt adjudication belongs to evidence lane. This lane did not run Lean."
+    }
+  ],
+  "public_primary_metadata": [
+    {
+      "url": "https://arxiv.org/abs/2008.07003v3",
+      "ref": "turn7view0",
+      "version_date": "2020-11-17",
+      "status": "assessed",
+      "assessed_scope": "Public primary metadata: exact edition, title, authors and version date only; mathematical source passage audit uses packet bytes"
+    },
+    {
+      "url": "https://arxiv.org/abs/2103.11604v2",
+      "ref": "turn7view1",
+      "version_date": "2021-05-13",
+      "status": "assessed",
+      "assessed_scope": "Public primary metadata: exact edition, title, authors and version date only; mathematical source passage audit uses packet bytes"
+    },
+    {
+      "url": "https://arxiv.org/abs/quant-ph/0005055v1",
+      "ref": "turn7view2",
+      "version_date": "2000-05-15",
+      "status": "assessed",
+      "assessed_scope": "Public primary metadata: exact edition, title, authors and version date only; mathematical source passage audit uses packet bytes"
+    },
+    {
+      "url": "https://arxiv.org/abs/1005.0644v2",
+      "ref": "turn7view3",
+      "version_date": "2014-05-09",
+      "status": "assessed",
+      "assessed_scope": "Public primary metadata: exact edition, title, authors and version date only; mathematical source passage audit uses packet bytes"
+    },
+    {
+      "url": "https://arxiv.org/abs/2010.12629v1",
+      "ref": "turn7view4",
+      "version_date": "2020-10-23",
+      "status": "assessed",
+      "assessed_scope": "Public primary metadata: exact edition, title, authors and version date only; mathematical source passage audit uses packet bytes"
+    }
+  ],
+  "unavailable": [
+    {
+      "url": "https://github.com/openai/math/blob/4eaee875/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf",
+      "status": "unavailable",
+      "reason": "Web open returned DisabledError; packet PDF and supplied extraction remained available"
+    }
+  ],
+  "new_validation": {
+    "lean_run": false,
+    "comparator_run": false,
+    "kernel_recheck": false,
+    "source_dependency_extraction": false,
+    "raster_render_review": false,
+    "ordinary_derivation": true,
+    "details": "Symbolic BS exponent audit; exact k=3 Stein specialization; weak-log corollary proved from explicitly imported source ingredients, whose full proofs were not independently audited."
+  },
+  "scope_limits": [
+    "No other concurrent round3 return was assumed or incorporated.",
+    "No author confirmation or erratum is claimed.",
+    "No full-paper independent audit of BS, GTW, BHMT, Drucker or ABKRT is claimed.",
+    "Extracted but unassessed source members are not counted as reading."
+  ]
+}

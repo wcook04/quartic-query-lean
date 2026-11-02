@@ -1,0 +1,71 @@
+{
+  "status": "all checks passed",
+  "scope": "Package correspondence, exact finite replay, optional supplied-source byte bindings; no Lean execution.",
+  "python": "3.12.14",
+  "required_files_present": 18,
+  "json_files_parse": 15,
+  "passages": 19,
+  "displays": [
+    "4.1",
+    "4.2",
+    "4.3",
+    "4.4",
+    "4.5",
+    "4.6",
+    "4.7",
+    "4.8",
+    "4.9",
+    "4.10",
+    "4.11",
+    "4.12",
+    "4.13",
+    "4.14",
+    "4.15",
+    "4.16",
+    "4.17",
+    "4.18",
+    "4.19"
+  ],
+  "fully_typed_declarations": 41,
+  "new_statements": 4,
+  "canonical_changes": 0,
+  "style_rules": 4,
+  "example_stdout_matches_saved_bytes": true,
+  "example_circuit_and_board_match_saved_bytes": true,
+  "example_receipt_hashes_match": true,
+  "example_checks": {
+    "circuit_inputs": 256,
+    "candidate_pairs": 16,
+    "local_test_evaluations": 5936,
+    "transcript_single_flips": 360,
+    "parameters": {
+      "k": 2,
+      "m": 4,
+      "ell": 2,
+      "r": 2,
+      "r_in_paper_at_m4": 40,
+      "S": 180,
+      "K": 371,
+      "input_bits": 5936
+    },
+    "winner": {
+      "column": 1,
+      "address": "10"
+    },
+    "domain_omission_counterexample": "passed",
+    "equal_projection_law": "passed"
+  },
+  "source_bindings": {
+    "requested": true,
+    "manifest_members": 400,
+    "bound_declarations": 41,
+    "canonical_statement_texts_match": true,
+    "exact_present_source_signatures_match": true,
+    "native_Lean_execution": false
+  },
+  "manifest": {
+    "present": true,
+    "members": 27,
+    "all_bytes_and_hashes_match": true
+  }
+}

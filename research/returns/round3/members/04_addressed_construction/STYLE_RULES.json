@@ -1,0 +1,140 @@
+{
+  "format": "source-located-writing-moves-v1",
+  "policy": "Learn structural moves, not a named author's voice. Specimen text is not copied into the replacement prose.",
+  "measurement": {
+    "private_paper_register_tool_available": false,
+    "numerical_before_after_runs": null,
+    "status": "Qualitative, source-located comparison only."
+  },
+  "rules": [
+    {
+      "id": "finite-instance-before-verification",
+      "status": "candidate move applied in this return; no blind preference evaluation claimed",
+      "source": {
+        "file": "exemplars/expository.md",
+        "sha256": "67d89307e8131e8c2ca1f21749dce062218534d1ac25d4c5860f2500e234e33f",
+        "locator": "§1, The finite optimisation problem, two-spin calculation",
+        "role": "writing exemplar only; no authority for query complexity"
+      },
+      "specimen": {
+        "quote": "For two spins,",
+        "use": "short source specimen confined to this style record"
+      },
+      "move": "Calculate one completely specified small instance before asking the reader to follow the general verification argument.",
+      "scope": "long mathematical reasoning record; this addressed-construction section",
+      "before": {
+        "file": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "passage": "CL-layout",
+        "exact_excerpt": "Now let $m=4^{t}$, with $t\\geq1$, and use base-two logarithms. The two address lengths are fixed by the following equalities."
+      },
+      "after": {
+        "file": "section.md",
+        "passage": "AC-example-promise",
+        "exact_excerpt": "The following example uses the actual partial function $P_{2,4}$. To keep the cells visible, take $r=2$, giving four cells per column; the separation family instead has $r=40$ at $m=4$. The example also uses a circuit synthesized from this finite truth table, rather than the asymptotic arithmetic circuit of §3. These choices make it an instance of the generic construction (4.5), not a small-size demonstration of the separation bound."
+      },
+      "applied_passages": [
+        "AC-example-promise",
+        "AC-example-board",
+        "AC-example-tests"
+      ],
+      "limit": "The example is placed after the generic definitions and before the local verification lemma. Its r=2 and finite truth-table circuit are stated explicitly; it supplies no asymptotic separation evidence."
+    },
+    {
+      "id": "state-directional-mechanism",
+      "status": "candidate move applied in this return; no blind preference evaluation claimed",
+      "source": {
+        "file": "paper/extracted.md",
+        "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+        "locator": "OpenAI, supplied 5 October 2026 preprint, §1.2, p. 2",
+        "role": "original mathematical authority; this entry records an expository move"
+      },
+      "specimen": {
+        "quote": "The direction of the pointers matters.",
+        "use": "short source specimen confined to this style record"
+      },
+      "move": "Describe the two directions of a comparison concretely, then prove the resulting one-sided protection.",
+      "scope": "long mathematical reasoning record; this addressed-construction section",
+      "before": {
+        "file": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "passage": "CL-construction-context",
+        "exact_excerpt": "The total function couples two kinds of certificates. A column can certify that it contains only ones, and its selected cell can point to a zero in every other column. The selected cell is itself hidden at an address formed by values of separate inputs to the partial function. This arrangement explains both sides of the construction: a correct address gives short tests for a complete witness, while a classical algorithm that has invested little in a column has little chance of identifying its address."
+      },
+      "after": {
+        "file": "section.md",
+        "passage": "AC-interface",
+        "exact_excerpt": "A winning column must do two things: contain an all-one string, and supply a zero in every other column. Its zero witnesses are stored in a cell whose address is determined by several partial-function values. Transcripts in that cell certify that these values are defined and that the proposed address is correct. This gives a total predicate even when many of the partial-function instances lie outside their promise. The outward direction of the pointers also makes the winner safe against an opponent whose decoded address is meaningless: every pointer into the winner still reaches a one."
+      },
+      "applied_passages": [
+        "AC-interface",
+        "AC-total-unique",
+        "AC-comparison"
+      ],
+      "limit": "The probability bound still requires reliable decoding of the true winner. Direction alone proves the deterministic conditional event, not the decoder's error guarantee."
+    },
+    {
+      "id": "certificate-rejection-before-algorithm",
+      "status": "candidate move applied in this return; no blind preference evaluation claimed",
+      "source": {
+        "file": "literature/quartic-ref-02-separations-in-query-complexity-using-chea/extracted.md",
+        "sha256": "39745f19fdbaad3fd6542cee69cd8fdabe02771f975e676aa2e375a208873e32",
+        "locator": "ABK, arXiv:1511.01937v2, §6.1, printed Definition 14, p. 20",
+        "role": "historical antecedent and expository comparison; no theorem transfer"
+      },
+      "specimen": {
+        "quote": "invalid inputs should not have certificates",
+        "use": "short source specimen confined to this style record"
+      },
+      "move": "Make the domain-rejection requirement part of the certificate interface before presenting the checking algorithm.",
+      "scope": "long mathematical reasoning record; this addressed-construction section",
+      "before": {
+        "file": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "passage": "CL-transcripts",
+        "exact_excerpt": "Fix a partial Boolean function $P:D\\to\\{0,1\\}$, where $D\\subseteq\\{0,1\\}^{n}$, and a fan-in-two Boolean circuit $C$. We require two distinguished non-input gates, with outputs denoted by $d$ and $b$, such that on every $x\\in\\{0,1\\}^{n}$, the output $d$ equals one exactly when $x\\in D$, and whenever $d=1$, the output $b$ equals $P(x)$. In the eventual application, $n=km$ and $C=C_{k,m}$ is the exact circuit constructed earlier. Until the final instantiation, the argument uses only the stated correctness property."
+      },
+      "after": {
+        "file": "section.md",
+        "passage": "AC-circuit",
+        "exact_excerpt": "The value output on an unpromised input is unrestricted. The domain output is required to be correct there as well. In the application, $P=P_{k,m}$, $n=km$, and §3.17 supplies a circuit with $S=O_k(m(\\log_2m)^2)$. The construction below uses (4.1); its logical properties do not use a lower bound for computing $P$."
+      },
+      "applied_passages": [
+        "AC-circuit",
+        "AC-transcripts",
+        "AC-local-equivalence",
+        "AC-example-tests"
+      ],
+      "limit": "The baseline already assumes exact recognition. The rewrite makes that premise visible and diagnoses its necessity with a new finite counterexample; it does not attribute a missing premise to the source paper."
+    },
+    {
+      "id": "representation-to-access-cost",
+      "status": "candidate move applied in this return; no blind preference evaluation claimed",
+      "source": {
+        "file": "literature/quartic-ref-04-separations-in-query-complexity-based-on-p/extracted.md",
+        "sha256": "30eacb1b152e26be43fb8f656b065c1ae6e1a25782eb0fcc13c544e246baacd2",
+        "locator": "Ambainis et al., arXiv:1506.04719v3, §1.2, Use of a balanced tree, p. 6",
+        "role": "pointer antecedent and expository comparison; costs remain model-specific"
+      },
+      "specimen": {
+        "quote": "each zero can be accessed in only a logarithmic number of queries",
+        "use": "short source specimen confined to this style record"
+      },
+      "move": "Explain how the stored representation determines the next query location, then distinguish the path cost from the total set of relevant coordinates.",
+      "scope": "long mathematical reasoning record; this addressed-construction section",
+      "before": {
+        "file": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+        "passage": "CL-local-equivalence",
+        "exact_excerpt": "All these tests pass exactly when column $i$ wins at address $s$. If they all pass, the first and second families give the all-one and outward pointer conditions. For each transcript, all gate tests pass, so the topological induction already proved identifies it with the true evaluation of $C$. The output tests, together with circuit correctness, then show that $A_{i,h}\\in D$ and $P(A_{i,h})=s_h$. These are all the winning conditions. Conversely, a winner at $s$ has each asserted bit, each outward zero, and each true transcript. Every test therefore passes. This proves the equivalence in `lem-2.2.i`."
+      },
+      "after": {
+        "file": "section.md",
+        "passage": "AC-pointer-support",
+        "exact_excerpt": "To see this for a target bit, set the pointer to that row, hold every other coordinate fixed, and flip the selected bit. The test changes. To see it for a pointer bit, choose two pointer words differing only in that bit. The pointer bijection sends them to distinct rows. Assign different Boolean values to those two target bits and hold all other physical coordinates fixed. Changing the chosen pointer bit changes the test. Thus the support is exactly $m+\\ell$, although every evaluation path reads only $\\ell+1$ bits."
+      },
+      "applied_passages": [
+        "AC-layout",
+        "AC-local-equivalence",
+        "AC-pointer-support"
+      ],
+      "limit": "The cited pointer paper has its own alphabet and cell model. Here every pointer bit is charged; its historical symbol-query bounds are not imported."
+    }
+  ]
+}

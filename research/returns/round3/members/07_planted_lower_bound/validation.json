@@ -1,0 +1,94 @@
+{
+  "schema": "quartic-r3-planted-validation-v1",
+  "date": "2026-11-02",
+  "scope": "Exact finite computation, manuscript parsing and return/source integrity. These checks do not constitute an independent Lean build or mathematical acceptance.",
+  "pre_manifest_structure_and_source_check": {
+    "valid": true,
+    "required_files_checked": 19,
+    "json_files_parsed": 10,
+    "passages": 26,
+    "displays": 41,
+    "statement_ids_referenced": 47,
+    "catalog_declarations": 175,
+    "selected_declarations": 81,
+    "complete_type_occurrences_checked": 225,
+    "bibliography_keys": [
+      "ABK2019v2",
+      "BS2020v3",
+      "Drucker2014v2",
+      "OpenAI2026Planted"
+    ],
+    "internal_file_links_checked": 3,
+    "new_statements": 3,
+    "source_declarations_hash_and_signature_checked": 175,
+    "manifest_status": "not_present_pre_manifest_check",
+    "manifest_members_checked": 0,
+    "meaning": "Structural/integrity verification only; no theorem proving, Lean run, Comparator pass, human review or acceptance."
+  },
+  "planted_example": {
+    "command": [
+      "python3",
+      "checks/planted_example.py"
+    ],
+    "exit_code": 0,
+    "data_bytes_reproduced_exactly": true,
+    "script_sha256": "a46d828bf0a0238e447bab597dd1fcfff65a69f3d2b4561265d4e11706d77a99",
+    "data_sha256": "86d7cf806a4a0a114e7d3bfeab1cad0858714eac1adf1cfd9979c7aa8210c776",
+    "physical_coordinates": 192,
+    "dummy_configurations": 4096,
+    "coupled_configurations": 16384,
+    "changed_coordinate_checks": 3145728,
+    "late_discoveries_in_this_toy": 0,
+    "scope_limit": "No nontrivial late-discovery finite test; universal early/late result is proved in section.md."
+  },
+  "floor_check": {
+    "command": [
+      "python3",
+      "checks/check_floors.py"
+    ],
+    "exit_code": 0,
+    "data_bytes_reproduced_exactly": true,
+    "script_sha256": "dc2adacb1f78d622bea84b1bbb706b4db6a523e6aca24f16fff942e19524fe3e",
+    "data_sha256": "d14107be5930af4d8c4770629cb4fdd0cf67cd22c016c28f172d0c9262ae399a",
+    "cases": 187,
+    "domain": {
+      "k": [
+        2,
+        12
+      ],
+      "t": [
+        8,
+        24
+      ],
+      "m": "4^t"
+    },
+    "literal_bound_without_plus_one_slack": true,
+    "scope_limit": "No finite Forrelation hardness assertion and no replacement of universal proof."
+  },
+  "manuscript_parse": {
+    "reader": "pandoc --from=markdown+tex_math_single_backslash --to=json",
+    "section_exit_code": 0,
+    "section_sha256": "dbef1602d207c377e3c9fee9c3412142f0fedfd5dadadf904022f3ef58cfe58e",
+    "display_math_nodes": 41,
+    "inline_math_nodes": 351,
+    "table_nodes": 2,
+    "review_notes_exit_code": 0,
+    "review_notes_sha256": "5f354675b0801df08532ab05152a820c27e807ffc771b45fbf36410a5e8dd5d5",
+    "pdf_or_docx_created": false,
+    "visual_pdf_review": false
+  },
+  "bibliography_and_style": {
+    "four_bibliography_keys_match_section_and_correspondence": true,
+    "short_literature_and_exemplar_specimens_found_in_exact_source": true,
+    "statistical_register_score_run": false
+  },
+  "formal_execution": {
+    "lean_executed": false,
+    "comparator_executed": false,
+    "supplied_receipts_audited": true,
+    "complete_eq19_wrapper_status": "uncompiled_proposal",
+    "human_review": false
+  },
+  "archive_integrity_policy": "manifest.json is created after this record and hashes all other returned files. The final validator and ZIP integrity check run after that creation; their results are reported in the delivery rather than modifying these frozen bytes.",
+  "python_version": "3.12.14"
+}

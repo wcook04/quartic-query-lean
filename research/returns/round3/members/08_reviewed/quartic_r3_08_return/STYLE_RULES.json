@@ -1,0 +1,118 @@
+{
+  "rules": [
+    {
+      "id": "result-before-correspondence",
+      "source": "exemplars/long-reasoning-record.md",
+      "locator": "overview, lines 14–36",
+      "source_role": "writing exemplar only; different mathematical subject",
+      "specimen": "Their verification scope is described at the end.",
+      "move": "Lead with the mathematical conclusion and mechanism; collect formal-evidence scope after the proof.",
+      "before": "**Evidence.** The supplied corpus gives no formal ties for Lemma A.3 or its two components.",
+      "after": "One bounds block sensitivity, the other spectral sensitivity. Huang's signed cube converts spectral sensitivity into a degree bound; Midrijānis's decision tree then multiplies degree by block sensitivity.",
+      "used_at": [
+        "R3-A-RESULT",
+        "R3-A-FORMAL",
+        "ROOT-EXPONENT-CORRESPONDENCE"
+      ],
+      "scope": "long reasoning record",
+      "limit": "Evidence is consolidated, not omitted; the source-currentness qualifications remain in the formal paragraphs and correspondence.",
+      "source_sha256": "a19893f62d1211681ed0cb9cbb8bb454214d97f231f6a6d091b6f198fca35a89",
+      "adoption_state": "candidate applied in this return; no blind human comparison claimed"
+    },
+    {
+      "id": "state-order-of-limits",
+      "source": "exemplars/short-paper.md",
+      "locator": "abstract, closing sentence",
+      "source_role": "writing exemplar only; no quartic mathematical authority",
+      "specimen": "with the circuit word fixed before the number of spins grows.",
+      "move": "Make the order of fixed choices and limiting parameters part of the mathematical statement.",
+      "before": "Let $0\\leq\\alpha<4$, and choose an integer $k\\geq2$ satisfying $2-1/k>\\alpha/2$.",
+      "after": "The construction parameter is chosen after the proposed exponent; the function's size then tends to infinity while that parameter remains fixed.",
+      "used_at": [
+        "ROOT-FAMILY-ASSEMBLY",
+        "ROOT-RATIO",
+        "ROOT-NO-SMALLER"
+      ],
+      "scope": "section introduction and theorem roadmap",
+      "limit": "No inference is transferred between the QAOA theorem and the quartic theorem; only the expository move is reused.",
+      "source_sha256": "4b34070c1152369eec9bef536de51f8929c68f3a851f291e962a0c51a3b31ebb",
+      "adoption_state": "candidate applied in this return; no blind human comparison claimed"
+    },
+    {
+      "id": "finite-instance-tests-a-convention",
+      "source": "exemplars/long-reasoning-record.md",
+      "locator": "§10.4, exact one-step calculation, lines 4185–4228",
+      "source_role": "writing exemplar only",
+      "specimen": "Dropping the index shift changes the answer by a factor of two.",
+      "move": "Use a small exact calculation to expose a convention error, and state the limits of what the example checks.",
+      "before": "The proof above is included so that the particular constants, oracle convention and treatment of adaptive measurements can all be checked directly.",
+      "after": "This attains the factor two in (A.4).",
+      "used_at": [
+        "R3-A-PARITY-PREFACTOR"
+      ],
+      "scope": "long proof appendix with a source-normalization audit",
+      "limit": "The example verifies the specified prefactor contradiction; it is not evidence for every algorithm or the full separation theorem.",
+      "source_sha256": "a19893f62d1211681ed0cb9cbb8bb454214d97f231f6a6d091b6f198fca35a89",
+      "adoption_state": "candidate applied in this return; no blind human comparison claimed"
+    },
+    {
+      "id": "show-the-short-inequality-chain",
+      "source": "literature/quartic-ref-03-degree-vs-approximate-degree-and-quantum-i/source.pdf",
+      "locator": "arXiv:2010.12629v1, p.2, proof of Theorem 2",
+      "source_role": "mathematical authority and local proof-organization specimen",
+      "specimen": "Proof of Theorem 2 assuming Theorem 3.",
+      "move": "Expose the short chain closing the main theorem before spending detail on its hard inputs.",
+      "before": "This appendix proves the universal estimate used to close Theorem 1.1.",
+      "after": "These quantities will enter through",
+      "used_at": [
+        "R3-A-DEFINITIONS",
+        "R3-A-ASSEMBLY"
+      ],
+      "scope": "proof roadmap and final assembly",
+      "limit": "The compact roadmap is followed by complete proofs; it does not treat an imported endpoint as evidence for omitted intermediates.",
+      "source_sha256": "445a34b0653042ad482bd95bc2c333d476df7ade6ce5d9ec45714f5b249e39ab",
+      "adoption_state": "candidate applied in this return; no blind human comparison claimed"
+    },
+    {
+      "id": "make-the-recursion-computable",
+      "source": "agent_work/literature/sources/huang_annals_2019.pdf",
+      "locator": "Annals 190(3), p.952, proof of Lemma 2.2",
+      "source_role": "mathematical authority and proof specimen",
+      "specimen": "We prove by induction",
+      "move": "Place the block-matrix recurrence beside the square calculation so the cancellation is visible.",
+      "before": "Squaring the block matrix cancels the off-diagonal blocks and adds $I$ to the square of each diagonal block.",
+      "after": "It is real symmetric and its entrywise absolute value is ordinary cube adjacency.",
+      "used_at": [
+        "R3-A-HUANG"
+      ],
+      "scope": "finite-dimensional proof",
+      "limit": "The positive-dimension condition is retained, and the Lean parity-involution route is separately described.",
+      "source_sha256": "e681931d5dd46ed5637825770e18bc53c0f6fdd0a0dea4f6ecc541f8669937a9",
+      "adoption_state": "candidate applied in this return; no blind human comparison claimed"
+    },
+    {
+      "id": "keep-the-charging-input-fixed",
+      "source": "literature/quartic-ref-19-exact-quantum-query-complexity-for-total-b/source.pdf",
+      "locator": "arXiv:quant-ph/0403168v2, pp.3–4, proof of Theorem 4",
+      "source_role": "mathematical authority and algorithm-proof specimen",
+      "specimen": "by choosing the the first maxonomial in some fixed order.",
+      "specimen_note": "The repeated word is present in the inspected source; it is not copied into the replacement.",
+      "move": "Give the deterministic choice rule and charge all rounds at one original input.",
+      "before": "Choices among monomials can be fixed in advance, so this is a deterministic algorithm.",
+      "after": "Fixing a deterministic order for the choices gives an ordinary decision tree. Each nonconstant round queries a nonempty set of new coordinates, so it terminates.",
+      "used_at": [
+        "R3-A-MIDRIJANIS"
+      ],
+      "scope": "complete algorithm correctness and query-cost proof",
+      "limit": "The source headline is a further cubic degree bound; the product estimate inside the proof is the ingredient used here.",
+      "source_sha256": "0cdb580bd48d513b33a1c65bd27faa361bd2e4ebaceff29bbf24b16586e4ab21",
+      "adoption_state": "candidate applied in this return; no blind human comparison claimed"
+    }
+  ],
+  "measurement": {
+    "before": "not run",
+    "after": "not run",
+    "reason": "The generic guide references paper_register.py and a genre profile that are not supplied in this packet. No numerical register score is asserted."
+  },
+  "policy": "Moves are adapted, not phrases or a named author voice. Mathematical source authority remains separate from style exemplars."
+}

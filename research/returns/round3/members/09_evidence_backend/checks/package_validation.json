@@ -1,0 +1,42 @@
+{
+  "kind": "actual_prearchive_return_structure_check",
+  "json_files": 39,
+  "python_files": 6,
+  "lean_files": 18,
+  "correspondence_entries": 19,
+  "passage_anchors": 12,
+  "acceptance_cases": 50,
+  "derived_control_entries": 7,
+  "intentional_challenge_holes": [
+    {
+      "file": "semantic/lean/QuarticCorpus/Independent/Controls/ThresholdChallenge.lean",
+      "line": 17,
+      "text": "sorry"
+    },
+    {
+      "file": "semantic/lean/QuarticCorpus/Independent/Controls/SharedChallenge.lean",
+      "line": 19,
+      "text": "sorry"
+    },
+    {
+      "file": "eq19/overlay/lean/QuarticCorpus/Independent/Eq19/WholeChallenge.lean",
+      "line": 27,
+      "text": "sorry"
+    },
+    {
+      "file": "eq19/overlay/lean/QuarticCorpus/Independent/Eq19/Challenge.lean",
+      "line": 25,
+      "text": "sorry"
+    }
+  ],
+  "required_files_present": true,
+  "correspondence_boundaries_match": true,
+  "acceptance_paths_resolve": true,
+  "json_parse_with_duplicate_key_check": "passed",
+  "python_ast_parse": "passed",
+  "markdown_math_delimiter_balance": "passed",
+  "scope": "Packaging/source checks only; no native Lean, Comparator, consumer or visual rendering.",
+  "checked_payload_files": 74,
+  "archive_integrity": "not_applicable_directory_check",
+  "passed": true
+}

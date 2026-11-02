@@ -1,0 +1,774 @@
+{
+  "status": "all checks passed",
+  "scope": {
+    "promise": "actual P_{2,4}, delta=1/1024, exact rational arithmetic",
+    "schematic_choices": "r=2 instead of r=40; truth-table circuit instead of asymptotic arithmetic circuit",
+    "does_not_establish": "an asymptotic query separation, a Lean theorem, or arbitrary-board exhaustive validity",
+    "bit_order": "big endian; displayed columns/rows one based, circuit gates zero based"
+  },
+  "parameters": {
+    "k": 2,
+    "m": 4,
+    "ell": 2,
+    "r": 2,
+    "r_in_paper_at_m4": 40,
+    "S": 180,
+    "K": 371,
+    "input_bits": 5936
+  },
+  "walsh_integer_matrix": [
+    [
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      -1,
+      1,
+      -1
+    ],
+    [
+      1,
+      1,
+      -1,
+      -1
+    ],
+    [
+      1,
+      -1,
+      -1,
+      1
+    ]
+  ],
+  "exact_circuit": {
+    "gate_count": 180,
+    "domain_gate": 178,
+    "value_gate": 179,
+    "verified_inputs": 256,
+    "Phi_histogram": {
+      "-1": 8,
+      "-1/2": 96,
+      "0": 48,
+      "1": 8,
+      "1/2": 96
+    }
+  },
+  "instances": [
+    {
+      "name": "positive",
+      "bits": "00000000",
+      "N": 4,
+      "Phi": "1/2",
+      "P": 1,
+      "domain_output": 1,
+      "value_output": 1,
+      "transcript": "111110101101110111111011011011101110101101101101110110110111010000000000000001000000000000100000000010000000000001101101011011110110111101011011010000000000000000000000000000010111"
+    },
+    {
+      "name": "zero",
+      "bits": "00010010",
+      "N": 0,
+      "Phi": "0",
+      "P": 0,
+      "domain_output": 1,
+      "value_output": 0,
+      "transcript": "100110000101001111100001010001101111101101011101110101110111011100001010000000000000000101110101110111010001010001101000000000000010101000001010000000000000000000000000000000000010"
+    },
+    {
+      "name": "off_promise",
+      "bits": "11110000",
+      "N": -4,
+      "Phi": "-1/2",
+      "P": null,
+      "domain_output": 0,
+      "value_output": 0,
+      "transcript": "111110101101001111111011010110011110101101011101110101101100110000000000000001000000000000100000000010000000000000000101111010101110101101110110110000000000000000000000000000000000"
+    }
+  ],
+  "board_columns": [
+    {
+      "column": 1,
+      "X": "1111",
+      "instance_bits": [
+        "00000000",
+        "00010010"
+      ],
+      "partial_values": [
+        1,
+        0
+      ]
+    },
+    {
+      "column": 2,
+      "X": "0111",
+      "instance_bits": [
+        "11110000",
+        "00010010"
+      ],
+      "partial_values": [
+        null,
+        0
+      ]
+    },
+    {
+      "column": 3,
+      "X": "1011",
+      "instance_bits": [
+        "00000000",
+        "00010010"
+      ],
+      "partial_values": [
+        1,
+        0
+      ]
+    },
+    {
+      "column": 4,
+      "X": "1101",
+      "instance_bits": [
+        "00000000",
+        "00010010"
+      ],
+      "partial_values": [
+        1,
+        0
+      ]
+    }
+  ],
+  "winner": {
+    "column": 1,
+    "address": "10"
+  },
+  "winner_outward_pointer_words": {
+    "2": "00",
+    "3": "01",
+    "4": "10"
+  },
+  "candidate_checks": [
+    {
+      "column": 1,
+      "address": "00",
+      "passing_tests": 370,
+      "total_tests": 371,
+      "by_family": {
+        "column": {
+          "pass": 4,
+          "total": 4,
+          "max_queries": 1
+        },
+        "pointer": {
+          "pass": 3,
+          "total": 3,
+          "max_queries": 3
+        },
+        "gate": {
+          "pass": 360,
+          "total": 360,
+          "max_queries": 3
+        },
+        "output": {
+          "pass": 3,
+          "total": 4,
+          "max_queries": 1
+        }
+      }
+    },
+    {
+      "column": 1,
+      "address": "01",
+      "passing_tests": 369,
+      "total_tests": 371,
+      "by_family": {
+        "column": {
+          "pass": 4,
+          "total": 4,
+          "max_queries": 1
+        },
+        "pointer": {
+          "pass": 3,
+          "total": 3,
+          "max_queries": 3
+        },
+        "gate": {
+          "pass": 360,
+          "total": 360,
+          "max_queries": 3
+        },
+        "output": {
+          "pass": 2,
+          "total": 4,
+          "max_queries": 1
+        }
+      }
+    },
+    {
+      "column": 1,
+      "address": "10",
+      "passing_tests": 371,
+      "total_tests": 371,
+      "by_family": {
+        "column": {
+          "pass": 4,
+          "total": 4,
+          "max_queries": 1
+        },
+        "pointer": {
+          "pass": 3,
+          "total": 3,
+          "max_queries": 3
+        },
+        "gate": {
+          "pass": 360,
+          "total": 360,
+          "max_queries": 3
+        },
+        "output": {
+          "pass": 4,
+          "total": 4,
+          "max_queries": 1
+        }
+      }
+    },
+    {
+      "column": 1,
+      "address": "11",
+      "passing_tests": 370,
+      "total_tests": 371,
+      "by_family": {
+        "column": {
+          "pass": 4,
+          "total": 4,
+          "max_queries": 1
+        },
+        "pointer": {
+          "pass": 3,
+          "total": 3,
+          "max_queries": 3
+        },
+        "gate": {
+          "pass": 360,
+          "total": 360,
+          "max_queries": 3
+        },
+        "output": {
+          "pass": 3,
+          "total": 4,
+          "max_queries": 1
+        }
+      }
+    },
+    {
+      "column": 2,
+      "address": "00",
+      "passing_tests": 368,
+      "total_tests": 371,
+      "by_family": {
+        "column": {
+          "pass": 3,
+          "total": 4,
+          "max_queries": 1
+        },
+        "pointer": {
+          "pass": 2,
+          "total": 3,
+          "max_queries": 3
+        },
+        "gate": {
+          "pass": 360,
+          "total": 360,
+          "max_queries": 3
+        },
+        "output": {
+          "pass": 3,
+          "total": 4,
+          "max_queries": 1
+        }
+      }
+    },
+    {
+      "column": 2,
+      "address": "01",
+      "passing_tests": 367,
+      "total_tests": 371,
+      "by_family": {
+        "column": {
+          "pass": 3,
+          "total": 4,
+          "max_queries": 1
+        },
+        "pointer": {
+          "pass": 2,
+          "total": 3,
+          "max_queries": 3
+        },
+        "gate": {
+          "pass": 360,
+          "total": 360,
+          "max_queries": 3
+        },
+        "output": {
+          "pass": 2,
+          "total": 4,
+          "max_queries": 1
+        }
+      }
+    },
+    {
+      "column": 2,
+      "address": "10",
+      "passing_tests": 367,
+      "total_tests": 371,
+      "by_family": {
+        "column": {
+          "pass": 3,
+          "total": 4,
+          "max_queries": 1
+        },
+        "pointer": {
+          "pass": 2,
+          "total": 3,
+          "max_queries": 3
+        },
+        "gate": {
+          "pass": 360,
+          "total": 360,
+          "max_queries": 3
+        },
+        "output": {
+          "pass": 2,
+          "total": 4,
+          "max_queries": 1
+        }
+      }
+    },
+    {
+      "column": 2,
+      "address": "11",
+      "passing_tests": 366,
+      "total_tests": 371,
+      "by_family": {
+        "column": {
+          "pass": 3,
+          "total": 4,
+          "max_queries": 1
+        },
+        "pointer": {
+          "pass": 2,
+          "total": 3,
+          "max_queries": 3
+        },
+        "gate": {
+          "pass": 360,
+          "total": 360,
+          "max_queries": 3
+        },
+        "output": {
+          "pass": 1,
+          "total": 4,
+          "max_queries": 1
+        }
+      }
+    },
+    {
+      "column": 3,
+      "address": "00",
+      "passing_tests": 368,
+      "total_tests": 371,
+      "by_family": {
+        "column": {
+          "pass": 3,
+          "total": 4,
+          "max_queries": 1
+        },
+        "pointer": {
+          "pass": 2,
+          "total": 3,
+          "max_queries": 3
+        },
+        "gate": {
+          "pass": 360,
+          "total": 360,
+          "max_queries": 3
+        },
+        "output": {
+          "pass": 3,
+          "total": 4,
+          "max_queries": 1
+        }
+      }
+    },
+    {
+      "column": 3,
+      "address": "01",
+      "passing_tests": 367,
+      "total_tests": 371,
+      "by_family": {
+        "column": {
+          "pass": 3,
+          "total": 4,
+          "max_queries": 1
+        },
+        "pointer": {
+          "pass": 2,
+          "total": 3,
+          "max_queries": 3
+        },
+        "gate": {
+          "pass": 360,
+          "total": 360,
+          "max_queries": 3
+        },
+        "output": {
+          "pass": 2,
+          "total": 4,
+          "max_queries": 1
+        }
+      }
+    },
+    {
+      "column": 3,
+      "address": "10",
+      "passing_tests": 369,
+      "total_tests": 371,
+      "by_family": {
+        "column": {
+          "pass": 3,
+          "total": 4,
+          "max_queries": 1
+        },
+        "pointer": {
+          "pass": 2,
+          "total": 3,
+          "max_queries": 3
+        },
+        "gate": {
+          "pass": 360,
+          "total": 360,
+          "max_queries": 3
+        },
+        "output": {
+          "pass": 4,
+          "total": 4,
+          "max_queries": 1
+        }
+      }
+    },
+    {
+      "column": 3,
+      "address": "11",
+      "passing_tests": 368,
+      "total_tests": 371,
+      "by_family": {
+        "column": {
+          "pass": 3,
+          "total": 4,
+          "max_queries": 1
+        },
+        "pointer": {
+          "pass": 2,
+          "total": 3,
+          "max_queries": 3
+        },
+        "gate": {
+          "pass": 360,
+          "total": 360,
+          "max_queries": 3
+        },
+        "output": {
+          "pass": 3,
+          "total": 4,
+          "max_queries": 1
+        }
+      }
+    },
+    {
+      "column": 4,
+      "address": "00",
+      "passing_tests": 368,
+      "total_tests": 371,
+      "by_family": {
+        "column": {
+          "pass": 3,
+          "total": 4,
+          "max_queries": 1
+        },
+        "pointer": {
+          "pass": 2,
+          "total": 3,
+          "max_queries": 3
+        },
+        "gate": {
+          "pass": 360,
+          "total": 360,
+          "max_queries": 3
+        },
+        "output": {
+          "pass": 3,
+          "total": 4,
+          "max_queries": 1
+        }
+      }
+    },
+    {
+      "column": 4,
+      "address": "01",
+      "passing_tests": 367,
+      "total_tests": 371,
+      "by_family": {
+        "column": {
+          "pass": 3,
+          "total": 4,
+          "max_queries": 1
+        },
+        "pointer": {
+          "pass": 2,
+          "total": 3,
+          "max_queries": 3
+        },
+        "gate": {
+          "pass": 360,
+          "total": 360,
+          "max_queries": 3
+        },
+        "output": {
+          "pass": 2,
+          "total": 4,
+          "max_queries": 1
+        }
+      }
+    },
+    {
+      "column": 4,
+      "address": "10",
+      "passing_tests": 369,
+      "total_tests": 371,
+      "by_family": {
+        "column": {
+          "pass": 3,
+          "total": 4,
+          "max_queries": 1
+        },
+        "pointer": {
+          "pass": 2,
+          "total": 3,
+          "max_queries": 3
+        },
+        "gate": {
+          "pass": 360,
+          "total": 360,
+          "max_queries": 3
+        },
+        "output": {
+          "pass": 4,
+          "total": 4,
+          "max_queries": 1
+        }
+      }
+    },
+    {
+      "column": 4,
+      "address": "11",
+      "passing_tests": 368,
+      "total_tests": 371,
+      "by_family": {
+        "column": {
+          "pass": 3,
+          "total": 4,
+          "max_queries": 1
+        },
+        "pointer": {
+          "pass": 2,
+          "total": 3,
+          "max_queries": 3
+        },
+        "gate": {
+          "pass": 360,
+          "total": 360,
+          "max_queries": 3
+        },
+        "output": {
+          "pass": 3,
+          "total": 4,
+          "max_queries": 1
+        }
+      }
+    }
+  ],
+  "local_tests_evaluated_on_base_board": 5936,
+  "single_selected_transcript_bit_flips_checked": 360,
+  "single_flip_total_function_values": "all zero",
+  "forged_rival_domain_output": {
+    "column": 2,
+    "proposed_address": "00",
+    "by_family": {
+      "column": {
+        "pass": 3,
+        "total": 4,
+        "max_queries": 1
+      },
+      "pointer": {
+        "pass": 2,
+        "total": 3,
+        "max_queries": 3
+      },
+      "gate": {
+        "pass": 359,
+        "total": 360,
+        "max_queries": 3
+      },
+      "output": {
+        "pass": 4,
+        "total": 4,
+        "max_queries": 1
+      }
+    }
+  },
+  "example_pointer_read_history": [
+    [
+      "pointer",
+      0,
+      [
+        1,
+        0
+      ],
+      3,
+      0
+    ],
+    [
+      "pointer",
+      0,
+      [
+        1,
+        0
+      ],
+      3,
+      1
+    ],
+    [
+      "X",
+      3,
+      2
+    ]
+  ],
+  "pointer_support_check": {
+    "configurations": 64,
+    "essential_coordinates": 6,
+    "adaptive_depth": 3,
+    "witnesses": [
+      {
+        "coordinate": "p0",
+        "before": "000010",
+        "after": "100010",
+        "before_test": 1,
+        "after_test": 0
+      },
+      {
+        "coordinate": "p1",
+        "before": "000100",
+        "after": "010100",
+        "before_test": 1,
+        "after_test": 0
+      },
+      {
+        "coordinate": "X[1]",
+        "before": "000000",
+        "after": "001000",
+        "before_test": 1,
+        "after_test": 0
+      },
+      {
+        "coordinate": "X[2]",
+        "before": "010000",
+        "after": "010100",
+        "before_test": 1,
+        "after_test": 0
+      },
+      {
+        "coordinate": "X[3]",
+        "before": "100000",
+        "after": "100010",
+        "before_test": 1,
+        "after_test": 0
+      },
+      {
+        "coordinate": "X[4]",
+        "before": "110000",
+        "after": "110001",
+        "before_test": 1,
+        "after_test": 0
+      }
+    ]
+  },
+  "comparison_check": {
+    "rivals": 3,
+    "rival_labels": 4,
+    "incoming_pointer_targets": 4,
+    "cases": 48,
+    "winner_selected_in_all_cases": true,
+    "condition": "winner label is its true address 10"
+  },
+  "projection_decoder_equal_law": {
+    "positive_input": "00000000",
+    "off_promise_input": "11110000",
+    "Phi_positive": "1/2",
+    "Phi_off_promise": "-1/2",
+    "equal_projection_success_probability": "1/4",
+    "single_trial_law_on_both_inputs": {
+      "failure": "3/4",
+      "success": "1/4"
+    },
+    "three_independent_trials_ordered_pattern_masses_on_both_inputs": {
+      "000": "27/64",
+      "001": "9/64",
+      "010": "9/64",
+      "011": "3/64",
+      "100": "9/64",
+      "101": "3/64",
+      "110": "3/64",
+      "111": "1/64"
+    },
+    "ordinary_deduction": "For any fixed n, each ordered outcome pattern with h successes has mass (1/4)^h (3/4)^(n-h) on both inputs. Any decision rule using only these outcomes has the same output law.",
+    "scope": "The preprint's projection decoder and independent repetitions using only its projection outcomes; no claim about all quantum algorithms."
+  },
+  "domain_omission_counterexample": {
+    "column_X_strings": [
+      "1110",
+      "1111",
+      "1011",
+      "1101"
+    ],
+    "candidate": {
+      "column": 2,
+      "proposed_address": "00"
+    },
+    "full_test_counts": {
+      "column": {
+        "pass": 4,
+        "total": 4,
+        "max_queries": 1
+      },
+      "pointer": {
+        "pass": 3,
+        "total": 3,
+        "max_queries": 3
+      },
+      "gate": {
+        "pass": 360,
+        "total": 360,
+        "max_queries": 3
+      },
+      "output": {
+        "pass": 3,
+        "total": 4,
+        "max_queries": 1
+      }
+    },
+    "tests_without_domain_checks": 369,
+    "all_tests_without_domain_checks_pass": true,
+    "semantic_F": 0,
+    "explanation": "Correct transcripts of an off-promise input have d=0. Its domain test is the sole failed test."
+  },
+  "F_on_base_board": 1
+}

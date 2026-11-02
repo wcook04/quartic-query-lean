@@ -1,0 +1,18 @@
+{
+  "lean_files": [
+    "lean/QuarticCorpus/Independent/Semantics.lean",
+    "lean/QuarticCorpus/Independent/Inspect.lean",
+    "lean/QuarticCorpus/Independent/SemanticMutations.lean",
+    "lean/QuarticCorpus/Independent/Controls/SharedSolution.lean",
+    "lean/QuarticCorpus/Independent/Controls/ThresholdChallenge.lean",
+    "lean/QuarticCorpus/Independent/Controls/ThresholdSolution.lean",
+    "lean/QuarticCorpus/Independent/Controls/threshold_mutation.json",
+    "lean/QuarticCorpus/Independent/Controls/SharedChallenge.lean",
+    "lean/QuarticCorpus/Independent/Controls/shared_blind_spot.json",
+    "lean/QuarticCorpus/Independent/Controls/SharedAudit.lean"
+  ],
+  "obsolete_files_present": false,
+  "json_parse": "pass",
+  "python_syntax": "pass",
+  "native_lean_compilation": "not_run"
+}

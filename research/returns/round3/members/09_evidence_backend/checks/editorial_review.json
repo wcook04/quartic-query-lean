@@ -1,0 +1,69 @@
+{
+  "kind": "AI_editorial_source_review_dispositions",
+  "recorded_at": "2026-11-02T19:31:21.599948+00:00",
+  "report": "evidence-path.md",
+  "report_sha256": "0045cf39b6707e86536305d1576f40e3610ae3b9ddf14eefe7a5f1dc6d6a43be",
+  "scope": [
+    "Four model explanations",
+    "Eq19 equality, early/late and finite-world proof",
+    "Independent-index finite control",
+    "Backend and evidence counts/statuses",
+    "Staged candidate path consistency"
+  ],
+  "dispositions": [
+    {
+      "issue": "Inline raw TeX in plain parentheses",
+      "resolution": "Intended inline math converted to math spans; display formulas retained.",
+      "reviewers": [
+        "semantic reviewer",
+        "eq19 reviewer",
+        "backend reviewer"
+      ]
+    },
+    {
+      "issue": "Adaptive transcript could include future run",
+      "resolution": "Condition on positive-probability query/answer history up to current time; explain that fixing history fixes query schedule and answer constraints.",
+      "reviewers": [
+        "eq19 reviewer"
+      ]
+    },
+    {
+      "issue": "Unspecified address/cell parameters",
+      "resolution": "State ℓ,r,S and h range; paper specialization r=ceil(20log2m)=40t with its transcript size.",
+      "reviewers": [
+        "backend reviewer"
+      ]
+    },
+    {
+      "issue": "Patch described as already installed",
+      "resolution": "State with the returned patch; original packet unchanged.",
+      "reviewers": [
+        "backend reviewer"
+      ]
+    },
+    {
+      "issue": "Duplicate peer-review records could inflate review count",
+      "resolution": "State an additional AI source review, not two independent reviewers or human approval.",
+      "reviewers": [
+        "backend reviewer"
+      ]
+    },
+    {
+      "issue": "840 counted at tie level",
+      "resolution": "State 840 built ties corresponding to 816 distinct declarations.",
+      "reviewers": [
+        "backend reviewer"
+      ]
+    },
+    {
+      "issue": "First row versus implementation zero index",
+      "resolution": "Use first row, with zero-based implementation stated.",
+      "reviewers": [
+        "eq19 reviewer"
+      ]
+    }
+  ],
+  "conclusion": "No further definite mathematical defect identified in reviewed passages; not a native compilation, human review or whole-proof audit.",
+  "native_lean_executed": false,
+  "human_review": false
+}

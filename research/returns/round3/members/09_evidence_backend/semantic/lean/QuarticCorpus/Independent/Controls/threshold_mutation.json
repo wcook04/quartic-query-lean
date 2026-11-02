@@ -1,0 +1,7 @@
+{
+  "challenge_module": "QuarticCorpus.Independent.Controls.ThresholdChallenge",
+  "solution_module": "QuarticCorpus.Independent.Controls.ThresholdSolution",
+  "theorem_names": ["Round3.ThresholdSpec.threshold_lower_bound"],
+  "definition_names": [],
+  "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"]
+}

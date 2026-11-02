@@ -1,0 +1,7 @@
+{
+  "challenge_module": "QuarticCorpus.Independent.Eq19.WholeChallenge",
+  "solution_module": "QuarticCorpus.Independent.Eq19.WholeSolution",
+  "theorem_names": ["QuarticQuery.Paper.eq19_whole"],
+  "definition_names": [],
+  "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"]
+}

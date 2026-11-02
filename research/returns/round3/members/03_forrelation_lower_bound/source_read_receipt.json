@@ -1,0 +1,300 @@
+{
+  "schema": "quartic-round3-source-read-receipt-v1",
+  "date": "2026-11-02",
+  "assignment": "round3 job03, replacement §§3.6–3.16",
+  "attachment": {
+    "filename": "quartic_r3_03_forrelation_lower_bound.zip",
+    "bytes": 5095428,
+    "sha256": "0939519b3d31e84d886cc0e7396d987a79f44a1adab831f97eaaf7d1162cb314"
+  },
+  "repository_commit_label": "1dd469dd0042b937b739da3bc211eeb60bdf7462",
+  "root_reads": [
+    {
+      "member": "READ_ME_FIRST.md",
+      "status": "assessed",
+      "assessed_scope": "Complete task/context document",
+      "limits": "Task authority or repository context, not theorem evidence.",
+      "bytes": 11994,
+      "sha256": "0e69e0b8c27ae20bd37373dd41723a4359de93902981ce82faf2bb869dae0c18"
+    },
+    {
+      "member": "requests/common.md",
+      "status": "assessed",
+      "assessed_scope": "Complete task/context document",
+      "limits": "Task authority or repository context, not theorem evidence.",
+      "bytes": 6931,
+      "sha256": "bb64aed8a508657f40a2eb296a05863e0e723b7e545d313fe6e04f4ba35a86e2"
+    },
+    {
+      "member": "requests/boundaries.md",
+      "status": "assessed",
+      "assessed_scope": "Complete task/context document",
+      "limits": "Task authority or repository context, not theorem evidence.",
+      "bytes": 2166,
+      "sha256": "1c5f9a6403fd50dc9a0e36a4030413e2d3892cd3609da795119dafdcd3967a34"
+    },
+    {
+      "member": "requests/03_forrelation_lower_bound.md",
+      "status": "assessed",
+      "assessed_scope": "Complete task/context document",
+      "limits": "Task authority or repository context, not theorem evidence.",
+      "bytes": 2881,
+      "sha256": "5c81d4455077098cce7d8c441c01b7c07396ef8b88599fc18e714ce4e410f842"
+    },
+    {
+      "member": "repository/AGENTS.md",
+      "status": "assessed",
+      "assessed_scope": "Complete task/context document",
+      "limits": "Task authority or repository context, not theorem evidence.",
+      "bytes": 2706,
+      "sha256": "5686db5032ef5a9d272aa4942d8601873ad3c4c72173f985b99caf3d7587064f"
+    },
+    {
+      "member": "repository/README.md",
+      "status": "assessed",
+      "assessed_scope": "Complete task/context document",
+      "limits": "Task authority or repository context, not theorem evidence.",
+      "bytes": 5316,
+      "sha256": "47fadd7a6d94c2bdb47d3155e289ed0956649449ae370d13f656d191e36ad947"
+    },
+    {
+      "member": "repository/research/README.md",
+      "status": "assessed",
+      "assessed_scope": "Complete task/context document",
+      "limits": "Task authority or repository context, not theorem evidence.",
+      "bytes": 7467,
+      "sha256": "b02ef7b53c07e06f71bf3d381bea77a346caf1e7d160f7d35b3b54eb9d3cca1b"
+    },
+    {
+      "member": "manifest.json",
+      "status": "assessed_metadata",
+      "assessed_scope": "Version/source/evidence structure and relevant records; all member byte bindings checked by the return verifier",
+      "limits": "A manifest identifies bytes, not correctness or reading of every listed member.",
+      "bytes": 196800,
+      "sha256": "14a31c3477fd5ba114d0c956291d64c6692936d1dad462b7d85cc3c400e45b1e"
+    },
+    {
+      "member": "EVIDENCE_SNAPSHOT.json",
+      "status": "assessed_metadata",
+      "assessed_scope": "Version/source/evidence structure and relevant records; all member byte bindings checked by the return verifier",
+      "limits": "A manifest identifies bytes, not correctness or reading of every listed member.",
+      "bytes": 716734,
+      "sha256": "25f46742c3d019459dc43846f23234c107212625b8c76f3eeef787fd721f1213"
+    },
+    {
+      "member": "DEPENDENCY_SOURCES.json",
+      "status": "assessed_metadata",
+      "assessed_scope": "Version/source/evidence structure and relevant records; all member byte bindings checked by the return verifier",
+      "limits": "A manifest identifies bytes, not correctness or reading of every listed member.",
+      "bytes": 3084,
+      "sha256": "79829fc4e5b1fdd50206776b8a322739e089ddd6fa5d7d7b4a27e7e9ab959f93"
+    },
+    {
+      "member": "SOURCE_ROLES.md",
+      "status": "assessed",
+      "assessed_scope": "Complete role classification",
+      "limits": "",
+      "bytes": 2345,
+      "sha256": "64bed5e7569d82645696e192ec69ebd7189a50332062e8af061c992c111f64f2"
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+      "status": "assessed_selected_sections",
+      "assessed_scope": "§1.1; §3.1; §§3.6–3.16 completely; adjacent consumer §3.17 and following boundary through §3.18",
+      "limits": "Rest of complete manuscript not assessed.",
+      "bytes": 353091,
+      "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff"
+    },
+    {
+      "member": "repository/research/returns/funnel/4_forrelation_route_note/note.md",
+      "status": "assessed_selected_sections",
+      "assessed_scope": "§§1–7 and formal-boundary §8",
+      "limits": "Earlier evidence/status prose checked against later records.",
+      "bytes": 32813,
+      "sha256": "9b4939b49a0caeece0f36935017a702727373d8ac09fb7a1af49a897c9ce2887"
+    },
+    {
+      "member": "repository/research/returns/funnel/4_forrelation_route_note/quantitative.md",
+      "status": "assessed_selected_sections",
+      "assessed_scope": "Quantitative proof sections and explicit existing-interface assembly through end, with targeted re-reads",
+      "limits": "Earlier evidence/status prose checked against later records.",
+      "bytes": 24355,
+      "sha256": "e65d01e1358149a862bdc11d05cfeb79bf98b4a7cf7ee7e1a70d7784f260e4b2"
+    },
+    {
+      "member": "repository/docs/forrelation_lower_bound_blueprint.md",
+      "status": "assessed",
+      "assessed_scope": "Complete document",
+      "limits": "Historical claims are not substitutes for current source-bound records.",
+      "bytes": 12155,
+      "sha256": "09f8982dca087f9c434bfd9303a7ddb12f4620ff4431da64da9dbdaa1a191ec8"
+    },
+    {
+      "member": "repository/docs/forrelation_lower_bound_review.md",
+      "status": "assessed",
+      "assessed_scope": "Complete document",
+      "limits": "Historical claims are not substitutes for current source-bound records.",
+      "bytes": 22608,
+      "sha256": "bf6f5662693c6e32bc31778f55b07191c415c090b207c13de25f63cf9373aae6"
+    },
+    {
+      "member": "repository/docs/forrelation_route_prior_art.md",
+      "status": "assessed",
+      "assessed_scope": "Complete document",
+      "limits": "Historical claims are not substitutes for current source-bound records.",
+      "bytes": 19958,
+      "sha256": "6753fad4363dbec0fbd0e0eeae50d700ae56e7555202145c21d4c2986f838e49"
+    },
+    {
+      "member": "repository/research/adjudication/round2_forrelation_exponent.md",
+      "status": "assessed_selected_sections",
+      "assessed_scope": "Opening adjudication through line179; status/claim discussion around lines278–370 and targeted per-statement table",
+      "limits": "Not every unrelated tie or all round-two files assessed.",
+      "bytes": 28567,
+      "sha256": "557342a03eabb2bc1ee0c2f411bf77ecc9a543511b69ca2c6a83140369e26757"
+    },
+    {
+      "member": "paper/extracted.md",
+      "status": "assessed_selected_sections",
+      "assessed_scope": "Title and opening through §2.2; complete §2.1 target and equation normalizations",
+      "limits": "No whole-preprint assessment; source PDF provenance and locators independently cross-checked by literature reviewer.",
+      "bytes": 64021,
+      "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a"
+    },
+    {
+      "member": "writing/the-deliverable.md",
+      "status": "assessed",
+      "assessed_scope": "Complete writing/deliverable guidance",
+      "limits": "Editorial authority only.",
+      "bytes": 8402,
+      "sha256": "5b234d4446bf4b7ac79c38586147730dc41370581daa38661326875d5b50951c"
+    },
+    {
+      "member": "writing/register-from-literature.md",
+      "status": "assessed",
+      "assessed_scope": "Complete guide",
+      "limits": "Editorial authority only.",
+      "bytes": 4106,
+      "sha256": "2278000b36133a13c0e83f785bdb2a89b94b8ed1927daeaf12d2b1ed30545d7d"
+    },
+    {
+      "member": "writing/SKILL.md",
+      "status": "sampled",
+      "assessed_scope": "First-time-reader, claim-fidelity and Lean architecture gates, lines181–308",
+      "limits": "Not a full skill audit; task-specific supplied guidance, not mathematical authority.",
+      "bytes": 29787,
+      "sha256": "dcad856e7363b81876e4ab0784bcc0a3e51ccab11017eb9e08d81d345d2d6c74"
+    },
+    {
+      "member": "writing/mathematical-writing-mechanics.md",
+      "status": "sampled",
+      "assessed_scope": "§2 lines144–216; §5 lines275–308; §9 lines396–443; taste rubric lines571–643; authoring receipt lines758–805",
+      "limits": "Editorial roles, proof structure and evidence boundaries; not whole guide.",
+      "bytes": 45312,
+      "sha256": "0ba857f70a724a2676f91b01e7ee95cc3518dcd261b53fec27b743935d1caa0f"
+    },
+    {
+      "member": "writing/full-exposition-guide.md",
+      "status": "sampled",
+      "assessed_scope": "Worked-definition/reader guidance lines348–436; claim-fidelity passage lines898–947",
+      "limits": "Editorial authority only.",
+      "bytes": 103236,
+      "sha256": "c7baa3c8b195647b00cdd37c38c48b122371ce9c3cd92798e2e9d55f3d1c4eca"
+    },
+    {
+      "member": "exemplars/long-reasoning-record.md",
+      "status": "sampled",
+      "assessed_scope": "Overview/§§1–2 opening lines1–170 and proof transitions lines429–572",
+      "limits": "QAOA style specimen only. No mathematical premise or copied exposition.",
+      "bytes": 278844,
+      "sha256": "a19893f62d1211681ed0cb9cbb8bb454214d97f231f6a6d091b6f198fca35a89"
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/NEW_STATEMENTS.json",
+      "status": "sampled_structural",
+      "assessed_scope": "Relevant statement IDs, statement text, roles and correspondence fields inspected programmatically",
+      "limits": "No claim that every unrelated entry was substantively reviewed.",
+      "bytes": 110569,
+      "sha256": "d2964002bad5c1626a1e2c72ac301b7615373ad2576f9604d561dd10c7fe0ccd"
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/correspondence.json",
+      "status": "sampled_structural",
+      "assessed_scope": "Relevant statement IDs, statement text, roles and correspondence fields inspected programmatically",
+      "limits": "No claim that every unrelated entry was substantively reviewed.",
+      "bytes": 108656,
+      "sha256": "cf429a5555eab691a801ecd362c37329b3c0449f0da4dab437ab5a8b9be88761"
+    },
+    {
+      "member": "repository/research/returns/funnel/4_forrelation_route_note/NEW_STATEMENTS.json",
+      "status": "sampled_structural",
+      "assessed_scope": "Relevant statement IDs, statement text, roles and correspondence fields inspected programmatically",
+      "limits": "No claim that every unrelated entry was substantively reviewed.",
+      "bytes": 68564,
+      "sha256": "3bdf0a26b11ef8d0eed37dbed28349f56fc6c756d819523ec0cc23bc97ce3438"
+    },
+    {
+      "member": "repository/research/returns/round2/6_sharp_uniform_forrelation/NEW_STATEMENTS.json",
+      "status": "sampled_structural",
+      "assessed_scope": "Relevant statement IDs, statement text, roles and correspondence fields inspected programmatically",
+      "limits": "No claim that every unrelated entry was substantively reviewed.",
+      "bytes": 136345,
+      "sha256": "3ecb3302afb59e7273abedd135c1c9a007548162ae344e6bd6649e5e5fdd5b6f"
+    }
+  ],
+  "delegated_reads": {
+    "lean_source_and_evidence": {
+      "receipt": "reviews/lean_source_read_receipt.json",
+      "coverage": "All nine ForrelationLower modules and Statement.lean read fully; relevant supplied receipts/logs and124 local byte bindings checked."
+    },
+    "primary_literature": {
+      "receipt": "reviews/literature_source_read_receipt.json",
+      "coverage": "Five specified primary sources at precise locators, supplied TeX/extracted/PDF and public primary versions; not cover-to-cover."
+    },
+    "ordinary_proof": {
+      "receipt": "reviews/proof_source_read_receipt.json",
+      "coverage": "Complete assigned baseline proof, earlier route, targeted Lean hard steps, full replacement cold read."
+    }
+  },
+  "primary_web_reads_by_root": [
+    {
+      "url": "https://arxiv.org/html/2008.07003v3",
+      "scope": "Theorem1.3, Gaussian-chain and derivative theorem locators, §5.4 displays",
+      "role": "version-specific primary verification"
+    },
+    {
+      "url": "https://arxiv.org/html/2103.11604v2",
+      "scope": "§1.3 ordinary-tree discussion and Lemma1.9",
+      "role": "method ancestry"
+    },
+    {
+      "url": "https://arxiv.org/html/2008.10223v4",
+      "scope": "HTML Corollaries4.12–4.13 and surrounding proof",
+      "role": "external comparison theorem and PDF/HTML numbering check"
+    }
+  ],
+  "unavailable": [
+    {
+      "filename": "Pasted text(20261102-190827).txt",
+      "status": "unavailable attachment",
+      "scope": "No contents read; no inferred extra instructions from this file."
+    }
+  ],
+  "unassessed": [
+    "Complete original preprint outside assigned §2.1 and neighboring introductory material.",
+    "Complete baseline manuscript outside the specified lower-bound route and immediate interfaces.",
+    "QAOA exemplar results as mathematics; short/expository exemplars not used as proof authority.",
+    "Parity-tree cleanup proofs in GTW; entire primary papers outside stated locators.",
+    "External dependency source installations and compiled artifacts; DEPENDENCY_SOURCES has empty package/member inventory.",
+    "Exhaustive priority, author-site, erratum or forward-citation search; no author contacted.",
+    "Any new kernel execution, compilation of proposed wrapper, independent semantic challenge compilation, or human review."
+  ],
+  "verification_scope": {
+    "fresh_lean_run": false,
+    "original_source_modified": false,
+    "all_manifest_members_integrity_checked_by": "verify_return.py --packet",
+    "supplied_record_checks": "evidence/evidence_verification.json",
+    "rendering": "Source Markdown and mathematical delimiters/cross-references checked; no typeset output render claimed. Literature reviewer inspected the two indicated source-PDF page renderings."
+  },
+  "cold_read_scope": "Three separate model passes reviewed ordinary proof, literature fidelity and formal/evidence alignment; final edits resolve reported corrections. These are not independent human reviews."
+}

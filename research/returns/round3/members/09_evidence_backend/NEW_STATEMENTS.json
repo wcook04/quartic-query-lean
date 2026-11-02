@@ -1,0 +1,157 @@
+[
+  {
+    "id": "r3-evidence-independent-index-control",
+    "statement": "Let J_0,J_1,J_2,J_3 be independent uniform elements of {0,1,2,3}, let D={i:J_i=0}, and let Z=|D|. Then E[Z]=1. An independent uniform I satisfies Pr(I in D)=1/4. If instead I is uniform in D conditional on D being nonempty, and uniform in all four columns when D is empty, each marginal Pr(I=i) remains 1/4, but Pr(I in D)=175/256. Thus uniform marginals alone do not imply Pr(I in D)=E[Z]/4.",
+    "why_needed": "Makes the independence hypothesis behind the eq-19 equality explicit and supplies a finite discriminating control.",
+    "depends_on": [
+      "eq-19",
+      "def-Z",
+      "def-dummy",
+      "def-planted"
+    ],
+    "proposed_lean": null,
+    "route_note": "Derived explanatory control. Ordinary symmetry/probability argument plus exact rational enumeration of 256 worlds; no new Lean theorem. Its changed sampling law is not the preprint experiment.",
+    "source_id": "r3_evidence_backend_derived_control",
+    "ingestion": "advisory_only_withheld_from_preprint_only_graph",
+    "evidence": {
+      "executed": true,
+      "kind": "exact_python_finite_enumeration",
+      "receipt": "checks/eq19_independence_control.json",
+      "not_a_native_lean_receipt": true
+    }
+  },
+  {
+    "id": "r3-semantic-identity-zero",
+    "statement": "For the total one-bit identity f(x)=x, there is no input-independent randomized program of worst-case depth zero that succeeds with probability at least 2/3 on both inputs.",
+    "why_needed": "Detects reversal of algorithm/input quantifiers and loss of input-independence.",
+    "depends_on": [
+      "def-R"
+    ],
+    "proposed_lean": [
+      "QuarticQuery.SemanticReview.identity_not_zero"
+    ],
+    "route_note": "Ordinary two-output-mass contradiction; proposed actual-definition proof.",
+    "source_id": "r3_evidence_backend_semantic_controls",
+    "ingestion": "advisory_only_withheld_from_preprint_only_graph",
+    "evidence": {
+      "executed": false,
+      "kind": "proposed_actual_definition_lean",
+      "status": "uncompiled",
+      "ordinary_mathematical_argument": "evidence-path.md"
+    }
+  },
+  {
+    "id": "r3-semantic-or-mixture",
+    "statement": "For total two-bit OR, the equal mixture of constant true, reading bit 0, and reading bit 1 has worst-case depth at most one and success probabilities (2/3,2/3,2/3,1) on inputs (00,01,10,11). Consequently R(OR_2)=1. The specified mixture fails a strictly-greater-than-2/3 requirement.",
+    "why_needed": "Tests the inclusive threshold and query cap without asserting an unproved strict-threshold lower bound.",
+    "depends_on": [
+      "def-R"
+    ],
+    "proposed_lean": [
+      "QuarticQuery.SemanticReview.orMixture_success",
+      "QuarticQuery.SemanticReview.orTwo_R_eq_one",
+      "QuarticQuery.SemanticReview.strict_threshold_mutant_rejects_mixture"
+    ],
+    "route_note": "Direct finite mixture calculation and both-label zero-query impossibility; proposed actual-definition proofs.",
+    "source_id": "r3_evidence_backend_semantic_controls",
+    "ingestion": "advisory_only_withheld_from_preprint_only_graph",
+    "evidence": {
+      "executed": false,
+      "kind": "proposed_actual_definition_lean",
+      "status": "uncompiled",
+      "ordinary_mathematical_argument": "evidence-path.md"
+    }
+  },
+  {
+    "id": "r3-semantic-true-only-zero",
+    "statement": "Let g on one bit be defined only at input 1, with value true. A constant-true zero-query algorithm computes g, and the actual models satisfy R(g)=Q(g)=0.",
+    "why_needed": "Tests promise-domain and constant-output conventions.",
+    "depends_on": [
+      "def-partial-query",
+      "def-R",
+      "def-Q"
+    ],
+    "proposed_lean": [
+      "QuarticQuery.SemanticReview.trueOnly_R_eq_zero",
+      "QuarticQuery.SemanticReview.trueOnly_Q_eq_zero"
+    ],
+    "route_note": "Explicit classical and ConstantOnPromise witnesses; no empty-infimum argument.",
+    "source_id": "r3_evidence_backend_semantic_controls",
+    "ingestion": "advisory_only_withheld_from_preprint_only_graph",
+    "evidence": {
+      "executed": false,
+      "kind": "proposed_actual_definition_lean",
+      "status": "uncompiled",
+      "ordinary_mathematical_argument": "evidence-path.md"
+    }
+  },
+  {
+    "id": "r3-semantic-negative-forrelation",
+    "statement": "For k=2, t=1 and m=4, with both sign vectors (-1,1,1,1), the actual Forrelation numerator is -8, denominator is 8 and Phi=-1; the signed high branch and absolute low branch both fail, so P is undefined.",
+    "why_needed": "Detects replacing the signed high branch by an absolute-value high branch.",
+    "depends_on": [
+      "eq-3",
+      "eq-4"
+    ],
+    "proposed_lean": [
+      "QuarticQuery.SemanticReview.negativePair_numerator",
+      "QuarticQuery.SemanticReview.negativePair_denominator",
+      "QuarticQuery.SemanticReview.negativePair_Phi",
+      "QuarticQuery.SemanticReview.negativePair_P_none"
+    ],
+    "route_note": "Finite Walsh-matrix calculation; proposed actual-definition proof recomputes the known supplied Sanity example. No novelty claim.",
+    "source_id": "r3_evidence_backend_semantic_controls",
+    "ingestion": "advisory_only_withheld_from_preprint_only_graph",
+    "evidence": {
+      "executed": false,
+      "kind": "proposed_actual_definition_lean",
+      "status": "uncompiled",
+      "ordinary_mathematical_argument": "evidence-path.md"
+    }
+  },
+  {
+    "id": "r3-semantic-comparison-witness",
+    "statement": "For two candidates, the real matrix a has zero diagonal and off-diagonal entries 1/2 and satisfies the actual Tournament.IsComparison predicate. The deliberately shared variant with an additional impossible:False field has no witness.",
+    "why_needed": "Exposes shared vacuity that a matching challenge/solution pair would not exclude.",
+    "depends_on": [
+      "eq-10"
+    ],
+    "proposed_lean": [
+      "QuarticQuery.SemanticReview.comparison_has_witness",
+      "Round3.SharedAudit.shared_bad_spec_has_no_witness"
+    ],
+    "route_note": "Explicit actual-model witness plus false elimination for an intentionally altered predicate. Proposed Lean; native comparison acceptance is predicted, not observed.",
+    "source_id": "r3_evidence_backend_semantic_controls",
+    "ingestion": "advisory_only_withheld_from_preprint_only_graph",
+    "evidence": {
+      "executed": false,
+      "kind": "proposed_actual_definition_lean",
+      "status": "uncompiled",
+      "ordinary_mathematical_argument": "evidence-path.md"
+    }
+  },
+  {
+    "id": "r3-semantic-repeated-query-count",
+    "statement": "A tree that queries the same coordinate twice has path [q,q] and depth two on every input. If q is a designated zero in the independently specified dummy experiment, the distinct discovered-column count is one.",
+    "why_needed": "Tests the shared path/depth interface and distinguishes queries from discoveries.",
+    "depends_on": [
+      "def-R",
+      "def-Z",
+      "def-dummy"
+    ],
+    "proposed_lean": [
+      "QuarticQuery.Independent.Eq19.askTwice_path",
+      "QuarticQuery.Independent.Eq19.askTwice_depth",
+      "QuarticQuery.Independent.Eq19.repeatedZero_counts_once"
+    ],
+    "route_note": "Direct structural evaluation and singleton-cardinality argument; proposed Lean, uncompiled.",
+    "source_id": "r3_evidence_backend_semantic_controls",
+    "ingestion": "advisory_only_withheld_from_preprint_only_graph",
+    "evidence": {
+      "executed": false,
+      "kind": "proposed_actual_definition_lean",
+      "status": "uncompiled",
+      "ordinary_mathematical_argument": "evidence-path.md"
+    }
+  }
+]

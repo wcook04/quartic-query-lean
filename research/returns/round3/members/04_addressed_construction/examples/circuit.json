@@ -1,0 +1,2168 @@
+{
+  "input_bits": 8,
+  "non_input_gates": 180,
+  "domain_output_gate": 178,
+  "value_output_gate": 179,
+  "gates": [
+    {
+      "index": 0,
+      "op": "not",
+      "left": [
+        "input",
+        4
+      ],
+      "right": [
+        "constant",
+        0
+      ]
+    },
+    {
+      "index": 1,
+      "op": "not",
+      "left": [
+        "input",
+        6
+      ],
+      "right": [
+        "constant",
+        0
+      ]
+    },
+    {
+      "index": 2,
+      "op": "or",
+      "left": [
+        "gate",
+        1
+      ],
+      "right": [
+        "input",
+        7
+      ]
+    },
+    {
+      "index": 3,
+      "op": "not",
+      "left": [
+        "input",
+        5
+      ],
+      "right": [
+        "constant",
+        0
+      ]
+    },
+    {
+      "index": 4,
+      "op": "or",
+      "left": [
+        "gate",
+        3
+      ],
+      "right": [
+        "gate",
+        2
+      ]
+    },
+    {
+      "index": 5,
+      "op": "and",
+      "left": [
+        "gate",
+        1
+      ],
+      "right": [
+        "input",
+        7
+      ]
+    },
+    {
+      "index": 6,
+      "op": "and",
+      "left": [
+        "gate",
+        3
+      ],
+      "right": [
+        "gate",
+        2
+      ]
+    },
+    {
+      "index": 7,
+      "op": "and",
+      "left": [
+        "input",
+        5
+      ],
+      "right": [
+        "gate",
+        5
+      ]
+    },
+    {
+      "index": 8,
+      "op": "or",
+      "left": [
+        "gate",
+        6
+      ],
+      "right": [
+        "gate",
+        7
+      ]
+    },
+    {
+      "index": 9,
+      "op": "and",
+      "left": [
+        "gate",
+        0
+      ],
+      "right": [
+        "gate",
+        4
+      ]
+    },
+    {
+      "index": 10,
+      "op": "and",
+      "left": [
+        "input",
+        4
+      ],
+      "right": [
+        "gate",
+        8
+      ]
+    },
+    {
+      "index": 11,
+      "op": "or",
+      "left": [
+        "gate",
+        9
+      ],
+      "right": [
+        "gate",
+        10
+      ]
+    },
+    {
+      "index": 12,
+      "op": "not",
+      "left": [
+        "input",
+        3
+      ],
+      "right": [
+        "constant",
+        0
+      ]
+    },
+    {
+      "index": 13,
+      "op": "and",
+      "left": [
+        "gate",
+        12
+      ],
+      "right": [
+        "gate",
+        0
+      ]
+    },
+    {
+      "index": 14,
+      "op": "and",
+      "left": [
+        "input",
+        3
+      ],
+      "right": [
+        "gate",
+        11
+      ]
+    },
+    {
+      "index": 15,
+      "op": "or",
+      "left": [
+        "gate",
+        13
+      ],
+      "right": [
+        "gate",
+        14
+      ]
+    },
+    {
+      "index": 16,
+      "op": "not",
+      "left": [
+        "input",
+        7
+      ],
+      "right": [
+        "constant",
+        0
+      ]
+    },
+    {
+      "index": 17,
+      "op": "or",
+      "left": [
+        "gate",
+        1
+      ],
+      "right": [
+        "gate",
+        16
+      ]
+    },
+    {
+      "index": 18,
+      "op": "or",
+      "left": [
+        "input",
+        5
+      ],
+      "right": [
+        "gate",
+        17
+      ]
+    },
+    {
+      "index": 19,
+      "op": "and",
+      "left": [
+        "gate",
+        1
+      ],
+      "right": [
+        "gate",
+        16
+      ]
+    },
+    {
+      "index": 20,
+      "op": "and",
+      "left": [
+        "gate",
+        3
+      ],
+      "right": [
+        "gate",
+        19
+      ]
+    },
+    {
+      "index": 21,
+      "op": "and",
+      "left": [
+        "input",
+        5
+      ],
+      "right": [
+        "gate",
+        17
+      ]
+    },
+    {
+      "index": 22,
+      "op": "or",
+      "left": [
+        "gate",
+        20
+      ],
+      "right": [
+        "gate",
+        21
+      ]
+    },
+    {
+      "index": 23,
+      "op": "and",
+      "left": [
+        "gate",
+        0
+      ],
+      "right": [
+        "gate",
+        18
+      ]
+    },
+    {
+      "index": 24,
+      "op": "and",
+      "left": [
+        "input",
+        4
+      ],
+      "right": [
+        "gate",
+        22
+      ]
+    },
+    {
+      "index": 25,
+      "op": "or",
+      "left": [
+        "gate",
+        23
+      ],
+      "right": [
+        "gate",
+        24
+      ]
+    },
+    {
+      "index": 26,
+      "op": "and",
+      "left": [
+        "gate",
+        12
+      ],
+      "right": [
+        "gate",
+        25
+      ]
+    },
+    {
+      "index": 27,
+      "op": "and",
+      "left": [
+        "input",
+        3
+      ],
+      "right": [
+        "gate",
+        1
+      ]
+    },
+    {
+      "index": 28,
+      "op": "or",
+      "left": [
+        "gate",
+        26
+      ],
+      "right": [
+        "gate",
+        27
+      ]
+    },
+    {
+      "index": 29,
+      "op": "not",
+      "left": [
+        "input",
+        2
+      ],
+      "right": [
+        "constant",
+        0
+      ]
+    },
+    {
+      "index": 30,
+      "op": "and",
+      "left": [
+        "gate",
+        29
+      ],
+      "right": [
+        "gate",
+        15
+      ]
+    },
+    {
+      "index": 31,
+      "op": "and",
+      "left": [
+        "input",
+        2
+      ],
+      "right": [
+        "gate",
+        28
+      ]
+    },
+    {
+      "index": 32,
+      "op": "or",
+      "left": [
+        "gate",
+        30
+      ],
+      "right": [
+        "gate",
+        31
+      ]
+    },
+    {
+      "index": 33,
+      "op": "or",
+      "left": [
+        "input",
+        6
+      ],
+      "right": [
+        "gate",
+        16
+      ]
+    },
+    {
+      "index": 34,
+      "op": "or",
+      "left": [
+        "gate",
+        3
+      ],
+      "right": [
+        "gate",
+        33
+      ]
+    },
+    {
+      "index": 35,
+      "op": "and",
+      "left": [
+        "input",
+        6
+      ],
+      "right": [
+        "gate",
+        16
+      ]
+    },
+    {
+      "index": 36,
+      "op": "and",
+      "left": [
+        "gate",
+        3
+      ],
+      "right": [
+        "gate",
+        33
+      ]
+    },
+    {
+      "index": 37,
+      "op": "and",
+      "left": [
+        "input",
+        5
+      ],
+      "right": [
+        "gate",
+        35
+      ]
+    },
+    {
+      "index": 38,
+      "op": "or",
+      "left": [
+        "gate",
+        36
+      ],
+      "right": [
+        "gate",
+        37
+      ]
+    },
+    {
+      "index": 39,
+      "op": "and",
+      "left": [
+        "gate",
+        0
+      ],
+      "right": [
+        "gate",
+        34
+      ]
+    },
+    {
+      "index": 40,
+      "op": "and",
+      "left": [
+        "input",
+        4
+      ],
+      "right": [
+        "gate",
+        38
+      ]
+    },
+    {
+      "index": 41,
+      "op": "or",
+      "left": [
+        "gate",
+        39
+      ],
+      "right": [
+        "gate",
+        40
+      ]
+    },
+    {
+      "index": 42,
+      "op": "and",
+      "left": [
+        "gate",
+        12
+      ],
+      "right": [
+        "gate",
+        41
+      ]
+    },
+    {
+      "index": 43,
+      "op": "and",
+      "left": [
+        "input",
+        3
+      ],
+      "right": [
+        "gate",
+        3
+      ]
+    },
+    {
+      "index": 44,
+      "op": "or",
+      "left": [
+        "gate",
+        42
+      ],
+      "right": [
+        "gate",
+        43
+      ]
+    },
+    {
+      "index": 45,
+      "op": "and",
+      "left": [
+        "gate",
+        3
+      ],
+      "right": [
+        "gate",
+        17
+      ]
+    },
+    {
+      "index": 46,
+      "op": "and",
+      "left": [
+        "input",
+        5
+      ],
+      "right": [
+        "gate",
+        19
+      ]
+    },
+    {
+      "index": 47,
+      "op": "or",
+      "left": [
+        "gate",
+        45
+      ],
+      "right": [
+        "gate",
+        46
+      ]
+    },
+    {
+      "index": 48,
+      "op": "or",
+      "left": [
+        "gate",
+        3
+      ],
+      "right": [
+        "gate",
+        17
+      ]
+    },
+    {
+      "index": 49,
+      "op": "and",
+      "left": [
+        "gate",
+        0
+      ],
+      "right": [
+        "gate",
+        47
+      ]
+    },
+    {
+      "index": 50,
+      "op": "and",
+      "left": [
+        "input",
+        4
+      ],
+      "right": [
+        "gate",
+        48
+      ]
+    },
+    {
+      "index": 51,
+      "op": "or",
+      "left": [
+        "gate",
+        49
+      ],
+      "right": [
+        "gate",
+        50
+      ]
+    },
+    {
+      "index": 52,
+      "op": "and",
+      "left": [
+        "gate",
+        12
+      ],
+      "right": [
+        "gate",
+        16
+      ]
+    },
+    {
+      "index": 53,
+      "op": "and",
+      "left": [
+        "input",
+        3
+      ],
+      "right": [
+        "gate",
+        51
+      ]
+    },
+    {
+      "index": 54,
+      "op": "or",
+      "left": [
+        "gate",
+        52
+      ],
+      "right": [
+        "gate",
+        53
+      ]
+    },
+    {
+      "index": 55,
+      "op": "and",
+      "left": [
+        "gate",
+        29
+      ],
+      "right": [
+        "gate",
+        44
+      ]
+    },
+    {
+      "index": 56,
+      "op": "and",
+      "left": [
+        "input",
+        2
+      ],
+      "right": [
+        "gate",
+        54
+      ]
+    },
+    {
+      "index": 57,
+      "op": "or",
+      "left": [
+        "gate",
+        55
+      ],
+      "right": [
+        "gate",
+        56
+      ]
+    },
+    {
+      "index": 58,
+      "op": "not",
+      "left": [
+        "input",
+        1
+      ],
+      "right": [
+        "constant",
+        0
+      ]
+    },
+    {
+      "index": 59,
+      "op": "and",
+      "left": [
+        "gate",
+        58
+      ],
+      "right": [
+        "gate",
+        32
+      ]
+    },
+    {
+      "index": 60,
+      "op": "and",
+      "left": [
+        "input",
+        1
+      ],
+      "right": [
+        "gate",
+        57
+      ]
+    },
+    {
+      "index": 61,
+      "op": "or",
+      "left": [
+        "gate",
+        59
+      ],
+      "right": [
+        "gate",
+        60
+      ]
+    },
+    {
+      "index": 62,
+      "op": "or",
+      "left": [
+        "input",
+        6
+      ],
+      "right": [
+        "input",
+        7
+      ]
+    },
+    {
+      "index": 63,
+      "op": "or",
+      "left": [
+        "input",
+        5
+      ],
+      "right": [
+        "gate",
+        62
+      ]
+    },
+    {
+      "index": 64,
+      "op": "and",
+      "left": [
+        "input",
+        6
+      ],
+      "right": [
+        "input",
+        7
+      ]
+    },
+    {
+      "index": 65,
+      "op": "and",
+      "left": [
+        "gate",
+        3
+      ],
+      "right": [
+        "gate",
+        64
+      ]
+    },
+    {
+      "index": 66,
+      "op": "and",
+      "left": [
+        "input",
+        5
+      ],
+      "right": [
+        "gate",
+        62
+      ]
+    },
+    {
+      "index": 67,
+      "op": "or",
+      "left": [
+        "gate",
+        65
+      ],
+      "right": [
+        "gate",
+        66
+      ]
+    },
+    {
+      "index": 68,
+      "op": "and",
+      "left": [
+        "gate",
+        0
+      ],
+      "right": [
+        "gate",
+        63
+      ]
+    },
+    {
+      "index": 69,
+      "op": "and",
+      "left": [
+        "input",
+        4
+      ],
+      "right": [
+        "gate",
+        67
+      ]
+    },
+    {
+      "index": 70,
+      "op": "or",
+      "left": [
+        "gate",
+        68
+      ],
+      "right": [
+        "gate",
+        69
+      ]
+    },
+    {
+      "index": 71,
+      "op": "and",
+      "left": [
+        "gate",
+        12
+      ],
+      "right": [
+        "gate",
+        70
+      ]
+    },
+    {
+      "index": 72,
+      "op": "and",
+      "left": [
+        "input",
+        3
+      ],
+      "right": [
+        "input",
+        7
+      ]
+    },
+    {
+      "index": 73,
+      "op": "or",
+      "left": [
+        "gate",
+        71
+      ],
+      "right": [
+        "gate",
+        72
+      ]
+    },
+    {
+      "index": 74,
+      "op": "and",
+      "left": [
+        "gate",
+        3
+      ],
+      "right": [
+        "gate",
+        5
+      ]
+    },
+    {
+      "index": 75,
+      "op": "and",
+      "left": [
+        "input",
+        5
+      ],
+      "right": [
+        "gate",
+        2
+      ]
+    },
+    {
+      "index": 76,
+      "op": "or",
+      "left": [
+        "gate",
+        74
+      ],
+      "right": [
+        "gate",
+        75
+      ]
+    },
+    {
+      "index": 77,
+      "op": "or",
+      "left": [
+        "input",
+        5
+      ],
+      "right": [
+        "gate",
+        2
+      ]
+    },
+    {
+      "index": 78,
+      "op": "and",
+      "left": [
+        "gate",
+        0
+      ],
+      "right": [
+        "gate",
+        76
+      ]
+    },
+    {
+      "index": 79,
+      "op": "and",
+      "left": [
+        "input",
+        4
+      ],
+      "right": [
+        "gate",
+        77
+      ]
+    },
+    {
+      "index": 80,
+      "op": "or",
+      "left": [
+        "gate",
+        78
+      ],
+      "right": [
+        "gate",
+        79
+      ]
+    },
+    {
+      "index": 81,
+      "op": "and",
+      "left": [
+        "gate",
+        12
+      ],
+      "right": [
+        "input",
+        5
+      ]
+    },
+    {
+      "index": 82,
+      "op": "and",
+      "left": [
+        "input",
+        3
+      ],
+      "right": [
+        "gate",
+        80
+      ]
+    },
+    {
+      "index": 83,
+      "op": "or",
+      "left": [
+        "gate",
+        81
+      ],
+      "right": [
+        "gate",
+        82
+      ]
+    },
+    {
+      "index": 84,
+      "op": "and",
+      "left": [
+        "gate",
+        29
+      ],
+      "right": [
+        "gate",
+        73
+      ]
+    },
+    {
+      "index": 85,
+      "op": "and",
+      "left": [
+        "input",
+        2
+      ],
+      "right": [
+        "gate",
+        83
+      ]
+    },
+    {
+      "index": 86,
+      "op": "or",
+      "left": [
+        "gate",
+        84
+      ],
+      "right": [
+        "gate",
+        85
+      ]
+    },
+    {
+      "index": 87,
+      "op": "and",
+      "left": [
+        "gate",
+        3
+      ],
+      "right": [
+        "gate",
+        62
+      ]
+    },
+    {
+      "index": 88,
+      "op": "and",
+      "left": [
+        "input",
+        5
+      ],
+      "right": [
+        "gate",
+        64
+      ]
+    },
+    {
+      "index": 89,
+      "op": "or",
+      "left": [
+        "gate",
+        87
+      ],
+      "right": [
+        "gate",
+        88
+      ]
+    },
+    {
+      "index": 90,
+      "op": "or",
+      "left": [
+        "gate",
+        3
+      ],
+      "right": [
+        "gate",
+        62
+      ]
+    },
+    {
+      "index": 91,
+      "op": "and",
+      "left": [
+        "gate",
+        0
+      ],
+      "right": [
+        "gate",
+        89
+      ]
+    },
+    {
+      "index": 92,
+      "op": "and",
+      "left": [
+        "input",
+        4
+      ],
+      "right": [
+        "gate",
+        90
+      ]
+    },
+    {
+      "index": 93,
+      "op": "or",
+      "left": [
+        "gate",
+        91
+      ],
+      "right": [
+        "gate",
+        92
+      ]
+    },
+    {
+      "index": 94,
+      "op": "and",
+      "left": [
+        "gate",
+        12
+      ],
+      "right": [
+        "input",
+        6
+      ]
+    },
+    {
+      "index": 95,
+      "op": "and",
+      "left": [
+        "input",
+        3
+      ],
+      "right": [
+        "gate",
+        93
+      ]
+    },
+    {
+      "index": 96,
+      "op": "or",
+      "left": [
+        "gate",
+        94
+      ],
+      "right": [
+        "gate",
+        95
+      ]
+    },
+    {
+      "index": 97,
+      "op": "and",
+      "left": [
+        "gate",
+        3
+      ],
+      "right": [
+        "gate",
+        35
+      ]
+    },
+    {
+      "index": 98,
+      "op": "and",
+      "left": [
+        "input",
+        5
+      ],
+      "right": [
+        "gate",
+        33
+      ]
+    },
+    {
+      "index": 99,
+      "op": "or",
+      "left": [
+        "gate",
+        97
+      ],
+      "right": [
+        "gate",
+        98
+      ]
+    },
+    {
+      "index": 100,
+      "op": "or",
+      "left": [
+        "input",
+        5
+      ],
+      "right": [
+        "gate",
+        33
+      ]
+    },
+    {
+      "index": 101,
+      "op": "and",
+      "left": [
+        "gate",
+        0
+      ],
+      "right": [
+        "gate",
+        99
+      ]
+    },
+    {
+      "index": 102,
+      "op": "and",
+      "left": [
+        "input",
+        4
+      ],
+      "right": [
+        "gate",
+        100
+      ]
+    },
+    {
+      "index": 103,
+      "op": "or",
+      "left": [
+        "gate",
+        101
+      ],
+      "right": [
+        "gate",
+        102
+      ]
+    },
+    {
+      "index": 104,
+      "op": "and",
+      "left": [
+        "gate",
+        12
+      ],
+      "right": [
+        "gate",
+        103
+      ]
+    },
+    {
+      "index": 105,
+      "op": "and",
+      "left": [
+        "input",
+        3
+      ],
+      "right": [
+        "input",
+        4
+      ]
+    },
+    {
+      "index": 106,
+      "op": "or",
+      "left": [
+        "gate",
+        104
+      ],
+      "right": [
+        "gate",
+        105
+      ]
+    },
+    {
+      "index": 107,
+      "op": "and",
+      "left": [
+        "gate",
+        29
+      ],
+      "right": [
+        "gate",
+        96
+      ]
+    },
+    {
+      "index": 108,
+      "op": "and",
+      "left": [
+        "input",
+        2
+      ],
+      "right": [
+        "gate",
+        106
+      ]
+    },
+    {
+      "index": 109,
+      "op": "or",
+      "left": [
+        "gate",
+        107
+      ],
+      "right": [
+        "gate",
+        108
+      ]
+    },
+    {
+      "index": 110,
+      "op": "and",
+      "left": [
+        "gate",
+        58
+      ],
+      "right": [
+        "gate",
+        86
+      ]
+    },
+    {
+      "index": 111,
+      "op": "and",
+      "left": [
+        "input",
+        1
+      ],
+      "right": [
+        "gate",
+        109
+      ]
+    },
+    {
+      "index": 112,
+      "op": "or",
+      "left": [
+        "gate",
+        110
+      ],
+      "right": [
+        "gate",
+        111
+      ]
+    },
+    {
+      "index": 113,
+      "op": "not",
+      "left": [
+        "input",
+        0
+      ],
+      "right": [
+        "constant",
+        0
+      ]
+    },
+    {
+      "index": 114,
+      "op": "and",
+      "left": [
+        "gate",
+        113
+      ],
+      "right": [
+        "gate",
+        61
+      ]
+    },
+    {
+      "index": 115,
+      "op": "and",
+      "left": [
+        "input",
+        0
+      ],
+      "right": [
+        "gate",
+        112
+      ]
+    },
+    {
+      "index": 116,
+      "op": "or",
+      "left": [
+        "gate",
+        114
+      ],
+      "right": [
+        "gate",
+        115
+      ]
+    },
+    {
+      "index": 117,
+      "op": "and",
+      "left": [
+        "gate",
+        0
+      ],
+      "right": [
+        "gate",
+        8
+      ]
+    },
+    {
+      "index": 118,
+      "op": "and",
+      "left": [
+        "input",
+        4
+      ],
+      "right": [
+        "gate",
+        74
+      ]
+    },
+    {
+      "index": 119,
+      "op": "or",
+      "left": [
+        "gate",
+        117
+      ],
+      "right": [
+        "gate",
+        118
+      ]
+    },
+    {
+      "index": 120,
+      "op": "and",
+      "left": [
+        "input",
+        3
+      ],
+      "right": [
+        "gate",
+        119
+      ]
+    },
+    {
+      "index": 121,
+      "op": "or",
+      "left": [
+        "gate",
+        13
+      ],
+      "right": [
+        "gate",
+        120
+      ]
+    },
+    {
+      "index": 122,
+      "op": "and",
+      "left": [
+        "gate",
+        0
+      ],
+      "right": [
+        "gate",
+        22
+      ]
+    },
+    {
+      "index": 123,
+      "op": "and",
+      "left": [
+        "input",
+        4
+      ],
+      "right": [
+        "gate",
+        46
+      ]
+    },
+    {
+      "index": 124,
+      "op": "or",
+      "left": [
+        "gate",
+        122
+      ],
+      "right": [
+        "gate",
+        123
+      ]
+    },
+    {
+      "index": 125,
+      "op": "and",
+      "left": [
+        "gate",
+        12
+      ],
+      "right": [
+        "gate",
+        124
+      ]
+    },
+    {
+      "index": 126,
+      "op": "or",
+      "left": [
+        "gate",
+        125
+      ],
+      "right": [
+        "gate",
+        27
+      ]
+    },
+    {
+      "index": 127,
+      "op": "and",
+      "left": [
+        "gate",
+        29
+      ],
+      "right": [
+        "gate",
+        121
+      ]
+    },
+    {
+      "index": 128,
+      "op": "and",
+      "left": [
+        "input",
+        2
+      ],
+      "right": [
+        "gate",
+        126
+      ]
+    },
+    {
+      "index": 129,
+      "op": "or",
+      "left": [
+        "gate",
+        127
+      ],
+      "right": [
+        "gate",
+        128
+      ]
+    },
+    {
+      "index": 130,
+      "op": "and",
+      "left": [
+        "gate",
+        0
+      ],
+      "right": [
+        "gate",
+        38
+      ]
+    },
+    {
+      "index": 131,
+      "op": "and",
+      "left": [
+        "input",
+        4
+      ],
+      "right": [
+        "gate",
+        97
+      ]
+    },
+    {
+      "index": 132,
+      "op": "or",
+      "left": [
+        "gate",
+        130
+      ],
+      "right": [
+        "gate",
+        131
+      ]
+    },
+    {
+      "index": 133,
+      "op": "and",
+      "left": [
+        "gate",
+        12
+      ],
+      "right": [
+        "gate",
+        132
+      ]
+    },
+    {
+      "index": 134,
+      "op": "or",
+      "left": [
+        "gate",
+        133
+      ],
+      "right": [
+        "gate",
+        43
+      ]
+    },
+    {
+      "index": 135,
+      "op": "and",
+      "left": [
+        "gate",
+        0
+      ],
+      "right": [
+        "gate",
+        20
+      ]
+    },
+    {
+      "index": 136,
+      "op": "and",
+      "left": [
+        "input",
+        4
+      ],
+      "right": [
+        "gate",
+        47
+      ]
+    },
+    {
+      "index": 137,
+      "op": "or",
+      "left": [
+        "gate",
+        135
+      ],
+      "right": [
+        "gate",
+        136
+      ]
+    },
+    {
+      "index": 138,
+      "op": "and",
+      "left": [
+        "input",
+        3
+      ],
+      "right": [
+        "gate",
+        137
+      ]
+    },
+    {
+      "index": 139,
+      "op": "or",
+      "left": [
+        "gate",
+        52
+      ],
+      "right": [
+        "gate",
+        138
+      ]
+    },
+    {
+      "index": 140,
+      "op": "and",
+      "left": [
+        "gate",
+        29
+      ],
+      "right": [
+        "gate",
+        134
+      ]
+    },
+    {
+      "index": 141,
+      "op": "and",
+      "left": [
+        "input",
+        2
+      ],
+      "right": [
+        "gate",
+        139
+      ]
+    },
+    {
+      "index": 142,
+      "op": "or",
+      "left": [
+        "gate",
+        140
+      ],
+      "right": [
+        "gate",
+        141
+      ]
+    },
+    {
+      "index": 143,
+      "op": "and",
+      "left": [
+        "gate",
+        58
+      ],
+      "right": [
+        "gate",
+        129
+      ]
+    },
+    {
+      "index": 144,
+      "op": "and",
+      "left": [
+        "input",
+        1
+      ],
+      "right": [
+        "gate",
+        142
+      ]
+    },
+    {
+      "index": 145,
+      "op": "or",
+      "left": [
+        "gate",
+        143
+      ],
+      "right": [
+        "gate",
+        144
+      ]
+    },
+    {
+      "index": 146,
+      "op": "and",
+      "left": [
+        "gate",
+        0
+      ],
+      "right": [
+        "gate",
+        67
+      ]
+    },
+    {
+      "index": 147,
+      "op": "and",
+      "left": [
+        "input",
+        4
+      ],
+      "right": [
+        "gate",
+        88
+      ]
+    },
+    {
+      "index": 148,
+      "op": "or",
+      "left": [
+        "gate",
+        146
+      ],
+      "right": [
+        "gate",
+        147
+      ]
+    },
+    {
+      "index": 149,
+      "op": "and",
+      "left": [
+        "gate",
+        12
+      ],
+      "right": [
+        "gate",
+        148
+      ]
+    },
+    {
+      "index": 150,
+      "op": "or",
+      "left": [
+        "gate",
+        149
+      ],
+      "right": [
+        "gate",
+        72
+      ]
+    },
+    {
+      "index": 151,
+      "op": "and",
+      "left": [
+        "gate",
+        0
+      ],
+      "right": [
+        "gate",
+        7
+      ]
+    },
+    {
+      "index": 152,
+      "op": "and",
+      "left": [
+        "input",
+        4
+      ],
+      "right": [
+        "gate",
+        76
+      ]
+    },
+    {
+      "index": 153,
+      "op": "or",
+      "left": [
+        "gate",
+        151
+      ],
+      "right": [
+        "gate",
+        152
+      ]
+    },
+    {
+      "index": 154,
+      "op": "and",
+      "left": [
+        "input",
+        3
+      ],
+      "right": [
+        "gate",
+        153
+      ]
+    },
+    {
+      "index": 155,
+      "op": "or",
+      "left": [
+        "gate",
+        81
+      ],
+      "right": [
+        "gate",
+        154
+      ]
+    },
+    {
+      "index": 156,
+      "op": "and",
+      "left": [
+        "gate",
+        29
+      ],
+      "right": [
+        "gate",
+        150
+      ]
+    },
+    {
+      "index": 157,
+      "op": "and",
+      "left": [
+        "input",
+        2
+      ],
+      "right": [
+        "gate",
+        155
+      ]
+    },
+    {
+      "index": 158,
+      "op": "or",
+      "left": [
+        "gate",
+        156
+      ],
+      "right": [
+        "gate",
+        157
+      ]
+    },
+    {
+      "index": 159,
+      "op": "and",
+      "left": [
+        "gate",
+        0
+      ],
+      "right": [
+        "gate",
+        65
+      ]
+    },
+    {
+      "index": 160,
+      "op": "and",
+      "left": [
+        "input",
+        4
+      ],
+      "right": [
+        "gate",
+        89
+      ]
+    },
+    {
+      "index": 161,
+      "op": "or",
+      "left": [
+        "gate",
+        159
+      ],
+      "right": [
+        "gate",
+        160
+      ]
+    },
+    {
+      "index": 162,
+      "op": "and",
+      "left": [
+        "input",
+        3
+      ],
+      "right": [
+        "gate",
+        161
+      ]
+    },
+    {
+      "index": 163,
+      "op": "or",
+      "left": [
+        "gate",
+        94
+      ],
+      "right": [
+        "gate",
+        162
+      ]
+    },
+    {
+      "index": 164,
+      "op": "and",
+      "left": [
+        "gate",
+        0
+      ],
+      "right": [
+        "gate",
+        37
+      ]
+    },
+    {
+      "index": 165,
+      "op": "and",
+      "left": [
+        "input",
+        4
+      ],
+      "right": [
+        "gate",
+        99
+      ]
+    },
+    {
+      "index": 166,
+      "op": "or",
+      "left": [
+        "gate",
+        164
+      ],
+      "right": [
+        "gate",
+        165
+      ]
+    },
+    {
+      "index": 167,
+      "op": "and",
+      "left": [
+        "gate",
+        12
+      ],
+      "right": [
+        "gate",
+        166
+      ]
+    },
+    {
+      "index": 168,
+      "op": "or",
+      "left": [
+        "gate",
+        167
+      ],
+      "right": [
+        "gate",
+        105
+      ]
+    },
+    {
+      "index": 169,
+      "op": "and",
+      "left": [
+        "gate",
+        29
+      ],
+      "right": [
+        "gate",
+        163
+      ]
+    },
+    {
+      "index": 170,
+      "op": "and",
+      "left": [
+        "input",
+        2
+      ],
+      "right": [
+        "gate",
+        168
+      ]
+    },
+    {
+      "index": 171,
+      "op": "or",
+      "left": [
+        "gate",
+        169
+      ],
+      "right": [
+        "gate",
+        170
+      ]
+    },
+    {
+      "index": 172,
+      "op": "and",
+      "left": [
+        "gate",
+        58
+      ],
+      "right": [
+        "gate",
+        158
+      ]
+    },
+    {
+      "index": 173,
+      "op": "and",
+      "left": [
+        "input",
+        1
+      ],
+      "right": [
+        "gate",
+        171
+      ]
+    },
+    {
+      "index": 174,
+      "op": "or",
+      "left": [
+        "gate",
+        172
+      ],
+      "right": [
+        "gate",
+        173
+      ]
+    },
+    {
+      "index": 175,
+      "op": "and",
+      "left": [
+        "gate",
+        113
+      ],
+      "right": [
+        "gate",
+        145
+      ]
+    },
+    {
+      "index": 176,
+      "op": "and",
+      "left": [
+        "input",
+        0
+      ],
+      "right": [
+        "gate",
+        174
+      ]
+    },
+    {
+      "index": 177,
+      "op": "or",
+      "left": [
+        "gate",
+        175
+      ],
+      "right": [
+        "gate",
+        176
+      ]
+    },
+    {
+      "index": 178,
+      "op": "copy",
+      "left": [
+        "gate",
+        116
+      ],
+      "right": [
+        "constant",
+        0
+      ]
+    },
+    {
+      "index": 179,
+      "op": "copy",
+      "left": [
+        "gate",
+        177
+      ],
+      "right": [
+        "constant",
+        0
+      ]
+    }
+  ]
+}

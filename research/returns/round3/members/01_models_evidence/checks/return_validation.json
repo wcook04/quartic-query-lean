@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "scope": "Internal packaging, exact source excerpts, references, boundaries and digests; not mathematical compilation.",
+  "counts": {
+    "passages": 15,
+    "load_bearing_claims": 51,
+    "display_equations": 26,
+    "source_types": 152,
+    "proposed_statements": 36
+  },
+  "checks": {
+    "math_markup": "delimiter balance only; no PDF/KaTeX rendering claim",
+    "captured_exact_execution_receipt": "three successful recorded runs; script/output hashes match",
+    "original_source_type_excerpts": "checked 152 entries against supplied bytes",
+    "return_manifest": "verified 24 members; self excluded"
+  },
+  "errors": [],
+  "lean_executed": false,
+  "comparator_executed": false
+}

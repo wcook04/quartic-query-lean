@@ -1,0 +1,174 @@
+{
+  "schema": "quartic-r3-02-correspondence-coverage-v1",
+  "section_sha256": "06d3a346920e61e78834b80dd55b34de7cb38dccf7bfecdfc47a6eba29cda0e2",
+  "correspondence_entries": 55,
+  "passage_anchors": [
+    "forr_scope",
+    "forr_definition",
+    "forr_integer",
+    "forr_quantum",
+    "forr_repetition",
+    "forr_coherent",
+    "forr_circuit",
+    "forr_boolean_arithmetic",
+    "forr_final_signs",
+    "forr_circuit_size",
+    "forr_small_instance",
+    "forr_current_evidence",
+    "forr_references"
+  ],
+  "substantive_content_blocks": 103,
+  "content_block_counts": {
+    "display": 32,
+    "table": 2,
+    "prose": 68,
+    "bibliography": 1
+  },
+  "display_blocks": 32,
+  "table_blocks": 2,
+  "display_coverage": {
+    "display-01": [
+      "r3-02-corr-003"
+    ],
+    "display-02": [
+      "r3-02-corr-004"
+    ],
+    "display-03": [
+      "r3-02-corr-005"
+    ],
+    "display-04": [
+      "r3-02-corr-007"
+    ],
+    "display-05": [
+      "r3-02-corr-009"
+    ],
+    "display-06": [
+      "r3-02-corr-010"
+    ],
+    "display-07": [
+      "r3-02-corr-012"
+    ],
+    "display-08": [
+      "r3-02-corr-013"
+    ],
+    "display-09": [
+      "r3-02-corr-014"
+    ],
+    "display-10": [
+      "r3-02-corr-015"
+    ],
+    "display-11": [
+      "r3-02-corr-017"
+    ],
+    "display-12": [
+      "r3-02-corr-018"
+    ],
+    "display-13": [
+      "r3-02-corr-019"
+    ],
+    "display-14": [
+      "r3-02-corr-020"
+    ],
+    "display-15": [
+      "r3-02-corr-022"
+    ],
+    "display-16": [
+      "r3-02-corr-023"
+    ],
+    "display-17": [
+      "r3-02-corr-024"
+    ],
+    "display-18": [
+      "r3-02-corr-025"
+    ],
+    "display-19": [
+      "r3-02-corr-026"
+    ],
+    "display-20": [
+      "r3-02-corr-027"
+    ],
+    "display-21": [
+      "r3-02-corr-032"
+    ],
+    "display-22": [
+      "r3-02-corr-036"
+    ],
+    "display-23": [
+      "r3-02-corr-037"
+    ],
+    "display-24": [
+      "r3-02-corr-038"
+    ],
+    "display-25": [
+      "r3-02-corr-039"
+    ],
+    "display-26": [
+      "r3-02-corr-040"
+    ],
+    "display-27": [
+      "r3-02-corr-042"
+    ],
+    "display-28": [
+      "r3-02-corr-043"
+    ],
+    "display-29": [
+      "r3-02-corr-043"
+    ],
+    "display-30": [
+      "r3-02-corr-044"
+    ],
+    "display-31": [
+      "r3-02-corr-046"
+    ],
+    "display-32": [
+      "r3-02-corr-050"
+    ]
+  },
+  "table_coverage": {
+    "table-01": [
+      "r3-02-corr-047"
+    ],
+    "table-02": [
+      "r3-02-corr-049"
+    ]
+  },
+  "unmapped_content_blocks": [],
+  "multiply_mapped_content_blocks": [],
+  "unmapped_displays": [],
+  "unmapped_tables": [],
+  "unmapped_marked_claim_ids": [],
+  "unknown_statement_ids": [],
+  "mapped_lean_declarations": 81,
+  "mapped_names_absent_from_current_root": [],
+  "mapped_source_hash_mismatches": [],
+  "explicitly_axiom_audited_mapped_names": 15,
+  "mapped_names_with_current_comparator": {
+    "QuarticQuery.existsUnique_gateConsistent": [
+      "repository/corpus/receipts/comparator-Construction-2026-11-02T182726424737+0000.json"
+    ]
+  },
+  "ordinary_only_correspondence_entries": [
+    "r3-02-corr-001",
+    "r3-02-corr-002",
+    "r3-02-corr-008",
+    "r3-02-corr-016",
+    "r3-02-corr-021",
+    "r3-02-corr-023",
+    "r3-02-corr-024",
+    "r3-02-corr-025",
+    "r3-02-corr-026",
+    "r3-02-corr-027",
+    "r3-02-corr-030",
+    "r3-02-corr-043",
+    "r3-02-corr-046",
+    "r3-02-corr-047",
+    "r3-02-corr-049",
+    "r3-02-corr-051",
+    "r3-02-corr-052",
+    "r3-02-corr-055"
+  ],
+  "fresh_lean_run": false,
+  "fresh_comparator_run": false,
+  "coverage_boundary": "Coverage means all substantive text blocks, all display spans, and both tables have explicit located mappings. It is not a claim that every prose assertion is one compiled theorem or that every mapped declaration has a canonical exact relation.",
+  "passed": true
+}
