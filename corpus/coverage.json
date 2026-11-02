@@ -1,13 +1,21 @@
 {
  "statements": 121,
  "corrected": 10,
+ "ledger_ids_without_a_row": [
+  "claim-butterfly",
+  "def-P"
+ ],
  "formal_statement": {
-  "none": 70,
-  "unassessed": 51
+  "exact": 15,
+  "none": 53,
+  "partial": 30,
+  "stronger": 4,
+  "unassessed": 18,
+  "weaker": 1
  },
  "formal_origin": {
-  "none": 70,
-  "ours": 51
+  "none": 53,
+  "ours": 68
  },
  "build": {
   "not_run": 121

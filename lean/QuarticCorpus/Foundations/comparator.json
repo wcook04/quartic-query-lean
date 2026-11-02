@@ -1,0 +1,20 @@
+{
+  "challenge_module": "QuarticCorpus.Foundations.Challenge",
+  "solution_module": "QuarticCorpus.Foundations.Solution",
+  "theorem_names": [
+    "QuarticQuery.Checked.R_le_iff",
+    "QuarticQuery.Checked.Q_le_iff",
+    "QuarticQuery.Checked.D_le_iff",
+    "QuarticQuery.Checked.R_le_D",
+    "QuarticQuery.Checked.Q_le_D",
+    "QuarticQuery.Checked.D_le_card",
+    "QuarticQuery.Checked.R_reindex",
+    "QuarticQuery.Checked.Q_reindex"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

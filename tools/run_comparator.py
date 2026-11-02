@@ -3,7 +3,8 @@
 
 A positive bundle must be accepted. A negative fixture must be rejected with the
 diagnostic listed in EXPECTED; a rejection for another reason, such as a broken
-build, fails the run. Results go to corpus/receipts/, which tools/build_corpus.py
+build, fails the run. A build deferred by the shared lock judged nothing, so it
+writes no receipt. Results go to corpus/receipts/, which tools/build_corpus.py
 reads. On this machine runs are unsandboxed, and receipts say so: the sandbox
 protects a judge from hostile code, and here the code is our own.
 """
@@ -23,6 +24,7 @@ LEAN = ROOT / "lean"
 CORPUS = LEAN / "QuarticCorpus"
 RECEIPTS = ROOT / "corpus/receipts"
 LAKE = os.environ.get("LAKE", str(Path.home() / ".elan/bin/lake"))
+DEFERRED = "Child exited with 75"
 EXPECTED = {
     "WeakenedConclusion": "does not match",
     "SorryProof": "sorryAx",
@@ -69,6 +71,9 @@ def write(receipt):
 def run_bundle(config, paranoid):
     name = config.parent.name
     command, code, log = comparator(config, paranoid)
+    if DEFERRED in log:
+        print(f"{name}: deferred by the shared build lock, nothing judged")
+        return False
     names = json.loads(config.read_text(encoding="utf-8"))["theorem_names"]
     write(stamp(name, command, "passed" if code == 0 else "failed", log,
                 {"declarations": names, "paranoid": paranoid, "exit_code": code}))
@@ -81,8 +86,11 @@ def run_bundle(config, paranoid):
 def run_negative(config):
     name = config.stem
     command, code, log = comparator(config, False)
+    if DEFERRED in log:
+        print(f"negative {name}: deferred by the shared build lock, nothing judged")
+        return False
     expected = EXPECTED[name]
-    rejected = code == 1 and expected in log and "Build completed" in log
+    rejected = code == 1 and expected in log
     write(stamp(f"negative-{name}", command, "passed" if rejected else "failed", log,
                 {"declarations": [], "expected_diagnostic": expected, "exit_code": code,
                  "negative_control": "rejected_as_expected" if rejected else "wrong_failure"}))

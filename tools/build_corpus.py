@@ -41,7 +41,8 @@ EXTERNAL = {"lem-2.1.i"}
 RELATIONS = {"exact", "stronger", "partial", "weaker"}
 ROUTES = {"same", "alternative", "none"}
 CHECKED = {"exact", "stronger"}
-DOC_TIE = re.compile(r"Ledger:\s*([^\n.]+)")
+DOC_TIE = re.compile(r"Ledger:\s*")
+TIE_ID = re.compile(r"[A-Za-z][\w.-]*\w")
 DECLARATION = re.compile(
     r"^(?:@\[[^\]]*\]\s*)*(?:noncomputable\s+)?(?:private\s+)?"
     r"(theorem|lemma|def|abbrev|structure|inductive)\s+(\S+)", re.M)
@@ -71,15 +72,41 @@ def rows():
     return out
 
 
+def tie_ids(text, start):
+    """Read the comma-separated row ids after `Ledger:`; ids may contain dots."""
+    ids = []
+    while match := TIE_ID.match(text, start):
+        ids.append(match.group())
+        start = match.end()
+        if text[start:start + 1] != ",":
+            break
+        start += 1
+        while text[start:start + 1].isspace():
+            start += 1
+    return ids
+
+
+def open_scopes(events, position):
+    """Return the namespace parts open at `position`, closing sections too."""
+    stack = []
+    for at, kind, name in events:
+        if at > position:
+            break
+        if kind == "end":
+            count = len(name.split(".")) if name else 1
+            del stack[-count:]
+        else:
+            stack.extend((kind, part) for part in (name.split(".") if name else [""]))
+    return [part for kind, part in stack if kind == "namespace"]
+
+
 def declared_ties(root=LEAN):
     """Map ledger ids to the declarations whose doc comments name them."""
     ties = {}
     for path in sorted(root.rglob("*.lean")):
         text = path.read_text(encoding="utf-8")
-        stack = []
-        events = []
-        for match in re.finditer(r"^(namespace (\S+)|end (\S+))$", text, re.M):
-            events.append((match.start(), match.group(2), match.group(3)))
+        events = [(match.start(), match.group(1), match.group(2))
+                  for match in re.finditer(r"^(namespace|section|end)(?:[ \t]+(\S+))?[ \t]*$", text, re.M)]
         for doc in re.finditer(r"/--(.*?)-/", text, re.S):
             tie = DOC_TIE.search(doc.group(1))
             if not tie:
@@ -87,23 +114,14 @@ def declared_ties(root=LEAN):
             found = DECLARATION.search(text, doc.end())
             if not found:
                 continue
-            stack = []
-            for position, opened, closed in events:
-                if position > doc.start():
-                    break
-                if opened:
-                    stack.extend(opened.split("."))
-                elif closed:
-                    del stack[-len(closed.split(".")):]
-            name = ".".join(stack + [found.group(2)])
-            for ident in re.split(r"[,\s]+", tie.group(1).strip()):
-                if ident:
-                    ties.setdefault(ident, []).append({
-                        "declaration": name,
-                        "kind": found.group(1),
-                        "file": str(path.relative_to(ROOT)),
-                        "line": text.count("\n", 0, found.start()) + 1,
-                    })
+            name = ".".join(open_scopes(events, doc.start()) + [found.group(2)])
+            for ident in tie_ids(doc.group(1), tie.end()):
+                ties.setdefault(ident, []).append({
+                    "declaration": name,
+                    "kind": found.group(1),
+                    "file": str(path.relative_to(ROOT)),
+                    "line": text.count("\n", 0, found.start()) + 1,
+                })
     return ties
 
 
@@ -124,7 +142,13 @@ def statement_records(ledger, proposed, reviewed, runs):
     records = []
     for ident, row in ledger.items():
         ties = []
-        for tie in proposed.get(ident, []):
+        declared = proposed.get(ident, [])
+        names = {tie["declaration"] for tie in declared}
+        # A reviewed tie needs no doc comment, which keeps Statement.lean free of them.
+        extra = [{"declaration": r["declaration"], "kind": r.get("kind", "definition"),
+                  "file": r.get("file", "lean/QuarticQuery/Statement.lean"), "line": r.get("line")}
+                 for r in reviewed.get(ident, []) if r["declaration"] not in names]
+        for tie in declared + extra:
             review = next((r for r in reviewed.get(ident, [])
                            if r["declaration"] == tie["declaration"]), None)
             ties.append({**tie,
@@ -223,11 +247,12 @@ def evidence_graph(records, runs):
     }
 
 
-def coverage(records):
+def coverage(records, unknown=()):
     fields = ["formal_statement", "formal_origin", "build", "comparator", "route", "reach"]
     return {
         "statements": len(records),
         "corrected": sum(r["corrected"] for r in records),
+        "ledger_ids_without_a_row": sorted(unknown),
         **{field: dict(sorted(Counter(r["evidence"][field] for r in records).items()))
            for field in fields},
     }
@@ -236,12 +261,13 @@ def coverage(records):
 def outputs():
     ledger = rows()
     runs = receipts()
-    records = statement_records(ledger, declared_ties(),
-                                load_json(CORPUS / "ties.json", {}), runs)
+    proposed = declared_ties()
+    reviewed = load_json(CORPUS / "ties.json", {})
+    records = statement_records(ledger, proposed, reviewed, runs)
     return {
         CORPUS / "statements.json": records,
         CORPUS / "evidence-graph.json": evidence_graph(records, runs),
-        CORPUS / "coverage.json": coverage(records),
+        CORPUS / "coverage.json": coverage(records, set(proposed) - set(ledger)),
     }
 
 
@@ -265,7 +291,7 @@ def main():
     if stale:
         print("stale, run tools/build_corpus.py: " + ", ".join(stale), file=sys.stderr)
         return 1
-    print(render(coverage(outputs()[CORPUS / "statements.json"])).strip())
+    print(render(outputs()[CORPUS / "coverage.json"]).strip())
     return 0
 
 

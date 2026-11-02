@@ -1,0 +1,1915 @@
+{
+ "def-partial-query": [
+  {
+   "declaration": "QuarticQuery.RLe_reindex_iff",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Renaming invariance of RLe; the promise semantics is in RLe itself, which carries no tag.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.DLe_reindex_iff",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Renaming invariance of DLe; does not pin correctness on the domain.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "def-R": [
+  {
+   "declaration": "QuarticQuery.DLe.toRLe",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Deterministic implies randomized; a fact about RLe, not its definition.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.RLe_R",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Attainment of the infimum only.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.R_le_iff",
+   "relation": "exact",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Pins R as the least budget at which RLe holds; RLe is a finite mixture of trees of depth at most t with success 2/3 on the domain.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.lt_R_iff",
+   "relation": "exact",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Pins R from below: t < R f iff no budget up to t suffices.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.lt_R_of_not_RLe",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "One direction of lt_R_iff, using monotonicity.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.R_reindex",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Renaming invariance; does not pin R.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "def-query-oracle": [
+  {
+   "declaration": "QuarticQuery.hadamardL",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Hadamard on the answer qubit, in complexitylib's state space; bridge gadget, not O_x.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.hadamardL_hadamardL",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Involution of the bridge Hadamard, not of O_x.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.norm_hadamardL",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Norm of the bridge Hadamard.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.hadamard",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Bridge Hadamard as a gate.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.hadamard_hadamard",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Involution of the bridge Hadamard.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.hadamard_phaseOracle_hadamard",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Relates O_x to complexitylib's controlled phase oracle: useful evidence, but not the row.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.hadamard_bitOracle_hadamard",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Converse conjugation of the same relation.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.bitRun",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "A fixed query sequence in O_x; no claim about O_x itself.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.phaseGates",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Gate conjugation for the bridge.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.run_phaseGates",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Fixed bit-query sequence equals a fixed phase-query sequence.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.bitOracleL",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "O_x as a linear isometry equivalence by permuting basis labels: unitarity and the action, not self-inverse.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.bitOracle_add",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Additivity only.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.bitOracle_smul",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Homogeneity only.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.norm_bitOracle",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Norm preservation only.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.bitOracle_bitOracle",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Self-inverse part of the row; the action formula is in Statement.bitOracle, which carries no tag.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "def-Q": [
+  {
+   "declaration": "QuarticQuery.AdaptiveProgram.outputMass_nonneg",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Branch masses are nonnegative; supports reading outputMass as a probability.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.AdaptiveProgram.outputMass_true_add_false",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Output masses sum to the squared norm, so outputMass is a distribution on unit states.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Q_le_of_QLe",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Upper-bound direction of Q_le_iff.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.QLe.reindex",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Renaming invariance, one direction.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.QLe_reindex_iff",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Renaming invariance of QLe.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Q_reindex",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Renaming invariance of Q.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.DLe.toQLe",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "A decision tree compiles to a program of equal queryCap; a sanity bound on the model.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.QLe_card",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Read-all witness; makes the sInf a true minimum.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.QLe_Q",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Attainment of the infimum only.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Q_le_iff",
+   "relation": "exact",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Pins Q as the least budget at which QLe holds; QLe is the row's model, audited in the review.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "eq-2": [
+  {
+   "declaration": "QuarticQuery.familyBoundsAt_of_parts",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [
+    "hypothesis h: for t>=t0 some realising circuit has Q <= C 2^t (2t)^b and G < R"
+   ],
+   "note": "Implication only: assembles FamilyBoundsAt k from the two bounds at one circuit and converts G<R to the Omega form. Eq-2 itself is not proved here, and FamilyBoundsAt carries no size bound on the circuit.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "thm-1.1": [
+  {
+   "declaration": "QuarticQuery.alphaTot_eq_four",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [
+    "FamilyBounds"
+   ],
+   "note": "alpha_tot=4 holds only under all of eq-2 as a hypothesis, and the row also asserts eq-2. The quartic half is discharged. Not conditional on Bansal-Sinha alone: BansalSinhaLower is not consumed.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.alphaTot_eq_four_of",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [
+    "FamilyBounds",
+    "UniversalPower 4 (proved as universalPower_four)",
+    "hRreindex (proved as R_reindex)",
+    "hQreindex (proved as Q_reindex)"
+   ],
+   "note": "Same conclusion with reindexing and the quartic bound as further binders.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "cor-cubic-refuted": [
+  {
+   "declaration": "QuarticQuery.cubic_refuted",
+   "relation": "stronger",
+   "route": "same",
+   "hypotheses": [
+    "FamilyBoundsAt 3",
+    "hRreindex (proved as R_reindex)",
+    "hQreindex (proved as Q_reindex)"
+   ],
+   "note": "Refutes the weaker bound R <= C(1+Q)^3, which is stronger than the row, at k=3 and conditional on the family.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.cubic_refuted_bare",
+   "relation": "exact",
+   "route": "same",
+   "hypotheses": [
+    "FamilyBoundsAt 3",
+    "hRreindex (proved as R_reindex)",
+    "hQreindex (proved as Q_reindex)"
+   ],
+   "note": "The row's form, no C with R <= C Q^3, with the reindex binders left open.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.cubic_bound_fails",
+   "relation": "exact",
+   "route": "same",
+   "hypotheses": [
+    "FamilyBoundsAt 3"
+   ],
+   "note": "The row's form with reindexing discharged; conditional only on the family at k=3.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "def-walsh-sign": [
+  {
+   "declaration": "QuarticQuery.Forrelation.walshN",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "walshSign with natural-number indices: the sign entry only, not H, u, the bit convention or D_z.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.sum_walshN_mul",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Character orthogonality, a property of the matrix.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.walshZ",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "W as an integer matrix, entries walshSign.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.W",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "W over the reals.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.walshZ_mul_transpose",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "W W^T = m I over the integers, which supports normalisation.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.W_mul_transpose",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "W W^T = m I over the reals.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "eq-3": [
+  {
+   "declaration": "QuarticQuery.Forrelation.u",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "The vector u only.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.signDiag",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "D_z only, with bitSign, so true maps to -1.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.alternate",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "The alternating matrix word only.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.Phi_eq_matrix_product",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Pins Phi=N/M to u^T D_1 H ... H D_k u for k>=1, every t. Does not state delta, so partial under the strict rule; with Forrelation.delta the row is fully pinned.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.Phi_sq_le_one",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Consequence of unitarity, not in the row.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.abs_Phi_le_one",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Consequence of unitarity, not in the row.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.delta",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Pins delta = 2^(-5k) only.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.H",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "H = W / 2^t, the normalised matrix only.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.H_mul_H",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Involution of H.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.H_mem_orthogonalGroup",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Orthogonality of H.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "eq-4": [
+  {
+   "declaration": "QuarticQuery.Forrelation.cases_disjoint",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "The disjointness sentence only.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.P_eq_some_true_iff",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "The 1-branch of (4).",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.P_eq_some_false_iff",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "The 0-branch of (4).",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.P_eq_none_iff",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "The undefined branch, including large negative Phi.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.P_eq_cases",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Pins the value of P at every input in the real-valued form of (4); omits the disjointness sentence, so partial under the strict rule. With cases_disjoint the row is fully pinned.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.census_true",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Finite count at k=2, t=1: sanity instance.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.census_false",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Finite count at k=2, t=1: sanity instance.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.census_none",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Finite count at k=2, t=1: sanity instance.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.promise_nonempty_two_one",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Non-vacuity of the promise at k=2, t=1.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.Phi_negativeWitness",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Phi=-1 occurs at k=2, t=1.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.P_negativeWitness",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "That witness is outside the promise, which matches the one-sided 1-case of (4).",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "claim-proj-prob": [
+  {
+   "declaration": "QuarticQuery.Forrelation.successProb",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Squared length of the projection; a real-vector quantity, with no quantum program or query count.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.successProb_eq",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Projection probability equals Phi^2, as real linear algebra; the query count and phase kickback are not stated.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.failureProb_eq",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Complementary mass.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.successProb_of_true",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "At least delta^2 on 1-inputs.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.successProb_of_false",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "At most delta^2/4 on 0-inputs.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "claim-N-phi": [
+  {
+   "declaration": "QuarticQuery.Forrelation.layers",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Circuit layer builder for the walk; a construction, not the claim.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.walkN",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Right-to-left recursion for N.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.numerator_eq_walk",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Path expansion of N equals the walk.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.Phi_eq_matrix_product",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Gives Phi = N/M as the matrix product; integrality is by type, but W's +-1 entries and M>0 are stated elsewhere.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "claim-integer-tests": [
+  {
+   "declaration": "QuarticQuery.Forrelation.P_tests",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "P in terms of three sign tests; the circuit form, not the iffs.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.forrCore_spec",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Wires compute the three signs; d and b are assembled later in forrCircuit_realises.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.delta_le_Phi_iff",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "First iff of the row.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.abs_Phi_le_iff",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Second iff of the row.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "claim-circuit-size": [
+  {
+   "declaration": "QuarticQuery.Forrelation.abs_numerator_le",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "|N|<=M only; the transform count and the size bound are in forrCircuit_size_le, tagged lem-2.1.iii.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "lem-2.1.ii": [
+  {
+   "declaration": "QuarticQuery.Forrelation.binomTail_small",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Binomial tail bound on real numbers.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.binomTail_large",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Binomial tail bound on real numbers.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.repetitions",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Count formula only; no algorithm is built.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.repetitions_le",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Count is 1 + 16 2^(10k) log(1/eta), the O_k(1+log(1/eta)) part.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.threshold_correct",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Thresholded repetition of a Bernoulli(successProb) has error at most eta on the promise. No AdaptiveProgram, no query statement, no coherent form, no behaviour off the promise.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.threshold_correct_third",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Concrete count at error 1/3. The per-repetition cost of k queries is in the doc comment, not the statement.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "lem-2.1.iii": [
+  {
+   "declaration": "QuarticQuery.Forrelation.realises_of_run",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Packaging lemma from gate lists to CircuitRealises.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.forrCircuit",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "The circuit, for k=l+1.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.forrCircuit_realises",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Correctness half, for every k>=1 and t; no size.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.forrConstant",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "The constant c_k.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.forrCircuit_size_le",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Size half, S <= c_k m (2t)^2, for t>=1.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Forrelation.exists_circuit",
+   "relation": "stronger",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Both halves with an explicit c_k, for every k>=1 and every t>=1; the row asks only k>=2.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "def-transcript": [
+  {
+   "declaration": "QuarticQuery.GateConsistent.unique",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "At most one consistent transcript; the object is typed in Statement, which carries no tag.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.existsUnique_gateConsistent",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Exactly one consistent transcript per input.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "eq-6": [
+  {
+   "declaration": "QuarticQuery.logb_mValue",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Gives log_2 m = 2t, so l=2t. r=40t is written directly in Fkm and is not stated as ceil(20 log_2 m).",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "def-column-layout": [
+  {
+   "declaration": "QuarticQuery.pointerEquiv_bijective",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "The fixed bijection only; the layout itself is BitLoc, which carries no tag.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.existsUnique_pointer",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "No invalid pointer pattern.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "def-eval-transcript": [
+  {
+   "declaration": "QuarticQuery.circuitEval_gateConsistent",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "The true evaluation is consistent: one direction.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.gateConsistent_iff_eq_circuitEval",
+   "relation": "exact",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Pins correctness: a transcript in Fin C.size -> Bool is consistent iff it equals the true evaluation, on every input.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "eq-7": [
+  {
+   "declaration": "QuarticQuery.winsAt_address_unique",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Uniqueness of the address; the definition of s_i is trueAddress, which carries no tag.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "def-F": [
+  {
+   "declaration": "QuarticQuery.addressedF_eq_true_iff",
+   "relation": "exact",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Pins F=1 iff exists i s, WinsAt; totality is by type. Stated for the generic addressedF, with Fkm its instance. With winsAt_iff_paperWinsAt this is the paper's winner.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.addressedF_eq_true_iff_localTests",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [
+    "CircuitRealises C f (discharged for P by forrCircuit_realises)"
+   ],
+   "note": "Decided by the local tests, under a circuit hypothesis.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.winsAt_column_unique",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "This is cor-unique-winner, not the definition.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.winsAt_unique",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "This is cor-unique-winner with the address, not the definition.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "def-K": [
+  {
+   "declaration": "QuarticQuery.card_testIndex",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "The exact count of tests. The bound O_k(m (log m)^3) is not stated.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "lem-2.2.i": [
+  {
+   "declaration": "QuarticQuery.TestIndex",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "The index type: pins one index type for every (i,s).",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.localTest",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "The tests (a)-(d) as Boolean functions.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.localTestTree",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "The decision trees, fixed before the input.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.localTestTree_eval",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Each tree computes its test exactly, on every input.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.localTestTree_depth_le",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Depth at most max(3,l+1).",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.winsAt_iff_localTests",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [
+    "CircuitRealises C f (discharged for P by forrCircuit_realises)"
+   ],
+   "note": "Wins at (i,s) iff every test passes: the first sentence of the row. Depths are separate.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.exists_failing_localTest",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [
+    "CircuitRealises C f (discharged for P by forrCircuit_realises)"
+   ],
+   "note": "This is half of cor-local-dichotomy.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.winsAt_iff_outputs",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [
+    "CircuitRealises C f (discharged for P by forrCircuit_realises)"
+   ],
+   "note": "This is the def-win-at-address form.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "def-grover-trial": [
+  {
+   "declaration": "QuarticQuery.Amplification.Gate",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Gate alphabet; only prepare and unprepare touch A.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.Circuit",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Gate lists.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.Circuit.calls",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Call counter.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.groverStep",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "One Grover step.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.groverCircuit",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "G^l A.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.Preparation.grover",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "G as an operator.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.Proc",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Classical control. restart models fresh registers by a reset, which has no direct AdaptiveProgram step.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.trialWeight",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Law of l: 1/2 on 0 plus 1/2 uniform on {0,...,M-1}, matching the row.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.attempts",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "The trial loop with stop at first success; M and the count are parameters here.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.iterationBound",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "M = ceil(10/sqrt gamma).",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.trialCount",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "ceil(log(1/eta)/log(40/31)).",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.Preparation.trialFail",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Failure probability of one trial.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.Preparation.trialGain",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Success payoff of one trial.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.expect_attempts",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Payoff recursion for attempts.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.attemptValue_eq_sum",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Geometric law of first success.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.expect_attempts_eq_sum",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Explicit outcome law from |0>.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.Preparation.one_sub_trialFail",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Success of one trial as the two halves of the mixture.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "claim-grover-state": [
+  {
+   "declaration": "QuarticQuery.Amplification.sin_mul_ampA_and_cos_mul_ampB",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Trigonometric identity for the amplitude recursion.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.Preparation.iterate",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "G^l A|0> as a state.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.Preparation.grover_apply",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "G as a reflection.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.Preparation.grover_parts",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "G on the two-dimensional plane.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.Preparation.iterate_eq_amp",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Unnormalised form of the iteration.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.Preparation.angle",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "theta with sin theta = sqrt p.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.Preparation.angle_mem",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "0<theta<pi/2 for 0<p<1.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.Preparation.state_eq",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "A|0> = sin theta |g> + cos theta |b>.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.Preparation.iterate_eq",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "The iteration formula, for every p, stronger on that clause; omits the measurement conclusion.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.Preparation.grover_rotation",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "G rotates the plane by 2 theta.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.Preparation.good_iterate",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Successful component after l iterations.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.Preparation.norm_good_iterate_sq",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Success mass.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.Preparation.norm_bad_iterate_sq",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Failure mass.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.Preparation.phaseEq_normalised_good_iterate",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "The conclusion: the normalised successful component is |g> up to phase, when its mass is nonzero.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.Preparation.good_iterate_of_prob_zero",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "The p=0 case, which the row excludes.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "claim-sin2theta": [
+  {
+   "declaration": "QuarticQuery.Amplification.Preparation.sin_two_angle",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "The equality only. The inequality >= sqrt gamma is not stated here; it occurs inside nine_fortieths_le.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "eq-9": [
+  {
+   "declaration": "QuarticQuery.Amplification.sin_two_mul_sum_sin_sq",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Telescoping identity behind the average.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.average_sin_sq",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Exact average.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.average_sin_sq_ge",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "First inequality of (9), with no constraint on gamma or p.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.average_sin_sq_ge_nine_twentieths",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Endpoint 9/20 under sqrt gamma <= sin 2 theta, not the row's hypothesis gamma<=p<=1/2.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "lem-3.1": [
+  {
+   "declaration": "QuarticQuery.Amplification.pow_trialCount_le",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "(31/40)^n <= eta.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.callCap_amplify_le",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Call bound only.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.Preparation.nine_fortieths_le",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "One trial succeeds with probability at least 9/40.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.Preparation.trialFail_of_prob_zero",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "p=0 case for one trial.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.Proc.successProb",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Definition of success probability.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.Proc.failProb",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Definition of failure probability.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.Proc.conditional",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Definition of conditional payoff.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.expect_attempts_of_phase",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Phase-blind payoffs see one state.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.bounded_amplification",
+   "relation": "exact",
+   "route": "same",
+   "hypotheses": [],
+   "note": "All clauses: one Proc from gamma and eta for every A and every H, calls at most 138 sqrt(gamma)^-1 log(1/eta) on every branch, output |g> up to phase, failure bound, p=0.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.IndexRegister",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Index register structure for Proposition 3.2.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.IndexRegister.norm_read_goodState_sq",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Index law in |g>; consumed by Proposition 3.2.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.IndexRegister.norm_read_normalised_iterate_sq",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Index law after iterations.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.IndexRegister.index_law_of_amplified",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Index law conditional on amplified success.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.Preparation",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Preparation with an orthogonal success projector; black-box object of the row.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.calls_groverCircuit",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "l iterations use 2l+1 calls.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.Preparation.prob",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "p as the squared norm of the successful part.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.Preparation.norm_sq_split",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Measurement splits the squared norm.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.Proc.callCap",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Syntactic call cap.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.Proc.expect",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Branch-mass semantics.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.amplify",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "The procedure, parameters depending on gamma and eta only. It pins def-grover-trial, but is tagged only here.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Amplification.callCap_attempts",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "A trial uses at most 2M+1 calls.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "def-T-eps": [
+  {
+   "declaration": "QuarticQuery.Tournament.Tval_mul_epsval",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "T epsilon = 1/1000, a consequence; the definitions Tval and epsval carry no tag.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Tournament.miss_bound_le",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "2m/2^T <= 1/500, a consequence.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Tournament.total_error_lt",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Numeric consequence used in Section 3.3.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "def-ideal-process": [
+  {
+   "declaration": "QuarticQuery.Tournament.expectFrom",
+   "relation": "exact",
+   "route": "none",
+   "hypotheses": [],
+   "note": "The process as an expectation functional: pivot p has probability w_p/W, W=0 is absorbing, T steps; start weights come from weight a [].",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "eq-12": [
+  {
+   "declaration": "QuarticQuery.Tournament.weight",
+   "relation": "exact",
+   "route": "none",
+   "hypotheses": [],
+   "note": "w_i is the product of a_ip over the history, so appending p multiplies w_i by a_ip.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "claim-expected-WT": [
+  {
+   "declaration": "QuarticQuery.Tournament.expected_final_weight",
+   "relation": "exact",
+   "route": "same",
+   "hypotheses": [],
+   "note": "E[W_T] <= m/2^T under (10) and a in [0,1].",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "claim-weight-lb": [
+  {
+   "declaration": "QuarticQuery.Tournament.dominant_weight_lb",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Weight bounds at exponent T, where the row has t. W>0 until selected is half_lt_total, which carries no tag.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "eq-14": [
+  {
+   "declaration": "QuarticQuery.Tournament.ideal_miss_le",
+   "relation": "exact",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Both inequalities, under (10), a in [0,1], dominance and T eps < 1/2.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "prop-3.2": [
+  {
+   "declaration": "QuarticQuery.Tournament.ideal_tournament",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Ideal process only: list length, miss probability 2m/2^T and the numerics. No quantum algorithm, no query bound, no T eps sampling term.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "claim-winner-dominates": [
+  {
+   "declaration": "QuarticQuery.winner_no_incoming_zero",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Boolean half: no incoming pointer finds a zero in a winner. The probability a_{i*j}>=1-eps is not stated.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.winner_finds_zero",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Boolean half: the winner's correct cell finds a zero. The probability is not stated.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "lem-4.1": [
+  {
+   "declaration": "QuarticQuery.direct_product",
+   "relation": "partial",
+   "route": "alternative",
+   "hypotheses": [],
+   "note": "Deterministic adaptive trees with per-instance caps; no coins or side information.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.direct_product_average",
+   "relation": "exact",
+   "route": "alternative",
+   "hypotheses": [],
+   "note": "Row in full, with coins and side information as one finite S. Weight mu need not be normalised. Induction on sub-distributions, not the supermartingale.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.direct_product_randomized",
+   "relation": "exact",
+   "route": "alternative",
+   "hypotheses": [],
+   "note": "Row in full, with S and Omega separate and finite. Same proof route as direct_product_average.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.direct_product_of_depth_le",
+   "relation": "weaker",
+   "route": "alternative",
+   "hypotheses": [],
+   "note": "Covers only algorithms with a total cap of L across instances, a narrower class than the per-instance cap of the row; no coins or side information.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "claim-minimax-mu": [
+  {
+   "declaration": "QuarticQuery.exists_hard_distribution",
+   "relation": "exact",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Hypothesis is not RLe f L, equivalent to L<R by lt_R_iff and monotonicity. mu is a probability weight supported on the domain.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "claim-address-guess": [
+  {
+   "declaration": "QuarticQuery.address_guess_le",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Deterministic capped tree; no side information.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.address_guess_average",
+   "relation": "exact",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Row in full, with side information or coins as finite S.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.exists_address_guess_bound",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Bundles minimax and the deterministic guess; no side information.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "claim-tail": [
+  {
+   "declaration": "QuarticQuery.twoThirds_pow_le",
+   "relation": "weaker",
+   "route": "alternative",
+   "hypotheses": [],
+   "note": "(2/3)^(40t) <= m^-10, against the row's exponent 20 log_2(3/2) = 11.70. Row's G factor and o(1) are absent; m^-10 is enough for the use.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "claim-numeric": [
+  {
+   "declaration": "QuarticQuery.discrepancy_le",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "The sum is at most 6/100 under the row's hypotheses; the three sub-bounds stay inside the proof.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.discrepancy_lt_third",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "The final <1/3 only.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.discrepancy_parameters",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "The estimate at the actual L and G for t>=8.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "cor-R-omega": [
+  {
+   "declaration": "QuarticQuery.rpow_le_of_Gvalue_lt",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [
+    "hr: G < r"
+   ],
+   "note": "Arithmetic step: G<r implies the Omega bound with constant 1/400 for t>=8. R and F do not occur.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "claim-floor": [
+  {
+   "declaration": "QuarticQuery.Gvalue_ge",
+   "relation": "stronger",
+   "route": "same",
+   "hypotheses": [],
+   "note": "Explicit constant 1/400 uniform in k and threshold t>=8; the row allows c_k and an unspecified threshold.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "claim-exponent-ratio": [
+  {
+   "declaration": "QuarticQuery.eventually_gt_rpow",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [
+    "hQ, hR: eventual bounds on the two sequences"
+   ],
+   "note": "Abstract sequences: eventually R_t > D(1+Q_t)^alpha for every D. The ratio's explicit lower bound is not stated.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.exists_nat_exponent",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "note": "The choice of k only.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "claim-no-smaller-exponent": [
+  {
+   "declaration": "QuarticQuery.not_bound_of_familyBoundsAt",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [
+    "FamilyBoundsAt k",
+    "hRreindex (proved as R_reindex)",
+    "hQreindex (proved as Q_reindex)"
+   ],
+   "note": "One k and one constant.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.not_universalPower_of_familyBoundsAt",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [
+    "FamilyBoundsAt k",
+    "hRreindex (proved as R_reindex)",
+    "hQreindex (proved as Q_reindex)"
+   ],
+   "note": "One k with 2-1/k>alpha/2.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.not_universalPower_of_family",
+   "relation": "exact",
+   "route": "same",
+   "hypotheses": [
+    "FamilyBounds",
+    "hRreindex (proved as R_reindex)",
+    "hQreindex (proved as Q_reindex)"
+   ],
+   "note": "Every alpha<4 fails to be in the set of (1), conditional on eq-2. The k > 1/(2-alpha/2) of the row is exists_nat_exponent.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.no_universal_power",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [
+    "FamilyBoundsAt k"
+   ],
+   "note": "One k, with reindexing discharged.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "def-D": [
+  {
+   "declaration": "QuarticQuery.QueryTree.toDecisionTree",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Constructor renaming for the bridge.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.QueryTree.ofDecisionTree",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Constructor renaming for the bridge.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.QueryTree.eval_toDecisionTree",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Bridge keeps evaluation.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.QueryTree.depth_toDecisionTree",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Bridge keeps depth.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.D_totalise_eq_complexity",
+   "relation": "exact",
+   "route": "none",
+   "hypotheses": [],
+   "note": "D of a total function equals complexitylib's DecisionTree.complexity, the least depth of a tree computing f: an independent statement of the row.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.DLe_length",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Read-list witness.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.DLe_card",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Read-all witness; makes the sInf a true minimum.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.DLe_D",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Attainment only.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.D_le_iff",
+   "relation": "exact",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Pins D as the least budget at which DLe holds.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.lt_D_iff",
+   "relation": "exact",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Pins D from below.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.lt_D_of_not_DLe",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "One direction, using monotonicity.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.D_reindex",
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "note": "Renaming invariance; does not pin D.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "lem-A.2": [
+  {
+   "declaration": "QuarticQuery.FixedSim.build",
+   "relation": "partial",
+   "route": "alternative",
+   "hypotheses": [],
+   "note": "Deferred measurement only: this is the proof's first step with no query overhead, not the adversary bound. Tag misplaced.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.exists_fixedSequence",
+   "relation": "partial",
+   "route": "alternative",
+   "hypotheses": [],
+   "note": "Same step in theorem form; Lemma A.2 itself has no declaration here.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "thm-A.1": [
+  {
+   "declaration": "QuarticQuery.D_le_of_QLe",
+   "relation": "partial",
+   "route": "alternative",
+   "hypotheses": [],
+   "note": "D <= 20736 t^4 from a t-query program; no R. Stronger on D, with no +1. Through complexitylib.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.D_le_Q_pow_four",
+   "relation": "partial",
+   "route": "alternative",
+   "hypotheses": [],
+   "note": "D <= 20736 Q^4; omits R <= D. Stronger on D, with no +1.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.R_le_D_le_one_add_Q_pow_four",
+   "relation": "exact",
+   "route": "alternative",
+   "hypotheses": [],
+   "note": "R <= D and D <= 20736 (1+Q)^4 for every n and total f. Through complexitylib's complexity_le_mul_pow_four, not Lemmas A.2 to A.5.",
+   "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.universalPower_four",
+   "relation": "partial",
+   "route": "alternative",
+   "hypotheses": [],
+   "note": "Membership of 4 in the set of (1); omits D.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "claim-winner-fidelity": [
+  {
+   "declaration": "QuarticQuery.winsAt_iff_paperWinsAt",
+   "relation": "stronger",
+   "route": "same",
+   "hypotheses": [],
+   "note": "The iff with no circuit hypothesis, because WinsAt names f directly; the row assumes correctness of the circuit.",
+   "reviewed_by": "ai:truth-auditor"
+  }
+ ]
+}
