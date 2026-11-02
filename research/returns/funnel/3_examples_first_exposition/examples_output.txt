@@ -1,0 +1,1245 @@
+{
+  "status": "All exact assertions passed.",
+  "arithmetic": "Integers, Fraction, and Q(sqrt(3)); no floating-point assertions.",
+  "opening_board": {
+    "scope": "Generic construction, easy gadget; not the hard family F_{2,4}.",
+    "parameters": {
+      "m": 4,
+      "ell": 2,
+      "r": 2,
+      "gadget_input_bits": 2,
+      "S": 2,
+      "cells_per_column": 4,
+      "total_cells": 16,
+      "pointer_bits_per_cell": 6,
+      "transcript_bits_per_cell": 4,
+      "cell_bits": 10,
+      "X_bits": 16,
+      "A_bits": 16,
+      "all_cell_bits": 160,
+      "total_bits": 192,
+      "tests": 15,
+      "largest_classical_test_depth": 3
+    },
+    "gadget_truth_table": [
+      {
+        "input": [
+          0,
+          0
+        ],
+        "f": 0,
+        "circuit_d_b": [
+          1,
+          0
+        ]
+      },
+      {
+        "input": [
+          0,
+          1
+        ],
+        "f": 1,
+        "circuit_d_b": [
+          1,
+          1
+        ]
+      },
+      {
+        "input": [
+          1,
+          0
+        ],
+        "f": null,
+        "circuit_d_b": [
+          0,
+          0
+        ]
+      },
+      {
+        "input": [
+          1,
+          1
+        ],
+        "f": null,
+        "circuit_d_b": [
+          0,
+          1
+        ]
+      }
+    ],
+    "pointer_encoding": {
+      "1": "00",
+      "2": "01",
+      "3": "10",
+      "4": "11"
+    },
+    "columns": [
+      {
+        "column": 1,
+        "X": "1111",
+        "A": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "true_address": "00",
+        "proposed_address": "00",
+        "pointers_by_destination": [
+          null,
+          1,
+          2,
+          3
+        ],
+        "truthful_transcripts": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "cells": {
+          "00": "0001101010",
+          "01": "0001101010",
+          "10": "0001101010",
+          "11": "0001101010"
+        },
+        "failed_tests_at_proposed_address": []
+      },
+      {
+        "column": 2,
+        "X": "0111",
+        "A": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "true_address": null,
+        "proposed_address": "11",
+        "pointers_by_destination": [
+          1,
+          null,
+          2,
+          1
+        ],
+        "truthful_transcripts": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "cells": {
+          "00": "0001000101",
+          "01": "0001000101",
+          "10": "0001000101",
+          "11": "0001000101"
+        },
+        "failed_tests_at_proposed_address": [
+          "X_2[1]=1",
+          "pointer_to_1_hits_zero",
+          "pointer_to_4_hits_zero",
+          "h1:d=1",
+          "h2:d=1"
+        ]
+      },
+      {
+        "column": 3,
+        "X": "1011",
+        "A": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "true_address": "00",
+        "proposed_address": "00",
+        "pointers_by_destination": [
+          1,
+          2,
+          null,
+          3
+        ],
+        "truthful_transcripts": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "cells": {
+          "00": "0001101010",
+          "01": "0001101010",
+          "10": "0001101010",
+          "11": "0001101010"
+        },
+        "failed_tests_at_proposed_address": [
+          "X_3[2]=1",
+          "pointer_to_1_hits_zero",
+          "pointer_to_2_hits_zero"
+        ]
+      },
+      {
+        "column": 4,
+        "X": "1101",
+        "A": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "true_address": "00",
+        "proposed_address": "00",
+        "pointers_by_destination": [
+          1,
+          1,
+          1,
+          null
+        ],
+        "truthful_transcripts": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "cells": {
+          "00": "0000001010",
+          "01": "0000001010",
+          "10": "0000001010",
+          "11": "0000001010"
+        },
+        "failed_tests_at_proposed_address": [
+          "X_4[3]=1",
+          "pointer_to_1_hits_zero",
+          "pointer_to_3_hits_zero"
+        ]
+      }
+    ],
+    "winner_pairs": [
+      [
+        1,
+        "00"
+      ]
+    ],
+    "comparison_matrix": [
+      [
+        "0",
+        "1",
+        "1",
+        "1"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    ],
+    "address_order_for_failure_counts": [
+      "00",
+      "01",
+      "10",
+      "11"
+    ],
+    "failed_test_counts": [
+      [
+        0,
+        1,
+        1,
+        2
+      ],
+      [
+        7,
+        6,
+        6,
+        5
+      ],
+      [
+        3,
+        4,
+        4,
+        5
+      ],
+      [
+        3,
+        4,
+        4,
+        5
+      ]
+    ],
+    "single_bit_mutations_checked": 192,
+    "incoming_pointer_scenarios_checked": 48,
+    "adaptive_pointer_test": {
+      "variable_order": [
+        "pointer_bit_0",
+        "pointer_bit_1",
+        "target_row_1",
+        "target_row_2",
+        "target_row_3",
+        "target_row_4"
+      ],
+      "input_assignments": 64,
+      "relevant_variables": 6,
+      "queries_per_evaluation": 3,
+      "relevance_witnesses": [
+        {
+          "changed_variable": 0,
+          "input": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "flipped_input": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "test_values": [
+            1,
+            0
+          ]
+        },
+        {
+          "changed_variable": 1,
+          "input": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "flipped_input": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "test_values": [
+            1,
+            0
+          ]
+        },
+        {
+          "changed_variable": 2,
+          "input": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "flipped_input": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "test_values": [
+            1,
+            0
+          ]
+        },
+        {
+          "changed_variable": 3,
+          "input": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "flipped_input": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "test_values": [
+            1,
+            0
+          ]
+        },
+        {
+          "changed_variable": 4,
+          "input": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "flipped_input": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "test_values": [
+            1,
+            0
+          ]
+        },
+        {
+          "changed_variable": 5,
+          "input": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "flipped_input": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "test_values": [
+            1,
+            0
+          ]
+        }
+      ]
+    },
+    "broken_pointer": {
+      "from_column": 1,
+      "to_column": 2,
+      "old_row": 1,
+      "new_row": 2,
+      "failed_tests": [
+        "pointer_to_2_hits_zero"
+      ],
+      "winner_pairs": [],
+      "comparison_matrix_unchanged": true
+    },
+    "corrupt_d": {
+      "column": 1,
+      "address": "00",
+      "instance": 1,
+      "failed_tests": [
+        "h1:d=NOT_u",
+        "h1:d=1"
+      ],
+      "winner_pairs": []
+    }
+  },
+  "tournaments": {
+    "scope": "Ideal pivot laws only; bounded quantum sampling may additionally fail.",
+    "cycle_with_winner": {
+      "matrix": [
+        [
+          "0",
+          "1",
+          "1",
+          "1"
+        ],
+        [
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      ],
+      "first_step": {
+        "weights": [
+          "1",
+          "1",
+          "1",
+          "1"
+        ],
+        "total": "4",
+        "choices": [
+          {
+            "pivot": 1,
+            "probability": "1/4",
+            "new_weights": [
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            "new_total": "0"
+          },
+          {
+            "pivot": 2,
+            "probability": "1/4",
+            "new_weights": [
+              "1",
+              "0",
+              "0",
+              "1"
+            ],
+            "new_total": "2"
+          },
+          {
+            "pivot": 3,
+            "probability": "1/4",
+            "new_weights": [
+              "1",
+              "1",
+              "0",
+              "0"
+            ],
+            "new_total": "2"
+          },
+          {
+            "pivot": 4,
+            "probability": "1/4",
+            "new_weights": [
+              "1",
+              "0",
+              "1",
+              "0"
+            ],
+            "new_total": "2"
+          }
+        ],
+        "expected_new_total": "3/2",
+        "drift_identity_value": "3/2"
+      },
+      "statistics": [
+        {
+          "steps": 0,
+          "miss_candidate_1": "1",
+          "expected_total_weight": "4"
+        },
+        {
+          "steps": 1,
+          "miss_candidate_1": "3/4",
+          "expected_total_weight": "3/2"
+        },
+        {
+          "steps": 2,
+          "miss_candidate_1": "3/8",
+          "expected_total_weight": "3/8"
+        },
+        {
+          "steps": 3,
+          "miss_candidate_1": 0,
+          "expected_total_weight": "0"
+        }
+      ]
+    },
+    "fractional_abstract_example": {
+      "scope": "An abstract comparison matrix, not asserted to come from the opening board.",
+      "matrix": [
+        [
+          "0",
+          "1",
+          "1",
+          "1"
+        ],
+        [
+          "0",
+          "0",
+          "1/2",
+          "1/2"
+        ],
+        [
+          "0",
+          "1/2",
+          "0",
+          "1/2"
+        ],
+        [
+          "0",
+          "1/2",
+          "1/2",
+          "0"
+        ]
+      ],
+      "after_pivot_2": {
+        "weights": [
+          "1",
+          "0",
+          "1/2",
+          "1/2"
+        ],
+        "total": "2",
+        "choices": [
+          {
+            "pivot": 1,
+            "probability": "1/2",
+            "new_weights": [
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            "new_total": "0"
+          },
+          {
+            "pivot": 3,
+            "probability": "1/4",
+            "new_weights": [
+              "1",
+              "0",
+              "0",
+              "1/4"
+            ],
+            "new_total": "5/4"
+          },
+          {
+            "pivot": 4,
+            "probability": "1/4",
+            "new_weights": [
+              "1",
+              "0",
+              "1/4",
+              "0"
+            ],
+            "new_total": "5/4"
+          }
+        ],
+        "expected_new_total": "5/8",
+        "drift_identity_value": "5/8"
+      },
+      "next_pivot_law": [
+        "1/2",
+        "0",
+        "1/4",
+        "1/4"
+      ],
+      "after_pivots_2_then_3": [
+        "1",
+        "0",
+        "0",
+        "1/4"
+      ],
+      "following_pivot_law": [
+        "4/5",
+        "0",
+        "0",
+        "1/5"
+      ],
+      "statistics": [
+        {
+          "steps": 0,
+          "miss_candidate_1": "1",
+          "expected_total_weight": "4"
+        },
+        {
+          "steps": 1,
+          "miss_candidate_1": "3/4",
+          "expected_total_weight": "3/2"
+        },
+        {
+          "steps": 2,
+          "miss_candidate_1": "3/8",
+          "expected_total_weight": "15/32"
+        },
+        {
+          "steps": 3,
+          "miss_candidate_1": "3/40",
+          "expected_total_weight": "3/40"
+        },
+        {
+          "steps": 4,
+          "miss_candidate_1": 0,
+          "expected_total_weight": "0"
+        }
+      ]
+    }
+  },
+  "amplification": {
+    "basis": [
+      "g1",
+      "g2",
+      "b"
+    ],
+    "initial_state": [
+      "3/10",
+      "2/5",
+      "(1/2)*sqrt(3)"
+    ],
+    "initial_good_outcome_probabilities": [
+      "9/100",
+      "4/25"
+    ],
+    "initial_success_probability": "1/4",
+    "one_iteration_good_multiplier": "2",
+    "one_iteration_bad_multiplier": "0",
+    "states": [
+      {
+        "iterations": 0,
+        "amplitudes": [
+          "3/10",
+          "2/5",
+          "(1/2)*sqrt(3)"
+        ],
+        "success_probability": "1/4",
+        "conditional_good_probabilities": [
+          "9/25",
+          "16/25"
+        ]
+      },
+      {
+        "iterations": 1,
+        "amplitudes": [
+          "3/5",
+          "4/5",
+          "0"
+        ],
+        "success_probability": "1",
+        "conditional_good_probabilities": [
+          "9/25",
+          "16/25"
+        ]
+      },
+      {
+        "iterations": 2,
+        "amplitudes": [
+          "3/10",
+          "2/5",
+          "(-1/2)*sqrt(3)"
+        ],
+        "success_probability": "1/4",
+        "conditional_good_probabilities": [
+          "9/25",
+          "16/25"
+        ]
+      },
+      {
+        "iterations": 3,
+        "amplitudes": [
+          "-3/10",
+          "-2/5",
+          "(-1/2)*sqrt(3)"
+        ],
+        "success_probability": "1/4",
+        "conditional_good_probabilities": [
+          "9/25",
+          "16/25"
+        ]
+      },
+      {
+        "iterations": 4,
+        "amplitudes": [
+          "-3/5",
+          "-4/5",
+          "0"
+        ],
+        "success_probability": "1",
+        "conditional_good_probabilities": [
+          "9/25",
+          "16/25"
+        ]
+      },
+      {
+        "iterations": 5,
+        "amplitudes": [
+          "-3/10",
+          "-2/5",
+          "(1/2)*sqrt(3)"
+        ],
+        "success_probability": "1/4",
+        "conditional_good_probabilities": [
+          "9/25",
+          "16/25"
+        ]
+      }
+    ],
+    "bounded_trial_constant_arithmetic": {
+      "assumed_product_M_times_sin_2theta_at_least": 10,
+      "average_lower_bound_from_general_formula": "9/20",
+      "mixed_trial_success_lower_bound": "9/40",
+      "success_lower_bound_when_p_at_least_half": "1/4",
+      "trial_failure_upper_bound": "31/40",
+      "scope": "Checks the stated rational arithmetic; the general sine bound is a cited theorem."
+    },
+    "checked_by": "Full two-reflection calculation in Q(sqrt(3)); no floating point."
+  },
+  "AND_conditioning": {
+    "distribution": "Uniform on 00,01,10,11; independent across copies.",
+    "L": 1,
+    "single_copy_optimum": "3/4",
+    "one_query_trees_enumerated": 10,
+    "runs": [
+      {
+        "input": "00",
+        "queries": 1,
+        "output": 0,
+        "correct": true,
+        "within_L_1": true,
+        "capped_output": 0,
+        "capped_correct": true
+      },
+      {
+        "input": "01",
+        "queries": 1,
+        "output": 0,
+        "correct": true,
+        "within_L_1": true,
+        "capped_output": 0,
+        "capped_correct": true
+      },
+      {
+        "input": "10",
+        "queries": 2,
+        "output": 0,
+        "correct": true,
+        "within_L_1": false,
+        "capped_output": 0,
+        "capped_correct": true
+      },
+      {
+        "input": "11",
+        "queries": 2,
+        "output": 1,
+        "correct": true,
+        "within_L_1": false,
+        "capped_output": 0,
+        "capped_correct": false
+      }
+    ],
+    "probability_within_cap": "1/2",
+    "probability_correct_and_within_cap": "1/2",
+    "probability_correct_given_within_cap": "1",
+    "capped_simulator_success": "3/4",
+    "posterior_optimum_after_a_0": "1",
+    "posterior_optimum_after_a_1": "1/2",
+    "two_copy_all_nonheavy_joint_success": "1/4",
+    "two_copy_capped_simulator_success": "9/16",
+    "two_copy_optimal_adaptive_success_with_separate_caps": "9/16"
+  },
+  "planted_input": {
+    "scope": "A finite illustration of planting; this easy gadget distribution is not the hard distribution.",
+    "zero_rows_J": [
+      4,
+      1,
+      2,
+      3
+    ],
+    "planted_column_I": 1,
+    "true_address": "00",
+    "A": [
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    ],
+    "dummy_X": [
+      "1110",
+      "0111",
+      "1011",
+      "1101"
+    ],
+    "planted_X": [
+      "1111",
+      "0111",
+      "1011",
+      "1101"
+    ],
+    "all_dummy_cells": "0000000000",
+    "filled_cell": "0001101010",
+    "all_other_planted_cells": "0000000000",
+    "dummy_winners": [],
+    "planted_winners": [
+      [
+        1,
+        "00"
+      ]
+    ],
+    "changed_physical_locations": [
+      [
+        "X",
+        1,
+        4
+      ],
+      [
+        "P",
+        1,
+        "00",
+        3,
+        1
+      ],
+      [
+        "P",
+        1,
+        "00",
+        4,
+        0
+      ],
+      [
+        "T",
+        1,
+        "00",
+        1,
+        0
+      ],
+      [
+        "T",
+        1,
+        "00",
+        2,
+        0
+      ]
+    ],
+    "changed_bit_count": 5,
+    "all_zero_tuples_columns_and_target_addresses_checked": 4096
+  },
+  "Forrelation": {
+    "m": 4,
+    "k": 2,
+    "H": [
+      [
+        "1/2",
+        "1/2",
+        "1/2",
+        "1/2"
+      ],
+      [
+        "1/2",
+        "-1/2",
+        "1/2",
+        "-1/2"
+      ],
+      [
+        "1/2",
+        "1/2",
+        "-1/2",
+        "-1/2"
+      ],
+      [
+        "1/2",
+        "-1/2",
+        "-1/2",
+        "1/2"
+      ]
+    ],
+    "v": [
+      1,
+      1,
+      1,
+      -1
+    ],
+    "H_v": [
+      "1",
+      "1",
+      "1",
+      "-1"
+    ],
+    "delta": "1/1024",
+    "delta_over_2": "1/2048",
+    "denominator_M": 8,
+    "named_instances": {
+      "one": {
+        "z1": [
+          1,
+          1,
+          1,
+          -1
+        ],
+        "z2": [
+          1,
+          1,
+          1,
+          -1
+        ],
+        "z1_transpose_H_z2": "4",
+        "N": "8",
+        "Phi": "1",
+        "P": 1,
+        "projection_probability": "1",
+        "exact_circuit_d_b": [
+          1,
+          1
+        ]
+      },
+      "zero": {
+        "z1": [
+          1,
+          1,
+          -1,
+          1
+        ],
+        "z2": [
+          1,
+          1,
+          1,
+          -1
+        ],
+        "z1_transpose_H_z2": "0",
+        "N": "0",
+        "Phi": "0",
+        "P": 0,
+        "projection_probability": "0",
+        "exact_circuit_d_b": [
+          1,
+          0
+        ]
+      },
+      "undefined_negative": {
+        "z1": [
+          -1,
+          -1,
+          -1,
+          1
+        ],
+        "z2": [
+          1,
+          1,
+          1,
+          -1
+        ],
+        "z1_transpose_H_z2": "-4",
+        "N": "-8",
+        "Phi": "-1",
+        "P": null,
+        "projection_probability": "1",
+        "exact_circuit_d_b": [
+          0,
+          0
+        ]
+      }
+    },
+    "all_256_pair_counts": {
+      "1": 104,
+      "undefined": 104,
+      "0": 48
+    },
+    "Phi_histogram": {
+      "-1": 8,
+      "-1/2": 96,
+      "0": 48,
+      "1/2": 96,
+      "1": 8
+    },
+    "scope": "Exact circuit output bits checked; no claim of enumerating the full Forrelation circuit."
+  },
+  "parameters": {
+    "actual_family_at_k2_m4": {
+      "m": 4,
+      "k": 2,
+      "ell": 2,
+      "r": 40,
+      "cells_per_column": 1099511627776,
+      "all_cells": 4398046511104,
+      "X_and_A_bits": 1296,
+      "cell_bits_symbolic": "6 + 40*S",
+      "total_bits_symbolic": "1296 + 2^42*(6 + 40*S)",
+      "K_symbolic": "87 + 40*S",
+      "L": 0,
+      "G": 0,
+      "scope": "L=0 gives no nontrivial randomized lower bound at this size."
+    },
+    "tournament_at_m4": {
+      "T": 12,
+      "epsilon": "1/12000",
+      "gamma": "1/8",
+      "ideal_miss_upper_bound": "1/512",
+      "T_times_epsilon": "1/1000",
+      "unselected_winner_weight_lower_bound": "999/1000",
+      "one_input_total_error_upper_bound": "583/192000",
+      "address_bit_error_target_at_r40": "1/480000"
+    },
+    "exponent_table": [
+      {
+        "fixed_k": 2,
+        "power_of_m_in_R_lower_bound": "3/2",
+        "power_of_m_in_Q_upper_bound": "1/2",
+        "separation_power_ignoring_logarithms": "3",
+        "gap_to_4": "1"
+      },
+      {
+        "fixed_k": 3,
+        "power_of_m_in_R_lower_bound": "5/3",
+        "power_of_m_in_Q_upper_bound": "1/2",
+        "separation_power_ignoring_logarithms": "10/3",
+        "gap_to_4": "2/3"
+      },
+      {
+        "fixed_k": 4,
+        "power_of_m_in_R_lower_bound": "7/4",
+        "power_of_m_in_Q_upper_bound": "1/2",
+        "separation_power_ignoring_logarithms": "7/2",
+        "gap_to_4": "1/2"
+      },
+      {
+        "fixed_k": 5,
+        "power_of_m_in_R_lower_bound": "9/5",
+        "power_of_m_in_Q_upper_bound": "1/2",
+        "separation_power_ignoring_logarithms": "18/5",
+        "gap_to_4": "2/5"
+      },
+      {
+        "fixed_k": 10,
+        "power_of_m_in_R_lower_bound": "19/10",
+        "power_of_m_in_Q_upper_bound": "1/2",
+        "separation_power_ignoring_logarithms": "19/5",
+        "gap_to_4": "1/5"
+      },
+      {
+        "fixed_k": 20,
+        "power_of_m_in_R_lower_bound": "39/20",
+        "power_of_m_in_Q_upper_bound": "1/2",
+        "separation_power_ignoring_logarithms": "39/10",
+        "gap_to_4": "1/10"
+      },
+      {
+        "fixed_k": 100,
+        "power_of_m_in_R_lower_bound": "199/100",
+        "power_of_m_in_Q_upper_bound": "1/2",
+        "separation_power_ignoring_logarithms": "199/50",
+        "gap_to_4": "1/50"
+      }
+    ],
+    "cubic_ratio_m_exponents_by_fixed_k": {
+      "2": "0",
+      "3": "1/6"
+    },
+    "lower_bound_constant_check": {
+      "four_ninths_less_than_half": true,
+      "uniform_coarse_discrepancy_upper_bound": "3/50",
+      "exact_power_substitutions": [
+        {
+          "t": 1,
+          "m": 4,
+          "r": 40,
+          "two_thirds_to_r": "1099511627776/12157665459056928801",
+          "m_to_minus_10": "1/1048576"
+        },
+        {
+          "t": 2,
+          "m": 16,
+          "r": 80,
+          "two_thirds_to_r": "1208925819614629174706176/147808829414345923316083210206383297601",
+          "m_to_minus_10": "1/1099511627776"
+        },
+        {
+          "t": 4,
+          "m": 256,
+          "r": 160,
+          "two_thirds_to_r": "1461501637330902918203684832716283019655932542976/21847450052839212624230656502990235142567050104912751880812823948662932355201",
+          "m_to_minus_10": "1/1208925819614629174706176"
+        },
+        {
+          "t": 8,
+          "m": 65536,
+          "r": 320,
+          "two_thirds_to_r": "2135987035920910082395021706169552114602704522356652769947041607822219725780640550022962086936576/477311073811304114486478503581164406916224853039238513850085608145771986880516808459166772134240378240755073828170296740373082348622309614668344831750401",
+          "m_to_minus_10": "1/1461501637330902918203684832716283019655932542976"
+        }
+      ],
+      "t8_k2_numeric_feasibility": {
+        "m": 65536,
+        "r": 320,
+        "L": 1,
+        "G": 655,
+        "discrepancy": "5122585973580832734888922434171183118796135462166391099620635985098690578387096901692204374479859136570111632582533352854097323012374921550955530827015553130895/512508863009548311707416251772030002326105488896483905432440183446590471081190187977604359431611636586678264109514237004629447881511922612746725734704648682471424",
+        "disclaimer": "No hard-distribution or R(P)>L claim at this particular m."
+      }
+    }
+  }
+}

@@ -751,10 +751,12 @@
     "kind": "theorem",
     "file": "lean/QuarticQuery/Results/Conditional.lean",
     "line": 53,
-    "relation": "unassessed",
-    "route": "unassessed",
-    "hypotheses": [],
-    "note": "",
+    "relation": "partial",
+    "route": "same",
+    "hypotheses": [
+     "BansalSinhaLower"
+    ],
+    "note": "Conditional on BansalSinhaLower (binder h). Its family conjunct keeps the per-t implication 8<=t -> L<R(P) -> G<R(F) rather than an eventual bound. Superseded by theorem_1_1_unconditional.",
     "built": true,
     "compared": true,
     "reached": false
@@ -1389,10 +1391,10 @@
   "kind": "inline_claim",
   "section": "2.1",
   "source_line": 173,
-  "statement": "For fixed k: for large m, c k^{-29} (m/log(km))^{1-1/k} > floor(m^{1-1/k}/(log_2 m)^2).",
-  "statement_sha256": "6aedc1d69a82abd7a062938142e5e68971cc183113add9310bde90b8b1290d76",
+  "statement": "For fixed k>=2 and the positive constant c of the Bansal-Sinha bound: for all sufficiently large powers of four m, c k^{-29} (m/log(km))^{1-1/k} > floor(m^{1-1/k}/(log_2 m)^2).",
+  "statement_sha256": "d2010ff814010ebd3efa001b3b8623aec6e863d3bccf5fa445a0b26fb204f135",
   "original_statement_sha256": "6aedc1d69a82abd7a062938142e5e68971cc183113add9310bde90b8b1290d76",
-  "corrected": false,
+  "corrected": true,
   "depends_on": [
    "eq-5"
   ],
@@ -1401,27 +1403,40 @@
   ],
   "lean": [
    {
-    "declaration": "QuarticQuery.ForrelationLower.bansalSinhaLower",
-    "kind": "definition",
-    "file": "lean/QuarticQuery/Statement.lean",
-    "line": null,
-    "relation": "exact",
-    "route": "alternative",
+    "declaration": "QuarticQuery.Paper.claim_bs_to_L",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/Section2.lean",
+    "line": 92,
+    "relation": "unassessed",
+    "route": "unassessed",
     "hypotheses": [],
-    "note": "Proved directly, so no translation from the published bound is used.",
-    "built": true,
-    "compared": true,
-    "reached": true
+    "note": "",
+    "built": false,
+    "compared": false,
+    "reached": false
+   },
+   {
+    "declaration": "QuarticQuery.Paper.claim_bs_to_L_log2",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/Section2.lean",
+    "line": 117,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false,
+    "reached": false
    }
   ],
   "evidence": {
-   "formal_statement": "exact",
+   "formal_statement": "unassessed",
    "formal_origin": "ours",
-   "build": "built_at_pin",
-   "comparator": "compared",
+   "build": "not_run",
+   "comparator": "not_run",
    "conditional": false,
-   "route": "alternative",
-   "reach": "reached"
+   "route": "none",
+   "reach": "outside"
   }
  },
  {
@@ -1445,13 +1460,13 @@
   "lean": [
    {
     "declaration": "QuarticQuery.ForrelationLower.bansalSinhaLower",
-    "kind": "definition",
-    "file": "lean/QuarticQuery/Statement.lean",
-    "line": null,
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/ForrelationLower/Main.lean",
+    "line": 506,
     "relation": "exact",
     "route": "alternative",
     "hypotheses": [],
-    "note": "The preprint imports this from Bansal and Sinha. The Lean proof uses a different route; see docs/forrelation_lower_bound_review.md.",
+    "note": "The preprint imports this from Bansal and Sinha. The Lean proof uses a different route; see docs/forrelation_lower_bound_review.md. The theorem is in ForrelationLower/Main.lean; Statement.lean holds only the proposition BansalSinhaLower it proves.",
     "built": true,
     "compared": true,
     "reached": true
@@ -2127,15 +2142,29 @@
   "external_inputs": [
    "[6] Bansal-Sinha, Theorem 1.3 and Corollary 1.4 (checked against arXiv:2008.07003): randomized decision trees of error 1/3 for (2^{-5k},k)-Forrelation need Omega(k^{-29}(N/log(kN))^{1-1/k}) queries"
   ],
-  "lean": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.Paper.lemma_2_1",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/Section2.lean",
+    "line": 156,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false,
+    "reached": false
+   }
+  ],
   "evidence": {
-   "formal_statement": "none",
-   "formal_origin": "none",
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
    "build": "not_run",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "none"
+   "reach": "outside"
   }
  },
  {
@@ -2508,15 +2537,29 @@
    "def-winner"
   ],
   "external_inputs": [],
-  "lean": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.Paper.cor_unique_winner",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/Section2.lean",
+    "line": 214,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false,
+    "reached": false
+   }
+  ],
   "evidence": {
-   "formal_statement": "none",
-   "formal_origin": "none",
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
    "build": "not_run",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "none"
+   "reach": "outside"
   }
  },
  {
@@ -2802,15 +2845,42 @@
    "lem-2.2.ii"
   ],
   "external_inputs": [],
-  "lean": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.Paper.lemma_2_2",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/Section2.lean",
+    "line": 238,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false,
+    "reached": false
+   },
+   {
+    "declaration": "QuarticQuery.Paper.testDepth_eq",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/Section2.lean",
+    "line": 264,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false,
+    "reached": false
+   }
+  ],
   "evidence": {
-   "formal_statement": "none",
-   "formal_origin": "none",
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
    "build": "not_run",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "none"
+   "reach": "outside"
   }
  },
  {
@@ -2826,15 +2896,29 @@
    "lem-2.2.i"
   ],
   "external_inputs": [],
-  "lean": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.Paper.cor_local_dichotomy",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/Section2.lean",
+    "line": 270,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false,
+    "reached": false
+   }
+  ],
   "evidence": {
-   "formal_statement": "none",
-   "formal_origin": "none",
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
    "build": "not_run",
    "comparator": "not_run",
    "conditional": false,
    "route": "none",
-   "reach": "none"
+   "reach": "outside"
   }
  },
  {
@@ -4415,6 +4499,19 @@
   "external_inputs": [],
   "lean": [
    {
+    "declaration": "QuarticQuery.Paper.prop_3_2",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/Section3.lean",
+    "line": 188,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false,
+    "reached": false
+   },
+   {
     "declaration": "QuarticQuery.Tournament.ideal_tournament",
     "kind": "theorem",
     "file": "lean/QuarticQuery/Tournament/Ideal.lean",
@@ -5732,7 +5829,7 @@
     "hypotheses": [
      "T.depth <= G"
     ],
-    "note": "2G/m^2, for each fixed A, against the row's 4G/m^2. Reviewed as a real improvement, not double counting, and the constant 2 is tight: scanning until the zero gives a ratio M/(M+1). The row's identity with EZ/m has no counterpart, since Z is never defined.",
+    "note": "2G/m^2, for each fixed A, against the row's 4G/m^2. Reviewed as a real improvement, not double counting. The coefficient 2 is sharp for the expected-cost inequality zero_search_sum: scanning until the zero gives a ratio M/(M+1). Scanning has worst-case cost M, so this does not show sharpness under a worst-case depth cap G. Only the inequality is formalised: the row's identity with EZ/m has no counterpart, since Z is never defined.",
     "built": true,
     "compared": false,
     "reached": true
@@ -6148,6 +6245,32 @@
     "built": true,
     "compared": false,
     "reached": true
+   },
+   {
+    "declaration": "QuarticQuery.Paper.prop_4_2",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/Section4.lean",
+    "line": 20,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false,
+    "reached": false
+   },
+   {
+    "declaration": "QuarticQuery.Paper.prop_4_2_forrCircuit",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/Section4.lean",
+    "line": 29,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false,
+    "reached": false
    }
   ],
   "evidence": {
@@ -6175,6 +6298,32 @@
   ],
   "external_inputs": [],
   "lean": [
+   {
+    "declaration": "QuarticQuery.Paper.cor_R_omega",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/Section4.lean",
+    "line": 41,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false,
+    "reached": false
+   },
+   {
+    "declaration": "QuarticQuery.Paper.cor_R_omega_log2",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/Section4.lean",
+    "line": 69,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false,
+    "reached": false
+   },
    {
     "declaration": "QuarticQuery.rpow_le_of_Gvalue_lt",
     "kind": "theorem",
@@ -7050,7 +7199,7 @@
    "def-D"
   ],
   "external_inputs": [
-   "[19] Midrijanis quant-ph/0403168v2, inside the proof of Theorem 4, p.4 (checked; Theorem 4 itself states D<=2deg^3). Proof in the paper"
+   "[19] Midrijanis quant-ph/0403168v2, inside the proof of Theorem 4, p.4, using Lemma 3 on maxonomials (checked; Theorem 4 itself states D<=2deg^3). Proof in the paper"
   ],
   "lean": [],
   "evidence": {

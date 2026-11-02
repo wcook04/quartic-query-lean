@@ -5,6 +5,9 @@ This repository owns research intake, review requests, Lean source and the tools
 that package them. It does not inherit the private ai_workflow runtime or its
 commands.
 
+[CONTRIBUTING.md](CONTRIBUTING.md) maps change types to owners and checks,
+including how to audit completed packet batches without changing their inputs.
+
 ## Ownership
 
 - `research/intake/` holds original advisory research records. Keep their source

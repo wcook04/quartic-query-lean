@@ -1,0 +1,715 @@
+{
+  "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+  "source": "repository/corpus/statements.json",
+  "note": "Relevant original records copied without alteration, with recursive statement dependencies. The known theorem locator defect is retained here and separately corrected in METADATA_CORRECTIONS.json.",
+  "statements": [
+    {
+      "id": "def-log-convention",
+      "kind": "definition",
+      "section": "1.3",
+      "source_line": 118,
+      "statement": "log means log_2, except where changing the base only changes an absolute constant. Ledger pinning: log in T (prop-3.2), r and l (eq-6) and L (eq-5) is exactly log_2.",
+      "statement_sha256": "049e118f97c84619bd9e8bd699ae494e0e5f57f253c142b5f64fb734e3620812",
+      "original_statement_sha256": "049e118f97c84619bd9e8bd699ae494e0e5f57f253c142b5f64fb734e3620812",
+      "corrected": false,
+      "depends_on": [],
+      "external_inputs": [],
+      "lean": [],
+      "evidence": {
+        "formal_statement": "none",
+        "formal_origin": "none",
+        "build": "not_run",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "none"
+      }
+    },
+    {
+      "id": "def-partial-query",
+      "kind": "definition",
+      "section": "1.3",
+      "source_line": 120,
+      "statement": "A partial Boolean function is a pair (D,P) with D a subset of {0,1}^N and P:D->{0,1}. An algorithm computes it if it is correct, with the stated error, on every x in D; behaviour off D is unconstrained.",
+      "statement_sha256": "b2754c85eb31367c9c931028f0c7fb02a3b89fc6400f0943644ccf4e21175067",
+      "original_statement_sha256": "b2754c85eb31367c9c931028f0c7fb02a3b89fc6400f0943644ccf4e21175067",
+      "corrected": false,
+      "depends_on": [],
+      "external_inputs": [],
+      "lean": [
+        {
+          "declaration": "QuarticQuery.RLe_reindex_iff",
+          "kind": "theorem",
+          "file": "lean/QuarticQuery/Model/Classical.lean",
+          "line": 335,
+          "relation": "partial",
+          "route": "none",
+          "hypotheses": [],
+          "note": "Renaming invariance of RLe; the promise semantics is in RLe itself, which carries no tag.",
+          "built": true,
+          "compared": false,
+          "reached": false
+        },
+        {
+          "declaration": "QuarticQuery.DLe_reindex_iff",
+          "kind": "theorem",
+          "file": "lean/QuarticQuery/Model/Classical.lean",
+          "line": 344,
+          "relation": "partial",
+          "route": "none",
+          "hypotheses": [],
+          "note": "Renaming invariance of DLe; does not pin correctness on the domain.",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ],
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "outside"
+      }
+    },
+    {
+      "id": "def-R",
+      "kind": "definition",
+      "section": "1",
+      "source_line": 18,
+      "statement": "For a (partial) Boolean function f, R(f) is the least q such that some probability distribution on deterministic decision trees of depth at most q satisfies Pr[T(x)=f(x)] >= 2/3 for every x in dom f. The query cap holds on every branch and every coin outcome.",
+      "statement_sha256": "79ddac65db3b047b9c33c0a88c5b4ebd8086b2b94719a7cadd8a5f2d4f69b1ff",
+      "original_statement_sha256": "79ddac65db3b047b9c33c0a88c5b4ebd8086b2b94719a7cadd8a5f2d4f69b1ff",
+      "corrected": false,
+      "depends_on": [
+        "def-partial-query"
+      ],
+      "external_inputs": [],
+      "lean": [
+        {
+          "declaration": "QuarticQuery.DLe.toRLe",
+          "kind": "theorem",
+          "file": "lean/QuarticQuery/Model/Classical.lean",
+          "line": 244,
+          "relation": "partial",
+          "route": "none",
+          "hypotheses": [],
+          "note": "Deterministic implies randomized; a fact about RLe, not its definition.",
+          "built": true,
+          "compared": false,
+          "reached": true
+        },
+        {
+          "declaration": "QuarticQuery.RLe_R",
+          "kind": "theorem",
+          "file": "lean/QuarticQuery/Model/Classical.lean",
+          "line": 264,
+          "relation": "partial",
+          "route": "none",
+          "hypotheses": [],
+          "note": "Attainment of the infimum only.",
+          "built": true,
+          "compared": false,
+          "reached": true
+        },
+        {
+          "declaration": "QuarticQuery.R_le_iff",
+          "kind": "theorem",
+          "file": "lean/QuarticQuery/Model/Classical.lean",
+          "line": 278,
+          "relation": "exact",
+          "route": "none",
+          "hypotheses": [],
+          "note": "Pins R as the least budget at which RLe holds; RLe is a finite mixture of trees of depth at most t with success 2/3 on the domain.",
+          "built": true,
+          "compared": true,
+          "reached": false
+        },
+        {
+          "declaration": "QuarticQuery.lt_R_iff",
+          "kind": "theorem",
+          "file": "lean/QuarticQuery/Model/Classical.lean",
+          "line": 299,
+          "relation": "exact",
+          "route": "none",
+          "hypotheses": [],
+          "note": "Pins R from below: t < R f iff no budget up to t suffices.",
+          "built": true,
+          "compared": false,
+          "reached": true
+        },
+        {
+          "declaration": "QuarticQuery.lt_R_of_not_RLe",
+          "kind": "theorem",
+          "file": "lean/QuarticQuery/Model/Classical.lean",
+          "line": 308,
+          "relation": "partial",
+          "route": "none",
+          "hypotheses": [],
+          "note": "One direction of lt_R_iff, using monotonicity.",
+          "built": true,
+          "compared": false,
+          "reached": true
+        },
+        {
+          "declaration": "QuarticQuery.R_reindex",
+          "kind": "theorem",
+          "file": "lean/QuarticQuery/Model/Classical.lean",
+          "line": 353,
+          "relation": "partial",
+          "route": "none",
+          "hypotheses": [],
+          "note": "Renaming invariance; does not pin R.",
+          "built": true,
+          "compared": true,
+          "reached": true
+        }
+      ],
+      "evidence": {
+        "formal_statement": "exact",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "compared",
+        "conditional": false,
+        "route": "none",
+        "reach": "reached"
+      }
+    },
+    {
+      "id": "def-walsh-sign",
+      "kind": "definition",
+      "section": "2.1",
+      "source_line": 136,
+      "statement": "m=4^t. H is the m x m normalized Walsh-Hadamard matrix, H_{a,b}=m^{-1/2}(-1)^{<a,b>} for a,b in {0,1}^{log_2 m}. u=m^{-1/2}(1,...,1)^T. A bit a is identified with the sign (-1)^a. For z in {+-1}^m, D_z=diag(z).",
+      "statement_sha256": "cea0c236eec7f144a63eb21757f43457a4d6562214b0ec6e2e96438e9fcbb7e1",
+      "original_statement_sha256": "cea0c236eec7f144a63eb21757f43457a4d6562214b0ec6e2e96438e9fcbb7e1",
+      "corrected": false,
+      "depends_on": [
+        "def-log-convention"
+      ],
+      "external_inputs": [],
+      "lean": [
+        {
+          "declaration": "QuarticQuery.Forrelation.walshN",
+          "kind": "def",
+          "file": "lean/QuarticQuery/Forrelation/Walsh.lean",
+          "line": 21,
+          "relation": "partial",
+          "route": "none",
+          "hypotheses": [],
+          "note": "walshSign with natural-number indices: the sign entry only, not H, u, the bit convention or D_z.",
+          "built": true,
+          "compared": false,
+          "reached": true
+        },
+        {
+          "declaration": "QuarticQuery.Forrelation.sum_walshN_mul",
+          "kind": "theorem",
+          "file": "lean/QuarticQuery/Forrelation/Walsh.lean",
+          "line": 83,
+          "relation": "partial",
+          "route": "none",
+          "hypotheses": [],
+          "note": "Character orthogonality, a property of the matrix.",
+          "built": true,
+          "compared": false,
+          "reached": true
+        },
+        {
+          "declaration": "QuarticQuery.Forrelation.walshZ",
+          "kind": "def",
+          "file": "lean/QuarticQuery/Forrelation/Walsh.lean",
+          "line": 130,
+          "relation": "partial",
+          "route": "none",
+          "hypotheses": [],
+          "note": "W as an integer matrix, entries walshSign.",
+          "built": true,
+          "compared": false,
+          "reached": true
+        },
+        {
+          "declaration": "QuarticQuery.Forrelation.W",
+          "kind": "def",
+          "file": "lean/QuarticQuery/Forrelation/Walsh.lean",
+          "line": 134,
+          "relation": "partial",
+          "route": "none",
+          "hypotheses": [],
+          "note": "W over the reals.",
+          "built": true,
+          "compared": false,
+          "reached": true
+        },
+        {
+          "declaration": "QuarticQuery.Forrelation.walshZ_mul_transpose",
+          "kind": "theorem",
+          "file": "lean/QuarticQuery/Forrelation/Walsh.lean",
+          "line": 158,
+          "relation": "partial",
+          "route": "none",
+          "hypotheses": [],
+          "note": "W W^T = m I over the integers, which supports normalisation.",
+          "built": true,
+          "compared": false,
+          "reached": true
+        },
+        {
+          "declaration": "QuarticQuery.Forrelation.W_mul_transpose",
+          "kind": "theorem",
+          "file": "lean/QuarticQuery/Forrelation/Walsh.lean",
+          "line": 180,
+          "relation": "partial",
+          "route": "none",
+          "hypotheses": [],
+          "note": "W W^T = m I over the reals.",
+          "built": true,
+          "compared": false,
+          "reached": true
+        }
+      ],
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "reached"
+      }
+    },
+    {
+      "id": "eq-3",
+      "kind": "definition",
+      "section": "2.1",
+      "source_line": 140,
+      "statement": "For z_1,...,z_k in {+-1}^m: Phi(z_1,...,z_k) = u^T D_{z_1} H D_{z_2} H ... H D_{z_k} u (k diagonals, k-1 copies of H), and delta = 2^{-5k}.",
+      "statement_sha256": "cbebca1057a97b00669f58befe01f6ae34866392f7f897fd8b54fe28832d8bae",
+      "original_statement_sha256": "cbebca1057a97b00669f58befe01f6ae34866392f7f897fd8b54fe28832d8bae",
+      "corrected": false,
+      "depends_on": [
+        "def-walsh-sign"
+      ],
+      "external_inputs": [],
+      "lean": [
+        {
+          "declaration": "QuarticQuery.Forrelation.u",
+          "kind": "def",
+          "file": "lean/QuarticQuery/Forrelation/Product.lean",
+          "line": 88,
+          "relation": "partial",
+          "route": "none",
+          "hypotheses": [],
+          "note": "The vector u only.",
+          "built": true,
+          "compared": false,
+          "reached": true
+        },
+        {
+          "declaration": "QuarticQuery.Forrelation.signDiag",
+          "kind": "def",
+          "file": "lean/QuarticQuery/Forrelation/Product.lean",
+          "line": 91,
+          "relation": "partial",
+          "route": "none",
+          "hypotheses": [],
+          "note": "D_z only, with bitSign, so true maps to -1.",
+          "built": true,
+          "compared": false,
+          "reached": true
+        },
+        {
+          "declaration": "QuarticQuery.Forrelation.alternate",
+          "kind": "def",
+          "file": "lean/QuarticQuery/Forrelation/Product.lean",
+          "line": 104,
+          "relation": "partial",
+          "route": "none",
+          "hypotheses": [],
+          "note": "The alternating matrix word only.",
+          "built": true,
+          "compared": false,
+          "reached": true
+        },
+        {
+          "declaration": "QuarticQuery.Forrelation.Phi_eq_matrix_product",
+          "kind": "theorem",
+          "file": "lean/QuarticQuery/Forrelation/Product.lean",
+          "line": 158,
+          "relation": "partial",
+          "route": "none",
+          "hypotheses": [],
+          "note": "Pins Phi=N/M to u^T D_1 H ... H D_k u for k>=1, every t. Does not state delta, so partial under the strict rule; with Forrelation.delta the row is fully pinned.",
+          "built": true,
+          "compared": false,
+          "reached": true
+        },
+        {
+          "declaration": "QuarticQuery.Forrelation.Phi_sq_le_one",
+          "kind": "theorem",
+          "file": "lean/QuarticQuery/Forrelation/Product.lean",
+          "line": 259,
+          "relation": "partial",
+          "route": "none",
+          "hypotheses": [],
+          "note": "Consequence of unitarity, not in the row.",
+          "built": true,
+          "compared": false,
+          "reached": true
+        },
+        {
+          "declaration": "QuarticQuery.Forrelation.abs_Phi_le_one",
+          "kind": "theorem",
+          "file": "lean/QuarticQuery/Forrelation/Product.lean",
+          "line": 266,
+          "relation": "partial",
+          "route": "none",
+          "hypotheses": [],
+          "note": "Consequence of unitarity, not in the row.",
+          "built": true,
+          "compared": false,
+          "reached": true
+        },
+        {
+          "declaration": "QuarticQuery.Forrelation.delta",
+          "kind": "def",
+          "file": "lean/QuarticQuery/Forrelation/Promise.lean",
+          "line": 18,
+          "relation": "partial",
+          "route": "none",
+          "hypotheses": [],
+          "note": "Pins delta = 2^(-5k) only.",
+          "built": true,
+          "compared": false,
+          "reached": true
+        },
+        {
+          "declaration": "QuarticQuery.Forrelation.H",
+          "kind": "def",
+          "file": "lean/QuarticQuery/Forrelation/Walsh.lean",
+          "line": 139,
+          "relation": "partial",
+          "route": "none",
+          "hypotheses": [],
+          "note": "H = W / 2^t, the normalised matrix only.",
+          "built": true,
+          "compared": false,
+          "reached": true
+        },
+        {
+          "declaration": "QuarticQuery.Forrelation.H_mul_H",
+          "kind": "theorem",
+          "file": "lean/QuarticQuery/Forrelation/Walsh.lean",
+          "line": 200,
+          "relation": "partial",
+          "route": "none",
+          "hypotheses": [],
+          "note": "Involution of H.",
+          "built": true,
+          "compared": false,
+          "reached": true
+        },
+        {
+          "declaration": "QuarticQuery.Forrelation.H_mem_orthogonalGroup",
+          "kind": "theorem",
+          "file": "lean/QuarticQuery/Forrelation/Walsh.lean",
+          "line": 210,
+          "relation": "partial",
+          "route": "none",
+          "hypotheses": [],
+          "note": "Orthogonality of H.",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ],
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "reached"
+      }
+    },
+    {
+      "id": "eq-4",
+      "kind": "definition",
+      "section": "2.1",
+      "source_line": 145,
+      "statement": "P=P_{k,m} is the partial function on km bits with P=1 if Phi>=delta, P=0 if |Phi|<=delta/2, undefined otherwise. The two cases are disjoint.",
+      "statement_sha256": "d851c47d1b5c5d998eb9c90a501c8a57e7bdb071021c6e7adbac48e388ff6483",
+      "original_statement_sha256": "d851c47d1b5c5d998eb9c90a501c8a57e7bdb071021c6e7adbac48e388ff6483",
+      "corrected": false,
+      "depends_on": [
+        "eq-3",
+        "def-partial-query"
+      ],
+      "external_inputs": [],
+      "lean": [
+        {
+          "declaration": "QuarticQuery.Forrelation.cases_disjoint",
+          "kind": "theorem",
+          "file": "lean/QuarticQuery/Forrelation/Promise.lean",
+          "line": 55,
+          "relation": "partial",
+          "route": "none",
+          "hypotheses": [],
+          "note": "The disjointness sentence only.",
+          "built": true,
+          "compared": false,
+          "reached": true
+        },
+        {
+          "declaration": "QuarticQuery.Forrelation.P_eq_some_true_iff",
+          "kind": "theorem",
+          "file": "lean/QuarticQuery/Forrelation/Promise.lean",
+          "line": 63,
+          "relation": "partial",
+          "route": "none",
+          "hypotheses": [],
+          "note": "The 1-branch of (4).",
+          "built": true,
+          "compared": false,
+          "reached": true
+        },
+        {
+          "declaration": "QuarticQuery.Forrelation.P_eq_some_false_iff",
+          "kind": "theorem",
+          "file": "lean/QuarticQuery/Forrelation/Promise.lean",
+          "line": 70,
+          "relation": "partial",
+          "route": "none",
+          "hypotheses": [],
+          "note": "The 0-branch of (4).",
+          "built": true,
+          "compared": false,
+          "reached": true
+        },
+        {
+          "declaration": "QuarticQuery.Forrelation.P_eq_none_iff",
+          "kind": "theorem",
+          "file": "lean/QuarticQuery/Forrelation/Promise.lean",
+          "line": 87,
+          "relation": "partial",
+          "route": "none",
+          "hypotheses": [],
+          "note": "The undefined branch, including large negative Phi.",
+          "built": true,
+          "compared": false,
+          "reached": false
+        },
+        {
+          "declaration": "QuarticQuery.Forrelation.P_eq_cases",
+          "kind": "theorem",
+          "file": "lean/QuarticQuery/Forrelation/Promise.lean",
+          "line": 95,
+          "relation": "partial",
+          "route": "none",
+          "hypotheses": [],
+          "note": "Pins the value of P at every input in the real-valued form of (4); omits the disjointness sentence, so partial under the strict rule. With cases_disjoint the row is fully pinned.",
+          "built": true,
+          "compared": false,
+          "reached": false
+        },
+        {
+          "declaration": "QuarticQuery.Forrelation.census_true",
+          "kind": "theorem",
+          "file": "lean/QuarticQuery/Forrelation/Sanity.lean",
+          "line": 20,
+          "relation": "partial",
+          "route": "none",
+          "hypotheses": [],
+          "note": "Finite count at k=2, t=1: sanity instance.",
+          "built": true,
+          "compared": false,
+          "reached": false
+        },
+        {
+          "declaration": "QuarticQuery.Forrelation.census_false",
+          "kind": "theorem",
+          "file": "lean/QuarticQuery/Forrelation/Sanity.lean",
+          "line": 25,
+          "relation": "partial",
+          "route": "none",
+          "hypotheses": [],
+          "note": "Finite count at k=2, t=1: sanity instance.",
+          "built": true,
+          "compared": false,
+          "reached": false
+        },
+        {
+          "declaration": "QuarticQuery.Forrelation.census_none",
+          "kind": "theorem",
+          "file": "lean/QuarticQuery/Forrelation/Sanity.lean",
+          "line": 30,
+          "relation": "partial",
+          "route": "none",
+          "hypotheses": [],
+          "note": "Finite count at k=2, t=1: sanity instance.",
+          "built": true,
+          "compared": false,
+          "reached": false
+        },
+        {
+          "declaration": "QuarticQuery.Forrelation.promise_nonempty_two_one",
+          "kind": "theorem",
+          "file": "lean/QuarticQuery/Forrelation/Sanity.lean",
+          "line": 41,
+          "relation": "partial",
+          "route": "none",
+          "hypotheses": [],
+          "note": "Non-vacuity of the promise at k=2, t=1.",
+          "built": true,
+          "compared": false,
+          "reached": false
+        },
+        {
+          "declaration": "QuarticQuery.Forrelation.Phi_negativeWitness",
+          "kind": "theorem",
+          "file": "lean/QuarticQuery/Forrelation/Sanity.lean",
+          "line": 58,
+          "relation": "partial",
+          "route": "none",
+          "hypotheses": [],
+          "note": "Phi=-1 occurs at k=2, t=1.",
+          "built": true,
+          "compared": false,
+          "reached": false
+        },
+        {
+          "declaration": "QuarticQuery.Forrelation.P_negativeWitness",
+          "kind": "theorem",
+          "file": "lean/QuarticQuery/Forrelation/Sanity.lean",
+          "line": 65,
+          "relation": "partial",
+          "route": "none",
+          "hypotheses": [],
+          "note": "That witness is outside the promise, which matches the one-sided 1-case of (4).",
+          "built": true,
+          "compared": false,
+          "reached": false
+        }
+      ],
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "reached"
+      }
+    },
+    {
+      "id": "eq-5",
+      "kind": "definition",
+      "section": "2.1",
+      "source_line": 155,
+      "statement": "L = L_{k,m} = floor(m^{1-1/k}/(log_2 m)^2).",
+      "statement_sha256": "c55ff3a32aff92f654ac998af81f6a00651812c3a274a3000a0018c082486426",
+      "original_statement_sha256": "730aea211cef85c5f286dc32a9024517b4e4e0e99f0e1fe26250b2cc5ba09b09",
+      "corrected": true,
+      "depends_on": [
+        "def-log-convention"
+      ],
+      "external_inputs": [],
+      "lean": [],
+      "evidence": {
+        "formal_statement": "none",
+        "formal_origin": "none",
+        "build": "not_run",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "none"
+      }
+    },
+    {
+      "id": "claim-bs-to-L",
+      "kind": "inline_claim",
+      "section": "2.1",
+      "source_line": 173,
+      "statement": "For fixed k: for large m, c k^{-29} (m/log(km))^{1-1/k} > floor(m^{1-1/k}/(log_2 m)^2).",
+      "statement_sha256": "6aedc1d69a82abd7a062938142e5e68971cc183113add9310bde90b8b1290d76",
+      "original_statement_sha256": "6aedc1d69a82abd7a062938142e5e68971cc183113add9310bde90b8b1290d76",
+      "corrected": false,
+      "depends_on": [
+        "eq-5"
+      ],
+      "external_inputs": [
+        "[6] Bansal-Sinha, Theorem 1.3 and Corollary 1.4 (checked against arXiv:2008.07003): randomized decision trees of error 1/3 for (2^{-5k},k)-Forrelation need Omega(k^{-29}(N/log(kN))^{1-1/k}) queries"
+      ],
+      "lean": [
+        {
+          "declaration": "QuarticQuery.ForrelationLower.bansalSinhaLower",
+          "kind": "definition",
+          "file": "lean/QuarticQuery/Statement.lean",
+          "line": null,
+          "relation": "exact",
+          "route": "alternative",
+          "hypotheses": [],
+          "note": "Proved directly, so no translation from the published bound is used.",
+          "built": true,
+          "compared": true,
+          "reached": true
+        }
+      ],
+      "evidence": {
+        "formal_statement": "exact",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "compared",
+        "conditional": false,
+        "route": "alternative",
+        "reach": "reached"
+      }
+    },
+    {
+      "id": "lem-2.1.i",
+      "kind": "lemma",
+      "section": "2.1",
+      "source_line": 152,
+      "statement": "For fixed k>=2 and all sufficiently large powers of four m, R(P_{k,m})>L with L as in eq-5.",
+      "statement_sha256": "5fffc61993caaf24f8e4205bcba1117355996e44857538aa321b05b8be63b365",
+      "original_statement_sha256": "5fffc61993caaf24f8e4205bcba1117355996e44857538aa321b05b8be63b365",
+      "corrected": false,
+      "depends_on": [
+        "eq-4",
+        "eq-5",
+        "def-R",
+        "claim-bs-to-L"
+      ],
+      "external_inputs": [
+        "[6] Bansal-Sinha, Theorem 1.3 and Corollary 1.4 (checked against arXiv:2008.07003): randomized decision trees of error 1/3 for (2^{-5k},k)-Forrelation need Omega(k^{-29}(N/log(kN))^{1-1/k}) queries"
+      ],
+      "lean": [
+        {
+          "declaration": "QuarticQuery.ForrelationLower.bansalSinhaLower",
+          "kind": "definition",
+          "file": "lean/QuarticQuery/Statement.lean",
+          "line": null,
+          "relation": "exact",
+          "route": "alternative",
+          "hypotheses": [],
+          "note": "The preprint imports this from Bansal and Sinha. The Lean proof uses a different route; see docs/forrelation_lower_bound_review.md.",
+          "built": true,
+          "compared": true,
+          "reached": true
+        }
+      ],
+      "evidence": {
+        "formal_statement": "exact",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "compared",
+        "conditional": false,
+        "route": "alternative",
+        "reach": "reached"
+      }
+    }
+  ]
+}

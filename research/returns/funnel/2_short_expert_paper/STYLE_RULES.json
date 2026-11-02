@@ -1,0 +1,144 @@
+{
+  "schema": "qualitative_style_rules_v1",
+  "scope": "short expert mathematics paper",
+  "status": "candidate rules, not statistically validated",
+  "reference_reading": "ABK, BS and Drucker introductions and representative proof sections were read; BS was additionally read in full by a specialist. The supplied short exemplar was read in full.",
+  "measurement": {
+    "before": "not run",
+    "after": "not run",
+    "reason": "tools/paper_register.py and the genre profile are absent from the supplied packet."
+  },
+  "rules": [
+    {
+      "id": "result-first",
+      "feature": "Abstract opening",
+      "rule": "Begin with the mathematical result, then explain the construction and the formalisation's contribution.",
+      "specimen": {
+        "quote": "We show a power 2.5 separation",
+        "source": "ABK, arXiv:1511.01937v2, abstract",
+        "url": "https://arxiv.org/abs/1511.01937v2"
+      },
+      "before": "The optimal exponent in a universal bound between bounded-error randomized and quantum query complexity of total Boolean functions is four.",
+      "after": "The optimal exponent in a universal bound between bounded-error randomized and quantum query complexity of total Boolean functions is four.",
+      "revision_status": "retained",
+      "limit": "Do not inflate a fixed-parameter family into an exact fourth-power family."
+    },
+    {
+      "id": "define-model-before-use",
+      "feature": "Introduction opening and notation",
+      "rule": "State the mathematical model immediately and introduce only notation used in the argument.",
+      "specimen": {
+        "quote": "Query complexity (or decision tree complexity)",
+        "source": "ABK, supplied extracted.md:3, Introduction"
+      },
+      "before": "For a total Boolean function $f:\\{0,1\\}^n\\to\\{0,1\\}$, let $R(f)$ and $Q(f)$ denote its randomized and quantum bit-query complexities, with error at most $1/3$ on every input.",
+      "after": "For a total Boolean function $f:\\{0,1\\}^n\\to\\{0,1\\}$, let $R(f)$ and $Q(f)$ denote its randomized and quantum bit-query complexities, with error at most $1/3$ on every input.",
+      "revision_status": "retained",
+      "limit": "Worst-branch cost and off-promise behavior need explicit sentences; a familiar model name alone is insufficient."
+    },
+    {
+      "id": "announce-precise-theorem",
+      "feature": "Main result placement",
+      "rule": "Give the strongest theorem in a named statement before the proof map, with its parameter order.",
+      "specimen": {
+        "quote": "the following lower bound",
+        "source": "BS, supplied extracted.md, Our Results, immediately before theoremclower; full-version Theorem 1.3"
+      },
+      "before": "For each fixed integer $k\\geq2$, there are positive constants $c_k,C_k,b_k$ and total Boolean functions $F_{k,m}$, for all sufficiently large powers of four $m$",
+      "after": "For each fixed integer $k\\geq2$, there are positive constants $c_k,C_k,b_k$ and total Boolean functions $F_{k,m}$, for all sufficiently large powers of four $m$",
+      "revision_status": "retained",
+      "limit": "The limits and constants remain those of the proved fixed-k theorem."
+    },
+    {
+      "id": "attribute-at-use",
+      "feature": "Prior work",
+      "rule": "Name the predecessor where its result enters, and identify the scope used.",
+      "specimen": {
+        "quote": "Shaltiel's result",
+        "source": "Drucker, supplied extracted.md:73; full-version Section 1.3"
+      },
+      "before": "We use the per-instance-capped direct product described in [Drucker (2012), Section 1.3 and Lemmas 3.1–3.2][Drucker], following Shaltiel.",
+      "after": "We use the per-instance-capped direct product described in [Drucker (2012), Section 1.3 and Lemmas 3.1–3.2][DRU], following Shaltiel.",
+      "revision_status": "citation repaired",
+      "limit": "Do not substitute Drucker's stronger aggregate-budget theorem for the capped theorem actually used."
+    },
+    {
+      "id": "narrate-induction",
+      "feature": "Proof narration",
+      "rule": "Name the induction quantity, its branch update and its conclusion in the same passage.",
+      "specimen": {
+        "quote": "we prove the statement by induction",
+        "source": "Drucker, supplied extracted.md:266, gambling-lemma proof"
+      },
+      "before": "The first option allows stopping early.",
+      "after": "The first option permits any strategy using at most $q$ queries.",
+      "revision_status": "revised for mathematical precision",
+      "limit": "An intuitive interpretation of a recursion must include every allowed branch, including reuse of a smaller-budget strategy."
+    },
+    {
+      "id": "explicit-probability-space",
+      "feature": "Notation and hypotheses",
+      "rule": "State which data are fixed, which are random, and over which worlds a sum is taken.",
+      "specimen": {
+        "quote": "All of our random variables will be defined over finite probability spaces.",
+        "source": "Drucker, supplied extracted.md:93, Preliminaries"
+      },
+      "before": "Let $N_U$ count the worlds in which the tree finds that zero, and let $S_U$ be the sum of the numbers of queries to this column over those worlds.",
+      "after": "Let $N_U$ count the worlds in which the tree finds that zero, and let $S_U$ sum the numbers of queries to $X_i$ over all worlds indexed by $U$, whether or not the zero is found.",
+      "revision_status": "revised after cold review",
+      "limit": "Clarity about the sample space is a proof obligation here; it cannot be sacrificed to brevity."
+    },
+    {
+      "id": "noun-phrase-headings",
+      "feature": "Section organization",
+      "rule": "Use headings naming mathematical objects or proof tasks, with one concise organization paragraph.",
+      "specimen": {
+        "quote": "Cheat sheet functions",
+        "source": "ABK, supplied extracted.md, Section 6 heading"
+      },
+      "before": "## 4. The randomized lower bound",
+      "after": "## 4. The randomized lower bound",
+      "revision_status": "retained",
+      "limit": "Do not replace mathematical headings with workflow labels or promotional summaries."
+    },
+    {
+      "id": "scope-once",
+      "feature": "Limitations and open boundary",
+      "rule": "State the relation to the stronger earlier theorem once in the scope paragraph, and preserve it in the evidence records.",
+      "specimen": {
+        "quote": "Our proof also works",
+        "source": "BS, supplied extracted.md, Remark after the bounded-error corollary"
+      },
+      "before": "The Lean endpoint proves (2). It does not supply that theorem's uniform dependence on $k$ and $\\eta$, and its logarithmic denominator is weaker.",
+      "after": "The Lean endpoint proves (2). It does not supply that theorem's uniform dependence on $k$ and $\\eta$, and its logarithmic denominator is weaker.",
+      "revision_status": "retained",
+      "limit": "A limitation is substantive when it changes the theorem or the reproducibility claim; avoid repeating it after every equation."
+    },
+    {
+      "id": "plain-verification-account",
+      "feature": "Verification and computation",
+      "rule": "Report tools, execution status and missing evidence in a dedicated section, with commands and precise provenance.",
+      "specimen": {
+        "quote": "Evidence is reported once and plainly",
+        "source": "Supplied writing/register-from-literature.md, What stays fixed while the register changes"
+      },
+      "before": "Lean and Lake are unavailable in the present authoring environment, so this manuscript reports the recorded execution evidence and a fresh source audit, without claiming a fresh kernel or Comparator run.",
+      "after": "Lean and Lake are unavailable in the present authoring environment, so this manuscript reports the recorded execution evidence and a fresh source audit, without claiming a fresh kernel or Comparator run.",
+      "revision_status": "retained",
+      "limit": "The three mathematical reference papers do not provide a directly comparable Lean audit. This rule comes from the supplied guide and short exemplar; no field measurement is claimed."
+    },
+    {
+      "id": "remove-defensive-tail",
+      "feature": "Sentence variety and mathematical focus",
+      "rule": "Let the proof's last sentence state what its induction establishes; keep unrelated evidence qualifications in their proper record.",
+      "specimen": {
+        "quote": "In the query model",
+        "source": "ABK, supplied extracted.md:5, Introduction"
+      },
+      "before": "This proof is valid for adaptive queries and repeated coordinates. It proves an upper bound; no claim of sharp attainment under a worst-case query cap is needed.",
+      "after": "The induction permits adaptive queries and charges repeated coordinates, so the bound uses the stated worst-case query cap.",
+      "revision_status": "revised",
+      "limit": "Do not delete a qualification needed to prevent a false mathematical conclusion; the absence of a sharpness claim is retained in the audit."
+    }
+  ]
+}

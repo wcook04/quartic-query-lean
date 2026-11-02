@@ -1,0 +1,51 @@
+[
+  {
+    "id": "lem-2.2.i",
+    "old": "The earlier ledger/intake formulation, as described in research/returns/adjudication_notes.md, treated each local certificate test as a Boolean function of a small fixed set of O(log m) input bits.",
+    "new": "Each local test is computed by a deterministic adaptive bit-query tree of depth at most max(3, ell+1); the pointer test reads ell physical pointer bits and then the selected target bit. It can depend on all ell+m pointer and target coordinates. Its coherent implementation has constant-factor query overhead.",
+    "relation": "corrected",
+    "reason": "Substantive correction inherited from the supplied adjudication and corrected corpus, made explicit in paper passage local-tests. Query depth and dependence on a fixed coordinate set are different assertions. The attached preprint already states O(log m) queries and explicitly reads the pointer before the target (paper/extracted.md:266-288); this record does not attribute the earlier ledger error to that current preprint. Source: Construction/LocalTests.lean, localTestTree_eval and localTestTree_depth_le. This return does not change the already-corrected corpus statement further."
+  },
+  {
+    "id": "lem-3.1",
+    "old": "A bounded amplification procedure exists for a preparation A and its oracle-dependent success probability p, with the intended uniformity not explicit in the original formulation.",
+    "new": "For each gamma and eta there is one black-box procedure, chosen before the preparation and oracle input, whose structure and branchwise call bound depend only on gamma and eta. It preserves the conditional successful state for every preparation and every p, and has the stated failure guarantees.",
+    "relation": "corrected",
+    "reason": "Quantifier-order correction inherited from the supplied adjudication and incorporated in the current corpus. The original proof is uniform, but a literal per-input choice would not define a query algorithm. Source: Amplification/Bounded.lean, bounded_amplification. The final program uses the separately proved conditional-label implementation Upper.Samples.amplify; that route distinction does not change this abstract proposition."
+  },
+  {
+    "id": "eq-19",
+    "old": "Pr(the dummy run queries X_I[J_I]) = E Z/m <= 4G/m^2.",
+    "new": "Pr[the dummy execution queries X_I[J_I]] <= 2G/m^2 for every deterministic tree of depth at most G. This is display (16), registered as new-zero-search-two.",
+    "relation": "stronger",
+    "reason": "The inequality component is strengthened by replacing 4 with 2, by the world-counting induction in LowerBound/Planted/ZeroSearch.lean, avg_foundZero_I_le. The paper omits the auxiliary variable Z and its expectation identity rather than disputing that identity. Averaging over the independent address inputs preserves this bound. No claim of sharp attainment is made."
+  },
+  {
+    "id": "eq-18",
+    "old": "For a deterministic algorithm with at most G queries, |Pr[outputs 1 on Y^(1)]-Pr[outputs 1 on Y^(0)]| <= Pr(the dummy run queries X_I[J_I]) + Pr(the dummy run queries any bit of B_{I,s_I}).",
+    "new": "For Delta = Pr[T(Y^(1))=1] - Pr[T(Y^(0))=1], the first-difference argument bounds Delta by the erased-zero and planted-cell encounter probabilities. Only this one-sided consequence is used in the manuscript.",
+    "relation": "weaker",
+    "reason": "The absolute-value coupling statement is mathematically valid, but the reached source theorem output_gap_le packages only planted-minus-dummy, already splitting the cell event into heavy and nonheavy terms. The manuscript deliberately states and uses that direction and does not claim a named checked absolute-value probability theorem. This is a statement-scope adjustment, not a defect in the final lower bound."
+  },
+  {
+    "id": "eq-23",
+    "old": "As obtained from the absolute-value statement in corpus eq-18, the combined estimate bounds the magnitude of the output-probability difference by 4G/m^2 + G/(mL) + G(2/3)^r. Corpus eq-23 and the preprint phrase this more briefly as a bound on the output-probability difference: The output-probability difference is at most 4G/m^2 + G/(mL) + G(2/3)^r.",
+    "new": "Delta = Pr[T(Y^(1))=1] - Pr[T(Y^(0))=1] <= 2G/m^2 + G/(mL) + G(2/3)^r. This is display (19), registered as new-planted-gap-two.",
+    "relation": "corrected",
+    "reason": "The revised statement simultaneously strengthens the first coefficient and exposes the one-sided scope of the actual tree_gap_le theorem. Relative to the original absolute-value reading these are mixed changes, so neither a purely stronger nor a purely weaker label is appropriate. Specialization sets rho=(2/3)^r using the capped direct product; finite averaging handles randomized trees. The contradiction needs precisely this signed direction."
+  },
+  {
+    "id": "claim-bs-to-L",
+    "old": "EVIDENCE METADATA ONLY. The unchanged mathematical row is: For fixed k: for large m, c k^{-29} (m/log(km))^{1-1/k} > floor(m^{1-1/k}/(log_2 m)^2). Its supplied tie calls QuarticQuery.ForrelationLower.bansalSinhaLower an exact, compared, reached proof of this numerical comparison, of kind definition in Statement.lean.",
+    "new": "EVIDENCE METADATA ONLY. For fixed k >= 2 and fixed c > 0, retain the numerical comparison as an elementary mathematical consequence of the published Bansal-Sinha lower bound, but remove its exact-proof attribution to QuarticQuery.ForrelationLower.bansalSinhaLower. That theorem proves Lvalue k t < R(P k t) directly by an alternative argument; it does not prove the comparison between two numerical formulas.",
+    "relation": "corrected",
+    "reason": "Metadata-only scope: no mathematical proposition is changed and no new Forrelation assumption is introduced. The theorem is in ForrelationLower/Main.lean:506, while BansalSinhaLower in Statement.lean:319 is its proposition. Comparator acceptance and reachability of the theorem do not establish identity with this different corpus row. The paper uses the direct endpoint for its proof and attributes the published implication separately."
+  },
+  {
+    "id": "lem-2.1.i",
+    "old": "EVIDENCE METADATA ONLY. The correct theorem QuarticQuery.ForrelationLower.bansalSinhaLower is listed as kind definition, file lean/QuarticQuery/Statement.lean, line null.",
+    "new": "EVIDENCE METADATA ONLY. Kind theorem; source lean/QuarticQuery/ForrelationLower/Main.lean:506. Its type is QuarticQuery.BansalSinhaLower, whose definition is in lean/QuarticQuery/Statement.lean:319. The fixed-k mathematical statement is unchanged and is proved without an extra hypothesis.",
+    "relation": "corrected",
+    "reason": "Corrects source location and declaration kind independently of the false claim-bs-to-L tie. It also avoids importing the historical conditional status from older review documents. The current unconditional endpoints discharge this proposition using the supplied theorem."
+  }
+]

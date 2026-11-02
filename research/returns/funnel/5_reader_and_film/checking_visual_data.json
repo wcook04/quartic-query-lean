@@ -1,0 +1,95 @@
+{
+  "schema": "quartic_checking_visuals_v1",
+  "comparator_config": {
+    "challenge_module": "QuarticCorpus.Unconditional.Challenge",
+    "solution_module": "QuarticCorpus.Unconditional.Solution",
+    "theorem_names": [
+      "QuarticQuery.Checked.alpha_tot_eq_four",
+      "QuarticQuery.Checked.theorem_one_one",
+      "QuarticQuery.Checked.cubic_bound_fails",
+      "QuarticQuery.Checked.forrelation_lower_bound"
+    ],
+    "definition_names": [],
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ]
+  },
+  "config_source": "repository/lean/QuarticCorpus/Unconditional/comparator.json",
+  "source_excerpts": {
+    "QLe": {
+      "source_file": "repository/lean/QuarticQuery/Statement.lean",
+      "line_start": 144,
+      "line_end": 148,
+      "source_sha256": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+      "source_text": "def QLe {ι : Type} [Fintype ι] (f : PartialBool ι) (budget : ℕ) : Prop :=\n  ConstantOnPromise f ∨\n  ∃ (w : ℕ) (ψ₀ : State ι w) (A : AdaptiveProgram ι w),\n    ‖ψ₀‖ = 1 ∧ A.queryCap ≤ budget ∧\n    ∀ x b, f x = some b → (2 / 3 : ℝ) ≤ A.outputMass x ψ₀ b",
+      "kind": "source excerpt, not elaborated type"
+    },
+    "queryCap": {
+      "source_file": "repository/lean/QuarticQuery/Statement.lean",
+      "line_start": 122,
+      "line_end": 127,
+      "source_sha256": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+      "source_text": "def AdaptiveProgram.queryCap {ι : Type} [Fintype ι] {w : ℕ} :\n    AdaptiveProgram ι w → ℕ\n  | .output _ => 0\n  | .unitary _ next => next.queryCap\n  | .query next => 1 + next.queryCap\n  | .measure _ yes no => max yes.queryCap no.queryCap",
+      "kind": "source excerpt, not elaborated type"
+    },
+    "WinsAt": {
+      "source_file": "repository/lean/QuarticQuery/Statement.lean",
+      "line_start": 277,
+      "line_end": 284,
+      "source_sha256": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+      "source_text": "def WinsAt {κ : Type} (f : PartialBool κ) (C : Circuit κ) (ℓ r : ℕ)\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) (s : Address r) : Prop :=\n  (∀ j, readX x i j = true) ∧\n  (∀ h, f (readA x i h) = some (s h)) ∧\n  (∀ h, GateConsistent C (readA x i h) (readTranscript x i s h)) ∧\n  (∀ j : {j : Column ℓ // j ≠ i},\n    readX x j.val (pointerEquiv ℓ (readPointerBit x i s j)) = false)\n",
+      "kind": "source excerpt, not elaborated type"
+    },
+    "bitOracle": {
+      "source_file": "repository/lean/QuarticQuery/Statement.lean",
+      "line_start": 102,
+      "line_end": 105,
+      "source_sha256": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+      "source_text": "noncomputable def bitOracle {ι : Type} [Fintype ι] {w : ℕ}\n    (x : BitInput ι) (ψ : State ι w) : State ι w :=\n  WithLp.toLp 2 fun p =>\n    ψ.ofLp (p.1, (if x p.1 then !p.2.1 else p.2.1), p.2.2)",
+      "kind": "source excerpt, not elaborated type"
+    },
+    "IsComparison": {
+      "source_file": "repository/lean/QuarticQuery/Statement.lean",
+      "line_start": 302,
+      "line_end": 304,
+      "source_sha256": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+      "source_text": "structure Tournament.IsComparison {ι : Type} (a : ι → ι → ℝ) : Prop where\n  complementary : ∀ i j, i ≠ j → a i j + a j i = 1\n  self_zero : ∀ i, a i i = 0",
+      "kind": "source excerpt, not elaborated type"
+    }
+  },
+  "negative_controls": [
+    {
+      "module": "ChangedDefinition",
+      "source_file": "repository/lean/QuarticCorpus/Negative/ChangedDefinition.lean",
+      "source_text": "module\n\npublic import Mathlib\n\n/-!\nMust be rejected: `IsComparison` is redefined with an impossible field, which\nmakes both theorems vacuous while leaving their displayed text unchanged. This is\nthe attack a statement-only check would miss.\n-/\n\npublic section\n\nnamespace QuarticQuery.Tournament\n\nstructure IsComparison {ι : Type} (a : ι → ι → ℝ) : Prop where\n  complementary : ∀ i j, i ≠ j → a i j + a j i = 1\n  self_zero : ∀ i, a i i = 0\n  impossible : False\n\nend QuarticQuery.Tournament\n\nnamespace QuarticQuery.Checked\n\ntheorem expected_weight_eq {ι : Type} [Fintype ι] [DecidableEq ι] (w : ι → ℝ)\n    {a : ι → ι → ℝ} (ha : Tournament.IsComparison a)\n    {W : ℝ} (hW : W = ∑ i, w i) (hpos : 0 < W) :\n    ∑ p, (w p / W) * ∑ i, w i * a i p = (W ^ 2 - ∑ i, w i ^ 2) / (2 * W) :=\n  ha.impossible.elim\n\ntheorem expected_weight_le_half {ι : Type} [Fintype ι] [DecidableEq ι] (w : ι → ℝ)\n    {a : ι → ι → ℝ} (ha : Tournament.IsComparison a)\n    {W : ℝ} (hW : W = ∑ i, w i) (hpos : 0 < W) :\n    ∑ p, (w p / W) * ∑ i, w i * a i p ≤ W / 2 :=\n  ha.impossible.elim\n\nend QuarticQuery.Checked\n",
+      "display_result": "rejected as expected, according to supplied records; not rerun here"
+    },
+    {
+      "module": "SorryProof",
+      "source_file": "repository/lean/QuarticCorpus/Negative/SorryProof.lean",
+      "source_text": "module\n\npublic import QuarticQuery.Statement\nimport QuarticQuery.Tournament.Drift\n\npublic section\n\nnamespace QuarticQuery.Checked\n\n/-! Must be rejected: the proof uses `sorry`. -/\n\ntheorem expected_weight_eq {ι : Type} [Fintype ι] [DecidableEq ι] (w : ι → ℝ)\n    {a : ι → ι → ℝ} (ha : Tournament.IsComparison a)\n    {W : ℝ} (hW : W = ∑ i, w i) (hpos : 0 < W) :\n    ∑ p, (w p / W) * ∑ i, w i * a i p = (W ^ 2 - ∑ i, w i ^ 2) / (2 * W) :=\n  Tournament.expected_weight_eq w ha hW hpos\n\ntheorem expected_weight_le_half {ι : Type} [Fintype ι] [DecidableEq ι] (w : ι → ℝ)\n    {a : ι → ι → ℝ} (ha : Tournament.IsComparison a)\n    {W : ℝ} (hW : W = ∑ i, w i) (hpos : 0 < W) :\n    ∑ p, (w p / W) * ∑ i, w i * a i p ≤ W / 2 :=\n  sorry\n\nend QuarticQuery.Checked\n",
+      "display_result": "rejected as expected, according to supplied records; not rerun here"
+    },
+    {
+      "module": "ForeignAxiom",
+      "source_file": "repository/lean/QuarticCorpus/Negative/ForeignAxiom.lean",
+      "source_text": "module\n\npublic import QuarticQuery.Statement\nimport QuarticQuery.Tournament.Drift\n\npublic section\n\nnamespace QuarticQuery.Checked\n\n/-! Must be rejected: the proof uses an axiom outside the permitted list. -/\n\naxiom cheat : False\n\ntheorem expected_weight_eq {ι : Type} [Fintype ι] [DecidableEq ι] (w : ι → ℝ)\n    {a : ι → ι → ℝ} (ha : Tournament.IsComparison a)\n    {W : ℝ} (hW : W = ∑ i, w i) (hpos : 0 < W) :\n    ∑ p, (w p / W) * ∑ i, w i * a i p = (W ^ 2 - ∑ i, w i ^ 2) / (2 * W) :=\n  Tournament.expected_weight_eq w ha hW hpos\n\ntheorem expected_weight_le_half {ι : Type} [Fintype ι] [DecidableEq ι] (w : ι → ℝ)\n    {a : ι → ι → ℝ} (ha : Tournament.IsComparison a)\n    {W : ℝ} (hW : W = ∑ i, w i) (hpos : 0 < W) :\n    ∑ p, (w p / W) * ∑ i, w i * a i p ≤ W / 2 :=\n  cheat.elim\n\nend QuarticQuery.Checked\n",
+      "display_result": "rejected as expected, according to supplied records; not rerun here"
+    },
+    {
+      "module": "WeakenedConclusion",
+      "source_file": "repository/lean/QuarticCorpus/Negative/WeakenedConclusion.lean",
+      "source_text": "module\n\npublic import QuarticQuery.Statement\nimport QuarticQuery.Tournament.Drift\n\npublic section\n\nnamespace QuarticQuery.Checked\n\n/-! Must be rejected: the second theorem proves a weaker bound than the challenge. -/\n\ntheorem expected_weight_eq {ι : Type} [Fintype ι] [DecidableEq ι] (w : ι → ℝ)\n    {a : ι → ι → ℝ} (ha : Tournament.IsComparison a)\n    {W : ℝ} (hW : W = ∑ i, w i) (hpos : 0 < W) :\n    ∑ p, (w p / W) * ∑ i, w i * a i p = (W ^ 2 - ∑ i, w i ^ 2) / (2 * W) :=\n  Tournament.expected_weight_eq w ha hW hpos\n\ntheorem expected_weight_le_half {ι : Type} [Fintype ι] [DecidableEq ι] (w : ι → ℝ)\n    {a : ι → ι → ℝ} (ha : Tournament.IsComparison a)\n    {W : ℝ} (hW : W = ∑ i, w i) (hpos : 0 < W) :\n    ∑ p, (w p / W) * ∑ i, w i * a i p ≤ W := by\n  have h := Tournament.expected_weight_le_half w ha hW hpos\n  linarith\n\nend QuarticQuery.Checked\n",
+      "display_result": "rejected as expected, according to supplied records; not rerun here"
+    },
+    {
+      "module": "MissingDeclaration",
+      "source_file": "repository/lean/QuarticCorpus/Negative/MissingDeclaration.lean",
+      "source_text": "module\n\npublic import QuarticQuery.Statement\nimport QuarticQuery.Tournament.Drift\n\npublic section\n\nnamespace QuarticQuery.Checked\n\n/-! Must be rejected: a named theorem is absent. -/\n\ntheorem expected_weight_eq {ι : Type} [Fintype ι] [DecidableEq ι] (w : ι → ℝ)\n    {a : ι → ι → ℝ} (ha : Tournament.IsComparison a)\n    {W : ℝ} (hW : W = ∑ i, w i) (hpos : 0 < W) :\n    ∑ p, (w p / W) * ∑ i, w i * a i p = (W ^ 2 - ∑ i, w i ^ 2) / (2 * W) :=\n  Tournament.expected_weight_eq w ha hW hpos\n\nend QuarticQuery.Checked\n",
+      "display_result": "rejected as expected, according to supplied records; not rerun here"
+    }
+  ],
+  "receipt_status": "Original run receipts are absent from the supplied packet. No build or Comparator run was performed for this return."
+}

@@ -1,0 +1,2418 @@
+{
+  "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+  "scope": "Eight ForrelationLower modules plus selected public semantic declarations; location index, not a new proof certificate. Null historical fields mean not imported into this location index.",
+  "declarations": [
+    {
+      "declaration": "QuarticQuery.ForrelationLower.runAll",
+      "file": "lean/QuarticQuery/ForrelationLower/Amplify.lean",
+      "line": 25,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.eval_runAll",
+      "file": "lean/QuarticQuery/ForrelationLower/Amplify.lean",
+      "line": 30,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.depth_runAll_le",
+      "file": "lean/QuarticQuery/ForrelationLower/Amplify.lean",
+      "line": 39,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.maj",
+      "file": "lean/QuarticQuery/ForrelationLower/Amplify.lean",
+      "line": 54,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.maj_wrong",
+      "file": "lean/QuarticQuery/ForrelationLower/Amplify.lean",
+      "line": 57,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.count_ofFn",
+      "file": "lean/QuarticQuery/ForrelationLower/Amplify.lean",
+      "line": 69,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.exists_amplified",
+      "file": "lean/QuarticQuery/ForrelationLower/Amplify.lean",
+      "line": 80,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.RowsOrth",
+      "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+      "line": 25,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.Zm",
+      "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+      "line": 28,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.mw",
+      "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+      "line": 32,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.eV",
+      "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+      "line": 36,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.Rf",
+      "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+      "line": 39,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.sum_eV_mul",
+      "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+      "line": 43,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.sum_eV_sq",
+      "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+      "line": 54,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.Uc_Rf_of_ne",
+      "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+      "line": 66,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.Uc_Rf",
+      "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+      "line": 74,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.Vc_Rf_of_ne",
+      "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+      "line": 83,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.Vc_Rf",
+      "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+      "line": 89,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.Xf_Rf_of_ne",
+      "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+      "line": 104,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.mw_Rf",
+      "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+      "line": 109,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.mw_insert",
+      "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+      "line": 151,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.measurable_mw",
+      "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+      "line": 175,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.abs_mw_le",
+      "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+      "line": 184,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.integral_mw_insert",
+      "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+      "line": 192,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.integral_mw_all",
+      "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+      "line": 238,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.mw_succ",
+      "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+      "line": 246,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.integral_ext_wv_zero",
+      "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+      "line": 256,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.plist_length",
+      "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+      "line": 291,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.mem_plist_lt",
+      "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+      "line": 297,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.plist_nodup",
+      "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+      "line": 309,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.plist_inj",
+      "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+      "line": 321,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.Lpath",
+      "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+      "line": 351,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.Lpath_nodup",
+      "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+      "line": 354,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.Lpath_inj",
+      "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+      "line": 362,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.advantage_le",
+      "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+      "line": 384,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.sg",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 25,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.sg_false",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 28,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.sg_true",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 30,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.sg_not",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 32,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.sg_sq",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 34,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.abs_sg",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 36,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": false,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.sg_eq_bitSign",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 38,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.piB",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 41,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.piB_add",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 44,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.piB_nonneg",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 46,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.bw",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 51,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.ext",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 54,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.D",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 57,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.bw_nonneg",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 61,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.sum_bw",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 65,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.ext_add",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 74,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.ext_smul",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 79,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.ext_sum",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 84,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.abs_ext_le",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 90,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.ext_nonneg",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 99,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": false,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.ext_mono",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 104,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.ext_const",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 109,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.flip",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 113,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.flip_flip",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 116,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.flipEquiv",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 123,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.sum_flip",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 130,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.update_flip",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 134,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.bwOff",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 139,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.bw_eq",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 142,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.bwOff_update",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 146,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.bwOff_flip",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 151,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.bwOff_congr",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 155,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.flip_apply_self",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 160,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.sum_mul_sg_eq",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 163,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.sum_inv_eq",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 171,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.D_flip",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 186,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.ext_D_eq",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 190,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.add_flip_sg",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 199,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.sum_sg_eq",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 209,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.hasDerivAt_ext",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 221,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.D_D",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 247,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.abs_D_le",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 252,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.xi",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 260,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.piB_mul_xi",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 263,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.ext_D_eq_mul_xi",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 273,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.ext_split",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 282,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.ext_eq_off",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 313,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.ext_congr_off",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 322,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.ext_affine",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 328,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.D_flip_congr",
+      "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "line": 347,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": false,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.dl",
+      "file": "lean/QuarticQuery/ForrelationLower/Main.lean",
+      "line": 27,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.denom_pos",
+      "file": "lean/QuarticQuery/ForrelationLower/Main.lean",
+      "line": 30,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.P_yes",
+      "file": "lean/QuarticQuery/ForrelationLower/Main.lean",
+      "line": 34,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.P_no",
+      "file": "lean/QuarticQuery/ForrelationLower/Main.lean",
+      "line": 49,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.not_RLe_of_gap",
+      "file": "lean/QuarticQuery/ForrelationLower/Main.lean",
+      "line": 81,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.logb_mValue",
+      "file": "lean/QuarticQuery/ForrelationLower/Main.lean",
+      "line": 223,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.four_sq_le_two_pow",
+      "file": "lean/QuarticQuery/ForrelationLower/Main.lean",
+      "line": 229,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.Xk_facts",
+      "file": "lean/QuarticQuery/ForrelationLower/Main.lean",
+      "line": 240,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.core_bound",
+      "file": "lean/QuarticQuery/ForrelationLower/Main.lean",
+      "line": 289,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.exists_threshold",
+      "file": "lean/QuarticQuery/ForrelationLower/Main.lean",
+      "line": 347,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.bansalSinhaLower",
+      "file": "lean/QuarticQuery/ForrelationLower/Main.lean",
+      "line": 506,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.lin",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 29,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.D_lin",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 33,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.bw_zero_flip",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 46,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.ext_sg_mul_zero",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 51,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.ext_lin_zero",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 62,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.ext_lin_sq_zero",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 72,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.ww",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 104,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.ww_sq",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 107,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.ww_comm",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 111,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.H_apply",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 114,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.H_mul_ww",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 118,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.abs_H_le",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 122,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.rowsOrth_H",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 129,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.Rs",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 138,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.cn_inj",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 143,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.Rs_update",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 147,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.Fz",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 163,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.walk_eq_Rs",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 167,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.numerator_eq_Fz",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 204,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.denom_cast",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 217,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.Yy",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 222,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.Int_Rs",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 228,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.qf_le_exp",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 254,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.psi_dphi_ge",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 271,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.ττ",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 307,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.TT",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 311,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.card_Nm",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 316,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.sum_exp_neg_ge",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 321,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.Yy_ge",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 343,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.Uc_eq_dot",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 390,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.integrable_Uc_sq",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 395,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.integral_Uc_sq",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 401,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.integrable_Vc_sq",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 407,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.integral_Vc_sq",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 413,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.integrable_ττ",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 419,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.integral_ττ",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 425,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.integrable_TT",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 443,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.integral_TT",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 456,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.PhiF",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 478,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.Phi_eq_PhiF",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 482,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.PhiF_eq_lin",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 487,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.Rs_update_cn",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 494,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.mass_ge",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 499,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.ext_Rs_sq",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 545,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.ext_PhiF_zero",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 559,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.ext_PhiF_sq",
+      "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "line": 564,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.qf",
+      "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+      "line": 22,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.psiS",
+      "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+      "line": 24,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.phiS",
+      "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+      "line": 26,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.dphi",
+      "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+      "line": 28,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.qf_pos",
+      "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+      "line": 31,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.qf_sq",
+      "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+      "line": 33,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.one_le_qf",
+      "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+      "line": 35,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.hasDerivAt_sq",
+      "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+      "line": 40,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.hasDerivAt_qf",
+      "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+      "line": 44,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.continuous_qf",
+      "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+      "line": 55,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.continuous_psiS",
+      "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+      "line": 57,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.continuous_dphi",
+      "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+      "line": 61,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.hasDerivAt_psiS",
+      "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+      "line": 66,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.hasDerivAt_phiS",
+      "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+      "line": 76,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.abs_phiS_le",
+      "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+      "line": 98,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.phiS_neg",
+      "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+      "line": 113,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.psiS_pos",
+      "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+      "line": 117,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.psiS_le",
+      "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+      "line": 120,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.dphi_pos",
+      "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+      "line": 126,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.dphi_le",
+      "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+      "line": 129,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.stein_one",
+      "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+      "line": 137,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.gP",
+      "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+      "line": 212,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.measurable_update_pair",
+      "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+      "line": 218,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.map_update_gP",
+      "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+      "line": 229,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.integral_slice",
+      "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+      "line": 257,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.stein_pi",
+      "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+      "line": 268,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.map_toLp_gP",
+      "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+      "line": 301,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.integral_reflect",
+      "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+      "line": 306,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.integrable_dot_sq",
+      "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+      "line": 352,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.integral_dot_sq",
+      "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+      "line": 371,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.chaos",
+      "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "line": 26,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.chaos_congr",
+      "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "line": 31,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.chaos_insert",
+      "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "line": 38,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.chaos_zero",
+      "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "line": 60,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.chaos_succ_empty",
+      "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "line": 64,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.abs_chaos_le",
+      "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "line": 69,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.eval_q",
+      "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "line": 97,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": false,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.merge",
+      "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "line": 101,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.merge_update",
+      "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "line": 104,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.walk",
+      "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "line": 112,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.walk_eq_ext",
+      "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "line": 121,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.ext_prod_merge",
+      "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "line": 158,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.powersetCard_filter_subset",
+      "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "line": 197,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.ext_chaos_merge",
+      "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "line": 204,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.walk_chaos",
+      "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "line": 215,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.hit",
+      "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "line": 233,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.hit_of_mem",
+      "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "line": 245,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.hit_leaf_neg",
+      "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "line": 250,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.hit_query_neg",
+      "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "line": 255,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.hit_nonneg",
+      "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "line": 263,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.hit_empty",
+      "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "line": 277,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.hit_le_one",
+      "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "line": 284,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.hit_or_le",
+      "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "line": 301,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.hit_mono",
+      "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "line": 348,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.hit_exists_le",
+      "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "line": 355,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.two_point_exp_le",
+      "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "line": 376,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.hit_azuma",
+      "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "line": 414,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.hit_chaos_le",
+      "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "line": 514,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.abs_walk_le",
+      "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "line": 601,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.abs_walk_le_hit",
+      "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "line": 624,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.abs_ext_tree_chaos_le",
+      "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "line": 658,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.Dl",
+      "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "line": 685,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.ext_Dl",
+      "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "line": 690,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.abs_xi_le",
+      "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "line": 718,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.xi_mean",
+      "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "line": 729,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.sum_abs_ext_Dl_le",
+      "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "line": 738,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.PC",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 28,
+      "kind": "abbrev",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.BC",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 30,
+      "kind": "abbrev",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.Uc",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 33,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.Vc",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 37,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.Xf",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 40,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.Yf",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 44,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.Sf",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 48,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.wv",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 51,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.cn",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 55,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.cn_val_of_le",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 58,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.BCf",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 64,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.BCf.const",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 67,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.BCf.mul",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 70,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.BCf.sum",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 78,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.BCf.integrable",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 90,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.continuous_Uc",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 95,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.continuous_Vc",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 102,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.continuous_phiS",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 107,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.abs_phiS_le_one",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 111,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.bcf_Xf",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 114,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.bcf_Yf",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 122,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.abs_Xf_le",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 130,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.abs_Yf_le",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 136,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.abs_wv_le",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 142,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.abs_wv_le_half",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 152,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.continuous_wv",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 172,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.continuous_ext",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 176,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.bcf_ext",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 182,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.Uc_update",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 194,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.hasDerivAt_Uc",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 212,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.hasDerivAt_Vc",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 221,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.dX",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 233,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.dY",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 237,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.hasDerivAt_Xf",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 241,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.hasDerivAt_Yf",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 252,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.hasDerivAt_wv",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 262,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.sum_dw_eq",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 272,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.EarlyOnly",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 317,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.Int",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 321,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.Uc_update_of_ne",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 327,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.Vc_update_of_ne",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 338,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.bcf_psiU",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 344,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.bcf_dphiV",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 349,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.bcf_Int",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 354,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.integral_walk",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 364,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.hasDerivAt_ext_s",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 436,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.exists_identity",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 461,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.plist",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 524,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.cf",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 529,
+      "kind": "def",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.sum_fin_succ",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 535,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.Int_eq_paths",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 541,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.ForrelationLower.abs_cf_le",
+      "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "line": 556,
+      "kind": "theorem",
+      "recorded_declared": true,
+      "recorded_reached": true,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.Phi",
+      "file": "lean/QuarticQuery/Statement.lean",
+      "line": 183,
+      "kind": "def",
+      "recorded_declared": null,
+      "recorded_reached": null,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.P",
+      "file": "lean/QuarticQuery/Statement.lean",
+      "line": 188,
+      "kind": "def",
+      "recorded_declared": null,
+      "recorded_reached": null,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.mValue",
+      "file": "lean/QuarticQuery/Statement.lean",
+      "line": 159,
+      "kind": "def",
+      "recorded_declared": null,
+      "recorded_reached": null,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.R",
+      "file": "lean/QuarticQuery/Statement.lean",
+      "line": 84,
+      "kind": "def",
+      "recorded_declared": null,
+      "recorded_reached": null,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.RLe",
+      "file": "lean/QuarticQuery/Statement.lean",
+      "line": 74,
+      "kind": "def",
+      "recorded_declared": null,
+      "recorded_reached": null,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.BansalSinhaLower",
+      "file": "lean/QuarticQuery/Statement.lean",
+      "line": 319,
+      "kind": "def",
+      "recorded_declared": null,
+      "recorded_reached": null,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.Lvalue",
+      "file": "lean/QuarticQuery/Statement.lean",
+      "line": 309,
+      "kind": "def",
+      "recorded_declared": null,
+      "recorded_reached": null,
+      "fresh_compile": false
+    },
+    {
+      "declaration": "QuarticQuery.Forrelation.abs_Phi_le_one",
+      "file": "lean/QuarticQuery/Forrelation/Product.lean",
+      "line": 266,
+      "kind": "theorem",
+      "recorded_declared": null,
+      "recorded_reached": null,
+      "fresh_compile": false
+    }
+  ]
+}

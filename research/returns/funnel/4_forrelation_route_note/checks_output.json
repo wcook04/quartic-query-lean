@@ -1,0 +1,135 @@
+{
+  "purpose": "Finite arithmetic and numerical falsification checks, not a proof certificate",
+  "exact_constants": {
+    "amplification_18_times_8_pow_25_lt_9_pow_25": true,
+    "elementary_constant_identity": true,
+    "kernel_times_scale": true,
+    "contradiction_margin": true,
+    "coarse_constant": true
+  },
+  "restriction_identity": {
+    "cases": 8,
+    "max_error": "0",
+    "arithmetic": "exact rational"
+  },
+  "orthogonal_identity_checks": [
+    {
+      "nodes_per_dimension": 16,
+      "grid_size": 65536,
+      "matrix": [
+        [
+          0.9171208228166051,
+          -0.3986093279844229
+        ],
+        [
+          0.3986093279844229,
+          0.9171208228166051
+        ]
+      ],
+      "characters": 63,
+      "max_absolute_errors": {
+        "identity": 1.6243465283562533e-05,
+        "missing_block": 9.110051105956814e-18,
+        "omitted_s_integral": 4.613966747468659e-05,
+        "transposed_matrix": 0.006737318892232377
+      },
+      "witness_supports": {
+        "identity": [
+          0,
+          2,
+          4
+        ],
+        "omitted_s_integral": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "transposed_matrix": [
+          0,
+          2,
+          5
+        ]
+      }
+    },
+    {
+      "nodes_per_dimension": 28,
+      "grid_size": 614656,
+      "matrix": [
+        [
+          0.9171208228166051,
+          -0.3986093279844229
+        ],
+        [
+          0.3986093279844229,
+          0.9171208228166051
+        ]
+      ],
+      "characters": 63,
+      "max_absolute_errors": {
+        "identity": 4.627173791748457e-07,
+        "missing_block": 6.541523195281596e-17,
+        "omitted_s_integral": 4.598793053459095e-05,
+        "transposed_matrix": 0.006734982329860417
+      },
+      "witness_supports": {
+        "identity": [
+          0,
+          2,
+          4
+        ],
+        "omitted_s_integral": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "transposed_matrix": [
+          0,
+          2,
+          5
+        ]
+      }
+    }
+  ],
+  "nonorthogonal_control": {
+    "nodes_per_dimension": 20,
+    "grid_size": 160000,
+    "matrix": [
+      [
+        0.9171208228166051,
+        -0.19860932798442288
+      ],
+      [
+        0.3986093279844229,
+        0.9171208228166051
+      ]
+    ],
+    "characters": 63,
+    "max_absolute_errors": {
+      "identity": 0.017670256145505776,
+      "missing_block": 0.017670256145505776,
+      "omitted_s_integral": 0.017670256145505776,
+      "transposed_matrix": 0.017670256145505776
+    },
+    "witness_supports": {
+      "identity": [
+        4,
+        5
+      ],
+      "omitted_s_integral": [
+        4,
+        5
+      ],
+      "transposed_matrix": [
+        4,
+        5
+      ]
+    }
+  },
+  "note": "All residuals are absolute; compare grids and failing controls. Matrix orientation and the s-integral are essential."
+}

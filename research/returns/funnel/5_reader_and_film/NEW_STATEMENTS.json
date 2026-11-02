@@ -1,0 +1,95 @@
+[
+  {
+    "id": "reader-forrelation-yes",
+    "statement": "At k=2,t=1, both sign vectors (1,1,1,-1) give numerator 8, denominator 8, Phi=1 and P=some true. Consequently the projection-test success probability Phi^2 is 1.",
+    "why_needed": "An explicit address-answer 1 in the running example.",
+    "depends_on": [
+      "eq-3",
+      "eq-4",
+      "claim-integer-tests",
+      "claim-proj-prob"
+    ],
+    "proposed_lean": "theorem reader_forrelation_yes :\n  forrelationNumerator 2 1 (fun p : ForrelationCoord 2 1 => decide (p.2.val = 3)) = 8 ∧\n  forrelationDenominator 2 1 = 8 ∧\n  Phi 2 1 (fun p : ForrelationCoord 2 1 => decide (p.2.val = 3)) = 1 ∧\n  P 2 1 (fun p : ForrelationCoord 2 1 => decide (p.2.val = 3)) = some true ∧\n  (Phi 2 1 (fun p : ForrelationCoord 2 1 => decide (p.2.val = 3))) ^ 2 = 1",
+    "route_note": "New finite specialization. Exact integer calculation reproduced in this return; signature is proposed and not elaborated or kernel-checked here. Follow the supplied Forrelation/Sanity.lean pattern without native_decide.",
+    "formal_status": "proposed_uncompiled",
+    "proposed_lean_context": "import QuarticQuery\nopen QuarticQuery\nopen scoped BigOperators",
+    "signature_scope": "Proposed declaration signature only; no proof body, elaboration, or kernel check is supplied."
+  },
+  {
+    "id": "reader-forrelation-zero",
+    "statement": "At k=2,t=1, sign vectors (1,1,1,-1) and (1,1,-1,1) give numerator 0, denominator 8, Phi=0 and P=some false. Consequently the projection-test success probability Phi^2 is 0.",
+    "why_needed": "An explicit address-answer 0 in the running example.",
+    "depends_on": [
+      "eq-3",
+      "eq-4",
+      "claim-integer-tests",
+      "claim-proj-prob"
+    ],
+    "proposed_lean": "theorem reader_forrelation_zero :\n  forrelationNumerator 2 1 (fun p : ForrelationCoord 2 1 => decide ((p.1.val = 0 ∧ p.2.val = 3) ∨ (p.1.val = 1 ∧ p.2.val = 2))) = 0 ∧\n  forrelationDenominator 2 1 = 8 ∧\n  Phi 2 1 (fun p : ForrelationCoord 2 1 => decide ((p.1.val = 0 ∧ p.2.val = 3) ∨ (p.1.val = 1 ∧ p.2.val = 2))) = 0 ∧\n  P 2 1 (fun p : ForrelationCoord 2 1 => decide ((p.1.val = 0 ∧ p.2.val = 3) ∨ (p.1.val = 1 ∧ p.2.val = 2))) = some false ∧\n  (Phi 2 1 (fun p : ForrelationCoord 2 1 => decide ((p.1.val = 0 ∧ p.2.val = 3) ∨ (p.1.val = 1 ∧ p.2.val = 2)))) ^ 2 = 0",
+    "route_note": "New finite specialization; exact integer arithmetic checked separately, without a Lean run.",
+    "formal_status": "proposed_uncompiled",
+    "proposed_lean_context": "import QuarticQuery\nopen QuarticQuery\nopen scoped BigOperators",
+    "signature_scope": "Proposed declaration signature only; no proof body, elaboration, or kernel check is supplied."
+  },
+  {
+    "id": "reader-example-parameters",
+    "statement": "For t=1,k=2: m=4, ell=2, r=40, there are 2^40=1099511627776 cells per column and L=0. The promise thresholds are delta=1/1024 and delta/2=1/2048; with circuit size S there are 4+3+40(S+2) local tests.",
+    "why_needed": "Prevent the small illustration from being presented as an asymptotic speedup experiment.",
+    "depends_on": [
+      "eq-5",
+      "eq-6",
+      "def-column-layout",
+      "eq-4",
+      "def-K"
+    ],
+    "proposed_lean": "theorem reader_example_parameters :\n  mValue 1 = 4 ∧ 2 * (1 : ℕ) = 2 ∧ 40 * (1 : ℕ) = 40 ∧\n  Fintype.card (Address 40) = 1099511627776 ∧ Lvalue 2 1 = 0\n  ∧ (2 : ℝ) ^ (5 * (2 : ℕ)) = 1024\n  ∧ 1 / (2 : ℝ) ^ (5 * (2 : ℕ)) = 1 / 1024\n  ∧ (1 / (2 : ℝ) ^ (5 * (2 : ℕ))) / 2 = 1 / 2048\n  ∧ (∀ S : ℕ, Fintype.card (TestIndex 2 40 S) = 4 + 3 + 40 * (S + 2))",
+    "route_note": "New parameter specialization. The integer identities are directly computable; the real-rpow/log/floor identity needs a short formal derivation. Proposed, not elaborated. The local-test specialization uses QuarticQuery.card_testIndex; each address block contributes S gate tests and two output tests.",
+    "formal_status": "proposed_uncompiled",
+    "proposed_lean_context": "import QuarticQuery\nopen QuarticQuery\nopen scoped BigOperators",
+    "signature_scope": "Proposed declaration signature only; no proof body, elaboration, or kernel check is supplied."
+  },
+  {
+    "id": "reader-example-instance",
+    "statement": "For C=Forrelation.forrCircuit 1 1, J=(0,2,1,3), all columns using A_h=z_yes when h=0 and z_zero otherwise, and tr=circuitEval C: Fkm 2 1 C (dummy J A)=false; planting column 0 gives Fkm= true and true address (1,0,...,0). The planted X-strings and pointers are exactly those in visual_data.json.",
+    "why_needed": "Certify the running construction and the two locations changed in the film using the actual supplied family.",
+    "depends_on": [
+      "reader-forrelation-yes",
+      "reader-forrelation-zero",
+      "def-dummy",
+      "def-planted",
+      "claim-Y-values",
+      "eq-18"
+    ],
+    "proposed_lean": "theorem reader_example_instance :\n  let C := QuarticQuery.Forrelation.forrCircuit 1 1\n  let J : Column 2 → Column 2 := fun i =>\n    if i.val = 0 then 0 else if i.val = 1 then 2 else if i.val = 2 then 1 else 3\n  let A : Column 2 → Fin 40 → BitInput (ForrelationCoord 2 1) :=\n    fun _ h => if h.val = 0 then (fun p : ForrelationCoord 2 1 => decide (p.2.val = 3)) else (fun p : ForrelationCoord 2 1 => decide ((p.1.val = 0 ∧ p.2.val = 3) ∨ (p.1.val = 1 ∧ p.2.val = 2)))\n  let y₀ : BitInput (BitLoc 2 40 C.size (ForrelationCoord 2 1)) := dummy J A\n  let y₁ := planted (P 2 1) (circuitEval C) J A (0 : Column 2)\n  Fkm 2 1 C y₀ = false ∧ Fkm 2 1 C y₁ = true ∧\n  trueAddr (P 2 1) (A 0) = (fun h => decide (h.val = 0)) ∧\n  (∀ i j, readX y₁ i j =\n    if i = 0 then true else decide (j ≠ J i)) ∧\n  (∀ j : {j : Column 2 // j ≠ 0},\n    pointerEquiv 2 (readPointerBit y₁ 0 (fun h => decide (h.val = 0)) j) = J j.val) ∧\n  (∀ q : BitLoc 2 40 C.size (ForrelationCoord 2 1),\n    y₀ q ≠ y₁ q →\n      q = .inl ((0 : Column 2), (0 : Column 2)) ∨\n      cellOf q = some ((0 : Column 2), (fun h : Fin 40 => decide (h.val = 0))))",
+    "route_note": "Uses existing dummy, planted, circuitEval and their theorems, all already defined in the supplied Lean development. No transcript bit values are fabricated. This signature proposes a specialized conjunction; it has not been elaborated. The final clause specializes QuarticQuery.eq_of_dummy_ne_planted. It gives locations where differences may occur, not a claim that every filled-cell bit changes.",
+    "formal_status": "proposed_uncompiled",
+    "proposed_lean_context": "import QuarticQuery\nopen QuarticQuery\nopen scoped BigOperators",
+    "signature_scope": "Proposed declaration signature only; no proof body, elaboration, or kernel check is supplied."
+  },
+  {
+    "id": "reader-walsh-example",
+    "statement": "At t=1 the integer Walsh matrix has rows (1,1,1,1), (1,-1,1,-1), (1,1,-1,-1), (1,-1,-1,1). Its products with (1,1,1,-1) and (1,1,-1,1) are respectively (2,2,2,-2) and (2,-2,2,2).",
+    "why_needed": "Every entry and matrix-vector product displayed in the exact Forrelation scene is tied to the supplied public definition.",
+    "depends_on": [
+      "def-walsh-sign",
+      "eq-3"
+    ],
+    "proposed_lean": "theorem reader_walsh_four :\n  (Forrelation.walshZ 1 : Matrix (Fin 4) (Fin 4) ℤ) =\n    (fun i j => if\n      (i.val = 1 ∧ (j.val = 1 ∨ j.val = 3)) ∨\n      (i.val = 2 ∧ (j.val = 2 ∨ j.val = 3)) ∨\n      (i.val = 3 ∧ (j.val = 1 ∨ j.val = 2))\n      then (-1 : ℤ) else 1) ∧\n  Matrix.mulVec (Forrelation.walshZ 1)\n    (fun j => if j.val = 3 then (-1 : ℤ) else 1) =\n    (fun i => if i.val = 3 then (-2 : ℤ) else 2) ∧\n  Matrix.mulVec (Forrelation.walshZ 1)\n    (fun j => if j.val = 2 then (-1 : ℤ) else 1) =\n    (fun i => if i.val = 1 then (-2 : ℤ) else 2)",
+    "proposed_lean_context": "import QuarticQuery\nopen QuarticQuery\nopen scoped BigOperators",
+    "formal_status": "proposed_uncompiled",
+    "route_note": "Finite specialization of Forrelation.walshZ, which uses Statement.walshSign. Exact integer values are recomputed by checks/check_return.py; the proposed Lean signature is not elaborated."
+  },
+  {
+    "id": "reader-tournament-first-pivot",
+    "statement": "With four candidates of initial weight one, total weight is 4. Conditional on first pivot 2, the updated vector is (a_02,a_12,0,a_32) for any comparison satisfying a_ii=0.",
+    "why_needed": "The film displays one symbolic update without inventing the actual comparison probabilities of the construction.",
+    "depends_on": [
+      "eq-10",
+      "eq-12"
+    ],
+    "proposed_lean": "theorem reader_tournament_first_pivot\n    (a : Fin 4 → Fin 4 → ℝ) (ha : Tournament.IsComparison a) :\n  (∑ i : Fin 4, (1 : ℝ)) = 4 ∧\n  (fun i : Fin 4 => (1 : ℝ) * a i 2) =\n    (fun i : Fin 4 => if i = 2 then 0 else a i 2)",
+    "proposed_lean_context": "import QuarticQuery\nopen QuarticQuery\nopen scoped BigOperators",
+    "formal_status": "proposed_uncompiled",
+    "route_note": "Uses the weight-update formula and ha.self_zero only. This is a symbolic conditional calculation, not an observed quantum run or a numerical specification of a."
+  }
+]

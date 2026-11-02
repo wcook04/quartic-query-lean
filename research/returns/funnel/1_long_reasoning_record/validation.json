@@ -1,0 +1,63 @@
+{
+  "status": "passed",
+  "scope": "Artifact structure, source names and hashes; not a Lean build or proof checker",
+  "required_files": [
+    "reasoning-record.md",
+    "correspondence.json",
+    "NEW_STATEMENTS.json",
+    "STATEMENT_CHANGES.json",
+    "LEAN_GAPS.md",
+    "references.bib",
+    "review_notes.md"
+  ],
+  "original_corpus_rows": 121,
+  "original_rows_mapped_to_mathematical_passages": 121,
+  "new_statement_rows": 46,
+  "mathematical_statement_changes": 4,
+  "passage_anchors": 229,
+  "correspondence_entries": 229,
+  "tagged_math_displays": 127,
+  "unregistered_math_displays": 0,
+  "unknown_correspondence_declarations": [],
+  "unknown_dependency_ids": [],
+  "citation_entries_parsed_by_pandoc": 24,
+  "manifest_hashes_verified": 157,
+  "manuscript_words_approximate": 41870,
+  "main_proof_words_approximate": 29925,
+  "latex_syntax_check": {
+    "status": "passed",
+    "reader": "Pandoc markdown+tex_math_single_backslash",
+    "compiler": "XeLaTeX",
+    "exit_code": 0,
+    "inline_expressions": 1875,
+    "display_expressions": 127,
+    "total_expressions": 2002,
+    "checked_expressions_match_final_manuscript": true,
+    "scope": "Syntax only; not mathematical proof verification or Lean elaboration"
+  },
+  "file_sha256": {
+    "LEAN_GAPS.md": "5e17659decd217a381f5dd5348f26161766e4b153133ea4fe75b327246a9c8bf",
+    "NEW_STATEMENTS.json": "d2964002bad5c1626a1e2c72ac301b7615373ad2576f9604d561dd10c7fe0ccd",
+    "STATEMENT_CHANGES.json": "7550e71faa407b9b700d38b9ad0b82786cac34d9772ea24bb46c63c121465155",
+    "correspondence.json": "cf429a5555eab691a801ecd362c37329b3c0449f0da4dab437ab5a8b9be88761",
+    "reasoning-record.md": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+    "references.bib": "3d676076acedfb08f40cee1a8b185df4657ebd11d36d7d8c9a74189b08fc482f",
+    "review_notes.md": "b84751f817c6f9661047fbb3b4fbb16709e0efeebe8d382c9cd6c639f8e7d20b",
+    "source_read_receipt.json": "d4bf142f438a2b2c5964f9317edcbb3a0d9264e69ae8b3cda422ce59fa57732c"
+  },
+  "exact_original_catalogue_texts_verified": 121,
+  "literal_correspondence_locators_verified": 229,
+  "new_statement_ids_mapped": 46,
+  "internal_anchor_links_resolve": true,
+  "obsolete_component_file_references_in_gaps": [],
+  "independent_final_structural_review": "Passed; locator and standalone-reference presentation issues corrected.",
+  "independent_proposed_signature_review": {
+    "rows": 46,
+    "scope": "Static source and section-context comparison only",
+    "result": "No remaining clear binder or unavailable-vocabulary defect; Forrelation import context corrected.",
+    "elaborated_or_compiled": false
+  },
+  "production_lean_files_with_documented_full_reading": 54,
+  "production_lean_files_without_documented_full_reading": [],
+  "exemplar_markdown_files_read_in_full_for_form": 3
+}

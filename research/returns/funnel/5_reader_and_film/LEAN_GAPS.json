@@ -1,0 +1,1072 @@
+{
+  "scope": "Every displayed corpus claim in the levels, films, map and fidelity view with missing, partial, unassessed or alternative Lean correspondence; plus declaration-selection distinctions. Stronger same-route suppliers are not missing proofs.",
+  "source_snapshot": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+  "reading_order": [
+    {
+      "id": "def-column-layout",
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "outside"
+      },
+      "reason": "The reviewed ties prove the pointer bijection. The complete layout is the source type BitLoc, which has no direct reviewed tie in this row.",
+      "declarations": [
+        "QuarticQuery.pointerEquiv_bijective",
+        "QuarticQuery.existsUnique_pointer"
+      ]
+    },
+    {
+      "id": "def-winner",
+      "evidence": {
+        "formal_statement": "none",
+        "formal_origin": "none",
+        "build": "not_run",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "none"
+      },
+      "reason": "No reviewed tie on the row. The exact definition WinsAt and the proof winsAt_iff_paperWinsAt can be inspected separately.",
+      "declarations": []
+    },
+    {
+      "id": "cor-unique-winner",
+      "evidence": {
+        "formal_statement": "none",
+        "formal_origin": "none",
+        "build": "not_run",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "none"
+      },
+      "reason": "No reviewed row tie; Construction/Winner.lean contains winsAt_column_unique and winsAt_unique.",
+      "declarations": []
+    },
+    {
+      "id": "eq-1",
+      "evidence": {
+        "formal_statement": "none",
+        "formal_origin": "none",
+        "build": "not_run",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "none"
+      },
+      "reason": "No reviewed Lean tie is recorded for this row. It remains a paper statement in this explanation; source absence is not inferred from missing metadata.",
+      "declarations": []
+    },
+    {
+      "id": "thm-1.1",
+      "evidence": {
+        "formal_statement": "exact",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "compared",
+        "conditional": false,
+        "route": "alternative",
+        "reach": "reached"
+      },
+      "reason": "The full unconditional source theorem supplies the headline. Its Forrelation and universal-upper-bound ingredients use alternative routes. The short alphaTot equality supplies only one clause. The older theorem_1_1 still has a BansalSinhaLower hypothesis despite its empty metadata array.",
+      "declarations": [
+        "QuarticQuery.alphaTot_eq_four_of_bansalSinha",
+        "QuarticQuery.theorem_1_1",
+        "QuarticQuery.alphaTot_eq_four_of",
+        "QuarticQuery.alphaTot_eq_four",
+        "QuarticQuery.alphaTot_eq_four_unconditional",
+        "QuarticQuery.theorem_1_1_unconditional"
+      ]
+    },
+    {
+      "id": "eq-3",
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "reached"
+      },
+      "reason": "The statistic, delta and normalized matrix representation have separate declarations. No single tied declaration states every clause of this ledger row.",
+      "declarations": [
+        "QuarticQuery.Forrelation.u",
+        "QuarticQuery.Forrelation.signDiag",
+        "QuarticQuery.Forrelation.alternate",
+        "QuarticQuery.Forrelation.Phi_eq_matrix_product",
+        "QuarticQuery.Forrelation.Phi_sq_le_one",
+        "QuarticQuery.Forrelation.abs_Phi_le_one",
+        "QuarticQuery.Forrelation.delta",
+        "QuarticQuery.Forrelation.H",
+        "QuarticQuery.Forrelation.H_mul_H",
+        "QuarticQuery.Forrelation.H_mem_orthogonalGroup"
+      ]
+    },
+    {
+      "id": "eq-4",
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "reached"
+      },
+      "reason": "P_eq_cases pins all promise branches; cases_disjoint supplies disjointness. Individual ties remain partial. Large negative correlation is outside the promise.",
+      "declarations": [
+        "QuarticQuery.Forrelation.cases_disjoint",
+        "QuarticQuery.Forrelation.P_eq_some_true_iff",
+        "QuarticQuery.Forrelation.P_eq_some_false_iff",
+        "QuarticQuery.Forrelation.P_eq_none_iff",
+        "QuarticQuery.Forrelation.P_eq_cases",
+        "QuarticQuery.Forrelation.census_true",
+        "QuarticQuery.Forrelation.census_false",
+        "QuarticQuery.Forrelation.census_none",
+        "QuarticQuery.Forrelation.promise_nonempty_two_one",
+        "QuarticQuery.Forrelation.Phi_negativeWitness",
+        "QuarticQuery.Forrelation.P_negativeWitness"
+      ]
+    },
+    {
+      "id": "lem-2.1.ii",
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "reached"
+      },
+      "reason": "QLe (P k t) (2 (2^(10k+5) k)) for every t: the constant-query quantum bound at error 1/3, on the real oracle.",
+      "declarations": [
+        "QuarticQuery.Forrelation.binomTail_small",
+        "QuarticQuery.Forrelation.binomTail_large",
+        "QuarticQuery.Forrelation.repetitions",
+        "QuarticQuery.Forrelation.repetitions_le",
+        "QuarticQuery.Forrelation.threshold_correct",
+        "QuarticQuery.Forrelation.threshold_correct_third",
+        "QuarticQuery.Upper.Samples.count",
+        "QuarticQuery.Upper.Samples.threshold",
+        "QuarticQuery.Upper.Samples.pi",
+        "QuarticQuery.Upper.hGate",
+        "QuarticQuery.Upper.forr_samples",
+        "QuarticQuery.Upper.decode_samples",
+        "QuarticQuery.Upper.decodeProb_correct",
+        "QuarticQuery.Upper.P_runs",
+        "QuarticQuery.Upper.P_QLe"
+      ]
+    },
+    {
+      "id": "lem-2.2.i",
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "reached"
+      },
+      "reason": "Test indexing, exact evaluation, depth, and winner equivalence are proved in separate declarations. Keep the per-test adaptive query bound distinct from the size of its possible support.",
+      "declarations": [
+        "QuarticQuery.TestIndex",
+        "QuarticQuery.localTest",
+        "QuarticQuery.localTestTree",
+        "QuarticQuery.localTestTree_eval",
+        "QuarticQuery.localTestTree_depth_le",
+        "QuarticQuery.winsAt_iff_localTests",
+        "QuarticQuery.exists_failing_localTest",
+        "QuarticQuery.winsAt_iff_outputs"
+      ]
+    },
+    {
+      "id": "cor-local-dichotomy",
+      "evidence": {
+        "formal_statement": "none",
+        "formal_origin": "none",
+        "build": "not_run",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "none"
+      },
+      "reason": "No reviewed row tie; exists_failing_localTest and winner/test equivalence are candidate source suppliers.",
+      "declarations": []
+    },
+    {
+      "id": "claim-winner-dominates",
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "reached"
+      },
+      "reason": "The deterministic pointer invariants and cmpProb_winner are partial suppliers. The quantitative bound also uses the winner address-decoding probability, combined in Upper/Verify.lean.",
+      "declarations": [
+        "QuarticQuery.winner_no_incoming_zero",
+        "QuarticQuery.winner_finds_zero",
+        "QuarticQuery.Upper.cmpProb_winner"
+      ]
+    },
+    {
+      "id": "eq-10",
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "reached"
+      },
+      "reason": "cmpProb is tied, but the equation theorem cmpProb_isComparison is not tied to this row. The full source type is available for inspection.",
+      "declarations": [
+        "QuarticQuery.Upper.cmpProb"
+      ]
+    },
+    {
+      "id": "eq-13",
+      "evidence": {
+        "formal_statement": "none",
+        "formal_origin": "none",
+        "build": "not_run",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "none"
+      },
+      "reason": "The row has no reviewed tie although Tournament.expected_weight_eq and expected_weight_le_half are present and the latter is used in the comparison controls. This is an evidence-mapping gap, not source-proof absence.",
+      "declarations": []
+    },
+    {
+      "id": "lem-3.1",
+      "evidence": {
+        "formal_statement": "exact",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "same",
+        "reach": "reached"
+      },
+      "reason": "An exact full-state theorem is available but outside headline reach. The reached sampler theorem is partial relative to that state-level row and proves the needed exact label law and cap. Do not combine reach and exactness across these ties.",
+      "declarations": [
+        "QuarticQuery.Amplification.pow_trialCount_le",
+        "QuarticQuery.Amplification.callCap_amplify_le",
+        "QuarticQuery.Amplification.Preparation.nine_fortieths_le",
+        "QuarticQuery.Amplification.Preparation.trialFail_of_prob_zero",
+        "QuarticQuery.Amplification.Proc.successProb",
+        "QuarticQuery.Amplification.Proc.failProb",
+        "QuarticQuery.Amplification.Proc.conditional",
+        "QuarticQuery.Amplification.expect_attempts_of_phase",
+        "QuarticQuery.Amplification.bounded_amplification",
+        "QuarticQuery.Amplification.IndexRegister",
+        "QuarticQuery.Amplification.IndexRegister.norm_read_goodState_sq",
+        "QuarticQuery.Amplification.IndexRegister.norm_read_normalised_iterate_sq",
+        "QuarticQuery.Amplification.IndexRegister.index_law_of_amplified",
+        "QuarticQuery.Amplification.Preparation",
+        "QuarticQuery.Amplification.calls_groverCircuit",
+        "QuarticQuery.Amplification.Preparation.prob",
+        "QuarticQuery.Amplification.Preparation.norm_sq_split",
+        "QuarticQuery.Amplification.Proc.callCap",
+        "QuarticQuery.Amplification.Proc.expect",
+        "QuarticQuery.Amplification.amplify",
+        "QuarticQuery.Amplification.callCap_attempts",
+        "QuarticQuery.Upper.prepOf",
+        "QuarticQuery.Upper.lawOf_iterate_some",
+        "QuarticQuery.Upper.Samples.attempts",
+        "QuarticQuery.Upper.Samples.amplify",
+        "QuarticQuery.Upper.trialCount_le",
+        "QuarticQuery.Upper.iterationBound_inv_le"
+      ]
+    },
+    {
+      "id": "prop-3.2",
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "reached"
+      },
+      "reason": "The formal quantum program consumes a list through its verifier instead of returning it. Its guarantee includes the verifier error; the paper row asserts list membership. The ideal-process theorem and cost statements cover other parts.",
+      "declarations": [
+        "QuarticQuery.Tournament.ideal_tournament",
+        "QuarticQuery.Upper.tval_le",
+        "QuarticQuery.Upper.tournament_runs"
+      ]
+    },
+    {
+      "id": "claim-verify",
+      "evidence": {
+        "formal_statement": "none",
+        "formal_origin": "none",
+        "build": "not_run",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "none"
+      },
+      "reason": "No tie on this row. Upper.search_runs and the verification lemmas supply relevant source evidence, currently tied elsewhere. Do not silently promote this row.",
+      "declarations": []
+    },
+    {
+      "id": "lem-2.1.i",
+      "evidence": {
+        "formal_statement": "exact",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "compared",
+        "conditional": false,
+        "route": "alternative",
+        "reach": "reached"
+      },
+      "reason": "Discharged unconditionally by ForrelationLower.bansalSinhaLower. This is a separate fixed-k proof of the weaker bound needed here, not a formal reproduction of the cited Bansal–Sinha proof. The source locator in the supplied tie is wrong.",
+      "declarations": [
+        "QuarticQuery.ForrelationLower.bansalSinhaLower"
+      ]
+    },
+    {
+      "id": "def-dummy",
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "reached"
+      },
+      "reason": "The sample-point definition and a product-weight identity are tied, while the full distribution appears in the coupling context.",
+      "declarations": [
+        "QuarticQuery.avg_resample",
+        "QuarticQuery.dummy"
+      ]
+    },
+    {
+      "id": "def-planted",
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "reached"
+      },
+      "reason": "The sample-point definition and individual consequences supply parts of the distributional row; retain independent uniform planting and support hypotheses.",
+      "declarations": [
+        "QuarticQuery.trueAddr",
+        "QuarticQuery.planted"
+      ]
+    },
+    {
+      "id": "claim-Y-values",
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "reached"
+      },
+      "reason": "Two separate declarations establish rejection of the dummy input and acceptance of the planted input on the hard distribution support.",
+      "declarations": [
+        "QuarticQuery.addressedF_dummy",
+        "QuarticQuery.addressedF_planted"
+      ]
+    },
+    {
+      "id": "eq-18",
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "reached"
+      },
+      "reason": "Run by run, one-sided: planted minus dummy output is at most found zero + heavy + reachedCell. No absolute value, which the proof never needs, and the cell term is already split.",
+      "declarations": [
+        "QuarticQuery.QueryTree.exists_mem_path_ne",
+        "QuarticQuery.eq_of_dummy_ne_planted",
+        "QuarticQuery.output_gap_le"
+      ]
+    },
+    {
+      "id": "eq-19",
+      "evidence": {
+        "formal_statement": "stronger",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": true,
+        "route": "alternative",
+        "reach": "reached"
+      },
+      "reason": "The source proves a stronger 2G/m² erased-zero bound by another argument. It does not define the paper random variable Z or prove the displayed EZ/m identity. Keep the inequality and missing identity separate.",
+      "declarations": [
+        "QuarticQuery.zero_search_sum",
+        "QuarticQuery.foundZero",
+        "QuarticQuery.column_zero_bound",
+        "QuarticQuery.avg_foundZero_le",
+        "QuarticQuery.sum_xQueries_le",
+        "QuarticQuery.avg_foundZero_I_le"
+      ]
+    },
+    {
+      "id": "lem-4.1",
+      "evidence": {
+        "formal_statement": "exact",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "alternative",
+        "reach": "reached"
+      },
+      "reason": "The full randomized/auxiliary-information statement has exact alternative-route ties. The headline uses a deterministic specialization. The formal proof inducts over subdistributions rather than using the paper supermartingale.",
+      "declarations": [
+        "QuarticQuery.direct_product",
+        "QuarticQuery.direct_product_average",
+        "QuarticQuery.direct_product_randomized",
+        "QuarticQuery.direct_product_of_depth_le"
+      ]
+    },
+    {
+      "id": "eq-21",
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "reached"
+      },
+      "reason": "The joint event over the whole run. The per-time probability of the row is not stated; avg_reachedCell_le bounds the union directly.",
+      "declarations": [
+        "QuarticQuery.simTree",
+        "QuarticQuery.depth_simTree_le",
+        "QuarticQuery.eval_simTree",
+        "QuarticQuery.reachedCell"
+      ]
+    },
+    {
+      "id": "eq-22",
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "reached"
+      },
+      "reason": "Joint event only, G rho, pointwise over U and with no conditioning on nonheavy. The heavy term G/(mL) joins in tree_gap_le, so the row as stated is not one declaration.",
+      "declarations": [
+        "QuarticQuery.avg_reachedCell_le"
+      ]
+    },
+    {
+      "id": "eq-23",
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "reached"
+      },
+      "reason": "The tied tree theorem is one-sided, uses 2G/m² and an abstract rho, and does not alone state the paper absolute gap with rho=(2/3)^r. Its application supplies the needed impossibility argument.",
+      "declarations": [
+        "QuarticQuery.tree_gap_le"
+      ]
+    },
+    {
+      "id": "cor-R-omega",
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "reached"
+      },
+      "reason": "The recorded arithmetic theorem converts G<r into the power bound; it does not itself mention R or F. The family construction supplies the substitution.",
+      "declarations": [
+        "QuarticQuery.rpow_le_of_Gvalue_lt"
+      ]
+    },
+    {
+      "id": "eq-2",
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "reached"
+      },
+      "reason": "The tied declarations split same-circuit size, query bounds, floor form and asymptotic form. The current row stays partial even though the full unconditional headline assembles the family. rpow_le_of_Gvalue_lt supplies the floor-to-Omega conversion at an enlarged threshold.",
+      "declarations": [
+        "QuarticQuery.family_bounds",
+        "QuarticQuery.familyBounds_of_bansalSinha",
+        "QuarticQuery.familyBoundsAt_of_parts",
+        "QuarticQuery.Upper.familyBoundsAt_of_lower"
+      ]
+    },
+    {
+      "id": "claim-exponent-ratio",
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "reached"
+      },
+      "reason": "The choice of k only.",
+      "declarations": [
+        "QuarticQuery.eventually_gt_rpow",
+        "QuarticQuery.exists_nat_exponent"
+      ]
+    },
+    {
+      "id": "thm-A.1",
+      "evidence": {
+        "formal_statement": "exact",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "alternative",
+        "reach": "reached"
+      },
+      "reason": "The exact endpoint is reached through complexitylib, not by reproducing the paper Appendix A proof. Reading Appendix A does not make its intermediate lemmas checked.",
+      "declarations": [
+        "QuarticQuery.D_le_of_QLe",
+        "QuarticQuery.D_le_Q_pow_four",
+        "QuarticQuery.R_le_D_le_one_add_Q_pow_four",
+        "QuarticQuery.universalPower_four"
+      ]
+    },
+    {
+      "id": "def-query-oracle",
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "reached"
+      },
+      "reason": "The listed bridge lemmas and bitOracleL cover different properties. The action is in the public bitOracle definition and must be displayed with the model.",
+      "declarations": [
+        "QuarticQuery.hadamardL",
+        "QuarticQuery.hadamardL_hadamardL",
+        "QuarticQuery.norm_hadamardL",
+        "QuarticQuery.hadamard",
+        "QuarticQuery.hadamard_hadamard",
+        "QuarticQuery.hadamard_phaseOracle_hadamard",
+        "QuarticQuery.hadamard_bitOracle_hadamard",
+        "QuarticQuery.bitRun",
+        "QuarticQuery.phaseGates",
+        "QuarticQuery.run_phaseGates",
+        "QuarticQuery.bitOracleL",
+        "QuarticQuery.bitOracle_add",
+        "QuarticQuery.bitOracle_smul",
+        "QuarticQuery.norm_bitOracle",
+        "QuarticQuery.bitOracle_bitOracle"
+      ]
+    },
+    {
+      "id": "lem-2.2.ii",
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "reached"
+      },
+      "reason": "The coherent test sampler and failing-test search are partial suppliers. Some tied declarations concern later verification rather than the entire coherent-access sentence.",
+      "declarations": [
+        "QuarticQuery.Upper.test_samples",
+        "QuarticQuery.Upper.search_runs",
+        "QuarticQuery.Upper.verifyProb"
+      ]
+    },
+    {
+      "id": "claim-bs-to-L",
+      "evidence": {
+        "formal_statement": "exact",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "compared",
+        "conditional": false,
+        "route": "alternative",
+        "reach": "reached"
+      },
+      "reason": "Disputed exact tie: bansalSinhaLower proves the endpoint L<R(P), not this numerical comparison. The active Lean route bypasses this step; withhold an automatic checked badge. See AUDIT-01 and AUDIT-02.",
+      "declarations": [
+        "QuarticQuery.ForrelationLower.bansalSinhaLower"
+      ]
+    },
+    {
+      "id": "eq-7",
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "outside"
+      },
+      "reason": "The recorded theorem proves address uniqueness; the true-address definition itself has no complete reviewed tie here.",
+      "declarations": [
+        "QuarticQuery.winsAt_address_unique"
+      ]
+    },
+    {
+      "id": "claim-success-prob",
+      "evidence": {
+        "formal_statement": "none",
+        "formal_origin": "none",
+        "build": "not_run",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "none"
+      },
+      "reason": "No row tie is recorded. Upper.stageLaw_some and stageLaw_none are source candidates for the successful-label and failure masses; W>0 is required for the conditional law.",
+      "declarations": []
+    },
+    {
+      "id": "def-simulator",
+      "evidence": {
+        "formal_statement": "none",
+        "formal_origin": "none",
+        "build": "not_run",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "none"
+      },
+      "reason": "No reviewed Lean tie is recorded for this row. It remains a paper statement in this explanation; source absence is not inferred from missing metadata.",
+      "declarations": []
+    },
+    {
+      "id": "eq-8",
+      "evidence": {
+        "formal_statement": "none",
+        "formal_origin": "none",
+        "build": "not_run",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "none"
+      },
+      "reason": "No reviewed Lean tie is recorded for this row. It remains a paper statement in this explanation; source absence is not inferred from missing metadata.",
+      "declarations": []
+    },
+    {
+      "id": "def-comparison",
+      "evidence": {
+        "formal_statement": "none",
+        "formal_origin": "none",
+        "build": "not_run",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "none"
+      },
+      "reason": "No reviewed tie is recorded on this row. Inspect QuarticQuery.Upper.cmpProb and its surrounding hypotheses as a candidate correspondence; the raw evidence remains unchanged.",
+      "declarations": []
+    },
+    {
+      "id": "claim-comparison-state",
+      "evidence": {
+        "formal_statement": "none",
+        "formal_origin": "none",
+        "build": "not_run",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "none"
+      },
+      "reason": "No reviewed Lean tie is recorded for this row. It remains a paper statement in this explanation; source absence is not inferred from missing metadata.",
+      "declarations": []
+    },
+    {
+      "id": "eq-15",
+      "evidence": {
+        "formal_statement": "none",
+        "formal_origin": "none",
+        "build": "not_run",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "none"
+      },
+      "reason": "No reviewed Lean tie is recorded for this row. It remains a paper statement in this explanation; source absence is not inferred from missing metadata.",
+      "declarations": []
+    },
+    {
+      "id": "claim-error",
+      "evidence": {
+        "formal_statement": "none",
+        "formal_origin": "none",
+        "build": "not_run",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "none"
+      },
+      "reason": "No reviewed Lean tie is recorded for this row. It remains a paper statement in this explanation; source absence is not inferred from missing metadata.",
+      "declarations": []
+    },
+    {
+      "id": "def-walsh-sign",
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "reached"
+      },
+      "reason": "W W^T = m I over the reals.",
+      "declarations": [
+        "QuarticQuery.Forrelation.walshN",
+        "QuarticQuery.Forrelation.sum_walshN_mul",
+        "QuarticQuery.Forrelation.walshZ",
+        "QuarticQuery.Forrelation.W",
+        "QuarticQuery.Forrelation.walshZ_mul_transpose",
+        "QuarticQuery.Forrelation.W_mul_transpose"
+      ]
+    },
+    {
+      "id": "claim-N-phi",
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "reached"
+      },
+      "reason": "Gives Phi = N/M as the matrix product; integrality is by type, but W's +-1 entries and M>0 are stated elsewhere.",
+      "declarations": [
+        "QuarticQuery.Forrelation.layers",
+        "QuarticQuery.Forrelation.walkN",
+        "QuarticQuery.Forrelation.numerator_eq_walk",
+        "QuarticQuery.Forrelation.Phi_eq_matrix_product"
+      ]
+    },
+    {
+      "id": "claim-integer-tests",
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "reached"
+      },
+      "reason": "Second iff of the row.",
+      "declarations": [
+        "QuarticQuery.Forrelation.P_tests",
+        "QuarticQuery.Forrelation.forrCore_spec",
+        "QuarticQuery.Forrelation.delta_le_Phi_iff",
+        "QuarticQuery.Forrelation.abs_Phi_le_iff"
+      ]
+    },
+    {
+      "id": "claim-proj-prob",
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "reached"
+      },
+      "reason": "The real projection identity and an executable sampler have separate ties; the source compiler uses a constant-factor bit-query overhead. The film states the probability and fixed-k cheapness without an exact physical query count.",
+      "declarations": [
+        "QuarticQuery.Forrelation.successProb",
+        "QuarticQuery.Forrelation.successProb_eq",
+        "QuarticQuery.Forrelation.failureProb_eq",
+        "QuarticQuery.Forrelation.successProb_of_true",
+        "QuarticQuery.Forrelation.successProb_of_false",
+        "QuarticQuery.Upper.forr_samples"
+      ]
+    },
+    {
+      "id": "eq-6",
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "reached"
+      },
+      "reason": "logb_mValue establishes log₂m=2t; Fkm uses r=40t directly. The ceiling formula is not separately tied to this row.",
+      "declarations": [
+        "QuarticQuery.logb_mValue"
+      ]
+    },
+    {
+      "id": "def-transcript",
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "outside"
+      },
+      "reason": "Uniqueness and existence are tied, while the transcript representation and gate rules are public definitions. They are distinct correspondence obligations.",
+      "declarations": [
+        "QuarticQuery.GateConsistent.unique",
+        "QuarticQuery.existsUnique_gateConsistent"
+      ]
+    },
+    {
+      "id": "def-K",
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "reached"
+      },
+      "reason": "card_testIndex proves the exact count. The big-O estimate in the ledger row is not in that declaration.",
+      "declarations": [
+        "QuarticQuery.card_testIndex"
+      ]
+    },
+    {
+      "id": "def-decode",
+      "evidence": {
+        "formal_statement": "none",
+        "formal_origin": "none",
+        "build": "not_run",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "none"
+      },
+      "reason": "No reviewed tie is recorded on this row. Inspect QuarticQuery.Upper.decode_samples and its surrounding hypotheses as a candidate correspondence; the raw evidence remains unchanged.",
+      "declarations": []
+    },
+    {
+      "id": "claim-decode-cost",
+      "evidence": {
+        "formal_statement": "none",
+        "formal_origin": "none",
+        "build": "not_run",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "none"
+      },
+      "reason": "No reviewed Lean tie is recorded for this row. It remains a paper statement in this explanation; source absence is not inferred from missing metadata.",
+      "declarations": []
+    },
+    {
+      "id": "eq-11",
+      "evidence": {
+        "formal_statement": "none",
+        "formal_origin": "none",
+        "build": "not_run",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "none"
+      },
+      "reason": "No reviewed Lean tie is recorded for this row. It remains a paper statement in this explanation; source absence is not inferred from missing metadata.",
+      "declarations": []
+    },
+    {
+      "id": "def-T-eps",
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "reached"
+      },
+      "reason": "Numeric consequence used in Section 3.3.",
+      "declarations": [
+        "QuarticQuery.Tournament.Tval_mul_epsval",
+        "QuarticQuery.Tournament.miss_bound_le",
+        "QuarticQuery.Tournament.total_error_lt"
+      ]
+    },
+    {
+      "id": "claim-weight-lb",
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "reached"
+      },
+      "reason": "Weight bounds at exponent T, where the row has t. W>0 until selected is half_lt_total, which carries no tag.",
+      "declarations": [
+        "QuarticQuery.Tournament.dominant_weight_lb"
+      ]
+    },
+    {
+      "id": "construct-sampler",
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "reached"
+      },
+      "reason": "The successful-label law and coherent construction are tied separately. Amplification and the stopping rule enter in tournament_runs.",
+      "declarations": [
+        "QuarticQuery.Upper.stageLaw",
+        "QuarticQuery.Upper.stageLaw_some",
+        "QuarticQuery.Upper.stage_samples"
+      ]
+    },
+    {
+      "id": "claim-coupling",
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "reached"
+      },
+      "reason": "The reached statement bounds acceptance through a verifier and includes its factor, rather than directly asserting list membership.",
+      "declarations": [
+        "QuarticQuery.Upper.tval_lower"
+      ]
+    },
+    {
+      "id": "claim-tournament-cost",
+      "evidence": {
+        "formal_statement": "partial",
+        "formal_origin": "ours",
+        "build": "built_at_pin",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "reached"
+      },
+      "reason": "The tied statements supply a concrete cap and a coarse polylogarithmic estimate, not every symbolic cost clause of the paper row.",
+      "declarations": [
+        "QuarticQuery.Upper.budget_le",
+        "QuarticQuery.Upper.vall_runs",
+        "QuarticQuery.Upper.tournament_runs"
+      ]
+    },
+    {
+      "id": "def-verify",
+      "evidence": {
+        "formal_statement": "none",
+        "formal_origin": "none",
+        "build": "not_run",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "none"
+      },
+      "reason": "No reviewed tie is recorded on this row. Inspect QuarticQuery.Upper.verifyProb and its surrounding hypotheses as a candidate correspondence; the raw evidence remains unchanged.",
+      "declarations": []
+    },
+    {
+      "id": "eq-5",
+      "evidence": {
+        "formal_statement": "none",
+        "formal_origin": "none",
+        "build": "not_run",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "none"
+      },
+      "reason": "No reviewed tie is recorded on this row. Inspect QuarticQuery.Lvalue and its surrounding hypotheses as a candidate correspondence; the raw evidence remains unchanged.",
+      "declarations": []
+    },
+    {
+      "id": "def-heavy",
+      "evidence": {
+        "formal_statement": "none",
+        "formal_origin": "none",
+        "build": "not_run",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "none"
+      },
+      "reason": "No reviewed tie is recorded on this row. Inspect QuarticQuery.aQueries and the inequality L < aQueries I l in LowerBound/Planted/Heavy.lean and its surrounding hypotheses as a candidate correspondence; the raw evidence remains unchanged.",
+      "declarations": []
+    },
+    {
+      "id": "eq-17",
+      "evidence": {
+        "formal_statement": "none",
+        "formal_origin": "none",
+        "build": "not_run",
+        "comparator": "not_run",
+        "conditional": false,
+        "route": "none",
+        "reach": "none"
+      },
+      "reason": "No reviewed tie is recorded on this row. Inspect QuarticQuery.Gvalue and its surrounding hypotheses as a candidate correspondence; the raw evidence remains unchanged.",
+      "declarations": []
+    }
+  ],
+  "new_statement_ids": [
+    "reader-forrelation-yes",
+    "reader-forrelation-zero",
+    "reader-example-parameters",
+    "reader-example-instance",
+    "reader-walsh-example",
+    "reader-tournament-first-pivot"
+  ]
+}

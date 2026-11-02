@@ -1,0 +1,30 @@
+[
+  {
+    "id": "eq-1",
+    "old": "alpha_tot = inf{alpha >= 0 : exists C_alpha < infinity such that for every n >= 1 and every total f:{0,1}^n->{0,1}, R(f) <= C_alpha (1+Q(f))^alpha}.",
+    "new": "alpha_tot = inf{alpha >= 0 : exists C_alpha > 0 such that for every n >= 1 and every total f:{0,1}^n->{0,1}, R(f) <= C_alpha (1+Q(f))^alpha}.",
+    "relation": "equivalent",
+    "reason": "Any finite real witness can be replaced by max(C_alpha,1); the enlarged positive witness preserves the upper bound because its positive base power is nonnegative. This matches QuarticQuery.UniversalPower."
+  },
+  {
+    "id": "claim-bs-to-L",
+    "old": "For fixed k: for large m, c k^{-29} (m/log(km))^{1-1/k} > floor(m^{1-1/k}/(log_2 m)^2).",
+    "new": "For every fixed integer k>=2 and c>0, for all sufficiently large powers of four m, c*k^(-29)*(m/log_2(km))^(1-1/k) > m^(1-1/k)/(log_2 m)^2 >= floor(m^(1-1/k)/(log_2 m)^2).",
+    "relation": "corrected",
+    "reason": "Makes the lower-bound constant positivity and fixed-parameter quantifiers explicit. The mathematical comparison is proved in prose; the frozen endpoint theorem does not assert this comparison."
+  },
+  {
+    "id": "lem-2.1.ii",
+    "old": "For every 0<eta<1/2 there is a quantum algorithm using O_k(1+log(1/eta)) bit queries that outputs P_{k,m}(z) with error <=eta for every z in dom P. It has a coherent implementation retaining all workspace. On every input, promised or not, measuring its output register yields a bit.",
+    "new": "For k>=1,t>=0 and 0<eta<1/2, phase-kickback repetition gives a coherent promise algorithm using at most k*ceil(16*2^(10k)*ln(1/eta)) bit queries, with a bit output on every input and all workspace retained.",
+    "relation": "stronger",
+    "reason": "The new explanatory row states the explicit qk phase-kickback cap. Keep the original asymptotic corpus row unchanged; do not promote the proposed sharper cap to a compiled declaration."
+  },
+  {
+    "id": "lem-2.1.iii",
+    "old": "There is a Boolean circuit C=C_{k,m} of fan-in at most two and size S=S_{k,m}=O_k(m (log m)^2), counting non-input gates, with output bits d,b such that for every input z: d=1 iff P_{k,m} is defined at z, and d=1 implies b=P_{k,m}(z). The circuit computes these outputs exactly on every input.",
+    "new": "For all k>=1 and t>=1 there is an exact fan-in-at-most-two circuit on ForrelationCoord k t realizing P k t with at most 200(k+1)^2*mValue t*(log_2(mValue t))^2 noninput gates.",
+    "relation": "stronger",
+    "reason": "The new explanatory row records the source theorem for all k>=1,t>=1 with explicit 200(k+1)^2. Keep the original corpus row unchanged."
+  }
+]

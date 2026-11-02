@@ -1,0 +1,9 @@
+[
+  {
+    "id": "claim-tail",
+    "old": "G(2/3)^r <= (1/100) m^{2-20 log_2(3/2)} = o(1).",
+    "new": "Under the same parameters m=4^t, r=40t, 0<=G<=m^2/100, use (2/3)^r<=m^-10 and consequently G(2/3)^r<=1/(100m^8)=o(1). Equation(24) states the first inequality; its following paragraph applies the second.",
+    "relation": "weaker",
+    "reason": "The bound replaces the sharper exponent 2-20 log_2(3/2) by -8. It is sufficient for the same 6/100 discrepancy and the same lower-bound conclusion, and agrees with the elementary estimate proved in QuarticQuery.twoThirds_pow_le. The headline theorem and all fixed-k quantifiers are unchanged. The current corpus already corrects claim-numeric to6/100; no second correction to that row is proposed."
+  }
+]

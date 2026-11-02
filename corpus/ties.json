@@ -395,6 +395,16 @@
    "hypotheses": [],
    "note": "All of Theorem 1.1 with no hypothesis. The lower bound is in the floor form G < R, for t beyond an unspecified t0.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.theorem_1_1",
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [
+    "BansalSinhaLower"
+   ],
+   "note": "Conditional on BansalSinhaLower (binder h). Its family conjunct keeps the per-t implication 8<=t -> L<R(P) -> G<R(F) rather than an eventual bound. Superseded by theorem_1_1_unconditional.",
+   "reviewed_by": "ai:funnel-adjudication"
   }
  ],
  "cor-cubic-refuted": [
@@ -2286,7 +2296,7 @@
    "hypotheses": [
     "T.depth <= G"
    ],
-   "note": "2G/m^2, for each fixed A, against the row's 4G/m^2. Reviewed as a real improvement, not double counting, and the constant 2 is tight: scanning until the zero gives a ratio M/(M+1). The row's identity with EZ/m has no counterpart, since Z is never defined.",
+   "note": "2G/m^2, for each fixed A, against the row's 4G/m^2. Reviewed as a real improvement, not double counting. The coefficient 2 is sharp for the expected-cost inequality zero_search_sum: scanning until the zero gives a ratio M/(M+1). Scanning has worst-case cost M, so this does not show sharpness under a worst-case depth cap G. Only the inequality is formalised: the row's identity with EZ/m has no counterpart, since Z is never defined.",
    "reviewed_by": "ai:truth-auditor"
   },
   {
@@ -2781,20 +2791,13 @@
  "lem-2.1.i": [
   {
    "declaration": "QuarticQuery.ForrelationLower.bansalSinhaLower",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/ForrelationLower/Main.lean",
+   "line": 506,
    "relation": "exact",
    "route": "alternative",
    "hypotheses": [],
-   "note": "The preprint imports this from Bansal and Sinha. The Lean proof uses a different route; see docs/forrelation_lower_bound_review.md.",
-   "reviewed_by": "ai:truth-auditor"
-  }
- ],
- "claim-bs-to-L": [
-  {
-   "declaration": "QuarticQuery.ForrelationLower.bansalSinhaLower",
-   "relation": "exact",
-   "route": "alternative",
-   "hypotheses": [],
-   "note": "Proved directly, so no translation from the published bound is used.",
+   "note": "The preprint imports this from Bansal and Sinha. The Lean proof uses a different route; see docs/forrelation_lower_bound_review.md. The theorem is in ForrelationLower/Main.lean; Statement.lean holds only the proposition BansalSinhaLower it proves.",
    "reviewed_by": "ai:truth-auditor"
   }
  ]

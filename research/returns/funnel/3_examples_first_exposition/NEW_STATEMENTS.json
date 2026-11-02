@@ -1,0 +1,211 @@
+[
+  {
+    "id": "new-toy-circuit",
+    "statement": "E1 and the opening circuit: f(u,v) is v when u=0 and is undefined when u=1. The two stored gates d=not u and b=v realise exactly this partial function; truthful transcripts on 00 and 11 are 10 and 01.",
+    "why_needed": "Defines the small partial function and an actual circuit with two stored gates, so subsequent local tests apply to a complete input.",
+    "depends_on": [
+      "def-partial-query",
+      "def-transcript",
+      "def-eval-transcript"
+    ],
+    "proposed_lean": "theorem exposition_toy_circuit :\n  let f : QuarticQuery.PartialBool (Fin 2) := fun z =>\n    if z 0 then none else some (z 1)\n  let C : QuarticQuery.Circuit (Fin 2) :=\n    { size := 2\n      gate := fun g =>\n        { left := some (.inl (if g.val = 0 then 0 else 1))\n          right := none\n          table := fun a _ => if g.val = 0 then !a else a }\n      domainOut := 0\n      valueOut := 1 }\n  QuarticQuery.CircuitRealises C f ∧\n    ∀ z : QuarticQuery.BitInput (Fin 2),\n      QuarticQuery.circuitEval C z 0 = !(z 0) ∧\n      QuarticQuery.circuitEval C z 1 = z 1",
+    "route_note": "A proposed statement only; neither this signature nor a proof was elaborated in this session. The local lets specify f and C without adding unproved toy vocabulary. The existing circuit semantics supply the interpretation; examples.py checks all four inputs. Suggested imports: QuarticQuery.Construction.Transcript."
+  },
+  {
+    "id": "new-toy-board",
+    "statement": "The complete four-column board in Section 1 has X=(1111,0111,1011,1101), two address inputs 11 in column 2 and 00 elsewhere, and the displayed outgoing row targets and truthful transcripts repeated in every cell. It has 192 physical bits (E2), 15 local tests (E4), and exactly one winner, at column 1/address00. The winning pointers land on X2[1]=X3[2]=X4[3]=0 (E3). At addresses 00,01,10,11 the failure counts are respectively (0,1,1,2), (7,6,6,5), (3,4,4,5), (3,4,4,5) by column; hence the proposed-address counts are 0,5,3,3.",
+    "why_needed": "Makes the entire pedagogical input and its displayed tables a finite statement rather than treating a nearby general theorem as proof of these data.",
+    "depends_on": [
+      "new-toy-circuit",
+      "def-column-layout",
+      "def-win-at-address",
+      "def-K",
+      "lem-2.2.i",
+      "claim-winner-fidelity"
+    ],
+    "proposed_lean": "theorem exposition_toy_board :\n  let f : QuarticQuery.PartialBool (Fin 2) := fun z =>\n    if z 0 then none else some (z 1)\n  let C : QuarticQuery.Circuit (Fin 2) :=\n    { size := 2\n      gate := fun g =>\n        { left := some (.inl (if g.val = 0 then 0 else 1))\n          right := none\n          table := fun a _ => if g.val = 0 then !a else a }\n      domainOut := 0\n      valueOut := 1 }\n  let target : QuarticQuery.Column 2 → QuarticQuery.Column 2 → QuarticQuery.Column 2 :=\n    fun i j =>\n      if i.val = 0 then (if j.val = 1 then 0 else if j.val = 2 then 1 else 2)\n      else if i.val = 1 then (if j.val = 2 then 1 else 0)\n      else if i.val = 2 then (if j.val = 3 then 2 else if j.val = 1 then 1 else 0)\n      else 0\n  let x : QuarticQuery.BitInput (QuarticQuery.BitLoc 2 2 2 (Fin 2)) := fun q =>\n    match q with\n    | .inl (i, j) => if i.val = 0 then true else decide (j.val ≠ i.val - 1)\n    | .inr (.inl (i, _, _)) => decide (i.val = 1)\n    | .inr (.inr (.inl ⟨i, (_, j, b)⟩)) =>\n        (QuarticQuery.pointerEquiv 2).symm (target i j.val) b\n    | .inr (.inr (.inr (i, _, _, g))) =>\n        if g.val = 0 then decide (i.val ≠ 1) else decide (i.val = 1)\n  let s0 : QuarticQuery.Address 2 := fun _ => false\n  QuarticQuery.CircuitRealises C f ∧\n    Fintype.card (QuarticQuery.BitLoc 2 2 2 (Fin 2)) = 192 ∧\n    Fintype.card (QuarticQuery.TestIndex 2 2 2) = 15 ∧\n    (∀ i s, QuarticQuery.WinsAt f C 2 2 x i s ↔ i = 0 ∧ s = s0) ∧\n    (∀ (i : QuarticQuery.Column 2) (s : QuarticQuery.Address 2),\n      (Finset.univ.filter (fun q : QuarticQuery.TestIndex 2 2 2 =>\n        QuarticQuery.localTest C 2 2 x i s q = false)).card =\n      if i.val = 0 then (Finset.univ.filter (fun h : Fin 2 => s h = true)).card\n      else if i.val = 1 then 7 - (Finset.univ.filter (fun h : Fin 2 => s h = true)).card\n      else 3 + (Finset.univ.filter (fun h : Fin 2 => s h = true)).card)",
+    "route_note": "A proposed statement only; neither this signature nor a proof was elaborated in this session. Uses zero-based Fin labels, with printed row/column numbers increased by one. Pointer destinations use (pointerEquiv 2).symm. Its exact bit order must be related to the printed codebook by a coordinate reindexing; the separate new-toy-printed-encoding record checks the displayed words. The general local-test equivalence is winsAt_iff_localTests. The concrete instance is computed in examples.py, not already proved in Lean. Suggested imports: QuarticQuery.Construction.LocalTests."
+  },
+  {
+    "id": "new-toy-printed-encoding",
+    "statement": "With row codebook 1->00, 2->01, 3->10, 4->11 and pointers ordered by destination column followed by two (d,b) transcripts, the four repeated cell words are 0001101010, 0001000101, 0001101010, 0000001010. Every word has length10.",
+    "why_needed": "The manuscript prints every physical cell word. This records the chosen display encoding independently of the source's pointer-coordinate order.",
+    "depends_on": [
+      "new-toy-circuit",
+      "new-toy-board"
+    ],
+    "proposed_lean": "theorem exposition_printed_cell_words :\n  let code : Fin 4 → List Bool := fun j =>\n    if j.val = 0 then [false, false]\n    else if j.val = 1 then [false, true]\n    else if j.val = 2 then [true, false] else [true, true]\n  let targets : Fin 4 → List (Fin 4) := fun i =>\n    if i.val = 0 then [0, 1, 2]\n    else if i.val = 1 then [0, 1, 0]\n    else if i.val = 2 then [0, 1, 2] else [0, 0, 0]\n  let transcript : Fin 4 → List Bool := fun i =>\n    if i.val = 1 then [false, true] else [true, false]\n  let cell : Fin 4 → List Bool := fun i =>\n    (targets i).flatMap code ++ transcript i ++ transcript i\n  cell 0 = [false, false, false, true, true, false, true, false, true, false] ∧\n    cell 1 = [false, false, false, true, false, false, false, true, false, true] ∧\n    cell 2 = [false, false, false, true, true, false, true, false, true, false] ∧\n    cell 3 = [false, false, false, false, false, false, true, false, true, false] ∧\n    ∀ i, (cell i).length = 10",
+    "route_note": "A proposed statement only; neither this signature nor a proof was elaborated in this session. A finite list identity proves the printed encoding. The transport to pointerEquiv, defined in Statement.lean using finFunctionFinEquiv, is a separate unelaborated coordinate-order check. No arbitrary permutation of truth values or of destinations is assumed."
+  },
+  {
+    "id": "new-toy-cycle",
+    "statement": "On the full toy input, proposing the v-bit address and choosing the sole disqualifier or smaller index produces the exact matrix E5: [[0,1,1,1],[0,0,1,0],[0,0,0,1],[0,1,0,0]]. Thus 2 beats3, 3 beats4, 4 beats2, and1 beats every opponent, including the undefined-address column2.",
+    "why_needed": "Connects the finite physical input to the abstract cyclic comparator.",
+    "depends_on": [
+      "new-toy-board",
+      "def-comparison",
+      "eq-10",
+      "claim-winner-dominates"
+    ],
+    "proposed_lean": "theorem exposition_toy_comparison :\n  let f : QuarticQuery.PartialBool (Fin 2) := fun z =>\n    if z 0 then none else some (z 1)\n  let C : QuarticQuery.Circuit (Fin 2) :=\n    { size := 2\n      gate := fun g =>\n        { left := some (.inl (if g.val = 0 then 0 else 1))\n          right := none\n          table := fun a _ => if g.val = 0 then !a else a }\n      domainOut := 0\n      valueOut := 1 }\n  let target : QuarticQuery.Column 2 → QuarticQuery.Column 2 → QuarticQuery.Column 2 :=\n    fun i j =>\n      if i.val = 0 then (if j.val = 1 then 0 else if j.val = 2 then 1 else 2)\n      else if i.val = 1 then (if j.val = 2 then 1 else 0)\n      else if i.val = 2 then (if j.val = 3 then 2 else if j.val = 1 then 1 else 0)\n      else 0\n  let x : QuarticQuery.BitInput (QuarticQuery.BitLoc 2 2 2 (Fin 2)) := fun q =>\n    match q with\n    | .inl (i, j) => if i.val = 0 then true else decide (j.val ≠ i.val - 1)\n    | .inr (.inl (i, _, _)) => decide (i.val = 1)\n    | .inr (.inr (.inl ⟨i, (_, j, b)⟩)) =>\n        (QuarticQuery.pointerEquiv 2).symm (target i j.val) b\n    | .inr (.inr (.inr (i, _, _, g))) =>\n        if g.val = 0 then decide (i.val ≠ 1) else decide (i.val = 1)\n  let s0 : QuarticQuery.Address 2 := fun _ => false\n  let guess : QuarticQuery.BitInput (QuarticQuery.BitLoc 2 2 2 (Fin 2)) →\n      QuarticQuery.Column 2 → QuarticQuery.Address 2 := fun y i h =>\n    QuarticQuery.readA y i h (1 : Fin 2)\n  let disqualifies : QuarticQuery.BitInput (QuarticQuery.BitLoc 2 2 2 (Fin 2)) →\n      QuarticQuery.Column 2 → QuarticQuery.Column 2 → Bool := fun y i j =>\n    if h : j ≠ i then\n      !(QuarticQuery.readX y j (QuarticQuery.pointerEquiv 2\n        (QuarticQuery.readPointerBit y i (guess y i) ⟨j, h⟩)))\n    else false\n  let cmp : QuarticQuery.BitInput (QuarticQuery.BitLoc 2 2 2 (Fin 2)) →\n      QuarticQuery.Column 2 → QuarticQuery.Column 2 → Bool := fun y i j =>\n    if i = j then false\n    else if disqualifies y i j = disqualifies y j i then decide (i.val < j.val)\n    else disqualifies y i j\n  ∀ i j : QuarticQuery.Column 2, cmp x i j = decide\n    (i ≠ j ∧ (i.val = 0 ∨\n      (i.val = 1 ∧ j.val = 2) ∨ (i.val = 2 ∧ j.val = 3) ∨\n      (i.val = 3 ∧ j.val = 1)))",
+    "route_note": "A proposed statement only; neither this signature nor a proof was elaborated in this session. Defines the toy comparison locally using readX, readA and readPointerBit. Upper.cmpProb is specialized to Forrelation and is not silently instantiated with the different toy function. Suggested imports: QuarticQuery.Construction.LocalTests."
+  },
+  {
+    "id": "new-toy-broken-pointer",
+    "statement": "Changing column1's pointer toward column2 in cell00 from row1 to row2 changes the toy function value from1 to0 and produces exactly one failed local test at that cell, while leaving every comparison outcome in E5 unchanged.",
+    "why_needed": "Shows concretely why a dominant candidate must still undergo certificate verification.",
+    "depends_on": [
+      "new-toy-board",
+      "new-toy-cycle",
+      "lem-2.2.i"
+    ],
+    "proposed_lean": "theorem exposition_broken_pointer :\n  let f : QuarticQuery.PartialBool (Fin 2) := fun z =>\n    if z 0 then none else some (z 1)\n  let C : QuarticQuery.Circuit (Fin 2) :=\n    { size := 2\n      gate := fun g =>\n        { left := some (.inl (if g.val = 0 then 0 else 1))\n          right := none\n          table := fun a _ => if g.val = 0 then !a else a }\n      domainOut := 0\n      valueOut := 1 }\n  let target : QuarticQuery.Column 2 → QuarticQuery.Column 2 → QuarticQuery.Column 2 :=\n    fun i j =>\n      if i.val = 0 then (if j.val = 1 then 0 else if j.val = 2 then 1 else 2)\n      else if i.val = 1 then (if j.val = 2 then 1 else 0)\n      else if i.val = 2 then (if j.val = 3 then 2 else if j.val = 1 then 1 else 0)\n      else 0\n  let x : QuarticQuery.BitInput (QuarticQuery.BitLoc 2 2 2 (Fin 2)) := fun q =>\n    match q with\n    | .inl (i, j) => if i.val = 0 then true else decide (j.val ≠ i.val - 1)\n    | .inr (.inl (i, _, _)) => decide (i.val = 1)\n    | .inr (.inr (.inl ⟨i, (_, j, b)⟩)) =>\n        (QuarticQuery.pointerEquiv 2).symm (target i j.val) b\n    | .inr (.inr (.inr (i, _, _, g))) =>\n        if g.val = 0 then decide (i.val ≠ 1) else decide (i.val = 1)\n  let s0 : QuarticQuery.Address 2 := fun _ => false\n  let guess : QuarticQuery.BitInput (QuarticQuery.BitLoc 2 2 2 (Fin 2)) →\n      QuarticQuery.Column 2 → QuarticQuery.Address 2 := fun y i h =>\n    QuarticQuery.readA y i h (1 : Fin 2)\n  let disqualifies : QuarticQuery.BitInput (QuarticQuery.BitLoc 2 2 2 (Fin 2)) →\n      QuarticQuery.Column 2 → QuarticQuery.Column 2 → Bool := fun y i j =>\n    if h : j ≠ i then\n      !(QuarticQuery.readX y j (QuarticQuery.pointerEquiv 2\n        (QuarticQuery.readPointerBit y i (guess y i) ⟨j, h⟩)))\n    else false\n  let cmp : QuarticQuery.BitInput (QuarticQuery.BitLoc 2 2 2 (Fin 2)) →\n      QuarticQuery.Column 2 → QuarticQuery.Column 2 → Bool := fun y i j =>\n    if i = j then false\n    else if disqualifies y i j = disqualifies y j i then decide (i.val < j.val)\n    else disqualifies y i j\n  let y : QuarticQuery.BitInput (QuarticQuery.BitLoc 2 2 2 (Fin 2)) := fun q =>\n    match q with\n    | .inr (.inr (.inl ⟨i, (s, j, b)⟩)) =>\n        if i = 0 ∧ s = s0 ∧ j.val = 1 then\n          (QuarticQuery.pointerEquiv 2).symm (1 : QuarticQuery.Column 2) b\n        else x q\n    | _ => x q\n  QuarticQuery.addressedF f C 2 2 x = true ∧\n    QuarticQuery.addressedF f C 2 2 y = false ∧\n    (Finset.univ.filter (fun q : QuarticQuery.TestIndex 2 2 2 =>\n      QuarticQuery.localTest C 2 2 y 0 s0 q = false)).card = 1 ∧\n    ∀ i j, cmp x i j = cmp y i j",
+    "route_note": "A proposed statement only; neither this signature nor a proof was elaborated in this session. The modified input is explicit and the proposed conclusion quantifies over every comparison. It is a new counterexample, not a change to the theorem's sufficient winner condition. Suggested imports: QuarticQuery.Construction.LocalTests."
+  },
+  {
+    "id": "new-cyclic-dynamics",
+    "statement": "For E5, the four equally likely first pivots give weight vectors (0,0,0,0), (1,0,0,1), (1,1,0,0), (1,0,1,0). Their totals are0,2,2,2, with expectation3/2 (E6). The probabilities of missing candidate1 after1,2,3 stages are3/4,3/8,0 (E7). Figure2 also gives expected total weights4,3/2,3/8,0 after0,1,2,3 stages.",
+    "why_needed": "Records the exact finite ideal-process calculation, including its complete history probabilities.",
+    "depends_on": [
+      "new-toy-cycle",
+      "def-ideal-process",
+      "eq-12",
+      "eq-13"
+    ],
+    "proposed_lean": "theorem exposition_cyclic_dynamics :\n  let a : Fin 4 → Fin 4 → ℝ := fun i j =>\n    if i ≠ j ∧ (i.val = 0 ∨\n      (i.val = 1 ∧ j.val = 2) ∨ (i.val = 2 ∧ j.val = 3) ∨\n      (i.val = 3 ∧ j.val = 1)) then 1 else 0\n  QuarticQuery.Tournament.IsComparison a ∧\n    QuarticQuery.Tournament.UnitValued a ∧\n    (∀ p i : Fin 4, QuarticQuery.Tournament.weight a [p] i = a i p) ∧\n    (∀ p : Fin 4,\n      QuarticQuery.Tournament.total (QuarticQuery.Tournament.weight a [p]) =\n        if p = 0 then 0 else 2) ∧\n    QuarticQuery.Tournament.expectAfter a 1\n      (fun w _ => QuarticQuery.Tournament.total w) = 3 / 2 ∧\n    QuarticQuery.Tournament.prob a 1 (fun _ L => (0 : Fin 4) ∉ L) = 3 / 4 ∧\n    QuarticQuery.Tournament.prob a 2 (fun _ L => (0 : Fin 4) ∉ L) = 3 / 8 ∧\n    QuarticQuery.Tournament.prob a 3 (fun _ L => (0 : Fin 4) ∉ L) = 0 ∧\n    QuarticQuery.Tournament.expectAfter a 0\n      (fun w _ => QuarticQuery.Tournament.total w) = 4 ∧\n    QuarticQuery.Tournament.expectAfter a 2\n      (fun w _ => QuarticQuery.Tournament.total w) = 3 / 8 ∧\n    QuarticQuery.Tournament.expectAfter a 3\n      (fun w _ => QuarticQuery.Tournament.total w) = 0",
+    "route_note": "A proposed statement only; neither this signature nor a proof was elaborated in this session. Uses the existing Tournament.expectAfter and Tournament.prob, not only arithmetic products. The process absorbs at zero total weight. Source histories are stored newest first; membership and product weights agree with the exposition. Suggested imports: QuarticQuery.Tournament.Ideal."
+  },
+  {
+    "id": "new-fractional-dynamics",
+    "statement": "In the abstract four-candidate comparator where candidate1 beats every opponent and every pair of losers compares with probability1/2, pivot2 gives weights(1,0,1/2,1/2) and law(1/2,0,1/4,1/4) (E8). Pivots2 then3 give weights(1,0,0,1/4) and next winner probability4/5. Conditional expected next total after pivot2 is5/8. Miss probabilities after1,2,3,4 stages are3/4,3/8,3/40,0.",
+    "why_needed": "Demonstrates why the quantum sampler must preserve fractional weights and the exact candidate law.",
+    "depends_on": [
+      "def-ideal-process",
+      "eq-12",
+      "eq-13"
+    ],
+    "proposed_lean": "theorem exposition_fractional_dynamics :\n  let a : Fin 4 → Fin 4 → ℝ := fun i j =>\n    if i = j then 0 else if i = 0 then 1 else if j = 0 then 0 else 1 / 2\n  let w := QuarticQuery.Tournament.weight a [1]\n  let z := QuarticQuery.Tournament.weight a [2, 1]\n  QuarticQuery.Tournament.IsComparison a ∧\n    QuarticQuery.Tournament.UnitValued a ∧\n    (∀ i : Fin 4, w i = if i = 0 then 1 else if i = 1 then 0 else 1 / 2) ∧\n    (∀ i : Fin 4, w i / QuarticQuery.Tournament.total w =\n      if i = 0 then 1 / 2 else if i = 1 then 0 else 1 / 4) ∧\n    (∀ i : Fin 4, z i = if i = 0 then 1 else if i = 3 then 1 / 4 else 0) ∧\n    z 0 / QuarticQuery.Tournament.total z = 4 / 5 ∧\n    QuarticQuery.Tournament.expectFrom a 1 [1]\n      (fun v _ => QuarticQuery.Tournament.total v) = 5 / 8 ∧\n    QuarticQuery.Tournament.prob a 1 (fun _ L => (0 : Fin 4) ∉ L) = 3 / 4 ∧\n    QuarticQuery.Tournament.prob a 2 (fun _ L => (0 : Fin 4) ∉ L) = 3 / 8 ∧\n    QuarticQuery.Tournament.prob a 3 (fun _ L => (0 : Fin 4) ∉ L) = 3 / 40 ∧\n    QuarticQuery.Tournament.prob a 4 (fun _ L => (0 : Fin 4) ∉ L) = 0",
+    "route_note": "A proposed statement only; neither this signature nor a proof was elaborated in this session. This is a separate abstract comparator, with no claim that it is realized by the opening bit input. The signature uses the exact ideal-process definitions. Suggested imports: QuarticQuery.Tournament.Ideal."
+  },
+  {
+    "id": "new-amplification-arithmetic",
+    "statement": "For successful amplitudes3/10 and2/5 and unsuccessful amplitude sqrt(3)/2, initial success is1/4. At this probability one Grover step has good multiplier2 and bad multiplier0. Conditional successful masses before and after are9/25 and16/25; theta=pi/6 gives sin(3theta)=1 and cos(3theta)=0.",
+    "why_needed": "Supplies the scalar arithmetic behind E9-E10 and the one-iteration calculation.",
+    "depends_on": [
+      "claim-grover-state",
+      "lem-3.1"
+    ],
+    "proposed_lean": "theorem exposition_amplification_arithmetic :\n  let p : ℝ := (3 / 10 : ℝ)^2 + (2 / 5 : ℝ)^2\n  p = 1 / 4 ∧\n    QuarticQuery.Amplification.ampA p 1 = 2 ∧\n    QuarticQuery.Amplification.ampB p 1 = 0 ∧\n    (3 / 10 : ℝ)^2 / p = 9 / 25 ∧\n    (2 / 5 : ℝ)^2 / p = 16 / 25 ∧\n    (QuarticQuery.Amplification.ampA p 1 * (3 / 10))^2 = 9 / 25 ∧\n    (QuarticQuery.Amplification.ampA p 1 * (2 / 5))^2 = 16 / 25 ∧\n    (9 / 25 : ℝ) + 16 / 25 = 1 ∧\n    (Real.sqrt 3 / 2)^2 = 3 / 4 ∧\n    Real.sin (Real.pi / 6) = 1 / 2 ∧\n    Real.sin (3 * (Real.pi / 6)) = 1 ∧\n    Real.cos (3 * (Real.pi / 6)) = 0",
+    "route_note": "A proposed statement only; neither this signature nor a proof was elaborated in this session. examples.py computes both reflections in Q(sqrt(3)). Existing iterate_eq_amp and phaseEq_normalised_good_iterate supply the general geometry; this numerical specialization remains to be proved. Suggested imports: QuarticQuery.Amplification.Geometry."
+  },
+  {
+    "id": "new-amplification-concrete-state",
+    "statement": "E9-E10 as a state-level instance: any Preparation whose initial state is (3/10,2/5,sqrt(3)/2) and whose success projection retains the first two coordinates has success probability1/4, normalized good state(3/5,4/5,0), and first Grover iterate equal to that good state.",
+    "why_needed": "Records the displayed vectors and their precise relation to the existing quantum-state vocabulary.",
+    "depends_on": [
+      "new-amplification-arithmetic",
+      "claim-grover-state"
+    ],
+    "proposed_lean": "theorem exposition_amplification_concrete_state\n    (A : QuarticQuery.Amplification.Preparation (EuclideanSpace ℂ (Fin 3)))\n    (hstate : A.state = WithLp.toLp 2 (fun i : Fin 3 =>\n      if i.val = 0 then (3 / 10 : ℂ)\n      else if i.val = 1 then (2 / 5 : ℂ) else (Real.sqrt 3 : ℂ) / 2))\n    (hgood : ∀ v : EuclideanSpace ℂ (Fin 3),\n      A.good v = WithLp.toLp 2 (fun i => if i.val < 2 then v.ofLp i else 0)) :\n    A.prob = 1 / 4 ∧\n    A.goodState = WithLp.toLp 2 (fun i : Fin 3 =>\n      if i.val = 0 then (3 / 5 : ℂ) else if i.val = 1 then (4 / 5 : ℂ) else 0) ∧\n    A.iterate 1 = A.goodState",
+    "route_note": "A proposed statement only; neither this signature nor a proof was elaborated in this session. The initial vector and projection are explicit hypotheses; no unnamed future preparation is assumed. Their feasibility follows from the unit norm, with an identity preparation unitary and the chosen initial state. Existing theorem names are evidence for the general construction, not an already checked instantiation. Suggested imports: QuarticQuery.Amplification.Geometry."
+  },
+  {
+    "id": "new-and-conditioning",
+    "statement": "For uniform two-bit AND the one-query optimum is3/4. The early-stopping exact tree has depth2, uses one query on inputs00,01 only, and has Pr(E)=Pr(E and correct)=1/2 and Pr(correct|E)=1 (E11). Aborting before the second query and answering0 has success3/4. For two independent copies the original joint cap event has probability1/4; the optimal all-correct probability under separate one-query caps is9/16, even with adaptive interleaving.",
+    "why_needed": "Makes the conditioning pitfall and the corrected simulator argument exact.",
+    "depends_on": [
+      "def-R",
+      "lem-4.1"
+    ],
+    "proposed_lean": "theorem exposition_AND_conditioning :\n  let f : QuarticQuery.PartialBool (Fin 2) := QuarticQuery.totalise (fun z => z 0 && z 1)\n  let mu : QuarticQuery.BitInput (Fin 2) → ℝ := fun _ => 1 / 4\n  let T : QuarticQuery.QueryTree (Fin 2) :=\n    .query 0 (.leaf false) (.query 1 (.leaf false) (.leaf true))\n  let capped : QuarticQuery.QueryTree (Fin 2) := .query 0 (.leaf false) (.leaf false)\n  let used : QuarticQuery.BitInput (Fin 2) → ℕ := fun z => if z 0 then 2 else 1\n  let event : ℝ := ∑ z : QuarticQuery.BitInput (Fin 2),\n    if used z ≤ 1 then mu z else 0\n  let joint : ℝ := ∑ z : QuarticQuery.BitInput (Fin 2),\n    if used z ≤ 1 ∧ f z = some (T.eval z) then mu z else 0\n  QuarticQuery.budgetValue f 1 mu = 3 / 4 ∧\n    (∀ z, f z = some (T.eval z)) ∧ T.depth = 2 ∧ capped.depth = 1 ∧\n    event = 1 / 2 ∧ joint = 1 / 2 ∧ joint / event = 1 ∧\n    QuarticQuery.treeSuccess f mu capped = 3 / 4 ∧\n    (1 / 2 : ℝ)^2 = 1 / 4 ∧ (3 / 4 : ℝ)^2 = 9 / 16 ∧\n    (∀ U : QuarticQuery.OutTree (Fin 2 × Fin 2) (Fin 2 → Bool),\n      U.capped (fun _ => 1) →\n        QuarticQuery.guessSuccess f (fun _ => mu) U ≤ 9 / 16) ∧\n    QuarticQuery.guessSuccess f (fun _ => mu)\n      (QuarticQuery.OutTree.leaf (fun _ : Fin 2 => false)) = 9 / 16 ∧\n    (∑ U : Fin 2 → QuarticQuery.BitInput (Fin 2),\n      if (∀ h, used (U h) ≤ 1) then (1 / 16 : ℝ) else 0) = 1 / 4",
+    "route_note": "A proposed statement only; neither this signature nor a proof was elaborated in this session. The final universal conjunct over capped OutTree objects records the adaptive two-copy optimum. The constant-zero output vector attains9/16. In the local definition, used describes this particular early-stopping tree; it is not offered as a generic tree-path length function. Suggested imports: QuarticQuery.LowerBound.DirectProduct."
+  },
+  {
+    "id": "new-toy-planted",
+    "statement": "The toy dummy/planted pair uses J=(4,1,2,3), all address inputs00, all initially blank cells, and planted column1. Its dummy value is0; filling cell(1,00) with0001101010 and erasing X1[4] produces value1. Exactly five physical bits change: one X-bit, two pointer bits and two domain-transcript bits.",
+    "why_needed": "Provides the finite pair illustrating the first-difference coupling, distinct from the opening input.",
+    "depends_on": [
+      "new-toy-circuit",
+      "def-dummy",
+      "def-planted",
+      "claim-Y-values",
+      "eq-18",
+      "new-toy-printed-encoding"
+    ],
+    "proposed_lean": "theorem exposition_planted_pair :\n  let f : QuarticQuery.PartialBool (Fin 2) := fun z =>\n    if z 0 then none else some (z 1)\n  let C : QuarticQuery.Circuit (Fin 2) :=\n    { size := 2\n      gate := fun g =>\n        { left := some (.inl (if g.val = 0 then 0 else 1))\n          right := none\n          table := fun a _ => if g.val = 0 then !a else a }\n      domainOut := 0\n      valueOut := 1 }\n  let J : QuarticQuery.Column 2 → QuarticQuery.Column 2 := fun i =>\n    if i.val = 0 then 3 else if i.val = 1 then 0 else if i.val = 2 then 1 else 2\n  let A : QuarticQuery.Column 2 → Fin 2 → QuarticQuery.BitInput (Fin 2) := fun _ _ _ => false\n  let tr : QuarticQuery.BitInput (Fin 2) → Fin 2 → Bool := fun z g =>\n    if g.val = 0 then !(z 0) else z 1\n  let x0 : QuarticQuery.BitInput (QuarticQuery.BitLoc 2 2 2 (Fin 2)) := QuarticQuery.dummy J A\n  let x1 : QuarticQuery.BitInput (QuarticQuery.BitLoc 2 2 2 (Fin 2)) :=\n    QuarticQuery.planted f tr J A 0\n  QuarticQuery.addressedF f C 2 2 x0 = false ∧\n    QuarticQuery.addressedF f C 2 2 x1 = true ∧\n    (Finset.univ.filter (fun q : QuarticQuery.BitLoc 2 2 2 (Fin 2) => x0 q ≠ x1 q)).card = 5",
+    "route_note": "A proposed statement only; neither this signature nor a proof was elaborated in this session. The proposed statement invokes the existing dummy/planted functions and states the exact Hamming count. Printed pointer order is the display convention already flagged above; coordinate reversal preserves the Hamming count. The Python check enumerates all zero locations, planted columns and common target addresses, without claiming a lower bound for the toy partial function. Suggested imports: QuarticQuery.LowerBound.Planted.Inputs."
+  },
+  {
+    "id": "new-forrelation-matrix",
+    "statement": "E13 uses H=(1/2)[[1,1,1,1],[1,-1,1,-1],[1,1,-1,-1],[1,-1,-1,1]] and v=(1,1,1,-1). Exactly HH^T=I and Hv=v. For w=(1,1,-1,1), the bilinear numerators z1^T H v for z1=v,w,-v are4,0,-4.",
+    "why_needed": "Pins the concrete matrix normalization and the arithmetic in the three-row Forrelation table.",
+    "depends_on": [
+      "def-walsh-sign",
+      "eq-3"
+    ],
+    "proposed_lean": "theorem exposition_forrelation_matrix :\n  let H : Matrix (Fin 4) (Fin 4) ℚ :=\n    !![1/2, 1/2, 1/2, 1/2;\n       1/2, -1/2, 1/2, -1/2;\n       1/2, 1/2, -1/2, -1/2;\n       1/2, -1/2, -1/2, 1/2]\n  let v : Fin 4 → ℚ := ![1, 1, 1, -1]\n  let w : Fin 4 → ℚ := ![1, 1, -1, 1]\n  H * H.transpose = 1 ∧\n    H.mulVec v = v ∧\n    (∑ i : Fin 4, v i * H.mulVec v i) = 4 ∧\n    (∑ i : Fin 4, w i * H.mulVec v i) = 0 ∧\n    (∑ i : Fin 4, (-v i) * H.mulVec v i) = -4",
+    "route_note": "A proposed statement only; neither this signature nor a proof was elaborated in this session. A closed rational matrix identity. Linking this printed coordinate order to the existing Walsh definition is an unelaborated finite specialization; swapping the two binary index coordinates leaves this H unchanged."
+  },
+  {
+    "id": "new-forrelation-three-inputs",
+    "statement": "At k=2,m=4, the three sign-vector pairs (v,v), ((1,1,-1,1),v), (-v,v) have denominator8, integer numerators8,0,-8, Phi values1,0,-1 and partial answers1,0,undefined. With delta=2^-10=1/1024, the exact tests are2^10 N>=8 and2^11|N|<=8 (E14), producing (d,b)=(1,1),(1,0),(0,0). Projection probabilities are1,0,1.",
+    "why_needed": "Records the displayed concrete inputs, especially the negative off-promise input with projection probability1.",
+    "depends_on": [
+      "new-forrelation-matrix",
+      "eq-3",
+      "eq-4",
+      "claim-integer-tests",
+      "claim-proj-prob"
+    ],
+    "proposed_lean": "theorem exposition_forrelation_three_inputs :\n  let zp : QuarticQuery.BitInput (QuarticQuery.ForrelationCoord 2 1) :=\n    fun q => decide (q.2.val = 3)\n  let zz : QuarticQuery.BitInput (QuarticQuery.ForrelationCoord 2 1) :=\n    fun q => if q.1.val = 0 then decide (q.2.val = 2) else decide (q.2.val = 3)\n  let zm : QuarticQuery.BitInput (QuarticQuery.ForrelationCoord 2 1) :=\n    fun q => if q.1.val = 0 then decide (q.2.val ≠ 3) else decide (q.2.val = 3)\n  QuarticQuery.forrelationDenominator 2 1 = 8 ∧\n    QuarticQuery.forrelationNumerator 2 1 zp = 8 ∧\n    QuarticQuery.forrelationNumerator 2 1 zz = 0 ∧\n    QuarticQuery.forrelationNumerator 2 1 zm = -8 ∧\n    QuarticQuery.Phi 2 1 zp = 1 ∧ QuarticQuery.Phi 2 1 zz = 0 ∧ QuarticQuery.Phi 2 1 zm = -1 ∧\n    QuarticQuery.P 2 1 zp = some true ∧ QuarticQuery.P 2 1 zz = some false ∧\n    QuarticQuery.P 2 1 zm = none",
+    "route_note": "A proposed statement only; neither this signature nor a proof was elaborated in this session. The proposed signature fixes the three inputs in the packet's actual P, Phi and integer-numerator vocabulary. The stated threshold and projection values follow by the existing exact tests and successProb_eq. The Python checker verifies all entries with rational/integer arithmetic. Suggested imports: QuarticQuery.Statement."
+  },
+  {
+    "id": "new-forrelation-census",
+    "statement": "There are256 inputs to P at k=2,m=4, split into104 one-inputs,48 zero-inputs and104 undefined inputs.",
+    "why_needed": "A new finite statement row for the explicit census quoted in this exposition.",
+    "depends_on": [
+      "eq-4"
+    ],
+    "proposed_lean": "theorem exposition_forrelation_census :\n  Fintype.card (QuarticQuery.BitInput (QuarticQuery.ForrelationCoord 2 1)) = 256 ∧\n    (Finset.univ.filter (fun z : QuarticQuery.BitInput (QuarticQuery.ForrelationCoord 2 1) =>\n      QuarticQuery.P 2 1 z = some true)).card = 104 ∧\n    (Finset.univ.filter (fun z : QuarticQuery.BitInput (QuarticQuery.ForrelationCoord 2 1) =>\n      QuarticQuery.P 2 1 z = some false)).card = 48 ∧\n    (Finset.univ.filter (fun z : QuarticQuery.BitInput (QuarticQuery.ForrelationCoord 2 1) =>\n      QuarticQuery.P 2 1 z = none)).card = 104",
+    "route_note": "A proposed statement only; neither this signature nor a proof was elaborated in this session. The three counts already have source theorems QuarticQuery.Forrelation.census_true, census_false and census_none, tied to the broader eq-4 row. The combined proposed statement adds the explicit total256. This is an evidence-packaging specialization, not a claim that those existing counts lack proofs. Suggested imports: QuarticQuery.Statement."
+  },
+  {
+    "id": "new-small-parameters",
+    "statement": "At k=2,m=4 the actual family has r=40, 2^r=1099511627776, L=0 and G=0 (E15). The tournament choices at m=4 are T=12 and epsilon=1/12000; T epsilon=1/1000, surviving-winner weight lower bound999/1000, ideal-miss allowance1/512 and total error allowance583/192000<1/3 (E16).",
+    "why_needed": "Separates small exact substitutions from the eventual classical hardness theorem and checks the algorithm's constants.",
+    "depends_on": [
+      "eq-5",
+      "eq-6",
+      "eq-17",
+      "def-T-eps",
+      "claim-error"
+    ],
+    "proposed_lean": "theorem exposition_small_parameters :\n  QuarticQuery.mValue 1 = 4 ∧ QuarticQuery.Lvalue 2 1 = 0 ∧\n    QuarticQuery.Gvalue (QuarticQuery.mValue 1) (QuarticQuery.Lvalue 2 1) = 0 ∧\n    20 * (2 * 1) = 40 ∧ (2 : ℕ)^40 = 1099511627776 ∧\n    QuarticQuery.Tournament.Tval 4 = 12 ∧\n    QuarticQuery.Tournament.epsval 4 = 1 / 12000 ∧\n    (12 : ℝ) * (1 / 12000) = 1 / 1000 ∧\n    (1 : ℝ) - 12 * (1 / 12000) = 999 / 1000 ∧\n    (8 / 4096 : ℝ) = 1 / 512 ∧\n    (8 / 4096 : ℝ) + 1 / 1000 + 1 / 12000 = 583 / 192000 ∧\n    (583 / 192000 : ℝ) < 1 / 3",
+    "route_note": "A proposed statement only; neither this signature nor a proof was elaborated in this session. The arithmetic makes no assertion that the fixed-k lower-bound threshold has been reached at m=4. General T/epsilon and error bounds are already proved; this exact numerical instance is proposed. Suggested imports: QuarticQuery.Results.Exponent, QuarticQuery.Tournament.Ideal."
+  },
+  {
+    "id": "new-exponent-table",
+    "statement": "The Section7 table has k=2,3,4,5,10,20,100; powers2-1/k equal3/2,5/3,7/4,9/5,19/10,39/20,199/100, and powers relative to sqrt(m) equal3,10/3,7/2,18/5,19/5,39/10,199/50. Figure7 also gives gaps below4 equal1,2/3,1/2,2/5,1/5,1/10,1/50. For alpha=3 the residual m exponent is1/6 at k=3 and0 at k=2.",
+    "why_needed": "Ensures every numerical entry and the cubic-refutation substitution is an exact rational calculation.",
+    "depends_on": [
+      "eq-2",
+      "claim-exponent-ratio",
+      "cor-cubic-refuted"
+    ],
+    "proposed_lean": "theorem exposition_exponent_table :\n  let ks : List ℕ := [2, 3, 4, 5, 10, 20, 100]\n  ks.map (fun k => (2 : ℚ) - 1 / (k : ℚ)) =\n      [3/2, 5/3, 7/4, 9/5, 19/10, 39/20, 199/100] ∧\n    ks.map (fun k => (4 : ℚ) - 2 / (k : ℚ)) =\n      [3, 10/3, 7/2, 18/5, 19/5, 39/10, 199/50] ∧\n    ks.map (fun k => (2 : ℚ) / (k : ℚ)) =\n      [1, 2/3, 1/2, 2/5, 1/5, 1/10, 1/50] ∧\n    (∀ k ∈ ks, ((2 : ℚ) - 1 / (k : ℚ)) / (1 / 2) = 4 - 2 / (k : ℚ)) ∧\n    (2 - 1/3 - 3/2 : ℚ) = 1/6 ∧\n    (2 - 1/2 - 3/2 : ℚ) = 0",
+    "route_note": "A proposed statement only; neither this signature nor a proof was elaborated in this session. This table records powers in bounds; it makes no assertion of matching complexities or uniformity in growing k. Suggested imports: QuarticQuery.Statement."
+  },
+  {
+    "id": "new-tail-bound",
+    "statement": "For every natural t, m=4^t and r=40t satisfy (2/3)^r<=2^(-20t)=m^-10 (24). For0<=G<=m^2/100, G(2/3)^r<=1/(100m^8). This is the weaker elementary tail estimate used before(25).",
+    "why_needed": "Identifies the simplified displayed tail separately from the preprint's sharper real-exponent estimate.",
+    "depends_on": [
+      "eq-6",
+      "eq-17",
+      "claim-tail"
+    ],
+    "proposed_lean": "theorem exposition_tail_bound (t : ℕ) (G : ℝ)\n    (hG0 : 0 ≤ G) (hG : G ≤ (QuarticQuery.mValue t : ℝ)^2 / 100) :\n  ((2 : ℝ) / 3)^(40 * t) ≤\n      ((QuarticQuery.mValue t : ℝ)^10)⁻¹ ∧\n    ((2 : ℝ)^ (20 * t))⁻¹ =\n      ((QuarticQuery.mValue t : ℝ)^10)⁻¹ ∧\n    G * ((2 : ℝ) / 3)^(40 * t) ≤\n      1 / (100 * (QuarticQuery.mValue t : ℝ)^8)",
+    "route_note": "A proposed statement only; neither this signature nor a proof was elaborated in this session. The first inequality is already exactly QuarticQuery.twoThirds_pow_le. Multiplication by G and the additional m^-8 envelope are elementary corollaries proposed here. This weakening is recorded in STATEMENT_CHANGES.json and does not change the randomized lower-bound theorem."
+  }
+]

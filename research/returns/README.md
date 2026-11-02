@@ -17,3 +17,27 @@ the cited sources, and each finding has a verdict in
 [adjudication_notes.md](../adjudication/adjudication_notes.md). Use those verdicts rather than the
 returns' own conclusions. The Lean and Comparator return was written without a
 compiler, so its signatures are drafts until a build says otherwise.
+
+## Funnel returns
+
+Five returns answered the writing requests in [funnel requests](../requests/funnel/).
+Their text records are kept as received in [funnel/](funnel/). Their four scripts
+moved to [tools/return_checks/](../../tools/return_checks/) with a `funnel<n>_` prefix
+(`funnel3_examples.py`, `funnel4_checks.py`, `funnel4_validate_package.py`,
+`funnel5_check_return.py`), and the worked-example figure to
+[docs/figures/](../../docs/figures/). The examples script and the Forrelation checks were
+rerun on 2 November 2026: the examples output matched byte for byte and every exact
+constant check passed.
+
+| Folder | Original archive | SHA-256 |
+| --- | --- | --- |
+| [funnel/1_long_reasoning_record/](funnel/1_long_reasoning_record/) | `quartic_long_reasoning_record.zip` | `c5af4d83d11fa5ac70c44ce10e4c3639f4c3bce5125ce213b8b75d17dd2eabc9` |
+| [funnel/2_short_expert_paper/](funnel/2_short_expert_paper/) | `quartic_2_short_expert_paper_return.zip` | `e8290a347d35d2c4073161ce3f6fcbe609c4ce853d25da88dc9be74fc3fbb0f2` |
+| [funnel/3_examples_first_exposition/](funnel/3_examples_first_exposition/) | `quartic_examples_first_exposition_return.zip` | `a77c7a4e0e154e075ff0154b356d9a44a2c380e363ed7b83d50f0c48d8d61472` |
+| [funnel/4_forrelation_route_note/](funnel/4_forrelation_route_note/) | `quartic_4_forrelation_route_review.zip` | `19761033f55ea276788bf67f87b910e0d26fa6552b89b79efb636c0fd6e3204f` |
+| [funnel/5_reader_and_film/](funnel/5_reader_and_film/) | `quartic_5_reader_and_film_return.zip` | `fb78494cb7a9c79c39c1d31153f6fda44f3af143f5b35ed70808be6be8a26413` |
+
+These were also written without a Lean compiler. Their audit findings have verdicts in
+[funnel_adjudication.json](../adjudication/funnel_adjudication.json), summarised in
+[funnel_adjudication_notes.md](../adjudication/funnel_adjudication_notes.md). Their proposed
+new statements are uncompiled and are not corpus rows.

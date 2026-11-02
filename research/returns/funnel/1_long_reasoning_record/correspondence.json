@@ -1,0 +1,3314 @@
+[
+  {
+    "passage": "ROOT-RESULT",
+    "from": "The optimal universal power relating bounded-error randomized and quantum query",
+    "to": "ordinary proof in Appendix A is separately reconstructed in full.",
+    "role": "states",
+    "statement_ids": [
+      "eq-1",
+      "thm-1.1",
+      "eq-2",
+      "cor-cubic-refuted"
+    ],
+    "lean": [
+      "QuarticQuery.alphaTot_eq_four_of_bansalSinha",
+      "QuarticQuery.theorem_1_1",
+      "QuarticQuery.alphaTot_eq_four_of",
+      "QuarticQuery.alphaTot_eq_four",
+      "QuarticQuery.alphaTot_eq_four_unconditional",
+      "QuarticQuery.theorem_1_1_unconditional",
+      "QuarticQuery.family_bounds",
+      "QuarticQuery.familyBounds_of_bansalSinha",
+      "QuarticQuery.familyBoundsAt_of_parts",
+      "QuarticQuery.Upper.familyBoundsAt_of_lower",
+      "QuarticQuery.cubic_bound_fails_of_bansalSinha",
+      "QuarticQuery.cubic_refuted",
+      "QuarticQuery.cubic_refuted_bare",
+      "QuarticQuery.cubic_bound_fails",
+      "QuarticQuery.cubic_bound_fails_unconditional",
+      "QuarticQuery.UniversalPower",
+      "QuarticQuery.alphaTot"
+    ]
+  },
+  {
+    "passage": "ROOT-ARCHITECTURE",
+    "from": "### 1.1. Why these exponents arise\n\nThe construction starts with",
+    "to": "mathematical proof; its absence of a formal tie remains visible.",
+    "role": "explains",
+    "statement_ids": [
+      "thm-1.1",
+      "eq-2"
+    ],
+    "lean": [
+      "QuarticQuery.alphaTot_eq_four_of_bansalSinha",
+      "QuarticQuery.theorem_1_1",
+      "QuarticQuery.alphaTot_eq_four_of",
+      "QuarticQuery.alphaTot_eq_four",
+      "QuarticQuery.alphaTot_eq_four_unconditional",
+      "QuarticQuery.theorem_1_1_unconditional",
+      "QuarticQuery.family_bounds",
+      "QuarticQuery.familyBounds_of_bansalSinha",
+      "QuarticQuery.familyBoundsAt_of_parts",
+      "QuarticQuery.Upper.familyBoundsAt_of_lower"
+    ]
+  },
+  {
+    "passage": "ROOT-LOGS",
+    "from": "All unqualified logarithms in the parameters $L,r,\\ell,T$ are base two.",
+    "to": "so $\\log m=2t$ exactly. This fixes the convention in `def-log-convention`.",
+    "role": "defines",
+    "statement_ids": [
+      "def-log-convention"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "ROOT-PARTIAL",
+    "from": "### 2.1. Classical queries\n\nA finite coordinate set is denoted",
+    "to": "source inspection and does not create a new comparison receipt.",
+    "role": "defines",
+    "statement_ids": [
+      "def-partial-query",
+      "def-D",
+      "def-R"
+    ],
+    "lean": [
+      "QuarticQuery.RLe_reindex_iff",
+      "QuarticQuery.DLe_reindex_iff",
+      "QuarticQuery.QueryTree.toDecisionTree",
+      "QuarticQuery.QueryTree.ofDecisionTree",
+      "QuarticQuery.QueryTree.eval_toDecisionTree",
+      "QuarticQuery.QueryTree.depth_toDecisionTree",
+      "QuarticQuery.D_totalise_eq_complexity",
+      "QuarticQuery.DLe_length",
+      "QuarticQuery.DLe_card",
+      "QuarticQuery.DLe_D",
+      "QuarticQuery.D_le_iff",
+      "QuarticQuery.lt_D_iff",
+      "QuarticQuery.lt_D_of_not_DLe",
+      "QuarticQuery.D_reindex",
+      "QuarticQuery.DLe.toRLe",
+      "QuarticQuery.RLe_R",
+      "QuarticQuery.R_le_iff",
+      "QuarticQuery.lt_R_iff",
+      "QuarticQuery.lt_R_of_not_RLe",
+      "QuarticQuery.R_reindex",
+      "QuarticQuery.QueryTree",
+      "QuarticQuery.RLe",
+      "QuarticQuery.DLe",
+      "QuarticQuery.R",
+      "QuarticQuery.D",
+      "QuarticQuery.R_le_D"
+    ]
+  },
+  {
+    "passage": "ROOT-ORACLE",
+    "from": "### 2.2. Quantum queries and adaptive measurements\n\nFor a nonempty",
+    "to": "theorems. It introduces no new mathematical assertion beyond those declarations.",
+    "role": "proves",
+    "statement_ids": [
+      "def-query-oracle",
+      "def-Q",
+      "ROOT-MASS"
+    ],
+    "lean": [
+      "QuarticQuery.hadamardL",
+      "QuarticQuery.hadamardL_hadamardL",
+      "QuarticQuery.norm_hadamardL",
+      "QuarticQuery.hadamard",
+      "QuarticQuery.hadamard_hadamard",
+      "QuarticQuery.hadamard_phaseOracle_hadamard",
+      "QuarticQuery.hadamard_bitOracle_hadamard",
+      "QuarticQuery.bitRun",
+      "QuarticQuery.phaseGates",
+      "QuarticQuery.run_phaseGates",
+      "QuarticQuery.bitOracleL",
+      "QuarticQuery.bitOracle_add",
+      "QuarticQuery.bitOracle_smul",
+      "QuarticQuery.norm_bitOracle",
+      "QuarticQuery.bitOracle_bitOracle",
+      "QuarticQuery.AdaptiveProgram.outputMass_nonneg",
+      "QuarticQuery.AdaptiveProgram.outputMass_true_add_false",
+      "QuarticQuery.Q_le_of_QLe",
+      "QuarticQuery.QLe.reindex",
+      "QuarticQuery.QLe_reindex_iff",
+      "QuarticQuery.Q_reindex",
+      "QuarticQuery.DLe.toQLe",
+      "QuarticQuery.QLe_card",
+      "QuarticQuery.QLe_Q",
+      "QuarticQuery.Q_le_iff",
+      "QuarticQuery.Upper.Runs",
+      "QuarticQuery.Upper.Runs.bind",
+      "QuarticQuery.Upper.Runs.toQLePartial",
+      "QuarticQuery.Upper.Runs.toQLe",
+      "QuarticQuery.bitOracle",
+      "QuarticQuery.AdaptiveProgram",
+      "QuarticQuery.AdaptiveProgram.queryCap",
+      "QuarticQuery.AdaptiveProgram.outputMass",
+      "QuarticQuery.ConstantOnPromise",
+      "QuarticQuery.QLe",
+      "QuarticQuery.Q"
+    ]
+  },
+  {
+    "passage": "ROOT-EVIDENCE-CONVENTION",
+    "from": "### 2.3. How the evidence is stated\n\nTheorem, lemma, proposition",
+    "to": "whose formal support is partial, absent or by another route.",
+    "role": "explains",
+    "statement_ids": [
+      "thm-1.1"
+    ],
+    "lean": [
+      "QuarticQuery.alphaTot_eq_four_of_bansalSinha",
+      "QuarticQuery.theorem_1_1",
+      "QuarticQuery.alphaTot_eq_four_of",
+      "QuarticQuery.alphaTot_eq_four",
+      "QuarticQuery.alphaTot_eq_four_unconditional",
+      "QuarticQuery.theorem_1_1_unconditional"
+    ]
+  },
+  {
+    "passage": "forr_scope",
+    "from": "This section supplies the complete Forrelation ingredient used in the",
+    "to": "build therefore remains a supplied claim about a previous run.",
+    "role": "explains",
+    "statement_ids": [],
+    "lean": []
+  },
+  {
+    "passage": "forr_definition",
+    "from": "### 3.1. The normalized Walsh product and the promise\n\nIndex",
+    "to": "missing tie should be recorded without claiming an additional build.",
+    "role": "defines",
+    "statement_ids": [
+      "def-walsh-sign",
+      "eq-3",
+      "eq-4",
+      "eq-5",
+      "NEW-FOR-01"
+    ],
+    "lean": [
+      "QuarticQuery.Forrelation.walshN",
+      "QuarticQuery.Forrelation.W_mul_transpose",
+      "QuarticQuery.Forrelation.H_mul_H",
+      "QuarticQuery.Forrelation.Phi_eq_matrix_product",
+      "QuarticQuery.Forrelation.abs_Phi_le_one",
+      "QuarticQuery.Forrelation.P_eq_cases",
+      "QuarticQuery.Forrelation.cases_disjoint",
+      "QuarticQuery.Lvalue"
+    ]
+  },
+  {
+    "passage": "forr_integer",
+    "from": "### 3.2. An integer numerator and exact promise tests\n\nThere",
+    "to": "no single cited declaration contains every sentence of either row.",
+    "role": "proves",
+    "statement_ids": [
+      "claim-N-phi",
+      "claim-integer-tests"
+    ],
+    "lean": [
+      "QuarticQuery.Forrelation.numerator_eq_walk",
+      "QuarticQuery.Forrelation.Phi_eq_matrix_product",
+      "QuarticQuery.Forrelation.delta_le_Phi_iff",
+      "QuarticQuery.Forrelation.abs_Phi_le_iff"
+    ]
+  },
+  {
+    "passage": "forr_quantum",
+    "from": "### 3.3. The quantum promise algorithm, including amplification and coherence",
+    "to": "[BS21, Proposition 1.2](https://arxiv.org/abs/2008.07003). We need only the squared-projection test above.",
+    "role": "proves",
+    "statement_ids": [
+      "claim-proj-prob",
+      "lem-2.1.ii",
+      "NEW-FOR-02",
+      "NEW-FOR-28"
+    ],
+    "lean": [
+      "QuarticQuery.Forrelation.successProb_eq",
+      "QuarticQuery.Forrelation.binomTail_small",
+      "QuarticQuery.Forrelation.binomTail_large",
+      "QuarticQuery.Forrelation.repetitions_le",
+      "QuarticQuery.Forrelation.threshold_correct",
+      "QuarticQuery.Upper.forr_samples",
+      "QuarticQuery.Upper.decode_samples",
+      "QuarticQuery.Upper.decodeProb_correct",
+      "QuarticQuery.Upper.P_runs"
+    ]
+  },
+  {
+    "passage": "forr_circuit",
+    "from": "### 3.4. The exact Boolean circuit\n\nThe circuit must determine",
+    "to": "`exists_circuit` gives a stronger parameter range than the lemma requires.",
+    "role": "proves",
+    "statement_ids": [
+      "claim-circuit-size",
+      "lem-2.1.iii",
+      "NEW-FOR-03",
+      "NEW-FOR-04",
+      "NEW-FOR-05",
+      "NEW-FOR-29"
+    ],
+    "lean": [
+      "QuarticQuery.Forrelation.wht_spec",
+      "QuarticQuery.Forrelation.whtCost_le",
+      "QuarticQuery.Forrelation.fullAdd_spec",
+      "QuarticQuery.Forrelation.ripple_spec",
+      "QuarticQuery.Forrelation.addsub_spec",
+      "QuarticQuery.Forrelation.signMul_spec",
+      "QuarticQuery.Forrelation.sign_wire",
+      "QuarticQuery.Forrelation.test_bounds",
+      "QuarticQuery.Forrelation.forrCore_spec",
+      "QuarticQuery.Forrelation.forrCircuit_realises",
+      "QuarticQuery.Forrelation.exists_circuit"
+    ]
+  },
+  {
+    "passage": "forr_small_instance",
+    "from": "### 3.5. A complete check of the smallest nontrivial instance",
+    "to": "not a substitute for the lower bound at growing dimensions.",
+    "role": "proves",
+    "statement_ids": [
+      "NEW-FOR-26"
+    ],
+    "lean": [
+      "QuarticQuery.Forrelation.census_true",
+      "QuarticQuery.Forrelation.census_false",
+      "QuarticQuery.Forrelation.census_none",
+      "QuarticQuery.Forrelation.Phi_negativeWitness",
+      "QuarticQuery.Forrelation.P_negativeWitness"
+    ]
+  },
+  {
+    "passage": "forr_bs_translation",
+    "from": "### 3.6. The published lower bound implies the required scale",
+    "to": "and it is a theorem, not a definition in `Statement.lean`.",
+    "role": "proves",
+    "statement_ids": [
+      "claim-bs-to-L"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "forr_cube",
+    "from": "### 3.7. The internal lower-bound proof: finite-cube calculus\n\nWe now",
+    "to": "entries identify existing source evidence rather than claim new mathematics.",
+    "role": "proves",
+    "statement_ids": [
+      "NEW-FOR-06",
+      "NEW-FOR-07"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.sum_bw",
+      "QuarticQuery.ForrelationLower.abs_ext_le",
+      "QuarticQuery.ForrelationLower.hasDerivAt_ext",
+      "QuarticQuery.ForrelationLower.D_D",
+      "QuarticQuery.ForrelationLower.ext_D_eq_mul_xi",
+      "QuarticQuery.ForrelationLower.ext_affine",
+      "QuarticQuery.ForrelationLower.ext_Dl",
+      "QuarticQuery.ForrelationLower.xi_mean",
+      "QuarticQuery.ForrelationLower.abs_xi_le"
+    ]
+  },
+  {
+    "passage": "forr_stein",
+    "from": "### 3.8. A bounded truncation and its Gaussian integration identity",
+    "to": "attribution does not assert that no earlier equivalent construction exists.",
+    "role": "proves",
+    "statement_ids": [
+      "NEW-FOR-08",
+      "NEW-FOR-09",
+      "NEW-FOR-10"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.hasDerivAt_phiS",
+      "QuarticQuery.ForrelationLower.hasDerivAt_psiS",
+      "QuarticQuery.ForrelationLower.abs_phiS_le",
+      "QuarticQuery.ForrelationLower.stein_one",
+      "QuarticQuery.ForrelationLower.stein_pi",
+      "QuarticQuery.ForrelationLower.integral_reflect",
+      "QuarticQuery.ForrelationLower.integral_dot_sq"
+    ]
+  },
+  {
+    "passage": "forr_distribution",
+    "from": "### 3.9. The hard measure and why its initial endpoint",
+    "to": "biases and their bounds are **wv** and **abs_wv_le_half** in Walk.lean.",
+    "role": "proves",
+    "statement_ids": [
+      "NEW-FOR-11",
+      "NEW-FOR-12"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.wv",
+      "QuarticQuery.ForrelationLower.abs_wv_le_half",
+      "QuarticQuery.ForrelationLower.mw",
+      "QuarticQuery.ForrelationLower.Rf",
+      "QuarticQuery.ForrelationLower.integral_mw_insert",
+      "QuarticQuery.ForrelationLower.integral_ext_wv_zero"
+    ]
+  },
+  {
+    "passage": "forr_identity",
+    "from": "### 3.10. The Stein elimination identity, one block at a",
+    "to": "argument must, and will, be uniform over all these biases.",
+    "role": "proves",
+    "statement_ids": [
+      "NEW-FOR-13"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.sum_dw_eq",
+      "QuarticQuery.ForrelationLower.integral_walk",
+      "QuarticQuery.ForrelationLower.exists_identity",
+      "QuarticQuery.ForrelationLower.Int_eq_paths"
+    ]
+  },
+  {
+    "passage": "forr_tree_growth",
+    "from": "### 3.11. Biased derivative growth for finite decision trees\n\nLet",
+    "to": "no sharp Fourier estimate is required in the argument above.",
+    "role": "proves",
+    "statement_ids": [
+      "NEW-FOR-14",
+      "NEW-FOR-15",
+      "NEW-FOR-16",
+      "NEW-FOR-17",
+      "NEW-FOR-18",
+      "NEW-FOR-27"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.chaos_insert",
+      "QuarticQuery.ForrelationLower.walk_eq_ext",
+      "QuarticQuery.ForrelationLower.ext_prod_merge",
+      "QuarticQuery.ForrelationLower.walk_chaos",
+      "QuarticQuery.ForrelationLower.two_point_exp_le",
+      "QuarticQuery.ForrelationLower.hit_azuma",
+      "QuarticQuery.ForrelationLower.hit_chaos_le",
+      "QuarticQuery.ForrelationLower.abs_ext_tree_chaos_le",
+      "QuarticQuery.ForrelationLower.sum_abs_ext_Dl_le"
+    ]
+  },
+  {
+    "passage": "forr_advantage",
+    "from": "### 3.12. A depth bound makes the two measures indistinguishable",
+    "to": "retain the actual coarse constants used by the source theorem.",
+    "role": "proves",
+    "statement_ids": [
+      "NEW-FOR-19"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.Lpath_nodup",
+      "QuarticQuery.ForrelationLower.Lpath_inj",
+      "QuarticQuery.ForrelationLower.advantage_le"
+    ]
+  },
+  {
+    "passage": "forr_moments",
+    "from": "### 3.13. The two moments needed to make the promise",
+    "to": "is **qf_le_exp** and **psi_dphi_ge**. All these declarations are in ForrelationLower/Promise.lean.",
+    "role": "proves",
+    "statement_ids": [
+      "NEW-FOR-20",
+      "NEW-FOR-21",
+      "NEW-FOR-22"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.ext_PhiF_zero",
+      "QuarticQuery.ForrelationLower.ext_PhiF_sq",
+      "QuarticQuery.ForrelationLower.qf_le_exp",
+      "QuarticQuery.ForrelationLower.psi_dphi_ge",
+      "QuarticQuery.ForrelationLower.Yy_ge",
+      "QuarticQuery.ForrelationLower.integral_TT",
+      "QuarticQuery.ForrelationLower.mass_ge"
+    ]
+  },
+  {
+    "passage": "forr_amplification",
+    "from": "### 3.14. Amplification is needed because the distributions include unpromised",
+    "to": "invalidate a proof; the two pointwise inequalities avoid both errors.",
+    "role": "proves",
+    "statement_ids": [
+      "NEW-FOR-23",
+      "NEW-FOR-24"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.exists_amplified",
+      "QuarticQuery.ForrelationLower.not_RLe_of_gap"
+    ]
+  },
+  {
+    "passage": "forr_threshold",
+    "from": "### 3.15. Closing the bound for every sufficiently large power",
+    "to": "the pin. Neither report was rerun during the present examination.",
+    "role": "proves",
+    "statement_ids": [
+      "lem-2.1.i",
+      "NEW-FOR-25"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.four_sq_le_two_pow",
+      "QuarticQuery.ForrelationLower.Xk_facts",
+      "QuarticQuery.ForrelationLower.core_bound",
+      "QuarticQuery.ForrelationLower.exists_threshold",
+      "QuarticQuery.ForrelationLower.bansalSinhaLower"
+    ]
+  },
+  {
+    "passage": "forr_attribution",
+    "from": "### 3.16. What this proof uses from earlier work, and",
+    "to": "merit an independent mathematical review before any stronger attribution claim.",
+    "role": "explains",
+    "statement_ids": [
+      "lem-2.1.i",
+      "NEW-FOR-13",
+      "NEW-FOR-18"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "forr_bundle",
+    "from": "### 3.17. The complete Forrelation ingredient\n\nCombining the established bounds",
+    "to": "should not be relabeled as a newly replayed kernel theorem.",
+    "role": "states",
+    "statement_ids": [
+      "lem-2.1",
+      "lem-2.1.i",
+      "lem-2.1.ii",
+      "lem-2.1.iii"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.bansalSinhaLower",
+      "QuarticQuery.Forrelation.exists_circuit",
+      "QuarticQuery.Upper.P_runs"
+    ]
+  },
+  {
+    "passage": "forr_references",
+    "from": "### 3.18. Primary references for this section\n\n- **[AA18](https://arxiv.org/abs/1411.5729)** Scott",
+    "to": "names and exact passages are recorded in the correspondence sidecar.",
+    "role": "mentions",
+    "statement_ids": [],
+    "lean": []
+  },
+  {
+    "passage": "CL-construction-context",
+    "from": "The total function couples two kinds of certificates. A column",
+    "to": "the proof below establishes the properties of this particular combination.",
+    "role": "explains",
+    "statement_ids": [
+      "def-column-layout",
+      "eq-8",
+      "def-F"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CL-transcripts",
+    "from": "Fix a partial Boolean function $P:D\\to\\{0,1\\}$, where $D\\subseteq\\{0,1\\}^{n}$, and a",
+    "to": "is the one in `Statement.lean`, `Gate`, `Circuit`, `predecessorValue`, and `GateConsistent`.",
+    "role": "proves",
+    "statement_ids": [
+      "def-transcript",
+      "def-eval-transcript",
+      "NCL-transcript-characterization"
+    ],
+    "lean": [
+      "QuarticQuery.GateConsistent.unique",
+      "QuarticQuery.circuitEval_gateConsistent",
+      "QuarticQuery.existsUnique_gateConsistent",
+      "QuarticQuery.gateConsistent_iff_eq_circuitEval"
+    ]
+  },
+  {
+    "passage": "CL-layout",
+    "from": "Now let $m=4^{t}$, with $t\\geq1$, and use base-two logarithms. The",
+    "to": "identity; the choices $\\ell=2t$ and $r=40t$ are built into `QuarticQuery.Fkm`.",
+    "role": "defines",
+    "statement_ids": [
+      "eq-6",
+      "def-column-layout"
+    ],
+    "lean": [
+      "QuarticQuery.BitLoc",
+      "QuarticQuery.Fkm",
+      "QuarticQuery.existsUnique_pointer",
+      "QuarticQuery.logb_mValue",
+      "QuarticQuery.pointerEquiv_bijective"
+    ]
+  },
+  {
+    "passage": "CL-address-winner",
+    "from": "If all $A_{i,h}$ belong to $D$, define the true address",
+    "to": "of `QuarticQuery.WinsAt`; the corpus assigns that row no separate theorem.",
+    "role": "defines",
+    "statement_ids": [
+      "eq-7",
+      "eq-8",
+      "def-winner",
+      "def-F"
+    ],
+    "lean": [
+      "QuarticQuery.WinsAt",
+      "QuarticQuery.addressedF_eq_true_iff"
+    ]
+  },
+  {
+    "passage": "CL-fidelity",
+    "from": "There are two useful descriptions of winning at an address",
+    "to": "circuit from being silently substituted for the intended partial function.",
+    "role": "proves",
+    "statement_ids": [
+      "def-win-at-address",
+      "claim-winner-fidelity"
+    ],
+    "lean": [
+      "QuarticQuery.WinsAt",
+      "QuarticQuery.winsAt_iff_outputs",
+      "QuarticQuery.winsAt_iff_paperWinsAt"
+    ]
+  },
+  {
+    "passage": "CL-unique",
+    "from": "For every complete input, at most one column is a",
+    "to": "it does not mean that the source lacks the theorem.",
+    "role": "proves",
+    "statement_ids": [
+      "cor-unique-winner"
+    ],
+    "lean": [
+      "QuarticQuery.winsAt_address_unique",
+      "QuarticQuery.winsAt_column_unique",
+      "QuarticQuery.winsAt_unique"
+    ]
+  },
+  {
+    "passage": "CL-local-tests",
+    "from": "We next construct all tests in Lemma 2.2, including their",
+    "to": "substitution is a prose deduction from the circuit size bound.",
+    "role": "defines",
+    "statement_ids": [
+      "def-K",
+      "lem-2.2.i",
+      "lem-2.2.ii"
+    ],
+    "lean": [
+      "QuarticQuery.TestIndex",
+      "QuarticQuery.card_testIndex",
+      "QuarticQuery.otherColumn_bijective"
+    ]
+  },
+  {
+    "passage": "CL-local-equivalence",
+    "from": "All these tests pass exactly when column $i$ wins at",
+    "to": "support Lemma 2.2(i); none alone states its entire prose conjunction.",
+    "role": "proves",
+    "statement_ids": [
+      "lem-2.2.i"
+    ],
+    "lean": [
+      "QuarticQuery.localTestTree_depth_le",
+      "QuarticQuery.localTestTree_eval",
+      "QuarticQuery.winsAt_iff_localTests"
+    ]
+  },
+  {
+    "passage": "CL-coherent-tests",
+    "from": "The same tests can be evaluated coherently with $O(\\log m)$",
+    "to": "2.2 is the conjunction of the two parts just proved.",
+    "role": "proves",
+    "statement_ids": [
+      "lem-2.2.ii",
+      "lem-2.2"
+    ],
+    "lean": [
+      "QuarticQuery.Upper.search_runs",
+      "QuarticQuery.Upper.test_samples"
+    ]
+  },
+  {
+    "passage": "CL-dichotomy",
+    "from": "The local dichotomy follows for every input. If column $i$",
+    "to": "formulation remains valid when some $A_{i,h}$ violates the partial-function promise.",
+    "role": "proves",
+    "statement_ids": [
+      "cor-local-dichotomy"
+    ],
+    "lean": [
+      "QuarticQuery.exists_failing_localTest",
+      "QuarticQuery.localTests_iff_eq_of_winsAt"
+    ]
+  },
+  {
+    "passage": "upper-purpose",
+    "from": "The quantum algorithm has two tasks. It first produces a",
+    "to": "subroutine, we subsequently account for its implementation with bit queries.",
+    "role": "explains",
+    "statement_ids": [
+      "prop-3.2",
+      "prop-3.3"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "upper-amplification-statement",
+    "from": "**Lemma 3.1, with the quantifiers made explicit.** For every pair",
+    "to": "equation (8)](https://arxiv.org/abs/quant-ph/0005055). We give the particular bounded construction in full.",
+    "role": "states",
+    "statement_ids": [
+      "lem-3.1"
+    ],
+    "lean": [
+      "QuarticQuery.Amplification.bounded_amplification"
+    ]
+  },
+  {
+    "passage": "upper-grover-geometry",
+    "from": "Let \\(\\Pi\\) be the orthogonal projection onto the success subspace,",
+    "to": "These cases require no definition of a normalized zero component.",
+    "role": "proves",
+    "statement_ids": [
+      "claim-grover-state"
+    ],
+    "lean": [
+      "QuarticQuery.Amplification.Preparation.grover_rotation",
+      "QuarticQuery.Amplification.Preparation.iterate_eq",
+      "QuarticQuery.Amplification.Preparation.phaseEq_normalised_good_iterate",
+      "QuarticQuery.Amplification.Preparation.good_iterate_of_prob_zero"
+    ]
+  },
+  {
+    "passage": "upper-grover-trial",
+    "from": "For `def-grover-trial`, choose the following two integers, using natural logarithms",
+    "to": "have not used a success assumption to establish this cap.",
+    "role": "defines",
+    "statement_ids": [
+      "def-grover-trial"
+    ],
+    "lean": [
+      "QuarticQuery.Amplification.trialWeight",
+      "QuarticQuery.Amplification.iterationBound",
+      "QuarticQuery.Amplification.trialCount",
+      "QuarticQuery.Amplification.amplify",
+      "QuarticQuery.Amplification.callCap_attempts"
+    ]
+  },
+  {
+    "passage": "upper-average-exact",
+    "from": "The following exact identity supplies the estimate for a randomized",
+    "to": "which avoids division and remains valid when that sine vanishes.",
+    "role": "proves",
+    "statement_ids": [
+      "new-upper-average-exact",
+      "eq-9"
+    ],
+    "lean": [
+      "QuarticQuery.Amplification.sin_two_mul_sum_sin_sq",
+      "QuarticQuery.Amplification.average_sin_sq"
+    ]
+  },
+  {
+    "passage": "upper-small-probability",
+    "from": "Suppose now that \\(\\gamma\\leq p\\leq1/2\\). The sine addition formula and",
+    "to": "with probability at most \\(31/40\\) whenever the promise \\(p\\geq\\gamma\\) holds.",
+    "role": "proves",
+    "statement_ids": [
+      "claim-sin2theta",
+      "eq-9"
+    ],
+    "lean": [
+      "QuarticQuery.Amplification.Preparation.sin_two_angle",
+      "QuarticQuery.Amplification.average_sin_sq_ge",
+      "QuarticQuery.Amplification.average_sin_sq_ge_nine_twentieths",
+      "QuarticQuery.Amplification.Preparation.nine_fortieths_le"
+    ]
+  },
+  {
+    "passage": "upper-amplification-proof",
+    "from": "For a fixed oracle input, each fresh trial has the",
+    "to": "the corpus's classifications; no compilation was performed for this record.",
+    "role": "proves",
+    "statement_ids": [
+      "lem-3.1",
+      "new-upper-call-cap"
+    ],
+    "lean": [
+      "QuarticQuery.Amplification.expect_attempts_of_phase",
+      "QuarticQuery.Amplification.pow_trialCount_le",
+      "QuarticQuery.Amplification.callCap_amplify_le",
+      "QuarticQuery.Amplification.bounded_amplification",
+      "QuarticQuery.Upper.Samples.amplify"
+    ]
+  },
+  {
+    "passage": "upper-comparison-model",
+    "from": "Fix an input oracle for the duration of the argument.",
+    "to": "query, the constant overhead established below is included in \\(c\\).",
+    "role": "defines",
+    "statement_ids": [
+      "def-aij",
+      "eq-10",
+      "prop-3.2"
+    ],
+    "lean": [
+      "QuarticQuery.Tournament.IsComparison",
+      "QuarticQuery.Tournament.UnitValued",
+      "QuarticQuery.Upper.cmpProb_isComparison"
+    ]
+  },
+  {
+    "passage": "upper-tournament-parameters",
+    "from": "For `def-T-eps`, put",
+    "to": "particular vertex is likely to occur in the returned list.",
+    "role": "defines",
+    "statement_ids": [
+      "def-T-eps",
+      "eq-11"
+    ],
+    "lean": [
+      "QuarticQuery.Tournament.Tval",
+      "QuarticQuery.Tournament.epsval",
+      "QuarticQuery.Tournament.Dominant"
+    ]
+  },
+  {
+    "passage": "upper-ideal-process",
+    "from": "Begin with weights \\(w_i=1\\) and an empty ordered list \\(L\\).",
+    "to": "at histories of probability zero without requiring division by zero.",
+    "role": "defines",
+    "statement_ids": [
+      "def-ideal-process",
+      "eq-12"
+    ],
+    "lean": [
+      "QuarticQuery.Tournament.expectFrom",
+      "QuarticQuery.Tournament.weight"
+    ]
+  },
+  {
+    "passage": "upper-weight-drift",
+    "from": "Condition on any current weights with \\(W>0\\). For pivot \\(p\\),",
+    "to": "whose probabilities are bounded away from both zero and one.",
+    "role": "proves",
+    "statement_ids": [
+      "eq-13",
+      "claim-expected-WT"
+    ],
+    "lean": [
+      "QuarticQuery.Tournament.two_mul_weighted_sum",
+      "QuarticQuery.Tournament.expected_weight_eq",
+      "QuarticQuery.Tournament.expected_weight_le_half",
+      "QuarticQuery.Tournament.expected_final_weight"
+    ]
+  },
+  {
+    "passage": "upper-dominant-weight",
+    "from": "Suppose \\(s\\) is dominant and has not appeared among the",
+    "to": "products of real weights are independent of this bookkeeping order.",
+    "role": "proves",
+    "statement_ids": [
+      "claim-weight-lb",
+      "eq-14"
+    ],
+    "lean": [
+      "QuarticQuery.Tournament.pow_le_weight",
+      "QuarticQuery.Tournament.dominant_weight_lb",
+      "QuarticQuery.Tournament.half_lt_total",
+      "QuarticQuery.Tournament.ideal_miss_le",
+      "QuarticQuery.Tournament.ideal_tournament"
+    ]
+  },
+  {
+    "passage": "upper-stage-state",
+    "from": "We now implement a quantum version of one step. Fix",
+    "to": "and its inverse reverses the comparisons and the success computation.",
+    "role": "defines",
+    "statement_ids": [
+      "construct-sampler",
+      "eq-15"
+    ],
+    "lean": [
+      "QuarticQuery.Upper.stage_samples"
+    ]
+  },
+  {
+    "passage": "upper-stage-law",
+    "from": "For fixed \\(i\\), the different comparisons act on separate initially",
+    "to": "uses of their specified circuits at one fixed oracle input.",
+    "role": "proves",
+    "statement_ids": [
+      "claim-success-prob"
+    ],
+    "lean": [
+      "QuarticQuery.Upper.stageLaw_some",
+      "QuarticQuery.Upper.sum_stageLaw_some",
+      "QuarticQuery.Amplification.IndexRegister.index_law_of_amplified"
+    ]
+  },
+  {
+    "passage": "upper-quantum-tournament",
+    "from": "Apply Lemma 3.1 to this preparation with \\(\\gamma=1/(2m)\\) and \\(\\eta=\\varepsilon\\).",
+    "to": "continuation. This is the alternative composition route recorded for `QuarticQuery.Upper.Samples.runs`.",
+    "role": "defines",
+    "statement_ids": [
+      "construct-sampler",
+      "new-upper-sampler-law"
+    ],
+    "lean": [
+      "QuarticQuery.Upper.Samples.amplify",
+      "QuarticQuery.Upper.ampLaw",
+      "QuarticQuery.Upper.Samples.runs"
+    ]
+  },
+  {
+    "passage": "upper-coupling",
+    "from": "We compare the real process with the ideal one on",
+    "to": "The claim only needs the already recorded occurrence of \\(s\\).",
+    "role": "proves",
+    "statement_ids": [
+      "claim-coupling"
+    ],
+    "lean": [
+      "QuarticQuery.Tournament.half_lt_total",
+      "QuarticQuery.Upper.tval_lower"
+    ]
+  },
+  {
+    "passage": "upper-tournament-cost",
+    "from": "At history length \\(t\\), the state preparation uses \\(t\\) controlled",
+    "to": "at least \\(1-2m/2^T-T\\varepsilon\\). No estimate of the \\(a_{ij}\\)'s is required.",
+    "role": "proves",
+    "statement_ids": [
+      "claim-tournament-cost",
+      "prop-3.2"
+    ],
+    "lean": [
+      "QuarticQuery.Upper.stageCost",
+      "QuarticQuery.Upper.tournament_runs"
+    ]
+  },
+  {
+    "passage": "upper-tournament-evidence",
+    "from": "**Lean evidence and the exact remaining difference for Proposition 3.2.**",
+    "to": "a fixed orientation to be extracted from the probabilistic comparisons.",
+    "role": "explains",
+    "statement_ids": [
+      "claim-success-prob",
+      "eq-15",
+      "claim-coupling",
+      "prop-3.2"
+    ],
+    "lean": [
+      "QuarticQuery.Upper.stageLaw_some",
+      "QuarticQuery.Upper.sum_stageLaw_some",
+      "QuarticQuery.Upper.stage_samples",
+      "QuarticQuery.Upper.tval_lower",
+      "QuarticQuery.Upper.tournament_runs"
+    ]
+  },
+  {
+    "passage": "upper-continuation-induction",
+    "from": "We give the induction used by that Boolean continuation, so",
+    "to": "\\(R_n(L)\\) and \\(I_n(L)\\), respectively, and `QuarticQuery.Upper.tval_lower` is the displayed assertion.",
+    "role": "proves",
+    "statement_ids": [
+      "new-upper-continuation-bound",
+      "claim-coupling",
+      "claim-error"
+    ],
+    "lean": [
+      "QuarticQuery.Upper.vall",
+      "QuarticQuery.Upper.tval",
+      "QuarticQuery.Upper.missFrom",
+      "QuarticQuery.Upper.tval_lower",
+      "QuarticQuery.Upper.tval_le",
+      "QuarticQuery.Upper.tournament_runs"
+    ]
+  },
+  {
+    "passage": "upper-decode",
+    "from": "Return to the total function \\(F_{k,m}\\). Fix \\(k\\geq2\\) and \\(m=4^t\\)",
+    "to": "no loop that waits for a promise to become true.",
+    "role": "defines",
+    "statement_ids": [
+      "def-decode",
+      "lem-2.1.ii"
+    ],
+    "lean": [
+      "QuarticQuery.Upper.addr_samples",
+      "QuarticQuery.Upper.addrLaw"
+    ]
+  },
+  {
+    "passage": "upper-decode-cost",
+    "from": "For fixed \\(k\\), an instance can be decoded with \\(O_k(\\ln(r/\\varepsilon))\\)",
+    "to": "source correspondences, not a promotion of its recorded evidence status.",
+    "role": "proves",
+    "statement_ids": [
+      "claim-decode-cost",
+      "lem-2.1.ii"
+    ],
+    "lean": [
+      "QuarticQuery.Upper.decode_samples",
+      "QuarticQuery.Upper.addr_samples",
+      "QuarticQuery.Upper.addrLaw_good",
+      "QuarticQuery.Upper.addrCost",
+      "QuarticQuery.Forrelation.repetitions",
+      "QuarticQuery.Forrelation.repetitions_le"
+    ]
+  },
+  {
+    "passage": "upper-comparator",
+    "from": "For `def-comparison`, fix a numerical ordering of the columns. On",
+    "to": "of queries because the bit oracle is its own inverse.",
+    "role": "defines",
+    "statement_ids": [
+      "def-comparison",
+      "claim-comparison-state"
+    ],
+    "lean": [
+      "QuarticQuery.Upper.firstWins",
+      "QuarticQuery.Upper.coreProb",
+      "QuarticQuery.Upper.cmpCost",
+      "QuarticQuery.Upper.cmp_samples"
+    ]
+  },
+  {
+    "passage": "upper-comparison-law",
+    "from": "For `claim-comparison-state`, we check why the coherent calculation has the",
+    "to": "even when neither decoded address is promised to be meaningful.",
+    "role": "proves",
+    "statement_ids": [
+      "claim-comparison-state",
+      "eq-10"
+    ],
+    "lean": [
+      "QuarticQuery.Upper.Samples.bind",
+      "QuarticQuery.Upper.core_samples",
+      "QuarticQuery.Upper.firstWins",
+      "QuarticQuery.Upper.cmpProb_isComparison",
+      "QuarticQuery.Upper.cmpProb_unit"
+    ]
+  },
+  {
+    "passage": "upper-winner-dominates",
+    "from": "Suppose now that \\(i^\\star\\) is a winning column. Its \\(X\\)-block",
+    "to": "the probability of the true decoded address; `QuarticQuery.Upper.addrLaw_good` supplies \\(1-\\varepsilon\\).",
+    "role": "proves",
+    "statement_ids": [
+      "claim-winner-dominates"
+    ],
+    "lean": [
+      "QuarticQuery.winner_no_incoming_zero",
+      "QuarticQuery.winner_finds_zero",
+      "QuarticQuery.Upper.cmpProb_winner",
+      "QuarticQuery.Upper.addrLaw_good"
+    ]
+  },
+  {
+    "passage": "upper-verifier",
+    "from": "For `def-verify`, use a fresh address decoding for the candidate",
+    "to": "one exactly in that event. The empty list produces zero.",
+    "role": "defines",
+    "statement_ids": [
+      "def-verify",
+      "def-K",
+      "lem-2.2.i"
+    ],
+    "lean": [
+      "QuarticQuery.Upper.testCost",
+      "QuarticQuery.Upper.test_samples",
+      "QuarticQuery.Upper.verifyProb"
+    ]
+  },
+  {
+    "passage": "upper-verification-proof",
+    "from": "For a fixed input, candidate, and decoded address, let \\(h\\)",
+    "to": "for `claim-verify`; these source declarations supply its individual mathematical components.",
+    "role": "proves",
+    "statement_ids": [
+      "claim-verify",
+      "lem-2.2.ii"
+    ],
+    "lean": [
+      "QuarticQuery.Upper.testLaw_pass",
+      "QuarticQuery.Upper.testLaw_fail",
+      "QuarticQuery.Upper.search_runs",
+      "QuarticQuery.Upper.verifyProb",
+      "QuarticQuery.Upper.Fkm_QLe"
+    ]
+  },
+  {
+    "passage": "upper-total-error",
+    "from": "We now prove `claim-error` for every input of the total",
+    "to": "probability estimates for the actual continuation, including history-dependent stage failure.",
+    "role": "proves",
+    "statement_ids": [
+      "claim-error"
+    ],
+    "lean": [
+      "QuarticQuery.Tournament.miss_bound_le",
+      "QuarticQuery.Tournament.Tval_mul_epsval",
+      "QuarticQuery.Tournament.total_error_lt",
+      "QuarticQuery.Upper.tval_le",
+      "QuarticQuery.Upper.tval_lower",
+      "QuarticQuery.Upper.Fkm_QLe"
+    ]
+  },
+  {
+    "passage": "upper-oracle-access",
+    "from": "We spell out `claim-coherent-access` because the algorithm uses addresses and",
+    "to": "the reflections used by amplification within the ordinary bit-oracle model.",
+    "role": "proves",
+    "statement_ids": [
+      "claim-coherent-access"
+    ],
+    "lean": [
+      "QuarticQuery.bitOracle",
+      "QuarticQuery.Upper.compile_read",
+      "QuarticQuery.Upper.Samples.tree",
+      "QuarticQuery.Upper.IsCirc.symm"
+    ]
+  },
+  {
+    "passage": "upper-read-compiler",
+    "from": "The source provides a concrete compilation argument behind this accounting.",
+    "to": "of workspace, which are free in the stated query model.",
+    "role": "explains",
+    "statement_ids": [
+      "claim-coherent-access"
+    ],
+    "lean": [
+      "QuarticQuery.Upper.ReadSpec",
+      "QuarticQuery.Upper.IsCirc",
+      "QuarticQuery.Upper.compile_read",
+      "QuarticQuery.Upper.compile_circ",
+      "QuarticQuery.Upper.Samples.runs",
+      "QuarticQuery.Upper.Runs.toQLe",
+      "QuarticQuery.Upper.Runs.toQLePartial"
+    ]
+  },
+  {
+    "passage": "upper-finite-budget",
+    "from": "We can now state an exact finite budget before simplifying",
+    "to": "stage \\(t\\) gives the same asymptotic result with less padding.",
+    "role": "states",
+    "statement_ids": [
+      "new-upper-finite-budget",
+      "claim-tournament-cost",
+      "prop-3.3"
+    ],
+    "lean": [
+      "QuarticQuery.Upper.budget",
+      "QuarticQuery.Upper.stageCost",
+      "QuarticQuery.Upper.searchCost",
+      "QuarticQuery.Upper.Fkm_QLe"
+    ]
+  },
+  {
+    "passage": "upper-asymptotic-bound",
+    "from": "The earlier estimates already prove Proposition 3.3. The tournament contributes",
+    "to": "lower bound in this proof of the quantum upper bound.",
+    "role": "proves",
+    "statement_ids": [
+      "prop-3.3"
+    ],
+    "lean": [
+      "QuarticQuery.Upper.Fkm_forrCircuit_QLe",
+      "QuarticQuery.Upper.Q_Fkm_le"
+    ]
+  },
+  {
+    "passage": "upper-explicit-log6",
+    "from": "The inspected source proves a stronger explicit exponent, which we",
+    "to": "the same chosen circuit that appears in the total function.",
+    "role": "proves",
+    "statement_ids": [
+      "new-upper-log6",
+      "prop-3.3"
+    ],
+    "lean": [
+      "QuarticQuery.Upper.budgetConst",
+      "QuarticQuery.Upper.budget_le",
+      "QuarticQuery.Upper.Fkm_forrCircuit_QLe",
+      "QuarticQuery.Upper.Q_Fkm_le"
+    ]
+  },
+  {
+    "passage": "CL-direct-product-statement",
+    "from": "Let $P:D\\to\\{0,1\\}$, where $D\\subseteq\\{0,1\\}^{n}$, let $\\mu$ be a probability distribution",
+    "to": "give the weighted induction used by the supplied Lean source.",
+    "role": "states",
+    "statement_ids": [
+      "lem-4.1"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CL-product-law",
+    "from": "Fix all independent information and coins, so that the algorithm",
+    "to": "conditional-law statement; the later weighted proof avoids introducing conditional distributions.",
+    "role": "proves",
+    "statement_ids": [
+      "claim-product-law"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CL-conditional-values",
+    "from": "At transcript $\\tau$, let $q_h$ be the number of queries",
+    "to": "Eq. 16. Their source route in the corpus is prose-only.",
+    "role": "proves",
+    "statement_ids": [
+      "def-value-V",
+      "eq-16"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CL-supermartingale",
+    "from": "Every $V_h$ is nonnegative. Multiplying the preceding conditional inequality by",
+    "to": "corpus. Their endpoint is proved by the following alternative route.",
+    "role": "proves",
+    "statement_ids": [
+      "claim-supermartingale",
+      "claim-final-bound",
+      "lem-4.1"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CL-weighted-values",
+    "from": "For the formal route, extend $\\mu$ by zero outside $D$,",
+    "to": "statement because their combined formulation has no pre-existing corpus row.",
+    "role": "proves",
+    "statement_ids": [
+      "NCL-weighted-value",
+      "lem-4.1"
+    ],
+    "lean": [
+      "QuarticQuery.budgetValue",
+      "QuarticQuery.budgetValue_add_le",
+      "QuarticQuery.constSuccess",
+      "QuarticQuery.exists_tree_budgetValue_le",
+      "QuarticQuery.restrictWeight",
+      "QuarticQuery.treeSuccess",
+      "QuarticQuery.treeSuccess_le_budgetValue"
+    ]
+  },
+  {
+    "passage": "CL-weighted-product",
+    "from": "We prove a stronger weighted assertion by induction on a",
+    "to": "remove the need for conditional laws and their zero-probability cases.",
+    "role": "proves",
+    "statement_ids": [
+      "NCL-weighted-product",
+      "lem-4.1"
+    ],
+    "lean": [
+      "QuarticQuery.direct_product",
+      "QuarticQuery.guessSuccess_le_prod",
+      "QuarticQuery.guessSuccess_leaf",
+      "QuarticQuery.guessSuccess_query"
+    ]
+  },
+  {
+    "passage": "CL-independent-information",
+    "from": "Finally restore the independent side information and random coins. Fixing",
+    "to": "entire tuple; separate independence from each coordinate would not suffice.",
+    "role": "proves",
+    "statement_ids": [
+      "NCL-finite-capped",
+      "lem-4.1"
+    ],
+    "lean": [
+      "QuarticQuery.direct_product_average",
+      "QuarticQuery.direct_product_randomized"
+    ]
+  },
+  {
+    "passage": "CL-minimax",
+    "from": "Suppose $L<R(P)$, with $L$ a nonnegative integer. The domain $D$",
+    "to": "It requires no distribution from the analytic Forrelation lower bound.",
+    "role": "proves",
+    "statement_ids": [
+      "claim-minimax-mu",
+      "NCL-strict-hard-distribution"
+    ],
+    "lean": [
+      "QuarticQuery.exists_hard_distribution",
+      "QuarticQuery.exists_mixed_row",
+      "QuarticQuery.exists_program_of_mixture",
+      "QuarticQuery.finite_depth_le"
+    ]
+  },
+  {
+    "passage": "CL-address-guess",
+    "from": "Apply Lemma 4.1 with this $\\mu$ and $\\beta=2/3$. One distribution",
+    "to": "from arbitrary independent information is the finite-behavior argument already given.",
+    "role": "proves",
+    "statement_ids": [
+      "claim-address-guess"
+    ],
+    "lean": [
+      "QuarticQuery.address_guess_average",
+      "QuarticQuery.address_guess_le",
+      "QuarticQuery.exists_address_guess_bound"
+    ]
+  },
+  {
+    "passage": "CL-generic-statement",
+    "from": "We now prove the following nonasymptotic form of Proposition 4.2.",
+    "to": "fix a deterministic tree $T$ of depth at most $G$.",
+    "role": "states",
+    "statement_ids": [
+      "prop-4.2-generic",
+      "eq-17"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CL-dummy",
+    "from": "Construct the dummy input $Y^{(0)}$ as follows. For each column",
+    "to": "let us fix outside data without changing the averaged experiment.",
+    "role": "defines",
+    "statement_ids": [
+      "def-dummy"
+    ],
+    "lean": [
+      "QuarticQuery.avg",
+      "QuarticQuery.avg_resample",
+      "QuarticQuery.prodW"
+    ]
+  },
+  {
+    "passage": "CL-planted",
+    "from": "Choose a column $I$ uniformly from $[m]$, independently of the",
+    "to": "equivalent to the experiment just described on the domain itself.",
+    "role": "proves",
+    "statement_ids": [
+      "def-planted",
+      "claim-Y-values"
+    ],
+    "lean": [
+      "QuarticQuery.addressedF_dummy",
+      "QuarticQuery.addressedF_planted",
+      "QuarticQuery.dummy",
+      "QuarticQuery.planted",
+      "QuarticQuery.trueAddr"
+    ]
+  },
+  {
+    "passage": "CL-first-difference",
+    "from": "The coupled inputs can differ only at the erased zero",
+    "to": "just proved; the exact exported final discrepancy theorem is one-sided.",
+    "role": "proves",
+    "statement_ids": [
+      "eq-18"
+    ],
+    "lean": [
+      "QuarticQuery.QueryTree.exists_mem_path_ne",
+      "QuarticQuery.eq_of_dummy_ne_planted",
+      "QuarticQuery.output_gap_le"
+    ]
+  },
+  {
+    "passage": "CL-early-late",
+    "from": "Let $Z$ be the number of columns whose unique zero",
+    "to": "stronger estimate by the following shorter induction, without conditional probabilities.",
+    "role": "proves",
+    "statement_ids": [
+      "def-Z",
+      "claim-uniform-zero",
+      "claim-EZ",
+      "eq-19"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CL-zero-worlds",
+    "from": "Fix one column and all data outside it. For each",
+    "to": "or that a run stops when it discovers a zero.",
+    "role": "proves",
+    "statement_ids": [
+      "NCL-zero-worlds",
+      "eq-19"
+    ],
+    "lean": [
+      "QuarticQuery.column_zero_bound",
+      "QuarticQuery.zero_search_sum"
+    ]
+  },
+  {
+    "passage": "CL-zero-average",
+    "from": "Take $U=[m]$ in the preceding inequality and divide by $m^2$.",
+    "to": "Eq. 19, and it is the bound used in `QuarticQuery.tree_gap_le`.",
+    "role": "proves",
+    "statement_ids": [
+      "NCL-erased-zero-two",
+      "eq-19"
+    ],
+    "lean": [
+      "QuarticQuery.avg_foundZero_I_le",
+      "QuarticQuery.avg_foundZero_le",
+      "QuarticQuery.sum_xQueries_le",
+      "QuarticQuery.tree_gap_le"
+    ]
+  },
+  {
+    "passage": "CL-zero-optional",
+    "from": "There is a further elementary improvement, separate from the source",
+    "to": "review's scan-to-completion example should be read with this expected-cost qualification.",
+    "role": "proves",
+    "statement_ids": [
+      "NCL-erased-zero-mplusone"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CL-heavy",
+    "from": "A column $i$ is heavy when, over the entire dummy",
+    "to": "cap on each separate instance will follow for the simulator.",
+    "role": "proves",
+    "statement_ids": [
+      "def-heavy",
+      "eq-20"
+    ],
+    "lean": [
+      "QuarticQuery.aQueries",
+      "QuarticQuery.avg_heavy_le",
+      "QuarticQuery.sum_aQueries_le"
+    ]
+  },
+  {
+    "passage": "CL-simulator",
+    "from": "Fix a column $i$ and a query time $q\\in\\{1,\\ldots,G\\}$. Give",
+    "to": "the simulator never accesses them through the free outside-data branch.",
+    "role": "defines",
+    "statement_ids": [
+      "def-simulator",
+      "eq-21"
+    ],
+    "lean": [
+      "QuarticQuery.depth_simTree_le",
+      "QuarticQuery.dummy_update_of_aTarget_none",
+      "QuarticQuery.dummy_update_of_aTarget_some",
+      "QuarticQuery.eval_simTree",
+      "QuarticQuery.simTree"
+    ]
+  },
+  {
+    "passage": "CL-joint-event",
+    "from": "Consider the event that column $i$ is nonheavy over the",
+    "to": "the corpus ties the individual-time argument to its simulator ingredients.",
+    "role": "proves",
+    "statement_ids": [
+      "eq-21"
+    ],
+    "lean": [
+      "QuarticQuery.avg_reachedCell_le",
+      "QuarticQuery.cellGuess",
+      "QuarticQuery.cellGuess_of_cellOf",
+      "QuarticQuery.reachedCell"
+    ]
+  },
+  {
+    "passage": "CL-cell-union",
+    "from": "If the dummy run visits the true cell of a",
+    "to": "apply with every fixed outside configuration before the product averaging.",
+    "role": "proves",
+    "statement_ids": [
+      "eq-22"
+    ],
+    "lean": [
+      "QuarticQuery.avg_heavy_le",
+      "QuarticQuery.avg_reachedCell_le"
+    ]
+  },
+  {
+    "passage": "CL-discrepancy",
+    "from": "Combine the first-difference inequality with the erased-zero and cell bounds.",
+    "to": "it is not the exact statement of this exported declaration.",
+    "role": "proves",
+    "statement_ids": [
+      "eq-23",
+      "NCL-checked-gap"
+    ],
+    "lean": [
+      "QuarticQuery.coupledAvg",
+      "QuarticQuery.output_gap_le",
+      "QuarticQuery.tree_gap_le"
+    ]
+  },
+  {
+    "passage": "CL-tail-numeric",
+    "from": "For the chosen parameters, $G\\leq mL/100\\leq m^2/100$. Since $r=20\\log_2m$, elementary",
+    "to": "sufficiently large threshold is needed for the displayed discrepancy estimate.",
+    "role": "proves",
+    "statement_ids": [
+      "claim-tail",
+      "claim-numeric"
+    ],
+    "lean": [
+      "QuarticQuery.discrepancy_le",
+      "QuarticQuery.discrepancy_lt_third",
+      "QuarticQuery.discrepancy_parameters",
+      "QuarticQuery.twoThirds_pow_le"
+    ]
+  },
+  {
+    "passage": "CL-randomized-contradiction",
+    "from": "Suppose a randomized algorithm of worst-case query cost at most",
+    "to": "to the local output tests used by the upper bound.",
+    "role": "proves",
+    "statement_ids": [
+      "prop-4.2-generic"
+    ],
+    "lean": [
+      "QuarticQuery.Gvalue_lt_R_addressedF",
+      "QuarticQuery.addressedF_lower",
+      "QuarticQuery.addressedF_not_RLe"
+    ]
+  },
+  {
+    "passage": "CL-floors",
+    "from": "For the concrete family, fix $k\\geq2$ and put $L=\\lfloor m^{1-1/k}/(\\log_2m)^2\\rfloor$,",
+    "to": "and `QuarticQuery.logb_mValue` identifies that expression with the one displayed here.",
+    "role": "proves",
+    "statement_ids": [
+      "claim-floor",
+      "NCL-explicit-floor"
+    ],
+    "lean": [
+      "QuarticQuery.Gvalue_ge",
+      "QuarticQuery.Lvalue_le_mValue",
+      "QuarticQuery.four_mul_sq_le_two_pow",
+      "QuarticQuery.logb_mValue",
+      "QuarticQuery.one_le_Lvalue",
+      "QuarticQuery.sq_le_rpow"
+    ]
+  },
+  {
+    "passage": "CL-concrete-lower",
+    "from": "Choose $t$ large enough for the partial-function lower bound and",
+    "to": "discharged; the lower-bound module does not establish it by itself.",
+    "role": "proves",
+    "statement_ids": [
+      "prop-4.2",
+      "cor-R-omega"
+    ],
+    "lean": [
+      "QuarticQuery.Gvalue_lt_R_Fkm",
+      "QuarticQuery.rpow_le_of_Gvalue_lt"
+    ]
+  },
+  {
+    "passage": "ROOT-FAMILY-ASSEMBLY",
+    "from": "Fix an integer $k\\geq2$. The Forrelation lower bound supplies an",
+    "to": "composition with the discharged Forrelation premise proves the full assertion.",
+    "role": "proves",
+    "statement_ids": [
+      "eq-2",
+      "thm-1.1",
+      "claim-floor",
+      "cor-R-omega"
+    ],
+    "lean": [
+      "QuarticQuery.family_bounds",
+      "QuarticQuery.familyBounds_of_bansalSinha",
+      "QuarticQuery.familyBoundsAt_of_parts",
+      "QuarticQuery.Upper.familyBoundsAt_of_lower",
+      "QuarticQuery.alphaTot_eq_four_of_bansalSinha",
+      "QuarticQuery.theorem_1_1",
+      "QuarticQuery.alphaTot_eq_four_of",
+      "QuarticQuery.alphaTot_eq_four",
+      "QuarticQuery.alphaTot_eq_four_unconditional",
+      "QuarticQuery.theorem_1_1_unconditional",
+      "QuarticQuery.Gvalue_ge",
+      "QuarticQuery.rpow_le_of_Gvalue_lt",
+      "QuarticQuery.ForrelationLower.bansalSinhaLower"
+    ]
+  },
+  {
+    "passage": "ROOT-RATIO",
+    "from": "### 7.1. A fixed family defeats every smaller power below",
+    "to": "estimate above gives an elementary route to the same comparison.",
+    "role": "proves",
+    "statement_ids": [
+      "claim-exponent-ratio"
+    ],
+    "lean": [
+      "QuarticQuery.eventually_gt_rpow",
+      "QuarticQuery.exists_nat_exponent",
+      "QuarticQuery.exists_threshold_gap"
+    ]
+  },
+  {
+    "passage": "ROOT-NO-SMALLER",
+    "from": "### 7.2. The order of the choices\n\nFor every $0\\leq\\alpha<4$,",
+    "to": "their hypotheses do not remain assumptions of these final declarations.",
+    "role": "proves",
+    "statement_ids": [
+      "claim-no-smaller-exponent",
+      "thm-1.1",
+      "cor-cubic-refuted"
+    ],
+    "lean": [
+      "QuarticQuery.not_bound_of_familyBoundsAt",
+      "QuarticQuery.not_universalPower_of_familyBoundsAt",
+      "QuarticQuery.not_universalPower_of_family",
+      "QuarticQuery.no_universal_power",
+      "QuarticQuery.alphaTot_eq_four_of_bansalSinha",
+      "QuarticQuery.theorem_1_1",
+      "QuarticQuery.alphaTot_eq_four_of",
+      "QuarticQuery.alphaTot_eq_four",
+      "QuarticQuery.alphaTot_eq_four_unconditional",
+      "QuarticQuery.theorem_1_1_unconditional",
+      "QuarticQuery.cubic_bound_fails_of_bansalSinha",
+      "QuarticQuery.cubic_refuted",
+      "QuarticQuery.cubic_refuted_bare",
+      "QuarticQuery.cubic_bound_fails",
+      "QuarticQuery.cubic_bound_fails_unconditional",
+      "QuarticQuery.exists_nat_exponent",
+      "QuarticQuery.transport_bound"
+    ]
+  },
+  {
+    "passage": "ROOT-APPENDIX-INTRO",
+    "from": "This appendix proves the universal estimate used to close Theorem",
+    "to": "that endpoint. The following proofs establish them in ordinary mathematics.",
+    "role": "explains",
+    "statement_ids": [
+      "thm-A.1"
+    ],
+    "lean": [
+      "QuarticQuery.D_le_of_QLe",
+      "QuarticQuery.D_le_Q_pow_four",
+      "QuarticQuery.R_le_D_le_one_add_Q_pow_four",
+      "QuarticQuery.universalPower_four"
+    ]
+  },
+  {
+    "passage": "ROOT-DEGREE-BLOCK",
+    "from": "### A.1. Degree and sensitive blocks\n\nLet $f:\\{0,1\\}^n\\to\\{0,1\\}$ be total.",
+    "to": "constant function has block sensitivity zero. These definitions give `def-bs`.",
+    "role": "defines",
+    "statement_ids": [
+      "def-deg",
+      "def-bs"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "ROOT-ADVERSARY-PERRON",
+    "from": "### A.2. A nonnegative spectral adversary bound\n\nIndex real matrices",
+    "to": "Perron-type assertion needed here, including matrices with several connected components.",
+    "role": "proves",
+    "statement_ids": [
+      "def-Gamma-i",
+      "claim-perron"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "ROOT-ADVERSARY-PROGRESS",
+    "from": "Assume in addition that $\\Gamma_{xy}=0$ whenever $f(x)=f(y)$. Consider a quantum",
+    "to": "$\\sum_i\\|u_i\\|^2=\\sum_xv_x^2\\sum_i\\|\\phi_{x,i}\\|^2=1$. No normalization is performed separately on a zero-probability block.",
+    "role": "proves",
+    "statement_ids": [
+      "def-adv-progress",
+      "claim-per-query",
+      "lem-A.2"
+    ],
+    "lean": [
+      "QuarticQuery.FixedSim.build",
+      "QuarticQuery.exists_fixedSequence"
+    ]
+  },
+  {
+    "passage": "ROOT-ADVERSARY-FINAL",
+    "from": "We next bound the overlap of final states on inputs",
+    "to": "statement in these forms. Their proofs here are prose proofs.",
+    "role": "proves",
+    "statement_ids": [
+      "claim-final-overlap",
+      "lem-A.2"
+    ],
+    "lean": [
+      "QuarticQuery.FixedSim.build",
+      "QuarticQuery.exists_fixedSequence"
+    ]
+  },
+  {
+    "passage": "ROOT-BS-LAMBDA",
+    "from": "### A.3. Two consequences of the adversary bound\n\nFix an",
+    "to": "upper endpoint does not by itself certify these individual inequalities.",
+    "role": "proves",
+    "statement_ids": [
+      "lem-A.3.bs",
+      "def-Sf",
+      "lem-A.3.lambda",
+      "lem-A.3"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "ROOT-HUANG-RESTRICTION",
+    "from": "### A.4. Degree is bounded by squared spectral sensitivity\n\nAssume",
+    "to": "$g$ agrees with the same signed parity at both endpoints.",
+    "role": "proves",
+    "statement_ids": [
+      "claim-restrict-parity"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "ROOT-HUANG-SPECTRUM",
+    "from": "Define a signed adjacency matrix for the $j$-cube recursively by",
+    "to": "sensitivity, which is the quantity needed for the quantum bound.",
+    "role": "proves",
+    "statement_ids": [
+      "def-huang",
+      "claim-huang-spectrum",
+      "claim-interlace",
+      "lem-A.4"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "ROOT-MONOMIAL-TREE",
+    "from": "### A.5. A deterministic tree with at most $\\operatorname{bs}(f)\\deg(f)$ queries",
+    "to": "per-input sensitive-block charging argument are the prose proof given here.",
+    "role": "proves",
+    "statement_ids": [
+      "claim-round-block",
+      "lem-A.5"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "ROOT-QUARTIC-UPPER",
+    "from": "### A.6. Combining the estimates\n\nFor nonconstant total $f$, Lemma",
+    "to": "checked-source record and its explicit use in the supplied file.",
+    "role": "proves",
+    "statement_ids": [
+      "thm-A.1"
+    ],
+    "lean": [
+      "QuarticQuery.D_le_of_QLe",
+      "QuarticQuery.D_le_Q_pow_four",
+      "QuarticQuery.R_le_D_le_one_add_Q_pow_four",
+      "QuarticQuery.universalPower_four"
+    ]
+  },
+  {
+    "passage": "ROOT-CATALOGUE-INTRO",
+    "from": "This catalogue reproduces the original corpus statements without rewriting their",
+    "to": "additional displayed claims remain separate in the two statement registries.",
+    "role": "explains",
+    "statement_ids": [],
+    "lean": []
+  },
+  {
+    "passage": "CAT-def-log-convention",
+    "from": "> log means log_2, except where changing the base only",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "def-log-convention"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-def-partial-query",
+    "from": "> A partial Boolean function is a pair (D,P) with",
+    "to": "335.\n- `QuarticQuery.DLe_reindex_iff`: relation partial, route none; `lean/QuarticQuery/Model/Classical.lean`, line 344.",
+    "role": "states",
+    "statement_ids": [
+      "def-partial-query"
+    ],
+    "lean": [
+      "QuarticQuery.RLe_reindex_iff",
+      "QuarticQuery.DLe_reindex_iff"
+    ]
+  },
+  {
+    "passage": "CAT-def-R",
+    "from": "> For a (partial) Boolean function f, R(f) is the",
+    "to": "308.\n- `QuarticQuery.R_reindex`: relation partial, route none; `lean/QuarticQuery/Model/Classical.lean`, line 353.",
+    "role": "states",
+    "statement_ids": [
+      "def-R"
+    ],
+    "lean": [
+      "QuarticQuery.DLe.toRLe",
+      "QuarticQuery.RLe_R",
+      "QuarticQuery.R_le_iff",
+      "QuarticQuery.lt_R_iff",
+      "QuarticQuery.lt_R_of_not_RLe",
+      "QuarticQuery.R_reindex"
+    ]
+  },
+  {
+    "passage": "CAT-def-query-oracle",
+    "from": "> For x in {0,1}^n the bit oracle is the",
+    "to": "78.\n- `QuarticQuery.bitOracle_bitOracle`: relation partial, route none; `lean/QuarticQuery/Model/Quantum.lean`, line 83.",
+    "role": "states",
+    "statement_ids": [
+      "def-query-oracle"
+    ],
+    "lean": [
+      "QuarticQuery.hadamardL",
+      "QuarticQuery.hadamardL_hadamardL",
+      "QuarticQuery.norm_hadamardL",
+      "QuarticQuery.hadamard",
+      "QuarticQuery.hadamard_hadamard",
+      "QuarticQuery.hadamard_phaseOracle_hadamard",
+      "QuarticQuery.hadamard_bitOracle_hadamard",
+      "QuarticQuery.bitRun",
+      "QuarticQuery.phaseGates",
+      "QuarticQuery.run_phaseGates",
+      "QuarticQuery.bitOracleL",
+      "QuarticQuery.bitOracle_add",
+      "QuarticQuery.bitOracle_smul",
+      "QuarticQuery.norm_bitOracle",
+      "QuarticQuery.bitOracle_bitOracle"
+    ]
+  },
+  {
+    "passage": "CAT-def-Q",
+    "from": "> Q(f) is the least q such that some quantum",
+    "to": "373.\n- `QuarticQuery.Upper.Runs.toQLe`: relation partial, route none; `lean/QuarticQuery/Upper/Compile.lean`, line 386.",
+    "role": "states",
+    "statement_ids": [
+      "def-Q"
+    ],
+    "lean": [
+      "QuarticQuery.AdaptiveProgram.outputMass_nonneg",
+      "QuarticQuery.AdaptiveProgram.outputMass_true_add_false",
+      "QuarticQuery.Q_le_of_QLe",
+      "QuarticQuery.QLe.reindex",
+      "QuarticQuery.QLe_reindex_iff",
+      "QuarticQuery.Q_reindex",
+      "QuarticQuery.DLe.toQLe",
+      "QuarticQuery.QLe_card",
+      "QuarticQuery.QLe_Q",
+      "QuarticQuery.Q_le_iff",
+      "QuarticQuery.Upper.Runs",
+      "QuarticQuery.Upper.Runs.bind",
+      "QuarticQuery.Upper.Runs.toQLePartial",
+      "QuarticQuery.Upper.Runs.toQLe"
+    ]
+  },
+  {
+    "passage": "CAT-eq-1",
+    "from": "> alpha_tot = inf{alpha >= 0 : exists C_alpha <",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "eq-1"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-eq-2",
+    "from": "> For fixed integer k>=2 and all sufficiently large powers",
+    "to": "416.\n- `QuarticQuery.Upper.familyBoundsAt_of_lower`: relation partial, route same; `lean/QuarticQuery/Upper/Bound.lean`, line 265.",
+    "role": "states",
+    "statement_ids": [
+      "eq-2"
+    ],
+    "lean": [
+      "QuarticQuery.family_bounds",
+      "QuarticQuery.familyBounds_of_bansalSinha",
+      "QuarticQuery.familyBoundsAt_of_parts",
+      "QuarticQuery.Upper.familyBoundsAt_of_lower"
+    ]
+  },
+  {
+    "passage": "CAT-thm-1.1",
+    "from": "> alpha_tot = 4. More precisely, R(f) = O((1+Q(f))^4) for",
+    "to": "18.\n- `QuarticQuery.theorem_1_1_unconditional`: relation exact, route alternative; `lean/QuarticQuery/Results/Unconditional.lean`, line 23.",
+    "role": "states",
+    "statement_ids": [
+      "thm-1.1"
+    ],
+    "lean": [
+      "QuarticQuery.alphaTot_eq_four_of_bansalSinha",
+      "QuarticQuery.theorem_1_1",
+      "QuarticQuery.alphaTot_eq_four_of",
+      "QuarticQuery.alphaTot_eq_four",
+      "QuarticQuery.alphaTot_eq_four_unconditional",
+      "QuarticQuery.theorem_1_1_unconditional"
+    ]
+  },
+  {
+    "passage": "CAT-cor-cubic-refuted",
+    "from": "> It is false that R(f) = O(Q(f)^3) for all",
+    "to": "historical text is not substituted for the current statement above.",
+    "role": "states",
+    "statement_ids": [
+      "cor-cubic-refuted"
+    ],
+    "lean": [
+      "QuarticQuery.cubic_bound_fails_of_bansalSinha",
+      "QuarticQuery.cubic_refuted",
+      "QuarticQuery.cubic_refuted_bare",
+      "QuarticQuery.cubic_bound_fails",
+      "QuarticQuery.cubic_bound_fails_unconditional"
+    ]
+  },
+  {
+    "passage": "CAT-def-walsh-sign",
+    "from": "> m=4^t. H is the m x m normalized Walsh-Hadamard",
+    "to": "158.\n- `QuarticQuery.Forrelation.W_mul_transpose`: relation partial, route none; `lean/QuarticQuery/Forrelation/Walsh.lean`, line 180.",
+    "role": "states",
+    "statement_ids": [
+      "def-walsh-sign"
+    ],
+    "lean": [
+      "QuarticQuery.Forrelation.walshN",
+      "QuarticQuery.Forrelation.sum_walshN_mul",
+      "QuarticQuery.Forrelation.walshZ",
+      "QuarticQuery.Forrelation.W",
+      "QuarticQuery.Forrelation.walshZ_mul_transpose",
+      "QuarticQuery.Forrelation.W_mul_transpose"
+    ]
+  },
+  {
+    "passage": "CAT-eq-3",
+    "from": "> For z_1,...,z_k in {+-1}^m: Phi(z_1,...,z_k) = u^T D_{z_1} H",
+    "to": "200.\n- `QuarticQuery.Forrelation.H_mem_orthogonalGroup`: relation partial, route none; `lean/QuarticQuery/Forrelation/Walsh.lean`, line 210.",
+    "role": "states",
+    "statement_ids": [
+      "eq-3"
+    ],
+    "lean": [
+      "QuarticQuery.Forrelation.u",
+      "QuarticQuery.Forrelation.signDiag",
+      "QuarticQuery.Forrelation.alternate",
+      "QuarticQuery.Forrelation.Phi_eq_matrix_product",
+      "QuarticQuery.Forrelation.Phi_sq_le_one",
+      "QuarticQuery.Forrelation.abs_Phi_le_one",
+      "QuarticQuery.Forrelation.delta",
+      "QuarticQuery.Forrelation.H",
+      "QuarticQuery.Forrelation.H_mul_H",
+      "QuarticQuery.Forrelation.H_mem_orthogonalGroup"
+    ]
+  },
+  {
+    "passage": "CAT-eq-4",
+    "from": "> P=P_{k,m} is the partial function on km bits with",
+    "to": "58.\n- `QuarticQuery.Forrelation.P_negativeWitness`: relation partial, route none; `lean/QuarticQuery/Forrelation/Sanity.lean`, line 65.",
+    "role": "states",
+    "statement_ids": [
+      "eq-4"
+    ],
+    "lean": [
+      "QuarticQuery.Forrelation.cases_disjoint",
+      "QuarticQuery.Forrelation.P_eq_some_true_iff",
+      "QuarticQuery.Forrelation.P_eq_some_false_iff",
+      "QuarticQuery.Forrelation.P_eq_none_iff",
+      "QuarticQuery.Forrelation.P_eq_cases",
+      "QuarticQuery.Forrelation.census_true",
+      "QuarticQuery.Forrelation.census_false",
+      "QuarticQuery.Forrelation.census_none",
+      "QuarticQuery.Forrelation.promise_nonempty_two_one",
+      "QuarticQuery.Forrelation.Phi_negativeWitness",
+      "QuarticQuery.Forrelation.P_negativeWitness"
+    ]
+  },
+  {
+    "passage": "CAT-eq-5",
+    "from": "> L = L_{k,m} = floor(m^{1-1/k}/(log_2 m)^2).\n\n**Mathematical passages:** [forr_definition](#forr_definition).",
+    "to": "historical text is not substituted for the current statement above.",
+    "role": "states",
+    "statement_ids": [
+      "eq-5"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-claim-bs-to-L",
+    "from": "> For fixed k: for large m, c k^{-29} (m/log(km))^{1-1/k}",
+    "to": "endpoint. It does not state the isolated numerical Bansal–Sinha comparison.",
+    "role": "states",
+    "statement_ids": [
+      "claim-bs-to-L"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.bansalSinhaLower"
+    ]
+  },
+  {
+    "passage": "CAT-lem-2.1.i",
+    "from": "> For fixed k>=2 and all sufficiently large powers of",
+    "to": "endpoint. It does not state the isolated numerical Bansal–Sinha comparison.",
+    "role": "states",
+    "statement_ids": [
+      "lem-2.1.i"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.bansalSinhaLower"
+    ]
+  },
+  {
+    "passage": "CAT-claim-proj-prob",
+    "from": "> Prepare u, apply D_{z_1} H ... H D_{z_k} right",
+    "to": "67.\n- `QuarticQuery.Upper.forr_samples`: relation partial, route same; `lean/QuarticQuery/Upper/Decode.lean`, line 309.",
+    "role": "states",
+    "statement_ids": [
+      "claim-proj-prob"
+    ],
+    "lean": [
+      "QuarticQuery.Forrelation.successProb",
+      "QuarticQuery.Forrelation.successProb_eq",
+      "QuarticQuery.Forrelation.failureProb_eq",
+      "QuarticQuery.Forrelation.successProb_of_true",
+      "QuarticQuery.Forrelation.successProb_of_false",
+      "QuarticQuery.Upper.forr_samples"
+    ]
+  },
+  {
+    "passage": "CAT-lem-2.1.ii",
+    "from": "> For every 0<eta<1/2 there is a quantum algorithm using",
+    "to": "386.\n- `QuarticQuery.Upper.P_QLe`: relation partial, route same; `lean/QuarticQuery/Upper/Decode.lean`, line 394.",
+    "role": "states",
+    "statement_ids": [
+      "lem-2.1.ii"
+    ],
+    "lean": [
+      "QuarticQuery.Forrelation.binomTail_small",
+      "QuarticQuery.Forrelation.binomTail_large",
+      "QuarticQuery.Forrelation.repetitions",
+      "QuarticQuery.Forrelation.repetitions_le",
+      "QuarticQuery.Forrelation.threshold_correct",
+      "QuarticQuery.Forrelation.threshold_correct_third",
+      "QuarticQuery.Upper.Samples.count",
+      "QuarticQuery.Upper.Samples.threshold",
+      "QuarticQuery.Upper.Samples.pi",
+      "QuarticQuery.Upper.hGate",
+      "QuarticQuery.Upper.forr_samples",
+      "QuarticQuery.Upper.decode_samples",
+      "QuarticQuery.Upper.decodeProb_correct",
+      "QuarticQuery.Upper.P_runs",
+      "QuarticQuery.Upper.P_QLe"
+    ]
+  },
+  {
+    "passage": "CAT-claim-N-phi",
+    "from": "> With W=sqrt(m) H (entries +-1), N = z_1^T W",
+    "to": "71.\n- `QuarticQuery.Forrelation.Phi_eq_matrix_product`: relation partial, route same; `lean/QuarticQuery/Forrelation/Product.lean`, line 158.",
+    "role": "states",
+    "statement_ids": [
+      "claim-N-phi"
+    ],
+    "lean": [
+      "QuarticQuery.Forrelation.layers",
+      "QuarticQuery.Forrelation.walkN",
+      "QuarticQuery.Forrelation.numerator_eq_walk",
+      "QuarticQuery.Forrelation.Phi_eq_matrix_product"
+    ]
+  },
+  {
+    "passage": "CAT-claim-integer-tests",
+    "from": "> Phi>=delta iff 2^{5k} N >= M_{k,m}; and |Phi|<=delta/2 iff",
+    "to": "33.\n- `QuarticQuery.Forrelation.abs_Phi_le_iff`: relation partial, route same; `lean/QuarticQuery/Forrelation/Promise.lean`, line 43.",
+    "role": "states",
+    "statement_ids": [
+      "claim-integer-tests"
+    ],
+    "lean": [
+      "QuarticQuery.Forrelation.P_tests",
+      "QuarticQuery.Forrelation.forrCore_spec",
+      "QuarticQuery.Forrelation.delta_le_Phi_iff",
+      "QuarticQuery.Forrelation.abs_Phi_le_iff"
+    ]
+  },
+  {
+    "passage": "CAT-claim-circuit-size",
+    "from": "> N is computed by k-1 unnormalized Walsh-Hadamard transforms, coordinate",
+    "to": "ties:**\n\n- `QuarticQuery.Forrelation.abs_numerator_le`: relation partial, route same; `lean/QuarticQuery/Forrelation/Circuit.lean`, line 203.",
+    "role": "states",
+    "statement_ids": [
+      "claim-circuit-size"
+    ],
+    "lean": [
+      "QuarticQuery.Forrelation.abs_numerator_le"
+    ]
+  },
+  {
+    "passage": "CAT-lem-2.1.iii",
+    "from": "> There is a Boolean circuit C=C_{k,m} of fan-in at",
+    "to": "466.\n- `QuarticQuery.Forrelation.exists_circuit`: relation stronger, route same; `lean/QuarticQuery/Forrelation/Circuit.lean`, line 479.",
+    "role": "states",
+    "statement_ids": [
+      "lem-2.1.iii"
+    ],
+    "lean": [
+      "QuarticQuery.Forrelation.realises_of_run",
+      "QuarticQuery.Forrelation.forrCircuit",
+      "QuarticQuery.Forrelation.forrCircuit_realises",
+      "QuarticQuery.Forrelation.forrConstant",
+      "QuarticQuery.Forrelation.forrCircuit_size_le",
+      "QuarticQuery.Forrelation.exists_circuit"
+    ]
+  },
+  {
+    "passage": "CAT-lem-2.1",
+    "from": "> Conjunction of lem-2.1.i, lem-2.1.ii and lem-2.1.iii for each fixed",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "lem-2.1"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-def-transcript",
+    "from": "> For a fixed circuit, a transcript assigns a proposed",
+    "to": "30.\n- `QuarticQuery.existsUnique_gateConsistent`: relation partial, route none; `lean/QuarticQuery/Construction/Transcript.lean`, line 70.",
+    "role": "states",
+    "statement_ids": [
+      "def-transcript"
+    ],
+    "lean": [
+      "QuarticQuery.GateConsistent.unique",
+      "QuarticQuery.existsUnique_gateConsistent"
+    ]
+  },
+  {
+    "passage": "CAT-eq-6",
+    "from": "> r = ceil(20 log_2 m), l = log_2 m.",
+    "to": "ties:**\n\n- `QuarticQuery.logb_mValue`: relation partial, route none; `lean/QuarticQuery/Results/Exponent.lean`, line 301.",
+    "role": "states",
+    "statement_ids": [
+      "eq-6"
+    ],
+    "lean": [
+      "QuarticQuery.logb_mValue"
+    ]
+  },
+  {
+    "passage": "CAT-def-column-layout",
+    "from": "> The input has m columns. Column i contains: X_i",
+    "to": "26.\n- `QuarticQuery.existsUnique_pointer`: relation partial, route none; `lean/QuarticQuery/Construction/Winner.lean`, line 31.",
+    "role": "states",
+    "statement_ids": [
+      "def-column-layout"
+    ],
+    "lean": [
+      "QuarticQuery.pointerEquiv_bijective",
+      "QuarticQuery.existsUnique_pointer"
+    ]
+  },
+  {
+    "passage": "CAT-def-eval-transcript",
+    "from": "> An evaluation transcript of C_{k,m} on A_{i,h} has one",
+    "to": "53.\n- `QuarticQuery.gateConsistent_iff_eq_circuitEval`: relation exact, route none; `lean/QuarticQuery/Construction/Transcript.lean`, line 64.",
+    "role": "states",
+    "statement_ids": [
+      "def-eval-transcript"
+    ],
+    "lean": [
+      "QuarticQuery.circuitEval_gateConsistent",
+      "QuarticQuery.gateConsistent_iff_eq_circuitEval"
+    ]
+  },
+  {
+    "passage": "CAT-eq-7",
+    "from": "> If every P(A_{i,h}) is defined, the true address of",
+    "to": "ties:**\n\n- `QuarticQuery.winsAt_address_unique`: relation partial, route none; `lean/QuarticQuery/Construction/Winner.lean`, line 50.",
+    "role": "states",
+    "statement_ids": [
+      "eq-7"
+    ],
+    "lean": [
+      "QuarticQuery.winsAt_address_unique"
+    ]
+  },
+  {
+    "passage": "CAT-eq-8",
+    "from": "> Outward pointer condition at address s: X_j[p_{i,s,j}] = 0",
+    "to": "historical text is not substituted for the current statement above.",
+    "role": "states",
+    "statement_ids": [
+      "eq-8"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-def-winner",
+    "from": "> Column i is a winner iff X_i=1^m, every P(A_{i,h})",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "def-winner"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-def-F",
+    "from": "> F_{k,m}(y)=1 if some column of y is a winner,",
+    "to": "42.\n- `QuarticQuery.winsAt_unique`: relation partial, route none; `lean/QuarticQuery/Construction/Winner.lean`, line 55.",
+    "role": "states",
+    "statement_ids": [
+      "def-F"
+    ],
+    "lean": [
+      "QuarticQuery.addressedF_eq_true_iff",
+      "QuarticQuery.addressedF_eq_true_iff_localTests",
+      "QuarticQuery.winsAt_column_unique",
+      "QuarticQuery.winsAt_unique"
+    ]
+  },
+  {
+    "passage": "CAT-cor-unique-winner",
+    "from": "> For every input, at most one column is a",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "cor-unique-winner"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-def-win-at-address",
+    "from": "> WinsAt(y,i,s) holds iff X_i=1^m, for every h the transcript",
+    "to": "historical text is not substituted for the current statement above.",
+    "role": "states",
+    "statement_ids": [
+      "def-win-at-address"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-def-K",
+    "from": "> K_{k,m} = m + (m-1) + r(S_{k,m}+2) = O_k(m",
+    "to": "ties:**\n\n- `QuarticQuery.card_testIndex`: relation partial, route none; `lean/QuarticQuery/Construction/LocalTests.lean`, line 132.",
+    "role": "states",
+    "statement_ids": [
+      "def-K"
+    ],
+    "lean": [
+      "QuarticQuery.card_testIndex"
+    ]
+  },
+  {
+    "passage": "CAT-lem-2.2.i",
+    "from": "> For every input y and (i,s) in [m] x",
+    "to": "historical text is not substituted for the current statement above.",
+    "role": "states",
+    "statement_ids": [
+      "lem-2.2.i"
+    ],
+    "lean": [
+      "QuarticQuery.TestIndex",
+      "QuarticQuery.localTest",
+      "QuarticQuery.localTestTree",
+      "QuarticQuery.localTestTree_eval",
+      "QuarticQuery.localTestTree_depth_le",
+      "QuarticQuery.winsAt_iff_localTests",
+      "QuarticQuery.exists_failing_localTest",
+      "QuarticQuery.winsAt_iff_outputs"
+    ]
+  },
+  {
+    "passage": "CAT-lem-2.2.ii",
+    "from": "> Each test is evaluated exactly with O(log m) bit",
+    "to": "108.\n- `QuarticQuery.Upper.verifyProb`: relation partial, route none; `lean/QuarticQuery/Upper/Verify.lean`, line 127.",
+    "role": "states",
+    "statement_ids": [
+      "lem-2.2.ii"
+    ],
+    "lean": [
+      "QuarticQuery.Upper.test_samples",
+      "QuarticQuery.Upper.search_runs",
+      "QuarticQuery.Upper.verifyProb"
+    ]
+  },
+  {
+    "passage": "CAT-lem-2.2",
+    "from": "> Conjunction of lem-2.2.i and lem-2.2.ii.\n\n**Mathematical passages:** [CL-coherent-tests](#CL-coherent-tests).\n\n**Original",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "lem-2.2"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-cor-local-dichotomy",
+    "from": "> A winner has an address at which every test",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "cor-local-dichotomy"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-def-grover-trial",
+    "from": "> M = ceil(10/sqrt(gamma)). A trial picks with probability 1/2",
+    "to": "209.\n- `QuarticQuery.Amplification.Preparation.one_sub_trialFail`: relation partial, route same; `lean/QuarticQuery/Amplification/Procedure.lean`, line 257.",
+    "role": "states",
+    "statement_ids": [
+      "def-grover-trial"
+    ],
+    "lean": [
+      "QuarticQuery.Amplification.Gate",
+      "QuarticQuery.Amplification.Circuit",
+      "QuarticQuery.Amplification.Circuit.calls",
+      "QuarticQuery.Amplification.groverStep",
+      "QuarticQuery.Amplification.groverCircuit",
+      "QuarticQuery.Amplification.Preparation.grover",
+      "QuarticQuery.Amplification.Proc",
+      "QuarticQuery.Amplification.trialWeight",
+      "QuarticQuery.Amplification.attempts",
+      "QuarticQuery.Amplification.iterationBound",
+      "QuarticQuery.Amplification.trialCount",
+      "QuarticQuery.Amplification.Preparation.trialFail",
+      "QuarticQuery.Amplification.Preparation.trialGain",
+      "QuarticQuery.Amplification.expect_attempts",
+      "QuarticQuery.Amplification.attemptValue_eq_sum",
+      "QuarticQuery.Amplification.expect_attempts_eq_sum",
+      "QuarticQuery.Amplification.Preparation.one_sub_trialFail"
+    ]
+  },
+  {
+    "passage": "CAT-claim-grover-state",
+    "from": "> For 0<p<1 write A|0>=sin(theta)|g>+cos(theta)|b>, 0<theta<pi/2, with g,b normalized in",
+    "to": "437.\n- `QuarticQuery.Amplification.Preparation.good_iterate_of_prob_zero`: relation partial, route same; `lean/QuarticQuery/Amplification/Geometry.lean`, line 454.",
+    "role": "states",
+    "statement_ids": [
+      "claim-grover-state"
+    ],
+    "lean": [
+      "QuarticQuery.Amplification.sin_mul_ampA_and_cos_mul_ampB",
+      "QuarticQuery.Amplification.Preparation.iterate",
+      "QuarticQuery.Amplification.Preparation.grover_apply",
+      "QuarticQuery.Amplification.Preparation.grover_parts",
+      "QuarticQuery.Amplification.Preparation.iterate_eq_amp",
+      "QuarticQuery.Amplification.Preparation.angle",
+      "QuarticQuery.Amplification.Preparation.angle_mem",
+      "QuarticQuery.Amplification.Preparation.state_eq",
+      "QuarticQuery.Amplification.Preparation.iterate_eq",
+      "QuarticQuery.Amplification.Preparation.grover_rotation",
+      "QuarticQuery.Amplification.Preparation.good_iterate",
+      "QuarticQuery.Amplification.Preparation.norm_good_iterate_sq",
+      "QuarticQuery.Amplification.Preparation.norm_bad_iterate_sq",
+      "QuarticQuery.Amplification.Preparation.phaseEq_normalised_good_iterate",
+      "QuarticQuery.Amplification.Preparation.good_iterate_of_prob_zero"
+    ]
+  },
+  {
+    "passage": "CAT-claim-sin2theta",
+    "from": "> If gamma<=p<=1/2 then sin(2theta)=2 sqrt(p(1-p)) >= sqrt(gamma).\n\n**Mathematical passages:**",
+    "to": "ties:**\n\n- `QuarticQuery.Amplification.Preparation.sin_two_angle`: relation partial, route same; `lean/QuarticQuery/Amplification/Geometry.lean`, line 462.",
+    "role": "states",
+    "statement_ids": [
+      "claim-sin2theta"
+    ],
+    "lean": [
+      "QuarticQuery.Amplification.Preparation.sin_two_angle"
+    ]
+  },
+  {
+    "passage": "CAT-eq-9",
+    "from": "> If gamma<=p<=1/2 and M=ceil(10/sqrt(gamma)), then (1/M) sum_{l=0}^{M-1} sin^2((2l+1)theta) >=",
+    "to": "53.\n- `QuarticQuery.Amplification.average_sin_sq_ge_nine_twentieths`: relation partial, route same; `lean/QuarticQuery/Amplification/Average.lean`, line 75.",
+    "role": "states",
+    "statement_ids": [
+      "eq-9"
+    ],
+    "lean": [
+      "QuarticQuery.Amplification.sin_two_mul_sum_sin_sq",
+      "QuarticQuery.Amplification.average_sin_sq",
+      "QuarticQuery.Amplification.average_sin_sq_ge",
+      "QuarticQuery.Amplification.average_sin_sq_ge_nine_twentieths"
+    ]
+  },
+  {
+    "passage": "CAT-lem-3.1",
+    "from": "> For 0<gamma<=1/2 and 0<eta<1/2 there is a single procedure,",
+    "to": "historical text is not substituted for the current statement above.",
+    "role": "states",
+    "statement_ids": [
+      "lem-3.1"
+    ],
+    "lean": [
+      "QuarticQuery.Amplification.pow_trialCount_le",
+      "QuarticQuery.Amplification.callCap_amplify_le",
+      "QuarticQuery.Amplification.Preparation.nine_fortieths_le",
+      "QuarticQuery.Amplification.Preparation.trialFail_of_prob_zero",
+      "QuarticQuery.Amplification.Proc.successProb",
+      "QuarticQuery.Amplification.Proc.failProb",
+      "QuarticQuery.Amplification.Proc.conditional",
+      "QuarticQuery.Amplification.expect_attempts_of_phase",
+      "QuarticQuery.Amplification.bounded_amplification",
+      "QuarticQuery.Amplification.IndexRegister",
+      "QuarticQuery.Amplification.IndexRegister.norm_read_goodState_sq",
+      "QuarticQuery.Amplification.IndexRegister.norm_read_normalised_iterate_sq",
+      "QuarticQuery.Amplification.IndexRegister.index_law_of_amplified",
+      "QuarticQuery.Amplification.Preparation",
+      "QuarticQuery.Amplification.calls_groverCircuit",
+      "QuarticQuery.Amplification.Preparation.prob",
+      "QuarticQuery.Amplification.Preparation.norm_sq_split",
+      "QuarticQuery.Amplification.Proc.callCap",
+      "QuarticQuery.Amplification.Proc.expect",
+      "QuarticQuery.Amplification.amplify",
+      "QuarticQuery.Amplification.callCap_attempts",
+      "QuarticQuery.Upper.prepOf",
+      "QuarticQuery.Upper.lawOf_iterate_some",
+      "QuarticQuery.Upper.Samples.attempts",
+      "QuarticQuery.Upper.Samples.amplify",
+      "QuarticQuery.Upper.trialCount_le",
+      "QuarticQuery.Upper.iterationBound_inv_le"
+    ]
+  },
+  {
+    "passage": "CAT-def-aij",
+    "from": "> For a fixed oracle input and a coherent comparison",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "def-aij"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-eq-10",
+    "from": "> a_{ij}+a_{ji}=1 for i != j, and a_{ii}=0.\n\n**Mathematical passages:**",
+    "to": "ties:**\n\n- `QuarticQuery.Upper.cmpProb`: relation partial, route same; `lean/QuarticQuery/Upper/Columns.lean`, line 174.",
+    "role": "states",
+    "statement_ids": [
+      "eq-10"
+    ],
+    "lean": [
+      "QuarticQuery.Upper.cmpProb"
+    ]
+  },
+  {
+    "passage": "CAT-def-T-eps",
+    "from": "> For m>=2: T=ceil(log_2(1000m)), epsilon=1/(1000T).\n\n**Mathematical passages:** [upper-tournament-parameters](#upper-tournament-parameters).\n\n**Original corpus",
+    "to": "320.\n- `QuarticQuery.Tournament.total_error_lt`: relation partial, route none; `lean/QuarticQuery/Tournament/Ideal.lean`, line 327.",
+    "role": "states",
+    "statement_ids": [
+      "def-T-eps"
+    ],
+    "lean": [
+      "QuarticQuery.Tournament.Tval_mul_epsval",
+      "QuarticQuery.Tournament.miss_bound_le",
+      "QuarticQuery.Tournament.total_error_lt"
+    ]
+  },
+  {
+    "passage": "CAT-eq-11",
+    "from": "> i_* is dominant if a_{i_* j} >= 1-epsilon for",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "eq-11"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-def-ideal-process",
+    "from": "> Ideal process: w_i=1 for all i, W=sum_i w_i. While",
+    "to": "ties:**\n\n- `QuarticQuery.Tournament.expectFrom`: relation exact, route none; `lean/QuarticQuery/Tournament/Ideal.lean`, line 42.",
+    "role": "states",
+    "statement_ids": [
+      "def-ideal-process"
+    ],
+    "lean": [
+      "QuarticQuery.Tournament.expectFrom"
+    ]
+  },
+  {
+    "passage": "CAT-eq-12",
+    "from": "> Update w_i <- w_i a_{ip} for all i in",
+    "to": "ties:**\n\n- `QuarticQuery.Tournament.weight`: relation exact, route none; `lean/QuarticQuery/Tournament/Ideal.lean`, line 35.",
+    "role": "states",
+    "statement_ids": [
+      "eq-12"
+    ],
+    "lean": [
+      "QuarticQuery.Tournament.weight"
+    ]
+  },
+  {
+    "passage": "CAT-eq-13",
+    "from": "> For W>0: E[W_new | w] = (1/W) sum_{p,i} w_p",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "eq-13"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-claim-expected-WT",
+    "from": "> The bound of eq-13 also holds when W=0, hence",
+    "to": "ties:**\n\n- `QuarticQuery.Tournament.expected_final_weight`: relation exact, route same; `lean/QuarticQuery/Tournament/Ideal.lean`, line 212.",
+    "role": "states",
+    "statement_ids": [
+      "claim-expected-WT"
+    ],
+    "lean": [
+      "QuarticQuery.Tournament.expected_final_weight"
+    ]
+  },
+  {
+    "passage": "CAT-claim-weight-lb",
+    "from": "> If i_* satisfies eq-11 and has not been selected",
+    "to": "ties:**\n\n- `QuarticQuery.Tournament.dominant_weight_lb`: relation partial, route same; `lean/QuarticQuery/Tournament/Ideal.lean`, line 239.",
+    "role": "states",
+    "statement_ids": [
+      "claim-weight-lb"
+    ],
+    "lean": [
+      "QuarticQuery.Tournament.dominant_weight_lb"
+    ]
+  },
+  {
+    "passage": "CAT-eq-14",
+    "from": "> Pr[i_* absent from the ideal list] <= Pr[W_T >=",
+    "to": "ties:**\n\n- `QuarticQuery.Tournament.ideal_miss_le`: relation exact, route same; `lean/QuarticQuery/Tournament/Ideal.lean`, line 263.",
+    "role": "states",
+    "statement_ids": [
+      "eq-14"
+    ],
+    "lean": [
+      "QuarticQuery.Tournament.ideal_miss_le"
+    ]
+  },
+  {
+    "passage": "CAT-construct-sampler",
+    "from": "> Given pivots p_1,...,p_t with t<T: prepare uniform |i> over",
+    "to": "43.\n- `QuarticQuery.Upper.stage_samples`: relation partial, route same; `lean/QuarticQuery/Upper/Tournament.lean`, line 63.",
+    "role": "states",
+    "statement_ids": [
+      "construct-sampler"
+    ],
+    "lean": [
+      "QuarticQuery.Upper.stageLaw",
+      "QuarticQuery.Upper.stageLaw_some",
+      "QuarticQuery.Upper.stage_samples"
+    ]
+  },
+  {
+    "passage": "CAT-eq-15",
+    "from": "> Pre-success state: m^{-1/2} sum_{i=1}^m |i> tensor_{b=1}^t |phi(i,p_b)>.\n\n**Mathematical passages:**",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "eq-15"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-claim-success-prob",
+    "from": "> Conditional on index i the success probability is prod_{b=1}^t",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "claim-success-prob"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-claim-coupling",
+    "from": "> Until i_* is first selected, W/m >= 1/(2m), so",
+    "to": "ties:**\n\n- `QuarticQuery.Upper.tval_lower`: relation partial, route same; `lean/QuarticQuery/Upper/Tournament.lean`, line 239.",
+    "role": "states",
+    "statement_ids": [
+      "claim-coupling"
+    ],
+    "lean": [
+      "QuarticQuery.Upper.tval_lower"
+    ]
+  },
+  {
+    "passage": "CAT-claim-tournament-cost",
+    "from": "> Stage t uses O(c(t+1)) queries per call; lem-3.1 uses",
+    "to": "339.\n- `QuarticQuery.Upper.tournament_runs`: relation partial, route same; `lean/QuarticQuery/Upper/Tournament.lean`, line 367.",
+    "role": "states",
+    "statement_ids": [
+      "claim-tournament-cost"
+    ],
+    "lean": [
+      "QuarticQuery.Upper.budget_le",
+      "QuarticQuery.Upper.vall_runs",
+      "QuarticQuery.Upper.tournament_runs"
+    ]
+  },
+  {
+    "passage": "CAT-prop-3.2",
+    "from": "> Let m>=2, T=ceil(log_2(1000m)), epsilon=1/(1000T). For a coherent comparison circuit",
+    "to": "178.\n- `QuarticQuery.Upper.tournament_runs`: relation partial, route same; `lean/QuarticQuery/Upper/Tournament.lean`, line 367.",
+    "role": "states",
+    "statement_ids": [
+      "prop-3.2"
+    ],
+    "lean": [
+      "QuarticQuery.Tournament.ideal_tournament",
+      "QuarticQuery.Upper.tval_le",
+      "QuarticQuery.Upper.tournament_runs"
+    ]
+  },
+  {
+    "passage": "CAT-def-decode",
+    "from": "> decode(i): run the algorithm of lem-2.1.ii on each A_{i,h},",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "def-decode"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-claim-decode-cost",
+    "from": "> decode uses O_k(r log(r/epsilon)) = (log m)^{O_k(1)} queries. If",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "claim-decode-cost"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-def-comparison",
+    "from": "> Comparison of distinct columns, in sorted order: decode each",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "def-comparison"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-claim-comparison-state",
+    "from": "> The comparison uses c=(log m)^{O_k(1)} queries; its reversal costs",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "claim-comparison-state"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-claim-winner-dominates",
+    "from": "> If i_* is a winner then for every j",
+    "to": "69.\n- `QuarticQuery.Upper.cmpProb_winner`: relation partial, route same; `lean/QuarticQuery/Upper/Columns.lean`, line 223.",
+    "role": "states",
+    "statement_ids": [
+      "claim-winner-dominates"
+    ],
+    "lean": [
+      "QuarticQuery.winner_no_incoming_zero",
+      "QuarticQuery.winner_finds_zero",
+      "QuarticQuery.Upper.cmpProb_winner"
+    ]
+  },
+  {
+    "passage": "CAT-def-verify",
+    "from": "> verify(i): decode and measure an address s afresh. Let",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "def-verify"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-claim-verify",
+    "from": "> A non-winner is accepted with probability <=epsilon, at every",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "claim-verify"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-claim-error",
+    "from": "> On a 0-input the error is at most T",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "claim-error"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-claim-coherent-access",
+    "from": "> All superposed array accesses are ordinary bit queries. The",
+    "to": "241.\n- `QuarticQuery.Upper.Samples.tree`: relation partial, route same; `lean/QuarticQuery/Upper/Sampler.lean`, line 300.",
+    "role": "states",
+    "statement_ids": [
+      "claim-coherent-access"
+    ],
+    "lean": [
+      "QuarticQuery.Upper.ReadSpec",
+      "QuarticQuery.Upper.ReadSpec.op",
+      "QuarticQuery.Upper.sigmaOp",
+      "QuarticQuery.Upper.IsCirc",
+      "QuarticQuery.Upper.IsCirc.comp",
+      "QuarticQuery.Upper.IsCirc.symm",
+      "QuarticQuery.Upper.IsCirc.congr",
+      "QuarticQuery.Upper.IsCirc.sigma",
+      "QuarticQuery.Upper.addrLaw",
+      "QuarticQuery.Upper.addrLaw_good",
+      "QuarticQuery.Upper.core_samples",
+      "QuarticQuery.Upper.exists_gate_orth",
+      "QuarticQuery.Upper.compile_read",
+      "QuarticQuery.Upper.compile_circ",
+      "QuarticQuery.Upper.Samples.runs",
+      "QuarticQuery.Upper.Samples",
+      "QuarticQuery.Upper.Samples.bind",
+      "QuarticQuery.Upper.Samples.tree"
+    ]
+  },
+  {
+    "passage": "CAT-prop-3.3",
+    "from": "> For every fixed k>=2, Q(F_{k,m}) <= sqrt(m) (log m)^{O_k(1)}.",
+    "to": "251.\n- `QuarticQuery.Upper.Fkm_QLe`: relation partial, route same; `lean/QuarticQuery/Upper/Verify.lean`, line 138.",
+    "role": "states",
+    "statement_ids": [
+      "prop-3.3"
+    ],
+    "lean": [
+      "QuarticQuery.Upper.budget_le",
+      "QuarticQuery.Upper.Fkm_forrCircuit_QLe",
+      "QuarticQuery.Upper.Q_Fkm_le",
+      "QuarticQuery.Upper.Fkm_QLe"
+    ]
+  },
+  {
+    "passage": "CAT-claim-product-law",
+    "from": "> For a deterministic algorithm, at every transcript tau of",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "claim-product-law"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-def-value-V",
+    "from": "> With q_h queries already made to U_h, V_h(tau) is",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "def-value-V"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-eq-16",
+    "from": "> If the next query at tau addresses U_h then",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "eq-16"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-claim-supermartingale",
+    "from": "> E[prod_j V_j(tau') | tau] <= prod_j V_j(tau). The product",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "claim-supermartingale"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-claim-final-bound",
+    "from": "> At the final transcript tau, Pr[chosen vector correct |",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "claim-final-bound"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-lem-4.1",
+    "from": "> Let P:D->{0,1}, D subset {0,1}^n, mu a distribution on",
+    "to": "327.\n- `QuarticQuery.direct_product_of_depth_le`: relation weaker, route alternative; `lean/QuarticQuery/LowerBound/DirectProduct.lean`, line 342.",
+    "role": "states",
+    "statement_ids": [
+      "lem-4.1"
+    ],
+    "lean": [
+      "QuarticQuery.direct_product",
+      "QuarticQuery.direct_product_average",
+      "QuarticQuery.direct_product_randomized",
+      "QuarticQuery.direct_product_of_depth_le"
+    ]
+  },
+  {
+    "passage": "CAT-claim-minimax-mu",
+    "from": "> If L<R(P), there is a distribution mu on dom",
+    "to": "historical text is not substituted for the current statement above.",
+    "role": "states",
+    "statement_ids": [
+      "claim-minimax-mu"
+    ],
+    "lean": [
+      "QuarticQuery.exists_hard_distribution"
+    ]
+  },
+  {
+    "passage": "CAT-eq-17",
+    "from": "> G = floor(mL/100).\n\n**Mathematical passages:** [CL-generic-statement](#CL-generic-statement).\n\n**Original corpus evidence:**",
+    "to": "historical text is not substituted for the current statement above.",
+    "role": "states",
+    "statement_ids": [
+      "eq-17"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-def-dummy",
+    "from": "> Dummy input Y^(0): independently for each i, J_i uniform",
+    "to": "134.\n- `QuarticQuery.dummy`: relation partial, route same; `lean/QuarticQuery/LowerBound/Planted/Inputs.lean`, line 50.",
+    "role": "states",
+    "statement_ids": [
+      "def-dummy"
+    ],
+    "lean": [
+      "QuarticQuery.avg_resample",
+      "QuarticQuery.dummy"
+    ]
+  },
+  {
+    "passage": "CAT-def-planted",
+    "from": "> I is uniform in [m] and independent of Y^(0).",
+    "to": "23.\n- `QuarticQuery.planted`: relation partial, route same; `lean/QuarticQuery/LowerBound/Planted/Inputs.lean`, line 58.",
+    "role": "states",
+    "statement_ids": [
+      "def-planted"
+    ],
+    "lean": [
+      "QuarticQuery.trueAddr",
+      "QuarticQuery.planted"
+    ]
+  },
+  {
+    "passage": "CAT-claim-Y-values",
+    "from": "> F_{k,m}(Y^(0))=0 and F_{k,m}(Y^(1))=1 for all sample points.\n\n**Mathematical passages:**",
+    "to": "97.\n- `QuarticQuery.addressedF_planted`: relation partial, route same; `lean/QuarticQuery/LowerBound/Planted/Inputs.lean`, line 106.",
+    "role": "states",
+    "statement_ids": [
+      "claim-Y-values"
+    ],
+    "lean": [
+      "QuarticQuery.addressedF_dummy",
+      "QuarticQuery.addressedF_planted"
+    ]
+  },
+  {
+    "passage": "CAT-eq-18",
+    "from": "> For a deterministic algorithm with at most G queries,",
+    "to": "70.\n- `QuarticQuery.output_gap_le`: relation partial, route same; `lean/QuarticQuery/LowerBound/Planted/Main.lean`, line 33.",
+    "role": "states",
+    "statement_ids": [
+      "eq-18"
+    ],
+    "lean": [
+      "QuarticQuery.QueryTree.exists_mem_path_ne",
+      "QuarticQuery.eq_of_dummy_ne_planted",
+      "QuarticQuery.output_gap_le"
+    ]
+  },
+  {
+    "passage": "CAT-def-Z",
+    "from": "> Z is the number of columns whose zero is",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "def-Z"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-claim-uniform-zero",
+    "from": "> Before the zero in a column is found, its",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "claim-uniform-zero"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-claim-EZ",
+    "from": "> E Z <= 4G/m: an early discovery (fewer than",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "claim-EZ"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-eq-19",
+    "from": "> Pr(the dummy run queries X_I[J_I]) = E Z/m <=",
+    "to": "210.\n- `QuarticQuery.avg_foundZero_I_le`: relation stronger, route alternative; `lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean`, line 226.",
+    "role": "states",
+    "statement_ids": [
+      "eq-19"
+    ],
+    "lean": [
+      "QuarticQuery.zero_search_sum",
+      "QuarticQuery.foundZero",
+      "QuarticQuery.column_zero_bound",
+      "QuarticQuery.avg_foundZero_le",
+      "QuarticQuery.sum_xQueries_le",
+      "QuarticQuery.avg_foundZero_I_le"
+    ]
+  },
+  {
+    "passage": "CAT-def-heavy",
+    "from": "> Column i is heavy if, over the entire dummy",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "def-heavy"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-eq-20",
+    "from": "> Pr(I is heavy) <= G/(mL).\n\n**Mathematical passages:** [CL-heavy](#CL-heavy).\n\n**Original",
+    "to": "ties:**\n\n- `QuarticQuery.avg_heavy_le`: relation stronger, route same; `lean/QuarticQuery/LowerBound/Planted/Heavy.lean`, line 42.",
+    "role": "states",
+    "statement_ids": [
+      "eq-20"
+    ],
+    "lean": [
+      "QuarticQuery.avg_heavy_le"
+    ]
+  },
+  {
+    "passage": "CAT-def-simulator",
+    "from": "> Fix i and t in {1,...,G}. A simulator receives",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "def-simulator"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-eq-21",
+    "from": "> For each i and t: Pr(i is nonheavy and",
+    "to": "76.\n- `QuarticQuery.reachedCell`: relation partial, route none; `lean/QuarticQuery/LowerBound/Planted/Simulator.lean`, line 131.",
+    "role": "states",
+    "statement_ids": [
+      "eq-21"
+    ],
+    "lean": [
+      "QuarticQuery.simTree",
+      "QuarticQuery.depth_simTree_le",
+      "QuarticQuery.eval_simTree",
+      "QuarticQuery.reachedCell"
+    ]
+  },
+  {
+    "passage": "CAT-eq-22",
+    "from": "> Pr(the dummy run queries B_{I,s_I}) <= G/(mL) + G(2/3)^r.",
+    "to": "ties:**\n\n- `QuarticQuery.avg_reachedCell_le`: relation partial, route same; `lean/QuarticQuery/LowerBound/Planted/Simulator.lean`, line 172.",
+    "role": "states",
+    "statement_ids": [
+      "eq-22"
+    ],
+    "lean": [
+      "QuarticQuery.avg_reachedCell_le"
+    ]
+  },
+  {
+    "passage": "CAT-eq-23",
+    "from": "> The output-probability difference is at most 4G/m^2 + G/(mL)",
+    "to": "ties:**\n\n- `QuarticQuery.tree_gap_le`: relation partial, route same; `lean/QuarticQuery/LowerBound/Planted/Main.lean`, line 59.",
+    "role": "states",
+    "statement_ids": [
+      "eq-23"
+    ],
+    "lean": [
+      "QuarticQuery.tree_gap_le"
+    ]
+  },
+  {
+    "passage": "CAT-claim-tail",
+    "from": "> G(2/3)^r <= (1/100) m^{2-20 log_2(3/2)} = o(1).\n\n**Mathematical passages:**",
+    "to": "ties:**\n\n- `QuarticQuery.twoThirds_pow_le`: relation weaker, route alternative; `lean/QuarticQuery/Results/Exponent.lean`, line 429.",
+    "role": "states",
+    "statement_ids": [
+      "claim-tail"
+    ],
+    "lean": [
+      "QuarticQuery.twoThirds_pow_le"
+    ]
+  },
+  {
+    "passage": "CAT-claim-numeric",
+    "from": "> For m=4^t, r=40t, 1<=L<=m and G<=mL/100: 4G/m^2<=4/100, G/(mL)<=1/100, G(2/3)^r<=1/100,",
+    "to": "historical text is not substituted for the current statement above.",
+    "role": "states",
+    "statement_ids": [
+      "claim-numeric"
+    ],
+    "lean": [
+      "QuarticQuery.discrepancy_le",
+      "QuarticQuery.discrepancy_lt_third",
+      "QuarticQuery.discrepancy_parameters"
+    ]
+  },
+  {
+    "passage": "CAT-prop-4.2",
+    "from": "> For each fixed integer k>=2 and every sufficiently large",
+    "to": "ties:**\n\n- `QuarticQuery.Gvalue_lt_R_Fkm`: relation stronger, route same; `lean/QuarticQuery/LowerBound/Planted/Main.lean`, line 203.",
+    "role": "states",
+    "statement_ids": [
+      "prop-4.2"
+    ],
+    "lean": [
+      "QuarticQuery.Gvalue_lt_R_Fkm"
+    ]
+  },
+  {
+    "passage": "CAT-cor-R-omega",
+    "from": "> For fixed k, R(F_{k,m}) = Omega_k(m^{2-1/k}/(log m)^2).\n\n**Mathematical passages:**",
+    "to": "ties:**\n\n- `QuarticQuery.rpow_le_of_Gvalue_lt`: relation partial, route same; `lean/QuarticQuery/Results/Exponent.lean`, line 409.",
+    "role": "states",
+    "statement_ids": [
+      "cor-R-omega"
+    ],
+    "lean": [
+      "QuarticQuery.rpow_le_of_Gvalue_lt"
+    ]
+  },
+  {
+    "passage": "CAT-claim-floor",
+    "from": "> For sufficiently large m, floor((m/100) floor(m^{1-1/k}/(log m)^2)) >= c_k",
+    "to": "ties:**\n\n- `QuarticQuery.Gvalue_ge`: relation stronger, route same; `lean/QuarticQuery/Results/Exponent.lean`, line 365.",
+    "role": "states",
+    "statement_ids": [
+      "claim-floor"
+    ],
+    "lean": [
+      "QuarticQuery.Gvalue_ge"
+    ]
+  },
+  {
+    "passage": "CAT-claim-exponent-ratio",
+    "from": "> For fixed 0<=alpha<4 and integer k>=2 with 2-1/k>alpha/2: R(F_{k,m})/(1+Q(F_{k,m}))^alpha",
+    "to": "118.\n- `QuarticQuery.exists_nat_exponent`: relation partial, route same; `lean/QuarticQuery/Results/Exponent.lean`, line 160.",
+    "role": "states",
+    "statement_ids": [
+      "claim-exponent-ratio"
+    ],
+    "lean": [
+      "QuarticQuery.eventually_gt_rpow",
+      "QuarticQuery.exists_nat_exponent"
+    ]
+  },
+  {
+    "passage": "CAT-claim-no-smaller-exponent",
+    "from": "> For every 0<=alpha<4, alpha does not belong to the",
+    "to": "231.\n- `QuarticQuery.no_universal_power`: relation partial, route same; `lean/QuarticQuery/Results/Headline.lean`, line 27.",
+    "role": "states",
+    "statement_ids": [
+      "claim-no-smaller-exponent"
+    ],
+    "lean": [
+      "QuarticQuery.not_bound_of_familyBoundsAt",
+      "QuarticQuery.not_universalPower_of_familyBoundsAt",
+      "QuarticQuery.not_universalPower_of_family",
+      "QuarticQuery.no_universal_power"
+    ]
+  },
+  {
+    "passage": "CAT-def-D",
+    "from": "> D(f) is the least depth of a deterministic decision",
+    "to": "321.\n- `QuarticQuery.D_reindex`: relation partial, route none; `lean/QuarticQuery/Model/Classical.lean`, line 358.",
+    "role": "states",
+    "statement_ids": [
+      "def-D"
+    ],
+    "lean": [
+      "QuarticQuery.QueryTree.toDecisionTree",
+      "QuarticQuery.QueryTree.ofDecisionTree",
+      "QuarticQuery.QueryTree.eval_toDecisionTree",
+      "QuarticQuery.QueryTree.depth_toDecisionTree",
+      "QuarticQuery.D_totalise_eq_complexity",
+      "QuarticQuery.DLe_length",
+      "QuarticQuery.DLe_card",
+      "QuarticQuery.DLe_D",
+      "QuarticQuery.D_le_iff",
+      "QuarticQuery.lt_D_iff",
+      "QuarticQuery.lt_D_of_not_DLe",
+      "QuarticQuery.D_reindex"
+    ]
+  },
+  {
+    "passage": "CAT-def-deg",
+    "from": "> deg(f) is the degree of the unique real multilinear",
+    "to": "historical text is not substituted for the current statement above.",
+    "role": "states",
+    "statement_ids": [
+      "def-deg"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-def-bs",
+    "from": "> A nonempty B subset [n] is a sensitive block",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "def-bs"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-def-Gamma-i",
+    "from": "> For an input-indexed matrix Gamma, (Gamma_i)_{xy}=Gamma_{xy} 1{x_i != y_i}.",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "def-Gamma-i"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-claim-perron",
+    "from": "> A nonzero real symmetric entrywise nonnegative Gamma has a",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "claim-perron"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-def-adv-progress",
+    "from": "> W_t = sum_{x,y} v_x v_y Gamma_{xy} <psi_x^t | psi_y^t>,",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "def-adv-progress"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-claim-per-query",
+    "from": "> Each query changes W by at most: |W_{t+1}-W_t| <=",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "claim-per-query"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-claim-final-overlap",
+    "from": "> If Pr[output 1] is <=1/3 on one state and",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "claim-final-overlap"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-lem-A.2",
+    "from": "> Let f be a nonconstant total Boolean function, Gamma",
+    "to": "268.\n- `QuarticQuery.exists_fixedSequence`: relation partial, route alternative; `lean/QuarticQuery/Bridge/Deferred.lean`, line 286.",
+    "role": "states",
+    "statement_ids": [
+      "lem-A.2"
+    ],
+    "lean": [
+      "QuarticQuery.FixedSim.build",
+      "QuarticQuery.exists_fixedSequence"
+    ]
+  },
+  {
+    "passage": "CAT-def-Sf",
+    "from": "> S_f is the adjacency matrix on {0,1}^n of the",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "def-Sf"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-lem-A.3.bs",
+    "from": "> For nonconstant total f, bs(f)=O(Q(f)^2).\n\n**Mathematical passages:** [ROOT-BS-LAMBDA](#ROOT-BS-LAMBDA).\n\n**Original",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "lem-A.3.bs"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-lem-A.3.lambda",
+    "from": "> For nonconstant total f, lambda(f)=O(Q(f)).\n\n**Mathematical passages:** [ROOT-BS-LAMBDA](#ROOT-BS-LAMBDA).\n\n**Original",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "lem-A.3.lambda"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-lem-A.3",
+    "from": "> Conjunction of lem-A.3.bs and lem-A.3.lambda.\n\n**Mathematical passages:** [ROOT-BS-LAMBDA](#ROOT-BS-LAMBDA).\n\n**Original",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "lem-A.3"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-claim-restrict-parity",
+    "from": "> With f in sign form and d=deg f>=1, restricting",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "claim-restrict-parity"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-def-huang",
+    "from": "> H'_1=[[0,1],[1,0]], H'_{j+1}=[[H'_j,I],[I,-H'_j]]. Its entrywise absolute value is the cube",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "def-huang"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-claim-huang-spectrum",
+    "from": "> (H'_j)^2=jI, trace H'_j=0, so H'_d has eigenvalues +-sqrt(d), each",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "claim-huang-spectrum"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-claim-interlace",
+    "from": "> There is a nonzero v in the sqrt(d)-eigenspace supported",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "claim-interlace"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-lem-A.4",
+    "from": "> Every nonconstant total Boolean f satisfies deg(f) <= lambda(f)^2.",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "lem-A.4"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-claim-round-block",
+    "from": "> In each round of the algorithm on input x,",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "claim-round-block"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-lem-A.5",
+    "from": "> Every total Boolean f satisfies D(f) <= bs(f) deg(f).",
+    "to": "correspondences, when available, are described in the linked mathematical passage.",
+    "role": "states",
+    "statement_ids": [
+      "lem-A.5"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "CAT-thm-A.1",
+    "from": "> Every total Boolean function satisfies R(f) <= D(f) =",
+    "to": "57.\n- `QuarticQuery.universalPower_four`: relation partial, route alternative; `lean/QuarticQuery/Appendix/TheoremA1.lean`, line 70.",
+    "role": "states",
+    "statement_ids": [
+      "thm-A.1"
+    ],
+    "lean": [
+      "QuarticQuery.D_le_of_QLe",
+      "QuarticQuery.D_le_Q_pow_four",
+      "QuarticQuery.R_le_D_le_one_add_Q_pow_four",
+      "QuarticQuery.universalPower_four"
+    ]
+  },
+  {
+    "passage": "CAT-claim-address-guess",
+    "from": "> Under mu from claim-minimax-mu, for U_1,...,U_r iid mu, every",
+    "to": "188.\n- `QuarticQuery.exists_address_guess_bound`: relation partial, route same; `lean/QuarticQuery/LowerBound/Minimax.lean`, line 198.",
+    "role": "states",
+    "statement_ids": [
+      "claim-address-guess"
+    ],
+    "lean": [
+      "QuarticQuery.address_guess_le",
+      "QuarticQuery.address_guess_average",
+      "QuarticQuery.exists_address_guess_bound"
+    ]
+  },
+  {
+    "passage": "CAT-prop-4.2-generic",
+    "from": "> Let m=4^t with t>=1 and r=40t. Let P be",
+    "to": "180.\n- `QuarticQuery.Gvalue_lt_R_addressedF`: relation stronger, route same; `lean/QuarticQuery/LowerBound/Planted/Main.lean`, line 190.",
+    "role": "states",
+    "statement_ids": [
+      "prop-4.2-generic"
+    ],
+    "lean": [
+      "QuarticQuery.addressedF_not_RLe",
+      "QuarticQuery.addressedF_lower",
+      "QuarticQuery.Gvalue_lt_R_addressedF"
+    ]
+  },
+  {
+    "passage": "CAT-claim-winner-fidelity",
+    "from": "> Given the correctness half of lem-2.1.iii: WinsAt(y,i,s) iff X_i=1^m,",
+    "to": "ties:**\n\n- `QuarticQuery.winsAt_iff_paperWinsAt`: relation stronger, route same; `lean/QuarticQuery/Construction/LocalTests.lean`, line 329.",
+    "role": "states",
+    "statement_ids": [
+      "claim-winner-fidelity"
+    ],
+    "lean": [
+      "QuarticQuery.winsAt_iff_paperWinsAt"
+    ]
+  },
+  {
+    "passage": "ROOT-REFERENCES",
+    "from": "The bibliography file contains the full machine-readable entries and detailed",
+    "to": "September 2026; Lemma 5 supplies the candidate-comparison-verification antecedent cited here.",
+    "role": "mentions",
+    "statement_ids": [],
+    "lean": []
+  }
+]

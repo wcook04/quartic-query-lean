@@ -10,8 +10,8 @@ import sys
 from urllib.parse import unquote, urlsplit
 
 
-ROOT_FILES = {"README.md", "LICENSE", ".gitignore", "Makefile", "AGENTS.md"}
-REQUIRED = {"README.md", "LICENSE", ".gitignore", "Makefile",
+ROOT_FILES = {"README.md", "CONTRIBUTING.md", "LICENSE", ".gitignore", "Makefile", "AGENTS.md"}
+REQUIRED = {"README.md", "CONTRIBUTING.md", "LICENSE", ".gitignore", "Makefile",
             "tools/check_repository.py", "tests/test_check_repository.py",
             "research/requests/review/common.md", "research/requests/review/boundaries.md",
             "research/requests/review/1_understand_the_paper.md",
@@ -121,12 +121,12 @@ def check(view):
         issue = placement(path)
         if issue:
             errors.append(f"{path}: {issue}")
-        if PurePosixPath(path).name != "README.md":
+        if PurePosixPath(path).name not in {"README.md", "CONTRIBUTING.md", "AGENTS.md"}:
             continue
         try:
             content = view.read(path)
         except (UnicodeError, OSError, RuntimeError) as error:
-            errors.append(f"{path}: cannot read README: {error}")
+            errors.append(f"{path}: cannot read navigation document: {error}")
             continue
         for match in LINK.finditer(content):
             target = match.group(1).strip("<>")
@@ -149,7 +149,7 @@ def check(view):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
-    parser.add_argument("--index", action="store_true", help="check staged paths and staged README contents")
+    parser.add_argument("--index", action="store_true", help="check staged paths and staged navigation contents")
     args = parser.parse_args()
     try:
         errors = check(GitView(args.root, args.index))
@@ -159,7 +159,7 @@ def main():
     if errors:
         print("\n".join(errors), file=sys.stderr)
         return 1
-    print("Repository roles and README links pass" + (" (index)." if args.index else "."))
+    print("Repository roles and navigation links pass" + (" (index)." if args.index else "."))
     return 0
 
 

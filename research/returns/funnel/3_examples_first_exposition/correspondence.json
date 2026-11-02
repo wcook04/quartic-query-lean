@@ -1,0 +1,660 @@
+[
+  {
+    "passage": "abstract",
+    "from": "## Abstract\n\nThe optimal universal exponent relating randomized",
+    "to": "established here. [OpenAI2026, Theorem 1.1; ABKRT2021, Theorem 2.]",
+    "role": "states",
+    "statement_ids": [
+      "thm-1.1",
+      "eq-2",
+      "thm-A.1",
+      "claim-winner-dominates",
+      "claim-no-smaller-exponent"
+    ],
+    "lean": [
+      "QuarticQuery.theorem_1_1_unconditional",
+      "QuarticQuery.alphaTot_eq_four_unconditional",
+      "QuarticQuery.universalPower_four",
+      "QuarticQuery.Upper.cmpProb_winner"
+    ]
+  },
+  {
+    "passage": "opening-board",
+    "from": "## 1. A complete input with four columns",
+    "to": "applies only when the partial instances are defined.",
+    "role": "defines",
+    "statement_ids": [
+      "def-partial-query",
+      "def-column-layout",
+      "new-toy-circuit",
+      "new-toy-board"
+    ],
+    "lean": [
+      "QuarticQuery.PartialBool",
+      "QuarticQuery.Circuit",
+      "QuarticQuery.CircuitRealises",
+      "QuarticQuery.BitLoc"
+    ]
+  },
+  {
+    "passage": "complete-cells",
+    "from": "Each cell stores three pointers, one toward every",
+    "to": "any other column's proposed address. [OpenAI2026, Section 2.2.]",
+    "role": "explains",
+    "statement_ids": [
+      "new-toy-board",
+      "new-toy-printed-encoding",
+      "def-win-at-address",
+      "def-winner",
+      "def-F",
+      "cor-unique-winner",
+      "eq-7",
+      "eq-8",
+      "claim-winner-fidelity"
+    ],
+    "lean": [
+      "QuarticQuery.WinsAt",
+      "QuarticQuery.addressedF",
+      "QuarticQuery.winsAt_column_unique",
+      "QuarticQuery.winsAt_unique",
+      "QuarticQuery.winsAt_address_unique",
+      "QuarticQuery.winsAt_iff_paperWinsAt"
+    ]
+  },
+  {
+    "passage": "local-checks",
+    "from": "### Checking a fixed cell\n\nAt a specified",
+    "to": "a winning column's true address. [OpenAI2026, Lemma 2.2.]",
+    "role": "explains",
+    "statement_ids": [
+      "new-toy-board",
+      "def-K",
+      "lem-2.2.i",
+      "cor-local-dichotomy",
+      "def-eval-transcript"
+    ],
+    "lean": [
+      "QuarticQuery.card_testIndex",
+      "QuarticQuery.localTestTree_eval",
+      "QuarticQuery.localTestTree_depth_le",
+      "QuarticQuery.winsAt_iff_localTests",
+      "QuarticQuery.localTests_iff_eq_of_winsAt",
+      "QuarticQuery.exists_failing_localTest",
+      "QuarticQuery.gateConsistent_iff_eq_circuitEval"
+    ]
+  },
+  {
+    "passage": "comparisons-and-false-positive",
+    "from": "### Comparing two columns\n\nUse the following comparison",
+    "to": "the particular input and modification are computed here.]",
+    "role": "explains",
+    "statement_ids": [
+      "def-comparison",
+      "claim-winner-dominates",
+      "new-toy-cycle",
+      "new-toy-broken-pointer",
+      "lem-2.2.i"
+    ],
+    "lean": [
+      "QuarticQuery.winner_no_incoming_zero",
+      "QuarticQuery.winner_finds_zero",
+      "QuarticQuery.Upper.firstWins",
+      "QuarticQuery.winsAt_iff_localTests"
+    ]
+  },
+  {
+    "passage": "query-model",
+    "from": "## 2. Queries and a tournament with a",
+    "to": "These conventions are those of [OpenAI2026, Section 1].",
+    "role": "defines",
+    "statement_ids": [
+      "def-partial-query",
+      "def-R",
+      "def-Q",
+      "def-query-oracle"
+    ],
+    "lean": [
+      "QuarticQuery.RLe",
+      "QuarticQuery.R",
+      "QuarticQuery.QLe",
+      "QuarticQuery.Q",
+      "QuarticQuery.AdaptiveProgram",
+      "QuarticQuery.bitOracle",
+      "QuarticQuery.R_le_iff",
+      "QuarticQuery.Q_le_iff"
+    ]
+  },
+  {
+    "passage": "cycle-weights",
+    "from": "Return to the unmodified four-column input. Let \\(a_{ij}\\)",
+    "to": "weight and the weight of the genuine winner.",
+    "role": "explains",
+    "statement_ids": [
+      "new-toy-cycle",
+      "new-cyclic-dynamics",
+      "def-aij",
+      "eq-10",
+      "def-ideal-process",
+      "eq-12"
+    ],
+    "lean": [
+      "QuarticQuery.Tournament.weight",
+      "QuarticQuery.Tournament.expectFrom",
+      "QuarticQuery.Tournament.expectAfter",
+      "QuarticQuery.Tournament.prob"
+    ]
+  },
+  {
+    "passage": "drift",
+    "from": "For the general calculation, suppose \\(0\\le a_{ij}\\le1\\), \\(a_{ii}=0\\),",
+    "to": "from \\(\\mathbb EW_t\\ge\\frac12\\Pr(W_t\\ge\\frac12)\\). [OpenAI2026, Proposition 3.2, equations (12)–(14).]",
+    "role": "proves",
+    "statement_ids": [
+      "eq-10",
+      "eq-11",
+      "eq-12",
+      "eq-13",
+      "claim-expected-WT",
+      "claim-weight-lb",
+      "eq-14"
+    ],
+    "lean": [
+      "QuarticQuery.Tournament.expected_weight_eq",
+      "QuarticQuery.Tournament.expected_weight_le_half",
+      "QuarticQuery.Tournament.expected_final_weight",
+      "QuarticQuery.Tournament.dominant_weight_lb",
+      "QuarticQuery.Tournament.ideal_miss_le"
+    ]
+  },
+  {
+    "passage": "fractional-example",
+    "from": "Fractional weights matter even in a four-candidate example.",
+    "to": "to which the drift proof need not apply.",
+    "role": "explains",
+    "statement_ids": [
+      "new-fractional-dynamics",
+      "eq-12",
+      "eq-13"
+    ],
+    "lean": [
+      "QuarticQuery.Tournament.expected_weight_eq",
+      "QuarticQuery.Tournament.weight",
+      "QuarticQuery.Tournament.prob"
+    ]
+  },
+  {
+    "passage": "amplification-example",
+    "from": "## 3. Increasing success without changing the candidate",
+    "to": "arithmetic with numbers \\(a+b\\sqrt3\\), where \\(a,b\\) are rational.",
+    "role": "explains",
+    "statement_ids": [
+      "new-amplification-arithmetic",
+      "new-amplification-concrete-state",
+      "claim-grover-state",
+      "lem-3.1"
+    ],
+    "lean": [
+      "QuarticQuery.Amplification.Preparation.iterate_eq_amp",
+      "QuarticQuery.Amplification.Preparation.phaseEq_normalised_good_iterate"
+    ]
+  },
+  {
+    "passage": "amplification-general",
+    "from": "In general, a preparation \\(A\\) with success probability",
+    "to": "[OpenAI2026, Lemma 3.1, equation (9); BBHT1998, Section 4.]",
+    "role": "proves",
+    "statement_ids": [
+      "def-grover-trial",
+      "claim-grover-state",
+      "claim-sin2theta",
+      "eq-9",
+      "lem-3.1"
+    ],
+    "lean": [
+      "QuarticQuery.Amplification.Preparation.state_eq",
+      "QuarticQuery.Amplification.Preparation.iterate_eq",
+      "QuarticQuery.Amplification.Preparation.phaseEq_normalised_good_iterate",
+      "QuarticQuery.Amplification.average_sin_sq_ge_nine_twentieths",
+      "QuarticQuery.Amplification.Preparation.nine_fortieths_le",
+      "QuarticQuery.Amplification.bounded_amplification",
+      "QuarticQuery.Amplification.IndexRegister.index_law_of_amplified"
+    ]
+  },
+  {
+    "passage": "weighted-quantum-sampling",
+    "from": "We can now implement the tournament weights without",
+    "to": "proof uses the law of the measured label.",
+    "role": "proves",
+    "statement_ids": [
+      "construct-sampler",
+      "eq-15",
+      "claim-success-prob",
+      "claim-weight-lb",
+      "claim-coupling",
+      "lem-3.1"
+    ],
+    "lean": [
+      "QuarticQuery.Upper.stageLaw_some",
+      "QuarticQuery.Upper.sum_stageLaw_some",
+      "QuarticQuery.Upper.stage_samples",
+      "QuarticQuery.Upper.lawOf_iterate_some",
+      "QuarticQuery.Upper.Samples.amplify",
+      "QuarticQuery.Upper.tval_lower"
+    ]
+  },
+  {
+    "passage": "and-example",
+    "from": "## 4. A query cap cannot be imposed",
+    "to": "distinction used in [OpenAI2026, Section 4.2, equation (21)].",
+    "role": "explains",
+    "statement_ids": [
+      "new-and-conditioning",
+      "lem-4.1",
+      "eq-21",
+      "claim-address-guess"
+    ],
+    "lean": [
+      "QuarticQuery.budgetValue",
+      "QuarticQuery.direct_product",
+      "QuarticQuery.direct_product_randomized",
+      "QuarticQuery.address_guess_le"
+    ]
+  },
+  {
+    "passage": "capped-product",
+    "from": "### Independent inputs under adaptive scheduling\n\nHere is",
+    "to": "under a cap is independent of the input.",
+    "role": "proves",
+    "statement_ids": [
+      "lem-4.1",
+      "claim-product-law",
+      "def-value-V",
+      "eq-16",
+      "claim-supermartingale",
+      "claim-final-bound"
+    ],
+    "lean": [
+      "QuarticQuery.direct_product",
+      "QuarticQuery.direct_product_average",
+      "QuarticQuery.direct_product_randomized"
+    ]
+  },
+  {
+    "passage": "planted-example",
+    "from": "## 5. Creating a winner by changing one",
+    "to": "classical hardness bound for the elementary partial function.",
+    "role": "explains",
+    "statement_ids": [
+      "new-toy-planted",
+      "new-toy-printed-encoding",
+      "def-dummy",
+      "def-planted",
+      "claim-Y-values",
+      "eq-18"
+    ],
+    "lean": [
+      "QuarticQuery.dummy",
+      "QuarticQuery.planted",
+      "QuarticQuery.addressedF_dummy",
+      "QuarticQuery.addressedF_planted",
+      "QuarticQuery.eq_of_dummy_ne_planted",
+      "QuarticQuery.QueryTree.exists_mem_path_ne"
+    ]
+  },
+  {
+    "passage": "planted-distribution",
+    "from": "For the lower bound, make the zero locations",
+    "to": "to an address within it. [OpenAI2026, Section 4.2.]",
+    "role": "defines",
+    "statement_ids": [
+      "def-dummy",
+      "def-planted",
+      "claim-Y-values",
+      "eq-18",
+      "eq-19",
+      "eq-22"
+    ],
+    "lean": [
+      "QuarticQuery.dummy",
+      "QuarticQuery.planted",
+      "QuarticQuery.addressedF_dummy",
+      "QuarticQuery.addressedF_planted"
+    ]
+  },
+  {
+    "passage": "forrelation-example",
+    "from": "## 6. Replacing the toy address function by",
+    "to": "and promise also appear in [BansalSinha2021, equations (1.1)–(1.3)].",
+    "role": "explains",
+    "statement_ids": [
+      "new-forrelation-matrix",
+      "new-forrelation-three-inputs",
+      "new-forrelation-census",
+      "def-walsh-sign",
+      "eq-3",
+      "eq-4",
+      "claim-proj-prob",
+      "claim-integer-tests"
+    ],
+    "lean": [
+      "QuarticQuery.Forrelation.H",
+      "QuarticQuery.Forrelation.H_mul_H",
+      "QuarticQuery.Forrelation.Phi_eq_matrix_product",
+      "QuarticQuery.Forrelation.P_tests",
+      "QuarticQuery.Forrelation.successProb_eq",
+      "QuarticQuery.Forrelation.census_true",
+      "QuarticQuery.Forrelation.census_false",
+      "QuarticQuery.Forrelation.census_none",
+      "QuarticQuery.Forrelation.P_negativeWitness"
+    ]
+  },
+  {
+    "passage": "forrelation-general",
+    "from": "For general \\(m\\), a power of four, let",
+    "to": "local checks as Section 1. [OpenAI2026, Lemma 2.1(iii).]",
+    "role": "explains",
+    "statement_ids": [
+      "eq-3",
+      "eq-4",
+      "eq-5",
+      "claim-proj-prob",
+      "lem-2.1.i",
+      "claim-bs-to-L",
+      "lem-2.1.ii",
+      "claim-N-phi",
+      "claim-integer-tests",
+      "claim-circuit-size",
+      "lem-2.1.iii"
+    ],
+    "lean": [
+      "QuarticQuery.P",
+      "QuarticQuery.Phi",
+      "QuarticQuery.Lvalue",
+      "QuarticQuery.Forrelation.Phi_eq_matrix_product",
+      "QuarticQuery.Forrelation.abs_Phi_le_one",
+      "QuarticQuery.Forrelation.successProb_eq",
+      "QuarticQuery.ForrelationLower.bansalSinhaLower",
+      "QuarticQuery.Upper.P_QLe",
+      "QuarticQuery.Forrelation.P_tests",
+      "QuarticQuery.Forrelation.forrCircuit_realises",
+      "QuarticQuery.Forrelation.forrCircuit_size_le"
+    ]
+  },
+  {
+    "passage": "hard-family-parameters",
+    "from": "The hard total function uses \\(m\\) columns, \\(r=20\\log_2m\\)",
+    "to": "BenDavid2015, Section 3.1; GPW2015; ABBLSS2017; OpenAI2026, Section 2.]",
+    "role": "defines",
+    "statement_ids": [
+      "eq-6",
+      "def-column-layout",
+      "def-F",
+      "def-winner",
+      "claim-winner-fidelity",
+      "new-small-parameters"
+    ],
+    "lean": [
+      "QuarticQuery.Fkm",
+      "QuarticQuery.mValue",
+      "QuarticQuery.Lvalue",
+      "QuarticQuery.logb_mValue",
+      "QuarticQuery.winsAt_iff_paperWinsAt"
+    ]
+  },
+  {
+    "passage": "main-theorem",
+    "from": "## 7. The separation theorem\n\nWe can now",
+    "to": "includes constant functions, whose query complexities are zero.",
+    "role": "states",
+    "statement_ids": [
+      "thm-1.1",
+      "eq-1",
+      "eq-2",
+      "thm-A.1",
+      "claim-floor",
+      "cor-R-omega"
+    ],
+    "lean": [
+      "QuarticQuery.alphaTot",
+      "QuarticQuery.UniversalPower",
+      "QuarticQuery.theorem_1_1_unconditional",
+      "QuarticQuery.alphaTot_eq_four_unconditional",
+      "QuarticQuery.universalPower_four",
+      "QuarticQuery.ForrelationLower.bansalSinhaLower",
+      "QuarticQuery.rpow_le_of_Gvalue_lt"
+    ]
+  },
+  {
+    "passage": "exponent-table",
+    "from": "The exponents can be read before accounting for",
+    "to": "with any strictly smaller power as \\(m\\) grows.",
+    "role": "explains",
+    "statement_ids": [
+      "new-exponent-table",
+      "eq-2",
+      "claim-exponent-ratio",
+      "cor-cubic-refuted"
+    ],
+    "lean": [
+      "QuarticQuery.eventually_gt_rpow",
+      "QuarticQuery.exists_nat_exponent",
+      "QuarticQuery.cubic_bound_fails_unconditional"
+    ]
+  },
+  {
+    "passage": "quantum-comparison-proof",
+    "from": "## 8. Proof of the two bounds\n\n###",
+    "to": "a power of \\(\\log m\\). [OpenAI2026, Section 3.3.]",
+    "role": "proves",
+    "statement_ids": [
+      "def-decode",
+      "claim-decode-cost",
+      "def-comparison",
+      "claim-comparison-state",
+      "claim-winner-dominates",
+      "eq-10",
+      "eq-11",
+      "claim-coherent-access"
+    ],
+    "lean": [
+      "QuarticQuery.Upper.addrLaw_good",
+      "QuarticQuery.Upper.cmpProb_isComparison",
+      "QuarticQuery.Upper.cmpProb_winner",
+      "QuarticQuery.winner_no_incoming_zero",
+      "QuarticQuery.winner_finds_zero",
+      "QuarticQuery.Upper.core_samples"
+    ]
+  },
+  {
+    "passage": "quantum-tournament-proof",
+    "from": "Choose\n\n\\[\nT=\\lceil\\log_2(1000m)\\rceil,\\qquad\n\\epsilon=\\frac1{1000T}.\n\\tag{15}\n\\]\n\nRun at",
+    "to": "combines the candidate recursion with the eventual verifier.",
+    "role": "proves",
+    "statement_ids": [
+      "def-T-eps",
+      "claim-weight-lb",
+      "eq-14",
+      "claim-coupling",
+      "claim-tournament-cost",
+      "prop-3.2",
+      "lem-3.1",
+      "new-small-parameters"
+    ],
+    "lean": [
+      "QuarticQuery.Tournament.Tval_mul_epsval",
+      "QuarticQuery.Tournament.dominant_weight_lb",
+      "QuarticQuery.Tournament.ideal_tournament",
+      "QuarticQuery.Upper.Samples.amplify",
+      "QuarticQuery.Upper.tval_lower",
+      "QuarticQuery.Upper.tval_le",
+      "QuarticQuery.Upper.tournament_runs"
+    ]
+  },
+  {
+    "passage": "quantum-verification-proof",
+    "from": "For each listed candidate, decode an address afresh",
+    "to": "query counts by constant factors. [OpenAI2026, Proposition 3.3.]",
+    "role": "proves",
+    "statement_ids": [
+      "def-K",
+      "lem-2.2.i",
+      "lem-2.2.ii",
+      "def-verify",
+      "claim-verify",
+      "claim-error",
+      "claim-coherent-access",
+      "prop-3.3",
+      "new-small-parameters"
+    ],
+    "lean": [
+      "QuarticQuery.card_testIndex",
+      "QuarticQuery.localTestTree_depth_le",
+      "QuarticQuery.Upper.test_samples",
+      "QuarticQuery.Upper.search_runs",
+      "QuarticQuery.Upper.verifyProb",
+      "QuarticQuery.Tournament.total_error_lt",
+      "QuarticQuery.Upper.Fkm_QLe",
+      "QuarticQuery.Upper.Q_Fkm_le",
+      "QuarticQuery.Upper.compile_read"
+    ]
+  },
+  {
+    "passage": "hard-distribution",
+    "from": "### Randomized queries: two ways to discover the",
+    "to": "the first-difference argument illustrated by the five-bit modification.",
+    "role": "proves",
+    "statement_ids": [
+      "claim-minimax-mu",
+      "eq-17",
+      "def-dummy",
+      "def-planted",
+      "claim-Y-values",
+      "eq-18"
+    ],
+    "lean": [
+      "QuarticQuery.exists_hard_distribution",
+      "QuarticQuery.Gvalue",
+      "QuarticQuery.addressedF_dummy",
+      "QuarticQuery.addressedF_planted",
+      "QuarticQuery.QueryTree.exists_mem_path_ne",
+      "QuarticQuery.eq_of_dummy_ne_planted",
+      "QuarticQuery.output_gap_le"
+    ]
+  },
+  {
+    "passage": "zero-search",
+    "from": "Let \\(Z\\) be the number of columns whose",
+    "to": "These are different proofs of the search estimate.",
+    "role": "proves",
+    "statement_ids": [
+      "def-Z",
+      "claim-uniform-zero",
+      "claim-EZ",
+      "eq-19"
+    ],
+    "lean": [
+      "QuarticQuery.zero_search_sum",
+      "QuarticQuery.column_zero_bound",
+      "QuarticQuery.avg_foundZero_le",
+      "QuarticQuery.avg_foundZero_I_le"
+    ]
+  },
+  {
+    "passage": "heavy-and-capped",
+    "from": "Call a column *heavy* if the algorithm makes",
+    "to": "of output probabilities by \\(4G/m^2+G/(mL)+G(2/3)^r\\). [OpenAI2026, equations (18)–(23).]",
+    "role": "proves",
+    "statement_ids": [
+      "def-heavy",
+      "eq-20",
+      "def-simulator",
+      "eq-21",
+      "eq-22",
+      "eq-23",
+      "lem-4.1",
+      "claim-address-guess"
+    ],
+    "lean": [
+      "QuarticQuery.avg_heavy_le",
+      "QuarticQuery.simTree",
+      "QuarticQuery.depth_simTree_le",
+      "QuarticQuery.eval_simTree",
+      "QuarticQuery.avg_reachedCell_le",
+      "QuarticQuery.tree_gap_le",
+      "QuarticQuery.direct_product_randomized",
+      "QuarticQuery.address_guess_le"
+    ]
+  },
+  {
+    "passage": "discrepancy-constants",
+    "from": "The constants can be checked without estimating logarithms",
+    "to": "is large, yielding the randomized bound in (12).",
+    "role": "proves",
+    "statement_ids": [
+      "new-tail-bound",
+      "claim-tail",
+      "claim-numeric",
+      "eq-23",
+      "prop-4.2",
+      "prop-4.2-generic",
+      "claim-floor",
+      "cor-R-omega"
+    ],
+    "lean": [
+      "QuarticQuery.twoThirds_pow_le",
+      "QuarticQuery.discrepancy_le",
+      "QuarticQuery.discrepancy_lt_third",
+      "QuarticQuery.addressedF_not_RLe",
+      "QuarticQuery.Gvalue_lt_R_Fkm",
+      "QuarticQuery.Gvalue_ge",
+      "QuarticQuery.rpow_le_of_Gvalue_lt"
+    ]
+  },
+  {
+    "passage": "optimal-exponent",
+    "from": "### Excluding every exponent below four\n\nFix \\(0\\le\\alpha<4\\).",
+    "to": "finish this proof has that alternative formal justification.",
+    "role": "proves",
+    "statement_ids": [
+      "claim-exponent-ratio",
+      "claim-no-smaller-exponent",
+      "cor-cubic-refuted",
+      "thm-A.1",
+      "thm-1.1",
+      "new-exponent-table"
+    ],
+    "lean": [
+      "QuarticQuery.eventually_gt_rpow",
+      "QuarticQuery.exists_nat_exponent",
+      "QuarticQuery.not_universalPower_of_familyBoundsAt",
+      "QuarticQuery.cubic_bound_fails_unconditional",
+      "QuarticQuery.D_le_Q_pow_four",
+      "QuarticQuery.R_le_D_le_one_add_Q_pow_four",
+      "QuarticQuery.universalPower_four",
+      "QuarticQuery.alphaTot_eq_four_unconditional"
+    ]
+  },
+  {
+    "passage": "verification-scope",
+    "from": "## 9. Sources, checks and reproduction\n\nThe separation",
+    "to": "[figures.md](figures.md) specifies diagrams using those same exact data.",
+    "role": "mentions",
+    "statement_ids": [
+      "thm-1.1",
+      "lem-2.1.i"
+    ],
+    "lean": [
+      "QuarticQuery.theorem_1_1_unconditional",
+      "QuarticQuery.alphaTot_eq_four_unconditional",
+      "QuarticQuery.ForrelationLower.bansalSinhaLower"
+    ]
+  },
+  {
+    "passage": "references",
+    "from": "## References\n\nThe bracketed keys match entries in",
+    "to": "the finite application is explained in Section 8.",
+    "role": "mentions",
+    "statement_ids": [],
+    "lean": []
+  }
+]

@@ -1,0 +1,1996 @@
+{
+  "repository_commit": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+  "source_paper": "openai/math 4eaee875",
+  "manifest_members": [
+    {
+      "path": "paper/quartic-query-separation.pdf",
+      "sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e",
+      "matches_manifest": true
+    },
+    {
+      "path": "paper/extracted.md",
+      "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/README.md",
+      "sha256": "aab666ad3f7cac0cba06cd933c62325163f6a78bb76367501086ff10fd506623",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/corpus/README.md",
+      "sha256": "de22c6cef2aca9904ad4f2bcc77d713af49e2ff171ad399018c7da84384c489c",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/corpus/statements.json",
+      "sha256": "3491a8068d2f6ee6c0958af3de8df591efb131f42ac7d0eeffcffc4f70fa4005",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/corpus/coverage.json",
+      "sha256": "8a39d872ca60b445915175679c758db79f41ed9f0b5f700f65ba2faa303b1fad",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/corpus/evidence-graph.json",
+      "sha256": "8d511b74db07b33e8a67779f741cf1621d1554358cc302f6d4eba4f9b8b0daf1",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/corpus/ties.json",
+      "sha256": "aa85169d4e8c11bfb7d62786c5df381dd25aa2b0f8687eb94c3f01570a74bfa6",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/corpus/lean_dependencies.json",
+      "sha256": "be6e2ac6ddc8329270c826540cc9e52ddb85055c664424d13b9832469cb39ac4",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/research/intake/statement_ledger_notes.md",
+      "sha256": "2a04261acab3957b33720662f49cd42be483e4a85cb1b89a7dc3b324fdf317a1",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/research/returns/adjudication.json",
+      "sha256": "bdac04b5875fc906b57b2ef716945b919a9207724398a6ce2eac069ca5003e58",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/research/returns/adjudication_notes.md",
+      "sha256": "df206a68d9cfdce14456042094757e37fa8286c2cf33afbbcc7d74c5aa3547b8",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/docs/forrelation_lower_bound_blueprint.md",
+      "sha256": "09f8982dca087f9c434bfd9303a7ddb12f4620ff4431da64da9dbdaa1a191ec8",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/docs/forrelation_lower_bound_review.md",
+      "sha256": "bf6f5662693c6e32bc31778f55b07191c415c090b207c13de25f63cf9373aae6",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/docs/forrelation_route_prior_art.md",
+      "sha256": "6753fad4363dbec0fbd0e0eeae50d700ae56e7555202145c21d4c2986f838e49",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/docs/statement_evidence_contract.md",
+      "sha256": "91b5f297530d3a81a1d520755978a074a42c944424935c35256c5a4af4376ea4",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/docs/statement_fidelity_review.md",
+      "sha256": "a48dd23e884ccaa0e01cee438507e42d437a21280e87a088f73d6c1280ef762b",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Construction/Challenge.lean",
+      "sha256": "d554e5a96889c4c9c3aa6bd3231f984fa7cf695aa103ebcd092ac2c7a08240b1",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Construction/Solution.lean",
+      "sha256": "63cfe11442f76eb9b0f1b579e2a925a19fc9312f870e8480bfbf3eacfb9bb9de",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Construction/comparator.json",
+      "sha256": "c18c76b87a777251e70ec3f55c5704be82d52dbba0220e5adb2cf3063709dd78",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Foundations/Challenge.lean",
+      "sha256": "8a94b4d4e065267e606d7738f72a620ab249b563a1ebf66992fbae90995423c3",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Foundations/Solution.lean",
+      "sha256": "836000d335f1d8ba10f711895d142a6202c8484b6c9b100a2765d6f5f4bac9bd",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Foundations/comparator.json",
+      "sha256": "7e5f89ab55e35fc5b3088528b260d3c9bbeabbb5dc173913a8be94a2521943e7",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Negative/ChangedDefinition.json",
+      "sha256": "c0e471ee9f1d52fb81e15c959133a062b4e95da345e836e6c95916b8dc6ea2dd",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Negative/ChangedDefinition.lean",
+      "sha256": "4a3b0a97b2fd35e6c8e31fdd8fa8017b0e428cc8b6b41eccaa36f9e2cf445264",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Negative/ForeignAxiom.json",
+      "sha256": "3ac0d024b346f5bff94a50a556a55d827a5dc19d4f9a754f1603dd7eef6d893d",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Negative/ForeignAxiom.lean",
+      "sha256": "d896cdd50a42a4c32cb24e636198ef33909078e6f62edadbf04fbca3cf44a2ed",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Negative/MissingDeclaration.json",
+      "sha256": "b3f976bd6117762d52949c51b02032554789c88c9e952f84ec475d93304d8eae",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Negative/MissingDeclaration.lean",
+      "sha256": "c03b0d0c245a2d4e392a4de43648d5b55858542e15e54d9ea977ca019eef682c",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Negative/SorryProof.json",
+      "sha256": "36243ab16c60debb8b5e19d286abd8010f773b9a7aa0ff1da8cd9d4b6c195cda",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Negative/SorryProof.lean",
+      "sha256": "59295ee8a529797d52a6cf8f97eb3ee32cd4878b97e441a1d6a982e07806a7d5",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Negative/WeakenedConclusion.json",
+      "sha256": "9cd55a4b578d744703319b8b153b90a78af553fd8ffbe323d31c074378204f09",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Negative/WeakenedConclusion.lean",
+      "sha256": "f51706cc2337149223db50cd23d800e5b7138f61727e4f3db1deb39db07f4f82",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Separation/Challenge.lean",
+      "sha256": "85cf70b1364ee037ddfef280668b6ca036aadb1cb7e57e6734e94706112c2bd9",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Separation/Solution.lean",
+      "sha256": "5cdcdb99b1c1ff250d45b8e983756ea3a3bf7013af1f46b4e02495c3209bb724",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Separation/comparator.json",
+      "sha256": "93324800e1d372cf1a3e801fe7181a29f77b13edb01deb590bc8158a263c7276",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Tournament/Challenge.lean",
+      "sha256": "8bc45cfe55e8a124bb7dfa7fcd3566f80b4db98fe4e99c92242f413edf8ec27c",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Tournament/Solution.lean",
+      "sha256": "f02baea95b83312fe3d3c4fcfb64f3aec6ff9658c26189c4ce7d70a7ccd03f6b",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Tournament/comparator.json",
+      "sha256": "309293414b5271ac9092ddd56aa40707f533da448792b9971310b092f3ef641a",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "sha256": "c88be0b70754cb6f93448694002a16e1eb6a25135fa71648d4651f01104e399d",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Unconditional/Solution.lean",
+      "sha256": "19725ad42b615a8881db00417ee6375c8982b0de08e618f06f901fe4db2e2cd3",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Unconditional/comparator.json",
+      "sha256": "fbaaee77d1b1a3daff788267ec15963ea06a6340a219a2da890c8c9642998dd7",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Amplification/Average.lean",
+      "sha256": "fd837b83033d2df6d833a0fdecaef7110339d5747b8aaa1f674c14d3e50473b6",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Amplification/Bounded.lean",
+      "sha256": "6a6465ae0cbd0503cf327c5f33f6509f492a707795c0358880c8f12c9624c96d",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Amplification/Geometry.lean",
+      "sha256": "ff5e758a77d21bc133a930d545672cb5faa76aa422019413c634085881142dc9",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Amplification/Procedure.lean",
+      "sha256": "45413af39419cf952c26204dfd3ae1b86e7dcde1423194ca473187cc6b64edb1",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Appendix/TheoremA1.lean",
+      "sha256": "777567c2e5878223a187030b4200293a0c8f78927fa0488e62ff36bf129a0128",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Bridge/DecisionTree.lean",
+      "sha256": "f0dc14884f30cb5238b4e71a4358e43a244a45a38f655323a34b5e83af7ed13e",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Bridge/Deferred.lean",
+      "sha256": "666c5741a5a19324b7229a350bc35130627da42584c751d5444231f402c45931",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Bridge/Oracle.lean",
+      "sha256": "06f073c300891be8d343434d4cbc4e3d9c2c37584bb5247a339e6f5c020ba385",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Construction/LocalTests.lean",
+      "sha256": "56357d934fab301222130c92ef36cfbf122af4ad90fb2a94ba90178139dbeb13",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Construction/Transcript.lean",
+      "sha256": "e2fd95c77c8ef1616201219302415069411aaac88060f3f75ec24e7b0626608f",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Construction/Winner.lean",
+      "sha256": "3c6b894e842fc90acd7a09b9ff14ce3ae2f09bfbf2dc7f2195751a396db7017c",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Forrelation/Arithmetic.lean",
+      "sha256": "5a7336764ee8cd299b9e19fd3164374fcebab98b7df8d9c956a457334b9dc243",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Forrelation/Builder.lean",
+      "sha256": "32e1ff4623c8bbceda26da74e53961d8c2bc660ff9b831cf19d4cc32ce1abc23",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Forrelation/Circuit.lean",
+      "sha256": "b17824d0a3b6ee5a689822b04c18d20de9e72e1db119105584e9cbba60ae8f01",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Forrelation/Product.lean",
+      "sha256": "f0ceced9021b45de546dfc01aadabde913f8ecdf1a0d085992c5b61b8a1ef425",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Forrelation/Promise.lean",
+      "sha256": "96b967a27458107549e38ce4fe001d707a4c240ad4e4b582729a6ce9526d2cf1",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Forrelation/Repetition.lean",
+      "sha256": "1526168486cdc4e78213c6048199676df0520445666b60d3ece9c62678e90e70",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Forrelation/Sanity.lean",
+      "sha256": "bf287a0ff1f6022582b6d8daae3a89ad34d8aa51986531a649f133ee692eae70",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Forrelation/Walsh.lean",
+      "sha256": "e3eae0cf1455ef1471fd4f42458b324bbe3bfe1b1879989366ce476657653069",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/ForrelationLower/Amplify.lean",
+      "sha256": "93f8e1c04768b8d01263f4a6b5a594b2d7b3334a1380432af6a33779109fc10a",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/ForrelationLower/Cascade.lean",
+      "sha256": "7dee22c71dd610f58567d5f0240128cbdd6a1a40ac30dd112594475ed3e76eaa",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/ForrelationLower/Cube.lean",
+      "sha256": "16db4f9b7e4e42029c839537075eff0ec0f6fd6261d4a8a038bec8566ce4e2fe",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/ForrelationLower/Main.lean",
+      "sha256": "2ca59c5ff156d0fbc520abbdd72c4fd9253e177dbb07a2ab79fe4cdd42c98cd9",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "sha256": "2877dc60a4af03e98321ac9e47c501a63508936aa49e5018d280258b24862efb",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/ForrelationLower/Stein.lean",
+      "sha256": "ef92d26622d1962ad38eb3cea025b2ed8bc0aa31031784d1d47d82bd1adc8d99",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+      "sha256": "13614823a433518dea7138242182dc2abee1dbcdf0127157edf8cc9b6a756010",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/ForrelationLower/Walk.lean",
+      "sha256": "063d2f1e6a752f4a37dca4b838a2b6dbc199a11e616d71d041e7af709cc1cc96",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+      "sha256": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/LowerBound/Minimax.lean",
+      "sha256": "d235fef08374ca71229f5a2a5985e1bb0c60e3ec39a0ad2b1a13b286df9c194e",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/LowerBound/Planted/Average.lean",
+      "sha256": "471bb74964c7c841f12a8e90a184d13f26ffc173bf2855bdf1d59e93f490610e",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/LowerBound/Planted/Coupling.lean",
+      "sha256": "35d0f76652f6aa52acb73dfe3b5c01eb70eefdf9397cc83f4b4469017de61824",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/LowerBound/Planted/Heavy.lean",
+      "sha256": "6b5772603583908e293c4301594ef313e68ddff67dedd5eced436744b0f110bb",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/LowerBound/Planted/Inputs.lean",
+      "sha256": "8a51b7b7696acdda52b0762b65c2f9e8bec13da8d896c47102c447195509411f",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/LowerBound/Planted/Main.lean",
+      "sha256": "a32a6e24bccace37d46742acc9450fe33b6081430484138336014048f3fe835c",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/LowerBound/Planted/Simulator.lean",
+      "sha256": "71bcf25db0309331ebda232bcad3ab2e895d543ffadcc521e99117253c0dab09",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean",
+      "sha256": "86a2064e0fb6c6ba9b4a79785932a203314d8433d938083a420288d642bf8bf8",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Model/Classical.lean",
+      "sha256": "a820d0804ee722ee74eef97ea8efeb2a15da55107d6a908e35ba60ef39932e9e",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Model/Quantum.lean",
+      "sha256": "6a61d326b216fa39f6ac1d7694727528dd5028bfac8d939f118bf1a4f4a35662",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Results/Conditional.lean",
+      "sha256": "c3d4acfd49f8725f21fa4e895be9773e44a52786a16e3606e68dfda27c808330",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Results/Exponent.lean",
+      "sha256": "91d1c021f9b920f9bf0017dfe03817194c6a1ff5f4776e39a669bbd3b832a931",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Results/Headline.lean",
+      "sha256": "fec7d0c565b8ab345568ae6082c5fb346435493f4eb2d9112cda498652909c35",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Results/Unconditional.lean",
+      "sha256": "46e6f51f713109bab717956bd2536711dc927a356027748712e571ce12f0b85e",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Statement.lean",
+      "sha256": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Tournament/Drift.lean",
+      "sha256": "850fbfdfba830a17930f0a8e60fdc0d7b27f7f50c45710b5e77997343528c077",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Tournament/Ideal.lean",
+      "sha256": "6f7379abfb1d9fb37d6ef7f0f25049893490aa717171c875feb97fca343ab8ef",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Upper/Amplify.lean",
+      "sha256": "49e808cc6acbb47ad066b1dcf33ac8d47da2f28d88c51d537564e6591eb0d9e1",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Upper/Bound.lean",
+      "sha256": "7d108566f6b6fbd80381204f237b0b631ce958c149e976e9b857cc81b38dad9c",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Upper/Circuit.lean",
+      "sha256": "7686a3b72476d902ec9ff504b38bea9ac25e90724e93d82033ea05339080190f",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Upper/Columns.lean",
+      "sha256": "e5b2b164deb6a010f952cefb5edba15bb5437a03fff815c39b028341b23b592e",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Upper/Compile.lean",
+      "sha256": "ead2d229ad8a97541dd648806b64813745e8502b5f7314ced43e7a95a0708a27",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Upper/Decode.lean",
+      "sha256": "4755c92be7627e4a58b1487d831a93765a3510647682e903c6abfed39f61411b",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Upper/Sampler.lean",
+      "sha256": "43cb604188f041ebd34c8003f01f4ec6c570023e465cd2b730ee4f1f765b2b79",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Upper/Tournament.lean",
+      "sha256": "43df9db7997f88667de7a3cfa7d7c7751aa1f32c40e9de474895335bcdb87b7c",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Upper/Verify.lean",
+      "sha256": "8144c5c26e7bf0515b24eb638b57412264032e144844887adc615b8076207239",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery.lean",
+      "sha256": "e74ce1a473b9db8e0ace2014b9eda91a29330456cfb628054d7c3ce19883ec95",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/lake-manifest.json",
+      "sha256": "d670a8101d900b62e17a1d51c8b1b36fd60919bcad472700b0a5e1c0b38b104d",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/lakefile.toml",
+      "sha256": "255abcc3c689d0258d4cea520447fdc8da26e26a191331aa95559b2fb4818647",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/lean-toolchain",
+      "sha256": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3",
+      "matches_manifest": true
+    },
+    {
+      "path": "repository/lean/scripts/Reach.lean",
+      "sha256": "e37b275738819a573846e58bd5d50cfeaa54f4056670de8876f74b6829629c47",
+      "matches_manifest": true
+    },
+    {
+      "path": "writing/full-exposition-guide.md",
+      "sha256": "c7baa3c8b195647b00cdd37c38c48b122371ce9c3cd92798e2e9d55f3d1c4eca",
+      "matches_manifest": true
+    },
+    {
+      "path": "writing/mathematical-writing-mechanics.md",
+      "sha256": "0ba857f70a724a2676f91b01e7ee95cc3518dcd261b53fec27b743935d1caa0f",
+      "matches_manifest": true
+    },
+    {
+      "path": "writing/register-from-literature.md",
+      "sha256": "2278000b36133a13c0e83f785bdb2a89b94b8ed1927daeaf12d2b1ed30545d7d",
+      "matches_manifest": true
+    },
+    {
+      "path": "writing/the-deliverable.md",
+      "sha256": "5b234d4446bf4b7ac79c38586147730dc41370581daa38661326875d5b50951c",
+      "matches_manifest": true
+    },
+    {
+      "path": "exemplars/long-reasoning-record.md",
+      "sha256": "a19893f62d1211681ed0cb9cbb8bb454214d97f231f6a6d091b6f198fca35a89",
+      "matches_manifest": true
+    },
+    {
+      "path": "exemplars/short-paper.md",
+      "sha256": "4b34070c1152369eec9bef536de51f8929c68f3a851f291e962a0c51a3b31ebb",
+      "matches_manifest": true
+    },
+    {
+      "path": "exemplars/expository.md",
+      "sha256": "67d89307e8131e8c2ca1f21749dce062218534d1ac25d4c5860f2500e234e33f",
+      "matches_manifest": true
+    },
+    {
+      "path": "exemplars/short-correspondence.json",
+      "sha256": "ea31b80e439953d8656d577aab47040525bb65952084d130b81d62bb48155487",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-01-forrelation-a-problem-that-optimally-separ/extracted.md",
+      "sha256": "3d4e3dc004cfcc018ddd31bc1d750395b31ab84b9accffd4b764db7f6934c8ab",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-01-forrelation-a-problem-that-optimally-separ/annex_notes.json",
+      "sha256": "b8a9b9c263fc4be0ae70f9dfa4b7450b2e7d65d45bbb6e29ffd52d9049c9a552",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-02-separations-in-query-complexity-using-chea/extracted.md",
+      "sha256": "39745f19fdbaad3fd6542cee69cd8fdabe02771f975e676aa2e375a208873e32",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-02-separations-in-query-complexity-using-chea/annex_notes.json",
+      "sha256": "dc01c312ca7f3a6bdd8886170b73c8de05504dd0862747254ef0d224ab01134c",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-03-degree-vs-approximate-degree-and-quantum-i/extracted.md",
+      "sha256": "fe50f27a93597951aa0e9577d0315a2b4dcdf022122604139232a952d144aa8f",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-03-degree-vs-approximate-degree-and-quantum-i/annex_notes.json",
+      "sha256": "e7ff9467b29025d30eb5646ca3d509146b2478f96e04f435f5526f07dcc580cc",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-04-separations-in-query-complexity-based-on-p/extracted.md",
+      "sha256": "30eacb1b152e26be43fb8f656b065c1ae6e1a25782eb0fcc13c544e246baacd2",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-04-separations-in-query-complexity-based-on-p/annex_notes.json",
+      "sha256": "307e492ff2bedfdd4121a832b584a569fd1fef404f76af9b061001bbfa44ad49",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-05-near-optimal-separations-of-certificate-co/extracted.md",
+      "sha256": "255c569bbdecd97061d871d6eec603ff565c132c5cd653c1c5a255c0fb25df19",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-05-near-optimal-separations-of-certificate-co/annex_notes.json",
+      "sha256": "4e1a14f66cbe035ce04fbc70c927aaa76d020d778c28539c2fc8c03cfa5a329f",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/extracted.md",
+      "sha256": "cf1477e44353bbb796581002e8cacef3199e8e153d43f075fc8047c2934de952",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/annex_notes.json",
+      "sha256": "bef81124e5c080f54ea719784747e9a2066be407bff01c8b2fb5cdf628dfa58e",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-08-quantum-lower-bounds-by-polynomials/extracted.md",
+      "sha256": "4ffe8f91258469b79c1bfcb4a7ce2a430e34c1b3c512044a52ddde472460c238",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-08-quantum-lower-bounds-by-polynomials/annex_notes.json",
+      "sha256": "1ccea757b267c1fa23f69c3eb38e53f654893d6d725d813651340e74f4d748e5",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-09-randomized-query-complexity-can-beat-certi/extracted.md",
+      "sha256": "cbf6c2cb2ad61204992be29ca9cd54a7c2204ecaf78e541da3bfbf8c2de1e98c",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-09-randomized-query-complexity-can-beat-certi/annex_notes.json",
+      "sha256": "c0a7fe1ac73db80e68932028b12d1dc93f3d911e4c3d5914a8f4adec30df2beb",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-10-strengths-and-weaknesses-of-quantum-comput/extracted.md",
+      "sha256": "3bee219d6293662eef3b05ae4ee50a6278789660b6549e417cacd46fba552acd",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-10-strengths-and-weaknesses-of-quantum-comput/annex_notes.json",
+      "sha256": "e3c5a6b9458e5bd11dd36dde5da2d77253dc5ed9b638ea23decb5eed2ea21f7a",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-11-tight-bounds-on-quantum-searching/extracted.md",
+      "sha256": "5f3d4a8f2e6038392ea75490bafdf58150e3d8b2a76c063841cc158531233c8b",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-11-tight-bounds-on-quantum-searching/annex_notes.json",
+      "sha256": "78a10975ac0c59512a58d8684db73947786df884ae87ec4926a42ad0d9bd2874",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/extracted.md",
+      "sha256": "9fd98e35695c4bf763e4faa35ac146b18c74c3caf0dee24e3e208923aff71a86",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/annex_notes.json",
+      "sha256": "c44c22a02972e65ff8dc893f030b1cdfc7282a03970f9c39ebc6018e5b4ed6b7",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/extracted.md",
+      "sha256": "de4e25127079b849cc18984031442ed939d6c24467d1bd67faaa466f8e17e29a",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/annex_notes.json",
+      "sha256": "0d526bc6751f1c7a67d5ae0f2edf53f148f06e4ea4dfd5d9bb20187ba6a28537",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-14-a-quantum-algorithm-for-finding-the-minimu/extracted.md",
+      "sha256": "aea6cb99d149fad7a304712f71d4e91403483a1d9bd4e1d2eea5a26c87adf662",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-14-a-quantum-algorithm-for-finding-the-minimu/annex_notes.json",
+      "sha256": "df16d9ba73ced32ad79435e98a7dab77dfb22d3686df034d1f0739e27ae49472",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-15-deterministic-communication-vs-partition-n/extracted.md",
+      "sha256": "d1ae0d9eeb4c112d5109a9d01ff2b2b12fdc3fbe21c043f463f6bffc033ae873",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-15-deterministic-communication-vs-partition-n/annex_notes.json",
+      "sha256": "6fa38d7a236fad021211f02a73de1a54838a65a23f918640d595945a09dc1308",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-16-a-fast-quantum-mechanical-algorithm-for-da/extracted.md",
+      "sha256": "db53148f6af7f24548366e3fe5c7fbc660a1b060341fda513422038d1b3d9f53",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-16-a-fast-quantum-mechanical-algorithm-for-da/annex_notes.json",
+      "sha256": "561cb28de32ce3b98685ae2552a4d28fb1ef05c792028991838b071ba4d49187",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-17-induced-subgraphs-of-hypercubes-and-a-proo/extracted.md",
+      "sha256": "e84394f6e0af85b50ab5d8ead86afb5327b1249a9eefea200e0f7465a6ca0e4a",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-17-induced-subgraphs-of-hypercubes-and-a-proo/annex_notes.json",
+      "sha256": "19d3eb3e059e9f3e17ee6fea106c4264d5d4bef671ec82215b702d2b198ab23e",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-18-randomized-and-quantum-query-complexities/extracted.md",
+      "sha256": "9bb40ca6b3959ddf37cfd50768b6f4f210a66e2c0536ece3548834cbfa45e6ac",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-18-randomized-and-quantum-query-complexities/annex_notes.json",
+      "sha256": "b17f9faa0de7e4475955d8380373166596da40cd8416d06556dbd74df4c819f5",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-19-exact-quantum-query-complexity-for-total-b/extracted.md",
+      "sha256": "f5842cf5ed481a3dedec06383e7d9e843dbcb67dc2917cef8e1f3e7f3185fe17",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-19-exact-quantum-query-complexity-for-total-b/annex_notes.json",
+      "sha256": "b663c73ba12fd9dc49235d7d15aedf782d0efdb2b4ef1b3d5d18f26ca5656ecf",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-22-towards-proving-strong-direct-product-theo/extracted.md",
+      "sha256": "1713dc1cac7a31a4daa12f10ae21bfbdf8e5ab2443f25053843035a2a185e929",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-22-towards-proving-strong-direct-product-theo/annex_notes.json",
+      "sha256": "6a8effd738862e48c16dd647ea838537e0daa7e9edb6e5a93cb2fb321e1f0c18",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-23-an-optimal-separation-of-randomized-and-qu/extracted.md",
+      "sha256": "5196d6af0153637376a40d23afb3275e921b8e55b4d2b584c2a35071c1788ba2",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-23-an-optimal-separation-of-randomized-and-qu/annex_notes.json",
+      "sha256": "ba9ae4b2b6fa64dda084925a07f6fa068cc847a11dabff1be4005dbc7fce6efa",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-24-all-quantum-adversary-methods-are-equivale/extracted.md",
+      "sha256": "43f9491ab7facbddd2c4d9549c8b31babe805405d718658eb285876d0605c200",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-24-all-quantum-adversary-methods-are-equivale/annex_notes.json",
+      "sha256": "5c75984ccc37f3491f89e5ec6fad552f22975d810a8018f0528f474c648239f0",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-25-graph-properties-and-circular-functions-ho/extracted.md",
+      "sha256": "d619dedcf5e1438177e72d02941c0d5e73501dc68f089ae1895d89bf6b6741c1",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-25-graph-properties-and-circular-functions-ho/annex_notes.json",
+      "sha256": "b25eaf2539d62cfdb9a706bf9d9a9ffbb0a2fa1fdedafaad6b944be12c233369",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-26-towards-optimal-separations-between-quantu/extracted.md",
+      "sha256": "33da3989bdd2b058b6bb525ad7d23db513e9a5de363d4ec7c23fed37dffa180a",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/quartic-ref-26-towards-optimal-separations-between-quantu/annex_notes.json",
+      "sha256": "dd8b560a66e441180d2a063f74713e43f800e04a1d0e7d0988e38f0adf6fa618",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/arxiv-2103-11604/extracted.md",
+      "sha256": "55c19ab29df4e7b5953d1dd73d295a69b8fe3519b5aa2294aadcfbf8faf053b3",
+      "matches_manifest": true
+    },
+    {
+      "path": "literature/arxiv-2103-11604/annex_notes.json",
+      "sha256": "c214253cfaa682e93c26634f1c45314784b9f515bb88cb17ed22a5133472ea18",
+      "matches_manifest": true
+    }
+  ],
+  "source_reviews": {
+    "forrelation": {
+      "component": "Forrelation",
+      "repository_commit": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+      "fresh_lean_build": false,
+      "fresh_comparator_run": false,
+      "build_evidence": "The supplied README and corpus report built-at-pin/comparator outcomes; no receipt directory is included. No build evidence was recreated.",
+      "files": [
+        {
+          "path": "READ_ME_FIRST.md",
+          "portions": "entire file",
+          "status": "read",
+          "notes": "",
+          "line_count": 55,
+          "sha256": "046fb8a79ce7f9b557ee1a4381a7ff5f257aba50bb8e08273f66cb2e3eb4a5cd"
+        },
+        {
+          "path": "repository/README.md",
+          "portions": "entire file",
+          "status": "read",
+          "notes": "",
+          "line_count": 80,
+          "sha256": "aab666ad3f7cac0cba06cd933c62325163f6a78bb76367501086ff10fd506623"
+        },
+        {
+          "path": "repository/corpus/README.md",
+          "portions": "entire file",
+          "status": "read",
+          "notes": "",
+          "line_count": 30,
+          "sha256": "de22c6cef2aca9904ad4f2bcc77d713af49e2ff171ad399018c7da84384c489c"
+        },
+        {
+          "path": "repository/docs/statement_evidence_contract.md",
+          "portions": "entire file",
+          "status": "read",
+          "notes": "",
+          "line_count": 49,
+          "sha256": "91b5f297530d3a81a1d520755978a074a42c944424935c35256c5a4af4376ea4"
+        },
+        {
+          "path": "paper/extracted.md",
+          "portions": "Section 2.1, lines 125–225",
+          "status": "read",
+          "notes": "Parent additionally visually inspected corresponding original PDF page 4.",
+          "line_count": 991,
+          "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Forrelation/Arithmetic.lean",
+          "portions": "entire file",
+          "status": "read",
+          "notes": "",
+          "line_count": 477,
+          "sha256": "5a7336764ee8cd299b9e19fd3164374fcebab98b7df8d9c956a457334b9dc243"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Forrelation/Builder.lean",
+          "portions": "entire file",
+          "status": "read",
+          "notes": "",
+          "line_count": 245,
+          "sha256": "32e1ff4623c8bbceda26da74e53961d8c2bc660ff9b831cf19d4cc32ce1abc23"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Forrelation/Circuit.lean",
+          "portions": "entire file",
+          "status": "read",
+          "notes": "",
+          "line_count": 488,
+          "sha256": "b17824d0a3b6ee5a689822b04c18d20de9e72e1db119105584e9cbba60ae8f01"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Forrelation/Product.lean",
+          "portions": "entire file",
+          "status": "read",
+          "notes": "",
+          "line_count": 270,
+          "sha256": "f0ceced9021b45de546dfc01aadabde913f8ecdf1a0d085992c5b61b8a1ef425"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Forrelation/Promise.lean",
+          "portions": "entire file",
+          "status": "read",
+          "notes": "",
+          "line_count": 117,
+          "sha256": "96b967a27458107549e38ce4fe001d707a4c240ad4e4b582729a6ce9526d2cf1"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Forrelation/Repetition.lean",
+          "portions": "entire file",
+          "status": "read",
+          "notes": "",
+          "line_count": 260,
+          "sha256": "1526168486cdc4e78213c6048199676df0520445666b60d3ece9c62678e90e70"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Forrelation/Sanity.lean",
+          "portions": "entire file",
+          "status": "read",
+          "notes": "",
+          "line_count": 67,
+          "sha256": "bf287a0ff1f6022582b6d8daae3a89ad34d8aa51986531a649f133ee692eae70"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Forrelation/Walsh.lean",
+          "portions": "entire file",
+          "status": "read",
+          "notes": "",
+          "line_count": 214,
+          "sha256": "e3eae0cf1455ef1471fd4f42458b324bbe3bfe1b1879989366ce476657653069"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/ForrelationLower/Amplify.lean",
+          "portions": "entire file",
+          "status": "read",
+          "notes": "",
+          "line_count": 176,
+          "sha256": "93f8e1c04768b8d01263f4a6b5a594b2d7b3334a1380432af6a33779109fc10a"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/ForrelationLower/Cascade.lean",
+          "portions": "entire file",
+          "status": "read",
+          "notes": "",
+          "line_count": 424,
+          "sha256": "7dee22c71dd610f58567d5f0240128cbdd6a1a40ac30dd112594475ed3e76eaa"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/ForrelationLower/Cube.lean",
+          "portions": "entire file",
+          "status": "read",
+          "notes": "",
+          "line_count": 350,
+          "sha256": "16db4f9b7e4e42029c839537075eff0ec0f6fd6261d4a8a038bec8566ce4e2fe"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/ForrelationLower/Main.lean",
+          "portions": "entire file",
+          "status": "read",
+          "notes": "",
+          "line_count": 545,
+          "sha256": "2ca59c5ff156d0fbc520abbdd72c4fd9253e177dbb07a2ab79fe4cdd42c98cd9"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/ForrelationLower/Promise.lean",
+          "portions": "entire file",
+          "status": "read",
+          "notes": "",
+          "line_count": 576,
+          "sha256": "2877dc60a4af03e98321ac9e47c501a63508936aa49e5018d280258b24862efb"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/ForrelationLower/Stein.lean",
+          "portions": "entire file",
+          "status": "read",
+          "notes": "",
+          "line_count": 393,
+          "sha256": "ef92d26622d1962ad38eb3cea025b2ed8bc0aa31031784d1d47d82bd1adc8d99"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+          "portions": "entire file",
+          "status": "read",
+          "notes": "",
+          "line_count": 809,
+          "sha256": "13614823a433518dea7138242182dc2abee1dbcdf0127157edf8cc9b6a756010"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/ForrelationLower/Walk.lean",
+          "portions": "entire file",
+          "status": "read",
+          "notes": "",
+          "line_count": 573,
+          "sha256": "063d2f1e6a752f4a37dca4b838a2b6dbc199a11e616d71d041e7af709cc1cc96"
+        },
+        {
+          "path": "repository/docs/forrelation_lower_bound_blueprint.md",
+          "portions": "entire file",
+          "status": "read",
+          "notes": "",
+          "line_count": 207,
+          "sha256": "09f8982dca087f9c434bfd9303a7ddb12f4620ff4431da64da9dbdaa1a191ec8"
+        },
+        {
+          "path": "repository/docs/forrelation_lower_bound_review.md",
+          "portions": "entire file",
+          "status": "read",
+          "notes": "",
+          "line_count": 304,
+          "sha256": "bf6f5662693c6e32bc31778f55b07191c415c090b207c13de25f63cf9373aae6"
+        },
+        {
+          "path": "repository/docs/forrelation_route_prior_art.md",
+          "portions": "entire file",
+          "status": "read",
+          "notes": "",
+          "line_count": 246,
+          "sha256": "6753fad4363dbec0fbd0e0eeae50d700ae56e7555202145c21d4c2986f838e49"
+        },
+        {
+          "path": "repository/corpus/statements.json",
+          "portions": {
+            "exact_rows": [
+              "def-walsh-sign",
+              "eq-3",
+              "eq-4",
+              "eq-5",
+              "claim-bs-to-L",
+              "lem-2.1.i",
+              "claim-proj-prob",
+              "lem-2.1.ii",
+              "claim-N-phi",
+              "claim-integer-tests",
+              "claim-circuit-size",
+              "lem-2.1.iii",
+              "lem-2.1"
+            ]
+          },
+          "status": "read",
+          "notes": "Statement text, hypotheses, declaration identities, relation, route, build, comparator and reach fields inspected.",
+          "line_count": 7337,
+          "sha256": "3491a8068d2f6ee6c0958af3de8df591efb131f42ac7d0eeffcffc4f70fa4005"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Statement.lean",
+          "portions": "Definitions of BitInput, PartialBool, RLe/R, QLe/Q, mValue, ForrelationCoord, numerator, denominator, Phi, P, Lvalue, BansalSinhaLower; in particular lines 20–190 and 309–322.",
+          "status": "read selected definitions",
+          "notes": "Parent owns full foundational-model reading.",
+          "line_count": 331,
+          "sha256": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Upper/Decode.lean",
+          "portions": "Lines 237–408, including all of forr_samples, decode_samples, decodeProb_correct and P_runs.",
+          "status": "read selected declarations",
+          "notes": "Generic Samples.count/threshold proof is owned by the quantum-upper component.",
+          "line_count": 409,
+          "sha256": "4755c92be7627e4a58b1487d831a93765a3510647682e903c6abfed39f61411b"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Upper/Sampler.lean",
+          "portions": "Lines 25–60, 105–124, 180–241: lawOf, bern, Samples definition, examples, retained-register vocabulary.",
+          "status": "read selected portions",
+          "notes": "",
+          "line_count": 319,
+          "sha256": "43cb604188f041ebd34c8003f01f4ec6c570023e465cd2b730ee4f1f765b2b79"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Upper/Circuit.lean",
+          "portions": "Lines 336–364: IsCirc inductive definition and basic constructors.",
+          "status": "read selected portions",
+          "notes": "",
+          "line_count": 474,
+          "sha256": "7686a3b72476d902ec9ff504b38bea9ac25e90724e93d82033ea05339080190f"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Upper/Compile.lean",
+          "portions": "Lines 304–344: RunsW and Runs definitions.",
+          "status": "read selected portions",
+          "notes": "",
+          "line_count": 429,
+          "sha256": "ead2d229ad8a97541dd648806b64813745e8502b5f7314ced43e7a95a0708a27"
+        },
+        {
+          "path": "manifest.json",
+          "portions": "Header, repository commit and source-paper pin; parent verified all member hashes.",
+          "status": "read header",
+          "notes": "No independent full manifest verification is claimed by this component.",
+          "line_count": 949,
+          "sha256": "8204571e23d74939a69598261ae45a552937b1da3dc3dd42c7ab71e6596e774d"
+        },
+        {
+          "path": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/extracted.md",
+          "portions": "Lines 1–110 (problem and main lower bound); relevant overview passages; 390–455 (hard mass, advantage and biased Fourier statements); 960–1030 (restriction proof and lower-bound closing).",
+          "status": "read selected proofs",
+          "notes": "Published theorem numbering checked against original PDF.",
+          "line_count": 1038,
+          "sha256": "cf1477e44353bbb796581002e8cacef3199e8e153d43f075fc8047c2934de952"
+        },
+        {
+          "path": "literature/arxiv-2103-11604/extracted.md",
+          "portions": "Section 1.3 ordinary decision-tree martingale argument including Lemma 1.9 (extraction locally calls it Lemma 9), and nearby related-work paragraph; lines approximately 125–205.",
+          "status": "read selected proof",
+          "notes": "",
+          "line_count": 1094,
+          "sha256": "55c19ab29df4e7b5953d1dd73d295a69b8fe3519b5aa2294aadcfbf8faf053b3"
+        },
+        {
+          "path": "literature/quartic-ref-23-an-optimal-separation-of-randomized-and-qu/extracted.md",
+          "portions": "Introduction and partial-function separation discussion, lines 1–60; Fourier-weight theorem and comparison, lines 120–148.",
+          "status": "read selected statements and proof discussion",
+          "notes": "",
+          "line_count": 1042,
+          "sha256": "5196d6af0153637376a40d23afb3275e921b8e55b4d2b584c2a35071c1788ba2"
+        },
+        {
+          "path": "literature/quartic-ref-01-forrelation-a-problem-that-optimally-separ/extracted.md",
+          "portions": "Lines 187–222 (k-fold definition and scope); 596–685 (query convention, matrix circuit and beginning of improved query algorithm).",
+          "status": "read selected statements and construction",
+          "notes": "",
+          "line_count": 3466,
+          "sha256": "3d4e3dc004cfcc018ddd31bc1d750395b31ab84b9accffd4b764db7f6934c8ab"
+        },
+        {
+          "path": "literature/quartic-ref-26-towards-optimal-separations-between-quantu/extracted.md",
+          "portions": "Lines 400–435 (Theorem 1.3); 738–765 (Section 5.1 and Theorem 5.1); introduction and hard-distribution discussion as referenced by prior-art memorandum.",
+          "status": "read selected statements",
+          "notes": "",
+          "line_count": 2258,
+          "sha256": "33da3989bdd2b058b6bb525ad7d23db513e9a5de363d4ec7c23fed37dffa180a"
+        },
+        {
+          "path": "writing/the-deliverable.md",
+          "portions": "Root integration agent reports full reading. This component directly read the complete deliverable and register guides and visible portions of the two long guides.",
+          "status": "team-read; long guides delegated to root",
+          "notes": "The attempt to print all four together was truncated; this receipt does not claim the child independently read the truncated portions.",
+          "line_count": 137,
+          "sha256": "5b234d4446bf4b7ac79c38586147730dc41370581daa38661326875d5b50951c"
+        },
+        {
+          "path": "writing/mathematical-writing-mechanics.md",
+          "portions": "Root integration agent reports full reading. This component directly read the complete deliverable and register guides and visible portions of the two long guides.",
+          "status": "team-read; long guides delegated to root",
+          "notes": "The attempt to print all four together was truncated; this receipt does not claim the child independently read the truncated portions.",
+          "line_count": 799,
+          "sha256": "0ba857f70a724a2676f91b01e7ee95cc3518dcd261b53fec27b743935d1caa0f"
+        },
+        {
+          "path": "writing/full-exposition-guide.md",
+          "portions": "Root integration agent reports full reading. This component directly read the complete deliverable and register guides and visible portions of the two long guides.",
+          "status": "team-read; long guides delegated to root",
+          "notes": "The attempt to print all four together was truncated; this receipt does not claim the child independently read the truncated portions.",
+          "line_count": 1597,
+          "sha256": "c7baa3c8b195647b00cdd37c38c48b122371ce9c3cd92798e2e9d55f3d1c4eca"
+        },
+        {
+          "path": "writing/register-from-literature.md",
+          "portions": "Root integration agent reports full reading. This component directly read the complete deliverable and register guides and visible portions of the two long guides.",
+          "status": "team-read; long guides delegated to root",
+          "notes": "The attempt to print all four together was truncated; this receipt does not claim the child independently read the truncated portions.",
+          "line_count": 50,
+          "sha256": "2278000b36133a13c0e83f785bdb2a89b94b8ed1927daeaf12d2b1ed30545d7d"
+        }
+      ],
+      "unread_or_delegated": [
+        {
+          "item": "Build/comparator receipts named by README",
+          "reason": "Absent from packet."
+        },
+        {
+          "item": "Full writing/mechanics guides at child scope",
+          "reason": "Parent explicitly took full-guide reading; child received constraints and inspected the shorter guides plus visible excerpts."
+        },
+        {
+          "item": "Original source PDF rendering",
+          "reason": "Parent visually inspected Section 2.1; child used its text plus original PDFs of the primary references."
+        },
+        {
+          "item": "Entire external papers outside cited relevant passages",
+          "reason": "Not needed for this proof; only the exact relevant statements/proofs and attribution context are claimed read."
+        }
+      ],
+      "public_primary_sources": [
+        {
+          "url": "https://arxiv.org/pdf/2008.07003",
+          "inspected": "Theorem 1.3 and Corollary 1.4 on original PDF page 4; problem formulation; Sections 3–5 locators checked with supplied extraction.",
+          "refs": [
+            "turn4view0",
+            "turn8view0",
+            "turn8view1",
+            "turn25view1",
+            "turn25view2"
+          ]
+        },
+        {
+          "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.CCC.2021.39",
+          "inspected": "Official authors, title, publication, DOI.",
+          "refs": [
+            "turn3view1"
+          ]
+        },
+        {
+          "url": "https://arxiv.org/pdf/2103.11604",
+          "inspected": "Section 1.3 and Lemma 1.9 plus related work.",
+          "refs": [
+            "turn4view1",
+            "turn8view2",
+            "turn8view3"
+          ]
+        },
+        {
+          "url": "https://arxiv.org/abs/1411.5729",
+          "inspected": "Primary preprint title, authors, abstract, version and identifier.",
+          "refs": [
+            "turn4view2",
+            "turn21view2"
+          ]
+        },
+        {
+          "url": "https://arxiv.org/abs/2008.10223",
+          "inspected": "Primary preprint title, authors, abstract and version; sharp Fourier statement.",
+          "refs": [
+            "turn4view3",
+            "turn21view0"
+          ]
+        },
+        {
+          "url": "https://epubs.siam.org/doi/10.1137/22M1468943",
+          "inspected": "Publication metadata from primary journal search result.",
+          "refs": [
+            "turn22search1",
+            "turn22search2"
+          ]
+        },
+        {
+          "url": "https://web.cs.ucla.edu/~sherstov/research.html",
+          "inspected": "Author publication list confirms SSW journal volume/pages.",
+          "refs": [
+            "turn22search0"
+          ]
+        },
+        {
+          "url": "https://arxiv.org/abs/1912.12561",
+          "inspected": "Primary title, author, abstract and arXiv identifier.",
+          "refs": [
+            "turn21view1"
+          ]
+        },
+        {
+          "url": "https://experts.illinois.edu/en/publications/iki-forrelation-optimally-separates-quantum-and-classical-query-c/",
+          "inspected": "Author-institution bibliography confirms STOC pages and DOI.",
+          "refs": [
+            "turn22search3"
+          ]
+        },
+        {
+          "url": "https://epubs.siam.org/doi/10.1137/15M1050902",
+          "inspected": "Original AA journal DOI landing page, title, authors, publication metadata.",
+          "refs": [
+            "turn25view0"
+          ]
+        }
+      ],
+      "artifact_checks": {
+        "all_display_claims_registered": true,
+        "all_correspondence_declarations_found_in_source": true,
+        "new_signatures_compiled": false,
+        "notes": "Checks are textual consistency checks only. Proposed signatures may require elaboration adjustments and proofs by the repository owner.",
+        "new_rows": 29
+      }
+    },
+    "construction_lower": {
+      "agent": "construction_lower_record",
+      "date_utc": "2026-11-02",
+      "source_root": "/workspace/scratch/feb42353e27d/quartic_source",
+      "source_pin_supplied_by_parent": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+      "full_text_read": [
+        {
+          "file": "READ_ME_FIRST.md",
+          "sha256": "046fb8a79ce7f9b557ee1a4381a7ff5f257aba50bb8e08273f66cb2e3eb4a5cd"
+        },
+        {
+          "file": "repository/README.md",
+          "sha256": "aab666ad3f7cac0cba06cd933c62325163f6a78bb76367501086ff10fd506623"
+        },
+        {
+          "file": "repository/corpus/README.md",
+          "sha256": "de22c6cef2aca9904ad4f2bcc77d713af49e2ff171ad399018c7da84384c489c"
+        },
+        {
+          "file": "repository/docs/statement_evidence_contract.md",
+          "sha256": "91b5f297530d3a81a1d520755978a074a42c944424935c35256c5a4af4376ea4"
+        },
+        {
+          "file": "writing/the-deliverable.md",
+          "sha256": "5b234d4446bf4b7ac79c38586147730dc41370581daa38661326875d5b50951c"
+        },
+        {
+          "file": "writing/mathematical-writing-mechanics.md",
+          "sha256": "0ba857f70a724a2676f91b01e7ee95cc3518dcd261b53fec27b743935d1caa0f"
+        },
+        {
+          "file": "writing/full-exposition-guide.md",
+          "sha256": "c7baa3c8b195647b00cdd37c38c48b122371ce9c3cd92798e2e9d55f3d1c4eca"
+        },
+        {
+          "file": "writing/register-from-literature.md",
+          "sha256": "2278000b36133a13c0e83f785bdb2a89b94b8ed1927daeaf12d2b1ed30545d7d"
+        },
+        {
+          "file": "repository/lean/QuarticQuery/Statement.lean",
+          "sha256": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced"
+        },
+        {
+          "file": "repository/docs/statement_fidelity_review.md",
+          "sha256": "a48dd23e884ccaa0e01cee438507e42d437a21280e87a088f73d6c1280ef762b"
+        },
+        {
+          "file": "repository/research/returns/adjudication_notes.md",
+          "sha256": "df206a68d9cfdce14456042094757e37fa8286c2cf33afbbcc7d74c5aa3547b8"
+        },
+        {
+          "file": "repository/lean/QuarticQuery/Construction/LocalTests.lean",
+          "sha256": "56357d934fab301222130c92ef36cfbf122af4ad90fb2a94ba90178139dbeb13"
+        },
+        {
+          "file": "repository/lean/QuarticQuery/Construction/Transcript.lean",
+          "sha256": "e2fd95c77c8ef1616201219302415069411aaac88060f3f75ec24e7b0626608f"
+        },
+        {
+          "file": "repository/lean/QuarticQuery/Construction/Winner.lean",
+          "sha256": "3c6b894e842fc90acd7a09b9ff14ce3ae2f09bfbf2dc7f2195751a396db7017c"
+        },
+        {
+          "file": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+          "sha256": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f"
+        },
+        {
+          "file": "repository/lean/QuarticQuery/LowerBound/Minimax.lean",
+          "sha256": "d235fef08374ca71229f5a2a5985e1bb0c60e3ec39a0ad2b1a13b286df9c194e"
+        },
+        {
+          "file": "repository/lean/QuarticQuery/LowerBound/Planted/Average.lean",
+          "sha256": "471bb74964c7c841f12a8e90a184d13f26ffc173bf2855bdf1d59e93f490610e"
+        },
+        {
+          "file": "repository/lean/QuarticQuery/LowerBound/Planted/Coupling.lean",
+          "sha256": "35d0f76652f6aa52acb73dfe3b5c01eb70eefdf9397cc83f4b4469017de61824"
+        },
+        {
+          "file": "repository/lean/QuarticQuery/LowerBound/Planted/Heavy.lean",
+          "sha256": "6b5772603583908e293c4301594ef313e68ddff67dedd5eced436744b0f110bb"
+        },
+        {
+          "file": "repository/lean/QuarticQuery/LowerBound/Planted/Inputs.lean",
+          "sha256": "8a51b7b7696acdda52b0762b65c2f9e8bec13da8d896c47102c447195509411f"
+        },
+        {
+          "file": "repository/lean/QuarticQuery/LowerBound/Planted/Main.lean",
+          "sha256": "a32a6e24bccace37d46742acc9450fe33b6081430484138336014048f3fe835c"
+        },
+        {
+          "file": "repository/lean/QuarticQuery/LowerBound/Planted/Simulator.lean",
+          "sha256": "71bcf25db0309331ebda232bcad3ab2e895d543ffadcc521e99117253c0dab09"
+        },
+        {
+          "file": "repository/lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean",
+          "sha256": "86a2064e0fb6c6ba9b4a79785932a203314d8433d938083a420288d642bf8bf8"
+        },
+        {
+          "file": "literature/quartic-ref-02-separations-in-query-complexity-using-chea/annex_notes.json",
+          "sha256": "dc01c312ca7f3a6bdd8886170b73c8de05504dd0862747254ef0d224ab01134c"
+        },
+        {
+          "file": "literature/quartic-ref-04-separations-in-query-complexity-based-on-p/annex_notes.json",
+          "sha256": "307e492ff2bedfdd4121a832b584a569fd1fef404f76af9b061001bbfa44ad49"
+        },
+        {
+          "file": "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/annex_notes.json",
+          "sha256": "0d526bc6751f1c7a67d5ae0f2edf53f148f06e4ea4dfd5d9bb20187ba6a28537"
+        },
+        {
+          "file": "literature/quartic-ref-15-deterministic-communication-vs-partition-n/annex_notes.json",
+          "sha256": "6fa38d7a236fad021211f02a73de1a54838a65a23f918640d595945a09dc1308"
+        },
+        {
+          "file": "literature/quartic-ref-22-towards-proving-strong-direct-product-theo/annex_notes.json",
+          "sha256": "6a8effd738862e48c16dd647ea838537e0daa7e9edb6e5a93cb2fb321e1f0c18"
+        }
+      ],
+      "partial_text_read": [
+        {
+          "file": "paper/extracted.md",
+          "portions": "LF lines 205–299 and 515–713; full Section 2.2 including Lemma 2.2, full Section 4 and adjacent floor passage. There is no separately headed Section 2.3 in this extract."
+        },
+        {
+          "file": "repository/corpus/statements.json",
+          "portions": "All fields of the 45 rows in corpus_ids, including exact text and declaration/evidence ties."
+        },
+        {
+          "file": "repository/lean/QuarticQuery/Results/Exponent.lean",
+          "portions": "LF lines 300–490: logarithm/floor identities, L/G inequalities, discrepancy estimates; relevant declarations reread at use."
+        },
+        {
+          "file": "repository/research/returns/adjudication.json",
+          "portions": "Opening metadata; all findings whose ledger_rows_affected intersects the assigned 45-row set; all corresponding ledger_row_changes."
+        },
+        {
+          "file": "literature/quartic-ref-02-separations-in-query-complexity-using-chea/extracted.md",
+          "portions": "Lines 1–105 and 1680–1820: opening, cheat-sheet definitions, upper-bound proof and start of lower-bound section. PDF numbering verified online."
+        },
+        {
+          "file": "literature/quartic-ref-04-separations-in-query-complexity-based-on-p/extracted.md",
+          "portions": "Lines 1–310 and 487–597: full introduction and techniques, explicit direct-pointer paragraph, beginning of formal construction. No claim to have read the entire paper."
+        },
+        {
+          "file": "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/extracted.md",
+          "portions": "Lines 1–215: opening and methods, preliminaries, full Section 3 proof and fair-algorithm remark. Truncated lines 75–101 separately reread."
+        },
+        {
+          "file": "literature/quartic-ref-15-deterministic-communication-vs-partition-n/extracted.md",
+          "portions": "Lines 1–248: introduction, Theorem 5, Section 2.1 with proof, and Section 2.2 opening."
+        },
+        {
+          "file": "literature/quartic-ref-22-towards-proving-strong-direct-product-theo/extracted.md",
+          "portions": "First approximately 2,500 characters, heading/keyword inventory, lines 650–735 including full Section 5 definition, theorem, stronger two-input lemma and proof."
+        }
+      ],
+      "corpus_ids": [
+        "def-transcript",
+        "eq-6",
+        "def-column-layout",
+        "def-eval-transcript",
+        "eq-7",
+        "eq-8",
+        "def-winner",
+        "def-F",
+        "cor-unique-winner",
+        "def-win-at-address",
+        "def-K",
+        "lem-2.2.i",
+        "lem-2.2.ii",
+        "lem-2.2",
+        "cor-local-dichotomy",
+        "claim-product-law",
+        "def-value-V",
+        "eq-16",
+        "claim-supermartingale",
+        "claim-final-bound",
+        "lem-4.1",
+        "claim-minimax-mu",
+        "eq-17",
+        "def-dummy",
+        "def-planted",
+        "claim-Y-values",
+        "eq-18",
+        "def-Z",
+        "claim-uniform-zero",
+        "claim-EZ",
+        "eq-19",
+        "def-heavy",
+        "eq-20",
+        "def-simulator",
+        "eq-21",
+        "eq-22",
+        "eq-23",
+        "claim-tail",
+        "claim-numeric",
+        "prop-4.2",
+        "cor-R-omega",
+        "claim-floor",
+        "claim-address-guess",
+        "prop-4.2-generic",
+        "claim-winner-fidelity"
+      ],
+      "web_primary_sources_and_metadata": [
+        {
+          "url": "https://arxiv.org/abs/1005.0644v2",
+          "read": "Metadata/version. PDF at /pdf/1005.0644v2: §1.3, Lemmas 3.1–3.2, final paragraph §3.",
+          "refs": [
+            "turn10view0",
+            "turn14view0",
+            "turn16view2",
+            "turn16view3"
+          ]
+        },
+        {
+          "url": "https://www.research.ed.ac.uk/en/publications/improved-direct-product-theorems-for-randomized-query-complexity/",
+          "read": "Institutional DOI/journal metadata.",
+          "refs": [
+            "turn9search18"
+          ]
+        },
+        {
+          "url": "https://arxiv.org/abs/1511.01937v2",
+          "read": "Metadata; PDF Definitions 14–15 and Lemma 17, original numbering.",
+          "refs": [
+            "turn10view1",
+            "turn14view1",
+            "turn16view4"
+          ]
+        },
+        {
+          "url": "https://arxiv.org/abs/1506.04719v3",
+          "read": "Metadata. PDF fetch failed; technical text read in supplied extraction.",
+          "refs": [
+            "turn10view2",
+            "turn11view2"
+          ]
+        },
+        {
+          "url": "https://eccc.weizmann.ac.il/report/2015/098/",
+          "read": "Author/title/revision metadata.",
+          "refs": [
+            "turn15search7",
+            "turn16view5"
+          ]
+        },
+        {
+          "url": "https://research.lu.lv/en/publications/separations-in-query-complexity-based-on-pointer-functions/",
+          "read": "Author-institution STOC metadata, DOI 10.1145/2897518.2897524.",
+          "refs": [
+            "turn15search4"
+          ]
+        },
+        {
+          "url": "https://eccc.weizmann.ac.il/report/2015/050/",
+          "read": "Publication/revision metadata and revision PDF.",
+          "refs": [
+            "turn10view3",
+            "turn11view3"
+          ]
+        },
+        {
+          "url": "https://epubs.siam.org/doi/abs/10.1137/16M1059369?journalCode=smjcat",
+          "read": "Journal metadata.",
+          "refs": [
+            "turn9search21"
+          ]
+        },
+        {
+          "url": "https://cris.haifa.ac.il/en/publications/towards-proving-strong-direct-product-theorems/",
+          "read": "Author-institution bibliographic metadata and DOI.",
+          "refs": [
+            "turn10view4"
+          ]
+        },
+        {
+          "url": "https://eccc.weizmann.ac.il/eccc-reports/2001/TR01-009/index.html",
+          "read": "Author/title and fair-decision-tree abstract.",
+          "refs": [
+            "turn9search14"
+          ]
+        },
+        {
+          "url": "https://doi.org/10.1109/SFCS.1977.24",
+          "read": "Primary publisher search result confirms title/event/DOI. Direct open met verification wall. Original full text not read.",
+          "refs": [
+            "turn15search1",
+            "turn16view1"
+          ]
+        },
+        {
+          "url": "https://dl.acm.org/doi/10.1145/3106234",
+          "read": "HTTP 403. Journal DOI not needed for chosen arXiv citation.",
+          "refs": [
+            "turn16view0"
+          ]
+        }
+      ],
+      "not_performed": [
+        "Fresh Lean build",
+        "Fresh kernel replay",
+        "Fresh comparator run",
+        "Source edits",
+        "Library saving",
+        "Visual PDF rendering"
+      ],
+      "limitations": [
+        "No claim to have read every cited literature paper in full; exact portions are listed.",
+        "The parent must open/find subagent web sources before citing them, as required by browsing instructions.",
+        "This receipt records reading and static artifact validation, not proof-assistant execution."
+      ]
+    },
+    "upper": {
+      "agent": "upper_record",
+      "date_utc": "2026-11-02",
+      "source_root": "/workspace/scratch/feb42353e27d/quartic_source",
+      "repository_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+      "inspection_kind": "Ordinary mathematical reconstruction and source inspection. No fresh Lean compilation, axiom report, Comparator run, or dependency extraction.",
+      "files": [
+        {
+          "path": "READ_ME_FIRST.md",
+          "portion": "full text",
+          "sha256": "046fb8a79ce7f9b557ee1a4381a7ff5f257aba50bb8e08273f66cb2e3eb4a5cd",
+          "line_count": 55
+        },
+        {
+          "path": "repository/README.md",
+          "portion": "full text",
+          "sha256": "aab666ad3f7cac0cba06cd933c62325163f6a78bb76367501086ff10fd506623",
+          "line_count": 80
+        },
+        {
+          "path": "repository/corpus/README.md",
+          "portion": "full text",
+          "sha256": "de22c6cef2aca9904ad4f2bcc77d713af49e2ff171ad399018c7da84384c489c",
+          "line_count": 30
+        },
+        {
+          "path": "repository/docs/statement_evidence_contract.md",
+          "portion": "full text",
+          "sha256": "91b5f297530d3a81a1d520755978a074a42c944424935c35256c5a4af4376ea4",
+          "line_count": 49
+        },
+        {
+          "path": "writing/the-deliverable.md",
+          "portion": "full text",
+          "sha256": "5b234d4446bf4b7ac79c38586147730dc41370581daa38661326875d5b50951c",
+          "line_count": 137
+        },
+        {
+          "path": "writing/register-from-literature.md",
+          "portion": "full text",
+          "sha256": "2278000b36133a13c0e83f785bdb2a89b94b8ed1927daeaf12d2b1ed30545d7d",
+          "line_count": 50
+        },
+        {
+          "path": "writing/mathematical-writing-mechanics.md",
+          "portion": "full text",
+          "sha256": "0ba857f70a724a2676f91b01e7ee95cc3518dcd261b53fec27b743935d1caa0f",
+          "line_count": 799
+        },
+        {
+          "path": "writing/full-exposition-guide.md",
+          "portion": "full text",
+          "sha256": "c7baa3c8b195647b00cdd37c38c48b122371ce9c3cd92798e2e9d55f3d1c4eca",
+          "line_count": 1597
+        },
+        {
+          "path": "repository/docs/statement_fidelity_review.md",
+          "portion": "full text",
+          "sha256": "a48dd23e884ccaa0e01cee438507e42d437a21280e87a088f73d6c1280ef762b",
+          "line_count": 203
+        },
+        {
+          "path": "repository/research/returns/adjudication_notes.md",
+          "portion": "full text",
+          "sha256": "df206a68d9cfdce14456042094757e37fa8286c2cf33afbbcc7d74c5aa3547b8",
+          "line_count": 55
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Amplification/Average.lean",
+          "portion": "full text",
+          "sha256": "fd837b83033d2df6d833a0fdecaef7110339d5747b8aaa1f674c14d3e50473b6",
+          "line_count": 95
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Amplification/Bounded.lean",
+          "portion": "full text",
+          "sha256": "6a6465ae0cbd0503cf327c5f33f6509f492a707795c0358880c8f12c9624c96d",
+          "line_count": 370
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Amplification/Geometry.lean",
+          "portion": "full text",
+          "sha256": "ff5e758a77d21bc133a930d545672cb5faa76aa422019413c634085881142dc9",
+          "line_count": 472
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Amplification/Procedure.lean",
+          "portion": "full text",
+          "sha256": "45413af39419cf952c26204dfd3ae1b86e7dcde1423194ca473187cc6b64edb1",
+          "line_count": 277
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Tournament/Drift.lean",
+          "portion": "full text",
+          "sha256": "850fbfdfba830a17930f0a8e60fdc0d7b27f7f50c45710b5e77997343528c077",
+          "line_count": 79
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Tournament/Ideal.lean",
+          "portion": "full text",
+          "sha256": "6f7379abfb1d9fb37d6ef7f0f25049893490aa717171c875feb97fca343ab8ef",
+          "line_count": 395
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Upper/Amplify.lean",
+          "portion": "full text",
+          "sha256": "49e808cc6acbb47ad066b1dcf33ac8d47da2f28d88c51d537564e6591eb0d9e1",
+          "line_count": 361
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Upper/Bound.lean",
+          "portion": "full text",
+          "sha256": "7d108566f6b6fbd80381204f237b0b631ce958c149e976e9b857cc81b38dad9c",
+          "line_count": 274
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Upper/Circuit.lean",
+          "portion": "full text",
+          "sha256": "7686a3b72476d902ec9ff504b38bea9ac25e90724e93d82033ea05339080190f",
+          "line_count": 474
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Upper/Columns.lean",
+          "portion": "full text",
+          "sha256": "e5b2b164deb6a010f952cefb5edba15bb5437a03fff815c39b028341b23b592e",
+          "line_count": 279
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Upper/Compile.lean",
+          "portion": "full text",
+          "sha256": "ead2d229ad8a97541dd648806b64813745e8502b5f7314ced43e7a95a0708a27",
+          "line_count": 429
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Upper/Decode.lean",
+          "portion": "full text",
+          "sha256": "4755c92be7627e4a58b1487d831a93765a3510647682e903c6abfed39f61411b",
+          "line_count": 409
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Upper/Sampler.lean",
+          "portion": "full text",
+          "sha256": "43cb604188f041ebd34c8003f01f4ec6c570023e465cd2b730ee4f1f765b2b79",
+          "line_count": 319
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Upper/Tournament.lean",
+          "portion": "full text",
+          "sha256": "43df9db7997f88667de7a3cfa7d7c7751aa1f32c40e9de474895335bcdb87b7c",
+          "line_count": 494
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Upper/Verify.lean",
+          "portion": "full text",
+          "sha256": "8144c5c26e7bf0515b24eb638b57412264032e144844887adc615b8076207239",
+          "line_count": 220
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Bridge/DecisionTree.lean",
+          "portion": "full text",
+          "sha256": "f0dc14884f30cb5238b4e71a4358e43a244a45a38f655323a34b5e83af7ed13e",
+          "line_count": 82
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Bridge/Deferred.lean",
+          "portion": "full text",
+          "sha256": "666c5741a5a19324b7229a350bc35130627da42584c751d5444231f402c45931",
+          "line_count": 294
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Bridge/Oracle.lean",
+          "portion": "full text",
+          "sha256": "06f073c300891be8d343434d4cbc4e3d9c2c37584bb5247a339e6f5c020ba385",
+          "line_count": 157
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Model/Quantum.lean",
+          "portion": "full text",
+          "sha256": "6a61d326b216fa39f6ac1d7694727528dd5028bfac8d939f118bf1a4f4a35662",
+          "line_count": 427
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Construction/Winner.lean",
+          "portion": "full text",
+          "sha256": "3c6b894e842fc90acd7a09b9ff14ce3ae2f09bfbf2dc7f2195751a396db7017c",
+          "line_count": 75
+        },
+        {
+          "path": "literature/quartic-ref-09-randomized-query-complexity-can-beat-certi/annex_notes.json",
+          "portion": "full text",
+          "sha256": "c0a7fe1ac73db80e68932028b12d1dc93f3d911e4c3d5914a8f4adec30df2beb",
+          "line_count": 59
+        },
+        {
+          "path": "literature/quartic-ref-11-tight-bounds-on-quantum-searching/annex_notes.json",
+          "portion": "full text",
+          "sha256": "78a10975ac0c59512a58d8684db73947786df884ae87ec4926a42ad0d9bd2874",
+          "line_count": 6
+        },
+        {
+          "path": "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/annex_notes.json",
+          "portion": "full text",
+          "sha256": "c44c22a02972e65ff8dc893f030b1cdfc7282a03970f9c39ebc6018e5b4ed6b7",
+          "line_count": 76
+        },
+        {
+          "path": "literature/quartic-ref-14-a-quantum-algorithm-for-finding-the-minimu/annex_notes.json",
+          "portion": "full text",
+          "sha256": "df16d9ba73ced32ad79435e98a7dab77dfb22d3686df034d1f0739e27ae49472",
+          "line_count": 6
+        },
+        {
+          "path": "literature/quartic-ref-18-randomized-and-quantum-query-complexities/annex_notes.json",
+          "portion": "full text",
+          "sha256": "b17f9faa0de7e4475955d8380373166596da40cd8416d06556dbd74df4c819f5",
+          "line_count": 6
+        },
+        {
+          "path": "literature/quartic-ref-25-graph-properties-and-circular-functions-ho/annex_notes.json",
+          "portion": "full text",
+          "sha256": "b25eaf2539d62cfdb9a706bf9d9a9ffbb0a2fa1fdedafaad6b944be12c233369",
+          "line_count": 6
+        },
+        {
+          "path": "literature/quartic-ref-14-a-quantum-algorithm-for-finding-the-minimu/extracted.md",
+          "portion": "full text",
+          "sha256": "aea6cb99d149fad7a304712f71d4e91403483a1d9bd4e1d2eea5a26c87adf662",
+          "line_count": 152
+        },
+        {
+          "path": "paper/extracted.md",
+          "portion": "Section 3 and its immediate setup: lines 300–510; earlier local-test construction read as needed for Section 3.3.",
+          "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+          "line_count": 973
+        },
+        {
+          "path": "repository/corpus/statements.json",
+          "portion": "All fields of the 31 consecutive rows def-grover-trial through prop-3.3; also printed/read def-K, lem-2.2.i, claim-integer-tests. The section preserves each existing row and its evidence metadata.",
+          "sha256": "3491a8068d2f6ee6c0958af3de8df591efb131f42ac7d0eeffcffc4f70fa4005",
+          "line_count": 7337
+        },
+        {
+          "path": "repository/corpus/lean_dependencies.json",
+          "portion": "Declared-name inventory used programmatically to validate all manuscript and correspondence names and existing vocabulary in new signatures; roots and reach inspected for bounded_amplification, Samples.amplify, and Q_Fkm_le. No new dependency extraction performed.",
+          "sha256": "be6e2ac6ddc8329270c826540cc9e52ddb85055c664424d13b9832469cb39ac4",
+          "line_count": 13286
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Statement.lean",
+          "portion": "Lines 159–196 (m, Forrelation predicate) and 245–307 (bit coordinates, pointer reads, WinsAt, Fkm, probabilistic comparison structure).",
+          "sha256": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+          "line_count": 331
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Construction/LocalTests.lean",
+          "portion": "Lines 250–302, including localTests_iff_eq_of_winsAt, exists_failing_localTest, addressedF_eq_true_iff_localTests, and winsAt_iff_outputs.",
+          "sha256": "56357d934fab301222130c92ef36cfbf122af4ad90fb2a94ba90178139dbeb13",
+          "line_count": 349
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Forrelation/Repetition.lean",
+          "portion": "Lines 175–218, including delta_sq, repetitions, repetitions_le, exp_le_of_repetitions_le, and the start of threshold_correct. Remaining decoder correctness is used from its source theorem and the separately assigned Forrelation reconstruction.",
+          "sha256": "1526168486cdc4e78213c6048199676df0520445666b60d3ece9c62678e90e70",
+          "line_count": 260
+        },
+        {
+          "path": "literature/quartic-ref-11-tight-bounds-on-quantum-searching/extracted.md",
+          "portion": "Lines 1–315: first four pages, random-iteration exact average, unknown-number-of-solutions algorithm, and complete Theorem 3 expected-cost proof. Later counting and lower-bound sections were not inspected.",
+          "sha256": "5f3d4a8f2e6038392ea75490bafdf58150e3d8b2a76c063841cc158531233c8b",
+          "line_count": 601
+        },
+        {
+          "path": "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/extracted.md",
+          "portion": "Lines 1–170, including first four pages, Section 2, Lemma 1, equation (8), Theorems 2–3, and unknown-success discussion. Lines 100–145 reread for exact locators. Later amplitude-estimation sections were not inspected.",
+          "sha256": "9fd98e35695c4bf763e4faa35ac146b18c74c3caf0dee24e3e208923aff71a86",
+          "line_count": 777
+        },
+        {
+          "path": "literature/quartic-ref-18-randomized-and-quantum-query-complexities/extracted.md",
+          "portion": "Lines 104–196 and 500–850: main query-complexity statement, quantum-algorithm sketch, and full Section 4 including Lemmas 4.2–4.3 and Theorem 4.4. Other sections only searched by heading and keywords.",
+          "sha256": "9bb40ca6b3959ddf37cfd50768b6f4f210a66e2c0536ece3548834cbfa45e6ac",
+          "line_count": 1091
+        },
+        {
+          "path": "literature/quartic-ref-25-graph-properties-and-circular-functions-ho/extracted.md",
+          "portion": "Lines 268–290, the SINK remark next to Theorem 10, and heading/keyword search. Not used as a proof input or manuscript citation.",
+          "sha256": "d619dedcf5e1438177e72d02941c0d5e73501dc68f089ae1895d89bf6b6741c1",
+          "line_count": 576
+        },
+        {
+          "path": "literature/quartic-ref-09-randomized-query-complexity-can-beat-certi/extracted.md",
+          "portion": "Lines 1–32 and 54–110: Theorem 1, candidate elimination argument, certificate lower-bound discussion, and Lemma 5 quantum construction. Used only for the cited candidate/comparison/verification antecedent.",
+          "sha256": "cbf6c2cb2ad61204992be29ca9cd54a7c2204ecaf78e541da3bfbf8c2de1e98c",
+          "line_count": 128
+        }
+      ],
+      "primary_web_sources": [
+        {
+          "url": "https://arxiv.org/abs/quant-ph/0005055",
+          "portion": "Title, authors, submission date, journal/DOI metadata; source method already read from supplied text.",
+          "retrieval_ref": "turn6view0"
+        },
+        {
+          "url": "https://arxiv.org/abs/quant-ph/9605034",
+          "portion": "Authors, version, journal and DOI metadata.",
+          "retrieval_ref": "turn24view1"
+        },
+        {
+          "url": "https://onlinelibrary.wiley.com/doi/10.1002/(SICI)1521-3978(199806)46:4/5%3C493::AID-PROP493%3E3.0.CO;2-P",
+          "portion": "Publisher bibliographic metadata, pages 493–505, June 1998 issue and citation form.",
+          "retrieval_ref": "turn24view2"
+        },
+        {
+          "url": "https://arxiv.org/abs/quant-ph/9607014",
+          "portion": "Authors, title, version history, and minimum-finding theorem abstract.",
+          "retrieval_ref": "turn6view2"
+        },
+        {
+          "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.FSTTCS.2023.30",
+          "portion": "Authors, title, abstract, publication date, full official BibTeX metadata, pages 30:1–30:19.",
+          "retrieval_ref": "turn24view0"
+        },
+        {
+          "url": "https://arxiv.org/abs/2609.15063",
+          "portion": "Authors, title, submission date and main-result metadata.",
+          "retrieval_ref": "turn6academia8"
+        },
+        {
+          "url": "https://research.google/pubs/randomized-query-complexity-can-beat-certificate-complexity/",
+          "portion": "Primary institutional publication corroboration of authors and scope.",
+          "retrieval_ref": "turn6search2"
+        }
+      ],
+      "unavailable_or_not_run": [
+        "No receipt files appeared in the supplied repository/corpus/receipts/ location; built_at_pin is reported metadata, not reproduced evidence.",
+        "No Lean compilation or Comparator run was performed.",
+        "Writing-guide annexes and external register-check scripts not included in this packet were not recreated or represented as read.",
+        "Final integrated rendering and bibliography rendering are handled by the parent and are not claimed in this child receipt."
+      ]
+    }
+  },
+  "exemplar_form_review": {
+    "reviewer": "upper_record",
+    "date_utc": "2026-11-02",
+    "purpose": "Form conventions only. No independent audit of the SK mathematics or its cited/formal claims. Markdown source read, figures not rendered.",
+    "files": [
+      {
+        "path": "/workspace/scratch/feb42353e27d/quartic_source/exemplars/short-paper.md",
+        "sha256": "4b34070c1152369eec9bef536de51f8929c68f3a851f291e962a0c51a3b31ebb",
+        "line_count": 1149,
+        "covered_line_ranges": [
+          [
+            1,
+            1149
+          ]
+        ],
+        "full_reading": true
+      },
+      {
+        "path": "/workspace/scratch/feb42353e27d/quartic_source/exemplars/expository.md",
+        "sha256": "67d89307e8131e8c2ca1f21749dce062218534d1ac25d4c5860f2500e234e33f",
+        "line_count": 1514,
+        "covered_line_ranges": [
+          [
+            1,
+            1514
+          ]
+        ],
+        "full_reading": true
+      },
+      {
+        "path": "/workspace/scratch/feb42353e27d/quartic_source/exemplars/long-reasoning-record.md",
+        "sha256": "a19893f62d1211681ed0cb9cbb8bb454214d97f231f6a6d091b6f198fca35a89",
+        "line_count": 5659,
+        "covered_line_ranges": [
+          [
+            1,
+            5659
+          ]
+        ],
+        "full_reading": true
+      }
+    ],
+    "consequential_form_findings": [
+      "Combined manuscript needs an explicit distinction between record section numbering and retained preprint theorem/equation numbering.",
+      "Normalize the Forrelation literal citation labels and the Pandoc citation keys, or retain the former clearly as source-reading notes with complete final reference destinations."
+    ],
+    "manuscript_edits": "None during this exemplar task.",
+    "reading_complete": true,
+    "scope": "All Markdown source text in all three exemplars was read in full, including code and figure-source blocks. Figures were not rendered. Review concerned form and structure, not independent verification of the SK mathematics.",
+    "additional_form_findings_after_full_reading": "No additional consequential form issue beyond the numbering convention and citation normalization previously reported. Main proof route, optional alternatives, source distinctions, and formal-evidence ending fit the long-record convention."
+  },
+  "root_reading": {
+    "production_modules_in_full": [
+      "Statement.lean",
+      "Model/Classical.lean",
+      "Model/Quantum.lean",
+      "Results/Exponent.lean",
+      "Results/Headline.lean",
+      "Results/Conditional.lean",
+      "Results/Unconditional.lean",
+      "Appendix/TheoremA1.lean"
+    ],
+    "other_sources": [
+      "READ_ME_FIRST.md",
+      "repository/README.md",
+      "repository/corpus/README.md",
+      "repository/docs/statement_evidence_contract.md",
+      "repository/docs/statement_fidelity_review.md",
+      "repository/research/intake/statement_ledger_notes.md",
+      "repository/research/returns/adjudication_notes.md",
+      "all four supplied writing guides",
+      "all five comparator solution files, challenge suffixes and JSON configurations",
+      "all five negative control sources and configurations",
+      "lean/scripts/Reach.lean",
+      "lean/QuarticQuery.lean",
+      "lean/lakefile.toml",
+      "lean/lean-toolchain",
+      "lean/lake-manifest.json"
+    ],
+    "challenge_definition_comparison": "All five shared definition blocks match Statement.lean after comment removal and whitespace normalization.",
+    "historical_trace": "Complete root visible-progress section read; latest root state and targeted surrounding build/prompt searches. Twenty embedded child traces not independently read line by line.",
+    "exemplars": "All three complete Markdown sources read for form, including code and figure-source blocks. Figures not rendered; SK mathematics not independently audited. Exact coverage appears in exemplar_form_review.",
+    "literature": "Huang and Midrijanis supplied texts in full; relevant ABKRT and Spalek-Szegedy sections and original PDFs for locators. Other proof-bearing sources in delegated receipts.",
+    "cold_mathematical_review": "All completed mathematical sections read by root; a separate reviewer read the root models, exponent argument and Appendix A."
+  },
+  "not_rerun": [
+    "Lean build",
+    "kernel axiom report",
+    "Comparator",
+    "external kernels",
+    "negative controls"
+  ],
+  "not_available": [
+    "Lean and Lake executables",
+    "dependency checkouts",
+    "corpus/receipts/",
+    "repository tools/ and tests/",
+    "historical temporary checking scripts"
+  ]
+}

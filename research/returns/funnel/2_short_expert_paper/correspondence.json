@@ -1,0 +1,812 @@
+[
+  {
+    "passage": "abstract",
+    "from": "**Abstract.** The optimal exponent in a universal bound",
+    "to": "bias-scaling path with previously known decision-tree growth methods.",
+    "role": "states",
+    "statement_ids": [
+      "thm-1.1",
+      "claim-winner-dominates",
+      "prop-3.2",
+      "lem-4.1",
+      "new-zero-search-two",
+      "new-fl-path",
+      "new-fl-advantage"
+    ],
+    "lean": [
+      "QuarticQuery.theorem_1_1_unconditional",
+      "QuarticQuery.winner_no_incoming_zero",
+      "QuarticQuery.winner_finds_zero",
+      "QuarticQuery.Upper.cmpProb_winner",
+      "QuarticQuery.Upper.tournament_runs",
+      "QuarticQuery.guessSuccess_le_prod",
+      "QuarticQuery.avg_foundZero_I_le",
+      "QuarticQuery.ForrelationLower.exists_identity",
+      "QuarticQuery.ForrelationLower.advantage_le"
+    ]
+  },
+  {
+    "passage": "query-model",
+    "from": "For a total Boolean function $f:\\{0,1\\}^n\\to\\{0,1\\}$, let $R(f)$",
+    "to": "C_\\alpha>0\\ \\forall n\\geq1\\\n \\forall f:\\{0,1\\}^n\\to\\{0,1\\},\\\n R(f)\\leq C_\\alpha(1+Q(f))^\\alpha\\right\\}.\n$$",
+    "role": "defines",
+    "statement_ids": [
+      "def-R",
+      "def-Q",
+      "def-query-oracle",
+      "eq-1"
+    ],
+    "lean": [
+      "QuarticQuery.RLe",
+      "QuarticQuery.R",
+      "QuarticQuery.QLe",
+      "QuarticQuery.Q",
+      "QuarticQuery.bitOracle",
+      "QuarticQuery.AdaptiveProgram.queryCap",
+      "QuarticQuery.UniversalPower",
+      "QuarticQuery.alphaTot",
+      "QuarticQuery.RLe_R",
+      "QuarticQuery.QLe_Q"
+    ]
+  },
+  {
+    "passage": "headline",
+    "from": "**Theorem 1 (OpenAI, Theorem 1.1).** The optimal power",
+    "to": "and the limits of the present source audit.",
+    "role": "states",
+    "statement_ids": [
+      "thm-1.1",
+      "eq-2"
+    ],
+    "lean": [
+      "QuarticQuery.alphaTot_eq_four_unconditional",
+      "QuarticQuery.theorem_1_1_unconditional",
+      "QuarticQuery.family_bounds",
+      "QuarticQuery.familyBoundsAt_of_parts",
+      "QuarticQuery.Gvalue_ge",
+      "QuarticQuery.rpow_le_of_Gvalue_lt",
+      "QuarticQuery.Upper.Q_Fkm_le"
+    ]
+  },
+  {
+    "passage": "mechanism",
+    "from": "The separation and its construction are OpenAI's [Theorem",
+    "to": "a single fixed-$k$ family with a fourth-power separation.",
+    "role": "explains",
+    "statement_ids": [
+      "def-F",
+      "def-winner",
+      "claim-winner-dominates",
+      "prop-3.2",
+      "claim-exponent-ratio",
+      "claim-no-smaller-exponent"
+    ],
+    "lean": [
+      "QuarticQuery.WinsAt",
+      "QuarticQuery.Fkm",
+      "QuarticQuery.winner_no_incoming_zero",
+      "QuarticQuery.winner_finds_zero",
+      "QuarticQuery.Upper.cmpProb_winner",
+      "QuarticQuery.Tournament.expected_weight_le_half",
+      "QuarticQuery.not_universalPower_of_family"
+    ]
+  },
+  {
+    "passage": "prior-work-outline",
+    "from": "The universal quartic upper bound is due to",
+    "to": "$k$ may depend on the fixed integer $k$.",
+    "role": "mentions",
+    "statement_ids": [
+      "thm-A.1",
+      "cor-cubic-refuted",
+      "def-column-layout",
+      "def-log-convention"
+    ],
+    "lean": [
+      "QuarticQuery.R_le_D_le_one_add_Q_pow_four",
+      "QuarticQuery.cubic_bound_fails_unconditional",
+      "QuarticQuery.BitLoc"
+    ]
+  },
+  {
+    "passage": "forrelation-definition",
+    "from": "Let $m=4^t$, let $H$ be the normalized Walsh–Hadamard",
+    "to": "and Ambainis. The orthogonality of $H$ gives $|\\Phi|\\leq1$.",
+    "role": "defines",
+    "statement_ids": [
+      "def-walsh-sign",
+      "eq-3",
+      "eq-4"
+    ],
+    "lean": [
+      "QuarticQuery.walshSign",
+      "QuarticQuery.Phi",
+      "QuarticQuery.P",
+      "QuarticQuery.Forrelation.H",
+      "QuarticQuery.Forrelation.delta",
+      "QuarticQuery.Forrelation.Phi_eq_matrix_product",
+      "QuarticQuery.Forrelation.P_eq_cases",
+      "QuarticQuery.Forrelation.abs_Phi_le_one"
+    ]
+  },
+  {
+    "passage": "forrelation-properties",
+    "from": "We use three properties of this partial function.",
+    "to": "bit on every input, including off the promise.",
+    "role": "states",
+    "statement_ids": [
+      "eq-5",
+      "lem-2.1.i",
+      "claim-proj-prob",
+      "lem-2.1.ii"
+    ],
+    "lean": [
+      "QuarticQuery.Lvalue",
+      "QuarticQuery.BansalSinhaLower",
+      "QuarticQuery.ForrelationLower.bansalSinhaLower",
+      "QuarticQuery.Forrelation.successProb_eq",
+      "QuarticQuery.Forrelation.successProb_of_true",
+      "QuarticQuery.Forrelation.successProb_of_false",
+      "QuarticQuery.Forrelation.threshold_correct",
+      "QuarticQuery.Upper.forr_samples",
+      "QuarticQuery.Upper.decode_samples",
+      "QuarticQuery.Upper.P_QLe"
+    ]
+  },
+  {
+    "passage": "forrelation-properties",
+    "from": "We use three properties of this partial function.",
+    "to": "bit on every input, including off the promise.",
+    "role": "mentions",
+    "statement_ids": [
+      "claim-bs-to-L"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "exact-circuit",
+    "from": "Third, an exact fan-in-two circuit with $S=O_k(m(\\log m)^2)$",
+    "to": "Lemma 2.1(iii)][OAI], implemented by the formal circuit construction.",
+    "role": "explains",
+    "statement_ids": [
+      "claim-N-phi",
+      "claim-integer-tests",
+      "claim-circuit-size",
+      "lem-2.1.iii"
+    ],
+    "lean": [
+      "QuarticQuery.forrelationNumerator",
+      "QuarticQuery.forrelationDenominator",
+      "QuarticQuery.Forrelation.numerator_eq_walk",
+      "QuarticQuery.Forrelation.Phi_eq_matrix_product",
+      "QuarticQuery.Forrelation.delta_le_Phi_iff",
+      "QuarticQuery.Forrelation.abs_Phi_le_iff",
+      "QuarticQuery.Forrelation.forrCore_spec",
+      "QuarticQuery.Forrelation.forrCircuit_realises",
+      "QuarticQuery.Forrelation.forrCircuit_size_le",
+      "QuarticQuery.Forrelation.exists_circuit"
+    ]
+  },
+  {
+    "passage": "layout",
+    "from": "Set $\\ell=\\log_2m=2t$ and $r=20\\log_2m=40t$. Column $i$ contains a",
+    "to": "address is\n\n<!-- statement:eq-7 -->\n$$\ns_i=(P(A_{i,1}),\\ldots,P(A_{i,r})).\n$$",
+    "role": "defines",
+    "statement_ids": [
+      "eq-6",
+      "def-column-layout",
+      "def-transcript",
+      "def-eval-transcript",
+      "eq-7"
+    ],
+    "lean": [
+      "QuarticQuery.mValue",
+      "QuarticQuery.BitLoc",
+      "QuarticQuery.Address",
+      "QuarticQuery.Circuit",
+      "QuarticQuery.GateConsistent",
+      "QuarticQuery.readA",
+      "QuarticQuery.readTranscript",
+      "QuarticQuery.pointerEquiv",
+      "QuarticQuery.trueAddress",
+      "QuarticQuery.apply_eq_trueAddress"
+    ]
+  },
+  {
+    "passage": "winner-definition",
+    "from": "A column is a *winner* if $X_i=1^m$, its",
+    "to": "transcripts must still satisfy the separate conditions above.",
+    "role": "defines",
+    "statement_ids": [
+      "eq-8",
+      "def-win-at-address",
+      "def-winner",
+      "def-F",
+      "cor-unique-winner",
+      "claim-winner-fidelity"
+    ],
+    "lean": [
+      "QuarticQuery.WinsAt",
+      "QuarticQuery.addressedF",
+      "QuarticQuery.Fkm",
+      "QuarticQuery.winsAt_column_unique",
+      "QuarticQuery.winsAt_address_unique",
+      "QuarticQuery.winsAt_iff_paperWinsAt"
+    ]
+  },
+  {
+    "passage": "local-tests",
+    "from": "For a specified pair $(i,s)$, the winner conditions",
+    "to": "nonwinner has a failing test at every address.",
+    "role": "explains",
+    "statement_ids": [
+      "def-K",
+      "lem-2.2.i",
+      "def-eval-transcript",
+      "cor-local-dichotomy",
+      "claim-coherent-access"
+    ],
+    "lean": [
+      "QuarticQuery.card_testIndex",
+      "QuarticQuery.GateConsistent.unique",
+      "QuarticQuery.gateConsistent_iff_eq_circuitEval",
+      "QuarticQuery.localTestTree_eval",
+      "QuarticQuery.localTestTree_depth_le",
+      "QuarticQuery.winsAt_iff_localTests",
+      "QuarticQuery.exists_failing_localTest",
+      "QuarticQuery.Upper.test_samples",
+      "QuarticQuery.Upper.compile_read",
+      "QuarticQuery.Upper.compile_circ"
+    ]
+  },
+  {
+    "passage": "comparison",
+    "from": "Fix an arbitrary input to $F_{k,m}$. We shall",
+    "to": "coherent preparation has exactly the probabilities just described.",
+    "role": "proves",
+    "statement_ids": [
+      "def-T-eps",
+      "def-decode",
+      "claim-decode-cost",
+      "def-comparison",
+      "def-aij",
+      "eq-10",
+      "eq-11",
+      "claim-comparison-state",
+      "claim-winner-dominates"
+    ],
+    "lean": [
+      "QuarticQuery.Tournament.Tval",
+      "QuarticQuery.Tournament.epsval",
+      "QuarticQuery.Upper.decode_samples",
+      "QuarticQuery.Upper.decodeProb_correct",
+      "QuarticQuery.Upper.cmpProb",
+      "QuarticQuery.Upper.cmpProb_isComparison",
+      "QuarticQuery.Upper.cmpProb_winner",
+      "QuarticQuery.winner_no_incoming_zero",
+      "QuarticQuery.winner_finds_zero"
+    ]
+  },
+  {
+    "passage": "amplification-statement",
+    "from": "We need a sampler with both a worst-case",
+    "to": "input would not define the required query algorithm.",
+    "role": "states",
+    "statement_ids": [
+      "lem-3.1"
+    ],
+    "lean": [
+      "QuarticQuery.Amplification.bounded_amplification",
+      "QuarticQuery.Amplification.amplify",
+      "QuarticQuery.Amplification.Proc.callCap"
+    ]
+  },
+  {
+    "passage": "amplification-proof",
+    "from": "For $0<p<1$, decompose the prepared state into normalized",
+    "to": "[Boyer, Brassard, Høyer and Tapp (1998), Section 4][BBHT].",
+    "role": "proves",
+    "statement_ids": [
+      "claim-grover-state",
+      "claim-sin2theta",
+      "eq-9",
+      "def-grover-trial",
+      "lem-3.1"
+    ],
+    "lean": [
+      "QuarticQuery.Amplification.Preparation.state_eq",
+      "QuarticQuery.Amplification.Preparation.iterate_eq",
+      "QuarticQuery.Amplification.Preparation.grover_rotation",
+      "QuarticQuery.Amplification.Preparation.phaseEq_normalised_good_iterate",
+      "QuarticQuery.Amplification.average_sin_sq_ge",
+      "QuarticQuery.Amplification.average_sin_sq_ge_nine_twentieths",
+      "QuarticQuery.Amplification.Preparation.nine_fortieths_le",
+      "QuarticQuery.Amplification.pow_trialCount_le",
+      "QuarticQuery.Amplification.bounded_amplification"
+    ]
+  },
+  {
+    "passage": "tournament-drift",
+    "from": "For a sequence of previously selected pivots $p_1,\\ldots,p_t$,",
+    "to": "gap between their comparison probabilities and $1/2$ required.",
+    "role": "proves",
+    "statement_ids": [
+      "def-ideal-process",
+      "eq-12",
+      "eq-13",
+      "claim-expected-WT",
+      "claim-weight-lb",
+      "eq-14"
+    ],
+    "lean": [
+      "QuarticQuery.Tournament.weight",
+      "QuarticQuery.Tournament.expectFrom",
+      "QuarticQuery.Tournament.expected_weight_eq",
+      "QuarticQuery.Tournament.expected_weight_le_half",
+      "QuarticQuery.Tournament.expected_final_weight",
+      "QuarticQuery.Tournament.dominant_weight_lb",
+      "QuarticQuery.Tournament.ideal_miss_le",
+      "QuarticQuery.Tournament.ideal_tournament"
+    ]
+  },
+  {
+    "passage": "tournament-sampler",
+    "from": "To implement a stage, prepare a uniform candidate",
+    "to": "The cap holds even when no winner exists.",
+    "role": "proves",
+    "statement_ids": [
+      "construct-sampler",
+      "eq-15",
+      "claim-success-prob",
+      "claim-coupling",
+      "claim-tournament-cost",
+      "prop-3.2"
+    ],
+    "lean": [
+      "QuarticQuery.Upper.stageLaw",
+      "QuarticQuery.Upper.stageLaw_some",
+      "QuarticQuery.Upper.sum_stageLaw_some",
+      "QuarticQuery.Upper.stage_samples",
+      "QuarticQuery.Upper.Samples.amplify",
+      "QuarticQuery.Upper.tval_lower",
+      "QuarticQuery.Upper.stageCost",
+      "QuarticQuery.Upper.tournament_runs"
+    ]
+  },
+  {
+    "passage": "tournament-formal-route",
+    "from": "The formal quantum implementation proves the exact conditional",
+    "to": "the correspondence records the difference between these interfaces.",
+    "role": "explains",
+    "statement_ids": [
+      "lem-3.1",
+      "prop-3.2",
+      "claim-coupling"
+    ],
+    "lean": [
+      "QuarticQuery.Amplification.bounded_amplification",
+      "QuarticQuery.Upper.Samples.runs",
+      "QuarticQuery.Upper.Samples.attempts",
+      "QuarticQuery.Upper.Samples.amplify",
+      "QuarticQuery.Upper.tournament_runs"
+    ]
+  },
+  {
+    "passage": "candidate-verification",
+    "from": "For each candidate, decode its address afresh and",
+    "to": "input bit. No additional addressing oracle is assumed.",
+    "role": "proves",
+    "statement_ids": [
+      "lem-2.2.ii",
+      "def-verify",
+      "claim-verify",
+      "claim-error",
+      "prop-3.3",
+      "claim-coherent-access"
+    ],
+    "lean": [
+      "QuarticQuery.Upper.testLaw_pass",
+      "QuarticQuery.Upper.testLaw_fail",
+      "QuarticQuery.Upper.search_runs",
+      "QuarticQuery.Upper.tournament_runs",
+      "QuarticQuery.Tournament.total_error_lt",
+      "QuarticQuery.Upper.Fkm_QLe",
+      "QuarticQuery.Upper.Fkm_forrCircuit_QLe",
+      "QuarticQuery.Upper.Q_Fkm_le",
+      "QuarticQuery.Upper.compile_read"
+    ]
+  },
+  {
+    "passage": "direct-product",
+    "from": "We use the per-instance-capped direct product described in",
+    "to": "and treats zero-mass branches without a separate case.",
+    "role": "states",
+    "statement_ids": [
+      "lem-4.1"
+    ],
+    "lean": [
+      "QuarticQuery.direct_product",
+      "QuarticQuery.direct_product_average",
+      "QuarticQuery.direct_product_randomized",
+      "QuarticQuery.guessSuccess_le_prod"
+    ]
+  },
+  {
+    "passage": "weighted-recursion",
+    "from": "For a nonnegative weight $\\nu$ on one input,",
+    "to": "recursion bounds every tree of the specified depth.",
+    "role": "defines",
+    "statement_ids": [
+      "new-dp-recursion",
+      "lem-4.1"
+    ],
+    "lean": [
+      "QuarticQuery.constSuccess",
+      "QuarticQuery.treeSuccess",
+      "QuarticQuery.restrictWeight",
+      "QuarticQuery.budgetValue",
+      "QuarticQuery.budgetValue_add_le",
+      "QuarticQuery.exists_tree_budgetValue_le",
+      "QuarticQuery.treeSuccess_le_budgetValue"
+    ]
+  },
+  {
+    "passage": "weighted-product",
+    "from": "More generally, if a multi-input tree has remaining",
+    "to": "prose argument, not the checked derivation used here.",
+    "role": "proves",
+    "statement_ids": [
+      "new-dp-weighted",
+      "new-dp-recursion",
+      "lem-4.1"
+    ],
+    "lean": [
+      "QuarticQuery.guessSuccess",
+      "QuarticQuery.OutTree.capped",
+      "QuarticQuery.guessSuccess_leaf",
+      "QuarticQuery.guessSuccess_query",
+      "QuarticQuery.guessSuccess_le_prod",
+      "QuarticQuery.direct_product",
+      "QuarticQuery.direct_product_average",
+      "QuarticQuery.direct_product_randomized"
+    ]
+  },
+  {
+    "passage": "minimax",
+    "from": "By (2), finite minimax supplies a distribution $\\mu$",
+    "to": "after the worst-case lower bound has been established.",
+    "role": "uses",
+    "statement_ids": [
+      "lem-2.1.i",
+      "claim-minimax-mu",
+      "claim-address-guess"
+    ],
+    "lean": [
+      "QuarticQuery.exists_hard_distribution",
+      "QuarticQuery.address_guess_le",
+      "QuarticQuery.address_guess_average",
+      "QuarticQuery.exists_address_guess_bound",
+      "QuarticQuery.ForrelationLower.bansalSinhaLower"
+    ]
+  },
+  {
+    "passage": "planting",
+    "from": "Construct a dummy input $Y^{(0)}$ by choosing, independently",
+    "to": "even if the visited bit has not changed.",
+    "role": "explains",
+    "statement_ids": [
+      "def-dummy",
+      "def-planted",
+      "claim-Y-values",
+      "eq-18"
+    ],
+    "lean": [
+      "QuarticQuery.dummy",
+      "QuarticQuery.trueAddr",
+      "QuarticQuery.planted",
+      "QuarticQuery.addressedF_dummy",
+      "QuarticQuery.addressedF_planted",
+      "QuarticQuery.QueryTree.exists_mem_path_ne",
+      "QuarticQuery.eq_of_dummy_ne_planted",
+      "QuarticQuery.output_gap_le"
+    ]
+  },
+  {
+    "passage": "zero-search-induction",
+    "from": "The formal proof improves the preprint's $4G/m^2$ estimate",
+    "to": "the bound uses the stated worst-case query cap.",
+    "role": "proves",
+    "statement_ids": [
+      "new-zero-search-two",
+      "eq-19"
+    ],
+    "lean": [
+      "QuarticQuery.zero_search_sum",
+      "QuarticQuery.column_zero_bound",
+      "QuarticQuery.avg_foundZero_le",
+      "QuarticQuery.sum_xQueries_le",
+      "QuarticQuery.avg_foundZero_I_le"
+    ]
+  },
+  {
+    "passage": "heavy-simulator",
+    "from": "Call column $i$ heavy if the complete dummy",
+    "to": "for (18), without a separately packaged per-time theorem.",
+    "role": "proves",
+    "statement_ids": [
+      "def-heavy",
+      "def-simulator",
+      "eq-20",
+      "eq-21",
+      "eq-22",
+      "claim-address-guess"
+    ],
+    "lean": [
+      "QuarticQuery.avg_heavy_le",
+      "QuarticQuery.simTree",
+      "QuarticQuery.depth_simTree_le",
+      "QuarticQuery.eval_simTree",
+      "QuarticQuery.reachedCell",
+      "QuarticQuery.avg_reachedCell_le",
+      "QuarticQuery.address_guess_le"
+    ]
+  },
+  {
+    "passage": "classical-gap",
+    "from": "Define $\\Delta=\\Pr[T(Y^{(1)})=1]-\\Pr[T(Y^{(0)})=1]$. The first-difference argument and (16), (18)",
+    "to": "the hardness of its address function were used.",
+    "role": "proves",
+    "statement_ids": [
+      "new-planted-gap-two",
+      "eq-17",
+      "eq-18",
+      "eq-23",
+      "claim-tail",
+      "claim-numeric",
+      "prop-4.2-generic",
+      "prop-4.2",
+      "claim-floor",
+      "cor-R-omega"
+    ],
+    "lean": [
+      "QuarticQuery.Gvalue",
+      "QuarticQuery.tree_gap_le",
+      "QuarticQuery.addressedF_not_RLe",
+      "QuarticQuery.Gvalue_lt_R_addressedF",
+      "QuarticQuery.Gvalue_lt_R_Fkm",
+      "QuarticQuery.twoThirds_pow_le",
+      "QuarticQuery.discrepancy_lt_third",
+      "QuarticQuery.Gvalue_ge",
+      "QuarticQuery.rpow_le_of_Gvalue_lt"
+    ]
+  },
+  {
+    "passage": "forrelation-scope",
+    "from": "The remaining input is (2), with $k$ fixed",
+    "to": "we make no priority claim for the method.",
+    "role": "explains",
+    "statement_ids": [
+      "lem-2.1.i",
+      "new-fl-path",
+      "new-fl-advantage"
+    ],
+    "lean": [
+      "QuarticQuery.BansalSinhaLower",
+      "QuarticQuery.ForrelationLower.bansalSinhaLower",
+      "QuarticQuery.ForrelationLower.exists_identity",
+      "QuarticQuery.ForrelationLower.sum_abs_ext_Dl_le",
+      "QuarticQuery.ForrelationLower.advantage_le"
+    ]
+  },
+  {
+    "passage": "forrelation-truncation",
+    "from": "For a function $g$ on signs, write $\\widetilde",
+    "to": "a bounded bias and a controlled derivative weight.",
+    "role": "proves",
+    "statement_ids": [
+      "new-fl-truncation",
+      "new-fl-stein"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.ext",
+      "QuarticQuery.ForrelationLower.D",
+      "QuarticQuery.ForrelationLower.D_D",
+      "QuarticQuery.ForrelationLower.qf",
+      "QuarticQuery.ForrelationLower.psiS",
+      "QuarticQuery.ForrelationLower.phiS",
+      "QuarticQuery.ForrelationLower.dphi",
+      "QuarticQuery.ForrelationLower.hasDerivAt_phiS",
+      "QuarticQuery.ForrelationLower.abs_phiS_le",
+      "QuarticQuery.ForrelationLower.stein_one",
+      "QuarticQuery.ForrelationLower.stein_pi"
+    ]
+  },
+  {
+    "passage": "forrelation-path",
+    "from": "Index the $k$ sign blocks by $0,\\ldots,k-1$. Take",
+    "to": "$s$ need not be shared by different functions.",
+    "role": "proves",
+    "statement_ids": [
+      "new-fl-path",
+      "new-fl-path-weight"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.wv",
+      "QuarticQuery.ForrelationLower.abs_wv_le_half",
+      "QuarticQuery.ForrelationLower.integral_ext_wv_zero",
+      "QuarticQuery.ForrelationLower.D_D",
+      "QuarticQuery.ForrelationLower.integral_walk",
+      "QuarticQuery.ForrelationLower.exists_identity",
+      "QuarticQuery.ForrelationLower.Int_eq_paths",
+      "QuarticQuery.ForrelationLower.cf",
+      "QuarticQuery.ForrelationLower.abs_cf_le"
+    ]
+  },
+  {
+    "passage": "forrelation-growth",
+    "from": "Let $g$ be the acceptance indicator of a",
+    "to": "most any prescribed positive constant depending on $k$.",
+    "role": "proves",
+    "statement_ids": [
+      "new-fl-advantage"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.ext_D_eq_mul_xi",
+      "QuarticQuery.ForrelationLower.ext_Dl",
+      "QuarticQuery.ForrelationLower.two_point_exp_le",
+      "QuarticQuery.ForrelationLower.hit_azuma",
+      "QuarticQuery.ForrelationLower.hit_chaos_le",
+      "QuarticQuery.ForrelationLower.sum_abs_ext_Dl_le",
+      "QuarticQuery.ForrelationLower.advantage_le",
+      "QuarticQuery.ForrelationLower.exists_threshold"
+    ]
+  },
+  {
+    "passage": "forrelation-moments",
+    "from": "The two laws just used are not supported",
+    "to": "(24). The formal calculation iterates the same expectations.",
+    "role": "proves",
+    "statement_ids": [
+      "new-fl-moments"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.Phi_eq_PhiF",
+      "QuarticQuery.ForrelationLower.ext_PhiF_zero",
+      "QuarticQuery.ForrelationLower.ext_PhiF_sq",
+      "QuarticQuery.ForrelationLower.psi_dphi_ge",
+      "QuarticQuery.ForrelationLower.mass_ge"
+    ]
+  },
+  {
+    "passage": "forrelation-gap",
+    "from": "Suppose that an $L$-query randomized algorithm computes $P_{k,m}$",
+    "to": "these two distributions would invalidate the direct-product application.",
+    "role": "proves",
+    "statement_ids": [
+      "new-fl-gap",
+      "new-fl-advantage",
+      "new-fl-moments",
+      "lem-2.1.i"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.exists_amplified",
+      "QuarticQuery.ForrelationLower.not_RLe_of_gap",
+      "QuarticQuery.ForrelationLower.exists_threshold",
+      "QuarticQuery.ForrelationLower.bansalSinhaLower"
+    ]
+  },
+  {
+    "passage": "exponent",
+    "from": "Fix a proposed universal exponent $\\alpha<4$, with $\\alpha\\geq0$.",
+    "to": "with arbitrarily large fixed $k$, establishes $\\alpha_{\\rm tot}=4$.",
+    "role": "proves",
+    "statement_ids": [
+      "claim-exponent-ratio",
+      "claim-no-smaller-exponent",
+      "thm-A.1",
+      "cor-cubic-refuted",
+      "thm-1.1"
+    ],
+    "lean": [
+      "QuarticQuery.eventually_gt_rpow",
+      "QuarticQuery.exists_nat_exponent",
+      "QuarticQuery.not_universalPower_of_family",
+      "QuarticQuery.D_le_Q_pow_four",
+      "QuarticQuery.R_le_D_le_one_add_Q_pow_four",
+      "QuarticQuery.universalPower_four",
+      "QuarticQuery.cubic_bound_fails_unconditional",
+      "QuarticQuery.alphaTot_eq_four_unconditional"
+    ]
+  },
+  {
+    "passage": "formal-changes",
+    "from": "Three changes are visible in the mathematics. The",
+    "to": "proof routes, short deductions and absent statement-level matches.",
+    "role": "explains",
+    "statement_ids": [
+      "new-zero-search-two",
+      "lem-2.2.i",
+      "lem-4.1",
+      "lem-3.1",
+      "prop-3.2",
+      "lem-2.1.i",
+      "thm-1.1"
+    ],
+    "lean": [
+      "QuarticQuery.avg_foundZero_I_le",
+      "QuarticQuery.localTestTree_depth_le",
+      "QuarticQuery.guessSuccess_le_prod",
+      "QuarticQuery.Amplification.bounded_amplification",
+      "QuarticQuery.Upper.Samples.amplify",
+      "QuarticQuery.Upper.tournament_runs",
+      "QuarticQuery.BansalSinhaLower",
+      "QuarticQuery.ForrelationLower.bansalSinhaLower",
+      "QuarticQuery.theorem_1_1_unconditional"
+    ]
+  },
+  {
+    "passage": "specification",
+    "from": "The frozen statements define bit inputs, partial Boolean",
+    "to": "displayed asymptotic claim therefore remain substantive review obligations.",
+    "role": "explains",
+    "statement_ids": [
+      "def-partial-query",
+      "def-R",
+      "def-Q",
+      "def-query-oracle",
+      "def-D",
+      "thm-A.1"
+    ],
+    "lean": [
+      "QuarticQuery.PartialBool",
+      "QuarticQuery.RandomizedProgram",
+      "QuarticQuery.RLe",
+      "QuarticQuery.R",
+      "QuarticQuery.AdaptiveProgram",
+      "QuarticQuery.AdaptiveProgram.queryCap",
+      "QuarticQuery.AdaptiveProgram.outputMass",
+      "QuarticQuery.QLe",
+      "QuarticQuery.Q",
+      "QuarticQuery.exists_fixedSequence",
+      "QuarticQuery.hadamard_bitOracle_hadamard",
+      "QuarticQuery.D_totalise_eq_complexity"
+    ]
+  },
+  {
+    "passage": "verification-evidence",
+    "from": "The supplied trace records successful kernel builds and",
+    "to": "the packet. These limits are recorded in `SOURCE_AUDIT.md`.",
+    "role": "explains",
+    "statement_ids": [
+      "thm-1.1",
+      "cor-cubic-refuted"
+    ],
+    "lean": [
+      "QuarticQuery.theorem_1_1_unconditional",
+      "QuarticQuery.alphaTot_eq_four_unconditional",
+      "QuarticQuery.cubic_bound_fails_unconditional"
+    ]
+  },
+  {
+    "passage": "reproduction",
+    "from": "To reproduce the mathematical checks, obtain the supplied",
+    "to": "informal argument can otherwise conceal a stronger assumption.",
+    "role": "mentions",
+    "statement_ids": [
+      "thm-1.1",
+      "cor-cubic-refuted"
+    ],
+    "lean": [
+      "QuarticQuery.theorem_1_1_unconditional",
+      "QuarticQuery.cubic_bound_fails_unconditional"
+    ]
+  },
+  {
+    "passage": "references",
+    "from": "**[OAI]** OpenAI. *A Nearly Quartic Separation Between Randomized",
+    "to": "trusted-dependency checks, consulted 2 November 2026. [Official documentation][COMP].",
+    "role": "mentions",
+    "statement_ids": [],
+    "lean": []
+  }
+]

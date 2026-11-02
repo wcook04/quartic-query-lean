@@ -1,0 +1,134 @@
+{
+  "schema": "quartic_reader_return_manifest_v1",
+  "input_snapshot": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+  "source_paper_revision": "openai/math 4eaee875",
+  "advisory_only": true,
+  "lean_or_comparator_replayed": false,
+  "members": [
+    {
+      "member": "README.md",
+      "bytes": 4758,
+      "sha256": "1ab94cdab09608369728fda841b853bf620c0c6d31164b6671f4a88505bb5c41"
+    },
+    {
+      "member": "levels.md",
+      "bytes": 13430,
+      "sha256": "211afdf25b7b8c3e580b31e7087af4af7a55a6b9b4c4b1c4bf286eb77c3e4013"
+    },
+    {
+      "member": "levels.json",
+      "bytes": 22239,
+      "sha256": "b8afd37096e58427b0f81d59616bf87c50f16909810529cdc754b4c664127412"
+    },
+    {
+      "member": "argument_map.json",
+      "bytes": 199276,
+      "sha256": "6a4239ed05dde80423499323b79e5015248beadd484ecd42c2d04512626426b7"
+    },
+    {
+      "member": "fidelity_view.md",
+      "bytes": 12701,
+      "sha256": "804b651ae9f0e48dc565c5c6bdbc65dd40816e58bef64d89459e1e1794d4edf5"
+    },
+    {
+      "member": "film_12min.md",
+      "bytes": 26864,
+      "sha256": "91f7a5384f809f444fe20f848ea7e4ca28d7e9c813ebd1ef2fb717dd0d037d2b"
+    },
+    {
+      "member": "film_4min.md",
+      "bytes": 12126,
+      "sha256": "b8572d1ed60ea24ee9b51bfeb48d34aca7504d5297bc39c8367a5e2b8a13e54e"
+    },
+    {
+      "member": "film_shots.json",
+      "bytes": 40332,
+      "sha256": "d5b26a8de21ebdd415f588f26683009c6bf54ef7af827db8efffc93968b8fb8a"
+    },
+    {
+      "member": "visual_data.json",
+      "bytes": 5590,
+      "sha256": "ebc4cf6e89f58543421735b7b0df7ee4630a641db660870ec0cf67cb106b64d9"
+    },
+    {
+      "member": "checking_visual_data.json",
+      "bytes": 9356,
+      "sha256": "7249d96bfd15d8644ef02678c41527f3f0b46c498606d75dd570fa6fc7698662"
+    },
+    {
+      "member": "data_contract.md",
+      "bytes": 14792,
+      "sha256": "201a0216d2b3453073125175ef1337d5d08cbd484bb853820555fe9cee0ebe74"
+    },
+    {
+      "member": "correspondence.json",
+      "bytes": 134410,
+      "sha256": "7bf3055a86fd421a19772a94fdcebed718b0f11829719d5e9dfd70df930e3bc0"
+    },
+    {
+      "member": "NEW_STATEMENTS.json",
+      "bytes": 9208,
+      "sha256": "b22f0f44a61b8c1556a41670371117ea21f5b3fc15787ba7d1d95ed1d2f20e22"
+    },
+    {
+      "member": "NEW_STATEMENTS_README.md",
+      "bytes": 1369,
+      "sha256": "0aa5e76130f1cb2512fd98e6460a9619aa11b76fe9af2918ca4f1dc42b963f15"
+    },
+    {
+      "member": "LEAN_GAPS.md",
+      "bytes": 17296,
+      "sha256": "439c9580082b53dac4df6bcb9243768a2e54aed2b40b0dc2225c789338914fee"
+    },
+    {
+      "member": "LEAN_GAPS.json",
+      "bytes": 38270,
+      "sha256": "04ff4c1307db75bc805f2b8aeaff41f38b0ec9afc3d65e437ec606f8a52b5ade"
+    },
+    {
+      "member": "STATEMENT_CHANGES.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "member": "AUDIT_FINDINGS.json",
+      "bytes": 16628,
+      "sha256": "766a1e46f7a5637b2a38eba6950339ab445431d86104fd9bd6129a881b8329d9"
+    },
+    {
+      "member": "sources.md",
+      "bytes": 11210,
+      "sha256": "3e204d8d9bae962ab5130ecb24fe58600bb8bee506b85be0870675903b8d4f0e"
+    },
+    {
+      "member": "source_manifest.json",
+      "bytes": 13766,
+      "sha256": "e0e9b6fd743d44e4cd7a04118a5df067f428320cd0797cbee3e0c727b08e7d60"
+    },
+    {
+      "member": "READ_SCOPE.md",
+      "bytes": 7817,
+      "sha256": "b117a30c6cd30f5ac7032bb14cdab8c0f7f97c7d4014bf9267cbe1e4081645ac"
+    },
+    {
+      "member": "worked_example.png",
+      "bytes": 254266,
+      "sha256": "3b54d86c1ecdcb179cce7ffe150b5c15ba9341791652be6cc617e463288878d6"
+    },
+    {
+      "member": "worked_example.svg",
+      "bytes": 17702,
+      "sha256": "f3b462950d75f33efca941dd8326bcc20f79c209a926f8f36afa87a46bf10d19"
+    },
+    {
+      "member": "checks/check_return.py",
+      "bytes": 11422,
+      "sha256": "83807cc02d73080c45b5389430b317cbfc0f9a9bd3768e2b723eaa0aead0c5c2"
+    },
+    {
+      "member": "checks/validation_report.json",
+      "bytes": 4760,
+      "sha256": "bf9c48ed75558e875501db2db8ed870b7c2c42c1b64ba523d44c2dfdb46cafdc"
+    }
+  ]
+}

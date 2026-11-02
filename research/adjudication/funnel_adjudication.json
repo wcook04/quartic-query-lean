@@ -1,0 +1,933 @@
+{
+ "schema": "adjudication of the five funnel returns on OpenAI 'A Nearly Quartic Separation Between Randomized and Quantum Query Complexity'",
+ "date": "2026-11-02",
+ "returns": {
+  "r1": "research/returns/funnel/1_long_reasoning_record",
+  "r2": "research/returns/funnel/2_short_expert_paper",
+  "r3": "research/returns/funnel/3_examples_first_exposition",
+  "r4": "research/returns/funnel/4_forrelation_route_note",
+  "r5": "research/returns/funnel/5_reader_and_film"
+ },
+ "locator_convention": "Repository paths are relative to this repository; 'annexes/...' paths are in the private ai_workflow checkout; TeX line numbers are of the file inside the named source.tar.gz.",
+ "verdicts": "accepted, accepted_modified, rejected, unverified, as in adjudication.json. 'applied' says whether this change edited ties.json or adjudication.json.",
+ "counts": {
+  "total": 45,
+  "by_verdict": {
+   "accepted": 34,
+   "accepted_modified": 6,
+   "unverified": 4,
+   "rejected": 1
+  },
+  "by_return": {
+   "adjudicator": {
+    "accepted": 2
+   },
+   "r1": {
+    "accepted": 19,
+    "accepted_modified": 2,
+    "unverified": 3
+   },
+   "r2": {
+    "accepted": 12,
+    "accepted_modified": 3,
+    "unverified": 2
+   },
+   "r3": {
+    "accepted": 4,
+    "rejected": 1,
+    "unverified": 1
+   },
+   "r4": {
+    "accepted": 9,
+    "accepted_modified": 1,
+    "unverified": 2
+   },
+   "r5": {
+    "accepted": 9,
+    "accepted_modified": 2,
+    "unverified": 1
+   }
+  },
+  "applied": 8
+ },
+ "changes": {
+  "corpus/ties.json": [
+   "claim-bs-to-L: removed the exact tie to QuarticQuery.ForrelationLower.bansalSinhaLower (F-BS-TIE)",
+   "lem-2.1.i: bansalSinhaLower tie given kind theorem, file lean/QuarticQuery/ForrelationLower/Main.lean, line 506; note updated (F-BS-LOC)",
+   "thm-1.1: added reviewed tie QuarticQuery.theorem_1_1, partial, route same, hypotheses [BansalSinhaLower] (F-T11-HYP)",
+   "eq-19: avg_foundZero_I_le note qualified to expected-cost sharpness (F-ZS-SHARP, F-EQ19-Z)"
+  ],
+  "research/adjudication/adjudication.json": [
+   "amended_by block naming this file",
+   "ledger_row_changes.claim-bs-to-L: statement now explicit about k>=2 and c>0 (F-BS-C)",
+   "ledger_row_changes.lem-2.1.i.proof_notes: Section 5.4 finding appended (F-BS-54)",
+   "ledger_row_changes.lem-A.5.external_inputs: 'using Lemma 3 on maxonomials' (F-MIDRIJANIS)"
+  ]
+ },
+ "pending_ties": [
+  {
+   "row": "claim-bs-to-L",
+   "declaration": "QuarticQuery.Paper.claim_bs_to_L",
+   "file": "lean/QuarticQuery/Paper/Section2.lean",
+   "proposed_relation": "exact, if it states the paper's comparison with natural log as its doc comment says",
+   "status": "concurrent, untracked, not in any build receipt; review after it builds"
+  },
+  {
+   "row": "claim-bs-to-L",
+   "declaration": "QuarticQuery.Paper.claim_bs_to_L_log2",
+   "file": "lean/QuarticQuery/Paper/Section2.lean",
+   "proposed_relation": "exact for the corrected row (k>=2, c>0) if its log base and floor match",
+   "status": "concurrent, not built"
+  },
+  {
+   "row": "cor-unique-winner",
+   "declaration": "QuarticQuery.Paper.cor_unique_winner",
+   "file": "lean/QuarticQuery/Paper/Section2.lean",
+   "proposed_relation": "exact (existing alternative: QuarticQuery.winsAt_column_unique, Construction/Winner.lean:42)",
+   "status": "concurrent, not built"
+  },
+  {
+   "row": "cor-local-dichotomy",
+   "declaration": "QuarticQuery.Paper.cor_local_dichotomy",
+   "file": "lean/QuarticQuery/Paper/Section2.lean",
+   "proposed_relation": "exact (existing parts: exists_failing_localTest and localTests_iff_eq_of_winsAt, Construction/LocalTests.lean:262-268)",
+   "status": "concurrent, not built"
+  },
+  {
+   "row": "lem-2.2.i",
+   "declaration": "QuarticQuery.Paper.lemma_2_2 and QuarticQuery.Paper.testDepth_eq",
+   "file": "lean/QuarticQuery/Paper/Section2.lean",
+   "proposed_relation": "review against the corrected lem-2.2.i; the tag 'lem-2.2' names the parent row",
+   "status": "concurrent, not built"
+  },
+  {
+   "row": "lem-2.1 (parent of lem-2.1.i-iii)",
+   "declaration": "QuarticQuery.Paper.lemma_2_1",
+   "file": "lean/QuarticQuery/Paper/Section2.lean",
+   "proposed_relation": "review after build",
+   "status": "concurrent, not built"
+  },
+  {
+   "row": "none (route-note Theorem 2, F-R4-ELEM)",
+   "declaration": "QuarticQuery.ForrelationLower.not_RLe_uniform, forrelation_lower_uniform_existing_constants, lvalue_lt_R_explicit",
+   "file": "lean/QuarticQuery/ForrelationLower/Uniform.lean",
+   "proposed_relation": "weaker than the note's Theorem 2: its doc states the constant 1/2332800 with edge constant 3, not 2/18225; a new row would be needed",
+   "status": "concurrent, not built"
+  },
+  {
+   "row": "eq-1",
+   "declaration": "QuarticQuery.alphaTot with QuarticQuery.UniversalPower",
+   "file": "lean/QuarticQuery/Statement.lean",
+   "proposed_relation": "exact (definition)",
+   "status": "exists and built; needs a tie review"
+  },
+  {
+   "row": "eq-5",
+   "declaration": "QuarticQuery.Lvalue",
+   "file": "lean/QuarticQuery/Statement.lean",
+   "proposed_relation": "exact (definition)",
+   "status": "exists and built; needs a tie review"
+  },
+  {
+   "row": "eq-17",
+   "declaration": "QuarticQuery.Gvalue",
+   "file": "lean/QuarticQuery/Statement.lean",
+   "proposed_relation": "exact (definition; m*L/100 is floor division)",
+   "status": "exists and built; needs a tie review"
+  },
+  {
+   "row": "eq-19 (new refinement, F-ZS-REFINE)",
+   "declaration": "none",
+   "file": null,
+   "proposed_relation": "new statement 2G/(m(m+1))",
+   "status": "no Lean"
+  }
+ ],
+ "pending_tool_changes": [
+  "tools/build_corpus.py: show negative-control receipts as 'rejected as expected' (F-NEG-WORD)",
+  "tools/build_corpus.py: replace the fidelity_review not_run string (F-STALE-DOCS)",
+  "tools/build_corpus.py: show hypotheses of unassessed ties as unknown (F-T11-HYP)",
+  "ties.json and tools/build_corpus.py: separate open assumptions from premises (F-HYP-PREMISE)",
+  "tools/record_evidence.py: re-record lean-build-root at a clean pin (F-PIN-BUILD)"
+ ],
+ "findings": [
+  {
+   "id": "F-BS-TIE",
+   "returns": [
+    "r1",
+    "r2",
+    "r5"
+   ],
+   "claim": "claim-bs-to-L ties QuarticQuery.ForrelationLower.bansalSinhaLower as exact, but that theorem proves L < R(P) eventually for each k, not the row's comparison between c k^-29 (m/log km)^(1-1/k) and L.",
+   "verdict": "accepted",
+   "evidence": [
+    "lean/QuarticQuery/Statement.lean:319-320 (BansalSinhaLower: forall k>=2, exists t0, forall t>=t0, Lvalue k t < R (P k t))",
+    "lean/QuarticQuery/ForrelationLower/Main.lean:506 (theorem bansalSinhaLower : BansalSinhaLower)",
+    "corpus/ties.json claim-bs-to-L before this change: relation exact, route alternative",
+    "r1 review_notes.md finding 1; r2 STATEMENT_CHANGES claim-bs-to-L; r5 AUDIT_FINDINGS AUDIT-01"
+   ],
+   "corrective_action": "Removed the reviewed tie from claim-bs-to-L in corpus/ties.json. The theorem stays tied to lem-2.1.i, which it states exactly. The row's evidence is now set by the doc-comment proposals in the new lean/QuarticQuery/Paper/Section2.lean (unassessed, not built); see pending_ties.",
+   "applied": true,
+   "corpus_rows_affected": [
+    "claim-bs-to-L"
+   ]
+  },
+  {
+   "id": "F-BS-C",
+   "returns": [
+    "r1",
+    "r2"
+   ],
+   "claim": "claim-bs-to-L should state k>=2 and c>0 explicitly; with c=0 the comparison is false.",
+   "verdict": "accepted",
+   "evidence": [
+    "research/intake/statement_ledger.json claim-bs-to-L: statement omits both; its first_lean_target already carries (hc : 0 < c)",
+    "annexes/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.tar.gz:main.tex:262-264 (Theorem 1.3 is for k>=2; c is the constant of an Omega bound)"
+   ],
+   "corrective_action": "Statement corrected through research/adjudication/adjudication.json ledger_row_changes.claim-bs-to-L. The original statement hash is kept by the builder.",
+   "applied": true,
+   "corpus_rows_affected": [
+    "claim-bs-to-L"
+   ]
+  },
+  {
+   "id": "F-BS-LOC",
+   "returns": [
+    "r1",
+    "r2",
+    "r4",
+    "r5"
+   ],
+   "claim": "The lem-2.1.i tie locates bansalSinhaLower as kind definition in Statement.lean, line null; it is a theorem in ForrelationLower/Main.lean:506.",
+   "verdict": "accepted",
+   "evidence": [
+    "lean/QuarticQuery/ForrelationLower/Main.lean:506",
+    "tools/build_corpus.py statement_records: a reviewed tie without file/kind defaults to Statement.lean and definition",
+    "r4 METADATA_CORRECTIONS.json; r5 AUDIT-02",
+    "Adjudicator sweep: every other tie in corpus/statements.json resolves to a declaration of that name in its recorded file (script over all 121 rows); only the two bansalSinhaLower ties failed."
+   ],
+   "corrective_action": "Added kind theorem, file lean/QuarticQuery/ForrelationLower/Main.lean and line 506 to the lem-2.1.i tie, and said in its note that Statement.lean holds only the proposition.",
+   "applied": true,
+   "corpus_rows_affected": [
+    "lem-2.1.i"
+   ]
+  },
+  {
+   "id": "F-BS-SCOPE",
+   "returns": [
+    "r2",
+    "r4"
+   ],
+   "claim": "The fixed-k Lean theorem is weaker than Bansal-Sinha Theorem 1.3: squared base-two log denominator, threshold depending on k, no explicit dependence on k or advantage.",
+   "verdict": "accepted",
+   "evidence": [
+    "lean/QuarticQuery/Statement.lean:309-320 (Lvalue, BansalSinhaLower)",
+    "corpus row lem-2.1.i states exactly this fixed-k form"
+   ],
+   "corrective_action": "None. The row already has this scope; the external input stays the paper's citation.",
+   "applied": false,
+   "corpus_rows_affected": [
+    "lem-2.1.i"
+   ]
+  },
+  {
+   "id": "F-T11-HYP",
+   "returns": [
+    "r5"
+   ],
+   "claim": "QuarticQuery.theorem_1_1 carries a BansalSinhaLower binder, but its corpus entry shows empty hypotheses.",
+   "verdict": "accepted_modified",
+   "evidence": [
+    "lean/QuarticQuery/Results/Conditional.lean:53 (theorem theorem_1_1 (h : BansalSinhaLower))",
+    "corpus/statements.json thm-1.1 before this change: relation unassessed, hypotheses [] (doc-comment proposal only, no reviewed tie)"
+   ],
+   "corrective_action": "The empty list came from an unreviewed doc-comment proposal, not from a reviewed tie that dropped the hypothesis. Added a reviewed tie: relation partial (its family conjunct keeps the per-t implication 8<=t -> L<R(P) -> G<R(F)), route same, hypotheses [BansalSinhaLower]. Recommended separately: the builder should show hypotheses of unassessed ties as unknown, not as [].",
+   "applied": true,
+   "corpus_rows_affected": [
+    "thm-1.1"
+   ]
+  },
+  {
+   "id": "F-NEG-WORD",
+   "returns": [
+    "r5"
+   ],
+   "claim": "Negative-control runs are rendered as passed in the evidence graph; they should read 'altered solution rejected as expected'.",
+   "verdict": "accepted",
+   "evidence": [
+    "corpus/receipts/comparator-negative-*.json: status passed, exit_code 1, negative_control rejected_as_expected",
+    "tools/build_corpus.py evidence_graph: copies run['status'] and drops negative_control"
+   ],
+   "corrective_action": "Pending, not applied: the fix belongs in tools/build_corpus.py (map a negative-control receipt to status rejected_as_expected, or put that phrase in details). Receipts are already correct and were not edited.",
+   "applied": false,
+   "corpus_rows_affected": []
+  },
+  {
+   "id": "F-NEG-MATCH",
+   "returns": [
+    "r2",
+    "r3",
+    "r4"
+   ],
+   "claim": "The WeakenedConclusion runner first reported WRONG FAILURE because its expected substring differed from Comparator's diagnostic; the bad theorem was never accepted.",
+   "verdict": "accepted",
+   "evidence": [
+    "corpus/receipts/comparator-negative-WeakenedConclusion.json: exit_code 1, expected_diagnostic 'statement do not match', negative_control rejected_as_expected"
+   ],
+   "corrective_action": "None.",
+   "applied": false,
+   "corpus_rows_affected": []
+  },
+  {
+   "id": "F-PIN-REPLAY",
+   "returns": [
+    "r2",
+    "r5"
+   ],
+   "claim": "The external-kernel replay pin d42fb67 differs from the packet snapshot c7e0c91, so the replayed bytes may not be the supplied ones.",
+   "verdict": "accepted_modified",
+   "evidence": [
+    "git diff --stat d42fb67 c7e0c91: README.md, corpus/evidence-graph.json, corpus/receipts/comparator-Unconditional.json only",
+    "corpus/receipts/comparator-Unconditional.json: commit d42fb67, paranoid true"
+   ],
+   "corrective_action": "The pins differ only in documentation and evidence files; no Lean source differs, so the proof source replayed is the snapshot's. The raw receipts the returns could not see are in corpus/receipts/. No change.",
+   "applied": false,
+   "corpus_rows_affected": []
+  },
+  {
+   "id": "F-PIN-BUILD",
+   "returns": [
+    "adjudicator"
+   ],
+   "claim": "corpus/receipts/lean-build-root.json records commit 16adedc, but lists declarations that do not exist at that commit.",
+   "verdict": "accepted",
+   "evidence": [
+    "git cat-file -e 16adedc:lean/QuarticQuery/ForrelationLower/Main.lean fails; same for Results/Unconditional.lean",
+    "git diff --stat 16adedc d42fb67 -- lean: 13 files added, including all eight ForrelationLower modules and Results/Unconditional.lean",
+    "lean-build-root.json: ran_at 06:52 UTC; its declarations include QuarticQuery.ForrelationLower.bansalSinhaLower and the root theorem_1_1_unconditional; commit 06f3eb8, which adds them, is dated 07:21 UTC"
+   ],
+   "corrective_action": "The build ran on an uncommitted tree later committed as 06f3eb8. Every built_at_pin flag for those declarations rests on this receipt. Pending: re-run tools/record_evidence.py at a clean pin and replace the receipt in a separate change. Receipts were not edited here. The Unconditional Comparator receipt is at d42fb67, which contains the source, so the headline's comparison evidence is unaffected.",
+   "applied": false,
+   "corpus_rows_affected": [
+    "lem-2.1.i",
+    "thm-1.1",
+    "cor-cubic-refuted"
+   ]
+  },
+  {
+   "id": "F-COMP-INDEP",
+   "returns": [
+    "r2"
+   ],
+   "claim": "Challenge vocabulary is copied from the same specification as the solution, so Comparator cannot detect a shared modelling error.",
+   "verdict": "accepted",
+   "evidence": [
+    "lean/QuarticCorpus/*/Challenge.lean:308 repeat Statement.lean:319"
+   ],
+   "corrective_action": "None. This is a stated limit of Comparator; human review of the definitions remains open.",
+   "applied": false,
+   "corpus_rows_affected": []
+  },
+  {
+   "id": "F-TOURN",
+   "returns": [
+    "r1",
+    "r3"
+   ],
+   "claim": "Proposition 3.2 returns a candidate list; QuarticQuery.Upper.tournament_runs consumes the list through a verifier and pays one extra eps.",
+   "verdict": "accepted",
+   "evidence": [
+    "lean/QuarticQuery/Upper/Tournament.lean:367-379 (acceptance >= 1 - 2m/2^T - T eps - eps when v s >= 1-eps)",
+    "annexes/openai-math-284-quartic-query-separation/extracted.md:363 row prop-3.2",
+    "corpus/ties.json prop-3.2 tournament_runs: relation partial, note already states this"
+   ],
+   "corrective_action": "None. The partial relation and its note already record the difference.",
+   "applied": false,
+   "corpus_rows_affected": [
+    "prop-3.2",
+    "claim-tournament-cost"
+   ]
+  },
+  {
+   "id": "F-TREE-GAP",
+   "returns": [
+    "r1",
+    "r2"
+   ],
+   "claim": "QuarticQuery.tree_gap_le is one-sided, while the paper's displays (18) and (23) are absolute values.",
+   "verdict": "accepted_modified",
+   "evidence": [
+    "lean/QuarticQuery/LowerBound/Planted/Main.lean:33-40 (output_gap_le) and :59-70 (tree_gap_le): planted minus dummy only",
+    "annexes/openai-math-284-quartic-query-separation/extracted.md:611-614 and :668-672: the paper says 'the difference ... is at most' and prints no absolute value",
+    "corpus row eq-18 adds |...|; row eq-23 says 'output-probability difference'"
+   ],
+   "corrective_action": "The absolute value is the ledger's wording of (18), not the printed display; the coupling argument does prove both directions, and the contradiction needs only the signed one. Ties already partial with one-sided notes. Return 2's proposed eq-18/eq-23 replacement statements are not adopted: rows record the paper's displays.",
+   "applied": false,
+   "corpus_rows_affected": [
+    "eq-18",
+    "eq-23"
+   ]
+  },
+  {
+   "id": "F-ZS-REFINE",
+   "returns": [
+    "r1"
+   ],
+   "claim": "The erased-zero probability is at most 2G/(m(m+1)), sharpening 2G/m^2.",
+   "verdict": "accepted",
+   "evidence": [
+    "Adjudicator derivation: for fixed column i and other data, the run with X_i all ones visits d_i distinct positions; the worlds whose zero is the j-th of these pay at least j queries to X_i, the other m-d_i worlds at least d_i; so sum over worlds >= d_i(2m-d_i+1)/2 >= d_i(m+1)/2. The dummy run does not depend on I, and sum_i of X_i queries <= G on every run, giving Pr <= 2G/(m(m+1)).",
+    "research/returns/funnel/1_long_reasoning_record/review_notes.md:195"
+   ],
+   "corrective_action": "Not a paper display; not adopted as a corpus row. No Lean declaration exists. Pending new statement if the zero-search section is rewritten.",
+   "applied": false,
+   "corpus_rows_affected": [
+    "eq-19"
+   ]
+  },
+  {
+   "id": "F-ZS-SHARP",
+   "returns": [
+    "r1"
+   ],
+   "claim": "The scan example shows the coefficient 2 is sharp only for the expected-cost inequality; its worst-case cost is m, so it does not show sharpness under a worst-case depth cap.",
+   "verdict": "accepted",
+   "evidence": [
+    "docs/statement_fidelity_review.md:58 ('The constant is tight ... E Z = 2G/(m+1) is attained')",
+    "corpus/ties.json eq-19 avg_foundZero_I_le note said 'the constant 2 is tight'",
+    "Under a depth cap G, scanning whole columns finds the zero with probability G/m^2, a factor 2 below the bound."
+   ],
+   "corrective_action": "Qualified the eq-19 tie note in corpus/ties.json. The fidelity review is historical and was not edited.",
+   "applied": true,
+   "corpus_rows_affected": [
+    "eq-19"
+   ]
+  },
+  {
+   "id": "F-EQ19-Z",
+   "returns": [
+    "r2",
+    "r5"
+   ],
+   "claim": "The stronger label on eq-19 applies to the inequality; the identity with E Z/m has no Lean counterpart.",
+   "verdict": "accepted",
+   "evidence": [
+    "lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean:226 (avg_foundZero_I_le)",
+    "corpus/ties.json eq-19 note already says Z is never defined"
+   ],
+   "corrective_action": "Kept in the revised note. Return 2's replacement row text is not adopted.",
+   "applied": true,
+   "corpus_rows_affected": [
+    "eq-19"
+   ]
+  },
+  {
+   "id": "F-HYP-PREMISE",
+   "returns": [
+    "r5",
+    "adjudicator"
+   ],
+   "claim": "The hypotheses field mixes open assumptions with ordinary premises of the statement, so a row can show conditional: true without an open assumption.",
+   "verdict": "accepted",
+   "evidence": [
+    "corpus/statements.json eq-19: conditional true because avg_foundZero_I_le lists 'T.depth <= G', which is the row's own premise",
+    "eq-20 avg_heavy_le lists '1<=L' likewise"
+   ],
+   "corrective_action": "Deferred: needs a schema split (open assumptions versus premises) in ties.json and tools/build_corpus.py, applied to every row at once. No piecemeal edit.",
+   "applied": false,
+   "corpus_rows_affected": [
+    "eq-19",
+    "eq-20"
+   ]
+  },
+  {
+   "id": "F-FORR-CAP",
+   "returns": [
+    "r1"
+   ],
+   "claim": "Phase kickback uses one bit query per sign layer; the compiled sampler charges two per abstract read, so P_runs is not an exact witness of a k-query trial.",
+   "verdict": "accepted",
+   "evidence": [
+    "lean/QuarticQuery/Upper/Decode.lean:307-310 (forr_samples: k reads) and :384-390 (P_runs: 2 n k bit queries)",
+    "lean/QuarticQuery/Upper/Compile.lean:149, :216 (a read costs two bit queries)"
+   ],
+   "corrective_action": "None. lem-2.1.ii ties are partial and its O_k count holds with either cap.",
+   "applied": false,
+   "corpus_rows_affected": [
+    "lem-2.1.ii",
+    "claim-proj-prob"
+   ]
+  },
+  {
+   "id": "F-FORR-CAP-NEW",
+   "returns": [
+    "r1"
+   ],
+   "claim": "Proposed explicit cap k ceil(16 2^(10k) ln(1/eta)) for the phase-kickback algorithm.",
+   "verdict": "unverified",
+   "evidence": [
+    "research/returns/funnel/1_long_reasoning_record/STATEMENT_CHANGES.json lem-2.1.ii"
+   ],
+   "corrective_action": "Not checked here and not adopted. No Lean declaration.",
+   "applied": false,
+   "corpus_rows_affected": [
+    "lem-2.1.ii"
+   ]
+  },
+  {
+   "id": "F-CIRCUIT",
+   "returns": [
+    "r1"
+   ],
+   "claim": "abs_numerator_le bounds only the final numerator, not every intermediate integer; the explicit size statement 200(k+1)^2 m (log2 m)^2 for k>=1, t>=1 should be recorded.",
+   "verdict": "accepted",
+   "evidence": [
+    "lean/QuarticQuery/Forrelation/Circuit.lean:203 (abs_numerator_le), :389 (forrConstant k = 200 (k+1)^2), :479-482 (exists_circuit)",
+    "corpus/ties.json claim-circuit-size note already says |N|<=M only; lem-2.1.iii already ties exists_circuit as stronger"
+   ],
+   "corrective_action": "None. The proposed explicit statement is already Forrelation.exists_circuit.",
+   "applied": false,
+   "corpus_rows_affected": [
+    "claim-circuit-size",
+    "lem-2.1.iii"
+   ]
+  },
+  {
+   "id": "F-APPX-A",
+   "returns": [
+    "r1",
+    "r2",
+    "r3"
+   ],
+   "claim": "Theorem A.1 is proved through complexitylib, which does not certify Lemmas A.2 to A.5; FixedSim.build and exists_fixedSequence prove only the deferral step inside the proof of A.2.",
+   "verdict": "accepted",
+   "evidence": [
+    "lean/QuarticQuery/Appendix/TheoremA1.lean:23-70",
+    "lean/QuarticQuery/Bridge/Deferred.lean:13-32",
+    "annexes/openai-math-284-quartic-query-separation/extracted.md:739-756 (Lemma A.2 and its proof, which begins by deferring measurements)",
+    "corpus/ties.json: thm-A.1 note names complexitylib; lem-A.2 notes say 'Tag misplaced'; lem-A.3 to lem-A.5 have no tie"
+   ],
+   "corrective_action": "None to ties. The relation vocabulary has no value for 'proof ingredient only', so lem-A.2 stays partial with its note; recorded as a schema gap.",
+   "applied": false,
+   "corpus_rows_affected": [
+    "thm-A.1",
+    "lem-A.2",
+    "lem-A.3",
+    "lem-A.4",
+    "lem-A.5"
+   ]
+  },
+  {
+   "id": "F-MIDRIJANIS",
+   "returns": [
+    "r1"
+   ],
+   "claim": "Midrijanis's D <= bs deg is inside the proof of Theorem 4, supported by Lemma 3; Theorem 4 itself states D <= 2 deg^3.",
+   "verdict": "accepted",
+   "evidence": [
+    "annexes/quartic-ref-19-exact-quantum-query-complexity-for-total-b/extracted.md:109-115 (Lemma 3), :120 (Theorem 4 statement), :150-160 ('hence D(f) <= deg(f)*bs(f)')"
+   ],
+   "corrective_action": "The lem-A.5 locator already said 'inside the proof of Theorem 4'; added 'using Lemma 3 on maxonomials' through adjudication.json.",
+   "applied": true,
+   "corpus_rows_affected": [
+    "lem-A.5"
+   ]
+  },
+  {
+   "id": "F-BS-54",
+   "returns": [
+    "r2"
+   ],
+   "claim": "In Bansal-Sinha v3 Section 5.4 the displayed step replacing log(kN)^((l-1)/2) by a factor with log(kN)^(l(1-1/k)/2) fails for l>k.",
+   "verdict": "accepted_modified",
+   "evidence": [
+    "annexes/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.tar.gz:main.tex:1178-1181 (the display after the amplification step; its terms run over l from k to k(k-1)); arXiv v3 Section 5.4",
+    "annexes/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.tar.gz:main.tex:779-785 (Tal's bound wt_l <= ((cd)^l log^(l-1) m)^(1/2)) and :795-797 (the biased form used at m = kN)",
+    "Ratio of the l-th term on the second line to the l-th term on the third: (const)^l log(kN)^((l/k-1)/2), unbounded in N for l>k"
+   ],
+   "corrective_action": "Real gap in the displayed deduction for k>=3, not a one-symbol typo; for k=2 the sum has only l=k and the step holds. With the displayed bounds, requiring every term small gives d_1 up to N^(1-1/k)/log(kN)^(1-1/(k(k-1))), a slightly weaker log power than Theorem 1.3 states. I did not settle whether the stated theorem follows by another argument. The preprint is unaffected for fixed k, since L carries (log m)^2 and either form exceeds it, and the Lean development proves lem-2.1.i directly. Recorded in the lem-2.1.i proof_notes through adjudication.json.",
+   "applied": true,
+   "corpus_rows_affected": [
+    "lem-2.1.i",
+    "claim-bs-to-L"
+   ]
+  },
+  {
+   "id": "F-BS-RECIP",
+   "returns": [
+    "r2"
+   ],
+   "claim": "Bansal-Sinha's proof display (5.31) prints delta^2/(4N) where their Theorem 3.1 gives 4/(delta^2 N).",
+   "verdict": "accepted",
+   "evidence": [
+    "annexes/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.tar.gz:main.tex:726-728 (Theorem 3.1: 1 - 4/(delta^2 N)) and :1172-1173 (6 delta - delta^2/(4N) - 2 delta)"
+   ],
+   "corrective_action": "Already recorded by the first adjudication; harmless for fixed k and large N. No change.",
+   "applied": false,
+   "corpus_rows_affected": [
+    "lem-2.1.i"
+   ]
+  },
+  {
+   "id": "F-R4-ELEM",
+   "returns": [
+    "r4"
+   ],
+   "claim": "Theorem 2 of the route note: R_1/3(P_k,m) > (2/18225) m^(1-1/k)/(k^2 ln(4km)) for every k>=2 and m>=2^(15k+2), uniform in k.",
+   "verdict": "accepted_modified",
+   "evidence": [
+    "Adjudicator check of note.md section 7: 18*8^25 < 9^25 (exact); q<=delta iff m>=4/delta^3=2^(15k+2); delta<=a/32; Gamma>=a-2delta-2eps>=119a/144; 800 k^2 L ln(4km) <= (8/27)^2 m^(1-1/k) from 2/18225 = (8/27)^2/800; b(8/27)=1/18; main term (8/27)a plus residual a/4 gives 59a/108 < 3a/4",
+    "Adjudicator check of Lemma 9 (note.md:280-320): increment bound 2K^(r-1), Lambda=2j ln(4n) gives residual 2^-j and K^2=16 j d ln(4n); union bound (n(4n)^(r-1)+2) <= (4n)^r",
+    "lean/QuarticQuery/ForrelationLower/Cascade.lean:384 advantage_le proves the identity-based estimate for any orthogonal H with edge constant 3"
+   ],
+   "corrective_action": "Correct on reading as a paper deduction; not kernel-checked. The comparison with Bansal-Sinha's k^-29 is a comparison of different log powers (ln(4km) to the first power here). A concurrent Lean file proves the coarse-constant form; see pending_ties. Not a corpus row.",
+   "applied": false,
+   "corpus_rows_affected": []
+  },
+  {
+   "id": "F-R4-SHARP",
+   "returns": [
+    "r4"
+   ],
+   "claim": "Theorem 1 of the route note: R_(1-eta)/2(P_k,m) >= eta^2/(162 e C^2) (m/(1+ln km))^(1-1/k), with C from Sherstov-Storozhenko-Wu.",
+   "verdict": "unverified",
+   "evidence": [
+    "research/returns/funnel/4_forrelation_route_note/note.md:30-46"
+   ],
+   "corrective_action": "I checked its cited input (F-R4-SSW) but not the deduction. Not adopted.",
+   "applied": false,
+   "corpus_rows_affected": []
+  },
+  {
+   "id": "F-R4-SSW",
+   "returns": [
+    "r4"
+   ],
+   "claim": "Sherstov-Storozhenko-Wu Corollary 4.14 states the level-k bound with natural logarithms; Theorem 1.9 is the base-two version; the constant is unspecified.",
+   "verdict": "accepted",
+   "evidence": [
+    "annexes/quartic-ref-23-an-optimal-separation-of-randomized-and-qu/source.tar.gz:quantum-classical-query.tex:2252-2264 (cor:main-Fourier-dt, C^k sqrt(binom(d,k)(1+ln n)^(k-1)), C an absolute constant), :2213-2222 (thm:main-fourier-DT-p, constants 58Cc), :523-531 (thm:MAIN-Fourier-bound, 1+log n), :926-927 (ln natural, log base 2)",
+    "Numbering: \\numberwithin{theorem}{section} with claims and corollaries on the shared counter (:25, :45, :52); these are the 13th and 14th environments of Section 4 and the 9th of Section 1. Annex pinned to arXiv:2008.10223v4."
+   ],
+   "corrective_action": "None.",
+   "applied": false,
+   "corpus_rows_affected": []
+  },
+  {
+   "id": "F-R4-EDGE",
+   "returns": [
+    "r4"
+   ],
+   "claim": "The edge weight Psi(U) phi'(V) is at most 3/16, against the Lean constant 3.",
+   "verdict": "accepted",
+   "evidence": [
+    "lean/QuarticQuery/ForrelationLower/Stein.lean:24-28 (psiS = 1/(2 qf), dphi = 3/qf^5, qf = sqrt(2+x^2)), :120 psiS_le 1, :129 dphi_le 3",
+    "max psiS = 1/(2 sqrt 2), max dphi = 3/(4 sqrt 2) at x=0; product 3/16"
+   ],
+   "corrective_action": "None; a paper refinement with no Lean statement.",
+   "applied": false,
+   "corpus_rows_affected": []
+  },
+  {
+   "id": "F-R4-ORIENT",
+   "returns": [
+    "r4",
+    "r1"
+   ],
+   "claim": "The path coefficient is H(p_(r+1), p_r), consistent with V(b) = sum_a H(b,a) U(a); the blueprint display reverses it.",
+   "verdict": "accepted",
+   "evidence": [
+    "lean/QuarticQuery/ForrelationLower/Walk.lean:37 (Vc b = sum_i H b i U i), :529-532 (cf uses H (q 0) a)",
+    "docs/forrelation_lower_bound_blueprint.md:63 (prod H(p_r, p_(r+1)))"
+   ],
+   "corrective_action": "Immaterial for the symmetric Walsh matrix. Pending doc fix in the blueprint (not owned here).",
+   "applied": false,
+   "corpus_rows_affected": []
+  },
+  {
+   "id": "F-R4-MEAN",
+   "returns": [
+    "r4"
+   ],
+   "claim": "Under the hard distribution, E Phi >= 18^-(k-1).",
+   "verdict": "accepted",
+   "evidence": [
+    "lean/QuarticQuery/ForrelationLower/Promise.lean:499-502 (mass_ge: (1/18)^l <= integral of ext PhiF at wv minus ext PhiF at 0, l = k-1, Walsh H)",
+    "note.md:236-255: Jensen step checked, E ln(2+U^2) <= ln 3 gives (3/2) 3^-3 = 1/18"
+   ],
+   "corrective_action": "None. The Walsh case is in Lean; the general orthogonal case is paper-only.",
+   "applied": false,
+   "corpus_rows_affected": []
+  },
+  {
+   "id": "F-R4-GS",
+   "returns": [
+    "r4"
+   ],
+   "claim": "docs/forrelation_route_prior_art.md calls the Girish-Servedio lower bounds for extremal Forrelation non-adaptive; their main theorem covers adaptive randomized algorithms.",
+   "verdict": "accepted",
+   "evidence": [
+    "annexes/quartic-lit-girish-forrelation-is-extremally-hard/extracted.md:68 ('any classical randomized query algorithm'); annex pinned to arXiv:2508.02514v1",
+    "docs/forrelation_route_prior_art.md:32-33"
+   ],
+   "corrective_action": "Pending doc fix (not owned here).",
+   "applied": false,
+   "corpus_rows_affected": []
+  },
+  {
+   "id": "F-STALE-DOCS",
+   "returns": [
+    "r1",
+    "r2",
+    "r4",
+    "r5"
+   ],
+   "claim": "The fidelity review, blueprint status and earlier adjudication describe a conditional headline; the evidence graph still says the fidelity review was not run.",
+   "verdict": "accepted",
+   "evidence": [
+    "docs/statement_fidelity_review.md (pin efc70f3)",
+    "research/README.md already says adjudication remarks on compilation and open hypotheses are historical",
+    "tools/build_corpus.py evidence_graph hard-codes fidelity_review status not_run"
+   ],
+   "corrective_action": "No edit to historical documents. Pending: the graph string belongs to tools/build_corpus.py; it should say 'AI reviews exist; no human review'.",
+   "applied": false,
+   "corpus_rows_affected": [
+    "thm-1.1",
+    "lem-2.1.i"
+   ]
+  },
+  {
+   "id": "F-EXACT-REACH",
+   "returns": [
+    "r1",
+    "r5"
+   ],
+   "claim": "A row can be exact through one declaration and reached through another, as for lem-3.1 and lem-4.1.",
+   "verdict": "accepted",
+   "evidence": [
+    "corpus/statements.json lem-3.1: bounded_amplification exact, reached false; Samples.amplify partial, reached true",
+    "lem-4.1: direct_product_randomized exact, reached false; direct_product partial, reached true"
+   ],
+   "corrective_action": "None to data: per-declaration fields already separate the two. A display must not combine them.",
+   "applied": false,
+   "corpus_rows_affected": [
+    "lem-3.1",
+    "lem-4.1"
+   ]
+  },
+  {
+   "id": "F-STAGE-LAW",
+   "returns": [
+    "r1"
+   ],
+   "claim": "QuarticQuery.Upper.stage_samples has the exact label law but not the paper's literal workspace state.",
+   "verdict": "accepted",
+   "evidence": [
+    "corpus/ties.json construct-sampler: stage_samples partial"
+   ],
+   "corrective_action": "None.",
+   "applied": false,
+   "corpus_rows_affected": [
+    "construct-sampler"
+   ]
+  },
+  {
+   "id": "F-UNTIED",
+   "returns": [
+    "r1",
+    "r3",
+    "r5"
+   ],
+   "claim": "Several rows with source support have no reviewed tie: eq-1, eq-5, eq-17, def-winner, cor-unique-winner, cor-local-dichotomy, def-T-eps grouping, claim-error.",
+   "verdict": "accepted",
+   "evidence": [
+    "docs/statement_fidelity_review.md:100-133 lists the same candidates",
+    "lean/QuarticQuery/Statement.lean:309-329 (Lvalue, Gvalue, UniversalPower, alphaTot)"
+   ],
+   "corrective_action": "Not applied: each relation needs its own review, and a concurrent change is adding tagged Paper declarations for some of these rows. Listed under pending_ties.",
+   "applied": false,
+   "corpus_rows_affected": [
+    "eq-1",
+    "eq-5",
+    "eq-17",
+    "def-winner",
+    "cor-unique-winner",
+    "cor-local-dichotomy",
+    "def-T-eps",
+    "claim-error"
+   ]
+  },
+  {
+   "id": "F-EQ1-EQUIV",
+   "returns": [
+    "r1"
+   ],
+   "claim": "In eq-1, 'C_alpha < infinity' is equivalent to 'C_alpha > 0', which is UniversalPower's form.",
+   "verdict": "accepted",
+   "evidence": [
+    "lean/QuarticQuery/Statement.lean:323-329"
+   ],
+   "corrective_action": "No row change (equivalent). Supports a future eq-1 tie.",
+   "applied": false,
+   "corpus_rows_affected": [
+    "eq-1"
+   ]
+  },
+  {
+   "id": "F-NO-ROW-IDS",
+   "returns": [
+    "r1"
+   ],
+   "claim": "Doc-comment tags claim-butterfly and def-P match no corpus row.",
+   "verdict": "accepted",
+   "evidence": [
+    "corpus/coverage.json ledger_ids_without_a_row"
+   ],
+   "corrective_action": "None; already reported by the builder.",
+   "applied": false,
+   "corpus_rows_affected": []
+  },
+  {
+   "id": "F-CORPUS-SCHEMA",
+   "returns": [
+    "r5"
+   ],
+   "claim": "The corpus lacks exact paper quotations, elaborated Lean types and per-tie run ids, so a side-by-side fidelity view cannot be generated from it.",
+   "verdict": "accepted",
+   "evidence": [
+    "corpus/statements.json record schema"
+   ],
+   "corrective_action": "Deferred to a producer change; not part of this adjudication.",
+   "applied": false,
+   "corpus_rows_affected": []
+  },
+  {
+   "id": "F-CLAIM-TAIL",
+   "returns": [
+    "r3"
+   ],
+   "claim": "Replace claim-tail's exponent 2-20 log2(3/2) by the cruder m^-8.",
+   "verdict": "rejected",
+   "evidence": [
+    "annexes/openai-math-284-quartic-query-separation/extracted.md:672-674",
+    "(2/3)^(40t) = m^(-20 log2(3/2)) = m^-11.699 for m = 4^t; G <= m^2/100"
+   ],
+   "corrective_action": "Rejected as a row change: the paper's exponent is correct and the row records it. The cruder bound is true and fine for exposition; twoThirds_pow_le already ties it as weaker.",
+   "applied": false,
+   "corpus_rows_affected": [
+    "claim-tail"
+   ]
+  },
+  {
+   "id": "F-FIRST-ADJ",
+   "returns": [
+    "r2"
+   ],
+   "claim": "lem-2.2.i adaptive depth and lem-3.1 uniform quantifier order.",
+   "verdict": "accepted",
+   "evidence": [
+    "research/adjudication/adjudication.json ledger_row_changes lem-2.2.i and lem-3.1"
+   ],
+   "corrective_action": "None; the first adjudication already applied both.",
+   "applied": false,
+   "corpus_rows_affected": [
+    "lem-2.2.i",
+    "lem-3.1"
+   ]
+  },
+  {
+   "id": "F-GPW-ABBLSS",
+   "returns": [
+    "r1"
+   ],
+   "claim": "Direct pointers to one zero in every other column are discussed by Ambainis et al. in 'Use of a balanced tree', which refines R2-C-GPW.",
+   "verdict": "accepted_modified",
+   "evidence": [
+    "annexes/quartic-ref-04-separations-in-query-complexity-based-on-p/extracted.md:260-268"
+   ],
+   "corrective_action": "The passage motivates random access to each highlighted zero and achieves it with a balanced tree of pointers (logarithmic access), not one direct pointer per rival. R2-C-GPW's phrase about novelty of direct, per-rival access should be read as 'a short step from that tree'; no novelty is claimed.",
+   "applied": false,
+   "corpus_rows_affected": [
+    "eq-8"
+   ]
+  },
+  {
+   "id": "F-CYCLE-COMMENT",
+   "returns": [
+    "r1"
+   ],
+   "claim": "The comment on Tournament.cycleThree says i loses to i+1; with a i j the probability that i beats j, it wins.",
+   "verdict": "accepted",
+   "evidence": [
+    "lean/QuarticQuery/Tournament/Ideal.lean:364-365",
+    "lean/QuarticQuery/Tournament/Ideal.lean:219-221 (Dominant: a s j is s beating j)"
+   ],
+   "corrective_action": "Pending one-word Lean comment fix (Lean files not edited here). No proof affected.",
+   "applied": false,
+   "corpus_rows_affected": []
+  },
+  {
+   "id": "F-FORR-DOCS",
+   "returns": [
+    "r1"
+   ],
+   "claim": "Blueprint and review corrections: Int_eq_paths is in Walk.lean; exists_identity is a mean-value form; amplification uses 2 tau runs; the proof uses the coarse bounds Psi<=1, phi'<=3.",
+   "verdict": "accepted",
+   "evidence": [
+    "lean/QuarticQuery/ForrelationLower/Walk.lean:461, :541",
+    "lean/QuarticQuery/ForrelationLower/Amplify.lean:80",
+    "lean/QuarticQuery/ForrelationLower/Stein.lean:120, :129"
+   ],
+   "corrective_action": "Pending doc edits (not owned here).",
+   "applied": false,
+   "corpus_rows_affected": []
+  },
+  {
+   "id": "F-CODE-PROV",
+   "returns": [
+    "r2"
+   ],
+   "claim": "Amplification/Geometry.lean and Average.lean adapt Troy Lee's files and say so in their headers.",
+   "verdict": "accepted",
+   "evidence": [
+    "lean/QuarticQuery/Amplification/Geometry.lean and Average.lean headers"
+   ],
+   "corrective_action": "None.",
+   "applied": false,
+   "corpus_rows_affected": []
+  },
+  {
+   "id": "F-BIB",
+   "returns": [
+    "r1",
+    "r2"
+   ],
+   "claim": "Bibliographic locators in the returns' own manuscripts: ABK cheat sheet is arXiv:1511.01937v2 (Definitions 14-15, Lemma 17), GTW conference Lemma 9 = arXiv Lemma 1.9, BBHT pages 493-505, Shaltiel Section 5 Theorem 5.",
+   "verdict": "unverified",
+   "evidence": [
+    "research/intake/references_resolved.json: 1506.04719 is correctly the Ambainis et al. pointer-function paper; 1511.01937 is the cheat sheet"
+   ],
+   "corrective_action": "No corpus locator depends on these. Not checked individually.",
+   "applied": false,
+   "corpus_rows_affected": []
+  },
+  {
+   "id": "F-NEW-STATEMENTS",
+   "returns": [
+    "r1",
+    "r2",
+    "r3",
+    "r4",
+    "r5"
+   ],
+   "claim": "Each return's NEW_STATEMENTS.json proposes additional displayed statements with uncompiled Lean signatures.",
+   "verdict": "unverified",
+   "evidence": [
+    "research/returns/funnel/*/NEW_STATEMENTS.json"
+   ],
+   "corrective_action": "Not adjudicated statement by statement and none added to the corpus. Those named in this file are judged above.",
+   "applied": false,
+   "corpus_rows_affected": []
+  }
+ ]
+}

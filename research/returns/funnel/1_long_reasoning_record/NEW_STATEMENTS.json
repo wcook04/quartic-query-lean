@@ -1,0 +1,1384 @@
+[
+  {
+    "id": "ROOT-MASS",
+    "statement": "For every finite coordinate type I, workspace w, adaptive program A, input x, state psi and bit b, outputMass A x psi b is nonnegative and outputMass A x psi false + outputMass A x psi true = norm(psi)^2.",
+    "why_needed": "The quantum complexity definition uses these masses as output probabilities on every branch, including unnormalized measurement branches.",
+    "depends_on": [
+      "def-Q",
+      "def-query-oracle"
+    ],
+    "proposed_lean": "theorem reasoning_record_output_mass {ι : Type} [Fintype ι] {w : ℕ} (A : QuarticQuery.AdaptiveProgram ι w) (x : QuarticQuery.BitInput ι) (ψ : QuarticQuery.State ι w) : (∀ b, 0 ≤ A.outputMass x ψ b) ∧ A.outputMass x ψ false + A.outputMass x ψ true = ‖ψ‖ ^ 2",
+    "route_note": "Expository conjunction of existing QuarticQuery.AdaptiveProgram.outputMass_nonneg and QuarticQuery.AdaptiveProgram.outputMass_true_add_false, with commutativity of addition. The two components are source-proved; the proposed wrapper has not been compiled in this reconstruction."
+  },
+  {
+    "id": "NEW-FOR-01",
+    "statement": "For every t, m=4^t, the Walsh sign matrix satisfies W W^T=mI, normalized H is symmetric and H^2=I, u has norm one, and every sign diagonal is orthogonal. Consequently |Phi|<=1 for k>=1.",
+    "why_needed": "Justifies normalization, the quantum states, and the final circuit sign range.",
+    "depends_on": [
+      "def-walsh-sign",
+      "eq-3"
+    ],
+    "proposed_lean": "-- Proposed wrapper signatures only; not submitted to Lean or compiled in this session.\n-- Required imports: QuarticQuery.ForrelationLower.Main, QuarticQuery.Upper.Decode,\n-- QuarticQuery.Forrelation.Circuit, and QuarticQuery.Forrelation.Sanity.\nopen MeasureTheory Finset Matrix ProbabilityTheory\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nvariable {ι n β : Type} [Fintype ι] [DecidableEq ι]\n  [Fintype n] [DecidableEq n] [Fintype β] [DecidableEq β]\nvariable {l t : ℕ}\nvariable {μ : ι → ℝ} {ξ : ι → Bool → ℝ} {B₀ : ℝ} {f : PartialBool ι}\ntheorem record_new_for_01_1 (t : ℕ) :\n    W t * (W t)ᵀ = (mValue t : ℝ) • (1 : Matrix _ _ ℝ)\n\ntheorem record_new_for_01_2 (t : ℕ) : (H t)ᵀ = H t\n\ntheorem record_new_for_01_3 (t : ℕ) : H t * H t = 1\n\ntheorem record_new_for_01_4 {k t : ℕ} (z : BitInput (ForrelationCoord k t)) (h : Fin k) :\n    IsOrth (signDiag z h)\n\ntheorem record_new_for_01_5 (t : ℕ) : u t ⬝ᵥ u t = 1\n\ntheorem record_new_for_01_6 (k t : ℕ) (hk : 1 ≤ k) (z : BitInput (ForrelationCoord k t)) :\n    |Phi k t z| ≤ 1",
+    "route_note": "Character-cancellation proof and matrix products give the same results as the source recursion. The multi-part display has component witnesses, not one existing conjunction.",
+    "evidence": {
+      "formal_statement": "partial",
+      "route": "same",
+      "build": "not_run_for_new_row",
+      "supplied_build_report": "Repository README reports the imported source target built at its pin; no declaration-specific build receipt is included for this new explanatory row.",
+      "fresh_verification": "Source and mathematics inspected; no Lean build or comparator run."
+    },
+    "existing_declarations": [
+      {
+        "declaration": "QuarticQuery.Forrelation.W_mul_transpose",
+        "file": "lean/QuarticQuery/Forrelation/Walsh.lean",
+        "line": 180,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.Forrelation.H_transpose",
+        "file": "lean/QuarticQuery/Forrelation/Walsh.lean",
+        "line": 193,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.Forrelation.H_mul_H",
+        "file": "lean/QuarticQuery/Forrelation/Walsh.lean",
+        "line": 200,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.Forrelation.isOrth_signDiag",
+        "file": "lean/QuarticQuery/Forrelation/Product.lean",
+        "line": 229,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.Forrelation.u_dot_self",
+        "file": "lean/QuarticQuery/Forrelation/Product.lean",
+        "line": 242,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.Forrelation.abs_Phi_le_one",
+        "file": "lean/QuarticQuery/Forrelation/Product.lean",
+        "line": 266,
+        "kind": "theorem"
+      }
+    ]
+  },
+  {
+    "id": "NEW-FOR-02",
+    "statement": "For a binomial S with q trials and success probability p in [0,1], P(S>=qc/2)<=exp(-qc/16) when p<=c/4, and P(S<qc/2)<=exp(-qc/16) when p>=c>0. At c=2^(-10k), q=ceil(16*2^(10k)*ln(1/eta)), eta in (0,1/2), both errors are at most eta.",
+    "why_needed": "Makes the quantum amplification and its exact threshold fully recoverable.",
+    "depends_on": [
+      "claim-proj-prob"
+    ],
+    "proposed_lean": "-- Proposed wrapper signatures only; not submitted to Lean or compiled in this session.\n-- Required imports: QuarticQuery.ForrelationLower.Main, QuarticQuery.Upper.Decode,\n-- QuarticQuery.Forrelation.Circuit, and QuarticQuery.Forrelation.Sanity.\nopen MeasureTheory Finset Matrix ProbabilityTheory\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nvariable {ι n β : Type} [Fintype ι] [DecidableEq ι]\n  [Fintype n] [DecidableEq n] [Fintype β] [DecidableEq β]\nvariable {l t : ℕ}\nvariable {μ : ι → ℝ} {ξ : ι → Bool → ℝ} {B₀ : ℝ} {f : PartialBool ι}\ntheorem record_new_for_02_1 (n : ℕ) {p c : ℝ} (h0 : 0 ≤ p) (h1 : p ≤ 1)\n    (hp : p ≤ c / 4) : binomTail n p (n * (c / 2)) ≤ Real.exp (-(n * c / 16))\n\ntheorem record_new_for_02_2 (n : ℕ) {p c : ℝ} (h1 : p ≤ 1) (hc : 0 < c) (hp : c ≤ p) :\n    1 - binomTail n p (n * (c / 2)) ≤ Real.exp (-(n * c / 16))\n\ntheorem record_new_for_02_3 (k : ℕ) {η : ℝ} (h0 : 0 < η) (h1 : η ≤ 1) :\n    (repetitions k η : ℝ) ≤ 1 + 16 * (2 : ℝ) ^ (10 * k) * Real.log (1 / η)\n\ntheorem record_new_for_02_4 (k t : ℕ) (hk : 1 ≤ k) {η : ℝ} (h0 : 0 < η) {n : ℕ}\n    (hn : repetitions k η ≤ n) (z : BitInput (ForrelationCoord k t)) :\n    (P k t z = some true → 1 - η ≤ binomTail n (successProb z) (n * (delta k ^ 2 / 2))) ∧\n    (P k t z = some false → binomTail n (successProb z) (n * (delta k ^ 2 / 2)) ≤ η)",
+    "route_note": "Same binomial exponential-moment proof. Each tail and count has an existing theorem; the displayed combined statement is an explanatory conjunction.",
+    "evidence": {
+      "formal_statement": "partial",
+      "route": "same",
+      "build": "not_run_for_new_row",
+      "supplied_build_report": "Repository README reports the imported source target built at its pin; no declaration-specific build receipt is included for this new explanatory row.",
+      "fresh_verification": "Source and mathematics inspected; no Lean build or comparator run."
+    },
+    "existing_declarations": [
+      {
+        "declaration": "QuarticQuery.Forrelation.binomTail_small",
+        "file": "lean/QuarticQuery/Forrelation/Repetition.lean",
+        "line": 141,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.Forrelation.binomTail_large",
+        "file": "lean/QuarticQuery/Forrelation/Repetition.lean",
+        "line": 160,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.Forrelation.repetitions_le",
+        "file": "lean/QuarticQuery/Forrelation/Repetition.lean",
+        "line": 196,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.Forrelation.threshold_correct",
+        "file": "lean/QuarticQuery/Forrelation/Repetition.lean",
+        "line": 218,
+        "kind": "theorem"
+      }
+    ]
+  },
+  {
+    "id": "NEW-FOR-03",
+    "statement": "For all h and integer arrays a0,a1 of length 2^h, W_(2^(h+1))(a0,a1)=(W_(2^h)a0+W_(2^h)a1,W_(2^h)a0-W_(2^h)a1).",
+    "why_needed": "Proves the fast Walsh transform identity used by the exact circuit.",
+    "depends_on": [
+      "def-walsh-sign"
+    ],
+    "proposed_lean": "-- Proposed wrapper signatures only; not submitted to Lean or compiled in this session.\n-- Required imports: QuarticQuery.ForrelationLower.Main, QuarticQuery.Upper.Decode,\n-- QuarticQuery.Forrelation.Circuit, and QuarticQuery.Forrelation.Sanity.\nopen MeasureTheory Finset Matrix ProbabilityTheory\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nvariable {ι n β : Type} [Fintype ι] [DecidableEq ι]\n  [Fintype n] [DecidableEq n] [Fintype β] [DecidableEq β]\nvariable {l t : ℕ}\nvariable {μ : ι → ℝ} {ξ : ι → Bool → ℝ} {B₀ : ℝ} {f : PartialBool ι}\ntheorem record_new_for_03_1 (n i : ℕ) (f : ℕ → ℤ) :\n    ∑ j ∈ range (2 ^ (n + 1)), walshN (n + 1) i j * f j =\n      ∑ j ∈ range (2 ^ n), walshN n i j * f j +\n        bitSign (i.testBit n) * ∑ j ∈ range (2 ^ n), walshN n i j * f (2 ^ n + j)\n\ntheorem record_new_for_03_2 (w n : ℕ) (f : ℕ → List (Wire ι)) (F : ℕ → BitInput ι → ℤ) (p : Prog ι)\n    (hf : ∀ j < 2 ^ n, Enc w p (f j) (F j)) :\n    ∃ g p', wht n f p = (g, p') ∧ Ext p p' (whtCost w n) ∧\n      ∀ i < 2 ^ n, Enc w p' (g i) fun x => ∑ j ∈ range (2 ^ n), walshN n i j * F j x",
+    "route_note": "The integer character split is sum_walshN_succ. wht_spec implements it on fixed-width residues. The source doc comment names claim-butterfly, which has no corpus row; this row supplies the missing displayed-identity registration.",
+    "evidence": {
+      "formal_statement": "partial",
+      "route": "same",
+      "build": "not_run_for_new_row",
+      "supplied_build_report": "Repository README reports the imported source target built at its pin; no declaration-specific build receipt is included for this new explanatory row.",
+      "fresh_verification": "Source and mathematics inspected; no Lean build or comparator run."
+    },
+    "existing_declarations": [
+      {
+        "declaration": "QuarticQuery.Forrelation.sum_walshN_succ",
+        "file": "lean/QuarticQuery/Forrelation/Walsh.lean",
+        "line": 71,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.Forrelation.wht_spec",
+        "file": "lean/QuarticQuery/Forrelation/Circuit.lean",
+        "line": 40,
+        "kind": "theorem"
+      }
+    ]
+  },
+  {
+    "id": "NEW-FOR-04",
+    "statement": "At width w, fan-in-two Boolean gate lists implement modular addition, subtraction and multiplication by an input sign using at most 6w, 6w+1 and 6w gates respectively. The length-2^h Walsh circuit uses at most h*2^h*(6w+1) gates.",
+    "why_needed": "Provides the arithmetic and gate counting needed for the circuit-size proof.",
+    "depends_on": [
+      "NEW-FOR-03"
+    ],
+    "proposed_lean": "-- Proposed wrapper signatures only; not submitted to Lean or compiled in this session.\n-- Required imports: QuarticQuery.ForrelationLower.Main, QuarticQuery.Upper.Decode,\n-- QuarticQuery.Forrelation.Circuit, and QuarticQuery.Forrelation.Sanity.\nopen MeasureTheory Finset Matrix ProbabilityTheory\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nvariable {ι n β : Type} [Fintype ι] [DecidableEq ι]\n  [Fintype n] [DecidableEq n] [Fintype β] [DecidableEq β]\nvariable {l t : ℕ}\nvariable {μ : ι → ℝ} {ξ : ι → Bool → ℝ} {B₀ : ℝ} {f : PartialBool ι}\ntheorem record_new_for_04_1 {p : Prog ι} {a b c : Wire ι} (ha : a.Valid p.length)\n    (hb : b.Valid p.length) (hc : c.Valid p.length) :\n    ∃ s co p', fullAdd a b c p = ((s, co), p') ∧ Ext p p' 5 ∧\n      s.Valid p'.length ∧ co.Valid p'.length ∧ ∀ x,\n        (val x p' s).toNat + 2 * (val x p' co).toNat =\n          (val x p a).toNat + (val x p b).toNat + (val x p c).toNat\n\ntheorem record_new_for_04_2 (as bs : List (Wire ι)) (hl : as.length = bs.length) (c : Wire ι)\n    (p : Prog ι) (ha : AllValid p as) (hb : AllValid p bs) (hc : c.Valid p.length) :\n    ∃ out co p', ripple c as bs p = ((out, co), p') ∧ Ext p p' (5 * as.length) ∧\n      out.length = as.length ∧ AllValid p' out ∧ ∀ x,\n        bv (vals x p' out) + 2 ^ as.length * (val x p' co).toNat =\n          bv (vals x p as) + bv (vals x p bs) + (val x p c).toNat\n\ntheorem record_new_for_04_3 {w : ℕ} {p : Prog ι} {s : Wire ι} {a b : List (Wire ι)}\n    {A B : BitInput ι → ℤ} (hs : s.Valid p.length) (ha : Enc w p a A) (hb : Enc w p b B) :\n    ∃ out p', addsub s a b p = (out, p') ∧ Ext p p' (6 * w) ∧\n      Enc w p' out fun x => A x + bitSign (val x p s) * B x\n\ntheorem record_new_for_04_4 {w : ℕ} {p : Prog ι} {a b : List (Wire ι)} {A B : BitInput ι → ℤ}\n    (ha : Enc w p a A) (hb : Enc w p b B) :\n    ∃ out p', addV a b p = (out, p') ∧ Ext p p' (6 * w) ∧\n      Enc w p' out fun x => A x + B x\n\ntheorem record_new_for_04_5 {w : ℕ} {p : Prog ι} {a b : List (Wire ι)} {A B : BitInput ι → ℤ}\n    (ha : Enc w p a A) (hb : Enc w p b B) :\n    ∃ out p', subV a b p = (out, p') ∧ Ext p p' (6 * w + 1) ∧\n      Enc w p' out fun x => A x - B x\n\ntheorem record_new_for_04_6 {w : ℕ} {p : Prog ι} {s : Wire ι} {b : List (Wire ι)}\n    {B : BitInput ι → ℤ} (hs : s.Valid p.length) (hb : Enc w p b B) :\n    ∃ out p', signMul s w b p = (out, p') ∧ Ext p p' (6 * w) ∧\n      Enc w p' out fun x => bitSign (val x p s) * B x\n\ntheorem record_new_for_04_7 (w n : ℕ) : whtCost w n ≤ n * 2 ^ n * (6 * w + 1)",
+    "route_note": "Same gate construction and recurrence. Full-adder and ripple identities are included to explain the arithmetic invariant.",
+    "evidence": {
+      "formal_statement": "partial",
+      "route": "same",
+      "build": "not_run_for_new_row",
+      "supplied_build_report": "Repository README reports the imported source target built at its pin; no declaration-specific build receipt is included for this new explanatory row.",
+      "fresh_verification": "Source and mathematics inspected; no Lean build or comparator run."
+    },
+    "existing_declarations": [
+      {
+        "declaration": "QuarticQuery.Forrelation.fullAdd_spec",
+        "file": "lean/QuarticQuery/Forrelation/Arithmetic.lean",
+        "line": 70,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.Forrelation.ripple_spec",
+        "file": "lean/QuarticQuery/Forrelation/Arithmetic.lean",
+        "line": 104,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.Forrelation.addsub_spec",
+        "file": "lean/QuarticQuery/Forrelation/Arithmetic.lean",
+        "line": 213,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.Forrelation.addV_spec",
+        "file": "lean/QuarticQuery/Forrelation/Arithmetic.lean",
+        "line": 269,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.Forrelation.subV_spec",
+        "file": "lean/QuarticQuery/Forrelation/Arithmetic.lean",
+        "line": 281,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.Forrelation.signMul_spec",
+        "file": "lean/QuarticQuery/Forrelation/Arithmetic.lean",
+        "line": 331,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.Forrelation.whtCost_le",
+        "file": "lean/QuarticQuery/Forrelation/Circuit.lean",
+        "line": 83,
+        "kind": "theorem"
+      }
+    ]
+  },
+  {
+    "id": "NEW-FOR-05",
+    "statement": "For s,e natural, M=2^e and integer |N|<=M, put w=s+3+e. The three integers 2^sN-M, M-2^(s+1)N and M+2^(s+1)N belong to [-2^(w-1),2^(w-1)); their high residue bits exactly determine the three signs, hence the two promise comparisons.",
+    "why_needed": "Ensures that residue arithmetic still decides the integer comparisons exactly.",
+    "depends_on": [
+      "claim-N-phi",
+      "claim-integer-tests",
+      "NEW-FOR-01"
+    ],
+    "proposed_lean": "-- Proposed wrapper signatures only; not submitted to Lean or compiled in this session.\n-- Required imports: QuarticQuery.ForrelationLower.Main, QuarticQuery.Upper.Decode,\n-- QuarticQuery.Forrelation.Circuit, and QuarticQuery.Forrelation.Sanity.\nopen MeasureTheory Finset Matrix ProbabilityTheory\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nvariable {ι n β : Type} [Fintype ι] [DecidableEq ι]\n  [Fintype n] [DecidableEq n] [Fintype β] [DecidableEq β]\nvariable {l t : ℕ}\nvariable {μ : ι → ℝ} {ξ : ι → Bool → ℝ} {B₀ : ℝ} {f : PartialBool ι}\ntheorem record_new_for_05_1 (s e : ℕ) (N M : ℤ) (hM : M = 2 ^ e) (hN : |N| ≤ M) :\n    (-2 ^ (s + 2 + e) ≤ 2 ^ s * N - M ∧ 2 ^ s * N - M < 2 ^ (s + 2 + e)) ∧\n    (-2 ^ (s + 2 + e) ≤ M - 2 * (2 ^ s * N) ∧ M - 2 * (2 ^ s * N) < 2 ^ (s + 2 + e)) ∧\n    (-2 ^ (s + 2 + e) ≤ M + 2 * (2 ^ s * N) ∧ M + 2 * (2 ^ s * N) < 2 ^ (s + 2 + e))\n\ntheorem record_new_for_05_2 {w : ℕ} {p : Prog ι} {v : List (Wire ι)} {T : BitInput ι → ℤ}\n    (h : Enc (w + 1) p v T) (x : BitInput ι) (lo : -2 ^ w ≤ T x) (hi : T x < 2 ^ w) :\n    val x p (v.getD w none) = decide (T x < 0)\n\ntheorem record_new_for_05_3 (l t : ℕ) (x : BitInput (ForrelationCoord (l + 1) t)) :\n    P (l + 1) t x =\n      if ¬ ((2 : ℤ) ^ (5 * (l + 1)) * forrelationNumerator (l + 1) t x -\n        forrelationDenominator (l + 1) t < 0) then some true\n      else if ¬ ((forrelationDenominator (l + 1) t : ℤ) -\n          2 * (2 ^ (5 * (l + 1)) * forrelationNumerator (l + 1) t x) < 0) ∧\n        ¬ ((forrelationDenominator (l + 1) t : ℤ) +\n          2 * (2 ^ (5 * (l + 1)) * forrelationNumerator (l + 1) t x) < 0) then some false\n      else none",
+    "route_note": "Same final-range argument. The source deliberately requires only the final numerator bound, not a signed bound on every arithmetic intermediate.",
+    "evidence": {
+      "formal_statement": "partial",
+      "route": "same",
+      "build": "not_run_for_new_row",
+      "supplied_build_report": "Repository README reports the imported source target built at its pin; no declaration-specific build receipt is included for this new explanatory row.",
+      "fresh_verification": "Source and mathematics inspected; no Lean build or comparator run."
+    },
+    "existing_declarations": [
+      {
+        "declaration": "QuarticQuery.Forrelation.test_bounds",
+        "file": "lean/QuarticQuery/Forrelation/Circuit.lean",
+        "line": 212,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.Forrelation.sign_wire",
+        "file": "lean/QuarticQuery/Forrelation/Arithmetic.lean",
+        "line": 409,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.Forrelation.P_tests",
+        "file": "lean/QuarticQuery/Forrelation/Circuit.lean",
+        "line": 238,
+        "kind": "theorem"
+      }
+    ]
+  },
+  {
+    "id": "NEW-FOR-06",
+    "statement": "For a finite coordinate set I, p_mu(z)=product_a(1+mu_a sign(z_a))/2; ext g mu=sum_z g(z)p_mu(z); D_a g=(g(z[a:=false])-g(z[a:=true]))/2. For biases of absolute value at most one these weights define a probability distribution.",
+    "why_needed": "Introduces the finite-cube smoothing and the derivative convention.",
+    "depends_on": [
+      "eq-4"
+    ],
+    "proposed_lean": "-- Proposed wrapper signatures only; not submitted to Lean or compiled in this session.\n-- Required imports: QuarticQuery.ForrelationLower.Main, QuarticQuery.Upper.Decode,\n-- QuarticQuery.Forrelation.Circuit, and QuarticQuery.Forrelation.Sanity.\nopen MeasureTheory Finset Matrix ProbabilityTheory\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nvariable {ι n β : Type} [Fintype ι] [DecidableEq ι]\n  [Fintype n] [DecidableEq n] [Fintype β] [DecidableEq β]\nvariable {l t : ℕ}\nvariable {μ : ι → ℝ} {ξ : ι → Bool → ℝ} {B₀ : ℝ} {f : PartialBool ι}\n\ntheorem record_cube_definitions (a : ι) (g : (ι → Bool) → ℝ)\n    (μ : ι → ℝ) (z : ι → Bool) :\n    bw μ z = (∏ a, (1 + μ a * sg (z a)) / 2) ∧\n    ext g μ = (∑ z, g z * bw μ z) ∧\n    D a g z = (g (Function.update z a false) - g (Function.update z a true)) / 2\n\ntheorem record_cube_probability (μ : ι → ℝ) (hμ : ∀ a, |μ a| ≤ 1) :\n    (∀ z, 0 ≤ bw μ z) ∧ ∑ z, bw μ z = 1\n",
+    "route_note": "Definitions are already present in Cube.lean. The displayed definition and probability properties have existing components; the proposed conjunctions introduce no changed objects.",
+    "evidence": {
+      "formal_statement": "partial",
+      "route": "same",
+      "build": "not_run_for_new_row",
+      "supplied_build_report": "Repository README reports the imported source target built at its pin; no declaration-specific build receipt is included for this new explanatory row.",
+      "fresh_verification": "Source and mathematics inspected; no Lean build or comparator run."
+    },
+    "existing_declarations": [
+      {
+        "declaration": "QuarticQuery.ForrelationLower.bw",
+        "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+        "line": 51,
+        "kind": "def"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.ext",
+        "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+        "line": 54,
+        "kind": "def"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.D",
+        "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+        "line": 57,
+        "kind": "def"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.sum_bw",
+        "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+        "line": 65,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.abs_ext_le",
+        "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+        "line": 90,
+        "kind": "theorem"
+      }
+    ]
+  },
+  {
+    "id": "NEW-FOR-07",
+    "statement": "The multi-affine extension obeys the finite-coordinate chain rule, D_a^2g=0, affine coordinate splitting, and ext(D_Jg)(mu)=ext(g product_(a in J)xi_mu,a)(mu) for distinct J and |mu_a|<1. When all |mu_a|<=1/2, xi_mu,a=(sign(z_a)-mu_a)/(1-mu_a^2) has mean zero and magnitude at most 2.",
+    "why_needed": "Connects Gaussian derivatives to bounded centered characters and permits reflection cancellation.",
+    "depends_on": [
+      "NEW-FOR-06"
+    ],
+    "proposed_lean": "-- Proposed wrapper signatures only; not submitted to Lean or compiled in this session.\n-- Required imports: QuarticQuery.ForrelationLower.Main, QuarticQuery.Upper.Decode,\n-- QuarticQuery.Forrelation.Circuit, and QuarticQuery.Forrelation.Sanity.\nopen MeasureTheory Finset Matrix ProbabilityTheory\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nvariable {ι n β : Type} [Fintype ι] [DecidableEq ι]\n  [Fintype n] [DecidableEq n] [Fintype β] [DecidableEq β]\nvariable {l t : ℕ}\nvariable {μ : ι → ℝ} {ξ : ι → Bool → ℝ} {B₀ : ℝ} {f : PartialBool ι}\ntheorem record_new_for_07_1 (g : (ι → Bool) → ℝ) {c : ℝ → ι → ℝ} {c' : ι → ℝ} {t : ℝ}\n    (hc : ∀ a, HasDerivAt (fun s => c s a) (c' a) t) :\n    HasDerivAt (fun s => ext g (c s)) (∑ a, c' a * ext (D a g) (c t)) t\n\ntheorem record_new_for_07_2 (a : ι) (g : (ι → Bool) → ℝ) : D a (D a g) = fun _ => 0\n\ntheorem record_new_for_07_3 (L : List ι) (hL : L.Nodup) (g : (ι → Bool) → ℝ) (μ : ι → ℝ)\n    (hμ : ∀ a, |μ a| < 1) :\n    ext (Dl L g) μ = ext (fun z => g z * (L.map fun a => xi μ a (z a)).prod) μ\n\ntheorem record_new_for_07_4 (a : ι) (g : (ι → Bool) → ℝ) (μ : ι → ℝ) :\n    ext g μ = ext g (Function.update μ a 0) + μ a * ext (D a g) μ\n\ntheorem record_new_for_07_5 {μ : ι → ℝ} (hμ : ∀ a, |μ a| ≤ 1 / 2) (a : ι) :\n    piB (μ a) false * xi μ a false + piB (μ a) true * xi μ a true = 0\n\ntheorem record_new_for_07_6 {μ : ι → ℝ} (hμ : ∀ a, |μ a| ≤ 1 / 2) (a : ι) (b : Bool) : |xi μ a b| ≤ 2",
+    "route_note": "Same finite sums and one-coordinate identities. The several clauses are certified by separate source declarations.",
+    "evidence": {
+      "formal_statement": "partial",
+      "route": "same",
+      "build": "not_run_for_new_row",
+      "supplied_build_report": "Repository README reports the imported source target built at its pin; no declaration-specific build receipt is included for this new explanatory row.",
+      "fresh_verification": "Source and mathematics inspected; no Lean build or comparator run."
+    },
+    "existing_declarations": [
+      {
+        "declaration": "QuarticQuery.ForrelationLower.hasDerivAt_ext",
+        "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+        "line": 221,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.D_D",
+        "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+        "line": 247,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.ext_Dl",
+        "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+        "line": 690,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.ext_affine",
+        "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+        "line": 328,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.xi_mean",
+        "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+        "line": 729,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.abs_xi_le",
+        "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+        "line": 718,
+        "kind": "theorem"
+      }
+    ]
+  },
+  {
+    "id": "NEW-FOR-08",
+    "statement": "For q(x)=sqrt(2+x^2), Psi(x)=1/(2q(x)), phi(x)=x(3+x^2)/(2q(x)^3), one has phi prime=3/q^5, Psi prime=-x/(2q^3), phi=xPsi-Psi prime, phi odd, |phi|<=1/2, 0<Psi<=1 and 0<phi prime<=3.",
+    "why_needed": "Provides a bounded smooth bias and the integration-by-parts coefficient.",
+    "depends_on": [
+      "NEW-FOR-06"
+    ],
+    "proposed_lean": "-- Proposed wrapper signatures only; not submitted to Lean or compiled in this session.\n-- Required imports: QuarticQuery.ForrelationLower.Main, QuarticQuery.Upper.Decode,\n-- QuarticQuery.Forrelation.Circuit, and QuarticQuery.Forrelation.Sanity.\nopen MeasureTheory Finset Matrix ProbabilityTheory\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nvariable {ι n β : Type} [Fintype ι] [DecidableEq ι]\n  [Fintype n] [DecidableEq n] [Fintype β] [DecidableEq β]\nvariable {l t : ℕ}\nvariable {μ : ι → ℝ} {ξ : ι → Bool → ℝ} {B₀ : ℝ} {f : PartialBool ι}\ntheorem record_new_for_08_5 (x : ℝ) : HasDerivAt phiS (dphi x) x\n\ntheorem record_new_for_08_6 (x : ℝ) : HasDerivAt psiS (-x / (2 * qf x ^ 3)) x\n\ntheorem record_new_for_08_7 (x : ℝ) : phiS (-x) = - phiS x\n\ntheorem record_new_for_08_8 (x : ℝ) : |phiS x| ≤ 1 / 2\n\ntheorem record_new_for_08_9 (x : ℝ) : 0 < psiS x\n\ntheorem record_new_for_08_10 (x : ℝ) : psiS x ≤ 1\n\ntheorem record_new_for_08_11 (x : ℝ) : 0 < dphi x\n\ntheorem record_new_for_08_12 (x : ℝ) : dphi x ≤ 3",
+    "route_note": "Same algebraic truncation as the source. The identity phi=xPsi-Psi prime is an algebraic expansion of the definitions, not a separate named source lemma.",
+    "evidence": {
+      "formal_statement": "partial",
+      "route": "same",
+      "build": "not_run_for_new_row",
+      "supplied_build_report": "Repository README reports the imported source target built at its pin; no declaration-specific build receipt is included for this new explanatory row.",
+      "fresh_verification": "Source and mathematics inspected; no Lean build or comparator run."
+    },
+    "existing_declarations": [
+      {
+        "declaration": "QuarticQuery.ForrelationLower.qf",
+        "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+        "line": 22,
+        "kind": "def"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.psiS",
+        "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+        "line": 24,
+        "kind": "def"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.phiS",
+        "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+        "line": 26,
+        "kind": "def"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.dphi",
+        "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+        "line": 28,
+        "kind": "def"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.hasDerivAt_phiS",
+        "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+        "line": 76,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.hasDerivAt_psiS",
+        "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+        "line": 66,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.phiS_neg",
+        "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+        "line": 113,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.abs_phiS_le",
+        "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+        "line": 98,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.psiS_pos",
+        "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+        "line": 117,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.psiS_le",
+        "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+        "line": 120,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.dphi_pos",
+        "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+        "line": 126,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.dphi_le",
+        "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+        "line": 129,
+        "kind": "theorem"
+      }
+    ]
+  },
+  {
+    "id": "NEW-FOR-09",
+    "statement": "For bounded continuously differentiable G:R->R with bounded continuous derivative, U standard Gaussian, E[phi(U)G(U)]=E[Psi(U)G prime(U)]. The same identity holds coordinatewise under a finite product of standard Gaussians with uniform bounds.",
+    "why_needed": "Moves each selected index to the next input block.",
+    "depends_on": [
+      "NEW-FOR-08"
+    ],
+    "proposed_lean": "-- Proposed wrapper signatures only; not submitted to Lean or compiled in this session.\n-- Required imports: QuarticQuery.ForrelationLower.Main, QuarticQuery.Upper.Decode,\n-- QuarticQuery.Forrelation.Circuit, and QuarticQuery.Forrelation.Sanity.\nopen MeasureTheory Finset Matrix ProbabilityTheory\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nvariable {ι n β : Type} [Fintype ι] [DecidableEq ι]\n  [Fintype n] [DecidableEq n] [Fintype β] [DecidableEq β]\nvariable {l t : ℕ}\nvariable {μ : ι → ℝ} {ξ : ι → Bool → ℝ} {B₀ : ℝ} {f : PartialBool ι}\ntheorem record_new_for_09_1 {g g' : ℝ → ℝ} {C C' : ℝ} (hg : Continuous g) (hg' : Continuous g')\n    (hb : ∀ x, |g x| ≤ C) (hb' : ∀ x, |g' x| ≤ C') (hd : ∀ x, HasDerivAt g (g' x) x) :\n    ∫ x, phiS x * g x ∂(gaussianReal 0 1) = ∫ x, psiS x * g' x ∂(gaussianReal 0 1)\n\ntheorem record_new_for_09_2 (i : ι) {G G' : (ι → ℝ) → ℝ} {C C' : ℝ} (hG : Continuous G) (hG' : Continuous G')\n    (hb : ∀ u, |G u| ≤ C) (hb' : ∀ u, |G' u| ≤ C')\n    (hd : ∀ u t, HasDerivAt (fun s => G (Function.update u i s)) (G' (Function.update u i t)) t) :\n    ∫ u, phiS (u i) * G u ∂(gP ι) = ∫ u, psiS (u i) * G' u ∂(gP ι)",
+    "route_note": "The hypotheses match the bounded-continuous functions and coordinate derivatives in stein_one and stein_pi. Boundary decay and absolute integrability are explained in prose.",
+    "evidence": {
+      "formal_statement": "exact",
+      "route": "same",
+      "build": "not_run_for_new_row",
+      "supplied_build_report": "Repository README reports the imported source target built at its pin; no declaration-specific build receipt is included for this new explanatory row.",
+      "fresh_verification": "Source and mathematics inspected; no Lean build or comparator run."
+    },
+    "existing_declarations": [
+      {
+        "declaration": "QuarticQuery.ForrelationLower.stein_one",
+        "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+        "line": 137,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.stein_pi",
+        "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+        "line": 268,
+        "kind": "theorem"
+      }
+    ]
+  },
+  {
+    "id": "NEW-FOR-10",
+    "statement": "If e is a unit vector in a finite-dimensional real coordinate space and U is a standard product Gaussian, the reflection U-2<e,U>e preserves its law and E<e,U>^2=1.",
+    "why_needed": "Justifies clearing one bias and computing the hard-measure moment.",
+    "depends_on": [
+      "NEW-FOR-08"
+    ],
+    "proposed_lean": "-- Proposed wrapper signatures only; not submitted to Lean or compiled in this session.\n-- Required imports: QuarticQuery.ForrelationLower.Main, QuarticQuery.Upper.Decode,\n-- QuarticQuery.Forrelation.Circuit, and QuarticQuery.Forrelation.Sanity.\nopen MeasureTheory Finset Matrix ProbabilityTheory\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nvariable {ι n β : Type} [Fintype ι] [DecidableEq ι]\n  [Fintype n] [DecidableEq n] [Fintype β] [DecidableEq β]\nvariable {l t : ℕ}\nvariable {μ : ι → ℝ} {ξ : ι → Bool → ℝ} {B₀ : ℝ} {f : PartialBool ι}\ntheorem record_new_for_10_1 (e : ι → ℝ) (he : ∑ i, e i ^ 2 = 1) {F : (ι → ℝ) → ℝ}\n    (hF : Measurable F) :\n    ∫ u, F (fun i => u i - 2 * (∑ j, e j * u j) * e i) ∂(gP ι) = ∫ u, F u ∂(gP ι)\n\ntheorem record_new_for_10_2 (e : ι → ℝ) (he : ∑ i, e i ^ 2 = 1) :\n    ∫ u, (∑ j, e j * u j) ^ 2 ∂(gP ι) = 1",
+    "route_note": "The source proves reflection invariance via its Gaussian isometry machinery. The prose uses the elementary density change of variables, an alternative analytic presentation of the same statement.",
+    "evidence": {
+      "formal_statement": "exact",
+      "route": "alternative",
+      "build": "not_run_for_new_row",
+      "supplied_build_report": "Repository README reports the imported source target built at its pin; no declaration-specific build receipt is included for this new explanatory row.",
+      "fresh_verification": "Source and mathematics inspected; no Lean build or comparator run."
+    },
+    "existing_declarations": [
+      {
+        "declaration": "QuarticQuery.ForrelationLower.integral_reflect",
+        "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+        "line": 306,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.integral_dot_sq",
+        "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+        "line": 371,
+        "kind": "theorem"
+      }
+    ]
+  },
+  {
+    "id": "NEW-FOR-11",
+    "statement": "For k=l+1>=2 independent Gaussian layers U_j and V_j=H U_j, define X=phi(U),Y=phi(V); the bias vector has sX0 in block 0, Y_(r-1)X_r in intermediate blocks, and Y_(l-1) in the last block. For |s|<=1 all coordinates have absolute value <=1/2, so averaging its product sign law defines a finite-cube probability measure.",
+    "why_needed": "Defines the interpolating distribution whose endpoint is hard for shallow trees.",
+    "depends_on": [
+      "NEW-FOR-06",
+      "NEW-FOR-08"
+    ],
+    "proposed_lean": "-- Proposed wrapper signatures only; not submitted to Lean or compiled in this session.\n-- Required imports: QuarticQuery.ForrelationLower.Main, QuarticQuery.Upper.Decode,\n-- QuarticQuery.Forrelation.Circuit, and QuarticQuery.Forrelation.Sanity.\nopen MeasureTheory Finset Matrix ProbabilityTheory\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nvariable {ι n β : Type} [Fintype ι] [DecidableEq ι]\n  [Fintype n] [DecidableEq n] [Fintype β] [DecidableEq β]\nvariable {l t : ℕ}\nvariable {μ : ι → ℝ} {ξ : ι → Bool → ℝ} {B₀ : ℝ} {f : PartialBool ι}\ntheorem record_new_for_11_6 (H : Matrix n n ℝ) (hl : 1 ≤ l) {s : ℝ} (hs : |s| ≤ 1) (u : PC l n → ℝ) (c : BC l n) :\n    |wv H s u c| ≤ 1 / 2",
+    "route_note": "The source definition wv and its endpoint conventions match the display. The probability-measure packaging follows from sum_bw; it is not a separate named measure in the source.",
+    "evidence": {
+      "formal_statement": "partial",
+      "route": "same",
+      "build": "not_run_for_new_row",
+      "supplied_build_report": "Repository README reports the imported source target built at its pin; no declaration-specific build receipt is included for this new explanatory row.",
+      "fresh_verification": "Source and mathematics inspected; no Lean build or comparator run."
+    },
+    "existing_declarations": [
+      {
+        "declaration": "QuarticQuery.ForrelationLower.Uc",
+        "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+        "line": 33,
+        "kind": "def"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.Vc",
+        "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+        "line": 37,
+        "kind": "def"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.Xf",
+        "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+        "line": 40,
+        "kind": "def"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.Yf",
+        "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+        "line": 44,
+        "kind": "def"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.wv",
+        "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+        "line": 51,
+        "kind": "def"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.abs_wv_le_half",
+        "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+        "line": 152,
+        "kind": "theorem"
+      }
+    ]
+  },
+  {
+    "id": "NEW-FOR-12",
+    "statement": "For every finite row-orthogonal matrix H, l>=1, and cube function g on l+1 blocks, the Gaussian average ext g (wv H 0 U) equals ext g 0.",
+    "why_needed": "Identifies the initial interpolation distribution with uniform signs.",
+    "depends_on": [
+      "NEW-FOR-07",
+      "NEW-FOR-10",
+      "NEW-FOR-11"
+    ],
+    "proposed_lean": "-- Proposed wrapper signatures only; not submitted to Lean or compiled in this session.\n-- Required imports: QuarticQuery.ForrelationLower.Main, QuarticQuery.Upper.Decode,\n-- QuarticQuery.Forrelation.Circuit, and QuarticQuery.Forrelation.Sanity.\nopen MeasureTheory Finset Matrix ProbabilityTheory\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nvariable {ι n β : Type} [Fintype ι] [DecidableEq ι]\n  [Fintype n] [DecidableEq n] [Fintype β] [DecidableEq β]\nvariable {l t : ℕ}\nvariable {μ : ι → ℝ} {ξ : ι → Bool → ℝ} {B₀ : ℝ} {f : PartialBool ι}\ntheorem record_new_for_12_1 (H : Matrix n n ℝ) {r : ℕ} (hr1 : 1 ≤ r) (hr : r ≤ l) (hH : RowsOrth H)\n    (g : (BC l n → Bool) → ℝ) {T : Finset n} {a : n} (ha : a ∉ T) :\n    ∫ u, ext g (mw H r (insert a T) u) ∂(gP (PC l n)) =\n      ∫ u, ext g (mw H r T u) ∂(gP (PC l n))\n\ntheorem record_new_for_12_2 (H : Matrix n n ℝ) (hH : RowsOrth H) (g : (BC l n → Bool) → ℝ) :\n    ∫ u, ext g (wv H 0 u) ∂(gP (PC l n)) = ext g 0",
+    "route_note": "Same sequence of orthogonal reflections and affine cancellations; the source actually allows the endpoint statement in a wider degenerate parameter range.",
+    "evidence": {
+      "formal_statement": "exact",
+      "route": "same",
+      "build": "not_run_for_new_row",
+      "supplied_build_report": "Repository README reports the imported source target built at its pin; no declaration-specific build receipt is included for this new explanatory row.",
+      "fresh_verification": "Source and mathematics inspected; no Lean build or comparator run."
+    },
+    "existing_declarations": [
+      {
+        "declaration": "QuarticQuery.ForrelationLower.integral_mw_insert",
+        "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+        "line": 192,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.integral_ext_wv_zero",
+        "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+        "line": 256,
+        "kind": "theorem"
+      }
+    ]
+  },
+  {
+    "id": "NEW-FOR-13",
+    "statement": "For l=k-1>=1, finite H and any cube function g, there exists one s in (0,1) such that h_g(1)-h_g(0) is the sum over paths p of product_j H_(p_(j+1),p_j) times E[product_j Psi(U_j(p_j))phi prime(V_j(p_(j+1))) ext(D_p g)(wv H s U)]. If H is row orthogonal, h_g(0)=ext g 0.",
+    "why_needed": "Supplies the full Stein elimination identity with all biases evaluated at one common parameter.",
+    "depends_on": [
+      "NEW-FOR-07",
+      "NEW-FOR-09",
+      "NEW-FOR-11",
+      "NEW-FOR-12"
+    ],
+    "proposed_lean": "-- Proposed wrapper signatures only; not submitted to Lean or compiled in this session.\n-- Required imports: QuarticQuery.ForrelationLower.Main, QuarticQuery.Upper.Decode,\n-- QuarticQuery.Forrelation.Circuit, and QuarticQuery.Forrelation.Sanity.\nopen MeasureTheory Finset Matrix ProbabilityTheory\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nvariable {ι n β : Type} [Fintype ι] [DecidableEq ι]\n  [Fintype n] [DecidableEq n] [Fintype β] [DecidableEq β]\nvariable {l t : ℕ}\nvariable {μ : ι → ℝ} {ξ : ι → Bool → ℝ} {B₀ : ℝ} {f : PartialBool ι}\ntheorem record_new_for_13_1 (H : Matrix n n ℝ) {j : ℕ} (hj : j < l) (a : n) (s : ℝ) (u : PC l n → ℝ) (E : BC l n → ℝ) (hE : E (cn j a) = 0) :\n    ∑ c : BC l n, (Sf s c * (dY H j a u c.1 c.2 * Xf u c.1 c.2 +\n        Yf H u c.1 c.2 * dX j a u c.1 c.2)) * E c =\n      ∑ b, H b a * dphi (Vc H u j b) * Xf u (j + 1) b * E (cn (j + 1) b)\n\ntheorem record_new_for_13_2 (H : Matrix n n ℝ) {s : ℝ} (hs : |s| ≤ 1) (e : ℕ) : ∀ (j : ℕ), j + e = l → ∀ (a : n)\n    (g₀ : (BC l n → Bool) → ℝ) (θ : (PC l n → ℝ) → ℝ), BCf θ → EarlyOnly j θ →\n    ∫ u, θ u * (Xf u j a * ext (D (cn j a) g₀) (wv H s u)) ∂(gP (PC l n)) =\n      ∫ u, θ u * Int H s e j a (D (cn j a) g₀) u ∂(gP (PC l n))\n\ntheorem record_new_for_13_3 (H : Matrix n n ℝ) (hl : 0 < l) (g : (BC l n → Bool) → ℝ) :\n    ∃ s ∈ Set.Ioo (0 : ℝ) 1,\n      ∫ u, ext g (wv H 1 u) ∂(gP (PC l n)) - ∫ u, ext g (wv H 0 u) ∂(gP (PC l n)) =\n        ∑ a, ∫ u, Int H s l 0 a (D (cn 0 a) g) u ∂(gP (PC l n))\n\ntheorem record_new_for_13_4 (H : Matrix n n ℝ) (s : ℝ) (e : ℕ) : ∀ (j : ℕ) (a : n) (g : (BC l n → Bool) → ℝ)\n    (u : PC l n → ℝ), Int H s e j a g u =\n      ∑ q : Fin e → n, cf H s e j a q u * ext (Dl (plist e j q) g) (wv H s u)",
+    "route_note": "Same route as the source; the source is nested in Int and its path expansion is Int_eq_paths in Walk.lean. Mean value gives the s used here; the review integral-in-s form is unnecessary.",
+    "evidence": {
+      "formal_statement": "partial",
+      "route": "same",
+      "build": "not_run_for_new_row",
+      "supplied_build_report": "Repository README reports the imported source target built at its pin; no declaration-specific build receipt is included for this new explanatory row.",
+      "fresh_verification": "Source and mathematics inspected; no Lean build or comparator run."
+    },
+    "existing_declarations": [
+      {
+        "declaration": "QuarticQuery.ForrelationLower.sum_dw_eq",
+        "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+        "line": 272,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.integral_walk",
+        "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+        "line": 364,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.exists_identity",
+        "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+        "line": 461,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.Int_eq_paths",
+        "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+        "line": 541,
+        "kind": "theorem"
+      }
+    ]
+  },
+  {
+    "id": "NEW-FOR-14",
+    "statement": "For a finite coordinate set I, centered two-valued coordinates xi, coefficients |c(J)|<=1, order r, and queried set Q, the chaos is sum_(J subset Q,|J|=r)c(J)product_(a in J)xi_a. Inserting a fresh q changes order r+1 chaos by xi_q times the contracted order r chaos.",
+    "why_needed": "Records the finite polynomial tracked along the tree.",
+    "depends_on": [
+      "NEW-FOR-07"
+    ],
+    "proposed_lean": "-- Proposed wrapper signatures only; not submitted to Lean or compiled in this session.\n-- Required imports: QuarticQuery.ForrelationLower.Main, QuarticQuery.Upper.Decode,\n-- QuarticQuery.Forrelation.Circuit, and QuarticQuery.Forrelation.Sanity.\nopen MeasureTheory Finset Matrix ProbabilityTheory\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nvariable {ι n β : Type} [Fintype ι] [DecidableEq ι]\n  [Fintype n] [DecidableEq n] [Fintype β] [DecidableEq β]\nvariable {l t : ℕ}\nvariable {μ : ι → ℝ} {ξ : ι → Bool → ℝ} {B₀ : ℝ} {f : PartialBool ι}\n\ntheorem record_chaos_definition (ξ : ι → Bool → ℝ) (c : Finset ι → ℝ)\n    (r : ℕ) (Q : Finset ι) (z : ι → Bool) :\n    chaos ξ c r Q z = ∑ J ∈ Q.powersetCard r, c J * ∏ a ∈ J, ξ a (z a)\n\n\ntheorem record_new_for_14_1 (ξ : ι → Bool → ℝ) (c : Finset ι → ℝ) (ℓ : ℕ) {Q : Finset ι} {q : ι}\n    (hq : q ∉ Q) (z : ι → Bool) :\n    chaos ξ c (ℓ + 1) (insert q Q) z =\n      chaos ξ c (ℓ + 1) Q z + ξ q (z q) * chaos ξ (fun J => c (insert q J)) ℓ Q z",
+    "route_note": "Definition and insertion identity are present explicitly in TreeGrowth.lean.",
+    "evidence": {
+      "formal_statement": "partial",
+      "route": "same",
+      "build": "not_run_for_new_row",
+      "supplied_build_report": "Repository README reports the imported source target built at its pin; no declaration-specific build receipt is included for this new explanatory row.",
+      "fresh_verification": "Source and mathematics inspected; no Lean build or comparator run."
+    },
+    "existing_declarations": [
+      {
+        "declaration": "QuarticQuery.ForrelationLower.chaos",
+        "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+        "line": 26,
+        "kind": "def"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.chaos_insert",
+        "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+        "line": 38,
+        "kind": "theorem"
+      }
+    ]
+  },
+  {
+    "id": "NEW-FOR-15",
+    "statement": "For a two-valued random variable xi with mean zero and absolute value <=B, B>0, E exp(a xi)<=exp(a^2 B^2/2) for every real a.",
+    "why_needed": "Provides the conditional exponential-moment estimate for stopped tree walks.",
+    "depends_on": [
+      "NEW-FOR-14"
+    ],
+    "proposed_lean": "-- Proposed wrapper signatures only; not submitted to Lean or compiled in this session.\n-- Required imports: QuarticQuery.ForrelationLower.Main, QuarticQuery.Upper.Decode,\n-- QuarticQuery.Forrelation.Circuit, and QuarticQuery.Forrelation.Sanity.\nopen MeasureTheory Finset Matrix ProbabilityTheory\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nvariable {ι n β : Type} [Fintype ι] [DecidableEq ι]\n  [Fintype n] [DecidableEq n] [Fintype β] [DecidableEq β]\nvariable {l t : ℕ}\nvariable {μ : ι → ℝ} {ξ : ι → Bool → ℝ} {B₀ : ℝ} {f : PartialBool ι}\ntheorem record_new_for_15_1 {p0 p1 a0 a1 B t : ℝ} (hp0 : 0 ≤ p0) (hp1 : 0 ≤ p1) (hp : p0 + p1 = 1)\n    (hm : p0 * a0 + p1 * a1 = 0) (hB : 0 < B) (h0 : |a0| ≤ B) (h1 : |a1| ≤ B) :\n    p0 * Real.exp (t * a0) + p1 * Real.exp (t * a1) ≤ Real.exp (t ^ 2 * B ^ 2 / 2)",
+    "route_note": "Same convexity argument, with a direct cosh series bound in prose.",
+    "evidence": {
+      "formal_statement": "exact",
+      "route": "same",
+      "build": "not_run_for_new_row",
+      "supplied_build_report": "Repository README reports the imported source target built at its pin; no declaration-specific build receipt is included for this new explanatory row.",
+      "fresh_verification": "Source and mathematics inspected; no Lean build or comparator run."
+    },
+    "existing_declarations": [
+      {
+        "declaration": "QuarticQuery.ForrelationLower.two_point_exp_le",
+        "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+        "line": 376,
+        "kind": "theorem"
+      }
+    ]
+  },
+  {
+    "id": "NEW-FOR-16",
+    "statement": "For a finite depth-d tree process starting at zero with fresh-coordinate increments xi_q*C_q, centered |xi_q|<=B, the probability of ever exceeding R is at most exp(-lambda R+lambda^2 beta^2 B^2 d/2) plus the probability of ever encountering a coefficient larger than beta, for lambda,beta>=0.",
+    "why_needed": "Makes the stopping estimate used by the degree induction explicit.",
+    "depends_on": [
+      "NEW-FOR-15"
+    ],
+    "proposed_lean": "-- Proposed wrapper signatures only; not submitted to Lean or compiled in this session.\n-- Required imports: QuarticQuery.ForrelationLower.Main, QuarticQuery.Upper.Decode,\n-- QuarticQuery.Forrelation.Circuit, and QuarticQuery.Forrelation.Sanity.\nopen MeasureTheory Finset Matrix ProbabilityTheory\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nvariable {ι n β : Type} [Fintype ι] [DecidableEq ι]\n  [Fintype n] [DecidableEq n] [Fintype β] [DecidableEq β]\nvariable {l t : ℕ}\nvariable {μ : ι → ℝ} {ξ : ι → Bool → ℝ} {B₀ : ℝ} {f : PartialBool ι}\ntheorem record_new_for_16_1 (hμ : ∀ a, |μ a| ≤ 1)\n    (hm : ∀ a, piB (μ a) false * ξ a false + piB (μ a) true * ξ a true = 0)\n    (hB₀ : 0 < B₀) (hξ : ∀ a b, |ξ a b| ≤ B₀)\n    (Y : Finset ι → (ι → Bool) → ℝ) (Y' : ι → Finset ι → (ι → Bool) → ℝ)\n    (hY : ∀ q Q x b, q ∉ Q →\n      Y (insert q Q) (Function.update x q b) = Y Q x + ξ q b * Y' q Q x)\n    {R β lam : ℝ} (hlam : 0 ≤ lam) (hβ : 0 ≤ β) (T : QueryTree ι) (d : ℕ) (hT : T.depth ≤ d)\n    (Q : Finset ι) (x : ι → Bool) :\n    hit μ (fun Q x => R < Y Q x ∨ ∃ q, β < |Y' q Q x|) T Q x ≤\n      Real.exp (lam * (Y Q x - R) + lam ^ 2 * β ^ 2 * B₀ ^ 2 * d / 2) +\n        hit μ (fun Q x => ∃ q, β < |Y' q Q x|) T Q x",
+    "route_note": "The prose finite stopped exponential process is equivalent to the source induction on the hit recursion. Source includes arbitrary initial states and a union with coefficient failure; use the displayed corollary with initial Y=0.",
+    "evidence": {
+      "formal_statement": "partial",
+      "route": "same",
+      "build": "not_run_for_new_row",
+      "supplied_build_report": "Repository README reports the imported source target built at its pin; no declaration-specific build receipt is included for this new explanatory row.",
+      "fresh_verification": "Source and mathematics inspected; no Lean build or comparator run."
+    },
+    "existing_declarations": [
+      {
+        "declaration": "QuarticQuery.ForrelationLower.hit_azuma",
+        "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+        "line": 414,
+        "kind": "theorem"
+      }
+    ]
+  },
+  {
+    "id": "NEW-FOR-17",
+    "statement": "Under a centered product law, for n>=1, depth d>=1, B,K>0 with K^2=2dB^2 Lambda, the chance that an order-r bounded-coefficient chaos exceeds K^r anywhere on the tree is <=(4n)^r exp(-Lambda); its correlation with any tree output of magnitude <=1 is <=K^r+(nB)^r(4n)^r exp(-Lambda).",
+    "why_needed": "Combines induction on degree with exact leaf weights to control biased derivatives.",
+    "depends_on": [
+      "NEW-FOR-14",
+      "NEW-FOR-15",
+      "NEW-FOR-16",
+      "NEW-FOR-27"
+    ],
+    "proposed_lean": "-- Proposed wrapper signatures only; not submitted to Lean or compiled in this session.\n-- Required imports: QuarticQuery.ForrelationLower.Main, QuarticQuery.Upper.Decode,\n-- QuarticQuery.Forrelation.Circuit, and QuarticQuery.Forrelation.Sanity.\nopen MeasureTheory Finset Matrix ProbabilityTheory\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nvariable {ι n β : Type} [Fintype ι] [DecidableEq ι]\n  [Fintype n] [DecidableEq n] [Fintype β] [DecidableEq β]\nvariable {l t : ℕ}\nvariable {μ : ι → ℝ} {ξ : ι → Bool → ℝ} {B₀ : ℝ} {f : PartialBool ι}\ntheorem record_new_for_17_1 (hμ : ∀ a, |μ a| ≤ 1)\n    (hm : ∀ a, piB (μ a) false * ξ a false + piB (μ a) true * ξ a true = 0)\n    (hB₀ : 0 < B₀) (hξ : ∀ a b, |ξ a b| ≤ B₀) {Λ K : ℝ} {d : ℕ} (hd : 0 < d) (hK : 0 < K)\n    (hKsq : K ^ 2 = 2 * d * B₀ ^ 2 * Λ) (hn : 1 ≤ Fintype.card ι) (T : QueryTree ι)\n    (hT : T.depth ≤ d) (ℓ : ℕ) (c : Finset ι → ℝ) (hc : ∀ J, |c J| ≤ 1) (x : ι → Bool) :\n    hit μ (fun Q x => K ^ ℓ < |chaos ξ c ℓ Q x|) T ∅ x ≤\n      (4 * Fintype.card ι : ℝ) ^ ℓ * Real.exp (-Λ)\n\ntheorem record_new_for_17_2 (hμ : ∀ a, |μ a| ≤ 1)\n    (hm : ∀ a, piB (μ a) false * ξ a false + piB (μ a) true * ξ a true = 0)\n    (hB₀ : 0 < B₀) (hξ : ∀ a b, |ξ a b| ≤ B₀) {Λ K : ℝ} {d : ℕ} (hd : 0 < d) (hK : 0 < K)\n    (hKsq : K ^ 2 = 2 * d * B₀ ^ 2 * Λ) (hn : 1 ≤ Fintype.card ι) (T : QueryTree ι)\n    (hT : T.depth ≤ d) (k : ℕ) (c : Finset ι → ℝ) (hc : ∀ J, |c J| ≤ 1)\n    (v : Bool → ℝ) (hv : ∀ b, |v b| ≤ 1) :\n    |ext (fun z => v (T.eval z) * chaos ξ c k univ z) μ| ≤\n      K ^ k + (Fintype.card ι * B₀) ^ k * ((4 * Fintype.card ι : ℝ) ^ k * Real.exp (-Λ))",
+    "route_note": "Same degree induction and one-coordinate union bound. The two displayed clauses have separate existing source declarations.",
+    "evidence": {
+      "formal_statement": "exact",
+      "route": "same",
+      "build": "not_run_for_new_row",
+      "supplied_build_report": "Repository README reports the imported source target built at its pin; no declaration-specific build receipt is included for this new explanatory row.",
+      "fresh_verification": "Source and mathematics inspected; no Lean build or comparator run."
+    },
+    "existing_declarations": [
+      {
+        "declaration": "QuarticQuery.ForrelationLower.hit_chaos_le",
+        "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+        "line": 514,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.abs_ext_tree_chaos_le",
+        "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+        "line": 658,
+        "kind": "theorem"
+      }
+    ]
+  },
+  {
+    "id": "NEW-FOR-18",
+    "statement": "For every finite n>=1 coordinate set, depth-d>=1 decision tree output g with |g|<=1, biases |mu|<=1/2, integer r>=1 and family J of distinct size-r subsets, sum_(J)|ext(D_J g)(mu)| <= (16 r d ln(4n))^(r/2)+1.",
+    "why_needed": "The compact derivative bound needed in the path identity.",
+    "depends_on": [
+      "NEW-FOR-07",
+      "NEW-FOR-17"
+    ],
+    "proposed_lean": "-- Proposed wrapper signatures only; not submitted to Lean or compiled in this session.\n-- Required imports: QuarticQuery.ForrelationLower.Main, QuarticQuery.Upper.Decode,\n-- QuarticQuery.Forrelation.Circuit, and QuarticQuery.Forrelation.Sanity.\nopen MeasureTheory Finset Matrix ProbabilityTheory\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nvariable {ι n β : Type} [Fintype ι] [DecidableEq ι]\n  [Fintype n] [DecidableEq n] [Fintype β] [DecidableEq β]\nvariable {l t : ℕ}\nvariable {μ : ι → ℝ} {ξ : ι → Bool → ℝ} {B₀ : ℝ} {f : PartialBool ι}\n\ntheorem record_compact_growth {P : Type} [Fintype P] [DecidableEq P]\n    (Lp : P → List ι) (hnd : ∀ p, (Lp p).Nodup) {r d : ℕ}\n    (hr : 0 < r) (hlen : ∀ p, (Lp p).length = r)\n    (hinj : Function.Injective fun p => (Lp p).toFinset)\n    (hμ : ∀ a, |μ a| ≤ 1 / 2) (hd : 0 < d)\n    (hn : 1 ≤ Fintype.card ι) (T : QueryTree ι) (hT : T.depth ≤ d)\n    (v : Bool → ℝ) (hv : ∀ b, |v b| ≤ 1) :\n    ∑ p, |ext (Dl (Lp p) fun z => v (T.eval z)) μ| ≤\n      (Real.sqrt (16 * (r : ℝ) * d * Real.log (4 * Fintype.card ι))) ^ r + 1\n",
+    "route_note": "Prose-derived specialization Lambda=2r ln(4n), K=sqrt(16rd ln(4n)); the residual is 2^-r<=1. Existing theorem is parameterized, so the compact wrapper is proposed, not claimed compiled.",
+    "evidence": {
+      "formal_statement": "partial",
+      "route": "same",
+      "build": "not_run_for_new_row",
+      "supplied_build_report": "Repository README reports the imported source target built at its pin; no declaration-specific build receipt is included for this new explanatory row.",
+      "fresh_verification": "Source and mathematics inspected; no Lean build or comparator run."
+    },
+    "existing_declarations": [
+      {
+        "declaration": "QuarticQuery.ForrelationLower.sum_abs_ext_Dl_le",
+        "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+        "line": 738,
+        "kind": "theorem"
+      }
+    ]
+  },
+  {
+    "id": "NEW-FOR-19",
+    "statement": "For k=l+1>=2, m=4^t, any depth-d>=1 tree output g of magnitude <=1 has hard-vs-uniform expectation gap <= (3/sqrt(m))^(k-1)*((16 k d ln(4km))^(k/2)+1). The same holds for mixtures of such trees.",
+    "why_needed": "Turns derivative growth into indistinguishability.",
+    "depends_on": [
+      "NEW-FOR-12",
+      "NEW-FOR-13",
+      "NEW-FOR-18"
+    ],
+    "proposed_lean": "-- Proposed wrapper signatures only; not submitted to Lean or compiled in this session.\n-- Required imports: QuarticQuery.ForrelationLower.Main, QuarticQuery.Upper.Decode,\n-- QuarticQuery.Forrelation.Circuit, and QuarticQuery.Forrelation.Sanity.\nopen MeasureTheory Finset Matrix ProbabilityTheory\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nvariable {ι n β : Type} [Fintype ι] [DecidableEq ι]\n  [Fintype n] [DecidableEq n] [Fintype β] [DecidableEq β]\nvariable {l t : ℕ}\nvariable {μ : ι → ℝ} {ξ : ι → Bool → ℝ} {B₀ : ℝ} {f : PartialBool ι}\n\ntheorem record_walsh_advantage {l t d : ℕ} (hl : 0 < l) (hd : 0 < d)\n    (T : QueryTree (BC l (Fin (mValue t)))) (hT : T.depth ≤ d)\n    (v : Bool → ℝ) (hv : ∀ b, |v b| ≤ 1) :\n    |(∫ u, ext (fun z => v (T.eval z)) (wv (QuarticQuery.Forrelation.H t) 1 u)\n        ∂(gP (PC l (Fin (mValue t))))) - ext (fun z => v (T.eval z)) 0| ≤\n      ((3 : ℝ) / (2 : ℝ) ^ t) ^ l *\n      ((Real.sqrt (16 * (l + 1 : ℕ) * (d : ℝ) *\n        Real.log (4 * (l + 1 : ℕ) * (mValue t : ℝ)))) ^ (l + 1) + 1)\n",
+    "route_note": "Compact Walsh specialization of advantage_le, followed by the triangle inequality for a finite mixture. The source theorem is parameterized in the entry bound and K,Lambda.",
+    "evidence": {
+      "formal_statement": "partial",
+      "route": "same",
+      "build": "not_run_for_new_row",
+      "supplied_build_report": "Repository README reports the imported source target built at its pin; no declaration-specific build receipt is included for this new explanatory row.",
+      "fresh_verification": "Source and mathematics inspected; no Lean build or comparator run."
+    },
+    "existing_declarations": [
+      {
+        "declaration": "QuarticQuery.ForrelationLower.Lpath_nodup",
+        "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+        "line": 354,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.Lpath_inj",
+        "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+        "line": 362,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.advantage_le",
+        "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+        "line": 384,
+        "kind": "theorem"
+      }
+    ]
+  },
+  {
+    "id": "NEW-FOR-20",
+    "statement": "For k=l+1>=1 and m=4^t, the uniform sign distribution satisfies E Phi=0 and E Phi^2=1/m.",
+    "why_needed": "Controls the uniform-side mass outside the no promise.",
+    "depends_on": [
+      "claim-N-phi"
+    ],
+    "proposed_lean": "-- Proposed wrapper signatures only; not submitted to Lean or compiled in this session.\n-- Required imports: QuarticQuery.ForrelationLower.Main, QuarticQuery.Upper.Decode,\n-- QuarticQuery.Forrelation.Circuit, and QuarticQuery.Forrelation.Sanity.\nopen MeasureTheory Finset Matrix ProbabilityTheory\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nvariable {ι n β : Type} [Fintype ι] [DecidableEq ι]\n  [Fintype n] [DecidableEq n] [Fintype β] [DecidableEq β]\nvariable {l t : ℕ}\nvariable {μ : ι → ℝ} {ξ : ι → Bool → ℝ} {B₀ : ℝ} {f : PartialBool ι}\ntheorem record_new_for_20_1 (z : BC l ((Fin (mValue t))) → Bool) : Phi (l + 1) t z = PhiF t z\n\ntheorem record_new_for_20_2 : ext (PhiF t : (BC l ((Fin (mValue t))) → Bool) → ℝ) 0 = 0\n\ntheorem record_new_for_20_3 (l t : ℕ) :\n    ext (fun z : BC l ((Fin (mValue t))) → Bool => PhiF t z ^ 2) 0 = ((2 : ℝ) ^ (2 * t))⁻¹",
+    "route_note": "The source recursively peels sign layers; the prose expands those nested sums as orthogonal path characters. Endpoints are exact, but the written derivation is an algebraically expanded alternative.",
+    "evidence": {
+      "formal_statement": "exact",
+      "route": "alternative",
+      "build": "not_run_for_new_row",
+      "supplied_build_report": "Repository README reports the imported source target built at its pin; no declaration-specific build receipt is included for this new explanatory row.",
+      "fresh_verification": "Source and mathematics inspected; no Lean build or comparator run."
+    },
+    "existing_declarations": [
+      {
+        "declaration": "QuarticQuery.ForrelationLower.Phi_eq_PhiF",
+        "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+        "line": 482,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.ext_PhiF_zero",
+        "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+        "line": 559,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.ext_PhiF_sq",
+        "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+        "line": 564,
+        "kind": "theorem"
+      }
+    ]
+  },
+  {
+    "id": "NEW-FOR-21",
+    "statement": "For all real x,y, q(x)<=sqrt(3)*exp((x^2-1)/6) and Psi(x)*phi prime(y)>=(1/18)*exp(-((x^2-1)/6+(5/6)(y^2-1))).",
+    "why_needed": "Provides a positive lower bound whose Gaussian exponent has zero mean.",
+    "depends_on": [
+      "NEW-FOR-08"
+    ],
+    "proposed_lean": "-- Proposed wrapper signatures only; not submitted to Lean or compiled in this session.\n-- Required imports: QuarticQuery.ForrelationLower.Main, QuarticQuery.Upper.Decode,\n-- QuarticQuery.Forrelation.Circuit, and QuarticQuery.Forrelation.Sanity.\nopen MeasureTheory Finset Matrix ProbabilityTheory\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nvariable {ι n β : Type} [Fintype ι] [DecidableEq ι]\n  [Fintype n] [DecidableEq n] [Fintype β] [DecidableEq β]\nvariable {l t : ℕ}\nvariable {μ : ι → ℝ} {ξ : ι → Bool → ℝ} {B₀ : ℝ} {f : PartialBool ι}\ntheorem record_new_for_21_1 (x : ℝ) : qf x ≤ Real.sqrt 3 * Real.exp ((x ^ 2 - 1) / 6)\n\ntheorem record_new_for_21_2 (x y : ℝ) :\n    (1 / 18) * Real.exp (-((x ^ 2 - 1) / 6 + 5 / 6 * (y ^ 2 - 1))) ≤ psiS x * dphi y",
+    "route_note": "Same exponential-tangent proof as the source.",
+    "evidence": {
+      "formal_statement": "exact",
+      "route": "same",
+      "build": "not_run_for_new_row",
+      "supplied_build_report": "Repository README reports the imported source target built at its pin; no declaration-specific build receipt is included for this new explanatory row.",
+      "fresh_verification": "Source and mathematics inspected; no Lean build or comparator run."
+    },
+    "existing_declarations": [
+      {
+        "declaration": "QuarticQuery.ForrelationLower.qf_le_exp",
+        "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+        "line": 254,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.psi_dphi_ge",
+        "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+        "line": 271,
+        "kind": "theorem"
+      }
+    ]
+  },
+  {
+    "id": "NEW-FOR-22",
+    "statement": "For k=l+1>=2 and Walsh H in dimension m=4^t, E_(hard) Phi >=18^-l>=32^-l=32*2^(-5k).",
+    "why_needed": "Makes promise correctness force a nonnegligible hard-side acceptance probability.",
+    "depends_on": [
+      "NEW-FOR-10",
+      "NEW-FOR-13",
+      "NEW-FOR-20",
+      "NEW-FOR-21"
+    ],
+    "proposed_lean": "-- Proposed wrapper signatures only; not submitted to Lean or compiled in this session.\n-- Required imports: QuarticQuery.ForrelationLower.Main, QuarticQuery.Upper.Decode,\n-- QuarticQuery.Forrelation.Circuit, and QuarticQuery.Forrelation.Sanity.\nopen MeasureTheory Finset Matrix ProbabilityTheory\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nvariable {ι n β : Type} [Fintype ι] [DecidableEq ι]\n  [Fintype n] [DecidableEq n] [Fintype β] [DecidableEq β]\nvariable {l t : ℕ}\nvariable {μ : ι → ℝ} {ξ : ι → Bool → ℝ} {B₀ : ℝ} {f : PartialBool ι}\ntheorem record_new_for_22_1 (s : ℝ) (u : PC l ((Fin (mValue t))) → ℝ) (e : ℕ) : ∀ (j : ℕ) (a : (Fin (mValue t))),\n    ((2 : ℝ) ^ t / 18) ^ e * Real.exp (- TT t e j a u) ≤ Yy s e j a u\n\ntheorem record_new_for_22_2 (e : ℕ) : ∀ (j : ℕ), j + e ≤ l → ∀ a : (Fin (mValue t)),\n    ∫ u : PC l ((Fin (mValue t))) → ℝ, TT t e j a u ∂(gP (PC l ((Fin (mValue t))))) = 0\n\ntheorem record_new_for_22_3 (hl : 0 < l) :\n    (1 / 18 : ℝ) ^ l ≤\n      ∫ u, ext (PhiF t : (BC l ((Fin (mValue t))) → Bool) → ℝ) (wv (H t) 1 u) ∂(gP (PC l ((Fin (mValue t))))) -\n        ext (PhiF t : (BC l ((Fin (mValue t))) → Bool) → ℝ) 0\n\ntheorem record_new_for_22_4 : ext (PhiF t : (BC l ((Fin (mValue t))) → Bool) → ℝ) 0 = 0",
+    "route_note": "Source uses nested sums Yy and averaged exponents TT. Prose gives that full recursion and its path expansion. The final comparison 18^-l>=32^-l is elementary and not a separate named source declaration.",
+    "evidence": {
+      "formal_statement": "partial",
+      "route": "same",
+      "build": "not_run_for_new_row",
+      "supplied_build_report": "Repository README reports the imported source target built at its pin; no declaration-specific build receipt is included for this new explanatory row.",
+      "fresh_verification": "Source and mathematics inspected; no Lean build or comparator run."
+    },
+    "existing_declarations": [
+      {
+        "declaration": "QuarticQuery.ForrelationLower.Yy_ge",
+        "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+        "line": 343,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.integral_TT",
+        "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+        "line": 456,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.mass_ge",
+        "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+        "line": 499,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.ext_PhiF_zero",
+        "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+        "line": 559,
+        "kind": "theorem"
+      }
+    ]
+  },
+  {
+    "id": "NEW-FOR-23",
+    "statement": "If RLe(P,L), then 2*tau independent runs and majority give a finite mixture of trees of depth <=2*tau*L and promise error <=(8/9)^tau.",
+    "why_needed": "Amplifies correctness enough to exploit a hard measure with only small yes mass.",
+    "depends_on": [
+      "def-R"
+    ],
+    "proposed_lean": "-- Proposed wrapper signatures only; not submitted to Lean or compiled in this session.\n-- Required imports: QuarticQuery.ForrelationLower.Main, QuarticQuery.Upper.Decode,\n-- QuarticQuery.Forrelation.Circuit, and QuarticQuery.Forrelation.Sanity.\nopen MeasureTheory Finset Matrix ProbabilityTheory\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nvariable {ι n β : Type} [Fintype ι] [DecidableEq ι]\n  [Fintype n] [DecidableEq n] [Fintype β] [DecidableEq β]\nvariable {l t : ℕ}\nvariable {μ : ι → ℝ} {ξ : ι → Bool → ℝ} {B₀ : ℝ} {f : PartialBool ι}\ntheorem record_new_for_23_1 [Fintype ι] {L : ℕ} (h : RLe f L) (τ : ℕ) :\n    ∃ (J : Type) (_ : Fintype J) (q : J → ℝ) (T : J → QueryTree ι),\n      (∀ j, 0 ≤ q j) ∧ ∑ j, q j = 1 ∧ (∀ j, (T j).depth ≤ 2 * τ * L) ∧\n      ∀ x b, f x = some b → ∑ j, q j * (if (T j).eval x = b then 0 else 1) ≤ (8 / 9 : ℝ) ^ τ",
+    "route_note": "Same binomial moment bound. The blueprint informally says tau runs; the actual source and this proof use 2*tau.",
+    "evidence": {
+      "formal_statement": "exact",
+      "route": "same",
+      "build": "not_run_for_new_row",
+      "supplied_build_report": "Repository README reports the imported source target built at its pin; no declaration-specific build receipt is included for this new explanatory row.",
+      "fresh_verification": "Source and mathematics inspected; no Lean build or comparator run."
+    },
+    "existing_declarations": [
+      {
+        "declaration": "QuarticQuery.ForrelationLower.exists_amplified",
+        "file": "lean/QuarticQuery/ForrelationLower/Amplify.lean",
+        "line": 80,
+        "kind": "theorem"
+      }
+    ]
+  },
+  {
+    "id": "NEW-FOR-24",
+    "statement": "For k>=1, epsilon in [0,1], and acceptance a in [0,1] with promise error <=epsilon, (1-epsilon)(Phi-delta)<=a<=epsilon+4Phi^2/delta^2 at every input. Thus hard expectation >=(1-epsilon)(18^(-(k-1))-delta), and uniform expectation <=epsilon+4/(delta^2*m), when k>=2.",
+    "why_needed": "Avoids making a promise-support assumption about either distribution.",
+    "depends_on": [
+      "eq-4",
+      "NEW-FOR-01",
+      "NEW-FOR-20",
+      "NEW-FOR-22",
+      "NEW-FOR-23"
+    ],
+    "proposed_lean": "-- Proposed wrapper signatures only; not submitted to Lean or compiled in this session.\n-- Required imports: QuarticQuery.ForrelationLower.Main, QuarticQuery.Upper.Decode,\n-- QuarticQuery.Forrelation.Circuit, and QuarticQuery.Forrelation.Sanity.\nopen MeasureTheory Finset Matrix ProbabilityTheory\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nvariable {ι n β : Type} [Fintype ι] [DecidableEq ι]\n  [Fintype n] [DecidableEq n] [Fintype β] [DecidableEq β]\nvariable {l t : ℕ}\nvariable {μ : ι → ℝ} {ξ : ι → Bool → ℝ} {B₀ : ℝ} {f : PartialBool ι}\n\ntheorem record_promise_envelope {k t : ℕ} (hk : 1 ≤ k)\n    {a : BitInput (ForrelationCoord k t) → ℝ} {ε : ℝ}\n    (hε0 : 0 ≤ ε) (hε1 : ε ≤ 1)\n    (ha : ∀ z, 0 ≤ a z ∧ a z ≤ 1)\n    (hyes : ∀ z, P k t z = some true → 1 - ε ≤ a z)\n    (hno : ∀ z, P k t z = some false → a z ≤ ε) :\n    ∀ z, (1 - ε) * (Phi k t z - delta k) ≤ a z ∧\n      a z ≤ ε + 4 * Phi k t z ^ 2 / delta k ^ 2\n",
+    "route_note": "These pointwise inequalities occur inside not_RLe_of_gap but are not exported as named declarations. Proposed wrapper isolates the exact all-input claim; expectation consequences use the preceding moment lemmas.",
+    "evidence": {
+      "formal_statement": "partial",
+      "route": "same",
+      "build": "not_run_for_new_row",
+      "supplied_build_report": "Repository README reports the imported source target built at its pin; no declaration-specific build receipt is included for this new explanatory row.",
+      "fresh_verification": "Source and mathematics inspected; no Lean build or comparator run."
+    },
+    "existing_declarations": [
+      {
+        "declaration": "QuarticQuery.ForrelationLower.not_RLe_of_gap",
+        "file": "lean/QuarticQuery/ForrelationLower/Main.lean",
+        "line": 81,
+        "kind": "theorem"
+      }
+    ]
+  },
+  {
+    "id": "NEW-FOR-25",
+    "statement": "For fixed k=l+1>=2,tau and 0<delta<=1, let C=16k(2tau+1)(ln(4k)+2), eta0=min(1,delta^2/(4*9^l)), and t0=max(8,ceil(C/eta0),ceil(2*3^l/delta),ceil(4/delta^3)). For every t>=t0 the compact tree advantage at d=2tau Lvalue(k,t)+1 is <=delta and 4/(delta^2 4^t)<=delta.",
+    "why_needed": "Makes the eventual quantifier and all constants in the final contradiction explicit.",
+    "depends_on": [
+      "eq-5",
+      "NEW-FOR-19",
+      "NEW-FOR-24"
+    ],
+    "proposed_lean": "-- Proposed wrapper signatures only; not submitted to Lean or compiled in this session.\n-- Required imports: QuarticQuery.ForrelationLower.Main, QuarticQuery.Upper.Decode,\n-- QuarticQuery.Forrelation.Circuit, and QuarticQuery.Forrelation.Sanity.\nopen MeasureTheory Finset Matrix ProbabilityTheory\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nvariable {ι n β : Type} [Fintype ι] [DecidableEq ι]\n  [Fintype n] [DecidableEq n] [Fintype β] [DecidableEq β]\nvariable {l t : ℕ}\nvariable {μ : ι → ℝ} {ξ : ι → Bool → ℝ} {B₀ : ℝ} {f : PartialBool ι}\n\ntheorem record_explicit_threshold {l : ℕ} (hl : 0 < l) (τ : ℕ)\n    {δ : ℝ} (hδ : 0 < δ) (hδ1 : δ ≤ 1) :\n    let k := l + 1\n    let C : ℝ := 16 * k * (2 * (τ : ℝ) + 1) * (Real.log (4 * (k : ℝ)) + 2)\n    let η₀ : ℝ := min 1 (δ ^ 2 / (4 * 9 ^ l))\n    let t₀ : ℕ := max 8 (max ⌈C / η₀⌉₊\n      (max ⌈2 * (3 : ℝ) ^ l / δ⌉₊ ⌈4 / δ ^ 3⌉₊))\n    ∀ t : ℕ, t₀ ≤ t →\n      (((3 : ℝ) / (2 : ℝ) ^ t) ^ l *\n        ((Real.sqrt (16 * (k : ℝ) * (2 * τ * Lvalue k t + 1 : ℕ) *\n          Real.log (4 * (k : ℝ) * mValue t))) ^ k + 1) ≤ δ) ∧\n      4 / δ ^ 2 * ((2 : ℝ) ^ (2 * t))⁻¹ ≤ δ\n",
+    "route_note": "The displayed threshold is the witness constructed inside exists_threshold. The exported theorem asserts existence; the proposed wrapper makes its particular witness explicit.",
+    "evidence": {
+      "formal_statement": "partial",
+      "route": "same",
+      "build": "not_run_for_new_row",
+      "supplied_build_report": "Repository README reports the imported source target built at its pin; no declaration-specific build receipt is included for this new explanatory row.",
+      "fresh_verification": "Source and mathematics inspected; no Lean build or comparator run."
+    },
+    "existing_declarations": [
+      {
+        "declaration": "QuarticQuery.ForrelationLower.Xk_facts",
+        "file": "lean/QuarticQuery/ForrelationLower/Main.lean",
+        "line": 240,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.core_bound",
+        "file": "lean/QuarticQuery/ForrelationLower/Main.lean",
+        "line": 289,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.exists_threshold",
+        "file": "lean/QuarticQuery/ForrelationLower/Main.lean",
+        "line": 347,
+        "kind": "theorem"
+      }
+    ]
+  },
+  {
+    "id": "NEW-FOR-26",
+    "statement": "At k=2,t=1 there are exactly 104 yes-inputs, 48 no-inputs and 104 unpromised inputs among the 256 inputs. The input with both blocks (-1,1,1,1) has Phi=-1 and is outside the promise.",
+    "why_needed": "Checks the sign convention, one-sided promise, and basic nonvacuity with a complete hand count.",
+    "depends_on": [
+      "eq-4",
+      "claim-N-phi",
+      "NEW-FOR-01"
+    ],
+    "proposed_lean": "-- Proposed wrapper signatures only; not submitted to Lean or compiled in this session.\n-- Required imports: QuarticQuery.ForrelationLower.Main, QuarticQuery.Upper.Decode,\n-- QuarticQuery.Forrelation.Circuit, and QuarticQuery.Forrelation.Sanity.\nopen MeasureTheory Finset Matrix ProbabilityTheory\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nvariable {ι n β : Type} [Fintype ι] [DecidableEq ι]\n  [Fintype n] [DecidableEq n] [Fintype β] [DecidableEq β]\nvariable {l t : ℕ}\nvariable {μ : ι → ℝ} {ξ : ι → Bool → ℝ} {B₀ : ℝ} {f : PartialBool ι}\ntheorem record_new_for_26_1 :\n    (univ.filter fun z : BitInput (ForrelationCoord 2 1) => P 2 1 z = some true).card = 104\n\ntheorem record_new_for_26_2 :\n    (univ.filter fun z : BitInput (ForrelationCoord 2 1) => P 2 1 z = some false).card = 48\n\ntheorem record_new_for_26_3 :\n    (univ.filter fun z : BitInput (ForrelationCoord 2 1) => P 2 1 z = none).card = 104\n\ntheorem record_new_for_26_4 : Phi 2 1 negativeWitness = -1\n\ntheorem record_new_for_26_5 : P 2 1 negativeWitness = none",
+    "route_note": "Existing source uses decide +kernel for the census. Prose partitions the second block by parity and counts the binomial numerator values; that is an alternative proof, with no new computation or build claimed.",
+    "evidence": {
+      "formal_statement": "exact",
+      "route": "alternative",
+      "build": "not_run_for_new_row",
+      "supplied_build_report": "Repository README reports the imported source target built at its pin; no declaration-specific build receipt is included for this new explanatory row.",
+      "fresh_verification": "Source and mathematics inspected; no Lean build or comparator run."
+    },
+    "existing_declarations": [
+      {
+        "declaration": "QuarticQuery.Forrelation.census_true",
+        "file": "lean/QuarticQuery/Forrelation/Sanity.lean",
+        "line": 20,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.Forrelation.census_false",
+        "file": "lean/QuarticQuery/Forrelation/Sanity.lean",
+        "line": 25,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.Forrelation.census_none",
+        "file": "lean/QuarticQuery/Forrelation/Sanity.lean",
+        "line": 30,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.Forrelation.Phi_negativeWitness",
+        "file": "lean/QuarticQuery/Forrelation/Sanity.lean",
+        "line": 58,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.Forrelation.P_negativeWitness",
+        "file": "lean/QuarticQuery/Forrelation/Sanity.lean",
+        "line": 65,
+        "kind": "theorem"
+      }
+    ]
+  },
+  {
+    "id": "NEW-FOR-27",
+    "statement": "For a finite decision tree and product biases, the expectation of its bounded leaf output times the full centered chaos equals the sum over leaves of their cylinder weights times the output and the chaos restricted to their distinct queried coordinates. The leaf weights sum to one, including trees with repeated queries.",
+    "why_needed": "Explains the finite walk and leaf weights behind the derivative-growth proof.",
+    "depends_on": [
+      "NEW-FOR-06",
+      "NEW-FOR-14"
+    ],
+    "proposed_lean": "-- Proposed wrapper signatures only; not submitted to Lean or compiled in this session.\n-- Required imports: QuarticQuery.ForrelationLower.Main, QuarticQuery.Upper.Decode,\n-- QuarticQuery.Forrelation.Circuit, and QuarticQuery.Forrelation.Sanity.\nopen MeasureTheory Finset Matrix ProbabilityTheory\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nvariable {ι n β : Type} [Fintype ι] [DecidableEq ι]\n  [Fintype n] [DecidableEq n] [Fintype β] [DecidableEq β]\nvariable {l t : ℕ}\nvariable {μ : ι → ℝ} {ξ : ι → Bool → ℝ} {B₀ : ℝ} {f : PartialBool ι}\ntheorem record_new_for_27_2 (μ : ι → ℝ) (H : (ι → Bool) → Bool → ℝ) (T : QueryTree ι) (Q : Finset ι)\n    (x : ι → Bool) :\n    walk μ (fun Q x b => ext (fun z => H (merge Q x z) b) μ) T Q x =\n      ext (fun z => H (merge Q x z) (T.eval (merge Q x z))) μ\n\ntheorem record_new_for_27_3 {μ : ι → ℝ} {ξ : ι → Bool → ℝ}\n    (hm : ∀ a, piB (μ a) false * ξ a false + piB (μ a) true * ξ a true = 0)\n    (J Q : Finset ι) (x : ι → Bool) :\n    ext (fun z => ∏ a ∈ J, ξ a (merge Q x z a)) μ =\n      if J ⊆ Q then ∏ a ∈ J, ξ a (x a) else 0\n\ntheorem record_new_for_27_4 {μ : ι → ℝ} {ξ : ι → Bool → ℝ}\n    (hm : ∀ a, piB (μ a) false * ξ a false + piB (μ a) true * ξ a true = 0)\n    (v : Bool → ℝ) (c : Finset ι → ℝ) (ℓ : ℕ) (T : QueryTree ι) :\n    ext (fun z => v (T.eval z) * chaos ξ c ℓ univ z) μ =\n      walk μ (fun Q x b => v b * chaos ξ c ℓ Q x) T ∅ (fun _ => false)",
+    "route_note": "Source represents the finite leaf sum by the recursive function walk. The displayed leaf form is its finite expansion. No separate leaf-index datatype is introduced in the proposed signature.",
+    "evidence": {
+      "formal_statement": "partial",
+      "route": "same",
+      "build": "not_run_for_new_row",
+      "supplied_build_report": "Repository README reports the imported source target built at its pin; no declaration-specific build receipt is included for this new explanatory row.",
+      "fresh_verification": "Source and mathematics inspected; no Lean build or comparator run."
+    },
+    "existing_declarations": [
+      {
+        "declaration": "QuarticQuery.ForrelationLower.merge",
+        "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+        "line": 101,
+        "kind": "def"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.walk_eq_ext",
+        "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+        "line": 121,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.ext_prod_merge",
+        "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+        "line": 158,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.walk_chaos",
+        "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+        "line": 215,
+        "kind": "theorem"
+      }
+    ]
+  },
+  {
+    "id": "NEW-FOR-28",
+    "statement": "For k>=1,t>=0 and 0<eta<1/2, phase-kickback repetition gives a coherent promise algorithm using at most k*ceil(16*2^(10k)*ln(1/eta)) bit queries, with a bit output on every input and all workspace retained.",
+    "why_needed": "Records the explicit qk cap separately from the asymptotic corpus lemma and the compiled 2qk cap.",
+    "depends_on": [
+      "claim-proj-prob",
+      "NEW-FOR-02",
+      "lem-2.1.ii"
+    ],
+    "proposed_lean": "-- Proposed wrapper signatures only; not submitted to Lean or compiled in this session.\n-- Required imports: QuarticQuery.ForrelationLower.Main, QuarticQuery.Upper.Decode,\n-- QuarticQuery.Forrelation.Circuit, and QuarticQuery.Forrelation.Sanity.\nopen MeasureTheory Finset Matrix ProbabilityTheory\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nvariable {ι n β : Type} [Fintype ι] [DecidableEq ι]\n  [Fintype n] [DecidableEq n] [Fintype β] [DecidableEq β]\nvariable {l t : ℕ}\nvariable {μ : ι → ℝ} {ξ : ι → Bool → ℝ} {B₀ : ℝ} {f : PartialBool ι}\n\ntheorem record_phase_query_cap {k t : ℕ} (hk : 1 ≤ k)\n    [Inhabited (ForrelationCoord k t)] {η : ℝ} (hη : 0 < η)\n    (hηhalf : η < 1 / 2) :\n    ∃ L : BitInput (ForrelationCoord k t) → Bool → ℝ,\n      QuarticQuery.Upper.Runs (repetitions k η * k) L ∧\n      ∀ z b, P k t z = some b → 1 - η ≤ L z b\n\n-- Coherent abstract-read version: this existing vocabulary retains the whole register.\n-- Its read count is not a certified single-query-per-read bit-oracle compilation.\ntheorem record_coherent_threshold {k t : ℕ} (hk : 1 ≤ k)\n    [Inhabited (ForrelationCoord k t)] {η : ℝ} (hη : 0 < η) :\n    ∃ L : BitInput (ForrelationCoord k t) → Bool → ℝ,\n      QuarticQuery.Upper.Samples (repetitions k η * k) L ∧\n      ∀ z b, P k t z = some b → 1 - η ≤ L z b\n",
+    "route_note": "The sharper one-bit-query phase implementation is proved here in prose. Existing P_runs certifies 2*(q*k), so it is not an exact witness for q*k. The following proposed Runs signature uses the existing vocabulary; its proof would require implementing the sharper phase-only bit-oracle circuit. A second proposed Samples signature records coherence and correctness at q*k abstract reads; that signature does not by itself certify q*k bit queries. The source compiler still gives 2*q*k.",
+    "evidence": {
+      "formal_statement": "partial",
+      "route": "alternative",
+      "build": "not_run_for_new_row",
+      "supplied_build_report": "Repository README reports the imported source target built at its pin; no declaration-specific build receipt is included for this new explanatory row.",
+      "fresh_verification": "Source and mathematics inspected; no Lean build or comparator run."
+    },
+    "existing_declarations": [
+      {
+        "declaration": "QuarticQuery.Forrelation.repetitions",
+        "file": "lean/QuarticQuery/Forrelation/Repetition.lean",
+        "line": 192,
+        "kind": "def"
+      },
+      {
+        "declaration": "QuarticQuery.Forrelation.threshold_correct",
+        "file": "lean/QuarticQuery/Forrelation/Repetition.lean",
+        "line": 218,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.Upper.decode_samples",
+        "file": "lean/QuarticQuery/Upper/Decode.lean",
+        "line": 361,
+        "kind": "theorem"
+      },
+      {
+        "declaration": "QuarticQuery.Upper.P_runs",
+        "file": "lean/QuarticQuery/Upper/Decode.lean",
+        "line": 386,
+        "kind": "theorem"
+      }
+    ]
+  },
+  {
+    "id": "NEW-FOR-29",
+    "statement": "For all k>=1 and t>=1 there is an exact fan-in-at-most-two circuit on ForrelationCoord k t realizing P k t with at most 200(k+1)^2*mValue t*(log_2(mValue t))^2 noninput gates.",
+    "why_needed": "Separately records the explicit constant and extended range beyond the preprint lemma.",
+    "depends_on": [
+      "claim-integer-tests",
+      "claim-circuit-size",
+      "NEW-FOR-03",
+      "NEW-FOR-04",
+      "NEW-FOR-05"
+    ],
+    "proposed_lean": "-- Proposed wrapper signatures only; not submitted to Lean or compiled in this session.\n-- Required imports: QuarticQuery.ForrelationLower.Main, QuarticQuery.Upper.Decode,\n-- QuarticQuery.Forrelation.Circuit, and QuarticQuery.Forrelation.Sanity.\nopen MeasureTheory Finset Matrix ProbabilityTheory\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nvariable {ι n β : Type} [Fintype ι] [DecidableEq ι]\n  [Fintype n] [DecidableEq n] [Fintype β] [DecidableEq β]\nvariable {l t : ℕ}\nvariable {μ : ι → ℝ} {ξ : ι → Bool → ℝ} {B₀ : ℝ} {f : PartialBool ι}\n\ntheorem record_explicit_circuit (k t : ℕ) (hk : 1 ≤ k) (ht : 1 ≤ t) :\n    ∃ C : Circuit (ForrelationCoord k t), CircuitRealises C (P k t) ∧\n      (C.size : ℝ) ≤ (200 * (k + 1) ^ 2 : ℕ) *\n        (mValue t : ℝ) * Real.logb 2 (mValue t : ℝ) ^ 2\n",
+    "route_note": "This is the exact existing exists_circuit statement after unfolding forrConstant. It is stronger than the asymptotic corpus row, which remains unchanged.",
+    "evidence": {
+      "formal_statement": "exact",
+      "route": "same",
+      "build": "not_run_for_new_row",
+      "supplied_build_report": "Repository README reports the imported source target built at its pin; no declaration-specific build receipt is included for this new explanatory row.",
+      "fresh_verification": "Source and mathematics inspected; no Lean build or comparator run."
+    },
+    "existing_declarations": [
+      {
+        "declaration": "QuarticQuery.Forrelation.forrConstant",
+        "file": "lean/QuarticQuery/Forrelation/Circuit.lean",
+        "line": 389,
+        "kind": "def"
+      },
+      {
+        "declaration": "QuarticQuery.Forrelation.exists_circuit",
+        "file": "lean/QuarticQuery/Forrelation/Circuit.lean",
+        "line": 479,
+        "kind": "theorem"
+      }
+    ]
+  },
+  {
+    "id": "NCL-transcript-characterization",
+    "statement": "For every circuit C, every input x, and every proposed transcript tr, GateConsistent C x tr holds if and only if tr = circuitEval C x. In particular, every input has exactly one consistent transcript.",
+    "why_needed": "The displayed biconditional formalizes the operational gate checks used in the local tester, beyond the corpus row defining what a correct transcript means.",
+    "depends_on": [
+      "def-transcript",
+      "def-eval-transcript"
+    ],
+    "proposed_lean": "namespace QuarticQuery\ntheorem transcript_characterization_record {ι : Type} (C : Circuit ι)\n    (x : BitInput ι) (tr : Fin C.size → Bool) :\n    GateConsistent C x tr ↔ tr = circuitEval C x\nend QuarticQuery",
+    "route_note": "Existing exact theorem QuarticQuery.gateConsistent_iff_eq_circuitEval; existence and uniqueness are QuarticQuery.existsUnique_gateConsistent. Same topological-induction route. This is registration of an existing helper, not a claim of a newly built proof."
+  },
+  {
+    "id": "NCL-weighted-value",
+    "statement": "For any partial Boolean function on a finite coordinate type, nonnegative input weight ν, and natural c, the recursive value W_c(ν) in the record equals the maximum weighted success of a tree of depth at most c. W_0 is the better constant answer; W_(c+1) is the maximum of W_c and all two-branch query sums. The value is nonnegative and nondecreasing in c.",
+    "why_needed": "Gives the finite optimization invariant for the alternative proof of Lemma 4.1 without conditional laws.",
+    "depends_on": [
+      "def-partial-query",
+      "def-R"
+    ],
+    "proposed_lean": "namespace QuarticQuery\ntheorem budgetValue_optimum_record {κ : Type} [Fintype κ] [DecidableEq κ]\n    (f : PartialBool κ) (c : ℕ) (ν : BitInput κ → ℝ) (hν : ∀ x, 0 ≤ ν x) :\n    (∃ T : QueryTree κ, T.depth ≤ c ∧ treeSuccess f ν T = budgetValue f c ν) ∧\n    (∀ T : QueryTree κ, T.depth ≤ c → treeSuccess f ν T ≤ budgetValue f c ν) ∧\n    0 ≤ budgetValue f c ν ∧ budgetValue f c ν ≤ budgetValue f (c + 1) ν\nend QuarticQuery",
+    "route_note": "The recursion is the existing definition QuarticQuery.budgetValue. The statement follows immediately from existing exists_tree_budgetValue_le, treeSuccess_le_budgetValue, budgetValue_nonneg, and budgetValue_le_succ. Source route is an alternative to the preprint supermartingale. No new compilation was performed."
+  },
+  {
+    "id": "NCL-weighted-product",
+    "statement": "For nonnegative weights ν_h on independent input blocks, natural caps c_h, and an output-vector tree T respecting each cap on every branch, the weighted probability of correctly answering all instances is at most the product over h of budgetValue P (c_h) ν_h. Off-promise tuples contribute zero; equivalently sum only over D^r.",
+    "why_needed": "This stronger induction hypothesis makes the proof of Lemma 4.1 stable under a query that restricts one weight and decrements one cap.",
+    "depends_on": [
+      "NCL-weighted-value"
+    ],
+    "proposed_lean": "namespace QuarticQuery\ntheorem weighted_product_record {κ : Type} [Fintype κ] [DecidableEq κ] {r : ℕ}\n    (f : PartialBool κ) (T : OutTree (Fin r × κ) (Fin r → Bool))\n    (ν : Fin r → BitInput κ → ℝ) (c : Fin r → ℕ)\n    (hν : ∀ h x, 0 ≤ ν h x) (hT : T.capped c) :\n    guessSuccess f ν T ≤ ∏ h, budgetValue f (c h) (ν h)\nend QuarticQuery",
+    "route_note": "Exact existing declaration QuarticQuery.guessSuccess_le_prod. The proof uses guessSuccess_leaf and guessSuccess_query. Alternative source route, reconstructed completely in prose."
+  },
+  {
+    "id": "NCL-finite-capped",
+    "statement": "On a finite coordinate type, for fixed natural r and L there are only finitely many deterministic output-vector trees having at most L queries to each of the r instances on every branch. Consequently arbitrary independent side information and coins can be grouped by the induced tree into a finite mixture.",
+    "why_needed": "Bridges the ordinary arbitrary-independent-information wording of Lemma 4.1 to the explicitly finite averaging families in the source.",
+    "depends_on": [
+      "def-R"
+    ],
+    "proposed_lean": "namespace QuarticQuery\ntheorem finite_capped_output_trees_record {κ : Type} [Fintype κ] [DecidableEq κ]\n    (r L : ℕ) :\n    {T : OutTree (Fin r × κ) (Fin r → Bool) | T.capped (fun _ => L)}.Finite\nend QuarticQuery",
+    "route_note": "Prose-only helper. Prove the depth bound r*L from the cap and then finiteness of labeled binary trees by induction on depth. The existing QuarticQuery.finite_depth_le is the Boolean-leaf version. The probability reduction is grouping finitely many possible behaviors; the source averaging endpoint is direct_product_average."
+  },
+  {
+    "id": "NCL-strict-hard-distribution",
+    "statement": "If no randomized depth-L program computes a partial Boolean function on a finite domain with success at least 2/3 on every promised input, then there are a probability distribution μ supported on the domain and δ>0 such that every depth-L deterministic tree has μ-success at most 2/3−δ.",
+    "why_needed": "Records the stronger intermediate conclusion actually obtained by the complete nearest-point proof of claim-minimax-mu.",
+    "depends_on": [
+      "def-partial-query",
+      "def-R"
+    ],
+    "proposed_lean": "namespace QuarticQuery\ntheorem exists_strict_hard_distribution_record {κ : Type} [Fintype κ] [DecidableEq κ]\n    {f : PartialBool κ} {L : ℕ} (h : ¬ RLe f L) :\n    ∃ (μ : BitInput κ → ℝ) (δ : ℝ),\n      0 < δ ∧ (∀ x, 0 ≤ μ x) ∧ (∑ x, μ x = 1) ∧\n      (∀ x, μ x ≠ 0 → promised f x) ∧\n      ∀ T : QueryTree κ, T.depth ≤ L → treeSuccess f μ T ≤ 2 / 3 - δ\nend QuarticQuery",
+    "route_note": "Prose-only strengthening. The existing exists_hard_distribution proves the weak ≤2/3 endpoint by finite minimax through Sion. The record separates the compact convex hull of success vectors from [2/3,∞)^D by the nearest-point normal v; δ = ||v||²/(sum v). No fresh Lean proof or novelty claim."
+  },
+  {
+    "id": "NCL-zero-worlds",
+    "statement": "Fix a finite subset U of possible single-zero positions and input worlds identical outside an injectively labeled column, with the sole zero in world j at position j. For every deterministic tree, |U| times the number of worlds that discover their zero is at most twice the sum over those worlds of the column query counts. All repeated and post-discovery queries count.",
+    "why_needed": "Provides the complete stronger induction used by the source to improve Eq. 19.",
+    "depends_on": [
+      "def-R",
+      "def-dummy"
+    ],
+    "proposed_lean": "namespace QuarticQuery\ntheorem zero_search_sum_record {ι α : Type} [DecidableEq α]\n    (e : α → ι) (he : Function.Injective e) (c : ι → Bool)\n    (hc1 : ∀ p, c (e p) = true) (hc2 : ∀ q, c q = true → ∃ p, e p = q)\n    (x : α → BitInput ι) (hout : ∀ j j' q, c q = false → x j q = x j' q)\n    (hin : ∀ j p, x j (e p) = decide (p ≠ j))\n    (T : QueryTree ι) (U : Finset α) :\n    (U.card : ℝ) * ∑ j ∈ U, ind (e j ∈ T.path (x j)) ≤\n      2 * ∑ j ∈ U, ((T.path (x j)).countP c : ℝ)\nend QuarticQuery",
+    "route_note": "Exact existing declaration QuarticQuery.zero_search_sum; same world-counting induction as the source and alternative to the preprint early/late split."
+  },
+  {
+    "id": "NCL-erased-zero-two",
+    "statement": "For every deterministic tree of depth at most G in the dummy input experiment with m=2^ℓ columns, the probability that the dummy run queries the erased zero X_I[J_I], for independent uniform I, is at most 2G/m². The bound holds for every fixed array A and therefore also after averaging any independent array A.",
+    "why_needed": "Makes the stronger erased-zero estimate explicit without replacing the corpus Eq. 19 statement.",
+    "depends_on": [
+      "NCL-zero-worlds",
+      "def-dummy",
+      "def-Z"
+    ],
+    "proposed_lean": "namespace QuarticQuery\ntheorem erased_zero_two_record {κ : Type} {ℓ r S G : ℕ}\n    (T : QueryTree (BitLoc ℓ r S κ))\n    (A : Column ℓ → Fin r → BitInput κ) (hT : T.depth ≤ G) :\n    avg (prodW (unif ℓ)) (fun J => avg (unif ℓ) (foundZero T A J)) ≤\n      2 * (G : ℝ) / ((2 ^ ℓ : ℕ) : ℝ) ^ 2\nend QuarticQuery",
+    "route_note": "Exact existing QuarticQuery.avg_foundZero_I_le. Consequence of zero_search_sum, product resampling, disjoint query counts, and independent uniform I."
+  },
+  {
+    "id": "NCL-erased-zero-mplusone",
+    "statement": "For every deterministic tree of depth at most G in the dummy input experiment with m=2^ℓ columns, the probability that the dummy run queries the erased zero X_I[J_I], for independent uniform I, is at most 2G/[m(m+1)]. The bound holds for every fixed array A and therefore also after averaging any independent array A.",
+    "why_needed": "Makes the stronger erased-zero estimate explicit without replacing the corpus Eq. 19 statement.",
+    "depends_on": [
+      "def-dummy",
+      "def-Z"
+    ],
+    "proposed_lean": "namespace QuarticQuery\ntheorem erased_zero_mplusone_record {κ : Type} {ℓ r S G : ℕ}\n    (T : QueryTree (BitLoc ℓ r S κ))\n    (A : Column ℓ → Fin r → BitInput κ) (hT : T.depth ≤ G) :\n    avg (prodW (unif ℓ)) (fun J => avg (unif ℓ) (foundZero T A J)) ≤\n      2 * (G : ℝ) / (((2 ^ ℓ : ℕ) : ℝ) * (((2 ^ ℓ : ℕ) : ℝ) + 1))\nend QuarticQuery",
+    "route_note": "Prose-only improvement. Compare every zero-world with the all-one reference path, ordered by first distinct queried positions. Repetitions and extra queries after discovery only increase costs; outside conditioning preserves independent uniform zero location. No claim of novelty or existing Lean proof."
+  },
+  {
+    "id": "NCL-checked-gap",
+    "statement": "Under a normalized promised hard distribution μ for depth L with success at most 2/3, L≥1, an arbitrary transcript-filling function tr, and a deterministic tree T of depth≤G, the coupled output-one probability on the planted input minus that on the dummy input is at most 2G/m²+G/(mL)+G(2/3)^r, where m=2^ℓ.",
+    "why_needed": "States the exact one-sided stronger endpoint exported by the source, separately from the corpus absolute-value discrepancy with coefficient four.",
+    "depends_on": [
+      "NCL-erased-zero-two",
+      "eq-20",
+      "eq-21",
+      "eq-22"
+    ],
+    "proposed_lean": "namespace QuarticQuery\ntheorem checked_gap_record {κ : Type} [Fintype κ] [DecidableEq κ]\n    {ℓ r S L G : ℕ} {f : PartialBool κ}\n    (tr : BitInput κ → Fin S → Bool) {μ : BitInput κ → ℝ}\n    (hL : 1 ≤ L) (hμ : ∀ x, 0 ≤ μ x) (hμ1 : ∑ x, μ x = 1)\n    (hdom : ∀ x, μ x ≠ 0 → promised f x)\n    (hard : ∀ U : QueryTree κ, U.depth ≤ L → treeSuccess f μ U ≤ 2 / 3)\n    (T : QueryTree (BitLoc ℓ r S κ)) (hT : T.depth ≤ G) :\n    coupledAvg (ℓ := ℓ) (r := r) μ (fun A J I =>\n        ind (T.eval (planted f tr J A I) = true) - ind (T.eval (dummy J A) = true)) ≤\n      2 * (G : ℝ) / ((2 ^ ℓ : ℕ) : ℝ) ^ 2 +\n      (G : ℝ) / (((2 ^ ℓ : ℕ) : ℝ) * (L : ℝ)) +\n      (G : ℝ) * ((2 : ℝ) / 3) ^ r\nend QuarticQuery",
+    "route_note": "Direct specialization of existing QuarticQuery.tree_gap_le with ρ=(2/3)^r, using address_guess_le. Its source conclusion is one-sided; the absolute-value version is proved separately in prose by first difference. No fresh build."
+  },
+  {
+    "id": "NCL-explicit-floor",
+    "statement": "For all integers k≥2 and t≥8, with m=4^t, floor((m/100)floor(m^(1−1/k)/(log₂m)²)) is at least (1/400)m^(2−1/k)/(log₂m)².",
+    "why_needed": "Records the explicit uniform strengthening of the existential asymptotic constant in claim-floor.",
+    "depends_on": [
+      "eq-5",
+      "eq-17"
+    ],
+    "proposed_lean": "namespace QuarticQuery\ntheorem explicit_floor_record {k t : ℕ} (hk : 2 ≤ k) (ht : 8 ≤ t) :\n    (1 / 400 : ℝ) * Real.rpow (mValue t : ℝ) (2 - 1 / (k : ℝ)) /\n      (Real.logb 2 (mValue t : ℝ)) ^ 2 ≤\n      (Gvalue (mValue t) (Lvalue k t) : ℝ)\nend QuarticQuery",
+    "route_note": "Existing QuarticQuery.Gvalue_ge states the same bound with m=4^t and denominator (2t)². Rewrite using mValue_eq_pow_four and logb_mValue. Same route; no new proof claimed."
+  },
+  {
+    "id": "new-upper-average-exact",
+    "statement": "For every real theta and integer M >= 1 with sin(2 theta) != 0, (1/M) sum_{ell=0}^{M-1} sin^2((2ell+1)theta) = 1/2 - sin(4Mtheta)/(4M sin(2theta)).",
+    "why_needed": "Makes the telescoping calculation and exact conditional amplification analysis explicit. The corpus eq-9 only records a weaker lower bound.",
+    "depends_on": [
+      "claim-grover-state"
+    ],
+    "proposed_lean": "theorem QuarticQuery.Amplification.record_average_sin_sq {θ : ℝ} {M : ℕ}\n    (hM : M ≠ 0) (hs : Real.sin (2 * θ) ≠ 0) :\n    (1 / (M : ℝ)) * ∑ ℓ ∈ Finset.range M, Real.sin ((2 * ℓ + 1) * θ) ^ 2\n      = 1 / 2 - Real.sin (4 * M * θ) / (4 * M * Real.sin (2 * θ))",
+    "route_note": "New record, unchecked as a new corpus statement. Same route. Its exact proposed type is already present as QuarticQuery.Amplification.average_sin_sq; source inspected, no fresh compilation or independent comparison performed."
+  },
+  {
+    "id": "new-upper-call-cap",
+    "statement": "For 0 < gamma <= 1/2 and 0 < eta < 1/2, the bounded amplification procedure has callCap <= trialCount(eta) (2 iterationBound(gamma)+1), and real callCap <= 138 (sqrt gamma)^(-1) ln(1/eta).",
+    "why_needed": "States the finite branch cap and explicit numerical constant used to justify the big-O bound without assuming a lower bound on the actual success probability.",
+    "depends_on": [
+      "def-grover-trial",
+      "lem-3.1"
+    ],
+    "proposed_lean": "theorem QuarticQuery.Amplification.record_call_cap {γ η : ℝ}\n    (hγ : 0 < γ) (hγ1 : γ ≤ 1 / 2) (hη : 0 < η) (hη1 : η < 1 / 2) :\n    (QuarticQuery.Amplification.amplify γ η).callCap ≤\n      QuarticQuery.Amplification.trialCount η *\n        (2 * QuarticQuery.Amplification.iterationBound γ + 1) ∧\n    (((QuarticQuery.Amplification.amplify γ η).callCap : ℕ) : ℝ) ≤\n      138 * (Real.sqrt γ)⁻¹ * Real.log (1 / η)",
+    "route_note": "New record, unchecked as a new corpus statement. Same arithmetic route as QuarticQuery.Amplification.callCap_amplify_le, together with QuarticQuery.Amplification.callCap_attempts. Both conjuncts occur at the start of QuarticQuery.Amplification.bounded_amplification. No change to the original asymptotic Lemma 3.1 statement."
+  },
+  {
+    "id": "new-upper-sampler-law",
+    "statement": "For a coherent finite sampler of n abstract reads with successful label masses q_x(b), bounded amplification at positive gamma and eta produces a failure probability f_x in [0,1], with f_x <= eta whenever sum_b q_x(b) >= gamma and f_x=1 if that sum is zero. Its successful-label mass is exactly (1-f_x) q_x(b)/(sum_b q_x(b)); it runs with cap trialCount(eta)*2*((2 iterationBound(gamma)+1)*n) ordinary bit queries.",
+    "why_needed": "Records the precise compiled label law, which is the formal endpoint used by the tournament and verifier, and distinguishes it from the abstract coherent-state theorem.",
+    "depends_on": [
+      "def-grover-trial",
+      "claim-grover-state",
+      "eq-9",
+      "lem-3.1",
+      "claim-coherent-access"
+    ],
+    "proposed_lean": "theorem QuarticQuery.Upper.record_amplified_label_law\n    {ι β : Type} [Fintype ι] [Inhabited ι] [Fintype β]\n    {n : ℕ} {L : QuarticQuery.BitInput ι → Option β → ℝ}\n    (h : QuarticQuery.Upper.Samples n L) {γ η : ℝ} (hγ : 0 < γ) (hη : 0 < η) :\n    ∃ f : QuarticQuery.BitInput ι → ℝ,\n      (∀ x, 0 ≤ f x ∧ f x ≤ 1) ∧\n      (∀ x, γ ≤ ∑ b, L x (some b) → f x ≤ η) ∧\n      (∀ x, ∑ b, L x (some b) = 0 → f x = 1) ∧\n      QuarticQuery.Upper.Runs\n        (QuarticQuery.Amplification.trialCount η *\n          (2 * ((2 * QuarticQuery.Amplification.iterationBound γ + 1) * n)))\n        (fun x => QuarticQuery.Upper.ampLaw (f x) (fun b => L x (some b)))",
+    "route_note": "New record, unchecked as a new corpus statement. Exact source type already exists as QuarticQuery.Upper.Samples.amplify. The geometrical label law follows the same amplitude argument, while compilation through QuarticQuery.Upper.Samples.runs uses full basis measurement and a known reset instead of retaining a separate coherent register for every completed attempt. The corpus marks this composition route alternative. Source inspection only."
+  },
+  {
+    "id": "new-upper-continuation-bound",
+    "statement": "Let a be a unit-valued table, v be verifier probabilities, and f(L) stage failure probabilities in [0,1]. Suppose f(L)=1 at zero total weight, s is epsilon-dominant, v(s)>=1-epsilon, 0<=epsilon<=1, T0*epsilon<1/2, and f(L)<=epsilon whenever length(L)<=T0 and s is absent. Then for length(L)+n<=T0, tval(a,v,f,n,L)>=(1-epsilon)(1-missFrom(a,s,n,L)-n*epsilon).",
+    "why_needed": "Gives and proves the exact Boolean-continuation invariant used by the inspected Lean proof, including arbitrary history-dependent failure and the final verifier factor.",
+    "depends_on": [
+      "def-ideal-process",
+      "eq-12",
+      "claim-weight-lb",
+      "claim-coupling"
+    ],
+    "proposed_lean": "theorem QuarticQuery.Upper.record_continuation_bound\n    {Col : Type} [Fintype Col] {a : Col → Col → ℝ} {v : Col → ℝ}\n    {f : List Col → ℝ} (ha : QuarticQuery.Tournament.UnitValued a)\n    (hv : ∀ c, 0 ≤ v c ∧ v c ≤ 1) (hf : ∀ L, 0 ≤ f L ∧ f L ≤ 1)\n    (hz : ∀ L, QuarticQuery.Tournament.total (QuarticQuery.Tournament.weight a L) = 0 → f L = 1)\n    {s : Col} {ε : ℝ} (hε0 : 0 ≤ ε) (hε1 : ε ≤ 1)\n    (hd : QuarticQuery.Tournament.Dominant a ε s) (hvs : 1 - ε ≤ v s)\n    {T₀ : ℕ} (hT : (T₀ : ℝ) * ε < 1 / 2)\n    (hfail : ∀ L : List Col, L.length ≤ T₀ → s ∉ L → f L ≤ ε)\n    (n : ℕ) (L : List Col) (hL : L.length + n ≤ T₀) :\n    (1 - ε) * (1 - QuarticQuery.Upper.missFrom a s n L - n * ε)\n      ≤ QuarticQuery.Upper.tval a v f n L",
+    "route_note": "New record, unchecked as a new corpus statement. Exact source type exists as QuarticQuery.Upper.tval_lower. The written induction follows its case split and handles the possible negative lower-bound bracket explicitly. It is an alternative expression of the paper coupling argument, with the additional verifier factor visible. It does not turn QuarticQuery.Upper.tournament_runs into a list-valued theorem."
+  },
+  {
+    "id": "new-upper-finite-budget",
+    "statement": "For k>=1,t>=1 and a circuit C realizing P(k,t), take n at least repetitions(k,epsval(mValue(t))/(40t)), and K=card(Tests(t,C)). Let T=Tval(mValue(t)), epsilon=epsval(mValue(t)), a=40t(nk), cc=2a+2(2t+1), c0=max(3,2t+1), N=trialCount(epsilon), M0=iterationBound((2mValue(t))^(-1)), M1=iterationBound(K^(-1)). Then QLe(totalise(Fkm(k,t,C)), B), where B=T[2N(2M0+1)T cc]+T[2a+2N(2M1+1)c0].",
+    "why_needed": "Exposes the all-input integer query cap before asymptotic simplification, including stage padding and two bit queries per abstract read.",
+    "depends_on": [
+      "lem-2.1.ii",
+      "def-K",
+      "prop-3.2",
+      "claim-decode-cost",
+      "claim-verify",
+      "claim-error",
+      "claim-coherent-access"
+    ],
+    "proposed_lean": "theorem QuarticQuery.Upper.record_finite_budget\n    {k t : ℕ} {C : QuarticQuery.Circuit (QuarticQuery.ForrelationCoord k t)}\n    (hk : 1 ≤ k) (ht : 1 ≤ t)\n    (hC : QuarticQuery.CircuitRealises C (QuarticQuery.P k t)) {n : ℕ}\n    (hn : QuarticQuery.Forrelation.repetitions k\n      (QuarticQuery.Tournament.epsval (QuarticQuery.mValue t) / (40 * t : ℕ)) ≤ n) :\n    QuarticQuery.QLe (QuarticQuery.totalise (QuarticQuery.Fkm k t C))\n      (QuarticQuery.Upper.budget k t n\n        (Fintype.card (QuarticQuery.Upper.Tests t C)))",
+    "route_note": "New record, unchecked as a new corpus statement. Source endpoint QuarticQuery.Upper.Fkm_QLe has this type after expanding its local abbreviations; the displayed formula is the definitional expansion of QuarticQuery.Upper.budget through QuarticQuery.Upper.stageCost and QuarticQuery.Upper.searchCost. Source inspected, no fresh Lean check. The proposed signature uses the existing budget vocabulary; no new cost model is introduced."
+  },
+  {
+    "id": "new-upper-log6",
+    "statement": "For each k=l+1>=1, with the realizing circuit forrCircuit(l,t) chosen in the supplied construction and each t>=1, Q(totalise(Fkm(k,t,forrCircuit(l,t)))) <= budgetConst(k) 2^t (2t)^6. In particular the construction for every fixed k>=2 has one constant C_k independent of t with this bound.",
+    "why_needed": "States the stronger explicit logarithmic exponent actually obtained by the source, keeping its circuit and its uniformity in t visible.",
+    "depends_on": [
+      "new-upper-finite-budget",
+      "lem-2.1.iii",
+      "def-K"
+    ],
+    "proposed_lean": "theorem QuarticQuery.Upper.record_log6 (l t : ℕ) (ht : 1 ≤ t) :\n    QuarticQuery.QLe\n      (QuarticQuery.totalise\n        (QuarticQuery.Fkm (l + 1) t (QuarticQuery.Forrelation.forrCircuit l t)))\n      (QuarticQuery.Upper.budgetConst (l + 1) * 2 ^ t * (2 * t) ^ 6)",
+    "route_note": "New record, unchecked as a new corpus statement. Same explicit arithmetic as QuarticQuery.Upper.budget_le. The exact algorithmic endpoint is QuarticQuery.Upper.Fkm_forrCircuit_QLe and the numerical endpoint is QuarticQuery.Upper.Q_Fkm_le. The corpus marks those as stronger ties to prop-3.3. The original prop-3.3 is left unchanged."
+  }
+]

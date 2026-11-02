@@ -1,37 +1,38 @@
 {
  "statements": 121,
- "corrected": 10,
+ "corrected": 11,
  "ledger_ids_without_a_row": [
   "claim-butterfly",
   "def-P"
  ],
  "formal_statement": {
-  "exact": 19,
-  "none": 51,
+  "exact": 18,
+  "none": 47,
   "partial": 42,
   "stronger": 8,
+  "unassessed": 5,
   "weaker": 1
  },
  "formal_origin": {
-  "none": 51,
-  "ours": 70
+  "none": 47,
+  "ours": 74
  },
  "build": {
-  "built_at_pin": 70,
-  "not_run": 51
+  "built_at_pin": 69,
+  "not_run": 52
  },
  "comparator": {
-  "compared": 8,
-  "not_run": 113
+  "compared": 7,
+  "not_run": 114
  },
  "route": {
-  "alternative": 6,
-  "none": 101,
+  "alternative": 5,
+  "none": 102,
   "same": 14
  },
  "reach": {
-  "none": 51,
-  "outside": 6,
-  "reached": 64
+  "none": 47,
+  "outside": 11,
+  "reached": 63
  }
 }

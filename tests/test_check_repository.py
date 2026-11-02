@@ -95,6 +95,23 @@ class RepositoryTests(unittest.TestCase):
         self.assertEqual([], self.errors())
         self.assertTrue(any("stale local link" in e for e in self.errors(index=True)))
 
+    def test_contributor_and_agent_links_use_staged_contents(self):
+        for path in ("CONTRIBUTING.md", "AGENTS.md"):
+            with self.subTest(path=path):
+                self.write(path, "[old](missing.md)\n")
+                self.git("add", path)
+                self.write(path, "[current](README.md)\n")
+                self.assertEqual([], self.errors())
+                self.assertTrue(any(path in e and "stale local link" in e
+                                    for e in self.errors(index=True)))
+                self.git("add", path)
+
+    def test_contributor_guide_is_required_in_index(self):
+        self.git("rm", "--cached", "CONTRIBUTING.md")
+        self.assertEqual([], self.errors())
+        self.assertTrue(any("CONTRIBUTING.md: required" in e
+                            for e in self.errors(index=True)))
+
     def test_staged_addition_is_used_despite_unstaged_removal(self):
         self.write("research/new.txt")
         self.write("README.md", "[new](research/new.txt)\n")

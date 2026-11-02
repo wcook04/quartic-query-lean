@@ -1,0 +1,190 @@
+{
+  "status": "passed",
+  "checked_utc": "2026-11-02T11:46:56.786700+00:00",
+  "source_packet_commit": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+  "checks": [
+    {
+      "check": "required_deliverables_present",
+      "status": "pass",
+      "details": [
+        "levels.md",
+        "levels.json",
+        "argument_map.json",
+        "fidelity_view.md",
+        "film_12min.md",
+        "film_4min.md",
+        "data_contract.md",
+        "correspondence.json",
+        "NEW_STATEMENTS.json",
+        "LEAN_GAPS.md",
+        "STATEMENT_CHANGES.json"
+      ]
+    },
+    {
+      "check": "input_manifest_integrity",
+      "status": "pass",
+      "details": {
+        "hashed_members": 109,
+        "scope": "Matches the supplied manifest; does not authenticate an external build."
+      }
+    },
+    {
+      "check": "map_source_fields_unchanged",
+      "status": "pass",
+      "details": {
+        "nodes": 46
+      }
+    },
+    {
+      "check": "collapsed_support_paths_resolve",
+      "status": "pass",
+      "details": {
+        "edges": 95
+      }
+    },
+    {
+      "check": "map_reading_order_covers_nodes",
+      "status": "pass"
+    },
+    {
+      "check": "new_statement_ids_unique",
+      "status": "pass"
+    },
+    {
+      "check": "new_signatures_have_context_and_uncompiled_status",
+      "status": "pass",
+      "details": {
+        "count": 6,
+        "elaboration_performed": false
+      }
+    },
+    {
+      "check": "no_existing_mathematical_statement_changed",
+      "status": "pass"
+    },
+    {
+      "check": "correspondence_unique",
+      "status": "pass"
+    },
+    {
+      "check": "all_declared_passage_anchors_bound",
+      "status": "pass"
+    },
+    {
+      "check": "passage_boundaries_ids_and_declarations_resolve",
+      "status": "pass",
+      "details": {
+        "passages": 65
+      }
+    },
+    {
+      "check": "five_explanation_levels",
+      "status": "pass"
+    },
+    {
+      "check": "each_level_has_example_novelty_importance_and_scope",
+      "status": "pass"
+    },
+    {
+      "check": "film_durations_and_script_data_agree",
+      "status": "pass",
+      "details": {
+        "film12": {
+          "planned_seconds": 720,
+          "shots": 14,
+          "spoken_words": 1534,
+          "timing_status": "planned, not recorded"
+        },
+        "film4": {
+          "planned_seconds": 240,
+          "shots": 7,
+          "spoken_words": 471,
+          "timing_status": "planned, not recorded"
+        }
+      }
+    },
+    {
+      "check": "walsh_matrix_matches_public_bit_parity_definition",
+      "status": "pass"
+    },
+    {
+      "check": "forrelation_and_projection_calculations_exact",
+      "status": "pass",
+      "details": {
+        "yes": {
+          "numerator": 8,
+          "denominator": 8,
+          "Phi": "1",
+          "P": 1,
+          "projection_probability": "1"
+        },
+        "zero": {
+          "numerator": 0,
+          "denominator": 8,
+          "Phi": "0",
+          "P": 0,
+          "projection_probability": "0"
+        }
+      }
+    },
+    {
+      "check": "finite_parameter_values",
+      "status": "pass"
+    },
+    {
+      "check": "small_example_floor_and_thresholds",
+      "status": "pass"
+    },
+    {
+      "check": "dummy_board_values",
+      "status": "pass"
+    },
+    {
+      "check": "planted_board_values",
+      "status": "pass"
+    },
+    {
+      "check": "address_from_exact_blocks",
+      "status": "pass"
+    },
+    {
+      "check": "outward_pointer_targets_are_actual_zeros",
+      "status": "pass"
+    },
+    {
+      "check": "displayed_X_change_is_only_erased_zero",
+      "status": "pass"
+    },
+    {
+      "check": "local_test_categories_match_card_testIndex_specialization",
+      "status": "pass"
+    },
+    {
+      "check": "diagram_assets_present",
+      "status": "pass"
+    },
+    {
+      "check": "comparator_configuration_exact_copy",
+      "status": "pass"
+    },
+    {
+      "check": "checking_film_source_snippets_and_negative_modules_exact",
+      "status": "pass"
+    },
+    {
+      "check": "gap_statuses_preserve_corpus_values",
+      "status": "pass"
+    },
+    {
+      "check": "authored_markdown_has_no_em_dash_or_unresolved_placeholder",
+      "status": "pass"
+    }
+  ],
+  "limits": [
+    "No Lean elaboration, compilation, axiom export, Comparator execution, external-kernel replay or human review.",
+    "New Lean signatures remain proposed_uncompiled.",
+    "Circuit transcript bits and numerical circuit size are specified by the supplied circuit, not materialized or executed here.",
+    "Finite arithmetic and file-consistency checks do not establish the asymptotic theorem or authenticate historical execution receipts.",
+    "Film durations are proposed edit windows, not a measured narration performance."
+  ]
+}

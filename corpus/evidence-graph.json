@@ -203,7 +203,7 @@
    "id": "claim-bs-to-L",
    "kind": "claim",
    "label": "claim-bs-to-L",
-   "status": "kernel_checked",
+   "status": "unverified",
    "assumption_ids": [],
    "evidence_ids": [
     "fidelity_review"
@@ -211,7 +211,7 @@
    "citation_ids": [],
    "source_id": "openai_preprint",
    "locator": "Section 2.1, extracted line 173",
-   "statement": "For fixed k: for large m, c k^{-29} (m/log(km))^{1-1/k} > floor(m^{1-1/k}/(log_2 m)^2)."
+   "statement": "For fixed k>=2 and the positive constant c of the Bansal-Sinha bound: for all sufficiently large powers of four m, c k^{-29} (m/log(km))^{1-1/k} > floor(m^{1-1/k}/(log_2 m)^2)."
   },
   {
    "id": "lem-2.1.i",
@@ -3196,7 +3196,7 @@
     "openai_preprint"
    ],
    "subject_ids": [],
-   "details": ""
+   "details": "Altered solution negative-ChangedDefinition rejected as expected (exit 1, diagnostic \"IsComparison\")."
   },
   {
    "id": "run_6",
@@ -3214,7 +3214,7 @@
     "openai_preprint"
    ],
    "subject_ids": [],
-   "details": ""
+   "details": "Altered solution negative-ForeignAxiom rejected as expected (exit 1, diagnostic \"cheat\")."
   },
   {
    "id": "run_7",
@@ -3232,7 +3232,7 @@
     "openai_preprint"
    ],
    "subject_ids": [],
-   "details": ""
+   "details": "Altered solution negative-MissingDeclaration rejected as expected (exit 1, diagnostic \"expected_weight_le_half\")."
   },
   {
    "id": "run_8",
@@ -3250,7 +3250,7 @@
     "openai_preprint"
    ],
    "subject_ids": [],
-   "details": ""
+   "details": "Altered solution negative-SorryProof rejected as expected (exit 1, diagnostic \"sorryAx\")."
   },
   {
    "id": "run_9",
@@ -3268,7 +3268,7 @@
     "openai_preprint"
    ],
    "subject_ids": [],
-   "details": ""
+   "details": "Altered solution negative-WeakenedConclusion rejected as expected (exit 1, diagnostic \"statement do not match\")."
   },
   {
    "id": "run_10",

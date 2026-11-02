@@ -1,0 +1,471 @@
+{
+  "schema": "quartic_reader_levels_v1",
+  "source_snapshot": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+  "audience": "A working theoretical computer scientist or mathematician with graduate-level query complexity.",
+  "levels": [
+    {
+      "id": "one_sentence",
+      "title": "One sentence",
+      "passage": "L1-sentence",
+      "text": "A four-column picture of one all-one column pointing to zeros in its rivals illustrates OpenAI’s new construction of total Boolean functions, which proves that the optimal universal exponent relating randomized and quantum bit queries, with worst-case error at most one third, is four and refutes the cubic conjecture.",
+      "opening_example": "four_column_winner",
+      "statement_ids": [
+        "thm-1.1",
+        "cor-cubic-refuted",
+        "def-F",
+        "claim-winner-dominates"
+      ],
+      "new_statement_ids": [],
+      "novelty": "OpenAI’s total-function family rules out every universal exponent below four.",
+      "why_it_matters": "It settles the optimal exponent and refutes the cubic conjecture.",
+      "scope": "Worst-case bounded-error bit queries. The finite picture illustrates the construction."
+    },
+    {
+      "id": "one_paragraph",
+      "title": "One paragraph",
+      "passage": "L2-paragraph",
+      "text": "Consider four columns whose bit strings are \\(1111,1101,1011,1110\\), with positions read from top to bottom. The first column can win if its correctly addressed certificate points to the displayed zero in each rival and certifies every answer used in its address. This illustrates OpenAI’s construction proving that the optimal universal exponent relating bounded-error randomized and quantum queries is four. A quantum procedure cheaply compares two columns: the winner’s correct pointer disqualifies its opponent, and no pointer can find a zero in the winner’s all-one string. Comparisons between losing columns may behave arbitrarily. A probabilistic tournament finds a short candidate list, after which quantum search checks the certificates. The randomized lower bound uses separate certificate arrays and a hidden winning column; reaching the relevant cell requires learning or guessing a vector of hard partial-function answers. For each fixed integer \\(k\\ge2\\), the family has quantum cost at most \\(C_k\\sqrt m(\\log_2m)^{b_k}\\) and randomized cost at least \\(c_km^{2-1/k}/(\\log_2m)^2\\) for sufficiently large powers of four \\(m\\). Choosing \\(k\\) before letting \\(m\\) grow rules out every universal exponent below four. Together with the earlier quartic upper bound of Aaronson, Ben-David, Kothari, Rao and Tal, this settles the exponent. These are worst-case bit-query bounds; the four-column picture illustrates the definition, and the theorem makes no claim about its running time.",
+      "opening_example": "four_column_winner",
+      "statement_ids": [
+        "def-F",
+        "claim-winner-dominates",
+        "prop-3.2",
+        "prop-3.3",
+        "lem-4.1",
+        "prop-4.2",
+        "eq-2",
+        "thm-A.1",
+        "thm-1.1"
+      ],
+      "new_statement_ids": [
+        "reader-example-instance"
+      ],
+      "novelty": "Outward pointers, probabilistic comparisons and separate hard-address arrays give the improved total-function separation.",
+      "why_it_matters": "The resulting family closes the exponent gap.",
+      "scope": "Each k is fixed; constants and logarithmic factors are retained."
+    },
+    {
+      "id": "one_page",
+      "title": "One page",
+      "passages": [
+        "L3-example",
+        "L3-address",
+        "L3-quantum",
+        "L3-classical",
+        "L3-bounds",
+        "L3-evidence"
+      ],
+      "text": "<!-- passage:L3-example -->\nConsider four strings \\(1111,1101,1011,1110\\). The first column’s certificate points to the displayed zero in each rival, while its own all-one string prevents any incoming pointer from finding a zero. This illustrates OpenAI’s construction proving that the optimal universal exponent relating randomized and quantum query complexity is four, refuting the conjectured cubic relation. [OpenAI, Theorem 1.1, §2.2; ABKRT, Conjecture 2.]\n<!-- /passage:L3-example -->\n\n<!-- passage:L3-address -->\nEach column has a separate array of certificate cells. The correct address is a vector of Forrelation answers, each defined only on a specified promise. A column wins when its address answers are all defined, the cell at that address contains correct circuit transcripts and pointers to zeros in every rival, and its own string is all ones. The total function asks whether a winner exists, assigning an answer to every input bit string. [OpenAI, Lemma 2.1, §2.2.]\n<!-- /passage:L3-address -->\n\n<!-- passage:L3-quantum -->\nA quantum comparison produces proposed addresses for two columns and reads the pointers between them. A winner defeats its opponent whenever its own address is decoded correctly, even when the opponent’s Forrelation inputs fall outside their promises. Finding a short candidate list is harder: losing columns need not have a consistent order. The tournament samples using products of actual comparison probabilities. Amplitude amplification preserves this sampling law; a shrinking total weight bounds the chance of missing the winner. Quantum search then checks the listed certificates. [OpenAI, Lemma 3.1, Proposition 3.2, §3.3.]\n<!-- /passage:L3-quantum -->\n\n<!-- passage:L3-classical -->\nFor the classical bound, start with one hidden zero in every column and blank cells. Erase a uniformly chosen column’s zero and fill its correct cell. Until a query reaches either change, the two inputs give identical answers. Separate arrays make addressing many possible winners expensive. A capped direct-product argument bounds adaptive address guesses by stopping a simulator before its budget is exceeded. It bounds a joint event, avoiding conditioning that could alter the independent hard-input distribution. [OpenAI, Lemma 4.1, §4.2, (18), (21), (22).]\n<!-- /passage:L3-classical -->\n\n<!-- passage:L3-bounds -->\nWrite \\(R(f)\\) and \\(Q(f)\\) for minimum worst-case bit queries, allowing error at most \\(1/3\\) on every input; computation between queries is unrestricted. For every fixed integer \\(k\\ge2\\), there are positive constants \\(c_k,C_k,b_k\\) and total functions \\(F_{k,m}\\), for all sufficiently large powers of four \\(m\\), satisfying\n\n\\[\nQ(F_{k,m})\\le C_k\\sqrt m(\\log_2m)^{b_k},\\qquad\nR(F_{k,m})\\ge c_k\\frac{m^{2-1/k}}{(\\log_2m)^2}.\n\\]\n\nGiven a proposed exponent \\(0\\le\\alpha<4\\), choose \\(k\\) with \\(2-1/k>\\alpha/2\\), then increase \\(m\\). The ratio \\(R(F_{k,m})/(1+Q(F_{k,m}))^\\alpha\\) becomes arbitrarily large. Aaronson, Ben-David, Kothari, Rao and Tal proved the universal quartic upper bound, so the optimal exponent is exactly four. The construction supplies exponents approaching four as fixed \\(k\\) varies; it does not establish an exact fourth-power separation for one fixed member-family. [OpenAI, (1), (2), §5, Theorem A.1; ABKRT, Theorem 2.]\n<!-- /passage:L3-bounds -->\n\n<!-- passage:L3-evidence -->\nThe supplied development reports an unconditional Lean proof of Theorem 1.1, with several alternative proof routes. Its local Comparator rehearsals and AI fidelity reviews are recorded separately. Original run receipts are absent from the supplied archive; no builds were reproduced here and no human review is reported. [Repository README; Results/Unconditional.lean; current statements.json; fidelity review, findings 3–7.]\n<!-- /passage:L3-evidence -->",
+      "opening_example": "four_column_winner",
+      "statement_ids": [
+        "def-column-layout",
+        "def-F",
+        "claim-winner-dominates",
+        "thm-1.1",
+        "cor-cubic-refuted",
+        "eq-4",
+        "lem-2.1.iii",
+        "def-eval-transcript",
+        "eq-7",
+        "lem-2.2.i",
+        "eq-12",
+        "eq-13",
+        "claim-success-prob",
+        "lem-3.1",
+        "prop-3.2",
+        "claim-verify",
+        "prop-3.3",
+        "def-dummy",
+        "def-planted",
+        "eq-18",
+        "lem-4.1",
+        "def-simulator",
+        "eq-21",
+        "eq-22",
+        "prop-4.2",
+        "def-R",
+        "def-Q",
+        "eq-1",
+        "eq-2",
+        "claim-exponent-ratio",
+        "claim-no-smaller-exponent",
+        "thm-A.1",
+        "lem-2.1.i",
+        "eq-19"
+      ],
+      "new_statement_ids": [
+        "reader-example-instance"
+      ],
+      "novelty": "The total-function construction and its two analyses.",
+      "why_it_matters": "The reader can reconstruct the proof spine and distinguish mathematical support from reported formal checks.",
+      "scope": "A synopsis, with the paper and formal source available at the relevant steps."
+    },
+    {
+      "id": "argument_map",
+      "title": "Argument map",
+      "passage": "L4-map",
+      "text": "Keep the same column 0 and its three outward pointers in view. Begin at the definition of a winner, then follow two branches: the quantum comparison and verification bound, and the randomized planted-input bound. They meet at the family bounds, which combine with the earlier universal quartic bound to give the optimal exponent. The new work is the total-function family and its analyses; the reusable comparison argument tolerates arbitrary probabilities between losing columns. [OpenAI, §§2–5.]",
+      "opening_example": "four_column_winner",
+      "data_file": "argument_map.json",
+      "statement_ids": [
+        "def-F",
+        "claim-winner-dominates",
+        "prop-3.3",
+        "prop-4.2",
+        "eq-2",
+        "thm-A.1",
+        "thm-1.1"
+      ],
+      "new_statement_ids": [],
+      "novelty": "The two bound-producing branches are visible separately.",
+      "why_it_matters": "A reader sees which lemma answers each objection and can inspect an exact statement without losing their place.",
+      "scope": "Edges explain mathematical support; they do not certify Lean proof dependencies."
+    },
+    {
+      "id": "reading_route",
+      "title": "Reading route",
+      "passage": "L5-route",
+      "text": "Return to the four strings \\(1111,1101,1011,1110\\). Read §2.2 until you can state every condition under which column 0 wins. Use that object to follow the two analyses below, and return to Theorem 1.1 after their bounds are available. This order places the new construction before its quantum implementation and makes clear how it improves the randomized-versus-quantum separation. [OpenAI, §§1.2, 2.2, 3, 4, 5.]",
+      "opening_example": "four_column_winner",
+      "steps": [
+        {
+          "step": 1,
+          "paper": "§2.2; Figure 1; Lemma 2.2",
+          "pages": [
+            5,
+            6
+          ],
+          "question": "Which input bits make column 0 a winner?",
+          "retain": "A true-address cell certifies its address and points to a zero in every rival.",
+          "statement_ids": [
+            "def-column-layout",
+            "eq-7",
+            "eq-8",
+            "def-F",
+            "claim-winner-fidelity",
+            "lem-2.2.i",
+            "lem-2.2.ii"
+          ],
+          "detail": "Define a transcript and read one pointer before the asymptotics."
+        },
+        {
+          "step": 2,
+          "paper": "§1; Theorem 1.1; equation (2)",
+          "pages": [
+            1
+          ],
+          "question": "What must the two analyses prove?",
+          "retain": "The quantum upper bound grows as sqrt(m) times logarithms; the classical lower bound grows as m^(2-1/k) divided by logarithms.",
+          "statement_ids": [
+            "def-R",
+            "def-Q",
+            "eq-2",
+            "thm-1.1"
+          ],
+          "detail": "Keep k fixed. These are query counts, with a worst-case branch cap."
+        },
+        {
+          "step": 3,
+          "paper": "§2.1; Lemma 2.1 statement",
+          "pages": [
+            3,
+            4
+          ],
+          "question": "What properties are needed from Forrelation?",
+          "retain": "Classical hardness, quantum decoding and a small exact circuit have distinct jobs.",
+          "statement_ids": [
+            "eq-3",
+            "eq-4",
+            "lem-2.1.i",
+            "lem-2.1.ii",
+            "lem-2.1.iii"
+          ],
+          "detail": "The two concrete signed inputs in visual_data.json give Phi=1 and Phi=0. Read the integer circuit proof later if desired."
+        },
+        {
+          "step": 4,
+          "paper": "§3.3, through the winner comparison",
+          "pages": [
+            9,
+            10
+          ],
+          "question": "Why do incorrect addresses in rivals cause no difficulty for a genuine winner?",
+          "retain": "No incoming pointer can find a zero in an all-one column.",
+          "statement_ids": [
+            "def-comparison",
+            "claim-comparison-state",
+            "claim-winner-dominates"
+          ],
+          "detail": "Spell out both pointer directions. No ordering of losers is assumed."
+        },
+        {
+          "step": 5,
+          "paper": "§3.2; equations (10)–(15); §3.1",
+          "pages": [
+            7,
+            8,
+            9
+          ],
+          "question": "How is a useful list sampled when losing comparisons are arbitrary?",
+          "retain": "Weights multiply by actual comparison probabilities; complementarity reduces expected total weight to at most half.",
+          "statement_ids": [
+            "eq-10",
+            "eq-12",
+            "eq-13",
+            "eq-14",
+            "eq-15",
+            "claim-success-prob",
+            "lem-3.1",
+            "prop-3.2"
+          ],
+          "detail": "Read the drift calculation and why fresh workspaces give products. The Lean implementation consumes the list through a verifier."
+        },
+        {
+          "step": 6,
+          "paper": "§3.3; verification; Proposition 3.3",
+          "pages": [
+            10
+          ],
+          "question": "How does the list become a correct total-function algorithm?",
+          "retain": "Search for a failing test at the decoded address; every false candidate has a failed test.",
+          "statement_ids": [
+            "claim-verify",
+            "claim-error",
+            "prop-3.3"
+          ],
+          "detail": "Keep the total input domain and all-branch query cap in view."
+        },
+        {
+          "step": 7,
+          "paper": "§4.2 through equation (18)",
+          "pages": [
+            12
+          ],
+          "question": "Where can a query distinguish a planted winner from the blank input?",
+          "retain": "Only the erased zero and the planted cell differ.",
+          "statement_ids": [
+            "def-dummy",
+            "def-planted",
+            "claim-Y-values",
+            "eq-18"
+          ],
+          "detail": "Animate the same board backwards before introducing distributions."
+        },
+        {
+          "step": 8,
+          "paper": "§4.1; Lemma 4.1; §4.2 equations (19)–(23)",
+          "pages": [
+            11,
+            12,
+            13
+          ],
+          "question": "Why does adaptivity not make an unlearned address easy to guess?",
+          "retain": "The capped simulator bounds the joint event without conditioning on being nonheavy.",
+          "statement_ids": [
+            "lem-4.1",
+            "claim-minimax-mu",
+            "claim-address-guess",
+            "eq-19",
+            "eq-20",
+            "def-simulator",
+            "eq-21",
+            "eq-22",
+            "eq-23",
+            "prop-4.2"
+          ],
+          "detail": "Slow down here. Lean uses sub-distributions for Lemma 4.1 and a stronger erased-zero bound."
+        },
+        {
+          "step": 9,
+          "paper": "§5; Theorem 1.1",
+          "pages": [
+            14
+          ],
+          "question": "How do these bounds rule out every exponent below four?",
+          "retain": "Choose k from alpha first; then let m tend to infinity.",
+          "statement_ids": [
+            "claim-floor",
+            "cor-R-omega",
+            "eq-2",
+            "claim-exponent-ratio",
+            "claim-no-smaller-exponent",
+            "thm-1.1",
+            "cor-cubic-refuted"
+          ],
+          "detail": "The logarithms and k-dependent constants remain until the limiting argument."
+        },
+        {
+          "step": 10,
+          "paper": "Appendix A; Theorem A.1",
+          "pages": [
+            14,
+            15,
+            16,
+            17
+          ],
+          "question": "What is the independently known universal upper bound?",
+          "retain": "R <= D = O((1+Q)^4) for total Boolean functions.",
+          "statement_ids": [
+            "thm-A.1",
+            "def-D"
+          ],
+          "detail": "Read the paper proof for its mathematics; the Lean proof reaches the theorem through complexitylib."
+        },
+        {
+          "step": 11,
+          "paper": "Optional formal supplement: lower-bound blueprint and review",
+          "pages": [],
+          "question": "How was the paper’s external Forrelation hypothesis discharged?",
+          "retain": "A separate fixed-k proof establishes the precise weaker lower bound this construction uses.",
+          "statement_ids": [
+            "lem-2.1.i",
+            "thm-1.1"
+          ],
+          "detail": "This supplement is outside the preprint. No claim of priority or human review is made."
+        }
+      ],
+      "statement_ids": [
+        "def-column-layout",
+        "eq-7",
+        "eq-8",
+        "def-F",
+        "claim-winner-fidelity",
+        "lem-2.2.i",
+        "lem-2.2.ii",
+        "def-R",
+        "def-Q",
+        "eq-2",
+        "thm-1.1",
+        "eq-3",
+        "eq-4",
+        "lem-2.1.i",
+        "lem-2.1.ii",
+        "lem-2.1.iii",
+        "def-comparison",
+        "claim-comparison-state",
+        "claim-winner-dominates",
+        "eq-10",
+        "eq-12",
+        "eq-13",
+        "eq-14",
+        "eq-15",
+        "claim-success-prob",
+        "lem-3.1",
+        "prop-3.2",
+        "claim-verify",
+        "claim-error",
+        "prop-3.3",
+        "def-dummy",
+        "def-planted",
+        "claim-Y-values",
+        "eq-18",
+        "lem-4.1",
+        "claim-minimax-mu",
+        "claim-address-guess",
+        "eq-19",
+        "eq-20",
+        "def-simulator",
+        "eq-21",
+        "eq-22",
+        "eq-23",
+        "prop-4.2",
+        "claim-floor",
+        "cor-R-omega",
+        "claim-exponent-ratio",
+        "claim-no-smaller-exponent",
+        "cor-cubic-refuted",
+        "thm-A.1",
+        "def-D"
+      ],
+      "new_statement_ids": [
+        "reader-example-instance"
+      ],
+      "novelty": "The construction is read before the implementation details, with earlier and new mathematics separated at their uses.",
+      "why_it_matters": "An expert can read selectively while keeping the hard steps and quantifier order.",
+      "scope": "Paper pagination is printed pagination; the final formal supplement is a separate optional route."
+    }
+  ],
+  "detail_choices": [
+    {
+      "topic": "Decision trees and standard error reduction",
+      "treatment": "Recall the query model once; link the routine details.",
+      "why": "The stated audience has graduate-level query-complexity background. Re-teaching these tools would obscure the construction.",
+      "statement_ids": [
+        "def-R",
+        "def-Q",
+        "lem-2.1.ii"
+      ]
+    },
+    {
+      "topic": "The certificate cell and its address",
+      "treatment": "Work through the same cell, its Forrelation answers, pointers and gate checks.",
+      "why": "Confusing the proposed address with a verified certificate erases the totality argument.",
+      "statement_ids": [
+        "eq-7",
+        "def-column-layout",
+        "lem-2.2.i"
+      ]
+    },
+    {
+      "topic": "The comparison with an off-promise rival",
+      "treatment": "Show both pointer directions explicitly.",
+      "why": "This invariant is the reason the probabilistic tournament applies to every input.",
+      "statement_ids": [
+        "claim-winner-dominates"
+      ]
+    },
+    {
+      "topic": "Fractional tournament weights",
+      "treatment": "Show one exact symbolic pivot update, then the drift identity.",
+      "why": "Sorting and fixed-tournament intuitions are misleading; complementarity is the condition actually used.",
+      "statement_ids": [
+        "eq-10",
+        "eq-12",
+        "eq-13",
+        "prop-3.2"
+      ]
+    },
+    {
+      "topic": "Amplitude amplification",
+      "treatment": "Assume its square-root scaling; explain preservation of the conditional law and branch cap.",
+      "why": "Those two properties carry this argument; a full trigonometric derivation belongs in the linked Lemma 3.1.",
+      "statement_ids": [
+        "lem-3.1",
+        "claim-success-prob"
+      ]
+    },
+    {
+      "topic": "Adaptive address guessing",
+      "treatment": "Explain the capped simulator and the joint event.",
+      "why": "Conditioning directly on being nonheavy could change the distribution; fluent independence language would hide the hard step.",
+      "statement_ids": [
+        "lem-4.1",
+        "def-simulator",
+        "eq-21",
+        "eq-22"
+      ]
+    },
+    {
+      "topic": "Finite witness versus asymptotics",
+      "treatment": "Mark m=4 as a construction example; retain k and logarithms in the general bound.",
+      "why": "For the example L=0. It supplies no measured speedup or classical lower bound.",
+      "statement_ids": [
+        "eq-5",
+        "eq-2",
+        "claim-exponent-ratio"
+      ]
+    },
+    {
+      "topic": "Earlier upper bound and the new lower construction",
+      "treatment": "Attribute the upper bound at its use and place prior constructions in a short source note.",
+      "why": "Formalization and exposition do not transfer mathematical priority.",
+      "statement_ids": [
+        "thm-A.1",
+        "thm-1.1"
+      ]
+    }
+  ],
+  "evidence_policy": "Keep source evidence unchanged; presentation disputes and receipt availability are additional fields, never silent promotions.",
+  "new_statement_context": "import QuarticQuery\nopen QuarticQuery\nopen scoped BigOperators",
+  "visual_asset": "worked_example.png"
+}

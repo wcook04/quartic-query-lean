@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "required_files_present": [
+    "note.md",
+    "references.bib",
+    "quantitative.md",
+    "prior_art.json",
+    "correspondence.json",
+    "NEW_STATEMENTS.json",
+    "STATEMENT_CHANGES.json",
+    "LEAN_GAPS.md"
+  ],
+  "new_statement_records": 44,
+  "original_statement_records_preserved": 9,
+  "anchored_passages": 36,
+  "displayed_formulas_indexed": 69,
+  "math_blocks_brace_checked_including_inline": 623,
+  "bibliography_entries": 19,
+  "prior_art_ingredients": 15,
+  "declaration_locations_indexed": 268,
+  "checks": [
+    "JSON syntax and required schemas",
+    "unique IDs and dependency references",
+    "exact passage boundaries",
+    "display hashes and coverage",
+    "referenced source declaration names",
+    "bibliography keys",
+    "balanced math delimiters and braces",
+    "exact finite-check outcomes"
+  ],
+  "not_performed": [
+    "Lean elaboration",
+    "Lean or Lake build",
+    "Comparator run",
+    "external kernel replay",
+    "certified quadrature error estimation",
+    "human review"
+  ]
+}

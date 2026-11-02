@@ -98,6 +98,18 @@ python3 tools/build_funnel_packets.py --help
 python3 tools/build_funnel_packets.py --only 3_examples_first_exposition --dest /path/to/output
 ```
 
+[build_round2_packets.py](build_round2_packets.py) packages the seven
+[round-two requests](../research/requests/round2/). Each ZIP adds the five
+first-round returns, their adjudication, every annexed paper of the quartic
+cluster with a reading order for its job, a record skeleton generated from the
+compiled dependency closure, and `BUILD_STATUS.md`, which reports which Lean
+modules have an up-to-date `.olean`. The fidelity and four Lean coverage packets
+also carry complexitylib's query-complexity source.
+
+```sh
+python3 tools/build_round2_packets.py --only 1_statement_fidelity --dest /path/to/output
+```
+
 Omit `--only` to build all five. This builder reads the current repository,
 private annexes under `~/src/ai_workflow/annexes`, writing references under
 `~/.claude/skills/formal-math-exposition/references`, and exemplar files from

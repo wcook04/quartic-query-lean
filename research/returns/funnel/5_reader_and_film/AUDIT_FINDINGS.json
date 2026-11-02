@@ -1,0 +1,332 @@
+{
+  "schema_version": "quartic_reader_audit_v1",
+  "source_snapshot": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+  "findings": [
+    {
+      "id": "AUDIT-01",
+      "severity": "high",
+      "title": "An endpoint theorem is tied as exact evidence for a different intermediate inequality",
+      "statement_ids": [
+        "claim-bs-to-L"
+      ],
+      "source_locations": [
+        "repository/corpus/statements.json#/13",
+        "repository/corpus/ties.json#/claim-bs-to-L",
+        "repository/lean/QuarticQuery/ForrelationLower/Main.lean:506",
+        "repository/lean/QuarticQuery/Statement.lean:BansalSinhaLower"
+      ],
+      "observed": {
+        "row_statement": "For fixed k: for large m, c k^{-29} (m/log(km))^{1-1/k} > floor(m^{1-1/k}/(log_2 m)^2).",
+        "evidence": {
+          "formal_statement": "exact",
+          "formal_origin": "ours",
+          "build": "built_at_pin",
+          "comparator": "compared",
+          "conditional": false,
+          "route": "alternative",
+          "reach": "reached"
+        },
+        "tie": {
+          "declaration": "QuarticQuery.ForrelationLower.bansalSinhaLower",
+          "kind": "definition",
+          "file": "lean/QuarticQuery/Statement.lean",
+          "line": null,
+          "relation": "exact",
+          "route": "alternative",
+          "hypotheses": [],
+          "note": "Proved directly, so no translation from the published bound is used.",
+          "built": true,
+          "compared": true,
+          "reached": true
+        }
+      },
+      "interpretation": "bansalSinhaLower proves Lvalue k t < R (P k t), eventually at each fixed k. It does not state the displayed comparison between the published lower-bound expression and L. A direct proof bypasses that comparison. This is an evidence-assignment defect, not a detected defect in the unconditional theorem.",
+      "display_override": {
+        "label": "Tie disputed: endpoint substituted for intermediate inequality",
+        "disable_automatic_checked_badge": true,
+        "raw_evidence_visible": true,
+        "checked_route": "bypass this node; use lem-2.1.i with the actual theorem"
+      },
+      "proposed_repair": "Remove this exact tie from this row pending a theorem for the numerical comparison; retain the direct proof under lem-2.1.i. Preserve the paper dependency separately from the Lean route.",
+      "modifies_source": false
+    },
+    {
+      "id": "AUDIT-02",
+      "severity": "medium",
+      "title": "Forrelation lower-bound theorem has an incorrect source locator and kind",
+      "statement_ids": [
+        "lem-2.1.i",
+        "claim-bs-to-L"
+      ],
+      "source_locations": [
+        "repository/corpus/statements.json#/14/lean/0",
+        "repository/corpus/statements.json#/13/lean/0",
+        "repository/lean/QuarticQuery/ForrelationLower/Main.lean:506"
+      ],
+      "observed": {
+        "recorded_file": "lean/QuarticQuery/Statement.lean",
+        "recorded_kind": "definition",
+        "recorded_line": null,
+        "actual_file": "repository/lean/QuarticQuery/ForrelationLower/Main.lean",
+        "actual_line": 506,
+        "actual_source_signature": "theorem bansalSinhaLower : BansalSinhaLower := by"
+      },
+      "interpretation": "The proposition BansalSinhaLower is defined in Statement.lean, while the theorem proving it is in ForrelationLower/Main.lean. They need separate links.",
+      "display_override": {
+        "theorem_link": "repository/lean/QuarticQuery/ForrelationLower/Main.lean",
+        "definition_link": "repository/lean/QuarticQuery/Statement.lean",
+        "label": "Source locator corrected in this advisory; corpus unchanged"
+      },
+      "proposed_repair": "Resolve every declaration by fully qualified name and compare the resolved kind/file/line with the ledger locator. Require an explicit declaration-resolution receipt.",
+      "modifies_source": false
+    },
+    {
+      "id": "AUDIT-03",
+      "severity": "high",
+      "title": "A legacy theorem has an unrecorded BansalSinhaLower binder",
+      "statement_ids": [
+        "thm-1.1"
+      ],
+      "source_locations": [
+        "repository/corpus/statements.json#/7/lean/1",
+        "repository/lean/QuarticQuery/Results/Conditional.lean:53"
+      ],
+      "observed": {
+        "declaration": "QuarticQuery.theorem_1_1",
+        "recorded_hypotheses": [],
+        "recorded_relation": "unassessed",
+        "source_signature_prefix": "theorem theorem_1_1 (h : BansalSinhaLower) :"
+      },
+      "interpretation": "The empty hypotheses array is not a trustworthy statement that this declaration is unconditional. Its explicit source binder is visible. This does not affect theorem_1_1_unconditional.",
+      "display_override": {
+        "legacy_declaration_label": "Conditional on BansalSinhaLower; relation unassessed",
+        "default_declaration": "QuarticQuery.theorem_1_1_unconditional",
+        "must_show_full_type": true
+      },
+      "proposed_repair": "Reconcile tie binders against an elaborated type export; retain a source-text fallback labelled unelaborated. Distinguish open assumptions from ordinary quantified variables and proved hypotheses.",
+      "modifies_source": false
+    },
+    {
+      "id": "AUDIT-04",
+      "severity": "medium",
+      "title": "The fidelity review and parts of the blueprint predate the delivered snapshot",
+      "statement_ids": [
+        "thm-1.1",
+        "lem-2.1.i"
+      ],
+      "source_locations": [
+        "repository/docs/statement_fidelity_review.md:Result; findings 1,9,10; Effect on generated files",
+        "repository/docs/forrelation_lower_bound_blueprint.md:6 Status final paragraph",
+        "repository/docs/forrelation_lower_bound_review.md:7 Doubts and corrections",
+        "repository/README.md:What is checked and what that means"
+      ],
+      "observed": {
+        "review_pin": "efc70f3",
+        "packet_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+        "review_says": "headline conditional; build/comparator all not_run; root not yet importing lower proof",
+        "current_snapshot_says": "unconditional headline; some rows compared; root imports Results.Unconditional"
+      },
+      "interpretation": "The older review contains useful semantic checks but cannot supply the current headline or evidence state. It should be displayed as an earlier review with coverage/version information.",
+      "display_override": {
+        "label": "Earlier AI review; findings may have been resolved",
+        "no_status_override_from_review_prose": true
+      },
+      "proposed_repair": "Version review findings independently and record resolution links rather than editing the historical review into a current-state dashboard.",
+      "modifies_source": false
+    },
+    {
+      "id": "AUDIT-05",
+      "severity": "medium",
+      "title": "The graph contains stale fidelity review status",
+      "statement_ids": [],
+      "source_locations": [
+        "repository/corpus/evidence-graph.json#/evidence/1",
+        "repository/docs/statement_fidelity_review.md",
+        "repository/docs/forrelation_lower_bound_review.md"
+      ],
+      "observed": {
+        "graph_record": "fidelity_review status=not_run; tool=Independent statement-fidelity reading not yet run",
+        "available_reviews": "AI reviews by agents other than the proof author; no human review reported"
+      },
+      "interpretation": "A different AI agent is author-independent in a limited procedural sense, but no human review has occurred. The graph string and the actual review documents should not be silently merged.",
+      "display_override": {
+        "label": "AI semantic reviews available; human review not reported",
+        "raw_graph_status_visible": true
+      },
+      "proposed_repair": "Add review kind, author/prover relationship, reviewed pin, coverage, findings, and human_review_status fields.",
+      "modifies_source": false
+    },
+    {
+      "id": "AUDIT-06",
+      "severity": "high",
+      "title": "Negative-control harness success is encoded as passed and could be mistaken for proof acceptance",
+      "statement_ids": [],
+      "source_locations": [
+        "repository/corpus/evidence-graph.json#/evidence/7..11",
+        "repository/lean/QuarticCorpus/Negative/",
+        "Pasted text(20261102-112550).txt:972-1035"
+      ],
+      "observed": {
+        "graph_status": "passed for run_5 through run_9",
+        "trace_runner_rule": "code == 1 and expected diagnostic in log and Build completed in log; status passed means rejected_as_expected"
+      },
+      "interpretation": "The graph loses the distinction between test success and Comparator acceptance. The wrong solutions are reported as rejected, while the negative-control test passed.",
+      "display_override": {
+        "negative_control_result": "Rejected as expected (reported)",
+        "never_render": "Comparator accepted"
+      },
+      "proposed_repair": "Store harness_status, comparator_exit_code, comparator_verdict, expected_diagnostic, observed_diagnostic and log hash independently; link the original receipt.",
+      "modifies_source": false
+    },
+    {
+      "id": "AUDIT-07",
+      "severity": "medium",
+      "title": "Raw build and Comparator receipts are not members of this packet",
+      "statement_ids": [],
+      "source_locations": [
+        "manifest.json#/members",
+        "repository/corpus/evidence-graph.json#/evidence",
+        "repository/README.md:Comparison",
+        "Pasted text(20261102-112550).txt:8131-8172"
+      ],
+      "observed": {
+        "snapshot_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+        "unconditional_run_commit_from_trace": "d42fb67a7e060fb5386867dadf20a5903df39141",
+        "trace_receipt_summary": "passed True d42fb67a False",
+        "raw_receipts_in_zip": false,
+        "local_rerun_in_this_review": false
+      },
+      "interpretation": "The packet reports passes and includes source/configuration and summarized run records. It does not provide raw logs/export hashes or the original receipt files needed to independently authenticate or reproduce the reported run. Snapshot identity and run identity are separate.",
+      "display_override": {
+        "label": "Reported local pass; original receipt absent from this packet",
+        "environment": "unsandboxed local rehearsal",
+        "run_pin": "d42fb67a… from trace summary",
+        "do_not_claim": "independently rerun at c7e0c916…"
+      },
+      "proposed_repair": "Add full receipt records and logs, bind source/export/dependency hashes to each run, and record source-equivalence across metadata-only commits if used.",
+      "modifies_source": false
+    },
+    {
+      "id": "AUDIT-08",
+      "severity": "medium",
+      "title": "Row-level exactness and reachability can come from different declarations",
+      "statement_ids": [
+        "lem-3.1",
+        "lem-4.1"
+      ],
+      "source_locations": [
+        "repository/corpus/statements.json#/41",
+        "repository/corpus/statements.json#/73",
+        "repository/docs/statement_fidelity_review.md:4",
+        "repository/corpus/lean_dependencies.json"
+      ],
+      "observed": {
+        "lem-3.1_exact": "Amplification.bounded_amplification, reached=false",
+        "lem-3.1_reached": "Upper.Samples.amplify, partial relation",
+        "lem-4.1_exact": "direct_product_average and direct_product_randomized, reached=false",
+        "lem-4.1_reached": "direct_product, partial relation"
+      },
+      "interpretation": "An exact row and reached row must not be combined into a claim that an exact formalization of the paper step is on the headline route. Status is a relation among a particular statement, declaration and run.",
+      "display_override": {
+        "show_per_declaration": true,
+        "default_badge": "Exact statement available; headline uses a related declaration"
+      },
+      "proposed_repair": "Keep selected_evidence_tie explicit; permit multiple views and display alternative routes without inheriting statuses across them.",
+      "modifies_source": false
+    },
+    {
+      "id": "AUDIT-09",
+      "severity": "medium",
+      "title": "The equation (19) stronger label applies to the bound, not to its displayed identity",
+      "statement_ids": [
+        "eq-19"
+      ],
+      "source_locations": [
+        "repository/corpus/statements.json#/83",
+        "repository/lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean:226",
+        "repository/docs/statement_fidelity_review.md:5-6"
+      ],
+      "observed": {
+        "row": "Pr(query erased zero)=E Z/m<=4G/m^2",
+        "actual_bound": "avg_foundZero_I_le gives <=2G/m^2",
+        "note": "The row identity with E Z/m has no counterpart because Z is never defined"
+      },
+      "interpretation": "The inequality is stronger. The whole displayed equality-and-bound has clause-level coverage differences. A single green stronger badge would hide them.",
+      "display_override": {
+        "label": "Stronger inequality; identity with Z is not formalized here",
+        "route": "alternative"
+      },
+      "proposed_repair": "Split or annotate clauses while preserving the existing row identity; do not treat a stronger inequality as proof of an additional equality.",
+      "modifies_source": false
+    },
+    {
+      "id": "AUDIT-10",
+      "severity": "medium",
+      "title": "Some statements have existing source evidence but no reviewed tie",
+      "statement_ids": [
+        "eq-1",
+        "eq-5",
+        "eq-17",
+        "cor-unique-winner",
+        "cor-local-dichotomy",
+        "def-winner"
+      ],
+      "source_locations": [
+        "repository/corpus/statements.json",
+        "repository/docs/statement_fidelity_review.md:11",
+        "repository/lean/QuarticQuery/Statement.lean",
+        "repository/lean/QuarticQuery/Construction/Winner.lean:42",
+        "repository/lean/QuarticQuery/Construction/LocalTests.lean:262-268"
+      ],
+      "observed": {
+        "raw_status": "formal_statement none",
+        "examples": "alphaTot/UniversalPower; Lvalue; Gvalue; winsAt_column_unique; exists_failing_localTest"
+      },
+      "interpretation": "No reviewed tie is not evidence of mathematical falsehood or of absent Lean code. These candidate links should stay candidate links until the relation is reviewed.",
+      "display_override": {
+        "label": "No reviewed correspondence recorded",
+        "candidate_source_link_allowed": true,
+        "automatic_upgrade": false
+      },
+      "proposed_repair": "Add reviewed mappings at the same snapshot with relation/route notes and matching run evidence; do not manufacture a proof gap by ignoring the source, or a checked badge by trusting a tag.",
+      "modifies_source": false
+    },
+    {
+      "id": "AUDIT-11",
+      "severity": "medium",
+      "title": "The corpus lacks complete exact paper quotations and elaborated Lean theorem types",
+      "statement_ids": [],
+      "source_locations": [
+        "repository/corpus/statements.json:record schema",
+        "repository/corpus/ties.json:record schema",
+        "paper/extracted.md",
+        "repository/lean/QuarticQuery/Statement.lean"
+      ],
+      "observed": {
+        "has": "normalized ledger text, coarse source_line, declaration/file/line, hashes of ledger text",
+        "lacks": "paper quote span/PDF coordinates; exact full elaborated theorem type; definition closure hash; linked run id per tie"
+      },
+      "interpretation": "The requested side-by-side fidelity view cannot be generated from the corpus JSON alone. Source text can be shown now with a label; elaborated type and source-pinned provenance require new producer fields.",
+      "display_override": {
+        "source_quote_label": "Paper excerpt",
+        "ledger_label": "Normalized corpus statement",
+        "lean_label": "Source signature (not elaborated #print)"
+      },
+      "proposed_repair": "Implement the additions in data_contract.md and prevent rendering unresolved links as verified.",
+      "modifies_source": false
+    }
+  ],
+  "checks": {
+    "all_statement_ids_unique": true,
+    "all_dependency_ids_resolve": true,
+    "graph_node_ids_match": true,
+    "coverage_statements_matches": true,
+    "manifest_hash_mismatches": [],
+    "lean_runs_reproduced": false,
+    "all_declaration_build_and_reach_flags_match_supplied_dependency_json": true,
+    "all_coverage_field_counts_match_statements": true,
+    "all_graph_statements_equal_corpus_statements": true,
+    "five_challenge_public_vocabularies_match_statement_source_after_comment_and_section_marker_normalization": true,
+    "comparison_method": "textual normalization only; no elaboration or Comparator run"
+  }
+}

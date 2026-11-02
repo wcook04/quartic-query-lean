@@ -1,0 +1,617 @@
+[
+  {
+    "id": "new-dp-recursion",
+    "statement": "$$\n\\begin{aligned}\nv_0(\\nu)&=\\max_{b\\in\\{0,1\\}}\\sum_{x:P(x)=b}\\nu(x),\\\\\nv_{q+1}(\\nu)&=\\max\\left(\\{v_q(\\nu)\\}\\cup\n \\{v_q(\\nu_{j,0})+v_q(\\nu_{j,1}):j\\in[n]\\}\\right).\n\\end{aligned}\n\\tag{14}\n$$",
+    "why_needed": "Displays the subdistribution dynamic program used by the actual Lean direct-product proof and makes the treatment of zero-mass branches explicit.",
+    "depends_on": [],
+    "proposed_lean": "import QuarticQuery.LowerBound.DirectProduct\nopen Finset\nnamespace QuarticQuery\ntheorem paper_budgetValue_recursion {κ : Type} [Fintype κ] [DecidableEq κ]\n    (f : PartialBool κ) (ν : BitInput κ → ℝ) (q : ℕ) :\n    budgetValue f 0 ν =\n      max (constSuccess f ν false) (constSuccess f ν true) ∧\n    budgetValue f (q + 1) ν =\n      (Finset.univ : Finset (Option κ)).sup' ⟨none, Finset.mem_univ _⟩\n        (fun o => match o with\n          | none => budgetValue f q ν\n          | some j => budgetValue f q (restrictWeight ν j false) +\n              budgetValue f q (restrictWeight ν j true))\nend QuarticQuery",
+    "route_note": "The equations are the definition of budgetValue, so the proposed wrapper should be definitional. The interpretation as an attained optimum additionally uses exists_tree_budgetValue_le and treeSuccess_le_budgetValue; these are existing proved declarations, not supplied as new axioms. No normalization is required. The empty-coordinate case is covered by the Option κ maximum.",
+    "lean_evidence": [
+      "QuarticQuery.budgetValue",
+      "QuarticQuery.constSuccess",
+      "QuarticQuery.restrictWeight",
+      "QuarticQuery.exists_tree_budgetValue_le",
+      "QuarticQuery.treeSuccess_le_budgetValue"
+    ],
+    "source_locations": [
+      "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean:26–49",
+      "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean:103–149"
+    ],
+    "coverage": "Displayed recursion has an existing definitional counterpart; this new ID exposes an intermediate statement absent from the original corpus.",
+    "elaboration_status": "Proposed signature only; not elaborated in this authoring environment. Existing declaration names were checked against the supplied source.",
+    "source_snapshot": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "statement_prose": "For a finite input coordinate set and nonnegative input weight ν, v₀(ν)=max_b Σ_{x:P(x)=b}ν(x) and v_{q+1}(ν)=max({v_q(ν)} ∪ {v_q(ν_{j,0})+v_q(ν_{j,1}):j∈[n]}), with ν_{j,b}(x)=ν(x)1{x_j=b}. Here v_q is the greatest weighted success of a depth-q tree.",
+    "statement_sha256": "4144f1f10e77994ad7612f3b5f235b2fa11e9536c4e93bc6ee20593d14fdfe58",
+    "status": "proposed_not_elaborated",
+    "related_original_ids": [
+      "lem-4.1"
+    ]
+  },
+  {
+    "id": "new-dp-weighted",
+    "statement": "$$\n\\text{weighted all-answer success}\\leq\\prod_{h=1}^r v_{q_h}(\\nu_h).\n\\tag{15}\n$$",
+    "why_needed": "This is the inductive invariant from which the capped direct-product theorem follows, and it identifies the proof route implemented in Lean.",
+    "depends_on": [
+      "new-dp-recursion"
+    ],
+    "proposed_lean": "import QuarticQuery.LowerBound.DirectProduct\nopen Finset\nnamespace QuarticQuery\ntheorem paper_weighted_direct_product {κ : Type} [Fintype κ] [DecidableEq κ]\n    {r : ℕ} (f : PartialBool κ)\n    (T : OutTree (Fin r × κ) (Fin r → Bool))\n    (ν : Fin r → BitInput κ → ℝ) (c : Fin r → ℕ)\n    (hν : ∀ h x, 0 ≤ ν h x) (hT : T.capped c) :\n    guessSuccess f ν T ≤ ∏ h, budgetValue f (c h) (ν h)\nend QuarticQuery",
+    "route_note": "Exact renaming of guessSuccess_le_prod. Its proof is structural induction on T with nonnegative product weights. This is a different derivation from the preprint's conditional-value supermartingale proof. The ordinary probability theorem follows by taking all weights equal to μ and all budgets equal to L; side information and coins are then averaged.",
+    "lean_evidence": [
+      "QuarticQuery.guessSuccess_le_prod",
+      "QuarticQuery.guessSuccess",
+      "QuarticQuery.OutTree.capped",
+      "QuarticQuery.direct_product",
+      "QuarticQuery.direct_product_average",
+      "QuarticQuery.direct_product_randomized"
+    ],
+    "source_locations": [
+      "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean:258–301"
+    ],
+    "coverage": "Exact existing theorem, newly displayed in the exposition.",
+    "elaboration_status": "Proposed signature only; not elaborated in this authoring environment. Existing declaration names were checked against the supplied source.",
+    "source_snapshot": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "statement_prose": "For any multi-input output tree T with per-instance budgets q_h, and nonnegative weights ν_h, its weighted probability of guessing all r partial-function answers under the product weight is at most ∏_{h=1}^r v_{q_h}(ν_h). Interleaving is arbitrary and adaptive.",
+    "statement_sha256": "bb97a06aa2b7d071678a9fb9ea198af9456931050cfbcb92b610d38486025603",
+    "status": "proposed_not_elaborated",
+    "related_original_ids": [
+      "lem-4.1"
+    ]
+  },
+  {
+    "id": "new-zero-search-two",
+    "statement": "$$\n\\Pr[\\text{dummy execution queries }X_I[J_I]]\n\\leq\\frac{2G}{m^2}.\n\\tag{16}\n$$",
+    "why_needed": "States the improved constant proved by the formal hidden-zero analysis, without attaching the unformalized auxiliary variable Z to the theorem.",
+    "depends_on": [
+      "def-dummy"
+    ],
+    "proposed_lean": "import QuarticQuery.LowerBound.Planted.ZeroSearch\nnamespace QuarticQuery\ntheorem paper_removed_zero_bound {κ : Type} {ℓ r S : ℕ}\n    (T : QueryTree (BitLoc ℓ r S κ))\n    (A : Column ℓ → Fin r → BitInput κ) {G : ℕ} (hT : T.depth ≤ G) :\n    avg (prodW (unif ℓ)) (fun J => avg (unif ℓ) (foundZero T A J)) ≤\n      2 * (G : ℝ) / ((2 ^ ℓ : ℕ) : ℝ) ^ 2\nend QuarticQuery",
+    "route_note": "Exact renaming of avg_foundZero_I_le with m=2^ℓ. Averaging over A is a short consequence of avg_mono and normalization, also used inside tree_gap_le. The paper gives the world-counting induction. It makes no optimality claim for the constant and does not claim the corpus's equality Pr(hit)=E[Z]/m is a literal existing Lean theorem.",
+    "lean_evidence": [
+      "QuarticQuery.avg_foundZero_I_le",
+      "QuarticQuery.avg_foundZero_le",
+      "QuarticQuery.sum_xQueries_le",
+      "QuarticQuery.tree_gap_le"
+    ],
+    "source_locations": [
+      "repository/lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean:192–241"
+    ],
+    "coverage": "Exact fixed-A theorem; random-A probability wording is an averaging consequence.",
+    "elaboration_status": "Proposed signature only; not elaborated in this authoring environment. Existing declaration names were checked against the supplied source.",
+    "source_snapshot": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "statement_prose": "For a deterministic tree of depth at most G, the dummy execution reaches the removed zero X_I[J_I] with probability at most 2G/m², where the zero positions J are independent uniform and I is an independent uniform column. The estimate holds at each fixed address array A and hence after averaging A.",
+    "statement_sha256": "4bebcfb42867b7b573745cf860c4b8b22c4f4a3605623dff166222bc015f71b4",
+    "status": "proposed_not_elaborated",
+    "related_original_ids": [
+      "eq-19"
+    ]
+  },
+  {
+    "id": "new-planted-gap-two",
+    "statement": "$$\n\\Delta\\leq\\frac{2G}{m^2}+\\frac{G}{mL}+G(2/3)^r.\n\\tag{19}\n$$",
+    "why_needed": "Combines the sharper zero bound with the heavy-column and joint-event simulator estimates in the exact direction needed for the classical contradiction.",
+    "depends_on": [
+      "new-zero-search-two",
+      "eq-18",
+      "eq-22"
+    ],
+    "proposed_lean": "import QuarticQuery.LowerBound.Planted.Main\nopen Finset\nnamespace QuarticQuery\ntheorem paper_planted_gap {κ : Type} [Fintype κ] [DecidableEq κ]\n    {ℓ r S : ℕ} {f : PartialBool κ}\n    (tr : BitInput κ → Fin S → Bool) {μ : BitInput κ → ℝ} {L G : ℕ}\n    (hL : 1 ≤ L) (hμ : ∀ x, 0 ≤ μ x) (hμ1 : ∑ x, μ x = 1)\n    (hdom : ∀ x, μ x ≠ 0 → promised f x)\n    (hguess : ∀ U : OutTree (Fin r × κ) (Fin r → Bool),\n      (U.capped fun _ => L) → guessSuccess f (fun _ => μ) U ≤ (2 / 3 : ℝ) ^ r)\n    (T : QueryTree (BitLoc ℓ r S κ)) (hT : T.depth ≤ G) :\n    coupledAvg (ℓ := ℓ) (r := r) μ (fun A J I =>\n      ind (T.eval (planted f tr J A I) = true) -\n      ind (T.eval (dummy J A) = true)) ≤\n      2 * (G : ℝ) / ((2 ^ ℓ : ℕ) : ℝ) ^ 2 +\n      (G : ℝ) / (((2 ^ ℓ : ℕ) : ℝ) * (L : ℝ)) +\n      (G : ℝ) * (2 / 3 : ℝ) ^ r\nend QuarticQuery",
+    "route_note": "Specialization of tree_gap_le at ρ=(2/3)^r, with m=2^ℓ. The proof consumes the capped all-answer theorem through hguess. This is a one-sided gap theorem; the preprint's earlier absolute-gap formula has a different statement and cannot inherit this exact tie.",
+    "lean_evidence": [
+      "QuarticQuery.tree_gap_le",
+      "QuarticQuery.output_gap_le",
+      "QuarticQuery.avg_reachedCell_le",
+      "QuarticQuery.direct_product"
+    ],
+    "source_locations": [
+      "repository/lean/QuarticQuery/LowerBound/Planted/Main.lean:59–96"
+    ],
+    "coverage": "Exact specialization of an existing theorem, newly displayed with the improved constant and explicit sign.",
+    "elaboration_status": "Proposed signature only; not elaborated in this authoring environment. Existing declaration names were checked against the supplied source.",
+    "source_snapshot": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "statement_prose": "For a deterministic G-query tree in the planted coupling, the one-sided gap Δ=Pr[T(Y^(1))=1]−Pr[T(Y^(0))=1] satisfies Δ≤2G/m²+G/(mL)+G(2/3)^r, assuming L≥1 and the promised hard distribution has capped r-instance all-answer success at most (2/3)^r.",
+    "statement_sha256": "ac6f0b8558753dc4eb73d15e76536943115f6aa1d6fdfa3ae09fd3cc19935bef",
+    "status": "proposed_not_elaborated",
+    "related_original_ids": [
+      "eq-23"
+    ]
+  },
+  {
+    "id": "new-fl-truncation",
+    "statement": "$$\nq(x)=\\sqrt{2+x^2},\\qquad\n\\Psi(x)=\\frac1{2q(x)},\\qquad\n\\varphi(x)=\\frac{x(3+x^2)}{2q(x)^3},\n\\qquad \\varphi'(x)=\\frac3{q(x)^5}.\n\\tag{20}\n$$",
+    "statement_sha256": "cb5a0ef4f17cbb0a09bc0bddbd1215d04cd5ab890dbc0074d8a9f08d0263b830",
+    "context": "For every real x; q, Psi and varphi in the paper denote qf, psiS and phiS respectively.",
+    "why_needed": "Fixes the exact algebraic smoothing functions used by the independent lower-bound proof and states their derivative; these functions do not have a record in the existing corpus.",
+    "depends_on": [],
+    "proposed_lean": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery.Forrelation\nnamespace QuarticQuery.ForrelationLower\n\ntheorem paper_fl_truncation (x : ℝ) :\n    qf x = Real.sqrt (2 + x ^ 2) ∧\n    psiS x = 1 / (2 * qf x) ∧\n    phiS x = x * (3 + x ^ 2) / (2 * qf x ^ 3) ∧\n    HasDerivAt phiS (3 / qf x ^ 5) x\n\nend QuarticQuery.ForrelationLower",
+    "route_note": "A conjunction wrapper over the existing qf, psiS and phiS definitions and hasDerivAt_phiS after unfolding dphi. The derivative conjunct is expressed by HasDerivAt, which supplies the displayed ordinary derivative. No new analytic estimate is asserted. The bounds and oddness stated in surrounding prose have their own existing supporting declarations.",
+    "source_declarations": [
+      {
+        "declaration": "QuarticQuery.ForrelationLower.qf",
+        "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+        "line": 22,
+        "relation": "definition"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.psiS",
+        "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+        "line": 24,
+        "relation": "definition"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.phiS",
+        "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+        "line": 26,
+        "relation": "definition"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.dphi",
+        "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+        "line": 28,
+        "relation": "definition"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.hasDerivAt_phiS",
+        "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+        "line": 76,
+        "relation": "derivative conjunct"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.phiS_neg",
+        "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+        "line": 113,
+        "relation": "surrounding prose"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.abs_phiS_le",
+        "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+        "line": 98,
+        "relation": "surrounding prose"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.psiS_pos",
+        "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+        "line": 117,
+        "relation": "surrounding prose"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.psiS_le",
+        "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+        "line": 120,
+        "relation": "surrounding prose"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.dphi_pos",
+        "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+        "line": 126,
+        "relation": "surrounding prose"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.dphi_le",
+        "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+        "line": 129,
+        "relation": "surrounding prose"
+      }
+    ],
+    "notation_specialization": [
+      "All four displayed conjuncts are present. HasDerivAt identifies varphi prime with 3/q(x)^5."
+    ],
+    "uncovered_conjuncts": [],
+    "evidence": {
+      "formal_relation": "conjunction_of_existing_definitions_and_theorem",
+      "source_inspection": "The cited source statements and proofs were read. All symbols in the proposal are existing source or Mathlib vocabulary.",
+      "proposal_status": "Uncompiled candidate wrapper/signature. This proposal has not been added to the supplied Lean development.",
+      "fresh_lean_build": "not_run",
+      "new_record_comparator": "not_run",
+      "published_source_scope": "Alternative fixed-k proof; no claim to formalise all of Bansal-Sinha Theorem 1.3."
+    },
+    "status": "proposed_not_elaborated",
+    "source_snapshot": "c7e0c9161f0ad898889bd9166e7b354acd42188d"
+  },
+  {
+    "id": "new-fl-stein",
+    "statement": "$$\n\\mathbb E[\\varphi(Z)G(Z)]\n=\\mathbb E[\\Psi(Z)G'(Z)].\n\\tag{21}\n$$",
+    "statement_sha256": "a51c6ac220a405a8063471e2b61a832efaebbf83c07f1916b00058fb9599ef4b",
+    "context": "Z is standard normal; G is continuously differentiable and G and G prime are bounded.",
+    "why_needed": "Supplies the Gaussian integration-by-parts identity that moves a derivative from one input block to the next.",
+    "depends_on": [
+      "new-fl-truncation"
+    ],
+    "proposed_lean": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery.Forrelation\nnamespace QuarticQuery.ForrelationLower\n\ntheorem paper_fl_stein {g g' : ℝ → ℝ} {C C' : ℝ} (hg : Continuous g) (hg' : Continuous g')\n    (hb : ∀ x, |g x| ≤ C) (hb' : ∀ x, |g' x| ≤ C') (hd : ∀ x, HasDerivAt g (g' x) x) :\n    ∫ x, phiS x * g x ∂(gaussianReal 0 1) = ∫ x, psiS x * g' x ∂(gaussianReal 0 1)\n\nend QuarticQuery.ForrelationLower",
+    "route_note": "This proposed signature is the existing stein_one signature with a fresh name. It includes continuous G and G prime, uniform bounds for both, and the pointwise derivative relation. Its hypotheses precisely express the bounded C1 test function assumed in the paper.",
+    "source_declarations": [
+      {
+        "declaration": "QuarticQuery.ForrelationLower.stein_one",
+        "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+        "line": 137,
+        "relation": "exact source theorem"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.stein_pi",
+        "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+        "line": 268,
+        "relation": "coordinate-product lifting used after the display"
+      }
+    ],
+    "notation_specialization": [
+      "The paper expectation is the integral against gaussianReal 0 1.",
+      "The source uses g and g prime in place of the paper G and G prime."
+    ],
+    "uncovered_conjuncts": [],
+    "evidence": {
+      "formal_relation": "exact_existing_statement_after_renaming",
+      "source_inspection": "The cited source statements and proofs were read. All symbols in the proposal are existing source or Mathlib vocabulary.",
+      "proposal_status": "Uncompiled candidate wrapper/signature. This proposal has not been added to the supplied Lean development.",
+      "fresh_lean_build": "not_run",
+      "new_record_comparator": "not_run",
+      "published_source_scope": "Alternative fixed-k proof; no claim to formalise all of Bansal-Sinha Theorem 1.3."
+    },
+    "status": "proposed_not_elaborated",
+    "source_snapshot": "c7e0c9161f0ad898889bd9166e7b354acd42188d"
+  },
+  {
+    "id": "new-fl-path",
+    "statement": "$$\n\\mathbb E_{\\mathcal D}g-\\mathbb E_{\\rm unif}g\n=\\sum_{a_0,\\ldots,a_{k-1}}\n\\mathbb E\\!\\left[\nc_a(U)\\,\n\\partial_{0,a_0}\\cdots\\partial_{k-1,a_{k-1}}\n\\widetilde g(w_s)\\right],\n\\tag{22}\n$$",
+    "statement_sha256": "810ad73e3b44d905e6f14a48c9d98a0ea3a47782b503caf51943418fed63e700",
+    "context": "k>=2, m=4^t, H is normalized Walsh, w_s and the hard law D are defined in preceding prose; g is any real function on the finite sign cube. The display includes the preceding existential statement for s.",
+    "why_needed": "States the principal chain identity that reduces the hard-law distinguishing advantage to one derivative in each input block. This intermediate identity is absent from the original corpus.",
+    "depends_on": [
+      "new-fl-stein",
+      "new-fl-path-weight",
+      "def-walsh-sign"
+    ],
+    "proposed_lean": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery.Forrelation\nnamespace QuarticQuery.ForrelationLower\n\ntheorem paper_fl_path\n    {n : Type} [Fintype n] [DecidableEq n] {l : ℕ}\n    (H : Matrix n n ℝ) (hl : 0 < l) (hH : RowsOrth H)\n    (g : (BC l n → Bool) → ℝ) :\n    ∃ s ∈ Set.Ioo (0 : ℝ) 1,\n      ∫ u, ext g (wv H 1 u) ∂(gP (PC l n)) - ext g 0 =\n        ∑ p : n × (Fin l → n),\n          ∫ u, cf H s l 0 p.1 p.2 u *\n            ext (Dl (Lpath l p) g) (wv H s u)\n            ∂(gP (PC l n))\n\nend QuarticQuery.ForrelationLower",
+    "route_note": "An uncompiled full path-expansion wrapper over exists_identity, integral_ext_wv_zero and Int_eq_paths. The source mean-value theorem is retained: the proposal quantifies one s in (0,1), allowed to depend on g. It requires the finite sum/integral interchange and the existing Lpath/Dl definitions to place all path indices outside the expectation. This wrapper is more general in H than the Walsh instance in the paper; it is not an integral-over-s reformulation.",
+    "source_declarations": [
+      {
+        "declaration": "QuarticQuery.ForrelationLower.exists_identity",
+        "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+        "line": 461,
+        "relation": "mean-value identity"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.integral_ext_wv_zero",
+        "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+        "line": 256,
+        "relation": "uniform zero endpoint"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.Int_eq_paths",
+        "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+        "line": 541,
+        "relation": "full derivative-path expansion"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.Lpath",
+        "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+        "line": 351,
+        "relation": "coordinate-list definition"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.Dl",
+        "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+        "line": 685,
+        "relation": "iterated derivative definition"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.hasDerivAt_ext",
+        "file": "lean/QuarticQuery/ForrelationLower/Cube.lean",
+        "line": 221,
+        "relation": "derivative notation bridge"
+      }
+    ],
+    "notation_specialization": [
+      "Set l=k-1 and n=Fin(mValue t), and specialize H to QuarticQuery.Forrelation.H t; rowsOrth_H supplies hH.",
+      "The path p=(a0,(a1,...,a_l)) indexes the same tuples as the paper.",
+      "E_D g is the Gaussian integral of ext g at wv H 1 u; E_unif g is ext g 0.",
+      "The repeated partial derivative of the multilinear extension is expressed by ext (Dl (Lpath l p) g), using the derivative convention stated before equation (20).",
+      "The candidate covers the entire equality and the existence/range of s. The coefficient formula and bound have a separate record new-fl-path-weight."
+    ],
+    "uncovered_conjuncts": [],
+    "evidence": {
+      "formal_relation": "uncompiled_combination_of_existing_theorems",
+      "source_inspection": "The cited source statements and proofs were read. All symbols in the proposal are existing source or Mathlib vocabulary.",
+      "proposal_status": "Uncompiled candidate wrapper/signature. This proposal has not been added to the supplied Lean development.",
+      "fresh_lean_build": "not_run",
+      "new_record_comparator": "not_run",
+      "published_source_scope": "Alternative fixed-k proof; no claim to formalise all of Bansal-Sinha Theorem 1.3."
+    },
+    "status": "proposed_not_elaborated",
+    "source_snapshot": "c7e0c9161f0ad898889bd9166e7b354acd42188d"
+  },
+  {
+    "id": "new-fl-path-weight",
+    "statement": "$$\nc_a(U)=\\prod_{j=0}^{k-2}\nH_{a_{j+1}a_j}\\Psi(U_j(a_j))\\varphi'(V_j(a_{j+1})),\n\\qquad\n|c_a(U)|\\leq(3/\\sqrt m)^{k-1}.\n$$",
+    "statement_sha256": "49f575258517ee041b93f8726c72de3d70f6e4b25f687bdfa4b2af584519f882",
+    "context": "The same paths as in equation (22); k>=2, l=k-1, H normalized Walsh on m=4^t coordinates.",
+    "why_needed": "Makes explicit both the coefficient product in the chain identity and the matrix-entry bound that extracts the factor m^(-(k-1)/2).",
+    "depends_on": [
+      "new-fl-truncation",
+      "def-walsh-sign"
+    ],
+    "proposed_lean": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery.Forrelation\nnamespace QuarticQuery.ForrelationLower\n\ntheorem paper_fl_path_weight\n    {n : Type} [Fintype n] [DecidableEq n]\n    (H : Matrix n n ℝ) (l : ℕ) (s : ℝ)\n    {ε : ℝ} (hε : 0 ≤ ε) (hH : ∀ a b, |H a b| ≤ ε)\n    (a : Fin (l + 1) → n) (u : PC l n → ℝ) :\n    cf H s l 0 (a 0) (fun j : Fin l => a j.succ) u =\n      (∏ j : Fin l,\n        H (a j.succ) (a j.castSucc) *\n          psiS (Uc u j.val (a j.castSucc)) *\n          dphi (Vc H u j.val (a j.succ))) ∧\n    |cf H s l 0 (a 0) (fun j : Fin l => a j.succ) u| ≤\n      (3 * ε) ^ l\n\nend QuarticQuery.ForrelationLower",
+    "route_note": "The first conjunct is the finite-product unfolding of the existing recursive definition cf. The second conjunct is abs_cf_le. The product formula is not itself a named theorem in the supplied source, so the whole-conjunction wrapper is proposed and uncompiled. A proof should induct on the remaining path length, then invoke abs_cf_le. Although cf carries a parameter s in its type, its recursion does not depend on s, and the displayed product also does not.",
+    "source_declarations": [
+      {
+        "declaration": "QuarticQuery.ForrelationLower.cf",
+        "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+        "line": 529,
+        "relation": "recursive coefficient definition"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.abs_cf_le",
+        "file": "lean/QuarticQuery/ForrelationLower/Walk.lean",
+        "line": 556,
+        "relation": "bound conjunct"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.abs_H_le",
+        "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+        "line": 122,
+        "relation": "Walsh specialization"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.hasDerivAt_phiS",
+        "file": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+        "line": 76,
+        "relation": "identifies dphi with ordinary derivative"
+      }
+    ],
+    "notation_specialization": [
+      "Set n=Fin(mValue t), H=QuarticQuery.Forrelation.H t, l=k-1 and epsilon=((2:Real)^t)^(-1). abs_H_le supplies the entry bound.",
+      "mValue t=2^(2t), so ((2:Real)^t)^(-1)=1/sqrt(mValue t). This arithmetic specialization has not been elaborated here.",
+      "For j:Fin l, a j.castSucc is a_j and a j.succ is a_(j+1).",
+      "The source dphi is the derivative in equation (20); cf is the paper c_a(U).",
+      "Both the product equality and its bound are in the candidate, with no uncovered conjunct."
+    ],
+    "uncovered_conjuncts": [],
+    "evidence": {
+      "formal_relation": "definition_unfolding_plus_existing_bound",
+      "source_inspection": "The cited source statements and proofs were read. All symbols in the proposal are existing source or Mathlib vocabulary.",
+      "proposal_status": "Uncompiled candidate wrapper/signature. This proposal has not been added to the supplied Lean development.",
+      "fresh_lean_build": "not_run",
+      "new_record_comparator": "not_run",
+      "published_source_scope": "Alternative fixed-k proof; no claim to formalise all of Bansal-Sinha Theorem 1.3."
+    },
+    "status": "proposed_not_elaborated",
+    "source_snapshot": "c7e0c9161f0ad898889bd9166e7b354acd42188d"
+  },
+  {
+    "id": "new-fl-advantage",
+    "statement": "$$\n\\left|\\mathbb E_{\\mathcal D}g-\\mathbb E_{\\rm unif}g\\right|\n\\leq\n\\left(\\frac3{\\sqrt m}\\right)^{k-1}\n\\left\\{\\kappa^k+(2km)^k(4km)^k e^{-\\Lambda}\\right\\}.\n\\tag{23}\n$$",
+    "statement_sha256": "c06261728fa6c6b49d6e87fb3ebd9255ac8a5b17154965f55930daca0998ed35",
+    "context": "g is the acceptance indicator of a deterministic decision tree of depth at most d>=1; Lambda>0, kappa>0, kappa^2=8dLambda; k>=2 and m=4^t.",
+    "why_needed": "Provides the quantitative indistinguishability estimate whose right side vanishes at the chosen depth L. It composes the new derivative chain with biased decision-tree growth.",
+    "depends_on": [
+      "new-fl-path",
+      "new-fl-path-weight",
+      "def-R"
+    ],
+    "proposed_lean": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery.Forrelation\nnamespace QuarticQuery.ForrelationLower\n\nvariable {n : Type} [Fintype n] [DecidableEq n] {l : ℕ} (H : Matrix n n ℝ)\n\ntheorem paper_fl_advantage (hl : 0 < l) (hH : RowsOrth H) {ε : ℝ} (hε : 0 ≤ ε) (hHb : ∀ a b, |H a b| ≤ ε)\n    {Λ K : ℝ} {d : ℕ} (hd : 0 < d) (hK : 0 < K) (hKsq : K ^ 2 = 2 * d * 2 ^ 2 * Λ)\n    (hn : 1 ≤ Fintype.card (BC l n)) (T : QueryTree (BC l n)) (hT : T.depth ≤ d) (v : Bool → ℝ)\n    (hv : ∀ b, |v b| ≤ 1) :\n    |∫ u, ext (fun z => v (T.eval z)) (wv H 1 u) ∂(gP (PC l n)) -\n        ext (fun z => v (T.eval z)) 0| ≤\n      (3 * ε) ^ l * (K ^ (l + 1) + (Fintype.card (BC l n) * 2) ^ (l + 1) *\n        ((4 * Fintype.card (BC l n) : ℝ) ^ (l + 1) * Real.exp (-Λ)))\n\nend QuarticQuery.ForrelationLower",
+    "route_note": "The proposed signature is the exact existing advantage_le statement with a fresh name, retaining its arbitrary finite coordinate type, row-orthogonal H, bounded entries, bounded tree output, positive depth and positive K. It is stronger than the displayed Walsh/acceptance-indicator specialization. The growth input is sum_abs_ext_Dl_le, implementing the Girish-Tal-Wu martingale mechanism directly under biased product measures. No claim is made that GTW proved these exact constants or this exact biased statement.",
+    "source_declarations": [
+      {
+        "declaration": "QuarticQuery.ForrelationLower.advantage_le",
+        "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+        "line": 384,
+        "relation": "exact stronger source theorem"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.sum_abs_ext_Dl_le",
+        "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+        "line": 738,
+        "relation": "biased growth input"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.Lpath_nodup",
+        "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+        "line": 354,
+        "relation": "path family has no repeated coordinates"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.Lpath_inj",
+        "file": "lean/QuarticQuery/ForrelationLower/Cascade.lean",
+        "line": 362,
+        "relation": "path sets are distinct"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.rowsOrth_H",
+        "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+        "line": 129,
+        "relation": "Walsh specialization"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.abs_H_le",
+        "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+        "line": 122,
+        "relation": "Walsh specialization"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.hit_azuma",
+        "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+        "line": 414,
+        "relation": "one-sided stopped increment tail"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.hit_chaos_le",
+        "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+        "line": 514,
+        "relation": "degree induction and (4N)^k exp(-Lambda) failure bound"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.abs_ext_tree_chaos_le",
+        "file": "lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+        "line": 658,
+        "relation": "good/bad expectation bound"
+      }
+    ],
+    "notation_specialization": [
+      "Specialize l=k-1, n=Fin(mValue t), H=QuarticQuery.Forrelation.H t, epsilon=((2:Real)^t)^(-1) and v b=if b then 1 else 0.",
+      "The source K is the paper kappa. Its equation K^2=2*d*2^2*Lambda is exactly kappa^2=8dLambda.",
+      "Fintype.card(BC l n)=(l+1)*mValue t=km, and epsilon=1/sqrt(m). These cardinal/cast arithmetic rewrites are part of the unelaborated notation specialization.",
+      "The paper additionally assumes Lambda>0; the source derives the needed positivity from d>0, K>0 and the square relation.",
+      "All of inequality (23) is covered by the general source statement."
+    ],
+    "uncovered_conjuncts": [],
+    "evidence": {
+      "formal_relation": "existing_source_statement_stronger_with_unelaborated_notation_specialization",
+      "source_inspection": "The cited source statements and proofs were read. All symbols in the proposal are existing source or Mathlib vocabulary.",
+      "proposal_status": "Uncompiled candidate wrapper/signature. This proposal has not been added to the supplied Lean development.",
+      "fresh_lean_build": "not_run",
+      "new_record_comparator": "not_run",
+      "published_source_scope": "Alternative fixed-k proof; no claim to formalise all of Bansal-Sinha Theorem 1.3."
+    },
+    "status": "proposed_not_elaborated",
+    "source_snapshot": "c7e0c9161f0ad898889bd9166e7b354acd42188d"
+  },
+  {
+    "id": "new-fl-moments",
+    "statement": "$$\n\\mathbb E_{\\rm unif}\\Phi=0,\\qquad\n\\mathbb E_{\\rm unif}\\Phi^2=\\frac1m,\\qquad\n\\mathbb E_{\\mathcal D}\\Phi\\geq18^{-(k-1)}.\n\\tag{24}\n$$",
+    "statement_sha256": "47a4b4547985dfba844b3e78e0d93ad37c9ba0249c118d5d48d9219967df2e1e",
+    "context": "k>=2, m=4^t, Phi is the statistic from eq-3, and D is the rounded correlated law from Section 5.2.",
+    "why_needed": "Provides all three moment statements needed to control promise mass and to turn bounded-error correctness into a positive acceptance gap.",
+    "depends_on": [
+      "new-fl-path",
+      "new-fl-truncation",
+      "eq-3",
+      "def-walsh-sign"
+    ],
+    "proposed_lean": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery.Forrelation\nnamespace QuarticQuery.ForrelationLower\n\ntheorem paper_fl_moments (l t : ℕ) (hl : 0 < l) :\n    ext (Phi (l + 1) t) 0 = 0 ∧\n    ext (fun z : BC l (Fin (mValue t)) → Bool =>\n      Phi (l + 1) t z ^ 2) 0 = 1 / (mValue t : ℝ) ∧\n    (1 / 18 : ℝ) ^ l ≤\n      ∫ u, ext (Phi (l + 1) t)\n        (wv (QuarticQuery.Forrelation.H t) 1 u)\n        ∂(gP (PC l (Fin (mValue t))))\n\nend QuarticQuery.ForrelationLower",
+    "route_note": "A proposed conjunction wrapper over ext_PhiF_zero, ext_PhiF_sq and mass_ge, rewritten through Phi_eq_PhiF. The existing mass theorem subtracts the uniform first moment, which is zero by the first conjunct. The second-moment reciprocal is rewritten using mValue t=2^(2t). The wrapper deliberately uses the frozen Phi from Statement rather than leaving the result about an unrelated helper statistic.",
+    "source_declarations": [
+      {
+        "declaration": "QuarticQuery.ForrelationLower.Phi_eq_PhiF",
+        "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+        "line": 482,
+        "relation": "bridge to frozen statistic"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.ext_PhiF_zero",
+        "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+        "line": 559,
+        "relation": "first conjunct"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.ext_PhiF_sq",
+        "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+        "line": 564,
+        "relation": "second conjunct"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.mass_ge",
+        "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+        "line": 499,
+        "relation": "third conjunct after first moment"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.psi_dphi_ge",
+        "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+        "line": 271,
+        "relation": "positive-moment estimate used in proof"
+      }
+    ],
+    "notation_specialization": [
+      "Set l=k-1. BC l(Fin(mValue t)) and ForrelationCoord(l+1)t are definitionally the same coordinate type.",
+      "Expectations under uniform signs are ext at zero, and the hard-law expectation is the Gaussian integral of ext at wv H 1.",
+      "The candidate contains all three displayed assertions; none is replaced by only the eventual query lower bound."
+    ],
+    "uncovered_conjuncts": [],
+    "evidence": {
+      "formal_relation": "uncompiled_conjunction_of_three_existing_moment_theorems",
+      "source_inspection": "The cited source statements and proofs were read. All symbols in the proposal are existing source or Mathlib vocabulary.",
+      "proposal_status": "Uncompiled candidate wrapper/signature. This proposal has not been added to the supplied Lean development.",
+      "fresh_lean_build": "not_run",
+      "new_record_comparator": "not_run",
+      "published_source_scope": "Alternative fixed-k proof; no claim to formalise all of Bansal-Sinha Theorem 1.3."
+    },
+    "status": "proposed_not_elaborated",
+    "source_snapshot": "c7e0c9161f0ad898889bd9166e7b354acd42188d"
+  },
+  {
+    "id": "new-fl-gap",
+    "statement": "$$\n\\mathbb E_{\\mathcal D}a-\\mathbb E_{\\rm unif}a\n\\geq\n(1-\\varepsilon_0)\\bigl(18^{-(k-1)}-\\delta\\bigr)\n-\\varepsilon_0-\\frac4{\\delta^2m}.\n\\tag{25}\n$$",
+    "statement_sha256": "505489ba03d82e4afc4c3f7ec61374bc45f6c9514fc39bae08b46258a76db7c3",
+    "context": "a is the acceptance probability after 2*tau independent repetitions; epsilon_0=(8/9)^tau, delta=2^(-5k), k>=2, m=4^t. The amplified algorithm is correct with error epsilon_0 on every promised input.",
+    "why_needed": "Handles off-promise inputs explicitly and proves the positive acceptance gap that contradicts the tree advantage estimate.",
+    "depends_on": [
+      "new-fl-moments",
+      "eq-3",
+      "eq-4",
+      "def-R"
+    ],
+    "proposed_lean": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery.Forrelation\nnamespace QuarticQuery.ForrelationLower\n\ntheorem paper_fl_gap\n    {l t : ℕ} (hl : 0 < l) {ε : ℝ}\n    (hε0 : 0 ≤ ε) (hε1 : ε ≤ 1)\n    (a : (BC l (Fin (mValue t)) → Bool) → ℝ)\n    (ha0 : ∀ z, 0 ≤ a z) (ha1 : ∀ z, a z ≤ 1)\n    (hyes : ∀ z, P (l + 1) t z = some true → 1 - ε ≤ a z)\n    (hno : ∀ z, P (l + 1) t z = some false → a z ≤ ε) :\n    (1 - ε) * ((1 / 18 : ℝ) ^ l - dl (l + 1)) - ε -\n        4 / (dl (l + 1) ^ 2 * (mValue t : ℝ)) ≤\n      (∫ u, ext a (wv (QuarticQuery.Forrelation.H t) 1 u)\n        ∂(gP (PC l (Fin (mValue t))))) - ext a 0\n\nend QuarticQuery.ForrelationLower",
+    "route_note": "This full acceptance-gap inequality is not an existing top-level theorem. Its proof is present as local reasoning inside not_RLe_of_gap: the all-input upper and lower comparisons are hup and hlow, their expectation bounds are hE0 and hE1, and mass_ge supplies the positive moment. The proposed wrapper extracts that reasoning for any bounded acceptance function with the two promise guarantees. It is stronger than the amplified-algorithm instance in the paper because it does not require a decision-tree representation or a depth bound. The preceding amplification claim is supplied by exists_amplified; it is not silently assumed to hold outside the promise.",
+    "source_declarations": [
+      {
+        "declaration": "QuarticQuery.ForrelationLower.not_RLe_of_gap",
+        "file": "lean/QuarticQuery/ForrelationLower/Main.lean",
+        "line": 81,
+        "relation": "contains local proof of displayed gap"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.P_yes",
+        "file": "lean/QuarticQuery/ForrelationLower/Main.lean",
+        "line": 34,
+        "relation": "promise implication"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.P_no",
+        "file": "lean/QuarticQuery/ForrelationLower/Main.lean",
+        "line": 49,
+        "relation": "promise implication"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.mass_ge",
+        "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+        "line": 499,
+        "relation": "positive moment"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.ext_PhiF_zero",
+        "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+        "line": 559,
+        "relation": "uniform first moment"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.ext_PhiF_sq",
+        "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+        "line": 564,
+        "relation": "uniform second moment"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.Phi_eq_PhiF",
+        "file": "lean/QuarticQuery/ForrelationLower/Promise.lean",
+        "line": 482,
+        "relation": "frozen-statistic bridge"
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.exists_amplified",
+        "file": "lean/QuarticQuery/ForrelationLower/Amplify.lean",
+        "line": 80,
+        "relation": "preceding 2*tau-run correctness context"
+      },
+      {
+        "declaration": "QuarticQuery.Forrelation.abs_Phi_le_one",
+        "file": "lean/QuarticQuery/Forrelation/Product.lean",
+        "line": 266,
+        "relation": "bound on Phi used by the all-input lower comparison"
+      }
+    ],
+    "notation_specialization": [
+      "Set l=k-1 and epsilon=epsilon_0. The source dl(l+1)=((2:Real)^(5*(l+1)))^(-1) is delta.",
+      "Nonnegative mixture weights summing to one give 0<=a<=1; amplified correctness supplies hyes and hno, as in the source proof.",
+      "The reciprocal 4/(delta^2*m) is the same as the source 4/delta^2*((2:Real)^(2*t))^(-1).",
+      "The proposal states the whole inequality (25), rather than the weaker final proposition not_RLe_of_gap."
+    ],
+    "uncovered_conjuncts": [],
+    "evidence": {
+      "formal_relation": "full_gap_extracted_from_existing_local_proof_uncompiled",
+      "source_inspection": "The cited source statements and proofs were read. All symbols in the proposal are existing source or Mathlib vocabulary.",
+      "proposal_status": "Uncompiled candidate wrapper/signature. This proposal has not been added to the supplied Lean development.",
+      "fresh_lean_build": "not_run",
+      "new_record_comparator": "not_run",
+      "published_source_scope": "Alternative fixed-k proof; no claim to formalise all of Bansal-Sinha Theorem 1.3."
+    },
+    "status": "proposed_not_elaborated",
+    "source_snapshot": "c7e0c9161f0ad898889bd9166e7b354acd42188d"
+  }
+]

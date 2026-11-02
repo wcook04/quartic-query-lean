@@ -1,0 +1,1265 @@
+[
+  {
+    "passage": "abstract",
+    "from": "**Abstract.** We give a Gaussian integration-by-parts proof of",
+    "to": "the fixed-$k$ theorem in the supplied Lean development.",
+    "role": "states",
+    "statement_ids": [
+      "new-eq-03",
+      "new-eq-04",
+      "new-eq-12"
+    ],
+    "lean": [],
+    "file": "note.md",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "evidence_note": "Lean entries identify relevant existing evidence; exactness and remaining gaps are stated in NEW_STATEMENTS.json and LEAN_GAPS.md. No fresh compilation is claimed.",
+    "bibliography_keys": [],
+    "displays": []
+  },
+  {
+    "passage": "problem",
+    "from": "Let $k\\ge2$ and let $m$ be a power",
+    "to": "is written explicitly. The input length is $km$.",
+    "role": "defines",
+    "statement_ids": [
+      "eq-3",
+      "eq-4",
+      "def-R",
+      "def-partial-query"
+    ],
+    "lean": [
+      "QuarticQuery.Phi",
+      "QuarticQuery.P",
+      "QuarticQuery.mValue",
+      "QuarticQuery.R",
+      "QuarticQuery.RLe"
+    ],
+    "file": "note.md",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "evidence_note": "Lean entries identify relevant existing evidence; exactness and remaining gaps are stated in NEW_STATEMENTS.json and LEAN_GAPS.md. No fresh compilation is claimed.",
+    "bibliography_keys": [],
+    "displays": [
+      {
+        "locator": "note.md:(1)",
+        "statement_ids": [
+          "eq-3",
+          "eq-4"
+        ],
+        "sha256": "9369d3cee1a056e2e2f2520bd5a07e554d8c98ea8d949d1a9e511efc9f3fd8e9"
+      }
+    ]
+  },
+  {
+    "passage": "sharp-theorem",
+    "from": "**Theorem 1.** Fix a universal constant $C\\ge1$ such",
+    "to": "by a new Lean run in this return.",
+    "role": "states",
+    "statement_ids": [
+      "new-eq-02",
+      "new-eq-03"
+    ],
+    "lean": [],
+    "file": "note.md",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "evidence_note": "Lean entries identify relevant existing evidence; exactness and remaining gaps are stated in NEW_STATEMENTS.json and LEAN_GAPS.md. No fresh compilation is claimed.",
+    "bibliography_keys": [
+      "SherstovStorozhenkoWu2023"
+    ],
+    "displays": [
+      {
+        "locator": "note.md:(2)",
+        "statement_ids": [
+          "new-eq-02"
+        ],
+        "sha256": "68b6895d81dc9a91100841d34a307bad1e45c2e93a8f68022aad6cbd0ac5709a"
+      },
+      {
+        "locator": "note.md:(3)",
+        "statement_ids": [
+          "new-eq-03"
+        ],
+        "sha256": "34603910a547ab409c8295f289628bfc7e4b844d11bffcd095caf6d264e1a042"
+      }
+    ]
+  },
+  {
+    "passage": "elementary-theorem",
+    "from": "There is also a completely numerical conclusion whose",
+    "to": "(3) holds for all smaller $m$ is made.",
+    "role": "states",
+    "statement_ids": [
+      "new-eq-04"
+    ],
+    "lean": [],
+    "file": "note.md",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "evidence_note": "Lean entries identify relevant existing evidence; exactness and remaining gaps are stated in NEW_STATEMENTS.json and LEAN_GAPS.md. No fresh compilation is claimed.",
+    "bibliography_keys": [],
+    "displays": [
+      {
+        "locator": "note.md:(4)",
+        "statement_ids": [
+          "new-eq-04"
+        ],
+        "sha256": "9f536e95bb98061ecd06b7d6aaef0600e249773d4ff7619227b9ce4752d0ee3c"
+      }
+    ]
+  },
+  {
+    "passage": "relation-to-literature",
+    "from": "Bansal and Sinha's Theorem 1.3 gives a lower",
+    "to": "proof of Theorem 2 is supplied in full.",
+    "role": "explains",
+    "statement_ids": [
+      "new-eq-12"
+    ],
+    "lean": [],
+    "file": "note.md",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "evidence_note": "Lean entries identify relevant existing evidence; exactness and remaining gaps are stated in NEW_STATEMENTS.json and LEAN_GAPS.md. No fresh compilation is claimed.",
+    "bibliography_keys": [
+      "BansalSinha2021",
+      "Tal2020",
+      "Wu2022",
+      "ChattopadhyayEtAl2021"
+    ],
+    "displays": []
+  },
+  {
+    "passage": "cube-extension",
+    "from": "For $g:\\{-1,1\\}^n\\to\\mathbb R$, write $\\widetilde g$ for its",
+    "to": "convention avoids normalization factors from biased orthonormal bases.",
+    "role": "defines",
+    "statement_ids": [
+      "new-eq-05"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.ext",
+      "QuarticQuery.ForrelationLower.bw",
+      "QuarticQuery.ForrelationLower.piB",
+      "QuarticQuery.ForrelationLower.D",
+      "QuarticQuery.ForrelationLower.D_D",
+      "QuarticQuery.ForrelationLower.hasDerivAt_ext"
+    ],
+    "file": "note.md",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "evidence_note": "Lean entries identify relevant existing evidence; exactness and remaining gaps are stated in NEW_STATEMENTS.json and LEAN_GAPS.md. No fresh compilation is claimed.",
+    "bibliography_keys": [],
+    "displays": [
+      {
+        "locator": "note.md:(5)",
+        "statement_ids": [
+          "new-eq-05"
+        ],
+        "sha256": "b5f98edce9a4643a7347908fd0e17c13c2e6cf2cc423f124428c94ff502257e7"
+      }
+    ]
+  },
+  {
+    "passage": "kernel",
+    "from": "Put\n\n$$\n \\Psi(x)=\\frac1{2\\sqrt{2+x^2}},\\qquad\n \\varphi(x)=\\frac{x(3+x^2)}{2(2+x^2)^{3/2}},\\qquad\n \\varphi'(x)=\\frac3{(2+x^2)^{5/2}}.\n\\tag{6}\n$$\n\n**Lemma",
+    "to": "the last one. We shall write $b=3/16$. ∎",
+    "role": "proves",
+    "statement_ids": [
+      "new-eq-06",
+      "new-eq-07"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.qf",
+      "QuarticQuery.ForrelationLower.psiS",
+      "QuarticQuery.ForrelationLower.phiS",
+      "QuarticQuery.ForrelationLower.dphi",
+      "QuarticQuery.ForrelationLower.hasDerivAt_phiS",
+      "QuarticQuery.ForrelationLower.abs_phiS_le",
+      "QuarticQuery.ForrelationLower.phiS_neg"
+    ],
+    "file": "note.md",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "evidence_note": "Lean entries identify relevant existing evidence; exactness and remaining gaps are stated in NEW_STATEMENTS.json and LEAN_GAPS.md. No fresh compilation is claimed.",
+    "bibliography_keys": [],
+    "displays": [
+      {
+        "locator": "note.md:(6)",
+        "statement_ids": [
+          "new-eq-06"
+        ],
+        "sha256": "b63c7d8913a2fba4b9b78273911e292e67827aa940a99db931216d0def137a72"
+      },
+      {
+        "locator": "note.md:(7)",
+        "statement_ids": [
+          "new-eq-07"
+        ],
+        "sha256": "eff16be6dda4baa521809e3bccceb921fa7d1c6d82b3392f8a8cdc0176d7e2f4"
+      }
+    ]
+  },
+  {
+    "passage": "stein",
+    "from": "**Lemma 4.** If $G:\\mathbb R\\to\\mathbb R$ is continuously",
+    "to": "kernel bounded with the explicit constant in (7).",
+    "role": "proves",
+    "statement_ids": [
+      "new-eq-08"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.stein_one",
+      "QuarticQuery.ForrelationLower.stein_pi"
+    ],
+    "file": "note.md",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "evidence_note": "Lean entries identify relevant existing evidence; exactness and remaining gaps are stated in NEW_STATEMENTS.json and LEAN_GAPS.md. No fresh compilation is claimed.",
+    "bibliography_keys": [
+      "BansalSinha2021"
+    ],
+    "displays": [
+      {
+        "locator": "note.md:(8)",
+        "statement_ids": [
+          "new-eq-08"
+        ],
+        "sha256": "46e507b35231d1c948a1de233e3cf204de36b7a20356f77e3529b384ca128bf2"
+      }
+    ]
+  },
+  {
+    "passage": "chain-definition",
+    "from": "For this section let $H$ be any real",
+    "to": "determines the order of the matrix indices below.",
+    "role": "defines",
+    "statement_ids": [
+      "new-eq-09"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.Uc",
+      "QuarticQuery.ForrelationLower.Vc",
+      "QuarticQuery.ForrelationLower.Xf",
+      "QuarticQuery.ForrelationLower.Yf",
+      "QuarticQuery.ForrelationLower.Sf",
+      "QuarticQuery.ForrelationLower.wv",
+      "QuarticQuery.ForrelationLower.abs_wv_le_half"
+    ],
+    "file": "note.md",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "evidence_note": "Lean entries identify relevant existing evidence; exactness and remaining gaps are stated in NEW_STATEMENTS.json and LEAN_GAPS.md. No fresh compilation is claimed.",
+    "bibliography_keys": [],
+    "displays": [
+      {
+        "locator": "note.md:(9)",
+        "statement_ids": [
+          "new-eq-09"
+        ],
+        "sha256": "631d05f83c91170cc7446dcc168d4d1c71dc4ab93670475126f155ddd40de32c"
+      }
+    ]
+  },
+  {
+    "passage": "zero-endpoint",
+    "from": "**Lemma 5.** For every $g:\\{-1,1\\}^{km}\\to\\mathbb R$,\n\n$$\n \\mathbb",
+    "to": "g$ is bounded on the compact cube. ∎",
+    "role": "proves",
+    "statement_ids": [
+      "new-eq-10"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.integral_ext_wv_zero",
+      "QuarticQuery.ForrelationLower.integral_reflect"
+    ],
+    "file": "note.md",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "evidence_note": "Lean entries identify relevant existing evidence; exactness and remaining gaps are stated in NEW_STATEMENTS.json and LEAN_GAPS.md. No fresh compilation is claimed.",
+    "bibliography_keys": [],
+    "displays": [
+      {
+        "locator": "note.md:(10)",
+        "statement_ids": [
+          "new-eq-10"
+        ],
+        "sha256": "9145a63230c38820aad6f36d6abb73bcbc51e203c31d078fc46ad1e30b902045"
+      }
+    ]
+  },
+  {
+    "passage": "path-identity",
+    "from": "For a path $p=(p_0,\\ldots,p_{k-1})\\in[m]^k$, let $S_p=\\{(r,p_r):0\\le r<k\\}$ and",
+    "to": "to 1 and using (10) proves (12). ∎",
+    "role": "proves",
+    "statement_ids": [
+      "new-eq-11",
+      "new-eq-12"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.cf",
+      "QuarticQuery.ForrelationLower.hasDerivAt_ext_s",
+      "QuarticQuery.ForrelationLower.integral_walk",
+      "QuarticQuery.ForrelationLower.Int_eq_paths",
+      "QuarticQuery.ForrelationLower.exists_identity"
+    ],
+    "file": "note.md",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "evidence_note": "Lean entries identify relevant existing evidence; exactness and remaining gaps are stated in NEW_STATEMENTS.json and LEAN_GAPS.md. No fresh compilation is claimed.",
+    "bibliography_keys": [],
+    "displays": [
+      {
+        "locator": "note.md:(11)",
+        "statement_ids": [
+          "new-eq-11"
+        ],
+        "sha256": "86372f41fb14ebc4cc00fb55b7d05567afa2c65122ca398ef019105ecba8d290"
+      },
+      {
+        "locator": "note.md:(12)",
+        "statement_ids": [
+          "new-eq-12"
+        ],
+        "sha256": "9fbee7b8ef105602ea2a6f3bcf22b0213ca8722670ead8b6fadb96f385c1b3b0"
+      }
+    ]
+  },
+  {
+    "passage": "three-block-example",
+    "from": "For $k=3$, the bias is $(s\\varphi(U),\\varphi(HU)\\varphi(U'),\\varphi(HU'))$. Starting with",
+    "to": "used at every step of the general proof.",
+    "role": "explains",
+    "statement_ids": [
+      "new-eq-13"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.Int_eq_paths",
+      "QuarticQuery.ForrelationLower.cf"
+    ],
+    "file": "note.md",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "evidence_note": "Lean entries identify relevant existing evidence; exactness and remaining gaps are stated in NEW_STATEMENTS.json and LEAN_GAPS.md. No fresh compilation is claimed.",
+    "bibliography_keys": [],
+    "displays": [
+      {
+        "locator": "note.md:(13)",
+        "statement_ids": [
+          "new-eq-13"
+        ],
+        "sha256": "029c7f2c8b75829a5f76b48c92ae3e498a3b9d2547ad03ed3bfd008f3bc56937"
+      }
+    ]
+  },
+  {
+    "passage": "biased-level-meaning",
+    "from": "Equation (12) uses derivatives of order $k$ at",
+    "to": "directly in §6 or by restrictions in §7.",
+    "role": "explains",
+    "statement_ids": [
+      "new-eq-14"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.ext_Dl"
+    ],
+    "file": "note.md",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "evidence_note": "Lean entries identify relevant existing evidence; exactness and remaining gaps are stated in NEW_STATEMENTS.json and LEAN_GAPS.md. No fresh compilation is claimed.",
+    "bibliography_keys": [],
+    "displays": [
+      {
+        "locator": "note.md:(14)",
+        "statement_ids": [
+          "new-eq-14"
+        ],
+        "sha256": "eafa423416d8a63584d3471e300b5f7a55475cec07d69034ad8ca3ad071665c6"
+      }
+    ]
+  },
+  {
+    "passage": "advantage",
+    "from": "Let $\\|H\\|_{\\max}=\\max_{a,b}|H_{a,b}|$. Taking absolute values in (12) and",
+    "to": "$b=3/16$ is a separate strengthening in this note.",
+    "role": "proves",
+    "statement_ids": [
+      "new-eq-15",
+      "new-path-weight-sharp"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.abs_cf_le",
+      "QuarticQuery.ForrelationLower.advantage_le",
+      "QuarticQuery.ForrelationLower.Lpath_nodup",
+      "QuarticQuery.ForrelationLower.Lpath_inj"
+    ],
+    "file": "note.md",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "evidence_note": "Lean entries identify relevant existing evidence; exactness and remaining gaps are stated in NEW_STATEMENTS.json and LEAN_GAPS.md. No fresh compilation is claimed.",
+    "bibliography_keys": [],
+    "displays": [
+      {
+        "locator": "note.md:(15)",
+        "statement_ids": [
+          "new-eq-15"
+        ],
+        "sha256": "f878e575315852cbd6c632e7b51387ebf55b5aea3f84da1ee04cc29c400df8a6"
+      }
+    ]
+  },
+  {
+    "passage": "general-moments",
+    "from": "For an arbitrary real orthogonal $H$, define $\\Phi_H$",
+    "to": "without a tail estimate for the hard distribution.",
+    "role": "proves",
+    "statement_ids": [
+      "new-eq-16"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.ext_PhiF_zero",
+      "QuarticQuery.ForrelationLower.ext_PhiF_sq",
+      "QuarticQuery.Forrelation.abs_Phi_le_one"
+    ],
+    "file": "note.md",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "evidence_note": "Lean entries identify relevant existing evidence; exactness and remaining gaps are stated in NEW_STATEMENTS.json and LEAN_GAPS.md. No fresh compilation is claimed.",
+    "bibliography_keys": [],
+    "displays": [
+      {
+        "locator": "note.md:(16)",
+        "statement_ids": [
+          "new-eq-16"
+        ],
+        "sha256": "eb19397fa764d7dac44a76dd699c44a11ed0e7ea7030b14db11e3b84e7ceb3d6"
+      }
+    ]
+  },
+  {
+    "passage": "positive-mean",
+    "from": "**Lemma 7.** For every orthogonal $H$,\n\n$$\n \\mathbb",
+    "to": "$m$, as in (16). Formula (17) follows. ∎",
+    "role": "proves",
+    "statement_ids": [
+      "new-eq-17",
+      "new-eq-18"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.mass_ge",
+      "QuarticQuery.ForrelationLower.psi_dphi_ge"
+    ],
+    "file": "note.md",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "evidence_note": "Lean entries identify relevant existing evidence; exactness and remaining gaps are stated in NEW_STATEMENTS.json and LEAN_GAPS.md. No fresh compilation is claimed.",
+    "bibliography_keys": [],
+    "displays": [
+      {
+        "locator": "note.md:(17)",
+        "statement_ids": [
+          "new-eq-17"
+        ],
+        "sha256": "0412187f2323f201689ede87819c377e45b83ef15029e0907dcff3bccd52bbc3"
+      },
+      {
+        "locator": "note.md:(18)",
+        "statement_ids": [
+          "new-eq-18"
+        ],
+        "sha256": "5b5d0567d1fb93d2bc296fa2b62c705dc8a8bf59ccce6c578fb5b5ba2c066785"
+      }
+    ]
+  },
+  {
+    "passage": "promise-gap",
+    "from": "Return to Walsh $H$, put $a=18^{-(k-1)}$, and define",
+    "to": "outside the promise, as in the original definition.",
+    "role": "proves",
+    "statement_ids": [
+      "new-eq-19",
+      "new-eq-20"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.dl",
+      "QuarticQuery.ForrelationLower.P_yes",
+      "QuarticQuery.ForrelationLower.P_no",
+      "QuarticQuery.ForrelationLower.not_RLe_of_gap"
+    ],
+    "file": "note.md",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "evidence_note": "Lean entries identify relevant existing evidence; exactness and remaining gaps are stated in NEW_STATEMENTS.json and LEAN_GAPS.md. No fresh compilation is claimed.",
+    "bibliography_keys": [],
+    "displays": [
+      {
+        "locator": "note.md:(19)",
+        "statement_ids": [
+          "new-eq-19"
+        ],
+        "sha256": "e32059579ffef0a4bd80f7f074580e02bc79647079fee663fe69a603b926b203"
+      },
+      {
+        "locator": "note.md:(20)",
+        "statement_ids": [
+          "new-eq-20"
+        ],
+        "sha256": "b99352608a2044db104e5e9b3a40aa179a165e780bd6ec4727b61c0d29b8bb5c"
+      }
+    ]
+  },
+  {
+    "passage": "amplification",
+    "from": "Suppose a randomized depth-$L$ tree is correct on",
+    "to": "finite mixture of amplified trees preserves that bound.",
+    "role": "proves",
+    "statement_ids": [
+      "new-eq-21"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.exists_amplified"
+    ],
+    "file": "note.md",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "evidence_note": "Lean entries identify relevant existing evidence; exactness and remaining gaps are stated in NEW_STATEMENTS.json and LEAN_GAPS.md. No fresh compilation is claimed.",
+    "bibliography_keys": [],
+    "displays": [
+      {
+        "locator": "note.md:(21)",
+        "statement_ids": [
+          "new-eq-21"
+        ],
+        "sha256": "5c36092d59d7fe742922adb277ddd980713a2f23fe095e76afbc3558905955a0"
+      }
+    ]
+  },
+  {
+    "passage": "elementary-growth",
+    "from": "**Lemma 9.** Let $n\\ge1$, and let $T:\\{-1,1\\}^n\\to[0,1]$ be",
+    "to": "not been compiled as a new declaration here.",
+    "role": "proves",
+    "statement_ids": [
+      "new-eq-22",
+      "new-eq-23",
+      "new-growth-raw-formula",
+      "new-growth-chaos-increment",
+      "new-growth-hoeffding",
+      "new-growth-leaf-formula",
+      "new-growth-parameterized"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.xi",
+      "QuarticQuery.ForrelationLower.ext_Dl",
+      "QuarticQuery.ForrelationLower.chaos",
+      "QuarticQuery.ForrelationLower.chaos_insert",
+      "QuarticQuery.ForrelationLower.hit_azuma",
+      "QuarticQuery.ForrelationLower.hit_chaos_le",
+      "QuarticQuery.ForrelationLower.sum_abs_ext_Dl_le"
+    ],
+    "file": "note.md",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "evidence_note": "Lean entries identify relevant existing evidence; exactness and remaining gaps are stated in NEW_STATEMENTS.json and LEAN_GAPS.md. No fresh compilation is claimed.",
+    "bibliography_keys": [
+      "GirishTalWu2021"
+    ],
+    "displays": [
+      {
+        "locator": "note.md:(22)",
+        "statement_ids": [
+          "new-eq-22"
+        ],
+        "sha256": "34033eb0a66f42b05ec72a04566cb62544afcf8ab1342973018ee3dc7a2c10be"
+      },
+      {
+        "locator": "note.md:(23)",
+        "statement_ids": [
+          "new-eq-23"
+        ],
+        "sha256": "ebe4cef7c8d0aad5255cb0ec1d9b9ece80ad4f23a5d13f2efe9667339c6e0fc0"
+      }
+    ]
+  },
+  {
+    "passage": "finite-elementary",
+    "from": "Let an algorithm for $P_{k,m}$ have depth $L\\ge1$",
+    "to": "so a positive $\\Gamma$ already gives a contradiction.",
+    "role": "proves",
+    "statement_ids": [
+      "new-eq-24"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.not_RLe_of_gap",
+      "QuarticQuery.ForrelationLower.advantage_le"
+    ],
+    "file": "note.md",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "evidence_note": "Lean entries identify relevant existing evidence; exactness and remaining gaps are stated in NEW_STATEMENTS.json and LEAN_GAPS.md. No fresh compilation is claimed.",
+    "bibliography_keys": [],
+    "displays": [
+      {
+        "locator": "note.md:(24)",
+        "statement_ids": [
+          "new-eq-24"
+        ],
+        "sha256": "15841f4fb59eda286ef35e6c53d8444f563e162f4d2af11b1bcc8d870ecdd5b5"
+      }
+    ]
+  },
+  {
+    "passage": "elementary-proof",
+    "from": "*Proof of Theorem 2.* Suppose that $L$ is",
+    "to": "is $59a/108<3a/4$, contradicting the preceding lower bound. ∎",
+    "role": "proves",
+    "statement_ids": [
+      "new-eq-04",
+      "new-elementary-arithmetic"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.not_RLe_of_gap"
+    ],
+    "file": "note.md",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "evidence_note": "Lean entries identify relevant existing evidence; exactness and remaining gaps are stated in NEW_STATEMENTS.json and LEAN_GAPS.md. No fresh compilation is claimed.",
+    "bibliography_keys": [],
+    "displays": []
+  },
+  {
+    "passage": "restriction-transfer",
+    "from": "For the sharper Fourier theorem we first pass",
+    "to": "\\sum_{p\\in[m]^k}|\\partial_{S_p}\\widetilde T(w_s)|\n \\le4(4/3)^{k-2}C^k\\sqrt{\\binom d k}\\,\n                 (1+\\ln(km))^{(k-1)/2}.\n\\tag{26}\n$$",
+    "role": "proves",
+    "statement_ids": [
+      "new-eq-25",
+      "new-eq-26"
+    ],
+    "lean": [],
+    "file": "note.md",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "evidence_note": "Lean entries identify relevant existing evidence; exactness and remaining gaps are stated in NEW_STATEMENTS.json and LEAN_GAPS.md. No fresh compilation is claimed.",
+    "bibliography_keys": [
+      "Wu2022",
+      "SherstovStorozhenkoWu2023"
+    ],
+    "displays": [
+      {
+        "locator": "note.md:(25)",
+        "statement_ids": [
+          "new-eq-25"
+        ],
+        "sha256": "89a26a1797dd7950451a3da08d2de5002386dff9d59e24f031c3dc96056b03dc"
+      },
+      {
+        "locator": "note.md:(26)",
+        "statement_ids": [
+          "new-eq-26"
+        ],
+        "sha256": "76dacc7c215e05f33b5ec799d8a76f9565193dfbfe5cc35767579703050a6398"
+      }
+    ]
+  },
+  {
+    "passage": "finite-sharp",
+    "from": "Since $b^{k-1}4(4/3)^{k-2}=3/4^{k-1}$, the sharper counterpart of (24) is",
+    "to": "It does not require a new interpolation identity.",
+    "role": "proves",
+    "statement_ids": [
+      "new-eq-27",
+      "new-eq-28"
+    ],
+    "lean": [],
+    "file": "note.md",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "evidence_note": "Lean entries identify relevant existing evidence; exactness and remaining gaps are stated in NEW_STATEMENTS.json and LEAN_GAPS.md. No fresh compilation is claimed.",
+    "bibliography_keys": [],
+    "displays": [
+      {
+        "locator": "note.md:(27)",
+        "statement_ids": [
+          "new-eq-27"
+        ],
+        "sha256": "d66906a1b7859c01553aed6dc829d537781f369cea0fbd4e00ccaff81472bb3d"
+      },
+      {
+        "locator": "note.md:(28)",
+        "statement_ids": [
+          "new-eq-28"
+        ],
+        "sha256": "516b59957b4360d89db7eacf6484842b95eaca96698768e47f9fe312445efc81"
+      }
+    ]
+  },
+  {
+    "passage": "sharp-proof",
+    "from": "*Proof of Theorem 1.* Choose $\\tau=\\lceil5k\\ln2/\\eta^2\\rceil$. Then (21)",
+    "to": "are three different consequences of the same identity.",
+    "role": "proves",
+    "statement_ids": [
+      "new-eq-03",
+      "new-eq-29",
+      "new-tal-consequence"
+    ],
+    "lean": [],
+    "file": "note.md",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "evidence_note": "Lean entries identify relevant existing evidence; exactness and remaining gaps are stated in NEW_STATEMENTS.json and LEAN_GAPS.md. No fresh compilation is claimed.",
+    "bibliography_keys": [],
+    "displays": [
+      {
+        "locator": "note.md:(29)",
+        "statement_ids": [
+          "new-eq-29"
+        ],
+        "sha256": "96f23b2e197d67d4721ffca6f46162bb8dcb59385c13d3ca6f5bc375aafd24b8"
+      }
+    ]
+  },
+  {
+    "passage": "formal-boundary",
+    "from": "For $m=4^t$, (1) agrees with the frozen `QuarticQuery.Phi`,",
+    "to": "These restrictions are part of the quantitative statement.",
+    "role": "explains",
+    "statement_ids": [
+      "lem-2.1.i",
+      "new-eq-03",
+      "new-eq-04"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.bansalSinhaLower",
+      "QuarticQuery.ForrelationLower.Phi_eq_PhiF",
+      "QuarticQuery.BansalSinhaLower",
+      "QuarticQuery.Lvalue",
+      "QuarticQuery.Phi",
+      "QuarticQuery.P"
+    ],
+    "file": "note.md",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "evidence_note": "Lean entries identify relevant existing evidence; exactness and remaining gaps are stated in NEW_STATEMENTS.json and LEAN_GAPS.md. No fresh compilation is claimed.",
+    "bibliography_keys": [],
+    "displays": []
+  },
+  {
+    "passage": "limitations",
+    "from": "Orthogonality is used to make the zero endpoint",
+    "to": "establish its optimality for this particular promise problem.",
+    "role": "explains",
+    "statement_ids": [
+      "new-eq-03",
+      "new-eq-16",
+      "new-eq-17"
+    ],
+    "lean": [],
+    "file": "note.md",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "evidence_note": "Lean entries identify relevant existing evidence; exactness and remaining gaps are stated in NEW_STATEMENTS.json and LEAN_GAPS.md. No fresh compilation is claimed.",
+    "bibliography_keys": [],
+    "displays": []
+  },
+  {
+    "passage": "q-verdict",
+    "from": "## Verdict and conventions\n\nThe conjectured improvement is",
+    "to": "are mathematical refinements of that existing Lean estimate.",
+    "role": "states",
+    "statement_ids": [
+      "new-eq-03",
+      "new-eq-04",
+      "new-eq-06",
+      "new-eq-07",
+      "new-eq-19",
+      "new-tal-consequence"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.abs_cf_le"
+    ],
+    "file": "quantitative.md",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "evidence_note": "Lean entries identify relevant existing evidence; exactness and remaining gaps are stated in NEW_STATEMENTS.json and LEAN_GAPS.md. No fresh compilation is claimed.",
+    "bibliography_keys": [],
+    "displays": [
+      {
+        "locator": "quantitative.md:q-verdict:display-1",
+        "statement_ids": [
+          "eq-3",
+          "eq-4",
+          "new-eq-19"
+        ],
+        "sha256": "bc0ab0615d751a9b9e7f15c1eefc93742b1ea969a7239affec8a133db46a6684"
+      },
+      {
+        "locator": "quantitative.md:q-verdict:display-2",
+        "statement_ids": [
+          "new-eq-06",
+          "new-eq-07"
+        ],
+        "sha256": "2c701dd3feff7cab0b0a66e148f3e9cfdc146bd51390abe648907ad822b452ef"
+      }
+    ]
+  },
+  {
+    "passage": "q-finite-comparison",
+    "from": "## 1. The exact finite comparison\n\nLet $\\mathcal",
+    "to": "$(8/9)^\\tau$, matching `exists_amplified`. Its depth is $2\\tau L$.",
+    "role": "proves",
+    "statement_ids": [
+      "new-eq-16",
+      "new-eq-17",
+      "new-eq-18",
+      "new-eq-19",
+      "new-eq-20",
+      "new-eq-21"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.mass_ge",
+      "QuarticQuery.ForrelationLower.ext_PhiF_sq",
+      "QuarticQuery.ForrelationLower.exists_amplified"
+    ],
+    "file": "quantitative.md",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "evidence_note": "Lean entries identify relevant existing evidence; exactness and remaining gaps are stated in NEW_STATEMENTS.json and LEAN_GAPS.md. No fresh compilation is claimed.",
+    "bibliography_keys": [],
+    "displays": [
+      {
+        "locator": "quantitative.md:q-finite-comparison:display-1",
+        "statement_ids": [
+          "new-eq-16",
+          "new-eq-17"
+        ],
+        "sha256": "315ab9deb3bb391bea4941ded4c111a8a6cc671926c625e822b84ab404094407"
+      },
+      {
+        "locator": "quantitative.md:q-finite-comparison:display-2",
+        "statement_ids": [
+          "new-eq-18"
+        ],
+        "sha256": "41ab0a6588325344800898eda6cdfb7fadcaefe1e7fe8888ba056fd8f53bdf26"
+      },
+      {
+        "locator": "quantitative.md:(F1)",
+        "statement_ids": [
+          "new-eq-19"
+        ],
+        "sha256": "3670f689c97f5b5ab103fd1713df106318af906e5954a802b70c150a20f501c5"
+      },
+      {
+        "locator": "quantitative.md:(F2)",
+        "statement_ids": [
+          "new-eq-20"
+        ],
+        "sha256": "40b4ebe7748cbcb55b75d0ccfa8d9d2153faac391b4445388eeb0e633cb5af17"
+      },
+      {
+        "locator": "quantitative.md:(F3)",
+        "statement_ids": [
+          "new-eq-21"
+        ],
+        "sha256": "c61dfde226ba4f9b73b23b8160b2504e387450564888de4e34254f5aef0e38ec"
+      }
+    ]
+  },
+  {
+    "passage": "q-elementary-finite",
+    "from": "### 1.1 Elementary growth, with all constants\n\nFor",
+    "to": "numerically, or left as a free positive integer.",
+    "role": "proves",
+    "statement_ids": [
+      "new-eq-22",
+      "new-eq-24",
+      "new-finite-elementary-inversion"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.sum_abs_ext_Dl_le"
+    ],
+    "file": "quantitative.md",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "evidence_note": "Lean entries identify relevant existing evidence; exactness and remaining gaps are stated in NEW_STATEMENTS.json and LEAN_GAPS.md. No fresh compilation is claimed.",
+    "bibliography_keys": [],
+    "displays": [
+      {
+        "locator": "quantitative.md:(F4)",
+        "statement_ids": [
+          "new-eq-22"
+        ],
+        "sha256": "415acab4db125b44694cee3e2217f8820900b0430968997dfd9f91c9a49607ae"
+      },
+      {
+        "locator": "quantitative.md:(F5)",
+        "statement_ids": [
+          "new-eq-24"
+        ],
+        "sha256": "9bd30890125c7ae2e2ba71a0c21372fadab1d47ca7158aa54112749491b97bee"
+      },
+      {
+        "locator": "quantitative.md:(F6)",
+        "statement_ids": [
+          "new-finite-elementary-inversion"
+        ],
+        "sha256": "ef7e5f4b4fe8ba5c107067bb3dbd6f350dcdd1cdc5fb15e8eeca6387a2b9ecf7"
+      }
+    ]
+  },
+  {
+    "passage": "q-sharp-finite",
+    "from": "### 1.2 Sharp Fourier growth\n\nFix a universal",
+    "to": "in $m$, or the logarithmic loss is optimal.",
+    "role": "proves",
+    "statement_ids": [
+      "new-eq-02",
+      "new-eq-25",
+      "new-eq-26",
+      "new-eq-27",
+      "new-eq-28"
+    ],
+    "lean": [],
+    "file": "quantitative.md",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "evidence_note": "Lean entries identify relevant existing evidence; exactness and remaining gaps are stated in NEW_STATEMENTS.json and LEAN_GAPS.md. No fresh compilation is claimed.",
+    "bibliography_keys": [
+      "SherstovStorozhenkoWu2023",
+      "Wu2022"
+    ],
+    "displays": [
+      {
+        "locator": "quantitative.md:(F7)",
+        "statement_ids": [
+          "new-eq-02"
+        ],
+        "sha256": "1902eb4efdebcf384e08d03560d421d0c951dd29133e57d9e12fbb9a434a1e56"
+      },
+      {
+        "locator": "quantitative.md:(F8)",
+        "statement_ids": [
+          "new-eq-25"
+        ],
+        "sha256": "1226274065eaed5f8915cb954c7507a1af75e9cbc09b4e7feb05a3275cb2708a"
+      },
+      {
+        "locator": "quantitative.md:q-sharp-finite:display-3",
+        "statement_ids": [
+          "new-eq-26"
+        ],
+        "sha256": "5035f1c035f2a0844b2a18651c5e49456d52e513cf4f7b0c1c5f078df2dd332d"
+      },
+      {
+        "locator": "quantitative.md:q-sharp-finite:display-4",
+        "statement_ids": [
+          "new-eq-27"
+        ],
+        "sha256": "a999436ad387a3a11e53e2c566c420f11c50b8e2e5f048e39a3691f8ceea8d23"
+      },
+      {
+        "locator": "quantitative.md:(F9)",
+        "statement_ids": [
+          "new-eq-27"
+        ],
+        "sha256": "67de75e78e6d61293d4e4bc2aa498f09d7311d1b23bba2245f74ed2b1a467981"
+      },
+      {
+        "locator": "quantitative.md:(F10)",
+        "statement_ids": [
+          "new-eq-28"
+        ],
+        "sha256": "010d556f953269fb46daf59e140fdd66451cd0e15a6b147ac066bbef42f89ece"
+      }
+    ]
+  },
+  {
+    "passage": "q-elementary-uniform",
+    "from": "## 2. Two simple uniform theorems\n\n### The",
+    "to": "Those are new, straightforward mathematical consequences to formalise.",
+    "role": "proves",
+    "statement_ids": [
+      "new-eq-04",
+      "new-elementary-arithmetic"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.not_RLe_of_gap"
+    ],
+    "file": "quantitative.md",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "evidence_note": "Lean entries identify relevant existing evidence; exactness and remaining gaps are stated in NEW_STATEMENTS.json and LEAN_GAPS.md. No fresh compilation is claimed.",
+    "bibliography_keys": [],
+    "displays": [
+      {
+        "locator": "quantitative.md:(E1)",
+        "statement_ids": [
+          "new-eq-04"
+        ],
+        "sha256": "3f87a94aebafebdb6cc5e101c79a1c56d3c30adabaafe0a857775168836a9d7f"
+      },
+      {
+        "locator": "quantitative.md:q-elementary-uniform:display-2",
+        "statement_ids": [
+          "new-elementary-arithmetic"
+        ],
+        "sha256": "c43c25407de11a288c0c638351b2f6fc53a51a4d0b6d118d6f06d482ca30898d"
+      },
+      {
+        "locator": "quantitative.md:q-elementary-uniform:display-3",
+        "statement_ids": [
+          "new-elementary-arithmetic"
+        ],
+        "sha256": "206cba58373fc94b8a1f637bd5e5c23b9377d53cd971b0c7dee34e4aaf612f05"
+      }
+    ]
+  },
+  {
+    "passage": "q-sharp-uniform",
+    "from": "### The theorem using Sherstov–Storozhenko–Wu\n\nWith $C$ fixed",
+    "to": "improvement changes the zero inverse-polynomial loss in $k$.",
+    "role": "proves",
+    "statement_ids": [
+      "new-eq-03",
+      "new-sharp-third-corollary",
+      "new-eq-19",
+      "new-eq-29"
+    ],
+    "lean": [],
+    "file": "quantitative.md",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "evidence_note": "Lean entries identify relevant existing evidence; exactness and remaining gaps are stated in NEW_STATEMENTS.json and LEAN_GAPS.md. No fresh compilation is claimed.",
+    "bibliography_keys": [],
+    "displays": [
+      {
+        "locator": "quantitative.md:(S1)",
+        "statement_ids": [
+          "new-eq-03"
+        ],
+        "sha256": "f2607c797f3d37a7917cb1067839dde7511914ce2c390c2163bd3ccab8129a4f"
+      },
+      {
+        "locator": "quantitative.md:(S2)",
+        "statement_ids": [
+          "new-sharp-third-corollary"
+        ],
+        "sha256": "fa9fb2a177611a142c78470822693f8b9b6576a463ed5e2951931e5eb3204557"
+      },
+      {
+        "locator": "quantitative.md:q-sharp-uniform:display-3",
+        "statement_ids": [
+          "new-eq-19"
+        ],
+        "sha256": "4256d729e4cc8c50409588f40122ad10020367b53f337ffe1a8f8bed5fa120cd"
+      },
+      {
+        "locator": "quantitative.md:q-sharp-uniform:display-4",
+        "statement_ids": [
+          "new-eq-29"
+        ],
+        "sha256": "2bd107d5bd0814daa35fa125566f12a3a0737c244b6e082fec968d2dacad3f9d"
+      }
+    ]
+  },
+  {
+    "passage": "q-k-comparison",
+    "from": "## 3. Where the powers of k enter",
+    "to": "without a replacement argument is not established here.",
+    "role": "explains",
+    "statement_ids": [
+      "new-tal-fourier-input",
+      "new-tal-consequence",
+      "new-eq-03",
+      "new-eq-04"
+    ],
+    "lean": [],
+    "file": "quantitative.md",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "evidence_note": "Lean entries identify relevant existing evidence; exactness and remaining gaps are stated in NEW_STATEMENTS.json and LEAN_GAPS.md. No fresh compilation is claimed.",
+    "bibliography_keys": [
+      "Tal2020",
+      "BansalSinha2021",
+      "SherstovStorozhenkoWu2023"
+    ],
+    "displays": [
+      {
+        "locator": "quantitative.md:q-k-comparison:display-1",
+        "statement_ids": [
+          "new-tal-fourier-input"
+        ],
+        "sha256": "70e997918273a687c1e8de60f1ff50cf102cd1ae0c633ea9c7cb33e265c10ea2"
+      },
+      {
+        "locator": "quantitative.md:q-k-comparison:display-2",
+        "statement_ids": [
+          "new-tal-consequence"
+        ],
+        "sha256": "8d1b81eea9ad86c786347afb56cc6dff98659467ce5eb6033d4d63fe9f763353"
+      }
+    ]
+  },
+  {
+    "passage": "q-growth-proof",
+    "from": "## 4. Complete elementary proof of (F4)\n\nFix",
+    "to": "run directly under a bounded biased product measure.",
+    "role": "proves",
+    "statement_ids": [
+      "new-eq-22",
+      "new-eq-23",
+      "new-growth-raw-formula",
+      "new-growth-chaos-increment",
+      "new-growth-hoeffding",
+      "new-growth-union-arithmetic",
+      "new-growth-leaf-formula",
+      "new-growth-parameterized"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.ext_Dl",
+      "QuarticQuery.ForrelationLower.xi",
+      "QuarticQuery.ForrelationLower.chaos",
+      "QuarticQuery.ForrelationLower.chaos_insert",
+      "QuarticQuery.ForrelationLower.walk",
+      "QuarticQuery.ForrelationLower.hit_chaos_le",
+      "QuarticQuery.ForrelationLower.sum_abs_ext_Dl_le"
+    ],
+    "file": "quantitative.md",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "evidence_note": "Lean entries identify relevant existing evidence; exactness and remaining gaps are stated in NEW_STATEMENTS.json and LEAN_GAPS.md. No fresh compilation is claimed.",
+    "bibliography_keys": [
+      "GirishTalWu2021"
+    ],
+    "displays": [
+      {
+        "locator": "quantitative.md:q-growth-proof:display-1",
+        "statement_ids": [
+          "new-growth-raw-formula"
+        ],
+        "sha256": "727db6cc4b01eee3afc7b01701e84c99147ed191756b6b97e5ed20708f9e6517"
+      },
+      {
+        "locator": "quantitative.md:q-growth-proof:display-2",
+        "statement_ids": [
+          "new-growth-raw-formula"
+        ],
+        "sha256": "c28c482ec752cf83ca4f233bfab82eb9b6aaf8b5146fd3b07c5f24201571920f"
+      },
+      {
+        "locator": "quantitative.md:q-growth-proof:display-3",
+        "statement_ids": [
+          "new-growth-chaos-increment"
+        ],
+        "sha256": "6383bda5bf543b9d4c8f9b603de049f0e29d168fb9d675cc55a0fd38a685774c"
+      },
+      {
+        "locator": "quantitative.md:q-growth-proof:display-4",
+        "statement_ids": [
+          "new-growth-chaos-increment"
+        ],
+        "sha256": "fddb8b7106752db4fc49ede7eae500c42cc420cdf013efcf2b6ff5be1878299d"
+      },
+      {
+        "locator": "quantitative.md:(M1)",
+        "statement_ids": [
+          "new-eq-23"
+        ],
+        "sha256": "bb0248bc2e734c6ff2479fc251d97fa2b6937c3750937afad3d1718807d8bc38"
+      },
+      {
+        "locator": "quantitative.md:q-growth-proof:display-6",
+        "statement_ids": [
+          "new-growth-hoeffding"
+        ],
+        "sha256": "ac9017b08c543ab81be71b114a29f3cfe00864656624e3f0aa9864757f870e0e"
+      },
+      {
+        "locator": "quantitative.md:q-growth-proof:display-7",
+        "statement_ids": [
+          "new-growth-union-arithmetic"
+        ],
+        "sha256": "0537a9a22fdddde1c7a03680bdd57e25400ef55034ede94306ae4237d200add4"
+      },
+      {
+        "locator": "quantitative.md:q-growth-proof:display-8",
+        "statement_ids": [
+          "new-growth-leaf-formula"
+        ],
+        "sha256": "786b8e614f18399a8e0038f3d5dc97718f61008720b3d10e096e122e980124a2"
+      },
+      {
+        "locator": "quantitative.md:q-growth-proof:display-9",
+        "statement_ids": [
+          "new-growth-parameterized"
+        ],
+        "sha256": "2d450b9c1d65f3751c266fad0a237c75cf2b766c2d8e4f79454db9e501014dcf"
+      }
+    ]
+  },
+  {
+    "passage": "q-coarse-uniform",
+    "from": "## 5. The uniform endpoint using the existing",
+    "to": "Hence the endpoint has no omitted zero-depth case.",
+    "role": "proves",
+    "statement_ids": [
+      "new-forrelation-uniform-coarse",
+      "new-coarse-arithmetic",
+      "new-padding-binomial"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.not_RLe_of_gap",
+      "QuarticQuery.ForrelationLower.advantage_le",
+      "QuarticQuery.ForrelationLower.sum_abs_ext_Dl_le",
+      "QuarticQuery.ForrelationLower.exists_amplified"
+    ],
+    "file": "quantitative.md",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "evidence_note": "Lean entries identify relevant existing evidence; exactness and remaining gaps are stated in NEW_STATEMENTS.json and LEAN_GAPS.md. No fresh compilation is claimed.",
+    "bibliography_keys": [],
+    "displays": [
+      {
+        "locator": "quantitative.md:q-coarse-uniform:display-1",
+        "statement_ids": [
+          "new-forrelation-uniform-coarse"
+        ],
+        "sha256": "429a0fc431ff3c3647d7bc99eaf4b44a8d53b52ca786935218785fb93011f338"
+      },
+      {
+        "locator": "quantitative.md:q-coarse-uniform:display-2",
+        "statement_ids": [
+          "new-coarse-arithmetic"
+        ],
+        "sha256": "b1c1e8457ee65faab8802cf832f189d2f655d8906a7cbba5dcfc5b405b9bc3e4"
+      },
+      {
+        "locator": "quantitative.md:q-coarse-uniform:display-3",
+        "statement_ids": [
+          "new-coarse-arithmetic"
+        ],
+        "sha256": "ce8802883ecf846b4d5d356673ca260d14b3fe324390c86738d81dd08f65aaaf"
+      },
+      {
+        "locator": "quantitative.md:q-coarse-uniform:display-4",
+        "statement_ids": [
+          "new-coarse-arithmetic"
+        ],
+        "sha256": "ed3c8f29069e8ac3edcc43e89639b06066b53a9ec8dea70477867e0d8c2cc2b2"
+      },
+      {
+        "locator": "quantitative.md:q-coarse-uniform:display-5",
+        "statement_ids": [
+          "new-padding-binomial"
+        ],
+        "sha256": "b7678157cf55834841b9daefe97c55eddc74ea3411b88d4dd242ff7bad986824"
+      },
+      {
+        "locator": "quantitative.md:q-coarse-uniform:display-6",
+        "statement_ids": [
+          "new-coarse-arithmetic"
+        ],
+        "sha256": "dc170a74f1496b16856b4f0e589fe166bfa6927638580fd1d80c5c630728fa30"
+      }
+    ]
+  },
+  {
+    "passage": "q-evidence",
+    "from": "## 6. Formal status and source locations\n\nNo",
+    "to": "and their limits are recorded separately in prior_art.json.",
+    "role": "explains",
+    "statement_ids": [
+      "lem-2.1.i",
+      "new-eq-03",
+      "new-eq-04",
+      "new-forrelation-uniform-coarse"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.bansalSinhaLower",
+      "QuarticQuery.ForrelationLower.exists_identity",
+      "QuarticQuery.ForrelationLower.Int_eq_paths",
+      "QuarticQuery.ForrelationLower.integral_ext_wv_zero",
+      "QuarticQuery.ForrelationLower.abs_cf_le",
+      "QuarticQuery.ForrelationLower.advantage_le",
+      "QuarticQuery.ForrelationLower.mass_ge",
+      "QuarticQuery.ForrelationLower.ext_PhiF_sq",
+      "QuarticQuery.ForrelationLower.sum_abs_ext_Dl_le",
+      "QuarticQuery.ForrelationLower.hit_chaos_le",
+      "QuarticQuery.ForrelationLower.exists_amplified",
+      "QuarticQuery.ForrelationLower.not_RLe_of_gap"
+    ],
+    "file": "quantitative.md",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "evidence_note": "Lean entries identify relevant existing evidence; exactness and remaining gaps are stated in NEW_STATEMENTS.json and LEAN_GAPS.md. No fresh compilation is claimed.",
+    "bibliography_keys": [],
+    "displays": []
+  }
+]

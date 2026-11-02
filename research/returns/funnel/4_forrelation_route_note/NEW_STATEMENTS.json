@@ -1,0 +1,735 @@
+[
+  {
+    "id": "new-eq-02",
+    "statement": "There exists an absolute C ≥ 1 with the SSW Fourier bound C^j sqrt(choose(d,j)) (1+ln n)^((j−1)/2) for Boolean depth-d decision trees.",
+    "why_needed": "The binomial dependence supplies the factor k that cancels the amplification cost.",
+    "depends_on": [],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.ssw_fourier_growth :\n    ∃ C : ℝ, 1 ≤ C ∧\n    ∀ (ι : Type) [Fintype ι] [DecidableEq ι],\n      1 ≤ Fintype.card ι → ∀ (T : QueryTree ι) (d j : ℕ),\n      T.depth ≤ d → 1 ≤ j → j ≤ Fintype.card ι →\n      (∑ S ∈ (Finset.univ : Finset ι).powersetCard j,\n        |ext (Dl S.toList (fun z => if T.eval z then (1 : ℝ) else 0)) 0|) ≤\n        C ^ j * Real.sqrt (Nat.choose d j : ℝ) *\n          Real.rpow (1 + Real.log (Fintype.card ι : ℝ)) (((j : ℝ) - 1) / 2)",
+    "route_note": "External published input: Sherstov–Storozhenko–Wu, arXiv:2008.10223v4, Corollary 4.14. This theorem is not in the supplied Lean source and its proof is not reconstructed here. Raw derivatives at zero equal uniform Fourier coefficients.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "note.md:(2)",
+      "quantitative.md:(F7)"
+    ],
+    "evidence_class": "external_published_theorem"
+  },
+  {
+    "id": "new-eq-03",
+    "statement": "For k≥2, power-of-two m≥2^(15k+2), and 0<η≤1, R_((1−η)/2)(P_k,m) ≥ η²/(162 e C²) [m/(1+ln(km))]^(1−1/k), where C is any constant in (2).",
+    "why_needed": "Strongest simplified uniform conclusion; answers the proposed polynomial-in-k improvement.",
+    "depends_on": [
+      "new-eq-02",
+      "new-eq-27",
+      "new-eq-28",
+      "new-eq-29",
+      "new-eq-21"
+    ],
+    "proposed_lean": "theorem QuarticQuery.forrelation_lower_uniform_sharp_of_fourier\n    (C : ℝ) (hC : 1 ≤ C) (hFourier : ∀ (ι : Type) [Fintype ι] [DecidableEq ι],\n      1 ≤ Fintype.card ι → ∀ (T : QueryTree ι) (d j : ℕ),\n      T.depth ≤ d → 1 ≤ j → j ≤ Fintype.card ι →\n      (∑ S ∈ (Finset.univ : Finset ι).powersetCard j,\n        |ext (Dl S.toList (fun z => if T.eval z then (1 : ℝ) else 0)) 0|) ≤\n        C ^ j * Real.sqrt (Nat.choose d j : ℝ) *\n          Real.rpow (1 + Real.log (Fintype.card ι : ℝ)) (((j : ℝ) - 1) / 2))\n    (k t : ℕ) (hk : 2 ≤ k) (ht : 15 * k + 2 ≤ 2 * t)\n    (η : ℝ) (hη0 : 0 < η) (hη1 : η ≤ 1)\n    (A : RandomizedProgram (ForrelationCoord k t))\n    (hs : ∀ x b, P k t x = some b → (1 + η) / 2 ≤ A.success x b) :\n    η ^ 2 / (162 * Real.exp 1 * C ^ 2) *\n      Real.rpow ((mValue t : ℝ) /\n        (1 + Real.log ((k : ℝ) * (mValue t : ℝ))))\n        (1 - 1 / (k : ℝ)) ≤ (A.depth : ℝ)",
+    "route_note": "Paper deduction with the published Fourier hypothesis fully expanded in the signature. This signature preserves the exact C-dependent constant and variable success guarantee, while specializing dimensions to the frozen m=4^t family. General powers of two still require a dimension-general public definition. The separate new-sharp-public-existential record is the compact existential-c target shown in LEAN_GAPS.md.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "note.md:(3)",
+      "quantitative.md:(S1)"
+    ],
+    "evidence_class": "paper_deduction_with_external_input"
+  },
+  {
+    "id": "new-eq-04",
+    "statement": "For k>=2 and m=4^t>=2^(15k+2), R(P k t) > (2/18225) m^(1-1/k)/(k^2 ln(4km)).",
+    "why_needed": "Quantifies the strongest explicitly tracked elementary route endpoint derived in the research return.",
+    "depends_on": [
+      "new-eq-07",
+      "new-eq-21",
+      "new-eq-22",
+      "new-eq-24"
+    ],
+    "proposed_lean": "theorem QuarticQuery.forrelation_lower_uniform_elementary\n    (k t : ℕ) (hk : 2 ≤ k) (ht : 15 * k + 2 ≤ 2 * t) :\n    (2 / 18225 : ℝ) *\n        Real.rpow (QuarticQuery.mValue t : ℝ) (1 - 1 / (k : ℝ)) /\n        ((k : ℝ) ^ 2 *\n          Real.log (4 * (k : ℝ) * (QuarticQuery.mValue t : ℝ))) <\n      (QuarticQuery.R (QuarticQuery.P k t) : ℝ)",
+    "route_note": "Paper-derived uniform strengthening. New truncation bound plus finite assembly; not a current checked theorem. Proposed signature, not elaborated. The prose additionally permits all powers of two; this signature specializes to the frozen m=4^t family.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "note.md:(4)",
+      "quantitative.md:(E1)"
+    ],
+    "evidence_class": "self_contained_paper_proof"
+  },
+  {
+    "id": "new-eq-05",
+    "statement": "The product-measure multilinear extension equals its uniform Fourier expansion, for every real bias vector.",
+    "why_needed": "Defines raw derivatives and prevents confusion between biased degree k and uniform degree k.",
+    "depends_on": [],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.ext_fourier_expansion\n    {ι : Type} [Fintype ι] [DecidableEq ι]\n    (g : (ι → Bool) → ℝ) (μ : ι → ℝ) :\n    ext g μ = ∑ S ∈ (Finset.univ : Finset ι).powerset,\n      ext (fun z => g z * ∏ i ∈ S, sg (z i)) 0 * ∏ i ∈ S, μ i",
+    "route_note": "The expectation formula is the existing definitions ext, bw, piB. The displayed Fourier expansion is a new algebraic bridge, proved by finite expansion in the note. No positivity hypothesis is needed for the polynomial identity.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "note.md:(5)"
+    ],
+    "evidence_class": "paper_algebra_with_existing_definition"
+  },
+  {
+    "id": "new-eq-06",
+    "statement": "The explicit functions Ψ, φ and φ′ are the source functions psiS, phiS and dphi, and HasDerivAt phiS (dphi x) x holds.",
+    "why_needed": "Pins the truncation and its derivative.",
+    "depends_on": [],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.truncation_formulas (x : ℝ) :\n    psiS x = 1 / (2 * Real.sqrt (2 + x ^ 2)) ∧\n    phiS x = x * (3 + x ^ 2) / (2 * (Real.sqrt (2 + x ^ 2)) ^ 3) ∧\n    dphi x = 3 / (Real.sqrt (2 + x ^ 2)) ^ 5 ∧\n    HasDerivAt phiS (dphi x) x",
+    "route_note": "Definitions qf, psiS, phiS, dphi and existing hasDerivAt_phiS give the exact content. This record is new to the corpus, not a claim of a new source result. Natural half-powers in the prose are rewritten with sqrt.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "note.md:(6)"
+    ],
+    "evidence_class": "existing_source_exact_after_unfolding",
+    "lean_evidence": [
+      "QuarticQuery.ForrelationLower.hasDerivAt_phiS"
+    ]
+  },
+  {
+    "id": "new-eq-07",
+    "statement": "0<Ψ(x)≤1/(2√2), 0<φ′(x)≤3/(4√2), and 0<Ψ(x)φ′(y)≤3/16.",
+    "why_needed": "Sharpens the per-edge constant from the existing 3 to 3/16.",
+    "depends_on": [
+      "new-eq-06"
+    ],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.truncation_bounds_sharp (x y : ℝ) :\n    0 < psiS x ∧ psiS x ≤ 1 / (2 * Real.sqrt 2) ∧\n    0 < dphi x ∧ dphi x ≤ 3 / (4 * Real.sqrt 2) ∧\n    0 < psiS x * dphi y ∧ psiS x * dphi y ≤ (3 / 16 : ℝ)",
+    "route_note": "New strengthening. Existing psiS_pos, dphi_pos, psiS_le and dphi_le prove positivity and the coarser upper bounds. Oddness, boundedness and the derivative used in the surrounding lemma already occur in the source.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "note.md:(7)"
+    ],
+    "evidence_class": "self_contained_paper_proof"
+  },
+  {
+    "id": "new-eq-08",
+    "statement": "For bounded C1 G with bounded derivative, E[φ(Z)G(Z)]=E[Ψ(Z)G′(Z)] under a standard normal.",
+    "why_needed": "Moves one derivative through one Gaussian layer.",
+    "depends_on": [
+      "new-eq-06"
+    ],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.stein_one\n    {g g' : ℝ → ℝ} {C C' : ℝ}\n    (hg : Continuous g) (hg' : Continuous g')\n    (hb : ∀ x, |g x| ≤ C) (hb' : ∀ x, |g' x| ≤ C')\n    (hd : ∀ x, HasDerivAt g (g' x) x) :\n    (∫ x, phiS x * g x ∂(gaussianReal 0 1)) =\n      ∫ x, psiS x * g' x ∂(gaussianReal 0 1)",
+    "route_note": "Exact existing declaration, reproduced as a signature for a source lemma absent from the original corpus. No duplicate declaration should be added. Prose proof is ordinary integration by parts.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "note.md:(8)"
+    ],
+    "evidence_class": "existing_source_exact",
+    "lean_evidence": [
+      "QuarticQuery.ForrelationLower.stein_one"
+    ]
+  },
+  {
+    "id": "new-eq-09",
+    "statement": "The bias w_s has first block sφ(U_0), middle blocks φ(HU_(r−1))φ(U_r), final block φ(HU_(k−2)); endpoints have magnitude≤1/2 and interior blocks≤1/4.",
+    "why_needed": "Defines the distribution and the improved restriction probabilities.",
+    "depends_on": [
+      "new-eq-06"
+    ],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.wv_profile\n    {n : Type} [Fintype n] [DecidableEq n] {l : ℕ}\n    (H : Matrix n n ℝ) (hl : 0 < l) (s : ℝ) (hs : |s| ≤ 1)\n    (u : PC l n → ℝ) (c : BC l n) :\n    wv H s u c =\n      (if c.1.val = 0 then s * phiS (Uc u 0 c.2)\n       else if c.1.val = l then phiS (Vc H u (l - 1) c.2)\n       else phiS (Vc H u (c.1.val - 1) c.2) * phiS (Uc u c.1.val c.2)) ∧\n    |wv H s u c| ≤\n      (if c.1.val = 0 ∨ c.1.val = l then (1 / 2 : ℝ) else 1 / 4)",
+    "route_note": "The formulas unfold the existing wv, Sf, Yf, Xf. The uniform half-bound is existing abs_wv_le_half. The separate quarter-bound is a new simple specialization of abs_phiS_le.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "note.md:(9)"
+    ],
+    "evidence_class": "existing_definition_and_paper_strengthening"
+  },
+  {
+    "id": "new-eq-10",
+    "statement": "For every row-orthogonal H, E ext(g,w_0)=ext(g,0).",
+    "why_needed": "Identifies the zero interpolation endpoint with the uniform law.",
+    "depends_on": [
+      "new-eq-09"
+    ],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.integral_ext_wv_zero\n    {n : Type} [Fintype n] [DecidableEq n] {l : ℕ}\n    (H : Matrix n n ℝ) (hH : RowsOrth H)\n    (g : (BC l n → Bool) → ℝ) :\n    (∫ u, ext g (wv H 0 u) ∂(gP (PC l n))) = ext g 0",
+    "route_note": "Exact existing declaration. Prose eliminates Gaussian layers as blocks; source implements a coordinate cascade with orthogonal Gaussian reflection. This is one theorem with different exposition of its mechanism.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "note.md:(10)"
+    ],
+    "evidence_class": "existing_source_exact",
+    "lean_evidence": [
+      "QuarticQuery.ForrelationLower.integral_ext_wv_zero"
+    ]
+  },
+  {
+    "id": "new-eq-11",
+    "statement": "The path weight is the product of H_(next,previous) Ψ(U_previous) φ′(V_next) over the k−1 edges.",
+    "why_needed": "Pins the orientation of a nonsymmetric orthogonal matrix.",
+    "depends_on": [
+      "new-eq-06",
+      "new-eq-09"
+    ],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.cf_product\n    {n : Type} [Fintype n] [DecidableEq n] {l : ℕ}\n    (H : Matrix n n ℝ) (s : ℝ) (p : Fin (l + 1) → n) (u : PC l n → ℝ) :\n    cf H s l 0 (p 0) (fun r => p r.succ) u =\n      ∏ r : Fin l,\n        H (p r.succ) (p r.castSucc) * psiS (Uc u r.val (p r.castSucc)) *\n          dphi (Vc H u r.val (p r.succ))",
+    "route_note": "Existing cf gives the recursive form. The displayed product is a new finite-index presentation of the same function. It requires a simple Fin recursion/reindexing bridge.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "note.md:(11)"
+    ],
+    "evidence_class": "existing_definition_new_algebraic_bridge"
+  },
+  {
+    "id": "new-eq-12",
+    "statement": "The hard-minus-uniform expectation is the integral over s∈[0,1] of the sum over paths of E[A_p ∂_(S_p)gtilde(w_s)].",
+    "why_needed": "Central matched-chain identity with exactly one derivative in each output block.",
+    "depends_on": [
+      "new-eq-08",
+      "new-eq-10",
+      "new-eq-11"
+    ],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.integral_path_identity\n    {n : Type} [Fintype n] [DecidableEq n] {l : ℕ}\n    (H : Matrix n n ℝ) (hl : 0 < l) (hH : RowsOrth H)\n    (g : (BC l n → Bool) → ℝ) :\n    (∫ u, ext g (wv H 1 u) ∂(gP (PC l n))) - ext g 0 =\n      ∫ s in (0 : ℝ)..1,\n        ∑ p : n × (Fin l → n), ∫ u,\n          cf H s l 0 p.1 p.2 u * ext (Dl (Lpath l p) g) (wv H s u)\n          ∂(gP (PC l n))",
+    "route_note": "New integral-form declaration. Existing exists_identity exports one mean-value parameter, not this equation. Use hasDerivAt_ext_s, integral_walk, Int_eq_paths, finite-sum integration, and FTC with continuous bounded integrands. The paper gives the full ordinary proof.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "note.md:(12)"
+    ],
+    "evidence_class": "paper_proof_existing_mean_value_analogue"
+  },
+  {
+    "id": "new-eq-13",
+    "statement": "For three blocks the weight at a→b→c is H_ba H_cb Ψ(U_a)φ′((HU)_b) Ψ(U′_b)φ′((HU′)_c), multiplying the derivative in those three coordinates.",
+    "why_needed": "Worked instance tests the cancellation and matrix orientation.",
+    "depends_on": [
+      "new-eq-11",
+      "new-eq-12"
+    ],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.cf_three_blocks\n    {n : Type} [Fintype n] [DecidableEq n]\n    (H : Matrix n n ℝ) (s : ℝ) (a b c : n) (u : PC 2 n → ℝ) :\n    cf H s 2 0 a (fun r => if r.val = 0 then b else c) u =\n      H b a * H c b * psiS (Uc u 0 a) * dphi (Vc H u 0 b) *\n        psiS (Uc u 1 b) * dphi (Vc H u 1 c)",
+    "route_note": "An algebraic instance of the general path identity, with the expectation and derivative factor supplied by new-eq-12 and Int_eq_paths. No separate probabilistic premise or new principle occurs.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "note.md:(13)"
+    ],
+    "evidence_class": "worked_specialization"
+  },
+  {
+    "id": "new-eq-14",
+    "statement": "The raw derivative at bias μ is the sum over uniform Fourier supersets T⊇S of fhat(T) times the product of μ on T\\S.",
+    "why_needed": "States exactly what single biased level means.",
+    "depends_on": [
+      "new-eq-05"
+    ],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.ext_Dl_fourier\n    {ι : Type} [Fintype ι] [DecidableEq ι]\n    (g : (ι → Bool) → ℝ) (μ : ι → ℝ) (S : Finset ι) :\n    ext (Dl S.toList g) μ =\n      ∑ T ∈ (Finset.univ : Finset ι).powerset.filter (fun T => S ⊆ T),\n        ext (fun z => g z * ∏ i ∈ T, sg (z i)) 0 * ∏ i ∈ T \\ S, μ i",
+    "route_note": "New expansion bridge; follows by differentiating the finite multilinear expansion. The finite-difference operators D/Dl already have the required raw derivative normalization.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "note.md:(14)"
+    ],
+    "evidence_class": "paper_algebra"
+  },
+  {
+    "id": "new-eq-15",
+    "statement": "The distinguishing advantage is at most ((3/16) max|H_ab|)^(k−1) times the supremum of the sum of absolute transversal raw kth derivatives over the interpolation biases.",
+    "why_needed": "Connects the identity to any Fourier growth bound without a factorial loss.",
+    "depends_on": [
+      "new-eq-07",
+      "new-eq-12"
+    ],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.advantage_of_path_bound_sharp\n    {n : Type} [Fintype n] [DecidableEq n] {l : ℕ}\n    (H : Matrix n n ℝ) (hl : 0 < l) (hH : RowsOrth H)\n    (g : (BC l n → Bool) → ℝ) (ε M : ℝ) (hε : 0 ≤ ε) (hM : 0 ≤ M)\n    (hHb : ∀ a b, |H a b| ≤ ε)\n    (hder : ∀ s ∈ Set.Icc (0 : ℝ) 1, ∀ u : PC l n → ℝ,\n      ∑ p : n × (Fin l → n), |ext (Dl (Lpath l p) g) (wv H s u)| ≤ M) :\n    |(∫ u, ext g (wv H 1 u) ∂(gP (PC l n))) - ext g 0| ≤\n      ((3 / 16 : ℝ) * ε) ^ l * M",
+    "route_note": "Equivalent upper-bound interface avoiding a supremum encoding. Current advantage_le specializes the derivative estimate and uses 3 instead of 3/16. Distinctness of paths is existing Lpath_nodup/Lpath_inj.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "note.md:(15)"
+    ],
+    "evidence_class": "paper_strengthening"
+  },
+  {
+    "id": "new-eq-16",
+    "statement": "For arbitrary real orthogonal H, |Φ_H|≤1, E_U Φ_H=0, E_U Φ_H²=1/m; the squared path coefficients sum to m.",
+    "why_needed": "Gives uniform exceptional mass and isolates the role of orthogonality.",
+    "depends_on": [],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.general_orthogonal_moments\n    {n : Type} [Fintype n] [DecidableEq n] {l : ℕ}\n    (H : Matrix n n ℝ) (hl : 0 < l) (hn : 1 ≤ Fintype.card n)\n    (hH : RowsOrth H) :\n    let F : (BC l n → Bool) → ℝ := fun z =>\n      (Fintype.card n : ℝ)⁻¹ *\n        ∑ p : Fin (l + 1) → n,\n          (∏ r : Fin (l + 1), sg (z (r, p r))) *\n          ∏ r : Fin l, H (p r.succ) (p r.castSucc)\n    (∀ z, |F z| ≤ 1) ∧ ext F 0 = 0 ∧\n      ext (fun z => F z ^ 2) 0 = (Fintype.card n : ℝ)⁻¹ ∧\n      (∑ p : Fin (l + 1) → n,\n        ∏ r : Fin l, (H (p r.succ) (p r.castSucc)) ^ 2) = (Fintype.card n : ℝ)",
+    "route_note": "General-H statement is new. Source ext_PhiF_zero, ext_PhiF_sq and Forrelation.abs_Phi_le_one concern the Walsh family. The local F expands the general polynomial using only existing objects and finite sums.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "note.md:(16)"
+    ],
+    "evidence_class": "paper_generalization_of_Walsh_source"
+  },
+  {
+    "id": "new-eq-17",
+    "statement": "For every real orthogonal H, the rounded hard-distribution mean of Φ_H is at least 18^(−(k−1)).",
+    "why_needed": "Supplies a positive-promise mass large enough for amplification.",
+    "depends_on": [
+      "new-eq-12",
+      "new-eq-16",
+      "new-eq-18"
+    ],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.general_orthogonal_mean\n    {n : Type} [Fintype n] [DecidableEq n] {l : ℕ}\n    (H : Matrix n n ℝ) (hl : 0 < l) (hn : 1 ≤ Fintype.card n)\n    (hH : RowsOrth H) :\n    let F : (BC l n → Bool) → ℝ := fun z =>\n      (Fintype.card n : ℝ)⁻¹ *\n        ∑ p : Fin (l + 1) → n,\n          (∏ r : Fin (l + 1), sg (z (r, p r))) *\n          ∏ r : Fin l, H (p r.succ) (p r.castSucc)\n    (1 / 18 : ℝ) ^ l ≤ ∫ u, ext F (wv H 1 u) ∂(gP (PC l n))",
+    "route_note": "General-H extension. Existing mass_ge proves the Walsh specialization by tangent/exponential inequalities and a mean-value identity. The note uses Jensen and the integral identity.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "note.md:(17)"
+    ],
+    "evidence_class": "paper_generalization_with_different_proof_route"
+  },
+  {
+    "id": "new-eq-18",
+    "statement": "Any joint pair U,V with unit second moments satisfies E[Ψ(U)φ′(V)]≥1/18; independence of that pair is unnecessary.",
+    "why_needed": "Prevents an incorrect within-layer independence assumption.",
+    "depends_on": [
+      "new-eq-06"
+    ],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.psi_dphi_expectation_ge\n    {Ω : Type} [MeasurableSpace Ω] (ν : Measure Ω) [IsProbabilityMeasure ν]\n    (U V : Ω → ℝ) (hU : Measurable U) (hV : Measurable V)\n    (hU2 : Integrable (fun ω => U ω ^ 2) ν)\n    (hV2 : Integrable (fun ω => V ω ^ 2) ν)\n    (eU : (∫ ω, U ω ^ 2 ∂ν) = 1) (eV : (∫ ω, V ω ^ 2 ∂ν) = 1) :\n    (1 / 18 : ℝ) ≤ ∫ ω, psiS (U ω) * dphi (V ω) ∂ν",
+    "route_note": "New expectation statement, stronger in distributional generality than the Gaussian application. Equation (18) proves it by Jensen. Source psi_dphi_ge is a different pointwise exponential bound, not this declaration.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "note.md:(18)"
+    ],
+    "evidence_class": "paper_proof_by_Jensen"
+  },
+  {
+    "id": "new-eq-19",
+    "statement": "a=18^(−(k−1)), δ=32^(−k), p=(a−δ)/(1−δ), q=min(1,4/(mδ²)), Γ(ε)=(1−ε)p−ε−q.",
+    "why_needed": "Retains exact finite promise and exceptional-mass terms.",
+    "depends_on": [],
+    "proposed_lean": "noncomputable def QuarticQuery.ForrelationLower.promiseGapForNote\n    (k m : ℕ) (ε : ℝ) : ℝ :=\n    (1 - ε) * (((1 / 18 : ℝ) ^ (k - 1) - dl k) / (1 - dl k)) -\n      ε - min 1 (4 / ((m : ℝ) * (dl k) ^ 2))",
+    "route_note": "This is an optional definitional signature, not a theorem or an existing public definition. Other proposed statements expand this expression with local lets and do not assume this new name exists. p,q are abbreviations in prose. The source dl is exactly δ.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "note.md:(19)",
+      "quantitative.md:(F1)"
+    ],
+    "evidence_class": "definition"
+  },
+  {
+    "id": "new-eq-20",
+    "statement": "Every acceptance function in [0,1] with promised error≤ε has hard-minus-uniform expectation at least Γ(ε).",
+    "why_needed": "Handles mass outside the promise explicitly.",
+    "depends_on": [
+      "new-eq-16",
+      "new-eq-17",
+      "new-eq-19"
+    ],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.promise_gap_sharp\n    (l t : ℕ) (hl : 0 < l) (ε : ℝ) (hε0 : 0 ≤ ε) (hε1 : ε ≤ 1)\n    (A : (BC l (Fin (mValue t)) → Bool) → ℝ)\n    (hA : ∀ z, 0 ≤ A z ∧ A z ≤ 1)\n    (hyes : ∀ z, P (l + 1) t z = some true → 1 - ε ≤ A z)\n    (hno : ∀ z, P (l + 1) t z = some false → A z ≤ ε) :\n    let k := l + 1\n    let m : ℝ := (mValue t : ℝ)\n    let a : ℝ := (1 / 18 : ℝ) ^ l\n    let δ := dl k\n    let Γ : ℝ := (1 - ε) * ((a - δ) / (1 - δ)) - ε - min 1 (4 / (m * δ ^ 2))\n    Γ ≤ (∫ u, ext A (wv (QuarticQuery.Forrelation.H t) 1 u)\n      ∂(gP (PC l (Fin (mValue t))))) - ext A 0",
+    "route_note": "New sharp finite statement. Source Main.not_RLe_of_gap implements a slightly weaker positive-mass lower bound without division by 1−δ and without truncating q at 1. This proposed signature specializes to the existing Walsh dimension.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "note.md:(20)",
+      "quantitative.md:(F2)"
+    ],
+    "evidence_class": "paper_strengthening_of_existing_reduction"
+  },
+  {
+    "id": "new-eq-21",
+    "statement": "Independent 2τ-fold majority reduces initial error (1−η)/2 to at most (1−η²)^τ≤exp(−τη²), at depth at most 2τL.",
+    "why_needed": "Tracks the amplification cost and general advantage parameter.",
+    "depends_on": [],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.exists_amplified_advantage\n    {ι : Type} [Fintype ι] [DecidableEq ι]\n    (f : PartialBool ι) (A : RandomizedProgram ι)\n    (η : ℝ) (hη0 : 0 < η) (hη1 : η ≤ 1) (τ : ℕ) (hτ : 1 ≤ τ)\n    (hs : ∀ x b, f x = some b → (1 + η) / 2 ≤ A.success x b) :\n    (1 - η ^ 2) ^ τ ≤ Real.exp (-(τ : ℝ) * η ^ 2) ∧\n    ∃ B : RandomizedProgram ι,\n      B.depth ≤ 2 * τ * A.depth ∧\n      ∀ x b, f x = some b → 1 - (1 - η ^ 2) ^ τ ≤ B.success x b",
+    "route_note": "New arbitrary-η form. Existing exists_amplified starts from RLe (error1/3) and produces a finite family with error (8/9)^τ and depth2τL. The note proves the general Chernoff calculation including η=1.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "note.md:(21)",
+      "quantitative.md:(F3)"
+    ],
+    "evidence_class": "paper_generalization"
+  },
+  {
+    "id": "new-eq-22",
+    "statement": "For n,d,j≥1, every depth-d tree with leaves in [0,1] and every bias |μ_i|≤1/2 has any distinct-j-set derivative weight ≤(16jd ln(4n))^(j/2)+2^(−j).",
+    "why_needed": "Provides a self-contained numerical Fourier estimate.",
+    "depends_on": [
+      "new-eq-23"
+    ],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.sum_abs_ext_Dl_explicit\n    {ι P : Type} [Fintype ι] [DecidableEq ι] [Fintype P] [DecidableEq P]\n    (Lp : P → List ι) (hnd : ∀ p, (Lp p).Nodup)\n    (j d : ℕ) (hj : 1 ≤ j) (hd : 1 ≤ d)\n    (hlen : ∀ p, (Lp p).length = j)\n    (hinj : Function.Injective (fun p => (Lp p).toFinset))\n    (μ : ι → ℝ) (hμ : ∀ i, |μ i| ≤ 1 / 2)\n    (hn : 1 ≤ Fintype.card ι) (T : QueryTree ι) (hT : T.depth ≤ d)\n    (v : Bool → ℝ) (hv : ∀ b, |v b| ≤ 1) :\n    (∑ p, |ext (Dl (Lp p) (fun z => v (T.eval z))) μ|) ≤\n      Real.rpow (16 * (j : ℝ) * (d : ℝ) *\n        Real.log (4 * (Fintype.card ι : ℝ))) ((j : ℝ) / 2) + ((2 : ℝ) ^ j)⁻¹",
+    "route_note": "Numerical specialization of existing sum_abs_ext_Dl_le with Λ=2j ln(4n) and K²=8dΛ. Proposed signature uses Boolean trees with bounded terminal map v, sufficient for algorithms. The prose also allows independently labelled real leaves; that extension follows the same proof but needs an extended tree type or a direct finite filtration encoding.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "note.md:(22)",
+      "quantitative.md:(F4)"
+    ],
+    "evidence_class": "paper_specialization_of_existing_parameterized_theorem"
+  },
+  {
+    "id": "new-eq-23",
+    "statement": "The running degree-j bounded-coefficient chaos along a tree satisfies P(max|Y_j|>K^j)≤(4n)^j exp(−Λ), where K²=8dΛ for increments bounded by2.",
+    "why_needed": "Load-bearing maximal estimate in the elementary Fourier proof.",
+    "depends_on": [],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.hit_chaos_le\n    {ι : Type} [Fintype ι] [DecidableEq ι]\n    {μ : ι → ℝ} {ξ : ι → Bool → ℝ} {B₀ : ℝ}\n    (hμ : ∀ a, |μ a| ≤ 1)\n    (hm : ∀ a, piB (μ a) false * ξ a false + piB (μ a) true * ξ a true = 0)\n    (hB₀ : 0 < B₀) (hξ : ∀ a b, |ξ a b| ≤ B₀)\n    {Λ K : ℝ} {d : ℕ} (hd : 0 < d) (hK : 0 < K)\n    (hKsq : K ^ 2 = 2 * d * B₀ ^ 2 * Λ) (hn : 1 ≤ Fintype.card ι)\n    (T : QueryTree ι) (hT : T.depth ≤ d) (j : ℕ)\n    (c : Finset ι → ℝ) (hc : ∀ J, |c J| ≤ 1) (x : ι → Bool) :\n    hit μ (fun Q x => K ^ j < |chaos ξ c j Q x|) T ∅ x ≤\n      (4 * Fintype.card ι : ℝ) ^ j * Real.exp (-Λ)",
+    "route_note": "Existing declaration with section parameters expanded. Its hit recursion represents a crossing anywhere along a branch. Set B₀=2 for the displayed form. The note independently gives stopped-martingale and maximal exponential arguments; source uses recursive tree inequalities. Do not redeclare this existing name.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "note.md:(23)",
+      "quantitative.md:(M1)"
+    ],
+    "evidence_class": "existing_source_exact_parameterized_form",
+    "lean_evidence": [
+      "QuarticQuery.ForrelationLower.hit_chaos_le"
+    ]
+  },
+  {
+    "id": "new-eq-24",
+    "statement": "The exact elementary finite inequality is Γ(ε)≤(b/√m)^(k−1)[(32kτL ln(4km))^(k/2)+2^(−k)], with b=3/16 and ε=(1−η²)^τ.",
+    "why_needed": "Quantitative bridge without an asymptotic threshold.",
+    "depends_on": [
+      "new-eq-15",
+      "new-eq-20",
+      "new-eq-21",
+      "new-eq-22"
+    ],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.finite_elementary\n    (l t : ℕ) (hl : 0 < l)\n    (A : RandomizedProgram (BC l (Fin (mValue t)))) (hL : 1 ≤ A.depth)\n    (η : ℝ) (hη0 : 0 < η) (hη1 : η ≤ 1) (τ : ℕ) (hτ : 1 ≤ τ)\n    (hs : ∀ x b, P (l + 1) t x = some b → (1 + η) / 2 ≤ A.success x b) :\n    let ε : ℝ := (1 - η ^ 2) ^ τ\n    let k := l + 1\n    let m : ℝ := (mValue t : ℝ)\n    let a : ℝ := (1 / 18 : ℝ) ^ l\n    let δ := dl k\n    let Γ : ℝ := (1 - ε) * ((a - δ) / (1 - δ)) - ε - min 1 (4 / (m * δ ^ 2))\n    Γ ≤ ((3 / 16 : ℝ) / Real.sqrt m) ^ l *\n      (Real.rpow (32 * (k : ℝ) * (τ : ℝ) * (A.depth : ℝ) *\n        Real.log (4 * (k : ℝ) * m)) ((k : ℝ) / 2) + ((2 : ℝ) ^ k)⁻¹)",
+    "route_note": "New finite assembly in the existing Walsh dimensions. More conservative valid ε values are allowed in prose because Γ decreases with ε. No new Lean assembly has been checked.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "note.md:(24)",
+      "quantitative.md:(F5)"
+    ],
+    "evidence_class": "self_contained_paper_deduction"
+  },
+  {
+    "id": "new-eq-25",
+    "statement": "For independent restrictions with free probability v_i and fixed signed mean μ_i, Eρ fhat_ρ(S)=(∏_(i∈S)v_i)∂_S ftilde(μ), whenever |μ_i|≤1−v_i.",
+    "why_needed": "Transfers uniform Fourier weight to raw biased derivatives with block-specific probabilities.",
+    "depends_on": [],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.restriction_derivative_identity\n    {ι : Type} [Fintype ι] [DecidableEq ι]\n    (g : (ι → Bool) → ℝ) (μ v : ι → ℝ) (S : Finset ι)\n    (hv : ∀ i, 0 < v i ∧ |μ i| ≤ 1 - v i) :\n    let w : (ι → Option Bool) → ℝ := fun ρ => ∏ i,\n      match ρ i with\n      | none => v i\n      | some b => (1 - v i + μ i * sg b) / 2\n    (∑ ρ : ι → Option Bool,\n      w ρ * ext (Dl S.toList\n        (fun z => g (fun i => (ρ i).getD (z i)))) 0) =\n      (∏ i ∈ S, v i) * ext (Dl S.toList g) μ",
+    "route_note": "Elementary finite expansion proved in the note. Wu arXiv:2109.02732v1 Lemma2.2 is the constant-v=1/2 antecedent. Coordinate-dependent v and the exact endpoint/interior choice are written out here. Option Bool represents a free/fixed coordinate; no new restriction datatype is assumed.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "note.md:(25)",
+      "quantitative.md:(F8)"
+    ],
+    "evidence_class": "paper_generalization_of_published_identity"
+  },
+  {
+    "id": "new-eq-26",
+    "statement": "At a chain bias, the transversal derivative weight is ≤4(4/3)^(k−2) C^k sqrt(choose(d,k))(1+ln(km))^((k−1)/2).",
+    "why_needed": "Uses the quarter bias in interior blocks to reduce the restriction cost.",
+    "depends_on": [
+      "new-eq-02",
+      "new-eq-09",
+      "new-eq-25"
+    ],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.chain_derivative_weight_sharp\n    (C : ℝ) (hC : 1 ≤ C) (hFourier : ∀ (ι : Type) [Fintype ι] [DecidableEq ι],\n      1 ≤ Fintype.card ι → ∀ (T : QueryTree ι) (d j : ℕ),\n      T.depth ≤ d → 1 ≤ j → j ≤ Fintype.card ι →\n      (∑ S ∈ (Finset.univ : Finset ι).powersetCard j,\n        |ext (Dl S.toList (fun z => if T.eval z then (1 : ℝ) else 0)) 0|) ≤\n        C ^ j * Real.sqrt (Nat.choose d j : ℝ) *\n          Real.rpow (1 + Real.log (Fintype.card ι : ℝ)) (((j : ℝ) - 1) / 2))\n    {n : Type} [Fintype n] [DecidableEq n] {l : ℕ}\n    (H : Matrix n n ℝ) (hl : 0 < l) (hn : 1 ≤ Fintype.card n)\n    (s : ℝ) (hs : s ∈ Set.Icc (0 : ℝ) 1) (u : PC l n → ℝ)\n    (T : QueryTree (BC l n)) (d : ℕ) (hT : T.depth ≤ d) :\n    (∑ p : n × (Fin l → n),\n      |ext (Dl (Lpath l p) (fun z => if T.eval z then (1 : ℝ) else 0)) (wv H s u)|) ≤\n      4 * (4 / 3 : ℝ) ^ (l - 1) * C ^ (l + 1) *\n        Real.sqrt (Nat.choose d (l + 1) : ℝ) *\n        Real.rpow (1 + Real.log (Fintype.card (BC l n) : ℝ)) ((l : ℝ) / 2)",
+    "route_note": "New transfer theorem conditional on the explicitly expanded published Fourier premise. It uses only existing definitions and raw Dl; restricted-tree construction remains an obligation.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "note.md:(26)"
+    ],
+    "evidence_class": "paper_deduction_with_external_input"
+  },
+  {
+    "id": "new-eq-27",
+    "statement": "Γ(ε)≤[3C^k/4^(k−1)] sqrt(choose(2τL,k)) [(1+ln(km))/m]^((k−1)/2).",
+    "why_needed": "Strongest finite inequality retained before relaxing the binomial coefficient.",
+    "depends_on": [
+      "new-eq-15",
+      "new-eq-20",
+      "new-eq-21",
+      "new-eq-26"
+    ],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.finite_sharp\n    (C : ℝ) (hC : 1 ≤ C) (hFourier : ∀ (ι : Type) [Fintype ι] [DecidableEq ι],\n      1 ≤ Fintype.card ι → ∀ (T : QueryTree ι) (d j : ℕ),\n      T.depth ≤ d → 1 ≤ j → j ≤ Fintype.card ι →\n      (∑ S ∈ (Finset.univ : Finset ι).powersetCard j,\n        |ext (Dl S.toList (fun z => if T.eval z then (1 : ℝ) else 0)) 0|) ≤\n        C ^ j * Real.sqrt (Nat.choose d j : ℝ) *\n          Real.rpow (1 + Real.log (Fintype.card ι : ℝ)) (((j : ℝ) - 1) / 2))\n    (l t : ℕ) (hl : 0 < l)\n    (A : RandomizedProgram (BC l (Fin (mValue t)))) (hL : 1 ≤ A.depth)\n    (η : ℝ) (hη0 : 0 < η) (hη1 : η ≤ 1) (τ : ℕ) (hτ : 1 ≤ τ)\n    (hs : ∀ x b, P (l + 1) t x = some b → (1 + η) / 2 ≤ A.success x b) :\n    let ε : ℝ := (1 - η ^ 2) ^ τ\n    let k := l + 1\n    let m : ℝ := (mValue t : ℝ)\n    let a : ℝ := (1 / 18 : ℝ) ^ l\n    let δ := dl k\n    let Γ : ℝ := (1 - ε) * ((a - δ) / (1 - δ)) - ε - min 1 (4 / (m * δ ^ 2))\n    Γ ≤ (3 * C ^ k / (4 : ℝ) ^ l) *\n      Real.sqrt (Nat.choose (2 * τ * A.depth) k : ℝ) *\n      Real.rpow ((1 + Real.log ((k : ℝ) * m)) / m) ((l : ℝ) / 2)",
+    "route_note": "New assembly, with the SSW premise visible. The coefficient simplifies from (3/16)^(k−1)*4*(4/3)^(k−2) to3/4^(k−1). Original source has no binomial-level theorem.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "note.md:(27)",
+      "quantitative.md:(F9)"
+    ],
+    "evidence_class": "paper_deduction_with_external_input"
+  },
+  {
+    "id": "new-eq-28",
+    "statement": "If Γ>0, the finite sharp inequality forces2τL≥k and L≥k/(2eτC²)(Γ4^(k−1)/3)^(2/k)[m/B]^(1−1/k), B=1+ln(km).",
+    "why_needed": "Keeps all constant and amplification dependence available for optimization.",
+    "depends_on": [
+      "new-eq-27"
+    ],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.invert_binomial_bound\n    (k τ L : ℕ) (hk : 2 ≤ k) (hτ : 1 ≤ τ)\n    (C Γ m B : ℝ) (hC : 0 < C) (hΓ : 0 < Γ) (hm : 0 < m) (hB : 0 < B)\n    (h : Γ ≤ (3 * C ^ k / (4 : ℝ) ^ (k - 1)) *\n      Real.sqrt (Nat.choose (2 * τ * L) k : ℝ) *\n      Real.rpow (B / m) (((k : ℝ) - 1) / 2)) :\n    k ≤ 2 * τ * L ∧\n    (k : ℝ) / (2 * Real.exp 1 * (τ : ℝ) * C ^ 2) *\n      Real.rpow (Γ * (4 : ℝ) ^ (k - 1) / 3) (2 / (k : ℝ)) *\n      Real.rpow (m / B) (1 - 1 / (k : ℝ)) ≤ (L : ℝ)",
+    "route_note": "New arithmetic statement; use choose(d,k)≤(ed/k)^k and positive real powers. Its numerical constant depends explicitly on the Fourier constant C.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "note.md:(28)",
+      "quantitative.md:(F10)"
+    ],
+    "evidence_class": "paper_arithmetic"
+  },
+  {
+    "id": "new-eq-29",
+    "statement": "For k≥2 and Γ≥(29/32)18^(−(k−1)), (Γ4^(k−1)/3)^(2/k)≥(4/81)(87/64)^(2/k)≥4/81.",
+    "why_needed": "Makes the final absolute constant uniform in k.",
+    "depends_on": [
+      "new-eq-19"
+    ],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.sharp_constant_arithmetic\n    (k : ℕ) (hk : 2 ≤ k) (Γ : ℝ)\n    (hΓ : (29 / 32 : ℝ) * (1 / 18 : ℝ) ^ (k - 1) ≤ Γ) :\n    (4 / 81 : ℝ) * Real.rpow (87 / 64 : ℝ) (2 / (k : ℝ)) ≤\n      Real.rpow (Γ * (4 : ℝ) ^ (k - 1) / 3) (2 / (k : ℝ)) ∧\n    (4 / 81 : ℝ) ≤ (4 / 81 : ℝ) * Real.rpow (87 / 64 : ℝ) (2 / (k : ℝ))",
+    "route_note": "New exact arithmetic; the paper separately verifies ε≤δ, q≤δ and τ≤4k/η² under the stated regime.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "note.md:(29)"
+    ],
+    "evidence_class": "paper_arithmetic"
+  },
+  {
+    "id": "new-path-weight-sharp",
+    "statement": "For any entrywise bound epsilon>=0 on H and every path of e steps, the path weight has magnitude <= ((3/16) epsilon)^e.",
+    "why_needed": "Makes the sharper truncation constant available to the identity.",
+    "depends_on": [
+      "new-eq-07"
+    ],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.abs_cf_le_sharp\n    {n : Type} [Fintype n] [DecidableEq n] {l : ℕ}\n    (H : Matrix n n ℝ) (s : ℝ) {ε : ℝ} (hε : 0 ≤ ε)\n    (hH : ∀ a b, |H a b| ≤ ε) (e j : ℕ) (a : n)\n    (q : Fin e → n) (u : QuarticQuery.ForrelationLower.PC l n → ℝ) :\n    |QuarticQuery.ForrelationLower.cf H s e j a q u| ≤ ((3 / 16 : ℝ) * ε) ^ e",
+    "route_note": "Same finite induction as abs_cf_le, with a new constant. Proposed signature, not elaborated.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "note.md:proof of (15)"
+    ],
+    "evidence_class": "paper_deduction"
+  },
+  {
+    "id": "new-forrelation-uniform-coarse",
+    "statement": "For k>=2 and m=4^t>=2^(15k+2), R(P k t) > (1/2332800) m^(1-1/k)/(k^2 ln(4km)).",
+    "why_needed": "A first low-risk formalization target using the exact existing coarse analytic inequalities.",
+    "depends_on": [
+      "new-coarse-arithmetic",
+      "new-eq-21",
+      "new-eq-22"
+    ],
+    "proposed_lean": "theorem QuarticQuery.forrelation_lower_uniform_existing_constants\n    (k t : ℕ) (hk : 2 ≤ k) (ht : 15 * k + 2 ≤ 2 * t) :\n    (1 / 2332800 : ℝ) *\n        Real.rpow (QuarticQuery.mValue t : ℝ) (1 - 1 / (k : ℝ)) /\n        ((k : ℝ) ^ 2 *\n          Real.log (4 * (k : ℝ) * (QuarticQuery.mValue t : ℝ))) <\n      (QuarticQuery.R (QuarticQuery.P k t) : ℝ)",
+    "route_note": "No new analytic input; arithmetic and a zero-query case remain to be formalized. Existing Main uses a padded positive depth, whose additive one must be controlled uniformly. Proposed signature, not elaborated.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "quantitative.md:coarse endpoint"
+    ],
+    "evidence_class": "paper_deduction"
+  },
+  {
+    "id": "new-finite-elementary-inversion",
+    "statement": "Let T0=2^(−k)(b/√m)^(k−1). When Γ>T0, (24) gives L≥m^(1−1/k)/(32kτln(4km))*[(Γ−T0)/b^(k−1)]^(2/k).",
+    "why_needed": "Makes the elementary finite criterion directly evaluable.",
+    "depends_on": [
+      "new-eq-24"
+    ],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.invert_elementary_bound\n    (k τ L : ℕ) (hk : 2 ≤ k) (hτ : 1 ≤ τ)\n    (b m B Γ : ℝ) (hb : 0 < b) (hm : 0 < m) (hB : 0 < B)\n    (hΓ : ((2 : ℝ) ^ k)⁻¹ * (b / Real.sqrt m) ^ (k - 1) < Γ)\n    (h : Γ ≤ (b / Real.sqrt m) ^ (k - 1) *\n      (Real.rpow (32 * (k : ℝ) * (τ : ℝ) * (L : ℝ) * B) ((k : ℝ) / 2) + ((2 : ℝ) ^ k)⁻¹)) :\n    Real.rpow m (1 - 1 / (k : ℝ)) / (32 * (k : ℝ) * (τ : ℝ) * B) *\n      Real.rpow ((Γ - ((2 : ℝ) ^ k)⁻¹ * (b / Real.sqrt m) ^ (k - 1)) /\n        b ^ (k - 1)) (2 / (k : ℝ)) ≤ (L : ℝ)",
+    "route_note": "New positive-real rearrangement. Take B=ln(4km), b=3/16. Proposed signature is dimension-free arithmetic.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "quantitative.md:(F6)"
+    ],
+    "evidence_class": "paper_arithmetic"
+  },
+  {
+    "id": "new-tal-fourier-input",
+    "statement": "There is an absolute C_T≥1 with level-j uniform Fourier weight ≤C_T^j d^(j/2)(1+ln n)^((j−1)/2).",
+    "why_needed": "Separates the intermediate k^(−1) consequence from the binomial-strength consequence.",
+    "depends_on": [],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.tal_fourier_growth :\n    ∃ C : ℝ, 1 ≤ C ∧\n    ∀ (ι : Type) [Fintype ι] [DecidableEq ι],\n      1 ≤ Fintype.card ι → ∀ (T : QueryTree ι) (d j : ℕ),\n      T.depth ≤ d → 1 ≤ j → j ≤ Fintype.card ι →\n      (∑ S ∈ (Finset.univ : Finset ι).powersetCard j,\n        |ext (Dl S.toList (fun z => if T.eval z then (1 : ℝ) else 0)) 0|) ≤\n        C ^ j * Real.rpow (d : ℝ) ((j : ℝ) / 2) *\n          Real.rpow (1 + Real.log (Fintype.card ι : ℝ)) (((j : ℝ) - 1) / 2)",
+    "route_note": "External input: Tal arXiv:1912.12561v1 Theorem5.1, with absolute constant changed to natural-log form. Also follows from new-eq-02 by dropping the binomial improvement. No explicit numerical C_T is supplied.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "quantitative.md:Tal growth display"
+    ],
+    "evidence_class": "external_published_theorem"
+  },
+  {
+    "id": "new-tal-consequence",
+    "statement": "With Tal-form constant C_T, R_((1−η)/2)≥η²/(162k C_T²)[m/(1+ln(km))]^(1−1/k) for k≥2 and m≥2^(15k+2).",
+    "why_needed": "Proves the weaker k^(−1) prediction and identifies where its loss comes from.",
+    "depends_on": [
+      "new-tal-fourier-input",
+      "new-eq-15",
+      "new-eq-20",
+      "new-eq-21",
+      "new-eq-25"
+    ],
+    "proposed_lean": "theorem QuarticQuery.forrelation_lower_uniform_tal\n    (C : ℝ) (hC : 1 ≤ C) (hFourier : ∀ (ι : Type) [Fintype ι] [DecidableEq ι],\n      1 ≤ Fintype.card ι → ∀ (T : QueryTree ι) (d j : ℕ),\n      T.depth ≤ d → 1 ≤ j → j ≤ Fintype.card ι →\n      (∑ S ∈ (Finset.univ : Finset ι).powersetCard j,\n        |ext (Dl S.toList (fun z => if T.eval z then (1 : ℝ) else 0)) 0|) ≤\n        C ^ j * Real.rpow (d : ℝ) ((j : ℝ) / 2) *\n          Real.rpow (1 + Real.log (Fintype.card ι : ℝ)) (((j : ℝ) - 1) / 2))\n    (k t : ℕ) (hk : 2 ≤ k) (ht : 15 * k + 2 ≤ 2 * t)\n    (η : ℝ) (hη0 : 0 < η) (hη1 : η ≤ 1)\n    (A : RandomizedProgram (ForrelationCoord k t))\n    (hs : ∀ x b, P k t x = some b → (1 + η) / 2 ≤ A.success x b) :\n    η ^ 2 / (162 * (k : ℝ) * C ^ 2) *\n      Real.rpow ((mValue t : ℝ) /\n        (1 + Real.log ((k : ℝ) * (mValue t : ℝ))))\n        (1 - 1 / (k : ℝ)) ≤ (A.depth : ℝ)",
+    "route_note": "New paper deduction. Its constant does not contain e because the Tal form has d^(k/2) rather than a binomial coefficient. Specializes to the existing power-of-four family.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "quantitative.md:Tal endpoint"
+    ],
+    "evidence_class": "paper_deduction_with_external_input"
+  },
+  {
+    "id": "new-elementary-arithmetic",
+    "statement": "At τ=25k, m≥2^(15k+2), ε=(8/9)^(25k), the gap is ≥119a/144 and the proposed elementary small-depth upper bound is at most59a/108, where a=18^(−(k−1)).",
+    "why_needed": "Records the explicit contradiction constants and finite-size choices.",
+    "depends_on": [],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.elementary_constant_checks\n    (k L : ℕ) (hk : 2 ≤ k) (m : ℝ)\n    (hm : (2 : ℝ) ^ (15 * k + 2) ≤ m)\n    (hsmall : (L : ℝ) ≤ (2 / 18225 : ℝ) *\n      Real.rpow m (1 - 1 / (k : ℝ)) /\n        ((k : ℝ) ^ 2 * Real.log (4 * (k : ℝ) * m))) :\n    let a : ℝ := (1 / 18 : ℝ) ^ (k - 1)\n    let δ := dl k\n    let ε : ℝ := (8 / 9 : ℝ) ^ (25 * k)\n    let K2 : ℝ := 800 * (k : ℝ) ^ 2 * (L : ℝ) * Real.log (4 * (k : ℝ) * m)\n    let pref : ℝ := ((3 / 16 : ℝ) / Real.sqrt m) ^ (k - 1)\n    ε ≤ a / 18 ∧ δ ≤ a / 32 ∧ 4 / (m * δ ^ 2) ≤ δ ∧\n    (119 / 144 : ℝ) * a ≤\n      (1 - ε) * ((a - δ) / (1 - δ)) - ε - min 1 (4 / (m * δ ^ 2)) ∧\n    K2 ≤ (8 / 27 : ℝ) ^ 2 * Real.rpow m (1 - 1 / (k : ℝ)) ∧\n    pref * Real.rpow K2 ((k : ℝ) / 2) ≤ (8 / 27 : ℝ) * a ∧\n    pref * ((2 : ℝ) ^ k)⁻¹ ≤ a / 4 ∧\n    pref * (Real.rpow K2 ((k : ℝ) / 2) + ((2 : ℝ) ^ k)⁻¹) ≤ (59 / 108 : ℝ) * a ∧\n    (59 / 108 : ℝ) * a < (3 / 4 : ℝ) * a ∧\n    (3 / 4 : ℝ) * a < (119 / 144 : ℝ) * a",
+    "route_note": "New exact arithmetic. The signature includes the candidate budget and small-depth premise, the K² estimate, main term, tail term, total bound and positive-gap margin. The exact integer inequality18*8^25<9^25 and rational identities are independently reproduced in checks.py. Those finite checks do not replace the quantified paper proof.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "note.md:proof of Theorem2",
+      "quantitative.md:elementary constant calculations"
+    ],
+    "evidence_class": "paper_arithmetic"
+  },
+  {
+    "id": "new-coarse-arithmetic",
+    "statement": "At the conservative endpoint L≤m^(1−1/k)/(2332800 k² ln(4km)), existing padded depth d=50kL+1 causes only a uniformly bounded inflation: (1+1/(50k))^(k/2)≤sqrt(50/49)<9/8; the main term is ≤a/48 and the weaker source gap is ≥119a/144.",
+    "why_needed": "Makes the first formal endpoint use only exact existing analytic inequalities.",
+    "depends_on": [],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.coarse_uniform_arithmetic\n    (k L : ℕ) (hk : 2 ≤ k) (hL : 1 ≤ L) (m : ℝ)\n    (hm : (2 : ℝ) ^ (15 * k + 2) ≤ m)\n    (hsmall : (L : ℝ) ≤ (1 / 2332800 : ℝ) *\n      Real.rpow m (1 - 1 / (k : ℝ)) /\n        ((k : ℝ) ^ 2 * Real.log (4 * (k : ℝ) * m))) :\n    let a : ℝ := (1 / 18 : ℝ) ^ (k - 1)\n    let K2 : ℝ := 16 * (k : ℝ) * (50 * (k : ℝ) * (L : ℝ) + 1) *\n      Real.log (4 * (k : ℝ) * m)\n    let ε : ℝ := (8 / 9 : ℝ) ^ (25 * k)\n    let δ := dl k\n    K2 ≤ (1 / 54 : ℝ) ^ 2 * (1 + 1 / (50 * (k : ℝ))) *\n      Real.rpow m (1 - 1 / (k : ℝ)) ∧\n    Real.rpow (1 + 1 / (50 * (k : ℝ))) ((k : ℝ) / 2) ≤ Real.sqrt (50 / 49 : ℝ) ∧\n    Real.sqrt (50 / 49 : ℝ) < (9 / 8 : ℝ) ∧\n    (3 / Real.sqrt m) ^ (k - 1) * Real.rpow K2 ((k : ℝ) / 2) ≤ a / 48 ∧\n    (3 / Real.sqrt m) ^ (k - 1) * ((2 : ℝ) ^ k)⁻¹ ≤ a / 4 ∧\n    (119 / 144 : ℝ) * a ≤ (1 - ε) * (a - δ) - ε - 4 / (m * δ ^ 2)",
+    "route_note": "New finite arithmetic only. The padded depth comes from Main.not_RLe_of_gap. Using51kL instead would introduce an exponentially growing factor. The source lower-mass expression is a−δ, so this record deliberately uses that weaker expression.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "quantitative.md:coarse arithmetic displays"
+    ],
+    "evidence_class": "paper_arithmetic"
+  },
+  {
+    "id": "new-sharp-public-existential",
+    "statement": "There is an absolute c>0, independent of k,t,η, with depth≥cη²[m/(1+ln(km))]^(1−1/k) for every successful randomized program in the public m=4^t family and stated regime.",
+    "why_needed": "A compact public-vocabulary statement to formalize after the external Fourier theorem.",
+    "depends_on": [
+      "new-eq-02",
+      "new-eq-03"
+    ],
+    "proposed_lean": "theorem QuarticQuery.forrelation_lower_uniform_sharp :\n    ∃ c : ℝ, 0 < c ∧\n      ∀ (k t : ℕ), 2 ≤ k → 15 * k + 2 ≤ 2 * t →\n      ∀ η : ℝ, 0 < η → η ≤ 1 →\n      ∀ A : QuarticQuery.RandomizedProgram\n          (QuarticQuery.ForrelationCoord k t),\n        (∀ x b, QuarticQuery.P k t x = some b →\n          (1 + η) / 2 ≤ A.success x b) →\n        c * η ^ 2 *\n          Real.rpow\n            ((QuarticQuery.mValue t : ℝ) /\n              (1 + Real.log\n                ((k : ℝ) * (QuarticQuery.mValue t : ℝ))))\n            (1 - 1 / (k : ℝ)) ≤ (A.depth : ℝ)",
+    "route_note": "Existential absolute-constant corollary of the C-dependent endpoint; the witness is1/(162*exp(1)*C²). Uses only Statement.lean vocabulary.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "LEAN_GAPS.md:sharp public-vocabulary signature"
+    ],
+    "evidence_class": "paper_proof"
+  },
+  {
+    "id": "new-sharp-third-corollary",
+    "statement": "At error1/3 and m=4^t≥2^(15k+2), R(P k t)≥1/(1458eC²)[m/(1+ln(km))]^(1−1/k).",
+    "why_needed": "Records the numerical error1/3 specialization explicitly.",
+    "depends_on": [
+      "new-eq-03",
+      "def-R"
+    ],
+    "proposed_lean": "theorem QuarticQuery.forrelation_lower_uniform_sharp_third\n    (C : ℝ) (hC : 1 ≤ C) (hFourier : ∀ (ι : Type) [Fintype ι] [DecidableEq ι],\n      1 ≤ Fintype.card ι → ∀ (T : QueryTree ι) (d j : ℕ),\n      T.depth ≤ d → 1 ≤ j → j ≤ Fintype.card ι →\n      (∑ S ∈ (Finset.univ : Finset ι).powersetCard j,\n        |ext (Dl S.toList (fun z => if T.eval z then (1 : ℝ) else 0)) 0|) ≤\n        C ^ j * Real.sqrt (Nat.choose d j : ℝ) *\n          Real.rpow (1 + Real.log (Fintype.card ι : ℝ)) (((j : ℝ) - 1) / 2))\n    (k t : ℕ) (hk : 2 ≤ k) (ht : 15 * k + 2 ≤ 2 * t) :\n    (1 / (1458 * Real.exp 1 * C ^ 2) : ℝ) *\n      Real.rpow ((mValue t : ℝ) /\n        (1 + Real.log ((k : ℝ) * (mValue t : ℝ))))\n        (1 - 1 / (k : ℝ)) ≤ (R (P k t) : ℝ)",
+    "route_note": "Set η=1/3 in new-eq-03 and use the attained finite-mixture definition of R. This is not the existing fixed-k BansalSinhaLower theorem.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "quantitative.md:(S2)"
+    ],
+    "evidence_class": "paper_deduction_with_external_input"
+  },
+  {
+    "id": "new-growth-raw-formula",
+    "statement": "For |μ|≤1/2, ξ_i=(sg(x_i)−μ_i)/(1−μ_i²) is centered and bounded by2; for any duplicate-free list S, ext(Dl S g,μ)=ext(g∏_(i∈S)ξ_i,μ).",
+    "why_needed": "Connects raw derivatives to the centered chaos along a tree.",
+    "depends_on": [],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.raw_derivative_centered_product\n    {ι : Type} [Fintype ι] [DecidableEq ι]\n    (μ : ι → ℝ) (hμ : ∀ a, |μ a| ≤ 1 / 2)\n    (g : (ι → Bool) → ℝ) (L : List ι) (hL : L.Nodup) :\n    (∀ a b, xi μ a b = (sg b - μ a) / (1 - μ a ^ 2)) ∧\n    (∀ a b, |xi μ a b| ≤ 2) ∧\n    (∀ a, piB (μ a) false * xi μ a false + piB (μ a) true * xi μ a true = 0) ∧\n    ext (Dl L g) μ = ext (fun z => g z * (L.map (fun a => xi μ a (z a))).prod) μ",
+    "route_note": "Existing xi, abs_xi_le, xi_mean and ext_Dl establish all components. This bundles them for the displayed proof steps, rather than asserting they are absent from the source.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "quantitative.md:q-growth-proof:display-1",
+      "quantitative.md:q-growth-proof:display-2"
+    ],
+    "evidence_class": "existing_source_exact_components"
+  },
+  {
+    "id": "new-growth-chaos-increment",
+    "statement": "Y_j^c(Q)=Σ_(S⊆Q,|S|=j)c(S)∏ξ_i, and revealing a fresh coordinate u adds ξ_u times the contracted degree-(j−1) chaos.",
+    "why_needed": "Defines the martingale and identifies its increments.",
+    "depends_on": [],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.chaos_definition_and_increment\n    {ι : Type} [Fintype ι] [DecidableEq ι]\n    (ξ : ι → Bool → ℝ) (c : Finset ι → ℝ) (j : ℕ)\n    (Q : Finset ι) (q : ι) (hq : q ∉ Q) (z : ι → Bool) :\n    chaos ξ c j Q z = (∑ S ∈ Q.powersetCard j, c S * ∏ a ∈ S, ξ a (z a)) ∧\n    chaos ξ c (j + 1) (insert q Q) z - chaos ξ c (j + 1) Q z =\n      ξ q (z q) * chaos ξ (fun S => c (insert q S)) j Q z",
+    "route_note": "Existing chaos and chaos_insert give the identity. Repeated queries add no coordinate and have zero increment. The convention c^q(S)=0 when q∈S is immaterial on Q with q∉Q.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "quantitative.md:q-growth-proof:display-3",
+      "quantitative.md:q-growth-proof:display-4"
+    ],
+    "evidence_class": "existing_source_exact_components"
+  },
+  {
+    "id": "new-growth-hoeffding",
+    "statement": "A centered random variable bounded in absolute value by D has E exp(λZ)≤exp(λ²D²/2); applying it under each finite transcript gives the conditional estimate.",
+    "why_needed": "Justifies the exponential supermartingale used for maximal Azuma.",
+    "depends_on": [],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.hoeffding_bounded_centered\n    {Ω : Type} [MeasurableSpace Ω] (ν : Measure Ω) [IsProbabilityMeasure ν]\n    (Z : Ω → ℝ) (hZ : AEStronglyMeasurable Z ν)\n    (D λ : ℝ) (hD : 0 ≤ D) (hb : ∀ᵐ ω ∂ν, |Z ω| ≤ D)\n    (hmean : (∫ ω, Z ω ∂ν) = 0) :\n    (∫ ω, Real.exp (λ * Z ω) ∂ν) ≤ Real.exp (λ ^ 2 * D ^ 2 / 2)",
+    "route_note": "Elementary secant/cosh proof is given in the note. The finite tree application conditions only on its past transcript. Source TreeGrowth has a two-point exponential lemma and recursive hit_azuma instead of this general probability-space statement.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "quantitative.md:q-growth-proof:display-6"
+    ],
+    "evidence_class": "paper_generalization"
+  },
+  {
+    "id": "new-growth-union-arithmetic",
+    "statement": "For n,j≥1, [2+n(4n)^(j−1)]exp(−Λ)≤(4n)^j exp(−Λ).",
+    "why_needed": "Records the numerical induction step in the maximal chaos estimate.",
+    "depends_on": [],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.chaos_union_factor\n    (n j : ℕ) (hn : 1 ≤ n) (hj : 1 ≤ j) (Λ : ℝ) :\n    (2 + (n : ℝ) * (4 * (n : ℝ)) ^ (j - 1)) * Real.exp (-Λ) ≤\n      (4 * (n : ℝ)) ^ j * Real.exp (-Λ)",
+    "route_note": "Elementary arithmetic; the probability induction and union bound are separately contained in new-eq-23.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "quantitative.md:q-growth-proof:display-7"
+    ],
+    "evidence_class": "paper_arithmetic"
+  },
+  {
+    "id": "new-growth-leaf-formula",
+    "statement": "For coefficient signs c(S)=sign(∂_S Ttilde(μ)), total absolute derivative weight equals the expected terminal queried-set chaos multiplied by the output.",
+    "why_needed": "Explains why unrevealed centered coordinates disappear at a leaf.",
+    "depends_on": [
+      "new-growth-raw-formula",
+      "new-growth-chaos-increment"
+    ],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.derivative_weight_leaf_formula\n    {ι P : Type} [Fintype ι] [DecidableEq ι] [Fintype P] [DecidableEq P]\n    (Lp : P → List ι) (hnd : ∀ p, (Lp p).Nodup)\n    (j : ℕ) (hlen : ∀ p, (Lp p).length = j)\n    (hinj : Function.Injective (fun p => (Lp p).toFinset))\n    (μ : ι → ℝ) (hμ : ∀ a, |μ a| ≤ 1 / 2)\n    (T : QueryTree ι) (v : Bool → ℝ) :\n    let g : (ι → Bool) → ℝ := fun z => v (T.eval z)\n    let σ : P → ℝ := fun p => if 0 ≤ ext (Dl (Lp p) g) μ then 1 else -1\n    let c : Finset ι → ℝ := fun S => ∑ p, if (Lp p).toFinset = S then σ p else 0\n    (∑ p, |ext (Dl (Lp p) g) μ|) =\n      walk μ (fun Q x b => v b * chaos (xi μ) c j Q x) T ∅ (fun _ => false)",
+    "route_note": "This identity is assembled internally in sum_abs_ext_Dl_le using ext_Dl and walk_chaos. It is not an exported standalone statement. The walk expression is the finite expectation of the terminal queried-set chaos.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "quantitative.md:q-growth-proof:display-8"
+    ],
+    "evidence_class": "existing_proof_step_new_export"
+  },
+  {
+    "id": "new-growth-parameterized",
+    "statement": "With K²=8dΛ, derivative weight is≤K^j+(2n)^j(4n)^j exp(−Λ).",
+    "why_needed": "Retains the parameterized source inequality before choosing Λ=2jln(4n).",
+    "depends_on": [
+      "new-eq-23",
+      "new-growth-leaf-formula"
+    ],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.sum_abs_ext_Dl_le\n    {ι P : Type} [Fintype ι] [DecidableEq ι] [Fintype P] [DecidableEq P]\n    (Lp : P → List ι) (hnd : ∀ p, (Lp p).Nodup) {k : ℕ}\n    (hlen : ∀ p, (Lp p).length = k)\n    (hinj : Function.Injective (fun p => (Lp p).toFinset))\n    {μ : ι → ℝ} (hμ : ∀ a, |μ a| ≤ 1 / 2)\n    {Λ K : ℝ} {d : ℕ} (hd : 0 < d) (hK : 0 < K)\n    (hKsq : K ^ 2 = 2 * d * 2 ^ 2 * Λ) (hn : 1 ≤ Fintype.card ι)\n    (T : QueryTree ι) (hT : T.depth ≤ d) (v : Bool → ℝ) (hv : ∀ b, |v b| ≤ 1) :\n    (∑ p, |ext (Dl (Lp p) (fun z => v (T.eval z))) μ|) ≤\n      K ^ k + (Fintype.card ι * 2) ^ k *\n        ((4 * Fintype.card ι : ℝ) ^ k * Real.exp (-Λ))",
+    "route_note": "Exact existing source declaration with section parameters expanded. Do not redeclare this name. The note proves it in martingale notation, while the source uses recursive tree walk/hit estimates.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "quantitative.md:q-growth-proof:display-9"
+    ],
+    "evidence_class": "existing_source_exact"
+  },
+  {
+    "id": "new-padding-binomial",
+    "statement": "For k≥1, (1+1/(50k))^k equals its binomial sum and is bounded by Σ_(j=0)^k 50^(−j)≤50/49<(9/8)^2.",
+    "why_needed": "Controls padded source depth uniformly in k.",
+    "depends_on": [],
+    "proposed_lean": "theorem QuarticQuery.ForrelationLower.padding_binomial_bound\n    (k : ℕ) (hk : 1 ≤ k) :\n    (1 + 1 / (50 * (k : ℝ))) ^ k =\n      (∑ j ∈ Finset.range (k + 1),\n        (Nat.choose k j : ℝ) * ((50 * (k : ℝ)) ^ j)⁻¹) ∧\n    (∑ j ∈ Finset.range (k + 1),\n        (Nat.choose k j : ℝ) * ((50 * (k : ℝ)) ^ j)⁻¹) ≤\n      (∑ j ∈ Finset.range (k + 1), ((50 : ℝ) ^ j)⁻¹) ∧\n    (∑ j ∈ Finset.range (k + 1), ((50 : ℝ) ^ j)⁻¹) ≤ (50 / 49 : ℝ) ∧\n    (50 / 49 : ℝ) < (9 / 8 : ℝ) ^ 2",
+    "route_note": "Finite binomial theorem, choose(k,j)≤k^j, and a geometric sum. No new analytic input is involved.",
+    "proposed_lean_context": "import QuarticQuery.ForrelationLower.Main\nopen MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.ForrelationLower\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "proposed, not elaborated or compiled in this return",
+    "displays": [
+      "quantitative.md:q-coarse-uniform:display-5"
+    ],
+    "evidence_class": "paper_arithmetic"
+  }
+]

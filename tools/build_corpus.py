@@ -217,10 +217,16 @@ def evidence_graph(records, runs):
                  "source_ids": ["openai_preprint"], "subject_ids": [],
                  "details": "AI readings exist in research/returns; none is an independent review."}]
     for index, run in enumerate(runs):
+        details = run.get("details", "")
+        # A negative control "passes" when Comparator rejects its altered solution.
+        if run.get("negative_control") == "rejected_as_expected":
+            details = (f"Altered solution {run['name']} rejected as expected "
+                       f"(exit {run.get('exit_code')}, diagnostic "
+                       f"\"{run.get('expected_diagnostic', '')}\"). {details}").strip()
         evidence.append({"id": f"run_{index}", "kind": run["kind"], "status": run["status"],
                          "command": run["command"], "tool": run["tool"],
                          "source_ids": ["openai_preprint"], "subject_ids": [],
-                         "details": run.get("details", "")})
+                         "details": details})
     nodes = []
     for record in records:
         nodes.append({

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "doc-blueprint-star-index-order",
+    "id_origin": "Identifier assigned in this return to a supporting-document display; not a corpus statement ID.",
+    "source": "repository/docs/forrelation_lower_bound_blueprint.md, Section 2, display (star)",
+    "old": "The path coefficient is the product of H(p_r,p_(r+1)), while V_r=H U_r.",
+    "new": "The path coefficient is the product of H(p_(r+1),p_r), consistent with V_r(b)=sum_a H(b,a)U_r(a).",
+    "relation": "equivalent",
+    "reason": "The original target is the symmetric Walsh matrix, so the two expressions are equal there. The source cf uses the new order, which is required for the note's extension to an arbitrary nonsymmetric orthogonal matrix. No error in the Walsh theorem is implied.",
+    "affects_frozen_corpus": false
+  },
+  {
+    "id": "doc-prior-art-extremal-adaptivity",
+    "id_origin": "Identifier assigned in this return to unnumbered supporting-document prose; not a corpus statement ID.",
+    "source": "repository/docs/forrelation_route_prior_art.md, discussion of arXiv:2508.02514",
+    "old": "Girish and Servedio give non-adaptive lower bounds for extremal Forrelation.",
+    "new": "Girish and Servedio's Theorem 1.4 applies to randomized algorithms, including adaptive algorithms, for the extremal promise Phi=+1 versus Phi=-1.",
+    "relation": "corrected",
+    "reason": "Checked against arXiv:2508.02514v1, Theorem 1.4. The nonadaptive qualifier belongs to the later Canonne–Chen–Mestre v2 near-square-root lower bound, which is a different result.",
+    "affects_frozen_corpus": false
+  }
+]

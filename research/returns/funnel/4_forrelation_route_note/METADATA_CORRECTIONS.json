@@ -1,0 +1,19 @@
+[
+  {
+    "statement_id": "lem-2.1.i",
+    "declaration": "QuarticQuery.ForrelationLower.bansalSinhaLower",
+    "old": {
+      "kind": "definition",
+      "file": "lean/QuarticQuery/Statement.lean",
+      "line": null
+    },
+    "new": {
+      "kind": "theorem",
+      "file": "lean/QuarticQuery/ForrelationLower/Main.lean",
+      "line": 506
+    },
+    "reason": "Statement.lean defines the proposition BansalSinhaLower; Main.lean contains its proof. The mathematical statement and its stable corpus identifier are unchanged.",
+    "source_pin": "c7e0c9161f0ad898889bd9166e7b354acd42188d",
+    "status": "advisory correction; original corpus not modified"
+  }
+]

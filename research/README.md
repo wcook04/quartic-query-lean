@@ -91,6 +91,12 @@ The [funnel campaign](requests/funnel/) contains five maintained requests:
 deliverables, not completed publications. Use the
 [writing-packet command](../tools/README.md#build-writing-packets) to package them.
 
+The five funnel returns are in [returns/funnel/](returns/README.md#funnel-returns), with their
+archive names and hashes. Their audit findings have verdicts in the
+[funnel adjudication](adjudication/funnel_adjudication_notes.md), whose
+[JSON](adjudication/funnel_adjudication.json) also lists the tie changes and the ties
+proposed for later review.
+
 ## Path changes
 
 The original five `requests/*.md` files now live under `requests/review/`.
