@@ -1,4 +1,30 @@
 module
 
 public import QuarticQuery.Statement
+public import QuarticQuery.Model.Classical
+public import QuarticQuery.Model.Quantum
+public import QuarticQuery.Construction.Winner
+public import QuarticQuery.Construction.Transcript
+public import QuarticQuery.Construction.LocalTests
 public import QuarticQuery.Tournament.Drift
+public import QuarticQuery.Tournament.Ideal
+public import QuarticQuery.Forrelation.Walsh
+public import QuarticQuery.Forrelation.Product
+public import QuarticQuery.Forrelation.Promise
+public import QuarticQuery.Forrelation.Sanity
+public import QuarticQuery.Forrelation.Builder
+public import QuarticQuery.Forrelation.Arithmetic
+public import QuarticQuery.Forrelation.Circuit
+public import QuarticQuery.Forrelation.Repetition
+public import QuarticQuery.Amplification.Geometry
+public import QuarticQuery.Amplification.Average
+public import QuarticQuery.Amplification.Procedure
+public import QuarticQuery.Amplification.Bounded
+public import QuarticQuery.LowerBound.DirectProduct
+public import QuarticQuery.LowerBound.Minimax
+public import QuarticQuery.Bridge.DecisionTree
+public import QuarticQuery.Bridge.Oracle
+public import QuarticQuery.Bridge.Deferred
+public import QuarticQuery.Appendix.TheoremA1
+public import QuarticQuery.Results.Exponent
+public import QuarticQuery.Results.Headline

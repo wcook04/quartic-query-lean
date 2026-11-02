@@ -1,0 +1,10 @@
+{
+  "challenge_module": "QuarticCorpus.Tournament.Challenge",
+  "solution_module": "QuarticCorpus.Negative.ForeignAxiom",
+  "theorem_names": [
+    "QuarticQuery.Checked.expected_weight_eq",
+    "QuarticQuery.Checked.expected_weight_le_half"
+  ],
+  "definition_names": [],
+  "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"]
+}

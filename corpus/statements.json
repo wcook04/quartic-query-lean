@@ -1,0 +1,5409 @@
+[
+ {
+  "id": "def-log-convention",
+  "kind": "definition",
+  "section": "1.3",
+  "source_line": 118,
+  "statement": "log means log_2, except where changing the base only changes an absolute constant. Ledger pinning: log in T (prop-3.2), r and l (eq-6) and L (eq-5) is exactly log_2.",
+  "statement_sha256": "049e118f97c84619bd9e8bd699ae494e0e5f57f253c142b5f64fb734e3620812",
+  "original_statement_sha256": "049e118f97c84619bd9e8bd699ae494e0e5f57f253c142b5f64fb734e3620812",
+  "corrected": false,
+  "depends_on": [],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "def-partial-query",
+  "kind": "definition",
+  "section": "1.3",
+  "source_line": 120,
+  "statement": "A partial Boolean function is a pair (D,P) with D a subset of {0,1}^N and P:D->{0,1}. An algorithm computes it if it is correct, with the stated error, on every x in D; behaviour off D is unconstrained.",
+  "statement_sha256": "b2754c85eb31367c9c931028f0c7fb02a3b89fc6400f0943644ccf4e21175067",
+  "original_statement_sha256": "b2754c85eb31367c9c931028f0c7fb02a3b89fc6400f0943644ccf4e21175067",
+  "corrected": false,
+  "depends_on": [],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "RLe_reindex_iff",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Model/Classical.lean",
+    "line": 335,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "DLe_reindex_iff",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Model/Classical.lean",
+    "line": 344,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "def-R",
+  "kind": "definition",
+  "section": "1",
+  "source_line": 18,
+  "statement": "For a (partial) Boolean function f, R(f) is the least q such that some probability distribution on deterministic decision trees of depth at most q satisfies Pr[T(x)=f(x)] >= 2/3 for every x in dom f. The query cap holds on every branch and every coin outcome.",
+  "statement_sha256": "79ddac65db3b047b9c33c0a88c5b4ebd8086b2b94719a7cadd8a5f2d4f69b1ff",
+  "original_statement_sha256": "79ddac65db3b047b9c33c0a88c5b4ebd8086b2b94719a7cadd8a5f2d4f69b1ff",
+  "corrected": false,
+  "depends_on": [
+   "def-partial-query"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.DLe.toRLe",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Model/Classical.lean",
+    "line": 244,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.RLe_R",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Model/Classical.lean",
+    "line": 264,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.R_le_iff",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Model/Classical.lean",
+    "line": 278,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.lt_R_iff",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Model/Classical.lean",
+    "line": 299,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.lt_R_of_not_RLe",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Model/Classical.lean",
+    "line": 308,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "R_reindex",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Model/Classical.lean",
+    "line": 353,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "def-query-oracle",
+  "kind": "definition",
+  "section": "1",
+  "source_line": 22,
+  "statement": "For x in {0,1}^n the bit oracle is the unitary O_x|i,b,z> = |i, b xor x_i, z>, with i in [n], b a bit, z a workspace label. It is self-inverse.",
+  "statement_sha256": "d0f18b8c1ae8d5311ad5a1260445f26513d45c27734234adc7d477291b16f8a8",
+  "original_statement_sha256": "d0f18b8c1ae8d5311ad5a1260445f26513d45c27734234adc7d477291b16f8a8",
+  "corrected": false,
+  "depends_on": [],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.hadamardL",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Bridge/Oracle.lean",
+    "line": 43,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.hadamardL_hadamardL",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Bridge/Oracle.lean",
+    "line": 60,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.norm_hadamardL",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Bridge/Oracle.lean",
+    "line": 76,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.hadamard",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Bridge/Oracle.lean",
+    "line": 88,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.hadamard_hadamard",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Bridge/Oracle.lean",
+    "line": 95,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.hadamard_phaseOracle_hadamard",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Bridge/Oracle.lean",
+    "line": 101,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.hadamard_bitOracle_hadamard",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Bridge/Oracle.lean",
+    "line": 115,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.bitRun",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Bridge/Oracle.lean",
+    "line": 120,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.phaseGates",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Bridge/Oracle.lean",
+    "line": 127,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.run_phaseGates",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Bridge/Oracle.lean",
+    "line": 134,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.bitOracleL",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Model/Quantum.lean",
+    "line": 58,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.bitOracle_add",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Model/Quantum.lean",
+    "line": 68,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.bitOracle_smul",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Model/Quantum.lean",
+    "line": 73,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.norm_bitOracle",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Model/Quantum.lean",
+    "line": 78,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.bitOracle_bitOracle",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Model/Quantum.lean",
+    "line": 83,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "def-Q",
+  "kind": "definition",
+  "section": "1",
+  "source_line": 20,
+  "statement": "Q(f) is the least q such that some quantum algorithm, with unrestricted query-free computation between uses of O_x and with at most q queries on every branch including all measurement outcomes, outputs f(x) with probability >= 2/3 for every x in dom f.",
+  "statement_sha256": "8fe02040151db3c30650d32bc62bc01985ae25bcdb0ce3d21acf116c11852bb7",
+  "original_statement_sha256": "8fe02040151db3c30650d32bc62bc01985ae25bcdb0ce3d21acf116c11852bb7",
+  "corrected": false,
+  "depends_on": [
+   "def-partial-query",
+   "def-query-oracle"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.AdaptiveProgram.outputMass_nonneg",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Model/Quantum.lean",
+    "line": 135,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.AdaptiveProgram.outputMass_true_add_false",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Model/Quantum.lean",
+    "line": 146,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Q_le_of_QLe",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Model/Quantum.lean",
+    "line": 190,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.QLe.reindex",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Model/Quantum.lean",
+    "line": 257,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.QLe_reindex_iff",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Model/Quantum.lean",
+    "line": 267,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Q_reindex",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Model/Quantum.lean",
+    "line": 276,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.DLe.toQLe",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Model/Quantum.lean",
+    "line": 390,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.QLe_card",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Model/Quantum.lean",
+    "line": 402,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.QLe_Q",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Model/Quantum.lean",
+    "line": 410,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Q_le_iff",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Model/Quantum.lean",
+    "line": 414,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "eq-1",
+  "kind": "definition",
+  "section": "1",
+  "source_line": 30,
+  "statement": "alpha_tot = inf{alpha >= 0 : exists C_alpha < infinity such that for every n >= 1 and every total f:{0,1}^n->{0,1}, R(f) <= C_alpha (1+Q(f))^alpha}.",
+  "statement_sha256": "82e9433b421d9babee4fc9239f683d210a1457799a9726bcbad52a23fb84a354",
+  "original_statement_sha256": "82e9433b421d9babee4fc9239f683d210a1457799a9726bcbad52a23fb84a354",
+  "corrected": false,
+  "depends_on": [
+   "def-R",
+   "def-Q"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "eq-2",
+  "kind": "equation",
+  "section": "1",
+  "source_line": 39,
+  "statement": "For fixed integer k>=2 and all sufficiently large powers of four m: Q(F_{k,m}) <= C_k sqrt(m) (log m)^{b_k} and R(F_{k,m}) >= c_k m^{2-1/k}/(log m)^2, with c_k,C_k,b_k>0 depending only on k.",
+  "statement_sha256": "945807a863e6b4bd28037c89b20ec3c14bfd8d6e7ba990192c680c3a1b9549a0",
+  "original_statement_sha256": "945807a863e6b4bd28037c89b20ec3c14bfd8d6e7ba990192c680c3a1b9549a0",
+  "corrected": false,
+  "depends_on": [
+   "prop-3.3",
+   "cor-R-omega"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.familyBoundsAt_of_parts",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Results/Exponent.lean",
+    "line": 416,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "thm-1.1",
+  "kind": "theorem",
+  "section": "1",
+  "source_line": 34,
+  "statement": "alpha_tot = 4. More precisely, R(f) = O((1+Q(f))^4) for every total Boolean f, and eq-2 holds for each fixed integer k>=2.",
+  "statement_sha256": "e50898db33e0335299a75079e637042ed314f4f9f01978a0570e763cd0e2afc1",
+  "original_statement_sha256": "e50898db33e0335299a75079e637042ed314f4f9f01978a0570e763cd0e2afc1",
+  "corrected": false,
+  "depends_on": [
+   "eq-1",
+   "eq-2",
+   "thm-A.1",
+   "claim-exponent-ratio",
+   "claim-no-smaller-exponent"
+  ],
+  "external_inputs": [
+   "[6] Bansal-Sinha, Theorem 1.3 and Corollary 1.4 (checked against arXiv:2008.07003): randomized decision trees of error 1/3 for (2^{-5k},k)-Forrelation need Omega(k^{-29}(N/log(kN))^{1-1/k}) queries"
+  ],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "cor-cubic-refuted",
+  "kind": "corollary",
+  "section": "1.1",
+  "source_line": 66,
+  "statement": "It is false that R(f) = O(Q(f)^3) for all total Boolean f ([3, Conjecture 2]): no C satisfies R(f) <= C Q(f)^3 for all total f.",
+  "statement_sha256": "f3617789532b7ee1ecc45fad1e802baa01bc65c25827a80c6666920d52470489",
+  "original_statement_sha256": "0f58e6cc89361c47556fe5a5145704c0b931eef32c2e5922659c438a8cec8622",
+  "corrected": true,
+  "depends_on": [
+   "claim-exponent-ratio"
+  ],
+  "external_inputs": [
+   "[3] ABKRT arXiv:2010.12629v1 Conjecture 2, p.20 (checked); ABKRT p.1 says it subsumes arXiv:2004.13231, whose text was not held"
+  ],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.cubic_refuted",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Results/Exponent.lean",
+    "line": 257,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.cubic_refuted_bare",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Results/Exponent.lean",
+    "line": 275,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.cubic_bound_fails",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Results/Headline.lean",
+    "line": 33,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "def-walsh-sign",
+  "kind": "definition",
+  "section": "2.1",
+  "source_line": 136,
+  "statement": "m=4^t. H is the m x m normalized Walsh-Hadamard matrix, H_{a,b}=m^{-1/2}(-1)^{<a,b>} for a,b in {0,1}^{log_2 m}. u=m^{-1/2}(1,...,1)^T. A bit a is identified with the sign (-1)^a. For z in {+-1}^m, D_z=diag(z).",
+  "statement_sha256": "cea0c236eec7f144a63eb21757f43457a4d6562214b0ec6e2e96438e9fcbb7e1",
+  "original_statement_sha256": "cea0c236eec7f144a63eb21757f43457a4d6562214b0ec6e2e96438e9fcbb7e1",
+  "corrected": false,
+  "depends_on": [
+   "def-log-convention"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.Forrelation.walshN",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Forrelation/Walsh.lean",
+    "line": 21,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Forrelation.sum_walshN_mul",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Forrelation/Walsh.lean",
+    "line": 83,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Forrelation.walshZ",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Forrelation/Walsh.lean",
+    "line": 130,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Forrelation.W",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Forrelation/Walsh.lean",
+    "line": 134,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Forrelation.walshZ_mul_transpose",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Forrelation/Walsh.lean",
+    "line": 158,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Forrelation.W_mul_transpose",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Forrelation/Walsh.lean",
+    "line": 180,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "eq-3",
+  "kind": "definition",
+  "section": "2.1",
+  "source_line": 140,
+  "statement": "For z_1,...,z_k in {+-1}^m: Phi(z_1,...,z_k) = u^T D_{z_1} H D_{z_2} H ... H D_{z_k} u (k diagonals, k-1 copies of H), and delta = 2^{-5k}.",
+  "statement_sha256": "cbebca1057a97b00669f58befe01f6ae34866392f7f897fd8b54fe28832d8bae",
+  "original_statement_sha256": "cbebca1057a97b00669f58befe01f6ae34866392f7f897fd8b54fe28832d8bae",
+  "corrected": false,
+  "depends_on": [
+   "def-walsh-sign"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.Forrelation.u",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Forrelation/Product.lean",
+    "line": 88,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Forrelation.signDiag",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Forrelation/Product.lean",
+    "line": 91,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Forrelation.alternate",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Forrelation/Product.lean",
+    "line": 104,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Forrelation.Phi_eq_matrix_product",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Forrelation/Product.lean",
+    "line": 158,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Forrelation.Phi_sq_le_one",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Forrelation/Product.lean",
+    "line": 259,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Forrelation.abs_Phi_le_one",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Forrelation/Product.lean",
+    "line": 266,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Forrelation.delta",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Forrelation/Promise.lean",
+    "line": 18,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Forrelation.H",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Forrelation/Walsh.lean",
+    "line": 139,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Forrelation.H_mul_H",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Forrelation/Walsh.lean",
+    "line": 200,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Forrelation.H_mem_orthogonalGroup",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Forrelation/Walsh.lean",
+    "line": 210,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "eq-4",
+  "kind": "definition",
+  "section": "2.1",
+  "source_line": 145,
+  "statement": "P=P_{k,m} is the partial function on km bits with P=1 if Phi>=delta, P=0 if |Phi|<=delta/2, undefined otherwise. The two cases are disjoint.",
+  "statement_sha256": "d851c47d1b5c5d998eb9c90a501c8a57e7bdb071021c6e7adbac48e388ff6483",
+  "original_statement_sha256": "d851c47d1b5c5d998eb9c90a501c8a57e7bdb071021c6e7adbac48e388ff6483",
+  "corrected": false,
+  "depends_on": [
+   "eq-3",
+   "def-partial-query"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.Forrelation.cases_disjoint",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Forrelation/Promise.lean",
+    "line": 55,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Forrelation.P_eq_some_true_iff",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Forrelation/Promise.lean",
+    "line": 63,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Forrelation.P_eq_some_false_iff",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Forrelation/Promise.lean",
+    "line": 70,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Forrelation.P_eq_none_iff",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Forrelation/Promise.lean",
+    "line": 87,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Forrelation.P_eq_cases",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Forrelation/Promise.lean",
+    "line": 95,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Forrelation.census_true",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Forrelation/Sanity.lean",
+    "line": 20,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Forrelation.census_false",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Forrelation/Sanity.lean",
+    "line": 25,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Forrelation.census_none",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Forrelation/Sanity.lean",
+    "line": 30,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Forrelation.promise_nonempty_two_one",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Forrelation/Sanity.lean",
+    "line": 41,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Forrelation.Phi_negativeWitness",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Forrelation/Sanity.lean",
+    "line": 58,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Forrelation.P_negativeWitness",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Forrelation/Sanity.lean",
+    "line": 65,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "eq-5",
+  "kind": "definition",
+  "section": "2.1",
+  "source_line": 155,
+  "statement": "L = L_{k,m} = floor(m^{1-1/k}/(log_2 m)^2).",
+  "statement_sha256": "c55ff3a32aff92f654ac998af81f6a00651812c3a274a3000a0018c082486426",
+  "original_statement_sha256": "730aea211cef85c5f286dc32a9024517b4e4e0e99f0e1fe26250b2cc5ba09b09",
+  "corrected": true,
+  "depends_on": [
+   "def-log-convention"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-bs-to-L",
+  "kind": "inline_claim",
+  "section": "2.1",
+  "source_line": 173,
+  "statement": "For fixed k: for large m, c k^{-29} (m/log(km))^{1-1/k} > floor(m^{1-1/k}/(log_2 m)^2).",
+  "statement_sha256": "6aedc1d69a82abd7a062938142e5e68971cc183113add9310bde90b8b1290d76",
+  "original_statement_sha256": "6aedc1d69a82abd7a062938142e5e68971cc183113add9310bde90b8b1290d76",
+  "corrected": false,
+  "depends_on": [
+   "eq-5"
+  ],
+  "external_inputs": [
+   "[6] Bansal-Sinha, Theorem 1.3 and Corollary 1.4 (checked against arXiv:2008.07003): randomized decision trees of error 1/3 for (2^{-5k},k)-Forrelation need Omega(k^{-29}(N/log(kN))^{1-1/k}) queries"
+  ],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "lem-2.1.i",
+  "kind": "lemma",
+  "section": "2.1",
+  "source_line": 152,
+  "statement": "For fixed k>=2 and all sufficiently large powers of four m, R(P_{k,m})>L with L as in eq-5.",
+  "statement_sha256": "5fffc61993caaf24f8e4205bcba1117355996e44857538aa321b05b8be63b365",
+  "original_statement_sha256": "5fffc61993caaf24f8e4205bcba1117355996e44857538aa321b05b8be63b365",
+  "corrected": false,
+  "depends_on": [
+   "eq-4",
+   "eq-5",
+   "def-R",
+   "claim-bs-to-L"
+  ],
+  "external_inputs": [
+   "[6] Bansal-Sinha, Theorem 1.3 and Corollary 1.4 (checked against arXiv:2008.07003): randomized decision trees of error 1/3 for (2^{-5k},k)-Forrelation need Omega(k^{-29}(N/log(kN))^{1-1/k}) queries"
+  ],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-proj-prob",
+  "kind": "inline_claim",
+  "section": "2.1",
+  "source_line": 176,
+  "statement": "Prepare u, apply D_{z_1} H ... H D_{z_k} right to left, measure the projection onto u. Each D uses one bit query (phase kickback), H and the projection use none. Success probability is exactly Phi^2: >=delta^2 on 1-inputs, <=delta^2/4 on 0-inputs.",
+  "statement_sha256": "1ce97979ffc9963d91470bec06ed87fe9a7c7051a5049a7be983f02d779b32f0",
+  "original_statement_sha256": "1ce97979ffc9963d91470bec06ed87fe9a7c7051a5049a7be983f02d779b32f0",
+  "corrected": false,
+  "depends_on": [
+   "eq-3",
+   "eq-4",
+   "def-query-oracle"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.Forrelation.successProb",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Forrelation/Repetition.lean",
+    "line": 28,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Forrelation.successProb_eq",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Forrelation/Repetition.lean",
+    "line": 32,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Forrelation.failureProb_eq",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Forrelation/Repetition.lean",
+    "line": 40,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Forrelation.successProb_of_true",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Forrelation/Repetition.lean",
+    "line": 61,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Forrelation.successProb_of_false",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Forrelation/Repetition.lean",
+    "line": 67,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "lem-2.1.ii",
+  "kind": "lemma",
+  "section": "2.1",
+  "source_line": 158,
+  "statement": "For every 0<eta<1/2 there is a quantum algorithm using O_k(1+log(1/eta)) bit queries that outputs P_{k,m}(z) with error <=eta for every z in dom P. It has a coherent implementation retaining all workspace. On every input, promised or not, measuring its output register yields a bit.",
+  "statement_sha256": "2709e8d1fab228914261dfbabf19068a5200f10d772b58fbac3be8333df0cb89",
+  "original_statement_sha256": "2709e8d1fab228914261dfbabf19068a5200f10d772b58fbac3be8333df0cb89",
+  "corrected": false,
+  "depends_on": [
+   "claim-proj-prob",
+   "def-Q"
+  ],
+  "external_inputs": [
+   "Chernoff or Hoeffding bound for repeated Bernoulli trials (standard; not cited)"
+  ],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-N-phi",
+  "kind": "inline_claim",
+  "section": "2.1",
+  "source_line": 183,
+  "statement": "With W=sqrt(m) H (entries +-1), N = z_1^T W D_{z_2} W ... W D_{z_k} (1,...,1)^T is an integer, Phi=N/M_{k,m}, and M_{k,m}=m (sqrt m)^{k-1} is a positive integer because m is a power of four.",
+  "statement_sha256": "a815e794227b78ce23e065741a5466c2ae632c5d9012a56f8885f73ccf3c5730",
+  "original_statement_sha256": "a815e794227b78ce23e065741a5466c2ae632c5d9012a56f8885f73ccf3c5730",
+  "corrected": false,
+  "depends_on": [
+   "eq-3",
+   "def-walsh-sign"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.Forrelation.layers",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Forrelation/Circuit.lean",
+    "line": 92,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Forrelation.walkN",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Forrelation/Product.lean",
+    "line": 22,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Forrelation.numerator_eq_walk",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Forrelation/Product.lean",
+    "line": 71,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Forrelation.Phi_eq_matrix_product",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Forrelation/Product.lean",
+    "line": 158,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-integer-tests",
+  "kind": "inline_claim",
+  "section": "2.1",
+  "source_line": 195,
+  "statement": "Phi>=delta iff 2^{5k} N >= M_{k,m}; and |Phi|<=delta/2 iff 2^{5k+1}|N| <= M_{k,m}. d is the disjunction, b the first comparison.",
+  "statement_sha256": "3d65de026ffea2b9854731cad2c63b34263eee3ed1df1068b57169f387f6d9d2",
+  "original_statement_sha256": "3d65de026ffea2b9854731cad2c63b34263eee3ed1df1068b57169f387f6d9d2",
+  "corrected": false,
+  "depends_on": [
+   "claim-N-phi",
+   "eq-4"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.Forrelation.P_tests",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Forrelation/Circuit.lean",
+    "line": 238,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Forrelation.forrCore_spec",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Forrelation/Circuit.lean",
+    "line": 273,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Forrelation.delta_le_Phi_iff",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Forrelation/Promise.lean",
+    "line": 33,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Forrelation.abs_Phi_le_iff",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Forrelation/Promise.lean",
+    "line": 43,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-circuit-size",
+  "kind": "inline_claim",
+  "section": "2.1",
+  "source_line": 190,
+  "statement": "N is computed by k-1 unnormalized Walsh-Hadamard transforms, coordinate sign changes and a final signed sum. Each transform uses O(m log m) additions and subtractions; all intermediate integers have absolute value at most m^{O(k)}, so O_k(log m) bits suffice; hence Boolean size O_k(m (log m)^2).",
+  "statement_sha256": "afe168ec7912be966d64fc23f439bd4b9c8cd2ef8e2c3ea413a2b6b2994fd35a",
+  "original_statement_sha256": "afe168ec7912be966d64fc23f439bd4b9c8cd2ef8e2c3ea413a2b6b2994fd35a",
+  "corrected": false,
+  "depends_on": [
+   "claim-N-phi",
+   "def-transcript"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.Forrelation.abs_numerator_le",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Forrelation/Circuit.lean",
+    "line": 203,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "lem-2.1.iii",
+  "kind": "lemma",
+  "section": "2.1",
+  "source_line": 162,
+  "statement": "There is a Boolean circuit C=C_{k,m} of fan-in at most two and size S=S_{k,m}=O_k(m (log m)^2), counting non-input gates, with output bits d,b such that for every input z: d=1 iff P_{k,m} is defined at z, and d=1 implies b=P_{k,m}(z). The circuit computes these outputs exactly on every input.",
+  "statement_sha256": "59d4a668ab06611c3fde044a278cd5c953a0eef778fd663ba163ca964760444d",
+  "original_statement_sha256": "59d4a668ab06611c3fde044a278cd5c953a0eef778fd663ba163ca964760444d",
+  "corrected": false,
+  "depends_on": [
+   "claim-integer-tests",
+   "claim-circuit-size"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "lem-2.1",
+  "kind": "lemma",
+  "section": "2.1",
+  "source_line": 151,
+  "statement": "Conjunction of lem-2.1.i, lem-2.1.ii and lem-2.1.iii for each fixed k>=2.",
+  "statement_sha256": "7df2f44d3a848ba73c5b2e446bfc7e0fb52b2f8eff5be64ab56aed026f91167a",
+  "original_statement_sha256": "7df2f44d3a848ba73c5b2e446bfc7e0fb52b2f8eff5be64ab56aed026f91167a",
+  "corrected": false,
+  "depends_on": [
+   "lem-2.1.i",
+   "lem-2.1.ii",
+   "lem-2.1.iii"
+  ],
+  "external_inputs": [
+   "[6] Bansal-Sinha, Theorem 1.3 and Corollary 1.4 (checked against arXiv:2008.07003): randomized decision trees of error 1/3 for (2^{-5k},k)-Forrelation need Omega(k^{-29}(N/log(kN))^{1-1/k}) queries"
+  ],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "def-transcript",
+  "kind": "definition",
+  "section": "1.3",
+  "source_line": 122,
+  "statement": "For a fixed circuit, a transcript assigns a proposed bit to each non-input gate, including output gates. Input-wire values are not copied; they are read from the actual input.",
+  "statement_sha256": "7c174cfb51600c2e17e0d5126bbf549013add5f1d161a6b6c16a5e46e6cfb740",
+  "original_statement_sha256": "7c174cfb51600c2e17e0d5126bbf549013add5f1d161a6b6c16a5e46e6cfb740",
+  "corrected": false,
+  "depends_on": [],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.GateConsistent.unique",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Construction/Transcript.lean",
+    "line": 30,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.existsUnique_gateConsistent",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Construction/Transcript.lean",
+    "line": 70,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "eq-6",
+  "kind": "definition",
+  "section": "2.2",
+  "source_line": 207,
+  "statement": "r = ceil(20 log_2 m), l = log_2 m.",
+  "statement_sha256": "c1b518565d4a82c26f07f2d84f2aa8bd9a5a17b601c158870e41d3e3c3427f20",
+  "original_statement_sha256": "c1b518565d4a82c26f07f2d84f2aa8bd9a5a17b601c158870e41d3e3c3427f20",
+  "corrected": false,
+  "depends_on": [
+   "def-log-convention"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.logb_mValue",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Results/Exponent.lean",
+    "line": 301,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "def-column-layout",
+  "kind": "construction",
+  "section": "2.2",
+  "source_line": 208,
+  "statement": "The input has m columns. Column i contains: X_i in {0,1}^m; strings A_{i,1},...,A_{i,r} in {0,1}^{km} with no promise; and for each s in {0,1}^r a cell B_{i,s} holding, for each j != i, a pointer p_{i,s,j} in [m] encoded in l bits by a fixed bijection, and for each h in [r] an alleged evaluation transcript of C_{k,m} on A_{i,h}.",
+  "statement_sha256": "d9218ca3945f4873563558e42c95034d55721401eac270bbe30149248b1188f3",
+  "original_statement_sha256": "d9218ca3945f4873563558e42c95034d55721401eac270bbe30149248b1188f3",
+  "corrected": false,
+  "depends_on": [
+   "eq-6",
+   "def-transcript"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.pointerEquiv_bijective",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Construction/Winner.lean",
+    "line": 26,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.existsUnique_pointer",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Construction/Winner.lean",
+    "line": 31,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "def-eval-transcript",
+  "kind": "definition",
+  "section": "2.2",
+  "source_line": 218,
+  "statement": "An evaluation transcript of C_{k,m} on A_{i,h} has one bit per non-input gate including output gates, and these gates are the count S. It is correct iff every bit equals the true value of that gate on input A_{i,h}.",
+  "statement_sha256": "595774245761b13867b2c2091176ef6c1ad8409ce21e397ba0a41b94a04ad227",
+  "original_statement_sha256": "595774245761b13867b2c2091176ef6c1ad8409ce21e397ba0a41b94a04ad227",
+  "corrected": false,
+  "depends_on": [
+   "def-transcript"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.circuitEval_gateConsistent",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Construction/Transcript.lean",
+    "line": 53,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.gateConsistent_iff_eq_circuitEval",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Construction/Transcript.lean",
+    "line": 64,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "eq-7",
+  "kind": "definition",
+  "section": "2.2",
+  "source_line": 223,
+  "statement": "If every P(A_{i,h}) is defined, the true address of column i is s_i=(P(A_{i,1}),...,P(A_{i,r})) in {0,1}^r.",
+  "statement_sha256": "ad349b7aecf4ee04d51c6476a42dd0cfdb64d80ab98440887c99508c6edf633d",
+  "original_statement_sha256": "ad349b7aecf4ee04d51c6476a42dd0cfdb64d80ab98440887c99508c6edf633d",
+  "corrected": false,
+  "depends_on": [
+   "eq-4",
+   "def-column-layout"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.winsAt_address_unique",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Construction/Winner.lean",
+    "line": 50,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "eq-8",
+  "kind": "definition",
+  "section": "2.2",
+  "source_line": 227,
+  "statement": "Outward pointer condition at address s: X_j[p_{i,s,j}] = 0 for every j != i. Eq. 8 of the paper is the case s=s_i.",
+  "statement_sha256": "9d2b4b8f5bff36ad3a4be953ccb6d5fda362e3f47a2791466746abce4b48e583",
+  "original_statement_sha256": "3cdc3acd7daf1ac6957ef160a64e8f80a2bd9b38e61b3c26612ae84d7392ff48",
+  "corrected": true,
+  "depends_on": [
+   "def-column-layout"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "def-winner",
+  "kind": "definition",
+  "section": "2.2",
+  "source_line": 221,
+  "statement": "Column i is a winner iff X_i=1^m, every P(A_{i,h}) is defined, and the cell B_{i,s_i} contains correct evaluation transcripts on all A_{i,h} and pointers satisfying eq-8.",
+  "statement_sha256": "495ca2d2a0ba0d2e53508798fb3052d2cb1105f8a6dd2990d34b04e15302eaae",
+  "original_statement_sha256": "495ca2d2a0ba0d2e53508798fb3052d2cb1105f8a6dd2990d34b04e15302eaae",
+  "corrected": false,
+  "depends_on": [
+   "def-win-at-address"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "def-F",
+  "kind": "definition",
+  "section": "2.2",
+  "source_line": 229,
+  "statement": "F_{k,m}(y)=1 if some column of y is a winner, else 0. It is a total Boolean function on all input bit strings.",
+  "statement_sha256": "39af48a956c951a810d670b576bfe1e0c749155d97f6c2c8041d5f1a117716e2",
+  "original_statement_sha256": "39af48a956c951a810d670b576bfe1e0c749155d97f6c2c8041d5f1a117716e2",
+  "corrected": false,
+  "depends_on": [
+   "def-winner",
+   "def-column-layout"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "addressedF_eq_true_iff",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Construction/LocalTests.lean",
+    "line": 276,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "addressedF_eq_true_iff_localTests",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Construction/LocalTests.lean",
+    "line": 281,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.winsAt_column_unique",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Construction/Winner.lean",
+    "line": 42,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.winsAt_unique",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Construction/Winner.lean",
+    "line": 55,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "cor-unique-winner",
+  "kind": "corollary",
+  "section": "2.2",
+  "source_line": 235,
+  "statement": "For every input, at most one column is a winner.",
+  "statement_sha256": "92ab387fade986ce41acb084f7c3f11457c74235a36fb64a2e6bf8e911aeb790",
+  "original_statement_sha256": "92ab387fade986ce41acb084f7c3f11457c74235a36fb64a2e6bf8e911aeb790",
+  "corrected": false,
+  "depends_on": [
+   "def-winner"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "def-win-at-address",
+  "kind": "definition",
+  "section": "2.2",
+  "source_line": 264,
+  "statement": "WinsAt(y,i,s) holds iff X_i=1^m, for every h the transcript in B_{i,s} on A_{i,h} is correct with outputs d=1 and b=s_h, and eq-8 holds at s. The paper's wording, i is a winner and s=s_i, is equivalent by claim-winner-fidelity.",
+  "statement_sha256": "d5934c005c64bacae9f7add068e3e5f089b68839779d4a0497c5507b9a8a97c9",
+  "original_statement_sha256": "35878526c2760d62a9c8337d8200c32e19ab1c6823c9e1955110273160447924",
+  "corrected": true,
+  "depends_on": [
+   "eq-8",
+   "def-eval-transcript",
+   "def-column-layout"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "def-K",
+  "kind": "definition",
+  "section": "2.2",
+  "source_line": 269,
+  "statement": "K_{k,m} = m + (m-1) + r(S_{k,m}+2) = O_k(m (log m)^3).",
+  "statement_sha256": "8c1a4d4190d236187c48392a2c13081984010a8f378da39a4260e591fc1c9013",
+  "original_statement_sha256": "8c1a4d4190d236187c48392a2c13081984010a8f378da39a4260e591fc1c9013",
+  "corrected": false,
+  "depends_on": [
+   "eq-6",
+   "lem-2.1.iii"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "card_testIndex",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Construction/LocalTests.lean",
+    "line": 132,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "lem-2.2.i",
+  "kind": "lemma",
+  "section": "2.2",
+  "source_line": 266,
+  "statement": "For every input y and (i,s) in [m] x {0,1}^r: i wins at s iff all K_{k,m} tests pass, namely (a) X_i[b]=1 for each b; (b) for each j != i, X_j[p_{i,s,j}]=0; (c) for each h and each non-input gate, the claimed value equals the gate function of its predecessors, read from the transcript or from A_{i,h}; (d) for each h, claimed d=1 and claimed b=s_h. Each test is computed by a deterministic adaptive bit-query decision tree of depth at most max(3,l+1), which is l+1 for m>=4: a pointer test reads l pointer bits, then the one target bit they select, while gate tests read at most three fixed bits. A pointer test is not a function of a small fixed set of bits: it can depend on all l+m pointer and target coordinates.",
+  "statement_sha256": "f930e1d7cf9389128a673a84062b26f3748831797154a318e9ac129e667ad730",
+  "original_statement_sha256": "9a4c83cc73c1f7a4a2114ba7d9af01dbf2dc153588d78e5bc5cf84ba0fc73322",
+  "corrected": true,
+  "depends_on": [
+   "def-win-at-address",
+   "def-K",
+   "lem-2.1.iii"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "lem-2.2.ii",
+  "kind": "lemma",
+  "section": "2.2",
+  "source_line": 271,
+  "statement": "Each test is evaluated exactly with O(log m) bit queries, also coherently with the same bound with test indices in superposition. The number of tests and the indexing convention are the same for every (i,s).",
+  "statement_sha256": "bf0f894039fc1f79516dc93299dfd3169a927fc4544fe755a74acb4fc7b106b4",
+  "original_statement_sha256": "bf0f894039fc1f79516dc93299dfd3169a927fc4544fe755a74acb4fc7b106b4",
+  "corrected": false,
+  "depends_on": [
+   "lem-2.2.i",
+   "claim-coherent-access"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "lem-2.2",
+  "kind": "lemma",
+  "section": "2.2",
+  "source_line": 266,
+  "statement": "Conjunction of lem-2.2.i and lem-2.2.ii.",
+  "statement_sha256": "b2b0e01589d5b646af3736a2c949b33d06794e94ee65a9bd1000e45b4e1f1cab",
+  "original_statement_sha256": "b2b0e01589d5b646af3736a2c949b33d06794e94ee65a9bd1000e45b4e1f1cab",
+  "corrected": false,
+  "depends_on": [
+   "lem-2.2.i",
+   "lem-2.2.ii"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "cor-local-dichotomy",
+  "kind": "corollary",
+  "section": "2.2",
+  "source_line": 290,
+  "statement": "A winner has an address at which every test passes; a nonwinner has a failing test at every address.",
+  "statement_sha256": "56ef4b8c7a85a4a89b78d9f73327b42b3158b7e47a2ef317a4c8327f286b27b2",
+  "original_statement_sha256": "56ef4b8c7a85a4a89b78d9f73327b42b3158b7e47a2ef317a4c8327f286b27b2",
+  "corrected": false,
+  "depends_on": [
+   "lem-2.2.i"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "def-grover-trial",
+  "kind": "construction",
+  "section": "3.1",
+  "source_line": 332,
+  "statement": "M = ceil(10/sqrt(gamma)). A trial picks with probability 1/2 l=0, and with probability 1/2 a uniform l in {0,...,M-1}, applies l Grover iterations to A|0>, and measures the success bit. The procedure runs ceil(log(1/eta)/log(40/31)) trials with fresh registers, stopping at the first success.",
+  "statement_sha256": "e238b2bb8394f028e9b054ea5210a7afb2db326a3fda5517906ef3667d51cd34",
+  "original_statement_sha256": "e238b2bb8394f028e9b054ea5210a7afb2db326a3fda5517906ef3667d51cd34",
+  "corrected": false,
+  "depends_on": [
+   "def-Q"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.Amplification.Gate",
+    "kind": "inductive",
+    "file": "lean/QuarticQuery/Amplification/Geometry.lean",
+    "line": 43,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Amplification.Circuit",
+    "kind": "abbrev",
+    "file": "lean/QuarticQuery/Amplification/Geometry.lean",
+    "line": 51,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Amplification.Circuit.calls",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Amplification/Geometry.lean",
+    "line": 60,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Amplification.groverStep",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Amplification/Geometry.lean",
+    "line": 63,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Amplification.groverCircuit",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Amplification/Geometry.lean",
+    "line": 66,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Amplification.Preparation.grover",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Amplification/Geometry.lean",
+    "line": 191,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Amplification.Proc",
+    "kind": "inductive",
+    "file": "lean/QuarticQuery/Amplification/Procedure.lean",
+    "line": 33,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Amplification.trialWeight",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Amplification/Procedure.lean",
+    "line": 65,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Amplification.attempts",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Amplification/Procedure.lean",
+    "line": 70,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Amplification.iterationBound",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Amplification/Procedure.lean",
+    "line": 76,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Amplification.trialCount",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Amplification/Procedure.lean",
+    "line": 79,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Amplification.Preparation.trialFail",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Amplification/Procedure.lean",
+    "line": 148,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Amplification.Preparation.trialGain",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Amplification/Procedure.lean",
+    "line": 152,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Amplification.expect_attempts",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Amplification/Procedure.lean",
+    "line": 163,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Amplification.attemptValue_eq_sum",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Amplification/Procedure.lean",
+    "line": 197,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Amplification.expect_attempts_eq_sum",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Amplification/Procedure.lean",
+    "line": 209,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Amplification.Preparation.one_sub_trialFail",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Amplification/Procedure.lean",
+    "line": 257,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-grover-state",
+  "kind": "inline_claim",
+  "section": "3.1",
+  "source_line": 328,
+  "statement": "For 0<p<1 write A|0>=sin(theta)|g>+cos(theta)|b>, 0<theta<pi/2, with g,b normalized in the successful and unsuccessful subspaces. After l Grover iterations the state is sin((2l+1)theta)|g>+cos((2l+1)theta)|b>. Hence measuring success yields |g> up to global phase, independently of l.",
+  "statement_sha256": "724f2c145b2cb265ca10f926ea080eb120a4b6c69db9d311fd0e2090f4fb6ae7",
+  "original_statement_sha256": "724f2c145b2cb265ca10f926ea080eb120a4b6c69db9d311fd0e2090f4fb6ae7",
+  "corrected": false,
+  "depends_on": [
+   "def-grover-trial"
+  ],
+  "external_inputs": [
+   "[12] BHMT Lemma 1 and Eq. 8, pp.5-7 (checked); [11] Boyer et al. (rotation fact, proved in the paper)"
+  ],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.Amplification.sin_mul_ampA_and_cos_mul_ampB",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Amplification/Geometry.lean",
+    "line": 96,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Amplification.Preparation.iterate",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Amplification/Geometry.lean",
+    "line": 194,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Amplification.Preparation.grover_apply",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Amplification/Geometry.lean",
+    "line": 203,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Amplification.Preparation.grover_parts",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Amplification/Geometry.lean",
+    "line": 265,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Amplification.Preparation.iterate_eq_amp",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Amplification/Geometry.lean",
+    "line": 279,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Amplification.Preparation.angle",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Amplification/Geometry.lean",
+    "line": 290,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Amplification.Preparation.angle_mem",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Amplification/Geometry.lean",
+    "line": 311,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Amplification.Preparation.state_eq",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Amplification/Geometry.lean",
+    "line": 324,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Amplification.Preparation.iterate_eq",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Amplification/Geometry.lean",
+    "line": 343,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Amplification.Preparation.grover_rotation",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Amplification/Geometry.lean",
+    "line": 355,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Amplification.Preparation.good_iterate",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Amplification/Geometry.lean",
+    "line": 401,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Amplification.Preparation.norm_good_iterate_sq",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Amplification/Geometry.lean",
+    "line": 407,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Amplification.Preparation.norm_bad_iterate_sq",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Amplification/Geometry.lean",
+    "line": 416,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Amplification.Preparation.phaseEq_normalised_good_iterate",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Amplification/Geometry.lean",
+    "line": 437,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Amplification.Preparation.good_iterate_of_prob_zero",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Amplification/Geometry.lean",
+    "line": 454,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-sin2theta",
+  "kind": "inline_claim",
+  "section": "3.1",
+  "source_line": 336,
+  "statement": "If gamma<=p<=1/2 then sin(2theta)=2 sqrt(p(1-p)) >= sqrt(gamma).",
+  "statement_sha256": "dd24c1df7b2e51bbf0b491264e8a52c16f9dfc5d7f54fc7a6cb8fc2f4f73d4e6",
+  "original_statement_sha256": "dd24c1df7b2e51bbf0b491264e8a52c16f9dfc5d7f54fc7a6cb8fc2f4f73d4e6",
+  "corrected": false,
+  "depends_on": [],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.Amplification.Preparation.sin_two_angle",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Amplification/Geometry.lean",
+    "line": 462,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "eq-9",
+  "kind": "equation",
+  "section": "3.1",
+  "source_line": 341,
+  "statement": "If gamma<=p<=1/2 and M=ceil(10/sqrt(gamma)), then (1/M) sum_{l=0}^{M-1} sin^2((2l+1)theta) >= 1/2 - 1/(2M|sin 2theta|) >= 9/20.",
+  "statement_sha256": "4ae8493f73a3ffa0cecdf857529d57db2b5f8b81862821ba90ff8c6788499289",
+  "original_statement_sha256": "4ae8493f73a3ffa0cecdf857529d57db2b5f8b81862821ba90ff8c6788499289",
+  "corrected": false,
+  "depends_on": [
+   "claim-sin2theta"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.Amplification.sin_two_mul_sum_sin_sq",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Amplification/Average.lean",
+    "line": 20,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Amplification.average_sin_sq",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Amplification/Average.lean",
+    "line": 41,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Amplification.average_sin_sq_ge",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Amplification/Average.lean",
+    "line": 53,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Amplification.average_sin_sq_ge_nine_twentieths",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Amplification/Average.lean",
+    "line": 75,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "lem-3.1",
+  "kind": "lemma",
+  "section": "3.1",
+  "source_line": 310,
+  "statement": "For 0<gamma<=1/2 and 0<eta<1/2 there is a single procedure, black-box in A and A^{-1} and with call counts depending only on gamma and eta, using O(gamma^{-1/2} log(1/eta)) calls for every p and on every branch, such that for every state preparation A with a success bit, success probability p and, if p>0, normalized successful state |g>: it reports failure or produces a successful outcome; conditional on success the output is |g> up to global phase; if p>=gamma, failure probability <=eta; if p=0 it always reports failure.",
+  "statement_sha256": "b76e3c7f8a37dd0cdf934b72d91d1ad52678f354374884a3666bc12236871ec8",
+  "original_statement_sha256": "b0707e8e25eb167389619d8a2d0fa8e0b836170755451369f00a2a91b141bdd4",
+  "corrected": true,
+  "depends_on": [
+   "def-grover-trial",
+   "claim-grover-state",
+   "eq-9"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "def-aij",
+  "kind": "definition",
+  "section": "3.2",
+  "source_line": 356,
+  "statement": "For a fixed oracle input and a coherent comparison circuit, a_{ij} is the probability that i is reported as defeating j when the result is measured, using one circuit per unordered pair; a_{ii}=0.",
+  "statement_sha256": "d0153a8d90b3c57b5239b54638b8cccd90360b6d5ce119610f6d3c37cb67f8a0",
+  "original_statement_sha256": "d0153a8d90b3c57b5239b54638b8cccd90360b6d5ce119610f6d3c37cb67f8a0",
+  "corrected": false,
+  "depends_on": [
+   "def-Q"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "eq-10",
+  "kind": "equation",
+  "section": "3.2",
+  "source_line": 359,
+  "statement": "a_{ij}+a_{ji}=1 for i != j, and a_{ii}=0.",
+  "statement_sha256": "ff7896a3a4009d507b8d08fd4f019afaa6088a2c17e49aec37416ebff183482d",
+  "original_statement_sha256": "ff7896a3a4009d507b8d08fd4f019afaa6088a2c17e49aec37416ebff183482d",
+  "corrected": false,
+  "depends_on": [],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "def-T-eps",
+  "kind": "definition",
+  "section": "3.2",
+  "source_line": 365,
+  "statement": "For m>=2: T=ceil(log_2(1000m)), epsilon=1/(1000T).",
+  "statement_sha256": "2783db72127b2b91a9e4b5d32b676e0f80164d5d534ea4724c22225cc928daa6",
+  "original_statement_sha256": "2783db72127b2b91a9e4b5d32b676e0f80164d5d534ea4724c22225cc928daa6",
+  "corrected": false,
+  "depends_on": [
+   "def-log-convention"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.Tournament.Tval_mul_epsval",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Tournament/Ideal.lean",
+    "line": 314,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Tournament.miss_bound_le",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Tournament/Ideal.lean",
+    "line": 320,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.Tournament.total_error_lt",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Tournament/Ideal.lean",
+    "line": 327,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "eq-11",
+  "kind": "definition",
+  "section": "3.2",
+  "source_line": 377,
+  "statement": "i_* is dominant if a_{i_* j} >= 1-epsilon for every j != i_*.",
+  "statement_sha256": "32a27e7593209e20047f45dba7efea80598a103d1016e627d6bf10a5f9f1ae37",
+  "original_statement_sha256": "32a27e7593209e20047f45dba7efea80598a103d1016e627d6bf10a5f9f1ae37",
+  "corrected": false,
+  "depends_on": [
+   "eq-10",
+   "def-T-eps"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "def-ideal-process",
+  "kind": "construction",
+  "section": "3.2",
+  "source_line": 381,
+  "statement": "Ideal process: w_i=1 for all i, W=sum_i w_i. While W>0 sample p with probability w_p/W, append p to the list, update by eq-12. If W=0, leave list and weights unchanged. Run T steps.",
+  "statement_sha256": "00dc8b5e71d6e27932c1d25881f83bbeed663d5ce2702d2c93cc2136d215243b",
+  "original_statement_sha256": "00dc8b5e71d6e27932c1d25881f83bbeed663d5ce2702d2c93cc2136d215243b",
+  "corrected": false,
+  "depends_on": [
+   "eq-10"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.Tournament.expectFrom",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Tournament/Ideal.lean",
+    "line": 42,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "eq-12",
+  "kind": "equation",
+  "section": "3.2",
+  "source_line": 384,
+  "statement": "Update w_i <- w_i a_{ip} for all i in [m].",
+  "statement_sha256": "0f140edce3893daf0ea45688b8e46e4f0accc7d7caa7b72efb42642deecd9d04",
+  "original_statement_sha256": "0f140edce3893daf0ea45688b8e46e4f0accc7d7caa7b72efb42642deecd9d04",
+  "corrected": false,
+  "depends_on": [
+   "eq-10"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.Tournament.weight",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Tournament/Ideal.lean",
+    "line": 35,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "eq-13",
+  "kind": "equation",
+  "section": "3.2",
+  "source_line": 390,
+  "statement": "For W>0: E[W_new | w] = (1/W) sum_{p,i} w_p w_i a_{ip} = (W^2 - sum_i w_i^2)/(2W) <= W/2.",
+  "statement_sha256": "b6eca3fb95b5121d19ff78cc9fc4c836953e3b69f9234523d166d1d1eb2e47cb",
+  "original_statement_sha256": "b6eca3fb95b5121d19ff78cc9fc4c836953e3b69f9234523d166d1d1eb2e47cb",
+  "corrected": false,
+  "depends_on": [
+   "def-ideal-process",
+   "eq-12"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-expected-WT",
+  "kind": "inline_claim",
+  "section": "3.2",
+  "source_line": 397,
+  "statement": "The bound of eq-13 also holds when W=0, hence E[W_T] <= m/2^T.",
+  "statement_sha256": "674ef8ff994c609bbc69b3b71bfbc961504014b171652628ffd1954491acc816",
+  "original_statement_sha256": "674ef8ff994c609bbc69b3b71bfbc961504014b171652628ffd1954491acc816",
+  "corrected": false,
+  "depends_on": [
+   "eq-13"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.Tournament.expected_final_weight",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Tournament/Ideal.lean",
+    "line": 212,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-weight-lb",
+  "kind": "inline_claim",
+  "section": "3.2",
+  "source_line": 398,
+  "statement": "If i_* satisfies eq-11 and has not been selected in t<=T steps, then w_{i_*} >= (1-epsilon)^t >= 1-T epsilon > 1/2. Hence W>0 until it is selected.",
+  "statement_sha256": "1a593464cab8ac16bed915de050a1e2ea6178fc2840a4924231b8d0af62fdf40",
+  "original_statement_sha256": "1a593464cab8ac16bed915de050a1e2ea6178fc2840a4924231b8d0af62fdf40",
+  "corrected": false,
+  "depends_on": [
+   "eq-11",
+   "eq-12"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.Tournament.dominant_weight_lb",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Tournament/Ideal.lean",
+    "line": 239,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "eq-14",
+  "kind": "equation",
+  "section": "3.2",
+  "source_line": 407,
+  "statement": "Pr[i_* absent from the ideal list] <= Pr[W_T >= 1/2] <= 2m/2^T.",
+  "statement_sha256": "c0ecf493be88fb14f879fc05738662bd6e6f36839e663a0e10025654b52188cf",
+  "original_statement_sha256": "c0ecf493be88fb14f879fc05738662bd6e6f36839e663a0e10025654b52188cf",
+  "corrected": false,
+  "depends_on": [
+   "claim-expected-WT",
+   "claim-weight-lb"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.Tournament.ideal_miss_le",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Tournament/Ideal.lean",
+    "line": 263,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "construct-sampler",
+  "kind": "construction",
+  "section": "3.2",
+  "source_line": 409,
+  "statement": "Given pivots p_1,...,p_t with t<T: prepare uniform |i> over [m], compare i with each pivot in a fresh workspace, set the success bit iff every comparison says i defeats its pivot, keeping all garbage. Apply lem-3.1 with gamma=1/(2m), eta=epsilon. On failure stop and return the accumulated list; otherwise measure the index, append, and continue for at most T stages.",
+  "statement_sha256": "0754b5cc12a3abd9084dad49bf0116348c2adce8cc32b35cfc2642a204d966e4",
+  "original_statement_sha256": "0754b5cc12a3abd9084dad49bf0116348c2adce8cc32b35cfc2642a204d966e4",
+  "corrected": false,
+  "depends_on": [
+   "lem-3.1",
+   "def-aij",
+   "def-T-eps"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "eq-15",
+  "kind": "equation",
+  "section": "3.2",
+  "source_line": 416,
+  "statement": "Pre-success state: m^{-1/2} sum_{i=1}^m |i> tensor_{b=1}^t |phi(i,p_b)>.",
+  "statement_sha256": "cb8411cb0b64ae3d5428d321eca5e1a234254091996ae0d64675fe1da6994f04",
+  "original_statement_sha256": "cb8411cb0b64ae3d5428d321eca5e1a234254091996ae0d64675fe1da6994f04",
+  "corrected": false,
+  "depends_on": [
+   "construct-sampler"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-success-prob",
+  "kind": "inline_claim",
+  "section": "3.2",
+  "source_line": 420,
+  "statement": "Conditional on index i the success probability is prod_{b=1}^t a_{i p_b} = w_i (empty product 1). Total success probability is W/m, and conditional on success the index has law w_i/W exactly.",
+  "statement_sha256": "89b52cf2ecba7173f3b42a6dc46cde19c6ba696ea79b36ebe05f4938b7837054",
+  "original_statement_sha256": "89b52cf2ecba7173f3b42a6dc46cde19c6ba696ea79b36ebe05f4938b7837054",
+  "corrected": false,
+  "depends_on": [
+   "eq-15",
+   "eq-12"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-coupling",
+  "kind": "inline_claim",
+  "section": "3.2",
+  "source_line": 432,
+  "statement": "Until i_* is first selected, W/m >= 1/(2m), so at each such history the sampler fails with probability <=epsilon and otherwise follows the exact ideal pivot law. The real list contains i_* except with probability <= 2m/2^T + T epsilon.",
+  "statement_sha256": "e44ba58645573c0df30253062377fa97aaa1eb851eec3c0213f527f68123141e",
+  "original_statement_sha256": "e44ba58645573c0df30253062377fa97aaa1eb851eec3c0213f527f68123141e",
+  "corrected": false,
+  "depends_on": [
+   "claim-weight-lb",
+   "claim-success-prob",
+   "lem-3.1",
+   "eq-14"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-tournament-cost",
+  "kind": "inline_claim",
+  "section": "3.2",
+  "source_line": 440,
+  "statement": "Stage t uses O(c(t+1)) queries per call; lem-3.1 uses O(sqrt(m) log(1/epsilon)) calls; the sum over t<T is O(c sqrt(m) T^2 log T), a fixed cap on every branch.",
+  "statement_sha256": "1003da6e634d8bb9831ca7245cc167b5f7ec8996f31a2f1695644c1e4c4f1d28",
+  "original_statement_sha256": "1003da6e634d8bb9831ca7245cc167b5f7ec8996f31a2f1695644c1e4c4f1d28",
+  "corrected": false,
+  "depends_on": [
+   "lem-3.1",
+   "construct-sampler"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "prop-3.2",
+  "kind": "proposition",
+  "section": "3.2",
+  "source_line": 363,
+  "statement": "Let m>=2, T=ceil(log_2(1000m)), epsilon=1/(1000T). For a coherent comparison circuit controlled by two candidate indices, reversible with all workspace retained, using at most c>=1 bit queries, with probabilities a_{ij} satisfying eq-10, there is a quantum algorithm making O(c sqrt(m) T^2 log T) queries on every branch and returning a list of at most T candidates such that, for every fixed oracle input and every i_* satisfying eq-11, the list contains i_* with probability >= 1-2m/2^T-T epsilon.",
+  "statement_sha256": "214b204564641c704b973c7c3010a24e4b84d08a314a82a5fc0e8d2d3ed2820a",
+  "original_statement_sha256": "214b204564641c704b973c7c3010a24e4b84d08a314a82a5fc0e8d2d3ed2820a",
+  "corrected": false,
+  "depends_on": [
+   "eq-14",
+   "claim-coupling",
+   "claim-tournament-cost"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "def-decode",
+  "kind": "construction",
+  "section": "3.3",
+  "source_line": 452,
+  "statement": "decode(i): run the algorithm of lem-2.1.ii on each A_{i,h}, h in [r], with error <= epsilon/r, retaining workspace. Output a string in {0,1}^r on every input.",
+  "statement_sha256": "0fadee1f0b3c03a22da410ed7f98d7761eb7f61e9482084973be636ba9e8c841",
+  "original_statement_sha256": "0fadee1f0b3c03a22da410ed7f98d7761eb7f61e9482084973be636ba9e8c841",
+  "corrected": false,
+  "depends_on": [
+   "lem-2.1.ii",
+   "eq-6",
+   "def-T-eps"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-decode-cost",
+  "kind": "inline_claim",
+  "section": "3.3",
+  "source_line": 456,
+  "statement": "decode uses O_k(r log(r/epsilon)) = (log m)^{O_k(1)} queries. If all r instances are defined, the address is correct with probability >=1-epsilon. Otherwise it still returns some address.",
+  "statement_sha256": "468fa9b48aa68159a722806ee8661601eff141ca17d3ee07d6b537ac1b041d03",
+  "original_statement_sha256": "468fa9b48aa68159a722806ee8661601eff141ca17d3ee07d6b537ac1b041d03",
+  "corrected": false,
+  "depends_on": [
+   "def-decode"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "def-comparison",
+  "kind": "construction",
+  "section": "3.3",
+  "source_line": 466,
+  "statement": "Comparison of distinct columns, in sorted order: decode each in separate workspaces; read each column's pointer towards the other at its decoded address and inspect the pointed bit of the other's X string. A column disqualifies its opponent if that bit is 0. If exactly one disqualifies the other it is victorious, otherwise the smaller index. A self-comparison returns false without reading a pointer.",
+  "statement_sha256": "2b02347fea32f907acadc33716d948a67c42b24260c92df731becf290a84100c",
+  "original_statement_sha256": "2b02347fea32f907acadc33716d948a67c42b24260c92df731becf290a84100c",
+  "corrected": false,
+  "depends_on": [
+   "def-decode",
+   "def-column-layout"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-comparison-state",
+  "kind": "inline_claim",
+  "section": "3.3",
+  "source_line": 472,
+  "statement": "The comparison uses c=(log m)^{O_k(1)} queries; its reversal costs the same. Measurement probabilities agree with the classical description, since later operations are controlled on the decoded registers in the computational basis. The resulting a_{ij} satisfy eq-10.",
+  "statement_sha256": "3ea50390cdcf2f410a5c2a110f008ef97d4d68d342b9e81011f2c0ef0008dae8",
+  "original_statement_sha256": "3ea50390cdcf2f410a5c2a110f008ef97d4d68d342b9e81011f2c0ef0008dae8",
+  "corrected": false,
+  "depends_on": [
+   "def-comparison",
+   "claim-decode-cost",
+   "eq-10",
+   "claim-coherent-access"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-winner-dominates",
+  "kind": "inline_claim",
+  "section": "3.3",
+  "source_line": 477,
+  "statement": "If i_* is a winner then for every j != i_*, a_{i_* j} >= 1-epsilon, on every input, whether or not the opponent's instances are defined.",
+  "statement_sha256": "96b25cc77810cdeae2fbbe938cb04d9339dd0c8e56dbe8a5bf8c6c79392524b4",
+  "original_statement_sha256": "96b25cc77810cdeae2fbbe938cb04d9339dd0c8e56dbe8a5bf8c6c79392524b4",
+  "corrected": false,
+  "depends_on": [
+   "claim-comparison-state",
+   "def-winner",
+   "claim-decode-cost"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.winner_no_incoming_zero",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Construction/Winner.lean",
+    "line": 62,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.winner_finds_zero",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Construction/Winner.lean",
+    "line": 69,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "def-verify",
+  "kind": "construction",
+  "section": "3.3",
+  "source_line": 483,
+  "statement": "verify(i): decode and measure an address s afresh. Let A prepare a uniform test index and an exact failing-test flag at (i,s), with K tests. Apply lem-3.1 with gamma=1/K and eta=epsilon. Reject if a failed test is found, otherwise accept. Output 1 iff some listed candidate is accepted.",
+  "statement_sha256": "33c4ccc0582651849e51e683f6058b0d69442b2f6e83616057f50bf1b2ceb476",
+  "original_statement_sha256": "33c4ccc0582651849e51e683f6058b0d69442b2f6e83616057f50bf1b2ceb476",
+  "corrected": false,
+  "depends_on": [
+   "lem-3.1",
+   "lem-2.2.ii",
+   "def-decode"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-verify",
+  "kind": "inline_claim",
+  "section": "3.3",
+  "source_line": 490,
+  "statement": "A non-winner is accepted with probability <=epsilon, at every address. A true winner is rejected with probability <=epsilon, only by decoding error. Verification costs O(sqrt(K) log(1/epsilon) log m) = sqrt(m)(log m)^{O_k(1)} queries for the search, plus decoding.",
+  "statement_sha256": "ebf55ebf0548ac0b0bfcbcdf614db467d83285bf151e189fa94f40a8b302f9de",
+  "original_statement_sha256": "ebf55ebf0548ac0b0bfcbcdf614db467d83285bf151e189fa94f40a8b302f9de",
+  "corrected": false,
+  "depends_on": [
+   "def-verify",
+   "cor-local-dichotomy",
+   "claim-decode-cost",
+   "lem-3.1"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-error",
+  "kind": "inline_claim",
+  "section": "3.3",
+  "source_line": 497,
+  "statement": "On a 0-input the error is at most T epsilon. On a 1-input it is at most 2m/2^T + T epsilon + epsilon < 1/3.",
+  "statement_sha256": "a9d40e128c1d62a479c5264dcbb12191ea78aa8ebf829cdc1cf9c90f72723f63",
+  "original_statement_sha256": "a9d40e128c1d62a479c5264dcbb12191ea78aa8ebf829cdc1cf9c90f72723f63",
+  "corrected": false,
+  "depends_on": [
+   "prop-3.2",
+   "claim-verify",
+   "claim-winner-dominates"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-coherent-access",
+  "kind": "inline_claim",
+  "section": "3.3",
+  "source_line": 507,
+  "statement": "All superposed array accesses are ordinary bit queries. The global bit index is computed reversibly; a pointer is read in O(log m) queries; a controlled query uses load, use, unload, two queries.",
+  "statement_sha256": "480d95a665d701e6312cabe6c55873669dbea30ed30fe82c55b6cea68ee9a071",
+  "original_statement_sha256": "480d95a665d701e6312cabe6c55873669dbea30ed30fe82c55b6cea68ee9a071",
+  "corrected": false,
+  "depends_on": [
+   "def-query-oracle",
+   "def-column-layout"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "ReadSpec",
+    "kind": "structure",
+    "file": "lean/QuarticQuery/Upper/Circuit.lean",
+    "line": 141,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "ReadSpec.op",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Upper/Circuit.lean",
+    "line": 183,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "sigmaOp",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Upper/Circuit.lean",
+    "line": 277,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "IsCirc",
+    "kind": "inductive",
+    "file": "lean/QuarticQuery/Upper/Circuit.lean",
+    "line": 342,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "IsCirc.comp",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Upper/Circuit.lean",
+    "line": 359,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "prop-3.3",
+  "kind": "proposition",
+  "section": "3.3",
+  "source_line": 503,
+  "statement": "For every fixed k>=2, Q(F_{k,m}) <= sqrt(m) (log m)^{O_k(1)}.",
+  "statement_sha256": "d14a896c411b179bd64264e66c4a81445526cb7587edf3edf648f2c5e80a8493",
+  "original_statement_sha256": "d14a896c411b179bd64264e66c4a81445526cb7587edf3edf648f2c5e80a8493",
+  "corrected": false,
+  "depends_on": [
+   "prop-3.2",
+   "claim-winner-dominates",
+   "claim-verify",
+   "claim-error",
+   "lem-2.1.iii",
+   "claim-comparison-state"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-product-law",
+  "kind": "inline_claim",
+  "section": "4.1",
+  "source_line": 539,
+  "statement": "For a deterministic algorithm, at every transcript tau of positive probability, the conditional law of (U_1,...,U_r) given tau is a product of separate conditional laws, because the event of obtaining tau is a Cartesian product of constraints on each input.",
+  "statement_sha256": "7f54d502034bb1f5002d796dc51e29516893df8b2b2717a5466d46fb63fbec08",
+  "original_statement_sha256": "7f54d502034bb1f5002d796dc51e29516893df8b2b2717a5466d46fb63fbec08",
+  "corrected": false,
+  "depends_on": [
+   "def-R"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "def-value-V",
+  "kind": "definition",
+  "section": "4.1",
+  "source_line": 544,
+  "statement": "With q_h queries already made to U_h, V_h(tau) is the largest success probability for computing P(U_h) under its conditional law given tau using at most L-q_h further queries.",
+  "statement_sha256": "a2bcac766a8c42195e263157f451be71d7866462276d9e70aa51aaac14185904",
+  "original_statement_sha256": "a2bcac766a8c42195e263157f451be71d7866462276d9e70aa51aaac14185904",
+  "corrected": false,
+  "depends_on": [
+   "claim-product-law"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "eq-16",
+  "kind": "equation",
+  "section": "4.1",
+  "source_line": 549,
+  "statement": "If the next query at tau addresses U_h then E[V_h(tau') | tau] <= V_h(tau). The conditional laws and budgets of the other inputs do not change.",
+  "statement_sha256": "ee67e09c48920dbe6e64b1057f86838205b13f88c79420923199962a5a860b64",
+  "original_statement_sha256": "ee67e09c48920dbe6e64b1057f86838205b13f88c79420923199962a5a860b64",
+  "corrected": false,
+  "depends_on": [
+   "def-value-V",
+   "claim-product-law"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-supermartingale",
+  "kind": "inline_claim",
+  "section": "4.1",
+  "source_line": 554,
+  "statement": "E[prod_j V_j(tau') | tau] <= prod_j V_j(tau). The product is a supermartingale over at most rL queries.",
+  "statement_sha256": "d7a3e71898ac1f57e7a8388600eaa228e76337a079e87706f22f2f1b13079146",
+  "original_statement_sha256": "d7a3e71898ac1f57e7a8388600eaa228e76337a079e87706f22f2f1b13079146",
+  "corrected": false,
+  "depends_on": [
+   "eq-16"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-final-bound",
+  "kind": "inline_claim",
+  "section": "4.1",
+  "source_line": 562,
+  "statement": "At the final transcript tau, Pr[chosen vector correct | tau] <= prod_h max_b Pr(P(U_h)=b | tau) <= prod_h V_h(tau).",
+  "statement_sha256": "255e4bf99551c22142495fedbe18a6e82d3f9908ce974912edb59af5a5ebd20e",
+  "original_statement_sha256": "255e4bf99551c22142495fedbe18a6e82d3f9908ce974912edb59af5a5ebd20e",
+  "corrected": false,
+  "depends_on": [
+   "claim-product-law",
+   "def-value-V"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "lem-4.1",
+  "kind": "lemma",
+  "section": "4.1",
+  "source_line": 528,
+  "statement": "Let P:D->{0,1}, D subset {0,1}^n, mu a distribution on D, L a nonnegative integer. Suppose every deterministic algorithm making at most L queries computes P under mu with success probability <=beta. If U_1,...,U_r are iid mu, every classical algorithm making at most L queries to each U_h, possibly randomized, adaptive among the r inputs, and given arbitrary additional information independent of (U_1,...,U_r), outputs (P(U_1),...,P(U_r)) with probability <=beta^r.",
+  "statement_sha256": "0709f485909bd9d99e388ffd62a383db25fa3581f3580f9940d2dd2b12c7b173",
+  "original_statement_sha256": "0709f485909bd9d99e388ffd62a383db25fa3581f3580f9940d2dd2b12c7b173",
+  "corrected": false,
+  "depends_on": [
+   "claim-supermartingale",
+   "claim-final-bound"
+  ],
+  "external_inputs": [
+   "[13] Drucker v2 Section 1.3 pp.6-7, Lemmas 3.1-3.2 pp.11-12 and the fair-algorithm remark (checked; his Theorem 1.1 is a different global-budget statement), [22] Shaltiel (attribution only; the paper's proof is self-contained)"
+  ],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-minimax-mu",
+  "kind": "inline_claim",
+  "section": "4.1",
+  "source_line": 586,
+  "statement": "If L<R(P), there is a distribution mu on dom P, which is in particular nonempty, such that every deterministic tree of depth <=L has success probability <=2/3 under mu.",
+  "statement_sha256": "de5a096a6acdad57bba5f2c64fc463e92cc3b1ba9b85a5e0f4d5eeb673212791",
+  "original_statement_sha256": "e253bf9e9c835bc7a5b4a907396257d7866a36a8cdfbe4b364c4a0eb5dbabb09",
+  "corrected": true,
+  "depends_on": [
+   "def-R"
+  ],
+  "external_inputs": [
+   "[27] Yao 1977, finite minimax in query form (von Neumann minimax for a finite matrix game)"
+  ],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.exists_hard_distribution",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/LowerBound/Minimax.lean",
+    "line": 138,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "eq-17",
+  "kind": "equation",
+  "section": "4.2",
+  "source_line": 597,
+  "statement": "G = floor(mL/100).",
+  "statement_sha256": "9f1fea9f0c9a7ca5196fb37d20e059b81964a0988a7c74ad7c6d749c44bed6a2",
+  "original_statement_sha256": "b79b5364619d45ca98d53707f84cc8bf1babf919fcb7207ab8eb7aad6c6f1b70",
+  "corrected": true,
+  "depends_on": [
+   "eq-5"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "def-dummy",
+  "kind": "construction",
+  "section": "4.2",
+  "source_line": 600,
+  "statement": "Dummy input Y^(0): independently for each i, J_i uniform in [m], X_i has a single 0 at position J_i. All A_{i,h} are iid mu independent of the J_i. All cells B_{i,s} are one fixed blank pattern.",
+  "statement_sha256": "2ea15f05e22de9e6b7118603b4e5523c41aca0a179f178f6c41a63654320c2f4",
+  "original_statement_sha256": "2ea15f05e22de9e6b7118603b4e5523c41aca0a179f178f6c41a63654320c2f4",
+  "corrected": false,
+  "depends_on": [
+   "claim-minimax-mu",
+   "def-column-layout"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "avg_resample",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/LowerBound/Planted/Average.lean",
+    "line": 134,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.dummy",
+    "kind": "def",
+    "file": "lean/QuarticQuery/LowerBound/Planted/Inputs.lean",
+    "line": 50,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "def-planted",
+  "kind": "construction",
+  "section": "4.2",
+  "source_line": 604,
+  "statement": "I is uniform in [m] and independent of Y^(0). Y^(1) is Y^(0) with X_I:=1^m and B_{I,s_I} filled with the correct transcripts and pointers p_{I,s_I,j}=J_j for j != I.",
+  "statement_sha256": "54311cfedf668933f0456ebe8d7a9e270088d7a1bb1133c52e385c44bb44409d",
+  "original_statement_sha256": "54311cfedf668933f0456ebe8d7a9e270088d7a1bb1133c52e385c44bb44409d",
+  "corrected": false,
+  "depends_on": [
+   "def-dummy",
+   "eq-7"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.trueAddr",
+    "kind": "def",
+    "file": "lean/QuarticQuery/LowerBound/Planted/Inputs.lean",
+    "line": 23,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.planted",
+    "kind": "def",
+    "file": "lean/QuarticQuery/LowerBound/Planted/Inputs.lean",
+    "line": 58,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-Y-values",
+  "kind": "inline_claim",
+  "section": "4.2",
+  "source_line": 603,
+  "statement": "F_{k,m}(Y^(0))=0 and F_{k,m}(Y^(1))=1 for all sample points.",
+  "statement_sha256": "ca229788b2140a7da7799961f544853c1ab2a8f3e96563e3aff17134e4bf54ad",
+  "original_statement_sha256": "ca229788b2140a7da7799961f544853c1ab2a8f3e96563e3aff17134e4bf54ad",
+  "corrected": false,
+  "depends_on": [
+   "def-dummy",
+   "def-planted",
+   "def-F",
+   "lem-2.1.iii"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.addressedF_dummy",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/LowerBound/Planted/Inputs.lean",
+    "line": 97,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.addressedF_planted",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/LowerBound/Planted/Inputs.lean",
+    "line": 106,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "eq-18",
+  "kind": "equation",
+  "section": "4.2",
+  "source_line": 613,
+  "statement": "For a deterministic algorithm with at most G queries, |Pr[outputs 1 on Y^(1)]-Pr[outputs 1 on Y^(0)]| <= Pr(the dummy run queries X_I[J_I]) + Pr(the dummy run queries any bit of B_{I,s_I}).",
+  "statement_sha256": "61135c07523338d72601e427b482b8df6dd5d85f1be94b822d53dc61e72b79c4",
+  "original_statement_sha256": "61135c07523338d72601e427b482b8df6dd5d85f1be94b822d53dc61e72b79c4",
+  "corrected": false,
+  "depends_on": [
+   "def-planted"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.QueryTree.exists_mem_path_ne",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/LowerBound/Planted/Coupling.lean",
+    "line": 43,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.eq_of_dummy_ne_planted",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/LowerBound/Planted/Inputs.lean",
+    "line": 70,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.output_gap_le",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/LowerBound/Planted/Main.lean",
+    "line": 33,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "def-Z",
+  "kind": "definition",
+  "section": "4.2",
+  "source_line": 618,
+  "statement": "Z is the number of columns whose zero is discovered in the dummy run.",
+  "statement_sha256": "a813cc76ef614262cb727f4e0fbe71a17b1f83b3077b282922a1b2f60d1335be",
+  "original_statement_sha256": "a813cc76ef614262cb727f4e0fbe71a17b1f83b3077b282922a1b2f60d1335be",
+  "corrected": false,
+  "depends_on": [
+   "def-dummy"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-uniform-zero",
+  "kind": "inline_claim",
+  "section": "4.2",
+  "source_line": 619,
+  "statement": "Before the zero in a column is found, its location is uniform among positions of that column not yet queried, conditional on the full adaptive transcript.",
+  "statement_sha256": "64fa654dd348407f698a46f54a8ad93346c9a6f4f603206aab2b7906e7713676",
+  "original_statement_sha256": "64fa654dd348407f698a46f54a8ad93346c9a6f4f603206aab2b7906e7713676",
+  "corrected": false,
+  "depends_on": [
+   "def-dummy",
+   "def-Z"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-EZ",
+  "kind": "inline_claim",
+  "section": "4.2",
+  "source_line": 632,
+  "statement": "E Z <= 4G/m: an early discovery (fewer than m/2 distinct positions queried in that column before it) has probability <=2/m per query, giving <=2G/m in expectation; any other discovery lies in one of at most 2G/m columns receiving >=m/2 queries.",
+  "statement_sha256": "27ffe4fc413b7b71a965b1932dbeae6c2d68ed70ee860e59b7bcb2d122369336",
+  "original_statement_sha256": "27ffe4fc413b7b71a965b1932dbeae6c2d68ed70ee860e59b7bcb2d122369336",
+  "corrected": false,
+  "depends_on": [
+   "claim-uniform-zero"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "eq-19",
+  "kind": "equation",
+  "section": "4.2",
+  "source_line": 636,
+  "statement": "Pr(the dummy run queries X_I[J_I]) = E Z/m <= 4G/m^2.",
+  "statement_sha256": "333041d2d8da872622a78426e8c040c0fc5588170f40c631f6684e6156cad4a6",
+  "original_statement_sha256": "333041d2d8da872622a78426e8c040c0fc5588170f40c631f6684e6156cad4a6",
+  "corrected": false,
+  "depends_on": [
+   "claim-EZ",
+   "def-planted"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.zero_search_sum",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean",
+    "line": 37,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "foundZero",
+    "kind": "def",
+    "file": "lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean",
+    "line": 157,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "column_zero_bound",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean",
+    "line": 167,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "avg_foundZero_le",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean",
+    "line": 192,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "sum_xQueries_le",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean",
+    "line": 210,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "avg_foundZero_I_le",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean",
+    "line": 226,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "def-heavy",
+  "kind": "definition",
+  "section": "4.2",
+  "source_line": 639,
+  "statement": "Column i is heavy if, over the entire dummy run, the algorithm makes more than L queries in total to A_{i,1},...,A_{i,r}. Repeats count.",
+  "statement_sha256": "07aea5457423309a69c0a2c6e3b24a2181e114830dad4255b814e6a06b5d24ce",
+  "original_statement_sha256": "07aea5457423309a69c0a2c6e3b24a2181e114830dad4255b814e6a06b5d24ce",
+  "corrected": false,
+  "depends_on": [
+   "def-dummy"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "eq-20",
+  "kind": "equation",
+  "section": "4.2",
+  "source_line": 643,
+  "statement": "Pr(I is heavy) <= G/(mL).",
+  "statement_sha256": "c523bef2fdfd328c81b58a7d598b09638ffdb7b343a6eb81cbcc134a977e9fce",
+  "original_statement_sha256": "c523bef2fdfd328c81b58a7d598b09638ffdb7b343a6eb81cbcc134a977e9fce",
+  "corrected": false,
+  "depends_on": [
+   "def-heavy"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.avg_heavy_le",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/LowerBound/Planted/Heavy.lean",
+    "line": 42,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "def-simulator",
+  "kind": "construction",
+  "section": "4.2",
+  "source_line": 647,
+  "statement": "Fix i and t in {1,...,G}. A simulator receives all of the dummy input outside A_{i,1},...,A_{i,r}, runs the deterministic algorithm up to its proposed t-th query, and aborts before an (L+1)st query to those r strings in total. If it reaches time t and the proposed query is to a cell B_{i,s}, it outputs s; otherwise it outputs a fixed vector.",
+  "statement_sha256": "1d5b875c0dfde1f3e416d9f9884fb4f40a318912a915230415d23c0320ab53e1",
+  "original_statement_sha256": "1d5b875c0dfde1f3e416d9f9884fb4f40a318912a915230415d23c0320ab53e1",
+  "corrected": false,
+  "depends_on": [
+   "def-dummy",
+   "lem-4.1"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "eq-21",
+  "kind": "equation",
+  "section": "4.2",
+  "source_line": 657,
+  "statement": "For each i and t: Pr(i is nonheavy and the t-th query is in B_{i,s_i}) <= (2/3)^r.",
+  "statement_sha256": "708b745838570d1c9ed89e8dec317bdbbabb1e3e3cd46f96f4e15ee7f344f006",
+  "original_statement_sha256": "708b745838570d1c9ed89e8dec317bdbbabb1e3e3cd46f96f4e15ee7f344f006",
+  "corrected": false,
+  "depends_on": [
+   "def-simulator",
+   "def-heavy",
+   "claim-address-guess"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.simTree",
+    "kind": "def",
+    "file": "lean/QuarticQuery/LowerBound/Planted/Simulator.lean",
+    "line": 32,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.depth_simTree_le",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/LowerBound/Planted/Simulator.lean",
+    "line": 50,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.eval_simTree",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/LowerBound/Planted/Simulator.lean",
+    "line": 76,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "reachedCell",
+    "kind": "def",
+    "file": "lean/QuarticQuery/LowerBound/Planted/Simulator.lean",
+    "line": 131,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "eq-22",
+  "kind": "equation",
+  "section": "4.2",
+  "source_line": 663,
+  "statement": "Pr(the dummy run queries B_{I,s_I}) <= G/(mL) + G(2/3)^r.",
+  "statement_sha256": "eab15b52980344393c87898f793f8c7a8adedc9e1c77262a28fd6ca9ae5ea34e",
+  "original_statement_sha256": "eab15b52980344393c87898f793f8c7a8adedc9e1c77262a28fd6ca9ae5ea34e",
+  "corrected": false,
+  "depends_on": [
+   "eq-20",
+   "eq-21"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "avg_reachedCell_le",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/LowerBound/Planted/Simulator.lean",
+    "line": 172,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "eq-23",
+  "kind": "equation",
+  "section": "4.2",
+  "source_line": 668,
+  "statement": "The output-probability difference is at most 4G/m^2 + G/(mL) + G(2/3)^r.",
+  "statement_sha256": "c3ede41809ff8e44b38b79667f5df10105f8b1e9950433a53e5efb3c66ee4e73",
+  "original_statement_sha256": "c3ede41809ff8e44b38b79667f5df10105f8b1e9950433a53e5efb3c66ee4e73",
+  "corrected": false,
+  "depends_on": [
+   "eq-18",
+   "eq-19",
+   "eq-22"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.tree_gap_le",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/LowerBound/Planted/Main.lean",
+    "line": 59,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-tail",
+  "kind": "inline_claim",
+  "section": "4.2",
+  "source_line": 673,
+  "statement": "G(2/3)^r <= (1/100) m^{2-20 log_2(3/2)} = o(1).",
+  "statement_sha256": "a0ed83466437464b1245e47dea4ec4bc8ba49ea09491d89217490b644712b2a0",
+  "original_statement_sha256": "a0ed83466437464b1245e47dea4ec4bc8ba49ea09491d89217490b644712b2a0",
+  "corrected": false,
+  "depends_on": [
+   "eq-6",
+   "eq-17"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.twoThirds_pow_le",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Results/Exponent.lean",
+    "line": 429,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-numeric",
+  "kind": "inline_claim",
+  "section": "4.2",
+  "source_line": 670,
+  "statement": "For m=4^t, r=40t, 1<=L<=m and G<=mL/100: 4G/m^2<=4/100, G/(mL)<=1/100, G(2/3)^r<=1/100, so eq-23 is at most 6/100<1/3.",
+  "statement_sha256": "460582249f27c4e403cc5bb3f2e01f60cc44dedb387099f1ce39b2e1bd49081d",
+  "original_statement_sha256": "af4b12d1ff39db1dc45e904a422363e2ae7b4730bf26d05f2b498026d7446c38",
+  "corrected": true,
+  "depends_on": [
+   "eq-17",
+   "eq-23",
+   "claim-tail"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.discrepancy_le",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Results/Exponent.lean",
+    "line": 443,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.discrepancy_lt_third",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Results/Exponent.lean",
+    "line": 471,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.discrepancy_parameters",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Results/Exponent.lean",
+    "line": 479,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "prop-4.2",
+  "kind": "proposition",
+  "section": "4.2",
+  "source_line": 592,
+  "statement": "For each fixed integer k>=2 and every sufficiently large power of four m, R(F_{k,m}) > G=floor(mL/100), with L=floor(m^{1-1/k}/(log_2 m)^2).",
+  "statement_sha256": "822f72e7136f7fe4455ae0c77ba1c6c7da483649661f46896a9edab798d8acdf",
+  "original_statement_sha256": "822f72e7136f7fe4455ae0c77ba1c6c7da483649661f46896a9edab798d8acdf",
+  "corrected": false,
+  "depends_on": [
+   "prop-4.2-generic",
+   "lem-2.1.i"
+  ],
+  "external_inputs": [
+   "[6] Bansal-Sinha, Theorem 1.3 and Corollary 1.4 (checked against arXiv:2008.07003): randomized decision trees of error 1/3 for (2^{-5k},k)-Forrelation need Omega(k^{-29}(N/log(kN))^{1-1/k}) queries"
+  ],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "cor-R-omega",
+  "kind": "corollary",
+  "section": "4.2",
+  "source_line": 682,
+  "statement": "For fixed k, R(F_{k,m}) = Omega_k(m^{2-1/k}/(log m)^2).",
+  "statement_sha256": "4ddd37d908864e268485b73b3a5ea407ded8bb7ee374aa5b66a597cedf7b1233",
+  "original_statement_sha256": "4ddd37d908864e268485b73b3a5ea407ded8bb7ee374aa5b66a597cedf7b1233",
+  "corrected": false,
+  "depends_on": [
+   "prop-4.2",
+   "claim-floor"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.rpow_le_of_Gvalue_lt",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Results/Exponent.lean",
+    "line": 409,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-floor",
+  "kind": "inline_claim",
+  "section": "5",
+  "source_line": 698,
+  "statement": "For sufficiently large m, floor((m/100) floor(m^{1-1/k}/(log m)^2)) >= c_k m^{2-1/k}/(log m)^2 after decreasing c_k>0.",
+  "statement_sha256": "1e359b59fca9fa58322d5627fbb483ae56c0f9df1ecc90bb3883322d370f78c9",
+  "original_statement_sha256": "1e359b59fca9fa58322d5627fbb483ae56c0f9df1ecc90bb3883322d370f78c9",
+  "corrected": false,
+  "depends_on": [
+   "eq-5",
+   "eq-17"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.Gvalue_ge",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Results/Exponent.lean",
+    "line": 365,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-exponent-ratio",
+  "kind": "inline_claim",
+  "section": "5",
+  "source_line": 706,
+  "statement": "For fixed 0<=alpha<4 and integer k>=2 with 2-1/k>alpha/2: R(F_{k,m})/(1+Q(F_{k,m}))^alpha >= c_{k,alpha} m^{2-1/k-alpha/2}/(log m)^{2+alpha b_k}, which tends to infinity.",
+  "statement_sha256": "852aa551c2800894e63253673331dc02db991953b7fa724f2e46f2a95a772a00",
+  "original_statement_sha256": "852aa551c2800894e63253673331dc02db991953b7fa724f2e46f2a95a772a00",
+  "corrected": false,
+  "depends_on": [
+   "eq-2"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.eventually_gt_rpow",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Results/Exponent.lean",
+    "line": 118,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.exists_nat_exponent",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Results/Exponent.lean",
+    "line": 160,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-no-smaller-exponent",
+  "kind": "inline_claim",
+  "section": "5",
+  "source_line": 703,
+  "statement": "For every 0<=alpha<4, alpha does not belong to the set in eq-1, because a suitable k exists with k > 1/(2-alpha/2).",
+  "statement_sha256": "22d363c3c697ed6fa78a45311ab4a53e1c9bc21a4de98f9e0d4c92dd6cb24e2e",
+  "original_statement_sha256": "22d363c3c697ed6fa78a45311ab4a53e1c9bc21a4de98f9e0d4c92dd6cb24e2e",
+  "corrected": false,
+  "depends_on": [
+   "claim-exponent-ratio",
+   "eq-1"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.not_bound_of_familyBoundsAt",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Results/Exponent.lean",
+    "line": 202,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.not_universalPower_of_familyBoundsAt",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Results/Exponent.lean",
+    "line": 220,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.not_universalPower_of_family",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Results/Exponent.lean",
+    "line": 231,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.no_universal_power",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Results/Headline.lean",
+    "line": 27,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "def-D",
+  "kind": "definition",
+  "section": "A",
+  "source_line": 725,
+  "statement": "D(f) is the least depth of a deterministic decision tree computing f exactly on every input.",
+  "statement_sha256": "3562c129ea82e50cf2f8ae9d21a2adce1a457f486f9f8ded342379d182a129ec",
+  "original_statement_sha256": "3562c129ea82e50cf2f8ae9d21a2adce1a457f486f9f8ded342379d182a129ec",
+  "corrected": false,
+  "depends_on": [
+   "def-R"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.QueryTree.toDecisionTree",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Bridge/DecisionTree.lean",
+    "line": 25,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.QueryTree.ofDecisionTree",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Bridge/DecisionTree.lean",
+    "line": 30,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.QueryTree.eval_toDecisionTree",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Bridge/DecisionTree.lean",
+    "line": 47,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.QueryTree.depth_toDecisionTree",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Bridge/DecisionTree.lean",
+    "line": 56,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.D_totalise_eq_complexity",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Bridge/DecisionTree.lean",
+    "line": 67,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.DLe_length",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Model/Classical.lean",
+    "line": 231,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.DLe_card",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Model/Classical.lean",
+    "line": 239,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.DLe_D",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Model/Classical.lean",
+    "line": 268,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.D_le_iff",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Model/Classical.lean",
+    "line": 282,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.lt_D_iff",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Model/Classical.lean",
+    "line": 312,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.lt_D_of_not_DLe",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Model/Classical.lean",
+    "line": 321,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "D_reindex",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Model/Classical.lean",
+    "line": 358,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "def-deg",
+  "kind": "definition",
+  "section": "A",
+  "source_line": 725,
+  "statement": "deg(f) is the degree of the unique real multilinear polynomial agreeing with f on the cube, with degree 0 for every constant function, including the zero function. With this convention it is unchanged by replacing input or output bits by signs.",
+  "statement_sha256": "2c8482047f51c975176d0c6f0d8d63c1e28a6080dbd7f04ef903ab8b5a94ac0c",
+  "original_statement_sha256": "9918e495ca87f27ea2617fc118c197f9fc543a5a057517df9670886d49e0a5be",
+  "corrected": true,
+  "depends_on": [],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "def-bs",
+  "kind": "definition",
+  "section": "A",
+  "source_line": 727,
+  "statement": "A nonempty B subset [n] is a sensitive block at x if flipping all bits of B changes f(x). bs(f) is the maximum over x of the number of pairwise disjoint sensitive blocks at x.",
+  "statement_sha256": "f1719d61b15318eed7a67ff68f861d5d0ca1f1891976dd4dd6fbf4c3eb2dcabb",
+  "original_statement_sha256": "f1719d61b15318eed7a67ff68f861d5d0ca1f1891976dd4dd6fbf4c3eb2dcabb",
+  "corrected": false,
+  "depends_on": [],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "def-Gamma-i",
+  "kind": "definition",
+  "section": "A",
+  "source_line": 743,
+  "statement": "For an input-indexed matrix Gamma, (Gamma_i)_{xy}=Gamma_{xy} 1{x_i != y_i}. Matrix norms are operator norms for the Euclidean norm.",
+  "statement_sha256": "6dd7353a83c340c0a54c9a6a56b1c21ce41d2ead3dba8c05ea516d5807b80809",
+  "original_statement_sha256": "6dd7353a83c340c0a54c9a6a56b1c21ce41d2ead3dba8c05ea516d5807b80809",
+  "corrected": false,
+  "depends_on": [],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-perron",
+  "kind": "inline_claim",
+  "section": "A",
+  "source_line": 755,
+  "statement": "A nonzero real symmetric entrywise nonnegative Gamma has a nonnegative unit eigenvector v of eigenvalue ||Gamma||.",
+  "statement_sha256": "13a458f2d20ce64f7ee1c1d390b94aa8867089f9b00d02115bf27867a3375cfd",
+  "original_statement_sha256": "13a458f2d20ce64f7ee1c1d390b94aa8867089f9b00d02115bf27867a3375cfd",
+  "corrected": false,
+  "depends_on": [
+   "def-Gamma-i"
+  ],
+  "external_inputs": [
+   "Perron-Frobenius theorem (cited by name)"
+  ],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "def-adv-progress",
+  "kind": "definition",
+  "section": "A",
+  "source_line": 757,
+  "statement": "W_t = sum_{x,y} v_x v_y Gamma_{xy} <psi_x^t | psi_y^t>, where psi_x^t is the purified state after t queries on input x.",
+  "statement_sha256": "01a19473a93a030e4319373179169496a865f3071033b8b7f25b4417a8ef5384",
+  "original_statement_sha256": "01a19473a93a030e4319373179169496a865f3071033b8b7f25b4417a8ef5384",
+  "corrected": false,
+  "depends_on": [
+   "claim-perron",
+   "def-Q"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-per-query",
+  "kind": "inline_claim",
+  "section": "A",
+  "source_line": 772,
+  "statement": "Each query changes W by at most: |W_{t+1}-W_t| <= 2 sum_i u_i^T Gamma_i u_i <= 2 max_i ||Gamma_i||, where u_i(x)=v_x ||phi_{x,i}||.",
+  "statement_sha256": "05811421c99db5c5229172c41a3079a2d06b06296ca83a171b89dd151fda384a",
+  "original_statement_sha256": "05811421c99db5c5229172c41a3079a2d06b06296ca83a171b89dd151fda384a",
+  "corrected": false,
+  "depends_on": [
+   "def-adv-progress",
+   "def-Gamma-i",
+   "def-query-oracle"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-final-overlap",
+  "kind": "inline_claim",
+  "section": "A",
+  "source_line": 786,
+  "statement": "If Pr[output 1] is <=1/3 on one state and >=2/3 on another, their overlap has absolute value <=2 sqrt(2)/3. Hence |W_final| <= (2 sqrt(2)/3)||Gamma||.",
+  "statement_sha256": "842e0a0d0feb2db4be33c20dc06be2e0cf2fb54f159263c9418a52f38b4b8b6a",
+  "original_statement_sha256": "842e0a0d0feb2db4be33c20dc06be2e0cf2fb54f159263c9418a52f38b4b8b6a",
+  "corrected": false,
+  "depends_on": [
+   "def-adv-progress"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "lem-A.2",
+  "kind": "lemma",
+  "section": "A",
+  "source_line": 739,
+  "statement": "Let f be a nonconstant total Boolean function, Gamma a nonzero real symmetric entrywise nonnegative input-indexed matrix with Gamma_{xy}=0 whenever f(x)=f(y). Then Q(f) >= c ||Gamma|| / max_i ||Gamma_i|| for an absolute constant c>0.",
+  "statement_sha256": "0f3546f01dbe0e642da5755e073bcc8e7ee1a4491caf3937852a3a1ddb834475",
+  "original_statement_sha256": "0f3546f01dbe0e642da5755e073bcc8e7ee1a4491caf3937852a3a1ddb834475",
+  "corrected": false,
+  "depends_on": [
+   "claim-per-query",
+   "claim-final-overlap",
+   "claim-perron",
+   "def-Q"
+  ],
+  "external_inputs": [
+   "[7] Barnum-Saks-Szegedy, [24] Spalek-Szegedy (attribution; proof in the paper)"
+  ],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "def-Sf",
+  "kind": "definition",
+  "section": "A",
+  "source_line": 794,
+  "statement": "S_f is the adjacency matrix on {0,1}^n of the graph joining inputs that differ in exactly one bit and have different f-values. lambda(f)=||S_f||.",
+  "statement_sha256": "8607aaafe09e290614778f5e93a933e24faf3a85f3480851d2f3e03020269d7d",
+  "original_statement_sha256": "8607aaafe09e290614778f5e93a933e24faf3a85f3480851d2f3e03020269d7d",
+  "corrected": false,
+  "depends_on": [
+   "def-Gamma-i"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "lem-A.3.bs",
+  "kind": "lemma",
+  "section": "A",
+  "source_line": 800,
+  "statement": "For nonconstant total f, bs(f)=O(Q(f)^2).",
+  "statement_sha256": "1bc9f21aa387616181c9c63ea7f9ec881b54edd1a1d5aa0544d6712386ccf005",
+  "original_statement_sha256": "1bc9f21aa387616181c9c63ea7f9ec881b54edd1a1d5aa0544d6712386ccf005",
+  "corrected": false,
+  "depends_on": [
+   "lem-A.2",
+   "def-bs"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "lem-A.3.lambda",
+  "kind": "lemma",
+  "section": "A",
+  "source_line": 800,
+  "statement": "For nonconstant total f, lambda(f)=O(Q(f)).",
+  "statement_sha256": "7ec2656a9a8550bbc76f481f5c410e4c43118c6e9ffe80770d5f9ebaf6175f41",
+  "original_statement_sha256": "7ec2656a9a8550bbc76f481f5c410e4c43118c6e9ffe80770d5f9ebaf6175f41",
+  "corrected": false,
+  "depends_on": [
+   "lem-A.2",
+   "def-Sf"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "lem-A.3",
+  "kind": "lemma",
+  "section": "A",
+  "source_line": 798,
+  "statement": "Conjunction of lem-A.3.bs and lem-A.3.lambda.",
+  "statement_sha256": "8a84fa2a71526bec16561d6ca9e9a52a448bb43be623ae889b3132343829501b",
+  "original_statement_sha256": "8a84fa2a71526bec16561d6ca9e9a52a448bb43be623ae889b3132343829501b",
+  "corrected": false,
+  "depends_on": [
+   "lem-A.3.bs",
+   "lem-A.3.lambda"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-restrict-parity",
+  "kind": "inline_claim",
+  "section": "A",
+  "source_line": 818,
+  "statement": "With f in sign form and d=deg f>=1, restricting variables outside a degree-d monomial's support gives g on the d-cube with nonzero parity correlation. So for some sigma in {-1,1}, U={x:g(x)=sigma x_1...x_d} has |U|>2^{d-1}, and every cube edge inside U changes g.",
+  "statement_sha256": "4efcfcc794f51cfef1a1e36b6bf1fda3cee7f0e877138473e151a10a24721c41",
+  "original_statement_sha256": "4efcfcc794f51cfef1a1e36b6bf1fda3cee7f0e877138473e151a10a24721c41",
+  "corrected": false,
+  "depends_on": [
+   "def-deg"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "def-huang",
+  "kind": "definition",
+  "section": "A",
+  "source_line": 826,
+  "statement": "H'_1=[[0,1],[1,0]], H'_{j+1}=[[H'_j,I],[I,-H'_j]]. Its entrywise absolute value is the cube adjacency matrix.",
+  "statement_sha256": "b9a1967b1e39907bb354c94249d0743df0addd25e2e0407443eba8467e0fcb2a",
+  "original_statement_sha256": "b9a1967b1e39907bb354c94249d0743df0addd25e2e0407443eba8467e0fcb2a",
+  "corrected": false,
+  "depends_on": [],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-huang-spectrum",
+  "kind": "inline_claim",
+  "section": "A",
+  "source_line": 831,
+  "statement": "(H'_j)^2=jI, trace H'_j=0, so H'_d has eigenvalues +-sqrt(d), each of multiplicity 2^{d-1}.",
+  "statement_sha256": "9d724d932abfb02ff01856c8e7a86ae977171c7035b965489b6673dc827bc44e",
+  "original_statement_sha256": "9d724d932abfb02ff01856c8e7a86ae977171c7035b965489b6673dc827bc44e",
+  "corrected": false,
+  "depends_on": [
+   "def-huang"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-interlace",
+  "kind": "inline_claim",
+  "section": "A",
+  "source_line": 838,
+  "statement": "There is a nonzero v in the sqrt(d)-eigenspace supported on U; with u=|v|, u^T A_U u >= v^T H'_d v = sqrt(d)||u||^2.",
+  "statement_sha256": "691b324a624728e2073cbd5e42732fb5aefcfa1b7e74f7b06f3e2aa7eab469b4",
+  "original_statement_sha256": "691b324a624728e2073cbd5e42732fb5aefcfa1b7e74f7b06f3e2aa7eab469b4",
+  "corrected": false,
+  "depends_on": [
+   "claim-huang-spectrum",
+   "claim-restrict-parity"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "lem-A.4",
+  "kind": "lemma",
+  "section": "A",
+  "source_line": 812,
+  "statement": "Every nonconstant total Boolean f satisfies deg(f) <= lambda(f)^2.",
+  "statement_sha256": "d3317a710b50443772971bb1c149ef461589af99df66c64ef3ab1bb80c0edc9b",
+  "original_statement_sha256": "d3317a710b50443772971bb1c149ef461589af99df66c64ef3ab1bb80c0edc9b",
+  "corrected": false,
+  "depends_on": [
+   "claim-restrict-parity",
+   "claim-interlace",
+   "def-Sf"
+  ],
+  "external_inputs": [
+   "[3] ABKRT Theorem 1, pp.1 and 6 (checked), [17] Huang (proof in the paper). The form deg<=s^2 would be too weak: s need not be O(Q)"
+  ],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-round-block",
+  "kind": "inline_claim",
+  "section": "A",
+  "source_line": 852,
+  "statement": "In each round of the algorithm on input x, with S the selected maximum-degree monomial's support in the current restriction, the restriction to S with all other unqueried variables set as in x is nonconstant. So some nonempty subset of S is a sensitive block at x. Blocks of different rounds are disjoint.",
+  "statement_sha256": "0704a344bd8fce3b477e7117d85ec8baeccb82469868fd2a72f7ad53e8fb6e26",
+  "original_statement_sha256": "0704a344bd8fce3b477e7117d85ec8baeccb82469868fd2a72f7ad53e8fb6e26",
+  "corrected": false,
+  "depends_on": [
+   "def-bs",
+   "def-deg"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "lem-A.5",
+  "kind": "lemma",
+  "section": "A",
+  "source_line": 844,
+  "statement": "Every total Boolean f satisfies D(f) <= bs(f) deg(f).",
+  "statement_sha256": "e1b7aa9dc0a7c810782a4f52cf0986a6f6896c984b5b8320c81ac8c90ea696ed",
+  "original_statement_sha256": "e1b7aa9dc0a7c810782a4f52cf0986a6f6896c984b5b8320c81ac8c90ea696ed",
+  "corrected": false,
+  "depends_on": [
+   "claim-round-block",
+   "def-D"
+  ],
+  "external_inputs": [
+   "[19] Midrijanis quant-ph/0403168v2, inside the proof of Theorem 4, p.4 (checked; Theorem 4 itself states D<=2deg^3). Proof in the paper"
+  ],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "thm-A.1",
+  "kind": "theorem",
+  "section": "A",
+  "source_line": 731,
+  "statement": "Every total Boolean function satisfies R(f) <= D(f) = O((1+Q(f))^4), with an absolute constant.",
+  "statement_sha256": "22788a1fa29f117736d80e8def67d1785ceaa1dd954018e19c28f45432a16f11",
+  "original_statement_sha256": "22788a1fa29f117736d80e8def67d1785ceaa1dd954018e19c28f45432a16f11",
+  "corrected": false,
+  "depends_on": [
+   "lem-A.3",
+   "lem-A.4",
+   "lem-A.5",
+   "def-D"
+  ],
+  "external_inputs": [
+   "[3] ABKRT Theorem 2 (proof in the paper); ABKRT p.1 records that it subsumes the earlier four-author preprint arXiv:2004.13231, whose text was not held"
+  ],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-address-guess",
+  "kind": "inline_claim",
+  "section": "4.1",
+  "source_line": 588,
+  "statement": "Under mu from claim-minimax-mu, for U_1,...,U_r iid mu, every classical algorithm making at most L queries to each U_h, given information independent of (U_1,...,U_r), outputs (P(U_1),...,P(U_r)) with probability <=(2/3)^r.",
+  "statement_sha256": "6b2c70e84f408a633ac3eb0efef93d50e8ed78994fdea475d1175d71bc865971",
+  "original_statement_sha256": null,
+  "corrected": false,
+  "depends_on": [
+   "claim-minimax-mu",
+   "lem-4.1"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "QuarticQuery.address_guess_le",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/LowerBound/Minimax.lean",
+    "line": 179,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.address_guess_average",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/LowerBound/Minimax.lean",
+    "line": 188,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   },
+   {
+    "declaration": "QuarticQuery.exists_address_guess_bound",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/LowerBound/Minimax.lean",
+    "line": 198,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "prop-4.2-generic",
+  "kind": "proposition",
+  "section": "4.2",
+  "source_line": 592,
+  "statement": "Let m=4^t with t>=1 and r=40t. Let P be a partial function on km bits with an exact circuit C (d=1 iff defined, and d=1 implies b=P), and F the total function built from (P,C). If 1<=L<=m and L<R(P), then R(F)>floor(mL/100).",
+  "statement_sha256": "4d28c29a5921d9b2edc53b2be1a0f1dc07bb705c1d6e4a9c05782a31eb8cc877",
+  "original_statement_sha256": null,
+  "corrected": false,
+  "depends_on": [
+   "eq-17",
+   "def-dummy",
+   "def-planted",
+   "claim-Y-values",
+   "eq-23",
+   "claim-numeric"
+  ],
+  "external_inputs": [],
+  "lean": [],
+  "evidence": {
+   "formal_statement": "none",
+   "formal_origin": "none",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ },
+ {
+  "id": "claim-winner-fidelity",
+  "kind": "inline_claim",
+  "section": "2.2",
+  "source_line": 264,
+  "statement": "Given the correctness half of lem-2.1.iii: WinsAt(y,i,s) iff X_i=1^m, every P(A_{i,h}) is defined, s=s_i, the transcripts in B_{i,s} are correct, and eq-8 holds. Hence exists s, WinsAt(y,i,s) is the paper's winner condition.",
+  "statement_sha256": "0cd81b58051ff3c40ab0d039667a9286713fc3a92a6a9048cb81a65c3710267f",
+  "original_statement_sha256": null,
+  "corrected": false,
+  "depends_on": [
+   "def-win-at-address",
+   "eq-7",
+   "lem-2.1.iii"
+  ],
+  "external_inputs": [],
+  "lean": [
+   {
+    "declaration": "winsAt_iff_paperWinsAt",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Construction/LocalTests.lean",
+    "line": 329,
+    "relation": "unassessed",
+    "route": "unassessed",
+    "hypotheses": [],
+    "note": "",
+    "built": false,
+    "compared": false
+   }
+  ],
+  "evidence": {
+   "formal_statement": "unassessed",
+   "formal_origin": "ours",
+   "build": "not_run",
+   "comparator": "not_run",
+   "conditional": false,
+   "route": "none",
+   "reach": "not_computed"
+  }
+ }
+]

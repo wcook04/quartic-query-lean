@@ -1,0 +1,3098 @@
+{
+ "schema_version": "1.2",
+ "id": "quartic-query-separation",
+ "title": "A Nearly Quartic Separation Between Randomized and Quantum Query Complexity",
+ "selected_goals": [
+  "thm-1.1"
+ ],
+ "sources": [
+  {
+   "id": "openai_preprint",
+   "kind": "file",
+   "url": "https://github.com/openai/math/blob/main/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf",
+   "revision": "4eaee875",
+   "license": "see upstream repository",
+   "redistribution": "reference_only"
+  }
+ ],
+ "citations": [],
+ "nodes": [
+  {
+   "id": "def-log-convention",
+   "kind": "claim",
+   "label": "def-log-convention",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 1.3, extracted line 118",
+   "statement": "log means log_2, except where changing the base only changes an absolute constant. Ledger pinning: log in T (prop-3.2), r and l (eq-6) and L (eq-5) is exactly log_2."
+  },
+  {
+   "id": "def-partial-query",
+   "kind": "claim",
+   "label": "def-partial-query",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 1.3, extracted line 120",
+   "statement": "A partial Boolean function is a pair (D,P) with D a subset of {0,1}^N and P:D->{0,1}. An algorithm computes it if it is correct, with the stated error, on every x in D; behaviour off D is unconstrained."
+  },
+  {
+   "id": "def-R",
+   "kind": "claim",
+   "label": "def-R",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 1, extracted line 18",
+   "statement": "For a (partial) Boolean function f, R(f) is the least q such that some probability distribution on deterministic decision trees of depth at most q satisfies Pr[T(x)=f(x)] >= 2/3 for every x in dom f. The query cap holds on every branch and every coin outcome."
+  },
+  {
+   "id": "def-query-oracle",
+   "kind": "claim",
+   "label": "def-query-oracle",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 1, extracted line 22",
+   "statement": "For x in {0,1}^n the bit oracle is the unitary O_x|i,b,z> = |i, b xor x_i, z>, with i in [n], b a bit, z a workspace label. It is self-inverse."
+  },
+  {
+   "id": "def-Q",
+   "kind": "claim",
+   "label": "def-Q",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 1, extracted line 20",
+   "statement": "Q(f) is the least q such that some quantum algorithm, with unrestricted query-free computation between uses of O_x and with at most q queries on every branch including all measurement outcomes, outputs f(x) with probability >= 2/3 for every x in dom f."
+  },
+  {
+   "id": "eq-1",
+   "kind": "claim",
+   "label": "eq-1",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 1, extracted line 30",
+   "statement": "alpha_tot = inf{alpha >= 0 : exists C_alpha < infinity such that for every n >= 1 and every total f:{0,1}^n->{0,1}, R(f) <= C_alpha (1+Q(f))^alpha}."
+  },
+  {
+   "id": "eq-2",
+   "kind": "claim",
+   "label": "eq-2",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 1, extracted line 39",
+   "statement": "For fixed integer k>=2 and all sufficiently large powers of four m: Q(F_{k,m}) <= C_k sqrt(m) (log m)^{b_k} and R(F_{k,m}) >= c_k m^{2-1/k}/(log m)^2, with c_k,C_k,b_k>0 depending only on k."
+  },
+  {
+   "id": "thm-1.1",
+   "kind": "goal",
+   "label": "thm-1.1",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 1, extracted line 34",
+   "statement": "alpha_tot = 4. More precisely, R(f) = O((1+Q(f))^4) for every total Boolean f, and eq-2 holds for each fixed integer k>=2."
+  },
+  {
+   "id": "cor-cubic-refuted",
+   "kind": "claim",
+   "label": "cor-cubic-refuted",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 1.1, extracted line 66",
+   "statement": "It is false that R(f) = O(Q(f)^3) for all total Boolean f ([3, Conjecture 2]): no C satisfies R(f) <= C Q(f)^3 for all total f."
+  },
+  {
+   "id": "def-walsh-sign",
+   "kind": "claim",
+   "label": "def-walsh-sign",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 2.1, extracted line 136",
+   "statement": "m=4^t. H is the m x m normalized Walsh-Hadamard matrix, H_{a,b}=m^{-1/2}(-1)^{<a,b>} for a,b in {0,1}^{log_2 m}. u=m^{-1/2}(1,...,1)^T. A bit a is identified with the sign (-1)^a. For z in {+-1}^m, D_z=diag(z)."
+  },
+  {
+   "id": "eq-3",
+   "kind": "claim",
+   "label": "eq-3",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 2.1, extracted line 140",
+   "statement": "For z_1,...,z_k in {+-1}^m: Phi(z_1,...,z_k) = u^T D_{z_1} H D_{z_2} H ... H D_{z_k} u (k diagonals, k-1 copies of H), and delta = 2^{-5k}."
+  },
+  {
+   "id": "eq-4",
+   "kind": "claim",
+   "label": "eq-4",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 2.1, extracted line 145",
+   "statement": "P=P_{k,m} is the partial function on km bits with P=1 if Phi>=delta, P=0 if |Phi|<=delta/2, undefined otherwise. The two cases are disjoint."
+  },
+  {
+   "id": "eq-5",
+   "kind": "claim",
+   "label": "eq-5",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 2.1, extracted line 155",
+   "statement": "L = L_{k,m} = floor(m^{1-1/k}/(log_2 m)^2)."
+  },
+  {
+   "id": "claim-bs-to-L",
+   "kind": "claim",
+   "label": "claim-bs-to-L",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 2.1, extracted line 173",
+   "statement": "For fixed k: for large m, c k^{-29} (m/log(km))^{1-1/k} > floor(m^{1-1/k}/(log_2 m)^2)."
+  },
+  {
+   "id": "lem-2.1.i",
+   "kind": "assumption",
+   "label": "lem-2.1.i",
+   "status": "external",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 2.1, extracted line 152",
+   "statement": "For fixed k>=2 and all sufficiently large powers of four m, R(P_{k,m})>L with L as in eq-5."
+  },
+  {
+   "id": "claim-proj-prob",
+   "kind": "claim",
+   "label": "claim-proj-prob",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 2.1, extracted line 176",
+   "statement": "Prepare u, apply D_{z_1} H ... H D_{z_k} right to left, measure the projection onto u. Each D uses one bit query (phase kickback), H and the projection use none. Success probability is exactly Phi^2: >=delta^2 on 1-inputs, <=delta^2/4 on 0-inputs."
+  },
+  {
+   "id": "lem-2.1.ii",
+   "kind": "claim",
+   "label": "lem-2.1.ii",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 2.1, extracted line 158",
+   "statement": "For every 0<eta<1/2 there is a quantum algorithm using O_k(1+log(1/eta)) bit queries that outputs P_{k,m}(z) with error <=eta for every z in dom P. It has a coherent implementation retaining all workspace. On every input, promised or not, measuring its output register yields a bit."
+  },
+  {
+   "id": "claim-N-phi",
+   "kind": "claim",
+   "label": "claim-N-phi",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 2.1, extracted line 183",
+   "statement": "With W=sqrt(m) H (entries +-1), N = z_1^T W D_{z_2} W ... W D_{z_k} (1,...,1)^T is an integer, Phi=N/M_{k,m}, and M_{k,m}=m (sqrt m)^{k-1} is a positive integer because m is a power of four."
+  },
+  {
+   "id": "claim-integer-tests",
+   "kind": "claim",
+   "label": "claim-integer-tests",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 2.1, extracted line 195",
+   "statement": "Phi>=delta iff 2^{5k} N >= M_{k,m}; and |Phi|<=delta/2 iff 2^{5k+1}|N| <= M_{k,m}. d is the disjunction, b the first comparison."
+  },
+  {
+   "id": "claim-circuit-size",
+   "kind": "claim",
+   "label": "claim-circuit-size",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 2.1, extracted line 190",
+   "statement": "N is computed by k-1 unnormalized Walsh-Hadamard transforms, coordinate sign changes and a final signed sum. Each transform uses O(m log m) additions and subtractions; all intermediate integers have absolute value at most m^{O(k)}, so O_k(log m) bits suffice; hence Boolean size O_k(m (log m)^2)."
+  },
+  {
+   "id": "lem-2.1.iii",
+   "kind": "claim",
+   "label": "lem-2.1.iii",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 2.1, extracted line 162",
+   "statement": "There is a Boolean circuit C=C_{k,m} of fan-in at most two and size S=S_{k,m}=O_k(m (log m)^2), counting non-input gates, with output bits d,b such that for every input z: d=1 iff P_{k,m} is defined at z, and d=1 implies b=P_{k,m}(z). The circuit computes these outputs exactly on every input."
+  },
+  {
+   "id": "lem-2.1",
+   "kind": "claim",
+   "label": "lem-2.1",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 2.1, extracted line 151",
+   "statement": "Conjunction of lem-2.1.i, lem-2.1.ii and lem-2.1.iii for each fixed k>=2."
+  },
+  {
+   "id": "def-transcript",
+   "kind": "claim",
+   "label": "def-transcript",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 1.3, extracted line 122",
+   "statement": "For a fixed circuit, a transcript assigns a proposed bit to each non-input gate, including output gates. Input-wire values are not copied; they are read from the actual input."
+  },
+  {
+   "id": "eq-6",
+   "kind": "claim",
+   "label": "eq-6",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 2.2, extracted line 207",
+   "statement": "r = ceil(20 log_2 m), l = log_2 m."
+  },
+  {
+   "id": "def-column-layout",
+   "kind": "claim",
+   "label": "def-column-layout",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 2.2, extracted line 208",
+   "statement": "The input has m columns. Column i contains: X_i in {0,1}^m; strings A_{i,1},...,A_{i,r} in {0,1}^{km} with no promise; and for each s in {0,1}^r a cell B_{i,s} holding, for each j != i, a pointer p_{i,s,j} in [m] encoded in l bits by a fixed bijection, and for each h in [r] an alleged evaluation transcript of C_{k,m} on A_{i,h}."
+  },
+  {
+   "id": "def-eval-transcript",
+   "kind": "claim",
+   "label": "def-eval-transcript",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 2.2, extracted line 218",
+   "statement": "An evaluation transcript of C_{k,m} on A_{i,h} has one bit per non-input gate including output gates, and these gates are the count S. It is correct iff every bit equals the true value of that gate on input A_{i,h}."
+  },
+  {
+   "id": "eq-7",
+   "kind": "claim",
+   "label": "eq-7",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 2.2, extracted line 223",
+   "statement": "If every P(A_{i,h}) is defined, the true address of column i is s_i=(P(A_{i,1}),...,P(A_{i,r})) in {0,1}^r."
+  },
+  {
+   "id": "eq-8",
+   "kind": "claim",
+   "label": "eq-8",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 2.2, extracted line 227",
+   "statement": "Outward pointer condition at address s: X_j[p_{i,s,j}] = 0 for every j != i. Eq. 8 of the paper is the case s=s_i."
+  },
+  {
+   "id": "def-winner",
+   "kind": "claim",
+   "label": "def-winner",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 2.2, extracted line 221",
+   "statement": "Column i is a winner iff X_i=1^m, every P(A_{i,h}) is defined, and the cell B_{i,s_i} contains correct evaluation transcripts on all A_{i,h} and pointers satisfying eq-8."
+  },
+  {
+   "id": "def-F",
+   "kind": "claim",
+   "label": "def-F",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 2.2, extracted line 229",
+   "statement": "F_{k,m}(y)=1 if some column of y is a winner, else 0. It is a total Boolean function on all input bit strings."
+  },
+  {
+   "id": "cor-unique-winner",
+   "kind": "claim",
+   "label": "cor-unique-winner",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 2.2, extracted line 235",
+   "statement": "For every input, at most one column is a winner."
+  },
+  {
+   "id": "def-win-at-address",
+   "kind": "claim",
+   "label": "def-win-at-address",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 2.2, extracted line 264",
+   "statement": "WinsAt(y,i,s) holds iff X_i=1^m, for every h the transcript in B_{i,s} on A_{i,h} is correct with outputs d=1 and b=s_h, and eq-8 holds at s. The paper's wording, i is a winner and s=s_i, is equivalent by claim-winner-fidelity."
+  },
+  {
+   "id": "def-K",
+   "kind": "claim",
+   "label": "def-K",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 2.2, extracted line 269",
+   "statement": "K_{k,m} = m + (m-1) + r(S_{k,m}+2) = O_k(m (log m)^3)."
+  },
+  {
+   "id": "lem-2.2.i",
+   "kind": "claim",
+   "label": "lem-2.2.i",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 2.2, extracted line 266",
+   "statement": "For every input y and (i,s) in [m] x {0,1}^r: i wins at s iff all K_{k,m} tests pass, namely (a) X_i[b]=1 for each b; (b) for each j != i, X_j[p_{i,s,j}]=0; (c) for each h and each non-input gate, the claimed value equals the gate function of its predecessors, read from the transcript or from A_{i,h}; (d) for each h, claimed d=1 and claimed b=s_h. Each test is computed by a deterministic adaptive bit-query decision tree of depth at most max(3,l+1), which is l+1 for m>=4: a pointer test reads l pointer bits, then the one target bit they select, while gate tests read at most three fixed bits. A pointer test is not a function of a small fixed set of bits: it can depend on all l+m pointer and target coordinates."
+  },
+  {
+   "id": "lem-2.2.ii",
+   "kind": "claim",
+   "label": "lem-2.2.ii",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 2.2, extracted line 271",
+   "statement": "Each test is evaluated exactly with O(log m) bit queries, also coherently with the same bound with test indices in superposition. The number of tests and the indexing convention are the same for every (i,s)."
+  },
+  {
+   "id": "lem-2.2",
+   "kind": "claim",
+   "label": "lem-2.2",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 2.2, extracted line 266",
+   "statement": "Conjunction of lem-2.2.i and lem-2.2.ii."
+  },
+  {
+   "id": "cor-local-dichotomy",
+   "kind": "claim",
+   "label": "cor-local-dichotomy",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 2.2, extracted line 290",
+   "statement": "A winner has an address at which every test passes; a nonwinner has a failing test at every address."
+  },
+  {
+   "id": "def-grover-trial",
+   "kind": "claim",
+   "label": "def-grover-trial",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 3.1, extracted line 332",
+   "statement": "M = ceil(10/sqrt(gamma)). A trial picks with probability 1/2 l=0, and with probability 1/2 a uniform l in {0,...,M-1}, applies l Grover iterations to A|0>, and measures the success bit. The procedure runs ceil(log(1/eta)/log(40/31)) trials with fresh registers, stopping at the first success."
+  },
+  {
+   "id": "claim-grover-state",
+   "kind": "claim",
+   "label": "claim-grover-state",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 3.1, extracted line 328",
+   "statement": "For 0<p<1 write A|0>=sin(theta)|g>+cos(theta)|b>, 0<theta<pi/2, with g,b normalized in the successful and unsuccessful subspaces. After l Grover iterations the state is sin((2l+1)theta)|g>+cos((2l+1)theta)|b>. Hence measuring success yields |g> up to global phase, independently of l."
+  },
+  {
+   "id": "claim-sin2theta",
+   "kind": "claim",
+   "label": "claim-sin2theta",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 3.1, extracted line 336",
+   "statement": "If gamma<=p<=1/2 then sin(2theta)=2 sqrt(p(1-p)) >= sqrt(gamma)."
+  },
+  {
+   "id": "eq-9",
+   "kind": "claim",
+   "label": "eq-9",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 3.1, extracted line 341",
+   "statement": "If gamma<=p<=1/2 and M=ceil(10/sqrt(gamma)), then (1/M) sum_{l=0}^{M-1} sin^2((2l+1)theta) >= 1/2 - 1/(2M|sin 2theta|) >= 9/20."
+  },
+  {
+   "id": "lem-3.1",
+   "kind": "claim",
+   "label": "lem-3.1",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 3.1, extracted line 310",
+   "statement": "For 0<gamma<=1/2 and 0<eta<1/2 there is a single procedure, black-box in A and A^{-1} and with call counts depending only on gamma and eta, using O(gamma^{-1/2} log(1/eta)) calls for every p and on every branch, such that for every state preparation A with a success bit, success probability p and, if p>0, normalized successful state |g>: it reports failure or produces a successful outcome; conditional on success the output is |g> up to global phase; if p>=gamma, failure probability <=eta; if p=0 it always reports failure."
+  },
+  {
+   "id": "def-aij",
+   "kind": "claim",
+   "label": "def-aij",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 3.2, extracted line 356",
+   "statement": "For a fixed oracle input and a coherent comparison circuit, a_{ij} is the probability that i is reported as defeating j when the result is measured, using one circuit per unordered pair; a_{ii}=0."
+  },
+  {
+   "id": "eq-10",
+   "kind": "claim",
+   "label": "eq-10",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 3.2, extracted line 359",
+   "statement": "a_{ij}+a_{ji}=1 for i != j, and a_{ii}=0."
+  },
+  {
+   "id": "def-T-eps",
+   "kind": "claim",
+   "label": "def-T-eps",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 3.2, extracted line 365",
+   "statement": "For m>=2: T=ceil(log_2(1000m)), epsilon=1/(1000T)."
+  },
+  {
+   "id": "eq-11",
+   "kind": "claim",
+   "label": "eq-11",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 3.2, extracted line 377",
+   "statement": "i_* is dominant if a_{i_* j} >= 1-epsilon for every j != i_*."
+  },
+  {
+   "id": "def-ideal-process",
+   "kind": "claim",
+   "label": "def-ideal-process",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 3.2, extracted line 381",
+   "statement": "Ideal process: w_i=1 for all i, W=sum_i w_i. While W>0 sample p with probability w_p/W, append p to the list, update by eq-12. If W=0, leave list and weights unchanged. Run T steps."
+  },
+  {
+   "id": "eq-12",
+   "kind": "claim",
+   "label": "eq-12",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 3.2, extracted line 384",
+   "statement": "Update w_i <- w_i a_{ip} for all i in [m]."
+  },
+  {
+   "id": "eq-13",
+   "kind": "claim",
+   "label": "eq-13",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 3.2, extracted line 390",
+   "statement": "For W>0: E[W_new | w] = (1/W) sum_{p,i} w_p w_i a_{ip} = (W^2 - sum_i w_i^2)/(2W) <= W/2."
+  },
+  {
+   "id": "claim-expected-WT",
+   "kind": "claim",
+   "label": "claim-expected-WT",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 3.2, extracted line 397",
+   "statement": "The bound of eq-13 also holds when W=0, hence E[W_T] <= m/2^T."
+  },
+  {
+   "id": "claim-weight-lb",
+   "kind": "claim",
+   "label": "claim-weight-lb",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 3.2, extracted line 398",
+   "statement": "If i_* satisfies eq-11 and has not been selected in t<=T steps, then w_{i_*} >= (1-epsilon)^t >= 1-T epsilon > 1/2. Hence W>0 until it is selected."
+  },
+  {
+   "id": "eq-14",
+   "kind": "claim",
+   "label": "eq-14",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 3.2, extracted line 407",
+   "statement": "Pr[i_* absent from the ideal list] <= Pr[W_T >= 1/2] <= 2m/2^T."
+  },
+  {
+   "id": "construct-sampler",
+   "kind": "claim",
+   "label": "construct-sampler",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 3.2, extracted line 409",
+   "statement": "Given pivots p_1,...,p_t with t<T: prepare uniform |i> over [m], compare i with each pivot in a fresh workspace, set the success bit iff every comparison says i defeats its pivot, keeping all garbage. Apply lem-3.1 with gamma=1/(2m), eta=epsilon. On failure stop and return the accumulated list; otherwise measure the index, append, and continue for at most T stages."
+  },
+  {
+   "id": "eq-15",
+   "kind": "claim",
+   "label": "eq-15",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 3.2, extracted line 416",
+   "statement": "Pre-success state: m^{-1/2} sum_{i=1}^m |i> tensor_{b=1}^t |phi(i,p_b)>."
+  },
+  {
+   "id": "claim-success-prob",
+   "kind": "claim",
+   "label": "claim-success-prob",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 3.2, extracted line 420",
+   "statement": "Conditional on index i the success probability is prod_{b=1}^t a_{i p_b} = w_i (empty product 1). Total success probability is W/m, and conditional on success the index has law w_i/W exactly."
+  },
+  {
+   "id": "claim-coupling",
+   "kind": "claim",
+   "label": "claim-coupling",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 3.2, extracted line 432",
+   "statement": "Until i_* is first selected, W/m >= 1/(2m), so at each such history the sampler fails with probability <=epsilon and otherwise follows the exact ideal pivot law. The real list contains i_* except with probability <= 2m/2^T + T epsilon."
+  },
+  {
+   "id": "claim-tournament-cost",
+   "kind": "claim",
+   "label": "claim-tournament-cost",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 3.2, extracted line 440",
+   "statement": "Stage t uses O(c(t+1)) queries per call; lem-3.1 uses O(sqrt(m) log(1/epsilon)) calls; the sum over t<T is O(c sqrt(m) T^2 log T), a fixed cap on every branch."
+  },
+  {
+   "id": "prop-3.2",
+   "kind": "claim",
+   "label": "prop-3.2",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 3.2, extracted line 363",
+   "statement": "Let m>=2, T=ceil(log_2(1000m)), epsilon=1/(1000T). For a coherent comparison circuit controlled by two candidate indices, reversible with all workspace retained, using at most c>=1 bit queries, with probabilities a_{ij} satisfying eq-10, there is a quantum algorithm making O(c sqrt(m) T^2 log T) queries on every branch and returning a list of at most T candidates such that, for every fixed oracle input and every i_* satisfying eq-11, the list contains i_* with probability >= 1-2m/2^T-T epsilon."
+  },
+  {
+   "id": "def-decode",
+   "kind": "claim",
+   "label": "def-decode",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 3.3, extracted line 452",
+   "statement": "decode(i): run the algorithm of lem-2.1.ii on each A_{i,h}, h in [r], with error <= epsilon/r, retaining workspace. Output a string in {0,1}^r on every input."
+  },
+  {
+   "id": "claim-decode-cost",
+   "kind": "claim",
+   "label": "claim-decode-cost",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 3.3, extracted line 456",
+   "statement": "decode uses O_k(r log(r/epsilon)) = (log m)^{O_k(1)} queries. If all r instances are defined, the address is correct with probability >=1-epsilon. Otherwise it still returns some address."
+  },
+  {
+   "id": "def-comparison",
+   "kind": "claim",
+   "label": "def-comparison",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 3.3, extracted line 466",
+   "statement": "Comparison of distinct columns, in sorted order: decode each in separate workspaces; read each column's pointer towards the other at its decoded address and inspect the pointed bit of the other's X string. A column disqualifies its opponent if that bit is 0. If exactly one disqualifies the other it is victorious, otherwise the smaller index. A self-comparison returns false without reading a pointer."
+  },
+  {
+   "id": "claim-comparison-state",
+   "kind": "claim",
+   "label": "claim-comparison-state",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 3.3, extracted line 472",
+   "statement": "The comparison uses c=(log m)^{O_k(1)} queries; its reversal costs the same. Measurement probabilities agree with the classical description, since later operations are controlled on the decoded registers in the computational basis. The resulting a_{ij} satisfy eq-10."
+  },
+  {
+   "id": "claim-winner-dominates",
+   "kind": "claim",
+   "label": "claim-winner-dominates",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 3.3, extracted line 477",
+   "statement": "If i_* is a winner then for every j != i_*, a_{i_* j} >= 1-epsilon, on every input, whether or not the opponent's instances are defined."
+  },
+  {
+   "id": "def-verify",
+   "kind": "claim",
+   "label": "def-verify",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 3.3, extracted line 483",
+   "statement": "verify(i): decode and measure an address s afresh. Let A prepare a uniform test index and an exact failing-test flag at (i,s), with K tests. Apply lem-3.1 with gamma=1/K and eta=epsilon. Reject if a failed test is found, otherwise accept. Output 1 iff some listed candidate is accepted."
+  },
+  {
+   "id": "claim-verify",
+   "kind": "claim",
+   "label": "claim-verify",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 3.3, extracted line 490",
+   "statement": "A non-winner is accepted with probability <=epsilon, at every address. A true winner is rejected with probability <=epsilon, only by decoding error. Verification costs O(sqrt(K) log(1/epsilon) log m) = sqrt(m)(log m)^{O_k(1)} queries for the search, plus decoding."
+  },
+  {
+   "id": "claim-error",
+   "kind": "claim",
+   "label": "claim-error",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 3.3, extracted line 497",
+   "statement": "On a 0-input the error is at most T epsilon. On a 1-input it is at most 2m/2^T + T epsilon + epsilon < 1/3."
+  },
+  {
+   "id": "claim-coherent-access",
+   "kind": "claim",
+   "label": "claim-coherent-access",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 3.3, extracted line 507",
+   "statement": "All superposed array accesses are ordinary bit queries. The global bit index is computed reversibly; a pointer is read in O(log m) queries; a controlled query uses load, use, unload, two queries."
+  },
+  {
+   "id": "prop-3.3",
+   "kind": "claim",
+   "label": "prop-3.3",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 3.3, extracted line 503",
+   "statement": "For every fixed k>=2, Q(F_{k,m}) <= sqrt(m) (log m)^{O_k(1)}."
+  },
+  {
+   "id": "claim-product-law",
+   "kind": "claim",
+   "label": "claim-product-law",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 4.1, extracted line 539",
+   "statement": "For a deterministic algorithm, at every transcript tau of positive probability, the conditional law of (U_1,...,U_r) given tau is a product of separate conditional laws, because the event of obtaining tau is a Cartesian product of constraints on each input."
+  },
+  {
+   "id": "def-value-V",
+   "kind": "claim",
+   "label": "def-value-V",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 4.1, extracted line 544",
+   "statement": "With q_h queries already made to U_h, V_h(tau) is the largest success probability for computing P(U_h) under its conditional law given tau using at most L-q_h further queries."
+  },
+  {
+   "id": "eq-16",
+   "kind": "claim",
+   "label": "eq-16",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 4.1, extracted line 549",
+   "statement": "If the next query at tau addresses U_h then E[V_h(tau') | tau] <= V_h(tau). The conditional laws and budgets of the other inputs do not change."
+  },
+  {
+   "id": "claim-supermartingale",
+   "kind": "claim",
+   "label": "claim-supermartingale",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 4.1, extracted line 554",
+   "statement": "E[prod_j V_j(tau') | tau] <= prod_j V_j(tau). The product is a supermartingale over at most rL queries."
+  },
+  {
+   "id": "claim-final-bound",
+   "kind": "claim",
+   "label": "claim-final-bound",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 4.1, extracted line 562",
+   "statement": "At the final transcript tau, Pr[chosen vector correct | tau] <= prod_h max_b Pr(P(U_h)=b | tau) <= prod_h V_h(tau)."
+  },
+  {
+   "id": "lem-4.1",
+   "kind": "claim",
+   "label": "lem-4.1",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 4.1, extracted line 528",
+   "statement": "Let P:D->{0,1}, D subset {0,1}^n, mu a distribution on D, L a nonnegative integer. Suppose every deterministic algorithm making at most L queries computes P under mu with success probability <=beta. If U_1,...,U_r are iid mu, every classical algorithm making at most L queries to each U_h, possibly randomized, adaptive among the r inputs, and given arbitrary additional information independent of (U_1,...,U_r), outputs (P(U_1),...,P(U_r)) with probability <=beta^r."
+  },
+  {
+   "id": "claim-minimax-mu",
+   "kind": "claim",
+   "label": "claim-minimax-mu",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 4.1, extracted line 586",
+   "statement": "If L<R(P), there is a distribution mu on dom P, which is in particular nonempty, such that every deterministic tree of depth <=L has success probability <=2/3 under mu."
+  },
+  {
+   "id": "eq-17",
+   "kind": "claim",
+   "label": "eq-17",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 4.2, extracted line 597",
+   "statement": "G = floor(mL/100)."
+  },
+  {
+   "id": "def-dummy",
+   "kind": "claim",
+   "label": "def-dummy",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 4.2, extracted line 600",
+   "statement": "Dummy input Y^(0): independently for each i, J_i uniform in [m], X_i has a single 0 at position J_i. All A_{i,h} are iid mu independent of the J_i. All cells B_{i,s} are one fixed blank pattern."
+  },
+  {
+   "id": "def-planted",
+   "kind": "claim",
+   "label": "def-planted",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 4.2, extracted line 604",
+   "statement": "I is uniform in [m] and independent of Y^(0). Y^(1) is Y^(0) with X_I:=1^m and B_{I,s_I} filled with the correct transcripts and pointers p_{I,s_I,j}=J_j for j != I."
+  },
+  {
+   "id": "claim-Y-values",
+   "kind": "claim",
+   "label": "claim-Y-values",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 4.2, extracted line 603",
+   "statement": "F_{k,m}(Y^(0))=0 and F_{k,m}(Y^(1))=1 for all sample points."
+  },
+  {
+   "id": "eq-18",
+   "kind": "claim",
+   "label": "eq-18",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 4.2, extracted line 613",
+   "statement": "For a deterministic algorithm with at most G queries, |Pr[outputs 1 on Y^(1)]-Pr[outputs 1 on Y^(0)]| <= Pr(the dummy run queries X_I[J_I]) + Pr(the dummy run queries any bit of B_{I,s_I})."
+  },
+  {
+   "id": "def-Z",
+   "kind": "claim",
+   "label": "def-Z",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 4.2, extracted line 618",
+   "statement": "Z is the number of columns whose zero is discovered in the dummy run."
+  },
+  {
+   "id": "claim-uniform-zero",
+   "kind": "claim",
+   "label": "claim-uniform-zero",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 4.2, extracted line 619",
+   "statement": "Before the zero in a column is found, its location is uniform among positions of that column not yet queried, conditional on the full adaptive transcript."
+  },
+  {
+   "id": "claim-EZ",
+   "kind": "claim",
+   "label": "claim-EZ",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 4.2, extracted line 632",
+   "statement": "E Z <= 4G/m: an early discovery (fewer than m/2 distinct positions queried in that column before it) has probability <=2/m per query, giving <=2G/m in expectation; any other discovery lies in one of at most 2G/m columns receiving >=m/2 queries."
+  },
+  {
+   "id": "eq-19",
+   "kind": "claim",
+   "label": "eq-19",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 4.2, extracted line 636",
+   "statement": "Pr(the dummy run queries X_I[J_I]) = E Z/m <= 4G/m^2."
+  },
+  {
+   "id": "def-heavy",
+   "kind": "claim",
+   "label": "def-heavy",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 4.2, extracted line 639",
+   "statement": "Column i is heavy if, over the entire dummy run, the algorithm makes more than L queries in total to A_{i,1},...,A_{i,r}. Repeats count."
+  },
+  {
+   "id": "eq-20",
+   "kind": "claim",
+   "label": "eq-20",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 4.2, extracted line 643",
+   "statement": "Pr(I is heavy) <= G/(mL)."
+  },
+  {
+   "id": "def-simulator",
+   "kind": "claim",
+   "label": "def-simulator",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 4.2, extracted line 647",
+   "statement": "Fix i and t in {1,...,G}. A simulator receives all of the dummy input outside A_{i,1},...,A_{i,r}, runs the deterministic algorithm up to its proposed t-th query, and aborts before an (L+1)st query to those r strings in total. If it reaches time t and the proposed query is to a cell B_{i,s}, it outputs s; otherwise it outputs a fixed vector."
+  },
+  {
+   "id": "eq-21",
+   "kind": "claim",
+   "label": "eq-21",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 4.2, extracted line 657",
+   "statement": "For each i and t: Pr(i is nonheavy and the t-th query is in B_{i,s_i}) <= (2/3)^r."
+  },
+  {
+   "id": "eq-22",
+   "kind": "claim",
+   "label": "eq-22",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 4.2, extracted line 663",
+   "statement": "Pr(the dummy run queries B_{I,s_I}) <= G/(mL) + G(2/3)^r."
+  },
+  {
+   "id": "eq-23",
+   "kind": "claim",
+   "label": "eq-23",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 4.2, extracted line 668",
+   "statement": "The output-probability difference is at most 4G/m^2 + G/(mL) + G(2/3)^r."
+  },
+  {
+   "id": "claim-tail",
+   "kind": "claim",
+   "label": "claim-tail",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 4.2, extracted line 673",
+   "statement": "G(2/3)^r <= (1/100) m^{2-20 log_2(3/2)} = o(1)."
+  },
+  {
+   "id": "claim-numeric",
+   "kind": "claim",
+   "label": "claim-numeric",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 4.2, extracted line 670",
+   "statement": "For m=4^t, r=40t, 1<=L<=m and G<=mL/100: 4G/m^2<=4/100, G/(mL)<=1/100, G(2/3)^r<=1/100, so eq-23 is at most 6/100<1/3."
+  },
+  {
+   "id": "prop-4.2",
+   "kind": "claim",
+   "label": "prop-4.2",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 4.2, extracted line 592",
+   "statement": "For each fixed integer k>=2 and every sufficiently large power of four m, R(F_{k,m}) > G=floor(mL/100), with L=floor(m^{1-1/k}/(log_2 m)^2)."
+  },
+  {
+   "id": "cor-R-omega",
+   "kind": "claim",
+   "label": "cor-R-omega",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 4.2, extracted line 682",
+   "statement": "For fixed k, R(F_{k,m}) = Omega_k(m^{2-1/k}/(log m)^2)."
+  },
+  {
+   "id": "claim-floor",
+   "kind": "claim",
+   "label": "claim-floor",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 5, extracted line 698",
+   "statement": "For sufficiently large m, floor((m/100) floor(m^{1-1/k}/(log m)^2)) >= c_k m^{2-1/k}/(log m)^2 after decreasing c_k>0."
+  },
+  {
+   "id": "claim-exponent-ratio",
+   "kind": "claim",
+   "label": "claim-exponent-ratio",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 5, extracted line 706",
+   "statement": "For fixed 0<=alpha<4 and integer k>=2 with 2-1/k>alpha/2: R(F_{k,m})/(1+Q(F_{k,m}))^alpha >= c_{k,alpha} m^{2-1/k-alpha/2}/(log m)^{2+alpha b_k}, which tends to infinity."
+  },
+  {
+   "id": "claim-no-smaller-exponent",
+   "kind": "claim",
+   "label": "claim-no-smaller-exponent",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 5, extracted line 703",
+   "statement": "For every 0<=alpha<4, alpha does not belong to the set in eq-1, because a suitable k exists with k > 1/(2-alpha/2)."
+  },
+  {
+   "id": "def-D",
+   "kind": "claim",
+   "label": "def-D",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section A, extracted line 725",
+   "statement": "D(f) is the least depth of a deterministic decision tree computing f exactly on every input."
+  },
+  {
+   "id": "def-deg",
+   "kind": "claim",
+   "label": "def-deg",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section A, extracted line 725",
+   "statement": "deg(f) is the degree of the unique real multilinear polynomial agreeing with f on the cube, with degree 0 for every constant function, including the zero function. With this convention it is unchanged by replacing input or output bits by signs."
+  },
+  {
+   "id": "def-bs",
+   "kind": "claim",
+   "label": "def-bs",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section A, extracted line 727",
+   "statement": "A nonempty B subset [n] is a sensitive block at x if flipping all bits of B changes f(x). bs(f) is the maximum over x of the number of pairwise disjoint sensitive blocks at x."
+  },
+  {
+   "id": "def-Gamma-i",
+   "kind": "claim",
+   "label": "def-Gamma-i",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section A, extracted line 743",
+   "statement": "For an input-indexed matrix Gamma, (Gamma_i)_{xy}=Gamma_{xy} 1{x_i != y_i}. Matrix norms are operator norms for the Euclidean norm."
+  },
+  {
+   "id": "claim-perron",
+   "kind": "claim",
+   "label": "claim-perron",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section A, extracted line 755",
+   "statement": "A nonzero real symmetric entrywise nonnegative Gamma has a nonnegative unit eigenvector v of eigenvalue ||Gamma||."
+  },
+  {
+   "id": "def-adv-progress",
+   "kind": "claim",
+   "label": "def-adv-progress",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section A, extracted line 757",
+   "statement": "W_t = sum_{x,y} v_x v_y Gamma_{xy} <psi_x^t | psi_y^t>, where psi_x^t is the purified state after t queries on input x."
+  },
+  {
+   "id": "claim-per-query",
+   "kind": "claim",
+   "label": "claim-per-query",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section A, extracted line 772",
+   "statement": "Each query changes W by at most: |W_{t+1}-W_t| <= 2 sum_i u_i^T Gamma_i u_i <= 2 max_i ||Gamma_i||, where u_i(x)=v_x ||phi_{x,i}||."
+  },
+  {
+   "id": "claim-final-overlap",
+   "kind": "claim",
+   "label": "claim-final-overlap",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section A, extracted line 786",
+   "statement": "If Pr[output 1] is <=1/3 on one state and >=2/3 on another, their overlap has absolute value <=2 sqrt(2)/3. Hence |W_final| <= (2 sqrt(2)/3)||Gamma||."
+  },
+  {
+   "id": "lem-A.2",
+   "kind": "claim",
+   "label": "lem-A.2",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section A, extracted line 739",
+   "statement": "Let f be a nonconstant total Boolean function, Gamma a nonzero real symmetric entrywise nonnegative input-indexed matrix with Gamma_{xy}=0 whenever f(x)=f(y). Then Q(f) >= c ||Gamma|| / max_i ||Gamma_i|| for an absolute constant c>0."
+  },
+  {
+   "id": "def-Sf",
+   "kind": "claim",
+   "label": "def-Sf",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section A, extracted line 794",
+   "statement": "S_f is the adjacency matrix on {0,1}^n of the graph joining inputs that differ in exactly one bit and have different f-values. lambda(f)=||S_f||."
+  },
+  {
+   "id": "lem-A.3.bs",
+   "kind": "claim",
+   "label": "lem-A.3.bs",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section A, extracted line 800",
+   "statement": "For nonconstant total f, bs(f)=O(Q(f)^2)."
+  },
+  {
+   "id": "lem-A.3.lambda",
+   "kind": "claim",
+   "label": "lem-A.3.lambda",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section A, extracted line 800",
+   "statement": "For nonconstant total f, lambda(f)=O(Q(f))."
+  },
+  {
+   "id": "lem-A.3",
+   "kind": "claim",
+   "label": "lem-A.3",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section A, extracted line 798",
+   "statement": "Conjunction of lem-A.3.bs and lem-A.3.lambda."
+  },
+  {
+   "id": "claim-restrict-parity",
+   "kind": "claim",
+   "label": "claim-restrict-parity",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section A, extracted line 818",
+   "statement": "With f in sign form and d=deg f>=1, restricting variables outside a degree-d monomial's support gives g on the d-cube with nonzero parity correlation. So for some sigma in {-1,1}, U={x:g(x)=sigma x_1...x_d} has |U|>2^{d-1}, and every cube edge inside U changes g."
+  },
+  {
+   "id": "def-huang",
+   "kind": "claim",
+   "label": "def-huang",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section A, extracted line 826",
+   "statement": "H'_1=[[0,1],[1,0]], H'_{j+1}=[[H'_j,I],[I,-H'_j]]. Its entrywise absolute value is the cube adjacency matrix."
+  },
+  {
+   "id": "claim-huang-spectrum",
+   "kind": "claim",
+   "label": "claim-huang-spectrum",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section A, extracted line 831",
+   "statement": "(H'_j)^2=jI, trace H'_j=0, so H'_d has eigenvalues +-sqrt(d), each of multiplicity 2^{d-1}."
+  },
+  {
+   "id": "claim-interlace",
+   "kind": "claim",
+   "label": "claim-interlace",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section A, extracted line 838",
+   "statement": "There is a nonzero v in the sqrt(d)-eigenspace supported on U; with u=|v|, u^T A_U u >= v^T H'_d v = sqrt(d)||u||^2."
+  },
+  {
+   "id": "lem-A.4",
+   "kind": "claim",
+   "label": "lem-A.4",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section A, extracted line 812",
+   "statement": "Every nonconstant total Boolean f satisfies deg(f) <= lambda(f)^2."
+  },
+  {
+   "id": "claim-round-block",
+   "kind": "claim",
+   "label": "claim-round-block",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section A, extracted line 852",
+   "statement": "In each round of the algorithm on input x, with S the selected maximum-degree monomial's support in the current restriction, the restriction to S with all other unqueried variables set as in x is nonconstant. So some nonempty subset of S is a sensitive block at x. Blocks of different rounds are disjoint."
+  },
+  {
+   "id": "lem-A.5",
+   "kind": "claim",
+   "label": "lem-A.5",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section A, extracted line 844",
+   "statement": "Every total Boolean f satisfies D(f) <= bs(f) deg(f)."
+  },
+  {
+   "id": "thm-A.1",
+   "kind": "claim",
+   "label": "thm-A.1",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section A, extracted line 731",
+   "statement": "Every total Boolean function satisfies R(f) <= D(f) = O((1+Q(f))^4), with an absolute constant."
+  },
+  {
+   "id": "claim-address-guess",
+   "kind": "claim",
+   "label": "claim-address-guess",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 4.1, extracted line 588",
+   "statement": "Under mu from claim-minimax-mu, for U_1,...,U_r iid mu, every classical algorithm making at most L queries to each U_h, given information independent of (U_1,...,U_r), outputs (P(U_1),...,P(U_r)) with probability <=(2/3)^r."
+  },
+  {
+   "id": "prop-4.2-generic",
+   "kind": "claim",
+   "label": "prop-4.2-generic",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 4.2, extracted line 592",
+   "statement": "Let m=4^t with t>=1 and r=40t. Let P be a partial function on km bits with an exact circuit C (d=1 iff defined, and d=1 implies b=P), and F the total function built from (P,C). If 1<=L<=m and L<R(P), then R(F)>floor(mL/100)."
+  },
+  {
+   "id": "claim-winner-fidelity",
+   "kind": "claim",
+   "label": "claim-winner-fidelity",
+   "status": "unverified",
+   "assumption_ids": [],
+   "evidence_ids": [
+    "fidelity_review"
+   ],
+   "citation_ids": [],
+   "source_id": "openai_preprint",
+   "locator": "Section 2.2, extracted line 264",
+   "statement": "Given the correctness half of lem-2.1.iii: WinsAt(y,i,s) iff X_i=1^m, every P(A_{i,h}) is defined, s=s_i, the transcripts in B_{i,s} are correct, and eq-8 holds. Hence exists s, WinsAt(y,i,s) is the paper's winner condition."
+  }
+ ],
+ "edges": [
+  {
+   "from": "def-partial-query",
+   "to": "def-R",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-partial-query",
+   "to": "def-Q",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-query-oracle",
+   "to": "def-Q",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-R",
+   "to": "eq-1",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-Q",
+   "to": "eq-1",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "prop-3.3",
+   "to": "eq-2",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "cor-R-omega",
+   "to": "eq-2",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-1",
+   "to": "thm-1.1",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-2",
+   "to": "thm-1.1",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "thm-A.1",
+   "to": "thm-1.1",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-exponent-ratio",
+   "to": "thm-1.1",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-no-smaller-exponent",
+   "to": "thm-1.1",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-exponent-ratio",
+   "to": "cor-cubic-refuted",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-log-convention",
+   "to": "def-walsh-sign",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-walsh-sign",
+   "to": "eq-3",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-3",
+   "to": "eq-4",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-partial-query",
+   "to": "eq-4",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-log-convention",
+   "to": "eq-5",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-5",
+   "to": "claim-bs-to-L",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-4",
+   "to": "lem-2.1.i",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-5",
+   "to": "lem-2.1.i",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-R",
+   "to": "lem-2.1.i",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-bs-to-L",
+   "to": "lem-2.1.i",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-3",
+   "to": "claim-proj-prob",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-4",
+   "to": "claim-proj-prob",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-query-oracle",
+   "to": "claim-proj-prob",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-proj-prob",
+   "to": "lem-2.1.ii",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-Q",
+   "to": "lem-2.1.ii",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-3",
+   "to": "claim-N-phi",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-walsh-sign",
+   "to": "claim-N-phi",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-N-phi",
+   "to": "claim-integer-tests",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-4",
+   "to": "claim-integer-tests",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-N-phi",
+   "to": "claim-circuit-size",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-transcript",
+   "to": "claim-circuit-size",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-integer-tests",
+   "to": "lem-2.1.iii",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-circuit-size",
+   "to": "lem-2.1.iii",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "lem-2.1.i",
+   "to": "lem-2.1",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "lem-2.1.ii",
+   "to": "lem-2.1",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "lem-2.1.iii",
+   "to": "lem-2.1",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-log-convention",
+   "to": "eq-6",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-6",
+   "to": "def-column-layout",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-transcript",
+   "to": "def-column-layout",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-transcript",
+   "to": "def-eval-transcript",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-4",
+   "to": "eq-7",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-column-layout",
+   "to": "eq-7",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-column-layout",
+   "to": "eq-8",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-win-at-address",
+   "to": "def-winner",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-winner",
+   "to": "def-F",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-column-layout",
+   "to": "def-F",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-winner",
+   "to": "cor-unique-winner",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-8",
+   "to": "def-win-at-address",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-eval-transcript",
+   "to": "def-win-at-address",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-column-layout",
+   "to": "def-win-at-address",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-6",
+   "to": "def-K",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "lem-2.1.iii",
+   "to": "def-K",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-win-at-address",
+   "to": "lem-2.2.i",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-K",
+   "to": "lem-2.2.i",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "lem-2.1.iii",
+   "to": "lem-2.2.i",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "lem-2.2.i",
+   "to": "lem-2.2.ii",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-coherent-access",
+   "to": "lem-2.2.ii",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "lem-2.2.i",
+   "to": "lem-2.2",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "lem-2.2.ii",
+   "to": "lem-2.2",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "lem-2.2.i",
+   "to": "cor-local-dichotomy",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-Q",
+   "to": "def-grover-trial",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-grover-trial",
+   "to": "claim-grover-state",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-sin2theta",
+   "to": "eq-9",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-grover-trial",
+   "to": "lem-3.1",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-grover-state",
+   "to": "lem-3.1",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-9",
+   "to": "lem-3.1",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-Q",
+   "to": "def-aij",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-log-convention",
+   "to": "def-T-eps",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-10",
+   "to": "eq-11",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-T-eps",
+   "to": "eq-11",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-10",
+   "to": "def-ideal-process",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-10",
+   "to": "eq-12",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-ideal-process",
+   "to": "eq-13",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-12",
+   "to": "eq-13",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-13",
+   "to": "claim-expected-WT",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-11",
+   "to": "claim-weight-lb",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-12",
+   "to": "claim-weight-lb",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-expected-WT",
+   "to": "eq-14",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-weight-lb",
+   "to": "eq-14",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "lem-3.1",
+   "to": "construct-sampler",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-aij",
+   "to": "construct-sampler",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-T-eps",
+   "to": "construct-sampler",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "construct-sampler",
+   "to": "eq-15",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-15",
+   "to": "claim-success-prob",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-12",
+   "to": "claim-success-prob",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-weight-lb",
+   "to": "claim-coupling",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-success-prob",
+   "to": "claim-coupling",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "lem-3.1",
+   "to": "claim-coupling",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-14",
+   "to": "claim-coupling",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "lem-3.1",
+   "to": "claim-tournament-cost",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "construct-sampler",
+   "to": "claim-tournament-cost",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-14",
+   "to": "prop-3.2",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-coupling",
+   "to": "prop-3.2",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-tournament-cost",
+   "to": "prop-3.2",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "lem-2.1.ii",
+   "to": "def-decode",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-6",
+   "to": "def-decode",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-T-eps",
+   "to": "def-decode",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-decode",
+   "to": "claim-decode-cost",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-decode",
+   "to": "def-comparison",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-column-layout",
+   "to": "def-comparison",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-comparison",
+   "to": "claim-comparison-state",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-decode-cost",
+   "to": "claim-comparison-state",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-10",
+   "to": "claim-comparison-state",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-coherent-access",
+   "to": "claim-comparison-state",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-comparison-state",
+   "to": "claim-winner-dominates",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-winner",
+   "to": "claim-winner-dominates",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-decode-cost",
+   "to": "claim-winner-dominates",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "lem-3.1",
+   "to": "def-verify",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "lem-2.2.ii",
+   "to": "def-verify",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-decode",
+   "to": "def-verify",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-verify",
+   "to": "claim-verify",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "cor-local-dichotomy",
+   "to": "claim-verify",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-decode-cost",
+   "to": "claim-verify",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "lem-3.1",
+   "to": "claim-verify",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "prop-3.2",
+   "to": "claim-error",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-verify",
+   "to": "claim-error",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-winner-dominates",
+   "to": "claim-error",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-query-oracle",
+   "to": "claim-coherent-access",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-column-layout",
+   "to": "claim-coherent-access",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "prop-3.2",
+   "to": "prop-3.3",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-winner-dominates",
+   "to": "prop-3.3",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-verify",
+   "to": "prop-3.3",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-error",
+   "to": "prop-3.3",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "lem-2.1.iii",
+   "to": "prop-3.3",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-comparison-state",
+   "to": "prop-3.3",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-R",
+   "to": "claim-product-law",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-product-law",
+   "to": "def-value-V",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-value-V",
+   "to": "eq-16",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-product-law",
+   "to": "eq-16",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-16",
+   "to": "claim-supermartingale",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-product-law",
+   "to": "claim-final-bound",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-value-V",
+   "to": "claim-final-bound",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-supermartingale",
+   "to": "lem-4.1",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-final-bound",
+   "to": "lem-4.1",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-R",
+   "to": "claim-minimax-mu",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-5",
+   "to": "eq-17",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-minimax-mu",
+   "to": "def-dummy",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-column-layout",
+   "to": "def-dummy",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-dummy",
+   "to": "def-planted",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-7",
+   "to": "def-planted",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-dummy",
+   "to": "claim-Y-values",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-planted",
+   "to": "claim-Y-values",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-F",
+   "to": "claim-Y-values",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "lem-2.1.iii",
+   "to": "claim-Y-values",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-planted",
+   "to": "eq-18",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-dummy",
+   "to": "def-Z",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-dummy",
+   "to": "claim-uniform-zero",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-Z",
+   "to": "claim-uniform-zero",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-uniform-zero",
+   "to": "claim-EZ",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-EZ",
+   "to": "eq-19",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-planted",
+   "to": "eq-19",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-dummy",
+   "to": "def-heavy",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-heavy",
+   "to": "eq-20",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-dummy",
+   "to": "def-simulator",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "lem-4.1",
+   "to": "def-simulator",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-simulator",
+   "to": "eq-21",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-heavy",
+   "to": "eq-21",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-address-guess",
+   "to": "eq-21",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-20",
+   "to": "eq-22",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-21",
+   "to": "eq-22",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-18",
+   "to": "eq-23",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-19",
+   "to": "eq-23",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-22",
+   "to": "eq-23",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-6",
+   "to": "claim-tail",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-17",
+   "to": "claim-tail",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-17",
+   "to": "claim-numeric",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-23",
+   "to": "claim-numeric",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-tail",
+   "to": "claim-numeric",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "prop-4.2-generic",
+   "to": "prop-4.2",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "lem-2.1.i",
+   "to": "prop-4.2",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "prop-4.2",
+   "to": "cor-R-omega",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-floor",
+   "to": "cor-R-omega",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-5",
+   "to": "claim-floor",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-17",
+   "to": "claim-floor",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-2",
+   "to": "claim-exponent-ratio",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-exponent-ratio",
+   "to": "claim-no-smaller-exponent",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-1",
+   "to": "claim-no-smaller-exponent",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-R",
+   "to": "def-D",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-Gamma-i",
+   "to": "claim-perron",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-perron",
+   "to": "def-adv-progress",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-Q",
+   "to": "def-adv-progress",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-adv-progress",
+   "to": "claim-per-query",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-Gamma-i",
+   "to": "claim-per-query",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-query-oracle",
+   "to": "claim-per-query",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-adv-progress",
+   "to": "claim-final-overlap",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-per-query",
+   "to": "lem-A.2",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-final-overlap",
+   "to": "lem-A.2",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-perron",
+   "to": "lem-A.2",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-Q",
+   "to": "lem-A.2",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-Gamma-i",
+   "to": "def-Sf",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "lem-A.2",
+   "to": "lem-A.3.bs",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-bs",
+   "to": "lem-A.3.bs",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "lem-A.2",
+   "to": "lem-A.3.lambda",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-Sf",
+   "to": "lem-A.3.lambda",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "lem-A.3.bs",
+   "to": "lem-A.3",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "lem-A.3.lambda",
+   "to": "lem-A.3",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-deg",
+   "to": "claim-restrict-parity",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-huang",
+   "to": "claim-huang-spectrum",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-huang-spectrum",
+   "to": "claim-interlace",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-restrict-parity",
+   "to": "claim-interlace",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-restrict-parity",
+   "to": "lem-A.4",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-interlace",
+   "to": "lem-A.4",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-Sf",
+   "to": "lem-A.4",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-bs",
+   "to": "claim-round-block",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-deg",
+   "to": "claim-round-block",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-round-block",
+   "to": "lem-A.5",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-D",
+   "to": "lem-A.5",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "lem-A.3",
+   "to": "thm-A.1",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "lem-A.4",
+   "to": "thm-A.1",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "lem-A.5",
+   "to": "thm-A.1",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-D",
+   "to": "thm-A.1",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-minimax-mu",
+   "to": "claim-address-guess",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "lem-4.1",
+   "to": "claim-address-guess",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-17",
+   "to": "prop-4.2-generic",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-dummy",
+   "to": "prop-4.2-generic",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-planted",
+   "to": "prop-4.2-generic",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-Y-values",
+   "to": "prop-4.2-generic",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-23",
+   "to": "prop-4.2-generic",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "claim-numeric",
+   "to": "prop-4.2-generic",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "def-win-at-address",
+   "to": "claim-winner-fidelity",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "eq-7",
+   "to": "claim-winner-fidelity",
+   "kind": "supports",
+   "evidence_ids": []
+  },
+  {
+   "from": "lem-2.1.iii",
+   "to": "claim-winner-fidelity",
+   "kind": "supports",
+   "evidence_ids": []
+  }
+ ],
+ "evidence": [
+  {
+   "id": "paper_hash",
+   "kind": "source_hash",
+   "status": "not_run",
+   "command": [],
+   "tool": "Pinned by revision; byte hash is recorded in the annex",
+   "source_ids": [
+    "openai_preprint"
+   ],
+   "subject_ids": [],
+   "details": "The preprint revision is pinned; this record is not a proof check."
+  },
+  {
+   "id": "fidelity_review",
+   "kind": "semantic_review",
+   "status": "not_run",
+   "command": [],
+   "tool": "Independent statement-fidelity reading not yet run",
+   "source_ids": [
+    "openai_preprint"
+   ],
+   "subject_ids": [],
+   "details": "AI readings exist in research/returns; none is an independent review."
+  }
+ ],
+ "scope": "Statement graph of the preprint, generated from the corrected ledger. Support edges are authored dependencies, not extracted Lean dependencies. A node is kernel_checked only through a reviewed tie and a Comparator receipt.",
+ "extraction_status": "not_run",
+ "notes": [
+  "Generated by tools/build_corpus.py; edit the inputs, not this file."
+ ]
+}

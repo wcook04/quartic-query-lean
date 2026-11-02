@@ -81,6 +81,8 @@ def placement(path):
     owner = p.parts[0]
     if owner == "research":
         return None if p.suffix.lower() in EVIDENCE_SUFFIXES else "research contains evidence and advisory notes; executable code belongs in tools or lean"
+    if owner == "corpus":
+        return None if p.suffix.lower() in {".json", ".md"} else "corpus contains statement records and receipts"
     if owner == "docs":
         return None if p.suffix.lower() in EVIDENCE_SUFFIXES | {".png", ".svg", ".jpg", ".jpeg", ".webp"} else "docs contains documentation and supporting assets"
     if owner in {"tools", "tests"}:
