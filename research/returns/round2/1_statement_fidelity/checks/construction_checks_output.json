@@ -1,0 +1,305 @@
+{
+  "status": "passed",
+  "verification_kind": "independent exact finite Python probes; no Lean run",
+  "forrelation": {
+    "k": 2,
+    "t": 1,
+    "m": 4,
+    "inputs": 256,
+    "phi_histogram": {
+      "-1": 8,
+      "-1/2": 96,
+      "0": 48,
+      "1/2": 96,
+      "1": 8
+    },
+    "promise_census": {
+      "true": 104,
+      "none": 104,
+      "false": 48
+    },
+    "named_witnesses": {
+      "positive": {
+        "signs": [
+          [
+            1,
+            1,
+            1,
+            -1
+          ],
+          [
+            1,
+            1,
+            1,
+            -1
+          ]
+        ],
+        "phi": "1",
+        "P": "some true"
+      },
+      "zero": {
+        "signs": [
+          [
+            1,
+            1,
+            -1,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            -1
+          ]
+        ],
+        "phi": "0",
+        "P": "some false"
+      },
+      "negative": {
+        "signs": [
+          [
+            -1,
+            1,
+            1,
+            1
+          ],
+          [
+            -1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "phi": "-1",
+        "P": "none"
+      }
+    },
+    "general_witness_finite_checks": [
+      {
+        "k": 2,
+        "t": 1,
+        "phi_values": [
+          "1",
+          "0",
+          "-1"
+        ]
+      },
+      {
+        "k": 3,
+        "t": 1,
+        "phi_values": [
+          "1",
+          "0",
+          "-1"
+        ]
+      },
+      {
+        "k": 4,
+        "t": 1,
+        "phi_values": [
+          "1",
+          "0",
+          "-1"
+        ]
+      },
+      {
+        "k": 5,
+        "t": 1,
+        "phi_values": [
+          "1",
+          "0",
+          "-1"
+        ]
+      },
+      {
+        "k": 6,
+        "t": 1,
+        "phi_values": [
+          "1",
+          "0",
+          "-1"
+        ]
+      },
+      {
+        "k": 7,
+        "t": 1,
+        "phi_values": [
+          "1",
+          "0",
+          "-1"
+        ]
+      },
+      {
+        "k": 8,
+        "t": 1,
+        "phi_values": [
+          "1",
+          "0",
+          "-1"
+        ]
+      },
+      {
+        "k": 2,
+        "t": 2,
+        "phi_values": [
+          "1",
+          "0",
+          "-1"
+        ]
+      },
+      {
+        "k": 3,
+        "t": 2,
+        "phi_values": [
+          "1",
+          "0",
+          "-1"
+        ]
+      },
+      {
+        "k": 4,
+        "t": 2,
+        "phi_values": [
+          "1",
+          "0",
+          "-1"
+        ]
+      },
+      {
+        "k": 5,
+        "t": 2,
+        "phi_values": [
+          "1",
+          "0",
+          "-1"
+        ]
+      },
+      {
+        "k": 6,
+        "t": 2,
+        "phi_values": [
+          "1",
+          "0",
+          "-1"
+        ]
+      },
+      {
+        "k": 7,
+        "t": 2,
+        "phi_values": [
+          "1",
+          "0",
+          "-1"
+        ]
+      },
+      {
+        "k": 8,
+        "t": 2,
+        "phi_values": [
+          "1",
+          "0",
+          "-1"
+        ]
+      },
+      {
+        "k": 2,
+        "t": 3,
+        "phi_values": [
+          "1",
+          "0",
+          "-1"
+        ]
+      },
+      {
+        "k": 3,
+        "t": 3,
+        "phi_values": [
+          "1",
+          "0",
+          "-1"
+        ]
+      },
+      {
+        "k": 4,
+        "t": 3,
+        "phi_values": [
+          "1",
+          "0",
+          "-1"
+        ]
+      },
+      {
+        "k": 5,
+        "t": 3,
+        "phi_values": [
+          "1",
+          "0",
+          "-1"
+        ]
+      },
+      {
+        "k": 6,
+        "t": 3,
+        "phi_values": [
+          "1",
+          "0",
+          "-1"
+        ]
+      },
+      {
+        "k": 7,
+        "t": 3,
+        "phi_values": [
+          "1",
+          "0",
+          "-1"
+        ]
+      },
+      {
+        "k": 8,
+        "t": 3,
+        "phi_values": [
+          "1",
+          "0",
+          "-1"
+        ]
+      }
+    ]
+  },
+  "toy_addressed_function": {
+    "ell": 1,
+    "r": 1,
+    "base_function": "identity on one bit",
+    "circuit_gates": [
+      "constant true",
+      "input bit"
+    ],
+    "domain_out": 0,
+    "value_out": 1,
+    "input_bits": 18,
+    "inputs_enumerated": 262144,
+    "accepted": 16384,
+    "accepted_by_winning_column": [
+      8192,
+      8192
+    ],
+    "expected_count_derivation": "Each column wins with probability (1/4)*(1/4)*(1/2)=1/32. The winning-column events are disjoint; total fraction is 1/16.",
+    "local_test_equivalence": "all 262144 inputs",
+    "winner_uniqueness": "all 262144 inputs",
+    "base_word": 12315,
+    "active_mutation_outputs": {
+      "winner_own_X_bit": false,
+      "winner_address_input": false,
+      "winner_active_pointer": false,
+      "winner_domain_gate": false,
+      "winner_value_gate": false
+    },
+    "irrelevant_mutation_outputs": {
+      "inactive_address_pointer": true,
+      "inactive_address_domain_gate": true,
+      "inactive_address_value_gate": true,
+      "other_column_address_input": true,
+      "other_column_cell_bit": true
+    }
+  }
+}

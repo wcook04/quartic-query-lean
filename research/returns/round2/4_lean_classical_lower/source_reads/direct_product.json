@@ -1,0 +1,311 @@
+{
+  "agent": "direct_product",
+  "scope": [
+    "claim-product-law",
+    "def-value-V",
+    "eq-16",
+    "claim-supermartingale",
+    "claim-final-bound",
+    "eq-17"
+  ],
+  "reads": [
+    {
+      "path": "packet/READ_ME_FIRST.md",
+      "extent": "full"
+    },
+    {
+      "path": "packet/BUILD_STATUS.md",
+      "extent": "parent initial context"
+    },
+    {
+      "path": "packet/repository/README.md",
+      "extent": "full"
+    },
+    {
+      "path": "packet/repository/docs/statement_evidence_contract.md",
+      "extent": "full"
+    },
+    {
+      "path": "packet/repository/corpus/README.md",
+      "extent": "full"
+    },
+    {
+      "path": "packet/paper/extracted.md",
+      "extent": "Section 4.1 and Section 4.2 through the lower-bound corollary, lines 510\u2013690"
+    },
+    {
+      "path": "packet/repository/corpus/statements.json",
+      "extent": "all records selected by six assigned IDs; exact full objects"
+    },
+    {
+      "path": "packet/repository/corpus/ties.json",
+      "extent": "searched assigned IDs; no direct ties for assigned rows"
+    },
+    {
+      "path": "packet/repository/research/adjudication/adjudication.json",
+      "extent": "matching findings around direct product and eq-17, including R1-AF-18 and R3-LA-06"
+    },
+    {
+      "path": "packet/repository/research/adjudication/funnel_adjudication.json",
+      "extent": "matching pending ties and findings for direct product and eq-17"
+    },
+    {
+      "path": "packet/repository/research/adjudication/funnel_adjudication_notes.md",
+      "extent": "matching direct-product and eq-17 passages"
+    },
+    {
+      "path": "packet/repository/docs/statement_fidelity_review.md",
+      "extent": "matching direct-product and eq-17 passages"
+    },
+    {
+      "path": "packet/repository/research/intake/statement_ledger_notes.md",
+      "extent": "searched direct-product row identifiers and terms"
+    },
+    {
+      "path": "packet/repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+      "extent": "full"
+    },
+    {
+      "path": "packet/repository/lean/QuarticQuery/LowerBound/Minimax.lean",
+      "extent": "full"
+    },
+    {
+      "path": "packet/repository/lean/QuarticQuery/Model/Classical.lean",
+      "extent": "full"
+    },
+    {
+      "path": "packet/repository/lean/QuarticQuery/Statement.lean",
+      "extent": "source output partially truncated; relevant classical model, construction and parameter definitions read"
+    },
+    {
+      "path": "packet/repository/lean/QuarticQuery/Paper/Section4.lean",
+      "extent": "full"
+    },
+    {
+      "path": "packet/repository/lean/QuarticQuery/Results/Exponent.lean",
+      "extent": "first 180 lines and Gvalue arithmetic matches"
+    },
+    {
+      "path": "packet/previous_round/1_long_reasoning_record/reasoning-record.md",
+      "extent": "CL-direct-product-statement through CL-independent-information, lines 1550\u20131660"
+    },
+    {
+      "path": "packet/previous_round/1_long_reasoning_record/NEW_STATEMENTS.json",
+      "extent": "matched objects NCL-weighted-value and NCL-finite-capped in full; other assigned-row matches searched"
+    },
+    {
+      "path": "packet/previous_round/1_long_reasoning_record/LEAN_GAPS.md",
+      "extent": "matching direct-product entries and full direct-product and minimax sections"
+    },
+    {
+      "path": "packet/previous_round/2_short_expert_paper/NEW_STATEMENTS.json",
+      "extent": "matching direct-product proposals"
+    },
+    {
+      "path": "packet/previous_round/2_short_expert_paper/LEAN_GAPS.md",
+      "extent": "assigned-row and direct-product matches searched"
+    },
+    {
+      "path": "packet/previous_round/3_examples_first_exposition/NEW_STATEMENTS.json",
+      "extent": "assigned-row and direct-product matches searched"
+    },
+    {
+      "path": "packet/previous_round/3_examples_first_exposition/LEAN_GAPS.md",
+      "extent": "assigned-row and direct-product matches searched"
+    },
+    {
+      "path": "packet/previous_round/4_forrelation_route_note/NEW_STATEMENTS.json",
+      "extent": "assigned-ID substring matches reviewed and rejected as unrelated new-eq-16/new-eq-17 notation"
+    },
+    {
+      "path": "packet/previous_round/4_forrelation_route_note/LEAN_GAPS.md",
+      "extent": "assigned-row and direct-product matches searched"
+    },
+    {
+      "path": "packet/previous_round/5_reader_and_film/NEW_STATEMENTS.json",
+      "extent": "assigned-row and direct-product matches searched"
+    },
+    {
+      "path": "packet/previous_round/5_reader_and_film/LEAN_GAPS.md",
+      "extent": "matching direct-product coverage passages"
+    },
+    {
+      "path": "packet/literature/quartic-ref-13-improved-direct-product-theorems-for-rando/extracted.md",
+      "extent": "full section containing Lemmas 3.1\u20133.2 and product proof, lines 140\u2013225; theorem model definitions"
+    },
+    {
+      "path": "packet/writing/the-deliverable.md",
+      "extent": "full"
+    }
+  ],
+  "web_sources": [
+    {
+      "url": "https://arxiv.org/abs/1005.0644",
+      "tool_ref": "turn0academia13",
+      "extent": "abstract and metadata via search"
+    },
+    {
+      "url": "https://www.pure.ed.ac.uk/ws/files/19272888/Drucker_2012_Improved_direct_product_theorems_for_randomized_query_complexity.pdf",
+      "tool_ref": "turn0search12",
+      "extent": "primary author manuscript section 3 excerpt including Lemmas3.1\u20133.2"
+    }
+  ],
+  "api_sources": {
+    "pin": "69552756cd8a2d2d48763cf7279fd814d6a1224d",
+    "files": [
+      "Mathlib/Algebra/Order/Floor/Semifield.lean",
+      "Mathlib/Algebra/Order/GroupWithZero/Basic.lean",
+      "Mathlib/Algebra/Order/BigOperators/Group/Finset.lean",
+      "Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean",
+      "Mathlib/Algebra/BigOperators/Group/Finset/Defs.lean",
+      "Mathlib/Algebra/BigOperators/GroupWithZero/Finset.lean",
+      "Mathlib/Order/Defs/PartialOrder.lean"
+    ],
+    "names_verified": [
+      "Nat.floor_div_eq_div",
+      "Finset.prod_div_distrib",
+      "Finset.add_sum_erase",
+      "Finset.single_le_sum",
+      "div_le_div_of_nonneg_right",
+      "List.mem_singleton.mp (usage in Mathlib)",
+      "Finset.prod_ne_zero_iff",
+      "lt_of_le_of_ne"
+    ]
+  },
+  "unavailable": [
+    "No Lean compiler; no fresh elaboration or kernel check."
+  ],
+  "not_claimed": "Full reading of the other packets, unrelated literature, writing guides other than the-deliverable, or every prior proposal beyond the two complete NEW_STATEMENTS files explicitly recorded in full_read_followup.",
+  "full_read_followup": {
+    "requested_by": "parent mandatory named-input follow-up",
+    "reads": [
+      {
+        "path": "packet/previous_round/1_long_reasoning_record/NEW_STATEMENTS.json",
+        "extent": "full; every line read in the listed nontruncated chunks",
+        "line_ranges": [
+          [
+            1,
+            190
+          ],
+          [
+            191,
+            380
+          ],
+          [
+            381,
+            570
+          ],
+          [
+            571,
+            760
+          ],
+          [
+            761,
+            950
+          ],
+          [
+            951,
+            1140
+          ],
+          [
+            1141,
+            1265
+          ],
+          [
+            1266,
+            1384
+          ]
+        ],
+        "line_count": 1384,
+        "byte_count": 110569,
+        "sha256": "d2964002bad5c1626a1e2c72ac301b7615373ad2576f9604d561dd10c7fe0ccd",
+        "entry_count": 46,
+        "supersedes": "Earlier selective-read extent for this path."
+      },
+      {
+        "path": "packet/previous_round/2_short_expert_paper/NEW_STATEMENTS.json",
+        "extent": "full; every line read in the listed nontruncated chunks",
+        "line_ranges": [
+          [
+            1,
+            160
+          ],
+          [
+            161,
+            320
+          ],
+          [
+            321,
+            480
+          ],
+          [
+            481,
+            617
+          ]
+        ],
+        "line_count": 617,
+        "byte_count": 41345,
+        "sha256": "491a2e6a0ec6d44a9c3e8504ae117ecbb9fff65875a541313b6404612e1f499f",
+        "entry_count": 11,
+        "supersedes": "Earlier selective-read extent for this path."
+      }
+    ],
+    "findings": [
+      {
+        "id": "NCL-finite-capped",
+        "status": "Residual generality helper beyond delivered finite-mixture theorem. Current source proves capped depth <= sum budgets, but not finiteness of the capped OutTree set or a measurable arbitrary-probability-space pushforward. This boundary is already disclosed."
+      },
+      {
+        "id": "NCL-strict-hard-distribution",
+        "status": "Prior prose proposal supplies a uniform strict margin below 2/3. Existing <=2/3 hard-distribution theorem suffices for the assigned direct-product and planted route; this strengthening remains unproved and is outside the six assigned rows."
+      },
+      {
+        "id": "NCL-erased-zero-mplusone",
+        "status": "Prior prose proposal sharpens 2G/m^2 to 2G/[m(m+1)]. Current returned planted route supplies the coefficient-2 bound and required coefficient-4 wrapper, with no optimality claim. This stronger optional estimate remains unproved."
+      },
+      {
+        "id": "NCL-explicit-floor",
+        "status": "Section 5 arithmetic proposal: (1/400)*m^(2-1/k)/(log_2 m)^2 <= Gvalue for k>=2,t>=8; relevant to exponent agent, no further direct-product row."
+      },
+      {
+        "id": "new-upper-log6",
+        "status": "Section 5 upper-bound input already represented in source by Fkm_forrCircuit_QLe/Q_Fkm_le and used by exponent work; no new direct-product obligation."
+      },
+      {
+        "ids": [
+          "new-dp-recursion",
+          "new-dp-weighted"
+        ],
+        "status": "Source subdistribution dynamic-programming/structural-induction route, already distinguished from the newly proposed conditional-value route."
+      },
+      {
+        "ids": [
+          "new-zero-search-two",
+          "new-planted-gap-two"
+        ],
+        "status": "Source coefficient-2 and one-sided discrepancy statements. Current returned planted proposals additionally supply actual random-A averaging and absolute discrepancy; no unaddressed assigned-row content discovered."
+      },
+      {
+        "ids": [
+          "new-fl-truncation",
+          "new-fl-stein",
+          "new-fl-path",
+          "new-fl-path-weight",
+          "new-fl-advantage",
+          "new-fl-moments",
+          "new-fl-gap"
+        ],
+        "status": "All fully read. These concern the separate Forrelation lower-bound development, including the entire acceptance-gap inequality and off-promise handling. They are not the six assigned Section 4 direct-product rows and are not claimed covered by ClassicalDirectProduct.lean."
+      }
+    ],
+    "lean_sources_edited_for_this_read_followup": false
+  },
+  "final_fidelity_followup": {
+    "added_declarations": [
+      "QuarticQuery.Paper.classical_transcript_mass_pos",
+      "QuarticQuery.Paper.classical_transcript_conditional_expectation"
+    ],
+    "reason": "Derive every local positive mass from positive actual transcript probability, and state the conditional product inequality directly under the actual-prefix conditional law.",
+    "compiler_validation": false
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "principal": "QuarticQuery.Paper.appendixA_D_le_Q_pow_four",
+  "full_A1": "QuarticQuery.Paper.appendixA_theoremA1",
+  "admissible_power": "QuarticQuery.Paper.appendixA_universalPower_four",
+  "constant": 1500625,
+  "A2": "QuarticQuery.Paper.appendixA_lemmaA2",
+  "A3": "QuarticQuery.Paper.appendixA_lemmaA3_adversary",
+  "A4": "QuarticQuery.Paper.appendixA4_paper_route",
+  "A5": "QuarticQuery.Paper.appendixA_lemmaA5",
+  "compiled": false,
+  "comparator": "not_run",
+  "dependency_closure": "not_extracted",
+  "direct_old_endpoint_invocation": false,
+  "local_route_substitutions": [
+    "Equal eigenspace multiplicities are proved by parity anticommutation; trace zero is separately proved.",
+    "The measurement-splitting overlap estimate is specialized through its squared form."
+  ],
+  "preserved_alternatives": [
+    "QuarticQuery.Paper.appendixA4",
+    "QuarticQuery.Paper.appendixA_lemmaA3",
+    "QuarticQuery.Paper.appendixA_D_le_Q_pow_four_hybrid"
+  ],
+  "original_imported_endpoint": "QuarticQuery.D_le_Q_pow_four",
+  "original_constant": 20736,
+  "hybrid_constant": 19600
+}

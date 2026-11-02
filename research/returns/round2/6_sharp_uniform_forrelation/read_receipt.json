@@ -1,0 +1,1215 @@
+{
+  "date": "2026-11-02",
+  "input_files": [
+    {
+      "filename": "Pasted text(20261102-145930-1).txt",
+      "sha256": "64b819ece1090db3f68db8853e899a241d328963c1ba70b689dee2a87b18d552",
+      "bytes": 202498
+    },
+    {
+      "filename": "quartic_r2_6_sharp_uniform_forrelation.zip",
+      "sha256": "96bab98ecc0bad6a8bcfbb700715915bb536f55a46b572a607ee34263fe1b4af",
+      "bytes": 4279787
+    }
+  ],
+  "scope": "Research return restricted to the uniform Forrelation task. Combined scope of the lead and three independent AI reviews. This is not a claim that every file in the attached repository or every proof in every annexed paper was audited.",
+  "governing_texts": [
+    {
+      "path": "READ_ME_FIRST.md",
+      "sha256": "19f4e78b60adf65df23fb61b3f8e972e64ff69392e1d70c6b76a2b25e520b65c",
+      "coverage": "Complete reading of this governing or directly relevant review text by the lead or a designated review agent."
+    },
+    {
+      "path": "BUILD_STATUS.md",
+      "sha256": "c87578a738d7cf6d6633a009c9b2265cf81077ec8ddc54cda79787943e89a2c7",
+      "coverage": "Complete reading of this governing or directly relevant review text by the lead or a designated review agent."
+    },
+    {
+      "path": "repository/README.md",
+      "sha256": "fe9fa9fd3203926de8a8f797e5cc68b0a2ce4aae8befd3afcad49998cd393528",
+      "coverage": "Complete reading of this governing or directly relevant review text by the lead or a designated review agent."
+    },
+    {
+      "path": "repository/docs/statement_evidence_contract.md",
+      "sha256": "91b5f297530d3a81a1d520755978a074a42c944424935c35256c5a4af4376ea4",
+      "coverage": "Complete reading of this governing or directly relevant review text by the lead or a designated review agent."
+    },
+    {
+      "path": "repository/corpus/README.md",
+      "sha256": "594e454df606d888998fc57460d0122bdf9c2c3159819b49b544ec88a8c2bc01",
+      "coverage": "Complete reading of this governing or directly relevant review text by the lead or a designated review agent."
+    },
+    {
+      "path": "repository/research/adjudication/funnel_adjudication_notes.md",
+      "sha256": "20d7dff60cf7858b68bdfbd2a4219cd29a73f96a4b0c38f8338401f035254624",
+      "coverage": "Complete reading of this governing or directly relevant review text by the lead or a designated review agent."
+    },
+    {
+      "path": "repository/research/adjudication/bansal_sinha_section54_second_reading.md",
+      "sha256": "22b75fc9602e895762b161bccbda47dc4538bd05724d6fd63ab7645f0be54070",
+      "coverage": "Complete reading of this governing or directly relevant review text by the lead or a designated review agent."
+    },
+    {
+      "path": "writing/the-deliverable.md",
+      "sha256": "5b234d4446bf4b7ac79c38586147730dc41370581daa38661326875d5b50951c",
+      "coverage": "Complete reading of this governing or directly relevant review text by the lead or a designated review agent."
+    },
+    {
+      "path": "writing/mathematical-writing-mechanics.md",
+      "sha256": "0ba857f70a724a2676f91b01e7ee95cc3518dcd261b53fec27b743935d1caa0f",
+      "coverage": "Complete reading of this governing or directly relevant review text by the lead or a designated review agent."
+    },
+    {
+      "path": "writing/full-exposition-guide.md",
+      "sha256": "c7baa3c8b195647b00cdd37c38c48b122371ce9c3cd92798e2e9d55f3d1c4eca",
+      "coverage": "Complete reading of this governing or directly relevant review text by the lead or a designated review agent."
+    },
+    {
+      "path": "writing/register-from-literature.md",
+      "sha256": "2278000b36133a13c0e83f785bdb2a89b94b8ed1927daeaf12d2b1ed30545d7d",
+      "coverage": "Complete reading of this governing or directly relevant review text by the lead or a designated review agent."
+    }
+  ],
+  "pasted_history": "Read relevant current instructions and prior Forrelation discussion. The historical text is context, not independent mathematical evidence.",
+  "preprint_reading": "Read the supplied OpenAI preprint definitions and Forrelation application in Section2, with existing statement records and source. Other total-function construction and quantum sections are outside this assigned review.",
+  "agent_receipts": {
+    "elementary": {
+      "agent": "elementary_lean",
+      "read_files": [
+        {
+          "path": "READ_ME_FIRST.md",
+          "sha256": "19f4e78b60adf65df23fb61b3f8e972e64ff69392e1d70c6b76a2b25e520b65c",
+          "bytes": 12920,
+          "lines": 77,
+          "read_scope": "full"
+        },
+        {
+          "path": "BUILD_STATUS.md",
+          "sha256": "c87578a738d7cf6d6633a009c9b2265cf81077ec8ddc54cda79787943e89a2c7",
+          "bytes": 3568,
+          "lines": 64,
+          "read_scope": "full"
+        },
+        {
+          "path": "repository/README.md",
+          "sha256": "fe9fa9fd3203926de8a8f797e5cc68b0a2ce4aae8befd3afcad49998cd393528",
+          "bytes": 4850,
+          "lines": 91,
+          "read_scope": "full"
+        },
+        {
+          "path": "repository/docs/statement_evidence_contract.md",
+          "sha256": "91b5f297530d3a81a1d520755978a074a42c944424935c35256c5a4af4376ea4",
+          "bytes": 2635,
+          "lines": 49,
+          "read_scope": "full"
+        },
+        {
+          "path": "repository/corpus/README.md",
+          "sha256": "594e454df606d888998fc57460d0122bdf9c2c3159819b49b544ec88a8c2bc01",
+          "bytes": 2443,
+          "lines": 44,
+          "read_scope": "full"
+        },
+        {
+          "path": "repository/docs/forrelation_lower_bound_blueprint.md",
+          "sha256": "09f8982dca087f9c434bfd9303a7ddb12f4620ff4431da64da9dbdaa1a191ec8",
+          "bytes": 12155,
+          "lines": 207,
+          "read_scope": "full"
+        },
+        {
+          "path": "repository/research/adjudication/funnel_adjudication_notes.md",
+          "sha256": "20d7dff60cf7858b68bdfbd2a4219cd29a73f96a4b0c38f8338401f035254624",
+          "bytes": 7688,
+          "lines": 65,
+          "read_scope": "full"
+        },
+        {
+          "path": "previous_round/4_forrelation_route_note/note.md",
+          "sha256": "9b4939b49a0caeece0f36935017a702727373d8ac09fb7a1af49a897c9ce2887",
+          "bytes": 32813,
+          "lines": 438,
+          "read_scope": "full"
+        },
+        {
+          "path": "previous_round/4_forrelation_route_note/quantitative.md",
+          "sha256": "e65d01e1358149a862bdc11d05cfeb79bf98b4a7cf7ee7e1a70d7784f260e4b2",
+          "bytes": 24355,
+          "lines": 520,
+          "read_scope": "full"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Statement.lean",
+          "sha256": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+          "bytes": 13769,
+          "lines": 331,
+          "read_scope": "full"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/ForrelationLower/Amplify.lean",
+          "sha256": "93f8e1c04768b8d01263f4a6b5a594b2d7b3334a1380432af6a33779109fc10a",
+          "bytes": 8095,
+          "lines": 176,
+          "read_scope": "full"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/ForrelationLower/Cascade.lean",
+          "sha256": "7dee22c71dd610f58567d5f0240128cbdd6a1a40ac30dd112594475ed3e76eaa",
+          "bytes": 17819,
+          "lines": 424,
+          "read_scope": "full"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/ForrelationLower/Cube.lean",
+          "sha256": "16db4f9b7e4e42029c839537075eff0ec0f6fd6261d4a8a038bec8566ce4e2fe",
+          "bytes": 14843,
+          "lines": 350,
+          "read_scope": "full"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/ForrelationLower/Main.lean",
+          "sha256": "2ca59c5ff156d0fbc520abbdd72c4fd9253e177dbb07a2ab79fe4cdd42c98cd9",
+          "bytes": 25663,
+          "lines": 545,
+          "read_scope": "full"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/ForrelationLower/Promise.lean",
+          "sha256": "2877dc60a4af03e98321ac9e47c501a63508936aa49e5018d280258b24862efb",
+          "bytes": 24897,
+          "lines": 576,
+          "read_scope": "full"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/ForrelationLower/Stein.lean",
+          "sha256": "ef92d26622d1962ad38eb3cea025b2ed8bc0aa31031784d1d47d82bd1adc8d99",
+          "bytes": 16681,
+          "lines": 393,
+          "read_scope": "full"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+          "sha256": "13614823a433518dea7138242182dc2abee1dbcdf0127157edf8cc9b6a756010",
+          "bytes": 38425,
+          "lines": 809,
+          "read_scope": "full"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+          "sha256": "95a37930a842ad0d41ad4b6c2f7d6c912489f888e5e6a56d226ff4bd76fdb463",
+          "bytes": 23452,
+          "lines": 485,
+          "read_scope": "full"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/ForrelationLower/Walk.lean",
+          "sha256": "063d2f1e6a752f4a37dca4b838a2b6dbc199a11e616d71d041e7af709cc1cc96",
+          "bytes": 25419,
+          "lines": 573,
+          "read_scope": "full"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Model/Classical.lean",
+          "sha256": "a820d0804ee722ee74eef97ea8efeb2a15da55107d6a908e35ba60ef39932e9e",
+          "bytes": 13701,
+          "lines": 362,
+          "read_scope": "targeted declarations RLe_R, R_le_of_RLe, lt_R_of_not_RLe and surrounding lines244-312"
+        }
+      ],
+      "unread": "External literature and other task sources assigned to parallel agents; no claim to have read them in this subtask",
+      "compiler_probe": {
+        "lean_in_path": false,
+        "lake_in_path": false,
+        "new_elaboration": "none"
+      }
+    },
+    "restriction": {
+      "agent": "restriction_sharp",
+      "created_date": "2026-11-02",
+      "files": [
+        {
+          "path": "READ_ME_FIRST.md",
+          "sha256": "19f4e78b60adf65df23fb61b3f8e972e64ff69392e1d70c6b76a2b25e520b65c",
+          "read_scope": "full"
+        },
+        {
+          "path": "BUILD_STATUS.md",
+          "sha256": "c87578a738d7cf6d6633a009c9b2265cf81077ec8ddc54cda79787943e89a2c7",
+          "read_scope": "full via inherited reading"
+        },
+        {
+          "path": "repository/README.md",
+          "sha256": "fe9fa9fd3203926de8a8f797e5cc68b0a2ce4aae8befd3afcad49998cd393528",
+          "read_scope": "full"
+        },
+        {
+          "path": "repository/docs/statement_evidence_contract.md",
+          "sha256": "91b5f297530d3a81a1d520755978a074a42c944424935c35256c5a4af4376ea4",
+          "read_scope": "full"
+        },
+        {
+          "path": "repository/corpus/README.md",
+          "sha256": "594e454df606d888998fc57460d0122bdf9c2c3159819b49b544ec88a8c2bc01",
+          "read_scope": "full"
+        },
+        {
+          "path": "previous_round/4_forrelation_route_note/note.md",
+          "sha256": "9b4939b49a0caeece0f36935017a702727373d8ac09fb7a1af49a897c9ce2887",
+          "read_scope": "full"
+        },
+        {
+          "path": "previous_round/4_forrelation_route_note/quantitative.md",
+          "sha256": "e65d01e1358149a862bdc11d05cfeb79bf98b4a7cf7ee7e1a70d7784f260e4b2",
+          "read_scope": "full"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/ForrelationLower/Cube.lean",
+          "sha256": "16db4f9b7e4e42029c839537075eff0ec0f6fd6261d4a8a038bec8566ce4e2fe",
+          "read_scope": "full"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/ForrelationLower/TreeGrowth.lean",
+          "sha256": "13614823a433518dea7138242182dc2abee1dbcdf0127157edf8cc9b6a756010",
+          "read_scope": "declaration inventory; two_point_exp_le and iterated derivative/growth definitions"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/ForrelationLower/Walk.lean",
+          "sha256": "063d2f1e6a752f4a37dca4b838a2b6dbc199a11e616d71d041e7af709cc1cc96",
+          "read_scope": "definitions and pointwise bounds; declaration inventory and identity endpoints"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/ForrelationLower/Cascade.lean",
+          "sha256": "7dee22c71dd610f58567d5f0240128cbdd6a1a40ac30dd112594475ed3e76eaa",
+          "read_scope": "path lists, injectivity, advantage theorem and proof"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/ForrelationLower/Promise.lean",
+          "sha256": "2877dc60a4af03e98321ac9e47c501a63508936aa49e5018d280258b24862efb",
+          "read_scope": "linear form machinery; PhiF, mass theorem, second moment and endpoint identities"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Forrelation/Product.lean",
+          "sha256": "f0ceced9021b45de546dfc01aadabde913f8ecdf1a0d085992c5b61b8a1ef425",
+          "read_scope": "matrix product and orthogonality section"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Forrelation/Walsh.lean",
+          "sha256": "e3eae0cf1455ef1471fd4f42458b324bbe3bfe1b1879989366ce476657653069",
+          "read_scope": "normalized Walsh orthogonality section"
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Statement.lean",
+          "sha256": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+          "read_scope": "classical models and Forrelation definitions"
+        },
+        {
+          "path": "literature/quartic-ref-23-an-optimal-separation-of-randomized-and-qu/source.tar.gz",
+          "sha256": "f16324a919208b0c7699615e76f7ac8ef5738e8061fc968796c8a463c9e4e46f",
+          "read_scope": "extracted; theorem labels and complete Fourier corollary proof inspected"
+        },
+        {
+          "path": "literature/quartic-ref-23-an-optimal-separation-of-randomized-and-qu/annex_notes.json",
+          "sha256": "ba9ae4b2b6fa64dda084925a07f6fa068cc847a11dabff1be4005dbc7fce6efa",
+          "read_scope": "full"
+        },
+        {
+          "path": "literature/quartic-lit-wu-xor-forrelation-stochastic-calculus/source.tar.gz",
+          "sha256": "245fed2f5f294dff3ef3a24324ee9104d7914c18268a756ba89b3aa2a19f858a",
+          "read_scope": "extracted; full main TeX and bibliography read"
+        },
+        {
+          "path": "literature/quartic-lit-wu-xor-forrelation-stochastic-calculus/annex_notes.json",
+          "sha256": "7fe2460e6132917a24ddc63826709c14d98d918070a0b5f2297c249c1c685586",
+          "read_scope": "full"
+        },
+        {
+          "path": "literature/quartic-ref-26-towards-optimal-separations-between-quantu/extracted.md",
+          "sha256": "33da3989bdd2b058b6bb525ad7d23db513e9a5de363d4ec7c23fed37dffa180a",
+          "read_scope": "Theorem5.1, Cor5.3, end of section1.3, AppendixB endpoint"
+        }
+      ],
+      "compiler_run": false,
+      "primary_web_sources": [
+        {
+          "url": "https://arxiv.org/pdf/2008.10223v4",
+          "locator": "printed35, Cor4.14 and4.15; checked PDF numbering",
+          "refs": [
+            "turn9view0",
+            "turn10view0"
+          ]
+        },
+        {
+          "url": "https://arxiv.org/abs/2109.02732",
+          "locator": "Lemma2.2, main TeX68–79; official abstract opened",
+          "refs": [
+            "turn4view1"
+          ]
+        },
+        {
+          "url": "https://arxiv.org/abs/1912.12561",
+          "locator": "Theorem5.1; official abstract opened",
+          "refs": [
+            "turn4view2"
+          ]
+        },
+        {
+          "url": "https://epubs.siam.org/doi/full/10.1137/22M1468943",
+          "locator": "publication metadata and abstract",
+          "refs": [
+            "turn4search1"
+          ]
+        }
+      ],
+      "limitations": [
+        "No new Lean elaboration or kernel run.",
+        "The SSW Fourier theorem is external and not present in the supplied Lean source.",
+        "Full original Tal TeX was not in the packet; selected PDF extraction was used.",
+        "This review did not independently reconstruct every tactic of the Gaussian chain; it used its mathematical identity after checking the local definitions and the supplied reconstruction."
+      ]
+    },
+    "source_audit": {
+      "schema": "scoped-source-read-receipt-v1",
+      "created_utc_date": "2026-11-02",
+      "reviewer": "AI agent /root/bansal_sinha",
+      "scope": [
+        "Independent algebraic audit of Bansal--Sinha full-preprint Section 5.4.",
+        "Derivation of the surviving multilevel logarithmic exponent and comparison with the single-block sharp-Fourier replacement.",
+        "Targeted source comparison with Tal and Sherstov--Storozhenko--Wu.",
+        "Proofreading of the final note and verification of its seven bibliographic entries."
+      ],
+      "read_contract": {
+        "full_packet_read": false,
+        "all_lean_modules_read": false,
+        "full_bs_branching_proof_independently_reproved": false,
+        "fresh_lean_compilation": false,
+        "comparator_run": false,
+        "independent_kernel_run": false,
+        "human_review": false,
+        "author_contact_or_confirmation": false,
+        "meaning_of_targeted": "Only the listed sections, declarations, or metadata were examined; no exhaustive reading claim is made.",
+        "bibliographic_checks_distinct_from_math_checks": true
+      },
+      "local_sources": [
+        {
+          "path": "input/READ_ME_FIRST.md",
+          "sha256": "19f4e78b60adf65df23fb61b3f8e972e64ff69392e1d70c6b76a2b25e520b65c",
+          "coverage": "complete",
+          "locators": [
+            "entire document"
+          ]
+        },
+        {
+          "path": "input/BUILD_STATUS.md",
+          "sha256": "c87578a738d7cf6d6633a009c9b2265cf81077ec8ddc54cda79787943e89a2c7",
+          "coverage": "complete",
+          "locators": [
+            "entire document; supplied build status only"
+          ]
+        },
+        {
+          "path": "input/repository/README.md",
+          "sha256": "fe9fa9fd3203926de8a8f797e5cc68b0a2ce4aae8befd3afcad49998cd393528",
+          "coverage": "complete",
+          "locators": [
+            "entire document"
+          ]
+        },
+        {
+          "path": "input/repository/docs/statement_evidence_contract.md",
+          "sha256": "91b5f297530d3a81a1d520755978a074a42c944424935c35256c5a4af4376ea4",
+          "coverage": "complete",
+          "locators": [
+            "entire document"
+          ]
+        },
+        {
+          "path": "input/repository/corpus/README.md",
+          "sha256": "594e454df606d888998fc57460d0122bdf9c2c3159819b49b544ec88a8c2bc01",
+          "coverage": "complete",
+          "locators": [
+            "entire document"
+          ]
+        },
+        {
+          "path": "input/repository/research/adjudication/bansal_sinha_section54_second_reading.md",
+          "sha256": "22b75fc9602e895762b161bccbda47dc4538bd05724d6fd63ab7645f0be54070",
+          "coverage": "complete",
+          "locators": [
+            "entire second-reading report"
+          ]
+        },
+        {
+          "path": "input/previous_round/4_forrelation_route_note/note.md",
+          "sha256": "9b4939b49a0caeece0f36935017a702727373d8ac09fb7a1af49a897c9ce2887",
+          "coverage": "complete",
+          "locators": [
+            "entire prior-round route note"
+          ]
+        },
+        {
+          "path": "input/literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.tar.gz",
+          "sha256": "f48a3225662484d12e19bf03412478cf87a388f7c2e33c69a4d7f2078202e015",
+          "coverage": "archive extracted; selected TeX sections read",
+          "locators": [
+            "main.tex lines 261--265: Theorem 1.3, label thm:lower",
+            "main.tex lines 275--278: Corollary 1.4, label cor:smallerr",
+            "main.tex lines 725--729: Theorem 3.1, label thm:input",
+            "main.tex lines 767--772: Theorem 3.2, label thm:level",
+            "main.tex lines 778--784: Theorem 3.3, Tal estimate",
+            "main.tex lines 790--795: Theorem 3.4, restriction transfer",
+            "main.tex lines 796--799: Corollary 3.5, biased tree Fourier growth",
+            "main.tex lines 1103--1118: level-six term for k=3, label eq:term6",
+            "main.tex lines 1166--1189: full Section 5.4",
+            "main.tex line 1173: equation (5.31), reciprocal discrepancy",
+            "main.tex line 1184: defective final Fourier comparison",
+            "generalk.tex: selected structural inspection only, not a complete branching-proof recheck"
+          ]
+        },
+        {
+          "path": "input/literature/quartic-ref-23-an-optimal-separation-of-randomized-and-qu/source.tar.gz",
+          "sha256": "f16324a919208b0c7699615e76f7ac8ef5738e8061fc968796c8a463c9e4e46f",
+          "coverage": "archive extracted; targeted TeX reading",
+          "locators": [
+            "quantum-classical-query.tex: introductory Theorem 1.9",
+            "quantum-classical-query.tex lines 2252--2273: label cor:main-Fourier-dt, printed Corollary 4.14",
+            "immediately following corollary and convexity proof: printed Corollary 4.15",
+            "Section 5, especially the rorrelation indistinguishability assembly"
+          ]
+        },
+        {
+          "path": "input/literature/quartic-ref-26-towards-optimal-separations-between-quantu/extracted.md",
+          "sha256": "33da3989bdd2b058b6bb525ad7d23db513e9a5de363d4ec7c23fed37dffa180a",
+          "coverage": "targeted extraction reading",
+          "locators": [
+            "main results and Section 1.3",
+            "Theorem 5.1, ordinary-tree Fourier growth",
+            "Forrelation/rorrelation comparison and Section 5.4"
+          ]
+        },
+        {
+          "path": "input/repository/lean/QuarticQuery/ForrelationLower/Walk.lean",
+          "sha256": "063d2f1e6a752f4a37dca4b838a2b6dbc199a11e616d71d041e7af709cc1cc96",
+          "coverage": "targeted declaration and proof reading",
+          "locators": [
+            "bias and path coefficient definitions",
+            "abs_wv_le_half",
+            "integral_walk",
+            "exists_identity",
+            "Int_eq_paths",
+            "abs_cf_le"
+          ]
+        },
+        {
+          "path": "input/repository/lean/QuarticQuery/ForrelationLower/Cascade.lean",
+          "sha256": "7dee22c71dd610f58567d5f0240128cbdd6a1a40ac30dd112594475ed3e76eaa",
+          "coverage": "targeted declaration and proof reading",
+          "locators": [
+            "zero-endpoint cascade",
+            "path distinctness and advantage interface"
+          ]
+        },
+        {
+          "path": "input/repository/lean/QuarticQuery/ForrelationLower/Promise.lean",
+          "sha256": "2877dc60a4af03e98321ac9e47c501a63508936aa49e5018d280258b24862efb",
+          "coverage": "targeted declaration and proof reading",
+          "locators": [
+            "Walsh normalization and promise bridge",
+            "psi_dphi_ge",
+            "uniform and hard-distribution moment interfaces"
+          ]
+        },
+        {
+          "path": "work/quartic_r2_6_return/note.md",
+          "sha256": "11c7f3bac684f7984c4b1a67805432f54d318c3a5dcf59585c4999bfe19441c4",
+          "coverage": "complete mathematical proofreading of this file version",
+          "locators": [
+            "all sections, with special attention to sharp inversion, finite probability gap, padded depth, Bansal--Sinha comparison, and small dimensions"
+          ]
+        }
+      ],
+      "external_sources": [
+        {
+          "work": "Bansal--Sinha",
+          "urls": [
+            "https://arxiv.org/abs/2008.07003",
+            "https://arxiv.org/pdf/2008.07003v3",
+            "https://arxiv.org/html/2008.07003v3",
+            "https://eccc.weizmann.ac.il/report/2020/127/",
+            "https://ir.cwi.nl/pub/30886/",
+            "https://ir.cwi.nl/pub/30886/30886.pdf"
+          ],
+          "coverage": "Version metadata; targeted full-preprint theorem and final-proof locations; targeted final conference paper comparison.",
+          "version": "arXiv v3, 17 November 2020; STOC 2021 conference publication",
+          "exact_locators": [
+            "Full preprint printed p. 38, Section 5.4, third inequality of final display.",
+            "Theorems 1.3, 3.1, 3.2, 3.3, 3.4; Corollary 3.5.",
+            "Conference PDF p. 1304, Theorem 1.3; final proof page 1316.",
+            "Conference version has no Section 5.4 and refers omitted arguments to the full version."
+          ],
+          "metadata_verified": {
+            "doi": "10.1145/3406325.3451040",
+            "pages": "1303--1316",
+            "year": 2021
+          },
+          "web_refs": [
+            "turn1view0",
+            "turn1view1",
+            "turn5view0",
+            "turn5view1",
+            "turn11view0",
+            "turn12view0",
+            "turn13view4"
+          ]
+        },
+        {
+          "work": "Sherstov--Storozhenko--Wu",
+          "urls": [
+            "https://epubs.siam.org/doi/10.1137/22M1468943",
+            "https://arxiv.org/pdf/2008.10223v4",
+            "https://arxiv.org/html/2008.10223v4"
+          ],
+          "coverage": "Publisher metadata and reference 31; targeted Fourier theorem and application; independent PDF/HTML numbering comparison.",
+          "version": "arXiv v4, 29 January 2023",
+          "exact_locators": [
+            "PDF printed p. 35: Corollaries 4.14 and 4.15, natural logarithm in formula.",
+            "PDF introductory Theorem 1.9: base-two logarithm convention.",
+            "HTML Section 4.5, displayed Corollaries 4.12 and 4.13: same formulas with different numbering.",
+            "Publisher reference 31: Tal DOI 10.1109/FOCS46700.2020.00030 and pages 228--239.",
+            "Publisher Information & Authors: volume 52, issue 2, pages 525--567, 2023."
+          ],
+          "metadata_verified": {
+            "doi": "10.1137/22M1468943",
+            "journal": "SIAM Journal on Computing",
+            "volume": 52,
+            "issue": 2,
+            "pages": "525--567",
+            "year": 2023
+          },
+          "web_refs": [
+            "turn19view0",
+            "turn19view3",
+            "turn20view0",
+            "turn20view1",
+            "turn20view2",
+            "turn20view4",
+            "turn20view5",
+            "turn21view0",
+            "turn21view1"
+          ]
+        },
+        {
+          "work": "Tal",
+          "urls": [
+            "https://arxiv.org/abs/1912.12561",
+            "https://www.cs.ucf.edu/courses/cot6410/Spring2021/SampleTopics/Quantum/CLAIMED_Thomas_RandomizedQueryComplexities.pdf",
+            "https://epubs.siam.org/doi/10.1137/22M1468943"
+          ],
+          "coverage": "Preprint metadata and supplied theorem extraction; conference PDF initially opened successfully; DOI cross-checked against primary SSW journal reference 31.",
+          "exact_locators": [
+            "Preprint Theorem 5.1 and Section 1.3",
+            "Conference pages 228--239",
+            "SSW reference 31"
+          ],
+          "metadata_verified": {
+            "doi": "10.1109/FOCS46700.2020.00030",
+            "conference": "FOCS 2020",
+            "pages": "228--239",
+            "year": 2020
+          },
+          "web_refs": [
+            "turn14search50",
+            "turn15view1",
+            "turn20view2"
+          ]
+        },
+        {
+          "work": "Girish--Tal--Wu",
+          "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.CCC.2021.39",
+          "coverage": "Primary publisher author, title, conference, volume, pages, DOI and BibTeX metadata.",
+          "exact_locators": [
+            "Publisher bibliographic record",
+            "Standard-tree source locator used in final note: Section 1.3 and Lemma 1.9"
+          ],
+          "metadata_verified": {
+            "authors": [
+              "Uma Girish",
+              "Avishay Tal",
+              "Kewen Wu"
+            ],
+            "doi": "10.4230/LIPIcs.CCC.2021.39",
+            "volume": 200,
+            "pages": "39:1--39:36",
+            "year": 2021
+          },
+          "web_refs": [
+            "turn15view3",
+            "turn16view7"
+          ],
+          "limitation": "This scoped receipt does not claim an independent full reading of the GTW proof."
+        },
+        {
+          "work": "Xinyu Wu",
+          "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.STACS.2022.60",
+          "coverage": "Primary publisher bibliography; comparison with the stated restriction-identity locator.",
+          "exact_locators": [
+            "Publisher BibTeX metadata",
+            "Lemma 2.2 is the restriction identity used in the final note"
+          ],
+          "metadata_verified": {
+            "author": "Xinyu Wu",
+            "doi": "10.4230/LIPIcs.STACS.2022.60",
+            "volume": 219,
+            "pages": "60:1--60:7",
+            "year": 2022
+          },
+          "web_refs": [
+            "turn15view4"
+          ],
+          "limitation": "This scoped receipt does not claim a complete rereading of Wu's paper."
+        },
+        {
+          "work": "Aaronson--Ambainis",
+          "url": "https://epubs.siam.org/doi/10.1137/15M1050902",
+          "coverage": "Primary publisher bibliography and contextual abstract only.",
+          "exact_locators": [
+            "Information & Authors: volume 47, issue 3, pages 982--1038, 2018"
+          ],
+          "metadata_verified": {
+            "doi": "10.1137/15M1050902",
+            "journal": "SIAM Journal on Computing",
+            "volume": 47,
+            "issue": 3,
+            "pages": "982--1038",
+            "year": 2018
+          },
+          "web_refs": [
+            "turn19view1",
+            "turn20view3"
+          ],
+          "limitation": "No independent validation of the general quantum-to-classical simulation claim is supplied."
+        },
+        {
+          "work": "OpenAI supplied preprint",
+          "coverage": "Bibliographic identity and final-note citation scope only in this subtask; parent owns direct supplied-PDF reading.",
+          "exact_locators": [
+            "Supplied preprint dated 5 October 2026; equations (3)--(5), Lemma 2.1(i)"
+          ],
+          "public_identifier_inferred": false,
+          "full_text_read_by_this_agent": false
+        }
+      ],
+      "numbering_corrections": [
+        {
+          "source": "Bansal--Sinha arXiv v3",
+          "correction": "Ingredients described as Theorems 4.1/4.2 and Corollary 4.5 in the supplied second reading are Theorems 3.1/3.2 and Corollary 3.5 in the audited v3."
+        },
+        {
+          "source": "SSW arXiv v4",
+          "authoritative_for_note": "PDF printed p. 35: Corollaries 4.14 and 4.15",
+          "html_labels": "Corollaries 4.12 and 4.13",
+          "reason_for_policy": "Use PDF numbering and specify the format, because HTML conversion numbering differs."
+        }
+      ],
+      "unavailable_or_incomplete": [
+        {
+          "resource": "https://doi.org/10.1145/3406325.3451040",
+          "observation": "Direct fetch returned 403 Forbidden.",
+          "fallback": "CWI institutional record and the final conference PDF were accessible and inspected."
+        },
+        {
+          "resource": "https://doi.org/10.1109/FOCS46700.2020.00030",
+          "observation": "Direct DOI destination was not accessible through the browsing tool.",
+          "fallback": "Conference PDF hosted at UCF initially opened successfully; the exact DOI and pages were also verified in primary SSW journal reference 31."
+        },
+        {
+          "resource": "https://www.cs.ucf.edu/courses/cot6410/Spring2021/SampleTopics/Quantum/CLAIMED_Thomas_RandomizedQueryComplexities.pdf",
+          "observation": "Initial open succeeded; subsequent find requests and a later reopen timed out.",
+          "fallback": "Retained initial source result and independently checked DOI in SSW publisher reference 31."
+        },
+        {
+          "resource": "literature/quartic-ref-26-towards-optimal-separations-between-quantu/source.tar.gz",
+          "observation": "No source archive was present in the supplied Tal directory.",
+          "fallback": "Supplied extracted.md and public preprint/conference metadata."
+        },
+        {
+          "resource": "Lean/compiler verification",
+          "observation": "This agent did not run Lean, Lake, Comparator, or an independent kernel.",
+          "fallback": "Source inspection and independent mathematical derivation only; BUILD_STATUS.md is treated as supplied evidence."
+        }
+      ],
+      "bounded_searches": [
+        {
+          "intent": "Look for a newer public Bansal--Sinha version or an author erratum/correction to Section 5.4.",
+          "result": "arXiv and ECCC records checked; no such correction was located by the targeted searches.",
+          "limitation": "This does not prove that no correction exists."
+        }
+      ],
+      "mathematical_findings": {
+        "bs_display": "Incorrect logarithmic comparison for each fixed k >= 3; full-sum counterexample provided.",
+        "surviving_multilevel_log_power": "1 - 1/[k(k-1)]",
+        "separate_reciprocal_typo": "Equation (5.31) prints delta^2/(4N), while the promise-mass input is 4/(N delta^2).",
+        "replacement_range": "m >= 8*32^(2k)*ln(8*18^(k-1)); the simpler m >= 24*k*32^(2k) suffices.",
+        "replacement_lower_bound": "eta^2/(162*e*C^2) * [m/(1+ln(k*m))]^(1-1/k)",
+        "all_dimension_claim": false,
+        "small_dimension_controls": [
+          "m=1, every k>=2: Phi is a product of signs, zero-promise set is empty, and the partial function is constant 1 on its domain.",
+          "m=2, k=2: Phi is always +/-1/sqrt(2), zero-promise set is empty at delta=32^(-2), and the partial function is constant 1 on its domain."
+        ],
+        "note_proofread_result": "No mathematical defect found within this review's scope. One abstract conditioning-direction wording issue was reported to the parent and is corrected in the file version hashed above."
+      },
+      "checks": [
+        {
+          "script": "work/agent_bansal/audit_checks.py",
+          "output": "work/agent_bansal/audit_checks_output.txt",
+          "type": "Exact rational constants, finite logarithmic-exponent checks, and an exact normalized k=3 counterexample.",
+          "limitation": "Finite arithmetic checks supplement universal algebraic derivations; they are not proof-assistant verification."
+        }
+      ],
+      "outputs": [
+        "work/agent_bansal/bansal_sinha_section54.md",
+        "work/agent_bansal/references.bib",
+        "work/agent_bansal/source_read_receipt.json"
+      ]
+    },
+    "context_screening": {
+      "schema_version": "1.0",
+      "created_utc": "2026-11-02",
+      "agent": "elementary_lean",
+      "purpose": "Supplemental literature and exemplar screening requested by parent; not mathematical reproof.",
+      "source_root": "work/quartic_r2_6_source",
+      "global_scope": [
+        "All five named extracted.md files were available and screened at the specified passages.",
+        "Four supplied source archives were consulted only for exact abstracts/statements.",
+        "All four named exemplar files were available and inspected at formatting/schema level.",
+        "No new external literature search was performed for this scoped follow-up.",
+        "No novelty claim is made or established.",
+        "None of these five papers was fully audited or re-proved in this follow-up.",
+        "The root note was not modified."
+      ],
+      "unavailable_items": [
+        {
+          "item": "Original AA PDF or source TeX for the supplied arXiv:1411.5729v1 extraction",
+          "status": "Not present in its supplied literature directory; the requested extracted.md is available and was read.",
+          "impact": "Retain version and PDF-text extraction caveats; no assertion of original layout verification."
+        }
+      ],
+      "entries": [
+        {
+          "path": "input/literature/arxiv-2103-11604/extracted.md",
+          "relative_path": "literature/arxiv-2103-11604/extracted.md",
+          "sha256": "55c19ab29df4e7b5953d1dd73d295a69b8fe3519b5aa2294aadcfbf8faf053b3",
+          "bytes": 129018,
+          "scope_read": {
+            "line_ranges": [
+              [
+                1,
+                104
+              ],
+              [
+                125,
+                161
+              ]
+            ],
+            "sections": [
+              "Introduction and Our Results",
+              "Theorems 1, 2, 4; Corollaries 3, 5, 6",
+              "Standard-decision-tree random-walk overview and Lemma 9"
+            ]
+          },
+          "relevance": "Girish–Tal–Wu supplies Fourier-growth context for parity and noisy decision trees, and an overview of the standard-tree martingale induction. Its displayed Forrelation applications retain polynomial losses in k; Corollary 5 proof records k^35. This is relevant prior-work context, not a substitute for the stronger SSW input or a proof of the present uniform constant.",
+          "not_audited": [
+            "Complete parity cleanup and Fourier-growth proofs",
+            "Complete noisy-tree proof",
+            "Other applications and references"
+          ],
+          "notes": [
+            "The Markdown extract begins at Introduction and omits the abstract; the exact abstract was read from supplied PDT.tex.",
+            "Theorems use n for input length, not the current note block-size symbol m."
+          ]
+        },
+        {
+          "path": "input/literature/quartic-ref-01-forrelation-a-problem-that-optimally-separ/extracted.md",
+          "relative_path": "literature/quartic-ref-01-forrelation-a-problem-that-optimally-separ/extracted.md",
+          "sha256": "3d4e3dc004cfcc018ddd31bc1d750395b31ab84b9accffd4b764db7f6934c8ab",
+          "bytes": 226240,
+          "scope_read": {
+            "line_ranges": [
+              [
+                1,
+                28
+              ],
+              [
+                87,
+                222
+              ]
+            ],
+            "sections": [
+              "Title/version and abstract",
+              "Our Results: Theorems 1–5 and k-fold Forrelation definition"
+            ]
+          },
+          "relevance": "Aaronson–Ambainis provides the original two-function and k-fold Forrelation setting and the conjectured optimal separation. The supplied version explicitly treats fixed query count in its simulation theorem; the hidden constant is not a uniform-in-k result. This screening does not validate the simulation proof or use it as an independent dependency.",
+          "not_audited": [
+            "Forrelation lower-bound proof",
+            "Gaussian distinguishing proof",
+            "Simulation proof and its later publication/correction history",
+            "BQP-completeness proof"
+          ],
+          "notes": [
+            "Supplied extract identifies arXiv:1411.5729v1, 21 November 2014.",
+            "PDF-to-text math layout is imperfect, especially square roots and superscripts. No later version was silently substituted.",
+            "The abstract and theorem statements are screened as statements of this supplied version, not independently certified claims."
+          ]
+        },
+        {
+          "path": "input/literature/quartic-lit-girish-forrelation-is-extremally-hard/extracted.md",
+          "relative_path": "literature/quartic-lit-girish-forrelation-is-extremally-hard/extracted.md",
+          "sha256": "e6d2880813575219bc1b86900037aa4cbcab43d9c0b772cec4e70ccc3a697b0c",
+          "bytes": 101141,
+          "scope_read": {
+            "line_ranges": [
+              [
+                65,
+                79
+              ]
+            ],
+            "selected_lines": [
+              218
+            ],
+            "sections": [
+              "Extremal promise definition",
+              "Theorem 4 and Corollary 5",
+              "Open-problem paragraph comparing adaptive bounds"
+            ]
+          },
+          "relevance": "Girish–Servedio proves a bounded-error randomized query lower bound of Ω̃(2^(n/4)) for the extremal promise forr=+1 versus forr=−1, with an exact one-query quantum algorithm. The randomized model permits adaptive queries. This differs from the present small-threshold k-fold promise and does not settle the present uniform-k constants.",
+          "not_audited": [
+            "Bent-function hard-distribution construction",
+            "Adaptive decision-tree lower-bound proof",
+            "Cryptographic consequence proof"
+          ],
+          "notes": [
+            "Exact abstract read from supplied main.tex because the Markdown extract starts at Introduction.",
+            "Do not describe this theorem as only nonadaptive.",
+            "Here n is the dimension of a Boolean-function argument; each truth table has 2^n bits."
+          ]
+        },
+        {
+          "path": "input/literature/quartic-lit-canonne-chen-mestre-quantumly-fast-classically-forrious/extracted.md",
+          "relative_path": "literature/quartic-lit-canonne-chen-mestre-quantumly-fast-classically-forrious/extracted.md",
+          "sha256": "26daa36da23b57be38d89c19f0c2c6e0b281107369cdde50a29d0e1d93bfb634",
+          "bytes": 132723,
+          "scope_read": {
+            "line_ranges": [
+              [
+                1,
+                17
+              ],
+              [
+                250,
+                264
+              ],
+              [
+                743,
+                753
+              ],
+              [
+                924,
+                929
+              ]
+            ],
+            "sections": [
+              "Introduction and informal Theorem 1",
+              "Formal Theorem 3",
+              "Upper-bound overview and adaptive-algorithm scope caveat"
+            ]
+          },
+          "relevance": "Canonne–Chen–Mestre proves a NONADAPTIVE extremal-Forrelation lower bound of 2^((1/2−O(1/sqrt(n)))n). Theorem 3 gives TV distance ≤ 2*binom(q,r+2)*M^(−r−1)+2*4^(r+1)*q/M, with M=2^(n/2). This is separate from an adaptive standard-tree uniform-k theorem. Its appendix sketches an adaptive Õ(2^(3n/8)) algorithm for its own construction, so dropping nonadaptivity is unjustified.",
+          "not_audited": [
+            "Bent-function distribution construction",
+            "Transcript and switching proofs",
+            "Proof of formal TV bound",
+            "Analysis of adaptive upper bound, explicitly omitted by the supplied paper",
+            "Generalized Simon result"
+          ],
+          "notes": [
+            "Exact abstract read from supplied main.tex.",
+            "The adaptive upper bound is described as a sketch by the authors and is recorded only as their scope qualification.",
+            "Do not read this result as resolving Girish–Servedio’s conjecture for adaptive extremal Forrelation."
+          ]
+        },
+        {
+          "path": "input/literature/quartic-lit-girish-fourier-spectrum-of-noisy-quantum-algorithms/extracted.md",
+          "relative_path": "literature/quartic-lit-girish-fourier-spectrum-of-noisy-quantum-algorithms/extracted.md",
+          "sha256": "ee1b8342ea2646d04fc2229a8bbb8d399b084445c068eeadcd3fccd55afbc9f7",
+          "bytes": 282691,
+          "scope_read": {
+            "line_ranges": [
+              [
+                1,
+                20
+              ],
+              [
+                95,
+                149
+              ],
+              [
+                265,
+                273
+              ]
+            ],
+            "sections": [
+              "Abstract and Introduction",
+              "Our Results: DQCk, half-BQP, BQP statements",
+              "DQCk Forrelation corollary"
+            ]
+          },
+          "relevance": "Fourier-growth bounds distinguish quantum resource models DQCk and half-BQP from BQP. Its half-BQP bounds concern particular signed Fourier sums at levels 3 and 6, not an unrestricted L1 Fourier bound. The exact TeX statements give DQC1 two-Forrelation hardness Ω̃(N^(1/6)) and polynomial three-Forrelation hardness for half-BQP. These are context for the method, not the standard randomized uniform-k theorem in this note.",
+          "not_audited": [
+            "Matrix decomposition lemma",
+            "DQCk and BQP Fourier-growth proofs",
+            "Signed half-BQP growth proofs",
+            "Oracle-separation proofs",
+            "Claims about optimality or novelty"
+          ],
+          "notes": [
+            "The Markdown extraction corrupts several macros, inequalities, subscripts and logarithms; exact theorem statements were read from intro.tex in the supplied archive.",
+            "The symbol k in DQCk counts clean qubits and is not the number of Forrelation blocks."
+          ]
+        },
+        {
+          "path": "input/literature/arxiv-2103-11604/source.tar.gz",
+          "relative_path": "literature/arxiv-2103-11604/source.tar.gz",
+          "sha256": "fa4612c9d0a67d270124efda9bb87903a71a330a9662b8c1c844167b4de836c8",
+          "bytes": 42311,
+          "scope_read": "Archive opened; only named member passages below were substantively read.",
+          "relevance": "Recover omitted abstracts or corrupted formulas from supplied primary TeX.",
+          "members": [
+            {
+              "member": "PDT.tex",
+              "sha256": "8551f01a68753c06d57cacb6debf0f0e968b5be05dde92d4c491279809d3f2d4",
+              "bytes": 121151,
+              "passages_read": [
+                {
+                  "locator": "abstract",
+                  "line_start": 199,
+                  "line_end": 210
+                }
+              ],
+              "entire_member_audited": false
+            }
+          ]
+        },
+        {
+          "path": "input/literature/quartic-lit-girish-forrelation-is-extremally-hard/source.tar.gz",
+          "relative_path": "literature/quartic-lit-girish-forrelation-is-extremally-hard/source.tar.gz",
+          "sha256": "1c3025b76eae52a4a6cd2483bf04aa9285f430b785dfcd2adb48bee1c7667108",
+          "bytes": 40061,
+          "scope_read": "Archive opened; only named member passages below were substantively read.",
+          "relevance": "Recover omitted abstracts or corrupted formulas from supplied primary TeX.",
+          "members": [
+            {
+              "member": "main.tex",
+              "sha256": "3db9ebeb4bce0457193e16185dff62424fd9ba61d4d2603944dfe9d98f60bcbb",
+              "bytes": 2215,
+              "passages_read": [
+                {
+                  "locator": "abstract",
+                  "line_start": 20,
+                  "line_end": 29
+                }
+              ],
+              "entire_member_audited": false
+            }
+          ]
+        },
+        {
+          "path": "input/literature/quartic-lit-canonne-chen-mestre-quantumly-fast-classically-forrious/source.tar.gz",
+          "relative_path": "literature/quartic-lit-canonne-chen-mestre-quantumly-fast-classically-forrious/source.tar.gz",
+          "sha256": "7e04187b685c6d9e81e3a68096a1d91bb180a28bd8658afaba42d6edd0c1f8df",
+          "bytes": 40773,
+          "scope_read": "Archive opened; only named member passages below were substantively read.",
+          "relevance": "Recover omitted abstracts or corrupted formulas from supplied primary TeX.",
+          "members": [
+            {
+              "member": "main.tex",
+              "sha256": "68f4a368bd811b07a75c96ea198443e62c59eeb800510528596455499427abc9",
+              "bytes": 128820,
+              "passages_read": [
+                {
+                  "locator": "abstract",
+                  "line_start": 75,
+                  "line_end": 77
+                }
+              ],
+              "entire_member_audited": false
+            }
+          ]
+        },
+        {
+          "path": "input/literature/quartic-lit-girish-fourier-spectrum-of-noisy-quantum-algorithms/source.tar.gz",
+          "relative_path": "literature/quartic-lit-girish-fourier-spectrum-of-noisy-quantum-algorithms/source.tar.gz",
+          "sha256": "ce2ec4436ead0951d268720972e85b6ef07ff3837efb154ad432aaa48e14094a",
+          "bytes": 92754,
+          "scope_read": "Archive opened; only named member passages below were substantively read.",
+          "relevance": "Recover omitted abstracts or corrupted formulas from supplied primary TeX.",
+          "members": [
+            {
+              "member": "main.tex",
+              "sha256": "7ef670b495c3ba9055ce04a4491d52187263e3e3f41df686117c0e603fc16c0e",
+              "bytes": 15557,
+              "passages_read": [
+                {
+                  "locator": "abstract",
+                  "line_start": 22,
+                  "line_end": 31
+                }
+              ],
+              "entire_member_audited": false
+            },
+            {
+              "member": "intro.tex",
+              "sha256": "f757758222cacf6929b193aefe2c7245ed9f10509381ef3abeb5213a3a65c772",
+              "bytes": 39431,
+              "passages_read": [
+                {
+                  "locator": "thm:main_theorem_dqck",
+                  "line_start": 152,
+                  "line_end": null
+                },
+                {
+                  "locator": "thm:main_theorem_hbqp",
+                  "line_start": 161,
+                  "line_end": null
+                },
+                {
+                  "locator": "thm:main_theorem_bqp",
+                  "line_start": 169,
+                  "line_end": null
+                },
+                {
+                  "locator": "cor:main_theorem_1_1",
+                  "line_start": 199,
+                  "line_end": null
+                },
+                {
+                  "locator": "cor:main_theorem_2",
+                  "line_start": 219,
+                  "line_end": null
+                }
+              ],
+              "entire_member_audited": false
+            }
+          ]
+        },
+        {
+          "path": "input/exemplars/short-paper.md",
+          "relative_path": "exemplars/short-paper.md",
+          "sha256": "4b34070c1152369eec9bef536de51f8929c68f3a851f291e962a0c51a3b31ebb",
+          "bytes": 59587,
+          "scope_read": {
+            "line_ranges": [
+              [
+                1,
+                20
+              ],
+              [
+                1015,
+                1043
+              ]
+            ],
+            "format_scan": "Title, first nine lines, all displayed section headings, separate Formal scope and References headings."
+          },
+          "relevance": "Formatting model: short theorem-focused prose, labelled passage anchors, an explicit formal-scope boundary, and source links. Its SK mathematics is unrelated and was not audited.",
+          "kind": "formatting_exemplar",
+          "not_audited": [
+            "SK analytic arguments",
+            "Bibliography correctness",
+            "Formal checking claims"
+          ]
+        },
+        {
+          "path": "input/exemplars/expository.md",
+          "relative_path": "exemplars/expository.md",
+          "sha256": "67d89307e8131e8c2ca1f21749dce062218534d1ac25d4c5860f2500e234e33f",
+          "bytes": 67972,
+          "scope_read": {
+            "line_ranges": [
+              [
+                1,
+                9
+              ],
+              [
+                1429,
+                1459
+              ]
+            ],
+            "format_scan": "Document title, displayed heading hierarchy, YAML header, sources-and-verification-scope section."
+          },
+          "relevance": "Formatting model: sequential explanation with optional calculations, separated source/verification scope, and source links. Its SK mathematics is unrelated and was not audited.",
+          "kind": "formatting_exemplar",
+          "not_audited": [
+            "SK analytic arguments",
+            "Bibliography correctness",
+            "Formal checking claims"
+          ]
+        },
+        {
+          "path": "input/exemplars/long-reasoning-record.md",
+          "relative_path": "exemplars/long-reasoning-record.md",
+          "sha256": "a19893f62d1211681ed0cb9cbb8bb454214d97f231f6a6d091b6f198fca35a89",
+          "bytes": 278844,
+          "scope_read": {
+            "line_ranges": [
+              [
+                1,
+                30
+              ]
+            ],
+            "format_scan": "First 45 displayed Markdown headings; title/date/source disclosure and overview passage anchor."
+          },
+          "relevance": "Formatting model: a detailed source-bound reasoning record, explicit reconstruction genre and stable passage anchors. Its SK and QAOA mathematics is unrelated and was not audited.",
+          "kind": "formatting_exemplar",
+          "not_audited": [
+            "Full document",
+            "SK and QAOA analytic arguments",
+            "Formal checking claims"
+          ]
+        },
+        {
+          "path": "input/exemplars/short-correspondence.json",
+          "relative_path": "exemplars/short-correspondence.json",
+          "sha256": "ea31b80e439953d8656d577aab47040525bb65952084d130b81d62bb48155487",
+          "bytes": 58027,
+          "scope_read": {
+            "format_scan": "Parsed JSON; read top-level key inventory, first passage object, review_state, and initial reading_links examples."
+          },
+          "relevance": "Formatting model: content/graph hashes, claim/citation/assumption IDs, passage-level hashes and rationales, review state, and cross-document reading links. This is a schema example, not evidence for the quartic theorem.",
+          "kind": "formatting_exemplar",
+          "not_audited": [
+            "Correctness of claim/citation maps",
+            "Hash correspondence to companion papers",
+            "Other passage rationales",
+            "Underlying SK and QAOA mathematics"
+          ]
+        }
+      ]
+    }
+  },
+  "independent_final_math_review": "# Hostile review of the final Forrelation note\n\n## Verdict\n\nThe mathematical argument in the reviewed draft checks after two changes already made during this review. No remaining error was found in the elementary constant, either dimension threshold, the sharp Fourier inversion, padding, variable-error amplification, zero-query handling, or the probability comparisons.\n\nThe review is mathematical and source-level. No Lean compiler was available, no elaboration was run, and the review does not certify every bibliography entry independently; the Bansal–Sinha and restriction/Fourier agents own those primary-source checks.\n\n## Issues found and resolved\n\n1. Before equation (17), the original draft said “jointly Gaussian variables whose marginal variances are one.” Variance one alone does not imply second moment one. This would be false for nonzero means. The current draft says **“with standard normal marginals,”** which is sufficient and matches the actual Gaussian chain.\n2. Lemma 11 originally allowed arbitrary real leaves in $[0,1]$. Its written proof is mathematically valid at that generality, but the source signature `sum_abs_ext_Dl_le` and the proposed specialisation use a Boolean-leaf `QueryTree` together with `v : Bool → ℝ`. The current draft narrows $T$ to values in $\\{0,1\\}$, so the stated lemma directly covers the applications without an additional formal generalisation.\n\nBoth corrections were observed in the current file before this receipt was written.\n\n## Mathematical checks\n\n### The scalar identity and chain\n\nThe derivative in (8), the identity $\\varphi=x\\psi-\\psi'$, the bound $|\\varphi|\\le1/2$, and the sharp product $\\psi(x)\\varphi'(y)\\le3/16$ all check. The polynomial certificate is exactly\n\n$$\n(2+u)^3-u(3+u)^2=8+3u.\n$$\n\nThe zero endpoint argument uses independent coordinates of each orthogonally transformed Gaussian layer and then conditional integration. The single-block derivative identity uses the repeated-coordinate derivative cancellation correctly. Each incoming derivative has already removed the coordinate through which a second differentiation could return to the current block. Accumulated path weights depend only on earlier Gaussian layers, so they are unaffected by the next integration by parts. The matrix indices agree with $V_j=HU_j$.\n\nThe general-orthogonal mean statement is mathematically justified. Applying the identity to the degree-$k$ Forrelation polynomial produces squared matrix entries, the layers are independent, and the squared path sum is $m$. Standard normal marginals suffice for the $1/18$ pair estimate; independence inside a pair is not assumed.\n\n### The new null tail and both thresholds\n\nConditioning on the first $k-1$ sign blocks leaves a Rademacher linear form in the final block, whose coefficient norm squared is exactly $1/m$. Thus the stated MGF and the two-sided bound\n\n$$\n\\Pr(|\\Phi_H|>u)\\le2e^{-mu^2/2}\n$$\n\nfollow with the exact factors used. At $u=\\delta/2$, the exponent is $-m\\delta^2/8$, as required.\n\nThe smaller threshold $m\\ge8\\,32^{2k}\\ln(8\\,18^{k-1})$ gives $q_*\\le a/4$ exactly. The integer threshold $m\\ge24k\\,32^{2k}$ implies it because $\\ln(8/a)<3k$. The old condition $m\\ge2^{15k+2}$ implies the integer condition by $6k\\le32^k$. These implications are valid for every $k\\ge2$, with no hidden eventual-$k$ qualifier.\n\nThe thresholds imply $\\sqrt m\\ge4$. Consequently $(3/16)/\\sqrt m\\le1/18$, which is the correct requirement for the elementary residual estimate.\n\n### Probability-gap bookkeeping\n\nBoth $q_M$ and $q_*$ are genuine upper bounds on the null exceptional mass. The stronger gap is correctly\n\n$$\n\\Gamma_*=(1-\\varepsilon)(p-q)-\\varepsilon,\n$$\n\nand differs from the original $\\Gamma=(1-\\varepsilon)p-\\varepsilon-q$ by $\\varepsilon q\\ge0$. The note now explicitly distinguishes the mass bounds from exact probabilities. The denominator $1-\\delta$ in $p$ is correct and positive, and $0<p<1$ holds for $k\\ge2$.\n\nThe elementary new-range gap is $175a/288$; the old Markov-range gap is $119a/144$. The sharp Fourier proof uses the separate choice $\\varepsilon\\le\\delta$ and obtains $11a/16$. Each inequality uses the right amplification regime.\n\nThe statements around (38) correctly describe the limit of the specified mass bounds. Because $p<1$, $q_M<p$ is equivalent to the displayed strict lower threshold for $m$. These statements do not imply that the problem is easy when a sufficient threshold fails; the note says this explicitly.\n\n### Elementary martingale proof\n\nThe centered variables have magnitude at most $2$. Adaptive fresh queries preserve their conditional centered law. Repeated queries and padding after early leaves contribute zero. The stopping time is determined before the potentially excessive increment, so the exponential inequality is used for an actual stopped martingale. The maximal one-sided bound, the two-sign union, the union over contracted coefficient arrays, and the induction factor $(4n)^r$ are valid.\n\nAt the leaf, unqueried centered coordinates integrate out. This yields the derivative sum as a terminal-chaos expectation and gives the correct residual\n\n$$\n(2n)^j(4n)^j e^{-2j\\ln(4n)}=2^{-j}.\n$$\n\nNo unjustified conditioning on a favorable future event occurs.\n\n### Amplification and zero depth\n\nThe majority tail with $2\\tau$ independent runs is $(1-\\eta^2)^\\tau$, including $\\eta=1$ via the separate exact-success case. Counting ties as errors is safe. For the original error $1/3$, this is exactly $(8/9)^\\tau$.\n\nAt zero depth, each deterministic constituent is input-independent, and so is the mixture's acceptance. A positive hard-versus-uniform gap is therefore impossible. This is enough to exclude $L=0$ without relying on an uncompiled zero-query helper. The use of the minimum query complexity presupposes a finite attaining algorithm, which is valid here and is supplied by `RLe_R` in the formal source.\n\n### Padding and numerical endpoint\n\nThe factor introduced by $d=50kL+1$ is bounded by $1+1/(50k)$ using $L\\ge1$. The binomial proof in (36) is correct. After taking the $k/2$ power, its contribution is at most $9/8$, uniformly in $k$.\n\nThe coefficient identity is\n\n$$\n800\\frac2{18225}=\\left(\\frac8{27}\\right)^2,\n\\qquad\\frac3{16}\\frac8{27}=\\frac1{18}.\n$$\n\nThe padded main term is at most $a/3$, the residual is at most $a/4$, and the total $7a/12$ is strictly below both promise-gap lower bounds. This proves a strict inequality for the integer minimum $R$.\n\n### Sharp Fourier inversion\n\nThe restriction free-probability factor is $\\frac14(\\frac34)^{k-2}$. Combined with $(3/16)^{k-1}$ it gives $3/4^{k-1}$, exactly as in (29). The binomial estimate gives $k/(2e\\tau C^2)$ in (30); no extra factor $k$ or $k!$ is missing.\n\nFor $\\tau=\\lceil5k\\ln2/\\eta^2\\rceil$, the upper bound $\\tau<4k/\\eta^2$ and the error bound $\\varepsilon\\le\\delta$ hold. The root identity (33) is correct:\n\n$$\n\\left(\\frac{\\alpha a4^{k-1}}3\\right)^{2/k}\n=\\frac4{81}\\left(\\frac{3\\alpha}2\\right)^{2/k}.\n$$\n\nAt $\\alpha=11/16$, the final factor is $(33/32)^{2/k}\\ge1$. The coefficient therefore remains $1/(162eC^2)$ after the threshold reduction. The total-input-length rewriting and the Tal-only $k^{-1}$ comparison are algebraically correct.\n\n## Exact arithmetic executed\n\nA Python standard-library calculation using `Fraction` confirmed the numerical identities and inequalities for the kernel polynomial, $800(2/18225)$, $18\\cdot8^{25}<9^{25}$, the padding comparison, all three gap fractions, the $7/288$ new-range margin, the 256-fold improvement, and the Taylor certificates for $\\ln18<3$ and $\\ln2<7/10$. Universal claims were checked by the proofs above, not inferred from a finite sample.\n\n## Formal-status wording\n\nThe formal-status section correctly says that the source exports a mean-value identity and that the integral identity is reconstructed here. It does not claim compilation of `Uniform.lean`, the sharp endpoints, the new tail, the restriction transfer, variable-error amplification, or the external SSW theorem. No misleading newly checked claim was found.\n\n## Signature audit\n\nThe 15 blocks in my owned blueprint use existing source vocabulary in their types. The proposed theorem names are new by design; no undefined helper definition is introduced into a type. In particular, variable-error amplification quantifies over `RandomizedProgram` instead of inventing a missing `RLeEta`; all expectations use existing `ext`, `wv`, `gP`, `PhiF`, and `H`. The indicator declarations need classical decidability available, as explained next to them. They remain unelaborated and are not guaranteed to compile without binder or notation adjustments. No mathematical type correction was required in the owned blueprint during this pass.\n\nReviewed file SHA-256: `11c7f3bac684f7984c4b1a67805432f54d318c3a5dcf59585c4999bfe19441c4`.\n",
+  "verification": {
+    "arithmetic": "checks.py uses only standard-library integers and fractions; analytic inequalities are proved symbolically in note.md.",
+    "lean": "No Lean/Lake executable was available in PATH. No compilation or external kernel was run.",
+    "metadata": "Passage anchors, endpoints, IDs, required files and JSON schema checked by checks.py.",
+    "novelty": "No priority or novelty claim follows from the targeted public searches."
+  },
+  "limitations": [
+    "The full SSW Fourier proof is imported as a published theorem, not independently re-proved or formalized here.",
+    "No independent complete re-audit of the Bansal–Sinha branching-process analysis was performed; the decisive final assembly was checked directly in TeX.",
+    "Tal source.tar.gz was not present; its supplied text extraction and primary published records were used.",
+    "Aaronson–Ambainis original PDF/TeX was absent from its annex directory; its supplied versioned extract was screened for context only.",
+    "Exemplar papers were inspected for form and mapping schema, not their unrelated mathematics.",
+    "No author correspondence, mailbox, account connection, or human review was performed."
+  ]
+}

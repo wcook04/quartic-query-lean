@@ -1,0 +1,479 @@
+{
+  "review_date": "2026-11-02",
+  "packet": "quartic_r2_5_lean_appendix_a",
+  "inputs": [
+    {
+      "file": "Pasted text(20261102-145930-3).txt",
+      "sha256": "64b819ece1090db3f68db8853e899a241d328963c1ba70b689dee2a87b18d552",
+      "bytes": 202498
+    },
+    {
+      "file": "quartic_r2_5_lean_appendix_a.zip",
+      "sha256": "db8793727f590f07fbbffacaf98ee2f6f18b9ea1628205fdc223bca2111ce7f2",
+      "bytes": 4466872
+    }
+  ],
+  "repository_commit": "4c7544f8dcdfc18d3ecf8476ebd8c1090cd46f15",
+  "source_paper": "openai/math 4eaee875",
+  "expected_toolchain": "leanprover/lean4:v4.36.0-rc2",
+  "source_pins": {
+    "complexitylib": {
+      "repository": "https://github.com/cslib-community/complexitylib",
+      "commit": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a"
+    },
+    "cslib": {
+      "repository": "https://github.com/leanprover/cslib",
+      "commit": "254e30e6d4299c51323aaeaf5f51a4763b375d4a"
+    },
+    "mathlib": {
+      "repository": "https://github.com/leanprover-community/mathlib4",
+      "commit": "69552756cd8a2d2d48763cf7279fd814d6a1224d"
+    }
+  },
+  "input_manifest_validation": {
+    "entries": 356,
+    "mismatches": [],
+    "passed": true
+  },
+  "packaged_complexitylib_comparison": [
+    {
+      "file": "Complexity/Computability/QueryComplexity/ApproximateDegree/Or.lean",
+      "sha256": "2ab004c815a19a24c38cc2d67042a58b8b2c380339b81760efb4e9ea30b1d424",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/ApproximateDegree.lean",
+      "sha256": "81eca71146fab7bc2ccaf8e55ed749d47ce3a0357ffe1d34e7ed70744abcd233",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/Degree.lean",
+      "sha256": "5d746b37eb5a0ed2e9c4d1b984dc26313e90976be6077b92921d2ce4eef53b53",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/Huang.lean",
+      "sha256": "5a83d43de6eb44c4df61f60f08e8b5314f6cbdb169cf28e2774c58d4e454909c",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/Midrijanis.lean",
+      "sha256": "d35fc5e2709691ad1b5c104a33ae38c3fe7a83a980dab3b37a09ddfb4c39ed90",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/Monotone.lean",
+      "sha256": "c62789dac086fcaa16a7db0266fad9b411e8f0f8fce1bb2484f20f286d83191a",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/NisanSzegedy.lean",
+      "sha256": "f59ddb3454ac90142ef18f56c5e2fa11ddacd60fc255ca42f4e33118bbd4a21d",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/OneSided.lean",
+      "sha256": "caa551063e7c80da5d21f4dee81d358a363cf601f47129231a483e610222b36e",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/Quantum/Adversary.lean",
+      "sha256": "6b941c7daa0184ac46bf1f599c0211218981bf385b65c20424eefe3298246c7d",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/Quantum/Composition.lean",
+      "sha256": "3d4dd12505d7485d4b18ddbf5898ef62b489aca500417410ac0d750fe2eaf517",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/Quantum/Grover.lean",
+      "sha256": "95c8408db5afc3485909c56d47dcc149b3d81c7ba29d5db64731af127c89b5c2",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/Quantum/Polynomial.lean",
+      "sha256": "0323e359ee2eecfe0bca7c16e59bdd6489d8a80ca0963ca1960999fc73b09cc1",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/Quantum/Search.lean",
+      "sha256": "fd07f6dad412578e7cf52fcaffea0a649421f068b07acc5c2ac92dc52d47f521",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/Quantum/UnknownSearch.lean",
+      "sha256": "a579d2cc08d3c3f97a6da23530056e4e7d4d0782f1133af7d4ae103feae657f5",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/Randomized/Nisan.lean",
+      "sha256": "f7ef4fda3c55d974b6c7f9c4c1e85035c2b0e48a3f18ef7f0ff3302330f19a28",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/Randomized.lean",
+      "sha256": "4cc4974c8e470740678af463945f12b16d93e4639a91dc5f926c56b58fc31f57",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/Relations.lean",
+      "sha256": "a4971d147d7323a48bf681b2df252b9012152543d680574840e1c04c83fae7fa",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/Restriction.lean",
+      "sha256": "b25ac20101a966826a63c5cee7a0fc7ccc16b16aacf38ac34abcd6d877fd3533",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivityBounds.lean",
+      "sha256": "ebdff6f3c9692b8705d60f8464f21b4d8b62f0aadc2a5922432dcf8fe061ca82",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/Basic.lean",
+      "sha256": "9d8ec0a438c76cf24dcc000b483eabe36289d5a629a29a93b2e712a21b42ba58",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/Bridge.lean",
+      "sha256": "7b7d202b6fdee6dd6922dacc6272565d2108a167050c3bd8dbaee5d18a6a09f1",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/Composition.lean",
+      "sha256": "ff6e823767d2de1038b18bd1bfdd31b634179a69e233bb8d7f24b13c8e3bfaa4",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/ConstructedSeed.lean",
+      "sha256": "36e85475237a8e9ae90b6e3dfc2e9c2533d051596132ea4b73b24d9f6e29fe0e",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/Construction.lean",
+      "sha256": "77a289056e1fe325c6b3d4b10d01543009c79fe5e16b9c536b6cf249498ee7b4",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/Defs.lean",
+      "sha256": "dbbda8890d14211e61514f7238bdbc91e8278575be3c3397fcc3506d20b2969d",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/FixedCoordinates.lean",
+      "sha256": "868ba33a6a6bcd8f1972bb50b40608dc2236248c116e6c2194b2a9b16bd283ee",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/HammingBase.lean",
+      "sha256": "2216ee69e2ec1bf50e86a384b768ed6c87698c59e28e9191e548a4ff19981c74",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/InitialPredicates.lean",
+      "sha256": "a102ac4c445ccd425e7981c5cc3854c88f9058957c29cd7852f95e080d87653a",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/Iterates.lean",
+      "sha256": "294848c1213107e52c6e37cab6619d4be134c2c00a074068156d6d753b4595c6",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/Labeling.lean",
+      "sha256": "a9b88e34fa8b00827ed6ccd211a1856d6ac4a5df8fa3f3a1e2aeeede3d0d77e4",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/LabelingBounds.lean",
+      "sha256": "1aad3b9daf52163cd931599119363d3827f493ba9cbf1c8bc9e2168a4ad8195f",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/LabelingConstraints.lean",
+      "sha256": "6b0d4a38d4f4e664903b73cab5a392b97f73de3cdce25e2ff53f3699c78cf71d",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/LabelingEstimate.lean",
+      "sha256": "566f83e962f91da1baf36c70389f3a13b370fee2a06f3e589a00f7a3e6ab68d2",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/LabelingEvents.lean",
+      "sha256": "da21246eb5a472133db305de598f6ac151e708d8205630ca8b839032ca49606c",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/Or.lean",
+      "sha256": "dab9ef3acc4b4976fd6e952f7d1f5f1ccdde6d827956a4bda90d053e2651f066",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/ParameterBounds.lean",
+      "sha256": "5f06baa37a955c318b9a14871bdce428b8e755e759bd4d8e930932c11473d0b4",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/PowerAmplification.lean",
+      "sha256": "5ba96894a261c8903467d936c6f8abc38fa95ea82580e9ee5a2ba99136ccc7f6",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/ProfileArithmetic.lean",
+      "sha256": "4fdcf431f089a2d7d4fb595a4d71451802ca529be00c3d4de30d270eb26a4237",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/QuantitativeProfiles.lean",
+      "sha256": "4df50507689eed38b4730aa9e458f022f976ddde94b371497579388ed61c06f3",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/Recursive.lean",
+      "sha256": "d6b828e69856310d3a07c7c3da7bfce8576ce5ca2f5eb2cab865fe602e803720",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/RecursiveBlocks.lean",
+      "sha256": "97e1bde19f3cb30660a1b41c383ad0efaecc0368c1d3e7d04d0e2a47c0be65db",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/RecursiveCandidates.lean",
+      "sha256": "5bf0d05e3acf415a2ed70db9e6ecfc794f4cd6b6553f32295c6b3ae4ff4d0ed4",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/RecursiveChildren.lean",
+      "sha256": "4c34e070b1eba83e6e1db616acec447b2f0e94719a34970573b19f8cacfae7d4",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/RecursiveDefinitions.lean",
+      "sha256": "dc35d49ea431c0071f37c720cc0185c419eef2131e3adcfe4a1234cb89836955",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/RecursiveFailures.lean",
+      "sha256": "037001afe6dbc434cc21815fe128128b33e935e40a12033792ae88ca57a7fde6",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/RecursiveFlips.lean",
+      "sha256": "faa93e9d52c9c0681d9282e5cc4a07e732f4ae05c0bb8e841ca219b381fe5c36",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/RecursiveJointZero.lean",
+      "sha256": "982bf125b93c53b2feea8d01c3800bba9e4aa4150e48d8a6ae6454d11b86551e",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/RecursiveOne.lean",
+      "sha256": "480400f5ceeef7d1b717eaf564af6d5445a470b6ef8990d82a94aa911dbf9505",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/RecursiveProfiles.lean",
+      "sha256": "31d6be0f3bc9d6526ae18bbe98c06178aff9e206b1547d9050fd9ebcc8d8170c",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/RecursiveRepair.lean",
+      "sha256": "e8d04cee4ec22d80fc76db769f2111eb6ae30ed9e85ef774af66def0a8ebb7d2",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/RecursiveSets.lean",
+      "sha256": "3724612b5ce5a05c8dd57ae43084eb6303d5e4d7fdafbec7851ecb638631304f",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/RecursiveZero.lean",
+      "sha256": "05f319293681e15922d08ebbb33289153c359f9cd96fd34988b3c6b80dc78fa3",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/Reindex.lean",
+      "sha256": "237a2ec1b32ae51c44fa2b4601092cffa9e8b16410d25e987a1f0e3cbe7c6d10",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/ScalarBounds.lean",
+      "sha256": "f5a1964be187fd8a8819f3a30edc598eea8508efe0dbe5eabb0d678403ad25fb",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/SeedAmplification.lean",
+      "sha256": "7c01dd435d9a485fc162bb0817076d18f0fc5d7ff7a54fb47786fbd795ee9e4f",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/Separation.lean",
+      "sha256": "fd139a71e796b4df79bde622d59d9e2a77b114575f8282e376c861495dbc9d13",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/SeparationArithmetic.lean",
+      "sha256": "30b9fd34bf10db770af7c3cf75dcbda7e27fae2789bd3a0bba18b5bd13669fe1",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/Tournament.lean",
+      "sha256": "767dea4819b8cba4e5ae4b88531a0835d4475d6eb0fde5ac6a113ba0cbf0c483",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/TournamentCounts.lean",
+      "sha256": "148fc0149867a3ea28fee6a01c92a67703087fdac3f346a9a3a23979c0ad3b85",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/TournamentCyclic.lean",
+      "sha256": "8032bdab8f4475e66832a2a5f1c508cda57c63f8cd112326032219db24e28548",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/Tower.lean",
+      "sha256": "1d5e3570fae6c4a2645dfbddc3f7bb82dfaacd2e6b409b4d9fe16e1683cc5788",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation/Internal/TowerProfiles.lean",
+      "sha256": "d43637cb8979c32ed36a15ac9471ac5f6a4cc11ba76a06d561388188a7159d08",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SensitivitySeparation.lean",
+      "sha256": "fbd0386632f297ab69d8e2aa39a28cbd6ac8947b44e9402231e36f7c09432d87",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/SpectralSensitivity.lean",
+      "sha256": "3bda0b56e5c6ac73c9315abec446534f93116f2b10cb455e287f2681fc1e1539",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/Threshold.lean",
+      "sha256": "13f726bb0d0495d7b6d5d8da2f044f447dfa2741c247e2bff9c7434a70cc32c6",
+      "matches_fetched_pin": true
+    },
+    {
+      "file": "Complexity/Computability/QueryComplexity/Yao.lean",
+      "sha256": "6301653c08b291df3afbb21391d915cdb04738fa1429367fa2b4564c2ead9729",
+      "matches_fetched_pin": true
+    }
+  ],
+  "additional_source_files": [
+    {
+      "repository": "complexitylib",
+      "file": "Complexity/Foundations/BooleanAnalysis/Hypercube.lean",
+      "sha256": "1225d370da19b77882d816b3c3d2562cc5294d3aeba1a822c889ef53a35a9545",
+      "url": "https://github.com/cslib-community/complexitylib/blob/62ca5c21461b2482e8bd12b7cb9b4937d887a33a/Complexity/Foundations/BooleanAnalysis/Hypercube.lean"
+    },
+    {
+      "repository": "complexitylib",
+      "file": "Complexity/Foundations/BooleanAnalysis/FourierRestriction.lean",
+      "sha256": "cc2725a32a35c559bf78e8c8262bc3248332b9ce280d2abeb64edea83008dde2",
+      "url": "https://github.com/cslib-community/complexitylib/blob/62ca5c21461b2482e8bd12b7cb9b4937d887a33a/Complexity/Foundations/BooleanAnalysis/FourierRestriction.lean"
+    },
+    {
+      "repository": "complexitylib",
+      "file": "Complexity/Foundations/BooleanAnalysis/MaximalSupport.lean",
+      "sha256": "69adb157930bdcc5de24e595d64fb5f64370a935d5c75a27999117377534b784",
+      "url": "https://github.com/cslib-community/complexitylib/blob/62ca5c21461b2482e8bd12b7cb9b4937d887a33a/Complexity/Foundations/BooleanAnalysis/MaximalSupport.lean"
+    },
+    {
+      "repository": "complexitylib",
+      "file": "Complexity/Foundations/BooleanAnalysis/LowDegree.lean",
+      "sha256": "403239e42326d90ff38f5167cffeb889254917883fdf89580b3032d867c68074",
+      "url": "https://github.com/cslib-community/complexitylib/blob/62ca5c21461b2482e8bd12b7cb9b4937d887a33a/Complexity/Foundations/BooleanAnalysis/LowDegree.lean"
+    },
+    {
+      "repository": "complexitylib",
+      "file": "Complexity/Foundations/BooleanAnalysis/Fourier.lean",
+      "sha256": "9b8f948a1a008cb897b7cdde2995c6f2c0825546ea9f35b34c6affc0e8d582a9",
+      "url": "https://github.com/cslib-community/complexitylib/blob/62ca5c21461b2482e8bd12b7cb9b4937d887a33a/Complexity/Foundations/BooleanAnalysis/Fourier.lean"
+    },
+    {
+      "repository": "complexitylib",
+      "file": "Complexity/Foundations/BooleanAnalysis/Degree.lean",
+      "sha256": "b3a7a5192e6b29b9e99192ece2b9ae5f5b6d56b454c188db08c70d8f7a82105b",
+      "url": "https://github.com/cslib-community/complexitylib/blob/62ca5c21461b2482e8bd12b7cb9b4937d887a33a/Complexity/Foundations/BooleanAnalysis/Degree.lean"
+    },
+    {
+      "repository": "complexitylib",
+      "file": "Complexity/Foundations/Data/Finset/Expect.lean",
+      "sha256": "8a428b5ed524960520b25f49fd75e5962b6cfe88571d7d1a1db9d2899e2b183e",
+      "url": "https://github.com/cslib-community/complexitylib/blob/62ca5c21461b2482e8bd12b7cb9b4937d887a33a/Complexity/Foundations/Data/Finset/Expect.lean"
+    },
+    {
+      "repository": "complexitylib",
+      "file": "Complexity/Foundations/Quantum/Measurement/Overlap.lean",
+      "sha256": "351d45c390d300407f516e8e6eb5f686b7baa427d69eb455674c32b72a8d0356",
+      "url": "https://github.com/cslib-community/complexitylib/blob/62ca5c21461b2482e8bd12b7cb9b4937d887a33a/Complexity/Foundations/Quantum/Measurement/Overlap.lean"
+    },
+    {
+      "repository": "cslib",
+      "file": "Cslib/Computability/QueryComplexity/Measures.lean",
+      "sha256": "b3542fc2bca1f6235a6eeb721a2216768abef90682e97167fa8dbc6184ca5521",
+      "url": "https://github.com/leanprover/cslib/blob/254e30e6d4299c51323aaeaf5f51a4763b375d4a/Cslib/Computability/QueryComplexity/Measures.lean"
+    },
+    {
+      "repository": "mathlib",
+      "file": "Mathlib/Analysis/InnerProductSpace/Rayleigh.lean",
+      "sha256": "f49ada9bb45a386a1d4ccece45d119aaca1eb186aba50d74d1904ddb43d00c06",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/69552756cd8a2d2d48763cf7279fd814d6a1224d/Mathlib/Analysis/InnerProductSpace/Rayleigh.lean"
+    },
+    {
+      "repository": "mathlib",
+      "file": "Mathlib/Analysis/Matrix/Hermitian.lean",
+      "sha256": "6fe06862990b4a3c64722bf1e7f2e36e5f654e7f00b51d052447ace71ada6130",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/69552756cd8a2d2d48763cf7279fd814d6a1224d/Mathlib/Analysis/Matrix/Hermitian.lean"
+    },
+    {
+      "repository": "mathlib",
+      "file": "Mathlib/Analysis/CStarAlgebra/Matrix.lean",
+      "sha256": "0b05add8a4934bc60de8452aa56193d699c28dc80a10e67faaefbf1be069b683",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/69552756cd8a2d2d48763cf7279fd814d6a1224d/Mathlib/Analysis/CStarAlgebra/Matrix.lean"
+    },
+    {
+      "repository": "mathlib",
+      "file": "Mathlib/LinearAlgebra/Eigenspace/Basic.lean",
+      "sha256": "a5727f28d6369b7a327037e5182e47f0ae39005e94af0cf2f3a1b4884b000088",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/69552756cd8a2d2d48763cf7279fd814d6a1224d/Mathlib/LinearAlgebra/Eigenspace/Basic.lean"
+    },
+    {
+      "repository": "mathlib",
+      "file": "Mathlib/LinearAlgebra/Dimension/Constructions.lean",
+      "sha256": "401fc11924868d9527228d691c2753ee482c65812899c7ceaff8df981c1b8cec",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/69552756cd8a2d2d48763cf7279fd814d6a1224d/Mathlib/LinearAlgebra/Dimension/Constructions.lean"
+    },
+    {
+      "repository": "mathlib",
+      "file": "Mathlib/LinearAlgebra/FiniteDimensional/Lemmas.lean",
+      "sha256": "2b8605db6e6ab3af905c1eeef5e66b3cffe59218ec0a0b7d7569e802d2271b54",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/69552756cd8a2d2d48763cf7279fd814d6a1224d/Mathlib/LinearAlgebra/FiniteDimensional/Lemmas.lean"
+    },
+    {
+      "repository": "mathlib",
+      "file": "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+      "sha256": "cb34fc40e341dc840f47af1ff95acda3fb55018ba92c866c598784b7bd09e3e3",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/69552756cd8a2d2d48763cf7279fd814d6a1224d/Mathlib/LinearAlgebra/Matrix/ToLin.lean"
+    }
+  ],
+  "compiler_availability": {
+    "lean": null,
+    "lake": null,
+    "elan": null
+  },
+  "no_new_compilation": true,
+  "original_receipts": {
+    "source": "BUILD_STATUS.md",
+    "freshness": "Historical only; not replayed",
+    "recorded_root_build_commit": "16adedc16acca1e3a8d2963d4fd5655dcd0492d7"
+  }
+}

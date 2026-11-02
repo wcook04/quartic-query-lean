@@ -6,8 +6,11 @@ nearly quartic query-complexity separation. Start with the
 [ledger notes](intake/statement_ledger_notes.md) for the source locations,
 interpretations, unresolved questions and proposed formalisation order.
 
-Three later reviews are in [returns/](returns/README.md), with a verdict on each
-finding in the [adjudication](adjudication/adjudication_notes.md). The intake records
+The source reviews, five writing returns and seven round-two returns are in
+[returns/](returns/README.md). The first reviews have verdicts in the
+[adjudication](adjudication/adjudication_notes.md); the round-two
+[snapshot guide](returns/round2/README.md) identifies their preserved inputs.
+The intake records
 were prepared by AI agents and have not been independently reviewed by a person. A cited source, a proposed Lean statement and a successful proof check
 are different kinds of evidence. The intake files record research and proposals;
 they are not build receipts or proof certificates.
@@ -24,7 +27,7 @@ checking; they do not establish that proofs have been checked.
 | [intake/](intake/) | Initial research and the original statement ledger, still an input to corpus generation. |
 | [returns/](returns/README.md) | Preserved reviewer submissions, with their original filenames and manifests. |
 | [adjudication/](adjudication/adjudication_notes.md) | Maintained verdicts and corrections in `adjudication.json`, with explanatory notes. |
-| [requests/](requests/README.md) | Two campaigns: source review in `review/`, explanation and writing in `funnel/`. |
+| [requests/](requests/README.md) | Source review in `review/`, explanation and writing in `funnel/`, and statement/Lean coverage in `round2/`. |
 
 For current statement evidence, begin with the [corpus guide](../corpus/README.md).
 The research files explain where the inputs and decisions came from.

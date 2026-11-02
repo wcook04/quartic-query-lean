@@ -41,3 +41,11 @@ These were also written without a Lean compiler. Their audit findings have verdi
 [funnel_adjudication.json](../adjudication/funnel_adjudication.json), summarised in
 [funnel_adjudication_notes.md](../adjudication/funnel_adjudication_notes.md). Their proposed
 new statements are uncompiled and are not corpus rows.
+
+## Round-two returns
+
+The seven [round-two snapshots](round2/README.md) retain every submitted file,
+including Lean and Python, as advisory evidence. Their [intake manifest](round2/intake.json)
+binds the original archive hashes to the submitted member paths and bytes. The
+repository checker validates those snapshots without running the submitted code;
+decisions and corrections remain under [adjudication](../adjudication/).

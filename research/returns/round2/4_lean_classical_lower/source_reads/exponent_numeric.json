@@ -1,0 +1,389 @@
+{
+  "task": "claim-tail, claim-numeric, cor-R-omega, claim-exponent-ratio",
+  "files": [
+    {
+      "path": "packet/READ_ME_FIRST.md",
+      "mode": "full text read",
+      "sha256": "3010bc5431d06e719f2b54ed790cba29243f108d3cc81d0a55a563492a6e3e74"
+    },
+    {
+      "path": "packet/BUILD_STATUS.md",
+      "mode": "full text read",
+      "sha256": "c87578a738d7cf6d6633a009c9b2265cf81077ec8ddc54cda79787943e89a2c7"
+    },
+    {
+      "path": "packet/repository/README.md",
+      "mode": "full text read",
+      "sha256": "fe9fa9fd3203926de8a8f797e5cc68b0a2ce4aae8befd3afcad49998cd393528"
+    },
+    {
+      "path": "packet/repository/docs/statement_evidence_contract.md",
+      "mode": "full text read",
+      "sha256": "91b5f297530d3a81a1d520755978a074a42c944424935c35256c5a4af4376ea4"
+    },
+    {
+      "path": "packet/repository/corpus/README.md",
+      "mode": "full text read",
+      "sha256": "594e454df606d888998fc57460d0122bdf9c2c3159819b49b544ec88a8c2bc01"
+    },
+    {
+      "path": "packet/repository/lean/QuarticQuery/Results/Exponent.lean",
+      "mode": "full text read",
+      "sha256": "91d1c021f9b920f9bf0017dfe03817194c6a1ff5f4776e39a669bbd3b832a931"
+    },
+    {
+      "path": "packet/repository/lean/QuarticQuery/Paper/Section4.lean",
+      "mode": "full text read",
+      "sha256": "da6bda0feda0448bc05b11c85aed7b666d01aa8d30a8914a4ffd7d9fbe6643fb"
+    },
+    {
+      "path": "packet/repository/lean/QuarticQuery/Results/Conditional.lean",
+      "mode": "full text read",
+      "sha256": "c3d4acfd49f8725f21fa4e895be9773e44a52786a16e3606e68dfda27c808330"
+    },
+    {
+      "path": "packet/repository/lean/QuarticQuery/Results/Unconditional.lean",
+      "mode": "full text read",
+      "sha256": "46e6f51f713109bab717956bd2536711dc927a356027748712e571ce12f0b85e"
+    },
+    {
+      "path": "packet/repository/research/adjudication/adjudication_notes.md",
+      "mode": "full text read",
+      "sha256": "df206a68d9cfdce14456042094757e37fa8286c2cf33afbbcc7d74c5aa3547b8"
+    },
+    {
+      "path": "packet/repository/research/adjudication/funnel_adjudication_notes.md",
+      "mode": "full text read",
+      "sha256": "20d7dff60cf7858b68bdfbd2a4219cd29a73f96a4b0c38f8338401f035254624"
+    },
+    {
+      "path": "packet/writing/the-deliverable.md",
+      "mode": "full text read",
+      "sha256": "5b234d4446bf4b7ac79c38586147730dc41370581daa38661326875d5b50951c"
+    },
+    {
+      "path": "packet/writing/register-from-literature.md",
+      "mode": "full text read",
+      "sha256": "2278000b36133a13c0e83f785bdb2a89b94b8ed1927daeaf12d2b1ed30545d7d"
+    },
+    {
+      "path": "packet/paper/extracted.md",
+      "mode": "selected sections read",
+      "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+      "sections": [
+        "Section 1.3 conventions, lines 118-123",
+        "Section 4.2, lines 590-687",
+        "Section 5, lines 691-716"
+      ]
+    },
+    {
+      "path": "packet/repository/lean/QuarticQuery/Statement.lean",
+      "mode": "selected definitions read",
+      "sha256": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+      "sections": [
+        "mValue and ForrelationCoord, lines 153-161",
+        "Lvalue, Gvalue, BansalSinhaLower, lines 306-321"
+      ]
+    },
+    {
+      "path": "packet/repository/lean/QuarticQuery/LowerBound/Planted/Main.lean",
+      "mode": "selected declarations read",
+      "sha256": "a32a6e24bccace37d46742acc9450fe33b6081430484138336014048f3fe835c",
+      "sections": [
+        "Gvalue_lt_R_addressedF and Gvalue_lt_R_Fkm, lines 190-210"
+      ]
+    },
+    {
+      "path": "packet/repository/lean/QuarticQuery/Upper/Bound.lean",
+      "mode": "selected declarations read",
+      "sha256": "7d108566f6b6fbd80381204f237b0b631ce958c149e976e9b857cc81b38dad9c",
+      "sections": [
+        "budgetConst location; Fkm_forrCircuit_QLe, Q_Fkm_le, budgetConst_pos, familyBoundsAt_of_lower, lines 238-272"
+      ]
+    },
+    {
+      "path": "packet/repository/lean/QuarticQuery/ForrelationLower/Main.lean",
+      "mode": "selected declaration read",
+      "sha256": "2ca59c5ff156d0fbc520abbdd72c4fd9253e177dbb07a2ab79fe4cdd42c98cd9",
+      "sections": [
+        "bansalSinhaLower signature and proof opening, lines 506-525"
+      ]
+    },
+    {
+      "path": "packet/repository/corpus/statements.json",
+      "mode": "full file machine-searched; matching records read",
+      "sha256": "5a403947cf2f970917876f4a6325c912588c49bfdc6fc313950996413f079dc1",
+      "sections": [
+        "claim-tail",
+        "claim-numeric",
+        "cor-R-omega",
+        "claim-exponent-ratio",
+        "prop-4.2",
+        "claim-floor",
+        "F-CLAIM-TAIL"
+      ]
+    },
+    {
+      "path": "packet/repository/corpus/ties.json",
+      "mode": "full file machine-searched; matching records read",
+      "sha256": "c6ccb861eda5f19e13223d60a28af91eede3ae880a4e5dfafd17453aba61c1b7",
+      "sections": [
+        "claim-tail",
+        "claim-numeric",
+        "cor-R-omega",
+        "claim-exponent-ratio",
+        "prop-4.2",
+        "claim-floor",
+        "F-CLAIM-TAIL"
+      ]
+    },
+    {
+      "path": "packet/repository/research/adjudication/adjudication.json",
+      "mode": "full file machine-searched; matching records read",
+      "sha256": "c5028e1a3046113879eb63754f1496b1787859be9a5abe8aad5ce32129ce0fc7",
+      "sections": [
+        "claim-tail",
+        "claim-numeric",
+        "cor-R-omega",
+        "claim-exponent-ratio",
+        "prop-4.2",
+        "claim-floor",
+        "F-CLAIM-TAIL"
+      ]
+    },
+    {
+      "path": "packet/repository/research/adjudication/funnel_adjudication.json",
+      "mode": "full file machine-searched; matching records read",
+      "sha256": "cab693c939b187729e6251bed5429de1dd7fc6279153ac37ec1abc735433ff5f",
+      "sections": [
+        "claim-tail",
+        "claim-numeric",
+        "cor-R-omega",
+        "claim-exponent-ratio",
+        "prop-4.2",
+        "claim-floor",
+        "F-CLAIM-TAIL"
+      ]
+    },
+    {
+      "path": "packet/previous_round/4_forrelation_route_note/NEW_STATEMENTS.json",
+      "mode": "full text read in nontruncated contiguous chunks; all records substantively reviewed",
+      "sha256": "3bdf0a26b11ef8d0eed37dbed28349f56fc6c756d819523ec0cc23bc97ce3438",
+      "sections": [
+        "all records"
+      ],
+      "character_ranges_0_based_half_open": [
+        [
+          0,
+          14000
+        ],
+        [
+          14000,
+          28000
+        ],
+        [
+          28000,
+          42000
+        ],
+        [
+          42000,
+          56000
+        ],
+        [
+          56000,
+          66009
+        ]
+      ],
+      "characters": 66009,
+      "record_count": 44
+    },
+    {
+      "path": "packet/previous_round/1_long_reasoning_record/NEW_STATEMENTS.json",
+      "mode": "full file parsed and searched; relevant matches read",
+      "sha256": "d2964002bad5c1626a1e2c72ac301b7615373ad2576f9604d561dd10c7fe0ccd",
+      "sections": [
+        "new-tail-bound",
+        "new-exponent-table",
+        "NCL-explicit-floor",
+        "dependencies and text matching four scoped rows"
+      ]
+    },
+    {
+      "path": "packet/previous_round/2_short_expert_paper/NEW_STATEMENTS.json",
+      "mode": "full file parsed and searched; relevant matches read",
+      "sha256": "491a2e6a0ec6d44a9c3e8504ae117ecbb9fff65875a541313b6404612e1f499f",
+      "sections": [
+        "new-tail-bound",
+        "new-exponent-table",
+        "NCL-explicit-floor",
+        "dependencies and text matching four scoped rows"
+      ]
+    },
+    {
+      "path": "packet/previous_round/3_examples_first_exposition/NEW_STATEMENTS.json",
+      "mode": "full text read in nontruncated contiguous chunks; all records substantively reviewed",
+      "sha256": "03f6cab9eed48e7dfe3b134d0c60ef33a49975b9bb75e5a3b0be0379196a0e0f",
+      "sections": [
+        "all records"
+      ],
+      "character_ranges_0_based_half_open": [
+        [
+          0,
+          14000
+        ],
+        [
+          14000,
+          28000
+        ],
+        [
+          28000,
+          34390
+        ]
+      ],
+      "characters": 34390,
+      "record_count": 17
+    },
+    {
+      "path": "packet/previous_round/5_reader_and_film/NEW_STATEMENTS.json",
+      "mode": "full text read in nontruncated contiguous chunks; all records substantively reviewed",
+      "sha256": "b22f0f44a61b8c1556a41670371117ea21f5b3fc15787ba7d1d95ed1d2f20e22",
+      "sections": [
+        "all records"
+      ],
+      "character_ranges_0_based_half_open": [
+        [
+          0,
+          9032
+        ]
+      ],
+      "characters": 9032,
+      "record_count": 6
+    },
+    {
+      "path": "packet/previous_round/4_forrelation_route_note/LEAN_GAPS.md",
+      "mode": "full file machine-searched; relevant passages read",
+      "sha256": "3a881e1ac6048f9273c242506a2031eb8985b5bc4f458626bd1dde4cc3c8381e",
+      "sections": [
+        "four scoped row IDs",
+        "tail/exponent/ratio/Omega/numeric/floor matches",
+        "long record Sections 6-9 and Foundations/exponent arithmetic"
+      ]
+    },
+    {
+      "path": "packet/previous_round/1_long_reasoning_record/LEAN_GAPS.md",
+      "mode": "full file machine-searched; relevant passages read",
+      "sha256": "5e17659decd217a381f5dd5348f26161766e4b153133ea4fe75b327246a9c8bf",
+      "sections": [
+        "four scoped row IDs",
+        "tail/exponent/ratio/Omega/numeric/floor matches",
+        "long record Sections 6-9 and Foundations/exponent arithmetic"
+      ]
+    },
+    {
+      "path": "packet/previous_round/2_short_expert_paper/LEAN_GAPS.md",
+      "mode": "full file machine-searched; relevant passages read",
+      "sha256": "bca6f9c9f8170fa51db18e1d56bb83d961ea422868877f499b3e5f7829462246",
+      "sections": [
+        "four scoped row IDs",
+        "tail/exponent/ratio/Omega/numeric/floor matches",
+        "long record Sections 6-9 and Foundations/exponent arithmetic"
+      ]
+    },
+    {
+      "path": "packet/previous_round/3_examples_first_exposition/LEAN_GAPS.md",
+      "mode": "full file machine-searched; relevant passages read",
+      "sha256": "710fa7bf012dc356d22f8eb72395f24daae5ede575a74f36b28392e080d7ff8c",
+      "sections": [
+        "four scoped row IDs",
+        "tail/exponent/ratio/Omega/numeric/floor matches",
+        "long record Sections 6-9 and Foundations/exponent arithmetic"
+      ]
+    },
+    {
+      "path": "packet/previous_round/5_reader_and_film/LEAN_GAPS.md",
+      "mode": "full file machine-searched; relevant passages read",
+      "sha256": "439c9580082b53dac4df6bcb9243768a2e54aed2b40b0dc2225c789338914fee",
+      "sections": [
+        "four scoped row IDs",
+        "tail/exponent/ratio/Omega/numeric/floor matches",
+        "long record Sections 6-9 and Foundations/exponent arithmetic"
+      ]
+    },
+    {
+      "path": "work/mathlib_api/Real.lean",
+      "mode": "pinned source searched and exact used declarations read",
+      "sha256": "f8a26d662fb7966fa5b45aef95c8d7cf0383c9921fa3e9ee1cd2c41561e9fbfd"
+    },
+    {
+      "path": "work/mathlib_api/Base.lean",
+      "mode": "pinned source searched and exact used declarations read",
+      "sha256": "85a4b68a9ec0f6cf2fbb706f42a9136d23c4b11f1092b2e88c820c9e26421bbf"
+    },
+    {
+      "path": "work/mathlib_api/Asymptotics.lean",
+      "mode": "pinned source searched and exact used declarations read",
+      "sha256": "f736afe5ee0e392168895c13ce258c142fdc5d3b45ecb5d3dd12af9299a8ee42"
+    },
+    {
+      "path": "work/mathlib_api/Mathlib/Analysis/SpecificLimits/Basic.lean",
+      "mode": "pinned source searched and exact used declarations read",
+      "sha256": "97e43591d189cac12f3cf65c9ff072791ce5d815f296b07d328e4b768a22221c"
+    },
+    {
+      "path": "work/mathlib_api/Mathlib/Order/Filter/AtTopBot/Basic.lean",
+      "mode": "pinned source searched and exact used declarations read",
+      "sha256": "7b467c049ee486339022e2d65a13ee22c37df2625fabeb2c92c0190c7c8aeb1c"
+    },
+    {
+      "path": "work/mathlib_pin/mathlib4-69552756cd8a2d2d48763cf7279fd814d6a1224d/Mathlib/Algebra/Order/GroupWithZero/Basic.lean",
+      "mode": "pinned source searched and exact used declarations read",
+      "sha256": "28c0432242f3766a643689abd852cbf92fee391d314f76815e6977e64854103c"
+    },
+    {
+      "path": "work/mathlib_pin/mathlib4-69552756cd8a2d2d48763cf7279fd814d6a1224d/Mathlib/Topology/MetricSpace/Pseudo/Lemmas.lean",
+      "mode": "pinned source searched and exact used declarations read",
+      "sha256": "abba191e513658ada224c209d7f0bc3ea269c03699328c4029debc0ca4622cf4"
+    },
+    {
+      "path": "return/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+      "mode": "full text read; read-only adversarial audit",
+      "sha256": "c3d51e9b2e9dd26ac6aafce07fd15985de4873170e541f866bc590627f011c44",
+      "sections": [
+        "all 844 lines; focus on normalized query split, conditional-product expectation, success-to-terminal bridge, cap/depth, and real floor"
+      ]
+    },
+    {
+      "path": "packet/repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+      "mode": "full text read in contiguous overlapping sections",
+      "sha256": "ddef7a365940f1916b9aff74b6441fa0850b0ca0abdcd1d4a3f8853c3562271f",
+      "sections": [
+        "lines 1-190,185-215,206-349"
+      ]
+    },
+    {
+      "path": "work/mathlib_pin/mathlib4-69552756cd8a2d2d48763cf7279fd814d6a1224d/Mathlib/Algebra/Order/Floor/Semifield.lean",
+      "mode": "pinned source selected API text read",
+      "sha256": "5e2f3ac6f4216e5c79892aabc1849e4e8c421eb43c89de7c20fd6154cdc90c6a",
+      "sections": [
+        "lines 1-85; Nat.floor_div_eq_div exact declaration and proof"
+      ]
+    }
+  ],
+  "unreadable_scope_items": [],
+  "outside_scope": "Other paper/source sections and unrelated proposals in previous-round returns 1 and 2 were not substantively reviewed by this subtask; root and other parallel tasks own other packet content. All NEW_STATEMENTS records in returns 3,4,5 were subsequently read in full. Public Mathlib docs initially looked up; exact pinned source supplied by root superseded those API checks.",
+  "compiler_status": "absent; all new Lean unelaborated",
+  "followup_audit": {
+    "target": "return/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+    "mode": "read-only static mathematical/source/API audit; no compiler",
+    "result": "No mathematical defect or definite elaboration failure identified in the focused new sections. Nat.floor_div_eq_div orientation and named K parameter verified against the exact pinned source.",
+    "fidelity_caution": "The generic conditional-product expectation theorem assumes positive mass for every component. An actual positive-transcript specialization additionally uses the elementary implication from positive product mass and nonnegative component weights to positive component masses; a separate exported helper for that implication is absent. The normalized success-to-terminal endpoint does not depend on that missing export.",
+    "changes": "Read-scope metadata only. No Lean or blueprint edits made during the audit.",
+    "previous_round_findings": [
+      "Example 3 new-and-conditioning reinforces why conditioning the hard law on non-heaviness is invalid: exact success conditional on stopping early can be one although capped unconditional success is only three quarters.",
+      "Example 3 new-small-parameters and reader example parameters make L=G=0 at k=2,t=1; these illustrations cannot witness the eventual lower bound.",
+      "Example 3 new-tail-bound remains a separate crude finite estimate; adjudication requires preserving the exact paper exponent for claim-tail.",
+      "Route-note sharp uniform endpoints depend on external Fourier-growth hypotheses or are proposed paper deductions; they cannot replace the existing unconditional fixed-k source theorem without additional work.",
+      "All three previous-round files consistently label their proposed signatures unelaborated or uncompiled; this audit does not promote them to kernel-checked statements."
+    ]
+  }
+}

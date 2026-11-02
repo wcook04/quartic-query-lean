@@ -1,0 +1,162 @@
+{
+  "arithmetic": "exact_integer_and_fraction",
+  "basis_order": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      1
+    ]
+  ],
+  "coordinate_mask_norms": [
+    1,
+    1
+  ],
+  "coordinate_masks": [
+    [
+      [
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0
+      ]
+    ],
+    [
+      [
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        1,
+        0
+      ]
+    ]
+  ],
+  "final_progress": "0",
+  "gamma": [
+    [
+      0,
+      1,
+      1,
+      0
+    ],
+    [
+      1,
+      0,
+      0,
+      1
+    ],
+    [
+      1,
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      1,
+      1,
+      0
+    ]
+  ],
+  "gamma_norm": 2,
+  "gamma_orthonormal_eigenvalues": [
+    2,
+    0,
+    0,
+    -2
+  ],
+  "initial_progress": "2",
+  "input_order": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      1
+    ]
+  ],
+  "lean_compiled": false,
+  "oracle_calls": 1,
+  "output_probabilities_false_true": [
+    [
+      "1",
+      "0"
+    ],
+    [
+      "0",
+      "1"
+    ],
+    [
+      "0",
+      "1"
+    ],
+    [
+      "1",
+      "0"
+    ]
+  ],
+  "passed": true,
+  "per_query_factor_two_saturated": true,
+  "positive_error_product": "99/10000",
+  "positive_error_product_less_than_one_sixteenth": true,
+  "positive_error_witness": "1/100",
+  "printed_prefactor_incompatible_with_one_query_witness": true,
+  "randomized": false,
+  "scope": "finite exact witness; no Lean proof or literature erratum certification",
+  "seed": null,
+  "spectral_ratio": 2
+}

@@ -1,0 +1,80 @@
+% Bibliography for single_family.md.
+% Numeric citation mapping: [1] OpenAI2026; [2] BHMT2002;
+% [3] BansalSinha2021; [4] GirishTalWu2021; [5] ABKRT2021.
+% Theorem and page locators refer to the version specified in each note.
+% Metadata was checked against the supplied bibliographies, annex version
+% records, and the primary arXiv records consulted during this review.
+
+@unpublished{OpenAI2026,
+  author        = {{OpenAI}},
+  title         = {A Nearly Quartic Separation Between Randomized and Quantum Query Complexity},
+  year          = {2026},
+  month         = oct,
+  date          = {2026-10-05},
+  url           = {https://github.com/openai/math/blob/main/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf},
+  note          = {Preprint dated 5 October 2026. Supplied version from openai/math revision 4eaee875. PDF SHA-256: a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e. Relevant locators: Theorem 1.1; Section 2; Proposition 3.2 and Section 3.3; Proposition 4.2; Section 5.}
+}
+
+@incollection{BHMT2002,
+  author        = {Brassard, Gilles and H{\o}yer, Peter and Mosca, Michele and Tapp, Alain},
+  title         = {Quantum Amplitude Amplification and Estimation},
+  booktitle     = {Quantum Computation and Information},
+  series        = {Contemporary Mathematics},
+  volume        = {305},
+  pages         = {53--74},
+  year          = {2002},
+  publisher     = {American Mathematical Society},
+  doi           = {10.1090/conm/305/05215},
+  eprint        = {quant-ph/0005055},
+  archivePrefix = {arXiv},
+  primaryClass  = {quant-ph},
+  url           = {https://arxiv.org/abs/quant-ph/0005055},
+  note          = {ArXiv version 1, 15 May 2000. The new decoder uses Theorem 12 (Amplitude Estimation), printed page 19, and the Est_Amp algorithm immediately preceding it. The original nearly quartic proof uses the amplitude-amplification rotation from Lemma 1 and equation (8); that earlier use does not itself establish the new decoder.}
+}
+
+@inproceedings{BansalSinha2021,
+  author        = {Bansal, Nikhil and Sinha, Makrand},
+  title         = {{$k$-Forrelation} Optimally Separates Quantum and Classical Query Complexity},
+  booktitle     = {Proceedings of the 53rd Annual ACM SIGACT Symposium on Theory of Computing},
+  series        = {STOC 2021},
+  year          = {2021},
+  pages         = {1303--1316},
+  publisher     = {Association for Computing Machinery},
+  doi           = {10.1145/3406325.3451040},
+  eprint        = {2008.07003},
+  archivePrefix = {arXiv},
+  primaryClass  = {quant-ph},
+  url           = {https://arxiv.org/abs/2008.07003v3},
+  note          = {Numbered locators refer to arXiv version 3, 17 November 2020: Theorem 1.3, Corollary 1.4 and the discussion immediately preceding it, and Section 5.4. The local logarithmic-inequality issue in the supplied main.tex is documented separately in SOURCE_AUDIT.md; the theorem's stated logarithmic exponent is not assumed by the present uniform proof.}
+}
+
+@inproceedings{GirishTalWu2021,
+  author        = {Girish, Uma and Tal, Avishay and Wu, Kewen},
+  title         = {Fourier Growth of Parity Decision Trees},
+  booktitle     = {36th Computational Complexity Conference (CCC 2021)},
+  series        = {Leibniz International Proceedings in Informatics (LIPIcs)},
+  volume        = {200},
+  pages         = {39:1--39:36},
+  year          = {2021},
+  publisher     = {Schloss Dagstuhl -- Leibniz-Zentrum f{\"u}r Informatik},
+  doi           = {10.4230/LIPIcs.CCC.2021.39},
+  eprint        = {2103.11604},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CC},
+  url           = {https://arxiv.org/abs/2103.11604v2},
+  note          = {ArXiv version 2, 13 May 2021. The relevant standard-decision-tree discussion is Section 1.3 and Lemma 1.9 in the arXiv version (Lemma 9 in the conference version); Section 3.2 supplies the maximal-inequality context. Kewen Wu is distinct from Pei Wu, a coauthor of the Sherstov--Storozhenko--Wu paper.}
+}
+
+@inproceedings{ABKRT2021,
+  author        = {Aaronson, Scott and Ben-David, Shalev and Kothari, Robin and Rao, Shravas and Tal, Avishay},
+  title         = {Degree vs. Approximate Degree and Quantum Implications of {Huang}'s Sensitivity Theorem},
+  booktitle     = {Proceedings of the 53rd Annual ACM SIGACT Symposium on Theory of Computing},
+  series        = {STOC 2021},
+  year          = {2021},
+  pages         = {1330--1342},
+  publisher     = {Association for Computing Machinery},
+  eprint        = {2010.12629},
+  archivePrefix = {arXiv},
+  url           = {https://arxiv.org/abs/2010.12629v1},
+  note          = {The supplied source is arXiv version 1, 23 October 2020. Printed Theorem 2 gives D(f)=O(Q(f)^4) for total Boolean functions, hence the randomized quartic upper bound; Conjecture 2 proposes the cubic randomized bound. The extraction loses some macros and restatable theorem numbering, so locators use printed numbering. The numerical constant 20736 used in the present manuscript comes from the supplied formal model bridge, not from a claim that this paper states that constant.}
+}

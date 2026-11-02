@@ -1,0 +1,144 @@
+{
+  "lean_compiled": false,
+  "comparator_run": false,
+  "scope": "Finite exact arithmetic and supplemental numerical checks only",
+  "numpy_version": "2.3.5",
+  "numeric_tolerance": 1e-10,
+  "matrix_tests": [
+    {
+      "d": 0,
+      "size": 1,
+      "exact_integer_square_trace_symmetry_absolute_adjacency": true,
+      "numerical_eigenvalue_counts": null
+    },
+    {
+      "d": 1,
+      "size": 2,
+      "exact_integer_square_trace_symmetry_absolute_adjacency": true,
+      "numerical_eigenvalue_counts": {
+        "positive": 1,
+        "negative": 1
+      }
+    },
+    {
+      "d": 2,
+      "size": 4,
+      "exact_integer_square_trace_symmetry_absolute_adjacency": true,
+      "numerical_eigenvalue_counts": {
+        "positive": 2,
+        "negative": 2
+      }
+    },
+    {
+      "d": 3,
+      "size": 8,
+      "exact_integer_square_trace_symmetry_absolute_adjacency": true,
+      "numerical_eigenvalue_counts": {
+        "positive": 4,
+        "negative": 4
+      }
+    },
+    {
+      "d": 4,
+      "size": 16,
+      "exact_integer_square_trace_symmetry_absolute_adjacency": true,
+      "numerical_eigenvalue_counts": {
+        "positive": 8,
+        "negative": 8
+      }
+    },
+    {
+      "d": 5,
+      "size": 32,
+      "exact_integer_square_trace_symmetry_absolute_adjacency": true,
+      "numerical_eigenvalue_counts": {
+        "positive": 16,
+        "negative": 16
+      }
+    },
+    {
+      "d": 6,
+      "size": 64,
+      "exact_integer_square_trace_symmetry_absolute_adjacency": true,
+      "numerical_eigenvalue_counts": {
+        "positive": 32,
+        "negative": 32
+      }
+    },
+    {
+      "d": 7,
+      "size": 128,
+      "exact_integer_square_trace_symmetry_absolute_adjacency": true,
+      "numerical_eigenvalue_counts": {
+        "positive": 64,
+        "negative": 64
+      }
+    },
+    {
+      "d": 8,
+      "size": 256,
+      "exact_integer_square_trace_symmetry_absolute_adjacency": true,
+      "numerical_eigenvalue_counts": {
+        "positive": 128,
+        "negative": 128
+      }
+    }
+  ],
+  "restriction_tests": [
+    {
+      "n": 0,
+      "functions": 2,
+      "positive_degree_functions": 0,
+      "maximal_support_outside_assignment_pairs": 0,
+      "exact_coefficient_survival_and_majority_edges": true,
+      "numerical_degree_le_spectral_norm_squared": true
+    },
+    {
+      "n": 1,
+      "functions": 4,
+      "positive_degree_functions": 2,
+      "maximal_support_outside_assignment_pairs": 2,
+      "exact_coefficient_survival_and_majority_edges": true,
+      "numerical_degree_le_spectral_norm_squared": true
+    },
+    {
+      "n": 2,
+      "functions": 16,
+      "positive_degree_functions": 14,
+      "maximal_support_outside_assignment_pairs": 18,
+      "exact_coefficient_survival_and_majority_edges": true,
+      "numerical_degree_le_spectral_norm_squared": true
+    },
+    {
+      "n": 3,
+      "functions": 256,
+      "positive_degree_functions": 254,
+      "maximal_support_outside_assignment_pairs": 414,
+      "exact_coefficient_survival_and_majority_edges": true,
+      "numerical_degree_le_spectral_norm_squared": true
+    }
+  ],
+  "total_restrictions": 434,
+  "large_subset_tests": [
+    {
+      "d": 1,
+      "large_subsets": 1,
+      "numerical_principal_largest_eigenvalue_bound": true
+    },
+    {
+      "d": 2,
+      "large_subsets": 5,
+      "numerical_principal_largest_eigenvalue_bound": true
+    },
+    {
+      "d": 3,
+      "large_subsets": 93,
+      "numerical_principal_largest_eigenvalue_bound": true
+    }
+  ],
+  "boundary_checks": [
+    "d=0 has the 1-by-1 zero matrix; the two distinct half-dimensional eigenspaces assertion requires d>0",
+    "AND on two bits has nonzero singleton Fourier coefficient that vanishes after fixing the other bit to zero; maximality cannot be dropped"
+  ],
+  "passed": true
+}

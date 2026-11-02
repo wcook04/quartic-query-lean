@@ -1,0 +1,77 @@
+{
+  "kind": "finite_mathematical_checks",
+  "lean_compiled": false,
+  "seed": 20261102,
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "checks": {
+    "drift_exact": {
+      "cases": 7875,
+      "passed": true
+    },
+    "history_dependent_list_law_exact": {
+      "cases": 840,
+      "max_stages": 12,
+      "passed": true,
+      "covers": [
+        "normalization",
+        "length",
+        "zero total",
+        "stop after winner",
+        "history-dependent failure",
+        "ideal miss",
+        "actual miss"
+      ]
+    },
+    "grover_full_state_numeric": {
+      "cases": 1056,
+      "max_l2_error": 1.2885613789707113e-14,
+      "passed": true,
+      "covers": [
+        "p=0",
+        "p=1",
+        "global phase",
+        "conditional pure state"
+      ]
+    },
+    "equation_9_numeric": {
+      "cases": 505,
+      "passed": true
+    },
+    "tournament_cap_numeric": {
+      "cases": 44,
+      "max_ratio": 0.14734608605696634,
+      "passed": true
+    }
+  },
+  "negative_controls": {
+    "noncomplementary_drift": {
+      "detected": true,
+      "expected_new_weight": "9/5",
+      "half_old_weight": "3/2"
+    },
+    "same_success_law_different_full_state": {
+      "detected": true,
+      "fresh_amplitudes": [
+        0.5000000000000001,
+        0.5000000000000001,
+        0.5000000000000001,
+        0.5000000000000001
+      ],
+      "short_circuit_amplitudes": [
+        0.7071067811865476,
+        0.0,
+        0.5000000000000001,
+        0.5000000000000001
+      ],
+      "successful_probability_both": 0.2500000000000001,
+      "full_state_l2_distance": 0.541196100146197
+    }
+  },
+  "all_passed": true,
+  "limitations": [
+    "No Lean elaboration, kernel checking or Comparator run was performed.",
+    "Finite cases and floating-point probes do not prove universal claims.",
+    "The explicit noncomplementary matrix and unequal tensor states are negative controls, not failures of the source theorem."
+  ]
+}

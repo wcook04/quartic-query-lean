@@ -1,0 +1,1168 @@
+[
+  {
+    "id": "sf-uniform-forrelation",
+    "statement": "For k≥2 and 15k+2≤2t, R(P k t)>m^(1−1/k)/(2332800 k² ln(4km)), m=4^t.",
+    "why_needed": "A lower bound with all quantifiers uniform in the growing k.",
+    "depends_on": [
+      "sf-uniform-parameters"
+    ],
+    "proposed_lean": "theorem QuarticQuery.sf_uniform_forrelation\n    (k t : ℕ) (hk : 2 ≤ k) (ht : 15 * k + 2 ≤ 2 * t) :\n    (Real.rpow (mValue t : ℝ) (1 - 1 / (k : ℝ)) / (2332800 * (k : ℝ)^2 * Real.log (4 * (k : ℝ) * (mValue t : ℝ)))) < (R (P k t) : ℝ)",
+    "proposed_lean_context": "import QuarticQuery\nimport QuarticQuery.ForrelationLower.Uniform\nimport QuarticQuery.Upper.Bound\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "unelaborated; no Lean compiler or new kernel check in this return",
+    "evidence_class": "source_present_uncompiled_and_paper_proof",
+    "route_note": "Same numerical endpoint as the uncompiled Uniform.lean source. The proof uses the source prerequisite QuarticQuery.ForrelationLower.not_RLe_of_gap and sf-uniform-parameters. The fixed-k lemma lem-2.1.i is contextual, not a sufficient logical dependency or compilation receipt for this statement.",
+    "passages": [
+      "uniform-bound",
+      "uniform-proof"
+    ],
+    "displays": [
+      "(4)"
+    ],
+    "sources": [
+      {
+        "path": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+        "line_start": 300,
+        "line_end": 424,
+        "declarations": [
+          "QuarticQuery.ForrelationLower.not_RLe_uniform",
+          "QuarticQuery.forrelation_lower_uniform_existing_constants"
+        ]
+      },
+      {
+        "path": "repository/lean/QuarticQuery/ForrelationLower/Main.lean",
+        "line_start": 79,
+        "line_end": 104,
+        "declarations": [
+          "QuarticQuery.ForrelationLower.not_RLe_of_gap"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sf-uniform-parameters",
+    "statement": "If k≥2, 15k+2≤2t and 1≤L≤X, put a=18^(−(k−1)), delta=2^(−5k), e=(8/9)^(25k), Lambda=2k ln(4km), d=50kL+1 and K²=8dLambda. The promise gap is ≥119a/144; K²≤(1+1/(50k))m^(1−1/k)/2916; the main term is ≤a/48 and the tail is ≤a/4. The tail simplification is (2km)^k(4km)^k exp(−Lambda)=2^(−k).",
+    "why_needed": "Supplies the quantitative arithmetic, padding and residual used in the uniform endpoint.",
+    "depends_on": [],
+    "proposed_lean": "theorem QuarticQuery.sf_uniform_parameters\n    (k t L : ℕ) (hk : 2 ≤ k) (ht : 15 * k + 2 ≤ 2 * t)\n    (hL : 1 ≤ L) (hLX : (L : ℝ) ≤ (Real.rpow (mValue t : ℝ) (1 - 1 / (k : ℝ)) / (2332800 * (k : ℝ)^2 * Real.log (4 * (k : ℝ) * (mValue t : ℝ))))) :\n    let m : ℝ := mValue t\n    let a : ℝ := (1 / 18) ^ (k - 1)\n    let δ : ℝ := 1 / (2 : ℝ) ^ (5 * k)\n    let ε : ℝ := (8 / 9) ^ (25 * k)\n    let Λ : ℝ := 2 * (k : ℝ) * Real.log (4 * (k : ℝ) * m)\n    let K : ℝ := Real.sqrt (8 * (50 * (k : ℝ) * (L : ℝ) + 1) * Λ)\n    (119 / 144 : ℝ) * a ≤ (1 - ε) * (a - δ) - ε - 4 / (m * δ^2) ∧\n    K^2 ≤ (1 + 1 / (50 * (k : ℝ))) * Real.rpow m (1 - 1 / (k : ℝ)) / 2916 ∧\n    (3 / Real.sqrt m)^(k-1) * K^k ≤ a / 48 ∧\n    (1 / 2 : ℝ)^k * (3 / Real.sqrt m)^(k-1) ≤ a / 4 ∧\n    (2 * (k : ℝ) * m)^k * (4 * (k : ℝ) * m)^k * Real.exp (-Λ) = (1 / 2 : ℝ)^k",
+    "proposed_lean_context": "import QuarticQuery\nimport QuarticQuery.ForrelationLower.Uniform\nimport QuarticQuery.Upper.Bound\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "unelaborated; no Lean compiler or new kernel check in this return",
+    "evidence_class": "new_paper_deduction",
+    "route_note": "Arithmetic counterparts are written in Uniform.lean:135–295 and 327–375. They remain uncompiled. The residual equality is ordinary exponential algebra, and no sharp external Fourier theorem is used.",
+    "passages": [
+      "uniform-proof"
+    ],
+    "displays": [
+      "(5)",
+      "(6)"
+    ],
+    "sources": [
+      {
+        "path": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+        "line_start": 300,
+        "line_end": 424,
+        "declarations": [
+          "QuarticQuery.ForrelationLower.not_RLe_uniform",
+          "QuarticQuery.forrelation_lower_uniform_existing_constants"
+        ]
+      },
+      {
+        "path": "repository/lean/QuarticQuery/ForrelationLower/Main.lean",
+        "line_start": 79,
+        "line_end": 104,
+        "declarations": [
+          "QuarticQuery.ForrelationLower.not_RLe_of_gap"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sf-floor-budget",
+    "statement": "For k≥2,t≥64,15k+2≤2t and X as in (4), 2≤2^t/(13996800t³)≤X, 1≤floor(X)≤m and floor(X)≥X/2.",
+    "why_needed": "Ensures the auxiliary budget meets every hypothesis of the general planted bound.",
+    "depends_on": [
+      "sf-uniform-forrelation"
+    ],
+    "proposed_lean": "theorem QuarticQuery.sf_floor_budget\n    (k t : ℕ) (hk : 2 ≤ k) (ht : 64 ≤ t)\n    (hkt : 15 * k + 2 ≤ 2 * t) :\n    let X : ℝ := (Real.rpow (mValue t : ℝ) (1 - 1 / (k : ℝ)) / (2332800 * (k : ℝ)^2 * Real.log (4 * (k : ℝ) * (mValue t : ℝ))))\n    2 ≤ (2 : ℝ)^t / (13996800*(t : ℝ)^3) ∧\n    (2 : ℝ)^t / (13996800*(t : ℝ)^3) ≤ X ∧\n    1 ≤ ⌊X⌋₊ ∧ ⌊X⌋₊ ≤ mValue t ∧ X / 2 ≤ ((⌊X⌋₊ : ℕ) : ℝ)",
+    "proposed_lean_context": "import QuarticQuery\nimport QuarticQuery.ForrelationLower.Uniform\nimport QuarticQuery.Upper.Bound\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "unelaborated; no Lean compiler or new kernel check in this return",
+    "evidence_class": "new_paper_deduction",
+    "route_note": "Prove k≤t and ln(4km)≤6t, then 2^t≥27993600 t³ for t≥64 by the base case and monotonic ratio. Natural-floor casts in this proposed signature require elaboration.",
+    "passages": [
+      "auxiliary-budget"
+    ],
+    "displays": [
+      "(8)"
+    ],
+    "sources": [
+      {
+        "path": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+        "line_start": 300,
+        "line_end": 424,
+        "declarations": [
+          "QuarticQuery.ForrelationLower.not_RLe_uniform",
+          "QuarticQuery.forrelation_lower_uniform_existing_constants"
+        ]
+      },
+      {
+        "path": "repository/lean/QuarticQuery/LowerBound/Planted/Main.lean",
+        "line_start": 178,
+        "line_end": 208,
+        "declarations": [
+          "QuarticQuery.Gvalue_lt_R_addressedF"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sf-floor-transfer",
+    "statement": "If integer R exceeds floor(mL/100), then R>mL/100. Only the first floor L=floor X loses a factor at most two.",
+    "why_needed": "Avoids a spurious second floor loss and prevents the invalid denominator 100*C0.",
+    "depends_on": [],
+    "proposed_lean": "theorem QuarticQuery.sf_floor_transfer (m L r : ℕ)\n    (h : Gvalue m L < r) : (m : ℝ) * (L : ℝ) / 100 < (r : ℝ)",
+    "proposed_lean_context": "import QuarticQuery\nimport QuarticQuery.ForrelationLower.Uniform\nimport QuarticQuery.Upper.Bound\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "unelaborated; no Lean compiler or new kernel check in this return",
+    "evidence_class": "new_paper_deduction",
+    "route_note": "Pure integer division: floor(y)+1>y. The checks include a negative control rejecting floor X≥X.",
+    "passages": [
+      "auxiliary-budget"
+    ],
+    "displays": [
+      "(9)"
+    ],
+    "sources": [
+      {
+        "path": "repository/lean/QuarticQuery/Statement.lean",
+        "line_start": 313,
+        "line_end": 314,
+        "declarations": []
+      }
+    ]
+  },
+  {
+    "id": "sf-planted-numerical",
+    "statement": "For m=4^t,1≤L≤m and G=floor(mL/100), (2/3)^(40t)≤m^(−10) and the conservative discrepancy 4G/m²+G/(mL)+G(2/3)^(40t)≤6/100<1/3.",
+    "why_needed": "Displays all thresholds of the planted argument without an implicit large-m exception.",
+    "depends_on": [
+      "eq-23",
+      "prop-4.2-generic"
+    ],
+    "proposed_lean": "theorem QuarticQuery.sf_planted_numerical (t L : ℕ)\n    (hL : 1 ≤ L) (hLm : L ≤ mValue t) :\n    let m : ℝ := mValue t\n    let G : ℝ := Gvalue (mValue t) L\n    (2 / 3 : ℝ)^(40*t) ≤ 1 / m^10 ∧\n    4 * G / m^2 + G / (m * (L : ℝ)) + G * (2 / 3 : ℝ)^(40*t) ≤ 6 / 100",
+    "proposed_lean_context": "import QuarticQuery\nimport QuarticQuery.ForrelationLower.Uniform\nimport QuarticQuery.Upper.Bound\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "unelaborated; no Lean compiler or new kernel check in this return",
+    "evidence_class": "new_paper_deduction",
+    "route_note": "The existing twoThirds_pow_le and discrepancy_le already prove the tail and exact 6/100 estimates, and are compiled according to the packet. The proposed conjunction specializes them to the natural Gvalue. It uses the conservative coefficient 4 even though the inner erased-zero proof gives 2.",
+    "passages": [
+      "auxiliary-budget"
+    ],
+    "displays": [
+      "(9)"
+    ],
+    "sources": [
+      {
+        "path": "repository/lean/QuarticQuery/Results/Exponent.lean",
+        "line_start": 427,
+        "line_end": 476,
+        "declarations": [
+          "QuarticQuery.twoThirds_pow_le",
+          "QuarticQuery.discrepancy_le",
+          "QuarticQuery.discrepancy_lt_third"
+        ]
+      },
+      {
+        "path": "repository/lean/QuarticQuery/LowerBound/Planted/Main.lean",
+        "line_start": 178,
+        "line_end": 208,
+        "declarations": [
+          "QuarticQuery.Gvalue_lt_R_addressedF"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sf-total-lower",
+    "statement": "For k≥2,t≥64,15k+2≤2t, every exact realizing circuit gives R(Fkm)>m^(2−1/k)/(466560000 k² ln(4km)).",
+    "why_needed": "The uniform total-function lower bound used by both schedules.",
+    "depends_on": [
+      "sf-uniform-forrelation",
+      "sf-floor-budget",
+      "sf-floor-transfer",
+      "prop-4.2-generic"
+    ],
+    "proposed_lean": "theorem QuarticQuery.sf_total_lower\n    (k t : ℕ) (hk : 2 ≤ k) (ht : 64 ≤ t) (hkt : 15 * k + 2 ≤ 2 * t)\n    (C : Circuit (ForrelationCoord k t)) (hC : CircuitRealises C (P k t)) :\n    Real.rpow (mValue t : ℝ) (2 - 1 / (k : ℝ)) /\n      (466560000 * (k : ℝ)^2 * Real.log (4 * (k : ℝ) * (mValue t : ℝ))) <\n      (R (totalise (Fkm k t C)) : ℝ)",
+    "proposed_lean_context": "import QuarticQuery\nimport QuarticQuery.ForrelationLower.Uniform\nimport QuarticQuery.Upper.Bound\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "unelaborated; no Lean compiler or new kernel check in this return",
+    "evidence_class": "new_paper_deduction",
+    "route_note": "New composition of the generic planted theorem with a new auxiliary L. Fkm's definition has no L argument. The stronger fixed-L threshold is deliberately not used.",
+    "passages": [
+      "main-theorem",
+      "auxiliary-budget",
+      "finite-ratio"
+    ],
+    "displays": [
+      "(2)",
+      "(7)"
+    ],
+    "sources": [
+      {
+        "path": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+        "line_start": 300,
+        "line_end": 424,
+        "declarations": [
+          "QuarticQuery.ForrelationLower.not_RLe_uniform",
+          "QuarticQuery.forrelation_lower_uniform_existing_constants"
+        ]
+      },
+      {
+        "path": "repository/lean/QuarticQuery/LowerBound/Planted/Main.lean",
+        "line_start": 178,
+        "line_end": 208,
+        "declarations": [
+          "QuarticQuery.Gvalue_lt_R_addressedF"
+        ]
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Statement.lean",
+        "line_start": 234,
+        "line_end": 296,
+        "declarations": [
+          "QuarticQuery.BitLoc",
+          "QuarticQuery.Fkm"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sf-schedule",
+    "statement": "For t≥80, both k5=floor sqrt(t/10) and k10=floor sqrt(t/20) are ≥2 and satisfy 15k+2≤2t. They equal floor sqrt(s/20) and floor sqrt(s/40), respectively, when s=2t.",
+    "why_needed": "Makes the schedule and all starting thresholds explicit.",
+    "depends_on": [],
+    "proposed_lean": "theorem QuarticQuery.sf_schedule (t : ℕ) (ht : 80 ≤ t) :\n    2 ≤ Nat.sqrt (t / 10) ∧ 15 * Nat.sqrt (t / 10) + 2 ≤ 2*t ∧\n    2 ≤ Nat.sqrt (t / 20) ∧ 15 * Nat.sqrt (t / 20) + 2 ≤ 2*t ∧\n    Nat.sqrt (t / 10) = ⌊Real.sqrt ((2 * (t : ℝ)) / 20)⌋₊ ∧\n    Nat.sqrt (t / 20) = ⌊Real.sqrt ((2 * (t : ℝ)) / 40)⌋₊",
+    "proposed_lean_context": "import QuarticQuery\nimport QuarticQuery.ForrelationLower.Uniform\nimport QuarticQuery.Upper.Bound\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "unelaborated; no Lean compiler or new kernel check in this return",
+    "evidence_class": "new_paper_deduction",
+    "route_note": "New integer-square-root arithmetic. Nat.sqrt(t/d) means integer division followed by integer square root; the floor identity is recorded explicitly.",
+    "passages": [
+      "main-theorem",
+      "thresholds",
+      "baseline"
+    ],
+    "displays": [
+      "(1)",
+      "(22)"
+    ],
+    "sources": []
+  },
+  {
+    "id": "sf-T-and-repetitions",
+    "statement": "For t≥1, Tval(mValue t)=2t+10, eta=epsval(m)/(40t)=1/(20000s(s+10)), and repetitions k eta=ceil(16*2^(10k)*ln(20000s(s+10))).",
+    "why_needed": "Exposes the only accuracy parameter used in the decoder, without hiding a k-dependent error.",
+    "depends_on": [
+      "prop-3.2",
+      "lem-2.1.ii"
+    ],
+    "proposed_lean": "theorem QuarticQuery.sf_T_and_repetitions (k t : ℕ) (ht : 1 ≤ t) :\n    Tournament.Tval (mValue t) = 2*t+10 ∧\n    Tournament.epsval (mValue t) / (40 * (t : ℝ)) =\n      1 / (20000 * (2 * (t : ℝ)) * (2 * (t : ℝ) + 10)) ∧\n    Forrelation.repetitions k (Tournament.epsval (mValue t) / (40 * (t : ℝ))) =\n      ⌈16 * (2 : ℝ)^(10*k) *\n        Real.log (20000 * (2 * (t : ℝ)) * (2 * (t : ℝ) + 10))⌉₊",
+    "proposed_lean_context": "import QuarticQuery\nimport QuarticQuery.ForrelationLower.Uniform\nimport QuarticQuery.Upper.Bound\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "unelaborated; no Lean compiler or new kernel check in this return",
+    "evidence_class": "new_paper_deduction",
+    "route_note": "Exact arithmetic strengthening of the source's inequality T≤2t+10. Correct namespace for repetitions is checked against Repetition.lean.",
+    "passages": [
+      "existing-quantum",
+      "ae-assembly"
+    ],
+    "displays": [
+      "(10)"
+    ],
+    "sources": [
+      {
+        "path": "repository/lean/QuarticQuery/Tournament/Ideal.lean",
+        "line_start": 295,
+        "line_end": 299,
+        "declarations": []
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Forrelation/Repetition.lean",
+        "line_start": 186,
+        "line_end": 197,
+        "declarations": []
+      }
+    ]
+  },
+  {
+    "id": "sf-B10",
+    "statement": "budgetConst k equals the expanded B10(k) in (11), and B10(k)≤2^53*k*2^(10k) for k≥1.",
+    "why_needed": "Expands the compiled constant and isolates its actual exponential dependence.",
+    "depends_on": [
+      "prop-3.3"
+    ],
+    "proposed_lean": "theorem QuarticQuery.sf_B10 (k : ℕ) (hk : 1 ≤ k) :\n    Upper.budgetConst k = (2972284080 * k * (1 + 1920000 * 2 ^ (10 * k)) + 79491312000 * (k + 1) ^ 2 + 1131887160) ∧ Upper.budgetConst k ≤ 2^53 * k * 2^(10*k)",
+    "proposed_lean_context": "import QuarticQuery\nimport QuarticQuery.ForrelationLower.Uniform\nimport QuarticQuery.Upper.Bound\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "unelaborated; no Lean compiler or new kernel check in this return",
+    "evidence_class": "new_paper_deduction",
+    "route_note": "New ring/integer inequality over existing definitions; Q_Fkm_le itself is old. No change to the source algorithm.",
+    "passages": [
+      "existing-quantum"
+    ],
+    "displays": [
+      "(11)"
+    ],
+    "sources": [
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Bound.lean",
+        "line_start": 52,
+        "line_end": 257,
+        "declarations": [
+          "QuarticQuery.Upper.budgetConst",
+          "QuarticQuery.Upper.Q_Fkm_le"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sf-circuit-arithmetic",
+    "statement": "For k=l+1 and W=5k+3+t(k+1), the canonical exact circuit has S=7+6W[(k+1)m+5k+t(k+1)+4]+(k−1)tm(12W+1), using whtCost W (2t)=t*m*(12W+1).",
+    "why_needed": "Audits the certificate size and rules out an untracked exponential dependence on k.",
+    "depends_on": [
+      "lem-2.1.iii"
+    ],
+    "proposed_lean": "theorem QuarticQuery.sf_circuit_arithmetic (l t : ℕ) :\n    let k := l+1\n    let W := 5*k+3+t*(k+1)\n    Forrelation.widthTop l t + 1 = W ∧\n    Forrelation.whtCost W (2*t) = t * mValue t * (12*W+1) ∧\n    (forrCircuit l t).size =\n      7 + 6*W*((k+1)*mValue t + 5*k+t*(k+1)+4) +\n        (k-1)*t*mValue t*(12*W+1)",
+    "proposed_lean_context": "import QuarticQuery\nimport QuarticQuery.ForrelationLower.Uniform\nimport QuarticQuery.Upper.Bound\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "unelaborated; no Lean compiler or new kernel check in this return",
+    "evidence_class": "new_paper_deduction",
+    "route_note": "Unfold coreSize and layerCost, solve the whtCost recurrence. This exact identity is new; the existing size upper bound remains compiled according to the packet.",
+    "passages": [
+      "existing-quantum",
+      "ae-assembly"
+    ],
+    "displays": [
+      "(14)"
+    ],
+    "sources": [
+      {
+        "path": "repository/lean/QuarticQuery/Forrelation/Circuit.lean",
+        "line_start": 35,
+        "line_end": 37,
+        "declarations": []
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Forrelation/Circuit.lean",
+        "line_start": 102,
+        "line_end": 104,
+        "declarations": []
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Forrelation/Circuit.lean",
+        "line_start": 337,
+        "line_end": 467,
+        "declarations": [
+          "QuarticQuery.Forrelation.forrCircuit",
+          "QuarticQuery.Forrelation.forrCircuit_realises",
+          "QuarticQuery.Forrelation.forrCircuit_size_eq",
+          "QuarticQuery.Forrelation.forrCircuit_size_le"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sf-amplitude-estimation-interface",
+    "statement": "A coherent q-read Bernoulli sampler of probability p admits a coherent Fin M outcome sampler at ≤2qM abstract reads, with BHMT's error event of mass ≥8/pi². Compilation gives ≤4qM physical bit queries. Retained labels have estimates sin²(pi*j/M), so no input-dependent arithmetic is hidden.",
+    "why_needed": "States the external amplitude-estimation input in the existing coherent sampler vocabulary.",
+    "depends_on": [],
+    "proposed_lean": "theorem QuarticQuery.sf_amplitude_estimation_interface\n    {ι : Type} [Fintype ι] [Nonempty ι] {q M : ℕ} (hM : 1 ≤ M)\n    {p : BitInput ι → ℝ}\n    (h : Upper.Samples q (fun x b => Upper.bern (p x) b)) :\n    ∃ L : BitInput ι → Fin M → ℝ,\n      Upper.Samples (2*q*M) L ∧\n      ∀ x, 8 / Real.pi^2 ≤\n        ∑ j : Fin M, if\n          |(Real.sin (Real.pi * (j.val : ℝ) / (M : ℝ)))^2 - p x| ≤\n            2 * Real.pi * Real.sqrt (p x * (1-p x)) / (M : ℝ) +\n              Real.pi^2 / (M : ℝ)^2\n          then L x j else 0",
+    "proposed_lean_context": "import QuarticQuery\nimport QuarticQuery.ForrelationLower.Uniform\nimport QuarticQuery.Upper.Bound\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "unelaborated; no Lean compiler or new kernel check in this return",
+    "evidence_class": "external_theorem_with_new_model_transport",
+    "route_note": "BHMT Theorem 12 is an external mathematical input, not in supplied Lean. Abstract controlled preparation costs q reads, and one controlled iterate costs 2q, so q+2q(M−1)≤2qM. The source Samples.runs doubles this to physical bit queries. A formal implementation must preserve the minus sign in -A S0 A† Sχ. This signature asserts the new sampler theorem, not that it already exists.",
+    "passages": [
+      "ae-decoder"
+    ],
+    "displays": [
+      "(13)"
+    ],
+    "sources": [
+      {
+        "url": "https://arxiv.org/pdf/quant-ph/0005055",
+        "locator": "§4, Algorithm Est_Amp and Theorem 12, printed pp.18–19",
+        "path": "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/extracted.md"
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Sampler.lean",
+        "line_start": 113,
+        "line_end": 117,
+        "declarations": [
+          "QuarticQuery.Upper.Samples"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sf-AE-margins",
+    "statement": "For 0<delta≤1, 0≤p≤1 and |p_tilde−p|≤delta sqrt(p)/4+delta²/64, p≤delta²/4 implies p_tilde≤25delta²/64, while p≥delta² implies p_tilde≥47delta²/64.",
+    "why_needed": "Checks the entire yes range and no range, including the endpoint cases.",
+    "depends_on": [
+      "sf-amplitude-estimation-interface"
+    ],
+    "proposed_lean": "theorem QuarticQuery.sf_AE_margins {δ p q : ℝ}\n    (hδ : 0 < δ) (hδ1 : δ ≤ 1) (hp : 0 ≤ p) (hp1 : p ≤ 1)\n    (he : |q-p| ≤ δ * Real.sqrt p / 4 + δ^2/64) :\n    (p ≤ δ^2/4 → q ≤ 25*δ^2/64) ∧\n    (δ^2 ≤ p → 47*δ^2/64 ≤ q)",
+    "proposed_lean_context": "import QuarticQuery\nimport QuarticQuery.ForrelationLower.Uniform\nimport QuarticQuery.Upper.Bound\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "unelaborated; no Lean compiler or new kernel check in this return",
+    "evidence_class": "new_paper_deduction",
+    "route_note": "Elementary inequality. On the yes range use (sqrt p−delta)(sqrt p+3delta/4)≥0, not replacement of only the error term by its endpoint.",
+    "passages": [
+      "ae-decoder"
+    ],
+    "displays": [
+      "(13)"
+    ],
+    "sources": [
+      {
+        "url": "https://arxiv.org/pdf/quant-ph/0005055",
+        "locator": "§4, Algorithm Est_Amp and Theorem 12, printed pp.18–19",
+        "path": "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/extracted.md"
+      }
+    ]
+  },
+  {
+    "id": "sf-majority-quarter",
+    "statement": "For 2h independent Bernoulli errors with probability q≤1/4, the probability of at least h errors is at most (3/4)^h.",
+    "why_needed": "Supplies bounded-error amplification while retaining all registers.",
+    "depends_on": [],
+    "proposed_lean": "theorem QuarticQuery.sf_majority_quarter (h : ℕ) {q : ℝ}\n    (hq0 : 0 ≤ q) (hq1 : q ≤ 1/4) :\n    (∑ z : Fin (2*h) → Bool,\n      if h ≤ (Finset.univ.filter (fun i => z i = true)).card then\n        ∏ i : Fin (2*h), if z i then q else 1-q\n      else 0) ≤ (3/4 : ℝ)^h",
+    "proposed_lean_context": "import QuarticQuery\nimport QuarticQuery.ForrelationLower.Uniform\nimport QuarticQuery.Upper.Bound\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "unelaborated; no Lean compiler or new kernel check in this return",
+    "evidence_class": "new_paper_deduction",
+    "route_note": "Markov applied to 3^(number of errors): each moment factor≤3/2, giving (3/2)^(2h)/3^h. Ties are counted as errors regardless of the fixed output tie-breaking convention.",
+    "passages": [
+      "ae-decoder"
+    ],
+    "displays": [],
+    "sources": [
+      {
+        "path": "repository/lean/QuarticQuery/ForrelationLower/Amplify.lean",
+        "line_start": 1,
+        "line_end": 176,
+        "declarations": []
+      }
+    ]
+  },
+  {
+    "id": "sf-AE-decoder",
+    "statement": "For k≥1,t≥0,0<eta<1 and every coordinate map loc, there is a retained coherent Samples decoder at ≤128*k*2^(5k)*ceil(ln(1/eta)/ln(4/3)) abstract reads, correct on the promise with probability ≥1−eta and capped everywhere. Compilation gives the physical cap 256*k*2^(5k)*ceil(ln(1/eta)/ln(4/3)); the latter is also the conservative read cap used in the paper.",
+    "why_needed": "Coherence, inverse access and control are essential to the tournament; QLe alone is insufficient.",
+    "depends_on": [
+      "sf-amplitude-estimation-interface",
+      "sf-AE-margins",
+      "sf-majority-quarter",
+      "claim-proj-prob"
+    ],
+    "proposed_lean": "theorem QuarticQuery.sf_AE_decoder\n    {ι : Type} [Fintype ι] [Nonempty ι]\n    (k t : ℕ) (hk : 1 ≤ k) (η : ℝ) (hη0 : 0 < η) (hη1 : η < 1)\n    (loc : ForrelationCoord k t → ι) :\n    ∃ L : BitInput ι → Bool → ℝ,\n      Upper.Samples\n        (128*k*2^(5*k)*⌈Real.log (1/η) / Real.log (4/3 : ℝ)⌉₊) L ∧\n      ∀ x b, P k t (fun c => x (loc c)) = some b → 1-η ≤ L x b",
+    "proposed_lean_context": "import QuarticQuery\nimport QuarticQuery.ForrelationLower.Uniform\nimport QuarticQuery.Upper.Bound\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "unelaborated; no Lean compiler or new kernel check in this return",
+    "evidence_class": "new_paper_deduction",
+    "route_note": "Use M=2^(5k+5) and 2h repetitions of the 2kM-read sampler, giving 128*k*2^(5k)*h abstract reads. Samples.runs gives physical cap 256*k*2^(5k)*h after choosing an Inhabited instance from Nonempty ι; Samples.mono also permits that conservative cap as a read cap. Preserve the controlled minus, omit measurements, retain all registers, threshold and take majority. Not present in supplied source.",
+    "passages": [
+      "main-theorem",
+      "ae-decoder",
+      "ae-assembly"
+    ],
+    "displays": [
+      "(12)"
+    ],
+    "sources": [
+      {
+        "url": "https://arxiv.org/pdf/quant-ph/0005055",
+        "locator": "§4, Algorithm Est_Amp and Theorem 12, printed pp.18–19",
+        "path": "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/extracted.md"
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Decode.lean",
+        "line_start": 307,
+        "line_end": 391,
+        "declarations": [
+          "QuarticQuery.Upper.forr_samples",
+          "QuarticQuery.Upper.decode_samples"
+        ]
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Sampler.lean",
+        "line_start": 113,
+        "line_end": 117,
+        "declarations": [
+          "QuarticQuery.Upper.Samples"
+        ]
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Compile.lean",
+        "line_start": 394,
+        "line_end": 397,
+        "declarations": [
+          "QuarticQuery.Upper.Samples.runs"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sf-AE-decoder-runs",
+    "statement": "The same retained decoder law is physically executable at 256*k*2^(5k)*ceil(ln(1/eta)/ln(4/3)) bit queries, for every coordinate map and 0<eta<1, with success at least 1−eta on the promise.",
+    "why_needed": "Registers the physical claim of Lemma 4 explicitly; a Samples bound at the physical count alone would lose another factor two when compiled.",
+    "depends_on": [
+      "sf-AE-decoder",
+      "claim-coherent-access"
+    ],
+    "proposed_lean": "theorem QuarticQuery.sf_AE_decoder_runs\n    {ι : Type} [Fintype ι] [Inhabited ι]\n    (k t : ℕ) (hk : 1 ≤ k) (η : ℝ) (hη0 : 0 < η) (hη1 : η < 1)\n    (loc : ForrelationCoord k t → ι) :\n    ∃ L : BitInput ι → Bool → ℝ,\n      Upper.Runs\n        (256*k*2^(5*k)*⌈Real.log (1/η) / Real.log (4/3 : ℝ)⌉₊) L ∧\n      ∀ x b, P k t (fun c => x (loc c)) = some b → 1-η ≤ L x b",
+    "proposed_lean_context": "import QuarticQuery\nimport QuarticQuery.ForrelationLower.Uniform\nimport QuarticQuery.Upper.Bound\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "unelaborated; no Lean compiler or new kernel check in this return",
+    "evidence_class": "new_paper_deduction",
+    "route_note": "Apply Samples.runs to the sharper 128*k*2^(5k)*h abstract cap and normalize the factor two. A QLe corollary additionally needs eta≤1/3; this Runs statement correctly permits arbitrary 0<eta<1.",
+    "passages": [
+      "ae-decoder"
+    ],
+    "displays": [
+      "(12)"
+    ],
+    "sources": [
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Compile.lean",
+        "line_start": 394,
+        "line_end": 397,
+        "declarations": [
+          "QuarticQuery.Upper.Samples.runs"
+        ]
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Sampler.lean",
+        "line_start": 113,
+        "line_end": 117,
+        "declarations": [
+          "QuarticQuery.Upper.Samples"
+        ]
+      },
+      {
+        "url": "https://arxiv.org/pdf/quant-ph/0005055",
+        "locator": "§4, Algorithm Est_Amp and Theorem 12, printed pp.18–19",
+        "path": "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/extracted.md"
+      }
+    ]
+  },
+  {
+    "id": "sf-generic-decoder-composition",
+    "statement": "Any reindexable coherent n*k-read decoder with promise error eta=epsval(m)/(40t) can replace the hardwired repetition decoder in the addressed function, yielding QLe at the same explicit budget formula.",
+    "why_needed": "Provides the missing formal wrapper; numerical substitution into Fkm_QLe is invalid.",
+    "depends_on": [
+      "prop-3.2",
+      "claim-coherent-access",
+      "lem-2.2.ii"
+    ],
+    "proposed_lean": "theorem QuarticQuery.sf_generic_decoder_composition\n    (k t n : ℕ) (hk : 1 ≤ k) (ht : 1 ≤ t)\n    (C : Circuit (ForrelationCoord k t)) (hC : CircuitRealises C (P k t))\n    (hdec : ∀ loc : ForrelationCoord k t →\n        BitLoc (2*t) (40*t) C.size (ForrelationCoord k t),\n      ∃ L : BitInput (BitLoc (2*t) (40*t) C.size (ForrelationCoord k t)) → Bool → ℝ,\n        Upper.Samples (n*k) L ∧\n        ∀ x b, P k t (fun c => x (loc c)) = some b →\n          1 - Tournament.epsval (mValue t) / (40 * (t : ℝ)) ≤ L x b) :\n    QLe (totalise (Fkm k t C))\n      (Upper.budget k t n (Fintype.card (Upper.Tests t C)))",
+    "proposed_lean_context": "import QuarticQuery\nimport QuarticQuery.ForrelationLower.Uniform\nimport QuarticQuery.Upper.Bound\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "unelaborated; no Lean compiler or new kernel check in this return",
+    "evidence_class": "new_paper_deduction",
+    "route_note": "New address, comparison and verifier laws must be defined from hdec. The compiled tournament and Samples combinators can then be reused. The old addrLaw and decode_samples specifically contain the old binomial law.",
+    "passages": [
+      "ae-assembly",
+      "evidence"
+    ],
+    "displays": [
+      "(15)"
+    ],
+    "sources": [
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Verify.lean",
+        "line_start": 125,
+        "line_end": 205,
+        "declarations": [
+          "QuarticQuery.Upper.budget",
+          "QuarticQuery.Upper.Fkm_QLe"
+        ]
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Sampler.lean",
+        "line_start": 113,
+        "line_end": 117,
+        "declarations": [
+          "QuarticQuery.Upper.Samples"
+        ]
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Columns.lean",
+        "line_start": 50,
+        "line_end": 170,
+        "declarations": []
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Tournament.lean",
+        "line_start": 359,
+        "line_end": 438,
+        "declarations": []
+      }
+    ]
+  },
+  {
+    "id": "sf-AE-budget",
+    "statement": "The new decoder and generic composition give Q(F_{k,m})≤B5(k) sqrt(m) s^6 for k≥1,t≥1, with B5 exactly as in (16). B5(k)≤2^59*k*2^(5k).",
+    "why_needed": "The improved quantum upper bound for the same total function.",
+    "depends_on": [
+      "sf-AE-decoder",
+      "sf-generic-decoder-composition",
+      "sf-AE-count-arithmetic",
+      "sf-T-and-repetitions",
+      "lem-2.1.iii"
+    ],
+    "proposed_lean": "theorem QuarticQuery.sf_AE_budget (l t : ℕ) (ht : 1 ≤ t) :\n    let k := l+1\n    let B : ℕ := (2972284080 * k * (1 + 122880256 * 2 ^ (5 * k)) + 79491312000 * (k + 1) ^ 2 + 1131887160)\n    (Q (totalise (Fkm (l + 1) t (forrCircuit l t))) : ℝ) ≤ (B : ℝ) * 2^t * (2*(t : ℝ))^6 ∧\n    B ≤ 2^59 * k * 2^(5*k)",
+    "proposed_lean_context": "import QuarticQuery\nimport QuarticQuery.ForrelationLower.Uniform\nimport QuarticQuery.Upper.Bound\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "unelaborated; no Lean compiler or new kernel check in this return",
+    "evidence_class": "new_paper_deduction",
+    "route_note": "New mathematical upper theorem. h≤480000s²+1 and 256h≤122880256s² supply the substituted cost envelope. Only the arithmetic from budget_le is reused unchanged; the decoder and composition proofs are new.",
+    "passages": [
+      "main-theorem",
+      "ae-assembly",
+      "finite-ratio"
+    ],
+    "displays": [
+      "(2)",
+      "(16)"
+    ],
+    "sources": [
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Bound.lean",
+        "line_start": 52,
+        "line_end": 257,
+        "declarations": [
+          "QuarticQuery.Upper.budgetConst",
+          "QuarticQuery.Upper.Q_Fkm_le"
+        ]
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Verify.lean",
+        "line_start": 125,
+        "line_end": 205,
+        "declarations": [
+          "QuarticQuery.Upper.budget",
+          "QuarticQuery.Upper.Fkm_QLe"
+        ]
+      },
+      {
+        "url": "https://arxiv.org/pdf/quant-ph/0005055",
+        "locator": "§4, Algorithm Est_Amp and Theorem 12, printed pp.18–19",
+        "path": "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/extracted.md"
+      }
+    ]
+  },
+  {
+    "id": "sf-AE-count-arithmetic",
+    "statement": "For t≥1 and eta=1/(20000s(s+10)), h=ceil(ln(1/eta)/ln(4/3))≤480000s²+1 and 256h≤122880256s².",
+    "why_needed": "Makes every amplification and coarse budget constant explicit.",
+    "depends_on": [
+      "sf-T-and-repetitions"
+    ],
+    "proposed_lean": "theorem QuarticQuery.sf_AE_count_arithmetic (t : ℕ) (ht : 1 ≤ t) :\n    let s : ℕ := 2*t\n    let h : ℕ := ⌈Real.log (20000*(s : ℝ)*((s : ℝ)+10)) /\n                         Real.log (4/3 : ℝ)⌉₊\n    h ≤ 480000*s^2+1 ∧ 256*h ≤ 122880256*s^2",
+    "proposed_lean_context": "import QuarticQuery\nimport QuarticQuery.ForrelationLower.Uniform\nimport QuarticQuery.Upper.Bound\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "unelaborated; no Lean compiler or new kernel check in this return",
+    "evidence_class": "new_paper_deduction",
+    "route_note": "Use log(4/3)≥1/4, log x≤x, s+10≤6s, and s≥1. Loose logarithmic estimates preserve the leading exponential coefficient.",
+    "passages": [
+      "ae-assembly"
+    ],
+    "displays": [
+      "(16)"
+    ],
+    "sources": [
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Bound.lean",
+        "line_start": 52,
+        "line_end": 257,
+        "declarations": [
+          "QuarticQuery.Upper.budgetConst",
+          "QuarticQuery.Upper.Q_Fkm_le"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sf-input-cardinality",
+    "statement": "For s=2t, r=40t, m=4^t and any circuit C, the physical input count is m²(1+20ks)+m²¹[(m−1)s+20s C.size].",
+    "why_needed": "Prevents interpreting the column parameter as the bit length.",
+    "depends_on": [
+      "def-F"
+    ],
+    "proposed_lean": "theorem QuarticQuery.sf_input_cardinality (k t : ℕ)\n    (C : Circuit (ForrelationCoord k t)) :\n    Fintype.card (BitLoc (2*t) (40*t) C.size (ForrelationCoord k t)) =\n      (mValue t)^2 * (1+20*k*(2*t)) +\n      (mValue t)^21 * ((mValue t-1)*(2*t)+20*(2*t)*C.size)",
+    "proposed_lean_context": "import QuarticQuery\nimport QuarticQuery.ForrelationLower.Uniform\nimport QuarticQuery.Upper.Bound\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "unelaborated; no Lean compiler or new kernel check in this return",
+    "evidence_class": "new_paper_deduction",
+    "route_note": "New finite-type cardinal arithmetic from the four sums in BitLoc. The pointer subtype has m−1 elements and 2^(40t)=m^20.",
+    "passages": [
+      "input-length"
+    ],
+    "displays": [
+      "(23)"
+    ],
+    "sources": [
+      {
+        "path": "repository/lean/QuarticQuery/Statement.lean",
+        "line_start": 234,
+        "line_end": 296,
+        "declarations": [
+          "QuarticQuery.BitLoc",
+          "QuarticQuery.Fkm"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sf-input-envelope",
+    "statement": "For k≥1,t≥1 and C.size≤200(k+1)²m(2t)², (m−1)m²¹(2t)≤n≤4022(k+1)²m²²(2t)³.",
+    "why_needed": "Gives input-length asymptotics with constants and hypotheses.",
+    "depends_on": [
+      "sf-input-cardinality",
+      "lem-2.1.iii"
+    ],
+    "proposed_lean": "theorem QuarticQuery.sf_input_envelope (k t : ℕ) (hk : 1 ≤ k) (ht : 1 ≤ t)\n    (C : Circuit (ForrelationCoord k t))\n    (hC : C.size ≤ 200*(k+1)^2*mValue t*(2*t)^2) :\n    (mValue t-1)*(mValue t)^21*(2*t) ≤\n      Fintype.card (BitLoc (2*t) (40*t) C.size (ForrelationCoord k t)) ∧\n    Fintype.card (BitLoc (2*t) (40*t) C.size (ForrelationCoord k t)) ≤\n      4022*(k+1)^2*(mValue t)^22*(2*t)^3",
+    "proposed_lean_context": "import QuarticQuery\nimport QuarticQuery.ForrelationLower.Uniform\nimport QuarticQuery.Upper.Bound\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "unelaborated; no Lean compiler or new kernel check in this return",
+    "evidence_class": "new_paper_deduction",
+    "route_note": "New arithmetic using the existing canonical circuit-size theorem. No input-length padding or monotonicity of optimal query complexity is assumed.",
+    "passages": [
+      "input-length"
+    ],
+    "displays": [
+      "(24)"
+    ],
+    "sources": [
+      {
+        "path": "repository/lean/QuarticQuery/Statement.lean",
+        "line_start": 234,
+        "line_end": 296,
+        "declarations": [
+          "QuarticQuery.BitLoc",
+          "QuarticQuery.Fkm"
+        ]
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Forrelation/Circuit.lean",
+        "line_start": 337,
+        "line_end": 467,
+        "declarations": [
+          "QuarticQuery.Forrelation.forrCircuit",
+          "QuarticQuery.Forrelation.forrCircuit_realises",
+          "QuarticQuery.Forrelation.forrCircuit_size_eq",
+          "QuarticQuery.Forrelation.forrCircuit_size_le"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sf-generic-quartic",
+    "statement": "For any finite input type and total f, R(totalise f)≤20736 Q(totalise f)^4.",
+    "why_needed": "Justifies Q>1, divergence and the upper squeeze for the logarithmic ratio.",
+    "depends_on": [
+      "thm-A.1"
+    ],
+    "proposed_lean": "theorem QuarticQuery.sf_generic_quartic\n    {ι : Type} [Fintype ι] (f : TotalBool ι) :\n    R (totalise f) ≤ 20736 * Q (totalise f)^4",
+    "proposed_lean_context": "import QuarticQuery\nimport QuarticQuery.ForrelationLower.Uniform\nimport QuarticQuery.Upper.Bound\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "unelaborated; no Lean compiler or new kernel check in this return",
+    "evidence_class": "new_paper_deduction",
+    "route_note": "Transport the existing Fin n theorem through Fintype.equivFin, R_reindex and Q_reindex, and use R_le_D. This is a small new wrapper over the imported universal route, not a claim that Appendix A was re-proved line by line.",
+    "passages": [
+      "finite-ratio",
+      "optimization-proof",
+      "diagonal"
+    ],
+    "displays": [],
+    "sources": [
+      {
+        "path": "repository/lean/QuarticQuery/Appendix/TheoremA1.lean",
+        "line_start": 23,
+        "line_end": 77,
+        "declarations": [
+          "QuarticQuery.D_le_Q_pow_four",
+          "QuarticQuery.universalPower_four"
+        ]
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Model/Classical.lean",
+        "line_start": 353,
+        "line_end": 362,
+        "declarations": []
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Model/Quantum.lean",
+        "line_start": 276,
+        "line_end": 288,
+        "declarations": []
+      }
+    ]
+  },
+  {
+    "id": "sf-exact-exponent-5",
+    "statement": "For t≥80,k=floor sqrt(t/10), A=(2−1/k)s−log2(466560000 k² ln(4k2^s)) and D=s/2+log2 B5(k)+6log2 s, Q>1 and 0<A/D<log R/log Q; therefore R>Q^(A/D).",
+    "why_needed": "Provides a positive finite lower exponent and fixes all monotonicity directions.",
+    "depends_on": [
+      "sf-total-lower",
+      "sf-schedule",
+      "sf-generic-quartic",
+      "sf-AE-budget"
+    ],
+    "proposed_lean": "theorem QuarticQuery.sf_exact_exponent_5 (t : ℕ) (ht : 80 ≤ t) :\n    let k := Nat.sqrt (t/10)\n    let f := (totalise (Fkm (k - 1 + 1) t (forrCircuit (k - 1) t)))\n    let s : ℝ := 2*(t : ℝ)\n    let B : ℕ := (2972284080 * k * (1 + 122880256 * 2 ^ (5 * k)) + 79491312000 * (k + 1) ^ 2 + 1131887160)\n    let A : ℝ := (2-1/(k : ℝ))*s -\n      Real.logb 2 (466560000*(k : ℝ)^2*Real.log (4*(k : ℝ)*(mValue t : ℝ)))\n    let D : ℝ := s/2 + Real.logb 2 (B : ℝ) + 6*Real.logb 2 s\n    1 < Q f ∧ 0 < A/D ∧ A/D < Real.log (R f : ℝ) / Real.log (Q f : ℝ) ∧\n      Real.rpow (Q f : ℝ) (A/D) < (R f : ℝ)",
+    "proposed_lean_context": "import QuarticQuery\nimport QuarticQuery.ForrelationLower.Uniform\nimport QuarticQuery.Upper.Bound\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "unelaborated; no Lean compiler or new kernel check in this return",
+    "evidence_class": "new_paper_deduction",
+    "route_note": "New finite inference from lower R and upper Q. Integer k−1+1 equals k under ht; cast alignment needs elaboration. Q>1 uses the universal bound, not the quantum cap alone.",
+    "passages": [
+      "main-theorem",
+      "finite-ratio",
+      "baseline"
+    ],
+    "displays": [
+      "(17)",
+      "(18)"
+    ],
+    "sources": [
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Bound.lean",
+        "line_start": 52,
+        "line_end": 257,
+        "declarations": [
+          "QuarticQuery.Upper.budgetConst",
+          "QuarticQuery.Upper.Q_Fkm_le"
+        ]
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Appendix/TheoremA1.lean",
+        "line_start": 23,
+        "line_end": 77,
+        "declarations": [
+          "QuarticQuery.D_le_Q_pow_four",
+          "QuarticQuery.universalPower_four"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sf-finite-rate-5",
+    "statement": "For t≥80,k=floor sqrt(t/10), R(Fkm)≥Q(Fkm)^(4−8sqrt(5)/sqrt(2t)−(56log2(2t)+552)/(2t)).",
+    "why_needed": "The explicit single-family theorem, with a numerical deficit and starting threshold.",
+    "depends_on": [
+      "sf-exact-exponent-5",
+      "sf-balancing",
+      "sf-log-bounds",
+      "sf-log-upper-and-deficit"
+    ],
+    "proposed_lean": "theorem QuarticQuery.sf_finite_rate_5 (t : ℕ) (ht : 80 ≤ t) :\n    let k := Nat.sqrt (t/10)\n    let f := (totalise (Fkm (k - 1 + 1) t (forrCircuit (k - 1) t)))\n    let s : ℝ := 2*(t : ℝ)\n    Real.rpow (Q f : ℝ)\n      (4 - 8*Real.sqrt 5/Real.sqrt s - (56*Real.logb 2 s + 552)/s) ≤\n        (R f : ℝ)",
+    "proposed_lean_context": "import QuarticQuery\nimport QuarticQuery.ForrelationLower.Uniform\nimport QuarticQuery.Upper.Bound\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "unelaborated; no Lean compiler or new kernel check in this return",
+    "evidence_class": "new_paper_deduction",
+    "route_note": "New real arithmetic after exact ratio. A positive lower bound on A legitimizes replacing D by an upper bound. The final exponent may be negative at small t; it follows by comparison to the already positive exact ratio, not by substituting Q into a negative power of its cap.",
+    "passages": [
+      "main-theorem",
+      "optimization-proof",
+      "baseline"
+    ],
+    "displays": [
+      "(3)",
+      "(19)",
+      "(20)",
+      "(21)"
+    ],
+    "sources": [
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Bound.lean",
+        "line_start": 52,
+        "line_end": 257,
+        "declarations": [
+          "QuarticQuery.Upper.budgetConst",
+          "QuarticQuery.Upper.Q_Fkm_le"
+        ]
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Appendix/TheoremA1.lean",
+        "line_start": 23,
+        "line_end": 77,
+        "declarations": [
+          "QuarticQuery.D_le_Q_pow_four",
+          "QuarticQuery.universalPower_four"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sf-exact-exponent-10",
+    "statement": "For t≥80,k=floor sqrt(t/20), A=(2−1/k)s−log2(466560000 k² ln(4k2^s)) and D=s/2+log2 B10(k)+6log2 s, Q>1 and 0<A/D<log R/log Q; therefore R>Q^(A/D).",
+    "why_needed": "Provides a positive finite lower exponent and fixes all monotonicity directions.",
+    "depends_on": [
+      "sf-total-lower",
+      "sf-schedule",
+      "sf-generic-quartic",
+      "sf-B10"
+    ],
+    "proposed_lean": "theorem QuarticQuery.sf_exact_exponent_10 (t : ℕ) (ht : 80 ≤ t) :\n    let k := Nat.sqrt (t/20)\n    let f := (totalise (Fkm (k - 1 + 1) t (forrCircuit (k - 1) t)))\n    let s : ℝ := 2*(t : ℝ)\n    let B : ℕ := Upper.budgetConst k\n    let A : ℝ := (2-1/(k : ℝ))*s -\n      Real.logb 2 (466560000*(k : ℝ)^2*Real.log (4*(k : ℝ)*(mValue t : ℝ)))\n    let D : ℝ := s/2 + Real.logb 2 (B : ℝ) + 6*Real.logb 2 s\n    1 < Q f ∧ 0 < A/D ∧ A/D < Real.log (R f : ℝ) / Real.log (Q f : ℝ) ∧\n      Real.rpow (Q f : ℝ) (A/D) < (R f : ℝ)",
+    "proposed_lean_context": "import QuarticQuery\nimport QuarticQuery.ForrelationLower.Uniform\nimport QuarticQuery.Upper.Bound\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "unelaborated; no Lean compiler or new kernel check in this return",
+    "evidence_class": "new_paper_deduction",
+    "route_note": "New finite inference from lower R and upper Q. Integer k−1+1 equals k under ht; cast alignment needs elaboration. Q>1 uses the universal bound, not the quantum cap alone.",
+    "passages": [
+      "main-theorem",
+      "finite-ratio",
+      "baseline"
+    ],
+    "displays": [
+      "(22)"
+    ],
+    "sources": [
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Bound.lean",
+        "line_start": 52,
+        "line_end": 257,
+        "declarations": [
+          "QuarticQuery.Upper.budgetConst",
+          "QuarticQuery.Upper.Q_Fkm_le"
+        ]
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Appendix/TheoremA1.lean",
+        "line_start": 23,
+        "line_end": 77,
+        "declarations": [
+          "QuarticQuery.D_le_Q_pow_four",
+          "QuarticQuery.universalPower_four"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sf-finite-rate-10",
+    "statement": "For t≥80,k=floor sqrt(t/20), R(Fkm)≥Q(Fkm)^(4−8sqrt(10)/sqrt(2t)−(56log2(2t)+524)/(2t)).",
+    "why_needed": "The explicit single-family theorem, with a numerical deficit and starting threshold.",
+    "depends_on": [
+      "sf-exact-exponent-10",
+      "sf-balancing",
+      "sf-log-bounds",
+      "sf-log-upper-and-deficit"
+    ],
+    "proposed_lean": "theorem QuarticQuery.sf_finite_rate_10 (t : ℕ) (ht : 80 ≤ t) :\n    let k := Nat.sqrt (t/20)\n    let f := (totalise (Fkm (k - 1 + 1) t (forrCircuit (k - 1) t)))\n    let s : ℝ := 2*(t : ℝ)\n    Real.rpow (Q f : ℝ)\n      (4 - 8*Real.sqrt 10/Real.sqrt s - (56*Real.logb 2 s + 524)/s) ≤\n        (R f : ℝ)",
+    "proposed_lean_context": "import QuarticQuery\nimport QuarticQuery.ForrelationLower.Uniform\nimport QuarticQuery.Upper.Bound\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "unelaborated; no Lean compiler or new kernel check in this return",
+    "evidence_class": "new_paper_deduction",
+    "route_note": "New real arithmetic after exact ratio. A positive lower bound on A legitimizes replacing D by an upper bound. The final exponent may be negative at small t; it follows by comparison to the already positive exact ratio, not by substituting Q into a negative power of its cap.",
+    "passages": [
+      "main-theorem",
+      "optimization-proof",
+      "baseline"
+    ],
+    "displays": [
+      "(22)"
+    ],
+    "sources": [
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Bound.lean",
+        "line_start": 52,
+        "line_end": 257,
+        "declarations": [
+          "QuarticQuery.Upper.budgetConst",
+          "QuarticQuery.Upper.Q_Fkm_le"
+        ]
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Appendix/TheoremA1.lean",
+        "line_start": 23,
+        "line_end": 77,
+        "declarations": [
+          "QuarticQuery.D_le_Q_pow_four",
+          "QuarticQuery.universalPower_four"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sf-balancing",
+    "statement": "For a>0,s>0, the continuous expression 2/k+8ak/s is ≥8sqrt(a)/sqrt(s), with equality at k=sqrt(s/(4a)). If x=sqrt(s/(4a)), integer k≥2 and k≤x<k+1, the exact rounding error is 2(k−x)²/(kx²)≤4a/s.",
+    "why_needed": "Optimizes only the leading terms of the available estimates and proves the rounding constants.",
+    "depends_on": [],
+    "proposed_lean": "theorem QuarticQuery.sf_balancing {a s x : ℝ} {k : ℕ}\n    (ha : 0 < a) (hs : 0 < s) (hx : x = Real.sqrt (s/(4*a)))\n    (hk : 2 ≤ k) (hkx : (k : ℝ) ≤ x) (hxk : x < (k : ℝ)+1) :\n    2/(k : ℝ) + 8*a*(k : ℝ)/s =\n      8*Real.sqrt a/Real.sqrt s + 2*((k : ℝ)-x)^2/((k : ℝ)*x^2) ∧\n    8*Real.sqrt a/Real.sqrt s ≤ 2/(k : ℝ) + 8*a*(k : ℝ)/s ∧\n    2/(k : ℝ) + 8*a*(k : ℝ)/s ≤ 8*Real.sqrt a/Real.sqrt s + 4*a/s",
+    "proposed_lean_context": "import QuarticQuery\nimport QuarticQuery.ForrelationLower.Uniform\nimport QuarticQuery.Upper.Bound\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "unelaborated; no Lean compiler or new kernel check in this return",
+    "evidence_class": "new_paper_deduction",
+    "route_note": "AM–GM and the displayed exact identity. It is not a lower bound on attainable query complexities or an impossibility theorem for improved algorithms.",
+    "passages": [
+      "proof-idea",
+      "optimization-proof",
+      "baseline"
+    ],
+    "displays": [
+      "(21)"
+    ],
+    "sources": []
+  },
+  {
+    "id": "sf-log-bounds",
+    "statement": "For s≥160 and 2≤k≤sqrt(s): A≥2s−s/k−30−2log2 s≥s/2−30>0.",
+    "why_needed": "Records the intermediate logarithmic bounds rather than hiding their signs in an O term.",
+    "depends_on": [],
+    "proposed_lean": "theorem QuarticQuery.sf_log_lower {s k : ℝ}\n    (hs : 160 ≤ s) (hk : 2 ≤ k) (hks : k ≤ Real.sqrt s) :\n    let A := (2-1/k)*s - Real.logb 2\n      (466560000*k^2*Real.log (4*k*Real.rpow 2 s))\n    s/2-30 ≤ 2*s-s/k-30-2*Real.logb 2 s ∧\n    2*s-s/k-30-2*Real.logb 2 s ≤ A",
+    "proposed_lean_context": "import QuarticQuery\nimport QuarticQuery.ForrelationLower.Uniform\nimport QuarticQuery.Upper.Bound\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "unelaborated; no Lean compiler or new kernel check in this return",
+    "evidence_class": "new_paper_deduction",
+    "route_note": "New logarithmic lower-bound arithmetic. The denominator and ratio-deficit bounds are separately registered in sf-log-upper-and-deficit.",
+    "passages": [
+      "finite-ratio",
+      "optimization-proof"
+    ],
+    "displays": [
+      "(19)"
+    ],
+    "sources": []
+  },
+  {
+    "id": "sf-log-upper-and-deficit",
+    "statement": "For a,b≥0,s≥160,2≤k≤sqrt(s),1≤B≤2^b*k*2^(ak), put A=(2−1/k)s−log2(466560000k² ln(4k2^s)) and D=s/2+log2 B+6log2 s. Then D≤s/2+ak+b+(13/2)log2 s and 4−A/D≤2/k+8ak/s+(56log2 s+8b+60)/s.",
+    "why_needed": "Covers both halves of (19) and the exact ratio-deficit estimate (20), including the sign conditions needed for denominator substitution.",
+    "depends_on": [
+      "sf-log-bounds"
+    ],
+    "proposed_lean": "theorem QuarticQuery.sf_log_upper_and_deficit {a b s k B : ℝ}\n    (ha : 0 ≤ a) (hb : 0 ≤ b) (hs : 160 ≤ s)\n    (hk : 2 ≤ k) (hks : k ≤ Real.sqrt s) (hB : 1 ≤ B)\n    (hcap : B ≤ Real.rpow 2 b * k * Real.rpow 2 (a*k)) :\n    let A := (2-1/k)*s - Real.logb 2\n      (466560000*k^2*Real.log (4*k*Real.rpow 2 s))\n    let D := s/2 + Real.logb 2 B + 6*Real.logb 2 s\n    D ≤ s/2+a*k+b+(13/2 : ℝ)*Real.logb 2 s ∧\n    4-A/D ≤ 2/k+8*a*k/s+(56*Real.logb 2 s+8*b+60)/s",
+    "proposed_lean_context": "import QuarticQuery\nimport QuarticQuery.ForrelationLower.Uniform\nimport QuarticQuery.Upper.Bound\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "unelaborated; no Lean compiler or new kernel check in this return",
+    "evidence_class": "new_paper_deduction",
+    "route_note": "Instantiate (a,b)=(5,59) using sf-AE-budget, or (10,53) using sf-B10. A's lower bound is positive; D≥s/2>0; the numerator 4U−A_lower is nonnegative. These facts justify both divisions.",
+    "passages": [
+      "optimization-proof",
+      "baseline"
+    ],
+    "displays": [
+      "(19)",
+      "(20)"
+    ],
+    "sources": []
+  },
+  {
+    "id": "sf-input-log-envelope",
+    "statement": "For t≥1,1≤k,k²≤2t and a circuit with size≤200(k+1)²m(2t)², the bit length satisfies 22s≤log2 n≤22s+4log2 s+14, s=2t. Both schedules satisfy the hypotheses, so log2 n=22s+O(log s).",
+    "why_needed": "Makes the stronger logarithmic error claimed in the prose explicit, beyond the weaker ratio limit.",
+    "depends_on": [
+      "sf-input-envelope",
+      "sf-schedule"
+    ],
+    "proposed_lean": "theorem QuarticQuery.sf_input_log_envelope (k t : ℕ)\n    (hk : 1 ≤ k) (ht : 1 ≤ t) (hks : k^2 ≤ 2*t)\n    (C : Circuit (ForrelationCoord k t))\n    (hC : C.size ≤ 200*(k+1)^2*mValue t*(2*t)^2) :\n    let s : ℝ := 2*(t : ℝ)\n    let n := Fintype.card (BitLoc (2*t) (40*t) C.size (ForrelationCoord k t))\n    22*s ≤ Real.logb 2 (n : ℝ) ∧\n    Real.logb 2 (n : ℝ) ≤ 22*s+4*Real.logb 2 s+14",
+    "proposed_lean_context": "import QuarticQuery\nimport QuarticQuery.ForrelationLower.Uniform\nimport QuarticQuery.Upper.Bound\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "unelaborated; no Lean compiler or new kernel check in this return",
+    "evidence_class": "new_paper_deduction",
+    "route_note": "Use s(m−1)≥m for s≥2, and (k+1)²≤4s; then n≤16088*m^22*s^4<2^14*m^22*s^4. Taking base-two logs gives the finite envelope.",
+    "passages": [
+      "input-length"
+    ],
+    "displays": [
+      "(23)",
+      "(24)"
+    ],
+    "sources": [
+      {
+        "path": "repository/lean/QuarticQuery/Statement.lean",
+        "line_start": 234,
+        "line_end": 296,
+        "declarations": [
+          "QuarticQuery.BitLoc",
+          "QuarticQuery.Fkm"
+        ]
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Forrelation/Circuit.lean",
+        "line_start": 337,
+        "line_end": 467,
+        "declarations": [
+          "QuarticQuery.Forrelation.forrCircuit",
+          "QuarticQuery.Forrelation.forrCircuit_realises",
+          "QuarticQuery.Forrelation.forrCircuit_size_eq",
+          "QuarticQuery.Forrelation.forrCircuit_size_le"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sf-limit-and-input-size",
+    "statement": "For the k5 sequence with an arbitrary finite prefix, Q→∞, log R/log Q→4, and log2 n/(2t)→22. Hence the exponent deficit is O(1/sqrt(log n)) as well.",
+    "why_needed": "Distinguishes a diverging quantum complexity and actual ratio limit from upper/lower cap calculations.",
+    "depends_on": [
+      "sf-finite-rate-5",
+      "sf-total-lower",
+      "sf-generic-quartic",
+      "sf-input-log-envelope"
+    ],
+    "proposed_lean": "theorem QuarticQuery.sf_limit_and_input_size :\n    let f := fun t : ℕ =>\n      let k := max 2 (Nat.sqrt (t/10))\n      (totalise (Fkm (k - 1 + 1) t (forrCircuit (k - 1) t)))\n    let n := fun t : ℕ =>\n      let k := max 2 (Nat.sqrt (t/10))\n      Fintype.card (BitLoc (2*t) (40*t) (forrCircuit (k-1) t).size\n        (ForrelationCoord (k-1+1) t))\n    Filter.Tendsto (fun t => (Q (f t) : ℝ)) Filter.atTop Filter.atTop ∧\n    Filter.Tendsto (fun t => Real.log (R (f t) : ℝ) / Real.log (Q (f t) : ℝ))\n      Filter.atTop (nhds 4) ∧\n    Filter.Tendsto (fun t => Real.logb 2 (n t : ℝ) / (2*(t : ℝ)))\n      Filter.atTop (nhds 22)",
+    "proposed_lean_context": "import QuarticQuery\nimport QuarticQuery.ForrelationLower.Uniform\nimport QuarticQuery.Upper.Bound\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "unelaborated; no Lean compiler or new kernel check in this return",
+    "evidence_class": "new_paper_deduction",
+    "route_note": "New squeeze arguments. For all sufficiently large t the max is inactive. n=m^(22+o(1)) follows from explicit cardinal bounds; the sequence need not be indexed by every natural input length.",
+    "passages": [
+      "main-theorem",
+      "optimization-proof",
+      "input-length"
+    ],
+    "displays": [
+      "(3)",
+      "(23)",
+      "(24)"
+    ],
+    "sources": []
+  },
+  {
+    "id": "sf-diagonal-from-fixed-k",
+    "statement": "The fixed-k hypothesis BansalSinhaLower and existing source upper bounds alone imply a single sequence, with k tending to infinity, Q tending to infinity and log R/log Q tending to four. No quantitative uniform Forrelation estimate or new decoder is required.",
+    "why_needed": "Prevents crediting the uniform estimate with bare existence already obtainable by diagonalization.",
+    "depends_on": [
+      "eq-2",
+      "thm-A.1",
+      "lem-2.1.i"
+    ],
+    "proposed_lean": "theorem QuarticQuery.sf_diagonal_from_fixed_k (h : BansalSinhaLower) :\n    ∃ g : ℕ → ℕ, (∀ t, 1 ≤ g t) ∧\n      Filter.Tendsto g Filter.atTop Filter.atTop ∧\n      Filter.Tendsto (fun t =>\n        (Q (totalise (Fkm (g t+1) t (forrCircuit (g t) t))) : ℝ))\n        Filter.atTop Filter.atTop ∧\n      Filter.Tendsto (fun t =>\n        Real.log (R (totalise (Fkm (g t+1) t (forrCircuit (g t) t))) : ℝ) /\n        Real.log (Q (totalise (Fkm (g t+1) t (forrCircuit (g t) t))) : ℝ))\n        Filter.atTop (nhds 4)",
+    "proposed_lean_context": "import QuarticQuery\nimport QuarticQuery.ForrelationLower.Uniform\nimport QuarticQuery.Upper.Bound\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "unelaborated; no Lean compiler or new kernel check in this return",
+    "evidence_class": "new_paper_deduction",
+    "route_note": "Choose k=4j, thresholds Tj increasing and at least j, and largest j with Tj≤t for t≥T2. Define the finite prefix arbitrarily. Apply the existing unconditional BansalSinhaLower theorem only after this fixed-k derivation.",
+    "passages": [
+      "abstract",
+      "diagonal"
+    ],
+    "displays": [],
+    "sources": [
+      {
+        "path": "repository/lean/QuarticQuery/Results/Exponent.lean",
+        "line_start": 1,
+        "line_end": 489,
+        "declarations": []
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Bound.lean",
+        "line_start": 52,
+        "line_end": 257,
+        "declarations": [
+          "QuarticQuery.Upper.budgetConst",
+          "QuarticQuery.Upper.Q_Fkm_le"
+        ]
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Appendix/TheoremA1.lean",
+        "line_start": 23,
+        "line_end": 77,
+        "declarations": [
+          "QuarticQuery.D_le_Q_pow_four",
+          "QuarticQuery.universalPower_four"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sf-square-root-barrier-for-estimates",
+    "statement": "For the principal deficit 2/k+8ak/s, its minimum is 8sqrt(a)/sqrt(s); therefore these comparison estimates with fixed a>0 cannot yield a deficit O(log s/s). This is a statement about the estimates, not the actual complexities.",
+    "why_needed": "States exactly what blocks the proposed faster rate and what kind of improvement is needed.",
+    "depends_on": [
+      "sf-balancing"
+    ],
+    "proposed_lean": "theorem QuarticQuery.sf_leading_deficit_lower {a s k : ℝ}\n    (ha : 0 < a) (hs : 0 < s) (hk : 0 < k) :\n    8 * Real.sqrt a / Real.sqrt s ≤ 2/k + 8*a*k/s",
+    "proposed_lean_context": "import QuarticQuery\nimport QuarticQuery.ForrelationLower.Uniform\nimport QuarticQuery.Upper.Bound\nopen QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nopen scoped BigOperators\nnoncomputable section\n",
+    "signature_status": "unelaborated; no Lean compiler or new kernel check in this return",
+    "evidence_class": "new_paper_deduction",
+    "route_note": "The elementary inequality plus sqrt(s)/log(s)→∞. Polynomial improvement to the classical denominator changes only the logarithmic remainder. A compatible polynomial-cost decoder would change the dominant tradeoff.",
+    "passages": [
+      "obstruction"
+    ],
+    "displays": [],
+    "sources": []
+  }
+]

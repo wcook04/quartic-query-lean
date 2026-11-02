@@ -1,0 +1,89 @@
+{
+  "result": "passed",
+  "required_files_present": [
+    "single_family.md",
+    "references.bib",
+    "k_dependence.json",
+    "checks.py",
+    "checks_output.txt",
+    "correspondence.json",
+    "NEW_STATEMENTS.json",
+    "STATEMENT_CHANGES.json",
+    "LEAN_GAPS.md"
+  ],
+  "new_statements": 32,
+  "existing_statements_changed": 0,
+  "new_dependency_graph_acyclic": true,
+  "passages": 20,
+  "numbered_displays_registered": 24,
+  "math_fragments_structurally_checked": 252,
+  "math_check_scope": "Balanced delimiters, braces and environments; not a TeX render.",
+  "constants_with_file_and_line_locators": 81,
+  "source_references_resolved": 168,
+  "bibliography_entries": 5,
+  "checks_output_reproduced_exactly": true,
+  "exact_arithmetic_check_groups": 9,
+  "rounded_numeric_rows": 14,
+  "lean_executable": null,
+  "lake_executable": null,
+  "new_lean_build": false,
+  "new_comparator_run": false,
+  "evidence_limit": "Structural and finite arithmetic validation does not establish mathematical truth or Lean elaboration.",
+  "files": [
+    {
+      "name": "LEAN_GAPS.md",
+      "bytes": 5271,
+      "sha256": "4b697d2274cbddbb92b255c14993a3480543a6218a1f84f4ee31886ea21bef39"
+    },
+    {
+      "name": "NEW_STATEMENTS.json",
+      "bytes": 62920,
+      "sha256": "c6551f5bf64798f9aa6c7531268712e8fff8306c25b4f015c028215bc83be440"
+    },
+    {
+      "name": "SOURCE_AUDIT.md",
+      "bytes": 18783,
+      "sha256": "1d96f52037ec634a88e9a5e2bd048d00f9276a6a8e62b36038b5832e7aac39e0"
+    },
+    {
+      "name": "STATEMENT_CHANGES.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "name": "checks.py",
+      "bytes": 17550,
+      "sha256": "71a311c33b9a09182d9ed82b37f2540f326affe22f0bdc182cd0f47023bcb446"
+    },
+    {
+      "name": "checks_output.json",
+      "bytes": 18187,
+      "sha256": "c32b6666f76d57450044ca479140f119454dd275bd148c8089b58b38f3bb3962"
+    },
+    {
+      "name": "checks_output.txt",
+      "bytes": 5559,
+      "sha256": "fcb54df4643f4ae9cd9d0243fe135789b94822b5e67d90fcfb8367d4715b13e4"
+    },
+    {
+      "name": "correspondence.json",
+      "bytes": 19353,
+      "sha256": "8f3339cfbf528195d304b5dfc2c9b3d77f3a8dc7177369194e4fd5055b4420b9"
+    },
+    {
+      "name": "k_dependence.json",
+      "bytes": 41179,
+      "sha256": "7aebf0e42ce27134bd930b170fab864302e7b5084094b52c8e6f42a8fb6a0e2c"
+    },
+    {
+      "name": "references.bib",
+      "bytes": 5126,
+      "sha256": "367a410f5b8a148c3d2ff19ffc2357befd9fca59bad40cde21ec0ebd4605a8e3"
+    },
+    {
+      "name": "single_family.md",
+      "bytes": 23402,
+      "sha256": "70bc99cffb46e51eaae2fd0907fc140b41af763cffce9e45367d6ca2f7cb4036"
+    }
+  ]
+}

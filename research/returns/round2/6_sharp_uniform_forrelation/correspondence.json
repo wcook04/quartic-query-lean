@@ -1,0 +1,1158 @@
+[
+  {
+    "passage": "abstract",
+    "file": "note.md",
+    "from": "**Abstract.** For the usual $k$-Forrelation promise with threshold",
+    "to": "a replacement proof in the stated dimension range.",
+    "role": "states",
+    "statement_ids": [
+      "r2-sharp-sharp-result",
+      "r2-sharp-elementary-result",
+      "r2-sharp-bs-failure"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.sum_abs_ext_Dl_le",
+      "QuarticQuery.ForrelationLower.exists_amplified"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "definition",
+    "file": "note.md",
+    "from": "Let $k\\ge2$, let $m=2^r$ for an integer $r\\ge0$,",
+    "to": "mathematical arguments work for every power of two.",
+    "role": "defines",
+    "statement_ids": [
+      "eq-3",
+      "eq-4"
+    ],
+    "lean": [
+      "QuarticQuery.Forrelation.u",
+      "QuarticQuery.Forrelation.signDiag",
+      "QuarticQuery.Forrelation.alternate",
+      "QuarticQuery.Forrelation.Phi_eq_matrix_product",
+      "QuarticQuery.Forrelation.Phi_sq_le_one",
+      "QuarticQuery.Forrelation.abs_Phi_le_one",
+      "QuarticQuery.Forrelation.delta",
+      "QuarticQuery.Forrelation.H",
+      "QuarticQuery.Forrelation.H_mul_H",
+      "QuarticQuery.Forrelation.H_mem_orthogonalGroup",
+      "QuarticQuery.Forrelation.cases_disjoint",
+      "QuarticQuery.Forrelation.P_eq_some_true_iff",
+      "QuarticQuery.Forrelation.P_eq_some_false_iff",
+      "QuarticQuery.Forrelation.P_eq_none_iff",
+      "QuarticQuery.Forrelation.P_eq_cases",
+      "QuarticQuery.Forrelation.census_true",
+      "QuarticQuery.Forrelation.census_false",
+      "QuarticQuery.Forrelation.census_none",
+      "QuarticQuery.Forrelation.promise_nonempty_two_one",
+      "QuarticQuery.Forrelation.Phi_negativeWitness",
+      "QuarticQuery.Forrelation.P_negativeWitness"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "ssw-input",
+    "file": "note.md",
+    "from": "Fix an absolute constant $C\\ge1$ such that every",
+    "to": "(2). The statement leaves $C$ numerical but unspecified.",
+    "role": "states",
+    "statement_ids": [
+      "r2-sharp-ssw-input"
+    ],
+    "lean": [],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "sharp-result",
+    "file": "note.md",
+    "from": "**Theorem 1.** Let $C$ satisfy (2). For every",
+    "to": "tail argument have not been compiled in Lean.",
+    "role": "states",
+    "statement_ids": [
+      "r2-sharp-sharp-result"
+    ],
+    "lean": [],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "elementary-result",
+    "file": "note.md",
+    "from": "**Theorem 2.** For every integer $k\\ge2$ and every",
+    "to": "depth $50kL+1$ used by the supplied formal development.",
+    "role": "states",
+    "statement_ids": [
+      "r2-sharp-elementary-result"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.sum_abs_ext_Dl_le",
+      "QuarticQuery.ForrelationLower.exists_amplified"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "scope",
+    "file": "note.md",
+    "from": "Theorems 1 and 2 concern the same promise",
+    "to": "what the comparison with Bansal and Sinha establishes.",
+    "role": "explains",
+    "statement_ids": [
+      "r2-sharp-scope"
+    ],
+    "lean": [],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "extension",
+    "file": "note.md",
+    "from": "For $g:\\{-1,1\\}^n\\to\\mathbb R$, its multilinear extension is\n\\[",
+    "to": "particular, every repeated partial derivative $\\partial_i^2\\widetilde g$ vanishes.",
+    "role": "defines",
+    "statement_ids": [
+      "r2-sharp-extension"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.ext",
+      "QuarticQuery.ForrelationLower.ext_affine",
+      "QuarticQuery.ForrelationLower.D_D"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "kernel",
+    "file": "note.md",
+    "from": "**Lemma 3.** Put\n\\[\n \\psi(x)=\\frac1{2\\sqrt{2+x^2}},\\qquad\n \\varphi(x)=\\frac{x(3+x^2)}{2(2+x^2)^{3/2}}.\n\\]\nThen",
+    "to": "at most $3/16$. We use $b=3/16$ below. ∎",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-kernel"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.psiS",
+      "QuarticQuery.ForrelationLower.phiS",
+      "QuarticQuery.ForrelationLower.hasDerivAt_phiS",
+      "QuarticQuery.ForrelationLower.abs_phiS_le",
+      "QuarticQuery.ForrelationLower.phiS_neg"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "stein",
+    "file": "note.md",
+    "from": "**Lemma 4.** If $Z$ is standard normal and",
+    "to": "of a vector of independent standard normals. ∎",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-stein"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.stein_one",
+      "QuarticQuery.ForrelationLower.stein_pi"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "chain",
+    "file": "note.md",
+    "from": "For the next two sections, $H$ may be",
+    "to": "for the uniform distribution on the sign cube.",
+    "role": "defines",
+    "statement_ids": [
+      "r2-sharp-chain"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.wv",
+      "QuarticQuery.ForrelationLower.abs_wv_le_half"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "zero-endpoint",
+    "file": "note.md",
+    "from": "**Lemma 5.** For every function $g$ on the",
+    "to": "Only the constant coefficient of $g$ survives. ∎",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-zero-endpoint"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.integral_ext_wv_zero"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "path-identity",
+    "file": "note.md",
+    "from": "For $p=(p_0,\\ldots,p_{k-1})\\in[m]^k$, let $S_p$ be the set containing",
+    "to": "from $0$ to $1$ and use (11). ∎",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-path-identity"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.exists_identity",
+      "QuarticQuery.ForrelationLower.Int_eq_paths",
+      "QuarticQuery.ForrelationLower.cf",
+      "QuarticQuery.ForrelationLower.Lpath"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "worked-chain",
+    "file": "note.md",
+    "from": "For $k=3$, the biases are\n$(s\\varphi(U),\\,\\varphi(HU)\\varphi(U'),\\,\\varphi(HU'))$.\nThe two",
+    "to": "control this dependence uniformly over the relevant biases.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-worked-chain"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.cf",
+      "QuarticQuery.ForrelationLower.Dl"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "advantage",
+    "file": "note.md",
+    "from": "For Walsh $H$, $|H_{a,b}|=m^{-1/2}$. Proposition 6 and Lemma",
+    "to": "$m^{-1/2}$ by $\\max_{a,b}|H_{a,b}|$ for an arbitrary orthogonal matrix.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-advantage"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.advantage_le",
+      "QuarticQuery.ForrelationLower.Lpath_nodup",
+      "QuarticQuery.ForrelationLower.Lpath_inj"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "moments",
+    "file": "note.md",
+    "from": "**Lemma 7.** For the polynomial $\\Phi_H$ defined by",
+    "to": "$m$, proving the last assertion of (16). ∎",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-moments"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.mass_ge",
+      "QuarticQuery.ForrelationLower.ext_PhiF_zero",
+      "QuarticQuery.ForrelationLower.ext_PhiF_sq",
+      "QuarticQuery.Forrelation.Phi_sq_le_one"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "subgaussian",
+    "file": "note.md",
+    "from": "**Lemma 8.** For uniform independent sign blocks and",
+    "to": "It requires no concentration theorem for $\\mathcal D_H$.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-subgaussian"
+    ],
+    "lean": [
+      "QuarticQuery.Forrelation.IsOrth.dot_self",
+      "QuarticQuery.Forrelation.isOrth_tailProd",
+      "QuarticQuery.ForrelationLower.two_point_exp_le"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "gap",
+    "file": "note.md",
+    "from": "For the Walsh problem, define\n\\[\n p=\\frac{a-\\delta}{1-\\delta},\\qquad\n q_M=\\min\\!\\left(1,\\frac4{m\\delta^2}\\right),\\qquad",
+    "to": "is asserted to be supported on the promise.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-gap"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.mass_ge",
+      "QuarticQuery.ForrelationLower.ext_PhiF_sq",
+      "QuarticQuery.ForrelationLower.P_yes",
+      "QuarticQuery.ForrelationLower.P_no"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "restriction",
+    "file": "note.md",
+    "from": "**Lemma 10.** Let $\\mu\\in[-1,1]^n$ and let $0\\le v_i\\le1-|\\mu_i|$.",
+    "to": "identities. Formula (22) is an elementary coordinate-dependent extension.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-restriction"
+    ],
+    "lean": [],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "path-restriction",
+    "file": "note.md",
+    "from": "For the biases (10), choose $v_i=1/2$ in the",
+    "to": "been fixed; this avoids any empty-domain logarithm convention.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-path-restriction"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.Lpath_nodup",
+      "QuarticQuery.ForrelationLower.Lpath_inj"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "growth",
+    "file": "note.md",
+    "from": "**Lemma 11.** Let $n,d,j\\ge1$. Suppose $T:\\{-1,1\\}^n\\to\\{0,1\\}$ is computed",
+    "to": "Lemma 1.9, under a bounded biased product measure.",
+    "role": "states",
+    "statement_ids": [
+      "r2-sharp-growth"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.sum_abs_ext_Dl_le"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "growth-proof",
+    "file": "note.md",
+    "from": "*Proof.* Under that measure put $\\xi_i=(X_i-\\mu_i)/(1-\\mu_i^2)$. These independent",
+    "to": "is exactly $2^{-j}$ and $K^2=16jd\\ln(4n)$, proving (24). ∎",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-growth-proof"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.ext_Dl",
+      "QuarticQuery.ForrelationLower.hit_chaos_le",
+      "QuarticQuery.ForrelationLower.abs_ext_tree_chaos_le",
+      "QuarticQuery.ForrelationLower.abs_xi_le",
+      "QuarticQuery.ForrelationLower.xi_mean"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "amplification",
+    "file": "note.md",
+    "from": "**Lemma 12.** Suppose a depth-$L$ randomized tree succeeds",
+    "to": "and estimates are uniform over promised inputs. ∎",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-amplification"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.exists_amplified",
+      "QuarticQuery.ForrelationLower.runAll",
+      "QuarticQuery.ForrelationLower.depth_runAll_le",
+      "QuarticQuery.ForrelationLower.maj_wrong"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "finite-elementary",
+    "file": "note.md",
+    "from": "Take either upper bound $\\varepsilon\\in[0,1]$ supplied by (27)",
+    "to": "integer depth bound inside the application of (24).",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-finite-elementary"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.not_RLe_of_gap"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "finite-sharp",
+    "file": "note.md",
+    "from": "Using (23) in place of Lemma 11, and",
+    "to": "gap, are stronger than the simplified uniform corollaries.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-finite-sharp"
+    ],
+    "lean": [],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "threshold",
+    "file": "note.md",
+    "from": "The dimension condition (4) implies\n$2e^{-m\\delta^2/8}\\le a/4$, hence",
+    "to": "which will suffice for the elementary residual term.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-threshold"
+    ],
+    "lean": [],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "sharp-proof",
+    "file": "note.md",
+    "from": "*Proof of Theorem 1.* Set\n$\\tau=\\lceil5k\\ln2/\\eta^2\\rceil$.\nThen $\\varepsilon_\\tau\\le\\delta$",
+    "to": "(30). The coefficient is\n$(8eC^2)^{-1}(4/81)=1/(162eC^2)$, proving (3). ∎",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-sharp-proof"
+    ],
+    "lean": [],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "elementary-proof",
+    "file": "note.md",
+    "from": "*Proof of Theorem 2.* Suppose a successful depth-$L$",
+    "to": "This proves the strict bound in (5). ∎",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-elementary-proof"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.exists_amplified"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "original-constant",
+    "file": "note.md",
+    "from": "The requested $2/18225$ theorem at $m\\ge2^{15k+2}$ can also",
+    "to": "invoked as though it had the sharper coefficient.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-original-constant"
+    ],
+    "lean": [],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "finite-range",
+    "file": "note.md",
+    "from": "The condition $q_*\\le a/4$ is sufficient and is",
+    "to": "a query algorithm or a lower-bound impossibility theorem.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-finite-range"
+    ],
+    "lean": [],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "small-dimension",
+    "file": "note.md",
+    "from": "Some restriction on size is unavoidable for a",
+    "to": "do not address a fixed-$k$, sufficiently-large-$m$ asymptotic statement.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-small-dimension"
+    ],
+    "lean": [],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "comparison",
+    "file": "note.md",
+    "from": "Put $B=1+\\ln(km)$ and retain the dimension conditions of",
+    "to": "optimal for $P_{k,m}$ would require a separate argument.",
+    "role": "explains",
+    "statement_ids": [
+      "r2-sharp-comparison"
+    ],
+    "lean": [],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bs-failure",
+    "file": "note.md",
+    "from": "Bansal and Sinha's Theorem 1.3 states a scale",
+    "to": "issue from a reciprocal typo in equation (5.31).",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-bs-failure"
+    ],
+    "lean": [],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bs-repair",
+    "file": "note.md",
+    "from": "Theorem 1 supplies an alternative proof of the",
+    "to": "assertion about a growing-$k$ regime outside that range.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-path-identity",
+      "r2-sharp-sharp-result",
+      "r2-sharp-bs-failure"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.exists_identity",
+      "QuarticQuery.ForrelationLower.Int_eq_paths",
+      "QuarticQuery.ForrelationLower.cf",
+      "QuarticQuery.ForrelationLower.Lpath"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "formal-status",
+    "file": "note.md",
+    "from": "The supplied source already contains the multilinear extension,",
+    "to": "are OpenAI's; this note studies their Forrelation input.",
+    "role": "mentions",
+    "statement_ids": [
+      "lem-2.1.i"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.bansalSinhaLower"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bp-vocabulary",
+    "file": "lean_blueprint.md",
+    "from": "All names in this table are copied from",
+    "to": "live in `QuarticQuery.ForrelationLower`, with `open MeasureTheory Finset QuarticQuery.Forrelation`.",
+    "role": "defines",
+    "statement_ids": [
+      "eq-3",
+      "eq-4"
+    ],
+    "lean": [
+      "QuarticQuery.Forrelation.u",
+      "QuarticQuery.Forrelation.signDiag",
+      "QuarticQuery.Forrelation.alternate",
+      "QuarticQuery.Forrelation.Phi_eq_matrix_product",
+      "QuarticQuery.Forrelation.Phi_sq_le_one",
+      "QuarticQuery.Forrelation.abs_Phi_le_one",
+      "QuarticQuery.Forrelation.delta",
+      "QuarticQuery.Forrelation.H",
+      "QuarticQuery.Forrelation.H_mul_H",
+      "QuarticQuery.Forrelation.H_mem_orthogonalGroup",
+      "QuarticQuery.Forrelation.cases_disjoint",
+      "QuarticQuery.Forrelation.P_eq_some_true_iff",
+      "QuarticQuery.Forrelation.P_eq_some_false_iff",
+      "QuarticQuery.Forrelation.P_eq_none_iff",
+      "QuarticQuery.Forrelation.P_eq_cases",
+      "QuarticQuery.Forrelation.census_true",
+      "QuarticQuery.Forrelation.census_false",
+      "QuarticQuery.Forrelation.census_none",
+      "QuarticQuery.Forrelation.promise_nonempty_two_one",
+      "QuarticQuery.Forrelation.Phi_negativeWitness",
+      "QuarticQuery.Forrelation.P_negativeWitness"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bp-kernel",
+    "file": "lean_blueprint.md",
+    "from": "### Statement\n\nFor every $x,y\\in\\mathbb R$,\n\n\\[\n0<\\psiS(x)\\,dphi(y)\\le\\frac3{16},",
+    "to": "is $2\\le qf(x)qf(y)$, proved by comparing nonnegative squares.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-kernel",
+      "r2-impl-kernel"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.psiS",
+      "QuarticQuery.ForrelationLower.phiS",
+      "QuarticQuery.ForrelationLower.hasDerivAt_phiS",
+      "QuarticQuery.ForrelationLower.abs_phiS_le",
+      "QuarticQuery.ForrelationLower.phiS_neg"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bp-bias",
+    "file": "lean_blueprint.md",
+    "from": "### Statement and proof\n\nIf $0<r<l$, then\n\n\\[",
+    "to": "distinction is useful for the coordinate-dependent restriction transfer.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-chain",
+      "r2-impl-bias"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.wv",
+      "QuarticQuery.ForrelationLower.abs_wv_le_half"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bp-coefficient",
+    "file": "lean_blueprint.md",
+    "from": "### Statement\n\nIf every matrix entry has absolute",
+    "to": "No orthogonality or bias assumption is needed here.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-advantage",
+      "r2-sharp-kernel",
+      "r2-impl-coefficient"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.advantage_le",
+      "QuarticQuery.ForrelationLower.Lpath_nodup",
+      "QuarticQuery.ForrelationLower.Lpath_inj",
+      "QuarticQuery.ForrelationLower.psiS",
+      "QuarticQuery.ForrelationLower.phiS",
+      "QuarticQuery.ForrelationLower.hasDerivAt_phiS",
+      "QuarticQuery.ForrelationLower.abs_phiS_le",
+      "QuarticQuery.ForrelationLower.phiS_neg"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bp-growth",
+    "file": "lean_blueprint.md",
+    "from": "### Exact residual identity\n\nFor real $n>0$ and",
+    "to": "the same quantity because its base is positive.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-growth",
+      "r2-sharp-growth-proof",
+      "r2-impl-growth"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.sum_abs_ext_Dl_le",
+      "QuarticQuery.ForrelationLower.ext_Dl",
+      "QuarticQuery.ForrelationLower.hit_chaos_le",
+      "QuarticQuery.ForrelationLower.abs_ext_tree_chaos_le",
+      "QuarticQuery.ForrelationLower.abs_xi_le",
+      "QuarticQuery.ForrelationLower.xi_mean"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bp-advantage",
+    "file": "lean_blueprint.md",
+    "from": "### Statement and complete proof\n\nReplace the factor",
+    "to": "mean-value identity nor the Gaussian zero-endpoint proof changes.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-advantage",
+      "r2-sharp-path-identity",
+      "r2-impl-advantage"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.advantage_le",
+      "QuarticQuery.ForrelationLower.Lpath_nodup",
+      "QuarticQuery.ForrelationLower.Lpath_inj",
+      "QuarticQuery.ForrelationLower.exists_identity",
+      "QuarticQuery.ForrelationLower.Int_eq_paths",
+      "QuarticQuery.ForrelationLower.cf",
+      "QuarticQuery.ForrelationLower.Lpath"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bp-restriction",
+    "file": "lean_blueprint.md",
+    "from": "```lean\n-- Unelaborated. Namespace QuarticQuery.ForrelationLower.\ntheorem restriction_identity\n    {ι",
+    "to": "uniform Fourier coefficient; no biased normalization factors appear.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-restriction",
+      "r2-impl-restriction"
+    ],
+    "lean": [],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bp-weights",
+    "file": "lean_blueprint.md",
+    "from": "```lean\n-- Unelaborated.\ntheorem restriction_weight_nonneg\n    {ι : Type}",
+    "to": "These statements parallel `bw_nonneg` and `sum_bw` in `Cube.lean`.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-restriction",
+      "r2-impl-weights"
+    ],
+    "lean": [],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bp-tree-restriction",
+    "file": "lean_blueprint.md",
+    "from": "```lean\n-- Unelaborated. The existential form avoids adding",
+    "to": "Existing exact constructor names are `QueryTree.leaf` and `QueryTree.query`.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-restriction",
+      "r2-sharp-path-restriction",
+      "r2-impl-tree-restriction"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.Lpath_nodup",
+      "QuarticQuery.ForrelationLower.Lpath_inj"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bp-profile",
+    "file": "lean_blueprint.md",
+    "from": "The sharp Fourier theorem is absent from the",
+    "to": "and metadata until it has a real proof.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-restriction",
+      "r2-sharp-path-restriction",
+      "r2-impl-profile"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.Lpath_nodup",
+      "QuarticQuery.ForrelationLower.Lpath_inj"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bp-endpoint-norm",
+    "file": "lean_blueprint.md",
+    "from": "```lean\n-- Unelaborated.\ntheorem sum_sq_PhiF_endpoint_coeff (l t :",
+    "to": "and does not alone establish this pointwise identity.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-subgaussian",
+      "r2-impl-endpoint-norm"
+    ],
+    "lean": [
+      "QuarticQuery.Forrelation.IsOrth.dot_self",
+      "QuarticQuery.Forrelation.isOrth_tailProd",
+      "QuarticQuery.ForrelationLower.two_point_exp_le"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bp-linear-mgf",
+    "file": "lean_blueprint.md",
+    "from": "```lean\n-- Unelaborated.\ntheorem ext_exp_linear_le\n    {ι : Type}",
+    "to": "depending on an uncertain Mathlib Hoeffding theorem name.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-subgaussian",
+      "r2-impl-linear-mgf"
+    ],
+    "lean": [
+      "QuarticQuery.Forrelation.IsOrth.dot_self",
+      "QuarticQuery.Forrelation.isOrth_tailProd",
+      "QuarticQuery.ForrelationLower.two_point_exp_le"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bp-forrelation-tail",
+    "file": "lean_blueprint.md",
+    "from": "```lean\n-- Unelaborated.\ntheorem ext_exp_PhiF_le (l t :",
+    "to": "and repeat for −Φ. Sum the two tails.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-subgaussian",
+      "r2-impl-forrelation-tail"
+    ],
+    "lean": [
+      "QuarticQuery.Forrelation.IsOrth.dot_self",
+      "QuarticQuery.Forrelation.isOrth_tailProd",
+      "QuarticQuery.ForrelationLower.two_point_exp_le"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bp-amplification",
+    "file": "lean_blueprint.md",
+    "from": "### Exact statement\n\nSuppose a randomized depth-$L$ tree",
+    "to": "definition into a signature would obscure that distinction.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-amplification",
+      "r2-impl-amplification"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.exists_amplified",
+      "QuarticQuery.ForrelationLower.runAll",
+      "QuarticQuery.ForrelationLower.depth_runAll_le",
+      "QuarticQuery.ForrelationLower.maj_wrong"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bp-gap",
+    "file": "lean_blueprint.md",
+    "from": "Put $a=18^{-l}$, $\\delta=dl(l+1)$, $p=(a-\\delta)/(1-\\delta)$, and $q_M=\\min\\{1,4/(m\\delta^2)\\}$. For any",
+    "to": "ε) * (p - q) - ε)\n```",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-gap",
+      "r2-impl-gap"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.mass_ge",
+      "QuarticQuery.ForrelationLower.ext_PhiF_sq",
+      "QuarticQuery.ForrelationLower.P_yes",
+      "QuarticQuery.ForrelationLower.P_no"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bp-finite-elementary",
+    "file": "lean_blueprint.md",
+    "from": "The existing `not_RLe_of_gap` hardcodes the coefficient $3$. It",
+    "to": "$(1-\\varepsilon)(a-\\delta)$ if reducing initial implementation changes is preferred.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-finite-elementary",
+      "r2-impl-finite-elementary"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.not_RLe_of_gap"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bp-arithmetic",
+    "file": "lean_blueprint.md",
+    "from": "### Amplification and promise scales\n\nAt $\\tau=25k$,\n\n\\[",
+    "to": "for depth zero, independently of any advantage bound.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-elementary-proof",
+      "r2-sharp-original-constant",
+      "r2-sharp-threshold",
+      "r2-impl-arithmetic"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.exists_amplified"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bp-elementary-endpoints",
+    "file": "lean_blueprint.md",
+    "from": "### Original numerical endpoint, unelaborated\n\n```lean\ntheorem not_RLe_uniform_sharp",
+    "to": "not contain the subgaussian tail or this statement.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-elementary-result",
+      "r2-sharp-original-constant",
+      "r2-impl-elementary-endpoints"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.sum_abs_ext_Dl_le",
+      "QuarticQuery.ForrelationLower.exists_amplified"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bp-ssw-input",
+    "file": "lean_blueprint.md",
+    "from": "Fix an absolute constant $C\\ge1$ such that every",
+    "to": "required for the acceptance-probability applications in this note.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-ssw-input",
+      "r2-impl-ssw-input"
+    ],
+    "lean": [],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bp-path-profile",
+    "file": "lean_blueprint.md",
+    "from": "For the biases (10), choose $v_i=1/2$ in the",
+    "to": "lemma is also needed; it is elementary recursion.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-path-restriction",
+      "r2-impl-path-profile"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.Lpath_nodup",
+      "QuarticQuery.ForrelationLower.Lpath_inj"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bp-finite-sharp",
+    "file": "lean_blueprint.md",
+    "from": "Using (23) in place of Lemma 11, and",
+    "to": "nor this assembly is present as compiled source.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-finite-sharp",
+      "r2-impl-finite-sharp"
+    ],
+    "lean": [],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bp-sharp-arithmetic",
+    "file": "lean_blueprint.md",
+    "from": "*Proof of Theorem 1.* Set\n$\\tau=\\lceil5k\\ln2/\\eta^2\\rceil$.\nThen $\\varepsilon_\\tau\\le\\delta$",
+    "to": "so it does not discharge the general-η part.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-sharp-proof",
+      "r2-impl-sharp-arithmetic"
+    ],
+    "lean": [],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bp-sharp-endpoint",
+    "file": "lean_blueprint.md",
+    "from": "**Theorem 1.** Let $C$ satisfy (2). For every",
+    "to": "statement that SSW has been formalized is used.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-sharp-result",
+      "r2-impl-sharp-endpoint"
+    ],
+    "lean": [],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bp-evidence",
+    "file": "lean_blueprint.md",
+    "from": "1. Sharp scalar kernel and equality at zero.",
+    "to": "governing and context files are listed in `read_receipt.json`.",
+    "role": "mentions",
+    "statement_ids": [
+      "lem-2.1.i"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.bansalSinhaLower"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bs-verdict",
+    "file": "bansal_sinha_section54.md",
+    "from": "The final Fourier-weight inequality in §5.4 of Bansal",
+    "to": "check, human review or author confirmation is claimed.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-bs-failure",
+      "r2-sharp-sharp-result"
+    ],
+    "lean": [],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bs-source",
+    "file": "bansal_sinha_section54.md",
+    "from": "The principal source is the attached archive\n`literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.tar.gz`.",
+    "to": "same theorem statement present in the conference version.",
+    "role": "mentions",
+    "statement_ids": [],
+    "lean": [],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bs-levels",
+    "file": "bansal_sinha_section54.md",
+    "from": "Use $N$ for the size of each input",
+    "to": "$h$ includes such a level exactly when $k\\ge3$.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-bs-failure"
+    ],
+    "lean": [],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bs-sum-counterexample",
+    "file": "bansal_sinha_section54.md",
+    "from": "The defect also invalidates the inequality between the",
+    "to": "by itself about the truth of Theorem 1.3.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-audit-bs-sum-counterexample"
+    ],
+    "lean": [],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bs-corrected-threshold",
+    "file": "bansal_sinha_section54.md",
+    "from": "Keeping the original estimates, a valid sufficient depth",
+    "to": "not a lower-bound optimality theorem for Forrelation itself.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-bs-failure",
+      "r2-audit-bs-gap-geometric"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.dl"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bs-local-repairs",
+    "file": "bansal_sinha_section54.md",
+    "from": "Replacing Tal's bound by the sharper Sherstov–Storozhenko–Wu bound",
+    "to": "and in SSW do not supply that information.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-bs-failure",
+      "r2-sharp-ssw-input"
+    ],
+    "lean": [],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bs-promise-typo",
+    "file": "bansal_sinha_section54.md",
+    "from": "Equation (5.31), `main.tex:1173`, subtracts $\\delta^2/(4N)$ for the exceptional",
+    "to": "replace its Theorem 4.1 reference by Theorem 3.1.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-audit-bs-gap-geometric"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.dl"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bs-replacement-ingredients",
+    "file": "bansal_sinha_section54.md",
+    "from": "For clarity this section restates the precise ingredients",
+    "to": "proof does not invoke their invalid displayed inequality.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-kernel",
+      "r2-sharp-chain",
+      "r2-sharp-path-identity",
+      "r2-sharp-moments"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.psiS",
+      "QuarticQuery.ForrelationLower.phiS",
+      "QuarticQuery.ForrelationLower.hasDerivAt_phiS",
+      "QuarticQuery.ForrelationLower.abs_phiS_le",
+      "QuarticQuery.ForrelationLower.phiS_neg",
+      "QuarticQuery.ForrelationLower.wv",
+      "QuarticQuery.ForrelationLower.abs_wv_le_half",
+      "QuarticQuery.ForrelationLower.exists_identity",
+      "QuarticQuery.ForrelationLower.Int_eq_paths",
+      "QuarticQuery.ForrelationLower.cf",
+      "QuarticQuery.ForrelationLower.Lpath",
+      "QuarticQuery.ForrelationLower.mass_ge",
+      "QuarticQuery.ForrelationLower.ext_PhiF_zero",
+      "QuarticQuery.ForrelationLower.ext_PhiF_sq",
+      "QuarticQuery.Forrelation.Phi_sq_le_one"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bs-replacement-sharp-growth",
+    "file": "bansal_sinha_section54.md",
+    "from": "Let $C\\ge1$ be an absolute constant from SSW,",
+    "to": "whose $2/k$-power becomes a denominator of exponent $1-1/k$.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-path-restriction",
+      "r2-sharp-ssw-input"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.Lpath_nodup",
+      "QuarticQuery.ForrelationLower.Lpath_inj"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bs-replacement-finite",
+    "file": "bansal_sinha_section54.md",
+    "from": "Suppose the original algorithm has depth $D$ and",
+    "to": "exactly what the proof needs at smaller $m$.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-gap",
+      "r2-sharp-finite-sharp"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.mass_ge",
+      "QuarticQuery.ForrelationLower.ext_PhiF_sq",
+      "QuarticQuery.ForrelationLower.P_yes",
+      "QuarticQuery.ForrelationLower.P_no"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bs-replacement-endpoint",
+    "file": "bansal_sinha_section54.md",
+    "from": "Take\n\n\\[\n \\tau=\\left\\lceil\\frac{5k\\ln2}{\\eta^2}\\right\\rceil,\n \\qquad m\\ge 2^{15k+2}.\n \\tag{B21}\n\\]",
+    "to": "and the new quantitative assembly remain formalization obligations.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-sharp-result",
+      "r2-sharp-sharp-proof",
+      "r2-sharp-original-constant"
+    ],
+    "lean": [],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bs-null-tail",
+    "file": "bansal_sinha_section54.md",
+    "from": "The condition $m\\ge2^{15k+2}$ is an artifact of using",
+    "to": "present return and has no claimed compiled counterpart.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-subgaussian"
+    ],
+    "lean": [
+      "QuarticQuery.Forrelation.IsOrth.dot_self",
+      "QuarticQuery.Forrelation.isOrth_tailProd",
+      "QuarticQuery.ForrelationLower.two_point_exp_le"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bs-smaller-range",
+    "file": "bansal_sinha_section54.md",
+    "from": "Consequently the original proof of (B23) works under",
+    "to": "Fourier estimate repairs that particular loss of information.",
+    "role": "proves",
+    "statement_ids": [
+      "r2-sharp-threshold",
+      "r2-sharp-sharp-result",
+      "r2-sharp-elementary-proof",
+      "r2-sharp-small-dimension"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.exists_amplified"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bs-comparison",
+    "file": "bansal_sinha_section54.md",
+    "from": "All appearances of $m$ in this table denote",
+    "to": "loss is necessary for this specific promise problem.",
+    "role": "explains",
+    "statement_ids": [
+      "r2-sharp-comparison",
+      "r2-sharp-sharp-result",
+      "r2-sharp-bs-failure",
+      "r2-sharp-scope"
+    ],
+    "lean": [],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  },
+  {
+    "passage": "bs-receipt",
+    "file": "bansal_sinha_section54.md",
+    "from": "Read completely for this sub-review: the job instructions",
+    "to": "does not by itself certify these stronger statements.",
+    "role": "mentions",
+    "statement_ids": [
+      "lem-2.1.i"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.bansalSinhaLower"
+    ],
+    "evidence_note": "Lean names identify source ingredients only. Exact coverage, narrower dimensions, different proof routes, and missing compilation are stated in NEW_STATEMENTS.json and LEAN_GAPS.md."
+  }
+]

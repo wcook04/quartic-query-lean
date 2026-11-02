@@ -1,0 +1,30 @@
+{
+  "kind": "exact arithmetic sanity checks; not Lean elaboration",
+  "tail_exponent_float": -9.699250014423123,
+  "geometric_base_numerator": 17592186044416,
+  "geometric_base_denominator": 12157665459056928801,
+  "geometric_base_strictly_between_zero_and_one": true,
+  "six_hundredths_below_third": true,
+  "declarations": [
+    "classical_twoThirds_exact",
+    "classical_tail_exponent_neg",
+    "classical_tail_envelope_eq",
+    "classical_tail_le",
+    "classical_tail_envelope_tendsto",
+    "classical_tail_tendsto",
+    "classical_Gvalue_le_square",
+    "classical_tail_parameters",
+    "classical_numeric_components",
+    "classical_cor_R_omega_log2",
+    "classical_cor_R_omega_log",
+    "classical_ratio_arithmetic",
+    "classical_power_log_tendsto",
+    "classical_ratio_tendsto",
+    "classical_exponent_ratio",
+    "classical_Fkm_ratio"
+  ],
+  "declaration_count": 16,
+  "sorry_count": 0,
+  "axiom_keyword_count": 0,
+  "sha256": "ef966cd4f4bb8a0ba31e2e671b746c31b187febca304330b66e6bbe582218340"
+}

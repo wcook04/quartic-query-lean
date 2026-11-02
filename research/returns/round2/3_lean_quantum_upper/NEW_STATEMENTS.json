@@ -1,0 +1,302 @@
+[
+  {
+    "id": "r2-q-amplification-budget",
+    "statement": "For 0<gamma<=1/2 and 0<eta<1/2, N=trialCount(eta), M=iterationBound(gamma) satisfy N(2M+1)<=138 (sqrt gamma)^(-1) log(1/eta). This bounds the entire charged product, uniformly in the actual success probability.",
+    "why_needed": "stageCost and searchCost charge the product N(2M+1). The previous theorem bounds Proc.callCap, which can be smaller, so its endpoint alone cannot bound those definitions.",
+    "depends_on": [
+      "def-grover-trial",
+      "lem-3.1"
+    ],
+    "proposed_lean": "theorem amplification_budget_le {γ η : ℝ} (hγ : 0 < γ) (hγ1 : γ ≤ 1 / 2)\n    (hη : 0 < η) (hη1 : η < 1 / 2) :\n    (trialCount η : ℝ) * (2 * (iterationBound γ : ℝ) + 1) ≤\n      138 * (Real.sqrt γ)⁻¹ * Real.log (1 / η)",
+    "declaration": "QuarticQuery.Paper.amplification_budget_le",
+    "route_note": "Extracts the numerical inequalities already proved locally in Amplification.callCap_amplify_le; unelaborated. No stronger algorithmic statement is inferred from an upper bound on a smaller cap.",
+    "compiled": false,
+    "status": "unelaborated_source_only",
+    "proposed_lean_context": "import QuarticQuery.Upper.Bound\nnamespace QuarticQuery.Paper\nopen QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification QuarticQuery.Forrelation\nopen scoped BigOperators\n"
+  },
+  {
+    "id": "r2-q-coherent-amplification",
+    "statement": "For γ>0 and η>0, a coherent sampler of n reads on Option beta can be amplified to another coherent sampler with cap trialCount(eta)*(2 iterationBound(gamma)+1)*n abstract reads. Its failure probability f_x is in [0,1], is at most eta when initial success mass is at least gamma, and is one at zero initial success mass. When the initial successful mass is positive, the joint mass of the successful output label some b is exactly (1-f_x)*L_x(some b)/sum_c L_x(some c), with all random-choice and trial workspaces retained. At zero initial successful mass, every successful-label mass is zero.",
+    "why_needed": "Provides a circuit with an actual classical label in its final basis, allowing the list-valued tournament to be obtained before compilation to an AdaptiveProgram continuation. Retaining the trial records also matches the fresh-workspace implementation description.",
+    "depends_on": [
+      "def-grover-trial",
+      "claim-grover-state",
+      "eq-9",
+      "lem-3.1",
+      "claim-coherent-access"
+    ],
+    "proposed_lean": "theorem quantum_amplify_samples {ι β : Type} [Fintype ι] [Inhabited ι] [Fintype β] {n : ℕ} {L : BitInput ι → Option β → ℝ} (h : Samples n L) {γ η : ℝ}\n    (hγ : 0 < γ) (hη : 0 < η) : ∃ f : BitInput ι → ℝ,\n      (∀ x, 0 ≤ f x ∧ f x ≤ 1) ∧\n      (∀ x, γ ≤ ∑ b, L x (some b) → f x ≤ η) ∧\n      (∀ x, ∑ b, L x (some b) = 0 → f x = 1) ∧\n      Samples (trialCount η * ((2 * iterationBound γ + 1) * n))\n        fun x => ampLaw (f x) fun b => L x (some b)",
+    "declaration": "QuarticQuery.Paper.quantum_amplify_samples",
+    "route_note": "New proof transport: the entire induction in Upper.Samples.attempts is run with Samples.bind and Samples.pure, followed by a final optional Samples.runs compilation. It certifies a coherent successful-label law, not a theorem that the whole final register equals the original good state. All source unelaborated.",
+    "compiled": false,
+    "status": "unelaborated_source_only",
+    "proposed_lean_context": "import QuarticQuery.Upper.Bound\nnamespace QuarticQuery.Paper\nopen QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification QuarticQuery.Forrelation\nopen scoped BigOperators\n"
+  },
+  {
+    "id": "r2-q-conditional-label-law",
+    "statement": "If q_b>=0, sum_b q_b>0, and 0<=f<1, ampLaw(f,q) is a nonnegative probability distribution on Option beta, its successful event has positive mass, and its law conditional on success is q_b/sum_c q_c.",
+    "why_needed": "Makes the probability interpretation and nonzero-event condition explicit. A cancellation identity for arbitrary q and f!=1 would not by itself establish a conditional distribution.",
+    "depends_on": [
+      "lem-3.1"
+    ],
+    "proposed_lean": "theorem quantum_amplified_conditional {β : Type} [Fintype β] (q : β → ℝ)\n    (hq0 : ∀ b, 0 ≤ q b) (hq : 0 < ∑ c, q c) {f : ℝ}\n    (hf0 : 0 ≤ f) (hf1 : f < 1) :\n    (∀ o : Option β, 0 ≤ ampLaw f q o) ∧\n    (∑ o : Option β, ampLaw f q o) = 1 ∧\n    0 < ∑ c, ampLaw f q (some c) ∧\n    ∀ b, ampLaw f q (some b) / (∑ c, ampLaw f q (some c)) =\n      q b / ∑ c, q c",
+    "declaration": "QuarticQuery.Paper.quantum_amplified_conditional",
+    "route_note": "Finite normalization calculation using ampLaw. It divides by the actual sum of successful masses. New wrapper unelaborated.",
+    "compiled": false,
+    "status": "unelaborated_source_only",
+    "proposed_lean_context": "import QuarticQuery.Upper.Bound\nnamespace QuarticQuery.Paper\nopen QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification QuarticQuery.Forrelation\nopen scoped BigOperators\n"
+  },
+  {
+    "id": "new-upper-sampler-law",
+    "statement": "For γ>0 and η>0, a coherent sampler of n reads has the Samples.amplify physical bit-query cap trialCount(η)*2*((2 iterationBound(γ)+1)*n). Its failure is at most η when initial success mass is at least γ, and is certain when the initial success mass is zero. The unconditional successful label masses have the exact ampLaw formula; division into a conditional law requires positive actual successful mass.",
+    "why_needed": "Keeps the exact interface on the existing headline proof path separate from the abstract full-state theorem and from the new coherent transport.",
+    "depends_on": [
+      "def-grover-trial",
+      "claim-grover-state",
+      "eq-9",
+      "lem-3.1",
+      "claim-coherent-access"
+    ],
+    "proposed_lean": "theorem quantum_amplified_label_law {ι β : Type} [Fintype ι] [Inhabited ι] [Fintype β]\n    {n : ℕ} {L : BitInput ι → Option β → ℝ} (h : Samples n L)\n    {γ η : ℝ} (hγ : 0 < γ) (hη : 0 < η) :\n    ∃ f : BitInput ι → ℝ,\n      (∀ x, 0 ≤ f x ∧ f x ≤ 1) ∧\n      (∀ x, γ ≤ ∑ b, L x (some b) → f x ≤ η) ∧\n      (∀ x, ∑ b, L x (some b) = 0 → f x = 1) ∧\n      Runs (trialCount η * (2 * ((2 * iterationBound γ + 1) * n)))\n        (fun x => ampLaw (f x) (fun b => L x (some b)))",
+    "declaration": "QuarticQuery.Paper.quantum_amplified_label_law",
+    "route_note": "Preserves the prior proposal ID from previous_round/1_long_reasoning_record/NEW_STATEMENTS.json. It is an exact re-export of Upper.Samples.amplify, whose input implementation uses full measurement and a known reset. The new alias is unelaborated; no status inheritance.",
+    "compiled": false,
+    "status": "unelaborated_source_only",
+    "proposed_lean_context": "import QuarticQuery.Upper.Bound\nnamespace QuarticQuery.Paper\nopen QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification QuarticQuery.Forrelation\nopen scoped BigOperators\n"
+  },
+  {
+    "id": "r2-quantum-list-law-normalized",
+    "statement": "Any Samples witness whose measured label is a list of length at most T gives nonnegative masses summing to one for every oracle input. The constructed tournament supplies such a witness.",
+    "why_needed": "Makes the probability interpretation of the literal list output explicit. The internal recursive list-law proof additionally handles zero total weight by certain termination.",
+    "depends_on": [],
+    "proposed_lean": "theorem quantumCandidateList_probability {ι Col : Type} [Fintype Col]\n    [DecidableEq Col] {T c : ℕ}\n    {law : BitInput ι → {L : List Col // L.length ≤ T} → ℝ}\n    (h : Samples c law) :\n    (∀ x o, 0 ≤ law x o) ∧ (∀ x, ∑ o, law x o = 1)",
+    "proposed_lean_context": "import QuarticQuery.Upper.Bound\nnamespace QuarticQuery.Paper\nopen QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification QuarticQuery.Forrelation\nopen scoped BigOperators\n\n-- UNELABORATED local infrastructure; no new mathematical predicate is used.\n-- This is the bounded-list finiteness proof in QuantumTournament.lean,\n-- written here without that module's abbreviation or instance name.\nnoncomputable section\nlocal instance {Col : Type} [Fintype Col] [DecidableEq Col] {T : ℕ} :\n    Fintype {L : List Col // L.length ≤ T} :=\n  Fintype.ofInjective\n    (fun l : {L : List Col // L.length ≤ T} => fun i : Fin (T + 1) => l.1[i.val]?)\n    (by\n      intro l l' h\n      apply Subtype.ext\n      apply List.ext_getElem?\n      intro n\n      by_cases hn : n < T + 1\n      · exact congrFun h ⟨n, hn⟩\n      · have h1 := l.2\n        have h2 := l'.2\n        rw [List.getElem?_eq_none (by omega), List.getElem?_eq_none (by omega)])\n",
+    "route_note": "Re-export of Samples.nonneg and Samples.sum_eq_one on the explicit bounded-list subtype. quantumListLaw_total remains an internal normalization proof for the chosen recursive law. No probabilistic assertion is based on totalized division alone.",
+    "compiled": false,
+    "status": "unelaborated_source_only",
+    "declaration": "QuarticQuery.Paper.quantumCandidateList_probability",
+    "context_status": "Unelaborated context including an explicit local bounded-list Fintype construction from existing declarations.",
+    "related_statement_ids": [
+      "prop-3.2",
+      "construct-sampler"
+    ],
+    "proof_uses": [
+      "QuarticQuery.Upper.Samples.nonneg",
+      "QuarticQuery.Upper.Samples.sum_eq_one",
+      "QuarticQuery.Paper.instFintypeQuantumCandidateList"
+    ]
+  },
+  {
+    "id": "r2-quantum-perfect-indicator-coupling",
+    "statement": "Let a be unit-valued, v and f be in [0,1], v(s)=1, and f(L)=1 whenever W(L)=0. Suppose s is ε-dominant, 0≤ε≤1, T₀ε<1/2, and f(L)≤ε for every history of length at most T₀ omitting s. For |L|+n≤T₀, tval(a,v,f,n,L)≥1−missFrom(a,s,n,L)−nε. With v=1_{s}, tval is exactly the probability that the returned list contains s.",
+    "why_needed": "Removes the verifier epsilon when proving list membership.",
+    "depends_on": [
+      "claim-weight-lb"
+    ],
+    "proposed_lean": "theorem quantumList_coupling {Col : Type} [Fintype Col] [DecidableEq Col]\n    {a : Col → Col → ℝ} {v : Col → ℝ} {f : List Col → ℝ} (ha : UnitValued a) (hv : ∀ c, 0 ≤ v c ∧ v c ≤ 1)\n    (hf : ∀ L, 0 ≤ f L ∧ f L ≤ 1) (hz : ∀ L, total (weight a L) = 0 → f L = 1) {s : Col}\n    {ε : ℝ} (hε0 : 0 ≤ ε) (hε1 : ε ≤ 1) (hd : Dominant a ε s) (hvs : v s = 1) {T₀ : ℕ}\n    (hT : (T₀ : ℝ) * ε < 1 / 2) (hfail : ∀ L : List Col, L.length ≤ T₀ → s ∉ L → f L ≤ ε)\n    (T : ℕ) (L : List Col) (hL : L.length + T ≤ T₀) :\n    1 - missFrom a s T L - T * ε ≤ tval a v f T L",
+    "proposed_lean_context": "import QuarticQuery.Upper.Bound\nnamespace QuarticQuery.Paper\nopen QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification QuarticQuery.Forrelation\nopen scoped BigOperators\n",
+    "route_note": "An explicit perfect-indicator version of the existing continuation induction. This perfect verifier is a proof device and does not choose the algorithm. UNELABORATED in this environment.",
+    "compiled": false,
+    "status": "unelaborated_source_only",
+    "declaration": "QuarticQuery.Paper.quantumList_coupling",
+    "related_statement_ids": [
+      "claim-coupling"
+    ]
+  },
+  {
+    "id": "r2-quantum-tournament-budget-6072",
+    "statement": "For m≥2, T=ceil(log₂(1000m)), ε=1/(1000T), N=trialCount(ε), M=iterationBound(1/(2m)), the exact compiled cap 2N(2M+1)cT² is at most 6072 c sqrt(m) T² ln(T). The comparison cap c counts logical reads; the factor two converting reads into physical bit queries is already included.",
+    "why_needed": "Turns the paper big-O into a uniform finite numerical inequality.",
+    "depends_on": [
+      "def-T-eps",
+      "r2-q-amplification-budget"
+    ],
+    "proposed_lean": "theorem quantumTournament_cost {m : ℕ} (hm : 2 ≤ m) (cc : ℕ) :\n    ((Tval m * stageCost m (Tval m) cc (epsval m) : ℕ) : ℝ) ≤\n      6072 * (cc : ℝ) * Real.sqrt (m : ℝ) *\n        (Tval m : ℝ) ^ 2 * Real.log (Tval m : ℝ)",
+    "proposed_lean_context": "import QuarticQuery.Upper.Bound\nnamespace QuarticQuery.Paper\nopen QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification QuarticQuery.Forrelation\nopen scoped BigOperators\n",
+    "route_note": "The arithmetic copies the actual ceiling bounds and includes the physical bit-query compilation factor; no optimization or novelty is claimed. UNELABORATED in this environment.",
+    "compiled": false,
+    "status": "unelaborated_source_only",
+    "declaration": "QuarticQuery.Paper.quantumTournament_cost",
+    "related_statement_ids": [
+      "claim-tournament-cost"
+    ]
+  },
+  {
+    "id": "r2-quantum-coherent-list-witness",
+    "statement": "For m≥2, T=ceil(log₂(1000m)), ε=1/(1000T), and a coherent comparison family of c logical reads with complementary probabilities, there is one normalized list law and one coherent circuit with that list as its measured label. Every label has length at most T. Its physical bit-query cap C satisfies C≤6072 c sqrt(m) T² ln(T), and, for every fixed oracle input x and every ε-dominant s, Pr[s is listed]≥1−2m/2^T−Tε.",
+    "why_needed": "Exhibits an actual coherent finite list label before converting to the Boolean continuation interface.",
+    "depends_on": [
+      "eq-10",
+      "eq-13",
+      "claim-weight-lb",
+      "construct-sampler",
+      "claim-coupling",
+      "r2-q-coherent-amplification",
+      "r2-quantum-tournament-budget-6072"
+    ],
+    "proposed_lean": "theorem quantumTournament {ι Col : Type} [Fintype ι] [Inhabited ι]\n    [Fintype Col] [DecidableEq Col] {cc : ℕ} {a : BitInput ι → Col → Col → ℝ}\n    (hm : 2 ≤ Fintype.card Col) (hc : ∀ x, IsComparison (a x))\n    (hcmp : ∀ i p, Samples cc fun x b => bern (a x i p) b) :\n    let m := Fintype.card Col\n    let T := Tval m\n    let ε := epsval m\n    ∃ C : ℕ, ∃ law : BitInput ι → {L : List Col // L.length ≤ T} → ℝ,\n      (C : ℝ) ≤ 6072 * (cc : ℝ) * Real.sqrt (m : ℝ) *\n        (T : ℝ) ^ 2 * Real.log (T : ℝ) ∧\n      Samples (T * (trialCount ε * ((2 * iterationBound ((2 * (m : ℝ))⁻¹) + 1) * (T * cc)))) law ∧\n      Runs C law ∧\n      (∀ x o, 0 ≤ law x o) ∧\n      (∀ x, ∑ o, law x o = 1) ∧\n      ∀ x s, Dominant (a x) ε s →\n        1 - 2 * (m : ℝ) / 2 ^ T - T * ε ≤\n          ∑ o : {L : List Col // L.length ≤ T}, if s ∈ o.1 then law x o else 0",
+    "proposed_lean_context": "import QuarticQuery.Upper.Bound\nnamespace QuarticQuery.Paper\nopen QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification QuarticQuery.Forrelation\nopen scoped BigOperators\n\n-- UNELABORATED local infrastructure; no new mathematical predicate is used.\n-- This is the bounded-list finiteness proof in QuantumTournament.lean,\n-- written here without that module's abbreviation or instance name.\nnoncomputable section\nlocal instance {Col : Type} [Fintype Col] [DecidableEq Col] {T : ℕ} :\n    Fintype {L : List Col // L.length ≤ T} :=\n  Fintype.ofInjective\n    (fun l : {L : List Col // L.length ≤ T} => fun i : Fin (T + 1) => l.1[i.val]?)\n    (by\n      intro l l' h\n      apply Subtype.ext\n      apply List.ext_getElem?\n      intro n\n      by_cases hn : n < T + 1\n      · exact congrFun h ⟨n, hn⟩\n      · have h1 := l.2\n        have h2 := l'.2\n        rw [List.getElem?_eq_none (by omega), List.getElem?_eq_none (by omega)])\n",
+    "route_note": "Retain trial and history registers; compose Samples; compile to Runs at the end. Finite bounded-list alias is defined in the supplied Lean module; it is not an extra axiom. UNELABORATED in this environment.",
+    "compiled": false,
+    "status": "unelaborated_source_only",
+    "declaration": "QuarticQuery.Paper.quantumTournament",
+    "signature_expansion": "Expands only QuantumCandidateList and quantumStageReads; the statement is definitionally the source declaration.",
+    "context_status": "Unelaborated context including an explicit local bounded-list Fintype construction from existing declarations.",
+    "related_statement_ids": [
+      "prop-3.2"
+    ]
+  },
+  {
+    "id": "r2-quantum-ordinary-oracle-read",
+    "statement": "The ordinary oracle bitOracleL is a single IsCirc logical read on the same basis type.",
+    "why_needed": "Identifies the paper comparison input convention with the generic theorem hypothesis.",
+    "depends_on": [
+      "def-query-oracle",
+      "claim-coherent-access"
+    ],
+    "proposed_lean": "theorem quantumBitOracle_isCirc {ι : Type} [Fintype ι] (w : ℕ) :\n    IsCirc 1 (fun x : BitInput ι => bitOracleL (w := w) x)",
+    "proposed_lean_context": "import QuarticQuery.Upper.Bound\nnamespace QuarticQuery.Paper\nopen QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification QuarticQuery.Forrelation\nopen scoped BigOperators\n",
+    "route_note": "Concrete ReadSpec flips only the answer bit, keeps address/workspace, and has no phase sign. UNELABORATED in this environment.",
+    "compiled": false,
+    "status": "unelaborated_source_only",
+    "declaration": "QuarticQuery.Paper.quantumBitOracle_isCirc"
+  },
+  {
+    "id": "r2-quantum-decode-bit-budget",
+    "statement": "For k≥1,t≥1,r=40t and 0<ε≤1, choosing n=ceil(16·2^(10k) ln(r/ε)) gives at most 2rk[1+16·2^(10k) ln(r/ε)] physical bit queries for the full address decoder.",
+    "why_needed": "Pins the hidden constant and the physical-query factor of two in claim-decode-cost.",
+    "depends_on": [
+      "claim-decode-cost",
+      "lem-2.1.ii",
+      "claim-coherent-access"
+    ],
+    "proposed_lean": "theorem quantumDecode_query_bound_real (ht : 1 ≤ t) {ε : ℝ}\n    (hε : 0 < ε) (hε1 : ε ≤ 1) :\n    ((2 * addrCost k t (repetitions k (ε / (40 * t : ℕ))) : ℕ) : ℝ) ≤\n      80 * (t : ℝ) * (k : ℝ) *\n        (1 + 16 * (2 : ℝ) ^ (10 * k) * Real.log ((40 * t : ℕ) / ε))",
+    "proposed_lean_context": "import QuarticQuery.Upper.Bound\nnamespace QuarticQuery.Paper\nopen QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification QuarticQuery.Forrelation\nopen scoped BigOperators\nvariable {k t : ℕ} {C : Circuit (ForrelationCoord k t)}\n",
+    "declarations": [
+      "QuarticQuery.Paper.quantumDecode_query_bound_real"
+    ],
+    "route_note": "Source-proof extraction and elementary inequalities. All supplied proof bodies are unelaborated; no novelty claim. The numeric amplification helper is supplied in QuantumAmplification.lean.",
+    "compiled": false,
+    "status": "unelaborated_source_only"
+  },
+  {
+    "id": "r2-quantum-decode-polylog",
+    "statement": "Let R_k=1+1920000·2^(10k). At ε=1/(1000 ceil(log₂(1000m))), m=4^t,t≥1, n=repetitions(k,ε/(40t))≤R_k(2t)^2 and 2 addrCost(k,t,n)≤40R_k k(2t)^3.",
+    "why_needed": "Exports the actual finite polynomial estimate previously local to Upper.budget_le.",
+    "depends_on": [
+      "r2-quantum-decode-bit-budget",
+      "def-T-eps"
+    ],
+    "proposed_lean": "theorem quantumDecode_repetitions_polylog (ht : 1 ≤ t) :\n    repetitions k (epsval (mValue t) / (40 * t : ℕ)) ≤\n      (1 + 1920000 * 2 ^ (10 * k)) * (2 * t) ^ 2\n\ntheorem quantumDecode_polylog (ht : 1 ≤ t) :\n    2 * addrCost k t (repetitions k (epsval (mValue t) / (40 * t : ℕ))) ≤\n      40 * (1 + 1920000 * 2 ^ (10 * k)) * k * (2 * t) ^ 3",
+    "proposed_lean_context": "import QuarticQuery.Upper.Bound\nnamespace QuarticQuery.Paper\nopen QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification QuarticQuery.Forrelation\nopen scoped BigOperators\nvariable {k t : ℕ} {C : Circuit (ForrelationCoord k t)}\n",
+    "declarations": [
+      "QuarticQuery.Paper.quantumDecode_repetitions_polylog",
+      "QuarticQuery.Paper.quantumDecode_polylog"
+    ],
+    "route_note": "Source-proof extraction and elementary inequalities. All supplied proof bodies are unelaborated; no novelty claim. The numeric amplification helper is supplied in QuantumAmplification.lean.",
+    "compiled": false,
+    "status": "unelaborated_source_only"
+  },
+  {
+    "id": "r2-quantum-comparison-bit-budget",
+    "statement": "For natural k,t,n the exact cap identity holds. The real logarithmic bound assumes t≥1 and 0<ε≤1; the paper-parameter specialization assumes t≥1. The comparison physical-query cap is 2 cmpCost=4 addrCost+8t+4. With the least repetition count it is at most 160tk[1+16·2^(10k) ln(40t/ε)]+8t+4. At the paper parameters it is at most 2(40R_k k+4)(2t)^3, where R_k=1+1920000·2^(10k).",
+    "why_needed": "Makes the comparison cost claim exact for the implemented decoder and two adaptive pointer tests.",
+    "depends_on": [
+      "r2-quantum-decode-bit-budget",
+      "r2-quantum-decode-polylog",
+      "claim-comparison-state"
+    ],
+    "proposed_lean": "theorem quantumComparison_cost_exact (k t n : ℕ) :\n    2 * cmpCost k t n = 4 * addrCost k t n + 8 * t + 4\n\ntheorem quantumComparison_query_bound (ht : 1 ≤ t) {ε : ℝ}\n    (hε : 0 < ε) (hε1 : ε ≤ 1) :\n    ((2 * cmpCost k t (repetitions k (ε / (40 * t : ℕ))) : ℕ) : ℝ) ≤\n      160 * (t : ℝ) * (k : ℝ) *\n        (1 + 16 * (2 : ℝ) ^ (10 * k) * Real.log ((40 * t : ℕ) / ε)) +\n      8 * (t : ℝ) + 4\n\ntheorem quantumComparison_polylog (ht : 1 ≤ t) :\n    2 * cmpCost k t (repetitions k (epsval (mValue t) / (40 * t : ℕ))) ≤\n      2 * (40 * (1 + 1920000 * 2 ^ (10 * k)) * k + 4) * (2 * t) ^ 3",
+    "proposed_lean_context": "import QuarticQuery.Upper.Bound\nnamespace QuarticQuery.Paper\nopen QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification QuarticQuery.Forrelation\nopen scoped BigOperators\nvariable {k t : ℕ} {C : Circuit (ForrelationCoord k t)}\n",
+    "declarations": [
+      "QuarticQuery.Paper.quantumComparison_cost_exact",
+      "QuarticQuery.Paper.quantumComparison_query_bound",
+      "QuarticQuery.Paper.quantumComparison_polylog"
+    ],
+    "route_note": "Source-proof extraction and elementary inequalities. All supplied proof bodies are unelaborated; no novelty claim. The numeric amplification helper is supplied in QuantumAmplification.lean.",
+    "compiled": false,
+    "status": "unelaborated_source_only"
+  },
+  {
+    "id": "r2-quantum-verification-search-budget",
+    "statement": "For K≥2 and 0<ε<1/2, the implemented fixed-address search has physical cap searchCost(t,K,ε)≤276√K ln(1/ε) max(3,2t+1). For t≥1 the final factor equals 2t+1.",
+    "why_needed": "Bounds the exact padded product charged by searchCost; the abstract Proc callCap bound alone cannot upper-bound this larger charged quantity.",
+    "depends_on": [
+      "claim-verify",
+      "lem-3.1",
+      "claim-coherent-access"
+    ],
+    "proposed_lean": "theorem quantumVerify_search_query_bound (t K : ℕ) (hK : 2 ≤ K)\n    {ε : ℝ} (hε : 0 < ε) (hε1 : ε < 1 / 2) :\n    (searchCost t K ε : ℝ) ≤\n      276 * Real.sqrt (K : ℝ) * Real.log (1 / ε) * (testCost t : ℝ)",
+    "proposed_lean_context": "import QuarticQuery.Upper.Bound\nnamespace QuarticQuery.Paper\nopen QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification QuarticQuery.Forrelation\nopen scoped BigOperators\n",
+    "declarations": [
+      "QuarticQuery.Paper.quantumVerify_search_query_bound"
+    ],
+    "route_note": "Source-proof extraction and elementary inequalities. All supplied proof bodies are unelaborated; no novelty claim. The numeric amplification helper is supplied in QuantumAmplification.lean.",
+    "compiled": false,
+    "status": "unelaborated_source_only"
+  },
+  {
+    "id": "r2-quantum-verification-polylog",
+    "statement": "For t≥1, m=4^t, ε=1/(1000 ceil(log₂(1000m))), n=repetitions(k,ε/(40t)), and C.size≤forrConstant(k)·m·(2t)^2, the full physical single-candidate verification cap 2 addrCost(k,t,n)+searchCost(t,card(Tests(t,C)),ε) is at most budgetConst(k)·2^t·(2t)^6. For k=l+1 the selected forrCircuit(l,t) satisfies the size hypothesis. This is a finite sqrt(m)·(log₂m)^6 upper bound.",
+    "why_needed": "Closes the finite-K to finite-m specialization of claim-verify with the circuit-size premise exposed and includes the fresh-decoding cap.",
+    "depends_on": [
+      "claim-verify",
+      "def-T-eps",
+      "lem-2.1.iii",
+      "r2-quantum-verification-search-budget"
+    ],
+    "proposed_lean": "theorem quantumVerify_polylog (ht : 1 ≤ t)\n    (hSz : C.size ≤ forrConstant k * mValue t * (2 * t) ^ 2) :\n    2 * addrCost k t (repetitions k (epsval (mValue t) / (40 * t : ℕ))) +\n      searchCost t (Fintype.card (Tests t C)) (epsval (mValue t)) ≤\n        budgetConst k * 2 ^ t * (2 * t) ^ 6\n\ntheorem quantumVerify_forrCircuit_polylog (l : ℕ) (ht : 1 ≤ t) :\n    2 * addrCost (l + 1) t\n      (repetitions (l + 1) (epsval (mValue t) / (40 * t : ℕ))) +\n      searchCost t (Fintype.card (Tests t (forrCircuit l t))) (epsval (mValue t)) ≤\n        budgetConst (l + 1) * 2 ^ t * (2 * t) ^ 6",
+    "proposed_lean_context": "import QuarticQuery.Upper.Bound\nnamespace QuarticQuery.Paper\nopen QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification QuarticQuery.Forrelation\nopen scoped BigOperators\nvariable {k t : ℕ} {C : Circuit (ForrelationCoord k t)}\n",
+    "declarations": [
+      "QuarticQuery.Paper.quantumVerify_polylog",
+      "QuarticQuery.Paper.quantumVerify_forrCircuit_polylog"
+    ],
+    "route_note": "Elementary domination of the single-candidate cap by the existing complete budget, followed by Upper.budget_le. The selected-circuit corollary invokes forrCircuit_size_le. No smaller constant or exponent is claimed; both wrappers are unelaborated.",
+    "compiled": false,
+    "source_locators": [
+      "paper/extracted.md:483-493",
+      "repository/lean/QuarticQuery/Upper/Verify.lean:131-135",
+      "repository/lean/QuarticQuery/Upper/Bound.lean:52-64",
+      "repository/lean/QuarticQuery/Forrelation/Circuit.lean:462-475",
+      "repository/lean/QuarticQuery/Tournament/Ideal.lean:296-303"
+    ],
+    "status": "unelaborated_source_only"
+  },
+  {
+    "id": "r2-q-common-workspace",
+    "statement": "A finite nonempty family of coherent samplers with one read cap can use a common finite workspace, origin and output map, with the same read cap and the same individual output laws.",
+    "why_needed": "Connects pairwise existential Samples comparison witnesses to the common-workspace hypothesis of the literal tensor-state equation.",
+    "depends_on": [
+      "claim-coherent-access"
+    ],
+    "related_statement_ids": [
+      "claim-comparison-state",
+      "eq-15"
+    ],
+    "proposed_lean": "theorem quantumWorkspace_uniformize {ι J β : Type} [Fintype J] [Nonempty J]\n    {c : ℕ} {L : J → BitInput ι → β → ℝ}\n    (h : ∀ j, Samples c (L j)) :\n    ∃ (Z : Type) (_ : Fintype Z) (o : Z) (out : Z → β)\n      (F : J → BitInput ι → Reg Z ≃ₗᵢ[ℂ] Reg Z),\n      (∀ j, IsCirc c (F j)) ∧\n      ∀ j x b, lawOf (F j x (rket o)) out b = L j x b",
+    "declaration": "QuarticQuery.Paper.quantumWorkspace_uniformize",
+    "proposed_lean_context": "import QuarticQuery.Upper.Bound\nnamespace QuarticQuery.Paper\nopen QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification QuarticQuery.Forrelation\nopen scoped BigOperators\n",
+    "route_note": "Finite direct sum of the existing workspaces, preceded by a query-free basis swap. This is the block construction already used in Samples.bind, extracted as a reusable statement. No added oracle assumptions, no claim of mathematical novelty.",
+    "compiled": false,
+    "status": "unelaborated_source_only"
+  },
+  {
+    "id": "r2-q-full-tensor-sampler",
+    "statement": "For a finite nonempty candidate set of size m, any coherent comparison family of c reads and fixed sequence of t pivots, a coherent sampler of tc reads has successful index mass (1/m)∏_{b<t}aᵢ,p_b. Its proof constructs the full fresh tensor state after putting the family in a common workspace.",
+    "why_needed": "Supplies a direct full-tensor construction from the same comparison interface used by the tournament, respecting F-STAGE-LAW.",
+    "depends_on": [
+      "eq-15",
+      "claim-success-prob",
+      "r2-q-common-workspace"
+    ],
+    "related_statement_ids": [
+      "construct-sampler"
+    ],
+    "proposed_lean": "theorem quantumTensorStage_of_samples {ι Col : Type} [Fintype Col] [Nonempty Col]\n    {c : ℕ} {a : BitInput ι → Col → Col → ℝ}\n    (hcmp : ∀ i j, Samples c fun x b => bern (a x i j) b)\n    (p : ℕ → Col) (t : ℕ) :\n    ∃ L : BitInput ι → Option Col → ℝ,\n      Samples (t * c) L ∧\n      ∀ x i, L x (some i) =\n        (∏ b ∈ Finset.range t, a x i (p b)) / Fintype.card Col",
+    "declaration": "QuarticQuery.Paper.quantumTensorStage_of_samples",
+    "proposed_lean_context": "import QuarticQuery.Upper.Bound\nnamespace QuarticQuery.Paper\nopen QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification QuarticQuery.Forrelation\nopen scoped BigOperators\n",
+    "route_note": "Uses quantumWorkspace_uniformize, equation_15 and its successful-index mass calculation. The signature uses the existing Samples/bern vocabulary. The list theorem keeps its existing short-circuit sampler and agrees on the law needed for the proof.",
+    "compiled": false,
+    "status": "unelaborated_source_only"
+  }
+]

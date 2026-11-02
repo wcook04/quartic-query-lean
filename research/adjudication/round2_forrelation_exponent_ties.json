@@ -1,0 +1,480 @@
+{
+  "schema": "round2_reviewed_tie_candidates_v1",
+  "review_date": "2026-11-02",
+  "purpose": "Candidate reviewed source relations only; parent owns corpus ingestion after actual validated builds.",
+  "repo_head": "804c9aa1269af0a727effb6f6c138eaf86951f4c",
+  "source_state": {
+    "kind": "dirty_working_tree_observation",
+    "source_sha256": {
+      "lean/QuarticQuery/ForrelationLower/Stein.lean": "6238d7e6f8ade6044eb623899069f35d0a5b860699c722e7007fd71046ffff9e",
+      "lean/QuarticQuery/ForrelationLower/Walk.lean": "c9394068bc3a583178fcae1e11d6eafdc7dcfc17bcd8a0b269f9a13ccee209ba",
+      "lean/QuarticQuery/ForrelationLower/Cascade.lean": "9438575752bdbb664cecbf15b97afc96f2f235fabcab8f6261ab5f15bb9d7ab9",
+      "lean/QuarticQuery/ForrelationLower/Main.lean": "272c22762c43f449c5e2d260104285a9cf4f12c4f10b7b5f976eb4f7b8849672",
+      "lean/QuarticQuery/ForrelationLower/Uniform.lean": "fbbb2cc99f388a8543b358a611aab4e443e5ad12fcbd1ae79f242ef48c8a6a67",
+      "lean/QuarticQuery/Upper/Bound.lean": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303",
+      "lean/QuarticQuery/Statement.lean": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+      "lean/QuarticQuery/Model/Classical.lean": "a820d0804ee722ee74eef97ea8efeb2a15da55107d6a908e35ba60ef39932e9e"
+    },
+    "full_transitive_build_snapshot": false,
+    "note": "These explicit source hashes identify the reviewed files. Root build receipt must separately bind the complete source/dependency closure. Refresh after any proof repair."
+  },
+  "authority": {
+    "source_review": "AI source/type inspection complete for candidate relations",
+    "compilation": "pending",
+    "comparison": "not_run",
+    "human_review": "not_claimed"
+  },
+  "preserve_existing_ties": true,
+  "do_not_modify_statement_ids": [
+    "lem-2.1.i",
+    "thm-1.1",
+    "eq-1",
+    "eq-2"
+  ],
+  "forbidden_promotions": [
+    "No SSW theorem or numeric C is formalized here.",
+    "No lower dimension m>=24*k*32^(2*k) is formalized here.",
+    "No arbitrary power-of-two family beyond m=4^t is formalized here.",
+    "No coherent BHMT decoder or 2^(5*k) quantum endpoint is formalized here.",
+    "No explicit single-family rate or fixed-k diagonal limit is formalized by these additions.",
+    "Pending source is not compilation or Comparator evidence."
+  ],
+  "tie_additions": {
+    "sf-uniform-forrelation": [
+      {
+        "declaration": "QuarticQuery.forrelation_lower_uniform_existing_constants",
+        "relation": "exact",
+        "route": "same",
+        "hypotheses": [],
+        "reviewed_by": "ai:round2-forrelation-exponent",
+        "note": "Matches only the fixed error 1/3, m=4^t, k>=2, 15k+2<=2t endpoint with constant 1/2332800.",
+        "source": {
+          "declaration": "QuarticQuery.forrelation_lower_uniform_existing_constants",
+          "path": "lean/QuarticQuery/ForrelationLower/Uniform.lean",
+          "line": 505,
+          "source_sha256": "fbbb2cc99f388a8543b358a611aab4e443e5ad12fcbd1ae79f242ef48c8a6a67",
+          "declaration_header": "theorem forrelation_lower_uniform_existing_constants\n    (k t : ℕ) (hk : 2 ≤ k) (ht : 15 * k + 2 ≤ 2 * t) :\n    (1 / 2332800 : ℝ) *\n        Real.rpow (mValue t : ℝ) (1 - 1 / (k : ℝ)) /\n        ((k : ℝ) ^ 2 * Real.log (4 * (k : ℝ) * (mValue t : ℝ))) <\n      (R (P k t) : ℝ)",
+          "declaration_header_sha256": "697912205d99605ae582e40e2e70f7ea55c997fbdb2e1391b658f2529ab7e85e",
+          "source_review": "reviewed_exact_type",
+          "compilation": "pending",
+          "comparison": "not_run"
+        }
+      }
+    ],
+    "sf-floor-budget": [
+      {
+        "declaration": "QuarticQuery.uniform_budget_floor_bounds",
+        "relation": "partial",
+        "route": "same",
+        "hypotheses": [],
+        "reviewed_by": "ai:round2-forrelation-exponent",
+        "note": "Proves its X/floor bounds under the weaker t>=41 once k<=t; does not package the displayed intermediate bound 2^t/(13996800*t^3).",
+        "source": {
+          "declaration": "QuarticQuery.uniform_budget_floor_bounds",
+          "path": "lean/QuarticQuery/ForrelationLower/Uniform.lean",
+          "line": 599,
+          "source_sha256": "fbbb2cc99f388a8543b358a611aab4e443e5ad12fcbd1ae79f242ef48c8a6a67",
+          "declaration_header": "theorem uniform_budget_floor_bounds (k t : ℕ) (hk : 2 ≤ k) (hkt : k ≤ t) (ht : 41 ≤ t) :\n    let X := (1 / 2332800 : ℝ) *\n      Real.rpow (mValue t : ℝ) (1 - 1 / (k : ℝ)) /\n      ((k : ℝ) ^ 2 * Real.log (4 * (k : ℝ) * (mValue t : ℝ)))\n    2 ≤ X ∧ 1 ≤ ⌊X⌋₊ ∧ ⌊X⌋₊ ≤ mValue t ∧ X / 2 ≤ (⌊X⌋₊ : ℝ)",
+          "declaration_header_sha256": "52fb1752efb29fe1617d0757d3a11ddb5f5a70867a46d70eca60a7b37a41bce2",
+          "source_review": "reviewed_exact_type",
+          "compilation": "pending",
+          "comparison": "not_run"
+        }
+      }
+    ],
+    "sf-B10": [
+      {
+        "declaration": "QuarticQuery.Upper.budgetConst_eq_expanded",
+        "relation": "partial",
+        "route": "same",
+        "hypotheses": [],
+        "reviewed_by": "ai:round2-forrelation-exponent",
+        "note": "Exact expanded equality component.",
+        "source": {
+          "declaration": "QuarticQuery.Upper.budgetConst_eq_expanded",
+          "path": "lean/QuarticQuery/Upper/Bound.lean",
+          "line": 60,
+          "source_sha256": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303",
+          "declaration_header": "theorem budgetConst_eq_expanded (k : ℕ) :\n    budgetConst k = 2972284080 * k * (1 + 1920000 * 2 ^ (10 * k)) +\n      79491312000 * (k + 1) ^ 2 + 1131887160",
+          "declaration_header_sha256": "cf4b9b5f6174ac8be658e6fa6026fb88fbfb64ffa1b7a650d2a9d09f0405c587",
+          "source_review": "reviewed_exact_type",
+          "compilation": "pending",
+          "comparison": "not_run"
+        }
+      },
+      {
+        "declaration": "QuarticQuery.Upper.budgetConst_le_exponential",
+        "relation": "partial",
+        "route": "same",
+        "hypotheses": [],
+        "reviewed_by": "ai:round2-forrelation-exponent",
+        "note": "Exponential-envelope component for k>=1; use both declarations or add an exact conjunction wrapper.",
+        "source": {
+          "declaration": "QuarticQuery.Upper.budgetConst_le_exponential",
+          "path": "lean/QuarticQuery/Upper/Bound.lean",
+          "line": 67,
+          "source_sha256": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303",
+          "declaration_header": "theorem budgetConst_le_exponential {k : ℕ} (hk : 1 ≤ k) :\n    budgetConst k ≤ 2 ^ 53 * k * 2 ^ (10 * k)",
+          "declaration_header_sha256": "25704b0105a2df42ecbfc1d66f7f8489a676f2c043417f9091b9ffa820ae9166",
+          "source_review": "reviewed_exact_type",
+          "compilation": "pending",
+          "comparison": "not_run"
+        }
+      }
+    ],
+    "r2-sharp-elementary-result": [
+      {
+        "declaration": "QuarticQuery.forrelation_lower_uniform_sharp",
+        "relation": "partial",
+        "route": "same",
+        "hypotheses": [],
+        "reviewed_by": "ai:round2-forrelation-exponent",
+        "note": "Only m=4^t and the older sufficient dimension 15k+2<=2t are implemented. The arbitrary power-of-two and subgaussian dimension extensions are not formalized.",
+        "source": {
+          "declaration": "QuarticQuery.forrelation_lower_uniform_sharp",
+          "path": "lean/QuarticQuery/ForrelationLower/Uniform.lean",
+          "line": 554,
+          "source_sha256": "fbbb2cc99f388a8543b358a611aab4e443e5ad12fcbd1ae79f242ef48c8a6a67",
+          "declaration_header": "theorem forrelation_lower_uniform_sharp\n    (k t : ℕ) (hk : 2 ≤ k) (ht : 15 * k + 2 ≤ 2 * t) :\n    (2 / 18225 : ℝ) *\n        Real.rpow (mValue t : ℝ) (1 - 1 / (k : ℝ)) /\n        ((k : ℝ) ^ 2 * Real.log (4 * (k : ℝ) * (mValue t : ℝ))) <\n      (R (P k t) : ℝ)",
+          "declaration_header_sha256": "4b6e33dd96d10f6df7d9db9fc443fb5c5f3d6d8e406f8d3fa45626ed95f17ad1",
+          "source_review": "reviewed_exact_type",
+          "compilation": "pending",
+          "comparison": "not_run"
+        }
+      }
+    ],
+    "r2-sharp-original-constant": [
+      {
+        "declaration": "QuarticQuery.forrelation_lower_uniform_sharp",
+        "relation": "partial",
+        "route": "same",
+        "hypotheses": [],
+        "reviewed_by": "ai:round2-forrelation-exponent",
+        "note": "Exact powers-of-four lower-bound component; original record also includes gap arithmetic and factor-ratio claims. Use new exact endpoint row for unambiguous coverage.",
+        "source": {
+          "declaration": "QuarticQuery.forrelation_lower_uniform_sharp",
+          "path": "lean/QuarticQuery/ForrelationLower/Uniform.lean",
+          "line": 554,
+          "source_sha256": "fbbb2cc99f388a8543b358a611aab4e443e5ad12fcbd1ae79f242ef48c8a6a67",
+          "declaration_header": "theorem forrelation_lower_uniform_sharp\n    (k t : ℕ) (hk : 2 ≤ k) (ht : 15 * k + 2 ≤ 2 * t) :\n    (2 / 18225 : ℝ) *\n        Real.rpow (mValue t : ℝ) (1 - 1 / (k : ℝ)) /\n        ((k : ℝ) ^ 2 * Real.log (4 * (k : ℝ) * (mValue t : ℝ))) <\n      (R (P k t) : ℝ)",
+          "declaration_header_sha256": "4b6e33dd96d10f6df7d9db9fc443fb5c5f3d6d8e406f8d3fa45626ed95f17ad1",
+          "source_review": "reviewed_exact_type",
+          "compilation": "pending",
+          "comparison": "not_run"
+        }
+      }
+    ],
+    "r2-impl-elementary-endpoints": [
+      {
+        "declaration": "QuarticQuery.forrelation_lower_uniform_sharp",
+        "relation": "partial",
+        "route": "same",
+        "hypotheses": [],
+        "reviewed_by": "ai:round2-forrelation-exponent",
+        "note": "Implements old-threshold endpoint only; subgaussian-threshold theorem remains an ordinary proof proposal.",
+        "source": {
+          "declaration": "QuarticQuery.forrelation_lower_uniform_sharp",
+          "path": "lean/QuarticQuery/ForrelationLower/Uniform.lean",
+          "line": 554,
+          "source_sha256": "fbbb2cc99f388a8543b358a611aab4e443e5ad12fcbd1ae79f242ef48c8a6a67",
+          "declaration_header": "theorem forrelation_lower_uniform_sharp\n    (k t : ℕ) (hk : 2 ≤ k) (ht : 15 * k + 2 ≤ 2 * t) :\n    (2 / 18225 : ℝ) *\n        Real.rpow (mValue t : ℝ) (1 - 1 / (k : ℝ)) /\n        ((k : ℝ) ^ 2 * Real.log (4 * (k : ℝ) * (mValue t : ℝ))) <\n      (R (P k t) : ℝ)",
+          "declaration_header_sha256": "4b6e33dd96d10f6df7d9db9fc443fb5c5f3d6d8e406f8d3fa45626ed95f17ad1",
+          "source_review": "reviewed_exact_type",
+          "compilation": "pending",
+          "comparison": "not_run"
+        }
+      }
+    ],
+    "r2-sharp-kernel": [
+      {
+        "declaration": "QuarticQuery.ForrelationLower.psi_dphi_le_sharp",
+        "relation": "partial",
+        "route": "same",
+        "hypotheses": [],
+        "reviewed_by": "ai:round2-forrelation-exponent",
+        "note": "Sharp upper product bound component; derivative/oddness/bias/positivity and equality are separate.",
+        "source": {
+          "declaration": "QuarticQuery.ForrelationLower.psi_dphi_le_sharp",
+          "path": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+          "line": 137,
+          "source_sha256": "6238d7e6f8ade6044eb623899069f35d0a5b860699c722e7007fd71046ffff9e",
+          "declaration_header": "theorem psi_dphi_le_sharp (x y : ℝ) : psiS x * dphi y ≤ 3 / 16",
+          "declaration_header_sha256": "adc29d9cdfbf64c138aa8d104cef1af9acb9102f1dd5dee3f1d7755d765f976e",
+          "source_review": "reviewed_exact_type",
+          "compilation": "pending",
+          "comparison": "not_run"
+        }
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.psi_dphi_eq_sharp_at_zero",
+        "relation": "partial",
+        "route": "same",
+        "hypotheses": [],
+        "reviewed_by": "ai:round2-forrelation-exponent",
+        "note": "Equality-at-zero component only.",
+        "source": {
+          "declaration": "QuarticQuery.ForrelationLower.psi_dphi_eq_sharp_at_zero",
+          "path": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+          "line": 156,
+          "source_sha256": "6238d7e6f8ade6044eb623899069f35d0a5b860699c722e7007fd71046ffff9e",
+          "declaration_header": "theorem psi_dphi_eq_sharp_at_zero : psiS 0 * dphi 0 = 3 / 16",
+          "declaration_header_sha256": "30d40246d4472eb5cbbfddc88be2a26bc96c55f2aec42770ed31e81a3f4750f1",
+          "source_review": "reviewed_exact_type",
+          "compilation": "pending",
+          "comparison": "not_run"
+        }
+      }
+    ],
+    "r2-impl-kernel": [
+      {
+        "declaration": "QuarticQuery.ForrelationLower.psi_dphi_le_sharp",
+        "relation": "partial",
+        "route": "same",
+        "hypotheses": [],
+        "reviewed_by": "ai:round2-forrelation-exponent",
+        "note": "Sharp upper product bound component.",
+        "source": {
+          "declaration": "QuarticQuery.ForrelationLower.psi_dphi_le_sharp",
+          "path": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+          "line": 137,
+          "source_sha256": "6238d7e6f8ade6044eb623899069f35d0a5b860699c722e7007fd71046ffff9e",
+          "declaration_header": "theorem psi_dphi_le_sharp (x y : ℝ) : psiS x * dphi y ≤ 3 / 16",
+          "declaration_header_sha256": "adc29d9cdfbf64c138aa8d104cef1af9acb9102f1dd5dee3f1d7755d765f976e",
+          "source_review": "reviewed_exact_type",
+          "compilation": "pending",
+          "comparison": "not_run"
+        }
+      },
+      {
+        "declaration": "QuarticQuery.ForrelationLower.psi_dphi_eq_sharp_at_zero",
+        "relation": "partial",
+        "route": "same",
+        "hypotheses": [],
+        "reviewed_by": "ai:round2-forrelation-exponent",
+        "note": "Attainment component; positivity follows from existing psiS_pos and dphi_pos, not from this equation alone.",
+        "source": {
+          "declaration": "QuarticQuery.ForrelationLower.psi_dphi_eq_sharp_at_zero",
+          "path": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+          "line": 156,
+          "source_sha256": "6238d7e6f8ade6044eb623899069f35d0a5b860699c722e7007fd71046ffff9e",
+          "declaration_header": "theorem psi_dphi_eq_sharp_at_zero : psiS 0 * dphi 0 = 3 / 16",
+          "declaration_header_sha256": "30d40246d4472eb5cbbfddc88be2a26bc96c55f2aec42770ed31e81a3f4750f1",
+          "source_review": "reviewed_exact_type",
+          "compilation": "pending",
+          "comparison": "not_run"
+        }
+      }
+    ]
+  },
+  "new_statement_records": [
+    {
+      "id": "r2-live-uniform-sharp-old-threshold",
+      "statement": "For every natural k,t with k>=2 and 15k+2<=2t, (2/18225)*m^(1-1/k)/(k^2*ln(4km)) < R(P k t), where m=mValue t=4^t.",
+      "evidence_class": "source_present_reviewed_compilation_pending",
+      "tie": {
+        "declaration": "QuarticQuery.forrelation_lower_uniform_sharp",
+        "relation": "exact",
+        "route": "same",
+        "hypotheses": [
+          "k,t natural",
+          "k>=2",
+          "15k+2<=2t"
+        ],
+        "reviewed_by": "ai:round2-forrelation-exponent",
+        "note": "Exact source type reviewed; pending compilation must not be converted to built or compared evidence."
+      },
+      "source": {
+        "declaration": "QuarticQuery.forrelation_lower_uniform_sharp",
+        "path": "lean/QuarticQuery/ForrelationLower/Uniform.lean",
+        "line": 554,
+        "source_sha256": "fbbb2cc99f388a8543b358a611aab4e443e5ad12fcbd1ae79f242ef48c8a6a67",
+        "declaration_header": "theorem forrelation_lower_uniform_sharp\n    (k t : ℕ) (hk : 2 ≤ k) (ht : 15 * k + 2 ≤ 2 * t) :\n    (2 / 18225 : ℝ) *\n        Real.rpow (mValue t : ℝ) (1 - 1 / (k : ℝ)) /\n        ((k : ℝ) ^ 2 * Real.log (4 * (k : ℝ) * (mValue t : ℝ))) <\n      (R (P k t) : ℝ)",
+        "declaration_header_sha256": "4b6e33dd96d10f6df7d9db9fc443fb5c5f3d6d8e406f8d3fa45626ed95f17ad1",
+        "source_review": "reviewed_exact_type",
+        "compilation": "pending",
+        "comparison": "not_run"
+      }
+    },
+    {
+      "id": "r2-live-kernel-product-upper",
+      "statement": "For every real x,y, psiS x * dphi y <= 3/16.",
+      "evidence_class": "source_present_reviewed_compilation_pending",
+      "tie": {
+        "declaration": "QuarticQuery.ForrelationLower.psi_dphi_le_sharp",
+        "relation": "exact",
+        "route": "same",
+        "hypotheses": [
+          "x,y real"
+        ],
+        "reviewed_by": "ai:round2-forrelation-exponent",
+        "note": "Exact source type reviewed; pending compilation must not be converted to built or compared evidence."
+      },
+      "source": {
+        "declaration": "QuarticQuery.ForrelationLower.psi_dphi_le_sharp",
+        "path": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+        "line": 137,
+        "source_sha256": "6238d7e6f8ade6044eb623899069f35d0a5b860699c722e7007fd71046ffff9e",
+        "declaration_header": "theorem psi_dphi_le_sharp (x y : ℝ) : psiS x * dphi y ≤ 3 / 16",
+        "declaration_header_sha256": "adc29d9cdfbf64c138aa8d104cef1af9acb9102f1dd5dee3f1d7755d765f976e",
+        "source_review": "reviewed_exact_type",
+        "compilation": "pending",
+        "comparison": "not_run"
+      }
+    },
+    {
+      "id": "r2-live-kernel-product-attained",
+      "statement": "psiS 0 * dphi 0 = 3/16.",
+      "evidence_class": "source_present_reviewed_compilation_pending",
+      "tie": {
+        "declaration": "QuarticQuery.ForrelationLower.psi_dphi_eq_sharp_at_zero",
+        "relation": "exact",
+        "route": "same",
+        "hypotheses": [],
+        "reviewed_by": "ai:round2-forrelation-exponent",
+        "note": "Exact source type reviewed; pending compilation must not be converted to built or compared evidence."
+      },
+      "source": {
+        "declaration": "QuarticQuery.ForrelationLower.psi_dphi_eq_sharp_at_zero",
+        "path": "lean/QuarticQuery/ForrelationLower/Stein.lean",
+        "line": 156,
+        "source_sha256": "6238d7e6f8ade6044eb623899069f35d0a5b860699c722e7007fd71046ffff9e",
+        "declaration_header": "theorem psi_dphi_eq_sharp_at_zero : psiS 0 * dphi 0 = 3 / 16",
+        "declaration_header_sha256": "30d40246d4472eb5cbbfddc88be2a26bc96c55f2aec42770ed31e81a3f4750f1",
+        "source_review": "reviewed_exact_type",
+        "compilation": "pending",
+        "comparison": "not_run"
+      }
+    },
+    {
+      "id": "r2-live-uniform-cutoff-floor",
+      "statement": "For natural k,t with k>=2, k<=t and t>=41, set X=m^(1-1/k)/(2332800*k^2*ln(4km)), m=4^t. Then X>=2, 1<=floor(X)<=m and floor(X)>=X/2.",
+      "evidence_class": "source_present_reviewed_compilation_pending",
+      "tie": {
+        "declaration": "QuarticQuery.uniform_budget_floor_bounds",
+        "relation": "exact",
+        "route": "same",
+        "hypotheses": [
+          "k,t natural",
+          "k>=2",
+          "k<=t",
+          "t>=41"
+        ],
+        "reviewed_by": "ai:round2-forrelation-exponent",
+        "note": "Exact source type reviewed; pending compilation must not be converted to built or compared evidence."
+      },
+      "source": {
+        "declaration": "QuarticQuery.uniform_budget_floor_bounds",
+        "path": "lean/QuarticQuery/ForrelationLower/Uniform.lean",
+        "line": 599,
+        "source_sha256": "fbbb2cc99f388a8543b358a611aab4e443e5ad12fcbd1ae79f242ef48c8a6a67",
+        "declaration_header": "theorem uniform_budget_floor_bounds (k t : ℕ) (hk : 2 ≤ k) (hkt : k ≤ t) (ht : 41 ≤ t) :\n    let X := (1 / 2332800 : ℝ) *\n      Real.rpow (mValue t : ℝ) (1 - 1 / (k : ℝ)) /\n      ((k : ℝ) ^ 2 * Real.log (4 * (k : ℝ) * (mValue t : ℝ)))\n    2 ≤ X ∧ 1 ≤ ⌊X⌋₊ ∧ ⌊X⌋₊ ≤ mValue t ∧ X / 2 ≤ (⌊X⌋₊ : ℝ)",
+        "declaration_header_sha256": "52fb1752efb29fe1617d0757d3a11ddb5f5a70867a46d70eca60a7b37a41bce2",
+        "source_review": "reviewed_exact_type",
+        "compilation": "pending",
+        "comparison": "not_run"
+      }
+    },
+    {
+      "id": "r2-live-budget-expansion",
+      "statement": "For every natural k, budgetConst k = 2972284080*k*(1+1920000*2^(10*k))+79491312000*(k+1)^2+1131887160.",
+      "evidence_class": "source_present_reviewed_compilation_pending",
+      "tie": {
+        "declaration": "QuarticQuery.Upper.budgetConst_eq_expanded",
+        "relation": "exact",
+        "route": "same",
+        "hypotheses": [
+          "k natural"
+        ],
+        "reviewed_by": "ai:round2-forrelation-exponent",
+        "note": "Exact source type reviewed; pending compilation must not be converted to built or compared evidence."
+      },
+      "source": {
+        "declaration": "QuarticQuery.Upper.budgetConst_eq_expanded",
+        "path": "lean/QuarticQuery/Upper/Bound.lean",
+        "line": 60,
+        "source_sha256": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303",
+        "declaration_header": "theorem budgetConst_eq_expanded (k : ℕ) :\n    budgetConst k = 2972284080 * k * (1 + 1920000 * 2 ^ (10 * k)) +\n      79491312000 * (k + 1) ^ 2 + 1131887160",
+        "declaration_header_sha256": "cf4b9b5f6174ac8be658e6fa6026fb88fbfb64ffa1b7a650d2a9d09f0405c587",
+        "source_review": "reviewed_exact_type",
+        "compilation": "pending",
+        "comparison": "not_run"
+      }
+    },
+    {
+      "id": "r2-live-budget-envelope",
+      "statement": "For every natural k>=1, budgetConst k <= 2^53*k*2^(10*k).",
+      "evidence_class": "source_present_reviewed_compilation_pending",
+      "tie": {
+        "declaration": "QuarticQuery.Upper.budgetConst_le_exponential",
+        "relation": "exact",
+        "route": "same",
+        "hypotheses": [
+          "k natural",
+          "k>=1"
+        ],
+        "reviewed_by": "ai:round2-forrelation-exponent",
+        "note": "Exact source type reviewed; pending compilation must not be converted to built or compared evidence."
+      },
+      "source": {
+        "declaration": "QuarticQuery.Upper.budgetConst_le_exponential",
+        "path": "lean/QuarticQuery/Upper/Bound.lean",
+        "line": 67,
+        "source_sha256": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303",
+        "declaration_header": "theorem budgetConst_le_exponential {k : ℕ} (hk : 1 ≤ k) :\n    budgetConst k ≤ 2 ^ 53 * k * 2 ^ (10 * k)",
+        "declaration_header_sha256": "25704b0105a2df42ecbfc1d66f7f8489a676f2c043417f9091b9ffa820ae9166",
+        "source_review": "reviewed_exact_type",
+        "compilation": "pending",
+        "comparison": "not_run"
+      }
+    },
+    {
+      "id": "r2-live-repetition-quantum-explicit",
+      "statement": "For natural l,t with t>=1, Q(totalise(Fkm (l+1) t (forrCircuit l t))) <= 2^53*(l+1)*2^(10*(l+1))*2^t*(2*t)^6.",
+      "evidence_class": "source_present_reviewed_compilation_pending",
+      "tie": {
+        "declaration": "QuarticQuery.Upper.Q_Fkm_le_exponential",
+        "relation": "exact",
+        "route": "same",
+        "hypotheses": [
+          "l,t natural",
+          "t>=1"
+        ],
+        "reviewed_by": "ai:round2-forrelation-exponent",
+        "note": "Exact source type reviewed; pending compilation must not be converted to built or compared evidence."
+      },
+      "source": {
+        "declaration": "QuarticQuery.Upper.Q_Fkm_le_exponential",
+        "path": "lean/QuarticQuery/Upper/Bound.lean",
+        "line": 287,
+        "source_sha256": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303",
+        "declaration_header": "theorem Q_Fkm_le_exponential (l t : ℕ) (ht : 1 ≤ t) :\n    (Q (totalise (Fkm (l + 1) t (forrCircuit l t))) : ℝ) ≤\n      (2 : ℝ) ^ 53 * (l + 1 : ℕ) * 2 ^ (10 * (l + 1)) *\n        2 ^ t * (2 * (t : ℝ)) ^ 6",
+        "declaration_header_sha256": "09f6dac5271ef6e78cdc817e893b70772fd883005c8a5cb771ba798c897a2c6b",
+        "source_review": "reviewed_exact_type",
+        "compilation": "pending",
+        "comparison": "not_run"
+      }
+    }
+  ],
+  "parent_integration_required": [
+    "Confirm focused and root Lean success against these exact source bytes.",
+    "Refresh line numbers, file hashes, and source-currentness after all proof repairs.",
+    "Decide new statement IDs against existing source ledger; preserve historical rows.",
+    "Use exact new endpoint rows where original returns package strictly broader claims.",
+    "Generate corpus through existing owner and record new comparison only after actual execution."
+  ],
+  "validation_request": {
+    "job_id": "cf_bf3d0271e57c43479b86",
+    "state_at_submission": "waiting_host_admission",
+    "argv": [
+      "lake",
+      "build",
+      "QuarticQuery.ForrelationLower.Uniform",
+      "QuarticQuery.Upper.Bound"
+    ],
+    "native_lake_through_ordinary_guard": true,
+    "host_admission": true,
+    "seat_budget_seconds": 7200,
+    "compile_status": "pending",
+    "initial_scalar_future_cancelled_before_lean_child": "cf_a603fc09c674403bbb2e"
+  }
+}

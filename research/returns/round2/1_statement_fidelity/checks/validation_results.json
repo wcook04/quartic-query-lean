@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "scope": "artifact integrity, exact passage boundaries, reference registration, evidence labels, and finite diagnostic results; not Lean verification",
+  "required_files_present": [
+    "LEAN_GAPS.md",
+    "NEW_STATEMENTS.json",
+    "STATEMENT_CHANGES.json",
+    "correspondence.json",
+    "fidelity_audit.md",
+    "references.bib",
+    "sanity_theorems.json"
+  ],
+  "sanity_checks": 37,
+  "new_statement_records": 38,
+  "proposed_description_corrections": 8,
+  "proposed_negative_controls": 21,
+  "anchored_passages": 26,
+  "displayed_math_blocks": 4,
+  "bibliography_entries": 11,
+  "report_sha256": "4aff6917cd958a68836bbb1a1d9cfcea729ebfe5a0bdb1e26c99d66972bedef6",
+  "all_lean_proposals_unelaborated": true,
+  "no_lean_or_comparator_run": true,
+  "all_assertions_passed": true
+}

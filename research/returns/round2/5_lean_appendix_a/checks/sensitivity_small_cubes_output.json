@@ -1,0 +1,55 @@
+{
+  "method": "Exhaustive exact-integer tests for all Boolean functions with n <= 3",
+  "establishes": [
+    "finite degree-zero convention and D <= bs * degree",
+    "star centre-vector squared norm equals number of sensitive blocks",
+    "exact star identity Gamma^3 = number_of_leaves * Gamma",
+    "each masked star squares to a diagonal zero/one projection"
+  ],
+  "does_not_establish": [
+    "Lean compilation",
+    "the general theorems"
+  ],
+  "results": [
+    {
+      "n": 0,
+      "functions": 2,
+      "stars": 2,
+      "coordinate_masks": 0
+    },
+    {
+      "n": 1,
+      "functions": 4,
+      "stars": 8,
+      "coordinate_masks": 8
+    },
+    {
+      "n": 2,
+      "functions": 16,
+      "stars": 64,
+      "coordinate_masks": 128
+    },
+    {
+      "n": 3,
+      "functions": 256,
+      "stars": 2048,
+      "coordinate_masks": 6144
+    }
+  ],
+  "negative_control": {
+    "function": "OR on two input bits",
+    "centre": "00",
+    "blocks": [
+      [
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "masked_coordinate": 0,
+    "centre_unit_vector_output_norm_squared": 2,
+    "consequence": "Dropping pairwise disjointness invalidates the mask-norm-at-most-one claim"
+  }
+}

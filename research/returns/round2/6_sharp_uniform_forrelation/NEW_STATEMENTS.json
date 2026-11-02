@@ -1,0 +1,862 @@
+[
+  {
+    "id": "r2-sharp-ssw-input",
+    "passage": "ssw-input",
+    "statement": "Equation (2): every Boolean-valued decision tree T of depth at most d on n≥1 coordinates has level-j uniform Fourier weight at most C^j sqrt(choose(d,j)) (1+ln n)^((j−1)/2), for one absolute C≥1 and every 1≤j≤n. The concrete proposed type also covers a fixed two-valued leaf encoding val:Bool→ℝ with |val|≤1.",
+    "why_needed": "The sole external analytic input for the sharp endpoint.",
+    "depends_on": [],
+    "proposed_lean": "-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main and QuarticQuery.Forrelation.Product.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.exists_ssw_constant :\n  ∃ C : ℝ, 1 ≤ C ∧\n    ∀ (ι : Type) [Fintype ι] [DecidableEq ι]\n      (T : QueryTree ι) (val : Bool → ℝ), (∀ b, |val b| ≤ 1) →\n      ∀ (j d : ℕ), 0 < j → T.depth ≤ d →\n      (∑ S ∈ (Finset.univ : Finset ι).powersetCard j,\n        |ext (Dl S.toList (fun z => val (T.eval z))) 0|) ≤\n      C ^ j * Real.sqrt ((Nat.choose d j : ℕ) : ℝ) *\n        Real.rpow (1 + Real.log (Fintype.card ι : ℝ)) (((j : ℝ) - 1) / 2)",
+    "route_note": "External theorem, absent from supplied Lean. The signature is a universal proof obligation, not an axiom added to the project. Corollary 4.14 directly covers Boolean acceptance and {−1,0,1}; Corollary 4.15 implies the two-valued bounded-real encoding in this signature. QueryTree together with val:Bool→ℝ permits only two distinct leaf labels, so it does not encode Corollary 4.15 in full generality. That larger leaf vocabulary is not required for the acceptance-probability applications in this note.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": [],
+    "external_inputs": [
+      "SSW2023, arXiv:2008.10223v4, printed p.35, Corollaries4.14–4.15, TeX label cor:main-Fourier-dt"
+    ]
+  },
+  {
+    "id": "r2-sharp-sharp-result",
+    "passage": "sharp-result",
+    "statement": "Equations (3)–(4): for k≥2, m a power of two, 0<η≤1 and m≥8·32^(2k) ln(8·18^(k−1)), R_((1−η)/2)(P_k,m) ≥ η²/(162eC²) [m/(1+ln(km))]^(1−1/k). The integer threshold m≥24k·32^(2k) is sufficient. C satisfies equation (2).",
+    "why_needed": "Main sharp uniform endpoint.",
+    "depends_on": [
+      "r2-sharp-ssw-input",
+      "r2-sharp-finite-sharp",
+      "r2-sharp-threshold",
+      "r2-sharp-sharp-proof"
+    ],
+    "proposed_lean": "-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main and QuarticQuery.Forrelation.Product.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.sharp_uniform_of_fourier\n    (C : ℝ) (hC : 1 ≤ C)\n    (hFourier : ∀ (ι : Type) [Fintype ι] [DecidableEq ι]\n      (T : QueryTree ι) (val : Bool → ℝ), (∀ b, |val b| ≤ 1) →\n      ∀ j : ℕ, 0 < j →\n      (∑ S ∈ (Finset.univ : Finset ι).powersetCard j,\n        |ext (Dl S.toList (fun z => val (T.eval z))) 0|) ≤\n      C ^ j * Real.sqrt ((Nat.choose T.depth j : ℕ) : ℝ) *\n        Real.rpow (1 + Real.log (Fintype.card ι : ℝ)) (((j : ℝ) - 1) / 2))\n    (k t : ℕ) (hk : 2 ≤ k)\n    (hm : 8 * (32 : ℝ) ^ (2 * k) * Real.log (8 * (18 : ℝ) ^ (k - 1))\n      ≤ (mValue t : ℝ))\n    {η : ℝ} (hη0 : 0 < η) (hη1 : η ≤ 1)\n    (A : RandomizedProgram (ForrelationCoord k t))\n    (hsuccess : ∀ x b, P k t x = some b → (1 + η) / 2 ≤ A.success x b) :\n    η ^ 2 / (162 * Real.exp 1 * C ^ 2) *\n      Real.rpow ((mValue t : ℝ) /\n        (1 + Real.log ((k : ℝ) * (mValue t : ℝ))))\n        (1 - 1 / (k : ℝ)) ≤ (A.depth : ℝ)",
+    "route_note": "New quantitative endpoint; SSW is explicit in hFourier. The signature states the lower bound for every successful RandomizedProgram because the supplied public vocabulary defines R only at error1/3. Its equivalence to the variable-error minimum follows by taking a minimum over such programs. The exact existing coordinate vocabulary restricts the signature to m=4^t; extending public dimensions to every power of two remains a separate model generalization.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": [],
+    "external_inputs": [
+      "SSW2023 Corollary4.14/4.15"
+    ]
+  },
+  {
+    "id": "r2-sharp-elementary-result",
+    "passage": "elementary-result",
+    "statement": "Equation (5): for k≥2 and m a power of two satisfying either threshold in Theorem1, R_1/3(P_k,m) > (2/18225)m^(1−1/k)/(k² ln(4km)). It also holds under m≥2^(15k+2), including the formal padded depth50kL+1.",
+    "why_needed": "Numerical, self-contained uniform endpoint.",
+    "depends_on": [
+      "r2-sharp-finite-elementary",
+      "r2-sharp-threshold",
+      "r2-sharp-elementary-proof"
+    ],
+    "proposed_lean": "-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main and QuarticQuery.Forrelation.Product.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.elementary_uniform_real_threshold\n    (k t : ℕ) (hk : 2 ≤ k)\n    (hm : 8 * (32 : ℝ) ^ (2 * k) * Real.log (8 * (18 : ℝ) ^ (k - 1))\n      ≤ (mValue t : ℝ)) :\n    (2 / 18225 : ℝ) * Real.rpow (mValue t : ℝ) (1 - 1 / (k : ℝ)) /\n      ((k : ℝ) ^ 2 * Real.log (4 * (k : ℝ) * (mValue t : ℝ))) <\n    (R (P k t) : ℝ)",
+    "route_note": "New explicit theorem, not the existing eventual fixed-k result. Does not import SSW. Signature is the exact m=4^t specialization; the larger power-of-two domain is unformalized.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": [
+      "QuarticQuery.ForrelationLower.sum_abs_ext_Dl_le",
+      "QuarticQuery.ForrelationLower.exists_amplified"
+    ],
+    "external_inputs": []
+  },
+  {
+    "id": "r2-sharp-scope",
+    "passage": "scope",
+    "statement": "Equation (6): substituting total length n=km rewrites [m/(1+ln(km))]^(1−1/k) exactly as [n/(k(1+ln n))]^(1−1/k).",
+    "why_needed": "Prevents an incorrect claim of k-independent strength in total input length.",
+    "depends_on": [
+      "r2-sharp-sharp-result"
+    ],
+    "proposed_lean": "-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main and QuarticQuery.Forrelation.Product.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.total_length_rewrite\n    {k m n : ℝ} (hk : k ≠ 0) (hn : n = k * m) :\n    Real.rpow (m / (1 + Real.log (k * m))) (1 - 1 / k) =\n    Real.rpow (n / (k * (1 + Real.log n))) (1 - 1 / k)",
+    "route_note": "Pure algebra, independent of proof route. All quantities and the nonzero denominator k premise are explicit.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": [],
+    "external_inputs": []
+  },
+  {
+    "id": "r2-sharp-extension",
+    "passage": "extension",
+    "statement": "Equation (7): the multilinear extension equals the product-biased finite sum and its uniform Fourier expansion. The coefficient at S is ext(Dl S g)0; the twice-repeated derivative in any coordinate vanishes.",
+    "why_needed": "Fixes the raw derivative convention used by restriction transfer.",
+    "depends_on": [
+      "eq-3"
+    ],
+    "proposed_lean": "-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main and QuarticQuery.Forrelation.Product.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.extension_fourier_expansion\n    {ι : Type} [Fintype ι] [DecidableEq ι]\n    (g : (ι → Bool) → ℝ) (μ : ι → ℝ) :\n    (ext g μ = ∑ z, g z * ∏ i, (1 + μ i * sg (z i)) / 2) ∧\n    (ext g μ = ∑ S ∈ (Finset.univ : Finset ι).powerset,\n      ext (Dl S.toList g) 0 * ∏ i ∈ S, μ i) ∧\n    (∀ i, D i (D i g) = fun _ => 0)",
+    "route_note": "Finite-sum identity; product extension and repeated derivative are existing, full Fourier expansion is a new explicit target.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": [
+      "QuarticQuery.ForrelationLower.ext",
+      "QuarticQuery.ForrelationLower.ext_affine",
+      "QuarticQuery.ForrelationLower.D_D"
+    ],
+    "external_inputs": []
+  },
+  {
+    "id": "r2-sharp-kernel",
+    "passage": "kernel",
+    "statement": "Lemma3 and equation(8): psi(x)=1/[2sqrt(2+x²)], phi(x)=x(3+x²)/[2(sqrt(2+x²))³] is odd, its derivative is3/(sqrt(2+x²))^5, |phi|≤1/2, and 0<psi(x)phi′(y)≤3/16 with equality at x=y=0.",
+    "why_needed": "Replaces the coarse factor3 in each chain edge.",
+    "depends_on": [
+      "r2-sharp-extension"
+    ],
+    "proposed_lean": "-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main and QuarticQuery.Forrelation.Product.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.kernel_compound :\n    (∀ x : ℝ,\n      psiS x = 1 / (2 * Real.sqrt (2 + x ^ 2)) ∧\n      phiS x = x * (3 + x ^ 2) / (2 * (Real.sqrt (2 + x ^ 2)) ^ 3) ∧\n      phiS (-x) = -phiS x ∧\n      HasDerivAt phiS (3 / (Real.sqrt (2 + x ^ 2)) ^ 5) x ∧\n      |phiS x| ≤ (1 / 2 : ℝ)) ∧\n    (∀ x y : ℝ, 0 < psiS x * dphi y ∧ psiS x * dphi y ≤ (3 / 16 : ℝ)) ∧\n    psiS 0 * dphi 0 = (3 / 16 : ℝ)",
+    "route_note": "Existing derivative/oddness/range support the first part. Product bound3/16 and attainment are strengthened new statements; old psiS_le and dphi_le only give3.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": [
+      "QuarticQuery.ForrelationLower.psiS",
+      "QuarticQuery.ForrelationLower.phiS",
+      "QuarticQuery.ForrelationLower.hasDerivAt_phiS",
+      "QuarticQuery.ForrelationLower.abs_phiS_le",
+      "QuarticQuery.ForrelationLower.phiS_neg"
+    ],
+    "external_inputs": []
+  },
+  {
+    "id": "r2-sharp-stein",
+    "passage": "stein",
+    "statement": "Equation(9): for bounded continuously differentiable G with bounded continuous derivative, E[phi(Z)G(Z)]=E[psi(Z)G′(Z)] for standard normal Z.",
+    "why_needed": "Analytic identity used once per Gaussian layer.",
+    "depends_on": [
+      "r2-sharp-kernel"
+    ],
+    "proposed_lean": "-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main and QuarticQuery.Forrelation.Product.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.stein_identity\n    {g g' : ℝ → ℝ} {M M' : ℝ} (hg : Continuous g) (hg' : Continuous g')\n    (hb : ∀ x, |g x| ≤ M) (hb' : ∀ x, |g' x| ≤ M')\n    (hd : ∀ x, HasDerivAt g (g' x) x) :\n    (∫ x, phiS x * g x ∂(gaussianReal 0 1)) =\n      ∫ x, psiS x * g' x ∂(gaussianReal 0 1)",
+    "route_note": "Restatement of existing stein_one; no new substantive mathematical strength. The proposed wrapper itself is uncompiled.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": [
+      "QuarticQuery.ForrelationLower.stein_one",
+      "QuarticQuery.ForrelationLower.stein_pi"
+    ],
+    "external_inputs": []
+  },
+  {
+    "id": "r2-sharp-chain",
+    "passage": "chain",
+    "statement": "Equation(10): w_s has first block s·phi(U0), interior block phi(HU_(j−1))phi(U_j), and final block phi(HU_(k−2)). For |s|≤1 endpoint magnitudes are≤1/2 and interior magnitudes≤1/4.",
+    "why_needed": "Defines the Gaussian-chain profile and its unequal restriction probabilities.",
+    "depends_on": [
+      "r2-sharp-kernel"
+    ],
+    "proposed_lean": "-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main and QuarticQuery.Forrelation.Product.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.chain_profile\n    {n : Type} [Fintype n] [DecidableEq n] {l : ℕ}\n    (H : Matrix n n ℝ) (hl : 0 < l) {s : ℝ} (hs : |s| ≤ 1)\n    (u : PC l n → ℝ) :\n    (∀ a, wv H s u (cn 0 a) = s * phiS (Uc u 0 a)) ∧\n    (∀ r : ℕ, 0 < r → r < l → ∀ a,\n      wv H s u (cn r a) = phiS (Vc H u (r - 1) a) * phiS (Uc u r a)) ∧\n    (∀ a, wv H s u (cn l a) = phiS (Vc H u (l - 1) a)) ∧\n    (∀ c : BC l n, |wv H s u c| ≤ (1 / 2 : ℝ)) ∧\n    (∀ c : BC l n, 0 < c.1.val → c.1.val < l →\n      |wv H s u c| ≤ (1 / 4 : ℝ))",
+    "route_note": "Source definitions and half bound are existing. Quarter bound for interior coordinates is new and follows by multiplying two abs_phiS_le bounds.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": [
+      "QuarticQuery.ForrelationLower.wv",
+      "QuarticQuery.ForrelationLower.abs_wv_le_half"
+    ],
+    "external_inputs": []
+  },
+  {
+    "id": "r2-sharp-zero-endpoint",
+    "passage": "zero-endpoint",
+    "statement": "Equation(11): for every g and orthogonal H, the expectation of its extension at w0 equals the uniform mean ext g0.",
+    "why_needed": "Identifies the interpolated null endpoint exactly.",
+    "depends_on": [
+      "r2-sharp-chain"
+    ],
+    "proposed_lean": "-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main and QuarticQuery.Forrelation.Product.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.zero_endpoint\n    {n : Type} [Fintype n] [DecidableEq n] {l : ℕ}\n    (H : Matrix n n ℝ) (hH : RowsOrth H)\n    (g : (BC l n → Bool) → ℝ) :\n    (∫ u, ext g (wv H 0 u) ∂(gP (PC l n))) = ext g 0",
+    "route_note": "Exact existing statement integral_ext_wv_zero. Its proposed wrapper is uncompiled; underlying source has supplied build evidence.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": [
+      "QuarticQuery.ForrelationLower.integral_ext_wv_zero"
+    ],
+    "external_inputs": []
+  },
+  {
+    "id": "r2-sharp-path-identity",
+    "passage": "path-identity",
+    "statement": "Equation(12) and A_p: ED_H g−EU g is the integral over s∈[0,1] of the sum over one-coordinate-per-block paths of E[A_p(U)∂_(S_p)g̃(w_s)]; A_p is the product of H_(next,current)psi(Ucurrent)phi′(Vnext) over edges.",
+    "why_needed": "Central single-level interpolation identity.",
+    "depends_on": [
+      "r2-sharp-stein",
+      "r2-sharp-zero-endpoint"
+    ],
+    "proposed_lean": "-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main and QuarticQuery.Forrelation.Product.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.path_integral_identity\n    {n : Type} [Fintype n] [DecidableEq n] {l : ℕ}\n    (H : Matrix n n ℝ) (hl : 0 < l) (hH : RowsOrth H)\n    (g : (BC l n → Bool) → ℝ) :\n    ((∫ u, ext g (wv H 1 u) ∂(gP (PC l n))) - ext g 0 =\n      ∫ s in (0 : ℝ)..1,\n        ∑ a, ∑ q : Fin l → n,\n          ∫ u, cf H s l 0 a q u * ext (Dl (Lpath l (a, q)) g) (wv H s u)\n            ∂(gP (PC l n))) ∧\n    (∀ (s : ℝ) (p : Fin (l + 1) → n) (u : PC l n → ℝ),\n      cf H s l 0 (p 0) (Fin.tail p) u =\n        ∏ j : Fin l,\n          H (p j.succ) (p j.castSucc) * psiS (Uc u j.val (p j.castSucc)) *\n            dphi (Vc H u j.val (p j.succ)))",
+    "route_note": "New integral-form target. Existing exists_identity exports a mean-value parameter, while Int_eq_paths expands the same path summands. Do not label the interval-integral equation itself as previously compiled.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": [
+      "QuarticQuery.ForrelationLower.exists_identity",
+      "QuarticQuery.ForrelationLower.Int_eq_paths",
+      "QuarticQuery.ForrelationLower.cf",
+      "QuarticQuery.ForrelationLower.Lpath"
+    ],
+    "external_inputs": []
+  },
+  {
+    "id": "r2-sharp-worked-chain",
+    "passage": "worked-chain",
+    "statement": "Equation(13): at k=3 each path weight is H_ba H_cb psi(Ua)phi′((HU)b)psi(U′b)phi′((HU′)c). Equation(14): ∂_S g̃(μ)=Σ_(T⊇S) ĝ(T)∏_(i∈T\\S) μ_i.",
+    "why_needed": "Explains cancellation and prevents conflating biased derivatives with a single uniform Fourier level.",
+    "depends_on": [
+      "r2-sharp-path-identity",
+      "r2-sharp-extension"
+    ],
+    "proposed_lean": "-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main and QuarticQuery.Forrelation.Product.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.three_block_weight\n    {n : Type} [Fintype n] [DecidableEq n]\n    (H : Matrix n n ℝ) (s : ℝ) (a b c : n) (u : PC 2 n → ℝ) :\n    cf H s 2 0 a (fun j : Fin 2 => if j.val = 0 then b else c) u =\n      H b a * H c b *\n      (psiS (Uc u 0 a) * dphi (Vc H u 0 b) *\n        psiS (Uc u 1 b) * dphi (Vc H u 1 c))\n\ntheorem QuarticQuery.ForrelationLower.Round2.biased_derivative_expansion\n    {ι : Type} [Fintype ι] [DecidableEq ι]\n    (g : (ι → Bool) → ℝ) (μ : ι → ℝ) (S : Finset ι) :\n    ext (Dl S.toList g) μ =\n      ∑ T ∈ ((Finset.univ : Finset ι).powerset.filter (fun T => S ⊆ T)),\n        ext (Dl T.toList g) 0 * ∏ i ∈ T \\ S, μ i",
+    "route_note": "Three-block coefficient is an explicit expansion of existing cf. General biased derivative expansion is new finite algebra. Equation13 includes multiplying this coefficient by the corresponding Dl-extension and integrating; those operations preserve the displayed equality.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": [
+      "QuarticQuery.ForrelationLower.cf",
+      "QuarticQuery.ForrelationLower.Dl"
+    ],
+    "external_inputs": []
+  },
+  {
+    "id": "r2-sharp-advantage",
+    "passage": "advantage",
+    "statement": "Equation(15): if the path derivative sum has common upper bound W at every s∈[0,1] and Gaussian point, distinguishing advantage is at most (3||H||max/16)^(k−1) W; for Walsh ||H||max=m^(−1/2).",
+    "why_needed": "Separates analytic interpolation from the chosen Fourier estimate.",
+    "depends_on": [
+      "r2-sharp-path-identity",
+      "r2-sharp-kernel"
+    ],
+    "proposed_lean": "-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main and QuarticQuery.Forrelation.Product.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.advantage_of_path_bound\n    {n : Type} [Fintype n] [DecidableEq n] {l : ℕ}\n    (H : Matrix n n ℝ) (hl : 0 < l) (hH : RowsOrth H)\n    {ε W : ℝ} (hε : 0 ≤ ε) (hW0 : 0 ≤ W)\n    (hHb : ∀ a b, |H a b| ≤ ε) (g : (BC l n → Bool) → ℝ)\n    (hW : ∀ s ∈ Set.Icc (0 : ℝ) 1, ∀ u : PC l n → ℝ,\n      (∑ p : n × (Fin l → n), |ext (Dl (Lpath l p) g) (wv H s u)|) ≤ W) :\n    |(∫ u, ext g (wv H 1 u) ∂(gP (PC l n))) - ext g 0| ≤\n      ((3 / 16 : ℝ) * ε) ^ l * W",
+    "route_note": "Parameterized common-bound form of the displayed supremum inequality. Existing advantage_le hardcodes coarse3 and a martingale bound, so it does not certify this strengthened modular statement.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": [
+      "QuarticQuery.ForrelationLower.advantage_le",
+      "QuarticQuery.ForrelationLower.Lpath_nodup",
+      "QuarticQuery.ForrelationLower.Lpath_inj"
+    ],
+    "external_inputs": []
+  },
+  {
+    "id": "r2-sharp-moments",
+    "passage": "moments",
+    "statement": "Equations(16)–(17): for any orthogonal H, |Φ_H|≤1, EU Φ_H=0, EU Φ_H²=1/m, and ED_H Φ_H≥18^(−(k−1)). The per-edge mean E[psi(X)phi′(Y)]≥1/18 holds for jointly Gaussian X,Y with standard-normal marginals.",
+    "why_needed": "Certifies hard positive mass and the uniform second-moment estimate.",
+    "depends_on": [
+      "r2-sharp-path-identity",
+      "r2-sharp-kernel"
+    ],
+    "proposed_lean": "-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main and QuarticQuery.Forrelation.Product.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.general_orthogonal_moments\n    {n : Type} [Fintype n] [DecidableEq n] [Nonempty n]\n    {l : ℕ} (hl : 0 < l) (H : Matrix n n ℝ) (hH : RowsOrth H) :\n    let Φ : (BC l n → Bool) → ℝ := fun z =>\n    (Fintype.card n : ℝ)⁻¹ * ∑ p : Fin (l + 1) → n,\n      (∏ r, sg (z (r, p r))) *\n      (∏ j : Fin l, H (p j.succ) (p j.castSucc))\n    (∀ z, |Φ z| ≤ 1) ∧ ext Φ 0 = 0 ∧\n    ext (fun z => Φ z ^ 2) 0 = (Fintype.card n : ℝ)⁻¹ ∧\n    (1 / 18 : ℝ) ^ l ≤ ∫ u, ext Φ (wv H 1 u) ∂(gP (PC l n))\n\ntheorem QuarticQuery.ForrelationLower.Round2.gaussian_edge_mean_lower\n    {ι : Type} [Fintype ι] [DecidableEq ι]\n    (i : ι) (v : ι → ℝ) (hv : ∑ j, v j ^ 2 = 1) :\n    (1 / 18 : ℝ) ≤\n      ∫ u, psiS (u i) * dphi (∑ j, v j * u j) ∂(gP ι)",
+    "route_note": "General-H theorem and standalone correlated-edge lemma are new. Existing mass_ge/ext_PhiF_sq cover Walsh dimensions m=4^t and supply partial evidence only for the general statement. Jensen route in prose differs from the source tangent-exponential proof even for the same Walsh mean.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": [
+      "QuarticQuery.ForrelationLower.mass_ge",
+      "QuarticQuery.ForrelationLower.ext_PhiF_zero",
+      "QuarticQuery.ForrelationLower.ext_PhiF_sq",
+      "QuarticQuery.Forrelation.Phi_sq_le_one"
+    ],
+    "external_inputs": []
+  },
+  {
+    "id": "r2-sharp-subgaussian",
+    "passage": "subgaussian",
+    "statement": "Equations(18)–(19): for any orthogonal H and independent uniform sign blocks, EU exp(λΦ_H)≤exp(λ²/(2m)); P(|Φ_H|>u)≤2exp(−mu²/2). Conditional endpoint coefficients c satisfy Σc_j²=1/m pointwise.",
+    "why_needed": "Improves the sufficient uniform dimension threshold.",
+    "depends_on": [
+      "r2-sharp-moments"
+    ],
+    "proposed_lean": "-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main and QuarticQuery.Forrelation.Product.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.general_orthogonal_subgaussian\n    {n : Type} [Fintype n] [DecidableEq n] [Nonempty n]\n    {l : ℕ} (hl : 0 < l) (H : Matrix n n ℝ) (hH : RowsOrth H) :\n    let Φ : (BC l n → Bool) → ℝ := fun z =>\n    (Fintype.card n : ℝ)⁻¹ * ∑ p : Fin (l + 1) → n,\n      (∏ r, sg (z (r, p r))) *\n      (∏ j : Fin l, H (p j.succ) (p j.castSucc))\n    (∀ z, (∑ a : n, (D (cn l a) Φ z) ^ 2) = (Fintype.card n : ℝ)⁻¹) ∧\n    (∀ λ : ℝ,\n      ext (fun z => Real.exp (λ * Φ z)) 0 ≤\n        Real.exp (λ ^ 2 / (2 * (Fintype.card n : ℝ)))) ∧\n    (∀ u : ℝ, 0 < u →\n      ext (fun z => if u < |Φ z| then (1 : ℝ) else 0) 0 ≤\n        2 * Real.exp (-(Fintype.card n : ℝ) * u ^ 2 / 2))",
+    "route_note": "New pointwise conditional norm, MGF and tail theorem. Existing global second moment is insufficient to imply this bound. Proof uses orthogonal products and weighted Rademacher MGF; the general-H version is stronger than the Walsh specialization in the source.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": [
+      "QuarticQuery.Forrelation.IsOrth.dot_self",
+      "QuarticQuery.Forrelation.isOrth_tailProd",
+      "QuarticQuery.ForrelationLower.two_point_exp_le"
+    ],
+    "external_inputs": []
+  },
+  {
+    "id": "r2-sharp-gap",
+    "passage": "gap",
+    "statement": "Equations(20)–(21): a=18^(−(k−1)),δ=32^−k,p=(a−δ)/(1−δ), qM=min(1,4/(mδ²)), q*=min(qM,2exp(−mδ²/8)) bound the respective promise masses. For [0,1]-valued acceptance of errorε∈[0,1], ED A−EU A≥Γ*=(1−ε)(p−q)−ε≥Γ=(1−ε)p−ε−q, for q=qM orq*.",
+    "why_needed": "Retains exact useful mass bounds and treats inputs outside the promise correctly.",
+    "depends_on": [
+      "r2-sharp-moments",
+      "r2-sharp-subgaussian",
+      "eq-4"
+    ],
+    "proposed_lean": "-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main and QuarticQuery.Forrelation.Product.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.promise_gap_compound\n    {l t : ℕ} (hl : 0 < l)\n    (acc : (BC l (Fin (mValue t)) → Bool) → ℝ)\n    {ε : ℝ} (hε0 : 0 ≤ ε) (hε1 : ε ≤ 1)\n    (hacc : ∀ z, 0 ≤ acc z ∧ acc z ≤ 1)\n    (hyes : ∀ z, P (l + 1) t z = some true → 1 - ε ≤ acc z)\n    (hno : ∀ z, P (l + 1) t z = some false → acc z ≤ ε) :\n    let δ := dl (l + 1)\n    let a := (1 / 18 : ℝ) ^ l\n    let p := (a - δ) / (1 - δ)\n    let qM := min 1 (4 / ((mValue t : ℝ) * δ ^ 2))\n    let qstar := min qM (2 * Real.exp (-(mValue t : ℝ) * δ ^ 2 / 8))\n    let nullTail := ext (fun z : BC l (Fin (mValue t)) → Bool =>\n      if δ / 2 < |PhiF t z| then (1 : ℝ) else 0) 0\n    let diff := (∫ u, ext acc (wv (H t) 1 u)\n      ∂(gP (PC l (Fin (mValue t))))) - ext acc 0\n    (p ≤ ∫ u, ext (fun z => if δ ≤ PhiF t z then (1 : ℝ) else 0)\n      (wv (H t) 1 u) ∂(gP (PC l (Fin (mValue t))))) ∧\n    nullTail ≤ qM ∧ nullTail ≤ qstar ∧\n    (∀ q : ℝ, q = qM ∨ q = qstar →\n      (1 - ε) * (p - q) - ε ≤ diff ∧\n      (1 - ε) * p - ε - q ≤ (1 - ε) * (p - q) - ε)",
+    "route_note": "New exact denominator and Γ* strengthening. Existing not_RLe_of_gap uses a coarser promise probability without1−δ denominator. Signature is Walsh-only, matching the prose specialization in this passage.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": [
+      "QuarticQuery.ForrelationLower.mass_ge",
+      "QuarticQuery.ForrelationLower.ext_PhiF_sq",
+      "QuarticQuery.ForrelationLower.P_yes",
+      "QuarticQuery.ForrelationLower.P_no"
+    ],
+    "external_inputs": []
+  },
+  {
+    "id": "r2-sharp-restriction",
+    "passage": "restriction",
+    "statement": "Equation(22): independently retain coordinatei with probabilityvi and fix it to sign± with probability(1−vi±μi)/2; then Eρ hat(gρ)(S)=(∏_(i∈S)vi)∂Sg̃(μ), includingvi=0. Valid weights requirevi≥0 and|μi|≤1−vi.",
+    "why_needed": "Transfers uniform Fourier estimates to raw biased derivatives.",
+    "depends_on": [
+      "r2-sharp-extension"
+    ],
+    "proposed_lean": "-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main and QuarticQuery.Forrelation.Product.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.restriction_identity\n    {ι : Type} [Fintype ι] [DecidableEq ι]\n    (g : (ι → Bool) → ℝ) (μ v : ι → ℝ) (L : List ι) (hL : L.Nodup) :\n    (∑ ρ : ι → Option Bool,\n      (∏ i, match ρ i with\n        | none => v i\n        | some b => (1 - v i + μ i * sg b) / 2) *\n      ext (Dl L (fun z => g (fun i => (ρ i).getD (z i)))) 0) =\n    (L.map v).prod * ext (Dl L g) μ\n\ntheorem QuarticQuery.ForrelationLower.Round2.restriction_probability\n    {ι : Type} [Fintype ι] [DecidableEq ι]\n    (μ v : ι → ℝ) (hv : ∀ i, 0 ≤ v i)\n    (hμ : ∀ i, |μ i| ≤ 1 - v i) :\n    (∀ ρ : ι → Option Bool,\n      0 ≤ ∏ i, match ρ i with\n        | none => v i\n        | some b => (1 - v i + μ i * sg b) / 2) ∧\n    (∑ ρ : ι → Option Bool,\n      ∏ i, match ρ i with\n        | none => v i\n        | some b => (1 - v i + μ i * sg b) / 2) = 1",
+    "route_note": "Coordinate-profile generalization of Wu2021 Lemma2.2. New formal target; algebraic identity itself requires no positivity, while the second statement supplies probability validity.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": [],
+    "external_inputs": [
+      "Wu2021 Lemma2.2 and its cited antecedents"
+    ]
+  },
+  {
+    "id": "r2-sharp-path-restriction",
+    "passage": "path-restriction",
+    "statement": "Equation(23): endpoint free probabilities1/2 and interior probabilities3/4 have common path product(1/4)(3/4)^(k−2); the sum over path derivatives is≤4(4/3)^(k−2)C^k sqrt(choose(d,k))(1+ln(km))^((k−1)/2).",
+    "why_needed": "Supplies the sharp path growth estimate.",
+    "depends_on": [
+      "r2-sharp-chain",
+      "r2-sharp-restriction",
+      "r2-sharp-ssw-input"
+    ],
+    "proposed_lean": "-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main and QuarticQuery.Forrelation.Product.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.path_profile_fourier_bound\n    (C : ℝ) (hC : 1 ≤ C)\n    (hFourier : ∀ (ι : Type) [Fintype ι] [DecidableEq ι]\n      (T : QueryTree ι) (val : Bool → ℝ), (∀ b, |val b| ≤ 1) →\n      ∀ j : ℕ, 0 < j →\n      (∑ S ∈ (Finset.univ : Finset ι).powersetCard j,\n        |ext (Dl S.toList (fun z => val (T.eval z))) 0|) ≤\n      C ^ j * Real.sqrt ((Nat.choose T.depth j : ℕ) : ℝ) *\n        Real.rpow (1 + Real.log (Fintype.card ι : ℝ)) (((j : ℝ) - 1) / 2))\n    {n : Type} [Fintype n] [DecidableEq n] [Nonempty n]\n    {l d : ℕ} (hl : 0 < l) (H : Matrix n n ℝ)\n    {s : ℝ} (hs : |s| ≤ 1) (u : PC l n → ℝ)\n    (T : QueryTree (BC l n)) (hT : T.depth ≤ d)\n    (val : Bool → ℝ) (hval : ∀ b, |val b| ≤ 1) :\n    (∑ p : n × (Fin l → n),\n      |ext (Dl (Lpath l p) (fun z => val (T.eval z))) (wv H s u)|) ≤\n    4 * (4 / 3 : ℝ) ^ (l - 1) * C ^ (l + 1) *\n      Real.sqrt ((Nat.choose d (l + 1) : ℕ) : ℝ) *\n      Real.rpow (1 + Real.log (((l + 1 : ℕ) : ℝ) * (Fintype.card n : ℝ)))\n        ((l : ℝ) / 2)\n\ntheorem QuarticQuery.ForrelationLower.Round2.path_profile_product\n    {n : Type} {l : ℕ} (hl : 0 < l) (p : n × (Fin l → n)) :\n    let v : BC l n → ℝ := fun c =>\n      if c.1.val = 0 ∨ c.1.val = l then (1 / 2 : ℝ) else (3 / 4 : ℝ)\n    ((Lpath l p).map v).prod = (1 / 4 : ℝ) * (3 / 4 : ℝ) ^ (l - 1)",
+    "route_note": "Conditional on explicit SSW Fourier hypothesis. Lpath_nodup and Lpath_inj guarantee no multiplicity factor. New restriction-depth lemma is also needed; it is elementary recursion.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": [
+      "QuarticQuery.ForrelationLower.Lpath_nodup",
+      "QuarticQuery.ForrelationLower.Lpath_inj"
+    ],
+    "external_inputs": [
+      "SSW2023 Corollary4.14/4.15"
+    ]
+  },
+  {
+    "id": "r2-sharp-growth",
+    "passage": "growth",
+    "statement": "Equation(24): for Boolean tree depthd≥1, |μi|≤1/2 and a family of distinctj-subsets, Σ|∂S T̃(μ)|≤(16jd ln(4n))^(j/2)+2^−j.",
+    "why_needed": "Self-contained alternative to SSW with a certified numerical constant.",
+    "depends_on": [
+      "r2-sharp-extension"
+    ],
+    "proposed_lean": "-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main and QuarticQuery.Forrelation.Product.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.sum_abs_ext_Dl_le_log\n    {ι J : Type} [Fintype ι] [DecidableEq ι] [Fintype J] [DecidableEq J]\n    (Lp : J → List ι) (hnd : ∀ p, (Lp p).Nodup)\n    {k d : ℕ} (hk : 0 < k) (hlen : ∀ p, (Lp p).length = k)\n    (hinj : Function.Injective fun p => (Lp p).toFinset)\n    {μ : ι → ℝ} (hμ : ∀ a, |μ a| ≤ (1 / 2 : ℝ))\n    (hd : 0 < d) (hn : 1 ≤ Fintype.card ι)\n    (T : QueryTree ι) (hT : T.depth ≤ d)\n    (v : Bool → ℝ) (hv : ∀ b, |v b| ≤ 1) :\n    (∑ p, |ext (Dl (Lp p) (fun z => v (T.eval z))) μ|) ≤\n      (Real.sqrt (16 * (k : ℝ) * (d : ℝ) *\n        Real.log (4 * (Fintype.card ι : ℝ)))) ^ k + (1 / 2 : ℝ) ^ k",
+    "route_note": "Specializes existing parameterized bound at Λ=2kln(4n),K=sqrt(8dΛ). Proposed signature allows v:Bool→[-1,1], which is stronger than the Boolean special case and exactly matches existing two-leaf source vocabulary.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": [
+      "QuarticQuery.ForrelationLower.sum_abs_ext_Dl_le"
+    ],
+    "external_inputs": [
+      "Girish–Tal–Wu2021, standard decision-tree martingale method"
+    ]
+  },
+  {
+    "id": "r2-sharp-growth-proof",
+    "passage": "growth-proof",
+    "statement": "Equations(25)–(26) and terminal estimate: ext(Dl S g)μ equals the biased expectation ofg times the centered raw character; the maximal degree-r query chaos exceedsK^r with probability≤(4n)^r e^−Λ whenK²=8dΛ. Terminal tree-chaos expectation is≤K^j+(2n)^j(4n)^j e^−Λ. AtΛ=2jln(4n), the residual is exactly2^−j.",
+    "why_needed": "Records every displayed intermediate claim in the elementary Fourier proof.",
+    "depends_on": [
+      "r2-sharp-extension"
+    ],
+    "proposed_lean": "-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main and QuarticQuery.Forrelation.Product.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.biased_character_identity\n    {ι : Type} [Fintype ι] [DecidableEq ι]\n    (L : List ι) (hL : L.Nodup) (g : (ι → Bool) → ℝ)\n    (μ : ι → ℝ) (hμ : ∀ a, |μ a| < 1) :\n    ext (Dl L g) μ = ext (fun z => g z * (L.map (fun a => xi μ a (z a))).prod) μ\n\ntheorem QuarticQuery.ForrelationLower.Round2.biased_chaos_maximal\n    {ι : Type} [Fintype ι] [DecidableEq ι]\n    (μ : ι → ℝ) (hμ : ∀ a, |μ a| ≤ (1 / 2 : ℝ))\n    {Λ K : ℝ} {d : ℕ} (hd : 0 < d) (hK : 0 < K)\n    (hKsq : K ^ 2 = 8 * (d : ℝ) * Λ) (hn : 1 ≤ Fintype.card ι)\n    (T : QueryTree ι) (hT : T.depth ≤ d) (r : ℕ)\n    (c : Finset ι → ℝ) (hc : ∀ S, |c S| ≤ 1) (x : ι → Bool) :\n    hit μ (fun Q z => K ^ r < |chaos (xi μ) c r Q z|) T ∅ x ≤\n      (4 * (Fintype.card ι : ℝ)) ^ r * Real.exp (-Λ)\n\ntheorem QuarticQuery.ForrelationLower.Round2.growth_residual_eq\n    (k : ℕ) {n : ℝ} (hn : 0 < n) :\n    (n * 2) ^ k * ((4 * n) ^ k *\n      Real.exp (-(2 * (k : ℝ) * Real.log (4 * n)))) = (1 / 2 : ℝ) ^ k",
+    "route_note": "First target is existing ext_Dl. Maximal target specializes existing hit_chaos_le with ξ=xi μ,B0=2. Terminal estimate is existing abs_ext_tree_chaos_le and is explicitly listed in existing_support; a wrapper is unnecessary. Log specialization and its small residual are new arithmetic assembly.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": [
+      "QuarticQuery.ForrelationLower.ext_Dl",
+      "QuarticQuery.ForrelationLower.hit_chaos_le",
+      "QuarticQuery.ForrelationLower.abs_ext_tree_chaos_le",
+      "QuarticQuery.ForrelationLower.abs_xi_le",
+      "QuarticQuery.ForrelationLower.xi_mean"
+    ],
+    "external_inputs": []
+  },
+  {
+    "id": "r2-sharp-amplification",
+    "passage": "amplification",
+    "statement": "Equation(27): for original success≥(1+η)/2, 0<η≤1, majority of2τ independent runs has depth≤2τL and error≤(1−η²)^τ≤exp(−τη²), including arbitrary fixed tie resolution.",
+    "why_needed": "Makes the variable-error and k-dependent amplification cost explicit.",
+    "depends_on": [],
+    "proposed_lean": "-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main and QuarticQuery.Forrelation.Product.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.exists_amplified_eta\n    {ι : Type} [Fintype ι] {f : PartialBool ι}\n    (A : RandomizedProgram ι) {L τ : ℕ}\n    (hdepth : A.depth ≤ L) (hτ : 0 < τ)\n    {η : ℝ} (hη0 : 0 < η) (hη1 : η ≤ 1)\n    (hs : ∀ x b, f x = some b → (1 + η) / 2 ≤ A.success x b) :\n    ∃ (J : Type) (_ : Fintype J) (q : J → ℝ) (T : J → QueryTree ι),\n      (∀ j, 0 ≤ q j) ∧ ∑ j, q j = 1 ∧\n      (∀ j, (T j).depth ≤ 2 * τ * L) ∧\n      ∀ x b, f x = some b →\n        ∑ j, q j * (if (T j).eval x = b then 0 else 1) ≤\n          (1 - η ^ 2) ^ τ\n\ntheorem QuarticQuery.ForrelationLower.Round2.amplified_error_le_exp\n    {η : ℝ} (hη0 : 0 ≤ η) (hη1 : η ≤ 1) (τ : ℕ) :\n    (1 - η ^ 2) ^ τ ≤ Real.exp (-((τ : ℝ) * η ^ 2))",
+    "route_note": "Variable-error strengthening of existing exists_amplified, which assumes RLe and error1/3. Existing finite product-mixture and majority machinery can be reused. No claim of compiled general-η theorem.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": [
+      "QuarticQuery.ForrelationLower.exists_amplified",
+      "QuarticQuery.ForrelationLower.runAll",
+      "QuarticQuery.ForrelationLower.depth_runAll_le",
+      "QuarticQuery.ForrelationLower.maj_wrong"
+    ],
+    "external_inputs": []
+  },
+  {
+    "id": "r2-sharp-finite-elementary",
+    "passage": "finite-elementary",
+    "statement": "Equation(28): for a successful depth-L algorithm with L≥1, amplification2τ, ε≥(1−η²)^τ and certified null exceptional massq, Γ*≤(b/sqrt m)^(k−1)[(32kτLln(4km))^(k/2)+2^−k], whereb=3/16. Any positive gap excludes depth0.",
+    "why_needed": "Finite quantitative interface for the numerical theorem.",
+    "depends_on": [
+      "r2-sharp-growth",
+      "r2-sharp-advantage",
+      "r2-sharp-gap",
+      "r2-sharp-amplification"
+    ],
+    "proposed_lean": "-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main and QuarticQuery.Forrelation.Product.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.finite_elementary\n    (k t L τ : ℕ) (hk : 2 ≤ k) (hτ : 0 < τ)\n    {η ε q : ℝ} (hη0 : 0 < η) (hη1 : η ≤ 1)\n    (hε0 : 0 ≤ ε) (hε1 : ε ≤ 1) (hε : (1 - η ^ 2) ^ τ ≤ ε)\n    (A : RandomizedProgram (ForrelationCoord k t)) (hdepth : A.depth ≤ L)\n    (hsuccess : ∀ x b, P k t x = some b → (1 + η) / 2 ≤ A.success x b)\n    (hq : ext (fun z : ForrelationCoord k t → Bool =>\n      if dl k / 2 < |Phi k t z| then (1 : ℝ) else 0) 0 ≤ q) (hL : 1 ≤ L) :\n    let δ := dl k\n    let a := (1 / 18 : ℝ) ^ (k - 1)\n    let gap := (1 - ε) * ((a - δ) / (1 - δ) - q) - ε\n    gap ≤ ((3 / 16 : ℝ) * ((2 : ℝ) ^ t)⁻¹) ^ (k - 1) *\n      ((Real.sqrt (32 * (k : ℝ) * (τ : ℝ) * (L : ℝ) *\n        Real.log (4 * (k : ℝ) * (mValue t : ℝ)))) ^ k + (1 / 2 : ℝ) ^ k)\n\ntheorem QuarticQuery.ForrelationLower.Round2.zero_depth_constant\n    {ι : Type} (A : RandomizedProgram ι) (hA : A.depth = 0)\n    (x y : BitInput ι) (b : Bool) : A.success x b = A.success y b",
+    "route_note": "New sharp finite inequality using Γ*. Existing not_RLe_of_gap hardcodes coarse coefficient3, error1/3, padding and a weaker gap, so it does not certify this statement.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": [
+      "QuarticQuery.ForrelationLower.not_RLe_of_gap"
+    ],
+    "external_inputs": []
+  },
+  {
+    "id": "r2-sharp-finite-sharp",
+    "passage": "finite-sharp",
+    "statement": "Equations(29)–(30): under the same amplification assumptions and SSW, Γ*≤3C^k/4^(k−1) sqrt(choose(2τL,k))[(1+ln(km))/m]^((k−1)/2). PositiveΓ* forces2τL≥k. Every0<γ≤Γ* gives L≥[k/(2eτC²)](γ4^(k−1)/3)^(2/k)[m/(1+ln(km))]^(1−1/k). The coefficient identity b^(k−1)4(4/3)^(k−2)=3/4^(k−1) is exact.",
+    "why_needed": "Strongest finite comparison before simplifying the parameters.",
+    "depends_on": [
+      "r2-sharp-path-restriction",
+      "r2-sharp-advantage",
+      "r2-sharp-gap",
+      "r2-sharp-amplification"
+    ],
+    "proposed_lean": "-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main and QuarticQuery.Forrelation.Product.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.finite_sharp\n    (C : ℝ) (hC : 1 ≤ C)\n    (hFourier : ∀ (ι : Type) [Fintype ι] [DecidableEq ι]\n      (T : QueryTree ι) (val : Bool → ℝ), (∀ b, |val b| ≤ 1) →\n      ∀ j : ℕ, 0 < j →\n      (∑ S ∈ (Finset.univ : Finset ι).powersetCard j,\n        |ext (Dl S.toList (fun z => val (T.eval z))) 0|) ≤\n      C ^ j * Real.sqrt ((Nat.choose T.depth j : ℕ) : ℝ) *\n        Real.rpow (1 + Real.log (Fintype.card ι : ℝ)) (((j : ℝ) - 1) / 2))\n    (k t L τ : ℕ) (hk : 2 ≤ k) (hτ : 0 < τ)\n    {η ε q : ℝ} (hη0 : 0 < η) (hη1 : η ≤ 1)\n    (hε0 : 0 ≤ ε) (hε1 : ε ≤ 1) (hε : (1 - η ^ 2) ^ τ ≤ ε)\n    (A : RandomizedProgram (ForrelationCoord k t)) (hdepth : A.depth ≤ L)\n    (hsuccess : ∀ x b, P k t x = some b → (1 + η) / 2 ≤ A.success x b)\n    (hq : ext (fun z : ForrelationCoord k t → Bool =>\n      if dl k / 2 < |Phi k t z| then (1 : ℝ) else 0) 0 ≤ q) :\n    let δ := dl k\n    let a := (1 / 18 : ℝ) ^ (k - 1)\n    let gap := (1 - ε) * ((a - δ) / (1 - δ) - q) - ε\n    (gap ≤ (3 * C ^ k / (4 : ℝ) ^ (k - 1)) *\n      Real.sqrt ((Nat.choose (2 * τ * L) k : ℕ) : ℝ) *\n      Real.rpow ((1 + Real.log ((k : ℝ) * (mValue t : ℝ))) / (mValue t : ℝ))\n        (((k : ℝ) - 1) / 2)) ∧\n    (0 < gap → k ≤ 2 * τ * L) ∧\n    (∀ γ : ℝ, 0 < γ → γ ≤ gap →\n      ((k : ℝ) / (2 * Real.exp 1 * (τ : ℝ) * C ^ 2)) *\n        Real.rpow (γ * (4 : ℝ) ^ (k - 1) / 3) (2 / (k : ℝ)) *\n        Real.rpow ((mValue t : ℝ) / (1 + Real.log ((k : ℝ) * (mValue t : ℝ))))\n          (1 - 1 / (k : ℝ)) ≤ (L : ℝ))\n\ntheorem QuarticQuery.ForrelationLower.Round2.profile_edge_factor\n    (k : ℕ) (hk : 2 ≤ k) :\n    (3 / 16 : ℝ) ^ (k - 1) * 4 * (4 / 3 : ℝ) ^ (k - 2) =\n      3 / (4 : ℝ) ^ (k - 1)",
+    "route_note": "External SSW hypothesis explicit. No asymptotic threshold is hidden. The binomial inversion is a separate arithmetic proof within this target; neither SSW nor this assembly is present as compiled source.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": [],
+    "external_inputs": [
+      "SSW2023 Corollary4.14/4.15"
+    ]
+  },
+  {
+    "id": "r2-sharp-threshold",
+    "passage": "threshold",
+    "statement": "Equation(31) and threshold implications: ln(8/a)=ln8+(k−1)ln18<3k; 24k32^(2k)≤2^(15k+2); m≥8·32^(2k)ln(8·18^(k−1)) implies2exp(−mδ²/8)≤a/4 and sqrt m≥4. The integer threshold implies the real threshold.",
+    "why_needed": "Shows the earlier dimension threshold is sufficient and the improved range preserves the constants.",
+    "depends_on": [
+      "r2-sharp-subgaussian"
+    ],
+    "proposed_lean": "-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main and QuarticQuery.Forrelation.Product.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.threshold_arithmetic\n    (k : ℕ) (hk : 2 ≤ k) :\n    (Real.log (8 * (18 : ℝ) ^ (k - 1)) =\n      Real.log 8 + ((k - 1 : ℕ) : ℝ) * Real.log 18) ∧\n    Real.log (8 * (18 : ℝ) ^ (k - 1)) < 3 * (k : ℝ) ∧\n    8 * (32 : ℝ) ^ (2 * k) * Real.log (8 * (18 : ℝ) ^ (k - 1))\n      ≤ 24 * (k : ℝ) * (32 : ℝ) ^ (2 * k) ∧\n    24 * k * 32 ^ (2 * k) ≤ 2 ^ (15 * k + 2)\n\ntheorem QuarticQuery.ForrelationLower.Round2.tail_at_real_threshold\n    (k : ℕ) (hk : 2 ≤ k) {m : ℝ}\n    (hm : 8 * (32 : ℝ) ^ (2 * k) * Real.log (8 * (18 : ℝ) ^ (k - 1)) ≤ m) :\n    2 * Real.exp (-m * dl k ^ 2 / 8) ≤ (1 / 18 : ℝ) ^ (k - 1) / 4 ∧\n    4 ≤ Real.sqrt m",
+    "route_note": "New quantitative arithmetic; uses the new tail theorem only to interpret the exponential as a mass bound. The inequalities themselves are exact real/natural arithmetic.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": [],
+    "external_inputs": []
+  },
+  {
+    "id": "r2-sharp-sharp-proof",
+    "passage": "sharp-proof",
+    "statement": "Equations(32)–(33): τ=ceil(5kln2/η²) has amplified error≤δ and τ<4k/η². Ifε≤δ≤a/32 andq≤a/4, Γ≥11a/16. Forα≥2/3, (αa4^(k−1)/3)^(2/k)=(4/81)(3α/2)^(2/k)≥4/81. Thus1/(8eC²)·4/81=1/(162eC²).",
+    "why_needed": "Tracks all constants in Theorem1.",
+    "depends_on": [
+      "r2-sharp-finite-sharp",
+      "r2-sharp-threshold"
+    ],
+    "proposed_lean": "-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main and QuarticQuery.Forrelation.Product.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.sharp_amplification_choice\n    (k : ℕ) (hk : 2 ≤ k) {η : ℝ} (hη0 : 0 < η) (hη1 : η ≤ 1) :\n    let τ := Nat.ceil (5 * (k : ℝ) * Real.log 2 / η ^ 2)\n    0 < τ ∧ (1 - η ^ 2) ^ τ ≤ dl k ∧ (τ : ℝ) < 4 * (k : ℝ) / η ^ 2\n\ntheorem QuarticQuery.ForrelationLower.Round2.sharp_gap_arithmetic\n    {a δ ε q : ℝ} (ha0 : 0 < a) (ha1 : a ≤ 1)\n    (hδ0 : 0 ≤ δ) (hδ : δ ≤ a / 32)\n    (hε0 : 0 ≤ ε) (hε : ε ≤ δ) (hq : q ≤ a / 4) :\n    (11 / 16 : ℝ) * a ≤ (1 - ε) * ((a - δ) / (1 - δ)) - ε - q\n\ntheorem QuarticQuery.ForrelationLower.Round2.sharp_power_arithmetic\n    (k : ℕ) (hk : 2 ≤ k) {α : ℝ} (hα : (2 / 3 : ℝ) ≤ α) :\n    let x := Real.rpow (α * (1 / 18 : ℝ) ^ (k - 1) * (4 : ℝ) ^ (k - 1) / 3)\n      (2 / (k : ℝ))\n    x = (4 / 81 : ℝ) * Real.rpow (3 * α / 2) (2 / (k : ℝ)) ∧\n    (4 / 81 : ℝ) ≤ x",
+    "route_note": "New elementary parameter assembly. The ceil rounding is uniform in k and η. Source exists_amplified covers only error1/3, so it does not discharge the general-η part.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": [],
+    "external_inputs": []
+  },
+  {
+    "id": "r2-sharp-elementary-proof",
+    "passage": "elementary-proof",
+    "statement": "Equations(34)–(36): τ=25k gives ε≤a/18 from18·8^25<9^25. Underδ≤a/32,q≤a/4, Γ≥175a/288. IfL is at most the claimed bound andd=50kL+1, then16kdln(4km)≤(8/27)²(1+1/(50k))m^(1−1/k). The padding satisfies(1+1/(50k))^k≤Σ_(j=0)^k50^−j≤50/49<(9/8)². Main advantage≤a/3 and tail≤a/4, so upper bound7a/12<175a/288.",
+    "why_needed": "Certifies the sharp numerical constant despite formal depth padding.",
+    "depends_on": [
+      "r2-sharp-finite-elementary",
+      "r2-sharp-threshold"
+    ],
+    "proposed_lean": "-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main and QuarticQuery.Forrelation.Product.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.elementary_error_arithmetic\n    (k : ℕ) (hk : 2 ≤ k) :\n    (18 : ℕ) * 8 ^ 25 < 9 ^ 25 ∧\n    (8 / 9 : ℝ) ^ (25 * k) ≤ (1 / 18 : ℝ) ^ (k - 1) / 18\n\ntheorem QuarticQuery.ForrelationLower.Round2.elementary_gap_arithmetic\n    {a δ ε q : ℝ} (ha0 : 0 < a) (ha1 : a ≤ 1)\n    (hδ0 : 0 ≤ δ) (hδ : δ ≤ a / 32)\n    (hε0 : 0 ≤ ε) (hε : ε ≤ a / 18) (hq : q ≤ a / 4) :\n    (175 / 288 : ℝ) * a ≤ (1 - ε) * ((a - δ) / (1 - δ)) - ε - q\n\ntheorem QuarticQuery.ForrelationLower.Round2.padded_growth_square_le\n    {k t : ℕ} (hk : 0 < k) {L lg : ℝ} (hL1 : 1 ≤ L) (hlg : 0 < lg)\n    (hL : L ≤ (2 / 18225 : ℝ) * Real.rpow (mValue t : ℝ) (1 - 1 / (k : ℝ)) /\n      ((k : ℝ) ^ 2 * lg)) :\n    16 * (k : ℝ) * (50 * (k : ℝ) * L + 1) * lg ≤\n      (8 / 27 : ℝ) ^ 2 * (1 + 1 / (50 * (k : ℝ))) *\n        Real.rpow (mValue t : ℝ) (1 - 1 / (k : ℝ))\n\ntheorem QuarticQuery.ForrelationLower.Round2.padding_pow_le (l : ℕ) :\n    (1 + 1 / (50 * ((l + 1 : ℕ) : ℝ))) ^ (l + 1) ≤ 50 / 49\n\ntheorem QuarticQuery.ForrelationLower.Round2.main_term_le_sharp\n    {l t : ℕ} {L lg K : ℝ} (hL1 : 1 ≤ L) (hlg : 0 < lg)\n    (hL : L ≤ (2 / 18225 : ℝ) *\n      Real.rpow (mValue t : ℝ) (1 - 1 / ((l + 1 : ℕ) : ℝ)) /\n      (((l + 1 : ℕ) : ℝ) ^ 2 * lg))\n    (hK0 : 0 ≤ K)\n    (hKsq : K ^ 2 = 16 * ((l + 1 : ℕ) : ℝ) *\n      (50 * ((l + 1 : ℕ) : ℝ) * L + 1) * lg) :\n    ((3 / 16 : ℝ) * ((2 : ℝ) ^ t)⁻¹) ^ l * K ^ (l + 1) ≤\n      (1 / 18 : ℝ) ^ l / 3\n\ntheorem QuarticQuery.ForrelationLower.Round2.tail_le_sharp\n    {l t : ℕ} (hl : 0 < l) (ht : 2 ≤ t) :\n    ((3 / 16 : ℝ) * ((2 : ℝ) ^ t)⁻¹) ^ l *\n      (1 / 2 : ℝ) ^ (l + 1) ≤ (1 / 18 : ℝ) ^ l / 4",
+    "route_note": "New sharp edge assembly. padding_pow_le appears as source text in uncompiled Uniform.lean. Existing source receipt does not certify any new wrapper or uniform endpoint.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": [
+      "QuarticQuery.ForrelationLower.exists_amplified"
+    ],
+    "external_inputs": []
+  },
+  {
+    "id": "r2-sharp-original-constant",
+    "passage": "original-constant",
+    "statement": "Equation(37) and displayed ratio: with the old thresholdm≥2^(15k+2), Markov massqM≤δ givesΓ≥119a/144>7a/12; hence the same strict numerical lower bound follows without the subgaussian lemma. The constant ratio(2/18225)/(1/2332800)=256.",
+    "why_needed": "Separates the shortest formalization route from the improved dimension theorem.",
+    "depends_on": [
+      "r2-sharp-elementary-proof",
+      "r2-sharp-gap"
+    ],
+    "proposed_lean": "-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main and QuarticQuery.Forrelation.Product.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.forrelation_lower_uniform_sharp\n    (k t : ℕ) (hk : 2 ≤ k) (ht : 15 * k + 2 ≤ 2 * t) :\n    (2 / 18225 : ℝ) *\n      Real.rpow (mValue t : ℝ) (1 - 1 / (k : ℝ)) /\n      ((k : ℝ) ^ 2 * Real.log (4 * (k : ℝ) * (mValue t : ℝ))) <\n    (R (P k t) : ℝ)\n\ntheorem QuarticQuery.ForrelationLower.Round2.old_threshold_gap\n    {a δ ε q : ℝ} (ha0 : 0 < a) (ha1 : a ≤ 1)\n    (hδ0 : 0 ≤ δ) (hδ : δ ≤ a / 32)\n    (hε0 : 0 ≤ ε) (hε : ε ≤ a / 18) (hq : q ≤ δ) :\n    (119 / 144 : ℝ) * a ≤ (1 - ε) * ((a - δ) / (1 - δ)) - ε - q\n\ntheorem QuarticQuery.ForrelationLower.Round2.constant_ratio :\n    ((2 / 18225 : ℝ) / (1 / 2332800 : ℝ)) = 256",
+    "route_note": "Old-threshold target uses the sharp edge theorem and the second moment alone. Uniform.lean coarser1/2332800 theorem is uncompiled in the packet. No compilation is claimed for either endpoint.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": [],
+    "external_inputs": []
+  },
+  {
+    "id": "r2-sharp-finite-range",
+    "passage": "finite-range",
+    "statement": "Equation(38): for0<δ<a<1 andm>0, min(1,4/(mδ²))<(a−δ)/(1−δ) iff m>4(1−δ)/(δ²(a−δ)). The subgaussian sufficient threshold is m>8δ^−2ln(2/p). Underε≤δ, q≤a/3−2δ impliesΓ≥2a/3; this right-side q threshold is positive whenδ≤a/32.",
+    "why_needed": "States the actual finite gap requirement and limits necessity claims.",
+    "depends_on": [
+      "r2-sharp-gap",
+      "r2-sharp-finite-sharp"
+    ],
+    "proposed_lean": "-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main and QuarticQuery.Forrelation.Product.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.markov_gap_iff\n    {m a δ : ℝ} (hm : 0 < m) (hδ : 0 < δ) (hδa : δ < a) (ha : a < 1) :\n    min 1 (4 / (m * δ ^ 2)) < (a - δ) / (1 - δ) ↔\n      4 * (1 - δ) / (δ ^ 2 * (a - δ)) < m\n\ntheorem QuarticQuery.ForrelationLower.Round2.subgaussian_gap_iff\n    {m δ p : ℝ} (hδ : 0 < δ) (hp : 0 < p) :\n    2 * Real.exp (-m * δ ^ 2 / 8) < p ↔\n      8 / δ ^ 2 * Real.log (2 / p) < m\n\ntheorem QuarticQuery.ForrelationLower.Round2.minimal_sharp_gap\n    {a δ ε q : ℝ} (ha0 : 0 < a) (ha1 : a ≤ 1)\n    (hδ0 : 0 ≤ δ) (hδ : δ ≤ a / 32)\n    (hε0 : 0 ≤ ε) (hε : ε ≤ δ) (hq : q ≤ a / 3 - 2 * δ) :\n    0 < a / 3 - 2 * δ ∧\n    (2 / 3 : ℝ) * a ≤ (1 - ε) * ((a - δ) / (1 - δ)) - ε - q",
+    "route_note": "Exact real arithmetic concerning certified mass bounds, not a claim about the optimal lower bound or an algorithm below the thresholds.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": [],
+    "external_inputs": []
+  },
+  {
+    "id": "r2-sharp-small-dimension",
+    "passage": "small-dimension",
+    "statement": "For m=1 the zero promise is empty and R(P_k,1)=0. For m=2,k=2, the normalized Walsh polynomial always has square1/2, hence the zero promise is again empty atδ=32^−2 and the promised function has query complexity0.",
+    "why_needed": "Refutes a literal positive theorem for every finite dimension.",
+    "depends_on": [
+      "eq-3",
+      "eq-4"
+    ],
+    "proposed_lean": "-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main and QuarticQuery.Forrelation.Product.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.one_dimension_zero_R\n    (k : ℕ) (hk : 2 ≤ k) : R (P k 0) = 0\n\ntheorem QuarticQuery.ForrelationLower.Round2.two_dimension_zero_R :\n    let Φ : (Fin 2 × Fin 2 → Bool) → ℝ := fun z =>\n      (sg (z (0, 0)) * (sg (z (1, 0)) + sg (z (1, 1))) +\n       sg (z (0, 1)) * (sg (z (1, 0)) - sg (z (1, 1)))) / (2 * Real.sqrt 2)\n    let f : PartialBool (Fin 2 × Fin 2) := fun z =>\n      if (1 / 1024 : ℝ) ≤ Φ z then some true\n      else if |Φ z| ≤ (1 / 2048 : ℝ) then some false else none\n    (∀ z, Φ z ^ 2 = (1 / 2 : ℝ)) ∧ R f = 0",
+    "route_note": "New sanity theorems. The m=2 target explicitly defines its polynomial and promise because current ForrelationCoord only admits m=4^t.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": [],
+    "external_inputs": []
+  },
+  {
+    "id": "r2-sharp-comparison",
+    "passage": "comparison",
+    "statement": "The table compares three deductions from the same chain: elementaryk^−2 with logarithmic denominator exponent1; Tal Fourier input givesη²/(162k C_T²)[m/(1+ln(km))]^(1−1/k); SSW givesη²/(162eC²) times the same power. Only the Tal consequence is new to this record; other rows reference their endpoint records.",
+    "why_needed": "Locates precisely which Fourier improvement removes each loss.",
+    "depends_on": [
+      "r2-sharp-sharp-result",
+      "r2-sharp-elementary-result",
+      "r2-sharp-path-restriction",
+      "r2-sharp-sharp-proof"
+    ],
+    "proposed_lean": "-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main and QuarticQuery.Forrelation.Product.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.uniform_of_tal\n    (C : ℝ) (hC : 1 ≤ C)\n    (hTal : ∀ (ι : Type) [Fintype ι] [DecidableEq ι]\n      (T : QueryTree ι) (val : Bool → ℝ), (∀ b, |val b| ≤ 1) →\n      ∀ j : ℕ, 0 < j →\n      (∑ S ∈ (Finset.univ : Finset ι).powersetCard j,\n        |ext (Dl S.toList (fun z => val (T.eval z))) 0|) ≤\n      C ^ j * Real.rpow (T.depth : ℝ) ((j : ℝ) / 2) *\n        Real.rpow (1 + Real.log (Fintype.card ι : ℝ)) (((j : ℝ) - 1) / 2))\n    (k t : ℕ) (hk : 2 ≤ k)\n    (hm : 8 * (32 : ℝ) ^ (2 * k) * Real.log (8 * (18 : ℝ) ^ (k - 1))\n      ≤ (mValue t : ℝ))\n    {η : ℝ} (hη0 : 0 < η) (hη1 : η ≤ 1)\n    (A : RandomizedProgram (ForrelationCoord k t))\n    (hsuccess : ∀ x b, P k t x = some b → (1 + η) / 2 ≤ A.success x b) :\n    η ^ 2 / (162 * (k : ℝ) * C ^ 2) *\n      Real.rpow ((mValue t : ℝ) / (1 + Real.log ((k : ℝ) * (mValue t : ℝ))))\n        (1 - 1 / (k : ℝ)) ≤ (A.depth : ℝ)",
+    "route_note": "External Tal Fourier estimate is explicit in hTal. This theorem is a new deduction using this chain, distinct from Tal’s published Rorrelation application. Refer to r2-sharp-elementary-result and r2-sharp-sharp-result for the other rows.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": [],
+    "external_inputs": [
+      "Tal2019 Theorem5.1"
+    ]
+  },
+  {
+    "id": "r2-sharp-bs-failure",
+    "passage": "bs-failure",
+    "statement": "Equations(39)–(40): the replaced log exponent differs by(ℓ/k−1)/2, positive forℓ>k; atℓ=k(k−1) it is(k−2)/2. The original multilevel estimates, retained correctly, yield denominator exponent1−1/[k(k−1)] and the statedk^−29η² scale after the cited amplification and promise hypotheses.",
+    "why_needed": "Pins the published-display defect and the repaired weaker consequence.",
+    "depends_on": [
+      "r2-sharp-amplification"
+    ],
+    "proposed_lean": "-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main and QuarticQuery.Forrelation.Product.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.log_exponent_difference\n    {k ℓ : ℝ} (hk : 0 < k) :\n    (ℓ - 1) / 2 - ℓ * (1 - 1 / k) / 2 = (ℓ / k - 1) / 2\n\ntheorem QuarticQuery.ForrelationLower.Round2.log_exponent_gap_positive\n    {k ℓ : ℝ} (hk : 0 < k) (hℓ : k < ℓ) :\n    0 < (ℓ - 1) / 2 - ℓ * (1 - 1 / k) / 2\n\ntheorem QuarticQuery.ForrelationLower.Round2.multilevel_log_repair\n    (k : ℕ) (hk : 2 ≤ k) {A m L d q : ℝ}\n    (hA : 0 < A) (hm : 0 < m) (hL : 1 ≤ L) (hd : 0 ≤ d)\n    (hq0 : 0 < q) (hq1 : q < 1)\n    (hdepth : d ≤ (q / A) ^ 2 * Real.rpow m (1 - 1 / (k : ℝ)) /\n      Real.rpow L (1 - 1 / ((k * (k - 1) : ℕ) : ℝ))) :\n    (∑ ℓ ∈ Finset.Icc k (k * (k - 1)),\n      (A * Real.sqrt d / Real.rpow m ((1 - 1 / (k : ℝ)) / 2)) ^ ℓ *\n        Real.rpow L (((ℓ : ℝ) - 1) / 2)) ≤ q ^ k / (1 - q)",
+    "route_note": "These exact unelaborated targets certify the exponent algebra and a finite geometric-sum implication. Translating Bansal–Sinha Theorem3.2/Corollary3.5 and their promise/amplification analysis into the Ω endpoint is a separate external-formalization obligation. The proposed signatures do not claim the entire endpoint already formalized.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": [],
+    "external_inputs": [
+      "Bansal–Sinha arXiv:2008.07003v3, Theorem3.2, Corollary3.5, §5.4"
+    ]
+  },
+  {
+    "id": "r2-audit-bs-sum-counterexample",
+    "passage": "bs-sum-counterexample",
+    "statement": "Companion equations (B4)–(B5), with integrality and dimensions made explicit: for every fixed k≥3, A,B,c>0 and real threshold M, there exist N=2^r≥M and a natural depth d=floor(c k^(−28) N^(1−1/k)/ln(kN)^(1−1/k)), with d≥k(k−1), d≤kN and ln(kN)≥1, for which the actual finite sum with coefficient A and logarithmic exponent (ell−1)/2 strictly exceeds the proposed finite sum with coefficient B and logarithmic exponent (1−1/k)ell/2.",
+    "why_needed": "Certifies failure of the displayed sum inequality, for every possible fixed replacement constant, rather than merely a failure of termwise domination.",
+    "depends_on": [
+      "r2-sharp-bs-failure"
+    ],
+    "proposed_lean": "-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.bs_sum_counterexample\n    (k : ℕ) (hk : 3 ≤ k) {A B c : ℝ}\n    (hA : 0 < A) (hB : 0 < B) (hc : 0 < c) (M : ℝ) :\n    ∃ r d : ℕ,\n      let N : ℕ := 2 ^ r\n      let α : ℝ := 1 - 1 / (k : ℝ)\n      let L : ℝ := Real.log ((k : ℝ) * (N : ℝ))\n      M ≤ (N : ℝ) ∧ 1 ≤ L ∧\n      d = Nat.floor (c / (k : ℝ) ^ 28 * Real.rpow (N : ℝ) α /\n        Real.rpow L α) ∧\n      k * (k - 1) ≤ d ∧ d ≤ k * N ∧\n      (∑ ℓ ∈ Finset.Icc k (k * (k - 1)),\n        Real.rpow (B * (k : ℝ) ^ 28 * (d : ℝ)) ((ℓ : ℝ) / 2) *\n          Real.rpow (N : ℝ) (-(α * (ℓ : ℝ) / 2)) *\n          Real.rpow L (α * (ℓ : ℝ) / 2)) <\n      (∑ ℓ ∈ Finset.Icc k (k * (k - 1)),\n        Real.rpow (A * (k : ℝ) ^ 28 * (d : ℝ)) ((ℓ : ℝ) / 2) *\n          Real.rpow (N : ℝ) (-(α * (ℓ : ℝ) / 2)) *\n          Real.rpow L (((ℓ : ℝ) - 1) / 2))",
+    "route_note": "New elementary asymptotic claim; all parameters of the comparison are explicit. It concerns the two upper-bound expressions only and makes no assertion that the actual distinguishing advantage exceeds one or that Bansal–Sinha Theorem1.3 is false. The type uses only real arithmetic, natural floors, powers, logarithms and finite sums; no custom vocabulary is assumed. The earlier metadata does not formalize this asymptotic statement.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": [],
+    "external_inputs": [
+      "Bansal–Sinha arXiv:2008.07003v3, main.tex:1184 (the displayed inequality being audited)"
+    ],
+    "proof_sketch": "Fix k,A,B,c and set α=1−1/k, h=k(k−1). Along N=2^r with r→∞, let L=ln(kN) and x=c k^(−28)N^α/L^α. Since 0<α<1, x→∞ and x/N→0. Consequently d=floor(x) satisfies d/x→1, d≥h and d≤kN eventually; also N≥M and L≥1 eventually. For each fixed ell in [k,h], the proposed term equals (Bc)^(ell/2)(d/x)^(ell/2) and hence tends to (Bc)^(ell/2). There are finitely many such terms, so the proposed sum converges to their finite sum. The actual top term equals (Ac)^(h/2)(d/x)^(h/2)L^((h/k−1)/2)=(Ac)^(h/2)(d/x)^(h/2)L^((k−2)/2), which tends to infinity because k≥3. Every actual summand is nonnegative. Thus the actual sum eventually exceeds the proposed sum, simultaneously with the dimension and depth conditions. This proves the existential signature and gives the asymptotic in (B5)."
+  },
+  {
+    "id": "r2-audit-bs-gap-geometric",
+    "passages": [
+      "bs-promise-typo",
+      "bs-corrected-threshold"
+    ],
+    "statement": "Companion (B10): from acceptance bounds E1≥6δ−δ and E0≤4/(Nδ²)+δ, infer E1−E0≥6δ−4/(Nδ²)−2δ; if N≥4δ^(−3), this is at least3δ. Companion (B8): for k≥2, the finite sum of128^(−ell), ell=k,...,k(k−1), is at most the infinite geometric tail128^(1−k)/127, and this tail is strictly less than32^(−k)/4.",
+    "why_needed": "Records the corrected reciprocal term and the exact geometric constant used in the multi-level repair.",
+    "depends_on": [
+      "r2-sharp-bs-failure",
+      "r2-sharp-gap"
+    ],
+    "proposed_lean": "-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.bs_promise_gap_arithmetic\n    {E₁ E₀ N δ : ℝ} (hδ : 0 < δ) (hN : 0 < N)\n    (h₁ : 6 * δ - δ ≤ E₁)\n    (h₀ : E₀ ≤ 4 / (N * δ ^ 2) + δ) :\n    6 * δ - 4 / (N * δ ^ 2) - 2 * δ ≤ E₁ - E₀ ∧\n    (4 / δ ^ 3 ≤ N → 3 * δ ≤ E₁ - E₀)\n\ntheorem QuarticQuery.ForrelationLower.Round2.bs_geometric_128\n    (k : ℕ) (hk : 2 ≤ k) :\n    (∑ ℓ ∈ Finset.Icc k (k * (k - 1)), (1 / 128 : ℝ) ^ ℓ) ≤\n      ∑' j : ℕ, (1 / 128 : ℝ) ^ (k + j) ∧\n    (∑' j : ℕ, (1 / 128 : ℝ) ^ (k + j)) =\n      ((128 : ℝ) ^ (k - 1))⁻¹ / 127 ∧\n    ((128 : ℝ) ^ (k - 1))⁻¹ / 127 < dl k / 4",
+    "route_note": "Arithmetic deductions with explicit premises. The first type does not assert the source distribution-mass theorem: its two expectation bounds must be supplied from that theorem and correctness on promised inputs. The source has δ²/(4N) in equation(5.31); the stated proof supplies4/(Nδ²). The second type supplies the numerical step after the finite-sum bound, with dl k equal to32^(−k). All statements are uncompiled proposals.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": [
+      "QuarticQuery.ForrelationLower.dl"
+    ],
+    "external_inputs": [
+      "Bansal–Sinha arXiv:2008.07003v3, Theorem3.1 and main.tex:1173"
+    ],
+    "proof_sketch": "Subtract the two stated expectation inequalities. Positivity of N and δ and N≥4/δ³ imply4/(Nδ²)≤δ, giving the3δ lower bound. For the geometric tail, sum the ratio1/128 series starting at k. Its exact value is(1/128)^k/(1−1/128)=128^(1−k)/127. Dividing it by32^(−k)/4 gives512/(127·4^k), which is at most32/127<1 for k≥2. Nonnegative terms bound the finite interval sum by this tail."
+  },
+  {
+    "id": "r2-impl-kernel",
+    "passage": "bp-kernel",
+    "statement": "### Statement\n\nFor every $x,y\\in\\mathbb R$,\n\n\\[\n0<\\psiS(x)\\,dphi(y)\\le\\frac3{16},\n\\qquad \\psiS(0)dphi(0)=\\frac3{16}.\n\\]\n\nThus $3/16$ is the best uniform pointwise constant for these two fixed scalar functions. This does not assert that the resulting query-complexity constant is optimal.\n\n### Complete proof\n\nWrite $q_x=\\sqrt{2+x^2}$ and $q_y=\\sqrt{2+y^2}$. Their squares are at least $2$, and both are positive. Therefore $(q_xq_y)^2\\ge4$, so $q_xq_y\\ge2$. Also $q_y^4=(2+y^2)^2\\ge4$. Hence $q_xq_y^5=(q_xq_y)q_y^4\\ge8$. The exact definitions give\n\n\\[\n\\psiS(x)dphi(y)=\\frac3{2q_xq_y^5}\\le\\frac3{16}.\n\\]\n\nPositivity follows from the positive denominator. At $x=y=0$, $q_x=q_y=\\sqrt2$, so $2q_xq_y^5=2(\\sqrt2)^6=16$, proving equality. This proof uses only square identities and rational inequalities; it need not formalise a separate numerical bound involving $\\sqrt2$.\n\n### Signatures, unelaborated\n\n[Exact proposed declaration types are in proposed_lean.]\n\nDependencies: `Stein.lean:31` `qf_pos`, `Stein.lean:33` `qf_sq`, `psiS_pos`, `dphi_pos`; unfold `psiS` and `dphi`. `positivity`, `nlinarith`, `rw [div_le_iff₀ ...]`, and `field_simp` are used throughout the existing source. A useful intermediate exact statement is $2\\le qf(x)qf(y)$, proved by comparing nonnegative squares.",
+    "why_needed": "Records the exact smaller implementation claims displayed in the dependency-order blueprint.",
+    "depends_on": [
+      "r2-sharp-kernel"
+    ],
+    "proposed_lean": "-- Unelaborated. Namespace QuarticQuery.ForrelationLower unless fully qualified below.\n-- Open MeasureTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower.\n-- Use classical decidability for indicators; import ForrelationLower.Main and Forrelation.Product.\n\ntheorem psi_dphi_le_sharp (x y : ℝ) :\n    psiS x * dphi y ≤ (3 / 16 : ℝ)\n\ntheorem psi_dphi_eq_sharp_at_zero :\n    psiS 0 * dphi 0 = (3 / 16 : ℝ)",
+    "route_note": "The proof and dependencies appear in this blueprint passage. These are proposed implementation targets, not existing kernel evidence. Existing source statements such as padding_pow_le should be reused after compilation rather than duplicated. The published SSW input remains external and explicit. General dimension and leaf-vocabulary limitations are described in LEAN_GAPS.md.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": []
+  },
+  {
+    "id": "r2-impl-bias",
+    "passage": "bp-bias",
+    "statement": "### Statement and proof\n\nIf $0<r<l$, then\n\n\\[\n|wv(H,s,u,(r,a))|\\le\\frac14.\n\\]\n\nThis is independent of $s$: on an interior block `Sf s c = 1`, `Yf` is $\\phiS(V_{r-1}(a))$, and `Xf` is $\\phiS(U_r(a))$. Each has absolute value at most $1/2$, by `abs_phiS_le`; their product is at most $1/4$. The existing `abs_wv_le_half` already treats both endpoints and all interior blocks with a common bound $1/2$.\n\n### Signature, unelaborated\n\n[Exact proposed declaration types are in proposed_lean.]\n\nDependencies: `wv`, `Sf`, `Yf`, `Xf`, `abs_phiS_le`. Unlike the endpoint estimate, this signature needs no hypothesis on `s`. The distinction is useful for the coordinate-dependent restriction transfer.",
+    "why_needed": "Records the exact smaller implementation claims displayed in the dependency-order blueprint.",
+    "depends_on": [
+      "r2-sharp-chain"
+    ],
+    "proposed_lean": "-- Unelaborated. Namespace QuarticQuery.ForrelationLower unless fully qualified below.\n-- Open MeasureTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower.\n-- Use classical decidability for indicators; import ForrelationLower.Main and Forrelation.Product.\n\ntheorem abs_wv_le_quarter\n    {n : Type} [Fintype n] [DecidableEq n] {l : ℕ}\n    (H : Matrix n n ℝ) (s : ℝ) (u : PC l n → ℝ)\n    (c : BC l n) (h0 : 0 < c.1.val) (hl : c.1.val < l) :\n    |wv H s u c| ≤ (1 / 4 : ℝ)",
+    "route_note": "The proof and dependencies appear in this blueprint passage. These are proposed implementation targets, not existing kernel evidence. Existing source statements such as padding_pow_le should be reused after compilation rather than duplicated. The published SSW input remains external and explicit. General dimension and leaf-vocabulary limitations are described in LEAN_GAPS.md.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": []
+  },
+  {
+    "id": "r2-impl-coefficient",
+    "passage": "bp-coefficient",
+    "statement": "### Statement\n\nIf every matrix entry has absolute value at most $h\\ge0$, then every path of $e$ edges satisfies\n\n\\[\n|cf(H,s,e,j,a,q,u)|\\le\\bigl((3/16)h\\bigr)^e.\n\\]\n\n### Complete proof\n\nInduct on $e$. At zero, `cf` is $1$. At the successor, its definition is one matrix entry, one scalar kernel product, and the shorter path coefficient. Taking absolute values gives the product of their absolute values. The first is bounded by $h$, the second by $3/16$, and the third by the induction hypothesis. All comparison factors are nonnegative. Multiplying gives the claimed successor power.\n\n### Signature, unelaborated\n\n[Exact proposed declaration types are in proposed_lean.]\n\nDependencies: new `psi_dphi_le_sharp`; `cf`, `psiS_pos`, `dphi_pos`. This is a local strengthening of `Walk.lean:556` `abs_cf_le`. Reuse its induction after grouping `psiS * dphi` before applying the scalar bound. No orthogonality or bias assumption is needed here.",
+    "why_needed": "Records the exact smaller implementation claims displayed in the dependency-order blueprint.",
+    "depends_on": [
+      "r2-sharp-advantage",
+      "r2-sharp-kernel"
+    ],
+    "proposed_lean": "-- Unelaborated. Namespace QuarticQuery.ForrelationLower unless fully qualified below.\n-- Open MeasureTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower.\n-- Use classical decidability for indicators; import ForrelationLower.Main and Forrelation.Product.\n\ntheorem abs_cf_le_sharp\n    {n : Type} [Fintype n] [DecidableEq n] {l : ℕ}\n    (H : Matrix n n ℝ) (s : ℝ) {ε : ℝ}\n    (hε : 0 ≤ ε) (hH : ∀ a b, |H a b| ≤ ε) (e : ℕ) :\n    ∀ (j : ℕ) (a : n) (q : Fin e → n) (u : PC l n → ℝ),\n      |cf H s e j a q u| ≤ ((3 / 16 : ℝ) * ε) ^ e",
+    "route_note": "The proof and dependencies appear in this blueprint passage. These are proposed implementation targets, not existing kernel evidence. Existing source statements such as padding_pow_le should be reused after compilation rather than duplicated. The published SSW input remains external and explicit. General dimension and leaf-vocabulary limitations are described in LEAN_GAPS.md.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": []
+  },
+  {
+    "id": "r2-impl-growth",
+    "passage": "bp-growth",
+    "statement": "### Exact residual identity\n\nFor real $n>0$ and natural $k$,\n\n\\[\n(2n)^k(4n)^k\\exp[-2k\\ln(4n)]=2^{-k}.\n\\]\n\nExponentiate the natural logarithm: $e^{2k\\ln(4n)}=(4n)^{2k}$. The left side is $(2n)^k/(4n)^k=(1/2)^k$. Every denominator is positive.\n\n### Signature, unelaborated\n\n[Exact proposed declaration types are in proposed_lean.]\n\nThe old `QuarticQuery.ForrelationLower.tail_le` in `Uniform.lean` contains this exact identity inside its proof. It is worth exposing once, with the natural-number cast settled explicitly.\n\n### Specialised growth statement\n\nFor a depth-$d$ tree, $d\\ge1$, $n\\ge1$, $k\\ge1$, biases $|\\mu_i|\\le1/2$, and any family of distinct $k$-element coordinate sets,\n\n\\[\n\\sum_p\\left|\\operatorname{ext}(D_{L_p}(v\\circ T))(\\mu)\\right|\n\\le\\bigl(\\sqrt{16kd\\ln(4n)}\\bigr)^k+2^{-k}.\n\\]\n\nHere the lists $L_p$ have no repeated coordinates and are determined by their underlying sets; $|v|\\le1$. The public tree type has Boolean leaves, and `v : Bool → ℝ` assigns two real output values. The source does not literally state a theorem for a new tree type with arbitrarily many real leaf values. The interface below exactly matches the existing type. It suffices for each deterministic constituent of a randomized acceptance function.\n\n### Complete proof from the existing theorem\n\nTake $\\Lambda=2k\\ln(4n)>0$ and $K=\\sqrt{8d\\Lambda}>0$. Then $K^2=2d\\cdot2^2\\Lambda$, exactly the hypothesis of `sum_abs_ext_Dl_le`. Its conclusion is $K^k+(2n)^k(4n)^ke^{-\\Lambda}$. Substitute the residual identity and $K^2=16kd\\ln(4n)$. This is a pure specialisation of the compiled parameterised theorem, with no new stopping-time argument.\n\n### Signature, unelaborated\n\n[Exact proposed declaration types are in proposed_lean.]\n\nDependencies: `TreeGrowth.lean:738` `sum_abs_ext_Dl_le`; new `growth_residual_eq`; `Real.sq_sqrt`, `Real.sqrt_pos`, `Real.log_pos`. Keeping an ordinary natural power of a square root avoids a separate `Real.rpow` rewrite. The mathematical $k/2$ notation denotes the same quantity because its base is positive.",
+    "why_needed": "Records the exact smaller implementation claims displayed in the dependency-order blueprint.",
+    "depends_on": [
+      "r2-sharp-growth",
+      "r2-sharp-growth-proof"
+    ],
+    "proposed_lean": "-- Unelaborated. Namespace QuarticQuery.ForrelationLower unless fully qualified below.\n-- Open MeasureTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower.\n-- Use classical decidability for indicators; import ForrelationLower.Main and Forrelation.Product.\n\ntheorem growth_residual_eq (k : ℕ) {n : ℝ} (hn : 0 < n) :\n    (n * 2) ^ k * ((4 * n) ^ k *\n      Real.exp (-(2 * (k : ℝ) * Real.log (4 * n)))) =\n    (1 / 2 : ℝ) ^ k\n\ntheorem sum_abs_ext_Dl_le_log\n    {ι P : Type} [Fintype ι] [DecidableEq ι]\n    [Fintype P] [DecidableEq P]\n    (Lp : P → List ι) (hnd : ∀ p, (Lp p).Nodup)\n    {k d : ℕ} (hk : 0 < k) (hlen : ∀ p, (Lp p).length = k)\n    (hinj : Function.Injective fun p => (Lp p).toFinset)\n    {μ : ι → ℝ} (hμ : ∀ a, |μ a| ≤ (1 / 2 : ℝ))\n    (hd : 0 < d) (hn : 1 ≤ Fintype.card ι)\n    (T : QueryTree ι) (hT : T.depth ≤ d)\n    (v : Bool → ℝ) (hv : ∀ b, |v b| ≤ 1) :\n    ∑ p, |ext (Dl (Lp p) (fun z => v (T.eval z))) μ| ≤\n      (Real.sqrt (16 * (k : ℝ) * (d : ℝ) *\n        Real.log (4 * (Fintype.card ι : ℝ)))) ^ k +\n      (1 / 2 : ℝ) ^ k",
+    "route_note": "The proof and dependencies appear in this blueprint passage. These are proposed implementation targets, not existing kernel evidence. Existing source statements such as padding_pow_le should be reused after compilation rather than duplicated. The published SSW input remains external and explicit. General dimension and leaf-vocabulary limitations are described in LEAN_GAPS.md.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": []
+  },
+  {
+    "id": "r2-impl-advantage",
+    "passage": "bp-advantage",
+    "statement": "### Statement and complete proof\n\nReplace the factor $3^l$ in `advantage_le` by $(3/16)^l$, preserving every other hypothesis. The existing `exists_identity` provides one $s\\in(0,1)$, so the integral-in-$s$ version is unnecessary for this formalisation. `integral_ext_wv_zero` identifies its zero endpoint with the uniform expectation. `Int_eq_paths` expands its right side. Apply the new `abs_cf_le_sharp` to each path. The lists `Lpath l p` are duplicate-free, all have length $l+1$, and their underlying sets determine $p$, by `Lpath_nodup`, `plist_length`, and `Lpath_inj`. Therefore the sum over paths is exactly a permitted family for `sum_abs_ext_Dl_le`. The bias is bounded by $1/2$, by `abs_wv_le_half`. Integrating the resulting uniform bound over a probability measure leaves the same bound.\n\n### Signature, unelaborated\n\n[Exact proposed declaration types are in proposed_lean.]\n\nThis can be implemented by copying the proof of `Cascade.lean:384` and replacing its one invocation of `abs_cf_le` and the matching coefficient. Neither the mean-value identity nor the Gaussian zero-endpoint proof changes.",
+    "why_needed": "Records the exact smaller implementation claims displayed in the dependency-order blueprint.",
+    "depends_on": [
+      "r2-sharp-advantage",
+      "r2-sharp-path-identity"
+    ],
+    "proposed_lean": "-- Unelaborated. Namespace QuarticQuery.ForrelationLower unless fully qualified below.\n-- Open MeasureTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower.\n-- Use classical decidability for indicators; import ForrelationLower.Main and Forrelation.Product.\n\ntheorem advantage_le_sharp\n    {n : Type} [Fintype n] [DecidableEq n] {l : ℕ}\n    (H : Matrix n n ℝ) (hl : 0 < l) (hH : RowsOrth H)\n    {ε : ℝ} (hε : 0 ≤ ε) (hHb : ∀ a b, |H a b| ≤ ε)\n    {Λ K : ℝ} {d : ℕ} (hd : 0 < d) (hK : 0 < K)\n    (hKsq : K ^ 2 = 2 * (d : ℝ) * 2 ^ 2 * Λ)\n    (hn : 1 ≤ Fintype.card (BC l n))\n    (T : QueryTree (BC l n)) (hT : T.depth ≤ d)\n    (v : Bool → ℝ) (hv : ∀ b, |v b| ≤ 1) :\n    |(∫ u, ext (fun z => v (T.eval z)) (wv H 1 u)\n        ∂(gP (PC l n))) - ext (fun z => v (T.eval z)) 0| ≤\n      ((3 / 16 : ℝ) * ε) ^ l *\n        (K ^ (l + 1) + (Fintype.card (BC l n) * 2) ^ (l + 1) *\n          ((4 * Fintype.card (BC l n) : ℝ) ^ (l + 1) *\n            Real.exp (-Λ)))",
+    "route_note": "The proof and dependencies appear in this blueprint passage. These are proposed implementation targets, not existing kernel evidence. Existing source statements such as padding_pow_le should be reused after compilation rather than duplicated. The published SSW input remains external and explicit. General dimension and leaf-vocabulary limitations are described in LEAN_GAPS.md.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": []
+  },
+  {
+    "id": "r2-impl-restriction",
+    "passage": "bp-restriction",
+    "statement": "[Exact proposed declaration types are in proposed_lean.]\n\nThis algebraic equality needs no positivity assumptions. Proof route: establish finite Fourier expansion by iterating `ext_affine`, or prove the polynomial identity note.md, equation (22) by expanding `ext`, interchanging finite sums, and factoring the coordinate products with `Finset.prod_univ_sum`; extract distinct-coordinate derivatives by induction on L. `D_D`, `ext_sum`, `ext_smul`, `ext_Dl` and `Dl` are the existing tools. At μ=0, `ext (Dl L g) 0` is exactly the raw uniform Fourier coefficient; no biased normalization factors appear.",
+    "why_needed": "Records the exact smaller implementation claims displayed in the dependency-order blueprint.",
+    "depends_on": [
+      "r2-sharp-restriction"
+    ],
+    "proposed_lean": "-- Unelaborated. Namespace QuarticQuery.ForrelationLower unless fully qualified below.\n-- Open MeasureTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower.\n-- Use classical decidability for indicators; import ForrelationLower.Main and Forrelation.Product.\n\n-- Unelaborated. Namespace QuarticQuery.ForrelationLower.\ntheorem restriction_identity\n    {ι : Type} [Fintype ι] [DecidableEq ι]\n    (g : (ι → Bool) → ℝ) (μ v : ι → ℝ)\n    (L : List ι) (hL : L.Nodup) :\n    (∑ ρ : ι → Option Bool,\n      (∏ i, match ρ i with\n        | none => v i\n        | some b => (1 - v i + μ i * sg b) / 2) *\n      ext (Dl L (fun z => g (fun i => (ρ i).getD (z i)))) 0) =\n    (L.map v).prod * ext (Dl L g) μ",
+    "route_note": "The proof and dependencies appear in this blueprint passage. These are proposed implementation targets, not existing kernel evidence. Existing source statements such as padding_pow_le should be reused after compilation rather than duplicated. The published SSW input remains external and explicit. General dimension and leaf-vocabulary limitations are described in LEAN_GAPS.md.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": []
+  },
+  {
+    "id": "r2-impl-weights",
+    "passage": "bp-weights",
+    "statement": "[Exact proposed declaration types are in proposed_lean.]\n\nProve positivity coordinatewise using `abs_le.mp`; prove normalization from the three-value sum 1 and `Finset.prod_univ_sum`. These statements parallel `bw_nonneg` and `sum_bw` in `Cube.lean`.",
+    "why_needed": "Records the exact smaller implementation claims displayed in the dependency-order blueprint.",
+    "depends_on": [
+      "r2-sharp-restriction"
+    ],
+    "proposed_lean": "-- Unelaborated. Namespace QuarticQuery.ForrelationLower unless fully qualified below.\n-- Open MeasureTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower.\n-- Use classical decidability for indicators; import ForrelationLower.Main and Forrelation.Product.\n\n-- Unelaborated.\ntheorem restriction_weight_nonneg\n    {ι : Type} [Fintype ι] [DecidableEq ι]\n    (μ v : ι → ℝ) (hv : ∀ i, 0 ≤ v i)\n    (hμ : ∀ i, |μ i| ≤ 1 - v i)\n    (ρ : ι → Option Bool) :\n    0 ≤ ∏ i, match ρ i with\n      | none => v i\n      | some b => (1 - v i + μ i * sg b) / 2\n\ntheorem sum_restriction_weight\n    {ι : Type} [Fintype ι] [DecidableEq ι]\n    (μ v : ι → ℝ) :\n    (∑ ρ : ι → Option Bool,\n      ∏ i, match ρ i with\n        | none => v i\n        | some b => (1 - v i + μ i * sg b) / 2) = 1",
+    "route_note": "The proof and dependencies appear in this blueprint passage. These are proposed implementation targets, not existing kernel evidence. Existing source statements such as padding_pow_le should be reused after compilation rather than duplicated. The published SSW input remains external and explicit. General dimension and leaf-vocabulary limitations are described in LEAN_GAPS.md.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": []
+  },
+  {
+    "id": "r2-impl-tree-restriction",
+    "passage": "bp-tree-restriction",
+    "statement": "[Exact proposed declaration types are in proposed_lean.]\n\nProve by induction on T. At a query, split ρ i into none, some false and some true. The none case retains the node and inductively restricts both children; the two fixed cases choose the corresponding restricted child. Existing exact constructor names are `QueryTree.leaf` and `QueryTree.query`.",
+    "why_needed": "Records the exact smaller implementation claims displayed in the dependency-order blueprint.",
+    "depends_on": [
+      "r2-sharp-restriction",
+      "r2-sharp-path-restriction"
+    ],
+    "proposed_lean": "-- Unelaborated. Namespace QuarticQuery.ForrelationLower unless fully qualified below.\n-- Open MeasureTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower.\n-- Use classical decidability for indicators; import ForrelationLower.Main and Forrelation.Product.\n\n-- Unelaborated. The existential form avoids adding a public definition.\ntheorem exists_restricted_tree {ι : Type}\n    (T : QueryTree ι) (ρ : ι → Option Bool) :\n    ∃ S : QueryTree ι, S.depth ≤ T.depth ∧\n      ∀ z, S.eval z = T.eval (fun i => (ρ i).getD (z i))",
+    "route_note": "The proof and dependencies appear in this blueprint passage. These are proposed implementation targets, not existing kernel evidence. Existing source statements such as padding_pow_le should be reused after compilation rather than duplicated. The published SSW input remains external and explicit. General dimension and leaf-vocabulary limitations are described in LEAN_GAPS.md.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": []
+  },
+  {
+    "id": "r2-impl-profile",
+    "passage": "bp-profile",
+    "statement": "The sharp Fourier theorem is absent from the supplied formal development. It must remain an explicit hypothesis in any result assembled before its formalization. A signature with only existing mathematical vocabulary is:\n\n[Exact proposed declaration types are in proposed_lean.]\n\nApply Section 7 and the absolute-sum inequality, use Section 8 to average, then Section 9 and hFourier. The extra assumptions hnd, hlen, hinj serve the Fourier application; hlen and hinj are mathematically unnecessary in the purely abstract averaging implication once hFourier is granted. At the chain profile, Section 3, existing endpoint bounds and the path free-probability product in note.md, §4 give w; substitute SSW's numerical B into this theorem. Keep hFourier visible in theorem names and metadata until it has a real proof.",
+    "why_needed": "Records the exact smaller implementation claims displayed in the dependency-order blueprint.",
+    "depends_on": [
+      "r2-sharp-restriction",
+      "r2-sharp-path-restriction"
+    ],
+    "proposed_lean": "-- Unelaborated. Namespace QuarticQuery.ForrelationLower unless fully qualified below.\n-- Open MeasureTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower.\n-- Use classical decidability for indicators; import ForrelationLower.Main and Forrelation.Product.\n\n-- Unelaborated. hFourier is a genuine external obligation.\ntheorem sum_abs_ext_Dl_profile_le\n    {ι J : Type} [Fintype ι] [DecidableEq ι]\n    [Fintype J] [DecidableEq J]\n    (Lp : J → List ι) (hnd : ∀ j, (Lp j).Nodup)\n    {k d : ℕ} (hlen : ∀ j, (Lp j).length = k)\n    (hinj : Function.Injective fun j => (Lp j).toFinset)\n    (μ v : ι → ℝ) (hv : ∀ i, 0 ≤ v i)\n    (hμ : ∀ i, |μ i| ≤ 1 - v i)\n    {w B : ℝ} (hw : 0 < w)\n    (hwprod : ∀ j, ((Lp j).map v).prod = w)\n    (T : QueryTree ι) (hT : T.depth ≤ d) (val : Bool → ℝ)\n    (hval : ∀ b, |val b| ≤ 1)\n    (hFourier : ∀ S : QueryTree ι, S.depth ≤ d →\n      (∑ j, |ext (Dl (Lp j) (fun z => val (S.eval z))) 0|) ≤ B) :\n    (∑ j, |ext (Dl (Lp j) (fun z => val (T.eval z))) μ|) ≤ B / w",
+    "route_note": "The proof and dependencies appear in this blueprint passage. These are proposed implementation targets, not existing kernel evidence. Existing source statements such as padding_pow_le should be reused after compilation rather than duplicated. The published SSW input remains external and explicit. General dimension and leaf-vocabulary limitations are described in LEAN_GAPS.md.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": []
+  },
+  {
+    "id": "r2-impl-endpoint-norm",
+    "passage": "bp-endpoint-norm",
+    "statement": "[Exact proposed declaration types are in proposed_lean.]\n\nUse `Phi_eq_PhiF` and `Forrelation.Phi_eq_matrix_product`. The first endpoint diagonal can be removed by D, leaving coefficient `(Forrelation.u t a) * y a`, with y the product of the remaining orthogonal factors applied to u. `Forrelation.isOrth_tailProd`, `Forrelation.isOrth_H`, `Forrelation.isOrth_signDiag`, `Forrelation.IsOrth.dot_self` and `Forrelation.u_dot_self` show ∑y²=1. Since u_a=2^−t, the displayed sum is 2^−2t=1/m. Alternatively prove the corresponding pointwise ℓ² recurrence for `Rs`, using `PhiF_eq_lin` and the exact Walsh row orthogonality. The already checked `ext_Rs_sq` is an averaged second moment and does not alone establish this pointwise identity.",
+    "why_needed": "Records the exact smaller implementation claims displayed in the dependency-order blueprint.",
+    "depends_on": [
+      "r2-sharp-subgaussian"
+    ],
+    "proposed_lean": "-- Unelaborated. Namespace QuarticQuery.ForrelationLower unless fully qualified below.\n-- Open MeasureTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower.\n-- Use classical decidability for indicators; import ForrelationLower.Main and Forrelation.Product.\n\n-- Unelaborated.\ntheorem sum_sq_PhiF_endpoint_coeff (l t : ℕ)\n    (z : BC l (Fin (mValue t)) → Bool) :\n    (∑ a : Fin (mValue t),\n      (D (cn 0 a)\n        (PhiF t : (BC l (Fin (mValue t)) → Bool) → ℝ) z) ^ 2) =\n    (mValue t : ℝ)⁻¹",
+    "route_note": "The proof and dependencies appear in this blueprint passage. These are proposed implementation targets, not existing kernel evidence. Existing source statements such as padding_pow_le should be reused after compilation rather than duplicated. The published SSW input remains external and explicit. General dimension and leaf-vocabulary limitations are described in LEAN_GAPS.md.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": []
+  },
+  {
+    "id": "r2-impl-linear-mgf",
+    "passage": "bp-linear-mgf",
+    "statement": "[Exact proposed declaration types are in proposed_lean.]\n\nThe existing `two_point_exp_le` in `TreeGrowth.lean` already supplies the one-coordinate estimate. Factor the finite cube sum, using `Real.exp_sum`, and multiply the estimates. This avoids depending on an uncertain Mathlib Hoeffding theorem name.",
+    "why_needed": "Records the exact smaller implementation claims displayed in the dependency-order blueprint.",
+    "depends_on": [
+      "r2-sharp-subgaussian"
+    ],
+    "proposed_lean": "-- Unelaborated. Namespace QuarticQuery.ForrelationLower unless fully qualified below.\n-- Open MeasureTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower.\n-- Use classical decidability for indicators; import ForrelationLower.Main and Forrelation.Product.\n\n-- Unelaborated.\ntheorem ext_exp_linear_le\n    {ι : Type} [Fintype ι] [DecidableEq ι]\n    (c : ι → ℝ) (θ : ℝ) :\n    ext (fun z : ι → Bool =>\n      Real.exp (θ * ∑ i, c i * sg (z i))) 0 ≤\n    Real.exp (θ ^ 2 / 2 * ∑ i, c i ^ 2)",
+    "route_note": "The proof and dependencies appear in this blueprint passage. These are proposed implementation targets, not existing kernel evidence. Existing source statements such as padding_pow_le should be reused after compilation rather than duplicated. The published SSW input remains external and explicit. General dimension and leaf-vocabulary limitations are described in LEAN_GAPS.md.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": []
+  },
+  {
+    "id": "r2-impl-forrelation-tail",
+    "passage": "bp-forrelation-tail",
+    "statement": "[Exact proposed declaration types are in proposed_lean.]\n\nFactor the cube into the first endpoint and the remaining blocks. Its linear coefficients do not depend on that endpoint, by `Rs_update_cn` and `D_lin`. Section 11 and Section 12 give the conditional MGF, then finite averaging gives the first statement. For the second, compare the indicator of Φ>r with exp(θ(Φ−r)) pointwise for θ≥0, use `ext_mono`, choose θ=mr and repeat for −Φ. Sum the two tails.",
+    "why_needed": "Records the exact smaller implementation claims displayed in the dependency-order blueprint.",
+    "depends_on": [
+      "r2-sharp-subgaussian"
+    ],
+    "proposed_lean": "-- Unelaborated. Namespace QuarticQuery.ForrelationLower unless fully qualified below.\n-- Open MeasureTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower.\n-- Use classical decidability for indicators; import ForrelationLower.Main and Forrelation.Product.\n\n-- Unelaborated.\ntheorem ext_exp_PhiF_le (l t : ℕ) (θ : ℝ) :\n    ext (fun z : BC l (Fin (mValue t)) → Bool =>\n      Real.exp (θ * PhiF t z)) 0 ≤\n    Real.exp (θ ^ 2 / (2 * (mValue t : ℝ)))\n\ntheorem ext_PhiF_tail_le (l t : ℕ) {r : ℝ} (hr : 0 ≤ r) :\n    ext (fun z : BC l (Fin (mValue t)) → Bool =>\n      if r < |PhiF t z| then (1 : ℝ) else 0) 0 ≤\n    2 * Real.exp (- (mValue t : ℝ) * r ^ 2 / 2)",
+    "route_note": "The proof and dependencies appear in this blueprint passage. These are proposed implementation targets, not existing kernel evidence. Existing source statements such as padding_pow_le should be reused after compilation rather than duplicated. The published SSW input remains external and explicit. General dimension and leaf-vocabulary limitations are described in LEAN_GAPS.md.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": []
+  },
+  {
+    "id": "r2-impl-amplification",
+    "passage": "bp-amplification",
+    "statement": "### Exact statement\n\nSuppose a randomized depth-$L$ tree succeeds on every promised input with probability at least $(1+\\eta)/2$, with $0<\\eta\\le1$. Majority of $2\\tau$ independent runs has depth at most $2\\tau L$, and error at most\n\n\\[\n(1-\\eta^2)^\\tau\\le e^{-\\tau\\eta^2}.\n\\]\n\n### Complete proof\n\nLet $r=(1-\\eta)/2$. For a fixed promised input, each error indicator $W_i$ has expectation at most $r$. A majority error, with ties counted as errors, requires $\\sum_i W_i\\ge\\tau$. If $\\eta<1$, put $z=(1+\\eta)/(1-\\eta)>1$. Then\n\n\\[\n\\mathbf1_{\\{\\sum W_i\\ge\\tau\\}}z^\\tau\n\\le z^{\\sum W_i},\\qquad\n\\mathbb E z^{W_i}\\le1-r+rz=1+\\eta.\n\\]\n\nIndependence gives error at most $z^{-\\tau}(1+\\eta)^{2\\tau}=(1-\\eta^2)^\\tau$. If $\\eta=1$, every supported constituent is correct on the fixed promised input because all support weights are positive and the weighted success is $1$; majority is therefore correct when $\\tau\\ge1$. Finally $1-\\eta^2\\le e^{-\\eta^2}$, and raising to the natural power $\\tau$ proves the exponential inequality. The argument is uniform in the promised input and uses no promise on the amplified execution's off-promise behavior.\n\n### Signatures, unelaborated\n\n[Exact proposed declaration types are in proposed_lean.]\n\nDependencies: `runAll`, `eval_runAll`, `depth_runAll_le`, `maj`, `maj_wrong`, `count_ofFn`, `RandomizedProgram.weight_pos`, `.weight_sum`; copy the finite product proof of `Amplify.lean:80` with base $z$ in place of $2$. The base-$2$ proof in the source already gives exactly $(8/9)^\\tau$ at error $1/3$, so the variable-success lemma is not required by the numerical elementary endpoint. Public `RLe` fixes success $2/3$; introducing an unstated `RLeEta` definition into a signature would obscure that distinction.",
+    "why_needed": "Records the exact smaller implementation claims displayed in the dependency-order blueprint.",
+    "depends_on": [
+      "r2-sharp-amplification"
+    ],
+    "proposed_lean": "-- Unelaborated. Namespace QuarticQuery.ForrelationLower unless fully qualified below.\n-- Open MeasureTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower.\n-- Use classical decidability for indicators; import ForrelationLower.Main and Forrelation.Product.\n\ntheorem exists_amplified_eta\n    {ι : Type} [Fintype ι] {f : PartialBool ι}\n    (A : RandomizedProgram ι) {L τ : ℕ}\n    (hdepth : A.depth ≤ L) (hτ : 0 < τ)\n    {η : ℝ} (hη0 : 0 < η) (hη1 : η ≤ 1)\n    (hs : ∀ x b, f x = some b → (1 + η) / 2 ≤ A.success x b) :\n    ∃ (J : Type) (_ : Fintype J) (q : J → ℝ) (T : J → QueryTree ι),\n      (∀ j, 0 ≤ q j) ∧ ∑ j, q j = 1 ∧\n      (∀ j, (T j).depth ≤ 2 * τ * L) ∧\n      ∀ x b, f x = some b →\n        ∑ j, q j * (if (T j).eval x = b then 0 else 1) ≤\n          (1 - η ^ 2) ^ τ\n\ntheorem amplified_error_le_exp\n    {η : ℝ} (hη0 : 0 ≤ η) (hη1 : η ≤ 1) (τ : ℕ) :\n    (1 - η ^ 2) ^ τ ≤ Real.exp (-((τ : ℝ) * η ^ 2))",
+    "route_note": "The proof and dependencies appear in this blueprint passage. These are proposed implementation targets, not existing kernel evidence. Existing source statements such as padding_pow_le should be reused after compilation rather than duplicated. The published SSW input remains external and explicit. General dimension and leaf-vocabulary limitations are described in LEAN_GAPS.md.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": []
+  },
+  {
+    "id": "r2-impl-gap",
+    "passage": "bp-gap",
+    "statement": "Put $a=18^{-l}$, $\\delta=dl(l+1)$, $p=(a-\\delta)/(1-\\delta)$, and $q_M=\\min\\{1,4/(m\\delta^2)\\}$. For any acceptance function $A\\in[0,1]$ with error at most $\\varepsilon\\in[0,1]$ on the promise,\n\n\\[\n\\mathbb E_{\\mathcal D}A-\\mathbb E_{\\mathcal U}A\n\\ge (1-\\varepsilon)p-\\varepsilon-q_M.\n\\]\n\n### Complete proof\n\nThe existing `mass_ge` and `ext_PhiF_zero` give $\\mathbb E_{\\mathcal D}\\Phi\\ge a$. On the positive-promise event $\\Phi\\ge\\delta$, the bound $\\Phi\\le1$ applies, and outside it $\\Phi<\\delta$. Thus $\\mathbb E\\Phi\\le\\delta+(1-\\delta)\\Pr(\\Phi\\ge\\delta)$, giving positive mass at least $p$. On that event the acceptance is at least $1-\\varepsilon$, and it is nonnegative elsewhere, proving hard acceptance at least $(1-\\varepsilon)p$.\n\nUnder the uniform law, `ext_PhiF_sq` gives second moment $1/m$. The exceptional event $|\\Phi|>\\delta/2$ has mass at most $4/(m\\delta^2)$ by the pointwise bound of its indicator by $4\\Phi^2/\\delta^2$, and at most $1$. On its complement acceptance is at most $\\varepsilon$; everywhere it is at most $1$. Uniform acceptance is therefore at most $\\varepsilon+q_M$. Subtract.\n\nAn implementation can avoid introducing a probability distribution for the hard law. The pointwise inequality\n\n\\[\n\\frac{1-\\varepsilon}{1-\\delta}(\\Phi(z)-\\delta)\\le A(z)\n\\]\n\nis sufficient; integrate with `ext_mono` and then the Gaussian expectation. The denominator is positive. The source's `not_RLe_of_gap` instead uses the weaker pointwise lower bound without $1/(1-\\delta)$. Both are valid, and the elementary constant survives either one.\n\nThe bound above retains the requested $p,q_M$ formula. A strictly stronger bookkeeping version follows from uniform acceptance at most $\\varepsilon+(1-\\varepsilon)q_M$. Its gap is $(1-\\varepsilon)(p-q_M)-\\varepsilon$. No endpoint here relies on that extra improvement.\n\n### Signature for the requested formula, unelaborated\n\n[Exact proposed declaration types are in proposed_lean.]\n\nThe same proof yields the interface below with any separately established bound $q$ on the null exceptional mass. This is the useful interface for the subgaussian improvement.\n\n[Exact proposed declaration types are in proposed_lean.]\n\nUse `open Classical in` around the second declaration or make the classical decidability of the real comparison available. The source uses this pattern for real-valued indicators and masks. Dependencies: `mass_ge`, `ext_PhiF_zero`, `ext_PhiF_sq`, `Phi_eq_PhiF`, `abs_Phi_le_one`, `P_yes`, `P_no`, `ext_mono`, `ext_const`, `ext_add`, `ext_smul`, `bcf_ext`.\n\n\n### Stronger bookkeeping used in the finite sharp theorem\n\nUniform acceptance is at most epsilon+(1-epsilon)q. Subtracting from (1-epsilon)p gives Gamma*=(1-epsilon)(p-q)-epsilon. Its excess over Gamma is epsilon*q, nonnegative for either certified probability bound. The following compound signature records the masses and both gaps. It uses no new public definition.\n\n[Exact proposed declaration types are in proposed_lean.]",
+    "why_needed": "Records the exact smaller implementation claims displayed in the dependency-order blueprint.",
+    "depends_on": [
+      "r2-sharp-gap"
+    ],
+    "proposed_lean": "-- Unelaborated. Namespace QuarticQuery.ForrelationLower unless fully qualified below.\n-- Open MeasureTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower.\n-- Use classical decidability for indicators; import ForrelationLower.Main and Forrelation.Product.\n\ntheorem promise_gap_markov\n    {l t : ℕ} (hl : 0 < l)\n    (acc : (BC l (Fin (mValue t)) → Bool) → ℝ)\n    {ε : ℝ} (hε0 : 0 ≤ ε) (hε1 : ε ≤ 1)\n    (hacc : ∀ z, 0 ≤ acc z ∧ acc z ≤ 1)\n    (hyes : ∀ z, P (l + 1) t z = some true → 1 - ε ≤ acc z)\n    (hno : ∀ z, P (l + 1) t z = some false → acc z ≤ ε) :\n    (1 - ε) * (((1 / 18 : ℝ) ^ l - dl (l + 1)) /\n      (1 - dl (l + 1))) - ε -\n      min 1 (4 / ((mValue t : ℝ) * dl (l + 1) ^ 2)) ≤\n    (∫ u, ext acc (wv (H t) 1 u)\n      ∂(gP (PC l (Fin (mValue t))))) - ext acc 0\n\ntheorem promise_gap_of_null_tail\n    {l t : ℕ} (hl : 0 < l)\n    (acc : (BC l (Fin (mValue t)) → Bool) → ℝ)\n    {ε q : ℝ} (hε0 : 0 ≤ ε) (hε1 : ε ≤ 1)\n    (hacc : ∀ z, 0 ≤ acc z ∧ acc z ≤ 1)\n    (hyes : ∀ z, P (l + 1) t z = some true → 1 - ε ≤ acc z)\n    (hno : ∀ z, P (l + 1) t z = some false → acc z ≤ ε)\n    (hq : ext (fun z : BC l (Fin (mValue t)) → Bool =>\n      if dl (l + 1) / 2 < |PhiF t z| then (1 : ℝ) else 0) 0 ≤ q) :\n    (1 - ε) * (((1 / 18 : ℝ) ^ l - dl (l + 1)) /\n      (1 - dl (l + 1))) - ε - q ≤\n    (∫ u, ext acc (wv (H t) 1 u)\n      ∂(gP (PC l (Fin (mValue t))))) - ext acc 0\n\n-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main and QuarticQuery.Forrelation.Product.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.promise_gap_compound\n    {l t : ℕ} (hl : 0 < l)\n    (acc : (BC l (Fin (mValue t)) → Bool) → ℝ)\n    {ε : ℝ} (hε0 : 0 ≤ ε) (hε1 : ε ≤ 1)\n    (hacc : ∀ z, 0 ≤ acc z ∧ acc z ≤ 1)\n    (hyes : ∀ z, P (l + 1) t z = some true → 1 - ε ≤ acc z)\n    (hno : ∀ z, P (l + 1) t z = some false → acc z ≤ ε) :\n    let δ := dl (l + 1)\n    let a := (1 / 18 : ℝ) ^ l\n    let p := (a - δ) / (1 - δ)\n    let qM := min 1 (4 / ((mValue t : ℝ) * δ ^ 2))\n    let qstar := min qM (2 * Real.exp (-(mValue t : ℝ) * δ ^ 2 / 8))\n    let nullTail := ext (fun z : BC l (Fin (mValue t)) → Bool =>\n      if δ / 2 < |PhiF t z| then (1 : ℝ) else 0) 0\n    let diff := (∫ u, ext acc (wv (H t) 1 u)\n      ∂(gP (PC l (Fin (mValue t))))) - ext acc 0\n    (p ≤ ∫ u, ext (fun z => if δ ≤ PhiF t z then (1 : ℝ) else 0)\n      (wv (H t) 1 u) ∂(gP (PC l (Fin (mValue t))))) ∧\n    nullTail ≤ qM ∧ nullTail ≤ qstar ∧\n    (∀ q : ℝ, q = qM ∨ q = qstar →\n      (1 - ε) * (p - q) - ε ≤ diff ∧\n      (1 - ε) * p - ε - q ≤ (1 - ε) * (p - q) - ε)",
+    "route_note": "The proof and dependencies appear in this blueprint passage. These are proposed implementation targets, not existing kernel evidence. Existing source statements such as padding_pow_le should be reused after compilation rather than duplicated. The published SSW input remains external and explicit. General dimension and leaf-vocabulary limitations are described in LEAN_GAPS.md.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": []
+  },
+  {
+    "id": "r2-impl-finite-elementary",
+    "passage": "bp-finite-elementary",
+    "statement": "The existing `not_RLe_of_gap` hardcodes the coefficient $3$. It cannot prove the sharp endpoint merely by changing its parameters. A new lemma must use `advantage_le_sharp`; its expectation assembly otherwise follows the old proof.\n\n### Signature, unelaborated\n\n[Exact proposed declaration types are in proposed_lean.]\n\nComplete proof: assume `RLe`; obtain the finite amplified mixture from `exists_amplified`; define its acceptance function as in `Main.lean:78–228`; apply `promise_gap_of_null_tail`; apply the sharp advantage estimate to each tree at padded depth $2\\tau L+1$; average using nonnegative weights summing to $1$. The resulting advantage is simultaneously at least the positive gap and at most $A$, contradicting `hgap`. The argument still works with the source's coarser lower bound $(1-\\varepsilon)(a-\\delta)$ if reducing initial implementation changes is preferred.",
+    "why_needed": "Records the exact smaller implementation claims displayed in the dependency-order blueprint.",
+    "depends_on": [
+      "r2-sharp-finite-elementary"
+    ],
+    "proposed_lean": "-- Unelaborated. Namespace QuarticQuery.ForrelationLower unless fully qualified below.\n-- Open MeasureTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower.\n-- Use classical decidability for indicators; import ForrelationLower.Main and Forrelation.Product.\n\ntheorem not_RLe_of_gap_sharp\n    {l t L τ : ℕ} (hl : 0 < l) {Λ K A q : ℝ}\n    (hK : 0 < K)\n    (hKsq : K ^ 2 = 2 * ((2 * τ * L + 1 : ℕ) : ℝ) * 2 ^ 2 * Λ)\n    (hA : ((3 / 16 : ℝ) * ((2 : ℝ) ^ t)⁻¹) ^ l *\n      (K ^ (l + 1) +\n        (Fintype.card (BC l (Fin (mValue t))) * 2) ^ (l + 1) *\n        ((4 * Fintype.card (BC l (Fin (mValue t))) : ℝ) ^ (l + 1) *\n          Real.exp (-Λ))) ≤ A)\n    (hε1 : (8 / 9 : ℝ) ^ τ ≤ 1)\n    (hq : ext (fun z : BC l (Fin (mValue t)) → Bool =>\n      if dl (l + 1) / 2 < |PhiF t z| then (1 : ℝ) else 0) 0 ≤ q)\n    (hgap : (8 / 9 : ℝ) ^ τ + q + A <\n      (1 - (8 / 9 : ℝ) ^ τ) *\n        (((1 / 18 : ℝ) ^ l - dl (l + 1)) / (1 - dl (l + 1)))) :\n    ¬ RLe (P (l + 1) t) L",
+    "route_note": "The proof and dependencies appear in this blueprint passage. These are proposed implementation targets, not existing kernel evidence. Existing source statements such as padding_pow_le should be reused after compilation rather than duplicated. The published SSW input remains external and explicit. General dimension and leaf-vocabulary limitations are described in LEAN_GAPS.md.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": []
+  },
+  {
+    "id": "r2-impl-arithmetic",
+    "passage": "bp-arithmetic",
+    "statement": "### Amplification and promise scales\n\nAt $\\tau=25k$,\n\n\\[\n\\varepsilon=(8/9)^{25k}\\le18^{-k}=a/18,\n\\qquad \\delta\\le a/32.\n\\]\n\nThe first follows by raising the exact integer inequality $18\\cdot8^{25}<9^{25}$ to the power $k$. The second follows from $32\\delta=32^{-(k-1)}\\le18^{-(k-1)}=a$. These are `QuarticQuery.ForrelationLower.eps_le` in `Uniform.lean` and `QuarticQuery.ForrelationLower.dl_le` in `Uniform.lean`, whose source proofs are present but uncompiled.\n\n### Uniform padding bound\n\nFor every $k\\ge1$,\n\n\\[\n\\left(1+\\frac1{50k}\\right)^k\\le\\frac{50}{49}<\\frac{81}{64}.\n\\]\n\nFor a proof using exact rational estimates, expand with the binomial theorem. Since $\\binom kj\\le k^j$, each term is at most $50^{-j}$, so the finite sum is at most the infinite geometric sum $50/49$. The existing source instead proves $1+x\\le e^x$, then $e^{1/50}\\le50/49$ from $e^{-1/50}\\ge49/50$. Both routes are correct. The strict comparison $50/49<81/64$ is the integer inequality $3200<3969$.\n\nThe existing exact statement is:\n\n[Exact proposed declaration types are in proposed_lean.]\n\n### Sharp main term\n\nAssume $L\\ge1$, $g>0$, $k=l+1$, $Y=m^{1-1/k}$,\n\n\\[\nL\\le\\frac{2Y}{18225k^2g},\\qquad\nK^2=16k(50kL+1)g,\\qquad K\\ge0.\n\\]\n\nBecause $50kL+1\\le(50k+1)L$,\n\n\\[\nK^2\\le\\left(1+\\frac1{50k}\\right)\\left(\\frac8{27}\\right)^2Y,\n\\]\n\nwhere the exact coefficient identity is $800(2/18225)=(8/27)^2$. Raise this to $k$, use $Y^k=m^{k-1}$, and multiply by $((3/16)/\\sqrt m)^{2(k-1)}$. Since $(3/16)(8/27)=1/18$, comparison of nonnegative squares gives\n\n\\[\n\\left(\\frac{3}{16\\sqrt m}\\right)^{k-1}K^k\n\\le\\frac8{27}\\sqrt{\\frac{50}{49}}a\n<\\frac8{27}\\frac98a=\\frac a3.\n\\]\n\nThe weak bound $\\le a/3$ is sufficient and convenient to formalise.\n\n### Signature, unelaborated\n\n[Exact proposed declaration types are in proposed_lean.]\n\nDependencies: pending `padding_pow_le`, arithmetic properties of `Real.rpow`, and the identity `mValue t = 2^(2*t)`. Copy the squared comparison strategy of `QuarticQuery.ForrelationLower.main_term_le` in `Uniform.lean`, replacing its constants. No irrational approximation is needed.\n\n### Sharp residual\n\nFor $l\\ge1$ and $t\\ge2$, $2^t\\ge4\\ge27/8$, so $(3/16)2^{-t}\\le1/18$. Also $2^{-(l+1)}\\le1/4$. Hence\n\n\\[\n\\left((3/16)2^{-t}\\right)^l2^{-(l+1)}\\le a/4.\n\\]\n\n### Signature, unelaborated\n\n[Exact proposed declaration types are in proposed_lean.]\n\nPair it with `growth_residual_eq` to match the unspecialised finite-contradiction expression. The older coarse proof requires $t\\ge6$; the sharper edge constant reduces this local requirement to $t\\ge2$.\n\n### Gap arithmetic\n\nFor $0\\le\\varepsilon\\le a/18$, $0<\\delta\\le a/32$, $0<a\\le1$, and $0\\le q\\le\\delta$, use $p\\ge a-\\delta$, $p\\le1$ to obtain\n\n\\[\n(1-\\varepsilon)p-\\varepsilon-q\n\\ge a-2\\delta-2\\varepsilon\n\\ge\\frac{119}{144}a>\\frac7{12}a.\n\\]\n\nIf instead $q\\le a/4$, the same calculation gives\n\n\\[\n(1-\\varepsilon)p-\\varepsilon-q\n\\ge a-\\delta-2\\varepsilon-q\n\\ge\\frac{175}{288}a>\\frac7{12}a.\n\\]\n\nFor the old size hypothesis, `QuarticQuery.ForrelationLower.q_le` in `Uniform.lean` proves the first alternative. For the subgaussian threshold, $m\\delta^2\\ge24k$, so $q\\le2e^{-3k}\\le a/4$: indeed $\\ln(8/a)=\\ln8+(k-1)\\ln18\\le k\\ln18<3k$. These estimates also prove a positive gap for depth zero, independently of any advantage bound.",
+    "why_needed": "Records the exact smaller implementation claims displayed in the dependency-order blueprint.",
+    "depends_on": [
+      "r2-sharp-elementary-proof",
+      "r2-sharp-original-constant",
+      "r2-sharp-threshold"
+    ],
+    "proposed_lean": "-- Unelaborated. Namespace QuarticQuery.ForrelationLower unless fully qualified below.\n-- Open MeasureTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower.\n-- Use classical decidability for indicators; import ForrelationLower.Main and Forrelation.Product.\n\n-- Existing source, uncompiled in this attachment.\ntheorem padding_pow_le (l : ℕ) :\n    (1 + 1 / (50 * ((l + 1 : ℕ) : ℝ))) ^ (l + 1) ≤ 50 / 49\n\ntheorem main_term_le_sharp\n    {l t : ℕ} {L lg K : ℝ} (hL1 : 1 ≤ L) (hlg : 0 < lg)\n    (hL : L ≤ (2 / 18225 : ℝ) *\n      Real.rpow (mValue t : ℝ) (1 - 1 / ((l + 1 : ℕ) : ℝ)) /\n      (((l + 1 : ℕ) : ℝ) ^ 2 * lg))\n    (hK0 : 0 ≤ K)\n    (hKsq : K ^ 2 = 16 * ((l + 1 : ℕ) : ℝ) *\n      (50 * ((l + 1 : ℕ) : ℝ) * L + 1) * lg) :\n    ((3 / 16 : ℝ) * ((2 : ℝ) ^ t)⁻¹) ^ l * K ^ (l + 1) ≤\n      (1 / 18 : ℝ) ^ l / 3\n\ntheorem tail_le_sharp\n    {l t : ℕ} (hl : 0 < l) (ht : 2 ≤ t) :\n    ((3 / 16 : ℝ) * ((2 : ℝ) ^ t)⁻¹) ^ l *\n      (1 / 2 : ℝ) ^ (l + 1) ≤ (1 / 18 : ℝ) ^ l / 4",
+    "route_note": "The proof and dependencies appear in this blueprint passage. These are proposed implementation targets, not existing kernel evidence. Existing source statements such as padding_pow_le should be reused after compilation rather than duplicated. The published SSW input remains external and explicit. General dimension and leaf-vocabulary limitations are described in LEAN_GAPS.md.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": []
+  },
+  {
+    "id": "r2-impl-elementary-endpoints",
+    "passage": "bp-elementary-endpoints",
+    "statement": "### Original numerical endpoint, unelaborated\n\n[Exact proposed declaration types are in proposed_lean.]\n\nComplete proof: handle $L=0$ by input-independent acceptance and the positive promise gap, or compile and use the source proposals `not_RLe_zero_of_yes_no`, `exists_P_yes`, and `exists_P_no`. For $L>0$, set $\\tau=25(l+1)$, $\\Lambda=2(l+1)\\ln(4(l+1)m)$, $d=2\\tau L+1$, $K=\\sqrt{8d\\Lambda}$. Apply the new finite contradiction theorem using main term $a/3$, residual $a/4$, and the gap arithmetic. To pass to $R$, use the compiled `RLe_R` at $L=R(P\\,k\\,t)$ and argue by contradiction; this is shorter than the current floor detour and gives strict $R>C$ directly.\n\n### Strengthened-threshold endpoint, unelaborated\n\n[Exact proposed declaration types are in proposed_lean.]\n\nThis theorem adds the null-tail lemma and $q\\le a/4$ arithmetic to the same dependency chain. Its type uses only existing public vocabulary. The source does not contain the subgaussian tail or this statement.",
+    "why_needed": "Records the exact smaller implementation claims displayed in the dependency-order blueprint.",
+    "depends_on": [
+      "r2-sharp-elementary-result",
+      "r2-sharp-original-constant"
+    ],
+    "proposed_lean": "-- Unelaborated. Namespace QuarticQuery.ForrelationLower unless fully qualified below.\n-- Open MeasureTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower.\n-- Use classical decidability for indicators; import ForrelationLower.Main and Forrelation.Product.\n\ntheorem not_RLe_uniform_sharp\n    {l t L : ℕ} (hl : 0 < l)\n    (ht : 15 * (l + 1) + 2 ≤ 2 * t)\n    (hL : (L : ℝ) ≤ (2 / 18225 : ℝ) *\n      Real.rpow (mValue t : ℝ) (1 - 1 / ((l + 1 : ℕ) : ℝ)) /\n      (((l + 1 : ℕ) : ℝ) ^ 2 *\n        Real.log (4 * ((l + 1 : ℕ) : ℝ) * (mValue t : ℝ)))) :\n    ¬ RLe (P (l + 1) t) L\n\ntheorem forrelation_lower_uniform_sharp\n    (k t : ℕ) (hk : 2 ≤ k) (ht : 15 * k + 2 ≤ 2 * t) :\n    (2 / 18225 : ℝ) *\n      Real.rpow (mValue t : ℝ) (1 - 1 / (k : ℝ)) /\n      ((k : ℝ) ^ 2 * Real.log (4 * (k : ℝ) * (mValue t : ℝ))) <\n    (R (P k t) : ℝ)\n\ntheorem forrelation_lower_uniform_sharp_subgaussian\n    (k t : ℕ) (hk : 2 ≤ k)\n    (hm : 24 * k * 32 ^ (2 * k) ≤ mValue t) :\n    (2 / 18225 : ℝ) *\n      Real.rpow (mValue t : ℝ) (1 - 1 / (k : ℝ)) /\n      ((k : ℝ) ^ 2 * Real.log (4 * (k : ℝ) * (mValue t : ℝ))) <\n    (R (P k t) : ℝ)",
+    "route_note": "The proof and dependencies appear in this blueprint passage. These are proposed implementation targets, not existing kernel evidence. Existing source statements such as padding_pow_le should be reused after compilation rather than duplicated. The published SSW input remains external and explicit. General dimension and leaf-vocabulary limitations are described in LEAN_GAPS.md.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": []
+  },
+  {
+    "id": "r2-impl-ssw-input",
+    "passage": "bp-ssw-input",
+    "statement": "Fix an absolute constant $C\\ge1$ such that every Boolean-valued decision tree $T$ of depth at most $d$ on $n$ sign variables satisfies\n\\[\n \\sum_{|S|=j}|\\widehat T(S)|\n \\le C^j\\sqrt{\\binom dj}\\,(1+\\ln n)^{(j-1)/2},\n \\qquad 1\\le j\\le n.                                        \\tag{2}\n\\]\nSuch a constant exists by Sherstov, Storozhenko and Wu (2023), Corollary 4.14, printed p. 35 of arXiv:2008.10223v4. Their Corollary 4.15 allows arbitrary leaves in $[-1,1]$. The introductory Theorem 1.9 uses base-two logarithms; Corollary 4.14 already has the convention in (2). The statement leaves $C$ numerical but unspecified.\n\n### Signature, unelaborated\n\n[Exact proposed declaration types are in proposed_lean.]\n\nExternal theorem, absent from supplied Lean. The signature is a universal proof obligation, not an axiom added to the project. Corollary 4.14 directly covers Boolean acceptance and {−1,0,1}; Corollary 4.15 implies the two-valued bounded-real encoding in this signature. QueryTree together with val:Bool→ℝ permits only two distinct leaf labels, so it does not encode Corollary 4.15 in full generality. That larger leaf vocabulary is not required for the acceptance-probability applications in this note.",
+    "why_needed": "Records the exact smaller implementation claims displayed in the dependency-order blueprint.",
+    "depends_on": [
+      "r2-sharp-ssw-input"
+    ],
+    "proposed_lean": "-- Unelaborated. Namespace QuarticQuery.ForrelationLower unless fully qualified below.\n-- Open MeasureTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower.\n-- Use classical decidability for indicators; import ForrelationLower.Main and Forrelation.Product.\n\n-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main and QuarticQuery.Forrelation.Product.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.exists_ssw_constant :\n  ∃ C : ℝ, 1 ≤ C ∧\n    ∀ (ι : Type) [Fintype ι] [DecidableEq ι]\n      (T : QueryTree ι) (val : Bool → ℝ), (∀ b, |val b| ≤ 1) →\n      ∀ (j d : ℕ), 0 < j → T.depth ≤ d →\n      (∑ S ∈ (Finset.univ : Finset ι).powersetCard j,\n        |ext (Dl S.toList (fun z => val (T.eval z))) 0|) ≤\n      C ^ j * Real.sqrt ((Nat.choose d j : ℕ) : ℝ) *\n        Real.rpow (1 + Real.log (Fintype.card ι : ℝ)) (((j : ℝ) - 1) / 2)",
+    "route_note": "The proof and dependencies appear in this blueprint passage. These are proposed implementation targets, not existing kernel evidence. Existing source statements such as padding_pow_le should be reused after compilation rather than duplicated. The published SSW input remains external and explicit. General dimension and leaf-vocabulary limitations are described in LEAN_GAPS.md.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": []
+  },
+  {
+    "id": "r2-impl-path-profile",
+    "passage": "bp-path-profile",
+    "statement": "For the biases (10), choose $v_i=1/2$ in the endpoint blocks and $v_i=3/4$ in every intermediate block. Every path $S_p$ has the same free-probability product\n$\\frac14(\\frac34)^{k-2}$.\nTaking absolute values in (22), summing over these distinct path sets, and applying (2) to each restricted tree gives\n\\[\n \\sum_p|\\partial_{S_p}\\widetilde T(w_s)|\n \\le4(4/3)^{k-2}C^k\\sqrt{\\binom dk}\n                (1+\\ln(km))^{(k-1)/2}.                    \\tag{23}\n\\]\nRestrictions do not increase depth. The ambient dimension may remain $km$ even when some coordinates have been fixed; this avoids any empty-domain logarithm convention.\n\n### Signature, unelaborated\n\n[Exact proposed declaration types are in proposed_lean.]\n\nConditional on explicit SSW Fourier hypothesis. Lpath_nodup and Lpath_inj guarantee no multiplicity factor. New restriction-depth lemma is also needed; it is elementary recursion.",
+    "why_needed": "Records the exact smaller implementation claims displayed in the dependency-order blueprint.",
+    "depends_on": [
+      "r2-sharp-path-restriction"
+    ],
+    "proposed_lean": "-- Unelaborated. Namespace QuarticQuery.ForrelationLower unless fully qualified below.\n-- Open MeasureTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower.\n-- Use classical decidability for indicators; import ForrelationLower.Main and Forrelation.Product.\n\n-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main and QuarticQuery.Forrelation.Product.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.path_profile_fourier_bound\n    (C : ℝ) (hC : 1 ≤ C)\n    (hFourier : ∀ (ι : Type) [Fintype ι] [DecidableEq ι]\n      (T : QueryTree ι) (val : Bool → ℝ), (∀ b, |val b| ≤ 1) →\n      ∀ j : ℕ, 0 < j →\n      (∑ S ∈ (Finset.univ : Finset ι).powersetCard j,\n        |ext (Dl S.toList (fun z => val (T.eval z))) 0|) ≤\n      C ^ j * Real.sqrt ((Nat.choose T.depth j : ℕ) : ℝ) *\n        Real.rpow (1 + Real.log (Fintype.card ι : ℝ)) (((j : ℝ) - 1) / 2))\n    {n : Type} [Fintype n] [DecidableEq n] [Nonempty n]\n    {l d : ℕ} (hl : 0 < l) (H : Matrix n n ℝ)\n    {s : ℝ} (hs : |s| ≤ 1) (u : PC l n → ℝ)\n    (T : QueryTree (BC l n)) (hT : T.depth ≤ d)\n    (val : Bool → ℝ) (hval : ∀ b, |val b| ≤ 1) :\n    (∑ p : n × (Fin l → n),\n      |ext (Dl (Lpath l p) (fun z => val (T.eval z))) (wv H s u)|) ≤\n    4 * (4 / 3 : ℝ) ^ (l - 1) * C ^ (l + 1) *\n      Real.sqrt ((Nat.choose d (l + 1) : ℕ) : ℝ) *\n      Real.rpow (1 + Real.log (((l + 1 : ℕ) : ℝ) * (Fintype.card n : ℝ)))\n        ((l : ℝ) / 2)\n\ntheorem QuarticQuery.ForrelationLower.Round2.path_profile_product\n    {n : Type} {l : ℕ} (hl : 0 < l) (p : n × (Fin l → n)) :\n    let v : BC l n → ℝ := fun c =>\n      if c.1.val = 0 ∨ c.1.val = l then (1 / 2 : ℝ) else (3 / 4 : ℝ)\n    ((Lpath l p).map v).prod = (1 / 4 : ℝ) * (3 / 4 : ℝ) ^ (l - 1)",
+    "route_note": "The proof and dependencies appear in this blueprint passage. These are proposed implementation targets, not existing kernel evidence. Existing source statements such as padding_pow_le should be reused after compilation rather than duplicated. The published SSW input remains external and explicit. General dimension and leaf-vocabulary limitations are described in LEAN_GAPS.md.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": []
+  },
+  {
+    "id": "r2-impl-finite-sharp",
+    "passage": "bp-finite-sharp",
+    "statement": "Using (23) in place of Lemma 11, and the identity\n$b^{k-1}4(4/3)^{k-2}=3/4^{k-1}$, gives the sharper finite comparison\n\\[\n \\boxed{\\quad\n \\Gamma_*(\\varepsilon,q)\n \\le \\frac{3C^k}{4^{k-1}}\n       \\sqrt{\\binom{2\\tau L}{k}}\n       \\left(\\frac{1+\\ln(km)}m\\right)^{(k-1)/2}.\n \\quad}                                                    \\tag{29}\n\\]\nThis inequality includes all finite parameters, before relaxing the binomial coefficient. In particular, a positive gap forces $2\\tau L\\ge k$.\nFor any positive lower bound $\\gamma\\le\\Gamma_*(\\varepsilon,q)$, the elementary estimate\n$\\binom dk\\le(ed/k)^k$ yields\n\\[\n L\\ge\n \\frac{k}{2e\\tau C^2}\n \\left(\\frac{\\gamma4^{k-1}}3\\right)^{2/k}\n \\left(\\frac m{1+\\ln(km)}\\right)^{1-1/k}.                   \\tag{30}\n\\]\nThe binomial estimate follows from $\\binom dk\\le d^k/k!$ and\n$\\ln(k!)\\ge\\int_1^k\\ln x\\,dx=k\\ln k-k+1$.\nEquations (28)–(30), with a freely chosen integer $\\tau$ and the exact defined gap, are stronger than the simplified uniform corollaries.\n\n### Signature, unelaborated\n\n[Exact proposed declaration types are in proposed_lean.]\n\nExternal SSW hypothesis explicit. No asymptotic threshold is hidden. The binomial inversion is a separate arithmetic proof within this target; neither SSW nor this assembly is present as compiled source.",
+    "why_needed": "Records the exact smaller implementation claims displayed in the dependency-order blueprint.",
+    "depends_on": [
+      "r2-sharp-finite-sharp"
+    ],
+    "proposed_lean": "-- Unelaborated. Namespace QuarticQuery.ForrelationLower unless fully qualified below.\n-- Open MeasureTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower.\n-- Use classical decidability for indicators; import ForrelationLower.Main and Forrelation.Product.\n\n-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main and QuarticQuery.Forrelation.Product.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.finite_sharp\n    (C : ℝ) (hC : 1 ≤ C)\n    (hFourier : ∀ (ι : Type) [Fintype ι] [DecidableEq ι]\n      (T : QueryTree ι) (val : Bool → ℝ), (∀ b, |val b| ≤ 1) →\n      ∀ j : ℕ, 0 < j →\n      (∑ S ∈ (Finset.univ : Finset ι).powersetCard j,\n        |ext (Dl S.toList (fun z => val (T.eval z))) 0|) ≤\n      C ^ j * Real.sqrt ((Nat.choose T.depth j : ℕ) : ℝ) *\n        Real.rpow (1 + Real.log (Fintype.card ι : ℝ)) (((j : ℝ) - 1) / 2))\n    (k t L τ : ℕ) (hk : 2 ≤ k) (hτ : 0 < τ)\n    {η ε q : ℝ} (hη0 : 0 < η) (hη1 : η ≤ 1)\n    (hε0 : 0 ≤ ε) (hε1 : ε ≤ 1) (hε : (1 - η ^ 2) ^ τ ≤ ε)\n    (A : RandomizedProgram (ForrelationCoord k t)) (hdepth : A.depth ≤ L)\n    (hsuccess : ∀ x b, P k t x = some b → (1 + η) / 2 ≤ A.success x b)\n    (hq : ext (fun z : ForrelationCoord k t → Bool =>\n      if dl k / 2 < |Phi k t z| then (1 : ℝ) else 0) 0 ≤ q) :\n    let δ := dl k\n    let a := (1 / 18 : ℝ) ^ (k - 1)\n    let gap := (1 - ε) * ((a - δ) / (1 - δ) - q) - ε\n    (gap ≤ (3 * C ^ k / (4 : ℝ) ^ (k - 1)) *\n      Real.sqrt ((Nat.choose (2 * τ * L) k : ℕ) : ℝ) *\n      Real.rpow ((1 + Real.log ((k : ℝ) * (mValue t : ℝ))) / (mValue t : ℝ))\n        (((k : ℝ) - 1) / 2)) ∧\n    (0 < gap → k ≤ 2 * τ * L) ∧\n    (∀ γ : ℝ, 0 < γ → γ ≤ gap →\n      ((k : ℝ) / (2 * Real.exp 1 * (τ : ℝ) * C ^ 2)) *\n        Real.rpow (γ * (4 : ℝ) ^ (k - 1) / 3) (2 / (k : ℝ)) *\n        Real.rpow ((mValue t : ℝ) / (1 + Real.log ((k : ℝ) * (mValue t : ℝ))))\n          (1 - 1 / (k : ℝ)) ≤ (L : ℝ))\n\ntheorem QuarticQuery.ForrelationLower.Round2.profile_edge_factor\n    (k : ℕ) (hk : 2 ≤ k) :\n    (3 / 16 : ℝ) ^ (k - 1) * 4 * (4 / 3 : ℝ) ^ (k - 2) =\n      3 / (4 : ℝ) ^ (k - 1)",
+    "route_note": "The proof and dependencies appear in this blueprint passage. These are proposed implementation targets, not existing kernel evidence. Existing source statements such as padding_pow_le should be reused after compilation rather than duplicated. The published SSW input remains external and explicit. General dimension and leaf-vocabulary limitations are described in LEAN_GAPS.md.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": []
+  },
+  {
+    "id": "r2-impl-sharp-arithmetic",
+    "passage": "bp-sharp-arithmetic",
+    "statement": "*Proof of Theorem 1.* Set\n$\\tau=\\lceil5k\\ln2/\\eta^2\\rceil$.\nThen $\\varepsilon_\\tau\\le\\delta$ and\n$\\tau\\le(5\\ln2+1/2)k/\\eta^2<4k/\\eta^2$.\nHere $k\\ge2$ and $\\eta\\le1$ absorb the rounding by $1/2$, and\n$\\ln2<7/10$ follows from\n$\\sum_{j=0}^4(7/10)^j/j!>2$.\nSince $\\delta\\le a/32$ and $(1-\\delta)p=a-\\delta$, Lemma 9 gives\n\\[\n \\Gamma(\\varepsilon_\\tau,q_*)\n \\ge a-2\\delta-a/4\\ge\\frac{11a}{16}.                        \\tag{32}\n\\]\nFor every $\\alpha\\ge2/3$,\n\\[\n \\left(\\frac{\\alpha a\\,4^{k-1}}3\\right)^{2/k}\n     =\\frac4{81}\\left(\\frac{3\\alpha}{2}\\right)^{2/k}\n     \\ge\\frac4{81}.                                        \\tag{33}\n\\]\nWe may use $\\alpha=11/16$, since $3\\alpha/2=33/32>1$. Substitute (32)–(33) and the upper bound for $\\tau$ into (30). The coefficient is\n$(8eC^2)^{-1}(4/81)=1/(162eC^2)$, proving (3). ∎\n\n### Signature, unelaborated\n\n[Exact proposed declaration types are in proposed_lean.]\n\nNew elementary parameter assembly. The ceil rounding is uniform in k and η. Source exists_amplified covers only error1/3, so it does not discharge the general-η part.",
+    "why_needed": "Records the exact smaller implementation claims displayed in the dependency-order blueprint.",
+    "depends_on": [
+      "r2-sharp-sharp-proof"
+    ],
+    "proposed_lean": "-- Unelaborated. Namespace QuarticQuery.ForrelationLower unless fully qualified below.\n-- Open MeasureTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower.\n-- Use classical decidability for indicators; import ForrelationLower.Main and Forrelation.Product.\n\n-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main and QuarticQuery.Forrelation.Product.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.sharp_amplification_choice\n    (k : ℕ) (hk : 2 ≤ k) {η : ℝ} (hη0 : 0 < η) (hη1 : η ≤ 1) :\n    let τ := Nat.ceil (5 * (k : ℝ) * Real.log 2 / η ^ 2)\n    0 < τ ∧ (1 - η ^ 2) ^ τ ≤ dl k ∧ (τ : ℝ) < 4 * (k : ℝ) / η ^ 2\n\ntheorem QuarticQuery.ForrelationLower.Round2.sharp_gap_arithmetic\n    {a δ ε q : ℝ} (ha0 : 0 < a) (ha1 : a ≤ 1)\n    (hδ0 : 0 ≤ δ) (hδ : δ ≤ a / 32)\n    (hε0 : 0 ≤ ε) (hε : ε ≤ δ) (hq : q ≤ a / 4) :\n    (11 / 16 : ℝ) * a ≤ (1 - ε) * ((a - δ) / (1 - δ)) - ε - q\n\ntheorem QuarticQuery.ForrelationLower.Round2.sharp_power_arithmetic\n    (k : ℕ) (hk : 2 ≤ k) {α : ℝ} (hα : (2 / 3 : ℝ) ≤ α) :\n    let x := Real.rpow (α * (1 / 18 : ℝ) ^ (k - 1) * (4 : ℝ) ^ (k - 1) / 3)\n      (2 / (k : ℝ))\n    x = (4 / 81 : ℝ) * Real.rpow (3 * α / 2) (2 / (k : ℝ)) ∧\n    (4 / 81 : ℝ) ≤ x",
+    "route_note": "The proof and dependencies appear in this blueprint passage. These are proposed implementation targets, not existing kernel evidence. Existing source statements such as padding_pow_le should be reused after compilation rather than duplicated. The published SSW input remains external and explicit. General dimension and leaf-vocabulary limitations are described in LEAN_GAPS.md.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": []
+  },
+  {
+    "id": "r2-impl-sharp-endpoint",
+    "passage": "bp-sharp-endpoint",
+    "statement": "**Theorem 1.** Let $C$ satisfy (2). For every integer $k\\ge2$, every power of two $m\\ge24k\\,32^{2k}$, and every $0<\\eta\\le1$,\n\\[\n R_{(1-\\eta)/2}(P_{k,m})\\ge\n \\frac{\\eta^2}{162eC^2}\n \\left(\\frac{m}{1+\\ln(km)}\\right)^{1-1/k}.                    \\tag{3}\n\\]\nThe conclusion also holds under the smaller, nonintegral sufficient threshold\n\\[\n m\\ge 8\\,32^{2k}\\ln\\!\\left(8\\,18^{k-1}\\right).               \\tag{4}\n\\]\nThe theorem is proved below using the published estimate (2). Its full quantitative statement and the new tail argument have not been compiled in Lean.\n\n### Signature, unelaborated\n\n[Exact proposed declaration types are in proposed_lean.]\n\nNew quantitative endpoint; SSW is explicit in hFourier. The signature states the lower bound for every successful RandomizedProgram because the supplied public vocabulary defines R only at error1/3. Its equivalence to the variable-error minimum follows by taking a minimum over such programs. The exact existing coordinate vocabulary restricts the signature to m=4^t; extending public dimensions to every power of two remains a separate model generalization.\n\nProof: use the tail threshold, amplification choice and gap from the preceding sections in the finite comparison. Taking gamma=11a/16 gives the power factor at least4/81, while k/(2 tau) is greater than eta²/8. The resulting constant is eta²/(162eC²). No statement that SSW has been formalized is used.",
+    "why_needed": "Records the exact smaller implementation claims displayed in the dependency-order blueprint.",
+    "depends_on": [
+      "r2-sharp-sharp-result"
+    ],
+    "proposed_lean": "-- Unelaborated. Namespace QuarticQuery.ForrelationLower unless fully qualified below.\n-- Open MeasureTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower.\n-- Use classical decidability for indicators; import ForrelationLower.Main and Forrelation.Product.\n\n-- Unelaborated; no Lean compiler was run.\n-- Imports: QuarticQuery.ForrelationLower.Main and QuarticQuery.Forrelation.Product.\nopen Classical MeasureTheory ProbabilityTheory Finset QuarticQuery QuarticQuery.Forrelation QuarticQuery.ForrelationLower\nopen scoped BigOperators\ntheorem QuarticQuery.ForrelationLower.Round2.sharp_uniform_of_fourier\n    (C : ℝ) (hC : 1 ≤ C)\n    (hFourier : ∀ (ι : Type) [Fintype ι] [DecidableEq ι]\n      (T : QueryTree ι) (val : Bool → ℝ), (∀ b, |val b| ≤ 1) →\n      ∀ j : ℕ, 0 < j →\n      (∑ S ∈ (Finset.univ : Finset ι).powersetCard j,\n        |ext (Dl S.toList (fun z => val (T.eval z))) 0|) ≤\n      C ^ j * Real.sqrt ((Nat.choose T.depth j : ℕ) : ℝ) *\n        Real.rpow (1 + Real.log (Fintype.card ι : ℝ)) (((j : ℝ) - 1) / 2))\n    (k t : ℕ) (hk : 2 ≤ k)\n    (hm : 8 * (32 : ℝ) ^ (2 * k) * Real.log (8 * (18 : ℝ) ^ (k - 1))\n      ≤ (mValue t : ℝ))\n    {η : ℝ} (hη0 : 0 < η) (hη1 : η ≤ 1)\n    (A : RandomizedProgram (ForrelationCoord k t))\n    (hsuccess : ∀ x b, P k t x = some b → (1 + η) / 2 ≤ A.success x b) :\n    η ^ 2 / (162 * Real.exp 1 * C ^ 2) *\n      Real.rpow ((mValue t : ℝ) /\n        (1 + Real.log ((k : ℝ) * (mValue t : ℝ))))\n        (1 - 1 / (k : ℝ)) ≤ (A.depth : ℝ)",
+    "route_note": "The proof and dependencies appear in this blueprint passage. These are proposed implementation targets, not existing kernel evidence. Existing source statements such as padding_pow_le should be reused after compilation rather than duplicated. The published SSW input remains external and explicit. General dimension and leaf-vocabulary limitations are described in LEAN_GAPS.md.",
+    "formal_status": "unelaborated; not compiled in this return",
+    "existing_support": []
+  }
+]

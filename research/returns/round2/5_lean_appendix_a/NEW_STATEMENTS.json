@@ -1,0 +1,251 @@
+[
+  {
+    "id": "new-A-adversary-budget",
+    "statement": "For every QLe(totalise f,T) witness and symmetric entrywise nonnegative opposite-output-supported Gamma, if all coordinate mask norms are at most M>=0, then ||Gamma|| <=35 T M.",
+    "why_needed": "Expose the same-cost algorithm-cap version of general A.2, including zero and constant cases.",
+    "depends_on": [
+      "lem-A.2",
+      "def-Q"
+    ],
+    "proposed_lean": "theorem appendixA_matrixNorm_le_of_QLe {n : ℕ} {f : TotalBool (Fin n)} {t : ℕ}\n    (hq : QLe (totalise f) t)\n    (Γ : Matrix (BitInput (Fin n)) (BitInput (Fin n)) ℝ)\n    (hsym : ∀ x y, Γ x y = Γ y x) (hΓ : ∀ x y, 0 ≤ Γ x y)\n    (hzero : ∀ x y, f x = f y → Γ x y = 0)\n    {M : ℝ} (hM : 0 ≤ M)\n    (hcoord : ∀ i, ‖Matrix.toEuclideanCLM (𝕜 := ℝ)\n      (fun x y => if x i ≠ y i then Γ x y else 0)‖ ≤ M) :\n    ‖Matrix.toEuclideanCLM (𝕜 := ℝ) Γ‖ ≤ 35 * (t : ℝ) * M",
+    "route_note": "General Perron-progress proof, followed by the existing adaptive-to-fixed-sequence bridge.",
+    "declaration": "QuarticQuery.Paper.appendixA_matrixNorm_le_of_QLe",
+    "file": "lean/QuarticQuery/Paper/AppendixASpectralAdversary.lean",
+    "compiled": false,
+    "signature_context": "QuarticQuery.Paper with the source open namespaces/scopes. New matrix and star abbreviations have been expanded in proposed_lean, so its types use Statement.lean vocabulary plus existing pinned Mathlib/complexitylib declarations. The source declaration may use the equivalent returned abbreviations."
+  },
+  {
+    "id": "new-A-A3-explicit",
+    "statement": "For every total Boolean f, bs(f)<=1225 Q(f)^2 and lambda(f)<=35 Q(f).",
+    "why_needed": "Record the exact uniform constants used by the new assembly and their constant-function coverage.",
+    "depends_on": [
+      "lem-A.3.bs",
+      "lem-A.3.lambda"
+    ],
+    "proposed_lean": "theorem appendixA_lemmaA3_adversary {n : ℕ} (f : TotalBool (Fin n)) :\n    blockSensitivity f ≤ 1225 * Q (totalise f) ^ 2 ∧\n      spectralSensitivity f ≤ 35 * Q (totalise f)",
+    "route_note": "Both inequalities use general A.2 with the star and the sensitivity matrix respectively.",
+    "declaration": "QuarticQuery.Paper.appendixA_lemmaA3_adversary",
+    "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+    "compiled": false,
+    "signature_context": "QuarticQuery.Paper with the source open namespaces/scopes. New matrix and star abbreviations have been expanded in proposed_lean, so its types use Statement.lean vocabulary plus existing pinned Mathlib/complexitylib declarations. The source declaration may use the equivalent returned abbreviations."
+  },
+  {
+    "id": "new-A-imported-pair",
+    "statement": "For every total Boolean f, bs(f)<=16 Q(f)^2 and lambda(f)<=36 Q(f).",
+    "why_needed": "Keep the original library numerical route distinct from the new star route.",
+    "depends_on": [
+      "lem-A.3.bs",
+      "lem-A.3.lambda"
+    ],
+    "proposed_lean": "theorem appendixA_lemmaA3 {n : ℕ} (f : TotalBool (Fin n)) :\n    blockSensitivity f ≤ 16 * Q (totalise f) ^ 2 ∧\n      spectralSensitivity f ≤ 36 * Q (totalise f)",
+    "route_note": "Alternative polynomial block bound and specialized two-vector absolute-overlap spectral bound.",
+    "declaration": "QuarticQuery.Paper.appendixA_lemmaA3",
+    "file": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+    "compiled": false,
+    "signature_context": "QuarticQuery.Paper with the source open namespaces/scopes. New matrix and star abbreviations have been expanded in proposed_lean, so its types use Statement.lean vocabulary plus existing pinned Mathlib/complexitylib declarations. The source declaration may use the equivalent returned abbreviations."
+  },
+  {
+    "id": "new-A-star-norm",
+    "statement": "The real adjacency matrix of a star with center c and finite leaf set L, c not in L, has Euclidean operator norm sqrt(|L|). The empty leaf set is allowed.",
+    "why_needed": "Expose the exact inline star-norm assertion used in the paper, including its otherwise unused upper inequality.",
+    "depends_on": [
+      "def-Gamma-i",
+      "lem-A.3.bs"
+    ],
+    "proposed_lean": "theorem appendixA_star_norm_eq_sqrt_card {α : Type*} [Fintype α] [DecidableEq α]\n    (c : α) (L : Finset α) (hc : c ∉ L) :\n    ‖Matrix.toEuclideanCLM (𝕜 := ℝ)\n      (∑ y ∈ L, (fun u v : α =>\n        (if u = c then (1 : ℝ) else 0) * (if v = y then 1 else 0) +\n        (if u = y then 1 else 0) * (if v = c then 1 else 0)))‖ = √(L.card : ℝ)",
+    "route_note": "Unit-center lower bound and finite Cauchy-Schwarz upper bound.",
+    "declaration": "QuarticQuery.Paper.appendixA_star_norm_eq_sqrt_card",
+    "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+    "compiled": false,
+    "signature_context": "QuarticQuery.Paper with the source open namespaces/scopes. New matrix and star abbreviations have been expanded in proposed_lean, so its types use Statement.lean vocabulary plus existing pinned Mathlib/complexitylib declarations. The source declaration may use the equivalent returned abbreviations."
+  },
+  {
+    "id": "new-A-matching-mask",
+    "statement": "Every coordinate mask of the sensitivity adjacency matrix has Euclidean operator norm at most one.",
+    "why_needed": "State explicitly the partial-matching ingredient in the second application of A.2.",
+    "depends_on": [
+      "def-Sf",
+      "def-Gamma-i"
+    ],
+    "proposed_lean": "theorem appendixA_sensitivity_mask_norm_le_one {n : ℕ}\n    (f : TotalBool (Fin n)) (i : Fin n) :\n    ‖Matrix.toEuclideanCLM (𝕜 := ℝ)\n      (fun x y : BitInput (Fin n) => if x i ≠ y i then\n        (Cslib.BitString.sensitivityGraph f).adjMatrix ℝ x y else 0)‖ ≤ 1",
+    "route_note": "Explicit action followed by squared-norm reindexing under the involutive coordinate flip.",
+    "declaration": "QuarticQuery.Paper.appendixA_sensitivity_mask_norm_le_one",
+    "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+    "compiled": false,
+    "signature_context": "QuarticQuery.Paper with the source open namespaces/scopes. New matrix and star abbreviations have been expanded in proposed_lean, so its types use Statement.lean vocabulary plus existing pinned Mathlib/complexitylib declarations. The source declaration may use the equivalent returned abbreviations."
+  },
+  {
+    "id": "new-A-maximal-coefficient",
+    "statement": "If |S|=degree(f), then for every outside assignment z, the sign Fourier coefficient at S of x -> f(S.piecewise x z) equals the original coefficient at S.",
+    "why_needed": "Expose the all-assignments coefficient preservation assertion needed by the actual-face proof.",
+    "depends_on": [
+      "def-deg",
+      "claim-restrict-parity"
+    ],
+    "proposed_lean": "theorem appendixA_topFourier_survives {n : ℕ} (f : TotalBool (Fin n))\n    (S : Finset (Fin n)) (hS : #S = degree f) (z : BitInput (Fin n)) :\n    fourierCoeff (fun x => signVal (f (S.piecewise x z))) S =\n      fourierCoeff (fun x => signVal (f x)) S",
+    "route_note": "Specialize fourierCoeff_piecewise and eliminate every strict superset by degree.",
+    "declaration": "QuarticQuery.Paper.appendixA_topFourier_survives",
+    "file": "lean/QuarticQuery/Paper/AppendixARestriction.lean",
+    "compiled": false,
+    "signature_context": "QuarticQuery.Paper with the source open namespaces/scopes. New matrix and star abbreviations have been expanded in proposed_lean, so its types use Statement.lean vocabulary plus existing pinned Mathlib/complexitylib declarations. The source declaration may use the equivalent returned abbreviations."
+  },
+  {
+    "id": "new-A-degree-budget",
+    "statement": "QLe(totalise f,T) implies degree(f)<=1225 T^2.",
+    "why_needed": "Make the intermediate degree bound and common query cap explicit in the final calculation.",
+    "depends_on": [
+      "lem-A.3.lambda",
+      "lem-A.4"
+    ],
+    "proposed_lean": "theorem appendixA_degree_le_of_QLe {n : ℕ} {f : TotalBool (Fin n)} {t : ℕ}\n    (hq : QLe (totalise f) t) : degree f ≤ 1225 * t ^ 2",
+    "route_note": "Combine the new sensitivity-graph adversary with appendixA4_paper_route.",
+    "declaration": "QuarticQuery.Paper.appendixA_degree_le_of_QLe",
+    "file": "lean/QuarticQuery/Paper/AppendixA.lean",
+    "compiled": false,
+    "signature_context": "QuarticQuery.Paper with the source open namespaces/scopes. New matrix and star abbreviations have been expanded in proposed_lean, so its types use Statement.lean vocabulary plus existing pinned Mathlib/complexitylib declarations. The source declaration may use the equivalent returned abbreviations."
+  },
+  {
+    "id": "new-A-quartic-budget",
+    "statement": "QLe(totalise f,T) implies D(totalise f)<=1500625 T^4.",
+    "why_needed": "Assemble A.2-A.5 at one algorithm witness before taking the query minimum.",
+    "depends_on": [
+      "new-A-A3-explicit",
+      "new-A-degree-budget",
+      "lem-A.5"
+    ],
+    "proposed_lean": "theorem appendixA_D_le_of_QLe {n : ℕ} {f : TotalBool (Fin n)} {t : ℕ}\n    (hq : QLe (totalise f) t) : D (totalise f) ≤ 1500625 * t ^ 4",
+    "route_note": "The appendix ingredient sequence; local multiplicity proof uses parity conjugation.",
+    "declaration": "QuarticQuery.Paper.appendixA_D_le_of_QLe",
+    "file": "lean/QuarticQuery/Paper/AppendixA.lean",
+    "compiled": false,
+    "signature_context": "QuarticQuery.Paper with the source open namespaces/scopes. New matrix and star abbreviations have been expanded in proposed_lean, so its types use Statement.lean vocabulary plus existing pinned Mathlib/complexitylib declarations. The source declaration may use the equivalent returned abbreviations."
+  },
+  {
+    "id": "new-A-quartic-minimum",
+    "statement": "For every total Boolean f, D(totalise f)<=1500625 Q(totalise f)^4.",
+    "why_needed": "Record the explicit constant and absence of an additive one in the direct deterministic conclusion.",
+    "depends_on": [
+      "new-A-quartic-budget",
+      "def-Q"
+    ],
+    "proposed_lean": "theorem appendixA_D_le_Q_pow_four {n : ℕ} (f : TotalBool (Fin n)) :\n    D (totalise f) ≤ 1500625 * Q (totalise f) ^ 4",
+    "route_note": "Use QLe_Q, which supplies a witness at the attained minimum.",
+    "declaration": "QuarticQuery.Paper.appendixA_D_le_Q_pow_four",
+    "file": "lean/QuarticQuery/Paper/AppendixA.lean",
+    "compiled": false,
+    "signature_context": "QuarticQuery.Paper with the source open namespaces/scopes. New matrix and star abbreviations have been expanded in proposed_lean, so its types use Statement.lean vocabulary plus existing pinned Mathlib/complexitylib declarations. The source declaration may use the equivalent returned abbreviations."
+  },
+  {
+    "id": "new-A-quartic-full",
+    "statement": "For every total Boolean f, R(f)<=D(f) and D(f)<=1500625(1+Q(f))^4, with natural costs cast to the reals.",
+    "why_needed": "State the complete displayed A.1 form in the project vocabulary, including R<=D.",
+    "depends_on": [
+      "new-A-quartic-minimum",
+      "thm-A.1"
+    ],
+    "proposed_lean": "theorem appendixA_theoremA1 {n : ℕ} (f : TotalBool (Fin n)) :\n    (R (totalise f) : ℝ) ≤ D (totalise f) ∧\n      (D (totalise f) : ℝ) ≤\n        1500625 * (1 + (Q (totalise f) : ℝ)) ^ 4",
+    "route_note": "Deterministic trees are randomized algorithms; then monotonicity of the fourth power.",
+    "declaration": "QuarticQuery.Paper.appendixA_theoremA1",
+    "file": "lean/QuarticQuery/Paper/AppendixA.lean",
+    "compiled": false,
+    "signature_context": "QuarticQuery.Paper with the source open namespaces/scopes. New matrix and star abbreviations have been expanded in proposed_lean, so its types use Statement.lean vocabulary plus existing pinned Mathlib/complexitylib declarations. The source declaration may use the equivalent returned abbreviations."
+  },
+  {
+    "id": "new-A-quartic-hybrid",
+    "statement": "For every total Boolean f, D(totalise f)<=19600 Q(totalise f)^4.",
+    "why_needed": "Preserve the optional sharper numerical combination while clearly identifying the different block-sensitivity route.",
+    "depends_on": [
+      "new-A-imported-pair",
+      "new-A-degree-budget",
+      "lem-A.5"
+    ],
+    "proposed_lean": "theorem appendixA_D_le_Q_pow_four_hybrid {n : ℕ} (f : TotalBool (Fin n)) :\n    D (totalise f) ≤ 19600 * Q (totalise f) ^ 4",
+    "route_note": "Alternative block-sensitivity route: coefficient16 from the polynomial method, with new spectral coefficient35.",
+    "declaration": "QuarticQuery.Paper.appendixA_D_le_Q_pow_four_hybrid",
+    "file": "lean/QuarticQuery/Paper/AppendixA.lean",
+    "compiled": false,
+    "signature_context": "QuarticQuery.Paper with the source open namespaces/scopes. New matrix and star abbreviations have been expanded in proposed_lean, so its types use Statement.lean vocabulary plus existing pinned Mathlib/complexitylib declarations. The source declaration may use the equivalent returned abbreviations."
+  },
+  {
+    "id": "new-A-parity-two-exact-query",
+    "statement": "Two-bit parity has an exact one-query ordinary bit-oracle algorithm; its state, final gate and output probabilities are specified in SOURCE_COEFFICIENT_CHECK.md.",
+    "why_needed": "Test the printed adversary prefactor in exactly the cited source query model.",
+    "depends_on": [
+      "def-Q",
+      "def-query-oracle"
+    ],
+    "proposed_lean": "theorem appendixA_parityTwo_exact_one_query :\n    ∃ (ψ : QuarticQuery.State (Fin 2) 0)\n      (A : QuarticQuery.AdaptiveProgram (Fin 2) 0),\n      ‖ψ‖ = 1 ∧ A.queryCap = 1 ∧\n      ∀ x, A.outputMass x ψ (x 0 ^^ x 1) = 1",
+    "route_note": "Elementary phase kickback and index Hadamard; exact finite arithmetic verified. Proposed signature only, not implemented in the Lean modules.",
+    "declaration": null,
+    "compiled": false,
+    "implemented": false,
+    "source_note": "SOURCE_COEFFICIENT_CHECK.md",
+    "signature_context": "Namespace QuarticQuery.Paper, BigOperators scope, existing project Statement.lean and pinned Mathlib/complexitylib vocabulary only."
+  },
+  {
+    "id": "new-A-parity-two-adversary",
+    "statement": "The two-cube adjacency matrix is a feasible nonnegative symmetric adversary for parity, with Euclidean norm2 and both coordinate-mask norms1; its character eigenvalues are2,0,0,-2.",
+    "why_needed": "Give the complete finite matrix witness for adversary ratio at least2.",
+    "depends_on": [
+      "def-Gamma-i"
+    ],
+    "proposed_lean": "theorem appendixA_parityTwo_adversary_witness :\n    let f : QuarticQuery.TotalBool (Fin 2) := fun x => x 0 ^^ x 1\n    let Γ : Matrix (QuarticQuery.BitInput (Fin 2)) (QuarticQuery.BitInput (Fin 2)) ℝ :=\n      fun x y => if (x 0 ≠ y 0 ∧ x 1 = y 1) ∨ (x 0 = y 0 ∧ x 1 ≠ y 1) then 1 else 0\n    (∀ x y, Γ x y = Γ y x) ∧ (∀ x y, 0 ≤ Γ x y) ∧\n      (∀ x y, f x = f y → Γ x y = 0) ∧\n      ‖Matrix.toEuclideanCLM (𝕜 := ℝ) Γ‖ = 2 ∧\n      ∀ i : Fin 2, ‖Matrix.toEuclideanCLM (𝕜 := ℝ)\n        (fun x y => if x i ≠ y i then Γ x y else 0)‖ = 1",
+    "route_note": "Explicit orthonormal character basis and permutation masks; exact finite arithmetic verified. Proposed norm/support signature only. The eigenbasis certificate is presently mathematical/Python evidence, not a Lean declaration.",
+    "declaration": null,
+    "compiled": false,
+    "implemented": false,
+    "source_note": "SOURCE_COEFFICIENT_CHECK.md",
+    "signature_context": "Namespace QuarticQuery.Paper, BigOperators scope, existing project Statement.lean and pinned Mathlib/complexitylib vocabulary only."
+  },
+  {
+    "id": "new-A-positive-error-arithmetic",
+    "statement": "At epsilon=1/100, the printed coefficient times the ratio2 is 2-sqrt(99)/25>1, contradicting the exact one-query algorithm.",
+    "why_needed": "Avoid any reliance on whether zero error is included in the cited theorem.",
+    "depends_on": [
+      "new-A-parity-two-exact-query",
+      "new-A-parity-two-adversary"
+    ],
+    "proposed_lean": "theorem appendixA_positive_error_prefactor_gt_one :\n    (1 : ℝ) < 2 - Real.sqrt 99 / 25",
+    "route_note": "The scalar inequality follows from99<625. Combined with the exact algorithm and feasible ratio it disproves the prefactor as printed under the stated ordinary-query convention. This supplementary signature is not implemented.",
+    "declaration": null,
+    "compiled": false,
+    "implemented": false,
+    "source_note": "SOURCE_COEFFICIENT_CHECK.md",
+    "signature_context": "Namespace QuarticQuery.Paper, BigOperators scope, existing project Statement.lean and pinned Mathlib/complexitylib vocabulary only."
+  },
+  {
+    "id": "new-A-progress-factor-two-saturation",
+    "statement": "For the parity-two witness and uniform Perron vector, W0=2 and W1=0 while max_i||Gamma_i||=1; hence the per-query factor2 is attained.",
+    "why_needed": "Check that the factor2 in the direct progress argument is not an incidental numerical overestimate removable in general.",
+    "depends_on": [
+      "new-A-parity-two-exact-query",
+      "new-A-parity-two-adversary",
+      "def-adv-progress"
+    ],
+    "proposed_lean": "theorem appendixA_parityTwo_progress_values :\n    let Γ : Matrix (QuarticQuery.BitInput (Fin 2)) (QuarticQuery.BitInput (Fin 2)) ℝ :=\n      fun x y => if (x 0 ≠ y 0 ∧ x 1 = y 1) ∨ (x 0 = y 0 ∧ x 1 ≠ y 1) then 1 else 0\n    let ψ : QuarticQuery.BitInput (Fin 2) → EuclideanSpace ℂ (Fin 2) :=\n      fun x => WithLp.toLp 2 (fun i => ((if x i then (-1 : ℂ) else 1) / (Real.sqrt 2 : ℂ)))\n    (∑ x, ∑ y, Γ x y / 4) = 2 ∧\n      (∑ x, ∑ y, ((Γ x y / 4 : ℝ) : ℂ) * inner ℂ (ψ x) (ψ y)) = 0",
+    "route_note": "The unused answer factor is a common unit vector, so the two-dimensional index states have the same overlaps as the ordinary bit-oracle witness. Exact finite arithmetic verified; supplementary Lean signature not implemented.",
+    "declaration": null,
+    "compiled": false,
+    "implemented": false,
+    "source_note": "SOURCE_COEFFICIENT_CHECK.md",
+    "signature_context": "Namespace QuarticQuery.Paper, BigOperators scope, existing project Statement.lean and pinned Mathlib/complexitylib vocabulary only."
+  },
+  {
+    "id": "new-A-general-error-adversary",
+    "statement": "For any fixed T-query algorithm with error epsilon in[0,1/2), every feasible nonnegative symmetric adversary satisfies (1-2sqrt(epsilon(1-epsilon)))||Gamma||<=2T max_i||Gamma_i||, and hence the standard general-error ratio bound with factor1/2.",
+    "why_needed": "Record the general-error display in the supplementary coefficient note without pretending the returned fixed-error source exports a new Q_epsilon definition.",
+    "depends_on": [
+      "lem-A.2",
+      "claim-per-query",
+      "claim-final-overlap",
+      "claim-perron"
+    ],
+    "proposed_lean": "theorem appendixA_general_error_fixed_sequence {n : ℕ} {W : Type} [Fintype W]\n    (f : QuarticQuery.TotalBool (Fin n))\n    (Γ : Matrix (QuarticQuery.BitInput (Fin n)) (QuarticQuery.BitInput (Fin n)) ℝ)\n    (hsym : ∀ x y, Γ x y = Γ y x) (hΓ : ∀ x y, 0 ≤ Γ x y)\n    (hzero : ∀ x y, f x = f y → Γ x y = 0)\n    (U : ℕ → Cslib.Quantum.State n W →ₗᵢ[ℂ] Cslib.Quantum.State n W)\n    (ψ : Cslib.Quantum.State n W) (hψ : ‖ψ‖ = 1) (T : ℕ)\n    (S : Finset (Fin n × Bool × W)) (ε : ℝ) (hε0 : 0 ≤ ε) (hε1 : 2 * ε ≤ 1)\n    (hcorrect : ∀ x, |Cslib.Quantum.measureProb (Cslib.Quantum.run U ψ x T) S -\n      Cslib.BitString.bitVal ℝ (f x)| ≤ ε)\n    (M : ℝ) (hM : 0 ≤ M)\n    (hcoord : ∀ i, ‖Matrix.toEuclideanCLM (𝕜 := ℝ)\n      (fun x y => if x i ≠ y i then Γ x y else 0)‖ ≤ M) :\n    (1 - 2 * Real.sqrt (ε * (1 - ε))) * ‖Matrix.toEuclideanCLM (𝕜 := ℝ) Γ‖ ≤\n      2 * (T : ℝ) * M",
+    "route_note": "Primary literature: Hoyer-Lee-Spalek author PDF, Definition1 and Theorem1,p3. Same elementary progress proof, using the existing general-error final-overlap theorem. This generalization is a proposed signature only; the new implemented full theorem fixes error1/3.",
+    "declaration": null,
+    "compiled": false,
+    "implemented": false,
+    "source_note": "SOURCE_COEFFICIENT_CHECK.md",
+    "signature_context": "Namespace QuarticQuery.Paper, BigOperators scope, existing project Statement.lean and pinned Mathlib/complexitylib vocabulary only."
+  }
+]

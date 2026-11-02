@@ -1,0 +1,518 @@
+{
+  "QuarticQuery.Paper.construction_abs_sum_range_le": {
+    "file": "lean/QuarticQuery/Paper/ConstructionArithmetic.lean",
+    "line": 26,
+    "signature": "theorem construction_abs_sum_range_le (a : ℕ) (v : ℕ → ℤ) (B : ℤ)\n    (hv : ∀ j, j < a → |v j| ≤ B) :\n    |∑ j ∈ range a, v j| ≤ (a : ℤ) * B",
+    "display_statement": "theorem construction_abs_sum_range_le (a : ℕ) (v : ℕ → ℤ) (B : ℤ)\n    (hv : ∀ j, j < a → |v j| ≤ B) :\n    |∑ j ∈ range a, v j| ≤ (a : ℤ) * B"
+  },
+  "QuarticQuery.Paper.construction_abs_walshN": {
+    "file": "lean/QuarticQuery/Paper/ConstructionArithmetic.lean",
+    "line": 46,
+    "signature": "theorem construction_abs_walshN (n i j : ℕ) : |walshN n i j| = 1",
+    "display_statement": "theorem construction_abs_walshN (n i j : ℕ) : |walshN n i j| = 1"
+  },
+  "QuarticQuery.Paper.construction_walkN_bound": {
+    "file": "lean/QuarticQuery/Paper/ConstructionArithmetic.lean",
+    "line": 57,
+    "signature": "theorem construction_walkN_bound (n l : ℕ) (σ : ℕ → ℕ → ℤ)\n    (hσ : ∀ h i, |σ h i| ≤ 1) (i : ℕ) :\n    |walkN n l σ i| ≤ ((2 ^ n : ℕ) : ℤ) ^ l",
+    "display_statement": "theorem construction_walkN_bound (n l : ℕ) (σ : ℕ → ℕ → ℤ)\n    (hσ : ∀ h i, |σ h i| ≤ 1) (i : ℕ) :\n    |walkN n l σ i| ≤ ((2 ^ n : ℕ) : ℤ) ^ l"
+  },
+  "QuarticQuery.Paper.construction_walkN_prefix_bound": {
+    "file": "lean/QuarticQuery/Paper/ConstructionArithmetic.lean",
+    "line": 85,
+    "signature": "theorem construction_walkN_prefix_bound (n l a : ℕ) (σ : ℕ → ℕ → ℤ)\n    (hσ : ∀ h i, |σ h i| ≤ 1) :\n    |∑ j ∈ range a, walkN n l σ j| ≤ (a : ℤ) * ((2 ^ n : ℕ) : ℤ) ^ l",
+    "display_statement": "theorem construction_walkN_prefix_bound (n l a : ℕ) (σ : ℕ → ℕ → ℤ)\n    (hσ : ∀ h i, |σ h i| ≤ 1) :\n    |∑ j ∈ range a, walkN n l σ j| ≤ (a : ℤ) * ((2 ^ n : ℕ) : ℤ) ^ l"
+  },
+  "QuarticQuery.Paper.construction_butterfly_block_bound": {
+    "file": "lean/QuarticQuery/Paper/ConstructionArithmetic.lean",
+    "line": 95,
+    "signature": "theorem construction_butterfly_block_bound (q i offset : ℕ)\n    (v : ℕ → ℤ) (B : ℤ)\n    (hv : ∀ j, j < 2 ^ q → |v (offset + j)| ≤ B) :\n    |∑ j ∈ range (2 ^ q), walshN q i j * v (offset + j)| ≤\n      ((2 ^ q : ℕ) : ℤ) * B",
+    "display_statement": "theorem construction_butterfly_block_bound (q i offset : ℕ)\n    (v : ℕ → ℤ) (B : ℤ)\n    (hv : ∀ j, j < 2 ^ q → |v (offset + j)| ≤ B) :\n    |∑ j ∈ range (2 ^ q), walshN q i j * v (offset + j)| ≤\n      ((2 ^ q : ℕ) : ℤ) * B"
+  },
+  "QuarticQuery.Paper.constructionIndexStart": {
+    "file": "lean/QuarticQuery/Paper/ConstructionCoherent.lean",
+    "line": 36,
+    "signature": "noncomputable def constructionIndexStart (o : ∀ e, Z e) (a : Γ → ℂ) :\n    Reg (Σ e, Z e)",
+    "display_statement": "noncomputable def constructionIndexStart (o : ∀ e, Z e) (a : Γ → ℂ) :\n    Reg (Σ e, Z e) :=\n  WithLp.toLp 2 fun p => a p.1 * (rket (o p.1)).ofLp p.2"
+  },
+  "QuarticQuery.Paper.construction_slice_indexStart": {
+    "file": "lean/QuarticQuery/Paper/ConstructionCoherent.lean",
+    "line": 42,
+    "signature": "theorem construction_slice_indexStart (o : ∀ e, Z e) (a : Γ → ℂ) (e : Γ) :\n    slice e (constructionIndexStart o a) = a e • rket (o e)",
+    "display_statement": "theorem construction_slice_indexStart (o : ∀ e, Z e) (a : Γ → ℂ) (e : Γ) :\n    slice e (constructionIndexStart o a) = a e • rket (o e)"
+  },
+  "QuarticQuery.Paper.construction_support_of_exact_law": {
+    "file": "lean/QuarticQuery/Paper/ConstructionCoherent.lean",
+    "line": 51,
+    "signature": "theorem construction_support_of_exact_law {Z : Type} [Fintype Z]\n    (ψ : Reg Z) (out : Z → Bool) (b : Bool)\n    (h : ∀ c, pt b c = lawOf ψ out c) (z : Z) (hz : out z ≠ b) :\n    ψ.ofLp z = 0",
+    "display_statement": "theorem construction_support_of_exact_law {Z : Type} [Fintype Z]\n    (ψ : Reg Z) (out : Z → Bool) (b : Bool)\n    (h : ∀ c, pt b c = lawOf ψ out c) (z : Z) (hz : out z ≠ b) :\n    ψ.ofLp z = 0"
+  },
+  "QuarticQuery.Paper.construction_controlled_exact_samples": {
+    "file": "lean/QuarticQuery/Paper/ConstructionCoherent.lean",
+    "line": 72,
+    "signature": "theorem construction_controlled_exact_samples {ι Γ : Type} [Fintype Γ]\n    (n : ℕ) (g : BitInput ι → Γ → Bool)\n    (h : ∀ e : Γ, Samples n fun x b => pt (g x e) b) :\n    ∃ (Z : Γ → Type) (instZ : ∀ e, Fintype (Z e)),\n      let _ := instZ\n      ∃ (o : ∀ e, Z e) (out : ∀ e, Z e → Bool)\n        (F : ∀ e, BitInput ι → Reg (Z e) ≃ₗᵢ[ℂ] Reg (Z e)),\n        (∀ e, IsCirc n (F e)) ∧\n        IsCirc n (fun x => sigmaOp fun e => F e x) ∧\n        (∀ (x : BitInput ι) (a : Γ → ℂ) (e : Γ),\n          slice e (sigmaOp (fun e => F e x) (constructionIndexStart o a)) =\n            a e • F e x (rket (o e))) ∧\n        (∀ (x : BitInput ι) (e : Γ) (z : Z e),\n          out e z ≠ g x e → (F e x (rket (o e))).ofLp z = 0)",
+    "display_statement": "theorem construction_controlled_exact_samples {ι Γ : Type} [Fintype Γ]\n    (n : ℕ) (g : BitInput ι → Γ → Bool)\n    (h : ∀ e : Γ, Samples n fun x b => pt (g x e) b) :\n    ∃ (Z : Γ → Type) (instZ : ∀ e, Fintype (Z e)),\n      let _ := instZ\n      ∃ (o : ∀ e, Z e) (out : ∀ e, Z e → Bool)\n        (F : ∀ e, BitInput ι → Reg (Z e) ≃ₗᵢ[ℂ] Reg (Z e)),\n        (∀ e, IsCirc n (F e)) ∧\n        IsCirc n (fun x => sigmaOp fun e => F e x) ∧\n        (∀ (x : BitInput ι) (a : Γ → ℂ) (e : Γ),\n          slice e (sigmaOp (fun e => F e x) (constructionIndexStart o a)) =\n            a e • F e x (rket (o e))) ∧\n        (∀ (x : BitInput ι) (e : Γ) (z : Z e),\n          out e z ≠ g x e → (F e x (rket (o e))).ofLp z = 0)"
+  },
+  "QuarticQuery.Paper.construction_lemma_2_2_ii": {
+    "file": "lean/QuarticQuery/Paper/ConstructionCoherent.lean",
+    "line": 99,
+    "signature": "theorem construction_lemma_2_2_ii {κ : Type} (C : Circuit κ) (ℓ r : ℕ)\n    (i : Column ℓ) (s : Address r) :\n    ∃ (Z : TestIndex ℓ r C.size → Type) (instZ : ∀ e, Fintype (Z e)),\n      let _ := instZ\n      ∃ (o : ∀ e, Z e) (out : ∀ e, Z e → Bool)\n        (F : ∀ e, BitInput (BitLoc ℓ r C.size κ) → Reg (Z e) ≃ₗᵢ[ℂ] Reg (Z e)),\n        (∀ e, IsCirc (max 3 (ℓ + 1)) (F e)) ∧\n        IsCirc (max 3 (ℓ + 1)) (fun x => sigmaOp fun e => F e x) ∧\n        (∀ (x : BitInput (BitLoc ℓ r C.size κ))\n            (a : TestIndex ℓ r C.size → ℂ) (e : TestIndex ℓ r C.size),\n          slice e (sigmaOp (fun e => F e x) (constructionIndexStart o a)) =\n            a e • F e x (rket (o e))) ∧\n        (∀ (x : BitInput (BitLoc ℓ r C.size κ))\n            (e : TestIndex ℓ r C.size) (z : Z e),\n          out e z ≠ localTest C ℓ r x i s e →\n            (F e x (rket (o e))).ofLp z = 0)",
+    "display_statement": "theorem construction_lemma_2_2_ii {κ : Type} (C : Circuit κ) (ℓ r : ℕ)\n    (i : Column ℓ) (s : Address r) :\n    ∃ (Z : TestIndex ℓ r C.size → Type) (instZ : ∀ e, Fintype (Z e)),\n      let _ := instZ\n      ∃ (o : ∀ e, Z e) (out : ∀ e, Z e → Bool)\n        (F : ∀ e, BitInput (BitLoc ℓ r C.size κ) → Reg (Z e) ≃ₗᵢ[ℂ] Reg (Z e)),\n        (∀ e, IsCirc (max 3 (ℓ + 1)) (F e)) ∧\n        IsCirc (max 3 (ℓ + 1)) (fun x => sigmaOp fun e => F e x) ∧\n        (∀ (x : BitInput (BitLoc ℓ r C.size κ))\n            (a : TestIndex ℓ r C.size → ℂ) (e : TestIndex ℓ r C.size),\n          slice e (sigmaOp (fun e => F e x) (constructionIndexStart o a)) =\n            a e • F e x (rket (o e))) ∧\n        (∀ (x : BitInput (BitLoc ℓ r C.size κ))\n            (e : TestIndex ℓ r C.size) (z : Z e),\n          out e z ≠ localTest C ℓ r x i s e →\n            (F e x (rket (o e))).ofLp z = 0)"
+  },
+  "QuarticQuery.Paper.construction_controlled_compile": {
+    "file": "lean/QuarticQuery/Paper/ConstructionCoherent.lean",
+    "line": 127,
+    "signature": "theorem construction_controlled_compile {ι Γ : Type} [Fintype ι] [Inhabited ι]\n    [Fintype Γ] {Z : Γ → Type} [∀ e, Fintype (Z e)] {n w : ℕ}\n    (F : ∀ e, BitInput ι → Reg (Z e) ≃ₗᵢ[ℂ] Reg (Z e))\n    (hF : ∀ e, IsCirc n (F e)) (emb : (Σ e, Z e) ↪ Fin (w + 1)) :\n    ∃ P : AdaptiveProgram ι w → AdaptiveProgram ι w, ∀ next,\n      (P next).queryCap ≤ 2 * n + next.queryCap ∧\n      ∀ x ψ b, (P next).outputMass x (clEmb emb ψ) b =\n        next.outputMass x (clEmb emb (sigmaOp (fun e => F e x) ψ)) b",
+    "display_statement": "theorem construction_controlled_compile {ι Γ : Type} [Fintype ι] [Inhabited ι]\n    [Fintype Γ] {Z : Γ → Type} [∀ e, Fintype (Z e)] {n w : ℕ}\n    (F : ∀ e, BitInput ι → Reg (Z e) ≃ₗᵢ[ℂ] Reg (Z e))\n    (hF : ∀ e, IsCirc n (F e)) (emb : (Σ e, Z e) ↪ Fin (w + 1)) :\n    ∃ P : AdaptiveProgram ι w → AdaptiveProgram ι w, ∀ next,\n      (P next).queryCap ≤ 2 * n + next.queryCap ∧\n      ∀ x ψ b, (P next).outputMass x (clEmb emb ψ) b =\n        next.outputMass x (clEmb emb (sigmaOp (fun e => F e x) ψ)) b"
+  },
+  "QuarticQuery.Paper.construction_lemma_2_2": {
+    "file": "lean/QuarticQuery/Paper/ConstructionCoherent.lean",
+    "line": 142,
+    "signature": "theorem construction_lemma_2_2 {κ : Type} {f : PartialBool κ}\n    (C : Circuit κ) (ℓ r : ℕ) (hC : CircuitRealises C f) :\n    Fintype.card (TestIndex ℓ r C.size) =\n      2 ^ ℓ + (2 ^ ℓ - 1) + r * (C.size + 2) ∧\n    (∀ (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) (s : Address r),\n      PaperWinsAt f C ℓ r x i s ↔\n        ∀ e : TestIndex ℓ r C.size, localTest C ℓ r x i s e = true) ∧\n    (∀ (i : Column ℓ) (s : Address r) (e : TestIndex ℓ r C.size),\n      (∀ x, (localTestTree C ℓ r i s e).eval x = localTest C ℓ r x i s e) ∧\n      (localTestTree C ℓ r i s e).depth ≤ max 3 (ℓ + 1)) ∧\n    (∀ (i : Column ℓ) (s : Address r),\n      ∃ (Z : TestIndex ℓ r C.size → Type) (instZ : ∀ e, Fintype (Z e)),\n        let _ := instZ\n        ∃ (o : ∀ e, Z e) (out : ∀ e, Z e → Bool)\n          (F : ∀ e, BitInput (BitLoc ℓ r C.size κ) → Reg (Z e) ≃ₗᵢ[ℂ] Reg (Z e)),\n          (∀ e, IsCirc (max 3 (ℓ + 1)) (F e)) ∧\n          IsCirc (max 3 (ℓ + 1)) (fun x => sigmaOp fun e => F e x) ∧\n          (∀ (x : BitInput (BitLoc ℓ r C.size κ))\n              (a : TestIndex ℓ r C.size → ℂ) (e : TestIndex ℓ r C.size),\n            slice e (sigmaOp (fun e => F e x) (constructionIndexStart o a)) =\n              a e • F e x (rket (o e))) ∧\n          (∀ (x : BitInput (BitLoc ℓ r C.size κ))\n              (e : TestIndex ℓ r C.size) (z : Z e),\n            out e z ≠ localTest C ℓ r x i s e →\n              (F e x (rket (o e))).ofLp z = 0))",
+    "display_statement": "theorem construction_lemma_2_2 {κ : Type} {f : PartialBool κ}\n    (C : Circuit κ) (ℓ r : ℕ) (hC : CircuitRealises C f) :\n    Fintype.card (TestIndex ℓ r C.size) =\n      2 ^ ℓ + (2 ^ ℓ - 1) + r * (C.size + 2) ∧\n    (∀ (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) (s : Address r),\n      PaperWinsAt f C ℓ r x i s ↔\n        ∀ e : TestIndex ℓ r C.size, localTest C ℓ r x i s e = true) ∧\n    (∀ (i : Column ℓ) (s : Address r) (e : TestIndex ℓ r C.size),\n      (∀ x, (localTestTree C ℓ r i s e).eval x = localTest C ℓ r x i s e) ∧\n      (localTestTree C ℓ r i s e).depth ≤ max 3 (ℓ + 1)) ∧\n    (∀ (i : Column ℓ) (s : Address r),\n      ∃ (Z : TestIndex ℓ r C.size → Type) (instZ : ∀ e, Fintype (Z e)),\n        let _ := instZ\n        ∃ (o : ∀ e, Z e) (out : ∀ e, Z e → Bool)\n          (F : ∀ e, BitInput (BitLoc ℓ r C.size κ) → Reg (Z e) ≃ₗᵢ[ℂ] Reg (Z e)),\n          (∀ e, IsCirc (max 3 (ℓ + 1)) (F e)) ∧\n          IsCirc (max 3 (ℓ + 1)) (fun x => sigmaOp fun e => F e x) ∧\n          (∀ (x : BitInput (BitLoc ℓ r C.size κ))\n              (a : TestIndex ℓ r C.size → ℂ) (e : TestIndex ℓ r C.size),\n            slice e (sigmaOp (fun e => F e x) (constructionIndexStart o a)) =\n              a e • F e x (rket (o e))) ∧\n          (∀ (x : BitInput (BitLoc ℓ r C.size κ))\n              (e : TestIndex ℓ r C.size) (z : Z e),\n            out e z ≠ localTest C ℓ r x i s e →\n              (F e x (rket (o e))).ofLp z = 0))"
+  },
+  "QuarticQuery.Paper.construction_lemma_2_2_complete": {
+    "file": "lean/QuarticQuery/Paper/ConstructionComplete.lean",
+    "line": 28,
+    "signature": "theorem construction_lemma_2_2_complete {k t : ℕ}\n    (C : Circuit (ForrelationCoord k t)) (A : ℕ) (ht : 1 ≤ t)\n    (hC : CircuitRealises C (P k t))\n    (hS : C.size ≤ A * mValue t * (2 * t) ^ 2) :\n    Fintype.card (TestIndex (2 * t) (40 * t) C.size) =\n      mValue t + (mValue t - 1) + 40 * t * (C.size + 2) ∧\n    Fintype.card (TestIndex (2 * t) (40 * t) C.size) ≤\n      (42 + 20 * A) * mValue t * (2 * t) ^ 3 ∧\n    (∀ (x : BitInput (Loc k t C)) (i : Column (2 * t)) (s : Address (40 * t)),\n      PaperWinsAt (P k t) C (2 * t) (40 * t) x i s ↔\n        ∀ e : TestIndex (2 * t) (40 * t) C.size,\n          localTest C (2 * t) (40 * t) x i s e = true) ∧\n    (∀ (i : Column (2 * t)) (s : Address (40 * t))\n        (e : TestIndex (2 * t) (40 * t) C.size),\n      (∀ x, (localTestTree C (2 * t) (40 * t) i s e).eval x =\n        localTest C (2 * t) (40 * t) x i s e) ∧\n      (localTestTree C (2 * t) (40 * t) i s e).depth ≤ 2 * t + 1) ∧\n    (∀ (i : Column (2 * t)) (s : Address (40 * t)),\n      ∃ (Z : TestIndex (2 * t) (40 * t) C.size → Type)\n        (instZ : ∀ e, Fintype (Z e)),\n        let _ := instZ\n        ∃ (o : ∀ e, Z e) (out : ∀ e, Z e → Bool)\n          (F : ∀ e, BitInput (Loc k t C) → Reg (Z e) ≃ₗᵢ[ℂ] Reg (Z e)),\n          (∀ e, IsCirc (max 3 (2 * t + 1)) (F e)) ∧\n          IsCirc (max 3 (2 * t + 1)) (fun x => sigmaOp fun e => F e x) ∧\n          (∀ (x : BitInput (Loc k t C))\n              (a : TestIndex (2 * t) (40 * t) C.size → ℂ)\n              (e : TestIndex (2 * t) (40 * t) C.size),\n            slice e (sigmaOp (fun e => F e x) (constructionIndexStart o a)) =\n              a e • F e x (rket (o e))) ∧\n          (∀ (x : BitInput (Loc k t C))\n              (e : TestIndex (2 * t) (40 * t) C.size) (z : Z e),\n            out e z ≠ localTest C (2 * t) (40 * t) x i s e →\n              (F e x (rket (o e))).ofLp z = 0) ∧\n          ∃ (w : ℕ) (emb : (Σ e, Z e) ↪ Fin (w + 1))\n            (P : AdaptiveProgram (Loc k t C) w → AdaptiveProgram (Loc k t C) w),\n            ∀ next, (P next).queryCap ≤ 2 * (2 * t + 1) + next.queryCap ∧\n              ∀ x ψ b, (P next).outputMass x (clEmb emb ψ) b =\n                next.outputMass x\n                  (clEmb emb (sigmaOp (fun e => F e x) ψ)) b)",
+    "display_statement": "theorem construction_lemma_2_2_complete {k t : ℕ}\n    (C : Circuit (ForrelationCoord k t)) (A : ℕ) (ht : 1 ≤ t)\n    (hC : CircuitRealises C (P k t))\n    (hS : C.size ≤ A * mValue t * (2 * t) ^ 2) :\n    Fintype.card (TestIndex (2 * t) (40 * t) C.size) =\n      mValue t + (mValue t - 1) + 40 * t * (C.size + 2) ∧\n    Fintype.card (TestIndex (2 * t) (40 * t) C.size) ≤\n      (42 + 20 * A) * mValue t * (2 * t) ^ 3 ∧\n    (∀ (x : BitInput (Loc k t C)) (i : Column (2 * t)) (s : Address (40 * t)),\n      PaperWinsAt (P k t) C (2 * t) (40 * t) x i s ↔\n        ∀ e : TestIndex (2 * t) (40 * t) C.size,\n          localTest C (2 * t) (40 * t) x i s e = true) ∧\n    (∀ (i : Column (2 * t)) (s : Address (40 * t))\n        (e : TestIndex (2 * t) (40 * t) C.size),\n      (∀ x, (localTestTree C (2 * t) (40 * t) i s e).eval x =\n        localTest C (2 * t) (40 * t) x i s e) ∧\n      (localTestTree C (2 * t) (40 * t) i s e).depth ≤ 2 * t + 1) ∧\n    (∀ (i : Column (2 * t)) (s : Address (40 * t)),\n      ∃ (Z : TestIndex (2 * t) (40 * t) C.size → Type)\n        (instZ : ∀ e, Fintype (Z e)),\n        let _ := instZ\n        ∃ (o : ∀ e, Z e) (out : ∀ e, Z e → Bool)\n          (F : ∀ e, BitInput (Loc k t C) → Reg (Z e) ≃ₗᵢ[ℂ] Reg (Z e)),\n          (∀ e, IsCirc (max 3 (2 * t + 1)) (F e)) ∧\n          IsCirc (max 3 (2 * t + 1)) (fun x => sigmaOp fun e => F e x) ∧\n          (∀ (x : BitInput (Loc k t C))\n              (a : TestIndex (2 * t) (40 * t) C.size → ℂ)\n              (e : TestIndex (2 * t) (40 * t) C.size),\n            slice e (sigmaOp (fun e => F e x) (constructionIndexStart o a)) =\n              a e • F e x (rket (o e))) ∧\n          (∀ (x : BitInput (Loc k t C))\n              (e : TestIndex (2 * t) (40 * t) C.size) (z : Z e),\n            out e z ≠ localTest C (2 * t) (40 * t) x i s e →\n              (F e x (rket (o e))).ofLp z = 0) ∧\n          ∃ (w : ℕ) (emb : (Σ e, Z e) ↪ Fin (w + 1))\n            (P : AdaptiveProgram (Loc k t C) w → AdaptiveProgram (Loc k t C) w),\n            ∀ next, (P next).queryCap ≤ 2 * (2 * t + 1) + next.queryCap ∧\n              ∀ x ψ b, (P next).outputMass x (clEmb emb ψ) b =\n                next.outputMass x\n                  (clEmb emb (sigmaOp (fun e => F e x) ψ)) b)"
+  },
+  "QuarticQuery.Paper.construction_transcript_definition": {
+    "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+    "line": 26,
+    "signature": "theorem construction_transcript_definition {κ : Type} (C : Circuit κ)\n    (x : BitInput κ) (tr : Fin C.size → Bool) :\n    GateConsistent C x tr ↔ ∀ g : Fin C.size,\n      tr g = (C.gate g).table\n        (predecessorValue C x tr g (C.gate g).left)\n        (predecessorValue C x tr g (C.gate g).right)",
+    "display_statement": "theorem construction_transcript_definition {κ : Type} (C : Circuit κ)\n    (x : BitInput κ) (tr : Fin C.size → Bool) :\n    GateConsistent C x tr ↔ ∀ g : Fin C.size,\n      tr g = (C.gate g).table\n        (predecessorValue C x tr g (C.gate g).left)\n        (predecessorValue C x tr g (C.gate g).right)"
+  },
+  "QuarticQuery.Paper.construction_transcript_input_wire": {
+    "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+    "line": 35,
+    "signature": "theorem construction_transcript_input_wire {κ : Type} (C : Circuit κ)\n    (x : BitInput κ) (tr : Fin C.size → Bool) (g : Fin C.size) (q : κ) :\n    predecessorValue C x tr g (some (.inl q)) = x q",
+    "display_statement": "theorem construction_transcript_input_wire {κ : Type} (C : Circuit κ)\n    (x : BitInput κ) (tr : Fin C.size → Bool) (g : Fin C.size) (q : κ) :\n    predecessorValue C x tr g (some (.inl q)) = x q"
+  },
+  "QuarticQuery.Paper.construction_transcript_gate_wire": {
+    "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+    "line": 41,
+    "signature": "theorem construction_transcript_gate_wire {κ : Type} (C : Circuit κ)\n    (x : BitInput κ) (tr : Fin C.size → Bool) (g : Fin C.size) (h : Fin g.val) :\n    predecessorValue C x tr g (some (.inr h)) =\n      tr ⟨h.val, lt_trans h.isLt g.isLt⟩",
+    "display_statement": "theorem construction_transcript_gate_wire {κ : Type} (C : Circuit κ)\n    (x : BitInput κ) (tr : Fin C.size → Bool) (g : Fin C.size) (h : Fin g.val) :\n    predecessorValue C x tr g (some (.inr h)) =\n      tr ⟨h.val, lt_trans h.isLt g.isLt⟩"
+  },
+  "QuarticQuery.Paper.construction_transcript_correct": {
+    "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+    "line": 48,
+    "signature": "theorem construction_transcript_correct {κ : Type} (C : Circuit κ)\n    (x : BitInput κ) (tr : Fin C.size → Bool) :\n    (GateConsistent C x tr ↔ tr = circuitEval C x) ∧\n      ∃! tr' : Fin C.size → Bool, GateConsistent C x tr'",
+    "display_statement": "theorem construction_transcript_correct {κ : Type} (C : Circuit κ)\n    (x : BitInput κ) (tr : Fin C.size → Bool) :\n    (GateConsistent C x tr ↔ tr = circuitEval C x) ∧\n      ∃! tr' : Fin C.size → Bool, GateConsistent C x tr'"
+  },
+  "QuarticQuery.Paper.construction_eq6": {
+    "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+    "line": 56,
+    "signature": "theorem construction_eq6 (t : ℕ) :\n    Real.logb 2 (mValue t : ℝ) = (2 * t : ℕ) ∧\n      ⌈20 * Real.logb 2 (mValue t : ℝ)⌉₊ = 40 * t",
+    "display_statement": "theorem construction_eq6 (t : ℕ) :\n    Real.logb 2 (mValue t : ℝ) = (2 * t : ℕ) ∧\n      ⌈20 * Real.logb 2 (mValue t : ℝ)⌉₊ = 40 * t"
+  },
+  "QuarticQuery.Paper.construction_column_layout": {
+    "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+    "line": 71,
+    "signature": "theorem construction_column_layout (ℓ r S : ℕ) (κ : Type) :\n    BitLoc ℓ r S κ =\n      ((Column ℓ × Column ℓ) ⊕\n        (Column ℓ × Fin r × κ) ⊕\n        (Σ i : Column ℓ, Address r × {j : Column ℓ // j ≠ i} × Fin ℓ) ⊕\n        (Column ℓ × Address r × Fin r × Fin S))",
+    "display_statement": "theorem construction_column_layout (ℓ r S : ℕ) (κ : Type) :\n    BitLoc ℓ r S κ =\n      ((Column ℓ × Column ℓ) ⊕\n        (Column ℓ × Fin r × κ) ⊕\n        (Σ i : Column ℓ, Address r × {j : Column ℓ // j ≠ i} × Fin ℓ) ⊕\n        (Column ℓ × Address r × Fin r × Fin S))"
+  },
+  "QuarticQuery.Paper.construction_pointer_encoding": {
+    "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+    "line": 80,
+    "signature": "theorem construction_pointer_encoding (ℓ : ℕ) :\n    Function.Bijective (pointerEquiv ℓ) ∧\n      ∀ j : Column ℓ, ∃! w : Fin ℓ → Bool, pointerEquiv ℓ w = j",
+    "display_statement": "theorem construction_pointer_encoding (ℓ : ℕ) :\n    Function.Bijective (pointerEquiv ℓ) ∧\n      ∀ j : Column ℓ, ∃! w : Fin ℓ → Bool, pointerEquiv ℓ w = j"
+  },
+  "QuarticQuery.Paper.construction_layout_cardinalities": {
+    "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+    "line": 87,
+    "signature": "theorem construction_layout_cardinalities (k t : ℕ) :\n    Fintype.card (Column (2 * t)) = mValue t ∧\n    Fintype.card (ForrelationCoord k t) = k * mValue t ∧\n    Fintype.card (Address (40 * t)) = 2 ^ (40 * t)",
+    "display_statement": "theorem construction_layout_cardinalities (k t : ℕ) :\n    Fintype.card (Column (2 * t)) = mValue t ∧\n    Fintype.card (ForrelationCoord k t) = k * mValue t ∧\n    Fintype.card (Address (40 * t)) = 2 ^ (40 * t)"
+  },
+  "QuarticQuery.Paper.construction_trueAddress_iff": {
+    "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+    "line": 101,
+    "signature": "theorem construction_trueAddress_iff\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ)\n    (hdef : ∀ h, promised f (readA x i h)) (s : Address r) :\n    (∀ h, f (readA x i h) = some (s h)) ↔ s = trueAddress f x i hdef",
+    "display_statement": "theorem construction_trueAddress_iff\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ)\n    (hdef : ∀ h, promised f (readA x i h)) (s : Address r) :\n    (∀ h, f (readA x i h) = some (s h)) ↔ s = trueAddress f x i hdef"
+  },
+  "QuarticQuery.Paper.constructionOutwardPointers": {
+    "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+    "line": 115,
+    "signature": "def constructionOutwardPointers {S : ℕ} (x : BitInput (BitLoc ℓ r S κ))\n    (i : Column ℓ) (s : Address r) : Prop",
+    "display_statement": "def constructionOutwardPointers {S : ℕ} (x : BitInput (BitLoc ℓ r S κ))\n    (i : Column ℓ) (s : Address r) : Prop :=\n  ∀ j : {j : Column ℓ // j ≠ i},\n    readX x j.val (pointerEquiv ℓ (readPointerBit x i s j)) = false"
+  },
+  "QuarticQuery.Paper.construction_eq8_of_winsAt": {
+    "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+    "line": 122,
+    "signature": "theorem construction_eq8_of_winsAt\n    {x : BitInput (BitLoc ℓ r C.size κ)} {i : Column ℓ} {s : Address r}\n    (hw : WinsAt f C ℓ r x i s) : constructionOutwardPointers x i s",
+    "display_statement": "theorem construction_eq8_of_winsAt\n    {x : BitInput (BitLoc ℓ r C.size κ)} {i : Column ℓ} {s : Address r}\n    (hw : WinsAt f C ℓ r x i s) : constructionOutwardPointers x i s"
+  },
+  "QuarticQuery.Paper.constructionWinner": {
+    "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+    "line": 129,
+    "signature": "def constructionWinner (f : PartialBool κ) (C : Circuit κ) (ℓ r : ℕ)\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) : Prop",
+    "display_statement": "def constructionWinner (f : PartialBool κ) (C : Circuit κ) (ℓ r : ℕ)\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) : Prop :=\n  (∀ j, readX x i j = true) ∧\n  ∃ hdef : ∀ h, promised f (readA x i h),\n    (∀ h, readTranscript x i (trueAddress f x i hdef) h =\n      circuitEval C (readA x i h)) ∧\n    constructionOutwardPointers x i (trueAddress f x i hdef)"
+  },
+  "QuarticQuery.Paper.construction_winner_iff_exists_winsAt": {
+    "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+    "line": 139,
+    "signature": "theorem construction_winner_iff_exists_winsAt\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) :\n    constructionWinner f C ℓ r x i ↔ ∃ s, WinsAt f C ℓ r x i s",
+    "display_statement": "theorem construction_winner_iff_exists_winsAt\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) :\n    constructionWinner f C ℓ r x i ↔ ∃ s, WinsAt f C ℓ r x i s"
+  },
+  "QuarticQuery.Paper.construction_winsAt_iff_winner_and_address": {
+    "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+    "line": 153,
+    "signature": "theorem construction_winsAt_iff_winner_and_address\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) (s : Address r) :\n    WinsAt f C ℓ r x i s ↔\n      constructionWinner f C ℓ r x i ∧\n        ∃ hdef : ∀ h, promised f (readA x i h), s = trueAddress f x i hdef",
+    "display_statement": "theorem construction_winsAt_iff_winner_and_address\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) (s : Address r) :\n    WinsAt f C ℓ r x i s ↔\n      constructionWinner f C ℓ r x i ∧\n        ∃ hdef : ∀ h, promised f (readA x i h), s = trueAddress f x i hdef"
+  },
+  "QuarticQuery.Paper.construction_win_at_address_outputs": {
+    "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+    "line": 172,
+    "signature": "theorem construction_win_at_address_outputs (hC : CircuitRealises C f)\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) (s : Address r) :\n    WinsAt f C ℓ r x i s ↔\n      (∀ j, readX x i j = true) ∧\n      (∀ h, readTranscript x i s h = circuitEval C (readA x i h)) ∧\n      (∀ h, readTranscript x i s h C.domainOut = true) ∧\n      (∀ h, readTranscript x i s h C.valueOut = s h) ∧\n      constructionOutwardPointers x i s",
+    "display_statement": "theorem construction_win_at_address_outputs (hC : CircuitRealises C f)\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) (s : Address r) :\n    WinsAt f C ℓ r x i s ↔\n      (∀ j, readX x i j = true) ∧\n      (∀ h, readTranscript x i s h = circuitEval C (readA x i h)) ∧\n      (∀ h, readTranscript x i s h C.domainOut = true) ∧\n      (∀ h, readTranscript x i s h C.valueOut = s h) ∧\n      constructionOutwardPointers x i s"
+  },
+  "QuarticQuery.Paper.construction_unique_winner": {
+    "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+    "line": 184,
+    "signature": "theorem construction_unique_winner (x : BitInput (BitLoc ℓ r C.size κ))\n    (i j : Column ℓ) (hi : constructionWinner f C ℓ r x i)\n    (hj : constructionWinner f C ℓ r x j) : i = j",
+    "display_statement": "theorem construction_unique_winner (x : BitInput (BitLoc ℓ r C.size κ))\n    (i j : Column ℓ) (hi : constructionWinner f C ℓ r x i)\n    (hj : constructionWinner f C ℓ r x j) : i = j"
+  },
+  "QuarticQuery.Paper.construction_sqrt_mValue": {
+    "file": "lean/QuarticQuery/Paper/ConstructionFamily.lean",
+    "line": 24,
+    "signature": "theorem construction_sqrt_mValue (t : ℕ) :\n    Real.sqrt (mValue t : ℝ) = (2 : ℝ) ^ t",
+    "display_statement": "theorem construction_sqrt_mValue (t : ℕ) :\n    Real.sqrt (mValue t : ℝ) = (2 : ℝ) ^ t"
+  },
+  "QuarticQuery.Paper.construction_family_named": {
+    "file": "lean/QuarticQuery/Paper/ConstructionFamily.lean",
+    "line": 30,
+    "signature": "theorem construction_family_named (l : ℕ) (hk : 2 ≤ l + 1) :\n    ∃ t₀ : ℕ, ∀ t : ℕ, t₀ ≤ t →\n      CircuitRealises (Forrelation.forrCircuit l t) (P (l + 1) t) ∧\n      (Forrelation.forrCircuit l t).size ≤\n        Forrelation.forrConstant (l + 1) * mValue t * (2 * t) ^ 2 ∧\n      (Q (totalise (Fkm (l + 1) t (Forrelation.forrCircuit l t))) : ℝ) ≤\n        (Upper.budgetConst (l + 1) : ℝ) * Real.sqrt (mValue t : ℝ) *\n          (Real.logb 2 (mValue t : ℝ)) ^ 6 ∧\n      (1 / 400 : ℝ) * Real.rpow (mValue t : ℝ) (2 - 1 / ((l + 1 : ℕ) : ℝ)) /\n          (Real.logb 2 (mValue t : ℝ)) ^ 2 ≤\n        (R (totalise (Fkm (l + 1) t (Forrelation.forrCircuit l t))) : ℝ)",
+    "display_statement": "theorem construction_family_named (l : ℕ) (hk : 2 ≤ l + 1) :\n    ∃ t₀ : ℕ, ∀ t : ℕ, t₀ ≤ t →\n      CircuitRealises (Forrelation.forrCircuit l t) (P (l + 1) t) ∧\n      (Forrelation.forrCircuit l t).size ≤\n        Forrelation.forrConstant (l + 1) * mValue t * (2 * t) ^ 2 ∧\n      (Q (totalise (Fkm (l + 1) t (Forrelation.forrCircuit l t))) : ℝ) ≤\n        (Upper.budgetConst (l + 1) : ℝ) * Real.sqrt (mValue t : ℝ) *\n          (Real.logb 2 (mValue t : ℝ)) ^ 6 ∧\n      (1 / 400 : ℝ) * Real.rpow (mValue t : ℝ) (2 - 1 / ((l + 1 : ℕ) : ℝ)) /\n          (Real.logb 2 (mValue t : ℝ)) ^ 2 ≤\n        (R (totalise (Fkm (l + 1) t (Forrelation.forrCircuit l t))) : ℝ)"
+  },
+  "QuarticQuery.Paper.construction_equation_two": {
+    "file": "lean/QuarticQuery/Paper/ConstructionFamily.lean",
+    "line": 58,
+    "signature": "theorem construction_equation_two (k : ℕ) (hk : 2 ≤ k) :\n    ∃ (S : ℕ) (c C : ℝ), 0 < c ∧ 0 < C ∧\n      ∃ (b : ℕ), 0 < b ∧ ∃ t₀ : ℕ, ∀ t : ℕ, t₀ ≤ t →\n        ∃ Cir : Circuit (ForrelationCoord k t), CircuitRealises Cir (P k t) ∧\n          Cir.size ≤ S * mValue t * (2 * t) ^ 2 ∧\n          (Q (totalise (Fkm k t Cir)) : ℝ) ≤\n            C * Real.sqrt (mValue t : ℝ) * (Real.logb 2 (mValue t : ℝ)) ^ b ∧\n          c * Real.rpow (mValue t : ℝ) (2 - 1 / (k : ℝ)) /\n              (Real.logb 2 (mValue t : ℝ)) ^ 2 ≤\n            (R (totalise (Fkm k t Cir)) : ℝ)",
+    "display_statement": "theorem construction_equation_two (k : ℕ) (hk : 2 ≤ k) :\n    ∃ (S : ℕ) (c C : ℝ), 0 < c ∧ 0 < C ∧\n      ∃ (b : ℕ), 0 < b ∧ ∃ t₀ : ℕ, ∀ t : ℕ, t₀ ≤ t →\n        ∃ Cir : Circuit (ForrelationCoord k t), CircuitRealises Cir (P k t) ∧\n          Cir.size ≤ S * mValue t * (2 * t) ^ 2 ∧\n          (Q (totalise (Fkm k t Cir)) : ℝ) ≤\n            C * Real.sqrt (mValue t : ℝ) * (Real.logb 2 (mValue t : ℝ)) ^ b ∧\n          c * Real.rpow (mValue t : ℝ) (2 - 1 / (k : ℝ)) /\n              (Real.logb 2 (mValue t : ℝ)) ^ 2 ≤\n            (R (totalise (Fkm k t Cir)) : ℝ)"
+  },
+  "QuarticQuery.Paper.construction_forr_value_output": {
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationCircuit.lean",
+    "line": 23,
+    "signature": "theorem construction_forr_value_output (l t : ℕ)\n    (x : BitInput (ForrelationCoord (l + 1) t)) :\n    (run x (forrProg l t)).getD (coreSize l t) false =\n      decide ((2 : ℤ) ^ (5 * (l + 1)) * forrelationNumerator (l + 1) t x ≥\n        forrelationDenominator (l + 1) t)",
+    "display_statement": "theorem construction_forr_value_output (l t : ℕ)\n    (x : BitInput (ForrelationCoord (l + 1) t)) :\n    (run x (forrProg l t)).getD (coreSize l t) false =\n      decide ((2 : ℤ) ^ (5 * (l + 1)) * forrelationNumerator (l + 1) t x ≥\n        forrelationDenominator (l + 1) t)"
+  },
+  "QuarticQuery.Paper.construction_forr_output_bits": {
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationCircuit.lean",
+    "line": 58,
+    "signature": "theorem construction_forr_output_bits (l t : ℕ)\n    (x : BitInput (ForrelationCoord (l + 1) t))\n    (tr : Fin (forrCircuit l t).size → Bool)\n    (htr : GateConsistent (forrCircuit l t) x tr) :\n    tr (forrCircuit l t).valueOut =\n      decide ((2 : ℤ) ^ (5 * (l + 1)) * forrelationNumerator (l + 1) t x ≥\n        forrelationDenominator (l + 1) t) ∧\n    tr (forrCircuit l t).domainOut =\n      decide ((2 : ℤ) ^ (5 * (l + 1)) * forrelationNumerator (l + 1) t x ≥\n          forrelationDenominator (l + 1) t ∨\n        (2 : ℤ) ^ (5 * (l + 1) + 1) * |forrelationNumerator (l + 1) t x| ≤\n          forrelationDenominator (l + 1) t)",
+    "display_statement": "theorem construction_forr_output_bits (l t : ℕ)\n    (x : BitInput (ForrelationCoord (l + 1) t))\n    (tr : Fin (forrCircuit l t).size → Bool)\n    (htr : GateConsistent (forrCircuit l t) x tr) :\n    tr (forrCircuit l t).valueOut =\n      decide ((2 : ℤ) ^ (5 * (l + 1)) * forrelationNumerator (l + 1) t x ≥\n        forrelationDenominator (l + 1) t) ∧\n    tr (forrCircuit l t).domainOut =\n      decide ((2 : ℤ) ^ (5 * (l + 1)) * forrelationNumerator (l + 1) t x ≥\n          forrelationDenominator (l + 1) t ∨\n        (2 : ℤ) ^ (5 * (l + 1) + 1) * |forrelationNumerator (l + 1) t x| ≤\n          forrelationDenominator (l + 1) t)"
+  },
+  "QuarticQuery.Paper.construction_circuit_width": {
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationCircuit.lean",
+    "line": 85,
+    "signature": "theorem construction_circuit_width (l t : ℕ) (ht : 1 ≤ t) :\n    widthTop l t + 1 ≤ (3 * l + 5) * (2 * t)",
+    "display_statement": "theorem construction_circuit_width (l t : ℕ) (ht : 1 ≤ t) :\n    widthTop l t + 1 ≤ (3 * l + 5) * (2 * t)"
+  },
+  "QuarticQuery.Paper.construction_circuit_costs": {
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationCircuit.lean",
+    "line": 94,
+    "signature": "theorem construction_circuit_costs (l t : ℕ) (ht : 1 ≤ t) :\n    widthTop l t + 1 ≤ (3 * l + 5) * (2 * t) ∧\n    (∀ w : ℕ, whtCost w (2 * t) ≤ (2 * t) * mValue t * (6 * w + 1)) ∧\n    (∀ n w : ℕ, layerCost n w l ≤\n      1 + (l + 1) * (whtCost w n + 2 ^ n * (6 * w))) ∧\n    (∀ x : BitInput (ForrelationCoord (l + 1) t),\n      |forrelationNumerator (l + 1) t x| ≤ forrelationDenominator (l + 1) t) ∧\n    CircuitRealises (forrCircuit l t) (P (l + 1) t) ∧\n    (forrCircuit l t).size ≤\n      forrConstant (l + 1) * mValue t * (2 * t) ^ 2",
+    "display_statement": "theorem construction_circuit_costs (l t : ℕ) (ht : 1 ≤ t) :\n    widthTop l t + 1 ≤ (3 * l + 5) * (2 * t) ∧\n    (∀ w : ℕ, whtCost w (2 * t) ≤ (2 * t) * mValue t * (6 * w + 1)) ∧\n    (∀ n w : ℕ, layerCost n w l ≤\n      1 + (l + 1) * (whtCost w n + 2 ^ n * (6 * w))) ∧\n    (∀ x : BitInput (ForrelationCoord (l + 1) t),\n      |forrelationNumerator (l + 1) t x| ≤ forrelationDenominator (l + 1) t) ∧\n    CircuitRealises (forrCircuit l t) (P (l + 1) t) ∧\n    (forrCircuit l t).size ≤\n      forrConstant (l + 1) * mValue t * (2 * t) ^ 2"
+  },
+  "QuarticQuery.Paper.construction_lemma_2_1_iii": {
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationCircuit.lean",
+    "line": 111,
+    "signature": "theorem construction_lemma_2_1_iii (k : ℕ) (hk : 1 ≤ k) :\n    ∃ S : ℕ, 0 < S ∧ ∀ t : ℕ, 1 ≤ t → ∃ C : Circuit (ForrelationCoord k t),\n      CircuitRealises C (P k t) ∧\n      (C.size : ℝ) ≤ (S : ℝ) * (mValue t : ℝ) *\n        (Real.logb 2 (mValue t : ℝ)) ^ 2",
+    "display_statement": "theorem construction_lemma_2_1_iii (k : ℕ) (hk : 1 ≤ k) :\n    ∃ S : ℕ, 0 < S ∧ ∀ t : ℕ, 1 ≤ t → ∃ C : Circuit (ForrelationCoord k t),\n      CircuitRealises C (P k t) ∧\n      (C.size : ℝ) ≤ (S : ℝ) * (mValue t : ℝ) *\n        (Real.logb 2 (mValue t : ℝ)) ^ 2"
+  },
+  "QuarticQuery.Paper.construction_affine_comparison": {
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationComparison.lean",
+    "line": 22,
+    "signature": "theorem construction_affine_comparison {k : ℕ} (hk : 2 ≤ k)\n    {c A B : ℝ} (hc : 0 < c) (hA : 0 ≤ A) (hB : 0 ≤ B) :\n    ∃ t₀ : ℕ, 1 ≤ t₀ ∧ ∀ t : ℕ, t₀ ≤ t →\n      ∀ Λ : ℝ, 1 ≤ Λ → Λ ≤ A + B * t →\n        (mValue t : ℝ) ^ (1 - 1 / (k : ℝ)) / (2 * (t : ℝ)) ^ 2 <\n          c * ((mValue t : ℝ) / Λ) ^ (1 - 1 / (k : ℝ))",
+    "display_statement": "theorem construction_affine_comparison {k : ℕ} (hk : 2 ≤ k)\n    {c A B : ℝ} (hc : 0 < c) (hA : 0 ≤ A) (hB : 0 ≤ B) :\n    ∃ t₀ : ℕ, 1 ≤ t₀ ∧ ∀ t : ℕ, t₀ ≤ t →\n      ∀ Λ : ℝ, 1 ≤ Λ → Λ ≤ A + B * t →\n        (mValue t : ℝ) ^ (1 - 1 / (k : ℝ)) / (2 * (t : ℝ)) ^ 2 <\n          c * ((mValue t : ℝ) / Λ) ^ (1 - 1 / (k : ℝ))"
+  },
+  "QuarticQuery.Paper.construction_L_le_unfloored": {
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationComparison.lean",
+    "line": 75,
+    "signature": "theorem construction_L_le_unfloored (k t : ℕ) :\n    (Lvalue k t : ℝ) ≤ (mValue t : ℝ) ^ (1 - 1 / (k : ℝ)) /\n      (Real.logb 2 (mValue t : ℝ)) ^ 2",
+    "display_statement": "theorem construction_L_le_unfloored (k t : ℕ) :\n    (Lvalue k t : ℝ) ≤ (mValue t : ℝ) ^ (1 - 1 / (k : ℝ)) /\n      (Real.logb 2 (mValue t : ℝ)) ^ 2"
+  },
+  "QuarticQuery.Paper.construction_bs_comparison_chain": {
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationComparison.lean",
+    "line": 84,
+    "signature": "theorem construction_bs_comparison_chain (k : ℕ) (hk : 2 ≤ k)\n    (c : ℝ) (hc : 0 < c) :\n    ∃ t₀ : ℕ, ∀ t : ℕ, t₀ ≤ t →\n      (Lvalue k t : ℝ) ≤ (mValue t : ℝ) ^ (1 - 1 / (k : ℝ)) /\n        (Real.logb 2 (mValue t : ℝ)) ^ 2 ∧\n      (mValue t : ℝ) ^ (1 - 1 / (k : ℝ)) /\n          (Real.logb 2 (mValue t : ℝ)) ^ 2 <\n        c * (k : ℝ) ^ (-29 : ℤ) *\n          ((mValue t : ℝ) / Real.logb 2 ((k : ℝ) * (mValue t : ℝ))) ^\n            (1 - 1 / (k : ℝ))",
+    "display_statement": "theorem construction_bs_comparison_chain (k : ℕ) (hk : 2 ≤ k)\n    (c : ℝ) (hc : 0 < c) :\n    ∃ t₀ : ℕ, ∀ t : ℕ, t₀ ≤ t →\n      (Lvalue k t : ℝ) ≤ (mValue t : ℝ) ^ (1 - 1 / (k : ℝ)) /\n        (Real.logb 2 (mValue t : ℝ)) ^ 2 ∧\n      (mValue t : ℝ) ^ (1 - 1 / (k : ℝ)) /\n          (Real.logb 2 (mValue t : ℝ)) ^ 2 <\n        c * (k : ℝ) ^ (-29 : ℤ) *\n          ((mValue t : ℝ) / Real.logb 2 ((k : ℝ) * (mValue t : ℝ))) ^\n            (1 - 1 / (k : ℝ))"
+  },
+  "QuarticQuery.Paper.construction_claim_bs_to_L": {
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationComparison.lean",
+    "line": 113,
+    "signature": "theorem construction_claim_bs_to_L (k : ℕ) (hk : 2 ≤ k)\n    (c : ℝ) (hc : 0 < c) :\n    ∃ t₀ : ℕ, ∀ t : ℕ, t₀ ≤ t →\n      (Lvalue k t : ℝ) < c * (k : ℝ) ^ (-29 : ℤ) *\n        ((mValue t : ℝ) / Real.logb 2 ((k : ℝ) * (mValue t : ℝ))) ^\n          (1 - 1 / (k : ℝ))",
+    "display_statement": "theorem construction_claim_bs_to_L (k : ℕ) (hk : 2 ≤ k)\n    (c : ℝ) (hc : 0 < c) :\n    ∃ t₀ : ℕ, ∀ t : ℕ, t₀ ≤ t →\n      (Lvalue k t : ℝ) < c * (k : ℝ) ^ (-29 : ℤ) *\n        ((mValue t : ℝ) / Real.logb 2 ((k : ℝ) * (mValue t : ℝ))) ^\n          (1 - 1 / (k : ℝ))"
+  },
+  "QuarticQuery.Paper.construction_lemma_2_1_ii_complete": {
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationComplete.lean",
+    "line": 25,
+    "signature": "theorem construction_lemma_2_1_ii_complete (k : ℕ) (hk : 1 ≤ k) :\n    ∃ A : ℝ, 0 < A ∧ ∀ (t : ℕ) (η : ℝ), 0 < η → η < 1 / 2 →\n      ∃ (n : ℕ) (L : BitInput (ForrelationCoord k t) → Bool → ℝ)\n        (Z : Type) (instZ : Fintype Z),\n        let _ := instZ\n        ∃ (o : Z) (out : Z → Bool)\n          (F : BitInput (ForrelationCoord k t) → Reg Z ≃ₗᵢ[ℂ] Reg Z),\n          ((2 * (n * k) : ℕ) : ℝ) ≤ A * (1 + Real.log (1 / η)) ∧\n          IsCirc (n * k) F ∧\n          (∀ z b, L z b = lawOf (F z (rket o)) out b) ∧\n          (∀ z, 0 ≤ L z false ∧ 0 ≤ L z true ∧ L z false + L z true = 1) ∧\n          (∀ z b, P k t z = some b → 1 - η ≤ L z b) ∧\n          ∃ instI : Inhabited (ForrelationCoord k t),\n            let _ := instI\n            ∃ (w : ℕ) (emb : Z ↪ Fin (w + 1))\n              (K : AdaptiveProgram (ForrelationCoord k t) w →\n                AdaptiveProgram (ForrelationCoord k t) w),\n              ∀ next, (K next).queryCap ≤ 2 * (n * k) + next.queryCap ∧\n                ∀ z ψ b, (K next).outputMass z (clEmb emb ψ) b =\n                  next.outputMass z (clEmb emb (F z ψ)) b",
+    "display_statement": "theorem construction_lemma_2_1_ii_complete (k : ℕ) (hk : 1 ≤ k) :\n    ∃ A : ℝ, 0 < A ∧ ∀ (t : ℕ) (η : ℝ), 0 < η → η < 1 / 2 →\n      ∃ (n : ℕ) (L : BitInput (ForrelationCoord k t) → Bool → ℝ)\n        (Z : Type) (instZ : Fintype Z),\n        let _ := instZ\n        ∃ (o : Z) (out : Z → Bool)\n          (F : BitInput (ForrelationCoord k t) → Reg Z ≃ₗᵢ[ℂ] Reg Z),\n          ((2 * (n * k) : ℕ) : ℝ) ≤ A * (1 + Real.log (1 / η)) ∧\n          IsCirc (n * k) F ∧\n          (∀ z b, L z b = lawOf (F z (rket o)) out b) ∧\n          (∀ z, 0 ≤ L z false ∧ 0 ≤ L z true ∧ L z false + L z true = 1) ∧\n          (∀ z b, P k t z = some b → 1 - η ≤ L z b) ∧\n          ∃ instI : Inhabited (ForrelationCoord k t),\n            let _ := instI\n            ∃ (w : ℕ) (emb : Z ↪ Fin (w + 1))\n              (K : AdaptiveProgram (ForrelationCoord k t) w →\n                AdaptiveProgram (ForrelationCoord k t) w),\n              ∀ next, (K next).queryCap ≤ 2 * (n * k) + next.queryCap ∧\n                ∀ z ψ b, (K next).outputMass z (clEmb emb ψ) b =\n                  next.outputMass z (clEmb emb (F z ψ)) b"
+  },
+  "QuarticQuery.Paper.construction_lemma_2_1_complete": {
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationComplete.lean",
+    "line": 66,
+    "signature": "theorem construction_lemma_2_1_complete (k : ℕ) (hk : 2 ≤ k) :\n    (∃ t₀ : ℕ, ∀ t : ℕ, t₀ ≤ t → Lvalue k t < R (P k t)) ∧\n    (∃ A : ℝ, 0 < A ∧ ∀ (t : ℕ) (η : ℝ), 0 < η → η < 1 / 2 →\n      ∃ (n : ℕ) (L : BitInput (ForrelationCoord k t) → Bool → ℝ)\n        (Z : Type) (instZ : Fintype Z),\n        let _ := instZ\n        ∃ (o : Z) (out : Z → Bool)\n          (F : BitInput (ForrelationCoord k t) → Reg Z ≃ₗᵢ[ℂ] Reg Z),\n          ((2 * (n * k) : ℕ) : ℝ) ≤ A * (1 + Real.log (1 / η)) ∧\n          IsCirc (n * k) F ∧\n          (∀ z b, L z b = lawOf (F z (rket o)) out b) ∧\n          (∀ z, 0 ≤ L z false ∧ 0 ≤ L z true ∧ L z false + L z true = 1) ∧\n          (∀ z b, P k t z = some b → 1 - η ≤ L z b) ∧\n          ∃ instI : Inhabited (ForrelationCoord k t),\n            let _ := instI\n            ∃ (w : ℕ) (emb : Z ↪ Fin (w + 1))\n              (K : AdaptiveProgram (ForrelationCoord k t) w →\n                AdaptiveProgram (ForrelationCoord k t) w),\n              ∀ next, (K next).queryCap ≤ 2 * (n * k) + next.queryCap ∧\n                ∀ z ψ b, (K next).outputMass z (clEmb emb ψ) b =\n                  next.outputMass z (clEmb emb (F z ψ)) b) ∧\n    (∃ S : ℕ, 0 < S ∧ ∀ t : ℕ, 1 ≤ t → ∃ C : Circuit (ForrelationCoord k t),\n      CircuitRealises C (P k t) ∧\n      (C.size : ℝ) ≤ (S : ℝ) * (mValue t : ℝ) *\n        (Real.logb 2 (mValue t : ℝ)) ^ 2)",
+    "display_statement": "theorem construction_lemma_2_1_complete (k : ℕ) (hk : 2 ≤ k) :\n    (∃ t₀ : ℕ, ∀ t : ℕ, t₀ ≤ t → Lvalue k t < R (P k t)) ∧\n    (∃ A : ℝ, 0 < A ∧ ∀ (t : ℕ) (η : ℝ), 0 < η → η < 1 / 2 →\n      ∃ (n : ℕ) (L : BitInput (ForrelationCoord k t) → Bool → ℝ)\n        (Z : Type) (instZ : Fintype Z),\n        let _ := instZ\n        ∃ (o : Z) (out : Z → Bool)\n          (F : BitInput (ForrelationCoord k t) → Reg Z ≃ₗᵢ[ℂ] Reg Z),\n          ((2 * (n * k) : ℕ) : ℝ) ≤ A * (1 + Real.log (1 / η)) ∧\n          IsCirc (n * k) F ∧\n          (∀ z b, L z b = lawOf (F z (rket o)) out b) ∧\n          (∀ z, 0 ≤ L z false ∧ 0 ≤ L z true ∧ L z false + L z true = 1) ∧\n          (∀ z b, P k t z = some b → 1 - η ≤ L z b) ∧\n          ∃ instI : Inhabited (ForrelationCoord k t),\n            let _ := instI\n            ∃ (w : ℕ) (emb : Z ↪ Fin (w + 1))\n              (K : AdaptiveProgram (ForrelationCoord k t) w →\n                AdaptiveProgram (ForrelationCoord k t) w),\n              ∀ next, (K next).queryCap ≤ 2 * (n * k) + next.queryCap ∧\n                ∀ z ψ b, (K next).outputMass z (clEmb emb ψ) b =\n                  next.outputMass z (clEmb emb (F z ψ)) b) ∧\n    (∃ S : ℕ, 0 < S ∧ ∀ t : ℕ, 1 ≤ t → ∃ C : Circuit (ForrelationCoord k t),\n      CircuitRealises C (P k t) ∧\n      (C.size : ℝ) ≤ (S : ℝ) * (mValue t : ℝ) *\n        (Real.logb 2 (mValue t : ℝ)) ^ 2)"
+  },
+  "QuarticQuery.Paper.construction_forr_sqrt_mValue": {
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+    "line": 21,
+    "signature": "theorem construction_forr_sqrt_mValue (t : ℕ) :\n    Real.sqrt (mValue t : ℝ) = (2 : ℝ) ^ t",
+    "display_statement": "theorem construction_forr_sqrt_mValue (t : ℕ) :\n    Real.sqrt (mValue t : ℝ) = (2 : ℝ) ^ t"
+  },
+  "QuarticQuery.Paper.construction_walsh_definitions": {
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+    "line": 28,
+    "signature": "theorem construction_walsh_definitions (k t : ℕ)\n    (z : BitInput (ForrelationCoord k t)) :\n    (∀ b : Bool, bitSign b = (-1 : ℤ) ^ (if b then (1 : ℕ) else 0)) ∧\n    (∀ i j : Fin (mValue t), walshSign t i j =\n      (-1 : ℤ) ^ (∑ b ∈ range (2 * t),\n        if i.val.testBit b && j.val.testBit b then (1 : ℕ) else 0)) ∧\n    (∀ i j : Fin (mValue t), H t i j =\n      (Real.sqrt (mValue t : ℝ))⁻¹ * (walshSign t i j : ℝ)) ∧\n    (∀ i : Fin (mValue t), u t i = (Real.sqrt (mValue t : ℝ))⁻¹) ∧\n    (∀ h : Fin k, signDiag z h = Matrix.diagonal fun i => (bitSign (z (h, i)) : ℝ))",
+    "display_statement": "theorem construction_walsh_definitions (k t : ℕ)\n    (z : BitInput (ForrelationCoord k t)) :\n    (∀ b : Bool, bitSign b = (-1 : ℤ) ^ (if b then (1 : ℕ) else 0)) ∧\n    (∀ i j : Fin (mValue t), walshSign t i j =\n      (-1 : ℤ) ^ (∑ b ∈ range (2 * t),\n        if i.val.testBit b && j.val.testBit b then (1 : ℕ) else 0)) ∧\n    (∀ i j : Fin (mValue t), H t i j =\n      (Real.sqrt (mValue t : ℝ))⁻¹ * (walshSign t i j : ℝ)) ∧\n    (∀ i : Fin (mValue t), u t i = (Real.sqrt (mValue t : ℝ))⁻¹) ∧\n    (∀ h : Fin k, signDiag z h = Matrix.diagonal fun i => (bitSign (z (h, i)) : ℝ))"
+  },
+  "QuarticQuery.Paper.construction_equation_3": {
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+    "line": 50,
+    "signature": "theorem construction_equation_3 (k t : ℕ) (hk : 1 ≤ k)\n    (z : BitInput (ForrelationCoord k t)) :\n    Phi k t z = u t ⬝ᵥ\n      (alternate (H t) (List.ofFn fun h : Fin k => signDiag z h) *ᵥ u t) ∧\n    delta k = (2 : ℝ) ^ (-(5 * (k : ℤ)))",
+    "display_statement": "theorem construction_equation_3 (k t : ℕ) (hk : 1 ≤ k)\n    (z : BitInput (ForrelationCoord k t)) :\n    Phi k t z = u t ⬝ᵥ\n      (alternate (H t) (List.ofFn fun h : Fin k => signDiag z h) *ᵥ u t) ∧\n    delta k = (2 : ℝ) ^ (-(5 * (k : ℤ)))"
+  },
+  "QuarticQuery.Paper.construction_equation_4": {
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+    "line": 59,
+    "signature": "theorem construction_equation_4 (k t : ℕ)\n    (z : BitInput (ForrelationCoord k t)) :\n    Fintype.card (ForrelationCoord k t) = k * mValue t ∧\n    (P k t z = some true ↔ delta k ≤ Phi k t z) ∧\n    (P k t z = some false ↔ |Phi k t z| ≤ delta k / 2) ∧\n    (P k t z = none ↔ ¬ delta k ≤ Phi k t z ∧ ¬ |Phi k t z| ≤ delta k / 2) ∧\n    ¬ (delta k ≤ Phi k t z ∧ |Phi k t z| ≤ delta k / 2)",
+    "display_statement": "theorem construction_equation_4 (k t : ℕ)\n    (z : BitInput (ForrelationCoord k t)) :\n    Fintype.card (ForrelationCoord k t) = k * mValue t ∧\n    (P k t z = some true ↔ delta k ≤ Phi k t z) ∧\n    (P k t z = some false ↔ |Phi k t z| ≤ delta k / 2) ∧\n    (P k t z = none ↔ ¬ delta k ≤ Phi k t z ∧ ¬ |Phi k t z| ≤ delta k / 2) ∧\n    ¬ (delta k ≤ Phi k t z ∧ |Phi k t z| ≤ delta k / 2)"
+  },
+  "QuarticQuery.Paper.construction_equation_5": {
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+    "line": 72,
+    "signature": "theorem construction_equation_5 (k t : ℕ) :\n    Lvalue k t =\n      ⌊Real.rpow (mValue t : ℝ) (1 - 1 / (k : ℝ)) /\n        (Real.logb 2 (mValue t : ℝ)) ^ 2⌋₊",
+    "display_statement": "theorem construction_equation_5 (k t : ℕ) :\n    Lvalue k t =\n      ⌊Real.rpow (mValue t : ℝ) (1 - 1 / (k : ℝ)) /\n        (Real.logb 2 (mValue t : ℝ)) ^ 2⌋₊"
+  },
+  "QuarticQuery.Paper.construction_tailProd_smul": {
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+    "line": 79,
+    "signature": "theorem construction_tailProd_smul {n : Type} [Fintype n] [DecidableEq n]\n    (c : ℝ) (A : Matrix n n ℝ) (Ds : List (Matrix n n ℝ)) :\n    tailProd (c • A) Ds = c ^ Ds.length • tailProd A Ds",
+    "display_statement": "theorem construction_tailProd_smul {n : Type} [Fintype n] [DecidableEq n]\n    (c : ℝ) (A : Matrix n n ℝ) (Ds : List (Matrix n n ℝ)) :\n    tailProd (c • A) Ds = c ^ Ds.length • tailProd A Ds"
+  },
+  "QuarticQuery.Paper.construction_alternate_smul": {
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+    "line": 91,
+    "signature": "theorem construction_alternate_smul {n : Type} [Fintype n] [DecidableEq n]\n    (c : ℝ) (A : Matrix n n ℝ) (k : ℕ) (hk : 1 ≤ k)\n    (D : Fin k → Matrix n n ℝ) :\n    alternate (c • A) (List.ofFn D) = c ^ (k - 1) • alternate A (List.ofFn D)",
+    "display_statement": "theorem construction_alternate_smul {n : Type} [Fintype n] [DecidableEq n]\n    (c : ℝ) (A : Matrix n n ℝ) (k : ℕ) (hk : 1 ≤ k)\n    (D : Fin k → Matrix n n ℝ) :\n    alternate (c • A) (List.ofFn D) = c ^ (k - 1) • alternate A (List.ofFn D)"
+  },
+  "QuarticQuery.Paper.construction_denominator": {
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+    "line": 100,
+    "signature": "theorem construction_denominator (k t : ℕ) :\n    0 < forrelationDenominator k t ∧\n    (forrelationDenominator k t : ℝ) =\n      (mValue t : ℝ) * (Real.sqrt (mValue t : ℝ)) ^ (k - 1)",
+    "display_statement": "theorem construction_denominator (k t : ℕ) :\n    0 < forrelationDenominator k t ∧\n    (forrelationDenominator k t : ℝ) =\n      (mValue t : ℝ) * (Real.sqrt (mValue t : ℝ)) ^ (k - 1)"
+  },
+  "QuarticQuery.Paper.construction_numerator_matrix": {
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+    "line": 110,
+    "signature": "theorem construction_numerator_matrix (k t : ℕ) (hk : 1 ≤ k)\n    (z : BitInput (ForrelationCoord k t)) :\n    (forrelationNumerator k t z : ℝ) =\n      (fun _ : Fin (mValue t) => (1 : ℝ)) ⬝ᵥ\n        (alternate (W t) (List.ofFn fun h : Fin k => signDiag z h) *ᵥ\n          fun _ => (1 : ℝ))",
+    "display_statement": "theorem construction_numerator_matrix (k t : ℕ) (hk : 1 ≤ k)\n    (z : BitInput (ForrelationCoord k t)) :\n    (forrelationNumerator k t z : ℝ) =\n      (fun _ : Fin (mValue t) => (1 : ℝ)) ⬝ᵥ\n        (alternate (W t) (List.ofFn fun h : Fin k => signDiag z h) *ᵥ\n          fun _ => (1 : ℝ))"
+  },
+  "QuarticQuery.Paper.construction_N_phi": {
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+    "line": 142,
+    "signature": "theorem construction_N_phi (k t : ℕ) (hk : 1 ≤ k)\n    (z : BitInput (ForrelationCoord k t)) :\n    (forrelationNumerator k t z : ℝ) =\n      (fun _ : Fin (mValue t) => (1 : ℝ)) ⬝ᵥ\n        (alternate (W t) (List.ofFn fun h : Fin k => signDiag z h) *ᵥ\n          fun _ => (1 : ℝ)) ∧\n    Phi k t z = (forrelationNumerator k t z : ℝ) / (forrelationDenominator k t : ℝ) ∧\n    0 < forrelationDenominator k t ∧\n    (forrelationDenominator k t : ℝ) =\n      (mValue t : ℝ) * (Real.sqrt (mValue t : ℝ)) ^ (k - 1) ∧\n    W t = Real.sqrt (mValue t : ℝ) • H t ∧\n    (∀ i j : Fin (mValue t), W t i j = 1 ∨ W t i j = -1)",
+    "display_statement": "theorem construction_N_phi (k t : ℕ) (hk : 1 ≤ k)\n    (z : BitInput (ForrelationCoord k t)) :\n    (forrelationNumerator k t z : ℝ) =\n      (fun _ : Fin (mValue t) => (1 : ℝ)) ⬝ᵥ\n        (alternate (W t) (List.ofFn fun h : Fin k => signDiag z h) *ᵥ\n          fun _ => (1 : ℝ)) ∧\n    Phi k t z = (forrelationNumerator k t z : ℝ) / (forrelationDenominator k t : ℝ) ∧\n    0 < forrelationDenominator k t ∧\n    (forrelationDenominator k t : ℝ) =\n      (mValue t : ℝ) * (Real.sqrt (mValue t : ℝ)) ^ (k - 1) ∧\n    W t = Real.sqrt (mValue t : ℝ) • H t ∧\n    (∀ i j : Fin (mValue t), W t i j = 1 ∨ W t i j = -1)"
+  },
+  "QuarticQuery.Paper.construction_integer_tests": {
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+    "line": 169,
+    "signature": "theorem construction_integer_tests (k t : ℕ)\n    (z : BitInput (ForrelationCoord k t)) :\n    (delta k ≤ Phi k t z ↔\n      (2 : ℤ) ^ (5 * k) * forrelationNumerator k t z ≥ forrelationDenominator k t) ∧\n    (|Phi k t z| ≤ delta k / 2 ↔\n      (2 : ℤ) ^ (5 * k + 1) * |forrelationNumerator k t z| ≤ forrelationDenominator k t) ∧\n    (promised (P k t) z ↔\n      ((2 : ℤ) ^ (5 * k) * forrelationNumerator k t z ≥ forrelationDenominator k t ∨\n       (2 : ℤ) ^ (5 * k + 1) * |forrelationNumerator k t z| ≤ forrelationDenominator k t)) ∧\n    (P k t z = some true ↔\n      (2 : ℤ) ^ (5 * k) * forrelationNumerator k t z ≥ forrelationDenominator k t)",
+    "display_statement": "theorem construction_integer_tests (k t : ℕ)\n    (z : BitInput (ForrelationCoord k t)) :\n    (delta k ≤ Phi k t z ↔\n      (2 : ℤ) ^ (5 * k) * forrelationNumerator k t z ≥ forrelationDenominator k t) ∧\n    (|Phi k t z| ≤ delta k / 2 ↔\n      (2 : ℤ) ^ (5 * k + 1) * |forrelationNumerator k t z| ≤ forrelationDenominator k t) ∧\n    (promised (P k t) z ↔\n      ((2 : ℤ) ^ (5 * k) * forrelationNumerator k t z ≥ forrelationDenominator k t ∨\n       (2 : ℤ) ^ (5 * k + 1) * |forrelationNumerator k t z| ≤ forrelationDenominator k t)) ∧\n    (P k t z = some true ↔\n      (2 : ℤ) ^ (5 * k) * forrelationNumerator k t z ≥ forrelationDenominator k t)"
+  },
+  "QuarticQuery.Paper.construction_projection_test": {
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationQuantum.lean",
+    "line": 26,
+    "signature": "theorem construction_projection_test (k t : ℕ) (hk : 1 ≤ k) :\n    (∀ z : BitInput (ForrelationCoord k t),\n      successProb z = Phi k t z ^ 2 ∧\n      (P k t z = some true → delta k ^ 2 ≤ successProb z) ∧\n      (P k t z = some false → successProb z ≤ delta k ^ 2 / 4)) ∧\n    Samples k (fun (z : BitInput (ForrelationCoord k t)) b => bern (Phi k t z ^ 2) b) ∧\n    (∀ [Inhabited (ForrelationCoord k t)],\n      Runs (2 * k) (fun (z : BitInput (ForrelationCoord k t)) b => bern (Phi k t z ^ 2) b))",
+    "display_statement": "theorem construction_projection_test (k t : ℕ) (hk : 1 ≤ k) :\n    (∀ z : BitInput (ForrelationCoord k t),\n      successProb z = Phi k t z ^ 2 ∧\n      (P k t z = some true → delta k ^ 2 ≤ successProb z) ∧\n      (P k t z = some false → successProb z ≤ delta k ^ 2 / 4)) ∧\n    Samples k (fun (z : BitInput (ForrelationCoord k t)) b => bern (Phi k t z ^ 2) b) ∧\n    (∀ [Inhabited (ForrelationCoord k t)],\n      Runs (2 * k) (fun (z : BitInput (ForrelationCoord k t)) b => bern (Phi k t z ^ 2) b))"
+  },
+  "QuarticQuery.Paper.construction_lemma_2_1_ii": {
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationQuantum.lean",
+    "line": 47,
+    "signature": "theorem construction_lemma_2_1_ii (k : ℕ) (hk : 1 ≤ k) :\n    ∃ A : ℝ, 0 < A ∧ ∀ (t : ℕ) (η : ℝ), 0 < η → η < 1 / 2 →\n      ∃ (n : ℕ) (L : BitInput (ForrelationCoord k t) → Bool → ℝ),\n        ((2 * (n * k) : ℕ) : ℝ) ≤ A * (1 + Real.log (1 / η)) ∧\n        Samples (n * k) L ∧\n        (∀ [Inhabited (ForrelationCoord k t)], Runs (2 * (n * k)) L) ∧\n        (∀ z, 0 ≤ L z false ∧ 0 ≤ L z true ∧ L z false + L z true = 1) ∧\n        ∀ z b, P k t z = some b → 1 - η ≤ L z b",
+    "display_statement": "theorem construction_lemma_2_1_ii (k : ℕ) (hk : 1 ≤ k) :\n    ∃ A : ℝ, 0 < A ∧ ∀ (t : ℕ) (η : ℝ), 0 < η → η < 1 / 2 →\n      ∃ (n : ℕ) (L : BitInput (ForrelationCoord k t) → Bool → ℝ),\n        ((2 * (n * k) : ℕ) : ℝ) ≤ A * (1 + Real.log (1 / η)) ∧\n        Samples (n * k) L ∧\n        (∀ [Inhabited (ForrelationCoord k t)], Runs (2 * (n * k)) L) ∧\n        (∀ z, 0 ≤ L z false ∧ 0 ≤ L z true ∧ L z false + L z true = 1) ∧\n        ∀ z b, P k t z = some b → 1 - η ≤ L z b"
+  },
+  "QuarticQuery.Paper.construction_lemma_2_1_i": {
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationQuantum.lean",
+    "line": 93,
+    "signature": "theorem construction_lemma_2_1_i (k : ℕ) (hk : 2 ≤ k) :\n    ∃ t₀ : ℕ, ∀ t : ℕ, t₀ ≤ t → Lvalue k t < R (P k t)",
+    "display_statement": "theorem construction_lemma_2_1_i (k : ℕ) (hk : 2 ≤ k) :\n    ∃ t₀ : ℕ, ∀ t : ℕ, t₀ ≤ t → Lvalue k t < R (P k t)"
+  },
+  "QuarticQuery.Paper.construction_lemma_2_1": {
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationQuantum.lean",
+    "line": 101,
+    "signature": "theorem construction_lemma_2_1 (k : ℕ) (hk : 2 ≤ k) :\n    (∃ t₀ : ℕ, ∀ t : ℕ, t₀ ≤ t → Lvalue k t < R (P k t)) ∧\n    (∃ A : ℝ, 0 < A ∧ ∀ (t : ℕ) (η : ℝ), 0 < η → η < 1 / 2 →\n      ∃ (n : ℕ) (L : BitInput (ForrelationCoord k t) → Bool → ℝ),\n        ((2 * (n * k) : ℕ) : ℝ) ≤ A * (1 + Real.log (1 / η)) ∧\n        Samples (n * k) L ∧\n        (∀ [Inhabited (ForrelationCoord k t)], Runs (2 * (n * k)) L) ∧\n        (∀ z, 0 ≤ L z false ∧ 0 ≤ L z true ∧ L z false + L z true = 1) ∧\n        ∀ z b, P k t z = some b → 1 - η ≤ L z b) ∧\n    (∃ S : ℕ, 0 < S ∧ ∀ t : ℕ, 1 ≤ t → ∃ C : Circuit (ForrelationCoord k t),\n      CircuitRealises C (P k t) ∧\n      (C.size : ℝ) ≤ (S : ℝ) * (mValue t : ℝ) * (Real.logb 2 (mValue t : ℝ)) ^ 2)",
+    "display_statement": "theorem construction_lemma_2_1 (k : ℕ) (hk : 2 ≤ k) :\n    (∃ t₀ : ℕ, ∀ t : ℕ, t₀ ≤ t → Lvalue k t < R (P k t)) ∧\n    (∃ A : ℝ, 0 < A ∧ ∀ (t : ℕ) (η : ℝ), 0 < η → η < 1 / 2 →\n      ∃ (n : ℕ) (L : BitInput (ForrelationCoord k t) → Bool → ℝ),\n        ((2 * (n * k) : ℕ) : ℝ) ≤ A * (1 + Real.log (1 / η)) ∧\n        Samples (n * k) L ∧\n        (∀ [Inhabited (ForrelationCoord k t)], Runs (2 * (n * k)) L) ∧\n        (∀ z, 0 ≤ L z false ∧ 0 ≤ L z true ∧ L z false + L z true = 1) ∧\n        ∀ z b, P k t z = some b → 1 - η ≤ L z b) ∧\n    (∃ S : ℕ, 0 < S ∧ ∀ t : ℕ, 1 ≤ t → ∃ C : Circuit (ForrelationCoord k t),\n      CircuitRealises C (P k t) ∧\n      (C.size : ℝ) ≤ (S : ℝ) * (mValue t : ℝ) * (Real.logb 2 (mValue t : ℝ)) ^ 2)"
+  },
+  "QuarticQuery.Paper.construction_universalPower_iff": {
+    "file": "lean/QuarticQuery/Paper/ConstructionModels.lean",
+    "line": 26,
+    "signature": "theorem construction_universalPower_iff (α : ℝ) :\n    UniversalPower α ↔\n      0 ≤ α ∧ ∃ C : ℝ, ∀ n : ℕ, 1 ≤ n → ∀ f : TotalBool (Fin n),\n        (R (totalise f) : ℝ) ≤ C * Real.rpow (1 + (Q (totalise f) : ℝ)) α",
+    "display_statement": "theorem construction_universalPower_iff (α : ℝ) :\n    UniversalPower α ↔\n      0 ≤ α ∧ ∃ C : ℝ, ∀ n : ℕ, 1 ≤ n → ∀ f : TotalBool (Fin n),\n        (R (totalise f) : ℝ) ≤ C * Real.rpow (1 + (Q (totalise f) : ℝ)) α"
+  },
+  "QuarticQuery.Paper.construction_alphaTot_eq_inf": {
+    "file": "lean/QuarticQuery/Paper/ConstructionModels.lean",
+    "line": 44,
+    "signature": "theorem construction_alphaTot_eq_inf :\n    alphaTot = sInf {α : ℝ | 0 ≤ α ∧ ∃ C : ℝ,\n      ∀ n : ℕ, 1 ≤ n → ∀ f : TotalBool (Fin n),\n        (R (totalise f) : ℝ) ≤ C * Real.rpow (1 + (Q (totalise f) : ℝ)) α}",
+    "display_statement": "theorem construction_alphaTot_eq_inf :\n    alphaTot = sInf {α : ℝ | 0 ≤ α ∧ ∃ C : ℝ,\n      ∀ n : ℕ, 1 ≤ n → ∀ f : TotalBool (Fin n),\n        (R (totalise f) : ℝ) ≤ C * Real.rpow (1 + (Q (totalise f) : ℝ)) α}"
+  },
+  "QuarticQuery.Paper.construction_exponent_set_wellDefined": {
+    "file": "lean/QuarticQuery/Paper/ConstructionModels.lean",
+    "line": 55,
+    "signature": "theorem construction_exponent_set_wellDefined :\n    ({α : ℝ | UniversalPower α}).Nonempty ∧\n      BddBelow {α : ℝ | UniversalPower α}",
+    "display_statement": "theorem construction_exponent_set_wellDefined :\n    ({α : ℝ | UniversalPower α}).Nonempty ∧\n      BddBelow {α : ℝ | UniversalPower α}"
+  },
+  "QuarticQuery.Paper.constructionPartial": {
+    "file": "lean/QuarticQuery/Paper/ConstructionModels.lean",
+    "line": 67,
+    "signature": "noncomputable def constructionPartial {ι : Type}\n    (D : Set (BitInput ι)) (f : D → Bool) : PartialBool ι",
+    "display_statement": "noncomputable def constructionPartial {ι : Type}\n    (D : Set (BitInput ι)) (f : D → Bool) : PartialBool ι :=\n  fun x => if hx : x ∈ D then some (f ⟨x, hx⟩) else none"
+  },
+  "QuarticQuery.Paper.constructionPartial_eq_some_iff": {
+    "file": "lean/QuarticQuery/Paper/ConstructionModels.lean",
+    "line": 73,
+    "signature": "theorem constructionPartial_eq_some_iff {ι : Type}\n    (D : Set (BitInput ι)) (f : D → Bool) (x : BitInput ι) (b : Bool) :\n    constructionPartial D f x = some b ↔\n      ∃ hx : x ∈ D, f ⟨x, hx⟩ = b",
+    "display_statement": "theorem constructionPartial_eq_some_iff {ι : Type}\n    (D : Set (BitInput ι)) (f : D → Bool) (x : BitInput ι) (b : Bool) :\n    constructionPartial D f x = some b ↔\n      ∃ hx : x ∈ D, f ⟨x, hx⟩ = b"
+  },
+  "QuarticQuery.Paper.construction_promised_iff": {
+    "file": "lean/QuarticQuery/Paper/ConstructionModels.lean",
+    "line": 94,
+    "signature": "theorem construction_promised_iff {ι : Type}\n    (D : Set (BitInput ι)) (f : D → Bool) (x : BitInput ι) :\n    promised (constructionPartial D f) x ↔ x ∈ D",
+    "display_statement": "theorem construction_promised_iff {ι : Type}\n    (D : Set (BitInput ι)) (f : D → Bool) (x : BitInput ι) :\n    promised (constructionPartial D f) x ↔ x ∈ D"
+  },
+  "QuarticQuery.Paper.construction_correct_on_domain_iff": {
+    "file": "lean/QuarticQuery/Paper/ConstructionModels.lean",
+    "line": 106,
+    "signature": "theorem construction_correct_on_domain_iff {ι : Type}\n    (D : Set (BitInput ι)) (f : D → Bool)\n    (Correct : BitInput ι → Bool → Prop) :\n    (∀ x b, constructionPartial D f x = some b → Correct x b) ↔\n      ∀ x (hx : x ∈ D), Correct x (f ⟨x, hx⟩)",
+    "display_statement": "theorem construction_correct_on_domain_iff {ι : Type}\n    (D : Set (BitInput ι)) (f : D → Bool)\n    (Correct : BitInput ι → Bool → Prop) :\n    (∀ x b, constructionPartial D f x = some b → Correct x b) ↔\n      ∀ x (hx : x ∈ D), Correct x (f ⟨x, hx⟩)"
+  },
+  "QuarticQuery.Paper.construction_RLe_domain_iff": {
+    "file": "lean/QuarticQuery/Paper/ConstructionModels.lean",
+    "line": 122,
+    "signature": "theorem construction_RLe_domain_iff {ι : Type}\n    (D : Set (BitInput ι)) (f : D → Bool) (budget : ℕ) :\n    RLe (constructionPartial D f) budget ↔\n      ∃ A : RandomizedProgram ι, A.depth ≤ budget ∧\n        ∀ x (hx : x ∈ D), (2 / 3 : ℝ) ≤ A.success x (f ⟨x, hx⟩)",
+    "display_statement": "theorem construction_RLe_domain_iff {ι : Type}\n    (D : Set (BitInput ι)) (f : D → Bool) (budget : ℕ) :\n    RLe (constructionPartial D f) budget ↔\n      ∃ A : RandomizedProgram ι, A.depth ≤ budget ∧\n        ∀ x (hx : x ∈ D), (2 / 3 : ℝ) ≤ A.success x (f ⟨x, hx⟩)"
+  },
+  "QuarticQuery.Paper.construction_DLe_domain_iff": {
+    "file": "lean/QuarticQuery/Paper/ConstructionModels.lean",
+    "line": 130,
+    "signature": "theorem construction_DLe_domain_iff {ι : Type}\n    (D : Set (BitInput ι)) (f : D → Bool) (budget : ℕ) :\n    DLe (constructionPartial D f) budget ↔\n      ∃ A : QueryTree ι, A.depth ≤ budget ∧\n        ∀ x (hx : x ∈ D), A.eval x = f ⟨x, hx⟩",
+    "display_statement": "theorem construction_DLe_domain_iff {ι : Type}\n    (D : Set (BitInput ι)) (f : D → Bool) (budget : ℕ) :\n    DLe (constructionPartial D f) budget ↔\n      ∃ A : QueryTree ι, A.depth ≤ budget ∧\n        ∀ x (hx : x ∈ D), A.eval x = f ⟨x, hx⟩"
+  },
+  "QuarticQuery.Paper.construction_QLe_domain_iff": {
+    "file": "lean/QuarticQuery/Paper/ConstructionModels.lean",
+    "line": 139,
+    "signature": "theorem construction_QLe_domain_iff {ι : Type} [Fintype ι]\n    (D : Set (BitInput ι)) (f : D → Bool) (budget : ℕ) :\n    QLe (constructionPartial D f) budget ↔\n      (∃ b : Bool, ∀ x (hx : x ∈ D), f ⟨x, hx⟩ = b) ∨\n      ∃ (w : ℕ) (ψ₀ : State ι w) (A : AdaptiveProgram ι w),\n        ‖ψ₀‖ = 1 ∧ A.queryCap ≤ budget ∧\n        ∀ x (hx : x ∈ D), (2 / 3 : ℝ) ≤ A.outputMass x ψ₀ (f ⟨x, hx⟩)",
+    "display_statement": "theorem construction_QLe_domain_iff {ι : Type} [Fintype ι]\n    (D : Set (BitInput ι)) (f : D → Bool) (budget : ℕ) :\n    QLe (constructionPartial D f) budget ↔\n      (∃ b : Bool, ∀ x (hx : x ∈ D), f ⟨x, hx⟩ = b) ∨\n      ∃ (w : ℕ) (ψ₀ : State ι w) (A : AdaptiveProgram ι w),\n        ‖ψ₀‖ = 1 ∧ A.queryCap ≤ budget ∧\n        ∀ x (hx : x ∈ D), (2 / 3 : ℝ) ≤ A.outputMass x ψ₀ (f ⟨x, hx⟩)"
+  },
+  "QuarticQuery.Paper.constructionPartial_reconstruct": {
+    "file": "lean/QuarticQuery/Paper/ConstructionModels.lean",
+    "line": 150,
+    "signature": "theorem constructionPartial_reconstruct {ι : Type} (f : PartialBool ι) :\n    constructionPartial {x | promised f x}\n      (fun x => Classical.choose x.property) = f",
+    "display_statement": "theorem constructionPartial_reconstruct {ι : Type} (f : PartialBool ι) :\n    constructionPartial {x | promised f x}\n      (fun x => Classical.choose x.property) = f"
+  },
+  "QuarticQuery.Paper.construction_query_oracle": {
+    "file": "lean/QuarticQuery/Paper/ConstructionModels.lean",
+    "line": 168,
+    "signature": "theorem construction_query_oracle {ι : Type} [Fintype ι] {w : ℕ}\n    (x : BitInput ι) :\n    (∀ (i : ι) (b : Bool) (z : Fin (w + 1)),\n      bitOracle x (ket (i, b, z)) = ket (i, xor b (x i), z)) ∧\n    (∀ ψ : State ι w, bitOracle x (bitOracle x ψ) = ψ) ∧\n    ∃ U : State ι w ≃ₗᵢ[ℂ] State ι w, ∀ ψ, U ψ = bitOracle x ψ",
+    "display_statement": "theorem construction_query_oracle {ι : Type} [Fintype ι] {w : ℕ}\n    (x : BitInput ι) :\n    (∀ (i : ι) (b : Bool) (z : Fin (w + 1)),\n      bitOracle x (ket (i, b, z)) = ket (i, xor b (x i), z)) ∧\n    (∀ ψ : State ι w, bitOracle x (bitOracle x ψ) = ψ) ∧\n    ∃ U : State ι w ≃ₗᵢ[ℂ] State ι w, ∀ ψ, U ψ = bitOracle x ψ"
+  },
+  "QuarticQuery.Paper.construction_log2_mValue": {
+    "file": "lean/QuarticQuery/Paper/ConstructionModels.lean",
+    "line": 186,
+    "signature": "theorem construction_log2_mValue (t : ℕ) :\n    Real.logb 2 (mValue t : ℝ) = 2 * (t : ℝ)",
+    "display_statement": "theorem construction_log2_mValue (t : ℕ) :\n    Real.logb 2 (mValue t : ℝ) = 2 * (t : ℝ)"
+  },
+  "QuarticQuery.Paper.construction_bitOracle_phase_kickback": {
+    "file": "lean/QuarticQuery/Paper/ConstructionPhase.lean",
+    "line": 26,
+    "signature": "theorem construction_bitOracle_phase_kickback\n    (x : BitInput ι) (ψ : State ι w)\n    (hminus : ∀ (i : ι) (z : Fin (w + 1)),\n      ψ.ofLp (i, true, z) = -ψ.ofLp (i, false, z))\n    (p : Basis ι w) :\n    (bitOracle x ψ).ofLp p =\n      (if x p.1 then (-1 : ℂ) else 1) * ψ.ofLp p",
+    "display_statement": "theorem construction_bitOracle_phase_kickback\n    (x : BitInput ι) (ψ : State ι w)\n    (hminus : ∀ (i : ι) (z : Fin (w + 1)),\n      ψ.ofLp (i, true, z) = -ψ.ofLp (i, false, z))\n    (p : Basis ι w) :\n    (bitOracle x ψ).ofLp p =\n      (if x p.1 then (-1 : ℂ) else 1) * ψ.ofLp p"
+  },
+  "QuarticQuery.Paper.construction_bitOracle_phase_preserves": {
+    "file": "lean/QuarticQuery/Paper/ConstructionPhase.lean",
+    "line": 46,
+    "signature": "theorem construction_bitOracle_phase_preserves\n    (x : BitInput ι) (ψ : State ι w)\n    (hminus : ∀ (i : ι) (z : Fin (w + 1)),\n      ψ.ofLp (i, true, z) = -ψ.ofLp (i, false, z))\n    (hunit : ‖ψ‖ = 1) :\n    ‖bitOracle x ψ‖ = 1 ∧\n      ∀ (i : ι) (z : Fin (w + 1)),\n        (bitOracle x ψ).ofLp (i, true, z) =\n          -(bitOracle x ψ).ofLp (i, false, z)",
+    "display_statement": "theorem construction_bitOracle_phase_preserves\n    (x : BitInput ι) (ψ : State ι w)\n    (hminus : ∀ (i : ι) (z : Fin (w + 1)),\n      ψ.ofLp (i, true, z) = -ψ.ofLp (i, false, z))\n    (hunit : ‖ψ‖ = 1) :\n    ‖bitOracle x ψ‖ = 1 ∧\n      ∀ (i : ι) (z : Fin (w + 1)),\n        (bitOracle x ψ).ofLp (i, true, z) =\n          -(bitOracle x ψ).ofLp (i, false, z)"
+  },
+  "QuarticQuery.Paper.constructionPointerLoc": {
+    "file": "lean/QuarticQuery/Paper/ConstructionPointerSupport.lean",
+    "line": 22,
+    "signature": "def constructionPointerLoc {κ : Type} (C : Circuit κ) (ℓ r : ℕ)\n    (i : Column ℓ) (s : Address r) (e : Fin (2 ^ ℓ - 1)) :\n    Fin ℓ ⊕ Column ℓ → BitLoc ℓ r C.size κ",
+    "display_statement": "def constructionPointerLoc {κ : Type} (C : Circuit κ) (ℓ r : ℕ)\n    (i : Column ℓ) (s : Address r) (e : Fin (2 ^ ℓ - 1)) :\n    Fin ℓ ⊕ Column ℓ → BitLoc ℓ r C.size κ\n  | .inl b => .inr (.inr (.inl ⟨i, (s, otherColumn i e, b)⟩))\n  | .inr j => .inl ((otherColumn i e).val, j)"
+  },
+  "QuarticQuery.Paper.construction_pointerLoc_injective": {
+    "file": "lean/QuarticQuery/Paper/ConstructionPointerSupport.lean",
+    "line": 30,
+    "signature": "theorem construction_pointerLoc_injective {κ : Type} (C : Circuit κ) (ℓ r : ℕ)\n    (i : Column ℓ) (s : Address r) (e : Fin (2 ^ ℓ - 1)) :\n    Function.Injective (constructionPointerLoc C ℓ r i s e)",
+    "display_statement": "theorem construction_pointerLoc_injective {κ : Type} (C : Circuit κ) (ℓ r : ℕ)\n    (i : Column ℓ) (s : Address r) (e : Fin (2 ^ ℓ - 1)) :\n    Function.Injective (constructionPointerLoc C ℓ r i s e)"
+  },
+  "QuarticQuery.Paper.construction_essential_coordinate_lift": {
+    "file": "lean/QuarticQuery/Paper/ConstructionPointerSupport.lean",
+    "line": 46,
+    "signature": "theorem construction_essential_coordinate_lift {α β : Type}\n    (f : α → β) (hf : Function.Injective f)\n    (g : BitInput α → Bool) (q : α)\n    (h : ∃ x y : BitInput α,\n      (∀ p, p ≠ q → x p = y p) ∧ g x ≠ g y) :\n    ∃ X Y : BitInput β,\n      (∀ p, p ≠ f q → X p = Y p) ∧\n        g (fun a => X (f a)) ≠ g (fun a => Y (f a))",
+    "display_statement": "theorem construction_essential_coordinate_lift {α β : Type}\n    (f : α → β) (hf : Function.Injective f)\n    (g : BitInput α → Bool) (q : α)\n    (h : ∃ x y : BitInput α,\n      (∀ p, p ≠ q → x p = y p) ∧ g x ≠ g y) :\n    ∃ X Y : BitInput β,\n      (∀ p, p ≠ f q → X p = Y p) ∧\n        g (fun a => X (f a)) ≠ g (fun a => Y (f a))"
+  },
+  "QuarticQuery.Paper.construction_pointer_every_physical_coordinate": {
+    "file": "lean/QuarticQuery/Paper/ConstructionPointerSupport.lean",
+    "line": 79,
+    "signature": "theorem construction_pointer_every_physical_coordinate {κ : Type} (C : Circuit κ)\n    (ℓ r : ℕ) (i : Column ℓ) (s : Address r) (e : Fin (2 ^ ℓ - 1))\n    (q : Fin ℓ ⊕ Column ℓ) :\n    ∃ X Y : BitInput (BitLoc ℓ r C.size κ),\n      (∀ p, p ≠ constructionPointerLoc C ℓ r i s e q → X p = Y p) ∧\n        localTest C ℓ r X i s (.inr (.inl e)) ≠\n          localTest C ℓ r Y i s (.inr (.inl e))",
+    "display_statement": "theorem construction_pointer_every_physical_coordinate {κ : Type} (C : Circuit κ)\n    (ℓ r : ℕ) (i : Column ℓ) (s : Address r) (e : Fin (2 ^ ℓ - 1))\n    (q : Fin ℓ ⊕ Column ℓ) :\n    ∃ X Y : BitInput (BitLoc ℓ r C.size κ),\n      (∀ p, p ≠ constructionPointerLoc C ℓ r i s e q → X p = Y p) ∧\n        localTest C ℓ r X i s (.inr (.inl e)) ≠\n          localTest C ℓ r Y i s (.inr (.inl e))"
+  },
+  "QuarticQuery.Paper.construction_lemma_2_2_i": {
+    "file": "lean/QuarticQuery/Paper/ConstructionTests.lean",
+    "line": 22,
+    "signature": "theorem construction_lemma_2_2_i {κ : Type} {f : PartialBool κ} (C : Circuit κ)\n    (ℓ r : ℕ) (hC : CircuitRealises C f) :\n    (∀ (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) (s : Address r),\n      PaperWinsAt f C ℓ r x i s ↔\n        ∀ e : TestIndex ℓ r C.size, localTest C ℓ r x i s e = true) ∧\n    (∀ (i : Column ℓ) (s : Address r) (e : TestIndex ℓ r C.size),\n      (∀ x, (localTestTree C ℓ r i s e).eval x = localTest C ℓ r x i s e) ∧\n      (localTestTree C ℓ r i s e).depth ≤ max 3 (ℓ + 1))",
+    "display_statement": "theorem construction_lemma_2_2_i {κ : Type} {f : PartialBool κ} (C : Circuit κ)\n    (ℓ r : ℕ) (hC : CircuitRealises C f) :\n    (∀ (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) (s : Address r),\n      PaperWinsAt f C ℓ r x i s ↔\n        ∀ e : TestIndex ℓ r C.size, localTest C ℓ r x i s e = true) ∧\n    (∀ (i : Column ℓ) (s : Address r) (e : TestIndex ℓ r C.size),\n      (∀ x, (localTestTree C ℓ r i s e).eval x = localTest C ℓ r x i s e) ∧\n      (localTestTree C ℓ r i s e).depth ≤ max 3 (ℓ + 1))"
+  },
+  "QuarticQuery.Paper.construction_test_depth": {
+    "file": "lean/QuarticQuery/Paper/ConstructionTests.lean",
+    "line": 39,
+    "signature": "theorem construction_test_depth (t : ℕ) (ht : 1 ≤ t)\n    {κ : Type} (C : Circuit κ) (r : ℕ) (i : Column (2 * t))\n    (s : Address r) (e : TestIndex (2 * t) r C.size) :\n    (localTestTree C (2 * t) r i s e).depth ≤ 2 * t + 1",
+    "display_statement": "theorem construction_test_depth (t : ℕ) (ht : 1 ≤ t)\n    {κ : Type} (C : Circuit κ) (r : ℕ) (i : Column (2 * t))\n    (s : Address r) (e : TestIndex (2 * t) r C.size) :\n    (localTestTree C (2 * t) r i s e).depth ≤ 2 * t + 1"
+  },
+  "QuarticQuery.Paper.constructionPointerLookup": {
+    "file": "lean/QuarticQuery/Paper/ConstructionTests.lean",
+    "line": 49,
+    "signature": "def constructionPointerLookup (ℓ : ℕ)\n    (x : BitInput (Fin ℓ ⊕ Column ℓ)) : Bool",
+    "display_statement": "def constructionPointerLookup (ℓ : ℕ)\n    (x : BitInput (Fin ℓ ⊕ Column ℓ)) : Bool :=\n  x (.inr (pointerEquiv ℓ (fun b => x (.inl b))))"
+  },
+  "QuarticQuery.Paper.construction_pointer_test_eq_lookup": {
+    "file": "lean/QuarticQuery/Paper/ConstructionTests.lean",
+    "line": 55,
+    "signature": "theorem construction_pointer_test_eq_lookup {κ : Type} (C : Circuit κ) (ℓ r : ℕ)\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) (s : Address r)\n    (e : Fin (2 ^ ℓ - 1)) :\n    localTest C ℓ r x i s (.inr (.inl e)) =\n      !constructionPointerLookup ℓ (Sum.elim\n        (readPointerBit x i s (otherColumn i e))\n        (readX x (otherColumn i e).val))",
+    "display_statement": "theorem construction_pointer_test_eq_lookup {κ : Type} (C : Circuit κ) (ℓ r : ℕ)\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) (s : Address r)\n    (e : Fin (2 ^ ℓ - 1)) :\n    localTest C ℓ r x i s (.inr (.inl e)) =\n      !constructionPointerLookup ℓ (Sum.elim\n        (readPointerBit x i s (otherColumn i e))\n        (readX x (otherColumn i e).val))"
+  },
+  "QuarticQuery.Paper.construction_pointer_every_coordinate": {
+    "file": "lean/QuarticQuery/Paper/ConstructionTests.lean",
+    "line": 66,
+    "signature": "theorem construction_pointer_every_coordinate (ℓ : ℕ)\n    (q : Fin ℓ ⊕ Column ℓ) :\n    ∃ x y : BitInput (Fin ℓ ⊕ Column ℓ),\n      (∀ p, p ≠ q → x p = y p) ∧\n        constructionPointerLookup ℓ x ≠ constructionPointerLookup ℓ y",
+    "display_statement": "theorem construction_pointer_every_coordinate (ℓ : ℕ)\n    (q : Fin ℓ ⊕ Column ℓ) :\n    ∃ x y : BitInput (Fin ℓ ⊕ Column ℓ),\n      (∀ p, p ≠ q → x p = y p) ∧\n        constructionPointerLookup ℓ x ≠ constructionPointerLookup ℓ y"
+  },
+  "QuarticQuery.Paper.construction_local_dichotomy": {
+    "file": "lean/QuarticQuery/Paper/ConstructionTests.lean",
+    "line": 110,
+    "signature": "theorem construction_local_dichotomy {κ : Type} {f : PartialBool κ}\n    {C : Circuit κ} {ℓ r : ℕ} (hC : CircuitRealises C f)\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) :\n    (constructionWinner f C ℓ r x i →\n      ∃ s : Address r, ∀ e : TestIndex ℓ r C.size,\n        localTest C ℓ r x i s e = true) ∧\n    (¬ constructionWinner f C ℓ r x i →\n      ∀ s : Address r, ∃ e : TestIndex ℓ r C.size,\n        localTest C ℓ r x i s e = false)",
+    "display_statement": "theorem construction_local_dichotomy {κ : Type} {f : PartialBool κ}\n    {C : Circuit κ} {ℓ r : ℕ} (hC : CircuitRealises C f)\n    (x : BitInput (BitLoc ℓ r C.size κ)) (i : Column ℓ) :\n    (constructionWinner f C ℓ r x i →\n      ∃ s : Address r, ∀ e : TestIndex ℓ r C.size,\n        localTest C ℓ r x i s e = true) ∧\n    (¬ constructionWinner f C ℓ r x i →\n      ∀ s : Address r, ∃ e : TestIndex ℓ r C.size,\n        localTest C ℓ r x i s e = false)"
+  },
+  "QuarticQuery.Paper.construction_K_count": {
+    "file": "lean/QuarticQuery/Paper/ConstructionTests.lean",
+    "line": 131,
+    "signature": "theorem construction_K_count (t S : ℕ) :\n    Fintype.card (TestIndex (2 * t) (40 * t) S) =\n      mValue t + (mValue t - 1) + 40 * t * (S + 2)",
+    "display_statement": "theorem construction_K_count (t S : ℕ) :\n    Fintype.card (TestIndex (2 * t) (40 * t) S) =\n      mValue t + (mValue t - 1) + 40 * t * (S + 2)"
+  },
+  "QuarticQuery.Paper.construction_K_bound": {
+    "file": "lean/QuarticQuery/Paper/ConstructionTests.lean",
+    "line": 139,
+    "signature": "theorem construction_K_bound (t S A : ℕ) (ht : 1 ≤ t)\n    (hS : S ≤ A * mValue t * (2 * t) ^ 2) :\n    Fintype.card (TestIndex (2 * t) (40 * t) S) ≤\n      (42 + 20 * A) * mValue t * (2 * t) ^ 3",
+    "display_statement": "theorem construction_K_bound (t S A : ℕ) (ht : 1 ≤ t)\n    (hS : S ≤ A * mValue t * (2 * t) ^ 2) :\n    Fintype.card (TestIndex (2 * t) (40 * t) S) ≤\n      (42 + 20 * A) * mValue t * (2 * t) ^ 3"
+  },
+  "QuarticQuery.Paper.construction_K_family": {
+    "file": "lean/QuarticQuery/Paper/ConstructionTests.lean",
+    "line": 168,
+    "signature": "theorem construction_K_family (k : ℕ) (hk : 1 ≤ k) :\n    ∃ B : ℕ, ∀ t : ℕ, 1 ≤ t → ∃ C : Circuit (ForrelationCoord k t),\n      CircuitRealises C (P k t) ∧\n      Fintype.card (TestIndex (2 * t) (40 * t) C.size) ≤\n        B * mValue t * (2 * t) ^ 3",
+    "display_statement": "theorem construction_K_family (k : ℕ) (hk : 1 ≤ k) :\n    ∃ B : ℕ, ∀ t : ℕ, 1 ≤ t → ∃ C : Circuit (ForrelationCoord k t),\n      CircuitRealises C (P k t) ∧\n      Fintype.card (TestIndex (2 * t) (40 * t) C.size) ≤\n        B * mValue t * (2 * t) ^ 3"
+  }
+}

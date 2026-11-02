@@ -1,0 +1,786 @@
+[
+  {
+    "document": "blueprint.md",
+    "passage": "row-lem-2-1",
+    "from": "**Class:** Short assembly of existing declarations.",
+    "to": "gap was identified in this scoped source review.",
+    "role": "states",
+    "statement_ids": [
+      "lem-2.1"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_lemma_2_1_complete",
+      "QuarticQuery.Paper.construction_lemma_2_1_i",
+      "QuarticQuery.Paper.construction_lemma_2_1_ii",
+      "QuarticQuery.Paper.construction_lemma_2_1_iii",
+      "QuarticQuery.Paper.construction_lemma_2_1",
+      "QuarticQuery.Paper.construction_lemma_2_1_ii_complete"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "row-lem-2-1-ii",
+    "from": "**Class:** Short assembly of existing declarations.",
+    "to": "gap was identified in this scoped source review.",
+    "role": "states",
+    "statement_ids": [
+      "lem-2.1.ii"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_lemma_2_1_ii_complete",
+      "QuarticQuery.Paper.construction_lemma_2_1_ii"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "row-lem-2-2",
+    "from": "**Class:** New proof.",
+    "to": "semantic review remain; no completed-check claim is made.",
+    "role": "states",
+    "statement_ids": [
+      "lem-2.2"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_lemma_2_2_complete",
+      "QuarticQuery.Paper.construction_lemma_2_2"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "row-lem-2-2-i",
+    "from": "**Class:** Short assembly of existing declarations.",
+    "to": "semantic review remain; no completed-check claim is made.",
+    "role": "states",
+    "statement_ids": [
+      "lem-2.2.i"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_lemma_2_2_i",
+      "QuarticQuery.Paper.construction_test_depth",
+      "QuarticQuery.Paper.constructionPointerLookup",
+      "QuarticQuery.Paper.construction_pointer_test_eq_lookup",
+      "QuarticQuery.Paper.construction_pointer_every_coordinate",
+      "QuarticQuery.Paper.constructionPointerLoc",
+      "QuarticQuery.Paper.construction_pointerLoc_injective",
+      "QuarticQuery.Paper.construction_essential_coordinate_lift",
+      "QuarticQuery.Paper.construction_pointer_every_physical_coordinate"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "row-lem-2-2-ii",
+    "from": "**Class:** New proof.",
+    "to": "semantic review remain; no completed-check claim is made.",
+    "role": "states",
+    "statement_ids": [
+      "lem-2.2.ii"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_lemma_2_2_ii",
+      "QuarticQuery.Paper.construction_controlled_exact_samples",
+      "QuarticQuery.Paper.construction_support_of_exact_law",
+      "QuarticQuery.Paper.construction_slice_indexStart",
+      "QuarticQuery.Paper.construction_controlled_compile",
+      "QuarticQuery.Paper.construction_lemma_2_2_complete"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "row-cor-unique-winner",
+    "from": "**Class:** Short assembly of existing declarations.",
+    "to": "semantic review remain; no completed-check claim is made.",
+    "role": "states",
+    "statement_ids": [
+      "cor-unique-winner"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_unique_winner"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "row-cor-local-dichotomy",
+    "from": "**Class:** Short assembly of existing declarations.",
+    "to": "semantic review remain; no completed-check claim is made.",
+    "role": "states",
+    "statement_ids": [
+      "cor-local-dichotomy"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_local_dichotomy"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "row-claim-proj-prob",
+    "from": "**Class:** Short assembly of existing declarations.",
+    "to": "(2*k)`. This leaves Lemma 2.1(ii)’s O_k bound intact.",
+    "role": "states",
+    "statement_ids": [
+      "claim-proj-prob"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_projection_test",
+      "QuarticQuery.Paper.construction_bitOracle_phase_kickback",
+      "QuarticQuery.Paper.construction_bitOracle_phase_preserves"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "row-claim-N-phi",
+    "from": "**Class:** New proof.",
+    "to": "gap was identified in this scoped source review.",
+    "role": "states",
+    "statement_ids": [
+      "claim-N-phi"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_N_phi",
+      "QuarticQuery.Paper.construction_tailProd_smul",
+      "QuarticQuery.Paper.construction_alternate_smul",
+      "QuarticQuery.Paper.construction_denominator",
+      "QuarticQuery.Paper.construction_numerator_matrix"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "row-claim-integer-tests",
+    "from": "**Class:** Short assembly of existing declarations.",
+    "to": "gap was identified in this scoped source review.",
+    "role": "states",
+    "statement_ids": [
+      "claim-integer-tests"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_integer_tests",
+      "QuarticQuery.Paper.construction_forr_value_output",
+      "QuarticQuery.Paper.construction_forr_output_bits"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "row-claim-circuit-size",
+    "from": "**Class:** New proof.",
+    "to": "formal correspondence gap; no overflow counterexample is established.",
+    "role": "states",
+    "statement_ids": [
+      "claim-circuit-size"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_circuit_costs",
+      "QuarticQuery.Paper.construction_circuit_width",
+      "QuarticQuery.Paper.construction_lemma_2_1_iii",
+      "QuarticQuery.Paper.construction_abs_sum_range_le",
+      "QuarticQuery.Paper.construction_abs_walshN",
+      "QuarticQuery.Paper.construction_walkN_bound",
+      "QuarticQuery.Paper.construction_walkN_prefix_bound",
+      "QuarticQuery.Paper.construction_butterfly_block_bound"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "row-claim-bs-to-L",
+    "from": "**Class:** New proof.",
+    "to": "gap was identified in this scoped source review.",
+    "role": "states",
+    "statement_ids": [
+      "claim-bs-to-L"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_claim_bs_to_L",
+      "QuarticQuery.Paper.construction_affine_comparison",
+      "QuarticQuery.Paper.construction_L_le_unfloored",
+      "QuarticQuery.Paper.construction_bs_comparison_chain"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "row-eq-1",
+    "from": "**Class:** Equivalent formulations of an existing definition.",
+    "to": "No mathematical change to equation (1) is proposed.",
+    "role": "states",
+    "statement_ids": [
+      "eq-1"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_alphaTot_eq_inf",
+      "QuarticQuery.Paper.construction_universalPower_iff",
+      "QuarticQuery.Paper.construction_exponent_set_wellDefined"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "row-eq-2",
+    "from": "**Class:** Short assembly of existing declarations.",
+    "to": "still inherits the disclosed alternative lower-bound proof route.",
+    "role": "states",
+    "statement_ids": [
+      "eq-2"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_equation_two",
+      "QuarticQuery.Paper.construction_family_named",
+      "QuarticQuery.Paper.construction_sqrt_mValue"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "row-eq-3",
+    "from": "**Class:** Short assembly of existing declarations.",
+    "to": "gap was identified in this scoped source review.",
+    "role": "states",
+    "statement_ids": [
+      "eq-3"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_equation_3"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "row-eq-4",
+    "from": "**Class:** Short assembly of existing declarations.",
+    "to": "gap was identified in this scoped source review.",
+    "role": "states",
+    "statement_ids": [
+      "eq-4"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_equation_4"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "row-eq-5",
+    "from": "**Class:** Existing definition, exposed explicitly.",
+    "to": "gap was identified in this scoped source review.",
+    "role": "states",
+    "statement_ids": [
+      "eq-5"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_equation_5"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "row-eq-6",
+    "from": "**Class:** Short assembly of existing declarations.",
+    "to": "semantic review remain; no completed-check claim is made.",
+    "role": "states",
+    "statement_ids": [
+      "eq-6"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_eq6"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "row-eq-7",
+    "from": "**Class:** Short assembly of existing declarations.",
+    "to": "semantic review remain; no completed-check claim is made.",
+    "role": "states",
+    "statement_ids": [
+      "eq-7"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_trueAddress_iff"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "row-eq-8",
+    "from": "**Class:** Existing definition, exposed explicitly.",
+    "to": "semantic review remain; no completed-check claim is made.",
+    "role": "states",
+    "statement_ids": [
+      "eq-8"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.constructionOutwardPointers",
+      "QuarticQuery.Paper.construction_eq8_of_winsAt"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "row-def-transcript",
+    "from": "**Class:** Existing definition, exposed explicitly.",
+    "to": "semantic review remain; no completed-check claim is made.",
+    "role": "defines",
+    "statement_ids": [
+      "def-transcript"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_transcript_definition",
+      "QuarticQuery.Paper.construction_transcript_input_wire",
+      "QuarticQuery.Paper.construction_transcript_gate_wire",
+      "QuarticQuery.Paper.construction_transcript_correct"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "row-def-column-layout",
+    "from": "**Class:** Existing definition, exposed explicitly.",
+    "to": "semantic review remain; no completed-check claim is made.",
+    "role": "defines",
+    "statement_ids": [
+      "def-column-layout"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_column_layout",
+      "QuarticQuery.Paper.construction_pointer_encoding",
+      "QuarticQuery.Paper.construction_layout_cardinalities"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "row-def-winner",
+    "from": "**Class:** Existing definition, exposed explicitly.",
+    "to": "semantic review remain; no completed-check claim is made.",
+    "role": "defines",
+    "statement_ids": [
+      "def-winner"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.constructionWinner",
+      "QuarticQuery.Paper.construction_winner_iff_exists_winsAt"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "row-def-win-at-address",
+    "from": "**Class:** Short assembly of existing declarations.",
+    "to": "semantic review remain; no completed-check claim is made.",
+    "role": "defines",
+    "statement_ids": [
+      "def-win-at-address"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_winsAt_iff_winner_and_address",
+      "QuarticQuery.Paper.construction_win_at_address_outputs"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "row-def-K",
+    "from": "**Class:** Short assembly of existing declarations.",
+    "to": "semantic review remain; no completed-check claim is made.",
+    "role": "defines",
+    "statement_ids": [
+      "def-K"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_K_count",
+      "QuarticQuery.Paper.construction_K_bound",
+      "QuarticQuery.Paper.construction_K_family"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "row-def-partial-query",
+    "from": "**Class:** Equivalent formulations of an existing definition.",
+    "to": "textbook machine model is outside this definition row.",
+    "role": "defines",
+    "statement_ids": [
+      "def-partial-query"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_correct_on_domain_iff",
+      "QuarticQuery.Paper.constructionPartial",
+      "QuarticQuery.Paper.constructionPartial_eq_some_iff",
+      "QuarticQuery.Paper.construction_promised_iff",
+      "QuarticQuery.Paper.construction_RLe_domain_iff",
+      "QuarticQuery.Paper.construction_DLe_domain_iff",
+      "QuarticQuery.Paper.construction_QLe_domain_iff",
+      "QuarticQuery.Paper.constructionPartial_reconstruct"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "row-def-query-oracle",
+    "from": "**Class:** Short assembly of existing declarations.",
+    "to": "the supplied compiled Model/Quantum module, according to BUILD_STATUS.md.",
+    "role": "defines",
+    "statement_ids": [
+      "def-query-oracle"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_query_oracle"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "row-def-walsh-sign",
+    "from": "**Class:** Existing definition, exposed explicitly.",
+    "to": "gap was identified in this scoped source review.",
+    "role": "defines",
+    "statement_ids": [
+      "def-walsh-sign"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_walsh_definitions",
+      "QuarticQuery.Paper.construction_forr_sqrt_mValue"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "row-def-log-convention",
+    "from": "**Class:** Prose convention.",
+    "to": "wrapper. The general prose convention needs no proof.",
+    "role": "defines",
+    "statement_ids": [
+      "def-log-convention"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_log2_mValue"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "new-construction-explicit-family-constants",
+    "from": "**Statement (`construction-explicit-family-constants`).** For k=l+1≥2, the fixed circuit",
+    "to": "Full proof text is supplied in ConstructionFamily.lean, unelaborated.",
+    "role": "states",
+    "statement_ids": [
+      "construction-explicit-family-constants"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_family_named"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "new-construction-exponent-infimum-well-defined",
+    "from": "**Statement (`construction-exponent-infimum-well-defined`).** The set of exponents satisfying",
+    "to": "the complexitylib route. Supplied proof text is unelaborated.",
+    "role": "states",
+    "statement_ids": [
+      "construction-exponent-infimum-well-defined"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_exponent_set_wellDefined"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "new-r2-forrelation-affine-comparison",
+    "from": "**Statement (`r2-forrelation-affine-comparison`).** For fixed k>=2,c>0,A>=0,B>=0, every eventually",
+    "to": "Source only: unelaborated, no compilation or comparator run.",
+    "role": "states",
+    "statement_ids": [
+      "r2-forrelation-affine-comparison"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_affine_comparison"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "new-r2-forrelation-unfloored-comparison",
+    "from": "**Statement (`r2-forrelation-unfloored-comparison`).** For fixed k>=2 and c>0,",
+    "to": "Source only: unelaborated, no compilation or comparator run.",
+    "role": "states",
+    "statement_ids": [
+      "r2-forrelation-unfloored-comparison"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_bs_comparison_chain"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "new-r2-forrelation-generic-query-count",
+    "from": "**Statement (`r2-forrelation-generic-query-count`).** For k>=1 the projection test",
+    "to": "Source only: unelaborated, no compilation or comparator run.",
+    "role": "states",
+    "statement_ids": [
+      "r2-forrelation-generic-query-count"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_projection_test"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "new-r2-forrelation-explicit-circuit-costs",
+    "from": "**Statement (`r2-forrelation-explicit-circuit-costs`).** For k=l+1 and t>=1 the",
+    "to": "Source only: unelaborated, no compilation or comparator run.",
+    "role": "states",
+    "statement_ids": [
+      "r2-forrelation-explicit-circuit-costs"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_circuit_costs"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "new-r2-forrelation-product-scaling",
+    "from": "**Statement (`r2-forrelation-product-scaling`).** For a list of k>=1",
+    "to": "Source only: unelaborated, no compilation or comparator run.",
+    "role": "states",
+    "statement_ids": [
+      "r2-forrelation-product-scaling"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_alternate_smul"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "new-new-r2-K-explicit",
+    "from": "**Statement (`new-r2-K-explicit`).** If t≥1 and S≤A·mValue(t)·(2t)^2, then",
+    "to": "an explicit reusable interface, with no novelty claim.",
+    "role": "states",
+    "statement_ids": [
+      "new-r2-K-explicit"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_K_bound"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "new-new-r2-exact-law-support",
+    "from": "**Statement (`new-r2-exact-law-support`).** If measuring a finite state",
+    "to": "by the zero probability of its output label.",
+    "role": "states",
+    "statement_ids": [
+      "new-r2-exact-law-support"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_support_of_exact_law"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "new-new-r2-arbitrary-index-coherence",
+    "from": "**Statement (`new-r2-arbitrary-index-coherence`).** A finite family of exact",
+    "to": "queries under compile_circ; no clean-XOR claim is made.",
+    "role": "states",
+    "statement_ids": [
+      "new-r2-arbitrary-index-coherence"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_controlled_exact_samples"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "new-new-r2-pointer-essential-coordinates",
+    "from": "**Statement (`new-r2-pointer-essential-coordinates`).** For the Boolean lookup function",
+    "to": "is its negation after the explicit physical-coordinate substitution.",
+    "role": "states",
+    "statement_ids": [
+      "new-r2-pointer-essential-coordinates"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_pointer_every_coordinate"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "new-new-r2-pointer-physical-support",
+    "from": "**Statement (`new-r2-pointer-physical-support`).** For a fixed pointer-test index",
+    "to": "all other coordinates false, and use Boolean-negation injectivity.",
+    "role": "states",
+    "statement_ids": [
+      "new-r2-pointer-physical-support"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_pointer_every_physical_coordinate",
+      "QuarticQuery.Paper.construction_pointerLoc_injective",
+      "QuarticQuery.Paper.construction_essential_coordinate_lift"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "new-r2-phase-kickback-state",
+    "from": "**Statement (`r2-phase-kickback-state`).** On the answer-qubit minus subspace,",
+    "to": "identity; no complete Runs k witness is asserted.",
+    "role": "states",
+    "statement_ids": [
+      "r2-phase-kickback-state"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_bitOracle_phase_kickback"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "new-r2-phase-kickback-preservation",
+    "from": "**Statement (`r2-phase-kickback-preservation`).** The bit oracle preserves the",
+    "to": "identity; no complete Runs k witness is asserted.",
+    "role": "states",
+    "statement_ids": [
+      "r2-phase-kickback-preservation"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_bitOracle_phase_preserves"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "new-r2-integer-sum-bound",
+    "from": "**Statement (`r2-integer-sum-bound`).** If every term of a",
+    "to": "actual modular register with an unbounded signed integer.",
+    "role": "states",
+    "statement_ids": [
+      "r2-integer-sum-bound"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_abs_sum_range_le"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "new-r2-integer-walk-bound",
+    "from": "**Statement (`r2-integer-walk-bound`).** For sign inputs bounded in",
+    "to": "actual modular register with an unbounded signed integer.",
+    "role": "states",
+    "statement_ids": [
+      "r2-integer-walk-bound"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_walkN_bound"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "new-r2-integer-prefix-bound",
+    "from": "**Statement (`r2-integer-prefix-bound`).** A prefix of length a",
+    "to": "actual modular register with an unbounded signed integer.",
+    "role": "states",
+    "statement_ids": [
+      "r2-integer-prefix-bound"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_walkN_prefix_bound"
+    ]
+  },
+  {
+    "document": "blueprint.md",
+    "passage": "new-r2-butterfly-block-bound",
+    "from": "**Statement (`r2-butterfly-block-bound`).** An offset Walsh butterfly block",
+    "to": "actual modular register with an unbounded signed integer.",
+    "role": "states",
+    "statement_ids": [
+      "r2-butterfly-block-bound"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_butterfly_block_bound"
+    ]
+  },
+  {
+    "document": "REVIEW_NOTES.md",
+    "passage": "review-1",
+    "from": "Lemma 2.1(ii) requires more than accuracy on",
+    "to": "claim. [OpenAI26, Lemmas 2.1–2.2; source `Upper/Circuit.lean`, `Upper/Sampler.lean`, `Upper/Compile.lean`.]",
+    "role": "explains",
+    "statement_ids": [
+      "lem-2.1",
+      "lem-2.1.ii",
+      "lem-2.2",
+      "lem-2.2.ii"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_lemma_2_1_complete",
+      "QuarticQuery.Paper.construction_lemma_2_1_ii_complete",
+      "QuarticQuery.Paper.construction_lemma_2_2_complete"
+    ]
+  },
+  {
+    "document": "REVIEW_NOTES.md",
+    "passage": "review-2",
+    "from": "The one-case of Forrelation uses a positive",
+    "to": "is needed for the assigned result. [OpenAI26, `paper/extracted.md:131–132`.]",
+    "role": "explains",
+    "statement_ids": [
+      "eq-4",
+      "claim-N-phi",
+      "claim-integer-tests"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_equation_4",
+      "QuarticQuery.Paper.construction_N_phi",
+      "QuarticQuery.Paper.construction_forr_output_bits"
+    ]
+  },
+  {
+    "document": "REVIEW_NOTES.md",
+    "passage": "review-3",
+    "from": "The direct projection algorithm has success probability",
+    "to": "required asymptotic bound with the available constant overhead.",
+    "role": "explains",
+    "statement_ids": [
+      "claim-proj-prob"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_projection_test",
+      "QuarticQuery.Paper.construction_bitOracle_phase_kickback"
+    ]
+  },
+  {
+    "document": "REVIEW_NOTES.md",
+    "passage": "review-4",
+    "from": "The circuit’s endpoint correctness and size come",
+    "to": "formal correspondence, with the exact circuit endpoint retained.",
+    "role": "explains",
+    "statement_ids": [
+      "claim-circuit-size"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_circuit_costs",
+      "QuarticQuery.Paper.construction_walkN_bound",
+      "QuarticQuery.Paper.construction_walkN_prefix_bound",
+      "QuarticQuery.Paper.construction_butterfly_block_bound"
+    ]
+  },
+  {
+    "document": "REVIEW_NOTES.md",
+    "passage": "review-5",
+    "from": "A pointer test reads the pointer word",
+    "to": "not require circuit correctness. [Source `Construction/Transcript.lean`, `Construction/Winner.lean`, `Construction/LocalTests.lean`.]",
+    "role": "explains",
+    "statement_ids": [
+      "lem-2.2.i",
+      "cor-local-dichotomy",
+      "cor-unique-winner"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_lemma_2_2_i",
+      "QuarticQuery.Paper.construction_pointer_every_physical_coordinate",
+      "QuarticQuery.Paper.construction_local_dichotomy",
+      "QuarticQuery.Paper.construction_unique_winner"
+    ]
+  },
+  {
+    "document": "REVIEW_NOTES.md",
+    "passage": "review-6",
+    "from": "The inequality comparing the floored quantity L",
+    "to": "logarithmic factor or the other round-two research tasks.",
+    "role": "explains",
+    "statement_ids": [
+      "claim-bs-to-L",
+      "lem-2.1"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.construction_claim_bs_to_L",
+      "QuarticQuery.Paper.construction_bs_comparison_chain",
+      "QuarticQuery.Paper.construction_lemma_2_1_complete"
+    ]
+  },
+  {
+    "document": "REVIEW_NOTES.md",
+    "passage": "review-7",
+    "from": "The addressed certificate has the standard role",
+    "to": "literature search is treated as evidence of originality.",
+    "role": "explains",
+    "statement_ids": [
+      "def-column-layout",
+      "def-winner"
+    ],
+    "lean": []
+  }
+]

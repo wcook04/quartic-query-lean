@@ -1,0 +1,17 @@
+{
+  "schema": "quartic-query.final-peer-review.v1",
+  "reviewer": "AI models_sections contributor",
+  "compiled": false,
+  "file": "lean/QuarticQuery/Paper/ConstructionForrelationComplete.lean",
+  "sha256": "733526015ad9a2013512d8f6216b8f73c41566a803d92602dd30e40e90d7ad06",
+  "findings": [
+    "The same F occurs in IsCirc, the Boolean law, promised correctness and physical continuation equality.",
+    "The constant A is quantified before t and eta; implementation witnesses precede the oracle input.",
+    "compile_circ emb hF matches the actual source argument order; the chosen Inhabited instance and finite embedding are scoped consistently.",
+    "No definite mathematical, syntax or type error was found by manual review. This is not elaboration evidence."
+  ],
+  "root_applied_wording_fixes": [
+    "C realizing f is explicit in the mathematics of lem-2.2.i and cor-local-dichotomy.",
+    "The physical continuation guarantee is stated for every embedded logical state."
+  ]
+}

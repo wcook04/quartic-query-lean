@@ -1,0 +1,118 @@
+{
+  "status": "source review and non-Lean checks completed; Lean unelaborated",
+  "date_utc": "2026-11-02",
+  "lean": {
+    "compiler_available": false,
+    "compiled": false,
+    "elaboration": "not_run",
+    "kernel_check": "not_run",
+    "comparator": "not_run",
+    "reachability": "not_run",
+    "new_module_count": 4,
+    "indexed_declarations": 133,
+    "proof_placeholders_found_by_lexical_scan": []
+  },
+  "source_reviews": {
+    "route": "paper conditional-value route plus a separately declared alternative zero-search route",
+    "cross_review": [
+      "DirectProduct reviewed by asymptotics reviewer; final actual-transcript helper and wrapper also read by root",
+      "Planted and UniformZero reviewed by direct-product reviewer",
+      "All four new modules read by root"
+    ],
+    "conclusion": "No concrete mathematical defect identified by the source review; this does not establish compiler acceptance."
+  },
+  "exact_checks": {
+    "status": "passed",
+    "arithmetic": "fractions.Fraction; exact integers and rationals",
+    "scope": "Finite mathematical examples only; not Lean elaboration or a proof of all cases.",
+    "conditional_value_inequality": {
+      "functions": 16,
+      "weight_vectors": 81,
+      "budgets_after_query": [
+        0,
+        1,
+        2
+      ],
+      "checks": 7776,
+      "zero_mass_branch_encounters": 1728,
+      "failures": 0
+    },
+    "adaptive_product_law": {
+      "positive_transcript_fibers": 6,
+      "all_posteriors_factor": true,
+      "incompatible_repeat_has_zero_mass": true
+    },
+    "conditioning_negative_control": {
+      "single_instance_one_query_optimum": "3/4",
+      "conditional_success_given_nonheavy": "1",
+      "joint_nonheavy_and_correct": "1/2"
+    },
+    "per_instance_cap_negative_control": {
+      "per_instance_cap_success": "9/16",
+      "same_total_budget_concentrated_success": "3/4"
+    },
+    "hidden_zero_posterior": {
+      "undiscovered_column_transcript_pairs": 90,
+      "posterior_uniform_on_unqueried_positions": true
+    },
+    "numerics": {
+      "budget_cases": 37,
+      "integer_power_floor_cases": 138,
+      "exact_geometric_base": "17592186044416/12157665459056928801",
+      "geometric_base_between_zero_and_one": true
+    }
+  },
+  "package_integrity": {
+    "status": "passed",
+    "scope": "JSON, source lexemes, file hashes, and exact passage bindings only",
+    "lean_elaboration": "not_run",
+    "comparator": "not_run",
+    "coverage_rows": 22,
+    "new_statements": 15,
+    "new_lean_files": 4,
+    "indexed_declarations": 133,
+    "imports": [
+      "QuarticQuery.LowerBound.DirectProduct",
+      "QuarticQuery.LowerBound.Planted.Main",
+      "QuarticQuery.Paper.ClassicalPlanted",
+      "QuarticQuery.Results.Unconditional"
+    ],
+    "forbidden_proof_lexemes": [],
+    "all_declarations_have_ledger_docs": true,
+    "all_new_coverage_compiled_false": true,
+    "correspondence_passages": 22,
+    "original_manifest": {
+      "status": "all_matched",
+      "members": 356,
+      "repository_commit": "4c7544f8dcdfc18d3ecf8476ebd8c1090cd46f15"
+    },
+    "phase": "Content validation before manifest serialization; final assembly independently verified every manifest hash."
+  },
+  "api_check": {
+    "source_pin": "69552756cd8a2d2d48763cf7279fd814d6a1224d",
+    "method": "Exact source inspection; names/statements only, no execution",
+    "receipts": "source_reads/*.json"
+  },
+  "mathematical_boundaries": [
+    "Compound claim-EZ early/late subclaims remain partial; its exact endpoint is supplied through the stronger alternative search route.",
+    "Finite random mixtures are covered; no arbitrary-external-probability-space pushforward is formalized.",
+    "No fourth-power single-family claim, growing-k uniformity, or worst-case tightness of coefficient two is asserted."
+  ],
+  "reproduction": {
+    "mathematics": "python3 -I checks/check_mathematics.py",
+    "integrity": "python3 -I checks/validate_return.py --packet /absolute/path/to/extracted/input",
+    "lean": "See BUILD_INSTRUCTIONS.md; commands have not been run."
+  },
+  "markdown_checks": {
+    "balanced_code_fences": true,
+    "no_inline_delimiters_in_displays": true,
+    "display_count": 17,
+    "lean_signature_blocks": 22,
+    "rendered_pdf": "not_applicable; requested Markdown and Lean source"
+  },
+  "final_assembly": {
+    "manifest_hashes": "passed",
+    "zip_crc": "passed",
+    "unsafe_zip_paths": false
+  }
+}

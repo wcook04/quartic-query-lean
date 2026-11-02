@@ -1,0 +1,149 @@
+[
+  {
+    "id": "nc-common-impossible-precondition",
+    "mutation": "Insert an impossible field into IsComparison on both Challenge and Solution sides. Prove target claims by false elimination.",
+    "independent_test": "Use a separately fixed two-candidate comparison table a(0,1)=1, a(1,0)=0 and diagonal zero; prove the intended comparison specification is inhabited. Run this against a fixed external sanity specification, not a mutant generated from the same vocabulary.",
+    "expected_result": "Comparator may accept common agreement; a separately fixed inhabited-two-candidate comparison sanity check must reject the intended meaning.",
+    "status": "proposed_not_run"
+  },
+  {
+    "id": "nc-zero-query-information",
+    "mutation": "Move the algorithm existential inside the input quantifier in RLe, DLe, or QLe, so that a separate zero-query algorithm can be chosen for each input.",
+    "independent_test": "Check R,D,Q of the one-bit identity are each 1 and that zero-query bounded-error complexity is possible exactly for a function constant on its promise.",
+    "expected_result": "A Solution-only edit must fail definition comparison. A common Challenge/Solution edit may agree, but the separately fixed identity and zero-query-characterization checks must fail.",
+    "status": "proposed_not_run"
+  },
+  {
+    "id": "nc-cap-minimum",
+    "mutation": "Replace max by min in QueryTree.depth or AdaptiveProgram.queryCap, or replace the support maximum in RandomizedProgram.depth by a best-case depth.",
+    "independent_test": "Construct a tree/program with two possible branches having query costs 0 and 2; its worst-case cap must be 2. For the classical model also check that each positive-weight tree is charged by the support maximum.",
+    "expected_result": "A Solution-only edit must fail definition comparison. A common edit must fail the independent two-branch worst-case-cap check.",
+    "status": "proposed_not_run"
+  },
+  {
+    "id": "nc-renormalized-branches",
+    "mutation": "Normalize every nonzero measurement branch before summing output masses.",
+    "independent_test": "Prepare a normalized state with equal mass in S and its complement and let the two measurement branches output opposite labels. Total output mass must be exactly 1, with each label receiving 1/2.",
+    "expected_result": "Mass-conservation test fails on a balanced two-outcome measurement.",
+    "status": "proposed_not_run"
+  },
+  {
+    "id": "nc-bare-phase-oracle",
+    "mutation": "Replace controlled phase oracle/bit oracle by an uncontrolled global phase on a one-coordinate input.",
+    "independent_test": "On a one-coordinate input verify bitOracle swaps the answer basis states when x=1, and use the one-bit identity query-complexity check. Verify the controlled-phase/bit-oracle basis-action identity with the control bit retained.",
+    "expected_result": "Hadamard conjugation or basis-action tests fail; dictator is no longer one query in that smaller model.",
+    "status": "proposed_not_run"
+  },
+  {
+    "id": "nc-error-one-half",
+    "mutation": "Replace success2/3 by1/2 in RLe or QLe.",
+    "independent_test": "Keep a fixed one-bit identity specification and check its R and Q are 1. A fair zero-query coin succeeds with exactly 1/2 on both inputs and must be inadmissible.",
+    "expected_result": "Definition comparison rejects one-sided edit; nonconstant zero-query tests fail if both sides are changed.",
+    "status": "proposed_not_run"
+  },
+  {
+    "id": "nc-error-strict",
+    "mutation": "Replace success≥2/3 by success>2/3.",
+    "independent_test": "Use the randomized one-query OR2 program attaining success exactly 2/3 and the independent one-query optimality argument; R(OR2) must equal 1 at the chosen non-strict success threshold.",
+    "expected_result": "OR2 randomized one-query sanity fails: best worst-case one-query success is exactly2/3.",
+    "status": "proposed_not_run"
+  },
+  {
+    "id": "nc-private-dependency",
+    "mutation": "Compile ReachPrivateFixture.lean and traverse publicRoot.",
+    "independent_test": "Use ReachPrivateFixture.lean: publicRoot depends on a private wrapper which depends on publicLeaf. Compare complete environment traversal with the current walker; publicLeaf must be included.",
+    "expected_result": "Complete closure includes publicLeaf through the private wrapper; current prefix-filtered walker omits that path.",
+    "status": "proposed_not_run"
+  },
+  {
+    "id": "nc-source-receipt-drift",
+    "mutation": "Change a relevant source file after a build, leaving old receipt/graph in place.",
+    "independent_test": "Hash the compiled-source snapshot and compare it with the mutated file before accepting a current-build flag. Declaration-name equality and timestamps alone must not justify a clean-pin attribution.",
+    "expected_result": "Validation must mark currentness unknown/stale until a rebuild or hash-equivalence proof, even if declaration names match.",
+    "status": "proposed_not_run"
+  },
+  {
+    "id": "nc-forrelation-absolute-high",
+    "mutation": "Replace the positive 1-promise Phi>=delta by abs(Phi)>=delta.",
+    "independent_test": "Use the already-fixed negativeWitness, whose two sign vectors are (-1,1,1,1), and check Phi=-1 and P=none; also retain the 104/48/104 census at k=2,t=1.",
+    "expected_result": "The mutant assigns some true to the excluded negative witness. A one-sided change must fail definition comparison; a common mutation must fail the independent semantic sanity check.",
+    "status": "proposed_not_run"
+  },
+  {
+    "id": "nc-missing-domain-output",
+    "mutation": "Delete the domain-output test d=1 from localTest while leaving the total winner definition fixed.",
+    "independent_test": "Choose an off-promise A input, take its genuine circuit transcript, and choose the candidate address to equal the transcript value output; use an otherwise valid one-winner board. The semantic winner must reject because P(A)=none.",
+    "expected_result": "The weakened local-test conjunction can accept while WinsAt rejects. The equivalence test must fail. This isolates the domain bit from transcript consistency and the value bit.",
+    "status": "proposed_not_run"
+  },
+  {
+    "id": "nc-shared-cell-coordinate",
+    "mutation": "Remove a column or address component from transcript/pointer coordinates, causing distinct cells to share bits.",
+    "independent_test": "Check the physical BitLoc cardinality formula and a pair of boards differing only in an inactive cell. Separately alter the corresponding active cell and require rejection.",
+    "expected_result": "The input cardinality or active/inactive mutation distinction must fail; shared-storage variants are different total functions.",
+    "status": "proposed_not_run"
+  },
+  {
+    "id": "nc-reverse-outward-pointers",
+    "mutation": "Reverse the pointer condition so that an alleged winner needs incoming zero witnesses from other columns, or require its pointers to find zeros in its own string.",
+    "independent_test": "Use the fixed accepted one-winner board with the winning X string all ones and a zero in every other column, with outward pointers stored only in the winning cell.",
+    "expected_result": "The original definition accepts and the reversed variant rejects, because no pointer can find a zero in the all-one winning string.",
+    "status": "proposed_not_run"
+  },
+  {
+    "id": "nc-cyclic-circuit-predecessors",
+    "mutation": "Permit a gate to reference itself or later gates without strict predecessor bounds or the builder's false-wire repair.",
+    "independent_test": "Use one self-negating gate g=not g. A true acyclic Circuit must exclude this object; if admitted by the mutation, the canonical consistent-transcript existence test must fail.",
+    "expected_result": "The mutant circuit is not topologically evaluable and has no Boolean consistent transcript. Any claimed existence/uniqueness theorem over the enlarged type must fail or require an explicit acyclicity premise.",
+    "status": "proposed_not_run"
+  },
+  {
+    "id": "nc-fixed-pointer-target",
+    "mutation": "Replace the adaptive target-bit lookup after reading the pointer with one fixed row independent of the pointer bits.",
+    "independent_test": "Use the two-column toy board with a zero only in row 0 of the other column, then flip the active pointer from row 0 to row 1. The correct function changes from true to false.",
+    "expected_result": "The fixed-target implementation cannot track this change and must fail the independent evaluation test.",
+    "status": "proposed_not_run"
+  },
+  {
+    "id": "nc-drop-positive-k",
+    "mutation": "Drop the hypothesis 1<=k from the Phi-to-matrix-product correspondence while retaining the current empty-path numerator and denominator.",
+    "independent_test": "Evaluate k=0,t=1: the public Phi is 1/4; the empty alternating matrix product is the identity and gives u^T u=1.",
+    "expected_result": "The proposed strengthened correspondence is false. The fixed edge-case sanity check must reject it.",
+    "status": "proposed_not_run"
+  },
+  {
+    "id": "nc-negative-random-weights",
+    "mutation": "Permit arbitrary real weights summing to1, including negative weights.",
+    "independent_test": "Check each output mass lies in[0,1] and the two masses sum to1 for every input. Use an explicit signed combination with a negative mass.",
+    "expected_result": "Nonnegativity and probability-bound checks fail. A sum-one condition alone is insufficient.",
+    "status": "proposed_not_run"
+  },
+  {
+    "id": "nc-expected-support-cost",
+    "mutation": "Replace maximum support-tree depth by expected depth.",
+    "independent_test": "Give positive weight to a deeper tree and require that every support-tree depth is bounded by the declared cap.",
+    "expected_result": "The independent support-cap check fails even when the deeper tree is very unlikely.",
+    "status": "proposed_not_run"
+  },
+  {
+    "id": "nc-function-dependent-constant",
+    "mutation": "Move the existential universal constant C after the input length and total-function quantifiers in UniversalPower.",
+    "independent_test": "Compare the literal public predicate and test whether exponent0 becomes admissible by choosing C separately for each finite function.",
+    "expected_result": "The altered theorem is a different statement; a fixed semantic specification and the optimal-exponent lower bound must reject it.",
+    "status": "proposed_not_run"
+  },
+  {
+    "id": "nc-natural-reciprocal",
+    "mutation": "Compute1/k by natural division before casting in Lvalue or familyExponent.",
+    "independent_test": "Check familyExponent at k=2,3,4 and the exact Lvalue threshold at k=2,t=7,8.",
+    "expected_result": "At k>=2 the natural reciprocal is0, so the independent arithmetic checks fail.",
+    "status": "proposed_not_run"
+  },
+  {
+    "id": "nc-off-promise-false",
+    "mutation": "Replace none by a required false answer on every omitted input.",
+    "independent_test": "Use a promise whose only defined output is true but which is undefined on some inputs; its R,D,Q must all be0.",
+    "expected_result": "The mutant completion can become nonconstant, and the one-label promise check rejects the new semantics.",
+    "status": "proposed_not_run"
+  }
+]

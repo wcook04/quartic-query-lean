@@ -1,0 +1,74 @@
+[
+  {
+    "id": "r2-sharp-sharp-result",
+    "old_id": "new-eq-03",
+    "old": "For k≥2, power-of-two m≥2^(15k+2), and 0<η≤1, R_((1−η)/2)(P_k,m) ≥ η²/(162 e C²) [m/(1+ln(km))]^(1−1/k), where C is any constant in (2).",
+    "new": "Equations (3)–(4): for k≥2, m a power of two, 0<η≤1 and m≥8·32^(2k) ln(8·18^(k−1)), R_((1−η)/2)(P_k,m) ≥ η²/(162eC²) [m/(1+ln(km))]^(1−1/k). The integer threshold m≥24k·32^(2k) is sufficient. C satisfies equation (2).",
+    "relation": "stronger",
+    "reason": "Same lower-bound constant and exponent; weaker sufficient size assumption follows from the conditional endpoint subgaussian tail. Both are paper statements, not compilation claims.",
+    "historical_records_modified": false
+  },
+  {
+    "id": "r2-sharp-elementary-result",
+    "old_id": "new-eq-04",
+    "old": "For k>=2 and m=4^t>=2^(15k+2), R(P k t) > (2/18225) m^(1-1/k)/(k^2 ln(4km)).",
+    "new": "Equation (5): for k≥2 and m a power of two satisfying either threshold in Theorem1, R_1/3(P_k,m) > (2/18225)m^(1−1/k)/(k² ln(4km)). It also holds under m≥2^(15k+2), including the formal padded depth50kL+1.",
+    "relation": "stronger",
+    "reason": "Same strict numerical endpoint, now valid under the smaller threshold. The padded proof has positive margin7a/288.",
+    "historical_records_modified": false
+  },
+  {
+    "id": "r2-sharp-gap",
+    "old_id": "new-eq-20",
+    "old": "Every acceptance function in [0,1] with promised error≤ε has hard-minus-uniform expectation at least Γ(ε).",
+    "new": "Equations(20)–(21): a=18^(−(k−1)),δ=32^−k,p=(a−δ)/(1−δ), qM=min(1,4/(mδ²)), q*=min(qM,2exp(−mδ²/8)) bound the respective promise masses. For [0,1]-valued acceptance of errorε∈[0,1], ED A−EU A≥Γ*=(1−ε)(p−q)−ε≥Γ=(1−ε)p−ε−q, for q=qM orq*.",
+    "relation": "stronger",
+    "reason": "Use the exact uniform acceptance bound epsilon+(1-epsilon)q and the minimum of Markov and exponential null-tail bounds. With fixedq, Gamma* exceeds Gamma byepsilon*q.",
+    "historical_records_modified": false
+  },
+  {
+    "id": "r2-sharp-finite-sharp",
+    "old_id": "new-eq-27",
+    "old": "Γ(ε)≤[3C^k/4^(k−1)] sqrt(choose(2τL,k)) [(1+ln(km))/m]^((k−1)/2).",
+    "new": "Equations(29)–(30): under the same amplification assumptions and SSW, Γ*≤3C^k/4^(k−1) sqrt(choose(2τL,k))[(1+ln(km))/m]^((k−1)/2). PositiveΓ* forces2τL≥k. Every0<γ≤Γ* gives L≥[k/(2eτC²)](γ4^(k−1)/3)^(2/k)[m/(1+ln(km))]^(1−1/k). The coefficient identity b^(k−1)4(4/3)^(k−2)=3/4^(k−1) is exact.",
+    "relation": "stronger",
+    "reason": "The same sharp upper bound also bounds the larger certified gapGamma*. All original parameter choices remain valid.",
+    "historical_records_modified": false
+  },
+  {
+    "id": "r2-sharp-finite-elementary",
+    "old_id": "new-eq-24",
+    "old": "The exact elementary finite inequality is Γ(ε)≤(b/√m)^(k−1)[(32kτL ln(4km))^(k/2)+2^(−k)], with b=3/16 and ε=(1−η²)^τ.",
+    "new": "Equation(28): for a successful depth-L algorithm with L≥1, amplification2τ, ε≥(1−η²)^τ and certified null exceptional massq, Γ*≤(b/sqrt m)^(k−1)[(32kτLln(4km))^(k/2)+2^−k], whereb=3/16. Any positive gap excludes depth0.",
+    "relation": "stronger",
+    "reason": "Replace the conservative gap byGamma*; record variable error and zero-depth handling explicitly.",
+    "historical_records_modified": false
+  },
+  {
+    "id": "r2-sharp-restriction",
+    "old_id": "new-eq-25",
+    "old": "For independent restrictions with free probability v_i and fixed signed mean μ_i, Eρ fhat_ρ(S)=(∏_(i∈S)v_i)∂_S ftilde(μ), whenever |μ_i|≤1−v_i.",
+    "new": "Equation(22): independently retain coordinatei with probabilityvi and fix it to sign± with probability(1−vi±μi)/2; then Eρ hat(gρ)(S)=(∏_(i∈S)vi)∂Sg̃(μ), includingvi=0. Valid weights requirevi≥0 and|μi|≤1−vi.",
+    "relation": "equivalent",
+    "reason": "Restates the coordinate-dependent identity without division, explicitly including zero free probabilities. Positivity assumptions are needed for its probabilistic interpretation, not the algebraic identity.",
+    "historical_records_modified": false
+  },
+  {
+    "id": "r2-sharp-bs-failure",
+    "old_id": "BansalSinha2021:Section5.4:main.tex:1184",
+    "old": "The original multi-level estimates are claimed to imply logarithmic denominator exponent1-1/k without an additional restriction or cancellation.",
+    "new": "Their displayed estimates imply exponent1-1/[k(k-1)]. The missing logarithmic factor at levelell is log(kN)^((ell/k-1)/2), unbounded for fixedell>k asN grows.",
+    "relation": "corrected",
+    "reason": "Corrects the displayed proof consequence only. This is not an assertion that Theorem1.3 is false. The replacement single-block proof recovers its logarithmic exponent in the stated dimension range.",
+    "historical_records_modified": false
+  },
+  {
+    "id": "r2-audit-bs-gap-geometric",
+    "old_id": "BansalSinha2021:eq5.31",
+    "old": "The promise comparison prints the exceptional mass termdelta²/(4N).",
+    "new": "The exceptional mass term supplied by the preceding theorem is4/(N*delta²).",
+    "relation": "corrected",
+    "reason": "The source distribution-mass bound is reciprocal inN*delta².",
+    "historical_records_modified": false
+  }
+]

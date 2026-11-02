@@ -4,6 +4,7 @@ Source: `annexes/quartic-ref-06-k-forrelation-optimally-separates-quantum/source
 `/private/tmp/claude-501/bs_src_6860/` (files `main.tex`, 1202 lines; `generalk.tex`, 377 lines).
 Comparison: SSW arXiv:2008.10223, extracted to `/private/tmp/claude-501/ssw_src_*/quantum-classical-query.tex`.
 The annex has only v3. It contains no erratum or later version.
+The archive SHA-256 is `f48a3225662484d12e19bf03412478cf87a388f7c2e33c69a4d7f2078202e015`; its `main.tex` SHA-256 is `800119f9f12877392a92e34ac380c61a50b2a297cee0a70511058580061f835b`. Line numbers below are physical lines in that member.
 
 ## 1. Ingredients (as stated in the paper)
 
@@ -18,25 +19,25 @@ wt^μ_ℓ(f) ≤ ((cd)^ℓ log^{ℓ−1} m)^{1/2}.
 
 The parameter choice and level range: ℓ runs over k, …, k(k−1) (from Lemma `lemma:monomial`, main.tex:995–999, and generalk.tex:236–243, 306–318).
 
-## 2. The display in §5.4 (main.tex:1179–1186)
+## 2. The display in §5.4 (main.tex:1179–1181)
 
 ```
-|E_{p1}[f(Z)] - f(0)| <= sup_mu sum_{l=k}^{k(k-1)} (1/sqrt N)^{l(1-1/k)} (8k)^{14l} wt^mu_l(f)          (line 1180)
-   <= sum_{l=k}^{k(k-1)} (1/sqrt N)^{l(1-1/k)} (8k)^{14l} sqrt(d_1^l log^{l-1}(kN))                   (line 1182)
-   <= sum_{l=k}^{k(k-1)} ( c d_1 k^{28} (log(kN)/N)^{1-1/k} )^{l/2}                                    (line 1184)
+|E_{p1}[f(Z)] - f(0)| <= sup_mu sum_{l=k}^{k(k-1)} (1/sqrt N)^{l(1-1/k)} (8k)^{14l} wt^mu_l(f)          (line 1179)
+   <= sum_{l=k}^{k(k-1)} (1/sqrt N)^{l(1-1/k)} (8k)^{14l} sqrt(d_1^l log^{l-1}(kN))                   (line 1180)
+   <= sum_{l=k}^{k(k-1)} ( c d_1 k^{28} (log(kN)/N)^{1-1/k} )^{l/2}                                    (line 1181)
 ```
 
-The proof then concludes (main.tex:1187–1189) that d_1 < C k^{-28} (N/log(kN))^{1-1/k} makes the advantage ≤ δ/4.
+The proof then concludes (main.tex:1183–1185; the threshold is on line 1184) that d_1 < C k^{-28} (N/log(kN))^{1-1/k} makes the advantage ≤ δ/4.
 
-The first inequality (1180) is Thm 4.2 and is fine. The second (1182) is Cor. 4.5 and is fine. It drops the c^{ℓ/2} factor, which is absorbed later. The third inequality (1184) is where the problem lies.
+The first inequality (1179) is Thm 4.2 and is fine. The second (1180) is Cor. 4.5 and is fine. It drops the c^{ℓ/2} factor, which is absorbed later. The third inequality (1181) is where the problem lies.
 
 ## 3. Exponent bookkeeping for the third inequality
 
-Write L = log(kN). The level-ℓ term on line 1182 is
+Write L = log(kN). The level-ℓ term on line 1180 is
 
 T_ℓ = N^{−ℓ(k−1)/(2k)} · (8k)^{14ℓ} · c^{ℓ/2} · d^{ℓ/2} · L^{(ℓ−1)/2}.
 
-The claimed level-ℓ term on line 1184 is
+The claimed level-ℓ term on line 1181 is
 
 R_ℓ = c'^{ℓ/2} · k^{14ℓ} · d^{ℓ/2} · L^{ℓ(k−1)/(2k)} · N^{−ℓ(k−1)/(2k)}.
 
@@ -48,10 +49,10 @@ The powers of N and d agree. The constants agree once c' ≥ 8^{28} c. The only 
 Actual ≤ claimed ⇔ ℓ − 1 ≤ ℓ − ℓ/k ⇔ ℓ ≤ k.
 
 - ℓ = k: the exponents are equal, (k−1)/2 on both sides. The inequality holds.
-- ℓ > k: T_ℓ / R_ℓ = L^{(ℓ/k − 1)/2}, which tends to ∞ with N. **The inequality on line 1184 is false for every level ℓ > k** (for L ≥ 1 large, i.e. all large N). The worst level is ℓ = k(k−1). There the ratio is L^{(k−2)/2}.
+- ℓ > k: T_ℓ / R_ℓ = L^{(ℓ/k − 1)/2}, which tends to ∞ with N. **The inequality on line 1181 is false for every level ℓ > k** (for L ≥ 1 large, i.e. all large N). The worst level is ℓ = k(k−1). There the ratio is L^{(k−2)/2}.
 - The range ℓ ∈ [k, k(k−1)] contains a level ℓ > k exactly when k(k−1) > k, i.e. **k ≥ 3**. For **k = 2** the sum has the single term ℓ = 2 = k, so the display is valid and Theorem 1.3 follows as stated.
 
-This is a false inequality, not a typo. No re-reading of line 1184 with the same ingredients yields the stated threshold. The next section shows that the conclusion drawn from it also fails at the stated threshold.
+This is a false inequality, not a typo. No re-reading of line 1181 with the same ingredients yields the stated threshold. The next section shows that the conclusion drawn from it also fails at the stated threshold.
 
 ## 4. What the argument as written actually gives
 
@@ -73,7 +74,7 @@ This is weaker than the stated (N/log kN)^{1−1/k} by a factor log(kN)^{(k−2)
 
 The simpler sufficient choice x ≤ 1/4, i.e. d ≲ k^{−28} N^{1−1/k}/L (denominator L¹), also works and makes all levels a geometric series. That is the shape SSW use (see §6).
 
-Qualitative consequences are unaffected. These are Ω̃(N^{1−1/k}), the "matches up to polylog" remark (main.tex:267), the O(1) vs N^{1−ε} and α(N) vs N^{1−o(1)} separations, the cubic total-function corollary and the communication corollaries. Only the explicit log exponent in Theorem 1.3 and Corollary 1.4 (main.tex:275–278, "analogous", main.tex:1189) is unsupported for k ≥ 3.
+Qualitative consequences are unaffected. These are Ω̃(N^{1−1/k}), the "matches up to polylog" remark (main.tex:267), the O(1) vs N^{1−ε} and α(N) vs N^{1−o(1)} separations, the cubic total-function corollary and the communication corollaries. Only the explicit log exponent in Theorem 1.3 and Corollary 1.4 (main.tex:275–278, "analogous", main.tex:1188) is unsupported for k ≥ 3.
 
 ## 5. Can the finer structure of Lemma 5.1 rescue it?
 
@@ -92,8 +93,8 @@ So **no simple local repair restores the stated log(kN)^{1−1/k}** for k ≥ 3.
 
 ## 7. Verdict, conservatively labelled
 
-- Lines 1180 and 1182: valid.
-- Line 1184, third inequality: **false as displayed for every ℓ > k, hence for every k ≥ 3** (true for k = 2). It is not a typo with a correct intended version, because the conclusion fails at the stated threshold (top-level term Θ_k(L^{(k−2)/2})).
+- Lines 1179 and 1180: valid.
+- Line 1181, third inequality: **false as displayed for every ℓ > k, hence for every k ≥ 3** (true for k = 2). It is not a typo with a correct intended version, because the conclusion fails at the stated threshold (top-level term Θ_k(L^{(k−2)/2})).
 - The argument as written proves Ω(k^{−28} N^{1−1/k} log(kN)^{−(1−1/(k(k−1)))} η²/log(1/δ)), and the cruder but clean Ω(k^{−28} N^{1−1/k}/log(kN) · …).
 - Theorem 1.3's exact log exponent is **unsupported, not refuted**, for k ≥ 3. I found no argument showing the stated bound is false.
 - Not verified: whether a sharper accounting in generalk.tex could improve the top-level decay for k ≥ 4. For k = 3 it cannot (explicit level-6 term).

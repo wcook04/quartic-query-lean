@@ -1,0 +1,1124 @@
+[
+  {
+    "contribution": "models",
+    "source": "receipt.json",
+    "receipt": {
+      "compiled": false,
+      "lean_on_path": null,
+      "lake_on_path": null,
+      "probe": "command -v lean; command -v lake",
+      "toolchain_requested": "leanprover/lean4:v4.36.0-rc2",
+      "new_modules": [
+        {
+          "path": "lean/QuarticQuery/Paper/ConstructionModels.lean",
+          "sha256": "c395c9abfd497ed39b5390a5e1a01ce9d8d4c18b20f1c07aaae04ceefb232223",
+          "lines": 190
+        },
+        {
+          "path": "lean/QuarticQuery/Paper/ConstructionFamily.lean",
+          "sha256": "b7e1203086e38c00b964355ac71537a7fc5be7053d537ccd56cba8017cdd085a",
+          "lines": 76
+        }
+      ],
+      "static_checks": [
+        "Every new declaration has a Ledger doc comment.",
+        "No sorry, axiom or native_decide proof placeholder is present.",
+        "Every imported module is existing base source; no new uncompiled packet module is imported."
+      ],
+      "limits": "No Lean elaboration, kernel check, comparator run, or rebuild of dependencies was performed.",
+      "read_scope": {
+        "complete": [
+          "READ_ME_FIRST.md",
+          "BUILD_STATUS.md",
+          "repository/README.md",
+          "repository/docs/statement_evidence_contract.md",
+          "repository/corpus/README.md",
+          "writing/full-exposition-guide.md",
+          "repository/lean/QuarticQuery/Statement.lean",
+          "repository/lean/QuarticQuery/Results/Conditional.lean",
+          "repository/lean/QuarticQuery/Results/Unconditional.lean",
+          "repository/lean/QuarticQuery/Results/Headline.lean"
+        ],
+        "targeted": [
+          "paper/extracted.md:Introduction and Section 1.3",
+          "repository/corpus/statements.json:all five assigned row records",
+          "repository/corpus/ties.json:all ties for the assigned rows",
+          "repository/research/adjudication/funnel_adjudication.json:pending_ties, F-UNTIED, F-EQ1-EQUIV and relevant source references",
+          "previous_round/*/NEW_STATEMENTS.json:all objects referencing an assigned row",
+          "previous_round/*/LEAN_GAPS.md:assigned-row notes and related foundation/family sections",
+          "repository/lean/QuarticQuery/Model/Quantum.lean:oracle, ket, cap semantics",
+          "repository/lean/QuarticQuery/Model/Classical.lean:query model/tree helpers",
+          "repository/lean/QuarticQuery/Results/Exponent.lean:family package, finite parameter arithmetic, floor conversion",
+          "repository/lean/QuarticQuery/Upper/Bound.lean:budgetConst, positivity, named-family bound",
+          "repository/lean/QuarticQuery/Forrelation/Circuit.lean:forrConstant and circuit-size result",
+          "repository/lean/QuarticQuery/Forrelation/Walsh.lean:mValue normalization",
+          "repository/lean/QuarticQuery/LowerBound/Planted/Main.lean:Gvalue_lt_R_Fkm",
+          "repository/lean/QuarticQuery/ForrelationLower/Main.lean:bansalSinhaLower",
+          "literature/quartic-lit-dewolf-quantum-computing-lecture-notes/extracted.md:Section 2.4; annex_notes.json metadata",
+          "literature/quartic-lit-dewolf-quantum-computing-lecture-notes/extracted.md:1580-1625 (Section 11.1 query-model definition and start of polynomial-method discussion)"
+        ],
+        "not_independently_elaborated": "All Lean sources and all new proofs. Historical build assertions are the packet’s own evidence."
+      },
+      "web_sources": [
+        {
+          "url": "https://arxiv.org/abs/1907.09415v6",
+          "title": "Quantum Computing: Lecture Notes",
+          "author": "Ronald de Wolf",
+          "version": "v6, 27 August 2026",
+          "role": "Background oracle convention only"
+        },
+        {
+          "url": "https://homepages.cwi.nl/~rdewolf/qcnotes.pdf",
+          "locator": "Sections 2.4 (printed pages 17–18) and 11.1 (printed page 89)",
+          "role": "XOR basis action, permutation-matrix unitarity, phase kickback; input-independent gates; correctness on the domain at error 1/3"
+        }
+      ],
+      "source_status_note": "BUILD_STATUS.md lists Model/Classical.olean as present but not newer than source; the authoring pass does not promote that source snapshot to freshly compiled."
+    }
+  },
+  {
+    "contribution": "models",
+    "source": "supplemental_audit.json",
+    "receipt": {
+      "schema": "quartic-query.models.supplemental-audit.v1",
+      "created_at_utc": "2026-11-02T15:14:35.391564+00:00",
+      "role": "models_sections subagent; supplemental review for root integration",
+      "assigned_rows": [
+        "def-log-convention",
+        "def-partial-query",
+        "def-query-oracle",
+        "eq-1",
+        "eq-2"
+      ],
+      "verification": {
+        "lean_on_path": null,
+        "lake_on_path": null,
+        "compiled": false,
+        "kernel_checked": false,
+        "comparator_run": false,
+        "method": "Manual mathematical and source/API review only. All new Lean remains unelaborated.",
+        "lean_edits_in_supplemental_audit": [],
+        "environment_note": "Neither lean nor lake was found on PATH. No installation was attempted."
+      },
+      "guide_read": {
+        "path": "quartic_packet/writing/full-exposition-guide.md",
+        "sha256": "c7baa3c8b195647b00cdd37c38c48b122371ce9c3cd92798e2e9d55f3d1c4eca",
+        "bytes": 103236,
+        "lines": 1597,
+        "complete": true,
+        "bounded_ranges": [
+          [
+            1,
+            200
+          ],
+          [
+            201,
+            400
+          ],
+          [
+            401,
+            600
+          ],
+          [
+            601,
+            800
+          ],
+          [
+            801,
+            1000
+          ],
+          [
+            1001,
+            1200
+          ],
+          [
+            1201,
+            1400
+          ],
+          [
+            1401,
+            1597
+          ]
+        ],
+        "outputs_complete_without_truncation": true,
+        "applicable_rules": [
+          {
+            "sections": [
+              "1",
+              "7",
+              "8"
+            ],
+            "rule": "Separate the mathematical statement, evidence authority, logical reach, and remaining boundary. New code is unelaborated; source inspection is not a fresh build, kernel check, or Comparator result."
+          },
+          {
+            "sections": [
+              "4",
+              "4A",
+              "8"
+            ],
+            "rule": "Write self-contained statements with all domains, positivity assumptions, parameter dependence, quantifier order, and endpoint conventions. Never smooth away hypotheses or change implication into equivalence."
+          },
+          {
+            "sections": [
+              "3",
+              "4",
+              "8"
+            ],
+            "rule": "Use field-standard names and exact declaration identities. Give precise file/section/theorem locators and distinguish prior-art attribution from formal proof support."
+          },
+          {
+            "sections": [
+              "5",
+              "6"
+            ],
+            "rule": "Preserve the difficulty profile and explain the mathematical use of a new statement. Routine conjunctions and definitional wrappers repair correspondence; they are not separate discoveries."
+          },
+          {
+            "sections": [
+              "6",
+              "8"
+            ],
+            "rule": "Name the exact remaining proof obligation and the smallest check that would change its evidence status. Distinguish a finite ingredient from an assembled family or algorithm."
+          },
+          {
+            "sections": [
+              "7",
+              "12",
+              "13"
+            ],
+            "rule": "Keep mutable verification status in a source-bound receipt, retain AI attribution, and report exactly which prose, declarations, sources, and logs were inspected."
+          },
+          {
+            "sections": [
+              "9",
+              "13",
+              "Scope"
+            ],
+            "rule": "Apply genre-specific organization. This deliverable is the requested technical blueprint, so its ledger, implementation plans, status fields, and audit trail are appropriate rather than manuscript defects."
+          },
+          {
+            "sections": [
+              "10",
+              "11"
+            ],
+            "rule": "Use literal mathematical relations, restrained wording, and exact boundary sentences. Editorial fluency, examples, or another reviewer agreeing do not establish correctness."
+          }
+        ],
+        "scope_exclusions": [
+          "Manuscript-only instructions to evict programme sections, choose publication units, rewrite an abstract/introduction, or prepare a rendered PDF are not a requirement to turn this technical blueprint into a paper.",
+          "References to mathematical-reasoning, humanizer, corpus tools, external repository mounts, and other hypothetical skills are background in the supplied guide, not newly available capabilities or authorization to use absent tools.",
+          "No external mount was opened, no unavailable skill was invoked, and no guide-specific release/commit/publish command was run.",
+          "The companion mathematical-writing-mechanics.md and other shared guides are not claimed as fully reread by this subagent in this supplemental pass; root owns their shared coverage."
+        ]
+      },
+      "assigned_correspondence_read": {
+        "statements_json": {
+          "path": "repository/corpus/statements.json",
+          "complete_objects": [
+            "def-log-convention",
+            "def-partial-query",
+            "def-query-oracle",
+            "eq-1",
+            "eq-2"
+          ]
+        },
+        "ties_json": {
+          "path": "repository/corpus/ties.json",
+          "complete_assigned_tie_arrays": [
+            "def-log-convention",
+            "def-partial-query",
+            "def-query-oracle",
+            "eq-1",
+            "eq-2"
+          ],
+          "counts": {
+            "def-log-convention": 0,
+            "def-partial-query": 2,
+            "def-query-oracle": 15,
+            "eq-1": 0,
+            "eq-2": 4
+          }
+        },
+        "new_statements": {
+          "previous_round/1_long_reasoning_record/NEW_STATEMENTS.json": [
+            {
+              "array_index": 0,
+              "id": "ROOT-MASS",
+              "scope": "direct assigned-row reference"
+            },
+            {
+              "array_index": 31,
+              "id": "NCL-weighted-value",
+              "scope": "direct assigned-row reference"
+            },
+            {
+              "array_index": 34,
+              "id": "NCL-strict-hard-distribution",
+              "scope": "direct assigned-row reference"
+            },
+            {
+              "array_index": 39,
+              "id": "NCL-explicit-floor",
+              "scope": "additional family-bound ingredient"
+            },
+            {
+              "array_index": 44,
+              "id": "new-upper-finite-budget",
+              "scope": "additional family-bound ingredient"
+            },
+            {
+              "array_index": 45,
+              "id": "new-upper-log6",
+              "scope": "additional family-bound ingredient"
+            }
+          ],
+          "previous_round/2_short_expert_paper/NEW_STATEMENTS.json": [],
+          "previous_round/3_examples_first_exposition/NEW_STATEMENTS.json": [
+            {
+              "array_index": 0,
+              "id": "new-toy-circuit",
+              "scope": "direct assigned-row reference"
+            },
+            {
+              "array_index": 15,
+              "id": "new-exponent-table",
+              "scope": "direct assigned-row reference"
+            }
+          ],
+          "previous_round/4_forrelation_route_note/NEW_STATEMENTS.json": [],
+          "previous_round/5_reader_and_film/NEW_STATEMENTS.json": []
+        },
+        "new_statement_selection": "All direct exact-ID references to assigned rows were read as whole JSON objects. An identifier such as eq-18 or new-eq-21 is not counted as eq-1 or eq-2. Three additional lower/upper family-bound records were read in full. Other entries were inventoried, not asserted to have been fully audited.",
+        "lean_gaps_md_bounded_ranges": {
+          "previous_round/1_long_reasoning_record/LEAN_GAPS.md": [
+            [
+              1,
+              18
+            ],
+            [
+              135,
+              142
+            ],
+            [
+              246,
+              256
+            ],
+            [
+              289,
+              302
+            ]
+          ],
+          "previous_round/2_short_expert_paper/LEAN_GAPS.md": [
+            [
+              1,
+              26
+            ],
+            [
+              207,
+              227
+            ]
+          ],
+          "previous_round/3_examples_first_exposition/LEAN_GAPS.md": [
+            [
+              1,
+              37
+            ],
+            [
+              40,
+              62
+            ],
+            [
+              100,
+              109
+            ],
+            [
+              140,
+              166
+            ]
+          ],
+          "previous_round/4_forrelation_route_note/LEAN_GAPS.md": [
+            [
+              1,
+              14
+            ],
+            [
+              71,
+              121
+            ]
+          ],
+          "previous_round/5_reader_and_film/LEAN_GAPS.md": [
+            [
+              1,
+              61
+            ],
+            [
+              104,
+              112
+            ]
+          ]
+        },
+        "lean_gaps_json": {
+          "path": "previous_round/5_reader_and_film/LEAN_GAPS.json",
+          "complete_fields": [
+            "scope",
+            "source_snapshot"
+          ],
+          "complete_reading_order_objects": [
+            {
+              "array_index": 3,
+              "id": "eq-1"
+            },
+            {
+              "array_index": 27,
+              "id": "eq-2"
+            },
+            {
+              "array_index": 30,
+              "id": "def-query-oracle"
+            }
+          ]
+        },
+        "adjudication": {
+          "path": "repository/research/adjudication/adjudication.json",
+          "complete_findings": [
+            "R1-SR-SUM",
+            "R3-LA-02",
+            "R3-RF-04",
+            "R3-DEP-01",
+            "R3-DEP-06",
+            "T-RT",
+            "M-5"
+          ],
+          "complete_ledger_row_changes": [
+            "def-log-convention",
+            "eq-2"
+          ],
+          "duplicate_returns_json_byte_identical": true
+        },
+        "funnel_adjudication": {
+          "path": "repository/research/adjudication/funnel_adjudication.json",
+          "complete_findings": [
+            "F-UNTIED",
+            "F-EQ1-EQUIV"
+          ],
+          "complete_pending_ties": [
+            {
+              "array_index": 7,
+              "row": "eq-1"
+            }
+          ]
+        },
+        "adjudication_notes_complete": [
+          "repository/research/adjudication/adjudication_notes.md",
+          "repository/research/adjudication/funnel_adjudication_notes.md"
+        ],
+        "coverage_limits": [
+          "No full-line read of every previous-round LEAN_GAPS file is claimed; the relevant query-model/family/evidence sections and exact assigned-row JSON objects are enumerated above.",
+          "Unrelated previous-round NEW_STATEMENTS objects and all their transitive proposed proof obligations were not independently audited.",
+          "Other corpus rows/tie arrays and unrelated adjudication entries are outside this subagent’s assigned reading scope.",
+          "The original receipt.json records the earlier broader source reading. This supplemental receipt gives auditable exact bounded ranges for the fresh confirmation pass."
+        ]
+      },
+      "audit": [
+        {
+          "file": {
+            "path": "agent_work/root/lean/QuarticQuery/Paper/ConstructionPhase.lean",
+            "sha256": "f9dc9564aa8741a6aa3059fcea3563c740fed802666ae251fbebbe9085668405",
+            "bytes": 2427,
+            "lines": 62
+          },
+          "conclusion": "No mathematical counterexample or definite Lean syntax/type error found in manual source review. Not elaborated.",
+          "declarations": [
+            "QuarticQuery.Paper.construction_bitOracle_phase_kickback",
+            "QuarticQuery.Paper.construction_bitOracle_phase_preserves"
+          ],
+          "actual_base_declarations": [
+            "QuarticQuery.flipPoint — Model/Quantum.lean:28",
+            "QuarticQuery.bitOracle_apply — Model/Quantum.lean:54",
+            "QuarticQuery.norm_bitOracle — Model/Quantum.lean:78"
+          ],
+          "mathematical_scope": "One physical bit-oracle call acts by the correct index-dependent phase on the entire minus-answer-qubit subspace, including arbitrary index/workspace entanglement. Norm and the minus subspace are preserved.",
+          "boundary": "These local statements do not assemble the complete Forrelation algorithm, its success law, or the sharper full k-query implementation."
+        },
+        {
+          "file": {
+            "path": "agent_work/root/lean/QuarticQuery/Paper/ConstructionArithmetic.lean",
+            "sha256": "f06202f8f7e18d3ab2a084029c996e090ede817dbc763361f08628c1c29a09c6",
+            "bytes": 4288,
+            "lines": 105
+          },
+          "conclusion": "No mathematical counterexample or definite Lean syntax/type error found in manual source review. Not elaborated.",
+          "declarations": [
+            "QuarticQuery.Paper.construction_abs_sum_range_le",
+            "QuarticQuery.Paper.construction_abs_walshN",
+            "QuarticQuery.Paper.construction_walkN_bound",
+            "QuarticQuery.Paper.construction_walkN_prefix_bound",
+            "QuarticQuery.Paper.construction_butterfly_block_bound"
+          ],
+          "actual_base_declarations": [
+            "QuarticQuery.Forrelation.walkN — Forrelation/Product.lean:22–25",
+            "QuarticQuery.Forrelation.walshN_eq_one_or — Forrelation/Walsh.lean:38"
+          ],
+          "mathematical_scope": "Ideal integer sums, recursively defined signed Walsh walks, prefixes, and butterfly subblocks have the displayed magnitude bounds. The induction follows the actual walkN recurrence.",
+          "boundary": "No theorem here relates every modular Forrelation.Enc circuit register to its signed ideal value without wraparound. The complete circuit-intermediate correspondence remains a separate obligation."
+        },
+        {
+          "file": {
+            "path": "agent_work/construction/lean/QuarticQuery/Paper/ConstructionCoherent.lean",
+            "sha256": "f079bfbe992a05f1ba22e16b7bc3941307d3b12940768f777f93225952b13d59",
+            "bytes": 8321,
+            "lines": 171
+          },
+          "conclusion": "The arbitrary-superposition claim is supported by the actual statement, rather than only by a uniform measured law. No definite Lean syntax/type error found in manual source review. Not elaborated.",
+          "actual_base_declarations": [
+            "QuarticQuery.Upper.rket — Upper/Circuit.lean:34",
+            "QuarticQuery.Upper.sigmaOp — Upper/Circuit.lean:277",
+            "QuarticQuery.Upper.slice_sigmaOp — Upper/Circuit.lean:298",
+            "QuarticQuery.Upper.IsCirc.sigma — Upper/Circuit.lean:423–425",
+            "QuarticQuery.Upper.lawOf — Upper/Sampler.lean:35",
+            "QuarticQuery.Upper.pt_of_ne — Upper/Sampler.lean:75",
+            "QuarticQuery.Upper.Samples — Upper/Sampler.lean:115–117",
+            "QuarticQuery.Upper.Samples.bind — Upper/Sampler.lean:241 onward (dependent witness choice pattern)",
+            "QuarticQuery.Upper.Samples.tree — Upper/Sampler.lean:300",
+            "QuarticQuery.Upper.compile_circ — Upper/Compile.lean:217 onward"
+          ],
+          "mathematical_scope": "For every complex amplitude function a, the e-block of the controlled unitary output is exactly a(e) times that block’s exact test output, and every incorrectly labelled basis amplitude is zero. Block-diagonal IsCirc construction gives one coherent implementation; no uniform-index restriction remains.",
+          "boundaries": [
+            "The work registers are retained, with a fixed starting ket in each index block. This is not a clean XOR oracle with reset ancillary registers.",
+            "Arbitrary a may be unnormalized; the algebraic identity is stronger in that respect. Normalized inputs remain normalized by the supplied linear isometry equivalence.",
+            "Output blocks may carry phases and workspace data. Exact support does not assert a common phase-free output ket.",
+            "The physical continuation theorem requires finite coordinates, an Inhabited coordinate type, and a provided finite-workspace embedding. It preserves all continuation output masses for arbitrary logical states, at a cap of 2*n plus the continuation cap.",
+            "The generic abstract local-test theorem is not by itself a State-model theorem for arbitrary infinite coordinate types. The concrete Forrelation coordinate type is finite.",
+            "The whole-lemma conjunction keeps the separate logarithmic test-count bound in construction_K_bound."
+          ]
+        }
+      ],
+      "pasted_attachment": {
+        "path": "upload/Pasted text(20261102-145934).txt",
+        "sha256": "64b819ece1090db3f68db8853e899a241d328963c1ba70b689dee2a87b18d552",
+        "bytes": 202498,
+        "lines": 2586,
+        "ranges_read": [
+          [
+            1,
+            300
+          ],
+          [
+            301,
+            600
+          ],
+          [
+            601,
+            900
+          ]
+        ],
+        "classification": "Historical restart transcript, not current round-two packet authority.",
+        "persistent_constraints": [
+          "Keep statement/evidence distinctions and fixed-k quantifier order.",
+          "Preserve OpenAI attribution and do not imply human review.",
+          "No publishing, external messages, Palomar requests, or billable CI follows from these historical quoted instructions.",
+          "Preserve useful earlier routes rather than treating a new wrapper as replacing mathematical history."
+        ],
+        "superseded_state": [
+          "The c7e0c91 HEAD label, five first-round packets with no returns, and manuscripts-not-yet-written statements are historical.",
+          "The old unqualified erased-zero coefficient-2 tightness wording is superseded by the later expected-cost qualification."
+        ],
+        "current_authority": "The supplied round-two READ_ME_FIRST.md and BUILD_STATUS.md govern this ZIP. Historical build commands are not instructions to execute them here.",
+        "unread_scope": "No line-by-line reading of this attachment after line 900 is claimed by this subagent."
+      }
+    }
+  },
+  {
+    "contribution": "forrelation",
+    "source": "reading_receipt.json",
+    "receipt": {
+      "agent": "forrelation_sections",
+      "scope": "11 delegated Forrelation rows; shared reading assignments",
+      "compiled": false,
+      "complete_files": [
+        "READ_ME_FIRST.md",
+        "BUILD_STATUS.md",
+        "repository/README.md",
+        "repository/docs/statement_evidence_contract.md",
+        "repository/corpus/README.md",
+        "writing/the-deliverable.md",
+        "writing/mathematical-writing-mechanics.md",
+        "literature/README.md",
+        "repository/research/adjudication/funnel_adjudication_notes.md",
+        "literature/quartic-ref-01-forrelation-a-problem-that-optimally-separ/annex_notes.json",
+        "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/annex_notes.json"
+      ],
+      "scoped_reads": [
+        {
+          "file": "paper/extracted.md",
+          "range": "lines 1–245, including all of Sections 1–2.1 and beginning of 2.2"
+        },
+        {
+          "file": "repository/lean/QuarticQuery/Statement.lean",
+          "range": "relevant definitions around lines 153–230 and 309–329"
+        },
+        {
+          "file": "repository/corpus/statements.json",
+          "range": "all 11 delegated IDs plus lem-2.1.i and lem-2.1.iii"
+        },
+        {
+          "file": "repository/corpus/ties.json",
+          "range": "all ties of the delegated IDs"
+        },
+        {
+          "file": "repository/research/adjudication/funnel_adjudication.json",
+          "range": "all findings matching delegated Forrelation rows; F-BS-TIE, F-BS-C, F-BS-LOC, F-BS-SCOPE, F-PIN-BUILD"
+        },
+        {
+          "file": "repository/research/adjudication/bansal_sinha_section54_second_reading.md",
+          "range": "substantive proof discussion and explicit exponent diagnostic; original source independently checked"
+        },
+        {
+          "file": "literature/quartic-ref-01-forrelation-a-problem-that-optimally-separ/extracted.md",
+          "range": "lines 585–760: Sections 3.1–3.2, Figure 1, and Proposition 6"
+        },
+        {
+          "file": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.tar.gz",
+          "member": "main.tex",
+          "extracted_to": "/workspace/scratch/a8c01183f88b/agent_work/forrelation/literature/main.tex",
+          "range": "lines 150–330 (definitions, Theorem 1.3, Corollary 1.4); 760–805 (Fourier-growth context); 1140–1202 (including entire Section 5.4 at 1166–1191)"
+        },
+        {
+          "file": "repository/lean/QuarticQuery/Forrelation/Promise.lean",
+          "range": "complete"
+        },
+        {
+          "file": "repository/lean/QuarticQuery/Forrelation/Walsh.lean",
+          "range": "complete"
+        },
+        {
+          "file": "repository/lean/QuarticQuery/Forrelation/Product.lean",
+          "range": "lines 1–195 and terminal norm/probability theorem signatures"
+        },
+        {
+          "file": "repository/lean/QuarticQuery/Forrelation/Repetition.lean",
+          "range": "lines 1–140 and 180–245"
+        },
+        {
+          "file": "repository/lean/QuarticQuery/Forrelation/Circuit.lean",
+          "range": "lines 1–113, 166–397, 462–505"
+        },
+        {
+          "file": "repository/lean/QuarticQuery/Forrelation/Arithmetic.lean",
+          "range": "lines 1–180 plus relevant Enc, arithmetic, and sign-wire signatures"
+        },
+        {
+          "file": "repository/lean/QuarticQuery/Forrelation/Builder.lean",
+          "range": "lines 185–258"
+        },
+        {
+          "file": "repository/lean/QuarticQuery/Upper/Decode.lean",
+          "range": "lines 230–410"
+        },
+        {
+          "file": "repository/lean/QuarticQuery/Upper/Compile.lean",
+          "range": "lines 115–247 and 321–425"
+        },
+        {
+          "file": "repository/lean/QuarticQuery/Upper/Sampler.lean",
+          "range": "lines 115–150"
+        },
+        {
+          "file": "repository/lean/QuarticQuery/Bridge/Oracle.lean",
+          "range": "lines 1–200"
+        },
+        {
+          "file": "repository/lean/QuarticQuery/Model/Quantum.lean",
+          "range": "lines 1–85 and reindex declarations"
+        },
+        {
+          "file": "previous_round/1_long_reasoning_record/NEW_STATEMENTS.json",
+          "range": "full entries NEW-FOR-01 through NEW-FOR-05, NEW-FOR-26, NEW-FOR-28, NEW-FOR-29; all entry identifiers/statements screened"
+        },
+        {
+          "file": "previous_round/1_long_reasoning_record/LEAN_GAPS.md",
+          "range": "lines 143–185 complete Forrelation detailed assessment; relevant indexed entries 17–31 also read"
+        },
+        {
+          "file": "previous_round/2_short_expert_paper/NEW_STATEMENTS.json",
+          "range": "all identifiers/statements screened; no new direct Section 2.1 definition/circuit/projection proposals (new-fl-* concern deeper alternative lower-bound internals)"
+        },
+        {
+          "file": "previous_round/2_short_expert_paper/LEAN_GAPS.md",
+          "range": "query model and construction section through local-tests (beginning through approximately line 77), plus relevant Forrelation route/endpoints and evidence-record discussion; full attempted read was truncated"
+        },
+        {
+          "file": "previous_round/3_examples_first_exposition/NEW_STATEMENTS.json",
+          "range": "full entries new-forrelation-matrix, new-forrelation-three-inputs, new-forrelation-census, new-small-parameters; all entry identifiers/statements screened"
+        },
+        {
+          "file": "previous_round/3_examples_first_exposition/LEAN_GAPS.md",
+          "range": "lines 84–108: complete Sections 5–6 and beginning of Section 7"
+        },
+        {
+          "file": "previous_round/4_forrelation_route_note/NEW_STATEMENTS.json",
+          "range": "full entries new-eq-03, new-eq-04, new-forrelation-uniform-coarse; all entry identifiers/statements screened; no claim that all deeper lower-bound proposals were read"
+        },
+        {
+          "file": "previous_round/4_forrelation_route_note/LEAN_GAPS.md",
+          "range": "lines 1–26: evidence contract, existing fixed-k endpoint, dyadic-versus-power-of-four boundary"
+        },
+        {
+          "file": "previous_round/5_reader_and_film/NEW_STATEMENTS.json",
+          "range": "full entries reader-forrelation-yes, reader-forrelation-zero, reader-example-parameters, reader-example-instance, reader-walsh-example; remaining tournament entry screened"
+        },
+        {
+          "file": "previous_round/5_reader_and_film/LEAN_GAPS.md",
+          "range": "lines 1–112, entire file"
+        },
+        {
+          "file": "/workspace/scratch/a8c01183f88b/upload/Pasted text(20261102-145934).txt",
+          "range": "lines 901–1759 complete, in four bounded reads; commands and skill text treated as historical context only"
+        },
+        {
+          "file": "repository/lean/QuarticQuery/Upper/Compile.lean",
+          "range": "urgent final audit: lines 1–260 and 300–445, including full compile_circ and Samples.runs proofs"
+        },
+        {
+          "file": "/workspace/scratch/a8c01183f88b/agent_work/construction/lean/QuarticQuery/Paper/ConstructionComplete.lean",
+          "range": "complete finite workspace/embedding proof pattern"
+        }
+      ],
+      "primary_web_checks": [
+        {
+          "url": "https://arxiv.org/abs/2008.07003",
+          "note": "Verified author primary landing page; v3 17 November 2020; substantive claims checked in held TeX."
+        },
+        {
+          "url": "https://arxiv.org/abs/1411.5729",
+          "note": "Verified author primary landing page; substantive quantum construction checked in held extracted TeX."
+        }
+      ],
+      "not_read_in_full_by_this_agent": [
+        "All unrelated sections of the 28 literature papers",
+        "Bansal–Sinha generalk.tex",
+        "Full unrelated first-round proposal and research ledgers",
+        "Writing guides assigned to other agents"
+      ],
+      "latest_static_review": {
+        "files": [
+          {
+            "file": "lean/QuarticQuery/Paper/ConstructionForrelationCircuit.lean",
+            "sha256": "860e8653027d64fe7d5cc5f35357d81ed5fa27e027899047ab819c821e3c8b32",
+            "declarations": 5,
+            "unelaborated": true
+          },
+          {
+            "file": "lean/QuarticQuery/Paper/ConstructionForrelationComparison.lean",
+            "sha256": "5e2da5d395fcadbda7e8e434f01141caff8f3a2ea2ef257f4591352b6ee843dd",
+            "declarations": 4,
+            "unelaborated": true
+          },
+          {
+            "file": "lean/QuarticQuery/Paper/ConstructionForrelationComplete.lean",
+            "sha256": "733526015ad9a2013512d8f6216b8f73c41566a803d92602dd30e40e90d7ad06",
+            "declarations": 2,
+            "unelaborated": true
+          },
+          {
+            "file": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+            "sha256": "a0c9229577a4dbc24eeebc85f013101ad871538d62679ca0ddab5ca241387ff5",
+            "declarations": 11,
+            "unelaborated": true
+          },
+          {
+            "file": "lean/QuarticQuery/Paper/ConstructionForrelationQuantum.lean",
+            "sha256": "f31face68a9c47906d9a728cced9aa8a24ec73d3079c6196ae1853130151391b",
+            "declarations": 4,
+            "unelaborated": true
+          }
+        ],
+        "Lean_run": false,
+        "comparator_run": false,
+        "note": "Source-only review: all 26 declarations have Ledger docs; complete physical witness added using compile_circ before measurement/reset. No Lean or Comparator execution."
+      }
+    }
+  },
+  {
+    "contribution": "construction",
+    "source": "read_scope.json",
+    "receipt": {
+      "owner": "construction_sections",
+      "assigned_ids": [
+        "def-transcript",
+        "eq-6",
+        "def-column-layout",
+        "eq-7",
+        "eq-8",
+        "def-winner",
+        "cor-unique-winner",
+        "def-win-at-address",
+        "def-K",
+        "lem-2.2.i",
+        "lem-2.2.ii",
+        "lem-2.2",
+        "cor-local-dichotomy"
+      ],
+      "fully_read_files": [
+        {
+          "file": "READ_ME_FIRST.md",
+          "line_count": 78
+        },
+        {
+          "file": "BUILD_STATUS.md",
+          "line_count": 64
+        },
+        {
+          "file": "repository/README.md",
+          "line_count": 91
+        },
+        {
+          "file": "repository/docs/statement_evidence_contract.md",
+          "line_count": 49
+        },
+        {
+          "file": "repository/corpus/README.md",
+          "line_count": 44
+        },
+        {
+          "file": "repository/lean/QuarticQuery/Statement.lean",
+          "line_count": 331
+        },
+        {
+          "file": "repository/lean/QuarticQuery/Construction/Transcript.lean",
+          "line_count": 75
+        },
+        {
+          "file": "repository/lean/QuarticQuery/Construction/Winner.lean",
+          "line_count": 75
+        },
+        {
+          "file": "repository/lean/QuarticQuery/Construction/LocalTests.lean",
+          "line_count": 349
+        },
+        {
+          "file": "repository/lean/QuarticQuery/Paper/Section2.lean",
+          "line_count": 284
+        },
+        {
+          "file": "repository/lean/QuarticQuery/Upper/Circuit.lean",
+          "line_count": 474
+        },
+        {
+          "file": "repository/lean/QuarticQuery/Upper/Verify.lean",
+          "line_count": 220
+        },
+        {
+          "file": "repository/research/adjudication/funnel_adjudication_notes.md",
+          "line_count": 65
+        },
+        {
+          "file": "writing/the-deliverable.md",
+          "line_count": 137
+        },
+        {
+          "file": "writing/register-from-literature.md",
+          "line_count": 50
+        },
+        {
+          "file": "literature/README.md",
+          "line_count": 47
+        },
+        {
+          "file": "literature/quartic-ref-02-separations-in-query-complexity-using-chea/annex_notes.json",
+          "line_count": 58
+        },
+        {
+          "file": "literature/quartic-ref-04-separations-in-query-complexity-based-on-p/annex_notes.json",
+          "line_count": 33
+        },
+        {
+          "file": "literature/quartic-ref-05-near-optimal-separations-of-certificate-co/annex_notes.json",
+          "line_count": 32
+        }
+      ],
+      "scoped_reads": [
+        {
+          "file": "paper/extracted.md",
+          "ranges": [
+            [
+              115,
+              303
+            ]
+          ],
+          "scope": "Complete §§1.3–2.2 including every assigned construction row; later sections were outside the child task."
+        },
+        {
+          "file": "repository/lean/QuarticQuery/Upper/Sampler.lean",
+          "ranges": [
+            [
+              1,
+              260
+            ],
+            [
+              290,
+              320
+            ]
+          ],
+          "scope": "Samples semantics, exact tree sampler, mono/congr and witness-choice pattern."
+        },
+        {
+          "file": "repository/lean/QuarticQuery/Upper/Compile.lean",
+          "ranges": [
+            [
+              1,
+              245
+            ],
+            [
+              385,
+              425
+            ]
+          ],
+          "scope": "Physical register embedding, read/circuit compiler and finite-workspace existence pattern."
+        },
+        {
+          "file": "repository/lean/QuarticQuery/Upper/Bound.lean",
+          "ranges": [
+            [
+              125,
+              170
+            ]
+          ],
+          "scope": "Existing explicit arithmetic bounding test cardinality."
+        },
+        {
+          "file": "repository/lean/QuarticQuery/Upper/Columns.lean",
+          "ranges": [
+            [
+              1,
+              70
+            ]
+          ],
+          "scope": "Loc definition and finite/inhibited-input instances used by the complete theorem."
+        },
+        {
+          "file": "repository/lean/QuarticQuery/Forrelation/Circuit.lean",
+          "ranges": [
+            [
+              350,
+              400
+            ],
+            [
+              460,
+              489
+            ]
+          ],
+          "scope": "Exact circuit supplier, constant and quadratic logarithmic size bound."
+        },
+        {
+          "file": "repository/lean/QuarticQuery/Results/Exponent.lean",
+          "ranges": [
+            [
+              285,
+              315
+            ]
+          ],
+          "scope": "Base-two logarithm identity for mValue."
+        },
+        {
+          "file": "writing/mathematical-writing-mechanics.md",
+          "ranges": [
+            [
+              1,
+              210
+            ]
+          ],
+          "scope": "First-time reader, evidence and internal/external dependency-map requirements; not a full manuscript pass."
+        },
+        {
+          "file": "writing/full-exposition-guide.md",
+          "ranges": [
+            [
+              1,
+              210
+            ]
+          ],
+          "scope": "Authority/theorem separation and first-time reader architecture; remainder not read by this child."
+        },
+        {
+          "file": "literature/quartic-ref-02-separations-in-query-complexity-using-chea/extracted.md",
+          "ranges": [
+            [
+              1640,
+              1815
+            ]
+          ],
+          "scope": "Generalized certifying-function and cheat-sheet construction, upper-bound theorem and associated proof; numbering checked against official v2 HTML."
+        },
+        {
+          "file": "literature/quartic-ref-04-separations-in-query-complexity-based-on-p/extracted.md",
+          "ranges": [
+            [
+              130,
+              155
+            ],
+            [
+              211,
+              281
+            ]
+          ],
+          "scope": "Introductory result context and §1.3 proof overview including direct pointers versus balanced-tree access; public HTML cross-check."
+        },
+        {
+          "file": "literature/quartic-ref-05-near-optimal-separations-of-certificate-co/extracted.md",
+          "ranges": [
+            [
+              1,
+              350
+            ],
+            [
+              1873,
+              1970
+            ]
+          ],
+          "scope": "Abstract, introduction, result statements, §3 construction and cheat-sheet totalization, and Appendix D.1 local checks/certificate proofs; v2 PDF extraction."
+        }
+      ],
+      "structured_source_reads": [
+        {
+          "file": "repository/corpus/statements.json",
+          "scope": "All 13 assigned row records, their original evidence and Lean ties."
+        },
+        {
+          "file": "repository/corpus/ties.json",
+          "scope": "Every tie and note for the 13 assigned rows; no tie added silently."
+        },
+        {
+          "file": "repository/research/adjudication/adjudication.json",
+          "scope": "Every relevant construction finding, especially R1-AF-00 adaptive-depth versus support, and winner/transcript/parameter findings. Relevant records copied into row_records.json."
+        },
+        {
+          "file": "repository/research/adjudication/funnel_adjudication.json",
+          "scope": "Relevant construction verdicts, pending Section2 ties, transcript proposal, candidate winner/dichotomy, direct-pointer literature comparison and historical build boundary."
+        }
+      ],
+      "previous_round_reads": [
+        {
+          "file": "previous_round/1_long_reasoning_record/NEW_STATEMENTS.json",
+          "scope": "Loaded full JSON; read the entries relevant to transcripts, winners, column layout, local tests, small parameters and toy construction proposals. Forrelation-route analytic additions were delegated outside this child task."
+        },
+        {
+          "file": "previous_round/2_short_expert_paper/NEW_STATEMENTS.json",
+          "scope": "Loaded full JSON; read the entries relevant to transcripts, winners, column layout, local tests, small parameters and toy construction proposals. Forrelation-route analytic additions were delegated outside this child task."
+        },
+        {
+          "file": "previous_round/3_examples_first_exposition/NEW_STATEMENTS.json",
+          "scope": "Loaded full JSON; read the entries relevant to transcripts, winners, column layout, local tests, small parameters and toy construction proposals. Forrelation-route analytic additions were delegated outside this child task."
+        },
+        {
+          "file": "previous_round/4_forrelation_route_note/NEW_STATEMENTS.json",
+          "scope": "Loaded full JSON; read the entries relevant to transcripts, winners, column layout, local tests, small parameters and toy construction proposals. Forrelation-route analytic additions were delegated outside this child task."
+        },
+        {
+          "file": "previous_round/5_reader_and_film/NEW_STATEMENTS.json",
+          "scope": "Loaded full JSON; read the entries relevant to transcripts, winners, column layout, local tests, small parameters and toy construction proposals. Forrelation-route analytic additions were delegated outside this child task."
+        },
+        {
+          "file": "previous_round/1_long_reasoning_record/LEAN_GAPS.md",
+          "scope": "Searched construction-relevant entries and read lines 190–211; not claimed as full-file reading."
+        },
+        {
+          "file": "previous_round/2_short_expert_paper/LEAN_GAPS.md",
+          "scope": "Construction-relevant lines 45–63, plus search; not claimed as full-file reading."
+        },
+        {
+          "file": "previous_round/3_examples_first_exposition/LEAN_GAPS.md",
+          "scope": "Construction-relevant lines 40–56, plus search; not claimed as full-file reading."
+        },
+        {
+          "file": "previous_round/4_forrelation_route_note/LEAN_GAPS.md",
+          "scope": "Searched construction-related terms; lower-bound analytic gaps outside this child task."
+        },
+        {
+          "file": "previous_round/5_reader_and_film/LEAN_GAPS.md",
+          "scope": "Lines 20–76, including toy examples and all-input/coherence/circuit boundaries; not claimed as full-file reading."
+        }
+      ],
+      "public_source_reads": [
+        {
+          "url": "https://arxiv.org/abs/1506.04719",
+          "status": "retrieved",
+          "scope": "Bibliographic metadata/version information."
+        },
+        {
+          "url": "https://arxiv.org/html/1506.04719v3",
+          "status": "retrieved",
+          "scope": "§1.3 Use of a balanced tree, including direct per-rival zero pointers immediately afterward."
+        },
+        {
+          "url": "https://arxiv.org/abs/1511.01937",
+          "status": "retrieved",
+          "scope": "Bibliographic metadata/version information."
+        },
+        {
+          "url": "https://arxiv.org/html/1511.01937v2",
+          "status": "retrieved",
+          "scope": "§6.1 Definitions 14 and 15, Theorem 16 and Lemma 17; corrected extracted-number mapping."
+        },
+        {
+          "url": "https://leanprover-community.github.io/mathlib4_docs/Mathlib/Algebra/Order/Floor/Semiring.html",
+          "status": "retrieved",
+          "scope": "Nat.ceil_natCast name and statement only; current public docs do not certify the pinned toolchain."
+        },
+        {
+          "url": "https://arxiv.org/abs/2609.11664v2",
+          "status": "retrieval_failed_DisabledError",
+          "scope": "Attempted public verification; supplied v2 source used instead."
+        },
+        {
+          "url": "https://arxiv.org/html/2609.11664v2",
+          "status": "retrieval_failed_DisabledError",
+          "scope": "Attempted public verification; supplied v2 source used instead."
+        }
+      ],
+      "unread_remainders": [
+        "paper/extracted.md",
+        "repository/lean/QuarticQuery/Upper/Sampler.lean",
+        "repository/lean/QuarticQuery/Upper/Compile.lean",
+        "repository/lean/QuarticQuery/Upper/Bound.lean",
+        "repository/lean/QuarticQuery/Upper/Columns.lean",
+        "repository/lean/QuarticQuery/Forrelation/Circuit.lean",
+        "repository/lean/QuarticQuery/Results/Exponent.lean",
+        "writing/mathematical-writing-mechanics.md",
+        "writing/full-exposition-guide.md",
+        "literature/quartic-ref-02-separations-in-query-complexity-using-chea/extracted.md",
+        "literature/quartic-ref-04-separations-in-query-complexity-based-on-p/extracted.md",
+        "literature/quartic-ref-05-near-optimal-separations-of-certificate-co/extracted.md",
+        "Original source.tar.gz files for priorities 3 and 4 were not opened; the packet TeX-derived extraction and official HTML were used.",
+        "Priority 5 has no v2 TeX in its annex; its supplied PDF extraction was read. The separate v3 TeX annex was not used by this child.",
+        "The remaining library of literature and non-construction Lean modules was outside this child allocation.",
+        "Readable prior-return narrative files beyond the specified NEW_STATEMENTS/LEAN_GAPS construction scopes were not fully read by this child."
+      ],
+      "inaccessible_local_files": [],
+      "reading_claim": "This is a scoped child-agent receipt, not a claim that the entire packet or every bibliography item was fully read. No local assigned source was inaccessible.",
+      "compilation": "Not attempted: no Lean/lake toolchain or pinned Mathlib cache was available, as confirmed by root.",
+      "followup_read_scope": [
+        {
+          "file": "repository/lean/QuarticQuery/Statement.lean",
+          "ranges": [
+            [
+              235,
+              295
+            ]
+          ],
+          "scope": "Exact BitLoc disjoint sum and physical read coordinates for pointer support transport."
+        },
+        {
+          "file": "repository/lean/QuarticQuery/Construction/LocalTests.lean",
+          "ranges": [
+            [
+              105,
+              210
+            ]
+          ],
+          "scope": "otherColumn, TestIndex, localTest and pointer-tree coordinate layout."
+        }
+      ]
+    }
+  }
+]

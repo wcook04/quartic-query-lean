@@ -1,0 +1,1091 @@
+[
+  {
+    "id": "sanity-randomized-support-nonempty",
+    "statement": "Every randomized program has positive support size.",
+    "proposed_lean": "-- Unelaborated signature; inside namespace QuarticQuery.\ntheorem fidelity_randomized_support_nonempty {ι : Type} (A : RandomizedProgram ι) : 0 < A.size",
+    "expected_value": "A.size > 0",
+    "source": "repository/lean/QuarticQuery/Statement.lean:59–64; sum over empty Fin 0 is 0.",
+    "what_it_would_catch": "An empty support falsely treated as a probability distribution; vacuity from max of an empty support.",
+    "status": "proposed_unelaborated",
+    "proof_note": "",
+    "elaboration_status": "proposed_unelaborated",
+    "lean_context": {
+      "imports": [
+        "QuarticQuery"
+      ],
+      "namespace": "QuarticQuery",
+      "instructions": "Place the signature after importing QuarticQuery and inside namespace QuarticQuery; end QuarticQuery after the declaration. Unqualified construction/classical names resolve there. All parameters are explicitly bound in the signature.",
+      "elaboration": "not_run"
+    },
+    "depends_on": [
+      "def-R"
+    ],
+    "verification_note": "Proposed signature only: no Lean compiler was available and no elaboration was run. Existing source evidence and historical build reports are retained separately; this record does not assert a fresh build or a missing theorem where an existing specialization suffices.",
+    "existing_evidence_status": "proposed_check_no_exact_wrapper_asserted"
+  },
+  {
+    "id": "sanity-randomized-mass",
+    "statement": "Both output masses are nonnegative, and their sum is one on every input.",
+    "proposed_lean": "-- Unelaborated signature; inside namespace QuarticQuery.\ntheorem fidelity_randomized_mass {ι : Type} (A : RandomizedProgram ι) (x : BitInput ι) :\n    0 ≤ A.success x true ∧ 0 ≤ A.success x false ∧\n    A.success x true + A.success x false = 1",
+    "expected_value": "nonnegative masses adding to 1",
+    "source": "repository/lean/QuarticQuery/Statement.lean:59–71; a local sum proof occurs in uncompiled ForrelationLower/Uniform.lean:55–64; Buhrman–de Wolf (2002), §3.2.",
+    "what_it_would_catch": "Signed or unnormalized weights, reversed Boolean tests, output duplication or loss.",
+    "status": "proposed_unelaborated",
+    "proof_note": "",
+    "elaboration_status": "proposed_unelaborated",
+    "lean_context": {
+      "imports": [
+        "QuarticQuery"
+      ],
+      "namespace": "QuarticQuery",
+      "instructions": "Place the signature after importing QuarticQuery and inside namespace QuarticQuery; end QuarticQuery after the declaration. Unqualified construction/classical names resolve there. All parameters are explicitly bound in the signature.",
+      "elaboration": "not_run"
+    },
+    "depends_on": [
+      "def-R"
+    ],
+    "verification_note": "Proposed signature only: no Lean compiler was available and no elaboration was run. Existing source evidence and historical build reports are retained separately; this record does not assert a fresh build or a missing theorem where an existing specialization suffices.",
+    "existing_evidence_status": "existing_local_source_argument_uncompiled",
+    "existing_evidence": "The sum-to-one argument already occurs at ForrelationLower/Uniform.lean:55-64; this file is recorded uncompiled. A new public wrapper remains proposed.",
+    "existing_declarations": []
+  },
+  {
+    "id": "sanity-randomized-full-support-cap",
+    "statement": "Every supported tree is bounded by the randomized program depth.",
+    "proposed_lean": "-- Unelaborated signature; inside namespace QuarticQuery.\ntheorem fidelity_randomized_support_cap {ι : Type} (A : RandomizedProgram ι) (j : Fin A.size) :\n    (A.tree j).depth ≤ A.depth",
+    "expected_value": "full tree depth charged, independently of its probability",
+    "source": "repository/lean/QuarticQuery/Statement.lean:66–67; Buhrman–de Wolf (2002), §3.2, deepest positive-probability tree.",
+    "what_it_would_catch": "Replacing the maximum by average cost or dropping very unlikely random outcomes.",
+    "status": "proposed_unelaborated",
+    "proof_note": "",
+    "elaboration_status": "proposed_unelaborated",
+    "lean_context": {
+      "imports": [
+        "QuarticQuery"
+      ],
+      "namespace": "QuarticQuery",
+      "instructions": "Place the signature after importing QuarticQuery and inside namespace QuarticQuery; end QuarticQuery after the declaration. Unqualified construction/classical names resolve there. All parameters are explicitly bound in the signature.",
+      "elaboration": "not_run"
+    },
+    "depends_on": [
+      "def-R"
+    ],
+    "verification_note": "Proposed signature only: no Lean compiler was available and no elaboration was run. Existing source evidence and historical build reports are retained separately; this record does not assert a fresh build or a missing theorem where an existing specialization suffices.",
+    "existing_evidence_status": "proposed_check_no_exact_wrapper_asserted"
+  },
+  {
+    "id": "sanity-constant-classical",
+    "statement": "A total constant function costs no classical queries, including on an empty coordinate set.",
+    "proposed_lean": "-- Unelaborated signature; inside namespace QuarticQuery.\ntheorem fidelity_constant_classical {ι : Type} [Fintype ι] (b : Bool) :\n    R (totalise (fun _ : BitInput ι => b)) = 0 ∧\n    D (totalise (fun _ : BitInput ι => b)) = 0",
+    "expected_value": {
+      "R": 0,
+      "D": 0
+    },
+    "source": "repository/lean/QuarticQuery/Statement.lean:44–55,74–88; leaf b and the one-tree mixture in Model/Classical.lean:139–153.",
+    "what_it_would_catch": "An artificial positive baseline cost, mistaken treatment of constants or a nonempty-register premise.",
+    "status": "proposed_unelaborated",
+    "proof_note": "",
+    "elaboration_status": "proposed_unelaborated",
+    "lean_context": {
+      "imports": [
+        "QuarticQuery"
+      ],
+      "namespace": "QuarticQuery",
+      "instructions": "Place the signature after importing QuarticQuery and inside namespace QuarticQuery; end QuarticQuery after the declaration. Unqualified construction/classical names resolve there. All parameters are explicitly bound in the signature.",
+      "elaboration": "not_run"
+    },
+    "depends_on": [
+      "def-partial-query",
+      "def-R",
+      "def-D"
+    ],
+    "verification_note": "Proposed signature only: no Lean compiler was available and no elaboration was run. Existing source evidence and historical build reports are retained separately; this record does not assert a fresh build or a missing theorem where an existing specialization suffices.",
+    "existing_evidence_status": "proposed_check_no_exact_wrapper_asserted"
+  },
+  {
+    "id": "sanity-empty-promise-classical",
+    "statement": "An empty promise costs no classical queries.",
+    "proposed_lean": "-- Unelaborated signature; inside namespace QuarticQuery.\ntheorem fidelity_empty_promise_classical {ι : Type} [Fintype ι] :\n    R (fun _ : BitInput ι => (none : Option Bool)) = 0 ∧\n    D (fun _ : BitInput ι => (none : Option Bool)) = 0",
+    "expected_value": {
+      "R": 0,
+      "D": 0
+    },
+    "source": "Paper §1.3, paper/extracted.md:118–123; Statement.lean:73–88; arbitrary leaf is a valid budget-zero witness.",
+    "what_it_would_catch": "Confusing no promised input with infeasibility, or prescribing outputs outside the domain.",
+    "status": "proposed_unelaborated",
+    "proof_note": "",
+    "elaboration_status": "proposed_unelaborated",
+    "lean_context": {
+      "imports": [
+        "QuarticQuery"
+      ],
+      "namespace": "QuarticQuery",
+      "instructions": "Place the signature after importing QuarticQuery and inside namespace QuarticQuery; end QuarticQuery after the declaration. Unqualified construction/classical names resolve there. All parameters are explicitly bound in the signature.",
+      "elaboration": "not_run"
+    },
+    "depends_on": [
+      "def-partial-query",
+      "def-R",
+      "def-D"
+    ],
+    "verification_note": "Proposed signature only: no Lean compiler was available and no elaboration was run. Existing source evidence and historical build reports are retained separately; this record does not assert a fresh build or a missing theorem where an existing specialization suffices.",
+    "existing_evidence_status": "proposed_check_no_exact_wrapper_asserted"
+  },
+  {
+    "id": "sanity-empty-coordinates-classical",
+    "statement": "Every partial function on zero coordinates costs zero classical queries.",
+    "proposed_lean": "-- Unelaborated signature; inside namespace QuarticQuery.\ntheorem fidelity_empty_coordinates_classical (f : PartialBool (Fin 0)) : R f = 0 ∧ D f = 0",
+    "expected_value": {
+      "R": 0,
+      "D": 0
+    },
+    "source": "Model/Classical.lean:239–241,287–295: read-all bounds by card (Fin 0)=0.",
+    "what_it_would_catch": "An invalid nonempty coordinate assumption in read-all or infimum attainment.",
+    "status": "proposed_unelaborated",
+    "proof_note": "",
+    "elaboration_status": "proposed_unelaborated",
+    "lean_context": {
+      "imports": [
+        "QuarticQuery"
+      ],
+      "namespace": "QuarticQuery",
+      "instructions": "Place the signature after importing QuarticQuery and inside namespace QuarticQuery; end QuarticQuery after the declaration. Unqualified construction/classical names resolve there. All parameters are explicitly bound in the signature.",
+      "elaboration": "not_run"
+    },
+    "depends_on": [
+      "def-partial-query",
+      "def-R",
+      "def-D"
+    ],
+    "verification_note": "Proposed signature only: no Lean compiler was available and no elaboration was run. Existing source evidence and historical build reports are retained separately; this record does not assert a fresh build or a missing theorem where an existing specialization suffices.",
+    "existing_evidence_status": "specialization_of_existing_source_results",
+    "existing_evidence": "The general bounds R_le_D and D_le_card already imply this zero-coordinate case. The new wrapper has not been elaborated; Model/Classical.lean's recorded object is stale relative to source.",
+    "existing_declarations": [
+      "QuarticQuery.R_le_D",
+      "QuarticQuery.D_le_card"
+    ]
+  },
+  {
+    "id": "sanity-one-label-promise-classical",
+    "statement": "The promise true-on-x0=true and undefined-on-x0=false has zero randomized and deterministic cost.",
+    "proposed_lean": "-- Unelaborated signature; inside namespace QuarticQuery.\ntheorem fidelity_one_label_promise_classical :\n    R (fun x : BitInput (Fin 1) => if x 0 then some true else none) = 0 ∧\n    D (fun x : BitInput (Fin 1) => if x 0 then some true else none) = 0",
+    "expected_value": {
+      "R": 0,
+      "D": 0
+    },
+    "source": "Elementary constant-on-promise witness; Statement.lean:30,74–80,141–142.",
+    "what_it_would_catch": "Treating none as false, or requiring a partial algorithm to decide membership in the domain.",
+    "status": "proposed_unelaborated",
+    "proof_note": "",
+    "elaboration_status": "proposed_unelaborated",
+    "lean_context": {
+      "imports": [
+        "QuarticQuery"
+      ],
+      "namespace": "QuarticQuery",
+      "instructions": "Place the signature after importing QuarticQuery and inside namespace QuarticQuery; end QuarticQuery after the declaration. Unqualified construction/classical names resolve there. All parameters are explicitly bound in the signature.",
+      "elaboration": "not_run"
+    },
+    "depends_on": [
+      "def-partial-query",
+      "def-R",
+      "def-D"
+    ],
+    "verification_note": "Proposed signature only: no Lean compiler was available and no elaboration was run. Existing source evidence and historical build reports are retained separately; this record does not assert a fresh build or a missing theorem where an existing specialization suffices.",
+    "existing_evidence_status": "proposed_check_no_exact_wrapper_asserted"
+  },
+  {
+    "id": "sanity-R-zero-characterization",
+    "statement": "Randomized complexity is zero exactly when the partial function is constant on its promise.",
+    "proposed_lean": "-- Unelaborated signature; inside namespace QuarticQuery.\ntheorem fidelity_R_zero_iff {ι : Type} [Fintype ι] (f : PartialBool ι) :\n    R f = 0 ↔ ConstantOnPromise f",
+    "expected_value": "equivalence including the empty promise",
+    "source": "Statement.lean:74–85,141–142; Model/Classical.lean:264–279; elementary input-independent mass argument; related uncompiled Uniform.lean:37–64.",
+    "what_it_would_catch": "Wrong algorithm/input quantifier order; success threshold at most 1/2; empty-infimum zero.",
+    "status": "proposed_unelaborated",
+    "proof_note": "If both values occur, a zero-query program has the same two masses on both inputs, requiring their sum to be at least 4/3. Conversely a fixed correct leaf suffices.",
+    "elaboration_status": "proposed_unelaborated",
+    "lean_context": {
+      "imports": [
+        "QuarticQuery"
+      ],
+      "namespace": "QuarticQuery",
+      "instructions": "Place the signature after importing QuarticQuery and inside namespace QuarticQuery; end QuarticQuery after the declaration. Unqualified construction/classical names resolve there. All parameters are explicitly bound in the signature.",
+      "elaboration": "not_run"
+    },
+    "depends_on": [
+      "def-partial-query",
+      "def-R",
+      "sanity-randomized-mass"
+    ],
+    "verification_note": "Proposed signature only: no Lean compiler was available and no elaboration was run. Existing source evidence and historical build reports are retained separately; this record does not assert a fresh build or a missing theorem where an existing specialization suffices.",
+    "existing_evidence_status": "proposed_check_no_exact_wrapper_asserted"
+  },
+  {
+    "id": "sanity-D-zero-characterization",
+    "statement": "Deterministic complexity is zero exactly when the partial function is constant on its promise.",
+    "proposed_lean": "-- Unelaborated signature; inside namespace QuarticQuery.\ntheorem fidelity_D_zero_iff {ι : Type} [Fintype ι] (f : PartialBool ι) :\n    D f = 0 ↔ ConstantOnPromise f",
+    "expected_value": "equivalence including the empty promise",
+    "source": "Statement.lean:44–55,78–88,141–142; Model/Classical.lean:268–283.",
+    "what_it_would_catch": "An input-dependent zero-cost answer, wrong depth recursion or empty-infimum zero.",
+    "status": "proposed_unelaborated",
+    "proof_note": "",
+    "elaboration_status": "proposed_unelaborated",
+    "lean_context": {
+      "imports": [
+        "QuarticQuery"
+      ],
+      "namespace": "QuarticQuery",
+      "instructions": "Place the signature after importing QuarticQuery and inside namespace QuarticQuery; end QuarticQuery after the declaration. Unqualified construction/classical names resolve there. All parameters are explicitly bound in the signature.",
+      "elaboration": "not_run"
+    },
+    "depends_on": [
+      "def-partial-query",
+      "def-D"
+    ],
+    "verification_note": "Proposed signature only: no Lean compiler was available and no elaboration was run. Existing source evidence and historical build reports are retained separately; this record does not assert a fresh build or a missing theorem where an existing specialization suffices.",
+    "existing_evidence_status": "proposed_check_no_exact_wrapper_asserted"
+  },
+  {
+    "id": "sanity-identity-one-bit-classical",
+    "statement": "The one-bit identity has randomized and deterministic complexity one.",
+    "proposed_lean": "-- Unelaborated signature; inside namespace QuarticQuery.\ntheorem fidelity_identity_one_classical :\n    R (totalise (fun x : BitInput (Fin 1) => x 0)) = 1 ∧\n    D (totalise (fun x : BitInput (Fin 1) => x 0)) = 1",
+    "expected_value": {
+      "R": 1,
+      "D": 1
+    },
+    "source": "Elementary: query the unique coordinate; two opposite labels exclude zero queries. Standard model: Buhrman–de Wolf (2002), §3.1–3.2.",
+    "what_it_would_catch": "Free input access, per-input algorithm existential, missing per-input accuracy, mistaken cost-zero conventions.",
+    "status": "proposed_unelaborated",
+    "proof_note": "",
+    "elaboration_status": "proposed_unelaborated",
+    "lean_context": {
+      "imports": [
+        "QuarticQuery"
+      ],
+      "namespace": "QuarticQuery",
+      "instructions": "Place the signature after importing QuarticQuery and inside namespace QuarticQuery; end QuarticQuery after the declaration. Unqualified construction/classical names resolve there. All parameters are explicitly bound in the signature.",
+      "elaboration": "not_run"
+    },
+    "depends_on": [
+      "def-R",
+      "def-D",
+      "sanity-R-zero-characterization",
+      "sanity-D-zero-characterization"
+    ],
+    "verification_note": "Proposed signature only: no Lean compiler was available and no elaboration was run. Existing source evidence and historical build reports are retained separately; this record does not assert a fresh build or a missing theorem where an existing specialization suffices.",
+    "existing_evidence_status": "proposed_check_no_exact_wrapper_asserted"
+  },
+  {
+    "id": "sanity-or-two-classical",
+    "statement": "OR on two bits has randomized complexity one and deterministic complexity two at error at most 1/3.",
+    "proposed_lean": "-- Unelaborated signature; inside namespace QuarticQuery.\ntheorem fidelity_or_two_classical :\n    R (totalise (fun x : BitInput (Fin 2) => x 0 || x 1)) = 1 ∧\n    D (totalise (fun x : BitInput (Fin 2) => x 0 || x 1)) = 2",
+    "expected_value": {
+      "R": 1,
+      "D": 2
+    },
+    "source": "Elementary audit proof and checks/check_classical_small.py and checks/classical_checks_output.json; randomization convention Buhrman–de Wolf (2002), §3.2.",
+    "what_it_would_catch": "Strict versus inclusive success threshold, restricting to deterministic algorithms, uncounted branches, replacing max by min.",
+    "status": "proposed_unelaborated",
+    "proof_note": "Choose the constant-one tree, query-0 tree and query-1 tree with equal weights. Success is 2/3,2/3,2/3,1 on 00,01,10,11. A zero-query distribution cannot fit both labels. No depth-one deterministic truth table is OR. Two queries suffice.",
+    "elaboration_status": "proposed_unelaborated",
+    "lean_context": {
+      "imports": [
+        "QuarticQuery"
+      ],
+      "namespace": "QuarticQuery",
+      "instructions": "Place the signature after importing QuarticQuery and inside namespace QuarticQuery; end QuarticQuery after the declaration. Unqualified construction/classical names resolve there. All parameters are explicitly bound in the signature.",
+      "elaboration": "not_run"
+    },
+    "depends_on": [
+      "def-R",
+      "def-D",
+      "sanity-R-zero-characterization"
+    ],
+    "verification_note": "Proposed signature only: no Lean compiler was available and no elaboration was run. Existing source evidence and historical build reports are retained separately; this record does not assert a fresh build or a missing theorem where an existing specialization suffices.",
+    "existing_evidence_status": "proposed_check_no_exact_wrapper_asserted"
+  },
+  {
+    "id": "sanity-xor-two-classical",
+    "statement": "XOR on two bits has randomized and deterministic complexity two.",
+    "proposed_lean": "-- Unelaborated signature; inside namespace QuarticQuery.\ntheorem fidelity_xor_two_classical :\n    R (totalise (fun x : BitInput (Fin 2) => if x 0 then !(x 1) else x 1)) = 2 ∧\n    D (totalise (fun x : BitInput (Fin 2) => if x 0 then !(x 1) else x 1)) = 2",
+    "expected_value": {
+      "R": 2,
+      "D": 2
+    },
+    "source": "Elementary uniform-input lower bound: every depth-one tree succeeds on exactly half of the four inputs. Exact enumeration in checks/check_classical_small.py.",
+    "what_it_would_catch": "Free access to an unqueried coordinate, input-dependent random weights, wrong success average or input quantifier.",
+    "status": "proposed_unelaborated",
+    "proof_note": "Every mixture of depth-one trees also has uniform average success 1/2, incompatible with per-input success at least 2/3. A two-query tree computes XOR exactly.",
+    "elaboration_status": "proposed_unelaborated",
+    "lean_context": {
+      "imports": [
+        "QuarticQuery"
+      ],
+      "namespace": "QuarticQuery",
+      "instructions": "Place the signature after importing QuarticQuery and inside namespace QuarticQuery; end QuarticQuery after the declaration. Unqualified construction/classical names resolve there. All parameters are explicitly bound in the signature.",
+      "elaboration": "not_run"
+    },
+    "depends_on": [
+      "def-R",
+      "def-D"
+    ],
+    "verification_note": "Proposed signature only: no Lean compiler was available and no elaboration was run. Existing source evidence and historical build reports are retained separately; this record does not assert a fresh build or a missing theorem where an existing specialization suffices.",
+    "existing_evidence_status": "proposed_check_no_exact_wrapper_asserted"
+  },
+  {
+    "id": "sanity-L-zero-extension",
+    "statement": "The totalized Lean definition of Lvalue gives zero at t=0 for every k.",
+    "proposed_lean": "-- Unelaborated signature; inside namespace QuarticQuery.\ntheorem fidelity_Lvalue_at_zero (k : ℕ) : Lvalue k 0 = 0",
+    "expected_value": 0,
+    "source": "Statement.lean:159,309–311: m=1, log₂1=0 and real division by 0 is 0. This is outside the asymptotic theorem domain.",
+    "what_it_would_catch": "Accidental use of t=0 as a positive lower-bound witness, or confusion between totalized library arithmetic and the legal paper domain.",
+    "status": "proposed_unelaborated",
+    "proof_note": "",
+    "elaboration_status": "proposed_unelaborated",
+    "lean_context": {
+      "imports": [
+        "QuarticQuery"
+      ],
+      "namespace": "QuarticQuery",
+      "instructions": "Place the signature after importing QuarticQuery and inside namespace QuarticQuery; end QuarticQuery after the declaration. Unqualified construction/classical names resolve there. All parameters are explicitly bound in the signature.",
+      "elaboration": "not_run"
+    },
+    "depends_on": [
+      "eq-5",
+      "def-log-convention"
+    ],
+    "verification_note": "Proposed signature only: no Lean compiler was available and no elaboration was run. Existing source evidence and historical build reports are retained separately; this record does not assert a fresh build or a missing theorem where an existing specialization suffices.",
+    "existing_evidence_status": "proposed_check_no_exact_wrapper_asserted"
+  },
+  {
+    "id": "sanity-L-first-positive-k2",
+    "statement": "At k=2 the floor threshold changes from zero at t=7 to one at t=8, and the corresponding G is 655.",
+    "proposed_lean": "-- Unelaborated signature; inside namespace QuarticQuery.\ntheorem fidelity_Lvalue_threshold_two :\n    Lvalue 2 7 = 0 ∧ Lvalue 2 8 = 1 ∧\n    Gvalue (mValue 8) (Lvalue 2 8) = 655",
+    "expected_value": {
+      "Lvalue_2_7": 0,
+      "Lvalue_2_8": 1,
+      "Gvalue_m8_L28": 655
+    },
+    "source": "Results/Exponent.lean:300–342; exact arithmetic m=4^t, sqrt(m)=2^t; independently checked in checks/check_classical_small.py.",
+    "what_it_would_catch": "Wrong m=4^t indexing, incorrect logarithm base, natural division inside 1/k, misplaced floors or G scaling.",
+    "status": "proposed_unelaborated",
+    "proof_note": "",
+    "elaboration_status": "proposed_unelaborated",
+    "lean_context": {
+      "imports": [
+        "QuarticQuery"
+      ],
+      "namespace": "QuarticQuery",
+      "instructions": "Place the signature after importing QuarticQuery and inside namespace QuarticQuery; end QuarticQuery after the declaration. Unqualified construction/classical names resolve there. All parameters are explicitly bound in the signature.",
+      "elaboration": "not_run"
+    },
+    "depends_on": [
+      "eq-5",
+      "eq-17",
+      "def-log-convention"
+    ],
+    "verification_note": "Proposed signature only: no Lean compiler was available and no elaboration was run. Existing source evidence and historical build reports are retained separately; this record does not assert a fresh build or a missing theorem where an existing specialization suffices.",
+    "existing_evidence_status": "proposed_check_no_exact_wrapper_asserted"
+  },
+  {
+    "id": "sanity-power-set-valid",
+    "statement": "The set defining alphaTot is nonempty and bounded below.",
+    "proposed_lean": "-- Unelaborated signature; inside namespace QuarticQuery.\ntheorem fidelity_universalPower_set_valid :\n    ({α : ℝ | UniversalPower α} : Set ℝ).Nonempty ∧\n    BddBelow ({α : ℝ | UniversalPower α} : Set ℝ)",
+    "expected_value": "nonempty with member 4 and lower bound 0",
+    "source": "Statement.lean:323–329; Appendix/TheoremA1.lean universalPower_four; Results/Exponent.lean:243–252.",
+    "what_it_would_catch": "Computing an infimum of an empty set or a set unbounded below.",
+    "status": "proposed_unelaborated",
+    "proof_note": "Nonemptiness uses the recorded source theorem universalPower_four; bounded-below follows directly from the first conjunct of UniversalPower.",
+    "elaboration_status": "proposed_unelaborated",
+    "lean_context": {
+      "imports": [
+        "QuarticQuery"
+      ],
+      "namespace": "QuarticQuery",
+      "instructions": "Place the signature after importing QuarticQuery and inside namespace QuarticQuery; end QuarticQuery after the declaration. Unqualified construction/classical names resolve there. All parameters are explicitly bound in the signature.",
+      "elaboration": "not_run"
+    },
+    "depends_on": [
+      "eq-1",
+      "thm-A.1"
+    ],
+    "verification_note": "Proposed signature only: no Lean compiler was available and no elaboration was run. Existing source evidence and historical build reports are retained separately; this record does not assert a fresh build or a missing theorem where an existing specialization suffices.",
+    "existing_evidence_status": "specialization_of_existing_source_results",
+    "existing_evidence": "universalPower_four supplies a member; UniversalPower's first conjunct supplies the lower bound zero. The source also uses IsLeast to justify alphaTot. This wrapper is an explicit regression check, not a new infimum-existence gap.",
+    "existing_declarations": [
+      "QuarticQuery.universalPower_four"
+    ]
+  },
+  {
+    "id": "sf-q-zero-iff-constant",
+    "statement": "For every finite Boolean promise problem, Q(f)=0 exactly when its defined outputs are constant.",
+    "proposed_lean": "theorem fidelity_Q_zero_iff_constant {ι : Type} [Fintype ι] (f : QuarticQuery.PartialBool ι) : QuarticQuery.Q f = 0 ↔ QuarticQuery.ConstantOnPromise f",
+    "expected_value": "equivalence, including empty promises",
+    "source": [
+      "Statement.lean:141–151",
+      "Model/Quantum.lean:145–177, 401–415",
+      "Buhrman–de Wolf §3.3"
+    ],
+    "what_it_would_catch": "An overbroad constant-function exception, input-dependent initial state/program, or zero-query source of input information.",
+    "elaboration_status": "proposed_unelaborated",
+    "proof_plan": "Induct on a cap-zero program to obtain input-independent mass; if both labels occur, their common masses would each be at least2/3 while summing to1. The converse uses the constant disjunct and minimum attainment.",
+    "status": "proposed_unelaborated",
+    "lean_context": {
+      "imports": [
+        "QuarticQuery"
+      ],
+      "namespace": null,
+      "instructions": "Place the signature after importing QuarticQuery. QuarticQuery names are fully qualified; all parameters are explicitly bound.",
+      "elaboration": "not_run"
+    },
+    "depends_on": [
+      "def-Q",
+      "sf-q-zero-input-independent",
+      "sf-q-mass-conservation"
+    ],
+    "verification_note": "Proposed signature only: no Lean compiler was available and no elaboration was run. Existing source evidence and historical build reports are retained separately; this record does not assert a fresh build or a missing theorem where an existing specialization suffices.",
+    "existing_evidence_status": "proposed_check_no_exact_wrapper_asserted"
+  },
+  {
+    "id": "sf-q-zero-input-independent",
+    "statement": "A zero-query adaptive program assigns the same mass to a Boolean answer on every input when started at the same vector.",
+    "proposed_lean": "theorem fidelity_zero_query_input_independent {ι : Type} [Fintype ι] {w : ℕ} (A : QuarticQuery.AdaptiveProgram ι w) (hA : A.queryCap = 0) (x y : QuarticQuery.BitInput ι) (ψ : QuarticQuery.State ι w) (b : Bool) : A.outputMass x ψ b = A.outputMass y ψ b",
+    "expected_value": "equality",
+    "source": [
+      "Statement.lean:114–137"
+    ],
+    "what_it_would_catch": "A hidden input dependence in nonoracle steps or a query constructor that is not charged.",
+    "elaboration_status": "proposed_unelaborated",
+    "proof_plan": "Structural induction on A; query case contradicts cap zero; measurement requires both branch caps zero.",
+    "status": "proposed_unelaborated",
+    "lean_context": {
+      "imports": [
+        "QuarticQuery"
+      ],
+      "namespace": null,
+      "instructions": "Place the signature after importing QuarticQuery. QuarticQuery names are fully qualified; all parameters are explicitly bound.",
+      "elaboration": "not_run"
+    },
+    "depends_on": [
+      "def-Q",
+      "def-query-oracle"
+    ],
+    "verification_note": "Proposed signature only: no Lean compiler was available and no elaboration was run. Existing source evidence and historical build reports are retained separately; this record does not assert a fresh build or a missing theorem where an existing specialization suffices.",
+    "existing_evidence_status": "proposed_check_no_exact_wrapper_asserted"
+  },
+  {
+    "id": "sf-q-mass-conservation",
+    "statement": "A normalized initial state yields total Boolean output mass one.",
+    "proposed_lean": "theorem fidelity_output_mass_total {ι : Type} [Fintype ι] {w : ℕ} (A : QuarticQuery.AdaptiveProgram ι w) (x : QuarticQuery.BitInput ι) (ψ : QuarticQuery.State ι w) (hψ : ‖ψ‖ = 1) : A.outputMass x ψ true + A.outputMass x ψ false = 1",
+    "expected_value": 1,
+    "source": [
+      "QuarticQuery.AdaptiveProgram.outputMass_true_add_false; Model/Quantum.lean:146"
+    ],
+    "what_it_would_catch": "Postselection, renormalizing every branch as though certain, a discarded branch, or nonisometric gates.",
+    "elaboration_status": "proposed_unelaborated",
+    "existing_evidence": "QuarticQuery.AdaptiveProgram.outputMass_true_add_false already proves total mass equals the squared norm at Model/Quantum.lean:146-161. Substituting hψ gives this check. No new mass-conservation gap is claimed.",
+    "status": "proposed_unelaborated",
+    "lean_context": {
+      "imports": [
+        "QuarticQuery"
+      ],
+      "namespace": null,
+      "instructions": "Place the signature after importing QuarticQuery. QuarticQuery names are fully qualified; all parameters are explicitly bound.",
+      "elaboration": "not_run"
+    },
+    "depends_on": [
+      "def-Q",
+      "def-query-oracle"
+    ],
+    "verification_note": "Proposed signature only: no Lean compiler was available and no elaboration was run. Existing source evidence and historical build reports are retained separately; this record does not assert a fresh build or a missing theorem where an existing specialization suffices.",
+    "existing_evidence_status": "specialization_of_existing_source_theorem",
+    "existing_declarations": [
+      "QuarticQuery.AdaptiveProgram.outputMass_true_add_false"
+    ]
+  },
+  {
+    "id": "sf-q-cap-max",
+    "statement": "Even an unreachable syntactic measurement branch containing two queries contributes two to the worst-case cap.",
+    "proposed_lean": "theorem fidelity_queryCap_max {ι : Type} [Fintype ι] {w : ℕ} : (QuarticQuery.AdaptiveProgram.measure (∅ : Finset (QuarticQuery.Basis ι w)) (.query (.query (.output true))) (.output false)).queryCap = 2",
+    "expected_value": 2,
+    "source": [
+      "Statement.lean:122–127"
+    ],
+    "what_it_would_catch": "Using minimum, average, or only one measurement branch instead of the maximum.",
+    "elaboration_status": "proposed_unelaborated",
+    "proof_plan": "Unfold queryCap; numerical simplification.",
+    "status": "proposed_unelaborated",
+    "lean_context": {
+      "imports": [
+        "QuarticQuery"
+      ],
+      "namespace": null,
+      "instructions": "Place the signature after importing QuarticQuery. QuarticQuery names are fully qualified; all parameters are explicitly bound.",
+      "elaboration": "not_run"
+    },
+    "depends_on": [
+      "def-Q"
+    ],
+    "verification_note": "Proposed signature only: no Lean compiler was available and no elaboration was run. Existing source evidence and historical build reports are retained separately; this record does not assert a fresh build or a missing theorem where an existing specialization suffices.",
+    "existing_evidence_status": "proposed_check_no_exact_wrapper_asserted"
+  },
+  {
+    "id": "sf-q-oracle-basis",
+    "statement": "The physical oracle flips only the response bit according to the queried input coordinate.",
+    "proposed_lean": "theorem fidelity_oracle_basis {ι : Type} [Fintype ι] {w : ℕ} (x : QuarticQuery.BitInput ι) (p : QuarticQuery.Basis ι w) : QuarticQuery.bitOracle x (QuarticQuery.ket p) = QuarticQuery.ket (p.1, (if x p.1 then !p.2.1 else p.2.1), p.2.2)",
+    "expected_value": "basis label (i,b XOR x_i,z)",
+    "source": [
+      "QuarticQuery.bitOracle_ket; Model/Quantum.lean:298–301",
+      "Preprint §1 oracle display",
+      "Buhrman–de Wolf §3.3"
+    ],
+    "what_it_would_catch": "Wrong response-bit polarity, querying another index, changing the workspace, or substituting a bare phase oracle.",
+    "elaboration_status": "proposed_unelaborated",
+    "existing_evidence": "QuarticQuery.bitOracle_ket at Model/Quantum.lean:298-301 already proves the basis action through flipPoint; unfolding flipPoint gives this check.",
+    "status": "proposed_unelaborated",
+    "lean_context": {
+      "imports": [
+        "QuarticQuery"
+      ],
+      "namespace": null,
+      "instructions": "Place the signature after importing QuarticQuery. QuarticQuery names are fully qualified; all parameters are explicitly bound.",
+      "elaboration": "not_run"
+    },
+    "depends_on": [
+      "def-query-oracle"
+    ],
+    "verification_note": "Proposed signature only: no Lean compiler was available and no elaboration was run. Existing source evidence and historical build reports are retained separately; this record does not assert a fresh build or a missing theorem where an existing specialization suffices.",
+    "existing_evidence_status": "specialization_of_existing_source_theorem",
+    "existing_declarations": [
+      "QuarticQuery.bitOracle_ket",
+      "QuarticQuery.flipPoint"
+    ]
+  },
+  {
+    "id": "sf-q-dictator",
+    "statement": "Reading the only input bit has quantum complexity one.",
+    "proposed_lean": "theorem fidelity_Q_dictator : QuarticQuery.Q (QuarticQuery.totalise (fun x : QuarticQuery.BitInput (Fin 1) => x 0)) = 1",
+    "expected_value": 1,
+    "source": [
+      "Statement.lean:73–151",
+      "Model/Quantum.lean:390–419",
+      "Buhrman–de Wolf §3.3"
+    ],
+    "what_it_would_catch": "Global-phase oracle in place of the controlled/bit oracle, spurious zero-query witness, empty infimum, or lost output-label distinction.",
+    "elaboration_status": "proposed_unelaborated",
+    "proof_plan": "A one-node decision tree gives the upper bound. Use zero-query input independence on the two one-bit inputs for the lower bound.",
+    "status": "proposed_unelaborated",
+    "lean_context": {
+      "imports": [
+        "QuarticQuery"
+      ],
+      "namespace": null,
+      "instructions": "Place the signature after importing QuarticQuery. QuarticQuery names are fully qualified; all parameters are explicitly bound.",
+      "elaboration": "not_run"
+    },
+    "depends_on": [
+      "def-Q",
+      "def-D",
+      "sf-q-zero-iff-constant"
+    ],
+    "verification_note": "Proposed signature only: no Lean compiler was available and no elaboration was run. Existing source evidence and historical build reports are retained separately; this record does not assert a fresh build or a missing theorem where an existing specialization suffices.",
+    "existing_evidence_status": "proposed_check_no_exact_wrapper_asserted"
+  },
+  {
+    "id": "sf-q-or-two",
+    "statement": "At inclusive error threshold1/3, the two-bit OR has quantum complexity one.",
+    "proposed_lean": "theorem fidelity_Q_or_two : QuarticQuery.Q (QuarticQuery.totalise (fun x : QuarticQuery.BitInput (Fin 2) => x 0 || x 1)) = 1",
+    "expected_value": 1,
+    "source": [
+      "Buhrman–de Wolf §3.2–3.3",
+      "Direct equal mixture of const-true, read-bit0, read-bit1"
+    ],
+    "what_it_would_catch": "Inability to represent ordinary finite random choices, or zero-query cheating. The corresponding classical OR2 witness tests equality at success2/3; Q(OR2)=1 alone need not detect making the threshold strict.",
+    "elaboration_status": "proposed_unelaborated",
+    "proof_plan": "Simulate the equal mixture of constant-true and the two dictators with a coherent or measured finite selector; success2/3,2/3,2/3,1. Nonconstancy excludes zero queries.",
+    "status": "proposed_unelaborated",
+    "lean_context": {
+      "imports": [
+        "QuarticQuery"
+      ],
+      "namespace": null,
+      "instructions": "Place the signature after importing QuarticQuery. QuarticQuery names are fully qualified; all parameters are explicitly bound.",
+      "elaboration": "not_run"
+    },
+    "depends_on": [
+      "def-Q",
+      "sf-q-classical-random-simulation",
+      "sanity-or-two-classical",
+      "sf-q-zero-iff-constant"
+    ],
+    "verification_note": "Proposed signature only: no Lean compiler was available and no elaboration was run. Existing source evidence and historical build reports are retained separately; this record does not assert a fresh build or a missing theorem where an existing specialization suffices.",
+    "existing_evidence_status": "proposed_check_no_exact_wrapper_asserted"
+  },
+  {
+    "id": "sf-q-xor-two",
+    "statement": "The two-bit parity has quantum complexity one, contrasting with worst-case R=D=2.",
+    "proposed_lean": "theorem fidelity_Q_xor_two : QuarticQuery.Q (QuarticQuery.totalise (fun x : QuarticQuery.BitInput (Fin 2) => Bool.xor (x 0) (x 1))) = 1",
+    "expected_value": 1,
+    "source": [
+      "Beals et al., Quantum lower bounds by polynomials, Proposition6.4 and preceding two-bit XOR discussion; packet quartic-ref-08",
+      "Direct phase-kickback calculation"
+    ],
+    "what_it_would_catch": "A model restricted to classical index selection, a response-register phase mistake, or an incorrectly charged oracle.",
+    "elaboration_status": "proposed_unelaborated",
+    "proof_plan": "Use an equal superposition of the two addresses and response |−⟩, make one bit query, apply a Hadamard to the address, and measure parity. Nonconstancy excludes zero queries. Cite Beals only for quantum side: their R counts expected queries.",
+    "status": "proposed_unelaborated",
+    "lean_context": {
+      "imports": [
+        "QuarticQuery"
+      ],
+      "namespace": null,
+      "instructions": "Place the signature after importing QuarticQuery. QuarticQuery names are fully qualified; all parameters are explicitly bound.",
+      "elaboration": "not_run"
+    },
+    "depends_on": [
+      "def-Q",
+      "def-query-oracle",
+      "sf-q-oracle-basis",
+      "sf-q-zero-iff-constant"
+    ],
+    "verification_note": "Proposed signature only: no Lean compiler was available and no elaboration was run. Existing source evidence and historical build reports are retained separately; this record does not assert a fresh build or a missing theorem where an existing specialization suffices.",
+    "existing_evidence_status": "proposed_check_no_exact_wrapper_asserted"
+  },
+  {
+    "id": "sf-q-classical-random-simulation",
+    "statement": "Every bounded-query randomized program can be simulated quantumly with the same cap and error.",
+    "proposed_lean": "theorem fidelity_RLe_to_QLe {ι : Type} [Fintype ι] {f : QuarticQuery.PartialBool ι} {t : ℕ} (h : QuarticQuery.RLe f t) : QuarticQuery.QLe f t",
+    "expected_value": "same integer query budget t",
+    "source": [
+      "Buhrman–de Wolf §3.3, end of quantum simulation discussion",
+      "Statement.lean:59–76,114–148",
+      "Model/Quantum.lean:345–399"
+    ],
+    "what_it_would_catch": "A quantum model accidentally unable to realize a finite classical distribution or a hidden cost in classical control.",
+    "elaboration_status": "proposed_unelaborated",
+    "proof_plan": "Prepare a finite coin register with amplitudes sqrt(weight_j), measure its value, compile the chosen QueryTree with ofTree, and take the maximum support depth. Handle empty coordinate type with constantOnPromise_of_isEmpty. This theorem is not currently exposed in source.",
+    "status": "proposed_unelaborated",
+    "lean_context": {
+      "imports": [
+        "QuarticQuery"
+      ],
+      "namespace": null,
+      "instructions": "Place the signature after importing QuarticQuery. QuarticQuery names are fully qualified; all parameters are explicitly bound.",
+      "elaboration": "not_run"
+    },
+    "depends_on": [
+      "def-R",
+      "def-Q",
+      "def-query-oracle"
+    ],
+    "verification_note": "Proposed signature only: no Lean compiler was available and no elaboration was run. Existing source evidence and historical build reports are retained separately; this record does not assert a fresh build or a missing theorem where an existing specialization suffices.",
+    "existing_evidence_status": "proposed_check_no_exact_wrapper_asserted"
+  },
+  {
+    "id": "sf-q-bitruns-representable",
+    "statement": "A fixed bit-query sequence with a final binary coordinate measurement is representable at the same query budget.",
+    "proposed_lean": "theorem fidelity_bitRun_to_QLe {n w T : ℕ} (f : QuarticQuery.PartialBool (Fin n)) (V : ℕ → QuarticQuery.State (Fin n) w →ₗᵢ[ℂ] QuarticQuery.State (Fin n) w) (ψ : QuarticQuery.State (Fin n) w) (hψ : ‖ψ‖ = 1) (S : Finset (QuarticQuery.Basis (Fin n) w)) (h : ∀ x b, f x = some b → (2 / 3 : ℝ) ≤ if b then ‖QuarticQuery.project S (QuarticQuery.bitRun V ψ x T)‖ ^ 2 else ‖QuarticQuery.bitRun V ψ x T - QuarticQuery.project S (QuarticQuery.bitRun V ψ x T)‖ ^ 2) : QuarticQuery.QLe f T",
+    "expected_value": "budget exactly T",
+    "source": [
+      "Bridge/Oracle.lean:119–123",
+      "Statement.lean:114–148",
+      "Buhrman–de Wolf §3.3"
+    ],
+    "what_it_would_catch": "A one-direction-only informal claim of model equivalence or a final measurement that cannot be expressed in the adaptive syntax.",
+    "elaboration_status": "proposed_unelaborated",
+    "proof_plan": "Unroll V0, query,V1,...,query,VT into a finite AdaptiveProgram and append measure S (output true) (output false). Prove cap and output mass by induction.",
+    "status": "proposed_unelaborated",
+    "lean_context": {
+      "imports": [
+        "QuarticQuery"
+      ],
+      "namespace": null,
+      "instructions": "Place the signature after importing QuarticQuery. QuarticQuery names are fully qualified; all parameters are explicitly bound.",
+      "elaboration": "not_run"
+    },
+    "depends_on": [
+      "def-Q",
+      "def-query-oracle"
+    ],
+    "verification_note": "Proposed signature only: no Lean compiler was available and no elaboration was run. Existing source evidence and historical build reports are retained separately; this record does not assert a fresh build or a missing theorem where an existing specialization suffices.",
+    "existing_evidence_status": "proposed_check_no_exact_wrapper_asserted"
+  },
+  {
+    "id": "sf-phi-positive-two-one",
+    "statement": "For k=2,t=1, take both sign vectors (1,1,1,-1). Then Phi=1 and P=1.",
+    "proposed_lean": "theorem sanity_phi_positive_two_one :\n    let z : BitInput (ForrelationCoord 2 1) := fun c => c.2.val == 3\n    Phi 2 1 z = 1 ∧ P 2 1 z = some true",
+    "expected_value": "Phi = 1; P = some true",
+    "source": [
+      "paper/extracted.md:134-150, eqs. (3)-(4)",
+      "Statement.lean:164-193",
+      "Independent exact rational computation in checks/check_construction.py"
+    ],
+    "what_it_would_catch": "An erroneous sign convention, normalization, Walsh order, or positive threshold.",
+    "depends_on": [
+      "def-walsh-sign",
+      "eq-3",
+      "eq-4"
+    ],
+    "priority": "high",
+    "status": "proposed_unelaborated",
+    "namespace": "QuarticQuery",
+    "route_note": "Independent elementary semantic check",
+    "elaboration_status": "proposed_unelaborated",
+    "lean_context": {
+      "imports": [
+        "QuarticQuery"
+      ],
+      "namespace": "QuarticQuery",
+      "instructions": "Place the signature after importing QuarticQuery and inside namespace QuarticQuery; end QuarticQuery after the declaration. Unqualified construction/classical names resolve there. All parameters are explicitly bound in the signature.",
+      "elaboration": "not_run"
+    },
+    "verification_note": "Proposed signature only: no Lean compiler was available and no elaboration was run. Existing source evidence and historical build reports are retained separately; this record does not assert a fresh build or a missing theorem where an existing specialization suffices.",
+    "existing_evidence_status": "new_named_witness_with_existing_related_census",
+    "existing_evidence": "Forrelation/Sanity.lean:20-52 already contains census_true/census_false/census_none and promise_nonempty_two_one. Those prove the smallest instance's promise is nonvacuous; this additional check supplies a named input with Phi exactly 1.",
+    "existing_declarations": [
+      "QuarticQuery.Forrelation.census_true",
+      "QuarticQuery.Forrelation.promise_nonempty_two_one"
+    ]
+  },
+  {
+    "id": "sf-phi-zero-two-one",
+    "statement": "For k=2,t=1, take sign vectors (1,1,-1,1) and (1,1,1,-1). Then Phi=0 and P=0.",
+    "proposed_lean": "theorem sanity_phi_zero_two_one :\n    let z : BitInput (ForrelationCoord 2 1) := fun c =>\n      if c.1.val = 0 then c.2.val == 2 else c.2.val == 3\n    Phi 2 1 z = 0 ∧ P 2 1 z = some false",
+    "expected_value": "Phi = 0; P = some false",
+    "source": [
+      "paper/extracted.md:134-150, eqs. (3)-(4)",
+      "Statement.lean:164-193",
+      "Independent exact rational computation in checks/check_construction.py"
+    ],
+    "what_it_would_catch": "An empty zero-promise, swapped labels, or an error in layer indexing.",
+    "depends_on": [
+      "def-walsh-sign",
+      "eq-3",
+      "eq-4"
+    ],
+    "priority": "high",
+    "status": "proposed_unelaborated",
+    "namespace": "QuarticQuery",
+    "route_note": "Independent elementary semantic check",
+    "elaboration_status": "proposed_unelaborated",
+    "lean_context": {
+      "imports": [
+        "QuarticQuery"
+      ],
+      "namespace": "QuarticQuery",
+      "instructions": "Place the signature after importing QuarticQuery and inside namespace QuarticQuery; end QuarticQuery after the declaration. Unqualified construction/classical names resolve there. All parameters are explicitly bound in the signature.",
+      "elaboration": "not_run"
+    },
+    "verification_note": "Proposed signature only: no Lean compiler was available and no elaboration was run. Existing source evidence and historical build reports are retained separately; this record does not assert a fresh build or a missing theorem where an existing specialization suffices.",
+    "existing_evidence_status": "new_named_witness_with_existing_related_census",
+    "existing_evidence": "Forrelation/Sanity.lean:20-52 already contains census_true/census_false/census_none and promise_nonempty_two_one. This additional check supplies a named input with Phi exactly 0; it does not remedy a missing smallest-instance census.",
+    "existing_declarations": [
+      "QuarticQuery.Forrelation.census_false",
+      "QuarticQuery.Forrelation.promise_nonempty_two_one"
+    ]
+  },
+  {
+    "id": "sf-forrelation-three-statuses",
+    "statement": "For every k>=2 and t>=1, there are inputs with Phi exactly 1,0,-1, respectively, and their P values are true,false,undefined.",
+    "proposed_lean": "theorem sanity_forrelation_three_statuses (k t : ℕ) (hk : 2 ≤ k) (ht : 1 ≤ t) :\n    (∃ z : BitInput (ForrelationCoord k t), Phi k t z = 1 ∧ P k t z = some true) ∧\n    (∃ z : BitInput (ForrelationCoord k t), Phi k t z = 0 ∧ P k t z = some false) ∧\n    (∃ z : BitInput (ForrelationCoord k t), Phi k t z = -1 ∧ P k t z = none)",
+    "expected_value": "Both labels and an excluded input occur at every nontrivial permitted matrix size.",
+    "source": [
+      "Forrelation/Product.lean:158-200",
+      "Forrelation/Walsh.lean:199-212",
+      "Forrelation/Promise.lean:63-92",
+      "Elementary tensor-Walsh construction in fidelity_audit.md section5.1; exact finite probes k=2..8,t=1..3 in checks/check_construction.py"
+    ],
+    "what_it_would_catch": "Vacuous or one-sided promises at larger k; incorrect sign of the high promise; a misplaced Hadamard factor.",
+    "depends_on": [
+      "def-walsh-sign",
+      "eq-3",
+      "eq-4"
+    ],
+    "priority": "high",
+    "status": "proposed_unelaborated",
+    "namespace": "QuarticQuery",
+    "route_note": "Set every interior sign block to +1. If k is odd use endpoint pairs (1,1),(chi,1),(-1,1), with chi a nontrivial Walsh character. If k is even use (b,b),(b*chi,b),(-b,b), with b(x)=(-1)^(sum_j x_(2j)*x_(2j+1)); the two-bit identity H_4 b=b tensorizes. The endpoint bilinear form gives 1,0,-1.",
+    "elaboration_status": "proposed_unelaborated",
+    "lean_context": {
+      "imports": [
+        "QuarticQuery"
+      ],
+      "namespace": "QuarticQuery",
+      "instructions": "Place the signature after importing QuarticQuery and inside namespace QuarticQuery; end QuarticQuery after the declaration. Unqualified construction/classical names resolve there. All parameters are explicitly bound in the signature.",
+      "elaboration": "not_run"
+    },
+    "verification_note": "Proposed signature only: no Lean compiler was available and no elaboration was run. Existing source evidence and historical build reports are retained separately; this record does not assert a fresh build or a missing theorem where an existing specialization suffices.",
+    "existing_evidence_status": "new_uniform_check_with_existing_small_case",
+    "existing_evidence": "The k=2,t=1 census and nonemptiness theorem already exist in Forrelation/Sanity.lean. The proposed check strengthens nonvacuity to every k>=2,t>=1 and specifies exact values 1,0,-1.",
+    "existing_declarations": [
+      "QuarticQuery.Forrelation.promise_nonempty_two_one",
+      "QuarticQuery.Forrelation.Phi_negativeWitness",
+      "QuarticQuery.Forrelation.P_negativeWitness"
+    ]
+  },
+  {
+    "id": "sf-bitloc-cardinality",
+    "statement": "The physical input size is m^2 + m*r*|kappa| + m*2^r*(m-1)*ell + m*2^r*r*S, where m=2^ell.",
+    "proposed_lean": "theorem sanity_card_bitLoc (ℓ r S : ℕ) (κ : Type) [Fintype κ] :\n    Fintype.card (BitLoc ℓ r S κ) =\n      (2 ^ ℓ) ^ 2 + 2 ^ ℓ * r * Fintype.card κ +\n      2 ^ ℓ * 2 ^ r * (2 ^ ℓ - 1) * ℓ + 2 ^ ℓ * 2 ^ r * r * S",
+    "expected_value": "The explicit natural-number cardinality formula.",
+    "source": [
+      "Statement.lean:240-249",
+      "paper/extracted.md:205-220, Section 2.2"
+    ],
+    "what_it_would_catch": "Accidental cell sharing across columns or addresses; missing pointer bits; copied input wires being counted as transcript gates.",
+    "depends_on": [
+      "def-column-layout",
+      "def-transcript"
+    ],
+    "priority": "high",
+    "status": "proposed_unelaborated",
+    "namespace": "QuarticQuery",
+    "route_note": "Independent elementary semantic check",
+    "elaboration_status": "proposed_unelaborated",
+    "lean_context": {
+      "imports": [
+        "QuarticQuery"
+      ],
+      "namespace": "QuarticQuery",
+      "instructions": "Place the signature after importing QuarticQuery and inside namespace QuarticQuery; end QuarticQuery after the declaration. Unqualified construction/classical names resolve there. All parameters are explicitly bound in the signature.",
+      "elaboration": "not_run"
+    },
+    "verification_note": "Proposed signature only: no Lean compiler was available and no elaboration was run. Existing source evidence and historical build reports are retained separately; this record does not assert a fresh build or a missing theorem where an existing specialization suffices.",
+    "existing_evidence_status": "proposed_check_no_exact_wrapper_asserted"
+  },
+  {
+    "id": "sf-Fkm-t-zero",
+    "statement": "At t=0 the construction has one column, no address instances, and is exactly its single X bit.",
+    "proposed_lean": "theorem sanity_Fkm_t_zero (k : ℕ) (C : Circuit (ForrelationCoord k 0))\n    (x : BitInput (BitLoc 0 0 C.size (ForrelationCoord k 0))) :\n    Fkm k 0 C x = readX x 0 0",
+    "expected_value": "The single input bit.",
+    "source": [
+      "Statement.lean:277-296"
+    ],
+    "what_it_would_catch": "Hidden use of an empty address type, a mistaken empty existential, or unintentionally applying a large-m statement at m=1.",
+    "depends_on": [
+      "def-F",
+      "eq-6"
+    ],
+    "priority": "medium",
+    "status": "proposed_unelaborated",
+    "namespace": "QuarticQuery",
+    "route_note": "Independent elementary semantic check",
+    "elaboration_status": "proposed_unelaborated",
+    "lean_context": {
+      "imports": [
+        "QuarticQuery"
+      ],
+      "namespace": "QuarticQuery",
+      "instructions": "Place the signature after importing QuarticQuery and inside namespace QuarticQuery; end QuarticQuery after the declaration. Unqualified construction/classical names resolve there. All parameters are explicitly bound in the signature.",
+      "elaboration": "not_run"
+    },
+    "verification_note": "Proposed signature only: no Lean compiler was available and no elaboration was run. Existing source evidence and historical build reports are retained separately; this record does not assert a fresh build or a missing theorem where an existing specialization suffices.",
+    "existing_evidence_status": "proposed_check_no_exact_wrapper_asserted"
+  },
+  {
+    "id": "sf-phi-zero-layers",
+    "statement": "The public extension to k=0 is Phi=1/m, so the matrix-product correspondence must retain its positive-k hypothesis.",
+    "proposed_lean": "theorem sanity_phi_zero_layers (t : ℕ) (z : BitInput (ForrelationCoord 0 t)) :\n    Phi 0 t z = 1 / (mValue t : ℝ)",
+    "expected_value": "1 / mValue t",
+    "source": [
+      "Statement.lean:172-184",
+      "Forrelation/Product.lean:158-160"
+    ],
+    "what_it_would_catch": "Dropping the k>=1 hypothesis from the matrix-product equivalence; empty-product normalization errors.",
+    "depends_on": [
+      "eq-3"
+    ],
+    "priority": "medium",
+    "status": "proposed_unelaborated",
+    "namespace": "QuarticQuery",
+    "route_note": "Independent elementary semantic check",
+    "elaboration_status": "proposed_unelaborated",
+    "lean_context": {
+      "imports": [
+        "QuarticQuery"
+      ],
+      "namespace": "QuarticQuery",
+      "instructions": "Place the signature after importing QuarticQuery and inside namespace QuarticQuery; end QuarticQuery after the declaration. Unqualified construction/classical names resolve there. All parameters are explicitly bound in the signature.",
+      "elaboration": "not_run"
+    },
+    "verification_note": "Proposed signature only: no Lean compiler was available and no elaboration was run. Existing source evidence and historical build reports are retained separately; this record does not assert a fresh build or a missing theorem where an existing specialization suffices.",
+    "existing_evidence_status": "proposed_check_no_exact_wrapper_asserted"
+  },
+  {
+    "id": "sf-empty-promise-rejects",
+    "statement": "When the generic partial function is undefined everywhere and r>0, no column can win.",
+    "proposed_lean": "theorem sanity_empty_promise_rejects {κ : Type} (C : Circuit κ) (ℓ r : ℕ)\n    (hr : 0 < r) (x : BitInput (BitLoc ℓ r C.size κ)) :\n    addressedF (fun _ => none) C ℓ r x = false",
+    "expected_value": "false",
+    "source": [
+      "Statement.lean:277-289",
+      "paper/extracted.md:221-231"
+    ],
+    "what_it_would_catch": "An existential address that silently permits undefined A instances; dropping the promise conjunct.",
+    "depends_on": [
+      "def-winner",
+      "def-F"
+    ],
+    "priority": "high",
+    "status": "proposed_unelaborated",
+    "namespace": "QuarticQuery",
+    "route_note": "Independent elementary semantic check",
+    "elaboration_status": "proposed_unelaborated",
+    "lean_context": {
+      "imports": [
+        "QuarticQuery"
+      ],
+      "namespace": "QuarticQuery",
+      "instructions": "Place the signature after importing QuarticQuery and inside namespace QuarticQuery; end QuarticQuery after the declaration. Unqualified construction/classical names resolve there. All parameters are explicitly bound in the signature.",
+      "elaboration": "not_run"
+    },
+    "verification_note": "Proposed signature only: no Lean compiler was available and no elaboration was run. Existing source evidence and historical build reports are retained separately; this record does not assert a fresh build or a missing theorem where an existing specialization suffices.",
+    "existing_evidence_status": "proposed_check_no_exact_wrapper_asserted"
+  },
+  {
+    "id": "sf-Fkm-one-winner",
+    "statement": "The actual k=2,t=1 Fkm accepts a board with column 0 all ones, one zero at row 0 of every other column, every address instance the named Phi=1 witness, and the genuine transcripts and outward pointers in column 0's true cell.",
+    "proposed_lean": "theorem sanity_Fkm_one_winner :\n    let C := Forrelation.forrCircuit 1 1\n    let z : BitInput (ForrelationCoord 2 1) := fun c => c.2.val == 3\n    Fkm 2 1 C\n      (planted (P 2 1) (circuitEval C) (fun _ => 0) (fun _ _ => z) 0) = true",
+    "expected_value": "true",
+    "source": [
+      "Forrelation/Circuit.lean:337-343",
+      "Construction/Transcript.lean:44-60",
+      "LowerBound/Planted/Inputs.lean:58-66,106-128",
+      "Named Phi=1 witness verified by checks/check_construction.py"
+    ],
+    "what_it_would_catch": "Incorrect pointer direction, missing column ownership of cells, wrong true-address interpretation, or wrong transcript layout.",
+    "depends_on": [
+      "def-F",
+      "def-winner",
+      "claim-Y-values",
+      "sf-phi-positive-two-one"
+    ],
+    "priority": "high",
+    "status": "proposed_unelaborated",
+    "namespace": "QuarticQuery",
+    "route_note": "Independent elementary semantic check",
+    "elaboration_status": "proposed_unelaborated",
+    "lean_context": {
+      "imports": [
+        "QuarticQuery"
+      ],
+      "namespace": "QuarticQuery",
+      "instructions": "Place the signature after importing QuarticQuery and inside namespace QuarticQuery; end QuarticQuery after the declaration. Unqualified construction/classical names resolve there. All parameters are explicitly bound in the signature.",
+      "elaboration": "not_run"
+    },
+    "verification_note": "Proposed signature only: no Lean compiler was available and no elaboration was run. Existing source evidence and historical build reports are retained separately; this record does not assert a fresh build or a missing theorem where an existing specialization suffices.",
+    "existing_evidence_status": "specialization_using_existing_source_and_new_witness",
+    "existing_evidence": "addressedF_planted already proves acceptance for arbitrary consistent transcripts and on-promise planted instances. This check specializes it to the actual k=2,t=1 circuit and the proposed named positive witness.",
+    "existing_declarations": [
+      "QuarticQuery.addressedF_planted",
+      "QuarticQuery.Forrelation.forrCircuit_realises",
+      "QuarticQuery.circuitEval_gateConsistent"
+    ]
+  },
+  {
+    "id": "sf-Fkm-corrupt-active-transcript",
+    "statement": "On the preceding actual Fkm board, flipping any one gate bit in the first active transcript makes the total function reject.",
+    "proposed_lean": "theorem sanity_Fkm_corrupt_active_transcript :\n    let C := Forrelation.forrCircuit 1 1\n    let z : BitInput (ForrelationCoord 2 1) := fun c => c.2.val == 3\n    let x : BitInput (BitLoc 2 40 C.size (ForrelationCoord 2 1)) :=\n      planted (P 2 1) (circuitEval C) (fun _ => 0) (fun _ _ => z) 0\n    ∀ g : Fin C.size,\n      let q : BitLoc 2 40 C.size (ForrelationCoord 2 1) :=\n        .inr (.inr (.inr (0, (fun _ => true), 0, g)))\n      Fkm 2 1 C (Function.update x q (!(x q))) = false",
+    "expected_value": "false for every choice of gate bit",
+    "source": [
+      "Construction/Transcript.lean:30-41,64-73",
+      "Statement.lean:277-283",
+      "LowerBound/Planted/Inputs.lean:58-66",
+      "Toy mutation analog exhaustively checked in checks/check_construction.py"
+    ],
+    "what_it_would_catch": "Missing transcript consistency checks, accidental use of an inactive cell, or quantifying only over selected output gates.",
+    "depends_on": [
+      "def-transcript",
+      "def-winner",
+      "sf-Fkm-one-winner"
+    ],
+    "priority": "high",
+    "status": "proposed_unelaborated",
+    "namespace": "QuarticQuery",
+    "route_note": "Independent elementary semantic check",
+    "elaboration_status": "proposed_unelaborated",
+    "lean_context": {
+      "imports": [
+        "QuarticQuery"
+      ],
+      "namespace": "QuarticQuery",
+      "instructions": "Place the signature after importing QuarticQuery and inside namespace QuarticQuery; end QuarticQuery after the declaration. Unqualified construction/classical names resolve there. All parameters are explicitly bound in the signature.",
+      "elaboration": "not_run"
+    },
+    "verification_note": "Proposed signature only: no Lean compiler was available and no elaboration was run. Existing source evidence and historical build reports are retained separately; this record does not assert a fresh build or a missing theorem where an existing specialization suffices.",
+    "existing_evidence_status": "proposed_check_no_exact_wrapper_asserted"
+  },
+  {
+    "id": "sf-existing-negative-witness",
+    "statement": "The source already proves that both sign vectors (-1,1,1,1) give Phi=-1 and lie outside P.",
+    "proposed_lean": "theorem sanity_existing_negative_witness :\n    Phi 2 1 Forrelation.negativeWitness = -1 ∧\n      P 2 1 Forrelation.negativeWitness = none",
+    "expected_value": "Phi = -1; P = none",
+    "source": [
+      "Forrelation/Sanity.lean:54-65",
+      "Existing declarations QuarticQuery.Forrelation.Phi_negativeWitness and QuarticQuery.Forrelation.P_negativeWitness"
+    ],
+    "what_it_would_catch": "Changing the 1-promise to an absolute-value threshold.",
+    "depends_on": [
+      "eq-4"
+    ],
+    "priority": "high",
+    "status": "proposed_unelaborated",
+    "namespace": "QuarticQuery",
+    "route_note": "Conjoin Forrelation.Phi_negativeWitness and Forrelation.P_negativeWitness; both source theorems already exist.",
+    "elaboration_status": "proposed_unelaborated",
+    "lean_context": {
+      "imports": [
+        "QuarticQuery"
+      ],
+      "namespace": "QuarticQuery",
+      "instructions": "Place the signature after importing QuarticQuery and inside namespace QuarticQuery; end QuarticQuery after the declaration. Unqualified construction/classical names resolve there. All parameters are explicitly bound in the signature.",
+      "elaboration": "not_run"
+    },
+    "verification_note": "Proposed signature only: no Lean compiler was available and no elaboration was run. Existing source evidence and historical build reports are retained separately; this record does not assert a fresh build or a missing theorem where an existing specialization suffices.",
+    "existing_evidence_status": "conjunction_of_existing_source_theorems",
+    "existing_evidence": "Both conjuncts are already proved in Forrelation/Sanity.lean:58-65 by Phi_negativeWitness and P_negativeWitness. Only the conjunction wrapper is proposed and unelaborated. The existing census is also retained as evidence.",
+    "existing_declarations": [
+      "QuarticQuery.Forrelation.Phi_negativeWitness",
+      "QuarticQuery.Forrelation.P_negativeWitness"
+    ]
+  },
+  {
+    "id": "sf-phi-two-one-histogram",
+    "statement": "At k=2,t=1, the exact Phi histogram at values -1,-1/2,0,1/2,1 is 8,96,48,96,8.",
+    "proposed_lean": "theorem fidelity_phi_two_one_histogram :\n    Nat.card {z : BitInput (ForrelationCoord 2 1) // Phi 2 1 z = -1} = 8 ∧\n    Nat.card {z : BitInput (ForrelationCoord 2 1) // Phi 2 1 z = -(1 / 2 : ℝ)} = 96 ∧\n    Nat.card {z : BitInput (ForrelationCoord 2 1) // Phi 2 1 z = 0} = 48 ∧\n    Nat.card {z : BitInput (ForrelationCoord 2 1) // Phi 2 1 z = (1 / 2 : ℝ)} = 96 ∧\n    Nat.card {z : BitInput (ForrelationCoord 2 1) // Phi 2 1 z = 1} = 8",
+    "expected_value": {
+      "-1": 8,
+      "-1/2": 96,
+      "0": 48,
+      "1/2": 96,
+      "1": 8
+    },
+    "source": "Independent exact-rational exhaustive calculation, checks/check_construction.py. The promise census is already in Forrelation/Sanity.lean; the full scalar histogram is this additional check.",
+    "what_it_would_catch": "Incorrect normalization or sign pattern hidden by merely checking the coarser promise counts.",
+    "depends_on": [
+      "eq-3",
+      "eq-4"
+    ],
+    "route_note": "Replace real equality by exact integer numerator tests using the positive denominator 8, then enumerate finite inputs. Nat.card avoids making real decidability an implicit interface requirement. No proof is supplied.",
+    "status": "proposed_unelaborated",
+    "elaboration_status": "proposed_unelaborated",
+    "lean_context": "Import QuarticQuery; declare inside namespace QuarticQuery. All signatures are unelaborated."
+  },
+  {
+    "id": "sf-toy-board-census",
+    "statement": "For the explicit two-gate circuit for one-bit identity and generic parameters ell=1,r=1, exactly 16384 of the 262144 physical inputs are accepted.",
+    "proposed_lean": "theorem fidelity_toy_board_census :\n    let C : Circuit (Fin 1) :=\n      { size := 2\n        gate := fun g => if g.val = 0 then\n          { left := none, right := none, table := fun _ _ => true }\n          else { left := some (.inl 0), right := none, table := fun a _ => a }\n        domainOut := 0\n        valueOut := 1 }\n    Nat.card {x : BitInput (BitLoc 1 1 C.size (Fin 1)) //\n      addressedF (totalise (fun z : BitInput (Fin 1) => z 0)) C 1 1 x = true} = 16384",
+    "expected_value": 16384,
+    "source": "Independent exhaustive check and separate counting proof in fidelity_audit.md section15.2; checks/check_construction.py.",
+    "what_it_would_catch": "Wrong cell ownership, incorrect address choice, missing transcript check, pointer direction, or winner overlap.",
+    "depends_on": [
+      "def-winner",
+      "def-F",
+      "cor-unique-winner",
+      "sf-bitloc-cardinality"
+    ],
+    "route_note": "Prove the circuit has domain=true and value=input. Count one-column wins (8192), use winner uniqueness for disjointness and symmetry for both columns. The Python enumeration is a diagnostic, not a Lean proof.",
+    "status": "proposed_unelaborated",
+    "elaboration_status": "proposed_unelaborated",
+    "lean_context": "Import QuarticQuery; declare inside namespace QuarticQuery. All signatures are unelaborated."
+  }
+]

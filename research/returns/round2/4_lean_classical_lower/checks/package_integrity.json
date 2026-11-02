@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "scope": "JSON, source lexemes, file hashes, and exact passage bindings only",
+  "lean_elaboration": "not_run",
+  "comparator": "not_run",
+  "coverage_rows": 22,
+  "new_statements": 15,
+  "new_lean_files": 4,
+  "indexed_declarations": 133,
+  "imports": [
+    "QuarticQuery.LowerBound.DirectProduct",
+    "QuarticQuery.LowerBound.Planted.Main",
+    "QuarticQuery.Paper.ClassicalPlanted",
+    "QuarticQuery.Results.Unconditional"
+  ],
+  "forbidden_proof_lexemes": [],
+  "all_declarations_have_ledger_docs": true,
+  "all_new_coverage_compiled_false": true,
+  "correspondence_passages": 22,
+  "original_manifest": {
+    "status": "all_matched",
+    "members": 356,
+    "repository_commit": "4c7544f8dcdfc18d3ecf8476ebd8c1090cd46f15"
+  },
+  "phase": "Content validation before manifest serialization; final assembly independently verified every manifest hash."
+}

@@ -1,10 +1,13 @@
 """Exercise working and staged layout checks in isolated Git repositories."""
 
 import importlib.util
+import hashlib
+import json
 from pathlib import Path
 import subprocess
 import tempfile
 import unittest
+from zipfile import ZipFile
 
 
 SPEC = importlib.util.spec_from_file_location("check_repository", Path(__file__).resolve().parents[1] / "tools/check_repository.py")
@@ -22,6 +25,23 @@ class RepositoryTests(unittest.TestCase):
             self.write(path, "")
         self.write(".gitignore", ".lake/\n/build/\n__pycache__/\n*.zip\n")
         self.write("README.md", "[tool](tools/check_repository.py) [license](LICENSE)\n")
+        self.manifest = {"format": "return-snapshots-v1", "snapshots": {}}
+        for name in sorted(CHECKER.SNAPSHOT_IDS):
+            files = {"README.md": "[sender-only](missing.md)\n"}
+            if name == "1_statement_fidelity":
+                files.update({"checks/example.py": "raise RuntimeError('do not run')\n",
+                              "lean/Example.lean": "-- submitted source\n",
+                              "LICENSE": "submitted license\n", "MANIFEST.sha256": "sender hash\n"})
+            members = {}
+            for member, content in files.items():
+                self.write(f"{CHECKER.SNAPSHOT_ROOT}/{name}/{member}", content)
+                data = content.encode()
+                members[member] = {"size": len(data), "sha256": hashlib.sha256(data).hexdigest()}
+            self.manifest["snapshots"][name] = {
+                "archive": {"name": f"quartic_r2_{name}_return.zip", "sha256": "a" * 64},
+                "members": members,
+            }
+        self.save_manifest()
         self.git("add", ".")
 
     def git(self, *args):
@@ -32,8 +52,20 @@ class RepositoryTests(unittest.TestCase):
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(content)
 
-    def errors(self, index=False):
-        return CHECKER.check(CHECKER.GitView(self.root, index))
+    def save_manifest(self):
+        self.write(CHECKER.SNAPSHOT_MANIFEST, json.dumps(self.manifest) + "\n")
+
+    def errors(self, index=False, archive_dir=None):
+        return CHECKER.check(CHECKER.GitView(self.root, index), archive_dir)
+
+    def make_archives(self, archive_dir):
+        for name, snapshot in self.manifest["snapshots"].items():
+            path = Path(archive_dir) / snapshot["archive"]["name"]
+            with ZipFile(path, "w") as archive:
+                for member in snapshot["members"]:
+                    archive.writestr(member, (self.root / CHECKER.SNAPSHOT_ROOT / name / member).read_bytes())
+            snapshot["archive"]["sha256"] = hashlib.sha256(path.read_bytes()).hexdigest()
+        self.save_manifest()
 
     def test_current_roles_and_future_lean_topics(self):
         for path in ["research/intake/source.txt", "research/intake/search.json", "lean/QuarticQuery/New/Topic.lean", "tools/README.md", "tests/test_future.py", ".github/workflows/check.yml"]:
@@ -53,6 +85,119 @@ class RepositoryTests(unittest.TestCase):
     def test_code_in_research_is_rejected(self):
         self.write("research/intake/extract.py")
         self.assertTrue(any("executable code" in e for e in self.errors()))
+
+    def test_submitted_code_and_readme_are_accepted_as_verified_bytes(self):
+        self.assertEqual([], self.errors())
+        self.assertEqual([], self.errors(index=True))
+
+    def test_unmanifested_members_are_rejected_even_if_they_are_evidence(self):
+        for member in ("extra.py", "extra.md"):
+            with self.subTest(member=member):
+                path = f"{CHECKER.SNAPSHOT_ROOT}/1_statement_fidelity/{member}"
+                self.write(path)
+                self.assertTrue(any(path in e and "unmanifested" in e for e in self.errors()))
+                self.git("add", path)
+                (self.root / path).unlink()
+                self.assertTrue(any(path in e and "unmanifested" in e for e in self.errors(index=True)))
+                self.git("rm", "--cached", path)
+
+    def test_unknown_snapshot_directory_is_rejected(self):
+        path = f"{CHECKER.SNAPSHOT_ROOT}/8_unlisted/notes.md"
+        self.write(path)
+        self.assertTrue(any(path in e and "unmanifested" in e for e in self.errors()))
+
+    def test_snapshot_byte_tampering_uses_staged_contents(self):
+        path = f"{CHECKER.SNAPSHOT_ROOT}/1_statement_fidelity/checks/example.py"
+        original = (self.root / path).read_text()
+        self.write(path, "altered\n")
+        self.git("add", path)
+        self.write(path, original)
+        self.assertEqual([], self.errors())
+        self.assertTrue(any(path in e and "bytes differ" in e for e in self.errors(index=True)))
+
+    def test_staged_manifest_cannot_be_masked_by_working_repair(self):
+        path = f"{CHECKER.SNAPSHOT_ROOT}/1_statement_fidelity/README.md"
+        record = self.manifest["snapshots"]["1_statement_fidelity"]["members"]["README.md"]
+        original = record["sha256"]
+        record["sha256"] = "b" * 64
+        self.save_manifest()
+        self.git("add", CHECKER.SNAPSHOT_MANIFEST)
+        record["sha256"] = original
+        self.save_manifest()
+        self.assertEqual([], self.errors())
+        self.assertTrue(any(path in e and "bytes differ" in e for e in self.errors(index=True)))
+
+    def test_staged_snapshot_deletion_cannot_be_masked_by_working_restore(self):
+        path = f"{CHECKER.SNAPSHOT_ROOT}/1_statement_fidelity/README.md"
+        self.git("rm", "--cached", path)
+        self.assertEqual([], self.errors())
+        self.assertTrue(any(path in e and "member is missing" in e for e in self.errors(index=True)))
+
+    def test_manifest_rejects_duplicate_keys_and_unsafe_member_paths(self):
+        self.write(CHECKER.SNAPSHOT_MANIFEST, '{"format":"return-snapshots-v1","format":"return-snapshots-v1","snapshots":{}}')
+        self.assertTrue(any("duplicate JSON key" in e for e in self.errors()))
+        members = self.manifest["snapshots"]["1_statement_fidelity"]["members"]
+        for path in ("../escape.py", ".", "/absolute.py", "subdir/../file.py"):
+            with self.subTest(path=path):
+                members[path] = {"size": 0, "sha256": hashlib.sha256(b"").hexdigest()}
+                self.save_manifest()
+                self.assertTrue(any("invalid member path" in e for e in self.errors()))
+                del members[path]
+
+    def test_manifest_cannot_admit_a_new_snapshot_root(self):
+        self.manifest["snapshots"]["8_unlisted"] = self.manifest["snapshots"]["1_statement_fidelity"]
+        self.save_manifest()
+        self.assertTrue(any("snapshot IDs" in e for e in self.errors()))
+
+    def test_manifested_generated_outputs_remain_forbidden(self):
+        path = f"{CHECKER.SNAPSHOT_ROOT}/1_statement_fidelity/cache.pyc"
+        self.write(path, "cached\n")
+        data = (self.root / path).read_bytes()
+        self.manifest["snapshots"]["1_statement_fidelity"]["members"]["cache.pyc"] = {
+            "size": len(data), "sha256": hashlib.sha256(data).hexdigest(),
+        }
+        self.save_manifest()
+        self.git("add", "-f", path)
+        self.assertTrue(any(path in e and "output/cache" in e for e in self.errors()))
+
+    def test_original_archives_bind_the_manifest_to_submitted_bytes(self):
+        with tempfile.TemporaryDirectory() as archive_dir:
+            self.make_archives(archive_dir)
+            self.assertEqual([], self.errors(archive_dir=archive_dir))
+            path = f"{CHECKER.SNAPSHOT_ROOT}/1_statement_fidelity/README.md"
+            self.write(path, "changed together with manifest\n")
+            data = (self.root / path).read_bytes()
+            self.manifest["snapshots"]["1_statement_fidelity"]["members"]["README.md"] = {
+                "size": len(data), "sha256": hashlib.sha256(data).hexdigest(),
+            }
+            self.save_manifest()
+            self.assertEqual([], self.errors())
+            self.assertTrue(any("archive member differs" in e for e in self.errors(archive_dir=archive_dir)))
+
+    def test_original_archive_hash_and_member_set_are_checked(self):
+        with tempfile.TemporaryDirectory() as archive_dir:
+            self.make_archives(archive_dir)
+            snapshot = self.manifest["snapshots"]["1_statement_fidelity"]
+            path = Path(archive_dir) / snapshot["archive"]["name"]
+            with ZipFile(path, "a") as archive:
+                archive.writestr("extra.txt", "extra")
+            errors = self.errors(archive_dir=archive_dir)
+            self.assertTrue(any("archive SHA-256 differs" in e for e in errors))
+            self.assertTrue(any("archive member set differs" in e for e in errors))
+
+    def test_archive_check_uses_staged_manifest(self):
+        with tempfile.TemporaryDirectory() as archive_dir:
+            self.make_archives(archive_dir)
+            record = self.manifest["snapshots"]["1_statement_fidelity"]["archive"]
+            original = record["sha256"]
+            record["sha256"] = "b" * 64
+            self.save_manifest()
+            self.git("add", CHECKER.SNAPSHOT_MANIFEST)
+            record["sha256"] = original
+            self.save_manifest()
+            self.assertEqual([], self.errors(archive_dir=archive_dir))
+            self.assertTrue(any("archive SHA-256 differs" in e
+                                for e in self.errors(index=True, archive_dir=archive_dir)))
 
     def test_retired_source_locations_cannot_return(self):
         for path in sorted(CHECKER.RETIRED):

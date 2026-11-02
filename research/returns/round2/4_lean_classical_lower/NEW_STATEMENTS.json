@@ -1,0 +1,193 @@
+[
+  {
+    "id": "r2-classical-normalized-optimum",
+    "statement": "For a nonnegative finite input weight ν and natural c, W_c(ν)/mass(ν) is an attained upper bound on the success of every depth-c tree under ν/mass(ν). On positive mass this is precisely the conditional optimum.",
+    "why_needed": "Proves that the new conditional value is the paper's maximum, using the compiled one-instance Bellman source.",
+    "depends_on": [
+      "def-value-V"
+    ],
+    "proposed_lean": "theorem normalized_optimum {κ : Type} [Fintype κ] [DecidableEq κ] (f : PartialBool κ) (c : ℕ) (ν : BitInput κ → ℝ) (hν : ∀ x, 0 ≤ ν x) : (∃ T : QueryTree κ, T.depth ≤ c ∧ treeSuccess f (fun x => ν x / (∑ y, ν y)) T = budgetValue f c ν / (∑ y, ν y)) ∧ (∀ T : QueryTree κ, T.depth ≤ c → treeSuccess f (fun x => ν x / (∑ y, ν y)) T ≤ budgetValue f c ν / (∑ y, ν y))",
+    "route_note": "Proposed source only. Supplied separately by classicalValue_attained and classicalValue_bounds_tree after expanding definitions. This is a representation lemma for the paper route, with no novelty claim."
+  },
+  {
+    "id": "r2-classical-product-normalization",
+    "statement": "A normalized finite product weight is pointwise the product of the normalized component weights, with the identity algebraically valid under totalized real division; conditional-probability use requires positive total mass.",
+    "why_needed": "Separates finite algebra from the proof that the actual adaptive transcript event is a rectangle.",
+    "depends_on": [
+      "claim-product-law"
+    ],
+    "proposed_lean": "theorem product_normalization {κ : Type} [Fintype κ] [DecidableEq κ] {r : ℕ} (ν : Fin r → BitInput κ → ℝ) (U : Fin r → BitInput κ) : (∏ h, ν h (U h)) / (∑ V : Fin r → BitInput κ, ∏ h, ν h (V h)) = ∏ h, ν h (U h) / (∑ x, ν h x)",
+    "route_note": "Proposed source classical_product_law. Finite distributivity and Finset.prod_div_distrib; no use of the existing multi-instance direct-product endpoint."
+  },
+  {
+    "id": "r2-classical-capped-depth",
+    "statement": "A multi-instance output tree capped by separate budgets c_h has total depth at most their sum, hence at most rL for uniform caps L.",
+    "why_needed": "Supplies the finite horizon asserted in claim-supermartingale and justifies finite iteration.",
+    "depends_on": [
+      "claim-supermartingale"
+    ],
+    "proposed_lean": "theorem capped_depth {κ β : Type} [Fintype κ] [DecidableEq κ] {r : ℕ} (T : OutTree (Fin r × κ) β) (c : Fin r → ℕ) (hT : T.capped c) : T.depth ≤ ∑ h, c h",
+    "route_note": "Proposed source classical_capped_depth and classical_capped_depth_uniform. Structural tree induction; not yet compiled."
+  },
+  {
+    "id": "new-r2-output-gap-pointwise",
+    "statement": "For every coupled dummy/planted sample, the absolute difference of output-one indicators is at most the removed-zero encounter indicator plus the full true-cell encounter indicator.",
+    "why_needed": "This is the symmetric pointwise coupling step used to export the ledger’s absolute form of (18).",
+    "depends_on": [
+      "eq-18",
+      "def-dummy",
+      "def-planted"
+    ],
+    "proposed_lean": "theorem output_gap_pointwise {κ : Type} [Fintype κ] [DecidableEq κ] {ℓ r S : ℕ} (f : PartialBool κ) (tr : BitInput κ → Fin S → Bool) (T : QueryTree (BitLoc ℓ r S κ)) (A : Column ℓ → Fin r → BitInput κ) (J : Column ℓ → Column ℓ) (I : Column ℓ) : |ind (T.eval (planted f tr J A I) = true) - ind (T.eval (dummy J A) = true)| ≤ foundZero T A J I + ind (∃ q ∈ T.path (dummy J A), cellOf q = some (I, trueAddr f (A I)))",
+    "route_note": "New unelaborated source proof: QuarticQuery.Paper.output_gap_abs_le_unsplit. Same first-difference route as the preprint; does not assume a signed gap."
+  },
+  {
+    "id": "new-r2-EZ-two",
+    "statement": "For m=2^ℓ, under the normalized independent dummy law and any deterministic tree of depth at most G, E[sum_i foundZero_i] ≤ 2G/m.",
+    "why_needed": "States the stronger endpoint used before deriving the paper’s 4G/m bound, separately from the compound early/late ledger row.",
+    "depends_on": [
+      "def-Z",
+      "eq-19"
+    ],
+    "proposed_lean": "theorem expected_discovered_zeros_two {κ : Type} [Fintype κ] [DecidableEq κ] {ℓ r S G : ℕ} {μ : BitInput κ → ℝ} (hμ : ∀ x, 0 ≤ μ x) (hμ1 : ∑ x, μ x = 1) (T : QueryTree (BitLoc ℓ r S κ)) (hT : T.depth ≤ G) : avg (prodW (prodW μ)) (fun A => avg (prodW (unif ℓ)) (fun J => ∑ i, foundZero T A J i)) ≤ 2 * (G : ℝ) / ((2 ^ ℓ : ℕ) : ℝ)",
+    "route_note": "Unelaborated wrapper expectedZeros_le_two plus discoveredZeros_cast. Based on packet-reported compiled avg_foundZero_I_le, an alternative finite-world induction. No tightness claim for the worst-case cap."
+  },
+  {
+    "id": "new-r2-planted-gap-absolute-two",
+    "statement": "Under the original normalized promised hard distribution and a deterministic depth-G tree, the absolute coupled output-one probability gap is at most 2G/m² + G/(mL) + G(2/3)^r.",
+    "why_needed": "Separates the valid symmetric coefficient-two strengthening from the preprint’s coefficient-four display and the source’s one-sided type.",
+    "depends_on": [
+      "eq-18",
+      "eq-19",
+      "eq-22",
+      "claim-address-guess"
+    ],
+    "proposed_lean": "theorem planted_gap_absolute_two {κ : Type} [Fintype κ] [DecidableEq κ] {ℓ r S L G : ℕ} {f : PartialBool κ} (tr : BitInput κ → Fin S → Bool) {μ : BitInput κ → ℝ} (hL : 1 ≤ L) (hμ : ∀ x, 0 ≤ μ x) (hμ1 : ∑ x, μ x = 1) (hdom : ∀ x, μ x ≠ 0 → promised f x) (hard : ∀ U : QueryTree κ, U.depth ≤ L → treeSuccess f μ U ≤ 2/3) (T : QueryTree (BitLoc ℓ r S κ)) (hT : T.depth ≤ G) : |coupledAvg μ (fun A J I => ind (T.eval (planted f tr J A I) = true) - ind (T.eval (dummy J A) = true))| ≤ 2 * (G : ℝ) / ((2 ^ ℓ : ℕ) : ℝ)^2 + (G : ℝ) / (((2 ^ ℓ : ℕ) : ℝ) * (L : ℝ)) + (G : ℝ) * ((2 : ℝ)/3)^r",
+    "route_note": "Unelaborated eq_23_two, equivalent after paperCoupledAvg_sub and dummyAvg_eq_coupledAvg. Uses an alternative zero-search route; full probability event structure agrees."
+  },
+  {
+    "id": "new-r2-planted-gap-randomized-absolute",
+    "statement": "The coefficient-four absolute coupled probability bound holds for every RandomizedProgram with worst-case depth at most G.",
+    "why_needed": "Exports the paper’s fixed-coins averaging sentence as a statement about the actual RandomizedProgram.success fields.",
+    "depends_on": [
+      "eq-23",
+      "def-R"
+    ],
+    "proposed_lean": "theorem planted_gap_randomized_absolute {κ : Type} [Fintype κ] [DecidableEq κ] {ℓ r S L G : ℕ} {f : PartialBool κ} (tr : BitInput κ → Fin S → Bool) {μ : BitInput κ → ℝ} (hL : 1 ≤ L) (hμ : ∀ x, 0 ≤ μ x) (hμ1 : ∑ x, μ x = 1) (hdom : ∀ x, μ x ≠ 0 → promised f x) (hard : ∀ U : QueryTree κ, U.depth ≤ L → treeSuccess f μ U ≤ 2/3) (P : RandomizedProgram (BitLoc ℓ r S κ)) (hP : P.depth ≤ G) : |coupledAvg μ (fun A J I => P.success (planted f tr J A I) true - P.success (dummy J A) true)| ≤ 4 * (G : ℝ) / ((2 ^ ℓ : ℕ) : ℝ)^2 + (G : ℝ) / (((2 ^ ℓ : ℕ) : ℝ) * (L : ℝ)) + (G : ℝ) * ((2 : ℝ)/3)^r",
+    "route_note": "Unelaborated eq_23_randomized. No extension to expected query cost is asserted; the mixture is bounded by its worst-case depth."
+  },
+  {
+    "id": "r2-classical-tail-identity",
+    "statement": "For every natural t, ((2/3)^(40t))=(mValue t)^(-20 log_2(3/2)).",
+    "why_needed": "Exposes the exact exponential identity missing from the weaker existing tail theorem.",
+    "depends_on": [
+      "eq-6",
+      "claim-tail"
+    ],
+    "proposed_lean": "namespace QuarticQuery.Paper\nopen Filter\ntheorem classical_twoThirds_exact (t : ℕ) :\n    ((2 : ℝ) / 3) ^ (40 * t) =\n      (mValue t : ℝ) ^ (-20 * Real.logb 2 ((3 : ℝ) / 2))\nend QuarticQuery.Paper",
+    "route_note": "Same logarithm identity used in the preprint; no exponent weakening. Candidate proof uses only real-power and logarithm arithmetic.",
+    "declaration": "QuarticQuery.Paper.classical_twoThirds_exact",
+    "compiled": false,
+    "elaboration_status": "unelaborated"
+  },
+  {
+    "id": "r2-classical-tail-geometric",
+    "statement": "For every natural t, (mValue t)^(2-20 log_2(3/2))=(16(2/3)^40)^t.",
+    "why_needed": "Gives a direct exact geometric proof of the tail envelope limit.",
+    "depends_on": [
+      "eq-6",
+      "claim-tail",
+      "r2-classical-tail-identity"
+    ],
+    "proposed_lean": "namespace QuarticQuery.Paper\nopen Filter\ntheorem classical_tail_envelope_eq (t : ℕ) :\n    (mValue t : ℝ) ^ (2 - 20 * Real.logb 2 ((3 : ℝ) / 2)) =\n      ((16 : ℝ) * ((2 : ℝ) / 3) ^ 40) ^ t\nend QuarticQuery.Paper",
+    "route_note": "Equivalent rewriting of the exact preprint exponent; geometric base lies in (0,1).",
+    "declaration": "QuarticQuery.Paper.classical_tail_envelope_eq",
+    "compiled": false,
+    "elaboration_status": "unelaborated"
+  },
+  {
+    "id": "r2-classical-tail-negative",
+    "statement": "The real exponent 2-20 log_2(3/2) is strictly negative.",
+    "why_needed": "Makes the sign in the stated o(1) claim explicit.",
+    "depends_on": [
+      "claim-tail"
+    ],
+    "proposed_lean": "namespace QuarticQuery.Paper\nopen Filter\ntheorem classical_tail_exponent_neg :\n    2 - 20 * Real.logb 2 ((3 : ℝ) / 2) < 0\nend QuarticQuery.Paper",
+    "route_note": "Use (3/2)^2>2 and monotonicity of logarithm base two; ordinary arithmetic.",
+    "declaration": "QuarticQuery.Paper.classical_tail_exponent_neg",
+    "compiled": false,
+    "elaboration_status": "unelaborated"
+  },
+  {
+    "id": "r2-classical-budget-square",
+    "statement": "For every k>=1 and every natural t, Gvalue(mValue t,Lvalue(k,t)) <= (mValue t)^2/100 after casting to reals.",
+    "why_needed": "Instantiates the exact tail at the actual floored budget, including the degenerate t=0 index.",
+    "depends_on": [
+      "eq-5",
+      "eq-17"
+    ],
+    "proposed_lean": "namespace QuarticQuery.Paper\nopen Filter\ntheorem classical_Gvalue_le_square (k t : ℕ) (hk : 1 ≤ k) :\n    (Gvalue (mValue t) (Lvalue k t) : ℝ) ≤ (mValue t : ℝ) ^ 2 / 100\nend QuarticQuery.Paper",
+    "route_note": "Use Lvalue_le_mValue for t>=1 and direct simplification at t=0; this does not alter the large-m mathematical family.",
+    "declaration": "QuarticQuery.Paper.classical_Gvalue_le_square",
+    "compiled": false,
+    "elaboration_status": "unelaborated"
+  },
+  {
+    "id": "r2-classical-omega-explicit",
+    "statement": "For each fixed k>=2, eventually in t, every circuit realizing P(k,t) gives R(Fkm(k,t,C)) >= (1/400)(mValue t)^(2-1/k)/(log_2(mValue t))^2, with a threshold independent of C.",
+    "why_needed": "Records the constant and all-circuit strengthening of the Omega statement.",
+    "depends_on": [
+      "prop-4.2",
+      "claim-floor",
+      "cor-R-omega"
+    ],
+    "proposed_lean": "namespace QuarticQuery.Paper\nopen Filter\ntheorem classical_cor_R_omega_log2 (k : ℕ) (hk : 2 ≤ k) :\n    ∃ t₀ : ℕ, ∀ t : ℕ, t₀ ≤ t → ∀ C : Circuit (ForrelationCoord k t),\n      CircuitRealises C (P k t) →\n        (1 / 400 : ℝ) * (mValue t : ℝ) ^ (2 - 1 / (k : ℝ)) /\n          Real.logb 2 (mValue t : ℝ) ^ 2 ≤\n            (R (totalise (Fkm k t C)) : ℝ)\nend QuarticQuery.Paper",
+    "route_note": "Same floor-removal route. Directly uses unconditional Forrelation lower bound. Equivalent statement already appears as an uncompiled Paper.Section4 candidate.",
+    "declaration": "QuarticQuery.Paper.classical_cor_R_omega_log2",
+    "compiled": false,
+    "elaboration_status": "unelaborated"
+  },
+  {
+    "id": "r2-classical-ratio-arithmetic",
+    "statement": "For b natural, c,C>=0, alpha>=0, m,W>=1, q>=0, q<=C m^(1/2) W^b, and r>=c m^s/W^2, one has r/(1+q)^alpha >= [c/(1+C)^alpha] m^(s-alpha/2)/W^(2+alpha b), for every real s.",
+    "why_needed": "Exports the explicit finite quotient inequality absent from eventually_gt_rpow.",
+    "depends_on": [
+      "claim-exponent-ratio"
+    ],
+    "proposed_lean": "namespace QuarticQuery.Paper\nopen Filter\ntheorem classical_ratio_arithmetic {c C s α r q m W : ℝ} (b : ℕ)\n    (hc : 0 ≤ c) (hC : 0 ≤ C) (hα : 0 ≤ α) (hm : 1 ≤ m) (hW : 1 ≤ W)\n    (hq : 0 ≤ q)\n    (hQ : q ≤ C * m ^ ((1 : ℝ) / 2) * W ^ b)\n    (hR : c * m ^ s / W ^ 2 ≤ r) :\n    c / (1 + C) ^ α * m ^ (s - α / 2) / W ^ (2 + α * (b : ℝ)) ≤\n      r / (1 + q) ^ α\nend QuarticQuery.Paper",
+    "route_note": "Bound 1+q by (1+C)m^(1/2)W^b, raise to alpha, divide by positive quantities, and simplify real powers. Complete candidate proof without asymptotic hypotheses.",
+    "declaration": "QuarticQuery.Paper.classical_ratio_arithmetic",
+    "compiled": false,
+    "elaboration_status": "unelaborated"
+  },
+  {
+    "id": "r2-classical-power-log-limit",
+    "statement": "For fixed real d>0, delta>0, and e, d(mValue t)^delta/(log_2(mValue t))^e tends to +infinity as natural t tends to +infinity.",
+    "why_needed": "Proves divergence of the literal right-hand side in the paper quotient display.",
+    "depends_on": [
+      "claim-exponent-ratio"
+    ],
+    "proposed_lean": "namespace QuarticQuery.Paper\nopen Filter\ntheorem classical_power_log_tendsto {d δ e : ℝ} (hd : 0 < d) (hδ : 0 < δ) :\n    Tendsto (fun t : ℕ => d * (mValue t : ℝ) ^ δ /\n      Real.logb 2 (mValue t : ℝ) ^ e) atTop atTop\nend QuarticQuery.Paper",
+    "route_note": "Derived from the existing eventually_poly_lt_exp with epsilon=2 delta; no assumption of the desired ratio limit.",
+    "declaration": "QuarticQuery.Paper.classical_power_log_tendsto",
+    "compiled": false,
+    "elaboration_status": "unelaborated"
+  },
+  {
+    "id": "r2-classical-ratio-explicit",
+    "statement": "For k=l+1>=2 and fixed alpha>=0 satisfying alpha/2<2-1/k, the canonical forrCircuit family obeys the displayed ratio lower bound with b_k=6 and d=1/[400(1+budgetConst(k))^alpha]; both the explicit lower envelope and the ratio tend to +infinity.",
+    "why_needed": "Closes the original quotient row at the actual constructed functions using the same circuit in both R and Q.",
+    "depends_on": [
+      "eq-2",
+      "cor-R-omega",
+      "claim-exponent-ratio",
+      "r2-classical-ratio-arithmetic",
+      "r2-classical-power-log-limit"
+    ],
+    "proposed_lean": "namespace QuarticQuery.Paper\nopen Filter\ntheorem classical_Fkm_ratio (l : ℕ) (hk : 2 ≤ l + 1) {α : ℝ}\n    (hα : 0 ≤ α) (hs : α / 2 < 2 - 1 / ((l + 1 : ℕ) : ℝ)) :\n    ∃ d : ℝ, 0 < d ∧\n      (∀ᶠ t : ℕ in atTop,\n        d * (mValue t : ℝ) ^ (2 - 1 / ((l + 1 : ℕ) : ℝ) - α / 2) /\n          Real.logb 2 (mValue t : ℝ) ^ (2 + α * 6) ≤\n            (R (totalise (Fkm (l + 1) t (Forrelation.forrCircuit l t))) : ℝ) /\n              (1 + (Q (totalise (Fkm (l + 1) t (Forrelation.forrCircuit l t))) : ℝ)) ^ α) ∧\n      Tendsto (fun t : ℕ =>\n        d * (mValue t : ℝ) ^ (2 - 1 / ((l + 1 : ℕ) : ℝ) - α / 2) /\n          Real.logb 2 (mValue t : ℝ) ^ (2 + α * 6)) atTop atTop ∧\n      Tendsto (fun t : ℕ =>\n        (R (totalise (Fkm (l + 1) t (Forrelation.forrCircuit l t))) : ℝ) /\n          (1 + (Q (totalise (Fkm (l + 1) t (Forrelation.forrCircuit l t))) : ℝ)) ^ α)\n        atTop atTop\nend QuarticQuery.Paper",
+    "route_note": "Same Section 5 argument with explicit constants. The alpha<4 quantifier is discharged by the existing exists_nat_exponent; no parameter k grows with t.",
+    "declaration": "QuarticQuery.Paper.classical_Fkm_ratio",
+    "compiled": false,
+    "elaboration_status": "unelaborated"
+  }
+]

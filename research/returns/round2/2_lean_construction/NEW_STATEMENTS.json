@@ -1,0 +1,267 @@
+[
+  {
+    "id": "construction-explicit-family-constants",
+    "statement": "For k=l+1≥2, the fixed circuit forrCircuit(l,t) eventually realises P, has size≤forrConstant(k)m(log_2 m)^2, and its addressed total function satisfies Q≤budgetConst(k)sqrt(m)(log_2 m)^6 and R≥m^(2−1/k)/(400(log_2 m)^2), where m=4^t.",
+    "why_needed": "Records the stronger explicit constants and named common circuit used to prove the original eq-2 without silently changing its existential formulation.",
+    "depends_on": [
+      "eq-2",
+      "lem-2.1.i",
+      "lem-2.1.iii",
+      "prop-3.3",
+      "cor-R-omega"
+    ],
+    "proposed_lean": "theorem construction_family_named (l : ℕ) (hk : 2 ≤ l + 1) :\n    ∃ t₀ : ℕ, ∀ t : ℕ, t₀ ≤ t →\n      CircuitRealises (Forrelation.forrCircuit l t) (P (l + 1) t) ∧\n      (Forrelation.forrCircuit l t).size ≤\n        Forrelation.forrConstant (l + 1) * mValue t * (2 * t) ^ 2 ∧\n      (Q (totalise (Fkm (l + 1) t (Forrelation.forrCircuit l t))) : ℝ) ≤\n        (Upper.budgetConst (l + 1) : ℝ) * Real.sqrt (mValue t : ℝ) *\n          (Real.logb 2 (mValue t : ℝ)) ^ 6 ∧\n      (1 / 400 : ℝ) * Real.rpow (mValue t : ℝ) (2 - 1 / ((l + 1 : ℕ) : ℝ)) /\n          (Real.logb 2 (mValue t : ℝ)) ^ 2 ≤\n        (R (totalise (Fkm (l + 1) t (Forrelation.forrCircuit l t))) : ℝ)",
+    "route_note": "Short assembly of existing declarations; Forrelation input uses the existing alternative fixed-k proof. Full proof text is supplied in ConstructionFamily.lean, unelaborated.",
+    "compiled": false,
+    "declaration": "QuarticQuery.Paper.construction_family_named"
+  },
+  {
+    "id": "construction-exponent-infimum-well-defined",
+    "statement": "The set of exponents satisfying UniversalPower is nonempty and bounded below by zero.",
+    "why_needed": "Makes the nonvacuity of the real infimum in equation (1) explicit.",
+    "depends_on": [
+      "eq-1",
+      "thm-A.1"
+    ],
+    "proposed_lean": "theorem construction_exponent_set_wellDefined :\n    ({α : ℝ | UniversalPower α}).Nonempty ∧\n      BddBelow {α : ℝ | UniversalPower α}",
+    "route_note": "Use universalPower_four for a witness and the nonnegative-exponent clause for the lower bound. Existing universal bound uses the complexitylib route. Supplied proof text is unelaborated.",
+    "compiled": false,
+    "declaration": "QuarticQuery.Paper.construction_exponent_set_wellDefined"
+  },
+  {
+    "id": "r2-forrelation-affine-comparison",
+    "statement": "For fixed k>=2,c>0,A>=0,B>=0, every eventually positive denominator Lambda bounded above by A+Bt satisfies m^(1-1/k)/(2t)^2 < c(m/Lambda)^(1-1/k), for all sufficiently large t.",
+    "why_needed": "Retains the actual auxiliary comparison used to derive claim-bs-to-L.",
+    "depends_on": [
+      "eq-5"
+    ],
+    "proposed_lean": "theorem construction_affine_comparison {k : ℕ} (hk : 2 ≤ k)\n    {c A B : ℝ} (hc : 0 < c) (hA : 0 ≤ A) (hB : 0 ≤ B) :\n    ∃ t₀ : ℕ, 1 ≤ t₀ ∧ ∀ t : ℕ, t₀ ≤ t →\n      ∀ Λ : ℝ, 1 ≤ Λ → Λ ≤ A + B * t →\n        (mValue t : ℝ) ^ (1 - 1 / (k : ℝ)) / (2 * (t : ℝ)) ^ 2 <\n          c * ((mValue t : ℝ) / Λ) ^ (1 - 1 / (k : ℝ))",
+    "route_note": "Proof body supplied in lean/QuarticQuery/Paper/ConstructionForrelationComparison.lean. Source only: unelaborated, no compilation or comparator run.",
+    "declaration": "QuarticQuery.Paper.construction_affine_comparison",
+    "compiled": false,
+    "proposed_lean_context": "import QuarticQuery.Forrelation.Circuit\nimport QuarticQuery.Upper.Decode\nopen Finset Matrix QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nnamespace QuarticQuery.Paper\n"
+  },
+  {
+    "id": "r2-forrelation-unfloored-comparison",
+    "statement": "For fixed k>=2 and c>0, eventually L <= m^(1-1/k)/(2t)^2 < c k^(-29)(m/log_2(km))^(1-1/k), where m=4^t.",
+    "why_needed": "Records the stronger unfloored middle inequality, omitted from the candidate Section2 declaration type.",
+    "depends_on": [
+      "eq-5",
+      "claim-bs-to-L"
+    ],
+    "proposed_lean": "theorem construction_bs_comparison_chain (k : ℕ) (hk : 2 ≤ k)\n    (c : ℝ) (hc : 0 < c) :\n    ∃ t₀ : ℕ, ∀ t : ℕ, t₀ ≤ t →\n      (Lvalue k t : ℝ) ≤ (mValue t : ℝ) ^ (1 - 1 / (k : ℝ)) /\n        (Real.logb 2 (mValue t : ℝ)) ^ 2 ∧\n      (mValue t : ℝ) ^ (1 - 1 / (k : ℝ)) /\n          (Real.logb 2 (mValue t : ℝ)) ^ 2 <\n        c * (k : ℝ) ^ (-29 : ℤ) *\n          ((mValue t : ℝ) / Real.logb 2 ((k : ℝ) * (mValue t : ℝ))) ^\n            (1 - 1 / (k : ℝ))",
+    "route_note": "Proof body supplied in lean/QuarticQuery/Paper/ConstructionForrelationComparison.lean. Source only: unelaborated, no compilation or comparator run.",
+    "declaration": "QuarticQuery.Paper.construction_bs_comparison_chain",
+    "compiled": false,
+    "proposed_lean_context": "import QuarticQuery.Forrelation.Circuit\nimport QuarticQuery.Upper.Decode\nopen Finset Matrix QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nnamespace QuarticQuery.Paper\n"
+  },
+  {
+    "id": "r2-forrelation-generic-query-count",
+    "statement": "For k>=1 the projection test has coherent sampler cost k reads and generic physical bit-query cost 2k, with success probability Phi^2 and the exact promise gap.",
+    "why_needed": "Separates the available compiler count from the paper tight local phase count.",
+    "depends_on": [
+      "claim-proj-prob"
+    ],
+    "proposed_lean": "theorem construction_projection_test (k t : ℕ) (hk : 1 ≤ k) :\n    (∀ z : BitInput (ForrelationCoord k t),\n      successProb z = Phi k t z ^ 2 ∧\n      (P k t z = some true → delta k ^ 2 ≤ successProb z) ∧\n      (P k t z = some false → successProb z ≤ delta k ^ 2 / 4)) ∧\n    Samples k (fun (z : BitInput (ForrelationCoord k t)) b => bern (Phi k t z ^ 2) b) ∧\n    (∀ [Inhabited (ForrelationCoord k t)],\n      Runs (2 * k) (fun (z : BitInput (ForrelationCoord k t)) b => bern (Phi k t z ^ 2) b))",
+    "route_note": "Proof body supplied in lean/QuarticQuery/Paper/ConstructionForrelationQuantum.lean. Source only: unelaborated, no compilation or comparator run.",
+    "declaration": "QuarticQuery.Paper.construction_projection_test",
+    "compiled": false,
+    "proposed_lean_context": "import QuarticQuery.Forrelation.Circuit\nimport QuarticQuery.Upper.Decode\nopen Finset Matrix QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nnamespace QuarticQuery.Paper\n"
+  },
+  {
+    "id": "r2-forrelation-explicit-circuit-costs",
+    "statement": "For k=l+1 and t>=1 the explicit circuit has widthTop+1 <= (3l+5)(2t), Walsh gate cost <= (2t)m(6w+1), the recorded layer bound and final numerator bound, realizes P, and has at most forrConstant(k)m(2t)^2 gates.",
+    "why_needed": "Records quantitative strengthening and the actual modular endpoint.",
+    "depends_on": [
+      "claim-circuit-size",
+      "claim-integer-tests"
+    ],
+    "proposed_lean": "theorem construction_circuit_costs (l t : ℕ) (ht : 1 ≤ t) :\n    widthTop l t + 1 ≤ (3 * l + 5) * (2 * t) ∧\n    (∀ w : ℕ, whtCost w (2 * t) ≤ (2 * t) * mValue t * (6 * w + 1)) ∧\n    (∀ n w : ℕ, layerCost n w l ≤\n      1 + (l + 1) * (whtCost w n + 2 ^ n * (6 * w))) ∧\n    (∀ x : BitInput (ForrelationCoord (l + 1) t),\n      |forrelationNumerator (l + 1) t x| ≤ forrelationDenominator (l + 1) t) ∧\n    CircuitRealises (forrCircuit l t) (P (l + 1) t) ∧\n    (forrCircuit l t).size ≤\n      forrConstant (l + 1) * mValue t * (2 * t) ^ 2",
+    "route_note": "Proof body supplied in lean/QuarticQuery/Paper/ConstructionForrelationCircuit.lean. Source only: unelaborated, no compilation or comparator run.",
+    "declaration": "QuarticQuery.Paper.construction_circuit_costs",
+    "compiled": false,
+    "proposed_lean_context": "import QuarticQuery.Forrelation.Circuit\nimport QuarticQuery.Upper.Decode\nopen Finset Matrix QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nnamespace QuarticQuery.Paper\n"
+  },
+  {
+    "id": "r2-forrelation-product-scaling",
+    "statement": "For a list of k>=1 diagonals, replacing each intervening A by cA multiplies the alternating matrix word by c^(k-1).",
+    "why_needed": "Makes the normalization proof recoverable from an explicit existing-vocabulary matrix identity.",
+    "depends_on": [
+      "claim-N-phi"
+    ],
+    "proposed_lean": "theorem construction_alternate_smul {n : Type} [Fintype n] [DecidableEq n]\n    (c : ℝ) (A : Matrix n n ℝ) (k : ℕ) (hk : 1 ≤ k)\n    (D : Fin k → Matrix n n ℝ) :\n    alternate (c • A) (List.ofFn D) = c ^ (k - 1) • alternate A (List.ofFn D)",
+    "route_note": "Proof body supplied in lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean. Source only: unelaborated, no compilation or comparator run.",
+    "declaration": "QuarticQuery.Paper.construction_alternate_smul",
+    "compiled": false,
+    "proposed_lean_context": "import QuarticQuery.Forrelation.Circuit\nimport QuarticQuery.Upper.Decode\nopen Finset Matrix QuarticQuery QuarticQuery.Forrelation QuarticQuery.Upper\nnamespace QuarticQuery.Paper\n"
+  },
+  {
+    "id": "new-r2-K-explicit",
+    "statement": "If t≥1 and S≤A·mValue(t)·(2t)^2, then the local-test count is at most (42+20A)·mValue(t)·(2t)^3.",
+    "why_needed": "Exports a reusable finite constant behind the existing O_k(m log³m) row.",
+    "depends_on": [
+      "def-K",
+      "lem-2.1.iii"
+    ],
+    "proposed_lean": "theorem construction_K_bound (t S A : ℕ) (ht : 1 ≤ t)\n    (hS : S ≤ A * mValue t * (2 * t) ^ 2) :\n    Fintype.card (TestIndex (2 * t) (40 * t) S) ≤\n      (42 + 20 * A) * mValue t * (2 * t) ^ 3",
+    "proposed_lean_context": "import QuarticQuery.Paper.ConstructionComplete\nopen QuarticQuery QuarticQuery.Upper\nopen scoped BigOperators\n",
+    "route_note": "The arithmetic is already present locally in Upper/Bound.lean:137–163; this is an explicit reusable interface, with no novelty claim.",
+    "declaration": "QuarticQuery.Paper.construction_K_bound",
+    "file": "lean/QuarticQuery/Paper/ConstructionTests.lean",
+    "line": 139,
+    "compiled": false,
+    "formal_status": "unelaborated_proof_source",
+    "vocabulary_note": "The proposed signature inlines any newly defined helper, so its proposition uses only existing development vocabulary. The submitted proof source may use the explicitly supplied helper definition."
+  },
+  {
+    "id": "new-r2-exact-law-support",
+    "statement": "If measuring a finite state through a Boolean output label has the point-mass law at b, then every basis amplitude whose output label is different from b is zero.",
+    "why_needed": "Turns an exact sampler distribution into the support statement needed to evaluate local tests coherently.",
+    "depends_on": [
+      "lem-2.2.ii"
+    ],
+    "proposed_lean": "theorem construction_support_of_exact_law {Z : Type} [Fintype Z]\n    (ψ : Reg Z) (out : Z → Bool) (b : Bool)\n    (h : ∀ c, pt b c = lawOf ψ out c) (z : Z) (hz : out z ≠ b) :\n    ψ.ofLp z = 0",
+    "proposed_lean_context": "import QuarticQuery.Paper.ConstructionComplete\nopen QuarticQuery QuarticQuery.Upper\nopen scoped BigOperators\n",
+    "route_note": "Elementary nonnegative finite-sum argument: each wrong squared amplitude is bounded by the zero probability of its output label.",
+    "declaration": "QuarticQuery.Paper.construction_support_of_exact_law",
+    "file": "lean/QuarticQuery/Paper/ConstructionCoherent.lean",
+    "line": 51,
+    "compiled": false,
+    "formal_status": "unelaborated_proof_source",
+    "vocabulary_note": "The proposed signature inlines any newly defined helper, so its proposition uses only existing development vocabulary. The submitted proof source may use the explicitly supplied helper definition."
+  },
+  {
+    "id": "new-r2-arbitrary-index-coherence",
+    "statement": "A finite family of exact Boolean samplers with a common n-read bound has a single direct-sum n-read unitary implementation that evaluates every index coherently for arbitrary complex index coefficients and has zero amplitude at every wrong output label.",
+    "why_needed": "The existing uniform-index Samples endpoint does not by itself state the arbitrary-superposition clause of Lemma 2.2(ii).",
+    "depends_on": [
+      "lem-2.2.ii",
+      "new-r2-exact-law-support"
+    ],
+    "proposed_lean": "theorem construction_controlled_exact_samples {ι Γ : Type} [Fintype Γ]\n    (n : ℕ) (g : BitInput ι → Γ → Bool)\n    (h : ∀ e : Γ, Samples n fun x b => pt (g x e) b) :\n    ∃ (Z : Γ → Type) (instZ : ∀ e, Fintype (Z e)),\n      let _ := instZ\n      ∃ (o : ∀ e, Z e) (out : ∀ e, Z e → Bool)\n        (F : ∀ e, BitInput ι → Reg (Z e) ≃ₗᵢ[ℂ] Reg (Z e)),\n        (∀ e, IsCirc n (F e)) ∧\n        IsCirc n (fun x => sigmaOp fun e => F e x) ∧\n        (∀ (x : BitInput ι) (a : Γ → ℂ) (e : Γ),\n          slice e (sigmaOp (fun e => F e x) ((WithLp.toLp 2 (fun p => a p.1 * (rket (o p.1)).ofLp p.2)))) =\n            a e • F e x (rket (o e))) ∧\n        (∀ (x : BitInput ι) (e : Γ) (z : Z e),\n          out e z ≠ g x e → (F e x (rket (o e))).ofLp z = 0)",
+    "proposed_lean_context": "import QuarticQuery.Paper.ConstructionComplete\nopen QuarticQuery QuarticQuery.Upper\nopen scoped BigOperators\n",
+    "route_note": "Uses the existing IsCirc.sigma direct-sum closure and linearity. Its read count becomes at most 2n physical bit queries under compile_circ; no clean-XOR claim is made.",
+    "declaration": "QuarticQuery.Paper.construction_controlled_exact_samples",
+    "file": "lean/QuarticQuery/Paper/ConstructionCoherent.lean",
+    "line": 72,
+    "compiled": false,
+    "formal_status": "unelaborated_proof_source",
+    "vocabulary_note": "The proposed signature inlines any newly defined helper, so its proposition uses only existing development vocabulary. The submitted proof source may use the explicitly supplied helper definition."
+  },
+  {
+    "id": "new-r2-pointer-essential-coordinates",
+    "statement": "For the Boolean lookup function that decodes an ℓ-bit pointer and reads the selected bit of a 2^ℓ-bit target array, every pointer or target coordinate is essential.",
+    "why_needed": "Provides a direct witness proof for the corrected ledger’s distinction between adaptive query depth and fixed coordinate dependence.",
+    "depends_on": [
+      "lem-2.2.i",
+      "def-column-layout"
+    ],
+    "proposed_lean": "theorem construction_pointer_every_coordinate (ℓ : ℕ)\n    (q : Fin ℓ ⊕ Column ℓ) :\n    ∃ x y : BitInput (Fin ℓ ⊕ Column ℓ),\n      (∀ p, p ≠ q → x p = y p) ∧\n        x (.inr (pointerEquiv ℓ (fun b => x (.inl b)))) ≠ y (.inr (pointerEquiv ℓ (fun b => y (.inl b))))",
+    "proposed_lean_context": "import QuarticQuery.Paper.ConstructionComplete\nopen QuarticQuery QuarticQuery.Upper\nopen scoped BigOperators\n",
+    "route_note": "A stronger quantified schema for the ledger’s already-adjudicated support qualification. The actual local pointer test is its negation after the explicit physical-coordinate substitution.",
+    "declaration": "QuarticQuery.Paper.construction_pointer_every_coordinate",
+    "file": "lean/QuarticQuery/Paper/ConstructionTests.lean",
+    "line": 66,
+    "compiled": false,
+    "formal_status": "unelaborated_proof_source",
+    "vocabulary_note": "The proposed signature inlines any newly defined helper, so its proposition uses only existing development vocabulary. The submitted proof source may use the explicitly supplied helper definition."
+  },
+  {
+    "id": "new-r2-pointer-physical-support",
+    "statement": "For a fixed pointer-test index at a fixed column and address, each of its ℓ pointer-word coordinates and m possible target-column coordinates is essential on full physical inputs: two inputs agree at every other physical location and yield different local-test outputs. These ℓ+m locations are pairwise distinct.",
+    "why_needed": "Closes the earlier qualification that only the separate lookup schema, plus its definitional substitution, had formal support witnesses.",
+    "depends_on": [
+      "lem-2.2.i",
+      "new-r2-pointer-essential-coordinates"
+    ],
+    "proposed_lean": "theorem construction_pointer_every_physical_coordinate {κ : Type} (C : Circuit κ)\n    (ℓ r : ℕ) (i : Column ℓ) (s : Address r) (e : Fin (2 ^ ℓ - 1))\n    (q : Fin ℓ ⊕ Column ℓ) :\n    ∃ X Y : BitInput (BitLoc ℓ r C.size κ),\n      (∀ p, p ≠ (match q with\n        | .inl b => .inr (.inr (.inl ⟨i, (s, otherColumn i e, b)⟩))\n        | .inr j => .inl ((otherColumn i e).val, j)) → X p = Y p) ∧\n        localTest C ℓ r X i s (.inr (.inl e)) ≠\n          localTest C ℓ r Y i s (.inr (.inl e))",
+    "proposed_lean_context": "import QuarticQuery.Paper.ConstructionPointerSupport\nopen QuarticQuery\n",
+    "route_note": "The physical-coordinate map is injective because pointer and target locations occupy separate BitLoc branches. Extend the existing schema witnesses using a chosen inverse on the injection range, set all other coordinates false, and use Boolean-negation injectivity.",
+    "declaration": "QuarticQuery.Paper.construction_pointer_every_physical_coordinate",
+    "supporting_declarations": [
+      "QuarticQuery.Paper.constructionPointerLoc",
+      "QuarticQuery.Paper.construction_pointerLoc_injective",
+      "QuarticQuery.Paper.construction_essential_coordinate_lift"
+    ],
+    "file": "lean/QuarticQuery/Paper/ConstructionPointerSupport.lean",
+    "line": 79,
+    "compiled": false,
+    "formal_status": "unelaborated_proof_source",
+    "vocabulary_note": "The proposed signature inlines the physical-coordinate map and uses only existing development vocabulary. The submitted proof uses the explicit new map and its proved injectivity."
+  },
+  {
+    "id": "r2-phase-kickback-state",
+    "statement": "On the answer-qubit minus subspace, one application of the actual bit oracle multiplies each index amplitude by the sign of the queried input bit, with arbitrary entangled workspace.",
+    "why_needed": "Makes the local physical implementation in claim-proj-prob explicit without attributing a one-query cost to the generic two-query compiler.",
+    "depends_on": [
+      "claim-proj-prob",
+      "def-query-oracle"
+    ],
+    "proposed_lean": "theorem construction_bitOracle_phase_kickback\n    (x : BitInput ι) (ψ : State ι w)\n    (hminus : ∀ (i : ι) (z : Fin (w + 1)),\n      ψ.ofLp (i, true, z) = -ψ.ofLp (i, false, z))\n    (p : Basis ι w) :\n    (bitOracle x ψ).ofLp p =\n      (if x p.1 then (-1 : ℂ) else 1) * ψ.ofLp p",
+    "route_note": "Proof text supplied in lean/QuarticQuery/Paper/ConstructionPhase.lean. Unelaborated. Local one-call identity; no complete Runs k witness is asserted.",
+    "declaration": "QuarticQuery.Paper.construction_bitOracle_phase_kickback",
+    "compiled": false
+  },
+  {
+    "id": "r2-phase-kickback-preservation",
+    "statement": "The bit oracle preserves the normalized minus-answer subspace used for phase kickback.",
+    "why_needed": "Records that the phase-query answer ancilla can be retained for later phase queries.",
+    "depends_on": [
+      "r2-phase-kickback-state"
+    ],
+    "proposed_lean": "theorem construction_bitOracle_phase_preserves\n    (x : BitInput ι) (ψ : State ι w)\n    (hminus : ∀ (i : ι) (z : Fin (w + 1)),\n      ψ.ofLp (i, true, z) = -ψ.ofLp (i, false, z))\n    (hunit : ‖ψ‖ = 1) :\n    ‖bitOracle x ψ‖ = 1 ∧\n      ∀ (i : ι) (z : Fin (w + 1)),\n        (bitOracle x ψ).ofLp (i, true, z) =\n          -(bitOracle x ψ).ofLp (i, false, z)",
+    "route_note": "Proof text supplied in lean/QuarticQuery/Paper/ConstructionPhase.lean. Unelaborated. Local one-call identity; no complete Runs k witness is asserted.",
+    "declaration": "QuarticQuery.Paper.construction_bitOracle_phase_preserves",
+    "compiled": false
+  },
+  {
+    "id": "r2-integer-sum-bound",
+    "statement": "If every term of a finite integer sum of length a has absolute value at most B, the sum has absolute value at most a B.",
+    "why_needed": "Provides the induction step for the ideal integer walk and its partial sums.",
+    "depends_on": [
+      "claim-circuit-size"
+    ],
+    "proposed_lean": "theorem construction_abs_sum_range_le (a : ℕ) (v : ℕ → ℤ) (B : ℤ)\n    (hv : ∀ j, j < a → |v j| ≤ B) :\n    |∑ j ∈ range a, v j| ≤ (a : ℤ) * B",
+    "route_note": "Proof text supplied in lean/QuarticQuery/Paper/ConstructionArithmetic.lean. Unelaborated. The ideal arithmetic statements do not identify every actual modular register with an unbounded signed integer.",
+    "declaration": "QuarticQuery.Paper.construction_abs_sum_range_le",
+    "compiled": false
+  },
+  {
+    "id": "r2-integer-walk-bound",
+    "statement": "For sign inputs bounded in absolute value by one, the ideal unnormalized Walsh walk after l transforms on m=2^n coordinates has each coordinate bounded by m^l.",
+    "why_needed": "Supplies an explicit polynomial magnitude bound for the ideal arithmetic in the preprint.",
+    "depends_on": [
+      "r2-integer-sum-bound",
+      "def-walsh-sign"
+    ],
+    "proposed_lean": "theorem construction_walkN_bound (n l : ℕ) (σ : ℕ → ℕ → ℤ)\n    (hσ : ∀ h i, |σ h i| ≤ 1) (i : ℕ) :\n    |walkN n l σ i| ≤ ((2 ^ n : ℕ) : ℤ) ^ l",
+    "route_note": "Proof text supplied in lean/QuarticQuery/Paper/ConstructionArithmetic.lean. Unelaborated. The ideal arithmetic statements do not identify every actual modular register with an unbounded signed integer.",
+    "declaration": "QuarticQuery.Paper.construction_walkN_bound",
+    "compiled": false
+  },
+  {
+    "id": "r2-integer-prefix-bound",
+    "statement": "A prefix of length a in the final ideal signed sum has absolute value at most a m^l.",
+    "why_needed": "Includes partial accumulators in the magnitude argument.",
+    "depends_on": [
+      "r2-integer-walk-bound"
+    ],
+    "proposed_lean": "theorem construction_walkN_prefix_bound (n l a : ℕ) (σ : ℕ → ℕ → ℤ)\n    (hσ : ∀ h i, |σ h i| ≤ 1) :\n    |∑ j ∈ range a, walkN n l σ j| ≤ (a : ℤ) * ((2 ^ n : ℕ) : ℤ) ^ l",
+    "route_note": "Proof text supplied in lean/QuarticQuery/Paper/ConstructionArithmetic.lean. Unelaborated. The ideal arithmetic statements do not identify every actual modular register with an unbounded signed integer.",
+    "declaration": "QuarticQuery.Paper.construction_walkN_prefix_bound",
+    "compiled": false
+  },
+  {
+    "id": "r2-butterfly-block-bound",
+    "statement": "An offset Walsh butterfly block of 2^q inputs, each bounded by B in absolute value, has absolute value at most 2^q B.",
+    "why_needed": "Includes recursive transform blocks in the ideal arithmetic bound.",
+    "depends_on": [
+      "r2-integer-sum-bound",
+      "def-walsh-sign"
+    ],
+    "proposed_lean": "theorem construction_butterfly_block_bound (q i offset : ℕ)\n    (v : ℕ → ℤ) (B : ℤ)\n    (hv : ∀ j, j < 2 ^ q → |v (offset + j)| ≤ B) :\n    |∑ j ∈ range (2 ^ q), walshN q i j * v (offset + j)| ≤\n      ((2 ^ q : ℕ) : ℤ) * B",
+    "route_note": "Proof text supplied in lean/QuarticQuery/Paper/ConstructionArithmetic.lean. Unelaborated. The ideal arithmetic statements do not identify every actual modular register with an unbounded signed integer.",
+    "declaration": "QuarticQuery.Paper.construction_butterfly_block_bound",
+    "compiled": false
+  }
+]

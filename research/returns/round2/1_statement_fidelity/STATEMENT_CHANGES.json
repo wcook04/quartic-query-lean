@@ -1,0 +1,117 @@
+[
+  {
+    "id": "audit-reach-private",
+    "kind": "evidence_description",
+    "target": "repository/lean/scripts/Reach.lean and generated reach fields",
+    "old": "The generated public QuarticQuery closure can be used to infer that declarations marked unreached or outside are absent from the headline proof dependency closure.",
+    "new": "The current extractor filters before traversing private constants, so its closure is incomplete. Negative reach labels are provisional until a full traversal is regenerated against identified compiled inputs.",
+    "relation": "corrected",
+    "reason": "Private Lean names begin _private.<module>.0 and fail both prefix-gated branches at Reach.lean:33–39. Existing source/graph discrepancies are documented; their exact compiled paths are unconfirmed. This is a metadata repair, not a change to the mathematical theorem.",
+    "affected_statement_ids": [
+      "def-query-oracle",
+      "lem-A.2",
+      "thm-A.1",
+      "thm-1.1"
+    ],
+    "origin": "new source-audit finding"
+  },
+  {
+    "id": "audit-root-build-pin",
+    "kind": "evidence_description",
+    "target": "BUILD_STATUS.md and built_at_pin interpretations",
+    "old": "The reported passed root build at 16adedc16acca1e3a8d2963d4fd5655dcd0492d7 is a build of that clean committed tree.",
+    "new": "The supplied adjudication says the successful run used an uncommitted working tree. Preserve the reported run, distinguish its working-tree bytes from the commit label, and obtain a fresh identified-source receipt.",
+    "relation": "corrected",
+    "reason": "Existing adjudication F-PIN-BUILD identifies files first committed later that appear in the reported run. Later Comparator evidence at d42fb67 remains separately reported. This audit did not reproduce either execution.",
+    "affected_statement_ids": [
+      "thm-1.1",
+      "lem-2.1.i"
+    ],
+    "origin": "previously adjudicated finding, retained without claiming rediscovery"
+  },
+  {
+    "id": "audit-build-status-currentness",
+    "kind": "evidence_description",
+    "target": "BUILD_STATUS.md introductory paragraph and interpretation of its table",
+    "old": "A module listed as compiled has an up-to-date .olean from the pinned toolchain.",
+    "new": "Compiled and source-current are separate fields. Model/Classical.lean is listed compiled but its output is older than source. Uniform and Paper/Section2,3,4 are uncompiled and not imported by the root.",
+    "relation": "corrected",
+    "reason": "The literal table contradicts the unconditional introductory wording for Model/Classical.lean. A root-only rebuild does not compile unimported targets. No existing source theorem is weakened.",
+    "affected_statement_ids": [
+      "def-R",
+      "def-D",
+      "thm-1.1"
+    ],
+    "origin": "direct source/table check"
+  },
+  {
+    "id": "audit-comparator-shared-specification",
+    "kind": "evidence_description",
+    "target": "Description of independently compiled Comparator challenges",
+    "old": "Five bundles are compared against independently compiled Mathlib-only challenges.",
+    "new": "The challenges are independently compiled and each copies the same public vocabulary from Statement.lean. Acceptance checks that specification; independently authored small-function tests are needed to assess intended meaning.",
+    "relation": "corrected",
+    "reason": "This is a clarification of provenance and limits, not a claim that the original independently-compiled wording was false or that Comparator ignores definitions. definition_names=[] permits no definition holes.",
+    "affected_statement_ids": [
+      "def-R",
+      "def-Q",
+      "thm-1.1"
+    ],
+    "origin": "clarification from complete definition-block comparison"
+  },
+  {
+    "id": "audit-spalek-digest",
+    "kind": "literature_digest",
+    "target": "literature/quartic-ref-24-all-quantum-adversary-methods-are-equivale/annex_notes.json, n003",
+    "old": "Q_eps(f)/sqrt(1-2sqrt(eps(1-eps))) >= SA(f), with derived coefficient approximately0.239 at error1/3.",
+    "new": "The publisher prints Q_eps(f)/(1-2sqrt(eps(1-eps))) >= SA(f). Remove the outer square root and the unsupported0.239 value. Substitution into the printed expression gives approximately0.0571909584; use the asymptotic statement here without claiming a sharp constant transport.",
+    "relation": "corrected",
+    "reason": "Publisher PDF p6, Theorem3.1, visually checked. This correction is to the annex transcription, not the primary paper. The independently proved formal constant20736 is unaffected.",
+    "affected_statement_ids": [
+      "lem-A.2",
+      "lem-A.3.lambda",
+      "thm-A.1"
+    ],
+    "origin": "new primary-source verification"
+  },
+  {
+    "id": "audit-abkrt-number",
+    "kind": "citation_locator",
+    "target": "References to the quartic upper-bound theorem using extracted Markdown numbering",
+    "old": "Theorem1 in the extracted ABKRT text.",
+    "new": "ABKRT arXiv:2010.12629v1, printed Theorem2, p2.",
+    "relation": "corrected",
+    "reason": "The TeX extraction loses an earlier restatable theorem. The original PDF gives the correct printed number.",
+    "affected_statement_ids": [
+      "thm-A.1"
+    ],
+    "origin": "primary-PDF locator verification"
+  },
+  {
+    "id": "audit-bs-line-locator",
+    "kind": "citation_locator",
+    "target": "READ_ME_FIRST.md and adjudication locators for the third final-display inequality in Bansal–Sinha §5.4",
+    "old": "main.tex physical line1184 identifies the disputed inequality.",
+    "new": "In the supplied archive, the disputed third inequality in the final align* display is physical line1181. Line1184 is the subsequent depth condition. The main.tex SHA256 is800119f9f12877392a92e34ac380c61a50b2a297cee0a70511058580061f835b.",
+    "relation": "corrected",
+    "reason": "Two independent archive extractions confirm the physical lines and exact source hash. The previously adjudicated mathematical finding is retained.",
+    "affected_statement_ids": [
+      "claim-bs-to-L"
+    ],
+    "origin": "new locator correction"
+  },
+  {
+    "id": "audit-pointer-comment",
+    "kind": "documentation_attribution",
+    "target": "Paper/Section2.lean:232–237, Correction comment",
+    "old": "Correction of the fixed-support description without identifying that it came from the earlier ledger.",
+    "new": "The earlier ledger is corrected: a pointer test uses at most ell+1 adaptive queries. The original preprint already states the adaptive bound. The uniform coherent-index interface remains narrower than the preprint's supplied-superposition clause.",
+    "relation": "corrected",
+    "reason": "Original Lemma2.2, printed p6, extracted lines274–288 is already accurate. The coherent wrapper is partial and uncompiled in the supplied snapshot.",
+    "affected_statement_ids": [
+      "lem-2.2.i",
+      "lem-2.2.ii"
+    ],
+    "origin": "direct preprint/source comparison"
+  }
+]

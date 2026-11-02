@@ -1,0 +1,144 @@
+{
+  "format": "sections4_5_advisory_return_v1",
+  "source_repository_commit": "4c7544f8dcdfc18d3ecf8476ebd8c1090cd46f15",
+  "source_paper_pin": "openai/math 4eaee875",
+  "new_lean_elaboration": "not_run",
+  "manifest_excludes_itself": true,
+  "members": [
+    {
+      "path": "BUILD_INSTRUCTIONS.md",
+      "bytes": 4514,
+      "sha256": "41672ce2c0aa81d1d3db2266996ba1dd94db76134f78a9ce98e194345a574d6a"
+    },
+    {
+      "path": "LEAN_GAPS.md",
+      "bytes": 10296,
+      "sha256": "7e0ab8f744c27512000dba5e702c8dbf425fbcca8b9fc06958d9e96b3e49fd06"
+    },
+    {
+      "path": "NEW_STATEMENTS.json",
+      "bytes": 15780,
+      "sha256": "b1e0048f4df0aad6952ca23eda9111f14c4a8dbf645971627ee04b92714b72a8"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3704,
+      "sha256": "11c4af9947a3f6692ed9559bf1abf7cec1e8087be25189f62799386351c23c07"
+    },
+    {
+      "path": "STATEMENT_CHANGES.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "blueprint.md",
+      "bytes": 52992,
+      "sha256": "67d00ba8d3e875ab8804e095a6573f3b2a121691d8930c5870864bf2a9de843b"
+    },
+    {
+      "path": "checks/asymptotics_source_check.json",
+      "bytes": 1012,
+      "sha256": "e806beae9669ac5cb03883ec2e981c88993f99d32741d212082abe93c16e281e"
+    },
+    {
+      "path": "checks/check_mathematics.py",
+      "bytes": 9333,
+      "sha256": "bb6382345f90e903af0b1e0d27e9859bfa07decb1f52b2be3ef4ab756bdaab65"
+    },
+    {
+      "path": "checks/direct_product_sanity.json",
+      "bytes": 317,
+      "sha256": "6d30448609ed983d8fca9fcbf239222dba52f02a9358f887bf79b09091e61007"
+    },
+    {
+      "path": "checks/mathematics_results.json",
+      "bytes": 1216,
+      "sha256": "88d0078a78ac001fa14aab1faed16ddfec9f077ccd9e2ba075ac9c5055e0eb6f"
+    },
+    {
+      "path": "checks/package_integrity.json",
+      "bytes": 884,
+      "sha256": "b96e4bcd308bfc2c27abc34b50b7e12bff1acff2f394f81e4a94e3d4870bb691"
+    },
+    {
+      "path": "checks/validate_return.py",
+      "bytes": 9787,
+      "sha256": "274cee3dc03112e9c0d16722b467037e475fcfc60ac47700834845b415b52d78"
+    },
+    {
+      "path": "correspondence.json",
+      "bytes": 16134,
+      "sha256": "9904da1670f681282dba33d83017e63863d9f92b563551b2d5db9d3adde3d704"
+    },
+    {
+      "path": "coverage_plan.json",
+      "bytes": 22074,
+      "sha256": "8efef7b05d4b09523e5b7f139c5d65ee2d0e98c6053e20bd4de62a50ce3e8036"
+    },
+    {
+      "path": "declarations.json",
+      "bytes": 26481,
+      "sha256": "49c3d2e62c697742702b82bb81758aab097958d2b8b9ed0428a20fc16e1f3714"
+    },
+    {
+      "path": "lean/QuarticQuery/Paper/ClassicalAsymptotics.lean",
+      "bytes": 20405,
+      "sha256": "ef966cd4f4bb8a0ba31e2e671b746c31b187febca304330b66e6bbe582218340"
+    },
+    {
+      "path": "lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+      "bytes": 43718,
+      "sha256": "c3d51e9b2e9dd26ac6aafce07fd15985de4873170e541f866bc590627f011c44"
+    },
+    {
+      "path": "lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+      "bytes": 27806,
+      "sha256": "f00ece8f43d781f9c97d522e75e47a7928316c593865b0d064f9346d3963ce94"
+    },
+    {
+      "path": "lean/QuarticQuery/Paper/ClassicalUniformZero.lean",
+      "bytes": 13160,
+      "sha256": "d90c4507bab4cfb4e47475c800a5f3d0522e845102efddd7b3ada9bae0d8a7a0"
+    },
+    {
+      "path": "references.bib",
+      "bytes": 1805,
+      "sha256": "a83701ac3387a058b8ff5906294d4115878da5d6197ecf6ccf6f99b35f79ab1b"
+    },
+    {
+      "path": "source_reads/direct_product.json",
+      "bytes": 11266,
+      "sha256": "547d8fc952449d11e824ced1a65406aafb33f613e5af7957326c4573b5d5c944"
+    },
+    {
+      "path": "source_reads/exponent_numeric.json",
+      "bytes": 15954,
+      "sha256": "bee4b32692c5a2becce69c79c72d549645b9e9cb7296a1e3f03fb2b004c76658"
+    },
+    {
+      "path": "source_reads/planted.json",
+      "bytes": 23806,
+      "sha256": "c282391b06561faa9e7fbd3d63c82d2bc3a5ccc87719253c22b9542fa61b5cdf"
+    },
+    {
+      "path": "source_reads/public_pdf.json",
+      "bytes": 331,
+      "sha256": "ac96599d06e3b6b71b6a1960b5497bd594932c93dae66c20223ae95791f3deed"
+    },
+    {
+      "path": "source_reads/root.json",
+      "bytes": 6561,
+      "sha256": "d6113a89663350acc83550a322d228db6b459d543eabc0313d5cec33c728fa04"
+    },
+    {
+      "path": "sources.md",
+      "bytes": 7691,
+      "sha256": "fb8e852a50d7a284dc474bc50edcab6da96cc96a5d20a2de5221f13fce9a718f"
+    },
+    {
+      "path": "validation.json",
+      "bytes": 4421,
+      "sha256": "484396e638bd0a0f5519b988f50db574dfe47afc05e8e043ac860e81b257703d"
+    }
+  ]
+}

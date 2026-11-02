@@ -1,0 +1,100 @@
+[
+  {
+    "id": "OAI",
+    "authors": ["OpenAI"],
+    "title": "A Nearly Quartic Separation Between Randomized and Quantum Query Complexity",
+    "version": "5 October 2026",
+    "url": "https://github.com/openai/math/blob/main/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf",
+    "content_source": "Supplied paper/extracted.md, Section 3; public GitHub metadata only independently resolved",
+    "locators": ["Section 3.1, Lemma 3.1", "Section 3.2, Proposition 3.2", "Equations (10), (11), (13), (15)", "Section 3.3"],
+    "role": "Primary mathematical content and exact statements being formalized",
+    "access_date": "2026-11-02",
+    "independent_public_full_text_verified": false
+  },
+  {
+    "id": "BHMT",
+    "authors": ["Gilles Brassard", "Peter Høyer", "Michele Mosca", "Alain Tapp"],
+    "title": "Quantum Amplitude Amplification and Estimation",
+    "arxiv": "quant-ph/0005055v1",
+    "year": 2000,
+    "url": "https://arxiv.org/html/quant-ph/0005055v1",
+    "locators": ["Section 2, Lemma 1", "Equation (8), printed pp. 5–7", "Theorem 3 (expected-time comparison only)"],
+    "role": "Amplitude dynamics and good-state preservation up to phase; finite capped constants are derived separately",
+    "access_date": "2026-11-02"
+  },
+  {
+    "id": "BBHT",
+    "authors": ["Michel Boyer", "Gilles Brassard", "Peter Høyer", "Alain Tapp"],
+    "title": "Tight bounds on quantum searching",
+    "arxiv": "quant-ph/9605034v1",
+    "year": 1996,
+    "url": "https://arxiv.org/pdf/quant-ph/9605034v1",
+    "locators": ["Section 4, Lemma 2, printed p. 3 in v1"],
+    "role": "Exact uniform-iteration averaging identity underlying the paper's equation (9)",
+    "access_date": "2026-11-02"
+  },
+  {
+    "id": "Grover",
+    "authors": ["Lov K. Grover"],
+    "title": "A fast quantum mechanical algorithm for database search",
+    "arxiv": "quant-ph/9605043",
+    "year": 1996,
+    "url": "https://arxiv.org/abs/quant-ph/9605043",
+    "locators": ["Original search algorithm; primary abstract and bibliographic record checked"],
+    "role": "Historical background credit; not the citation for this package's exact capped-amplification constants",
+    "access_date": "2026-11-02"
+  },
+  {
+    "id": "HMW",
+    "authors": ["Peter Høyer", "Michele Mosca", "Ronald de Wolf"],
+    "title": "Quantum Search on Bounded-Error Inputs",
+    "arxiv": "quant-ph/0304052v2",
+    "year": 2003,
+    "url": "https://arxiv.org/html/quant-ph/0304052v2",
+    "locators": ["Section 3, paragraph following Facts 1 and 2"],
+    "role": "Hypothesis comparison: every Boolean predicate has uniformly bounded error, unlike arbitrary nonwinner comparisons",
+    "access_date": "2026-11-02"
+  },
+  {
+    "id": "Montanaro",
+    "authors": ["Ashley Montanaro"],
+    "title": "Quantum search with advice",
+    "arxiv": "0908.3066",
+    "version": "Author PDF dated 14 September 2009",
+    "year": 2009,
+    "url": "https://people.maths.bris.ac.uk/~csxam/papers/advice.pdf",
+    "record_url": "https://arxiv.org/abs/0908.3066",
+    "locators": ["Abstract", "Sections 1 and 1.2"],
+    "role": "Complexity-model comparison: advice-distribution expected cost does not by itself give a pointwise branch cap",
+    "access_date": "2026-11-02"
+  },
+  {
+    "id": "DH",
+    "authors": ["Christoph Dürr", "Peter Høyer"],
+    "title": "A Quantum Algorithm for Finding the Minimum",
+    "arxiv": "quant-ph/9607014",
+    "year": 1996,
+    "url": "https://arxiv.org/abs/quant-ph/9607014",
+    "locators": ["Primary abstract and problem description"],
+    "role": "Hypothesis comparison with table minimum-finding; no priority or impossibility assertion",
+    "access_date": "2026-11-02"
+  },
+  {
+    "id": "deWolf",
+    "authors": ["Ronald de Wolf"],
+    "title": "Quantum Computing: Lecture Notes",
+    "arxiv": "1907.09415v6",
+    "version": "27 August 2026",
+    "url": "https://arxiv.org/abs/1907.09415",
+    "locators": ["Bibliographic/version record and query-model background only"],
+    "role": "Optional background; full lecture notes not audited and not used as proof evidence for exact new statements",
+    "access_date": "2026-11-02"
+  },
+  {
+    "id": "Lean-source-credit",
+    "authors": ["Troy Lee (adapted source credited by supplied headers)"],
+    "title": "Amplitude geometry and trigonometric-sum proof provenance",
+    "locators": ["repository/lean/QuarticQuery/Amplification/Geometry.lean header", "repository/lean/QuarticQuery/Amplification/Average.lean header", "Accepted adjudication F-CODE-PROV"],
+    "role": "Code adaptation credit, not an imported dependency; external original source files were not independently audited"
+  }
+]

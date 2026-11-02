@@ -1,0 +1,39 @@
+{
+  "comparator_run": false,
+  "lean_compiled": false,
+  "scope": "supplemental finite tests only",
+  "tests": [
+    {
+      "arithmetic": "exact_complex_rational",
+      "cases": 1920,
+      "check": "arbitrary_input_controlled_phase_overlap_identity",
+      "input_bits": 3,
+      "normalized_states_required": false,
+      "ordered_input_pairs_per_state_pair": 64,
+      "passed": true,
+      "seed": 718429,
+      "state_dimension": 6,
+      "state_pairs": 30
+    },
+    {
+      "absolute_tolerance": 1e-10,
+      "arithmetic": "numpy_float64_complex128",
+      "check": "weighted_arbitrary_matrix_progress_bound",
+      "input_bits": 3,
+      "instances": 100,
+      "largest_change_divided_by_bound": 0.20832962162087257,
+      "numpy_version": "2.3.5",
+      "passed": true,
+      "seed": 91372
+    },
+    {
+      "arithmetic": "exact_rational_and_integer",
+      "check": "rational_constants",
+      "paper_route_quartic_factor": 1500625,
+      "paper_star_block_factor": 1225,
+      "passed": true,
+      "polynomial_block_hybrid_quartic_factor": 19600,
+      "spectral_factor": 35
+    }
+  ]
+}

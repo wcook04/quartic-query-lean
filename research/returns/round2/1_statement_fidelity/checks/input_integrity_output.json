@@ -1,0 +1,42 @@
+{
+  "status": "passed",
+  "verification_kind": "read-only byte integrity and source/graph consistency observations; not compilation",
+  "repository_commit_recorded": "4c7544f8dcdfc18d3ecf8476ebd8c1090cd46f15",
+  "manifest_members": 356,
+  "unique_manifest_members": 356,
+  "all_sizes_and_sha256_match": true,
+  "extracted_files": 358,
+  "unlisted_files": [
+    "READ_ME_FIRST.md",
+    "manifest.json"
+  ],
+  "compiled_objects_in_archive": 0,
+  "raw_receipts_present": false,
+  "private_path_observation": {
+    "root": "QuarticQuery.norm_hadamardL",
+    "source_private_helper": "norm_pair",
+    "source_leaf": "QuarticQuery.norm_invSqrtTwo_sq",
+    "root_reached": true,
+    "leaf_declared": true,
+    "leaf_reached": false
+  },
+  "FixedSim_query_reported_edges": [
+    "QuarticQuery.AdaptiveProgram",
+    "QuarticQuery.AdaptiveProgram.query",
+    "QuarticQuery.Basis",
+    "QuarticQuery.FixedSim",
+    "QuarticQuery.FixedSim.W",
+    "QuarticQuery.FixedSim.accept",
+    "QuarticQuery.FixedSim.embed",
+    "QuarticQuery.FixedSim.embed_phase",
+    "QuarticQuery.FixedSim.entry",
+    "QuarticQuery.FixedSim.fintype",
+    "QuarticQuery.FixedSim.gate",
+    "QuarticQuery.FixedSim.mk",
+    "QuarticQuery.QState",
+    "QuarticQuery.State",
+    "QuarticQuery.bitOracle",
+    "QuarticQuery.hadamard"
+  ],
+  "specific_compiled_cause": "unconfirmed without matching compiled environment; snapshot drift may also contribute"
+}

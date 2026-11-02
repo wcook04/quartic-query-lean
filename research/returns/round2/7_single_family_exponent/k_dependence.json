@@ -1,0 +1,1352 @@
+{
+  "schema_version": 1,
+  "notation": {
+    "m": "4^t",
+    "s": "log2 m=2t",
+    "u": "alias for s used in some source formulas",
+    "k": "Forrelation order",
+    "r": "40t=20s",
+    "classical_budget": "L is a proof parameter; it is not part of Fkm"
+  },
+  "input_source_commit_recorded": "4c7544f8dcdfc18d3ecf8476ebd8c1090cd46f15",
+  "status_warning": "Source text and reported compiled modules are distinct. Uniform.lean is explicitly uncompiled. No fresh Lean build was run.",
+  "constants": [
+    {
+      "id": "q-m",
+      "symbol": "m",
+      "expression": "2^(2t)=4^t",
+      "dependence_on_k": "none",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Statement.lean",
+        "line_start": 159,
+        "line_end": 159,
+        "declarations": [
+          "QuarticQuery.mValue"
+        ]
+      },
+      "status": "packet_reports_compiled_source",
+      "notes": ""
+    },
+    {
+      "id": "q-u",
+      "symbol": "u",
+      "expression": "2t=log_2(m)",
+      "dependence_on_k": "none",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Forrelation/Circuit.lean",
+        "line_start": 471,
+        "line_end": 475,
+        "declarations": [
+          "QuarticQuery.Forrelation.logb_mValue"
+        ]
+      },
+      "status": "packet_reports_compiled_source",
+      "notes": ""
+    },
+    {
+      "id": "q-delta",
+      "symbol": "delta",
+      "expression": "2^(-5k)",
+      "dependence_on_k": "exponential decay 2^(-5k)",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Forrelation/Promise.lean",
+        "line_start": 18,
+        "line_end": 25,
+        "declarations": [
+          "QuarticQuery.Forrelation.delta",
+          "QuarticQuery.Forrelation.delta_eq"
+        ]
+      },
+      "status": "packet_reports_compiled_source",
+      "notes": ""
+    },
+    {
+      "id": "q-delta2",
+      "symbol": "delta^2",
+      "expression": "2^(-10k)",
+      "dependence_on_k": "exponential decay 2^(-10k)",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Forrelation/Repetition.lean",
+        "line_start": 186,
+        "line_end": 189,
+        "declarations": [
+          "QuarticQuery.Forrelation.delta_sq"
+        ]
+      },
+      "status": "packet_reports_compiled_source",
+      "notes": ""
+    },
+    {
+      "id": "q-nrep",
+      "symbol": "n_rep",
+      "expression": "ceil(16*2^(10k)*ln(1/eta))",
+      "dependence_on_k": "Theta(2^(10k)) at fixed eta",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Forrelation/Repetition.lean",
+        "line_start": 191,
+        "line_end": 197,
+        "declarations": [
+          "QuarticQuery.Forrelation.repetitions",
+          "QuarticQuery.Forrelation.repetitions_le"
+        ]
+      },
+      "status": "packet_reports_compiled_source",
+      "notes": ""
+    },
+    {
+      "id": "q-projection",
+      "symbol": "one projection cost",
+      "expression": "k abstract reads",
+      "dependence_on_k": "linear k",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Upper/Decode.lean",
+        "line_start": 307,
+        "line_end": 310,
+        "declarations": [
+          "QuarticQuery.Upper.forr_samples"
+        ]
+      },
+      "status": "packet_reports_compiled_source",
+      "notes": ""
+    },
+    {
+      "id": "q-decoder",
+      "symbol": "decoder cost",
+      "expression": "n_rep*k abstract reads",
+      "dependence_on_k": "linear k times n_rep; exponential through n_rep",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Upper/Decode.lean",
+        "line_start": 359,
+        "line_end": 368,
+        "declarations": [
+          "QuarticQuery.Upper.decode_samples"
+        ]
+      },
+      "status": "packet_reports_compiled_source",
+      "notes": ""
+    },
+    {
+      "id": "q-bit-factor",
+      "symbol": "read-to-bit factor",
+      "expression": "2 bit queries per abstract read",
+      "dependence_on_k": "none",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Upper/Compile.lean",
+        "line_start": 394,
+        "line_end": 397,
+        "declarations": [
+          "QuarticQuery.Upper.Samples.runs",
+          "QuarticQuery.Upper.compile_circ"
+        ]
+      },
+      "status": "packet_reports_compiled_source",
+      "notes": ""
+    },
+    {
+      "id": "q-r",
+      "symbol": "r",
+      "expression": "40t=20u",
+      "dependence_on_k": "none",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Statement.lean",
+        "line_start": 291,
+        "line_end": 296,
+        "declarations": [
+          "QuarticQuery.Fkm"
+        ]
+      },
+      "status": "packet_reports_compiled_source",
+      "notes": ""
+    },
+    {
+      "id": "q-T",
+      "symbol": "T",
+      "expression": "ceil(log_2(1000m))",
+      "dependence_on_k": "none",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Tournament/Ideal.lean",
+        "line_start": 295,
+        "line_end": 299,
+        "declarations": [
+          "QuarticQuery.Tournament.Tval"
+        ]
+      },
+      "status": "packet_reports_compiled_source",
+      "notes": ""
+    },
+    {
+      "id": "q-Tclosed",
+      "symbol": "T",
+      "expression": "u+10",
+      "dependence_on_k": "none",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Tournament/Ideal.lean",
+        "line_start": 295,
+        "line_end": 299,
+        "declarations": [
+          "QuarticQuery.Tournament.Tval",
+          "QuarticQuery.Upper.Tval_mValue_le"
+        ]
+      },
+      "status": "new_paper_arithmetic_unelaborated",
+      "notes": "m=2^u, u a natural number; source provides upper bound in Upper/Bound.lean:47-50.",
+      "new_statement_id": "sf-T-and-repetitions"
+    },
+    {
+      "id": "q-epsilon",
+      "symbol": "epsilon",
+      "expression": "1/(1000T)",
+      "dependence_on_k": "none",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Tournament/Ideal.lean",
+        "line_start": 298,
+        "line_end": 299,
+        "declarations": [
+          "QuarticQuery.Tournament.epsval"
+        ]
+      },
+      "status": "packet_reports_compiled_source",
+      "notes": ""
+    },
+    {
+      "id": "q-eta",
+      "symbol": "eta",
+      "expression": "epsilon/r=1/(20000u(u+10))",
+      "dependence_on_k": "none",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Upper/Verify.lean",
+        "line_start": 136,
+        "line_end": 140,
+        "declarations": [
+          "QuarticQuery.Upper.Fkm_QLe",
+          "QuarticQuery.Upper.addrLaw_good"
+        ]
+      },
+      "status": "new_paper_arithmetic_unelaborated",
+      "notes": "",
+      "new_statement_id": "sf-T-and-repetitions"
+    },
+    {
+      "id": "q-addr",
+      "symbol": "a",
+      "expression": "40t*n_rep*k=20u*n_rep*k",
+      "dependence_on_k": "linear k times n_rep; exponential through n_rep",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Upper/Columns.lean",
+        "line_start": 49,
+        "line_end": 50,
+        "declarations": [
+          "QuarticQuery.Upper.addrCost"
+        ]
+      },
+      "status": "packet_reports_compiled_source",
+      "notes": ""
+    },
+    {
+      "id": "q-comparison",
+      "symbol": "c",
+      "expression": "2a+4t+2=2a+2u+2",
+      "dependence_on_k": "linear k times n_rep, plus k-independent pointer reads",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Upper/Columns.lean",
+        "line_start": 125,
+        "line_end": 126,
+        "declarations": [
+          "QuarticQuery.Upper.cmpCost"
+        ]
+      },
+      "status": "packet_reports_compiled_source",
+      "notes": ""
+    },
+    {
+      "id": "q-width",
+      "symbol": "W",
+      "expression": "5k+3+t(k+1)",
+      "dependence_on_k": "linear k",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Forrelation/Circuit.lean",
+        "line_start": 170,
+        "line_end": 171,
+        "declarations": [
+          "QuarticQuery.Forrelation.widthTop"
+        ]
+      },
+      "status": "new_paper_arithmetic_unelaborated",
+      "notes": "widthTop(k-1,t)+1.",
+      "new_statement_id": "sf-circuit-arithmetic"
+    },
+    {
+      "id": "q-circuit-constant",
+      "symbol": "forrConstant k",
+      "expression": "200(k+1)^2",
+      "dependence_on_k": "quadratic k",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Forrelation/Circuit.lean",
+        "line_start": 388,
+        "line_end": 389,
+        "declarations": [
+          "QuarticQuery.Forrelation.forrConstant"
+        ]
+      },
+      "status": "packet_reports_compiled_source",
+      "notes": ""
+    },
+    {
+      "id": "q-circuit-size",
+      "symbol": "S",
+      "expression": "S=coreSize(k-1,t)+3 <=200(k+1)^2*m*u^2",
+      "dependence_on_k": "at most quadratic k",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Forrelation/Circuit.lean",
+        "line_start": 462,
+        "line_end": 469,
+        "declarations": [
+          "QuarticQuery.Forrelation.forrCircuit_size_eq",
+          "QuarticQuery.Forrelation.forrCircuit_size_le"
+        ]
+      },
+      "status": "packet_reports_compiled_source",
+      "notes": ""
+    },
+    {
+      "id": "q-K",
+      "symbol": "K",
+      "expression": "m+(m-1)+r(S+2)",
+      "dependence_on_k": "at most quadratic k through S",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Construction/LocalTests.lean",
+        "line_start": 129,
+        "line_end": 136,
+        "declarations": [
+          "QuarticQuery.card_testIndex"
+        ]
+      },
+      "status": "packet_reports_compiled_source",
+      "notes": ""
+    },
+    {
+      "id": "q-test",
+      "symbol": "v",
+      "expression": "max(3,2t+1)=u+1 for t>=1",
+      "dependence_on_k": "none",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Upper/Verify.lean",
+        "line_start": 38,
+        "line_end": 43,
+        "declarations": [
+          "QuarticQuery.Upper.testCost",
+          "QuarticQuery.Upper.test_samples"
+        ]
+      },
+      "status": "packet_reports_compiled_source",
+      "notes": ""
+    },
+    {
+      "id": "q-iteration",
+      "symbol": "J(gamma)",
+      "expression": "ceil(10/sqrt(gamma))",
+      "dependence_on_k": "none directly; sqrt(K) for verification",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Amplification/Procedure.lean",
+        "line_start": 75,
+        "line_end": 76,
+        "declarations": [
+          "QuarticQuery.Amplification.iterationBound"
+        ]
+      },
+      "status": "packet_reports_compiled_source",
+      "notes": ""
+    },
+    {
+      "id": "q-trials",
+      "symbol": "N(epsilon)",
+      "expression": "ceil(ln(1/epsilon)/ln(40/31))",
+      "dependence_on_k": "none",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Amplification/Procedure.lean",
+        "line_start": 78,
+        "line_end": 79,
+        "declarations": [
+          "QuarticQuery.Amplification.trialCount"
+        ]
+      },
+      "status": "packet_reports_compiled_source",
+      "notes": ""
+    },
+    {
+      "id": "q-stage",
+      "symbol": "stage",
+      "expression": "N(epsilon)*2*(2J(1/(2m))+1)*T*c",
+      "dependence_on_k": "through comparison c only, with T,m,epsilon fixed by m",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Upper/Tournament.lean",
+        "line_start": 358,
+        "line_end": 360,
+        "declarations": [
+          "QuarticQuery.Upper.stageCost",
+          "QuarticQuery.Upper.tournament_runs"
+        ]
+      },
+      "status": "packet_reports_compiled_source",
+      "notes": ""
+    },
+    {
+      "id": "q-search",
+      "symbol": "search",
+      "expression": "N(epsilon)*2*(2J(1/K)+1)*v",
+      "dependence_on_k": "through sqrt(K), hence at most linear k up to harmless constants",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Upper/Verify.lean",
+        "line_start": 102,
+        "line_end": 104,
+        "declarations": [
+          "QuarticQuery.Upper.searchCost",
+          "QuarticQuery.Upper.search_runs"
+        ]
+      },
+      "status": "packet_reports_compiled_source",
+      "notes": ""
+    },
+    {
+      "id": "q-budget",
+      "symbol": "budget",
+      "expression": "T*stage+T*(2a+search)",
+      "dependence_on_k": "dominant k*2^(10k), with polynomial verification overhead",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Upper/Verify.lean",
+        "line_start": 131,
+        "line_end": 140,
+        "declarations": [
+          "QuarticQuery.Upper.budget",
+          "QuarticQuery.Upper.Fkm_QLe"
+        ]
+      },
+      "status": "packet_reports_compiled_source",
+      "notes": ""
+    },
+    {
+      "id": "q-R0",
+      "symbol": "R0",
+      "expression": "1+1920000*2^(10k)",
+      "dependence_on_k": "Theta(2^(10k))",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Upper/Bound.lean",
+        "line_start": 53,
+        "line_end": 57,
+        "declarations": [
+          "QuarticQuery.Upper.budgetConst"
+        ]
+      },
+      "status": "packet_reports_compiled_source",
+      "notes": ""
+    },
+    {
+      "id": "q-Cc",
+      "symbol": "Cc",
+      "expression": "40R0*k+4",
+      "dependence_on_k": "Theta(k*2^(10k))",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Upper/Bound.lean",
+        "line_start": 53,
+        "line_end": 57,
+        "declarations": [
+          "QuarticQuery.Upper.budgetConst"
+        ]
+      },
+      "status": "packet_reports_compiled_source",
+      "notes": ""
+    },
+    {
+      "id": "q-CK",
+      "symbol": "CK",
+      "expression": "42+4000(k+1)^2",
+      "dependence_on_k": "Theta(k^2)",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Upper/Bound.lean",
+        "line_start": 53,
+        "line_end": 57,
+        "declarations": [
+          "QuarticQuery.Upper.budgetConst"
+        ]
+      },
+      "status": "packet_reports_compiled_source",
+      "notes": ""
+    },
+    {
+      "id": "q-B",
+      "symbol": "B(k)",
+      "expression": "6*48002*258*Cc+6*(40R0*k+48002*69*CK)",
+      "dependence_on_k": "Theta(k*2^(10k))",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Upper/Bound.lean",
+        "line_start": 53,
+        "line_end": 63,
+        "declarations": [
+          "QuarticQuery.Upper.budgetConst",
+          "QuarticQuery.Upper.budget_le",
+          "QuarticQuery.Upper.Q_Fkm_le"
+        ]
+      },
+      "status": "packet_reports_compiled_source",
+      "notes": "B(k)*2^t*(2t)^6 bounds Q uniformly for k>=1,t>=1."
+    },
+    {
+      "id": "q-Bexpanded",
+      "symbol": "B(k)",
+      "expression": "2972284080*k*(1+1920000*2^(10k))+79491312000*(k+1)^2+1131887160",
+      "dependence_on_k": "Theta(k*2^(10k))",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Upper/Bound.lean",
+        "line_start": 53,
+        "line_end": 57,
+        "declarations": [
+          "QuarticQuery.Upper.budgetConst",
+          "QuarticQuery.Forrelation.forrConstant"
+        ]
+      },
+      "status": "new_paper_arithmetic_unelaborated",
+      "notes": "",
+      "new_statement_id": "sf-B10"
+    },
+    {
+      "id": "q-Bupper",
+      "symbol": "B(k)",
+      "expression": "B(k)<=2^53*k*2^(10k), k>=1",
+      "dependence_on_k": "O(k*2^(10k))",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Upper/Bound.lean",
+        "line_start": 53,
+        "line_end": 57,
+        "declarations": [
+          "QuarticQuery.Upper.budgetConst"
+        ]
+      },
+      "status": "new_paper_arithmetic_unelaborated",
+      "notes": "",
+      "new_statement_id": "sf-B10"
+    },
+    {
+      "id": "q-nrep-substituted",
+      "symbol": "n_rep",
+      "expression": "ceil(16*2^(10k)*ln(20000*u*(u+10)))",
+      "dependence_on_k": "Theta(2^(10k)) at fixed u",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Forrelation/Repetition.lean",
+        "line_start": 191,
+        "line_end": 197,
+        "declarations": [
+          "QuarticQuery.Forrelation.repetitions"
+        ]
+      },
+      "status": "new_paper_arithmetic_unelaborated",
+      "notes": "Substitute eta=epsval(m)/r, r=20u, T=u+10. Natural logarithm.",
+      "new_statement_id": "sf-T-and-repetitions"
+    },
+    {
+      "id": "q-wht-exact",
+      "symbol": "whtCost W (2t)",
+      "expression": "t*m*(12W+1)",
+      "dependence_on_k": "linear through W=5k+3+t(k+1)",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Forrelation/Circuit.lean",
+        "line_start": 34,
+        "line_end": 37,
+        "declarations": [
+          "QuarticQuery.Forrelation.whtCost"
+        ]
+      },
+      "status": "new_paper_arithmetic_unelaborated",
+      "notes": "Solve recurrence; valid at t=0 too.",
+      "new_statement_id": "sf-circuit-arithmetic"
+    },
+    {
+      "id": "q-circuit-exact",
+      "symbol": "S",
+      "expression": "7+6W*((k+1)*m+5k+t*(k+1)+4)+(k-1)*t*m*(12W+1), W=5k+3+t*(k+1)",
+      "dependence_on_k": "quadratic polynomial in k at fixed t",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Forrelation/Circuit.lean",
+        "line_start": 170,
+        "line_end": 193,
+        "declarations": [
+          "QuarticQuery.Forrelation.widthTop",
+          "QuarticQuery.Forrelation.coreSize",
+          "QuarticQuery.Forrelation.layerCost",
+          "QuarticQuery.Forrelation.forrCircuit_size_eq"
+        ]
+      },
+      "status": "new_paper_arithmetic_unelaborated",
+      "notes": "forrCircuit(k-1,t); uses recurrences at lines 35-37,102-104 and equality at 462-463. Recurrence equality numerically checked at 930 parameter pairs.",
+      "new_statement_id": "sf-circuit-arithmetic"
+    },
+    {
+      "id": "q-input-exact",
+      "symbol": "N_bits",
+      "expression": "m^2*(1+20*k*u)+m^21*((m-1)*u+20*u*S)",
+      "dependence_on_k": "polynomial, linear outside circuit plus quadratic through S",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Statement.lean",
+        "line_start": 240,
+        "line_end": 249,
+        "declarations": [
+          "QuarticQuery.BitLoc",
+          "QuarticQuery.Column",
+          "QuarticQuery.Address",
+          "QuarticQuery.ForrelationCoord",
+          "QuarticQuery.Fkm"
+        ]
+      },
+      "status": "new_paper_arithmetic_unelaborated",
+      "notes": "Count four disjoint coordinate types. m=2^u, r=20u. m counts columns, N_bits counts physical input bits.",
+      "new_statement_id": "sf-input-cardinality"
+    },
+    {
+      "id": "q-input-bound",
+      "symbol": "N_bits bounds",
+      "expression": "(m-1)*m^21*u <= N_bits <= 4022*(k+1)^2*m^22*u^3",
+      "dependence_on_k": "upper bound quadratic in k",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Statement.lean",
+        "line_start": 245,
+        "line_end": 249,
+        "declarations": [
+          "QuarticQuery.BitLoc",
+          "QuarticQuery.Forrelation.forrCircuit_size_le"
+        ]
+      },
+      "status": "new_paper_arithmetic_unelaborated",
+      "notes": "For k>=1,t>=1,u=2t. Combine exact cardinality with S<=200(k+1)^2*m*u^2.",
+      "new_statement_id": "sf-input-envelope"
+    },
+    {
+      "id": "c-forrelation_gap",
+      "symbol": "forrelation_gap",
+      "expression": "delta=2^(-5k)",
+      "dependence_on_k": "exponential decay",
+      "source": {
+        "path": "repository/lean/QuarticQuery/ForrelationLower/Main.lean",
+        "line_start": 26,
+        "line_end": 27,
+        "declarations": []
+      },
+      "status": "source inspected; packet reports compiled",
+      "conditions": "k>=2",
+      "notes": ""
+    },
+    {
+      "id": "c-hard_distribution_mean",
+      "symbol": "hard_distribution_mean",
+      "expression": "a=18^(-(k-1))",
+      "dependence_on_k": "exponential decay",
+      "source": {
+        "path": "repository/lean/QuarticQuery/ForrelationLower/Promise.lean",
+        "line_start": 499,
+        "line_end": 501,
+        "declarations": []
+      },
+      "status": "source inspected; packet reports compiled",
+      "conditions": "k>=2",
+      "notes": ""
+    },
+    {
+      "id": "c-uniform_second_moment",
+      "symbol": "uniform_second_moment",
+      "expression": "E_U[Phi^2]=1/m",
+      "dependence_on_k": "independent of k",
+      "source": {
+        "path": "repository/lean/QuarticQuery/ForrelationLower/Promise.lean",
+        "line_start": 564,
+        "line_end": 566,
+        "declarations": []
+      },
+      "status": "source inspected; packet reports compiled",
+      "conditions": "m=4^t",
+      "notes": ""
+    },
+    {
+      "id": "c-coarse_path_edge",
+      "symbol": "coarse_path_edge",
+      "expression": "3/sqrt(m)",
+      "dependence_on_k": "independent per edge; raised to k-1",
+      "source": {
+        "path": "repository/lean/QuarticQuery/ForrelationLower/Main.lean",
+        "line_start": 80,
+        "line_end": 88,
+        "declarations": []
+      },
+      "status": "source inspected; packet reports compiled",
+      "conditions": "k>=2",
+      "notes": ""
+    },
+    {
+      "id": "c-uniform_rounds",
+      "symbol": "uniform_rounds",
+      "expression": "tau=25k",
+      "dependence_on_k": "linear",
+      "source": {
+        "path": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+        "line_start": 135,
+        "line_end": 138,
+        "declarations": []
+      },
+      "status": "source only, uncompiled",
+      "conditions": "k>=2",
+      "notes": ""
+    },
+    {
+      "id": "c-uniform_error",
+      "symbol": "uniform_error",
+      "expression": "epsilon=(8/9)^(25k)<=18^(-k)=a/18",
+      "dependence_on_k": "exponential decay",
+      "source": {
+        "path": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+        "line_start": 135,
+        "line_end": 138,
+        "declarations": []
+      },
+      "status": "source only, uncompiled",
+      "conditions": "k>=2",
+      "notes": ""
+    },
+    {
+      "id": "c-amplified_depth",
+      "symbol": "amplified_depth",
+      "expression": "d=2*tau*L+1=50kL+1",
+      "dependence_on_k": "linear in k at fixed L",
+      "source": {
+        "path": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+        "line_start": 327,
+        "line_end": 341,
+        "declarations": []
+      },
+      "status": "source only, uncompiled",
+      "conditions": "L>=1",
+      "notes": ""
+    },
+    {
+      "id": "c-uniform_lambda",
+      "symbol": "uniform_lambda",
+      "expression": "Lambda=2k ln(4km)",
+      "dependence_on_k": "k times logarithm",
+      "source": {
+        "path": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+        "line_start": 327,
+        "line_end": 341,
+        "declarations": []
+      },
+      "status": "source only, uncompiled",
+      "conditions": "k>=2; m>=1",
+      "notes": ""
+    },
+    {
+      "id": "c-uniform_K",
+      "symbol": "uniform_K",
+      "expression": "K^2=8d Lambda=16k(50kL+1)ln(4km)",
+      "dependence_on_k": "quadratic leading k at fixed L",
+      "source": {
+        "path": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+        "line_start": 334,
+        "line_end": 341,
+        "declarations": []
+      },
+      "status": "source only, uncompiled",
+      "conditions": "L>=1",
+      "notes": ""
+    },
+    {
+      "id": "c-uniform_promise_exception",
+      "symbol": "uniform_promise_exception",
+      "expression": "q=4/(m delta^2)=2^(10k+2)/m",
+      "dependence_on_k": "exponential k divided by m",
+      "source": {
+        "path": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+        "line_start": 140,
+        "line_end": 156,
+        "declarations": []
+      },
+      "status": "source only, uncompiled",
+      "conditions": "q<=delta if 15k+2<=2t",
+      "notes": ""
+    },
+    {
+      "id": "c-uniform_threshold",
+      "symbol": "uniform_threshold",
+      "expression": "15k+2<=2t; equivalently m>=2^(15k+2)",
+      "dependence_on_k": "linear in k for log2(m)",
+      "source": {
+        "path": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+        "line_start": 140,
+        "line_end": 156,
+        "declarations": []
+      },
+      "status": "source only, uncompiled",
+      "conditions": "k>=2",
+      "notes": ""
+    },
+    {
+      "id": "c-uniform_lower_constant",
+      "symbol": "uniform_lower_constant",
+      "expression": "2332800=800*54^2",
+      "dependence_on_k": "absolute",
+      "source": {
+        "path": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+        "line_start": 177,
+        "line_end": 184,
+        "declarations": []
+      },
+      "status": "source only, uncompiled",
+      "conditions": "k>=2",
+      "notes": ""
+    },
+    {
+      "id": "c-uniform_budget_real",
+      "symbol": "uniform_budget_real",
+      "expression": "X=m^(1-1/k)/(2332800 k^2 ln(4km))",
+      "dependence_on_k": "k^-2; exponent 1-1/k; logarithm",
+      "source": {
+        "path": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+        "line_start": 383,
+        "line_end": 390,
+        "declarations": []
+      },
+      "status": "source only, uncompiled",
+      "conditions": "k>=2; 15k+2<=2t",
+      "notes": ""
+    },
+    {
+      "id": "c-uniform_padding_factor",
+      "symbol": "uniform_padding_factor",
+      "expression": "(1+1/(50k))^k<=50/49",
+      "dependence_on_k": "uniformly bounded",
+      "source": {
+        "path": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+        "line_start": 158,
+        "line_end": 175,
+        "declarations": []
+      },
+      "status": "source only, uncompiled",
+      "conditions": "k>=1",
+      "notes": ""
+    },
+    {
+      "id": "c-uniform_main_advantage",
+      "symbol": "uniform_main_advantage",
+      "expression": "main<=a/48",
+      "dependence_on_k": "a=18^(-(k-1))",
+      "source": {
+        "path": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+        "line_start": 177,
+        "line_end": 264,
+        "declarations": []
+      },
+      "status": "source only, uncompiled",
+      "conditions": "1<=L<=X",
+      "notes": ""
+    },
+    {
+      "id": "c-uniform_tail",
+      "symbol": "uniform_tail",
+      "expression": "tail=(3/sqrt(m))^(k-1)*2^-k<=a/4",
+      "dependence_on_k": "exponential decay",
+      "source": {
+        "path": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+        "line_start": 266,
+        "line_end": 296,
+        "declarations": []
+      },
+      "status": "source only, uncompiled",
+      "conditions": "k>=2; t>=6",
+      "notes": ""
+    },
+    {
+      "id": "c-uniform_final_gap",
+      "symbol": "uniform_final_gap",
+      "expression": "lower gap>=119a/144; advantage<=13a/48",
+      "dependence_on_k": "common exponential a cancels",
+      "source": {
+        "path": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+        "line_start": 342,
+        "line_end": 375,
+        "declarations": []
+      },
+      "status": "mathematical assembly inspected; source only uncompiled",
+      "conditions": "k>=2; 15k+2<=2t; L<=X",
+      "notes": ""
+    },
+    {
+      "id": "c-original_Lvalue",
+      "symbol": "original_Lvalue",
+      "expression": "floor(m^(1-1/k)/(2t)^2)",
+      "dependence_on_k": "exponent dependence only",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Statement.lean",
+        "line_start": 308,
+        "line_end": 311,
+        "declarations": []
+      },
+      "status": "source inspected; packet reports compiled",
+      "conditions": "m=4^t",
+      "notes": ""
+    },
+    {
+      "id": "c-original_Lvalue_uniform_threshold",
+      "symbol": "original_Lvalue_uniform_threshold",
+      "expression": "t>=3499200 k^2",
+      "dependence_on_k": "quadratic k with large constant",
+      "source": {
+        "path": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+        "line_start": 448,
+        "line_end": 483,
+        "declarations": []
+      },
+      "status": "source only, uncompiled",
+      "conditions": "only needed if using original Lvalue; unnecessary for Fkm with generic budget",
+      "notes": ""
+    },
+    {
+      "id": "c-columns",
+      "symbol": "columns",
+      "expression": "ell=2t; m=2^ell=4^t",
+      "dependence_on_k": "independent",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Statement.lean",
+        "line_start": 291,
+        "line_end": 296,
+        "declarations": []
+      },
+      "status": "source inspected; packet reports compiled",
+      "conditions": "t>=0",
+      "notes": ""
+    },
+    {
+      "id": "c-address_bits",
+      "symbol": "address_bits",
+      "expression": "r=40t=20log2(m)",
+      "dependence_on_k": "independent",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Statement.lean",
+        "line_start": 291,
+        "line_end": 296,
+        "declarations": []
+      },
+      "status": "source inspected; packet reports compiled",
+      "conditions": "t>=0",
+      "notes": ""
+    },
+    {
+      "id": "c-hard_success",
+      "symbol": "hard_success",
+      "expression": "beta=2/3",
+      "dependence_on_k": "independent",
+      "source": {
+        "path": "repository/lean/QuarticQuery/LowerBound/Minimax.lean",
+        "line_start": 134,
+        "line_end": 140,
+        "declarations": []
+      },
+      "status": "source inspected; packet reports compiled",
+      "conditions": "not RLe(P,k,t,L)",
+      "notes": ""
+    },
+    {
+      "id": "c-address_guess",
+      "symbol": "address_guess",
+      "expression": "rho=(2/3)^r",
+      "dependence_on_k": "independent at r=40t",
+      "source": {
+        "path": "repository/lean/QuarticQuery/LowerBound/Minimax.lean",
+        "line_start": 177,
+        "line_end": 201,
+        "declarations": []
+      },
+      "status": "source inspected; packet reports compiled",
+      "conditions": "separate worst-case cap L on each instance",
+      "notes": ""
+    },
+    {
+      "id": "c-address_tail",
+      "symbol": "address_tail",
+      "expression": "(2/3)^(40t)<=m^-10",
+      "dependence_on_k": "independent",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Results/Exponent.lean",
+        "line_start": 427,
+        "line_end": 439,
+        "declarations": []
+      },
+      "status": "source inspected; packet reports compiled",
+      "conditions": "all t>=0",
+      "notes": ""
+    },
+    {
+      "id": "c-planted_budget",
+      "symbol": "planted_budget",
+      "expression": "G=floor(mL/100)",
+      "dependence_on_k": "dependence inherited solely from L",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Statement.lean",
+        "line_start": 313,
+        "line_end": 314,
+        "declarations": []
+      },
+      "status": "source inspected; packet reports compiled",
+      "conditions": "L natural",
+      "notes": ""
+    },
+    {
+      "id": "c-planted_actual_discrepancy",
+      "symbol": "planted_actual_discrepancy",
+      "expression": "2G/m^2+G/(mL)+G rho",
+      "dependence_on_k": "independent except via L,G",
+      "source": {
+        "path": "repository/lean/QuarticQuery/LowerBound/Planted/Main.lean",
+        "line_start": 57,
+        "line_end": 68,
+        "declarations": []
+      },
+      "status": "source inspected; packet reports compiled",
+      "conditions": "L>=1; depth<=G",
+      "notes": ""
+    },
+    {
+      "id": "c-planted_public_discrepancy",
+      "symbol": "planted_public_discrepancy",
+      "expression": "4G/m^2+G/(mL)+G rho<=6/100<1/3",
+      "dependence_on_k": "independent except via L,G",
+      "source": {
+        "path": "repository/lean/QuarticQuery/Results/Exponent.lean",
+        "line_start": 441,
+        "line_end": 476,
+        "declarations": []
+      },
+      "status": "source inspected; packet reports compiled",
+      "conditions": "1<=L<=m; G<=mL/100",
+      "notes": ""
+    },
+    {
+      "id": "c-generic_planted_lower",
+      "symbol": "generic_planted_lower",
+      "expression": "Gvalue(m,L)<R(totalise(addressedF(P,C,2t,40t)))",
+      "dependence_on_k": "no hidden k dependence",
+      "source": {
+        "path": "repository/lean/QuarticQuery/LowerBound/Planted/Main.lean",
+        "line_start": 188,
+        "line_end": 199,
+        "declarations": []
+      },
+      "status": "source inspected; packet reports compiled",
+      "conditions": "1<=L<=m; L<R(P); CircuitRealises C P",
+      "notes": ""
+    },
+    {
+      "id": "c-adapted_L",
+      "symbol": "adapted_L",
+      "expression": "L=floor X, X=m^(1-1/k)/(2332800 k^2 ln(4km))",
+      "dependence_on_k": "k^-2 and exponent 1-1/k",
+      "source": {
+        "path": "single_family.md",
+        "line_start": 87,
+        "line_end": 113,
+        "declarations": [],
+        "passages": [
+          "auxiliary-budget"
+        ]
+      },
+      "status": "new mathematical deduction; unelaborated",
+      "conditions": "k>=2; t>=64; 15k+2<=2t",
+      "notes": "",
+      "new_statement_id": "sf-floor-budget"
+    },
+    {
+      "id": "c-adapted_L_floor",
+      "symbol": "adapted_L_floor",
+      "expression": "1<=floor X<=m and floor X>=X/2",
+      "dependence_on_k": "no additional factor beyond X",
+      "source": {
+        "path": "single_family.md",
+        "line_start": 87,
+        "line_end": 113,
+        "declarations": [],
+        "passages": [
+          "auxiliary-budget"
+        ]
+      },
+      "status": "new mathematical deduction; unelaborated",
+      "conditions": "k>=2; t>=64; 15k+2<=2t",
+      "notes": "",
+      "new_statement_id": "sf-floor-budget"
+    },
+    {
+      "id": "c-uniform_total_lower",
+      "symbol": "uniform_total_lower",
+      "expression": "R(Fkm)>m^(2-1/k)/(466560000 k^2 ln(4km))",
+      "dependence_on_k": "k^-2 and exponent 2-1/k",
+      "source": {
+        "path": "single_family.md",
+        "line_start": 87,
+        "line_end": 113,
+        "declarations": [],
+        "passages": [
+          "auxiliary-budget"
+        ]
+      },
+      "status": "new mathematical deduction; unelaborated",
+      "conditions": "k>=2; t>=64; 15k+2<=2t; CircuitRealises C P",
+      "notes": "",
+      "new_statement_id": "sf-total-lower"
+    },
+    {
+      "id": "c-schedule_classical_admissibility",
+      "symbol": "schedule_classical_admissibility",
+      "expression": "k=floor sqrt(t/20), t>=80 => k>=2 and 15k+2<=2t",
+      "dependence_on_k": "k=Theta(sqrt(t))",
+      "source": {
+        "path": "single_family.md",
+        "line_start": 252,
+        "line_end": 262,
+        "declarations": [],
+        "passages": [
+          "baseline"
+        ]
+      },
+      "status": "new mathematical deduction; unelaborated",
+      "conditions": "t natural >=80",
+      "notes": "",
+      "new_statement_id": "sf-schedule"
+    },
+    {
+      "id": "ae-M",
+      "symbol": "M",
+      "expression": "32*2^(5k)=2^(5k+5)",
+      "dependence_on_k": "exponential 2^(5k)",
+      "source": {
+        "path": "single_family.md",
+        "line_start": 138,
+        "line_end": 167,
+        "declarations": [],
+        "passages": [
+          "ae-decoder"
+        ]
+      },
+      "status": "new_paper_deduction_unelaborated",
+      "new_statement_id": "sf-AE-decoder",
+      "notes": "BHMT power-of-two phase-estimation precision"
+    },
+    {
+      "id": "ae-h",
+      "symbol": "h",
+      "expression": "ceil(ln(1/eta)/ln(4/3))",
+      "dependence_on_k": "none at eta=1/(20000s(s+10))",
+      "source": {
+        "path": "single_family.md",
+        "line_start": 138,
+        "line_end": 167,
+        "declarations": [],
+        "passages": [
+          "ae-decoder"
+        ]
+      },
+      "status": "new_paper_deduction_unelaborated",
+      "new_statement_id": "sf-majority-quarter",
+      "notes": "2h retained independent repetitions; fixed tie-breaking"
+    },
+    {
+      "id": "ae-error",
+      "symbol": "error",
+      "expression": "(3/4)^h <= eta",
+      "dependence_on_k": "none after choosing h",
+      "source": {
+        "path": "single_family.md",
+        "line_start": 138,
+        "line_end": 167,
+        "declarations": [],
+        "passages": [
+          "ae-decoder"
+        ]
+      },
+      "status": "new_paper_deduction_unelaborated",
+      "new_statement_id": "sf-majority-quarter",
+      "notes": "Only promise correctness is required"
+    },
+    {
+      "id": "ae-iterate",
+      "symbol": "controlled iterate",
+      "expression": "-A S0 A† S_chi; <=4k physical queries",
+      "dependence_on_k": "linear k",
+      "source": {
+        "path": "single_family.md",
+        "line_start": 138,
+        "line_end": 167,
+        "declarations": [],
+        "passages": [
+          "ae-decoder"
+        ]
+      },
+      "status": "new_paper_deduction_unelaborated",
+      "new_statement_id": "sf-AE-decoder",
+      "notes": "The controlled minus sign is a fixed control phase and must remain"
+    },
+    {
+      "id": "ae-decoder",
+      "symbol": "decoder cap",
+      "expression": "256*k*2^(5k)*h",
+      "dependence_on_k": "k*2^(5k)",
+      "source": {
+        "path": "single_family.md",
+        "line_start": 138,
+        "line_end": 167,
+        "declarations": [],
+        "passages": [
+          "ae-decoder"
+        ]
+      },
+      "status": "new_paper_deduction_unelaborated",
+      "new_statement_id": "sf-AE-decoder",
+      "notes": "Physical count is also a safe abstract-read count; keeps all work registers"
+    },
+    {
+      "id": "ae-abstract-decoder",
+      "symbol": "sharper abstract decoder cap",
+      "expression": "128*k*2^(5k)*h",
+      "dependence_on_k": "k*2^(5k)",
+      "source": {
+        "path": "single_family.md",
+        "line_start": 138,
+        "line_end": 167,
+        "declarations": [],
+        "passages": [
+          "ae-decoder"
+        ]
+      },
+      "status": "new_paper_deduction_unelaborated",
+      "new_statement_id": "sf-AE-decoder",
+      "notes": "Two abstract reads per Grover preparation/inverse pair; Samples.runs doubles this to physical256"
+    },
+    {
+      "id": "ae-R0",
+      "symbol": "R5",
+      "expression": "1+122880256*2^(5k)",
+      "dependence_on_k": "exponential 2^(5k)",
+      "source": {
+        "path": "single_family.md",
+        "line_start": 169,
+        "line_end": 201,
+        "declarations": [],
+        "passages": [
+          "ae-assembly"
+        ]
+      },
+      "status": "new_paper_deduction_unelaborated",
+      "new_statement_id": "sf-AE-count-arithmetic",
+      "notes": "Cost cap per instance divided by k and s^2"
+    },
+    {
+      "id": "ae-B",
+      "symbol": "B5(k)",
+      "expression": "2972284080*k*(1+122880256*2^(5k))+79491312000*(k+1)^2+1131887160",
+      "dependence_on_k": "Theta(k*2^(5k))",
+      "source": {
+        "path": "single_family.md",
+        "line_start": 169,
+        "line_end": 201,
+        "declarations": [],
+        "passages": [
+          "ae-assembly"
+        ]
+      },
+      "status": "new_paper_deduction_unelaborated",
+      "new_statement_id": "sf-AE-budget",
+      "notes": "New decoder assembly, not an existing compiled budgetConst"
+    },
+    {
+      "id": "ae-envelope",
+      "symbol": "B5 envelope",
+      "expression": "B5(k)<=2^59*k*2^(5k)",
+      "dependence_on_k": "Theta(k*2^(5k))",
+      "source": {
+        "path": "single_family.md",
+        "line_start": 169,
+        "line_end": 201,
+        "declarations": [],
+        "passages": [
+          "ae-assembly"
+        ]
+      },
+      "status": "new_paper_deduction_unelaborated",
+      "new_statement_id": "sf-AE-budget",
+      "notes": "Safe coefficient 365235350724543720 < 2^59"
+    },
+    {
+      "id": "sf-k5",
+      "symbol": "k5(t)",
+      "expression": "isqrt(t//10)=floor(sqrt((log2 m)/20))",
+      "dependence_on_k": "grows as sqrt(log m)",
+      "source": {
+        "path": "single_family.md",
+        "line_start": 19,
+        "line_end": 46,
+        "declarations": [],
+        "passages": [
+          "main-theorem"
+        ]
+      },
+      "status": "new_paper_deduction_unelaborated",
+      "new_statement_id": "sf-schedule",
+      "notes": "Main family, t>=80"
+    },
+    {
+      "id": "sf-k10",
+      "symbol": "k10(t)",
+      "expression": "isqrt(t//20)=floor(sqrt((log2 m)/40))",
+      "dependence_on_k": "grows as sqrt(log m)",
+      "source": {
+        "path": "single_family.md",
+        "line_start": 252,
+        "line_end": 262,
+        "declarations": [],
+        "passages": [
+          "baseline"
+        ]
+      },
+      "status": "new_paper_deduction_unelaborated",
+      "new_statement_id": "sf-schedule",
+      "notes": "Existing-decoder baseline, t>=80"
+    },
+    {
+      "id": "sf-e5",
+      "symbol": "epsilon5",
+      "expression": "8sqrt(5)/sqrt(s)+(56log2(s)+552)/s",
+      "dependence_on_k": "after k is eliminated",
+      "source": {
+        "path": "single_family.md",
+        "line_start": 19,
+        "line_end": 46,
+        "declarations": [],
+        "passages": [
+          "main-theorem"
+        ]
+      },
+      "status": "new_paper_deduction_unelaborated",
+      "new_statement_id": "sf-finite-rate-5",
+      "notes": "Nonasymptotic deficit, may exceed 4 at small s"
+    },
+    {
+      "id": "sf-e10",
+      "symbol": "epsilon10",
+      "expression": "8sqrt(10)/sqrt(s)+(56log2(s)+524)/s",
+      "dependence_on_k": "after k is eliminated",
+      "source": {
+        "path": "single_family.md",
+        "line_start": 252,
+        "line_end": 262,
+        "declarations": [],
+        "passages": [
+          "baseline"
+        ]
+      },
+      "status": "new_paper_deduction_unelaborated",
+      "new_statement_id": "sf-finite-rate-10",
+      "notes": "Nonasymptotic deficit for original decoder"
+    }
+  ]
+}

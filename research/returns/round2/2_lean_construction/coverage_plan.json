@@ -1,0 +1,691 @@
+[
+  {
+    "id": "def-log-convention",
+    "class": "prose",
+    "declaration": "QuarticQuery.Paper.construction_log2_mValue",
+    "uses": [
+      "QuarticQuery.logb_mValue",
+      "QuarticQuery.Lvalue",
+      "QuarticQuery.Fkm",
+      "QuarticQuery.Tournament.Tval"
+    ],
+    "difficulty": "trivial",
+    "compiled": false,
+    "notes": "Choosing the base of log is a notation convention rather than a theorem. Its operational meaning is already explicit: Lvalue uses Real.logb 2, Fkm uses ell=2*t and r=40*t, and Tournament.Tval uses Nat.clog 2. The supplied theorem pins log_2(mValue t)=2*t; it does not claim a separate theorem about every permitted asymptotic change of base.",
+    "file": "lean/QuarticQuery/Paper/ConstructionModels.lean",
+    "additional_declarations": [],
+    "proposed_relation_after_elaboration": "definition/convention; supplementary exact identity",
+    "route": "none",
+    "remaining_obligations": "Fresh elaboration of the wrapper. The general prose convention needs no proof."
+  },
+  {
+    "id": "def-partial-query",
+    "class": "definition",
+    "declaration": "QuarticQuery.Paper.construction_correct_on_domain_iff",
+    "uses": [
+      "QuarticQuery.PartialBool",
+      "QuarticQuery.promised",
+      "QuarticQuery.RLe",
+      "QuarticQuery.DLe",
+      "QuarticQuery.QLe",
+      "QuarticQuery.ConstantOnPromise",
+      "QuarticQuery.RandomizedProgram.depth",
+      "QuarticQuery.AdaptiveProgram.queryCap"
+    ],
+    "difficulty": "short",
+    "compiled": false,
+    "notes": "The new bridge explicitly relates a pair (D,f:D→Bool) to the existing Option Bool function. A generic Correct predicate handles every specified error requirement; the three model specializations retain their exact depth and probability conditions. The reverse reconstruction theorem covers every existing partial function, including empty promises. No off-domain correctness hypothesis is added.",
+    "file": "lean/QuarticQuery/Paper/ConstructionModels.lean",
+    "additional_declarations": [
+      "QuarticQuery.Paper.constructionPartial",
+      "QuarticQuery.Paper.constructionPartial_eq_some_iff",
+      "QuarticQuery.Paper.construction_promised_iff",
+      "QuarticQuery.Paper.construction_RLe_domain_iff",
+      "QuarticQuery.Paper.construction_DLe_domain_iff",
+      "QuarticQuery.Paper.construction_QLe_domain_iff",
+      "QuarticQuery.Paper.constructionPartial_reconstruct"
+    ],
+    "proposed_relation_after_elaboration": "equivalent",
+    "route": "same",
+    "remaining_obligations": "Fresh elaboration and intended-meaning review of the new translation lemmas. General simulation equivalence to every textbook machine model is outside this definition row."
+  },
+  {
+    "id": "def-query-oracle",
+    "class": "short_from_existing",
+    "declaration": "QuarticQuery.Paper.construction_query_oracle",
+    "uses": [
+      "QuarticQuery.bitOracle",
+      "QuarticQuery.ket",
+      "QuarticQuery.bitOracle_ket",
+      "QuarticQuery.flipPoint",
+      "QuarticQuery.bitOracle_bitOracle",
+      "QuarticQuery.bitOracleL",
+      "QuarticQuery.bitOracleL_apply"
+    ],
+    "difficulty": "short",
+    "compiled": false,
+    "notes": "One theorem combines all clauses of the row. The action is on actual basis kets, not merely an unexplained amplitude formula. Complex linear isometry equivalence supplies surjectivity and norm/inner-product preservation, which is unitarity in this finite-dimensional setting. The workspace label is unchanged. No bit/phase model bridge is substituted for the requested oracle statement.",
+    "file": "lean/QuarticQuery/Paper/ConstructionModels.lean",
+    "additional_declarations": [],
+    "proposed_relation_after_elaboration": "exact",
+    "route": "same",
+    "remaining_obligations": "Fresh elaboration of the conjunction. Its component declarations are in the supplied compiled Model/Quantum module, according to BUILD_STATUS.md."
+  },
+  {
+    "id": "eq-1",
+    "class": "definition",
+    "declaration": "QuarticQuery.Paper.construction_alphaTot_eq_inf",
+    "uses": [
+      "QuarticQuery.UniversalPower",
+      "QuarticQuery.alphaTot",
+      "QuarticQuery.universalPower_four",
+      "Real.rpow_nonneg",
+      "mul_le_mul_of_nonneg_right"
+    ],
+    "difficulty": "short",
+    "compiled": false,
+    "notes": "The paper asks for a finite constant. Lean uses a real constant, so finiteness is built into the type. Requiring positivity is equivalent: replace C by max(C,1), since the real power is nonnegative. The proof preserves the quantifier order C before input size n and the function f. A supplementary theorem verifies nonemptiness and a lower bound for the infimum set, so the definition does not silently rely on sInf of an empty/unbounded set.",
+    "file": "lean/QuarticQuery/Paper/ConstructionModels.lean",
+    "additional_declarations": [
+      "QuarticQuery.Paper.construction_universalPower_iff",
+      "QuarticQuery.Paper.construction_exponent_set_wellDefined"
+    ],
+    "proposed_relation_after_elaboration": "equivalent",
+    "route": "alternative",
+    "remaining_obligations": "Fresh elaboration and review of the new tie. No mathematical change to equation (1) is proposed."
+  },
+  {
+    "id": "eq-2",
+    "class": "short_from_existing",
+    "declaration": "QuarticQuery.Paper.construction_equation_two",
+    "uses": [
+      "QuarticQuery.ForrelationLower.bansalSinhaLower",
+      "QuarticQuery.Gvalue_lt_R_Fkm",
+      "QuarticQuery.rpow_le_of_Gvalue_lt",
+      "QuarticQuery.Forrelation.forrCircuit",
+      "QuarticQuery.Forrelation.forrCircuit_realises",
+      "QuarticQuery.Forrelation.forrCircuit_size_le",
+      "QuarticQuery.Forrelation.forrConstant",
+      "QuarticQuery.Upper.Q_Fkm_le",
+      "QuarticQuery.Upper.budgetConst_pos",
+      "QuarticQuery.logb_mValue",
+      "QuarticQuery.mValue_cast",
+      "QuarticQuery.Forrelation.mValue_cast"
+    ],
+    "difficulty": "short",
+    "compiled": false,
+    "notes": "The named companion simultaneously certifies circuit correctness, size, Q and R for the fixed explicit forrCircuit l t. It fixes c=1/400 and b=6 and uses Upper.budgetConst(l+1)>0. The original existential statement follows for every k≥2 by writing k=l+1. Threshold t0 is enlarged to at least 8. The lower-bound proof is unconditional because ForrelationLower.bansalSinhaLower is applied, not assumed. Only its fixed-k theorem is used; the uncompiled uniform-k module is not imported.",
+    "file": "lean/QuarticQuery/Paper/ConstructionFamily.lean",
+    "additional_declarations": [
+      "QuarticQuery.Paper.construction_family_named",
+      "QuarticQuery.Paper.construction_sqrt_mValue"
+    ],
+    "proposed_relation_after_elaboration": "exact existential statement, with a stronger named-family companion",
+    "route": "alternative",
+    "remaining_obligations": "Fresh elaboration of two short wrappers and their parameter identity; no new Forrelation or planted lower-bound mathematics is needed. The wrapper still inherits the disclosed alternative lower-bound proof route."
+  },
+  {
+    "id": "def-transcript",
+    "class": "definition",
+    "declaration": "QuarticQuery.Paper.construction_transcript_definition",
+    "uses": [
+      "QuarticQuery.GateConsistent",
+      "QuarticQuery.predecessorValue",
+      "QuarticQuery.gateConsistent_iff_eq_circuitEval",
+      "QuarticQuery.existsUnique_gateConsistent"
+    ],
+    "difficulty": "trivial",
+    "compiled": false,
+    "notes": "The type Fin C.size includes both C.domainOut and C.valueOut. Input values are fetched from x and are never copied into transcript coordinates. Statements quantify over every x and every proposed transcript. All submitted proof bodies are unelaborated: no lean/lake executable or pinned Mathlib artifacts were available. No new build, dependency closure, axiom check, or Comparator result is claimed. Original built-at-pin evidence applies only to the original declarations. The proposed statement relation below is a mathematical/source-level assessment pending elaboration and review.",
+    "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+    "additional_declarations": [
+      "QuarticQuery.Paper.construction_transcript_input_wire",
+      "QuarticQuery.Paper.construction_transcript_gate_wire",
+      "QuarticQuery.Paper.construction_transcript_correct"
+    ],
+    "proposed_relation_after_elaboration": "exact",
+    "route": "same",
+    "remaining_obligations": "Elaboration, compilation at the pinned toolchain, axiom/dependency checks, and semantic review remain; no completed-check claim is made."
+  },
+  {
+    "id": "def-walsh-sign",
+    "class": "definition",
+    "declaration": "QuarticQuery.Paper.construction_walsh_definitions",
+    "uses": [
+      "QuarticQuery.bitSign",
+      "QuarticQuery.walshSign",
+      "QuarticQuery.Forrelation.H",
+      "QuarticQuery.Forrelation.W",
+      "QuarticQuery.Forrelation.u",
+      "QuarticQuery.Forrelation.signDiag",
+      "QuarticQuery.Forrelation.mValue_cast",
+      "Real.sqrt_sq"
+    ],
+    "difficulty": "trivial",
+    "compiled": false,
+    "notes": "Every new declaration is source text only; no Lean or comparator run was available.",
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+    "additional_declarations": [
+      "QuarticQuery.Paper.construction_forr_sqrt_mValue"
+    ],
+    "proposed_relation_after_elaboration": "exact_on_paper_domain",
+    "route": "same",
+    "remaining_obligations": "Fresh elaboration, axiom audit and review of the exact statement remain. No further statement-level gap was identified in this scoped source review."
+  },
+  {
+    "id": "eq-3",
+    "class": "short_from_existing",
+    "declaration": "QuarticQuery.Paper.construction_equation_3",
+    "uses": [
+      "QuarticQuery.Forrelation.Phi_eq_matrix_product",
+      "QuarticQuery.Forrelation.delta",
+      "QuarticQuery.Forrelation.alternate",
+      "QuarticQuery.Forrelation.tailProd"
+    ],
+    "difficulty": "trivial",
+    "compiled": false,
+    "notes": "Every new declaration is source text only; no Lean or comparator run was available.",
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+    "additional_declarations": [],
+    "proposed_relation_after_elaboration": "exact_on_paper_domain",
+    "route": "same",
+    "remaining_obligations": "Fresh elaboration, axiom audit and review of the exact statement remain. No further statement-level gap was identified in this scoped source review."
+  },
+  {
+    "id": "eq-4",
+    "class": "short_from_existing",
+    "declaration": "QuarticQuery.Paper.construction_equation_4",
+    "uses": [
+      "QuarticQuery.Forrelation.P_eq_some_true_iff",
+      "QuarticQuery.Forrelation.P_eq_some_false_iff",
+      "QuarticQuery.Forrelation.P_eq_none_iff",
+      "QuarticQuery.Forrelation.cases_disjoint",
+      "Fintype.card_prod",
+      "Fintype.card_fin"
+    ],
+    "difficulty": "trivial",
+    "compiled": false,
+    "notes": "Every new declaration is source text only; no Lean or comparator run was available.",
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+    "additional_declarations": [],
+    "proposed_relation_after_elaboration": "exact_on_paper_domain",
+    "route": "same",
+    "remaining_obligations": "Fresh elaboration, axiom audit and review of the exact statement remain. No further statement-level gap was identified in this scoped source review."
+  },
+  {
+    "id": "eq-5",
+    "class": "definition",
+    "declaration": "QuarticQuery.Paper.construction_equation_5",
+    "uses": [
+      "QuarticQuery.Lvalue"
+    ],
+    "difficulty": "trivial",
+    "compiled": false,
+    "notes": "Uses the corrected ledger row: the former appended lower-bound assertion was removed by adjudication. At t=0 Lean totalizes division by zero; the paper asymptotics use t>=1.",
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+    "additional_declarations": [],
+    "proposed_relation_after_elaboration": "exact_on_paper_domain",
+    "route": "same",
+    "remaining_obligations": "Fresh elaboration, axiom audit and review of the exact statement remain. No further statement-level gap was identified in this scoped source review."
+  },
+  {
+    "id": "claim-bs-to-L",
+    "class": "genuine_new_proof",
+    "declaration": "QuarticQuery.Paper.construction_claim_bs_to_L",
+    "uses": [
+      "QuarticQuery.Lvalue",
+      "QuarticQuery.Forrelation.logb_mValue",
+      "Real.logb_mul",
+      "Real.div_rpow",
+      "Real.rpow_le_rpow_of_exponent_le",
+      "Nat.le_ceil",
+      "Nat.floor_le"
+    ],
+    "difficulty": "substantial",
+    "compiled": false,
+    "notes": "This is an elementary comparison, independent of whether the published precise Bansal–Sinha rate is established. Positive c and k>=2 are essential and appear explicitly. Logarithms follow the paper base-2 convention; changing a fixed base only rescales c. The source bansalSinhaLower proves a different statement, L<R(P), and is not used here.",
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationComparison.lean",
+    "additional_declarations": [
+      "QuarticQuery.Paper.construction_affine_comparison",
+      "QuarticQuery.Paper.construction_L_le_unfloored",
+      "QuarticQuery.Paper.construction_bs_comparison_chain"
+    ],
+    "proposed_relation_after_elaboration": "exact_on_paper_domain",
+    "route": "same",
+    "remaining_obligations": "Fresh elaboration, axiom audit and review of the exact statement remain. No further statement-level gap was identified in this scoped source review."
+  },
+  {
+    "id": "claim-proj-prob",
+    "class": "short_from_existing",
+    "declaration": "QuarticQuery.Paper.construction_projection_test",
+    "uses": [
+      "QuarticQuery.Forrelation.successProb_eq",
+      "QuarticQuery.Forrelation.successProb_of_true",
+      "QuarticQuery.Forrelation.successProb_of_false",
+      "QuarticQuery.Upper.forr_samples",
+      "QuarticQuery.Upper.Samples.runs",
+      "QuarticQuery.Paper.construction_bitOracle_phase_kickback",
+      "QuarticQuery.Paper.construction_bitOracle_phase_preserves"
+    ],
+    "difficulty": "short",
+    "compiled": false,
+    "notes": "The constant factor is irrelevant for Lemma 2.1(ii), whose full O_k(log(1/eta)) conclusion is supplied below. AA §3.2 gives the Phi^2 circuit immediately before Proposition 6; Proposition 6 itself is a different ceil(k/2)-query test with law (1+Phi)/2.",
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationQuantum.lean",
+    "additional_declarations": [
+      "QuarticQuery.Paper.construction_bitOracle_phase_kickback",
+      "QuarticQuery.Paper.construction_bitOracle_phase_preserves"
+    ],
+    "proposed_relation_after_elaboration": "Partial for the full bundled row: exact projection law and local one-query phase identity; complete physical witness has cap 2k.",
+    "route": "same",
+    "remaining_obligations": "A complete physical `Runs k` witness for the entire projection routine remains to be supplied. The new `construction_bitOracle_phase_kickback` theorem proves the one-call local phase step, including entangled workspace. The existing generic compiler proves `Runs (2*k)`. This leaves Lemma 2.1(ii)’s O_k bound intact."
+  },
+  {
+    "id": "lem-2.1.ii",
+    "class": "short_from_existing",
+    "declaration": "QuarticQuery.Paper.construction_lemma_2_1_ii_complete",
+    "uses": [
+      "QuarticQuery.Paper.construction_lemma_2_1_ii",
+      "QuarticQuery.Upper.compile_circ",
+      "QuarticQuery.Upper.clEmb",
+      "Function.Embedding.nonempty_of_card_le",
+      "QuarticQuery.Upper.decode_samples",
+      "QuarticQuery.Upper.decodeProb_correct",
+      "QuarticQuery.Forrelation.repetitions_le"
+    ],
+    "difficulty": "short",
+    "compiled": false,
+    "notes": "The older construction_lemma_2_1_ii is a partial helper: Samples(n*k)L and Runs(2nk)L alone do not identify the retained physical workspace because Samples.runs measures the full basis and resets it. The complete theorem uses compile_circ before that stage and explicitly ties the same F to all output-law and physical-continuation clauses. The theorem covers k>=1, hence the paper k>=2 domain. All source remains unelaborated.",
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationComplete.lean",
+    "additional_declarations": [
+      "QuarticQuery.Paper.construction_lemma_2_1_ii"
+    ],
+    "proposed_relation_after_elaboration": "exact_on_paper_domain",
+    "route": "same",
+    "remaining_obligations": "Fresh elaboration, axiom audit and review of the exact statement remain. No further statement-level gap was identified in this scoped source review."
+  },
+  {
+    "id": "claim-N-phi",
+    "class": "genuine_new_proof",
+    "declaration": "QuarticQuery.Paper.construction_N_phi",
+    "uses": [
+      "QuarticQuery.forrelationNumerator",
+      "QuarticQuery.forrelationDenominator",
+      "QuarticQuery.Forrelation.forrelationDenominator_pos",
+      "QuarticQuery.Forrelation.Phi_eq_matrix_product",
+      "QuarticQuery.Forrelation.walshSign_eq_one_or",
+      "QuarticQuery.Forrelation.H",
+      "QuarticQuery.Forrelation.W",
+      "QuarticQuery.Forrelation.u",
+      "QuarticQuery.Forrelation.alternate",
+      "QuarticQuery.Forrelation.tailProd"
+    ],
+    "difficulty": "substantial",
+    "compiled": false,
+    "notes": "The formal product is ones^T D_1 W ... D_k ones. Absorbing the first diagonal gives the paper z_1^T expression. The type supplies k>=1, hence covers every paper k>=2.",
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+    "additional_declarations": [
+      "QuarticQuery.Paper.construction_tailProd_smul",
+      "QuarticQuery.Paper.construction_alternate_smul",
+      "QuarticQuery.Paper.construction_denominator",
+      "QuarticQuery.Paper.construction_numerator_matrix"
+    ],
+    "proposed_relation_after_elaboration": "exact_on_paper_domain",
+    "route": "same",
+    "remaining_obligations": "Fresh elaboration, axiom audit and review of the exact statement remain. No further statement-level gap was identified in this scoped source review."
+  },
+  {
+    "id": "claim-integer-tests",
+    "class": "short_from_existing",
+    "declaration": "QuarticQuery.Paper.construction_integer_tests",
+    "uses": [
+      "QuarticQuery.Forrelation.delta_le_Phi_iff",
+      "QuarticQuery.Forrelation.abs_Phi_le_iff",
+      "QuarticQuery.Forrelation.promised_P_iff",
+      "QuarticQuery.Forrelation.P_eq_some_true_iff",
+      "QuarticQuery.Forrelation.forrCore_spec",
+      "QuarticQuery.Forrelation.forrCircuit_realises",
+      "QuarticQuery.Forrelation.consistent_unique"
+    ],
+    "difficulty": "short",
+    "compiled": false,
+    "notes": "The additional output theorem uses l=k-1, so its circuit is forrCircuit l t on k=l+1 blocks. A theorem about P alone would leave the actual b,d circuit outputs implicit; this export closes that omission.",
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+    "additional_declarations": [
+      "QuarticQuery.Paper.construction_forr_value_output",
+      "QuarticQuery.Paper.construction_forr_output_bits"
+    ],
+    "proposed_relation_after_elaboration": "exact_on_paper_domain",
+    "route": "same",
+    "remaining_obligations": "Fresh elaboration, axiom audit and review of the exact statement remain. No further statement-level gap was identified in this scoped source review."
+  },
+  {
+    "id": "claim-circuit-size",
+    "class": "genuine_new_proof",
+    "declaration": "QuarticQuery.Paper.construction_circuit_costs",
+    "uses": [
+      "QuarticQuery.Forrelation.walkN",
+      "QuarticQuery.Forrelation.numerator_eq_walk",
+      "QuarticQuery.Forrelation.wht_spec",
+      "QuarticQuery.Forrelation.whtCost_le",
+      "QuarticQuery.Forrelation.layerCost",
+      "QuarticQuery.Forrelation.abs_numerator_le",
+      "QuarticQuery.Forrelation.forrCircuit_realises",
+      "QuarticQuery.Forrelation.forrCircuit_size_le",
+      "QuarticQuery.Paper.construction_abs_walshN",
+      "QuarticQuery.Paper.construction_walkN_bound",
+      "QuarticQuery.Paper.construction_walkN_prefix_bound",
+      "QuarticQuery.Paper.construction_butterfly_block_bound"
+    ],
+    "difficulty": "substantial",
+    "compiled": false,
+    "notes": "Explicit existing size constant forrConstant k=200(k+1)^2 is recorded in the submitted theorem. For l=k-1 and t>=1 the submitted width inequality is widthTop(l,t)+1 <= (3l+5)(2t). The route does not need every intermediate residue interpreted as an exact signed integer to establish CircuitRealises.",
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationCircuit.lean",
+    "additional_declarations": [
+      "QuarticQuery.Paper.construction_circuit_width",
+      "QuarticQuery.Paper.construction_lemma_2_1_iii",
+      "QuarticQuery.Paper.construction_abs_sum_range_le",
+      "QuarticQuery.Paper.construction_abs_walshN",
+      "QuarticQuery.Paper.construction_walkN_bound",
+      "QuarticQuery.Paper.construction_walkN_prefix_bound",
+      "QuarticQuery.Paper.construction_butterfly_block_bound"
+    ],
+    "proposed_relation_after_elaboration": "Exact size and output endpoint by the existing modular route; partial for a register-by-register formalization of the preprint’s integer derivation.",
+    "route": "alternative",
+    "remaining_obligations": "The ideal walk, prefixes and butterfly blocks have explicit polynomial magnitude bounds in ConstructionArithmetic.lean. No supplied theorem identifies every register of the particular modular implementation with an unbounded signed intermediate value. This is a formal correspondence gap; no overflow counterexample is established."
+  },
+  {
+    "id": "lem-2.1",
+    "class": "short_from_existing",
+    "declaration": "QuarticQuery.Paper.construction_lemma_2_1_complete",
+    "uses": [
+      "QuarticQuery.ForrelationLower.bansalSinhaLower",
+      "QuarticQuery.Paper.construction_lemma_2_1_i",
+      "QuarticQuery.Paper.construction_lemma_2_1_ii_complete",
+      "QuarticQuery.Paper.construction_lemma_2_1_iii"
+    ],
+    "difficulty": "short",
+    "compiled": false,
+    "notes": "All three conclusions are literal in construction_lemma_2_1_complete, including the physical retained-workspace statement. The older construction_lemma_2_1 remains an explicitly partial helper because its sampler and Runs witnesses share only the output law. New source is unelaborated; no compiled or comparator status is asserted.",
+    "file": "lean/QuarticQuery/Paper/ConstructionForrelationComplete.lean",
+    "additional_declarations": [
+      "QuarticQuery.Paper.construction_lemma_2_1_i",
+      "QuarticQuery.Paper.construction_lemma_2_1_ii",
+      "QuarticQuery.Paper.construction_lemma_2_1_iii",
+      "QuarticQuery.Paper.construction_lemma_2_1",
+      "QuarticQuery.Paper.construction_lemma_2_1_ii_complete"
+    ],
+    "proposed_relation_after_elaboration": "exact_on_paper_domain",
+    "route": "alternative",
+    "remaining_obligations": "Fresh elaboration, axiom audit and review of the exact statement remain. No further statement-level gap was identified in this scoped source review."
+  },
+  {
+    "id": "eq-6",
+    "class": "short_from_existing",
+    "declaration": "QuarticQuery.Paper.construction_eq6",
+    "uses": [
+      "QuarticQuery.logb_mValue",
+      "QuarticQuery.mValue",
+      "Nat.ceil_natCast"
+    ],
+    "difficulty": "short",
+    "compiled": false,
+    "notes": "The attached paper expressly fixes powers of four (paper/extracted.md:130–132). This is the actual family, not a restriction introduced by the formalization. The identity also holds for t=0 although the query-depth specialization uses t≥1. Nat.ceil_natCast was name-checked against the official public Mathlib Floor.Semiring documentation; the pinned revision was not elaborated. All submitted proof bodies are unelaborated: no lean/lake executable or pinned Mathlib artifacts were available. No new build, dependency closure, axiom check, or Comparator result is claimed. Original built-at-pin evidence applies only to the original declarations. The proposed statement relation below is a mathematical/source-level assessment pending elaboration and review.",
+    "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+    "additional_declarations": [],
+    "proposed_relation_after_elaboration": "exact",
+    "route": "same",
+    "remaining_obligations": "Elaboration, compilation at the pinned toolchain, axiom/dependency checks, and semantic review remain; no completed-check claim is made."
+  },
+  {
+    "id": "def-column-layout",
+    "class": "definition",
+    "declaration": "QuarticQuery.Paper.construction_column_layout",
+    "uses": [
+      "QuarticQuery.BitLoc",
+      "QuarticQuery.Column",
+      "QuarticQuery.Address",
+      "QuarticQuery.ForrelationCoord",
+      "QuarticQuery.pointerEquiv_bijective",
+      "QuarticQuery.existsUnique_pointer"
+    ],
+    "difficulty": "trivial",
+    "compiled": false,
+    "notes": "Every Boolean function on BitLoc is an allowed total input. The A strings carry no global promise and arbitrary transcript contents are permitted. Every ℓ-bit pointer is valid because the pointer decoder is a bijection; there is no hidden invalid-pointer exclusion. All submitted proof bodies are unelaborated: no lean/lake executable or pinned Mathlib artifacts were available. No new build, dependency closure, axiom check, or Comparator result is claimed. Original built-at-pin evidence applies only to the original declarations. The proposed statement relation below is a mathematical/source-level assessment pending elaboration and review.",
+    "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+    "additional_declarations": [
+      "QuarticQuery.Paper.construction_pointer_encoding",
+      "QuarticQuery.Paper.construction_layout_cardinalities"
+    ],
+    "proposed_relation_after_elaboration": "exact",
+    "route": "same",
+    "remaining_obligations": "Elaboration, compilation at the pinned toolchain, axiom/dependency checks, and semantic review remain; no completed-check claim is made."
+  },
+  {
+    "id": "eq-7",
+    "class": "short_from_existing",
+    "declaration": "QuarticQuery.Paper.construction_trueAddress_iff",
+    "uses": [
+      "QuarticQuery.trueAddress",
+      "QuarticQuery.apply_eq_trueAddress",
+      "Option.some.inj"
+    ],
+    "difficulty": "short",
+    "compiled": false,
+    "notes": "The promise premise is local to the addressed column. Equality is independent of the proof object used to establish that the answers are defined. All submitted proof bodies are unelaborated: no lean/lake executable or pinned Mathlib artifacts were available. No new build, dependency closure, axiom check, or Comparator result is claimed. Original built-at-pin evidence applies only to the original declarations. The proposed statement relation below is a mathematical/source-level assessment pending elaboration and review.",
+    "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+    "additional_declarations": [],
+    "proposed_relation_after_elaboration": "exact",
+    "route": "same",
+    "remaining_obligations": "Elaboration, compilation at the pinned toolchain, axiom/dependency checks, and semantic review remain; no completed-check claim is made."
+  },
+  {
+    "id": "eq-8",
+    "class": "definition",
+    "declaration": "QuarticQuery.Paper.constructionOutwardPointers",
+    "uses": [
+      "QuarticQuery.readX",
+      "QuarticQuery.readPointerBit",
+      "QuarticQuery.pointerEquiv",
+      "QuarticQuery.WinsAt"
+    ],
+    "difficulty": "trivial",
+    "compiled": false,
+    "notes": "The definition is generic in transcript-size S; the projection theorem is a consequence, while the definition itself is the exact row. It quantifies over all j≠i, rather than merely asserting existence of one outgoing witness. All submitted proof bodies are unelaborated: no lean/lake executable or pinned Mathlib artifacts were available. No new build, dependency closure, axiom check, or Comparator result is claimed. Original built-at-pin evidence applies only to the original declarations. The proposed statement relation below is a mathematical/source-level assessment pending elaboration and review.",
+    "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+    "additional_declarations": [
+      "QuarticQuery.Paper.construction_eq8_of_winsAt"
+    ],
+    "proposed_relation_after_elaboration": "exact",
+    "route": "same",
+    "remaining_obligations": "Elaboration, compilation at the pinned toolchain, axiom/dependency checks, and semantic review remain; no completed-check claim is made."
+  },
+  {
+    "id": "def-winner",
+    "class": "definition",
+    "declaration": "QuarticQuery.Paper.constructionWinner",
+    "uses": [
+      "QuarticQuery.trueAddress",
+      "QuarticQuery.circuitEval",
+      "QuarticQuery.PaperWinsAt",
+      "QuarticQuery.winsAt_iff_paperWinsAt",
+      "QuarticQuery.WinsAt"
+    ],
+    "difficulty": "short",
+    "compiled": false,
+    "notes": "The all-ones condition and the unique true transcript are explicit; neither is weakened to a local output constraint. No CircuitRealises premise is needed for this semantic definition or its equivalence to public WinsAt. Circuit correctness is needed only when replacing partial answers with output tests. All submitted proof bodies are unelaborated: no lean/lake executable or pinned Mathlib artifacts were available. No new build, dependency closure, axiom check, or Comparator result is claimed. Original built-at-pin evidence applies only to the original declarations. The proposed statement relation below is a mathematical/source-level assessment pending elaboration and review.",
+    "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+    "additional_declarations": [
+      "QuarticQuery.Paper.construction_winner_iff_exists_winsAt"
+    ],
+    "proposed_relation_after_elaboration": "exact",
+    "route": "same",
+    "remaining_obligations": "Elaboration, compilation at the pinned toolchain, axiom/dependency checks, and semantic review remain; no completed-check claim is made."
+  },
+  {
+    "id": "cor-unique-winner",
+    "class": "short_from_existing",
+    "declaration": "QuarticQuery.Paper.construction_unique_winner",
+    "uses": [
+      "QuarticQuery.winsAt_column_unique",
+      "QuarticQuery.Paper.construction_winner_iff_exists_winsAt"
+    ],
+    "difficulty": "short",
+    "compiled": false,
+    "notes": "This is stated for arbitrary partial f and arbitrary C, so it specializes to the Forrelation family without new hypotheses. The existing source theorem already proves the mathematics; the contribution is an exact tie to the literal paper winner predicate. All submitted proof bodies are unelaborated: no lean/lake executable or pinned Mathlib artifacts were available. No new build, dependency closure, axiom check, or Comparator result is claimed. Original built-at-pin evidence applies only to the original declarations. The proposed statement relation below is a mathematical/source-level assessment pending elaboration and review.",
+    "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+    "additional_declarations": [],
+    "proposed_relation_after_elaboration": "stronger",
+    "route": "same",
+    "remaining_obligations": "Elaboration, compilation at the pinned toolchain, axiom/dependency checks, and semantic review remain; no completed-check claim is made."
+  },
+  {
+    "id": "def-win-at-address",
+    "class": "short_from_existing",
+    "declaration": "QuarticQuery.Paper.construction_winsAt_iff_winner_and_address",
+    "uses": [
+      "QuarticQuery.winsAt_iff_paperWinsAt",
+      "QuarticQuery.winsAt_iff_outputs",
+      "QuarticQuery.Paper.construction_trueAddress_iff",
+      "QuarticQuery.Paper.construction_winner_iff_exists_winsAt"
+    ],
+    "difficulty": "short",
+    "compiled": false,
+    "notes": "There are two exact formulations with different hypotheses. The paper-wording equivalence needs no realization premise. The current ledger’s output-test equivalence explicitly requires CircuitRealises C f, supplied for C_k,m by Lemma 2.1(iii); dropping it would make the equivalence false. All submitted proof bodies are unelaborated: no lean/lake executable or pinned Mathlib artifacts were available. No new build, dependency closure, axiom check, or Comparator result is claimed. Original built-at-pin evidence applies only to the original declarations. The proposed statement relation below is a mathematical/source-level assessment pending elaboration and review.",
+    "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+    "additional_declarations": [
+      "QuarticQuery.Paper.construction_win_at_address_outputs"
+    ],
+    "proposed_relation_after_elaboration": "exact",
+    "route": "same",
+    "remaining_obligations": "Elaboration, compilation at the pinned toolchain, axiom/dependency checks, and semantic review remain; no completed-check claim is made."
+  },
+  {
+    "id": "def-K",
+    "class": "short_from_existing",
+    "declaration": "QuarticQuery.Paper.construction_K_count",
+    "uses": [
+      "QuarticQuery.card_testIndex",
+      "QuarticQuery.Forrelation.forrCircuit",
+      "QuarticQuery.Forrelation.forrCircuit_realises",
+      "QuarticQuery.Forrelation.forrCircuit_size_le",
+      "QuarticQuery.Forrelation.forrConstant"
+    ],
+    "difficulty": "short",
+    "compiled": false,
+    "notes": "The main count theorem alone does not assert the asymptotic estimate. The evidence set includes the explicit estimate and the family quantifier ordering. The inequality proof exports arithmetic already used inside Upper/Bound.lean:137–163; it is not a novelty claim. All submitted proof bodies are unelaborated: no lean/lake executable or pinned Mathlib artifacts were available. No new build, dependency closure, axiom check, or Comparator result is claimed. Original built-at-pin evidence applies only to the original declarations. The proposed statement relation below is a mathematical/source-level assessment pending elaboration and review.",
+    "file": "lean/QuarticQuery/Paper/ConstructionTests.lean",
+    "additional_declarations": [
+      "QuarticQuery.Paper.construction_K_bound",
+      "QuarticQuery.Paper.construction_K_family"
+    ],
+    "proposed_relation_after_elaboration": "exact",
+    "route": "same",
+    "remaining_obligations": "Elaboration, compilation at the pinned toolchain, axiom/dependency checks, and semantic review remain; no completed-check claim is made."
+  },
+  {
+    "id": "lem-2.2.i",
+    "class": "short_from_existing",
+    "declaration": "QuarticQuery.Paper.construction_lemma_2_2_i",
+    "uses": [
+      "QuarticQuery.winsAt_iff_paperWinsAt",
+      "QuarticQuery.winsAt_iff_localTests",
+      "QuarticQuery.localTestTree_eval",
+      "QuarticQuery.localTestTree_depth_le",
+      "QuarticQuery.pointerEquiv",
+      "QuarticQuery.Paper.construction_pointer_every_coordinate",
+      "QuarticQuery.Paper.construction_pointerLoc_injective",
+      "QuarticQuery.Paper.construction_essential_coordinate_lift",
+      "Classical.choose_spec",
+      "Option.some.inj"
+    ],
+    "difficulty": "substantial",
+    "compiled": false,
+    "notes": "The current preprint already states an adaptive query bound correctly. The fixed-support mistake was in an older ledger. The lookup-schema witnesses are now transported to full BitLoc inputs by construction_pointer_every_physical_coordinate. It quantifies X,Y agreeing at every physical coordinate except the selected pointer or target location, with unequal actual localTest values. construction_pointerLoc_injective proves that all ℓ+m listed locations are distinct. All tree correctness and equivalences range over arbitrary invalid/unpromised inputs as well. All submitted proof bodies are unelaborated: no lean/lake executable or pinned Mathlib artifacts were available. No new build, dependency closure, axiom check, or Comparator result is claimed. Original built-at-pin evidence applies only to the original declarations. The proposed statement relation below is a mathematical/source-level assessment pending elaboration and review.",
+    "file": "lean/QuarticQuery/Paper/ConstructionTests.lean",
+    "additional_declarations": [
+      "QuarticQuery.Paper.construction_test_depth",
+      "QuarticQuery.Paper.constructionPointerLookup",
+      "QuarticQuery.Paper.construction_pointer_test_eq_lookup",
+      "QuarticQuery.Paper.construction_pointer_every_coordinate",
+      "QuarticQuery.Paper.constructionPointerLoc",
+      "QuarticQuery.Paper.construction_pointerLoc_injective",
+      "QuarticQuery.Paper.construction_essential_coordinate_lift",
+      "QuarticQuery.Paper.construction_pointer_every_physical_coordinate"
+    ],
+    "proposed_relation_after_elaboration": "exact",
+    "route": "same",
+    "remaining_obligations": "Elaboration, compilation at the pinned toolchain, axiom/dependency checks, and semantic review remain; no completed-check claim is made."
+  },
+  {
+    "id": "lem-2.2.ii",
+    "class": "genuine_new_proof",
+    "declaration": "QuarticQuery.Paper.construction_lemma_2_2_ii",
+    "uses": [
+      "QuarticQuery.Upper.Samples.tree",
+      "QuarticQuery.Upper.Samples.mono",
+      "QuarticQuery.Upper.Samples.congr",
+      "QuarticQuery.Upper.IsCirc.sigma",
+      "QuarticQuery.Upper.slice_sigmaOp",
+      "QuarticQuery.Upper.lawOf",
+      "QuarticQuery.Upper.pt",
+      "QuarticQuery.Upper.compile_circ",
+      "Function.Embedding.nonempty_of_card_le"
+    ],
+    "difficulty": "substantial",
+    "compiled": false,
+    "notes": "This repairs a real scope omission in the uncompiled Section2 candidate, whose Samples statement only supplied a particular uniform-index law. The generic theorem gives abstract-read coherence; construction_controlled_compile and the single complete family theorem give physical bit-query accounting. Workspace is retained. No clean XOR oracle with reset ancillas is asserted. No state normalization premise is needed for the displayed linear identities; normalized superpositions are included. All submitted proof bodies are unelaborated: no lean/lake executable or pinned Mathlib artifacts were available. No new build, dependency closure, axiom check, or Comparator result is claimed. Original built-at-pin evidence applies only to the original declarations. The proposed statement relation below is a mathematical/source-level assessment pending elaboration and review.",
+    "file": "lean/QuarticQuery/Paper/ConstructionCoherent.lean",
+    "additional_declarations": [
+      "QuarticQuery.Paper.construction_controlled_exact_samples",
+      "QuarticQuery.Paper.construction_support_of_exact_law",
+      "QuarticQuery.Paper.construction_slice_indexStart",
+      "QuarticQuery.Paper.construction_controlled_compile",
+      "QuarticQuery.Paper.construction_lemma_2_2_complete"
+    ],
+    "proposed_relation_after_elaboration": "exact",
+    "route": "same",
+    "remaining_obligations": "Elaboration, compilation at the pinned toolchain, axiom/dependency checks, and semantic review remain; no completed-check claim is made."
+  },
+  {
+    "id": "lem-2.2",
+    "class": "genuine_new_proof",
+    "declaration": "QuarticQuery.Paper.construction_lemma_2_2_complete",
+    "uses": [
+      "QuarticQuery.Paper.construction_K_count",
+      "QuarticQuery.Paper.construction_K_bound",
+      "QuarticQuery.Paper.construction_lemma_2_2_i",
+      "QuarticQuery.Paper.construction_test_depth",
+      "QuarticQuery.Paper.construction_lemma_2_2_ii",
+      "QuarticQuery.Upper.compile_circ",
+      "Function.Embedding.nonempty_of_card_le"
+    ],
+    "difficulty": "substantial",
+    "compiled": false,
+    "notes": "construction_lemma_2_2_complete is the primary full-scope endpoint. The shorter generic construction_lemma_2_2 is retained as a useful assembly but alone omits the size asymptotic and physical compiler. CircuitRealises and the circuit-size bound are the exact supplied circuit properties of Lemma 2.1(iii), not unproved hardness hypotheses. A depends-on tie to the Forrelation supplier is required when selecting the concrete family. All submitted proof bodies are unelaborated: no lean/lake executable or pinned Mathlib artifacts were available. No new build, dependency closure, axiom check, or Comparator result is claimed. Original built-at-pin evidence applies only to the original declarations. The proposed statement relation below is a mathematical/source-level assessment pending elaboration and review.",
+    "file": "lean/QuarticQuery/Paper/ConstructionComplete.lean",
+    "additional_declarations": [
+      "QuarticQuery.Paper.construction_lemma_2_2"
+    ],
+    "proposed_relation_after_elaboration": "exact",
+    "route": "same",
+    "remaining_obligations": "Elaboration, compilation at the pinned toolchain, axiom/dependency checks, and semantic review remain; no completed-check claim is made."
+  },
+  {
+    "id": "cor-local-dichotomy",
+    "class": "short_from_existing",
+    "declaration": "QuarticQuery.Paper.construction_local_dichotomy",
+    "uses": [
+      "QuarticQuery.Paper.construction_winner_iff_exists_winsAt",
+      "QuarticQuery.winsAt_iff_localTests",
+      "QuarticQuery.exists_failing_localTest"
+    ],
+    "difficulty": "short",
+    "compiled": false,
+    "notes": "The all-input quantifiers include out-of-promise A strings and inconsistent transcripts. CircuitRealises is required to connect exact circuit checks with partial-function answers; the supplied Forrelation circuit satisfies it. All submitted proof bodies are unelaborated: no lean/lake executable or pinned Mathlib artifacts were available. No new build, dependency closure, axiom check, or Comparator result is claimed. Original built-at-pin evidence applies only to the original declarations. The proposed statement relation below is a mathematical/source-level assessment pending elaboration and review.",
+    "file": "lean/QuarticQuery/Paper/ConstructionTests.lean",
+    "additional_declarations": [],
+    "proposed_relation_after_elaboration": "exact",
+    "route": "same",
+    "remaining_obligations": "Elaboration, compilation at the pinned toolchain, axiom/dependency checks, and semantic review remain; no completed-check claim is made."
+  }
+]

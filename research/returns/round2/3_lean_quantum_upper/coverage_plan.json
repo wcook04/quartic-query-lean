@@ -1,0 +1,1180 @@
+[
+  {
+    "id": "prop-3.2",
+    "class": "genuine_new_proof",
+    "declaration": "QuarticQuery.Paper.quantumTournament",
+    "uses": [
+      "QuarticQuery.Upper.stage_samples",
+      "QuarticQuery.Paper.quantum_amplify_samples",
+      "QuarticQuery.Upper.Samples.bind",
+      "QuarticQuery.Upper.Samples.runs",
+      "QuarticQuery.Tournament.ideal_tournament",
+      "QuarticQuery.Paper.quantumList_coupling",
+      "QuarticQuery.Paper.quantumListLaw_vall",
+      "QuarticQuery.Paper.quantumTournament_cost"
+    ],
+    "difficulty": "high",
+    "compiled": false,
+    "notes": "The supplied Upper.tournament_runs is a Boolean verifier continuation and loses a further verifier ε. The old uncompiled Paper.Section3 candidate addressed list law only through Runs; this return supplies an actual coherent list-label witness as well. The retained-register implementation is an alternative implementation route with the same required law. c ordinary bit queries can be represented by c logical reads using quantumBitOracle_isCirc plus IsCirc composition. The final compiler charges two bit queries per read, already included in 6072. This is proposed source, not a compiled theorem.",
+    "lean_statement": "theorem quantumTournament {ι Col : Type} [Fintype ι] [Inhabited ι]\n    [Fintype Col] [DecidableEq Col] {cc : ℕ} {a : BitInput ι → Col → Col → ℝ}\n    (hm : 2 ≤ Fintype.card Col) (hc : ∀ x, IsComparison (a x))\n    (hcmp : ∀ i p, Samples cc fun x b => bern (a x i p) b) :\n    let m := Fintype.card Col\n    let T := Tval m\n    let ε := epsval m\n    ∃ C : ℕ, ∃ law : BitInput ι → QuantumCandidateList Col T → ℝ,\n      (C : ℝ) ≤ 6072 * (cc : ℝ) * Real.sqrt (m : ℝ) *\n        (T : ℝ) ^ 2 * Real.log (T : ℝ) ∧\n      Samples (T * quantumStageReads m T cc ε) law ∧\n      Runs C law ∧\n      (∀ x o, 0 ≤ law x o) ∧\n      (∀ x, ∑ o, law x o = 1) ∧\n      ∀ x s, Dominant (a x) ε s →\n        1 - 2 * (m : ℝ) / 2 ^ T - T * ε ≤\n          ∑ o : QuantumCandidateList Col T, if s ∈ o.1 then law x o else 0",
+    "proposed_file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+    "proof_plan": "First construct the bounded output alphabet QuantumCandidateList. Lift finite amplification from Runs to Samples by retaining trial registers. Induct over the remaining number of stages with Samples.bind, returning the existing list on failure. This gives one Samples witness independently of x and s. Prove list-law nonnegativity and total mass one, including the zero-weight branch. Apply the perfect-indicator coupling to its exact expectation and the existing ideal_tournament miss bound. Compile once with Samples.runs and identify its cost by quantumStageReads_compile. Apply the explicit numerical cost inequality.",
+    "route": "alternative",
+    "prior_proposals_consulted": [
+      "new-upper-continuation-bound",
+      "new-upper-sampler-law"
+    ],
+    "local_status": "unelaborated",
+    "packet_dependencies_status": "Reported built_at_pin where BUILD_STATUS.md lists them; not recompiled here.",
+    "mathematical_statement": "For m≥2, T=ceil(log₂(1000m)), ε=1/(1000T), and a coherent comparison family of c logical reads with complementary probabilities, there is one normalized list law and one coherent circuit with that list as its measured label. Every label has length at most T. Its physical bit-query cap C satisfies C≤6072 c sqrt(m) T² ln(T), and, for every fixed oracle input x and every ε-dominant s, Pr[s is listed]≥1−2m/2^T−Tε.",
+    "declarations": [
+      "QuarticQuery.Paper.quantumTournament",
+      "QuarticQuery.Paper.quantumTournament_list",
+      "QuarticQuery.Paper.quantumListLaw_total",
+      "QuarticQuery.Paper.quantumListLaw_nonneg",
+      "QuarticQuery.Paper.quantumBitOracle_isCirc",
+      "QuarticQuery.Paper.quantumCandidateList_probability"
+    ],
+    "status": "unelaborated_source_only",
+    "comparison_status": "not_run",
+    "reach_status": "not_recomputed; no claim of headline dependency",
+    "correction": "No change to the preprint statement.",
+    "original_statement_sha256": "214b204564641c704b973c7c3010a24e4b84d08a314a82a5fc0e8d2d3ed2820a",
+    "paper_locator": "paper/extracted.md, Section 3.2, source line 363",
+    "statement_in_existing_context": true,
+    "new_source_signatures": {
+      "QuarticQuery.Paper.quantumTournament": "theorem quantumTournament {ι Col : Type} [Fintype ι] [Inhabited ι]\n    [Fintype Col] [DecidableEq Col] {cc : ℕ} {a : BitInput ι → Col → Col → ℝ}\n    (hm : 2 ≤ Fintype.card Col) (hc : ∀ x, IsComparison (a x))\n    (hcmp : ∀ i p, Samples cc fun x b => bern (a x i p) b) :\n    let m := Fintype.card Col\n    let T := Tval m\n    let ε := epsval m\n    ∃ C : ℕ, ∃ law : BitInput ι → QuantumCandidateList Col T → ℝ,\n      (C : ℝ) ≤ 6072 * (cc : ℝ) * Real.sqrt (m : ℝ) *\n        (T : ℝ) ^ 2 * Real.log (T : ℝ) ∧\n      Samples (T * quantumStageReads m T cc ε) law ∧\n      Runs C law ∧\n      (∀ x o, 0 ≤ law x o) ∧\n      (∀ x, ∑ o, law x o = 1) ∧\n      ∀ x s, Dominant (a x) ε s →\n        1 - 2 * (m : ℝ) / 2 ^ T - T * ε ≤\n          ∑ o : QuantumCandidateList Col T, if s ∈ o.1 then law x o else 0",
+      "QuarticQuery.Paper.quantumTournament_list": "theorem quantumTournament_list {cc : ℕ} {a : BitInput ι → Col → Col → ℝ}\n    (hm : 2 ≤ Fintype.card Col) (hc : ∀ x, IsComparison (a x))\n    (hcmp : ∀ i p, Samples cc fun x b => bern (a x i p) b) :\n    let m := Fintype.card Col\n    let T := Tval m\n    let ε := epsval m\n    ∃ law : BitInput ι → QuantumCandidateList Col T → ℝ,\n      Samples (T * quantumStageReads m T cc ε) law ∧\n      Runs (T * stageCost m T cc ε) law ∧\n      (∀ x o, 0 ≤ law x o) ∧\n      (∀ x, ∑ o, law x o = 1) ∧\n      ∀ x s, Dominant (a x) ε s →\n        1 - 2 * (m : ℝ) / 2 ^ T - T * ε ≤ ∑ o : QuantumCandidateList Col T, if s ∈ o.1 then law x o else 0",
+      "QuarticQuery.Paper.quantumListLaw_total": "theorem quantumListLaw_total {T : ℕ} (a : Col → Col → ℝ) (g : List Col → ℝ)\n    (hz : ∀ L, total (weight a L) = 0 → g L = 1)\n    (n : ℕ) (L : List Col) (hL : L.length + n ≤ T) :\n    ∑ o : QuantumCandidateList Col T, quantumListLaw a g n L o.1 = 1",
+      "QuarticQuery.Paper.quantumListLaw_nonneg": "theorem quantumListLaw_nonneg {a : Col → Col → ℝ} {g : List Col → ℝ}\n    (ha : UnitValued a) (hg : ∀ L, 0 ≤ g L ∧ g L ≤ 1)\n    (n : ℕ) (L out : List Col) : 0 ≤ quantumListLaw a g n L out",
+      "QuarticQuery.Paper.quantumBitOracle_isCirc": "theorem quantumBitOracle_isCirc {ι : Type} [Fintype ι] (w : ℕ) :\n    IsCirc 1 (fun x : BitInput ι => bitOracleL (w := w) x)",
+      "QuarticQuery.Paper.quantumCandidateList_probability": "theorem quantumCandidateList_probability {ι Col : Type} [Fintype Col]\n    [DecidableEq Col] {T c : ℕ}\n    {law : BitInput ι → {L : List Col // L.length ≤ T} → ℝ}\n    (h : Samples c law) :\n    (∀ x o, 0 ≤ law x o) ∧ (∀ x, ∑ o, law x o = 1)"
+    }
+  },
+  {
+    "id": "claim-coupling",
+    "class": "genuine_new_proof",
+    "declaration": "QuarticQuery.Paper.quantumList_coupling",
+    "uses": [
+      "QuarticQuery.Upper.tval_lower",
+      "QuarticQuery.Upper.le_tval_of_mem",
+      "QuarticQuery.Tournament.half_lt_total",
+      "QuarticQuery.Upper.sum_ratio",
+      "QuarticQuery.Upper.missFrom_nonneg",
+      "QuarticQuery.Paper.quantumListLaw_vall",
+      "QuarticQuery.Paper.quantumVall_indicator"
+    ],
+    "difficulty": "medium",
+    "compiled": false,
+    "notes": "The new perfect-verifier hypothesis v(s)=1 removes the factor (1−ε) from the analytic lower bound. This verifier is used only in the correctness proof; the constructed list sampler does not receive s. The existing Boolean-program theorem remains valid and distinct.",
+    "lean_statement": "theorem quantumList_coupling (ha : UnitValued a) (hv : ∀ c, 0 ≤ v c ∧ v c ≤ 1)\n    (hf : ∀ L, 0 ≤ f L ∧ f L ≤ 1) (hz : ∀ L, total (weight a L) = 0 → f L = 1) {s : Col}\n    {ε : ℝ} (hε0 : 0 ≤ ε) (hε1 : ε ≤ 1) (hd : Dominant a ε s) (hvs : v s = 1) {T₀ : ℕ}\n    (hT : (T₀ : ℝ) * ε < 1 / 2) (hfail : ∀ L : List Col, L.length ≤ T₀ → s ∉ L → f L ≤ ε)\n    (T : ℕ) (L : List Col) (hL : L.length + T ≤ T₀) :\n    1 - missFrom a s T L - T * ε ≤ tval a v f T L",
+    "proposed_file": "lean/QuarticQuery/Paper/QuantumTournament.lean",
+    "proof_plan": "Adapt tval_lower with a perfect verifier. If s is already listed, le_tval_of_mem gives acceptance at least one. Otherwise half_lt_total permits normalizing the next-pivot law. Apply induction separately at each history. Writing X=1−miss−nε, use X≤1 and f(L)≤ε to prove X−ε≤(1−f(L))X; split on X≥0, since a negative lower-bound bracket is allowed. quantumListLaw_vall and quantumVall_indicator identify the expectation with membership. No independence of stage failures is assumed.",
+    "route": "alternative",
+    "prior_proposals_consulted": [
+      "new-upper-continuation-bound"
+    ],
+    "local_status": "unelaborated",
+    "packet_dependencies_status": "Reported built_at_pin where BUILD_STATUS.md lists them; not recompiled here.",
+    "mathematical_statement": "Let a be unit-valued, v and f be in [0,1], v(s)=1, and f(L)=1 whenever W(L)=0. Suppose s is ε-dominant, 0≤ε≤1, T₀ε<1/2, and f(L)≤ε for every history of length at most T₀ omitting s. For |L|+n≤T₀, tval(a,v,f,n,L)≥1−missFrom(a,s,n,L)−nε. With v=1_{s}, tval is exactly the probability that the returned list contains s.",
+    "declarations": [
+      "QuarticQuery.Paper.quantumList_coupling",
+      "QuarticQuery.Paper.quantumTournament_list"
+    ],
+    "status": "unelaborated_source_only",
+    "comparison_status": "not_run",
+    "reach_status": "not_recomputed; no claim of headline dependency",
+    "correction": "No change to the preprint statement.",
+    "original_statement_sha256": "e44ba58645573c0df30253062377fa97aaa1eb851eec3c0213f527f68123141e",
+    "paper_locator": "paper/extracted.md, Section 3.2, source line 432",
+    "statement_in_existing_context": true,
+    "new_source_signatures": {
+      "QuarticQuery.Paper.quantumList_coupling": "theorem quantumList_coupling (ha : UnitValued a) (hv : ∀ c, 0 ≤ v c ∧ v c ≤ 1)\n    (hf : ∀ L, 0 ≤ f L ∧ f L ≤ 1) (hz : ∀ L, total (weight a L) = 0 → f L = 1) {s : Col}\n    {ε : ℝ} (hε0 : 0 ≤ ε) (hε1 : ε ≤ 1) (hd : Dominant a ε s) (hvs : v s = 1) {T₀ : ℕ}\n    (hT : (T₀ : ℝ) * ε < 1 / 2) (hfail : ∀ L : List Col, L.length ≤ T₀ → s ∉ L → f L ≤ ε)\n    (T : ℕ) (L : List Col) (hL : L.length + T ≤ T₀) :\n    1 - missFrom a s T L - T * ε ≤ tval a v f T L",
+      "QuarticQuery.Paper.quantumTournament_list": "theorem quantumTournament_list {cc : ℕ} {a : BitInput ι → Col → Col → ℝ}\n    (hm : 2 ≤ Fintype.card Col) (hc : ∀ x, IsComparison (a x))\n    (hcmp : ∀ i p, Samples cc fun x b => bern (a x i p) b) :\n    let m := Fintype.card Col\n    let T := Tval m\n    let ε := epsval m\n    ∃ law : BitInput ι → QuantumCandidateList Col T → ℝ,\n      Samples (T * quantumStageReads m T cc ε) law ∧\n      Runs (T * stageCost m T cc ε) law ∧\n      (∀ x o, 0 ≤ law x o) ∧\n      (∀ x, ∑ o, law x o = 1) ∧\n      ∀ x s, Dominant (a x) ε s →\n        1 - 2 * (m : ℝ) / 2 ^ T - T * ε ≤ ∑ o : QuantumCandidateList Col T, if s ∈ o.1 then law x o else 0"
+    }
+  },
+  {
+    "id": "claim-tournament-cost",
+    "class": "genuine_new_proof",
+    "declaration": "QuarticQuery.Paper.quantumTournament_cost",
+    "uses": [
+      "QuarticQuery.Paper.amplification_budget_le",
+      "QuarticQuery.Upper.stageCost",
+      "QuarticQuery.Amplification.iterationBound",
+      "QuarticQuery.Amplification.trialCount",
+      "QuarticQuery.Paper.quantumStageReads_compile",
+      "QuarticQuery.Paper.quantumTval_two_le"
+    ],
+    "difficulty": "medium",
+    "compiled": false,
+    "notes": "A bound on Proc.callCap alone would not justify the product used by stageCost; the extracted amplification_budget_le bounds that product itself. The paper uses a big-O assertion, so this explicit numerical constant is a valid stronger quantitative form after compilation. The literal integer cap is retained, including ceilings and the compiler factor two.",
+    "lean_statement": "theorem quantumTournament_cost {m : ℕ} (hm : 2 ≤ m) (cc : ℕ) :\n    ((Tval m * stageCost m (Tval m) cc (epsval m) : ℕ) : ℝ) ≤\n      6072 * (cc : ℝ) * Real.sqrt (m : ℝ) *\n        (Tval m : ℝ) ^ 2 * Real.log (Tval m : ℝ)",
+    "proposed_file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+    "proof_plan": "The new amplification_budget_le gives N(2M+1)≤138 γ^(−1/2)ln(1/ε). Multiply by 2cT², exactly matching the compiled budget. Then sqrt(2m)≤2sqrt(m), T≥2, and ln(1000T)≤11ln(T), because 1000≤2^10≤T^10. This yields 276×2×11=6072. The T-fold coherent stage construction pads each history to the same cT logical reads and compiles only once.",
+    "route": "same",
+    "prior_proposals_consulted": [
+      "new-upper-finite-budget"
+    ],
+    "local_status": "unelaborated",
+    "packet_dependencies_status": "Reported built_at_pin where BUILD_STATUS.md lists them; not recompiled here.",
+    "mathematical_statement": "For m≥2, T=ceil(log₂(1000m)), ε=1/(1000T), N=trialCount(ε), M=iterationBound(1/(2m)), the exact compiled cap 2N(2M+1)cT² is at most 6072 c sqrt(m) T² ln(T). The comparison cap c counts logical reads; the factor two converting reads into physical bit queries is already included.",
+    "declarations": [
+      "QuarticQuery.Paper.quantumTournament_cost",
+      "QuarticQuery.Paper.quantumTournament_cost_log",
+      "QuarticQuery.Paper.quantumStageReads",
+      "QuarticQuery.Paper.quantumStageReads_compile"
+    ],
+    "status": "unelaborated_source_only",
+    "comparison_status": "not_run",
+    "reach_status": "not_recomputed; no claim of headline dependency",
+    "correction": "No change to the preprint statement.",
+    "original_statement_sha256": "1003da6e634d8bb9831ca7245cc167b5f7ec8996f31a2f1695644c1e4c4f1d28",
+    "paper_locator": "paper/extracted.md, Section 3.2, source line 440",
+    "statement_in_existing_context": true,
+    "new_source_signatures": {
+      "QuarticQuery.Paper.quantumTournament_cost": "theorem quantumTournament_cost {m : ℕ} (hm : 2 ≤ m) (cc : ℕ) :\n    ((Tval m * stageCost m (Tval m) cc (epsval m) : ℕ) : ℝ) ≤\n      6072 * (cc : ℝ) * Real.sqrt (m : ℝ) *\n        (Tval m : ℝ) ^ 2 * Real.log (Tval m : ℝ)",
+      "QuarticQuery.Paper.quantumTournament_cost_log": "theorem quantumTournament_cost_log {m : ℕ} (hm : 2 ≤ m) (cc : ℕ) :\n    ((Tval m * stageCost m (Tval m) cc (epsval m) : ℕ) : ℝ) ≤\n      276 * (cc : ℝ) * (Real.sqrt ((2 * (m : ℝ))⁻¹))⁻¹ *\n        (Tval m : ℝ) ^ 2 * Real.log (1 / epsval m)",
+      "QuarticQuery.Paper.quantumStageReads": "noncomputable def quantumStageReads (m T cc : ℕ) (ε : ℝ) : ℕ",
+      "QuarticQuery.Paper.quantumStageReads_compile": "theorem quantumStageReads_compile (m T cc : ℕ) (ε : ℝ) :\n    2 * (T * quantumStageReads m T cc ε) = T * stageCost m T cc ε"
+    }
+  },
+  {
+    "id": "def-grover-trial",
+    "class": "already_stated_under_another_name",
+    "declaration": "QuarticQuery.Paper.quantum_grover_parameters",
+    "declarations": [
+      "QuarticQuery.Paper.quantum_grover_parameters",
+      "QuarticQuery.Paper.quantum_grover_trial_distribution",
+      "QuarticQuery.Paper.quantum_grover_trial_recursion",
+      "QuarticQuery.Paper.quantum_grover_call_cap"
+    ],
+    "uses": [
+      "QuarticQuery.Amplification.iterationBound",
+      "QuarticQuery.Amplification.trialCount",
+      "QuarticQuery.Amplification.amplify",
+      "QuarticQuery.Amplification.attempts",
+      "QuarticQuery.Amplification.trialWeight",
+      "QuarticQuery.Amplification.sum_trialWeight",
+      "QuarticQuery.Amplification.callCap_attempts"
+    ],
+    "difficulty": "low",
+    "compiled": false,
+    "notes": "The construction already exists in Proc. Agreement is by unfolding the parameter definitions and one recursion equation; normalization requires M != 0, supplied by gamma > 0. Proc.restart represents a fresh start. The separate coherent transport quantum_amplify_samples retains every trial workspace and proves the successful label law. Full-state semantics remain in Amplification.bounded_amplification. Adjudication M-1 requires one procedure fixed from gamma, eta before A; this is preserved. Prior proposal new-upper-call-cap is relevant; no strengthening of the source statement is asserted merely by a doc tag.",
+    "prior_proposals": [
+      "new-upper-call-cap",
+      "new-upper-sampler-law"
+    ],
+    "adjudications": [
+      "M-1",
+      "R2-LR4",
+      "F-EXACT-REACH"
+    ],
+    "paper_locator": "paper/extracted.md:332-352",
+    "mathematical_statement": "For γ>0 and 0<η≤1, M=ceil(10/sqrt(gamma)); N=ceil(log(1/eta)/log(40/31)); a trial chooses ell=0 with half the probability and ell uniform in {0,...,M-1} with the other half, uses G^ell A, measures success, and restarts on failure, stopping after at most N trials.",
+    "lean_statement": "theorem quantum_grover_parameters (γ η : ℝ) :\n    iterationBound γ = ⌈10 / Real.sqrt γ⌉₊ ∧\n    trialCount η = ⌈Real.log (1 / η) / Real.log (40 / 31)⌉₊ ∧\n    amplify γ η = attempts (iterationBound γ) (trialCount η)",
+    "proof_plan": "Use definitional equality for parameters/recursion, trialWeight_nonneg and sum_trialWeight for the mixture, callCap_attempts for every branch. The new Samples transport uses Samples.gate, Samples.bind, Samples.pure and IsCirc.mono to retain independent workspaces.",
+    "status": "unelaborated_source_only",
+    "comparison_status": "not_run",
+    "reach_status": "not_recomputed; no claim of headline dependency",
+    "correction": "No change to the preprint statement.",
+    "original_statement_sha256": "e238b2bb8394f028e9b054ea5210a7afb2db326a3fda5517906ef3667d51cd34",
+    "proposed_file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+    "statement_in_existing_context": true,
+    "new_source_signatures": {
+      "QuarticQuery.Paper.quantum_grover_parameters": "theorem quantum_grover_parameters (γ η : ℝ) :\n    iterationBound γ = ⌈10 / Real.sqrt γ⌉₊ ∧\n    trialCount η = ⌈Real.log (1 / η) / Real.log (40 / 31)⌉₊ ∧\n    amplify γ η = attempts (iterationBound γ) (trialCount η)",
+      "QuarticQuery.Paper.quantum_grover_trial_distribution": "theorem quantum_grover_trial_distribution {M : ℕ} (hM : M ≠ 0) :\n    (∀ ℓ : Fin M, trialWeight M ℓ =\n      (if (ℓ : ℕ) = 0 then 1 / 2 else 0) + 1 / (2 * (M : ℝ))) ∧\n    (∀ ℓ : Fin M, 0 ≤ trialWeight M ℓ) ∧\n    (∑ ℓ : Fin M, trialWeight M ℓ) = 1",
+      "QuarticQuery.Paper.quantum_grover_trial_recursion": "theorem quantum_grover_trial_recursion (M n : ℕ) :\n    attempts M (n + 1) =\n      .mix M (fun ℓ => trialWeight M ℓ) (fun ℓ =>\n        .restart (.run (groverCircuit ℓ) (.measure .success (attempts M n))))",
+      "QuarticQuery.Paper.quantum_grover_call_cap": "theorem quantum_grover_call_cap (γ η : ℝ) :\n    (amplify γ η).callCap ≤ trialCount η * (2 * iterationBound γ + 1)"
+    }
+  },
+  {
+    "id": "claim-grover-state",
+    "class": "few_lines_from_existing",
+    "declaration": "QuarticQuery.Paper.quantum_grover_state",
+    "declarations": [
+      "QuarticQuery.Paper.quantum_grover_state",
+      "QuarticQuery.Paper.quantum_grover_zero"
+    ],
+    "uses": [
+      "QuarticQuery.Amplification.Preparation.angle_mem",
+      "QuarticQuery.Amplification.Preparation.norm_goodState",
+      "QuarticQuery.Amplification.Preparation.norm_badPart_sq",
+      "QuarticQuery.Amplification.norm_normalised",
+      "QuarticQuery.Amplification.Preparation.good_goodState",
+      "QuarticQuery.Amplification.Preparation.good_badState",
+      "QuarticQuery.Amplification.Preparation.state_eq",
+      "QuarticQuery.Amplification.Preparation.iterate_eq",
+      "QuarticQuery.Amplification.Preparation.good_iterate",
+      "QuarticQuery.Amplification.Preparation.phaseEq_normalised_good_iterate",
+      "QuarticQuery.Amplification.Preparation.good_iterate_of_prob_zero"
+    ],
+    "difficulty": "low",
+    "compiled": false,
+    "notes": "The single wrapper includes both normalized vectors, their projector behavior and orthogonality, the angle range, initial decomposition, all iterates and conditional phase preservation. A positive initial p does not guarantee positive success mass at every chosen iteration. The final implication requires the actual good component to be nonzero; when it is zero no conditional state is claimed. This makes the implicit event condition in the original text explicit. Prior numerical examples new-amplification-arithmetic and new-amplification-concrete-state are out of this Section 3 closure and remain proposed examples.",
+    "prior_proposals": [
+      "new-amplification-arithmetic",
+      "new-amplification-concrete-state"
+    ],
+    "adjudications": [
+      "R2-LR4",
+      "R2-C-BHMT",
+      "F-CODE-PROV"
+    ],
+    "paper_locator": "paper/extracted.md:321-330",
+    "mathematical_statement": "For 0<p<1, choose theta in (0,pi/2) and normalized orthogonal good and bad vectors with A|0>=sin(theta)|g>+cos(theta)|b>. Every Grover iterate equals sin((2ell+1)theta)|g>+cos((2ell+1)theta)|b>, and whenever its good component is nonzero its normalized good component is |g> up to phase.",
+    "lean_statement": "theorem quantum_grover_state (A : Preparation H) (h0 : 0 < A.prob) (h1 : A.prob < 1) :\n    (0 < A.angle ∧ A.angle < Real.pi / 2) ∧\n    ‖A.goodState‖ = 1 ∧ ‖A.badState‖ = 1 ∧\n    A.good A.goodState = A.goodState ∧ A.good A.badState = 0 ∧\n    inner ℂ A.goodState A.badState = 0 ∧\n    A.state = ((Real.sin A.angle : ℝ) : ℂ) • A.goodState +\n      ((Real.cos A.angle : ℝ) : ℂ) • A.badState ∧\n    ∀ ℓ : ℕ,\n      A.iterate ℓ =\n        ((Real.sin ((2 * ℓ + 1) * A.angle) : ℝ) : ℂ) • A.goodState +\n        ((Real.cos ((2 * ℓ + 1) * A.angle) : ℝ) : ℂ) • A.badState ∧\n      (A.good (A.iterate ℓ) ≠ 0 →\n        PhaseEq (normalised (A.good (A.iterate ℓ))) A.goodState)",
+    "proof_plan": "Use the existing state and iterate formulas. From norm_badPart_sq and p<1 deduce badPart != 0 and normalize it. Orthogonality follows from the self-adjoint projector and good_goodState/good_badState. Nonzero projected mass forces nonzero sine, enabling phaseEq_normalised_good_iterate.",
+    "status": "unelaborated_source_only",
+    "comparison_status": "not_run",
+    "reach_status": "not_recomputed; no claim of headline dependency",
+    "correction": "No change to the preprint statement.",
+    "original_statement_sha256": "724f2c145b2cb265ca10f926ea080eb120a4b6c69db9d311fd0e2090f4fb6ae7",
+    "proposed_file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+    "statement_in_existing_context": true,
+    "new_source_signatures": {
+      "QuarticQuery.Paper.quantum_grover_state": "theorem quantum_grover_state (A : Preparation H) (h0 : 0 < A.prob) (h1 : A.prob < 1) :\n    (0 < A.angle ∧ A.angle < Real.pi / 2) ∧\n    ‖A.goodState‖ = 1 ∧ ‖A.badState‖ = 1 ∧\n    A.good A.goodState = A.goodState ∧ A.good A.badState = 0 ∧\n    inner ℂ A.goodState A.badState = 0 ∧\n    A.state = ((Real.sin A.angle : ℝ) : ℂ) • A.goodState +\n      ((Real.cos A.angle : ℝ) : ℂ) • A.badState ∧\n    ∀ ℓ : ℕ,\n      A.iterate ℓ =\n        ((Real.sin ((2 * ℓ + 1) * A.angle) : ℝ) : ℂ) • A.goodState +\n        ((Real.cos ((2 * ℓ + 1) * A.angle) : ℝ) : ℂ) • A.badState ∧\n      (A.good (A.iterate ℓ) ≠ 0 →\n        PhaseEq (normalised (A.good (A.iterate ℓ))) A.goodState)",
+      "QuarticQuery.Paper.quantum_grover_zero": "theorem quantum_grover_zero (A : Preparation H) (h : A.prob = 0) (ℓ : ℕ) :\n    A.good (A.iterate ℓ) = 0"
+    }
+  },
+  {
+    "id": "claim-sin2theta",
+    "class": "few_lines_from_existing",
+    "declaration": "QuarticQuery.Paper.quantum_sin_two_angle",
+    "declarations": [
+      "QuarticQuery.Paper.quantum_sin_two_angle"
+    ],
+    "uses": [
+      "QuarticQuery.Amplification.Preparation.sin_two_angle",
+      "QuarticQuery.Amplification.Preparation.prob_nonneg",
+      "Real.sqrt_le_iff",
+      "Real.sq_sqrt"
+    ],
+    "difficulty": "low",
+    "compiled": false,
+    "notes": "The equality is already named; the inequality existed only as a local have inside Preparation.nine_fortieths_le. The wrapper extracts that same calculation. Its signature permits gamma <= 0 because Real.sqrt then gives zero; the paper uses only gamma>0. The paper statement is unchanged.",
+    "prior_proposals": [],
+    "adjudications": [],
+    "paper_locator": "paper/extracted.md:335-338",
+    "mathematical_statement": "For the Grover angle with sin²θ=p and 0<γ≤p≤1/2, sin(2θ)=2 sqrt(p(1−p))≥sqrt(γ).",
+    "lean_statement": "theorem quantum_sin_two_angle (A : Preparation H) {γ : ℝ}\n    (hp : γ ≤ A.prob) (hhalf : A.prob ≤ 1 / 2) :\n    Real.sin (2 * A.angle) = 2 * Real.sqrt (A.prob * (1 - A.prob)) ∧\n    Real.sqrt γ ≤ Real.sin (2 * A.angle)",
+    "proof_plan": "Rewrite sin(2theta) with Preparation.sin_two_angle. Both sides are nonnegative. After squaring, 4p(1-p)>=gamma follows from p>=gamma and p<=1/2. The proof is copied from the local hs argument in Bounded.lean.",
+    "status": "unelaborated_source_only",
+    "comparison_status": "not_run",
+    "reach_status": "not_recomputed; no claim of headline dependency",
+    "correction": "No change to the preprint statement.",
+    "original_statement_sha256": "dd24c1df7b2e51bbf0b491264e8a52c16f9dfc5d7f54fc7a6cb8fc2f4f73d4e6",
+    "proposed_file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+    "statement_in_existing_context": true,
+    "new_source_signatures": {
+      "QuarticQuery.Paper.quantum_sin_two_angle": "theorem quantum_sin_two_angle (A : Preparation H) {γ : ℝ}\n    (hp : γ ≤ A.prob) (hhalf : A.prob ≤ 1 / 2) :\n    Real.sin (2 * A.angle) = 2 * Real.sqrt (A.prob * (1 - A.prob)) ∧\n    Real.sqrt γ ≤ Real.sin (2 * A.angle)"
+    }
+  },
+  {
+    "id": "eq-9",
+    "class": "few_lines_from_existing",
+    "declaration": "QuarticQuery.Paper.quantum_eq_9",
+    "declarations": [
+      "QuarticQuery.Paper.quantum_eq_9"
+    ],
+    "uses": [
+      "QuarticQuery.Paper.quantum_sin_two_angle",
+      "QuarticQuery.Amplification.average_sin_sq_ge",
+      "QuarticQuery.Amplification.iterationBound_ne_zero",
+      "Nat.le_ceil",
+      "Real.sqrt_pos",
+      "one_div_le_one_div_of_le"
+    ],
+    "difficulty": "low",
+    "compiled": false,
+    "notes": "Both links of the literal displayed chain are included. Existing average_sin_sq_ge_nine_twentieths proves the final endpoint under an angle premise, which by itself does not name the middle lower bound. gamma>0 forces M>=1 and sin(2theta)>0, so all denominators are valid. Prior new-upper-average-exact is already the type of Amplification.average_sin_sq; the new wrapper proves the paper chain instead of silently replacing it by that stronger identity.",
+    "prior_proposals": [
+      "new-upper-average-exact"
+    ],
+    "adjudications": [],
+    "paper_locator": "paper/extracted.md:339-343",
+    "mathematical_statement": "For gamma>0, gamma<=p<=1/2 and M=ceil(10/sqrt(gamma)), (1/M)sum_{ell<M}sin^2((2ell+1)theta)>=1/2-1/(2M|sin(2theta)|)>=9/20.",
+    "lean_statement": "theorem quantum_eq_9 (A : Preparation H) {γ : ℝ} (hγ : 0 < γ)\n    (hp : γ ≤ A.prob) (hhalf : A.prob ≤ 1 / 2) :\n    let M := iterationBound γ\n    (1 / 2 - 1 / (2 * (M : ℝ) * |Real.sin (2 * A.angle)|) ≤\n      (1 / (M : ℝ)) * ∑ ℓ ∈ Finset.range M,\n        Real.sin ((2 * ℓ + 1) * A.angle) ^ 2) ∧\n    (9 / 20 : ℝ) ≤ 1 / 2 - 1 / (2 * (M : ℝ) * |Real.sin (2 * A.angle)|)",
+    "proof_plan": "Obtain sqrt(gamma)<=sin(2theta) from quantum_sin_two_angle and M>=10/sqrt(gamma) from Nat.le_ceil. Then M sin(2theta)>=10; the reciprocal term is at most 1/20. Apply average_sin_sq_ge for the first inequality and linarith for the second.",
+    "status": "unelaborated_source_only",
+    "comparison_status": "not_run",
+    "reach_status": "not_recomputed; no claim of headline dependency",
+    "correction": "No change to the preprint statement.",
+    "original_statement_sha256": "4ae8493f73a3ffa0cecdf857529d57db2b5f8b81862821ba90ff8c6788499289",
+    "proposed_file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+    "statement_in_existing_context": true,
+    "new_source_signatures": {
+      "QuarticQuery.Paper.quantum_eq_9": "theorem quantum_eq_9 (A : Preparation H) {γ : ℝ} (hγ : 0 < γ)\n    (hp : γ ≤ A.prob) (hhalf : A.prob ≤ 1 / 2) :\n    let M := iterationBound γ\n    (1 / 2 - 1 / (2 * (M : ℝ) * |Real.sin (2 * A.angle)|) ≤\n      (1 / (M : ℝ)) * ∑ ℓ ∈ Finset.range M,\n        Real.sin ((2 * ℓ + 1) * A.angle) ^ 2) ∧\n    (9 / 20 : ℝ) ≤ 1 / 2 - 1 / (2 * (M : ℝ) * |Real.sin (2 * A.angle)|)"
+    }
+  },
+  {
+    "id": "claim-coherent-access",
+    "class": "already_stated_under_another_name",
+    "declaration": "QuarticQuery.Paper.quantum_controlled_bit_query",
+    "declarations": [
+      "QuarticQuery.Paper.quantum_controlled_bit_query",
+      "QuarticQuery.Paper.quantum_inverse_reads",
+      "QuarticQuery.Paper.quantum_controlled_reads",
+      "QuarticQuery.Paper.quantum_compile_circuit",
+      "QuarticQuery.Paper.quantum_coherent_tree",
+      "QuarticQuery.Paper.quantumComparison_pointer_queries",
+      "QuarticQuery.Paper.quantumBitRead",
+      "QuarticQuery.Paper.quantumBitRead_eq",
+      "QuarticQuery.Paper.quantumBitOracle_isCirc"
+    ],
+    "uses": [
+      "QuarticQuery.Upper.IsCirc.symm",
+      "QuarticQuery.Upper.IsCirc.sigma",
+      "QuarticQuery.Upper.compile_read",
+      "QuarticQuery.Upper.compile_circ",
+      "QuarticQuery.Upper.Samples.tree",
+      "QuarticQuery.Upper.Samples.disq",
+      "QuarticQuery.Upper.Samples.runs",
+      "QuarticQuery.Upper.disqTree_depth",
+      "QuarticQuery.Upper.disqTree_eval",
+      "QuarticQuery.Q_reindex"
+    ],
+    "difficulty": "low",
+    "compiled": false,
+    "notes": "The row is an implementation claim with several clauses, so it maps to several exact interfaces. A ReadSpec has an input-independent address function on retained basis labels. compile_read loads/uses/unloads and preserves an arbitrary continuation with two physical bit queries. IsCirc.sigma supplies superposed control; IsCirc.symm preserves read counts. The pointer-specific Runs cap 2*(2t+1) is provided in QuantumComparison.lean. Typed BitLoc coordinates are harmless: any fixed enumeration preserves Q by Q_reindex. Prior NEW-FOR-28 proposes a sharper phase-only single-query implementation; it is not implied by this generic two-query compiler.",
+    "prior_proposals": [
+      "NEW-FOR-28",
+      "new-upper-sampler-law"
+    ],
+    "adjudications": [
+      "R3-RF-05",
+      "F-EXACT-REACH"
+    ],
+    "paper_locator": "paper/extracted.md:507-512; see also 282-287",
+    "mathematical_statement": "Computing a fixed global bit address is query free. An addressed controlled read costs two bit-oracle calls by load/use/unload, reversal preserves the number of coherent reads, and a pointer with ell bits followed by its target costs at most 2(ell+1) bit queries through the generic compiler.",
+    "lean_statement": "theorem quantum_controlled_bit_query {ι Z : Type} [Fintype ι] [Inhabited ι]\n    [Fintype Z] {w : ℕ} (e : Z ↪ Fin (w + 1)) (R : ReadSpec ι Z) :\n    ∃ P : AdaptiveProgram ι w → AdaptiveProgram ι w, ∀ next,\n      (P next).queryCap = 2 + next.queryCap ∧\n      ∀ x ψ b, (P next).outputMass x (clEmb e ψ) b =\n        next.outputMass x (clEmb e (R.op x ψ)) b",
+    "proof_plan": "Re-export exact compile_read and compile_circ interfaces, plus IsCirc.sigma and IsCirc.symm. Apply Samples.tree to an adaptive pointer tree; disqTree_depth and disqTree_eval identify its depth and semantics. Compile via Samples.runs. No assumption that a pointer depends on a fixed small coordinate set is used.",
+    "status": "unelaborated_source_only",
+    "comparison_status": "not_run",
+    "reach_status": "not_recomputed; no claim of headline dependency",
+    "correction": "No change to the preprint statement.",
+    "original_statement_sha256": "480d95a665d701e6312cabe6c55873669dbea30ed30fe82c55b6cea68ee9a071",
+    "proposed_file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+    "statement_in_existing_context": true,
+    "new_source_signatures": {
+      "QuarticQuery.Paper.quantum_controlled_bit_query": "theorem quantum_controlled_bit_query {ι Z : Type} [Fintype ι] [Inhabited ι]\n    [Fintype Z] {w : ℕ} (e : Z ↪ Fin (w + 1)) (R : ReadSpec ι Z) :\n    ∃ P : AdaptiveProgram ι w → AdaptiveProgram ι w, ∀ next,\n      (P next).queryCap = 2 + next.queryCap ∧\n      ∀ x ψ b, (P next).outputMass x (clEmb e ψ) b =\n        next.outputMass x (clEmb e (R.op x ψ)) b",
+      "QuarticQuery.Paper.quantum_inverse_reads": "theorem quantum_inverse_reads {ι Z : Type} [Fintype Z] {n : ℕ}\n    {F : BitInput ι → Reg Z ≃ₗᵢ[ℂ] Reg Z} (hF : IsCirc n F) :\n    IsCirc n (fun x => (F x).symm)",
+      "QuarticQuery.Paper.quantum_controlled_reads": "theorem quantum_controlled_reads {ι Γ : Type} [Fintype Γ] {Z : Γ → Type}\n    [∀ c, Fintype (Z c)] {n : ℕ}\n    {F : ∀ c, BitInput ι → Reg (Z c) ≃ₗᵢ[ℂ] Reg (Z c)}\n    (hF : ∀ c, IsCirc n (F c)) :\n    IsCirc n (fun x => sigmaOp (fun c => F c x))",
+      "QuarticQuery.Paper.quantum_compile_circuit": "theorem quantum_compile_circuit {ι Z : Type} [Fintype ι] [Inhabited ι]\n    [Fintype Z] {w n : ℕ} (e : Z ↪ Fin (w + 1))\n    {F : BitInput ι → Reg Z ≃ₗᵢ[ℂ] Reg Z} (hF : IsCirc n F) :\n    ∃ P : AdaptiveProgram ι w → AdaptiveProgram ι w, ∀ next,\n      (P next).queryCap ≤ 2 * n + next.queryCap ∧\n      ∀ x ψ b, (P next).outputMass x (clEmb e ψ) b =\n        next.outputMass x (clEmb e (F x ψ)) b",
+      "QuarticQuery.Paper.quantum_coherent_tree": "theorem quantum_coherent_tree {ι : Type} [Nonempty ι] (T : QueryTree ι) :\n    Samples T.depth (fun (x : BitInput ι) b => pt (T.eval x) b)",
+      "QuarticQuery.Paper.quantumComparison_pointer_queries": "theorem quantumComparison_pointer_queries (i : Col t) (s : Addr t)\n    (j : Col t) (hji : j ≠ i) :\n    Runs (2 * (2 * t + 1)) fun (x : BitInput (Loc k t C)) b =>\n      pt (disq x i s j hji) b",
+      "QuarticQuery.Paper.quantumBitRead": "def quantumBitRead {ι : Type} (w : ℕ) : ReadSpec ι (Basis ι w)",
+      "QuarticQuery.Paper.quantumBitRead_eq": "theorem quantumBitRead_eq {ι : Type} [Fintype ι] (w : ℕ) (x : BitInput ι) :\n    (quantumBitRead (ι := ι) w).op x = bitOracleL (w := w) x",
+      "QuarticQuery.Paper.quantumBitOracle_isCirc": "theorem quantumBitOracle_isCirc {ι : Type} [Fintype ι] (w : ℕ) :\n    IsCirc 1 (fun x : BitInput ι => bitOracleL (w := w) x)"
+    }
+  },
+  {
+    "id": "def-aij",
+    "class": "already_stated_under_another_name",
+    "declaration": "QuarticQuery.Paper.quantumComparison_unordered_state",
+    "uses": [
+      "QuarticQuery.Upper.cmpProb",
+      "QuarticQuery.Upper.cmp_samples",
+      "QuarticQuery.Paper.quantumComparison_unordered_state",
+      "QuarticQuery.Paper.quantumComparison_self"
+    ],
+    "difficulty": "low",
+    "compiled": false,
+    "notes": "A definition is paired with a proof that the implemented circuit has its stated law. Algebraic IsComparison alone would not identify those numbers with an actual circuit.",
+    "lean_statement": "theorem quantumComparison_unordered_state (hk : 1 ≤ k) (n : ℕ)\n    (i j : Col t) (hij : i ≠ j) :\n    ∃ (Z : Type) (_ : Fintype Z) (o : Z) (out : Z → Bool)\n      (F : BitInput (Loc k t C) → Reg Z ≃ₗᵢ[ℂ] Reg Z),\n      IsCirc (cmpCost k t n) F ∧\n      ∀ x b,\n        lawOf (F x (rket o)) out b = bern (cmpProb n x i j) b ∧\n        lawOf (F x (rket o)) (fun z => !(out z)) b = bern (cmpProb n x j i) b",
+    "proposed_file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "proof_plan": "The source cmpProb definition fixes the table. quantumComparison_unordered_state supplies one fixed preparation with its two output interpretations for i versus j and j versus i. quantumComparison_self records the diagonal convention.",
+    "route": "same",
+    "prior_proposals_consulted": [
+      "new-toy-cycle"
+    ],
+    "local_status": "unelaborated",
+    "packet_dependencies_status": "Reported built_at_pin where BUILD_STATUS.md lists them; not recompiled here.",
+    "mathematical_statement": "For the actual constructed comparison, a_ij is cmpProb n x i j, the probability that the measured output says i defeats j; a_ii=0. One fixed sorted-pair circuit is reused in the reverse ordering.",
+    "declarations": [
+      "QuarticQuery.Paper.quantumComparison_unordered_state",
+      "QuarticQuery.Paper.quantumComparison_self"
+    ],
+    "status": "unelaborated_source_only",
+    "comparison_status": "not_run",
+    "reach_status": "not_recomputed; no claim of headline dependency",
+    "correction": "No change to the preprint statement.",
+    "original_statement_sha256": "d0153a8d90b3c57b5239b54638b8cccd90360b6d5ce119610f6d3c37cb67f8a0",
+    "paper_locator": "paper/extracted.md, Section 3.2, source line 356",
+    "statement_in_existing_context": true,
+    "new_source_signatures": {
+      "QuarticQuery.Paper.quantumComparison_unordered_state": "theorem quantumComparison_unordered_state (hk : 1 ≤ k) (n : ℕ)\n    (i j : Col t) (hij : i ≠ j) :\n    ∃ (Z : Type) (_ : Fintype Z) (o : Z) (out : Z → Bool)\n      (F : BitInput (Loc k t C) → Reg Z ≃ₗᵢ[ℂ] Reg Z),\n      IsCirc (cmpCost k t n) F ∧\n      ∀ x b,\n        lawOf (F x (rket o)) out b = bern (cmpProb n x i j) b ∧\n        lawOf (F x (rket o)) (fun z => !(out z)) b = bern (cmpProb n x j i) b",
+      "QuarticQuery.Paper.quantumComparison_self": "theorem quantumComparison_self (n : ℕ)\n    (x : BitInput (Loc k t C)) (i : Col t) : cmpProb n x i i = 0"
+    }
+  },
+  {
+    "id": "eq-10",
+    "class": "few_lines_from_existing",
+    "declaration": "QuarticQuery.Paper.quantumComparison_complementary",
+    "uses": [
+      "QuarticQuery.Upper.cmpProb_isComparison",
+      "QuarticQuery.Upper.cmpProb"
+    ],
+    "difficulty": "low",
+    "compiled": false,
+    "notes": "No fixed orientation or probability gap from 1/2 is introduced for nonwinners. The probabilities may be fractional and cyclic.",
+    "lean_statement": "theorem quantumComparison_complementary (n : ℕ)\n    (x : BitInput (Loc k t C)) (i j : Col t) (hij : i ≠ j) :\n    cmpProb n x i j + cmpProb n x j i = 1",
+    "proposed_file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "proof_plan": "Project complementary and self_zero from the existing cmpProb_isComparison theorem. The core uses one sorted-pair circuit and flips the output interpretation for the reverse orientation.",
+    "route": "same",
+    "prior_proposals_consulted": [
+      "new-toy-cycle"
+    ],
+    "local_status": "unelaborated",
+    "packet_dependencies_status": "Reported built_at_pin where BUILD_STATUS.md lists them; not recompiled here.",
+    "mathematical_statement": "For the actual comparison procedure, cmpProb(n,x,i,j)+cmpProb(n,x,j,i)=1 whenever i≠j, and cmpProb(n,x,i,i)=0.",
+    "declarations": [
+      "QuarticQuery.Paper.quantumComparison_complementary",
+      "QuarticQuery.Paper.quantumComparison_self"
+    ],
+    "status": "unelaborated_source_only",
+    "comparison_status": "not_run",
+    "reach_status": "not_recomputed; no claim of headline dependency",
+    "correction": "No change to the preprint statement.",
+    "original_statement_sha256": "ff7896a3a4009d507b8d08fd4f019afaa6088a2c17e49aec37416ebff183482d",
+    "paper_locator": "paper/extracted.md, Section 3.2, source line 359",
+    "statement_in_existing_context": true,
+    "new_source_signatures": {
+      "QuarticQuery.Paper.quantumComparison_complementary": "theorem quantumComparison_complementary (n : ℕ)\n    (x : BitInput (Loc k t C)) (i j : Col t) (hij : i ≠ j) :\n    cmpProb n x i j + cmpProb n x j i = 1",
+      "QuarticQuery.Paper.quantumComparison_self": "theorem quantumComparison_self (n : ℕ)\n    (x : BitInput (Loc k t C)) (i : Col t) : cmpProb n x i i = 0"
+    }
+  },
+  {
+    "id": "def-decode",
+    "class": "already_stated_under_another_name",
+    "declaration": "QuarticQuery.Paper.quantumDecode",
+    "uses": [
+      "QuarticQuery.Upper.addr_samples",
+      "QuarticQuery.Upper.addrLaw",
+      "QuarticQuery.Upper.Samples.pi",
+      "QuarticQuery.Upper.sum_addrLaw",
+      "QuarticQuery.Upper.addrLaw_nonneg"
+    ],
+    "difficulty": "low",
+    "compiled": false,
+    "notes": "This construction needs a definition and a realizability theorem. A tautological restatement of the address type alone would not establish an algorithm. The chosen circuit is fixed before the input.",
+    "mathematical_statement": "For k≥1 and any natural repetition count n, for every oracle input, the retained-workspace decoder has the product law D_i(s)=∏_h Bernoulli(decodeProb(A_{i,h}))(s_h) on all r=40t-bit addresses; its law is nonnegative and sums to one.",
+    "proof_plan": "Use addr_samples directly. Its proof uses decode_samples independently at each h and Samples.pi. Use sum_addrLaw and addrLaw_nonneg for totality, including off-promise inputs.",
+    "lean_statement": "theorem quantumDecode (hk : 1 ≤ k) (n : ℕ) (i : Col t) :\n    Samples (addrCost k t n) fun (x : BitInput (Loc k t C)) s =>\n      addrLaw n x i s",
+    "proposed_relation": "exact_for_the_listed_finite_clauses; full row to be reviewed after elaboration",
+    "source_locators": [
+      "paper/extracted.md:452-465",
+      "repository/lean/QuarticQuery/Upper/Columns.lean:44-62",
+      "repository/lean/QuarticQuery/Upper/Decode.lean:355-381"
+    ],
+    "previous_round_consulted": [
+      "previous_round/1_long_reasoning_record/LEAN_GAPS.md:289",
+      "previous_round/5_reader_and_film/LEAN_GAPS.md:74-75"
+    ],
+    "route": "same except measured-label amplification/continuation implementation; explicitly qualified",
+    "review_status": "AI source review only; no compilation, no Comparator",
+    "declarations": [
+      "QuarticQuery.Paper.quantumDecode",
+      "QuarticQuery.Paper.quantumDecode_total"
+    ],
+    "status": "unelaborated_source_only",
+    "comparison_status": "not_run",
+    "reach_status": "not_recomputed; no claim of headline dependency",
+    "correction": "No change to the preprint statement.",
+    "original_statement_sha256": "0fadee1f0b3c03a22da410ed7f98d7761eb7f61e9482084973be636ba9e8c841",
+    "paper_locator": "paper/extracted.md, Section 3.3, source line 452",
+    "proposed_file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "statement_in_existing_context": true,
+    "new_source_signatures": {
+      "QuarticQuery.Paper.quantumDecode": "theorem quantumDecode (hk : 1 ≤ k) (n : ℕ) (i : Col t) :\n    Samples (addrCost k t n) fun (x : BitInput (Loc k t C)) s =>\n      addrLaw n x i s",
+      "QuarticQuery.Paper.quantumDecode_total": "theorem quantumDecode_total (hk : 1 ≤ k) (n : ℕ)\n    (x : BitInput (Loc k t C)) (i : Col t) :\n    (∀ s, 0 ≤ addrLaw n x i s) ∧ ∑ s, addrLaw n x i s = 1"
+    }
+  },
+  {
+    "id": "claim-decode-cost",
+    "class": "few_lines_from_existing",
+    "declaration": "QuarticQuery.Paper.quantumDecode_correct",
+    "uses": [
+      "QuarticQuery.Upper.addrLaw_good",
+      "QuarticQuery.Forrelation.repetitions_le",
+      "QuarticQuery.Upper.Samples.runs",
+      "QuarticQuery.Upper.Tval_mValue_le"
+    ],
+    "difficulty": "medium",
+    "compiled": false,
+    "notes": "Cost claims for the least prescribed repetition count must not be generalized to every arbitrarily oversized n. The source charges 2rnk physical queries, not rnk. The additive 1 in the count is explicit; with r≥40 and ε≤1 it is absorbed by the positive logarithm in the paper’s O_k statement.",
+    "mathematical_statement": "Assume k≥1, t≥1, r=40t and 0<ε≤1. If all r partial instances define the string s and n≥repetitions(k,ε/r), the actual decoder returns s with probability at least 1−ε and at most 2rnk physical bit queries on every branch. At the least prescribed n, its cost is at most 2rk[1+16·2^(10k) ln(r/ε)]. The supplied finite polynomial estimate is extracted at ε=epsval(m).",
+    "proof_plan": "Correctness is addrLaw_good. Samples.runs turns each logical read into two bit queries. Apply repetitions_le to η=ε/(40t), establish η∈(0,1], and multiply its real bound by 80tk. The polynomial specialization copies the local repetition-count proof in Upper.budget_le.",
+    "lean_statement": "theorem quantumDecode_correct (hk : 1 ≤ k) (ht : 1 ≤ t)\n    {n : ℕ} {ε : ℝ} (hε : 0 < ε) (hε1 : ε ≤ 1)\n    (hn : repetitions k (ε / (40 * t : ℕ)) ≤ n)\n    {x : BitInput (Loc k t C)} {i : Col t} {s : Addr t}\n    (hs : ∀ h, P k t (readA x i h) = some (s h)) :\n    1 - ε ≤ addrLaw n x i s",
+    "proposed_relation": "exact_for_the_listed_finite_clauses; full row to be reviewed after elaboration",
+    "source_locators": [
+      "paper/extracted.md:452-465",
+      "repository/lean/QuarticQuery/Upper/Columns.lean:50-81",
+      "repository/lean/QuarticQuery/Forrelation/Repetition.lean:190-203",
+      "repository/lean/QuarticQuery/Upper/Bound.lean:102-140"
+    ],
+    "previous_round_consulted": [
+      "previous_round/1_long_reasoning_record/NEW_STATEMENTS.json:new-upper-finite-budget",
+      "previous_round/1_long_reasoning_record/LEAN_GAPS.md:289",
+      "previous_round/5_reader_and_film/LEAN_GAPS.md:75"
+    ],
+    "route": "same except measured-label amplification/continuation implementation; explicitly qualified",
+    "review_status": "AI source review only; no compilation, no Comparator",
+    "declarations": [
+      "QuarticQuery.Paper.quantumDecode_correct",
+      "QuarticQuery.Paper.quantumDecode_runs",
+      "QuarticQuery.Paper.quantumDecode_query_bound_real",
+      "QuarticQuery.Paper.quantumDecode_repetitions_polylog",
+      "QuarticQuery.Paper.quantumDecode_polylog"
+    ],
+    "status": "unelaborated_source_only",
+    "comparison_status": "not_run",
+    "reach_status": "not_recomputed; no claim of headline dependency",
+    "correction": "No change to the preprint statement.",
+    "original_statement_sha256": "468fa9b48aa68159a722806ee8661601eff141ca17d3ee07d6b537ac1b041d03",
+    "paper_locator": "paper/extracted.md, Section 3.3, source line 456",
+    "proposed_file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "statement_in_existing_context": true,
+    "new_source_signatures": {
+      "QuarticQuery.Paper.quantumDecode_correct": "theorem quantumDecode_correct (hk : 1 ≤ k) (ht : 1 ≤ t)\n    {n : ℕ} {ε : ℝ} (hε : 0 < ε) (hε1 : ε ≤ 1)\n    (hn : repetitions k (ε / (40 * t : ℕ)) ≤ n)\n    {x : BitInput (Loc k t C)} {i : Col t} {s : Addr t}\n    (hs : ∀ h, P k t (readA x i h) = some (s h)) :\n    1 - ε ≤ addrLaw n x i s",
+      "QuarticQuery.Paper.quantumDecode_runs": "theorem quantumDecode_runs (hk : 1 ≤ k) (n : ℕ) (i : Col t) :\n    Runs (2 * addrCost k t n) fun (x : BitInput (Loc k t C)) s =>\n      addrLaw n x i s",
+      "QuarticQuery.Paper.quantumDecode_query_bound_real": "theorem quantumDecode_query_bound_real (ht : 1 ≤ t) {ε : ℝ}\n    (hε : 0 < ε) (hε1 : ε ≤ 1) :\n    ((2 * addrCost k t (repetitions k (ε / (40 * t : ℕ))) : ℕ) : ℝ) ≤\n      80 * (t : ℝ) * (k : ℝ) *\n        (1 + 16 * (2 : ℝ) ^ (10 * k) * Real.log ((40 * t : ℕ) / ε))",
+      "QuarticQuery.Paper.quantumDecode_repetitions_polylog": "theorem quantumDecode_repetitions_polylog (ht : 1 ≤ t) :\n    repetitions k (epsval (mValue t) / (40 * t : ℕ)) ≤\n      (1 + 1920000 * 2 ^ (10 * k)) * (2 * t) ^ 2",
+      "QuarticQuery.Paper.quantumDecode_polylog": "theorem quantumDecode_polylog (ht : 1 ≤ t) :\n    2 * addrCost k t (repetitions k (epsval (mValue t) / (40 * t : ℕ))) ≤\n      40 * (1 + 1920000 * 2 ^ (10 * k)) * k * (2 * t) ^ 3"
+    }
+  },
+  {
+    "id": "def-comparison",
+    "class": "already_stated_under_another_name",
+    "declaration": "QuarticQuery.Paper.quantumComparison_sorted",
+    "uses": [
+      "QuarticQuery.Upper.firstWins",
+      "QuarticQuery.Upper.coreProb",
+      "QuarticQuery.Upper.cmpProb",
+      "QuarticQuery.Upper.Samples.disq",
+      "QuarticQuery.Upper.disqTree_eval",
+      "QuarticQuery.Upper.disqTree_depth"
+    ],
+    "difficulty": "low",
+    "compiled": false,
+    "notes": "The pointer’s target coordinate depends on the bits just read. No fixed small coordinate support is asserted. The uniform common-length comparison may pad the self branch with identity reads; the zero-read self specialization is supplied explicitly.",
+    "mathematical_statement": "For i<j, compare independently decoded addresses s₁ and s₂. Let d₁ mean that i disqualifies j, and d₂ that j disqualifies i. The first index wins if d₁=d₂, and otherwise iff d₁=true. Its probability is the double mixture over the two address laws. A self-comparison has a zero-read implementation returning false.",
+    "proof_plan": "Unfold cmpProb at i<j and coreProb to obtain the mixture. Check the four Boolean pairs for firstWins. The pointer computation uses the existing adaptive tree of depth 2t+1; apply Samples.runs. Obtain the self law from Samples.pure false.",
+    "lean_statement": "theorem quantumComparison_sorted (n : ℕ) (x : BitInput (Loc k t C))\n    (i j : Col t) (hij : i < j) :\n    cmpProb n x i j =\n      ∑ s₁, addrLaw n x i s₁ * ∑ s₂, addrLaw n x j s₂ *\n        (if firstWins (disq x i s₁ j hij.ne')\n          (disq x j s₂ i hij.ne) then (1 : ℝ) else 0)",
+    "proposed_relation": "exact_for_the_listed_finite_clauses; full row to be reviewed after elaboration",
+    "source_locators": [
+      "paper/extracted.md:466-471",
+      "repository/lean/QuarticQuery/Upper/Columns.lean:83-126",
+      "repository/lean/QuarticQuery/Upper/Columns.lean:174-193"
+    ],
+    "previous_round_consulted": [
+      "previous_round/1_long_reasoning_record/LEAN_GAPS.md:290",
+      "previous_round/3_examples_first_exposition/NEW_STATEMENTS.json:new-toy-cycle",
+      "previous_round/3_examples_first_exposition/NEW_STATEMENTS.json:new-toy-broken-pointer",
+      "previous_round/5_reader_and_film/LEAN_GAPS.md:63"
+    ],
+    "route": "same except measured-label amplification/continuation implementation; explicitly qualified",
+    "review_status": "AI source review only; no compilation, no Comparator",
+    "declarations": [
+      "QuarticQuery.Paper.quantumComparison_sorted",
+      "QuarticQuery.Paper.quantumComparison_rule",
+      "QuarticQuery.Paper.quantumComparison_disqualification",
+      "QuarticQuery.Paper.quantumComparison_pointer_queries",
+      "QuarticQuery.Paper.quantumComparison_self_zero_reads"
+    ],
+    "status": "unelaborated_source_only",
+    "comparison_status": "not_run",
+    "reach_status": "not_recomputed; no claim of headline dependency",
+    "correction": "No change to the preprint statement.",
+    "original_statement_sha256": "2b02347fea32f907acadc33716d948a67c42b24260c92df731becf290a84100c",
+    "paper_locator": "paper/extracted.md, Section 3.3, source line 466",
+    "proposed_file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "statement_in_existing_context": true,
+    "new_source_signatures": {
+      "QuarticQuery.Paper.quantumComparison_sorted": "theorem quantumComparison_sorted (n : ℕ) (x : BitInput (Loc k t C))\n    (i j : Col t) (hij : i < j) :\n    cmpProb n x i j =\n      ∑ s₁, addrLaw n x i s₁ * ∑ s₂, addrLaw n x j s₂ *\n        (if firstWins (disq x i s₁ j hij.ne')\n          (disq x j s₂ i hij.ne) then (1 : ℝ) else 0)",
+      "QuarticQuery.Paper.quantumComparison_rule": "theorem quantumComparison_rule (d₁ d₂ : Bool) :\n    firstWins d₁ d₂ = if d₁ = d₂ then true else d₁",
+      "QuarticQuery.Paper.quantumComparison_disqualification": "theorem quantumComparison_disqualification (x : BitInput (Loc k t C))\n    (i : Col t) (s : Addr t) (j : Col t) (hji : j ≠ i) :\n    disq x i s j hji =\n      !readX x j (pointerEquiv (2 * t) (readPointerBit x i s ⟨j, hji⟩))",
+      "QuarticQuery.Paper.quantumComparison_pointer_queries": "theorem quantumComparison_pointer_queries (i : Col t) (s : Addr t)\n    (j : Col t) (hji : j ≠ i) :\n    Runs (2 * (2 * t + 1)) fun (x : BitInput (Loc k t C)) b =>\n      pt (disq x i s j hji) b",
+      "QuarticQuery.Paper.quantumComparison_self_zero_reads": "theorem quantumComparison_self_zero_reads (n : ℕ) (i : Col t) :\n    Samples 0 fun (x : BitInput (Loc k t C)) b => bern (cmpProb n x i i) b"
+    }
+  },
+  {
+    "id": "claim-comparison-state",
+    "class": "few_lines_from_existing",
+    "declaration": "QuarticQuery.Paper.quantumComparison_state",
+    "uses": [
+      "QuarticQuery.Upper.cmp_samples",
+      "QuarticQuery.Upper.core_samples",
+      "QuarticQuery.Upper.Samples.bind",
+      "QuarticQuery.Upper.IsCirc.symm",
+      "QuarticQuery.Upper.cmpProb_isComparison",
+      "QuarticQuery.Upper.Samples.runs"
+    ],
+    "difficulty": "medium",
+    "compiled": false,
+    "notes": "The semantic claim is equality of measured probabilities to the retained-register mixture. No state equation for the separate stage sampler is inferred here. Costs distinguish logical reads from physical calls. The original source already proves complementarity; the missing item was a reviewed tie to that theorem.",
+    "mathematical_statement": "For k≥1 and any natural repetition count n, there is an input-independent circuit family whose measured Boolean law is Bernoulli(cmpProb), with cmpCost logical reads, and its inverse has the same count. Its physical bit-query cap is 2·cmpCost. For every input, a_ij+a_ji=1 for distinct indices and a_ii=0. The displayed finite polynomial comparison cap proves the claimed fixed-k polylogarithmic bound.",
+    "proof_plan": "Destructure cmp_samples to recover a register, a basis start, an output labelling and IsCirc witness. Apply IsCirc.symm to that same circuit. The logical-to-physical compiler gives a factor of two both ways. Project complementary and self_zero from cmpProb_isComparison. Expand cmpCost, use the decoder bound, and extract the polynomial specialization from its repetition estimate.",
+    "lean_statement": "theorem quantumComparison_state (hk : 1 ≤ k) (n : ℕ) (i j : Col t) :\n    ∃ (Z : Type) (_ : Fintype Z) (o : Z) (out : Z → Bool)\n      (F : BitInput (Loc k t C) → Reg Z ≃ₗᵢ[ℂ] Reg Z),\n      IsCirc (cmpCost k t n) F ∧\n      IsCirc (cmpCost k t n) (fun x => (F x).symm) ∧\n      ∀ x b, lawOf (F x (rket o)) out b = bern (cmpProb n x i j) b",
+    "proposed_relation": "exact_for_the_listed_finite_clauses; full row to be reviewed after elaboration",
+    "source_locators": [
+      "paper/extracted.md:472-476",
+      "repository/lean/QuarticQuery/Upper/Columns.lean:141-211",
+      "repository/lean/QuarticQuery/Upper/Circuit.lean:376-386",
+      "repository/lean/QuarticQuery/Upper/Compile.lean:149-151,216-218"
+    ],
+    "previous_round_consulted": [
+      "previous_round/1_long_reasoning_record/LEAN_GAPS.md:290",
+      "previous_round/2_short_expert_paper/LEAN_GAPS.md:71-75",
+      "previous_round/5_reader_and_film/LEAN_GAPS.md:37,64"
+    ],
+    "route": "same except measured-label amplification/continuation implementation; explicitly qualified",
+    "review_status": "AI source review only; no compilation, no Comparator",
+    "declarations": [
+      "QuarticQuery.Paper.quantumComparison_state",
+      "QuarticQuery.Paper.quantumComparison_unordered_state",
+      "QuarticQuery.Paper.quantumComparison_runs",
+      "QuarticQuery.Paper.quantumComparison_cost_exact",
+      "QuarticQuery.Paper.quantumComparison_query_bound",
+      "QuarticQuery.Paper.quantumComparison_polylog",
+      "QuarticQuery.Paper.quantumComparison_complementary",
+      "QuarticQuery.Paper.quantumComparison_self"
+    ],
+    "status": "unelaborated_source_only",
+    "comparison_status": "not_run",
+    "reach_status": "not_recomputed; no claim of headline dependency",
+    "correction": "No change to the preprint statement.",
+    "original_statement_sha256": "3ea50390cdcf2f410a5c2a110f008ef97d4d68d342b9e81011f2c0ef0008dae8",
+    "paper_locator": "paper/extracted.md, Section 3.3, source line 472",
+    "proposed_file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "statement_in_existing_context": true,
+    "new_source_signatures": {
+      "QuarticQuery.Paper.quantumComparison_state": "theorem quantumComparison_state (hk : 1 ≤ k) (n : ℕ) (i j : Col t) :\n    ∃ (Z : Type) (_ : Fintype Z) (o : Z) (out : Z → Bool)\n      (F : BitInput (Loc k t C) → Reg Z ≃ₗᵢ[ℂ] Reg Z),\n      IsCirc (cmpCost k t n) F ∧\n      IsCirc (cmpCost k t n) (fun x => (F x).symm) ∧\n      ∀ x b, lawOf (F x (rket o)) out b = bern (cmpProb n x i j) b",
+      "QuarticQuery.Paper.quantumComparison_unordered_state": "theorem quantumComparison_unordered_state (hk : 1 ≤ k) (n : ℕ)\n    (i j : Col t) (hij : i ≠ j) :\n    ∃ (Z : Type) (_ : Fintype Z) (o : Z) (out : Z → Bool)\n      (F : BitInput (Loc k t C) → Reg Z ≃ₗᵢ[ℂ] Reg Z),\n      IsCirc (cmpCost k t n) F ∧\n      ∀ x b,\n        lawOf (F x (rket o)) out b = bern (cmpProb n x i j) b ∧\n        lawOf (F x (rket o)) (fun z => !(out z)) b = bern (cmpProb n x j i) b",
+      "QuarticQuery.Paper.quantumComparison_runs": "theorem quantumComparison_runs (hk : 1 ≤ k) (n : ℕ) (i j : Col t) :\n    Runs (2 * cmpCost k t n) fun (x : BitInput (Loc k t C)) b =>\n      bern (cmpProb n x i j) b",
+      "QuarticQuery.Paper.quantumComparison_cost_exact": "theorem quantumComparison_cost_exact (k t n : ℕ) :\n    2 * cmpCost k t n = 4 * addrCost k t n + 8 * t + 4",
+      "QuarticQuery.Paper.quantumComparison_query_bound": "theorem quantumComparison_query_bound (ht : 1 ≤ t) {ε : ℝ}\n    (hε : 0 < ε) (hε1 : ε ≤ 1) :\n    ((2 * cmpCost k t (repetitions k (ε / (40 * t : ℕ))) : ℕ) : ℝ) ≤\n      160 * (t : ℝ) * (k : ℝ) *\n        (1 + 16 * (2 : ℝ) ^ (10 * k) * Real.log ((40 * t : ℕ) / ε)) +\n      8 * (t : ℝ) + 4",
+      "QuarticQuery.Paper.quantumComparison_polylog": "theorem quantumComparison_polylog (ht : 1 ≤ t) :\n    2 * cmpCost k t (repetitions k (epsval (mValue t) / (40 * t : ℕ))) ≤\n      2 * (40 * (1 + 1920000 * 2 ^ (10 * k)) * k + 4) * (2 * t) ^ 3",
+      "QuarticQuery.Paper.quantumComparison_complementary": "theorem quantumComparison_complementary (n : ℕ)\n    (x : BitInput (Loc k t C)) (i j : Col t) (hij : i ≠ j) :\n    cmpProb n x i j + cmpProb n x j i = 1",
+      "QuarticQuery.Paper.quantumComparison_self": "theorem quantumComparison_self (n : ℕ)\n    (x : BitInput (Loc k t C)) (i : Col t) : cmpProb n x i i = 0"
+    }
+  },
+  {
+    "id": "claim-winner-dominates",
+    "class": "few_lines_from_existing",
+    "declaration": "QuarticQuery.Paper.quantumWinner_dominates",
+    "uses": [
+      "QuarticQuery.Upper.addrLaw_good",
+      "QuarticQuery.Upper.cmpProb_winner",
+      "QuarticQuery.Tournament.Dominant"
+    ],
+    "difficulty": "low",
+    "compiled": false,
+    "notes": "The winner’s own decoder can err. The required probability is obtained only after combining the decoder bound with cmpProb_winner; the deterministic pointer facts alone are insufficient.",
+    "mathematical_statement": "Assume k≥1, t≥1 and 0<ε≤1. For any input x, if i wins at its true address s and n≥repetitions(k,ε/(40t)), then a_ij≥1−ε for every j≠i. No promise is imposed on any instance in column j.",
+    "proof_plan": "The winning-address clause of WinsAt supplies every promised answer. Apply addrLaw_good, then transitivity with cmpProb_winner. Package the result into Dominant for direct use by the tournament.",
+    "lean_statement": "theorem quantumWinner_dominates (hk : 1 ≤ k) (ht : 1 ≤ t)\n    {n : ℕ} {ε : ℝ} (hε : 0 < ε) (hε1 : ε ≤ 1)\n    (hn : repetitions k (ε / (40 * t : ℕ)) ≤ n)\n    {x : BitInput (Loc k t C)} {i : Col t} {s : Addr t}\n    (hw : WinsAt (P k t) C (2 * t) (40 * t) x i s)\n    (j : Col t) (hji : j ≠ i) :\n    1 - ε ≤ cmpProb n x i j",
+    "proposed_relation": "exact_for_the_listed_finite_clauses; full row to be reviewed after elaboration",
+    "source_locators": [
+      "paper/extracted.md:477-482",
+      "repository/lean/QuarticQuery/Upper/Columns.lean:65-81,221-277",
+      "repository/lean/QuarticQuery/Upper/Verify.lean:181-191"
+    ],
+    "previous_round_consulted": [
+      "previous_round/1_long_reasoning_record/LEAN_GAPS.md:291",
+      "previous_round/2_short_expert_paper/LEAN_GAPS.md:75",
+      "previous_round/3_examples_first_exposition/LEAN_GAPS.md:112",
+      "previous_round/5_reader_and_film/LEAN_GAPS.md:36"
+    ],
+    "route": "same except measured-label amplification/continuation implementation; explicitly qualified",
+    "review_status": "AI source review only; no compilation, no Comparator",
+    "declarations": [
+      "QuarticQuery.Paper.quantumWinner_dominates",
+      "QuarticQuery.Paper.quantumWinner_isDominant"
+    ],
+    "status": "unelaborated_source_only",
+    "comparison_status": "not_run",
+    "reach_status": "not_recomputed; no claim of headline dependency",
+    "correction": "No change to the preprint statement.",
+    "original_statement_sha256": "96b25cc77810cdeae2fbbe938cb04d9339dd0c8e56dbe8a5bf8c6c79392524b4",
+    "paper_locator": "paper/extracted.md, Section 3.3, source line 477",
+    "proposed_file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "statement_in_existing_context": true,
+    "new_source_signatures": {
+      "QuarticQuery.Paper.quantumWinner_dominates": "theorem quantumWinner_dominates (hk : 1 ≤ k) (ht : 1 ≤ t)\n    {n : ℕ} {ε : ℝ} (hε : 0 < ε) (hε1 : ε ≤ 1)\n    (hn : repetitions k (ε / (40 * t : ℕ)) ≤ n)\n    {x : BitInput (Loc k t C)} {i : Col t} {s : Addr t}\n    (hw : WinsAt (P k t) C (2 * t) (40 * t) x i s)\n    (j : Col t) (hji : j ≠ i) :\n    1 - ε ≤ cmpProb n x i j",
+      "QuarticQuery.Paper.quantumWinner_isDominant": "theorem quantumWinner_isDominant (hk : 1 ≤ k) (ht : 1 ≤ t)\n    {n : ℕ} {ε : ℝ} (hε : 0 < ε) (hε1 : ε ≤ 1)\n    (hn : repetitions k (ε / (40 * t : ℕ)) ≤ n)\n    {x : BitInput (Loc k t C)} {i : Col t} {s : Addr t}\n    (hw : WinsAt (P k t) C (2 * t) (40 * t) x i s) :\n    Dominant (cmpProb n x) ε i"
+    }
+  },
+  {
+    "id": "def-verify",
+    "class": "few_lines_from_existing",
+    "declaration": "QuarticQuery.Paper.quantumVerify_fixedAddress",
+    "uses": [
+      "QuarticQuery.Upper.search_runs",
+      "QuarticQuery.Upper.verifyProb",
+      "QuarticQuery.Upper.addr_samples",
+      "QuarticQuery.Upper.Runs.bind",
+      "QuarticQuery.Upper.vall_runs",
+      "QuarticQuery.card_testIndex"
+    ],
+    "difficulty": "low",
+    "compiled": false,
+    "notes": "The result is a family of programs chosen before x. No oracle-dependent value is inserted into a free gate. The exact search cost excludes fresh decoding, which is then added explicitly.",
+    "mathematical_statement": "For ε>0, at a fixed address, search uniformly among the exact local tests, accepting if the bounded search reports no failed test. All-passing addresses are accepted with probability one; any failed test gives acceptance at most ε. Fresh decoding followed by that search has acceptance v_i=Σ_s D_i(s) f_{i,s}. The list is accepted at its first accepted candidate.",
+    "proof_plan": "Reuse search_runs for each column-address pair, retaining its four conjuncts. Use addr_samples.runs.bind to compose a measured fresh address with the selected search; verify the Bernoulli law in both Boolean cases. Use vall_runs for the final OR, and card_testIndex for the size and positivity of the test family.",
+    "lean_statement": "theorem quantumVerify_fixedAddress (i : Col t) (s : Addr t)\n    {ε : ℝ} (hε : 0 < ε) :\n    ∃ f : BitInput (Loc k t C) → ℝ,\n      (∀ x, 0 ≤ f x ∧ f x ≤ 1) ∧\n      (∀ x e, localTest C (2 * t) (40 * t) x i s e = false → f x ≤ ε) ∧\n      (∀ x, (∀ e, localTest C (2 * t) (40 * t) x i s e = true) → f x = 1) ∧\n      Runs (searchCost t (Fintype.card (Tests t C)) ε) fun x b => bern (f x) b",
+    "proposed_relation": "exact_for_the_listed_finite_clauses; full row to be reviewed after elaboration",
+    "source_locators": [
+      "paper/extracted.md:483-494",
+      "repository/lean/QuarticQuery/Upper/Verify.lean:24-134",
+      "repository/lean/QuarticQuery/Upper/Tournament.lean:338-356",
+      "repository/lean/QuarticQuery/Construction/LocalTests.lean:129-134"
+    ],
+    "previous_round_consulted": [
+      "previous_round/1_long_reasoning_record/LEAN_GAPS.md:292",
+      "previous_round/5_reader_and_film/LEAN_GAPS.md:82"
+    ],
+    "route": "same except measured-label amplification/continuation implementation; explicitly qualified",
+    "review_status": "AI source review only; no compilation, no Comparator",
+    "declarations": [
+      "QuarticQuery.Paper.quantumVerify_fixedAddress",
+      "QuarticQuery.Paper.quantumVerify_runs",
+      "QuarticQuery.Paper.quantumVerify_probability",
+      "QuarticQuery.Paper.quantumVerify_list",
+      "QuarticQuery.Paper.quantumTests_card",
+      "QuarticQuery.Paper.quantumTests_card_ge_m",
+      "QuarticQuery.Paper.quantumTests_card_ge_four"
+    ],
+    "status": "unelaborated_source_only",
+    "comparison_status": "not_run",
+    "reach_status": "not_recomputed; no claim of headline dependency",
+    "correction": "No change to the preprint statement.",
+    "original_statement_sha256": "33c4ccc0582651849e51e683f6058b0d69442b2f6e83616057f50bf1b2ceb476",
+    "paper_locator": "paper/extracted.md, Section 3.3, source line 483",
+    "proposed_file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "statement_in_existing_context": true,
+    "new_source_signatures": {
+      "QuarticQuery.Paper.quantumVerify_fixedAddress": "theorem quantumVerify_fixedAddress (i : Col t) (s : Addr t)\n    {ε : ℝ} (hε : 0 < ε) :\n    ∃ f : BitInput (Loc k t C) → ℝ,\n      (∀ x, 0 ≤ f x ∧ f x ≤ 1) ∧\n      (∀ x e, localTest C (2 * t) (40 * t) x i s e = false → f x ≤ ε) ∧\n      (∀ x, (∀ e, localTest C (2 * t) (40 * t) x i s e = true) → f x = 1) ∧\n      Runs (searchCost t (Fintype.card (Tests t C)) ε) fun x b => bern (f x) b",
+      "QuarticQuery.Paper.quantumVerify_runs": "theorem quantumVerify_runs (hk : 1 ≤ k) (n cS : ℕ)\n    (f : Col t → Addr t → BitInput (Loc k t C) → ℝ)\n    (hRun : ∀ c s, Runs cS fun x b => bern (f c s x) b) (c : Col t) :\n    Runs (2 * addrCost k t n + cS) fun x b => bern (verifyProb n f x c) b",
+      "QuarticQuery.Paper.quantumVerify_probability": "theorem quantumVerify_probability (n : ℕ)\n    (f : Col t → Addr t → BitInput (Loc k t C) → ℝ)\n    (x : BitInput (Loc k t C)) (c : Col t) :\n    verifyProb n f x c = ∑ s, addrLaw n x c s * f c s x",
+      "QuarticQuery.Paper.quantumVerify_list": "theorem quantumVerify_list {cV : ℕ}\n    {v : BitInput (Loc k t C) → Col t → ℝ}\n    (hv : ∀ c, Runs cV fun x b => bern (v x c) b) (L : List (Col t)) :\n    Runs (L.length * cV) fun x b => bern (vall (v x) L) b",
+      "QuarticQuery.Paper.quantumTests_card": "theorem quantumTests_card (t : ℕ) (C : Circuit (ForrelationCoord k t)) :\n    Fintype.card (Tests t C) =\n      mValue t + (mValue t - 1) + 40 * t * (C.size + 2)",
+      "QuarticQuery.Paper.quantumTests_card_ge_m": "theorem quantumTests_card_ge_m (t : ℕ) (C : Circuit (ForrelationCoord k t)) :\n    mValue t ≤ Fintype.card (Tests t C)",
+      "QuarticQuery.Paper.quantumTests_card_ge_four": "theorem quantumTests_card_ge_four (ht : 1 ≤ t) :\n    4 ≤ Fintype.card (Tests t C)"
+    }
+  },
+  {
+    "id": "claim-verify",
+    "class": "few_lines_from_existing",
+    "declaration": "QuarticQuery.Paper.quantumVerify",
+    "uses": [
+      "QuarticQuery.Upper.search_runs",
+      "QuarticQuery.exists_failing_localTest",
+      "QuarticQuery.winsAt_iff_localTests",
+      "QuarticQuery.Upper.addrLaw_good",
+      "QuarticQuery.Upper.addrLaw_nonneg",
+      "QuarticQuery.Upper.sum_addrLaw",
+      "QuarticQuery.Paper.amplification_budget_le",
+      "QuarticQuery.Upper.budget_le",
+      "QuarticQuery.Upper.budgetConst",
+      "QuarticQuery.Forrelation.forrCircuit_size_le",
+      "QuarticQuery.Tournament.Tval_pos"
+    ],
+    "difficulty": "medium",
+    "compiled": false,
+    "notes": "This preserves exact one-sided behavior of the local test. A generic two-sided noisy verifier would require a different error budget. The explicit 276 bound is new numerical packaging of existing ingredients, and is unelaborated. The sqrt(m) specialization requires the stated circuit-size bound; CircuitRealises alone does not control K. The exported bound includes fresh decoding and uses the deliberately loose existing budgetConst with exponent six.",
+    "mathematical_statement": "Assume k≥1, t≥1, 0<ε≤1, C realizes P(k,t), and n≥repetitions(k,ε/(40t)). A fixed verification procedure has acceptance at most ε for every nonwinner, and at least 1−ε for every winner. At the winner’s true address the search accepts surely; only address decoding can cause its rejection. Its cap is 2·addrCost+searchCost. For K≥2 and 0<ε<1/2, searchCost≤276√K ln(1/ε) max(3,2t+1). At the paper parameters and least prescribed repetition count, if C.size≤forrConstant(k)·m·(2t)^2, the whole single-candidate cap is at most budgetConst(k)·2^t·(2t)^6. The selected forrCircuit satisfies this size premise. Since m=4^t, this is an explicit sqrt(m)·(log₂ m)^6 bound.",
+    "proof_plan": "For a nonwinner, exists_failing_localTest supplies a failed test at each address. Multiply its acceptance bound by the nonnegative address law and sum to ε. For a winner, winsAt_iff_localTests makes the fixed-address acceptance one; retain its nonnegative summand and lower-bound its address mass. Choose all searches once and combine the results into quantumVerify. The search bound uses amplification_budget_le on γ=1/K, not the abstract Proc cap, because searchCost charges the padded product. To specialize from K to m, use Tval_pos to put one verification below T copies, then below the complete budget; apply Upper.budget_le with the explicit circuit-size premise. Instantiate that premise with forrCircuit_size_le for the selected circuit.",
+    "lean_statement": "theorem quantumVerify (hk : 1 ≤ k) (ht : 1 ≤ t)\n    (hC : CircuitRealises C (P k t)) {n : ℕ} {ε : ℝ}\n    (hε : 0 < ε) (hε1 : ε ≤ 1)\n    (hn : repetitions k (ε / (40 * t : ℕ)) ≤ n) :\n    ∃ v : BitInput (Loc k t C) → Col t → ℝ,\n      (∀ c, Runs (2 * addrCost k t n + searchCost t (Fintype.card (Tests t C)) ε)\n        fun x b => bern (v x c) b) ∧\n      (∀ x c, 0 ≤ v x c ∧ v x c ≤ 1) ∧\n      (∀ x c, (¬ ∃ s, WinsAt (P k t) C (2 * t) (40 * t) x c s) → v x c ≤ ε) ∧\n      (∀ x c s, WinsAt (P k t) C (2 * t) (40 * t) x c s → 1 - ε ≤ v x c)",
+    "proposed_relation": "exact_for_the_listed_finite_clauses; full row to be reviewed after elaboration",
+    "source_locators": [
+      "paper/extracted.md:485-494",
+      "repository/lean/QuarticQuery/Upper/Verify.lean:108-123,153-169,191-216",
+      "repository/lean/QuarticQuery/Construction/LocalTests.lean:237-273",
+      "repository/lean/QuarticQuery/Amplification/Bounded.lean:80-126",
+      "repository/lean/QuarticQuery/Upper/Verify.lean:131-135",
+      "repository/lean/QuarticQuery/Upper/Bound.lean:52-64,131-164",
+      "repository/lean/QuarticQuery/Forrelation/Circuit.lean:462-475",
+      "repository/lean/QuarticQuery/Tournament/Ideal.lean:296-303"
+    ],
+    "previous_round_consulted": [
+      "previous_round/1_long_reasoning_record/NEW_STATEMENTS.json:new-upper-finite-budget",
+      "previous_round/1_long_reasoning_record/LEAN_GAPS.md:292",
+      "previous_round/2_short_expert_paper/LEAN_GAPS.md:101-103",
+      "previous_round/3_examples_first_exposition/LEAN_GAPS.md:118",
+      "previous_round/5_reader_and_film/LEAN_GAPS.md:41"
+    ],
+    "route": "same except measured-label amplification/continuation implementation; explicitly qualified",
+    "review_status": "AI source review only; no compilation, no Comparator",
+    "declarations": [
+      "QuarticQuery.Paper.quantumVerify",
+      "QuarticQuery.Paper.quantumVerify_unit",
+      "QuarticQuery.Paper.quantumVerify_nonwinner",
+      "QuarticQuery.Paper.quantumVerify_winner",
+      "QuarticQuery.Paper.quantumVerify_testCost",
+      "QuarticQuery.Paper.quantumVerify_search_query_bound",
+      "QuarticQuery.Paper.quantumVerify_polylog",
+      "QuarticQuery.Paper.quantumVerify_forrCircuit_polylog"
+    ],
+    "status": "unelaborated_source_only",
+    "comparison_status": "not_run",
+    "reach_status": "not_recomputed; no claim of headline dependency",
+    "correction": "No change to the preprint statement.",
+    "original_statement_sha256": "ebf55ebf0548ac0b0bfcbcdf614db467d83285bf151e189fa94f40a8b302f9de",
+    "paper_locator": "paper/extracted.md, Section 3.3, source line 490",
+    "proposed_file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "statement_in_existing_context": true,
+    "new_source_signatures": {
+      "QuarticQuery.Paper.quantumVerify": "theorem quantumVerify (hk : 1 ≤ k) (ht : 1 ≤ t)\n    (hC : CircuitRealises C (P k t)) {n : ℕ} {ε : ℝ}\n    (hε : 0 < ε) (hε1 : ε ≤ 1)\n    (hn : repetitions k (ε / (40 * t : ℕ)) ≤ n) :\n    ∃ v : BitInput (Loc k t C) → Col t → ℝ,\n      (∀ c, Runs (2 * addrCost k t n + searchCost t (Fintype.card (Tests t C)) ε)\n        fun x b => bern (v x c) b) ∧\n      (∀ x c, 0 ≤ v x c ∧ v x c ≤ 1) ∧\n      (∀ x c, (¬ ∃ s, WinsAt (P k t) C (2 * t) (40 * t) x c s) → v x c ≤ ε) ∧\n      (∀ x c s, WinsAt (P k t) C (2 * t) (40 * t) x c s → 1 - ε ≤ v x c)",
+      "QuarticQuery.Paper.quantumVerify_unit": "theorem quantumVerify_unit (hk : 1 ≤ k) (n : ℕ)\n    (f : Col t → Addr t → BitInput (Loc k t C) → ℝ)\n    (hf : ∀ c s x, 0 ≤ f c s x ∧ f c s x ≤ 1)\n    (x : BitInput (Loc k t C)) (c : Col t) :\n    0 ≤ verifyProb n f x c ∧ verifyProb n f x c ≤ 1",
+      "QuarticQuery.Paper.quantumVerify_nonwinner": "theorem quantumVerify_nonwinner (hk : 1 ≤ k)\n    (hC : CircuitRealises C (P k t)) (n : ℕ) {ε : ℝ}\n    (f : Col t → Addr t → BitInput (Loc k t C) → ℝ)\n    (hf : ∀ c s x e, localTest C (2 * t) (40 * t) x c s e = false → f c s x ≤ ε)\n    {x : BitInput (Loc k t C)} {c : Col t}\n    (hno : ¬ ∃ s, WinsAt (P k t) C (2 * t) (40 * t) x c s) :\n    verifyProb n f x c ≤ ε",
+      "QuarticQuery.Paper.quantumVerify_winner": "theorem quantumVerify_winner (hk : 1 ≤ k) (ht : 1 ≤ t)\n    (hC : CircuitRealises C (P k t)) {n : ℕ} {ε : ℝ}\n    (hε : 0 < ε) (hε1 : ε ≤ 1)\n    (hn : repetitions k (ε / (40 * t : ℕ)) ≤ n)\n    (f : Col t → Addr t → BitInput (Loc k t C) → ℝ)\n    (hf0 : ∀ c s x, 0 ≤ f c s x)\n    (hf1 : ∀ c s x, (∀ e, localTest C (2 * t) (40 * t) x c s e = true) → f c s x = 1)\n    {x : BitInput (Loc k t C)} {c : Col t} {s : Addr t}\n    (hw : WinsAt (P k t) C (2 * t) (40 * t) x c s) :\n    1 - ε ≤ verifyProb n f x c",
+      "QuarticQuery.Paper.quantumVerify_testCost": "theorem quantumVerify_testCost (ht : 1 ≤ t) : testCost t = 2 * t + 1",
+      "QuarticQuery.Paper.quantumVerify_search_query_bound": "theorem quantumVerify_search_query_bound (t K : ℕ) (hK : 2 ≤ K)\n    {ε : ℝ} (hε : 0 < ε) (hε1 : ε < 1 / 2) :\n    (searchCost t K ε : ℝ) ≤\n      276 * Real.sqrt (K : ℝ) * Real.log (1 / ε) * (testCost t : ℝ)",
+      "QuarticQuery.Paper.quantumVerify_polylog": "theorem quantumVerify_polylog (ht : 1 ≤ t)\n    (hSz : C.size ≤ forrConstant k * mValue t * (2 * t) ^ 2) :\n    2 * addrCost k t (repetitions k (epsval (mValue t) / (40 * t : ℕ))) +\n      searchCost t (Fintype.card (Tests t C)) (epsval (mValue t)) ≤\n        budgetConst k * 2 ^ t * (2 * t) ^ 6",
+      "QuarticQuery.Paper.quantumVerify_forrCircuit_polylog": "theorem quantumVerify_forrCircuit_polylog (l : ℕ) (ht : 1 ≤ t) :\n    2 * addrCost (l + 1) t\n      (repetitions (l + 1) (epsval (mValue t) / (40 * t : ℕ))) +\n      searchCost t (Fintype.card (Tests t (forrCircuit l t))) (epsval (mValue t)) ≤\n        budgetConst (l + 1) * 2 ^ t * (2 * t) ^ 6"
+    }
+  },
+  {
+    "id": "claim-error",
+    "class": "few_lines_from_existing",
+    "declaration": "QuarticQuery.Paper.quantumError_bound",
+    "uses": [
+      "QuarticQuery.Upper.tournament_runs",
+      "QuarticQuery.Upper.Fkm_QLe",
+      "QuarticQuery.addressedF_eq_true_iff",
+      "QuarticQuery.Tournament.Tval_mul_epsval",
+      "QuarticQuery.Tournament.total_error_lt"
+    ],
+    "difficulty": "medium",
+    "compiled": false,
+    "notes": "This theorem exposes the two probability estimates already used inside Fkm_QLe. It is not merely a restatement of QLe or a numeric bound <1/3. The proof uses the reached Boolean continuation route; it does not itself construct the list-valued Proposition 3.2, which is handled by QuantumTournament.",
+    "mathematical_statement": "Assume k≥1, t≥1, C realizes P(k,t), and n is at least the prescribed repetition count. One algorithm, fixed before the input, has the supplied budget cap and acceptance probability v(x). If F(x)=0 then v(x)≤Tε. If F(x)=1 then 1−v(x)≤2m/2^T+Tε+ε<1/3, with T=ceil(log₂(1000m)), ε=1/(1000T).",
+    "proof_plan": "Build the single-candidate verifier by quantumVerify, and invoke tournament_runs with the actual cmp_samples law. On zero inputs every column lacks a winning address. On one inputs extract a winning column and address, apply quantumWinner_isDominant and the winning verifier bound. Rearrange the existing acceptance inequality. Keep the full Runs witness in the conclusion; use total_error_lt only for its final strict numerical consequence.",
+    "lean_statement": "theorem quantumError_bound (hk : 1 ≤ k) (ht : 1 ≤ t)\n    (hC : CircuitRealises C (P k t)) {n : ℕ}\n    (hn : repetitions k (epsval (mValue t) / (40 * t : ℕ)) ≤ n) :\n    ∃ val : BitInput (Loc k t C) → ℝ,\n      Runs (budget k t n (Fintype.card (Tests t C)))\n        (fun x b => bern (val x) b) ∧\n      (∀ x, Fkm k t C x = false →\n        val x ≤ (Tval (mValue t) : ℝ) * epsval (mValue t)) ∧\n      (∀ x, Fkm k t C x = true →\n        1 - val x ≤ 2 * (mValue t : ℝ) / 2 ^ Tval (mValue t) +\n          (Tval (mValue t) : ℝ) * epsval (mValue t) + epsval (mValue t))",
+    "proposed_relation": "exact_for_the_listed_finite_clauses; full row to be reviewed after elaboration",
+    "source_locators": [
+      "paper/extracted.md:494-500",
+      "repository/lean/QuarticQuery/Upper/Tournament.lean:367-379",
+      "repository/lean/QuarticQuery/Upper/Verify.lean:138-218",
+      "repository/lean/QuarticQuery/Tournament/Ideal.lean:314-334"
+    ],
+    "previous_round_consulted": [
+      "previous_round/1_long_reasoning_record/NEW_STATEMENTS.json:new-upper-continuation-bound",
+      "previous_round/1_long_reasoning_record/NEW_STATEMENTS.json:new-upper-finite-budget",
+      "previous_round/1_long_reasoning_record/LEAN_GAPS.md:295",
+      "previous_round/2_short_expert_paper/LEAN_GAPS.md:101-103",
+      "previous_round/3_examples_first_exposition/LEAN_GAPS.md:118",
+      "previous_round/5_reader_and_film/LEAN_GAPS.md:66"
+    ],
+    "route": "same except measured-label amplification/continuation implementation; explicitly qualified",
+    "review_status": "AI source review only; no compilation, no Comparator",
+    "declarations": [
+      "QuarticQuery.Paper.quantumError_bound",
+      "QuarticQuery.Paper.quantumError_numeric"
+    ],
+    "status": "unelaborated_source_only",
+    "comparison_status": "not_run",
+    "reach_status": "not_recomputed; no claim of headline dependency",
+    "correction": "No change to the preprint statement.",
+    "original_statement_sha256": "a9d40e128c1d62a479c5264dcbb12191ea78aa8ebf829cdc1cf9c90f72723f63",
+    "paper_locator": "paper/extracted.md, Section 3.3, source line 497",
+    "proposed_file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "statement_in_existing_context": true,
+    "new_source_signatures": {
+      "QuarticQuery.Paper.quantumError_bound": "theorem quantumError_bound (hk : 1 ≤ k) (ht : 1 ≤ t)\n    (hC : CircuitRealises C (P k t)) {n : ℕ}\n    (hn : repetitions k (epsval (mValue t) / (40 * t : ℕ)) ≤ n) :\n    ∃ val : BitInput (Loc k t C) → ℝ,\n      Runs (budget k t n (Fintype.card (Tests t C)))\n        (fun x b => bern (val x) b) ∧\n      (∀ x, Fkm k t C x = false →\n        val x ≤ (Tval (mValue t) : ℝ) * epsval (mValue t)) ∧\n      (∀ x, Fkm k t C x = true →\n        1 - val x ≤ 2 * (mValue t : ℝ) / 2 ^ Tval (mValue t) +\n          (Tval (mValue t) : ℝ) * epsval (mValue t) + epsval (mValue t))",
+      "QuarticQuery.Paper.quantumError_numeric": "theorem quantumError_numeric {m : ℕ} (hm : 2 ≤ m) :\n    (Tval m : ℝ) * epsval m = 1 / 1000 ∧\n    2 * (m : ℝ) / 2 ^ Tval m + (Tval m : ℝ) * epsval m + epsval m < 1 / 3"
+    }
+  },
+  {
+    "id": "construct-sampler",
+    "class": "genuine_new_proof",
+    "declaration": "QuarticQuery.Paper.quantumTensorStage_of_samples",
+    "uses": [
+      "QuarticQuery.Upper.stage_samples",
+      "QuarticQuery.Paper.quantum_amplify_samples",
+      "QuarticQuery.Upper.Samples.bind",
+      "QuarticQuery.Paper.quantumTournament_list",
+      "QuarticQuery.Paper.quantumWorkspace_uniformize",
+      "QuarticQuery.Paper.quantumTensorStage",
+      "QuarticQuery.Paper.equation_15_index_law"
+    ],
+    "difficulty": "medium",
+    "compiled": false,
+    "notes": "F-STAGE-LAW is accepted in the adjudication: stage_samples may skip later comparisons after an earlier failure, so its complete workspace state is not literally (15). Successful index masses are exact. The separate QuantumTensor construction runs every comparison and supplies the literal displayed state. Keep these routes distinguished. The primary proposed declaration now supplies the literal fresh-tensor route from pairwise Samples witnesses. Successful masses agree; equality of the two full retained states is neither needed nor asserted.",
+    "lean_statement": "theorem quantumTensorStage_of_samples {ι Col : Type} [Fintype Col] [Nonempty Col]\n    {c : ℕ} {a : BitInput ι → Col → Col → ℝ}\n    (hcmp : ∀ i j, Samples c fun x b => bern (a x i j) b)\n    (p : ℕ → Col) (t : ℕ) :\n    ∃ L : BitInput ι → Option Col → ℝ,\n      Samples (t * c) L ∧\n      ∀ x i, L x (some i) =\n        (∏ b ∈ Finset.range t, a x i (p b)) / Fintype.card Col",
+    "proposed_file": "lean/QuarticQuery/Paper/QuantumTensor.lean",
+    "proof_plan": "Use stage_samples for the stage, quantum_amplify_samples for each history, and the quantumTournament_list induction using Samples.bind. Histories are classical labels retained coherently, which are orthogonal. On failure the branch labels its accumulated list; later gates on that branch are padded identities. The additional direct construction first applies quantumWorkspace_uniformize to Col×Col, then quantumTensorStage and equation_15_index_law. The result quantumTensorStage_of_samples needs exactly the same comparison-law interface.",
+    "route": "alternative",
+    "prior_proposals_consulted": [
+      "new-upper-sampler-law"
+    ],
+    "local_status": "unelaborated",
+    "packet_dependencies_status": "Reported built_at_pin where BUILD_STATUS.md lists them; not recompiled here.",
+    "mathematical_statement": "For a finite nonempty candidate set of size m, a coherent comparison family of c logical reads yields, for each fixed history of t pivots, a coherent stage of tc reads with successful index mass m^(-1)∏_{b<t}aᵢ,p_b. QuantumTensor supplies the full fresh-register implementation. quantumStage_samples separately exports the existing short-circuit implementation at the same cap and successful masses.",
+    "declarations": [
+      "QuarticQuery.Paper.quantumTensorStage_of_samples",
+      "QuarticQuery.Paper.quantumTensorStage",
+      "QuarticQuery.Paper.quantumStage_samples",
+      "QuarticQuery.Paper.quantumWorkspace_uniformize",
+      "QuarticQuery.Paper.quantumTournament_list"
+    ],
+    "status": "unelaborated_source_only",
+    "comparison_status": "not_run",
+    "reach_status": "not_recomputed; no claim of headline dependency",
+    "correction": "No change to the preprint statement.",
+    "original_statement_sha256": "0754b5cc12a3abd9084dad49bf0116348c2adce8cc32b35cfc2642a204d966e4",
+    "paper_locator": "paper/extracted.md, Section 3.2, source line 409",
+    "statement_in_existing_context": true,
+    "new_source_signatures": {
+      "QuarticQuery.Paper.quantumTensorStage_of_samples": "theorem quantumTensorStage_of_samples {ι Col : Type} [Fintype Col] [Nonempty Col]\n    {c : ℕ} {a : BitInput ι → Col → Col → ℝ}\n    (hcmp : ∀ i j, Samples c fun x b => bern (a x i j) b)\n    (p : ℕ → Col) (t : ℕ) :\n    ∃ L : BitInput ι → Option Col → ℝ,\n      Samples (t * c) L ∧\n      ∀ x i, L x (some i) =\n        (∏ b ∈ Finset.range t, a x i (p b)) / Fintype.card Col",
+      "QuarticQuery.Paper.quantumTensorStage": "theorem quantumTensorStage {ι Col Z : Type} [Fintype Col] [Nonempty Col] [Fintype Z]\n    {c : ℕ} (o : Z)\n    (F : Col → Col → BitInput ι → Reg Z ≃ₗᵢ[ℂ] Reg Z)\n    (hF : ∀ i j, IsCirc c (F i j)) (out : Col → Col → Z → Bool)\n    (a : BitInput ι → Col → Col → ℝ)\n    (ha : ∀ x i j, lawOf (F i j x (rket o)) (out i j) true = a x i j)\n    (p : ℕ → Col) (t : ℕ) :\n    ∃ L : BitInput ι → Option Col → ℝ,\n      Samples (t * c) L ∧\n      ∀ x i, L x (some i) =\n        (∏ b ∈ Finset.range t, a x i (p b)) / Fintype.card Col",
+      "QuarticQuery.Paper.quantumStage_samples": "theorem quantumStage_samples {ι Col : Type} [Nonempty ι] [Fintype Col] [Nonempty Col]\n    {cc : ℕ} {a : BitInput ι → Col → Col → ℝ}\n    (hcmp : ∀ i p, Samples cc fun x b => bern (a x i p) b) (L : List Col) :\n    Samples (L.length * cc) fun x o => stageLaw (a x) L o",
+      "QuarticQuery.Paper.quantumWorkspace_uniformize": "theorem quantumWorkspace_uniformize {ι J β : Type} [Fintype J] [Nonempty J]\n    {c : ℕ} {L : J → BitInput ι → β → ℝ}\n    (h : ∀ j, Samples c (L j)) :\n    ∃ (Z : Type) (_ : Fintype Z) (o : Z) (out : Z → β)\n      (F : J → BitInput ι → Reg Z ≃ₗᵢ[ℂ] Reg Z),\n      (∀ j, IsCirc c (F j)) ∧\n      ∀ j x b, lawOf (F j x (rket o)) out b = L j x b",
+      "QuarticQuery.Paper.quantumTournament_list": "theorem quantumTournament_list {cc : ℕ} {a : BitInput ι → Col → Col → ℝ}\n    (hm : 2 ≤ Fintype.card Col) (hc : ∀ x, IsComparison (a x))\n    (hcmp : ∀ i p, Samples cc fun x b => bern (a x i p) b) :\n    let m := Fintype.card Col\n    let T := Tval m\n    let ε := epsval m\n    ∃ law : BitInput ι → QuantumCandidateList Col T → ℝ,\n      Samples (T * quantumStageReads m T cc ε) law ∧\n      Runs (T * stageCost m T cc ε) law ∧\n      (∀ x o, 0 ≤ law x o) ∧\n      (∀ x, ∑ o, law x o = 1) ∧\n      ∀ x s, Dominant (a x) ε s →\n        1 - 2 * (m : ℝ) / 2 ^ T - T * ε ≤ ∑ o : QuantumCandidateList Col T, if s ∈ o.1 then law x o else 0"
+    }
+  },
+  {
+    "id": "eq-15",
+    "class": "genuine_new_proof",
+    "declaration": "QuarticQuery.Paper.equation_15",
+    "uses": [
+      "QuarticQuery.Upper.exists_unit_gate",
+      "QuarticQuery.Upper.leftOp",
+      "QuarticQuery.Upper.sigmaOp",
+      "QuarticQuery.Upper.IsCirc.left",
+      "QuarticQuery.Upper.IsCirc.sigma",
+      "QuarticQuery.Upper.IsCirc.comp",
+      "QuarticQuery.Upper.slice_sigmaOp",
+      "QuarticQuery.Upper.slice_leftOp_rket",
+      "QuarticQuery.Upper.lawOf_sigma",
+      "QuarticQuery.Upper.regCongr_rket"
+    ],
+    "difficulty": "high",
+    "compiled": false,
+    "notes": "The coordinate equation is the full tensor state, with a fixed reversed nesting of fresh registers. This differs by a query-free basis permutation from increasing pivot order. sqrt(m^-1)=1/sqrt(m) because m>0. Upper.stage_samples short-circuits, so it is not identified with this whole state. The new list theorem continues to use that existing stage through its exact successful-label law; this is explicitly an alternative implementation route. The new common-workspace bridge removes the need to assume uniform workspace as an unexplained extra property of comparisons.",
+    "lean_statement": "theorem equation_15 {ι Col Z : Type} [Fintype Col] [Nonempty Col] [Fintype Z]\n    {c : ℕ} (o : Z)\n    (F : Col → Col → BitInput ι → Reg Z ≃ₗᵢ[ℂ] Reg Z)\n    (hF : ∀ i j, IsCirc c (F i j)) (p : ℕ → Col) (t : ℕ) :\n    ∃ (i₀ : Col)\n      (A : BitInput ι → Reg (Σ _ : Col, TensorBasis Z t) ≃ₗᵢ[ℂ]\n        Reg (Σ _ : Col, TensorBasis Z t)),\n      IsCirc (t * c) A ∧\n      ∀ x i, slice i (A x (rket (⟨i₀, tensorOrigin o t⟩ :\n          Σ _ : Col, TensorBasis Z t))) =\n        (((Real.sqrt ((Fintype.card Col : ℝ)⁻¹) : ℝ) : ℂ) •\n          tensorVector (fun b => F i (p b) x (rket o)) t)",
+    "proposed_file": "lean/QuarticQuery/Paper/QuantumTensor.lean",
+    "proof_plan": "Use quantumWorkspace_uniformize for the finite pair family when needed. Construct TensorBasis recursively as a dependent sum. Prove tensorPreparation_state by slice_sigmaOp, slice_leftOp_rket and map_smul. Count reads with IsCirc.left, IsCirc.sigma and IsCirc.comp. Prepare the uniform candidate state using exists_unit_gate, then apply the controlled tensor preparation. The common workspace and every gate family are chosen before the oracle input. quantumTensorStage_of_samples composes this construction with the actual Samples comparison interface.",
+    "route": "literal full-state construction; list implementation uses an alternative state",
+    "prior_proposals_consulted": [],
+    "local_status": "unelaborated",
+    "packet_dependencies_status": "Reported built_at_pin where BUILD_STATUS.md lists them; not recompiled here.",
+    "mathematical_statement": "For a finite nonempty candidate set of size m, any fixed pivot sequence p₀,…,pₜ₋₁ and a common-workspace comparison family Fᵢⱼ of c reads, there is an input-independent choice of initial basis state and a circuit Aₓ of tc reads whose i-slice is m^(-1/2) times the tensor product of the complete states Fᵢ,p_b(x)|o⟩. Thus every fresh comparison is run on the full branch. The finite-workspace uniformization lemma derives the common workspace from pairwise Samples witnesses without adding reads.",
+    "declarations": [
+      "QuarticQuery.Paper.equation_15",
+      "QuarticQuery.Paper.quantumWorkspace_uniformize",
+      "QuarticQuery.Paper.tensorPreparation_state",
+      "QuarticQuery.Paper.tensorPreparation_isCirc",
+      "QuarticQuery.Paper.quantumTensorStage_of_samples"
+    ],
+    "status": "unelaborated_source_only",
+    "comparison_status": "not_run",
+    "reach_status": "not_recomputed; no claim of headline dependency",
+    "correction": "Replace the proposed full-state tie to Upper.stage_samples with the new full-state construction. This corrects evidence correspondence, not equation (15).",
+    "original_statement_sha256": "cb8411cb0b64ae3d5428d321eca5e1a234254091996ae0d64675fe1da6994f04",
+    "paper_locator": "paper/extracted.md, Section 3.2, source line 416",
+    "statement_in_existing_context": true,
+    "new_source_signatures": {
+      "QuarticQuery.Paper.equation_15": "theorem equation_15 {ι Col Z : Type} [Fintype Col] [Nonempty Col] [Fintype Z]\n    {c : ℕ} (o : Z)\n    (F : Col → Col → BitInput ι → Reg Z ≃ₗᵢ[ℂ] Reg Z)\n    (hF : ∀ i j, IsCirc c (F i j)) (p : ℕ → Col) (t : ℕ) :\n    ∃ (i₀ : Col)\n      (A : BitInput ι → Reg (Σ _ : Col, TensorBasis Z t) ≃ₗᵢ[ℂ]\n        Reg (Σ _ : Col, TensorBasis Z t)),\n      IsCirc (t * c) A ∧\n      ∀ x i, slice i (A x (rket (⟨i₀, tensorOrigin o t⟩ :\n          Σ _ : Col, TensorBasis Z t))) =\n        (((Real.sqrt ((Fintype.card Col : ℝ)⁻¹) : ℝ) : ℂ) •\n          tensorVector (fun b => F i (p b) x (rket o)) t)",
+      "QuarticQuery.Paper.quantumWorkspace_uniformize": "theorem quantumWorkspace_uniformize {ι J β : Type} [Fintype J] [Nonempty J]\n    {c : ℕ} {L : J → BitInput ι → β → ℝ}\n    (h : ∀ j, Samples c (L j)) :\n    ∃ (Z : Type) (_ : Fintype Z) (o : Z) (out : Z → β)\n      (F : J → BitInput ι → Reg Z ≃ₗᵢ[ℂ] Reg Z),\n      (∀ j, IsCirc c (F j)) ∧\n      ∀ j x b, lawOf (F j x (rket o)) out b = L j x b",
+      "QuarticQuery.Paper.tensorPreparation_state": "theorem tensorPreparation_state {Z : Type} [Fintype Z]\n    (F : ℕ → Reg Z ≃ₗᵢ[ℂ] Reg Z) (o : Z) (n : ℕ) :\n    tensorPreparation F n (rket (tensorOrigin o n)) =\n      tensorVector (fun b => F b (rket o)) n",
+      "QuarticQuery.Paper.tensorPreparation_isCirc": "theorem tensorPreparation_isCirc {ι Z : Type} [Fintype Z] {c : ℕ}\n    (F : ℕ → BitInput ι → Reg Z ≃ₗᵢ[ℂ] Reg Z)\n    (hF : ∀ b, IsCirc c (F b)) (n : ℕ) :\n    IsCirc (n * c) (fun x => tensorPreparation (fun b => F b x) n)",
+      "QuarticQuery.Paper.quantumTensorStage_of_samples": "theorem quantumTensorStage_of_samples {ι Col : Type} [Fintype Col] [Nonempty Col]\n    {c : ℕ} {a : BitInput ι → Col → Col → ℝ}\n    (hcmp : ∀ i j, Samples c fun x b => bern (a x i j) b)\n    (p : ℕ → Col) (t : ℕ) :\n    ∃ L : BitInput ι → Option Col → ℝ,\n      Samples (t * c) L ∧\n      ∀ x i, L x (some i) =\n        (∏ b ∈ Finset.range t, a x i (p b)) / Fintype.card Col"
+    }
+  },
+  {
+    "id": "claim-success-prob",
+    "class": "few_lines_from_existing",
+    "declaration": "QuarticQuery.Paper.quantumStage_success",
+    "uses": [
+      "QuarticQuery.Tournament.UnitValued",
+      "QuarticQuery.Upper.stageLaw_some",
+      "QuarticQuery.Upper.sum_stageLaw_some",
+      "div_div_div_cancel_right₀",
+      "QuarticQuery.Paper.quantumWeight_product",
+      "QuarticQuery.Paper.quantumStageLaw_nonneg",
+      "QuarticQuery.Paper.quantumStageLaw_total"
+    ],
+    "difficulty": "low",
+    "compiled": false,
+    "notes": "UnitValued is explicit because positive total weight alone does not make the summands nonnegative for an arbitrary real table. The theorem now states normalization, nonnegativity and positive successful mass before giving conditional probabilities. The positive W hypothesis is kept for meaningful conditioning. Lean totalized division also makes the ratio identity true at W=0, but that algebraic identity alone is not a conditional probability. This strengthens the proposed wrapper interface; it does not correct or alter the paper statement. The generic tensor identities are identities of masses for arbitrary vectors; their probability interpretation uses the normalized isometry witness supplied by equation_15. Conditioning requires W>0. The primary stage statement explicitly assumes UnitValued and proves normalization.",
+    "lean_statement": "theorem quantumStage_success {Col : Type} [Fintype Col] [Nonempty Col]\n    (a : Col → Col → ℝ) (ha : UnitValued a)\n    (L : List Col) (hW : 0 < total (weight a L)) :\n    (∀ o, 0 ≤ stageLaw a L o) ∧\n    (∑ o, stageLaw a L o) = 1 ∧\n    (0 < ∑ i, stageLaw a L (some i)) ∧\n    (∀ i, stageLaw a L (some i) = weight a L i / Fintype.card Col) ∧\n    (∑ i, stageLaw a L (some i)) = total (weight a L) / Fintype.card Col ∧\n    (∀ i, stageLaw a L (some i) / (∑ j, stageLaw a L (some j)) =\n      weight a L i / total (weight a L))",
+    "proposed_file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+    "proof_plan": "Induct on the history to prove every stage-law mass nonnegative, using 0≤a_ij≤1 for the failure and success factors. A separate finite-sum induction proves total mass one. Use sum_stageLaw_some and W>0 to prove positive successful mass. Then apply stageLaw_some and cancel the common nonzero cardinality with div_div_div_cancel_right₀. Prove weight equals List.prod by induction. The literal tensor-state version is provided separately by QuantumTensor; the successful-label identities here use the implemented stage law.",
+    "route": "same",
+    "prior_proposals_consulted": [
+      "new-upper-sampler-law"
+    ],
+    "local_status": "unelaborated",
+    "packet_dependencies_status": "Reported built_at_pin where BUILD_STATUS.md lists them; not recompiled here.",
+    "mathematical_statement": "For m>0, unit-valued comparison probabilities 0≤a_ij≤1, and W(L)>0, stageLaw is nonnegative with total mass one and positive successful mass. Its joint successful-index mass is Pr[index i and success]=w_i/m, total success probability is W/m, and the conditional index law on success is exactly w_i/W. The weight is the empty-product-compatible product ∏_{p∈L}a_{ip}.",
+    "declarations": [
+      "QuarticQuery.Paper.quantumStage_success",
+      "QuarticQuery.Paper.quantumWeight_product",
+      "QuarticQuery.Paper.quantumStageLaw_nonneg",
+      "QuarticQuery.Paper.quantumStageLaw_total",
+      "QuarticQuery.Paper.tensor_success_mass",
+      "QuarticQuery.Paper.equation_15_index_law",
+      "QuarticQuery.Paper.equation_15_success_probability",
+      "QuarticQuery.Paper.equation_15_conditional_index"
+    ],
+    "status": "unelaborated_source_only",
+    "comparison_status": "not_run",
+    "reach_status": "not_recomputed; no claim of headline dependency",
+    "correction": "No change to the preprint statement.",
+    "original_statement_sha256": "89b52cf2ecba7173f3b42a6dc46cde19c6ba696ea79b36ebe05f4938b7837054",
+    "paper_locator": "paper/extracted.md, Section 3.2, source line 420",
+    "statement_in_existing_context": true,
+    "new_source_signatures": {
+      "QuarticQuery.Paper.quantumStage_success": "theorem quantumStage_success {Col : Type} [Fintype Col] [Nonempty Col]\n    (a : Col → Col → ℝ) (ha : UnitValued a)\n    (L : List Col) (hW : 0 < total (weight a L)) :\n    (∀ o, 0 ≤ stageLaw a L o) ∧\n    (∑ o, stageLaw a L o) = 1 ∧\n    (0 < ∑ i, stageLaw a L (some i)) ∧\n    (∀ i, stageLaw a L (some i) = weight a L i / Fintype.card Col) ∧\n    (∑ i, stageLaw a L (some i)) = total (weight a L) / Fintype.card Col ∧\n    (∀ i, stageLaw a L (some i) / (∑ j, stageLaw a L (some j)) =\n      weight a L i / total (weight a L))",
+      "QuarticQuery.Paper.quantumWeight_product": "theorem quantumWeight_product {Col : Type} (a : Col → Col → ℝ) (L : List Col) (i : Col) :\n    weight a L i = (L.map fun p => a i p).prod",
+      "QuarticQuery.Paper.quantumStageLaw_nonneg": "theorem quantumStageLaw_nonneg {Col : Type} [Fintype Col]\n    {a : Col → Col → ℝ} (ha : UnitValued a) (L : List Col) (o : Option Col) :\n    0 ≤ stageLaw a L o",
+      "QuarticQuery.Paper.quantumStageLaw_total": "theorem quantumStageLaw_total {Col : Type} [Fintype Col] [Nonempty Col]\n    (a : Col → Col → ℝ) (L : List Col) : ∑ o, stageLaw a L o = 1",
+      "QuarticQuery.Paper.tensor_success_mass": "theorem tensor_success_mass {Z : Type} [Fintype Z]\n    (ψ : ℕ → Reg Z) (out : ℕ → Z → Bool) (t : ℕ) :\n    lawOf (tensorVector ψ t) (tensorGood out t) true =\n      ∏ b ∈ Finset.range t, lawOf (ψ b) (out b) true",
+      "QuarticQuery.Paper.equation_15_index_law": "theorem equation_15_index_law {Col Z : Type} [Fintype Col] [Fintype Z]\n    (ψ : Col → ℕ → Reg Z) (out : Col → ℕ → Z → Bool) (t : ℕ)\n    (v : Reg (Σ _ : Col, TensorBasis Z t))\n    (hv : ∀ i, slice i v =\n      (((Real.sqrt ((Fintype.card Col : ℝ)⁻¹) : ℝ) : ℂ) • tensorVector (ψ i) t))\n    (i : Col) :\n    lawOf v (tensorIndexOut out t) (some i) =\n      (∏ b ∈ Finset.range t, lawOf (ψ i b) (out i b) true) / Fintype.card Col",
+      "QuarticQuery.Paper.equation_15_success_probability": "theorem equation_15_success_probability {Col Z : Type} [Fintype Col] [Fintype Z]\n    (ψ : Col → ℕ → Reg Z) (out : Col → ℕ → Z → Bool) (t : ℕ)\n    (v : Reg (Σ _ : Col, TensorBasis Z t))\n    (hv : ∀ i, slice i v =\n      (((Real.sqrt ((Fintype.card Col : ℝ)⁻¹) : ℝ) : ℂ) • tensorVector (ψ i) t)) :\n    (∑ i, lawOf v (tensorIndexOut out t) (some i)) =\n      (∑ i, ∏ b ∈ Finset.range t, lawOf (ψ i b) (out i b) true) /\n        Fintype.card Col",
+      "QuarticQuery.Paper.equation_15_conditional_index": "theorem equation_15_conditional_index {Col Z : Type} [Fintype Col] [Nonempty Col]\n    [Fintype Z] (ψ : Col → ℕ → Reg Z) (out : Col → ℕ → Z → Bool) (t : ℕ)\n    (v : Reg (Σ _ : Col, TensorBasis Z t))\n    (hv : ∀ i, slice i v =\n      (((Real.sqrt ((Fintype.card Col : ℝ)⁻¹) : ℝ) : ℂ) • tensorVector (ψ i) t))\n    (hW : 0 < ∑ i, ∏ b ∈ Finset.range t, lawOf (ψ i b) (out i b) true) (i : Col) :\n    0 < (∑ j, lawOf v (tensorIndexOut out t) (some j)) ∧\n    lawOf v (tensorIndexOut out t) (some i) /\n        (∑ j, lawOf v (tensorIndexOut out t) (some j)) =\n      (∏ b ∈ Finset.range t, lawOf (ψ i b) (out i b) true) /\n        (∑ j, ∏ b ∈ Finset.range t, lawOf (ψ j b) (out j b) true)"
+    }
+  },
+  {
+    "id": "eq-13",
+    "class": "few_lines_from_existing",
+    "declaration": "QuarticQuery.Paper.quantumDrift",
+    "uses": [
+      "QuarticQuery.Tournament.two_mul_weighted_sum",
+      "QuarticQuery.Tournament.expected_weight_eq",
+      "QuarticQuery.Tournament.expected_weight_le_half"
+    ],
+    "difficulty": "low",
+    "compiled": false,
+    "notes": "The source already proves the exact drift algebra. This is a missing correspondence and a conjunction wrapper, not a new drift argument. Nonnegative weights are needed for the probabilistic interpretation; the algebraic equalities and square-based upper bound themselves hold for arbitrary real weights with positive total.",
+    "lean_statement": "theorem quantumDrift {Col : Type} [Fintype Col] [DecidableEq Col]\n    (w : Col → ℝ) {a : Col → Col → ℝ} (ha : IsComparison a)\n    {W : ℝ} (hW : W = ∑ i, w i) (hpos : 0 < W) :\n    (∑ p, (w p / W) * ∑ i, w i * a i p) =\n        (1 / W) * ∑ p, ∑ i, w p * w i * a i p ∧\n    (1 / W) * (∑ p, ∑ i, w p * w i * a i p) =\n        (W ^ 2 - ∑ i, w i ^ 2) / (2 * W) ∧\n    (W ^ 2 - ∑ i, w i ^ 2) / (2 * W) ≤ W / 2",
+    "proposed_file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+    "proof_plan": "Distribute finite sums to identify the pivot-law expectation with the double sum. Invoke expected_weight_eq for the paired-complementary identity and expected_weight_le_half for the inequality. The underlying pairing lemma is two_mul_weighted_sum.",
+    "route": "same",
+    "prior_proposals_consulted": [
+      "new-cyclic-dynamics",
+      "new-fractional-dynamics"
+    ],
+    "local_status": "unelaborated",
+    "packet_dependencies_status": "Reported built_at_pin where BUILD_STATUS.md lists them; not recompiled here.",
+    "mathematical_statement": "Suppose aᵢᵢ=0 and aᵢⱼ+aⱼᵢ=1 for i≠j, and let W=∑ᵢwᵢ>0. Then ∑ₚ(wₚ/W)∑ᵢwᵢaᵢₚ=(1/W)∑ₚ∑ᵢwₚwᵢaᵢₚ=(W²−∑ᵢwᵢ²)/(2W)≤W/2. For the tournament, wᵢ≥0 and aᵢⱼ∈[0,1], so the first sum is the expected next total weight. The formal algebraic identity itself holds for arbitrary real weights.",
+    "declarations": [
+      "QuarticQuery.Paper.quantumDrift"
+    ],
+    "status": "unelaborated_source_only",
+    "comparison_status": "not_run",
+    "reach_status": "not_recomputed; no claim of headline dependency",
+    "correction": "No change to the preprint statement.",
+    "original_statement_sha256": "b6eca3fb95b5121d19ff78cc9fc4c836953e3b69f9234523d166d1d1eb2e47cb",
+    "paper_locator": "paper/extracted.md, Section 3.2, source line 390",
+    "statement_in_existing_context": true,
+    "new_source_signatures": {
+      "QuarticQuery.Paper.quantumDrift": "theorem quantumDrift {Col : Type} [Fintype Col] [DecidableEq Col]\n    (w : Col → ℝ) {a : Col → Col → ℝ} (ha : IsComparison a)\n    {W : ℝ} (hW : W = ∑ i, w i) (hpos : 0 < W) :\n    (∑ p, (w p / W) * ∑ i, w i * a i p) =\n        (1 / W) * ∑ p, ∑ i, w p * w i * a i p ∧\n    (1 / W) * (∑ p, ∑ i, w p * w i * a i p) =\n        (W ^ 2 - ∑ i, w i ^ 2) / (2 * W) ∧\n    (W ^ 2 - ∑ i, w i ^ 2) / (2 * W) ≤ W / 2"
+    }
+  },
+  {
+    "id": "claim-weight-lb",
+    "class": "few_lines_from_existing",
+    "declaration": "QuarticQuery.Paper.quantumWeight_lower",
+    "uses": [
+      "QuarticQuery.Tournament.pow_le_weight",
+      "QuarticQuery.Tournament.dominant_weight_lb",
+      "QuarticQuery.Tournament.half_lt_total",
+      "one_add_mul_le_pow"
+    ],
+    "difficulty": "low",
+    "compiled": false,
+    "notes": "The source dominant_weight_lb displays exponent T; the row displays t. This wrapper preserves t explicitly and gives the positivity consequence. At the paper parameters Tε=1/1000, all strict half-threshold requirements hold.",
+    "lean_statement": "theorem quantumWeight_lower {Col : Type} [Fintype Col]\n    {a : Col → Col → ℝ} {ε : ℝ} {s : Col} (ha : UnitValued a)\n    (hε0 : 0 ≤ ε) (hε1 : ε ≤ 1) (hd : Dominant a ε s)\n    {T : ℕ} (hT : (T : ℝ) * ε < 1 / 2) (L : List Col)\n    (hL : L.length ≤ T) (hs : s ∉ L) :\n    (1 - ε) ^ L.length ≤ weight a L s ∧\n    1 - (T : ℝ) * ε ≤ (1 - ε) ^ L.length ∧\n    1 / 2 < weight a L s ∧ 0 < total (weight a L)",
+    "proposed_file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+    "proof_plan": "Use pow_le_weight at the actual history length. Bernoulli inequality gives (1−ε)^t≥1−tε, and tε≤Tε. Existing dominant_weight_lb and half_lt_total provide the strict lower bounds.",
+    "route": "same",
+    "prior_proposals_consulted": [],
+    "local_status": "unelaborated",
+    "packet_dependencies_status": "Reported built_at_pin where BUILD_STATUS.md lists them; not recompiled here.",
+    "mathematical_statement": "If s has not been selected in history L with t=|L|≤T, a is unit-valued, s is ε-dominant, 0≤ε≤1, and Tε<1/2, then w_s≥(1−ε)^t≥1−Tε>1/2 and W>0.",
+    "declarations": [
+      "QuarticQuery.Paper.quantumWeight_lower"
+    ],
+    "status": "unelaborated_source_only",
+    "comparison_status": "not_run",
+    "reach_status": "not_recomputed; no claim of headline dependency",
+    "correction": "No change to the preprint statement.",
+    "original_statement_sha256": "1a593464cab8ac16bed915de050a1e2ea6178fc2840a4924231b8d0af62fdf40",
+    "paper_locator": "paper/extracted.md, Section 3.2, source line 398",
+    "statement_in_existing_context": true,
+    "new_source_signatures": {
+      "QuarticQuery.Paper.quantumWeight_lower": "theorem quantumWeight_lower {Col : Type} [Fintype Col]\n    {a : Col → Col → ℝ} {ε : ℝ} {s : Col} (ha : UnitValued a)\n    (hε0 : 0 ≤ ε) (hε1 : ε ≤ 1) (hd : Dominant a ε s)\n    {T : ℕ} (hT : (T : ℝ) * ε < 1 / 2) (L : List Col)\n    (hL : L.length ≤ T) (hs : s ∉ L) :\n    (1 - ε) ^ L.length ≤ weight a L s ∧\n    1 - (T : ℝ) * ε ≤ (1 - ε) ^ L.length ∧\n    1 / 2 < weight a L s ∧ 0 < total (weight a L)"
+    }
+  },
+  {
+    "id": "def-T-eps",
+    "class": "definition_not_independent_theorem",
+    "declaration": "QuarticQuery.Paper.quantumTournament_parameters",
+    "uses": [
+      "QuarticQuery.Tournament.Tval",
+      "QuarticQuery.Tournament.epsval",
+      "QuarticQuery.Tournament.Tval_pos",
+      "QuarticQuery.Tournament.Tval_mul_epsval"
+    ],
+    "difficulty": "trivial",
+    "compiled": false,
+    "notes": "The rfl wrapper proves agreement with the chosen source notation; it is not a new mathematical result. The code uses the integer ceiling-log representation, whose least-power semantics is certified by Nat.le_pow_clog and Nat.clog_le_of_le_pow.",
+    "lean_statement": "theorem quantumTournament_parameters (m : ℕ) :\n    Tval m = Nat.clog 2 (1000 * m) ∧\n      epsval m = 1 / (1000 * (Tval m : ℝ))",
+    "proposed_file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+    "proof_plan": "Use definitional equality for the parameters. Existing Tval_pos, epsval_nonneg, epsval_le and Tval_mul_epsval give positivity/ranges and Tε=1/1000. No new parameter object is needed.",
+    "route": "same",
+    "prior_proposals_consulted": [
+      "new-small-parameters"
+    ],
+    "local_status": "unelaborated",
+    "packet_dependencies_status": "Reported built_at_pin where BUILD_STATUS.md lists them; not recompiled here.",
+    "mathematical_statement": "For m≥2, T=Nat.clog 2 (1000m) is the least natural exponent with 1000m≤2^T, equivalently ceil(log₂(1000m)); ε=1/(1000T) is positive. The agreement lemma also records the source definitions for arbitrary m using Lean’s totalized arithmetic.",
+    "declarations": [
+      "QuarticQuery.Paper.quantumTournament_parameters"
+    ],
+    "status": "unelaborated_source_only",
+    "comparison_status": "not_run",
+    "reach_status": "not_recomputed; no claim of headline dependency",
+    "correction": "No change to the preprint statement.",
+    "original_statement_sha256": "2783db72127b2b91a9e4b5d32b676e0f80164d5d534ea4724c22225cc928daa6",
+    "paper_locator": "paper/extracted.md, Section 3.2, source line 365",
+    "statement_in_existing_context": true,
+    "new_source_signatures": {
+      "QuarticQuery.Paper.quantumTournament_parameters": "theorem quantumTournament_parameters (m : ℕ) :\n    Tval m = Nat.clog 2 (1000 * m) ∧\n      epsval m = 1 / (1000 * (Tval m : ℝ))"
+    }
+  },
+  {
+    "id": "eq-11",
+    "class": "definition_not_independent_theorem",
+    "declaration": "QuarticQuery.Paper.quantumDominant_iff",
+    "uses": [
+      "QuarticQuery.Tournament.Dominant"
+    ],
+    "difficulty": "trivial",
+    "compiled": false,
+    "notes": "This is a missing definition tie. It does not assert that every comparison table has a dominant candidate, and no tournament guarantee assumes one exists on a zero-input.",
+    "lean_statement": "theorem quantumDominant_iff {Col : Type} (a : Col → Col → ℝ) (ε : ℝ) (s : Col) :\n    Dominant a ε s ↔ ∀ j, j ≠ s → 1 - ε ≤ a s j",
+    "proposed_file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+    "proof_plan": "Unfold Tournament.Dominant; the equivalence is Iff.rfl.",
+    "route": "same",
+    "prior_proposals_consulted": [],
+    "local_status": "unelaborated",
+    "packet_dependencies_status": "Reported built_at_pin where BUILD_STATUS.md lists them; not recompiled here.",
+    "mathematical_statement": "s is ε-dominant precisely when a_sj≥1−ε for every j≠s.",
+    "declarations": [
+      "QuarticQuery.Paper.quantumDominant_iff"
+    ],
+    "status": "unelaborated_source_only",
+    "comparison_status": "not_run",
+    "reach_status": "not_recomputed; no claim of headline dependency",
+    "correction": "No change to the preprint statement.",
+    "original_statement_sha256": "32a27e7593209e20047f45dba7efea80598a103d1016e627d6bf10a5f9f1ae37",
+    "paper_locator": "paper/extracted.md, Section 3.2, source line 377",
+    "statement_in_existing_context": true,
+    "new_source_signatures": {
+      "QuarticQuery.Paper.quantumDominant_iff": "theorem quantumDominant_iff {Col : Type} (a : Col → Col → ℝ) (ε : ℝ) (s : Col) :\n    Dominant a ε s ↔ ∀ j, j ≠ s → 1 - ε ≤ a s j"
+    }
+  }
+]

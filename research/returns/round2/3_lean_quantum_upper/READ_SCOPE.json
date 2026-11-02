@@ -1,0 +1,471 @@
+{
+  "scope_note": "Read claims are scoped to content actually inspected. Parsing JSON or hashing a file is not treated as a complete reading.",
+  "root": {
+    "complete_relevant_reading": [
+      "paper/extracted.md Section 3",
+      "READ_ME_FIRST.md",
+      "BUILD_STATUS.md",
+      "repository/README.md",
+      "repository/docs/statement_evidence_contract.md",
+      "repository/corpus/README.md",
+      "repository/lean/QuarticQuery/Statement.lean",
+      "repository/lean/QuarticQuery/Paper/Section3.lean",
+      "repository/research/adjudication/funnel_adjudication_notes.md",
+      "writing/register-from-literature.md"
+    ],
+    "targeted_reading": [
+      "Assigned statements/ties and accepted adjudication entries",
+      "Relevant Upper/Circuit, Sampler, Compile, Amplify, Tournament and comparison/verification declarations and proofs, with complete team reads below",
+      "Previous-round relevant statement proposals, gap lists and reasoning sections",
+      "Pasted transcript: task context and current Section 3 discussion; the entire 202050-character earlier-conversation history was not read verbatim",
+      "BHMT §2; BBHT §4; Høyer-Mosca-de Wolf §§1–3; Montanaro abstract and §1; Dürr-Høyer and Grover primary abstracts; de Wolf metadata/background locators"
+    ],
+    "not_read_in_full": [
+      "Other preprint sections, except necessary definitions and locators",
+      "Unrelated Section 2/4 and Forrelation lower-bound Lean files",
+      "All ancillary literature papers and calibration/exemplar manuscripts",
+      "External original Troy Lee Lean source files"
+    ]
+  },
+  "amplification": {
+    "complete_source_files": [
+      "repository/lean/QuarticQuery/Statement.lean",
+      "repository/lean/QuarticQuery/Model/Quantum.lean",
+      "repository/lean/QuarticQuery/Paper/Section3.lean",
+      "repository/lean/QuarticQuery/Amplification/Geometry.lean",
+      "repository/lean/QuarticQuery/Amplification/Average.lean",
+      "repository/lean/QuarticQuery/Amplification/Procedure.lean",
+      "repository/lean/QuarticQuery/Amplification/Bounded.lean",
+      "repository/lean/QuarticQuery/Upper/Circuit.lean",
+      "repository/lean/QuarticQuery/Upper/Sampler.lean",
+      "repository/lean/QuarticQuery/Upper/Compile.lean",
+      "repository/lean/QuarticQuery/Upper/Amplify.lean"
+    ],
+    "complete_instructions": [
+      "READ_ME_FIRST.md",
+      "BUILD_STATUS.md",
+      "repository/README.md",
+      "repository/docs/statement_evidence_contract.md",
+      "repository/corpus/README.md",
+      "repository/research/adjudication/funnel_adjudication_notes.md",
+      "writing/the-deliverable.md",
+      "writing/register-from-literature.md"
+    ],
+    "targeted_reads": [
+      "All five assigned rows and lem-3.1 in repository/corpus/statements.json; row-keyed ties and supplied source locators",
+      "Amplification/coherent-access entries of repository/research/adjudication/adjudication.json and funnel_adjudication.json",
+      "Relevant entries in every previous_round/*/NEW_STATEMENTS.json and amplification/coherent-access sections in each LEAN_GAPS.md",
+      "paper/extracted.md:250-350 and 493-515",
+      "BHMT supplied TeX-backed extraction Section 2, BBHT supplied extraction Section 4",
+      "The heading inventory of writing/mathematical-writing-mechanics.md and writing/full-exposition-guide.md; detailed full reading assigned to root"
+    ],
+    "additional_peer_review": "/workspace/scratch/8d69bf6fcda3/work_tensor/lean/QuarticQuery/Paper/QuantumTensor.lean statically reviewed in full",
+    "unavailable": [
+      "No Lean/Lake compiler or .olean dependency artifacts available",
+      "No fresh Comparator or independent-kernel runs possible in this environment"
+    ],
+    "compilation": "not_run"
+  },
+  "tournament": {
+    "read_in_full": [
+      "READ_ME_FIRST.md",
+      "BUILD_STATUS.md",
+      "repository/README.md",
+      "repository/docs/statement_evidence_contract.md",
+      "repository/corpus/README.md",
+      "repository/lean/QuarticQuery/Paper/Section3.lean",
+      "repository/lean/QuarticQuery/Tournament/Drift.lean",
+      "repository/lean/QuarticQuery/Tournament/Ideal.lean",
+      "repository/lean/QuarticQuery/Upper/Tournament.lean",
+      "repository/lean/QuarticQuery/Upper/Sampler.lean",
+      "repository/lean/QuarticQuery/Upper/Compile.lean",
+      "repository/lean/QuarticQuery.lean",
+      "repository/lean/lakefile.toml",
+      "writing/the-deliverable.md"
+    ],
+    "read_sections": [
+      {
+        "path": "paper/extracted.md",
+        "sections": "Section 3.1 and 3.2; lines 300–448"
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Amplify.lean",
+        "sections": "Declarations, Samples.attempts and Samples.amplify, lines 247–361"
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Amplification/Bounded.lean",
+        "sections": "Numerics lines 35–124; IndexRegister lines 300–372"
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Amplification/Procedure.lean",
+        "sections": "Declarations and parameter definitions"
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Circuit.lean",
+        "sections": "Reg, ReadSpec, all circuit constructors and closure signatures, direct-sum and tensor action blocks"
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Columns.lean",
+        "sections": "core_samples conclusion, coreProb_mem, cmpProb definition and cmp_samples opening"
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Bound.lean",
+        "sections": "trialCount_le, iterationBound_inv_le, Tval_mValue_le"
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Statement.lean",
+        "sections": "IsComparison, Basis, State, bitOracle, AdaptiveProgram and its query cap/output mass"
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Model/Quantum.lean",
+        "sections": "flipPoint and bitOracleL definitions/equalities"
+      },
+      {
+        "path": "repository/corpus/statements.json",
+        "sections": "All twelve assigned row records"
+      },
+      {
+        "path": "repository/corpus/ties.json",
+        "sections": "All twelve assigned row keys, including explicit absent entries; also compared against generated statements records"
+      },
+      {
+        "path": "repository/research/adjudication/funnel_adjudication.json",
+        "sections": "F-TOURN, F-STAGE-LAW, F-FORR-CAP, F-CYCLE-COMMENT, metadata and pending tie structure"
+      },
+      {
+        "path": "previous_round/1_long_reasoning_record/LEAN_GAPS.md",
+        "sections": "The ideal and implemented tournaments and amplification interfaces, lines 264–297"
+      },
+      {
+        "path": "previous_round/*/NEW_STATEMENTS.json",
+        "sections": "All records matching assigned row IDs; relevant specific IDs listed below"
+      },
+      {
+        "path": "previous_round/*/LEAN_GAPS.md",
+        "sections": "Search matches and surrounding tournament/sampler/coupling context"
+      }
+    ],
+    "prior_proposals_consulted": [
+      "new-cyclic-dynamics",
+      "new-fractional-dynamics",
+      "new-small-parameters",
+      "new-toy-cycle",
+      "new-upper-continuation-bound",
+      "new-upper-finite-budget",
+      "new-upper-sampler-law"
+    ],
+    "not_read_in_full": [
+      "writing/mathematical-writing-mechanics.md",
+      "writing/full-exposition-guide.md",
+      "writing/register-from-literature.md",
+      "exemplars/",
+      "All unrelated Section 2, Section 4, Appendix A, Forrelation lower-bound files"
+    ],
+    "not_available": [
+      "Lean/lake/elan executables",
+      "Supplied .olean build outputs"
+    ],
+    "web_checks": [
+      {
+        "url": "https://leanprover-community.github.io/mathlib4_docs/Init/GetElem.html",
+        "purpose": "Check current public type of List.getElem?_eq_none; not a pinned-toolchain verification.",
+        "ref_id": "turn4search0"
+      },
+      {
+        "url": "https://leanprover-community.github.io/mathlib4_docs/Init/Data/List/Lemmas.html",
+        "purpose": "Confirm current List.ext_getElem? signature at rendered lines 1728–1730; not pinned-toolchain verification.",
+        "ref_id": "turn10view0"
+      }
+    ],
+    "new_files": [
+      "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+      "lean/QuarticQuery/Paper/QuantumTournament.lean"
+    ],
+    "final_review_followup": {
+      "declaration": "QuarticQuery.Paper.quantumStage_success",
+      "change": "Added explicit UnitValued a, complete-law nonnegativity and normalization, and positive successful mass before conditional ratios.",
+      "helpers": [
+        "QuarticQuery.Paper.quantumStageLaw_nonneg",
+        "QuarticQuery.Paper.quantumStageLaw_total"
+      ],
+      "classification": "Strengthened proposed interface; no correction to the paper statement.",
+      "compiled": false
+    }
+  },
+  "comparison_verification": {
+    "schema": "section3_comparison_read_scope_v1",
+    "input_root": "/workspace/scratch/8d69bf6fcda3/quartic_packet",
+    "team_scope_note": "This is the comparison-verification subagent’s direct read scope. Other assigned agents cover amplification, samplers, tournament and the complete literal equation-(15) state. Do not upgrade partial-file reading to complete-file reading from these hashes.",
+    "files": [
+      {
+        "path": "READ_ME_FIRST.md",
+        "sha256": "cc07c1d3f18a8de97c35c5a8f7b79e0ce96d980d8f02cba9154b6211791a1e09",
+        "bytes": 13274,
+        "read_scope": "complete"
+      },
+      {
+        "path": "BUILD_STATUS.md",
+        "sha256": "c87578a738d7cf6d6633a009c9b2265cf81077ec8ddc54cda79787943e89a2c7",
+        "bytes": 3568,
+        "read_scope": "complete"
+      },
+      {
+        "path": "repository/README.md",
+        "sha256": "fe9fa9fd3203926de8a8f797e5cc68b0a2ce4aae8befd3afcad49998cd393528",
+        "bytes": 4850,
+        "read_scope": "complete"
+      },
+      {
+        "path": "repository/docs/statement_evidence_contract.md",
+        "sha256": "91b5f297530d3a81a1d520755978a074a42c944424935c35256c5a4af4376ea4",
+        "bytes": 2635,
+        "read_scope": "complete"
+      },
+      {
+        "path": "repository/corpus/README.md",
+        "sha256": "594e454df606d888998fc57460d0122bdf9c2c3159819b49b544ec88a8c2bc01",
+        "bytes": 2443,
+        "read_scope": "complete"
+      },
+      {
+        "path": "repository/corpus/statements.json",
+        "sha256": "5a403947cf2f970917876f4a6325c912588c49bfdc6fc313950996413f079dc1",
+        "bytes": 226691,
+        "read_scope": "all JSON parsed; exact records and ties for the eight assigned rows plus def-aij and eq-10 read"
+      },
+      {
+        "path": "repository/corpus/ties.json",
+        "sha256": "c6ccb861eda5f19e13223d60a28af91eede3ae880a4e5dfafd17453aba61c1b7",
+        "bytes": 86887,
+        "read_scope": "all JSON parsed; relevant complete entries read"
+      },
+      {
+        "path": "repository/research/adjudication/funnel_adjudication.json",
+        "sha256": "cab693c939b187729e6251bed5429de1dd7fc6279153ac37ec1abc735433ff5f",
+        "bytes": 38306,
+        "read_scope": "all JSON parsed; relevant verdicts, evidence locators and corrective actions read"
+      },
+      {
+        "path": "repository/research/adjudication/funnel_adjudication_notes.md",
+        "sha256": "20d7dff60cf7858b68bdfbd2a4219cd29a73f96a4b0c38f8338401f035254624",
+        "bytes": 7688,
+        "read_scope": "complete"
+      },
+      {
+        "path": "repository/research/adjudication/adjudication_notes.md",
+        "sha256": "df206a68d9cfdce14456042094757e37fa8286c2cf33afbbcc7d74c5aa3547b8",
+        "bytes": 5197,
+        "read_scope": "complete; current supersession respected"
+      },
+      {
+        "path": "repository/research/intake/statement_ledger_notes.md",
+        "sha256": "2a04261acab3957b33720662f49cd42be483e4a85cb1b89a7dc3b324fdf317a1",
+        "bytes": 14396,
+        "read_scope": "complete; historical statements about unproved Forrelation not treated as current"
+      },
+      {
+        "path": "paper/extracted.md",
+        "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+        "bytes": 64021,
+        "read_scope": "Section 3, lines 295–512 complete, plus named Section 2 local-test construction references"
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Statement.lean",
+        "sha256": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced",
+        "bytes": 13769,
+        "read_scope": "core query, Forrelation, circuit, WinsAt, Fkm, IsComparison vocabulary read; intermediate tool rendering truncated part of quantum-program definitions"
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Columns.lean",
+        "sha256": "e5b2b164deb6a010f952cefb5edba15bb5437a03fff815c39b028341b23b592e",
+        "bytes": 13377,
+        "read_scope": "complete"
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Verify.lean",
+        "sha256": "8144c5c26e7bf0515b24eb638b57412264032e144844887adc615b8076207239",
+        "bytes": 11198,
+        "read_scope": "complete"
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Bound.lean",
+        "sha256": "7d108566f6b6fbd80381204f237b0b631ce958c149e976e9b857cc81b38dad9c",
+        "bytes": 12254,
+        "read_scope": "complete theorem declarations and proofs, lines 20–274"
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Decode.lean",
+        "sha256": "4755c92be7627e4a58b1487d831a93765a3510647682e903c6abfed39f61411b",
+        "bytes": 18048,
+        "read_scope": "declaration inventory complete; exact decodeProb/decode_samples/decodeProb_correct/P_runs/P_QLe definitions and proofs read at 355–409; initial count/gate proofs delegated to other team readers"
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Forrelation/Repetition.lean",
+        "sha256": "1526168486cdc4e78213c6048199676df0520445666b60d3ece9c62678e90e70",
+        "bytes": 11700,
+        "read_scope": "complete"
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Tournament.lean",
+        "sha256": "43df9db7997f88667de7a3cfa7d7c7751aa1f32c40e9de474895335bcdb87b7c",
+        "bytes": 21856,
+        "read_scope": "declaration inventory complete; vall_runs, stageCost, tournament_runs complete at 338–494; value helpers and tval signature read"
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Sampler.lean",
+        "sha256": "43cb604188f041ebd34c8003f01f4ec6c570023e465cd2b730ee4f1f765b2b79",
+        "bytes": 12319,
+        "read_scope": "Samples definition and basic law/composition signatures, point-mass proofs, normalization; full combinator proof audit delegated to amplification/root readers"
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Compile.lean",
+        "sha256": "ead2d229ad8a97541dd648806b64813745e8502b5f7314ced43e7a95a0708a27",
+        "bytes": 18841,
+        "read_scope": "declaration inventory complete; compile_read/circ stated costs, Runs/RunsW, bind, Samples.runs interfaces; full compiler proof audit delegated to amplification/root readers"
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Circuit.lean",
+        "sha256": "7686a3b72476d902ec9ff504b38bea9ac25e90724e93d82033ea05339080190f",
+        "bytes": 18327,
+        "read_scope": "IsCirc definition, inverse, padding and coherent-control proofs; finite-register vector and direct-sum helpers"
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Amplify.lean",
+        "sha256": "49e808cc6acbb47ad066b1dcf33ac8d47da2f28d88c51d537564e6591eb0d9e1",
+        "bytes": 15215,
+        "read_scope": "declaration inventory complete; actual Samples.amplify interface and its relation to search_runs; amplification proof delegated to assigned agent"
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Amplification/Bounded.lean",
+        "sha256": "6a6465ae0cbd0503cf327c5f33f6509f492a707795c0358880c8f12c9624c96d",
+        "bytes": 16750,
+        "read_scope": "complete"
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Tournament/Ideal.lean",
+        "sha256": "6f7379abfb1d9fb37d6ef7f0f25049893490aa717171c875feb97fca343ab8ef",
+        "bytes": 17087,
+        "read_scope": "Dominant and exact parameter/error theorem declarations; full parameter/error proofs at 291–342"
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Construction/LocalTests.lean",
+        "sha256": "56357d934fab301222130c92ef36cfbf122af4ad90fb2a94ba90178139dbeb13",
+        "bytes": 16356,
+        "read_scope": "queryWord and pointer/test encodings; exact local-test equivalence and failure proofs at 233–281"
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Paper/Section3.lean",
+        "sha256": "7ede156bbcb93621f88fd33bb7304e904e9579b60c221a9c847e6cad69630010",
+        "bytes": 13825,
+        "read_scope": "candidate declaration inventory; BList/listLaw and first proof blocks through 110; full candidate review delegated to tournament agent; not imported in own module"
+      },
+      {
+        "path": "writing/the-deliverable.md",
+        "sha256": "5b234d4446bf4b7ac79c38586147730dc41370581daa38661326875d5b50951c",
+        "bytes": 8402,
+        "read_scope": "complete"
+      },
+      {
+        "path": "writing/register-from-literature.md",
+        "sha256": "2278000b36133a13c0e83f785bdb2a89b94b8ed1927daeaf12d2b1ed30545d7d",
+        "bytes": 4106,
+        "read_scope": "complete; cited external register tools and writing annexes unavailable in packet"
+      },
+      {
+        "path": "previous_round/1_long_reasoning_record/NEW_STATEMENTS.json",
+        "sha256": "d2964002bad5c1626a1e2c72ac301b7615373ad2576f9604d561dd10c7fe0ccd",
+        "bytes": 110569,
+        "read_scope": "all JSON parsed; complete relevant proposed statement records read; IDs listed in coverage_plan.json"
+      },
+      {
+        "path": "previous_round/2_short_expert_paper/NEW_STATEMENTS.json",
+        "sha256": "491a2e6a0ec6d44a9c3e8504ae117ecbb9fff65875a541313b6404612e1f499f",
+        "bytes": 41345,
+        "read_scope": "all JSON parsed; complete relevant proposed statement records read; IDs listed in coverage_plan.json"
+      },
+      {
+        "path": "previous_round/3_examples_first_exposition/NEW_STATEMENTS.json",
+        "sha256": "03f6cab9eed48e7dfe3b134d0c60ef33a49975b9bb75e5a3b0be0379196a0e0f",
+        "bytes": 34938,
+        "read_scope": "all JSON parsed; complete relevant proposed statement records read; IDs listed in coverage_plan.json"
+      },
+      {
+        "path": "previous_round/4_forrelation_route_note/NEW_STATEMENTS.json",
+        "sha256": "3bdf0a26b11ef8d0eed37dbed28349f56fc6c756d819523ec0cc23bc97ce3438",
+        "bytes": 68564,
+        "read_scope": "all JSON parsed; complete relevant proposed statement records read; IDs listed in coverage_plan.json"
+      },
+      {
+        "path": "previous_round/5_reader_and_film/NEW_STATEMENTS.json",
+        "sha256": "b22f0f44a61b8c1556a41670371117ea21f5b3fc15787ba7d1d95ed1d2f20e22",
+        "bytes": 9208,
+        "read_scope": "all JSON parsed; complete relevant proposed statement records read; IDs listed in coverage_plan.json"
+      },
+      {
+        "path": "previous_round/1_long_reasoning_record/LEAN_GAPS.md",
+        "sha256": "5e17659decd217a381f5dd5348f26161766e4b153133ea4fe75b327246a9c8bf",
+        "bytes": 63908,
+        "read_scope": "searched all; relevant Section 3 paragraphs and tables read, locators listed in coverage_plan.json"
+      },
+      {
+        "path": "previous_round/2_short_expert_paper/LEAN_GAPS.md",
+        "sha256": "bca6f9c9f8170fa51db18e1d56bb83d961ea422868877f499b3e5f7829462246",
+        "bytes": 30327,
+        "read_scope": "searched all; relevant Section 3 paragraphs and tables read, locators listed in coverage_plan.json"
+      },
+      {
+        "path": "previous_round/3_examples_first_exposition/LEAN_GAPS.md",
+        "sha256": "710fa7bf012dc356d22f8eb72395f24daae5ede575a74f36b28392e080d7ff8c",
+        "bytes": 36438,
+        "read_scope": "searched all; relevant Section 3 paragraphs and tables read, locators listed in coverage_plan.json"
+      },
+      {
+        "path": "previous_round/4_forrelation_route_note/LEAN_GAPS.md",
+        "sha256": "3a881e1ac6048f9273c242506a2031eb8985b5bc4f458626bd1dde4cc3c8381e",
+        "bytes": 18477,
+        "read_scope": "searched all; relevant Section 3 paragraphs and tables read, locators listed in coverage_plan.json"
+      },
+      {
+        "path": "previous_round/5_reader_and_film/LEAN_GAPS.md",
+        "sha256": "439c9580082b53dac4df6bcb9243768a2e54aed2b40b0dc2225c789338914fee",
+        "bytes": 17296,
+        "read_scope": "searched all; relevant Section 3 paragraphs and tables read, locators listed in coverage_plan.json"
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Forrelation/Circuit.lean",
+        "sha256": "b17824d0a3b6ee5a689822b04c18d20de9e72e1db119105584e9cbba60ae8f01",
+        "bytes": 23023,
+        "read_scope": "lines 455–486; selected forrCircuit size theorem, exact m logarithm and existence specialization; rest of file not read by this agent"
+      }
+    ],
+    "web_checks": [
+      {
+        "url": "https://github.com/openai/math/blob/main/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf",
+        "status": "page metadata retrieved; online renderer did not extract mathematical PDF text",
+        "ref": "turn8view0"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/openai/math/main/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf",
+        "status": "web extraction failed: unsupported content-type application/octet-stream",
+        "ref": "turn9view0"
+      }
+    ],
+    "unread_or_unavailable": [
+      "Full online PDF mathematical extraction failed; supplied extracted.md was used.",
+      "The writing guides reference tools/paper_register.py, tools/register_profiles and external Halmos/Knuth annexes not included in this packet.",
+      "No Lean compiler, no supplied oleans, no fresh build or Comparator run."
+    ]
+  },
+  "final_team_followups": {
+    "writing_guides": "Amplification reviewer read mathematical-writing-mechanics.md lines 1–799 and full-exposition-guide.md lines 1–1597 completely, rereading the one truncated output chunk. the-deliverable.md and register-from-literature.md were also read completely in the team.",
+    "workspace": "QuantumWorkspace.lean inspected in full against Samples.bind by a separate reviewer; no definite source-name mismatch identified.",
+    "tournament": "Both proposed tournament files independently reviewed against original sampler, compiler and ideal-process signatures. Probability domains strengthened in quantumStage_success afterward.",
+    "tensor": "Full tensor source mathematically and statically reviewed; root added the composed Samples interface after common-workspace review."
+  },
+  "unavailable": [
+    "Lean/Lake/elan executables",
+    "supplied compiled .olean artifacts",
+    "fresh Comparator or kernel checks",
+    "independent public parsing of the October 2026 PDF; public GitHub metadata resolved, supplied paper was the content source"
+  ]
+}

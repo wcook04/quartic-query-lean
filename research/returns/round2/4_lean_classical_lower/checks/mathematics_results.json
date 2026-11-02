@@ -1,0 +1,41 @@
+{
+  "status": "passed",
+  "arithmetic": "fractions.Fraction; exact integers and rationals",
+  "scope": "Finite mathematical examples only; not Lean elaboration or a proof of all cases.",
+  "conditional_value_inequality": {
+    "functions": 16,
+    "weight_vectors": 81,
+    "budgets_after_query": [
+      0,
+      1,
+      2
+    ],
+    "checks": 7776,
+    "zero_mass_branch_encounters": 1728,
+    "failures": 0
+  },
+  "adaptive_product_law": {
+    "positive_transcript_fibers": 6,
+    "all_posteriors_factor": true,
+    "incompatible_repeat_has_zero_mass": true
+  },
+  "conditioning_negative_control": {
+    "single_instance_one_query_optimum": "3/4",
+    "conditional_success_given_nonheavy": "1",
+    "joint_nonheavy_and_correct": "1/2"
+  },
+  "per_instance_cap_negative_control": {
+    "per_instance_cap_success": "9/16",
+    "same_total_budget_concentrated_success": "3/4"
+  },
+  "hidden_zero_posterior": {
+    "undiscovered_column_transcript_pairs": 90,
+    "posterior_uniform_on_unqueried_positions": true
+  },
+  "numerics": {
+    "budget_cases": 37,
+    "integer_power_floor_cases": 138,
+    "exact_geometric_base": "17592186044416/12157665459056928801",
+    "geometric_base_between_zero_and_one": true
+  }
+}

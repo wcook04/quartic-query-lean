@@ -1,0 +1,37 @@
+[
+  {
+    "id": "claim-huang-spectrum",
+    "old": "(H'_j)^2=jI, trace H'_j=0, so H'_d has eigenvalues +-sqrt(d), each of multiplicity 2^{d-1}.",
+    "new": "For every j>=0, (H'_j)^2=jI and trace H'_j=0, using the singleton zero matrix at j=0. For d>=1, H'_d has the two distinct eigenvalues +sqrt(d) and -sqrt(d), each with multiplicity 2^(d-1).",
+    "relation": "corrected",
+    "reason": "The standalone row omits the d>=1 context already present in the paper. At d=0 the roots coincide and the two-half-eigenspace assertion is inapplicable. This is a scope correction, not a flaw in the paper proof."
+  },
+  {
+    "id": "lem-A.2",
+    "old": "Let f be a nonconstant total Boolean function, Gamma a nonzero real symmetric entrywise nonnegative input-indexed matrix with Gamma_{xy}=0 whenever f(x)=f(y). Then Q(f) >= c ||Gamma|| / max_i ||Gamma_i|| for an absolute constant c>0.",
+    "new": "For nonzero symmetric entrywise nonnegative Gamma supported on opposite f-values, Q(f) >= (1/35)||Gamma||/max_i||Gamma_i||. A separate cap theorem covers zero Gamma and constants.",
+    "relation": "stronger",
+    "reason": "Optional explicit-constant refinement of the original mathematical statement. Preserve the original row and historical evidence; attach the new unelaborated declaration as proposed new evidence. This relation is to the paper big-O statement, not a claim that 1500625 improves the existing numerical bound20736."
+  },
+  {
+    "id": "lem-A.3",
+    "old": "Conjunction of lem-A.3.bs and lem-A.3.lambda.",
+    "new": "For every total Boolean f, bs(f)<=1225 Q(f)^2 and lambda(f)<=35 Q(f).",
+    "relation": "stronger",
+    "reason": "Optional explicit-constant refinement of the original mathematical statement. Preserve the original row and historical evidence; attach the new unelaborated declaration as proposed new evidence. This relation is to the paper big-O statement, not a claim that 1500625 improves the existing numerical bound20736."
+  },
+  {
+    "id": "thm-A.1",
+    "old": "Every total Boolean function satisfies R(f) <= D(f) = O((1+Q(f))^4), with an absolute constant.",
+    "new": "For every total Boolean f, R(f)<=D(f) and D(f)<=1500625(1+Q(f))^4, with natural costs cast to the reals.",
+    "relation": "stronger",
+    "reason": "Optional explicit-constant refinement of the original mathematical statement. Preserve the original row and historical evidence; attach the new unelaborated declaration as proposed new evidence. This relation is to the paper big-O statement, not a claim that 1500625 improves the existing numerical bound20736."
+  },
+  {
+    "id": "lem-A.4",
+    "old": "Every nonconstant total Boolean f satisfies deg(f) <= lambda(f)^2.",
+    "new": "Every total Boolean function f, including constants, satisfies deg(f)<=lambda(f)^2.",
+    "relation": "stronger",
+    "reason": "The degree-zero case is handled separately. No mathematical change on the original nonconstant domain."
+  }
+]

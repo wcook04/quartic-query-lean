@@ -1,0 +1,50 @@
+[
+  {
+    "id": "full-tensor-state",
+    "statement_id": "eq-15",
+    "authority": "F-STAGE-LAW",
+    "finding": "Upper.stage_samples has the exact successful law but skips work after failure.",
+    "disposition": "Use equation_15 for the literal state; quantumWorkspace_uniformize and quantumTensorStage_of_samples instantiate its common-workspace interface. Keep the list implementation route distinct.",
+    "changes_paper_statement": false
+  },
+  {
+    "id": "literal-list",
+    "statement_id": "prop-3.2",
+    "authority": "F-TOURN",
+    "finding": "The supplied tournament theorem exports a Boolean verifier continuation.",
+    "disposition": "Use the actual bounded-list Samples witness in quantumTournament; the perfect-indicator coupling has no added verifier error.",
+    "changes_paper_statement": false
+  },
+  {
+    "id": "charged-product",
+    "statement_id": "claim-tournament-cost",
+    "authority": "F-FORR-CAP / exact cost interpretation",
+    "finding": "An upper bound for a smaller Proc.callCap does not by itself bound the padded N(2M+1) product charged by stageCost/searchCost.",
+    "disposition": "Use amplification_budget_le for that product, then the exact compilation identity.",
+    "changes_paper_statement": false
+  },
+  {
+    "id": "probability-domains",
+    "statement_id": "claim-success-prob",
+    "authority": "direct mathematical review",
+    "finding": "A ratio identity alone permits negative weights or a null conditioning event.",
+    "disposition": "Require UnitValued and W>0 in quantumStage_success; prove full-law normalization and nonnegativity; interpret arbitrary-vector tensor helpers as masses.",
+    "changes_paper_statement": false
+  },
+  {
+    "id": "query-units",
+    "statement_id": "claim-coherent-access",
+    "authority": "direct interface review",
+    "finding": "Samples/IsCirc caps and Runs caps use different units.",
+    "disposition": "State the two-bit-query compilation factor and include it in every physical cap; quantumBitOracle_isCirc converts an ordinary input query into one logical read.",
+    "changes_paper_statement": false
+  },
+  {
+    "id": "historical-receipts",
+    "statement_id": "claim-error",
+    "authority": "F-EXACT-REACH and supplied receipt notes",
+    "finding": "Supplied source build flags and a historical dirty-tree receipt do not establish fresh compilation or clean-pin reach for new wrappers.",
+    "disposition": "Keep compiled=false everywhere new. Preserve source receipt limitations and ask the integrating owner to refresh exact-source build/reach evidence.",
+    "changes_paper_statement": false
+  }
+]

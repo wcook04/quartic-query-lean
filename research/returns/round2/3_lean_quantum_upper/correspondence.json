@@ -1,0 +1,807 @@
+[
+  {
+    "passage": "principal-result",
+    "from": "The proposed `QuarticQuery.Paper.quantumTournament` gives an actual bounded list",
+    "to": "executable finite\nchecks do not change that status.",
+    "role": "states",
+    "statement_ids": [
+      "prop-3.2",
+      "r2-quantum-coherent-list-witness",
+      "r2-quantum-tournament-budget-6072",
+      "r2-quantum-ordinary-oracle-read"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantumTournament",
+      "QuarticQuery.Paper.quantumTournament_cost",
+      "QuarticQuery.Paper.quantumBitOracle_isCirc"
+    ]
+  },
+  {
+    "passage": "proof-mechanism",
+    "from": "Write \\(w_i(L)=\\prod_{p\\in L}a_{ip}\\) and \\(W(L)=\\sum_iw_i(L)\\), with products\ncounting",
+    "to": "totalized division by zero as a probability distribution.",
+    "role": "explains",
+    "statement_ids": [
+      "eq-13",
+      "claim-weight-lb",
+      "claim-coupling",
+      "prop-3.2",
+      "r2-quantum-perfect-indicator-coupling",
+      "r2-quantum-list-law-normalized"
+    ],
+    "lean": [
+      "QuarticQuery.Tournament.ideal_tournament",
+      "QuarticQuery.Paper.quantumDrift",
+      "QuarticQuery.Paper.quantumWeight_lower",
+      "QuarticQuery.Paper.quantumList_coupling",
+      "QuarticQuery.Paper.quantumListLaw_total"
+    ]
+  },
+  {
+    "passage": "state-and-law",
+    "from": "Equation (15) retains the complete result of every",
+    "to": "The conditional statements explicitly require positive successful mass.",
+    "role": "explains",
+    "statement_ids": [
+      "eq-15",
+      "construct-sampler",
+      "claim-success-prob",
+      "r2-q-common-workspace",
+      "r2-q-full-tensor-sampler"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.equation_15",
+      "QuarticQuery.Paper.quantumWorkspace_uniformize",
+      "QuarticQuery.Paper.quantumTensorStage_of_samples",
+      "QuarticQuery.Paper.equation_15_conditional_index",
+      "QuarticQuery.Upper.stage_samples"
+    ]
+  },
+  {
+    "passage": "amplification-use",
+    "from": "Brassard, Høyer, Mosca and Tapp give the two-dimensional",
+    "to": "provenance\nis preserved separately from the mathematical attribution.",
+    "role": "explains",
+    "statement_ids": [
+      "def-grover-trial",
+      "claim-grover-state",
+      "eq-9",
+      "lem-3.1",
+      "r2-q-amplification-budget",
+      "r2-q-coherent-amplification",
+      "new-upper-sampler-law"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.amplification_budget_le",
+      "QuarticQuery.Paper.quantum_amplify_samples",
+      "QuarticQuery.Paper.quantum_grover_state",
+      "QuarticQuery.Paper.quantum_eq_9"
+    ]
+  },
+  {
+    "passage": "comparison-verification",
+    "from": "The comparison wrappers refer to the actual `cmpProb`",
+    "to": "bound merely because these wrappers import its dependencies.",
+    "role": "explains",
+    "statement_ids": [
+      "eq-10",
+      "def-comparison",
+      "claim-comparison-state",
+      "claim-winner-dominates",
+      "def-verify",
+      "claim-verify",
+      "claim-error"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantumComparison_unordered_state",
+      "QuarticQuery.Paper.quantumComparison_complementary",
+      "QuarticQuery.Paper.quantumWinner_dominates",
+      "QuarticQuery.Paper.quantumVerify",
+      "QuarticQuery.Paper.quantumError_bound",
+      "QuarticQuery.Paper.quantumError_numeric"
+    ]
+  },
+  {
+    "passage": "row-prop-3.2",
+    "from": "**Classification:** A new construction or proof is required.",
+    "to": "theorem.\n\n**Correction.** No change to the preprint statement.",
+    "role": "states",
+    "statement_ids": [
+      "prop-3.2"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantumTournament",
+      "QuarticQuery.Paper.quantumTournament_list",
+      "QuarticQuery.Paper.quantumListLaw_total",
+      "QuarticQuery.Paper.quantumListLaw_nonneg",
+      "QuarticQuery.Paper.quantumBitOracle_isCirc",
+      "QuarticQuery.Paper.quantumCandidateList_probability",
+      "QuarticQuery.Upper.stage_samples",
+      "QuarticQuery.Paper.quantum_amplify_samples",
+      "QuarticQuery.Upper.Samples.bind",
+      "QuarticQuery.Upper.Samples.runs",
+      "QuarticQuery.Tournament.ideal_tournament",
+      "QuarticQuery.Paper.quantumList_coupling",
+      "QuarticQuery.Paper.quantumListLaw_vall",
+      "QuarticQuery.Paper.quantumTournament_cost"
+    ]
+  },
+  {
+    "passage": "row-claim-coupling",
+    "from": "**Classification:** A new construction or proof is required.",
+    "to": "distinct.\n\n**Correction.** No change to the preprint statement.",
+    "role": "states",
+    "statement_ids": [
+      "claim-coupling"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantumList_coupling",
+      "QuarticQuery.Paper.quantumTournament_list",
+      "QuarticQuery.Upper.tval_lower",
+      "QuarticQuery.Upper.le_tval_of_mem",
+      "QuarticQuery.Tournament.half_lt_total",
+      "QuarticQuery.Upper.sum_ratio",
+      "QuarticQuery.Upper.missFrom_nonneg",
+      "QuarticQuery.Paper.quantumListLaw_vall",
+      "QuarticQuery.Paper.quantumVall_indicator"
+    ]
+  },
+  {
+    "passage": "row-claim-tournament-cost",
+    "from": "**Classification:** A new construction or proof is required.",
+    "to": "two.\n\n**Correction.** No change to the preprint statement.",
+    "role": "states",
+    "statement_ids": [
+      "claim-tournament-cost"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantumTournament_cost",
+      "QuarticQuery.Paper.quantumTournament_cost_log",
+      "QuarticQuery.Paper.quantumStageReads",
+      "QuarticQuery.Paper.quantumStageReads_compile",
+      "QuarticQuery.Paper.amplification_budget_le",
+      "QuarticQuery.Upper.stageCost",
+      "QuarticQuery.Amplification.iterationBound",
+      "QuarticQuery.Amplification.trialCount",
+      "QuarticQuery.Paper.quantumTval_two_le"
+    ]
+  },
+  {
+    "passage": "row-def-grover-trial",
+    "from": "**Classification:** Already stated under another name; agreement supplied.",
+    "to": "tag.\n\n**Correction.** No change to the preprint statement.",
+    "role": "states",
+    "statement_ids": [
+      "def-grover-trial"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantum_grover_parameters",
+      "QuarticQuery.Paper.quantum_grover_trial_distribution",
+      "QuarticQuery.Paper.quantum_grover_trial_recursion",
+      "QuarticQuery.Paper.quantum_grover_call_cap",
+      "QuarticQuery.Amplification.iterationBound",
+      "QuarticQuery.Amplification.trialCount",
+      "QuarticQuery.Amplification.amplify",
+      "QuarticQuery.Amplification.attempts",
+      "QuarticQuery.Amplification.trialWeight",
+      "QuarticQuery.Amplification.sum_trialWeight",
+      "QuarticQuery.Amplification.callCap_attempts"
+    ]
+  },
+  {
+    "passage": "row-claim-grover-state",
+    "from": "**Classification:** A short consequence of existing declarations.\n\n**Mathematical",
+    "to": "examples.\n\n**Correction.** No change to the preprint statement.",
+    "role": "states",
+    "statement_ids": [
+      "claim-grover-state"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantum_grover_state",
+      "QuarticQuery.Paper.quantum_grover_zero",
+      "QuarticQuery.Amplification.Preparation.angle_mem",
+      "QuarticQuery.Amplification.Preparation.norm_goodState",
+      "QuarticQuery.Amplification.Preparation.norm_badPart_sq",
+      "QuarticQuery.Amplification.norm_normalised",
+      "QuarticQuery.Amplification.Preparation.good_goodState",
+      "QuarticQuery.Amplification.Preparation.good_badState",
+      "QuarticQuery.Amplification.Preparation.state_eq",
+      "QuarticQuery.Amplification.Preparation.iterate_eq",
+      "QuarticQuery.Amplification.Preparation.good_iterate",
+      "QuarticQuery.Amplification.Preparation.phaseEq_normalised_good_iterate",
+      "QuarticQuery.Amplification.Preparation.good_iterate_of_prob_zero"
+    ]
+  },
+  {
+    "passage": "row-claim-sin2theta",
+    "from": "**Classification:** A short consequence of existing declarations.\n\n**Mathematical",
+    "to": "unchanged.\n\n**Correction.** No change to the preprint statement.",
+    "role": "states",
+    "statement_ids": [
+      "claim-sin2theta"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantum_sin_two_angle",
+      "QuarticQuery.Amplification.Preparation.sin_two_angle",
+      "QuarticQuery.Amplification.Preparation.prob_nonneg",
+      "Real.sqrt_le_iff",
+      "Real.sq_sqrt"
+    ]
+  },
+  {
+    "passage": "row-eq-9",
+    "from": "**Classification:** A short consequence of existing declarations.\n\n**Mathematical",
+    "to": "identity.\n\n**Correction.** No change to the preprint statement.",
+    "role": "states",
+    "statement_ids": [
+      "eq-9"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantum_eq_9",
+      "QuarticQuery.Paper.quantum_sin_two_angle",
+      "QuarticQuery.Amplification.average_sin_sq_ge",
+      "QuarticQuery.Amplification.iterationBound_ne_zero",
+      "Nat.le_ceil",
+      "Real.sqrt_pos",
+      "one_div_le_one_div_of_le"
+    ]
+  },
+  {
+    "passage": "row-claim-coherent-access",
+    "from": "**Classification:** Already stated under another name; agreement supplied.",
+    "to": "compiler.\n\n**Correction.** No change to the preprint statement.",
+    "role": "states",
+    "statement_ids": [
+      "claim-coherent-access"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantum_controlled_bit_query",
+      "QuarticQuery.Paper.quantum_inverse_reads",
+      "QuarticQuery.Paper.quantum_controlled_reads",
+      "QuarticQuery.Paper.quantum_compile_circuit",
+      "QuarticQuery.Paper.quantum_coherent_tree",
+      "QuarticQuery.Paper.quantumComparison_pointer_queries",
+      "QuarticQuery.Paper.quantumBitRead",
+      "QuarticQuery.Paper.quantumBitRead_eq",
+      "QuarticQuery.Paper.quantumBitOracle_isCirc",
+      "QuarticQuery.Upper.IsCirc.symm",
+      "QuarticQuery.Upper.IsCirc.sigma",
+      "QuarticQuery.Upper.compile_read",
+      "QuarticQuery.Upper.compile_circ",
+      "QuarticQuery.Upper.Samples.tree",
+      "QuarticQuery.Upper.Samples.disq",
+      "QuarticQuery.Upper.Samples.runs",
+      "QuarticQuery.Upper.disqTree_depth",
+      "QuarticQuery.Upper.disqTree_eval",
+      "QuarticQuery.Q_reindex"
+    ]
+  },
+  {
+    "passage": "row-def-aij",
+    "from": "**Classification:** Already stated under another name; agreement supplied.",
+    "to": "circuit.\n\n**Correction.** No change to the preprint statement.",
+    "role": "states",
+    "statement_ids": [
+      "def-aij"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantumComparison_unordered_state",
+      "QuarticQuery.Paper.quantumComparison_self",
+      "QuarticQuery.Upper.cmpProb",
+      "QuarticQuery.Upper.cmp_samples"
+    ]
+  },
+  {
+    "passage": "row-eq-10",
+    "from": "**Classification:** A short consequence of existing declarations.\n\n**Mathematical",
+    "to": "cyclic.\n\n**Correction.** No change to the preprint statement.",
+    "role": "states",
+    "statement_ids": [
+      "eq-10"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantumComparison_complementary",
+      "QuarticQuery.Paper.quantumComparison_self",
+      "QuarticQuery.Upper.cmpProb_isComparison",
+      "QuarticQuery.Upper.cmpProb"
+    ]
+  },
+  {
+    "passage": "row-def-decode",
+    "from": "**Classification:** Already stated under another name; agreement supplied.",
+    "to": "input.\n\n**Correction.** No change to the preprint statement.",
+    "role": "states",
+    "statement_ids": [
+      "def-decode"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantumDecode",
+      "QuarticQuery.Paper.quantumDecode_total",
+      "QuarticQuery.Upper.addr_samples",
+      "QuarticQuery.Upper.addrLaw",
+      "QuarticQuery.Upper.Samples.pi",
+      "QuarticQuery.Upper.sum_addrLaw",
+      "QuarticQuery.Upper.addrLaw_nonneg"
+    ]
+  },
+  {
+    "passage": "row-claim-decode-cost",
+    "from": "**Classification:** A short consequence of existing declarations.\n\n**Mathematical",
+    "to": "statement.\n\n**Correction.** No change to the preprint statement.",
+    "role": "states",
+    "statement_ids": [
+      "claim-decode-cost"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantumDecode_correct",
+      "QuarticQuery.Paper.quantumDecode_runs",
+      "QuarticQuery.Paper.quantumDecode_query_bound_real",
+      "QuarticQuery.Paper.quantumDecode_repetitions_polylog",
+      "QuarticQuery.Paper.quantumDecode_polylog",
+      "QuarticQuery.Upper.addrLaw_good",
+      "QuarticQuery.Forrelation.repetitions_le",
+      "QuarticQuery.Upper.Samples.runs",
+      "QuarticQuery.Upper.Tval_mValue_le"
+    ]
+  },
+  {
+    "passage": "row-def-comparison",
+    "from": "**Classification:** Already stated under another name; agreement supplied.",
+    "to": "explicitly.\n\n**Correction.** No change to the preprint statement.",
+    "role": "states",
+    "statement_ids": [
+      "def-comparison"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantumComparison_sorted",
+      "QuarticQuery.Paper.quantumComparison_rule",
+      "QuarticQuery.Paper.quantumComparison_disqualification",
+      "QuarticQuery.Paper.quantumComparison_pointer_queries",
+      "QuarticQuery.Paper.quantumComparison_self_zero_reads",
+      "QuarticQuery.Upper.firstWins",
+      "QuarticQuery.Upper.coreProb",
+      "QuarticQuery.Upper.cmpProb",
+      "QuarticQuery.Upper.Samples.disq",
+      "QuarticQuery.Upper.disqTree_eval",
+      "QuarticQuery.Upper.disqTree_depth"
+    ]
+  },
+  {
+    "passage": "row-claim-comparison-state",
+    "from": "**Classification:** A short consequence of existing declarations.\n\n**Mathematical",
+    "to": "theorem.\n\n**Correction.** No change to the preprint statement.",
+    "role": "states",
+    "statement_ids": [
+      "claim-comparison-state"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantumComparison_state",
+      "QuarticQuery.Paper.quantumComparison_unordered_state",
+      "QuarticQuery.Paper.quantumComparison_runs",
+      "QuarticQuery.Paper.quantumComparison_cost_exact",
+      "QuarticQuery.Paper.quantumComparison_query_bound",
+      "QuarticQuery.Paper.quantumComparison_polylog",
+      "QuarticQuery.Paper.quantumComparison_complementary",
+      "QuarticQuery.Paper.quantumComparison_self",
+      "QuarticQuery.Upper.cmp_samples",
+      "QuarticQuery.Upper.core_samples",
+      "QuarticQuery.Upper.Samples.bind",
+      "QuarticQuery.Upper.IsCirc.symm",
+      "QuarticQuery.Upper.cmpProb_isComparison",
+      "QuarticQuery.Upper.Samples.runs"
+    ]
+  },
+  {
+    "passage": "row-claim-winner-dominates",
+    "from": "**Classification:** A short consequence of existing declarations.\n\n**Mathematical",
+    "to": "insufficient.\n\n**Correction.** No change to the preprint statement.",
+    "role": "states",
+    "statement_ids": [
+      "claim-winner-dominates"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantumWinner_dominates",
+      "QuarticQuery.Paper.quantumWinner_isDominant",
+      "QuarticQuery.Upper.addrLaw_good",
+      "QuarticQuery.Upper.cmpProb_winner",
+      "QuarticQuery.Tournament.Dominant"
+    ]
+  },
+  {
+    "passage": "row-def-verify",
+    "from": "**Classification:** A short consequence of existing declarations.\n\n**Mathematical",
+    "to": "explicitly.\n\n**Correction.** No change to the preprint statement.",
+    "role": "states",
+    "statement_ids": [
+      "def-verify"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantumVerify_fixedAddress",
+      "QuarticQuery.Paper.quantumVerify_runs",
+      "QuarticQuery.Paper.quantumVerify_probability",
+      "QuarticQuery.Paper.quantumVerify_list",
+      "QuarticQuery.Paper.quantumTests_card",
+      "QuarticQuery.Paper.quantumTests_card_ge_m",
+      "QuarticQuery.Paper.quantumTests_card_ge_four",
+      "QuarticQuery.Upper.search_runs",
+      "QuarticQuery.Upper.verifyProb",
+      "QuarticQuery.Upper.addr_samples",
+      "QuarticQuery.Upper.Runs.bind",
+      "QuarticQuery.Upper.vall_runs",
+      "QuarticQuery.card_testIndex"
+    ]
+  },
+  {
+    "passage": "row-claim-verify",
+    "from": "**Classification:** A short consequence of existing declarations.\n\n**Mathematical",
+    "to": "six.\n\n**Correction.** No change to the preprint statement.",
+    "role": "states",
+    "statement_ids": [
+      "claim-verify"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantumVerify",
+      "QuarticQuery.Paper.quantumVerify_unit",
+      "QuarticQuery.Paper.quantumVerify_nonwinner",
+      "QuarticQuery.Paper.quantumVerify_winner",
+      "QuarticQuery.Paper.quantumVerify_testCost",
+      "QuarticQuery.Paper.quantumVerify_search_query_bound",
+      "QuarticQuery.Paper.quantumVerify_polylog",
+      "QuarticQuery.Paper.quantumVerify_forrCircuit_polylog",
+      "QuarticQuery.Upper.search_runs",
+      "QuarticQuery.exists_failing_localTest",
+      "QuarticQuery.winsAt_iff_localTests",
+      "QuarticQuery.Upper.addrLaw_good",
+      "QuarticQuery.Upper.addrLaw_nonneg",
+      "QuarticQuery.Upper.sum_addrLaw",
+      "QuarticQuery.Paper.amplification_budget_le",
+      "QuarticQuery.Upper.budget_le",
+      "QuarticQuery.Upper.budgetConst",
+      "QuarticQuery.Forrelation.forrCircuit_size_le",
+      "QuarticQuery.Tournament.Tval_pos"
+    ]
+  },
+  {
+    "passage": "row-claim-error",
+    "from": "**Classification:** A short consequence of existing declarations.\n\n**Mathematical",
+    "to": "QuantumTournament.\n\n**Correction.** No change to the preprint statement.",
+    "role": "states",
+    "statement_ids": [
+      "claim-error"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantumError_bound",
+      "QuarticQuery.Paper.quantumError_numeric",
+      "QuarticQuery.Upper.tournament_runs",
+      "QuarticQuery.Upper.Fkm_QLe",
+      "QuarticQuery.addressedF_eq_true_iff",
+      "QuarticQuery.Tournament.Tval_mul_epsval",
+      "QuarticQuery.Tournament.total_error_lt"
+    ]
+  },
+  {
+    "passage": "row-construct-sampler",
+    "from": "**Classification:** A new construction or proof is required.",
+    "to": "asserted.\n\n**Correction.** No change to the preprint statement.",
+    "role": "states",
+    "statement_ids": [
+      "construct-sampler"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantumTensorStage_of_samples",
+      "QuarticQuery.Paper.quantumTensorStage",
+      "QuarticQuery.Paper.quantumStage_samples",
+      "QuarticQuery.Paper.quantumWorkspace_uniformize",
+      "QuarticQuery.Paper.quantumTournament_list",
+      "QuarticQuery.Upper.stage_samples",
+      "QuarticQuery.Paper.quantum_amplify_samples",
+      "QuarticQuery.Upper.Samples.bind",
+      "QuarticQuery.Paper.equation_15_index_law"
+    ]
+  },
+  {
+    "passage": "row-eq-15",
+    "from": "**Classification:** A new construction or proof is required.",
+    "to": "construction. This corrects evidence correspondence, not equation (15).",
+    "role": "states",
+    "statement_ids": [
+      "eq-15"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.equation_15",
+      "QuarticQuery.Paper.quantumWorkspace_uniformize",
+      "QuarticQuery.Paper.tensorPreparation_state",
+      "QuarticQuery.Paper.tensorPreparation_isCirc",
+      "QuarticQuery.Paper.quantumTensorStage_of_samples",
+      "QuarticQuery.Upper.exists_unit_gate",
+      "QuarticQuery.Upper.leftOp",
+      "QuarticQuery.Upper.sigmaOp",
+      "QuarticQuery.Upper.IsCirc.left",
+      "QuarticQuery.Upper.IsCirc.sigma",
+      "QuarticQuery.Upper.IsCirc.comp",
+      "QuarticQuery.Upper.slice_sigmaOp",
+      "QuarticQuery.Upper.slice_leftOp_rket",
+      "QuarticQuery.Upper.lawOf_sigma",
+      "QuarticQuery.Upper.regCongr_rket"
+    ]
+  },
+  {
+    "passage": "row-claim-success-prob",
+    "from": "**Classification:** A short consequence of existing declarations.\n\n**Mathematical",
+    "to": "normalization.\n\n**Correction.** No change to the preprint statement.",
+    "role": "states",
+    "statement_ids": [
+      "claim-success-prob"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantumStage_success",
+      "QuarticQuery.Paper.quantumWeight_product",
+      "QuarticQuery.Paper.quantumStageLaw_nonneg",
+      "QuarticQuery.Paper.quantumStageLaw_total",
+      "QuarticQuery.Paper.tensor_success_mass",
+      "QuarticQuery.Paper.equation_15_index_law",
+      "QuarticQuery.Paper.equation_15_success_probability",
+      "QuarticQuery.Paper.equation_15_conditional_index",
+      "QuarticQuery.Tournament.UnitValued",
+      "QuarticQuery.Upper.stageLaw_some",
+      "QuarticQuery.Upper.sum_stageLaw_some",
+      "div_div_div_cancel_right₀"
+    ]
+  },
+  {
+    "passage": "row-eq-13",
+    "from": "**Classification:** A short consequence of existing declarations.\n\n**Mathematical",
+    "to": "total.\n\n**Correction.** No change to the preprint statement.",
+    "role": "states",
+    "statement_ids": [
+      "eq-13"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantumDrift",
+      "QuarticQuery.Tournament.two_mul_weighted_sum",
+      "QuarticQuery.Tournament.expected_weight_eq",
+      "QuarticQuery.Tournament.expected_weight_le_half"
+    ]
+  },
+  {
+    "passage": "row-claim-weight-lb",
+    "from": "**Classification:** A short consequence of existing declarations.\n\n**Mathematical",
+    "to": "hold.\n\n**Correction.** No change to the preprint statement.",
+    "role": "states",
+    "statement_ids": [
+      "claim-weight-lb"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantumWeight_lower",
+      "QuarticQuery.Tournament.pow_le_weight",
+      "QuarticQuery.Tournament.dominant_weight_lb",
+      "QuarticQuery.Tournament.half_lt_total",
+      "one_add_mul_le_pow"
+    ]
+  },
+  {
+    "passage": "row-def-T-eps",
+    "from": "**Classification:** Definition or prose; only an agreement lemma",
+    "to": "Nat.clog_le_of_le_pow.\n\n**Correction.** No change to the preprint statement.",
+    "role": "states",
+    "statement_ids": [
+      "def-T-eps"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantumTournament_parameters",
+      "QuarticQuery.Tournament.Tval",
+      "QuarticQuery.Tournament.epsval",
+      "QuarticQuery.Tournament.Tval_pos",
+      "QuarticQuery.Tournament.Tval_mul_epsval"
+    ]
+  },
+  {
+    "passage": "row-eq-11",
+    "from": "**Classification:** Definition or prose; only an agreement lemma",
+    "to": "zero-input.\n\n**Correction.** No change to the preprint statement.",
+    "role": "states",
+    "statement_ids": [
+      "eq-11"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantumDominant_iff",
+      "QuarticQuery.Tournament.Dominant"
+    ]
+  },
+  {
+    "passage": "aux-r2-q-amplification-budget",
+    "from": "For 0<gamma<=1/2 and 0<eta<1/2, N=trialCount(eta), M=iterationBound(gamma) satisfy N(2M+1)<=138",
+    "to": "from an upper bound on a smaller cap.",
+    "role": "states",
+    "statement_ids": [
+      "r2-q-amplification-budget"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.amplification_budget_le"
+    ]
+  },
+  {
+    "passage": "aux-r2-q-coherent-amplification",
+    "from": "For γ>0 and η>0, a coherent sampler of",
+    "to": "equals the original good state. All source unelaborated.",
+    "role": "states",
+    "statement_ids": [
+      "r2-q-coherent-amplification"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantum_amplify_samples"
+    ]
+  },
+  {
+    "passage": "aux-r2-q-conditional-label-law",
+    "from": "If q_b>=0, sum_b q_b>0, and 0<=f<1, ampLaw(f,q) is",
+    "to": "actual sum of successful masses. New wrapper unelaborated.",
+    "role": "states",
+    "statement_ids": [
+      "r2-q-conditional-label-law"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantum_amplified_conditional"
+    ]
+  },
+  {
+    "passage": "aux-new-upper-sampler-law",
+    "from": "For γ>0 and η>0, a coherent sampler of",
+    "to": "The new alias is unelaborated; no status inheritance.",
+    "role": "states",
+    "statement_ids": [
+      "new-upper-sampler-law"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantum_amplified_label_law"
+    ]
+  },
+  {
+    "passage": "aux-r2-quantum-list-law-normalized",
+    "from": "Any Samples witness whose measured label is a",
+    "to": "probabilistic assertion is based on totalized division alone.",
+    "role": "states",
+    "statement_ids": [
+      "r2-quantum-list-law-normalized"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantumCandidateList_probability"
+    ]
+  },
+  {
+    "passage": "aux-r2-quantum-perfect-indicator-coupling",
+    "from": "Let a be unit-valued, v and f be",
+    "to": "not choose the algorithm. UNELABORATED in this environment.",
+    "role": "states",
+    "statement_ids": [
+      "r2-quantum-perfect-indicator-coupling"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantumList_coupling"
+    ]
+  },
+  {
+    "passage": "aux-r2-quantum-tournament-budget-6072",
+    "from": "For m≥2, T=ceil(log₂(1000m)), ε=1/(1000T), N=trialCount(ε), M=iterationBound(1/(2m)), the exact",
+    "to": "or novelty is claimed. UNELABORATED in this environment.",
+    "role": "states",
+    "statement_ids": [
+      "r2-quantum-tournament-budget-6072"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantumTournament_cost"
+    ]
+  },
+  {
+    "passage": "aux-r2-quantum-coherent-list-witness",
+    "from": "For m≥2, T=ceil(log₂(1000m)), ε=1/(1000T), and a coherent comparison",
+    "to": "not an extra axiom. UNELABORATED in this environment.",
+    "role": "states",
+    "statement_ids": [
+      "r2-quantum-coherent-list-witness"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantumTournament"
+    ]
+  },
+  {
+    "passage": "aux-r2-quantum-ordinary-oracle-read",
+    "from": "The ordinary oracle bitOracleL is a single IsCirc",
+    "to": "has no phase sign. UNELABORATED in this environment.",
+    "role": "states",
+    "statement_ids": [
+      "r2-quantum-ordinary-oracle-read"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantumBitOracle_isCirc"
+    ]
+  },
+  {
+    "passage": "aux-r2-quantum-decode-bit-budget",
+    "from": "For k≥1,t≥1,r=40t and 0<ε≤1, choosing n=ceil(16·2^(10k) ln(r/ε)) gives",
+    "to": "The numeric amplification helper is supplied in QuantumAmplification.lean.",
+    "role": "states",
+    "statement_ids": [
+      "r2-quantum-decode-bit-budget"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantumDecode_query_bound_real"
+    ]
+  },
+  {
+    "passage": "aux-r2-quantum-decode-polylog",
+    "from": "Let R_k=1+1920000·2^(10k). At ε=1/(1000 ceil(log₂(1000m))), m=4^t,t≥1, n=repetitions(k,ε/(40t))≤R_k(2t)^2 and",
+    "to": "The numeric amplification helper is supplied in QuantumAmplification.lean.",
+    "role": "states",
+    "statement_ids": [
+      "r2-quantum-decode-polylog"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantumDecode_repetitions_polylog",
+      "QuarticQuery.Paper.quantumDecode_polylog"
+    ]
+  },
+  {
+    "passage": "aux-r2-quantum-comparison-bit-budget",
+    "from": "For natural k,t,n the exact cap identity holds.",
+    "to": "The numeric amplification helper is supplied in QuantumAmplification.lean.",
+    "role": "states",
+    "statement_ids": [
+      "r2-quantum-comparison-bit-budget"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantumComparison_cost_exact",
+      "QuarticQuery.Paper.quantumComparison_query_bound",
+      "QuarticQuery.Paper.quantumComparison_polylog"
+    ]
+  },
+  {
+    "passage": "aux-r2-quantum-verification-search-budget",
+    "from": "For K≥2 and 0<ε<1/2, the implemented fixed-address search",
+    "to": "The numeric amplification helper is supplied in QuantumAmplification.lean.",
+    "role": "states",
+    "statement_ids": [
+      "r2-quantum-verification-search-budget"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantumVerify_search_query_bound"
+    ]
+  },
+  {
+    "passage": "aux-r2-quantum-verification-polylog",
+    "from": "For t≥1, m=4^t, ε=1/(1000 ceil(log₂(1000m))), n=repetitions(k,ε/(40t)), and C.size≤forrConstant(k)·m·(2t)^2,",
+    "to": "or exponent is claimed; both wrappers are unelaborated.",
+    "role": "states",
+    "statement_ids": [
+      "r2-quantum-verification-polylog"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantumVerify_polylog",
+      "QuarticQuery.Paper.quantumVerify_forrCircuit_polylog"
+    ]
+  },
+  {
+    "passage": "aux-r2-q-common-workspace",
+    "from": "A finite nonempty family of coherent samplers with",
+    "to": "added oracle assumptions, no claim of mathematical novelty.",
+    "role": "states",
+    "statement_ids": [
+      "r2-q-common-workspace"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantumWorkspace_uniformize"
+    ]
+  },
+  {
+    "passage": "aux-r2-q-full-tensor-sampler",
+    "from": "For a finite nonempty candidate set of size",
+    "to": "agrees on the law needed for the proof.",
+    "role": "states",
+    "statement_ids": [
+      "r2-q-full-tensor-sampler"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.quantumTensorStage_of_samples"
+    ]
+  }
+]

@@ -1,0 +1,1142 @@
+{
+  "schema_version": 1,
+  "path_basis": "Paths are relative to the supplied quartic_r2_1_statement_fidelity archive root. The historical transcript is identified by its separate attachment filename. No source-machine absolute paths are reproduced.",
+  "audit_kind": "Collective source-level statement-fidelity review with independent finite checks and selected primary-literature comparison.",
+  "verification_boundary": {
+    "source_review": true,
+    "independent_python_checks": true,
+    "lean_elaboration_run": false,
+    "lean_build_run": false,
+    "comparator_replayed": false,
+    "external_kernels_replayed": false,
+    "all_proposed_lean_status": "proposed_unelaborated",
+    "historical_build_evidence": "Reported evidence retained with pin/staleness caveats; no source-reading result is promoted to execution evidence."
+  },
+  "full_text_reads": [
+    {
+      "path": "BUILD_STATUS.md",
+      "scope": "full_text_read",
+      "reviewers": [
+        "construction",
+        "quantum",
+        "classical",
+        "lead"
+      ],
+      "detail": "",
+      "sha256": "c87578a738d7cf6d6633a009c9b2265cf81077ec8ddc54cda79787943e89a2c7"
+    },
+    {
+      "path": "READ_ME_FIRST.md",
+      "scope": "full_text_read",
+      "reviewers": [
+        "construction",
+        "quantum",
+        "classical",
+        "lead"
+      ],
+      "detail": "",
+      "sha256": "9b32270ebe3dddc5829cc736de7f8b37b5c5de9cef610a7ecf113fa2125fd029"
+    },
+    {
+      "path": "complexitylib/Complexity/Computability/QueryComplexity/Quantum/Adversary.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "",
+      "sha256": "6b941c7daa0184ac46bf1f599c0211218981bf385b65c20424eefe3298246c7d"
+    },
+    {
+      "path": "complexitylib/Complexity/Computability/QueryComplexity/Quantum/Polynomial.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "",
+      "sha256": "0323e359ee2eecfe0bca7c16e59bdd6489d8a80ca0963ca1960999fc73b09cc1"
+    },
+    {
+      "path": "complexitylib/Complexity/Computability/QueryComplexity/Quantum/Search.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "",
+      "sha256": "fd07f6dad412578e7cf52fcaffea0a649421f068b07acc5c2ac92dc52d47f521"
+    },
+    {
+      "path": "literature/quartic-lit-dewolf-quantum-computing-lecture-notes/annex_notes.json",
+      "scope": "full_text_read",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "complete",
+      "sha256": "daeeb6a52d25135ad1c3d1f2b6befc78855e0f8583a9cfa622769342b8718bda"
+    },
+    {
+      "path": "literature/quartic-ref-03-degree-vs-approximate-degree-and-quantum-i/annex_notes.json",
+      "scope": "full_text_read",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "complete; numbering/macro loss warnings",
+      "sha256": "e7ff9467b29025d30eb5646ca3d509146b2478f96e04f435f5526f07dcc580cc"
+    },
+    {
+      "path": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/annex_notes.json",
+      "scope": "full_text_read",
+      "reviewers": [
+        "construction"
+      ],
+      "detail": "",
+      "sha256": "bef81124e5c080f54ea719784747e9a2066be407bff01c8b2fb5cdf628dfa58e"
+    },
+    {
+      "path": "literature/quartic-ref-24-all-quantum-adversary-methods-are-equivale/annex_notes.json",
+      "scope": "full_text_read",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "complete",
+      "sha256": "5c75984ccc37f3491f89e5ec6fad552f22975d810a8018f0528f474c648239f0"
+    },
+    {
+      "path": "paper/extracted.md",
+      "scope": "full_text_read",
+      "reviewers": [
+        "lead"
+      ],
+      "detail": "",
+      "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a"
+    },
+    {
+      "path": "repository/README.md",
+      "scope": "full_text_read",
+      "reviewers": [
+        "construction",
+        "quantum",
+        "classical",
+        "lead"
+      ],
+      "detail": "",
+      "sha256": "fe9fa9fd3203926de8a8f797e5cc68b0a2ce4aae8befd3afcad49998cd393528"
+    },
+    {
+      "path": "repository/corpus/README.md",
+      "scope": "full_text_read",
+      "reviewers": [
+        "construction",
+        "quantum",
+        "classical",
+        "lead"
+      ],
+      "detail": "",
+      "sha256": "594e454df606d888998fc57460d0122bdf9c2c3159819b49b544ec88a8c2bc01"
+    },
+    {
+      "path": "repository/docs/statement_evidence_contract.md",
+      "scope": "full_text_read",
+      "reviewers": [
+        "construction",
+        "quantum",
+        "classical",
+        "lead"
+      ],
+      "detail": "",
+      "sha256": "91b5f297530d3a81a1d520755978a074a42c944424935c35256c5a4af4376ea4"
+    },
+    {
+      "path": "repository/docs/statement_fidelity_review.md",
+      "scope": "full_text_read",
+      "reviewers": [
+        "construction",
+        "classical",
+        "lead"
+      ],
+      "detail": "",
+      "sha256": "a48dd23e884ccaa0e01cee438507e42d437a21280e87a088f73d6c1280ef762b"
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Construction/Solution.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "",
+      "sha256": "63cfe11442f76eb9b0f1b579e2a925a19fc9312f870e8480bfbf3eacfb9bb9de"
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Construction/comparator.json",
+      "scope": "full_text_read",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "",
+      "sha256": "c18c76b87a777251e70ec3f55c5704be82d52dbba0220e5adb2cf3063709dd78"
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Foundations/Solution.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "",
+      "sha256": "836000d335f1d8ba10f711895d142a6202c8484b6c9b100a2765d6f5f4bac9bd"
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Foundations/comparator.json",
+      "scope": "full_text_read",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "",
+      "sha256": "7e5f89ab55e35fc5b3088528b260d3c9bbeabbb5dc173913a8be94a2521943e7"
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Negative/ChangedDefinition.json",
+      "scope": "full_text_read",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "",
+      "sha256": "c0e471ee9f1d52fb81e15c959133a062b4e95da345e836e6c95916b8dc6ea2dd"
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Negative/ChangedDefinition.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "",
+      "sha256": "4a3b0a97b2fd35e6c8e31fdd8fa8017b0e428cc8b6b41eccaa36f9e2cf445264"
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Negative/ForeignAxiom.json",
+      "scope": "full_text_read",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "",
+      "sha256": "3ac0d024b346f5bff94a50a556a55d827a5dc19d4f9a754f1603dd7eef6d893d"
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Negative/ForeignAxiom.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "",
+      "sha256": "d896cdd50a42a4c32cb24e636198ef33909078e6f62edadbf04fbca3cf44a2ed"
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Negative/MissingDeclaration.json",
+      "scope": "full_text_read",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "",
+      "sha256": "b3f976bd6117762d52949c51b02032554789c88c9e952f84ec475d93304d8eae"
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Negative/MissingDeclaration.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "",
+      "sha256": "c03b0d0c245a2d4e392a4de43648d5b55858542e15e54d9ea977ca019eef682c"
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Negative/SorryProof.json",
+      "scope": "full_text_read",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "",
+      "sha256": "36243ab16c60debb8b5e19d286abd8010f773b9a7aa0ff1da8cd9d4b6c195cda"
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Negative/SorryProof.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "",
+      "sha256": "59295ee8a529797d52a6cf8f97eb3ee32cd4878b97e441a1d6a982e07806a7d5"
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Negative/WeakenedConclusion.json",
+      "scope": "full_text_read",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "",
+      "sha256": "9cd55a4b578d744703319b8b153b90a78af553fd8ffbe323d31c074378204f09"
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Negative/WeakenedConclusion.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "",
+      "sha256": "f51706cc2337149223db50cd23d800e5b7138f61727e4f3db1deb39db07f4f82"
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Separation/Solution.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "",
+      "sha256": "5cdcdb99b1c1ff250d45b8e983756ea3a3bf7013af1f46b4e02495c3209bb724"
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Separation/comparator.json",
+      "scope": "full_text_read",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "",
+      "sha256": "93324800e1d372cf1a3e801fe7181a29f77b13edb01deb590bc8158a263c7276"
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Tournament/Solution.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "",
+      "sha256": "f02baea95b83312fe3d3c4fcfb64f3aec6ff9658c26189c4ce7d70a7ccd03f6b"
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Tournament/comparator.json",
+      "scope": "full_text_read",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "",
+      "sha256": "309293414b5271ac9092ddd56aa40707f533da448792b9971310b092f3ef641a"
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Unconditional/Solution.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "",
+      "sha256": "19725ad42b615a8881db00417ee6375c8982b0de08e618f06f901fe4db2e2cd3"
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Unconditional/comparator.json",
+      "scope": "full_text_read",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "",
+      "sha256": "fbaaee77d1b1a3daff788267ec15963ea06a6340a219a2da890c8c9642998dd7"
+    },
+    {
+      "path": "repository/lean/QuarticQuery.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "classical"
+      ],
+      "detail": "",
+      "sha256": "e74ce1a473b9db8e0ace2014b9eda91a29330456cfb628054d7c3ce19883ec95"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Appendix/TheoremA1.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "",
+      "sha256": "777567c2e5878223a187030b4200293a0c8f78927fa0488e62ff36bf129a0128"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Bridge/DecisionTree.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "",
+      "sha256": "f0dc14884f30cb5238b4e71a4358e43a244a45a38f655323a34b5e83af7ed13e"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Bridge/Deferred.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "",
+      "sha256": "666c5741a5a19324b7229a350bc35130627da42584c751d5444231f402c45931"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Bridge/Oracle.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "",
+      "sha256": "06f073c300891be8d343434d4cbc4e3d9c2c37584bb5247a339e6f5c020ba385"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Construction/LocalTests.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "construction"
+      ],
+      "detail": "",
+      "sha256": "56357d934fab301222130c92ef36cfbf122af4ad90fb2a94ba90178139dbeb13"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Construction/Transcript.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "construction"
+      ],
+      "detail": "",
+      "sha256": "e2fd95c77c8ef1616201219302415069411aaac88060f3f75ec24e7b0626608f"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Construction/Winner.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "construction"
+      ],
+      "detail": "",
+      "sha256": "3c6b894e842fc90acd7a09b9ff14ce3ae2f09bfbf2dc7f2195751a396db7017c"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Forrelation/Arithmetic.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "construction"
+      ],
+      "detail": "",
+      "sha256": "5a7336764ee8cd299b9e19fd3164374fcebab98b7df8d9c956a457334b9dc243"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Forrelation/Builder.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "construction"
+      ],
+      "detail": "",
+      "sha256": "32e1ff4623c8bbceda26da74e53961d8c2bc660ff9b831cf19d4cc32ce1abc23"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Forrelation/Circuit.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "construction"
+      ],
+      "detail": "",
+      "sha256": "b17824d0a3b6ee5a689822b04c18d20de9e72e1db119105584e9cbba60ae8f01"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Forrelation/Product.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "construction"
+      ],
+      "detail": "",
+      "sha256": "f0ceced9021b45de546dfc01aadabde913f8ecdf1a0d085992c5b61b8a1ef425"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Forrelation/Promise.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "construction"
+      ],
+      "detail": "",
+      "sha256": "96b967a27458107549e38ce4fe001d707a4c240ad4e4b582729a6ce9526d2cf1"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Forrelation/Repetition.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "construction"
+      ],
+      "detail": "",
+      "sha256": "1526168486cdc4e78213c6048199676df0520445666b60d3ece9c62678e90e70"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Forrelation/Sanity.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "construction"
+      ],
+      "detail": "",
+      "sha256": "bf287a0ff1f6022582b6d8daae3a89ad34d8aa51986531a649f133ee692eae70"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Forrelation/Walsh.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "construction"
+      ],
+      "detail": "",
+      "sha256": "e3eae0cf1455ef1471fd4f42458b324bbe3bfe1b1879989366ce476657653069"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/LowerBound/Minimax.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "classical"
+      ],
+      "detail": "",
+      "sha256": "d235fef08374ca71229f5a2a5985e1bb0c60e3ec39a0ad2b1a13b286df9c194e"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/LowerBound/Planted/Inputs.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "construction"
+      ],
+      "detail": "",
+      "sha256": "8a51b7b7696acdda52b0762b65c2f9e8bec13da8d896c47102c447195509411f"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Model/Classical.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "classical"
+      ],
+      "detail": "",
+      "sha256": "a820d0804ee722ee74eef97ea8efeb2a15da55107d6a908e35ba60ef39932e9e"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Model/Quantum.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "",
+      "sha256": "6a61d326b216fa39f6ac1d7694727528dd5028bfac8d939f118bf1a4f4a35662"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Paper/Section2.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "construction"
+      ],
+      "detail": "",
+      "sha256": "612452c3012d194e4b1480e5d05320e03bff7e40c96dd81ce4c80d9d350456e1"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Results/Conditional.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "construction",
+        "classical"
+      ],
+      "detail": "",
+      "sha256": "c3d4acfd49f8725f21fa4e895be9773e44a52786a16e3606e68dfda27c808330"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Results/Exponent.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "classical"
+      ],
+      "detail": "",
+      "sha256": "91d1c021f9b920f9bf0017dfe03817194c6a1ff5f4776e39a669bbd3b832a931"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Results/Headline.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "classical"
+      ],
+      "detail": "",
+      "sha256": "fec7d0c565b8ab345568ae6082c5fb346435493f4eb2d9112cda498652909c35"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Results/Unconditional.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "construction",
+        "classical"
+      ],
+      "detail": "",
+      "sha256": "46e6f51f713109bab717956bd2536711dc927a356027748712e571ce12f0b85e"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Statement.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "construction",
+        "quantum",
+        "classical",
+        "lead"
+      ],
+      "detail": "",
+      "sha256": "21e9421899572827f8051a2747412792971b0415e45ade85e434219b9badaced"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Tournament/Drift.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "classical"
+      ],
+      "detail": "",
+      "sha256": "850fbfdfba830a17930f0a8e60fdc0d7b27f7f50c45710b5e77997343528c077"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Tournament/Ideal.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "classical"
+      ],
+      "detail": "",
+      "sha256": "6f7379abfb1d9fb37d6ef7f0f25049893490aa717171c875feb97fca343ab8ef"
+    },
+    {
+      "path": "repository/lean/lake-manifest.json",
+      "scope": "full_text_read",
+      "reviewers": [
+        "quantum",
+        "classical"
+      ],
+      "detail": "",
+      "sha256": "d670a8101d900b62e17a1d51c8b1b36fd60919bcad472700b0a5e1c0b38b104d"
+    },
+    {
+      "path": "repository/lean/lakefile.toml",
+      "scope": "full_text_read",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "",
+      "sha256": "255abcc3c689d0258d4cea520447fdc8da26e26a191331aa95559b2fb4818647"
+    },
+    {
+      "path": "repository/lean/lean-toolchain",
+      "scope": "full_text_read",
+      "reviewers": [
+        "quantum",
+        "classical"
+      ],
+      "detail": "",
+      "sha256": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3"
+    },
+    {
+      "path": "repository/lean/scripts/Reach.lean",
+      "scope": "full_text_read",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "",
+      "sha256": "e37b275738819a573846e58bd5d50cfeaa54f4056670de8876f74b6829629c47"
+    },
+    {
+      "path": "repository/research/adjudication/adjudication_notes.md",
+      "scope": "full_text_read",
+      "reviewers": [
+        "construction",
+        "classical",
+        "lead"
+      ],
+      "detail": "",
+      "sha256": "df206a68d9cfdce14456042094757e37fa8286c2cf33afbbcc7d74c5aa3547b8"
+    },
+    {
+      "path": "repository/research/adjudication/bansal_sinha_section54_second_reading.md",
+      "scope": "full_text_read",
+      "reviewers": [
+        "lead"
+      ],
+      "detail": "",
+      "sha256": "22b75fc9602e895762b161bccbda47dc4538bd05724d6fd63ab7645f0be54070"
+    },
+    {
+      "path": "repository/research/adjudication/funnel_adjudication_notes.md",
+      "scope": "full_text_read",
+      "reviewers": [
+        "construction",
+        "classical",
+        "lead"
+      ],
+      "detail": "",
+      "sha256": "20d7dff60cf7858b68bdfbd2a4219cd29a73f96a4b0c38f8338401f035254624"
+    },
+    {
+      "path": "writing/full-exposition-guide.md",
+      "scope": "full_text_read",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "Physical lines 1-1597 read in four nontruncated contiguous ranges. Editorial guidance was applied to this advisory audit; embedded workflow examples were not executed.",
+      "sha256": "c7baa3c8b195647b00cdd37c38c48b122371ce9c3cd92798e2e9d55f3d1c4eca"
+    },
+    {
+      "path": "writing/mathematical-writing-mechanics.md",
+      "scope": "full_text_read",
+      "reviewers": [
+        "lead"
+      ],
+      "detail": "",
+      "sha256": "0ba857f70a724a2676f91b01e7ee95cc3518dcd261b53fec27b743935d1caa0f"
+    },
+    {
+      "path": "writing/register-from-literature.md",
+      "scope": "full_text_read",
+      "reviewers": [
+        "lead"
+      ],
+      "detail": "",
+      "sha256": "2278000b36133a13c0e83f785bdb2a89b94b8ed1927daeaf12d2b1ed30545d7d"
+    },
+    {
+      "path": "writing/the-deliverable.md",
+      "scope": "full_text_read",
+      "reviewers": [
+        "lead"
+      ],
+      "detail": "",
+      "sha256": "5b234d4446bf4b7ac79c38586147730dc41370581daa38661326875d5b50951c"
+    }
+  ],
+  "definition_diff_and_statement_reviews": [
+    {
+      "path": "repository/lean/QuarticCorpus/Construction/Challenge.lean",
+      "scope": "full_copied_definition_diff_and_statement_review",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "The complete copied public-definition block was mechanically diffed against the fully read Statement.lean; theorem statements were inspected. This is source comparison, not Comparator execution.",
+      "sha256": "d554e5a96889c4c9c3aa6bd3231f984fa7cf695aa103ebcd092ac2c7a08240b1"
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Foundations/Challenge.lean",
+      "scope": "full_copied_definition_diff_and_statement_review",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "The complete copied public-definition block was mechanically diffed against the fully read Statement.lean; theorem statements were inspected. This is source comparison, not Comparator execution.",
+      "sha256": "8a94b4d4e065267e606d7738f72a620ab249b563a1ebf66992fbae90995423c3"
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Separation/Challenge.lean",
+      "scope": "full_copied_definition_diff_and_statement_review",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "The complete copied public-definition block was mechanically diffed against the fully read Statement.lean; theorem statements were inspected. This is source comparison, not Comparator execution.",
+      "sha256": "85cf70b1364ee037ddfef280668b6ca036aadb1cb7e57e6734e94706112c2bd9"
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Tournament/Challenge.lean",
+      "scope": "full_copied_definition_diff_and_statement_review",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "The complete copied public-definition block was mechanically diffed against the fully read Statement.lean; theorem statements were inspected. This is source comparison, not Comparator execution.",
+      "sha256": "8bc45cfe55e8a124bb7dfa7fcd3566f80b4db98fe4e99c92242f413edf8ec27c"
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "scope": "full_copied_definition_diff_and_statement_review",
+      "reviewers": [
+        "quantum"
+      ],
+      "detail": "The complete copied public-definition block was mechanically diffed against the fully read Statement.lean; theorem statements were inspected. This is source comparison, not Comparator execution.",
+      "sha256": "c88be0b70754cb6f93448694002a16e1eb6a25135fa71648d4651f01104e399d"
+    }
+  ],
+  "selected_reads": [
+    {
+      "path": "literature/quartic-lit-buhrman-dewolf-decision-tree-survey/extracted.md",
+      "scope": "selected_passages_or_records",
+      "readings": [
+        {
+          "reviewer": "quantum",
+          "detail": "§§3.1–3.3 and associated simulation discussion"
+        },
+        {
+          "reviewer": "classical",
+          "detail": "Entire model-definition discussion in §§3.1-3.3; attached extraction physical lines 191-231 and 278-338; author PDF printed pp. 5-8."
+        }
+      ],
+      "sha256": "dd267ba1128aa08201558e63b5be431e11b9855b11cf0ac2f46216676ae2e8d8"
+    },
+    {
+      "path": "literature/quartic-lit-dewolf-quantum-computing-lecture-notes/extracted.md",
+      "scope": "selected_passages_or_records",
+      "readings": [
+        {
+          "reviewer": "quantum",
+          "detail": "§1.2.2 measurement and §1.2.3 unitaries; §2.1.2 circuit measurement implementation; §2.3 oracle, §2.3.1 Deutsch–Jozsa; Chapter2 Exercise8 and its AppendixC hint; footnotes5 and17"
+        }
+      ],
+      "sha256": "57b133972c5e26ceb41d46e49a77a52ef1b03e0ee522ca1534dd6e48547f7dd5"
+    },
+    {
+      "path": "literature/quartic-ref-02-separations-in-query-complexity-using-chea/extracted.md",
+      "scope": "selected_passages_or_records",
+      "readings": [
+        {
+          "reviewer": "construction",
+          "detail": "selected §3 search excerpts only; used for context, no unexamined theorem proof relied upon"
+        }
+      ],
+      "sha256": "39745f19fdbaad3fd6542cee69cd8fdabe02771f975e676aa2e375a208873e32"
+    },
+    {
+      "path": "literature/quartic-ref-03-degree-vs-approximate-degree-and-quantum-i/extracted.md",
+      "scope": "selected_passages_or_records",
+      "readings": [
+        {
+          "reviewer": "quantum",
+          "detail": "Introduction degree/quantum theorem chain and reference mapping"
+        }
+      ],
+      "sha256": "fe50f27a93597951aa0e9577d0315a2b4dcdf022122604139232a952d144aa8f"
+    },
+    {
+      "path": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/extracted.md",
+      "scope": "selected_passages_or_records",
+      "readings": [
+        {
+          "reviewer": "construction",
+          "detail": "selected search excerpts near definitions and Theorem 1.3/Corollary 1.4; TeX is authoritative"
+        }
+      ],
+      "sha256": "cf1477e44353bbb796581002e8cacef3199e8e153d43f075fc8047c2934de952"
+    },
+    {
+      "path": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.tar.gz",
+      "scope": "selected_passages_or_records",
+      "readings": [
+        {
+          "reviewer": "construction",
+          "detail": "member names checked; main.tex physical lines 1–280 read in full, exact definitions 212–229 and theorem/corollary statements 261–277 used; later main.tex:1166–1190 read to verify exact physical locator; third inequality is line1181, SHA256 800119f9f12877392a92e34ac380c61a50b2a297cee0a70511058580061f835b"
+        }
+      ],
+      "sha256": "f48a3225662484d12e19bf03412478cf87a388f7c2e33c69a4d7f2078202e015"
+    },
+    {
+      "path": "literature/quartic-ref-08-quantum-lower-bounds-by-polynomials/extracted.md",
+      "scope": "selected_passages_or_records",
+      "readings": [
+        {
+          "reviewer": "quantum",
+          "detail": "Prop6.4/two-bit parity passage and adjacent expected-query R warning"
+        }
+      ],
+      "sha256": "4ffe8f91258469b79c1bfcb4a7ce2a430e34c1b3c512044a52ddde472460c238"
+    },
+    {
+      "path": "literature/quartic-ref-24-all-quantum-adversary-methods-are-equivale/extracted.md",
+      "scope": "selected_passages_or_records",
+      "readings": [
+        {
+          "reviewer": "quantum",
+          "detail": "Notation and Theorem3.1 with definition(3.1); closing proof of Theorem3.1 (physical lines213–272,718–738)"
+        }
+      ],
+      "sha256": "43f9491ab7facbddd2c4d9549c8b31babe805405d718658eb285876d0605c200"
+    },
+    {
+      "path": "repository/corpus/coverage.json",
+      "scope": "selected_passages_or_records",
+      "readings": [
+        {
+          "reviewer": "classical/lead",
+          "detail": "Recorded build/coverage states and selected evidence labels; historical metadata was not treated as a fresh run."
+        }
+      ],
+      "sha256": "76e5d54ab1d28c38f6cda8c0d61129123e1255c4f3edf8301eff27c4168f6cfa"
+    },
+    {
+      "path": "repository/corpus/evidence-graph.json",
+      "scope": "selected_passages_or_records",
+      "readings": [
+        {
+          "reviewer": "classical/lead",
+          "detail": "Structural/status and selected provenance checks, not a fresh audit of every node."
+        }
+      ],
+      "sha256": "f7f29b1156a58c8dd4a7800e0880b4bd5216b6ef172862d764d5e27eb9eea04b"
+    },
+    {
+      "path": "repository/corpus/lean_dependencies.json",
+      "scope": "selected_passages_or_records",
+      "readings": [
+        {
+          "reviewer": "quantum",
+          "detail": "roots, collection shapes, FixedSim and oracle/conjugation/helper reach/edge checks"
+        }
+      ],
+      "sha256": "be6e2ac6ddc8329270c826540cc9e52ddb85055c664424d13b9832469cb39ac4"
+    },
+    {
+      "path": "repository/corpus/statements.json",
+      "scope": "selected_passages_or_records",
+      "readings": [
+        {
+          "reviewer": "construction",
+          "detail": "parsed all records; selected construction/Forrelation rows and evidence fields read"
+        },
+        {
+          "reviewer": "quantum",
+          "detail": "def-query-oracle, def-Q, def-D, lem-A.2, lem-A.3.bs, lem-A.3.lambda, lem-A.4, lem-A.5, thm-A.1 records in full"
+        },
+        {
+          "reviewer": "classical/lead",
+          "detail": "All records parsed structurally; full selected classical, exponent, construction, quantum, Appendix and provenance records inspected. This does not mean every statement was freshly proved or every tie was audited."
+        }
+      ],
+      "sha256": "5a403947cf2f970917876f4a6325c912588c49bfdc6fc313950996413f079dc1"
+    },
+    {
+      "path": "repository/corpus/ties.json",
+      "scope": "selected_passages_or_records",
+      "readings": [
+        {
+          "reviewer": "quantum",
+          "detail": "lem-A.2 and relevant source/definition mappings"
+        },
+        {
+          "reviewer": "classical/lead",
+          "detail": "Selected mappings for classical minima, equation (1), equation (2), Theorem 1.1, (5), (17), Lemma 2.1(i), Bansal-Sinha-to-L comparison and bridge/Appendix claims."
+        }
+      ],
+      "sha256": "c6ccb861eda5f19e13223d60a28af91eede3ae880a4e5dfafd17453aba61c1b7"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/ForrelationLower/Main.lean",
+      "scope": "selected_passages_or_records",
+      "readings": [
+        {
+          "reviewer": "construction",
+          "detail": "physical lines 1–240 and 340–540; selected statements and promise-transport/proof-assembly checks"
+        },
+        {
+          "reviewer": "classical/lead",
+          "detail": "Physical lines 1-185 and 366-end; hypothesis, promise transport, threshold and unconditional endpoint inspection. Combined with construction review: 1-240 and 340-end, with no claim to read the intervening section in full."
+        }
+      ],
+      "sha256": "2ca59c5ff156d0fbc520abbdd72c4fd9253e177dbb07a2ab79fe4cdd42c98cd9"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/ForrelationLower/Promise.lean",
+      "scope": "selected_passages_or_records",
+      "readings": [
+        {
+          "reviewer": "construction",
+          "detail": "physical lines 420–576; PhiF correspondence and mean/second-moment statement checks"
+        }
+      ],
+      "sha256": "2877dc60a4af03e98321ac9e47c501a63508936aa49e5018d280258b24862efb"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+      "scope": "selected_passages_or_records",
+      "readings": [
+        {
+          "reviewer": "classical/lead",
+          "detail": "Physical lines 1-90 and 295-end. Zero-query/mass argument and explicit uniform theorem signatures, assumptions and threshold assembly; not a fresh complete audit of its analytic proof."
+        }
+      ],
+      "sha256": "95a37930a842ad0d41ad4b6c2f7d6c912489f888e5e6a56d226ff4bd76fdb463"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Paper/Section3.lean",
+      "scope": "selected_passages_or_records",
+      "readings": [
+        {
+          "reviewer": "classical/lead",
+          "detail": "prop_3_2, particularly physical lines 188-208, checked for derivation of UnitValued from sampler masses. Source recorded uncompiled."
+        }
+      ],
+      "sha256": "7ede156bbcb93621f88fd33bb7304e904e9579b60c221a9c847e6cad69630010"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Upper/Columns.lean",
+      "scope": "selected_passages_or_records",
+      "readings": [
+        {
+          "reviewer": "classical/lead",
+          "detail": "Comparison sampler and range/complementarity proofs, particularly 195-209."
+        }
+      ],
+      "sha256": "e5b2b164deb6a010f952cefb5edba15bb5437a03fff815c39b028341b23b592e"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Upper/Tournament.lean",
+      "scope": "selected_passages_or_records",
+      "readings": [
+        {
+          "reviewer": "classical/lead",
+          "detail": "All IsComparison/UnitValued consumers located; selected ranges around 173-180, 239-242 and 367-476 examined for probability and weight assumptions."
+        }
+      ],
+      "sha256": "43df9db7997f88667de7a3cfa7d7c7751aa1f32c40e9de474895335bcdb87b7c"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Upper/Verify.lean",
+      "scope": "selected_passages_or_records",
+      "readings": [
+        {
+          "reviewer": "classical/lead",
+          "detail": "The range proof and actual tournament application at 170-180, with surrounding implementation context."
+        }
+      ],
+      "sha256": "8144c5c26e7bf0515b24eb638b57412264032e144844887adc615b8076207239"
+    },
+    {
+      "path": "repository/research/adjudication/funnel_adjudication.json",
+      "scope": "selected_passages_or_records",
+      "readings": [
+        {
+          "reviewer": "classical/lead",
+          "detail": "Selected pin/build/replay and statement-fidelity adjudications checked against the full readable notes."
+        }
+      ],
+      "sha256": "cab693c939b187729e6251bed5429de1dd7fc6279153ac37ec1abc735433ff5f"
+    }
+  ],
+  "contextual_reads": [
+    {
+      "attachment_name": "Pasted text(20261102-145932).txt",
+      "scope": "historical_contextual_skim",
+      "coverage": [
+        {
+          "reviewer": "lead",
+          "physical_lines": "1-1800 and 2437-end"
+        },
+        {
+          "reviewer": "quantum",
+          "physical_lines": "1801-2436"
+        }
+      ],
+      "detail": "Read across the team for history and task context. Embedded commands were not treated as instructions; historical assertions are not substitutes for current source or raw receipts. This was not a line-by-line proof audit."
+    },
+    {
+      "paths": [
+        "exemplars/short-paper.md",
+        "exemplars/expository.md",
+        "exemplars/long-reasoning-record.md"
+      ],
+      "scope": "model_form_samples_only",
+      "detail": "Sampled as models of exposition and organization, not read in full or used as mathematical evidence."
+    },
+    {
+      "path": "previous_round/",
+      "scope": "selected_context_only",
+      "detail": "Prior findings were approached through current adjudications and selected contextual material. No complete reading or renewed verification of all first-round returns is claimed."
+    }
+  ],
+  "integrity_check": {
+    "manifest": "manifest.json",
+    "manifest_entries": 356,
+    "distinct_listed_paths": 356,
+    "listed_files_present": 356,
+    "byte_size_mismatches": 0,
+    "sha256_mismatches": 0,
+    "extracted_file_count": 358,
+    "unlisted_files": [
+      "READ_ME_FIRST.md",
+      "manifest.json"
+    ],
+    "meaning": "Every listed member was hashed and sized. Hashing a file does not mean its contents were read or its mathematical statements checked."
+  },
+  "independent_checks": [
+    {
+      "delivered_script": "checks/check_classical_small.py",
+      "delivered_output": "checks/classical_checks_output.json",
+      "scope": "Exact rational OR2 mixture, depth-one truth-table/average checks, XOR2 and small floor values."
+    },
+    {
+      "delivered_script": "checks/check_construction.py",
+      "delivered_output": "checks/construction_checks_output.json",
+      "scope": "Independent finite Forrelation values, promise census, tensor examples and toy board mutations; no giant actual circuit evaluation or Lean execution claimed."
+    },
+    {
+      "delivered_script": "checks/check_reach_private.py",
+      "delivered_output": "checks/reach_private_output.json",
+      "scope": "Static source/recorded-graph reproduction of the private-helper traversal omission; the delivered ReachPrivateFixture.lean is unelaborated."
+    }
+  ],
+  "public_retrievals_relevant_to_scope": [
+    {
+      "url": "https://arxiv.org/abs/2008.07003v3"
+    },
+    {
+      "url": "https://arxiv.org/abs/1511.01937"
+    },
+    {
+      "url": "https://theoryofcomputing.org/articles/v002a001/v002a001.pdf",
+      "scope": "publisher PDF, visual p6 denominator check"
+    },
+    {
+      "url": "https://homepages.cwi.nl/~rdewolf/qcnotes.pdf",
+      "scope": "PDF version/title identification; relevant sections read from provided v6 text"
+    },
+    {
+      "url": "https://github.com/cslib-community/complexitylib/blob/62ca5c21461b2482e8bd12b7cb9b4937d887a33a/Complexity/Foundations/Quantum/Measurement.lean",
+      "status": "DisabledError via web; Operation not permitted via raw public urllib"
+    },
+    {
+      "url": "https://github.com/cslib-community/complexitylib/blob/62ca5c21461b2482e8bd12b7cb9b4937d887a33a/Complexity/Computability/DecisionTree/Basic.lean",
+      "status": "DisabledError via web; Operation not permitted via raw public urllib"
+    },
+    {
+      "url": "https://homepages.cwi.nl/~rdewolf/publ/qc/dectree.pdf",
+      "scope": "Primary survey: model definitions and the positive-support worst-case randomized-query convention, §§3.1-3.3."
+    },
+    {
+      "url": "https://arxiv.org/abs/2010.12629",
+      "scope": "Primary abstract and bibliographic confirmation; exact theorem correspondence also checked from attached selected text."
+    },
+    {
+      "url": "https://github.com/openai/math/blob/main/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf",
+      "scope": "Public file location and metadata. Mathematical formulas were read from the supplied paper extraction."
+    }
+  ],
+  "unavailable_or_not_fully_reviewed": [
+    {
+      "item": "repository/corpus/receipts/",
+      "status": "absent_from_supplied_packet",
+      "consequence": "Raw root-build, Comparator, negative-control and external-kernel receipts could not be authenticated or replayed here."
+    },
+    {
+      "item": "compiled .olean files and pinned dependency environment",
+      "status": "unavailable",
+      "consequence": "No compiled declaration environment or whole-source rebuild was independently checked."
+    },
+    {
+      "item": "Lean and Lake executables",
+      "status": "not_available_on_PATH_during_audit",
+      "consequence": "No proposed Lean signature or regression fixture was elaborated; no Lean build, Comparator run or external-kernel replay occurred."
+    },
+    {
+      "item": "complexitylib/Complexity/Foundations/Quantum/Measurement.lean",
+      "module": "Complexity.Foundations.Quantum.Measurement",
+      "status": "missing_pinned_import_source",
+      "consequence": "Public retrieval at revision 62ca5c21461b2482e8bd12b7cb9b4937d887a33a failed; the full imported measurement implementation was not read."
+    },
+    {
+      "item": "complexitylib/Complexity/Computability/DecisionTree/Basic.lean",
+      "module": "Complexity.Computability.DecisionTree.Basic",
+      "status": "missing_pinned_import_source",
+      "consequence": "Public retrieval at revision 62ca5c21461b2482e8bd12b7cb9b4937d887a33a failed; the complete imported decision-tree definition/proof file was not read."
+    },
+    {
+      "item": "complete Mathlib, CSLib and complexitylib dependency source closures and Git history",
+      "status": "not_included_or_not_read_in_full",
+      "consequence": "No full imported-library audit, clean-checkout reproduction or complete proof-dependency-closure review is claimed."
+    }
+  ],
+  "explicit_nonclaims": [
+    "No claim to have read all 358 extracted files.",
+    "No claim to have audited every tactic in the headline proof or every record of the 121-statement corpus.",
+    "No complete proof audit of the external literature, the full uniform Forrelation proof, or all Upper and LowerBound implementation files.",
+    "The full preprint text was read; no page-by-page visual PDF audit is claimed.",
+    "No fresh full-snapshot Lean build, clean-pin reproducibility or external-kernel certification.",
+    "No absence-of-dependency conclusion based on the defective stored private-helper reach traversal."
+  ]
+}

@@ -1,0 +1,429 @@
+[
+  {
+    "passage": "classical-claim-product-law",
+    "from": "## `claim-product-law` **Class:** `genuine_new_proof`. **Compilation:** unelaborated. **Difficulty:** medium. For a positive-probability transcript",
+    "to": "3.1–3.2 and the following product argument. The source declarations are in `lean/QuarticQuery/Paper/ClassicalDirectProduct.lean`.",
+    "role": "explains",
+    "statement_ids": [
+      "claim-product-law",
+      "r2-classical-product-normalization"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.classical_transcript_product_law",
+      "QuarticQuery.Paper.classical_prefix_iff",
+      "QuarticQuery.Paper.classical_rectangle_weight",
+      "QuarticQuery.Paper.classical_mass_product",
+      "QuarticQuery.Paper.classical_product_law",
+      "QuarticQuery.Paper.classical_product_marginal",
+      "QuarticQuery.Paper.classical_transcript_mass_pos"
+    ],
+    "evidence_status": "unelaborated source proposal",
+    "file": "blueprint.md"
+  },
+  {
+    "passage": "classical-def-value-V",
+    "from": "## `def-value-V` **Class:** `genuine_new_proof`. **Compilation:** unelaborated. **Difficulty:** medium. With $q_h(\\tau)$ counting queries",
+    "to": "3.1–3.2 and the following product argument. The source declarations are in `lean/QuarticQuery/Paper/ClassicalDirectProduct.lean`.",
+    "role": "explains",
+    "statement_ids": [
+      "def-value-V",
+      "r2-classical-normalized-optimum"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.classicalTranscriptValue",
+      "QuarticQuery.Paper.classicalQueriesTo",
+      "QuarticQuery.Paper.classicalTranscriptValue_attained",
+      "QuarticQuery.Paper.classicalTranscriptValue_bounds_tree",
+      "QuarticQuery.exists_tree_budgetValue_le",
+      "QuarticQuery.treeSuccess_le_budgetValue"
+    ],
+    "evidence_status": "unelaborated source proposal",
+    "file": "blueprint.md"
+  },
+  {
+    "passage": "classical-eq-16",
+    "from": "## `eq-16` **Class:** `genuine_new_proof`. **Compilation:** unelaborated. **Difficulty:** medium. If the next query",
+    "to": "3.1–3.2 and the following product argument. The source declarations are in `lean/QuarticQuery/Paper/ClassicalDirectProduct.lean`.",
+    "role": "explains",
+    "statement_ids": [
+      "eq-16"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.classical_eq_16_transcript",
+      "QuarticQuery.Paper.classical_branchValue",
+      "QuarticQuery.Paper.classical_eq_16",
+      "QuarticQuery.Paper.classical_transcriptWeight_append",
+      "QuarticQuery.Paper.classical_budget_append",
+      "QuarticQuery.Paper.classicalTranscriptValue_unchanged",
+      "QuarticQuery.Paper.classical_two_branch_expectation",
+      "QuarticQuery.budgetValue_add_le"
+    ],
+    "evidence_status": "unelaborated source proposal",
+    "file": "blueprint.md"
+  },
+  {
+    "passage": "classical-claim-supermartingale",
+    "from": "## `claim-supermartingale` **Class:** `genuine_new_proof`. **Compilation:** unelaborated. **Difficulty:** high. The product of conditional",
+    "to": "3.1–3.2 and the following product argument. The source declarations are in `lean/QuarticQuery/Paper/ClassicalDirectProduct.lean`.",
+    "role": "explains",
+    "statement_ids": [
+      "claim-supermartingale",
+      "r2-classical-capped-depth",
+      "lem-4.1"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.classical_transcript_conditional_expectation",
+      "QuarticQuery.Paper.classical_product_conditional_expectation",
+      "QuarticQuery.Paper.classical_transcript_product_law",
+      "QuarticQuery.Paper.classical_transcript_mass_pos",
+      "QuarticQuery.Paper.classical_transcriptWeight_append",
+      "QuarticQuery.Paper.classical_budget_append",
+      "QuarticQuery.Paper.classical_product_step",
+      "QuarticQuery.Paper.classical_product_marginal",
+      "QuarticQuery.Paper.classical_terminalValue_le",
+      "QuarticQuery.Paper.classical_capped_depth_uniform",
+      "QuarticQuery.Paper.classical_guessSuccess_query",
+      "QuarticQuery.Paper.classical_success_le_terminal",
+      "QuarticQuery.Paper.classical_direct_product"
+    ],
+    "evidence_status": "unelaborated source proposal",
+    "file": "blueprint.md"
+  },
+  {
+    "passage": "classical-claim-final-bound",
+    "from": "## `claim-final-bound` **Class:** `genuine_new_proof`. **Compilation:** unelaborated. **Difficulty:** low. At a terminal transcript,",
+    "to": "3.1–3.2 and the following product argument. The source declarations are in `lean/QuarticQuery/Paper/ClassicalDirectProduct.lean`.",
+    "role": "explains",
+    "statement_ids": [
+      "claim-final-bound"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.classical_final_bound",
+      "QuarticQuery.guessSuccess_leaf",
+      "QuarticQuery.constSuccess_nonneg",
+      "QuarticQuery.Paper.classicalValue_bounds_tree",
+      "QuarticQuery.Paper.classical_success_le_terminal"
+    ],
+    "evidence_status": "unelaborated source proposal",
+    "file": "blueprint.md"
+  },
+  {
+    "passage": "classical-eq-17",
+    "from": "## `eq-17` **Class:** `already_stated_under_another_name`. **Compilation:** unelaborated. **Difficulty:** low. For natural $m,L$, \\[",
+    "to": "(17); `repository/research/adjudication/adjudication.json`, finding `R1-AF-18`; `funnel_adjudication.json`, `pending_ties`. The corrected canonical row is preserved.",
+    "role": "explains",
+    "statement_ids": [
+      "eq-17"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.classical_eq_17_floor",
+      "QuarticQuery.Gvalue",
+      "QuarticQuery.Paper.classical_eq_17",
+      "Nat.floor_div_eq_div"
+    ],
+    "evidence_status": "unelaborated source proposal",
+    "file": "blueprint.md"
+  },
+  {
+    "passage": "PL-def-dummy",
+    "from": "## `def-dummy` **Class:** `already_stated_under_another_name`. **Proposed route:** `same`. **Compiled:** no. Let $m=2^\\ell$. Draw",
+    "to": "full reviewed tie metadata was consulted, including rows with no old tie.",
+    "role": "explains",
+    "statement_ids": [
+      "def-dummy"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.dummyAvg",
+      "QuarticQuery.dummy",
+      "QuarticQuery.avg",
+      "QuarticQuery.prodW",
+      "QuarticQuery.unif",
+      "QuarticQuery.sum_prodW",
+      "QuarticQuery.avg_resample"
+    ],
+    "evidence_status": "unelaborated source proposal",
+    "file": "blueprint.md"
+  },
+  {
+    "passage": "PL-def-planted",
+    "from": "## `def-planted` **Class:** `already_stated_under_another_name`. **Proposed route:** `same`. **Compiled:** no. Independently choose a",
+    "to": "full reviewed tie metadata was consulted, including rows with no old tie.",
+    "role": "explains",
+    "statement_ids": [
+      "def-planted"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.plantedAvg",
+      "QuarticQuery.planted",
+      "QuarticQuery.trueAddr",
+      "QuarticQuery.coupledAvg",
+      "QuarticQuery.sum_unif"
+    ],
+    "evidence_status": "unelaborated source proposal",
+    "file": "blueprint.md"
+  },
+  {
+    "passage": "PL-claim-Y-values",
+    "from": "## `claim-Y-values` **Class:** `few_lines_from_existing_declarations`. **Proposed route:** `same`. **Compiled:** no. On every sample",
+    "to": "full reviewed tie metadata was consulted, including rows with no old tie.",
+    "role": "explains",
+    "statement_ids": [
+      "claim-Y-values"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.dummy_planted_values_on_support",
+      "QuarticQuery.addressedF_dummy",
+      "QuarticQuery.addressedF_planted",
+      "QuarticQuery.ne_zero_of_prodW_ne_zero"
+    ],
+    "evidence_status": "unelaborated source proposal",
+    "file": "blueprint.md"
+  },
+  {
+    "passage": "PL-eq-18",
+    "from": "## `eq-18` **Class:** `few_lines_from_existing_declarations`. **Proposed route:** `same`. **Compiled:** no. Write $V_I$ for",
+    "to": "full reviewed tie metadata was consulted, including rows with no old tie.",
+    "role": "explains",
+    "statement_ids": [
+      "eq-18",
+      "new-r2-output-gap-pointwise"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.eq_18",
+      "QuarticQuery.QueryTree.exists_mem_path_ne",
+      "QuarticQuery.eq_of_dummy_ne_planted",
+      "QuarticQuery.ind_nonneg",
+      "QuarticQuery.ind_le_one",
+      "QuarticQuery.avg_mono"
+    ],
+    "evidence_status": "unelaborated source proposal",
+    "file": "blueprint.md"
+  },
+  {
+    "passage": "PL-def-Z",
+    "from": "## `def-Z` **Class:** `few_lines_from_existing_declarations`. **Proposed route:** `same`. **Compiled:** no. $Z$ is the",
+    "to": "full reviewed tie metadata was consulted, including rows with no old tie.",
+    "role": "explains",
+    "statement_ids": [
+      "def-Z",
+      "eq-19"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.discoveredZeros",
+      "QuarticQuery.QueryTree.path",
+      "QuarticQuery.foundZero",
+      "Finset.card_filter"
+    ],
+    "evidence_status": "unelaborated source proposal",
+    "file": "blueprint.md"
+  },
+  {
+    "passage": "PL-claim-uniform-zero",
+    "from": "## `claim-uniform-zero` **Class:** `genuine_new_proof`. **Proposed route:** `same`. **Compiled:** no. For a transcript",
+    "to": "full reviewed tie metadata was consulted, including rows with no old tie.",
+    "role": "explains",
+    "statement_ids": [
+      "claim-uniform-zero"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.uniform_zero_given_transcript",
+      "QuarticQuery.dummy",
+      "QuarticQuery.avg_resample",
+      "QuarticQuery.avg_unif",
+      "QuarticQuery.avg_mul_left",
+      "QuarticQuery.QueryTree"
+    ],
+    "evidence_status": "unelaborated source proposal",
+    "file": "blueprint.md"
+  },
+  {
+    "passage": "PL-claim-EZ",
+    "from": "## `claim-EZ` **Class:** `few_lines_from_existing_declarations`. **Proposed route:** `alternative`. **Compiled:** no. **Whole-row relation:** partial.",
+    "to": "full reviewed tie metadata was consulted, including rows with no old tie.",
+    "role": "explains",
+    "statement_ids": [
+      "claim-EZ",
+      "new-r2-EZ-two",
+      "eq-19"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.expectedZeros_le_four",
+      "QuarticQuery.avg_foundZero_I_le",
+      "QuarticQuery.avg_le_const",
+      "QuarticQuery.avg_unif"
+    ],
+    "evidence_status": "unelaborated source proposal",
+    "file": "blueprint.md"
+  },
+  {
+    "passage": "PL-def-heavy",
+    "from": "## `def-heavy` **Class:** `already_stated_under_another_name`. **Proposed route:** `same`. **Compiled:** no. Column $i$ is",
+    "to": "full reviewed tie metadata was consulted, including rows with no old tie.",
+    "role": "explains",
+    "statement_ids": [
+      "def-heavy"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.HeavyColumn",
+      "QuarticQuery.aQueries",
+      "QuarticQuery.aTarget",
+      "QuarticQuery.QueryTree.path"
+    ],
+    "evidence_status": "unelaborated source proposal",
+    "file": "blueprint.md"
+  },
+  {
+    "passage": "PL-def-simulator",
+    "from": "## `def-simulator` **Class:** `already_stated_under_another_name`. **Proposed route:** `same`. **Compiled:** no. Fix column $i$",
+    "to": "full reviewed tie metadata was consulted, including rows with no old tie.",
+    "role": "explains",
+    "statement_ids": [
+      "def-simulator"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.addressSimulator",
+      "QuarticQuery.simTree",
+      "QuarticQuery.aTarget",
+      "QuarticQuery.cellGuess",
+      "QuarticQuery.depth_simTree_le"
+    ],
+    "evidence_status": "unelaborated source proposal",
+    "file": "blueprint.md"
+  },
+  {
+    "passage": "PL-eq-21",
+    "from": "## `eq-21` **Class:** `few_lines_from_existing_declarations`. **Proposed route:** `same`. **Compiled:** no. For every fixed",
+    "to": "full reviewed tie metadata was consulted, including rows with no old tie.",
+    "role": "explains",
+    "statement_ids": [
+      "eq-21"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.eq_21",
+      "QuarticQuery.eval_simTree",
+      "QuarticQuery.OutTree.capped_of_depth_le",
+      "QuarticQuery.address_guess_le",
+      "QuarticQuery.avg_resample",
+      "QuarticQuery.dummy_update_of_aTarget_none",
+      "QuarticQuery.dummy_update_of_aTarget_some"
+    ],
+    "evidence_status": "unelaborated source proposal",
+    "file": "blueprint.md"
+  },
+  {
+    "passage": "PL-eq-22",
+    "from": "## `eq-22` **Class:** `few_lines_from_existing_declarations`. **Proposed route:** `same`. **Compiled:** no. The full true-address",
+    "to": "full reviewed tie metadata was consulted, including rows with no old tie.",
+    "role": "explains",
+    "statement_ids": [
+      "eq-22"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.eq_22",
+      "QuarticQuery.avg_reachedCell_le",
+      "QuarticQuery.avg_heavy_le",
+      "QuarticQuery.avg_resample",
+      "QuarticQuery.address_guess_le"
+    ],
+    "evidence_status": "unelaborated source proposal",
+    "file": "blueprint.md"
+  },
+  {
+    "passage": "PL-eq-23",
+    "from": "## `eq-23` **Class:** `few_lines_from_existing_declarations`. **Proposed route:** `alternative`. **Compiled:** no. The absolute output-one",
+    "to": "full reviewed tie metadata was consulted, including rows with no old tie.",
+    "role": "explains",
+    "statement_ids": [
+      "eq-23",
+      "new-r2-planted-gap-absolute-two",
+      "new-r2-planted-gap-randomized-absolute"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.eq_23",
+      "QuarticQuery.avg_foundZero_I_le",
+      "QuarticQuery.avg_reachedCell_le",
+      "QuarticQuery.avg_heavy_le",
+      "QuarticQuery.address_guess_le",
+      "QuarticQuery.RandomizedProgram.success"
+    ],
+    "evidence_status": "unelaborated source proposal",
+    "file": "blueprint.md"
+  },
+  {
+    "passage": "r2-classical-tail",
+    "from": "## `claim-tail`: the exact logarithmic exponent **Class:** genuine new proof of the",
+    "to": "arithmetic, and quantifiers.” The new exact statements preserve the original row unchanged.",
+    "role": "explains",
+    "statement_ids": [
+      "claim-tail",
+      "eq-6",
+      "eq-17",
+      "r2-classical-tail-identity",
+      "r2-classical-tail-geometric",
+      "r2-classical-tail-negative",
+      "r2-classical-budget-square"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.classical_twoThirds_exact",
+      "QuarticQuery.Paper.classical_tail_parameters",
+      "QuarticQuery.Paper.classical_tail_envelope_tendsto"
+    ],
+    "evidence_status": "unelaborated source proposal",
+    "file": "blueprint.md"
+  },
+  {
+    "passage": "r2-classical-numeric",
+    "from": "## `claim-numeric`: expose the three component inequalities **Class:** a short extraction from",
+    "to": "task changes its exported statement, with no change to the original row.",
+    "role": "explains",
+    "statement_ids": [
+      "claim-numeric",
+      "claim-tail",
+      "eq-23"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.classical_numeric_components"
+    ],
+    "evidence_status": "unelaborated source proposal",
+    "file": "blueprint.md"
+  },
+  {
+    "passage": "r2-classical-omega",
+    "from": "## `cor-R-omega`: close the eventual quantifiers **Class:** already stated by the uncompiled",
+    "to": "and constant strengthening is registered separately, and the original row remains unchanged.",
+    "role": "explains",
+    "statement_ids": [
+      "cor-R-omega",
+      "claim-floor",
+      "prop-4.2",
+      "r2-classical-omega-explicit"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.classical_cor_R_omega_log2",
+      "QuarticQuery.Paper.classical_cor_R_omega_log"
+    ],
+    "evidence_status": "unelaborated source proposal",
+    "file": "blueprint.md"
+  },
+  {
+    "passage": "r2-classical-ratio",
+    "from": "## `claim-exponent-ratio`: state the quotient and its lower envelope **Class:** genuine new",
+    "to": "There is no change to the original row's exponent or quantifier order.",
+    "role": "explains",
+    "statement_ids": [
+      "claim-exponent-ratio",
+      "eq-2",
+      "r2-classical-ratio-arithmetic",
+      "r2-classical-power-log-limit",
+      "r2-classical-ratio-explicit"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.classical_ratio_arithmetic",
+      "QuarticQuery.Paper.classical_power_log_tendsto",
+      "QuarticQuery.Paper.classical_exponent_ratio",
+      "QuarticQuery.Paper.classical_Fkm_ratio"
+    ],
+    "evidence_status": "unelaborated source proposal",
+    "file": "blueprint.md"
+  }
+]

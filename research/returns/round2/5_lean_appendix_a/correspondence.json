@@ -1,0 +1,653 @@
+[
+  {
+    "passage": "result",
+    "from": "For every total Boolean function, the proposed assembly",
+    "to": "a short algebraic specialization.\n\n## 1. Library map",
+    "role": "states",
+    "statement_ids": [
+      "thm-A.1",
+      "new-A-quartic-minimum",
+      "new-A-quartic-full"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.appendixA_D_le_Q_pow_four",
+      "QuarticQuery.Paper.appendixA_theoremA1"
+    ]
+  },
+  {
+    "passage": "library-map",
+    "from": "The following map is against complexitylib revision `62ca5c21461b2482e8bd12b7cb9b4937d887a33a`,",
+    "to": "`lean/QuarticQuery/Bridge/Deferred.lean` |\n\n### Models, normalisation and evidence classes",
+    "role": "explains",
+    "statement_ids": [
+      "def-deg",
+      "def-bs",
+      "def-Gamma-i",
+      "claim-perron",
+      "def-adv-progress",
+      "claim-per-query",
+      "claim-final-overlap",
+      "lem-A.2",
+      "def-Sf",
+      "lem-A.3.bs",
+      "lem-A.3.lambda",
+      "lem-A.3",
+      "claim-restrict-parity",
+      "def-huang",
+      "claim-huang-spectrum",
+      "claim-interlace",
+      "lem-A.4",
+      "claim-round-block",
+      "lem-A.5"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.appendixA_degree_le_iff_fourier",
+      "QuarticQuery.Paper.appendixA_blockSensitivity_eq",
+      "QuarticQuery.Paper.appendixAGammaCoord_apply",
+      "QuarticQuery.Paper.appendixA_perron",
+      "QuarticQuery.Paper.appendixAProgress",
+      "QuarticQuery.Paper.appendixAProgress_query_quadratic",
+      "QuarticQuery.Paper.appendixA_unit_states_final_overlap",
+      "QuarticQuery.Paper.appendixA_lemmaA2",
+      "QuarticQuery.Paper.appendixA_spectralSensitivity_eq",
+      "QuarticQuery.Paper.appendixA_blockSensitivity_star_le_Q_sq",
+      "QuarticQuery.Paper.appendixA_spectralSensitivity_adversary_le_Q",
+      "QuarticQuery.Paper.appendixA_lemmaA3_adversary",
+      "QuarticQuery.Paper.appendixA_restriction_parity_face",
+      "QuarticQuery.Paper.huangMatrix",
+      "QuarticQuery.Paper.huangEnd_eigenspaces_half",
+      "QuarticQuery.Paper.huang_positive_rayleigh_witness",
+      "QuarticQuery.Paper.appendixA4_paper_route",
+      "QuarticQuery.Paper.appendixA_exists_maximal_round_support",
+      "QuarticQuery.Paper.appendixA_lemmaA5"
+    ]
+  },
+  {
+    "passage": "models",
+    "from": "The project uses `TotalBool (Fin n)`, definitionally a",
+    "to": "identifies any local substitution in the proof route.",
+    "role": "explains",
+    "statement_ids": [
+      "def-Q",
+      "def-D",
+      "def-R",
+      "def-Sf"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.appendixA_QLe_total_cases",
+      "QuarticQuery.Paper.appendixA_spectralSensitivity_eq"
+    ]
+  },
+  {
+    "passage": "row-def-deg",
+    "from": "### `def-deg`: polynomial degree\n\n**Class:** exact definition bridge.",
+    "to": "at negative infinity would change this row's convention.",
+    "role": "defines",
+    "statement_ids": [
+      "def-deg"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.appendixA_degree_le_iff",
+      "QuarticQuery.Paper.appendixA_degree_le_iff_fourier",
+      "QuarticQuery.Paper.appendixA_degree_const",
+      "QuarticQuery.Paper.appendixA_degree_eq_sign"
+    ]
+  },
+  {
+    "passage": "row-def-bs",
+    "from": "### `def-bs`: block sensitivity\n\n**Class:** exact definition bridge.",
+    "to": "assumption is needed. `appendixA_blockSensitivity_const` handles the constant boundary.",
+    "role": "defines",
+    "statement_ids": [
+      "def-bs"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.appendixA_isSensitiveBlock_iff",
+      "QuarticQuery.Paper.appendixA_blockSensitivity_eq",
+      "QuarticQuery.Paper.appendixA_blockSensitivity_const"
+    ]
+  },
+  {
+    "passage": "row-def-Gamma-i",
+    "from": "### `def-Gamma-i`: coordinate masks and matrix norms\n\n**Class:**",
+    "to": "No generic matrix norm instance is relied upon.",
+    "role": "defines",
+    "statement_ids": [
+      "def-Gamma-i"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.AppendixAMatrix",
+      "QuarticQuery.Paper.appendixAMatrixNorm",
+      "QuarticQuery.Paper.appendixAGammaCoord",
+      "QuarticQuery.Paper.appendixAGammaCoord_apply",
+      "QuarticQuery.Paper.appendixAGammaCoord_nonneg",
+      "QuarticQuery.Paper.appendixACoordinateMax",
+      "QuarticQuery.Paper.appendixA_coord_le_max",
+      "QuarticQuery.Paper.appendixACoordinateMax_nonneg"
+    ]
+  },
+  {
+    "passage": "row-claim-perron",
+    "from": "### `claim-perron`: a nonnegative norm eigenvector\n\n**Class:** stronger,",
+    "to": "definition is not used as an assumed theorem.",
+    "role": "states",
+    "statement_ids": [
+      "claim-perron"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.AppendixAPerronWitness",
+      "QuarticQuery.Paper.AppendixAPerronObligation",
+      "QuarticQuery.Paper.appendixA_perron_form",
+      "QuarticQuery.Paper.appendixAAbsVector",
+      "QuarticQuery.Paper.appendixAAbsVector_norm",
+      "QuarticQuery.Paper.appendixA_matrix_quadratic_form",
+      "QuarticQuery.Paper.appendixA_abs_quadratic_le",
+      "QuarticQuery.Paper.appendixA_exists_nonneg_unit_eigenvector",
+      "QuarticQuery.Paper.appendixA_perron",
+      "QuarticQuery.Paper.appendixA_perronObligation"
+    ]
+  },
+  {
+    "passage": "row-def-adv-progress",
+    "from": "### `def-adv-progress`: the paper's progress sum\n\n**Class:** exact",
+    "to": "that later progress values are nonnegative real numbers.",
+    "role": "defines",
+    "statement_ids": [
+      "def-adv-progress"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.appendixAProgress",
+      "QuarticQuery.Paper.appendixAProgress_isometry",
+      "QuarticQuery.Paper.appendixAProgress_initial"
+    ]
+  },
+  {
+    "passage": "row-claim-per-query",
+    "from": "### `claim-per-query`: the arbitrary-matrix query estimate\n\n**Class:** exact",
+    "to": "above ties it to the original adaptive algorithm.",
+    "role": "states",
+    "statement_ids": [
+      "claim-per-query"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.appendixA_inner_phaseOracle",
+      "QuarticQuery.Paper.appendixA_norm_inner_phaseOracle_sub",
+      "QuarticQuery.Paper.appendixA_quadratic_le_norm",
+      "QuarticQuery.Paper.appendixA_query_weights_le_one",
+      "QuarticQuery.Paper.appendixAProgress_query_quadratic",
+      "QuarticQuery.Paper.appendixAProgress_query_le",
+      "QuarticQuery.Paper.AppendixAPerQueryObligation",
+      "QuarticQuery.Paper.appendixA_perQuery_of_bounds",
+      "QuarticQuery.Paper.appendixA_progress_telescope"
+    ]
+  },
+  {
+    "passage": "row-claim-final-overlap",
+    "from": "### `claim-final-overlap`: output separation and final progress\n\n**Class:**",
+    "to": "two-state bound would leave this weighted conclusion unstated.",
+    "role": "states",
+    "statement_ids": [
+      "claim-final-overlap"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.appendixAProgress_final_of_overlap",
+      "QuarticQuery.Paper.appendixA_unit_states_final_overlap",
+      "QuarticQuery.Paper.appendixA_final_overlap",
+      "QuarticQuery.Paper.appendixAProgress_final"
+    ]
+  },
+  {
+    "passage": "row-lem-A.2",
+    "from": "### `lem-A.2`: nonnegative spectral adversary\n\n**Class:** stronger explicit-constant",
+    "to": "the source-note correction are separated in Section 4.",
+    "role": "states",
+    "statement_ids": [
+      "lem-A.2",
+      "new-A-adversary-budget"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.appendixA_conditional_adversary",
+      "QuarticQuery.Paper.appendixA_adversary_of_perron",
+      "QuarticQuery.Paper.appendixA_adversary_thirty_five_of_perron",
+      "QuarticQuery.Paper.appendixA_matrixNorm_le_of_QLe",
+      "QuarticQuery.Paper.appendixA_matrixNorm_le_Q",
+      "QuarticQuery.Paper.appendixAMatrixNorm_pos",
+      "QuarticQuery.Paper.appendixACoordinateMax_pos",
+      "QuarticQuery.Paper.appendixA_lemmaA2"
+    ]
+  },
+  {
+    "passage": "row-def-Sf",
+    "from": "### `def-Sf`: the sensitivity matrix\n\n**Class:** exact definition",
+    "to": "does not combine with that spectral query bound.",
+    "role": "defines",
+    "statement_ids": [
+      "def-Sf"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.appendixA_sensitivityMatrix",
+      "QuarticQuery.Paper.appendixA_sensitivityGraph_adj_iff",
+      "QuarticQuery.Paper.appendixA_spectralSensitivity_eq",
+      "QuarticQuery.Paper.appendixA_spectralSensitivity_const"
+    ]
+  },
+  {
+    "passage": "row-lem-A.3.bs",
+    "from": "### `lem-A.3.bs`: the star application\n\n**Class:** stronger explicit-constant",
+    "to": "remains separate and gives the better coefficient 16.",
+    "role": "states",
+    "statement_ids": [
+      "lem-A.3.bs",
+      "new-A-A3-explicit",
+      "new-A-star-norm"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.appendixA_blockSensitivity_le_of_QLe",
+      "QuarticQuery.Paper.appendixA_edgeMatrix",
+      "QuarticQuery.Paper.appendixA_edgeMatrix_symm",
+      "QuarticQuery.Paper.appendixA_edgeMatrix_nonneg",
+      "QuarticQuery.Paper.appendixA_edgeMatrix_mulVec",
+      "QuarticQuery.Paper.appendixA_edgeMatrix_norm_le_one",
+      "QuarticQuery.Paper.appendixA_starMatrix",
+      "QuarticQuery.Paper.appendixA_starMatrix_symm",
+      "QuarticQuery.Paper.appendixA_starMatrix_nonneg",
+      "QuarticQuery.Paper.appendixA_starMatrix_mulVec",
+      "QuarticQuery.Paper.appendixA_starMatrix_mulVec_center",
+      "QuarticQuery.Paper.appendixA_star_card_le_norm_sq",
+      "QuarticQuery.Paper.appendixA_star_norm_le_sqrt_card",
+      "QuarticQuery.Paper.appendixA_star_norm_eq_sqrt_card",
+      "QuarticQuery.Paper.appendixA_star_same_output_zero",
+      "QuarticQuery.Paper.appendixA_mask_edge",
+      "QuarticQuery.Paper.appendixA_mask_star",
+      "QuarticQuery.Paper.appendixA_mask_star_norm_le_one",
+      "QuarticQuery.Paper.appendixA_flipBlock_injective",
+      "QuarticQuery.Paper.appendixA_sensitiveFamily_star_properties",
+      "QuarticQuery.Paper.appendixA_sensitiveFamily_card_le_of_QLe",
+      "QuarticQuery.Paper.appendixA_blockSensitivity_star_le_of_QLe",
+      "QuarticQuery.Paper.appendixA_blockSensitivity_star_le_Q_sq"
+    ]
+  },
+  {
+    "passage": "row-lem-A.3.lambda",
+    "from": "### `lem-A.3.lambda`: the sensitivity-graph application\n\n**Class:** stronger explicit-constant",
+    "to": "A.2. Both implementations are preserved with distinct declarations.",
+    "role": "states",
+    "statement_ids": [
+      "lem-A.3.lambda",
+      "new-A-A3-explicit",
+      "new-A-matching-mask"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.appendixA_spectralSensitivity_le_thirty_five_mul",
+      "QuarticQuery.Paper.appendixA_spectralSensitivity_le_of_QLe",
+      "QuarticQuery.Paper.appendixA_sensitivity_mask_apply",
+      "QuarticQuery.Paper.appendixA_sensitivity_mask_mulVec",
+      "QuarticQuery.Paper.appendixA_sensitivity_mask_norm_le_one",
+      "QuarticQuery.Paper.appendixA_spectralSensitivity_adversary_le_of_QLe",
+      "QuarticQuery.Paper.appendixA_spectralSensitivity_adversary_le_Q"
+    ]
+  },
+  {
+    "passage": "row-lem-A.3",
+    "from": "### `lem-A.3`: the two quantum lower bounds\n\n**Class:**",
+    "to": "without attributing its proof to the star construction.",
+    "role": "states",
+    "statement_ids": [
+      "lem-A.3",
+      "new-A-A3-explicit"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.appendixA_QLe_total_cases",
+      "QuarticQuery.Paper.appendixA_lemmaA3",
+      "QuarticQuery.Paper.appendixA_lemmaA3_adversary"
+    ]
+  },
+  {
+    "passage": "row-claim-restrict-parity",
+    "from": "### `claim-restrict-parity`: every outside assignment and an actual",
+    "to": "is a sufficient way to obtain this condition.",
+    "role": "states",
+    "statement_ids": [
+      "claim-restrict-parity",
+      "new-A-maximal-coefficient"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.appendixA_parityFiber_of_fourier",
+      "QuarticQuery.Paper.appendixA_parityFiber_explicit",
+      "QuarticQuery.Paper.appendixA_topFourierSupport",
+      "QuarticQuery.Paper.appendixA_degreeSupport_parityFiber",
+      "QuarticQuery.Paper.appendixAFaceFill",
+      "QuarticQuery.Paper.appendixAFaceFill_restrict",
+      "QuarticQuery.Paper.appendixAFaceFill_apply",
+      "QuarticQuery.Paper.appendixA_chi_restrict",
+      "QuarticQuery.Paper.appendixA_chi_univ_equiv",
+      "QuarticQuery.Paper.appendixAFaceEmbedding",
+      "QuarticQuery.Paper.appendixAFaceEmbedding_apply",
+      "QuarticQuery.Paper.appendixAFaceEmbedding_injective",
+      "QuarticQuery.Paper.appendixAFaceEmbedding_update",
+      "QuarticQuery.Paper.appendixAFaceFin",
+      "QuarticQuery.Paper.appendixA_faceSubtype_fourier",
+      "QuarticQuery.Paper.appendixA_faceFin_fourier",
+      "QuarticQuery.Paper.appendixA_maximal_fourierCoeff_piecewise",
+      "QuarticQuery.Paper.appendixA_topFourier_strictSupersets_zero",
+      "QuarticQuery.Paper.appendixA_topFourier_survives",
+      "QuarticQuery.Paper.appendixA_topFourier_survives_ne_zero",
+      "QuarticQuery.Paper.appendixA_every_restriction_large_fiber",
+      "QuarticQuery.Paper.appendixA_restriction_parity",
+      "QuarticQuery.Paper.appendixA_restriction_parity_face"
+    ]
+  },
+  {
+    "passage": "row-def-huang",
+    "from": "### `def-huang`: the recursive signed cube\n\n**Class:** exact",
+    "to": "Walsh–Hadamard matrix used in the paper's Forrelation construction.",
+    "role": "defines",
+    "statement_ids": [
+      "def-huang"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.HuangVertex",
+      "QuarticQuery.Paper.huangVertexFintype",
+      "QuarticQuery.Paper.huangVertexDecidableEq",
+      "QuarticQuery.Paper.huangVertex_card",
+      "QuarticQuery.Paper.huangVertexInput",
+      "QuarticQuery.Paper.huangInputVertex",
+      "QuarticQuery.Paper.huangInputVertex_vertexInput",
+      "QuarticQuery.Paper.huangVertexInput_inputVertex",
+      "QuarticQuery.Paper.huangVertexEquivInput",
+      "QuarticQuery.Paper.huangVertexInput_inj",
+      "QuarticQuery.Paper.appendixACubeEdge",
+      "QuarticQuery.Paper.appendixACubeEdge_iff_update",
+      "QuarticQuery.Paper.appendixACubeEdge_cons",
+      "QuarticQuery.Paper.huangAdjacent",
+      "QuarticQuery.Paper.huangAdjacentDecidable",
+      "QuarticQuery.Paper.huangAdjacent_iff_cubeEdge",
+      "QuarticQuery.Paper.huangMatrix",
+      "QuarticQuery.Paper.huangMatrix_one",
+      "QuarticQuery.Paper.huangCubeMatrix",
+      "QuarticQuery.Paper.huangCubeMatrix_eq_ite",
+      "QuarticQuery.Paper.abs_huangMatrix"
+    ]
+  },
+  {
+    "passage": "row-claim-huang-spectrum",
+    "from": "### `claim-huang-spectrum`: square, trace and multiplicities\n\n**Class:** exact",
+    "to": "does not. The finite checker exercises both boundaries.",
+    "role": "states",
+    "statement_ids": [
+      "claim-huang-spectrum"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.huangMatrix_transpose",
+      "QuarticQuery.Paper.huangMatrix_square",
+      "QuarticQuery.Paper.huangMatrix_trace",
+      "QuarticQuery.Paper.huangEnd",
+      "QuarticQuery.Paper.huangEnd_square",
+      "QuarticQuery.Paper.huangEnd_eigenvalue",
+      "QuarticQuery.Paper.huangParity",
+      "QuarticQuery.Paper.huangParity_square",
+      "QuarticQuery.Paper.huangParity_matrix",
+      "QuarticQuery.Paper.huangParityEnd",
+      "QuarticQuery.Paper.huangParityEnd_involutive",
+      "QuarticQuery.Paper.huangEnd_parity",
+      "QuarticQuery.Paper.huangEnd_eigenspaces_sup",
+      "QuarticQuery.Paper.huangEnd_eigenspaces_inf",
+      "QuarticQuery.Paper.huangEnd_eigenspaces_finrank",
+      "QuarticQuery.Paper.huangEnd_eigenspaces_half"
+    ]
+  },
+  {
+    "passage": "row-claim-interlace",
+    "from": "### `claim-interlace`: a supported positive eigenvector\n\n**Class:** exact",
+    "to": "not merely invoke a nearby already-absolute-valued library witness.",
+    "role": "states",
+    "statement_ids": [
+      "claim-interlace"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.appendixA_spectral_of_large_sensitive_fiber",
+      "QuarticQuery.Paper.huang_supported_positive_eigenvector",
+      "QuarticQuery.Paper.huang_absolute_rayleigh",
+      "QuarticQuery.Paper.huang_absolute_rayleigh_supported",
+      "QuarticQuery.Paper.huang_positive_rayleigh_witness"
+    ]
+  },
+  {
+    "passage": "row-lem-A.4",
+    "from": "### `lem-A.4`: the spectral form of Huang's inequality",
+    "to": "argument needs the spectral quantity bounded in A.3.",
+    "role": "states",
+    "statement_ids": [
+      "lem-A.4"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.appendixA_degree_le_of_QLe",
+      "QuarticQuery.Paper.appendixA4",
+      "QuarticQuery.Paper.appendixA4_sqrt",
+      "QuarticQuery.Paper.appendixA_quadratic_embedding",
+      "QuarticQuery.Paper.appendixA_spectral_of_cube_embedding",
+      "QuarticQuery.Paper.appendixA4_paper_route",
+      "QuarticQuery.Paper.appendixAFaceEmbedding_sensitive"
+    ]
+  },
+  {
+    "passage": "row-claim-round-block",
+    "from": "### `claim-round-block`: blocks at the same original input",
+    "to": "algorithm, not an extra mathematical hypothesis in A.5.",
+    "role": "states",
+    "statement_ids": [
+      "claim-round-block"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.appendixA_sensitiveBlock_of_maximal_support",
+      "QuarticQuery.Paper.appendixA_exists_maximal_round_support",
+      "QuarticQuery.Paper.appendixA_sensitiveBlock_of_restriction",
+      "QuarticQuery.Paper.appendixA_roundBlocks_pairwise_disjoint",
+      "QuarticQuery.Paper.appendixA_round_count_le",
+      "QuarticQuery.Paper.appendixA_round_decreases_blockSensitivity"
+    ]
+  },
+  {
+    "passage": "row-lem-A.5",
+    "from": "### `lem-A.5`: deterministic complexity\n\n**Class:** exact project-model bridge.",
+    "to": "and is retained.\n\n## 3. Assembly and constants",
+    "role": "states",
+    "statement_ids": [
+      "lem-A.5"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.appendixA_lemmaA5"
+    ]
+  },
+  {
+    "passage": "assembly",
+    "from": "The new implementation proves the following chain at",
+    "to": "diagram or text search cannot replace that receipt.",
+    "role": "proves",
+    "statement_ids": [
+      "thm-A.1",
+      "new-A-A3-explicit",
+      "new-A-degree-budget",
+      "new-A-quartic-budget",
+      "new-A-quartic-full"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.appendixA_degree_le_of_QLe",
+      "QuarticQuery.Paper.appendixA_D_le_of_QLe",
+      "QuarticQuery.Paper.appendixA_theoremA1"
+    ]
+  },
+  {
+    "passage": "constant-comparison",
+    "from": "The original imported endpoint and two proposed assemblies",
+    "to": "actual source.\n\n## 4. Corrections and citation precision",
+    "role": "explains",
+    "statement_ids": [
+      "thm-A.1",
+      "new-A-A3-explicit",
+      "new-A-imported-pair",
+      "new-A-quartic-hybrid"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.appendixA_lemmaA3",
+      "QuarticQuery.Paper.appendixA_lemmaA3_adversary",
+      "QuarticQuery.Paper.appendixA_D_le_Q_pow_four_hybrid"
+    ]
+  },
+  {
+    "passage": "source-correction",
+    "from": "The supplied Špalek–Szegedy annex note `n003` misreads the",
+    "to": "optional explicit-constant strengthenings. No input file was overwritten.",
+    "role": "explains",
+    "statement_ids": [
+      "lem-A.2",
+      "claim-huang-spectrum"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.appendixA_adversary_of_perron",
+      "QuarticQuery.Paper.appendixA_lemmaA2",
+      "QuarticQuery.Paper.huangEnd_eigenspaces_half"
+    ]
+  },
+  {
+    "passage": "citations",
+    "from": "For the eventual mathematical text, the essential citations",
+    "to": "is needed here.\n\n## 5. Verification and integration",
+    "role": "mentions",
+    "statement_ids": [
+      "lem-A.2",
+      "lem-A.3",
+      "lem-A.4",
+      "lem-A.5",
+      "thm-A.1"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "verification",
+    "from": "The proposed proofs were reviewed against actual source",
+    "to": "work and local proof-route differences in reading order.",
+    "role": "explains",
+    "statement_ids": [],
+    "lean": []
+  },
+  {
+    "passage": "integration",
+    "from": "To integrate, copy the returned `lean/QuarticQuery/Paper/AppendixA*.lean` modules into",
+    "to": "merge or change to historical evidence was performed.",
+    "role": "explains",
+    "statement_ids": [
+      "thm-A.1"
+    ],
+    "lean": [
+      "QuarticQuery.Paper.appendixA_D_le_Q_pow_four"
+    ]
+  },
+  {
+    "document": "SOURCE_COEFFICIENT_CHECK.md",
+    "passage": "coefficient-finding",
+    "from": "**Finding.** The error-dependent coefficient printed in Špalek–Szegedy's 2006",
+    "to": "erratum is claimed.\n\n## Source and convention checks",
+    "role": "states",
+    "statement_ids": [
+      "new-A-parity-two-exact-query",
+      "new-A-parity-two-adversary",
+      "new-A-positive-error-arithmetic"
+    ],
+    "lean": []
+  },
+  {
+    "document": "SOURCE_COEFFICIENT_CHECK.md",
+    "passage": "coefficient-source-conventions",
+    "from": "The [publisher PDF of Špalek–Szegedy](https://theoryofcomputing.org/articles/v002a001/v002a001.pdf), DOI [10.4086/toc.2006.v002a001](https://doi.org/10.4086/toc.2006.v002a001), was",
+    "to": "One ordinary bit-oracle call computes two-bit parity exactly",
+    "role": "explains",
+    "statement_ids": [
+      "lem-A.2"
+    ],
+    "lean": []
+  },
+  {
+    "document": "SOURCE_COEFFICIENT_CHECK.md",
+    "passage": "coefficient-one-query-witness",
+    "from": "Let \\(f(x_0,x_1)=x_0\\mathbin{\\oplus}x_1\\). Use a two-dimensional query-index register and",
+    "to": "## A feasible matrix with spectral ratio two",
+    "role": "proves",
+    "statement_ids": [
+      "new-A-parity-two-exact-query"
+    ],
+    "lean": []
+  },
+  {
+    "document": "SOURCE_COEFFICIENT_CHECK.md",
+    "passage": "coefficient-matrix-witness",
+    "from": "Order the inputs as \\(00,01,10,11\\) and choose the",
+    "to": "Euclidean norm one. This feasible matrix gives \\(SA(f)\\ge2\\).",
+    "role": "proves",
+    "statement_ids": [
+      "new-A-parity-two-adversary"
+    ],
+    "lean": []
+  },
+  {
+    "document": "SOURCE_COEFFICIENT_CHECK.md",
+    "passage": "coefficient-positive-error-contradiction",
+    "from": "At error zero, the printed coefficient would imply",
+    "to": "## The coefficient supported by the progress argument",
+    "role": "proves",
+    "statement_ids": [
+      "new-A-positive-error-arithmetic",
+      "new-A-parity-two-exact-query",
+      "new-A-parity-two-adversary"
+    ],
+    "lean": []
+  },
+  {
+    "document": "SOURCE_COEFFICIENT_CHECK.md",
+    "passage": "coefficient-supported-bound",
+    "from": "With the ordinary bit oracle, the standard argument",
+    "to": "is one. A claim \\(|W_1-W_0|\\le\\max_i\\|\\Gamma_i\\|\\) would fail here.",
+    "role": "states",
+    "statement_ids": [
+      "new-A-general-error-adversary",
+      "new-A-progress-factor-two-saturation"
+    ],
+    "lean": []
+  },
+  {
+    "document": "SOURCE_COEFFICIENT_CHECK.md",
+    "passage": "coefficient-primary-corroboration",
+    "from": "For primary corroboration, [Høyer, Lee and Špalek, *Negative",
+    "to": "## Exact checks and a possible Lean statement",
+    "role": "mentions",
+    "statement_ids": [
+      "new-A-general-error-adversary",
+      "lem-A.2"
+    ],
+    "lean": []
+  },
+  {
+    "document": "SOURCE_COEFFICIENT_CHECK.md",
+    "passage": "coefficient-exact-checks",
+    "from": "Run `python checks/source_coefficient_check.py > checks/source_coefficient_check.json` from the return",
+    "to": "no random seed, numerical eigensolver or floating-point tolerance.",
+    "role": "explains",
+    "statement_ids": [
+      "new-A-parity-two-exact-query",
+      "new-A-parity-two-adversary",
+      "new-A-progress-factor-two-saturation"
+    ],
+    "lean": []
+  },
+  {
+    "document": "SOURCE_COEFFICIENT_CHECK.md",
+    "passage": "coefficient-proposed-lean-statement",
+    "from": "For a future formalization in `namespace QuarticQuery.Paper`, define",
+    "to": "check has been added to the Lean modules.",
+    "role": "states",
+    "statement_ids": [
+      "new-A-parity-two-exact-query"
+    ],
+    "lean": []
+  }
+]

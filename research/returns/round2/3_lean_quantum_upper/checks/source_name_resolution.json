@@ -1,0 +1,743 @@
+{
+  "resolved": {
+    "QuarticQuery.Amplification.Preparation.angle_mem": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Amplification/Geometry.lean",
+      "line": 311
+    },
+    "QuarticQuery.Amplification.Preparation.good_badState": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Amplification/Geometry.lean",
+      "line": 396
+    },
+    "QuarticQuery.Amplification.Preparation.good_goodState": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Amplification/Geometry.lean",
+      "line": 393
+    },
+    "QuarticQuery.Amplification.Preparation.good_iterate": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Amplification/Geometry.lean",
+      "line": 401
+    },
+    "QuarticQuery.Amplification.Preparation.good_iterate_of_prob_zero": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Amplification/Geometry.lean",
+      "line": 454
+    },
+    "QuarticQuery.Amplification.Preparation.iterate_eq": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Amplification/Geometry.lean",
+      "line": 343
+    },
+    "QuarticQuery.Amplification.Preparation.norm_badPart_sq": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Amplification/Geometry.lean",
+      "line": 235
+    },
+    "QuarticQuery.Amplification.Preparation.norm_goodState": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Amplification/Geometry.lean",
+      "line": 428
+    },
+    "QuarticQuery.Amplification.Preparation.phaseEq_normalised_good_iterate": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Amplification/Geometry.lean",
+      "line": 437
+    },
+    "QuarticQuery.Amplification.Preparation.prob_nonneg": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Amplification/Geometry.lean",
+      "line": 241
+    },
+    "QuarticQuery.Amplification.Preparation.sin_two_angle": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Amplification/Geometry.lean",
+      "line": 462
+    },
+    "QuarticQuery.Amplification.Preparation.state_eq": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Amplification/Geometry.lean",
+      "line": 324
+    },
+    "QuarticQuery.Amplification.amplify": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Amplification/Procedure.lean",
+      "line": 82
+    },
+    "QuarticQuery.Amplification.attempts": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Amplification/Procedure.lean",
+      "line": 70
+    },
+    "QuarticQuery.Amplification.average_sin_sq_ge": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Amplification/Average.lean",
+      "line": 53
+    },
+    "QuarticQuery.Amplification.callCap_attempts": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Amplification/Procedure.lean",
+      "line": 87
+    },
+    "QuarticQuery.Amplification.iterationBound": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Amplification/Procedure.lean",
+      "line": 76
+    },
+    "QuarticQuery.Amplification.iterationBound_ne_zero": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Amplification/Bounded.lean",
+      "line": 49
+    },
+    "QuarticQuery.Amplification.norm_normalised": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Amplification/Geometry.lean",
+      "line": 124
+    },
+    "QuarticQuery.Amplification.sum_trialWeight": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Amplification/Procedure.lean",
+      "line": 227
+    },
+    "QuarticQuery.Amplification.trialCount": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Amplification/Procedure.lean",
+      "line": 79
+    },
+    "QuarticQuery.Amplification.trialWeight": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Amplification/Procedure.lean",
+      "line": 65
+    },
+    "QuarticQuery.Forrelation.forrCircuit_size_le": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Forrelation/Circuit.lean",
+      "line": 466
+    },
+    "QuarticQuery.Forrelation.repetitions_le": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Forrelation/Repetition.lean",
+      "line": 196
+    },
+    "QuarticQuery.Paper.amplification_budget_le": {
+      "origin": "proposed",
+      "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+      "line": 156
+    },
+    "QuarticQuery.Paper.equation_15_index_law": {
+      "origin": "proposed",
+      "file": "lean/QuarticQuery/Paper/QuantumTensor.lean",
+      "line": 220
+    },
+    "QuarticQuery.Paper.quantumComparison_self": {
+      "origin": "proposed",
+      "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+      "line": 204
+    },
+    "QuarticQuery.Paper.quantumComparison_unordered_state": {
+      "origin": "proposed",
+      "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+      "line": 230
+    },
+    "QuarticQuery.Paper.quantumListLaw_vall": {
+      "origin": "proposed",
+      "file": "lean/QuarticQuery/Paper/QuantumTournament.lean",
+      "line": 93
+    },
+    "QuarticQuery.Paper.quantumList_coupling": {
+      "origin": "proposed",
+      "file": "lean/QuarticQuery/Paper/QuantumTournament.lean",
+      "line": 175
+    },
+    "QuarticQuery.Paper.quantumStageLaw_nonneg": {
+      "origin": "proposed",
+      "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+      "line": 117
+    },
+    "QuarticQuery.Paper.quantumStageLaw_total": {
+      "origin": "proposed",
+      "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+      "line": 135
+    },
+    "QuarticQuery.Paper.quantumStageReads_compile": {
+      "origin": "proposed",
+      "file": "lean/QuarticQuery/Paper/QuantumTournament.lean",
+      "line": 248
+    },
+    "QuarticQuery.Paper.quantumTensorStage": {
+      "origin": "proposed",
+      "file": "lean/QuarticQuery/Paper/QuantumTensor.lean",
+      "line": 288
+    },
+    "QuarticQuery.Paper.quantumTournament_cost": {
+      "origin": "proposed",
+      "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+      "line": 237
+    },
+    "QuarticQuery.Paper.quantumTournament_list": {
+      "origin": "proposed",
+      "file": "lean/QuarticQuery/Paper/QuantumTournament.lean",
+      "line": 270
+    },
+    "QuarticQuery.Paper.quantumTval_two_le": {
+      "origin": "proposed",
+      "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+      "line": 188
+    },
+    "QuarticQuery.Paper.quantumVall_indicator": {
+      "origin": "proposed",
+      "file": "lean/QuarticQuery/Paper/QuantumTournament.lean",
+      "line": 163
+    },
+    "QuarticQuery.Paper.quantumWeight_product": {
+      "origin": "proposed",
+      "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+      "line": 87
+    },
+    "QuarticQuery.Paper.quantumWorkspace_uniformize": {
+      "origin": "proposed",
+      "file": "lean/QuarticQuery/Paper/QuantumWorkspace.lean",
+      "line": 28
+    },
+    "QuarticQuery.Paper.quantum_amplify_samples": {
+      "origin": "proposed",
+      "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+      "line": 355
+    },
+    "QuarticQuery.Paper.quantum_sin_two_angle": {
+      "origin": "proposed",
+      "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+      "line": 81
+    },
+    "QuarticQuery.Q_reindex": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Model/Quantum.lean",
+      "line": 276
+    },
+    "QuarticQuery.Tournament.Dominant": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Tournament/Ideal.lean",
+      "line": 220
+    },
+    "QuarticQuery.Tournament.Tval": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Tournament/Ideal.lean",
+      "line": 296
+    },
+    "QuarticQuery.Tournament.Tval_mul_epsval": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Tournament/Ideal.lean",
+      "line": 314
+    },
+    "QuarticQuery.Tournament.Tval_pos": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Tournament/Ideal.lean",
+      "line": 301
+    },
+    "QuarticQuery.Tournament.UnitValued": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Tournament/Ideal.lean",
+      "line": 29
+    },
+    "QuarticQuery.Tournament.dominant_weight_lb": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Tournament/Ideal.lean",
+      "line": 239
+    },
+    "QuarticQuery.Tournament.epsval": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Tournament/Ideal.lean",
+      "line": 299
+    },
+    "QuarticQuery.Tournament.expected_weight_eq": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Tournament/Drift.lean",
+      "line": 55
+    },
+    "QuarticQuery.Tournament.expected_weight_le_half": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Tournament/Drift.lean",
+      "line": 71
+    },
+    "QuarticQuery.Tournament.half_lt_total": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Tournament/Ideal.lean",
+      "line": 254
+    },
+    "QuarticQuery.Tournament.ideal_tournament": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Tournament/Ideal.lean",
+      "line": 338
+    },
+    "QuarticQuery.Tournament.pow_le_weight": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Tournament/Ideal.lean",
+      "line": 225
+    },
+    "QuarticQuery.Tournament.total_error_lt": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Tournament/Ideal.lean",
+      "line": 327
+    },
+    "QuarticQuery.Tournament.two_mul_weighted_sum": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Tournament/Drift.lean",
+      "line": 26
+    },
+    "QuarticQuery.Upper.Fkm_QLe": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Verify.lean",
+      "line": 138
+    },
+    "QuarticQuery.Upper.IsCirc.comp": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Circuit.lean",
+      "line": 372
+    },
+    "QuarticQuery.Upper.IsCirc.left": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Sampler.lean",
+      "line": 232
+    },
+    "QuarticQuery.Upper.IsCirc.sigma": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Circuit.lean",
+      "line": 423
+    },
+    "QuarticQuery.Upper.IsCirc.symm": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Circuit.lean",
+      "line": 379
+    },
+    "QuarticQuery.Upper.Runs.bind": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Compile.lean",
+      "line": 354
+    },
+    "QuarticQuery.Upper.Samples.bind": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Sampler.lean",
+      "line": 241
+    },
+    "QuarticQuery.Upper.Samples.disq": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Columns.lean",
+      "line": 110
+    },
+    "QuarticQuery.Upper.Samples.pi": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Decode.lean",
+      "line": 150
+    },
+    "QuarticQuery.Upper.Samples.runs": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Compile.lean",
+      "line": 396
+    },
+    "QuarticQuery.Upper.Samples.tree": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Sampler.lean",
+      "line": 300
+    },
+    "QuarticQuery.Upper.Tval_mValue_le": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Bound.lean",
+      "line": 47
+    },
+    "QuarticQuery.Upper.addrLaw": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Columns.lean",
+      "line": 46
+    },
+    "QuarticQuery.Upper.addrLaw_good": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Columns.lean",
+      "line": 65
+    },
+    "QuarticQuery.Upper.addrLaw_nonneg": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Columns.lean",
+      "line": 217
+    },
+    "QuarticQuery.Upper.addr_samples": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Columns.lean",
+      "line": 56
+    },
+    "QuarticQuery.Upper.budgetConst": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Bound.lean",
+      "line": 53
+    },
+    "QuarticQuery.Upper.budget_le": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Bound.lean",
+      "line": 60
+    },
+    "QuarticQuery.Upper.cmpProb": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Columns.lean",
+      "line": 174
+    },
+    "QuarticQuery.Upper.cmpProb_isComparison": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Columns.lean",
+      "line": 195
+    },
+    "QuarticQuery.Upper.cmpProb_winner": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Columns.lean",
+      "line": 223
+    },
+    "QuarticQuery.Upper.cmp_samples": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Columns.lean",
+      "line": 179
+    },
+    "QuarticQuery.Upper.compile_circ": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Compile.lean",
+      "line": 217
+    },
+    "QuarticQuery.Upper.compile_read": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Compile.lean",
+      "line": 151
+    },
+    "QuarticQuery.Upper.coreProb": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Columns.lean",
+      "line": 121
+    },
+    "QuarticQuery.Upper.core_samples": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Columns.lean",
+      "line": 143
+    },
+    "QuarticQuery.Upper.disqTree_depth": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Columns.lean",
+      "line": 101
+    },
+    "QuarticQuery.Upper.disqTree_eval": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Columns.lean",
+      "line": 92
+    },
+    "QuarticQuery.Upper.exists_unit_gate": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Circuit.lean",
+      "line": 465
+    },
+    "QuarticQuery.Upper.firstWins": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Columns.lean",
+      "line": 118
+    },
+    "QuarticQuery.Upper.lawOf_sigma": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Sampler.lean",
+      "line": 58
+    },
+    "QuarticQuery.Upper.le_tval_of_mem": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Tournament.lean",
+      "line": 205
+    },
+    "QuarticQuery.Upper.leftOp": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Sampler.lean",
+      "line": 210
+    },
+    "QuarticQuery.Upper.missFrom_nonneg": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Tournament.lean",
+      "line": 229
+    },
+    "QuarticQuery.Upper.regCongr_rket": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Circuit.lean",
+      "line": 75
+    },
+    "QuarticQuery.Upper.search_runs": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Verify.lean",
+      "line": 108
+    },
+    "QuarticQuery.Upper.sigmaOp": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Circuit.lean",
+      "line": 277
+    },
+    "QuarticQuery.Upper.slice_leftOp_rket": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Sampler.lean",
+      "line": 214
+    },
+    "QuarticQuery.Upper.slice_sigmaOp": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Circuit.lean",
+      "line": 298
+    },
+    "QuarticQuery.Upper.stageCost": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Tournament.lean",
+      "line": 359
+    },
+    "QuarticQuery.Upper.stageLaw_some": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Tournament.lean",
+      "line": 43
+    },
+    "QuarticQuery.Upper.stage_samples": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Tournament.lean",
+      "line": 63
+    },
+    "QuarticQuery.Upper.sum_addrLaw": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Columns.lean",
+      "line": 213
+    },
+    "QuarticQuery.Upper.sum_ratio": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Tournament.lean",
+      "line": 168
+    },
+    "QuarticQuery.Upper.sum_stageLaw_some": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Tournament.lean",
+      "line": 51
+    },
+    "QuarticQuery.Upper.tournament_runs": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Tournament.lean",
+      "line": 367
+    },
+    "QuarticQuery.Upper.tval_lower": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Tournament.lean",
+      "line": 239
+    },
+    "QuarticQuery.Upper.vall_runs": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Tournament.lean",
+      "line": 339
+    },
+    "QuarticQuery.Upper.verifyProb": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Upper/Verify.lean",
+      "line": 127
+    },
+    "QuarticQuery.addressedF_eq_true_iff": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Construction/LocalTests.lean",
+      "line": 276
+    },
+    "QuarticQuery.card_testIndex": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Construction/LocalTests.lean",
+      "line": 132
+    },
+    "QuarticQuery.exists_failing_localTest": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Construction/LocalTests.lean",
+      "line": 268
+    },
+    "QuarticQuery.winsAt_iff_localTests": {
+      "origin": "supplied",
+      "file": "repository/lean/QuarticQuery/Construction/LocalTests.lean",
+      "line": 237
+    }
+  },
+  "unresolved": [
+    {
+      "name": "Nat.le_ceil",
+      "candidates": [],
+      "supplied_usage": [
+        {
+          "file": "quartic_packet/repository/lean/QuarticQuery/ForrelationLower/Main.lean",
+          "line": 374
+        },
+        {
+          "file": "quartic_packet/repository/lean/QuarticQuery/ForrelationLower/Main.lean",
+          "line": 375
+        },
+        {
+          "file": "quartic_packet/repository/lean/QuarticQuery/ForrelationLower/Main.lean",
+          "line": 376
+        },
+        {
+          "file": "quartic_packet/repository/lean/QuarticQuery/Amplification/Bounded.lean",
+          "line": 37
+        },
+        {
+          "file": "quartic_packet/repository/lean/QuarticQuery/Amplification/Bounded.lean",
+          "line": 129
+        },
+        {
+          "file": "quartic_packet/repository/lean/QuarticQuery/Forrelation/Repetition.lean",
+          "line": 206
+        },
+        {
+          "file": "quartic_packet/repository/lean/QuarticQuery/Paper/Section2.lean",
+          "line": 59
+        }
+      ],
+      "kind": "external_mathlib_name; pinned elaboration pending"
+    },
+    {
+      "name": "Real.sq_sqrt",
+      "candidates": [],
+      "supplied_usage": [
+        {
+          "file": "quartic_packet/repository/lean/QuarticQuery/ForrelationLower/Main.lean",
+          "line": 412
+        },
+        {
+          "file": "quartic_packet/repository/lean/QuarticQuery/ForrelationLower/Stein.lean",
+          "line": 33
+        },
+        {
+          "file": "quartic_packet/repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+          "line": 333
+        },
+        {
+          "file": "quartic_packet/repository/lean/QuarticQuery/ForrelationLower/Promise.lean",
+          "line": 265
+        },
+        {
+          "file": "quartic_packet/repository/lean/QuarticQuery/ForrelationLower/Promise.lean",
+          "line": 281
+        },
+        {
+          "file": "quartic_packet/repository/lean/QuarticQuery/Amplification/Geometry.lean",
+          "line": 304
+        },
+        {
+          "file": "quartic_packet/repository/lean/QuarticQuery/Amplification/Bounded.lean",
+          "line": 143
+        },
+        {
+          "file": "quartic_packet/repository/lean/QuarticQuery/Amplification/Bounded.lean",
+          "line": 327
+        }
+      ],
+      "kind": "external_mathlib_name; pinned elaboration pending"
+    },
+    {
+      "name": "Real.sqrt_le_iff",
+      "candidates": [],
+      "supplied_usage": [
+        {
+          "file": "quartic_packet/repository/lean/QuarticQuery/Amplification/Bounded.lean",
+          "line": 141
+        },
+        {
+          "file": "quartic_packet/repository/lean/QuarticQuery/Upper/Bound.lean",
+          "line": 42
+        }
+      ],
+      "kind": "external_mathlib_name; pinned elaboration pending"
+    },
+    {
+      "name": "Real.sqrt_pos",
+      "candidates": [],
+      "supplied_usage": [
+        {
+          "file": "quartic_packet/repository/lean/QuarticQuery/ForrelationLower/Main.lean",
+          "line": 411
+        },
+        {
+          "file": "quartic_packet/repository/lean/QuarticQuery/ForrelationLower/Stein.lean",
+          "line": 31
+        },
+        {
+          "file": "quartic_packet/repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+          "line": 332
+        },
+        {
+          "file": "quartic_packet/repository/lean/QuarticQuery/ForrelationLower/Promise.lean",
+          "line": 285
+        },
+        {
+          "file": "quartic_packet/repository/lean/QuarticQuery/Amplification/Geometry.lean",
+          "line": 314
+        },
+        {
+          "file": "quartic_packet/repository/lean/QuarticQuery/Amplification/Average.lean",
+          "line": 78
+        },
+        {
+          "file": "quartic_packet/repository/lean/QuarticQuery/Amplification/Bounded.lean",
+          "line": 50
+        },
+        {
+          "file": "quartic_packet/repository/lean/QuarticQuery/Amplification/Bounded.lean",
+          "line": 78
+        }
+      ],
+      "kind": "external_mathlib_name; pinned elaboration pending"
+    },
+    {
+      "name": "div_div_div_cancel_right₀",
+      "candidates": [],
+      "supplied_usage": [
+        {
+          "file": "quartic_packet/repository/lean/QuarticQuery/Paper/Section3.lean",
+          "line": 237
+        },
+        {
+          "file": "quartic_packet/repository/lean/QuarticQuery/Upper/Tournament.lean",
+          "line": 420
+        }
+      ],
+      "kind": "external_mathlib_name; pinned elaboration pending"
+    },
+    {
+      "name": "one_add_mul_le_pow",
+      "candidates": [],
+      "supplied_usage": [
+        {
+          "file": "quartic_packet/repository/lean/QuarticQuery/Tournament/Ideal.lean",
+          "line": 247
+        },
+        {
+          "file": "quartic_packet/repository/lean/QuarticQuery/Upper/Decode.lean",
+          "line": 202
+        }
+      ],
+      "kind": "external_mathlib_name; pinned elaboration pending"
+    },
+    {
+      "name": "one_div_le_one_div_of_le",
+      "candidates": [],
+      "supplied_usage": [
+        {
+          "file": "quartic_packet/repository/lean/QuarticQuery/ForrelationLower/Main.lean",
+          "line": 256
+        },
+        {
+          "file": "quartic_packet/repository/lean/QuarticQuery/Amplification/Average.lean",
+          "line": 69
+        },
+        {
+          "file": "quartic_packet/repository/lean/QuarticQuery/Amplification/Average.lean",
+          "line": 91
+        },
+        {
+          "file": "quartic_packet/repository/lean/QuarticQuery/Tournament/Ideal.lean",
+          "line": 310
+        },
+        {
+          "file": "quartic_packet/repository/lean/QuarticQuery/Results/Exponent.lean",
+          "line": 325
+        }
+      ],
+      "kind": "external_mathlib_name; pinned elaboration pending"
+    }
+  ],
+  "method": "Lexical namespace/declaration resolution in supplied and proposed Lean source; no elaboration.",
+  "scope": "The uses fields of coverage_plan.json; 110 project names resolve, 7 external Mathlib names occur in supplied source."
+}

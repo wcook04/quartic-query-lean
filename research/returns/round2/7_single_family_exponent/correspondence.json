@@ -1,0 +1,590 @@
+[
+  {
+    "passage": "abstract",
+    "from": "**Abstract.** OpenAI's addressed-certificate construction admits a single explicit sequence of",
+    "to": "an explicit rate follows from the original fixed-$k$ theorem alone.",
+    "role": "states",
+    "statement_ids": [
+      "sf-finite-rate-5",
+      "sf-finite-rate-10",
+      "sf-diagonal-from-fixed-k"
+    ],
+    "lean": [],
+    "sources": [],
+    "lean_status": "Source declarations only. New IDs have proposed signatures in NEW_STATEMENTS.json; none is asserted compiled."
+  },
+  {
+    "passage": "definitions",
+    "from": "All complexities count worst-case bit queries with error at most",
+    "to": "The full number of input bits is computed in §6.",
+    "role": "defines",
+    "statement_ids": [
+      "eq-3",
+      "eq-4",
+      "eq-6",
+      "eq-7",
+      "eq-8",
+      "def-F"
+    ],
+    "lean": [
+      "QuarticQuery.BitLoc",
+      "QuarticQuery.Fkm"
+    ],
+    "sources": [
+      {
+        "path": "repository/lean/QuarticQuery/Statement.lean",
+        "line_start": 234,
+        "line_end": 296,
+        "declarations": [
+          "QuarticQuery.BitLoc",
+          "QuarticQuery.Fkm"
+        ]
+      }
+    ],
+    "lean_status": "Source declarations only. New IDs have proposed signatures in NEW_STATEMENTS.json; none is asserted compiled."
+  },
+  {
+    "passage": "main-theorem",
+    "from": "**Theorem 1.** For each integer $t\\ge80$, set \\[ m=4^t,\\qquad s=2t,\\qquad",
+    "to": "fixed polylogarithmic factor, or an optimal rate for these functions.",
+    "role": "states",
+    "statement_ids": [
+      "sf-schedule",
+      "sf-total-lower",
+      "sf-AE-budget",
+      "sf-finite-rate-5",
+      "sf-limit-and-input-size"
+    ],
+    "lean": [
+      "QuarticQuery.BitLoc",
+      "QuarticQuery.Fkm"
+    ],
+    "sources": [
+      {
+        "path": "repository/lean/QuarticQuery/Statement.lean",
+        "line_start": 234,
+        "line_end": 296,
+        "declarations": [
+          "QuarticQuery.BitLoc",
+          "QuarticQuery.Fkm"
+        ]
+      },
+      {
+        "url": "https://arxiv.org/pdf/quant-ph/0005055",
+        "locator": "§4, Algorithm Est_Amp and Theorem 12, printed pp.18–19",
+        "path": "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/extracted.md"
+      }
+    ],
+    "lean_status": "Source declarations only. New IDs have proposed signatures in NEW_STATEMENTS.json; none is asserted compiled."
+  },
+  {
+    "passage": "proof-idea",
+    "from": "The choice of $k$ balances two costs. The classical lower",
+    "to": "the auxiliary classical budget directly from the available Forrelation estimate.",
+    "role": "explains",
+    "statement_ids": [
+      "sf-balancing",
+      "sf-AE-budget",
+      "sf-total-lower"
+    ],
+    "lean": [],
+    "sources": [],
+    "lean_status": "Source declarations only. New IDs have proposed signatures in NEW_STATEMENTS.json; none is asserted compiled."
+  },
+  {
+    "passage": "uniform-bound",
+    "from": "**Lemma 2.** For $k\\ge2$ and $15k+2\\le2t$, the Forrelation promise in",
+    "to": "the earlier Forrelation note is unnecessary for the result below.",
+    "role": "states",
+    "statement_ids": [
+      "sf-uniform-forrelation"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.not_RLe_uniform",
+      "QuarticQuery.forrelation_lower_uniform_existing_constants"
+    ],
+    "sources": [
+      {
+        "path": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+        "line_start": 300,
+        "line_end": 424,
+        "declarations": [
+          "QuarticQuery.ForrelationLower.not_RLe_uniform",
+          "QuarticQuery.forrelation_lower_uniform_existing_constants"
+        ]
+      }
+    ],
+    "lean_status": "Source declarations only. New IDs have proposed signatures in NEW_STATEMENTS.json; none is asserted compiled."
+  },
+  {
+    "passage": "uniform-proof",
+    "from": "*Proof.* The finite comparison inequality in the supplied Gaussian-chain argument",
+    "to": "does not require the disputed logarithmic simplification in that display.",
+    "role": "proves",
+    "statement_ids": [
+      "sf-uniform-forrelation",
+      "sf-uniform-parameters"
+    ],
+    "lean": [
+      "QuarticQuery.ForrelationLower.not_RLe_uniform",
+      "QuarticQuery.forrelation_lower_uniform_existing_constants",
+      "QuarticQuery.ForrelationLower.not_RLe_of_gap"
+    ],
+    "sources": [
+      {
+        "path": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+        "line_start": 300,
+        "line_end": 424,
+        "declarations": [
+          "QuarticQuery.ForrelationLower.not_RLe_uniform",
+          "QuarticQuery.forrelation_lower_uniform_existing_constants"
+        ]
+      },
+      {
+        "path": "repository/lean/QuarticQuery/ForrelationLower/Main.lean",
+        "line_start": 79,
+        "line_end": 104,
+        "declarations": [
+          "QuarticQuery.ForrelationLower.not_RLe_of_gap"
+        ]
+      }
+    ],
+    "lean_status": "Source declarations only. New IDs have proposed signatures in NEW_STATEMENTS.json; none is asserted compiled."
+  },
+  {
+    "passage": "auxiliary-budget",
+    "from": "**Lemma 3.** If $k\\ge2$, $t\\ge64$, and $15k+2\\le2t$, then, for every",
+    "to": "theorem. This changes the analysis of the same total function.",
+    "role": "proves",
+    "statement_ids": [
+      "sf-floor-budget",
+      "sf-floor-transfer",
+      "sf-planted-numerical",
+      "sf-total-lower",
+      "prop-4.2-generic"
+    ],
+    "lean": [
+      "QuarticQuery.Gvalue_lt_R_addressedF"
+    ],
+    "sources": [
+      {
+        "path": "repository/lean/QuarticQuery/LowerBound/Planted/Main.lean",
+        "line_start": 178,
+        "line_end": 208,
+        "declarations": [
+          "QuarticQuery.Gvalue_lt_R_addressedF"
+        ]
+      },
+      {
+        "path": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+        "line_start": 448,
+        "line_end": 483,
+        "declarations": []
+      }
+    ],
+    "lean_status": "Source declarations only. New IDs have proposed signatures in NEW_STATEMENTS.json; none is asserted compiled."
+  },
+  {
+    "passage": "existing-quantum",
+    "from": "The repetition decoder in the supplied development uses \\[ n_{\\rm",
+    "to": "factor in (11) comes from decoding the small Forrelation gap.",
+    "role": "uses",
+    "statement_ids": [
+      "sf-T-and-repetitions",
+      "sf-B10",
+      "sf-circuit-arithmetic",
+      "prop-3.3",
+      "lem-2.1.ii"
+    ],
+    "lean": [
+      "QuarticQuery.Upper.budgetConst",
+      "QuarticQuery.Upper.Q_Fkm_le",
+      "QuarticQuery.Upper.forr_samples",
+      "QuarticQuery.Upper.decode_samples"
+    ],
+    "sources": [
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Bound.lean",
+        "line_start": 52,
+        "line_end": 257,
+        "declarations": [
+          "QuarticQuery.Upper.budgetConst",
+          "QuarticQuery.Upper.Q_Fkm_le"
+        ]
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Decode.lean",
+        "line_start": 307,
+        "line_end": 391,
+        "declarations": [
+          "QuarticQuery.Upper.forr_samples",
+          "QuarticQuery.Upper.decode_samples"
+        ]
+      }
+    ],
+    "lean_status": "Source declarations only. New IDs have proposed signatures in NEW_STATEMENTS.json; none is asserted compiled."
+  },
+  {
+    "passage": "ae-decoder",
+    "from": "**Lemma 4.** For $k\\ge1$, $t\\ge0$, and $0<\\eta<1$, there is a",
+    "to": "are the coherent properties required by the comparison algorithm. ∎",
+    "role": "proves",
+    "statement_ids": [
+      "sf-amplitude-estimation-interface",
+      "sf-AE-margins",
+      "sf-majority-quarter",
+      "sf-AE-decoder",
+      "sf-AE-decoder-runs"
+    ],
+    "lean": [
+      "QuarticQuery.Upper.forr_samples",
+      "QuarticQuery.Upper.decode_samples",
+      "QuarticQuery.Upper.Samples",
+      "QuarticQuery.Upper.Samples.runs"
+    ],
+    "sources": [
+      {
+        "url": "https://arxiv.org/pdf/quant-ph/0005055",
+        "locator": "§4, Algorithm Est_Amp and Theorem 12, printed pp.18–19",
+        "path": "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/extracted.md"
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Decode.lean",
+        "line_start": 307,
+        "line_end": 391,
+        "declarations": [
+          "QuarticQuery.Upper.forr_samples",
+          "QuarticQuery.Upper.decode_samples"
+        ]
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Sampler.lean",
+        "line_start": 113,
+        "line_end": 117,
+        "declarations": [
+          "QuarticQuery.Upper.Samples"
+        ]
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Compile.lean",
+        "line_start": 394,
+        "line_end": 397,
+        "declarations": [
+          "QuarticQuery.Upper.Samples.runs"
+        ]
+      }
+    ],
+    "lean_status": "Source declarations only. New IDs have proposed signatures in NEW_STATEMENTS.json; none is asserted compiled."
+  },
+  {
+    "passage": "ae-assembly",
+    "from": "For $t\\ge1$, apply Lemma 4 at the error in (10).",
+    "to": "verification laws; (16) is a mathematical proof of that extension.",
+    "role": "proves",
+    "statement_ids": [
+      "sf-generic-decoder-composition",
+      "sf-AE-count-arithmetic",
+      "sf-AE-budget",
+      "lem-2.1.iii",
+      "def-K",
+      "lem-2.2.i",
+      "lem-2.2.ii",
+      "prop-3.2"
+    ],
+    "lean": [
+      "QuarticQuery.Upper.budget",
+      "QuarticQuery.Upper.Fkm_QLe",
+      "QuarticQuery.Upper.budgetConst",
+      "QuarticQuery.Upper.Q_Fkm_le",
+      "QuarticQuery.Forrelation.forrCircuit",
+      "QuarticQuery.Forrelation.forrCircuit_realises",
+      "QuarticQuery.Forrelation.forrCircuit_size_eq",
+      "QuarticQuery.Forrelation.forrCircuit_size_le",
+      "QuarticQuery.card_testIndex",
+      "QuarticQuery.Upper.testCost",
+      "QuarticQuery.Upper.test_samples"
+    ],
+    "sources": [
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Verify.lean",
+        "line_start": 125,
+        "line_end": 205,
+        "declarations": [
+          "QuarticQuery.Upper.budget",
+          "QuarticQuery.Upper.Fkm_QLe"
+        ]
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Bound.lean",
+        "line_start": 52,
+        "line_end": 257,
+        "declarations": [
+          "QuarticQuery.Upper.budgetConst",
+          "QuarticQuery.Upper.Q_Fkm_le"
+        ]
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Forrelation/Circuit.lean",
+        "line_start": 337,
+        "line_end": 467,
+        "declarations": [
+          "QuarticQuery.Forrelation.forrCircuit",
+          "QuarticQuery.Forrelation.forrCircuit_realises",
+          "QuarticQuery.Forrelation.forrCircuit_size_eq",
+          "QuarticQuery.Forrelation.forrCircuit_size_le"
+        ]
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Construction/LocalTests.lean",
+        "line_start": 129,
+        "line_end": 136,
+        "declarations": [
+          "QuarticQuery.card_testIndex"
+        ]
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Verify.lean",
+        "line_start": 38,
+        "line_end": 43,
+        "declarations": [
+          "QuarticQuery.Upper.testCost",
+          "QuarticQuery.Upper.test_samples"
+        ]
+      }
+    ],
+    "lean_status": "Source declarations only. New IDs have proposed signatures in NEW_STATEMENTS.json; none is asserted compiled."
+  },
+  {
+    "passage": "thresholds",
+    "from": "For the choice in (1), $k\\ge2$ when $t\\ge80$. Moreover $k\\le\\sqrt{t/10}\\le",
+    "to": "there is no residual threshold depending on a fixed $k$.",
+    "role": "proves",
+    "statement_ids": [
+      "sf-schedule",
+      "sf-floor-budget"
+    ],
+    "lean": [],
+    "sources": [],
+    "lean_status": "Source declarations only. New IDs have proposed signatures in NEW_STATEMENTS.json; none is asserted compiled."
+  },
+  {
+    "passage": "finite-ratio",
+    "from": "Define the explicit logarithmic bounds \\[ A(s,k)=(2-1/k)s-\\log_2\\!\\left(466\\,560\\,000\\,k^2\\ln(4k2^s)\\right), \\qquad D_5(s,k)=s/2+\\log_2B_5(k)+6\\log_2s. \\tag{17}",
+    "to": "the actual exponent, not evaluations of either optimal query complexity.",
+    "role": "proves",
+    "statement_ids": [
+      "sf-exact-exponent-5",
+      "sf-total-lower",
+      "sf-AE-budget",
+      "sf-generic-quartic"
+    ],
+    "lean": [
+      "QuarticQuery.D_le_Q_pow_four",
+      "QuarticQuery.universalPower_four"
+    ],
+    "sources": [
+      {
+        "path": "repository/lean/QuarticQuery/Appendix/TheoremA1.lean",
+        "line_start": 23,
+        "line_end": 77,
+        "declarations": [
+          "QuarticQuery.D_le_Q_pow_four",
+          "QuarticQuery.universalPower_four"
+        ]
+      }
+    ],
+    "lean_status": "Source declarations only. New IDs have proposed signatures in NEW_STATEMENTS.json; none is asserted compiled."
+  },
+  {
+    "passage": "optimization-proof",
+    "from": "To obtain the simple expression in (3), note that $k\\le\\sqrt",
+    "to": "It makes no optimality assertion about the query complexities themselves.",
+    "role": "proves",
+    "statement_ids": [
+      "sf-log-bounds",
+      "sf-log-upper-and-deficit",
+      "sf-balancing",
+      "sf-finite-rate-5",
+      "sf-limit-and-input-size"
+    ],
+    "lean": [
+      "QuarticQuery.D_le_Q_pow_four",
+      "QuarticQuery.universalPower_four"
+    ],
+    "sources": [
+      {
+        "path": "repository/lean/QuarticQuery/Appendix/TheoremA1.lean",
+        "line_start": 23,
+        "line_end": 77,
+        "declarations": [
+          "QuarticQuery.D_le_Q_pow_four",
+          "QuarticQuery.universalPower_four"
+        ]
+      }
+    ],
+    "lean_status": "Source declarations only. New IDs have proposed signatures in NEW_STATEMENTS.json; none is asserted compiled."
+  },
+  {
+    "passage": "baseline",
+    "from": "If the repetition decoder is retained, choose $k=\\lfloor\\sqrt{s/40}\\rfloor$. The same",
+    "to": "choice of $L$, and the arithmetic of the diagonal schedule.",
+    "role": "states",
+    "statement_ids": [
+      "sf-B10",
+      "sf-log-upper-and-deficit",
+      "sf-exact-exponent-10",
+      "sf-finite-rate-10"
+    ],
+    "lean": [
+      "QuarticQuery.Upper.budgetConst",
+      "QuarticQuery.Upper.Q_Fkm_le"
+    ],
+    "sources": [
+      {
+        "path": "repository/lean/QuarticQuery/Upper/Bound.lean",
+        "line_start": 52,
+        "line_end": 257,
+        "declarations": [
+          "QuarticQuery.Upper.budgetConst",
+          "QuarticQuery.Upper.Q_Fkm_le"
+        ]
+      }
+    ],
+    "lean_status": "Source declarations only. New IDs have proposed signatures in NEW_STATEMENTS.json; none is asserted compiled."
+  },
+  {
+    "passage": "diagonal",
+    "from": "OpenAI's proof of Theorem 1.1 chooses $k$ first and keeps",
+    "to": "made for diagonalization or for the use of amplitude estimation.",
+    "role": "proves",
+    "statement_ids": [
+      "sf-diagonal-from-fixed-k",
+      "eq-2"
+    ],
+    "lean": [],
+    "sources": [
+      {
+        "path": "paper/extracted.md",
+        "locator": "§5, Proof of Theorem 1.1"
+      },
+      {
+        "path": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.tar.gz",
+        "locator": "main.tex:268–271; growing-k paragraph preceding Corollary 1.4",
+        "url": "https://arxiv.org/abs/2008.07003v3"
+      }
+    ],
+    "lean_status": "Source declarations only. New IDs have proposed signatures in NEW_STATEMENTS.json; none is asserted compiled."
+  },
+  {
+    "passage": "obstruction",
+    "from": "The displayed estimates do not yield a deficit $O(\\log s/s)$.",
+    "to": "improvement halves the exponential coefficient and preserves the square-root-logarithm order.",
+    "role": "explains",
+    "statement_ids": [
+      "sf-square-root-barrier-for-estimates"
+    ],
+    "lean": [],
+    "sources": [],
+    "lean_status": "Source declarations only. New IDs have proposed signatures in NEW_STATEMENTS.json; none is asserted compiled."
+  },
+  {
+    "passage": "input-length",
+    "from": "The four disjoint kinds of input coordinates give the exact",
+    "to": "for every prescribed input length is needed for this assertion.",
+    "role": "proves",
+    "statement_ids": [
+      "sf-input-cardinality",
+      "sf-input-envelope",
+      "sf-input-log-envelope",
+      "sf-limit-and-input-size"
+    ],
+    "lean": [
+      "QuarticQuery.BitLoc",
+      "QuarticQuery.Fkm",
+      "QuarticQuery.Forrelation.forrCircuit",
+      "QuarticQuery.Forrelation.forrCircuit_realises",
+      "QuarticQuery.Forrelation.forrCircuit_size_eq",
+      "QuarticQuery.Forrelation.forrCircuit_size_le"
+    ],
+    "sources": [
+      {
+        "path": "repository/lean/QuarticQuery/Statement.lean",
+        "line_start": 234,
+        "line_end": 296,
+        "declarations": [
+          "QuarticQuery.BitLoc",
+          "QuarticQuery.Fkm"
+        ]
+      },
+      {
+        "path": "repository/lean/QuarticQuery/Forrelation/Circuit.lean",
+        "line_start": 337,
+        "line_end": 467,
+        "declarations": [
+          "QuarticQuery.Forrelation.forrCircuit",
+          "QuarticQuery.Forrelation.forrCircuit_realises",
+          "QuarticQuery.Forrelation.forrCircuit_size_eq",
+          "QuarticQuery.Forrelation.forrCircuit_size_le"
+        ]
+      }
+    ],
+    "lean_status": "Source declarations only. New IDs have proposed signatures in NEW_STATEMENTS.json; none is asserted compiled."
+  },
+  {
+    "passage": "numerics",
+    "from": "The accompanying numerical evaluation uses the exact expanded constants $B_5$",
+    "to": "inequalities; finite numerical tests do not establish an asymptotic theorem.",
+    "role": "explains",
+    "statement_ids": [
+      "sf-exact-exponent-5",
+      "sf-exact-exponent-10"
+    ],
+    "lean": [],
+    "sources": [
+      {
+        "path": "checks.py"
+      },
+      {
+        "path": "checks_output.txt"
+      }
+    ],
+    "lean_status": "Source declarations only. New IDs have proposed signatures in NEW_STATEMENTS.json; none is asserted compiled."
+  },
+  {
+    "passage": "evidence",
+    "from": "**Formal evidence.** The supplied build record supports the earlier quantum",
+    "to": "also has a commit-currentness qualification recorded in the source audit.",
+    "role": "explains",
+    "statement_ids": [],
+    "lean": [],
+    "sources": [
+      {
+        "path": "BUILD_STATUS.md"
+      },
+      {
+        "path": "repository/research/adjudication/funnel_adjudication_notes.md",
+        "locator": "A finding the returns missed"
+      }
+    ],
+    "lean_status": "Source declarations only. New IDs have proposed signatures in NEW_STATEMENTS.json; none is asserted compiled."
+  },
+  {
+    "passage": "references",
+    "from": "1. **OpenAI.** *A Nearly Quartic Separation Between Randomized and Quantum",
+    "to": "used here is supplied by the formal development's model bridge.",
+    "role": "mentions",
+    "statement_ids": [],
+    "lean": [],
+    "sources": [
+      {
+        "url": "https://arxiv.org/pdf/quant-ph/0005055",
+        "locator": "§4, Algorithm Est_Amp and Theorem 12, printed pp.18–19",
+        "path": "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/extracted.md"
+      },
+      {
+        "url": "https://arxiv.org/abs/2010.12629"
+      }
+    ],
+    "lean_status": "Source declarations only. New IDs have proposed signatures in NEW_STATEMENTS.json; none is asserted compiled."
+  }
+]

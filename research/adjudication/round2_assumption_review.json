@@ -1,0 +1,436 @@
+{
+  "schema": "round2-assumption-review-v1",
+  "scope": "All reviewed exact or stronger ties with nonempty legacy hypotheses at the recorded ties hash. Proposed field additions only; no tie mutation or receipt promotion.",
+  "semantics": {
+    "premises": "Binder conditions that belong to the paper/ledger claim, its parameter domain, or an explicitly stronger local specialization. Include omitted ordinary binders when source review identifies them.",
+    "open_assumptions": "Additional propositions explicitly bound by this declaration and not included as ordinary premises of the target ledger row. Open means unsupplied at this declaration, not necessarily unproved elsewhere.",
+    "legacy_hypotheses": "Preserve unchanged. Consumer must use explicit open_assumptions for conditionality and must not silently infer discharge merely from availability of another theorem.",
+    "field_scope": "Each patch has exact row/declaration and expected old relation and legacy hypotheses. Add only the two fields in set after validating the guard; relation, notes, legacy hypotheses, and evidence receipts are not changed."
+  },
+  "source_hashes": {
+    "corpus/ties.json": "c6ccb861eda5f19e13223d60a28af91eede3ae880a4e5dfafd17453aba61c1b7",
+    "lean/QuarticQuery/ForrelationLower/Main.lean": "272c22762c43f449c5e2d260104285a9cf4f12c4f10b7b5f976eb4f7b8849672",
+    "lean/QuarticQuery/LowerBound/Planted/Heavy.lean": "6b5772603583908e293c4301594ef313e68ddff67dedd5eced436744b0f110bb",
+    "lean/QuarticQuery/LowerBound/Planted/Main.lean": "a32a6e24bccace37d46742acc9450fe33b6081430484138336014048f3fe835c",
+    "lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean": "86a2064e0fb6c6ba9b4a79785932a203314d8433d938083a420288d642bf8bf8",
+    "lean/QuarticQuery/Model/Classical.lean": "a820d0804ee722ee74eef97ea8efeb2a15da55107d6a908e35ba60ef39932e9e",
+    "lean/QuarticQuery/Model/Quantum.lean": "6a61d326b216fa39f6ac1d7694727528dd5028bfac8d939f118bf1a4f4a35662",
+    "lean/QuarticQuery/Paper/Section4.lean": "da6bda0feda0448bc05b11c85aed7b666d01aa8d30a8914a4ffd7d9fbe6643fb",
+    "lean/QuarticQuery/Results/Conditional.lean": "c3d4acfd49f8725f21fa4e895be9773e44a52786a16e3606e68dfda27c808330",
+    "lean/QuarticQuery/Results/Exponent.lean": "91d1c021f9b920f9bf0017dfe03817194c6a1ff5f4776e39a669bbd3b832a931",
+    "lean/QuarticQuery/Results/Headline.lean": "fec7d0c565b8ab345568ae6082c5fb346435493f4eb2d9112cda498652909c35",
+    "lean/QuarticQuery/Results/Unconditional.lean": "46e6f51f713109bab717956bd2536711dc927a356027748712e571ce12f0b85e",
+    "research/adjudication/adjudication.json": "c5028e1a3046113879eb63754f1496b1787859be9a5abe8aad5ce32129ce0fc7",
+    "research/intake/statement_ledger.json": "baae822271b38aa322e9fec62c47621de20bb61eb82b077d92bd9c133685c143"
+  },
+  "reviewed_tie_count": 9,
+  "patches": [
+    {
+      "statement_id": "cor-cubic-refuted",
+      "declaration": "QuarticQuery.cubic_refuted",
+      "expect": {
+        "relation": "stronger",
+        "hypotheses": [
+          "FamilyBoundsAt 3",
+          "hRreindex (proved as R_reindex)",
+          "hQreindex (proved as Q_reindex)"
+        ]
+      },
+      "set": {
+        "premises": [],
+        "open_assumptions": [
+          "FamilyBoundsAt 3",
+          "hRreindex (proved as R_reindex)",
+          "hQreindex (proved as Q_reindex)"
+        ]
+      },
+      "evidence": {
+        "theorem_source": "lean/QuarticQuery/Results/Exponent.lean",
+        "theorem_line": 257,
+        "ledger_source": "research/intake/statement_ledger.json",
+        "ledger_line": 126,
+        "adjudicated_ledger_statement": "It is false that R(f) = O(Q(f)^3) for all total Boolean f ([3, Conjecture 2]): no C satisfies R(f) <= C Q(f)^3 for all total f.",
+        "reason": "The unshifted ledger asks for the cubic refutation with no family or transport assumptions. This stronger shifted theorem explicitly takes all three binders.",
+        "discharge_sources": [
+          {
+            "binder": "hRreindex",
+            "available_declaration": "QuarticQuery.R_reindex",
+            "source": "lean/QuarticQuery/Model/Classical.lean",
+            "effect": "Separate theorem with the needed reindex equality; this binder remains in the cited theorem until supplied."
+          },
+          {
+            "binder": "hQreindex",
+            "available_declaration": "QuarticQuery.Q_reindex",
+            "source": "lean/QuarticQuery/Model/Quantum.lean",
+            "effect": "Separate theorem with the needed reindex equality; this binder remains in the cited theorem until supplied."
+          },
+          {
+            "binder": "FamilyBoundsAt 3 or FamilyBounds",
+            "available_declaration": "QuarticQuery.familyBounds_of_bansalSinha",
+            "source": "lean/QuarticQuery/Results/Conditional.lean",
+            "effect": "Derives the family bounds from the named lower-bound hypothesis; the fixed-k form is obtained by applying the result at k=3."
+          },
+          {
+            "binder": "BansalSinhaLower",
+            "available_declaration": "QuarticQuery.ForrelationLower.bansalSinhaLower",
+            "source": "lean/QuarticQuery/ForrelationLower/Main.lean",
+            "effect": "Source states a proof of the named proposition. Its presence does not remove a binder from a different theorem or supply a current receipt."
+          }
+        ],
+        "boundary": "The existing unconditional bare cubic result does not itself have the stronger shifted conclusion; do not credit that result as a wrapper for this exact stronger type."
+      }
+    },
+    {
+      "statement_id": "cor-cubic-refuted",
+      "declaration": "QuarticQuery.cubic_refuted_bare",
+      "expect": {
+        "relation": "exact",
+        "hypotheses": [
+          "FamilyBoundsAt 3",
+          "hRreindex (proved as R_reindex)",
+          "hQreindex (proved as Q_reindex)"
+        ]
+      },
+      "set": {
+        "premises": [],
+        "open_assumptions": [
+          "FamilyBoundsAt 3",
+          "hRreindex (proved as R_reindex)",
+          "hQreindex (proved as Q_reindex)"
+        ]
+      },
+      "evidence": {
+        "theorem_source": "lean/QuarticQuery/Results/Exponent.lean",
+        "theorem_line": 275,
+        "ledger_source": "research/intake/statement_ledger.json",
+        "ledger_line": 126,
+        "adjudicated_ledger_statement": "It is false that R(f) = O(Q(f)^3) for all total Boolean f ([3, Conjecture 2]): no C satisfies R(f) <= C Q(f)^3 for all total f.",
+        "reason": "The lemma states the ledger conclusion but explicitly requires the k=3 family and both reindex equalities, none stated as an antecedent of the ledger.",
+        "discharge_sources": [
+          {
+            "binder": "hRreindex",
+            "available_declaration": "QuarticQuery.R_reindex",
+            "source": "lean/QuarticQuery/Model/Classical.lean",
+            "effect": "Separate theorem with the needed reindex equality; this binder remains in the cited theorem until supplied."
+          },
+          {
+            "binder": "hQreindex",
+            "available_declaration": "QuarticQuery.Q_reindex",
+            "source": "lean/QuarticQuery/Model/Quantum.lean",
+            "effect": "Separate theorem with the needed reindex equality; this binder remains in the cited theorem until supplied."
+          },
+          {
+            "binder": "FamilyBoundsAt 3 or FamilyBounds",
+            "available_declaration": "QuarticQuery.familyBounds_of_bansalSinha",
+            "source": "lean/QuarticQuery/Results/Conditional.lean",
+            "effect": "Derives the family bounds from the named lower-bound hypothesis; the fixed-k form is obtained by applying the result at k=3."
+          },
+          {
+            "binder": "BansalSinhaLower",
+            "available_declaration": "QuarticQuery.ForrelationLower.bansalSinhaLower",
+            "source": "lean/QuarticQuery/ForrelationLower/Main.lean",
+            "effect": "Source states a proof of the named proposition. Its presence does not remove a binder from a different theorem or supply a current receipt."
+          },
+          {
+            "binder": "hRreindex and hQreindex",
+            "available_declaration": "QuarticQuery.cubic_bound_fails",
+            "source": "lean/QuarticQuery/Results/Headline.lean",
+            "effect": "This wrapper supplies both reindex equalities while retaining FamilyBoundsAt 3."
+          },
+          {
+            "binder": "BansalSinhaLower",
+            "available_declaration": "QuarticQuery.cubic_bound_fails_unconditional",
+            "source": "lean/QuarticQuery/Results/Unconditional.lean",
+            "effect": "A separate bare cubic theorem supplies the lower bound; assess its own reviewed tie and current receipt."
+          }
+        ]
+      }
+    },
+    {
+      "statement_id": "cor-cubic-refuted",
+      "declaration": "QuarticQuery.cubic_bound_fails",
+      "expect": {
+        "relation": "exact",
+        "hypotheses": [
+          "FamilyBoundsAt 3"
+        ]
+      },
+      "set": {
+        "premises": [],
+        "open_assumptions": [
+          "FamilyBoundsAt 3"
+        ]
+      },
+      "evidence": {
+        "theorem_source": "lean/QuarticQuery/Results/Headline.lean",
+        "theorem_line": 33,
+        "ledger_source": "research/intake/statement_ledger.json",
+        "ledger_line": 126,
+        "adjudicated_ledger_statement": "It is false that R(f) = O(Q(f)^3) for all total Boolean f ([3, Conjecture 2]): no C satisfies R(f) <= C Q(f)^3 for all total f.",
+        "reason": "The wrapper supplies the reindex equalities but retains hfam : FamilyBoundsAt 3, which is not a premise of the ledger corollary.",
+        "discharge_sources": [
+          {
+            "binder": "FamilyBoundsAt 3 or FamilyBounds",
+            "available_declaration": "QuarticQuery.familyBounds_of_bansalSinha",
+            "source": "lean/QuarticQuery/Results/Conditional.lean",
+            "effect": "Derives the family bounds from the named lower-bound hypothesis; the fixed-k form is obtained by applying the result at k=3."
+          },
+          {
+            "binder": "BansalSinhaLower",
+            "available_declaration": "QuarticQuery.ForrelationLower.bansalSinhaLower",
+            "source": "lean/QuarticQuery/ForrelationLower/Main.lean",
+            "effect": "Source states a proof of the named proposition. Its presence does not remove a binder from a different theorem or supply a current receipt."
+          },
+          {
+            "binder": "FamilyBoundsAt 3",
+            "available_declaration": "QuarticQuery.cubic_bound_fails_of_bansalSinha",
+            "source": "lean/QuarticQuery/Results/Conditional.lean",
+            "effect": "Supplies the family via BansalSinhaLower but retains that named binder."
+          },
+          {
+            "binder": "BansalSinhaLower",
+            "available_declaration": "QuarticQuery.cubic_bound_fails_unconditional",
+            "source": "lean/QuarticQuery/Results/Unconditional.lean",
+            "effect": "A separately named theorem supplies the lower bound; evaluate its own tie and receipt."
+          }
+        ]
+      }
+    },
+    {
+      "statement_id": "cor-cubic-refuted",
+      "declaration": "QuarticQuery.cubic_bound_fails_of_bansalSinha",
+      "expect": {
+        "relation": "exact",
+        "hypotheses": [
+          "BansalSinhaLower"
+        ]
+      },
+      "set": {
+        "premises": [],
+        "open_assumptions": [
+          "BansalSinhaLower"
+        ]
+      },
+      "evidence": {
+        "theorem_source": "lean/QuarticQuery/Results/Conditional.lean",
+        "theorem_line": 65,
+        "ledger_source": "research/intake/statement_ledger.json",
+        "ledger_line": 126,
+        "adjudicated_ledger_statement": "It is false that R(f) = O(Q(f)^3) for all total Boolean f ([3, Conjecture 2]): no C satisfies R(f) <= C Q(f)^3 for all total f.",
+        "reason": "The theorem has h : BansalSinhaLower as a binder, while the ledger corollary has no such antecedent.",
+        "discharge_sources": [
+          {
+            "binder": "FamilyBoundsAt 3 or FamilyBounds",
+            "available_declaration": "QuarticQuery.familyBounds_of_bansalSinha",
+            "source": "lean/QuarticQuery/Results/Conditional.lean",
+            "effect": "Derives the family bounds from the named lower-bound hypothesis; the fixed-k form is obtained by applying the result at k=3."
+          },
+          {
+            "binder": "BansalSinhaLower",
+            "available_declaration": "QuarticQuery.ForrelationLower.bansalSinhaLower",
+            "source": "lean/QuarticQuery/ForrelationLower/Main.lean",
+            "effect": "Source states a proof of the named proposition. Its presence does not remove a binder from a different theorem or supply a current receipt."
+          },
+          {
+            "binder": "BansalSinhaLower",
+            "available_declaration": "QuarticQuery.cubic_bound_fails_unconditional",
+            "source": "lean/QuarticQuery/Results/Unconditional.lean",
+            "effect": "The separate wrapper explicitly applies ForrelationLower.bansalSinhaLower."
+          }
+        ]
+      }
+    },
+    {
+      "statement_id": "eq-19",
+      "declaration": "QuarticQuery.avg_foundZero_I_le",
+      "expect": {
+        "relation": "stronger",
+        "hypotheses": [
+          "T.depth <= G"
+        ]
+      },
+      "set": {
+        "premises": [
+          "T.depth <= G"
+        ],
+        "open_assumptions": []
+      },
+      "evidence": {
+        "theorem_source": "lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean",
+        "theorem_line": 226,
+        "ledger_source": "research/intake/statement_ledger.json",
+        "ledger_line": 1332,
+        "adjudicated_ledger_statement": "Pr(the dummy run queries X_I[J_I]) = E Z/m <= 4G/m^2.",
+        "reason": "The query algorithm has cost at most G in the surrounding planted-input argument; the source binder hT states that ordinary budget premise.",
+        "boundary": "The theorem proves the <= 2G/m^2 probability bound only. The ledger row also contains Pr(...) = E Z/m, and the theorem type has no Z or equality. Its stronger relation is therefore supported for the inequality component, not established for the entire compound row; review the relation separately."
+      }
+    },
+    {
+      "statement_id": "eq-20",
+      "declaration": "QuarticQuery.avg_heavy_le",
+      "expect": {
+        "relation": "stronger",
+        "hypotheses": [
+          "1<=L"
+        ]
+      },
+      "set": {
+        "premises": [
+          "1<=L",
+          "l.length <= G"
+        ],
+        "open_assumptions": []
+      },
+      "evidence": {
+        "theorem_source": "lean/QuarticQuery/LowerBound/Planted/Heavy.lean",
+        "theorem_line": 42,
+        "ledger_source": "research/intake/statement_ledger.json",
+        "ledger_line": 1363,
+        "adjudicated_ledger_statement": "Pr(I is heavy) <= G/(mL).",
+        "reason": "The ledger argument assumes L >= 1 and an algorithm/run with at most G queries. The theorem has both hL and hl binders; the legacy list omitted the run-length premise.",
+        "boundary": "The declaration bounds a fixed run, a stronger route to the expected bound provided the independently sampled I is used as in the ledger. This classification does not prove the tie or refresh a receipt."
+      }
+    },
+    {
+      "statement_id": "prop-4.2",
+      "declaration": "QuarticQuery.Gvalue_lt_R_Fkm",
+      "expect": {
+        "relation": "stronger",
+        "hypotheses": [
+          "2<=k",
+          "8<=t",
+          "C realises P k t",
+          "L < R(P k t)"
+        ]
+      },
+      "set": {
+        "premises": [
+          "2<=k",
+          "8<=t",
+          "C realises P k t"
+        ],
+        "open_assumptions": [
+          "L < R(P k t)"
+        ]
+      },
+      "evidence": {
+        "theorem_source": "lean/QuarticQuery/LowerBound/Planted/Main.lean",
+        "theorem_line": 203,
+        "ledger_source": "research/intake/statement_ledger.json",
+        "ledger_line": 1476,
+        "adjudicated_ledger_statement": "For each fixed integer k>=2 and every sufficiently large power of four m, R(F_{k,m}) > G=floor(mL/100), with L=floor(m^{1-1/k}/(log_2 m)^2).",
+        "reason": "The paper row is eventual for fixed k>=2 and the chosen realising circuit. The theorem gives an explicit sufficient t>=8, but additionally requires Lvalue k t < R(P k t), which is not an antecedent of the eventual row.",
+        "discharge_sources": [
+          {
+            "binder": "L < R(P k t)",
+            "available_declaration": "QuarticQuery.ForrelationLower.bansalSinhaLower",
+            "source": "lean/QuarticQuery/ForrelationLower/Main.lean",
+            "effect": "Provides a threshold depending on fixed k; it does not establish the inequality for every t>=8."
+          },
+          {
+            "binder": "L < R(P k t)",
+            "available_declaration": "QuarticQuery.Paper.prop_4_2",
+            "source": "lean/QuarticQuery/Paper/Section4.lean",
+            "effect": "A separate source theorem chooses max(t0,8) and supplies the lower bound for every realising circuit. It must have its own reviewed tie and current build/comparison evidence before it changes row status."
+          }
+        ]
+      }
+    },
+    {
+      "statement_id": "claim-no-smaller-exponent",
+      "declaration": "QuarticQuery.not_universalPower_of_family",
+      "expect": {
+        "relation": "exact",
+        "hypotheses": [
+          "FamilyBounds",
+          "hRreindex (proved as R_reindex)",
+          "hQreindex (proved as Q_reindex)"
+        ]
+      },
+      "set": {
+        "premises": [
+          "alpha < 4"
+        ],
+        "open_assumptions": [
+          "FamilyBounds",
+          "hRreindex (proved as R_reindex)",
+          "hQreindex (proved as Q_reindex)"
+        ]
+      },
+      "evidence": {
+        "theorem_source": "lean/QuarticQuery/Results/Exponent.lean",
+        "theorem_line": 231,
+        "ledger_source": "research/intake/statement_ledger.json",
+        "ledger_line": 1543,
+        "adjudicated_ledger_statement": "For every 0<=alpha<4, alpha does not belong to the set in eq-1, because a suitable k exists with k > 1/(2-alpha/2).",
+        "reason": "alpha<4 is the intended range, and the theorem is even stated without the ledger's 0<=alpha restriction. FamilyBounds and reindex equalities are extra theorem binders, not ledger premises.",
+        "discharge_sources": [
+          {
+            "binder": "hRreindex",
+            "available_declaration": "QuarticQuery.R_reindex",
+            "source": "lean/QuarticQuery/Model/Classical.lean",
+            "effect": "Separate theorem with the needed reindex equality; this binder remains in the cited theorem until supplied."
+          },
+          {
+            "binder": "hQreindex",
+            "available_declaration": "QuarticQuery.Q_reindex",
+            "source": "lean/QuarticQuery/Model/Quantum.lean",
+            "effect": "Separate theorem with the needed reindex equality; this binder remains in the cited theorem until supplied."
+          },
+          {
+            "binder": "FamilyBoundsAt 3 or FamilyBounds",
+            "available_declaration": "QuarticQuery.familyBounds_of_bansalSinha",
+            "source": "lean/QuarticQuery/Results/Conditional.lean",
+            "effect": "Derives the family bounds from the named lower-bound hypothesis; the fixed-k form is obtained by applying the result at k=3."
+          },
+          {
+            "binder": "BansalSinhaLower",
+            "available_declaration": "QuarticQuery.ForrelationLower.bansalSinhaLower",
+            "source": "lean/QuarticQuery/ForrelationLower/Main.lean",
+            "effect": "Source states a proof of the named proposition. Its presence does not remove a binder from a different theorem or supply a current receipt."
+          }
+        ],
+        "boundary": "The family can be obtained by composing named theorems, but this declaration remains conditional; do not invent a standalone unconditional tie without a matching declaration and evidence."
+      }
+    },
+    {
+      "statement_id": "prop-4.2-generic",
+      "declaration": "QuarticQuery.Gvalue_lt_R_addressedF",
+      "expect": {
+        "relation": "stronger",
+        "hypotheses": [
+          "C realises f",
+          "1<=L",
+          "L<=m",
+          "L < R f"
+        ]
+      },
+      "set": {
+        "premises": [
+          "C realises f",
+          "1<=L",
+          "L<=m",
+          "L < R f"
+        ],
+        "open_assumptions": []
+      },
+      "evidence": {
+        "theorem_source": "lean/QuarticQuery/LowerBound/Planted/Main.lean",
+        "theorem_line": 190,
+        "ledger_source": "research/adjudication/adjudication.json",
+        "ledger_line": 1211,
+        "adjudicated_ledger_statement": "Let m=4^t with t>=1 and r=40t. Let P be a partial function on km bits with an exact circuit C (d=1 iff defined, and d=1 implies b=P), and F the total function built from (P,C). If 1<=L<=m and L<R(P), then R(F)>floor(mL/100).",
+        "reason": "All four are stated assumptions of the adjudicated generic proposition; hC, hL1, hLm and hLR are not extra unproved global facts. The source works for any t, a broader range than the ledger's t>=1.",
+        "boundary": "The same mathematical lower-bound expression is an extra open binder for the concrete eventual prop-4.2 tie, whose ledger statement does not assume it."
+      }
+    }
+  ],
+  "out_of_scope_alerts": [
+    {
+      "statement_id": "eq-19",
+      "declaration": "QuarticQuery.avg_foundZero_I_le",
+      "issue": "The current stronger tie proves only the inequality part of a ledger row that also states an equality; a separate relation review is required before crediting the whole row."
+    }
+  ],
+  "validation": "Source and ledger signatures inspected; no Lean build, Comparator run, corpus regeneration, or ties mutation performed for this proposal."
+}

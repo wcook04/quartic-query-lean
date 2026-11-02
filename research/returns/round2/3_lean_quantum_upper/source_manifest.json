@@ -1,0 +1,76 @@
+{
+  "scope": "Section 3 of the supplied preprint, advisory source and evidence proposal",
+  "date_utc": "2026-11-02",
+  "inputs": [
+    {
+      "file": "Pasted text(20261102-145934-1).txt",
+      "sha256": "64b819ece1090db3f68db8853e899a241d328963c1ba70b689dee2a87b18d552",
+      "bytes": 202498
+    },
+    {
+      "file": "quartic_r2_3_lean_quantum_upper.zip",
+      "sha256": "f8f1258e9c2cd1f58fb5a47559ea0006538431bda90730b5c0055b19bf8ae620",
+      "bytes": 4466949
+    }
+  ],
+  "paper": {
+    "path": "paper/extracted.md",
+    "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+    "read_scope": "Section 3 in full; surrounding definitions and references as needed"
+  },
+  "toolchain": "leanprover/lean4:v4.36.0-rc2",
+  "dependency_pins": {
+    "complexitylib": "62ca5c21461b2482e8bd12b7cb9b4937d887a33a",
+    "mathlib": "69552756cd8a2d2d48763cf7279fd814d6a1224d",
+    "cslib": "254e30e6d4299c51323aaeaf5f51a4763b375d4a"
+  },
+  "new_source_compiled": false,
+  "comparator_run": false,
+  "kernel_check_run": false,
+  "original_sources_mutated": false,
+  "supplied_build_evidence": "Historical source evidence only; see LEAN_GAPS.md",
+  "source_files": [
+    {
+      "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+      "sha256": "95d89237e766b59ffdd52f1324e440e2127b06353b2c8de2482b9f55c4adb30b",
+      "bytes": 19877,
+      "compiled": false
+    },
+    {
+      "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+      "sha256": "2ae8a33edaab4a8d281bb38cca1bbcd87f464bdfd1cb28d3ff3bb6ddad2def4d",
+      "bytes": 28486,
+      "compiled": false
+    },
+    {
+      "file": "lean/QuarticQuery/Paper/QuantumTensor.lean",
+      "sha256": "4876b2d18401989364ab176424663a7d0f8c1974a739dae1b8e140da6d813483",
+      "bytes": 16049,
+      "compiled": false
+    },
+    {
+      "file": "lean/QuarticQuery/Paper/QuantumTournament.lean",
+      "sha256": "f6ad658e5664ff7a1fa04c5a4521252e096880b0bc5ea5af0a67540cdefa7387",
+      "bytes": 19101,
+      "compiled": false
+    },
+    {
+      "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+      "sha256": "ab72f2d710bc5d74c624053884ba995c4d72cee1a18131fe4e683f4ede8361be",
+      "bytes": 14542,
+      "compiled": false
+    },
+    {
+      "file": "lean/QuarticQuery/Paper/QuantumUpper.lean",
+      "sha256": "4d2966b64f95a3706113159a8afd4a5b1954a895d7d1e91c569d2f59a24bcb26",
+      "bytes": 668,
+      "compiled": false
+    },
+    {
+      "file": "lean/QuarticQuery/Paper/QuantumWorkspace.lean",
+      "sha256": "a5ed4638bef1d1e15508ea5b96a0edf99a2281693de03f39f23e5afadd7ba07b",
+      "bytes": 2493,
+      "compiled": false
+    }
+  ]
+}

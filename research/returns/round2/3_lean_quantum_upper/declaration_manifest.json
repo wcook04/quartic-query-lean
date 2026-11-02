@@ -1,0 +1,874 @@
+[
+  {
+    "name": "QuarticQuery.Paper.quantum_grover_state",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+    "line": 38,
+    "signature": "theorem quantum_grover_state (A : Preparation H) (h0 : 0 < A.prob) (h1 : A.prob < 1) :\n    (0 < A.angle ∧ A.angle < Real.pi / 2) ∧\n    ‖A.goodState‖ = 1 ∧ ‖A.badState‖ = 1 ∧\n    A.good A.goodState = A.goodState ∧ A.good A.badState = 0 ∧\n    inner ℂ A.goodState A.badState = 0 ∧\n    A.state = ((Real.sin A.angle : ℝ) : ℂ) • A.goodState +\n      ((Real.cos A.angle : ℝ) : ℂ) • A.badState ∧\n    ∀ ℓ : ℕ,\n      A.iterate ℓ =\n        ((Real.sin ((2 * ℓ + 1) * A.angle) : ℝ) : ℂ) • A.goodState +\n        ((Real.cos ((2 * ℓ + 1) * A.angle) : ℝ) : ℂ) • A.badState ∧\n      (A.good (A.iterate ℓ) ≠ 0 →\n        PhaseEq (normalised (A.good (A.iterate ℓ))) A.goodState)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantum_grover_zero",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+    "line": 74,
+    "signature": "theorem quantum_grover_zero (A : Preparation H) (h : A.prob = 0) (ℓ : ℕ) :\n    A.good (A.iterate ℓ) = 0",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantum_sin_two_angle",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+    "line": 81,
+    "signature": "theorem quantum_sin_two_angle (A : Preparation H) {γ : ℝ}\n    (hp : γ ≤ A.prob) (hhalf : A.prob ≤ 1 / 2) :\n    Real.sin (2 * A.angle) = 2 * Real.sqrt (A.prob * (1 - A.prob)) ∧\n    Real.sqrt γ ≤ Real.sin (2 * A.angle)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantum_eq_9",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+    "line": 93,
+    "signature": "theorem quantum_eq_9 (A : Preparation H) {γ : ℝ} (hγ : 0 < γ)\n    (hp : γ ≤ A.prob) (hhalf : A.prob ≤ 1 / 2) :\n    let M := iterationBound γ\n    (1 / 2 - 1 / (2 * (M : ℝ) * |Real.sin (2 * A.angle)|) ≤\n      (1 / (M : ℝ)) * ∑ ℓ ∈ Finset.range M,\n        Real.sin ((2 * ℓ + 1) * A.angle) ^ 2) ∧\n    (9 / 20 : ℝ) ≤ 1 / 2 - 1 / (2 * (M : ℝ) * |Real.sin (2 * A.angle)|)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantum_grover_parameters",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+    "line": 125,
+    "signature": "theorem quantum_grover_parameters (γ η : ℝ) :\n    iterationBound γ = ⌈10 / Real.sqrt γ⌉₊ ∧\n    trialCount η = ⌈Real.log (1 / η) / Real.log (40 / 31)⌉₊ ∧\n    amplify γ η = attempts (iterationBound γ) (trialCount η)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantum_grover_trial_distribution",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+    "line": 133,
+    "signature": "theorem quantum_grover_trial_distribution {M : ℕ} (hM : M ≠ 0) :\n    (∀ ℓ : Fin M, trialWeight M ℓ =\n      (if (ℓ : ℕ) = 0 then 1 / 2 else 0) + 1 / (2 * (M : ℝ))) ∧\n    (∀ ℓ : Fin M, 0 ≤ trialWeight M ℓ) ∧\n    (∑ ℓ : Fin M, trialWeight M ℓ) = 1",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantum_grover_trial_recursion",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+    "line": 142,
+    "signature": "theorem quantum_grover_trial_recursion (M n : ℕ) :\n    attempts M (n + 1) =\n      .mix M (fun ℓ => trialWeight M ℓ) (fun ℓ =>\n        .restart (.run (groverCircuit ℓ) (.measure .success (attempts M n))))",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantum_grover_call_cap",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+    "line": 149,
+    "signature": "theorem quantum_grover_call_cap (γ η : ℝ) :\n    (amplify γ η).callCap ≤ trialCount η * (2 * iterationBound γ + 1)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.amplification_budget_le",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+    "line": 156,
+    "signature": "theorem amplification_budget_le {γ η : ℝ} (hγ : 0 < γ) (hγ1 : γ ≤ 1 / 2)\n    (hη : 0 < η) (hη1 : η < 1 / 2) :\n    (trialCount η : ℝ) * (2 * (iterationBound γ : ℝ) + 1) ≤\n      138 * (Real.sqrt γ)⁻¹ * Real.log (1 / η)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantum_amplified_label_law",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+    "line": 202,
+    "signature": "theorem quantum_amplified_label_law {ι β : Type} [Fintype ι] [Inhabited ι] [Fintype β]\n    {n : ℕ} {L : BitInput ι → Option β → ℝ} (h : Samples n L)\n    {γ η : ℝ} (hγ : 0 < γ) (hη : 0 < η) :\n    ∃ f : BitInput ι → ℝ,\n      (∀ x, 0 ≤ f x ∧ f x ≤ 1) ∧\n      (∀ x, γ ≤ ∑ b, L x (some b) → f x ≤ η) ∧\n      (∀ x, ∑ b, L x (some b) = 0 → f x = 1) ∧\n      Runs (trialCount η * (2 * ((2 * iterationBound γ + 1) * n)))\n        (fun x => ampLaw (f x) (fun b => L x (some b)))",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantum_amplified_conditional",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+    "line": 216,
+    "signature": "theorem quantum_amplified_conditional {β : Type} [Fintype β] (q : β → ℝ)\n    (hq0 : ∀ b, 0 ≤ q b) (hq : 0 < ∑ c, q c) {f : ℝ}\n    (hf0 : 0 ≤ f) (hf1 : f < 1) :\n    (∀ o : Option β, 0 ≤ ampLaw f q o) ∧\n    (∑ o : Option β, ampLaw f q o) = 1 ∧\n    0 < ∑ c, ampLaw f q (some c) ∧\n    ∀ b, ampLaw f q (some b) / (∑ c, ampLaw f q (some c)) =\n      q b / ∑ c, q c",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantum_attempts_samples",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+    "line": 254,
+    "signature": "theorem quantum_attempts_samples {n : ℕ} {L : BitInput ι → Option β → ℝ} (h : Samples n L) {M : ℕ}\n    (hM : M ≠ 0) : ∃ f₀ : BitInput ι → ℝ,\n      (∀ x, 0 ≤ f₀ x ∧ f₀ x ≤ 1) ∧\n      (∀ x γ, 0 < γ → M = iterationBound γ → γ ≤ ∑ b, L x (some b) → f₀ x ≤ 31 / 40) ∧\n      (∀ x, ∑ b, L x (some b) = 0 → f₀ x = 1) ∧\n      ∀ t, Samples (t * ((2 * M + 1) * n)) fun x => ampLaw (f₀ x ^ t) fun b => L x (some b)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantum_amplify_samples",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+    "line": 355,
+    "signature": "theorem quantum_amplify_samples {n : ℕ} {L : BitInput ι → Option β → ℝ} (h : Samples n L) {γ η : ℝ}\n    (hγ : 0 < γ) (hη : 0 < η) : ∃ f : BitInput ι → ℝ,\n      (∀ x, 0 ≤ f x ∧ f x ≤ 1) ∧\n      (∀ x, γ ≤ ∑ b, L x (some b) → f x ≤ η) ∧\n      (∀ x, ∑ b, L x (some b) = 0 → f x = 1) ∧\n      Samples (trialCount η * ((2 * iterationBound γ + 1) * n))\n        fun x => ampLaw (f x) fun b => L x (some b)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantum_inverse_reads",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+    "line": 377,
+    "signature": "theorem quantum_inverse_reads {ι Z : Type} [Fintype Z] {n : ℕ}\n    {F : BitInput ι → Reg Z ≃ₗᵢ[ℂ] Reg Z} (hF : IsCirc n F) :\n    IsCirc n (fun x => (F x).symm)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantum_controlled_reads",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+    "line": 383,
+    "signature": "theorem quantum_controlled_reads {ι Γ : Type} [Fintype Γ] {Z : Γ → Type}\n    [∀ c, Fintype (Z c)] {n : ℕ}\n    {F : ∀ c, BitInput ι → Reg (Z c) ≃ₗᵢ[ℂ] Reg (Z c)}\n    (hF : ∀ c, IsCirc n (F c)) :\n    IsCirc n (fun x => sigmaOp (fun c => F c x))",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantum_controlled_bit_query",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+    "line": 392,
+    "signature": "theorem quantum_controlled_bit_query {ι Z : Type} [Fintype ι] [Inhabited ι]\n    [Fintype Z] {w : ℕ} (e : Z ↪ Fin (w + 1)) (R : ReadSpec ι Z) :\n    ∃ P : AdaptiveProgram ι w → AdaptiveProgram ι w, ∀ next,\n      (P next).queryCap = 2 + next.queryCap ∧\n      ∀ x ψ b, (P next).outputMass x (clEmb e ψ) b =\n        next.outputMass x (clEmb e (R.op x ψ)) b",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantum_compile_circuit",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+    "line": 402,
+    "signature": "theorem quantum_compile_circuit {ι Z : Type} [Fintype ι] [Inhabited ι]\n    [Fintype Z] {w n : ℕ} (e : Z ↪ Fin (w + 1))\n    {F : BitInput ι → Reg Z ≃ₗᵢ[ℂ] Reg Z} (hF : IsCirc n F) :\n    ∃ P : AdaptiveProgram ι w → AdaptiveProgram ι w, ∀ next,\n      (P next).queryCap ≤ 2 * n + next.queryCap ∧\n      ∀ x ψ b, (P next).outputMass x (clEmb e ψ) b =\n        next.outputMass x (clEmb e (F x ψ)) b",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantum_coherent_tree",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+    "line": 413,
+    "signature": "theorem quantum_coherent_tree {ι : Type} [Nonempty ι] (T : QueryTree ι) :\n    Samples T.depth (fun (x : BitInput ι) b => pt (T.eval x) b)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumDecode",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 33,
+    "signature": "theorem quantumDecode (hk : 1 ≤ k) (n : ℕ) (i : Col t) :\n    Samples (addrCost k t n) fun (x : BitInput (Loc k t C)) s =>\n      addrLaw n x i s",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumDecode_total",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 40,
+    "signature": "theorem quantumDecode_total (hk : 1 ≤ k) (n : ℕ)\n    (x : BitInput (Loc k t C)) (i : Col t) :\n    (∀ s, 0 ≤ addrLaw n x i s) ∧ ∑ s, addrLaw n x i s = 1",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumDecode_runs",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 47,
+    "signature": "theorem quantumDecode_runs (hk : 1 ≤ k) (n : ℕ) (i : Col t) :\n    Runs (2 * addrCost k t n) fun (x : BitInput (Loc k t C)) s =>\n      addrLaw n x i s",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumDecode_correct",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 54,
+    "signature": "theorem quantumDecode_correct (hk : 1 ≤ k) (ht : 1 ≤ t)\n    {n : ℕ} {ε : ℝ} (hε : 0 < ε) (hε1 : ε ≤ 1)\n    (hn : repetitions k (ε / (40 * t : ℕ)) ≤ n)\n    {x : BitInput (Loc k t C)} {i : Col t} {s : Addr t}\n    (hs : ∀ h, P k t (readA x i h) = some (s h)) :\n    1 - ε ≤ addrLaw n x i s",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumDecode_query_bound_real",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 65,
+    "signature": "theorem quantumDecode_query_bound_real (ht : 1 ≤ t) {ε : ℝ}\n    (hε : 0 < ε) (hε1 : ε ≤ 1) :\n    ((2 * addrCost k t (repetitions k (ε / (40 * t : ℕ))) : ℕ) : ℝ) ≤\n      80 * (t : ℝ) * (k : ℝ) *\n        (1 + 16 * (2 : ℝ) ^ (10 * k) * Real.log ((40 * t : ℕ) / ε))",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumDecode_repetitions_polylog",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 94,
+    "signature": "theorem quantumDecode_repetitions_polylog (ht : 1 ≤ t) :\n    repetitions k (epsval (mValue t) / (40 * t : ℕ)) ≤\n      (1 + 1920000 * 2 ^ (10 * k)) * (2 * t) ^ 2",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumDecode_polylog",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 153,
+    "signature": "theorem quantumDecode_polylog (ht : 1 ≤ t) :\n    2 * addrCost k t (repetitions k (epsval (mValue t) / (40 * t : ℕ))) ≤\n      40 * (1 + 1920000 * 2 ^ (10 * k)) * k * (2 * t) ^ 3",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumComparison_rule",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 167,
+    "signature": "theorem quantumComparison_rule (d₁ d₂ : Bool) :\n    firstWins d₁ d₂ = if d₁ = d₂ then true else d₁",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumComparison_disqualification",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 173,
+    "signature": "theorem quantumComparison_disqualification (x : BitInput (Loc k t C))\n    (i : Col t) (s : Addr t) (j : Col t) (hji : j ≠ i) :\n    disq x i s j hji =\n      !readX x j (pointerEquiv (2 * t) (readPointerBit x i s ⟨j, hji⟩))",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumComparison_pointer_queries",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 180,
+    "signature": "theorem quantumComparison_pointer_queries (i : Col t) (s : Addr t)\n    (j : Col t) (hji : j ≠ i) :\n    Runs (2 * (2 * t + 1)) fun (x : BitInput (Loc k t C)) b =>\n      pt (disq x i s j hji) b",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumComparison_sorted",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 188,
+    "signature": "theorem quantumComparison_sorted (n : ℕ) (x : BitInput (Loc k t C))\n    (i j : Col t) (hij : i < j) :\n    cmpProb n x i j =\n      ∑ s₁, addrLaw n x i s₁ * ∑ s₂, addrLaw n x j s₂ *\n        (if firstWins (disq x i s₁ j hij.ne')\n          (disq x j s₂ i hij.ne) then (1 : ℝ) else 0)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumComparison_complementary",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 198,
+    "signature": "theorem quantumComparison_complementary (n : ℕ)\n    (x : BitInput (Loc k t C)) (i j : Col t) (hij : i ≠ j) :\n    cmpProb n x i j + cmpProb n x j i = 1",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumComparison_self",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 204,
+    "signature": "theorem quantumComparison_self (n : ℕ)\n    (x : BitInput (Loc k t C)) (i : Col t) : cmpProb n x i i = 0",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumComparison_self_zero_reads",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 211,
+    "signature": "theorem quantumComparison_self_zero_reads (n : ℕ) (i : Col t) :\n    Samples 0 fun (x : BitInput (Loc k t C)) b => bern (cmpProb n x i i) b",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumComparison_state",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 218,
+    "signature": "theorem quantumComparison_state (hk : 1 ≤ k) (n : ℕ) (i j : Col t) :\n    ∃ (Z : Type) (_ : Fintype Z) (o : Z) (out : Z → Bool)\n      (F : BitInput (Loc k t C) → Reg Z ≃ₗᵢ[ℂ] Reg Z),\n      IsCirc (cmpCost k t n) F ∧\n      IsCirc (cmpCost k t n) (fun x => (F x).symm) ∧\n      ∀ x b, lawOf (F x (rket o)) out b = bern (cmpProb n x i j) b",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumComparison_unordered_state",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 230,
+    "signature": "theorem quantumComparison_unordered_state (hk : 1 ≤ k) (n : ℕ)\n    (i j : Col t) (hij : i ≠ j) :\n    ∃ (Z : Type) (_ : Fintype Z) (o : Z) (out : Z → Bool)\n      (F : BitInput (Loc k t C) → Reg Z ≃ₗᵢ[ℂ] Reg Z),\n      IsCirc (cmpCost k t n) F ∧\n      ∀ x b,\n        lawOf (F x (rket o)) out b = bern (cmpProb n x i j) b ∧\n        lawOf (F x (rket o)) (fun z => !(out z)) b = bern (cmpProb n x j i) b",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumComparison_runs",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 254,
+    "signature": "theorem quantumComparison_runs (hk : 1 ≤ k) (n : ℕ) (i j : Col t) :\n    Runs (2 * cmpCost k t n) fun (x : BitInput (Loc k t C)) b =>\n      bern (cmpProb n x i j) b",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumComparison_cost_exact",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 260,
+    "signature": "theorem quantumComparison_cost_exact (k t n : ℕ) :\n    2 * cmpCost k t n = 4 * addrCost k t n + 8 * t + 4",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumComparison_query_bound",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 267,
+    "signature": "theorem quantumComparison_query_bound (ht : 1 ≤ t) {ε : ℝ}\n    (hε : 0 < ε) (hε1 : ε ≤ 1) :\n    ((2 * cmpCost k t (repetitions k (ε / (40 * t : ℕ))) : ℕ) : ℝ) ≤\n      160 * (t : ℝ) * (k : ℝ) *\n        (1 + 16 * (2 : ℝ) ^ (10 * k) * Real.log ((40 * t : ℕ) / ε)) +\n      8 * (t : ℝ) + 4",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumComparison_polylog",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 280,
+    "signature": "theorem quantumComparison_polylog (ht : 1 ≤ t) :\n    2 * cmpCost k t (repetitions k (epsval (mValue t) / (40 * t : ℕ))) ≤\n      2 * (40 * (1 + 1920000 * 2 ^ (10 * k)) * k + 4) * (2 * t) ^ 3",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumWinner_dominates",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 296,
+    "signature": "theorem quantumWinner_dominates (hk : 1 ≤ k) (ht : 1 ≤ t)\n    {n : ℕ} {ε : ℝ} (hε : 0 < ε) (hε1 : ε ≤ 1)\n    (hn : repetitions k (ε / (40 * t : ℕ)) ≤ n)\n    {x : BitInput (Loc k t C)} {i : Col t} {s : Addr t}\n    (hw : WinsAt (P k t) C (2 * t) (40 * t) x i s)\n    (j : Col t) (hji : j ≠ i) :\n    1 - ε ≤ cmpProb n x i j",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumWinner_isDominant",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 309,
+    "signature": "theorem quantumWinner_isDominant (hk : 1 ≤ k) (ht : 1 ≤ t)\n    {n : ℕ} {ε : ℝ} (hε : 0 < ε) (hε1 : ε ≤ 1)\n    (hn : repetitions k (ε / (40 * t : ℕ)) ≤ n)\n    {x : BitInput (Loc k t C)} {i : Col t} {s : Addr t}\n    (hw : WinsAt (P k t) C (2 * t) (40 * t) x i s) :\n    Dominant (cmpProb n x) ε i",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumTests_card",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 320,
+    "signature": "theorem quantumTests_card (t : ℕ) (C : Circuit (ForrelationCoord k t)) :\n    Fintype.card (Tests t C) =\n      mValue t + (mValue t - 1) + 40 * t * (C.size + 2)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumTests_card_ge_m",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 326,
+    "signature": "theorem quantumTests_card_ge_m (t : ℕ) (C : Circuit (ForrelationCoord k t)) :\n    mValue t ≤ Fintype.card (Tests t C)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumTests_card_ge_four",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 333,
+    "signature": "theorem quantumTests_card_ge_four (ht : 1 ≤ t) :\n    4 ≤ Fintype.card (Tests t C)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumVerify_fixedAddress",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 344,
+    "signature": "theorem quantumVerify_fixedAddress (i : Col t) (s : Addr t)\n    {ε : ℝ} (hε : 0 < ε) :\n    ∃ f : BitInput (Loc k t C) → ℝ,\n      (∀ x, 0 ≤ f x ∧ f x ≤ 1) ∧\n      (∀ x e, localTest C (2 * t) (40 * t) x i s e = false → f x ≤ ε) ∧\n      (∀ x, (∀ e, localTest C (2 * t) (40 * t) x i s e = true) → f x = 1) ∧\n      Runs (searchCost t (Fintype.card (Tests t C)) ε) fun x b => bern (f x) b",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumVerify_runs",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 355,
+    "signature": "theorem quantumVerify_runs (hk : 1 ≤ k) (n cS : ℕ)\n    (f : Col t → Addr t → BitInput (Loc k t C) → ℝ)\n    (hRun : ∀ c s, Runs cS fun x b => bern (f c s x) b) (c : Col t) :\n    Runs (2 * addrCost k t n + cS) fun x b => bern (verifyProb n f x c) b",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumVerify_probability",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 370,
+    "signature": "theorem quantumVerify_probability (n : ℕ)\n    (f : Col t → Addr t → BitInput (Loc k t C) → ℝ)\n    (x : BitInput (Loc k t C)) (c : Col t) :\n    verifyProb n f x c = ∑ s, addrLaw n x c s * f c s x",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumVerify_unit",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 377,
+    "signature": "theorem quantumVerify_unit (hk : 1 ≤ k) (n : ℕ)\n    (f : Col t → Addr t → BitInput (Loc k t C) → ℝ)\n    (hf : ∀ c s x, 0 ≤ f c s x ∧ f c s x ≤ 1)\n    (x : BitInput (Loc k t C)) (c : Col t) :\n    0 ≤ verifyProb n f x c ∧ verifyProb n f x c ≤ 1",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumVerify_nonwinner",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 392,
+    "signature": "theorem quantumVerify_nonwinner (hk : 1 ≤ k)\n    (hC : CircuitRealises C (P k t)) (n : ℕ) {ε : ℝ}\n    (f : Col t → Addr t → BitInput (Loc k t C) → ℝ)\n    (hf : ∀ c s x e, localTest C (2 * t) (40 * t) x c s e = false → f c s x ≤ ε)\n    {x : BitInput (Loc k t C)} {c : Col t}\n    (hno : ¬ ∃ s, WinsAt (P k t) C (2 * t) (40 * t) x c s) :\n    verifyProb n f x c ≤ ε",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumVerify_winner",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 407,
+    "signature": "theorem quantumVerify_winner (hk : 1 ≤ k) (ht : 1 ≤ t)\n    (hC : CircuitRealises C (P k t)) {n : ℕ} {ε : ℝ}\n    (hε : 0 < ε) (hε1 : ε ≤ 1)\n    (hn : repetitions k (ε / (40 * t : ℕ)) ≤ n)\n    (f : Col t → Addr t → BitInput (Loc k t C) → ℝ)\n    (hf0 : ∀ c s x, 0 ≤ f c s x)\n    (hf1 : ∀ c s x, (∀ e, localTest C (2 * t) (40 * t) x c s e = true) → f c s x = 1)\n    {x : BitInput (Loc k t C)} {c : Col t} {s : Addr t}\n    (hw : WinsAt (P k t) C (2 * t) (40 * t) x c s) :\n    1 - ε ≤ verifyProb n f x c",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumVerify_testCost",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 427,
+    "signature": "theorem quantumVerify_testCost (ht : 1 ≤ t) : testCost t = 2 * t + 1",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumVerify_search_query_bound",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 433,
+    "signature": "theorem quantumVerify_search_query_bound (t K : ℕ) (hK : 2 ≤ K)\n    {ε : ℝ} (hε : 0 < ε) (hε1 : ε < 1 / 2) :\n    (searchCost t K ε : ℝ) ≤\n      276 * Real.sqrt (K : ℝ) * Real.log (1 / ε) * (testCost t : ℝ)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumVerify_polylog",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 463,
+    "signature": "theorem quantumVerify_polylog (ht : 1 ≤ t)\n    (hSz : C.size ≤ forrConstant k * mValue t * (2 * t) ^ 2) :\n    2 * addrCost k t (repetitions k (epsval (mValue t) / (40 * t : ℕ))) +\n      searchCost t (Fintype.card (Tests t C)) (epsval (mValue t)) ≤\n        budgetConst k * 2 ^ t * (2 * t) ^ 6",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumVerify_forrCircuit_polylog",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 489,
+    "signature": "theorem quantumVerify_forrCircuit_polylog (l : ℕ) (ht : 1 ≤ t) :\n    2 * addrCost (l + 1) t\n      (repetitions (l + 1) (epsval (mValue t) / (40 * t : ℕ))) +\n      searchCost t (Fintype.card (Tests t (forrCircuit l t))) (epsval (mValue t)) ≤\n        budgetConst (l + 1) * 2 ^ t * (2 * t) ^ 6",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumVerify",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 498,
+    "signature": "theorem quantumVerify (hk : 1 ≤ k) (ht : 1 ≤ t)\n    (hC : CircuitRealises C (P k t)) {n : ℕ} {ε : ℝ}\n    (hε : 0 < ε) (hε1 : ε ≤ 1)\n    (hn : repetitions k (ε / (40 * t : ℕ)) ≤ n) :\n    ∃ v : BitInput (Loc k t C) → Col t → ℝ,\n      (∀ c, Runs (2 * addrCost k t n + searchCost t (Fintype.card (Tests t C)) ε)\n        fun x b => bern (v x c) b) ∧\n      (∀ x c, 0 ≤ v x c ∧ v x c ≤ 1) ∧\n      (∀ x c, (¬ ∃ s, WinsAt (P k t) C (2 * t) (40 * t) x c s) → v x c ≤ ε) ∧\n      (∀ x c s, WinsAt (P k t) C (2 * t) (40 * t) x c s → 1 - ε ≤ v x c)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumVerify_list",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 528,
+    "signature": "theorem quantumVerify_list {cV : ℕ}\n    {v : BitInput (Loc k t C) → Col t → ℝ}\n    (hv : ∀ c, Runs cV fun x b => bern (v x c) b) (L : List (Col t)) :\n    Runs (L.length * cV) fun x b => bern (vall (v x) L) b",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumError_bound",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 539,
+    "signature": "theorem quantumError_bound (hk : 1 ≤ k) (ht : 1 ≤ t)\n    (hC : CircuitRealises C (P k t)) {n : ℕ}\n    (hn : repetitions k (epsval (mValue t) / (40 * t : ℕ)) ≤ n) :\n    ∃ val : BitInput (Loc k t C) → ℝ,\n      Runs (budget k t n (Fintype.card (Tests t C)))\n        (fun x b => bern (val x) b) ∧\n      (∀ x, Fkm k t C x = false →\n        val x ≤ (Tval (mValue t) : ℝ) * epsval (mValue t)) ∧\n      (∀ x, Fkm k t C x = true →\n        1 - val x ≤ 2 * (mValue t : ℝ) / 2 ^ Tval (mValue t) +\n          (Tval (mValue t) : ℝ) * epsval (mValue t) + epsval (mValue t))",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumError_numeric",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+    "line": 588,
+    "signature": "theorem quantumError_numeric {m : ℕ} (hm : 2 ≤ m) :\n    (Tval m : ℝ) * epsval m = 1 / 1000 ∧\n    2 * (m : ℝ) / 2 ^ Tval m + (Tval m : ℝ) * epsval m + epsval m < 1 / 3",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.TensorBasis",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Paper/QuantumTensor.lean",
+    "line": 29,
+    "signature": "def TensorBasis (Z : Type) : ℕ → Type",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.tensorBasisFintype",
+    "kind": "instance",
+    "file": "lean/QuarticQuery/Paper/QuantumTensor.lean",
+    "line": 34,
+    "signature": "instance tensorBasisFintype {Z : Type} [Fintype Z] :\n    (n : ℕ) → Fintype (TensorBasis Z n)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.tensorOrigin",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Paper/QuantumTensor.lean",
+    "line": 42,
+    "signature": "def tensorOrigin {Z : Type} (o : Z) : (n : ℕ) → TensorBasis Z n",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.tensorVector",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Paper/QuantumTensor.lean",
+    "line": 47,
+    "signature": "noncomputable def tensorVector {Z : Type} [Fintype Z] (ψ : ℕ → Reg Z) :\n    (n : ℕ) → Reg (TensorBasis Z n)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.tensorVector_slice",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTensor.lean",
+    "line": 54,
+    "signature": "theorem tensorVector_slice {Z : Type} [Fintype Z] (ψ : ℕ → Reg Z)\n    (n : ℕ) (z : Z) :\n    slice z (tensorVector ψ (n + 1)) = (ψ n).ofLp z • tensorVector ψ n",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.tensorPreparation",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Paper/QuantumTensor.lean",
+    "line": 61,
+    "signature": "noncomputable def tensorPreparation {Z : Type} [Fintype Z]\n    (F : ℕ → Reg Z ≃ₗᵢ[ℂ] Reg Z) :\n    (n : ℕ) → Reg (TensorBasis Z n) ≃ₗᵢ[ℂ] Reg (TensorBasis Z n)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.tensorPreparation_state",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTensor.lean",
+    "line": 69,
+    "signature": "theorem tensorPreparation_state {Z : Type} [Fintype Z]\n    (F : ℕ → Reg Z ≃ₗᵢ[ℂ] Reg Z) (o : Z) (n : ℕ) :\n    tensorPreparation F n (rket (tensorOrigin o n)) =\n      tensorVector (fun b => F b (rket o)) n",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.tensorPreparation_isCirc",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTensor.lean",
+    "line": 83,
+    "signature": "theorem tensorPreparation_isCirc {ι Z : Type} [Fintype Z] {c : ℕ}\n    (F : ℕ → BitInput ι → Reg Z ≃ₗᵢ[ℂ] Reg Z)\n    (hF : ∀ b, IsCirc c (F b)) (n : ℕ) :\n    IsCirc (n * c) (fun x => tensorPreparation (fun b => F b x) n)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.uniformIndex",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Paper/QuantumTensor.lean",
+    "line": 97,
+    "signature": "noncomputable def uniformIndex {Col : Type} [Fintype Col] : Reg Col",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.uniformIndex_norm",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTensor.lean",
+    "line": 101,
+    "signature": "theorem uniformIndex_norm {Col : Type} [Fintype Col] [Nonempty Col] :\n    ‖(uniformIndex : Reg Col)‖ = 1",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.equation_15",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTensor.lean",
+    "line": 118,
+    "signature": "theorem equation_15 {ι Col Z : Type} [Fintype Col] [Nonempty Col] [Fintype Z]\n    {c : ℕ} (o : Z)\n    (F : Col → Col → BitInput ι → Reg Z ≃ₗᵢ[ℂ] Reg Z)\n    (hF : ∀ i j, IsCirc c (F i j)) (p : ℕ → Col) (t : ℕ) :\n    ∃ (i₀ : Col)\n      (A : BitInput ι → Reg (Σ _ : Col, TensorBasis Z t) ≃ₗᵢ[ℂ]\n        Reg (Σ _ : Col, TensorBasis Z t)),\n      IsCirc (t * c) A ∧\n      ∀ x i, slice i (A x (rket (⟨i₀, tensorOrigin o t⟩ :\n          Σ _ : Col, TensorBasis Z t))) =\n        (((Real.sqrt ((Fintype.card Col : ℝ)⁻¹) : ℝ) : ℂ) •\n          tensorVector (fun b => F i (p b) x (rket o)) t)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.tensorGood",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Paper/QuantumTensor.lean",
+    "line": 154,
+    "signature": "def tensorGood {Z : Type} (out : ℕ → Z → Bool) :\n    (n : ℕ) → TensorBasis Z n → Bool",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.tensor_success_mass",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTensor.lean",
+    "line": 162,
+    "signature": "theorem tensor_success_mass {Z : Type} [Fintype Z]\n    (ψ : ℕ → Reg Z) (out : ℕ → Z → Bool) (t : ℕ) :\n    lawOf (tensorVector ψ t) (tensorGood out t) true =\n      ∏ b ∈ Finset.range t, lawOf (ψ b) (out b) true",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.tensorIndexOut",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Paper/QuantumTensor.lean",
+    "line": 193,
+    "signature": "def tensorIndexOut {Col Z : Type} (out : Col → ℕ → Z → Bool) (t : ℕ)\n    (z : Σ _ : Col, TensorBasis Z t) : Option Col",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.lawOf_keep_candidate",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTensor.lean",
+    "line": 199,
+    "signature": "theorem lawOf_keep_candidate {Z Col : Type} [Fintype Z]\n    (ψ : Reg Z) (out : Z → Bool) (i j : Col) :\n    lawOf ψ (fun z => if out z then some i else none) (some j) =\n      if i = j then lawOf ψ out true else 0",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.equation_15_index_law",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTensor.lean",
+    "line": 220,
+    "signature": "theorem equation_15_index_law {Col Z : Type} [Fintype Col] [Fintype Z]\n    (ψ : Col → ℕ → Reg Z) (out : Col → ℕ → Z → Bool) (t : ℕ)\n    (v : Reg (Σ _ : Col, TensorBasis Z t))\n    (hv : ∀ i, slice i v =\n      (((Real.sqrt ((Fintype.card Col : ℝ)⁻¹) : ℝ) : ℂ) • tensorVector (ψ i) t))\n    (i : Col) :\n    lawOf v (tensorIndexOut out t) (some i) =\n      (∏ b ∈ Finset.range t, lawOf (ψ i b) (out i b) true) / Fintype.card Col",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.equation_15_success_probability",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTensor.lean",
+    "line": 250,
+    "signature": "theorem equation_15_success_probability {Col Z : Type} [Fintype Col] [Fintype Z]\n    (ψ : Col → ℕ → Reg Z) (out : Col → ℕ → Z → Bool) (t : ℕ)\n    (v : Reg (Σ _ : Col, TensorBasis Z t))\n    (hv : ∀ i, slice i v =\n      (((Real.sqrt ((Fintype.card Col : ℝ)⁻¹) : ℝ) : ℂ) • tensorVector (ψ i) t)) :\n    (∑ i, lawOf v (tensorIndexOut out t) (some i)) =\n      (∑ i, ∏ b ∈ Finset.range t, lawOf (ψ i b) (out i b) true) /\n        Fintype.card Col",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.equation_15_conditional_index",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTensor.lean",
+    "line": 264,
+    "signature": "theorem equation_15_conditional_index {Col Z : Type} [Fintype Col] [Nonempty Col]\n    [Fintype Z] (ψ : Col → ℕ → Reg Z) (out : Col → ℕ → Z → Bool) (t : ℕ)\n    (v : Reg (Σ _ : Col, TensorBasis Z t))\n    (hv : ∀ i, slice i v =\n      (((Real.sqrt ((Fintype.card Col : ℝ)⁻¹) : ℝ) : ℂ) • tensorVector (ψ i) t))\n    (hW : 0 < ∑ i, ∏ b ∈ Finset.range t, lawOf (ψ i b) (out i b) true) (i : Col) :\n    0 < (∑ j, lawOf v (tensorIndexOut out t) (some j)) ∧\n    lawOf v (tensorIndexOut out t) (some i) /\n        (∑ j, lawOf v (tensorIndexOut out t) (some j)) =\n      (∏ b ∈ Finset.range t, lawOf (ψ i b) (out i b) true) /\n        (∑ j, ∏ b ∈ Finset.range t, lawOf (ψ j b) (out j b) true)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumTensorStage",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTensor.lean",
+    "line": 288,
+    "signature": "theorem quantumTensorStage {ι Col Z : Type} [Fintype Col] [Nonempty Col] [Fintype Z]\n    {c : ℕ} (o : Z)\n    (F : Col → Col → BitInput ι → Reg Z ≃ₗᵢ[ℂ] Reg Z)\n    (hF : ∀ i j, IsCirc c (F i j)) (out : Col → Col → Z → Bool)\n    (a : BitInput ι → Col → Col → ℝ)\n    (ha : ∀ x i j, lawOf (F i j x (rket o)) (out i j) true = a x i j)\n    (p : ℕ → Col) (t : ℕ) :\n    ∃ L : BitInput ι → Option Col → ℝ,\n      Samples (t * c) L ∧\n      ∀ x i, L x (some i) =\n        (∏ b ∈ Finset.range t, a x i (p b)) / Fintype.card Col",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumTensorStage_of_samples",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTensor.lean",
+    "line": 320,
+    "signature": "theorem quantumTensorStage_of_samples {ι Col : Type} [Fintype Col] [Nonempty Col]\n    {c : ℕ} {a : BitInput ι → Col → Col → ℝ}\n    (hcmp : ∀ i j, Samples c fun x b => bern (a x i j) b)\n    (p : ℕ → Col) (t : ℕ) :\n    ∃ L : BitInput ι → Option Col → ℝ,\n      Samples (t * c) L ∧\n      ∀ x i, L x (some i) =\n        (∏ b ∈ Finset.range t, a x i (p b)) / Fintype.card Col",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.QuantumCandidateList",
+    "kind": "abbrev",
+    "file": "lean/QuarticQuery/Paper/QuantumTournament.lean",
+    "line": 30,
+    "signature": "abbrev QuantumCandidateList (Col : Type) (T : ℕ)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumCandidateList_code_injective",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTournament.lean",
+    "line": 33,
+    "signature": "theorem quantumCandidateList_code_injective {Col : Type} {T : ℕ} :\n    Function.Injective fun l : QuantumCandidateList Col T => fun i : Fin (T + 1) => l.1[i.val]?",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.instFintypeQuantumCandidateList",
+    "kind": "instance",
+    "file": "lean/QuarticQuery/Paper/QuantumTournament.lean",
+    "line": 46,
+    "signature": "noncomputable instance instFintypeQuantumCandidateList {Col : Type} [Fintype Col] [DecidableEq Col] {T : ℕ} :\n    Fintype (QuantumCandidateList Col T)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumCandidateList_probability",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTournament.lean",
+    "line": 53,
+    "signature": "theorem quantumCandidateList_probability {ι Col : Type} [Fintype Col]\n    [DecidableEq Col] {T c : ℕ}\n    {law : BitInput ι → {L : List Col // L.length ≤ T} → ℝ}\n    (h : Samples c law) :\n    (∀ x o, 0 ≤ law x o) ∧ (∀ x, ∑ o, law x o = 1)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumPoint_val",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTournament.lean",
+    "line": 61,
+    "signature": "theorem quantumPoint_val {Col : Type} {T : ℕ} (a b : QuantumCandidateList Col T) : pt a.1 b.1 = pt a b",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumListLaw",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Paper/QuantumTournament.lean",
+    "line": 75,
+    "signature": "noncomputable def quantumListLaw (a : Col → Col → ℝ) (g : List Col → ℝ) :\n    ℕ → List Col → List Col → ℝ",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumPoint_sum",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTournament.lean",
+    "line": 84,
+    "signature": "theorem quantumPoint_sum {T : ℕ} (L : List Col) (hL : L.length ≤ T) (h : List Col → ℝ) :\n    ∑ o : QuantumCandidateList Col T, pt L o.1 * h o.1 = h L",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumListLaw_vall",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTournament.lean",
+    "line": 93,
+    "signature": "theorem quantumListLaw_vall {T : ℕ} (a : Col → Col → ℝ) (g : List Col → ℝ) (v : Col → ℝ)\n    (n : ℕ) (L : List Col) (hL : L.length + n ≤ T) :\n    ∑ o : QuantumCandidateList Col T, quantumListLaw a g n L o.1 * vall v o.1 = tval a v g n L",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumListLaw_nonneg",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTournament.lean",
+    "line": 114,
+    "signature": "theorem quantumListLaw_nonneg {a : Col → Col → ℝ} {g : List Col → ℝ}\n    (ha : UnitValued a) (hg : ∀ L, 0 ≤ g L ∧ g L ≤ 1)\n    (n : ℕ) (L out : List Col) : 0 ≤ quantumListLaw a g n L out",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumListLaw_total",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTournament.lean",
+    "line": 131,
+    "signature": "theorem quantumListLaw_total {T : ℕ} (a : Col → Col → ℝ) (g : List Col → ℝ)\n    (hz : ∀ L, total (weight a L) = 0 → g L = 1)\n    (n : ℕ) (L : List Col) (hL : L.length + n ≤ T) :\n    ∑ o : QuantumCandidateList Col T, quantumListLaw a g n L o.1 = 1",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumVall_indicator",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTournament.lean",
+    "line": 163,
+    "signature": "theorem quantumVall_indicator (s : Col) (l : List Col) :\n    vall (fun c => if s = c then 1 else 0) l = if s ∈ l then 1 else 0",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumList_coupling",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTournament.lean",
+    "line": 175,
+    "signature": "theorem quantumList_coupling (ha : UnitValued a) (hv : ∀ c, 0 ≤ v c ∧ v c ≤ 1)\n    (hf : ∀ L, 0 ≤ f L ∧ f L ≤ 1) (hz : ∀ L, total (weight a L) = 0 → f L = 1) {s : Col}\n    {ε : ℝ} (hε0 : 0 ≤ ε) (hε1 : ε ≤ 1) (hd : Dominant a ε s) (hvs : v s = 1) {T₀ : ℕ}\n    (hT : (T₀ : ℝ) * ε < 1 / 2) (hfail : ∀ L : List Col, L.length ≤ T₀ → s ∉ L → f L ≤ ε)\n    (T : ℕ) (L : List Col) (hL : L.length + T ≤ T₀) :\n    1 - missFrom a s T L - T * ε ≤ tval a v f T L",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumStageReads",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Paper/QuantumTournament.lean",
+    "line": 243,
+    "signature": "noncomputable def quantumStageReads (m T cc : ℕ) (ε : ℝ) : ℕ",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumStageReads_compile",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTournament.lean",
+    "line": 248,
+    "signature": "theorem quantumStageReads_compile (m T cc : ℕ) (ε : ℝ) :\n    2 * (T * quantumStageReads m T cc ε) = T * stageCost m T cc ε",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumTournament_list",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTournament.lean",
+    "line": 270,
+    "signature": "theorem quantumTournament_list {cc : ℕ} {a : BitInput ι → Col → Col → ℝ}\n    (hm : 2 ≤ Fintype.card Col) (hc : ∀ x, IsComparison (a x))\n    (hcmp : ∀ i p, Samples cc fun x b => bern (a x i p) b) :\n    let m := Fintype.card Col\n    let T := Tval m\n    let ε := epsval m\n    ∃ law : BitInput ι → QuantumCandidateList Col T → ℝ,\n      Samples (T * quantumStageReads m T cc ε) law ∧\n      Runs (T * stageCost m T cc ε) law ∧\n      (∀ x o, 0 ≤ law x o) ∧\n      (∀ x, ∑ o, law x o = 1) ∧\n      ∀ x s, Dominant (a x) ε s →\n        1 - 2 * (m : ℝ) / 2 ^ T - T * ε ≤ ∑ o : QuantumCandidateList Col T, if s ∈ o.1 then law x o else 0",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumBitRead",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+    "line": 24,
+    "signature": "def quantumBitRead {ι : Type} (w : ℕ) : ReadSpec ι (Basis ι w)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumBitRead_eq",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+    "line": 36,
+    "signature": "theorem quantumBitRead_eq {ι : Type} [Fintype ι] (w : ℕ) (x : BitInput ι) :\n    (quantumBitRead (ι := ι) w).op x = bitOracleL (w := w) x",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumBitOracle_isCirc",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+    "line": 47,
+    "signature": "theorem quantumBitOracle_isCirc {ι : Type} [Fintype ι] (w : ℕ) :\n    IsCirc 1 (fun x : BitInput ι => bitOracleL (w := w) x)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumTournament_parameters",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+    "line": 56,
+    "signature": "theorem quantumTournament_parameters (m : ℕ) :\n    Tval m = Nat.clog 2 (1000 * m) ∧\n      epsval m = 1 / (1000 * (Tval m : ℝ))",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumDominant_iff",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+    "line": 62,
+    "signature": "theorem quantumDominant_iff {Col : Type} (a : Col → Col → ℝ) (ε : ℝ) (s : Col) :\n    Dominant a ε s ↔ ∀ j, j ≠ s → 1 - ε ≤ a s j",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumDrift",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+    "line": 68,
+    "signature": "theorem quantumDrift {Col : Type} [Fintype Col] [DecidableEq Col]\n    (w : Col → ℝ) {a : Col → Col → ℝ} (ha : IsComparison a)\n    {W : ℝ} (hW : W = ∑ i, w i) (hpos : 0 < W) :\n    (∑ p, (w p / W) * ∑ i, w i * a i p) =\n        (1 / W) * ∑ p, ∑ i, w p * w i * a i p ∧\n    (1 / W) * (∑ p, ∑ i, w p * w i * a i p) =\n        (W ^ 2 - ∑ i, w i ^ 2) / (2 * W) ∧\n    (W ^ 2 - ∑ i, w i ^ 2) / (2 * W) ≤ W / 2",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumWeight_product",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+    "line": 87,
+    "signature": "theorem quantumWeight_product {Col : Type} (a : Col → Col → ℝ) (L : List Col) (i : Col) :\n    weight a L i = (L.map fun p => a i p).prod",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumWeight_lower",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+    "line": 97,
+    "signature": "theorem quantumWeight_lower {Col : Type} [Fintype Col]\n    {a : Col → Col → ℝ} {ε : ℝ} {s : Col} (ha : UnitValued a)\n    (hε0 : 0 ≤ ε) (hε1 : ε ≤ 1) (hd : Dominant a ε s)\n    {T : ℕ} (hT : (T : ℝ) * ε < 1 / 2) (L : List Col)\n    (hL : L.length ≤ T) (hs : s ∉ L) :\n    (1 - ε) ^ L.length ≤ weight a L s ∧\n    1 - (T : ℝ) * ε ≤ (1 - ε) ^ L.length ∧\n    1 / 2 < weight a L s ∧ 0 < total (weight a L)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumStageLaw_nonneg",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+    "line": 117,
+    "signature": "theorem quantumStageLaw_nonneg {Col : Type} [Fintype Col]\n    {a : Col → Col → ℝ} (ha : UnitValued a) (L : List Col) (o : Option Col) :\n    0 ≤ stageLaw a L o",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumStageLaw_total",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+    "line": 135,
+    "signature": "theorem quantumStageLaw_total {Col : Type} [Fintype Col] [Nonempty Col]\n    (a : Col → Col → ℝ) (L : List Col) : ∑ o, stageLaw a L o = 1",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumStage_success",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+    "line": 157,
+    "signature": "theorem quantumStage_success {Col : Type} [Fintype Col] [Nonempty Col]\n    (a : Col → Col → ℝ) (ha : UnitValued a)\n    (L : List Col) (hW : 0 < total (weight a L)) :\n    (∀ o, 0 ≤ stageLaw a L o) ∧\n    (∑ o, stageLaw a L o) = 1 ∧\n    (0 < ∑ i, stageLaw a L (some i)) ∧\n    (∀ i, stageLaw a L (some i) = weight a L i / Fintype.card Col) ∧\n    (∑ i, stageLaw a L (some i)) = total (weight a L) / Fintype.card Col ∧\n    (∀ i, stageLaw a L (some i) / (∑ j, stageLaw a L (some j)) =\n      weight a L i / total (weight a L))",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumStage_samples",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+    "line": 181,
+    "signature": "theorem quantumStage_samples {ι Col : Type} [Nonempty ι] [Fintype Col] [Nonempty Col]\n    {cc : ℕ} {a : BitInput ι → Col → Col → ℝ}\n    (hcmp : ∀ i p, Samples cc fun x b => bern (a x i p) b) (L : List Col) :\n    Samples (L.length * cc) fun x o => stageLaw (a x) L o",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumTval_two_le",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+    "line": 188,
+    "signature": "theorem quantumTval_two_le {m : ℕ} (hm : 2 ≤ m) : 2 ≤ Tval m",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumTournament_cost_log",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+    "line": 203,
+    "signature": "theorem quantumTournament_cost_log {m : ℕ} (hm : 2 ≤ m) (cc : ℕ) :\n    ((Tval m * stageCost m (Tval m) cc (epsval m) : ℕ) : ℝ) ≤\n      276 * (cc : ℝ) * (Real.sqrt ((2 * (m : ℝ))⁻¹))⁻¹ *\n        (Tval m : ℝ) ^ 2 * Real.log (1 / epsval m)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumTournament_cost",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+    "line": 237,
+    "signature": "theorem quantumTournament_cost {m : ℕ} (hm : 2 ≤ m) (cc : ℕ) :\n    ((Tval m * stageCost m (Tval m) cc (epsval m) : ℕ) : ℝ) ≤\n      6072 * (cc : ℝ) * Real.sqrt (m : ℝ) *\n        (Tval m : ℝ) ^ 2 * Real.log (Tval m : ℝ)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumTournament",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+    "line": 286,
+    "signature": "theorem quantumTournament {ι Col : Type} [Fintype ι] [Inhabited ι]\n    [Fintype Col] [DecidableEq Col] {cc : ℕ} {a : BitInput ι → Col → Col → ℝ}\n    (hm : 2 ≤ Fintype.card Col) (hc : ∀ x, IsComparison (a x))\n    (hcmp : ∀ i p, Samples cc fun x b => bern (a x i p) b) :\n    let m := Fintype.card Col\n    let T := Tval m\n    let ε := epsval m\n    ∃ C : ℕ, ∃ law : BitInput ι → QuantumCandidateList Col T → ℝ,\n      (C : ℝ) ≤ 6072 * (cc : ℝ) * Real.sqrt (m : ℝ) *\n        (T : ℝ) ^ 2 * Real.log (T : ℝ) ∧\n      Samples (T * quantumStageReads m T cc ε) law ∧\n      Runs C law ∧\n      (∀ x o, 0 ≤ law x o) ∧\n      (∀ x, ∑ o, law x o = 1) ∧\n      ∀ x s, Dominant (a x) ε s →\n        1 - 2 * (m : ℝ) / 2 ^ T - T * ε ≤\n          ∑ o : QuantumCandidateList Col T, if s ∈ o.1 then law x o else 0",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.quantumWorkspace_uniformize",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/QuantumWorkspace.lean",
+    "line": 28,
+    "signature": "theorem quantumWorkspace_uniformize {ι J β : Type} [Fintype J] [Nonempty J]\n    {c : ℕ} {L : J → BitInput ι → β → ℝ}\n    (h : ∀ j, Samples c (L j)) :\n    ∃ (Z : Type) (_ : Fintype Z) (o : Z) (out : Z → β)\n      (F : J → BitInput ι → Reg Z ≃ₗᵢ[ℂ] Reg Z),\n      (∀ j, IsCirc c (F j)) ∧\n      ∀ j x b, lawOf (F j x (rket o)) out b = L j x b",
+    "compiled": false
+  }
+]

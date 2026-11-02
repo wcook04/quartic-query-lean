@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "kind": "synthetic algorithmic regression; no Lean run",
+  "graph": {
+    "QuarticQuery.ReachRegression.publicRoot": [
+      "_private.ReachPrivateFixture.0.QuarticQuery.ReachRegression.privateWrapper"
+    ],
+    "_private.ReachPrivateFixture.0.QuarticQuery.ReachRegression.privateWrapper": [
+      "QuarticQuery.ReachRegression.publicLeaf"
+    ],
+    "QuarticQuery.ReachRegression.publicLeaf": []
+  },
+  "old_public_closure": [
+    "QuarticQuery.ReachRegression.publicRoot"
+  ],
+  "complete_raw_closure": [
+    "QuarticQuery.ReachRegression.publicLeaf",
+    "QuarticQuery.ReachRegression.publicRoot",
+    "_private.ReachPrivateFixture.0.QuarticQuery.ReachRegression.privateWrapper"
+  ],
+  "filter_after_closure": [
+    "QuarticQuery.ReachRegression.publicLeaf",
+    "QuarticQuery.ReachRegression.publicRoot"
+  ],
+  "all_assertions_passed": true
+}

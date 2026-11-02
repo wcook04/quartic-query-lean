@@ -1,0 +1,189 @@
+{
+  "schema": "quartic-construction-return-manifest.v1",
+  "files": [
+    {
+      "path": "LEAN_GAPS.md",
+      "bytes": 12134,
+      "sha256": "f6351a5037867e9693482c7cef2c66c44e4620388705f69d566553d243b48829"
+    },
+    {
+      "path": "NEW_STATEMENTS.json",
+      "bytes": 23485,
+      "sha256": "e8d260cd8f07ece859165915232a2e39b871a04f1b4fb8b8b36c6b2253aa55cb"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5830,
+      "sha256": "ff061872f6e7606591693145b77f90e3170cdcb008790d8c8ddc0687d4a4865f"
+    },
+    {
+      "path": "REFERENCES.md",
+      "bytes": 5305,
+      "sha256": "7dddf3bfa8f2382e2582d2982c1a818319d6f97d9cdb1b9871c62141ed0c1062"
+    },
+    {
+      "path": "REVIEW_NOTES.md",
+      "bytes": 11709,
+      "sha256": "52da4b6132ddec76823f3e1cf6b83e9cd13bc9e8572d632c6e62e2cce328eba0"
+    },
+    {
+      "path": "SOURCE_RECEIPT.json",
+      "bytes": 6524,
+      "sha256": "186577b8161e12eef00b8c4e130e0c2e84d241e150314944bef55809cdb1c543"
+    },
+    {
+      "path": "STATEMENT_CHANGES.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "blueprint.md",
+      "bytes": 111601,
+      "sha256": "25769ece47b6b064401348c3e6129b6026fefdc47313bea7083f12e7e614e1f0"
+    },
+    {
+      "path": "checks/validate_package.py",
+      "bytes": 8613,
+      "sha256": "1eeeb9fa5fb0d3aa3e9cc148826a87d38fe91e3789ae7092ec19151abb2e57c5"
+    },
+    {
+      "path": "correspondence.json",
+      "bytes": 25121,
+      "sha256": "5bad535320c13c6d09f382eb8304534495868bf88661f145be6b962a5656380f"
+    },
+    {
+      "path": "coverage_plan.json",
+      "bytes": 42079,
+      "sha256": "df040e5e319b75ecdf87d02480a929b685ff36857f55ee4fa56fc0e9a1d9c883"
+    },
+    {
+      "path": "lean/QuarticQuery/Paper/ConstructionArithmetic.lean",
+      "bytes": 4288,
+      "sha256": "f06202f8f7e18d3ab2a084029c996e090ede817dbc763361f08628c1c29a09c6"
+    },
+    {
+      "path": "lean/QuarticQuery/Paper/ConstructionAudit.lean",
+      "bytes": 1585,
+      "sha256": "bf7d2c90de5e5c690c9a1a1589cd1b2d59b1f63a93eed3bd846170ae996ca6d6"
+    },
+    {
+      "path": "lean/QuarticQuery/Paper/ConstructionCoherent.lean",
+      "bytes": 8321,
+      "sha256": "f079bfbe992a05f1ba22e16b7bc3941307d3b12940768f777f93225952b13d59"
+    },
+    {
+      "path": "lean/QuarticQuery/Paper/ConstructionComplete.lean",
+      "bytes": 4385,
+      "sha256": "a79e9f0cdbf85df0e86605711fa6c8bde2a19cbe043c36302243b42a7f8fbc6c"
+    },
+    {
+      "path": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+      "bytes": 8955,
+      "sha256": "8fad21686ef8b5de87b1eac1347862e5612cc93b75f768f868c02c0aaca8ba3f"
+    },
+    {
+      "path": "lean/QuarticQuery/Paper/ConstructionFamily.lean",
+      "bytes": 3674,
+      "sha256": "b7e1203086e38c00b964355ac71537a7fc5be7053d537ccd56cba8017cdd085a"
+    },
+    {
+      "path": "lean/QuarticQuery/Paper/ConstructionForrelationCircuit.lean",
+      "bytes": 5743,
+      "sha256": "860e8653027d64fe7d5cc5f35357d81ed5fa27e027899047ab819c821e3c8b32"
+    },
+    {
+      "path": "lean/QuarticQuery/Paper/ConstructionForrelationComparison.lean",
+      "bytes": 5765,
+      "sha256": "5e2da5d395fcadbda7e8e434f01141caff8f3a2ea2ef257f4591352b6ee843dd"
+    },
+    {
+      "path": "lean/QuarticQuery/Paper/ConstructionForrelationComplete.lean",
+      "bytes": 4796,
+      "sha256": "733526015ad9a2013512d8f6216b8f73c41566a803d92602dd30e40e90d7ad06"
+    },
+    {
+      "path": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+      "bytes": 8729,
+      "sha256": "a0c9229577a4dbc24eeebc85f013101ad871538d62679ca0ddab5ca241387ff5"
+    },
+    {
+      "path": "lean/QuarticQuery/Paper/ConstructionForrelationQuantum.lean",
+      "bytes": 6028,
+      "sha256": "f31face68a9c47906d9a728cced9aa8a24ec73d3079c6196ae1853130151391b"
+    },
+    {
+      "path": "lean/QuarticQuery/Paper/ConstructionModels.lean",
+      "bytes": 7968,
+      "sha256": "c395c9abfd497ed39b5390a5e1a01ce9d8d4c18b20f1c07aaae04ceefb232223"
+    },
+    {
+      "path": "lean/QuarticQuery/Paper/ConstructionPhase.lean",
+      "bytes": 2427,
+      "sha256": "f9dc9564aa8741a6aa3059fcea3563c740fed802666ae251fbebbe9085668405"
+    },
+    {
+      "path": "lean/QuarticQuery/Paper/ConstructionPointerSupport.lean",
+      "bytes": 4365,
+      "sha256": "8a2d8befa3225ab54114492b35c5a326fc17bd8f0a5eaa9acba966c18db53938"
+    },
+    {
+      "path": "lean/QuarticQuery/Paper/ConstructionTests.lean",
+      "bytes": 8025,
+      "sha256": "06f1b3bc883881351e5e9cfa9ba8777f2f907897e69275b507132cc01ba0dccb"
+    },
+    {
+      "path": "references.bib",
+      "bytes": 2407,
+      "sha256": "fac839536d0b3b79803a26802b2336ad84c03a0e0fe330b5637e99393c233b5f"
+    },
+    {
+      "path": "row_details.json",
+      "bytes": 199119,
+      "sha256": "72096a7d32379f48a91880b6ab28f0686d8fd3731034a61dd9b07890f45a0407"
+    },
+    {
+      "path": "source_records/contribution_reading_receipts.json",
+      "bytes": 47169,
+      "sha256": "ad8e73a3314007e2dac5dba08115619ad000cb159a00f03bc0e1148d9566aa07"
+    },
+    {
+      "path": "source_records/declaration_index.json",
+      "bytes": 81403,
+      "sha256": "1addf206841c7fe44335f1a28ae9f212764343668c3be9dd3b8976e2c210b204"
+    },
+    {
+      "path": "source_records/final_peer_review.json",
+      "bytes": 987,
+      "sha256": "0612f488c8746d80244430b3891641e935e1be70f6b1c20c926cbbf26a8f1085"
+    },
+    {
+      "path": "source_records/review_construction.md",
+      "bytes": 5717,
+      "sha256": "630034cbb225c5b3439236a9c9f558c7e301e7c0ea2256ede71a87d605398a59"
+    },
+    {
+      "path": "source_records/review_forrelation.md",
+      "bytes": 6878,
+      "sha256": "f74b9dbeaa519a4995a918270ad38c87f372560b60ab12cc74bb83adceb64fa9"
+    },
+    {
+      "path": "source_records/review_models.md",
+      "bytes": 6668,
+      "sha256": "f825688be95a205f790bf71ed09ab17e6610136d987efe681339317631e3f013"
+    },
+    {
+      "path": "source_records/target_statements.json",
+      "bytes": 69947,
+      "sha256": "2ae112a74cd0e39d67049f99e553e55d319321c711619f2c51a43d54e07de60a"
+    },
+    {
+      "path": "validation_report.json",
+      "bytes": 733,
+      "sha256": "bf2af6c343846a82a1b7f79cde5295e3044b85577ea940e644bf610d84a821e8"
+    }
+  ],
+  "excluded": [
+    "manifest.json"
+  ],
+  "compiled": false
+}

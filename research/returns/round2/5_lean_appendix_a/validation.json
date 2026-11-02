@@ -1,0 +1,241 @@
+{
+  "kind": "static_integrity_check",
+  "lean_compiled": false,
+  "comparator_run": false,
+  "external_kernel_run": false,
+  "compiled_dependency_closure_extracted": false,
+  "compiler_on_path": {
+    "lean": null,
+    "lake": null,
+    "elan": null
+  },
+  "source_modules": 10,
+  "source_declarations": 171,
+  "tests": [
+    {
+      "check": "required_files",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "all_json_parse",
+      "passed": true,
+      "detail": {
+        "json_files": 12
+      }
+    },
+    {
+      "check": "exact_requested_row_order",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "coverage_keys",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "no_new_build_claims",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "documented_classes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "new_statement_keys",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "statement_change_keys",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "statement_change_relations",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "new_statement_ids_unique",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "status_AppendixA.lean",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "namespace_AppendixA.lean",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "status_AppendixAAdversary.lean",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "namespace_AppendixAAdversary.lean",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "status_AppendixAHuang.lean",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "namespace_AppendixAHuang.lean",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "status_AppendixAHuangMatrix.lean",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "namespace_AppendixAHuangMatrix.lean",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "status_AppendixAHuangRoute.lean",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "namespace_AppendixAHuangRoute.lean",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "status_AppendixAPerron.lean",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "namespace_AppendixAPerron.lean",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "status_AppendixARestriction.lean",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "namespace_AppendixARestriction.lean",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "status_AppendixASensitivity.lean",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "namespace_AppendixASensitivity.lean",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "status_AppendixASpectralAdversary.lean",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "namespace_AppendixASpectralAdversary.lean",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "status_AppendixAStar.lean",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "namespace_AppendixAStar.lean",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "no_proof_placeholders_or_custom_axioms",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "all_declarations_have_ledger_doc",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "no_unfilled_templates",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "coverage_declarations_exist",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source_index_names_match",
+      "passed": true,
+      "detail": {
+        "declarations": 171
+      }
+    },
+    {
+      "check": "returned_import_graph_acyclic",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "direct_import_paths_exist_at_supplied_roots",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "assembly_invokes_literal_A4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "no_direct_old_quartic_endpoint_call",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "literal_A4_no_direct_old_spectral_endpoint_call",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "exact_passage_correspondence",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "correspondence_statement_ids_resolve",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "original_input_hashes_unchanged",
+      "passed": true,
+      "detail": {
+        "members": 356,
+        "mismatches": []
+      }
+    }
+  ],
+  "passed": true,
+  "errors": [],
+  "scope": "Source and metadata integrity only. Passing does not typecheck or prove the Lean declarations."
+}

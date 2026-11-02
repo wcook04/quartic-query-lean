@@ -1,0 +1,648 @@
+[
+  {
+    "id": "def-deg",
+    "class": "exact",
+    "declaration": "QuarticQuery.Paper.appendixA_degree_le_iff_fourier",
+    "declarations": [
+      "QuarticQuery.Paper.appendixA_degree_le_iff",
+      "QuarticQuery.Paper.appendixA_degree_le_iff_fourier",
+      "QuarticQuery.Paper.appendixA_degree_const",
+      "QuarticQuery.Paper.appendixA_degree_eq_sign"
+    ],
+    "library_declaration": [
+      "Cslib.QueryComplexity.degree",
+      "Cslib.QueryComplexity.degree_le_iff_mem_lowDegree",
+      "Cslib.QueryComplexity.degree_eq_totalDegree_signVal",
+      "Cslib.BitString.mem_lowDegree_iff_fourierCoeff_eq_zero",
+      "Cslib.BitString.lowDegree_eq_map_restrictTotalDegree"
+    ],
+    "uses": [],
+    "difficulty": "low",
+    "compiled": false,
+    "notes": "Exact finite-cube degree via bit-monomial and Fourier spans. Constants have degree zero. No separate syntactic MvPolynomial uniqueness theorem is introduced; the numeric degree correspondence is explicit.",
+    "route": "same",
+    "route_scope": "Proposed source proof; local substitutions explicitly described in notes.",
+    "build": "not_run",
+    "comparator": "not_run",
+    "reach": "not_computed",
+    "file": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+    "line": 43,
+    "original_statement_sha256": "2c8482047f51c975176d0c6f0d8d63c1e28a6080dbd7f04ef903ab8b5a94ac0c"
+  },
+  {
+    "id": "def-bs",
+    "class": "exact",
+    "declaration": "QuarticQuery.Paper.appendixA_blockSensitivity_eq",
+    "declarations": [
+      "QuarticQuery.Paper.appendixA_isSensitiveBlock_iff",
+      "QuarticQuery.Paper.appendixA_blockSensitivity_eq",
+      "QuarticQuery.Paper.appendixA_blockSensitivity_const"
+    ],
+    "library_declaration": [
+      "Cslib.QueryComplexity.IsSensitiveBlock",
+      "Cslib.QueryComplexity.IsSensitiveFamily",
+      "Cslib.QueryComplexity.blockSensitivityAt",
+      "Cslib.QueryComplexity.blockSensitivity",
+      "Cslib.QueryComplexity.IsSensitiveBlock.nonempty"
+    ],
+    "uses": [],
+    "difficulty": "low",
+    "compiled": false,
+    "notes": "Sensitive-block nonemptiness follows from changed output. Natural finite suprema agree with the paper maxima and give zero for constants.",
+    "route": "same",
+    "route_scope": "Proposed source proof; local substitutions explicitly described in notes.",
+    "build": "not_run",
+    "comparator": "not_run",
+    "reach": "not_computed",
+    "file": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+    "line": 72,
+    "original_statement_sha256": "f1719d61b15318eed7a67ff68f861d5d0ca1f1891976dd4dd6fbf4c3eb2dcabb"
+  },
+  {
+    "id": "def-Gamma-i",
+    "class": "exact",
+    "declaration": "QuarticQuery.Paper.appendixAGammaCoord_apply",
+    "declarations": [
+      "QuarticQuery.Paper.AppendixAMatrix",
+      "QuarticQuery.Paper.appendixAMatrixNorm",
+      "QuarticQuery.Paper.appendixAGammaCoord",
+      "QuarticQuery.Paper.appendixAGammaCoord_apply",
+      "QuarticQuery.Paper.appendixAGammaCoord_nonneg",
+      "QuarticQuery.Paper.appendixACoordinateMax",
+      "QuarticQuery.Paper.appendixA_coord_le_max",
+      "QuarticQuery.Paper.appendixACoordinateMax_nonneg"
+    ],
+    "library_declaration": [],
+    "uses": [],
+    "difficulty": "low",
+    "compiled": false,
+    "notes": "New arbitrary-matrix definition. Every norm is explicitly the Euclidean operator norm through Matrix.toEuclideanCLM. Coordinate maximum uses NNReal finite supremum and is zero at n=0.",
+    "route": "same",
+    "route_scope": "Proposed source proof; local substitutions explicitly described in notes.",
+    "build": "not_run",
+    "comparator": "not_run",
+    "reach": "not_computed",
+    "file": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+    "line": 48,
+    "original_statement_sha256": "6dd7353a83c340c0a54c9a6a56b1c21ce41d2ead3dba8c05ea516d5807b80809"
+  },
+  {
+    "id": "claim-perron",
+    "class": "stronger",
+    "declaration": "QuarticQuery.Paper.appendixA_perron",
+    "declarations": [
+      "QuarticQuery.Paper.AppendixAPerronWitness",
+      "QuarticQuery.Paper.AppendixAPerronObligation",
+      "QuarticQuery.Paper.appendixA_perron_form",
+      "QuarticQuery.Paper.appendixAAbsVector",
+      "QuarticQuery.Paper.appendixAAbsVector_norm",
+      "QuarticQuery.Paper.appendixA_matrix_quadratic_form",
+      "QuarticQuery.Paper.appendixA_abs_quadratic_le",
+      "QuarticQuery.Paper.appendixA_exists_nonneg_unit_eigenvector",
+      "QuarticQuery.Paper.appendixA_perron",
+      "QuarticQuery.Paper.appendixA_perronObligation"
+    ],
+    "library_declaration": [
+      "Matrix.isSymmetric_toEuclideanLin_iff",
+      "ContinuousLinearMap.norm_eq_iSup_rayleighQuotient",
+      "IsSelfAdjoint.eq_smul_self_of_isLocalExtrOn_real"
+    ],
+    "uses": [
+      "def-Gamma-i"
+    ],
+    "difficulty": "high",
+    "compiled": false,
+    "notes": "New proof of the exact Perron ingredient, also allowing the zero matrix. Compact quadratic maximization plus absolute vectors handles the absolute operator norm without assuming positive semidefiniteness or irreducibility.",
+    "route": "same",
+    "route_scope": "Proposed source proof; local substitutions explicitly described in notes.",
+    "build": "not_run",
+    "comparator": "not_run",
+    "reach": "not_computed",
+    "file": "lean/QuarticQuery/Paper/AppendixAPerron.lean",
+    "line": 153,
+    "original_statement_sha256": "13a458f2d20ce64f7ee1c1d390b94aa8867089f9b00d02115bf27867a3375cfd"
+  },
+  {
+    "id": "def-adv-progress",
+    "class": "exact",
+    "declaration": "QuarticQuery.Paper.appendixAProgress",
+    "declarations": [
+      "QuarticQuery.Paper.appendixAProgress",
+      "QuarticQuery.Paper.appendixAProgress_isometry",
+      "QuarticQuery.Paper.appendixAProgress_initial"
+    ],
+    "library_declaration": [],
+    "uses": [
+      "claim-perron",
+      "def-Q"
+    ],
+    "difficulty": "medium",
+    "compiled": false,
+    "notes": "Exact complex-valued progress. The nearest source is the PRIVATE definition progress in Quantum/Adversary.lean:141, which uses absolute overlaps, two weights and only sensitivity edges. It is not called by this definition.",
+    "route": "same",
+    "route_scope": "Proposed source proof; local substitutions explicitly described in notes.",
+    "build": "not_run",
+    "comparator": "not_run",
+    "reach": "not_computed",
+    "file": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+    "line": 153,
+    "original_statement_sha256": "01a19473a93a030e4319373179169496a865f3071033b8b7f25b4417a8ef5384"
+  },
+  {
+    "id": "claim-per-query",
+    "class": "exact",
+    "declaration": "QuarticQuery.Paper.appendixAProgress_query_quadratic",
+    "declarations": [
+      "QuarticQuery.Paper.appendixA_inner_phaseOracle",
+      "QuarticQuery.Paper.appendixA_norm_inner_phaseOracle_sub",
+      "QuarticQuery.Paper.appendixA_quadratic_le_norm",
+      "QuarticQuery.Paper.appendixA_query_weights_le_one",
+      "QuarticQuery.Paper.appendixAProgress_query_quadratic",
+      "QuarticQuery.Paper.appendixAProgress_query_le",
+      "QuarticQuery.Paper.AppendixAPerQueryObligation",
+      "QuarticQuery.Paper.appendixA_perQuery_of_bounds",
+      "QuarticQuery.Paper.appendixA_progress_telescope"
+    ],
+    "library_declaration": [
+      "Cslib.Quantum.inner_phaseOracle_update_not"
+    ],
+    "uses": [
+      "def-adv-progress",
+      "def-Gamma-i",
+      "def-query-oracle"
+    ],
+    "difficulty": "high",
+    "compiled": false,
+    "notes": "New arbitrary-pair oracle identity and arbitrary-matrix quadratic estimate. Controlled-phase active projections have total squared norm at most one; this supplies the same final bound as the paper full-register equality. Specialized private progress_sub_progress_succ_le is only a source comparator.",
+    "route": "same",
+    "route_scope": "Proposed source proof; local substitutions explicitly described in notes.",
+    "build": "not_run",
+    "comparator": "not_run",
+    "reach": "not_computed",
+    "file": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+    "line": 208,
+    "original_statement_sha256": "05811421c99db5c5229172c41a3079a2d06b06296ca83a171b89dd151fda384a"
+  },
+  {
+    "id": "claim-final-overlap",
+    "class": "exact",
+    "declaration": "QuarticQuery.Paper.appendixA_unit_states_final_overlap",
+    "declarations": [
+      "QuarticQuery.Paper.appendixAProgress_final_of_overlap",
+      "QuarticQuery.Paper.appendixA_unit_states_final_overlap",
+      "QuarticQuery.Paper.appendixA_final_overlap",
+      "QuarticQuery.Paper.appendixAProgress_final"
+    ],
+    "library_declaration": [
+      "Cslib.Quantum.norm_inner_run_le",
+      "Cslib.Quantum.norm_inner_sq_add_sq_measureProb_sub_le_one"
+    ],
+    "uses": [
+      "def-adv-progress"
+    ],
+    "difficulty": "medium",
+    "compiled": false,
+    "notes": "Standalone unit-state assertion and weighted final-progress inequality both supplied. The library splits measurement subspaces and applies Cauchy-Schwarz; the threshold specialization uses its squared-inequality form, a local algebraic presentation change.",
+    "route": "same",
+    "route_scope": "Proposed source proof; local substitutions explicitly described in notes.",
+    "build": "not_run",
+    "comparator": "not_run",
+    "reach": "not_computed",
+    "file": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+    "line": 368,
+    "original_statement_sha256": "842e0a0d0feb2db4be33c20dc06be2e0cf2fb54f159263c9418a52f38b4b8b6a"
+  },
+  {
+    "id": "lem-A.2",
+    "class": "stronger",
+    "declaration": "QuarticQuery.Paper.appendixA_lemmaA2",
+    "declarations": [
+      "QuarticQuery.Paper.appendixA_conditional_adversary",
+      "QuarticQuery.Paper.appendixA_adversary_of_perron",
+      "QuarticQuery.Paper.appendixA_adversary_thirty_five_of_perron",
+      "QuarticQuery.Paper.appendixA_matrixNorm_le_of_QLe",
+      "QuarticQuery.Paper.appendixA_matrixNorm_le_Q",
+      "QuarticQuery.Paper.appendixAMatrixNorm_pos",
+      "QuarticQuery.Paper.appendixACoordinateMax_pos",
+      "QuarticQuery.Paper.appendixA_lemmaA2"
+    ],
+    "library_declaration": [
+      "Cslib.Quantum.one_sub_mul_spectralSensitivity_le",
+      "QuarticQuery.exists_fixedSequence"
+    ],
+    "uses": [
+      "claim-per-query",
+      "claim-final-overlap",
+      "claim-perron",
+      "def-Q"
+    ],
+    "difficulty": "high",
+    "compiled": false,
+    "notes": "Full arbitrary nonnegative symmetric adversary with explicit c=1/35. Neither existing supplier states this theorem: one is specialized to Sf and one only defers measurements. Nonzero opposite-output support implies nonconstantness; denominator positivity is proved. No open progress or Perron assumption in the final declaration.",
+    "route": "same",
+    "route_scope": "Proposed source proof; local substitutions explicitly described in notes.",
+    "build": "not_run",
+    "comparator": "not_run",
+    "reach": "not_computed",
+    "file": "lean/QuarticQuery/Paper/AppendixASpectralAdversary.lean",
+    "line": 107,
+    "original_statement_sha256": "0f3546f01dbe0e642da5755e073bcc8e7ee1a4491caf3937852a3a1ddb834475"
+  },
+  {
+    "id": "def-Sf",
+    "class": "exact",
+    "declaration": "QuarticQuery.Paper.appendixA_spectralSensitivity_eq",
+    "declarations": [
+      "QuarticQuery.Paper.appendixA_sensitivityMatrix",
+      "QuarticQuery.Paper.appendixA_sensitivityGraph_adj_iff",
+      "QuarticQuery.Paper.appendixA_spectralSensitivity_eq",
+      "QuarticQuery.Paper.appendixA_spectralSensitivity_const"
+    ],
+    "library_declaration": [
+      "Cslib.BitString.sensitivityGraph",
+      "Cslib.BitString.sensitivityGraph_adj",
+      "Cslib.BitString.spectralSensitivity"
+    ],
+    "uses": [
+      "def-Gamma-i"
+    ],
+    "difficulty": "low",
+    "compiled": false,
+    "notes": "Exact unnormalised real 0/1 sensitivity adjacency and its Euclidean norm. Explicit single-bit-flip adjacency bridge supplied.",
+    "route": "same",
+    "route_scope": "Proposed source proof; local substitutions explicitly described in notes.",
+    "build": "not_run",
+    "comparator": "not_run",
+    "reach": "not_computed",
+    "file": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+    "line": 112,
+    "original_statement_sha256": "8607aaafe09e290614778f5e93a933e24faf3a85f3480851d2f3e03020269d7d"
+  },
+  {
+    "id": "lem-A.3.bs",
+    "class": "stronger",
+    "declaration": "QuarticQuery.Paper.appendixA_blockSensitivity_star_le_Q_sq",
+    "declarations": [
+      "QuarticQuery.Paper.appendixA_blockSensitivity_le_of_QLe",
+      "QuarticQuery.Paper.appendixA_edgeMatrix",
+      "QuarticQuery.Paper.appendixA_edgeMatrix_symm",
+      "QuarticQuery.Paper.appendixA_edgeMatrix_nonneg",
+      "QuarticQuery.Paper.appendixA_edgeMatrix_mulVec",
+      "QuarticQuery.Paper.appendixA_edgeMatrix_norm_le_one",
+      "QuarticQuery.Paper.appendixA_starMatrix",
+      "QuarticQuery.Paper.appendixA_starMatrix_symm",
+      "QuarticQuery.Paper.appendixA_starMatrix_nonneg",
+      "QuarticQuery.Paper.appendixA_starMatrix_mulVec",
+      "QuarticQuery.Paper.appendixA_starMatrix_mulVec_center",
+      "QuarticQuery.Paper.appendixA_star_card_le_norm_sq",
+      "QuarticQuery.Paper.appendixA_star_norm_le_sqrt_card",
+      "QuarticQuery.Paper.appendixA_star_norm_eq_sqrt_card",
+      "QuarticQuery.Paper.appendixA_star_same_output_zero",
+      "QuarticQuery.Paper.appendixA_mask_edge",
+      "QuarticQuery.Paper.appendixA_mask_star",
+      "QuarticQuery.Paper.appendixA_mask_star_norm_le_one",
+      "QuarticQuery.Paper.appendixA_flipBlock_injective",
+      "QuarticQuery.Paper.appendixA_sensitiveFamily_star_properties",
+      "QuarticQuery.Paper.appendixA_sensitiveFamily_card_le_of_QLe",
+      "QuarticQuery.Paper.appendixA_blockSensitivity_star_le_of_QLe",
+      "QuarticQuery.Paper.appendixA_blockSensitivity_star_le_Q_sq"
+    ],
+    "library_declaration": [
+      "Cslib.Quantum.blockSensitivity_le_sixteen_mul_sq"
+    ],
+    "uses": [
+      "lem-A.2",
+      "def-bs"
+    ],
+    "difficulty": "high",
+    "compiled": false,
+    "notes": "New star argument gives bs<=1225 Q^2, including constants. Exact norm sqrt(number of leaves), masked-edge norm and distinct leaf count are proved in source. Existing constant16 follows from a different polynomial method and is preserved separately.",
+    "route": "same",
+    "route_scope": "Proposed source proof; local substitutions explicitly described in notes.",
+    "build": "not_run",
+    "comparator": "not_run",
+    "reach": "not_computed",
+    "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+    "line": 361,
+    "original_statement_sha256": "1bc9f21aa387616181c9c63ea7f9ec881b54edd1a1d5aa0544d6712386ccf005"
+  },
+  {
+    "id": "lem-A.3.lambda",
+    "class": "stronger",
+    "declaration": "QuarticQuery.Paper.appendixA_spectralSensitivity_adversary_le_Q",
+    "declarations": [
+      "QuarticQuery.Paper.appendixA_spectralSensitivity_le_thirty_five_mul",
+      "QuarticQuery.Paper.appendixA_spectralSensitivity_le_of_QLe",
+      "QuarticQuery.Paper.appendixA_sensitivity_mask_apply",
+      "QuarticQuery.Paper.appendixA_sensitivity_mask_mulVec",
+      "QuarticQuery.Paper.appendixA_sensitivity_mask_norm_le_one",
+      "QuarticQuery.Paper.appendixA_spectralSensitivity_adversary_le_of_QLe",
+      "QuarticQuery.Paper.appendixA_spectralSensitivity_adversary_le_Q"
+    ],
+    "library_declaration": [
+      "Cslib.Quantum.one_sub_mul_spectralSensitivity_le",
+      "Cslib.Quantum.spectralSensitivity_le_thirty_six_mul"
+    ],
+    "uses": [
+      "lem-A.2",
+      "def-Sf"
+    ],
+    "difficulty": "medium",
+    "compiled": false,
+    "notes": "New generic-A.2 application Gamma=Sf gives lambda<=35 Q. Each coordinate mask is proved a contraction via the involutive flip. The original36 wrapper uses the specialized absolute-overlap route.",
+    "route": "same",
+    "route_scope": "Proposed source proof; local substitutions explicitly described in notes.",
+    "build": "not_run",
+    "comparator": "not_run",
+    "reach": "not_computed",
+    "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+    "line": 465,
+    "original_statement_sha256": "7ec2656a9a8550bbc76f481f5c410e4c43118c6e9ffe80770d5f9ebaf6175f41"
+  },
+  {
+    "id": "lem-A.3",
+    "class": "stronger",
+    "declaration": "QuarticQuery.Paper.appendixA_lemmaA3_adversary",
+    "declarations": [
+      "QuarticQuery.Paper.appendixA_QLe_total_cases",
+      "QuarticQuery.Paper.appendixA_lemmaA3",
+      "QuarticQuery.Paper.appendixA_lemmaA3_adversary"
+    ],
+    "library_declaration": [
+      "Cslib.Quantum.blockSensitivity_le_sixteen_mul_sq",
+      "Cslib.Quantum.spectralSensitivity_le_thirty_six_mul"
+    ],
+    "uses": [
+      "lem-A.3.bs",
+      "lem-A.3.lambda"
+    ],
+    "difficulty": "low",
+    "compiled": false,
+    "notes": "Explicit uniform pair1225,35 for all total functions. Both arms use general A.2. Separate appendixA_lemmaA3 retains original library pair16,36 with its alternative block proof.",
+    "route": "same",
+    "route_scope": "Proposed source proof; local substitutions explicitly described in notes.",
+    "build": "not_run",
+    "comparator": "not_run",
+    "reach": "not_computed",
+    "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+    "line": 471,
+    "original_statement_sha256": "8a84fa2a71526bec16561d6ca9e9a52a448bb43be623ae889b3132343829501b"
+  },
+  {
+    "id": "claim-restrict-parity",
+    "class": "exact",
+    "declaration": "QuarticQuery.Paper.appendixA_restriction_parity_face",
+    "declarations": [
+      "QuarticQuery.Paper.appendixA_parityFiber_of_fourier",
+      "QuarticQuery.Paper.appendixA_parityFiber_explicit",
+      "QuarticQuery.Paper.appendixA_topFourierSupport",
+      "QuarticQuery.Paper.appendixA_degreeSupport_parityFiber",
+      "QuarticQuery.Paper.appendixAFaceFill",
+      "QuarticQuery.Paper.appendixAFaceFill_restrict",
+      "QuarticQuery.Paper.appendixAFaceFill_apply",
+      "QuarticQuery.Paper.appendixA_chi_restrict",
+      "QuarticQuery.Paper.appendixA_chi_univ_equiv",
+      "QuarticQuery.Paper.appendixAFaceEmbedding",
+      "QuarticQuery.Paper.appendixAFaceEmbedding_apply",
+      "QuarticQuery.Paper.appendixAFaceEmbedding_injective",
+      "QuarticQuery.Paper.appendixAFaceEmbedding_update",
+      "QuarticQuery.Paper.appendixAFaceFin",
+      "QuarticQuery.Paper.appendixA_faceSubtype_fourier",
+      "QuarticQuery.Paper.appendixA_faceFin_fourier",
+      "QuarticQuery.Paper.appendixA_maximal_fourierCoeff_piecewise",
+      "QuarticQuery.Paper.appendixA_topFourier_strictSupersets_zero",
+      "QuarticQuery.Paper.appendixA_topFourier_survives",
+      "QuarticQuery.Paper.appendixA_topFourier_survives_ne_zero",
+      "QuarticQuery.Paper.appendixA_every_restriction_large_fiber",
+      "QuarticQuery.Paper.appendixA_restriction_parity",
+      "QuarticQuery.Paper.appendixA_restriction_parity_face"
+    ],
+    "library_declaration": [
+      "Cslib.BitString.fourierCoeff_piecewise",
+      "Cslib.BitString.exists_card_eq_totalDegree_fourierCoeff_ne_zero",
+      "Cslib.QueryComplexity.exists_two_pow_lt_two_mul_card_forall_isSensitiveCoord",
+      "Fintype.expect_restrict_coordinates",
+      "Fintype.expect_comp_arrowCongr"
+    ],
+    "uses": [
+      "def-deg"
+    ],
+    "difficulty": "high",
+    "compiled": false,
+    "notes": "One maximum Fourier support is selected before every outside assignment. Exact normalized coefficient transport to an actual Fin #S cube, explicit Boolean sign/parity fiber and edge sensitivity are supplied. Earlier ambient-only wrappers are retained but do not substitute for this statement.",
+    "route": "same",
+    "route_scope": "Proposed source proof; local substitutions explicitly described in notes.",
+    "build": "not_run",
+    "comparator": "not_run",
+    "reach": "not_computed",
+    "file": "lean/QuarticQuery/Paper/AppendixARestriction.lean",
+    "line": 221,
+    "original_statement_sha256": "4efcfcc794f51cfef1a1e36b6bf1fda3cee7f0e877138473e151a10a24721c41"
+  },
+  {
+    "id": "def-huang",
+    "class": "exact",
+    "declaration": "QuarticQuery.Paper.huangMatrix",
+    "declarations": [
+      "QuarticQuery.Paper.HuangVertex",
+      "QuarticQuery.Paper.huangVertexFintype",
+      "QuarticQuery.Paper.huangVertexDecidableEq",
+      "QuarticQuery.Paper.huangVertex_card",
+      "QuarticQuery.Paper.huangVertexInput",
+      "QuarticQuery.Paper.huangInputVertex",
+      "QuarticQuery.Paper.huangInputVertex_vertexInput",
+      "QuarticQuery.Paper.huangVertexInput_inputVertex",
+      "QuarticQuery.Paper.huangVertexEquivInput",
+      "QuarticQuery.Paper.huangVertexInput_inj",
+      "QuarticQuery.Paper.appendixACubeEdge",
+      "QuarticQuery.Paper.appendixACubeEdge_iff_update",
+      "QuarticQuery.Paper.appendixACubeEdge_cons",
+      "QuarticQuery.Paper.huangAdjacent",
+      "QuarticQuery.Paper.huangAdjacentDecidable",
+      "QuarticQuery.Paper.huangAdjacent_iff_cubeEdge",
+      "QuarticQuery.Paper.huangMatrix",
+      "QuarticQuery.Paper.huangMatrix_one",
+      "QuarticQuery.Paper.huangCubeMatrix",
+      "QuarticQuery.Paper.huangCubeMatrix_eq_ite",
+      "QuarticQuery.Paper.abs_huangMatrix"
+    ],
+    "library_declaration": [
+      "Cslib.BitString.signedAdjacency"
+    ],
+    "uses": [],
+    "difficulty": "high",
+    "compiled": false,
+    "notes": "Literal block recursion on recursive binary words, with explicit equivalence to Fin d inputs and adjacency transport. The d=0 singleton zero matrix is a harmless extension; d=1 matches the paper. Not asserted definitionally equal to the library directional operator.",
+    "route": "same",
+    "route_scope": "Proposed source proof; local substitutions explicitly described in notes.",
+    "build": "not_run",
+    "comparator": "not_run",
+    "reach": "not_computed",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 172,
+    "original_statement_sha256": "b9a1967b1e39907bb354c94249d0743df0addd25e2e0407443eba8467e0fcb2a"
+  },
+  {
+    "id": "claim-huang-spectrum",
+    "class": "exact",
+    "declaration": "QuarticQuery.Paper.huangEnd_eigenspaces_half",
+    "declarations": [
+      "QuarticQuery.Paper.huangMatrix_transpose",
+      "QuarticQuery.Paper.huangMatrix_square",
+      "QuarticQuery.Paper.huangMatrix_trace",
+      "QuarticQuery.Paper.huangEnd",
+      "QuarticQuery.Paper.huangEnd_square",
+      "QuarticQuery.Paper.huangEnd_eigenvalue",
+      "QuarticQuery.Paper.huangParity",
+      "QuarticQuery.Paper.huangParity_square",
+      "QuarticQuery.Paper.huangParity_matrix",
+      "QuarticQuery.Paper.huangParityEnd",
+      "QuarticQuery.Paper.huangParityEnd_involutive",
+      "QuarticQuery.Paper.huangEnd_parity",
+      "QuarticQuery.Paper.huangEnd_eigenspaces_sup",
+      "QuarticQuery.Paper.huangEnd_eigenspaces_inf",
+      "QuarticQuery.Paper.huangEnd_eigenspaces_finrank",
+      "QuarticQuery.Paper.huangEnd_eigenspaces_half"
+    ],
+    "library_declaration": [
+      "Cslib.BitString.signedAdjacency_signedAdjacency"
+    ],
+    "uses": [
+      "def-huang"
+    ],
+    "difficulty": "high",
+    "compiled": false,
+    "notes": "Square, trace, symmetry, eigenvalue classification and exact multiplicities for the literal matrix. Add d>=1 to the standalone multiplicity statement. Multiplicity proof uses parity anticommutation rather than the paper trace count; the trace identity is separately proved.",
+    "route": "alternative",
+    "route_scope": "Proposed source proof; local substitutions explicitly described in notes.",
+    "build": "not_run",
+    "comparator": "not_run",
+    "reach": "not_computed",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 390,
+    "original_statement_sha256": "9d724d932abfb02ff01856c8e7a86ae977171c7035b965489b6673dc827bc44e"
+  },
+  {
+    "id": "claim-interlace",
+    "class": "exact",
+    "declaration": "QuarticQuery.Paper.huang_positive_rayleigh_witness",
+    "declarations": [
+      "QuarticQuery.Paper.appendixA_spectral_of_large_sensitive_fiber",
+      "QuarticQuery.Paper.huang_supported_positive_eigenvector",
+      "QuarticQuery.Paper.huang_absolute_rayleigh",
+      "QuarticQuery.Paper.huang_absolute_rayleigh_supported",
+      "QuarticQuery.Paper.huang_positive_rayleigh_witness"
+    ],
+    "library_declaration": [
+      "Cslib.BitString.exists_nonneg_ne_zero_sqrt_card_mul_le_sum"
+    ],
+    "uses": [
+      "claim-huang-spectrum",
+      "claim-restrict-parity"
+    ],
+    "difficulty": "high",
+    "compiled": false,
+    "notes": "Explicit nonzero positive-root eigenvector supported on the large set, plus induced unsigned Rayleigh inequality. The written appendix argument is dimension intersection, not a call to a general interlacing theorem. Depends on the exact multiplicity statement supplied by the local alternative proof.",
+    "route": "same",
+    "route_scope": "Proposed source proof; local substitutions explicitly described in notes.",
+    "build": "not_run",
+    "comparator": "not_run",
+    "reach": "not_computed",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 473,
+    "original_statement_sha256": "691b324a624728e2073cbd5e42732fb5aefcfa1b7e74f7b06f3e2aa7eab469b4"
+  },
+  {
+    "id": "lem-A.4",
+    "class": "stronger",
+    "declaration": "QuarticQuery.Paper.appendixA4_paper_route",
+    "declarations": [
+      "QuarticQuery.Paper.appendixA_degree_le_of_QLe",
+      "QuarticQuery.Paper.appendixA4",
+      "QuarticQuery.Paper.appendixA4_sqrt",
+      "QuarticQuery.Paper.appendixA_quadratic_embedding",
+      "QuarticQuery.Paper.appendixA_spectral_of_cube_embedding",
+      "QuarticQuery.Paper.appendixA4_paper_route",
+      "QuarticQuery.Paper.appendixAFaceEmbedding_sensitive"
+    ],
+    "library_declaration": [
+      "Cslib.QueryComplexity.degree_le_spectralSensitivity_sq"
+    ],
+    "uses": [
+      "claim-restrict-parity",
+      "claim-interlace",
+      "def-Sf"
+    ],
+    "difficulty": "high",
+    "compiled": false,
+    "notes": "Full genuine-face, recursive-matrix, supported-vector and explicit zero-extension route, including constants. No imported spectral-degree endpoint is invoked in this proof body. Multiplicity supplier has the local alternative route noted above. appendixA4 separately preserves the old full-cube directional route.",
+    "route": "same",
+    "route_scope": "Proposed source proof; local substitutions explicitly described in notes.",
+    "build": "not_run",
+    "comparator": "not_run",
+    "reach": "not_computed",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangRoute.lean",
+    "line": 113,
+    "original_statement_sha256": "d3317a710b50443772971bb1c149ef461589af99df66c64ef3ab1bb80c0edc9b"
+  },
+  {
+    "id": "claim-round-block",
+    "class": "exact",
+    "declaration": "QuarticQuery.Paper.appendixA_exists_maximal_round_support",
+    "declarations": [
+      "QuarticQuery.Paper.appendixA_sensitiveBlock_of_maximal_support",
+      "QuarticQuery.Paper.appendixA_exists_maximal_round_support",
+      "QuarticQuery.Paper.appendixA_sensitiveBlock_of_restriction",
+      "QuarticQuery.Paper.appendixA_roundBlocks_pairwise_disjoint",
+      "QuarticQuery.Paper.appendixA_round_count_le",
+      "QuarticQuery.Paper.appendixA_round_decreases_blockSensitivity"
+    ],
+    "library_declaration": [
+      "Cslib.QueryComplexity.exists_card_eq_degree_forall_exists_isSensitiveBlock_subset",
+      "Cslib.BitString.exists_ne_on_face_of_fourierCoeff_maximal",
+      "Cslib.QueryComplexity.blockSensitivityAt_comp_piecewise_add_one_le"
+    ],
+    "uses": [
+      "def-bs",
+      "def-deg"
+    ],
+    "difficulty": "medium",
+    "compiled": false,
+    "notes": "Exact maximum-support, fixed-original-input restriction transport, pairwise disjointness and round-count ingredients are supplied as separate lemmas. No new execution-trace datatype is claimed. The library final recursion uses equivalent block-sensitivity decrease.",
+    "route": "same",
+    "route_scope": "Proposed source proof; local substitutions explicitly described in notes.",
+    "build": "not_run",
+    "comparator": "not_run",
+    "reach": "not_computed",
+    "file": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+    "line": 213,
+    "original_statement_sha256": "0704a344bd8fce3b477e7117d85ec8baeccb82469868fd2a72f7ad53e8fb6e26"
+  },
+  {
+    "id": "lem-A.5",
+    "class": "exact",
+    "declaration": "QuarticQuery.Paper.appendixA_lemmaA5",
+    "declarations": [
+      "QuarticQuery.Paper.appendixA_lemmaA5"
+    ],
+    "library_declaration": [
+      "Cslib.DecisionTree.complexity_le_degree_mul_blockSensitivity",
+      "QuarticQuery.D_totalise_eq_complexity"
+    ],
+    "uses": [
+      "claim-round-block",
+      "def-D"
+    ],
+    "difficulty": "low",
+    "compiled": false,
+    "notes": "Exact deterministic bound after the existing bidirectional decision-tree bridge and multiplication commutativity. Same maximal-monomial mechanism, expressed in the equivalent Fourier basis. Citation is inside proof of Midrijanis Theorem4,p4, not Theorem5.",
+    "route": "same",
+    "route_scope": "Proposed source proof; local substitutions explicitly described in notes.",
+    "build": "not_run",
+    "comparator": "not_run",
+    "reach": "not_computed",
+    "file": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+    "line": 287,
+    "original_statement_sha256": "e1b7aa9dc0a7c810782a4f52cf0986a6f6896c984b5b8320c81ac8c90ea696ed"
+  }
+]

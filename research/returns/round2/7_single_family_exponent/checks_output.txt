@@ -1,0 +1,62 @@
+Finite arithmetic checks and rounded exponent-bound evaluations; not a proof or a Lean run.
+All logs marked log2 use base2; ell=ln(4km) is a natural logarithm.
+No huge value of m, R, Q or a query budget is printed.
+
+Exact arithmetic checks:
+  PASS budget expansions and envelopes (256 finite cases)
+       Literal source-shaped expression equals expanded integer polynomial; both envelope coefficients checked exactly. No quantum semantics tested.
+  PASS tournament ceiling and cell-array cardinality (129 finite cases)
+       ceil(log2(1000*4^t))=2t+10 and 2^(40t)=m^20; integer arithmetic.
+  PASS circuit recurrence, closed formula and size bound (930 finite cases)
+       Independent recurrence evaluation checks the extracted closed size formula. The logarithmic size bound is tested only for t>=1.
+  PASS physical input length (80 finite cases)
+       Sum of the four coordinate-type cardinalities agrees with the closed formula; m is the number of columns, not the number of input bits.
+  PASS floor transfer and wrong-factor negative control (392 finite cases)
+       For U>=2, floor(U)>=U/2; G<R gives R>mU/200. Denominator100 fails at U=299/100,m=1000: the least R allowed by G<R is 21, below mU/100=29.9.
+  PASS generic planted discrepancy (95 finite cases)
+       Source-conservative coefficient 4 and G=floor(mL/100), 1<=L<=m; the generic theorem needs no large-t hypothesis.
+  PASS classical numerical thresholds (33 finite cases)
+       18*8^25<9^25, the 32*delta identity/bound, and the t=64 base case for U>=2 are exact. The induction proving all larger t is in the paper.
+  PASS schedule discontinuities and leading coefficient (1526 finite cases)
+       Checks t just below/at/above perfect-square thresholds, all parameter conditions, and exact leading-loss equality at those thresholds. The wrong expression sqrt(s)/40 is rejected.
+  PASS amplitude-estimation rational margins (4 finite cases)
+       With M>=8*pi/delta, the BHMT good-event error bound gives 25/64 below and 47/64 above the normalized threshold 1/2. This does not verify BHMT or its coherent implementation.
+
+Route a=10: source repetition decoder
+  Status: budget expression from the supplied compiled source
+  k=floor(sqrt(s/40)), s=2t; B<=2^53 k 2^(10k).
+  Coarse lower exponent: 4-8sqrt(10)/sqrt(s)-(56log2(s)+524)/s.
+            t      k          A          D          E       coarse   nearby k  nearby E
+           80      2    202.383    197.273  1.0259000 -3.8376748          4  1.1012518
+          100      2    262.066    219.205  1.1955305 -2.5491341          4  1.2908107
+         1000      7   3669.433   1190.944  3.0811139  2.8652726          8  3.0843809
+        10000     22  39039.433  10362.527  3.7673660  3.7549090         23  3.7675089
+       100000     70 397084.720 100864.129  3.9368279  3.9358808         71  3.9368354
+      1000000    223 3990966.588 1002415.732  3.9813487  3.9812634        224  3.9813489
+    100000000   2236 399910476.464 100022588.921  3.9982016  3.9982008       2236  3.9982016
+  Every displayed case has k>=2, 15k+2<=s, cutoff>=2, cutoff<=m, and R_lower>20736.
+  The unnecessary old Lvalue-corollary threshold fails for every displayed case.
+
+Route a=5: amplitude-estimation decoder
+  Status: new paper derivation; circuit/formal verification not performed here
+  k=floor(sqrt(s/20)), s=2t; B<=2^59 k 2^(5k).
+  Coarse lower exponent: 4-8sqrt(5)/sqrt(s)-(56log2(s)+552)/s.
+            t      k          A          D          E       coarse   nearby k  nearby E
+           80      2    202.383    193.273  1.0471321 -3.4268884          5  1.1819315
+          100      3    294.225    220.790  1.3326038 -2.1651908          5  1.3795937
+         1000     10   3754.118   1177.458  3.1883235  3.0169580         11  3.1896145
+        10000     31  39302.373  10304.022  3.8142750  3.8059033         32  3.8143549
+       100000    100 397940.834 100670.643  3.9528985  3.9523093        100  3.9528985
+      1000000    316 3993605.078 1001772.235  3.9865400  3.9864888        317  3.9865400
+    100000000   3162 399936669.796 100016045.421  3.9987251  3.9987246       3163  3.9987251
+  Every displayed case has k>=2, 15k+2<=s, cutoff>=2, cutoff<=m, and R_lower>20736.
+  The unnecessary old Lvalue-corollary threshold fails for every displayed case.
+
+Textual checks and evidence limits:
+  Promise/sign check: yes means Phi>=delta; no means abs(Phi)<=delta/2. A large negative Phi is off-promise. A Phi^2 decoder can accept such an input; this is permitted only because total-function verification rejects invalid address certificates with its proved bounded-error guarantee. This is a textual mathematical requirement, not a numerical test.
+  Quantum proof check still required: coherent amplitude estimation, controlled oracle signs, inverse preparation, coherent majority with retained workspace, generic sampler replacement, and worst-case branch caps are outside this script's verification scope.
+  The nearby-k scan is bounded and is not a global optimizer or an optimality proof. It measures finite-parameter slack in the asymptotically balanced schedule.
+  No value in the table is the actual R or Q of a Boolean function. A and D are logarithms of established/proposed complexity bounds; E is their ratio and lower-bounds log(R)/log(Q) when the mathematical hypotheses hold.
+  The ordinary Lvalue threshold t>=3499200*k^2 is deliberately not required. The auxiliary classical cutoff L can be changed without changing F_{k,m}.
+
+PASS: all finite arithmetic checks and sampled exponent inequalities. No Lean compiler was run.

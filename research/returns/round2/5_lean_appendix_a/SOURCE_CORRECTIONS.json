@@ -1,0 +1,30 @@
+[
+  {
+    "id": "source-SS06-error-prefactor",
+    "file": "literature/quartic-ref-24-all-quantum-adversary-methods-are-equivale/annex_notes.json",
+    "note_id": "n003",
+    "old": "Digest. PROVES: Theorem 3.1 (L256): for partial f on S inside G_n, Q_eps(f)/sqrt(1-2 sqrt(eps(1-eps))) >= SA(f)=WA(f)=SWA(f)=MM(f)=SMM(f)=GSA(f)=Theta(KA(f)), the spectral adversary being SA(f)=max_Gamma lambda(Gamma)/max_i lambda(Gamma o D_i) over non-negative symmetric Gamma with Gamma o F=Gamma (L265, formula 3.1). The equalities are Theorem 4.3 and 4.4 (SA=WA=SWA, L468, L514), 5.1 and 5.2, 6.1 and 7.1-7.2 (Kolmogorov, L699); the lower bound on Q is not new: the proof closes by quoting one known bound, for example Ambainis for WA on Boolean f (L733). Theorem 3.2 (L362) gives limits: MM(f) <= 2 sqrt(C_1 n) for partial f and MM(f) <= sqrt(C_0 C_1) for total f (certificate complexities). Derived constant at eps=1/3: 1-2 sqrt(2/9) is about 0.0572, so Q_(1/3) >= about 0.239 SA (arithmetic here, not stated in the paper). QUARTIC USES (lem-A.2 and lem-A.3.lambda in Appendix A): only the lower-bound direction, that the non-negative spectral adversary ratio is a quantum lower bound, as the route to lambda(f)=O(Q(f)) (quartic-ref-03 Lemma 7 cites Barnum-Saks-Szegedy for the same). Adjudication R2-C-BSS had this paper held but not reread; read now, and the statement matches the audit. The original Barnum-Saks-Szegedy paper (ref 7) is not held, so the primary source for Q >= SA stays outside the corpus; the quartic text proves lem-A.2 itself, so no step depends on this paper (adjudication). Licence/metadata caution from the audit: the input file labels this 2004 arXiv submission with an assumed licence; prefer the final publisher copy.",
+    "new": "Theorem3.1 prints Q_epsilon(f)/(1-2sqrt(epsilon(1-epsilon))) >= SA(f). There is no outer square root around the denominator. At epsilon=1/3 the printed coefficient multiplying SA is approximately0.0571909584, not0.239. The direct factor-two progress proof here independently gives half that coefficient, approximately0.0285954792, and rounds down to1/35.",
+    "source_url": "https://theoryofcomputing.org/articles/v002a001/v002a001.pdf",
+    "locator": "Theorem3.1 and equation(3.1), printed p6; proof repeated on p14",
+    "verification": "Publisher text and rendered page inspected independently. Numeric factors recomputed.",
+    "consequence": "This transcription correction concerns the annex note. A separate entry below records the independently checked factor-two discrepancy in the published display. No theorem from the original BSS full text was independently checked."
+  },
+  {
+    "id": "source-SS06-printed-prefactor",
+    "source_url": "https://theoryofcomputing.org/articles/v002a001/v002a001.pdf",
+    "locator": "Ordinary-query model: Section2.1,p4; Euclidean norm: Section2.4,p5; Theorem3.1 and spectral ratio(3.1),p6; repeated theorem display,p14.",
+    "old": "The display prints Q_epsilon(f)/(1-2sqrt(epsilon(1-epsilon))) >= SA(f), with the unscaled nonnegative symmetric spectral ratio.",
+    "witness": "Two-bit parity has an exact one-query ordinary bit-oracle algorithm. Its two-cube adjacency adversary has norm2, both coordinate masks norm1, and therefore ratio2. For epsilon=1/100 the printed lower bound exceeds1.",
+    "supported_statement": "The standard bound with coefficient (1-2sqrt(epsilon(1-epsilon)))/2 is consistent with the witness and with the direct progress proof.",
+    "corroboration_url": "https://www.ucw.cz/~robert/papers/madv.pdf",
+    "corroboration_locator": "Hoyer, Lee and Spalek, Negative weights make adversaries stronger, Definition1 and Theorem1, printed p3 of the29-page author PDF.",
+    "evidence_files": [
+      "SOURCE_COEFFICIENT_CHECK.md",
+      "checks/source_coefficient_check.py",
+      "checks/source_coefficient_check.json"
+    ],
+    "verification": "Independent mathematical review and exact finite rational/integer checks; not a Lean proof, novelty claim or author-confirmed erratum.",
+    "consequence": "Local numerical-prefactor correction only. No refutation of the equivalence of adversary formulations or of Appendix A. The returned c=1/35 theorem already uses the factor-two progress calculation and requires no change."
+  }
+]

@@ -1,0 +1,542 @@
+[
+  {
+    "passage": "verdict",
+    "from": "## 1. Result and scope\n\nThe supplied source states the full unconditional conclusion of OpenAI's preprint: the optimal u",
+    "to": "ng the mathematical conclusion. |\n\nThe recommendations are advisory. No supplied source or evidence record was modified.",
+    "role": "states",
+    "statement_ids": [
+      "thm-1.1",
+      "lem-2.1.i",
+      "thm-A.1"
+    ],
+    "lean": [
+      "QuarticQuery.alphaTot_eq_four_unconditional",
+      "QuarticQuery.theorem_1_1_unconditional",
+      "QuarticQuery.ForrelationLower.bansalSinhaLower"
+    ]
+  },
+  {
+    "passage": "conventions",
+    "from": "## 2. Reading conventions and reference points\n\nPaths beginning `Statement.lean`, `Model/`, `Bridge/`, `Construction/`, ",
+    "to": "d domain or quantifier is described explicitly. “Wrong” identifies a demonstrable error, with its affected object named.",
+    "role": "mentions",
+    "statement_ids": [
+      "def-partial-query",
+      "def-R",
+      "def-Q",
+      "eq-3",
+      "eq-4",
+      "thm-A.1"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "classical-definitions",
+    "from": "## 3. Inputs, deterministic queries, and randomization\n\n| Definition and source | Exact ordinary meaning | Comparison an",
+    "to": " fixes the error and worst-case convention in §1. The corpus associations are `def-partial-query`, `def-R`, and `def-D`.",
+    "role": "defines",
+    "statement_ids": [
+      "def-partial-query",
+      "def-R",
+      "def-D"
+    ],
+    "lean": [
+      "QuarticQuery.BitInput",
+      "QuarticQuery.TotalBool",
+      "QuarticQuery.PartialBool",
+      "QuarticQuery.totalise",
+      "QuarticQuery.promised",
+      "QuarticQuery.reindex",
+      "QuarticQuery.QueryTree",
+      "QuarticQuery.QueryTree.eval",
+      "QuarticQuery.QueryTree.depth",
+      "QuarticQuery.RandomizedProgram",
+      "QuarticQuery.RandomizedProgram.depth",
+      "QuarticQuery.RandomizedProgram.success",
+      "QuarticQuery.RLe",
+      "QuarticQuery.DLe",
+      "QuarticQuery.R",
+      "QuarticQuery.D"
+    ]
+  },
+  {
+    "passage": "classical-minima",
+    "from": "### 3.1 Feasibility, mass, and zero queries\n\nThe read-all tree is built at `Model/Classical.lean:231–241`, and its rando",
+    "to": "nd/Minimax.lean:138–175`). This distributional step does not replace the pointwise definition of randomized correctness.",
+    "role": "explains",
+    "statement_ids": [
+      "def-R",
+      "def-D",
+      "claim-minimax-mu",
+      "sanity-R-zero-characterization",
+      "sanity-D-zero-characterization"
+    ],
+    "lean": [
+      "QuarticQuery.RLe",
+      "QuarticQuery.DLe",
+      "QuarticQuery.R",
+      "QuarticQuery.D",
+      "QuarticQuery.ConstantOnPromise"
+    ]
+  },
+  {
+    "passage": "quantum-definitions",
+    "from": "## 4. Quantum algorithms\n\n| Definition and source | Exact ordinary meaning | Comparison and verdict |\n| --- | --- | --- ",
+    "to": "ements [DW26, §1.2.2, footnote 5]; the source does not expose one separate theorem for every such alternative formalism.",
+    "role": "defines",
+    "statement_ids": [
+      "def-query-oracle",
+      "def-Q"
+    ],
+    "lean": [
+      "QuarticQuery.Basis",
+      "QuarticQuery.State",
+      "QuarticQuery.bitOracle",
+      "QuarticQuery.project",
+      "QuarticQuery.AdaptiveProgram",
+      "QuarticQuery.AdaptiveProgram.queryCap",
+      "QuarticQuery.AdaptiveProgram.outputMass",
+      "QuarticQuery.ConstantOnPromise",
+      "QuarticQuery.QLe",
+      "QuarticQuery.Q"
+    ]
+  },
+  {
+    "passage": "quantum-failure-modes",
+    "from": "### 4.1 Normalization, hidden input access, and the empty register\n\n`AdaptiveProgram.outputMass_true_add_false` proves t",
+    "to": "ent source already exposes `Q≤D`. This is a useful interface addition, with no missing implication in the quartic proof.",
+    "role": "explains",
+    "statement_ids": [
+      "def-Q",
+      "sf-q-zero-input-independent",
+      "sf-q-zero-iff-constant",
+      "sf-q-classical-random-simulation",
+      "sf-q-mass-conservation"
+    ],
+    "lean": [
+      "QuarticQuery.AdaptiveProgram.outputMass_true_add_false",
+      "QuarticQuery.constantOnPromise_of_isEmpty",
+      "QuarticQuery.DLe.toQLe",
+      "QuarticQuery.QLe_card",
+      "QuarticQuery.QLe_Q",
+      "QuarticQuery.Q_le_iff",
+      "QuarticQuery.Q_le_D"
+    ]
+  },
+  {
+    "passage": "forrelation-definitions",
+    "from": "## 5. Forrelation and its promise\n\n| Definition and source | Exact ordinary meaning | Comparison and verdict |\n| --- | -",
+    "to": "`) establish positivity and exact promise equivalence. These are substantive semantic bridges already present in source.",
+    "role": "defines",
+    "statement_ids": [
+      "def-walsh-sign",
+      "eq-3",
+      "eq-4",
+      "eq-5",
+      "claim-N-phi",
+      "claim-integer-tests"
+    ],
+    "lean": [
+      "QuarticQuery.mValue",
+      "QuarticQuery.ForrelationCoord",
+      "QuarticQuery.bitSign",
+      "QuarticQuery.walshSign",
+      "QuarticQuery.forrelationNumerator",
+      "QuarticQuery.forrelationDenominator",
+      "QuarticQuery.Phi",
+      "QuarticQuery.P",
+      "QuarticQuery.Forrelation.Phi_eq_matrix_product",
+      "QuarticQuery.Forrelation.forrelationDenominator_pos",
+      "QuarticQuery.Forrelation.P_eq_some_true_iff",
+      "QuarticQuery.Forrelation.P_eq_some_false_iff",
+      "QuarticQuery.Forrelation.P_eq_none_iff"
+    ]
+  },
+  {
+    "passage": "forrelation-boundaries",
+    "from": "### 5.1 Boundary parameters and independent nonvacuity\n\nAt `k=0`, the sum over the empty path has one term. The public d",
+    "to": "nesses for `k=2,…,8` and `t=1,…,3`; the argument establishes the general claim. Its Lean signature remains unelaborated.",
+    "role": "proves",
+    "statement_ids": [
+      "eq-3",
+      "eq-4",
+      "sf-phi-zero-layers",
+      "sf-forrelation-three-statuses"
+    ],
+    "lean": [
+      "QuarticQuery.Phi",
+      "QuarticQuery.P",
+      "QuarticQuery.Forrelation.H",
+      "QuarticQuery.Forrelation.H_mul_H",
+      "QuarticQuery.Forrelation.Phi_eq_matrix_product"
+    ]
+  },
+  {
+    "passage": "circuit-definitions",
+    "from": "## 6. Circuits and transcripts\n\n| Definition and source | Exact ordinary meaning | Comparison and verdict |\n| --- | --- ",
+    "to": " an explicit implementation of the preprint's circuit-existence claim; the mathematical circuit convention is unchanged.",
+    "role": "defines",
+    "statement_ids": [
+      "def-transcript",
+      "def-eval-transcript",
+      "claim-circuit-size",
+      "lem-2.1.iii"
+    ],
+    "lean": [
+      "QuarticQuery.Gate",
+      "QuarticQuery.Circuit",
+      "QuarticQuery.predecessorValue",
+      "QuarticQuery.GateConsistent",
+      "QuarticQuery.CircuitRealises",
+      "QuarticQuery.circuitEval_gateConsistent",
+      "QuarticQuery.existsUnique_gateConsistent",
+      "QuarticQuery.Forrelation.forrCircuit_realises",
+      "QuarticQuery.Forrelation.forrCircuit_size_le"
+    ]
+  },
+  {
+    "passage": "construction-definitions",
+    "from": "## 7. The addressed total function\n\n| Definition and source | Exact ordinary meaning | Comparison and verdict |\n| --- | ",
+    "to": " This check catches a missing owning-column or address index, which a local correctness theorem might otherwise conceal.",
+    "role": "defines",
+    "statement_ids": [
+      "eq-6",
+      "def-column-layout",
+      "eq-7",
+      "eq-8",
+      "def-winner",
+      "def-F",
+      "sf-bitloc-cardinality"
+    ],
+    "lean": [
+      "QuarticQuery.Column",
+      "QuarticQuery.Address",
+      "QuarticQuery.BitLoc",
+      "QuarticQuery.readX",
+      "QuarticQuery.readA",
+      "QuarticQuery.readPointerBit",
+      "QuarticQuery.readTranscript",
+      "QuarticQuery.pointerEquiv",
+      "QuarticQuery.WinsAt",
+      "QuarticQuery.addressedF",
+      "QuarticQuery.Fkm"
+    ]
+  },
+  {
+    "passage": "construction-failure-modes",
+    "from": "### 7.1 Witness uniqueness and circuit choice\n\nThe existential address cannot select an unrelated favorable cell: each b",
+    "to": "werBound/Planted/Inputs.lean:106–128`). Thus that default does not create a false certificate for an undefined instance.",
+    "role": "explains",
+    "statement_ids": [
+      "def-winner",
+      "def-F",
+      "cor-unique-winner",
+      "eq-2",
+      "sf-Fkm-t-zero",
+      "sf-empty-promise-rejects",
+      "claim-Y-values"
+    ],
+    "lean": [
+      "QuarticQuery.winsAt_address_unique",
+      "QuarticQuery.winsAt_column_unique",
+      "QuarticQuery.family_bounds",
+      "QuarticQuery.theorem_1_1_unconditional"
+    ]
+  },
+  {
+    "passage": "local-tests",
+    "from": "### 7.2 Local verification is adaptive\n\n`TestIndex` counts the local checks, and `card_testIndex` gives the preprint's v",
+    "to": "alidate the separately constructed quantum upper bound. `Paper/Section2.lean` is uncompiled in the supplied build table.",
+    "role": "explains",
+    "statement_ids": [
+      "def-K",
+      "lem-2.2.i",
+      "lem-2.2.ii"
+    ],
+    "lean": [
+      "QuarticQuery.TestIndex",
+      "QuarticQuery.card_testIndex",
+      "QuarticQuery.localTestTree_depth_le",
+      "QuarticQuery.winsAt_iff_localTests"
+    ]
+  },
+  {
+    "passage": "tournament",
+    "from": "## 8. Comparison probabilities\n\n`Tournament.IsComparison` (`Statement.lean:300–304`) states complementarity for distinct",
+    "to": "bability hypothesis was found. [OAI26, §3.2, equation (10), Proposition 3.2; IDs `eq-10`, `eq-12`, `eq-13`, `prop-3.2`.]",
+    "role": "defines",
+    "statement_ids": [
+      "eq-10",
+      "eq-12",
+      "eq-13",
+      "prop-3.2"
+    ],
+    "lean": [
+      "QuarticQuery.Tournament.IsComparison",
+      "QuarticQuery.Tournament.UnitValued",
+      "QuarticQuery.Upper.cmpProb",
+      "QuarticQuery.Upper.cmpProb_unit"
+    ]
+  },
+  {
+    "passage": "parameters",
+    "from": "## 9. Floors, powers, and the optimal exponent\n\n| Definition and source | Exact ordinary meaning | Comparison and verdic",
+    "to": "o-base, or truncated-subtraction shortcut. [IDs `eq-1`, `eq-2`, `eq-5`, `eq-17`, `claim-floor`, `claim-exponent-ratio`.]",
+    "role": "defines",
+    "statement_ids": [
+      "eq-1",
+      "eq-2",
+      "eq-5",
+      "eq-17",
+      "claim-floor",
+      "claim-exponent-ratio",
+      "lem-2.1.i"
+    ],
+    "lean": [
+      "QuarticQuery.Lvalue",
+      "QuarticQuery.Gvalue",
+      "QuarticQuery.BansalSinhaLower",
+      "QuarticQuery.UniversalPower",
+      "QuarticQuery.alphaTot",
+      "QuarticQuery.familyExponent",
+      "QuarticQuery.FamilyBoundsAt",
+      "QuarticQuery.FamilyBounds"
+    ]
+  },
+  {
+    "passage": "headline-quantifiers",
+    "from": "### 9.1 What the headline actually implies\n\nThe floor estimate `Gvalue_ge` is proved for `t≥8` (`Results/Exponent.lean:3",
+    "to": "ired by the preprint; it should not be expanded into a claim that the full original uniform theorem has been formalized.",
+    "role": "explains",
+    "statement_ids": [
+      "eq-2",
+      "claim-floor",
+      "claim-exponent-ratio",
+      "claim-no-smaller-exponent",
+      "thm-1.1",
+      "fidelity-literal-eq2",
+      "sanity-power-set-valid"
+    ],
+    "lean": [
+      "QuarticQuery.Gvalue_ge",
+      "QuarticQuery.familyExponent",
+      "QuarticQuery.exists_nat_exponent",
+      "QuarticQuery.alphaTot_eq_four_of",
+      "QuarticQuery.ForrelationLower.bansalSinhaLower"
+    ]
+  },
+  {
+    "passage": "bridges",
+    "from": "## 10. Model transport and Appendix A\n\n### 10.1 Classical trees\n\n`QueryTree.toDecisionTree` and `QueryTree.ofDecisionTre",
+    "to": " for the preprint's asymptotic application. [IDs `def-Q`, `lem-A.2`, `thm-A.1`; DW26, §2.1.2 and Chapter 2, Exercise 8.]",
+    "role": "explains",
+    "statement_ids": [
+      "def-D",
+      "def-query-oracle",
+      "def-Q",
+      "lem-A.2",
+      "thm-A.1"
+    ],
+    "lean": [
+      "QuarticQuery.QueryTree.toDecisionTree",
+      "QuarticQuery.QueryTree.ofDecisionTree",
+      "QuarticQuery.D_totalise_eq_complexity",
+      "QuarticQuery.hadamard_phaseOracle_hadamard",
+      "QuarticQuery.hadamard_bitOracle_hadamard",
+      "QuarticQuery.run_phaseGates",
+      "QuarticQuery.FixedSim"
+    ]
+  },
+  {
+    "passage": "imported-quartic",
+    "from": "### 10.4 The imported quartic theorem\n\n`Cslib.Quantum.complexity_le_mul_pow_four` applies to a normalized fixed-sequence",
+    "to": "`DecisionTree.Basic` modules also prevent claiming that this audit read the entire pinned transitive dependency closure.",
+    "role": "uses",
+    "statement_ids": [
+      "thm-A.1",
+      "lem-A.2"
+    ],
+    "lean": [
+      "QuarticQuery.D_le_of_QLe",
+      "QuarticQuery.D_le_Q_pow_four",
+      "QuarticQuery.universalPower_four",
+      "Cslib.Quantum.complexity_le_mul_pow_four"
+    ]
+  },
+  {
+    "passage": "comparator",
+    "from": "## 11. What Comparator establishes\n\nAll five Challenge files import Mathlib only and copy the public definition block fr",
+    "to": "ndbox-isolation attestation. These qualifications preserve the useful historical evidence while stating its exact scope.",
+    "role": "explains",
+    "statement_ids": [
+      "def-R",
+      "def-Q",
+      "cor-unique-winner",
+      "prop-3.2",
+      "thm-1.1",
+      "lem-2.1.i"
+    ],
+    "lean": [
+      "QuarticQuery.theorem_1_1",
+      "QuarticQuery.theorem_1_1_unconditional",
+      "QuarticQuery.alphaTot_eq_four_unconditional",
+      "QuarticQuery.BansalSinhaLower"
+    ]
+  },
+  {
+    "passage": "reachability",
+    "from": "## 12. Defect in dependency reachability\n\n`repository/lean/scripts/Reach.lean:13–14` accepts a displayed project name on",
+    "to": "private-wrapper/public-leaf regression must pass before the new graph is used to remove or discount source declarations.",
+    "role": "explains",
+    "statement_ids": [
+      "def-query-oracle",
+      "lem-A.2",
+      "thm-A.1",
+      "thm-1.1"
+    ],
+    "lean": [
+      "QuarticQuery.norm_hadamardL",
+      "QuarticQuery.norm_invSqrtTwo_sq",
+      "QuarticQuery.FixedSim.query",
+      "QuarticQuery.exists_gate",
+      "QuarticQuery.hadamard_phaseOracle_hadamard"
+    ]
+  },
+  {
+    "passage": "provenance",
+    "from": "## 13. Source and execution provenance\n\nThe independently checked manifest-listed files all have their stated sizes and ",
+    "to": "he complete dirty/clean source state, dependency pins, source hashes, commands, exit codes, and generated report hashes.",
+    "role": "explains",
+    "statement_ids": [
+      "def-R",
+      "def-D",
+      "lem-2.1.i",
+      "thm-1.1"
+    ],
+    "lean": [
+      "QuarticQuery.theorem_1_1_unconditional",
+      "QuarticQuery.ForrelationLower.bansalSinhaLower"
+    ]
+  },
+  {
+    "passage": "literature-corrections",
+    "from": "## 14. Literature and attribution corrections\n\n### 14.1 Randomized parity convention\n\nThe supplied Beals et al. source d",
+    "to": "bytes. The line-1184 references in the packet should be corrected while preserving the adjudicated mathematical finding.",
+    "role": "explains",
+    "statement_ids": [
+      "def-R",
+      "lem-A.2",
+      "lem-A.3.lambda",
+      "thm-A.1",
+      "claim-bs-to-L"
+    ],
+    "lean": []
+  },
+  {
+    "passage": "small-classical",
+    "from": "## 15. Independent small-function checks\n\nThe following values use error at most one third and the supplied worst-case q",
+    "to": "h floor placements. It also warns against presenting a tiny construction as already exhibiting an asymptotic separation.",
+    "role": "proves",
+    "statement_ids": [
+      "sanity-constant-classical",
+      "sanity-empty-promise-classical",
+      "sanity-identity-one-bit-classical",
+      "sanity-or-two-classical",
+      "sanity-xor-two-classical",
+      "sf-q-zero-iff-constant",
+      "sf-q-dictator",
+      "sf-q-or-two",
+      "sf-q-xor-two",
+      "sanity-L-first-positive-k2"
+    ],
+    "lean": [
+      "QuarticQuery.R",
+      "QuarticQuery.D",
+      "QuarticQuery.Q",
+      "QuarticQuery.Lvalue",
+      "QuarticQuery.Gvalue"
+    ]
+  },
+  {
+    "passage": "small-forrelation",
+    "from": "### 15.1 Hand-computed Forrelation\n\nFor `k=2,t=1`, use the normalized four-dimensional Walsh matrix. Both sign vectors `",
+    "to": "in `checks/construction_checks_output.json`; only the already-present promise census is cited as existing Lean evidence.",
+    "role": "states",
+    "statement_ids": [
+      "eq-4",
+      "sf-phi-positive-two-one",
+      "sf-phi-zero-two-one",
+      "sf-existing-negative-witness",
+      "sf-phi-two-one-histogram"
+    ],
+    "lean": [
+      "QuarticQuery.Forrelation.census_true",
+      "QuarticQuery.Forrelation.census_false",
+      "QuarticQuery.Forrelation.census_none",
+      "QuarticQuery.Forrelation.negativeWitness",
+      "QuarticQuery.Forrelation.Phi_negativeWitness",
+      "QuarticQuery.Forrelation.P_negativeWitness"
+    ]
+  },
+  {
+    "passage": "one-winner",
+    "from": "### 15.2 A one-winner board\n\nAn understandable exhaustive model uses two columns, one address bit, the one-bit identity ",
+    "to": "-corrupt-active-transcript` asks that any changed active gate bit reject. Those proposed signatures remain unelaborated.",
+    "role": "proves",
+    "statement_ids": [
+      "def-winner",
+      "def-F",
+      "cor-unique-winner",
+      "lem-2.2",
+      "sf-toy-board-census",
+      "sf-Fkm-one-winner",
+      "sf-Fkm-corrupt-active-transcript"
+    ],
+    "lean": [
+      "QuarticQuery.WinsAt",
+      "QuarticQuery.addressedF",
+      "QuarticQuery.Fkm",
+      "QuarticQuery.circuitEval",
+      "QuarticQuery.Forrelation.forrCircuit"
+    ]
+  },
+  {
+    "passage": "negative-controls",
+    "from": "## 16. Additional adversarial controls\n\n`negative_controls.json` specifies mutations, independent tests, and expected fa",
+    "to": "bug in Comparator. Keep its independently specified expected answers outside the generator that copies `Statement.lean`.",
+    "role": "explains",
+    "statement_ids": [
+      "def-R",
+      "def-D",
+      "def-Q",
+      "def-query-oracle",
+      "eq-4",
+      "def-winner",
+      "def-F",
+      "eq-1"
+    ],
+    "lean": [
+      "QuarticQuery.RLe",
+      "QuarticQuery.DLe",
+      "QuarticQuery.QLe",
+      "QuarticQuery.RandomizedProgram.depth",
+      "QuarticQuery.AdaptiveProgram.outputMass",
+      "QuarticQuery.P",
+      "QuarticQuery.WinsAt",
+      "QuarticQuery.UniversalPower"
+    ]
+  },
+  {
+    "passage": "actions",
+    "from": "## 17. Required repairs and proposed formalization\n\nThe first repair is the dependency traversal, followed by regenerati",
+    "to": "upports the intended meaning of the source theorem while identifying concrete repairs to the evidence that describes it.",
+    "role": "mentions",
+    "statement_ids": [
+      "thm-1.1",
+      "def-query-oracle",
+      "sf-forrelation-three-statuses",
+      "fidelity-literal-eq2"
+    ],
+    "lean": []
+  }
+]

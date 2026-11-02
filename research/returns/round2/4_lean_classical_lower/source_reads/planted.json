@@ -1,0 +1,694 @@
+{
+  "complete_lean_files": [
+    "repository/lean/QuarticQuery/Statement.lean",
+    "repository/lean/QuarticQuery/Model/Classical.lean",
+    "repository/lean/QuarticQuery/Paper/Section4.lean",
+    "repository/lean/QuarticQuery/LowerBound/Planted/Average.lean",
+    "repository/lean/QuarticQuery/LowerBound/Planted/Inputs.lean",
+    "repository/lean/QuarticQuery/LowerBound/Planted/Coupling.lean",
+    "repository/lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean",
+    "repository/lean/QuarticQuery/LowerBound/Planted/Heavy.lean",
+    "repository/lean/QuarticQuery/LowerBound/Planted/Simulator.lean",
+    "repository/lean/QuarticQuery/LowerBound/Planted/Main.lean"
+  ],
+  "complete_task_and_contract_files": [
+    "READ_ME_FIRST.md",
+    "BUILD_STATUS.md",
+    "repository/README.md",
+    "repository/docs/statement_evidence_contract.md",
+    "repository/corpus/README.md",
+    "repository/research/adjudication/funnel_adjudication_notes.md",
+    "repository/research/adjudication/adjudication_notes.md"
+  ],
+  "targeted_reads": [
+    {
+      "file": "paper/extracted.md",
+      "scope": "Sections4 and5, lines515–710, full lower-bound proof and exponent introduction"
+    },
+    {
+      "file": "repository/corpus/statements.json",
+      "scope": "All12 assigned rows, including exact texts, evidence fields, declarations, hypotheses and locators"
+    },
+    {
+      "file": "repository/corpus/ties.json",
+      "scope": "All12 assigned rows and absent-tie checks"
+    },
+    {
+      "file": "repository/research/adjudication/funnel_adjudication.json",
+      "scope": "F-TREE-GAP, F-ZS-REFINE and surrounding findings; complete corresponding summary notes"
+    },
+    {
+      "file": "repository/research/adjudication/adjudication.json",
+      "scope": "Matches for assigned row IDs and corresponding summary notes"
+    },
+    {
+      "file": "repository/lean/QuarticQuery/LowerBound/Minimax.lean",
+      "scope": "Exact address_guess_le, address_guess_average, exists_address_guess_bound signatures and bodies"
+    },
+    {
+      "file": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+      "scope": "treeSuccess, guessSuccess and budget-value interfaces used by these additions"
+    },
+    {
+      "file": "Mathlib/Algebra/BigOperators/Group/Finset/Piecewise.lean",
+      "scope": "Exact pinned source, card_filter and indicator-sum context"
+    },
+    {
+      "file": "Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean",
+      "scope": "Exact pinned source, prod_subset and prod_eq_single; to_additive generates sum counterparts"
+    },
+    {
+      "file": "Mathlib/Algebra/BigOperators/Ring/Finset.lean",
+      "scope": "Exact pinned source, Nat.cast_sum at line341 is marked simp and norm_cast"
+    },
+    {
+      "file": "Mathlib/Data/Fintype/Defs.lean",
+      "scope": "Exact pinned source, subset_univ signature at line113"
+    }
+  ],
+  "not_independently_read_by_this_subagent": [
+    "The companion mechanics guide and writing exemplars (parent handles overall return form). The complete full-exposition-guide.md was read by this subagent.",
+    "Whole Forrelation/quantum-upper developments (outside assigned scope).",
+    "Unrelated NEW_STATEMENTS objects outside the full-entry selections listed above: all124 objects were inventoried, but their unrelated proof signatures and full route notes were not all read."
+  ],
+  "unavailable": [
+    "Lean compiler, Lake, cached .olean dependencies"
+  ],
+  "web_research": "No separate web search by this subagent; mathematical claims are derived from the supplied primary preprint and actual source. Parent and direct-product agent handle primary-source web verification.",
+  "complete_writing_guides": [
+    {
+      "file": "writing/full-exposition-guide.md",
+      "line_count": 1597,
+      "bytes": 103236,
+      "sha256": "c7baa3c8b195647b00cdd37c38c48b122371ce9c3cd92798e2e9d55f3d1c4eca",
+      "read_line_ranges": [
+        [
+          1,
+          260
+        ],
+        [
+          261,
+          520
+        ],
+        [
+          521,
+          780
+        ],
+        [
+          781,
+          1040
+        ],
+        [
+          1041,
+          1300
+        ],
+        [
+          1301,
+          1597
+        ]
+      ],
+      "scope": "All contents read in nontruncated chunks, including appendices and contextual examples."
+    }
+  ],
+  "complete_previous_gap_registers": [
+    {
+      "file": "previous_round/1_long_reasoning_record/LEAN_GAPS.md",
+      "line_count": 302,
+      "bytes": 63908,
+      "sha256": "5e17659decd217a381f5dd5348f26161766e4b153133ea4fe75b327246a9c8bf",
+      "read_line_ranges": [
+        [
+          1,
+          150
+        ],
+        [
+          151,
+          302
+        ]
+      ],
+      "scope": "Complete file read, including unrelated section notes and recommendations; historical proposals remain subordinate to the current packet and adjudication."
+    },
+    {
+      "file": "previous_round/2_short_expert_paper/LEAN_GAPS.md",
+      "line_count": 227,
+      "bytes": 30327,
+      "sha256": "bca6f9c9f8170fa51db18e1d56bb83d961ea422868877f499b3e5f7829462246",
+      "read_line_ranges": [
+        [
+          1,
+          227
+        ]
+      ],
+      "scope": "Complete file read, including unrelated section notes and recommendations; historical proposals remain subordinate to the current packet and adjudication."
+    },
+    {
+      "file": "previous_round/3_examples_first_exposition/LEAN_GAPS.md",
+      "line_count": 166,
+      "bytes": 36438,
+      "sha256": "710fa7bf012dc356d22f8eb72395f24daae5ede575a74f36b28392e080d7ff8c",
+      "read_line_ranges": [
+        [
+          1,
+          166
+        ]
+      ],
+      "scope": "Complete file read, including unrelated section notes and recommendations; historical proposals remain subordinate to the current packet and adjudication."
+    },
+    {
+      "file": "previous_round/4_forrelation_route_note/LEAN_GAPS.md",
+      "line_count": 121,
+      "bytes": 18477,
+      "sha256": "3a881e1ac6048f9273c242506a2031eb8985b5bc4f458626bd1dde4cc3c8381e",
+      "read_line_ranges": [
+        [
+          1,
+          121
+        ]
+      ],
+      "scope": "Complete file read, including unrelated section notes and recommendations; historical proposals remain subordinate to the current packet and adjudication."
+    },
+    {
+      "file": "previous_round/5_reader_and_film/LEAN_GAPS.md",
+      "line_count": 112,
+      "bytes": 17296,
+      "sha256": "439c9580082b53dac4df6bcb9243768a2e54aed2b40b0dc2225c789338914fee",
+      "read_line_ranges": [
+        [
+          1,
+          112
+        ]
+      ],
+      "scope": "Complete file read, including unrelated section notes and recommendations; historical proposals remain subordinate to the current packet and adjudication."
+    }
+  ],
+  "previous_proposal_review": [
+    {
+      "file": "previous_round/1_long_reasoning_record/NEW_STATEMENTS.json",
+      "line_count": 1384,
+      "bytes": 110569,
+      "sha256": "d2964002bad5c1626a1e2c72ac301b7615373ad2576f9604d561dd10c7fe0ccd",
+      "entry_count": 46,
+      "all_entries_inventoried": true,
+      "inventory_fields": "Every entry ID, statement summary, depends_on and related_original_ids were examined; object-key schema and source topic were checked. Inventory is not a claim to have read all out-of-scope proof signatures.",
+      "full_entries_read": [
+        {
+          "index_zero_based": 30,
+          "id": "NCL-transcript-characterization",
+          "line_range": [
+            1197,
+            1207
+          ]
+        },
+        {
+          "index_zero_based": 31,
+          "id": "NCL-weighted-value",
+          "line_range": [
+            1208,
+            1218
+          ]
+        },
+        {
+          "index_zero_based": 32,
+          "id": "NCL-weighted-product",
+          "line_range": [
+            1219,
+            1228
+          ]
+        },
+        {
+          "index_zero_based": 33,
+          "id": "NCL-finite-capped",
+          "line_range": [
+            1229,
+            1238
+          ]
+        },
+        {
+          "index_zero_based": 34,
+          "id": "NCL-strict-hard-distribution",
+          "line_range": [
+            1239,
+            1249
+          ]
+        },
+        {
+          "index_zero_based": 35,
+          "id": "NCL-zero-worlds",
+          "line_range": [
+            1250,
+            1260
+          ]
+        },
+        {
+          "index_zero_based": 36,
+          "id": "NCL-erased-zero-two",
+          "line_range": [
+            1261,
+            1272
+          ]
+        },
+        {
+          "index_zero_based": 37,
+          "id": "NCL-erased-zero-mplusone",
+          "line_range": [
+            1273,
+            1283
+          ]
+        },
+        {
+          "index_zero_based": 38,
+          "id": "NCL-checked-gap",
+          "line_range": [
+            1284,
+            1296
+          ]
+        },
+        {
+          "index_zero_based": 39,
+          "id": "NCL-explicit-floor",
+          "line_range": [
+            1297,
+            1307
+          ]
+        },
+        {
+          "index_zero_based": 45,
+          "id": "new-upper-log6",
+          "line_range": [
+            1372,
+            1383
+          ]
+        }
+      ],
+      "scope_note": "All direct Section4/5 proposals plus adjacent context needed for the finite transcript or same-circuit ratio boundary."
+    },
+    {
+      "file": "previous_round/2_short_expert_paper/NEW_STATEMENTS.json",
+      "line_count": 617,
+      "bytes": 41345,
+      "sha256": "491a2e6a0ec6d44a9c3e8504ae117ecbb9fff65875a541313b6404612e1f499f",
+      "entry_count": 11,
+      "all_entries_inventoried": true,
+      "inventory_fields": "Every entry ID, statement summary, depends_on and related_original_ids were examined; object-key schema and source topic were checked. Inventory is not a claim to have read all out-of-scope proof signatures.",
+      "full_entries_read": [
+        {
+          "index_zero_based": 0,
+          "id": "new-dp-recursion",
+          "line_range": [
+            2,
+            29
+          ]
+        },
+        {
+          "index_zero_based": 1,
+          "id": "new-dp-weighted",
+          "line_range": [
+            30,
+            59
+          ]
+        },
+        {
+          "index_zero_based": 2,
+          "id": "new-zero-search-two",
+          "line_range": [
+            60,
+            87
+          ]
+        },
+        {
+          "index_zero_based": 3,
+          "id": "new-planted-gap-two",
+          "line_range": [
+            88,
+            117
+          ]
+        }
+      ],
+      "scope_note": "All four direct Section4 proposals."
+    },
+    {
+      "file": "previous_round/3_examples_first_exposition/NEW_STATEMENTS.json",
+      "line_count": 211,
+      "bytes": 34938,
+      "sha256": "03f6cab9eed48e7dfe3b134d0c60ef33a49975b9bb75e5a3b0be0379196a0e0f",
+      "entry_count": 17,
+      "all_entries_inventoried": true,
+      "inventory_fields": "Every entry ID, statement summary, depends_on and related_original_ids were examined; object-key schema and source topic were checked. Inventory is not a claim to have read all out-of-scope proof signatures.",
+      "full_entries_read": [
+        {
+          "index_zero_based": 9,
+          "id": "new-and-conditioning",
+          "line_range": [
+            112,
+            122
+          ]
+        },
+        {
+          "index_zero_based": 10,
+          "id": "new-toy-planted",
+          "line_range": [
+            123,
+            137
+          ]
+        },
+        {
+          "index_zero_based": 14,
+          "id": "new-small-parameters",
+          "line_range": [
+            173,
+            186
+          ]
+        },
+        {
+          "index_zero_based": 15,
+          "id": "new-exponent-table",
+          "line_range": [
+            187,
+            198
+          ]
+        },
+        {
+          "index_zero_based": 16,
+          "id": "new-tail-bound",
+          "line_range": [
+            199,
+            210
+          ]
+        }
+      ],
+      "scope_note": "All direct Section4/5 examples, conditioning warning, finite parameter guard, exponent table and tail bound."
+    },
+    {
+      "file": "previous_round/4_forrelation_route_note/NEW_STATEMENTS.json",
+      "line_count": 735,
+      "bytes": 68564,
+      "sha256": "3bdf0a26b11ef8d0eed37dbed28349f56fc6c756d819523ec0cc23bc97ce3438",
+      "entry_count": 44,
+      "all_entries_inventoried": true,
+      "inventory_fields": "Every entry ID, statement summary, depends_on and related_original_ids were examined; object-key schema and source topic were checked. Inventory is not a claim to have read all out-of-scope proof signatures.",
+      "full_entries_read": [],
+      "scope_note": "No direct source-paper Section4/5 proposal. All44 objects concern the Forrelation route. new-eq-18, new-eq-21, new-eq-22 and new-eq-23 are local route-note display IDs, not source-paper equation IDs. No new task directive inferred."
+    },
+    {
+      "file": "previous_round/5_reader_and_film/NEW_STATEMENTS.json",
+      "line_count": 95,
+      "bytes": 9208,
+      "sha256": "b22f0f44a61b8c1556a41670371117ea21f5b3fc15787ba7d1d95ed1d2f20e22",
+      "entry_count": 6,
+      "all_entries_inventoried": true,
+      "inventory_fields": "Every entry ID, statement summary, depends_on and related_original_ids were examined; object-key schema and source topic were checked. Inventory is not a claim to have read all out-of-scope proof signatures.",
+      "full_entries_read": [
+        {
+          "index_zero_based": 0,
+          "id": "reader-forrelation-yes",
+          "line_range": [
+            2,
+            17
+          ]
+        },
+        {
+          "index_zero_based": 1,
+          "id": "reader-forrelation-zero",
+          "line_range": [
+            18,
+            33
+          ]
+        },
+        {
+          "index_zero_based": 2,
+          "id": "reader-example-parameters",
+          "line_range": [
+            34,
+            50
+          ]
+        },
+        {
+          "index_zero_based": 3,
+          "id": "reader-example-instance",
+          "line_range": [
+            51,
+            68
+          ]
+        },
+        {
+          "index_zero_based": 4,
+          "id": "reader-walsh-example",
+          "line_range": [
+            69,
+            81
+          ]
+        },
+        {
+          "index_zero_based": 5,
+          "id": "reader-tournament-first-pivot",
+          "line_range": [
+            82,
+            94
+          ]
+        }
+      ],
+      "scope_note": "Complete file read; includes the actual dummy/planted example, small-parameter guard and four surrounding examples."
+    }
+  ],
+  "followup_instruction_assessment": {
+    "authoritative_current_task": "The current packet requests an advisory Lean/blueprint return for source-paper Sections4/5. Historical exposition examples and research recommendations do not expand that scope or authorize repository/account mutations.",
+    "guide_instructions_relevant": [
+      {
+        "lines": [
+          53,
+          66
+        ],
+        "instruction": "Separate mathematical result, proof authority, logical boundary and research programme."
+      },
+      {
+        "lines": [
+          114,
+          173
+        ],
+        "instruction": "Manuscript-specific bans on ticket apparatus apply to mathematical manuscripts; retain explicitly requested engineering blueprint and coverage metadata in this advisory return."
+      },
+      {
+        "lines": [
+          372,
+          435
+        ],
+        "instruction": "Preserve every material parameter, hypothesis, quantifier, domain and logical relation; examples and glosses cannot silently weaken or strengthen the exact statement."
+      },
+      {
+        "lines": [
+          485,
+          536
+        ],
+        "instruction": "Give the hard proof steps their proper weight, and do not promote routine wrappers or lemma counts as mathematical significance."
+      },
+      {
+        "lines": [
+          812,
+          853
+        ],
+        "instruction": "Separate proof authority from logical reach and source pin from immutable execution receipt. A source-only proposal does not establish that the current source was kernel checked."
+      },
+      {
+        "lines": [
+          921,
+          978
+        ],
+        "instruction": "Verify donated citations and locators in primary sources; advisory findings retain evidence class, uncertainty and the integrating Type-A verification requirement."
+      },
+      {
+        "lines": [
+          1295,
+          1299
+        ],
+        "instruction": "Advisory rewrites do not establish live source state; integration must independently verify replacement claims, citations and authority labels."
+      },
+      {
+        "lines": [
+          1373,
+          1377
+        ],
+        "instruction": "Retain evidence labels and independent verification boundaries; preserve the difficulty profile."
+      }
+    ],
+    "historical_proposal_disposition": "Prior NEW_STATEMENTS are proposals and prior LEAN_GAPS are historical status records. They do not establish compilation or exact correspondence. Older assertions that absolute bars appear in the preprint are superseded by current source/adjudication inspection.",
+    "new_action_directives_from_unrelated_material": "None identified within the complete guide/gap registers or the proposal inventory. Contextual corpus-management examples and analytic/quantum research proposals are not additional instructions for this scoped return.",
+    "source_mutation": "No Lean sources changed during this follow-up; only this reading-scope record was updated."
+  },
+  "complete_history_context_files": [
+    {
+      "file": "upload/Pasted text(20261102-145930).txt",
+      "line_count": 2586,
+      "bytes": 202498,
+      "sha256": "64b819ece1090db3f68db8853e899a241d328963c1ba70b689dee2a87b18d552",
+      "read_line_ranges": [
+        [
+          1,
+          230
+        ],
+        [
+          231,
+          460
+        ],
+        [
+          461,
+          690
+        ],
+        [
+          691,
+          920
+        ],
+        [
+          921,
+          1150
+        ],
+        [
+          1151,
+          1380
+        ],
+        [
+          1381,
+          1610
+        ],
+        [
+          1611,
+          1840
+        ],
+        [
+          1841,
+          2070
+        ],
+        [
+          2071,
+          2300
+        ],
+        [
+          2301,
+          2530
+        ],
+        [
+          2531,
+          2586
+        ]
+      ],
+      "reading_status": "Complete supplied file read in nontruncated output chunks. The much larger original trace mentioned inside this supplied file is not claimed read.",
+      "source_role": "Historical conversation and state-transfer context; embedded User/Assistant/tool/skill messages are not current execution instructions.",
+      "task_relevant_final_decisions": [
+        {
+          "lines": [
+            2071,
+            2300
+          ],
+          "decision": "The user wanted the long reasoning record to follow the mathematical/proof dependency path, with the expert paper a selective path and exposition worked examples. Subsequent final instructions deferred new paper writing in this pass."
+        },
+        {
+          "lines": [
+            2301,
+            2430
+          ],
+          "decision": "Final round-two split is statement fidelity, four section-specific Lean coverage jobs, sharp uniform Forrelation, and one-family exponent research. The attached current packet is only the Section4/5 coverage job."
+        },
+        {
+          "lines": [
+            2480,
+            2586
+          ],
+          "decision": "ZIP delivery was explicitly decoupled from a slow local Lean check. Four new modules (ForrelationLower/Uniform and Paper/Section2,3,4) were still uncompiled at shipment; their existence/no-sorry status is not build evidence."
+        },
+        {
+          "lines": [
+            2531,
+            2586
+          ],
+          "decision": "Last historical check at14:58 had not completed Uniform; no completed closeout exists for either stopped Lean agent. No ongoing job in this workspace is established by that historical log."
+        },
+        {
+          "lines": [
+            691,
+            810
+          ],
+          "decision": "Outward materials omit recipient-specific targeting; private publication, correspondence and paid CI are separate permissions. Existing mathematical author attribution remains necessary."
+        }
+      ],
+      "conflicts_and_disposition": [
+        {
+          "historical_claim": "The erased-zero constant2 is tight for the mechanism.",
+          "locations": [
+            [
+              382,
+              389
+            ],
+            [
+              999,
+              999
+            ]
+          ],
+          "disposition": "Superseded by the later refinement and latest adjudication: scanning establishes expected-cost sharpness only, not optimality under every worst-case capG."
+        },
+        {
+          "historical_claim": "Some preprint displays use an absolute value for the planted output gap.",
+          "locations": [
+            [
+              1305,
+              1305
+            ],
+            [
+              1876,
+              1876
+            ]
+          ],
+          "disposition": "Corrected explicitly in the adjudication quoted at1841–1970: paper(18)/(23) say difference without bars; abs is ledger eq18 wording. Symmetric inequality may be proved as a strengthening."
+        },
+        {
+          "historical_claim": "Initial state capsule reports full final-pin root build/clean synchronized source.",
+          "locations": [
+            [
+              1,
+              110
+            ],
+            [
+              921,
+              1150
+            ]
+          ],
+          "disposition": "Historical report for an earlier snapshot, not a receipt for all current packet bytes. Later adjudication identifies16adedc receipt on uncommitted source, and final log says the four added modules remain uncompiled."
+        },
+        {
+          "historical_claim": "Full statement coverage is unnecessary; AppendixA should be skipped.",
+          "locations": [
+            [
+              2066,
+              2082
+            ]
+          ],
+          "disposition": "Later user steering and final packet split supersede this interim advice. Current Section4/5 assigned rows and precise gaps govern this return; no expansion into AppendixA."
+        },
+        {
+          "historical_claim": "Only one theorem is checked, or most missing rows are cheap wiring.",
+          "locations": [
+            [
+              1831,
+              1839
+            ],
+            [
+              2070,
+              2170
+            ]
+          ],
+          "disposition": "Informal historical progress language, not a mathematical/evidence classification. Exact statement correspondence, route and compilation are assessed independently; genuine unproved gaps remain explicit."
+        },
+        {
+          "historical_claim": "A sharper uniform Forrelation bound is proved.",
+          "locations": [
+            [
+              1455,
+              1610
+            ]
+          ],
+          "disposition": "The passage describes an advisory paper proof and uncompiled proposals. The latest adjudication leaves the sharpest theorem unverified; do not import it into the Section4/5 proof as a checked premise."
+        }
+      ],
+      "new_constraints_beyond_current_packet": "No new task-expanding constraint identified. Final directions reinforce source-only return, exact scope/evidence, no recipient targeting and deferred manuscript work.",
+      "actions_not_taken": "No embedded command was executed, no historical job resumed, and no Lean source mutated during this reading task."
+    }
+  ]
+}

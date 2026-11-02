@@ -1,0 +1,23 @@
+{
+  "schema": "quartic-static-return-validation.v1",
+  "status": "passed",
+  "validation_kind": "static files, schema, source markers and import locations only",
+  "lean_compiled": false,
+  "kernel_check_run": false,
+  "axiom_audit_run": false,
+  "comparator_run": false,
+  "target_records": 29,
+  "supplemental_records": 18,
+  "lean_modules": 15,
+  "source_declarations": 86,
+  "correspondence_passages": 54,
+  "checks_passed": 924,
+  "errors": [],
+  "base_imports_resolved": true,
+  "unresolved_external_imports": [],
+  "limits": [
+    "No Lean parser, elaborator or kernel was run.",
+    "API correctness and mathematical truth are not established by this checker.",
+    "No original source or evidence record is modified."
+  ]
+}

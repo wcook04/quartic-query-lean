@@ -1,0 +1,1541 @@
+[
+  {
+    "name": "QuarticQuery.Paper.appendixA_degree_le_of_QLe",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixA.lean",
+    "line": 37,
+    "ledger": "lem-A.4",
+    "signature": "theorem appendixA_degree_le_of_QLe {f : TotalBool (Fin n)} {t : ℕ}\n    (hq : QLe (totalise f) t) : degree f ≤ 1225 * t ^ 2",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_D_le_of_QLe",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixA.lean",
+    "line": 50,
+    "ledger": "thm-A.1",
+    "signature": "theorem appendixA_D_le_of_QLe {f : TotalBool (Fin n)} {t : ℕ}\n    (hq : QLe (totalise f) t) : D (totalise f) ≤ 1500625 * t ^ 4",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_D_le_Q_pow_four",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixA.lean",
+    "line": 61,
+    "ledger": "thm-A.1",
+    "signature": "theorem appendixA_D_le_Q_pow_four (f : TotalBool (Fin n)) :\n    D (totalise f) ≤ 1500625 * Q (totalise f) ^ 4",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_theoremA1",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixA.lean",
+    "line": 67,
+    "ledger": "thm-A.1",
+    "signature": "theorem appendixA_theoremA1 (f : TotalBool (Fin n)) :\n    (R (totalise f) : ℝ) ≤ D (totalise f) ∧\n      (D (totalise f) : ℝ) ≤\n        1500625 * (1 + (Q (totalise f) : ℝ)) ^ 4",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_universalPower_four",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixA.lean",
+    "line": 82,
+    "ledger": "thm-A.1",
+    "signature": "theorem appendixA_universalPower_four : UniversalPower 4",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_D_le_of_QLe_hybrid",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixA.lean",
+    "line": 95,
+    "ledger": "thm-A.1",
+    "signature": "theorem appendixA_D_le_of_QLe_hybrid {f : TotalBool (Fin n)} {t : ℕ}\n    (hq : QLe (totalise f) t) : D (totalise f) ≤ 19600 * t ^ 4",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_D_le_Q_pow_four_hybrid",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixA.lean",
+    "line": 105,
+    "ledger": "thm-A.1",
+    "signature": "theorem appendixA_D_le_Q_pow_four_hybrid (f : TotalBool (Fin n)) :\n    D (totalise f) ≤ 19600 * Q (totalise f) ^ 4",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.AppendixAMatrix",
+    "kind": "abbrev",
+    "file": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+    "line": 36,
+    "ledger": "def-Gamma-i",
+    "signature": "abbrev AppendixAMatrix (n : ℕ)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixAMatrixNorm",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+    "line": 40,
+    "ledger": "def-Gamma-i",
+    "signature": "noncomputable def appendixAMatrixNorm (Γ : AppendixAMatrix n) : ℝ",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixAGammaCoord",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+    "line": 44,
+    "ledger": "def-Gamma-i",
+    "signature": "def appendixAGammaCoord (Γ : AppendixAMatrix n) (i : Fin n) : AppendixAMatrix n",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixAGammaCoord_apply",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+    "line": 48,
+    "ledger": "def-Gamma-i",
+    "signature": "theorem appendixAGammaCoord_apply (Γ : AppendixAMatrix n) (i : Fin n)\n    (x y : BitInput (Fin n)) :\n    appendixAGammaCoord Γ i x y = if x i ≠ y i then Γ x y else 0",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixAGammaCoord_nonneg",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+    "line": 53,
+    "ledger": "def-Gamma-i",
+    "signature": "theorem appendixAGammaCoord_nonneg {Γ : AppendixAMatrix n}\n    (hΓ : ∀ x y, 0 ≤ Γ x y) (i : Fin n) (x y : BitInput (Fin n)) :\n    0 ≤ appendixAGammaCoord Γ i x y",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_inner_phaseOracle",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+    "line": 63,
+    "ledger": "claim-per-query",
+    "signature": "theorem appendixA_inner_phaseOracle (x y : BitInput (Fin n))\n    (ψ φ : Cslib.Quantum.State n W) :\n    inner ℂ (Cslib.Quantum.phaseOracle x ψ) (Cslib.Quantum.phaseOracle y φ) =\n      inner ℂ ψ φ - 2 * ∑ i : Fin n,\n        if x i ≠ y i then\n          inner ℂ (Cslib.Quantum.ctrlProj i ψ) (Cslib.Quantum.ctrlProj i φ) else 0",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_norm_inner_phaseOracle_sub",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+    "line": 114,
+    "ledger": "claim-per-query",
+    "signature": "theorem appendixA_norm_inner_phaseOracle_sub (x y : BitInput (Fin n))\n    (ψ φ : Cslib.Quantum.State n W) :\n    ‖inner ℂ (Cslib.Quantum.phaseOracle x ψ) (Cslib.Quantum.phaseOracle y φ) -\n      inner ℂ ψ φ‖ ≤\n      2 * ∑ i : Fin n, if x i ≠ y i then\n        ‖Cslib.Quantum.ctrlProj i ψ‖ * ‖Cslib.Quantum.ctrlProj i φ‖ else 0",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.AppendixAPerronWitness",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+    "line": 141,
+    "ledger": "claim-perron",
+    "signature": "def AppendixAPerronWitness (Γ : AppendixAMatrix n) (v : BitInput (Fin n) → ℝ) : Prop",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.AppendixAPerronObligation",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+    "line": 147,
+    "ledger": "claim-perron",
+    "signature": "def AppendixAPerronObligation (Γ : AppendixAMatrix n) : Prop",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixAProgress",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+    "line": 153,
+    "ledger": "def-adv-progress",
+    "signature": "noncomputable def appendixAProgress (Γ : AppendixAMatrix n)\n    (v : BitInput (Fin n) → ℝ)\n    (Ψ : BitInput (Fin n) → Cslib.Quantum.State n W) : ℂ",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_quadratic_le_norm",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+    "line": 160,
+    "ledger": "claim-per-query",
+    "signature": "theorem appendixA_quadratic_le_norm (Γ : AppendixAMatrix n)\n    (v : BitInput (Fin n) → ℝ) :\n    ∑ x, ∑ y, v x * v y * Γ x y ≤ appendixAMatrixNorm Γ * ∑ x, v x ^ 2",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_query_weights_le_one",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+    "line": 186,
+    "ledger": "claim-per-query",
+    "signature": "theorem appendixA_query_weights_le_one (v : BitInput (Fin n) → ℝ)\n    (Ψ : BitInput (Fin n) → Cslib.Quantum.State n W)\n    (hv : ∑ x, v x ^ 2 = 1) (hΨ : ∀ x, ‖Ψ x‖ = 1) :\n    ∑ i : Fin n, ∑ x, (v x * ‖Cslib.Quantum.ctrlProj i (Ψ x)‖) ^ 2 ≤ 1",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixAProgress_query_quadratic",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+    "line": 208,
+    "ledger": "claim-per-query",
+    "signature": "theorem appendixAProgress_query_quadratic\n    (Γ : AppendixAMatrix n) (v : BitInput (Fin n) → ℝ)\n    (Ψ : BitInput (Fin n) → Cslib.Quantum.State n W)\n    (hΓ : ∀ x y, 0 ≤ Γ x y) (hv : ∀ x, 0 ≤ v x) :\n    ‖appendixAProgress Γ v (fun x => Cslib.Quantum.phaseOracle x (Ψ x)) -\n      appendixAProgress Γ v Ψ‖ ≤\n      2 * ∑ i : Fin n, ∑ x, ∑ y,\n        (v x * ‖Cslib.Quantum.ctrlProj i (Ψ x)‖) *\n        (v y * ‖Cslib.Quantum.ctrlProj i (Ψ y)‖) * appendixAGammaCoord Γ i x y",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixAProgress_query_le",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+    "line": 270,
+    "ledger": "claim-per-query",
+    "signature": "theorem appendixAProgress_query_le\n    (Γ : AppendixAMatrix n) (v : BitInput (Fin n) → ℝ)\n    (Ψ : BitInput (Fin n) → Cslib.Quantum.State n W)\n    (hΓ : ∀ x y, 0 ≤ Γ x y) (hv : ∀ x, 0 ≤ v x)\n    (hv1 : ∑ x, v x ^ 2 = 1) (hΨ : ∀ x, ‖Ψ x‖ = 1)\n    {M : ℝ} (hM : 0 ≤ M)\n    (hcoord : ∀ i, appendixAMatrixNorm (appendixAGammaCoord Γ i) ≤ M) :\n    ‖appendixAProgress Γ v (fun x => Cslib.Quantum.phaseOracle x (Ψ x)) -\n      appendixAProgress Γ v Ψ‖ ≤ 2 * M",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixAProgress_isometry",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+    "line": 296,
+    "ledger": "def-adv-progress",
+    "signature": "theorem appendixAProgress_isometry (Γ : AppendixAMatrix n)\n    (v : BitInput (Fin n) → ℝ)\n    (Ψ : BitInput (Fin n) → Cslib.Quantum.State n W)\n    (U : Cslib.Quantum.State n W →ₗᵢ[ℂ] Cslib.Quantum.State n W) :\n    appendixAProgress Γ v (fun x => U (Ψ x)) = appendixAProgress Γ v Ψ",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_perron_form",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+    "line": 305,
+    "ledger": "claim-perron",
+    "signature": "theorem appendixA_perron_form {Γ : AppendixAMatrix n}\n    {v : BitInput (Fin n) → ℝ} (hv : AppendixAPerronWitness Γ v) :\n    ∑ x, ∑ y, v x * v y * Γ x y = appendixAMatrixNorm Γ",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixAProgress_initial",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+    "line": 326,
+    "ledger": "def-adv-progress",
+    "signature": "theorem appendixAProgress_initial (Γ : AppendixAMatrix n)\n    (v : BitInput (Fin n) → ℝ) (ψ : Cslib.Quantum.State n W) (hψ : ‖ψ‖ = 1) :\n    appendixAProgress Γ v (fun _ => ψ) =\n      ((∑ x, ∑ y, v x * v y * Γ x y : ℝ) : ℂ)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixAProgress_final_of_overlap",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+    "line": 337,
+    "ledger": "claim-final-overlap",
+    "signature": "theorem appendixAProgress_final_of_overlap\n    (f : TotalBool (Fin n)) (Γ : AppendixAMatrix n)\n    (v : BitInput (Fin n) → ℝ)\n    (Ψ : BitInput (Fin n) → Cslib.Quantum.State n W)\n    (hΓ : ∀ x y, 0 ≤ Γ x y) (hv : ∀ x, 0 ≤ v x)\n    (hzero : ∀ x y, f x = f y → Γ x y = 0)\n    {r : ℝ} (hoverlap : ∀ x y, f x ≠ f y → ‖inner ℂ (Ψ x) (Ψ y)‖ ≤ r) :\n    ‖appendixAProgress Γ v Ψ‖ ≤ r * (∑ x, ∑ y, v x * v y * Γ x y)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_unit_states_final_overlap",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+    "line": 368,
+    "ledger": "claim-final-overlap",
+    "signature": "theorem appendixA_unit_states_final_overlap\n    {ι : Type*} [Fintype ι] (ψ φ : EuclideanSpace ℂ ι)\n    (hψ : ‖ψ‖ = 1) (hφ : ‖φ‖ = 1) (S : Finset ι)\n    (hp : Cslib.Quantum.measureProb ψ S ≤ 1 / 3)\n    (hq : 2 / 3 ≤ Cslib.Quantum.measureProb φ S) :\n    ‖inner ℂ ψ φ‖ ≤ 2 * Real.sqrt 2 / 3",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_final_overlap",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+    "line": 385,
+    "ledger": "claim-final-overlap",
+    "signature": "theorem appendixA_final_overlap\n    {f : TotalBool (Fin n)} {ε : ℝ}\n    (U : ℕ → Cslib.Quantum.State n W →ₗᵢ[ℂ] Cslib.Quantum.State n W)\n    {ψ₀ : Cslib.Quantum.State n W} (hψ₀ : ‖ψ₀‖ = 1) (T : ℕ)\n    (S : Finset (Fin n × Bool × W))\n    (h : ∀ x, |Cslib.Quantum.measureProb (Cslib.Quantum.run U ψ₀ x T) S -\n      Cslib.BitString.bitVal ℝ (f x)| ≤ ε)\n    (hε : 2 * ε ≤ 1) {x y : BitInput (Fin n)} (hxy : f x ≠ f y) :\n    ‖inner ℂ (Cslib.Quantum.run U ψ₀ x T) (Cslib.Quantum.run U ψ₀ y T)‖ ≤\n      2 * Real.sqrt (ε * (1 - ε))",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixAProgress_final",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+    "line": 398,
+    "ledger": "claim-final-overlap",
+    "signature": "theorem appendixAProgress_final\n    (f : TotalBool (Fin n)) (Γ : AppendixAMatrix n)\n    (v : BitInput (Fin n) → ℝ)\n    (U : ℕ → Cslib.Quantum.State n W →ₗᵢ[ℂ] Cslib.Quantum.State n W)\n    {ψ₀ : Cslib.Quantum.State n W} (hψ₀ : ‖ψ₀‖ = 1) (T : ℕ)\n    (S : Finset (Fin n × Bool × W))\n    (h : ∀ x, |Cslib.Quantum.measureProb (Cslib.Quantum.run U ψ₀ x T) S -\n      Cslib.BitString.bitVal ℝ (f x)| ≤ 1 / 3)\n    (hΓ : ∀ x y, 0 ≤ Γ x y)\n    (hzero : ∀ x y, f x = f y → Γ x y = 0)\n    (hv : AppendixAPerronWitness Γ v) :\n    ‖appendixAProgress Γ v (fun x => Cslib.Quantum.run U ψ₀ x T)‖ ≤\n      (2 * Real.sqrt ((1 / 3 : ℝ) * (1 - 1 / 3))) * appendixAMatrixNorm Γ",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.AppendixAPerQueryObligation",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+    "line": 418,
+    "ledger": "claim-per-query",
+    "signature": "def AppendixAPerQueryObligation (Γ : AppendixAMatrix n)\n    (v : BitInput (Fin n) → ℝ)\n    (U : ℕ → Cslib.Quantum.State n W →ₗᵢ[ℂ] Cslib.Quantum.State n W)\n    (ψ₀ : Cslib.Quantum.State n W) (M : ℝ) : Prop",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_perQuery_of_bounds",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+    "line": 428,
+    "ledger": "claim-per-query",
+    "signature": "theorem appendixA_perQuery_of_bounds\n    (Γ : AppendixAMatrix n) (v : BitInput (Fin n) → ℝ)\n    (U : ℕ → Cslib.Quantum.State n W →ₗᵢ[ℂ] Cslib.Quantum.State n W)\n    (ψ₀ : Cslib.Quantum.State n W) (hψ₀ : ‖ψ₀‖ = 1)\n    (hΓ : ∀ x y, 0 ≤ Γ x y) (hv : ∀ x, 0 ≤ v x)\n    (hv1 : ∑ x, v x ^ 2 = 1) {M : ℝ} (hM : 0 ≤ M)\n    (hcoord : ∀ i, appendixAMatrixNorm (appendixAGammaCoord Γ i) ≤ M) :\n    AppendixAPerQueryObligation Γ v U ψ₀ M",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_progress_telescope",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+    "line": 445,
+    "ledger": "claim-per-query",
+    "signature": "theorem appendixA_progress_telescope (P : ℕ → ℂ) {B : ℝ}\n    (hstep : ∀ t, ‖P (t + 1) - P t‖ ≤ B) (T : ℕ) :\n    ‖P T - P 0‖ ≤ (T : ℝ) * B",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_conditional_adversary",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+    "line": 461,
+    "ledger": "lem-A.2",
+    "signature": "theorem appendixA_conditional_adversary (P : ℕ → ℂ) (T : ℕ) (G M r : ℝ)\n    (hzero : ‖P 0‖ = G) (hfinal : ‖P T‖ ≤ r * G)\n    (hstep : ∀ t, ‖P (t + 1) - P t‖ ≤ 2 * M) :\n    (1 - r) * G ≤ 2 * (T : ℝ) * M",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_adversary_of_perron",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+    "line": 476,
+    "ledger": "lem-A.2",
+    "signature": "theorem appendixA_adversary_of_perron\n    (f : TotalBool (Fin n)) (Γ : AppendixAMatrix n)\n    (v : BitInput (Fin n) → ℝ)\n    (U : ℕ → Cslib.Quantum.State n W →ₗᵢ[ℂ] Cslib.Quantum.State n W)\n    {ψ₀ : Cslib.Quantum.State n W} (hψ₀ : ‖ψ₀‖ = 1) (T : ℕ)\n    (S : Finset (Fin n × Bool × W))\n    (h : ∀ x, |Cslib.Quantum.measureProb (Cslib.Quantum.run U ψ₀ x T) S -\n      Cslib.BitString.bitVal ℝ (f x)| ≤ 1 / 3)\n    (hΓ : ∀ x y, 0 ≤ Γ x y)\n    (hzero : ∀ x y, f x = f y → Γ x y = 0)\n    (hv : AppendixAPerronWitness Γ v)\n    {M : ℝ} (hM : 0 ≤ M)\n    (hcoord : ∀ i, appendixAMatrixNorm (appendixAGammaCoord Γ i) ≤ M) :\n    (1 - 2 * Real.sqrt ((1 / 3 : ℝ) * (1 - 1 / 3))) * appendixAMatrixNorm Γ ≤\n      2 * (T : ℝ) * M",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_adversary_thirty_five_of_perron",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+    "line": 504,
+    "ledger": "lem-A.2",
+    "signature": "theorem appendixA_adversary_thirty_five_of_perron\n    (f : TotalBool (Fin n)) (Γ : AppendixAMatrix n)\n    (v : BitInput (Fin n) → ℝ)\n    (U : ℕ → Cslib.Quantum.State n W →ₗᵢ[ℂ] Cslib.Quantum.State n W)\n    {ψ₀ : Cslib.Quantum.State n W} (hψ₀ : ‖ψ₀‖ = 1) (T : ℕ)\n    (S : Finset (Fin n × Bool × W))\n    (h : ∀ x, |Cslib.Quantum.measureProb (Cslib.Quantum.run U ψ₀ x T) S -\n      Cslib.BitString.bitVal ℝ (f x)| ≤ 1 / 3)\n    (hΓ : ∀ x y, 0 ≤ Γ x y)\n    (hzero : ∀ x y, f x = f y → Γ x y = 0)\n    (hv : AppendixAPerronWitness Γ v)\n    {M : ℝ} (hM : 0 ≤ M)\n    (hcoord : ∀ i, appendixAMatrixNorm (appendixAGammaCoord Γ i) ≤ M) :\n    appendixAMatrixNorm Γ ≤ 35 * (T : ℝ) * M",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_spectralSensitivity_le_thirty_five_mul",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+    "line": 526,
+    "ledger": "lem-A.3.lambda",
+    "signature": "theorem appendixA_spectralSensitivity_le_thirty_five_mul {f : TotalBool (Fin n)}\n    (U : ℕ → Cslib.Quantum.State n W →ₗᵢ[ℂ] Cslib.Quantum.State n W)\n    {ψ₀ : Cslib.Quantum.State n W} (hψ₀ : ‖ψ₀‖ = 1) (T : ℕ)\n    (S : Finset (Fin n × Bool × W))\n    (h : ∀ x, |Cslib.Quantum.measureProb (Cslib.Quantum.run U ψ₀ x T) S -\n      Cslib.BitString.bitVal ℝ (f x)| ≤ 1 / 3) :\n    Cslib.BitString.spectralSensitivity f ≤ 35 * (T : ℝ)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_parityFiber_of_fourier",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuang.lean",
+    "line": 41,
+    "ledger": "claim-restrict-parity",
+    "signature": "theorem appendixA_parityFiber_of_fourier {f : TotalBool (Fin n)}\n    {S : Finset (Fin n)}\n    (h : fourierCoeff (fun x => signVal (f x)) S ≠ 0) :\n    ∃ V : Finset (BitInput (Fin n)), 2 ^ n < 2 * #V ∧\n      ∀ x ∈ V, ∀ i ∈ S,\n        update x i (!x i) ∈ V → IsSensitiveCoord f x i",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_parityFiber_explicit",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuang.lean",
+    "line": 52,
+    "ledger": "claim-restrict-parity",
+    "signature": "theorem appendixA_parityFiber_explicit {f : TotalBool (Fin n)}\n    {S : Finset (Fin n)}\n    (h : fourierCoeff (fun x => signVal (f x)) S ≠ 0) :\n    ∃ c : Bool, 2 ^ n < 2 * #{x : BitInput (Fin n) | f x ^^ parityOn S x = c} ∧\n      ∀ x, f x ^^ parityOn S x = c → ∀ i ∈ S,\n        f (update x i (!x i)) ^^ parityOn S (update x i (!x i)) = c →\n          IsSensitiveCoord f x i",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_topFourierSupport",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuang.lean",
+    "line": 87,
+    "ledger": "claim-restrict-parity",
+    "signature": "theorem appendixA_topFourierSupport (f : TotalBool (Fin n))\n    (hf : degree f ≠ 0) :\n    ∃ S : Finset (Fin n), #S = degree f ∧\n      fourierCoeff (fun x => signVal (f x)) S ≠ 0",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_degreeSupport_parityFiber",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuang.lean",
+    "line": 101,
+    "ledger": "claim-restrict-parity",
+    "signature": "theorem appendixA_degreeSupport_parityFiber (f : TotalBool (Fin n))\n    (hf : degree f ≠ 0) :\n    ∃ S : Finset (Fin n), #S = degree f ∧\n      ∃ V : Finset (BitInput (Fin n)), 2 ^ n < 2 * #V ∧\n        ∀ x ∈ V, ∀ i ∈ S,\n          update x i (!x i) ∈ V → IsSensitiveCoord f x i",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_spectral_of_large_sensitive_fiber",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuang.lean",
+    "line": 115,
+    "ledger": "claim-interlace",
+    "signature": "theorem appendixA_spectral_of_large_sensitive_fiber\n    (f : TotalBool (Fin n)) (S : Finset (Fin n))\n    (V : Finset (BitInput (Fin n))) (hV : 2 ^ n < 2 * #V)\n    (hsens : ∀ x ∈ V, ∀ i ∈ S,\n      update x i (!x i) ∈ V → IsSensitiveCoord f x i) :\n    √(#S : ℝ) ≤ spectralSensitivity f",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA4",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuang.lean",
+    "line": 136,
+    "ledger": "lem-A.4",
+    "signature": "theorem appendixA4 (f : TotalBool (Fin n)) :\n    (degree f : ℝ) ≤ spectralSensitivity f ^ 2",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA4_sqrt",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuang.lean",
+    "line": 150,
+    "ledger": "lem-A.4",
+    "signature": "theorem appendixA4_sqrt (f : TotalBool (Fin n)) :\n    √(degree f : ℝ) ≤ spectralSensitivity f",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.HuangVertex",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 43,
+    "ledger": "def-huang",
+    "signature": "def HuangVertex : ℕ → Type\n  | 0 => Unit\n  | d + 1 => HuangVertex d ⊕ HuangVertex d",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.huangVertexFintype",
+    "kind": "instance",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 48,
+    "ledger": "def-huang",
+    "signature": "instance huangVertexFintype : (d : ℕ) → Fintype (HuangVertex d)\n  | 0 => inferInstanceAs (Fintype Unit)\n  | d + 1 => by\n      letI",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.huangVertexDecidableEq",
+    "kind": "instance",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 55,
+    "ledger": "def-huang",
+    "signature": "instance huangVertexDecidableEq : (d : ℕ) → DecidableEq (HuangVertex d)\n  | 0 => inferInstanceAs (DecidableEq Unit)\n  | d + 1 => by\n      letI",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.huangVertex_card",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 62,
+    "ledger": "def-huang",
+    "signature": "theorem huangVertex_card (d : ℕ) : Fintype.card (HuangVertex d) = 2 ^ d",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.huangVertexInput",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 71,
+    "ledger": "def-huang",
+    "signature": "def huangVertexInput : (d : ℕ) → HuangVertex d → BitInput (Fin d)\n  | 0, _ => fun i => Fin.elim0 i\n  | d + 1, Sum.inl x => Fin.cases false (huangVertexInput d x)\n  | d + 1, Sum.inr x => Fin.cases true (huangVertexInput d x)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.huangInputVertex",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 77,
+    "ledger": "def-huang",
+    "signature": "def huangInputVertex : (d : ℕ) → BitInput (Fin d) → HuangVertex d\n  | 0, _ => ()\n  | d + 1, x =>\n      if x 0 then Sum.inr (huangInputVertex d fun i => x i.succ)\n      else Sum.inl (huangInputVertex d fun i => x i.succ)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.huangInputVertex_vertexInput",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 84,
+    "ledger": "def-huang",
+    "signature": "theorem huangInputVertex_vertexInput (d : ℕ) (x : HuangVertex d) :\n    huangInputVertex d (huangVertexInput d x) = x",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.huangVertexInput_inputVertex",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 91,
+    "ledger": "def-huang",
+    "signature": "theorem huangVertexInput_inputVertex (d : ℕ) (x : BitInput (Fin d)) :\n    huangVertexInput d (huangInputVertex d x) = x",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.huangVertexEquivInput",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 102,
+    "ledger": "def-huang",
+    "signature": "def huangVertexEquivInput (d : ℕ) : HuangVertex d ≃ BitInput (Fin d) where\n  toFun",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.huangVertexInput_inj",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 109,
+    "ledger": "def-huang",
+    "signature": "theorem huangVertexInput_inj (d : ℕ) (x y : HuangVertex d) :\n    huangVertexInput d x = huangVertexInput d y ↔ x = y",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixACubeEdge",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 114,
+    "ledger": "def-huang",
+    "signature": "def appendixACubeEdge {d : ℕ} (x y : BitInput (Fin d)) : Prop",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixACubeEdge_iff_update",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 118,
+    "ledger": "def-huang",
+    "signature": "theorem appendixACubeEdge_iff_update {d : ℕ} (x y : BitInput (Fin d)) :\n    appendixACubeEdge x y ↔ ∃ i, update x i (!x i) = y",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixACubeEdge_cons",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 139,
+    "ledger": "def-huang",
+    "signature": "theorem appendixACubeEdge_cons {d : ℕ} (b c : Bool)\n    (x y : BitInput (Fin d)) :\n    appendixACubeEdge (Fin.cases b x) (Fin.cases c y) ↔\n      (b = c ∧ appendixACubeEdge x y) ∨ (b ≠ c ∧ x = y)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.huangAdjacent",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 148,
+    "ledger": "def-huang",
+    "signature": "def huangAdjacent : (d : ℕ) → HuangVertex d → HuangVertex d → Prop\n  | 0, _, _ => False\n  | d + 1, Sum.inl x, Sum.inl y => huangAdjacent d x y\n  | d + 1, Sum.inr x, Sum.inr y => huangAdjacent d x y\n  | _ + 1, Sum.inl x, Sum.inr y => x = y\n  | _ + 1, Sum.inr x, Sum.inl y => x = y",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.huangAdjacentDecidable",
+    "kind": "instance",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 156,
+    "ledger": "def-huang",
+    "signature": "noncomputable instance huangAdjacentDecidable (d : ℕ) :\n    DecidableRel (huangAdjacent d)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.huangAdjacent_iff_cubeEdge",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 161,
+    "ledger": "def-huang",
+    "signature": "theorem huangAdjacent_iff_cubeEdge (d : ℕ) (x y : HuangVertex d) :\n    huangAdjacent d x y ↔\n      appendixACubeEdge (huangVertexInput d x) (huangVertexInput d y)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.huangMatrix",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 172,
+    "ledger": "def-huang",
+    "signature": "def huangMatrix : (d : ℕ) → Matrix (HuangVertex d) (HuangVertex d) ℝ\n  | 0 => 0\n  | d + 1 => Matrix.fromBlocks (huangMatrix d) 1 1 (-(huangMatrix d))",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.huangMatrix_one",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 177,
+    "ledger": "def-huang",
+    "signature": "theorem huangMatrix_one :\n    huangMatrix 1 = Matrix.fromBlocks (0 : Matrix Unit Unit ℝ) 1 1 0",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.huangCubeMatrix",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 183,
+    "ledger": "def-huang",
+    "signature": "def huangCubeMatrix : (d : ℕ) → Matrix (HuangVertex d) (HuangVertex d) ℝ\n  | 0 => 0\n  | d + 1 => Matrix.fromBlocks (huangCubeMatrix d) 1 1 (huangCubeMatrix d)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.huangCubeMatrix_eq_ite",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 189,
+    "ledger": "def-huang",
+    "signature": "theorem huangCubeMatrix_eq_ite (d : ℕ) (x y : HuangVertex d) :\n    huangCubeMatrix d x y = if huangAdjacent d x y then 1 else 0",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.abs_huangMatrix",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 199,
+    "ledger": "def-huang",
+    "signature": "theorem abs_huangMatrix (d : ℕ) (x y : HuangVertex d) :\n    |huangMatrix d x y| = huangCubeMatrix d x y",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.huangMatrix_transpose",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 208,
+    "ledger": "claim-huang-spectrum",
+    "signature": "theorem huangMatrix_transpose (d : ℕ) : (huangMatrix d)ᵀ = huangMatrix d",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.huangMatrix_square",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 216,
+    "ledger": "claim-huang-spectrum",
+    "signature": "theorem huangMatrix_square (d : ℕ) :\n    huangMatrix d * huangMatrix d = (d : ℝ) • (1 : Matrix (HuangVertex d) _ ℝ)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.huangMatrix_trace",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 232,
+    "ledger": "claim-huang-spectrum",
+    "signature": "theorem huangMatrix_trace (d : ℕ) : Matrix.trace (huangMatrix d) = 0",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.huangEnd",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 239,
+    "ledger": "claim-huang-spectrum",
+    "signature": "noncomputable def huangEnd (d : ℕ) : Module.End ℝ (HuangVertex d → ℝ)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.huangEnd_square",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 243,
+    "ledger": "claim-huang-spectrum",
+    "signature": "theorem huangEnd_square (d : ℕ) (v : HuangVertex d → ℝ) :\n    huangEnd d (huangEnd d v) = (d : ℝ) • v",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.huangEnd_eigenvalue",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 251,
+    "ledger": "claim-huang-spectrum",
+    "signature": "theorem huangEnd_eigenvalue (d : ℕ) (μ : ℝ) (v : HuangVertex d → ℝ)\n    (hv0 : v ≠ 0) (hv : huangEnd d v = μ • v) :\n    μ = √(d : ℝ) ∨ μ = -√(d : ℝ)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.huangParity",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 268,
+    "ledger": "claim-huang-spectrum",
+    "signature": "def huangParity : (d : ℕ) → HuangVertex d → ℝ\n  | 0, _ => 1\n  | d + 1, Sum.inl x => huangParity d x\n  | d + 1, Sum.inr x => -huangParity d x",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.huangParity_square",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 274,
+    "ledger": "claim-huang-spectrum",
+    "signature": "theorem huangParity_square (d : ℕ) (x : HuangVertex d) :\n    huangParity d x * huangParity d x = 1",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.huangParity_matrix",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 281,
+    "ledger": "claim-huang-spectrum",
+    "signature": "theorem huangParity_matrix (d : ℕ) (x y : HuangVertex d) :\n    huangMatrix d x y * huangParity d y =\n      -(huangParity d x * huangMatrix d x y)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.huangParityEnd",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 303,
+    "ledger": "claim-huang-spectrum",
+    "signature": "def huangParityEnd (d : ℕ) : Module.End ℝ (HuangVertex d → ℝ) where\n  toFun v x",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.huangParityEnd_involutive",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 309,
+    "ledger": "claim-huang-spectrum",
+    "signature": "theorem huangParityEnd_involutive (d : ℕ) :\n    Function.Involutive (huangParityEnd d)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.huangEnd_parity",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 318,
+    "ledger": "claim-huang-spectrum",
+    "signature": "theorem huangEnd_parity (d : ℕ) (v : HuangVertex d → ℝ) :\n    huangEnd d (huangParityEnd d v) = -huangParityEnd d (huangEnd d v)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.huangEnd_eigenspaces_sup",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 330,
+    "ledger": "claim-huang-spectrum",
+    "signature": "theorem huangEnd_eigenspaces_sup (d : ℕ) (hd : 0 < d) :\n    (huangEnd d).eigenspace √(d : ℝ) ⊔\n      (huangEnd d).eigenspace (-√(d : ℝ)) = ⊤",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.huangEnd_eigenspaces_inf",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 355,
+    "ledger": "claim-huang-spectrum",
+    "signature": "theorem huangEnd_eigenspaces_inf (d : ℕ) (hd : 0 < d) :\n    (huangEnd d).eigenspace √(d : ℝ) ⊓\n      (huangEnd d).eigenspace (-√(d : ℝ)) = ⊥",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.huangEnd_eigenspaces_finrank",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 368,
+    "ledger": "claim-huang-spectrum",
+    "signature": "theorem huangEnd_eigenspaces_finrank (d : ℕ) (μ : ℝ) :\n    finrank ℝ ((huangEnd d).eigenspace μ) =\n      finrank ℝ ((huangEnd d).eigenspace (-μ))",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.huangEnd_eigenspaces_half",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 390,
+    "ledger": "claim-huang-spectrum",
+    "signature": "theorem huangEnd_eigenspaces_half (d : ℕ) (hd : 0 < d) :\n    finrank ℝ ((huangEnd d).eigenspace √(d : ℝ)) = 2 ^ (d - 1) ∧\n      finrank ℝ ((huangEnd d).eigenspace (-√(d : ℝ))) = 2 ^ (d - 1)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.huang_supported_positive_eigenvector",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 407,
+    "ledger": "claim-interlace",
+    "signature": "theorem huang_supported_positive_eigenvector (d : ℕ) (hd : 0 < d)\n    (U : Finset (HuangVertex d)) (hU : 2 ^ (d - 1) < #U) :\n    ∃ v : HuangVertex d → ℝ,\n      huangEnd d v = √(d : ℝ) • v ∧ v ≠ 0 ∧ ∀ x ∉ U, v x = 0",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.huang_absolute_rayleigh",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 434,
+    "ledger": "claim-interlace",
+    "signature": "theorem huang_absolute_rayleigh (d : ℕ) (v : HuangVertex d → ℝ)\n    (hv : huangEnd d v = √(d : ℝ) • v) :\n    √(d : ℝ) * (∑ x, |v x| ^ 2) ≤\n      ∑ x, ∑ y, |v x| * huangCubeMatrix d x y * |v y|",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.huang_absolute_rayleigh_supported",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 455,
+    "ledger": "claim-interlace",
+    "signature": "theorem huang_absolute_rayleigh_supported (d : ℕ) (U : Finset (HuangVertex d))\n    (v : HuangVertex d → ℝ) (hv : huangEnd d v = √(d : ℝ) • v)\n    (hsupp : ∀ x ∉ U, v x = 0) :\n    √(d : ℝ) * (∑ x, |v x| ^ 2) ≤\n      ∑ x ∈ U, ∑ y ∈ U, |v x| * huangCubeMatrix d x y * |v y|",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.huang_positive_rayleigh_witness",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+    "line": 473,
+    "ledger": "claim-interlace",
+    "signature": "theorem huang_positive_rayleigh_witness (d : ℕ) (hd : 0 < d)\n    (U : Finset (HuangVertex d)) (hU : 2 ^ (d - 1) < #U) :\n    ∃ v : HuangVertex d → ℝ,\n      huangEnd d v = √(d : ℝ) • v ∧ v ≠ 0 ∧ (∀ x ∉ U, v x = 0) ∧\n      √(d : ℝ) * (∑ x, |v x| ^ 2) ≤\n        ∑ x ∈ U, ∑ y ∈ U, |v x| * huangCubeMatrix d x y * |v y|",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_quadratic_embedding",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangRoute.lean",
+    "line": 32,
+    "ledger": "lem-A.4",
+    "signature": "theorem appendixA_quadratic_embedding {β : Type} [Fintype β]\n    (Γ : AppendixAMatrix n) (φ : β → BitInput (Fin n)) (hφ : Injective φ)\n    (u : β → ℝ) :\n    ∑ a, ∑ b, u a * u b * Γ (φ a) (φ b) ≤\n      appendixAMatrixNorm Γ * ∑ a, u a ^ 2",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_spectral_of_cube_embedding",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangRoute.lean",
+    "line": 67,
+    "ledger": "lem-A.4",
+    "signature": "theorem appendixA_spectral_of_cube_embedding (f : TotalBool (Fin n))\n    (d : ℕ) (hd : 0 < d) (φ : HuangVertex d → BitInput (Fin n))\n    (hφ : Injective φ) (U : Finset (HuangVertex d))\n    (hU : 2 ^ (d - 1) < #U)\n    (hEdge : ∀ x ∈ U, ∀ y ∈ U, huangAdjacent d x y →\n      (sensitivityGraph f).Adj (φ x) (φ y)) :\n    √(d : ℝ) ≤ spectralSensitivity f",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA4_paper_route",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAHuangRoute.lean",
+    "line": 113,
+    "ledger": "lem-A.4",
+    "signature": "theorem appendixA4_paper_route (f : TotalBool (Fin n)) :\n    (degree f : ℝ) ≤ spectralSensitivity f ^ 2",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixAAbsVector",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Paper/AppendixAPerron.lean",
+    "line": 37,
+    "ledger": "claim-perron",
+    "signature": "noncomputable def appendixAAbsVector (z : EuclideanSpace ℝ ι) : EuclideanSpace ℝ ι",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixAAbsVector_norm",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAPerron.lean",
+    "line": 41,
+    "ledger": "claim-perron",
+    "signature": "theorem appendixAAbsVector_norm (z : EuclideanSpace ℝ ι) :\n    ‖appendixAAbsVector z‖ = ‖z‖",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_matrix_quadratic_form",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAPerron.lean",
+    "line": 49,
+    "ledger": "claim-perron",
+    "signature": "theorem appendixA_matrix_quadratic_form (A : Matrix ι ι ℝ)\n    (z : EuclideanSpace ℝ ι) :\n    (Matrix.toEuclideanCLM (𝕜 := ℝ) A).reApplyInnerSelf z =\n      ∑ i, ∑ j, z.ofLp i * A i j * z.ofLp j",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_abs_quadratic_le",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAPerron.lean",
+    "line": 59,
+    "ledger": "claim-perron",
+    "signature": "theorem appendixA_abs_quadratic_le (A : Matrix ι ι ℝ)\n    (hA : ∀ i j, 0 ≤ A i j) (z : EuclideanSpace ℝ ι) :\n    |(Matrix.toEuclideanCLM (𝕜 := ℝ) A).reApplyInnerSelf z| ≤\n      (Matrix.toEuclideanCLM (𝕜 := ℝ) A).reApplyInnerSelf\n        (appendixAAbsVector z)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_exists_nonneg_unit_eigenvector",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAPerron.lean",
+    "line": 83,
+    "ledger": "claim-perron",
+    "signature": "theorem appendixA_exists_nonneg_unit_eigenvector\n    (A : Matrix ι ι ℝ) (hA : A.IsHermitian) (hpos : ∀ i j, 0 ≤ A i j) :\n    ∃ z : EuclideanSpace ℝ ι,\n      (∀ i, 0 ≤ z.ofLp i) ∧ ‖z‖ = 1 ∧\n      Matrix.toEuclideanCLM (𝕜 := ℝ) A z =\n        ‖Matrix.toEuclideanCLM (𝕜 := ℝ) A‖ • z",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_perron",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAPerron.lean",
+    "line": 153,
+    "ledger": "claim-perron",
+    "signature": "theorem appendixA_perron {n : ℕ} (Γ : AppendixAMatrix n)\n    (hsym : ∀ x y, Γ x y = Γ y x) (hpos : ∀ x y, 0 ≤ Γ x y) :\n    ∃ v, AppendixAPerronWitness Γ v",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_perronObligation",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAPerron.lean",
+    "line": 172,
+    "ledger": "claim-perron",
+    "signature": "theorem appendixA_perronObligation {n : ℕ} (Γ : AppendixAMatrix n) :\n    AppendixAPerronObligation Γ",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixAFaceFill",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Paper/AppendixARestriction.lean",
+    "line": 29,
+    "ledger": "claim-restrict-parity",
+    "signature": "def appendixAFaceFill (S : Finset (Fin n)) (z : BitInput (Fin n))\n    (y : S → Bool) : BitInput (Fin n)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixAFaceFill_restrict",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixARestriction.lean",
+    "line": 35,
+    "ledger": "claim-restrict-parity",
+    "signature": "theorem appendixAFaceFill_restrict (S : Finset (Fin n)) (z x : BitInput (Fin n)) :\n    appendixAFaceFill S z (fun i : S => x i) = S.piecewise x z",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixAFaceFill_apply",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixARestriction.lean",
+    "line": 41,
+    "ledger": "claim-restrict-parity",
+    "signature": "theorem appendixAFaceFill_apply (S : Finset (Fin n)) (z : BitInput (Fin n))\n    (y : S → Bool) (i : S) : appendixAFaceFill S z y i = y i",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_chi_restrict",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixARestriction.lean",
+    "line": 46,
+    "ledger": "claim-restrict-parity",
+    "signature": "theorem appendixA_chi_restrict (S : Finset (Fin n)) (x : BitInput (Fin n)) :\n    chi ℝ (univ : Finset S) (fun i : S => x i) = chi ℝ S x",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_chi_univ_equiv",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixARestriction.lean",
+    "line": 53,
+    "ledger": "claim-restrict-parity",
+    "signature": "theorem appendixA_chi_univ_equiv {α β : Type} [Fintype α] [Fintype β]\n    [DecidableEq α] [DecidableEq β] (e : α ≃ β) (x : α → Bool) :\n    chi ℝ (univ : Finset β) (fun j => x (e.symm j)) = chi ℝ univ x",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixAFaceEmbedding",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Paper/AppendixARestriction.lean",
+    "line": 61,
+    "ledger": "claim-restrict-parity",
+    "signature": "noncomputable def appendixAFaceEmbedding (S : Finset (Fin n)) (z : BitInput (Fin n))\n    (y : BitInput (Fin #S)) : BitInput (Fin n)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixAFaceEmbedding_apply",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixARestriction.lean",
+    "line": 66,
+    "ledger": "claim-restrict-parity",
+    "signature": "theorem appendixAFaceEmbedding_apply (S : Finset (Fin n)) (z : BitInput (Fin n))\n    (y : BitInput (Fin #S)) (i : Fin #S) :\n    appendixAFaceEmbedding S z y (S.equivFin.symm i) = y i",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixAFaceEmbedding_injective",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixARestriction.lean",
+    "line": 72,
+    "ledger": "claim-restrict-parity",
+    "signature": "theorem appendixAFaceEmbedding_injective (S : Finset (Fin n)) (z : BitInput (Fin n)) :\n    Function.Injective (appendixAFaceEmbedding S z)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixAFaceEmbedding_update",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixARestriction.lean",
+    "line": 81,
+    "ledger": "claim-restrict-parity",
+    "signature": "theorem appendixAFaceEmbedding_update (S : Finset (Fin n)) (z : BitInput (Fin n))\n    (x : BitInput (Fin #S)) (i : Fin #S) :\n    appendixAFaceEmbedding S z (update x i (!x i)) =\n      update (appendixAFaceEmbedding S z x) (S.equivFin.symm i).val\n        (!(appendixAFaceEmbedding S z x (S.equivFin.symm i)))",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixAFaceFin",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Paper/AppendixARestriction.lean",
+    "line": 101,
+    "ledger": "claim-restrict-parity",
+    "signature": "noncomputable def appendixAFaceFin (f : TotalBool (Fin n)) (S : Finset (Fin n))\n    (z : BitInput (Fin n)) : TotalBool (Fin #S)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixAFaceEmbedding_sensitive",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixARestriction.lean",
+    "line": 107,
+    "ledger": "lem-A.4",
+    "signature": "theorem appendixAFaceEmbedding_sensitive (f : TotalBool (Fin n))\n    (S : Finset (Fin n)) (z : BitInput (Fin n)) (x : BitInput (Fin #S))\n    (i : Fin #S) (hi : IsSensitiveCoord (appendixAFaceFin f S z) x i) :\n    IsSensitiveCoord f (appendixAFaceEmbedding S z x) (S.equivFin.symm i).val",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_faceSubtype_fourier",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixARestriction.lean",
+    "line": 118,
+    "ledger": "claim-restrict-parity",
+    "signature": "theorem appendixA_faceSubtype_fourier (f : TotalBool (Fin n))\n    (S : Finset (Fin n)) (z : BitInput (Fin n)) :\n    fourierCoeff (fun y : S → Bool => signVal (f (appendixAFaceFill S z y))) univ =\n      fourierCoeff (fun x => signVal (f (S.piecewise x z))) S",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_faceFin_fourier",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixARestriction.lean",
+    "line": 131,
+    "ledger": "claim-restrict-parity",
+    "signature": "theorem appendixA_faceFin_fourier (f : TotalBool (Fin n))\n    (S : Finset (Fin n)) (z : BitInput (Fin n)) :\n    fourierCoeff (fun y => signVal (appendixAFaceFin f S z y)) univ =\n      fourierCoeff (fun x => signVal (f (S.piecewise x z))) S",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_maximal_fourierCoeff_piecewise",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixARestriction.lean",
+    "line": 147,
+    "ledger": "claim-restrict-parity",
+    "signature": "theorem appendixA_maximal_fourierCoeff_piecewise\n    (p : BitInput (Fin n) → ℝ) (S : Finset (Fin n))\n    (hmax : ∀ T, S ⊂ T → fourierCoeff p T = 0) (z : BitInput (Fin n)) :\n    fourierCoeff (fun x => p (S.piecewise x z)) S = fourierCoeff p S",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_topFourier_strictSupersets_zero",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixARestriction.lean",
+    "line": 162,
+    "ledger": "claim-restrict-parity",
+    "signature": "theorem appendixA_topFourier_strictSupersets_zero (f : TotalBool (Fin n))\n    (S : Finset (Fin n)) (hS : #S = degree f) :\n    ∀ T, S ⊂ T → fourierCoeff (fun x => signVal (f x)) T = 0",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_topFourier_survives",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixARestriction.lean",
+    "line": 173,
+    "ledger": "claim-restrict-parity",
+    "signature": "theorem appendixA_topFourier_survives (f : TotalBool (Fin n))\n    (S : Finset (Fin n)) (hS : #S = degree f) (z : BitInput (Fin n)) :\n    fourierCoeff (fun x => signVal (f (S.piecewise x z))) S =\n      fourierCoeff (fun x => signVal (f x)) S",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_topFourier_survives_ne_zero",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixARestriction.lean",
+    "line": 182,
+    "ledger": "claim-restrict-parity",
+    "signature": "theorem appendixA_topFourier_survives_ne_zero (f : TotalBool (Fin n))\n    (S : Finset (Fin n)) (hS : #S = degree f)\n    (hcoeff : fourierCoeff (fun x => signVal (f x)) S ≠ 0)\n    (z : BitInput (Fin n)) :\n    fourierCoeff (fun x => signVal (f (S.piecewise x z))) S ≠ 0",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_every_restriction_large_fiber",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixARestriction.lean",
+    "line": 193,
+    "ledger": "claim-restrict-parity",
+    "signature": "theorem appendixA_every_restriction_large_fiber (f : TotalBool (Fin n))\n    (S : Finset (Fin n)) (hS : #S = degree f)\n    (hcoeff : fourierCoeff (fun x => signVal (f x)) S ≠ 0)\n    (z : BitInput (Fin n)) :\n    ∃ V : Finset (BitInput (Fin n)), 2 ^ n < 2 * #V ∧\n      ∀ x ∈ V, ∀ i ∈ S, update x i (!x i) ∈ V →\n        IsSensitiveCoord (fun y => f (S.piecewise y z)) x i",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_restriction_parity",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixARestriction.lean",
+    "line": 205,
+    "ledger": "claim-restrict-parity",
+    "signature": "theorem appendixA_restriction_parity (f : TotalBool (Fin n)) (hf : degree f ≠ 0) :\n    ∃ S : Finset (Fin n), #S = degree f ∧\n      ∀ z : BitInput (Fin n),\n        fourierCoeff (fun x => signVal (f (S.piecewise x z))) S ≠ 0 ∧\n        ∃ V : Finset (BitInput (Fin n)), 2 ^ n < 2 * #V ∧\n          ∀ x ∈ V, ∀ i ∈ S, update x i (!x i) ∈ V →\n            IsSensitiveCoord (fun y => f (S.piecewise y z)) x i",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_restriction_parity_face",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixARestriction.lean",
+    "line": 221,
+    "ledger": "claim-restrict-parity",
+    "signature": "theorem appendixA_restriction_parity_face (f : TotalBool (Fin n)) (hf : degree f ≠ 0) :\n    ∃ S : Finset (Fin n), #S = degree f ∧ ∀ z : BitInput (Fin n),\n      fourierCoeff (fun y => signVal (appendixAFaceFin f S z y)) univ ≠ 0 ∧\n      ∃ c : Bool,\n        2 ^ #S < 2 * #{y : BitInput (Fin #S) |\n          appendixAFaceFin f S z y ^^ parityOn univ y = c} ∧\n        ∀ y, appendixAFaceFin f S z y ^^ parityOn univ y = c →\n          ∀ i : Fin #S,\n            appendixAFaceFin f S z (update y i (!y i)) ^^\n              parityOn univ (update y i (!y i)) = c →\n                IsSensitiveCoord (appendixAFaceFin f S z) y i",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_degree_le_iff",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+    "line": 37,
+    "ledger": "def-deg",
+    "signature": "theorem appendixA_degree_le_iff (f : TotalBool (Fin n)) (d : ℕ) :\n    degree f ≤ d ↔ (fun x => bitVal ℝ (f x)) ∈ lowDegree ℝ (Fin n) d",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_degree_le_iff_fourier",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+    "line": 43,
+    "ledger": "def-deg",
+    "signature": "theorem appendixA_degree_le_iff_fourier (f : TotalBool (Fin n)) (d : ℕ) :\n    degree f ≤ d ↔\n      ∀ S : Finset (Fin n), d < #S →\n        fourierCoeff (fun x => bitVal ℝ (f x)) S = 0",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_degree_const",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+    "line": 51,
+    "ledger": "def-deg",
+    "signature": "theorem appendixA_degree_const (b : Bool) :\n    degree (fun _ : BitInput (Fin n) => b) = 0",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_degree_eq_sign",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+    "line": 59,
+    "ledger": "def-deg",
+    "signature": "theorem appendixA_degree_eq_sign (f : TotalBool (Fin n)) :\n    degree f = Cslib.BitString.totalDegree (fun x => signVal (f x))",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_isSensitiveBlock_iff",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+    "line": 65,
+    "ledger": "def-bs",
+    "signature": "theorem appendixA_isSensitiveBlock_iff (f : TotalBool (Fin n))\n    (x : BitInput (Fin n)) (B : Finset (Fin n)) :\n    IsSensitiveBlock f x B ↔ B.Nonempty ∧ f (flipBlock B x) ≠ f x",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_blockSensitivity_eq",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+    "line": 72,
+    "ledger": "def-bs",
+    "signature": "theorem appendixA_blockSensitivity_eq (f : TotalBool (Fin n)) :\n    blockSensitivity f =\n      Finset.univ.sup (fun x : BitInput (Fin n) =>\n        (sensitiveFamilies f x).sup Finset.card)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_blockSensitivity_const",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+    "line": 78,
+    "ledger": "def-bs",
+    "signature": "theorem appendixA_blockSensitivity_const (b : Bool) :\n    blockSensitivity (fun _ : BitInput (Fin n) => b) = 0",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_sensitivityMatrix",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+    "line": 88,
+    "ledger": "def-Sf",
+    "signature": "noncomputable def appendixA_sensitivityMatrix (f : TotalBool (Fin n)) :\n    Matrix (BitInput (Fin n)) (BitInput (Fin n)) ℝ",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_sensitivityGraph_adj_iff",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+    "line": 94,
+    "ledger": "def-Sf",
+    "signature": "theorem appendixA_sensitivityGraph_adj_iff (f : TotalBool (Fin n))\n    (x y : BitInput (Fin n)) :\n    (sensitivityGraph f).Adj x y ↔\n      f x ≠ f y ∧ ∃ i : Fin n, Function.update x i (!x i) = y",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_spectralSensitivity_eq",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+    "line": 112,
+    "ledger": "def-Sf",
+    "signature": "theorem appendixA_spectralSensitivity_eq (f : TotalBool (Fin n)) :\n    spectralSensitivity f =\n      ‖Matrix.toEuclideanCLM (𝕜 := ℝ) (appendixA_sensitivityMatrix f)‖",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_spectralSensitivity_const",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+    "line": 117,
+    "ledger": "def-Sf",
+    "signature": "theorem appendixA_spectralSensitivity_const (b : Bool) :\n    spectralSensitivity (fun _ : BitInput (Fin n) => b) = 0",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_QLe_total_cases",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+    "line": 130,
+    "ledger": "lem-A.3",
+    "signature": "theorem appendixA_QLe_total_cases {f : TotalBool (Fin n)} {t : ℕ}\n    (h : QLe (totalise f) t) :\n    (∃ b : Bool, ∀ x, f x = b) ∨\n      ∃ (W : Type) (_ : Fintype W)\n        (U : ℕ → Cslib.Quantum.State n W →ₗᵢ[ℂ] Cslib.Quantum.State n W)\n        (ψ : Cslib.Quantum.State n W) (S : Finset (Fin n × Bool × W)),\n        ‖ψ‖ = 1 ∧\n          ∀ x, |Cslib.Quantum.measureProb (Cslib.Quantum.run U ψ x t) S -\n            bitVal ℝ (f x)| ≤ 1 / 3",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_blockSensitivity_le_of_QLe",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+    "line": 162,
+    "ledger": "lem-A.3.bs",
+    "signature": "theorem appendixA_blockSensitivity_le_of_QLe {f : TotalBool (Fin n)} {t : ℕ}\n    (h : QLe (totalise f) t) : blockSensitivity f ≤ 16 * t ^ 2",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_spectralSensitivity_le_of_QLe",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+    "line": 173,
+    "ledger": "lem-A.3.lambda",
+    "signature": "theorem appendixA_spectralSensitivity_le_of_QLe {f : TotalBool (Fin n)} {t : ℕ}\n    (h : QLe (totalise f) t) : spectralSensitivity f ≤ 36 * t",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_lemmaA3",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+    "line": 183,
+    "ledger": "lem-A.3",
+    "signature": "theorem appendixA_lemmaA3 (f : TotalBool (Fin n)) :\n    blockSensitivity f ≤ 16 * Q (totalise f) ^ 2 ∧\n      spectralSensitivity f ≤ 36 * Q (totalise f)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_sensitiveBlock_of_maximal_support",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+    "line": 194,
+    "ledger": "claim-round-block",
+    "signature": "theorem appendixA_sensitiveBlock_of_maximal_support {f : TotalBool (Fin n)}\n    {S : Finset (Fin n)} (hS : S.Nonempty)\n    (hcoeff : fourierCoeff (fun x => bitVal ℝ (f x)) S ≠ 0)\n    (hmax : ∀ T, S ⊂ T → fourierCoeff (fun x => bitVal ℝ (f x)) T = 0)\n    (x : BitInput (Fin n)) :\n    ∃ B : Finset (Fin n), B ⊆ S ∧ B.Nonempty ∧ IsSensitiveBlock f x B",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_exists_maximal_round_support",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+    "line": 213,
+    "ledger": "claim-round-block",
+    "signature": "theorem appendixA_exists_maximal_round_support (f : TotalBool (Fin n))\n    (hf : degree f ≠ 0) :\n    ∃ S : Finset (Fin n), #S = degree f ∧\n      ∀ x, ∃ B : Finset (Fin n), B ⊆ S ∧ B.Nonempty ∧ IsSensitiveBlock f x B",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_sensitiveBlock_of_restriction",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+    "line": 225,
+    "ledger": "claim-round-block",
+    "signature": "theorem appendixA_sensitiveBlock_of_restriction {f : TotalBool (Fin n)}\n    (x : BitInput (Fin n)) (F B : Finset (Fin n)) (hBF : Disjoint B F)\n    (hB : IsSensitiveBlock (fun y => f (F.piecewise x y)) x B) :\n    IsSensitiveBlock f x B",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_roundBlocks_pairwise_disjoint",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+    "line": 243,
+    "ledger": "claim-round-block",
+    "signature": "theorem appendixA_roundBlocks_pairwise_disjoint {r : ℕ}\n    (S B : Fin r → Finset (Fin n))\n    (hS : Pairwise fun i j => Disjoint (S i) (S j)) (hB : ∀ i, B i ⊆ S i) :\n    Pairwise fun i j => Disjoint (B i) (B j)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_round_count_le",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+    "line": 252,
+    "ledger": "claim-round-block",
+    "signature": "theorem appendixA_round_count_le {r : ℕ} {f : TotalBool (Fin n)}\n    (x : BitInput (Fin n)) (B : Fin r → Finset (Fin n))\n    (hB : Pairwise fun i j => Disjoint (B i) (B j))\n    (hs : ∀ i, IsSensitiveBlock f x (B i)) : r ≤ blockSensitivityAt f x",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_round_decreases_blockSensitivity",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+    "line": 278,
+    "ledger": "claim-round-block",
+    "signature": "theorem appendixA_round_decreases_blockSensitivity {f : TotalBool (Fin n)}\n    {S B : Finset (Fin n)} (a z : BitInput (Fin n)) (hBS : B ⊆ S)\n    (hB : IsSensitiveBlock f (S.piecewise a z) B) :\n    blockSensitivityAt (fun y => f (S.piecewise a y)) z + 1 ≤\n      blockSensitivityAt f (S.piecewise a z)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_lemmaA5",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+    "line": 287,
+    "ledger": "lem-A.5",
+    "signature": "theorem appendixA_lemmaA5 (f : TotalBool (Fin n)) :\n    D (totalise f) ≤ blockSensitivity f * degree f",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_matrixNorm_le_of_QLe",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixASpectralAdversary.lean",
+    "line": 32,
+    "ledger": "lem-A.2",
+    "signature": "theorem appendixA_matrixNorm_le_of_QLe {f : TotalBool (Fin n)} {t : ℕ}\n    (hq : QLe (totalise f) t) (Γ : AppendixAMatrix n)\n    (hsym : ∀ x y, Γ x y = Γ y x) (hΓ : ∀ x y, 0 ≤ Γ x y)\n    (hzero : ∀ x y, f x = f y → Γ x y = 0)\n    {M : ℝ} (hM : 0 ≤ M)\n    (hcoord : ∀ i, appendixAMatrixNorm (appendixAGammaCoord Γ i) ≤ M) :\n    appendixAMatrixNorm Γ ≤ 35 * (t : ℝ) * M",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_matrixNorm_le_Q",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixASpectralAdversary.lean",
+    "line": 51,
+    "ledger": "lem-A.2",
+    "signature": "theorem appendixA_matrixNorm_le_Q (f : TotalBool (Fin n)) (Γ : AppendixAMatrix n)\n    (hsym : ∀ x y, Γ x y = Γ y x) (hΓ : ∀ x y, 0 ≤ Γ x y)\n    (hzero : ∀ x y, f x = f y → Γ x y = 0)\n    {M : ℝ} (hM : 0 ≤ M)\n    (hcoord : ∀ i, appendixAMatrixNorm (appendixAGammaCoord Γ i) ≤ M) :\n    appendixAMatrixNorm Γ ≤ 35 * (Q (totalise f) : ℝ) * M",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixACoordinateMax",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Paper/AppendixASpectralAdversary.lean",
+    "line": 62,
+    "ledger": "def-Gamma-i",
+    "signature": "noncomputable def appendixACoordinateMax (Γ : AppendixAMatrix n) : ℝ",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_coord_le_max",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixASpectralAdversary.lean",
+    "line": 67,
+    "ledger": "def-Gamma-i",
+    "signature": "theorem appendixA_coord_le_max (Γ : AppendixAMatrix n) (i : Fin n) :\n    appendixAMatrixNorm (appendixAGammaCoord Γ i) ≤ appendixACoordinateMax Γ",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixACoordinateMax_nonneg",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixASpectralAdversary.lean",
+    "line": 76,
+    "ledger": "def-Gamma-i",
+    "signature": "theorem appendixACoordinateMax_nonneg (Γ : AppendixAMatrix n) :\n    0 ≤ appendixACoordinateMax Γ",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixAMatrixNorm_pos",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixASpectralAdversary.lean",
+    "line": 81,
+    "ledger": "lem-A.2",
+    "signature": "theorem appendixAMatrixNorm_pos {Γ : AppendixAMatrix n} (hΓ : Γ ≠ 0) :\n    0 < appendixAMatrixNorm Γ",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixACoordinateMax_pos",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixASpectralAdversary.lean",
+    "line": 90,
+    "ledger": "lem-A.2",
+    "signature": "theorem appendixACoordinateMax_pos\n    (f : TotalBool (Fin n)) (Γ : AppendixAMatrix n)\n    (hsym : ∀ x y, Γ x y = Γ y x) (hΓ : ∀ x y, 0 ≤ Γ x y)\n    (hzero : ∀ x y, f x = f y → Γ x y = 0) (hne : Γ ≠ 0) :\n    0 < appendixACoordinateMax Γ",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_lemmaA2",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixASpectralAdversary.lean",
+    "line": 107,
+    "ledger": "lem-A.2",
+    "signature": "theorem appendixA_lemmaA2\n    (f : TotalBool (Fin n)) (Γ : AppendixAMatrix n)\n    (hsym : ∀ x y, Γ x y = Γ y x) (hΓ : ∀ x y, 0 ≤ Γ x y)\n    (hzero : ∀ x y, f x = f y → Γ x y = 0) (hne : Γ ≠ 0) :\n    (1 / 35 : ℝ) * (appendixAMatrixNorm Γ / appendixACoordinateMax Γ) ≤\n      (Q (totalise f) : ℝ)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_edgeMatrix",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+    "line": 33,
+    "ledger": "lem-A.3.bs",
+    "signature": "noncomputable def appendixA_edgeMatrix (a b : α) : Matrix α α ℝ",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_edgeMatrix_symm",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+    "line": 38,
+    "ledger": "lem-A.3.bs",
+    "signature": "theorem appendixA_edgeMatrix_symm (a b u v : α) :\n    appendixA_edgeMatrix a b u v = appendixA_edgeMatrix a b v u",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_edgeMatrix_nonneg",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+    "line": 44,
+    "ledger": "lem-A.3.bs",
+    "signature": "theorem appendixA_edgeMatrix_nonneg (a b u v : α) :\n    0 ≤ appendixA_edgeMatrix a b u v",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_edgeMatrix_mulVec",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+    "line": 51,
+    "ledger": "lem-A.3.bs",
+    "signature": "theorem appendixA_edgeMatrix_mulVec (a b u : α) (z : α → ℝ) :\n    (appendixA_edgeMatrix a b *ᵥ z) u =\n      (if u = a then z b else 0) + (if u = b then z a else 0)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_edgeMatrix_norm_le_one",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+    "line": 60,
+    "ledger": "lem-A.3.bs",
+    "signature": "theorem appendixA_edgeMatrix_norm_le_one (a b : α) (hab : a ≠ b) :\n    ‖Matrix.toEuclideanCLM (𝕜 := ℝ) (appendixA_edgeMatrix a b)‖ ≤ 1",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_starMatrix",
+    "kind": "def",
+    "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+    "line": 91,
+    "ledger": "lem-A.3.bs",
+    "signature": "noncomputable def appendixA_starMatrix (c : α) (L : Finset α) : Matrix α α ℝ",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_starMatrix_symm",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+    "line": 95,
+    "ledger": "lem-A.3.bs",
+    "signature": "theorem appendixA_starMatrix_symm (c : α) (L : Finset α) (u v : α) :\n    appendixA_starMatrix c L u v = appendixA_starMatrix c L v u",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_starMatrix_nonneg",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+    "line": 101,
+    "ledger": "lem-A.3.bs",
+    "signature": "theorem appendixA_starMatrix_nonneg (c : α) (L : Finset α) (u v : α) :\n    0 ≤ appendixA_starMatrix c L u v",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_starMatrix_mulVec",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+    "line": 108,
+    "ledger": "lem-A.3.bs",
+    "signature": "theorem appendixA_starMatrix_mulVec (c u : α) (L : Finset α) (z : α → ℝ) :\n    (appendixA_starMatrix c L *ᵥ z) u =\n      (if u = c then ∑ y ∈ L, z y else 0) + (if u ∈ L then z c else 0)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_starMatrix_mulVec_center",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+    "line": 125,
+    "ledger": "lem-A.3.bs",
+    "signature": "theorem appendixA_starMatrix_mulVec_center (c : α) (L : Finset α) (hc : c ∉ L) :\n    appendixA_starMatrix c L *ᵥ Pi.single c (1 : ℝ) =\n      fun u => if u ∈ L then 1 else 0",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_star_card_le_norm_sq",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+    "line": 142,
+    "ledger": "lem-A.3.bs",
+    "signature": "theorem appendixA_star_card_le_norm_sq (c : α) (L : Finset α) (hc : c ∉ L) :\n    (L.card : ℝ) ≤\n      ‖Matrix.toEuclideanCLM (𝕜 := ℝ) (appendixA_starMatrix c L)‖ ^ 2",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_star_norm_le_sqrt_card",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+    "line": 161,
+    "ledger": "lem-A.3.bs",
+    "signature": "theorem appendixA_star_norm_le_sqrt_card (c : α) (L : Finset α) (hc : c ∉ L) :\n    ‖Matrix.toEuclideanCLM (𝕜 := ℝ) (appendixA_starMatrix c L)‖ ≤\n      Real.sqrt (L.card : ℝ)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_star_norm_eq_sqrt_card",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+    "line": 211,
+    "ledger": "lem-A.3.bs",
+    "signature": "theorem appendixA_star_norm_eq_sqrt_card (c : α) (L : Finset α) (hc : c ∉ L) :\n    ‖Matrix.toEuclideanCLM (𝕜 := ℝ) (appendixA_starMatrix c L)‖ =\n      Real.sqrt (L.card : ℝ)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_star_same_output_zero",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+    "line": 219,
+    "ledger": "lem-A.3.bs",
+    "signature": "theorem appendixA_star_same_output_zero (f : α → Bool) (c : α) (L : Finset α)\n    (hf : ∀ y ∈ L, f y ≠ f c) (u v : α) (huv : f u = f v) :\n    appendixA_starMatrix c L u v = 0",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_mask_edge",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+    "line": 236,
+    "ledger": "lem-A.3.bs",
+    "signature": "theorem appendixA_mask_edge (x y : BitInput (Fin n)) (i : Fin n) :\n    appendixAGammaCoord (appendixA_edgeMatrix x y) i =\n      if x i ≠ y i then appendixA_edgeMatrix x y else 0",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_mask_star",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+    "line": 246,
+    "ledger": "lem-A.3.bs",
+    "signature": "theorem appendixA_mask_star (x : BitInput (Fin n)) (L : Finset (BitInput (Fin n)))\n    (i : Fin n) :\n    appendixAGammaCoord (appendixA_starMatrix x L) i =\n      ∑ y ∈ L.filter (fun y => x i ≠ y i), appendixA_edgeMatrix x y",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_mask_star_norm_le_one",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+    "line": 261,
+    "ledger": "lem-A.3.bs",
+    "signature": "theorem appendixA_mask_star_norm_le_one (x : BitInput (Fin n))\n    (L : Finset (BitInput (Fin n))) (hx : x ∉ L) (i : Fin n)\n    (hcount : (L.filter (fun y => x i ≠ y i)).card ≤ 1) :\n    appendixAMatrixNorm (appendixAGammaCoord (appendixA_starMatrix x L) i) ≤ 1",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_flipBlock_injective",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+    "line": 282,
+    "ledger": "lem-A.3.bs",
+    "signature": "theorem appendixA_flipBlock_injective (x : BitInput (Fin n)) :\n    Function.Injective (fun B : Finset (Fin n) => flipBlock B x)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_sensitiveFamily_star_properties",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+    "line": 292,
+    "ledger": "lem-A.3.bs",
+    "signature": "theorem appendixA_sensitiveFamily_star_properties {f : TotalBool (Fin n)}\n    (x : BitInput (Fin n)) (F : Finset (Finset (Fin n))) (hF : IsSensitiveFamily f x F) :\n    let L",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_sensitiveFamily_card_le_of_QLe",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+    "line": 324,
+    "ledger": "lem-A.3.bs",
+    "signature": "theorem appendixA_sensitiveFamily_card_le_of_QLe {f : TotalBool (Fin n)} {t : ℕ}\n    (hq : QLe (totalise f) t) (x : BitInput (Fin n))\n    (F : Finset (Finset (Fin n))) (hF : IsSensitiveFamily f x F) :\n    F.card ≤ 1225 * t ^ 2",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_blockSensitivity_star_le_of_QLe",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+    "line": 350,
+    "ledger": "lem-A.3.bs",
+    "signature": "theorem appendixA_blockSensitivity_star_le_of_QLe {f : TotalBool (Fin n)} {t : ℕ}\n    (hq : QLe (totalise f) t) : blockSensitivity f ≤ 1225 * t ^ 2",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_blockSensitivity_star_le_Q_sq",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+    "line": 361,
+    "ledger": "lem-A.3.bs",
+    "signature": "theorem appendixA_blockSensitivity_star_le_Q_sq (f : TotalBool (Fin n)) :\n    blockSensitivity f ≤ 1225 * Q (totalise f) ^ 2",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_sensitivity_mask_apply",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+    "line": 369,
+    "ledger": "lem-A.3.lambda",
+    "signature": "theorem appendixA_sensitivity_mask_apply (f : TotalBool (Fin n)) (i : Fin n)\n    (x y : BitInput (Fin n)) :\n    appendixAGammaCoord (appendixA_sensitivityMatrix f) i x y =\n      if IsSensitiveCoord f x i ∧ Function.update x i (!x i) = y then 1 else 0",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_sensitivity_mask_mulVec",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+    "line": 400,
+    "ledger": "lem-A.3.lambda",
+    "signature": "theorem appendixA_sensitivity_mask_mulVec (f : TotalBool (Fin n)) (i : Fin n)\n    (z : BitInput (Fin n) → ℝ) (x : BitInput (Fin n)) :\n    (appendixAGammaCoord (appendixA_sensitivityMatrix f) i *ᵥ z) x =\n      if IsSensitiveCoord f x i then z (Function.update x i (!x i)) else 0",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_sensitivity_mask_norm_le_one",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+    "line": 409,
+    "ledger": "lem-A.3.lambda",
+    "signature": "theorem appendixA_sensitivity_mask_norm_le_one (f : TotalBool (Fin n)) (i : Fin n) :\n    appendixAMatrixNorm (appendixAGammaCoord (appendixA_sensitivityMatrix f) i) ≤ 1",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_spectralSensitivity_adversary_le_of_QLe",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+    "line": 442,
+    "ledger": "lem-A.3.lambda",
+    "signature": "theorem appendixA_spectralSensitivity_adversary_le_of_QLe\n    {f : TotalBool (Fin n)} {t : ℕ} (hq : QLe (totalise f) t) :\n    spectralSensitivity f ≤ 35 * t",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_spectralSensitivity_adversary_le_Q",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+    "line": 465,
+    "ledger": "lem-A.3.lambda",
+    "signature": "theorem appendixA_spectralSensitivity_adversary_le_Q (f : TotalBool (Fin n)) :\n    spectralSensitivity f ≤ 35 * Q (totalise f)",
+    "compiled": false
+  },
+  {
+    "name": "QuarticQuery.Paper.appendixA_lemmaA3_adversary",
+    "kind": "theorem",
+    "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+    "line": 471,
+    "ledger": "lem-A.3",
+    "signature": "theorem appendixA_lemmaA3_adversary (f : TotalBool (Fin n)) :\n    blockSensitivity f ≤ 1225 * Q (totalise f) ^ 2 ∧\n      spectralSensitivity f ≤ 35 * Q (totalise f)",
+    "compiled": false
+  }
+]
