@@ -27,7 +27,7 @@ checking; they do not establish that proofs have been checked.
 | [intake/](intake/) | Initial research and the original statement ledger, still an input to corpus generation. |
 | [returns/](returns/README.md) | Preserved reviewer submissions, with their original filenames and manifests. |
 | [adjudication/](adjudication/adjudication_notes.md) | Maintained verdicts and corrections in `adjudication.json`, with explanatory notes. |
-| [requests/](requests/README.md) | Source review in `review/`, explanation and writing in `funnel/`, and statement/Lean coverage in `round2/`. |
+| [requests/](requests/README.md) | Source review in `review/`, explanation and writing in `funnel/`, statement/Lean coverage in `round2/`, and focused long-record sections and evidence work in [round3](requests/round3/SELECTION.md). |
 
 For current statement evidence, begin with the [corpus guide](../corpus/README.md).
 The research files explain where the inputs and decisions came from.
@@ -99,6 +99,14 @@ archive names and hashes. Their audit findings have verdicts in the
 [funnel adjudication](adjudication/funnel_adjudication_notes.md), whose
 [JSON](adjudication/funnel_adjudication.json) also lists the tie changes and the ties
 proposed for later review.
+
+The [round-three campaign](requests/round3/SELECTION.md) develops that long-record
+baseline in eight focused mathematical sections, alongside a backend assignment
+and a whole-baseline review. Each packet supplies selected primary literature,
+Lean evidence and reusable writing guidance. Integration follows the actual
+section returns; the short paper and frontend follow the integrated record.
+Use the [round-three builder](../tools/build_round3_packets.py) and its
+[maintenance instructions](../tools/README.md) to freeze and package those inputs.
 
 ## Path changes
 

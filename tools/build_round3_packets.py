@@ -10,6 +10,7 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import re
 import subprocess
 import sys
 import tempfile
@@ -99,7 +100,7 @@ FOCUS = {
         "tests/test_build_challenges.py", "corpus/README.md", "docs/statement_evidence_contract.md",
         "lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean",
         "lean/QuarticQuery/Paper/ClassicalPlanted.lean", "tools/return_checks/semantic_controls.py"],
-    "10_baseline_record_review": ["research/returns/funnel/1_long_reasoning_record/*",
+    "10_baseline_record_review": ["lean/QuarticQuery.lean", "research/returns/funnel/1_long_reasoning_record/*",
         "research/returns/funnel/2_short_expert_paper/paper.md",
         "research/returns/funnel/3_examples_first_exposition/exposition.md"],
 }
@@ -154,6 +155,8 @@ BACKEND_REQUIRED = {
         "src/lean_exposition/verification.py")],
     "comparator": [],  # At least one explicitly identified primary source/doc member is required.
 }
+DEPENDENCY_NAMESPACES = {"Complexity": "complexitylib", "ComplexityResults": "complexitylib", "Cslib": "cslib"}
+FOUNDATION_NAMESPACES = {"Mathlib", "Init", "Lean", "Std", "Lake", "Aesop", "Batteries", "Qq", "Plausible"}
 
 
 def digest(blob):
@@ -194,9 +197,122 @@ def backend_status(sources, unavailable):
             "native extraction/validation unassessed, and do not invent contract behavior from a missing source."}
 
 
+def lean_imports(text):
+    """Read the import header, excluding nested block comments and line comments."""
+    clean, i, depth = [], 0, 0
+    while i < len(text):
+        pair = text[i:i + 2]
+        if pair == "/-":
+            depth += 1
+            i += 2
+        elif depth and pair == "-/":
+            depth -= 1
+            i += 2
+        elif not depth and pair == "--":
+            end = text.find("\n", i)
+            i = len(text) if end < 0 else end
+        else:
+            if not depth or text[i] == "\n":
+                clean.append(text[i])
+            i += 1
+    imports, continuation = [], False
+    for line in "".join(clean).splitlines():
+        line = line.strip()
+        if not line or line in {"module", "prelude"}:
+            continue
+        match = re.fullmatch(r"(?:(?:public|private|meta)\s+)*import(?:\s+all)?(?:\s+(.+))?", line)
+        if match:
+            names, continuation = (match.group(1) or "").split(), True
+        elif continuation and all(re.fullmatch(r"[A-Z][\w'.]*", name) for name in line.split()):
+            names = line.split()
+            # An ordinary command begins the body; it is never a module continuation.
+            if any(name in {"namespace", "open", "section", "public", "private", "def", "theorem", "lemma",
+                            "noncomputable", "set_option", "variable", "end"} for name in names):
+                break
+        else:
+            break
+        if not all(re.fullmatch(r"[A-Za-z_][\w']*(?:\.[A-Za-z_][\w']*)*", name) for name in names):
+            raise ValueError("unsupported Lean import header; select its modules explicitly")
+        imports.extend(names)
+    return imports
+
+
+def dependency_sources(job, root, roots):
+    """Follow focused local imports into pinned non-Mathlib proof dependencies."""
+    unknown = set(roots) - {"complexitylib", "cslib"}
+    if unknown:
+        raise ValueError(f"unknown dependency roots: {sorted(unknown)}")
+    manifest = json.loads((root / "lean/lake-manifest.json").read_bytes())
+    pins = {row["name"]: row for row in manifest.get("packages", [])}
+    seeds = {p for pattern in ["lean/QuarticQuery/Statement.lean", *FOCUS[job]]
+             for p in root.glob(pattern) if p.is_file() and p.suffix == ".lean"}
+    if job == "10_baseline_record_review":
+        seeds.add(root / "lean/QuarticQuery.lean")
+    queue = [(p, None) for p in sorted(seeds)]
+    visited, files, selected, omitted = set(), {}, {}, set()
+    while queue:
+        path, owner = queue.pop()
+        if path in visited:
+            continue
+        if not path.is_file():
+            raise ValueError(f"missing selected Lean import source: {path}")
+        visited.add(path)
+        if owner:
+            relative = path.relative_to(roots[owner]).as_posix()
+            files[f"dependencies/{owner}/{relative}"] = path
+            selected.setdefault(owner, set()).add(relative)
+        for module in lean_imports(path.read_text(encoding="utf-8")):
+            namespace = module.split(".")[0]
+            relative = Path(*module.split(".")).with_suffix(".lean")
+            if namespace in {"QuarticQuery", "QuarticCorpus"}:
+                queue.append((root / "lean" / relative, None))
+            elif namespace in DEPENDENCY_NAMESPACES:
+                package = DEPENDENCY_NAMESPACES[namespace]
+                if package not in roots:
+                    raise ValueError(f"selected {module} requires --dependency-root {package}=PATH")
+                queue.append((roots[package] / relative, package))
+            elif namespace in FOUNDATION_NAMESPACES:
+                omitted.add(module)
+            else:
+                raise ValueError(f"unresolved selected import {module} in {path}")
+    provenance = []
+    for package, modules in sorted(selected.items()):
+        folder = roots[package]
+        pin = pins.get(package, {}).get("rev")
+        head = subprocess.run(["git", "-C", str(folder), "rev-parse", "HEAD"],
+                              check=True, capture_output=True, text=True).stdout.strip()
+        if not pin or head != pin:
+            raise ValueError(f"dependency pin mismatch for {package}: manifest {pin}, checkout {head}")
+        metadata = {"LICENSE", "lean-toolchain", "lake-manifest.json", pins[package].get("configFile", "lakefile.toml")}
+        metadata.update(name for name in ("NOTICE", "README.md") if (folder / name).is_file())
+        for name in sorted(metadata):
+            path = folder / name
+            if not path.is_file():
+                raise ValueError(f"missing dependency license/configuration: {path}")
+            files[f"dependencies/{package}/{name}"] = path
+        owned = sorted(modules | metadata)
+        subprocess.run(["git", "-C", str(folder), "ls-files", "--error-unmatch", "--", *owned],
+                       check=True, capture_output=True)
+        clean = subprocess.run(["git", "-C", str(folder), "diff", "--quiet", "HEAD", "--", *owned])
+        if clean.returncode:
+            raise ValueError(f"selected {package} sources/configuration differ from the pinned commit")
+        provenance.append({"package": package, "repository": pins[package].get("url"),
+                           "revision": head, "modules": sorted(modules), "metadata": sorted(metadata)})
+    return files, {"packages": provenance,
+        "local_seed_members": sorted("repository/" + path.relative_to(root).as_posix() for path in seeds),
+        "foundation_modules_omitted": sorted(omitted),
+        "foundation_pins": {"toolchain": (root / "lean/lean-toolchain").read_text().strip(),
+            "lake_packages": [{"name": row["name"], "revision": row.get("rev"), "url": row.get("url")}
+                              for row in manifest.get("packages", [])]},
+        "scope": "Focused source import closure for local primary seeds, plus pinned Complexity/Cslib sources. "
+                 "Mathlib, Lean/Std/Init/Lake and their supporting foundations stop at recorded pins; no build artifacts "
+                 "or whole Mathlib checkout are bundled. Source custody does not establish compilation."}
+
+
 def inputs(job, *, root, requests_dir, paper_annex, annexes, writing_skill,
            writing_guides, exemplar_repo, exemplar_ref, backend_sources=None,
-           backend_unavailable=None, native_results=None, native_logs=None, native_sources=None):
+           backend_unavailable=None, native_results=None, native_logs=None, native_sources=None,
+           dependency_roots=None):
     """Map portable members to (source, role), without reading ignored build trees."""
     if job not in JOBS:
         raise ValueError(f"unknown packet: {job}")
@@ -235,6 +351,9 @@ def inputs(job, *, root, requests_dir, paper_annex, annexes, writing_skill,
         repository(root / name, "repository_context")
     for name in corpus.source_hashes(root):
         repository(root / name, "local_lean_and_pinned_configuration")
+    dependency_files, _ = dependency_sources(job, root, dependency_roots or {})
+    for name, path in dependency_files.items():
+        add(name, path, "pinned_non_mathlib_proof_dependency_source")
     for folder, role in ((root / "corpus", "recorded_evidence"),
                          (root / "research/adjudication", "maintained_adjudication"),
                          (root / "research/returns/funnel/1_long_reasoning_record", "baseline_advisory_return")):
@@ -429,6 +548,10 @@ def prepare(job, **options):
     snapshot = evidence_snapshot(data, before_hashes, options["root"], extra_sources)
     data["EVIDENCE_SNAPSHOT.json"] = encoded(snapshot)
     data["BUILD_STATUS.md"] = build_status(snapshot)
+    _, dependency_provenance = dependency_sources(job, options["root"], options.get("dependency_roots") or {})
+    dependency_provenance["members"] = {name: digest(blob) for name, blob in data.items()
+                                      if name.startswith("dependencies/")}
+    data["DEPENDENCY_SOURCES.json"] = encoded(dependency_provenance)
     if job == "09_evidence_backend":
         data["BACKEND_INPUT_STATUS.json"] = encoded(backend_status(
             options.get("backend_sources") or {}, options.get("backend_unavailable") or {}))
@@ -450,7 +573,10 @@ def prepare(job, **options):
         "context and do not include every source archive governed by their original intake manifest. "
         "Use a full checkout for repository-wide checks. For job 09, inspect `BACKEND_INPUT_STATUS.json` "
         "before attempting the external extraction/validation assignment; explicit unavailable groups "
-        "limit what the supplied sources support.\n").encode()
+        "limit what the supplied sources support.\n\n"
+        "`DEPENDENCY_SOURCES.json` identifies the focused pinned complexitylib/Cslib import closure "
+        "under `dependencies/`, its licenses/configuration, and the exact Mathlib/foundation stopping "
+        "boundary. These are mathematical proof sources, distinct from writing exemplars.\n").encode()
     data["literature/README.md"] = literature_guide(job)
     rows = [{"member": name, "source": str(files[name][0]), "role": files[name][1],
              "bytes": len(blob), "sha256": digest(blob)} for name, blob in data.items() if name in files]
@@ -552,6 +678,8 @@ def main(argv=None):
                         help="optional raw log explicitly accompanying native run records")
     parser.add_argument("--native-source", action="append", default=[], metavar="MEMBER=PATH",
                         help="optional actual native fixture/runner source outside the repository")
+    parser.add_argument("--dependency-root", action="append", default=[], metavar="NAME=PATH",
+                        help="pinned complexitylib/cslib checkout for focused non-Mathlib import closure")
     parser.add_argument("--only", nargs="+", choices=sorted(JOBS), help="omit to select all ten")
     parser.add_argument("--dest", type=Path)
     parser.add_argument("--build", action="store_true", help="write ZIPs after approved input freeze")
@@ -584,7 +712,7 @@ def main(argv=None):
             exemplar_ref=resolved, backend_sources=named_sources(args.backend_source),
             backend_unavailable=unavailable,
             native_results=named_sources(args.native_result), native_logs=named_sources(args.native_log),
-            native_sources=named_sources(args.native_source))
+            native_sources=named_sources(args.native_source), dependency_roots=named_sources(args.dependency_root))
         jobs = args.only or list(JOBS)
         if args.build:
             for path in build_batch(jobs, args.dest, args.freeze_digest, **options):

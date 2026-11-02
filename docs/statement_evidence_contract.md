@@ -54,6 +54,14 @@ result from another tie. The dependency export traverses private and generated
 intermediates before displaying public declarations; an absent edge in an old,
 unbound export does not prove that the theorem is unused.
 
+Reviewed statement relations remain authored judgments. The current builder
+does not automatically bind an `exact` or `stronger` classification to the
+reviewed type and its defining terms. Round-two integration checks the candidate
+source and signature hashes before applying those classifications. A later
+semantic edit requires renewed review even if rebuilding and comparison pass;
+[the evidence-path request](../research/requests/round3/09_evidence_backend.md)
+targets enforcement of that separate freshness boundary.
+
 ## Collapsing onto the elegant path
 
 Keep the checked theorems whose statements are worth reading, and treat the rest

@@ -70,125 +70,122 @@ The private literature annex work is committed in ai_workflow at
 any Lean theorem. Source variants retained locally are not licensed for
 redistribution merely because they were supplied for review.
 
-## Integration gate
+## Accepted source and evidence boundaries
 
-Source-level review, finite computation, Lean elaboration and independent
-statement comparison remain separate. The candidate tie files accompanying
-the proof reviews are review proposals with source hashes, not compilation
-receipts. A compound statement needs all its conjuncts; an inequality-only
-ingredient cannot inherit an exact relation from a different declaration.
-Ordinary premises must also be distinguished from additional open assumptions.
+The proof-source checkpoint is `31e17dee667d1d72fa621da8e7d3d8ff5fc3960a`.
+All 45 inventory targets now have source-current native passes: 39 Paper modules
+(including one print-only audit) and six Forrelation/upper-bound modules. The
+initial inventory and nine bounded retries preserve diagnostics and exact
+transitive input hashes under
+`/Users/willcook/src/_builds/quartic-r2-ssd/`. Failed or superseded attempts remain
+historical records; `current_native_acceptance.json` selects current passes.
+Compiler repairs and the Boolean-expression grouping review are documented in
+the individual adjudications, with original returns preserved unchanged.
 
-The initial native inventory on the canonical SSD cache
-(`cf_58aaa94feb484c52ad9e`) completed. Its runner and per-target receipts live at
-`/Users/willcook/src/_builds/quartic-r2-ssd/native-inventory/`. One owner
-sequences 45 targets, including all 39 Paper modules and the changed Forrelation
-and upper-bound modules. Each uses the ordinary guarded `lake --no-cache build
-<module>:olean`, with a 300-second per-target limit, 1740-second runner limit,
-1800-second outer seat budget and continuously checked 8 GiB reserve. Failed
-prerequisites skip their consumers; changes to local transitive inputs invalidate
-a result. The runner does not add unaccepted imports to the root library.
+Eight accepted imports join the non-audit Paper modules and uniform Forrelation
+module to `QuarticQuery`. The combined root passed `lake --no-cache build
++QuarticQuery:olean` in 32.8 seconds. The source-bound ordinary root build and
+actual dependency export then passed in 79.11 seconds. The root export records
+2,652 projected declaration names, 1,354 reached from the headline, 61,138
+traversed constants and no unresolved constants. Its 584 nonempty hidden-path
+witnesses were checked against the projected graph. A separate traversal
+reproduced the reached set; the earlier native fixture remains a scoped
+regression, not a substitute for this actual export.
 
-The first inventory produced nine scoped passes (including the exporter fixture),
-13 failures and 24 prerequisite skips. Concrete parser, API, opacity and arithmetic
-elaboration errors were repaired in released files without relaxing theorem
-statements. Retry 1 (`cf_2953adeb61e04202bc6d`, `native-retry-1/`) checked only
-37 failed or blocked targets: 11 passed, 11 failed and 15 remained blocked.
-Retry 2 (`cf_5cc3fc2c5d414927bdeb`, `native-retry-2/`) now checks the remaining
-26 targets under the same reserve and bounded-run policy. Completed current
-passes are not rerun. Each retry preserves earlier raw receipts.
+The 258 reviewed declaration names all exist in that environment. The native
+type/axiom audit and its source-binding verifier pass, with axiom dependencies
+limited to `Classical.choice`, `Quot.sound` and `propext`. Only one of these
+reviewed helper names lies in the headline closure; helpers outside that
+closure still have native checks. Kernel acceptance and headline reach answer
+different questions.
 
-`/Users/willcook/src/_builds/quartic-r2-ssd/current_native_acceptance.json`
-collects source-closure, artifact and trace hashes for scoped acceptance; it is
-not a global build or Comparator receipt. The sole native owner coordinates
-repairs with source owners before rechecking them. Latest native output, not
-this checkpoint narrative, determines which target is now accepted.
+The reviewed merge adds 164 ties to existing statement rows: 37 exact, 29
+stronger and 98 partial. It preserves all 313 previous reviewed ties, including
+the partial status of the whole `eq-19` claim. The merge checks statement,
+source, signature and current native-receipt hashes before applying anything;
+all 164 names were also found in the actual root export. It withholds seven
+proposed research-derived rows, unknown return-local IDs and support-only
+occurrences. These decisions do not manufacture build or comparison evidence.
+The proposal, application receipt, audit, verifier and raw native records are
+included in the next packets.
 
-The byte-matched native exporter fixture passed in 15.07 seconds, including
-private-wrapper and other-namespace reach, hidden-path witnesses, unresolved
-constants and missing-root assertions. The first native Stein target passed in
-28.12 seconds using the warm dependency cache. These are scoped results; they
-are not an aggregate build, Comparator acceptance, or a repaired HDD.
+The merged 121-row corpus has 55 exact, 31 stronger and 35 partial formal
+relations. Each row has a currently compiled tied declaration, but the 35
+partial relations remain incomplete matches to their paper statements. Seven
+rows have a compared tied declaration; the other 114 do not. None of these
+counts constitutes independent human review or establishes a new theorem's
+priority. Read the row's full type, premises and relation before using it in prose.
 
-The host's repository and user-level Codex wake kill switches remain present.
-This detached job does not promise automatic chat continuation. Its per-target
-results and terminal receipt are the continuation authority. Consume actionable
-results and repair their exact diagnostics; do not submit duplicate jobs or keep
-a model polling unchanged state.
+## Meaning, literature and remaining work
 
-The Python backend is tested against the installed `lean-exposition` consumer:
-both schema and semantic contracts accept the informal graph, and selecting a
-goal reaches its prerequisites. This is not native Lean extraction. The
-existing packaged extractor remains the owner of a later formal declaration
-graph. The tested command surface is `lean-exposition extract --build` with an
-explicit module, goal, module prefix and output directory; it has not been run
-on this changing proof set.
+The literal Appendix chain is compiled, including the `1500625` quartic bound.
+The `19600` hybrid and imported complexitylib `20736` route are distinct proofs
+with distinct correspondence; no new priority or sharpness claim follows.
+The revised elementary Forrelation constant is compiled at its recorded
+threshold. This does not establish the sharper imported Fourier theorem, a
+smaller dimension threshold, the BHMT decoder, or a complete explicit
+increasing-`k` family.
 
-## Current validation and re-entry
+Further work concerns specific meaning and interface boundaries: the full
+retained quantum state rather than just its measured label law; the early/late
+error decomposition and arbitrary probability-space transport; a complete
+single-declaration equality-and-bound statement for `eq-19` with an independent
+challenge; and independently authored semantic expectations for selected
+models. Existing Comparator challenges share maintained vocabulary and theorem
+specifications with the solutions. Separate compilation tests agreement, not
+independent mathematical authorship.
 
-The source-return checkpoint is `67b4400`. Backend corrections and native
-exporter validation are committed at `57f264b`; reviewed assumption boundaries
-and the conservative corpus refresh at `a2ac154`; the ten focused request sources
-and tested round-three builder at `5e9868a`. Proof candidate edits remain in the
-working tree until their native validation and source review are complete. The working-tree `make check` passes:
-layout, challenge freshness, corpus freshness and 122 Python tests (two optional
-checks skipped). A separate run enabled the installed reader integration and
-passed it; the native Lean exporter fixture has since passed on SSD as recorded above. The regenerated
-corpus retains historical passes as `legacy_unbound` and awards no current
-build or comparison credit to this changing source set.
+The source-bound corpus backend and hidden-helper traversal are implemented.
+The installed `lean-exposition` schema and semantic consumer accept the informal
+graph and goal selection reaches prerequisites. The actual regenerated
+121-row corpus, after the reviewed tie merge, was also validated and selected:
+its headline selection has a 116-node authored argument closure. The receipt
+and exact graph bytes are under `reader-acceptance/` in the SSD evidence root.
+This observation precedes the last Comparator receipts; it is a consumer
+check of those identified graph bytes, not a final evidence inventory. Actual native extraction by
+`lean-exposition extract --build` remains a separate endpoint. Reviewed relation
+freshness also needs enforcement independently of build freshness, and any new
+research-derived graph rows need their own provenance rather than attribution
+to the preprint. Packet 09 targets these residuals using the existing owners.
 
-The next actions are to consume the SSD inventory results, repair concrete
-elaboration failures, and validate the remaining targets without repeating
-source-current passes.
-Then select the accepted imports, review the candidate ties against those exact
-bytes, build the combined library, record fresh source-bound evidence, run
-Comparator and its negative controls, regenerate the corpus and validate the
-reader projection. Prepare successor request sources while native validation runs; freeze and
-build final packets from the accepted frontier afterward. Do not repeat
-an old packet assignment whose requested endpoint already follows from a
-stronger accepted theorem.
+## Final checks and packet construction
 
-| Compatible work considered | Disposition at the dependency barrier |
-| --- | --- |
-| Return custody and all seven source audits | Preserved, checked and committed; further proof acceptance depends on compiler outcomes. |
-| Literature and attribution | All thirteen supplied sources identified, exact discrepancies checked, and annex work committed. |
-| Corpus and reader backend | Implemented and Python/consumer tested; native exporter regression passed. Actual root export, new proof receipts and independent semantic specifications remain separate gates. |
-| Independent finite mathematics | Return checks replayed and per-claim limits recorded; these cannot certify the pending Lean modules. |
-| Manuscripts and successor packets | Up to ten focused, literature-grounded long-record and formalization scopes are being prepared in [round3](../requests/round3/SELECTION.md); final ZIP construction awaits the accepted frontier. |
-| Website and film | Require the settled corpus and authored accounts; no new visual surface is warranted yet. |
-| Reusable repair | Snapshot validation now enforces original bytes in both working and staged views; its guide covers checker output isolation. |
+The final serial evidence run is recorded at
+`/Users/willcook/src/_builds/quartic-r2-ssd/final-evidence/operations.json`.
+The phase passed at 2026-11-02T18:45:46Z. All twelve appended source-bound
+receipts match the source pin and frozen inputs. Five positive Comparator
+bundles passed, all five deliberately wrong solutions were rejected for their
+expected reasons, and the unconditional bundle passed paranoid comparison.
+These were local unsandboxed runs. The successful terminal receipt is required
+by the packet input setup. It preserves a single source commit across the ordinary build,
+258-name audit, five positive Comparator bundles, five negative controls and
+unconditional paranoid comparison. The native runner continuously enforces an
+8 GiB SSD reserve. The host's wake kill switches remain present; no automatic
+chat continuation or repaired HDD health is claimed.
 
-This is an active bounded validation with a recoverable manual continuation,
-not a completed proof campaign. The job IDs,
-terminal files and per-module logs above make continuation recoverable without
-repeating the research or assuming a successful build.
+The [round-three selection](../requests/round3/SELECTION.md) owns ten assignments:
+eight mathematical sections of the existing long reasoning record, an evidence
+backend assignment and an independent review of the whole baseline. The section
+writers work concurrently against the same baseline. Final synthesis is later
+and receives their actual returns and adjudications; the short expert paper,
+examples-first exposition and frontend follow the integrated long record.
 
-The next packet topics will be chosen from that validated remainder. In
-particular, the full retained quantum state, the sharper Fourier theorem,
-the growing-parameter family, and the literal Appendix route must not be
-advertised as checked on the strength of returned source or finite examples.
-Manuscript and reader work will consume the same statement evidence rather
-than copying the reviews' proposed status labels.
-
-## Round-three construction after native freeze
-
-The [selection](../requests/round3/SELECTION.md) now owns ten focused assignments:
-eight long-record mathematical sections, an evidence-path residual and an
-independent review of the existing baseline. Each carries selected primary
-literature, the exact Lean snapshot, original/adjudicated returns, the exposition
-skill and its four writing guides, and role-labelled writing exemplars. The
-whole baseline remains available, with focused mandatory reading for section
-writers; only the baseline reviewer must assess the whole record now. Final
-synthesis receives actual section returns later.
+Every packet carries relevant primary literature with version/locator details,
+the frozen Lean sources and toolchain, the focused pinned complexitylib/cslib
+source closure where imported, original and adjudicated returns, actual receipts,
+and the exposition skill with four writing guides and labelled examples.
+Literature supports mathematical claims; unrelated exemplars support writing
+structure only. Required reading is focused on each assignment, with the full
+baseline available and an honest source-read receipt required.
 
 `tools/build_round3_packets.py` validates inputs without producing ZIPs by default.
-The existing native setup at
-`/Users/willcook/src/_builds/quartic-r2-ssd/round3-build/` contains explicit
-input options and `refresh_options.py` / `run.py`. After the accepted source
-snapshot, adjudications and native result files settle, refresh options, validate
-the batch, inspect its input digest and build with that digest. This is an
-internal consistency gate; the user has already authorized the ZIPs. The builder
-checks input hashes before and after, preserves existing sent archives and runs
-the independent archive validator. Intended output is
+The explicit local setup is
+`/Users/willcook/src/_builds/quartic-r2-ssd/round3-build/`.
+After final evidence and corpus regeneration, refresh options, validate the
+complete batch and build with that exact input digest. The user has authorized
+the ZIPs; the digest is an internal consistency check. The builder rejects input
+drift and preserves existing sent archives. The independent archive validator
+checks every payload byte. Intended output is
 `/Users/willcook/Downloads/quartic_round3_20261102`, with a new suffix if needed.
-No round-three ZIPs have been generated at this checkpoint.
+Delivery and archive hashes are recorded with the generated batch, rather than
+inserting an unverified completion claim here.

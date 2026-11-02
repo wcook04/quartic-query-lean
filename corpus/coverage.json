@@ -6,25 +6,27 @@
   "def-P"
  ],
  "formal_statement": {
-  "exact": 18,
-  "partial": 43,
-  "stronger": 7,
-  "unassessed": 52,
-  "weaker": 1
+  "exact": 55,
+  "partial": 35,
+  "stronger": 31
  },
  "formal_origin": {
   "ours": 121
  },
  "build": {
-  "not_run": 121
+  "built_at_pin": 121
  },
  "comparator": {
-  "not_run": 121
+  "compared": 7,
+  "not_run": 114
  },
  "route": {
-  "none": 121
+  "alternative": 9,
+  "none": 56,
+  "same": 56
  },
  "reach": {
-  "legacy_unbound": 121
+  "outside": 57,
+  "reached": 64
  }
 }

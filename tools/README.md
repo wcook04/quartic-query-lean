@@ -153,6 +153,8 @@ python3 tools/build_round3_packets.py \
   --writing-guides /path/to/formal-math-exposition/references \
   --exemplar-repo /path/to/lean-exposition \
   --exemplar-ref COMMIT \
+  --dependency-root complexitylib=/path/to/pinned-complexitylib \
+  --dependency-root cslib=/path/to/pinned-cslib \
   --only 01_models_evidence
 ```
 
@@ -165,6 +167,18 @@ original PDF or TeX source. The exact supplied Špalek–Szegedy publisher editi
 is selected explicitly. Missing primary sources fail rather than falling back
 to locator notes. The manifest binds the supplied paper PDF by its actual hash
 and includes supplied annex metadata, without inventing an upstream Git pin.
+
+For each job's primary Lean seeds, the builder follows local imports and then
+the `Complexity.*`/`Cslib.*` proof-source closure. Job 10 also starts from the
+`QuarticQuery` root. Supply the dependency checkout directories explicitly with
+`--dependency-root complexitylib=PATH` and `--dependency-root cslib=PATH` when
+the selected closure needs them. Their HEAD revisions must match this project's
+Lake manifest; selected source and license/configuration files must agree with
+those commits. Missing selected imports stop packaging. `dependencies/` carries
+those focused sources with licenses and configuration; `DEPENDENCY_SOURCES.json`
+records the module list, hashes and pins. Traversal stops at Mathlib and Lean
+foundations with their toolchain/package pins recorded. No whole Mathlib tree or
+`.lake` build products are copied.
 
 Job 09 requires actual external contracts via `--backend-source MEMBER=PATH`.
 Under the `lean-exposition/` member prefix, supply `docs/contracts.md`,

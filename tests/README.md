@@ -18,7 +18,7 @@ Test modules mirror the commands they exercise:
 | [test_build_corpus.py](test_build_corpus.py) | Statement ties and separate evidence fields. |
 | [test_build_research_packets.py](test_build_research_packets.py) | Review requests, source overrides and ZIP contents. |
 | [test_build_funnel_packets.py](test_build_funnel_packets.py) | Writing requests, source selection and archive compatibility. |
-| [test_build_round3_packets.py](test_build_round3_packets.py) | Focused primary literature, portable writing inputs, source-bound receipt snapshots, frozen-input consistency and exclusive archive publication. |
+| [test_build_round3_packets.py](test_build_round3_packets.py) | Focused primary literature and pinned dependency closures, portable writing inputs, source-bound receipt snapshots, frozen-input consistency and exclusive archive publication. |
 | [test_semantic_controls.py](test_semantic_controls.py) | Independently specified finite semantics and deliberately mutated Python models. |
 
 Use temporary directories for test outputs. Tests of private external inputs

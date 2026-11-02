@@ -15,6 +15,79 @@
    "hypotheses": [],
    "note": "Renaming invariance of DLe; does not pin correctness on the domain.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_correct_on_domain_iff",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionModels.lean",
+   "line": 106,
+   "relation": "exact",
+   "route": "none",
+   "hypotheses": [],
+   "premises": [],
+   "open_assumptions": [],
+   "note": "The domain-and-value pair is constructionPartial D f. This equivalence states correctness exactly on D for an arbitrary success predicate and imposes no off-domain condition. Reconstruction supplies the reverse representation.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.constructionPartial_reconstruct",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionModels.lean",
+   "line": 150,
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "premises": [
+    "Arbitrary Option Bool partial function."
+   ],
+   "open_assumptions": [],
+   "note": "Every Option Bool function is recovered from its promised domain and chosen values.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_promised_iff",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionModels.lean",
+   "line": 94,
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "premises": [
+    "Arbitrary domain D and Boolean function on D."
+   ],
+   "open_assumptions": [],
+   "note": "The promise of constructionPartial is exactly the supplied domain.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_RLe_domain_iff",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionModels.lean",
+   "line": 122,
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "premises": [
+    "Arbitrary domain/value pair and natural query budget."
+   ],
+   "open_assumptions": [],
+   "note": "Randomized correctness on the domain, with all-input program depth unchanged.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_QLe_domain_iff",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionModels.lean",
+   "line": 139,
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "premises": [
+    "Finite query-coordinate type; arbitrary domain/value pair and natural query budget."
+   ],
+   "open_assumptions": [],
+   "note": "Quantum correctness on the domain, with normalized start state and all-branch cap unchanged.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
   }
  ],
  "def-R": [
@@ -187,6 +260,21 @@
    "hypotheses": [],
    "note": "Self-inverse part of the row; the action formula is in Statement.bitOracle, which carries no tag.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_query_oracle",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionModels.lean",
+   "line": 180,
+   "relation": "exact",
+   "route": "none",
+   "hypotheses": [],
+   "premises": [
+    "Finite query-coordinate type; a natural workspace parameter."
+   ],
+   "open_assumptions": [],
+   "note": "States the basis XOR action, involution and complex-linear isometry witness on the finite physical query space.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
   }
  ],
  "def-Q": [
@@ -344,6 +432,36 @@
    ],
    "note": "Reduction of FamilyBoundsAt to the R half at one named circuit. The Q half is discharged by Q_Fkm_le.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_equation_two",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionFamily.lean",
+   "line": 58,
+   "relation": "stronger",
+   "route": "alternative",
+   "hypotheses": [],
+   "premises": [
+    "Fixed natural k>=2; m=4^t and t above a k-dependent threshold."
+   ],
+   "open_assumptions": [],
+   "note": "One specified forrCircuit family satisfies both inequalities, with c=1/400, b=6 and the existing positive budget constant; a circuit-size witness is retained. The lower-bound input follows the repository's alternative fixed-k route, not the Bansal-Sinha displayed proof.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_family_named",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionFamily.lean",
+   "line": 30,
+   "relation": "stronger",
+   "route": "alternative",
+   "hypotheses": [],
+   "premises": [
+    "l+1>=2; sufficiently large t; m=4^t."
+   ],
+   "open_assumptions": [],
+   "note": "Named-circuit finite bound with explicit constants before existential packaging.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
   }
  ],
  "thm-1.1": [
@@ -529,6 +647,21 @@
    "hypotheses": [],
    "note": "W W^T = m I over the reals.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_walsh_definitions",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+   "line": 28,
+   "relation": "exact",
+   "route": "none",
+   "hypotheses": [],
+   "premises": [
+    "m=4^t and k bit-sign strings."
+   ],
+   "open_assumptions": [],
+   "note": "States the bit-sign convention, Walsh parity, normalized H, uniform u and sign diagonal together, with sqrt(m)=2^t on the prescribed powers of four.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
   }
  ],
  "eq-3": [
@@ -611,6 +744,21 @@
    "hypotheses": [],
    "note": "Orthogonality of H.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_equation_3",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+   "line": 50,
+   "relation": "exact",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "k>=1 (the paper uses k>=2); m=4^t."
+   ],
+   "open_assumptions": [],
+   "note": "The matrix word has k sign diagonals and k-1 H factors; the theorem also states delta=2^(-5k).",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
   }
  ],
  "eq-4": [
@@ -701,6 +849,21 @@
    "hypotheses": [],
    "note": "That witness is outside the promise, which matches the one-sided 1-case of (4).",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_equation_4",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+   "line": 59,
+   "relation": "exact",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "m=4^t."
+   ],
+   "open_assumptions": [],
+   "note": "States the input count, both promise-value equivalences, undefined case and disjointness together, on every input.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
   }
  ],
  "claim-proj-prob": [
@@ -753,6 +916,51 @@
    ],
    "note": "The test on any k locations, as a sampler: label true with probability exactly Phi^2. k reads, so 2k bit queries after compilation, against the row's one bit query per D. Constant only.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_projection_test",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionForrelationQuantum.lean",
+   "line": 26,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "k>=1; m=4^t."
+   ],
+   "open_assumptions": [],
+   "note": "The exact Phi² projection law and promise gap are paired with a k-logical-read sampler and generic 2k-bit-query implementation. This does not establish the complete tight k-physical-query circuit.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_bitOracle_phase_kickback",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionPhase.lean",
+   "line": 26,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Finite query type; arbitrary physical state in the minus-answer subspace."
+   ],
+   "open_assumptions": [],
+   "note": "One ordinary bit-oracle call gives the local phase action on arbitrary entangled minus-answer states.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_bitOracle_phase_preserves",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionPhase.lean",
+   "line": 46,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Finite query type; norm-one physical state in the minus-answer subspace."
+   ],
+   "open_assumptions": [],
+   "note": "The local phase action preserves norm and the minus-answer subspace.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
   }
  ],
  "lem-2.1.ii": [
@@ -889,6 +1097,21 @@
    ],
    "note": "QLe (P k t) (2 (2^(10k+5) k)) for every t: the constant-query quantum bound at error 1/3, on the real oracle.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_lemma_2_1_ii_complete",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionForrelationComplete.lean",
+   "line": 25,
+   "relation": "exact",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Fixed k>=1; m=4^t; 0<eta<1/2."
+   ],
+   "open_assumptions": [],
+   "note": "The same accurate Boolean isometry and output map are linked to a physical continuation on every embedded logical state. The cap is uniform in m, eta and the input; all-input Boolean normalization is explicit. The compiler's factor two is allowed by O_k.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
   }
  ],
  "claim-N-phi": [
@@ -923,6 +1146,21 @@
    "hypotheses": [],
    "note": "Gives Phi = N/M as the matrix product; integrality is by type, but W's +-1 entries and M>0 are stated elsewhere.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_N_phi",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+   "line": 141,
+   "relation": "exact",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "k>=1; m=4^t."
+   ],
+   "open_assumptions": [],
+   "note": "The integer numerator, positive integer denominator m sqrt(m)^(k-1), normalized Phi and Walsh scaling/±1 entries are stated together. The first diagonal in the ones-vector matrix word is the ledger's z1 transpose.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
   }
  ],
  "claim-integer-tests": [
@@ -957,6 +1195,36 @@
    "hypotheses": [],
    "note": "Second iff of the row.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_integer_tests",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+   "line": 168,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "m=4^t."
+   ],
+   "open_assumptions": [],
+   "note": "Gives both integer comparison equivalences and the promised/true-value rules. The d and b bits of the actual circuit are provided by the separate output theorem, so this individual statement does not contain every clause of the row.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_forr_output_bits",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionForrelationCircuit.lean",
+   "line": 58,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Actual forrCircuit l t; a consistent proposed transcript on the supplied input."
+   ],
+   "open_assumptions": [],
+   "note": "For every consistent transcript of the actual forrCircuit, b is the first integer comparison and d is the disjunction.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
   }
  ],
  "claim-circuit-size": [
@@ -967,6 +1235,66 @@
    "hypotheses": [],
    "note": "|N|<=M only; the transform count and the size bound are in forrCircuit_size_le, tagged lem-2.1.iii.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_circuit_costs",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionForrelationCircuit.lean",
+   "line": 94,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "m=4^t; t>=1; k=l+1."
+   ],
+   "open_assumptions": [],
+   "note": "The actual modular circuit has its stated width, transform/layer cost, exact endpoint and quadratic-log size cap. Ideal integer walk/prefix/butterfly growth is separate; these statements do not identify every modular stored register with an unbounded signed intermediate.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_walkN_bound",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionArithmetic.lean",
+   "line": 57,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Integer signs sigma with absolute value at most one at every coordinate."
+   ],
+   "open_assumptions": [],
+   "note": "Every ideal integer walk coordinate has magnitude at most m^l for signs of magnitude at most one.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_walkN_prefix_bound",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionArithmetic.lean",
+   "line": 85,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Integer signs sigma with absolute value at most one at every coordinate."
+   ],
+   "open_assumptions": [],
+   "note": "Every prefix of the ideal final signed sum has the stated polynomial magnitude bound.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_butterfly_block_bound",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionArithmetic.lean",
+   "line": 95,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Integer block inputs bounded in absolute value by B."
+   ],
+   "open_assumptions": [],
+   "note": "Every ideal partial butterfly block has magnitude at most its term count times its input bound.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
   }
  ],
  "lem-2.1.iii": [
@@ -1035,6 +1363,64 @@
    "hypotheses": [],
    "note": "Exactly one consistent transcript per input.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_transcript_definition",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+   "line": 26,
+   "relation": "exact",
+   "route": "none",
+   "hypotheses": [],
+   "premises": [],
+   "open_assumptions": [],
+   "note": "The transcript type has one proposed bit for each non-input gate, including outputs; the expansion uses predecessorValue, whose input branch reads x and whose gate branch reads an earlier transcript bit.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_transcript_input_wire",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+   "line": 35,
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "premises": [
+    "Circuit, input, proposed transcript and valid gate/input-wire coordinates."
+   ],
+   "open_assumptions": [],
+   "note": "Input predecessors read the actual input independently of tr.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_transcript_gate_wire",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+   "line": 41,
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "premises": [
+    "Circuit, input, proposed transcript and an earlier valid gate coordinate."
+   ],
+   "open_assumptions": [],
+   "note": "Non-input predecessors read earlier transcript coordinates.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_transcript_correct",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+   "line": 48,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Arbitrary circuit, input and proposed transcript."
+   ],
+   "open_assumptions": [],
+   "note": "Topological evaluation is the unique consistent transcript.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
   }
  ],
  "eq-6": [
@@ -1045,6 +1431,21 @@
    "hypotheses": [],
    "note": "Gives log_2 m = 2t, so l=2t. r=40t is written directly in Fkm and is not stated as ceil(20 log_2 m).",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_eq6",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+   "line": 56,
+   "relation": "exact",
+   "route": "none",
+   "hypotheses": [],
+   "premises": [
+    "m=4^t."
+   ],
+   "open_assumptions": [],
+   "note": "The logarithmic length identity and the ceil(20 log₂m)=40t identity occur together, including t=0.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
   }
  ],
  "def-column-layout": [
@@ -1063,6 +1464,49 @@
    "hypotheses": [],
    "note": "No invalid pointer pattern.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_column_layout",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+   "line": 71,
+   "relation": "exact",
+   "route": "none",
+   "hypotheses": [],
+   "premises": [],
+   "open_assumptions": [],
+   "note": "The BitLoc equality expands the physical X, unrestricted A, pointer and transcript coordinate summands; arbitrary BitInput functions impose no promise. Pointer encoding and dimensions are checked separately below.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_pointer_encoding",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+   "line": 80,
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "premises": [
+    "Arbitrary natural pointer length."
+   ],
+   "open_assumptions": [],
+   "note": "Every pointer bitstring encodes one destination and every destination has a unique encoding.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_layout_cardinalities",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+   "line": 87,
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "premises": [
+    "Natural k,t; m=4^t."
+   ],
+   "open_assumptions": [],
+   "note": "The specialized layout has m columns, km partial-input bits and 2^r addresses.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
   }
  ],
  "def-eval-transcript": [
@@ -1091,6 +1535,21 @@
    "hypotheses": [],
    "note": "Uniqueness of the address; the definition of s_i is trueAddress, which carries no tag.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_trueAddress_iff",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+   "line": 103,
+   "relation": "stronger",
+   "route": "none",
+   "hypotheses": [],
+   "premises": [
+    "Every instance of the selected column is promised; arbitrary finite address length."
+   ],
+   "open_assumptions": [],
+   "note": "Characterizes the true address for arbitrary partial functions and addressed circuits, with exactly the premise that every instance in the selected column is defined. No promise is required elsewhere.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
   }
  ],
  "def-F": [
@@ -1137,6 +1596,49 @@
    "hypotheses": [],
    "note": "The exact count of tests. The bound O_k(m (log m)^3) is not stated.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_K_count",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionTests.lean",
+   "line": 131,
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "premises": [],
+   "open_assumptions": [],
+   "note": "The primary declaration gives the exact test count. The uniform cubic-logarithmic bound is separately construction_K_family; neither individual declaration conjoins count and bound.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_K_family",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionTests.lean",
+   "line": 168,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "k>=1; t>=1."
+   ],
+   "open_assumptions": [],
+   "note": "One k-dependent constant works for the actual realizing circuit at every t>=1.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_K_bound",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionTests.lean",
+   "line": 139,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "t>=1; S<=A*mValue(t)*(2t)^2."
+   ],
+   "open_assumptions": [],
+   "note": "A size bound S<=A m (2t)^2 gives K<=(42+20A)m(2t)^3.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
   }
  ],
  "lem-2.2.i": [
@@ -1209,6 +1711,36 @@
    ],
    "note": "This is the def-win-at-address form.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_lemma_2_2_i",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionTests.lean",
+   "line": 22,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "C realizes the specified partial function; this is supplied by forrCircuit_realises in the paper instance."
+   ],
+   "open_assumptions": [],
+   "note": "The exact conjunction-of-tests characterization and adaptive depth bound match the positive corrected statement. The negative fixed-support qualification is separately proved on full physical inputs; the original support sentence is false.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_pointer_every_physical_coordinate",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionPointerSupport.lean",
+   "line": 79,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "A valid nonself pointer-test index and a selected pointer/target coordinate."
+   ],
+   "open_assumptions": [],
+   "note": "Every physical pointer-word and potential target coordinate is essential, confirming why adaptive depth cannot be replaced by fixed support.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
   }
  ],
  "lem-2.2.ii": [
@@ -1237,6 +1769,36 @@
    "hypotheses": [],
    "note": "Definition of the acceptance probability of verifying a column; def-verify, not this row.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_lemma_2_2_ii",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionCoherent.lean",
+   "line": 99,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Finite local-test index type; arbitrary complex coefficients."
+   ],
+   "open_assumptions": [],
+   "note": "The primary declaration gives arbitrary complex index superpositions and zero wrong-label amplitudes at a common logical-read cap. The physical continuation cap is stated in construction_lemma_2_2_complete for the specified circuit family.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_lemma_2_2_complete",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionComplete.lean",
+   "line": 28,
+   "relation": "stronger",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "t>=1; C realizes P; C.size<=A*mValue(t)*(2t)^2; these properties are supplied for the specified circuit."
+   ],
+   "open_assumptions": [],
+   "note": "For the realizing circuit with its supplied size bound, the same controlled isometry compiles on every state and continuation with at most 2(log₂m+1) bit queries.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
   }
  ],
  "def-grover-trial": [
@@ -1375,6 +1937,64 @@
    "hypotheses": [],
    "note": "Success of one trial as the two halves of the mixture.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantum_grover_parameters",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+   "line": 125,
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "premises": [],
+   "open_assumptions": [],
+   "note": "The primary identity pins M, trial count and the abstract attempts program. The mixture and stop/restart recursion are separate named statements; the coherent retained-register realization is a further companion.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantum_grover_trial_distribution",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+   "line": 133,
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "premises": [
+    "M!=0."
+   ],
+   "open_assumptions": [],
+   "note": "The half point-mass/half uniform law is nonnegative and normalized for M!=0.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantum_grover_trial_recursion",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+   "line": 142,
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "premises": [
+    "Natural M and trial count."
+   ],
+   "open_assumptions": [],
+   "note": "The abstract trial starts freshly and stops on first success.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantum_attempts_samples",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+   "line": 254,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Finite query/output alphabets; inhabited query type; coherent Samples n L witness; M!=0."
+   ],
+   "open_assumptions": [],
+   "note": "The actual coherent repeated sampler retains all registers and has the exact amplified label law.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
   }
  ],
  "claim-grover-state": [
@@ -1497,6 +2117,36 @@
    "hypotheses": [],
    "note": "The p=0 case, which the row excludes.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantum_grover_state",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+   "line": 38,
+   "relation": "stronger",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "A Preparation in a complex inner-product space; 0<A.prob<1."
+   ],
+   "open_assumptions": [],
+   "note": "Includes the exact two-dimensional decomposition, normalized orthogonal good/bad states, angle range and iteration formula. The conditional successful state is PhaseEq to goodState only when that successful component is nonzero.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantum_grover_zero",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+   "line": 74,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "A Preparation with success probability zero; arbitrary iteration count."
+   ],
+   "open_assumptions": [],
+   "note": "Zero-success preparations have no successful component at any iteration.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
   }
  ],
  "claim-sin2theta": [
@@ -1507,6 +2157,21 @@
    "hypotheses": [],
    "note": "The equality only. The inequality >= sqrt gamma is not stated here; it occurs inside nine_fortieths_le.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantum_sin_two_angle",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+   "line": 81,
+   "relation": "exact",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "gamma<=A.prob<=1/2."
+   ],
+   "open_assumptions": [],
+   "note": "States the sine equality and sqrt(gamma) lower bound together. Preparation supplies 0<=p<=1.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
   }
  ],
  "eq-9": [
@@ -1541,6 +2206,21 @@
    "hypotheses": [],
    "note": "Endpoint 9/20 under sqrt gamma <= sin 2 theta, not the row's hypothesis gamma<=p<=1/2.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantum_eq_9",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+   "line": 93,
+   "relation": "exact",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "gamma>0 and gamma<=A.prob<=1/2."
+   ],
+   "open_assumptions": [],
+   "note": "Both displayed inequalities hold with exactly M=ceil(10/sqrt(gamma)).",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
   }
  ],
  "lem-3.1": [
@@ -1774,6 +2454,36 @@
    "hypotheses": [],
    "note": "Comparison probabilities from one sorted-pair circuit, 1 minus it in the other order and 0 on the diagonal. The equation itself is the untagged cmpProb_isComparison.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantumComparison_complementary",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+   "line": 198,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Distinct candidates for the primary equality."
+   ],
+   "open_assumptions": [],
+   "note": "The actual implemented comparison is complementary on distinct pairs. Its zero diagonal is separately stated; the primary declaration alone contains only the off-diagonal equality.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantumComparison_self",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+   "line": 204,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Arbitrary natural repetition count, input and selected column."
+   ],
+   "open_assumptions": [],
+   "note": "The actual implemented comparison has zero diagonal.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
   }
  ],
  "def-T-eps": [
@@ -1800,6 +2510,19 @@
    "hypotheses": [],
    "note": "Numeric consequence used in Section 3.3.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantumTournament_parameters",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+   "line": 57,
+   "relation": "exact",
+   "route": "none",
+   "hypotheses": [],
+   "premises": [],
+   "open_assumptions": [],
+   "note": "Pins T=Nat.clog 2 (1000m), the integer encoding of ceil(log₂(1000m)), and epsilon=1/(1000T). The theorem covers all natural m; the paper uses m>=2.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
   }
  ],
  "def-ideal-process": [
@@ -1840,6 +2563,21 @@
    "hypotheses": [],
    "note": "Weight bounds at exponent T, where the row has t. W>0 until selected is half_lt_total, which carries no tag.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantumWeight_lower",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+   "line": 98,
+   "relation": "exact",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Unit-valued comparisons; 0<=epsilon<=1; dominant s; length L<=T; s not in L; T epsilon<1/2."
+   ],
+   "open_assumptions": [],
+   "note": "Exports the history-length power bound, Bernoulli lower bound, strict surviving-weight >1/2 and total positivity until the dominant candidate is selected.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
   }
  ],
  "eq-14": [
@@ -1876,6 +2614,51 @@
    "hypotheses": [],
    "note": "Equation (15) as a sampler, one comparison per pivot with all workspace retained. Amplification and the stopping rule are in tournament_runs.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantumTensorStage_of_samples",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumTensor.lean",
+   "line": 328,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Finite nonempty candidate type; common-cap coherent comparison samplers; a fixed pivot sequence."
+   ],
+   "open_assumptions": [],
+   "note": "This is the literal fresh-register tensor preparation with product successful-index law, not the whole amplified stopping/list procedure. The actual coherent list theorem uses the short-circuit stage law with the same successful masses.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantum_amplify_samples",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+   "line": 355,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Finite query/output alphabets; inhabited query type; coherent Samples n L witness; gamma>0; eta>0."
+   ],
+   "open_assumptions": [],
+   "note": "Coherent amplification realizes the exact successful label law.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantumTournament_list",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumTournament.lean",
+   "line": 270,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Finite query and candidate alphabets; inhabited query type; at least two candidates; IsComparison pointwise; common-cap coherent comparison Samples."
+   ],
+   "open_assumptions": [],
+   "note": "The stopping/appending loop returns the actual bounded candidate list.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
   }
  ],
  "claim-coupling": [
@@ -1891,6 +2674,36 @@
    ],
    "note": "The coupling, by induction over histories, with failure charged at the history where it occurs. It bounds acceptance through a verifier v, not list membership, and carries a factor (1-eps).",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantumList_coupling",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumTournament.lean",
+   "line": 175,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Unit-valued comparisons; dominant candidate not yet selected; 0<=epsilon<=1 and T epsilon<1/2; failure probability bounded by epsilon at histories before selection."
+   ],
+   "open_assumptions": [],
+   "note": "The perfect-indicator coupling removes the extra verifier epsilon. Its statement is an abstract continuation lower bound under an explicit per-history failure premise; the actual list membership conclusion is exported separately.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantumTournament_list",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumTournament.lean",
+   "line": 270,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Finite query and candidate alphabets; inhabited query type; at least two candidates; IsComparison pointwise; common-cap coherent comparison Samples."
+   ],
+   "open_assumptions": [],
+   "note": "Implements the amplified stages and returns a coherent bounded list with membership at least 1-2m/2^T-T epsilon.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
   }
  ],
  "claim-tournament-cost": [
@@ -1922,6 +2735,36 @@
    "hypotheses": [],
    "note": "Verifying a list, cV per candidate.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantumTournament_cost",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+   "line": 238,
+   "relation": "stronger",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "m>=2; any natural common logical-read count cc."
+   ],
+   "open_assumptions": [],
+   "note": "Bounds the full charged T*stageCost product in physical bit queries, with uniform constant 6072, rather than just the cap of an abstract smaller Proc.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.amplification_budget_le",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+   "line": 156,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "0<gamma<=1/2; 0<eta<1/2."
+   ],
+   "open_assumptions": [],
+   "note": "Bounds the actual padded trialCount*(2*iterationBound+1) product used by stageCost and searchCost.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
   }
  ],
  "prop-3.2": [
@@ -1958,6 +2801,21 @@
    ],
    "note": "Soundness of the list consumer: acceptance at most (length+T) eps. Section 3.3's union bound, not part of this row.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantumTournament",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+   "line": 287,
+   "relation": "stronger",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "At least two finite candidates; comparison probabilities satisfy IsComparison pointwise; coherent comparison Samples at a common cc-read cap."
+   ],
+   "open_assumptions": [],
+   "note": "Returns an actual finite bounded-list law with Samples and physical Runs witnesses, total probability one, nonnegative mass and the exact membership bound. Its uniform physical cap is at most 6072 cc sqrt(m) T² log(T). An ordinary c-bit-query coherent comparison supplies c logical reads through quantumBitOracle_isCirc, so the compiler's constant factor does not change the paper's order.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
   }
  ],
  "claim-winner-dominates": [
@@ -1987,6 +2845,21 @@
    ],
    "note": "a_{ij} is at least the decoding probability of the winner's own address, whatever the opponent's instances are. 1-eps comes from addrLaw_good, combined at Upper/Verify.lean:191.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantumWinner_dominates",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+   "line": 296,
+   "relation": "exact",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "k>=1; t>=1; 0<epsilon<=1; prescribed repetitions; a WinsAt witness for the winner; opponent is distinct."
+   ],
+   "open_assumptions": [],
+   "note": "A winner beats every other column with probability at least 1-epsilon, using only the winner's own promised instances. No opponent promise appears.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
   }
  ],
  "claim-coherent-access": [
@@ -2137,6 +3010,96 @@
    "hypotheses": [],
    "note": "A decision tree of depth d as a sampler of d reads; used for pointer lookups and local tests.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantum_controlled_bit_query",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+   "line": 392,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Finite query and logical registers; inhabited parked address; embedding of logical register into physical workspace."
+   ],
+   "open_assumptions": [],
+   "note": "A general logical read compiles as exactly two ordinary bit-oracle calls, retaining arbitrary addressed superpositions and all continuation probabilities. Pointer depth and coherent control/reversal are separate companions.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantum_coherent_tree",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+   "line": 413,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Nonempty query-coordinate type; an adaptive classical query tree."
+   ],
+   "open_assumptions": [],
+   "note": "Any adaptive tree is coherent at its read depth.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantum_controlled_reads",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+   "line": 383,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Finite control and block workspaces; each block has IsCirc n at the same cap."
+   ],
+   "open_assumptions": [],
+   "note": "Superposed finite control of common-budget circuits costs the same reads.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantum_inverse_reads",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumAmplification.lean",
+   "line": 377,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Finite logical workspace; IsCirc n F."
+   ],
+   "open_assumptions": [],
+   "note": "Circuit reversal costs the same logical reads.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantumBitOracle_isCirc",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+   "line": 48,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Finite query-coordinate type; arbitrary natural workspace size."
+   ],
+   "open_assumptions": [],
+   "note": "One ordinary bit-oracle query is a single logical read.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantumComparison_pointer_queries",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+   "line": 180,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Distinct selected columns, a supplied address and valid pointer."
+   ],
+   "open_assumptions": [],
+   "note": "The physical pointer query uses at most 2(2t+1) bit queries.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
   }
  ],
  "prop-3.3": [
@@ -2213,6 +3176,24 @@
    "hypotheses": [],
    "note": "Covers only algorithms with a total cap of L across instances, a narrower class than the per-instance cap of the row; no coins or side information.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.classical_direct_product_average",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+   "line": 902,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Nonnegative normalized prior.",
+    "Every L-query one-instance tree has success at most beta.",
+    "A finite normalized nonnegative law on independent side information and internal coins.",
+    "Every selected output tree obeys the per-instance cap L."
+   ],
+   "open_assumptions": [],
+   "note": "The new average theorem proves the beta^r bound for finite independent side-information/coin mixtures of capped adaptive trees. It is the paper conditional-value route, but the original row literally quantifies arbitrary independent additional information.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
   }
  ],
  "claim-minimax-mu": [
@@ -2241,6 +3222,21 @@
    "hypotheses": [],
    "note": "Independence as one identity on finite product weights. Replaces every conditional probability in the paper's wording.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.dummyAvg",
+   "kind": "def",
+   "file": "lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+   "line": 29,
+   "relation": "exact",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "The address weight is nonnegative and sums to one when interpreted as a distribution."
+   ],
+   "open_assumptions": [],
+   "note": "The expectation functional explicitly samples independent uniform zero positions and iid address strings, and applies dummy. The all-false blank pattern is one of the arbitrary fixed patterns permitted by the statement.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
   }
  ],
  "def-planted": [
@@ -2259,6 +3255,22 @@
    "hypotheses": [],
    "note": "s_i as a total function, default false off the promise, which has weight zero.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.plantedAvg",
+   "kind": "def",
+   "file": "lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+   "line": 35,
+   "relation": "exact",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "The address weight is a probability law supported on the promise.",
+    "The transcript map is correct when the sampled input is intended to be a positive instance."
+   ],
+   "open_assumptions": [],
+   "note": "The expectation functional samples the independent uniform planting index and applies the actual planting map to the same address/zero data.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
   }
  ],
  "claim-Y-values": [
@@ -2280,6 +3292,23 @@
    ],
    "note": "The one half, on the support of the hard distribution.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.dummy_planted_values_on_support",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+   "line": 123,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "The address law is supported on the promise.",
+    "The circuit transcript is gate-consistent on every input.",
+    "The sampled address array has nonzero product weight."
+   ],
+   "open_assumptions": [],
+   "note": "The generic theorem states both values on product-law support for addressedF, but its type has not yet been specialized to the concrete Fkm construction and canonical circuit.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
   }
  ],
  "eq-18": [
@@ -2306,6 +3335,21 @@
    "hypotheses": [],
    "note": "Run by run, one-sided: planted minus dummy output is at most found zero + heavy + reachedCell. No absolute value, which the proof never needs, and the cell term is already split.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.eq_18",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+   "line": 168,
+   "relation": "stronger",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Nonnegative address weights."
+   ],
+   "open_assumptions": [],
+   "note": "The absolute-value unsplit-cell coupling inequality is stated without a depth-cap assumption and therefore specializes to every G-query deterministic algorithm. The event counts every true-address cell visit, including harmless matching bits.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
   }
  ],
  "eq-19": [
@@ -2417,6 +3461,22 @@
    "hypotheses": [],
    "note": "The joint event over the whole run. The per-time probability of the row is not stated; avg_reachedCell_le bounds the union directly.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.eq_21",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+   "line": 342,
+   "relation": "exact",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Normalized nonnegative prior supported on the promise.",
+    "Every one-instance L-query tree has success at most 2/3."
+   ],
+   "open_assumptions": [],
+   "note": "The actual original-law per-column/per-time event keeps nonheaviness inside the event, then bounds it by the capped address-guess success.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
   }
  ],
  "eq-22": [
@@ -2425,13 +3485,30 @@
    "relation": "partial",
    "route": "same",
    "hypotheses": [
-    "h\u03bc",
+    "hμ",
     "hdom",
     "hguess: rho bounds every capped guesser",
     "T.depth <= G"
    ],
    "note": "Joint event only, G rho, pointwise over U and with no conditioning on nonheavy. The heavy term G/(mL) joins in tree_gap_le, so the row as stated is not one declaration.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.eq_22",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+   "line": 408,
+   "relation": "exact",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "1 <= L; normalized nonnegative promise-supported prior.",
+    "One-instance hardness at cap L.",
+    "Worst-case depth at most G."
+   ],
+   "open_assumptions": [],
+   "note": "The theorem is the complete unsplit true-address-cell encounter bound, after averaging the independent uniform planting column.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
   }
  ],
  "eq-23": [
@@ -2441,12 +3518,29 @@
    "route": "same",
    "hypotheses": [
     "1<=L",
-    "\u03bc a distribution on the domain",
+    "μ a distribution on the domain",
     "hguess with rho",
     "T.depth <= G"
    ],
    "note": "2G/m^2 + G/(mL) + G rho for planted minus dummy on one tree. Sharper in the first term; one-sided, with rho=(2/3)^r supplied only at the call in addressedF_not_RLe.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.eq_23",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+   "line": 436,
+   "relation": "stronger",
+   "route": "alternative",
+   "hypotheses": [],
+   "premises": [
+    "1 <= L; normalized nonnegative promise-supported prior.",
+    "One-instance hardness at cap L.",
+    "Worst-case depth at most G."
+   ],
+   "open_assumptions": [],
+   "note": "The primary type states the two-sided absolute probability gap with the paper coefficient four, so it implies the signed output-probability difference in the canonical row.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
   }
  ],
  "claim-tail": [
@@ -2457,6 +3551,22 @@
    "hypotheses": [],
    "note": "(2/3)^(40t) <= m^-10, against the row's exponent 20 log_2(3/2) = 11.70. Row's G factor and o(1) are absent; m^-10 is enough for the use.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.classical_tail_parameters",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ClassicalAsymptotics.lean",
+   "line": 139,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "k >= 1 is fixed; the paper case k >= 2 specializes it.",
+    "m=4^t, r=40*t and the actual floored L and G."
+   ],
+   "open_assumptions": [],
+   "note": "The primary theorem states the exact-exponent finite bound and convergence of the actual G-tail. The displayed envelope itself tending to zero is a separate theorem.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
   }
  ],
  "claim-numeric": [
@@ -2483,6 +3593,21 @@
    "hypotheses": [],
    "note": "The estimate at the actual L and G for t>=8.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.classical_numeric_components",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ClassicalAsymptotics.lean",
+   "line": 154,
+   "relation": "stronger",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "m=4^t, r=40*t, 1 <= L <= m and G <= mL/100."
+   ],
+   "open_assumptions": [],
+   "note": "The conjunction explicitly supplies all three numerical components, their sum <= 6/100, and 6/100 < 1/3, for arbitrary real L and G satisfying the corrected row premises.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
   }
  ],
  "prop-4.2": [
@@ -2506,6 +3631,22 @@
    "open_assumptions": [
     "L < R(P k t)"
    ]
+  },
+  {
+   "declaration": "QuarticQuery.Paper.prop_4_2",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/Section4.lean",
+   "line": 20,
+   "relation": "stronger",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Fixed integer k >= 2.",
+    "CircuitRealises C (P k t)."
+   ],
+   "open_assumptions": [],
+   "note": "For fixed k >= 2, one threshold works for every realizing circuit, and the exact strict floor-budget inequality is stated. The type adds no Bansal-Sinha hypothesis; it calls the supplied unconditional lower-bound theorem.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
   }
  ],
  "cor-R-omega": [
@@ -2518,6 +3659,22 @@
    ],
    "note": "Arithmetic step: G<r implies the Omega bound with constant 1/400 for t>=8. R and F do not occur.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.classical_cor_R_omega_log2",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ClassicalAsymptotics.lean",
+   "line": 190,
+   "relation": "stronger",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Fixed integer k >= 2.",
+    "The circuit realizes the designated promise problem."
+   ],
+   "open_assumptions": [],
+   "note": "The explicit positive coefficient 1/400 and a threshold common to all circuits realizing P k t imply the fixed-k big-Omega statement. The natural-log conversion is also supplied.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
   }
  ],
  "claim-floor": [
@@ -2548,6 +3705,22 @@
    "hypotheses": [],
    "note": "The choice of k only.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.classical_Fkm_ratio",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ClassicalAsymptotics.lean",
+   "line": 372,
+   "relation": "stronger",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "l and alpha are fixed before t tends to infinity.",
+    "0 <= alpha and alpha/2 < 2 - 1/(l+1); these imply alpha < 4."
+   ],
+   "open_assumptions": [],
+   "note": "The actual canonical circuit family has b_k=6, an explicit positive coefficient, the finite quotient inequality, divergence of its displayed envelope and divergence of the quotient. k=l+1 >= 2 is an equivalent parametrization.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
   }
  ],
  "claim-no-smaller-exponent": [
@@ -2720,6 +3893,21 @@
    "hypotheses": [],
    "note": "Same step in theorem form; Lemma A.2 itself has no declaration here.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.appendixA_lemmaA2",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/AppendixASpectralAdversary.lean",
+   "line": 108,
+   "relation": "stronger",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Gamma is symmetric, nonnegative, nonzero and zero on same-output pairs."
+   ],
+   "open_assumptions": [],
+   "note": "The exact general nonnegative spectral-adversary inequality has explicit absolute c=1/35. Nonzero opposite-output support forces nonconstantness, and the positive denominator is proved. The final type has no unresolved Perron, progress or adaptive-simulation hypothesis; its proof discharges those conditional helpers.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
   }
  ],
  "thm-A.1": [
@@ -2754,6 +3942,19 @@
    "hypotheses": [],
    "note": "Membership of 4 in the set of (1); omits D.",
    "reviewed_by": "ai:truth-auditor"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.appendixA_theoremA1",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/AppendixA.lean",
+   "line": 67,
+   "relation": "stronger",
+   "route": "alternative",
+   "hypotheses": [],
+   "premises": [],
+   "open_assumptions": [],
+   "note": "The conjunction supplies R <= D and the explicit absolute quartic bound with coefficient 1500625. The cap-level inequality is stronger than the displayed one-plus budget form.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
   }
  ],
  "claim-address-guess": [
@@ -2851,6 +4052,1345 @@
    "hypotheses": [],
    "note": "The preprint imports this from Bansal and Sinha. The Lean proof uses a different route; see docs/forrelation_lower_bound_review.md. The theorem is in ForrelationLower/Main.lean; Statement.lean holds only the proposition BansalSinhaLower it proves.",
    "reviewed_by": "ai:truth-auditor"
+  }
+ ],
+ "def-log-convention": [
+  {
+   "declaration": "QuarticQuery.Paper.construction_log2_mValue",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionModels.lean",
+   "line": 198,
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "premises": [],
+   "open_assumptions": [],
+   "note": "Checks base-two logarithms on the construction powers of four only. The global prose convention and the independent T, r and L definitions are not all stated by this one identity.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_eq6",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+   "line": 56,
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "premises": [
+    "m=4^t."
+   ],
+   "open_assumptions": [],
+   "note": "Pins both l=2t and r=ceil(20 log₂m)=40t.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantumTournament_parameters",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+   "line": 57,
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "premises": [
+    "Natural m; the paper specializes to m>=2."
+   ],
+   "open_assumptions": [],
+   "note": "Pins T and epsilon in integer-log vocabulary.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_equation_5",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+   "line": 72,
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "premises": [
+    "Natural k,t; m=4^t."
+   ],
+   "open_assumptions": [],
+   "note": "Pins the base-two logarithm in L.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  }
+ ],
+ "eq-1": [
+  {
+   "declaration": "QuarticQuery.Paper.construction_alphaTot_eq_inf",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionModels.lean",
+   "line": 44,
+   "relation": "exact",
+   "route": "none",
+   "hypotheses": [],
+   "premises": [],
+   "open_assumptions": [],
+   "note": "The defining infimum uses all n>=1 and total Boolean functions, finite real constants and (1+Q)^alpha. The positive-constant version in UniversalPower is equivalent by construction_universalPower_iff.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_universalPower_iff",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionModels.lean",
+   "line": 26,
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "premises": [
+    "Arbitrary real exponent alpha."
+   ],
+   "open_assumptions": [],
+   "note": "The real constant can be chosen positive without changing the exponent set.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_exponent_set_wellDefined",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionModels.lean",
+   "line": 55,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [],
+   "open_assumptions": [],
+   "note": "The exponent set is nonempty and bounded below by zero.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  }
+ ],
+ "eq-5": [
+  {
+   "declaration": "QuarticQuery.Paper.construction_equation_5",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+   "line": 72,
+   "relation": "exact",
+   "route": "none",
+   "hypotheses": [],
+   "premises": [],
+   "open_assumptions": [],
+   "note": "Exact definition of L after the maintained split of equation (5). The randomized inequality in the original ledger row is separately Lemma 2.1(i); it is not proved by this definition.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_lemma_2_1_i",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionForrelationQuantum.lean",
+   "line": 93,
+   "relation": "partial",
+   "route": "alternative",
+   "hypotheses": [],
+   "premises": [
+    "Fixed k>=2; sufficiently large powers m=4^t."
+   ],
+   "open_assumptions": [],
+   "note": "Separately supplies the inequality that the original row bundled with the definition.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  }
+ ],
+ "claim-bs-to-L": [
+  {
+   "declaration": "QuarticQuery.Paper.construction_claim_bs_to_L",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionForrelationComparison.lean",
+   "line": 112,
+   "relation": "stronger",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Fixed k>=2; c>0; sufficiently large powers m=4^t."
+   ],
+   "open_assumptions": [],
+   "note": "Proves the corrected numerical comparison for every positive c and fixed k>=2, with the paper's base-two convention; it does not assert the sharp Bansal-Sinha randomized theorem. The source also exports the unfloored middle inequality.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_bs_comparison_chain",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionForrelationComparison.lean",
+   "line": 84,
+   "relation": "stronger",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Fixed k>=2; c>0; sufficiently large powers m=4^t."
+   ],
+   "open_assumptions": [],
+   "note": "Includes the unfloored middle term in the strict comparison chain.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  }
+ ],
+ "lem-2.1": [
+  {
+   "declaration": "QuarticQuery.Paper.construction_lemma_2_1_complete",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionForrelationComplete.lean",
+   "line": 66,
+   "relation": "exact",
+   "route": "alternative",
+   "hypotheses": [],
+   "premises": [
+    "Fixed k>=2; m=4^t, with t sufficiently large for the randomized part and t>=1 for the circuit part."
+   ],
+   "open_assumptions": [],
+   "note": "Conjoins the fixed-k randomized lower bound, the same retained-state physical quantum witness with accurate all-input Boolean law, and an exact realizing circuit with a uniform size constant. Only the lower-bound part uses the alternative fixed-parameter route.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  }
+ ],
+ "eq-8": [
+  {
+   "declaration": "QuarticQuery.Paper.constructionOutwardPointers",
+   "kind": "def",
+   "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+   "line": 117,
+   "relation": "exact",
+   "route": "none",
+   "hypotheses": [],
+   "premises": [],
+   "open_assumptions": [],
+   "note": "Definition of the outward-zero condition at any supplied address. Substituting the true address yields the ledger's displayed condition; it is not asserted for arbitrary nonwinning columns.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_eq8_of_winsAt",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+   "line": 124,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "A WinsAt witness for the selected circuit, input, column and address."
+   ],
+   "open_assumptions": [],
+   "note": "A winning address satisfies the defined outward-zero condition.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  }
+ ],
+ "def-winner": [
+  {
+   "declaration": "QuarticQuery.Paper.constructionWinner",
+   "kind": "def",
+   "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+   "line": 131,
+   "relation": "exact",
+   "route": "none",
+   "hypotheses": [],
+   "premises": [],
+   "open_assumptions": [],
+   "note": "The generic winner predicate states all-one X, defined selected-column instances, correct transcripts and outward zeros at its true address. No circuit-size premise is needed.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_winner_iff_exists_winsAt",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+   "line": 141,
+   "relation": "stronger",
+   "route": "none",
+   "hypotheses": [],
+   "premises": [
+    "Arbitrary partial function, circuit, input, column and address lengths."
+   ],
+   "open_assumptions": [],
+   "note": "This paper-style winner predicate is equivalent to existence of a public WinsAt address.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  }
+ ],
+ "cor-unique-winner": [
+  {
+   "declaration": "QuarticQuery.Paper.construction_unique_winner",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+   "line": 185,
+   "relation": "stronger",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Two columns satisfy the winner predicate on the same input."
+   ],
+   "open_assumptions": [],
+   "note": "Uniqueness holds for every circuit and partial function, without needing circuit realization or hardness.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  }
+ ],
+ "def-win-at-address": [
+  {
+   "declaration": "QuarticQuery.Paper.construction_winsAt_iff_winner_and_address",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+   "line": 155,
+   "relation": "stronger",
+   "route": "none",
+   "hypotheses": [],
+   "premises": [],
+   "open_assumptions": [],
+   "note": "The public WinsAt predicate is equivalent to being a winner and having the supplied address equal to the true defined-answer address, for arbitrary partial functions and circuits.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.construction_win_at_address_outputs",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionDefinitions.lean",
+   "line": 173,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Circuit realization of the partial function; arbitrary input and selected address."
+   ],
+   "open_assumptions": [],
+   "note": "Under circuit realization, the same condition is expressed by the d and b output bits.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  }
+ ],
+ "lem-2.2": [
+  {
+   "declaration": "QuarticQuery.Paper.construction_lemma_2_2_complete",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionComplete.lean",
+   "line": 28,
+   "relation": "stronger",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "t>=1; C realizes P; C.size<=A m (2t)^2 with fixed A supplied by Lemma 2.1(iii)."
+   ],
+   "open_assumptions": [],
+   "note": "The complete positive lemma combines exact tests/depth, arbitrary-index retained-workspace coherence and the physical bit-query continuation bound, and adds explicit count and cubic-log size. The old erroneous fixed-support sentence is not inherited.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  }
+ ],
+ "cor-local-dichotomy": [
+  {
+   "declaration": "QuarticQuery.Paper.construction_local_dichotomy",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ConstructionTests.lean",
+   "line": 110,
+   "relation": "stronger",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Circuit realization, discharged for the actual circuit."
+   ],
+   "open_assumptions": [],
+   "note": "Winning columns have an all-passing address and nonwinners have a failed test at every address, for arbitrary realizing circuits and partial functions.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  }
+ ],
+ "def-aij": [
+  {
+   "declaration": "QuarticQuery.Paper.quantumComparison_unordered_state",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+   "line": 230,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "k>=1; distinct candidates."
+   ],
+   "open_assumptions": [],
+   "note": "For the actual Fkm comparator, one retained preparation produces both ordered laws by complementing only the output bit; this is stronger than a mere complementary numeric table. It is an instance, not the general definition for every possible comparison circuit.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantumComparison_self",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+   "line": 204,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Arbitrary natural repetition count, input and selected column."
+   ],
+   "open_assumptions": [],
+   "note": "The actual self-comparison probability is zero.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  }
+ ],
+ "def-decode": [
+  {
+   "declaration": "QuarticQuery.Paper.quantumDecode",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+   "line": 33,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "k>=1; finite address strings; arbitrary repetition count n."
+   ],
+   "open_assumptions": [],
+   "note": "The primary coherent sampler has the independent product address law at arbitrary repetition count. All-input totality and the promise/error guarantee at the prescribed count are separate named theorems.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantumDecode_total",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+   "line": 40,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "k>=1; arbitrary input, selected column and repetition count."
+   ],
+   "open_assumptions": [],
+   "note": "The address law is nonnegative and normalized on every input.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantumDecode_correct",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+   "line": 54,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "k>=1; t>=1; 0<epsilon<=1; n at least repetitions(k,epsilon/r); each selected-column instance has the supplied defined answer."
+   ],
+   "open_assumptions": [],
+   "note": "At the prescribed repetitions, a defined column address is correct with probability at least 1-epsilon.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  }
+ ],
+ "claim-decode-cost": [
+  {
+   "declaration": "QuarticQuery.Paper.quantumDecode_correct",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+   "line": 54,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "k>=1; t>=1; 0<epsilon<=1; repetitions k (epsilon/r)<=n; selected-column instances have defined answers s."
+   ],
+   "open_assumptions": [],
+   "note": "The primary theorem proves address correctness at the prescribed repetitions. Query and all-input-totality clauses are separately covered by the explicit cap and normalization companions.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantumDecode_query_bound_real",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+   "line": 65,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "t>=1; 0<epsilon<=1; least prescribed repetition count."
+   ],
+   "open_assumptions": [],
+   "note": "Physical cap at the least count is 80 t k (1+16*2^(10k)*ln(40t/epsilon)).",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantumDecode_polylog",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+   "line": 153,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "t>=1; prescribed epsilon=epsval(mValue(t)) and least repetition count."
+   ],
+   "open_assumptions": [],
+   "note": "At the paper parameters the physical cap is a fixed-k polynomial in log₂m.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantumDecode_total",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+   "line": 40,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "k>=1; arbitrary input, selected column and repetition count."
+   ],
+   "open_assumptions": [],
+   "note": "Every input gives a normalized address distribution.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  }
+ ],
+ "def-comparison": [
+  {
+   "declaration": "QuarticQuery.Paper.quantumComparison_sorted",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+   "line": 188,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "i<j for the sorted mixture; all oracle inputs permitted."
+   ],
+   "open_assumptions": [],
+   "note": "The sorted-pair probability equals the explicit mixture over both decoded addresses, with the precise disqualification/tie rule. Self-comparison and the physical sampler are separate statements.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantumComparison_rule",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+   "line": 167,
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "premises": [
+    "Two arbitrary Boolean disqualification bits."
+   ],
+   "open_assumptions": [],
+   "note": "The Boolean winner rule gives the smaller column ties.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantumComparison_disqualification",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+   "line": 173,
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "premises": [
+    "Distinct columns and a supplied decoded address."
+   ],
+   "open_assumptions": [],
+   "note": "The disqualification bit is the negated pointed-to opponent bit.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantumComparison_self_zero_reads",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+   "line": 211,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Arbitrary repetition count and selected column."
+   ],
+   "open_assumptions": [],
+   "note": "Self-comparison has a zero-read implementation.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantumComparison_state",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+   "line": 218,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "k>=1; arbitrary repetition count and selected columns."
+   ],
+   "open_assumptions": [],
+   "note": "A retained circuit realizes the sorted law at the common cap.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  }
+ ],
+ "claim-comparison-state": [
+  {
+   "declaration": "QuarticQuery.Paper.quantumComparison_state",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+   "line": 218,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "k>=1; common repetition count n."
+   ],
+   "open_assumptions": [],
+   "note": "The primary theorem gives an actual retained-state preparation, its inverse at the same logical-read cap and its exact measured law. The polynomial physical cap and complementarity are separate companions.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantumComparison_polylog",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+   "line": 280,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "t>=1; least repetitions at the prescribed epsval error parameter."
+   ],
+   "open_assumptions": [],
+   "note": "At paper parameters, physical queries are bounded by a fixed-k cubic polynomial in log₂m.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantumComparison_runs",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+   "line": 254,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "k>=1; arbitrary repetition count and selected columns."
+   ],
+   "open_assumptions": [],
+   "note": "The physical measured comparison has twice the logical-read cap.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantumComparison_unordered_state",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+   "line": 230,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "k>=1; distinct selected columns; arbitrary repetition count."
+   ],
+   "open_assumptions": [],
+   "note": "The same preparation supplies reversed pair laws by output complementation.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  }
+ ],
+ "def-verify": [
+  {
+   "declaration": "QuarticQuery.Paper.quantumVerify_fixedAddress",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+   "line": 344,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "epsilon>0; any selected candidate/address."
+   ],
+   "open_assumptions": [],
+   "note": "The primary fixed-address amplified search rejects a failed-test address with the prescribed probability and accepts all-passing addresses surely. Fresh decoding and list OR consumption are separate companions.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantumVerify_runs",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+   "line": 355,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "k>=1; each fixed-address law has the common Runs cS witness; arbitrary repetition count."
+   ],
+   "open_assumptions": [],
+   "note": "Fresh address decoding followed by the selected fixed-address search realizes verifyProb.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantumVerify_probability",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+   "line": 370,
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "premises": [
+    "Arbitrary fixed-address acceptance function and repetition count."
+   ],
+   "open_assumptions": [],
+   "note": "The fresh-address acceptance law is the explicit mixture.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantumVerify_list",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+   "line": 528,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Each candidate verification law has a common physical Runs cV witness; arbitrary finite list."
+   ],
+   "open_assumptions": [],
+   "note": "Testing listed candidates until one accepts realizes vall, with the length-times-single cap.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  }
+ ],
+ "claim-verify": [
+  {
+   "declaration": "QuarticQuery.Paper.quantumVerify",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+   "line": 498,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "k>=1; t>=1; C realizes P; 0<epsilon<=1; prescribed decoder repetitions."
+   ],
+   "open_assumptions": [],
+   "note": "One physical verifier is fixed before all input quantifiers and has the required nonwinner/winner bounds, with decoding included in its finite cap. The square-root/log search bound and specialized polylog bound are separate declarations.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantumVerify_search_query_bound",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+   "line": 433,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "K>=2; 0<epsilon<1/2; natural t."
+   ],
+   "open_assumptions": [],
+   "note": "For K>=2 and epsilon<1/2, searchCost<=276 sqrt(K) ln(1/epsilon) testCost.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantumVerify_forrCircuit_polylog",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+   "line": 489,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Actual forrCircuit l t; t>=1; paper error and repetition parameters."
+   ],
+   "open_assumptions": [],
+   "note": "For the actual forrCircuit, a complete verification cap is at most budgetConst*sqrt(m)*(log₂m)^6.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  }
+ ],
+ "claim-error": [
+  {
+   "declaration": "QuarticQuery.Paper.quantumError_bound",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+   "line": 539,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "k>=1; t>=1; C realizes P; decoder repetitions at least the paper prescription."
+   ],
+   "open_assumptions": [],
+   "note": "The physical program and separate zero/one-input bounds are stated together, with its existential choice outside all input quantifiers. The final strict numerical <1/3 inequality is supplied separately.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantumError_numeric",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumComparison.lean",
+   "line": 588,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "m>=2."
+   ],
+   "open_assumptions": [],
+   "note": "At m>=2 the chosen parameters give T epsilon=1/1000 and the full one-input error strictly below 1/3.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  }
+ ],
+ "eq-15": [
+  {
+   "declaration": "QuarticQuery.Paper.equation_15",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumTensor.lean",
+   "line": 120,
+   "relation": "exact",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Finite nonempty candidate set; common finite workspace/origin; comparison isometries IsCirc c; fixed pivot sequence."
+   ],
+   "open_assumptions": [],
+   "note": "Constructs a coherent unitary whose every candidate slice is exactly 1/sqrt(m) times the tensor of all fresh comparison states, retaining every register. No later comparison is skipped after a failure.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  }
+ ],
+ "claim-success-prob": [
+  {
+   "declaration": "QuarticQuery.Paper.quantumStage_success",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+   "line": 158,
+   "relation": "exact",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Finite nonempty candidate set; comparisons in [0,1]; W=total(weight)>0 so conditioning is meaningful."
+   ],
+   "open_assumptions": [],
+   "note": "With unit-valued comparisons and positive W, the complete normalized stage law has joint mass w_i/m, total success W/m and conditional index mass w_i/W. weight is the product along the history; the product identity is explicit below. Literal tensor probability laws are separately available.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantumWeight_product",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+   "line": 88,
+   "relation": "partial",
+   "route": "none",
+   "hypotheses": [],
+   "premises": [
+    "Arbitrary real comparison table and finite pivot history."
+   ],
+   "open_assumptions": [],
+   "note": "The recursive weight is exactly the product of comparison probabilities.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.equation_15_success_probability",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumTensor.lean",
+   "line": 258,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Finite candidate and logical alphabets; state slices equal the displayed uniform tensor amplitudes. This is a mass identity without a unit-norm premise."
+   ],
+   "open_assumptions": [],
+   "note": "The actual tensor-state slices give total success mass equal to the sum of products divided by m.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  },
+  {
+   "declaration": "QuarticQuery.Paper.equation_15_conditional_index",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumTensor.lean",
+   "line": 272,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Finite nonempty candidates and finite logical workspace; displayed tensor slice identity; positive total product mass."
+   ],
+   "open_assumptions": [],
+   "note": "For positive total success mass, the literal tensor conditional law is the normalized product.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  }
+ ],
+ "eq-13": [
+  {
+   "declaration": "QuarticQuery.Paper.quantumDrift",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+   "line": 69,
+   "relation": "stronger",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Finite candidates; IsComparison a; W=sum w>0."
+   ],
+   "open_assumptions": [],
+   "note": "The full drift chain is algebraic for arbitrary real weights with positive total W and a complementary zero-diagonal comparison table. For its probabilistic interpretation the process supplies nonnegative weights; no such sign premise is needed for the identity and inequality themselves.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  }
+ ],
+ "eq-11": [
+  {
+   "declaration": "QuarticQuery.Paper.quantumDominant_iff",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+   "line": 63,
+   "relation": "exact",
+   "route": "none",
+   "hypotheses": [],
+   "premises": [],
+   "open_assumptions": [],
+   "note": "Dominant unfolds to exactly the specified probability lower bound against every distinct opponent.",
+   "reviewed_by": "ai:round2-construction-quantum-source-review"
+  }
+ ],
+ "claim-product-law": [
+  {
+   "declaration": "QuarticQuery.Paper.classical_transcript_product_law",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+   "line": 275,
+   "relation": "exact",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Finite independent nonnegative prior weights for the probabilistic interpretation; the equality itself allows arbitrary real weights.",
+    "The conditioning transcript has strictly positive total mass."
+   ],
+   "open_assumptions": [],
+   "note": "The actual adaptive execution-prefix law is normalized and equals the product of transcript-restricted one-instance laws; positive transcript mass forces a legal schedule. Repeated observations remain in the transcript.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
+  }
+ ],
+ "def-value-V": [
+  {
+   "declaration": "QuarticQuery.Paper.classicalTranscriptValue",
+   "kind": "def",
+   "file": "lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+   "line": 387,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Positive transcript mass when the normalized weight is interpreted as a conditional distribution.",
+    "The number of already spent queries is counted with repetitions."
+   ],
+   "open_assumptions": [],
+   "note": "The named definition supplies the exact transcript restriction and remaining budget, but a definition alone does not assert that this is the attained largest success probability.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
+  }
+ ],
+ "eq-16": [
+  {
+   "declaration": "QuarticQuery.Paper.classical_eq_16_transcript",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+   "line": 439,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Nonnegative independent priors.",
+    "The queried instance still has at least one query of its cap available.",
+    "The queried coordinate and instance are the actual proposed next query when applied to execution."
+   ],
+   "open_assumptions": [],
+   "note": "The primary theorem proves the queried factor expectation inequality. The canonical row also asserts that every unqueried factor is unchanged.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
+  }
+ ],
+ "claim-supermartingale": [
+  {
+   "declaration": "QuarticQuery.Paper.classical_transcript_conditional_expectation",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+   "line": 615,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Nonnegative product priors and a positive-probability transcript.",
+    "The next queried instance has remaining budget.",
+    "A capped finite output tree supplies the bounded execution to which iteration applies."
+   ],
+   "open_assumptions": [],
+   "note": "The primary type is the one-step product conditional-expectation inequality at an actual positive-probability prefix. The finite-iteration and actual-success statements are separate declarations.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
+  }
+ ],
+ "claim-final-bound": [
+  {
+   "declaration": "QuarticQuery.Paper.classical_final_bound",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+   "line": 733,
+   "relation": "exact",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Nonnegative transcript-restricted weights.",
+    "The final transcript fixes the chosen output vector."
+   ],
+   "open_assumptions": [],
+   "note": "The primary type states both terminal inequalities as a conjunction, for any normalized product weights and any fixed output vector. Substitute the transcript-restricted weights and remaining caps, using the product-law theorem.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
+  }
+ ],
+ "eq-17": [
+  {
+   "declaration": "QuarticQuery.Paper.classical_eq_17_floor",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+   "line": 921,
+   "relation": "exact",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [],
+   "open_assumptions": [],
+   "note": "The real-floor equality is exactly the corrected canonical definition. The original ledger also asserted the eventual randomized lower bound; that assertion was deliberately split into Proposition 4.2 by the maintained adjudication.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
+  }
+ ],
+ "def-Z": [
+  {
+   "declaration": "QuarticQuery.Paper.discoveredZeros",
+   "kind": "def",
+   "file": "lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+   "line": 182,
+   "relation": "exact",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [],
+   "open_assumptions": [],
+   "note": "The cardinality definition counts columns whose zero is found in the whole dummy path; repeated visits to the same zero count once.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
+  }
+ ],
+ "claim-uniform-zero": [
+  {
+   "declaration": "QuarticQuery.Paper.uniform_zero_given_transcript",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ClassicalUniformZero.lean",
+   "line": 252,
+   "relation": "exact",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Nonnegative normalized address law.",
+    "No zero has been observed in the selected column.",
+    "The full adaptive transcript has positive dummy probability."
+   ],
+   "open_assumptions": [],
+   "note": "The theorem computes the full adaptive transcript posterior as 1 divided by the number of unqueried rows on that set and zero elsewhere. Conditioning positivity is explicit.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
+  }
+ ],
+ "claim-EZ": [
+  {
+   "declaration": "QuarticQuery.Paper.expectedZeros_le_four",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+   "line": 240,
+   "relation": "partial",
+   "route": "alternative",
+   "hypotheses": [],
+   "premises": [
+    "Nonnegative normalized address law.",
+    "The complete deterministic run has worst-case depth at most G."
+   ],
+   "open_assumptions": [],
+   "note": "The primary type proves only E Z <= 4G/m, by the existing stronger coefficient-two finite-search induction. It does not express the early/late decomposition in the compound canonical row.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
+  }
+ ],
+ "def-heavy": [
+  {
+   "declaration": "QuarticQuery.Paper.HeavyColumn",
+   "kind": "def",
+   "file": "lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+   "line": 262,
+   "relation": "exact",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [],
+   "open_assumptions": [],
+   "note": "The predicate is exactly more than L address-string queries over the complete dummy path; the underlying aQueries counter includes repeats.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
+  }
+ ],
+ "def-simulator": [
+  {
+   "declaration": "QuarticQuery.Paper.addressSimulator",
+   "kind": "def",
+   "file": "lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+   "line": 274,
+   "relation": "exact",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Lean time t is the paper proposed query number t+1.",
+    "The selected column is fixed before the target strings are resampled."
+   ],
+   "open_assumptions": [],
+   "note": "The concrete simTree specialization caps total target-string queries at L, supplies outside bits as side information, and returns the proposed cell address or a fixed default vector.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
+  }
+ ],
+ "def-deg": [
+  {
+   "declaration": "QuarticQuery.Paper.appendixA_degree_le_iff_fourier",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+   "line": 44,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Boolean function on a finite cube."
+   ],
+   "open_assumptions": [],
+   "note": "The primary Fourier-vanishing equivalence characterizes the pinned library degree. Constant degree and output-sign invariance are separately supplied; the full unique multilinear polynomial/input-sign convention is not asserted by this one type.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
+  }
+ ],
+ "def-bs": [
+  {
+   "declaration": "QuarticQuery.Paper.appendixA_blockSensitivity_eq",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+   "line": 73,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [],
+   "open_assumptions": [],
+   "note": "The supremum equality gives the block-sensitivity maximum; the sensitive-block nonemptiness and flip semantics are stated separately.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
+  }
+ ],
+ "def-Gamma-i": [
+  {
+   "declaration": "QuarticQuery.Paper.appendixAGammaCoord_apply",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+   "line": 49,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [],
+   "open_assumptions": [],
+   "note": "The mask theorem is exactly the coordinate entry formula. The Euclidean operator-norm convention is separately defined and the finite maximum separately supplied.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
+  }
+ ],
+ "claim-perron": [
+  {
+   "declaration": "QuarticQuery.Paper.appendixA_perron",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/AppendixAPerron.lean",
+   "line": 153,
+   "relation": "stronger",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Symmetry and entrywise nonnegativity of Gamma."
+   ],
+   "open_assumptions": [],
+   "note": "The exact nonnegative unit norm-eigenvector property is proved for every symmetric entrywise nonnegative matrix, including zero; the nonzero premise of the row is unnecessary.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
+  }
+ ],
+ "def-adv-progress": [
+  {
+   "declaration": "QuarticQuery.Paper.appendixAProgress",
+   "kind": "def",
+   "file": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+   "line": 155,
+   "relation": "exact",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "For the algorithm interpretation substitute the purified fixed-sequence states."
+   ],
+   "open_assumptions": [],
+   "note": "The definition is the complex weighted overlap sum for an arbitrary pure-state family. Substituting run U psi0 x t gives the paper time-t states, with no replacement by absolute overlaps.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
+  }
+ ],
+ "claim-per-query": [
+  {
+   "declaration": "QuarticQuery.Paper.appendixAProgress_query_quadratic",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+   "line": 210,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Entrywise nonnegative Gamma and nonnegative v.",
+    "For the final bound: sum_x v_x^2=1, unit states, and M bounding every coordinate-mask norm."
+   ],
+   "open_assumptions": [],
+   "note": "The primary theorem is the first quadratic-form inequality. The final maximum-coordinate-norm bound is separate and requires normalized v and unit states.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
+  }
+ ],
+ "claim-final-overlap": [
+  {
+   "declaration": "QuarticQuery.Paper.appendixA_unit_states_final_overlap",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/AppendixAAdversary.lean",
+   "line": 372,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Unit states and opposite acceptance thresholds 1/3 and 2/3.",
+    "For final progress: nonnegative Gamma supported on opposite-output pairs and a Perron witness, supplied downstream by appendixA_perron."
+   ],
+   "open_assumptions": [],
+   "note": "The primary standalone unit-state theorem gives the overlap bound. The weighted final-progress inequality is supplied by a different declaration.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
+  }
+ ],
+ "def-Sf": [
+  {
+   "declaration": "QuarticQuery.Paper.appendixA_spectralSensitivity_eq",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+   "line": 114,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [],
+   "open_assumptions": [],
+   "note": "The primary equality fixes spectral sensitivity as the Euclidean norm; the exact 0/1 matrix and one-bit-flip adjacency semantics are supplied separately.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
+  }
+ ],
+ "lem-A.3.bs": [
+  {
+   "declaration": "QuarticQuery.Paper.appendixA_blockSensitivity_star_le_Q_sq",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+   "line": 370,
+   "relation": "stronger",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [],
+   "open_assumptions": [],
+   "note": "The explicit uniform bs <= 1225 Q^2 inequality covers constants as well as nonconstant total functions. Its proof uses the literal star, exact star norm and coordinate-mask contraction.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
+  }
+ ],
+ "lem-A.3.lambda": [
+  {
+   "declaration": "QuarticQuery.Paper.appendixA_spectralSensitivity_adversary_le_Q",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+   "line": 476,
+   "relation": "stronger",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [],
+   "open_assumptions": [],
+   "note": "The explicit uniform lambda <= 35 Q inequality covers all total functions and applies the general adversary theorem to the sensitivity adjacency.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
+  }
+ ],
+ "lem-A.3": [
+  {
+   "declaration": "QuarticQuery.Paper.appendixA_lemmaA3_adversary",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/AppendixAStar.lean",
+   "line": 482,
+   "relation": "stronger",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [],
+   "open_assumptions": [],
+   "note": "One conjunction gives both explicit dimension-independent constants 1225 and 35, including constants; both use general A.2.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
+  }
+ ],
+ "claim-restrict-parity": [
+  {
+   "declaration": "QuarticQuery.Paper.appendixA_restriction_parity_face",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/AppendixARestriction.lean",
+   "line": 226,
+   "relation": "stronger",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "The function has nonzero degree."
+   ],
+   "open_assumptions": [],
+   "note": "The genuine degree-dimensional face is selected once, and every outside assignment has nonzero normalized parity coefficient and an explicit large parity fiber with sensitive internal edges.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
+  }
+ ],
+ "def-huang": [
+  {
+   "declaration": "QuarticQuery.Paper.huangMatrix",
+   "kind": "def",
+   "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+   "line": 198,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [],
+   "open_assumptions": [],
+   "note": "The primary definition is exactly the block recursion, extended harmlessly to dimension zero. Its unsigned adjacency and ordinary-cube indexing assertions are separate theorems.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
+  }
+ ],
+ "claim-huang-spectrum": [
+  {
+   "declaration": "QuarticQuery.Paper.huangEnd_eigenspaces_half",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+   "line": 446,
+   "relation": "partial",
+   "route": "alternative",
+   "hypotheses": [],
+   "premises": [
+    "Positive dimension d; the zero-dimensional singleton is outside the multiplicity formula."
+   ],
+   "open_assumptions": [],
+   "note": "The primary type gives both exact eigenspace dimensions. Square, trace, symmetry and eigenvalue classification are separate source declarations.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
+  }
+ ],
+ "claim-interlace": [
+  {
+   "declaration": "QuarticQuery.Paper.huang_positive_rayleigh_witness",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean",
+   "line": 529,
+   "relation": "exact",
+   "route": "alternative",
+   "hypotheses": [],
+   "premises": [
+    "Positive dimension and a vertex set of cardinality greater than half the cube."
+   ],
+   "open_assumptions": [],
+   "note": "The type explicitly gives a nonzero positive-root eigenvector supported on the large induced vertex set and the unsigned induced Rayleigh inequality.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
+  }
+ ],
+ "lem-A.4": [
+  {
+   "declaration": "QuarticQuery.Paper.appendixA4_paper_route",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/AppendixAHuangRoute.lean",
+   "line": 116,
+   "relation": "stronger",
+   "route": "alternative",
+   "hypotheses": [],
+   "premises": [],
+   "open_assumptions": [],
+   "note": "The full spectral degree bound includes constants, using the genuine face, recursive matrix, supported vector and zero extension into the original sensitivity matrix.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
+  }
+ ],
+ "claim-round-block": [
+  {
+   "declaration": "QuarticQuery.Paper.appendixA_exists_maximal_round_support",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+   "line": 216,
+   "relation": "partial",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [
+    "Current restricted function has nonzero degree.",
+    "For transport: selected block is disjoint from fixed coordinates.",
+    "For separate round-count lemma: the supplied round supports are pairwise disjoint."
+   ],
+   "open_assumptions": [],
+   "note": "The primary type supplies a maximum-degree support containing a nonempty sensitive block at every input. Restricted-to-original input transport and disjoint-round accounting are separately parameterized lemmas.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
+  }
+ ],
+ "lem-A.5": [
+  {
+   "declaration": "QuarticQuery.Paper.appendixA_lemmaA5",
+   "kind": "theorem",
+   "file": "lean/QuarticQuery/Paper/AppendixASensitivity.lean",
+   "line": 290,
+   "relation": "exact",
+   "route": "same",
+   "hypotheses": [],
+   "premises": [],
+   "open_assumptions": [],
+   "note": "The type is exactly D(totalise f) <= bs(f)*degree(f). It transports the library Midrijanis theorem through the proved bidirectional decision-tree bridge.",
+   "reviewed_by": "ai:round2-classical-appendix-source-review"
   }
  ]
 }

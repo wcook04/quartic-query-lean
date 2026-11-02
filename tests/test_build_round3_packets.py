@@ -103,6 +103,73 @@ class RoundThreeTests(unittest.TestCase):
     def prepare(self, jobs=JOBS):
         return MODULE.prepare_batch(jobs, **self.options)
 
+    def dependency_fixture(self):
+        roots, packages = {}, []
+        for name, source, contents in (("complexitylib", "Complexity/A.lean", "public import all Cslib.B\nimport Mathlib.NotBundled\n"),
+                                        ("cslib", "Cslib/B.lean", "module\npublic import Init\n")):
+            folder = Path(self.temp.name) / name
+            folder.mkdir()
+            for file, text in (("LICENSE", "Apache-2.0\n"), ("lean-toolchain", "fixture\n"),
+                               ("lake-manifest.json", "{}"), ("lakefile.toml", "name='fixture'\n"),
+                               (source, contents), (source.replace("/A.", "/Unused.").replace("/B.", "/Unused."),
+                                                    "import Missing.Unrelated\n")):
+                path = folder / file
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text(text)
+            for command in (["init", "--quiet"], ["add", "."], ["-c", "user.name=Fixture", "-c",
+                            "user.email=fixture@example.invalid", "commit", "--quiet", "-m", "dependency"]):
+                subprocess.run(["git", "-C", str(folder), *command], check=True, capture_output=True)
+            commit = subprocess.run(["git", "-C", str(folder), "rev-parse", "HEAD"],
+                                    check=True, capture_output=True, text=True).stdout.strip()
+            roots[name] = folder
+            packages.append({"name": name, "rev": commit, "configFile": "lakefile.toml", "url": "fixture:" + name})
+        packages.append({"name": "mathlib", "rev": "f" * 40, "url": "fixture:mathlib"})
+        self.write("lean/lake-manifest.json", json.dumps({"packages": packages}))
+        self.write("lean/QuarticQuery/A.lean", "import QuarticQuery.B\n")
+        self.write("lean/QuarticQuery/B.lean", "import Complexity.A\n")
+        return roots
+
+    def test_dependency_closure_is_focused_recursive_and_pin_bound(self):
+        roots = self.dependency_fixture()
+        files, provenance = MODULE.dependency_sources(JOBS[0], self.root, roots)
+        self.assertIn("dependencies/complexitylib/Complexity/A.lean", files)
+        self.assertIn("dependencies/cslib/Cslib/B.lean", files)
+        self.assertIn("dependencies/complexitylib/LICENSE", files)
+        self.assertIn("dependencies/cslib/lakefile.toml", files)
+        self.assertFalse(any("Unused" in name or "Mathlib/" in name or ".lake" in name for name in files))
+        self.assertEqual({row["package"] for row in provenance["packages"]}, {"complexitylib", "cslib"})
+        self.assertIn("Mathlib.NotBundled", provenance["foundation_modules_omitted"])
+        packet = MODULE.prepare_batch([JOBS[0]], **dict(self.options, dependency_roots=roots))[JOBS[0]]
+        recorded = json.loads(packet["data"]["DEPENDENCY_SOURCES.json"])
+        for member, value in recorded["members"].items():
+            self.assertEqual(value, MODULE.digest(packet["data"][member]))
+
+    def test_selected_missing_dependency_import_fails(self):
+        roots = self.dependency_fixture()
+        (roots["cslib"] / "Cslib/B.lean").unlink()
+        with self.assertRaisesRegex(ValueError, "missing selected Lean import source"):
+            MODULE.dependency_sources(JOBS[0], self.root, roots)
+
+    def test_dependency_checkout_revision_must_match_manifest(self):
+        roots = self.dependency_fixture()
+        manifest = json.loads((self.root / "lean/lake-manifest.json").read_bytes())
+        manifest["packages"][0]["rev"] = "0" * 40
+        self.write("lean/lake-manifest.json", json.dumps(manifest))
+        with self.assertRaisesRegex(ValueError, "dependency pin mismatch"):
+            MODULE.dependency_sources(JOBS[0], self.root, roots)
+
+    def test_dirty_selected_dependency_cannot_claim_pinned_bytes(self):
+        roots = self.dependency_fixture()
+        (roots["complexitylib"] / "Complexity/A.lean").write_text("import Cslib.B\n-- changed source\n")
+        with self.assertRaisesRegex(ValueError, "differ from the pinned commit"):
+            MODULE.dependency_sources(JOBS[0], self.root, roots)
+
+    def test_import_header_ignores_nested_comments_and_stops_at_body(self):
+        imports = MODULE.lean_imports("module\n/- import Bad.A /- nested -/ -/\n"
+            "public meta import all Complexity.A -- comment\nimport\n  Cslib.B\n"
+            "namespace Example\nimport Bad.Body\n")
+        self.assertEqual(imports, ["Complexity.A", "Cslib.B"])
+
     def test_per_job_focus_preserves_primary_originals_and_complete_bound_source(self):
         packets = self.prepare()
         for job, selected, unselected in ((JOBS[0], "models-paper", "circuit-paper"),
