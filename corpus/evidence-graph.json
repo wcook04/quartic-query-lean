@@ -3088,6 +3088,60 @@
    ],
    "subject_ids": [],
    "details": "AI readings exist in research/returns; none is an independent review."
+  },
+  {
+   "id": "run_0",
+   "kind": "comparator",
+   "status": "passed",
+   "command": [
+    "lake",
+    "comparator",
+    "--config",
+    "QuarticCorpus/Construction/comparator.json",
+    "--inadvisably-no-sandbox"
+   ],
+   "tool": "lake comparator, unsandboxed local run",
+   "source_ids": [
+    "openai_preprint"
+   ],
+   "subject_ids": [],
+   "details": ""
+  },
+  {
+   "id": "run_1",
+   "kind": "comparator",
+   "status": "passed",
+   "command": [
+    "lake",
+    "comparator",
+    "--config",
+    "QuarticCorpus/Foundations/comparator.json",
+    "--inadvisably-no-sandbox"
+   ],
+   "tool": "lake comparator, unsandboxed local run",
+   "source_ids": [
+    "openai_preprint"
+   ],
+   "subject_ids": [],
+   "details": ""
+  },
+  {
+   "id": "run_2",
+   "kind": "comparator",
+   "status": "passed",
+   "command": [
+    "lake",
+    "comparator",
+    "--config",
+    "QuarticCorpus/Separation/comparator.json",
+    "--inadvisably-no-sandbox"
+   ],
+   "tool": "lake comparator, unsandboxed local run",
+   "source_ids": [
+    "openai_preprint"
+   ],
+   "subject_ids": [],
+   "details": ""
   }
  ],
  "scope": "Statement graph of the preprint, generated from the corrected ledger. Support edges are authored dependencies, not extracted Lean dependencies. A node is kernel_checked only through a reviewed tie and a Comparator receipt.",

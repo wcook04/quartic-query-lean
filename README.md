@@ -1,38 +1,73 @@
 # quartic-query-lean
 
-Research notes and a developing Lean corpus for the nearly quartic separation
-between randomized and quantum query complexity in
+A Lean formalisation of the nearly quartic separation between randomized and
+quantum query complexity in
 [OpenAI's preprint](https://github.com/openai/math/blob/main/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf).
+The preprint and its mathematics are OpenAI's.
 
-Start with the [statement ledger](research/intake/statement_ledger.json) and its
-[reading notes](research/intake/statement_ledger_notes.md). The ledger indexes
-statements, dependencies and proposed formalisation targets; the notes explain
-its sources, limitations and proposed order of proof.
+Lean checks Theorem 1.1 of the preprint from one mathematical hypothesis, the
+Bansal–Sinha randomized lower bound for Forrelation:
 
-These are unreviewed research materials prepared by AI agents. They do not
-establish that the paper has been formalised. The committed corpus does not yet
-include Lean build evidence. The preprint and its mathematics are OpenAI's.
+```lean
+theorem alphaTot_eq_four_of_bansalSinha (h : BansalSinhaLower) : alphaTot = 4
+```
+
+`alphaTot` is the optimal exponent in equation (1) of the preprint. The checked
+development includes the construction of the total functions, the randomized
+lower bound, the quantum upper bound in an adaptive bit-query model, the exact
+Forrelation circuit with its size bound, and the universal quartic upper bound.
+`BansalSinhaLower` is an ordinary hypothesis in the theorem's type. It remains
+unproved here, and the bound it states is imported from the published paper.
+
+## What is checked, and what that means
+
+| Layer | State |
+| --- | --- |
+| Proofs | The `QuarticQuery` target builds at the recorded commit with no `sorry`, no custom axioms and no `native_decide`. |
+| Statements | [Statement.lean](lean/QuarticQuery/Statement.lean) fixes every definition a theorem means. It imports Mathlib only. |
+| Comparison | Comparator runs each bundle in [lean/QuarticCorpus/](lean/QuarticCorpus/) against an independently compiled challenge. Runs on this machine are unsandboxed local rehearsals, and [corpus/receipts/](corpus/receipts/) records them as such. |
+| Fidelity | [The review](docs/statement_fidelity_review.md) compares Lean statements with the preprint. It was done by an AI agent that did not write the proofs. No human has reviewed it. |
+| Literature | Claims about cited sources were checked against those sources by AI agents; see [the adjudication](research/returns/adjudication_notes.md). |
+
+A compiled proof shows that a statement follows. Whether it says what the preprint
+says is a separate question, which is why [corpus/](corpus/README.md) keeps these
+facts apart for every statement and computes no overall score.
+
+Some steps are proved along a different route from the preprint's, and each such
+tie records this. Theorem A.1 goes through
+[complexitylib](https://github.com/cslib-community/complexitylib) instead of
+Appendix A. Lemma 4.1 uses an induction on sub-distributions in place of the
+supermartingale, and the search for the erased zero gives `2G/m²` in place of
+`4G/m²`. [The contract](docs/statement_evidence_contract.md) explains how
+statements and proofs stay aligned as derivations improve.
 
 ## Repository map
 
 | Path | Purpose |
 | --- | --- |
-| [research/](research/README.md) | Statement ledger, research evidence and maintained review requests. |
-| [tools/](tools/README.md) | Package research ZIPs and check repository organisation. |
-| [tests/](tests/) | Regression tests for maintenance tools. |
-| [Makefile](Makefile) | Local repository checks. |
+| [lean/](lean/) | The Lake project: `QuarticQuery` holds the proofs, `QuarticCorpus` the Comparator bundles. |
+| [corpus/](corpus/README.md) | Statement records, reviewed ties, receipts and the evidence graph. |
+| [docs/](docs/) | The evidence contract, the fidelity review and the lower-bound blueprint. |
+| [research/](research/README.md) | The statement ledger, research records and review requests. |
+| [tools/](tools/README.md) | Generators and checks. |
+| [tests/](tests/) | Tests for the tools. |
 
-## Check the repository
-
-With Python 3.10 or newer, Git and Make installed, run from the repository root:
+## Check it
 
 ```sh
 make check
 ```
 
-This checks file placement and local README links, then runs the Python tests.
-It does not build Lean or check the mathematical claims. See the
-[research guide](research/README.md) for the evidence categories and the packet
-builder's local dependencies.
+This checks layout, generated files and the Python tests. Lean needs a Mathlib
+checkout at the pinned revision; the toolchain and dependencies are fixed by
+[lean-toolchain](lean/lean-toolchain) and [lake-manifest.json](lean/lake-manifest.json).
+
+```sh
+cd lean && lake build QuarticQuery
+```
+
+```sh
+python3 tools/run_comparator.py
+```
 
 Licensed under [Apache-2.0](LICENSE).

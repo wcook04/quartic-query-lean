@@ -6,6 +6,7 @@ Authored inputs:
   research/returns/adjudication.json      accepted corrections and added rows
   corpus/ties.json                        reviewed statement-to-Lean relations
   corpus/receipts/*.json                  results of actual builds and comparisons
+  corpus/lean_dependencies.json           the compiled dependency closure
 
 Generated outputs:
   corpus/statements.json      one record per statement, with separate evidence fields
@@ -134,7 +135,7 @@ def receipts():
             for path in sorted((CORPUS / "receipts").glob("*.json"))]
 
 
-def statement_records(ledger, proposed, reviewed, runs):
+def statement_records(ledger, proposed, reviewed, runs, reached=None):
     built = {name for run in runs if run["kind"] == "lean_build" and run["status"] == "passed"
              for name in run["declarations"]}
     compared = {name for run in runs if run["kind"] == "comparator" and run["status"] == "passed"
@@ -157,7 +158,8 @@ def statement_records(ledger, proposed, reviewed, runs):
                          "hypotheses": review.get("hypotheses", []) if review else [],
                          "note": review.get("note", "") if review else "",
                          "built": tie["declaration"] in built,
-                         "compared": tie["declaration"] in compared})
+                         "compared": tie["declaration"] in compared,
+                         "reached": None if reached is None else tie["declaration"] in reached})
         best = next((t for t in ties if t["relation"] in CHECKED and t["built"]), None)
         records.append({
             "id": ident,
@@ -181,7 +183,9 @@ def statement_records(ledger, proposed, reviewed, runs):
                 "comparator": "compared" if best and best["compared"] else "not_run",
                 "conditional": bool(best and best["hypotheses"]),
                 "route": best["route"] if best else "none",
-                "reach": "not_computed",
+                "reach": ("not_computed" if reached is None else
+                          "none" if not ties else
+                          "reached" if any(t["reached"] for t in ties) else "outside"),
             },
         })
     return records
@@ -263,7 +267,9 @@ def outputs():
     runs = receipts()
     proposed = declared_ties()
     reviewed = load_json(CORPUS / "ties.json", {})
-    records = statement_records(ledger, proposed, reviewed, runs)
+    closure = load_json(CORPUS / "lean_dependencies.json", None)
+    records = statement_records(ledger, proposed, reviewed, runs,
+                                set(closure["reached"]) if closure else None)
     return {
         CORPUS / "statements.json": records,
         CORPUS / "evidence-graph.json": evidence_graph(records, runs),

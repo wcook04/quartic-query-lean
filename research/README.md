@@ -6,8 +6,9 @@ nearly quartic query-complexity separation. Start with the
 [ledger notes](intake/statement_ledger_notes.md) for the source locations,
 interpretations, unresolved questions and proposed formalisation order.
 
-The intake records were prepared by AI agents and have not been independently
-reviewed. A cited source, a proposed Lean statement and a successful proof check
+Three later reviews are in [returns/](returns/README.md), with a verdict on each
+finding in the [adjudication](returns/adjudication_notes.md). The intake records
+were prepared by AI agents and have not been independently reviewed by a person. A cited source, a proposed Lean statement and a successful proof check
 are different kinds of evidence. The intake files record research and proposals;
 they are not build receipts or proof certificates.
 

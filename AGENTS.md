@@ -15,6 +15,10 @@ commands.
   describe planned checking and are not proof evidence.
 - `lean/` is the Lean project. Its toolchain and dependency files own the build.
   Do not infer successful compilation from a file's presence.
+  `lean/QuarticQuery/Statement.lean` fixes what theorems mean: change it only on
+  purpose, because every challenge and bundle depends on it.
+- `corpus/` holds statement records. `ties.json` and `receipts/` are inputs; the
+  other files are generated. See [corpus/README.md](corpus/README.md).
 - `tools/` holds maintenance programs; `tests/` holds their regression tests.
 - `README.md` and the directory READMEs explain current use. Keep commands and
   links aligned with the files they describe.
@@ -27,7 +31,7 @@ architecture: add a directory when an implementation needs it.
 
 ## Validation and commits
 
-Run `make check` for Python tooling, layout and local README links. Run
+Run `make check` for Python tooling, generated files, layout and local README links. Run
 `python3 tools/check_repository.py --index` after staging exact owned paths.
 These checks do not validate proofs. Lean changes need their own build evidence.
 

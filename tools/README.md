@@ -17,6 +17,21 @@ version of files before committing, run:
 python3 tools/check_repository.py --index
 ```
 
+## Generate and check the Lean evidence
+
+Run these after a successful `lake build QuarticQuery`:
+
+| Command | Effect |
+| --- | --- |
+| `python3 tools/build_challenges.py` | Regenerates each Comparator challenge from the statement file and its solution. |
+| `python3 tools/record_evidence.py` | Records the compiled dependency closure and a build receipt. |
+| `python3 tools/run_comparator.py` | Runs each bundle and negative control and writes receipts. |
+| `python3 tools/build_corpus.py` | Regenerates the corpus from the ledger, ties and receipts. |
+
+[build_challenges.py](build_challenges.py) keeps a challenge and its solution in
+agreement by construction. A negative control counts only when Comparator rejects it
+with the expected diagnostic, and a build deferred by a lock judges nothing.
+
 ## Build research packets
 
 [build_research_packets.py](build_research_packets.py) produces three ZIPs:

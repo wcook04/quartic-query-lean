@@ -15,6 +15,7 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import re
 import subprocess
 import sys
 
@@ -37,6 +38,13 @@ EXPECTED = {
 def git_head():
     return subprocess.run(["git", "-C", str(ROOT), "rev-parse", "HEAD"], check=True,
                           capture_output=True, text=True).stdout.strip()
+
+
+def wrapped(config):
+    """Return the checked theorems and the proved theorems they restate."""
+    names = json.loads(config.read_text(encoding="utf-8"))["theorem_names"]
+    solution = (config.parent / "Solution.lean").read_text(encoding="utf-8")
+    return names + re.findall(r"^\s*exact (QuarticQuery\.\S+)", solution, re.M)
 
 
 def comparator(config, paranoid):
@@ -74,9 +82,8 @@ def run_bundle(config, paranoid):
     if DEFERRED in log:
         print(f"{name}: deferred by the shared build lock, nothing judged")
         return False
-    names = json.loads(config.read_text(encoding="utf-8"))["theorem_names"]
     write(stamp(name, command, "passed" if code == 0 else "failed", log,
-                {"declarations": names, "paranoid": paranoid, "exit_code": code}))
+                {"declarations": wrapped(config), "paranoid": paranoid, "exit_code": code}))
     print(f"{name}: exit {code}")
     if code:
         print(log[-1500:], file=sys.stderr)

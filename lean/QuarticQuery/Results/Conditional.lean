@@ -47,6 +47,19 @@ theorem familyBounds_of_bansalSinha (h : BansalSinhaLower) : FamilyBounds := by
 theorem alphaTot_eq_four_of_bansalSinha (h : BansalSinhaLower) : alphaTot = 4 :=
   alphaTot_eq_four (familyBounds_of_bansalSinha h)
 
+/-- Ledger: thm-1.1. The whole of Theorem 1.1, given the Forrelation lower bound: the
+optimal power, the universal quartic bound, and for each fixed `k ≥ 2` the family of
+equation (2). -/
+theorem theorem_1_1 (h : BansalSinhaLower) :
+    alphaTot = 4 ∧ UniversalPower 4 ∧
+      ∀ k : ℕ, 2 ≤ k → ∃ (S A : ℕ) (b : ℕ), 0 < A ∧ ∀ t, 1 ≤ t →
+        ∃ C : Circuit (ForrelationCoord k t), CircuitRealises C (P k t) ∧
+          C.size ≤ S * mValue t * (2 * t) ^ 2 ∧
+          (Q (totalise (Fkm k t C)) : ℝ) ≤ (A : ℝ) * 2 ^ t * (2 * (t : ℝ)) ^ b ∧
+          (8 ≤ t → Lvalue k t < R (P k t) →
+            Gvalue (mValue t) (Lvalue k t) < R (totalise (Fkm k t C))) :=
+  ⟨alphaTot_eq_four_of_bansalSinha h, universalPower_four, family_bounds⟩
+
 /-- Ledger: cor-cubic-refuted. No constant makes `R ≤ C Q³` hold for all total
 functions, given the Forrelation lower bound. -/
 theorem cubic_bound_fails_of_bansalSinha (h : BansalSinhaLower) :

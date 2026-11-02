@@ -1,0 +1,30 @@
+{
+ "kind": "comparator",
+ "name": "Foundations",
+ "status": "passed",
+ "commit": "efc70f325c1db3b15b98c17643709e2ca778207b",
+ "toolchain": "leanprover/lean4:v4.36.0-rc2",
+ "sandboxed": false,
+ "command": [
+  "lake",
+  "comparator",
+  "--config",
+  "QuarticCorpus/Foundations/comparator.json",
+  "--inadvisably-no-sandbox"
+ ],
+ "tool": "lake comparator, unsandboxed local run",
+ "log_sha256": "13fb0232ffc6cebb7ed0880d27964ccc6f12113a0a1f230247d0c7483ec600d2",
+ "ran_at": "2026-11-02T04:37:06+00:00",
+ "declarations": [
+  "QuarticQuery.Checked.R_le_iff",
+  "QuarticQuery.Checked.Q_le_iff",
+  "QuarticQuery.Checked.D_le_iff",
+  "QuarticQuery.Checked.R_le_D",
+  "QuarticQuery.Checked.Q_le_D",
+  "QuarticQuery.Checked.D_le_card",
+  "QuarticQuery.Checked.R_reindex",
+  "QuarticQuery.Checked.Q_reindex"
+ ],
+ "paranoid": false,
+ "exit_code": 0
+}

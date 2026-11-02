@@ -1,0 +1,27 @@
+{
+ "kind": "comparator",
+ "name": "Separation",
+ "status": "passed",
+ "commit": "efc70f325c1db3b15b98c17643709e2ca778207b",
+ "toolchain": "leanprover/lean4:v4.36.0-rc2",
+ "sandboxed": false,
+ "command": [
+  "lake",
+  "comparator",
+  "--config",
+  "QuarticCorpus/Separation/comparator.json",
+  "--inadvisably-no-sandbox"
+ ],
+ "tool": "lake comparator, unsandboxed local run",
+ "log_sha256": "99558b7a773a2120daa12ff0670256340ed567090f3037332227b7688d4420a7",
+ "ran_at": "2026-11-02T04:43:43+00:00",
+ "declarations": [
+  "QuarticQuery.Checked.alphaTot_eq_four_of_bansalSinha",
+  "QuarticQuery.Checked.universal_quartic_bound",
+  "QuarticQuery.Checked.cubic_bound_fails_of_bansalSinha",
+  "QuarticQuery.Checked.family_bounds",
+  "QuarticQuery.Checked.addressed_lower_bound"
+ ],
+ "paranoid": false,
+ "exit_code": 0
+}

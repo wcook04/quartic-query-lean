@@ -1,0 +1,26 @@
+{
+ "kind": "comparator",
+ "name": "Construction",
+ "status": "passed",
+ "commit": "efc70f325c1db3b15b98c17643709e2ca778207b",
+ "toolchain": "leanprover/lean4:v4.36.0-rc2",
+ "sandboxed": false,
+ "command": [
+  "lake",
+  "comparator",
+  "--config",
+  "QuarticCorpus/Construction/comparator.json",
+  "--inadvisably-no-sandbox"
+ ],
+ "tool": "lake comparator, unsandboxed local run",
+ "log_sha256": "1bf4edca990368c0e291b9d0dc3699fad001e4b47c8b22f25039bb9d49de90c1",
+ "ran_at": "2026-11-02T04:32:54+00:00",
+ "declarations": [
+  "QuarticQuery.Checked.winsAt_unique",
+  "QuarticQuery.Checked.existsUnique_gateConsistent",
+  "QuarticQuery.Checked.winner_no_incoming_zero",
+  "QuarticQuery.Checked.winner_finds_zero"
+ ],
+ "paranoid": false,
+ "exit_code": 0
+}
