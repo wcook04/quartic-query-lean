@@ -23,6 +23,12 @@ and mismatching bytes under these snapshot folders. Submitted READMEs keep the
 sender's original relative links; they are checked as bytes rather than treated
 as maintained navigation.
 
+Before replaying a submitted checker, inspect its output paths and other side
+effects. Use a scratch copy or its explicit output option; several checkers
+write beside their own source even when launched from another working
+directory. Recheck the original snapshot hashes afterward. Repairs and fresh
+results belong with the maintained tools or adjudication, not in these folders.
+
 ```sh
 python3 tools/check_repository.py
 python3 tools/check_repository.py --index

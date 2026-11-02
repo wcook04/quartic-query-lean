@@ -66,6 +66,41 @@ graph. The tested command surface is `lean-exposition extract --build` with an
 explicit module, goal, module prefix and output directory; it has not been run
 on this changing proof set.
 
+## Current validation and re-entry
+
+The source-return checkpoint is `67b4400`. The later corpus/backend and proof
+candidate changes remain in the working tree; native proof validation is still
+required before their final landing. The working-tree `make check` passes:
+layout, challenge freshness, corpus freshness and 99 Python tests (two optional
+checks skipped). A separate run enabled the installed reader integration and
+passed it; the native Lean exporter fixture remains unrun. The regenerated
+corpus retains historical passes as `legacy_unbound` and awards no current
+build or comparison credit to this changing source set.
+
+The next actions are to consume the two command-future terminal receipts, repair
+the concrete elaboration failures, validate the remaining classical/Appendix
+and Main-dependent construction modules, and run the exporter regression.
+Then select the accepted imports, review the candidate ties against those exact
+bytes, build the combined library, record fresh source-bound evidence, run
+Comparator and its negative controls, regenerate the corpus and validate the
+reader projection. Only then choose and build successor packets. Do not repeat
+an old packet assignment whose requested endpoint already follows from a
+stronger accepted theorem.
+
+| Compatible work considered | Disposition at the dependency barrier |
+| --- | --- |
+| Return custody and all seven source audits | Preserved, checked and committed; further proof acceptance depends on compiler outcomes. |
+| Literature and attribution | All thirteen supplied sources identified, exact discrepancies checked, and annex work committed. |
+| Corpus and reader backend | Implemented and Python/consumer tested; native exporter and proof receipts pending. |
+| Independent finite mathematics | Return checks replayed and per-claim limits recorded; these cannot certify the pending Lean modules. |
+| Manuscripts and successor packets | Depend on the accepted statement set and remaining obligations; no new ZIPs built. |
+| Website and film | Require the settled corpus and authored accounts; no new visual surface is warranted yet. |
+| Reusable repair | Snapshot validation now enforces original bytes in both working and staged views; its guide covers checker output isolation. |
+
+This is a manual re-entry barrier, not a completed proof campaign. The job IDs,
+terminal files and per-module logs above make continuation recoverable without
+repeating the research or assuming a successful build.
+
 The next packet topics will be chosen from that validated remainder. In
 particular, the full retained quantum state, the sharper Fourier theorem,
 the growing-parameter family, and the literal Appendix route must not be
