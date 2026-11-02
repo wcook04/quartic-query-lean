@@ -79,7 +79,9 @@ not adjudicate the mathematics or establish a new successful Lean build.
   initial test cleanup, so cancellation of that exact obsolete future
   `cf_38b84de5309442899fda` was requested through the owning API. The regression
   now retains its input on deferral and reports a skipped validation. The
-  revised traversal has not yet been elaborated or run on the full environment.
+  That initial attempt did not elaborate the revised traversal. The later
+  successful native regression is recorded in the closeout below; the full
+  environment export remains a separate gate.
   A durable copy of the complete script plus regression is prepared at
   `/tmp/quartic-query-reach-backend/ReachRegression.lean`; after the shared build
   releases, run from `lean/`:
@@ -181,3 +183,77 @@ The consumer-boundary defect was captured in the ai_workflow Task Ledger as
 `cap_quick_quartic_corpus_informal_graph_must_prese_cd2ad6d663ab`, event
 `wie_20261102T162211Z_3dc9dfe1`; its visibility receipt reports
 `authority_event_visible=true` and `capture_claimable=true`.
+
+## Backend closeout and packet reuse
+
+The sole native build coordinator subsequently ran the complete current exporter
+plus regression under the governed SSD inventory. Its recorded result is
+`ReachRegression`, `status: passed`, `exit_code: 0`, `seconds: 15.07`, command
+`lake env lean /tmp/quartic-query-reach-backend/ReachRegression.lean`.
+The result was read directly from
+`/Users/willcook/src/_builds/quartic-r2-ssd/native-inventory/results.json`;
+`ReachRegression.log` is empty. The runner verified the complete exporter is
+the fixture's exact byte prefix and recorded `inputs_unchanged: true`:
+
+- Exporter SHA-256:
+  `44ce6c1ace1e3914109b959c5d3466f00eba4090621d73d3b3ee2626be1f796b`.
+- Fixture SHA-256:
+  `3be41c8f056cb06feba16325ca6204d04d3935a8f41105815105a040c2b4a002`.
+
+This compiles the whole script without executing `main`. Both a private wrapper
+and a wrapper in another namespace preserve the public leaf, the projected
+root-to-leaf edge, and a nonempty hidden-path witness; both traversals have no
+unresolved names. A deliberately missing root appears in `unresolved`. All
+assertions passed. This completes the native exporter-regression gate, not a
+fresh full-library build or a full compiled-environment dependency export.
+The backend agent issued no competing Lean call and left Lean sources frozen
+during the coordinator's inventory.
+
+The existing round-two builder also needed a bounded provenance correction for
+reuse. Its record skeleton now calls the input a recorded dependency export,
+computes `currentness` through the shared backend helper, and treats stale or
+legacy membership as historical. A name absent from such an export no longer
+gets described as outside the current headline closure. Its adjacent build
+status page explicitly identifies the fixed named historical receipt and
+describes `.olean` existence/mtime as artifact observations, not evidence that
+present bytes compiled. It does not select or relabel newer receipts. Three
+new temporary-fixture tests cover legacy/stale/current export wording and a
+newer artifact whose timestamp cannot bind it to the source. All six focused
+round-two tests passed. No new packet builder or sent archive was created or
+rewritten by this correction.
+The full Python suite with the installed-consumer integration enabled then
+completed 102 tests with the optional native fixture skipped in ordinary
+discovery; that fixture has the separate successful governed result above.
+Layout, scoped whitespace and Python compilation checks passed.
+
+Remaining native integration gates belong to the coordinator after source
+freeze: finish the affected-module/full-root build; run the real recorder to
+obtain a source-bound complete environment export; run the intended Comparator
+bundles against the same source snapshot; regenerate the corpus and run the
+normal repository/consumer checks. The passing tiny fixture supplies no credit
+for those operations, and the backend changes do not upgrade historical
+receipts.
+
+The environment scope is explicit: `Reach.lean` imports `QuarticQuery`, whose
+current root import file does not import the new `Paper` wrappers. A successful
+standalone module inventory therefore cannot make those wrapper declarations
+appear in this root environment export. Their integration needs intentional
+root imports after native validation, or separately scoped genuine module
+receipts; this closeout makes neither change during the frozen build. An absent
+declaration correctly receives no root-environment build credit meanwhile.
+
+The exact backend-owned pathset for the coordinator's scoped commit is:
+
+- `tools/build_corpus.py`
+- `tools/record_evidence.py`
+- `tools/run_comparator.py`
+- `tools/build_round2_packets.py`
+- `lean/scripts/Reach.lean`
+- `tests/test_build_corpus.py`
+- `tests/test_record_evidence.py` (new, explicitly add it)
+- `tests/test_build_round2_packets.py`
+- `research/adjudication/round2_backend.md`
+
+Root-owned guide, reviewed tie, generated corpus, proof-module and packet-builder
+changes are outside this backend attribution list. No shared-tree commit was
+made by the backend agent.

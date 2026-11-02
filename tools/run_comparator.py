@@ -19,6 +19,8 @@ import re
 import subprocess
 import sys
 
+from build_corpus import source_hashes
+
 
 ROOT = Path(__file__).resolve().parents[1]
 LEAN = ROOT / "lean"
@@ -65,41 +67,52 @@ def stamp(name, command, status, log, extra):
         "command": ["lake", *command[1:]],
         "tool": "lake comparator, unsandboxed local run",
         "log_sha256": hashlib.sha256(log.encode("utf-8")).hexdigest(),
-        "ran_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "ran_at": datetime.now(timezone.utc).isoformat(timespec="microseconds"),
         **extra,
     }
 
 
 def write(receipt):
     RECEIPTS.mkdir(parents=True, exist_ok=True)
-    path = RECEIPTS / f"comparator-{receipt['name']}.json"
+    stamp = receipt["ran_at"].replace(":", "").replace(".", "")
+    path = RECEIPTS / f"comparator-{receipt['name']}-{stamp}.json"
     path.write_text(json.dumps(receipt, indent=1) + "\n", encoding="utf-8")
 
 
 def run_bundle(config, paranoid):
     name = config.parent.name
+    before = source_hashes(ROOT)
     command, code, log = comparator(config, paranoid)
-    if DEFERRED in log:
+    if code == 75 or DEFERRED in log:
         print(f"{name}: deferred by the shared build lock, nothing judged")
         return False
-    write(stamp(name, command, "passed" if code == 0 else "failed", log,
-                {"declarations": wrapped(config), "paranoid": paranoid, "exit_code": code}))
+    declarations = wrapped(config)
+    unchanged = before == source_hashes(ROOT)
+    write(stamp(name, command, "passed" if code == 0 and unchanged else "failed", log,
+                {"declarations": declarations, "paranoid": paranoid, "exit_code": code,
+                 "source_hashes": before, "source_changed_during_run": not unchanged}))
     print(f"{name}: exit {code}")
     if code:
         print(log[-1500:], file=sys.stderr)
-    return code == 0
+    if not unchanged:
+        print(f"{name}: inputs changed during comparison; receipt cannot establish current evidence",
+              file=sys.stderr)
+    return code == 0 and unchanged
 
 
 def run_negative(config):
     name = config.stem
+    before = source_hashes(ROOT)
     command, code, log = comparator(config, False)
-    if DEFERRED in log:
+    if code == 75 or DEFERRED in log:
         print(f"negative {name}: deferred by the shared build lock, nothing judged")
         return False
     expected = EXPECTED[name]
-    rejected = code == 1 and expected in log
+    unchanged = before == source_hashes(ROOT)
+    rejected = code == 1 and expected in log and unchanged
     write(stamp(f"negative-{name}", command, "passed" if rejected else "failed", log,
                 {"declarations": [], "expected_diagnostic": expected, "exit_code": code,
+                 "source_hashes": before, "source_changed_during_run": not unchanged,
                  "negative_control": "rejected_as_expected" if rejected else "wrong_failure"}))
     print(f"negative {name}: exit {code}, {'rejected as expected' if rejected else 'WRONG FAILURE'}")
     if not rejected:

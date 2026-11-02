@@ -5,8 +5,9 @@ Each ZIP stands alone. Beyond what the funnel packets carry, it holds the five
 first-round returns as `previous_round/`, the funnel adjudication, every annexed
 paper of the quartic cluster (TeX-extracted text and, where held, the original
 arXiv source) with a reading order for its job, a record skeleton generated from
-the compiled dependency closure, and BUILD_STATUS.md stating which Lean modules
-are compiled. The manifest records the SHA-256 of every member, and the archive
+the recorded dependency export with its source currentness, and BUILD_STATUS.md
+separating recorded evidence from local artifact observations. The manifest
+records the SHA-256 of every member, and the archive
 is reread and checked against it.
 """
 import argparse
@@ -20,6 +21,7 @@ from string import Formatter
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import build_funnel_packets as funnel  # noqa: E402
+import build_corpus as corpus_evidence  # noqa: E402
 
 ROOT = funnel.ROOT
 REQUESTS = ROOT / "research" / "requests" / "round2"
@@ -144,8 +146,9 @@ def literature_guide(job, annexes=ANNEXES):
 
 
 def record_skeleton(root=ROOT):
-    """Group reached declarations by module, in import order, with their tied statements."""
+    """Group tied declarations, qualifying recorded reach by source currentness."""
     deps = json.loads((root / "corpus/lean_dependencies.json").read_text(encoding="utf-8"))
+    freshness = corpus_evidence.currentness(deps, corpus_evidence.source_hashes(root))
     statements = json.loads((root / "corpus/statements.json").read_text(encoding="utf-8"))
     rows = statements["statements"] if isinstance(statements, dict) else statements
     tied, placed = {}, set()
@@ -158,11 +161,15 @@ def record_skeleton(root=ROOT):
         for tie in row.get("lean", []):
             by_file.setdefault(tie.get("file") or "(unlocated)", set()).add(tie["declaration"])
     lines = ["# Record skeleton", "",
-             "Generated from `corpus/lean_dependencies.json` (the compiled dependency closure of "
+             "Generated from `corpus/lean_dependencies.json` (the recorded dependency export for "
              f"{', '.join(f'`{r}`' for r in deps['roots'])}) and `corpus/statements.json`. Sections "
              "follow the Lean modules that carry tied declarations, foundations first; each lists the "
              "tied declarations, whether the headline reaches them, and the paper statements tied to "
-             "them with their evidence fields. Statements with no Lean tie are listed at the end.", ""]
+             "them with their stored evidence fields. Statements with no Lean tie are listed at the end.", "",
+             f"Dependency-export source currentness: `{freshness}`. Only a `current` export establishes "
+             "reach for these source bytes. Membership in a stale or legacy unbound export is historical; "
+             "absence from it does not establish that the current headline omits a declaration. "
+             "Regenerate corpus records after changing their inputs.", ""]
     order = ["Statement", "Model", "Bridge", "Construction", "Forrelation/", "ForrelationLower",
              "Amplification", "Tournament", "Upper", "LowerBound", "Appendix", "Paper", "Results"]
 
@@ -172,7 +179,11 @@ def record_skeleton(root=ROOT):
     for path in sorted(by_file, key=rank):
         lines += [f"## `{path}`", ""]
         for name in sorted(by_file[path]):
-            mark = "reached" if name in reached else "outside the headline closure"
+            if freshness == "current":
+                mark = "reached" if name in reached else "outside the current headline closure"
+            else:
+                membership = "recorded reached" if name in reached else "not recorded reached"
+                mark = f"{membership}; current reach unknown ({freshness})"
             lines.append(f"- `{name}` ({mark})")
             for row in tied.get(name, []):
                 ev = row["evidence"]
@@ -190,15 +201,19 @@ def record_skeleton(root=ROOT):
 
 
 def build_status(root=ROOT):
-    """State which new Lean modules have a compiled .olean and the root build receipt's pin."""
+    """Separate a named historical receipt from artifact existence and mtime observations."""
     build = root / "lean" / ".lake" / "build" / "lib" / "lean"
     modules = sorted(p for p in (root / "lean" / "QuarticQuery").rglob("*.lean"))
     receipt = json.loads((root / "corpus/receipts/lean-build-root.json").read_text(encoding="utf-8"))
+    freshness = corpus_evidence.currentness(receipt, corpus_evidence.source_hashes(root))
     lines = ["# Build status at packet time", "",
-             f"Root build receipt: commit `{receipt.get('commit')}`, status `{receipt.get('status')}`. "
-             "A module listed as compiled has an up-to-date `.olean` from the pinned toolchain; "
-             "that is build evidence for its declarations, not review.", "",
-             "| Module | Compiled .olean | Newer than source |", "| --- | --- | --- |"]
+             f"Named historical receipt `corpus/receipts/lean-build-root.json`: commit "
+             f"`{receipt.get('commit')}`, recorded status `{receipt.get('status')}`, "
+             f"source currentness `{freshness}`. This paragraph does not select newer timestamped receipts.", "",
+             "The table reports local artifact existence and modification times only. A `.olean` newer "
+             "than source does not bind its contents to the current source bytes or establish a new build. "
+             "Use current source-bound corpus receipts for build evidence; compilation is separate from review.", "",
+             "| Module | .olean artifact exists | Artifact mtime >= source mtime |", "| --- | --- | --- |"]
     for path in modules:
         rel = path.relative_to(root / "lean")
         olean = build / rel.with_suffix(".olean")

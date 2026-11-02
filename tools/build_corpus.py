@@ -22,6 +22,7 @@ import argparse
 from collections import Counter
 import hashlib
 import json
+import os
 from pathlib import Path
 import re
 import sys
@@ -130,16 +131,70 @@ def load_json(path, default):
     return json.loads(path.read_text(encoding="utf-8")) if path.exists() else default
 
 
+def source_hashes(root=None):
+    """Bind evidence to all local Lean sources and pinned build/comparison inputs.
+
+    The scope is deliberately conservative: changing any Lean source invalidates
+    every receipt, including a source outside the headline's import closure.
+    Ignored Lake dependencies and build products are not local source inputs;
+    lake-manifest.json records their pinned revisions, not their checkout bytes.
+    """
+    root = Path(root) if root is not None else ROOT
+    hashes = {}
+    for folder, directories, files in os.walk(root / "lean"):
+        directories[:] = sorted(d for d in directories if not d.startswith(".")
+                                and d not in {"build", "__pycache__"})
+        for name in sorted(files):
+            path = Path(folder) / name
+            if (path.suffix == ".lean" or name in {
+                    "lean-toolchain", "lakefile.toml", "lake-manifest.json"}
+                    or (path.suffix == ".json" and "QuarticCorpus" in path.parts)):
+                hashes[path.relative_to(root).as_posix()] = hashlib.sha256(path.read_bytes()).hexdigest()
+    return dict(sorted(hashes.items()))
+
+
+def currentness(record, hashes=None):
+    """Historical passes remain visible but only bound, unchanged inputs are current."""
+    recorded = record.get("source_hashes")
+    if not isinstance(recorded, dict) or not recorded:
+        return "legacy_unbound"
+    return "current" if recorded == (source_hashes() if hashes is None else hashes) else "stale"
+
+
 def receipts():
-    return [json.loads(path.read_text(encoding="utf-8"))
+    return [{**json.loads(path.read_text(encoding="utf-8")), "receipt_file": str(path.relative_to(ROOT)),
+             "receipt_sha256": hashlib.sha256(path.read_bytes()).hexdigest()}
             for path in sorted((CORPUS / "receipts").glob("*.json"))]
 
 
-def statement_records(ledger, proposed, reviewed, runs, reached=None):
-    built = {name for run in runs if run["kind"] == "lean_build" and run["status"] == "passed"
-             for name in run["declarations"]}
-    compared = {name for run in runs if run["kind"] == "comparator" and run["status"] == "passed"
-                for name in run["declarations"]}
+def declaration_evidence(runs, kind, declaration, hashes):
+    matching = [run for run in runs if run["kind"] == kind and run["status"] == "passed"
+                and declaration in run.get("declarations", [])
+                and not run.get("negative_control")]
+    states = {currentness(run, hashes) for run in matching}
+    return next((state for state in ("current", "stale", "legacy_unbound") if state in states), "not_run")
+
+
+def reviewed_assumptions(review):
+    """Keep theorem premises separate from additional, undischarged assumptions.
+
+    Legacy hypotheses remain open unless a review explicitly supplies the new
+    open_assumptions field. Merely listing premises is not a classification of
+    every legacy hypothesis. Preserve the authored hypotheses for older readers.
+    """
+    review = review or {}
+    fields = {"hypotheses": review.get("hypotheses", []),
+              "premises": review.get("premises", []),
+              "open_assumptions": review.get("open_assumptions", review.get("hypotheses", []))}
+    for field, values in fields.items():
+        if not isinstance(values, list) or not all(isinstance(value, str) for value in values):
+            raise ValueError(f"{review.get('declaration', 'unreviewed tie')}: {field} must be a list of strings")
+    return fields
+
+
+def statement_records(ledger, proposed, reviewed, runs, reached=None, hashes=None,
+                      reach_currentness="legacy_unbound"):
+    hashes = source_hashes() if hashes is None else hashes
     records = []
     for ident, row in ledger.items():
         ties = []
@@ -152,17 +207,22 @@ def statement_records(ledger, proposed, reviewed, runs, reached=None):
         for tie in declared + extra:
             review = next((r for r in reviewed.get(ident, [])
                            if r["declaration"] == tie["declaration"]), None)
+            build = declaration_evidence(runs, "lean_build", tie["declaration"], hashes)
+            comparison = declaration_evidence(runs, "comparator", tie["declaration"], hashes)
             ties.append({**tie,
                          "relation": review["relation"] if review else "unassessed",
                          "route": review["route"] if review else "unassessed",
-                         "hypotheses": review.get("hypotheses", []) if review else [],
+                         **reviewed_assumptions(review),
                          "note": review.get("note", "") if review else "",
-                         "built": tie["declaration"] in built,
-                         "compared": tie["declaration"] in compared,
-                         "reached": None if reached is None else tie["declaration"] in reached})
+                         "build_evidence": build,
+                         "comparison_evidence": comparison,
+                         "built": build == "current",
+                         "compared": comparison == "current",
+                         "reached": (None if reached is None or reach_currentness != "current"
+                                     else tie["declaration"] in reached)})
         # The strongest evidence wins: compared before merely built, unconditional first.
         best = min((t for t in ties if t["relation"] in CHECKED and t["built"]),
-                   key=lambda t: (not t["compared"], bool(t["hypotheses"])), default=None)
+                   key=lambda t: (not t["compared"], bool(t["open_assumptions"])), default=None)
         records.append({
             "id": ident,
             "kind": row["kind"],
@@ -183,9 +243,16 @@ def statement_records(ledger, proposed, reviewed, runs, reached=None):
                 "formal_origin": "ours" if ties else "none",
                 "build": "built_at_pin" if any(t["built"] for t in ties) else "not_run",
                 "comparator": "compared" if best and best["compared"] else "not_run",
-                "conditional": bool(best and best["hypotheses"]),
+                "conditional": bool(best and best["open_assumptions"]),
+                # Optional metadata belongs to this selected declaration only.
+                # Its absence means no current built tie was selected; [] is a
+                # reviewed empty list, not an unknown assumption classification.
+                **({"assumption_declaration": best["declaration"],
+                    "premises": best["premises"], "open_assumptions": best["open_assumptions"]}
+                   if best else {}),
                 "route": best["route"] if best else "none",
                 "reach": ("not_computed" if reached is None else
+                          reach_currentness if reach_currentness != "current" else
                           "none" if not ties else
                           "reached" if any(t["reached"] for t in ties) else "outside"),
             },
@@ -194,9 +261,9 @@ def statement_records(ledger, proposed, reviewed, runs, reached=None):
 
 
 def node_status(record):
-    evidence = record["evidence"]
-    if evidence["comparator"] == "compared":
-        return "conditional" if evidence["conditional"] else "kernel_checked"
+    # These nodes are informal preprint statements, not native exported formal
+    # declarations. Local theorem receipts do not verify the statement-to-Lean
+    # interpretation or satisfy the consumer's extraction/build contract.
     return "external" if record["id"] in EXTERNAL else "unverified"
 
 
@@ -206,7 +273,8 @@ def node_kind(record):
     return "assumption" if record["id"] in EXTERNAL else "claim"
 
 
-def evidence_graph(records, runs):
+def evidence_graph(records, runs, hashes=None):
+    hashes = source_hashes() if hashes is None else hashes
     ids = {record["id"] for record in records}
     evidence = [{"id": "paper_hash", "kind": "source_hash", "status": "not_run", "command": [],
                  "tool": "Pinned by revision; byte hash is recorded in the annex",
@@ -223,21 +291,53 @@ def evidence_graph(records, runs):
             details = (f"Altered solution {run['name']} rejected as expected "
                        f"(exit {run.get('exit_code')}, diagnostic "
                        f"\"{run.get('expected_diagnostic', '')}\"). {details}").strip()
-        evidence.append({"id": f"run_{index}", "kind": run["kind"], "status": run["status"],
-                         "command": run["command"], "tool": run["tool"],
-                         "source_ids": ["openai_preprint"], "subject_ids": [],
-                         "details": details})
+        state = currentness(run, hashes)
+        provenance = {"operation": run, "currentness": state}
+        subjects = [record["id"] for record in records
+                    if any(tie["declaration"] in run.get("declarations", []) for tie in record["lean"])]
+        evidence.append({"id": f"run_{index}", "kind": "semantic_review", "status": "not_run",
+                         "receipt": provenance,
+                         **({"receipt_path": run["receipt_file"], "receipt_sha256": run["receipt_sha256"]}
+                            if run.get("receipt_file") and run.get("receipt_sha256") else {}),
+                         "command": run["command"],
+                         "tool": "Projection of a local operation receipt; independent statement review not run",
+                         "source_ids": ["openai_preprint"], "subject_ids": subjects,
+                         "details": (details + f" Recorded {run['kind']} status: {run['status']}. "
+                                     f"Evidence currentness: {state}. This is historical metadata, "
+                                     "not a native lean-exposition proof/extraction receipt.").strip()})
     nodes = []
     for record in records:
+        selected = record["evidence"]
+        metadata = {"boundary": "Informal statement projection; no native formal declaration export or independent semantic verification."}
+        evidence_ids = ["fidelity_review", *[item["id"] for item in evidence
+                                            if record["id"] in item["subject_ids"]]]
+        if "assumption_declaration" in selected:
+            metadata_id = f"tie_review_{record['id']}"
+            evidence_ids.append(metadata_id)
+            evidence.append({
+                "id": metadata_id, "kind": "semantic_review", "status": "not_run", "command": [],
+                "tool": "Authored reviewed tie in corpus/ties.json",
+                "source_ids": ["openai_preprint"], "subject_ids": [record["id"]],
+                "details": "Reviewed premise/open-assumption classification; not an independent semantic review or proof receipt.",
+                "receipt": {"statement_evidence": selected,
+                            **{field: selected[field]
+                               for field in ("assumption_declaration", "premises", "open_assumptions")}},
+            })
+            metadata = {"declaration": selected["assumption_declaration"],
+                        "boundary": (metadata["boundary"] + " Selected tied theorem metadata. Ordinary premises: "
+                                     + ("; ".join(selected["premises"]) or "none")
+                                     + ". Additional open assumptions: "
+                                     + ("; ".join(selected["open_assumptions"]) or "none") + ".")}
         nodes.append({
             "id": record["id"], "kind": node_kind(record), "label": record["id"],
             "status": node_status(record), "assumption_ids": [],
-            "evidence_ids": ["fidelity_review"], "citation_ids": [],
+            **metadata,
+            "evidence_ids": evidence_ids, "citation_ids": [],
             "source_id": "openai_preprint",
             "locator": f"Section {record['section']}, extracted line {record['source_line']}",
             "statement": record["statement"],
         })
-    edges = [{"from": dep, "to": record["id"], "kind": "supports", "evidence_ids": []}
+    edges = [{"from": record["id"], "to": dep, "kind": "supports", "evidence_ids": []}
              for record in records for dep in record["depends_on"] if dep in ids]
     return {
         "schema_version": "1.2",
@@ -251,9 +351,16 @@ def evidence_graph(records, runs):
         "nodes": nodes,
         "edges": edges,
         "evidence": evidence,
-        "scope": ("Statement graph of the preprint, generated from the corrected ledger. Support "
-                  "edges are authored dependencies, not extracted Lean dependencies. A node is "
-                  "kernel_checked only through a reviewed tie and a Comparator receipt."),
+        "scope": ("Informal statement graph of the preprint, generated from the corrected ledger. Support "
+                  "edges point from each consumer to its authored prerequisite, not an extracted Lean dependency. "
+                  "Claim/goal nodes remain unverified and imported assumptions external. Actual current "
+                  "build/comparison results remain in corpus records and metadata receipts, not native "
+                  "lean-exposition verification/extraction evidence. "
+                  "Ordinary reviewed theorem premises do not make a statement conditional; "
+                  "explicit open_assumptions do, with hypotheses as the legacy fallback. "
+                  "Selected assumption metadata is omitted when no current built tie exists; "
+                  "its absence is unknown, whereas [] is an explicitly empty list. "
+                  "Historical receipt status is preserved separately from currentness."),
         "extraction_status": "not_run",
         "notes": ["Generated by tools/build_corpus.py; edit the inputs, not this file."],
     }
@@ -276,11 +383,13 @@ def outputs():
     proposed = declared_ties()
     reviewed = load_json(CORPUS / "ties.json", {})
     closure = load_json(CORPUS / "lean_dependencies.json", None)
+    hashes = source_hashes()
     records = statement_records(ledger, proposed, reviewed, runs,
-                                set(closure["reached"]) if closure else None)
+                                set(closure["reached"]) if closure else None, hashes,
+                                currentness(closure, hashes) if closure else "not_computed")
     return {
         CORPUS / "statements.json": records,
-        CORPUS / "evidence-graph.json": evidence_graph(records, runs),
+        CORPUS / "evidence-graph.json": evidence_graph(records, runs, hashes),
         CORPUS / "coverage.json": coverage(records, set(proposed) - set(ledger)),
     }
 
