@@ -1,0 +1,539 @@
+{
+  "scope": "Round 7 quantum-specialists review of the supplied writing method. These are proposed changes to the method, not instructions executed during this review and not rewrites of the manuscripts.",
+  "overall_assessment": "The skills already contain most of the right principles: explicit prerequisites, concrete operations, source-specific comparison, first-use testing, unchanged mathematical meaning and full-proof destinations. The recurring problem is that these principles are satisfied locally but not tested against the next thing the reader must actually do. Tighten those decisions and their examples; avoid adding another parallel checklist.",
+  "feedback": [
+    {
+      "id": "MF01",
+      "priority": "high",
+      "rule_or_skill": [
+        "skills/register-stage.md: Three parts",
+        "register/REGISTER_RULES.md",
+        "register/register_rules.json",
+        "register/measurement.txt"
+      ],
+      "problem": "The delivered rule set is incomplete relative to its own description and detector references. The stage description promises twenty-six general rules. Both supplied rule representations contain seventeen: RG-03, RG-04, RG-05, RG-07, RG-08, RG-10, RG-12, RG-23 and RG-25 are absent. The measurement still refers to several of these. A reviewer cannot assess the announced method from this packet.",
+      "instances": [
+        {
+          "file": "skills/register-stage.md",
+          "locator": "Three parts",
+          "quote": "Twenty-six general rules form one writing method."
+        },
+        {
+          "file": "register/measurement.txt",
+          "locator": "expert_companion: para_len_cv and question_share",
+          "detail": "The detector refers to missing RG-10 and RG-25."
+        }
+      ],
+      "existing_safeguard": "The method validates rule IDs and scopes and says the packet carries the method into every review.",
+      "what_to_do_instead": "When preparing a review copy, preserve the complete set of rule bodies and IDs. Remove private specimens or history fields individually, and disclose that those fields were omitted. Validate that every advertised rule and every detector rule reference resolves in the exported copy. This is an export-integrity repair, not a reason to add material to any paper.",
+      "acceptance_check": "A reviewer can locate all advertised rules, and every rule ID printed beside a measurement resolves to a supplied rule body."
+    },
+    {
+      "id": "MF02",
+      "priority": "high",
+      "rule_or_skill": [
+        "RG-01",
+        "skills/register/SKILL.md",
+        "register/profile.json",
+        "register/measurement.txt"
+      ],
+      "problem": "The qualitative instruction selects literature close in genre, but the reported quantitative comparison applies the same forty-two-document corpus to a short specialist companion, a teaching article and a long reference record. The resulting distances combine differences of purpose with weaknesses of writing. The record's appendix apparatus and the exposition's questions have legitimate functions that a research-paper median does not represent.",
+      "instances": [
+        {
+          "file": "register/measurement.txt",
+          "locator": "all three manuscript reports",
+          "detail": "Each uses 'cited literature (n=42 documents)'. The record apparatus score and the exposition question score are compared with the same baseline."
+        },
+        {
+          "file": "repository/docs/reasoning_record.md",
+          "locator": "Reading guide",
+          "quote": "The record can be read along four routes."
+        }
+      ],
+      "existing_safeguard": "RG-01 explicitly says to choose the closest sources in genre, and the profiler is a detector rather than a gate.",
+      "what_to_do_instead": "Make that genre choice affect the report itself. Show comparisons with a small named set of relevant research papers for the expert companion, teaching sources for the exposition, and extended proofs or reference works for the record. Separate the record's mathematical body from its evidence appendices before discussing apparatus. Keep the broad corpus as background rather than as a target distribution.",
+      "acceptance_check": "Every recommended prose edit names the reader benefit; none is justified merely by moving a feature toward the all-literature median."
+    },
+    {
+      "id": "MF03",
+      "priority": "medium",
+      "rule_or_skill": [
+        "skills/register-stage.md: profiler",
+        "register/measurement.txt"
+      ],
+      "problem": "The extracted spans are not consistently the prose a reader sees. The expert report lists YAML front matter as a specimen for paragraph-length variation; mathematical expressions are collapsed to MATH and citations to placeholders. These transformations can alter segmentation and apparent cadence. The current report is therefore useful for locating paragraphs, but its numerical distances are not a clean measurement of rendered prose quality.",
+      "instances": [
+        {
+          "file": "register/measurement.txt",
+          "locator": "expert_companion: para_len_cv",
+          "detail": "The first specimen begins at L1 with the YAML title, subtitle, author, date, bibliography and link-citations fields."
+        },
+        {
+          "file": "register/measurement.txt",
+          "locator": "para_len_mean specimens",
+          "detail": "Displayed mathematics is represented by MATH inside the measured sentence stream."
+        }
+      ],
+      "existing_safeguard": "The method says the reviewer must read every candidate in its source.",
+      "what_to_do_instead": "Make the extraction assumptions visible beside the report, and exclude metadata that is not rendered as prose. Compare like extraction formats and inspect the source and reading copy before interpreting a segmentation-based statistic. Preserve equations as boundaries even when their tokens are excluded from prose counts.",
+      "acceptance_check": "The report can explain why its sampled paragraphs correspond to paragraphs a reader actually encounters; obvious metadata never becomes a sentence-level editing target."
+    },
+    {
+      "id": "MF04",
+      "priority": "high",
+      "rule_or_skill": [
+        "RG-16",
+        "RG-19",
+        "RG-20",
+        "RG-21",
+        "register/measurement.txt"
+      ],
+      "problem": "Several leading detector hits are mathematically necessary or bibliographic. Author lists are classified as rhetorical triads, 'record' in a useful proof destination contributes to status vocabulary, and 'exactly' can state equality rather than emphasis. The large status score persists even though both short papers have apparatus_rate zero. An editing pass that follows the leading hits mechanically will remove credit, qualifications or navigation.",
+      "instances": [
+        {
+          "file": "register/measurement.txt",
+          "locator": "expert_companion: triad_rate",
+          "detail": "Examples include Aaronson, Ben-David and Kothari; Göös, Pitassi and Watson; and Ambainis, Iraids and Kokainis."
+        },
+        {
+          "file": "repository/docs/exposition.md",
+          "locator": "§4, Sampling a pivot",
+          "quote": "the column has exactly the ideal pivot law"
+        },
+        {
+          "file": "repository/docs/expert_companion.md",
+          "locator": "§3.2",
+          "quote": "No order or transitivity enters, so cycles among losers do no harm."
+        }
+      ],
+      "existing_safeguard": "The rules already distinguish mathematical negation from rhetoric and genuine lists from cadence.",
+      "what_to_do_instead": "Classify each proposed edit by the function of the flagged words before editing: mathematical assertion, attribution, necessary navigation or empty rhetoric. Record a scoped preservation reason for the first three. Prioritize repeated argument structure or overloaded paragraphs over harmless surface matches.",
+      "acceptance_check": "The revision retains exactness where the proof needs it and credits every source even if the corresponding detector score stays high."
+    },
+    {
+      "id": "MF05",
+      "priority": "high",
+      "rule_or_skill": [
+        "RG-02",
+        "skills/long-to-short/SKILL.md: final paragraph pass",
+        "skills/record-to-expository/SKILL.md: revision"
+      ],
+      "problem": "The demand to improve every sentence is productive as a demand to reconsider it, but it becomes hazardous if interpreted as a demand to alter it. The preceding round records 501 line edits in the record and forty-four subsequent corrections after an independent audit. That history shows that mathematical invariants need protection at the moment of editing, not only after a large batch. It does not establish that every remaining sentence needs changing.",
+      "instances": [
+        {
+          "file": "register/REGISTER_RULES.md",
+          "locator": "RG-02",
+          "quote": "There is always something to improve in a sentence"
+        },
+        {
+          "file": "previous_round/plans/reasoning_record.md",
+          "locator": "Second pass",
+          "detail": "The execution note reports 501 edits, of which 44 were corrected after an independent audit."
+        }
+      ],
+      "existing_safeguard": "RG-02 already permits an unchanged paragraph with a stated reason and forbids mathematical changes in the prose pass.",
+      "what_to_do_instead": "Keep the whole-document reread, but treat preservation as a real editorial outcome. Before changing a difficult paragraph, name its active objects, quantifier order, conditioning event, resource guarantee and credit. Recheck those specific invariants immediately after the edit. Group edits around a reader problem, not around a quota of changed sentences.",
+      "acceptance_check": "An improved paragraph is easier to follow while making the same assertions about the same procedure and event; a clear paragraph may remain unchanged for a concrete reason."
+    },
+    {
+      "id": "MF06",
+      "priority": "high",
+      "rule_or_skill": [
+        "RG-16",
+        "reader_principles.md: 7 and 10",
+        "skills/graph-to-long/SKILL.md: model and correspondence distinctions"
+      ],
+      "problem": "RG-16's preferred positive specimen, 'the argument uses only the law of the measured label', is now too underspecified to serve as an unconditional replacement template. The current expert formalisation paragraph carefully names a procedure that measures the label and resets the workspace; the record separately proves a successful-state assertion. Replacing that distinction with the specimen could reintroduce the earlier scope confusion. This is a stale method example, not a request to reopen the repaired formal claims.",
+      "instances": [
+        {
+          "file": "register/REGISTER_RULES.md",
+          "locator": "RG-16",
+          "quote": "the argument uses only the law of the measured label"
+        },
+        {
+          "file": "repository/docs/expert_companion.md",
+          "locator": "§7, Formalisation",
+          "quote": "a procedure that measures the label and resets its workspace"
+        },
+        {
+          "file": "repository/docs/reasoning_record.md",
+          "locator": "§5.1, upper-returned-register",
+          "quote": "This is a statement about a designated subsystem"
+        }
+      ],
+      "existing_safeguard": "The method already says equality of endpoints does not identify states, operations or proof routes.",
+      "what_to_do_instead": "Make positive rewriting preserve the subject of the claim. State which procedure has which output law and what subsequent operation uses it. Retain one precise negative distinction whenever it prevents an invalid substitution. Refresh illustrative method examples after a substantive correction, rather than leaving the old compression as a recommended model.",
+      "acceptance_check": "A reader can identify the procedure and permissible continuation from the shortened sentence without importing properties from a different implementation."
+    },
+    {
+      "id": "MF07",
+      "priority": "high",
+      "rule_or_skill": [
+        "skills/long-to-short/SKILL.md: Model the reader and find the one point",
+        "reader_principles.md: 1–3",
+        "RG-11"
+      ],
+      "problem": "Several individually reasonable opening obligations accumulate into an opening that is harder than its central idea. The expert companion's contribution paragraph introduces four constants, a threshold, a fixed-circuit requirement, a direct-product observation, a tournament relation, a uniform bound, a growing-parameter family and formalisation. Its intended reader still needs a compact reason that this construction beats the earlier cubic recipe. The existing instruction to rank obligations when the page budget is exceeded has not visibly governed the paragraph.",
+      "instances": [
+        {
+          "file": "repository/docs/expert_companion.md",
+          "locator": "§1, contribution paragraph",
+          "quote": "This paper adds the following to the preprint."
+        },
+        {
+          "file": "repository/docs/expert_companion.md",
+          "locator": "§1.2",
+          "quote": "The quantum search needs care."
+        }
+      ],
+      "existing_safeguard": "The short-paper skill explicitly prioritizes the reader's next decision and the decisive mechanism over accumulated obligations.",
+      "what_to_do_instead": "After assembling required opening material, perform a second selection by function: what the reader must know to understand the result now, what establishes credit, and what matters only when checking a bound later. Keep the mechanism and contribution visible; move exact engineering constants to their first use or a compact later statement. Do this by replacement and relocation, not by adding an extra overview paragraph.",
+      "acceptance_check": "After the opening, an expert can state both the earlier obstruction and the operation that changes its cost without recalling the numerical constants."
+    },
+    {
+      "id": "MF08",
+      "priority": "high",
+      "rule_or_skill": [
+        "skills/long-to-short/SKILL.md: comparison with the closest prior work",
+        "RG-01",
+        "reader_principles.md: 9"
+      ],
+      "problem": "A bibliography of adjacent techniques can look like a novelty argument without exposing the actual point of non-applicability. Here minimum finding, fixed-tournament king finding, search on bounded-error bits, exact local comparisons and approximate fixed-edge oracles have different input contracts. Saying only that each is a tournament or a search loses the distinction that matters: a losing pair may have no orientation computable with a uniform bounded-error guarantee.",
+      "instances": [
+        {
+          "file": "repository/docs/expert_companion.md",
+          "locator": "§1.3, comparison-search paragraph",
+          "quote": "in each a comparison has a fixed intended outcome"
+        },
+        {
+          "file": "repository/docs/reasoning_record.md",
+          "locator": "§5, upper-purpose",
+          "quote": "Their classical measure is certificate complexity"
+        }
+      ],
+      "existing_safeguard": "The skills already require comparison by hypotheses, conclusions, quantitative loss and the application's parameters.",
+      "what_to_do_instead": "For the closest antecedents, compare the oracle supplied, the promised correctness event, the returned object and the charged resource. Identify exactly which missing premise prevents a direct invocation. Use a small table only when those axes are genuinely independent. Do not infer impossibility for an entire framework from the limitations of one recipe, and do not call a standard cap conversion novel merely because it is made explicit here.",
+      "acceptance_check": "The reader can say why the named theorem does or does not apply, without relying on the authors' assertion that the methods differ."
+    },
+    {
+      "id": "MF09",
+      "priority": "high",
+      "rule_or_skill": [
+        "skills/record-to-expository/SKILL.md: audience and prerequisite ladder",
+        "reader_principles.md: 2, 3 and 12"
+      ],
+      "problem": "The method already forbids repairing a teaching failure by silently raising prerequisites, but the current exposition places substantial quantum and complexity prerequisites at the entrance. A reader's ability to recognize the phrase 'amplitude amplification' is different from their ability to recover a conditional output law from retained work registers. Declaring the former does not discharge the latter.",
+      "instances": [
+        {
+          "file": "repository/docs/exposition.md",
+          "locator": "§4, reversible comparison paragraph",
+          "quote": "branches with different labels stay orthogonal and cannot interfere"
+        },
+        {
+          "file": "repository/docs/exposition.md",
+          "locator": "§4, Sampling a pivot",
+          "quote": "The comparisons then act on separate fresh registers"
+        }
+      ],
+      "existing_safeguard": "The exposition skill explicitly distinguishes an operation a reader can perform from a list of named prerequisites, and says a narrower audience changes the requested scope.",
+      "what_to_do_instead": "Enforce the existing operation-level test at the two or three decisive uses. Ask the intended reader to predict a branch probability, identify which register is measured, and explain what is available to the next stage. If the passage does not supply that ability, repair it locally with an already supported small calculation. Do not solve the problem by expanding the prerequisite list.",
+      "acceptance_check": "The promised audience can perform the needed operation at its first consequential use; the review states whether this was an author simulation or an actual reader attempt."
+    },
+    {
+      "id": "MF10",
+      "priority": "high",
+      "rule_or_skill": [
+        "RG-13",
+        "skills/record-to-expository/SKILL.md: changed cases and distinguishing examples"
+      ],
+      "problem": "An example can satisfy the theorem and still hide the new feature. The exposition's cyclic board is excellent for defeating a total-order interpretation, but its decoder outcomes and comparisons are deterministic. The record's four-candidate example gives nonuniform fractional weights through the nearly perfect distinguished row, while the loser-to-loser edges remain certain. Neither local example directly makes the reader work with a losing pair near one half, which is the distinction used against bounded-error fixed-predicate search.",
+      "instances": [
+        {
+          "file": "repository/docs/exposition.md",
+          "locator": "§4, worked sampler stage",
+          "quote": "the decoders are exact and the comparisons deterministic"
+        },
+        {
+          "file": "repository/docs/reasoning_record.md",
+          "locator": "§5.2, upper-cyclic-example",
+          "quote": "these three certain comparisons are inconsistent with every total ordering"
+        }
+      ],
+      "existing_safeguard": "The skills already require examples that separate operations the reader might identify, and a changed case when an easy example hides the needed distinction.",
+      "what_to_do_instead": "After selecting the teaching example, list the false inferences it blocks and the ones it leaves intact. Preserve the existing deterministic cycle for its clear purpose. Where fractional comparisons carry the new argument, use a brief abstract comparison-table variation or the record's nonuniform sampler calculation, explicitly distinguishing an abstract tournament example from a construction of the full input. The recommendation is explanatory reuse of the existing theorem, not a new theorem or an unverified realizability claim.",
+      "acceptance_check": "The reader can separately explain why cycles defeat sorting and why a comparison near one half is outside a uniform bounded-error orientation oracle."
+    },
+    {
+      "id": "MF11",
+      "priority": "high",
+      "rule_or_skill": [
+        "skills/record-to-expository/SKILL.md: proof detail by reader use",
+        "skills/long-to-short/SKILL.md: allocation of section shares",
+        "RG-14"
+      ],
+      "problem": "A mathematically necessary guarantee is repeatedly treated as though every numerical detail of its proof belongs in every genre. The exposition carries the full 19/40, 9/40 and logarithmic trial-count calculation before resuming the candidate search. This is a place where the current draft still spends the reader's attention on a standard amplification constant instead of the distinctive conditional sampling law. The prior round already identified this allocation problem; the issue is that the revision did not enforce the intended allocation.",
+      "instances": [
+        {
+          "file": "repository/docs/exposition.md",
+          "locator": "§4, Amplification with a fixed cap",
+          "quote": "Either way a trial succeeds with probability at least $9/40$."
+        },
+        {
+          "file": "repository/docs/expert_companion.md",
+          "locator": "§3, Lemma 2",
+          "quote": "conditional on success its output state is $|g\\rangle$ up to a global phase"
+        }
+      ],
+      "existing_safeguard": "The method requires placing known background according to the audience's needs and preserving complete destinations for compressed proofs.",
+      "what_to_do_instead": "Decide separately whether the reader needs the contract, the reason for the contract, and the exact constant. Keep the fixed all-input cap, the zero-success case and the preserved conditional law at the call site. Give the direct-trial idea where it explains the high-success boundary. Route the numerical averaging bound to the record when it does not advance the exposition's promised task.",
+      "acceptance_check": "The exposition reader can explain why the search terminates and why it samples the intended pivot; the exact constant remains available without interrupting that explanation."
+    },
+    {
+      "id": "MF12",
+      "priority": "high",
+      "rule_or_skill": [
+        "RG-11",
+        "RG-14",
+        "skills/graph-to-long/SKILL.md: local entry objects",
+        "reader_principles.md: 5"
+      ],
+      "problem": "Dependency order alone does not tell the reader what the algorithm actually does. The tournament proof has an ideal weighted process, a reversible preparation, a measured pivot history, an amplified trial and a separate verifier. All are necessary, but the central distinction is which quantities exist only in the proof and which values the algorithm has learned. The current exposition's sentence that the algorithm never computes the weights is a particularly good repair and should become the model for other adaptive constructions.",
+      "instances": [
+        {
+          "file": "repository/docs/exposition.md",
+          "locator": "§4, An ideal process",
+          "quote": "the algorithm never computes or estimates them"
+        },
+        {
+          "file": "repository/docs/exposition.md",
+          "locator": "§4, A stage of the search",
+          "quote": "the outcome becomes the next pivot, a classical value that later preparations use"
+        },
+        {
+          "file": "repository/docs/reasoning_record.md",
+          "locator": "§5.2, upper-stage-state",
+          "quote": "Fix the current classical pivot list"
+        }
+      ],
+      "existing_safeguard": "The skills require explicit operations and the order of dependent choices.",
+      "what_to_do_instead": "At each adaptive transition, state what is fixed, what is sampled, what is retained coherently, what is measured, and what is known at the next step. Keep this in the mathematical narrative; it need not become a repeated five-field checklist. Use proof-only variables to explain a calculation only after making their unavailability to the algorithm clear.",
+      "acceptance_check": "A reader can narrate one actual run without pretending the algorithm knows a probability or weight used only in the analysis."
+    },
+    {
+      "id": "MF13",
+      "priority": "medium",
+      "rule_or_skill": [
+        "skills/long-to-short/SKILL.md: citation roles",
+        "RG-15",
+        "reader_principles.md: 9"
+      ],
+      "problem": "Compression can move a premise after the formula it qualifies. The expert account introduces a general partial function g, displays a quantum cost without Q(g), and only then assumes Q(g) is polylogarithmic. The conclusion intended for the earlier AND–OR recipe is sound under that assumption; the trouble is the order in which the reader receives it. The cited cheat-sheet source places its small-Q(g) assumption before deriving the cost.",
+      "instances": [
+        {
+          "file": "repository/docs/expert_companion.md",
+          "locator": "§1.1, Earlier separations",
+          "quote": "In their construction a partial function $g$ on $n$ bits is composed"
+        },
+        {
+          "file": "repository/docs/expert_companion.md",
+          "locator": "§1.1, after the displayed cost",
+          "quote": "If $Q(g)$ is polylogarithmic"
+        }
+      ],
+      "existing_safeguard": "The skills already require hypotheses beside the inference they support and quantitative comparison with the application at hand.",
+      "what_to_do_instead": "When compressing a source calculation, check every displayed expression against only the premises already introduced. Either announce the restriction before the display or retain the parameter in the displayed formula. More generally, preserve the source's logical order even when changing its narrative order.",
+      "acceptance_check": "A reader stopping at the formula has already been given all hypotheses needed to read it as stated.",
+      "outside_source": "Aaronson, Ben-David and Kothari, Separations in query complexity using cheat sheets, arXiv:1511.01937v2, §3.1, printed pp. 9–10; https://arxiv.org/pdf/1511.01937"
+    },
+    {
+      "id": "MF14",
+      "priority": "medium",
+      "rule_or_skill": [
+        "skills/long-to-short/SKILL.md: complete short-to-long journey",
+        "skills/graph-to-long/SKILL.md: local entry and return",
+        "RG-14"
+      ],
+      "problem": "An existing destination is not necessarily the correct destination. The record's ideal tournament paragraph sends the reader back to §4.2 of the specialist companion, but the current companion's tournament is §3.2. This is a reader-route failure that a file-exists or anchor-exists check cannot detect. The underlying arguments and formal evidence need not be reopened to fix it.",
+      "instances": [
+        {
+          "file": "repository/docs/reasoning_record.md",
+          "locator": "§5.2, opening of upper-ideal-process",
+          "quote": "Return to the [specialist companion](expert_companion.md), §4.2."
+        }
+      ],
+      "existing_safeguard": "The short-paper skill already requires following a full journey and verifying the argument at the destination.",
+      "what_to_do_instead": "Test the semantic arrival: the named section must begin or contain the inference the link promises, with enough local context to resume. After section reordering, check incoming return pointers as well as outgoing references. Keep locators readable and resolve the ordinary mathematical task, not only the URL.",
+      "acceptance_check": "Following the pointer puts the reader at the intended argument, and the return lands at the step that needed it."
+    },
+    {
+      "id": "MF15",
+      "priority": "medium",
+      "rule_or_skill": [
+        "skills/long-to-short/SKILL.md: title, abstract and proof coverage",
+        "reader_principles.md: 2 and 11"
+      ],
+      "problem": "The opening promise of a complete argument is stronger in the reader's ear than the later inventory of imported facts. The expert companion says it gives the complete argument, then explains that it cites Forrelation hardness, circuit properties, local tests, amplification facts, minimax and the universal bound. This may be a defensible mathematical convention for a specialist paper, but the method should check that the particular audience understands its scope before rewarding the phrase as a contribution.",
+      "instances": [
+        {
+          "file": "repository/docs/expert_companion.md",
+          "locator": "abstract",
+          "quote": "We give the complete argument with explicit constants"
+        },
+        {
+          "file": "repository/docs/expert_companion.md",
+          "locator": "§1.3, final paragraph",
+          "quote": "We cite, and do not reprove"
+        }
+      ],
+      "existing_safeguard": "The skill requires an intelligible proof or an explicitly labelled sketch, with all omitted inferences assigned destinations.",
+      "what_to_do_instead": "Define the scope of a completeness claim by its mathematical task: a complete derivation of the total-function separation from specified inputs, for example. Keep the imported-input inventory brief and useful, and align the abstract's promise with it. Avoid increasing the paper with proofs its audience already accepts merely to preserve an expansive adjective.",
+      "acceptance_check": "The reader knows what they can verify within this paper and which named results they are being asked to accept, before they invest in the proof."
+    },
+    {
+      "id": "MF16",
+      "priority": "medium",
+      "rule_or_skill": [
+        "RG-17",
+        "RG-19",
+        "RG-01"
+      ],
+      "problem": "Several rules are sound as judgments but risky as surface transformations. Breaking a three-item list into two or four items has no intrinsic explanatory benefit; mathematical comparisons sometimes need a negative sentence; a single organisation formula from the literature is not a universal opening template. The current papers need variation of argument and reader load more than cosmetic variation in list length.",
+      "instances": [
+        {
+          "file": "register/REGISTER_RULES.md",
+          "locator": "RG-19",
+          "quote": "Break rule-of-three lists into two items, four named objects or a full clause."
+        },
+        {
+          "file": "repository/docs/expert_companion.md",
+          "locator": "§2, total function",
+          "quote": "The definition imposes no promise on the address inputs, pointers or transcripts"
+        }
+      ],
+      "existing_safeguard": "RG-19 already permits genuinely parallel named triples; RG-17 permits mathematical negation and actual comparisons.",
+      "what_to_do_instead": "Phrase the editorial decision in terms of the defect: redundant items, vague category names, parallel sentences that do different jobs, or rhetoric that hides the positive claim. Preserve a natural three-part mathematical inventory when it expresses three real objects. Treat punctuation and count restrictions as author preferences, never evidence that a mathematical passage is clear.",
+      "acceptance_check": "Each surface change has an identifiable semantic or reading benefit, and no artificial fourth item is introduced to satisfy a cadence detector."
+    },
+    {
+      "id": "MF17",
+      "priority": "medium",
+      "rule_or_skill": [
+        "skills/source-to-graph/SKILL.md: source scope",
+        "skills/graph-to-long/SKILL.md: access is not reading",
+        "RG-01"
+      ],
+      "problem": "Freshness has two distinct jobs: locating new relevant work and verifying the edition actually used. A newer version is not itself evidence that an older comparison is wrong. The supplied AIK paper is v2, while a public v3 is available; the fixed-graph and capped-search mechanisms relevant here already occur in the supplied version. A new tournament-solutions paper was discovered online, but its primary body was inaccessible in this review. Neither observation licenses a novelty objection from a title or abstract.",
+      "instances": [
+        {
+          "file": "repository/docs/reasoning_record.md",
+          "locator": "§5, upper-purpose",
+          "quote": "[AIK2026, arXiv v2]"
+        },
+        {
+          "file": "literature/quartic-ref-05-near-optimal-separations-of-certificate-co/extracted.md",
+          "locator": "§6.1",
+          "detail": "The supplied version specifies the fixed underlying graph, U(W), approximate edge routines and a capped FindSource procedure."
+        }
+      ],
+      "existing_safeguard": "The method already distinguishes an unavailable source from a source inspected and found insufficient.",
+      "what_to_do_instead": "Record the inspected edition and exact source scope. Search for recent work, then compare the actual relevant theorem or algorithm before changing a novelty statement. Treat abstract-only discoveries as leads. Update a citation only when its content, metadata or locator needs updating; do not turn version age into a defect by itself.",
+      "acceptance_check": "Every substantive comparison is supported by a read primary passage, and the review makes unavailable bodies and sampled newer editions explicit.",
+      "outside_source": "https://arxiv.org/abs/2609.11664 ; https://arxiv.org/abs/2610.39702"
+    },
+    {
+      "id": "MF18",
+      "priority": "medium",
+      "rule_or_skill": [
+        "skills/register-stage.md: Three fields, one method",
+        "skills/record-to-expository/SKILL.md: reader checks",
+        "reader_principles.md: 12"
+      ],
+      "problem": "Finding a move in three research literatures supports its plausibility and scope; it does not show that readers understand a new manuscript better because of it. The register-stage account correctly labels candidates, but the phrase 'tested in three fields' can be overread as an outcome evaluation. The same danger applies when an AI reviewer successfully follows a proof after consulting the record and then reports that the first encounter teaches it well.",
+      "instances": [
+        {
+          "file": "skills/register-stage.md",
+          "locator": "Three fields, one method",
+          "quote": "Each general rule was then tested against the cited literature"
+        },
+        {
+          "file": "reader_principles.md",
+          "locator": "Principle 12",
+          "quote": "Judge by what a reader can do."
+        }
+      ],
+      "existing_safeguard": "The exposition skill already separates author checks from actual reader responses and says a checked example is not evidence of understanding.",
+      "what_to_do_instead": "Name the evidence precisely: corpus occurrence, editorial judgment, simulated first read, or observed reader reconstruction. Use a bounded task to evaluate a proposed change, such as recovering the invariant after a changed case. Report the result only if that task was actually attempted; leave human-reader validation unperformed when no person participated.",
+      "acceptance_check": "No claimed teaching success rests solely on publication style, a detector score, a working link, or the reviewer's assisted reread."
+    },
+    {
+      "id": "MF19",
+      "priority": "medium",
+      "rule_or_skill": [
+        "RG-06",
+        "RG-18",
+        "RG-21",
+        "skills/graph-to-long/SKILL.md: argument order"
+      ],
+      "problem": "The method contains a useful tension that needs an explicit decision rule. RG-06 says a long record replaces a reading guide with an organisation paragraph, while RG-21 allows a short guide for required and optional routes. This record has several materially different tasks, so its route table is justified. The remaining issue is repeated orientation and invariant recitals inside the proof, not the mere presence of a guide.",
+      "instances": [
+        {
+          "file": "register/REGISTER_RULES.md",
+          "locator": "RG-06 limit",
+          "quote": "a long record replaces a reading guide with this paragraph"
+        },
+        {
+          "file": "register/REGISTER_RULES.md",
+          "locator": "RG-21 limit",
+          "quote": "The long record may keep a short reading guide"
+        },
+        {
+          "file": "repository/docs/reasoning_record.md",
+          "locator": "§5.2",
+          "quote": "We first fix the comparison model and the parameters."
+        }
+      ],
+      "existing_safeguard": "The long-record skill already distinguishes logical dependency order from the best reading order and allows independent entry points.",
+      "what_to_do_instead": "Choose the navigation device by the number of genuinely different reader tasks. Use one concise route guide when the document supports several; use one prose organisation paragraph for a largely sequential paper. At a local entry repeat only the objects needed to recover the omitted inference, and remove repeated statements of the entire programme.",
+      "acceptance_check": "The reader can choose a route once, then follow the mathematics without repeated instructions to choose again."
+    },
+    {
+      "id": "MF20",
+      "priority": "high",
+      "rule_or_skill": [
+        "skills/register/SKILL.md",
+        "skills/long-to-short/SKILL.md",
+        "skills/record-to-expository/SKILL.md",
+        "reader_principles.md"
+      ],
+      "problem": "The current method is already extensive, and many observed failures have an existing rule aimed precisely at them. Adding one more rule for each review finding would make compliance more costly without resolving the decision that failed. This round's useful distinction is between a missing rule, a defective example, a conflicting instruction, an unexecuted check and a judgment that proved wrong.",
+      "instances": [
+        {
+          "file": "repository/docs/exposition.md",
+          "locator": "§4, Amplification with a fixed cap",
+          "detail": "Over-allocation of routine constant arithmetic survives despite existing audience and proof-allocation rules."
+        },
+        {
+          "file": "register/REGISTER_RULES.md",
+          "locator": "RG-13",
+          "detail": "The rule already asks an example to block a likely false inference; the current examples only partly test the distinction the novelty discussion needs."
+        },
+        {
+          "file": "register/REGISTER_RULES.md",
+          "locator": "RG-16",
+          "detail": "The positive-rewrite specimen needs qualification after the formal-route correction."
+        }
+      ],
+      "existing_safeguard": "The stage account says the local rules were generalized, merged and split by purpose rather than accumulated verbatim.",
+      "what_to_do_instead": "For each accepted method finding, identify its failure class and edit the smallest existing rule or specimen that owns it. Prefer one decisive acceptance task over another paragraph of exhortation. Keep general principles general; preserve this construction's examples as examples. Retire redundant or contradictory wording when a rule is strengthened.",
+      "acceptance_check": "The revised method is easier to apply, and a reviewer can explain which existing decision would change on the next paper in another field."
+    }
+  ],
+  "keep": [
+    "Keep the rule that a detector is never a verdict; this review supplies concrete cases where that limit matters.",
+    "Keep exact mathematical qualifications and local named-input assumptions even when they raise negation or status counts.",
+    "Keep the distinction between an ordinary proof, a formal endpoint and a checked correspondence; the previous-round repairs should not be undone.",
+    "Keep examples that change one condition and ask what survives, with answers and a precise role.",
+    "Keep the separation of author checks, model reviews and actual reader responses.",
+    "Keep the original theorem and analyses credited to OpenAI, with earlier methods credited locally where used."
+  ]
+}

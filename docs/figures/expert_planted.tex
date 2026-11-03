@@ -17,10 +17,10 @@
   >={Stealth[length=2mm]}]
 % #1 x-offset, #2 panel name prefix, #3 planted? (0/1)
 \newcommand{\panel}[3]{%
-  \foreach \row/\z/\lab in {1/3/{1},2/7/{2},3/5/{3=I},4/2/{4}} {
+  \foreach \row/\z/\lab in {1/3/{1},2/4/{2},3/1/{3=I},4/2/{4}} {
     \pgfmathsetmacro{\y}{-0.7*\row}
     \node[anchor=east, font=\footnotesize] at (#1-0.12,\y) {$\lab$};
-    \foreach \c in {1,...,8} {
+    \foreach \c in {1,...,4} {
       \ifnum\c=\z
         \ifnum#3=1 \ifnum\row=3
           \node[bit, fill=win!20, draw=win, very thick] (#2\row-\c)
@@ -34,26 +34,27 @@
         \node[bit, fill=one] (#2\row-\c) at (#1+0.46*\c-0.23,\y) {1};
       \fi}
     \node[draw=addr, fill=addr!10, minimum width=9mm, minimum height=4.3mm,
-          inner sep=0pt, font=\footnotesize] at (#1+4.3,\y) {$\sim\!\mu^{\otimes r}$};
+          inner sep=0pt, font=\footnotesize] at (#1+2.46,\y) {$\sim\!\mu^{\otimes r}$};
     \foreach \c in {1,...,5} {
       \ifnum#3=1 \ifnum\row=3 \ifnum\c=3
-        \node[cell, fill=win!20, draw=win, very thick] (#2cell) at (#1+4.7+0.5*\c,\y) {};
-      \else \node[cell] at (#1+4.7+0.5*\c,\y) {}; \fi
-      \else \node[cell] at (#1+4.7+0.5*\c,\y) {}; \fi
-      \else \node[cell] at (#1+4.7+0.5*\c,\y) {}; \fi}
-    \node[font=\scriptsize] at (#1+7.55,\y) {$\cdots$};
+        \node[cell, fill=win!20, draw=win, very thick] (#2cell) at (#1+2.86+0.5*\c,\y) {};
+      \else \node[cell] at (#1+2.86+0.5*\c,\y) {}; \fi
+      \else \node[cell] at (#1+2.86+0.5*\c,\y) {}; \fi
+      \else \node[cell] at (#1+2.86+0.5*\c,\y) {}; \fi}
+    \node[font=\scriptsize] at (#1+5.71,\y) {$\cdots$};
   }
-  \node[font=\footnotesize, black!70] at (#1+1.84,-0.15) {$X_i$};
-  \node[font=\footnotesize, addr] at (#1+4.3,-0.15) {$A_{i,h}$};
-  \node[font=\footnotesize, black!70] at (#1+6.45,-0.15) {cells $B_{i,s}$};
+  \node[font=\footnotesize, black!70] at (#1+0.92,-0.15) {$X_i$};
+  \node[font=\footnotesize, addr] at (#1+2.55,-0.15) {$A_i=(A_{i,1},\ldots,A_{i,r})$};
+  \node[font=\footnotesize, black!70] at (#1+4.61,-0.15) {cells $B_{i,s}$};
 }
 \panel{0}{d}{0}
-\panel{8.6}{p}{1}
+\panel{7.4}{p}{1}
 \node[font=\small\bfseries, anchor=west] at (-0.4,0.42) {dummy input $Y^{(0)}$: $F=0$};
-\node[font=\small\bfseries, anchor=west] at (8.2,0.42) {planted input $Y^{(1)}$: $F=1$};
+\node[font=\small\bfseries, anchor=west] at (7.0,0.42) {planted input $Y^{(1)}$: $F=1$};
 % legend for the two changed locations
-\node[win, font=\small, anchor=north west, align=left] at (8.3,-3.15)
+\node[win, font=\small, anchor=north west, align=left] at (7.1,-3.15)
   {red outlines: the erased zero $X_I[J_I]$ and the filled cell $B_{I,s_I}$\\
-   (true transcripts, and pointers to $J_j$ for every $j\ne I$)};
+   (true transcripts, and pointers to $J_j$ for every $j\ne I$)\\
+   address blocks are unchanged between panels};
 \end{tikzpicture}
 \end{document}

@@ -1,0 +1,303 @@
+{
+  "packet": "lower_bound_specialists",
+  "scope": "Advice on the supplied method only. No writing skill, graph, manuscript or formal source was modified. Existing sound rules and failures of application are distinguished where possible.",
+  "method_findings": [
+    {
+      "id": "M01",
+      "rule_or_skill": "register/REGISTER_RULES.md RG-02; skills/long-to-short/SKILL.md, paragraph-by-paragraph revision rule",
+      "rule_quote": "There is always something to improve in a sentence; a paragraph left unchanged needs a stated reason.",
+      "classification": "Rule incentive requiring refinement; causation is not established",
+      "instances": [
+        "LS114",
+        "LS041",
+        "LS088",
+        "LS093"
+      ],
+      "problem": "The mandatory-rewrite presumption makes an unchanged, accurate paragraph look like an exception. In these drafts several full proofs preserve the necessary quantifiers while shorter summary or cap statements weaken them. The review cannot prove that RG-02 caused those edits, but the rule encourages churn exactly where logical fidelity has already been achieved.",
+      "why_it_matters": "A cosmetic revision can turn a fixed-time joint event into an ever-hit or conditional claim, or a fixed upper cap into a fixed realized count.",
+      "recommendation": "Retain the sequential reread, but permit a positive decision to preserve a paragraph because its purpose, inference and wording already work. Require a specific reader benefit before rewriting it. Treat changes to events, quantifiers and cost conventions as mathematical changes under RG-02's own limit.",
+      "general_test": "Before accepting a summary edit, compare its event, time scope, conditioning and quantifier order with the proof it summarizes. No new theorem or formal check is required."
+    },
+    {
+      "id": "M02",
+      "rule_or_skill": "skills/long-to-short/SKILL.md procedures 4 and 6; skills/graph-to-long/SKILL.md procedure 6",
+      "rule_quote": "Identify the result obtained at that\n   destination and where the reader returns.",
+      "classification": "Existing sound rule was incompletely applied",
+      "instances": [
+        "LS118",
+        "LS161",
+        "LS155",
+        "LS201"
+      ],
+      "problem": "The skills already require a complete outward-and-return journey. Current prose still points to the wrong companion section even when the file link resolves. A single tested journey does not cover all routes affected by section renumbering.",
+      "why_it_matters": "A reader who has recovered the omitted inference is sent to the wrong argument on returning. Structural link validity is weaker than semantic route correctness.",
+      "recommendation": "When a section moves, inspect its incoming references and its outgoing return instructions as one changed unit. Compare the visible number and topic with the actual destination. Prefer stable named anchors accompanied by readable topic labels. Refine the existing rule instead of adding another general navigation checklist.",
+      "general_test": "For each moved destination, follow one affected incoming reference and every distinct return label. Stop when the omitted inference and correct continuation are recovered."
+    },
+    {
+      "id": "M03",
+      "rule_or_skill": "skills/source-to-graph/SKILL.md procedure 6; reader_principles.md principle 9",
+      "rule_quote": "Distinguish a theorem used in\n   the proof, historical credit, an adapted construction and an explanatory\n   comparison.",
+      "classification": "Historical comparison needs the same quantifier care as a theorem citation",
+      "instances": [
+        "LS012",
+        "LS070",
+        "LS153"
+      ],
+      "problem": "The bibliography identifies the right pointer-function paper, but the companion changes its highlighted-zero condition into a condition on every zero. The exposition also names a proposed direct-pointer representation without carrying the source's reason for rejecting that representation in its own model.",
+      "why_it_matters": "Correct author attribution does not make the described antecedent accurate. It can conceal precisely what the new construction changes.",
+      "recommendation": "For adapted gadgets, compare the quantified objects, accepted inputs and access costs against the source definition. Record whether the source implements the gadget, proposes it, or explains an obstruction. Keep the changed interface local to the comparison.",
+      "general_test": "Can a reader instantiate the cited construction from the summary without imposing an extra condition or granting a cheaper access operation?"
+    },
+    {
+      "id": "M04",
+      "rule_or_skill": "register/REGISTER_RULES.md RG-19; register/measurement.txt, triad specimens",
+      "rule_quote": "A list of three genuinely parallel named objects is fine; the rule targets cadence.",
+      "classification": "Detector false positives; preserve the stated exception",
+      "instances": [
+        "Expert measurement specimens naming Aaronson, Ben-David and Kothari, and Göös, Pitassi and Watson",
+        "LS069",
+        "LS101"
+      ],
+      "problem": "The measured triads include author lists and meaningful mathematical groupings. The prose rule's exception already protects them, but its instruction to break three items into two or four makes the mechanical repair unusually tempting.",
+      "why_it_matters": "Changing an author list or obscuring the three real budgets would worsen accuracy and comprehension merely to move a style statistic.",
+      "recommendation": "Tag named authors and defined mathematical objects as exempt before considering rhythmic edits. Use a specimen-level judgement and state whether a flagged list is functional. Do not prescribe a different number of items.",
+      "general_test": "Would splitting or regrouping the list preserve the mathematical roles and make a concrete sentence easier to understand? If not, leave it."
+    },
+    {
+      "id": "M05",
+      "rule_or_skill": "register/REGISTER_RULES.md RG-20 and RG-21; register/measurement.txt, apparatus and status vocabulary",
+      "rule_quote": "A detector points at sentences to reread; it never passes or fails a paper.",
+      "classification": "Measurement cannot determine allocation or useful evidentiary scope",
+      "instances": [
+        "LS053",
+        "LS054",
+        "LS154",
+        "LS108",
+        "LS187"
+      ],
+      "problem": "Both shorter drafts have apparatus_rate zero, yet their formal sections can still overload the intended reader or join an evidentiary claim with the wrong causal connective. Conversely, the long record's high rate is partly expected in the dedicated evidence appendix. The statistic alone does not detect either issue.",
+      "why_it_matters": "A low score can coexist with an unhelpful verification paragraph, while an appropriate appendix can look like the worst prose in the bundle.",
+      "recommendation": "Judge formal prose by its job and location: what claim is checked, what the reader should inspect, and where the detailed scope lives. Separate the required proof route from optional evidence apparatus when interpreting rates. Keep the current detector-only warning explicit.",
+      "general_test": "Ask a reader to identify one checked statement and one material limitation without reading every declaration link. Do not infer success from a word-rate target."
+    },
+    {
+      "id": "M06",
+      "rule_or_skill": "register/REGISTER_RULES.md RG-06 versus RG-21; reader_principles.md principle 2",
+      "rule_quote": "a long record replaces a reading guide with this paragraph.",
+      "classification": "Conflicting general instructions",
+      "instances": [
+        "LS115",
+        "LS125"
+      ],
+      "problem": "RG-06 categorically replaces the long reading guide with one organization paragraph, while RG-21 permits a short guide separating required and optional routes. This record needs the latter because construction, independent Forrelation proof and formal-statement review have genuinely different prerequisite sets.",
+      "why_it_matters": "Following the more restrictive sentence can undo a successful repair and again force every reader through the longest route.",
+      "recommendation": "Give the role-based exception precedence: use one concise mathematical roadmap, with a short branching guide only where readers have different legitimate stopping points. Delete categorical wording that conflicts with that purpose.",
+      "general_test": "Can each intended reader find the necessary argument and stop without traversing an unrelated proof or evidence route?"
+    },
+    {
+      "id": "M07",
+      "rule_or_skill": "register/REGISTER_RULES.md RG-26; reader_principles.md principles 5 and 13",
+      "rule_quote": "Say in the caption or the text what each mark means",
+      "classification": "Visual interpretation also needs consistency with declared data",
+      "instances": [
+        "LS034",
+        "LS073"
+      ],
+      "problem": "The expert figure labels m=4 but draws eight positions per X string. The exposition's corresponding four-position board is correct. The caption can explain the meaning of every mark and still describe the wrong finite instance.",
+      "why_it_matters": "A diagram used to teach a finite construction carries mathematical data, not merely decoration. Copying a finding across superficially similar figures would also be a review error.",
+      "recommendation": "For an exact example, compare visible counts, addresses and edges with the stated parameter values. If the drawing is schematic, explicitly mark which lengths are schematic. Inspect each document's actual rendered figure independently.",
+      "general_test": "Can every displayed coordinate or edge be assigned to the claimed finite object without changing a parameter?"
+    },
+    {
+      "id": "M08",
+      "rule_or_skill": "skills/long-to-short/SKILL.md procedure 6; reader_principles.md principles 7 and 14",
+      "rule_quote": "A repaired proof paragraph alone does not close\n   the change.",
+      "classification": "Existing propagation rule should include negative claims and exercises",
+      "instances": [
+        "LS203",
+        "LS112",
+        "LS110",
+        "LS114"
+      ],
+      "problem": "The new growing-k derivation coexists with an old catalogue claim that no such schedule is inferred. Exercise answers also strengthen bounded-error or endpoint claims beyond the main proof. These are claim-bearing locations even though they are not theorem statements.",
+      "why_it_matters": "Readers frequently rely on summaries and answers as their final understanding; correctness confined to the full proof is insufficient.",
+      "recommendation": "When a claim changes, include its negative scope statements, catalogue entries, captions and exercise answers in the same reconciliation pass. Compare each against the exact conclusion being used, including infimum versus endpoint and deterministic failure versus bounded-error rejection.",
+      "general_test": "List the changed claim's user-facing occurrences and ask whether each says the same thing, a deliberately weaker thing, or a stronger thing requiring support."
+    },
+    {
+      "id": "M09",
+      "rule_or_skill": [
+        "skills/record-to-expository/SKILL.md: Preconditions and inputs; Model the reader and frame the result",
+        "reader_principles.md: 2, 11, 12"
+      ],
+      "severity": "high",
+      "general_problem": "A prerequisite declaration can be treated as a successful teaching repair even when it narrows an audience fixed by the request. The skill already forbids this; the missing piece is enforcing that distinction at acceptance.",
+      "instances": [
+        {
+          "finding": "LS063",
+          "paper": "exposition",
+          "location": "Introduction",
+          "current_quote": "This account is written for a graduate student who knows the query models above"
+        }
+      ],
+      "recommended_change": "For the first consequential use of each operation, record whether the fixed reader already knows it, the exposition teaches it locally, or a precisely stated input is accepted. If a broad new course prerequisite is needed, record an unresolved scope mismatch instead of marking the teaching request complete.",
+      "scope_guard": "Do not require remedial examples for operations actually supplied by the agreed audience, and do not forbid authors from choosing an audience when the task leaves that choice open."
+    },
+    {
+      "id": "M10",
+      "rule_or_skill": [
+        "skills/record-to-expository/SKILL.md: Procedure 5–6; Checks and example",
+        "reader_principles.md: 7, 12, 14"
+      ],
+      "severity": "medium",
+      "general_problem": "An exercise answer can be checked against the author’s displayed parameter recipe rather than against the exact mathematical objective in its question. Endpoint assertions and infimum assertions are then conflated.",
+      "instances": [
+        {
+          "finding": "LS112",
+          "paper": "exposition",
+          "location": "Question 4 and answer",
+          "current_quote": "as $k=2$ for the cube, $k=4$ gives exactly $3.5$ and does not suffice."
+        }
+      ],
+      "recommended_change": "When an exercise uses a boundary value, explicitly identify its target conclusion: membership, non-membership, an attained extremum, an infimum bound, or failure of a particular sufficient test. Validate the answer against that conclusion, including nearby interior values.",
+      "scope_guard": "This is a targeted check for conclusions with different endpoint logic, not a requirement to add endpoint exercises to every theorem."
+    },
+    {
+      "id": "M11",
+      "rule_or_skill": [
+        "skills/record-to-expository/SKILL.md: Procedure 2, 4, 5 and 6",
+        "reader_principles.md: 5, 7"
+      ],
+      "severity": "medium",
+      "general_problem": "Conveniently exact components in a toy example can cause the write-up to make an entire probabilistic pipeline exact. A separate loss of modality occurs when a fixed maximum budget is described as a fixed realised execution.",
+      "instances": [
+        {
+          "finding": "LS110",
+          "paper": "exposition",
+          "location": "Question 2 answer",
+          "current_quote": "and rejects $2$ and $4$ by the zeros in their own strings."
+        },
+        {
+          "finding": "LS088",
+          "paper": "exposition",
+          "location": "Section 4, The count",
+          "current_quote": "Every number of trials, iterations, stages and comparisons is fixed in advance"
+        }
+      ],
+      "recommended_change": "At the output of each composed stage, retain whether the claim is deterministic, conditional, high probability, or capped in the worst case. Verify toy answers against every remaining stage of the actual algorithm, not merely the stage made exact by the chosen data.",
+      "scope_guard": "Do not turn this into a separate probability table for every example; use it where composition changes the status of a claim."
+    },
+    {
+      "id": "M12",
+      "rule_or_skill": [
+        "skills/record-to-expository/SKILL.md: Procedure 3, 6 and 8",
+        "reader_principles.md: 5, 12, 14"
+      ],
+      "severity": "high",
+      "general_problem": "An exposition can execute several peripheral examples while leaving its main reduction as a named or described operation. Its exercises can then confirm local fluency without assessing the promised central inference.",
+      "instances": [
+        {
+          "finding": "LS099",
+          "paper": "exposition",
+          "location": "Section 5, The simulator",
+          "current_quote": "it stops before the $(L+1)$-st forwarded query."
+        },
+        {
+          "finding": "LS111",
+          "paper": "exposition",
+          "location": "Questions and answers",
+          "current_quote": "**[Question 3](#question-3).** An independent $I$ is hit with probability"
+        }
+      ],
+      "recommended_change": "Identify the last established fact and the next required conclusion at the main reduction. Execute one existing small case across that transition, including its exceptional branch, then make a changed-case task ask the reader to carry out the same inference. Assess the transition rather than the number of examples or questions.",
+      "scope_guard": "Do not require a new example if the original proof already supplies an executable case, and do not infer human comprehension from an agent’s successful reconstruction."
+    },
+    {
+      "id": "M13",
+      "rule_or_skill": [
+        "skills/record-to-expository/SKILL.md: Procedure 3–4; hypothesis rules",
+        "reader_principles.md: 4–5"
+      ],
+      "severity": "high",
+      "general_problem": "A repair requesting full adaptive conditioning can introduce future information by replacing a vague local history with the completed transcript. The amount of information and its time index must be checked together.",
+      "instances": [
+        {
+          "finding": "LS093",
+          "paper": "exposition",
+          "location": "Section 5, The erased zero",
+          "current_quote": "condition on the whole transcript of the dummy run."
+        }
+      ],
+      "recommended_change": "For a claim about the next action or its conditional probability, state which observations precede that action and which remain random. Check that the event being predicted is not already determined by the conditioning. Preserve all relevant past observations without conditioning on future ones.",
+      "scope_guard": "The general lesson is temporal conditioning in adaptive arguments; it does not require formal filtration notation in a newcomer exposition."
+    },
+    {
+      "id": "M14",
+      "rule_or_skill": [
+        "skills/record-to-expository/SKILL.md: Procedure 2 and 6; Checks and example",
+        "reader_principles.md: 7, 14"
+      ],
+      "severity": "medium",
+      "general_problem": "A warning that a small example cannot instantiate a useful quantitative theorem can overstate the reason, turning failure of a hypothesis or a vacuous bound into nonexistence of a mathematical object. The skill already distinguishes an inconclusive test from a false conclusion.",
+      "instances": [
+        {
+          "finding": "LS091",
+          "paper": "exposition",
+          "location": "Section 5, Figure 4 introduction",
+          "current_quote": "At $m=4$ there is no hard distribution"
+        }
+      ],
+      "recommended_change": "When delimiting a toy example, name the exact missing hypothesis or degenerate parameter and the conclusion that therefore cannot be drawn. Check whether the object still exists at that parameter, even if the quantitative argument is uninformative.",
+      "scope_guard": "Do not demand that every tiny example satisfy every asymptotic hypothesis; an honest illustration of geometry or definitions is sufficient."
+    },
+    {
+      "id": "M15",
+      "rule_or_skill": [
+        "skills/record-to-expository/SKILL.md: Model the reader and frame the result; Procedure 3",
+        "reader_principles.md: 1, 6, 14"
+      ],
+      "severity": "medium",
+      "general_problem": "An optional supplier proof can remain embedded in the main route after a disposition says it was moved. Its exact constants then dominate the construction-specific inference that consumes only a contract.",
+      "instances": [
+        {
+          "finding": "LS084",
+          "paper": "exposition",
+          "location": "Section 4, Amplification with a fixed cap",
+          "current_quote": "Either way a trial succeeds with probability at least $9/40$."
+        }
+      ],
+      "recommended_change": "At a subroutine’s point of use, identify the exact contract the next step consumes and test the route with the proof skipped. Keep any construction-specific reason the contract applies, and put routine numerical derivation at its existing proof destination. Check the current rendered passage, not only the disposition’s stated intention.",
+      "scope_guard": "Do not remove a standard proof merely because it is standard; retain it if the agreed reader needs it to understand the local inference."
+    },
+    {
+      "id": "M16",
+      "rule_or_skill": [
+        "register/measurement.txt: exposition paragraph-length and question-share diagnostics",
+        "register/REGISTER_RULES.md: RG-13; skills/record-to-expository/SKILL.md: Procedure 8",
+        "reader_principles.md: 12–13"
+      ],
+      "severity": "medium",
+      "general_problem": "A register detector measures surface distribution, not whether a paragraph teaches the hard inference or whether an exercise assesses it. The same long-paragraph flag touches both a dispensable amplification recipe and the indispensable three-budget explanation.",
+      "instances": [
+        {
+          "finding": "LS084",
+          "paper": "exposition",
+          "location": "Amplification paragraph"
+        },
+        {
+          "finding": "LS101",
+          "paper": "exposition",
+          "location": "Three budgets paragraph"
+        },
+        {
+          "finding": "LS111",
+          "paper": "exposition",
+          "location": "Exercise coverage"
+        }
+      ],
+      "recommended_change": "Triage flagged paragraphs by their instructional role: definition, worked operation, supplier proof, or transition. Pair exercise counts with the inference each question tests. Use measurements to find passages for review; do not normalize away a useful explanation or count questions as evidence of learning.",
+      "scope_guard": "Retain the detector as a search aid. This recommendation does not prescribe a universal paragraph length or a minimum exercise count."
+    }
+  ]
+}

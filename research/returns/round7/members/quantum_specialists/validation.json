@@ -1,0 +1,67 @@
+{
+  "status": "PASS",
+  "review_date_utc": "2026-11-03",
+  "purpose": "Artifact integrity, source binding and locator checks. This report does not certify the theorem or formal proofs.",
+  "input": {
+    "archive": "quartic_r7_quantum_specialists.zip",
+    "archive_sha256": "d306cfe772717f69b8ab5d4006d5f36e042679a1f537ef5ba5220bdb3463b4ad",
+    "zip_crc": "pass",
+    "manifest_members_size_and_sha256_checked": 404,
+    "draft_hashes_checked": 6,
+    "current_record_markdown_hash_checked": true
+  },
+  "content": {
+    "required_files_present": 6,
+    "feedback_items": 189,
+    "literal_current_markdown_quotes_checked": 189,
+    "maximum_feedback_quote_words": 25,
+    "method_findings": 20,
+    "literal_method_instance_quotes_checked": 34,
+    "json_files_parsed": 3,
+    "unique_finding_and_panel_ids": true,
+    "document_kind_severity_enums_checked": true,
+    "source_reading_status_and_scope_checked": true,
+    "verdict_words": 724,
+    "local_error_findings": [
+      "QS247",
+      "QS251",
+      "QS256"
+    ],
+    "exact_fraction_checks": {
+      "QS041_weight_sum": "23/12",
+      "QS041_success_probability": "23/48",
+      "QS041_conditional_labels": [
+        "12/23",
+        "0",
+        "8/23",
+        "3/23"
+      ],
+      "QS251_L_at_k2_m4": 0,
+      "QS256_power_gap_at_k4_alpha3_5": "0",
+      "QS256_power_gap_at_k5_alpha3_5": "1/20"
+    }
+  },
+  "return_archive": {
+    "filename": "quartic_r7_quantum_specialists_return.zip",
+    "files": 9,
+    "compression": "standard ZIP DEFLATE",
+    "encrypted": false,
+    "duplicate_or_unsafe_paths": false,
+    "crc_test": "pass",
+    "fresh_extraction_and_byte_comparison": "pass for every file",
+    "manifest": "MANIFEST.sha256 covers every other return file; it intentionally does not hash itself.",
+    "note": "The final archive was reopened, CRC-tested, extracted to a fresh directory and checked with the included validator before delivery. Its own hash is excluded here to avoid a self-reference."
+  },
+  "scope_limits": [
+    "No input manuscript was rewritten.",
+    "No Lean build or Comparator execution was performed.",
+    "Existing supplied PDF pages were rasterized for inspection; no manuscript was compiled into a fresh PDF.",
+    "The large historical trace and the full long record were not read cover to cover; sources_read records precise scope.",
+    "Archive validation checks data integrity and exact quotations, not the truth of every mathematical judgment."
+  ],
+  "reproduce": [
+    "From the extracted return, run: python validate_return.py",
+    "For exact source quotations and input hashes too, run: python validate_return.py --input /path/to/quartic_r7_quantum_specialists.zip",
+    "To check the ZIP itself, add: --package /path/to/quartic_r7_quantum_specialists_return.zip"
+  ]
+}

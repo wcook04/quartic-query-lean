@@ -38,6 +38,8 @@ HEADER = r"""
 % wide gutters, one muted link colour.
 \usepackage{needspace}
 \usepackage{etoolbox}
+% Loaded here because the table settings below need it even in a paper with no table.
+\usepackage{longtable}
 \usepackage{caption}
 \captionsetup{font=small,labelfont=bf,margin=4mm,skip=6pt}
 \captionsetup[table]{position=top}

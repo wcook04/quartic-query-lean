@@ -90,6 +90,11 @@ class RecordTests(unittest.TestCase):
         self.assertIn("QuarticQuery.R", mentions)
         self.assertNotIn("QuarticQuery.Checked.R", mentions)
 
+    def test_lean_reference_links_mention_their_registry_declarations(self):
+        passages = {"A": {"body": "The [definition of R][def-R] and [the receipt][statement-receipt] [x][nope]."}}
+        mentions = MODULE.link_mentions(passages, ["QuarticQuery.R", "QuarticQuery.Q"])
+        self.assertEqual(mentions, {"QuarticQuery.R": {"A": ("def-R", passages["A"]["body"].index("]["), False)}})
+
 
 class GeneratedMapTests(unittest.TestCase):
     @classmethod

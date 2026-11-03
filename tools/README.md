@@ -5,7 +5,15 @@ The top-level Python tools use only the standard library; commands that invoke
 Lean or Comparator also need their pinned external tools. The imported finite
 checker described below additionally needs NumPy.
 
-The latest intake uses [intake_round3_returns.py](intake_round3_returns.py) to
+[intake_round7_returns.py](intake_round7_returns.py) preserves four round-seven
+archives and their members without running submitted scripts. Supply their source
+directory with `--source-dir PATH`; `--verify` requires all extracted members,
+including ignored scripts and checksum files, and checks archive hashes when
+the local originals are present. A public clone without those local custody
+files cannot complete this verification. See the [returns guide](../research/returns/README.md#round-seven-returns)
+for the advisory inventory and custody boundary.
+
+The round-three intake uses [intake_round3_returns.py](intake_round3_returns.py) to
 preserve and verify exact archive/member bytes. It does not execute submitted
 code. The [round-four builder](build_round4_packets.py) reuses the preceding
 packet machinery and requires an accepted review of the current integrated
@@ -92,7 +100,7 @@ Freeze the intended Lean inputs before recording evidence:
 | `python3 tools/run_comparator.py` | Runs each bundle and negative control and writes receipts. |
 | `python3 tools/build_corpus.py` | Regenerates the corpus from the ledger, ties and receipts. |
 | `python3 tools/build_comparator_map.py` | Regenerates `corpus/comparator_map.json`, the Challenge-to-record reading map. Run after the corpus. |
-| `python3 tools/build_lean_links.py` | Regenerates `docs/lean_links.json` and the Lean link definitions at the end of the expert companion and the exposition: a plain name and pinned GitHub line link for each cited declaration. Bump its `COMMIT` when the papers describe a new commit. |
+| `python3 tools/build_lean_links.py` | Regenerates `docs/lean_links.json` and the Lean link definitions at the end of the expert companion, the exposition and the reasoning record: a plain name and pinned GitHub line link for each cited declaration. Bump its `COMMIT` when the papers describe a new commit. |
 
 [build_challenges.py](build_challenges.py) keeps a challenge and its solution in
 agreement by construction. A negative control counts only when Comparator rejects it

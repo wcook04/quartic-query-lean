@@ -3,6 +3,8 @@ import json
 from pathlib import Path
 import re
 import sys
+import tempfile
+from unittest import mock
 import unittest
 
 
@@ -50,6 +52,30 @@ class LeanLinksTests(unittest.TestCase):
         links = {"a": {"url": "https://example/a"}, "b": {"url": "https://example/b"}}
         block = MODULE.paper_block("see [x][b] and [y][own]\n\n[own]: https://o\n", links, "p")
         self.assertEqual(block, "<!-- lean-links -->\n[b]: https://example/b\n<!-- /lean-links -->")
+
+    def test_record_uses_registry_and_preserves_handwritten_links_and_provenance(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            path = root / MODULE.RECORD
+            path.parent.mkdir()
+            original = ("An [ordinary description][thm-headline], [literature][source], "
+                        "and [old record](https://github.com/wcook04/quartic-query-lean/blob/"
+                        "e9dfefbf11e6d1f380f122caa2349d4be78f2c1f/docs/reasoning_record.md#old).\n\n"
+                        "[source]: https://example.org/paper\n")
+            path.write_text(original)
+            links = {"thm-headline": {"url": "https://example.org/theorem#L1-L2"}}
+            with mock.patch.object(MODULE, "ROOT", root):
+                updated = MODULE.updated_paper(MODULE.RECORD, links)
+            self.assertTrue(updated.startswith(original))
+            self.assertIn("[thm-headline]: https://example.org/theorem#L1-L2", updated)
+            self.assertEqual(updated.count("[source]: https://example.org/paper"), 1)
+            self.assertIn("e9dfefbf11e6d1f380f122caa2349d4be78f2c1f", updated)
+            path.write_text(updated)
+            with mock.patch.object(MODULE, "ROOT", root):
+                self.assertEqual(MODULE.updated_paper(MODULE.RECORD, links), updated)
+                path.write_text(original + "\nUnknown [claim][not-registered].\n")
+                with self.assertRaisesRegex(SystemExit, "unknown Lean link labels not-registered"):
+                    MODULE.updated_paper(MODULE.RECORD, links)
 
     def test_unknown_label_is_an_error(self):
         with self.assertRaises(SystemExit):

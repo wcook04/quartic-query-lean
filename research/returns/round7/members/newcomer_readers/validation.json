@@ -1,0 +1,105 @@
+{
+  "status": "passed",
+  "packet": "newcomer_readers",
+  "checks": {
+    "required_six_deliverables_present": true,
+    "json_files_parse": true,
+    "feedback_schema_and_enums_valid": true,
+    "unique_sequential_finding_ids": true,
+    "findings_checked": 200,
+    "exact_current_markdown_quotations": 200,
+    "quotation_word_limit": 25,
+    "longest_finding_quotation_words": 16,
+    "computed_markdown_line_locators_checked": true,
+    "method_findings": 24,
+    "method_rule_and_instance_quotations_checked": 49,
+    "source_sha256_is_exact_copy_of_packet_drafts": true,
+    "all_supplied_manifest_members_unchanged": 400,
+    "source_register_entries": 31,
+    "old_record_pdf_not_used_for_current_finding_page_numbers": true,
+    "verdict_word_count": 682,
+    "verdict_test_render_pages": 2,
+    "verdict_test_render_format": "A4, 11 pt, 18 mm margins, Pandoc/XeLaTeX; internal validation PDF not included.",
+    "utf8_and_nonempty_files": true,
+    "no_unresolved_finding_ids_in_return_text": true,
+    "zip_crc_check": true,
+    "zip_paths_relative_and_safe": true,
+    "zip_members_unencrypted": true,
+    "manifest_member_lengths_and_sha256_checked": true,
+    "extract_and_byte_compare": true
+  },
+  "counts": {
+    "by_paper": {
+      "exposition": 112,
+      "expert_companion": 38,
+      "reasoning_record": 50
+    },
+    "by_severity": {
+      "high": 25,
+      "medium": 89,
+      "low": 34,
+      "keep": 52
+    },
+    "by_primary_perspective": {
+      "physicist": 54,
+      "undergraduate": 64,
+      "mathematician": 82
+    },
+    "merged_close_duplicate_rows": 18
+  },
+  "narrow_arithmetic_checks": {
+    "scope": "Exact rational calculations for six small scalar correlations, one existing sampler row and the two endpoint gaps. Not a complete board, theorem or formal verification.",
+    "phi_and_phi_squared": {
+      "01111000": {
+        "phi": "1",
+        "phi_squared": "1"
+      },
+      "01001000": {
+        "phi": "0",
+        "phi_squared": "0"
+      },
+      "10001000": {
+        "phi": "-1",
+        "phi_squared": "1"
+      },
+      "00000000": {
+        "phi": "1/2",
+        "phi_squared": "1/4"
+      },
+      "00010010": {
+        "phi": "0",
+        "phi_squared": "0"
+      },
+      "11110000": {
+        "phi": "-1/2",
+        "phi_squared": "1/4"
+      }
+    },
+    "fractional_sampler_success_mass": "23999/48000",
+    "fractional_sampler_positive_conditional_probabilities": [
+      "11999/23999",
+      "12000/23999"
+    ],
+    "gap_at_alpha_3_5_for_k_4": "0",
+    "gap_at_alpha_3_5_for_k_5": "1/20",
+    "logical_endpoint_check": "For k=4 and every 0<=alpha<7/2, 7/4-alpha/2>0, excluding all smaller universal powers and proving alpha_tot>=7/2. The endpoint itself is not excluded by those displayed estimates."
+  },
+  "input_archive": {
+    "bytes": 10243972,
+    "sha256": "ca3db99b8d96520de25fbe6e4a444ea5f56a1284dd9c88134e21a3e689fb6b1d",
+    "entries": 402,
+    "bad_crc_member": null,
+    "expanded_bytes": 43734445,
+    "manifest_members_checked": 400,
+    "manifest_mismatches": [],
+    "draft_hashes_match": true
+  },
+  "limits": [
+    "All three reader perspectives are emulated; no human reader study.",
+    "No manuscript rewrite or source modification.",
+    "No complete independent theorem audit, Lean compilation, Comparator execution or receipt rerun.",
+    "Supplied example scripts were not executed.",
+    "Archive checks are performed after this report is written and before delivery. The archive is not delivered if any check fails.",
+    "The manifest hashes every other archive member. The manifest and ZIP do not contain self-referential hashes."
+  ]
+}

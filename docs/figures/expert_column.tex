@@ -30,7 +30,7 @@
 \strip{-0.6}{$X_m$}{2}{c}
 \draw[win, thick, rounded corners=2pt] ($(w1.south west)+(-0.05,-0.05)$)
    rectangle ($(w8.north east)+(0.05,0.05)$);
-\node[win, anchor=west, font=\scriptsize, align=left] at (3.62,0.6)
+\node[win, anchor=west, font=\footnotesize, align=left] at (3.62,0.6)
    {all ones};
 % ---- the winner's address instances -------------------------------------
 \begin{scope}[shift={(8.0,2.6)}]
@@ -38,8 +38,8 @@
     \node[draw=addr, fill=addr!8, minimum width=11mm, minimum height=6mm,
           font=\scriptsize] (A\h) at (1.35*\h,0) {$\lab$};}
   \node at (2*1.35,0) {$\cdots$};
-  \node[font=\scriptsize, addr, anchor=south] at (1.35*1.5,0.38)
-    {$r=20\log_2 m$ independent instances of $P_{k,m}$ ($km$ bits each)};
+  \node[font=\footnotesize, addr, anchor=south] at (1.35*1.5+0.4,0.38)
+    {$r=20\log_2 m$ disjoint address blocks for $P_{k,m}$ ($km$ bits each)};
   \node[font=\footnotesize, addr] (s) at (1.35*1.5,-1.15)
     {address $s_{i^\star}=\bigl(P(A_{i^\star\!,1}),\dots,P(A_{i^\star\!,r})\bigr)\in\{0,1\}^r$};
   \foreach \h in {0,1,3} \draw[->, addr] (A\h.south) -- (A\h.south |- s.north);
@@ -62,11 +62,10 @@
 \end{scope}
 \draw[->, addr, thick] (s.south) -- (cell7.north);
 % ---- what the selected cell holds ---------------------------------------
-\node[draw=win, fill=win!5, rounded corners=2pt, align=left, font=\scriptsize,
-      anchor=north west, text width=60mm] (content) at (6.6,-1.45)
-  {the red cell, at the true address, holds\\
-   \textbullet\ a $\log_2 m$-bit pointer $p_{i^\star\!,s_{i^\star}\!,j}$ into every other column $j$;\\
-   \textbullet\ $r$ transcripts of an exact circuit certifying $s_{i^\star}$};
+\node[draw=win, fill=win!5, rounded corners=2pt, align=left, font=\small,
+      anchor=north west, text width=55mm] (content) at (6.6,-1.45)
+  {selected cell: pointers to zeros\\
+   and exact circuit transcripts};
 % ---- outward pointers, routed along one vertical bus --------------------
 \coordinate (bus) at (6.25,0);
 \draw[win, thick, rounded corners=3pt, ->] (cell7.north) |- ($(cell7.north)+(0,0.22)$)

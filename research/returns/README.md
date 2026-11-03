@@ -60,3 +60,13 @@ archive and member hashes; decisions belong under [adjudication](../adjudication
 
 The seven [round-four returns](round4/README.md) are bound by hash in their
 [intake manifest](round4/intake.json); their originals and members stay local.
+
+## Round-seven returns
+
+Four round-seven review submissions are preserved under [round7/](round7/).
+Their [intake manifest](round7/intake.json) binds archive and member hashes;
+[the inventory](round7/recommendation_inventory.json) retains all structured
+manuscript findings, method findings and claim journeys with their original
+fields. These are advisory observations, including simulated reader perspectives,
+not independent human reviews or proof verification. The original archives and
+submitted scripts remain local; decisions belong under [adjudication](../adjudication/).

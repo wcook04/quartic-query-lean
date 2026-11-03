@@ -1,0 +1,354 @@
+{
+  "packet": "editors_and_funnel",
+  "scope": "Feedback on the supplied method, not replacement skill files or new formalization work. Existing-rule failures are separated from proposed rule changes.",
+  "findings": [
+    {
+      "id": "M01",
+      "title": "Preserve the requested reader before setting prerequisites",
+      "rule_or_skill": "skills/record-to-expository/SKILL.md, Preconditions and inputs; reader_principles 2 and 12",
+      "classification": "existing_rule_not_applied",
+      "priority": "high",
+      "instances": [
+        "exposition Introduction, prerequisite paragraph",
+        "exposition §3, phase kickback",
+        "exposition §4, reversible comparison and amplification"
+      ],
+      "problem": "The skill already says that raising prerequisites cannot quietly complete a task for a fixed audience. The current exposition calls for a graduate reader who already knows query models, Grover search, amplification, uncomputation, minimax and concentration. That leaves the packet’s mathematically literate newcomer without an entry.",
+      "recommended_general_change": "Require the editor to list the first consequential operations the requested reader must perform, then mark each as assumed, taught or explicitly imported. An audience revision must be reported as an unresolved scope choice. Evaluate this list against the requested reader, not against the draft’s self-description.",
+      "acceptance_question": "Can the specified reader carry out the first use of each tool without consulting an unannounced prerequisite?"
+    },
+    {
+      "id": "M02",
+      "title": "Make the opening’s obligations compete for space",
+      "rule_or_skill": "skills/record-to-expository/SKILL.md, Model the reader; skills/long-to-short/SKILL.md, Model the reader",
+      "classification": "conflicting_incentives",
+      "priority": "high",
+      "instances": [
+        "expert §1 contribution paragraph",
+        "exposition Introduction through reading routes"
+      ],
+      "problem": "The frame-before-examples rule asks for theorem, mechanism, credit, predecessor arithmetic, prerequisites, payoff and route. Although it includes a prioritization clause, successive reviews have expanded all of these before the first concrete example.",
+      "recommended_general_change": "Set the opening’s next reader decision and choose the minimum material that enables it. When adding a historical comparison or constant, record what it displaces. Permit history and refined constants to appear after the construction they explain. Preserve theorem scope without requiring every detail on the opening page.",
+      "acceptance_question": "Does each opening paragraph help the reader understand the question or enter the first example?"
+    },
+    {
+      "id": "M03",
+      "title": "Select a different explanation at each level",
+      "rule_or_skill": "skills/README.md, completion tests; skills/long-to-short/SKILL.md, Procedure 1 and 5",
+      "classification": "existing_rule_not_applied",
+      "priority": "high",
+      "instances": [
+        "expert §§3.2–4.4",
+        "exposition §§4–5",
+        "reasoning_record §§5–6"
+      ],
+      "problem": "The three tiers share much of the same supplier arithmetic. The expert’s clear proof and the exposition’s named operations increasingly converge in level, while the record preserves full proofs and alternatives.",
+      "recommended_general_change": "Assign one reader task to each tier. Compress familiar expert suppliers to their contracts; spend exposition space on performing unfamiliar operations; give the record complete derivations and optional variants. A shared claim identity does not require equal proof density.",
+      "acceptance_question": "Can an editor say what the newcomer learns here that the expert version reasonably leaves implicit?"
+    },
+    {
+      "id": "M04",
+      "title": "Check algorithm verbs against randomness and stopping",
+      "rule_or_skill": "skills/register/SKILL.md, mathematical invariants; skills/record-to-expository/SKILL.md, Procedure 4",
+      "classification": "missing_precision_check",
+      "priority": "high",
+      "instances": [
+        "exposition §4, “The number of preparations is fixed in advance”",
+        "exposition §4, “Every number of trials, iterations, stages and comparisons is fixed in advance”"
+      ],
+      "problem": "A prose simplification has turned an advance maximum into a fixed realized number. The stated algorithm randomizes iteration counts and can stop at the first success.",
+      "recommended_general_change": "In algorithm descriptions, distinguish a rule fixed in advance, a budget fixed in advance and a realized action depending on outcomes. Include these words in the meaning check alongside formulas. Do not require every sentence to repeat the cap, but do not substitute fixed count for fixed cap.",
+      "acceptance_question": "Would the description still be literally true on a branch that succeeds immediately and on one that exhausts its budget?"
+    },
+    {
+      "id": "M05",
+      "title": "Validate the logical target of exercises",
+      "rule_or_skill": "skills/record-to-expository/SKILL.md, Procedure 6",
+      "classification": "existing_rule_needs_specific_check",
+      "priority": "high",
+      "instances": [
+        "exposition Question 4 and Answer 4"
+      ],
+      "problem": "The question asks for α_tot≥3.5, while the answer uses the stricter task of excluding a universal bound at α=3.5 and declares k=4 insufficient. Those tasks differ.",
+      "recommended_general_change": "Write the exact mathematical target of a question and answer before checking the numerical work. For an infimum, supremum or strict threshold, test both the endpoint and every point on the relevant side. Verify that an explanation of why an answer is insufficient addresses the question actually asked.",
+      "acceptance_question": "Does the answer solve the stated task, and is any claimed minimality or insufficiency true for that same task?"
+    },
+    {
+      "id": "M06",
+      "title": "Bind a literal figure to its stated parameters",
+      "rule_or_skill": "RG-13 and RG-26; skills/record-to-expository/SKILL.md, Procedure 9",
+      "classification": "missing_cross_representation_check",
+      "priority": "high",
+      "instances": [
+        "expert Figure 2 and its m=4 caption",
+        "exposition Figures 2–4 and their changed boards"
+      ],
+      "problem": "Expert Figure 2 claims m=4 but draws eight-bit X strings. Visual clarity and attractive rendering did not detect the mismatch with the mathematical object.",
+      "recommended_general_change": "For a literal finite example, check parameter values, object cardinalities, labels and exceptional coordinates across prose, caption and drawing. Mark a schematic as schematic and show which coordinates are omitted. This is an ordinary example-consistency check, not a new theorem obligation.",
+      "acceptance_question": "Does counting the drawn objects recover the parameters stated in the caption?"
+    },
+    {
+      "id": "M07",
+      "title": "Reset examples without making false absence claims",
+      "rule_or_skill": "skills/record-to-expository/SKILL.md, Procedure 2; graph-to-long Procedure 5",
+      "classification": "existing_rule_needs_boundary_check",
+      "priority": "high",
+      "instances": [
+        "exposition §5, “At $m=4$ there is no hard distribution”",
+        "exposition §1, L=0 at m=4"
+      ],
+      "problem": "The prior round’s request to distinguish the toy board from the hard distribution has led to an overbroad impossibility statement. At L=0, a fair mixture of a⁺ and a⁰ is hard for constant answers; the asymptotic lower bound is simply vacuous.",
+      "recommended_general_change": "State the exact part of a general argument that a toy instance does not demonstrate. Before saying that an object does not exist, test degenerate parameter values and distinguish no nontrivial bound from no admissible object.",
+      "acceptance_question": "Is the limitation a false hypothesis, a vacuous estimate, a missing construction, or a failure of this particular example?"
+    },
+    {
+      "id": "M08",
+      "title": "Use examples that expose the distinctive stochastic feature",
+      "rule_or_skill": "RG-13; skills/record-to-expository/SKILL.md, Procedure 2–3",
+      "classification": "selection_tradeoff",
+      "priority": "medium",
+      "instances": [
+        "exposition §4 deterministic cycle and exact toy sampler",
+        "reasoning_record #upper-cyclic-example"
+      ],
+      "problem": "The deterministic teaching board explains the weight update and is easy to compute. It does not by itself test the reason for allowing genuinely fractional loser-comparison probabilities. The record retains such a case.",
+      "recommended_general_change": "Keep the easy example, then assess whether its symmetry suppresses the exact feature the theorem needed. Add or point to one small changed case only when that distinction matters. Do not demand harder examples everywhere.",
+      "acceptance_question": "Which competing interpretation is ruled out by this example, and which remains indistinguishable?"
+    },
+    {
+      "id": "M09",
+      "title": "Test the return journey and visible label",
+      "rule_or_skill": "skills/long-to-short/SKILL.md, Procedure 4 and 6; graph-to-long Procedure 6",
+      "classification": "existing_rule_not_applied",
+      "priority": "high",
+      "instances": [
+        "record #record-reading-routes, §§4–6 instead of current companion §§3–5",
+        "record #upper-ideal-process, companion §4.2 instead of §3.2",
+        "record #CL-discrepancy, companion §5.5 instead of §4.5",
+        "exposition simulator-example link to #CL-simulator"
+      ],
+      "problem": "File and anchor checks do not catch a visible section number naming the wrong argument, or a link to the general proof when the sentence promises a worked example.",
+      "recommended_general_change": "Check a source claim, its displayed label, the actual destination statement, and the return point as one reading trip. Rename visible cross-references when the target is reorganized. Where existing stable claim IDs are available, derive the label from the same target without exposing those IDs in ordinary prose.",
+      "acceptance_question": "Can the reader reach the promised argument and return to the exact place that uses it?"
+    },
+    {
+      "id": "M10",
+      "title": "Keep formal endpoint, ordinary transport and execution status separate",
+      "rule_or_skill": "skills/source-to-graph/SKILL.md, Procedure 5; graph-to-long, Audit the formal statement",
+      "classification": "successful_rule_to_preserve",
+      "priority": "high",
+      "instances": [
+        "expert §7 measured and retained-state amplification",
+        "record G.4 named family versus headline theorem",
+        "record G.8 finite seeds and cap counts"
+      ],
+      "problem": "The current documents make these distinctions substantially better than the earlier versions. A later prose cleanup could again identify two implementations or transfer explicit constants into a weaker configured type.",
+      "recommended_general_change": "Preserve the existing relation-specific description. In a short paper, state the material mathematical difference once and link the longer account. In the record, identify the ordinary bridge separately from the formal declaration and its recorded execution.",
+      "acceptance_question": "Does a reader know exactly which statement is reached and which ordinary inference relates it to the printed claim?"
+    },
+    {
+      "id": "M11",
+      "title": "Read every sentence without requiring every sentence to change",
+      "rule_or_skill": "RG-02; skills/register/SKILL.md, Procedure 4",
+      "classification": "overly_prescriptive_rule",
+      "priority": "high",
+      "instances": [
+        "all three documents after six revision rounds",
+        "expert §7’s corrected interface distinctions",
+        "record round6 passage audit"
+      ],
+      "problem": "Requiring a rewrite unless an unchanged paragraph is defended makes change the default evidence of work. The substantive request is attention to every sentence. Stable precise sentences can become worse during compulsory churn.",
+      "recommended_general_change": "Keep a paragraph-by-paragraph review. Permit retain, move, shorten, split or explain as equal dispositions, with a reader-facing reason for consequential choices. An unchanged sentence is acceptable when it already does its job. Meaning checks should focus on the changes made.",
+      "acceptance_question": "What specific reader difficulty did this edit resolve, and did it preserve the mathematical assertion?"
+    },
+    {
+      "id": "M12",
+      "title": "Do not manufacture list cardinalities",
+      "rule_or_skill": "RG-19, “Break rule-of-three lists into two items, four named objects or a full clause”",
+      "classification": "overly_prescriptive_rule",
+      "priority": "medium",
+      "instances": [
+        "expert §1.3 author lists flagged as triads",
+        "expert §2 address inputs, pointers and transcripts",
+        "record G.4 parallel evidence dimensions"
+      ],
+      "problem": "A list’s three members may be the exact objects the argument needs. Expanding to four or collapsing to two solely for cadence adds or hides content. The rule’s exception for genuine parallel items helps, but its prescriptive cardinality still invites metric gaming.",
+      "recommended_general_change": "Judge whether the list expresses a real classification or merely ornamental rhythm. Keep the number determined by the subject. Exclude author lists and mathematical conjunctions from automatic triad complaints.",
+      "acceptance_question": "Would the same criticism remain if the list happened to contain two or four correct items?"
+    },
+    {
+      "id": "M13",
+      "title": "Preserve negation and reference when they carry mathematics",
+      "rule_or_skill": "RG-16 and RG-17",
+      "classification": "rule_needs_scope_limit",
+      "priority": "medium",
+      "instances": [
+        "expert §2 strongly negative Forrelation values",
+        "expert §4.4 joint event rather than conditioning",
+        "expert §7 separate measured and retained forms"
+      ],
+      "problem": "A preference for positive prose can erase a needed nonexistence assertion or a distinction between procedures. The round-six amplifier correction illustrates how a short pronoun can misdescribe a relationship.",
+      "recommended_general_change": "Honor the author’s punctuation and rhetorical preferences while treating domain exclusion, failed implications, off-promise behavior and reference resolution as semantic content. Rewrite for clarity only after identifying what the negation or contrast rules out.",
+      "acceptance_question": "Has the revised sentence preserved the exact excluded case and the object to which each pronoun refers?"
+    },
+    {
+      "id": "M14",
+      "title": "Retain navigational structure appropriate to a reference record",
+      "rule_or_skill": "RG-06 and RG-21",
+      "classification": "conflicting_rules",
+      "priority": "medium",
+      "instances": [
+        "record Reading guide",
+        "record dependency table",
+        "record Appendix B catalogue"
+      ],
+      "problem": "RG-06 says a long record replaces a reading guide with one paragraph, whereas RG-21 expressly permits a guide that separates required and optional routes. The current record needs both bounded routes and point-of-entry statements.",
+      "recommended_general_change": "Resolve the exception in favor of reader task. A short article may need a paragraph; a long reference record may need a route table and a compact dependency map. Keep those maps consistent and remove redundant restarts instead of banning the useful guide.",
+      "acceptance_question": "Can a reader choose a route and know which results are accepted as inputs and which are proved on that route?"
+    },
+    {
+      "id": "M15",
+      "title": "Score technical apparatus in its proper region",
+      "rule_or_skill": "RG-20 and RG-21; register measurement",
+      "classification": "measurement_scope_problem",
+      "priority": "medium",
+      "instances": [
+        "record apparatus specimens from Appendix G",
+        "expert §7 formal verification",
+        "exposition §7 links to definitions"
+      ],
+      "problem": "The same raw detector flags repetitive self-description and useful formal vocabulary in a section whose purpose is to explain formal statements. It can therefore reward removing the very information required by the method.",
+      "recommended_general_change": "Measure main argument, captions, bibliography, catalogue and evidence appendix separately. Treat a high value as a location-sensitive question. Preserve a necessary support distinction even when it keeps the score high.",
+      "acceptance_question": "Is the flagged material doing the job of the region in which it appears?"
+    },
+    {
+      "id": "M16",
+      "title": "Name a statistical flag accurately",
+      "rule_or_skill": "register/measurement.txt and register/measurement.json",
+      "classification": "incorrect_report_label",
+      "priority": "high",
+      "instances": [
+        "expert para_len_mean=96.14 within corpus min/max 15.23–105.35 but marked outside literature range",
+        "exposition semicolon_rate=6.96 within 0–58.74 but given the same label"
+      ],
+      "problem": "The text equates |d|>1.5 with being outside the literature range. The JSON’s beyond_corpus flag shows that those are different tests.",
+      "recommended_general_change": "Use a threshold-distance label for outside and reserve outside observed range for beyond_corpus. Explain IQR floors and avoid z-score or significance language.",
+      "acceptance_question": "Does every text label describe the actual numeric predicate that produced it?"
+    },
+    {
+      "id": "M17",
+      "title": "Match genres and group editions in the reference profile",
+      "rule_or_skill": "RG-01; skills/register/SKILL.md, Procedure 1",
+      "classification": "existing_rule_not_applied",
+      "priority": "medium",
+      "instances": [
+        "same 42-document profile for all three tiers",
+        "profile entries for AIK v2 and v3",
+        "QIP slides and de Wolf lecture notes in the research baseline"
+      ],
+      "problem": "A shared mixture of genres and multiple editions is a source collection, not a clean comparison population for every tier. Version duplication may weight one work twice.",
+      "recommended_general_change": "Keep all useful sources for qualitative reading, but choose a declared genre-matched baseline per tier. Group editions by work and preserve the chosen version. Compare the body with bodies and teaching material with teaching material.",
+      "acceptance_question": "Would the detector reach the same editorial recommendation after selecting the sources most comparable to this reader task?"
+    },
+    {
+      "id": "M18",
+      "title": "Inspect the extraction before interpreting a prose measurement",
+      "rule_or_skill": "skills/register/SKILL.md, Procedure 3",
+      "classification": "measurement_input_problem",
+      "priority": "medium",
+      "instances": [
+        "expert para_len_cv specimen includes YAML front matter",
+        "record measurements include Appendix B and evidence apparatus"
+      ],
+      "problem": "A visible specimen treats front matter as a paragraph. Formatting, displays and reference regions can affect counted sentences and paragraphs. The implementation is not in this packet, so the exact parser cause is unverified.",
+      "recommended_general_change": "Expose the counted prose with region labels and inspect representative samples before comparing statistics. Separate extraction anomalies from actual prose problems. Do not infer a stylistic failure from a parser artifact.",
+      "acceptance_question": "Is the measured unit a sentence or paragraph that the reader actually encounters as prose?"
+    },
+    {
+      "id": "M19",
+      "title": "Do not require every metric to move toward the corpus",
+      "rule_or_skill": "skills/register/SKILL.md, Procedure 5",
+      "classification": "conflicting_objectives",
+      "priority": "medium",
+      "instances": [
+        "rule says no new distance elsewhere",
+        "exposition needs operational teaching and may require new questions or equations"
+      ],
+      "problem": "The instruction that an edit should create no new distance on other features conflicts with the instruction that metrics are only detectors. A useful explanation can increase a count or change rhythm.",
+      "recommended_general_change": "Prioritize a stated reader problem and verify the mathematical meaning. Report metric movement descriptively. Accept a move away from a corpus median when the reader-facing reason is sound.",
+      "acceptance_question": "Was the local explanation improved, even if an unrelated statistic moved away from its median?"
+    },
+    {
+      "id": "M20",
+      "title": "Ship the rules that the skills and detectors reference",
+      "rule_or_skill": "skills/register/SKILL.md; skills/register-stage.md; register/register_rules.json",
+      "classification": "incomplete_method_packet",
+      "priority": "high",
+      "instances": [
+        "skills say 26 rules",
+        "supplied register_rules.json and REGISTER_RULES.md contain 17",
+        "missing IDs RG-03, RG-04, RG-05, RG-07, RG-08, RG-10, RG-12, RG-23, RG-25"
+      ],
+      "problem": "The packet describes the whole writing method, but nine advertised rule IDs are absent from the supplied rule list. Several are actively referenced by the skills or measurement, including RG-03/04, RG-08, RG-10, RG-12 and RG-25.",
+      "recommended_general_change": "Bind the method export to a rule inventory. Supply every referenced rule, or explicitly label the export as a subset and explain the omitted IDs. A reviewer should not have to infer the rule from a detector name.",
+      "acceptance_question": "Can every rule identifier mentioned in a skill or report be resolved within the delivered method packet?"
+    },
+    {
+      "id": "M21",
+      "title": "Distinguish a move’s presence in literature from its effectiveness",
+      "rule_or_skill": "skills/register-stage.md, Three fields, one method; reader_principles 12–13",
+      "classification": "evidence_overstatement",
+      "priority": "medium",
+      "instances": [
+        "domain tests search for specimens or check a corpus median",
+        "method claims rules held across three fields"
+      ],
+      "problem": "Observing a convention in several fields is useful support for plausibility and scope. It is not a test that applying the convention improved comprehension or reader preference.",
+      "recommended_general_change": "Call the current checks descriptive transfer checks. Keep effectiveness claims tied to observed reader tasks, before/after comparisons or explicit editorial judgment. No experiment need be invented to make a modest rule useful.",
+      "acceptance_question": "Is the claimed evidence only that a move occurs, or that it helped a particular reader perform a task?"
+    },
+    {
+      "id": "M22",
+      "title": "Give historical feedback a current disposition",
+      "rule_or_skill": "skills/README.md, Where reader feedback goes; source-to-graph Procedure 7",
+      "classification": "existing_rule_to_strengthen",
+      "priority": "medium",
+      "instances": [
+        "round6 measured-amplifier complaint now repaired",
+        "508 versus 514 now repaired",
+        "exposition amplifier-detail move planned but not applied"
+      ],
+      "problem": "A new reviewer can mistake a stored historical complaint for a current defect, or a plan for a completed change. This creates repeated bureaucracy and misses fixes that landed badly.",
+      "recommended_general_change": "For each reused issue, compare its exact current passage and assign resolved, unresolved, regressed or superseded. Preserve the original finding as history. Do not require receipts to be rerun for an editorial disposition.",
+      "acceptance_question": "Is this a defect in the current bytes, and what exactly survived or changed from the previous finding?"
+    },
+    {
+      "id": "M23",
+      "title": "Verify source metadata against the inspected edition",
+      "rule_or_skill": "skills/source-to-graph/SKILL.md, Procedure 6",
+      "classification": "metadata_fidelity_problem",
+      "priority": "medium",
+      "instances": [
+        "READ_ME_FIRST.md literature entry names Aaronson–Ambainis–Bogdanov–Yeung",
+        "supplied ECCC TR21-115 revision 2 title page names Aaronson, Ambainis, Bogdanov, Cheung and Dinesh"
+      ],
+      "problem": "The packet’s source label has an incorrect author list. This is a packet metadata defect, not a finding that the three manuscripts misattribute that paper. It would be easy for a reviewer to propagate the error into a literature comparison.",
+      "recommended_general_change": "Take author/title/version metadata from the inspected source or canonical publication record. Keep the packet alias as a locator only. Verify metadata before generalizing a source as a style exemplar.",
+      "acceptance_question": "Does the source label identify the authors and version actually read?"
+    },
+    {
+      "id": "M24",
+      "title": "Define a sufficient review stopping point",
+      "rule_or_skill": "skills/README.md, completion tests; register completion question",
+      "classification": "process_calibration",
+      "priority": "medium",
+      "instances": [
+        "seven rounds of feedback with useful mechanisms already in place",
+        "remaining task is coherent author revision, not accumulation of new obligations"
+      ],
+      "problem": "An aspiration that a referee would admire every sentence cannot by itself decide when a draft is ready. Another inventory can grow indefinitely while the main audience and proof-order choices remain unresolved.",
+      "recommended_general_change": "Use the existing completion tests concretely: a bounded set of cold reconstruction tasks, a current claim journey, resolved material errors and a readable final pass. Keep minor preferences available without treating every low-priority suggestion as a new gate. This review is advice, not a requirement to implement every finding.",
+      "acceptance_question": "Have the material reader failures been repaired, and can remaining preferences be left to the author without weakening the promised result?"
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "packet": "editors_and_funnel",
+  "review_date_utc": "2026-11-03T19:19:27.021707+00:00",
+  "input_archive": {
+    "filename": "quartic_r7_editors_and_funnel(1).zip",
+    "sha256": "c6abfbcf405723b9c7068d12b91f83dda40643fc7cc65fa18d399926bbb136ef",
+    "crc_check": "passed",
+    "manifest_payload_members_checked": 403,
+    "all_payload_hashes_and_sizes_match": true
+  },
+  "current_source_binding": {
+    "drafts_equal_SOURCE_STATUS": true,
+    "record_markdown_sha256": "41d6dae58694ff9010d417997dc40e95c3486b9133dc2a125c6843665f902d63",
+    "record_pdf_used_as_current": false
+  },
+  "feedback": {
+    "count": 221,
+    "issues": 169,
+    "keeps": 52,
+    "by_document": {
+      "expert_companion": 70,
+      "exposition": 71,
+      "reasoning_record": 80
+    },
+    "by_kind": {
+      "prose": 57,
+      "unclear": 24,
+      "structure": 16,
+      "overweighted": 18,
+      "keep": 52,
+      "consistency": 10,
+      "error": 4,
+      "figure": 5,
+      "underweighted": 2,
+      "evidence_presentation": 5,
+      "funnel": 3,
+      "teaching": 21,
+      "missing_example": 2,
+      "missing": 1,
+      "credit": 1
+    },
+    "by_severity": {
+      "medium": 106,
+      "high": 16,
+      "low": 47,
+      "keep": 52
+    },
+    "unique_sequential_ids": true,
+    "required_fields_and_enums_valid": true,
+    "all_quotes_exact_current_markdown": true,
+    "maximum_quote_words": 19,
+    "all_line_locators_valid": true
+  },
+  "claim_journeys": {
+    "count": 15,
+    "formal_endpoints_checked": 23,
+    "exact_quotes_and_lines_valid": true,
+    "record_anchor_ids_valid": true,
+    "declaration_names_checked_as_complete_tokens": true,
+    "remote_current_byte_identity_asserted": false
+  },
+  "method_findings": {
+    "count": 24,
+    "required_content_present": true
+  },
+  "sources": {
+    "inventory_records": 54,
+    "read_vs_skimmed_scopes_explicit": true,
+    "all_named_local_source_paths_exist": true,
+    "online_source_urls_present": true,
+    "historical_trace_read_in_full": false
+  },
+  "finite_checks": {
+    "four_bit_walsh_phi": {
+      "a_plus": "1",
+      "a_zero": "0"
+    },
+    "toy_L_2_4": 0,
+    "uniform_two_point_zero_query_success": "1/2",
+    "exercise_endpoint_distinction": "For k=4, d=7/4-alpha/2>0 for every alpha<7/2; this establishes the infimum lower bound without excluding the endpoint.",
+    "expert_figure_eight_bit_loop_confirmed": true
+  },
+  "scope": {
+    "lean_compiled": false,
+    "comparator_run": false,
+    "execution_receipts_reverified": false,
+    "new_manuscript_pdf_generated": false,
+    "supplied_short_pdfs_visually_sampled": true,
+    "independent_full_proof_certification_claimed": false,
+    "input_manuscript_files_modified": false
+  },
+  "return_files": {
+    "required_six_present": true,
+    "utf8_text_and_json_parse": "passed",
+    "manifest_covers_every_other_member": true,
+    "zip_member_paths_safe": "passed",
+    "zip_crc": "passed",
+    "independent_extract_hash_comparison": "passed"
+  },
+  "verdict_word_count": 669
+}

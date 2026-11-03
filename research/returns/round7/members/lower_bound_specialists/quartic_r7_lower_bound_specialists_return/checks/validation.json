@@ -1,0 +1,25 @@
+{
+  "result": "passed",
+  "checks_are": "review structure, source quotation fidelity and file integrity; not mathematical or formal verification",
+  "findings": 214,
+  "actionable_findings": 126,
+  "keeps": 88,
+  "by_paper": {
+    "expert_companion": 57,
+    "exposition": 56,
+    "reasoning_record": 101
+  },
+  "by_severity": {
+    "medium": 64,
+    "low": 52,
+    "keep": 88,
+    "high": 10
+  },
+  "sources": 26,
+  "payload_files": 13,
+  "source_quotes": "passed",
+  "payload_sha256": "passed",
+  "input_packet_sha256": "5a6eb603eab7f027231345cb370e2f61e463d86b755539fca46aeca06b6ec1c9",
+  "input_manifest_members_verified": 407,
+  "execution_scope": "No Lean, Comparator or PDF recompilation was run."
+}

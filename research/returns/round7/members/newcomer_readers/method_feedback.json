@@ -1,0 +1,519 @@
+{
+  "packet": "newcomer_readers",
+  "scope": "Feedback on the supplied writing method, not edits to installed skills. Causes are editorial diagnoses from the supplied artifacts, not measured causal effects on human learning.",
+  "method_feedback": [
+    {
+      "id": "NR-M01",
+      "priority": "high",
+      "type": "existing_rule_not_enforced",
+      "rule_or_skill": {
+        "path": "skills/record-to-expository/SKILL.md",
+        "section": "Preconditions and inputs",
+        "quote": "Stronger prerequisites or a narrower result change the requested scope",
+        "markdown_line": 43
+      },
+      "instances": [
+        {
+          "paper": "exposition",
+          "section": "Introduction",
+          "quote": "This account is written for a graduate student who knows the query models above"
+        }
+      ],
+      "diagnosis": "The method already forbids repairing a fixed audience by raising its prerequisites. The round-six repair names more prerequisites, while this packet asks for readers without query-complexity training. This is an enforcement failure, not evidence that the skill lacks an audience rule.",
+      "recommendation": "At the end of the teaching pass, compare the actual first-use operations with the originally requested reader. Repair the first unsupported operation in the existing text, or state the remaining mismatch in the review account. A bibliography of prerequisite courses does not discharge the obligation.",
+      "transfer_test": "For a probability exposition addressed to an undergraduate, verify that an invoked martingale argument is taught or supplied as an explicit usable input; changing the audience to a stochastic-analysis graduate student must not count as completion."
+    },
+    {
+      "id": "NR-M02",
+      "priority": "high",
+      "type": "rule_application",
+      "rule_or_skill": {
+        "path": "skills/record-to-expository/SKILL.md",
+        "section": "Model the reader and frame the result",
+        "quote": "Give the frame before the examples",
+        "markdown_line": 76
+      },
+      "instances": [
+        {
+          "paper": "exposition",
+          "section": "Introduction",
+          "quote": "The exponent comes from one line of arithmetic."
+        }
+      ],
+      "diagnosis": "The introduction carries a precise infimum, explicit constants, the mechanism, a history, AND-OR composition, prerequisites and a route before the first worked input. Most individual obligations are met, but their accumulation recreates the compression problem the rule was meant to cure.",
+      "recommendation": "Interpret the frame as the minimum information that lets this reader understand the next example. Introduce the resource being compared and the question first. Move detailed predecessor arithmetic and quantitative refinements to their point of use. Review the rendered opening as one experience, not as a collection of satisfied requirements.",
+      "transfer_test": "Ask a reader to identify the object and task before seeing the first example in a different field. If they can repeat the theorem but cannot say what its variables count, the opening has not supplied its frame."
+    },
+    {
+      "id": "NR-M03",
+      "priority": "high",
+      "type": "missing_operational_check",
+      "rule_or_skill": {
+        "path": "skills/record-to-expository/SKILL.md",
+        "section": "Preconditions and inputs",
+        "quote": "A level such as “graduate” or a list of defined terms is\nnot this prerequisite ladder.",
+        "markdown_line": 51
+      },
+      "instances": [
+        {
+          "paper": "exposition",
+          "section": "Introduction",
+          "quote": "A quantum algorithm reads through the oracle"
+        }
+      ],
+      "diagnosis": "Defining a symbol in a grammatically complete sentence can still leave the intended reader unable to use it. The first oracle formula assumes a meaning for basis states, XOR and superposition; later statements assume the distinction between a randomized algorithm and a distribution on inputs.",
+      "recommendation": "For each prerequisite that matters, name one concrete operation the reader must perform. A short query trace or a two-state calculation can teach an operation more efficiently than another definition. Keep these inferences distinct from source citations that merely locate a course.",
+      "transfer_test": "In an analysis article, naming weak convergence is insufficient if the next line needs the reader to know which test functions may be passed through the limit. Check the operation actually consumed."
+    },
+    {
+      "id": "NR-M04",
+      "priority": "high",
+      "type": "example_selection",
+      "rule_or_skill": {
+        "path": "skills/record-to-expository/SKILL.md",
+        "section": "Procedure 2",
+        "quote": "Check what a convenient symmetry or normalisation makes indistinguishable.",
+        "markdown_line": 147
+      },
+      "instances": [
+        {
+          "paper": "exposition",
+          "section": "4. The quantum algorithm: a tournament",
+          "quote": "so the decoders are exact and the comparisons deterministic."
+        }
+      ],
+      "diagnosis": "The current deterministic board is a successful first sampler example. It also makes every weight zero or one, so it does not teach the distinction between an active set and genuinely weighted sampling. The round-six disposition allowed removing the fractional variant; the current draft retains the easier deterministic row.",
+      "recommendation": "Keep the completed deterministic row. Use the already existing fractional row in record §5.2 as a brief contrast or a precise next exercise, showing unnormalised mass and the unequal conditional probabilities together. Judge the pair by the distinction it reveals, rather than by the number of examples.",
+      "transfer_test": "For a weighted-average argument, retain the uniform example for orientation but test one existing unequal-weight case before claiming that the example explains normalisation."
+    },
+    {
+      "id": "NR-M05",
+      "priority": "high",
+      "type": "example_identity",
+      "rule_or_skill": {
+        "path": "skills/record-to-expository/SKILL.md",
+        "section": "Procedure 2",
+        "quote": "A drawing's\n   geometry does not carry its earlier data.",
+        "markdown_line": 145
+      },
+      "instances": [
+        {
+          "paper": "exposition",
+          "section": "2. One column, then four",
+          "quote": "a short script checking every count on this board"
+        }
+      ],
+      "diagnosis": "The exposition uses Forrelation values 1, 0 and -1; the linked record board and its JSON use 1/2, 0 and -1/2. Their winning addresses and local-test counts can agree while their projection probabilities differ. A link check cannot establish identity of the examples. The checker’s all-input loop includes the new strings; the mismatch concerns its named board and decoder example, not an absence of truth-table coverage.",
+      "recommendation": "Treat an example as its parameter values, raw data, probability law and conventions. When one document changes any of these, check the destination it names and either align it or state which properties transfer. This is a check of the existing example relationship, not a request for another theorem or formalisation.",
+      "transfer_test": "Two diagrams of the same graph may carry different edge weights. Verify the weights before reusing a computed transition probability or saying a script checks the same graph instance."
+    },
+    {
+      "id": "NR-M06",
+      "priority": "high",
+      "type": "exercise_fidelity",
+      "rule_or_skill": {
+        "path": "skills/record-to-expository/SKILL.md",
+        "section": "Procedure 6",
+        "quote": "Distinguish a false conclusion from an inconclusive test or a proof that no\n   longer applies.",
+        "markdown_line": 226
+      },
+      "instances": [
+        {
+          "paper": "exposition",
+          "section": "Answers to the questions",
+          "quote": "$k=4$ gives exactly $3.5$ and does not suffice."
+        }
+      ],
+      "diagnosis": "Question 4 asks for a lower bound on an infimum, but its answer tests exclusion of the endpoint exponent itself. The strict-gap argument with k=4 excludes every exponent below 3.5 and therefore suffices for the stated weak inequality; k=5 is needed for the stronger endpoint exclusion by that argument.",
+      "recommendation": "Check the logical target of each exercise independently of its proposed answer. For extrema and asymptotic exponents, distinguish a weak inequality, attainment, and failure of an estimate at the endpoint. Align the question with the intended endpoint test.",
+      "transfer_test": "An exercise asking whether a supremum is at least a must not reject a sequence approaching a solely because it never exceeds a."
+    },
+    {
+      "id": "NR-M07",
+      "priority": "high",
+      "type": "review_closure",
+      "rule_or_skill": {
+        "path": "skills/README.md",
+        "section": "Where reader feedback goes",
+        "quote": "Repair the paper first",
+        "markdown_line": 113
+      },
+      "instances": [
+        {
+          "paper": "exposition",
+          "section": "4. The quantum algorithm: a tournament",
+          "quote": "$1/2-1/40=19/40$"
+        }
+      ],
+      "diagnosis": "The previous disposition SX-022 explicitly planned to move the trial recipe and constants to record §5.1. The current exposition still carries 19/40, 9/40 and the exact logarithmic repetition denominator. A planned repair is not the delivered repair.",
+      "recommendation": "Close a disposition against the resulting paragraph and the reader's original difficulty. If execution chooses a different repair, record that choice and reassess the difficulty. Avoid treating a completed edit pass or an accepted plan as evidence that every intended move landed.",
+      "transfer_test": "After a request to make a supplier proof optional, follow the new main route and confirm it no longer depends on material hidden inside that proof."
+    },
+    {
+      "id": "NR-M08",
+      "priority": "high",
+      "type": "route_integrity",
+      "rule_or_skill": {
+        "path": "skills/graph-to-long/SKILL.md",
+        "section": "Procedure 6",
+        "quote": "A reader arriving from a shorter paper should be able to enter, recover the\n   omitted inference and return.",
+        "markdown_line": 115
+      },
+      "instances": [
+        {
+          "paper": "reasoning_record",
+          "section": "1.1. Certificates that disqualify every other candidate",
+          "quote": "whose §§4–6 summarize the quantum tournament"
+        }
+      ],
+      "diagnosis": "Several plain-text section references retain the companion's old numbering even though its links resolve. The present companion puts the quantum proof in §3, the classical proof in §4 and the Forrelation discussion in §5.",
+      "recommendation": "After reordering, check the human-readable destination and the link target together. Test the round trip from a shorter claim into the exact longer argument and back. A valid URL or anchor does not validate the sentence describing it.",
+      "transfer_test": "For a textbook chapter split into two, verify every prose reference that names the old chapter, including return directions and captions."
+    },
+    {
+      "id": "NR-M09",
+      "priority": "high",
+      "type": "summary_scope",
+      "rule_or_skill": {
+        "path": "skills/long-to-short/SKILL.md",
+        "section": "Procedure 6",
+        "quote": "A repaired proof paragraph alone does not close\n   the change.",
+        "markdown_line": 162
+      },
+      "instances": [
+        {
+          "paper": "reasoning_record",
+          "section": "Opening",
+          "quote": "reveals its planted cell with probability at most $(2/3)^r$"
+        }
+      ],
+      "diagnosis": "The precise lower-bound proof controls a fixed query's joint event, then pays for all query times. The record's summary can be read as placing the single-guess bound on an eventual visit. The main proof and the synopsis no longer teach exactly the same probability event.",
+      "recommendation": "In summaries of probabilistic arguments, preserve the event, its conditioning and whether the estimate is per trial or for an entire run. Compress constants before compressing that information.",
+      "transfer_test": "A per-comparison error guarantee in a sorting analysis must not become a whole-algorithm error guarantee when copied into an abstract."
+    },
+    {
+      "id": "NR-M10",
+      "priority": "medium",
+      "type": "notation_lifetime",
+      "rule_or_skill": {
+        "path": "register/REGISTER_RULES.md",
+        "section": "RG-11",
+        "quote": "Give different roles different symbols",
+        "markdown_line": 45
+      },
+      "instances": [
+        {
+          "paper": "exposition",
+          "section": "3. The general partial function",
+          "quote": "$c=\\delta^2$"
+        },
+        {
+          "paper": "exposition",
+          "section": "4. The quantum algorithm: a tournament",
+          "quote": "A comparison costs $c=O_k(r\\log(r/\\varepsilon))$"
+        }
+      ],
+      "diagnosis": "The same letter is locally reused for a probability and a query cost. The reader is also managing k versus K, lowercase p for a pivot or success probability, uppercase P for a function, and several sorts of transcript.",
+      "recommendation": "Audit notation by the reader's memory span, not merely by disjoint formal scopes. Rename a reused symbol when the two meanings occur in adjacent parts of the same calculation; explicitly distinguish circuit transcripts from query transcripts.",
+      "transfer_test": "Check whether a student can read an intermediate formula after following a proof link and returning, without reconstructing which local meaning of a symbol is active."
+    },
+    {
+      "id": "NR-M11",
+      "priority": "medium",
+      "type": "genre_calibration",
+      "rule_or_skill": {
+        "path": "skills/register/SKILL.md",
+        "section": "1. Choose the reference papers",
+        "quote": "closest to the manuscript in genre",
+        "markdown_line": 44
+      },
+      "instances": [
+        {
+          "paper": "all",
+          "section": "register/profile.json",
+          "quote_source": "register/profile.json",
+          "quote": "quartic-lit-bansal-sinha-qip2021-slides"
+        }
+      ],
+      "diagnosis": "All three drafts are compared against the same 42-document profile, which includes research papers, a long textbook-style set of notes and talk slides. These formats have different paragraph and sentence structures. A common background profile is useful; it is a weak direct target for all three reading tasks.",
+      "recommendation": "Keep the broad profile as context and compare the exposition's explanatory paragraphs with a small teaching subset. Compare proof passages with proof passages, and keep slide text out of paragraph-length judgments. Do not optimise each draft toward one pooled median.",
+      "transfer_test": "Apply the same feature to lecture notes and a journal abstract. If the expected difference is caused by genre, it should not become a defect score for either."
+    },
+    {
+      "id": "NR-M12",
+      "priority": "high",
+      "type": "measurement_input_quality",
+      "rule_or_skill": {
+        "path": "skills/register/SKILL.md",
+        "section": "3. Measure the draft",
+        "quote": "Use `register dump <draft>` to see exactly\nwhich prose was read.",
+        "markdown_line": 78
+      },
+      "instances": [
+        {
+          "paper": "all",
+          "section": "Supplied survey extraction",
+          "quote_source": "literature/quartic-lit-buhrman-dewolf-decision-tree-survey/extracted.md",
+          "quote": "Complexity Measures and De ision Tree"
+        }
+      ],
+      "diagnosis": "The survey extraction visibly loses letters, the Grover extraction interleaves two columns, and extracted lecture figures include layout markup. Those artifacts can distort word counts, paragraph lengths and noun-based detectors even if a selected quotation is clean.",
+      "recommendation": "Inspect representative input paragraphs against their PDFs before using a corpus for prose measurements. Exclude or separately label damaged extraction and nonprose blocks. Report uncertain metrics as uncertain rather than trying to line-edit a draft toward them.",
+      "transfer_test": "Compare a known paragraph before and after PDF extraction. A substantial shift in the reported feature should trigger an extraction diagnosis before an editorial one."
+    },
+    {
+      "id": "NR-M13",
+      "priority": "medium",
+      "type": "detector_false_positive",
+      "rule_or_skill": {
+        "path": "register/REGISTER_RULES.md",
+        "section": "RG-19",
+        "quote": "A list of three genuinely parallel named objects is fine",
+        "markdown_line": 124
+      },
+      "instances": [
+        {
+          "paper": "expert_companion",
+          "section": "1.3 Relation to earlier constructions",
+          "quote": "Aaronson, Ben-David and Kothari"
+        }
+      ],
+      "diagnosis": "The measurement's triad examples include three-author attributions and necessary lists of input fields. They are genuine three-item groups, not evidence of ornamental cadence. Mechanical correction would damage credit or obscure the construction.",
+      "recommendation": "Label why a flagged triad is rhetorical before changing it. Exempt author names, exhaustive case splits and mathematically parallel objects unless a reader-specific problem is independently identified.",
+      "transfer_test": "A paper with three named hypotheses should retain all three when each is used. Its list length is not a style defect."
+    },
+    {
+      "id": "NR-M14",
+      "priority": "medium",
+      "type": "detector_scope",
+      "rule_or_skill": {
+        "path": "register/REGISTER_RULES.md",
+        "section": "RG-21",
+        "quote": "gathers formal correspondence, versions, receipts and check scope in one separated appendix",
+        "markdown_line": 137
+      },
+      "instances": [
+        {
+          "paper": "reasoning_record",
+          "section": "Appendix F. Execution history",
+          "quote": "## Appendix F. Execution history"
+        }
+      ],
+      "diagnosis": "The method asks the record to retain formal apparatus in an appendix, then the pooled measurement flags the resulting apparatus rate as an extreme deviation from ordinary research papers. The number alone cannot tell whether the separation succeeded.",
+      "recommendation": "Report the mathematical body and the designated audit appendices separately for this feature. Judge apparatus by whether it intrudes into the requested proof route, and judge the appendix by whether a reader can find its bounded task.",
+      "transfer_test": "A reproducibility appendix with software versions should not inflate the body-prose defect score when the intended reader can follow the theorem without entering it."
+    },
+    {
+      "id": "NR-M15",
+      "priority": "medium",
+      "type": "detector_interpretation",
+      "rule_or_skill": {
+        "path": "skills/register/SKILL.md",
+        "section": "3. Measure the draft",
+        "quote": "a paper inside\nevery range can still read badly",
+        "markdown_line": 77
+      },
+      "instances": [
+        {
+          "paper": "exposition",
+          "section": "Introduction",
+          "quote": "the least number of queries"
+        }
+      ],
+      "diagnosis": "Sentence length is near the reference median while the first paragraph introduces several unfamiliar models and operations. The measurement does not count the reader's new conceptual commitments. Conversely, ordinary mathematical negations are essential in a paper about failed shortcuts and impossible bounds. Flags on mathematical phrases such as “exactly when” or on parallel winning conditions do not by themselves identify prose defects.",
+      "recommendation": "Use the metrics to select paragraphs for inspection. At each one ask what new object, operation and inference the reader must supply. A short sentence can need an example; a long one can be entirely routine.",
+      "transfer_test": "Compare two equal-length sentences, one introducing a new mathematical representation and one performing familiar algebra. They should not receive the same teaching diagnosis merely because their lengths match."
+    },
+    {
+      "id": "NR-M16",
+      "priority": "medium",
+      "type": "packaged_rule_gap",
+      "rule_or_skill": {
+        "path": "skills/register/SKILL.md",
+        "section": "Register description",
+        "quote": "26 rules",
+        "markdown_line": 26
+      },
+      "instances": [
+        {
+          "paper": "all",
+          "section": "register/register_rules.json and register/measurement.txt",
+          "quote_source": "register/measurement.txt",
+          "quote": "[RG-12, RG-25]"
+        }
+      ],
+      "diagnosis": "The supplied rule package has 17 active rules, while the skill describes 26 and the measurement points to other IDs including RG-10, RG-12 and RG-25. Some other IDs occur in historical metadata, but their operative rule text is absent. In particular the exposition’s referenced lecture-note rule is not supplied as an active rule.",
+      "recommendation": "Make the package self-consistent: include the applicable rules referenced by its measurements or explicitly name the selected subset and provide the missing rule text. Keep this correction in the method bundle; it does not belong in a mathematical paper.",
+      "transfer_test": "Every detector-to-rule reference in a review packet should resolve to a rule actually available in that packet, without relying on an author's installation."
+    },
+    {
+      "id": "NR-M17",
+      "priority": "medium",
+      "type": "rule_conflict",
+      "rule_or_skill": {
+        "path": "register/REGISTER_RULES.md",
+        "section": "RG-06 limit",
+        "quote": "a long record replaces a reading guide with this paragraph",
+        "markdown_line": 22
+      },
+      "instances": [
+        {
+          "paper": "reasoning_record",
+          "section": "Reading guide",
+          "quote": "The record can be read along four routes."
+        }
+      ],
+      "diagnosis": "RG-06's limit prescribes replacing a reading guide, while RG-21 and the graph-to-long method allow one when it separates required and optional routes. This record has several distinct entry tasks, so deletion by the first rule would remove useful navigation.",
+      "recommendation": "Reconcile the limits: use a short organisation paragraph for a single sequential route, and retain a compact route guide when readers genuinely enter for different tasks. Remove redundant maps, not the distinction between routes.",
+      "transfer_test": "A monograph with a user route and a proof-audit route may need both; a six-page note with one proof may need neither table."
+    },
+    {
+      "id": "NR-M18",
+      "priority": "medium",
+      "type": "line_edit_stability",
+      "rule_or_skill": {
+        "path": "register/REGISTER_RULES.md",
+        "section": "RG-02",
+        "quote": "There is always something to improve in a sentence",
+        "markdown_line": 14
+      },
+      "instances": [
+        {
+          "paper": "exposition",
+          "section": "4. The quantum algorithm: a tournament",
+          "quote": "the algorithm never computes or estimates them."
+        }
+      ],
+      "diagnosis": "The requirement to inspect every paragraph is valuable. Interpreting it as a requirement to alter every paragraph creates churn, especially in already precise sentences about invisible weights, joint events and query caps.",
+      "recommendation": "Preserve the complete inspection pass and allow a deliberate keep decision whenever the sentence already serves its reader. Require a specific improvement for a change. Recheck adjacent mathematical relationships after a split or merge, since prose-only editing can still change scope.",
+      "transfer_test": "A revised sentence should improve an identifiable reader action while preserving its hypotheses and quantifiers. Different wording alone is not improvement."
+    },
+    {
+      "id": "NR-M19",
+      "priority": "medium",
+      "type": "figure_task",
+      "rule_or_skill": {
+        "path": "register/REGISTER_RULES.md",
+        "section": "RG-26",
+        "quote": "what each mark means",
+        "markdown_line": 165
+      },
+      "instances": [
+        {
+          "paper": "exposition",
+          "section": "4. The quantum algorithm: a tournament",
+          "quote": "An arrow $i\\to j$ means that $i$ beats $j$"
+        }
+      ],
+      "diagnosis": "The current captions usually define their marks. That is necessary, but it does not establish that a reader can use the picture to perform the operation under discussion, especially when nearby prose mutates a different set of pointers. Hidden addresses labeled for the explanatory reader should also be distinguished from information initially available to the algorithm.",
+      "recommendation": "For each figure identify one operation it should support: follow a pointer, locate the changed bit, update a weight or identify an invalid certificate. Test that operation from the figure and its local caption. Keep example-state resets close to the relevant image. In information-limited arguments, identify whose knowledge a diagram displays and distinguish a static dependence from a charged operation.",
+      "transfer_test": "A commutative diagram should let a reader trace the particular composition used in the proof; labelling every arrow is not by itself enough."
+    },
+    {
+      "id": "NR-M20",
+      "priority": "high",
+      "type": "teaching_endpoint",
+      "rule_or_skill": {
+        "path": "reader_principles.md",
+        "section": "12",
+        "quote": "Judge by what a reader can do.",
+        "markdown_line": 16
+      },
+      "instances": [
+        {
+          "paper": "exposition",
+          "section": "Introduction",
+          "quote": "explain why a classical algorithm must pay for an address in a constant fraction of the columns."
+        }
+      ],
+      "diagnosis": "The existing questions exercise local test counts, one more deterministic pivot, an independence example and a parameter choice. They do not directly test the promised central inference from a cheap cell query to a capped address predictor.",
+      "recommendation": "Retarget one task to the existing simulator: give a short query history and ask what address is output, when the cap stops the simulation and which joint event is bounded. Use the existing record example as the answer source. Do not add a large problem set.",
+      "transfer_test": "If an exposition promises that readers can use a reduction, at least one task should require them to perform that reduction rather than repeat adjacent arithmetic."
+    },
+    {
+      "id": "NR-M21",
+      "priority": "medium",
+      "type": "scope_of_literature_advice",
+      "rule_or_skill": {
+        "path": "skills/register/SKILL.md",
+        "section": "2. Extract the moves",
+        "quote": "Read the first four pages and one proof section",
+        "markdown_line": 54
+      },
+      "instances": [
+        {
+          "paper": "exposition",
+          "section": "Introduction",
+          "quote": "Grover search and amplitude amplification"
+        }
+      ],
+      "diagnosis": "A fixed sample of first pages may reveal a paper's research voice, but it misses where a textbook actually teaches the operation at issue. The useful comparison here is de Wolf's two-reflection explanation and its use in the next algorithm, not simply its opening pages.",
+      "recommendation": "Keep the opening sample for framing and credit, then choose a passage that teaches the same unfamiliar operation or proof transition. Record the inspected scope. Do not describe a whole source as closely read when only that sample was inspected.",
+      "transfer_test": "When reviewing an exposition of integration by parts, compare the source's actual worked calculation and assumptions, not only its abstract and historical introduction."
+    },
+    {
+      "id": "NR-M22",
+      "priority": "medium",
+      "type": "historical_role",
+      "rule_or_skill": {
+        "path": "skills/source-to-graph/SKILL.md",
+        "section": "Procedure 6",
+        "quote": "Distinguish a theorem used in\n   the proof, historical credit, an adapted construction and an explanatory\n   comparison.",
+        "markdown_line": 60
+      },
+      "instances": [
+        {
+          "paper": "exposition",
+          "section": "Introduction",
+          "quote": "Let us see why that route stops at three."
+        }
+      ],
+      "diagnosis": "The current history has improved credit, but a newcomer can still interpret the bottleneck of a particular AND-OR recipe as a limitation of the whole cheat-sheet framework. Reading old sources as current surveys would create a second problem, because their open-problem descriptions predate this preprint.",
+      "recommendation": "Keep the parameter calculation attached to the named recipe, and date historical source comparisons. Treat an old source as evidence of how an idea was introduced, not as authority for what remains open today.",
+      "transfer_test": "A proof that one discretisation gives second-order accuracy does not establish an order barrier for every method called finite differences."
+    },
+    {
+      "id": "NR-M23",
+      "priority": "keep",
+      "type": "preserve_successful_rule",
+      "rule_or_skill": {
+        "path": "skills/record-to-expository/SKILL.md",
+        "section": "Procedure 6",
+        "quote": "Give a justified answer separately from the question",
+        "markdown_line": 225
+      },
+      "instances": [
+        {
+          "paper": "exposition",
+          "section": "4. The quantum algorithm: a tournament",
+          "quote": "Suppose instead that the measured pivot is $4$."
+        }
+      ],
+      "diagnosis": "The current next-pivot question gives the reader a real operation before the answer appears. Its solution follows through to verification, so the example now has an endpoint. This is a successful repair that should survive another editing pass.",
+      "recommendation": "Preserve the question-answer separation and the link from the computed pivot to the final output. Extend the same principle to the lower-bound simulator by changing the task, rather than by adding more process instructions.",
+      "transfer_test": "Keep an exercise when the reader must supply a meaningful next step and can check the result independently; do not remove it merely to lower a question-frequency metric."
+    },
+    {
+      "id": "NR-M24",
+      "priority": "medium",
+      "type": "review_evidence_boundary",
+      "rule_or_skill": {
+        "path": "skills/record-to-expository/SKILL.md",
+        "section": "Procedure 8",
+        "quote": "If no reader took part, leave that check unperformed.",
+        "markdown_line": 240
+      },
+      "instances": [
+        {
+          "paper": "all",
+          "section": "READ_ME_FIRST.md: Your panel",
+          "quote_source": "READ_ME_FIRST.md",
+          "quote": "Read as three newcomers"
+        }
+      ],
+      "diagnosis": "These three perspectives are useful analytical simulations. They are not observations from three recruited newcomers, and the reviewers know more mathematics than the profiles they model. Assisted reconstruction can locate missing steps without measuring how a novice will learn.",
+      "recommendation": "Keep the simulated reading paths, first-stall diagnoses and teach-back estimates explicitly labelled. Use them to choose precise repairs. Record actual reader attempts separately if they later occur, including their hints and source access.",
+      "transfer_test": "A model's successful solution to an exercise is evidence that the answer is recoverable to that model, not evidence that the target audience has mastered it."
+    }
+  ]
+}

@@ -1,0 +1,563 @@
+{
+  "scope": "source inspection in the supplied snapshot; no Lean/Comparator rerun; no live GitHub click validation",
+  "journeys": [
+    {
+      "id": "J01",
+      "claim": "The optimal universal exponent is four",
+      "exposition": {
+        "path": "repository/docs/exposition.md",
+        "section": "Introduction",
+        "line": 19,
+        "quote": "**Theorem**"
+      },
+      "expert_companion": {
+        "path": "repository/docs/expert_companion.md",
+        "section": "§1, Theorem 1",
+        "line": 21,
+        "quote": "**Theorem 1**"
+      },
+      "record": {
+        "path": "repository/docs/reasoning_record.md",
+        "section": "§7.2",
+        "line": 3683,
+        "quote": "Let \\(K>0\\) be any proposed universal constant.",
+        "anchor": "ROOT-NO-SMALLER"
+      },
+      "lean_endpoints": [
+        {
+          "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+          "declaration": "alpha_tot_eq_four",
+          "line": 326,
+          "relation": "Same equality. The body in the Challenge is a deliberate specification placeholder; the paired Solution forwards to alphaTot_eq_four_unconditional."
+        }
+      ],
+      "route_observation": "The exposition has a general link to the expert paper in its introduction and direct statement links in §7. The claim-to-expert step is a manual section match, not a dedicated per-claim link. Expert §6 gives the quotient argument. Record §7.2 supplies coordinate renaming and excludes all smaller powers; G.4 identifies the equality target.",
+      "judgment": "The mathematical endpoint agrees. The exponent is a universal infimum, not an assertion that one fixed k attains an exact fourth-power separation.",
+      "advice": "Retain the quotient and the order of choices. Give the relevant expert section when offering the expert-paper route."
+    },
+    {
+      "id": "J02",
+      "claim": "Both bounds use one circuit, with exponent six and coefficient 1/400",
+      "exposition": {
+        "path": "repository/docs/exposition.md",
+        "section": "Introduction and §3",
+        "line": 132,
+        "quote": "Both bounds concern this one function, with the same circuit."
+      },
+      "expert_companion": {
+        "path": "repository/docs/expert_companion.md",
+        "section": "§2 and §7",
+        "line": 114,
+        "quote": "The function depends on the circuit"
+      },
+      "record": {
+        "path": "repository/docs/reasoning_record.md",
+        "section": "§1 and §7",
+        "line": 64,
+        "quote": "The two inequalities concern the same function at each pair",
+        "anchor": "ROOT-RESULT"
+      },
+      "lean_endpoints": [
+        {
+          "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+          "declaration": "theorem_one_one",
+          "line": 328,
+          "relation": "Compared headline uses one existential circuit per size and an existential logarithmic exponent; lower bound is in floor form."
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Paper/ConstructionFamily.lean",
+          "declaration": "construction_family_named",
+          "line": 30,
+          "relation": "The explicit named circuit has exponent 6 and coefficient 1/400, with an existential threshold. This is the endpoint for those constants."
+        }
+      ],
+      "route_observation": "Expert §7 explicitly separates the two targets and links the named-circuit result. Record G.4 and G.9 explain the same distinction. The exposition’s four-theorem link alone does not expose the named constants.",
+      "judgment": "Consistent after the two endpoints are distinguished. The explicit threshold 13669k² is an ordinary specialization in the record, not part of either headline type.",
+      "advice": "Keep the existing distinction. Offer one readable route from the displayed explicit family to the named-circuit endpoint through the companion; do not add a new formalization obligation."
+    },
+    {
+      "id": "J03",
+      "claim": "Failure of the universal cubic bound",
+      "exposition": {
+        "path": "repository/docs/exposition.md",
+        "section": "Introduction and §6",
+        "line": 265,
+        "quote": "refutes the cubic conjecture"
+      },
+      "expert_companion": {
+        "path": "repository/docs/expert_companion.md",
+        "section": "§1 and §6",
+        "line": 29,
+        "quote": "Taking $k=3$"
+      },
+      "record": {
+        "path": "repository/docs/reasoning_record.md",
+        "section": "§1 and §7.2",
+        "line": 88,
+        "quote": "Already $k=3$",
+        "anchor": "R3-01-QUANTIFIERS"
+      },
+      "lean_endpoints": [
+        {
+          "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+          "declaration": "cubic_bound_fails",
+          "line": 336,
+          "relation": "Same unshifted universal assertion: no real C works for every n≥1 and total function."
+        }
+      ],
+      "route_observation": "The exposition names the cubic conclusion again in §7. Expert §1 explains the choice k=3. Record §1 connects an unshifted cubic bound to the shifted definition and §7.2 supplies the general contradiction.",
+      "judgment": "The main route agrees. The exposition’s separate phrase about k=2 and its exercise answer need precision; those do not invalidate this k=3 route.",
+      "advice": "Keep the k=3 example and distinguish the endpoint equality of an exponent calculation from a proved Ω(Q³) bound."
+    },
+    {
+      "id": "J04",
+      "claim": "Forrelation hardness for each fixed k",
+      "exposition": {
+        "path": "repository/docs/exposition.md",
+        "section": "§3, Classical hardness",
+        "line": 130,
+        "quote": "This is the randomized lower bound of Bansal and Sinha"
+      },
+      "expert_companion": {
+        "path": "repository/docs/expert_companion.md",
+        "section": "§2(i) and §5",
+        "line": 250,
+        "quote": "Theorem 1 uses only (5)."
+      },
+      "record": {
+        "path": "repository/docs/reasoning_record.md",
+        "section": "§3.6, §3.15 and §3.17",
+        "line": 1611,
+        "quote": "The partial function\n$P_{k,m}$ of §3.1 has the following three properties.",
+        "anchor": "forr_bundle"
+      },
+      "lean_endpoints": [
+        {
+          "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+          "declaration": "forrelation_lower_bound",
+          "line": 340,
+          "relation": "The target is BansalSinhaLower, whose definition is ∀k≥2 ∃t₀ ∀t≥t₀, Lvalue k t < R(P k t)."
+        },
+        {
+          "path": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+          "declaration": "forrelation_lower_uniform_sharp",
+          "line": 527,
+          "relation": "Separate uniform numerical estimate with 15k+2≤2t; it is stronger in a different parameter direction, not a quoted instance of the Bansal–Sinha formula."
+        }
+      ],
+      "route_observation": "The exposition cites the external source; the expert §5 distinguishes that input from the record’s alternative route. The record bundles the three needed properties in §3.17 and directs the formal reader to G.4–G.5.",
+      "judgment": "The eventual fixed-k target matches. Do not identify its proof with the printed Bansal–Sinha argument, or turn the record’s explicit threshold into part of the compared type.",
+      "advice": "Retain the external-result/alternative-proof distinction. Put the elementary threshold calculation after the uniform statement for readers who need the constant."
+    },
+    {
+      "id": "J05",
+      "claim": "A coherent promise decoder has an all-input cap",
+      "exposition": {
+        "path": "repository/docs/exposition.md",
+        "section": "§3, A cheap quantum decoder",
+        "line": 122,
+        "quote": "The projection experiment of Section 1 extends to every $k$."
+      },
+      "expert_companion": {
+        "path": "repository/docs/expert_companion.md",
+        "section": "§2(ii)",
+        "line": 103,
+        "quote": "The algorithm can be run coherently with its workspace kept."
+      },
+      "record": {
+        "path": "repository/docs/reasoning_record.md",
+        "section": "§3.3",
+        "line": 571,
+        "quote": "**Error bound for repeated trials.**",
+        "anchor": "forr_repetition"
+      },
+      "lean_endpoints": [
+        {
+          "path": "repository/lean/QuarticQuery/Paper/ConstructionForrelationComplete.lean",
+          "declaration": "construction_lemma_2_1_ii_complete",
+          "line": 25,
+          "relation": "One coherent preparation and label law are chosen before the input; correctness is only on the promise, while the physical continuation cap is uniform."
+        }
+      ],
+      "route_observation": "The expert links repetition directly; the coherent continuation endpoint is reached via the record’s formal discussion. Its signature includes the workspace and every continuation, rather than only a scalar success probability.",
+      "judgment": "The coherent implementation and promise restriction are preserved. The supplied wrapper imports ConstructionForrelationQuantum, which is not included in the packet; this journey reads the complete wrapper type and its proof text, not its entire imported dependency closure.",
+      "advice": "For teaching, explain phase kickback and retained workspace at their first operational use or give an explicit accepted interface. Preserve the all-input cap."
+    },
+    {
+      "id": "J06",
+      "claim": "The exact circuit checks domain and value",
+      "exposition": {
+        "path": "repository/docs/exposition.md",
+        "section": "§2, Transcripts; §3, An exact circuit",
+        "line": 102,
+        "quote": "**Transcripts.**"
+      },
+      "expert_companion": {
+        "path": "repository/docs/expert_companion.md",
+        "section": "§2(iii)",
+        "line": 105,
+        "quote": "An exact fan-in-two Boolean circuit"
+      },
+      "record": {
+        "path": "repository/docs/reasoning_record.md",
+        "section": "§3.4",
+        "line": 670,
+        "quote": "### 3.4. The exact Boolean circuit",
+        "anchor": "forr_circuit"
+      },
+      "lean_endpoints": [
+        {
+          "path": "repository/lean/QuarticQuery/Forrelation/Circuit.lean",
+          "declaration": "forrCircuit_realises",
+          "line": 343,
+          "relation": "Exact CircuitRealises conclusion for the named circuit, with k=l+1."
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Forrelation/Circuit.lean",
+          "declaration": "forrCircuit_size_le",
+          "line": 466,
+          "relation": "Size bound for t≥1, with a circuit constant dependent on k."
+        }
+      ],
+      "route_observation": "The expert’s §2 link lands at the construction of the circuit; the exposition’s small 180-gate example instead links to record §4.4. Both concern domain and value, but the toy Shannon circuit and the general Walsh circuit are distinct witnesses.",
+      "judgment": "The common mathematical interface matches; the examples need not use the same gate list as the asymptotic family. Their roles should remain explicit.",
+      "advice": "Retain the domain-bit counterexample. Do not make a reader think the large-size fast-transform circuit is the 180-gate toy circuit."
+    },
+    {
+      "id": "J07",
+      "claim": "Winning defines a total function with at most one winning pair",
+      "exposition": {
+        "path": "repository/docs/exposition.md",
+        "section": "§2",
+        "line": 88,
+        "quote": "At most one column can win"
+      },
+      "expert_companion": {
+        "path": "repository/docs/expert_companion.md",
+        "section": "§2",
+        "line": 112,
+        "quote": "At most one column wins"
+      },
+      "record": {
+        "path": "repository/docs/reasoning_record.md",
+        "section": "§4.2",
+        "line": 1747,
+        "quote": "**Uniqueness lemma.**",
+        "anchor": "AC-total-unique"
+      },
+      "lean_endpoints": [
+        {
+          "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+          "declaration": "WinsAt",
+          "line": 266,
+          "relation": "A predicate on raw input bits with defined partial values required only of the proposed winner."
+        },
+        {
+          "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+          "declaration": "addressedF",
+          "line": 276,
+          "relation": "Total Boolean function obtained by deciding existence of a winning pair."
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Construction/Winner.lean",
+          "declaration": "winsAt_unique",
+          "line": 55,
+          "relation": "Uniqueness of both column and address."
+        }
+      ],
+      "route_observation": "The exposition’s §7 links directly to WinsAt and F. The matching expert proof and record §4.2 give the contradiction through a pointer into an all-one string. The packaged Construction Challenge is absent, but Winner.lean contains the concrete implementation statement and short proof.",
+      "judgment": "This is a strong, readily inspectable journey. It does not confuse totalization with answering an unpromised partial input arbitrarily.",
+      "advice": "Keep this as the first formal-definition inspection task. The explicit ordinary proof is short enough to stay beside the definition."
+    },
+    {
+      "id": "J08",
+      "claim": "The local tests characterize winning and can be queried coherently",
+      "exposition": {
+        "path": "repository/docs/exposition.md",
+        "section": "§2, Local tests",
+        "line": 106,
+        "quote": "**Local tests.**"
+      },
+      "expert_companion": {
+        "path": "repository/docs/expert_companion.md",
+        "section": "§2, Local tests",
+        "line": 116,
+        "quote": "**Local tests**"
+      },
+      "record": {
+        "path": "repository/docs/reasoning_record.md",
+        "section": "§4.4–§4.6",
+        "line": 1812,
+        "quote": "### 4.4. The local tests",
+        "anchor": "CL-local-tests"
+      },
+      "lean_endpoints": [
+        {
+          "path": "repository/lean/QuarticQuery/Paper/ConstructionFull.lean",
+          "declaration": "construction_lemma_2_2_with_support",
+          "line": 23,
+          "relation": "Contains the exact K count, equivalence to all tests passing, adaptive depth and one coherent physical continuation. Also includes essential-coordinate witnesses."
+        }
+      ],
+      "route_observation": "Expert §2 links §§4.4–4.6, which supply separate ordinary and coherent arguments. G.4 identifies this implementation theorem. The packet omits Independent/ConstructionFull/Challenge.lean; that absence is a packaging boundary, not evidence that the statement was never compared.",
+      "judgment": "The complete implementation type supports the advertised interface. A depth cap ℓ+1 is not the number of input coordinates on which a pointer test can depend, and the type does not promise restored workspace.",
+      "advice": "Keep the concrete pointer query and gate-consistency induction. Preserve the distinction between adaptive depth and support when linking the formal result."
+    },
+    {
+      "id": "J09",
+      "claim": "A winner defeats an off-promise opponent",
+      "exposition": {
+        "path": "repository/docs/exposition.md",
+        "section": "§4, Comparing two columns",
+        "line": 142,
+        "quote": "Outward pointers make comparisons against the winner reliable."
+      },
+      "expert_companion": {
+        "path": "repository/docs/expert_companion.md",
+        "section": "§3.1",
+        "line": 139,
+        "quote": "whatever the rival's address inputs"
+      },
+      "record": {
+        "path": "repository/docs/reasoning_record.md",
+        "section": "§4.7 and §5.3",
+        "line": 1952,
+        "quote": "### 4.7. Why a winner defeats an unpromised opponent",
+        "anchor": "AC-comparison"
+      },
+      "lean_endpoints": [
+        {
+          "path": "repository/lean/QuarticQuery/Construction/Winner.lean",
+          "declaration": "winner_no_incoming_zero",
+          "line": 62,
+          "relation": "Boolean half: every rival label points to a one in the winner."
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Construction/Winner.lean",
+          "declaration": "winner_finds_zero",
+          "line": 69,
+          "relation": "Boolean half: the winner’s correct cell points to a zero in each rival."
+        }
+      ],
+      "route_observation": "The exposition and expert give the same two-case reason. Record §4.7 states the arbitrary-label guarantee before §5.3 puts it into a probabilistic comparison. The supplied Winner.lean ends at the two Boolean facts, not at the complete decoded comparison law.",
+      "judgment": "The necessary ordinary bridge is that the winner’s decoder is correct with probability at least 1−ε, while no correctness condition is imposed on the rival’s label. The Boolean declarations alone should not be described as a formal proof of the full sampling routine.",
+      "advice": "Keep the two concrete pointer facts prominent. Name the probabilistic step when moving from them to a_ij≥1−ε."
+    },
+    {
+      "id": "J10",
+      "claim": "The probabilistic tournament returns a short list containing a dominant candidate",
+      "exposition": {
+        "path": "repository/docs/exposition.md",
+        "section": "§4, An ideal process and A stage of the search",
+        "line": 152,
+        "quote": "**An ideal process.**"
+      },
+      "expert_companion": {
+        "path": "repository/docs/expert_companion.md",
+        "section": "§3.2, Proposition 3",
+        "line": 143,
+        "quote": "**Proposition 3**"
+      },
+      "record": {
+        "path": "repository/docs/reasoning_record.md",
+        "section": "§5.2",
+        "line": 2150,
+        "quote": "**Proposition 3.2 (statement).**",
+        "anchor": "upper-tournament-statement"
+      },
+      "lean_endpoints": [
+        {
+          "path": "repository/lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+          "declaration": "quantumTournament",
+          "line": 287,
+          "relation": "One input-indexed list law and finite cap are chosen before the dominant candidate; includes success ≥1−2m/2^T−Tε and an explicit 6072 cost bound."
+        }
+      ],
+      "route_observation": "The expert links §5.2. The entry statement is useful and the endpoint is identifiable in G.4. A later return pointer at #upper-ideal-process still sends the reader to companion §4.2, although this argument is now §3.2.",
+      "judgment": "Substantively successful, with a stale visible return label. The deterministic toy board makes the mechanism visible but does not exercise arbitrary fractional loser comparisons; the record’s separate fractional example remains valuable.",
+      "advice": "Repair the return label and add a small fractional-probability check only where it teaches the feature absent from the deterministic board; preserve the weighted sampling law."
+    },
+    {
+      "id": "J11",
+      "claim": "Amplification preserves the measured pivot law under a fixed cap",
+      "exposition": {
+        "path": "repository/docs/exposition.md",
+        "section": "§4, Amplification with a fixed cap",
+        "line": 179,
+        "quote": "**Amplification with a fixed cap.**"
+      },
+      "expert_companion": {
+        "path": "repository/docs/expert_companion.md",
+        "section": "Lemma 2 and §7",
+        "line": 279,
+        "quote": "The formal upper bound uses the measured form of Lemma 2"
+      },
+      "record": {
+        "path": "repository/docs/reasoning_record.md",
+        "section": "§5.1 and G.7",
+        "line": 2114,
+        "quote": "On a successful branch, the state of the successful trial is $g$ up to global phase",
+        "anchor": "upper-amplification-proof"
+      },
+      "lean_endpoints": [
+        {
+          "path": "repository/lean/QuarticQuery/Upper/Amplify.lean",
+          "declaration": "Samples.amplify",
+          "line": 346,
+          "relation": "Measured-label Runs endpoint with failure bounds and ampLaw; this is the form used by the upper bound."
+        },
+        {
+          "path": "repository/lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean",
+          "declaration": "uniformOpaqueAmplifier",
+          "line": 17,
+          "relation": "Separate retained-state endpoint, uniform in the opaque preparation, for success predicates on basis labels."
+        }
+      ],
+      "route_observation": "The expert’s current §7 correctly separates measured and retained-state forms. The older round-six complaint that its pronoun identifies them is fixed. The ordinary Lemma 2 and the prose proof may still be used to explain the ideal law; they do not establish identity of the two formal implementations.",
+      "judgment": "The current cross-document calibration is materially better. The exposition’s wording about the realized number of preparations being fixed needs correction to an advance upper cap.",
+      "advice": "Preserve the two endpoint descriptions. Put the preparation count and the random stopping rule in different clauses, without adding an implementation-identification theorem."
+    },
+    {
+      "id": "J12",
+      "claim": "The direct product bounds a joint success-and-cap event",
+      "exposition": {
+        "path": "repository/docs/exposition.md",
+        "section": "§5, Direct product and simulator",
+        "line": 224,
+        "quote": "**Direct product with separate caps.**"
+      },
+      "expert_companion": {
+        "path": "repository/docs/expert_companion.md",
+        "section": "§4.1, Lemma 4",
+        "line": 177,
+        "quote": "**Lemma 4**"
+      },
+      "record": {
+        "path": "repository/docs/reasoning_record.md",
+        "section": "§6.1 and G.8",
+        "line": 2682,
+        "quote": "**Lemma 4.1 (capped direct product).**",
+        "anchor": "CL-direct-product-statement"
+      },
+      "lean_endpoints": [
+        {
+          "path": "repository/lean/QuarticCorpus/Independent/RealizedCaps/Challenge.lean",
+          "declaration": "direct_product_external_finite_realized_caps",
+          "line": 18,
+          "relation": "Finite weighted external seeds; conclusion bounds compliantSuccess, not success conditional on compliance."
+        }
+      ],
+      "route_observation": "The three prose statements allow arbitrary independent coins and outside information. The record’s #CL-independent-information groups these into finitely many behaviors. G.8 explains the recursive cap predicate and its ordinary relation to query counts. Expert §7 now links success together with compliance, fixing the old ambiguous link text.",
+      "judgment": "The bridge is explicit and necessary. The normalized conditional-value proof in the exposition and unnormalized proof in the expert are two presentations of the same bound; a verbatim-proof correspondence is unnecessary.",
+      "advice": "Keep the joint-event counterexample and the three-budget explanation. Route a formal reader through both the finite-mixture reduction and the cap-count identification."
+    },
+    {
+      "id": "J13",
+      "claim": "Erased-zero discovery is bounded by 4G/m²",
+      "exposition": {
+        "path": "repository/docs/exposition.md",
+        "section": "§5, The erased zero",
+        "line": 212,
+        "quote": "**The erased zero.**"
+      },
+      "expert_companion": {
+        "path": "repository/docs/expert_companion.md",
+        "section": "§4.3",
+        "line": 201,
+        "quote": "### 4.3 The erased zero"
+      },
+      "record": {
+        "path": "repository/docs/reasoning_record.md",
+        "section": "§6.4",
+        "line": 3280,
+        "quote": "Before the zero in a column has been discovered",
+        "anchor": "CL-early-late"
+      },
+      "lean_endpoints": [
+        {
+          "path": "repository/lean/QuarticQuery/Paper/Eq19Complete.lean",
+          "declaration": "eq_19_complete",
+          "line": 23,
+          "relation": "Conjunction of the exact random-column identity and the 4G/m² bound under the complete dummy law. Uses an alternative finite-world proof, not the early/late decomposition."
+        }
+      ],
+      "route_observation": "The exposition links the early/late proof and the expert links its sharper optional continuation. The record identifies which route is formal. The missing Independent/Eq19/Challenge file prevents inspecting that configured challenge locally; Eq19Complete and the independent Spec/Bridge are present.",
+      "judgment": "The endpoint matches. A checked inequality is not evidence that this particular explanatory decomposition was formalized, and the record already makes that distinction.",
+      "advice": "Keep the independent-column counterexample and the readable early/late proof. Preserve the endpoint/route distinction in the audit appendix."
+    },
+    {
+      "id": "J14",
+      "claim": "A cell query predicts an address: the capped simulator",
+      "exposition": {
+        "path": "repository/docs/exposition.md",
+        "section": "§5, The simulator",
+        "line": 238,
+        "quote": "**The simulator.**"
+      },
+      "expert_companion": {
+        "path": "repository/docs/expert_companion.md",
+        "section": "§4.4",
+        "line": 221,
+        "quote": "The position of a query already names an address"
+      },
+      "record": {
+        "path": "repository/docs/reasoning_record.md",
+        "section": "§6.5",
+        "line": 3393,
+        "quote": "Fix a column \\(i\\) and a time",
+        "anchor": "CL-simulator"
+      },
+      "lean_endpoints": [
+        {
+          "path": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+          "declaration": "eq_21",
+          "line": 342,
+          "relation": "Per-column, per-time joint-event inequality under the original dummy sampling law; μ is normalized, supported on the promise and hard at cap L."
+        }
+      ],
+      "route_observation": "The expert’s equation (12), the exposition’s light-and-hit event and record equation (21) are the same step under different numbering. The exposition promises a worked trace but links #CL-simulator; the actual example starts at #CL-simulator-example. Record §6.6 then sends the expert reader back to nonexistent companion §5.5 instead of current §4.5.",
+      "judgment": "The mathematical bridge survives: the simulator aborts before excess forwarded queries and may guess. The weakest part of the journey is finding the promised example and returning to the right section.",
+      "advice": "Point the example link at its own anchor, repair the return label, and retain lightness inside the probability. Do not recast the argument as computing the address before any cell visit."
+    },
+    {
+      "id": "J15",
+      "claim": "The universal quartic upper bound closes the infimum argument",
+      "exposition": {
+        "path": "repository/docs/exposition.md",
+        "section": "§6",
+        "line": 271,
+        "quote": "The matching upper bound"
+      },
+      "expert_companion": {
+        "path": "repository/docs/expert_companion.md",
+        "section": "§1 and §7",
+        "line": 275,
+        "quote": "Lean proves $D(f)\\le20736"
+      },
+      "record": {
+        "path": "repository/docs/reasoning_record.md",
+        "section": "Appendix A",
+        "line": 3763,
+        "quote": "Every total Boolean function satisfies",
+        "anchor": "R3-A-RESULT"
+      },
+      "lean_endpoints": [
+        {
+          "path": "repository/lean/QuarticQuery/Appendix/TheoremA1.lean",
+          "declaration": "D_le_Q_pow_four",
+          "line": 52,
+          "relation": "D≤20736 Q⁴ through the imported complexity-library route."
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Appendix/TheoremA1.lean",
+          "declaration": "universalPower_four",
+          "line": 70,
+          "relation": "Membership of exponent four in the defining set, derived from R≤D."
+        }
+      ],
+      "route_observation": "The exposition links the record’s ordinary reconstruction with constant 35⁴. Expert §7 also names the imported route with constant 20736. The theorem file explicitly says its imported proof is not a line-by-line formalization of Appendix A.",
+      "judgment": "The constants differ because the routes differ; both close the universal-exponent argument. This is a successful calibrated comparison, not an inconsistency to “fix” by making the constants equal.",
+      "advice": "Keep both routes identifiable in the record, while giving the exposition only the upper-bound consequence it needs."
+    }
+  ]
+}

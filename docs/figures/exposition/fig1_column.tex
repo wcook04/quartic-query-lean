@@ -35,7 +35,7 @@
   \node[font=\scriptsize, addr, anchor=south] at (1.35*1.5,0.36)
     {$r=20\log_2 m$ inputs to $P_{k,m}$, each of $km$ bits};
   \node[font=\footnotesize, addr] (s) at (1.35*1.5,-1.05)
-    {address $s=\bigl(P(A_{i^\star\!,1}),\dots,P(A_{i^\star\!,r})\bigr)\in\{0,1\}^r$};
+    {$r$-bit cell address $s=\bigl(P(A_{i^\star\!,1}),\dots,P(A_{i^\star\!,r})\bigr)\in\{0,1\}^r$};
   \foreach \h in {0,1,3} \draw[->, addr] (A\h.south) -- (A\h.south |- s.north);
 \end{scope}
 % ---- the cell array B_{i*,s}, s in {0,1}^r ------------------------------
@@ -54,12 +54,12 @@
 \end{scope}
 \draw[->, addr, thick] (s.south -| cell4.north) -- (cell4.north);
 % ---- what the selected cell holds ---------------------------------------
-\node[draw=win, fill=win!5, rounded corners=2pt, align=left, font=\scriptsize,
-      anchor=north west, text width=62mm] (content) at (5.3,-0.35)
+\node[draw=win, fill=win!5, rounded corners=2pt, align=left, font=\footnotesize,
+      anchor=north west, text width=68mm] (content) at (5.3,-0.35)
   {the cell at the true address holds\\
    \textbullet\ $r$ transcripts of an exact circuit for $P_{k,m}$,\\
    \phantom{\textbullet\ }certifying each bit of $s$;\\
-   \textbullet\ one $\log_2 m$-bit pointer $p_{i^\star\!,s,j}$ into each\\
+   \textbullet\ one $\ell=\log_2 m$-bit row pointer $p_{i^\star\!,s,j}$ into each\\
    \phantom{\textbullet\ }other column $j$, naming a zero};
 \draw[win] (cell4.south) -- (cell4.south |- content.north);
 % ---- outward pointers, routed through the lanes between the blocks ------

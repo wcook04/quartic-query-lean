@@ -19,6 +19,7 @@ import argparse
 import datetime
 import json
 import os
+import re
 from pathlib import Path
 import subprocess
 import sys
@@ -88,6 +89,63 @@ DRAFT_STAGES = {"short": "docs/expert_companion.md", "expository": "docs/exposit
 state = {"lean_exposition": None, "register": None}
 
 
+def sanitize_register(data, measurements, patterns, referenced_ids=()):
+    """Remove private evidence records without dropping their parent rules.
+
+    Core rule text and identity must survive byte-for-byte. If a private marker
+    occurs there, stop rather than rewriting the rule or silently exporting it.
+    Other nested structures retain the conservative round-five behavior.
+    """
+    def named(value):
+        return any(p.search(json.dumps(value, ensure_ascii=False)) for p in patterns)
+
+    def clean(value):
+        if isinstance(value, list):
+            return [clean(v) for v in value if not (
+                isinstance(v, dict) and any(named(item) for item in v.values()
+                                            if isinstance(item, str)))]
+        if isinstance(value, dict):
+            return {k: clean(v) for k, v in value.items()}
+        if isinstance(value, str):
+            for pattern in patterns:
+                value = pattern.sub("a cited author", value)
+        return value
+
+    rules = data.get("rules")
+    if not isinstance(rules, list) or not rules:
+        raise ValueError("register rules inventory is missing or empty")
+    ids = [r.get("id") for r in rules]
+    if any(not isinstance(rid, str) or not rid for rid in ids) or len(ids) != len(set(ids)):
+        raise ValueError("register rule IDs must be nonempty and unique")
+    core = ("id", "title", "rule", "limit", "status", "scopes", "failure", "detector", "probe")
+    result = {k: clean(v) for k, v in data.items() if k != "rules"}
+    result["rules"] = []
+    for rule in rules:
+        for key in core:
+            if key in rule and named(rule[key]):
+                raise ValueError(f"private marker in core register rule field: {rule['id']} / {key}")
+        exported = {k: clean(v) for k, v in rule.items()
+                    if not (k == "example" and named(v))}
+        if any(exported.get(k) != rule.get(k) for k in core):
+            raise ValueError(f"core register rule changed: {rule['id']}")
+        result["rules"].append(exported)
+    if [r["id"] for r in result["rules"]] != ids:
+        raise ValueError("register rule inventory changed")
+    for measurement in measurements:
+        for feature, row in measurement.get("features", {}).items():
+            unresolved = set(row.get("rules", [])) - set(ids)
+            if unresolved:
+                raise ValueError(f"unresolved register rule references in {feature}: {sorted(unresolved)}")
+    unresolved = set(referenced_ids) - set(ids)
+    if unresolved:
+        raise ValueError(f"unresolved writing-method rule references: {sorted(unresolved)}")
+    if named(result):
+        raise ValueError("private marker remains in register export")
+    result["export_note"] = ("Private-reader specimens, examples, instances and history records may be omitted; "
+                             "rule identities and core text are retained.")
+    return result
+
+
 def build_register(lean_exposition, annexes, out):
     """Run the lean-exposition register stage on the frozen drafts against the quartic literature."""
     sys.path.insert(0, str(Path(lean_exposition) / "src"))
@@ -96,30 +154,22 @@ def build_register(lean_exposition, annexes, out):
                         if (annexes / slug / "extracted.md").is_file())
     drafts = {stage: str(ROOT / path) for stage, path in DRAFT_STAGES.items()}
     register.build_packet_inputs(drafts, literature, str(out), "Round seven: writing", job="")
-    # The rules quote published papers from other fields. A packet names no private
-    # reader, so specimens and examples whose text matches a reader pattern are left
-    # out of this round's copy; every rule itself is kept.
-    patterns = base.reader_leak_patterns()
-
-    def named(value):
-        return any(p.search(json.dumps(value, ensure_ascii=False)) for p in patterns)
-
-    def clean(value):
-        if isinstance(value, list):
-            return [clean(v) for v in value if not (isinstance(v, dict) and named(v))]
-        if isinstance(value, dict):
-            return {k: clean(v) for k, v in value.items()}
-        if isinstance(value, str):
-            for p in patterns:
-                value = p.sub("a cited author", value)
-        return value
-
-    data = clean(json.loads((out / "register/register_rules.json").read_text(encoding="utf-8")))
+    rules_path = out / "register/register_rules.json"
+    data = json.loads(rules_path.read_text(encoding="utf-8"))
+    measurements = json.loads((out / "register/measurement.json").read_text(encoding="utf-8"))
+    method_paths = [Path(lean_exposition) / "skills" / name for name in SKILL_FILES]
+    method_paths += [Path(lean_exposition) / name for name in METHOD_DOCS]
+    references = set()
+    method_paths.append(out / "register/measurement.txt")
+    for path in method_paths:
+        references.update(re.findall(r"\bRG-\d+\b", path.read_text(encoding="utf-8")))
+    data = sanitize_register(data, measurements, base.reader_leak_patterns(), references)
+    register.validate_rules(data)
     relevant = [r for r in data["rules"] if any(s in r["scopes"] for s in drafts)]
-    (out / "register/register_rules.json").write_text(json.dumps(data, indent=1, ensure_ascii=False) + "\n",
-                                                      encoding="utf-8")
-    (out / "register/REGISTER_RULES.md").write_text(
-        register.render_rules(relevant, "Register rules for these drafts"), encoding="utf-8")
+    rules_path.write_text(json.dumps(data, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+    rendered = register.render_rules(relevant, "Register rules for these drafts")
+    rendered += "\nPrivate-reader specimens, examples, instances and history records may be omitted; rule text is retained.\n"
+    (out / "register/REGISTER_RULES.md").write_text(rendered, encoding="utf-8")
     return out / "register"
 
 

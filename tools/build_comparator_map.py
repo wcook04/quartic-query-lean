@@ -8,7 +8,9 @@ configuration into its declaration blocks and joins each block to:
   - the corpus statement IDs tied to it (corpus/statements.json), either directly
     or through the wrapper's proof text in the matching Solution;
   - the reasoning-record passages that state or mention it, with each passage
-    hash checked against docs/reasoning_record.md;
+    hash checked against docs/reasoning_record.md; a passage mentions a
+    declaration by naming it in backticks or by a Lean reference link
+    `[phrase][label]` whose label tools/build_lean_links.py resolves to it;
   - the latest Comparator receipt for each configuration that uses the Challenge,
     with direct credit for configured targets only.
 
@@ -52,6 +54,7 @@ IDENTIFIER = re.compile(r"[A-Za-z_][A-Za-z0-9_'.]*[A-Za-z0-9_']|[A-Za-z_]")
 PASSAGE = re.compile(r"<!-- passage:([^ >]+) -->(.*?)<!-- /passage:\1 -->", re.S)
 CLAIM = re.compile(r"<!-- claim:([^ >]+) -->")
 BACKTICK = re.compile(r"`([^`\n]+)`")
+LINK_USE = re.compile(r"\]\[([A-Za-z0-9][A-Za-z0-9-]*)\]")
 EXACT = re.compile(r"^\s*exact\s+(@?[A-Za-z_][\w.']*)", re.M)
 
 
@@ -261,6 +264,22 @@ def backtick_mentions(passages, names):
     return mentions
 
 
+def link_mentions(passages, names):
+    """Declarations cited by a Lean reference link `[phrase][label]`, through the label's targets."""
+    # Imported here because build_lean_links imports this module.
+    from build_lean_links import CITATIONS
+    wanted = set(names)
+    mentions = {}
+    for anchor, passage in passages.items():
+        for found in LINK_USE.finditer(passage["body"]):
+            label = found.group(1)
+            targets = [n for n in (CITATIONS[label][2] or [])] if label in CITATIONS else []
+            for name in targets:
+                if name in wanted:
+                    mentions.setdefault(name, {}).setdefault(anchor, (label, found.start(), len(targets) > 1))
+    return mentions
+
+
 def returned_lean_lists(correspondence):
     """Passages whose returned correspondence explicitly lists a Lean name."""
     named = {}
@@ -430,6 +449,7 @@ def build():
         })
 
     mentions = backtick_mentions(passages, declarations)
+    linked = link_mentions(passages, declarations)
     returned = returned_lean_lists(correspondence)
     for name, info in declarations.items():
         links = [{**tie, "join": "statement_tie"} for tie in ties.get(name, [])]
@@ -448,6 +468,11 @@ def build():
             references.append({"anchor": anchor, "join": "backtick_mention", "alias": alias,
                                **({"ambiguous_alias": True} if ambiguous else {}),
                                "passage_claims": passages[anchor]["claims"]})
+        for anchor, (label, _, shared) in sorted(linked.get(name, {}).items(),
+                                                 key=lambda item: passages[item[0]]["line_start"]):
+            references.append({"anchor": anchor, "join": "lean_link_mention", "label": label,
+                               **({"label_names_several": True} if shared else {}),
+                               "passage_claims": passages[anchor]["claims"]})
         for anchor, source in sorted(returned.get(name, ())):
             if anchor in passages:
                 references.append({"anchor": anchor, "join": "returned_correspondence_lean_list",
@@ -461,7 +486,8 @@ def build():
                 unique.append({**reference, "passage_sha256": passage["sha256"],
                                "passage_lines": [passage["line_start"], passage["line_end"]]})
         info["record_references"] = unique
-        info["primary_gloss"] = primary_gloss(record_text, passages, unique, mentions.get(name, {}))
+        info["primary_gloss"] = primary_gloss(record_text, passages, unique, mentions.get(name, {}),
+                                             linked.get(name, {}))
         info["gap"] = None if unique else "no_record_passage"
 
     coverage = summarize(challenges, declarations)
@@ -470,8 +496,8 @@ def build():
         "generated_by": "tools/build_comparator_map.py",
         "boundary": ("Reading aid joining Comparator's trusted Challenge text to existing record passages, "
                      "corpus statement ties and recorded receipts. Glosses are exact record excerpts. Joins by "
-                     "backtick mention or wrapper proof text are textual and labelled. No Lean or Comparator "
-                     "run, semantic review or new prose is produced here."),
+                     "backtick mention, Lean reference link or wrapper proof text are textual and labelled. "
+                     "No Lean or Comparator run, semantic review or new prose is produced here."),
         "credit_vocabulary": {
             "direct": "A configured theorem name of a positive Comparator configuration.",
             "statement_dependency": "A displayed definition that a configured theorem's statement depends on.",
@@ -491,10 +517,11 @@ def build():
     }
 
 
-def primary_gloss(record_text, passages, references, mentions):
+def primary_gloss(record_text, passages, references, mentions, linked=None):
     """Choose the quoted record text a reader sees first; never compose new text."""
     order = [("statement_claim", "statement_tie"), ("statement_claim", "solution_proof_reference"),
-             ("backtick_mention", None), ("returned_correspondence_lean_list", None)]
+             ("backtick_mention", None), ("lean_link_mention", None),
+             ("returned_correspondence_lean_list", None)]
     for join, via in order:
         for reference in references:
             if reference["join"] != join or (via and reference.get("via") != via):
@@ -504,6 +531,8 @@ def primary_gloss(record_text, passages, references, mentions):
                 start, stop = passage["claim_segments"][reference["statement_id"]]
             elif join == "backtick_mention":
                 start, stop = paragraph_around(passage["body"], mentions[reference["anchor"]][1])
+            elif join == "lean_link_mention":
+                start, stop = paragraph_around(passage["body"], linked[reference["anchor"]][1])
             else:
                 continue
             return {"anchor": reference["anchor"], "join": join,

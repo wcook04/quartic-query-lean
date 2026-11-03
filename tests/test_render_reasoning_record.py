@@ -96,7 +96,7 @@ class FilterTests(unittest.TestCase):
         ast = json.loads(subprocess.run([PANDOC, str(RECORD), "--from=" + MODULE.READER, "--to=json"],
                                         capture_output=True, text=True, check=True).stdout)
         navigation = MODULE.navigation_inputs(ast, RECORD)
-        self.assertEqual((navigation["authored_anchors"], navigation["internal_links"]), (365, 282))
+        self.assertEqual((navigation["authored_anchors"], navigation["internal_links"]), (365, 327))
         self.assertEqual(len(navigation["directory_links_retargeted"]), 5)
         with tempfile.TemporaryDirectory() as folder:
             tex = latex(RECORD, folder)

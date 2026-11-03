@@ -1,0 +1,47 @@
+{
+  "packet": "newcomer_readers",
+  "hash_algorithm": "SHA-256",
+  "scope": "All other archive members; excludes this manifest to avoid a self-reference.",
+  "members": [
+    {
+      "path": "README.md",
+      "bytes": 3702,
+      "sha256": "015d8211fe039a61f9f3ce120fdaa3a9f1ef7fa26aa24be22cf057799e6623d3"
+    },
+    {
+      "path": "feedback.json",
+      "bytes": 218192,
+      "sha256": "6023764b1d9b9ed03863b0d9677926bb3fd33024a5c47647b193e33bc357d086"
+    },
+    {
+      "path": "feedback_by_document.md",
+      "bytes": 34857,
+      "sha256": "b2e8bb35531920831e381432464ac619a2eb1d9bf6d4f3dd9ab49f5a4dfd0651"
+    },
+    {
+      "path": "literature_comparison.md",
+      "bytes": 27834,
+      "sha256": "1969062934b564b82bf0ca0cb8f0848be5460907535fb9756479d3f43c290b40"
+    },
+    {
+      "path": "method_feedback.json",
+      "bytes": 32233,
+      "sha256": "303deb2508cc80d1b5be97edfe6cabf0fabdddac398f994e8a9678a8743929ef"
+    },
+    {
+      "path": "reading_log.md",
+      "bytes": 77536,
+      "sha256": "4a27ac201731e9f215874a8441292dbe1a28252524b6d7f6b76799f995997c75"
+    },
+    {
+      "path": "validation.json",
+      "bytes": 3632,
+      "sha256": "8dcdcf8e146ef1f8c8c37595cd75ff61fdee4b75e35106dd790bc85ce429ed76"
+    },
+    {
+      "path": "verdict.md",
+      "bytes": 4895,
+      "sha256": "d0f9cff67dd461d9ae9121e99690f2bf72795c8fe1d0ed78f1855678daca868e"
+    }
+  ]
+}

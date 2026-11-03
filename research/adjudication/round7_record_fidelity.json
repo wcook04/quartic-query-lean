@@ -1,0 +1,767 @@
+{
+  "schema": "quartic-round7-record-fidelity-v1",
+  "reviewed_utc": "2026-11-03T20:11:50.781720+00:00",
+  "baseline_commit": "1e60214",
+  "baseline_record_sha256": "41d6dae58694ff9010d417997dc40e95c3486b9133dc2a125c6843665f902d63",
+  "reviewed_record_sha256": "d5d1ff5eaebc4d2f7b7a99e0ba12a6e9aac8876875a5badd50fad7b8702cb3ba",
+  "scope": "Every non-identical passage body diff read; full current source passages and selected maintained Lean/primary literature inspected as detailed in markdown. No blanket proof certification. No returned programs executed. No Lean build or Comparator rerun.",
+  "observations": {
+    "anchors": {
+      "before_occurrences": 365,
+      "after_occurrences": 365,
+      "after_unique": 365,
+      "same_multiset": true
+    },
+    "claim_markers": {
+      "before_occurrences": 261,
+      "after_occurrences": 261,
+      "after_unique": 185,
+      "same_multiset": true
+    },
+    "passages": {
+      "before_occurrences": 298,
+      "after_occurrences": 298,
+      "after_unique": 298,
+      "same_multiset": true
+    }
+  },
+  "changed_passage_count": 105,
+  "byte_identical_passage_bodies": 193,
+  "reviewed_passages": [
+    {
+      "passage_id": "ROOT-RESULT",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "2d77c53bb0150d166bae7f134b29bdf728f842da35a1902edfe4c9f4151fd058",
+      "new_body_sha256": "5e895c8b057d2638d640de260c6e8eca960234485fe96b467f9d58de0ee229c4",
+      "reason": "Read old/new diff and destination context; wording, notation, navigation, relocation or evidence-scope edit preserves the mathematical assertion. Relevant quantum/classical audit reused where applicable."
+    },
+    {
+      "passage_id": "R3-01-QUANTIFIERS",
+      "disposition": "direct_targeted_check",
+      "old_body_sha256": "f925d56c67aaaac2c43cc95b712e2a6832ceade4f4f0898c76215a1089710cc9",
+      "new_body_sha256": "7176735565036e4b8d58902deae3029903a8cec9ce235fd3d3682470b8d51b16",
+      "reason": "Checked positive exponent gap for fixed integer k and nonnegative alpha; full quotient remains at ROOT-RATIO."
+    },
+    {
+      "passage_id": "ROOT-ARCHITECTURE",
+      "disposition": "quantum_audit_reused_after_diff_read",
+      "old_body_sha256": "c2e94755d4066c2ee9855b5ed59ece3df9085b8b04dcf441d3b2d311ea5c9ba6",
+      "new_body_sha256": "8225f43f343d0f42dcfaa6dd885f2c769d1ed3e0587de2d67f126e6430931cdf",
+      "reason": "Read actual changed text and compared it with round7_quantum_audit.md corrections, mechanism and source boundary; no new state-preservation or formal-dependency certification inferred."
+    },
+    {
+      "passage_id": "ROOT-PARTIAL",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "ab20a9a076e885c93ce8c37a0ad6b09135411a0407611bd225c156778bb66acc",
+      "new_body_sha256": "3dc153ec0556f0a9854a2e13cc8021413961f64304acc182f851dacd99545fe2",
+      "reason": "Read old/new diff and destination context; wording, notation, navigation, relocation or evidence-scope edit preserves the mathematical assertion. Relevant quantum/classical audit reused where applicable."
+    },
+    {
+      "passage_id": "ROOT-ORACLE",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "78987b8ee20979dd59f28cb91683b3588986570cbbf0aed524d8e4751de8aa25",
+      "new_body_sha256": "b07b88728d6af337420b902708c35190935b94e09a553e1db02897a3ebe9f61a",
+      "reason": "Read old/new diff and destination context; wording, notation, navigation, relocation or evidence-scope edit preserves the mathematical assertion. Relevant quantum/classical audit reused where applicable."
+    },
+    {
+      "passage_id": "R3-01-ADAPTIVE",
+      "disposition": "direct_targeted_check",
+      "old_body_sha256": "c115aa5ff867d5656f2e934b0245dd70b4c15e5ee69012c9eae593b12ad57070",
+      "new_body_sha256": "1190a5ca5cab7c8c7ac4b90c8a7bfede29dc67aa85ca420f4ba55f709dd56e3b",
+      "reason": "Compared QLe quantifier order and explicit ConstantOnPromise clause with Statement.lean; the norm-weight example is exact."
+    },
+    {
+      "passage_id": "R3-01-BRIDGES",
+      "disposition": "direct_targeted_check",
+      "old_body_sha256": "ae6a5310b0dc904cea0dbdb80bb20c0578e1cf8ed2b3b72edbeed53e67aed94e",
+      "new_body_sha256": "9e1a6b7330b49ae48304c96e5b21ea7580dd09eb746b3ece93519ce47f2dc7fc",
+      "reason": "Compared FixedSim.embed_phase, FixedSim.query and exists_fixedSequence; acceptance mass for all x and psi is preserved, without final-state identity."
+    },
+    {
+      "passage_id": "R3-01-ZERO",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "e6f5f6ee08cae0b776874a088e3b2e4c0b7e92fdb92502a999b0767801747959",
+      "new_body_sha256": "2d591b6edcf62638a555adeaa84b47909e5a53530cc17e4f74c7042c08ea0cd4",
+      "reason": "Read old/new diff and destination context; wording, notation, navigation, relocation or evidence-scope edit preserves the mathematical assertion. Relevant quantum/classical audit reused where applicable."
+    },
+    {
+      "passage_id": "forr_scope",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "61b0f5bfde72b9bd4a66e459c34a38bd98cf4aebae0f007427a93bb362a8d0eb",
+      "new_body_sha256": "64cabe6aca1fea8351d49cd7d784649939fa100b6065d9cd5e5f14830e6e484e",
+      "reason": "Read old/new diff and destination context; wording, notation, navigation, relocation or evidence-scope edit preserves the mathematical assertion. Relevant quantum/classical audit reused where applicable."
+    },
+    {
+      "passage_id": "forr_definition",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "e03b7f3d896844c34e8b1c6d5c166bc068a10a990f0346399689e477e8c1a532",
+      "new_body_sha256": "1a4e4e7fd2f030aaaad3d3ca7326e7560967bc7347f65004616a578051c3ae7b",
+      "reason": "Read old/new diff and destination context; wording, notation, navigation, relocation or evidence-scope edit preserves the mathematical assertion. Relevant quantum/classical audit reused where applicable."
+    },
+    {
+      "passage_id": "forr_quantum",
+      "disposition": "quantum_audit_reused_after_diff_read",
+      "old_body_sha256": "737756484224f0f023feaeec2a9caf9260ef780c15027dcd958f87548f0f0114",
+      "new_body_sha256": "0b25713d23a6c4f32f70d67c9324b49d58efc0a71cf80b1cf6b0386c5ea830f8",
+      "reason": "Read actual changed text and compared it with round7_quantum_audit.md corrections, mechanism and source boundary; no new state-preservation or formal-dependency certification inferred."
+    },
+    {
+      "passage_id": "forr_repetition",
+      "disposition": "quantum_audit_reused_after_diff_read",
+      "old_body_sha256": "3244fc31be11256b214743898144536fac9412b21e6ffe84a95dc7b0f2eec520",
+      "new_body_sha256": "2396cb107bd83f566be41db02a7c6f09cbca0100328f24c398e7aa38cc3b3af2",
+      "reason": "Read actual changed text and compared it with round7_quantum_audit.md corrections, mechanism and source boundary; no new state-preservation or formal-dependency certification inferred."
+    },
+    {
+      "passage_id": "forr_coherent",
+      "disposition": "quantum_audit_reused_after_diff_read",
+      "old_body_sha256": "44c754b9c11b8555e5acef0dd1f928d59d88fb86364af73c4db930e54a10c7d7",
+      "new_body_sha256": "0873f6ff7e04b8f831b3a1e23e1831fc10f7b3c13f375adb743ba1cdce5ba1fd",
+      "reason": "Read actual changed text and compared it with round7_quantum_audit.md corrections, mechanism and source boundary; no new state-preservation or formal-dependency certification inferred. Final factor-two cost and register-conventions wording also checked against AppendixG.5; no sharper physical cap or register identification asserted."
+    },
+    {
+      "passage_id": "forr_circuit",
+      "disposition": "direct_targeted_check",
+      "old_body_sha256": "cc6788e906c64f83ec4cd83f6a39492342d0c7fffd2fea7d74cc398466e8c458",
+      "new_body_sha256": "9b415783e5c2a529bfe9eda36e6ce5dc80f7caa8a120663e6c3bec70c2fde03f",
+      "reason": "New residue-versus-signed-range explanation agrees with the existing modular construction and its final comparison range."
+    },
+    {
+      "passage_id": "forr_circuit_size",
+      "disposition": "direct_targeted_check",
+      "old_body_sha256": "6563b7e1829d4b3dd34fc241de5741143d32440af07dc8126c9040e6e2172146",
+      "new_body_sha256": "43c9c852e87ba3fdac9d8350994243df78a448bb2e8dc3d0a97d0f8f2a9efb62",
+      "reason": "Read current constructor-cost arithmetic;337(k+1)^2 m t^2<=800(k+1)^2 m t^2=200(k+1)^2 m(log2 m)^2."
+    },
+    {
+      "passage_id": "forr_target",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "9641ab959545e8fc362799c7d587584d029fa82bef4050bcfadbd177dc7c2b6d",
+      "new_body_sha256": "0cdd394439abe37725459833b23219d678a4ea97414b3f9341e93d98cf3c5646",
+      "reason": "Read old/new diff and destination context; wording, notation, navigation, relocation or evidence-scope edit preserves the mathematical assertion. Relevant quantum/classical audit reused where applicable."
+    },
+    {
+      "passage_id": "forr_distribution",
+      "disposition": "direct_targeted_check",
+      "old_body_sha256": "275cd9ef45a43d888c44ba030b75f2ea9c77fd375e867918745b5a36778e120d",
+      "new_body_sha256": "7601164e8c1f34d4ff2b936f27595a4e0a9c1ae16ae55d57406b44df7321ad93",
+      "reason": "Read new h=k-1 notation and all three cases; no change to link count or block endpoints."
+    },
+    {
+      "passage_id": "forr_path_formula",
+      "disposition": "direct_targeted_check",
+      "old_body_sha256": "837676f92cc2f87bd2e869c1f3dd9f29719ce54335bbacedbf0b53d6fc5f64ec",
+      "new_body_sha256": "8011103df02463e9943bf1f1ff497081bf06faf021f9c7c172e35e9eb5810f50",
+      "reason": "Both products now spell out j<k-1; same Gaussian-link range as former ell=k-1."
+    },
+    {
+      "passage_id": "forr_tree_growth",
+      "disposition": "direct_targeted_check",
+      "old_body_sha256": "74f0024cfa6236a6a3a84681d91ccd15ba2f8737c8ed5c481d646daf7acb7239",
+      "new_body_sha256": "485af8c066b0d9e964ae41a09804ab6a14deb24e91076019e62426a5e4d0b45d",
+      "reason": "Read full current passage; expanded degree2 update into the old{a,b} term plus the two fresh-q terms and checked conditional centering."
+    },
+    {
+      "passage_id": "forr_tree_leaves",
+      "disposition": "direct_targeted_check",
+      "old_body_sha256": "8cfe64b9d356b6509cc599c25882040a83372afd827ffa571cf83781bfd569e1",
+      "new_body_sha256": "63fb31e73d1a2b7c2098cd65dfbe8683d85cfcd34e9c6976f2dd3859d9639bcf",
+      "reason": "Read full cylinder/leaf argument; terminal value wording denotes exactly the same Y_r^c(Q_d,z), including repeated queries."
+    },
+    {
+      "passage_id": "forr_advantage",
+      "disposition": "direct_targeted_check",
+      "old_body_sha256": "47f63bd96fc86d50d5fde30835065f59714e6ee841199b89d6d87092a6cb9348",
+      "new_body_sha256": "5a12e8fb8d4855275eaf809a99cbe2b713ec5d00403e3736c0463dfbae3c81cf",
+      "reason": "Checked m^{-(k-1)/2} d^{k/2} fixed-k scale and threshold d approximately m^{1-1/k}; F33 display unchanged."
+    },
+    {
+      "passage_id": "forr_uniform_assembly",
+      "disposition": "direct_targeted_check",
+      "old_body_sha256": "fae542b6c0515dabc0343acc24498e725b92b67795b454ef5165e7f7f97b1997",
+      "new_body_sha256": "e8bae2855adbe04246187c1d8fe1f4ff241ff651f27bb5d5c3eb8172e0d8d729",
+      "reason": "Read complete finite assembly; one k is from derivative growth and one from padded amplified depth50kD+1; seven display strings unchanged."
+    },
+    {
+      "passage_id": "forr_credit",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "04550f47b8118f677b404c20038c74d784c3debaa4402ac6756e4cccf4cac70f",
+      "new_body_sha256": "f5b27ccfe05acdee616eb95cde96e6ed7be3166399bf1c0243b7571a3e3932a3",
+      "reason": "Read old/new diff and destination context; wording, notation, navigation, relocation or evidence-scope edit preserves the mathematical assertion. Relevant quantum/classical audit reused where applicable."
+    },
+    {
+      "passage_id": "forr_references",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "52d566e089ac9f063cea15b4ae51f28943813288885bdcf48f89bf95d4ce2a10",
+      "new_body_sha256": "fd19cda35afac7db2ecb0b4bab0134b76cad2c2ca8ef92c43584b59073953572",
+      "reason": "Read old/new diff and destination context; wording, notation, navigation, relocation or evidence-scope edit preserves the mathematical assertion. Relevant quantum/classical audit reused where applicable."
+    },
+    {
+      "passage_id": "AC-layout",
+      "disposition": "quantum_audit_reused_after_diff_read",
+      "old_body_sha256": "87fe9defd39b33a7d08aff85a38e417a16dafee9255c1da4bd528cd77db90991",
+      "new_body_sha256": "055369898b6e6ceeff95168214a3613c7d88ebe7a2bf97daf3f0ea25b30ad5c2",
+      "reason": "Read actual changed text and compared it with round7_quantum_audit.md corrections, mechanism and source boundary; no new state-preservation or formal-dependency certification inferred."
+    },
+    {
+      "passage_id": "AC-winner",
+      "disposition": "quantum_audit_reused_after_diff_read",
+      "old_body_sha256": "4bac075a4eea7886efa0fd1f7d9b5e7b4a11f88f1b724286962a81d52c48971d",
+      "new_body_sha256": "e1903ad6791ee67cde1f63762638b163057953a9d09ecbc38757080bd3e3bfba",
+      "reason": "Read actual changed text and compared it with round7_quantum_audit.md corrections, mechanism and source boundary; no new state-preservation or formal-dependency certification inferred."
+    },
+    {
+      "passage_id": "AC-example-board",
+      "disposition": "quantum_audit_reused_after_diff_read",
+      "old_body_sha256": "531f9afa8fe099ced5375330ca126741a81801bb15c389bda2bfdba99fc3ed32",
+      "new_body_sha256": "aa963bc570271521e81258723e787fda89753843f5a13e3b081d5505113486fd",
+      "reason": "Read actual changed text and compared it with round7_quantum_audit.md corrections, mechanism and source boundary; no new state-preservation or formal-dependency certification inferred."
+    },
+    {
+      "passage_id": "AC-tests",
+      "disposition": "quantum_audit_reused_after_diff_read",
+      "old_body_sha256": "a5137c57ca704a9a8ad5705eee2e41540fd452eda80aacaba463128b699be2b4",
+      "new_body_sha256": "eba3ff4bce034a933cfe6e79f163f4412bf20351a20c4b6d99fe1fd3c524fe25",
+      "reason": "Read actual changed text and compared it with round7_quantum_audit.md corrections, mechanism and source boundary; no new state-preservation or formal-dependency certification inferred."
+    },
+    {
+      "passage_id": "AC-example-tests",
+      "disposition": "quantum_audit_reused_after_diff_read",
+      "old_body_sha256": "380882642857f1ea3bf3e96ce4d6d85f18fa2dad8c7d1cd2d8803cda266b923d",
+      "new_body_sha256": "30862eefc5ec30b54dc4f6e02d32bedec2b24df3303ec5debc39bff3aa084aa7",
+      "reason": "Read actual changed text and compared it with round7_quantum_audit.md corrections, mechanism and source boundary; no new state-preservation or formal-dependency certification inferred."
+    },
+    {
+      "passage_id": "AC-clean-oracle",
+      "disposition": "quantum_audit_reused_after_diff_read",
+      "old_body_sha256": "e913495c52a0a4c1b613b1d3d8b5bc042c11ca54d2e2bcc47968e5853390cfb6",
+      "new_body_sha256": "d5f1d95ccf9a0023f695e019a0705344f19b2cb7848365af9e69c5aa4a084e4b",
+      "reason": "Read actual changed text and compared it with round7_quantum_audit.md corrections, mechanism and source boundary; no new state-preservation or formal-dependency certification inferred."
+    },
+    {
+      "passage_id": "AC-attribution",
+      "disposition": "quantum_audit_reused_after_diff_read",
+      "old_body_sha256": "c5b2ee2ec142d7ff158a1a02a4106933d16d5f7074c45a9a1551bf6716a6ed7f",
+      "new_body_sha256": "67811836a5b8596eabcb40e44c72ec2d4b32d6d46486a8d5f77b0bbdbf1e7d9c",
+      "reason": "Read actual changed text and compared it with round7_quantum_audit.md corrections, mechanism and source boundary; no new state-preservation or formal-dependency certification inferred."
+    },
+    {
+      "passage_id": "upper-purpose",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "cb389cd0c9e44203ef6a16453468e34a938a68c15c23e04e72679fa271aedec9",
+      "new_body_sha256": "cfad278c20de05c64751d213cc303fbc3bab773642f4edc0320fcd2608841517",
+      "reason": "Read old/new diff and destination context; wording, notation, navigation, relocation or evidence-scope edit preserves the mathematical assertion. Relevant quantum/classical audit reused where applicable."
+    },
+    {
+      "passage_id": "upper-amplification-statement",
+      "disposition": "quantum_audit_reused_after_diff_read",
+      "old_body_sha256": "ee58da8d4b163e6a8bc26dac6b4dd895ee2bc4a85133f6b55a99cce9553fe60f",
+      "new_body_sha256": "0837d274201829bd5edf41d95a058e7fd4366fd973d6fb087bd8bd03d9dbb5ac",
+      "reason": "Read actual changed text and compared it with round7_quantum_audit.md corrections, mechanism and source boundary; no new state-preservation or formal-dependency certification inferred."
+    },
+    {
+      "passage_id": "upper-grover-geometry",
+      "disposition": "quantum_audit_reused_after_diff_read",
+      "old_body_sha256": "7f42bacb71c05158d3581f7d9d71b55819cb43f71692c403c0567d398068cd8f",
+      "new_body_sha256": "838dd6b4de4abc0310edf0bb8e77d42e428fe80b4a12a4c53b66425ed8540b08",
+      "reason": "Read actual changed text and compared it with round7_quantum_audit.md corrections, mechanism and source boundary; no new state-preservation or formal-dependency certification inferred."
+    },
+    {
+      "passage_id": "upper-grover-trial",
+      "disposition": "quantum_audit_reused_after_diff_read",
+      "old_body_sha256": "08044b352369e3f911d79b5df9f5bf1c06dc30287b3b3f7e275776f12bcb4b45",
+      "new_body_sha256": "78402e824ccb26a0dfa74b97d4a848ca794c5e939e2146d49dd5c8e9fe69c39f",
+      "reason": "Read actual changed text and compared it with round7_quantum_audit.md corrections, mechanism and source boundary; no new state-preservation or formal-dependency certification inferred."
+    },
+    {
+      "passage_id": "upper-average-exact",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "8636586789e39ebb8a9608bf4419cf27b56d6dfe95a800ed7c6995f58713f23a",
+      "new_body_sha256": "64ca6ebdb76618268aed6dcd1c88b510c0a7065e87cda70008826940781b3dd8",
+      "reason": "Read old/new diff and destination context; wording, notation, navigation, relocation or evidence-scope edit preserves the mathematical assertion. Relevant quantum/classical audit reused where applicable."
+    },
+    {
+      "passage_id": "upper-small-probability",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "618b183f8f41127a5438d00584eea8a7c49d448f584971d5269b5b43f3bd583b",
+      "new_body_sha256": "8727eb689442c9f37740064d2fbfe6e6aad76127654518b32b1c85ce93b71245",
+      "reason": "Read old/new diff and destination context; wording, notation, navigation, relocation or evidence-scope edit preserves the mathematical assertion. Relevant quantum/classical audit reused where applicable."
+    },
+    {
+      "passage_id": "upper-amplification-proof",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "50eb6863c3a8e572ffcd0f7e986dca879209c6dea9223dbae8b1fa601cebc285",
+      "new_body_sha256": "2a4e3d7f1fa58d7e916b709c2c2ec05e726a5f4856dfb8de3fe877a9f9e8ad27",
+      "reason": "Read old/new diff and destination context; wording, notation, navigation, relocation or evidence-scope edit preserves the mathematical assertion. Relevant quantum/classical audit reused where applicable."
+    },
+    {
+      "passage_id": "upper-comparison-model",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "1d255f03bdd5afd607b158e85f675da255a4bed6115e0ed0b9d3a34871bbcdc3",
+      "new_body_sha256": "9fd6802f98ccd1c893f45a7a57912a73cd2644f861d1c26e619e86cb391dcb5f",
+      "reason": "Read old/new diff and destination context; wording, notation, navigation, relocation or evidence-scope edit preserves the mathematical assertion. Relevant quantum/classical audit reused where applicable."
+    },
+    {
+      "passage_id": "upper-tournament-parameters",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "350674859b50274f53068159ee2449221754b6baa4308272a77c3bb63747d082",
+      "new_body_sha256": "77642d9b99f9ba83411181a02d79750924111e1580f53d146921bec8ed09c580",
+      "reason": "Read old/new diff and destination context; wording, notation, navigation, relocation or evidence-scope edit preserves the mathematical assertion. Relevant quantum/classical audit reused where applicable."
+    },
+    {
+      "passage_id": "upper-ideal-process",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "f3aae93eb96ae1e2153a2fa2aee10dbda7e9066e6ddf4bc17c1b7bd14f45f076",
+      "new_body_sha256": "140cd7cc4a7f1bae8b236add74c20ca00b6128fa38096868828cc1174e3e1946",
+      "reason": "Read old/new diff and destination context; wording, notation, navigation, relocation or evidence-scope edit preserves the mathematical assertion. Relevant quantum/classical audit reused where applicable."
+    },
+    {
+      "passage_id": "upper-weight-drift",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "4a35bee98e2b9f9bf0c99e37375cd4dae84fa422e3183e386c0b1574db6c3f16",
+      "new_body_sha256": "74a15b8632f9e1741faf4641a4db0bf9fb66fb84a173bee556d65c9e2b587dfc",
+      "reason": "Read old/new diff and destination context; wording, notation, navigation, relocation or evidence-scope edit preserves the mathematical assertion. Relevant quantum/classical audit reused where applicable."
+    },
+    {
+      "passage_id": "upper-dominant-weight",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "8a58b0b9b67f3d4fb73c4b2c4ac2ea5581db2fa761e21c5446c51c14d1ba6faa",
+      "new_body_sha256": "f7a9c5edd4c69b9ec1dd597701691932d4b6889e5623b524e3750c9a29f498be",
+      "reason": "Read old/new diff and destination context; wording, notation, navigation, relocation or evidence-scope edit preserves the mathematical assertion. Relevant quantum/classical audit reused where applicable."
+    },
+    {
+      "passage_id": "upper-stage-state",
+      "disposition": "quantum_audit_reused_after_diff_read",
+      "old_body_sha256": "28a39dd27b4a49e25b736380a7ad3e498a4dbf82c9e6fec3bfdf61923ecec581",
+      "new_body_sha256": "95e09011ec6ee2e3ea226f601b712220e290f79a3d0c94e9812a538cf1a7dc0e",
+      "reason": "Read actual changed text and compared it with round7_quantum_audit.md corrections, mechanism and source boundary; no new state-preservation or formal-dependency certification inferred."
+    },
+    {
+      "passage_id": "upper-stage-law",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "0af1de197af9470cb5e5168af27b14079f445858bd1028cbcd93ffdd7efdaae1",
+      "new_body_sha256": "252fb7780c18d71f9fa3fcdd2d6abaaeaf5f9269c1320027a3f59180f9e7e7bb",
+      "reason": "Read old/new diff and destination context; wording, notation, navigation, relocation or evidence-scope edit preserves the mathematical assertion. Relevant quantum/classical audit reused where applicable."
+    },
+    {
+      "passage_id": "upper-cyclic-example",
+      "disposition": "quantum_audit_reused_after_diff_read",
+      "old_body_sha256": "1c5dcd496aecf83d99db3ab5308d233f9c5e521e67bb8113863f4567e7d072e2",
+      "new_body_sha256": "2e82fdf2d4b985ecd4493199dde9c6cf9bf34b04181457caf2d788191288e5e5",
+      "reason": "Read actual changed text and compared it with round7_quantum_audit.md corrections, mechanism and source boundary; no new state-preservation or formal-dependency certification inferred."
+    },
+    {
+      "passage_id": "upper-quantum-tournament",
+      "disposition": "quantum_audit_reused_after_diff_read",
+      "old_body_sha256": "433e72b771281f93a262d16fc5dc3b9362ac721931f433cb17596831ad1c3a12",
+      "new_body_sha256": "34e7ad224bb5cea8562fbbb813c25742880c2cd5c391300ba982be437dccb42f",
+      "reason": "Read actual changed text and compared it with round7_quantum_audit.md corrections, mechanism and source boundary; no new state-preservation or formal-dependency certification inferred."
+    },
+    {
+      "passage_id": "upper-coupling",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "3357dcd9a16a344c861edf968560b22c7ed81a66d361e7b32a5ddb51ba5b7a52",
+      "new_body_sha256": "20351aede642702384c1eab1d29647ad6c87e5c348eae0c1e209a83636c05f30",
+      "reason": "Read old/new diff and destination context; wording, notation, navigation, relocation or evidence-scope edit preserves the mathematical assertion. Relevant quantum/classical audit reused where applicable."
+    },
+    {
+      "passage_id": "upper-tournament-cost",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "7e7de7cf58bdbf047325e9dd6d4ed77661e573d545e8d29de4274327a4adb5f1",
+      "new_body_sha256": "55cadaeb0f5aeb4664db5b58a665b8aa370493838dc3e1319a7f7c077fa3f293",
+      "reason": "Read old/new diff and destination context; wording, notation, navigation, relocation or evidence-scope edit preserves the mathematical assertion. Relevant quantum/classical audit reused where applicable."
+    },
+    {
+      "passage_id": "upper-tournament-evidence",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "b413201e816ad9ee037200986357863e896bb53834b3a1248ef5c12b08aa4413",
+      "new_body_sha256": "f281542b10e3f01122fb3621e6a995bf742d243fa60345d808839547f659a824",
+      "reason": "Read old/new diff and destination context; wording, notation, navigation, relocation or evidence-scope edit preserves the mathematical assertion. Relevant quantum/classical audit reused where applicable."
+    },
+    {
+      "passage_id": "upper-decode",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "629782bc8f66f830feaded295339d20e324a2ae5217a168f93cd7fe4cfaa2400",
+      "new_body_sha256": "f16af6b8f816eae5ca010291af6f558382ceed7f020574d14b9b1e7252022b49",
+      "reason": "Read old/new diff and destination context; wording, notation, navigation, relocation or evidence-scope edit preserves the mathematical assertion. Relevant quantum/classical audit reused where applicable."
+    },
+    {
+      "passage_id": "upper-decode-cost",
+      "disposition": "quantum_audit_reused_after_diff_read",
+      "old_body_sha256": "9e9296e8dea77e66fbeecceae208cbaab6f63aa13fcf63f5f9c63ab6dfc04764",
+      "new_body_sha256": "187087849b1268c6f3c70e29f2e9e93cc94c9e18b3ec9c722d3a04a7d2e9b3aa",
+      "reason": "Read actual changed text and compared it with round7_quantum_audit.md corrections, mechanism and source boundary; no new state-preservation or formal-dependency certification inferred."
+    },
+    {
+      "passage_id": "upper-comparator",
+      "disposition": "quantum_audit_reused_after_diff_read",
+      "old_body_sha256": "e48b2a2b21aa023ca0d57c24495f95ffa626f87fa24b58947b896337a47bb0aa",
+      "new_body_sha256": "be0912ac7bda07ecaeb10346c8d607d20e9a92173072170da4cc58815897a56c",
+      "reason": "Read actual changed text and compared it with round7_quantum_audit.md corrections, mechanism and source boundary; no new state-preservation or formal-dependency certification inferred."
+    },
+    {
+      "passage_id": "upper-comparison-law",
+      "disposition": "quantum_audit_reused_after_diff_read",
+      "old_body_sha256": "d02084fe964e20915b0908636f5bcaf523ed4f1c7b5acf3c10536d4279e5227e",
+      "new_body_sha256": "763d739d7c0b0422ad6b26c6cfe4872b0daa67885ba1a6803cddf08914f1c1b8",
+      "reason": "Read actual changed text and compared it with round7_quantum_audit.md corrections, mechanism and source boundary; no new state-preservation or formal-dependency certification inferred."
+    },
+    {
+      "passage_id": "upper-winner-dominates",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "1e748a75d38ed8ade4a8252f3ae48e9309049555b62022fce8c454360e0e2409",
+      "new_body_sha256": "904179bda2166c61680991da03ba70bc21c2ae072630d6db6fc69380be3628d8",
+      "reason": "Read old/new diff and destination context; wording, notation, navigation, relocation or evidence-scope edit preserves the mathematical assertion. Relevant quantum/classical audit reused where applicable."
+    },
+    {
+      "passage_id": "upper-verifier",
+      "disposition": "quantum_audit_reused_after_diff_read",
+      "old_body_sha256": "c5b2ab58f94d9bce3a578ad49b9eed2fea32c6a2603bdcecaacdd53df0563a20",
+      "new_body_sha256": "06cfc64c8a0671db071c6daf48c3e680663bde84b3cf07002b4f31fea2857656",
+      "reason": "Read actual changed text and compared it with round7_quantum_audit.md corrections, mechanism and source boundary; no new state-preservation or formal-dependency certification inferred."
+    },
+    {
+      "passage_id": "upper-verification-proof",
+      "disposition": "quantum_audit_reused_after_diff_read",
+      "old_body_sha256": "a5ae80b708931a7385583f0a2ea2e76e7870fc2802fc33a920c5be27bb6b9050",
+      "new_body_sha256": "cb153ceb8eddc67876f38ffaa8fac559cd66225e400bd1555f602e79925e878d",
+      "reason": "Read actual changed text and compared it with round7_quantum_audit.md corrections, mechanism and source boundary; no new state-preservation or formal-dependency certification inferred."
+    },
+    {
+      "passage_id": "upper-total-error",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "06ccc2d2c4d8f0c382f37af0464c44bf9936a499b0c0d1621aed18f8ec067643",
+      "new_body_sha256": "a5cbb8b0d7d4d644cb4eff4fd8d839e0b7505dca507956b18ae9efb079d81af6",
+      "reason": "Read old/new diff and destination context; wording, notation, navigation, relocation or evidence-scope edit preserves the mathematical assertion. Relevant quantum/classical audit reused where applicable."
+    },
+    {
+      "passage_id": "upper-oracle-access",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "ee32edbe36f39b52eb0b5b3b1db14cd5d820e1f160b36df737b3fc9813abb138",
+      "new_body_sha256": "07157e4b6429c95ff1ebdd5ea06e7eeb38bc47f0390b1016b02aedd49f90aaa1",
+      "reason": "Read old/new diff and destination context; wording, notation, navigation, relocation or evidence-scope edit preserves the mathematical assertion. Relevant quantum/classical audit reused where applicable."
+    },
+    {
+      "passage_id": "upper-read-compiler",
+      "disposition": "quantum_audit_reused_after_diff_read",
+      "old_body_sha256": "ac22bdf0a5316a4f028af6d31603ebafab277b73ce5132cd1dd29ed51e70a5a4",
+      "new_body_sha256": "0384e8b021d0035a1383603558ebe85804cdb12324368a43395fefbcd136f47d",
+      "reason": "Read actual changed text and compared it with round7_quantum_audit.md corrections, mechanism and source boundary; no new state-preservation or formal-dependency certification inferred."
+    },
+    {
+      "passage_id": "upper-finite-budget",
+      "disposition": "quantum_audit_reused_after_diff_read",
+      "old_body_sha256": "580be510f7e8aa0286ca0965abc69b7fb5f1a7b47cc42c7b2d7360c17823e72f",
+      "new_body_sha256": "70cdf1224284cfdfba53d956d2bc094767fed5eddf85f9b124f96d39c310547e",
+      "reason": "Read actual changed text and compared it with round7_quantum_audit.md corrections, mechanism and source boundary; no new state-preservation or formal-dependency certification inferred."
+    },
+    {
+      "passage_id": "upper-asymptotic-bound",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "6590f97b41d842568975850d10fc08fce2491638697d7c1c42cf0af37c186ed4",
+      "new_body_sha256": "f867d0e028022e3b021ca46142a359f9c7d8c43bb85789d78eb703dbed827867",
+      "reason": "Read old/new diff and destination context; wording, notation, navigation, relocation or evidence-scope edit preserves the mathematical assertion. Relevant quantum/classical audit reused where applicable."
+    },
+    {
+      "passage_id": "upper-explicit-log6",
+      "disposition": "quantum_audit_reused_after_diff_read",
+      "old_body_sha256": "49dcb71652966602b44a3edde5adb899253b23d84d4ff63dfa3a1516b16007fb",
+      "new_body_sha256": "51a81122ee776b484cd759b5bff44d4dab6d907faceface6a24f108b7f0c34aa",
+      "reason": "Read actual changed text and compared it with round7_quantum_audit.md corrections, mechanism and source boundary; no new state-preservation or formal-dependency certification inferred."
+    },
+    {
+      "passage_id": "upper-continuation-induction",
+      "disposition": "quantum_audit_reused_after_diff_read",
+      "old_body_sha256": "0148c1ba8cf5764451a10387cfb9467914922cd38ef6187a6dabb1f2f58c937f",
+      "new_body_sha256": "3005a61df52fee34b0e057adaa8617c49a3587a99f1517feefc7c4a9dfab8c80",
+      "reason": "Read actual changed text and compared it with round7_quantum_audit.md corrections, mechanism and source boundary; no new state-preservation or formal-dependency certification inferred."
+    },
+    {
+      "passage_id": "CL-adaptive-example",
+      "disposition": "classical_audit_reused_after_diff_read",
+      "old_body_sha256": "027143818ca4c5ae6b13ca656eed7e12fdc170c94448d114aad1630163738335",
+      "new_body_sha256": "1e94c2c7d4553126ed28ec1b3696f21d490c025b0f626acf10cd57735db4e6f9",
+      "reason": "Read actual changed text and compared it with round7_classical_audit.md checked proof interface/final reread; event, independence, hard cap and quantifiers remain scoped as audited."
+    },
+    {
+      "passage_id": "CL-planted-interface",
+      "disposition": "direct_targeted_check",
+      "old_body_sha256": "e5feb2de962e9b7976960df9b2bf1509a89c703261d49039cefa4bf2477345d9",
+      "new_body_sha256": "017f1af6935f29c3de5a3e5f4efd8eebd23e627bab758a38d9b2289f09e01885",
+      "reason": "Final hard distribution-to-hard law edit only; complete paragraph preserves total target cap, independent outside data and joint event."
+    },
+    {
+      "passage_id": "CL-literature-and-verification",
+      "disposition": "classical_audit_reused_after_diff_read",
+      "old_body_sha256": "ed2415430ec0e96c5b7bf67eeda7139d3d99aa1a058b46c52f5fd2d9b3e8c5bd",
+      "new_body_sha256": "dc0c100eb187f0a54a7c7ec78c61840d00deb2c0153a84dbbddfcfb3fc8dcc41",
+      "reason": "Read actual changed text and compared it with round7_classical_audit.md checked proof interface/final reread; event, independence, hard cap and quantifiers remain scoped as audited."
+    },
+    {
+      "passage_id": "CL-entry-interface",
+      "disposition": "classical_audit_reused_after_diff_read",
+      "old_body_sha256": "3c02979a12706f4f9839770f21ec02aabc02ea1c4b1c3eded22f66772ef2b545",
+      "new_body_sha256": "30ce478bf88d2982863f15b01ca68f0786f07470650988a88d7d892618aef670",
+      "reason": "Read actual changed text and compared it with round7_classical_audit.md checked proof interface/final reread; event, independence, hard cap and quantifiers remain scoped as audited."
+    },
+    {
+      "passage_id": "CL-minimax",
+      "disposition": "classical_audit_reused_after_diff_read",
+      "old_body_sha256": "f913969aafca99339b9423c3e99048f256528f548fe5db9c147e4431bc8d8f04",
+      "new_body_sha256": "cd280b07e6cb0c0b8657b25c91065fb065f8b3223549667dacda870f35e7ff86",
+      "reason": "Read actual changed text and compared it with round7_classical_audit.md checked proof interface/final reread; event, independence, hard cap and quantifiers remain scoped as audited."
+    },
+    {
+      "passage_id": "CL-generic-statement",
+      "disposition": "classical_audit_reused_after_diff_read",
+      "old_body_sha256": "c2f460d25c0de2300653797dd39717d9c408023b4c344ce42cba6135db8db302",
+      "new_body_sha256": "a8a4e53b2c715d196dacc10c69a164ddc9c07dc42adbec39a98d8e3309647b02",
+      "reason": "Read actual changed text and compared it with round7_classical_audit.md checked proof interface/final reread; event, independence, hard cap and quantifiers remain scoped as audited."
+    },
+    {
+      "passage_id": "CL-tiny-planted-example",
+      "disposition": "classical_audit_reused_after_diff_read",
+      "old_body_sha256": "1ca2622c123085bc8f730ee0f9ea8c037da7481fe3a8c7c7c74acf14c50b3b59",
+      "new_body_sha256": "13bb73b43ae95bc3496673ffb61085b1f3b8e3bee65e57703e8fee07d50347cf",
+      "reason": "Read actual changed text and compared it with round7_classical_audit.md checked proof interface/final reread; event, independence, hard cap and quantifiers remain scoped as audited."
+    },
+    {
+      "passage_id": "CL-erased-zero-identity",
+      "disposition": "classical_audit_reused_after_diff_read",
+      "old_body_sha256": "42aa04ec25d01cb4563879b9f70886f61d87de20abd8976694d4ea5320c10101",
+      "new_body_sha256": "26d474731e51ec39bf681911556cdd4bd03b88908de2d2a8b8d18b165dc25f02",
+      "reason": "Read actual changed text and compared it with round7_classical_audit.md checked proof interface/final reread; event, independence, hard cap and quantifiers remain scoped as audited."
+    },
+    {
+      "passage_id": "CL-early-late",
+      "disposition": "classical_audit_reused_after_diff_read",
+      "old_body_sha256": "8ab49aaeed5bf04802d668d9852da7b03858dda5dfa08383bbc45d3fd256c740",
+      "new_body_sha256": "a2022a9f4b5552ceee848c8ece7600c01424f7599315c099ccefcef636042e92",
+      "reason": "Read actual changed text and compared it with round7_classical_audit.md checked proof interface/final reread; event, independence, hard cap and quantifiers remain scoped as audited."
+    },
+    {
+      "passage_id": "CL-zero-optional",
+      "disposition": "classical_audit_reused_after_diff_read",
+      "old_body_sha256": "0df45eb4d8f05c66334331ee993576a4b32e2b8bcbed21e2b9844a87ba61252c",
+      "new_body_sha256": "860971addfc5fd44bf1f10bfca790a4b23feaf8542b70c7de7690f2fb78beb9c",
+      "reason": "Read actual changed text and compared it with round7_classical_audit.md checked proof interface/final reread; event, independence, hard cap and quantifiers remain scoped as audited."
+    },
+    {
+      "passage_id": "CL-simulator",
+      "disposition": "classical_audit_reused_after_diff_read",
+      "old_body_sha256": "41b3c4864979e9bc40ab38c8c486ecfa1a3d976ba33c16aa570f2f6c774a4a8e",
+      "new_body_sha256": "082fff0fb0c2b700a384a74a546bf88dc547a525db1a5cea9216639405273c43",
+      "reason": "Read actual changed text and compared it with round7_classical_audit.md checked proof interface/final reread; event, independence, hard cap and quantifiers remain scoped as audited."
+    },
+    {
+      "passage_id": "CL-simulator-example",
+      "disposition": "classical_audit_reused_after_diff_read",
+      "old_body_sha256": "5f2557f3f956539164e7b9c7c54e8398a2668d4e4e167aec13d8d1bfd35d615b",
+      "new_body_sha256": "f7b2fc9b3148715761a5b0d4ad5a34cfe1b5c380aca362ddf2eb36377f9846ca",
+      "reason": "Read actual changed text and compared it with round7_classical_audit.md checked proof interface/final reread; event, independence, hard cap and quantifiers remain scoped as audited."
+    },
+    {
+      "passage_id": "CL-conditioning-counterexample",
+      "disposition": "classical_audit_reused_after_diff_read",
+      "old_body_sha256": "20f8a87df11ddc17ea0fcbcc50314de699c4fefbe372f8a7cf9c4e5258b9fb02",
+      "new_body_sha256": "5cd8c2f9f764dddeb8ad3f4bdc6148738533733023b5a629bb9cf2ff22bc46d8",
+      "reason": "Read actual changed text and compared it with round7_classical_audit.md checked proof interface/final reread; event, independence, hard cap and quantifiers remain scoped as audited."
+    },
+    {
+      "passage_id": "CL-discrepancy",
+      "disposition": "classical_audit_reused_after_diff_read",
+      "old_body_sha256": "11ef2b921cfeb505b06ebc7dc9b798fffd9351a5848d8e8b19a07bc0ba57b879",
+      "new_body_sha256": "e668dffb6b813a632f880fc1049a1ff17fc414fa3c847e4b3b0831b7351b498c",
+      "reason": "Read actual changed text and compared it with round7_classical_audit.md checked proof interface/final reread; event, independence, hard cap and quantifiers remain scoped as audited."
+    },
+    {
+      "passage_id": "CL-tail-numeric",
+      "disposition": "classical_audit_reused_after_diff_read",
+      "old_body_sha256": "168ad02709692a92b3be378197252f6d99cd47db561351f8769251b4c3064141",
+      "new_body_sha256": "1fa9b232acc121954feaeac3fdd791120e12dff9bd90899c24b409b3d40a89cf",
+      "reason": "Read actual changed text and compared it with round7_classical_audit.md checked proof interface/final reread; event, independence, hard cap and quantifiers remain scoped as audited."
+    },
+    {
+      "passage_id": "CL-forrelation-input",
+      "disposition": "classical_audit_reused_after_diff_read",
+      "old_body_sha256": "fd024740eaaaa8f27098153d536638012ad4ac66477d4c3200a94be2f434a9e0",
+      "new_body_sha256": "1c48377cfea742003ad67f338df9ea3c80a574407caf616d4c0ff9e729218c63",
+      "reason": "Read actual changed text and compared it with round7_classical_audit.md checked proof interface/final reread; event, independence, hard cap and quantifiers remain scoped as audited."
+    },
+    {
+      "passage_id": "CL-floors",
+      "disposition": "classical_audit_reused_after_diff_read",
+      "old_body_sha256": "8f313722cd7ea72f0c891326de97a2ff712b16455694842ec66d672bc1d15e3d",
+      "new_body_sha256": "e5ae0e8f4ce2c86c0f8e0f5f208928551e7298882e3bc649c9c96d9dc72426c4",
+      "reason": "Read actual changed text and compared it with round7_classical_audit.md checked proof interface/final reread; event, independence, hard cap and quantifiers remain scoped as audited."
+    },
+    {
+      "passage_id": "ROOT-GROWING-K",
+      "disposition": "direct_targeted_check",
+      "old_body_sha256": "ecc4995d3a9c8cd1e68dba47fca461de522a192b1810135041e6c60b89993e18",
+      "new_body_sha256": "62a1be267145184dd12798064de8c8a64bfb2ef255ae071f37feebe6cda1f1d1",
+      "reason": "Inspected complete passage and recomputed 40k+ell/k balance, floor correction and conservative474-to508 rounding; all nine existing display strings unchanged."
+    },
+    {
+      "passage_id": "R3-A-DEFINITIONS",
+      "disposition": "direct_targeted_check",
+      "old_body_sha256": "6ae03106172f32d335d0e47cfbbf27491dd334b57ceb5ddd41618c257ed8ad94",
+      "new_body_sha256": "b8d95d8fd810e05869fc42a2538a67865db11896f1560dfbd47df48e8374c545",
+      "reason": "Checked the two distinct Q-squared factors in bs(f) deg(f); no identification of block edges with sensitivity edges."
+    },
+    {
+      "passage_id": "R3-A-PARITY-PREFACTOR",
+      "disposition": "direct_targeted_check",
+      "old_body_sha256": "c65e86c983a53c1934fa5b87af5f30cd4892750a72ae332a43f3efe6e17ad504",
+      "new_body_sha256": "ac7ad06ea8b567e9198a49da743b05509c682086a7d9be2bc94131f318e1621e",
+      "reason": "One-query phase-kickback derivation is linked to the existing R3-01-PARITY; adversary display and contradiction remain unchanged."
+    },
+    {
+      "passage_id": "R3-A-HUANG",
+      "disposition": "direct_targeted_check",
+      "old_body_sha256": "8d1438e14a8cbbbe5715f003049d039900c7640fcf129ab53853ae5c26784f2b",
+      "new_body_sha256": "217eec3393d55c634be7969417a78e87ea4a8fc2d6a9e5cf5b0f27559713bf43",
+      "reason": "Inspected complete current passage against ABKRT v1 section3 and Huang Annals Lemma2.2/remark; removed paragraph is retained at R3-A-FORMAL."
+    },
+    {
+      "passage_id": "R3-A-MIDRIJANIS",
+      "disposition": "direct_targeted_check",
+      "old_body_sha256": "c82651c3e3c9b4ac5e37be880bfe820c72860e63cd9e42c5563d32e5b7cba99b",
+      "new_body_sha256": "89794c9fd1a7e9179c0b2c714bf05665a0f0fa7f5d01f90f1392dfc219b5a815",
+      "reason": "Inspected complete current passage against Midrijanis v2 Lemma3 and Theorem4 proof; nonconstant restriction and original-input block quantifiers agree."
+    },
+    {
+      "passage_id": "ROOT-CATALOGUE-INTRO",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "5bb9ed98416077ab58866e50b62b510bc9be7511cfc3b5b9c22dbc835ec28abe",
+      "new_body_sha256": "61e6834f4e83b3552266109ae08cb23487a12eb8c37610d24fa7f787a45bd5e8",
+      "reason": "Read old/new diff and destination context; wording, notation, navigation, relocation or evidence-scope edit preserves the mathematical assertion. Relevant quantum/classical audit reused where applicable."
+    },
+    {
+      "passage_id": "CAT-claim-coupling",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "49bb0b4686a95041ba070557831f4756f667026bb8fc8134ac33f3cb494f520f",
+      "new_body_sha256": "6e10ac3940a2c3e2ef1fac0bf690ec944e7a8d6cea9dc046f39cffc593d82bbd",
+      "reason": "Read old/new diff and destination context; wording, notation, navigation, relocation or evidence-scope edit preserves the mathematical assertion. Relevant quantum/classical audit reused where applicable."
+    },
+    {
+      "passage_id": "CAT-claim-error",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "7cb1b8bee0d986c1e3ed776d04d7b7ea24db9ff252e631003e8e38a845030d82",
+      "new_body_sha256": "83d15abebe0714ac714b919fdec173437bf4041ae412e49ec5d04cd0c8b4d821",
+      "reason": "Read old/new diff and destination context; wording, notation, navigation, relocation or evidence-scope edit preserves the mathematical assertion. Relevant quantum/classical audit reused where applicable."
+    },
+    {
+      "passage_id": "CAT-prop-4.2-generic",
+      "disposition": "classical_audit_reused_after_diff_read",
+      "old_body_sha256": "d87cb643d9a4f1344a42c5ab79028f4f7758876c14759a29f66dcc492bb1f9c8",
+      "new_body_sha256": "9f8d005b34ba05b19a2dc7b53e2e950a131285310054c179448c540b33ecb2b7",
+      "reason": "Read actual changed text and compared it with round7_classical_audit.md checked proof interface/final reread; event, independence, hard cap and quantifiers remain scoped as audited."
+    },
+    {
+      "passage_id": "ROOT-REFERENCES",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "f6d90257b46f154609a9138ee0ad80574e37a195df7624fc35eeb4e19d310636",
+      "new_body_sha256": "461fa745a45b3d22c0f0bc97ab56c03fb8c1bfbd724cad913fc77953a6f39bb8",
+      "reason": "Read old/new diff and destination context; wording, notation, navigation, relocation or evidence-scope edit preserves the mathematical assertion. Relevant quantum/classical audit reused where applicable."
+    },
+    {
+      "passage_id": "forr_historical_threshold",
+      "disposition": "direct_targeted_check",
+      "old_body_sha256": "4ebb58b276c701a4dd6fee1e54c28dab2d60215233c1aa75091b6ba007ad1bd9",
+      "new_body_sha256": "ee1447bff428a64ff792789954b1504789fc3e3c9e91f1c72e6417879fd1a006",
+      "reason": "Inspected all ell-to-h substitutions; k=h+1 and the 9^h,3^h,2^{-th} terms retain their values."
+    },
+    {
+      "passage_id": "forr_historical_closure",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "c174ebb2e50f2a9da62114c3571fa4caa670c55cacfdac3d8d03aa7d59a54f42",
+      "new_body_sha256": "fd893256548626e07e48d9c7987a75c39f1a81586d40dffcbd9c92aa49a5ce6f",
+      "reason": "Read old/new diff and destination context; wording, notation, navigation, relocation or evidence-scope edit preserves the mathematical assertion. Relevant quantum/classical audit reused where applicable."
+    },
+    {
+      "passage_id": "forr_ssw_comparison",
+      "disposition": "direct_targeted_check",
+      "old_body_sha256": "60f96f3efbb27fd0f233c5de89ac0ca05a2a357db4629a39871160d2413c8454",
+      "new_body_sha256": "f17f6514677c54a8ce056273fc9e4078528e9082867447bc3bcff19fc07cd432",
+      "reason": "Read new cancellation wording against surrounding transfer: only multiplicative k cancels; residual k in logarithmic/input parameters is not claimed absent."
+    },
+    {
+      "passage_id": "forr_current_evidence",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "70897bf9abdf2e2adc7c14a79d0918853e9afa26c103ae2f15f7c8a6c13206d2",
+      "new_body_sha256": "74227fb25a9fe5e390eb278a6ca62cd111a270cec02a45da681a93a87849350b",
+      "reason": "Read old/new diff and destination context; wording, notation, navigation, relocation or evidence-scope edit preserves the mathematical assertion. Relevant quantum/classical audit reused where applicable."
+    },
+    {
+      "passage_id": "history-construction-evidence",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "e7c768cf689f9e93d21005e6593c4f6a676c55820875206a73109d92fdc1e1a5",
+      "new_body_sha256": "0549afd087efc69213674eda857a53b795a93d995e063435aff37b08079a68e8",
+      "reason": "Final render rephrasing read against baseline: retains name-by-name audit membership, post-root timing, reviewed-declaration scope and historical-versus-current boundary."
+    },
+    {
+      "passage_id": "history-direct-product-evidence",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "ca9c422aafa24d7dfb4ca983b9ad4e16f9dbced3cc50dd795221575b38bbfa19",
+      "new_body_sha256": "e1f4846a6f674ec3e95b90315edd8184d73cb5dd7c6f2c4f7c6bf3f0007f8afb",
+      "reason": "Read old/new diff and destination context; wording, notation, navigation, relocation or evidence-scope edit preserves the mathematical assertion. Relevant quantum/classical audit reused where applicable."
+    },
+    {
+      "passage_id": "history-exponent-evidence",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "f71037740f08323f86fe847a6a5a07b11959144ca8d17a42c80ed56b396f2808",
+      "new_body_sha256": "d4bfcc93efdf29df751f10a9066474a100f632ce7d7c722d74add77482841938",
+      "reason": "Read old/new diff and destination context; wording, notation, navigation, relocation or evidence-scope edit preserves the mathematical assertion. Relevant quantum/classical audit reused where applicable."
+    },
+    {
+      "passage_id": "history-appendix-a-evidence",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "120db1cecf13763c5dc78ca9b586721026f1ee68b7dc6a3ae3b7f4584d196fa5",
+      "new_body_sha256": "83612fe7825b0e0a28dfcd7a187aea7f103f548ea10f18f88f6c446cf4c2460c",
+      "reason": "Final render rephrasing read against baseline: retains name-by-name audit membership, post-root timing, reviewed-declaration scope and historical-versus-current boundary."
+    },
+    {
+      "passage_id": "ROOT-EVIDENCE-CONVENTION",
+      "disposition": "no_new_mathematical_meaning",
+      "old_body_sha256": "45e171dde8db9c55247c8a30e46ceaedda26758b6acc164e1ea4fb3fa8ab9d42",
+      "new_body_sha256": "3dbc61df6445364d3482fd76797b1d57e5251af03178d065b954df550de31116",
+      "reason": "Read old/new diff and destination context; wording, notation, navigation, relocation or evidence-scope edit preserves the mathematical assertion. Relevant quantum/classical audit reused where applicable."
+    },
+    {
+      "passage_id": "forr_validation_scope",
+      "disposition": "quantum_audit_reused_after_diff_read",
+      "old_body_sha256": "b93c03fcab3c1c4c4c1d38d7bf105228ab5568bd4ea5ceb23c240ff0623253a9",
+      "new_body_sha256": "4b4b8455c8741577c057dcd314eda0db0c62074c5312f4166babfc9efa8c5308",
+      "reason": "Read actual changed text and compared it with round7_quantum_audit.md corrections, mechanism and source boundary; no new state-preservation or formal-dependency certification inferred."
+    },
+    {
+      "passage_id": "upper-missing-physical-state",
+      "disposition": "quantum_audit_reused_after_diff_read",
+      "old_body_sha256": "11439a9f6c92deba9b94595798226da51cdb657f19022b8d170c9077568976ca",
+      "new_body_sha256": "e08cc4925a6ca36af6f9fcc2551f53e9aeb0174dc080960750253eadcf567634",
+      "reason": "Read actual changed text and compared it with round7_quantum_audit.md corrections, mechanism and source boundary; no new state-preservation or formal-dependency certification inferred."
+    },
+    {
+      "passage_id": "CL-direct-product-formal",
+      "disposition": "classical_audit_reused_after_diff_read",
+      "old_body_sha256": "1be52ce3363623c4700f1c4d9fcad7986adfbce16ed703ab5efddd60eb7428b8",
+      "new_body_sha256": "d259068df63d13fc69b3a3cda76a00ba3190586c5526c69c3877dfd5c2d24cdf",
+      "reason": "Read actual changed text and compared it with round7_classical_audit.md checked proof interface/final reread; event, independence, hard cap and quantifiers remain scoped as audited."
+    },
+    {
+      "passage_id": "CL-formal-scope",
+      "disposition": "classical_audit_reused_after_diff_read",
+      "old_body_sha256": "c4d9a8bbac8218797f039964fb7f617b5df9c12236f61aa2a9cdd3827bc5e973",
+      "new_body_sha256": "c4efed9ba605e8cf7b5c69bb40261b0a58ecb981ebc3f286c2bdbd632c672e96",
+      "reason": "Read actual changed text and compared it with round7_classical_audit.md checked proof interface/final reread; event, independence, hard cap and quantifiers remain scoped as audited."
+    },
+    {
+      "passage_id": "R3-A-FORMAL",
+      "disposition": "direct_targeted_check",
+      "old_body_sha256": "aa74b262a395f256dc48e9a62535fb4d1e9e7e30aa41e7ba52ba52d5132541c0",
+      "new_body_sha256": "9bd8ea7761a95bde85182f06f5d377463c9692912023d1923eb595863410b0c2",
+      "reason": "Paragraph moved from R3-A-HUANG; inspected huangEnd_parity and eigenspace argument in AppendixAHuangMatrix.lean."
+    }
+  ]
+}
