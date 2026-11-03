@@ -81,6 +81,9 @@ HEADER = r"""
 HEADER_EXTRA = {
     "expert": r"""\usepackage{newunicodechar}
 \newunicodechar{≥}{\ensuremath{\geq}}
+% Break reference URLs only after a slash or hyphen (pandoc loads xurl,
+% which otherwise breaks inside words).
+\AtBeginDocument{\def\UrlBreaks{\do\/\do-}\def\UrlBigBreaks{\do\:}}
 \AtBeginDocument{\graphicspath{{@OUT@/}}}
 """,
     "exposition": r"""\usepackage[skins,breakable]{tcolorbox}

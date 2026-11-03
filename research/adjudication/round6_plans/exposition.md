@@ -460,3 +460,32 @@ Against profile_v2, status fell from +11.8 to +5.0 and negation from +2.5 to +1.
   - The exposition's own link block passes `updated_paper` (the function behind `build_lean_links --check`).
   - `make check` and `build_lean_links --check` currently fail. The cause is `docs/expert_companion.md`, which uses record anchors `CL-direct-product-formal` and `ROOT-GROWING-K` that are absent at the pinned commit `e9dfefb`. That file belongs to the companion agent.
   - The unit tests show the same single error, in `test_papers_carry_current_link_blocks`; the other tests pass.
+
+**Cold-read pass (coordinator, 3 Nov, on b8b5b04).** Applied:
+
+- **Citations and credit.**
+  - ABKRT is cited without a theorem number; it stays Conjecture 2. Both the introduction and §6 now give $D=O(Q^4)$ and, through $R\le D$, $R=O(Q^4)$.
+  - Bansal–Sinha numbering kept, since it matches the STOC version.
+  - Ben-David 2015 (arXiv:1506.08106, checked) is credited for the first power-5/2 separation, ahead of cheat sheets.
+  - Comparator is named in §7.
+- **Introduction.**
+  - Says that cells are indexed by addresses, so the position of any bit of the planted cell reveals all $r$ answers.
+  - Quantum step is now "each comparison".
+  - Partial-function sentence names $k$-fold Forrelation with $O_k(1)$ quantum and $m^{1-1/k}$ classical cost.
+  - Quantifier sentence rewritten.
+- **Cheat-sheet paragraph.** Defines AND-OR (AND of $n$ ORs of $n$ bits; $R=\Theta(n^2)$, $Q=\Theta(n)$, certificates of $n$ bits) and states its multiplicative costs. The new construction's relation is corrected to $L\approx Q^{2-2/k}$.
+- **§1.** $z_1,z_2$ are defined as sign vectors. A note that $\Phi\in\frac18\mathbb Z$, so the promise is $\Phi>0$ versus $\Phi=0$. The census is explained by the sign symmetry, and its record link dropped.
+- **§2.** Transcripts get a forward pointer. The $r$-purpose and "what is new" sentences are rewritten.
+- **§3.** The 5936 count is removed.
+- **§4.**
+  - The reversible-comparison paragraph explains why the retained labels make $a_{ij}$ well defined.
+  - The related-work list is cut to minimum finding and HMW, and closes on $a_{ij}+a_{ji}=1$; king finding, BDK and AIK leave the bibliography.
+  - Amplification gives the full trial recipe. It covers $p\ge3/4$ through the no-iteration branch and $\gamma\le p\le3/4$ through BBHT Lemma 2 with $M\sin2\theta\ge10$ (giving $19/40$), so each trial succeeds with probability at least $9/40$, with $\lceil\ln(1/\eta)/\ln(40/31)\rceil$ trials.
+- **§5.** The true-cell event is stated with an explicit $i$ and $j$.
+- **§6.** Monotonicity of $(1+x)^\alpha$ is stated.
+- **Figures.**
+  - Figure 1: rows reordered so the winner's outlined string is the bottom row and the callout sits directly under it. Pointer lanes reordered so none cross. Box text reads "one pointer into each other column, naming a zero". New caption.
+  - Figure 2 caption explains the blue outlines; Figure 3 caption says the winner's arrows hold under every rival label; Figure 4 caption explains "address 10".
+- **Bibliography.** Acronyms and series protected. Brassard et al. entry shows pages 53–74. URL breaking is left to the renderer owner.
+
+**Result.** 15 pages, every page inspected, the answers script still exact, and `make check` passes (226 tests, 2 skipped; lean links current at d234866).
