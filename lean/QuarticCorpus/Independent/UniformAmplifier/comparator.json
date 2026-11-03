@@ -1,0 +1,13 @@
+{
+  "challenge_module": "QuarticCorpus.Independent.UniformAmplifier.Challenge",
+  "solution_module": "QuarticCorpus.Independent.UniformAmplifier.Solution",
+  "theorem_names": [
+    "QuarticQuery.Upper.uniformOpaqueAmplifier"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

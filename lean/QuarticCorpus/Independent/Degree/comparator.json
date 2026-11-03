@@ -1,0 +1,7 @@
+{
+  "challenge_module": "QuarticCorpus.Independent.Degree.Challenge",
+  "solution_module": "QuarticCorpus.Independent.Degree.Solution",
+  "theorem_names": ["QuarticQuery.Independent.Degree.checked_degree_conventions"],
+  "definition_names": [],
+  "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"]
+}

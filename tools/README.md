@@ -25,6 +25,36 @@ long record and its matching PDF beside it, preserving relative reading links.
 Curated packets support their named focused checks; they do not contain the
 whole historical custody tree needed for every repository maintenance check.
 
+The [round-five builder](build_round5_packets.py) packages five critique jobs
+described in its [selection](../research/requests/round5/SELECTION.md). It reuses
+the round-three archive writer and the round-four reading-link closure, applies
+no acceptance gate, and instead binds each packet to the exact current draft,
+PDF and record bytes in `SOURCE_STATUS.json`. `LINK_MAP.json` resolves every
+draft link and checks its anchor or line range. The rendered draft PDFs are
+explicit external inputs:
+
+```sh
+python3 tools/build_round5_packets.py --annexes /path/to/annexes \
+  --paper-annex /path/to/annexes/openai-math-284-quartic-query-separation \
+  --expert-pdf /path/to/expert_companion.pdf --exposition-pdf /path/to/exposition.pdf \
+  --dest /path/to/new-batch
+```
+
+Without `--dest` it validates and prints a freeze digest; pass it back with
+`--freeze-digest` to refuse a build whose inputs changed.
+
+[render_papers.py](render_papers.py) renders the expert companion and the
+exposition from `docs/` with Pandoc and Tectonic in one shared paper style. It
+compiles the TikZ figure sources under `docs/figures/` (PDFs go to the output
+directory, SVG copies next to the sources for GitHub) and refuses an output
+directory inside the checkout. Default output is
+`../_builds/quartic-r4/render/<paper>/` beside the checkout; it needs `pandoc`,
+`tectonic` and `pdftocairo`. A render is not an inspection of the pages.
+
+```sh
+python3 tools/render_papers.py [--paper expert|exposition|all] [--output-dir DIR]
+```
+
 [render_reasoning_record.py](render_reasoning_record.py) renders a copied
 manuscript snapshot with Pandoc and Tectonic, reusing the submitted round-three
 layout sources. PDF and layout receipts belong outside the source tree. A
@@ -62,6 +92,7 @@ Freeze the intended Lean inputs before recording evidence:
 | `python3 tools/run_comparator.py` | Runs each bundle and negative control and writes receipts. |
 | `python3 tools/build_corpus.py` | Regenerates the corpus from the ledger, ties and receipts. |
 | `python3 tools/build_comparator_map.py` | Regenerates `corpus/comparator_map.json`, the Challenge-to-record reading map. Run after the corpus. |
+| `python3 tools/build_lean_links.py` | Regenerates `docs/lean_links.json` and the Lean link definitions at the end of the expert companion and the exposition: a plain name and pinned GitHub line link for each cited declaration. Bump its `COMMIT` when the papers describe a new commit. |
 
 [build_challenges.py](build_challenges.py) keeps a challenge and its solution in
 agreement by construction. A negative control counts only when Comparator rejects it

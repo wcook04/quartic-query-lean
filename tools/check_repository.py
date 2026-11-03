@@ -359,7 +359,7 @@ def placement(path, snapshot=False):
     if owner == "corpus":
         return None if p.suffix.lower() in {".json", ".md"} else "corpus contains statement records and receipts"
     if owner == "docs":
-        return None if p.suffix.lower() in EVIDENCE_SUFFIXES | {".png", ".svg", ".jpg", ".jpeg", ".webp"} else "docs contains documentation and supporting assets"
+        return None if p.suffix.lower() in EVIDENCE_SUFFIXES | {".png", ".svg", ".jpg", ".jpeg", ".webp", ".tex"} else "docs contains documentation, figure sources and supporting assets"
     if owner in {"tools", "tests"}:
         return None if p.suffix in {".py", ".md"} else f"{owner} contains Python maintenance code and its documentation"
     if owner == "lean":

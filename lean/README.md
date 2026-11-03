@@ -55,6 +55,21 @@ record the submission environment. Use the current source-bound receipts and
 reviewed statement ties in [the corpus](../corpus/README.md) for acceptance of
 the integrated source; the original returns remain unchanged.
 
+## Round-four additions
+
+[RealizedCaps.lean](QuarticQuery/LowerBound/RealizedCaps.lean) bounds the joint
+success-and-compliance event for initially uncapped trees;
+[RealizedCapsExternal.lean](QuarticQuery/LowerBound/RealizedCapsExternal.lean)
+averages it over a finite external seed. [UniformEndpoint.lean](QuarticQuery/Upper/UniformEndpoint.lean)
+and [ConstructionForrelationSharp.lean](QuarticQuery/Paper/ConstructionForrelationSharp.lean)
+hold the coherent amplifier and sharp decoder; the `RealLeaf*` modules extend the
+Forrelation lower bound to bounded real leaves. Their bundles live under
+[Independent/](QuarticCorpus/Independent/) (`RealizedCaps`, `UniformAmplifier`,
+`DecoderSharp`, `Degree`, `ModelZero`, `RealLeaves`), are authored rather than
+generated, and run through the [round-four runner](../tools/return_checks/round4_formal.py).
+Outcomes, repairs and remaining gaps are in the
+[adjudication](../research/adjudication/round4_formal.md).
+
 ## Independent round-three checks
 
 [Eq19Whole.lean](QuarticQuery/Paper/Eq19Whole.lean) states both the equality and

@@ -1,0 +1,923 @@
+{
+ "schema": "round4-formal-adjudication-v1",
+ "status": "validated",
+ "scope": "Native build, type/transitive-axiom audit and dedicated Comparator runs for round-four returns 05, 06, 04 and the 08 zero-search candidate. Build success, axiom audit, Comparator acceptance and semantic fidelity are recorded separately.",
+ "frozen_source_inventory_sha256": "0d109ea9e9b7f4a766640d406409e30589fb4c5a4e645b6d6888569fa2edf29f",
+ "frozen_source_inventory_method": "SHA-256 of the compact sorted-key JSON of tools/build_corpus.py source_hashes() as recorded at the start of the final native run.",
+ "frozen_source_inventory_entries": 224,
+ "native_runner": {
+  "file": "tools/return_checks/round4_formal.py",
+  "sha256": "5c4082eb7f124d79925cf4a8be14dbcb48ba73b6276aa6c3116afac64aef3a13",
+  "command": [
+   "python3",
+   "tools/return_checks/round4_formal.py",
+   "--output",
+   "/Users/willcook/src/_builds/quartic-r4-formal-native/final2",
+   "--timeout",
+   "1450",
+   "--reserve-gib",
+   "5.5"
+  ],
+  "environment": {
+   "AIW_LEAN_BUILD_DISK_RESERVE_GIB": "0.25"
+  },
+  "run_json": "/Users/willcook/src/_builds/quartic-r4-formal-native/final2/run.json",
+  "run_json_sha256": "c18f0faad5e5a44f945e172898e99a730b6e58ec4f801f7aca567515767a7df4",
+  "started_at": "2026-11-03T02:33:17.151864+00:00",
+  "finished_at": "2026-11-03T03:21:11.238623+00:00",
+  "status": "passed",
+  "source_inputs_unchanged": true,
+  "runner_unchanged": true,
+  "comparator_sandboxed": false
+ },
+ "allowed_axioms": [
+  "propext",
+  "Quot.sound",
+  "Classical.choice"
+ ],
+ "operations": [
+  {
+   "label": "targeted-build",
+   "command": [
+    "lake",
+    "build",
+    "QuarticQuery.LowerBound.RealizedCaps:olean",
+    "QuarticQuery.ExternalRandomness:olean",
+    "QuarticQuery.MeasurablePolicies:olean",
+    "QuarticQuery.LowerBound.RealizedCapsExternal:olean",
+    "QuarticQuery.Paper.RealizedCaps:olean",
+    "QuarticCorpus.Independent.RealizedCaps.Solution:olean",
+    "QuarticCorpus.Independent.RealizedCaps.NegativeCappedPremise:olean",
+    "QuarticQuery.ForrelationLower.RealLeaves:olean",
+    "QuarticQuery.ForrelationLower.RealLeafGrowth:olean",
+    "QuarticQuery.ForrelationLower.RealLeafAdvantage:olean",
+    "QuarticQuery.ForrelationLower.RealLeafExplicit:olean",
+    "QuarticCorpus.Independent.Round4:olean",
+    "QuarticCorpus.Independent.Degree.NegativeMissingUniqueness:olean",
+    "QuarticCorpus.Independent.ModelZero.NegativeClassicalOnly:olean",
+    "QuarticCorpus.Independent.RealLeaves.NegativeZeroOnly:olean",
+    "QuarticQuery.Upper.UniformEndpoint:olean",
+    "QuarticQuery.Upper.FinalBScalarPhysical:olean",
+    "QuarticQuery.Paper.ConstructionForrelationSharp:olean",
+    "QuarticQuery.Paper.ForrelationTensorSharp:olean",
+    "QuarticCorpus.Independent.UniformAmplifier.Solution:olean",
+    "QuarticCorpus.Independent.DecoderSharp.Solution:olean",
+    "QuarticQuery.LowerBound.Planted.ZeroSearchSuccessor:olean"
+   ],
+   "expected_exit": 0,
+   "expected_diagnostic": null,
+   "exit_code": 0,
+   "seconds": 44.66,
+   "status": "passed",
+   "log_sha256": "c64bdf6216766a8f5d48481b534b6b11970ee09ab52ca33af52d09fa05ff0138",
+   "axiom_policy_passed": null
+  },
+  {
+   "label": "audit-RealizedCaps-Inspect",
+   "command": [
+    "lake",
+    "env",
+    "lean",
+    "QuarticCorpus/Independent/RealizedCaps/Inspect.lean"
+   ],
+   "expected_exit": 0,
+   "expected_diagnostic": null,
+   "exit_code": 0,
+   "seconds": 40.79,
+   "status": "passed",
+   "log_sha256": "b51448fe16aa99a69aef17a21173f7205998c3906888d176a871434c71eb2ee6",
+   "axiom_policy_passed": true
+  },
+  {
+   "label": "audit-Degree-Inspect",
+   "command": [
+    "lake",
+    "env",
+    "lean",
+    "QuarticCorpus/Independent/Degree/Inspect.lean"
+   ],
+   "expected_exit": 0,
+   "expected_diagnostic": null,
+   "exit_code": 0,
+   "seconds": 36.27,
+   "status": "passed",
+   "log_sha256": "f6fd6bb0772a8e241be895cb33621d90bd19e8cac4c53b99a4eec9071a9c8d18",
+   "axiom_policy_passed": true
+  },
+  {
+   "label": "audit-ModelZero-Inspect",
+   "command": [
+    "lake",
+    "env",
+    "lean",
+    "QuarticCorpus/Independent/ModelZero/Inspect.lean"
+   ],
+   "expected_exit": 0,
+   "expected_diagnostic": null,
+   "exit_code": 0,
+   "seconds": 104.3,
+   "status": "passed",
+   "log_sha256": "e369cefdb4226f45c7da0965fa98330ea3fa3816bb16b9b22fbd6bbce3c43ad4",
+   "axiom_policy_passed": true
+  },
+  {
+   "label": "audit-RealLeaves-Inspect",
+   "command": [
+    "lake",
+    "env",
+    "lean",
+    "QuarticCorpus/Independent/RealLeaves/Inspect.lean"
+   ],
+   "expected_exit": 0,
+   "expected_diagnostic": null,
+   "exit_code": 0,
+   "seconds": 40.29,
+   "status": "passed",
+   "log_sha256": "b0cca0e34675279b79cc3884235cf11b30bbe7e3e817510c5860a26493e762d3",
+   "axiom_policy_passed": true
+  },
+  {
+   "label": "audit-Round4Inspect-Quantum",
+   "command": [
+    "lake",
+    "env",
+    "lean",
+    "QuarticCorpus/Independent/Round4Inspect/Quantum.lean"
+   ],
+   "expected_exit": 0,
+   "expected_diagnostic": null,
+   "exit_code": 0,
+   "seconds": 38.78,
+   "status": "passed",
+   "log_sha256": "6263686dda5408de0390cb82245913c323cb09059c2cf0581b75e0f169192c2e",
+   "axiom_policy_passed": true
+  },
+  {
+   "label": "audit-Round4Inspect-ZeroSearch",
+   "command": [
+    "lake",
+    "env",
+    "lean",
+    "QuarticCorpus/Independent/Round4Inspect/ZeroSearch.lean"
+   ],
+   "expected_exit": 0,
+   "expected_diagnostic": null,
+   "exit_code": 0,
+   "seconds": 37.29,
+   "status": "passed",
+   "log_sha256": "2ac6b246b84e6829b38eec45e9dc6db6bcdf228321dd10ba4ef6aaed152a50e0",
+   "axiom_policy_passed": true
+  },
+  {
+   "label": "realized-caps-external",
+   "command": [
+    "lake",
+    "comparator",
+    "--config",
+    "QuarticCorpus/Independent/RealizedCaps/comparator.json",
+    "--inadvisably-no-sandbox"
+   ],
+   "expected_exit": 0,
+   "expected_diagnostic": null,
+   "exit_code": 0,
+   "seconds": 475.57,
+   "status": "passed",
+   "log_sha256": "bcf1e1242c7070b2ad1348a0d7d1619f8a77fd9de409cc3c2a6ceffb3b722618",
+   "axiom_policy_passed": null
+  },
+  {
+   "label": "realized-caps-capped-premise",
+   "command": [
+    "lake",
+    "comparator",
+    "--config",
+    "QuarticCorpus/Independent/RealizedCaps/negative-capped-premise.json",
+    "--inadvisably-no-sandbox"
+   ],
+   "expected_exit": 1,
+   "expected_diagnostic": "statement do not match",
+   "exit_code": 1,
+   "seconds": 152.26,
+   "status": "passed",
+   "log_sha256": "d489ac754eecf86cfdff33148087c374de96155c82c2870e8ec60ea1d46a0697",
+   "axiom_policy_passed": null
+  },
+  {
+   "label": "degree-conventions",
+   "command": [
+    "lake",
+    "comparator",
+    "--config",
+    "QuarticCorpus/Independent/Degree/comparator.json",
+    "--inadvisably-no-sandbox"
+   ],
+   "expected_exit": 0,
+   "expected_diagnostic": null,
+   "exit_code": 0,
+   "seconds": 211.17,
+   "status": "passed",
+   "log_sha256": "b92d5a5770926c83c5fe82fb3667ce7d06b1769690700aee0756f4357091522f",
+   "axiom_policy_passed": null
+  },
+  {
+   "label": "degree-missing-uniqueness",
+   "command": [
+    "lake",
+    "comparator",
+    "--config",
+    "QuarticCorpus/Independent/Degree/negative-missing-uniqueness.json",
+    "--inadvisably-no-sandbox"
+   ],
+   "expected_exit": 1,
+   "expected_diagnostic": "statement do not match",
+   "exit_code": 1,
+   "seconds": 156.18,
+   "status": "passed",
+   "log_sha256": "a8ff62e8e4db0eb25f28bc53e9fee8098522f3b1e9ce339528af7ed339ae98c0",
+   "axiom_policy_passed": null
+  },
+  {
+   "label": "model-zero",
+   "command": [
+    "lake",
+    "comparator",
+    "--config",
+    "QuarticCorpus/Independent/ModelZero/comparator.json",
+    "--inadvisably-no-sandbox"
+   ],
+   "expected_exit": 0,
+   "expected_diagnostic": null,
+   "exit_code": 0,
+   "seconds": 320.25,
+   "status": "passed",
+   "log_sha256": "efaf71f46c70feb73bd81c067db1882224c6774544899f5348a66217e89b3dd8",
+   "axiom_policy_passed": null
+  },
+  {
+   "label": "model-zero-classical-only",
+   "command": [
+    "lake",
+    "comparator",
+    "--config",
+    "QuarticCorpus/Independent/ModelZero/negative-classical-only.json",
+    "--inadvisably-no-sandbox"
+   ],
+   "expected_exit": 1,
+   "expected_diagnostic": "statement do not match",
+   "exit_code": 1,
+   "seconds": 219.82,
+   "status": "passed",
+   "log_sha256": "5beea6f74da3da39046dc4370f741f75ee2f6d1f94b4022a781e634ee400bb4b",
+   "axiom_policy_passed": null
+  },
+  {
+   "label": "real-leaves",
+   "command": [
+    "lake",
+    "comparator",
+    "--config",
+    "QuarticCorpus/Independent/RealLeaves/comparator.json",
+    "--inadvisably-no-sandbox"
+   ],
+   "expected_exit": 0,
+   "expected_diagnostic": null,
+   "exit_code": 0,
+   "seconds": 344.66,
+   "status": "passed",
+   "log_sha256": "41996465cc97032a919052bcebfad9a38914af455f7973964d494b687639dd40",
+   "axiom_policy_passed": null
+  },
+  {
+   "label": "real-leaves-zero-only",
+   "command": [
+    "lake",
+    "comparator",
+    "--config",
+    "QuarticCorpus/Independent/RealLeaves/negative-zero-only.json",
+    "--inadvisably-no-sandbox"
+   ],
+   "expected_exit": 1,
+   "expected_diagnostic": "statement do not match",
+   "exit_code": 1,
+   "seconds": 120.48,
+   "status": "passed",
+   "log_sha256": "f177599008a75dabcf729023d32f461efb88a2004bba34998f32fc569a3ef133",
+   "axiom_policy_passed": null
+  },
+  {
+   "label": "uniform-amplifier",
+   "command": [
+    "lake",
+    "comparator",
+    "--config",
+    "QuarticCorpus/Independent/UniformAmplifier/comparator.json",
+    "--inadvisably-no-sandbox"
+   ],
+   "expected_exit": 0,
+   "expected_diagnostic": null,
+   "exit_code": 0,
+   "seconds": 301.73,
+   "status": "passed",
+   "log_sha256": "225274c66bf1dd35ae5626933e275210179b29c0b2e87d5ec32fedd89e7c1f1e",
+   "axiom_policy_passed": null
+  },
+  {
+   "label": "decoder-sharp",
+   "command": [
+    "lake",
+    "comparator",
+    "--config",
+    "QuarticCorpus/Independent/DecoderSharp/comparator.json",
+    "--inadvisably-no-sandbox"
+   ],
+   "expected_exit": 0,
+   "expected_diagnostic": null,
+   "exit_code": 0,
+   "seconds": 228.06,
+   "status": "passed",
+   "log_sha256": "6ff91e70edfb5d35e8b275e0ab6643cb5e61f284b61c59561a006731ba57e1dc",
+   "axiom_policy_passed": null
+  }
+ ],
+ "registered_receipts": [
+  "corpus/receipts/comparator-round4-decoder-sharp-2026-11-03T023317151864+0000.json",
+  "corpus/receipts/comparator-round4-degree-conventions-2026-11-03T023317151864+0000.json",
+  "corpus/receipts/comparator-round4-degree-missing-uniqueness-2026-11-03T023317151864+0000.json",
+  "corpus/receipts/comparator-round4-model-zero-2026-11-03T023317151864+0000.json",
+  "corpus/receipts/comparator-round4-model-zero-classical-only-2026-11-03T023317151864+0000.json",
+  "corpus/receipts/comparator-round4-real-leaves-2026-11-03T023317151864+0000.json",
+  "corpus/receipts/comparator-round4-real-leaves-zero-only-2026-11-03T023317151864+0000.json",
+  "corpus/receipts/comparator-round4-realized-caps-capped-premise-2026-11-03T023317151864+0000.json",
+  "corpus/receipts/comparator-round4-realized-caps-external-2026-11-03T023317151864+0000.json",
+  "corpus/receipts/comparator-round4-uniform-amplifier-2026-11-03T023317151864+0000.json",
+  "corpus/receipts/lean-build-round4-targeted-2026-11-03T023317151864+0000.json"
+ ],
+ "runner_repair_before_final_run": "The first native pass (…/final) passed the build and the 05/08 audits but its classifier rejected the 06 audits because `set_option pp.universes true` prints `Classical.choice.{u}`; the runner now strips universe suffixes before comparing with the allowed set. The same pass exposed a wrong namespace in the authored 04 inspect file (`Paper.compile_circ_one` is `Upper.compile_circ_one`). Neither repair touched a proof or theorem type.",
+ "returns": {
+  "05_classical_completion": {
+   "return_path": "research/returns/round4/members/05_classical_completion/quartic_r4_05_classical_completion_return/",
+   "return_self_report": "Reconstructed return; states that no Lean compilation, axiom audit or Comparator run was performed for these bytes.",
+   "integrate_patch": "Applied cleanly in an isolated directory; its five files are byte-identical to the shipped lean/ copies. Adds files only; does not touch the root import.",
+   "modules": [
+    {
+     "module": "QuarticQuery.LowerBound.RealizedCaps",
+     "built": true,
+     "command": "lake build QuarticQuery.LowerBound.RealizedCaps QuarticQuery.ExternalRandomness QuarticQuery.MeasurablePolicies QuarticQuery.LowerBound.RealizedCapsExternal QuarticQuery.Paper.RealizedCaps",
+     "source_changed_from_submission": true,
+     "repair": [
+      "clip_path_eq_of_actualComplies: `simp only [hbit, ite_true, ite_false]` left `if false = true` unreduced; replaced by `simp only [hbit, Bool.false_eq_true, ↓reduceIte]`.",
+      "compliantSuccess: the `if` on the Prop `actualComplies ∧ ...` had no Decidable instance; added `open scoped Classical in` before the definition. The value is unchanged (an `ite` does not depend on which decision procedure is used).",
+      "compliantSuccess_le_clipped, non-compliant case: `simp [hc]` left `0 ≤ if ... then 1 else 0`; replaced by `simp only [hc, false_and, ↓reduceIte]; split_ifs <;> norm_num`."
+     ],
+     "in_root_import": true
+    },
+    {
+     "module": "QuarticQuery.ExternalRandomness",
+     "built": true,
+     "command": "lake build QuarticQuery.LowerBound.RealizedCaps QuarticQuery.ExternalRandomness QuarticQuery.MeasurablePolicies QuarticQuery.LowerBound.RealizedCapsExternal QuarticQuery.Paper.RealizedCaps",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": true
+    },
+    {
+     "module": "QuarticQuery.MeasurablePolicies",
+     "built": true,
+     "command": "lake build QuarticQuery.LowerBound.RealizedCaps QuarticQuery.ExternalRandomness QuarticQuery.MeasurablePolicies QuarticQuery.LowerBound.RealizedCapsExternal QuarticQuery.Paper.RealizedCaps",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": true
+    },
+    {
+     "module": "QuarticQuery.LowerBound.RealizedCapsExternal",
+     "built": true,
+     "command": "lake build QuarticQuery.LowerBound.RealizedCaps QuarticQuery.ExternalRandomness QuarticQuery.MeasurablePolicies QuarticQuery.LowerBound.RealizedCapsExternal QuarticQuery.Paper.RealizedCaps",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": true
+    },
+    {
+     "module": "QuarticQuery.Paper.RealizedCaps",
+     "built": true,
+     "command": "lake build QuarticQuery.LowerBound.RealizedCaps QuarticQuery.ExternalRandomness QuarticQuery.MeasurablePolicies QuarticQuery.LowerBound.RealizedCapsExternal QuarticQuery.Paper.RealizedCaps",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": true
+    }
+   ],
+   "submitted_sha256": {
+    "RealizedCaps.lean": "b9f617f5f35f3a6438e50a11751782450493286203715c70536734f86df3e726"
+   },
+   "integrated_sha256": {
+    "lean/QuarticQuery/LowerBound/RealizedCaps.lean": "395ba4cf6a76a5a5c60639ef09be43de2e723b8378335b2700c5f88af28b4861"
+   },
+   "audited_declarations": [
+    "QuarticQuery.OutTree.clip_capped",
+    "QuarticQuery.OutTree.clip_eval_eq_of_actualComplies",
+    "QuarticQuery.OutTree.clip_path_eq_of_actualComplies",
+    "QuarticQuery.compliantSuccess_le_clipped",
+    "QuarticQuery.direct_product_realized_caps",
+    "QuarticQuery.direct_product_realized_caps_average",
+    "QuarticQuery.direct_product_external_finite_realized_caps",
+    "QuarticQuery.Paper.classical_realized_caps",
+    "QuarticQuery.finitePushforward_sum",
+    "QuarticQuery.finitePushforward_nonneg",
+    "QuarticQuery.finitePushforward_expectation",
+    "QuarticQuery.compilePolicy_capped",
+    "QuarticQuery.compilePolicy_depth_le"
+   ],
+   "axioms": "Every audited declaration depends on exactly propext, Classical.choice, Quot.sound.",
+   "endpoint_correction": "No declaration named `direct_product_external_realized_caps` exists. The main endpoint is `QuarticQuery.direct_product_external_finite_realized_caps`: a FINITE external seed space Ω with arbitrary nonnegative weights summing to one, each seed selecting an initially uncapped OutTree. Arbitrary measurable (infinite or continuous) external randomness is NOT formalized; the module docstrings say so explicitly.",
+   "comparator": [
+    {
+     "bundle": "lean/QuarticCorpus/Independent/RealizedCaps/comparator.json",
+     "target": "QuarticQuery.direct_product_external_finite_realized_caps",
+     "expected": "accepted",
+     "outcome": "accepted",
+     "receipt": "corpus/receipts/comparator-round4-realized-caps-external-2026-11-03T023317151864+0000.json"
+    },
+    {
+     "bundle": "lean/QuarticCorpus/Independent/RealizedCaps/negative-capped-premise.json",
+     "mutation": "adds the all-branch `(T ω).capped` premise the endpoint removes",
+     "expected": "rejected: statement do not match",
+     "outcome": "rejected as expected",
+     "receipt": "corpus/receipts/comparator-round4-realized-caps-capped-premise-2026-11-03T023317151864+0000.json"
+    }
+   ],
+   "comparator_scope": "Authored by the integrator. The challenge imports LowerBound.RealizedCaps (shared definitions compliantSuccess, OutTree.actualComplies, treeSuccess); acceptance is statement agreement under shared vocabulary, not independent semantic review.",
+   "remaining_unproved": [
+    "Equivalence of the recursive `OutTree.actualComplies c x` with `∀ h, OutTree.actualCount T x h ≤ c h` (defined but unlinked).",
+    "Arbitrary measurable seed spaces: measurable action-table fibers, real-probability fiber masses and joint independence from the whole input tuple.",
+    "Semantic equivalence between `compilePolicy` and an unrestricted full-history runtime; MeasurablePolicies contains no measure theory.",
+    "The printed early/late zero-discovery route (optional; the maintained coefficient-two route stands)."
+   ]
+  },
+  "06_corpus_fidelity": {
+   "return_path": "research/returns/round4/members/06_corpus_fidelity/quartic_r4_06_return/repository_patch/lean/",
+   "return_self_report": "Native build and type/axiom inspection passed in the return's environment; every Comparator attempt was blocked before comparison (sandbox could not mount /proc).",
+   "tools_part": "Already landed in 9d17016; not re-applied.",
+   "root_import": "The returned QuarticQuery.lean differs from HEAD only by `public import QuarticQuery.ForrelationLower.RealLeafExplicit`; merged by hand together with the 05 and 04 additions.",
+   "modules": [
+    {
+     "module": "QuarticQuery.ForrelationLower.RealLeaves",
+     "built": true,
+     "command": "lake build QuarticQuery.ForrelationLower.RealLeaves QuarticQuery.ForrelationLower.RealLeafGrowth QuarticQuery.ForrelationLower.RealLeafAdvantage QuarticQuery.ForrelationLower.RealLeafExplicit QuarticCorpus.Independent.Round4",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": false
+    },
+    {
+     "module": "QuarticQuery.ForrelationLower.RealLeafGrowth",
+     "built": true,
+     "command": "lake build QuarticQuery.ForrelationLower.RealLeaves QuarticQuery.ForrelationLower.RealLeafGrowth QuarticQuery.ForrelationLower.RealLeafAdvantage QuarticQuery.ForrelationLower.RealLeafExplicit QuarticCorpus.Independent.Round4",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": false
+    },
+    {
+     "module": "QuarticQuery.ForrelationLower.RealLeafAdvantage",
+     "built": true,
+     "command": "lake build QuarticQuery.ForrelationLower.RealLeaves QuarticQuery.ForrelationLower.RealLeafGrowth QuarticQuery.ForrelationLower.RealLeafAdvantage QuarticQuery.ForrelationLower.RealLeafExplicit QuarticCorpus.Independent.Round4",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": false
+    },
+    {
+     "module": "QuarticQuery.ForrelationLower.RealLeafExplicit",
+     "built": true,
+     "command": "lake build QuarticQuery.ForrelationLower.RealLeaves QuarticQuery.ForrelationLower.RealLeafGrowth QuarticQuery.ForrelationLower.RealLeafAdvantage QuarticQuery.ForrelationLower.RealLeafExplicit QuarticCorpus.Independent.Round4",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": true
+    },
+    {
+     "module": "QuarticCorpus.Independent.Degree.Spec",
+     "built": true,
+     "command": "lake build QuarticQuery.ForrelationLower.RealLeaves QuarticQuery.ForrelationLower.RealLeafGrowth QuarticQuery.ForrelationLower.RealLeafAdvantage QuarticQuery.ForrelationLower.RealLeafExplicit QuarticCorpus.Independent.Round4",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": false
+    },
+    {
+     "module": "QuarticCorpus.Independent.Degree.Bridge",
+     "built": true,
+     "command": "lake build QuarticQuery.ForrelationLower.RealLeaves QuarticQuery.ForrelationLower.RealLeafGrowth QuarticQuery.ForrelationLower.RealLeafAdvantage QuarticQuery.ForrelationLower.RealLeafExplicit QuarticCorpus.Independent.Round4",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": false
+    },
+    {
+     "module": "QuarticCorpus.Independent.Degree.Controls",
+     "built": true,
+     "command": "lake build QuarticQuery.ForrelationLower.RealLeaves QuarticQuery.ForrelationLower.RealLeafGrowth QuarticQuery.ForrelationLower.RealLeafAdvantage QuarticQuery.ForrelationLower.RealLeafExplicit QuarticCorpus.Independent.Round4",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": false
+    },
+    {
+     "module": "QuarticCorpus.Independent.Degree.Solution",
+     "built": true,
+     "command": "lake build QuarticQuery.ForrelationLower.RealLeaves QuarticQuery.ForrelationLower.RealLeafGrowth QuarticQuery.ForrelationLower.RealLeafAdvantage QuarticQuery.ForrelationLower.RealLeafExplicit QuarticCorpus.Independent.Round4",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": false
+    },
+    {
+     "module": "QuarticCorpus.Independent.ModelZero.Spec",
+     "built": true,
+     "command": "lake build QuarticQuery.ForrelationLower.RealLeaves QuarticQuery.ForrelationLower.RealLeafGrowth QuarticQuery.ForrelationLower.RealLeafAdvantage QuarticQuery.ForrelationLower.RealLeafExplicit QuarticCorpus.Independent.Round4",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": false
+    },
+    {
+     "module": "QuarticCorpus.Independent.ModelZero.Proof",
+     "built": true,
+     "command": "lake build QuarticQuery.ForrelationLower.RealLeaves QuarticQuery.ForrelationLower.RealLeafGrowth QuarticQuery.ForrelationLower.RealLeafAdvantage QuarticQuery.ForrelationLower.RealLeafExplicit QuarticCorpus.Independent.Round4",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": false
+    },
+    {
+     "module": "QuarticCorpus.Independent.ModelZero.Solution",
+     "built": true,
+     "command": "lake build QuarticQuery.ForrelationLower.RealLeaves QuarticQuery.ForrelationLower.RealLeafGrowth QuarticQuery.ForrelationLower.RealLeafAdvantage QuarticQuery.ForrelationLower.RealLeafExplicit QuarticCorpus.Independent.Round4",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": false
+    },
+    {
+     "module": "QuarticCorpus.Independent.RealLeaves.Controls",
+     "built": true,
+     "command": "lake build QuarticQuery.ForrelationLower.RealLeaves QuarticQuery.ForrelationLower.RealLeafGrowth QuarticQuery.ForrelationLower.RealLeafAdvantage QuarticQuery.ForrelationLower.RealLeafExplicit QuarticCorpus.Independent.Round4",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": false
+    },
+    {
+     "module": "QuarticCorpus.Independent.RealLeaves.Solution",
+     "built": true,
+     "command": "lake build QuarticQuery.ForrelationLower.RealLeaves QuarticQuery.ForrelationLower.RealLeafGrowth QuarticQuery.ForrelationLower.RealLeafAdvantage QuarticQuery.ForrelationLower.RealLeafExplicit QuarticCorpus.Independent.Round4",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": false
+    },
+    {
+     "module": "QuarticCorpus.Independent.Round4",
+     "built": true,
+     "command": "lake build QuarticQuery.ForrelationLower.RealLeaves QuarticQuery.ForrelationLower.RealLeafGrowth QuarticQuery.ForrelationLower.RealLeafAdvantage QuarticQuery.ForrelationLower.RealLeafExplicit QuarticCorpus.Independent.Round4",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": false
+    }
+   ],
+   "source_changed_from_submission": false,
+   "axioms": "Every declaration printed by Degree/Inspect, ModelZero/Inspect and RealLeaves/Inspect depends only on propext, Classical.choice, Quot.sound (universe-suffixed under pp.universes).",
+   "comparator": [
+    {
+     "bundle": "lean/QuarticCorpus/Independent/Degree/comparator.json",
+     "target": "QuarticQuery.Independent.Degree.checked_degree_conventions",
+     "expected": "accepted",
+     "outcome": "accepted",
+     "receipt": "corpus/receipts/comparator-round4-degree-conventions-2026-11-03T023317151864+0000.json"
+    },
+    {
+     "bundle": "lean/QuarticCorpus/Independent/Degree/negative-missing-uniqueness.json",
+     "expected": "rejected: statement do not match",
+     "outcome": "rejected as expected",
+     "receipt": "corpus/receipts/comparator-round4-degree-missing-uniqueness-2026-11-03T023317151864+0000.json"
+    },
+    {
+     "bundle": "lean/QuarticCorpus/Independent/ModelZero/comparator.json",
+     "target": "QuarticQuery.Independent.ModelZero.checked_zero_query_characterization",
+     "expected": "accepted",
+     "outcome": "accepted",
+     "receipt": "corpus/receipts/comparator-round4-model-zero-2026-11-03T023317151864+0000.json"
+    },
+    {
+     "bundle": "lean/QuarticCorpus/Independent/ModelZero/negative-classical-only.json",
+     "expected": "rejected: statement do not match",
+     "outcome": "rejected as expected",
+     "receipt": "corpus/receipts/comparator-round4-model-zero-classical-only-2026-11-03T023317151864+0000.json"
+    },
+    {
+     "bundle": "lean/QuarticCorpus/Independent/RealLeaves/comparator.json",
+     "target": [
+      "QuarticQuery.Independent.RealLeaves.Compare.growth",
+      "QuarticQuery.Independent.RealLeaves.Compare.advantage"
+     ],
+     "expected": "accepted",
+     "outcome": "accepted",
+     "receipt": "corpus/receipts/comparator-round4-real-leaves-2026-11-03T023317151864+0000.json"
+    },
+    {
+     "bundle": "lean/QuarticCorpus/Independent/RealLeaves/negative-zero-only.json",
+     "expected": "rejected: statement do not match",
+     "outcome": "rejected as expected",
+     "receipt": "corpus/receipts/comparator-round4-real-leaves-zero-only-2026-11-03T023317151864+0000.json"
+    }
+   ],
+   "comparator_scope": "The Degree and ModelZero challenges share separately authored Spec modules (RepresentsAs/CoefficientsAtMost; LabelsAgree) with their solutions, plus the maintained D/R/Q and Cslib degree. RealLeaves compares wrapper names Compare.growth/advantage over the maintained RealQueryTree definitions; the production theorems sum_abs_ext_Dl_le_real_leaves and advantage_le_sharp_real_leaves are wrapper-mediated, not themselves configured targets.",
+   "remaining_unproved": [
+    "See the return's LEAN_GAPS.md: physical amplification and arbitrary side information belong to 04/05; no renewed semantic review of the 849 generated ties; new degree tie is a proposal, not applied to corpus/ties.json."
+   ]
+  },
+  "04_quantum_completion": {
+   "return_path": "research/returns/round4/members/04_quantum_completion/quantum_return/lean/",
+   "selection": "The return ships a whole Lean tree; its only differences from HEAD are 23 new files (no existing file changed, root import unchanged). Those 23 were copied unmodified.",
+   "modules": [
+    {
+     "module": "QuarticQuery.Paper.ConstructionForrelationSharp",
+     "built": true,
+     "command": "lake build QuarticQuery.Paper.ConstructionForrelationSharp QuarticQuery.Paper.ForrelationTensorSharp QuarticQuery.Paper.ReadSpecOneQuery QuarticQuery.Paper.TensorCoordinates QuarticQuery.Upper.AssemblyFormula QuarticQuery.Upper.CoherentTrial QuarticQuery.Upper.FinalB QuarticQuery.Upper.FinalBScalarPhysical QuarticQuery.Upper.GateState QuarticQuery.Upper.GateStateDefs QuarticQuery.Upper.LiftTrials QuarticQuery.Upper.LiftTrialsState QuarticQuery.Upper.OneTrialFactor QuarticQuery.Upper.OpaqueSlot QuarticQuery.Upper.PhysicalContinuation QuarticQuery.Upper.RetainedFactor QuarticQuery.Upper.RetainedOriginal QuarticQuery.Upper.RouteRegister QuarticQuery.Upper.ScalarBounds QuarticQuery.Upper.SuccessGateBridge QuarticQuery.Upper.SuccessMass QuarticQuery.Upper.TrialStatistics QuarticQuery.Upper.UniformEndpoint",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": true
+    },
+    {
+     "module": "QuarticQuery.Paper.ForrelationTensorSharp",
+     "built": true,
+     "command": "lake build QuarticQuery.Paper.ConstructionForrelationSharp QuarticQuery.Paper.ForrelationTensorSharp QuarticQuery.Paper.ReadSpecOneQuery QuarticQuery.Paper.TensorCoordinates QuarticQuery.Upper.AssemblyFormula QuarticQuery.Upper.CoherentTrial QuarticQuery.Upper.FinalB QuarticQuery.Upper.FinalBScalarPhysical QuarticQuery.Upper.GateState QuarticQuery.Upper.GateStateDefs QuarticQuery.Upper.LiftTrials QuarticQuery.Upper.LiftTrialsState QuarticQuery.Upper.OneTrialFactor QuarticQuery.Upper.OpaqueSlot QuarticQuery.Upper.PhysicalContinuation QuarticQuery.Upper.RetainedFactor QuarticQuery.Upper.RetainedOriginal QuarticQuery.Upper.RouteRegister QuarticQuery.Upper.ScalarBounds QuarticQuery.Upper.SuccessGateBridge QuarticQuery.Upper.SuccessMass QuarticQuery.Upper.TrialStatistics QuarticQuery.Upper.UniformEndpoint",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": true
+    },
+    {
+     "module": "QuarticQuery.Paper.ReadSpecOneQuery",
+     "built": true,
+     "command": "lake build QuarticQuery.Paper.ConstructionForrelationSharp QuarticQuery.Paper.ForrelationTensorSharp QuarticQuery.Paper.ReadSpecOneQuery QuarticQuery.Paper.TensorCoordinates QuarticQuery.Upper.AssemblyFormula QuarticQuery.Upper.CoherentTrial QuarticQuery.Upper.FinalB QuarticQuery.Upper.FinalBScalarPhysical QuarticQuery.Upper.GateState QuarticQuery.Upper.GateStateDefs QuarticQuery.Upper.LiftTrials QuarticQuery.Upper.LiftTrialsState QuarticQuery.Upper.OneTrialFactor QuarticQuery.Upper.OpaqueSlot QuarticQuery.Upper.PhysicalContinuation QuarticQuery.Upper.RetainedFactor QuarticQuery.Upper.RetainedOriginal QuarticQuery.Upper.RouteRegister QuarticQuery.Upper.ScalarBounds QuarticQuery.Upper.SuccessGateBridge QuarticQuery.Upper.SuccessMass QuarticQuery.Upper.TrialStatistics QuarticQuery.Upper.UniformEndpoint",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": false
+    },
+    {
+     "module": "QuarticQuery.Paper.TensorCoordinates",
+     "built": true,
+     "command": "lake build QuarticQuery.Paper.ConstructionForrelationSharp QuarticQuery.Paper.ForrelationTensorSharp QuarticQuery.Paper.ReadSpecOneQuery QuarticQuery.Paper.TensorCoordinates QuarticQuery.Upper.AssemblyFormula QuarticQuery.Upper.CoherentTrial QuarticQuery.Upper.FinalB QuarticQuery.Upper.FinalBScalarPhysical QuarticQuery.Upper.GateState QuarticQuery.Upper.GateStateDefs QuarticQuery.Upper.LiftTrials QuarticQuery.Upper.LiftTrialsState QuarticQuery.Upper.OneTrialFactor QuarticQuery.Upper.OpaqueSlot QuarticQuery.Upper.PhysicalContinuation QuarticQuery.Upper.RetainedFactor QuarticQuery.Upper.RetainedOriginal QuarticQuery.Upper.RouteRegister QuarticQuery.Upper.ScalarBounds QuarticQuery.Upper.SuccessGateBridge QuarticQuery.Upper.SuccessMass QuarticQuery.Upper.TrialStatistics QuarticQuery.Upper.UniformEndpoint",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": false
+    },
+    {
+     "module": "QuarticQuery.Upper.AssemblyFormula",
+     "built": true,
+     "command": "lake build QuarticQuery.Paper.ConstructionForrelationSharp QuarticQuery.Paper.ForrelationTensorSharp QuarticQuery.Paper.ReadSpecOneQuery QuarticQuery.Paper.TensorCoordinates QuarticQuery.Upper.AssemblyFormula QuarticQuery.Upper.CoherentTrial QuarticQuery.Upper.FinalB QuarticQuery.Upper.FinalBScalarPhysical QuarticQuery.Upper.GateState QuarticQuery.Upper.GateStateDefs QuarticQuery.Upper.LiftTrials QuarticQuery.Upper.LiftTrialsState QuarticQuery.Upper.OneTrialFactor QuarticQuery.Upper.OpaqueSlot QuarticQuery.Upper.PhysicalContinuation QuarticQuery.Upper.RetainedFactor QuarticQuery.Upper.RetainedOriginal QuarticQuery.Upper.RouteRegister QuarticQuery.Upper.ScalarBounds QuarticQuery.Upper.SuccessGateBridge QuarticQuery.Upper.SuccessMass QuarticQuery.Upper.TrialStatistics QuarticQuery.Upper.UniformEndpoint",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": false
+    },
+    {
+     "module": "QuarticQuery.Upper.CoherentTrial",
+     "built": true,
+     "command": "lake build QuarticQuery.Paper.ConstructionForrelationSharp QuarticQuery.Paper.ForrelationTensorSharp QuarticQuery.Paper.ReadSpecOneQuery QuarticQuery.Paper.TensorCoordinates QuarticQuery.Upper.AssemblyFormula QuarticQuery.Upper.CoherentTrial QuarticQuery.Upper.FinalB QuarticQuery.Upper.FinalBScalarPhysical QuarticQuery.Upper.GateState QuarticQuery.Upper.GateStateDefs QuarticQuery.Upper.LiftTrials QuarticQuery.Upper.LiftTrialsState QuarticQuery.Upper.OneTrialFactor QuarticQuery.Upper.OpaqueSlot QuarticQuery.Upper.PhysicalContinuation QuarticQuery.Upper.RetainedFactor QuarticQuery.Upper.RetainedOriginal QuarticQuery.Upper.RouteRegister QuarticQuery.Upper.ScalarBounds QuarticQuery.Upper.SuccessGateBridge QuarticQuery.Upper.SuccessMass QuarticQuery.Upper.TrialStatistics QuarticQuery.Upper.UniformEndpoint",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": true
+    },
+    {
+     "module": "QuarticQuery.Upper.FinalB",
+     "built": true,
+     "command": "lake build QuarticQuery.Paper.ConstructionForrelationSharp QuarticQuery.Paper.ForrelationTensorSharp QuarticQuery.Paper.ReadSpecOneQuery QuarticQuery.Paper.TensorCoordinates QuarticQuery.Upper.AssemblyFormula QuarticQuery.Upper.CoherentTrial QuarticQuery.Upper.FinalB QuarticQuery.Upper.FinalBScalarPhysical QuarticQuery.Upper.GateState QuarticQuery.Upper.GateStateDefs QuarticQuery.Upper.LiftTrials QuarticQuery.Upper.LiftTrialsState QuarticQuery.Upper.OneTrialFactor QuarticQuery.Upper.OpaqueSlot QuarticQuery.Upper.PhysicalContinuation QuarticQuery.Upper.RetainedFactor QuarticQuery.Upper.RetainedOriginal QuarticQuery.Upper.RouteRegister QuarticQuery.Upper.ScalarBounds QuarticQuery.Upper.SuccessGateBridge QuarticQuery.Upper.SuccessMass QuarticQuery.Upper.TrialStatistics QuarticQuery.Upper.UniformEndpoint",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": false
+    },
+    {
+     "module": "QuarticQuery.Upper.FinalBScalarPhysical",
+     "built": true,
+     "command": "lake build QuarticQuery.Paper.ConstructionForrelationSharp QuarticQuery.Paper.ForrelationTensorSharp QuarticQuery.Paper.ReadSpecOneQuery QuarticQuery.Paper.TensorCoordinates QuarticQuery.Upper.AssemblyFormula QuarticQuery.Upper.CoherentTrial QuarticQuery.Upper.FinalB QuarticQuery.Upper.FinalBScalarPhysical QuarticQuery.Upper.GateState QuarticQuery.Upper.GateStateDefs QuarticQuery.Upper.LiftTrials QuarticQuery.Upper.LiftTrialsState QuarticQuery.Upper.OneTrialFactor QuarticQuery.Upper.OpaqueSlot QuarticQuery.Upper.PhysicalContinuation QuarticQuery.Upper.RetainedFactor QuarticQuery.Upper.RetainedOriginal QuarticQuery.Upper.RouteRegister QuarticQuery.Upper.ScalarBounds QuarticQuery.Upper.SuccessGateBridge QuarticQuery.Upper.SuccessMass QuarticQuery.Upper.TrialStatistics QuarticQuery.Upper.UniformEndpoint",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": false
+    },
+    {
+     "module": "QuarticQuery.Upper.GateState",
+     "built": true,
+     "command": "lake build QuarticQuery.Paper.ConstructionForrelationSharp QuarticQuery.Paper.ForrelationTensorSharp QuarticQuery.Paper.ReadSpecOneQuery QuarticQuery.Paper.TensorCoordinates QuarticQuery.Upper.AssemblyFormula QuarticQuery.Upper.CoherentTrial QuarticQuery.Upper.FinalB QuarticQuery.Upper.FinalBScalarPhysical QuarticQuery.Upper.GateState QuarticQuery.Upper.GateStateDefs QuarticQuery.Upper.LiftTrials QuarticQuery.Upper.LiftTrialsState QuarticQuery.Upper.OneTrialFactor QuarticQuery.Upper.OpaqueSlot QuarticQuery.Upper.PhysicalContinuation QuarticQuery.Upper.RetainedFactor QuarticQuery.Upper.RetainedOriginal QuarticQuery.Upper.RouteRegister QuarticQuery.Upper.ScalarBounds QuarticQuery.Upper.SuccessGateBridge QuarticQuery.Upper.SuccessMass QuarticQuery.Upper.TrialStatistics QuarticQuery.Upper.UniformEndpoint",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": false
+    },
+    {
+     "module": "QuarticQuery.Upper.GateStateDefs",
+     "built": true,
+     "command": "lake build QuarticQuery.Paper.ConstructionForrelationSharp QuarticQuery.Paper.ForrelationTensorSharp QuarticQuery.Paper.ReadSpecOneQuery QuarticQuery.Paper.TensorCoordinates QuarticQuery.Upper.AssemblyFormula QuarticQuery.Upper.CoherentTrial QuarticQuery.Upper.FinalB QuarticQuery.Upper.FinalBScalarPhysical QuarticQuery.Upper.GateState QuarticQuery.Upper.GateStateDefs QuarticQuery.Upper.LiftTrials QuarticQuery.Upper.LiftTrialsState QuarticQuery.Upper.OneTrialFactor QuarticQuery.Upper.OpaqueSlot QuarticQuery.Upper.PhysicalContinuation QuarticQuery.Upper.RetainedFactor QuarticQuery.Upper.RetainedOriginal QuarticQuery.Upper.RouteRegister QuarticQuery.Upper.ScalarBounds QuarticQuery.Upper.SuccessGateBridge QuarticQuery.Upper.SuccessMass QuarticQuery.Upper.TrialStatistics QuarticQuery.Upper.UniformEndpoint",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": false
+    },
+    {
+     "module": "QuarticQuery.Upper.LiftTrials",
+     "built": true,
+     "command": "lake build QuarticQuery.Paper.ConstructionForrelationSharp QuarticQuery.Paper.ForrelationTensorSharp QuarticQuery.Paper.ReadSpecOneQuery QuarticQuery.Paper.TensorCoordinates QuarticQuery.Upper.AssemblyFormula QuarticQuery.Upper.CoherentTrial QuarticQuery.Upper.FinalB QuarticQuery.Upper.FinalBScalarPhysical QuarticQuery.Upper.GateState QuarticQuery.Upper.GateStateDefs QuarticQuery.Upper.LiftTrials QuarticQuery.Upper.LiftTrialsState QuarticQuery.Upper.OneTrialFactor QuarticQuery.Upper.OpaqueSlot QuarticQuery.Upper.PhysicalContinuation QuarticQuery.Upper.RetainedFactor QuarticQuery.Upper.RetainedOriginal QuarticQuery.Upper.RouteRegister QuarticQuery.Upper.ScalarBounds QuarticQuery.Upper.SuccessGateBridge QuarticQuery.Upper.SuccessMass QuarticQuery.Upper.TrialStatistics QuarticQuery.Upper.UniformEndpoint",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": false
+    },
+    {
+     "module": "QuarticQuery.Upper.LiftTrialsState",
+     "built": true,
+     "command": "lake build QuarticQuery.Paper.ConstructionForrelationSharp QuarticQuery.Paper.ForrelationTensorSharp QuarticQuery.Paper.ReadSpecOneQuery QuarticQuery.Paper.TensorCoordinates QuarticQuery.Upper.AssemblyFormula QuarticQuery.Upper.CoherentTrial QuarticQuery.Upper.FinalB QuarticQuery.Upper.FinalBScalarPhysical QuarticQuery.Upper.GateState QuarticQuery.Upper.GateStateDefs QuarticQuery.Upper.LiftTrials QuarticQuery.Upper.LiftTrialsState QuarticQuery.Upper.OneTrialFactor QuarticQuery.Upper.OpaqueSlot QuarticQuery.Upper.PhysicalContinuation QuarticQuery.Upper.RetainedFactor QuarticQuery.Upper.RetainedOriginal QuarticQuery.Upper.RouteRegister QuarticQuery.Upper.ScalarBounds QuarticQuery.Upper.SuccessGateBridge QuarticQuery.Upper.SuccessMass QuarticQuery.Upper.TrialStatistics QuarticQuery.Upper.UniformEndpoint",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": false
+    },
+    {
+     "module": "QuarticQuery.Upper.OneTrialFactor",
+     "built": true,
+     "command": "lake build QuarticQuery.Paper.ConstructionForrelationSharp QuarticQuery.Paper.ForrelationTensorSharp QuarticQuery.Paper.ReadSpecOneQuery QuarticQuery.Paper.TensorCoordinates QuarticQuery.Upper.AssemblyFormula QuarticQuery.Upper.CoherentTrial QuarticQuery.Upper.FinalB QuarticQuery.Upper.FinalBScalarPhysical QuarticQuery.Upper.GateState QuarticQuery.Upper.GateStateDefs QuarticQuery.Upper.LiftTrials QuarticQuery.Upper.LiftTrialsState QuarticQuery.Upper.OneTrialFactor QuarticQuery.Upper.OpaqueSlot QuarticQuery.Upper.PhysicalContinuation QuarticQuery.Upper.RetainedFactor QuarticQuery.Upper.RetainedOriginal QuarticQuery.Upper.RouteRegister QuarticQuery.Upper.ScalarBounds QuarticQuery.Upper.SuccessGateBridge QuarticQuery.Upper.SuccessMass QuarticQuery.Upper.TrialStatistics QuarticQuery.Upper.UniformEndpoint",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": false
+    },
+    {
+     "module": "QuarticQuery.Upper.OpaqueSlot",
+     "built": true,
+     "command": "lake build QuarticQuery.Paper.ConstructionForrelationSharp QuarticQuery.Paper.ForrelationTensorSharp QuarticQuery.Paper.ReadSpecOneQuery QuarticQuery.Paper.TensorCoordinates QuarticQuery.Upper.AssemblyFormula QuarticQuery.Upper.CoherentTrial QuarticQuery.Upper.FinalB QuarticQuery.Upper.FinalBScalarPhysical QuarticQuery.Upper.GateState QuarticQuery.Upper.GateStateDefs QuarticQuery.Upper.LiftTrials QuarticQuery.Upper.LiftTrialsState QuarticQuery.Upper.OneTrialFactor QuarticQuery.Upper.OpaqueSlot QuarticQuery.Upper.PhysicalContinuation QuarticQuery.Upper.RetainedFactor QuarticQuery.Upper.RetainedOriginal QuarticQuery.Upper.RouteRegister QuarticQuery.Upper.ScalarBounds QuarticQuery.Upper.SuccessGateBridge QuarticQuery.Upper.SuccessMass QuarticQuery.Upper.TrialStatistics QuarticQuery.Upper.UniformEndpoint",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": false
+    },
+    {
+     "module": "QuarticQuery.Upper.PhysicalContinuation",
+     "built": true,
+     "command": "lake build QuarticQuery.Paper.ConstructionForrelationSharp QuarticQuery.Paper.ForrelationTensorSharp QuarticQuery.Paper.ReadSpecOneQuery QuarticQuery.Paper.TensorCoordinates QuarticQuery.Upper.AssemblyFormula QuarticQuery.Upper.CoherentTrial QuarticQuery.Upper.FinalB QuarticQuery.Upper.FinalBScalarPhysical QuarticQuery.Upper.GateState QuarticQuery.Upper.GateStateDefs QuarticQuery.Upper.LiftTrials QuarticQuery.Upper.LiftTrialsState QuarticQuery.Upper.OneTrialFactor QuarticQuery.Upper.OpaqueSlot QuarticQuery.Upper.PhysicalContinuation QuarticQuery.Upper.RetainedFactor QuarticQuery.Upper.RetainedOriginal QuarticQuery.Upper.RouteRegister QuarticQuery.Upper.ScalarBounds QuarticQuery.Upper.SuccessGateBridge QuarticQuery.Upper.SuccessMass QuarticQuery.Upper.TrialStatistics QuarticQuery.Upper.UniformEndpoint",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": false
+    },
+    {
+     "module": "QuarticQuery.Upper.RetainedFactor",
+     "built": true,
+     "command": "lake build QuarticQuery.Paper.ConstructionForrelationSharp QuarticQuery.Paper.ForrelationTensorSharp QuarticQuery.Paper.ReadSpecOneQuery QuarticQuery.Paper.TensorCoordinates QuarticQuery.Upper.AssemblyFormula QuarticQuery.Upper.CoherentTrial QuarticQuery.Upper.FinalB QuarticQuery.Upper.FinalBScalarPhysical QuarticQuery.Upper.GateState QuarticQuery.Upper.GateStateDefs QuarticQuery.Upper.LiftTrials QuarticQuery.Upper.LiftTrialsState QuarticQuery.Upper.OneTrialFactor QuarticQuery.Upper.OpaqueSlot QuarticQuery.Upper.PhysicalContinuation QuarticQuery.Upper.RetainedFactor QuarticQuery.Upper.RetainedOriginal QuarticQuery.Upper.RouteRegister QuarticQuery.Upper.ScalarBounds QuarticQuery.Upper.SuccessGateBridge QuarticQuery.Upper.SuccessMass QuarticQuery.Upper.TrialStatistics QuarticQuery.Upper.UniformEndpoint",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": false
+    },
+    {
+     "module": "QuarticQuery.Upper.RetainedOriginal",
+     "built": true,
+     "command": "lake build QuarticQuery.Paper.ConstructionForrelationSharp QuarticQuery.Paper.ForrelationTensorSharp QuarticQuery.Paper.ReadSpecOneQuery QuarticQuery.Paper.TensorCoordinates QuarticQuery.Upper.AssemblyFormula QuarticQuery.Upper.CoherentTrial QuarticQuery.Upper.FinalB QuarticQuery.Upper.FinalBScalarPhysical QuarticQuery.Upper.GateState QuarticQuery.Upper.GateStateDefs QuarticQuery.Upper.LiftTrials QuarticQuery.Upper.LiftTrialsState QuarticQuery.Upper.OneTrialFactor QuarticQuery.Upper.OpaqueSlot QuarticQuery.Upper.PhysicalContinuation QuarticQuery.Upper.RetainedFactor QuarticQuery.Upper.RetainedOriginal QuarticQuery.Upper.RouteRegister QuarticQuery.Upper.ScalarBounds QuarticQuery.Upper.SuccessGateBridge QuarticQuery.Upper.SuccessMass QuarticQuery.Upper.TrialStatistics QuarticQuery.Upper.UniformEndpoint",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": false
+    },
+    {
+     "module": "QuarticQuery.Upper.RouteRegister",
+     "built": true,
+     "command": "lake build QuarticQuery.Paper.ConstructionForrelationSharp QuarticQuery.Paper.ForrelationTensorSharp QuarticQuery.Paper.ReadSpecOneQuery QuarticQuery.Paper.TensorCoordinates QuarticQuery.Upper.AssemblyFormula QuarticQuery.Upper.CoherentTrial QuarticQuery.Upper.FinalB QuarticQuery.Upper.FinalBScalarPhysical QuarticQuery.Upper.GateState QuarticQuery.Upper.GateStateDefs QuarticQuery.Upper.LiftTrials QuarticQuery.Upper.LiftTrialsState QuarticQuery.Upper.OneTrialFactor QuarticQuery.Upper.OpaqueSlot QuarticQuery.Upper.PhysicalContinuation QuarticQuery.Upper.RetainedFactor QuarticQuery.Upper.RetainedOriginal QuarticQuery.Upper.RouteRegister QuarticQuery.Upper.ScalarBounds QuarticQuery.Upper.SuccessGateBridge QuarticQuery.Upper.SuccessMass QuarticQuery.Upper.TrialStatistics QuarticQuery.Upper.UniformEndpoint",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": false
+    },
+    {
+     "module": "QuarticQuery.Upper.ScalarBounds",
+     "built": true,
+     "command": "lake build QuarticQuery.Paper.ConstructionForrelationSharp QuarticQuery.Paper.ForrelationTensorSharp QuarticQuery.Paper.ReadSpecOneQuery QuarticQuery.Paper.TensorCoordinates QuarticQuery.Upper.AssemblyFormula QuarticQuery.Upper.CoherentTrial QuarticQuery.Upper.FinalB QuarticQuery.Upper.FinalBScalarPhysical QuarticQuery.Upper.GateState QuarticQuery.Upper.GateStateDefs QuarticQuery.Upper.LiftTrials QuarticQuery.Upper.LiftTrialsState QuarticQuery.Upper.OneTrialFactor QuarticQuery.Upper.OpaqueSlot QuarticQuery.Upper.PhysicalContinuation QuarticQuery.Upper.RetainedFactor QuarticQuery.Upper.RetainedOriginal QuarticQuery.Upper.RouteRegister QuarticQuery.Upper.ScalarBounds QuarticQuery.Upper.SuccessGateBridge QuarticQuery.Upper.SuccessMass QuarticQuery.Upper.TrialStatistics QuarticQuery.Upper.UniformEndpoint",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": false
+    },
+    {
+     "module": "QuarticQuery.Upper.SuccessGateBridge",
+     "built": true,
+     "command": "lake build QuarticQuery.Paper.ConstructionForrelationSharp QuarticQuery.Paper.ForrelationTensorSharp QuarticQuery.Paper.ReadSpecOneQuery QuarticQuery.Paper.TensorCoordinates QuarticQuery.Upper.AssemblyFormula QuarticQuery.Upper.CoherentTrial QuarticQuery.Upper.FinalB QuarticQuery.Upper.FinalBScalarPhysical QuarticQuery.Upper.GateState QuarticQuery.Upper.GateStateDefs QuarticQuery.Upper.LiftTrials QuarticQuery.Upper.LiftTrialsState QuarticQuery.Upper.OneTrialFactor QuarticQuery.Upper.OpaqueSlot QuarticQuery.Upper.PhysicalContinuation QuarticQuery.Upper.RetainedFactor QuarticQuery.Upper.RetainedOriginal QuarticQuery.Upper.RouteRegister QuarticQuery.Upper.ScalarBounds QuarticQuery.Upper.SuccessGateBridge QuarticQuery.Upper.SuccessMass QuarticQuery.Upper.TrialStatistics QuarticQuery.Upper.UniformEndpoint",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": false
+    },
+    {
+     "module": "QuarticQuery.Upper.SuccessMass",
+     "built": true,
+     "command": "lake build QuarticQuery.Paper.ConstructionForrelationSharp QuarticQuery.Paper.ForrelationTensorSharp QuarticQuery.Paper.ReadSpecOneQuery QuarticQuery.Paper.TensorCoordinates QuarticQuery.Upper.AssemblyFormula QuarticQuery.Upper.CoherentTrial QuarticQuery.Upper.FinalB QuarticQuery.Upper.FinalBScalarPhysical QuarticQuery.Upper.GateState QuarticQuery.Upper.GateStateDefs QuarticQuery.Upper.LiftTrials QuarticQuery.Upper.LiftTrialsState QuarticQuery.Upper.OneTrialFactor QuarticQuery.Upper.OpaqueSlot QuarticQuery.Upper.PhysicalContinuation QuarticQuery.Upper.RetainedFactor QuarticQuery.Upper.RetainedOriginal QuarticQuery.Upper.RouteRegister QuarticQuery.Upper.ScalarBounds QuarticQuery.Upper.SuccessGateBridge QuarticQuery.Upper.SuccessMass QuarticQuery.Upper.TrialStatistics QuarticQuery.Upper.UniformEndpoint",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": false
+    },
+    {
+     "module": "QuarticQuery.Upper.TrialStatistics",
+     "built": true,
+     "command": "lake build QuarticQuery.Paper.ConstructionForrelationSharp QuarticQuery.Paper.ForrelationTensorSharp QuarticQuery.Paper.ReadSpecOneQuery QuarticQuery.Paper.TensorCoordinates QuarticQuery.Upper.AssemblyFormula QuarticQuery.Upper.CoherentTrial QuarticQuery.Upper.FinalB QuarticQuery.Upper.FinalBScalarPhysical QuarticQuery.Upper.GateState QuarticQuery.Upper.GateStateDefs QuarticQuery.Upper.LiftTrials QuarticQuery.Upper.LiftTrialsState QuarticQuery.Upper.OneTrialFactor QuarticQuery.Upper.OpaqueSlot QuarticQuery.Upper.PhysicalContinuation QuarticQuery.Upper.RetainedFactor QuarticQuery.Upper.RetainedOriginal QuarticQuery.Upper.RouteRegister QuarticQuery.Upper.ScalarBounds QuarticQuery.Upper.SuccessGateBridge QuarticQuery.Upper.SuccessMass QuarticQuery.Upper.TrialStatistics QuarticQuery.Upper.UniformEndpoint",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": false
+    },
+    {
+     "module": "QuarticQuery.Upper.UniformEndpoint",
+     "built": true,
+     "command": "lake build QuarticQuery.Paper.ConstructionForrelationSharp QuarticQuery.Paper.ForrelationTensorSharp QuarticQuery.Paper.ReadSpecOneQuery QuarticQuery.Paper.TensorCoordinates QuarticQuery.Upper.AssemblyFormula QuarticQuery.Upper.CoherentTrial QuarticQuery.Upper.FinalB QuarticQuery.Upper.FinalBScalarPhysical QuarticQuery.Upper.GateState QuarticQuery.Upper.GateStateDefs QuarticQuery.Upper.LiftTrials QuarticQuery.Upper.LiftTrialsState QuarticQuery.Upper.OneTrialFactor QuarticQuery.Upper.OpaqueSlot QuarticQuery.Upper.PhysicalContinuation QuarticQuery.Upper.RetainedFactor QuarticQuery.Upper.RetainedOriginal QuarticQuery.Upper.RouteRegister QuarticQuery.Upper.ScalarBounds QuarticQuery.Upper.SuccessGateBridge QuarticQuery.Upper.SuccessMass QuarticQuery.Upper.TrialStatistics QuarticQuery.Upper.UniformEndpoint",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": true
+    }
+   ],
+   "root_import_note": "Root imports UniformEndpoint, ConstructionForrelationSharp, ForrelationTensorSharp and CoherentTrial; these reach all 23. CoherentTrial has no consumer in the return.",
+   "build_note": "The first 04 build was stopped by the build guard's 1500 s seat budget (exit 117) after 12 modules had passed; the identical command was re-run and the remaining 11 passed. No source changed between the two invocations.",
+   "source_changed_from_submission": false,
+   "audited_declarations": [
+    "QuarticQuery.Upper.uniformOpaqueAmplifier",
+    "QuarticQuery.Upper.finalB_physical_on_embedding",
+    "QuarticQuery.Paper.forr_walsh_physical",
+    "QuarticQuery.Paper.forr_walsh_tensor_physical",
+    "QuarticQuery.Paper.construction_decoder_sharp",
+    "QuarticQuery.Paper.P_runs_sharp",
+    "QuarticQuery.Upper.compile_circ_one",
+    "QuarticQuery.Paper.construction_projection_test_sharp",
+    "QuarticQuery.Paper.tensorVector_coord_product"
+   ],
+   "axioms": "Every audited declaration depends on exactly propext, Classical.choice, Quot.sound.",
+   "comparator": [
+    {
+     "bundle": "lean/QuarticCorpus/Independent/UniformAmplifier/comparator.json",
+     "target": "QuarticQuery.Upper.uniformOpaqueAmplifier",
+     "expected": "accepted",
+     "outcome": "accepted",
+     "receipt": "corpus/receipts/comparator-round4-uniform-amplifier-2026-11-03T023317151864+0000.json"
+    },
+    {
+     "bundle": "lean/QuarticCorpus/Independent/DecoderSharp/comparator.json",
+     "target": "QuarticQuery.Paper.construction_decoder_sharp",
+     "expected": "accepted",
+     "outcome": "accepted",
+     "receipt": "corpus/receipts/comparator-round4-decoder-sharp-2026-11-03T023317151864+0000.json"
+    }
+   ],
+   "negative_controls": "None authored for these two bundles.",
+   "comparator_scope": "Authored by the integrator; challenges import FinalBScalarPhysical (resp. ReadSpecOneQuery + Upper.Decode) and restate the type verbatim. Statement agreement under shared vocabulary only.",
+   "remaining_unproved": [
+    "Basis change from a general fixed projector to the coordinate predicate (uniformOpaqueAmplifier is coordinate-predicate only).",
+    "Literal free flag/Hadamard identification of H·ψ with α0|0⟩+α1|1⟩.",
+    "Literal identification of the decoder's existential isometry with threshold postprocessing of the separately exposed tensor witness G.",
+    "The numeric constant 126 in N(2M−1) ≤ 126·γ^(−1/2)·log(1/η); the maintained 138 budget is unchanged.",
+    "No consumer (Q_Fkm_le, tournament, verification) is rewired to the sharper compiler."
+   ]
+  },
+  "08_adversarial_audit_candidate": {
+   "return_path": "research/returns/round4/members/08_adversarial_audit/quartic_r4_08_return/checks/classical/ZeroSearchSuccessor.lean",
+   "return_self_report": "Explicitly uncompiled advisory candidate.",
+   "modules": [
+    {
+     "module": "QuarticQuery.LowerBound.Planted.ZeroSearchSuccessor",
+     "built": true,
+     "command": "lake build QuarticQuery.LowerBound.Planted.ZeroSearchSuccessor",
+     "source_changed_from_submission": false,
+     "repair": null,
+     "in_root_import": true
+    }
+   ],
+   "submitted_sha256": "9be14d5f906d8e40a2864d0099ff01ced62ae492c2fa7fd5c3686dd04d454a29",
+   "source_changed_from_submission": false,
+   "audited_declarations": [
+    "QuarticQuery.zero_search_sum_successor"
+   ],
+   "axioms": "propext, Classical.choice, Quot.sound.",
+   "statement": "(|U|+1)·Σ_{j∈U} ind(e j ∈ T.path (x j)) ≤ 2·Σ_{j∈U} countP c (T.path (x j)) for every finite U, under the injective planting e, outside-coordinate agreement and the one-zero planted inputs.",
+   "comparator": "Not run; no bundle authored.",
+   "remaining_unproved": [
+    "Probability wrappers turning the per-U invariant into the 2G/[m(m+1)] endpoint; no corpus tie consumes it."
+   ]
+  }
+ },
+ "root_build": {
+  "command": "lake build QuarticQuery",
+  "status": "passed",
+  "note": "Merged root import (05 + 06 + 04 + 08 additions) elaborated; separate root receipt via tools/record_evidence.py."
+ },
+ "evidence_boundaries": [
+  "Comparator acceptance is statement agreement under shared definitions, never semantic fidelity.",
+  "Negative controls were rejected with `Challenge and solution theorem statement do not match`, not by build failure.",
+  "Comparator ran unsandboxed (--inadvisably-no-sandbox), the repository's documented local norm.",
+  "Adding Lean sources changes the global source fingerprint; earlier receipts and statement-review bindings become stale and are not refreshed by this work.",
+  "No human expert review or fresh-clone reproducibility is established."
+ ],
+ "baseline_refresh": {
+  "commands": [
+   [
+    "python3",
+    "tools/record_evidence.py"
+   ],
+   [
+    "python3",
+    "tools/run_comparator.py"
+   ]
+  ],
+  "environment": {
+   "AIW_LEAN_BUILD_DISK_RESERVE_GIB": "0.25"
+  },
+  "status": "passed: root build and dependency export; five baseline bundles accepted; five baseline negatives rejected as expected",
+  "receipts": [
+   "corpus/receipts/comparator-Construction-2026-11-03T032429664567+0000.json",
+   "corpus/receipts/comparator-Foundations-2026-11-03T032558806071+0000.json",
+   "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+   "corpus/receipts/comparator-Tournament-2026-11-03T032902613633+0000.json",
+   "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+   "corpus/receipts/comparator-negative-ChangedDefinition-2026-11-03T033123563999+0000.json",
+   "corpus/receipts/comparator-negative-ForeignAxiom-2026-11-03T033151129376+0000.json",
+   "corpus/receipts/comparator-negative-MissingDeclaration-2026-11-03T033215622414+0000.json",
+   "corpus/receipts/comparator-negative-SorryProof-2026-11-03T033240459729+0000.json",
+   "corpus/receipts/comparator-negative-WeakenedConclusion-2026-11-03T033313996636+0000.json",
+   "corpus/receipts/lean-build-root-2026-11-03T032352631975+0000.json"
+  ],
+  "not_refreshed": "Statement-review bindings in corpus/ties.json; their relations now read unassessed/stale under the changed global fingerprint.",
+  "consequence": "thm-1.1's wrapper-mediated credit came from historical receipts that scanned proof text; the refreshed Unconditional receipt lists only its configured target, so thm-1.1 now reads comparison_credit none. tests/test_build_comparator_map.py pins the old value and fails."
+ }
+}

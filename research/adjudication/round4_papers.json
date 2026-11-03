@@ -1,0 +1,211 @@
+{
+  "review": "round4_papers",
+  "date": "2026-11-03",
+  "reviewer": "AI scientific editor (read-only)",
+  "papers": {
+    "S": "research/returns/round4/members/02_short_expert/paper.md (+paper.pdf, 16pp)",
+    "E": "research/returns/round4/members/03_examples_first/quartic_r4_03_examples_first/exposition.md (+exposition.pdf, 14pp)"
+  },
+  "mathematical_errors_found": 0,
+  "page_budget": {
+    "S": {
+      "target_total_pages": 13,
+      "main_text": "10-11",
+      "lean_appendix": 1,
+      "references": "1-1.5",
+      "current": 16
+    },
+    "E": {
+      "target_total_pages": "12-15 A4",
+      "figures": "3-4",
+      "current": 14
+    }
+  },
+  "conditional_on_rebuild": [
+    "04 retained-state amplifier (Upper.uniformOpaqueAmplifier, finalB_physical_on_embedding)",
+    "05 measurable external-randomness transfer (Lean candidates)",
+    "06 receipt producer fix and configured-target-only comparison credit"
+  ],
+  "findings": [
+    {
+      "id": "P01",
+      "paper": "both",
+      "locator": "research/returns/round4/members/02_short_expert/paper.md:56,84,649-671 (pdf p.2-3,16); research/returns/round4/members/03_examples_first/quartic_r4_03_examples_first/exposition.md:108,348,351-383 (pdf p.4,13-14)",
+      "severity": "critical",
+      "category": "literature_attribution",
+      "finding": "S gives no history of total-function R vs Q exponents and omits Tal, Sherstov-Storozhenko-Wu, pointer functions (GPW; Ambainis et al.), Ben-David-Kothari 2026, Ambainis-Iraids-Kokainis 2026, Durr-Hoyer, king finding, Hoyer-Mosca-de Wolf; mentions Aaronson-Ambainis with no reference entry. Cheat sheets (ABK) ARE cited in S but only in one sentence. E attributes the 'addressed construction' solely to OpenAI and cites no ABK/GPW/Tal/SSW.",
+      "evidence": "Preprint extracted.md section 1.1: 5/2 (ABK [2]), 8/3-o(1) (Tal [26]), 3-o(1) (Bansal-Sinha [6], independently SSW [23]); refs [5],[9],[14],[18]. ABK extraction line 23: cheat sheets give cubic black-box from optimal partial separation; line 1431: 10 log n copies. Record line 2148 credits GPW. S references.bib contains AA18, Tal2019v1, SherstovStorozhenkoWu2023, GPW2018, ABBLSS2015, BDK2026, DH1999, HMW2003, MPS2023 but none are cited in text.",
+      "recommended_change": "Add a 'Where this sits' subsection with an exponent table and precise inheritance (ABK addressing; GPW pointers; AA k-fold Forrelation and its conjecture; BS/SSW optimal partial separation; ABKRT upper bound and Conjecture 2). Correct E md:348 attribution. Add references from the bib; add Ambainis-Iraids-Kokainis from preprint ref [5] after checking arXiv."
+    },
+    {
+      "id": "P02",
+      "paper": "both",
+      "locator": "research/returns/round4/members/02_short_expert/paper.md:49-59 (pdf p.2); research/returns/round4/members/03_examples_first/quartic_r4_03_examples_first/exposition.md:8-41 and 324-344 (pdf p.1-2, 12)",
+      "severity": "critical",
+      "category": "reader_model",
+      "finding": "Neither paper states the one-line reason the exponent is four (Q ~ sqrt(m) polylog via search over m columns; R ~ m*L with L ~ m^(1-1/k)), nor why the cheat-sheet route stopped at 3 and what outward pointers plus the tournament change. E states the theorem only in section 9.",
+      "evidence": "Long record section 1.1 (~line 95) states 'a lower budget of order mL, while quantum evaluation costs order sqrt(m) times logarithmic factors'; neither paper reproduces it.",
+      "recommended_change": "S: add a half-page 'idea' paragraph with a column figure and the mL vs sqrt(m) arithmetic. E: add a one-page overview with theorem, arithmetic, three-line history and an example map. Claims about why earlier methods stalled must be traceable to ABK section 3.1 or preprint section 1.1-1.2."
+    },
+    {
+      "id": "P03",
+      "paper": "S",
+      "locator": "research/returns/round4/members/02_short_expert/paper.md:597-647 (pdf p.14-15)",
+      "severity": "critical",
+      "category": "formal_layer",
+      "finding": "S never points the reader to lean/QuarticCorpus/Unconditional/Challenge.lean (343 lines, Mathlib-only), the actual statement a reader must audit, and names implementation theorems rather than the configured Comparator targets. Section 7 is two pages of house evidence accounting.",
+      "evidence": "comparator.json theorem_names: QuarticQuery.Checked.alpha_tot_eq_four, Checked.theorem_one_one, Checked.cubic_bound_fails, Checked.forrelation_lower_bound. Challenge.lean lines 13-140 define inputs, R, Q (adaptive quantum programs, bitOracle, syntactic queryCap); ~290-326 alphaTot/UniversalPower.",
+      "recommended_change": "Replace section 7 with a one-page appendix 'Checking the statement' containing: file and line map, the four compared theorems in math notation, five things to check (incl. sInf junk value closed by UniversalPower 4; same circuit C in both bounds; existential b), what Comparator certifies and does not, commands and pins (spec in round4_papers.md section 4)."
+    },
+    {
+      "id": "P04",
+      "paper": "S",
+      "locator": "research/returns/round4/members/02_short_expert/paper.md:34-46, 624, 668 (pdf p.1-2, 15, 16)",
+      "severity": "high",
+      "category": "fidelity_overclaim",
+      "finding": "S says alphaTot_eq_four_unconditional and theorem_1_1_unconditional 'have current comparison evidence'; the compared names are the Checked.* wrappers and the receipt producer credited implementation names by text mention. Theorem 1 displays exponent 6 and constant 1/400 from construction_family_named, which is built but not compared; the compared theorem_one_one has existential b and the floor form. The [Lean] reference cites an older revision and a SOURCE_AUDIT.md absent from the bundle.",
+      "evidence": "06 review_notes section 3: 8 of 12 compared rows, including thm-1.1, credited only via inferred aliases; repo commit 235e2c8 restricts receipts to configured targets. lean/QuarticQuery/Paper/ConstructionFamily.lean:30-40 has (log m)^6 and 1/400. Challenge.lean theorem_one_one: exists b, Gvalue(m,L) < R. Audit historical_companion_audit.md calls c7e0c916 part of an older commit narrative.",
+      "recommended_change": "Name the configured Checked.* targets; say their proofs are one-line applications of the implementation theorems. In Theorem 1, separate what is compared (existential exponent, floor form) from what is only built (6, 1/400). Cite the exact commit of the final, sandboxed Comparator run; drop SOURCE_AUDIT.md."
+    },
+    {
+      "id": "P05",
+      "paper": "both",
+      "locator": "research/returns/round4/members/02_short_expert/paper.md:278, 608, 626 (pdf p.6, 14, 15); research/returns/round4/members/03_examples_first/quartic_r4_03_examples_first/exposition.md:178, 243 (pdf p.7, 9)",
+      "severity": "high",
+      "category": "stale_formal_status",
+      "finding": "Statements that a retained-original-state amplification bridge is 'not supplied', that no pushforward theorem covers external probability spaces, and that the list tournament exists only inside the verifier recursion are stale or conditional relative to returns 04/05 and the audit refresh note. Those Lean claims are under independent rebuild and unverified.",
+      "evidence": "04 review_notes: Upper.uniformOpaqueAmplifier and finalB_physical_on_embedding claimed proved natively. 05 review_notes item 1: ordinary proof for arbitrary measurable seeds; Lean candidates uncompiled. Audit repairs/companion_refresh_note.md: Paper.quantumTournament and Paper.equation_15 root-built, outside headline reach, no Comparator check.",
+      "recommended_change": "Use conditional wording until the rebuild receipt exists: 'An ordinary proof that amplification returns the full good state is given in [ref]; a Lean proof has been submitted and is being independently rebuilt; the query bound uses only the proved label law.' For external randomness: 'ordinary proof given; formal version pending.' Mention Paper.quantumTournament in S as E does. After the rebuild, cite exact declarations and commit."
+    },
+    {
+      "id": "P06",
+      "paper": "S",
+      "locator": "S whole (pdf pp.1-16; section 5 pp.10-13, section 7 pp.14-15, section 3.2 p.5)",
+      "severity": "high",
+      "category": "page_allocation",
+      "finding": "Of 16 pages, about 2.7 go to the Forrelation lower bound (known to the reader via BS/SSW), 2 to internal evidence accounting, and a full Grover derivation; none to history; no figures or tables.",
+      "evidence": "Rendered PDF inspection; reader model in round4_papers.md section 2.",
+      "recommended_change": "Target about 13 pages: 1.5 result+history+idea; 1.5 construction with figure; 0.5 'where a shortcut fails' table; 2 quantum (amplification stated, sketched); 2.5 classical; 1 Forrelation; 1 exponent and growing-k remark; 1 Lean appendix; 1-1.5 references."
+    },
+    {
+      "id": "P07",
+      "paper": "both",
+      "locator": "research/returns/round4/members/02_short_expert/paper.md:1,5,63,166,301,424,555,599,632,668,687 (pdf p.1,2,4,7,10,13,14,15,16); research/returns/round4/members/03_examples_first/quartic_r4_03_examples_first/exposition.md:2-5,41,357-377 (pdf p.1-14)",
+      "severity": "high",
+      "category": "presentation",
+      "finding": "S: provenance paragraph above the title, no byline, 'reconstructed download edition' subtitle, closing paragraph about 'the prior assistant's temporary scratch-path ZIP', seven dead relative links into source_packet/, an overfull hash line on p.15, a missing SOURCE_AUDIT.md. E: AI-only author line, relative sources/ links, bibliography carrying SHA-256 and session-availability notes.",
+      "evidence": "Rendered PDF pages viewed with the Read tool.",
+      "recommended_change": "Delete all provenance debris; add a byline with responsible human and the AI and no-human-review disclosure; replace relative links with public URL plus section number; fix the overfull line; strip provenance notes from bibliography entries."
+    },
+    {
+      "id": "P08",
+      "paper": "S",
+      "locator": "research/returns/round4/members/02_short_expert/paper.md:306, 350-374, 383-404 (pdf p.7-9)",
+      "severity": "medium",
+      "category": "delicate_points",
+      "finding": "The erased-zero identity Pr[hit] = E[Z]/m and the need for I independent of the whole dummy run are not stated, and there is no counterexample. The direct product says 'independent side information and random coins' where joint independence from the whole tuple is required. The delicate points are present but not signposted.",
+      "evidence": "E md:276 counterexample (1/4 vs 175/256); audit section 4.2 (19/27); audit section 4.1 S = X xor R example shows marginal independence is insufficient; E md:280 states joint independence correctly.",
+      "recommended_change": "State the identity with a one-line counterexample; say 'jointly independent of the whole tuple'; add a half-page table 'Where a natural shortcut fails' (one row per delicate point and its counterexample: off-promise Phi=-1; off-promise rival; dominance without winning; expected vs branchwise cap; conditioning on cheapness; dependent planted index; growing k)."
+    },
+    {
+      "id": "P09",
+      "paper": "E",
+      "locator": "research/returns/round4/members/03_examples_first/quartic_r4_03_examples_first/exposition.md:8-67, 65, 102, 164-178, 249, 298 (pdf p.1-3, 4, 6-7, 9, 11)",
+      "severity": "medium",
+      "category": "exposition",
+      "finding": "The examples are well chosen and correct (8-bit census, reduced board, changed board, dominance-without-winning, uniform-marginal counterexample, AND trap), but there is no theorem statement or road map up front, no figures and no history. The canonical-lift and residue-width paragraphs and the inline Lean names are overlong for students. Section 5 is placed too early and is stale.",
+      "evidence": "Census verified by hand: multiplicities 8,96,48,96,8; 104/48/104. Board checks: 5936 bits, K=371, 142607 tests. 583/192000 at m=4 verified.",
+      "recommended_change": "Add an overview and 3-4 figures (column layout, board, tournament cycle, planted pair). Box the minimax and Chernoff proofs. Cut the lift and residue detail and the inline Lean names. Move section 5 after the tournament as an updated boxed remark. Add return 05's two-instance AND example (beta=3/4; joint 5/16, conditional 5/8 > 9/16) after verifying it."
+    },
+    {
+      "id": "P10",
+      "paper": "both",
+      "locator": "research/returns/round4/members/02_short_expert/paper.md:38, 274, 296 (pdf p.1, 6, 7); research/returns/round4/members/03_examples_first/quartic_r4_03_examples_first/exposition.md:237-241 (pdf p.9)",
+      "severity": "medium",
+      "category": "derivation_gap",
+      "finding": "Theorem 1 states (log2 m)^6, but the text proves only sqrt(m)(log m)^(O_k(1)); the exponent 6 is not derived.",
+      "evidence": "S md:296 'prove Q(F) <= sqrt(m)(log m)^{O_k(1)}'; construction_family_named uses Upper.budgetConst with exponent 6.",
+      "recommended_change": "Give the explicit count or state that 6 is what the formal budget accounting (Upper.budgetConst) gives."
+    },
+    {
+      "id": "P11",
+      "paper": "both",
+      "locator": "research/returns/round4/members/02_short_expert/paper.md:108/221, 175/409, 237/381, 450, 463, 498 (pdf p.3-11); research/returns/round4/members/03_examples_first/quartic_r4_03_examples_first/exposition.md:186 (pdf p.7)",
+      "severity": "medium",
+      "category": "notation",
+      "finding": "Symbol collisions: M (Forrelation denominator and iteration range), T (stages and tree), t (exponent of m, pivot count, query time), G (budget and test function), N (numerator and km), s (address and interpolation parameter), q (budget and function), gamma (threshold and Gaussian density); E uses s for the winner column. S's own equation numbering is not mapped to the preprint's.",
+      "evidence": "Line references as given.",
+      "recommended_change": "Rename the collisions; add the preprint equation number in brackets at each matching display."
+    },
+    {
+      "id": "P12",
+      "paper": "S",
+      "locator": "research/returns/round4/members/02_short_expert/paper.md:578-595 (pdf p.13-14)",
+      "severity": "medium",
+      "category": "claim_scope",
+      "finding": "The growing-k section relies on a uniform t >= 13669 k^2 threshold and a build-only constant lemma. Its arithmetic checks, but the audit supplies a cleaner, fully explicit schedule from verified ingredients.",
+      "evidence": "mathematical_addenda.md section A: t>=80, k=floor(sqrt(t/20)), R >= Q^(4-eps(s)), eps(s)=8 sqrt(10)/sqrt(s)+(56 log2 s+508)/s, limit 4; ordinary, not Lean.",
+      "recommended_change": "Replace with a half-page remark based on addendum A, labelled as an ordinary deduction checked by AI, not a Lean theorem and not R = Omega(Q^4)."
+    },
+    {
+      "id": "P13",
+      "paper": "S",
+      "locator": "research/returns/round4/members/02_short_expert/paper.md:8 (pdf p.1)",
+      "severity": "medium",
+      "category": "abstract",
+      "finding": "The abstract uses undefined terms (column, all-one string, address instances, incoming zero witness) and leads with minor formal improvements (2G/m^2, induction on sub-distributions). It omits that the Lean Forrelation proof has had no human review.",
+      "evidence": "README.md: 'No person has reviewed it yet.' Audit section 4.3: 2G/(m(m+1)) is already an ordinary refinement.",
+      "recommended_change": "Five plain sentences: result and refutation of ABKRT Conjecture 2; previous best 3-o(1); the idea; what the companion adds (path, Lean checked against a 343-line statement file, alternative fixed-k Forrelation proof); evidence status."
+    },
+    {
+      "id": "P14",
+      "paper": "both",
+      "locator": "research/returns/round4/members/03_examples_first/quartic_r4_03_examples_first/exposition.md:123 (pdf p.4-5); research/returns/round4/members/02_short_expert/paper.md:429 (pdf p.10)",
+      "severity": "medium",
+      "category": "literature_tone",
+      "finding": "E mentions a 'version-specific logarithmic mismatch' in Bansal-Sinha v3; S is silent. A claim about a defect in a published proof needs careful, neutral handling for this reader.",
+      "evidence": "Record section 3.16 and audit section 5.2: one displayed comparison on v3 printed p.38; not a counterexample to the theorem.",
+      "recommended_change": "Omit it (the separation needs only Corollary 1.4) or use one neutral footnote with the exact locator. Never in the abstract. Consider informing the authors privately first."
+    },
+    {
+      "id": "P15",
+      "paper": "S",
+      "locator": "research/returns/round4/members/02_short_expert/paper.md:604-619 (pdf p.14)",
+      "severity": "medium",
+      "category": "structure",
+      "finding": "Section 7.1 mixes ordinary-mathematics changes with formal-model obligations and execution history.",
+      "evidence": "Text as cited; md:618 is the good core sentence on what kernel and Comparator do not establish.",
+      "recommended_change": "Move it into the appendix as two short lists: what the models fix; what remains a review obligation (model choice, bit/phase bridge, asymptotic translation). Keep md:618 nearly verbatim."
+    },
+    {
+      "id": "P16",
+      "paper": "both",
+      "locator": "research/returns/round4/members/02_short_expert/paper.md:34 and passim; research/returns/round4/members/03_examples_first/quartic_r4_03_examples_first/exposition.md:69, 116, 41 and passim",
+      "severity": "low",
+      "category": "jargon",
+      "finding": "House vocabulary: 'integrated record' (in the Theorem 1 title), 'reviewed record', 'source-bound' (x7), 'packet' (x12), 'retained receipts', 'supplied' (~15), 'headline', 'wrapper', 'frozen'; E: 'proof destination', 'supplier' (in a section title), 'correspondence artifact', 'maintained explicit bound'. No F-codes or 'record anchor' appear; keep it that way.",
+      "evidence": "grep counts over both markdown sources.",
+      "recommended_change": "Remove or define every term; never import the record's F-codes."
+    },
+    {
+      "id": "P17",
+      "paper": "E",
+      "locator": "research/returns/round4/members/03_examples_first/quartic_r4_03_examples_first/exposition.md:4, 361 (pdf p.1, 13)",
+      "severity": "low",
+      "category": "attribution",
+      "finding": "There is no responsible human on the author line. AA is cited only by arXiv v1.",
+      "evidence": "Front matter.",
+      "recommended_change": "Use S's attribution and disclosure; cite AA as SIAM J. Comput. 47(3), 2018 (STOC 2015) with the arXiv link."
+    },
+    {
+      "id": "P18",
+      "paper": "S",
+      "locator": "research/returns/round4/members/02_short_expert/paper.md:631-647 (pdf p.15)",
+      "severity": "low",
+      "category": "reproduction",
+      "finding": "The commands are correct (scripts/Reach.lean exists; tools/run_comparator.py appends --inadvisably-no-sandbox), but the paper should say plainly that the recorded runs were unsandboxed local rehearsals and should give the final commit after the rebuild.",
+      "evidence": "tools/run_comparator.py lines 61-77; README 'Comparison' row.",
+      "recommended_change": "In the appendix: commit, toolchain v4.36.0-rc2, pins, the exact command whose output is quoted, and its sandbox status."
+    }
+  ]
+}

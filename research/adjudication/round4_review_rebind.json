@@ -1,0 +1,218 @@
+{
+ "schema": "round4-review-rebind-v1",
+ "status": "rebound",
+ "scope": "This rebind certifies that the round-four additions did not alter any reviewed declaration, statement row or tie judgment. It is not a new semantic review of the statements: every relation, route, premise classification and note keeps the authority of its original review.",
+ "head_commit": "752826a36192b25dc08e364a070eb03eb95dbc85",
+ "snapshot_method": "canonical_sha256(source_hashes()) from tools/build_corpus.py; HEAD snapshot computed from `git archive HEAD lean` extracted outside the checkout.",
+ "old_source_snapshot_sha256": "43f007e0916f14d513d076e8036b9bb05aa29897b5b9eb7bc4a8d6551d63c2b3",
+ "old_snapshot_entries": 152,
+ "old_snapshot_equals_recorded_bindings": true,
+ "new_source_snapshot_sha256": "0d109ea9e9b7f4a766640d406409e30589fb4c5a4e645b6d6888569fa2edf29f",
+ "new_snapshot_entries": 224,
+ "new_snapshot_equals_round4_formal_frozen_inventory": true,
+ "changed_paths": {
+  "modified_in_snapshot": [
+   {
+    "path": "lean/QuarticQuery.lean",
+    "change": "11 appended `public import` lines; the file contains only `module` and imports, no declarations"
+   }
+  ],
+  "modified_outside_snapshot": [
+   {
+    "path": "lean/README.md",
+    "change": "added prose section 'Round-four additions'; not a source_hashes input"
+   }
+  ],
+  "removed": [],
+  "unchanged_pinned_configuration": [
+   "lean/lean-toolchain",
+   "lean/lakefile.toml",
+   "lean/lake-manifest.json"
+  ],
+  "pre_existing_entries_byte_identical": 151,
+  "added": [
+   "lean/QuarticCorpus/Independent/DecoderSharp/Challenge.lean",
+   "lean/QuarticCorpus/Independent/DecoderSharp/Solution.lean",
+   "lean/QuarticCorpus/Independent/DecoderSharp/comparator.json",
+   "lean/QuarticCorpus/Independent/Degree/Bridge.lean",
+   "lean/QuarticCorpus/Independent/Degree/Challenge.lean",
+   "lean/QuarticCorpus/Independent/Degree/Controls.lean",
+   "lean/QuarticCorpus/Independent/Degree/Inspect.lean",
+   "lean/QuarticCorpus/Independent/Degree/NegativeMissingUniqueness.lean",
+   "lean/QuarticCorpus/Independent/Degree/Solution.lean",
+   "lean/QuarticCorpus/Independent/Degree/Spec.lean",
+   "lean/QuarticCorpus/Independent/Degree/comparator.json",
+   "lean/QuarticCorpus/Independent/Degree/negative-missing-uniqueness.json",
+   "lean/QuarticCorpus/Independent/ModelZero/Challenge.lean",
+   "lean/QuarticCorpus/Independent/ModelZero/Inspect.lean",
+   "lean/QuarticCorpus/Independent/ModelZero/NegativeClassicalOnly.lean",
+   "lean/QuarticCorpus/Independent/ModelZero/Proof.lean",
+   "lean/QuarticCorpus/Independent/ModelZero/Solution.lean",
+   "lean/QuarticCorpus/Independent/ModelZero/Spec.lean",
+   "lean/QuarticCorpus/Independent/ModelZero/comparator.json",
+   "lean/QuarticCorpus/Independent/ModelZero/negative-classical-only.json",
+   "lean/QuarticCorpus/Independent/RealLeaves/Challenge.lean",
+   "lean/QuarticCorpus/Independent/RealLeaves/Controls.lean",
+   "lean/QuarticCorpus/Independent/RealLeaves/Inspect.lean",
+   "lean/QuarticCorpus/Independent/RealLeaves/NegativeZeroOnly.lean",
+   "lean/QuarticCorpus/Independent/RealLeaves/Solution.lean",
+   "lean/QuarticCorpus/Independent/RealLeaves/comparator.json",
+   "lean/QuarticCorpus/Independent/RealLeaves/negative-zero-only.json",
+   "lean/QuarticCorpus/Independent/RealizedCaps/Challenge.lean",
+   "lean/QuarticCorpus/Independent/RealizedCaps/Inspect.lean",
+   "lean/QuarticCorpus/Independent/RealizedCaps/NegativeCappedPremise.lean",
+   "lean/QuarticCorpus/Independent/RealizedCaps/Solution.lean",
+   "lean/QuarticCorpus/Independent/RealizedCaps/comparator.json",
+   "lean/QuarticCorpus/Independent/RealizedCaps/negative-capped-premise.json",
+   "lean/QuarticCorpus/Independent/Round4.lean",
+   "lean/QuarticCorpus/Independent/Round4Inspect/Quantum.lean",
+   "lean/QuarticCorpus/Independent/Round4Inspect/ZeroSearch.lean",
+   "lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean",
+   "lean/QuarticCorpus/Independent/UniformAmplifier/Solution.lean",
+   "lean/QuarticCorpus/Independent/UniformAmplifier/comparator.json",
+   "lean/QuarticQuery/ExternalRandomness.lean",
+   "lean/QuarticQuery/ForrelationLower/RealLeafAdvantage.lean",
+   "lean/QuarticQuery/ForrelationLower/RealLeafExplicit.lean",
+   "lean/QuarticQuery/ForrelationLower/RealLeafGrowth.lean",
+   "lean/QuarticQuery/ForrelationLower/RealLeaves.lean",
+   "lean/QuarticQuery/LowerBound/Planted/ZeroSearchSuccessor.lean",
+   "lean/QuarticQuery/LowerBound/RealizedCaps.lean",
+   "lean/QuarticQuery/LowerBound/RealizedCapsExternal.lean",
+   "lean/QuarticQuery/MeasurablePolicies.lean",
+   "lean/QuarticQuery/Paper/ConstructionForrelationSharp.lean",
+   "lean/QuarticQuery/Paper/ForrelationTensorSharp.lean",
+   "lean/QuarticQuery/Paper/ReadSpecOneQuery.lean",
+   "lean/QuarticQuery/Paper/RealizedCaps.lean",
+   "lean/QuarticQuery/Paper/TensorCoordinates.lean",
+   "lean/QuarticQuery/Upper/AssemblyFormula.lean",
+   "lean/QuarticQuery/Upper/CoherentTrial.lean",
+   "lean/QuarticQuery/Upper/FinalB.lean",
+   "lean/QuarticQuery/Upper/FinalBScalarPhysical.lean",
+   "lean/QuarticQuery/Upper/GateState.lean",
+   "lean/QuarticQuery/Upper/GateStateDefs.lean",
+   "lean/QuarticQuery/Upper/LiftTrials.lean",
+   "lean/QuarticQuery/Upper/LiftTrialsState.lean",
+   "lean/QuarticQuery/Upper/OneTrialFactor.lean",
+   "lean/QuarticQuery/Upper/OpaqueSlot.lean",
+   "lean/QuarticQuery/Upper/PhysicalContinuation.lean",
+   "lean/QuarticQuery/Upper/RetainedFactor.lean",
+   "lean/QuarticQuery/Upper/RetainedOriginal.lean",
+   "lean/QuarticQuery/Upper/RouteRegister.lean",
+   "lean/QuarticQuery/Upper/ScalarBounds.lean",
+   "lean/QuarticQuery/Upper/SuccessGateBridge.lean",
+   "lean/QuarticQuery/Upper/SuccessMass.lean",
+   "lean/QuarticQuery/Upper/TrialStatistics.lean",
+   "lean/QuarticQuery/Upper/UniformEndpoint.lean"
+  ],
+  "added_counts": {
+   "lean": 62,
+   "json": 10
+  }
+ },
+ "import_closure": {
+  "argument": "A Lean declaration elaborates only from its own module and that module's transitive imports. Every pre-existing module other than the root lean/QuarticQuery.lean is byte-identical to HEAD and imports only pre-existing modules or external packages (Mathlib, Complexity, Lean). The root aggregates imports and declares nothing, and no module imports the root. New modules therefore lie outside the import closure of every pre-existing module, so their declarations, instances, attributes, simp sets and notations cannot reach the elaboration of any reviewed declaration. New module names are new paths, so none shadows a pre-existing module; a duplicate fully qualified declaration name would fail the root build recorded in round4_formal.",
+  "pre_existing_modules": 133,
+  "new_modules": 62,
+  "pre_existing_modules_importing_a_new_module": [
+   "QuarticQuery (root aggregator only)"
+  ],
+  "pre_existing_modules_importing_the_root": [],
+  "external_import_roots": [
+   "Complexity",
+   "Lean",
+   "Mathlib"
+  ],
+  "short_name_definitions_in_new_files_matching_reviewed_declarations": [
+   {
+    "reviewed": "QuarticQuery.Tournament.weight",
+    "new": "QuarticQuery.ForrelationLower.RealQueryTree.weight",
+    "file": "lean/QuarticQuery/ForrelationLower/RealLeaves.lean",
+    "verdict": "distinct fully qualified name"
+   }
+  ]
+ },
+ "tie_checks": {
+  "statements_with_bound_ties": 121,
+  "bound_ties": 162,
+  "unbound_ties_untouched": 327,
+  "checks": [
+   "binding equals expected_review_binding over the HEAD snapshot (it was current at HEAD)",
+   "statement_sha256, row_sha256, declaration and judgment_sha256 equal expected_review_binding now",
+   "declaration file (from the tie's `file`, or located by definition search for 31 ties without one) exists at HEAD and is byte-identical in the working tree"
+  ],
+  "passed": 162,
+  "stale": 0,
+  "stale_ties": [],
+  "fields_changed": [
+   "review_binding.source_snapshot_sha256"
+  ]
+ },
+ "commands": {
+  "rebind": "python3 - (the program quoted under 'Command' in round4_review_rebind.md, run from the repository root): replaces the old snapshot value of each review_binding.source_snapshot_sha256 in corpus/ties.json by canonical_sha256(source_hashes()), then asserts that each tie differs only in that field and that review_currentness(...) == 'current'",
+  "regenerate": [
+   "python3 tools/build_corpus.py",
+   "python3 tools/build_comparator_map.py"
+  ]
+ },
+ "coverage_before_rebind": {
+  "review": {
+   "stale": 121
+  },
+  "formal_statement": {
+   "unassessed": 121
+  }
+ },
+ "coverage_at_head": {
+  "review": {
+   "current": 121
+  },
+  "formal_statement": {
+   "exact": 51,
+   "partial": 39,
+   "stronger": 31
+  },
+  "route": {
+   "alternative": 9,
+   "none": 58,
+   "same": 54
+  },
+  "build": {
+   "built_at_pin": 121
+  },
+  "comparator": {
+   "compared": 4,
+   "not_run": 109,
+   "wrapper_mediated_historical": 8
+  },
+  "reach": {
+   "outside": 56,
+   "reached": 65
+  }
+ },
+ "coverage_after_rebind": {
+  "review": {
+   "current": 121
+  },
+  "formal_statement": {
+   "exact": 51,
+   "partial": 39,
+   "stronger": 31
+  },
+  "route": {
+   "alternative": 9,
+   "none": 58,
+   "same": 54
+  },
+  "build": {
+   "built_at_pin": 121
+  },
+  "comparator": {
+   "not_run": 121
+  },
+  "reach": {
+   "outside": 56,
+   "reached": 65
+  }
+ },
+ "comparator_note": "Comparator coverage is not_run for all 121 rows after the rebind, against compared 4 and wrapper_mediated_historical 8 at HEAD. Receipt freshness is independent of review: the receipts naming tie declarations are bound to the HEAD snapshot and are now stale, and the current 2026-11-03 corpus receipts configure no tie declaration directly. Restoring that credit needs fresh Comparator runs; a review rebind cannot supply it."
+}

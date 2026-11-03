@@ -1,0 +1,39 @@
+% Figure 4 of docs/exposition.md: the planted pair drawn on the board of
+% Section 2, with I = 1 and zero positions J = (4,1,2,3). The two inputs differ
+% only at X_1[4] and in the cell B_{1,10}. Build with tools/render_papers.py.
+\documentclass[tikz,border=4pt]{standalone}
+\input{style.tex}
+\begin{document}
+\begin{tikzpicture}
+\tikzset{cell/.append style={fill=black!4, text=black!60}}
+% ---- dummy input Y^0 ---------------------------------------------------
+\begin{scope}
+\node[font=\small\bfseries, anchor=west] at (-0.6,1.0)
+  {dummy input $Y^0$: one zero per column, every cell blank; $F(Y^0)=0$};
+\boardcolumn{1}{0}{1}{1}{1}{0}{$A_{1,h}\sim\mu$\\address $10$}
+\boardcolumn{2}{3.2}{0}{1}{1}{1}{$A_{2,h}\sim\mu$}
+\boardcolumn{3}{6.4}{1}{0}{1}{1}{$A_{3,h}\sim\mu$}
+\boardcolumn{4}{9.6}{1}{1}{0}{1}{$A_{4,h}\sim\mu$}
+\end{scope}
+% ---- planted input Y^1 -------------------------------------------------
+\begin{scope}[shift={(0,-5.4)}]
+\node[font=\small\bfseries, anchor=west] at (-0.6,1.6)
+  {planted input $Y^1$ with $I=1$: erase $X_1[J_1]$, fill $B_{1,s_1}$; $F(Y^1)=1$};
+\boardcolumn{1}{0}{1}{1}{1}{1}{$A_{1,h}\sim\mu$\\address $10$}
+\boardcolumn{2}{3.2}{0}{1}{1}{1}{$A_{2,h}\sim\mu$}
+\boardcolumn{3}{6.4}{1}{0}{1}{1}{$A_{3,h}\sim\mu$}
+\boardcolumn{4}{9.6}{1}{1}{0}{1}{$A_{4,h}\sim\mu$}
+\node[onebit, draw=win, very thick, fill=win!20] at (x1-4) {1};
+\node[cell, fill=win!20, draw=win, very thick, text=black] at (1c10) {$B_{1,10}$};
+\draw[->, win, thick, rounded corners=3pt]
+  (1c10.east) -- (2.4,-2.62) -- (2.4,0.62) -| (x2-1.north);
+\draw[->, win, thick, rounded corners=3pt]
+  (1c10.east) -- (2.2,-2.62) -- (2.2,0.88) -| (x3-2.north);
+\draw[->, win, thick, rounded corners=3pt]
+  (1c10.east) -- (2.0,-2.62) -- (2.0,1.14) -| (x4-3.north);
+\node[win, font=\scriptsize, align=right, anchor=east] at (-0.15,-2.62)
+  {filled cell:\\transcripts and\\pointers to $J_2,J_3,J_4$};
+\node[win, font=\scriptsize, anchor=south] at (1.15,0.25) {zero erased};
+\end{scope}
+\end{tikzpicture}
+\end{document}

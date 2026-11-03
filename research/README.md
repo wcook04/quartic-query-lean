@@ -23,7 +23,12 @@ The ten [round-three returns](returns/round3/README.md) have source-specific
 [complete claim-appendix audit](adjudication/round3_appendix_audit.md).
 The [round-four backend decisions](adjudication/round4_backend.md) cover
 comparison credit, the Comparator reading map, PDF navigation and the deferred
-publication adapter.
+publication adapter. The [round-four formal integration](adjudication/round4_formal.md)
+records what the returned Lean actually built, its axiom audit and its
+Comparator results. The [round-four review rebind](adjudication/round4_review_rebind.md)
+checks that those additions left every reviewed declaration unchanged and
+rebinds the 162 reviewed ties to the new source snapshot; it is not a new
+semantic review.
 The maintained manuscript is now [the long reasoning record](../docs/reasoning_record.md);
 returned manuscript bytes remain unchanged.
 

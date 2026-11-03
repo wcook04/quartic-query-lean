@@ -136,9 +136,11 @@ class GeneratedMapTests(unittest.TestCase):
             self.assertEqual(credit[name], "statement_dependency", name)
 
     def test_headline_statement_links_through_the_wrapper_are_labelled(self):
+        # The refreshed Unconditional receipt names only its configured wrapper, so
+        # the proof reference to the implementation theorem carries no credit.
         links = self.map["declarations"]["QuarticQuery.Checked.theorem_one_one"]["statement_ids"]
         self.assertEqual({(l["statement_id"], l["join"], l["comparison_credit"]) for l in links},
-                         {("thm-1.1", "solution_proof_reference", "wrapper_mediated_historical")})
+                         {("thm-1.1", "solution_proof_reference", "none")})
 
 
 if __name__ == "__main__":

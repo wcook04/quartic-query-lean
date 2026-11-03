@@ -9,10 +9,10 @@
   "wrapper_mediated_historical": "On statement links: the corpus tie is to the implementation that the wrapper's proof names, which only older receipts listed."
  },
  "inputs": {
-  "corpus/lean_dependencies.json": "6e2f1fff81b02e8be578775731969c99941246715b88c4adea83ede196569a1e",
-  "corpus/statements.json": "39da0bf70203eb92cebf9afde188d6238fbec9e7d2de32291f38134a7b86fef7",
-  "docs/reasoning_record.md": "c2b6f11a7a4b3f318ebf419a9959c1d154f8e2b74e3ec02a8e25fb92ba9cfd25",
-  "docs/reasoning_record_correspondence.json": "cef26a86dbc9d89c200df77f35d3b4046e43fe7023bafa854b8d646fa7a9e346",
+  "corpus/lean_dependencies.json": "1bc253fd3f3f86245e538bb71dd99d321fdb575cee596fede6bc46babbffe06c",
+  "corpus/statements.json": "df710f3a52591b43ee72ec8b9384bf1b79d7ec2f68169972577ca7d1e61fda3a",
+  "docs/reasoning_record.md": "1b677c780734209fd36fc206a17e4262f9124e290f84736e9573db8f1f88a986",
+  "docs/reasoning_record_correspondence.json": "d131067d63db5cb035daa27574f13fdd297e9eedf0f4d1865e331457a6816a02",
   "lean/QuarticCorpus/Construction/Challenge.lean": "d554e5a96889c4c9c3aa6bd3231f984fa7cf695aa103ebcd092ac2c7a08240b1",
   "lean/QuarticCorpus/Construction/Solution.lean": "63cfe11442f76eb9b0f1b579e2a925a19fc9312f870e8480bfbf3eacfb9bb9de",
   "lean/QuarticCorpus/Construction/comparator.json": "c18c76b87a777251e70ec3f55c5704be82d52dbba0220e5adb2cf3063709dd78",
@@ -28,6 +28,14 @@
   "lean/QuarticCorpus/Independent/Controls/ThresholdSolution.lean": "2d9df972a1c4818d1674dfcba5b5378bd74e52dacfa2e50b201f8536d75f77ea",
   "lean/QuarticCorpus/Independent/Controls/shared_blind_spot.json": "386c8f789546dc88fcf90d14a15f06dd8a5f79cd7d5a20d8cc0f848dd2417e19",
   "lean/QuarticCorpus/Independent/Controls/threshold_mutation.json": "0851b1084261243a143929849cef25091f9d6ad3fefc36f4f0c2de5a6cebd21f",
+  "lean/QuarticCorpus/Independent/DecoderSharp/Challenge.lean": "65cbd24c0b08ff8382f2da3da2841298ec76899894508a38a59975eb1a96e3c9",
+  "lean/QuarticCorpus/Independent/DecoderSharp/Solution.lean": "70c124468376f340d4bed3390dabbbd0f9449ca99d90fa05bef0e9714dd822fd",
+  "lean/QuarticCorpus/Independent/DecoderSharp/comparator.json": "67cb62f7f597bcc52b96cd56ee64837b352c91583edfec3415337fb17259a183",
+  "lean/QuarticCorpus/Independent/Degree/Challenge.lean": "0b8bceccd3720e505e8bcd7d119b5ebeeed516aceb1e4f9b5f1bc231f0f5d042",
+  "lean/QuarticCorpus/Independent/Degree/NegativeMissingUniqueness.lean": "e109337505594a222df50eefdf7f208470b66383f3090f2b507b2fb686c159da",
+  "lean/QuarticCorpus/Independent/Degree/Solution.lean": "429176f312701bf0980bfca73e5f7d320346ef7c8f642df2d5b87dd805f46220",
+  "lean/QuarticCorpus/Independent/Degree/comparator.json": "5a4d78d7a2fa48fa42a78a3f8212cbe83700992f4fe391565a1abb356bb04687",
+  "lean/QuarticCorpus/Independent/Degree/negative-missing-uniqueness.json": "059bf7d8f6504de066e66a9caffdb89dc9e74a70ce64f5dd84c975a6284c5a7b",
   "lean/QuarticCorpus/Independent/Eq19/Challenge.lean": "2baac26612cdbfe04ac88cb2267502da9531a7df20758af3a66158a22c03e47c",
   "lean/QuarticCorpus/Independent/Eq19/NegativeInequalityOnly.lean": "44a5d5cb701c13ea168761a79c21ea2f7a516e771fc435bc4deb03ebaf927c4d",
   "lean/QuarticCorpus/Independent/Eq19/Solution.lean": "4a49e3011c9b45a02cb11a5a08392a7a10ee084f0ddafef49ab28ae9085752a7",
@@ -36,6 +44,24 @@
   "lean/QuarticCorpus/Independent/Eq19/comparator.json": "de8beea386de8853e2a07c5c86bc63561639e110ec0b8e39a3c4e7ac6603db3b",
   "lean/QuarticCorpus/Independent/Eq19/negative-inequality-only.json": "0ce89380b84b8f2858c4e5b8afc132d8da522a29a959e6881e56e44148d93428",
   "lean/QuarticCorpus/Independent/Eq19/whole-comparator.json": "f4c7bca4828a084a3cde7cbbded06a497a82f8c55ad09802a42386db50840ba9",
+  "lean/QuarticCorpus/Independent/ModelZero/Challenge.lean": "363f3b543f55eca2c22e1bfea6ae45e4a5b529288efca2c61b58c427c77792e6",
+  "lean/QuarticCorpus/Independent/ModelZero/NegativeClassicalOnly.lean": "75235f4f1da7874ae957d73083b90989e8f0264a141017841a66a048b5d565f1",
+  "lean/QuarticCorpus/Independent/ModelZero/Solution.lean": "6cb135cda724bdbec3a6271955facb9af9e5384b29281db90589e0bc1c0cc813",
+  "lean/QuarticCorpus/Independent/ModelZero/comparator.json": "3b4d38a97cd1c0fb854859093d295902ab72ffbf255b36805fbefa5cdde88654",
+  "lean/QuarticCorpus/Independent/ModelZero/negative-classical-only.json": "249402a319a8d8efce2bbfa3b8c30b33b639aff80e521facf4905e813842c056",
+  "lean/QuarticCorpus/Independent/RealLeaves/Challenge.lean": "d667ebe5867e7e75bfac4cbf05970d8789fed88be46a88abe0952f18473ddaf3",
+  "lean/QuarticCorpus/Independent/RealLeaves/NegativeZeroOnly.lean": "a2e7b585c371539ab6d43053a81c420d62d2f1c3521415605d26001399121169",
+  "lean/QuarticCorpus/Independent/RealLeaves/Solution.lean": "1e9bd5f3f40c6876ae22b3dd18ee2c0715c6b187fcf6cc8dbbed4230dfa5bb6e",
+  "lean/QuarticCorpus/Independent/RealLeaves/comparator.json": "27fe8f1c1987902ead6adf5d918e720f6ce1bce29382af05d67f086078a6d42b",
+  "lean/QuarticCorpus/Independent/RealLeaves/negative-zero-only.json": "5ffb4cdb48bfadc46dc94ae30d33dfb0ab6088dfde8c2b130bc8786a4278a24d",
+  "lean/QuarticCorpus/Independent/RealizedCaps/Challenge.lean": "8b1af3e9570bcb1b60c3e396f8a52efdd0b011c067b91e1fce98f2965a73e3c3",
+  "lean/QuarticCorpus/Independent/RealizedCaps/NegativeCappedPremise.lean": "38afa31b948c194bf97301553b9f249600d288ca44a77ca834ddf717afbb0bb0",
+  "lean/QuarticCorpus/Independent/RealizedCaps/Solution.lean": "7b747635ece573a6440d56186b998958f97182b901449631de5915360204f0f3",
+  "lean/QuarticCorpus/Independent/RealizedCaps/comparator.json": "5be33feac6f95ea59db34a99a551d7a2b892cb3c74ef10bb6e3845b8d5ac9696",
+  "lean/QuarticCorpus/Independent/RealizedCaps/negative-capped-premise.json": "b59815f5be9740f3a349b2486d7f815c552d60c92cb0690473cdf4ba79f03f32",
+  "lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean": "f316137f32ce485df316e49d14941187256366377c16f45e944cf5098b5b1411",
+  "lean/QuarticCorpus/Independent/UniformAmplifier/Solution.lean": "1bcbace57d7a3fec0cf7fa3e4267f51d562b5c9e9d1e757b37319e6a0eb3bb8e",
+  "lean/QuarticCorpus/Independent/UniformAmplifier/comparator.json": "1b113af11a015a0da613415f94bd532b4731cf7c365e0866ad61038dbbcb9af0",
   "lean/QuarticCorpus/Negative/ChangedDefinition.json": "c0e471ee9f1d52fb81e15c959133a062b4e95da345e836e6c95916b8dc6ea2dd",
   "lean/QuarticCorpus/Negative/ChangedDefinition.lean": "4a3b0a97b2fd35e6c8e31fdd8fa8017b0e428cc8b6b41eccaa36f9e2cf445264",
   "lean/QuarticCorpus/Negative/ForeignAxiom.json": "3ac0d024b346f5bff94a50a556a55d827a5dc19d4f9a754f1603dd7eef6d893d",
@@ -59,7 +85,7 @@
  },
  "record": {
   "path": "docs/reasoning_record.md",
-  "sha256": "c2b6f11a7a4b3f318ebf419a9959c1d154f8e2b74e3ec02a8e25fb92ba9cfd25",
+  "sha256": "1b677c780734209fd36fc206a17e4262f9124e290f84736e9573db8f1f88a986",
   "passages_verified": 289,
   "passages_in_correspondence": 289,
   "passage_hash_mismatches": []
@@ -69,14 +95,14 @@
   "currentness": "current"
  },
  "coverage": {
-  "challenge_files": 10,
-  "challenge_blocks": 311,
-  "distinct_declarations": 87,
+  "challenge_files": 16,
+  "challenge_blocks": 318,
+  "distinct_declarations": 94,
   "blocks_with_record_passage": 232,
   "blocks_with_statement_id": 22,
   "blocks_with_direct_statement_tie": 3,
   "blocks_by_comparison_credit": {
-   "direct": 27,
+   "direct": 34,
    "not_in_any_configured_statement": 145,
    "statement_dependency": 139
   },
@@ -96,7 +122,14 @@
    "QuarticQuery.ForrelationCoord",
    "QuarticQuery.Gate",
    "QuarticQuery.GateConsistent",
+   "QuarticQuery.Independent.Degree.checked_degree_conventions",
+   "QuarticQuery.Independent.ModelZero.checked_zero_query_characterization",
+   "QuarticQuery.Independent.RealLeaves.Compare.advantage",
+   "QuarticQuery.Independent.RealLeaves.Compare.growth",
+   "QuarticQuery.Paper.construction_decoder_sharp",
    "QuarticQuery.Tournament.IsComparison",
+   "QuarticQuery.Upper.uniformOpaqueAmplifier",
+   "QuarticQuery.direct_product_external_finite_realized_caps",
    "QuarticQuery.pointerEquiv",
    "QuarticQuery.predecessorValue",
    "QuarticQuery.readA",
@@ -131,15 +164,15 @@
       "QuarticQuery.Checked.winner_finds_zero"
      ],
      "latest_receipt": {
-      "receipt": "corpus/receipts/comparator-Construction-2026-11-02T205620278544+0000.json",
-      "receipt_sha256": "8a887de4f77b256fceb77bd635c381510e7d068075f42c465f866dcf12ff312d",
-      "ran_at": "2026-11-02T20:56:20.278544+00:00",
+      "receipt": "corpus/receipts/comparator-Construction-2026-11-03T032429664567+0000.json",
+      "receipt_sha256": "36d6f752c8ac643ddfe1927ae2b7c1f65a8119ff63f276abdef4eed6921fea3f",
+      "ran_at": "2026-11-03T03:24:29.664567+00:00",
       "status": "passed",
       "currentness": "current",
-      "declaration_scope": "historical_configured_plus_scanned"
+      "declaration_scope": "configured_theorem_names_only"
      },
      "current_positive_receipts": 1,
-     "receipts_recorded": 3
+     "receipts_recorded": 4
     }
    ],
    "imported_trust_surface": {
@@ -166,12 +199,12 @@
        "QuarticQuery.Checked.winsAt_unique"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Construction-2026-11-02T205620278544+0000.json",
-       "receipt_sha256": "8a887de4f77b256fceb77bd635c381510e7d068075f42c465f866dcf12ff312d",
-       "ran_at": "2026-11-02T20:56:20.278544+00:00",
+       "receipt": "corpus/receipts/comparator-Construction-2026-11-03T032429664567+0000.json",
+       "receipt_sha256": "36d6f752c8ac643ddfe1927ae2b7c1f65a8119ff63f276abdef4eed6921fea3f",
+       "ran_at": "2026-11-03T03:24:29.664567+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -203,12 +236,12 @@
        "QuarticQuery.Checked.winsAt_unique"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Construction-2026-11-02T205620278544+0000.json",
-       "receipt_sha256": "8a887de4f77b256fceb77bd635c381510e7d068075f42c465f866dcf12ff312d",
-       "ran_at": "2026-11-02T20:56:20.278544+00:00",
+       "receipt": "corpus/receipts/comparator-Construction-2026-11-03T032429664567+0000.json",
+       "receipt_sha256": "36d6f752c8ac643ddfe1927ae2b7c1f65a8119ff63f276abdef4eed6921fea3f",
+       "ran_at": "2026-11-03T03:24:29.664567+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -571,12 +604,12 @@
        "QuarticQuery.Checked.winsAt_unique"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Construction-2026-11-02T205620278544+0000.json",
-       "receipt_sha256": "8a887de4f77b256fceb77bd635c381510e7d068075f42c465f866dcf12ff312d",
-       "ran_at": "2026-11-02T20:56:20.278544+00:00",
+       "receipt": "corpus/receipts/comparator-Construction-2026-11-03T032429664567+0000.json",
+       "receipt_sha256": "36d6f752c8ac643ddfe1927ae2b7c1f65a8119ff63f276abdef4eed6921fea3f",
+       "ran_at": "2026-11-03T03:24:29.664567+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -598,12 +631,12 @@
        "QuarticQuery.Checked.winsAt_unique"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Construction-2026-11-02T205620278544+0000.json",
-       "receipt_sha256": "8a887de4f77b256fceb77bd635c381510e7d068075f42c465f866dcf12ff312d",
-       "ran_at": "2026-11-02T20:56:20.278544+00:00",
+       "receipt": "corpus/receipts/comparator-Construction-2026-11-03T032429664567+0000.json",
+       "receipt_sha256": "36d6f752c8ac643ddfe1927ae2b7c1f65a8119ff63f276abdef4eed6921fea3f",
+       "ran_at": "2026-11-03T03:24:29.664567+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -625,12 +658,12 @@
        "QuarticQuery.Checked.winsAt_unique"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Construction-2026-11-02T205620278544+0000.json",
-       "receipt_sha256": "8a887de4f77b256fceb77bd635c381510e7d068075f42c465f866dcf12ff312d",
-       "ran_at": "2026-11-02T20:56:20.278544+00:00",
+       "receipt": "corpus/receipts/comparator-Construction-2026-11-03T032429664567+0000.json",
+       "receipt_sha256": "36d6f752c8ac643ddfe1927ae2b7c1f65a8119ff63f276abdef4eed6921fea3f",
+       "ran_at": "2026-11-03T03:24:29.664567+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -652,12 +685,12 @@
        "QuarticQuery.Checked.winsAt_unique"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Construction-2026-11-02T205620278544+0000.json",
-       "receipt_sha256": "8a887de4f77b256fceb77bd635c381510e7d068075f42c465f866dcf12ff312d",
-       "ran_at": "2026-11-02T20:56:20.278544+00:00",
+       "receipt": "corpus/receipts/comparator-Construction-2026-11-03T032429664567+0000.json",
+       "receipt_sha256": "36d6f752c8ac643ddfe1927ae2b7c1f65a8119ff63f276abdef4eed6921fea3f",
+       "ran_at": "2026-11-03T03:24:29.664567+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -689,12 +722,12 @@
        "QuarticQuery.Checked.winsAt_unique"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Construction-2026-11-02T205620278544+0000.json",
-       "receipt_sha256": "8a887de4f77b256fceb77bd635c381510e7d068075f42c465f866dcf12ff312d",
-       "ran_at": "2026-11-02T20:56:20.278544+00:00",
+       "receipt": "corpus/receipts/comparator-Construction-2026-11-03T032429664567+0000.json",
+       "receipt_sha256": "36d6f752c8ac643ddfe1927ae2b7c1f65a8119ff63f276abdef4eed6921fea3f",
+       "ran_at": "2026-11-03T03:24:29.664567+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -715,12 +748,12 @@
        "QuarticQuery.Checked.winsAt_unique"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Construction-2026-11-02T205620278544+0000.json",
-       "receipt_sha256": "8a887de4f77b256fceb77bd635c381510e7d068075f42c465f866dcf12ff312d",
-       "ran_at": "2026-11-02T20:56:20.278544+00:00",
+       "receipt": "corpus/receipts/comparator-Construction-2026-11-03T032429664567+0000.json",
+       "receipt_sha256": "36d6f752c8ac643ddfe1927ae2b7c1f65a8119ff63f276abdef4eed6921fea3f",
+       "ran_at": "2026-11-03T03:24:29.664567+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -741,12 +774,12 @@
        "QuarticQuery.Checked.winsAt_unique"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Construction-2026-11-02T205620278544+0000.json",
-       "receipt_sha256": "8a887de4f77b256fceb77bd635c381510e7d068075f42c465f866dcf12ff312d",
-       "ran_at": "2026-11-02T20:56:20.278544+00:00",
+       "receipt": "corpus/receipts/comparator-Construction-2026-11-03T032429664567+0000.json",
+       "receipt_sha256": "36d6f752c8ac643ddfe1927ae2b7c1f65a8119ff63f276abdef4eed6921fea3f",
+       "ran_at": "2026-11-03T03:24:29.664567+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -767,12 +800,12 @@
        "QuarticQuery.Checked.winsAt_unique"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Construction-2026-11-02T205620278544+0000.json",
-       "receipt_sha256": "8a887de4f77b256fceb77bd635c381510e7d068075f42c465f866dcf12ff312d",
-       "ran_at": "2026-11-02T20:56:20.278544+00:00",
+       "receipt": "corpus/receipts/comparator-Construction-2026-11-03T032429664567+0000.json",
+       "receipt_sha256": "36d6f752c8ac643ddfe1927ae2b7c1f65a8119ff63f276abdef4eed6921fea3f",
+       "ran_at": "2026-11-03T03:24:29.664567+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -793,12 +826,12 @@
        "QuarticQuery.Checked.winsAt_unique"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Construction-2026-11-02T205620278544+0000.json",
-       "receipt_sha256": "8a887de4f77b256fceb77bd635c381510e7d068075f42c465f866dcf12ff312d",
-       "ran_at": "2026-11-02T20:56:20.278544+00:00",
+       "receipt": "corpus/receipts/comparator-Construction-2026-11-03T032429664567+0000.json",
+       "receipt_sha256": "36d6f752c8ac643ddfe1927ae2b7c1f65a8119ff63f276abdef4eed6921fea3f",
+       "ran_at": "2026-11-03T03:24:29.664567+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -819,12 +852,12 @@
        "QuarticQuery.Checked.winsAt_unique"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Construction-2026-11-02T205620278544+0000.json",
-       "receipt_sha256": "8a887de4f77b256fceb77bd635c381510e7d068075f42c465f866dcf12ff312d",
-       "ran_at": "2026-11-02T20:56:20.278544+00:00",
+       "receipt": "corpus/receipts/comparator-Construction-2026-11-03T032429664567+0000.json",
+       "receipt_sha256": "36d6f752c8ac643ddfe1927ae2b7c1f65a8119ff63f276abdef4eed6921fea3f",
+       "ran_at": "2026-11-03T03:24:29.664567+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -845,12 +878,12 @@
        "QuarticQuery.Checked.winsAt_unique"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Construction-2026-11-02T205620278544+0000.json",
-       "receipt_sha256": "8a887de4f77b256fceb77bd635c381510e7d068075f42c465f866dcf12ff312d",
-       "ran_at": "2026-11-02T20:56:20.278544+00:00",
+       "receipt": "corpus/receipts/comparator-Construction-2026-11-03T032429664567+0000.json",
+       "receipt_sha256": "36d6f752c8ac643ddfe1927ae2b7c1f65a8119ff63f276abdef4eed6921fea3f",
+       "ran_at": "2026-11-03T03:24:29.664567+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -871,12 +904,12 @@
        "QuarticQuery.Checked.winsAt_unique"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Construction-2026-11-02T205620278544+0000.json",
-       "receipt_sha256": "8a887de4f77b256fceb77bd635c381510e7d068075f42c465f866dcf12ff312d",
-       "ran_at": "2026-11-02T20:56:20.278544+00:00",
+       "receipt": "corpus/receipts/comparator-Construction-2026-11-03T032429664567+0000.json",
+       "receipt_sha256": "36d6f752c8ac643ddfe1927ae2b7c1f65a8119ff63f276abdef4eed6921fea3f",
+       "ran_at": "2026-11-03T03:24:29.664567+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -897,12 +930,12 @@
        "QuarticQuery.Checked.winsAt_unique"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Construction-2026-11-02T205620278544+0000.json",
-       "receipt_sha256": "8a887de4f77b256fceb77bd635c381510e7d068075f42c465f866dcf12ff312d",
-       "ran_at": "2026-11-02T20:56:20.278544+00:00",
+       "receipt": "corpus/receipts/comparator-Construction-2026-11-03T032429664567+0000.json",
+       "receipt_sha256": "36d6f752c8ac643ddfe1927ae2b7c1f65a8119ff63f276abdef4eed6921fea3f",
+       "ran_at": "2026-11-03T03:24:29.664567+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -1007,12 +1040,12 @@
        "lean/QuarticCorpus/Construction/comparator.json"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Construction-2026-11-02T205620278544+0000.json",
-       "receipt_sha256": "8a887de4f77b256fceb77bd635c381510e7d068075f42c465f866dcf12ff312d",
-       "ran_at": "2026-11-02T20:56:20.278544+00:00",
+       "receipt": "corpus/receipts/comparator-Construction-2026-11-03T032429664567+0000.json",
+       "receipt_sha256": "36d6f752c8ac643ddfe1927ae2b7c1f65a8119ff63f276abdef4eed6921fea3f",
+       "ran_at": "2026-11-03T03:24:29.664567+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -1029,12 +1062,12 @@
        "lean/QuarticCorpus/Construction/comparator.json"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Construction-2026-11-02T205620278544+0000.json",
-       "receipt_sha256": "8a887de4f77b256fceb77bd635c381510e7d068075f42c465f866dcf12ff312d",
-       "ran_at": "2026-11-02T20:56:20.278544+00:00",
+       "receipt": "corpus/receipts/comparator-Construction-2026-11-03T032429664567+0000.json",
+       "receipt_sha256": "36d6f752c8ac643ddfe1927ae2b7c1f65a8119ff63f276abdef4eed6921fea3f",
+       "ran_at": "2026-11-03T03:24:29.664567+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -1051,12 +1084,12 @@
        "lean/QuarticCorpus/Construction/comparator.json"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Construction-2026-11-02T205620278544+0000.json",
-       "receipt_sha256": "8a887de4f77b256fceb77bd635c381510e7d068075f42c465f866dcf12ff312d",
-       "ran_at": "2026-11-02T20:56:20.278544+00:00",
+       "receipt": "corpus/receipts/comparator-Construction-2026-11-03T032429664567+0000.json",
+       "receipt_sha256": "36d6f752c8ac643ddfe1927ae2b7c1f65a8119ff63f276abdef4eed6921fea3f",
+       "ran_at": "2026-11-03T03:24:29.664567+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -1073,12 +1106,12 @@
        "lean/QuarticCorpus/Construction/comparator.json"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Construction-2026-11-02T205620278544+0000.json",
-       "receipt_sha256": "8a887de4f77b256fceb77bd635c381510e7d068075f42c465f866dcf12ff312d",
-       "ran_at": "2026-11-02T20:56:20.278544+00:00",
+       "receipt": "corpus/receipts/comparator-Construction-2026-11-03T032429664567+0000.json",
+       "receipt_sha256": "36d6f752c8ac643ddfe1927ae2b7c1f65a8119ff63f276abdef4eed6921fea3f",
+       "ran_at": "2026-11-03T03:24:29.664567+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     }
@@ -1109,15 +1142,15 @@
       "QuarticQuery.Checked.Q_reindex"
      ],
      "latest_receipt": {
-      "receipt": "corpus/receipts/comparator-Foundations-2026-11-02T205755119082+0000.json",
-      "receipt_sha256": "bd6d1bd41a27bc2b3d114fa3be0d011beed67556c964eb49d68e5a6238611647",
-      "ran_at": "2026-11-02T20:57:55.119082+00:00",
+      "receipt": "corpus/receipts/comparator-Foundations-2026-11-03T032558806071+0000.json",
+      "receipt_sha256": "55a672e03d7f7f4e91a4d7c52c67ac1563a6902b78a51155ba32662ce331218b",
+      "ran_at": "2026-11-03T03:25:58.806071+00:00",
       "status": "passed",
       "currentness": "current",
-      "declaration_scope": "historical_configured_plus_scanned"
+      "declaration_scope": "configured_theorem_names_only"
      },
      "current_positive_receipts": 1,
-     "receipts_recorded": 3
+     "receipts_recorded": 4
     }
    ],
    "imported_trust_surface": {
@@ -1148,12 +1181,12 @@
        "QuarticQuery.Checked.R_reindex"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Foundations-2026-11-02T205755119082+0000.json",
-       "receipt_sha256": "bd6d1bd41a27bc2b3d114fa3be0d011beed67556c964eb49d68e5a6238611647",
-       "ran_at": "2026-11-02T20:57:55.119082+00:00",
+       "receipt": "corpus/receipts/comparator-Foundations-2026-11-03T032558806071+0000.json",
+       "receipt_sha256": "55a672e03d7f7f4e91a4d7c52c67ac1563a6902b78a51155ba32662ce331218b",
+       "ran_at": "2026-11-03T03:25:58.806071+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -1190,12 +1223,12 @@
        "QuarticQuery.Checked.R_reindex"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Foundations-2026-11-02T205755119082+0000.json",
-       "receipt_sha256": "bd6d1bd41a27bc2b3d114fa3be0d011beed67556c964eb49d68e5a6238611647",
-       "ran_at": "2026-11-02T20:57:55.119082+00:00",
+       "receipt": "corpus/receipts/comparator-Foundations-2026-11-03T032558806071+0000.json",
+       "receipt_sha256": "55a672e03d7f7f4e91a4d7c52c67ac1563a6902b78a51155ba32662ce331218b",
+       "ran_at": "2026-11-03T03:25:58.806071+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -1237,12 +1270,12 @@
        "QuarticQuery.Checked.R_reindex"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Foundations-2026-11-02T205755119082+0000.json",
-       "receipt_sha256": "bd6d1bd41a27bc2b3d114fa3be0d011beed67556c964eb49d68e5a6238611647",
-       "ran_at": "2026-11-02T20:57:55.119082+00:00",
+       "receipt": "corpus/receipts/comparator-Foundations-2026-11-03T032558806071+0000.json",
+       "receipt_sha256": "55a672e03d7f7f4e91a4d7c52c67ac1563a6902b78a51155ba32662ce331218b",
+       "ran_at": "2026-11-03T03:25:58.806071+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -1266,12 +1299,12 @@
        "QuarticQuery.Checked.R_reindex"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Foundations-2026-11-02T205755119082+0000.json",
-       "receipt_sha256": "bd6d1bd41a27bc2b3d114fa3be0d011beed67556c964eb49d68e5a6238611647",
-       "ran_at": "2026-11-02T20:57:55.119082+00:00",
+       "receipt": "corpus/receipts/comparator-Foundations-2026-11-03T032558806071+0000.json",
+       "receipt_sha256": "55a672e03d7f7f4e91a4d7c52c67ac1563a6902b78a51155ba32662ce331218b",
+       "ran_at": "2026-11-03T03:25:58.806071+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -1295,12 +1328,12 @@
        "QuarticQuery.Checked.R_reindex"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Foundations-2026-11-02T205755119082+0000.json",
-       "receipt_sha256": "bd6d1bd41a27bc2b3d114fa3be0d011beed67556c964eb49d68e5a6238611647",
-       "ran_at": "2026-11-02T20:57:55.119082+00:00",
+       "receipt": "corpus/receipts/comparator-Foundations-2026-11-03T032558806071+0000.json",
+       "receipt_sha256": "55a672e03d7f7f4e91a4d7c52c67ac1563a6902b78a51155ba32662ce331218b",
+       "ran_at": "2026-11-03T03:25:58.806071+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -1324,12 +1357,12 @@
        "QuarticQuery.Checked.R_reindex"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Foundations-2026-11-02T205755119082+0000.json",
-       "receipt_sha256": "bd6d1bd41a27bc2b3d114fa3be0d011beed67556c964eb49d68e5a6238611647",
-       "ran_at": "2026-11-02T20:57:55.119082+00:00",
+       "receipt": "corpus/receipts/comparator-Foundations-2026-11-03T032558806071+0000.json",
+       "receipt_sha256": "55a672e03d7f7f4e91a4d7c52c67ac1563a6902b78a51155ba32662ce331218b",
+       "ran_at": "2026-11-03T03:25:58.806071+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -1350,12 +1383,12 @@
        "QuarticQuery.Checked.R_reindex"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Foundations-2026-11-02T205755119082+0000.json",
-       "receipt_sha256": "bd6d1bd41a27bc2b3d114fa3be0d011beed67556c964eb49d68e5a6238611647",
-       "ran_at": "2026-11-02T20:57:55.119082+00:00",
+       "receipt": "corpus/receipts/comparator-Foundations-2026-11-03T032558806071+0000.json",
+       "receipt_sha256": "55a672e03d7f7f4e91a4d7c52c67ac1563a6902b78a51155ba32662ce331218b",
+       "ran_at": "2026-11-03T03:25:58.806071+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -1376,12 +1409,12 @@
        "QuarticQuery.Checked.R_reindex"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Foundations-2026-11-02T205755119082+0000.json",
-       "receipt_sha256": "bd6d1bd41a27bc2b3d114fa3be0d011beed67556c964eb49d68e5a6238611647",
-       "ran_at": "2026-11-02T20:57:55.119082+00:00",
+       "receipt": "corpus/receipts/comparator-Foundations-2026-11-03T032558806071+0000.json",
+       "receipt_sha256": "55a672e03d7f7f4e91a4d7c52c67ac1563a6902b78a51155ba32662ce331218b",
+       "ran_at": "2026-11-03T03:25:58.806071+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -1402,12 +1435,12 @@
        "QuarticQuery.Checked.R_reindex"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Foundations-2026-11-02T205755119082+0000.json",
-       "receipt_sha256": "bd6d1bd41a27bc2b3d114fa3be0d011beed67556c964eb49d68e5a6238611647",
-       "ran_at": "2026-11-02T20:57:55.119082+00:00",
+       "receipt": "corpus/receipts/comparator-Foundations-2026-11-03T032558806071+0000.json",
+       "receipt_sha256": "55a672e03d7f7f4e91a4d7c52c67ac1563a6902b78a51155ba32662ce331218b",
+       "ran_at": "2026-11-03T03:25:58.806071+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -1428,12 +1461,12 @@
        "QuarticQuery.Checked.R_reindex"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Foundations-2026-11-02T205755119082+0000.json",
-       "receipt_sha256": "bd6d1bd41a27bc2b3d114fa3be0d011beed67556c964eb49d68e5a6238611647",
-       "ran_at": "2026-11-02T20:57:55.119082+00:00",
+       "receipt": "corpus/receipts/comparator-Foundations-2026-11-03T032558806071+0000.json",
+       "receipt_sha256": "55a672e03d7f7f4e91a4d7c52c67ac1563a6902b78a51155ba32662ce331218b",
+       "ran_at": "2026-11-03T03:25:58.806071+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -1455,12 +1488,12 @@
        "QuarticQuery.Checked.R_le_D"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Foundations-2026-11-02T205755119082+0000.json",
-       "receipt_sha256": "bd6d1bd41a27bc2b3d114fa3be0d011beed67556c964eb49d68e5a6238611647",
-       "ran_at": "2026-11-02T20:57:55.119082+00:00",
+       "receipt": "corpus/receipts/comparator-Foundations-2026-11-03T032558806071+0000.json",
+       "receipt_sha256": "55a672e03d7f7f4e91a4d7c52c67ac1563a6902b78a51155ba32662ce331218b",
+       "ran_at": "2026-11-03T03:25:58.806071+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -1481,12 +1514,12 @@
        "QuarticQuery.Checked.R_reindex"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Foundations-2026-11-02T205755119082+0000.json",
-       "receipt_sha256": "bd6d1bd41a27bc2b3d114fa3be0d011beed67556c964eb49d68e5a6238611647",
-       "ran_at": "2026-11-02T20:57:55.119082+00:00",
+       "receipt": "corpus/receipts/comparator-Foundations-2026-11-03T032558806071+0000.json",
+       "receipt_sha256": "55a672e03d7f7f4e91a4d7c52c67ac1563a6902b78a51155ba32662ce331218b",
+       "ran_at": "2026-11-03T03:25:58.806071+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -1508,12 +1541,12 @@
        "QuarticQuery.Checked.R_le_D"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Foundations-2026-11-02T205755119082+0000.json",
-       "receipt_sha256": "bd6d1bd41a27bc2b3d114fa3be0d011beed67556c964eb49d68e5a6238611647",
-       "ran_at": "2026-11-02T20:57:55.119082+00:00",
+       "receipt": "corpus/receipts/comparator-Foundations-2026-11-03T032558806071+0000.json",
+       "receipt_sha256": "55a672e03d7f7f4e91a4d7c52c67ac1563a6902b78a51155ba32662ce331218b",
+       "ran_at": "2026-11-03T03:25:58.806071+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -1534,12 +1567,12 @@
        "QuarticQuery.Checked.Q_reindex"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Foundations-2026-11-02T205755119082+0000.json",
-       "receipt_sha256": "bd6d1bd41a27bc2b3d114fa3be0d011beed67556c964eb49d68e5a6238611647",
-       "ran_at": "2026-11-02T20:57:55.119082+00:00",
+       "receipt": "corpus/receipts/comparator-Foundations-2026-11-03T032558806071+0000.json",
+       "receipt_sha256": "55a672e03d7f7f4e91a4d7c52c67ac1563a6902b78a51155ba32662ce331218b",
+       "ran_at": "2026-11-03T03:25:58.806071+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -1560,12 +1593,12 @@
        "QuarticQuery.Checked.Q_reindex"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Foundations-2026-11-02T205755119082+0000.json",
-       "receipt_sha256": "bd6d1bd41a27bc2b3d114fa3be0d011beed67556c964eb49d68e5a6238611647",
-       "ran_at": "2026-11-02T20:57:55.119082+00:00",
+       "receipt": "corpus/receipts/comparator-Foundations-2026-11-03T032558806071+0000.json",
+       "receipt_sha256": "55a672e03d7f7f4e91a4d7c52c67ac1563a6902b78a51155ba32662ce331218b",
+       "ran_at": "2026-11-03T03:25:58.806071+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -1586,12 +1619,12 @@
        "QuarticQuery.Checked.Q_reindex"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Foundations-2026-11-02T205755119082+0000.json",
-       "receipt_sha256": "bd6d1bd41a27bc2b3d114fa3be0d011beed67556c964eb49d68e5a6238611647",
-       "ran_at": "2026-11-02T20:57:55.119082+00:00",
+       "receipt": "corpus/receipts/comparator-Foundations-2026-11-03T032558806071+0000.json",
+       "receipt_sha256": "55a672e03d7f7f4e91a4d7c52c67ac1563a6902b78a51155ba32662ce331218b",
+       "ran_at": "2026-11-03T03:25:58.806071+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -1612,12 +1645,12 @@
        "QuarticQuery.Checked.Q_reindex"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Foundations-2026-11-02T205755119082+0000.json",
-       "receipt_sha256": "bd6d1bd41a27bc2b3d114fa3be0d011beed67556c964eb49d68e5a6238611647",
-       "ran_at": "2026-11-02T20:57:55.119082+00:00",
+       "receipt": "corpus/receipts/comparator-Foundations-2026-11-03T032558806071+0000.json",
+       "receipt_sha256": "55a672e03d7f7f4e91a4d7c52c67ac1563a6902b78a51155ba32662ce331218b",
+       "ran_at": "2026-11-03T03:25:58.806071+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -1638,12 +1671,12 @@
        "QuarticQuery.Checked.Q_reindex"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Foundations-2026-11-02T205755119082+0000.json",
-       "receipt_sha256": "bd6d1bd41a27bc2b3d114fa3be0d011beed67556c964eb49d68e5a6238611647",
-       "ran_at": "2026-11-02T20:57:55.119082+00:00",
+       "receipt": "corpus/receipts/comparator-Foundations-2026-11-03T032558806071+0000.json",
+       "receipt_sha256": "55a672e03d7f7f4e91a4d7c52c67ac1563a6902b78a51155ba32662ce331218b",
+       "ran_at": "2026-11-03T03:25:58.806071+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -1664,12 +1697,12 @@
        "QuarticQuery.Checked.Q_reindex"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Foundations-2026-11-02T205755119082+0000.json",
-       "receipt_sha256": "bd6d1bd41a27bc2b3d114fa3be0d011beed67556c964eb49d68e5a6238611647",
-       "ran_at": "2026-11-02T20:57:55.119082+00:00",
+       "receipt": "corpus/receipts/comparator-Foundations-2026-11-03T032558806071+0000.json",
+       "receipt_sha256": "55a672e03d7f7f4e91a4d7c52c67ac1563a6902b78a51155ba32662ce331218b",
+       "ran_at": "2026-11-03T03:25:58.806071+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -1690,12 +1723,12 @@
        "QuarticQuery.Checked.Q_reindex"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Foundations-2026-11-02T205755119082+0000.json",
-       "receipt_sha256": "bd6d1bd41a27bc2b3d114fa3be0d011beed67556c964eb49d68e5a6238611647",
-       "ran_at": "2026-11-02T20:57:55.119082+00:00",
+       "receipt": "corpus/receipts/comparator-Foundations-2026-11-03T032558806071+0000.json",
+       "receipt_sha256": "55a672e03d7f7f4e91a4d7c52c67ac1563a6902b78a51155ba32662ce331218b",
+       "ran_at": "2026-11-03T03:25:58.806071+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -1716,12 +1749,12 @@
        "QuarticQuery.Checked.Q_reindex"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Foundations-2026-11-02T205755119082+0000.json",
-       "receipt_sha256": "bd6d1bd41a27bc2b3d114fa3be0d011beed67556c964eb49d68e5a6238611647",
-       "ran_at": "2026-11-02T20:57:55.119082+00:00",
+       "receipt": "corpus/receipts/comparator-Foundations-2026-11-03T032558806071+0000.json",
+       "receipt_sha256": "55a672e03d7f7f4e91a4d7c52c67ac1563a6902b78a51155ba32662ce331218b",
+       "ran_at": "2026-11-03T03:25:58.806071+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -1742,12 +1775,12 @@
        "QuarticQuery.Checked.Q_reindex"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Foundations-2026-11-02T205755119082+0000.json",
-       "receipt_sha256": "bd6d1bd41a27bc2b3d114fa3be0d011beed67556c964eb49d68e5a6238611647",
-       "ran_at": "2026-11-02T20:57:55.119082+00:00",
+       "receipt": "corpus/receipts/comparator-Foundations-2026-11-03T032558806071+0000.json",
+       "receipt_sha256": "55a672e03d7f7f4e91a4d7c52c67ac1563a6902b78a51155ba32662ce331218b",
+       "ran_at": "2026-11-03T03:25:58.806071+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -1768,12 +1801,12 @@
        "QuarticQuery.Checked.Q_reindex"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Foundations-2026-11-02T205755119082+0000.json",
-       "receipt_sha256": "bd6d1bd41a27bc2b3d114fa3be0d011beed67556c964eb49d68e5a6238611647",
-       "ran_at": "2026-11-02T20:57:55.119082+00:00",
+       "receipt": "corpus/receipts/comparator-Foundations-2026-11-03T032558806071+0000.json",
+       "receipt_sha256": "55a672e03d7f7f4e91a4d7c52c67ac1563a6902b78a51155ba32662ce331218b",
+       "ran_at": "2026-11-03T03:25:58.806071+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -2120,12 +2153,12 @@
        "lean/QuarticCorpus/Foundations/comparator.json"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Foundations-2026-11-02T205755119082+0000.json",
-       "receipt_sha256": "bd6d1bd41a27bc2b3d114fa3be0d011beed67556c964eb49d68e5a6238611647",
-       "ran_at": "2026-11-02T20:57:55.119082+00:00",
+       "receipt": "corpus/receipts/comparator-Foundations-2026-11-03T032558806071+0000.json",
+       "receipt_sha256": "55a672e03d7f7f4e91a4d7c52c67ac1563a6902b78a51155ba32662ce331218b",
+       "ran_at": "2026-11-03T03:25:58.806071+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -2142,12 +2175,12 @@
        "lean/QuarticCorpus/Foundations/comparator.json"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Foundations-2026-11-02T205755119082+0000.json",
-       "receipt_sha256": "bd6d1bd41a27bc2b3d114fa3be0d011beed67556c964eb49d68e5a6238611647",
-       "ran_at": "2026-11-02T20:57:55.119082+00:00",
+       "receipt": "corpus/receipts/comparator-Foundations-2026-11-03T032558806071+0000.json",
+       "receipt_sha256": "55a672e03d7f7f4e91a4d7c52c67ac1563a6902b78a51155ba32662ce331218b",
+       "ran_at": "2026-11-03T03:25:58.806071+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -2164,12 +2197,12 @@
        "lean/QuarticCorpus/Foundations/comparator.json"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Foundations-2026-11-02T205755119082+0000.json",
-       "receipt_sha256": "bd6d1bd41a27bc2b3d114fa3be0d011beed67556c964eb49d68e5a6238611647",
-       "ran_at": "2026-11-02T20:57:55.119082+00:00",
+       "receipt": "corpus/receipts/comparator-Foundations-2026-11-03T032558806071+0000.json",
+       "receipt_sha256": "55a672e03d7f7f4e91a4d7c52c67ac1563a6902b78a51155ba32662ce331218b",
+       "ran_at": "2026-11-03T03:25:58.806071+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -2186,12 +2219,12 @@
        "lean/QuarticCorpus/Foundations/comparator.json"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Foundations-2026-11-02T205755119082+0000.json",
-       "receipt_sha256": "bd6d1bd41a27bc2b3d114fa3be0d011beed67556c964eb49d68e5a6238611647",
-       "ran_at": "2026-11-02T20:57:55.119082+00:00",
+       "receipt": "corpus/receipts/comparator-Foundations-2026-11-03T032558806071+0000.json",
+       "receipt_sha256": "55a672e03d7f7f4e91a4d7c52c67ac1563a6902b78a51155ba32662ce331218b",
+       "ran_at": "2026-11-03T03:25:58.806071+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -2208,12 +2241,12 @@
        "lean/QuarticCorpus/Foundations/comparator.json"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Foundations-2026-11-02T205755119082+0000.json",
-       "receipt_sha256": "bd6d1bd41a27bc2b3d114fa3be0d011beed67556c964eb49d68e5a6238611647",
-       "ran_at": "2026-11-02T20:57:55.119082+00:00",
+       "receipt": "corpus/receipts/comparator-Foundations-2026-11-03T032558806071+0000.json",
+       "receipt_sha256": "55a672e03d7f7f4e91a4d7c52c67ac1563a6902b78a51155ba32662ce331218b",
+       "ran_at": "2026-11-03T03:25:58.806071+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -2230,12 +2263,12 @@
        "lean/QuarticCorpus/Foundations/comparator.json"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Foundations-2026-11-02T205755119082+0000.json",
-       "receipt_sha256": "bd6d1bd41a27bc2b3d114fa3be0d011beed67556c964eb49d68e5a6238611647",
-       "ran_at": "2026-11-02T20:57:55.119082+00:00",
+       "receipt": "corpus/receipts/comparator-Foundations-2026-11-03T032558806071+0000.json",
+       "receipt_sha256": "55a672e03d7f7f4e91a4d7c52c67ac1563a6902b78a51155ba32662ce331218b",
+       "ran_at": "2026-11-03T03:25:58.806071+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -2252,12 +2285,12 @@
        "lean/QuarticCorpus/Foundations/comparator.json"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Foundations-2026-11-02T205755119082+0000.json",
-       "receipt_sha256": "bd6d1bd41a27bc2b3d114fa3be0d011beed67556c964eb49d68e5a6238611647",
-       "ran_at": "2026-11-02T20:57:55.119082+00:00",
+       "receipt": "corpus/receipts/comparator-Foundations-2026-11-03T032558806071+0000.json",
+       "receipt_sha256": "55a672e03d7f7f4e91a4d7c52c67ac1563a6902b78a51155ba32662ce331218b",
+       "ran_at": "2026-11-03T03:25:58.806071+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -2274,12 +2307,12 @@
        "lean/QuarticCorpus/Foundations/comparator.json"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Foundations-2026-11-02T205755119082+0000.json",
-       "receipt_sha256": "bd6d1bd41a27bc2b3d114fa3be0d011beed67556c964eb49d68e5a6238611647",
-       "ran_at": "2026-11-02T20:57:55.119082+00:00",
+       "receipt": "corpus/receipts/comparator-Foundations-2026-11-03T032558806071+0000.json",
+       "receipt_sha256": "55a672e03d7f7f4e91a4d7c52c67ac1563a6902b78a51155ba32662ce331218b",
+       "ran_at": "2026-11-03T03:25:58.806071+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     }
@@ -2308,10 +2341,10 @@
       "receipt_sha256": "3aeff212198af1b70da7d8abdbed1be4a2bdadbac64e25204386e9dd43bffff5",
       "ran_at": "2026-11-02T20:48:14.950389+00:00",
       "status": "passed",
-      "currentness": "current",
+      "currentness": "stale",
       "declaration_scope": "historical_configured_plus_scanned"
      },
-     "current_positive_receipts": 1,
+     "current_positive_receipts": 0,
      "receipts_recorded": 1
     }
    ],
@@ -2364,7 +2397,7 @@
        "receipt_sha256": "3aeff212198af1b70da7d8abdbed1be4a2bdadbac64e25204386e9dd43bffff5",
        "ran_at": "2026-11-02T20:48:14.950389+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "historical_configured_plus_scanned"
       }
      }
@@ -2393,7 +2426,7 @@
       "receipt_sha256": "8fb69f54ed9ad733fcb13350ebe630529eeaa4308b143e7afe58d7eea0322934",
       "ran_at": "2026-11-02T20:48:14.950389+00:00",
       "status": "passed",
-      "currentness": "current",
+      "currentness": "stale",
       "declaration_scope": "historical_configured_plus_scanned",
       "negative_control": "accepted_shared_bad_spec_blind_spot"
      },
@@ -2456,7 +2489,7 @@
       "receipt_sha256": "44f2151e0b9a8d609f36915498bc46c701db799523bbb308d190288a6501d8aa",
       "ran_at": "2026-11-02T20:48:14.950389+00:00",
       "status": "passed",
-      "currentness": "current",
+      "currentness": "stale",
       "declaration_scope": "historical_configured_plus_scanned",
       "negative_control": "rejected_as_expected"
      },
@@ -2498,6 +2531,174 @@
    ]
   },
   {
+   "path": "lean/QuarticCorpus/Independent/DecoderSharp/Challenge.lean",
+   "sha256": "65cbd24c0b08ff8382f2da3da2841298ec76899894508a38a59975eb1a96e3c9",
+   "generated_by_build_challenges": false,
+   "imports": [
+    "QuarticQuery.Paper.ReadSpecOneQuery",
+    "QuarticQuery.Upper.Decode"
+   ],
+   "imports_project_modules": true,
+   "imports_outside_dependency_export": [],
+   "configurations": [
+    {
+     "path": "lean/QuarticCorpus/Independent/DecoderSharp/comparator.json",
+     "solution": "lean/QuarticCorpus/Independent/DecoderSharp/Solution.lean",
+     "role": "positive",
+     "theorem_names": [
+      "QuarticQuery.Paper.construction_decoder_sharp"
+     ],
+     "latest_receipt": {
+      "receipt": "corpus/receipts/comparator-round4-decoder-sharp-2026-11-03T023317151864+0000.json",
+      "receipt_sha256": "51402c42079aead71c1cd9ae0c6823e7e5679dccc0219adb48c7cf4b892b7a37",
+      "ran_at": "2026-11-03T03:17:23.116152+00:00",
+      "status": "passed",
+      "currentness": "current",
+      "declaration_scope": "configured_theorem_names_only"
+     },
+     "current_positive_receipts": 1,
+     "receipts_recorded": 1
+    }
+   ],
+   "imported_trust_surface": {
+    "declarations_outside_this_file": 44,
+    "sample": [
+     "QuarticQuery.AdaptiveProgram",
+     "QuarticQuery.Basis",
+     "QuarticQuery.BitInput",
+     "QuarticQuery.Forrelation.H",
+     "QuarticQuery.Forrelation.W",
+     "QuarticQuery.Forrelation.alternate",
+     "QuarticQuery.Forrelation.binomTail",
+     "QuarticQuery.Forrelation.binomWeight",
+     "QuarticQuery.Forrelation.delta",
+     "QuarticQuery.Forrelation.projU",
+     "QuarticQuery.Forrelation.psi",
+     "QuarticQuery.Forrelation.repetitions",
+     "QuarticQuery.Forrelation.signDiag",
+     "QuarticQuery.Forrelation.successProb",
+     "QuarticQuery.Forrelation.tailProd",
+     "QuarticQuery.Forrelation.tailProd.match_1",
+     "QuarticQuery.Forrelation.u",
+     "QuarticQuery.Forrelation.walshZ",
+     "QuarticQuery.ForrelationCoord",
+     "QuarticQuery.P",
+     "QuarticQuery.PartialBool",
+     "QuarticQuery.State",
+     "QuarticQuery.Upper.IsCirc",
+     "QuarticQuery.Upper.Reg",
+     "QuarticQuery.Upper.bern"
+    ],
+    "note": "The configured statements depend on these project declarations, which this file imports rather than displays. They are part of what Comparator trusts."
+   },
+   "blocks": [
+    {
+     "name": "QuarticQuery.Paper.construction_decoder_sharp",
+     "kind": "theorem",
+     "line_start": 17,
+     "line_end": 36,
+     "sha256": "5abddf1ddf5bf1070c553af2276d9f3489c322d1d5fb51739f5f3d2cdb31969e",
+     "comparison": {
+      "credit": "direct",
+      "basis": "configured_theorem_name",
+      "configurations": [
+       "lean/QuarticCorpus/Independent/DecoderSharp/comparator.json"
+      ],
+      "latest_receipt": {
+       "receipt": "corpus/receipts/comparator-round4-decoder-sharp-2026-11-03T023317151864+0000.json",
+       "receipt_sha256": "51402c42079aead71c1cd9ae0c6823e7e5679dccc0219adb48c7cf4b892b7a37",
+       "ran_at": "2026-11-03T03:17:23.116152+00:00",
+       "status": "passed",
+       "currentness": "current",
+       "declaration_scope": "configured_theorem_names_only"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "path": "lean/QuarticCorpus/Independent/Degree/Challenge.lean",
+   "sha256": "0b8bceccd3720e505e8bcd7d119b5ebeeed516aceb1e4f9b5f1bc231f0f5d042",
+   "generated_by_build_challenges": false,
+   "imports": [
+    "QuarticCorpus.Independent.Degree.Spec",
+    "Complexity.Computability.QueryComplexity.Degree"
+   ],
+   "imports_project_modules": true,
+   "imports_outside_dependency_export": [
+    "QuarticCorpus.Independent.Degree.Spec"
+   ],
+   "configurations": [
+    {
+     "path": "lean/QuarticCorpus/Independent/Degree/comparator.json",
+     "solution": "lean/QuarticCorpus/Independent/Degree/Solution.lean",
+     "role": "positive",
+     "theorem_names": [
+      "QuarticQuery.Independent.Degree.checked_degree_conventions"
+     ],
+     "latest_receipt": {
+      "receipt": "corpus/receipts/comparator-round4-degree-conventions-2026-11-03T023317151864+0000.json",
+      "receipt_sha256": "b3dc0d6dced3cefc2480783e54e9f77a023731c976b37e819f36dc1573b3ab77",
+      "ran_at": "2026-11-03T02:49:28.380258+00:00",
+      "status": "passed",
+      "currentness": "current",
+      "declaration_scope": "configured_theorem_names_only"
+     },
+     "current_positive_receipts": 1,
+     "receipts_recorded": 1
+    },
+    {
+     "path": "lean/QuarticCorpus/Independent/Degree/negative-missing-uniqueness.json",
+     "solution": "lean/QuarticCorpus/Independent/Degree/NegativeMissingUniqueness.lean",
+     "role": "negative_control",
+     "theorem_names": [
+      "QuarticQuery.Independent.Degree.checked_degree_conventions"
+     ],
+     "latest_receipt": {
+      "receipt": "corpus/receipts/comparator-round4-degree-missing-uniqueness-2026-11-03T023317151864+0000.json",
+      "receipt_sha256": "5867583f60bbc6ed997edccdd4b3a5af13428da508ee1e1cfb75b92d5ef05eda",
+      "ran_at": "2026-11-03T02:52:59.601921+00:00",
+      "status": "passed",
+      "currentness": "current",
+      "declaration_scope": "configured_theorem_names_only",
+      "negative_control": "rejected_as_expected"
+     },
+     "current_positive_receipts": 0,
+     "receipts_recorded": 1
+    }
+   ],
+   "imported_trust_surface": {
+    "declarations_outside_this_file": 0,
+    "sample": [],
+    "note": "None found: every recorded dependency is displayed in this file."
+   },
+   "blocks": [
+    {
+     "name": "QuarticQuery.Independent.Degree.checked_degree_conventions",
+     "kind": "theorem",
+     "line_start": 14,
+     "line_end": 21,
+     "sha256": "378864a487682ef690824976829b88f2a55e3374cc76f896026af02b0baea08c",
+     "comparison": {
+      "credit": "direct",
+      "basis": "configured_theorem_name",
+      "configurations": [
+       "lean/QuarticCorpus/Independent/Degree/comparator.json",
+       "lean/QuarticCorpus/Independent/Degree/negative-missing-uniqueness.json"
+      ],
+      "latest_receipt": {
+       "receipt": "corpus/receipts/comparator-round4-degree-conventions-2026-11-03T023317151864+0000.json",
+       "receipt_sha256": "b3dc0d6dced3cefc2480783e54e9f77a023731c976b37e819f36dc1573b3ab77",
+       "ran_at": "2026-11-03T02:49:28.380258+00:00",
+       "status": "passed",
+       "currentness": "current",
+       "declaration_scope": "configured_theorem_names_only"
+      }
+     }
+    }
+   ]
+  },
+  {
    "path": "lean/QuarticCorpus/Independent/Eq19/Challenge.lean",
    "sha256": "2baac26612cdbfe04ac88cb2267502da9531a7df20758af3a66158a22c03e47c",
    "generated_by_build_challenges": false,
@@ -2521,10 +2722,10 @@
       "receipt_sha256": "afbd4075268b9eb58e018b5ffd1af68eca9dd56eb21f86fc31658f586a75587d",
       "ran_at": "2026-11-02T20:48:14.950389+00:00",
       "status": "passed",
-      "currentness": "current",
+      "currentness": "stale",
       "declaration_scope": "historical_configured_plus_scanned"
      },
-     "current_positive_receipts": 1,
+     "current_positive_receipts": 0,
      "receipts_recorded": 1
     },
     {
@@ -2539,7 +2740,7 @@
       "receipt_sha256": "4482d8d522ea517638a112a88d16f8902830ae10dd52917ef5dc0a225f9951f3",
       "ran_at": "2026-11-02T20:48:14.950389+00:00",
       "status": "passed",
-      "currentness": "current",
+      "currentness": "stale",
       "declaration_scope": "historical_configured_plus_scanned",
       "negative_control": "rejected_as_expected"
      },
@@ -2577,7 +2778,7 @@
        "receipt_sha256": "afbd4075268b9eb58e018b5ffd1af68eca9dd56eb21f86fc31658f586a75587d",
        "ran_at": "2026-11-02T20:48:14.950389+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "historical_configured_plus_scanned"
       }
      }
@@ -2606,10 +2807,10 @@
       "receipt_sha256": "44b0085528d930660cecd70324ab180da10333b223ffedd5a4e07db77aa2a0f5",
       "ran_at": "2026-11-02T20:48:14.950389+00:00",
       "status": "passed",
-      "currentness": "current",
+      "currentness": "stale",
       "declaration_scope": "historical_configured_plus_scanned"
      },
-     "current_positive_receipts": 1,
+     "current_positive_receipts": 0,
      "receipts_recorded": 1
     }
    ],
@@ -2660,8 +2861,422 @@
        "receipt_sha256": "44b0085528d930660cecd70324ab180da10333b223ffedd5a4e07db77aa2a0f5",
        "ran_at": "2026-11-02T20:48:14.950389+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "historical_configured_plus_scanned"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "path": "lean/QuarticCorpus/Independent/ModelZero/Challenge.lean",
+   "sha256": "363f3b543f55eca2c22e1bfea6ae45e4a5b529288efca2c61b58c427c77792e6",
+   "generated_by_build_challenges": false,
+   "imports": [
+    "QuarticCorpus.Independent.ModelZero.Spec"
+   ],
+   "imports_project_modules": true,
+   "imports_outside_dependency_export": [
+    "QuarticCorpus.Independent.ModelZero.Spec"
+   ],
+   "configurations": [
+    {
+     "path": "lean/QuarticCorpus/Independent/ModelZero/comparator.json",
+     "solution": "lean/QuarticCorpus/Independent/ModelZero/Solution.lean",
+     "role": "positive",
+     "theorem_names": [
+      "QuarticQuery.Independent.ModelZero.checked_zero_query_characterization"
+     ],
+     "latest_receipt": {
+      "receipt": "corpus/receipts/comparator-round4-model-zero-2026-11-03T023317151864+0000.json",
+      "receipt_sha256": "178af6c351fe6bef172ca0d41ac90bf02e9886df3ba3fc94d8ecb741b41e34ab",
+      "ran_at": "2026-11-03T02:55:35.845372+00:00",
+      "status": "passed",
+      "currentness": "current",
+      "declaration_scope": "configured_theorem_names_only"
+     },
+     "current_positive_receipts": 1,
+     "receipts_recorded": 1
+    },
+    {
+     "path": "lean/QuarticCorpus/Independent/ModelZero/negative-classical-only.json",
+     "solution": "lean/QuarticCorpus/Independent/ModelZero/NegativeClassicalOnly.lean",
+     "role": "negative_control",
+     "theorem_names": [
+      "QuarticQuery.Independent.ModelZero.checked_zero_query_characterization"
+     ],
+     "latest_receipt": {
+      "receipt": "corpus/receipts/comparator-round4-model-zero-classical-only-2026-11-03T023317151864+0000.json",
+      "receipt_sha256": "9dd9b1870729e8cb3e443a881f3aae2cffcda22e151e5d0a836ab16d6275be37",
+      "ran_at": "2026-11-03T03:00:56.180007+00:00",
+      "status": "passed",
+      "currentness": "current",
+      "declaration_scope": "configured_theorem_names_only",
+      "negative_control": "rejected_as_expected"
+     },
+     "current_positive_receipts": 0,
+     "receipts_recorded": 1
+    }
+   ],
+   "imported_trust_surface": {
+    "declarations_outside_this_file": 45,
+    "sample": [
+     "QuarticQuery.AdaptiveProgram",
+     "QuarticQuery.AdaptiveProgram.below",
+     "QuarticQuery.AdaptiveProgram.brecOn",
+     "QuarticQuery.AdaptiveProgram.brecOn.go",
+     "QuarticQuery.AdaptiveProgram.casesOn",
+     "QuarticQuery.AdaptiveProgram.measure",
+     "QuarticQuery.AdaptiveProgram.output",
+     "QuarticQuery.AdaptiveProgram.outputMass",
+     "QuarticQuery.AdaptiveProgram.outputMass.match_1",
+     "QuarticQuery.AdaptiveProgram.query",
+     "QuarticQuery.AdaptiveProgram.queryCap",
+     "QuarticQuery.AdaptiveProgram.queryCap.match_1",
+     "QuarticQuery.AdaptiveProgram.rec",
+     "QuarticQuery.AdaptiveProgram.unitary",
+     "QuarticQuery.Basis",
+     "QuarticQuery.BitInput",
+     "QuarticQuery.ConstantOnPromise",
+     "QuarticQuery.D",
+     "QuarticQuery.DLe",
+     "QuarticQuery.PartialBool",
+     "QuarticQuery.Q",
+     "QuarticQuery.QLe",
+     "QuarticQuery.QueryTree",
+     "QuarticQuery.QueryTree.below",
+     "QuarticQuery.QueryTree.brecOn"
+    ],
+    "note": "The configured statements depend on these project declarations, which this file imports rather than displays. They are part of what Comparator trusts."
+   },
+   "blocks": [
+    {
+     "name": "QuarticQuery.Independent.ModelZero.checked_zero_query_characterization",
+     "kind": "theorem",
+     "line_start": 11,
+     "line_end": 15,
+     "sha256": "518daf4c2e3ba759b3ea02e624df81ee5772c4f0e3360e339c6020df80d89dfb",
+     "comparison": {
+      "credit": "direct",
+      "basis": "configured_theorem_name",
+      "configurations": [
+       "lean/QuarticCorpus/Independent/ModelZero/comparator.json",
+       "lean/QuarticCorpus/Independent/ModelZero/negative-classical-only.json"
+      ],
+      "latest_receipt": {
+       "receipt": "corpus/receipts/comparator-round4-model-zero-2026-11-03T023317151864+0000.json",
+       "receipt_sha256": "178af6c351fe6bef172ca0d41ac90bf02e9886df3ba3fc94d8ecb741b41e34ab",
+       "ran_at": "2026-11-03T02:55:35.845372+00:00",
+       "status": "passed",
+       "currentness": "current",
+       "declaration_scope": "configured_theorem_names_only"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "path": "lean/QuarticCorpus/Independent/RealLeaves/Challenge.lean",
+   "sha256": "d667ebe5867e7e75bfac4cbf05970d8789fed88be46a88abe0952f18473ddaf3",
+   "generated_by_build_challenges": false,
+   "imports": [
+    "QuarticQuery.ForrelationLower.RealLeaves",
+    "QuarticQuery.ForrelationLower.Cascade"
+   ],
+   "imports_project_modules": true,
+   "imports_outside_dependency_export": [],
+   "configurations": [
+    {
+     "path": "lean/QuarticCorpus/Independent/RealLeaves/comparator.json",
+     "solution": "lean/QuarticCorpus/Independent/RealLeaves/Solution.lean",
+     "role": "positive",
+     "theorem_names": [
+      "QuarticQuery.Independent.RealLeaves.Compare.growth",
+      "QuarticQuery.Independent.RealLeaves.Compare.advantage"
+     ],
+     "latest_receipt": {
+      "receipt": "corpus/receipts/comparator-round4-real-leaves-2026-11-03T023317151864+0000.json",
+      "receipt_sha256": "6d1e041d06eac96bcf840d4d3c9d4e41ba108917fb24bd37c46925681bcf7796",
+      "ran_at": "2026-11-03T03:04:36.107020+00:00",
+      "status": "passed",
+      "currentness": "current",
+      "declaration_scope": "configured_theorem_names_only"
+     },
+     "current_positive_receipts": 1,
+     "receipts_recorded": 1
+    },
+    {
+     "path": "lean/QuarticCorpus/Independent/RealLeaves/negative-zero-only.json",
+     "solution": "lean/QuarticCorpus/Independent/RealLeaves/NegativeZeroOnly.lean",
+     "role": "negative_control",
+     "theorem_names": [
+      "QuarticQuery.Independent.RealLeaves.Compare.growth"
+     ],
+     "latest_receipt": {
+      "receipt": "corpus/receipts/comparator-round4-real-leaves-zero-only-2026-11-03T023317151864+0000.json",
+      "receipt_sha256": "94e2243863bd9fc7e75d3fc503a547228342788f08e7afb71aea8305a1406363",
+      "ran_at": "2026-11-03T03:10:20.792521+00:00",
+      "status": "passed",
+      "currentness": "current",
+      "declaration_scope": "configured_theorem_names_only",
+      "negative_control": "rejected_as_expected"
+     },
+     "current_positive_receipts": 0,
+     "receipts_recorded": 1
+    }
+   ],
+   "imported_trust_surface": {
+    "declarations_outside_this_file": 29,
+    "sample": [
+     "QuarticQuery.BitInput",
+     "QuarticQuery.ForrelationCoord",
+     "QuarticQuery.ForrelationLower.BC",
+     "QuarticQuery.ForrelationLower.D",
+     "QuarticQuery.ForrelationLower.Dl",
+     "QuarticQuery.ForrelationLower.Dl.match_1",
+     "QuarticQuery.ForrelationLower.PC",
+     "QuarticQuery.ForrelationLower.RealQueryTree",
+     "QuarticQuery.ForrelationLower.RowsOrth",
+     "QuarticQuery.ForrelationLower.Sf",
+     "QuarticQuery.ForrelationLower.Uc",
+     "QuarticQuery.ForrelationLower.Vc",
+     "QuarticQuery.ForrelationLower.Xf",
+     "QuarticQuery.ForrelationLower.Yf",
+     "QuarticQuery.ForrelationLower.bw",
+     "QuarticQuery.ForrelationLower.ext",
+     "QuarticQuery.ForrelationLower.gP",
+     "QuarticQuery.ForrelationLower.phiS",
+     "QuarticQuery.ForrelationLower.piB",
+     "QuarticQuery.ForrelationLower.qf",
+     "QuarticQuery.ForrelationLower.sg",
+     "QuarticQuery.ForrelationLower.wv",
+     "QuarticQuery.P",
+     "QuarticQuery.PartialBool",
+     "QuarticQuery.bitSign"
+    ],
+    "note": "The configured statements depend on these project declarations, which this file imports rather than displays. They are part of what Comparator trusts."
+   },
+   "blocks": [
+    {
+     "name": "QuarticQuery.Independent.RealLeaves.Compare.growth",
+     "kind": "theorem",
+     "line_start": 17,
+     "line_end": 29,
+     "sha256": "e40f749b700aae56fc869ab9d76120636ebf933c335c21138a7fd2d09964abe8",
+     "comparison": {
+      "credit": "direct",
+      "basis": "configured_theorem_name",
+      "configurations": [
+       "lean/QuarticCorpus/Independent/RealLeaves/comparator.json",
+       "lean/QuarticCorpus/Independent/RealLeaves/negative-zero-only.json"
+      ],
+      "latest_receipt": {
+       "receipt": "corpus/receipts/comparator-round4-real-leaves-2026-11-03T023317151864+0000.json",
+       "receipt_sha256": "6d1e041d06eac96bcf840d4d3c9d4e41ba108917fb24bd37c46925681bcf7796",
+       "ran_at": "2026-11-03T03:04:36.107020+00:00",
+       "status": "passed",
+       "currentness": "current",
+       "declaration_scope": "configured_theorem_names_only"
+      }
+     }
+    },
+    {
+     "name": "QuarticQuery.Independent.RealLeaves.Compare.advantage",
+     "kind": "theorem",
+     "line_start": 32,
+     "line_end": 44,
+     "sha256": "3bf95e9cd2f29ab58f0ae7ab5b8e86c68783721a5d9807fc6e622eff48ab9efe",
+     "comparison": {
+      "credit": "direct",
+      "basis": "configured_theorem_name",
+      "configurations": [
+       "lean/QuarticCorpus/Independent/RealLeaves/comparator.json"
+      ],
+      "latest_receipt": {
+       "receipt": "corpus/receipts/comparator-round4-real-leaves-2026-11-03T023317151864+0000.json",
+       "receipt_sha256": "6d1e041d06eac96bcf840d4d3c9d4e41ba108917fb24bd37c46925681bcf7796",
+       "ran_at": "2026-11-03T03:04:36.107020+00:00",
+       "status": "passed",
+       "currentness": "current",
+       "declaration_scope": "configured_theorem_names_only"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "path": "lean/QuarticCorpus/Independent/RealizedCaps/Challenge.lean",
+   "sha256": "8b1af3e9570bcb1b60c3e396f8a52efdd0b011c067b91e1fce98f2965a73e3c3",
+   "generated_by_build_challenges": false,
+   "imports": [
+    "QuarticQuery.LowerBound.RealizedCaps"
+   ],
+   "imports_project_modules": true,
+   "imports_outside_dependency_export": [],
+   "configurations": [
+    {
+     "path": "lean/QuarticCorpus/Independent/RealizedCaps/comparator.json",
+     "solution": "lean/QuarticCorpus/Independent/RealizedCaps/Solution.lean",
+     "role": "positive",
+     "theorem_names": [
+      "QuarticQuery.direct_product_external_finite_realized_caps"
+     ],
+     "latest_receipt": {
+      "receipt": "corpus/receipts/comparator-round4-realized-caps-external-2026-11-03T023317151864+0000.json",
+      "receipt_sha256": "2cb16f20fc3b6bc192984afb156eae54dde09ee9bc3837d1b8e2cb9cad12e01f",
+      "ran_at": "2026-11-03T02:39:00.419582+00:00",
+      "status": "passed",
+      "currentness": "current",
+      "declaration_scope": "configured_theorem_names_only"
+     },
+     "current_positive_receipts": 1,
+     "receipts_recorded": 1
+    },
+    {
+     "path": "lean/QuarticCorpus/Independent/RealizedCaps/negative-capped-premise.json",
+     "solution": "lean/QuarticCorpus/Independent/RealizedCaps/NegativeCappedPremise.lean",
+     "role": "negative_control",
+     "theorem_names": [
+      "QuarticQuery.direct_product_external_finite_realized_caps"
+     ],
+     "latest_receipt": {
+      "receipt": "corpus/receipts/comparator-round4-realized-caps-capped-premise-2026-11-03T023317151864+0000.json",
+      "receipt_sha256": "d3a659de2f636ce83076379504ae0aec9164c6dacd2e1a86e0e1ec073d3b3bda",
+      "ran_at": "2026-11-03T02:46:56.067908+00:00",
+      "status": "passed",
+      "currentness": "current",
+      "declaration_scope": "configured_theorem_names_only",
+      "negative_control": "rejected_as_expected"
+     },
+     "current_positive_receipts": 0,
+     "receipts_recorded": 1
+    }
+   ],
+   "imported_trust_surface": {
+    "declarations_outside_this_file": 15,
+    "sample": [
+     "QuarticQuery.BitInput",
+     "QuarticQuery.OutTree",
+     "QuarticQuery.PartialBool",
+     "QuarticQuery.QueryTree",
+     "QuarticQuery.QueryTree.below",
+     "QuarticQuery.QueryTree.brecOn",
+     "QuarticQuery.QueryTree.brecOn.go",
+     "QuarticQuery.QueryTree.casesOn",
+     "QuarticQuery.QueryTree.eval",
+     "QuarticQuery.QueryTree.eval.match_1",
+     "QuarticQuery.QueryTree.leaf",
+     "QuarticQuery.QueryTree.query",
+     "QuarticQuery.QueryTree.rec",
+     "QuarticQuery.compliantSuccess",
+     "QuarticQuery.treeSuccess"
+    ],
+    "note": "The configured statements depend on these project declarations, which this file imports rather than displays. They are part of what Comparator trusts."
+   },
+   "blocks": [
+    {
+     "name": "QuarticQuery.direct_product_external_finite_realized_caps",
+     "kind": "theorem",
+     "line_start": 18,
+     "line_end": 26,
+     "sha256": "4f23dd0218bb03b4c070c3869a40766275fe284574a58f8527e923bd2243430f",
+     "comparison": {
+      "credit": "direct",
+      "basis": "configured_theorem_name",
+      "configurations": [
+       "lean/QuarticCorpus/Independent/RealizedCaps/comparator.json",
+       "lean/QuarticCorpus/Independent/RealizedCaps/negative-capped-premise.json"
+      ],
+      "latest_receipt": {
+       "receipt": "corpus/receipts/comparator-round4-realized-caps-external-2026-11-03T023317151864+0000.json",
+       "receipt_sha256": "2cb16f20fc3b6bc192984afb156eae54dde09ee9bc3837d1b8e2cb9cad12e01f",
+       "ran_at": "2026-11-03T02:39:00.419582+00:00",
+       "status": "passed",
+       "currentness": "current",
+       "declaration_scope": "configured_theorem_names_only"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "path": "lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean",
+   "sha256": "f316137f32ce485df316e49d14941187256366377c16f45e944cf5098b5b1411",
+   "generated_by_build_challenges": false,
+   "imports": [
+    "QuarticQuery.Upper.FinalBScalarPhysical"
+   ],
+   "imports_project_modules": true,
+   "imports_outside_dependency_export": [],
+   "configurations": [
+    {
+     "path": "lean/QuarticCorpus/Independent/UniformAmplifier/comparator.json",
+     "solution": "lean/QuarticCorpus/Independent/UniformAmplifier/Solution.lean",
+     "role": "positive",
+     "theorem_names": [
+      "QuarticQuery.Upper.uniformOpaqueAmplifier"
+     ],
+     "latest_receipt": {
+      "receipt": "corpus/receipts/comparator-round4-uniform-amplifier-2026-11-03T023317151864+0000.json",
+      "receipt_sha256": "ac624f30928989fdde290b582f9fdd4d72b408ea3e3eae4d5444a29e52401513",
+      "ran_at": "2026-11-03T03:12:21.321844+00:00",
+      "status": "passed",
+      "currentness": "current",
+      "declaration_scope": "configured_theorem_names_only"
+     },
+     "current_positive_receipts": 1,
+     "receipts_recorded": 1
+    }
+   ],
+   "imported_trust_surface": {
+    "declarations_outside_this_file": 23,
+    "sample": [
+     "QuarticQuery.Amplification.Preparation",
+     "QuarticQuery.Amplification.Preparation.mk",
+     "QuarticQuery.Amplification.iterationBound",
+     "QuarticQuery.Amplification.iterationBound_ne_zero",
+     "QuarticQuery.Amplification.trialCount",
+     "QuarticQuery.BitInput",
+     "QuarticQuery.Upper.AmpTrial",
+     "QuarticQuery.Upper.FinalAux",
+     "QuarticQuery.Upper.IsCirc",
+     "QuarticQuery.Upper.Reg",
+     "QuarticQuery.Upper.assembledOriginalAux",
+     "QuarticQuery.Upper.choiceState",
+     "QuarticQuery.Upper.coordProj",
+     "QuarticQuery.Upper.finalB",
+     "QuarticQuery.Upper.finalOrigin",
+     "QuarticQuery.Upper.finalSuccess",
+     "QuarticQuery.Upper.firstSuccess",
+     "QuarticQuery.Upper.norm_rket",
+     "QuarticQuery.Upper.opaqueTrialVector",
+     "QuarticQuery.Upper.prepOf",
+     "QuarticQuery.Upper.retainedProduct",
+     "QuarticQuery.Upper.rket",
+     "QuarticQuery.Upper.trialSelectorGood"
+    ],
+    "note": "The configured statements depend on these project declarations, which this file imports rather than displays. They are part of what Comparator trusts."
+   },
+   "blocks": [
+    {
+     "name": "QuarticQuery.Upper.uniformOpaqueAmplifier",
+     "kind": "theorem",
+     "line_start": 17,
+     "line_end": 53,
+     "sha256": "531a488b1a0b21041ebfcb974495dcdaf00793f5584a7f167708c6f2db6f7719",
+     "comparison": {
+      "credit": "direct",
+      "basis": "configured_theorem_name",
+      "configurations": [
+       "lean/QuarticCorpus/Independent/UniformAmplifier/comparator.json"
+      ],
+      "latest_receipt": {
+       "receipt": "corpus/receipts/comparator-round4-uniform-amplifier-2026-11-03T023317151864+0000.json",
+       "receipt_sha256": "ac624f30928989fdde290b582f9fdd4d72b408ea3e3eae4d5444a29e52401513",
+       "ran_at": "2026-11-03T03:12:21.321844+00:00",
+       "status": "passed",
+       "currentness": "current",
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     }
@@ -2690,15 +3305,15 @@
       "QuarticQuery.Checked.addressed_lower_bound"
      ],
      "latest_receipt": {
-      "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-      "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-      "ran_at": "2026-11-02T21:01:08.868598+00:00",
+      "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+      "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+      "ran_at": "2026-11-03T03:27:49.124311+00:00",
       "status": "passed",
       "currentness": "current",
-      "declaration_scope": "historical_configured_plus_scanned"
+      "declaration_scope": "configured_theorem_names_only"
      },
      "current_positive_receipts": 1,
-     "receipts_recorded": 3
+     "receipts_recorded": 4
     }
    ],
    "imported_trust_surface": {
@@ -2727,12 +3342,12 @@
        "QuarticQuery.Checked.universal_quartic_bound"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -2756,12 +3371,12 @@
        "QuarticQuery.Checked.universal_quartic_bound"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -2785,12 +3400,12 @@
        "QuarticQuery.Checked.universal_quartic_bound"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -2814,12 +3429,12 @@
        "QuarticQuery.Checked.universal_quartic_bound"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -2865,12 +3480,12 @@
        "QuarticQuery.Checked.universal_quartic_bound"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -2894,12 +3509,12 @@
        "QuarticQuery.Checked.universal_quartic_bound"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -2923,12 +3538,12 @@
        "QuarticQuery.Checked.universal_quartic_bound"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -2952,12 +3567,12 @@
        "QuarticQuery.Checked.universal_quartic_bound"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -2981,12 +3596,12 @@
        "QuarticQuery.Checked.universal_quartic_bound"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -3010,12 +3625,12 @@
        "QuarticQuery.Checked.universal_quartic_bound"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -3039,12 +3654,12 @@
        "QuarticQuery.Checked.universal_quartic_bound"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -3079,12 +3694,12 @@
        "QuarticQuery.Checked.universal_quartic_bound"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -3118,12 +3733,12 @@
        "QuarticQuery.Checked.universal_quartic_bound"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -3146,12 +3761,12 @@
        "QuarticQuery.Checked.universal_quartic_bound"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -3174,12 +3789,12 @@
        "QuarticQuery.Checked.universal_quartic_bound"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -3202,12 +3817,12 @@
        "QuarticQuery.Checked.universal_quartic_bound"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -3230,12 +3845,12 @@
        "QuarticQuery.Checked.universal_quartic_bound"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -3258,12 +3873,12 @@
        "QuarticQuery.Checked.universal_quartic_bound"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -3286,12 +3901,12 @@
        "QuarticQuery.Checked.universal_quartic_bound"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -3314,12 +3929,12 @@
        "QuarticQuery.Checked.universal_quartic_bound"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -3342,12 +3957,12 @@
        "QuarticQuery.Checked.universal_quartic_bound"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -3370,12 +3985,12 @@
        "QuarticQuery.Checked.universal_quartic_bound"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -3398,12 +4013,12 @@
        "QuarticQuery.Checked.theorem_1_1"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -3425,12 +4040,12 @@
        "QuarticQuery.Checked.theorem_1_1"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -3452,12 +4067,12 @@
        "QuarticQuery.Checked.theorem_1_1"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -3479,12 +4094,12 @@
        "QuarticQuery.Checked.theorem_1_1"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -3506,12 +4121,12 @@
        "QuarticQuery.Checked.theorem_1_1"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -3533,12 +4148,12 @@
        "QuarticQuery.Checked.theorem_1_1"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -3571,12 +4186,12 @@
        "QuarticQuery.Checked.theorem_1_1"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -3597,12 +4212,12 @@
        "QuarticQuery.Checked.theorem_1_1"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -3623,12 +4238,12 @@
        "QuarticQuery.Checked.theorem_1_1"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -3649,12 +4264,12 @@
        "QuarticQuery.Checked.theorem_1_1"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -3675,12 +4290,12 @@
        "QuarticQuery.Checked.theorem_1_1"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -3701,12 +4316,12 @@
        "QuarticQuery.Checked.theorem_1_1"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -3727,12 +4342,12 @@
        "QuarticQuery.Checked.theorem_1_1"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -3753,12 +4368,12 @@
        "QuarticQuery.Checked.theorem_1_1"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -3779,12 +4394,12 @@
        "QuarticQuery.Checked.theorem_1_1"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -3805,12 +4420,12 @@
        "QuarticQuery.Checked.theorem_1_1"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -3831,12 +4446,12 @@
        "QuarticQuery.Checked.theorem_1_1"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -3857,12 +4472,12 @@
        "QuarticQuery.Checked.theorem_1_1"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -3883,12 +4498,12 @@
        "QuarticQuery.Checked.theorem_1_1"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -3909,12 +4524,12 @@
        "QuarticQuery.Checked.theorem_1_1"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -3935,12 +4550,12 @@
        "QuarticQuery.Checked.theorem_1_1"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -3961,12 +4576,12 @@
        "QuarticQuery.Checked.theorem_1_1"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -3986,12 +4601,12 @@
        "QuarticQuery.Checked.theorem_1_1"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -4024,12 +4639,12 @@
        "QuarticQuery.Checked.theorem_1_1"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -4050,12 +4665,12 @@
        "QuarticQuery.Checked.theorem_1_1"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -4076,12 +4691,12 @@
        "QuarticQuery.Checked.theorem_1_1"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -4102,12 +4717,12 @@
        "QuarticQuery.Checked.universal_quartic_bound"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -4127,12 +4742,12 @@
        "QuarticQuery.Checked.theorem_1_1"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -4149,12 +4764,12 @@
        "lean/QuarticCorpus/Separation/comparator.json"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -4171,12 +4786,12 @@
        "lean/QuarticCorpus/Separation/comparator.json"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -4193,12 +4808,12 @@
        "lean/QuarticCorpus/Separation/comparator.json"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -4215,12 +4830,12 @@
        "lean/QuarticCorpus/Separation/comparator.json"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -4237,12 +4852,12 @@
        "lean/QuarticCorpus/Separation/comparator.json"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -4259,12 +4874,12 @@
        "lean/QuarticCorpus/Separation/comparator.json"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
-       "receipt_sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
-       "ran_at": "2026-11-02T21:01:08.868598+00:00",
+       "receipt": "corpus/receipts/comparator-Separation-2026-11-03T032749124311+0000.json",
+       "receipt_sha256": "26fa2d2d0b8881a34bbd60cb4c46b72474b5cfd8671aaaa00bc53a83b12f16ca",
+       "ran_at": "2026-11-03T03:27:49.124311+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     }
@@ -4289,16 +4904,16 @@
       "QuarticQuery.Checked.expected_weight_le_half"
      ],
      "latest_receipt": {
-      "receipt": "corpus/receipts/comparator-negative-ChangedDefinition-2026-11-02T211115341473+0000.json",
-      "receipt_sha256": "a7223b6f53eb3849a984933d775b4fa30b6233b8c31895f4fd676cb99851e98b",
-      "ran_at": "2026-11-02T21:11:15.341473+00:00",
+      "receipt": "corpus/receipts/comparator-negative-ChangedDefinition-2026-11-03T033123563999+0000.json",
+      "receipt_sha256": "72a74e2e8839dabcb1c72148f596f95eabde0868280fdf9c057468c01a45ad98",
+      "ran_at": "2026-11-03T03:31:23.563999+00:00",
       "status": "passed",
       "currentness": "current",
       "declaration_scope": "historical_configured_plus_scanned",
       "negative_control": "rejected_as_expected"
      },
      "current_positive_receipts": 0,
-     "receipts_recorded": 3
+     "receipts_recorded": 4
     },
     {
      "path": "lean/QuarticCorpus/Negative/ForeignAxiom.json",
@@ -4309,16 +4924,16 @@
       "QuarticQuery.Checked.expected_weight_le_half"
      ],
      "latest_receipt": {
-      "receipt": "corpus/receipts/comparator-negative-ForeignAxiom-2026-11-02T211205280485+0000.json",
-      "receipt_sha256": "a5c1f24dcb853ba7abac9263df42a50b37f2d9eaaef8b282e721a686fa1d3287",
-      "ran_at": "2026-11-02T21:12:05.280485+00:00",
+      "receipt": "corpus/receipts/comparator-negative-ForeignAxiom-2026-11-03T033151129376+0000.json",
+      "receipt_sha256": "277eb2ede22d0f1164d7bd439e6f2d3fad9a288c8bdc373d5b7423721bc2761a",
+      "ran_at": "2026-11-03T03:31:51.129376+00:00",
       "status": "passed",
       "currentness": "current",
       "declaration_scope": "historical_configured_plus_scanned",
       "negative_control": "rejected_as_expected"
      },
      "current_positive_receipts": 0,
-     "receipts_recorded": 3
+     "receipts_recorded": 4
     },
     {
      "path": "lean/QuarticCorpus/Negative/MissingDeclaration.json",
@@ -4329,16 +4944,16 @@
       "QuarticQuery.Checked.expected_weight_le_half"
      ],
      "latest_receipt": {
-      "receipt": "corpus/receipts/comparator-negative-MissingDeclaration-2026-11-02T211309274909+0000.json",
-      "receipt_sha256": "f1d9d8aef769c03d0c6917391d3ce9752e32a3e2c91df565a944314c664f4c73",
-      "ran_at": "2026-11-02T21:13:09.274909+00:00",
+      "receipt": "corpus/receipts/comparator-negative-MissingDeclaration-2026-11-03T033215622414+0000.json",
+      "receipt_sha256": "c141fa62163925246677736506dd8965b0ba3c18db1dcd3376b8b929f40281bc",
+      "ran_at": "2026-11-03T03:32:15.622414+00:00",
       "status": "passed",
       "currentness": "current",
       "declaration_scope": "historical_configured_plus_scanned",
       "negative_control": "rejected_as_expected"
      },
      "current_positive_receipts": 0,
-     "receipts_recorded": 3
+     "receipts_recorded": 4
     },
     {
      "path": "lean/QuarticCorpus/Negative/SorryProof.json",
@@ -4349,16 +4964,16 @@
       "QuarticQuery.Checked.expected_weight_le_half"
      ],
      "latest_receipt": {
-      "receipt": "corpus/receipts/comparator-negative-SorryProof-2026-11-02T211526259263+0000.json",
-      "receipt_sha256": "a391afd0f5e4264a3e98848f24a39855ecf9efa327d8fc510103068f8a201835",
-      "ran_at": "2026-11-02T21:15:26.259263+00:00",
+      "receipt": "corpus/receipts/comparator-negative-SorryProof-2026-11-03T033240459729+0000.json",
+      "receipt_sha256": "80d93e07ea879ee9eb5245354a7c49dccd0921ac7cc5228022b4817598b26944",
+      "ran_at": "2026-11-03T03:32:40.459729+00:00",
       "status": "passed",
       "currentness": "current",
       "declaration_scope": "historical_configured_plus_scanned",
       "negative_control": "rejected_as_expected"
      },
      "current_positive_receipts": 0,
-     "receipts_recorded": 3
+     "receipts_recorded": 4
     },
     {
      "path": "lean/QuarticCorpus/Negative/WeakenedConclusion.json",
@@ -4369,16 +4984,16 @@
       "QuarticQuery.Checked.expected_weight_le_half"
      ],
      "latest_receipt": {
-      "receipt": "corpus/receipts/comparator-negative-WeakenedConclusion-2026-11-02T211627936602+0000.json",
-      "receipt_sha256": "2b0b435637ccdf585624bf57f8c000cb6a9e729553edd3be77bcd10810cfac5b",
-      "ran_at": "2026-11-02T21:16:27.936602+00:00",
+      "receipt": "corpus/receipts/comparator-negative-WeakenedConclusion-2026-11-03T033313996636+0000.json",
+      "receipt_sha256": "89573dbbf253cc5aa750390361f52a1c76c3650d0352aaac3cb2507b12c59cb0",
+      "ran_at": "2026-11-03T03:33:13.996636+00:00",
       "status": "passed",
       "currentness": "current",
       "declaration_scope": "historical_configured_plus_scanned",
       "negative_control": "rejected_as_expected"
      },
      "current_positive_receipts": 0,
-     "receipts_recorded": 3
+     "receipts_recorded": 4
     },
     {
      "path": "lean/QuarticCorpus/Tournament/comparator.json",
@@ -4389,15 +5004,15 @@
       "QuarticQuery.Checked.expected_weight_le_half"
      ],
      "latest_receipt": {
-      "receipt": "corpus/receipts/comparator-Tournament-2026-11-02T210431678518+0000.json",
-      "receipt_sha256": "9f7e857ff90d731b18b5e0344d029534d74a3d5f0c33e4156640e66d3e296367",
-      "ran_at": "2026-11-02T21:04:31.678518+00:00",
+      "receipt": "corpus/receipts/comparator-Tournament-2026-11-03T032902613633+0000.json",
+      "receipt_sha256": "e20396938906b06a1d6ce203feaefb9f3f932bc86f3e10e668a519d208d066ea",
+      "ran_at": "2026-11-03T03:29:02.613633+00:00",
       "status": "passed",
       "currentness": "current",
-      "declaration_scope": "historical_configured_plus_scanned"
+      "declaration_scope": "configured_theorem_names_only"
      },
      "current_positive_receipts": 1,
-     "receipts_recorded": 3
+     "receipts_recorded": 4
     }
    ],
    "imported_trust_surface": {
@@ -4972,12 +5587,12 @@
        "QuarticQuery.Checked.expected_weight_le_half"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Tournament-2026-11-02T210431678518+0000.json",
-       "receipt_sha256": "9f7e857ff90d731b18b5e0344d029534d74a3d5f0c33e4156640e66d3e296367",
-       "ran_at": "2026-11-02T21:04:31.678518+00:00",
+       "receipt": "corpus/receipts/comparator-Tournament-2026-11-03T032902613633+0000.json",
+       "receipt_sha256": "e20396938906b06a1d6ce203feaefb9f3f932bc86f3e10e668a519d208d066ea",
+       "ran_at": "2026-11-03T03:29:02.613633+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -5054,12 +5669,12 @@
        "lean/QuarticCorpus/Tournament/comparator.json"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Tournament-2026-11-02T210431678518+0000.json",
-       "receipt_sha256": "9f7e857ff90d731b18b5e0344d029534d74a3d5f0c33e4156640e66d3e296367",
-       "ran_at": "2026-11-02T21:04:31.678518+00:00",
+       "receipt": "corpus/receipts/comparator-Tournament-2026-11-03T032902613633+0000.json",
+       "receipt_sha256": "e20396938906b06a1d6ce203feaefb9f3f932bc86f3e10e668a519d208d066ea",
+       "ran_at": "2026-11-03T03:29:02.613633+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -5081,12 +5696,12 @@
        "lean/QuarticCorpus/Tournament/comparator.json"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Tournament-2026-11-02T210431678518+0000.json",
-       "receipt_sha256": "9f7e857ff90d731b18b5e0344d029534d74a3d5f0c33e4156640e66d3e296367",
-       "ran_at": "2026-11-02T21:04:31.678518+00:00",
+       "receipt": "corpus/receipts/comparator-Tournament-2026-11-03T032902613633+0000.json",
+       "receipt_sha256": "e20396938906b06a1d6ce203feaefb9f3f932bc86f3e10e668a519d208d066ea",
+       "ran_at": "2026-11-03T03:29:02.613633+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     }
@@ -5113,15 +5728,15 @@
       "QuarticQuery.Checked.forrelation_lower_bound"
      ],
      "latest_receipt": {
-      "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-      "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-      "ran_at": "2026-11-02T21:22:45.429608+00:00",
+      "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+      "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+      "ran_at": "2026-11-03T03:30:42.571917+00:00",
       "status": "passed",
       "currentness": "current",
-      "declaration_scope": "historical_configured_plus_scanned"
+      "declaration_scope": "configured_theorem_names_only"
      },
-     "current_positive_receipts": 2,
-     "receipts_recorded": 5
+     "current_positive_receipts": 1,
+     "receipts_recorded": 6
     }
    ],
    "imported_trust_surface": {
@@ -5148,12 +5763,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -5174,12 +5789,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -5201,12 +5816,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -5227,12 +5842,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -5276,12 +5891,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -5303,12 +5918,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -5330,12 +5945,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -5357,12 +5972,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -5384,12 +5999,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -5411,12 +6026,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -5438,12 +6053,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -5476,12 +6091,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -5513,12 +6128,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -5539,12 +6154,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -5565,12 +6180,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -5591,12 +6206,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -5617,12 +6232,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -5643,12 +6258,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -5669,12 +6284,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -5695,12 +6310,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -5721,12 +6336,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -5747,12 +6362,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -5772,12 +6387,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -5797,12 +6412,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -5822,12 +6437,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -5847,12 +6462,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -5872,12 +6487,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -5897,12 +6512,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -5933,12 +6548,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -5957,12 +6572,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -5981,12 +6596,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -6005,12 +6620,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -6029,12 +6644,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -6053,12 +6668,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -6077,12 +6692,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -6101,12 +6716,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -6125,12 +6740,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -6149,12 +6764,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -6173,12 +6788,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -6197,12 +6812,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -6221,12 +6836,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -6245,12 +6860,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -6269,12 +6884,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -6293,12 +6908,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -6317,12 +6932,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -6353,12 +6968,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -6377,12 +6992,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -6401,12 +7016,12 @@
        "QuarticQuery.Checked.forrelation_lower_bound"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -6426,12 +7041,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -6451,12 +7066,12 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -6473,12 +7088,12 @@
        "lean/QuarticCorpus/Unconditional/comparator.json"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -6495,12 +7110,12 @@
        "lean/QuarticCorpus/Unconditional/comparator.json"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -6517,12 +7132,12 @@
        "lean/QuarticCorpus/Unconditional/comparator.json"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     },
@@ -6539,12 +7154,12 @@
        "lean/QuarticCorpus/Unconditional/comparator.json"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
-       "receipt_sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
-       "ran_at": "2026-11-02T21:22:45.429608+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+       "ran_at": "2026-11-03T03:30:42.571917+00:00",
        "status": "passed",
        "currentness": "current",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     }
@@ -6671,7 +7286,7 @@
      "anchor": "ROOT-EVIDENCE-CONVENTION",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
-     "passage_sha256": "a42cc0396103d947eb3f79f96b49e87b4b6fd637a7a91efa06e3a38889994461",
+     "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
      "passage_lines": [
       374,
       454
@@ -6734,7 +7349,7 @@
      "join": "backtick_mention",
      "alias": "BitInput",
      "passage_claims": [],
-     "passage_sha256": "a42cc0396103d947eb3f79f96b49e87b4b6fd637a7a91efa06e3a38889994461",
+     "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
      "passage_lines": [
       374,
       454
@@ -6754,7 +7369,7 @@
    "primary_gloss": {
     "anchor": "ROOT-EVIDENCE-CONVENTION",
     "join": "backtick_mention",
-    "passage_sha256": "a42cc0396103d947eb3f79f96b49e87b4b6fd637a7a91efa06e3a38889994461",
+    "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
     "line_start": 379,
     "line_end": 379,
     "excerpt_sha256": "1f05b3fd72bacedd5f653978866b9ad8480c5ed98949a2a90d4b8274e4e0fc29",
@@ -6811,7 +7426,7 @@
      "statement_id": "def-D",
      "relation": "exact",
      "review_evidence": "current",
-     "comparison_credit": "wrapper_mediated_historical",
+     "comparison_credit": "none",
      "join": "solution_proof_reference",
      "via": "QuarticQuery.D_le_iff",
      "note": "Wrapper proof text names this declaration; no type correspondence is recorded."
@@ -6887,7 +7502,7 @@
      "statement_id": "def-Q",
      "relation": "exact",
      "review_evidence": "current",
-     "comparison_credit": "wrapper_mediated_historical",
+     "comparison_credit": "none",
      "join": "solution_proof_reference",
      "via": "QuarticQuery.Q_le_iff",
      "note": "Wrapper proof text names this declaration; no type correspondence is recorded."
@@ -6946,7 +7561,7 @@
      "statement_id": "def-Q",
      "relation": "unassessed",
      "review_evidence": "legacy_unbound",
-     "comparison_credit": "wrapper_mediated_historical",
+     "comparison_credit": "none",
      "join": "solution_proof_reference",
      "via": "QuarticQuery.Q_reindex",
      "note": "Wrapper proof text names this declaration; no type correspondence is recorded."
@@ -7022,7 +7637,7 @@
      "statement_id": "def-R",
      "relation": "exact",
      "review_evidence": "current",
-     "comparison_credit": "wrapper_mediated_historical",
+     "comparison_credit": "none",
      "join": "solution_proof_reference",
      "via": "QuarticQuery.R_le_iff",
      "note": "Wrapper proof text names this declaration; no type correspondence is recorded."
@@ -7081,7 +7696,7 @@
      "statement_id": "def-R",
      "relation": "unassessed",
      "review_evidence": "legacy_unbound",
-     "comparison_credit": "wrapper_mediated_historical",
+     "comparison_credit": "none",
      "join": "solution_proof_reference",
      "via": "QuarticQuery.R_reindex",
      "note": "Wrapper proof text names this declaration; no type correspondence is recorded."
@@ -7140,7 +7755,7 @@
      "statement_id": "prop-4.2-generic",
      "relation": "stronger",
      "review_evidence": "current",
-     "comparison_credit": "wrapper_mediated_historical",
+     "comparison_credit": "none",
      "join": "solution_proof_reference",
      "via": "QuarticQuery.Gvalue_lt_R_addressedF",
      "note": "Wrapper proof text names this declaration; no type correspondence is recorded."
@@ -7199,7 +7814,7 @@
      "statement_id": "thm-1.1",
      "relation": "partial",
      "review_evidence": "current",
-     "comparison_credit": "wrapper_mediated_historical",
+     "comparison_credit": "none",
      "join": "solution_proof_reference",
      "via": "QuarticQuery.alphaTot_eq_four_of_bansalSinha",
      "note": "Wrapper proof text names this declaration; no type correspondence is recorded."
@@ -7258,7 +7873,7 @@
      "statement_id": "thm-1.1",
      "relation": "partial",
      "review_evidence": "current",
-     "comparison_credit": "wrapper_mediated_historical",
+     "comparison_credit": "none",
      "join": "solution_proof_reference",
      "via": "QuarticQuery.alphaTot_eq_four_unconditional",
      "note": "Wrapper proof text names this declaration; no type correspondence is recorded."
@@ -7317,7 +7932,7 @@
      "statement_id": "cor-cubic-refuted",
      "relation": "exact",
      "review_evidence": "current",
-     "comparison_credit": "wrapper_mediated_historical",
+     "comparison_credit": "none",
      "join": "solution_proof_reference",
      "via": "QuarticQuery.cubic_bound_fails_unconditional",
      "note": "Wrapper proof text names this declaration; no type correspondence is recorded."
@@ -7376,7 +7991,7 @@
      "statement_id": "cor-cubic-refuted",
      "relation": "exact",
      "review_evidence": "current",
-     "comparison_credit": "wrapper_mediated_historical",
+     "comparison_credit": "none",
      "join": "solution_proof_reference",
      "via": "QuarticQuery.cubic_bound_fails_of_bansalSinha",
      "note": "Wrapper proof text names this declaration; no type correspondence is recorded."
@@ -7435,7 +8050,7 @@
      "statement_id": "def-transcript",
      "relation": "unassessed",
      "review_evidence": "legacy_unbound",
-     "comparison_credit": "wrapper_mediated_historical",
+     "comparison_credit": "none",
      "join": "solution_proof_reference",
      "via": "QuarticQuery.existsUnique_gateConsistent",
      "note": "Wrapper proof text names this declaration; no type correspondence is recorded."
@@ -7517,7 +8132,7 @@
      "statement_id": "eq-2",
      "relation": "unassessed",
      "review_evidence": "legacy_unbound",
-     "comparison_credit": "wrapper_mediated_historical",
+     "comparison_credit": "none",
      "join": "solution_proof_reference",
      "via": "QuarticQuery.family_bounds",
      "note": "Wrapper proof text names this declaration; no type correspondence is recorded."
@@ -7576,7 +8191,7 @@
      "statement_id": "lem-2.1.i",
      "relation": "exact",
      "review_evidence": "current",
-     "comparison_credit": "wrapper_mediated_historical",
+     "comparison_credit": "none",
      "join": "solution_proof_reference",
      "via": "QuarticQuery.ForrelationLower.bansalSinhaLower",
      "note": "Wrapper proof text names this declaration; no type correspondence is recorded."
@@ -7635,7 +8250,7 @@
      "statement_id": "thm-1.1",
      "relation": "partial",
      "review_evidence": "current",
-     "comparison_credit": "wrapper_mediated_historical",
+     "comparison_credit": "none",
      "join": "solution_proof_reference",
      "via": "QuarticQuery.theorem_1_1",
      "note": "Wrapper proof text names this declaration; no type correspondence is recorded."
@@ -7694,7 +8309,7 @@
      "statement_id": "thm-1.1",
      "relation": "exact",
      "review_evidence": "current",
-     "comparison_credit": "wrapper_mediated_historical",
+     "comparison_credit": "none",
      "join": "solution_proof_reference",
      "via": "QuarticQuery.theorem_1_1_unconditional",
      "note": "Wrapper proof text names this declaration; no type correspondence is recorded."
@@ -7753,7 +8368,7 @@
      "statement_id": "thm-A.1",
      "relation": "unassessed",
      "review_evidence": "legacy_unbound",
-     "comparison_credit": "wrapper_mediated_historical",
+     "comparison_credit": "none",
      "join": "solution_proof_reference",
      "via": "QuarticQuery.universalPower_four",
      "note": "Wrapper proof text names this declaration; no type correspondence is recorded."
@@ -7801,7 +8416,7 @@
      "statement_id": "claim-winner-dominates",
      "relation": "unassessed",
      "review_evidence": "legacy_unbound",
-     "comparison_credit": "wrapper_mediated_historical",
+     "comparison_credit": "none",
      "join": "solution_proof_reference",
      "via": "QuarticQuery.winner_finds_zero",
      "note": "Wrapper proof text names this declaration; no type correspondence is recorded."
@@ -7860,7 +8475,7 @@
      "statement_id": "claim-winner-dominates",
      "relation": "unassessed",
      "review_evidence": "legacy_unbound",
-     "comparison_credit": "wrapper_mediated_historical",
+     "comparison_credit": "none",
      "join": "solution_proof_reference",
      "via": "QuarticQuery.winner_no_incoming_zero",
      "note": "Wrapper proof text names this declaration; no type correspondence is recorded."
@@ -7919,7 +8534,7 @@
      "statement_id": "def-F",
      "relation": "unassessed",
      "review_evidence": "legacy_unbound",
-     "comparison_credit": "wrapper_mediated_historical",
+     "comparison_credit": "none",
      "join": "solution_proof_reference",
      "via": "QuarticQuery.winsAt_unique",
      "note": "Wrapper proof text names this declaration; no type correspondence is recorded."
@@ -7928,7 +8543,7 @@
      "statement_id": "cor-unique-winner",
      "relation": "stronger",
      "review_evidence": "current",
-     "comparison_credit": "wrapper_mediated_historical",
+     "comparison_credit": "none",
      "join": "solution_proof_reference",
      "via": "QuarticQuery.winsAt_unique",
      "note": "Wrapper proof text names this declaration; no type correspondence is recorded."
@@ -8108,7 +8723,7 @@
      "join": "backtick_mention",
      "alias": "D",
      "passage_claims": [],
-     "passage_sha256": "a42cc0396103d947eb3f79f96b49e87b4b6fd637a7a91efa06e3a38889994461",
+     "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
      "passage_lines": [
       374,
       454
@@ -8128,7 +8743,7 @@
    "primary_gloss": {
     "anchor": "ROOT-EVIDENCE-CONVENTION",
     "join": "backtick_mention",
-    "passage_sha256": "a42cc0396103d947eb3f79f96b49e87b4b6fd637a7a91efa06e3a38889994461",
+    "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
     "line_start": 381,
     "line_end": 381,
     "excerpt_sha256": "e7a1b5ae6c2f09dd31a3f92efbe09fbf7b8187ae3ff9143ada5b7229dd4b3a0d",
@@ -8167,7 +8782,7 @@
      "join": "backtick_mention",
      "alias": "DLe",
      "passage_claims": [],
-     "passage_sha256": "a42cc0396103d947eb3f79f96b49e87b4b6fd637a7a91efa06e3a38889994461",
+     "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
      "passage_lines": [
       374,
       454
@@ -8302,6 +8917,21 @@
    "primary_gloss": null,
    "gap": null
   },
+  "QuarticQuery.Independent.Degree.checked_degree_conventions": {
+   "kind": "theorem",
+   "doc_comment": null,
+   "defined_in": {
+    "path": "lean/QuarticCorpus/Independent/Degree/Challenge.lean",
+    "line_start": 14,
+    "line_end": 21,
+    "sha256": "378864a487682ef690824976829b88f2a55e3374cc76f896026af02b0baea08c"
+   },
+   "solution_proof_references": [],
+   "statement_ids": [],
+   "record_references": [],
+   "primary_gloss": null,
+   "gap": "no_record_passage"
+  },
   "QuarticQuery.Independent.Eq19.checked_eq19": {
    "kind": "theorem",
    "doc_comment": null,
@@ -8319,7 +8949,7 @@
      "statement_id": "eq-19",
      "relation": "stronger",
      "review_evidence": "current",
-     "comparison_credit": "direct",
+     "comparison_credit": "none",
      "join": "statement_tie"
     }
    ],
@@ -8359,6 +8989,57 @@
    },
    "gap": null
   },
+  "QuarticQuery.Independent.ModelZero.checked_zero_query_characterization": {
+   "kind": "theorem",
+   "doc_comment": null,
+   "defined_in": {
+    "path": "lean/QuarticCorpus/Independent/ModelZero/Challenge.lean",
+    "line_start": 11,
+    "line_end": 15,
+    "sha256": "518daf4c2e3ba759b3ea02e624df81ee5772c4f0e3360e339c6020df80d89dfb"
+   },
+   "solution_proof_references": [
+    "zero_query_characterization"
+   ],
+   "statement_ids": [],
+   "record_references": [],
+   "primary_gloss": null,
+   "gap": "no_record_passage"
+  },
+  "QuarticQuery.Independent.RealLeaves.Compare.advantage": {
+   "kind": "theorem",
+   "doc_comment": null,
+   "defined_in": {
+    "path": "lean/QuarticCorpus/Independent/RealLeaves/Challenge.lean",
+    "line_start": 32,
+    "line_end": 44,
+    "sha256": "3bf95e9cd2f29ab58f0ae7ab5b8e86c68783721a5d9807fc6e622eff48ab9efe"
+   },
+   "solution_proof_references": [
+    "advantage_le_sharp_real_leaves"
+   ],
+   "statement_ids": [],
+   "record_references": [],
+   "primary_gloss": null,
+   "gap": "no_record_passage"
+  },
+  "QuarticQuery.Independent.RealLeaves.Compare.growth": {
+   "kind": "theorem",
+   "doc_comment": null,
+   "defined_in": {
+    "path": "lean/QuarticCorpus/Independent/RealLeaves/Challenge.lean",
+    "line_start": 17,
+    "line_end": 29,
+    "sha256": "e40f749b700aae56fc869ab9d76120636ebf933c335c21138a7fd2d09964abe8"
+   },
+   "solution_proof_references": [
+    "sum_abs_ext_Dl_le_real_leaves"
+   ],
+   "statement_ids": [],
+   "record_references": [],
+   "primary_gloss": null,
+   "gap": "no_record_passage"
+  },
   "QuarticQuery.Lvalue": {
    "kind": "def",
    "doc_comment": "`L = ⌊m^(1-1/k) / (log₂ m)²⌋`, equation (5).",
@@ -8376,7 +9057,7 @@
      "join": "backtick_mention",
      "alias": "Lvalue",
      "passage_claims": [],
-     "passage_sha256": "a42cc0396103d947eb3f79f96b49e87b4b6fd637a7a91efa06e3a38889994461",
+     "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
      "passage_lines": [
       374,
       454
@@ -8416,7 +9097,7 @@
    "primary_gloss": {
     "anchor": "ROOT-EVIDENCE-CONVENTION",
     "join": "backtick_mention",
-    "passage_sha256": "a42cc0396103d947eb3f79f96b49e87b4b6fd637a7a91efa06e3a38889994461",
+    "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
     "line_start": 422,
     "line_end": 427,
     "excerpt_sha256": "d1048e2024e42a6e901fb6eb02019bcf428f80077c6be79881f8a1ab38a24b86",
@@ -8450,6 +9131,21 @@
    "primary_gloss": null,
    "gap": null
   },
+  "QuarticQuery.Paper.construction_decoder_sharp": {
+   "kind": "theorem",
+   "doc_comment": null,
+   "defined_in": {
+    "path": "lean/QuarticCorpus/Independent/DecoderSharp/Challenge.lean",
+    "line_start": 17,
+    "line_end": 36,
+    "sha256": "5abddf1ddf5bf1070c553af2276d9f3489c322d1d5fb51739f5f3d2cdb31969e"
+   },
+   "solution_proof_references": [],
+   "statement_ids": [],
+   "record_references": [],
+   "primary_gloss": null,
+   "gap": "no_record_passage"
+  },
   "QuarticQuery.Paper.construction_lemma_2_2_with_support": {
    "kind": "theorem",
    "doc_comment": null,
@@ -8465,21 +9161,21 @@
      "statement_id": "lem-2.2.i",
      "relation": "stronger",
      "review_evidence": "current",
-     "comparison_credit": "direct",
+     "comparison_credit": "none",
      "join": "statement_tie"
     },
     {
      "statement_id": "lem-2.2.ii",
      "relation": "stronger",
      "review_evidence": "current",
-     "comparison_credit": "direct",
+     "comparison_credit": "none",
      "join": "statement_tie"
     },
     {
      "statement_id": "lem-2.2",
      "relation": "stronger",
      "review_evidence": "current",
-     "comparison_credit": "direct",
+     "comparison_credit": "none",
      "join": "statement_tie"
     }
    ],
@@ -8545,7 +9241,7 @@
      "statement_id": "eq-19",
      "relation": "stronger",
      "review_evidence": "current",
-     "comparison_credit": "direct",
+     "comparison_credit": "none",
      "join": "statement_tie"
     }
    ],
@@ -8624,7 +9320,7 @@
      "join": "backtick_mention",
      "alias": "PartialBool",
      "passage_claims": [],
-     "passage_sha256": "a42cc0396103d947eb3f79f96b49e87b4b6fd637a7a91efa06e3a38889994461",
+     "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
      "passage_lines": [
       374,
       454
@@ -8695,7 +9391,7 @@
      "join": "backtick_mention",
      "alias": "Q",
      "passage_claims": [],
-     "passage_sha256": "a42cc0396103d947eb3f79f96b49e87b4b6fd637a7a91efa06e3a38889994461",
+     "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
      "passage_lines": [
       374,
       454
@@ -8725,7 +9421,7 @@
    "primary_gloss": {
     "anchor": "ROOT-EVIDENCE-CONVENTION",
     "join": "backtick_mention",
-    "passage_sha256": "a42cc0396103d947eb3f79f96b49e87b4b6fd637a7a91efa06e3a38889994461",
+    "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
     "line_start": 381,
     "line_end": 381,
     "excerpt_sha256": "e7a1b5ae6c2f09dd31a3f92efbe09fbf7b8187ae3ff9143ada5b7229dd4b3a0d",
@@ -8764,7 +9460,7 @@
      "join": "backtick_mention",
      "alias": "QLe",
      "passage_claims": [],
-     "passage_sha256": "a42cc0396103d947eb3f79f96b49e87b4b6fd637a7a91efa06e3a38889994461",
+     "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
      "passage_lines": [
       374,
       454
@@ -8907,7 +9603,7 @@
      "join": "backtick_mention",
      "alias": "R",
      "passage_claims": [],
-     "passage_sha256": "a42cc0396103d947eb3f79f96b49e87b4b6fd637a7a91efa06e3a38889994461",
+     "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
      "passage_lines": [
       374,
       454
@@ -8947,7 +9643,7 @@
    "primary_gloss": {
     "anchor": "ROOT-EVIDENCE-CONVENTION",
     "join": "backtick_mention",
-    "passage_sha256": "a42cc0396103d947eb3f79f96b49e87b4b6fd637a7a91efa06e3a38889994461",
+    "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
     "line_start": 381,
     "line_end": 381,
     "excerpt_sha256": "e7a1b5ae6c2f09dd31a3f92efbe09fbf7b8187ae3ff9143ada5b7229dd4b3a0d",
@@ -8986,7 +9682,7 @@
      "join": "backtick_mention",
      "alias": "RLe",
      "passage_claims": [],
-     "passage_sha256": "a42cc0396103d947eb3f79f96b49e87b4b6fd637a7a91efa06e3a38889994461",
+     "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
      "passage_lines": [
       374,
       454
@@ -9206,7 +9902,7 @@
      "join": "backtick_mention",
      "alias": "UniversalPower",
      "passage_claims": [],
-     "passage_sha256": "a42cc0396103d947eb3f79f96b49e87b4b6fd637a7a91efa06e3a38889994461",
+     "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
      "passage_lines": [
       374,
       454
@@ -9246,13 +9942,28 @@
    "primary_gloss": {
     "anchor": "ROOT-EVIDENCE-CONVENTION",
     "join": "backtick_mention",
-    "passage_sha256": "a42cc0396103d947eb3f79f96b49e87b4b6fd637a7a91efa06e3a38889994461",
+    "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
     "line_start": 412,
     "line_end": 412,
     "excerpt_sha256": "fd18e8ba0ed310c5d3f4b68a95cbfde4d003d1a4070eeda61b7982223de6996a",
     "excerpt": "**The family and the universal exponent.** `UniversalPower` is a predicate on real exponents, and the formal `alphaTot` is the infimum of the exponents satisfying it. Its quantifiers range over total Boolean functions on $\\operatorname{Fin}(n)$, with $n\\ge1$ and exponent $\\alpha\\ge0$, as in (1). The finite-constant and infimum formulations are explicitly related by the source wrappers. No Forrelation hypothesis belongs to this definition."
    },
    "gap": null
+  },
+  "QuarticQuery.Upper.uniformOpaqueAmplifier": {
+   "kind": "theorem",
+   "doc_comment": null,
+   "defined_in": {
+    "path": "lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean",
+    "line_start": 17,
+    "line_end": 53,
+    "sha256": "531a488b1a0b21041ebfcb974495dcdaf00793f5584a7f167708c6f2db6f7719"
+   },
+   "solution_proof_references": [],
+   "statement_ids": [],
+   "record_references": [],
+   "primary_gloss": null,
+   "gap": "no_record_passage"
   },
   "QuarticQuery.WinsAt": {
    "kind": "def",
@@ -9333,7 +10044,7 @@
      "join": "backtick_mention",
      "alias": "alphaTot",
      "passage_claims": [],
-     "passage_sha256": "a42cc0396103d947eb3f79f96b49e87b4b6fd637a7a91efa06e3a38889994461",
+     "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
      "passage_lines": [
       374,
       454
@@ -9363,7 +10074,7 @@
    "primary_gloss": {
     "anchor": "ROOT-EVIDENCE-CONVENTION",
     "join": "backtick_mention",
-    "passage_sha256": "a42cc0396103d947eb3f79f96b49e87b4b6fd637a7a91efa06e3a38889994461",
+    "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
     "line_start": 412,
     "line_end": 412,
     "excerpt_sha256": "fd18e8ba0ed310c5d3f4b68a95cbfde4d003d1a4070eeda61b7982223de6996a",
@@ -9422,6 +10133,21 @@
    ],
    "primary_gloss": null,
    "gap": null
+  },
+  "QuarticQuery.direct_product_external_finite_realized_caps": {
+   "kind": "theorem",
+   "doc_comment": null,
+   "defined_in": {
+    "path": "lean/QuarticCorpus/Independent/RealizedCaps/Challenge.lean",
+    "line_start": 18,
+    "line_end": 26,
+    "sha256": "4f23dd0218bb03b4c070c3869a40766275fe284574a58f8527e923bd2243430f"
+   },
+   "solution_proof_references": [],
+   "statement_ids": [],
+   "record_references": [],
+   "primary_gloss": null,
+   "gap": "no_record_passage"
   },
   "QuarticQuery.forrelationDenominator": {
    "kind": "def",
@@ -9660,7 +10386,7 @@
      "join": "backtick_mention",
      "alias": "reindex",
      "passage_claims": [],
-     "passage_sha256": "a42cc0396103d947eb3f79f96b49e87b4b6fd637a7a91efa06e3a38889994461",
+     "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
      "passage_lines": [
       374,
       454
@@ -9680,7 +10406,7 @@
    "primary_gloss": {
     "anchor": "ROOT-EVIDENCE-CONVENTION",
     "join": "backtick_mention",
-    "passage_sha256": "a42cc0396103d947eb3f79f96b49e87b4b6fd637a7a91efa06e3a38889994461",
+    "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
     "line_start": 383,
     "line_end": 387,
     "excerpt_sha256": "b9ca599c5ebfc416ce0e1e505db4f034350efddc766515554cd3f054fb47b34e",
@@ -9716,7 +10442,7 @@
      "join": "backtick_mention",
      "alias": "totalise",
      "passage_claims": [],
-     "passage_sha256": "a42cc0396103d947eb3f79f96b49e87b4b6fd637a7a91efa06e3a38889994461",
+     "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
      "passage_lines": [
       374,
       454

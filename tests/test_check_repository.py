@@ -103,6 +103,12 @@ class RepositoryTests(unittest.TestCase):
             self.write(path)
         self.assertEqual([], self.errors())
 
+    def test_docs_hold_figure_sources_but_not_scripts(self):
+        self.write("docs/figures/figure.tex")
+        self.assertEqual([], self.errors())
+        self.write("docs/figures/render.sh")
+        self.assertTrue(any("render.sh" in e for e in self.errors()))
+
     def test_lean_package_is_optional_until_published(self):
         self.assertEqual([], self.errors())
         self.assertEqual([], self.errors(index=True))

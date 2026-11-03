@@ -1,0 +1,13 @@
+{
+  "challenge_module": "QuarticCorpus.Independent.RealLeaves.Challenge",
+  "solution_module": "QuarticCorpus.Independent.RealLeaves.NegativeZeroOnly",
+  "theorem_names": [
+    "QuarticQuery.Independent.RealLeaves.Compare.growth"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

@@ -1,0 +1,23 @@
+% Figure 3 of docs/exposition.md: comparisons on the cycled board of
+% Section 4. An arrow i -> j means that column i beats column j (a_ij = 1 with
+% exact decoding). Build with tools/render_papers.py.
+\documentclass[tikz,border=4pt]{standalone}
+\input{style.tex}
+\begin{document}
+\begin{tikzpicture}[
+  col/.style={circle, draw=lose, thick, minimum size=9mm, font=\small, fill=white},
+  beat/.style={->, thick, lose, shorten >=1pt, shorten <=1pt}]
+\node[col, draw=win, fill=win!15, very thick] (c1) at (0,0) {$1$};
+\node[col] (c2) at (90:2.8) {$2$};
+\node[col] (c3) at (-30:2.8) {$3$};
+\node[col] (c4) at (210:2.8) {$4$};
+\node[win, font=\scriptsize, align=center, anchor=north] at (0,-0.5)
+  {winner $i^\star$:\\beats every rival};
+\foreach \j in {2,3,4} \draw[->, win, very thick, shorten >=1pt] (c1) -- (c\j);
+\draw[beat] (c2) -- node[font=\scriptsize, sloped, above] {$p_{2,\cdot,3}=2$ finds $X_3[2]=0$} (c3);
+\draw[beat] (c3) -- node[font=\scriptsize, sloped, below] {$p_{3,\cdot,4}=3$ finds $X_4[3]=0$} (c4);
+\draw[beat] (c4) -- node[font=\scriptsize, sloped, above] {$p_{4,\cdot,2}=1$ finds $X_2[1]=0$} (c2);
+\node[font=\scriptsize, lose, align=left, anchor=west] at (3.3,1.2)
+  {the losers form a cycle:\\$2$ beats $3$, $3$ beats $4$,\\and $4$ beats $2$};
+\end{tikzpicture}
+\end{document}
