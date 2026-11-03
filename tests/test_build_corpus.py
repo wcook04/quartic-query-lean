@@ -1,3 +1,4 @@
+import hashlib
 import importlib.util
 import json
 import os
@@ -79,7 +80,8 @@ class EvidenceTests(unittest.TestCase):
 
     def runs(self, declarations):
         return [{"kind": kind, "status": "passed", "declarations": declarations,
-                 "source_hashes": self.HASHES}
+                 "source_hashes": self.HASHES,
+                 **({"declaration_scope": "configured_theorem_names_only"} if kind == "comparator" else {})}
                 for kind in ("lean_build", "comparator")]
 
     def test_presence_alone_is_unassessed_and_unbuilt(self):
@@ -252,6 +254,81 @@ class EvidenceTests(unittest.TestCase):
         self.assertEqual(graph["nodes"][0]["status"], "unverified")
 
 
+class ComparisonScopeTests(unittest.TestCase):
+    """Return 06: names an older receipt scanned from wrapper proofs are not targets."""
+    HASHES = EvidenceTests.HASHES
+    ROW = EvidenceTests.ROW
+    TIE = EvidenceTests.TIE
+    REVIEWED = {"s": [{"declaration": "A.b", "relation": "exact", "route": "same"}]}
+
+    def evidence(self, comparator_run, root):
+        hashes = dict(comparator_run["source_hashes"])
+        build = {"kind": "lean_build", "status": "passed", "declarations": ["A.b"],
+                 "source_hashes": hashes}
+        original, MODULE.ROOT = MODULE.ROOT, root
+        try:
+            return MODULE.statement_records(self.ROW, self.TIE, bound_reviews(self.ROW, self.REVIEWED, hashes),
+                                            [build, comparator_run], hashes=hashes)[0]
+        finally:
+            MODULE.ROOT = original
+
+    def historical_run(self, root, config_text, recorded_text=None):
+        config = root / "lean/QuarticCorpus/Bundle/comparator.json"
+        config.parent.mkdir(parents=True, exist_ok=True)
+        config.write_text(config_text)
+        recorded = hashlib.sha256((recorded_text or config_text).encode()).hexdigest()
+        return {"kind": "comparator", "status": "passed",
+                "declarations": ["Checked.wrapper", "A.b"],
+                "command": ["lake", "comparator", "--config", "QuarticCorpus/Bundle/comparator.json"],
+                "source_hashes": {**self.HASHES, "lean/QuarticCorpus/Bundle/comparator.json": recorded}}
+
+    def test_historical_scanned_alias_is_wrapper_mediated_not_compared(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            run = self.historical_run(root, json.dumps({"theorem_names": ["Checked.wrapper"]}))
+            record = self.evidence(run, root)
+        tie = record["lean"][0]
+        self.assertFalse(tie["compared"])
+        self.assertEqual(tie["comparison_evidence"], "not_run")
+        self.assertEqual(tie["wrapper_comparison_evidence"], "current")
+        self.assertEqual(tie["comparison_credit"], "wrapper_mediated_historical")
+        self.assertEqual(record["evidence"]["comparator"], "wrapper_mediated_historical")
+        self.assertEqual(run["declarations"], ["Checked.wrapper", "A.b"])
+
+    def test_historical_configured_target_is_direct(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            run = self.historical_run(root, json.dumps({"theorem_names": ["Checked.wrapper", "A.b"]}))
+            record = self.evidence(run, root)
+        self.assertEqual(record["lean"][0]["comparison_credit"], "direct")
+        self.assertEqual(record["evidence"]["comparator"], "compared")
+
+    def test_changed_or_unbound_configuration_cannot_establish_a_direct_target(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            run = self.historical_run(root, json.dumps({"theorem_names": ["A.b"]}),
+                                      recorded_text=json.dumps({"theorem_names": ["Checked.wrapper"]}))
+            self.assertIsNone(MODULE.configured_names(run, root))
+            self.assertEqual(MODULE.comparison_scope(run, "A.b", root), "wrapper_mediated_historical")
+            del run["source_hashes"]["lean/QuarticCorpus/Bundle/comparator.json"]
+            self.assertIsNone(MODULE.configured_names(run, root))
+
+    def test_graph_subjects_use_direct_targets_only(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            run = self.historical_run(root, json.dumps({"theorem_names": ["Checked.wrapper"]}))
+            record = self.evidence(run, root)
+            original, MODULE.ROOT = MODULE.ROOT, root
+            try:
+                graph = MODULE.evidence_graph([record], [run], run["source_hashes"])
+            finally:
+                MODULE.ROOT = original
+        projected = next(e for e in graph["evidence"] if e["id"] == "run_0")
+        self.assertEqual(projected["subject_ids"], [])
+        self.assertEqual(projected["receipt"]["wrapper_mediated_declarations"], ["A.b"])
+        self.assertEqual(projected["receipt"]["direct_declarations"], ["Checked.wrapper"])
+
+
 class SourceSnapshotTests(unittest.TestCase):
     def test_source_edits_additions_and_removals_invalidate_receipt(self):
         with tempfile.TemporaryDirectory() as folder:
@@ -304,7 +381,8 @@ class ConsumerContractTests(unittest.TestCase):
         reviewed = {"thm-1.1": [{"declaration": "A.b", "relation": "exact", "route": "same",
                                  "premises": ["n > 0"], "open_assumptions": []}]}
         runs = [{"kind": kind, "status": "passed", "declarations": ["A.b"],
-                 "source_hashes": hashes, "command": ["lake", "fixture"], "tool": "mock local operation"}
+                 "source_hashes": hashes, "command": ["lake", "fixture"], "tool": "mock local operation",
+                 **({"declaration_scope": "configured_theorem_names_only"} if kind == "comparator" else {})}
                 for kind in ("lean_build", "comparator")]
         records = MODULE.statement_records(ledger, {}, bound_reviews(ledger, reviewed, hashes), runs, hashes=hashes)
         self.assertEqual(records[0]["evidence"]["comparator"], "compared")

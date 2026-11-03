@@ -22,7 +22,7 @@ The evidence fields answer separate questions, and none of them implies another:
 | `formal_statement` | Does a Lean statement say this: `exact`, `stronger`, `partial`, `weaker`, or `none`? |
 | `review` | Is the authored relation bound to the current statement, tie and local Lean/configuration snapshot? |
 | `build` | Is the declaration in the compiled environment for the current recorded source bytes? |
-| `comparator` | Did Comparator accept it against an independently compiled challenge? |
+| `comparator` | Did Comparator accept it as a configured target against an independently compiled challenge (`compared`)? `wrapper_mediated_historical` means only an older receipt's proof-text scan listed it beside a configured wrapper. |
 | `conditional` | Does the checked theorem carry an open hypothesis? |
 | `route` | Does the Lean proof follow the preprint's, take an `alternative` route, or neither? |
 | `reach` | Does the headline's proof depend on it? |

@@ -15,7 +15,9 @@ Generated outputs:
 
 A `Ledger: <id>` line in a Lean doc comment only proposes a tie. A statement counts
 as checked only through a reviewed relation in ties.json and a receipt that names
-the declaration. Declaration presence never counts.
+the declaration. Declaration presence never counts. Comparison credit is direct
+only for a configured Comparator target; names that older receipts inferred from
+wrapper proof text are reported as `wrapper_mediated_historical`.
 """
 
 import argparse
@@ -221,10 +223,48 @@ def receipts():
             for path in sorted((CORPUS / "receipts").glob("*.json"))]
 
 
-def declaration_evidence(runs, kind, declaration, hashes):
+DIRECT_SCOPE = "configured_theorem_names_only"
+
+
+def comparator_config(run):
+    """Return the `--config` path named by a Comparator receipt's command, if any."""
+    command = run.get("command") or []
+    if "--config" in command and command.index("--config") + 1 < len(command):
+        return "lean/" + command[command.index("--config") + 1]
+    return None
+
+
+def configured_names(run, root=None):
+    """The theorem names Comparator was configured to compare, or None if unknown.
+
+    New receipts record exactly the configured names. Older receipts also listed
+    names scanned from `exact QuarticQuery.*` proof lines. Their configured names
+    are recovered only when the receipt bound the configuration file's hash and
+    that file is unchanged; otherwise no direct target can be established.
+    """
+    if run.get("declaration_scope") == DIRECT_SCOPE:
+        return set(run.get("declarations", []))
+    config = comparator_config(run)
+    recorded = (run.get("source_hashes") or {}).get(config) if config else None
+    path = (Path(root) if root is not None else ROOT) / config if config else None
+    if not recorded or not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != recorded:
+        return None
+    return set(json.loads(path.read_text(encoding="utf-8"))["theorem_names"])
+
+
+def comparison_scope(run, declaration, root=None):
+    """`direct` for a configured target; otherwise a historical wrapper-mediated listing."""
+    if declaration not in run.get("declarations", []):
+        return None
+    configured = configured_names(run, root)
+    return "direct" if configured is not None and declaration in configured else "wrapper_mediated_historical"
+
+
+def declaration_evidence(runs, kind, declaration, hashes, scope=None):
     matching = [run for run in runs if run["kind"] == kind and run["status"] == "passed"
                 and declaration in run.get("declarations", [])
-                and not run.get("negative_control")]
+                and not run.get("negative_control")
+                and (scope is None or comparison_scope(run, declaration) == scope)]
     states = {currentness(run, hashes) for run in matching}
     return next((state for state in ("current", "stale", "legacy_unbound") if state in states), "not_run")
 
@@ -264,7 +304,11 @@ def statement_records(ledger, proposed, reviewed, runs, reached=None, hashes=Non
                            if r["declaration"] == tie["declaration"]), None)
             review_state = review_currentness(ident, row, review, hashes)
             build = declaration_evidence(runs, "lean_build", tie["declaration"], hashes)
-            comparison = declaration_evidence(runs, "comparator", tie["declaration"], hashes)
+            # Only a configured Comparator target is direct comparison evidence. A
+            # name listed by an older receipt's proof-text scan is kept separately.
+            comparison = declaration_evidence(runs, "comparator", tie["declaration"], hashes, "direct")
+            wrapper = declaration_evidence(runs, "comparator", tie["declaration"], hashes,
+                                           "wrapper_mediated_historical")
             ties.append({**tie,
                          "relation": review["relation"] if review_state == "current" else "unassessed",
                          "route": review["route"] if review_state == "current" else "unassessed",
@@ -277,13 +321,20 @@ def statement_records(ledger, proposed, reviewed, runs, reached=None, hashes=Non
                          "note": review.get("note", "") if review else "",
                          "build_evidence": build,
                          "comparison_evidence": comparison,
+                         "wrapper_comparison_evidence": wrapper,
+                         "comparison_credit": ("direct" if comparison == "current" else
+                                               "wrapper_mediated_historical" if wrapper == "current"
+                                               else "none"),
                          "built": build == "current",
                          "compared": comparison == "current",
                          "reached": (None if reached is None or reach_currentness != "current"
                                      else tie["declaration"] in reached)})
-        # The strongest evidence wins: compared before merely built, unconditional first.
+        # The strongest evidence wins: directly compared, then wrapper-mediated,
+        # then merely built; unconditional first within each class.
         best = min((t for t in ties if t["relation"] in CHECKED and t["built"]),
-                   key=lambda t: (not t["compared"], bool(t["open_assumptions"])), default=None)
+                   key=lambda t: (not t["compared"],
+                                  t["comparison_credit"] != "wrapper_mediated_historical",
+                                  bool(t["open_assumptions"])), default=None)
         records.append({
             "id": ident,
             "kind": row["kind"],
@@ -305,7 +356,10 @@ def statement_records(ledger, proposed, reviewed, runs, reached=None, hashes=Non
                     or next((t["relation"] for t in ties if t["relation"] in RELATIONS), "unassessed")),
                 "formal_origin": "ours" if ties else "none",
                 "build": "built_at_pin" if any(t["built"] for t in ties) else "not_run",
-                "comparator": "compared" if best and best["compared"] else "not_run",
+                "comparator": ("compared" if best and best["compared"] else
+                               "wrapper_mediated_historical"
+                               if best and best["comparison_credit"] == "wrapper_mediated_historical"
+                               else "not_run"),
                 "conditional": bool(best and best["open_assumptions"]),
                 # Optional metadata belongs to this selected declaration only.
                 # Its absence means no current built tie was selected; [] is a
@@ -361,8 +415,16 @@ def evidence_graph(records, runs, hashes=None):
                        f"\"{run.get('expected_diagnostic', '')}\"). {details}").strip()
         state = currentness(run, hashes)
         provenance = {"operation": run, "currentness": state}
+        if run["kind"] == "comparator" and not run.get("negative_control"):
+            listed = run.get("declarations", [])
+            provenance["direct_declarations"] = [d for d in listed if comparison_scope(run, d) == "direct"]
+            provenance["wrapper_mediated_declarations"] = [
+                d for d in listed if comparison_scope(run, d) == "wrapper_mediated_historical"]
+            subject_names = set(provenance["direct_declarations"])
+        else:
+            subject_names = set(run.get("declarations", []))
         subjects = [record["id"] for record in records
-                    if any(tie["declaration"] in run.get("declarations", []) for tie in record["lean"])]
+                    if any(tie["declaration"] in subject_names for tie in record["lean"])]
         evidence.append({"id": f"run_{index}", "kind": "semantic_review", "status": "not_run",
                          "receipt": provenance,
                          **({"receipt_path": run["receipt_file"], "receipt_sha256": run["receipt_sha256"]}
@@ -432,7 +494,9 @@ def evidence_graph(records, runs, hashes=None):
                   "its absence is unknown, whereas [] is an explicitly empty list. "
                   "Current statement alignment additionally requires a source-bound authored review; "
                   "builds and comparisons cannot refresh it. Separately derived r2-live rows are withheld. "
-                  "Historical receipt status is preserved separately from currentness."),
+                  "Historical receipt status is preserved separately from currentness. "
+                  "Comparison subjects are configured Comparator targets only; names older receipts "
+                  "inferred from wrapper proof text are listed as wrapper-mediated, not compared."),
         "extraction_status": "not_run",
         "notes": ["Generated by tools/build_corpus.py; edit the inputs, not this file."],
     }

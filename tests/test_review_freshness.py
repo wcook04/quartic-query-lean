@@ -37,7 +37,8 @@ class ReviewFreshnessTests(unittest.TestCase):
         ledger = self.ledger if ledger is None else ledger
         declarations = [review["declaration"]] if declarations is None else declarations
         runs = [{"kind": kind, "status": "passed", "declarations": declarations,
-                 "source_hashes": deepcopy(hashes), "command": ["mock", kind]}
+                 "source_hashes": deepcopy(hashes), "command": ["mock", kind],
+                 **({"declaration_scope": "configured_theorem_names_only"} if kind == "comparator" else {})}
                 for kind in ("lean_build", "comparator")]
         reviewed = {ident: [review] for ident in ledger}
         return MODULE.statement_records(ledger, {}, reviewed, runs, hashes=hashes)[0]
