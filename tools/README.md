@@ -29,6 +29,11 @@ whole historical custody tree needed for every repository maintenance check.
 manuscript snapshot with Pandoc and Tectonic, reusing the submitted round-three
 layout sources. PDF and layout receipts belong outside the source tree. A
 successful render is separate from inspection and mathematical review.
+Authored HTML anchors become PDF destinations (`\hypertarget` plus `\label`, so
+both Pandoc link forms resolve), and the five directory links name reviewed
+files instead of nonexistent `<dir>/.pdf` targets. The render stops on an
+unreviewed directory link, an anchorless internal link, a missing destination or
+an undefined LaTeX reference.
 
 ## Check the repository
 

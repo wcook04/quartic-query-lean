@@ -2,7 +2,8 @@
 """Render the maintained reasoning record using the preserved round-three layout.
 
 Requires Pandoc, Tectonic and Poppler. Render only a frozen manuscript; no source
-edits or bibliography rewriting occur. Output and logs stay outside this checkout.
+edits or bibliography rewriting occur. Authored HTML anchors become PDF
+destinations, and each directory link is retargeted to a reviewed file. Output and logs stay outside this checkout.
 The PDF still requires page-image review; process success is not visual acceptance.
 """
 
@@ -118,6 +119,126 @@ end
 '''
 
 
+# PDF navigation, merged from the two round-four repairs (07 and 08). Pandoc's
+# LaTeX writer drops raw HTML anchors, so the 339 authored `<a id>` targets had
+# no PDF destination and all 199 internal links were inert. Each anchor becomes
+# an explicit hypertarget; anchor-only paragraphs collapse into one raw block so
+# no empty paragraphs are added. hyperref turns a relative link ending in `/`
+# into a remote-PDF action for `<dir>/.pdf`, which does not exist; each such
+# directory link is retargeted to the file its label names. The manuscript bytes
+# are unchanged.
+DIRECTORY_TARGETS = {
+    "../research/returns/funnel/2_short_expert_paper/": "paper.md",
+    "../research/returns/funnel/3_examples_first_exposition/": "exposition.md",
+    ("../research/returns/round3/members/02_forrelation_promise_circuit/"
+     "quartic_r3_02_forrelation_promise_circuit_return/checks/"): "exact_example_checker.py",
+    "../research/returns/round3/members/04_addressed_construction/": "README.md",
+    "../research/returns/round3/members/08_reviewed/quartic_r3_08_return/checks/": "exact_checks.py",
+}
+ANCHOR = re.compile(r'<a\s+id="([\w.:-]+)"\s*>\s*</a>')
+NAVIGATION_LAYOUT = r'''
+local directory_targets = DIRECTORY_TARGETS_TABLE
+
+-- Pandoc emits \\hyperref[id] (label) or \\hyperlink{id} (hypertarget) depending
+-- on its version; provide both destinations at the authored position.
+local function target(id)
+  return "\\hypertarget{" .. id .. "}{}\\phantomsection\\label{" .. id .. "}"
+end
+
+function RawBlock(el)
+  if not FORMAT:match("latex") or el.format ~= "html" then return nil end
+  local id = el.text:match('^%s*<a%s+id="([%w_%.:%-]+)"%s*>%s*</a>%s*$')
+  if id then return pandoc.RawBlock("latex", target(id)) end
+end
+
+function RawInline(el)
+  if not FORMAT:match("latex") or el.format ~= "html" then return nil end
+  local id = el.text:match('^%s*<a%s+id="([%w_%.:%-]+)"%s*>%s*</a>%s*$') or
+             el.text:match('^%s*<a%s+id="([%w_%.:%-]+)"%s*>%s*$')
+  if id then return pandoc.RawInline("latex", target(id)) end
+end
+
+function Para(el)
+  if not FORMAT:match("latex") then return nil end
+  local targets = {}
+  for _, inline in ipairs(el.content) do
+    if inline.t == "RawInline" and inline.format == "latex" and
+       inline.text:match("^\\hypertarget{[%w_%.:%-]+}{}\\phantomsection\\label{[%w_%.:%-]+}$") then
+      targets[#targets + 1] = inline.text
+    elseif inline.t == "RawInline" and inline.format == "html" and
+           inline.text:match("^%s*</a>%s*$") then
+      -- The closing tag of an opening anchor converted above.
+    elseif inline.t ~= "Space" and inline.t ~= "SoftBreak" then
+      return nil
+    end
+  end
+  if #targets > 0 then
+    return pandoc.RawBlock("latex", table.concat(targets, "\n"))
+  end
+end
+
+function Link(el)
+  if not FORMAT:match("latex") then return nil end
+  local replacement = directory_targets[el.target]
+  if replacement then
+    el.target = replacement
+    return el
+  end
+end
+'''
+
+
+def navigation_filter():
+    """The navigation Lua filter with the reviewed directory-link targets."""
+    entries = ",\n".join(f"  [{json.dumps(link)}] = {json.dumps(link + name)}"
+                         for link, name in sorted(DIRECTORY_TARGETS.items()))
+    return NAVIGATION_LAYOUT.replace("DIRECTORY_TARGETS_TABLE", "{\n" + entries + "\n}")
+
+
+def write_filters(stage):
+    """Stage the submitted layout filter with its adaptations, then navigation."""
+    layout = stage / "pdf_layout.lua"
+    shutil.copyfile(LAYOUT / "pdf_layout.lua", layout)
+    with layout.open("a") as handle:
+        handle.write(CODE_LAYOUT)
+    navigation = stage / "pdf_navigation.lua"
+    navigation.write_text(navigation_filter(), encoding="utf-8")
+    return [layout, navigation]
+
+
+def navigation_inputs(ast, source):
+    """Check anchors and links before rendering; refuse an unreviewed directory link."""
+    nodes = list(walk(ast))
+    links = [node["c"][2][0] for node in nodes if node.get("t") == "Link"]
+    anchors = ANCHOR.findall(source.read_text(encoding="utf-8"))
+    internal = [link[1:] for link in links if link.startswith("#")]
+    directories = sorted({link for link in links if link.endswith("/") and "://" not in link})
+    unreviewed = [link for link in directories if link not in DIRECTORY_TARGETS]
+    if unreviewed:
+        raise ValueError(f"directory links need a reviewed file target: {unreviewed}")
+    missing = [link + DIRECTORY_TARGETS[link] for link in directories
+               if not (source.parent / (link + DIRECTORY_TARGETS[link])).is_file()]
+    if missing:
+        raise ValueError(f"reviewed directory-link targets are missing: {missing}")
+    dangling = sorted(set(internal) - set(anchors))
+    if dangling:
+        raise ValueError(f"internal links without an authored anchor: {dangling}")
+    if len(anchors) != len(set(anchors)):
+        raise ValueError("authored anchors are not unique")
+    return {"authored_anchors": len(anchors), "internal_links": len(internal),
+            "directory_links_retargeted": {link: link + DIRECTORY_TARGETS[link] for link in directories}}
+
+
+def check_latex_navigation(tex_text, expected):
+    """Every authored anchor is a LaTeX destination and no directory href remains."""
+    targets = set(re.findall(r"\\hypertarget\{([^}]+)\}", tex_text))
+    missing = sorted(set(expected) - targets)
+    leftover = sorted(link for link in set(re.findall(r"\\href\{([^}]*/)\}", tex_text)) if "://" not in link)
+    if missing or leftover:
+        raise RuntimeError(f"PDF navigation incomplete: missing anchors {missing}, directory links {leftover}")
+    return {"latex_hypertargets": len(targets & set(expected))}
+
+
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
@@ -174,8 +295,13 @@ def main():
     bibliographies = [p.resolve(strict=True) for p in args.bibliography]
     if citations and not bibliographies and "bibliography" not in ast.get("meta", {}):
         parser.error("Pandoc citation nodes found: supply --bibliography or manuscript bibliography metadata")
+    try:
+        navigation = navigation_inputs(ast, source)
+    except ValueError as error:
+        parser.error(str(error))
     receipt = {
         "schema": "quartic-reasoning-record-render-v1", "source": str(source),
+        "navigation": navigation,
         "renderer_sha256": digest(Path(__file__)),
         "source_sha256": source_hash, "reader": READER,
         "ast_counts": dict(Counter(node["t"] for node in nodes if "t" in node)),
@@ -191,7 +317,8 @@ def main():
                        "Comparison tables retain their font size and gain scoped row spacing to separate multiline cells.",
                        "Catalogue entry headings receive a consistent external gap; the quartic-route comparison reserves a larger horizontal gutter.",
                        "Section-specific Needspace and seven-column widths remain the submitted layout.",
-                       "Headings immediately after HTML anchors/comments are recognized without source rewriting."],
+                       "Headings immediately after HTML anchors/comments are recognized without source rewriting.",
+                       "Authored HTML anchors become PDF destinations and reviewed directory links name files (round-four 07/08 merge)."],
         "tools": {name: {"path": path, "version": command([path, "--version"], cwd=source.parent).strip()}
                   for name, path in binaries.items() if name in {"pandoc", "tectonic"}},
         "visual_acceptance": "pending_page_image_review",
@@ -209,10 +336,8 @@ def main():
     # before this command, as required by the host PDF skill.
     with tempfile.TemporaryDirectory(prefix="render-", dir=output) as temporary:
         stage = Path(temporary)
-        for name in ("pdf_header.tex", "pdf_layout.lua"):
-            shutil.copyfile(LAYOUT / name, stage / name)
-        with (stage / "pdf_layout.lua").open("a") as handle:
-            handle.write(CODE_LAYOUT)
+        shutil.copyfile(LAYOUT / "pdf_header.tex", stage / "pdf_header.tex")
+        write_filters(stage)
         # A text subscript occurs outside math in a retained source title. Keep
         # its printed meaning using LaTeX's actual subscript command.
         with (stage / "pdf_header.tex").open("a") as handle:
@@ -228,6 +353,7 @@ def main():
         tex = stage / "reasoning_record.tex"
         argv = [binaries["pandoc"], source, "--from=" + READER, "--standalone", "--to=latex",
                 "--lua-filter=" + str(stage / "pdf_layout.lua"),
+                "--lua-filter=" + str(stage / "pdf_navigation.lua"),
                 "--include-in-header=" + str(stage / "pdf_header.tex"),
                 "-V", "monofont=DejaVuSansMono.ttf",
                 "-V", "fontsize=11pt", "-V", "geometry:margin=24mm",
@@ -238,6 +364,8 @@ def main():
             argv.extend(["--bibliography", bibliography])
         receipt["pandoc_command"] = list(map(str, argv))
         command(argv, cwd=source.parent, log=output / "pandoc.log")
+        receipt["navigation"].update(check_latex_navigation(
+            tex.read_text(encoding="utf-8"), ANCHOR.findall(source.read_text(encoding="utf-8"))))
         reserve(output, args.min_free_gib)
         receipt["tectonic_command"] = [binaries["tectonic"], "--keep-logs", "--keep-intermediates",
                                         "--outdir", str(stage), str(tex)]
@@ -255,6 +383,12 @@ def main():
                 raise RuntimeError(f"Rendering input changed during execution: {path}")
         pdf = stage / "reasoning_record.pdf"
         receipt["pdfinfo"] = command([binaries["pdfinfo"], pdf], cwd=source.parent)
+        destinations = set(re.findall(r'"([^"]+)"\s*$',
+                                      command([binaries["pdfinfo"], "-dests", pdf], cwd=source.parent), re.M))
+        absent = sorted(set(ANCHOR.findall(source.read_text(encoding="utf-8"))) - destinations)
+        if absent:
+            raise RuntimeError(f"{len(absent)} authored anchors are not PDF destinations: {absent[:10]}")
+        receipt["navigation"]["pdf_named_destinations"] = len(destinations)
         boxes = ET.fromstring(command([binaries["pdftotext"], "-bbox", pdf, "-"], cwd=source.parent))
         outside = []
         count = 0
@@ -278,6 +412,10 @@ def main():
         receipt["layout_diagnostics"] = sorted(set(re.findall(
             r"[^\n]*(?:Overfull|Missing character|Undefined control|undefined citations)[^\n]*",
             warnings, flags=re.I)))
+        broken = sorted(set(re.findall(
+            r"[^\n]*(?:Hyper reference|Reference|Label)[^\n]*(?:undefined|multiply defined)[^\n]*", warnings)))
+        if broken:
+            raise RuntimeError(f"{len(broken)} unresolved or duplicate link targets: {broken[:5]}")
         destination = output / pdf.name
         shutil.copyfile(pdf, destination)
         receipt["pdf"] = str(destination)
