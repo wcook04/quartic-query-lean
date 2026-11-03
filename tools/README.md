@@ -13,6 +13,14 @@ the local originals are present. A public clone without those local custody
 files cannot complete this verification. See the [returns guide](../research/returns/README.md#round-seven-returns)
 for the advisory inventory and custody boundary.
 
+[build_round8_packets.py](build_round8_packets.py) builds two feedback packets,
+one per short paper: specialist referees of the expert companion, and newcomers
+and teachers reading the exposition. It reuses the round-seven machinery, including
+the writing method and register measurement, and supplies the round-seven synthesis,
+revision notes, audits and verdicts as the previous round. Pass the three PDFs rendered
+from the current Markdown; the [selection](../research/requests/round8/SELECTION.md)
+describes the panels. Run without `--dest` to validate the inputs without writing ZIPs.
+
 The round-three intake uses [intake_round3_returns.py](intake_round3_returns.py) to
 preserve and verify exact archive/member bytes. It does not execute submitted
 code. The [round-four builder](build_round4_packets.py) reuses the preceding
