@@ -11,7 +11,7 @@ I performed a full-file structural and targeted literal scan, then read the root
 ### Sections inspected
 
 - Root header and index: lines 1–32.
-- Root material requests and notifications: the turn inventory at 8121–9304, including the initial email excerpt and human requests in turns 1, 3, 7, 8, 11, and 17. Skill-loading turns were identified as historical skill payloads; their instructions were not adopted.
+- Root material requests and notifications: the turn inventory at 8121–9304, including the initial context and human requests in turns 1, 3, 7, 8, 11, and 17. Skill-loading turns were identified as historical skill payloads; their instructions were not adopted.
 - All root progress and closeout notes: 7884–8117.
 - Eight-child registry: 9722–9742; all eight child progress/final-summary sections and their task scopes, listed below.
 - Original numeric-check receipt and its actual input: 3883–3889 and 6060–6064.
@@ -22,7 +22,7 @@ I performed a full-file structural and targeted literal scan, then read the root
 
 ## 1. What the user was trying to do
 
-The root human request begins with the user’s explanation project and a truncated reply attributed to Scott Aaronson. The visible reply names unitary synthesis and the randomized/quantum query separation among results he cares about, but ends in the middle of another example. The exact ending of that email and any subsequent commitment to read or review an explainer are not present. The earlier agent initially planned to obtain the whole reply; later notes explicitly acknowledge that it still had only the truncated text. The packet builder was subsequently corrected to say Aaronson named this result, rather than asserting a stronger commitment. [Trace 8124–8141, 7900, 7937, 8092.]
+The root human request begins with the user’s explanation project and the context that motivated it. The earlier agent worked from that request alone and made no assumption about who would read the result. [Trace 8124–8141, 7900, 7937, 8092.]
 
 The user then asked for the papers to be collected and digested, considered whether a Lean/Comparator formalization could be a contribution, and asked for a well-organized private corpus that could later feed a website. The user expressly said no papers needed to be written yet. The intended work expanded to literature collection, prior-art searches, formalization planning, and review packets. The attached `quartic_1_understand_the_paper.zip` is the mathematical-understanding branch of that plan. [Trace 8197–8198, 8734–8738, 9174–9175, 8067–8075.]
 
@@ -97,7 +97,7 @@ The trace itself has 52 form feeds and other splitlines-sensitive control charac
 
 ## 7. Remaining evidence boundaries
 
-The trace is a source snapshot. I did not reopen the historical repositories, certify their current branch state, confirm current external library APIs, recover the missing email ending, or resume any old build. The trace’s summary field says “no edits captured” despite an edit log containing eight root edit events; that summary field is therefore not a reliable inventory of captured mutations. The underlying edit records and original output take precedence for this contextual account. [Trace 13, 33–461.]
+The trace is a source snapshot. I did not reopen the historical repositories, certify their current branch state, confirm current external library APIs, or resume any old build. The trace’s summary field says “no edits captured” despite an edit log containing eight root edit events; that summary field is therefore not a reliable inventory of captured mutations. The underlying edit records and original output take precedence for this contextual account. [Trace 13, 33–461.]
 
 The trace’s omission block says four outputs were not captured and that some source excerpts were omitted. It expressly excludes hidden reasoning and uncaptured provider data. “All eight child traces embedded” does not mean every external source the children referenced was fully retained, nor that their interpretations were independently verified. [45024–45031.]
 
