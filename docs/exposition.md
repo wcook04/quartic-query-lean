@@ -281,23 +281,23 @@ The separation theorem and the construction are OpenAI's [@OpenAI2026]. Addressi
 :::
 
 <!-- lean-links -->
-[cmp-amplifier]: https://github.com/wcook04/quartic-query-lean/blob/main/lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean#L17-L20
-[cmp-direct-product]: https://github.com/wcook04/quartic-query-lean/blob/main/lean/QuarticCorpus/Independent/RealizedCaps/Challenge.lean#L18-L25
-[def-F]: https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L280-L285
-[def-P]: https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L175-L182
-[def-Q]: https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L139-L140
-[def-R]: https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L71-L74
-[def-adaptive]: https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L101-L107
-[def-alpha]: https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L317-L318
-[def-circuit]: https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L190-L199
-[def-oracle]: https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L89-L94
-[def-randomized]: https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L46-L60
-[def-tree]: https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L33-L44
-[statement-config]: https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/comparator.json
-[statement-file]: https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean
-[thm-all]: https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L326-L340
-[thm-alpha]: https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L326
-[thm-cubic]: https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L336-L338
-[thm-forrelation]: https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L340
-[thm-headline]: https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L328-L334
+[cmp-amplifier]: https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean#L17-L20
+[cmp-direct-product]: https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Independent/RealizedCaps/Challenge.lean#L18-L25
+[def-F]: https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L280-L285
+[def-P]: https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L175-L182
+[def-Q]: https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L139-L140
+[def-R]: https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L71-L74
+[def-adaptive]: https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L101-L107
+[def-alpha]: https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L317-L318
+[def-circuit]: https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L190-L199
+[def-oracle]: https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L89-L94
+[def-randomized]: https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L46-L60
+[def-tree]: https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L33-L44
+[statement-config]: https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/comparator.json
+[statement-file]: https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean
+[thm-all]: https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L326-L340
+[thm-alpha]: https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L326
+[thm-cubic]: https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L336-L338
+[thm-forrelation]: https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L340
+[thm-headline]: https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L328-L334
 <!-- /lean-links -->

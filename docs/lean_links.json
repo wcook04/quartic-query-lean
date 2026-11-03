@@ -2,13 +2,13 @@
  "schema": "quartic-lean-links-v1",
  "generated_by": "tools/build_lean_links.py",
  "repository": "https://github.com/wcook04/quartic-query-lean",
- "commit": "752826a36192b25dc08e364a070eb03eb95dbc85",
+ "commit": "659b571510ed501a8fbfb11a82c83549cab42441",
  "boundary": "Reading aid: plain names and line links for Lean objects cited in docs/expert_companion.md and docs/exposition.md. Line ranges are read from the pinned commit; an entry with \"pinned\": false points at main and must be re-pinned once its file is committed. No Lean or Comparator run is implied by an entry.",
  "links": {
   "cmp-amplifier": {
    "reader_name": "bounded amplification returning the good state",
    "path": "lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean",
-   "pinned": false,
+   "pinned": true,
    "declarations": [
     "QuarticQuery.Upper.uniformOpaqueAmplifier"
    ],
@@ -16,7 +16,7 @@
     17,
     20
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/main/lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean#L17-L20",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean#L17-L20",
    "comparator": {
     "credit": [
      "direct"
@@ -29,7 +29,7 @@
   "cmp-degree": {
    "reader_name": "degree conventions",
    "path": "lean/QuarticCorpus/Independent/Degree/Challenge.lean",
-   "pinned": false,
+   "pinned": true,
    "declarations": [
     "QuarticQuery.Independent.Degree.checked_degree_conventions"
    ],
@@ -37,7 +37,7 @@
     14,
     20
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/main/lean/QuarticCorpus/Independent/Degree/Challenge.lean#L14-L20",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Independent/Degree/Challenge.lean#L14-L20",
    "comparator": {
     "credit": [
      "direct"
@@ -50,7 +50,7 @@
   "cmp-direct-product": {
    "reader_name": "the direct product with independent randomness",
    "path": "lean/QuarticCorpus/Independent/RealizedCaps/Challenge.lean",
-   "pinned": false,
+   "pinned": true,
    "declarations": [
     "QuarticQuery.direct_product_external_finite_realized_caps"
    ],
@@ -58,7 +58,7 @@
     18,
     25
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/main/lean/QuarticCorpus/Independent/RealizedCaps/Challenge.lean#L18-L25",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Independent/RealizedCaps/Challenge.lean#L18-L25",
    "comparator": {
     "credit": [
      "direct"
@@ -79,7 +79,7 @@
     19,
     24
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Independent/Eq19/Challenge.lean#L19-L24",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Independent/Eq19/Challenge.lean#L19-L24",
    "comparator": {
     "credit": [
      "direct"
@@ -93,7 +93,7 @@
    "reader_name": "the four parts of Lemma 2.2",
    "path": "lean/QuarticCorpus/Construction/Challenge.lean",
    "pinned": true,
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Construction/Challenge.lean"
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Construction/Challenge.lean"
   },
   "cmp-lemma22-full": {
    "reader_name": "Lemma 2.2 as one statement",
@@ -106,7 +106,7 @@
     14,
     41
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Independent/ConstructionFull/Challenge.lean#L14-L41",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Independent/ConstructionFull/Challenge.lean#L14-L41",
    "comparator": {
     "credit": [
      "direct"
@@ -120,12 +120,12 @@
    "reader_name": "the five wrong solutions",
    "path": "lean/QuarticCorpus/Negative",
    "pinned": true,
-   "url": "https://github.com/wcook04/quartic-query-lean/tree/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Negative"
+   "url": "https://github.com/wcook04/quartic-query-lean/tree/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Negative"
   },
   "cmp-zero-cost": {
    "reader_name": "zero-cost characterisation of D, R and Q",
    "path": "lean/QuarticCorpus/Independent/ModelZero/Challenge.lean",
-   "pinned": false,
+   "pinned": true,
    "declarations": [
     "QuarticQuery.Independent.ModelZero.checked_zero_query_characterization"
    ],
@@ -133,7 +133,7 @@
     11,
     14
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/main/lean/QuarticCorpus/Independent/ModelZero/Challenge.lean#L11-L14",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Independent/ModelZero/Challenge.lean#L11-L14",
    "comparator": {
     "credit": [
      "direct"
@@ -154,7 +154,7 @@
     280,
     285
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L280-L285",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L280-L285",
    "comparator": {
     "credit": [
      "statement_dependency"
@@ -175,7 +175,7 @@
     302,
     303
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L302-L303",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L302-L303",
    "comparator": {
     "credit": [
      "statement_dependency"
@@ -196,7 +196,7 @@
     297,
     300
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L297-L300",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L297-L300",
    "comparator": {
     "credit": [
      "statement_dependency"
@@ -217,7 +217,7 @@
     175,
     182
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L175-L182",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L175-L182",
    "comparator": {
     "credit": [
      "statement_dependency"
@@ -238,7 +238,7 @@
     139,
     140
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L139-L140",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L139-L140",
    "comparator": {
     "credit": [
      "statement_dependency"
@@ -259,7 +259,7 @@
     133,
     137
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L133-L137",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L133-L137",
    "comparator": {
     "credit": [
      "statement_dependency"
@@ -280,7 +280,7 @@
     71,
     74
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L71-L74",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L71-L74",
    "comparator": {
     "credit": [
      "statement_dependency"
@@ -301,7 +301,7 @@
     62,
     65
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L62-L65",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L62-L65",
    "comparator": {
     "credit": [
      "statement_dependency"
@@ -322,7 +322,7 @@
     101,
     107
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L101-L107",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L101-L107",
    "comparator": {
     "credit": [
      "statement_dependency"
@@ -343,7 +343,7 @@
     317,
     318
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L317-L318",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L317-L318",
    "comparator": {
     "credit": [
      "statement_dependency"
@@ -364,7 +364,7 @@
     305,
     309
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L305-L309",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L305-L309",
    "comparator": {
     "credit": [
      "statement_dependency"
@@ -386,7 +386,7 @@
     84,
     87
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L84-L87",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L84-L87",
    "comparator": {
     "credit": [
      "statement_dependency"
@@ -407,7 +407,7 @@
     232,
     238
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L232-L238",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L232-L238",
    "comparator": {
     "credit": [
      "statement_dependency"
@@ -429,7 +429,7 @@
     190,
     199
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L190-L199",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L190-L199",
    "comparator": {
     "credit": [
      "statement_dependency"
@@ -450,7 +450,7 @@
     289,
     293
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L289-L293",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L289-L293",
    "comparator": {
     "credit": [
      "not_in_any_configured_statement"
@@ -471,7 +471,7 @@
     160,
     166
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L160-L166",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L160-L166",
    "comparator": {
     "credit": [
      "statement_dependency"
@@ -492,7 +492,7 @@
     89,
     94
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L89-L94",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L89-L94",
    "comparator": {
     "credit": [
      "statement_dependency"
@@ -513,7 +513,7 @@
     18,
     19
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L18-L19",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L18-L19",
    "comparator": {
     "credit": [
      "statement_dependency"
@@ -534,7 +534,7 @@
     109,
     116
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L109-L116",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L109-L116",
    "comparator": {
     "credit": [
      "statement_dependency"
@@ -557,7 +557,7 @@
     46,
     60
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L46-L60",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L46-L60",
    "comparator": {
     "credit": [
      "statement_dependency"
@@ -578,7 +578,7 @@
     215,
     221
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L215-L221",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L215-L221",
    "comparator": {
     "credit": [
      "statement_dependency"
@@ -599,7 +599,7 @@
     21,
     22
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L21-L22",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L21-L22",
    "comparator": {
     "credit": [
      "statement_dependency"
@@ -622,7 +622,7 @@
     33,
     44
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L33-L44",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L33-L44",
    "comparator": {
     "credit": [
      "statement_dependency"
@@ -643,7 +643,7 @@
     311,
     315
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L311-L315",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L311-L315",
    "comparator": {
     "credit": [
      "statement_dependency"
@@ -664,7 +664,7 @@
     262,
     272
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L262-L272",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L262-L272",
    "comparator": {
     "credit": [
      "statement_dependency"
@@ -685,7 +685,7 @@
     86,
     90
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticQuery/Upper/Bound.lean#L86-L90"
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticQuery/Upper/Bound.lean#L86-L90"
   },
   "src-constants": {
    "reader_name": "Theorem 1 with the constants 6 and 1/400",
@@ -698,7 +698,7 @@
     28,
     40
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticQuery/Paper/ConstructionFamily.lean#L28-L40"
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticQuery/Paper/ConstructionFamily.lean#L28-L40"
   },
   "src-forrelation-uniform": {
    "reader_name": "the uniform Forrelation estimate",
@@ -711,7 +711,7 @@
     525,
     532
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticQuery/ForrelationLower/Uniform.lean#L525-L532"
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticQuery/ForrelationLower/Uniform.lean#L525-L532"
   },
   "src-per-time": {
    "reader_name": "the per-time event",
@@ -724,18 +724,18 @@
     340,
     348
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticQuery/Paper/ClassicalPlanted.lean#L340-L348"
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticQuery/Paper/ClassicalPlanted.lean#L340-L348"
   },
   "src-reach": {
    "reader_name": "the dependency printer",
    "path": "lean/scripts/Reach.lean",
    "pinned": true,
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/scripts/Reach.lean"
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/scripts/Reach.lean"
   },
   "src-zero-successor": {
    "reader_name": "the induction with |U|+1",
    "path": "lean/QuarticQuery/LowerBound/Planted/ZeroSearchSuccessor.lean",
-   "pinned": false,
+   "pinned": true,
    "declarations": [
     "QuarticQuery.zero_search_sum_successor"
    ],
@@ -743,7 +743,7 @@
     17,
     22
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/main/lean/QuarticQuery/LowerBound/Planted/ZeroSearchSuccessor.lean#L17-L22"
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticQuery/LowerBound/Planted/ZeroSearchSuccessor.lean#L17-L22"
   },
   "src-zero-two": {
    "reader_name": "the bound 2G/m^2",
@@ -756,19 +756,19 @@
     213,
     219
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticQuery/Paper/ClassicalPlanted.lean#L213-L219"
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticQuery/Paper/ClassicalPlanted.lean#L213-L219"
   },
   "statement-config": {
    "reader_name": "the Comparator configuration of the four theorems",
    "path": "lean/QuarticCorpus/Unconditional/comparator.json",
    "pinned": true,
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/comparator.json"
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/comparator.json"
   },
   "statement-file": {
    "reader_name": "the statement file",
    "path": "lean/QuarticCorpus/Unconditional/Challenge.lean",
    "pinned": true,
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean"
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean"
   },
   "thm-all": {
    "reader_name": "the four compared theorems",
@@ -784,7 +784,7 @@
     326,
     340
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L326-L340",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L326-L340",
    "comparator": {
     "credit": [
      "direct"
@@ -805,7 +805,7 @@
     326,
     326
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L326",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L326",
    "comparator": {
     "credit": [
      "direct"
@@ -826,7 +826,7 @@
     336,
     338
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L336-L338",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L336-L338",
    "comparator": {
     "credit": [
      "direct"
@@ -847,7 +847,7 @@
     340,
     340
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L340",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L340",
    "comparator": {
     "credit": [
      "direct"
@@ -868,7 +868,7 @@
     328,
     334
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L328-L334",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L328-L334",
    "comparator": {
     "credit": [
      "direct"
