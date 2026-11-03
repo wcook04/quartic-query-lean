@@ -1,0 +1,544 @@
+{
+ "document": "reasoning_record",
+ "dispositions": [
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-001",
+   "severity": "high",
+   "disposition": "already_resolved",
+   "where": "whole PDF; renderer tools/render_reasoning_record.py (901190e)",
+   "note": "A fresh render of the unchanged record (before any edit) had 199 internal GoTo link annotations, 1129 named destinations, no broken destination and no '/.pdf' action; the reviewed PDF was the pre-901190e render. The revised record renders with 293 GoTo links and no broken target."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-002",
+   "severity": "high",
+   "disposition": "already_resolved",
+   "where": "§1.1 drafts link (now Appendix F.7); §§3.5, 4.4, A.2 checker links",
+   "note": "The renderer retargets each reviewed directory link to a named file (paper.md, exposition.md, exact_example_checker.py, README.md, exact_checks.py); the fresh render has no '/.pdf' action and every file target exists."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-006",
+   "severity": "high",
+   "disposition": "fixed",
+   "where": "§1.1 #record-reading-routes; arrival notes at #upper-ideal-process, #CL-discrepancy, #classical-overview",
+   "note": "Reading routes link the current expert_companion.md and exposition.md; each incoming proof destination now names the companion section to return to. The preserved funnel drafts moved to Appendix F.7 as history."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-007",
+   "severity": "high",
+   "disposition": "fixed",
+   "where": "§2.9 #checked-statements",
+   "note": "New statement-first subsection: the four configured Unconditional targets with pinned Challenge line links, Solution forwarding, configuration and the 3 November receipt, implementation names as a secondary column; linked from Theorem 1.1, the dependency map and the catalogue introduction."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-012",
+   "severity": "medium",
+   "disposition": "declined",
+   "where": "Appendix B introduction",
+   "note": "The catalogue quotations are byte-matched against the maintained ledger and hashed in the correspondence; retypesetting 121 rows would break that match. The introduction now states why the literal text is kept, and §2.9 supplies a typeset, named index of the central claims with proof links."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-018",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§2 #record-numbering",
+   "note": "Numbering convention moved from §2.8 to the head of §2 and corrected: bare integers are preprint numbers, prefixed labels are local; a crosswalk table locates preprint (1)–(23), including (16) = local (6.4)."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-019",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "Appendix F (F.1–F.6); short status pointers at §§3.16, 4.8, 5.5, 6.1, 7.3, A.6",
+   "note": "Run chronology, packet labels, hash matching and old-comment reconciliation moved to Appendix F with their own passage ids; each mathematical endpoint keeps the statement, premises, evidence category and a link to §2.9."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-020",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§4.4",
+   "note": "The command now links examples/check_example.py directly and names the working directory (the preserved construction return). The file exists in the repository; its absence was a packet omission."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-021",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§6.1 subheadings",
+   "note": "Visible subheadings: Statement; Proof of Lemma 4.1 by conditional values; The cap-event corollary; An adaptive example; Optional: a second proof with unnormalized weights; Use in the planted argument; Sources and formal correspondence. Anchors unchanged."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-022",
+   "severity": "medium",
+   "disposition": "moved_to_record",
+   "where": "§5.6 #upper-continuation-induction",
+   "note": "The Boolean-continuation induction moved to a new optional §5.6 after §5.5; §5.2 now ends with the completed proof of Proposition 3.2 and points to §5.3."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-023",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§6.4 'Optional: alternative search estimates for the erased zero'",
+   "note": "After the early/late proof a sentence states that (19) is proved and the proof continues in §6.5; the finite-world induction and the m+1 refinement sit under an optional heading. Anchors kept, including #CL-zero-optional cited by the companion."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-024",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§7 #ROOT-FAMILY-ASSEMBLY",
+   "note": "The repeated floor-removal proof is replaced by a citation of #CL-floors with its hypotheses and conclusion; §1's quotient derivation is shortened to a sentence and a link to §§7.1–7.2."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-025",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§6 #classical-overview",
+   "note": "The chapter now opens with the generic lower-bound statement and the two-event plan, with links to (18), (19), the simulator and (21), the assembly, and the companion return."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-027",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§3.16 #forr_validation_scope",
+   "note": "Names the configured target Checked.forrelation_lower_bound (type BansalSinhaLower) and identifies bansalSinhaLower as the implementation with no separate comparison credit."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-028",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§2.9 second table; Appendix B introduction",
+   "note": "Compact declaration/status/relation entries for the central claims, with wrapper and configured-target distinctions; the catalogue introduction points there."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-032",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§5.5 route table",
+   "note": "A two-row table sets the headline measured-label/Boolean route beside the separately built list/tensor route, stating which reaches the headline roots."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-034",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§1.1 'Where the exponent stood'",
+   "note": "Short bridge from the cubic bottleneck to the new per-column cost, routed to the companion's §1.1 table and cheat-sheet arithmetic."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-035",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§5 #upper-purpose; Appendix C #ref-AIK2026; reasoning_record.bib",
+   "note": "Ambainis–Iraids–Kokainis added beside Ben-David–Kothari with the preprint's §1.1 identification and the certificate-complexity distinction; bibliography entry added (arXiv v2)."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-036",
+   "severity": "medium",
+   "disposition": "moved_to_record",
+   "where": "Appendix E #forr_bs_mismatch; pointer in §3.16",
+   "note": "The version-specific Bansal–Sinha check moved to Appendix E with its archive hash and line locators; §3.16 keeps a neutral pointer stating it is not a counterexample."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-037",
+   "severity": "medium",
+   "disposition": "moved_to_record",
+   "where": "Appendix E #forr_ssw_comparison; §3 entry #forr-ingredient-preview",
+   "note": "The SSW transfer moved to Appendix E with its full proof; the complete ingredient is now also stated at the entrance of §3, before any optional route."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-038",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§3.3 #forr_repetition",
+   "note": "The Markov-integration and exponential-series derivations are cut to one clause; the repetition count, tail bounds and fixed all-input cap stay."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-039",
+   "severity": "medium",
+   "disposition": "moved_to_record",
+   "where": "§3.12 pointer; Appendix D #forr_coarse_advantage",
+   "note": "(F34) and its one-line derivation moved into Appendix D beside the old threshold it supports; a new anchor and a pointer from §3.12 keep it reachable. Claim marker NEW-FOR-19 moved with it."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-040",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "Appendix E (Bansal–Sinha check); §2 numbering",
+   "note": "The source-comparison logarithm is renamed Lambda with an explicit note that N is Bansal and Sinha's block length. The other collisions (q, ell = k-1 in §3.9) are left with their existing local definitions; renaming them would touch many proved displays for little gain."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-041",
+   "severity": "medium",
+   "disposition": "declined",
+   "where": "§3.10",
+   "note": "No existing figure source matches the three-block derivative path, and the project rule forbids drawing new figures from scratch in this pass; the k=3 calculation (F18)–(F22) remains the explanation."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-042",
+   "severity": "low",
+   "disposition": "fixed",
+   "where": "Appendix B thm-A.1",
+   "note": "Label corrected to 'Appendix A' for #ROOT-APPENDIX-INTRO."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-043",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "2.6. Exact small examples — Two-bit OR and the endpoint 2/3",
+   "note": "§2.6 examples unchanged; the reading guide lists them as an optional model-audit route."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-044",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "Appendix A.6. The quartic estimate and its formal routes",
+   "note": "A.6 route table and headline-route sentence unchanged; Appendix A's run history moved to F.6."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-045",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "1.1 Certificates that disqualify every other candidate",
+   "note": "Dependency map kept; a row for §2.9 and the reading routes were added."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-046",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "3.6 The statement and the proof",
+   "note": "#forr_target and #forr_proof_spine unchanged."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-047",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "5.2 A tournament with probabilistic comparisons",
+   "note": "Coupling proof unchanged and now reachable from the Proposition 3.2 stage list."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-048",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "6.5 A capped simulator for the planted cell",
+   "note": "Simulator, joint event and counterexample kept together; the joint event now directly follows the simulator."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-050",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "6.7. Formal correspondence",
+   "note": "§6.7 scope distinctions unchanged."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-051",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "2.8. Execution evidence and checks of meaning",
+   "note": "Shared-specification control kept in §2.8."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-052",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "3.5. A complete check of the smallest nontrivial instance",
+   "note": "§3.5 table unchanged."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-053",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "3.10. Moving the derivative through the blocks",
+   "note": "§3.10 unchanged."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-054",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "3.14. Error reduction and inputs outside the promise",
+   "note": "§§3.13–3.14 unchanged."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-055",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "3.16. Literature comparison and the scope of the conclusion",
+   "note": "Scope statement moved with the SSW comparison to Appendix E unchanged; the credit paragraph in §3.16 now states the BS/SSW distinction directly."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-001",
+   "severity": "high",
+   "disposition": "already_resolved",
+   "where": "whole PDF; renderer tools/render_reasoning_record.py (901190e)",
+   "note": "A fresh render of the unchanged record (before any edit) had 199 internal GoTo link annotations, 1129 named destinations, no broken destination and no '/.pdf' action; the reviewed PDF was the pre-901190e render. The revised record renders with 293 GoTo links and no broken target."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-002",
+   "severity": "high",
+   "disposition": "fixed",
+   "where": "§2.9 #checked-statements; §3.16 #forr_validation_scope",
+   "note": "Configured Checked targets, statement file, Solution and configuration are linked at the formal entry point; §3.16 now names the configured Forrelation target and calls bansalSinhaLower the implementation that supplies the proof."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-007",
+   "severity": "high",
+   "disposition": "fixed",
+   "where": "§3 #forr-ingredient-preview",
+   "note": "The three-part ingredient with thresholds and proof routes now opens §3, with the full statement still at §3.17 (#forr_bundle unchanged)."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-010",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§2 #record-numbering",
+   "note": "Same correction and crosswalk."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-011",
+   "severity": "medium",
+   "disposition": "already_resolved",
+   "where": "§1.1 drafts link (now Appendix F.7); §§3.5, 4.4, A.2 checker links",
+   "note": "The renderer retargets each reviewed directory link to a named file (paper.md, exposition.md, exact_example_checker.py, README.md, exact_checks.py); the fresh render has no '/.pdf' action and every file target exists."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-015",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "Appendix B introduction",
+   "note": "The JSON link now names the authoritative current_catalogue_snapshot.rows branch and explains that catalogue_rows.current_in_memory_evidence is the frozen historical audit (catalogue_rows_scope)."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-016",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§1.1 #record-reading-routes; Appendix F.7",
+   "note": "Current companion links and per-arrival return routes added; historical draft links separated into Appendix F.7."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-021",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§2.8 now an evidence-reading key; Appendix F",
+   "note": "§2.8 keeps the proof/build/comparison/fidelity distinctions and the semantic and shared-specification controls; the 2 November chronology and receipt narratives moved to Appendix F.1."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-022",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§1 #R3-01-QUANTIFIERS; Reading guide",
+   "note": "The opening keeps the fixed-k quantifier warning and the ratio display; the exponentiation and infimum derivation now link to §§7.1–7.2. A reading guide before §1 states the mechanism first."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-023",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§5.2 #upper-tournament-statement",
+   "note": "Proposition 3.2 is stated in full at the start of §5.2 with the four proof stages linked; the companion's arrival anchor #upper-ideal-process carries a one-paragraph restatement of its hypotheses."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-024",
+   "severity": "medium",
+   "disposition": "moved_to_record",
+   "where": "§5.6 #upper-continuation-induction",
+   "note": "Moved to an optional subsection that explains tournament_runs; the list proof runs continuously into §5.3."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-025",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§6.1 subheadings",
+   "note": "Same subdivision; (6.11) remains the bridge between the two proofs."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-026",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§6.5",
+   "note": "The joint-event inclusion and (21) now follow the simulator definition directly; the XOR table and the AND conditioning counterexample follow as checks."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-027",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§7 #ROOT-FAMILY-ASSEMBLY",
+   "note": "One canonical floor proof remains at §6.6; §7 restates its conclusion and links it."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-028",
+   "severity": "medium",
+   "disposition": "moved_to_record",
+   "where": "Appendix E; §3.16 pointer",
+   "note": "Both source comparisons moved to Appendix E; §3.16 now passes directly from the credit paragraph to the formal scope and §3.17."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-029",
+   "severity": "medium",
+   "disposition": "declined",
+   "where": "Appendix B introduction; §2.9",
+   "note": "Same reason as the paired finding: literal ledger text is the provenance key. The readable navigation layer for central claims is §2.9; IDs remain the stable keys."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-030",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§2.9 second table",
+   "note": "The threshold 13669k^2, the log-six budget and the named-circuit constants are indexed by name with proof destinations and ordinary-proof versus formal status, separate from the 121 IDs."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-031",
+   "severity": "medium",
+   "disposition": "declined",
+   "where": "§4.3",
+   "note": "The record PDF renderer has no SVG pipeline and the exposition's concrete board uses different valid inputs (values 1, 0, -1 against the record's 1/2, 0, -1/2); adding the companion's column figure needs a renderer change and a crosswalk better done with the figure owners. Recorded for a later pass."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-033",
+   "severity": "low",
+   "disposition": "fixed",
+   "where": "§3.3 #forr_repetition",
+   "note": "Same compression."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-034",
+   "severity": "low",
+   "disposition": "moved_to_record",
+   "where": "Appendix D #forr_coarse_advantage",
+   "note": "Same move."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-035",
+   "severity": "low",
+   "disposition": "fixed",
+   "where": "Appendix B thm-A.1 and def-Sf",
+   "note": "thm-A.1 label corrected; def-Sf now links the definition in §A.1 (#R3-A-DEFINITIONS) and its use in §A.3."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-037",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "1.1 Certificates that disqualify every other candidate — Dependencies and proof recovery",
+   "note": "Dependency map kept and extended with §2.9 and return routes."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-038",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "3.6 The statement and the proof",
+   "note": "#forr_target arrival unchanged."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-039",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "5.2. A tournament with probabilistic comparisons",
+   "note": "Exact pivot law, coupling boundary and cyclic example unchanged."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-040",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "6.4. Discoveries and the erased zero",
+   "note": "Identity and 175/256 example kept adjacent; the fallback branch's probability 81/256 is now named."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-041",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "7. The optimal exponent",
+   "note": "Common-circuit and quantifier checks in §7 unchanged; only the duplicate floor proof was replaced by a link."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-042",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "A.6. The quartic estimate and its formal routes",
+   "note": "A.6 table unchanged."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-043",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "2.8. Execution evidence and checks of meaning",
+   "note": "§2.8 boundary sentence moved to Appendix F.1 with the 2 November chronology; the same distinction is stated at §2.9 and paired with the exact-name index."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-045",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "6.7. Formal correspondence — The expectation estimate and its route",
+   "note": "§6.7 whole-display/route distinction unchanged; §2.9 links eq19_whole and the ordinary proof."
+  }
+ ],
+ "link_requests": [],
+ "lessons": [
+  "Open a long proof record with a short reading guide: the result, the mechanism in two or three sentences, what the record adds, who each part is for, and a table separating the required proof path from optional routes and evidence, each cell linked.",
+  "Begin every major section with one sentence saying where it is going before any definition or technical step.",
+  "At a statement-first formal entry point, give each central claim its configured target, its implementation, and whether the formal statement is the same as the claim, stronger, or weaker/partial, with how it differs; mark relations whose review is not current.",
+  "Every proof destination that another document links to should open with the statement it proves and its hypotheses, plus a one-line route back to the citing document; when a link must land mid-argument, put an arrival note at the anchor.",
+  "Keep run chronology, packet labels and receipt history in one evidence appendix; at each mathematical endpoint keep only the statement, premises, evidence category and a link.",
+  "Mark alternative proofs, refinements and literature forensics as optional where they occur, or move them to appendices with their anchors, so the required path reads continuously.",
+  "When a displayed equation-numbering convention mixes source and local labels, state the rule at the start and give a crosswalk rather than a blanket sentence.",
+  "Verify rendered navigation (PDF link annotations, destinations, file actions) on the actual output; anchor existence in the source does not prove a working link, and a correct anchor can sit behind a wrong label."
+ ]
+}

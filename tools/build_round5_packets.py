@@ -55,6 +55,8 @@ EXEMPLARS = {
     "exemplars/qaoa-sk/short/paper.pdf": "writing/structural/lean-exposition/papers/qaoa-sk/short/paper.pdf",
     "exemplars/qaoa-sk/expository/main.pdf": "writing/structural/lean-exposition/papers/qaoa-sk/expository/main.pdf",
 }
+# Captions may contain brackets, so match the image target itself.
+IMAGE = re.compile(r"\]\(([^)\s]+\.(?:svg|png|jpg|pdf))\)(?:\{[^}]*\})?")
 REPOSITORY_URL = re.compile(r"^https://github\.com/wcook04/quartic-query-lean/(blob|tree)/([^/]+)/(.+)$")
 
 # Exact editions were read from each supplied original's first page.
@@ -290,6 +292,8 @@ def inputs(job, *, root, requests_dir, annexes, paper_annex, expert_pdf, exposit
     linked, _ = resolve_draft_links(root)
     for member, source in linked.items():
         add(member, source, "draft_link_target", "repository:" + member.split("/", 1)[1])
+    for name in figure_sources(root):
+        add("repository/" + name, root / name, "draft_figure_source", "repository:" + name)
     for name in ("source.pdf", "extracted.md"):
         add("paper/" + name, paper_annex / name, "primary_preprint", "annex:preprint/" + name)
     for member, path in EXEMPLARS.items():
@@ -315,6 +319,20 @@ def inputs(job, *, root, requests_dir, annexes, paper_annex, expert_pdf, exposit
         for member, (source, _) in pdf_files.items():
             add(member, source, "record_pdf_link_target", "repository:" + member.split("/", 1)[1])
     return files
+
+
+def figure_sources(root):
+    """Every figure a draft embeds, with its TikZ source when one sits beside it."""
+    names = set()
+    for draft in DRAFTS:
+        text = (root / draft).read_text(encoding="utf-8")
+        for target in IMAGE.findall(text):
+            image = posixpath.normpath(posixpath.join(posixpath.dirname(draft), unquote(target)))
+            names.add(image)
+            tex = posixpath.splitext(image)[0] + ".tex"
+            if (root / tex).is_file():
+                names.add(tex)
+    return sorted(names)
 
 
 def source_status(root, data, record_pdf):

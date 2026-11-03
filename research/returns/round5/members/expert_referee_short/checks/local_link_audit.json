@@ -1,0 +1,1015 @@
+{
+  "method": "Independent static scan of used inline destinations and reference links; bracket-safe destination matching includes nested brackets in image captions. Repository URLs were checked against supplied local bytes, not the unavailable remote commit. No Lean/Comparator execution.",
+  "input_LINK_MAP_problem_count": 0,
+  "links": [
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "figures/expert_column.svg",
+      "present_in_LINK_MAP": true,
+      "member": "repository/docs/figures/expert_column.svg",
+      "exists_locally": true
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "figures/expert_planted.svg",
+      "present_in_LINK_MAP": false,
+      "member": "repository/docs/figures/expert_planted.svg",
+      "exists_locally": false
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Construction/Challenge.lean",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Construction/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Independent/ConstructionFull/Challenge.lean#L14-L41",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Independent/ConstructionFull/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        14,
+        41
+      ],
+      "line_range_exists": true,
+      "highlight": "theorem construction_lemma_2_2_with_support {k t : \u2115}\n    (C : Circuit (ForrelationCoord k t)) (A : \u2115) (ht : 1 \u2264 t)\n    (hC : CircuitRealises C (P k t))\n    (hS : C.size \u2264 A * mValue t * (2 * t) ^ 2) :\n    (\u2200 (i : Column (2 * t)) (s : Address (40 * t))\n        (e : Fin (2 ^ (2 * t) - 1)) (q : Fin (2 * t) \u2295 Column (2 * t)),\n      \u2203 X Y : BitInput (Loc k t C),\n        (\u2200 p, p \u2260 constructionPointerLoc C (2 * t) (40 * t) i s e q \u2192\n          X p = Y p) \u2227\n        localTest C (2 * t) (40 * t) X i s (.inr (.inl e)) \u2260\n          localTest C (2 * t) (40 * t) Y i s (.inr (.inl e))) \u2227\n    Fintype.card (TestIndex (2 * t) (40 * t) C.size) =\n      mValue t + (mValue t - 1) + 40 * t * (C.size + 2) \u2227\n    Fintype.card (TestIndex (2 * t) (40 * t) C.size) \u2264\n      (42 + 20 * A) * mValue t * (2 * t) ^ 3 \u2227\n    (\u2200 (x : BitInput (Loc k t C)) (i : Column (2 * t)) (s : Address (40 * t)),\n      PaperWinsAt (P k t) C (2 * t) (40 * t) x i s \u2194\n        \u2200 e : TestIndex (2 * t) (40 * t) C.size,\n          localTest C (2 * t) (40 * t) x i s e = true) \u2227\n    (\u2200 (i : Column (2 * t)) (s : Address (40 * t))\n        (e : TestIndex (2 * t) (40 * t) C.size),\n      (\u2200 x, (localTestTree C (2 * t) (40 * t) i s e).eval x =\n        localTest C (2 * t) (40 * t) x i s e) \u2227\n      (localTestTree C (2 * t) (40 * t) i s e).depth \u2264 2 * t + 1) \u2227\n    (\u2200 (i : Column (2 * t)) (s : Address (40 * t)),\n      \u2203 (Z : TestIndex (2 * t) (40 * t) C.size \u2192 Type)\n        (instZ : \u2200 e, Fintype (Z e)),\n        let _ := instZ"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Independent/Eq19/Challenge.lean#L19-L24",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Independent/Eq19/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        19,
+        24
+      ],
+      "line_range_exists": true,
+      "highlight": "theorem checked_eq19 {\u03ba : Type} [Fintype \u03ba] [DecidableEq \u03ba]\n    {\u2113 r S : \u2115} {\u03bc : BitInput \u03ba \u2192 \u211d}\n    (h\u03bc : \u2200 x, 0 \u2264 \u03bc x) (h\u03bc1 : \u2211 x, \u03bc x = 1) {G : \u2115}\n    (T : QueryTree (BitLoc \u2113 r S \u03ba)) (hT : T.depth \u2264 G) :\n    (hitProbability \u03bc T = expectedCount \u03bc T / ((2 ^ \u2113 : \u2115) : \u211d)) \u2227\n    (hitProbability \u03bc T \u2264 4 * (G : \u211d) / ((2 ^ \u2113 : \u2115) : \u211d) ^ 2) := by"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L101-L107",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        101,
+        107
+      ],
+      "line_range_exists": true,
+      "highlight": "/-- Finite classical control over unitary steps, oracle calls and binary\nprojective measurements. Computation between queries is unrestricted. -/\ninductive AdaptiveProgram (\u03b9 : Type) [Fintype \u03b9] (w : \u2115) where\n  | output (answer : Bool)\n  | unitary (U : State \u03b9 w \u2192\u2097\u1d62[\u2102] State \u03b9 w) (next : AdaptiveProgram \u03b9 w)\n  | query (next : AdaptiveProgram \u03b9 w)\n  | measure (S : Finset (Basis \u03b9 w)) (yes no : AdaptiveProgram \u03b9 w)"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L109-L116",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        109,
+        116
+      ],
+      "line_range_exists": true,
+      "highlight": "/-- The query cap is syntactic: it bounds every branch on every input, including\ninputs outside a promise. -/\ndef AdaptiveProgram.queryCap {\u03b9 : Type} [Fintype \u03b9] {w : \u2115} :\n    AdaptiveProgram \u03b9 w \u2192 \u2115\n  | .output _ => 0\n  | .unitary _ next => next.queryCap\n  | .query next => 1 + next.queryCap\n  | .measure _ yes no => max yes.queryCap no.queryCap"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L133-L137",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        133,
+        137
+      ],
+      "line_range_exists": true,
+      "highlight": "def QLe {\u03b9 : Type} [Fintype \u03b9] (f : PartialBool \u03b9) (budget : \u2115) : Prop :=\n  ConstantOnPromise f \u2228\n  \u2203 (w : \u2115) (\u03c8\u2080 : State \u03b9 w) (A : AdaptiveProgram \u03b9 w),\n    \u2016\u03c8\u2080\u2016 = 1 \u2227 A.queryCap \u2264 budget \u2227\n    \u2200 x b, f x = some b \u2192 (2 / 3 : \u211d) \u2264 A.outputMass x \u03c8\u2080 b"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L139-L140",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        139,
+        140
+      ],
+      "line_range_exists": true,
+      "highlight": "noncomputable def Q {\u03b9 : Type} [Fintype \u03b9] (f : PartialBool \u03b9) : \u2115 :=\n  sInf {t : \u2115 | QLe f t}"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L160-L166",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        160,
+        166
+      ],
+      "line_range_exists": true,
+      "highlight": "/-- `N = z\u2081\u1d40 W D_{z\u2082} W \u22ef W D_{z_k} (1, \u2026, 1)\u1d40`, expanded over paths. -/\ndef forrelationNumerator (k t : \u2115) (z : BitInput (ForrelationCoord k t)) : \u2124 :=\n  \u2211 path : Fin k \u2192 Fin (mValue t),\n    (\u220f h : Fin k, bitSign (z (h, path h))) *\n    (\u220f h : Fin (k - 1),\n      walshSign t (path \u27e8h.val, Nat.lt_of_lt_of_le h.isLt (Nat.sub_le k 1)\u27e9)\n        (path \u27e8h.val + 1, Nat.add_lt_of_lt_sub h.isLt\u27e9))"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L175-L182",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        175,
+        182
+      ],
+      "line_range_exists": true,
+      "highlight": "/-- Equation (4) with `\u03b4 = 2^(-5k)`, written as the exact integer tests of\nLemma 2.1(iii). A large negative value of `\u03a6` is outside the promise. -/\ndef P (k t : \u2115) : PartialBool (ForrelationCoord k t) := fun z =>\n  let N := forrelationNumerator k t z\n  let M := forrelationDenominator k t\n  if (2 : \u2124) ^ (5 * k) * N \u2265 M then some true\n  else if (2 : \u2124) ^ (5 * k + 1) * |N| \u2264 M then some false\n  else none"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L18-L19",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        18,
+        19
+      ],
+      "line_range_exists": true,
+      "highlight": "/-- `none` marks an input outside the promise. -/\nabbrev PartialBool (\u03b9 : Type) := BitInput \u03b9 \u2192 Option Bool"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L190-L199",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        190,
+        199
+      ],
+      "line_range_exists": true,
+      "highlight": "structure Gate (\u03b9 : Type) (earlier : \u2115) where\n  left : Option (\u03b9 \u2295 Fin earlier)\n  right : Option (\u03b9 \u2295 Fin earlier)\n  table : Bool \u2192 Bool \u2192 Bool\n\nstructure Circuit (\u03b9 : Type) where\n  size : \u2115\n  gate : (g : Fin size) \u2192 Gate \u03b9 g.val\n  domainOut : Fin size\n  valueOut : Fin size"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L21-L22",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        21,
+        22
+      ],
+      "line_range_exists": true,
+      "highlight": "def totalise {\u03b9 : Type} (f : TotalBool \u03b9) : PartialBool \u03b9 :=\n  fun x => some (f x)"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L215-L221",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        215,
+        221
+      ],
+      "line_range_exists": true,
+      "highlight": "/-- Lemma 2.1(iii): `d = 1` iff the function is defined, and `d = 1` implies\n`b` is its value, on every input. -/\nstructure CircuitRealises {\u03b9 : Type} (C : Circuit \u03b9) (f : PartialBool \u03b9) : Prop where\n  exists_transcript : \u2200 x, \u2203 tr, GateConsistent C x tr\n  correct : \u2200 x tr, GateConsistent C x tr \u2192\n    (tr C.domainOut = true \u2194 promised f x) \u2227\n    (tr C.domainOut = true \u2192 f x = some (tr C.valueOut))"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L232-L238",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        232,
+        238
+      ],
+      "line_range_exists": true,
+      "highlight": "/-- The four kinds of input bit: the strings `X_i`; the strings `A_{i,h}`; the\npointer bits of each cell; the transcript bits of each cell. -/\nabbrev BitLoc (\u2113 r S : \u2115) (\u03ba : Type) :=\n  (Column \u2113 \u00d7 Column \u2113) \u2295\n  (Column \u2113 \u00d7 Fin r \u00d7 \u03ba) \u2295\n  (\u03a3 i : Column \u2113, Address r \u00d7 {j : Column \u2113 // j \u2260 i} \u00d7 Fin \u2113) \u2295\n  (Column \u2113 \u00d7 Address r \u00d7 Fin r \u00d7 Fin S)"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L262-L272",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        262,
+        272
+      ],
+      "line_range_exists": true,
+      "highlight": "/-- Column `i` is a winner with true address `s`: `X_i` is all ones, every\n`f(A_{i,h})` is defined and equals `s h`, the cell at `s` holds correct\ntranscripts, and its pointers find a zero in every other column. These are the\nconditions around (7) and (8). -/\ndef WinsAt {\u03ba : Type} (f : PartialBool \u03ba) (C : Circuit \u03ba) (\u2113 r : \u2115)\n    (x : BitInput (BitLoc \u2113 r C.size \u03ba)) (i : Column \u2113) (s : Address r) : Prop :=\n  (\u2200 j, readX x i j = true) \u2227\n  (\u2200 h, f (readA x i h) = some (s h)) \u2227\n  (\u2200 h, GateConsistent C (readA x i h) (readTranscript x i s h)) \u2227\n  (\u2200 j : {j : Column \u2113 // j \u2260 i},\n    readX x j.val (pointerEquiv \u2113 (readPointerBit x i s j)) = false)"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L280-L285",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        280,
+        285
+      ],
+      "line_range_exists": true,
+      "highlight": "/-- `F_{k,m}` for `m = 4 ^ t`: `\u2113 = log\u2082 m = 2t` and `r = \u230820 log\u2082 m\u2309 = 40t`.\n`C` stays a parameter because the preprint specifies a construction scheme, not\none gate numbering. Family theorems quantify over circuits realising `P`. -/\nnoncomputable def Fkm (k t : \u2115) (C : Circuit (ForrelationCoord k t)) :\n    TotalBool (BitLoc (2 * t) (40 * t) C.size (ForrelationCoord k t)) :=\n  addressedF (P k t) C (2 * t) (40 * t)"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L289-L293",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        289,
+        293
+      ],
+      "line_range_exists": true,
+      "highlight": "/-- Equation (10): comparison probabilities are complementary, and no candidate\nbeats itself. No order or transitivity is assumed. -/\nstructure Tournament.IsComparison {\u03b9 : Type} (a : \u03b9 \u2192 \u03b9 \u2192 \u211d) : Prop where\n  complementary : \u2200 i j, i \u2260 j \u2192 a i j + a j i = 1\n  self_zero : \u2200 i, a i i = 0"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L297-L300",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        297,
+        300
+      ],
+      "line_range_exists": true,
+      "highlight": "/-- `L = \u230am^(1-1/k) / (log\u2082 m)\u00b2\u230b`, equation (5). -/\nnoncomputable def Lvalue (k t : \u2115) : \u2115 :=\n  \u230aReal.rpow (mValue t : \u211d) (1 - 1 / (k : \u211d)) /\n    (Real.logb 2 (mValue t : \u211d)) ^ 2\u230b\u208a"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L302-L303",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        302,
+        303
+      ],
+      "line_range_exists": true,
+      "highlight": "/-- `G = \u230amL/100\u230b`, equation (17). -/\ndef Gvalue (m L : \u2115) : \u2115 := m * L / 100"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L305-L309",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        305,
+        309
+      ],
+      "line_range_exists": true,
+      "highlight": "/-- The external input of Lemma 2.1(i): the Bansal\u2013Sinha randomized lower bound\nfor exactly this `P`, in exactly this query model. It is used as a named\nhypothesis and is never an axiom. -/\ndef BansalSinhaLower : Prop :=\n  \u2200 k : \u2115, 2 \u2264 k \u2192 \u2203 t\u2080 : \u2115, \u2200 t : \u2115, t\u2080 \u2264 t \u2192 Lvalue k t < R (P k t)"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L311-L315",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        311,
+        315
+      ],
+      "line_range_exists": true,
+      "highlight": "/-- The membership condition of equation (1). -/\ndef UniversalPower (\u03b1 : \u211d) : Prop :=\n  0 \u2264 \u03b1 \u2227 \u2203 C : \u211d, 0 < C \u2227\n    \u2200 n : \u2115, 1 \u2264 n \u2192 \u2200 f : TotalBool (Fin n),\n      (R (totalise f) : \u211d) \u2264 C * Real.rpow (1 + (Q (totalise f) : \u211d)) \u03b1"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L317-L318",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        317,
+        318
+      ],
+      "line_range_exists": true,
+      "highlight": "/-- `\u03b1_tot`, equation (1). -/\nnoncomputable def alphaTot : \u211d := sInf {\u03b1 : \u211d | UniversalPower \u03b1}"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L326",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        326,
+        326
+      ],
+      "line_range_exists": true,
+      "highlight": "theorem alpha_tot_eq_four : alphaTot = 4 := by"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L326-L340",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        326,
+        340
+      ],
+      "line_range_exists": true,
+      "highlight": "theorem alpha_tot_eq_four : alphaTot = 4 := by\n  sorry\ntheorem theorem_one_one :\n    alphaTot = 4 \u2227 UniversalPower 4 \u2227\n      \u2200 k : \u2115, 2 \u2264 k \u2192 \u2203 (S A : \u2115) (b : \u2115) (t\u2080 : \u2115), 0 < A \u2227 \u2200 t, max 1 t\u2080 \u2264 t \u2192\n        \u2203 C : Circuit (ForrelationCoord k t), CircuitRealises C (P k t) \u2227\n          C.size \u2264 S * mValue t * (2 * t) ^ 2 \u2227\n          (Q (totalise (Fkm k t C)) : \u211d) \u2264 (A : \u211d) * 2 ^ t * (2 * (t : \u211d)) ^ b \u2227\n          Gvalue (mValue t) (Lvalue k t) < R (totalise (Fkm k t C)) := by\n  sorry\ntheorem cubic_bound_fails :\n    \u00ac \u2203 C : \u211d, \u2200 n : \u2115, 1 \u2264 n \u2192 \u2200 f : TotalBool (Fin n),\n      (R (totalise f) : \u211d) \u2264 C * (Q (totalise f) : \u211d) ^ 3 := by\n  sorry\ntheorem forrelation_lower_bound : BansalSinhaLower := by"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L328-L334",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        328,
+        334
+      ],
+      "line_range_exists": true,
+      "highlight": "theorem theorem_one_one :\n    alphaTot = 4 \u2227 UniversalPower 4 \u2227\n      \u2200 k : \u2115, 2 \u2264 k \u2192 \u2203 (S A : \u2115) (b : \u2115) (t\u2080 : \u2115), 0 < A \u2227 \u2200 t, max 1 t\u2080 \u2264 t \u2192\n        \u2203 C : Circuit (ForrelationCoord k t), CircuitRealises C (P k t) \u2227\n          C.size \u2264 S * mValue t * (2 * t) ^ 2 \u2227\n          (Q (totalise (Fkm k t C)) : \u211d) \u2264 (A : \u211d) * 2 ^ t * (2 * (t : \u211d)) ^ b \u2227\n          Gvalue (mValue t) (Lvalue k t) < R (totalise (Fkm k t C)) := by"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L33-L44",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        33,
+        44
+      ],
+      "line_range_exists": true,
+      "highlight": "inductive QueryTree (\u03b9 : Type) where\n  | leaf (answer : Bool)\n  | query (index : \u03b9) (onFalse onTrue : QueryTree \u03b9)\n\ndef QueryTree.eval {\u03b9 : Type} : QueryTree \u03b9 \u2192 BitInput \u03b9 \u2192 Bool\n  | .leaf b, _ => b\n  | .query i l r, x => if x i then r.eval x else l.eval x\n\n/-- The longest root-to-leaf path. Repeated queries are charged. -/\ndef QueryTree.depth {\u03b9 : Type} : QueryTree \u03b9 \u2192 \u2115\n  | .leaf _ => 0\n  | .query _ l r => 1 + max l.depth r.depth"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L336-L338",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        336,
+        338
+      ],
+      "line_range_exists": true,
+      "highlight": "theorem cubic_bound_fails :\n    \u00ac \u2203 C : \u211d, \u2200 n : \u2115, 1 \u2264 n \u2192 \u2200 f : TotalBool (Fin n),\n      (R (totalise f) : \u211d) \u2264 C * (Q (totalise f) : \u211d) ^ 3 := by"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L340",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        340,
+        340
+      ],
+      "line_range_exists": true,
+      "highlight": "theorem forrelation_lower_bound : BansalSinhaLower := by"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L46-L60",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        46,
+        60
+      ],
+      "line_range_exists": true,
+      "highlight": "/-- A finite mixture of decision trees. Every tree in the mixture has positive\nprobability, so worst-case depth below is over the support. -/\nstructure RandomizedProgram (\u03b9 : Type) where\n  size : \u2115\n  weight : Fin size \u2192 \u211d\n  tree : Fin size \u2192 QueryTree \u03b9\n  weight_pos : \u2200 j, 0 < weight j\n  weight_sum : \u2211 j, weight j = 1\n\ndef RandomizedProgram.depth {\u03b9 : Type} (A : RandomizedProgram \u03b9) : \u2115 :=\n  Finset.univ.sup fun j => (A.tree j).depth\n\nnoncomputable def RandomizedProgram.success {\u03b9 : Type}\n    (A : RandomizedProgram \u03b9) (x : BitInput \u03b9) (b : Bool) : \u211d :=\n  \u2211 j, if (A.tree j).eval x = b then A.weight j else 0"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L62-L65",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        62,
+        65
+      ],
+      "line_range_exists": true,
+      "highlight": "/-- Error at most 1/3 on every promised input within `budget` queries. -/\ndef RLe {\u03b9 : Type} (f : PartialBool \u03b9) (budget : \u2115) : Prop :=\n  \u2203 A : RandomizedProgram \u03b9,\n    A.depth \u2264 budget \u2227 \u2200 x b, f x = some b \u2192 (2 / 3 : \u211d) \u2264 A.success x b"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L71-L74",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        71,
+        74
+      ],
+      "line_range_exists": true,
+      "highlight": "/-- Randomized query complexity. `sInf \u2205 = 0` in `\u2115`, so every lower bound is\nproved through `RLe` and the read-all witness that makes this set nonempty. -/\nnoncomputable def R {\u03b9 : Type} [Fintype \u03b9] (f : PartialBool \u03b9) : \u2115 :=\n  sInf {t : \u2115 | RLe f t}"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L84-L87",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        84,
+        87
+      ],
+      "line_range_exists": true,
+      "highlight": "abbrev Basis (\u03b9 : Type) (workspace : \u2115) := \u03b9 \u00d7 Bool \u00d7 Fin (workspace + 1)\n\nabbrev State (\u03b9 : Type) [Fintype \u03b9] (workspace : \u2115) :=\n  EuclideanSpace \u2102 (Basis \u03b9 workspace)"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L89-L94",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        89,
+        94
+      ],
+      "line_range_exists": true,
+      "highlight": "/-- `O_x |i, b, z\u27e9 = |i, b \u2295 x_i, z\u27e9`. The oracle is an involution, so\npermuting amplitudes by it is the same as permuting basis vectors by it. -/\nnoncomputable def bitOracle {\u03b9 : Type} [Fintype \u03b9] {w : \u2115}\n    (x : BitInput \u03b9) (\u03c8 : State \u03b9 w) : State \u03b9 w :=\n  WithLp.toLp 2 fun p =>\n    \u03c8.ofLp (p.1, (if x p.1 then !p.2.1 else p.2.1), p.2.2)"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/comparator.json",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/comparator.json",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticQuery/ForrelationLower/Uniform.lean#L525-L532",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        525,
+        532
+      ],
+      "line_range_exists": true,
+      "highlight": "/-- For every `k \u2265 2` and `m = 4^t \u2265 2^(15k+2)`, the uniform lower bound\nhas numerical constant `2/18225`, a factor `256` above the coarse endpoint. -/\ntheorem forrelation_lower_uniform_sharp\n    (k t : \u2115) (hk : 2 \u2264 k) (ht : 15 * k + 2 \u2264 2 * t) :\n    (2 / 18225 : \u211d) *\n        Real.rpow (mValue t : \u211d) (1 - 1 / (k : \u211d)) /\n        ((k : \u211d) ^ 2 * Real.log (4 * (k : \u211d) * (mValue t : \u211d))) <\n      (R (P k t) : \u211d) := by"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticQuery/Paper/ClassicalPlanted.lean#L213-L219",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        213,
+        219
+      ],
+      "line_range_exists": true,
+      "highlight": "/-- Ledger: eq-19. The source's stronger coefficient two, now averaged also over\nall independent address data. It is an upper bound, with no optimality claim. -/\ntheorem erasedZero_le_two {\u03bc : BitInput \u03ba \u2192 \u211d} (h\u03bc : \u2200 x, 0 \u2264 \u03bc x)\n    (h\u03bc1 : \u2211 x, \u03bc x = 1) {G : \u2115}\n    (T : QueryTree (BitLoc \u2113 r S \u03ba)) (hT : T.depth \u2264 G) :\n    coupledAvg \u03bc (fun A J I => foundZero T A J I) \u2264\n      2 * (G : \u211d) / ((2 ^ \u2113 : \u2115) : \u211d) ^ 2 :="
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticQuery/Paper/ClassicalPlanted.lean#L340-L348",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        340,
+        348
+      ],
+      "line_range_exists": true,
+      "highlight": "/-- Ledger: eq-21. The paper's per-column, per-time joint-event inequality under\nthe complete original dummy sampling law. -/\ntheorem eq_21 {f : PartialBool \u03ba} {\u03bc : BitInput \u03ba \u2192 \u211d} {L : \u2115}\n    (h\u03bc : \u2200 x, 0 \u2264 \u03bc x) (h\u03bc1 : \u2211 x, \u03bc x = 1)\n    (hdom : \u2200 x, \u03bc x \u2260 0 \u2192 promised f x)\n    (hard : \u2200 U : QueryTree \u03ba, U.depth \u2264 L \u2192 treeSuccess f \u03bc U \u2264 2 / 3)\n    (T : QueryTree (BitLoc \u2113 r S \u03ba)) (i : Column \u2113) (t : \u2115) :\n    avg (prodW (prodW \u03bc)) (fun A => avg (prodW (unif \u2113)) fun J =>\n      reachedCellAt f L T J A i t) \u2264 ((2 : \u211d) / 3) ^ r := by"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticQuery/Paper/ConstructionFamily.lean#L28-L40",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionFamily.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        28,
+        40
+      ],
+      "line_range_exists": true,
+      "highlight": "/-- Ledger: eq-2. Stronger explicit version: the same named circuit satisfies\nboth inequalities with `c = 1/400`, `b = 6` and the existing `budgetConst`. -/\ntheorem construction_family_named (l : \u2115) (hk : 2 \u2264 l + 1) :\n    \u2203 t\u2080 : \u2115, \u2200 t : \u2115, t\u2080 \u2264 t \u2192\n      CircuitRealises (Forrelation.forrCircuit l t) (P (l + 1) t) \u2227\n      (Forrelation.forrCircuit l t).size \u2264\n        Forrelation.forrConstant (l + 1) * mValue t * (2 * t) ^ 2 \u2227\n      (Q (totalise (Fkm (l + 1) t (Forrelation.forrCircuit l t))) : \u211d) \u2264\n        (Upper.budgetConst (l + 1) : \u211d) * Real.sqrt (mValue t : \u211d) *\n          (Real.logb 2 (mValue t : \u211d)) ^ 6 \u2227\n      (1 / 400 : \u211d) * Real.rpow (mValue t : \u211d) (2 - 1 / ((l + 1 : \u2115) : \u211d)) /\n          (Real.logb 2 (mValue t : \u211d)) ^ 2 \u2264\n        (R (totalise (Fkm (l + 1) t (Forrelation.forrCircuit l t))) : \u211d) := by"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticQuery/Upper/Bound.lean#L86-L90",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticQuery/Upper/Bound.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        86,
+        90
+      ],
+      "line_range_exists": true,
+      "highlight": "/-- Ledger: claim-tournament-cost, prop-3.3. The query count of the algorithm. -/\ntheorem budget_le {k t : \u2115} {C : Circuit (ForrelationCoord k t)} (ht : 1 \u2264 t)\n    (hSz : C.size \u2264 forrConstant k * mValue t * (2 * t) ^ 2) :\n    budget k t (repetitions k (epsval (mValue t) / (40 * t : \u2115))) (Fintype.card (Tests t C)) \u2264\n      budgetConst k * 2 ^ t * (2 * t) ^ 6 := by"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/scripts/Reach.lean",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/scripts/Reach.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/main/docs/reasoning_record.md#CL-discrepancy",
+      "present_in_LINK_MAP": true,
+      "member": "repository/docs/reasoning_record.md",
+      "revision": "main",
+      "exists_locally": true,
+      "explicit_anchor_exists": true
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/main/docs/reasoning_record.md#forr_target",
+      "present_in_LINK_MAP": true,
+      "member": "repository/docs/reasoning_record.md",
+      "revision": "main",
+      "exists_locally": true,
+      "explicit_anchor_exists": true
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/main/docs/reasoning_record.md#upper-ideal-process",
+      "present_in_LINK_MAP": true,
+      "member": "repository/docs/reasoning_record.md",
+      "revision": "main",
+      "exists_locally": true,
+      "explicit_anchor_exists": true
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/main/lean/QuarticCorpus/Independent/Degree/Challenge.lean#L14-L20",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Independent/Degree/Challenge.lean",
+      "revision": "main",
+      "exists_locally": true,
+      "line_range": [
+        14,
+        20
+      ],
+      "line_range_exists": true,
+      "highlight": "theorem checked_degree_conventions {n : \u2115} (f : (Fin n \u2192 Bool) \u2192 Bool) :\n    \u2200 inputSigns outputSigns : Bool,\n      \u2203 a : Finset (Fin n) \u2192 \u211d,\n        RepresentsAs inputSigns outputSigns a f \u2227\n        (\u2200 b : Finset (Fin n) \u2192 \u211d,\n          RepresentsAs inputSigns outputSigns b f \u2192 b = a) \u2227\n        (\u2200 d : \u2115, Cslib.QueryComplexity.degree f \u2264 d \u2194 CoefficientsAtMost a d) := by"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/main/lean/QuarticCorpus/Independent/ModelZero/Challenge.lean#L11-L14",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Independent/ModelZero/Challenge.lean",
+      "revision": "main",
+      "exists_locally": true,
+      "line_range": [
+        11,
+        14
+      ],
+      "line_range_exists": true,
+      "highlight": "theorem checked_zero_query_characterization {\u03b9 : Type} [Fintype \u03b9] (f : PartialBool \u03b9) :\n    (D f = 0 \u2194 LabelsAgree f) \u2227\n    (R f = 0 \u2194 LabelsAgree f) \u2227\n    (Q f = 0 \u2194 LabelsAgree f) := by"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/main/lean/QuarticCorpus/Independent/RealizedCaps/Challenge.lean#L18-L25",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Independent/RealizedCaps/Challenge.lean",
+      "revision": "main",
+      "exists_locally": true,
+      "line_range": [
+        18,
+        25
+      ],
+      "line_range_exists": true,
+      "highlight": "theorem direct_product_external_finite_realized_caps\n    {\u03a9 : Type} [Fintype \u03a9]\n    {f : PartialBool \u03ba} {\u03bc : BitInput \u03ba \u2192 \u211d} {L : \u2115} {\u03b2 : \u211d}\n    (h\u03bc : \u2200 x, 0 \u2264 \u03bc x)\n    (hard : \u2200 T : QueryTree \u03ba, T.depth \u2264 L \u2192 treeSuccess f \u03bc T \u2264 \u03b2)\n    (w : \u03a9 \u2192 \u211d) (hw : \u2200 \u03c9, 0 \u2264 w \u03c9) (hw1 : \u2211 \u03c9, w \u03c9 = 1)\n    (T : \u03a9 \u2192 OutTree (Fin r \u00d7 \u03ba) (Fin r \u2192 Bool)) :\n    \u2211 \u03c9, w \u03c9 * compliantSuccess f \u03bc (T \u03c9) (fun _ => L) \u2264 \u03b2 ^ r := by"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/main/lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean#L17-L20",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean",
+      "revision": "main",
+      "exists_locally": true,
+      "line_range": [
+        17,
+        20
+      ],
+      "line_range_exists": true,
+      "highlight": "theorem uniformOpaqueAmplifier\n    (o : Z) (S : Z \u2192 Bool) {\u03b3 \u03b7 : \u211d}\n    (h\u03b3 : 0 < \u03b3) (h\u03b7 : 0 < \u03b7) (h\u03b7half : \u03b7 < 1 / 2) :\n    let M := iterationBound \u03b3"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/main/lean/QuarticQuery/LowerBound/Planted/ZeroSearchSuccessor.lean#L17-L22",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticQuery/LowerBound/Planted/ZeroSearchSuccessor.lean",
+      "revision": "main",
+      "exists_locally": true,
+      "line_range": [
+        17,
+        22
+      ],
+      "line_range_exists": true,
+      "highlight": "theorem zero_search_sum_successor (e : \u03b1 \u2192 \u03b9) (he : Function.Injective e) (c : \u03b9 \u2192 Bool)\n    (hc1 : \u2200 p, c (e p) = true) (hc2 : \u2200 q, c q = true \u2192 \u2203 p, e p = q)\n    (x : \u03b1 \u2192 BitInput \u03b9) (hout : \u2200 j j' q, c q = false \u2192 x j q = x j' q)\n    (hin : \u2200 j p, x j (e p) = decide (p \u2260 j)) (T : QueryTree \u03b9) (U : Finset \u03b1) :\n    ((U.card : \u211d) + 1) * \u2211 j \u2208 U, ind (e j \u2208 T.path (x j)) \u2264\n      2 * \u2211 j \u2208 U, ((T.path (x j)).countP c : \u211d) := by"
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/tree/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Negative",
+      "present_in_LINK_MAP": true,
+      "live_target_checked": false
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "link": "figures/exposition/fig1_column.svg",
+      "present_in_LINK_MAP": true,
+      "member": "repository/docs/figures/exposition/fig1_column.svg",
+      "exists_locally": true
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "link": "figures/exposition/fig2_board.svg",
+      "present_in_LINK_MAP": false,
+      "member": "repository/docs/figures/exposition/fig2_board.svg",
+      "exists_locally": false
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "link": "figures/exposition/fig3_tournament.svg",
+      "present_in_LINK_MAP": true,
+      "member": "repository/docs/figures/exposition/fig3_tournament.svg",
+      "exists_locally": true
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "link": "figures/exposition/fig4_planted.svg",
+      "present_in_LINK_MAP": false,
+      "member": "repository/docs/figures/exposition/fig4_planted.svg",
+      "exists_locally": false
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "link": "https://github.com/wcook04/quartic-query-lean",
+      "present_in_LINK_MAP": true,
+      "live_target_checked": false
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L101-L107",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        101,
+        107
+      ],
+      "line_range_exists": true,
+      "highlight": "/-- Finite classical control over unitary steps, oracle calls and binary\nprojective measurements. Computation between queries is unrestricted. -/\ninductive AdaptiveProgram (\u03b9 : Type) [Fintype \u03b9] (w : \u2115) where\n  | output (answer : Bool)\n  | unitary (U : State \u03b9 w \u2192\u2097\u1d62[\u2102] State \u03b9 w) (next : AdaptiveProgram \u03b9 w)\n  | query (next : AdaptiveProgram \u03b9 w)\n  | measure (S : Finset (Basis \u03b9 w)) (yes no : AdaptiveProgram \u03b9 w)"
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L139-L140",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        139,
+        140
+      ],
+      "line_range_exists": true,
+      "highlight": "noncomputable def Q {\u03b9 : Type} [Fintype \u03b9] (f : PartialBool \u03b9) : \u2115 :=\n  sInf {t : \u2115 | QLe f t}"
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L175-L182",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        175,
+        182
+      ],
+      "line_range_exists": true,
+      "highlight": "/-- Equation (4) with `\u03b4 = 2^(-5k)`, written as the exact integer tests of\nLemma 2.1(iii). A large negative value of `\u03a6` is outside the promise. -/\ndef P (k t : \u2115) : PartialBool (ForrelationCoord k t) := fun z =>\n  let N := forrelationNumerator k t z\n  let M := forrelationDenominator k t\n  if (2 : \u2124) ^ (5 * k) * N \u2265 M then some true\n  else if (2 : \u2124) ^ (5 * k + 1) * |N| \u2264 M then some false\n  else none"
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L190-L199",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        190,
+        199
+      ],
+      "line_range_exists": true,
+      "highlight": "structure Gate (\u03b9 : Type) (earlier : \u2115) where\n  left : Option (\u03b9 \u2295 Fin earlier)\n  right : Option (\u03b9 \u2295 Fin earlier)\n  table : Bool \u2192 Bool \u2192 Bool\n\nstructure Circuit (\u03b9 : Type) where\n  size : \u2115\n  gate : (g : Fin size) \u2192 Gate \u03b9 g.val\n  domainOut : Fin size\n  valueOut : Fin size"
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L280-L285",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        280,
+        285
+      ],
+      "line_range_exists": true,
+      "highlight": "/-- `F_{k,m}` for `m = 4 ^ t`: `\u2113 = log\u2082 m = 2t` and `r = \u230820 log\u2082 m\u2309 = 40t`.\n`C` stays a parameter because the preprint specifies a construction scheme, not\none gate numbering. Family theorems quantify over circuits realising `P`. -/\nnoncomputable def Fkm (k t : \u2115) (C : Circuit (ForrelationCoord k t)) :\n    TotalBool (BitLoc (2 * t) (40 * t) C.size (ForrelationCoord k t)) :=\n  addressedF (P k t) C (2 * t) (40 * t)"
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L317-L318",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        317,
+        318
+      ],
+      "line_range_exists": true,
+      "highlight": "/-- `\u03b1_tot`, equation (1). -/\nnoncomputable def alphaTot : \u211d := sInf {\u03b1 : \u211d | UniversalPower \u03b1}"
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L326",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        326,
+        326
+      ],
+      "line_range_exists": true,
+      "highlight": "theorem alpha_tot_eq_four : alphaTot = 4 := by"
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L326-L340",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        326,
+        340
+      ],
+      "line_range_exists": true,
+      "highlight": "theorem alpha_tot_eq_four : alphaTot = 4 := by\n  sorry\ntheorem theorem_one_one :\n    alphaTot = 4 \u2227 UniversalPower 4 \u2227\n      \u2200 k : \u2115, 2 \u2264 k \u2192 \u2203 (S A : \u2115) (b : \u2115) (t\u2080 : \u2115), 0 < A \u2227 \u2200 t, max 1 t\u2080 \u2264 t \u2192\n        \u2203 C : Circuit (ForrelationCoord k t), CircuitRealises C (P k t) \u2227\n          C.size \u2264 S * mValue t * (2 * t) ^ 2 \u2227\n          (Q (totalise (Fkm k t C)) : \u211d) \u2264 (A : \u211d) * 2 ^ t * (2 * (t : \u211d)) ^ b \u2227\n          Gvalue (mValue t) (Lvalue k t) < R (totalise (Fkm k t C)) := by\n  sorry\ntheorem cubic_bound_fails :\n    \u00ac \u2203 C : \u211d, \u2200 n : \u2115, 1 \u2264 n \u2192 \u2200 f : TotalBool (Fin n),\n      (R (totalise f) : \u211d) \u2264 C * (Q (totalise f) : \u211d) ^ 3 := by\n  sorry\ntheorem forrelation_lower_bound : BansalSinhaLower := by"
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L328-L334",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        328,
+        334
+      ],
+      "line_range_exists": true,
+      "highlight": "theorem theorem_one_one :\n    alphaTot = 4 \u2227 UniversalPower 4 \u2227\n      \u2200 k : \u2115, 2 \u2264 k \u2192 \u2203 (S A : \u2115) (b : \u2115) (t\u2080 : \u2115), 0 < A \u2227 \u2200 t, max 1 t\u2080 \u2264 t \u2192\n        \u2203 C : Circuit (ForrelationCoord k t), CircuitRealises C (P k t) \u2227\n          C.size \u2264 S * mValue t * (2 * t) ^ 2 \u2227\n          (Q (totalise (Fkm k t C)) : \u211d) \u2264 (A : \u211d) * 2 ^ t * (2 * (t : \u211d)) ^ b \u2227\n          Gvalue (mValue t) (Lvalue k t) < R (totalise (Fkm k t C)) := by"
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L33-L44",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        33,
+        44
+      ],
+      "line_range_exists": true,
+      "highlight": "inductive QueryTree (\u03b9 : Type) where\n  | leaf (answer : Bool)\n  | query (index : \u03b9) (onFalse onTrue : QueryTree \u03b9)\n\ndef QueryTree.eval {\u03b9 : Type} : QueryTree \u03b9 \u2192 BitInput \u03b9 \u2192 Bool\n  | .leaf b, _ => b\n  | .query i l r, x => if x i then r.eval x else l.eval x\n\n/-- The longest root-to-leaf path. Repeated queries are charged. -/\ndef QueryTree.depth {\u03b9 : Type} : QueryTree \u03b9 \u2192 \u2115\n  | .leaf _ => 0\n  | .query _ l r => 1 + max l.depth r.depth"
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L336-L338",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        336,
+        338
+      ],
+      "line_range_exists": true,
+      "highlight": "theorem cubic_bound_fails :\n    \u00ac \u2203 C : \u211d, \u2200 n : \u2115, 1 \u2264 n \u2192 \u2200 f : TotalBool (Fin n),\n      (R (totalise f) : \u211d) \u2264 C * (Q (totalise f) : \u211d) ^ 3 := by"
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L340",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        340,
+        340
+      ],
+      "line_range_exists": true,
+      "highlight": "theorem forrelation_lower_bound : BansalSinhaLower := by"
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L46-L60",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        46,
+        60
+      ],
+      "line_range_exists": true,
+      "highlight": "/-- A finite mixture of decision trees. Every tree in the mixture has positive\nprobability, so worst-case depth below is over the support. -/\nstructure RandomizedProgram (\u03b9 : Type) where\n  size : \u2115\n  weight : Fin size \u2192 \u211d\n  tree : Fin size \u2192 QueryTree \u03b9\n  weight_pos : \u2200 j, 0 < weight j\n  weight_sum : \u2211 j, weight j = 1\n\ndef RandomizedProgram.depth {\u03b9 : Type} (A : RandomizedProgram \u03b9) : \u2115 :=\n  Finset.univ.sup fun j => (A.tree j).depth\n\nnoncomputable def RandomizedProgram.success {\u03b9 : Type}\n    (A : RandomizedProgram \u03b9) (x : BitInput \u03b9) (b : Bool) : \u211d :=\n  \u2211 j, if (A.tree j).eval x = b then A.weight j else 0"
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L71-L74",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        71,
+        74
+      ],
+      "line_range_exists": true,
+      "highlight": "/-- Randomized query complexity. `sInf \u2205 = 0` in `\u2115`, so every lower bound is\nproved through `RLe` and the read-all witness that makes this set nonempty. -/\nnoncomputable def R {\u03b9 : Type} [Fintype \u03b9] (f : PartialBool \u03b9) : \u2115 :=\n  sInf {t : \u2115 | RLe f t}"
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L89-L94",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true,
+      "line_range": [
+        89,
+        94
+      ],
+      "line_range_exists": true,
+      "highlight": "/-- `O_x |i, b, z\u27e9 = |i, b \u2295 x_i, z\u27e9`. The oracle is an involution, so\npermuting amplitudes by it is the same as permuting basis vectors by it. -/\nnoncomputable def bitOracle {\u03b9 : Type} [Fintype \u03b9] {w : \u2115}\n    (x : BitInput \u03b9) (\u03c8 : State \u03b9 w) : State \u03b9 w :=\n  WithLp.toLp 2 fun p =>\n    \u03c8.ofLp (p.1, (if x p.1 then !p.2.1 else p.2.1), p.2.2)"
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/comparator.json",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Unconditional/comparator.json",
+      "revision": "752826a36192b25dc08e364a070eb03eb95dbc85",
+      "exists_locally": true
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/main/docs/reasoning_record.md",
+      "present_in_LINK_MAP": true,
+      "member": "repository/docs/reasoning_record.md",
+      "revision": "main",
+      "exists_locally": true
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/main/lean/QuarticCorpus/Independent/RealizedCaps/Challenge.lean#L18-L25",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Independent/RealizedCaps/Challenge.lean",
+      "revision": "main",
+      "exists_locally": true,
+      "line_range": [
+        18,
+        25
+      ],
+      "line_range_exists": true,
+      "highlight": "theorem direct_product_external_finite_realized_caps\n    {\u03a9 : Type} [Fintype \u03a9]\n    {f : PartialBool \u03ba} {\u03bc : BitInput \u03ba \u2192 \u211d} {L : \u2115} {\u03b2 : \u211d}\n    (h\u03bc : \u2200 x, 0 \u2264 \u03bc x)\n    (hard : \u2200 T : QueryTree \u03ba, T.depth \u2264 L \u2192 treeSuccess f \u03bc T \u2264 \u03b2)\n    (w : \u03a9 \u2192 \u211d) (hw : \u2200 \u03c9, 0 \u2264 w \u03c9) (hw1 : \u2211 \u03c9, w \u03c9 = 1)\n    (T : \u03a9 \u2192 OutTree (Fin r \u00d7 \u03ba) (Fin r \u2192 Bool)) :\n    \u2211 \u03c9, w \u03c9 * compliantSuccess f \u03bc (T \u03c9) (fun _ => L) \u2264 \u03b2 ^ r := by"
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "link": "https://github.com/wcook04/quartic-query-lean/blob/main/lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean#L17-L20",
+      "present_in_LINK_MAP": true,
+      "member": "repository/lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean",
+      "revision": "main",
+      "exists_locally": true,
+      "line_range": [
+        17,
+        20
+      ],
+      "line_range_exists": true,
+      "highlight": "theorem uniformOpaqueAmplifier\n    (o : Z) (S : Z \u2192 Bool) {\u03b3 \u03b7 : \u211d}\n    (h\u03b3 : 0 < \u03b3) (h\u03b7 : 0 < \u03b7) (h\u03b7half : \u03b7 < 1 / 2) :\n    let M := iterationBound \u03b3"
+    }
+  ],
+  "missing_members": [
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "figures/expert_planted.svg",
+      "present_in_LINK_MAP": false,
+      "member": "repository/docs/figures/expert_planted.svg",
+      "exists_locally": false
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "link": "figures/exposition/fig2_board.svg",
+      "present_in_LINK_MAP": false,
+      "member": "repository/docs/figures/exposition/fig2_board.svg",
+      "exists_locally": false
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "link": "figures/exposition/fig4_planted.svg",
+      "present_in_LINK_MAP": false,
+      "member": "repository/docs/figures/exposition/fig4_planted.svg",
+      "exists_locally": false
+    }
+  ],
+  "omitted_by_LINK_MAP": [
+    {
+      "from": "repository/docs/expert_companion.md",
+      "link": "figures/expert_planted.svg",
+      "present_in_LINK_MAP": false,
+      "member": "repository/docs/figures/expert_planted.svg",
+      "exists_locally": false
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "link": "figures/exposition/fig2_board.svg",
+      "present_in_LINK_MAP": false,
+      "member": "repository/docs/figures/exposition/fig2_board.svg",
+      "exists_locally": false
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "link": "figures/exposition/fig4_planted.svg",
+      "present_in_LINK_MAP": false,
+      "member": "repository/docs/figures/exposition/fig4_planted.svg",
+      "exists_locally": false
+    }
+  ]
+}

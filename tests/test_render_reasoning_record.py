@@ -96,13 +96,21 @@ class FilterTests(unittest.TestCase):
         ast = json.loads(subprocess.run([PANDOC, str(RECORD), "--from=" + MODULE.READER, "--to=json"],
                                         capture_output=True, text=True, check=True).stdout)
         navigation = MODULE.navigation_inputs(ast, RECORD)
-        self.assertEqual((navigation["authored_anchors"], navigation["internal_links"]), (339, 199))
+        self.assertEqual((navigation["authored_anchors"], navigation["internal_links"]), (358, 290))
         self.assertEqual(len(navigation["directory_links_retargeted"]), 5)
         with tempfile.TemporaryDirectory() as folder:
             tex = latex(RECORD, folder)
         anchors = MODULE.ANCHOR.findall(RECORD.read_text(encoding="utf-8"))
-        self.assertEqual(MODULE.check_latex_navigation(tex, anchors), {"latex_hypertargets": 339})
+        self.assertEqual(MODULE.check_latex_navigation(tex, anchors), {"latex_hypertargets": 358})
         self.assertEqual(hashlib.sha256(RECORD.read_bytes()).hexdigest(), before)
+
+    def test_every_recorded_passage_keeps_its_anchor(self):
+        # Papers, the comparator map and the correspondence link to these ids;
+        # moving a passage must keep its anchor.
+        correspondence = json.loads((ROOT / "docs/reasoning_record_correspondence.json").read_text())
+        anchors = set(MODULE.ANCHOR.findall(RECORD.read_text(encoding="utf-8")))
+        missing = sorted(p["id"] for p in correspondence["passages"] if p["id"] not in anchors)
+        self.assertEqual(missing, [])
 
 
 if __name__ == "__main__":

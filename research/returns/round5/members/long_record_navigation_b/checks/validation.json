@@ -1,0 +1,29 @@
+{
+  "schema": "quartic-round5-return-preflight-v1",
+  "date": "2026-11-03",
+  "stage": "Preflight before manifest creation and final archive round-trip checks.",
+  "result": {
+    "status": "pass",
+    "checks": {
+      "return_files": 15,
+      "utf8_json_files": 9,
+      "findings": 45,
+      "severity_counts": {
+        "high": 7,
+        "medium": 24,
+        "low": 5,
+        "keep": 9
+      },
+      "source_hash_binding": "matched",
+      "packet_draft_hashes": 6,
+      "packet_record_hashes": 2,
+      "exact_current_quotes": 45
+    },
+    "skipped": [
+      "MANIFEST.json absent; permitted only by --preflight",
+      "ZIP CRC, member paths, and byte equality require --archive"
+    ],
+    "errors": []
+  },
+  "limits": "Integrity and source-binding checks, not a Lean/Comparator run or mathematical proof certificate. The outer ZIP hash is intentionally not embedded in its own contents."
+}

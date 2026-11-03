@@ -1,0 +1,1477 @@
+{
+  "schema": "quartic-r5-central-claim-evidence-inspection-v1",
+  "packet": "long_record_navigation",
+  "source_sha256": {
+    "repository/docs/expert_companion.bib": "c458193dd5c1f5c2af5d33191101f6ee97dcfc691b50a7209c51665bf4baa002",
+    "repository/docs/expert_companion.md": "7af8ec78b3114f2e21ec7d4da667a45f3be4aa67c73ba51838d9fac9a5af7d50",
+    "repository/docs/expert_companion.pdf": "c8b37b18504969243395f08dfe0147d551ffa0faa5ba420949150df53a33f121",
+    "repository/docs/exposition.bib": "2ebc69e6769feb7782e71f3bf80850cc3719083fd611c0c239ada59228a19a0c",
+    "repository/docs/exposition.md": "3991d23ca802e1dd50e8c9217abf869035bac04c5febd5bd40bddf5f71de4dce",
+    "repository/docs/exposition.pdf": "16c85a0f3e063eeb709a7824dc551305d84cb7b09a62c897cecd2bb06c4fb15e"
+  },
+  "record_sha256": "1b677c780734209fd36fc206a17e4262f9124e290f84736e9573db8f1f88a986",
+  "inspection_method": [
+    "Read current Markdown for selected central claims, inspect exact supplied Challenge/Solution statements and configuration targets, inspect existing receipt metadata, and compare selected local file hashes to the supplied root-build hash dictionary.",
+    "For declarations whose implementation file is absent, cite a retained type when one is available in reasoning_record_correspondence.json or the direct-product lean_types.json. Four configured wrapper targets have only map/receipt evidence here; their exact types were not inspected, and this is stated on those entries. Retained observations are not newly elaborated types.",
+    "Direct comparison credit is determined by configured theorem_names, not by the broader historical receipt declarations arrays. Source being present, a receipt reporting a build, target acceptance, dependency reach and semantic review are separate."
+  ],
+  "executed_here": {
+    "lean_build": false,
+    "comparator": false,
+    "elaborator_type_print": false,
+    "supplied_code_execution": false,
+    "source_hash_checks": true
+  },
+  "boundaries": [
+    "No claim of human mathematical review or fresh-clone proof validation.",
+    "The packet excludes critique of the parallel rebuild of the newest additions. Their packaged statement is inspected without treating a missing later receipt or a then-uncommitted link as a defect.",
+    "Comparison mappings recovered from comparator_map.json are labelled when their standalone configuration file is not present.",
+    "A Checked wrapper can be absent from the root-build inventory yet have a passing separate Comparator receipt. A false recorded_root_build_inventory_contains field is not a failed compilation report."
+  ],
+  "claims": [
+    {
+      "id": "CT-01",
+      "claim": "Theorem 1.1: the unconditional common-circuit family",
+      "record_anchors": [
+        "ROOT-RESULT",
+        "ROOT-EVIDENCE-CONVENTION",
+        "ROOT-EXPONENT-CORRESPONDENCE"
+      ],
+      "mathematical_reading": "alphaTot=4, UniversalPower 4 and, for each k>=2, common constants and a threshold, then for each large t one circuit for both the quantum cap and strict floor-form randomized lower bound.",
+      "declarations": [
+        {
+          "name": "QuarticQuery.Checked.theorem_one_one",
+          "source_locator": {
+            "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+            "line_start": 328,
+            "line_end": 335
+          },
+          "direct_configured_targets": [
+            {
+              "configuration": "repository/lean/QuarticCorpus/Unconditional/comparator.json",
+              "configuration_basis": "direct file",
+              "latest_recorded_receipt": "repository/corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
+              "recorded_status": "passed",
+              "receipt_bytes_in_packet": true,
+              "paranoid": true
+            }
+          ],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": false,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": true,
+          "source_sha256": "c88be0b70754cb6f93448694002a16e1eb6a25135fa71648d4651f01104e399d",
+          "source_hash_matches_recorded_root_build": true,
+          "type_observation": {
+            "origin": "directly read packaged source; not elaborated here",
+            "source": "theorem theorem_one_one :\n    alphaTot = 4 ∧ UniversalPower 4 ∧\n      ∀ k : ℕ, 2 ≤ k → ∃ (S A : ℕ) (b : ℕ) (t₀ : ℕ), 0 < A ∧ ∀ t, max 1 t₀ ≤ t →\n        ∃ C : Circuit (ForrelationCoord k t), CircuitRealises C (P k t) ∧\n          C.size ≤ S * mValue t * (2 * t) ^ 2 ∧\n          (Q (totalise (Fkm k t C)) : ℝ) ≤ (A : ℝ) * 2 ^ t * (2 * (t : ℝ)) ^ b ∧\n          Gvalue (mValue t) (Lvalue k t) < R (totalise (Fkm k t C)) := by"
+          }
+        },
+        {
+          "name": "QuarticQuery.theorem_1_1_unconditional",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/Results/Unconditional.lean",
+            "line_start": 23
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [
+            "QuarticQuery.Checked.theorem_one_one"
+          ],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": false,
+          "type_observation": {
+            "path": "repository/docs/reasoning_record_correspondence.json",
+            "json_location": ".returned_correspondence[0].records[0].load_bearing_claims[2].complete_lean_types[1].complete_source_declaration_or_signature",
+            "type": "theorem theorem_1_1_unconditional :\n    alphaTot = 4 ∧ UniversalPower 4 ∧\n      ∀ k : ℕ, 2 ≤ k → ∃ (S A : ℕ) (b : ℕ) (t₀ : ℕ), 0 < A ∧ ∀ t, max 1 t₀ ≤ t →\n        ∃ C : Circuit (ForrelationCoord k t), CircuitRealises C (P k t) ∧\n          C.size ≤ S * mValue t * (2 * t) ^ 2 ∧\n          (Q (totalise (Fkm k t C)) : ℝ) ≤ (A : ℝ) * 2 ^ t * (2 * (t : ℝ)) ^ b ∧\n          Gvalue (mValue t) (Lvalue k t) < R (totalise (Fkm k t C))",
+            "origin": "Retained source statement or signature, not a fresh read of the missing implementation file and not newly elaborated in this review."
+          }
+        },
+        {
+          "name": "QuarticQuery.Paper.construction_family_named",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/Paper/ConstructionFamily.lean",
+            "line_start": 30,
+            "line_end": 40
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": true,
+          "source_sha256": "b7e1203086e38c00b964355ac71537a7fc5be7053d537ccd56cba8017cdd085a",
+          "source_hash_matches_recorded_root_build": true,
+          "type_observation": {
+            "origin": "directly read packaged source; not elaborated here",
+            "source": "theorem construction_family_named (l : ℕ) (hk : 2 ≤ l + 1) :\n    ∃ t₀ : ℕ, ∀ t : ℕ, t₀ ≤ t →\n      CircuitRealises (Forrelation.forrCircuit l t) (P (l + 1) t) ∧\n      (Forrelation.forrCircuit l t).size ≤\n        Forrelation.forrConstant (l + 1) * mValue t * (2 * t) ^ 2 ∧\n      (Q (totalise (Fkm (l + 1) t (Forrelation.forrCircuit l t))) : ℝ) ≤\n        (Upper.budgetConst (l + 1) : ℝ) * Real.sqrt (mValue t : ℝ) *\n          (Real.logb 2 (mValue t : ℝ)) ^ 6 ∧\n      (1 / 400 : ℝ) * Real.rpow (mValue t : ℝ) (2 - 1 / ((l + 1 : ℕ) : ℝ)) /\n          (Real.logb 2 (mValue t : ℝ)) ^ 2 ≤\n        (R (totalise (Fkm (l + 1) t (Forrelation.forrCircuit l t))) : ℝ) := by"
+          }
+        }
+      ],
+      "evidence_scope": "The Checked target is configured directly and its ordinary/paranoid comparison receipts pass. The implementation is its proof supplier. The explicit b=6,c=1/400 named-circuit theorem has recorded build support and is not a configured target.",
+      "navigation_assessment": "Short Appendix A supplies the correct type route. The long record names only the implementation and correspondence sidecars. See LR-007 and LR-049."
+    },
+    {
+      "id": "CT-02",
+      "claim": "Forrelation fixed-k randomized hardness",
+      "record_anchors": [
+        "forr_target",
+        "forr_validation_scope"
+      ],
+      "mathematical_reading": "For each fixed k>=2, eventually in t, Lvalue k t < R(P k t), with the exact integer one-sided promise.",
+      "declarations": [
+        {
+          "name": "QuarticQuery.Checked.forrelation_lower_bound",
+          "source_locator": {
+            "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+            "line_start": 340,
+            "line_end": 341
+          },
+          "direct_configured_targets": [
+            {
+              "configuration": "repository/lean/QuarticCorpus/Unconditional/comparator.json",
+              "configuration_basis": "direct file",
+              "latest_recorded_receipt": "repository/corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
+              "recorded_status": "passed",
+              "receipt_bytes_in_packet": true,
+              "paranoid": true
+            }
+          ],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": false,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": true,
+          "source_sha256": "c88be0b70754cb6f93448694002a16e1eb6a25135fa71648d4651f01104e399d",
+          "source_hash_matches_recorded_root_build": true,
+          "type_observation": {
+            "origin": "directly read packaged source; not elaborated here",
+            "source": "theorem forrelation_lower_bound : BansalSinhaLower := by"
+          }
+        },
+        {
+          "name": "QuarticQuery.ForrelationLower.bansalSinhaLower",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/ForrelationLower/Main.lean",
+            "line_start": 506
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [
+            "QuarticQuery.Checked.forrelation_lower_bound"
+          ],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": false,
+          "type_observation": {
+            "path": "repository/docs/reasoning_record_correspondence.json",
+            "json_location": ".returned_correspondence[6].records[22].complete_lean_types[2].complete_type",
+            "type": "theorem bansalSinhaLower : BansalSinhaLower",
+            "origin": "Retained complete-type transcription; consult the supplied correspondence for its provenance. No fresh elaboration or fresh read of the missing implementation file."
+          }
+        }
+      ],
+      "evidence_scope": "Direct configured target is Checked.forrelation_lower_bound. The Solution invokes ForrelationLower.bansalSinhaLower. Receipt lists containing both names do not make both configured targets.",
+      "navigation_assessment": "The short link is correct; record local evidence wording still leaves wrapper credit ambiguous. See LR-027."
+    },
+    {
+      "id": "CT-03",
+      "claim": "Forrelation uniform numerical estimate",
+      "record_anchors": [
+        "forr_validation_scope",
+        "forr_bundle"
+      ],
+      "mathematical_reading": "For k>=2 and 15k+2<=2t, R(P k t) exceeds (2/18225)m^(1-1/k)/(k^2 ln(4km)).",
+      "declarations": [
+        {
+          "name": "QuarticQuery.forrelation_lower_uniform_sharp",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+            "line_start": 527,
+            "line_end": 532
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": true,
+          "source_sha256": "d6bc1f4399394810fca63abdaadd67a420616371c501ab978841898f2bda049c",
+          "source_hash_matches_recorded_root_build": true,
+          "type_observation": {
+            "origin": "directly read packaged source; not elaborated here",
+            "source": "theorem forrelation_lower_uniform_sharp\n    (k t : ℕ) (hk : 2 ≤ k) (ht : 15 * k + 2 ≤ 2 * t) :\n    (2 / 18225 : ℝ) *\n        Real.rpow (mValue t : ℝ) (1 - 1 / (k : ℝ)) /\n        ((k : ℝ) ^ 2 * Real.log (4 * (k : ℝ) * (mValue t : ℝ))) <\n      (R (P k t) : ℝ) := by"
+          }
+        }
+      ],
+      "evidence_scope": "Local source hash matches the root-build receipt and the declaration is in that inventory; no direct configured target in the supplied map. The 13669 k^2 specialization in the record is ordinary mathematics, distinct from this type.",
+      "navigation_assessment": "The expert’s src-forrelation-uniform link covers the full intended signature and accurately says built but not compared."
+    },
+    {
+      "id": "CT-04",
+      "claim": "Forrelation coherent promise algorithm",
+      "record_anchors": [
+        "forr_bundle",
+        "forr_current_evidence"
+      ],
+      "mathematical_reading": "For positive accuracy below 1/2, a retained-workspace preparation produces the right bit on the promise with a uniform all-input cap. Off-promise correctness is not asserted.",
+      "declarations": [
+        {
+          "name": "QuarticQuery.Paper.construction_lemma_2_1_ii_complete",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/Paper/ConstructionForrelationComplete.lean",
+            "line_start": 25
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": false,
+          "type_observation": {
+            "path": "repository/docs/reasoning_record_correspondence.json",
+            "json_location": ".returned_correspondence[1].records[27].complete_lean_types[0].source_signature",
+            "type": "theorem construction_lemma_2_1_ii_complete (k : ℕ) (hk : 1 ≤ k) :\n    ∃ A : ℝ, 0 < A ∧ ∀ (t : ℕ) (η : ℝ), 0 < η → η < 1 / 2 →\n      ∃ (n : ℕ) (L : BitInput (ForrelationCoord k t) → Bool → ℝ)\n        (Z : Type) (instZ : Fintype Z),\n        let _ := instZ\n        ∃ (o : Z) (out : Z → Bool)\n          (F : BitInput (ForrelationCoord k t) → Reg Z ≃ₗᵢ[ℂ] Reg Z),\n          ((2 * (n * k) : ℕ) : ℝ) ≤ A * (1 + Real.log (1 / η)) ∧\n          IsCirc (n * k) F ∧\n          (∀ z b, L z b = lawOf (F z (rket o)) out b) ∧\n          (∀ z, 0 ≤ L z false ∧ 0 ≤ L z true ∧ L z false + L z true = 1) ∧\n          (∀ z b, P k t z = some b → 1 - η ≤ L z b) ∧\n          ∃ instI : Inhabited (ForrelationCoord k t),\n            let _ := instI\n            ∃ (w : ℕ) (emb : Z ↪ Fin (w + 1))\n              (K : AdaptiveProgram (ForrelationCoord k t) w →\n                AdaptiveProgram (ForrelationCoord k t) w),\n              ∀ next, (K next).queryCap ≤ 2 * (n * k) + next.queryCap ∧\n                ∀ z ψ b, (K next).outputMass z (clEmb emb ψ) b =\n                  next.outputMass z (clEmb emb (F z ψ)) b",
+            "origin": "Retained source statement or signature, not a fresh read of the missing implementation file and not newly elaborated in this review."
+          }
+        }
+      ],
+      "evidence_scope": "Recorded build and retained type evidence only for this explanatory wrapper. The source statement uses the generic physical cap 2qk; the ordinary phase construction uses qk.",
+      "navigation_assessment": "The distinction is made at the end of §3.17, but that paragraph provides a bare declaration name and a large correspondence link rather than a source signature link."
+    },
+    {
+      "id": "CT-05",
+      "claim": "Exact circuit recognizing the Forrelation promise",
+      "record_anchors": [
+        "forr_bundle"
+      ],
+      "mathematical_reading": "A fan-in-two circuit has an exact domain bit on all inputs, the right value bit on the domain, and the required size bound.",
+      "declarations": [
+        {
+          "name": "QuarticQuery.Forrelation.exists_circuit",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/Forrelation/Circuit.lean",
+            "line_start": 479
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": false,
+          "type_observation": {
+            "path": "repository/docs/reasoning_record_correspondence.json",
+            "json_location": ".returned_correspondence[1].records[30].complete_lean_types[0].source_signature",
+            "type": "theorem exists_circuit (k t : ℕ) (hk : 1 ≤ k) (ht : 1 ≤ t) :\n    ∃ C : Circuit (ForrelationCoord k t), CircuitRealises C (P k t) ∧\n      (C.size : ℝ) ≤ (forrConstant k : ℝ) * (mValue t : ℝ) *\n        Real.logb 2 (mValue t : ℝ) ^ 2",
+            "origin": "Retained source statement or signature, not a fresh read of the missing implementation file and not newly elaborated in this review."
+          }
+        },
+        {
+          "name": "QuarticQuery.Paper.construction_lemma_2_1_complete",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/Paper/ConstructionForrelationComplete.lean",
+            "line_start": 66
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": false,
+          "type_observation": {
+            "path": "repository/docs/reasoning_record_correspondence.json",
+            "json_location": ".returned_correspondence[1].records[53].complete_lean_types[3].source_signature",
+            "type": "theorem construction_lemma_2_1_complete (k : ℕ) (hk : 2 ≤ k) :\n    (∃ t₀ : ℕ, ∀ t : ℕ, t₀ ≤ t → Lvalue k t < R (P k t)) ∧\n    (∃ A : ℝ, 0 < A ∧ ∀ (t : ℕ) (η : ℝ), 0 < η → η < 1 / 2 →\n      ∃ (n : ℕ) (L : BitInput (ForrelationCoord k t) → Bool → ℝ)\n        (Z : Type) (instZ : Fintype Z),\n        let _ := instZ\n        ∃ (o : Z) (out : Z → Bool)\n          (F : BitInput (ForrelationCoord k t) → Reg Z ≃ₗᵢ[ℂ] Reg Z),\n          ((2 * (n * k) : ℕ) : ℝ) ≤ A * (1 + Real.log (1 / η)) ∧\n          IsCirc (n * k) F ∧\n          (∀ z b, L z b = lawOf (F z (rket o)) out b) ∧\n          (∀ z, 0 ≤ L z false ∧ 0 ≤ L z true ∧ L z false + L z true = 1) ∧\n          (∀ z b, P k t z = some b → 1 - η ≤ L z b) ∧\n          ∃ instI : Inhabited (ForrelationCoord k t),\n            let _ := instI\n            ∃ (w : ℕ) (emb : Z ↪ Fin (w + 1))\n              (K : AdaptiveProgram (ForrelationCoord k t) w →\n                AdaptiveProgram (ForrelationCoord k t) w),\n              ∀ next, (K next).queryCap ≤ 2 * (n * k) + next.queryCap ∧\n                ∀ z ψ b, (K next).outputMass z (clEmb emb ψ) b =\n                  next.outputMass z (clEmb emb (F z ψ)) b) ∧\n    (∃ S : ℕ, 0 < S ∧ ∀ t : ℕ, 1 ≤ t → ∃ C : Circuit (ForrelationCoord k t),\n      CircuitRealises C (P k t) ∧\n      (C.size : ℝ) ≤ (S : ℝ) * (mValue t : ℝ) *\n        (Real.logb 2 (mValue t : ℝ)) ^ 2)",
+            "origin": "Retained source statement or signature, not a fresh read of the missing implementation file and not newly elaborated in this review."
+          }
+        }
+      ],
+      "evidence_scope": "Both appear in recorded build inventory; neither is a direct configured target in the supplied map. The complete bundle has an eventual threshold, not the newly displayed explicit threshold.",
+      "navigation_assessment": "Argument and scope are present; catalogue row lem-2.1 lacks a compact local declaration/status summary. See LR-028."
+    },
+    {
+      "id": "CT-06",
+      "claim": "Construction: totality, uniqueness and outgoing/incoming zeros",
+      "record_anchors": [
+        "CL-fidelity",
+        "AC-evidence"
+      ],
+      "mathematical_reading": "The winner condition is total on all physical bits; winners and their addresses are unique, a winner has no incoming zero, and it finds a zero in every rival.",
+      "declarations": [
+        {
+          "name": "QuarticQuery.Checked.winsAt_unique",
+          "source_locator": {
+            "path": "repository/lean/QuarticCorpus/Construction/Challenge.lean",
+            "line_start": 326,
+            "line_end": 329
+          },
+          "direct_configured_targets": [
+            {
+              "configuration": "repository/lean/QuarticCorpus/Construction/comparator.json",
+              "configuration_basis": "supplied comparator_map.json configuration entry",
+              "latest_recorded_receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T205620278544+0000.json",
+              "recorded_status": "passed",
+              "receipt_bytes_in_packet": true,
+              "paranoid": false
+            }
+          ],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": false,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": true,
+          "source_sha256": "d554e5a96889c4c9c3aa6bd3231f984fa7cf695aa103ebcd092ac2c7a08240b1",
+          "source_hash_matches_recorded_root_build": true,
+          "type_observation": {
+            "origin": "directly read packaged source; not elaborated here",
+            "source": "theorem winsAt_unique {κ : Type} {f : PartialBool κ} {C : Circuit κ} {ℓ r : ℕ}\n    {x : BitInput (BitLoc ℓ r C.size κ)} {i i' : Column ℓ} {s s' : Address r}\n    (h : WinsAt f C ℓ r x i s) (h' : WinsAt f C ℓ r x i' s') : i = i' ∧ s = s' := by"
+          }
+        },
+        {
+          "name": "QuarticQuery.Checked.existsUnique_gateConsistent",
+          "source_locator": {
+            "path": "repository/lean/QuarticCorpus/Construction/Challenge.lean",
+            "line_start": 330,
+            "line_end": 332
+          },
+          "direct_configured_targets": [
+            {
+              "configuration": "repository/lean/QuarticCorpus/Construction/comparator.json",
+              "configuration_basis": "supplied comparator_map.json configuration entry",
+              "latest_recorded_receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T205620278544+0000.json",
+              "recorded_status": "passed",
+              "receipt_bytes_in_packet": true,
+              "paranoid": false
+            }
+          ],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": false,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": true,
+          "source_sha256": "d554e5a96889c4c9c3aa6bd3231f984fa7cf695aa103ebcd092ac2c7a08240b1",
+          "source_hash_matches_recorded_root_build": true,
+          "type_observation": {
+            "origin": "directly read packaged source; not elaborated here",
+            "source": "theorem existsUnique_gateConsistent {ι : Type} (C : Circuit ι) (x : BitInput ι) :\n    ∃! tr, GateConsistent C x tr := by"
+          }
+        },
+        {
+          "name": "QuarticQuery.Checked.winner_no_incoming_zero",
+          "source_locator": {
+            "path": "repository/lean/QuarticCorpus/Construction/Challenge.lean",
+            "line_start": 333,
+            "line_end": 337
+          },
+          "direct_configured_targets": [
+            {
+              "configuration": "repository/lean/QuarticCorpus/Construction/comparator.json",
+              "configuration_basis": "supplied comparator_map.json configuration entry",
+              "latest_recorded_receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T205620278544+0000.json",
+              "recorded_status": "passed",
+              "receipt_bytes_in_packet": true,
+              "paranoid": false
+            }
+          ],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": false,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": true,
+          "source_sha256": "d554e5a96889c4c9c3aa6bd3231f984fa7cf695aa103ebcd092ac2c7a08240b1",
+          "source_hash_matches_recorded_root_build": true,
+          "type_observation": {
+            "origin": "directly read packaged source; not elaborated here",
+            "source": "theorem winner_no_incoming_zero {κ : Type} {f : PartialBool κ} {C : Circuit κ} {ℓ r : ℕ}\n    {x : BitInput (BitLoc ℓ r C.size κ)} {i : Column ℓ} {s : Address r}\n    (h : WinsAt f C ℓ r x i s) (c : Column ℓ) (a : Address r) (hne : i ≠ c) :\n    readX x i (pointerEquiv ℓ (readPointerBit x c a ⟨i, hne⟩)) = true := by"
+          }
+        },
+        {
+          "name": "QuarticQuery.Checked.winner_finds_zero",
+          "source_locator": {
+            "path": "repository/lean/QuarticCorpus/Construction/Challenge.lean",
+            "line_start": 338,
+            "line_end": 342
+          },
+          "direct_configured_targets": [
+            {
+              "configuration": "repository/lean/QuarticCorpus/Construction/comparator.json",
+              "configuration_basis": "supplied comparator_map.json configuration entry",
+              "latest_recorded_receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T205620278544+0000.json",
+              "recorded_status": "passed",
+              "receipt_bytes_in_packet": true,
+              "paranoid": false
+            }
+          ],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": false,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": true,
+          "source_sha256": "d554e5a96889c4c9c3aa6bd3231f984fa7cf695aa103ebcd092ac2c7a08240b1",
+          "source_hash_matches_recorded_root_build": true,
+          "type_observation": {
+            "origin": "directly read packaged source; not elaborated here",
+            "source": "theorem winner_finds_zero {κ : Type} {f : PartialBool κ} {C : Circuit κ} {ℓ r : ℕ}\n    {x : BitInput (BitLoc ℓ r C.size κ)} {i : Column ℓ} {s : Address r}\n    (h : WinsAt f C ℓ r x i s) (j : Column ℓ) (hne : j ≠ i) :\n    readX x j (pointerEquiv ℓ (readPointerBit x i s ⟨j, hne⟩)) = false := by"
+          }
+        }
+      ],
+      "evidence_scope": "These four Checked declarations are the direct Construction targets. They are auxiliary construction facts, not the four parts of the printed local-test lemma.",
+      "navigation_assessment": "The source/configuration is recoverable; the expert’s its-parts label is misleading. See LR-008."
+    },
+    {
+      "id": "CT-07",
+      "claim": "Construction: local tests and coherent arbitrary-index evaluation",
+      "record_anchors": [
+        "CL-coherent-tests",
+        "AC-evidence"
+      ],
+      "mathematical_reading": "One common circuit supplies the finite number of local tests, their equivalence to winning, adaptive depth, superposed-index retained-workspace evaluation, the physical query cap and an extra support diagnostic.",
+      "declarations": [
+        {
+          "name": "QuarticQuery.Paper.construction_lemma_2_2_with_support",
+          "source_locator": {
+            "path": "repository/lean/QuarticCorpus/Independent/ConstructionFull/Challenge.lean",
+            "line_start": 14,
+            "line_end": 61
+          },
+          "direct_configured_targets": [
+            {
+              "configuration": "repository/lean/QuarticCorpus/Independent/ConstructionFull/comparator.json",
+              "configuration_basis": "supplied comparator_map.json configuration entry",
+              "latest_recorded_receipt": "repository/corpus/receipts/comparator-round3-construction-support-2026-11-02T204814950389+0000.json",
+              "recorded_status": "passed",
+              "receipt_bytes_in_packet": true,
+              "paranoid": false
+            }
+          ],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": true,
+          "source_sha256": "1f190d9ed12e73a663ca9672be3063cc568d14045fcc00b1d49a89ca5d295645",
+          "source_hash_matches_recorded_root_build": true,
+          "type_observation": {
+            "origin": "directly read packaged source; not elaborated here",
+            "source": "theorem construction_lemma_2_2_with_support {k t : ℕ}\n    (C : Circuit (ForrelationCoord k t)) (A : ℕ) (ht : 1 ≤ t)\n    (hC : CircuitRealises C (P k t))\n    (hS : C.size ≤ A * mValue t * (2 * t) ^ 2) :\n    (∀ (i : Column (2 * t)) (s : Address (40 * t))\n        (e : Fin (2 ^ (2 * t) - 1)) (q : Fin (2 * t) ⊕ Column (2 * t)),\n      ∃ X Y : BitInput (Loc k t C),\n        (∀ p, p ≠ constructionPointerLoc C (2 * t) (40 * t) i s e q →\n          X p = Y p) ∧\n        localTest C (2 * t) (40 * t) X i s (.inr (.inl e)) ≠\n          localTest C (2 * t) (40 * t) Y i s (.inr (.inl e))) ∧\n    Fintype.card (TestIndex (2 * t) (40 * t) C.size) =\n      mValue t + (mValue t - 1) + 40 * t * (C.size + 2) ∧\n    Fintype.card (TestIndex (2 * t) (40 * t) C.size) ≤\n      (42 + 20 * A) * mValue t * (2 * t) ^ 3 ∧\n    (∀ (x : BitInput (Loc k t C)) (i : Column (2 * t)) (s : Address (40 * t)),\n      PaperWinsAt (P k t) C (2 * t) (40 * t) x i s ↔\n        ∀ e : TestIndex (2 * t) (40 * t) C.size,\n          localTest C (2 * t) (40 * t) x i s e = true) ∧\n    (∀ (i : Column (2 * t)) (s : Address (40 * t))\n        (e : TestIndex (2 * t) (40 * t) C.size),\n      (∀ x, (localTestTree C (2 * t) (40 * t) i s e).eval x =\n        localTest C (2 * t) (40 * t) x i s e) ∧\n      (localTestTree C (2 * t) (40 * t) i s e).depth ≤ 2 * t + 1) ∧\n    (∀ (i : Column (2 * t)) (s : Address (40 * t)),\n      ∃ (Z : TestIndex (2 * t) (40 * t) C.size → Type)\n        (instZ : ∀ e, Fintype (Z e)),\n        let _ := instZ\n        ∃ (o : ∀ e, Z e) (out : ∀ e, Z e → Bool)\n          (F : ∀ e, BitInput (Loc k t C) → Reg (Z e) ≃ₗᵢ[ℂ] Reg (Z e)),\n          (∀ e, IsCirc (max 3 (2 * t + 1)) (F e)) ∧\n          IsCirc (max 3 (2 * t + 1)) (fun x => sigmaOp fun e => F e x) ∧\n          (∀ (x : BitInput (Loc k t C))\n              (a : TestIndex (2 * t) (40 * t) C.size → ℂ)\n              (e : TestIndex (2 * t) (40 * t) C.size),\n            slice e (sigmaOp (fun e => F e x) (constructionIndexStart o a)) =\n              a e • F e x (rket (o e))) ∧\n          (∀ (x : BitInput (Loc k t C))\n              (e : TestIndex (2 * t) (40 * t) C.size) (z : Z e),\n            out e z ≠ localTest C (2 * t) (40 * t) x i s e →\n              (F e x (rket (o e))).ofLp z = 0) ∧\n          ∃ (w : ℕ) (emb : (Σ e, Z e) ↪ Fin (w + 1))\n            (P : AdaptiveProgram (Loc k t C) w → AdaptiveProgram (Loc k t C) w),\n            ∀ next, (P next).queryCap ≤ 2 * (2 * t + 1) + next.queryCap ∧\n              ∀ x ψ b, (P next).outputMass x (clEmb emb ψ) b =\n                next.outputMass x\n                  (clEmb emb (sigmaOp (fun e => F e x) ψ)) b) := by"
+          }
+        }
+      ],
+      "evidence_scope": "The exact declaration is directly configured in Independent/ConstructionFull and has a passing receipt. It imports project vocabulary and therefore is not a standalone Mathlib-only specification. Its support diagnostic strengthens the printed lemma.",
+      "navigation_assessment": "The selected hyperlink ends before the coherent clause. See LR-010; the record’s distinction between the support diagnostic and printed lemma is useful."
+    },
+    {
+      "id": "CT-08",
+      "claim": "Amplification preserving the successful state",
+      "record_anchors": [
+        "upper-amplification-statement",
+        "upper-current-formal-scope"
+      ],
+      "mathematical_reading": "The abstract bounded amplifier has a fixed cap and preserves successful-state observables. The new packaged physical target adds an explicit retained-product factorization and uniform circuit-cost clause.",
+      "declarations": [
+        {
+          "name": "QuarticQuery.Amplification.bounded_amplification",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/Amplification/Bounded.lean",
+            "line_start": 242
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": false,
+          "type_observation": {
+            "path": "repository/docs/reasoning_record_correspondence.json",
+            "json_location": ".returned_correspondence[4].records[2].complete_lean_types[0].complete_source_statement",
+            "type": "theorem bounded_amplification {γ η : ℝ} (hγ : 0 < γ) (hγ1 : γ ≤ 1 / 2) (hη : 0 < η)\n    (hη1 : η < 1 / 2) :\n    (amplify γ η).callCap ≤ trialCount η * (2 * iterationBound γ + 1) ∧\n    ((amplify γ η).callCap : ℝ) ≤ 138 * (Real.sqrt γ)⁻¹ * Real.log (1 / η) ∧\n    ∀ {H : Type u} [NormedAddCommGroup H] [InnerProductSpace ℂ H] (A : Preparation H),\n      (amplify γ η).successProb A + (amplify γ η).failProb A = 1 ∧\n      (∀ h : Option H → ℝ, PhaseInvariant h →\n        (amplify γ η).expect A h A.zero =\n          (amplify γ η).successProb A * h (some A.goodState) +\n          (amplify γ η).failProb A * h none) ∧\n      (∀ k : H → ℝ, (∀ c : ℂ, ‖c‖ = 1 → ∀ v, k (c • v) = k v) →\n        (amplify γ η).successProb A ≠ 0 →\n        (amplify γ η).conditional A k = k A.goodState) ∧\n      (amplify γ η).wrongStateMass A = 0 ∧\n      (γ ≤ A.prob → (amplify γ η).failProb A ≤ η) ∧\n      (A.prob = 0 → (amplify γ η).failProb A = 1)",
+            "origin": "Retained source statement or signature, not a fresh read of the missing implementation file and not newly elaborated in this review."
+          }
+        },
+        {
+          "name": "QuarticQuery.Upper.uniformOpaqueAmplifier",
+          "source_locator": {
+            "path": "repository/lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean",
+            "line_start": 17,
+            "line_end": 52
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "execution_scope": "Newest endpoint: inspect the packaged type; parallel execution status is not assessed in this assignment.",
+          "source_file_in_packet": true,
+          "source_sha256": "f316137f32ce485df316e49d14941187256366377c16f45e944cf5098b5b1411",
+          "type_observation": {
+            "origin": "directly read packaged source; not elaborated here",
+            "source": "theorem uniformOpaqueAmplifier\n    (o : Z) (S : Z → Bool) {γ η : ℝ}\n    (hγ : 0 < γ) (hη : 0 < η) (hηhalf : η < 1 / 2) :\n    let M := iterationBound γ\n    let N := trialCount η\n    let a₀ : Fin M := ⟨0, Nat.pos_of_ne_zero (iterationBound_ne_zero hγ)⟩\n    ∃ V : Reg (Fin M) ≃ₗᵢ[ℂ] Reg (Fin M),\n      V (rket a₀) = choiceState M ∧\n      (∀ (ι : Type) [Nonempty ι] (n : ℕ)\n          (F : BitInput ι → Reg Z ≃ₗᵢ[ℂ] Reg Z),\n          IsCirc n F →\n          IsCirc (N * ((2 * (M - 1) + 1) * n))\n            (fun x => finalB (N := N) V (F x) o S)) ∧\n      ∀ U : Reg Z ≃ₗᵢ[ℂ] Reg Z,\n        let A := prepOf U o (fun z => S z = true)\n        let ψ := finalB (N := N) V U o S\n          (rket (finalOrigin (N := N) a₀ o))\n        let ξ := assembledOriginalAux (N := N) (⟨a₀, o⟩ : AmpTrial M Z) S\n          (fun _ => opaqueTrialVector U o (fun z => S z = true) V a₀)\n          (fun _ => trialSelectorGood A V a₀)\n        coordProj (finalSuccess (M := M) (N := N) (Z := Z)) ψ =\n            retainedProduct ξ A.goodState ∧\n        ‖coordProj (finalSuccess (M := M) (N := N) (Z := Z)) ψ‖ ^ 2 =\n            1 - A.trialFail M ^ N ∧\n        (A.prob = 0 →\n          coordProj (finalSuccess (M := M) (N := N) (Z := Z)) ψ = 0) ∧\n        (0 < A.prob → A.prob / 2 ≤\n          ‖coordProj (finalSuccess (M := M) (N := N) (Z := Z)) ψ‖ ^ 2) ∧\n        (0 < A.prob → ‖ξ‖ ^ 2 =\n          ‖coordProj (finalSuccess (M := M) (N := N) (Z := Z)) ψ‖ ^ 2) ∧\n        (γ ≤ A.prob → 1 - η ≤\n          ‖coordProj (finalSuccess (M := M) (N := N) (Z := Z)) ψ‖ ^ 2) ∧\n        (∀ (b : Fin N → Bool) (a : Fin M) (y : Fin N → AmpTrial M Z),\n          firstSuccess b = none → ξ.ofLp (b, (a, y)) = 0) ∧\n        coordProj (fun p : FinalAux N M Z =>\n          (firstSuccess p.1).isSome = true) ξ = ξ := by"
+          }
+        }
+      ],
+      "evidence_scope": "The abstract endpoint has historical build support. For the newest physical endpoint, inspect the supplied type without adjudicating the excluded parallel execution status.",
+      "navigation_assessment": "The short statement link highlights only the header of the new target, not its state/cap conclusions. See LR-009. Do not turn the acknowledged rebuild into a finding."
+    },
+    {
+      "id": "CT-09",
+      "claim": "Quantum tournament: drift and bounded list",
+      "record_anchors": [
+        "upper-ideal-process",
+        "upper-tournament-evidence",
+        "upper-current-formal-scope"
+      ],
+      "mathematical_reading": "Complementary fractional comparisons yield shrinking total weight; a finite list contains a dominant candidate with the specified probability and a worst-case query cap.",
+      "declarations": [
+        {
+          "name": "QuarticQuery.Checked.expected_weight_eq",
+          "source_locator": {
+            "path": "repository/lean/QuarticCorpus/Tournament/Challenge.lean",
+            "line_start": 326,
+            "line_end": 330
+          },
+          "direct_configured_targets": [
+            {
+              "configuration": "repository/lean/QuarticCorpus/Tournament/comparator.json",
+              "configuration_basis": "supplied comparator_map.json configuration entry",
+              "latest_recorded_receipt": "repository/corpus/receipts/comparator-Tournament-2026-11-02T210431678518+0000.json",
+              "recorded_status": "passed",
+              "receipt_bytes_in_packet": true,
+              "paranoid": false
+            }
+          ],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": false,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": false,
+          "type_evidence_boundary": "Exact wrapper source/type is not available in this reading packet and was not inspected here. Its locator and configured-target identity are retained in comparator_map.json; acceptance is reported by the linked receipt. Do not treat the map’s mathematical gloss as a freshly checked type correspondence."
+        },
+        {
+          "name": "QuarticQuery.Checked.expected_weight_le_half",
+          "source_locator": {
+            "path": "repository/lean/QuarticCorpus/Tournament/Challenge.lean",
+            "line_start": 331,
+            "line_end": 335
+          },
+          "direct_configured_targets": [
+            {
+              "configuration": "repository/lean/QuarticCorpus/Tournament/comparator.json",
+              "configuration_basis": "supplied comparator_map.json configuration entry",
+              "latest_recorded_receipt": "repository/corpus/receipts/comparator-Tournament-2026-11-02T210431678518+0000.json",
+              "recorded_status": "passed",
+              "receipt_bytes_in_packet": true,
+              "paranoid": false
+            }
+          ],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": false,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": false,
+          "type_evidence_boundary": "Exact wrapper source/type is not available in this reading packet and was not inspected here. Its locator and configured-target identity are retained in comparator_map.json; acceptance is reported by the linked receipt. Do not treat the map’s mathematical gloss as a freshly checked type correspondence."
+        },
+        {
+          "name": "QuarticQuery.Paper.quantumTournament",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+            "line_start": 287
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": false,
+          "type_observation": {
+            "path": "repository/docs/reasoning_record_correspondence.json",
+            "json_location": ".returned_correspondence[4].records[20].complete_lean_types[1].complete_source_statement",
+            "type": "theorem quantumTournament {ι Col : Type} [Fintype ι] [Inhabited ι]\n    [Fintype Col] [DecidableEq Col] {cc : ℕ} {a : BitInput ι → Col → Col → ℝ}\n    (hm : 2 ≤ Fintype.card Col) (hc : ∀ x, IsComparison (a x))\n    (hcmp : ∀ i p, Samples cc fun x b => bern (a x i p) b) :\n    let m := Fintype.card Col\n    let T := Tval m\n    let ε := epsval m\n    ∃ C : ℕ, ∃ law : BitInput ι → QuantumCandidateList Col T → ℝ,\n      (C : ℝ) ≤ 6072 * (cc : ℝ) * Real.sqrt (m : ℝ) *\n        (T : ℝ) ^ 2 * Real.log (T : ℝ) ∧\n      Samples (T * quantumStageReads m T cc ε) law ∧\n      Runs C law ∧\n      (∀ x o, 0 ≤ law x o) ∧\n      (∀ x, ∑ o, law x o = 1) ∧\n      ∀ x s, Dominant (a x) ε s →\n        1 - 2 * (m : ℝ) / 2 ^ T - T * ε ≤\n          ∑ o : QuantumCandidateList Col T, if s ∈ o.1 then law x o else 0",
+            "origin": "Retained source statement or signature, not a fresh read of the missing implementation file and not newly elaborated in this review."
+          }
+        }
+      ],
+      "evidence_scope": "The two drift wrappers are configured targets with recorded acceptance; their exact wrapper types are not present in this reading packet. The actual finite-list Samples/Runs endpoint has a retained type and recorded build evidence, is not a Tournament configured target, and is not reached by the recorded headline root.",
+      "navigation_assessment": "The record correctly states each fact but interleaves the actual endpoint route and the list-exposition route. See LR-032."
+    },
+    {
+      "id": "CT-10",
+      "claim": "Quantum address decoding",
+      "record_anchors": [
+        "upper-current-formal-scope"
+      ],
+      "mathematical_reading": "If every address instance is promised and enough repetitions are used, the true address has mass at least 1-epsilon; the cap still applies on arbitrary inputs.",
+      "declarations": [
+        {
+          "name": "QuarticQuery.Paper.quantumDecode_correct",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/Paper/QuantumComparison.lean",
+            "line_start": 54
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": false,
+          "type_observation": {
+            "path": "repository/docs/reasoning_record_correspondence.json",
+            "json_location": ".returned_correspondence[4].records[25].complete_lean_types[0].complete_source_statement",
+            "type": "theorem quantumDecode_correct (hk : 1 ≤ k) (ht : 1 ≤ t)\n    {n : ℕ} {ε : ℝ} (hε : 0 < ε) (hε1 : ε ≤ 1)\n    (hn : repetitions k (ε / (40 * t : ℕ)) ≤ n)\n    {x : BitInput (Loc k t C)} {i : Col t} {s : Addr t}\n    (hs : ∀ h, P k t (readA x i h) = some (s h)) :\n    1 - ε ≤ addrLaw n x i s",
+            "origin": "Retained source statement or signature, not a fresh read of the missing implementation file and not newly elaborated in this review."
+          }
+        }
+      ],
+      "evidence_scope": "Recorded build/type evidence, no direct configured target. The correctness theorem alone is only the probability part; the coherent decoder/cost implementation is a separate part of the correspondence.",
+      "navigation_assessment": "The record’s source names are accurate but unlinked. A compact local source/status entry would spare recovery through the JSON inventory."
+    },
+    {
+      "id": "CT-11",
+      "claim": "Quantum complementary comparisons and winner dominance",
+      "record_anchors": [
+        "upper-current-formal-scope"
+      ],
+      "mathematical_reading": "The coherent comparison and inverse have a uniform cap and the required measured Bernoulli law; a true winner beats every rival regardless of the rival’s promise status.",
+      "declarations": [
+        {
+          "name": "QuarticQuery.Paper.quantumComparison_state",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/Paper/QuantumComparison.lean",
+            "line_start": 218
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": false,
+          "type_observation": {
+            "path": "repository/docs/reasoning_record_correspondence.json",
+            "json_location": ".returned_correspondence[4].records[26].complete_lean_types[1].complete_source_statement",
+            "type": "theorem quantumComparison_state (hk : 1 ≤ k) (n : ℕ) (i j : Col t) :\n    ∃ (Z : Type) (_ : Fintype Z) (o : Z) (out : Z → Bool)\n      (F : BitInput (Loc k t C) → Reg Z ≃ₗᵢ[ℂ] Reg Z),\n      IsCirc (cmpCost k t n) F ∧\n      IsCirc (cmpCost k t n) (fun x => (F x).symm) ∧\n      ∀ x b, lawOf (F x (rket o)) out b = bern (cmpProb n x i j) b",
+            "origin": "Retained source statement or signature, not a fresh read of the missing implementation file and not newly elaborated in this review."
+          }
+        },
+        {
+          "name": "QuarticQuery.Paper.quantumWinner_dominates",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/Paper/QuantumComparison.lean",
+            "line_start": 296
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": false,
+          "type_observation": {
+            "path": "repository/docs/reasoning_record_correspondence.json",
+            "json_location": ".returned_correspondence[3].records[16].lean_support[2].complete_type",
+            "type": "theorem QuarticQuery.Paper.quantumWinner_dominates {k t : ℕ} {C : Circuit (ForrelationCoord k t)} (hk : 1 ≤ k) (ht : 1 ≤ t)\n    {n : ℕ} {ε : ℝ} (hε : 0 < ε) (hε1 : ε ≤ 1)\n    (hn : repetitions k (ε / (40 * t : ℕ)) ≤ n)\n    {x : BitInput (Loc k t C)} {i : Col t} {s : Addr t}\n    (hw : WinsAt (P k t) C (2 * t) (40 * t) x i s)\n    (j : Col t) (hji : j ≠ i) :\n    1 - ε ≤ cmpProb n x i j",
+            "origin": "Retained complete-type transcription; consult the supplied correspondence for its provenance. No fresh elaboration or fresh read of the missing implementation file."
+          }
+        }
+      ],
+      "evidence_scope": "Recorded build and retained elaborated-type observations. Neither is a configured target in the supplied map.",
+      "navigation_assessment": "The reader can recover types from the correspondence, but no exact source line links accompany the local explanatory paragraph."
+    },
+    {
+      "id": "CT-12",
+      "claim": "Quantum verification and total error",
+      "record_anchors": [
+        "upper-verifier",
+        "upper-current-formal-scope"
+      ],
+      "mathematical_reading": "A fixed-address search rejects nonwinners with high probability, keeps a correctly decoded winner, and produces a total-input algorithm with the stated zero/one error bounds.",
+      "declarations": [
+        {
+          "name": "QuarticQuery.Paper.quantumVerify",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/Paper/QuantumComparison.lean",
+            "line_start": 498
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": false,
+          "type_observation": {
+            "path": "repository/docs/reasoning_record_correspondence.json",
+            "json_location": ".returned_correspondence[4].records[30].complete_lean_types[0].complete_source_statement",
+            "type": "theorem quantumVerify (hk : 1 ≤ k) (ht : 1 ≤ t)\n    (hC : CircuitRealises C (P k t)) {n : ℕ} {ε : ℝ}\n    (hε : 0 < ε) (hε1 : ε ≤ 1)\n    (hn : repetitions k (ε / (40 * t : ℕ)) ≤ n) :\n    ∃ v : BitInput (Loc k t C) → Col t → ℝ,\n      (∀ c, Runs (2 * addrCost k t n + searchCost t (Fintype.card (Tests t C)) ε)\n        fun x b => bern (v x c) b) ∧\n      (∀ x c, 0 ≤ v x c ∧ v x c ≤ 1) ∧\n      (∀ x c, (¬ ∃ s, WinsAt (P k t) C (2 * t) (40 * t) x c s) → v x c ≤ ε) ∧\n      (∀ x c s, WinsAt (P k t) C (2 * t) (40 * t) x c s → 1 - ε ≤ v x c)",
+            "origin": "Retained source statement or signature, not a fresh read of the missing implementation file and not newly elaborated in this review."
+          }
+        },
+        {
+          "name": "QuarticQuery.Paper.quantumError_bound",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/Paper/QuantumComparison.lean",
+            "line_start": 539
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": false,
+          "type_observation": {
+            "path": "repository/docs/reasoning_record_correspondence.json",
+            "json_location": ".returned_correspondence[4].records[31].complete_lean_types[0].complete_source_statement",
+            "type": "theorem quantumError_bound (hk : 1 ≤ k) (ht : 1 ≤ t)\n    (hC : CircuitRealises C (P k t)) {n : ℕ}\n    (hn : repetitions k (epsval (mValue t) / (40 * t : ℕ)) ≤ n) :\n    ∃ val : BitInput (Loc k t C) → ℝ,\n      Runs (budget k t n (Fintype.card (Tests t C)))\n        (fun x b => bern (val x) b) ∧\n      (∀ x, Fkm k t C x = false →\n        val x ≤ (Tval (mValue t) : ℝ) * epsval (mValue t)) ∧\n      (∀ x, Fkm k t C x = true →\n        1 - val x ≤ 2 * (mValue t : ℝ) / 2 ^ Tval (mValue t) +\n          (Tval (mValue t) : ℝ) * epsval (mValue t) + epsval (mValue t))",
+            "origin": "Retained source statement or signature, not a fresh read of the missing implementation file and not newly elaborated in this review."
+          }
+        }
+      ],
+      "evidence_scope": "Recorded build/type evidence only for these explanatory endpoints. They retain separate correctness and cap premises; this does not make them configured comparisons.",
+      "navigation_assessment": "The proof narrative and formal names match at the level inspected. Add direct type destinations if these steps are advertised as formal inspection points."
+    },
+    {
+      "id": "CT-13",
+      "claim": "Quantum final numerical cap and explicit k-dependence",
+      "record_anchors": [
+        "upper-explicit-log6",
+        "upper-current-formal-scope"
+      ],
+      "mathematical_reading": "For the named circuit and t>=1, Q <= budgetConst(k) 2^t(2t)^6, with budgetConst(k) <= 2^53 k 2^(10k).",
+      "declarations": [
+        {
+          "name": "QuarticQuery.Upper.budget_le",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/Upper/Bound.lean",
+            "line_start": 87,
+            "line_end": 90
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": true,
+          "source_sha256": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303",
+          "source_hash_matches_recorded_root_build": true,
+          "type_observation": {
+            "origin": "directly read packaged source; not elaborated here",
+            "source": "theorem budget_le {k t : ℕ} {C : Circuit (ForrelationCoord k t)} (ht : 1 ≤ t)\n    (hSz : C.size ≤ forrConstant k * mValue t * (2 * t) ^ 2) :\n    budget k t (repetitions k (epsval (mValue t) / (40 * t : ℕ))) (Fintype.card (Tests t C)) ≤\n      budgetConst k * 2 ^ t * (2 * t) ^ 6 := by"
+          }
+        },
+        {
+          "name": "QuarticQuery.Upper.Q_Fkm_le",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/Upper/Bound.lean",
+            "line_start": 278
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": true,
+          "source_sha256": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303",
+          "source_hash_matches_recorded_root_build": true,
+          "type_observation": {
+            "origin": "source header excerpt; ambient namespace/binders are in the source file",
+            "source": "theorem Q_Fkm_le (l t : ℕ) (ht : 1 ≤ t) :\n    (Q (totalise (Fkm (l + 1) t (forrCircuit l t))) : ℝ) ≤\n      (budgetConst (l + 1) : ℝ) * 2 ^ t * (2 * (t : ℝ)) ^ 6 := by"
+          }
+        },
+        {
+          "name": "QuarticQuery.Upper.Q_Fkm_le_exponential",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/Upper/Bound.lean",
+            "line_start": 287,
+            "line_end": 291
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": true,
+          "source_sha256": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303",
+          "source_hash_matches_recorded_root_build": true,
+          "type_observation": {
+            "origin": "directly read packaged source; not elaborated here",
+            "source": "theorem Q_Fkm_le_exponential (l t : ℕ) (ht : 1 ≤ t) :\n    (Q (totalise (Fkm (l + 1) t (forrCircuit l t))) : ℝ) ≤\n      (2 : ℝ) ^ 53 * (l + 1 : ℕ) * 2 ^ (10 * (l + 1)) *\n        2 ^ t * (2 * (t : ℝ)) ^ 6 := by\n  refine (Q_Fkm_le l t ht).trans ?_"
+          }
+        }
+      ],
+      "evidence_scope": "Source-bound recorded build support, no direct configured comparison of these helpers. Q_Fkm_le is part of the recorded headline route.",
+      "navigation_assessment": "The growing-k remark links an intermediate budget theorem even though the exact numerical Q bound is already available in the same file. See LR-030."
+    },
+    {
+      "id": "CT-14",
+      "claim": "Classical capped direct product and arbitrary independent information",
+      "record_anchors": [
+        "CL-direct-product-statement",
+        "CL-weighted-product",
+        "CL-independent-information",
+        "CL-literature-and-verification"
+      ],
+      "mathematical_reading": "Under one-input hardness and separate worst-case caps, joint success is at most beta^r. Jointly independent coins/side information can be averaged. The new finite external-seed endpoint bounds success and cap compliance.",
+      "declarations": [
+        {
+          "name": "QuarticQuery.direct_product",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/LowerBound/DirectProduct.lean",
+            "line_start": 304
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": false,
+          "type_observation": {
+            "path": "repository/docs/reasoning_record_correspondence.json",
+            "json_location": ".returned_correspondence[5].records[0].complete_lean_types[2].source_signature",
+            "type": "theorem direct_product {f : PartialBool κ} {μ : BitInput κ → ℝ} {L : ℕ} {β : ℝ}\n    (hμ : ∀ x, 0 ≤ μ x)\n    (hβ : ∀ T : QueryTree κ, T.depth ≤ L → treeSuccess f μ T ≤ β)\n    (T : OutTree (Fin r × κ) (Fin r → Bool)) (hT : T.capped fun _ => L) :\n    guessSuccess f (fun _ => μ) T ≤ β ^ r",
+            "origin": "Retained source statement or signature, not a fresh read of the missing implementation file and not newly elaborated in this review."
+          }
+        },
+        {
+          "name": "QuarticQuery.Paper.classical_direct_product_average",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+            "line_start": 902
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": false,
+          "type_observation": {
+            "path": "repository/docs/reasoning_record_correspondence.json",
+            "json_location": ".returned_correspondence[5].records[0].complete_lean_types[1].source_signature",
+            "type": "theorem classical_direct_product_average {S : Type} [Fintype S]\n    {f : PartialBool κ} {μ : BitInput κ → ℝ} {L : ℕ} {β : ℝ}\n    (hμ : ∀ x, 0 ≤ μ x) (hμ1 : classicalMass μ = 1)\n    (hard : ∀ T : QueryTree κ, T.depth ≤ L → treeSuccess f μ T ≤ β)\n    {p : S → ℝ} (hp : ∀ s, 0 ≤ p s) (hp1 : ∑ s, p s = 1)\n    (T : S → OutTree (Fin r × κ) (Fin r → Bool))\n    (hT : ∀ s, (T s).capped fun _ => L) :\n    ∑ s, p s * guessSuccess f (fun _ => μ) (T s) ≤ β ^ r",
+            "origin": "Retained source statement or signature, not a fresh read of the missing implementation file and not newly elaborated in this review."
+          }
+        },
+        {
+          "name": "QuarticQuery.direct_product_external_finite_realized_caps",
+          "source_locator": {
+            "path": "repository/lean/QuarticCorpus/Independent/RealizedCaps/Challenge.lean",
+            "line_start": 18,
+            "line_end": 25
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "execution_scope": "Newest endpoint: inspect the packaged type; parallel execution status is not assessed in this assignment.",
+          "source_file_in_packet": true,
+          "source_sha256": "8b1af3e9570bcb1b60c3e396f8a52efdd0b011c067b91e1fce98f2965a73e3c3",
+          "type_observation": {
+            "origin": "directly read packaged source; not elaborated here",
+            "source": "theorem direct_product_external_finite_realized_caps\n    {Ω : Type} [Fintype Ω]\n    {f : PartialBool κ} {μ : BitInput κ → ℝ} {L : ℕ} {β : ℝ}\n    (hμ : ∀ x, 0 ≤ μ x)\n    (hard : ∀ T : QueryTree κ, T.depth ≤ L → treeSuccess f μ T ≤ β)\n    (w : Ω → ℝ) (hw : ∀ ω, 0 ≤ w ω) (hw1 : ∑ ω, w ω = 1)\n    (T : Ω → OutTree (Fin r × κ) (Fin r → Bool)) :\n    ∑ ω, w ω * compliantSuccess f μ (T ω) (fun _ => L) ≤ β ^ r := by"
+          }
+        }
+      ],
+      "evidence_scope": "The older deterministic/finite-mixture suppliers have recorded build evidence but no configured target in the supplied map. The new finite external endpoint is inspected as supplied; parallel status is excluded. The reduction from arbitrary independent information to finite deterministic behaviour is an ordinary argument in the record.",
+      "navigation_assessment": "Explain how the new compliantSuccess type specializes to Lemma 4’s all-branches cap rather than conditioned success. See LR-029."
+    },
+    {
+      "id": "CT-15",
+      "claim": "Classical hard input law via finite minimax",
+      "record_anchors": [
+        "CL-minimax",
+        "CL-address-guess"
+      ],
+      "mathematical_reading": "L<R(P) supplies a promise-supported law under which every depth-L one-instance tree has success at most 2/3.",
+      "declarations": [
+        {
+          "name": "QuarticQuery.exists_hard_distribution",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/LowerBound/Minimax.lean",
+            "line_start": 138
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": false,
+          "type_observation": {
+            "path": "repository/docs/reasoning_record_correspondence.json",
+            "json_location": ".returned_correspondence[6].records[1].complete_lean_types[0].complete_type",
+            "type": "theorem QuarticQuery.exists_hard_distribution {κ : Type} [Fintype κ] [DecidableEq κ] {f : PartialBool κ} {L : ℕ} (h : ¬ RLe f L) :\n    ∃ μ : BitInput κ → ℝ, (∀ x, 0 ≤ μ x) ∧ ∑ x, μ x = 1 ∧ (∀ x, μ x ≠ 0 → promised f x) ∧\n      ∀ T : QueryTree κ, T.depth ≤ L → treeSuccess f μ T ≤ 2 / 3",
+            "origin": "Retained complete-type transcription; consult the supplied correspondence for its provenance. No fresh elaboration or fresh read of the missing implementation file."
+          }
+        }
+      ],
+      "evidence_scope": "Recorded build member and headline dependency; no direct configured target. Its premise is failure of RLe at L, related to L<R by the model minimum theorem.",
+      "navigation_assessment": "The ordinary minimax proof is complete and distinguishes this hard law from the analytic Forrelation distribution. Formal name is recoverable through the correspondence rather than linked locally."
+    },
+    {
+      "id": "CT-16",
+      "claim": "Classical coupled inputs and first-difference bound",
+      "record_anchors": [
+        "CL-entry-interface",
+        "CL-generic-statement",
+        "CL-formal-scope"
+      ],
+      "mathematical_reading": "The dummy/planted pair has outputs 0 and 1; deterministic runs can differ only after querying the erased zero or planted cell. The absolute output gap is bounded by those hit probabilities.",
+      "declarations": [
+        {
+          "name": "QuarticQuery.Paper.dummy_planted_values_on_support",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+            "line_start": 123
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": true,
+          "source_sha256": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+          "source_hash_matches_recorded_root_build": true,
+          "type_observation": {
+            "origin": "source header excerpt; ambient namespace/binders are in the source file",
+            "source": "theorem dummy_planted_values_on_support {f : PartialBool κ} {C : Circuit κ}\n    {tr : BitInput κ → Fin C.size → Bool} (htr : ∀ x, GateConsistent C x (tr x))\n    {μ : BitInput κ → ℝ} (hdom : ∀ x, μ x ≠ 0 → promised f x)\n    (J : Column ℓ → Column ℓ) (A : Column ℓ → Fin r → BitInput κ) (I : Column ℓ)\n    (hA : prodW (prodW μ) A ≠ 0) :\n    addressedF f C ℓ r (dummy J A) = false ∧\n      addressedF f C ℓ r (planted f tr J A I) = true := by"
+          }
+        },
+        {
+          "name": "QuarticQuery.Paper.eq_18",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+            "line_start": 168
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": true,
+          "source_sha256": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+          "source_hash_matches_recorded_root_build": true,
+          "type_observation": {
+            "origin": "source header excerpt; ambient namespace/binders are in the source file",
+            "source": "theorem eq_18 {μ : BitInput κ → ℝ} (hμ : ∀ x, 0 ≤ μ x)\n    (f : PartialBool κ) (tr : BitInput κ → Fin S → Bool)\n    (T : QueryTree (BitLoc ℓ r S κ)) :\n    |plantedAvg μ f tr (fun x => ind (T.eval x = true)) -\n        dummyAvg μ (fun x => ind (T.eval x = true))| ≤\n      coupledAvg μ (fun A J I => foundZero T A J I) +\n        coupledAvg μ (fun A J I => cellVisit f T J A I) := by"
+          }
+        }
+      ],
+      "evidence_scope": "Recorded build members, no direct configured targets for these explanatory statements. Their actual normalisation/support/circuit premises must remain attached.",
+      "navigation_assessment": "The formal scope paragraph describes the wrapper roles but again requires JSON lookup for their signatures."
+    },
+    {
+      "id": "CT-17",
+      "claim": "Classical erased-zero identity and hit bound",
+      "record_anchors": [
+        "CL-erased-zero-identity",
+        "CL-zero-worlds",
+        "CL-formal-scope"
+      ],
+      "mathematical_reading": "With a fresh independent uniform planting column, hit probability equals E[distinct discoveries]/m; the full conjunction includes a 4G/m^2 upper bound.",
+      "declarations": [
+        {
+          "name": "QuarticQuery.Paper.eq19_whole",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/Paper/Eq19Whole.lean",
+            "line_start": 26,
+            "line_end": 34
+          },
+          "direct_configured_targets": [
+            {
+              "configuration": "repository/lean/QuarticCorpus/Independent/Eq19/whole-comparator.json",
+              "configuration_basis": "supplied comparator_map.json configuration entry",
+              "latest_recorded_receipt": "repository/corpus/receipts/comparator-round3-eq19-direct-2026-11-02T204814950389+0000.json",
+              "recorded_status": "passed",
+              "receipt_bytes_in_packet": true,
+              "paranoid": false
+            }
+          ],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": true,
+          "source_sha256": "c6f294ab9565c8a1e03b0cb2f9d8e17cb7d6e731f9fa67b30b18e396a93d74d1",
+          "source_hash_matches_recorded_root_build": true,
+          "type_observation": {
+            "origin": "directly read packaged source; not elaborated here",
+            "source": "theorem eq19_whole {κ : Type} [Fintype κ] [DecidableEq κ]\n    {ℓ r S : ℕ} {μ : BitInput κ → ℝ}\n    (hμ : ∀ x, 0 ≤ μ x) (hμ1 : ∑ x, μ x = 1) {G : ℕ}\n    (T : QueryTree (BitLoc ℓ r S κ)) (hT : T.depth ≤ G) :\n    (coupledAvg μ (fun A J I => foundZero T A J I) =\n      expectedZeros μ T / ((2 ^ ℓ : ℕ) : ℝ)) ∧\n    (coupledAvg μ (fun A J I => foundZero T A J I) ≤\n      4 * (G : ℝ) / ((2 ^ ℓ : ℕ) : ℝ) ^ 2) := by\n  exact ⟨erasedZero_eq_expectedZeros_div μ T, eq_19 hμ hμ1 T hT⟩"
+          }
+        },
+        {
+          "name": "QuarticQuery.Paper.eq_19_complete",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/Paper/Eq19Complete.lean",
+            "line_start": 23,
+            "line_end": 34
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": true,
+          "source_sha256": "1b5de65cb6b83b57393626282352eebd2f69dd0cd96914535e26bae0937b6cb2",
+          "source_hash_matches_recorded_root_build": true,
+          "type_observation": {
+            "origin": "directly read packaged source; not elaborated here",
+            "source": "theorem eq_19_complete\n    {κ : Type} [Fintype κ] [DecidableEq κ] {ℓ r S : ℕ}\n    {μ : BitInput κ → ℝ} (hμ : ∀ x, 0 ≤ μ x)\n    (hμ1 : ∑ x, μ x = 1) {G : ℕ}\n    (T : QueryTree (BitLoc ℓ r S κ)) (hT : T.depth ≤ G) :\n    (coupledAvg μ (fun A J I => foundZero T A J I) =\n      expectedZeros μ T / ((2 ^ ℓ : ℕ) : ℝ)) ∧\n    expectedZeros μ T / ((2 ^ ℓ : ℕ) : ℝ) ≤\n      4 * (G : ℝ) / ((2 ^ ℓ : ℕ) : ℝ) ^ 2 := by\n  refine ⟨erasedZero_eq_expectedZeros_div μ T, ?_⟩\n  calc\n    expectedZeros μ T / ((2 ^ ℓ : ℕ) : ℝ) ≤"
+          }
+        },
+        {
+          "name": "QuarticQuery.Independent.Eq19.checked_eq19",
+          "source_locator": {
+            "path": "repository/lean/QuarticCorpus/Independent/Eq19/Challenge.lean",
+            "line_start": 19,
+            "line_end": 25
+          },
+          "direct_configured_targets": [
+            {
+              "configuration": "repository/lean/QuarticCorpus/Independent/Eq19/comparator.json",
+              "configuration_basis": "supplied comparator_map.json configuration entry",
+              "latest_recorded_receipt": "repository/corpus/receipts/comparator-round3-eq19-independent-2026-11-02T204814950389+0000.json",
+              "recorded_status": "passed",
+              "receipt_bytes_in_packet": true,
+              "paranoid": false
+            }
+          ],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": false,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": true,
+          "source_sha256": "2baac26612cdbfe04ac88cb2267502da9531a7df20758af3a66158a22c03e47c",
+          "source_hash_matches_recorded_root_build": true,
+          "type_observation": {
+            "origin": "directly read packaged source; not elaborated here",
+            "source": "theorem checked_eq19 {κ : Type} [Fintype κ] [DecidableEq κ]\n    {ℓ r S : ℕ} {μ : BitInput κ → ℝ}\n    (hμ : ∀ x, 0 ≤ μ x) (hμ1 : ∑ x, μ x = 1) {G : ℕ}\n    (T : QueryTree (BitLoc ℓ r S κ)) (hT : T.depth ≤ G) :\n    (hitProbability μ T = expectedCount μ T / ((2 ^ ℓ : ℕ) : ℝ)) ∧\n    (hitProbability μ T ≤ 4 * (G : ℝ) / ((2 ^ ℓ : ℕ) : ℝ) ^ 2) := by"
+          }
+        }
+      ],
+      "evidence_scope": "eq19_whole and Independent.Eq19.checked_eq19 are direct targets with passing receipts. eq_19_complete is a separately built conjunction with no direct target in the supplied map. The independent specification still shares coordinate/tree interfaces, as disclosed.",
+      "navigation_assessment": "The record carefully distinguishes complete types and proof routes. Preserve this detail while improving local links. See LR-050."
+    },
+    {
+      "id": "CT-18",
+      "claim": "Classical stronger zero-search estimates",
+      "record_anchors": [
+        "CL-formal-scope"
+      ],
+      "mathematical_reading": "The maintained finite-world induction gives the stronger coefficient 2; the new successor invariant uses |U|+1 and underlies the displayed m+1 refinement.",
+      "declarations": [
+        {
+          "name": "QuarticQuery.Paper.erasedZero_le_two",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+            "line_start": 215
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": true,
+          "source_sha256": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+          "source_hash_matches_recorded_root_build": true,
+          "type_observation": {
+            "origin": "source header excerpt; ambient namespace/binders are in the source file",
+            "source": "theorem erasedZero_le_two {μ : BitInput κ → ℝ} (hμ : ∀ x, 0 ≤ μ x)\n    (hμ1 : ∑ x, μ x = 1) {G : ℕ}\n    (T : QueryTree (BitLoc ℓ r S κ)) (hT : T.depth ≤ G) :\n    coupledAvg μ (fun A J I => foundZero T A J I) ≤\n      2 * (G : ℝ) / ((2 ^ ℓ : ℕ) : ℝ) ^ 2 :="
+          }
+        },
+        {
+          "name": "QuarticQuery.zero_search_sum_successor",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/LowerBound/Planted/ZeroSearchSuccessor.lean",
+            "line_start": 17,
+            "line_end": 22
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "execution_scope": "Newest endpoint: inspect the packaged type; parallel execution status is not assessed in this assignment.",
+          "source_file_in_packet": true,
+          "source_sha256": "9be14d5f906d8e40a2864d0099ff01ced62ae492c2fa7fd5c3686dd04d454a29",
+          "type_observation": {
+            "origin": "directly read packaged source; not elaborated here",
+            "source": "theorem zero_search_sum_successor (e : α → ι) (he : Function.Injective e) (c : ι → Bool)\n    (hc1 : ∀ p, c (e p) = true) (hc2 : ∀ q, c q = true → ∃ p, e p = q)\n    (x : α → BitInput ι) (hout : ∀ j j' q, c q = false → x j q = x j' q)\n    (hin : ∀ j p, x j (e p) = decide (p ≠ j)) (T : QueryTree ι) (U : Finset α) :\n    ((U.card : ℝ) + 1) * ∑ j ∈ U, ind (e j ∈ T.path (x j)) ≤\n      2 * ∑ j ∈ U, ((T.path (x j)).countP c : ℝ) := by"
+          }
+        }
+      ],
+      "evidence_scope": "The coefficient-two source matches the recorded build. The successor endpoint is among the acknowledged new additions; no finding about its parallel execution state is made.",
+      "navigation_assessment": "The distinctions between exact whole display, stronger endpoint and ordinary early/late route should remain visible."
+    },
+    {
+      "id": "CT-19",
+      "claim": "Classical heavy columns and capped per-time simulator",
+      "record_anchors": [
+        "CL-heavy",
+        "CL-simulator",
+        "CL-joint-event"
+      ],
+      "mathematical_reading": "A uniformly selected heavy column has probability at most G/(mL). A simulator truncates before L+1 target queries; nonheavy-and-true-cell-at-time is a joint event contained in simulator success.",
+      "declarations": [
+        {
+          "name": "QuarticQuery.avg_heavy_le",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/LowerBound/Planted/Heavy.lean",
+            "line_start": 42
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": false,
+          "type_observation": {
+            "path": "repository/docs/reasoning_record_correspondence.json",
+            "json_location": ".returned_correspondence[6].records[13].complete_lean_types[3].complete_type",
+            "type": "theorem QuarticQuery.avg_heavy_le {κ : Type} [DecidableEq κ] {ℓ r S : ℕ} {L G : ℕ} (hL : 1 ≤ L) (l : List (BitLoc ℓ r S κ)) (hl : l.length ≤ G) :\n    avg (unif ℓ) (fun I => ind (L < aQueries I l)) ≤\n      (G : ℝ) / (((2 ^ ℓ : ℕ) : ℝ) * (L : ℝ))",
+            "origin": "Retained complete-type transcription; consult the supplied correspondence for its provenance. No fresh elaboration or fresh read of the missing implementation file."
+          }
+        },
+        {
+          "name": "QuarticQuery.Paper.addressSimulator_depth_le",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+            "line_start": 281
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": true,
+          "source_sha256": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+          "source_hash_matches_recorded_root_build": true,
+          "type_observation": {
+            "origin": "source header excerpt; ambient namespace/binders are in the source file",
+            "source": "theorem addressSimulator_depth_le (L t : ℕ) (T : QueryTree (BitLoc ℓ r S κ))\n    (J : Column ℓ → Column ℓ) (A : Column ℓ → Fin r → BitInput κ) (i : Column ℓ) :\n    (addressSimulator L t T J A i).depth ≤ L := depth_simTree_le T t L"
+          }
+        },
+        {
+          "name": "QuarticQuery.Paper.eq_21",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+            "line_start": 342
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": true,
+          "source_sha256": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+          "source_hash_matches_recorded_root_build": true,
+          "type_observation": {
+            "origin": "source header excerpt; ambient namespace/binders are in the source file",
+            "source": "theorem eq_21 {f : PartialBool κ} {μ : BitInput κ → ℝ} {L : ℕ}\n    (hμ : ∀ x, 0 ≤ μ x) (hμ1 : ∑ x, μ x = 1)\n    (hdom : ∀ x, μ x ≠ 0 → promised f x)\n    (hard : ∀ U : QueryTree κ, U.depth ≤ L → treeSuccess f μ U ≤ 2 / 3)\n    (T : QueryTree (BitLoc ℓ r S κ)) (i : Column ℓ) (t : ℕ) :\n    avg (prodW (prodW μ)) (fun A => avg (prodW (unif ℓ)) fun J =>\n      reachedCellAt f L T J A i t) ≤ ((2 : ℝ) / 3) ^ r := by"
+          }
+        }
+      ],
+      "evidence_scope": "Recorded build evidence. eq_21 is not directly compared; the short companion says so correctly. The source’s time index is zero based, unlike prose time 1..G.",
+      "navigation_assessment": "The logic is exposed clearly. The exact per-time hyperlink covers the type and preserves the hardness/normalisation/support premises."
+    },
+    {
+      "id": "CT-20",
+      "claim": "Classical cell union and discrepancy",
+      "record_anchors": [
+        "CL-cell-union",
+        "CL-discrepancy",
+        "CL-formal-scope"
+      ],
+      "mathematical_reading": "Union over query times and average over the planted column give G/(mL)+G(2/3)^r with no extra factor m; combined with zero hits this bounds the absolute discrepancy.",
+      "declarations": [
+        {
+          "name": "QuarticQuery.Paper.eq_22",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+            "line_start": 408
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": true,
+          "source_sha256": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+          "source_hash_matches_recorded_root_build": true,
+          "type_observation": {
+            "origin": "source header excerpt; ambient namespace/binders are in the source file",
+            "source": "theorem eq_22 {f : PartialBool κ} {μ : BitInput κ → ℝ} {L G : ℕ}\n    (hL : 1 ≤ L) (hμ : ∀ x, 0 ≤ μ x) (hμ1 : ∑ x, μ x = 1)\n    (hdom : ∀ x, μ x ≠ 0 → promised f x)\n    (hard : ∀ U : QueryTree κ, U.depth ≤ L → treeSuccess f μ U ≤ 2 / 3)\n    (T : QueryTree (BitLoc ℓ r S κ)) (hT : T.depth ≤ G) :\n    coupledAvg μ (fun A J I => cellVisit f T J A I) ≤\n      (G : ℝ) / (((2 ^ ℓ : ℕ) : ℝ) * (L : ℝ)) + (G : ℝ) * ((2 : ℝ) / 3) ^ r :="
+          }
+        },
+        {
+          "name": "QuarticQuery.Paper.eq_23",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+            "line_start": 436
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": true,
+          "source_sha256": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+          "source_hash_matches_recorded_root_build": true,
+          "type_observation": {
+            "origin": "source header excerpt; ambient namespace/binders are in the source file",
+            "source": "theorem eq_23 {f : PartialBool κ} {μ : BitInput κ → ℝ} {L G : ℕ}\n    (tr : BitInput κ → Fin S → Bool) (hL : 1 ≤ L)\n    (hμ : ∀ x, 0 ≤ μ x) (hμ1 : ∑ x, μ x = 1)\n    (hdom : ∀ x, μ x ≠ 0 → promised f x)\n    (hard : ∀ U : QueryTree κ, U.depth ≤ L → treeSuccess f μ U ≤ 2 / 3)\n    (T : QueryTree (BitLoc ℓ r S κ)) (hT : T.depth ≤ G) :\n    |plantedAvg μ f tr (fun x => ind (T.eval x = true)) -\n        dummyAvg μ (fun x => ind (T.eval x = true))| ≤\n      4 * (G : ℝ) / ((2 ^ ℓ : ℕ) : ℝ) ^ 2 +\n        (G : ℝ) / (((2 ^ ℓ : ℕ) : ℝ) * (L : ℝ)) + (G : ℝ) * ((2 : ℝ) / 3) ^ r := by"
+          }
+        },
+        {
+          "name": "QuarticQuery.Paper.eq_23_randomized",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+            "line_start": 465
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": true,
+          "source_sha256": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+          "source_hash_matches_recorded_root_build": true,
+          "type_observation": {
+            "origin": "source header excerpt; ambient namespace/binders are in the source file",
+            "source": "theorem eq_23_randomized {f : PartialBool κ} {μ : BitInput κ → ℝ} {L G : ℕ}\n    (tr : BitInput κ → Fin S → Bool) (hL : 1 ≤ L)\n    (hμ : ∀ x, 0 ≤ μ x) (hμ1 : ∑ x, μ x = 1)\n    (hdom : ∀ x, μ x ≠ 0 → promised f x)\n    (hard : ∀ U : QueryTree κ, U.depth ≤ L → treeSuccess f μ U ≤ 2 / 3)\n    (P : RandomizedProgram (BitLoc ℓ r S κ)) (hP : P.depth ≤ G) :\n    |plantedAvg μ f tr (fun x => P.success x true) -\n        dummyAvg μ (fun x => P.success x true)| ≤\n      4 * (G : ℝ) / ((2 ^ ℓ : ℕ) : ℝ) ^ 2 +\n        (G : ℝ) / (((2 ^ ℓ : ℕ) : ℝ) * (L : ℝ)) + (G : ℝ) * ((2 : ℝ) / 3) ^ r := by"
+          }
+        }
+      ],
+      "evidence_scope": "Recorded build-only explanatory endpoints. The underlying core sufficient discrepancy may follow an alternative one-sided route; do not infer direct comparison from final separation targets.",
+      "navigation_assessment": "The exact wrapper names and ordinary route are well distinguished in §6.7, but currently require sidecar search rather than an immediate source destination."
+    },
+    {
+      "id": "CT-21",
+      "claim": "Classical lower endpoint",
+      "record_anchors": [
+        "CL-generic-statement",
+        "CL-concrete-lower",
+        "CL-formal-scope"
+      ],
+      "mathematical_reading": "For any admissible circuit and a sufficiently hard partial function, the total addressed function needs more than floor(mL/100) queries; the unconditional Forrelation specialization supplies the hardness premise.",
+      "declarations": [
+        {
+          "name": "QuarticQuery.Checked.addressed_lower_bound",
+          "source_locator": {
+            "path": "repository/lean/QuarticCorpus/Separation/Challenge.lean",
+            "line_start": 351,
+            "line_end": 355
+          },
+          "direct_configured_targets": [
+            {
+              "configuration": "repository/lean/QuarticCorpus/Separation/comparator.json",
+              "configuration_basis": "supplied comparator_map.json configuration entry",
+              "latest_recorded_receipt": "repository/corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
+              "recorded_status": "passed",
+              "receipt_bytes_in_packet": true,
+              "paranoid": false
+            }
+          ],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": false,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": false,
+          "type_evidence_boundary": "Exact wrapper source/type is not available in this reading packet and was not inspected here. Its locator and configured-target identity are retained in comparator_map.json; acceptance is reported by the linked receipt. Do not treat the map’s mathematical gloss as a freshly checked type correspondence."
+        },
+        {
+          "name": "QuarticQuery.Gvalue_lt_R_addressedF",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/LowerBound/Planted/Main.lean",
+            "line_start": 190
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [
+            "QuarticQuery.Checked.addressed_lower_bound"
+          ],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": false,
+          "type_observation": {
+            "path": "repository/docs/reasoning_record_correspondence.json",
+            "json_location": ".returned_correspondence[6].records[3].complete_lean_types[0].complete_type",
+            "type": "theorem QuarticQuery.Gvalue_lt_R_addressedF {κ : Type} [Fintype κ] [DecidableEq κ] (f : PartialBool κ) (C : Circuit κ) (hC : CircuitRealises C f)\n    {t L : ℕ} (hL1 : 1 ≤ L) (hLm : L ≤ mValue t) (hLR : L < R f) :\n    Gvalue (mValue t) L < R (totalise (addressedF f C (2 * t) (40 * t)))",
+            "origin": "Retained complete-type transcription; consult the supplied correspondence for its provenance. No fresh elaboration or fresh read of the missing implementation file."
+          }
+        },
+        {
+          "name": "QuarticQuery.Paper.prop_4_2",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/Paper/Section4.lean",
+            "line_start": 20
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": false,
+          "type_observation": {
+            "path": "repository/docs/reasoning_record_correspondence.json",
+            "json_location": ".returned_correspondence[6].records[24].complete_lean_types[0].complete_type",
+            "type": "QuarticQuery.Paper.prop_4_2 (k : Nat) (hk : LE.le 2 k) :\n  Exists fun t₀ =>\n    ∀ (t : Nat),\n      LE.le t₀ t →\n        ∀ (C : QuarticQuery.Circuit (QuarticQuery.ForrelationCoord k t)),\n          QuarticQuery.CircuitRealises C (QuarticQuery.P k t) →\n            LT.lt (QuarticQuery.Gvalue (QuarticQuery.mValue t) (QuarticQuery.Lvalue k t))\n              (QuarticQuery.R (QuarticQuery.totalise (QuarticQuery.Fkm k t C)))",
+            "origin": "Retained complete-type transcription; consult the supplied correspondence for its provenance. No fresh elaboration or fresh read of the missing implementation file."
+          }
+        }
+      ],
+      "evidence_scope": "The supplied map and receipt identify Checked.addressed_lower_bound as an accepted Separation target; its exact wrapper type is not present here. The retained type of implementation Gvalue_lt_R_addressedF keeps the hardness premise. The eventual Paper.prop_4_2 appears in the recorded root-build inventory; the unconditional headline supplies the needed assumptions.",
+      "navigation_assessment": "The record correctly warns that a proved unconditional wrapper does not erase the binder of a conditional supplier; local exact targets should accompany this warning."
+    },
+    {
+      "id": "CT-22",
+      "claim": "Floors, ratio divergence and exclusion of smaller exponents",
+      "record_anchors": [
+        "CL-floors",
+        "ROOT-RATIO",
+        "ROOT-NO-SMALLER",
+        "ROOT-EXPONENT-CORRESPONDENCE"
+      ],
+      "mathematical_reading": "Floor removal yields 1/400; choose alpha first, then fixed k, then let m grow. The quotient diverges and excludes every alpha<4.",
+      "declarations": [
+        {
+          "name": "QuarticQuery.Gvalue_ge",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/Results/Exponent.lean",
+            "line_start": 365
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": false,
+          "type_observation": {
+            "path": "repository/docs/reasoning_record_correspondence.json",
+            "json_location": ".returned_correspondence[0].records[14].load_bearing_claims[1].complete_lean_types[1].complete_source_declaration_or_signature",
+            "type": "theorem Gvalue_ge {k t : ℕ} (hk : 2 ≤ k) (ht : 8 ≤ t) :\n    (1 / 400 : ℝ) * ((4 : ℝ) ^ t) ^ (2 - 1 / (k : ℝ)) / (2 * (t : ℝ)) ^ 2 ≤\n      (Gvalue (mValue t) (Lvalue k t) : ℝ)",
+            "origin": "Retained source statement or signature, not a fresh read of the missing implementation file and not newly elaborated in this review."
+          }
+        },
+        {
+          "name": "QuarticQuery.Paper.classical_Fkm_ratio",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/Paper/ClassicalAsymptotics.lean",
+            "line_start": 372
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": false,
+          "type_observation": {
+            "path": "repository/docs/reasoning_record_correspondence.json",
+            "json_location": ".returned_correspondence[0].records[1].load_bearing_claims[0].complete_lean_types[3].complete_source_declaration_or_signature",
+            "type": "theorem classical_Fkm_ratio (l : ℕ) (hk : 2 ≤ l + 1) {α : ℝ}\n    (hα : 0 ≤ α) (hs : α / 2 < 2 - 1 / ((l + 1 : ℕ) : ℝ)) :\n    ∃ d : ℝ, 0 < d ∧\n      (∀ᶠ t : ℕ in atTop,\n        d * (mValue t : ℝ) ^ (2 - 1 / ((l + 1 : ℕ) : ℝ) - α / 2) /\n          Real.logb 2 (mValue t : ℝ) ^ (2 + α * 6) ≤\n            (R (totalise (Fkm (l + 1) t (Forrelation.forrCircuit l t))) : ℝ) /\n              (1 + (Q (totalise (Fkm (l + 1) t (Forrelation.forrCircuit l t))) : ℝ)) ^ α) ∧\n      Tendsto (fun t : ℕ =>\n        d * (mValue t : ℝ) ^ (2 - 1 / ((l + 1 : ℕ) : ℝ) - α / 2) /\n          Real.logb 2 (mValue t : ℝ) ^ (2 + α * 6)) atTop atTop ∧\n      Tendsto (fun t : ℕ =>\n        (R (totalise (Fkm (l + 1) t (Forrelation.forrCircuit l t))) : ℝ) /\n          (1 + (Q (totalise (Fkm (l + 1) t (Forrelation.forrCircuit l t))) : ℝ)) ^ α)\n        atTop atTop",
+            "origin": "Retained source statement or signature, not a fresh read of the missing implementation file and not newly elaborated in this review."
+          }
+        },
+        {
+          "name": "QuarticQuery.not_universalPower_of_family",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/Results/Exponent.lean",
+            "line_start": 231
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": false,
+          "type_observation": {
+            "path": "repository/docs/reasoning_record_correspondence.json",
+            "json_location": ".returned_correspondence[7].records[2].formal_support[9].complete_type",
+            "type": "theorem not_universalPower_of_family\n    (hRreindex : ∀ (ι κ : Type) [Fintype ι] [Fintype κ] (e : ι ≃ κ) (f : PartialBool ι),\n      R (reindex e f) = R f)\n    (hQreindex : ∀ (ι κ : Type) [Fintype ι] [Fintype κ] (e : ι ≃ κ) (f : PartialBool ι),\n      Q (reindex e f) = Q f)\n    (hfam : FamilyBounds) {α : ℝ} (hα : α < 4) : ¬ UniversalPower α",
+            "origin": "Retained complete-type transcription; consult the supplied correspondence for its provenance. No fresh elaboration or fresh read of the missing implementation file."
+          }
+        },
+        {
+          "name": "QuarticQuery.Checked.alpha_tot_eq_four",
+          "source_locator": {
+            "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+            "line_start": 326,
+            "line_end": 327
+          },
+          "direct_configured_targets": [
+            {
+              "configuration": "repository/lean/QuarticCorpus/Unconditional/comparator.json",
+              "configuration_basis": "direct file",
+              "latest_recorded_receipt": "repository/corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
+              "recorded_status": "passed",
+              "receipt_bytes_in_packet": true,
+              "paranoid": true
+            }
+          ],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": false,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": true,
+          "source_sha256": "c88be0b70754cb6f93448694002a16e1eb6a25135fa71648d4651f01104e399d",
+          "source_hash_matches_recorded_root_build": true,
+          "type_observation": {
+            "origin": "directly read packaged source; not elaborated here",
+            "source": "theorem alpha_tot_eq_four : alphaTot = 4 := by"
+          }
+        },
+        {
+          "name": "QuarticQuery.Checked.cubic_bound_fails",
+          "source_locator": {
+            "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+            "line_start": 336,
+            "line_end": 339
+          },
+          "direct_configured_targets": [
+            {
+              "configuration": "repository/lean/QuarticCorpus/Unconditional/comparator.json",
+              "configuration_basis": "direct file",
+              "latest_recorded_receipt": "repository/corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
+              "recorded_status": "passed",
+              "receipt_bytes_in_packet": true,
+              "paranoid": true
+            }
+          ],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": false,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": true,
+          "source_sha256": "c88be0b70754cb6f93448694002a16e1eb6a25135fa71648d4651f01104e399d",
+          "source_hash_matches_recorded_root_build": true,
+          "type_observation": {
+            "origin": "directly read packaged source; not elaborated here",
+            "source": "theorem cubic_bound_fails :\n    ¬ ∃ C : ℝ, ∀ n : ℕ, 1 ≤ n → ∀ f : TotalBool (Fin n),\n      (R (totalise f) : ℝ) ≤ C * (Q (totalise f) : ℝ) ^ 3 := by"
+          }
+        }
+      ],
+      "evidence_scope": "The numerical and quotient suppliers appear in the recorded root-build inventory. The intermediate exclusion theorem has family/reindexing binders, discharged in the unconditional proof. The final exponent and cubic-failure wrapper types are directly inspected and are configured targets with passing recorded receipts.",
+      "navigation_assessment": "The quantifier boundary and distinction from an exact Omega(Q^4) separation are explained well. The long record lacks the exact target links supplied by short Appendix A."
+    },
+    {
+      "id": "CT-23",
+      "claim": "Universal quartic upper endpoint and Appendix A route",
+      "record_anchors": [
+        "R3-A-ASSEMBLY",
+        "R3-A-FORMAL"
+      ],
+      "mathematical_reading": "R<=D=O(Q^4). The headline uses coefficient 20736 from the complexity-library route; the reconstructed literal appendix uses 35^4; the hybrid uses 19600.",
+      "declarations": [
+        {
+          "name": "QuarticQuery.Checked.universal_quartic_bound",
+          "source_locator": {
+            "path": "repository/lean/QuarticCorpus/Separation/Challenge.lean",
+            "line_start": 337,
+            "line_end": 338
+          },
+          "direct_configured_targets": [
+            {
+              "configuration": "repository/lean/QuarticCorpus/Separation/comparator.json",
+              "configuration_basis": "supplied comparator_map.json configuration entry",
+              "latest_recorded_receipt": "repository/corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
+              "recorded_status": "passed",
+              "receipt_bytes_in_packet": true,
+              "paranoid": false
+            }
+          ],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": false,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": false,
+          "type_evidence_boundary": "Exact wrapper source/type is not available in this reading packet and was not inspected here. Its locator and configured-target identity are retained in comparator_map.json; acceptance is reported by the linked receipt. Do not treat the map’s mathematical gloss as a freshly checked type correspondence."
+        },
+        {
+          "name": "QuarticQuery.R_le_D_le_one_add_Q_pow_four",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/Appendix/TheoremA1.lean",
+            "line_start": 57
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": false,
+          "type_observation": {
+            "path": "repository/docs/reasoning_record_correspondence.json",
+            "json_location": ".returned_correspondence[0].records[0].load_bearing_claims[1].complete_lean_types[2].complete_source_declaration_or_signature",
+            "type": "theorem R_le_D_le_one_add_Q_pow_four (f : TotalBool (Fin n)) :\n    (R (totalise f) : ℝ) ≤ D (totalise f) ∧\n      (D (totalise f) : ℝ) ≤ 20736 * (1 + (Q (totalise f) : ℝ)) ^ 4",
+            "origin": "Retained source statement or signature, not a fresh read of the missing implementation file and not newly elaborated in this review."
+          }
+        },
+        {
+          "name": "QuarticQuery.Paper.appendixA_theoremA1",
+          "source_locator": {
+            "path": "repository/lean/QuarticQuery/Paper/AppendixA.lean",
+            "line_start": 67
+          },
+          "direct_configured_targets": [],
+          "wrapper_targets_using_this_implementation": [],
+          "recorded_root_build_inventory_contains": true,
+          "recorded_root_build": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+          "source_file_in_packet": false,
+          "type_observation": {
+            "path": "repository/docs/reasoning_record_correspondence.json",
+            "json_location": ".returned_correspondence[7].records[4].formal_support[1].complete_type",
+            "type": "QuarticQuery.Paper.appendixA_theoremA1 {n : Nat} (f : QuarticQuery.TotalBool (Fin n)) :\n  And (LE.le ↑(QuarticQuery.R (QuarticQuery.totalise f)) ↑(QuarticQuery.D (QuarticQuery.totalise f)))\n    (LE.le (↑(QuarticQuery.D (QuarticQuery.totalise f)))\n      (HMul.hMul 1500625 (HPow.hPow (HAdd.hAdd 1 ↑(QuarticQuery.Q (QuarticQuery.totalise f))) 4)))",
+            "origin": "Retained complete-type transcription; consult the supplied correspondence for its provenance. No fresh elaboration or fresh read of the missing implementation file."
+          }
+        }
+      ],
+      "evidence_scope": "The supplied map and receipt identify Checked.universal_quartic_bound as an accepted Separation target. Its exact wrapper type is not present here, so the universal-endpoint meaning is traced through the map and retained implementation types. The literal Appendix A reconstruction and its helpers have recorded build evidence, not individual comparison by that wrapper.",
+      "navigation_assessment": "The three constants/routes are explicitly distinguished and should remain so. Source and comparison destinations are still prose names or large correspondence files."
+    }
+  ],
+  "final_qa": {
+    "distinct_declarations": 55,
+    "direct_packaged_source_type_observations": 28,
+    "retained_type_observations": 23,
+    "configured_wrappers_without_exact_type_in_packet": 4,
+    "source_excerpts_and_retained_type_copies_match": true,
+    "recorded_root_memberships_match": true,
+    "direct_target_memberships_and_receipt_statuses_match": true,
+    "new_lean_or_comparator_execution": false
+  }
+}

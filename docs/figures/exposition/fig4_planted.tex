@@ -5,7 +5,8 @@
 \input{style.tex}
 \begin{document}
 \begin{tikzpicture}
-\tikzset{cell/.append style={fill=black!4, text=black!60}}
+\tikzset{cell/.append style={fill=black!4, text=black!85, font=\footnotesize},
+        bit/.append style={font=\footnotesize}}
 % ---- dummy input Y^0 ---------------------------------------------------
 \begin{scope}
 \node[font=\small\bfseries, anchor=west] at (-0.6,1.0)
@@ -31,9 +32,9 @@
   (1c10.east) -- (2.2,-2.62) -- (2.2,0.88) -| (x3-2.north);
 \draw[->, win, thick, rounded corners=3pt]
   (1c10.east) -- (2.0,-2.62) -- (2.0,1.14) -| (x4-3.north);
-\node[win, font=\scriptsize, align=right, anchor=east] at (-0.15,-2.62)
-  {filled cell:\\transcripts and\\pointers to $J_2,J_3,J_4$};
-\node[win, font=\scriptsize, anchor=south] at (1.15,0.25) {zero erased};
+\node[win, font=\footnotesize, align=left, anchor=north west] at (-0.35,-3.45)
+  {filled cell: transcripts and pointers to $J_2,J_3,J_4$};
+\node[win, font=\footnotesize, anchor=south] at (1.15,0.25) {zero erased};
 \end{scope}
 \end{tikzpicture}
 \end{document}

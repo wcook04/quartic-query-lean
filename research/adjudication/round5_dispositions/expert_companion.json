@@ -1,0 +1,980 @@
+{
+ "document": "docs/expert_companion.md",
+ "dispositions": [
+  {
+   "return": "classical_mechanism",
+   "id": "CM-001",
+   "severity": "high",
+   "disposition": "fixed",
+   "where": "§1.3 What is new",
+   "note": "Bansal–Sinha credited with hardness of the explicit Walsh–Hadamard problem and the one-sided thresholds; SSW credited separately with the optimal partial separation for k-fold rorrelation [SSW Thm 1.1]. The unspecific 'sharper bound' sentence in §6 is removed; §6 links record §3.16 for the comparison with published proofs. Verified against the SSW annex (rorrelation, 'incomparable')."
+  },
+  {
+   "return": "classical_mechanism",
+   "id": "CM-004",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§1.2",
+   "note": "Classical overview now names both routes (erased zero, about m^2 queries; planted cell, about L per column or a lucky r-bit guess) and states that with L≤m both fail below about mL queries."
+  },
+  {
+   "return": "classical_mechanism",
+   "id": "CM-006",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§3 Table 1 row 4",
+   "note": "Row includes the no-discovery fallback (choose among all four columns), recomputed 1-(3/4)^4=175/256 against E Z/m=1/4, and links record #CL-selection-independence-example."
+  },
+  {
+   "return": "classical_mechanism",
+   "id": "CM-007",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§5.1",
+   "note": "Credit sentence now distinguishes Shaltiel's fair trees (XOR advantage, uniform inputs), Drucker's Lemmas 3.1–3.2 specialised at the end of §3 (this product bound) and his global-budget headline theorem, with a link to record #CL-literature-and-verification. Verified against record §6.1 and the Drucker annex."
+  },
+  {
+   "return": "classical_mechanism",
+   "id": "CM-010",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§5.1; Appendix A Table 2 row 'Lemma 4'",
+   "note": "§5.1 now says Lean proves a joint form for finitely many weighted seeds; Table 2 explains it bounds success together with compliance (linked compliantSuccess definition) for uncapped trees, that Lemma 4 follows once path compliance is identified with the caps (not formalised, per round4_formal.md), and that arbitrary randomness is an ordinary reduction (record #CL-independent-information)."
+  },
+  {
+   "return": "classical_mechanism",
+   "id": "CM-011",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§5.3; Appendix A Table 2 row (11)",
+   "note": "The compared (11) link is paired with the definitions of hitProbability and expectedCount (def-hit) over independent address inputs, zero rows and I, and record #CL-erased-zero-identity."
+  },
+  {
+   "return": "classical_mechanism",
+   "id": "CM-012",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§5.5",
+   "note": "'Full proof' now lands at record §6 entry (#CL-direct-product-statement) with a separate link to the §6.6 assembly (#CL-discrepancy); §5.3, §5.4 link #CL-erased-zero-identity, #CL-early-late, #CL-zero-optional, #CL-simulator."
+  },
+  {
+   "return": "classical_mechanism",
+   "id": "CM-013",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§5.2, §5.4 headings",
+   "note": "Blank lines restored before both headings; rendered PDF inspected: both print as headings on pp. 8–9."
+  },
+  {
+   "return": "classical_mechanism",
+   "id": "CM-014",
+   "severity": "medium",
+   "disposition": "packet_only",
+   "where": "Figures 1–2",
+   "note": "docs/figures/expert_planted.svg and expert_column.svg exist in the repo and render in the PDF; the omission was in the review packet."
+  },
+  {
+   "return": "classical_mechanism",
+   "id": "CM-018",
+   "severity": "low",
+   "disposition": "fixed",
+   "where": "§5.3",
+   "note": "The preprint's early-and-late count (E Z≤4G/m) is now the printed sufficient derivation and is used in (14) (gap ≤6/100); the reference-input refinement 2G/(m(m+1)) is labelled optional and linked to record #CL-zero-optional."
+  },
+  {
+   "return": "classical_mechanism",
+   "id": "CM-019",
+   "severity": "low",
+   "disposition": "fixed",
+   "where": "§5 opening",
+   "note": "§5 opens with the two detectable changes (erased zero, filled cell) and which subsection bounds each, before the generic hypotheses."
+  },
+  {
+   "return": "classical_mechanism",
+   "id": "CM-021",
+   "severity": "low",
+   "disposition": "fixed",
+   "where": "Appendix A Table 2 row 2G/(m(m+1))",
+   "note": "The linked successor theorem is described as the charging inequality behind the refinement, with the averaging step ordinary; marked partial and not reviewed."
+  },
+  {
+   "return": "classical_mechanism",
+   "id": "CM-022",
+   "severity": "low",
+   "disposition": "fixed",
+   "where": "§5.2",
+   "note": "Adds that the blank array and single filled cell follow the ABK cheat-sheet lower bound, and that the erased zero is a second channel with the unknown column supplying the factor m. Cited [ABK2016] without a lemma number because the local ABK edition numbers the lemma differently (Lemma 2 in the annex vs Lemma 6 in arXiv v2)."
+  },
+  {
+   "return": "classical_mechanism",
+   "id": "CM-024",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "§5.4",
+   "note": "Total-cap-to-separate-caps sentence, event inclusion and joint-event display unchanged."
+  },
+  {
+   "return": "classical_mechanism",
+   "id": "CM-025",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "§5.3; Table 1 row 4",
+   "note": "Identity-first order and whole-run independence kept; the counterexample fallback was repaired rather than removed."
+  },
+  {
+   "return": "classical_mechanism",
+   "id": "CM-026",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "§5.5",
+   "note": "Averaging-over-trees sentence unchanged."
+  },
+  {
+   "return": "classical_mechanism",
+   "id": "CM-028",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "§7",
+   "note": "Quantifier-order paragraph unchanged; the growing-k remark keeps its assumptions (now including 15k+2≤2t) in compressed form."
+  },
+  {
+   "return": "classical_mechanism",
+   "id": "CM-029",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "Appendix A",
+   "note": "Existential b versus constants theorem kept; same-circuit wording kept."
+  },
+  {
+   "return": "classical_mechanism",
+   "id": "CM-030",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "Appendix A",
+   "note": "Reading guide, definition links, shared-modelling caveat kept; navigation extended (output probability, gate consistency, pointer decoding, model bridges)."
+  },
+  {
+   "return": "classical_mechanism",
+   "id": "CM-031",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "§5.3",
+   "note": "Direct conjunction target cmp-eq11 kept beside the independence discussion, now with its definitions."
+  },
+  {
+   "return": "classical_mechanism",
+   "id": "CM-032",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "§2 (i)",
+   "note": "Bansal–Sinha interface and locator unchanged."
+  },
+  {
+   "return": "classical_mechanism",
+   "id": "CM-033",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "§5.1",
+   "note": "Unnormalised recursion proof unchanged."
+  },
+  {
+   "return": "classical_mechanism",
+   "id": "CM-034",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "§1.1",
+   "note": "Arithmetic kept, compressed; opening narrowed to 'this route' per ER-028."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-001",
+   "severity": "high",
+   "disposition": "fixed",
+   "where": "§1.3 What is new",
+   "note": "Bansal–Sinha credited with hardness of the explicit Walsh–Hadamard problem and the one-sided thresholds; SSW credited separately with the optimal partial separation for k-fold rorrelation [SSW Thm 1.1]. The unspecific 'sharper bound' sentence in §6 is removed; §6 links record §3.16 for the comparison with published proofs. Verified against the SSW annex (rorrelation, 'incomparable')."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-002",
+   "severity": "high",
+   "disposition": "fixed",
+   "where": "§3 Table 1 row 2; §4.2",
+   "note": "Row now separates the two obstructions: a deterministic three-cycle is a fixed tournament with no total order (defeats order-based shortcuts); two losers at probability 1/2 have no bounded-error orientation (defeats the bounded-error fixed-tournament shortcut). Linked to record #upper-cyclic-example."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-003",
+   "severity": "high",
+   "disposition": "fixed",
+   "where": "Appendix A, Table 2 rows 'Lemma 2.2'",
+   "note": "The Construction challenge link is now described as four facts about winners (unique winner and address, unique gate-consistent transcripts, no zero found in a winner, winner's pointers find zeros), marked partial and 'support Lemma 2.2 without stating it'; the Lemma 2.2 label is reserved for the full ConstructionFull statement (marked stronger). Link request for the reader name."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-004",
+   "severity": "high",
+   "disposition": "moved_to_record",
+   "where": "§6",
+   "note": "The quantitative Forrelation sketch moved to record §§3.6–3.15; §6 keeps the input/output statement (16), its threshold arithmetic, and names the amplified depth 50kD+1 of a cap-D solver, linking record #forr_uniform_assembly."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-005",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§3 Table 1 row 4",
+   "note": "Row includes the no-discovery fallback (choose among all four columns), recomputed 1-(3/4)^4=175/256 against E Z/m=1/4, and links record #CL-selection-independence-example."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-006",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§7 Remark",
+   "note": "The dimension condition 15k+2≤2t is carried into the intermediate inference (with t≥32, X∈[2,m]); verified numerically for t≤3000 and all admissible k, and the final schedule k=⌊√(t/20)⌋ checked numerically to t=10^8."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-007",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§4.2",
+   "note": "Replaced by 'No order or transitivity enters, so cycles among losers do no harm.'"
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-008",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§1.3 What is new",
+   "note": "Bansal–Sinha credited with hardness of the explicit Walsh–Hadamard problem and the one-sided thresholds; SSW credited separately with the optimal partial separation for k-fold rorrelation [SSW Thm 1.1]. The unspecific 'sharper bound' sentence in §6 is removed; §6 links record §3.16 for the comparison with published proofs. Verified against the SSW annex (rorrelation, 'incomparable')."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-009",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§1.3",
+   "note": "Adds a compact mechanism comparison: DH (ordered values), MPS (fixed tournament, king), BDK Lemma 5 (fixed tournament of locally checked claims, sink/king, verify), AIK §6.1 (candidates beating all selected pivots in a fixed graph with approximate edges), both separating C from R and Q; contrasts with arbitrary loser probabilities here. Locators checked in the BDK and AIK annexes."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-010",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§1.3",
+   "note": "Gives ABBLSS §1.3 'Use of a balanced tree' caveat (one symbol holding all m−1 pointers makes the alphabet exponential) and the bit-field implementation here; novelty claimed only for the combination with cheat-sheet addressing. Verified in the ABBLSS annex."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-011",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§1.2",
+   "note": "Classical overview now names both routes (erased zero, about m^2 queries; planted cell, about L per column or a lucky r-bit guess) and states that with L≤m both fail below about mL queries."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-012",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§1 Theorem 1",
+   "note": "Theorem 1 now states the preprint's quantifiers with unspecified c_k, C_k, b_k and threshold; the explicit b_k=6, c_k=1/400, t≥13669k² follow with section and record links."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-013",
+   "severity": "medium",
+   "disposition": "moved_to_record",
+   "where": "§6",
+   "note": "Gaussian chain, reflections, integration by parts and martingale details moved to record §§3.6–3.15; §6 keeps the prerequisite, the uniform statement, the non-promise-supported planted law and the Lean status."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-014",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§7 Remark",
+   "note": "Reduced to a short remark with its ingredients, hypotheses, the resulting ε(ℓ) and its ordinary/built status. The derivation is not in the record (grep found none), so the remark keeps the two checkable intermediate statements; request to the record owner to host the full derivation."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-015",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§5.3; Appendix A Table 2",
+   "note": "One sufficient derivation and the exact identity remain in the main flow; the competing coefficients and Lean route details moved to Table 2 and record #CL-zero-optional."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-016",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§4 Lemma 2; Appendix A Table 2",
+   "note": "Coordinator extended cmp-amplifier to L17–L52 and cmp-lemma22-full to L14–L60 (full types). Table 2 states what each contains and how it differs."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-017",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§7 Remark; Appendix A",
+   "note": "Remark now links src-budget-exponential (Q_Fkm_le_exponential, constant 2^53 k 2^(10k)), supplied by the coordinator."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-018",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "Appendix A object table",
+   "note": "New row 'Output probability' links AdaptiveProgram.outputMass and project: unnormalised branch states, an answer's probability is the total squared norm of its branches. Link request def-output-mass."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-019",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "Appendix A after object table",
+   "note": "Adds that agreement with the usual models (finite mixtures; cap-preserving deferred measurement) is proved in record §§2.2–2.5, linking #R3-01-BRIDGES."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-020",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "Appendix A object table",
+   "note": "def-F now spans addressedF and Fkm (coordinator); new links for gate consistency (def-gate) and pointer decoding (def-pointer)."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-021",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§5.1; Appendix A Table 2 row 'Lemma 4'",
+   "note": "§5.1 now says Lean proves a joint form for finitely many weighted seeds; Table 2 explains it bounds success together with compliance (linked compliantSuccess definition) for uncapped trees, that Lemma 4 follows once path compliance is identified with the caps (not formalised, per round4_formal.md), and that arbitrary randomness is an ordinary reduction (record #CL-independent-information)."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-022",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "Appendix A, What Comparator establishes",
+   "note": "States that the statement file gives each theorem a placeholder in place of a proof and links the proof-bearing solution (statement-solution)."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-023",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "Appendix A, What Comparator establishes",
+   "note": "Links the recorded paranoid Comparator run of the four theorems on the current sources (statement-receipt, supplied by the coordinator)."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-024",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§5.2, §5.4 headings",
+   "note": "Blank lines restored before both headings; rendered PDF inspected: both print as headings on pp. 8–9."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-025",
+   "severity": "medium",
+   "disposition": "packet_only",
+   "where": "Figures 1–2",
+   "note": "docs/figures/expert_planted.svg and expert_column.svg exist in the repo and render in the PDF; the omission was in the review packet."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-026",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§2 The total function",
+   "note": "States n=m[m+rkm+2^r((m−1)ℓ+rS)]=O_k(m^22 ℓ^3) and that m counts columns, matching the exposition."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-027",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§3 Table 1",
+   "note": "Right column now gives exact record links for rows 1, 2, 4, 6, 7; rows 3, 5, 8 are stated as checked in the table itself; 'review material' removed."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-028",
+   "severity": "low",
+   "disposition": "fixed",
+   "where": "§1.1",
+   "note": "Opening scoped to 'this route'; ABKRT conjecture phrased for all total functions."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-029",
+   "severity": "low",
+   "disposition": "fixed",
+   "where": "§1.3",
+   "note": "Adds that the ABBLSS pointer functions already gave a nearly quartic D-versus-Q separation (verified in the preprint's §1)."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-030",
+   "severity": "low",
+   "disposition": "fixed",
+   "where": "Abstract",
+   "note": "Removed the line count, Mathlib/Comparator names and the self-assessment; the abstract ends on comparing the Lean statements with the paper."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-032",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "4.1 Comparisons",
+   "note": "Unchanged in substance."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-033",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "§5.1",
+   "note": "Proof, all-branch cap and joint independence kept; credit now separates Drucker's lemmas from his global-budget theorem."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-034",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "5.4 The planted cell",
+   "note": "Unchanged in substance."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-035",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "7. The exponent",
+   "note": "Unchanged in substance."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-036",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "1. The result",
+   "note": "Unchanged in substance."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-037",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "§1.1 table and §1.3",
+   "note": "Sequence kept; explicit-Forrelation attribution corrected; cubic wording narrowed."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-038",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "§1.3",
+   "note": "HMW fixed-predicate sentence kept verbatim within the comparison paragraph."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-039",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "§1 and Appendix A Table 2",
+   "note": "Compared versus constants theorem distinction kept and now also tabulated."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-040",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "Appendix A, What it does not establish",
+   "note": "Kept next to the checker description."
+  },
+  {
+   "return": "expert_referee_short",
+   "id": "ER-041",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "Appendix A. Checking the statement — Five things to check",
+   "note": "Unchanged in substance."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-003",
+   "severity": "high",
+   "disposition": "fixed",
+   "where": "§5.2, §5.4 headings",
+   "note": "Blank lines restored before both headings; rendered PDF inspected: both print as headings on pp. 8–9."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-004",
+   "severity": "high",
+   "disposition": "fixed",
+   "where": "§5.5",
+   "note": "'Full proof' now lands at record §6 entry (#CL-direct-product-statement) with a separate link to the §6.6 assembly (#CL-discrepancy); §5.3, §5.4 link #CL-erased-zero-identity, #CL-early-late, #CL-zero-optional, #CL-simulator."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-008",
+   "severity": "high",
+   "disposition": "fixed",
+   "where": "Appendix A, Table 2 rows 'Lemma 2.2'",
+   "note": "The Construction challenge link is now described as four facts about winners (unique winner and address, unique gate-consistent transcripts, no zero found in a winner, winner's pointers find zeros), marked partial and 'support Lemma 2.2 without stating it'; the Lemma 2.2 label is reserved for the full ConstructionFull statement (marked stronger). Link request for the reader name."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-009",
+   "severity": "high",
+   "disposition": "fixed",
+   "where": "§4 Lemma 2; Appendix A Table 2",
+   "note": "Coordinator extended cmp-amplifier to L17–L52 and cmp-lemma22-full to L14–L60 (full types). Table 2 states what each contains and how it differs."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-010",
+   "severity": "high",
+   "disposition": "fixed",
+   "where": "§4 Lemma 2; Appendix A Table 2",
+   "note": "Coordinator extended cmp-amplifier to L17–L52 and cmp-lemma22-full to L14–L60 (full types). Table 2 states what each contains and how it differs."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-011",
+   "severity": "high",
+   "disposition": "fixed",
+   "where": "§1.3 What is new",
+   "note": "Bansal–Sinha credited with hardness of the explicit Walsh–Hadamard problem and the one-sided thresholds; SSW credited separately with the optimal partial separation for k-fold rorrelation [SSW Thm 1.1]. The unspecific 'sharper bound' sentence in §6 is removed; §6 links record §3.16 for the comparison with published proofs. Verified against the SSW annex (rorrelation, 'incomparable')."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-013",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§3 Table 1 row 2; §4.2",
+   "note": "Row now separates the two obstructions: a deterministic three-cycle is a fixed tournament with no total order (defeats order-based shortcuts); two losers at probability 1/2 have no bounded-error orientation (defeats the bounded-error fixed-tournament shortcut). Linked to record #upper-cyclic-example."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-014",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§3 Table 1 row 4",
+   "note": "Row includes the no-discovery fallback (choose among all four columns), recomputed 1-(3/4)^4=175/256 against E Z/m=1/4, and links record #CL-selection-independence-example."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-015",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§4.2",
+   "note": "Full-proof link now lands at #upper-comparison-model (the statement); exact sampling and coupling link #upper-quantum-tournament and #upper-coupling."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-017",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "every link into the record (generated by tools/build_lean_links.py)",
+   "note": "Resolved at the tool level: tools/build_lean_links.py now pins every paper link into docs/reasoning_record.md to the same commit as the Lean links and fails if an anchor is absent there."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-026",
+   "severity": "medium",
+   "disposition": "packet_only",
+   "where": "Figures 1–2",
+   "note": "docs/figures/expert_planted.svg and expert_column.svg exist in the repo and render in the PDF; the omission was in the review packet."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-029",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§5.1; Appendix A Table 2 row 'Lemma 4'",
+   "note": "§5.1 now says Lean proves a joint form for finitely many weighted seeds; Table 2 explains it bounds success together with compliance (linked compliantSuccess definition) for uncapped trees, that Lemma 4 follows once path compliance is identified with the caps (not formalised, per round4_formal.md), and that arbitrary randomness is an ordinary reduction (record #CL-independent-information)."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-030",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§7 Remark; Appendix A",
+   "note": "Remark now links src-budget-exponential (Q_Fkm_le_exponential, constant 2^53 k 2^(10k)), supplied by the coordinator."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-031",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "Appendix A, What Comparator establishes",
+   "note": "States that the statement file gives each theorem a placeholder in place of a proof and links the proof-bearing solution (statement-solution)."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-033",
+   "severity": "medium",
+   "disposition": "moved_to_record",
+   "where": "§6",
+   "note": "The path description was removed with the analytic sketch; the record §§3.9–3.10 retains the accurate statement that only first-block sign biases are scaled."
+  },
+  {
+   "return": "long_record_navigation_a",
+   "id": "LR-049",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "§1; Appendix A Table 2",
+   "note": "Distinction kept and tabulated."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-003",
+   "severity": "high",
+   "disposition": "fixed",
+   "where": "§5.5",
+   "note": "'Full proof' now lands at record §6 entry (#CL-direct-product-statement) with a separate link to the §6.6 assembly (#CL-discrepancy); §5.3, §5.4 link #CL-erased-zero-identity, #CL-early-late, #CL-zero-optional, #CL-simulator."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-005",
+   "severity": "high",
+   "disposition": "fixed",
+   "where": "Appendix A, Table 2 rows 'Lemma 2.2'",
+   "note": "The Construction challenge link is now described as four facts about winners (unique winner and address, unique gate-consistent transcripts, no zero found in a winner, winner's pointers find zeros), marked partial and 'support Lemma 2.2 without stating it'; the Lemma 2.2 label is reserved for the full ConstructionFull statement (marked stronger). Link request for the reader name."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-006",
+   "severity": "high",
+   "disposition": "packet_only",
+   "where": "Figures 1–2",
+   "note": "docs/figures/expert_planted.svg and expert_column.svg exist in the repo and render in the PDF; the omission was in the review packet."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-008",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§3 Table 1 row 2; §4.2",
+   "note": "Row now separates the two obstructions: a deterministic three-cycle is a fixed tournament with no total order (defeats order-based shortcuts); two losers at probability 1/2 have no bounded-error orientation (defeats the bounded-error fixed-tournament shortcut). Linked to record #upper-cyclic-example."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-012",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§5.2, §5.4 headings",
+   "note": "Blank lines restored before both headings; rendered PDF inspected: both print as headings on pp. 8–9."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-013",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§4 Lemma 2; Appendix A Table 2",
+   "note": "Coordinator extended cmp-amplifier to L17–L52 and cmp-lemma22-full to L14–L60 (full types). Table 2 states what each contains and how it differs."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-014",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§7 Remark; Appendix A",
+   "note": "Remark now links src-budget-exponential (Q_Fkm_le_exponential, constant 2^53 k 2^(10k)), supplied by the coordinator."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-017",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "every link into the record (generated by tools/build_lean_links.py)",
+   "note": "Resolved at the tool level: tools/build_lean_links.py now pins every paper link into docs/reasoning_record.md to the same commit as the Lean links and fails if an anchor is absent there."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-018",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§4.2",
+   "note": "Full-proof link now lands at #upper-comparison-model (the statement); exact sampling and coupling link #upper-quantum-tournament and #upper-coupling."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-019",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§3 Table 1",
+   "note": "Right column now gives exact record links for rows 1, 2, 4, 6, 7; rows 3, 5, 8 are stated as checked in the table itself; 'review material' removed."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-020",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§4.3",
+   "note": "Count paragraph links #upper-finite-budget and #upper-explicit-log6 directly."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-032",
+   "severity": "low",
+   "disposition": "fixed",
+   "where": "Appendix A, What Comparator establishes",
+   "note": "States that the statement file gives each theorem a placeholder in place of a proof and links the proof-bearing solution (statement-solution)."
+  },
+  {
+   "return": "long_record_navigation_b",
+   "id": "LR-044",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "Appendix A",
+   "note": "Existential exponent and same-circuit quantifier kept."
+  },
+  {
+   "return": "quantum_mechanism",
+   "id": "QM-003",
+   "severity": "high",
+   "disposition": "fixed",
+   "where": "§3 Table 1 row 2; §4.2",
+   "note": "Row now separates the two obstructions: a deterministic three-cycle is a fixed tournament with no total order (defeats order-based shortcuts); two losers at probability 1/2 have no bounded-error orientation (defeats the bounded-error fixed-tournament shortcut). Linked to record #upper-cyclic-example."
+  },
+  {
+   "return": "quantum_mechanism",
+   "id": "QM-009",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§4.2",
+   "note": "Replaced by 'No order or transitivity enters, so cycles among losers do no harm.'"
+  },
+  {
+   "return": "quantum_mechanism",
+   "id": "QM-010",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§4.2 Proposition 3; (7)",
+   "note": "Proposition 3 now states the interface: coherently controlled by two candidate indices, reversible with all workspace retained, at most c queries on every input; (7) now includes a_ii=0 (preprint (10)). Probabilities are for a fixed input."
+  },
+  {
+   "return": "quantum_mechanism",
+   "id": "QM-011",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§4.3",
+   "note": "Says the address is decoded afresh and measured, that a found failing test rejects and otherwise accepts, and cites the §2 all-address dichotomy including unpromised instances."
+  },
+  {
+   "return": "quantum_mechanism",
+   "id": "QM-012",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§4.3",
+   "note": "Count now totals both contributions: tournament O_k(√m ℓ^6) and T verifications with fresh decoders O_k(√m ℓ^5), checked against record §5.4."
+  },
+  {
+   "return": "quantum_mechanism",
+   "id": "QM-014",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§4 Lemma 2 sketch",
+   "note": "Cites BHMT §2 Lemma 1 for the invariant geometry, BBHT §4 Lemma 2 for averaging, and notes BHMT Theorem 3 bounds cost only in expectation; the bounded form is the preprint's Lemma 3.1."
+  },
+  {
+   "return": "quantum_mechanism",
+   "id": "QM-015",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§1.3",
+   "note": "Adds a compact mechanism comparison: DH (ordered values), MPS (fixed tournament, king), BDK Lemma 5 (fixed tournament of locally checked claims, sink/king, verify), AIK §6.1 (candidates beating all selected pivots in a fixed graph with approximate edges), both separating C from R and Q; contrasts with arbitrary loser probabilities here. Locators checked in the BDK and AIK annexes."
+  },
+  {
+   "return": "quantum_mechanism",
+   "id": "QM-016",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§1.3",
+   "note": "Adds a compact mechanism comparison: DH (ordered values), MPS (fixed tournament, king), BDK Lemma 5 (fixed tournament of locally checked claims, sink/king, verify), AIK §6.1 (candidates beating all selected pivots in a fixed graph with approximate edges), both separating C from R and Q; contrasts with arbitrary loser probabilities here. Locators checked in the BDK and AIK annexes."
+  },
+  {
+   "return": "quantum_mechanism",
+   "id": "QM-018",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§4 Lemma 2; Appendix A Table 2",
+   "note": "Coordinator extended cmp-amplifier to L17–L52 and cmp-lemma22-full to L14–L60 (full types). Table 2 states what each contains and how it differs."
+  },
+  {
+   "return": "quantum_mechanism",
+   "id": "QM-019",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§4; Appendix A Table 2",
+   "note": "The measured-label law has its own link (src-amplify-measured, Upper.Samples.amplify) and is marked partial/built, 'the form Theorem 1 uses'. Link request."
+  },
+  {
+   "return": "quantum_mechanism",
+   "id": "QM-020",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "Appendix A object table",
+   "note": "New row 'Output probability' links AdaptiveProgram.outputMass and project: unnormalised branch states, an answer's probability is the total squared norm of its branches. Link request def-output-mass."
+  },
+  {
+   "return": "quantum_mechanism",
+   "id": "QM-022",
+   "severity": "medium",
+   "disposition": "fixed",
+   "where": "§4.2",
+   "note": "Full-proof link now lands at #upper-comparison-model (the statement); exact sampling and coupling link #upper-quantum-tournament and #upper-coupling."
+  },
+  {
+   "return": "quantum_mechanism",
+   "id": "QM-023",
+   "severity": "low",
+   "disposition": "fixed",
+   "where": "§4 Lemma 2 sketch",
+   "note": "Removed the 9/40 constant and the j=0 mixture detail; the Lean-status sentence is separated and points to Appendix A."
+  },
+  {
+   "return": "quantum_mechanism",
+   "id": "QM-025",
+   "severity": "low",
+   "disposition": "fixed",
+   "where": "Appendix A Table 2 row 'Lemma 2 full form'",
+   "note": "The amplifier statement is listed as compared in its own configuration; amplifier-solution/config labels exist for the conductor's use. Table 2 states the remaining difference (basis-state success flag)."
+  },
+  {
+   "return": "quantum_mechanism",
+   "id": "QM-027",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "Expert companion 4.1 Comparisons; exposition 4. The quantum algorithm: a tournament — Comparing two columns",
+   "note": "Unchanged in substance."
+  },
+  {
+   "return": "quantum_mechanism",
+   "id": "QM-028",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "4.2 A tournament with probabilistic comparisons — Exact sampling",
+   "note": "Unchanged in substance."
+  },
+  {
+   "return": "quantum_mechanism",
+   "id": "QM-029",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "4.2 A tournament with probabilistic comparisons — Coupling",
+   "note": "Unchanged in substance."
+  },
+  {
+   "return": "quantum_mechanism",
+   "id": "QM-030",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "§3 row 3; §4.3",
+   "note": "Counterexample kept (compressed); fresh measured-address clarification added."
+  },
+  {
+   "return": "quantum_mechanism",
+   "id": "QM-031",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "§4",
+   "note": "Label-law versus full-state distinction kept and tabulated with separate links."
+  },
+  {
+   "return": "quantum_mechanism",
+   "id": "QM-035",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "Appendix A. Checking the statement, immediately after the four theorem list",
+   "note": "Unchanged in substance."
+  },
+  {
+   "return": "quantum_mechanism",
+   "id": "QM-036",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "Appendix A. Checking the statement, “What it does not establish”",
+   "note": "Unchanged in substance."
+  },
+  {
+   "return": "quantum_mechanism",
+   "id": "QM-037",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "Expert companion Appendix A. Checking the statement, “Five things to check”, item 5",
+   "note": "Unchanged in substance."
+  },
+  {
+   "return": "quantum_mechanism",
+   "id": "QM-038",
+   "severity": "keep",
+   "disposition": "kept",
+   "where": "1. The result — display-number convention, applied in §4",
+   "note": "Unchanged in substance."
+  }
+ ],
+ "link_requests": [
+  {
+   "label": "cmp-lemma22",
+   "reader_name": "four facts about winners (supporting Lemma 2.2)",
+   "target": "lean/QuarticCorpus/Construction/Challenge.lean, Checked.winsAt_unique .. Checked.winner_finds_zero (L326–L341)",
+   "reason": "The old reader name 'the four parts of Lemma 2.2' gives the targets the wrong role (ER-003, LR-008, LR-005)."
+  },
+  {
+   "label": "def-output-mass",
+   "reader_name": "output probability of a quantum program",
+   "target": "lean/QuarticCorpus/Unconditional/Challenge.lean, project + AdaptiveProgram.outputMass (L95–L126)",
+   "reason": "QLe's success probability is defined through outputMass (ER-018, QM-020)."
+  },
+  {
+   "label": "def-gate",
+   "reader_name": "gate consistency",
+   "target": "lean/QuarticCorpus/Unconditional/Challenge.lean, GateConsistent (L208–L213)",
+   "reason": "Decisive semantic step between highlighted definitions (ER-020)."
+  },
+  {
+   "label": "def-pointer",
+   "reader_name": "pointer decoding",
+   "target": "lean/QuarticCorpus/Unconditional/Challenge.lean, readPointerBit + pointerEquiv (L249–L260)",
+   "reason": "Physical pointer decoder used by the winning condition (ER-020)."
+  },
+  {
+   "label": "src-amplify-measured",
+   "reader_name": "bounded amplification as a measured-label law",
+   "target": "lean/QuarticQuery/Upper/Amplify.lean, Upper.Samples.amplify (L345–L351)",
+   "reason": "The form of Lemma 2 the headline proof uses had no link (QM-019)."
+  },
+  {
+   "label": "(used, already in CITATIONS)",
+   "reader_name": "statement-receipt, statement-solution, amplifier-solution, def-compliant, def-hit, src-budget-exponential",
+   "target": "as in tools/build_lean_links.py",
+   "reason": "Now used in the text; regenerate the lean-links block so their definitions appear."
+  },
+  {
+   "label": "(remove if unused)",
+   "reader_name": "amplifier-config, direct-product-config",
+   "target": "",
+   "reason": "Not used in the expert paper; fine to keep in CITATIONS for other documents."
+  }
+ ],
+ "lessons": [
+  "Orientation first: the introduction states the result and why a specialist cares, then the one mechanism, then precisely what is new against each named antecedent (with the antecedent's own hypotheses and outputs), then a roadmap of every section and appendix; each section opens with one sentence saying where it is going. Pay for it by moving alternative proofs and long constant derivations to the long record.",
+  "Statement fidelity table: for every central result linked to Lean, say in the appendix whether the formal statement is the same, stronger or partial, what exactly differs, whether it is compared or only built, and whether the relation has been reviewed and is current. Formal proofs drift to nearby, easier statements; the reader should not have to discover the gap.",
+  "A counterexample row must refute the exact shortcut named in the row; when one example defeats a neighbouring shortcut (a total order) and another defeats the stated one (bounded-error fixed predicate), name both shortcuts and attach each example to the one it refutes.",
+  "When abbreviating a randomized construction, keep every branch of the rule (for example the fallback when nothing is discovered); a symmetry claim about the marginal law depends on it.",
+  "Credit sentences must match the antecedent's object: distinguish who proved hardness of the explicit problem from who proved the optimal separation by another family, and distinguish a lemma pair from a paper's headline theorem with different hypotheses.",
+  "A link that advertises a full proof must land at the start of the argument, not at its final assembly; give separate links for sub-arguments the sentence names.",
+  "A Lean link highlight must cover the complete declaration type; a range-exists check passes highlights that stop at a let-binding before the conclusion.",
+  "Describe a formal endpoint by what its type says (for example a joint success-and-compliance bound over finitely many seeds) and state the ordinary step that turns it into the paper's statement, rather than calling it the paper's lemma.",
+  "Check page count after every structural addition; LaTeX keep-together rules for short tables can push whole tables and the reference list to new pages, so make long tables breakable rather than cutting content."
+ ]
+}

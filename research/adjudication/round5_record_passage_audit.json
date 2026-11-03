@@ -1,0 +1,252 @@
+{
+ "schema": "quartic-record-passage-audit-v1",
+ "record": "docs/reasoning_record.md",
+ "baseline": "git HEAD:docs/reasoning_record.md",
+ "rebind": "research/adjudication/round5_record_rebind.json",
+ "items": [
+  {
+   "id": "AC-evidence",
+   "classification": "editorial",
+   "summary": "Receipt history moved verbatim to added passage history-construction-evidence (Appendix F.3); passage now points to §2.9 and F.3.",
+   "problem": "Pointer overstates §2.9: it lists only Paper.construction_lemma_2_2_with_support, not the Construction bundle's four configured targets (Checked.winsAt_unique, Checked.existsUnique_gateConsistent, Checked.winner_no_incoming_zero, Checked.winner_finds_zero) or their 3 Nov rerun (comparator-Construction-2026-11-03T032429664567+0000.json, passed). Not a meaning change.",
+   "suggested_fix": "Either add one §2.9 row for the Construction bundle's four configured Checked targets, or say 'The status of Lemma 2.2 is summarized in §2.9'."
+  },
+  {
+   "id": "AC-example-tests",
+   "classification": "editorial",
+   "summary": "Adds a direct link to check_example.py (path exists) and 'From the directory of'; run instruction unchanged."
+  },
+  {
+   "id": "CAT-def-Sf",
+   "classification": "correction",
+   "summary": "Argument link now cites §A.1 (definition, anchor R3-A-DEFINITIONS defines S_f at line ~3941) as well as §A.3 (use). Correct."
+  },
+  {
+   "id": "CAT-thm-A.1",
+   "classification": "correction",
+   "summary": "Old link text '§7.3' pointed at anchor ROOT-APPENDIX-INTRO (Appendix A); relabelled 'Appendix A'. Correct."
+  },
+  {
+   "id": "CL-adaptive-example",
+   "classification": "editorial",
+   "summary": "Bold run-in title removed (now a #### heading). No content change."
+  },
+  {
+   "id": "CL-conditioning-counterexample",
+   "classification": "editorial",
+   "summary": "Antecedent 'That distinction' made explicit as the joint-event vs conditional-on-nonheaviness distinction in (21). Matches the passage's use and round4_formal's note that only the joint event is bounded."
+  },
+  {
+   "id": "CL-joint-event",
+   "classification": "editorial",
+   "summary": "Sentence merge ('With the general parameters...'). No content change."
+  },
+  {
+   "id": "CL-literature-and-verification",
+   "classification": "correction",
+   "summary": "Receipt history moved to history-direct-product-evidence (F.5); adds the round-four endpoint QuarticQuery.direct_product_external_finite_realized_caps. Description (finite seed space, arbitrary nonnegative weights summing to one, initially uncapped tree per seed, weighted joint event 'all correct and no instance exceeds cap L' bounded by beta^r; measurable randomness only by the ordinary reduction) matches round4_formal.md §Return 05 and receipt comparator-round4-realized-caps-external-2026-11-03T023317151864+0000.json (accepted). Finite-seed-only scope preserved."
+  },
+  {
+   "id": "CL-planted-interface",
+   "classification": "editorial",
+   "summary": "Bold run-in title removed. No content change."
+  },
+  {
+   "id": "CL-product-law",
+   "classification": "editorial",
+   "summary": "'Proof.' label removed; passage sits under the heading 'Proof of Lemma 4.1 by conditional values'. No content change."
+  },
+  {
+   "id": "CL-selection-independence-example",
+   "classification": "correction",
+   "summary": "Adds 'an event of probability (3/4)^4=81/256' for 'no zero found'. Four independent row-zero queries each find a zero with probability 1/4, so Pr[none]=(3/4)^4=81/256. Correct; complementary to the stated 175/256."
+  },
+  {
+   "id": "CL-simulator-example",
+   "classification": "editorial",
+   "summary": "Adds a framing sentence ('The following toy instance illustrates the reduction just proved'). No content change."
+  },
+  {
+   "id": "CL-weighted-values",
+   "classification": "editorial",
+   "summary": "Bold run-in title removed (now an 'Optional' heading). No content change."
+  },
+  {
+   "id": "R3-01-QUANTIFIERS",
+   "classification": "regression",
+   "summary": "Derivation of the ratio bound compressed; displayed inequality and conclusions unchanged.",
+   "problem": "Lost hypothesis. Old: 'For sufficiently large m, the upper bound in (2) gives 1+Q <= (1+C_k) sqrt m (log2 m)^{b_k}; raising this positive inequality to the nonnegative power alpha ...'. New (docs/reasoning_record.md line 86, passage R3-01-QUANTIFIERS) states the inequality without 'for sufficiently large m' and without the positivity/nonnegativity conditions that license raising to the power alpha. (2) holds only for sufficiently large powers of four m, so the bare inequality is unqualified.",
+   "suggested_fix": "Replace the sentence opening with: 'For sufficiently large $m$, the ratio bound follows by raising the positive inequality $1+Q(F_{k,m})\\leq(1+C_k)\\sqrt m\\,(\\log_2m)^{b_k}$ to the nonnegative power $\\alpha$; ...'"
+  },
+  {
+   "id": "R3-A-FORMAL",
+   "classification": "editorial",
+   "summary": "Final evidence paragraph moved verbatim to added passage history-appendix-a-evidence (F.6), with §2.8 link retargeted to F.1. Remaining declaration correspondence unchanged."
+  },
+  {
+   "id": "ROOT-CATALOGUE-INTRO",
+   "classification": "editorial",
+   "summary": "Adds pointer to §2.9 and names correspondence fields. Verified in docs/reasoning_record_correspondence.json: current_catalogue_snapshot.rows exists; catalogue_rows entries carry current_in_memory_evidence; catalogue_rows_scope says those fields refer to the frozen historical audit. Second paragraph only adds the reason for literal quotation."
+  },
+  {
+   "id": "ROOT-EVIDENCE-CONVENTION",
+   "classification": "editorial",
+   "summary": "Execution-history paragraphs moved verbatim to history-evidence-convention (F.1), with 'Current targeted/global verification' relabelled 'of 2 November' (correct: round4_formal.md reran everything on 3 Nov). Replaced by a four-kinds-of-evidence summary pointing to §2.9/F. The numbering-convention sentence was not lost: it is restated, more precisely, in the new §2 'Numbering' paragraph (line 148)."
+  },
+  {
+   "id": "ROOT-EXPONENT-CORRESPONDENCE",
+   "classification": "editorial",
+   "summary": "Receipt paragraph moved verbatim to history-exponent-evidence (F.6); replaced by a pointer to §2.9."
+  },
+  {
+   "id": "ROOT-FAMILY-ASSEMBLY",
+   "classification": "editorial",
+   "summary": "Inline floor derivation replaced by a citation of §6.6 (CL-floors). CL-floors proves exactly G=floor(mL/100) >= m^{2-1/k}/(400 (log2 m)^2) for k>=2, m=4^t, t>=8, with no asymptotic convention (claims claim-floor, NCL-explicit-floor). Same content, deduplicated."
+  },
+  {
+   "id": "ROOT-REFERENCES",
+   "classification": "correction",
+   "summary": "Adds AIK2026 (Ambainis, Iraids, Kokainis, arXiv 2609.11664v2). Matches preprint reference [5] and its §1.1 mention; marked as antecedent with no imported premise. Correct."
+  },
+  {
+   "id": "ROOT-RESULT",
+   "classification": "editorial",
+   "summary": "Evidence pointer extended to §§2.7-2.9. No content change."
+  },
+  {
+   "id": "forr_advantage",
+   "classification": "regression",
+   "summary": "Coarser estimate (F34) and its comparison sentence moved to Appendix D (forr_historical_threshold); mathematics intact and the marker <!-- claim:NEW-FOR-19 --> is preserved there.",
+   "problem": "Claim-marker binding regression, not a content error: NEW-FOR-19 left this passage (old claims [NEW-FOR-19, r2-sharp-advantage], new [r2-sharp-advantage]) and now sits in forr_historical_threshold (new claims [NEW-FOR-19, NEW-FOR-25]). round5_record_rebind.json says 'Claim lists are unchanged', and docs/reasoning_record_correspondence.json `passages` still lists NEW-FOR-19 under forr_advantage.",
+   "suggested_fix": "Record the move in the rebind (claims_moved: NEW-FOR-19 forr_advantage -> forr_historical_threshold) and correct its scope sentence; update the correspondence passage claim lists when it is next regenerated."
+  },
+  {
+   "id": "forr_bs_mismatch",
+   "classification": "correction",
+   "summary": "Bansal-Sinha log(kN) renamed from L to Lambda to avoid collision with the query budget L; every occurrence in the passage (definition, T_r, lost factor, unbounded case, choice of d_1, threshold display, Lambda>=1) was renamed. Formulas otherwise identical. Correct."
+  },
+  {
+   "id": "forr_bs_translation",
+   "classification": "editorial",
+   "summary": "Cross-reference '§3.16' changed to 'Appendix E' where forr_bs_mismatch now lives. Correct."
+  },
+  {
+   "id": "forr_credit",
+   "classification": "correction",
+   "summary": "Adds: Bansal-Sinha prove hardness of the explicit k-fold Forrelation promise and supply its thresholds; Sherstov-Storozhenko-Wu independently obtain the optimal partial separation via rorrelation (random orthogonal matrices) and distinguish it from explicit Forrelation [SSW2023 §1.8]; SSW Fourier-growth theorem used only in Appendix E. Supported by preprint §2.1 ('thresholds analyzed by Bansal and Sinha') and round-five referee evidence (long_record_navigation_a LR-011; sources.json reading of SSW §1.8 and BS independent-work lines 221-227)."
+  },
+  {
+   "id": "forr_current_evidence",
+   "classification": "editorial",
+   "summary": "Moved to Appendix F.2; '§2.8' link retargeted to F.1.",
+   "problem": "Wording only: 'This integration's current root build and exact comparison scope are recorded separately in F.1' now points at runs F.1 labels as the 2 November history, superseded by the 3 November round-four reruns.",
+   "suggested_fix": "Replace 'This integration's current root build' with 'The 2 November root build'."
+  },
+  {
+   "id": "forr_historical_closure",
+   "classification": "editorial",
+   "summary": "Evidence pointer retargeted to §2.9, which lists the 13669k^2 threshold (no Lean statement) and forrelation_lower_uniform_sharp (built; not compared). Consistent."
+  },
+  {
+   "id": "forr_historical_threshold",
+   "classification": "editorial",
+   "summary": "Receives (F34) with marker NEW-FOR-19 and a one-line justification. Check: F33 has factor (3/(16 sqrt m))^{k-1}[A+2^{-k}]; since 3/16<=3 and 2^{-k}<=1 this is at most (3/sqrt m)^{k-1}[A+1] = F34. Correct; scope 'every tree or mixture of depth <= d >= 1, leaves in [-1,1]' restated as in F33."
+  },
+  {
+   "id": "forr_references",
+   "classification": "editorial",
+   "summary": "Locations of (F60) and the v3 defect updated to Appendix E. Correct."
+  },
+  {
+   "id": "forr_repetition",
+   "classification": "editorial",
+   "summary": "Removed the derivation of 5/2<e<11/4 (series bounds) and of Markov's inequality; the claimed bounds and their dependence on 5/2<e<11/4 remain.",
+   "problem": "Completeness only: two elementary justifications are no longer written out. No claim changed.",
+   "suggested_fix": "Optional: restore the clause 'the exponential series through degree three gives the lower bound, and its tail from 1/4! is at most 5/96'."
+  },
+  {
+   "id": "forr_validation_scope",
+   "classification": "correction",
+   "summary": "Old: bansalSinhaLower is 'explicitly listed' by the Unconditional receipts. New: the configured target is QuarticQuery.Checked.forrelation_lower_bound of type BansalSinhaLower; its solution forwards to ForrelationLower.bansalSinhaLower, which gets no separate comparison credit. Verified: Unconditional/comparator.json theorem_names are exactly the four Checked targets; Solution.lean forwards to bansalSinhaLower; the 3 Nov receipts (T033042, T121735) list only the four Checked names with declaration_scope configured_theorem_names_only; the 2 Nov receipt listed scanned implementation names. Correct under the configured-names policy. Second paragraph: '§2.8' -> 'Appendix F' only."
+  },
+  {
+   "id": "upper-continuation-induction",
+   "classification": "editorial",
+   "summary": "Adds one sentence describing the Boolean continuation (tournament then verify listed candidates, one acceptance bit). No claim changed."
+  },
+  {
+   "id": "upper-current-formal-scope",
+   "classification": "editorial",
+   "summary": "Receipt paragraph moved verbatim to history-upper-evidence (F.4). New routes table checked against corpus/lean_dependencies.json (roots theorem_1_1_unconditional, cubic_bound_fails_unconditional): Samples.amplify, Upper.tournament_runs, Upper.Q_Fkm_le reached; Paper.quantumTournament declared but not reached. Matches the passage's own later sentence."
+  },
+  {
+   "id": "upper-missing-physical-state",
+   "classification": "correction",
+   "summary": "Adds round-four Upper.uniformOpaqueAmplifier (accepted by Comparator): one selector gate before every opaque unitary, retained-factor identity, exact success mass, zero-mass/p/2/1-eta clauses, logical cap; basis change and flag/Hadamard identification unproved, so no full physical theorem is claimed. Matches round4_formal.md §Return 04 and receipt comparator-round4-uniform-amplifier-2026-11-03T023317151864+0000.json. Omits the auxiliary-support clause from the list, which is harmless."
+  },
+  {
+   "id": "upper-purpose",
+   "classification": "regression",
+   "summary": "Adds Ambainis-Iraids-Kokainis as an antecedent with the certificate-complexity distinction (correct, matches preprint [5] and referee LR-035).",
+   "problem": "Attribution overstated at docs/reasoning_record.md line 2125: 'the preprint singles out these two certificate-complexity separations as the most relevant recent work [OpenAI2026, §1.1, p. 2]'. The preprint (§1.1, p. 2) says only that 'their comparison-based viewpoint is particularly relevant here'; it does not rank them as the most relevant recent work.",
+   "suggested_fix": "Replace with: 'the preprint identifies these two certificate-complexity separations as recent work whose comparison-based viewpoint is particularly relevant [OpenAI2026, §1.1, p. 2].'"
+  },
+  {
+   "id": "upper-tournament-evidence",
+   "classification": "editorial",
+   "summary": "Final sentences reorganized: marks the end of the Proposition 3.2 proof and says the Boolean continuation 'used by the formal headline proof' is analyzed in §5.6. Supported: tournament_runs is reached from both headline roots."
+  },
+  {
+   "id": "history-evidence-convention",
+   "classification": "editorial",
+   "summary": "Added passage: verbatim move of the old ROOT-EVIDENCE-CONVENTION history, with 'Current targeted/global verification' relabelled 'Targeted/Global verification of 2 November'. Comparison statements unchanged and still distinguish direct (configured) from wrapper-mediated credit ('Only 4 rows ... direct ... Eight more ... wrapper-mediated'). The following unpassaged paragraph about the 3 Nov round-four reruns and new dedicated comparisons matches round4_formal.md."
+  },
+  {
+   "id": "history-construction-evidence",
+   "classification": "regression",
+   "summary": "Added passage: verbatim move of the old AC-evidence receipt paragraph, '§2.8' -> 'F.1'.",
+   "problem": "Inherited unsupported comparison claim, now in an added passage (docs/reasoning_record.md line 6117): 'The recorded Construction Comparator receipt compares the four source theorems winsAt_unique, existsUnique_gateConsistent, winner_no_incoming_zero, and winner_finds_zero, together with their checked wrappers.' Construction/comparator.json configures only QuarticQuery.Checked.{winsAt_unique, existsUnique_gateConsistent, winner_no_incoming_zero, winner_finds_zero}. The source theorems appear only in the older receipts' scanned name lists; the 3 Nov receipt (T032429664567, configured_theorem_names_only) lists the four Checked names only. Under the record's own policy (F.1), the source theorems get wrapper-mediated credit, not direct comparison. Also 'The current integration separately performed ...' now refers to superseded 2 November runs.",
+   "suggested_fix": "Replace with: 'The Construction Comparator bundle is configured with the four wrappers Checked.winsAt_unique, Checked.existsUnique_gateConsistent, Checked.winner_no_incoming_zero and Checked.winner_finds_zero; the source theorems they forward to receive wrapper-mediated credit only.' and 'The current integration' -> 'The 2 November integration'."
+  },
+  {
+   "id": "history-direct-product-evidence",
+   "classification": "editorial",
+   "summary": "Added passage: verbatim move from CL-literature-and-verification; link retargeted to F.1. No status claim beyond the old text.",
+   "problem": "'The current integration's new root build' now refers to the 2 November runs.",
+   "suggested_fix": "'current' -> '2 November'."
+  },
+  {
+   "id": "history-exponent-evidence",
+   "classification": "editorial",
+   "summary": "Added passage: verbatim move from ROOT-EXPONENT-CORRESPONDENCE; link retargeted.",
+   "problem": "Dangling referent: 'The timestamped root-build receipt contains all these names' no longer follows the §7.3 declaration list it refers to. Also 'The current integration' refers to the 2 November runs.",
+   "suggested_fix": "'all these names' -> 'all the declaration names of §7.3'; 'The current integration' -> 'The 2 November integration'."
+  },
+  {
+   "id": "history-upper-evidence",
+   "classification": "editorial",
+   "summary": "Added passage: verbatim move from upper-current-formal-scope (toolchain, commit labels, 124 hashes); link retargeted.",
+   "problem": "'the current integration's new native runs' now refers to the 2 November runs.",
+   "suggested_fix": "'current' -> '2 November'."
+  },
+  {
+   "id": "history-appendix-a-evidence",
+   "classification": "editorial",
+   "summary": "Added passage: verbatim move from R3-A-FORMAL; link retargeted. No new status claim."
+  }
+ ],
+ "non_passage_checks": [
+  {
+   "id": "reading-guide",
+   "classification": "editorial",
+   "summary": "Reading guide statements checked against the preprint: R=O(Q^4) for total functions; fixed k>=2 families with R >= Q^{4-2/k} up to logs; column mechanism (string, r Forrelation instances, addressed certificate cell pointing to a zero in every other column); 13669k^2, exponent six and 1/400 not in the preprint (which states (log m)^{O_k(1)} and existential c_k). 'Where the exponent stood' matches preprint §1.1 (5/2, 8/3-o(1), 3-o(1); ABKRT Conjecture 2). All internal anchors resolve. No unsupported status claim."
+  },
+  {
+   "id": "section-2.9-checked-statements",
+   "classification": "editorial",
+   "summary": "Verified: Unconditional/comparator.json at 659b571 configures exactly Checked.alpha_tot_eq_four, theorem_one_one, cubic_bound_fails, forrelation_lower_bound; Solution.lean L18-40 forwards each to the named implementation theorem; receipt T033042571917 passed with declaration_scope configured_theorem_names_only; the theorem_one_one type is integer floor form with existential b and quantifier order forall k exists S,A,b,t0 forall t exists C; BansalSinhaLower has an eventual threshold. Second-table statuses agree with receipts, round4_formal.md and corpus/ties.json (bindings: universalPower_four and construction_family_named lack a current review_binding, so they are correctly marked 'review not current'). Paper.construction_family_named, quantumTournament, Q_Fkm_le and forrelation_lower_uniform_sharp are correctly 'not compared'; direct_product_external_finite_realized_caps is correctly scoped to a finite seed space.",
+   "problem": "Two understatements, no overstatement: (1) Lemma 2.2 (construction_lemma_2_2_with_support) and eq19_whole are said to be compared 'on the 2 November sources', but both were accepted again on 3 Nov at 9a0a5cd (comparator-round3-*-2026-11-03T120058951138+0000.json), and Unconditional also passed a paranoid run then (T121735042729); Appendix F does not mention these runs. (2) The Theorem A.1 row says 'compared through the Separation bundle's configured wrapper' without naming it.",
+   "suggested_fix": "Optionally update those two rows to 'compared on 3 November' with the T120058951138 receipts and add one F.1 sentence on the 3 Nov 12:00 reruns; write the Theorem A.1 status as 'wrapper-mediated: configured target Checked.universal_quartic_bound (Separation) has type UniversalPower 4'."
+  }
+ ]
+}

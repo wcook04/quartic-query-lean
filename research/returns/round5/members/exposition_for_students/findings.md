@@ -1,0 +1,765 @@
+# Student exposition: referee findings
+
+Packet: exposition_for_students · Review date: 3 November 2026
+
+These findings refer to the supplied, hash-bound drafts. They are advice only; no manuscript or Lean source has been changed.
+
+41 findings: 7 high, 23 medium, 2 low, 9 keep.
+
+Source paths in evidence entries are members of the original packet unless explicitly identified as files in this return. See sources_and_coverage.md for editions, reading depth and external URLs.
+
+## ES-001 · high · missing
+
+**Location:** exposition, 4. The quantum algorithm: a tournament.
+**Exact Markdown quotation** (source line 149):
+
+> A stage chooses a pivot $p$ with probability $w_p/W$
+
+**Finding.** The ideal process has no transition specified when W=0, despite the worked table reaching that state with probability 1/4 at the first step. The later statement about W_T therefore uses an incompletely defined process. The quantum description also omits the concrete action on a reported sampler failure, so it does not yet specify a complete algorithm for every total input.
+
+**Reader impact.** Comparison-search researchers will ask what the algorithm does on all histories, and a student trying to execute the four-column example cannot take its next step after pivot 1.
+
+**Suggested direction.** Restore the existing absorbing-zero convention for the ideal process and the existing stop-and-return-current-list rule for the quantum sampler. These are short specification details already present in the source proof.
+
+**Evidence.**
+
+- paper/extracted.md, Proposition 3.2 proof, printed p. 8: when W=0 leave the list unchanged and weights zero; printed p. 9: sampling failure stops and returns the accumulated list.
+- repository/docs/reasoning_record.md §5.2, anchors upper-ideal-process and upper-quantum-tournament.
+
+## ES-002 · high · unclear
+
+**Location:** exposition, 4. The quantum algorithm: a tournament.
+**Exact Markdown quotation** (source line 149):
+
+> Keep a weight $w_i$ for each column, starting at $w_i=1$
+
+**Finding.** The imperative makes the reference weight process sound like actual algorithmic data. The input-dependent comparison probabilities a_ij are not supplied to the algorithm, and the quantum implementation does not calculate or estimate them. Only later does the exposition call the pivot ideal, without identifying the weights as an analysis device. Ordinary computation between queries is free; the issue is access to those unknown probabilities, not the cost of maintaining a numerical array.
+
+**Reader impact.** Students who know Grover but not this technique can reasonably infer an extra probability-estimation subroutine before sampling. Readers of the comparison-search literature recognize the analytic reference process, but that distinction is the main new teaching obligation here.
+
+**Suggested direction.** Identify the weight process as an analytic reference process before introducing it, then explicitly state that the coherent sampler reproduces its pivot law without computing the weights or estimating a_ij.
+
+**Evidence.**
+
+- paper/extracted.md, Proposition 3.2 proof, printed p. 8: The weights only define this ideal process; the algorithm will not compute them numerically.
+- repository/docs/reasoning_record.md §5.2, anchors upper-stage-state, upper-stage-law and upper-tournament-cost.
+
+## ES-003 · high · missing
+
+**Location:** exposition, 4. The quantum algorithm: a tournament — Sampling a pivot quantumly.
+**Exact Markdown quotation** (source line 168; PDF page 7):
+
+> prepare a uniform column $i$ together with a fresh comparison of $i$ against each earlier pivot, in fresh workspace
+
+**Finding.** The preparation used by amplitude amplification is introduced through the output probabilities of a comparison, but the student has only seen the decoder described as repeated projection experiments followed by acceptance. The missing bridge is how those experiments and pointer-dependent queries become one reversible preparation with retained flags/workspace, so that its inverse and success reflection exist. A correct distribution by itself does not supply that operation.
+
+**Reader impact.** Readers taught from de Wolf or Brassard–Høyer–Mosca–Tapp will require a unitary preparation and its inverse. A student who knows Grover but has not learned deferred measurement cannot reconstruct the actual amplified algorithm from this paragraph.
+
+**Suggested direction.** Give a short explanation of the existing retained-workspace construction before using the preparation, identify the success flag, and point directly to the record passages that implement it. Keep the construction within the current result.
+
+**Evidence.**
+
+- de Wolf, Quantum computing: lecture notes, chapter 7, section “Amplitude amplification”: the preparation A must have no measurements because the reflection uses A inverse.
+- repository/docs/reasoning_record.md, §3.3, anchor forr_coherent: coherent trial flags, reversible threshold predicate and retention of every register.
+- repository/docs/reasoning_record.md, §5.3, anchor upper-comparison-law, and §5.4, anchor upper-oracle-access: retained decoded labels, reversible adaptive reads and inverse.
+
+## ES-004 · high · unclear
+
+**Location:** exposition, 5. The classical lower bound: a planted pair.
+**Exact Markdown quotation** (source line 222):
+
+> Reaching the true cell $B_{I,s_I}$ requires knowing $s_I$
+
+**Finding.** The necessity language skips the central obstacle in a query lower bound: an algorithm can guess a label, or visit many cells, and can hit the true cell without having established that its label is correct. The subsequent simulator correctly bounds the probability of naming the address, including lucky guesses. The opening sentence instead invites the invalid shortcut that every successful visit must first pay the full cost of computing the address.
+
+**Reader impact.** Readers of cheat-sheet and direct-product arguments will notice the distinction between computing an answer and guessing one successfully. A student may carry the stronger but unjustified claim through the heavy-column argument.
+
+**Suggested direction.** Frame the task as bounding the probability of naming the true address under a query cap, including guesses and adaptive cell visits. Use the later simulator as the reason, rather than asserting a prior knowledge requirement.
+
+**Evidence.**
+
+- paper/extracted.md, opening of §4, printed p. 11: either many Forrelation queries or a successful guess of the entire address.
+- paper/extracted.md, Proposition 4.2 proof and equation (21), printed p. 13.
+- repository/docs/reasoning_record.md §6.5, CL-simulator: identifying a proposed cell address requires no query to its contents.
+
+## ES-005 · high · lean_link
+
+**Location:** exposition, 7. What the Lean development checks.
+**Exact Markdown quotation** (source line 272):
+
+> the direct product for arbitrary independent randomness
+
+**Finding.** The linked declaration is direct_product_external_finite_realized_caps, with an explicit finite seed type Ω [Fintype Ω] and a finite weighted sum. It is not the claimed arbitrary-probability-space transport. This is a mismatch between the prose label and its actual supporting target, irrespective of whether a newer arbitrary-space proof has finished rebuilding.
+
+**Reader impact.** A student following the direct-product proof, and readers of the direct-product literature, cannot tell whether the extension to arbitrary randomness is the statement checked or only a consequence of a separate reduction.
+
+**Suggested direction.** Point the arbitrary-randomness claim to its own existing target, or identify the finite endpoint and the precise existing finite-behaviour reduction separately. Keep their comparison status attached to the correct declaration.
+
+**Evidence.**
+
+- repository/docs/exposition.md, §7 and reference definition cmp-direct-product
+- repository/lean/QuarticCorpus/Independent/RealizedCaps/Challenge.lean, lines 5–8 and 18–25: finite external-seed endpoint, Ω [Fintype Ω], finite sum
+- repository/docs/lean_links.json, links.cmp-direct-product: declaration and URL resolve to this finite endpoint
+
+## ES-006 · high · credit
+
+**Location:** exposition, 2. One column, then four.
+**Exact Markdown quotation** (source line 89):
+
+> The new features are a separate cell array in every column, pointers that point outward, and the tournament of Section 4.
+
+**Finding.** The list makes outward pointers themselves sound new. Ambainis and coauthors explicitly discuss direct pointers from a distinguished element to a zero in every other column, and the current expert companion and record already acknowledge that antecedent. The combination with separate addressed arrays and this probabilistic tournament is the contribution being explained; the direction of a pointer is not an independently new ingredient.
+
+**Reader impact.** Authors and readers of the pointer-function literature would notice an avoidable priority overclaim. Students would learn a cleaner but inaccurate history of which design choice came from where.
+
+**Suggested direction.** Keep the short attribution paragraph, but distinguish the inherited outward-pointer idea from the particular combination and its analysis. Use the existing precise account in the expert companion and record; no new historical survey is needed.
+
+**Evidence.**
+
+- repository/docs/expert_companion.md, §1.1, paragraph beginning Three further lines of work; repository/docs/reasoning_record.md, §4.8.
+- Ambainis et al., arXiv:1506.04719v3, §1.3, Use of a balanced tree, printed p. 6: direct pointers are explicitly discussed, together with their alphabet cost. Primary PDF: https://arxiv.org/pdf/1506.04719v3
+
+## ES-007 · high · figure
+
+**Location:** exposition, 2. One column, then four.
+**Exact Markdown quotation** (source line 97):
+
+> The four-column board. Column 1 wins at address 10:
+
+**Finding.** The Markdown requires figures/exposition/fig2_board.svg; §5 also requires fig4_planted.svg. Neither file is in this packet. LINK_MAP.json silently omits both references while reporting problem_count=0. The already-rendered PDF can contain the figures, but the supplied source cannot reproduce them or display them through these relative links.
+
+**Reader impact.** The board and planted pair are the central worked examples. Students using Markdown, and authors rebuilding or inspecting the source, lose the very diagrams that explain the construction and coupling.
+
+**Suggested direction.** Include the two existing figure assets and make the link inventory enumerate every image reference. Preserve the current PDF figures; this is a source-packaging defect, not evidence that those PDF figures are absent.
+
+**Evidence.**
+
+- repository/docs/exposition.md, figure-2 link at line 97 and figure-4 link at line 205
+- Packet directory repository/docs/figures/exposition contains only fig1_column.svg and fig3_tournament.svg
+- LINK_MAP.json, exposition entries contain only the figure-1 and figure-3 paths; problem_count is 0
+- manifest.json correctly matches its listed members but does not list either missing figure
+
+## ES-008 · medium · error
+
+**Location:** exposition, 4. The quantum algorithm: a tournament.
+**Exact Markdown quotation** (source line 172):
+
+> Each stage fails with probability at most $\varepsilon$
+
+**Finding.** The failure estimate is stated without the condition under which it is true. In the preceding table, selecting pivot 1 gives W=0; a subsequent sampler has marked success probability zero and therefore fails with probability one. The epsilon estimate is needed only at histories before the genuine winner is selected. The preceding sentence gestures at that restriction, and the following sentence correctly allows later failure, so this is a local scope error to repair, not a counterexample to the final miss bound or separation theorem.
+
+**Reader impact.** Readers of BBHT/BHMT and the comparison-search papers will distinguish a worst-case query cap from a success guarantee that assumes p is above a threshold. Students need exactly that distinction to see why total inputs cause no problem.
+
+**Suggested direction.** Restrict the per-stage failure estimate to histories before the winner is selected, and explain that later failure leaves a successful list intact. Keep the fixed query cap explicitly universal.
+
+**Evidence.**
+
+- paper/extracted.md, Proposition 3.2 proof, printed pp. 8–9, especially the paragraph beginning Until i* is first selected.
+- repository/docs/reasoning_record.md, §5.2, upper-quantum-tournament (zero success mass implies certain reported failure) and upper-coupling (only histories before selecting the winner are charged).
+- Current exposition §4, first row of the new-weights table.
+
+## ES-009 · medium · unclear
+
+**Location:** exposition, 4. The quantum algorithm: a tournament.
+**Exact Markdown quotation** (source line 168):
+
+> The comparisons are independent
+
+**Finding.** The product calculation needs independence conditional on the retained index i (and the fixed pivot history). All comparisons share i, so their outcome flags need not be independent after that index is averaged out. Fresh workspaces justify a tensor product within each index branch; orthogonal index branches then justify summing probabilities. The current sentence suppresses that order.
+
+**Reader impact.** Readers of amplitude amplification will reconstruct the tensor-product argument, but students can mistake a shared-control coherent computation for a list of unconditionally independent experiments.
+
+**Suggested direction.** Specify the conditional independence used in the product and keep the separate orthogonality step used in summing over indices. Point to the existing displayed joint state if more detail is wanted.
+
+**Evidence.**
+
+- paper/extracted.md, Proposition 3.2, equation (15) and following paragraph, printed p. 9.
+- repository/docs/reasoning_record.md §5.2, upper-stage-state and upper-stage-law: the tensor-product norm argument is first for fixed i.
+
+## ES-010 · medium · unclear
+
+**Location:** exposition, 5. The classical lower bound: a planted pair — Direct product with separate caps.
+**Exact Markdown quotation** (source line 227; PDF page 10):
+
+> Hence $\prod_hV_h$ has nonincreasing expectation.
+
+**Finding.** This is the hardest step of the direct-product box, but it compresses two reasons into one sentence: a reachable transcript leaves a product posterior, and the chosen block’s best continuation value obeys a conditional expectation inequality while the other factors remain fixed. Remaining queries are mentioned in words, but the dependence on the history and remaining allowance L-q_h is not displayed. A novice can misread the argument as saying posterior success never increases on individual branches.
+
+**Reader impact.** Drucker’s readers recognize a dynamic-programming or martingale invariant; the specified student does not know direct-product methods and needs to see what is averaged and what remains unchanged.
+
+**Suggested direction.** Expand this existing invariant at one query, stating that it is an inequality after averaging the possible answers and that the remaining allowance decreases. A brief annotated reachable history or the record’s displayed conditional factorization can supply the missing explanation without a new proof.
+
+**Evidence.**
+
+- repository/docs/reasoning_record.md, §6.1, anchors CL-product-law and CL-direct-product-statement; equation (6.2) factors the posterior explicitly and distinguishes one-input hardness from posterior hardness.
+- exemplars/expository.md, §7.2: the martingale statement identifies both conditioning information and expected later value; used only as a model of explanatory precision.
+
+## ES-011 · medium · missing
+
+**Location:** exposition, 5. The classical lower bound: a planted pair.
+**Exact Markdown quotation** (source line 235):
+
+> It runs the dummy algorithm, answering other queries itself
+
+**Finding.** The simulator is the decisive reduction, but it is the one adaptive mechanism not walked through on an actual branch. Students must simultaneously infer which queries are free side information, which spend the shared target budget, why abort happens before an excess query, and how a cell address can be output before its contents are read. The record already contains a four-query trace with both the surviving and aborting branches; this would teach more than a second conditional-success counterexample.
+
+**Reader impact.** Readers of decision-tree lower bounds know this reduction pattern, while the specified student audience does not. Without an execution trace, the key inclusion behind equation (21) risks being memorized as a technical black box.
+
+**Suggested direction.** Use or link directly to the existing four-query simulator example, stating its separate XOR toy setup. In the main argument emphasize that the guessed label is obtained from the proposed query coordinate and does not require reading the cell.
+
+**Evidence.**
+
+- repository/docs/reasoning_record.md §6.5, CL-simulator-example: four-time table, the a=0 abort branch, and the event inclusion 1/8 <= 1/4.
+- paper/extracted.md, Proposition 4.2 proof, printed p. 13, simulator stops at a proposed query and outputs its address.
+
+## ES-012 · medium · missing
+
+**Location:** exposition, 5. The classical lower bound: a planted pair.
+**Exact Markdown quotation** (source line 220):
+
+> By symmetry $I$ is still uniform on its own
+
+**Finding.** The dependent-selection experiment has not defined I when no queried position is a zero. That event has probability (3/4)^4=81/256, so it cannot be ignored when claiming a uniform marginal. A fixed-column fallback would break the symmetry. The long record includes the missing uniform fallback.
+
+**Reader impact.** Distributional-lower-bound readers will insist on a complete sampling rule; students checking the 175/256 counterexample should be able to verify the uniform marginal as well as the hit probability.
+
+**Suggested direction.** Specify uniform choice among all four columns when there are no discoveries, as in the existing record. Keep this as a fully defined counterexample to replacing independence by a uniform marginal.
+
+**Evidence.**
+
+- repository/docs/reasoning_record.md §6.4, CL-selection-independence-example: choose uniformly among all four if no zero was found.
+- Independent ordinary enumeration in checks/exact_examples.json verifies 175/256 and the omitted branch probability 81/256.
+
+## ES-013 · medium · unclear
+
+**Location:** exposition, 4. The quantum algorithm: a tournament.
+**Exact Markdown quotation** (source line 145):
+
+> Now (with exact decoding) column $2$ beats $3$
+
+**Finding.** Column 2 still has an unpromised a^- input, so it has no semantic address to decode exactly. The cycle can be made completely independent of that label by applying each stated loser-pointer change in every cell, as the figure's star notation suggests, but the text never specifies that scope. The specified projection decoder does output a deterministic label on these particular inputs; that fact is different from an exact promised-value decoder.
+
+**Reader impact.** Forrelation readers will distinguish a decoder output from a partial-function value. Students have just been taught that column 2 has no address, so the next use of exact decoding creates an avoidable contradiction in terminology.
+
+**Suggested direction.** Specify whether the pointer changes apply to every cell, and describe the cycle through the actually followed pointers or the specified decoder outputs. Do not attach a true-address meaning to the unpromised column.
+
+**Evidence.**
+
+- Current exposition §2, Four columns: column 2 has (a^-,a^0) and no address.
+- Current exposition §1: the projection test accepts a^- with certainty.
+- repository/docs/reasoning_record.md §4.3, AC-example-board: a decoded output on the unpromised column does not define a semantic true address.
+
+## ES-014 · medium · structure
+
+**Location:** exposition, 5. The classical lower bound: a planted pair.
+**Exact Markdown quotation** (source line 233):
+
+> The same failure appears with two instances.
+
+**Finding.** The second AND example spends another dense paragraph and an unexplained 16-input count on the conditional-versus-joint error already decisively shown by the three-input example. Meanwhile, the different warning that marginal independence of side information does not suffice has no example here, although the record contains a smaller parity example. The allocation repeats one pitfall and leaves the other abstract.
+
+**Reader impact.** Readers of Shaltiel/Drucker need the two logically different hypotheses kept separate. A student is more likely to remember the distinction through two contrasting examples than through a second, more contrived version of the same conditioning failure.
+
+**Suggested direction.** Keep the one-instance AND counterexample in the main path; move the two-instance enumeration to an optional exercise or exact destination. Use the available explanatory space for the existing zero-query parity side-information example, with its existing 1/2 versus 1/4 calculation.
+
+**Evidence.**
+
+- Current exposition §5, Direct product with separate caps: joint independence warning; Why the event must be joint: the one-instance counterexample already gives conditional success 1 versus beta=2/3.
+- repository/docs/reasoning_record.md §6.1, CL-independent-information: S=X xor Y and the zero-query answer (0,S).
+- Independent ordinary enumeration confirms the printed two-instance counts 8 capped, 5 correct and capped, conditional success 5/8.
+
+## ES-015 · medium · structure
+
+**Location:** exposition, Overview — reading directions.
+**Exact Markdown quotation** (source line 48; PDF page 2):
+
+> Standard arguments that a reader may know already are set in boxes and can be skipped.
+
+**Finding.** The skip instruction does not distinguish an optional proof from an essential lemma statement. In §5 the direct-product box is the only place where the separate-per-instance cap, joint independence, and beta-to-the-r conclusion are stated together. Skipping the entire box loses the contract needed to understand the simulator. The same visual treatment is also used for the nonessential returned-state remark.
+
+**Reader impact.** A teacher using the notes for students unfamiliar with minimax and direct products cannot assign a reliable main reading path: the boxes mix optional derivations, required hypotheses and peripheral refinements.
+
+**Suggested direction.** Separate the compulsory tool statement from its optional proof and identify which boxes may be skipped in full. Preserve the useful boxed treatment of standard calculations.
+
+**Evidence.**
+
+- repository/docs/exposition.md, §5, “Direct product with separate caps” and “The simulator”; exposition.pdf p.10.
+- exemplars/expository.md, §7 opening: explicitly states that the main argument is complete before listing optional derivations.
+
+## ES-016 · medium · unclear
+
+**Location:** exposition, 5. The classical lower bound: a planted pair — Standard proof: minimax for a finite set of trees.
+**Exact Markdown quotation** (source line 200; PDF page 8):
+
+> Take closest points $a\in K$ and $c\in O$ and put $v=c-a\ne0$.
+
+**Finding.** The minimax proof abruptly switches from decision trees to convex geometry. It does not explain why a correctness vector is a row of algorithm-versus-input payoffs, why a convex combination represents randomization, or why a nonnegative separating normal gives one hard input distribution for all trees. The closest-point inequalities are listed but their operational meaning is absent.
+
+**Reader impact.** Experts in randomized query complexity supply this interpretation automatically. A strong student explicitly assumed not to know minimax may follow the symbols yet fail to learn why the hard distribution exists and cannot depend on the chosen tree.
+
+**Suggested direction.** Explain the roles of the vectors and separating weights before the geometric calculation, or clearly make that proof an optional destination after a fully explained minimax statement. Do not add a second independent minimax proof.
+
+**Evidence.**
+
+- repository/docs/exposition.md, §5 opening and minimax box, exposition.pdf p.8.
+- Buhrman–de Wolf, Complexity measures and decision tree complexity: a survey, §3.2: randomized decision trees are explained both as coin-flip trees and as mixtures of deterministic trees.
+
+## ES-017 · medium · missing
+
+**Location:** exposition, 1. Three eight-bit inputs.
+**Exact Markdown quotation** (source line 71):
+
+> the projection succeeds with probability $\Phi^2$
+
+**Finding.** The scalar arithmetic is fully shown, but the quantum meaning is asserted immediately afterwards. A student unfamiliar with Forrelation is not told why the normalized Walsh transform compares two sign patterns or why the stated sign/Walsh preparation has overlap Phi with the uniform state. The later general matrix product gives a formula, but the teaching opportunity of this small example is left unused.
+
+**Reader impact.** A reader who knows Grover can multiply Wg yet still not understand what this partial function detects or why two queries extract its statistic. The Forrelation papers' readers know that connection already; the specified student does not.
+
+**Suggested direction.** Interpret the existing eight-bit computation as normalized alignment and trace the already specified preparation to its overlap with the uniform state, in the correct operator order. Keep this a short explanation of the existing calculation, not a second quantum algorithm.
+
+**Evidence.**
+
+- repository/docs/exposition.md, §1, Wg computation; §3, formula for Phi and the projection experiment.
+- paper/extracted.md, Lemma 2.1(ii) proof, printed p. 4, explicitly applies the product right to left.
+- repository/docs/reasoning_record.md, §3.3, forr_quantum, especially the overlap and projection calculation; forr_coherent explains retention. Aaronson–Ambainis, supplied Forrelation paper, §1.1.1 and §3, explains the Fourier correlation and quantum algorithms.
+
+## ES-018 · medium · missing
+
+**Location:** exposition, 2. One column, then four.
+**Exact Markdown quotation** (source line 95):
+
+> Every transcript is the true evaluation of a fixed $180$-gate circuit described below.
+
+**Finding.** The next paragraph describes a method of obtaining a circuit, but does not describe the promised 180-gate circuit. Consequently the board's 360 transcript bits and 371-test claim are not fully inspectable from the exposition, even though the arithmetic conditional on S=180 is correct. The record points to an existing circuit.json and board checker; those underlying artifacts are not supplied here. The example is complete at the semantic level, not a hand-checkable specification of every stored bit.
+
+**Reader impact.** Students asked to check the example by hand cannot reconstruct an exact gate count from 'Shannon expansion' alone, and circuit-certificate readers cannot inspect the claimed transcript without another destination.
+
+**Suggested direction.** Either treat the circuit size symbolically in the main example, or link directly to the already existing gate list and checker for the claimed concrete encoding. Describe precisely which parts can be checked by hand and which rely on that artifact.
+
+**Evidence.**
+
+- repository/docs/reasoning_record.md, §4.4, AC-example-tests, supplies exact paths to examples/circuit.json, examples/board.json and examples/check_example.py.
+- The supplied manifest has no circuit.json or finite-board checker; no construction of the 180-gate netlist was executed in this review.
+- Independent arithmetic: 4*(4+16+4*(6+360))=5936 and 4+3+2*(180+2)=371.
+
+## ES-019 · medium · figure
+
+**Location:** exposition, 2. One column, then four — Figure 1 caption.
+**Exact Markdown quotation** (source line 85; PDF page 3):
+
+> the cell at the true address certifies those answers and points to a zero in every other column.
+
+**Finding.** The caption describes a true-address cell as if its transcripts and outward pointers were automatically valid. That is only true for the pictured winning column: the drawing labels it i-star and shows an all-one own string, but the caption calls it “One column” without saying that it assumes a winner. On arbitrary total-function inputs, the true cell may contain false transcripts or a pointer to a one.
+
+**Reader impact.** Pointer-function and cheat-sheet readers distinguish knowing the address from having a valid certificate. A student may import the caption’s stronger implication into the later comparison and verification arguments.
+
+**Suggested direction.** Explicitly scope the picture and caption to a winning column; keep the distinction between selecting the true address and verifying its contents visible.
+
+**Evidence.**
+
+- repository/docs/exposition.md, §2 definition of winning and §4 “Beating every rival is not winning”.
+- repository/docs/exposition.pdf, p.3, Figure 1; original fig1_column.svg labels the selected column i-star.
+
+## ES-020 · medium · figure
+
+**Location:** exposition, 5. The classical lower bound: a planted pair — Figure 4 caption.
+**Exact Markdown quotation** (source line 205; PDF page 9):
+
+> The two inputs differ only at $X_1[4]$ and in the cell $B_{1,10}$.
+
+**Finding.** Figure 4 communicates the two changes well, but its mathematical labels are very small at the supplied print size: principal labels are approximately 6.54 pt and cell/address subscripts 4.67 pt. The faint cell labels and blue sample-law labels require zooming. Figure 3 also uses rotated grey 7.25 pt edge labels with 5.18 pt subscripts. These are the labels the student must match to the argument.
+
+**Reader impact.** Teachers and students reading a printed copy must inspect exact cell addresses and zero positions; color and reduced type should not make those identifiers harder to recover than the prose.
+
+**Suggested direction.** Increase figure label sizes or allocate more width/height, darken essential edge/cell text, and reduce repeated text inside the drawing if necessary. Retain the paired before/after structure and precise two-change marking.
+
+**Evidence.**
+
+- Visual inspection of repository/docs/exposition.pdf pp.6 and 9 at 1.4x rasterization.
+- Font measurements from PyMuPDF page.get_text("dict") span.size, in PDF points: Figure 4 6.54/4.67; Figure 3 7.25/5.18; Figure 1 7.02/5.01. These are measured sizes, not an automated readability verdict.
+
+## ES-021 · medium · credit
+
+**Location:** exposition, Overview.
+**Exact Markdown quotation** (source line 16):
+
+> **Theorem** [@OpenAI2026, Theorem 1.1].
+
+**Finding.** The citation attributes the displayed logarithmic exponent six and lower-bound coefficient 1/400 to the preprint's Theorem 1.1, which states unspecified positive constants and an unspecified logarithmic exponent. These refinements are derived in the reasoning record. The expert companion explains that distinction beside its theorem; the student exposition does not explain the provenance of its sharper displayed form at this point.
+
+**Reader impact.** Students learning how to check a theorem in its cited source will find a different statement and may mistake a later quantitative refinement for a transcription error or an original preprint constant.
+
+**Suggested direction.** Identify the displayed form as the record's explicit specialization of the preprint theorem, with exact destinations for the two constants. Preserve the existing distinction in §7 between the compared floor-form theorem and the explicit estimates.
+
+**Evidence.**
+
+- paper/extracted.md, Theorem 1.1, equation (2), printed p. 1.
+- repository/docs/expert_companion.md, §1, paragraph beginning Displays that match; repository/docs/reasoning_record.md, §5.4 (upper-explicit-log6) and §6.6.
+
+## ES-022 · medium · structure
+
+**Location:** exposition, 4. The quantum algorithm: a tournament.
+**Exact Markdown quotation** (source line 184):
+
+> Verifying one candidate costs $O(\sqrt K\log(1/\varepsilon))$ tests of $O(\log m)$ queries each
+
+**Finding.** The count describes a stage, a preparation and one candidate verification, then jumps to the final logarithmic exponent. It never collects the complete tournament cost and the cost of all T verifications in one expression. The numbers 6 and 24001 therefore look like the derivation, while the reason verification does not dominate the stated bound remains implicit. The standalone numerical fraction 583/192000 can move to the existing calculation notes so the main count emphasizes the factors that determine the exponent.
+
+**Reader impact.** Search/amplification specialists can reconstruct the product of these factors. A student learning query accounting needs to see which factor counts stages, which counts calls, and why verification is paid T times rather than m times.
+
+**Suggested direction.** Collect the two existing total costs before bounding logarithms: the tournament's T-squared comparison cost and the T candidate checks, including fresh address decoding. Explain that inverse preparations and ordinary bit-query implementation alter constants only. Keep the loose numerical constants in the record.
+
+**Evidence.**
+
+- paper/extracted.md, Proposition 3.2 query-count paragraph, printed p. 9, and §3.3, printed p. 10.
+- repository/docs/reasoning_record.md, §5.2, upper-tournament-cost; §5.4, upper-finite-budget (tournament plus all verifications), upper-oracle-access and upper-explicit-log6.
+- Current exposition §4, Verification and The count; this is a missing accounting step, not a disproof of exponent six.
+
+## ES-023 · medium · history
+
+**Location:** exposition, Note on preparation.
+**Exact Markdown quotation** (source line 276):
+
+> The comparison viewpoint has relatives in quantum minimum finding
+
+**Finding.** The comparison-search references are collected only in the final preparation note. Section 4 already explains the lack of transitivity and says that no gap from 1/2 is used, but it does not connect those differences to the cited minimum-finding, fixed-tournament or bounded-error-search models. The history is present as names rather than as an explanation of why those existing tools are related but do not immediately supply this sampler.
+
+**Reader impact.** Readers of minimum-finding, tournament and bounded-error-search work need the exact model distinction. Students otherwise see the new procedure as an unexplained substitute for familiar Grover/minimum search.
+
+**Suggested direction.** Attach the relevant existing citations and a brief model comparison to §4’s existing discussion of arbitrary loser outcomes. Avoid repeating that explanation or adding a long literature detour; leave authorship and AI-preparation information in the closing note.
+
+**Evidence.**
+
+- paper/extracted.md, §1.1 and opening of §3, printed pp. 2 and 7.
+- repository/docs/expert_companion.md, §1.1, last paragraph already gives the bounded-error-input distinction.
+- Høyer–Mosca–de Wolf, Quantum Search on Bounded-Error Inputs, arXiv:quant-ph/0304052v2, §1, printed pp. 1–2: each base algorithm computes a fixed Boolean value with bounded error. https://arxiv.org/pdf/quant-ph/0304052v2
+
+## ES-024 · medium · misplaced
+
+**Location:** exposition, 4. The quantum algorithm: a tournament — Remark: a returned state versus a measured label.
+**Exact Markdown quotation** (source line 191; PDF page 8):
+
+> the final projector is block-diagonal in those retained labels, so no cross terms arise.
+
+**Finding.** The returned-state remark introduces a block-diagonal projector, retained-register distinctions and a stronger formal theorem immediately after the main query bound, then says the separation does not need that stronger theorem. This interrupts the conceptual transition to the classical lower bound and asks for more quantum formalism than the main exposition has explained. The useful distinction between a state and its measured label is obscured by implementation status.
+
+**Reader impact.** Amplitude-amplification specialists can evaluate the distinction, but the intended student needs the reversible preparation explained first. The current aside gives more space to an unused strengthening than to that prerequisite.
+
+**Suggested direction.** Move the stronger state specification and formal implementation discussion to the verification section or a clearly optional endnote; keep only the measured-label guarantee needed by the tournament in the main route.
+
+**Evidence.**
+
+- repository/docs/exposition.md, §4 “Sampling a pivot quantumly” and returned-state remark; §7 explicitly says the separation needs neither extra result.
+- exemplars/expository.md, §7: optional material follows the completed principal argument and states which external inputs it explains.
+
+## ES-025 · medium · register
+
+**Location:** exposition, 6. Exponent four, and the order of quantifiers — matching upper bound.
+**Exact Markdown quotation** (source line 264; PDF page 11):
+
+> the adversary method bounds block sensitivity by $O(Q^2)$ and spectral sensitivity by $O(Q)$
+
+**Finding.** The final paragraph abruptly invokes the adversary method, block sensitivity, spectral sensitivity, polynomial degree and the Midrijanis decision-tree bound without defining any of them. None was part of the stated student background or needed to understand the new construction. It reads as an expert proof outline just when the exposition should close the argument for its own reader.
+
+**Reader impact.** The authors of the sensitivity and query-complexity papers know this chain. A student who has successfully followed the construction now encounters several unexplained complexity measures in the last step to equality.
+
+**Suggested direction.** Keep the known universal quartic bound as a clearly attributed input and make this chain an explicitly optional route with a precise destination, or define the few terms needed if it remains part of the teaching path. The constant 35^4 need not be prominent here.
+
+**Evidence.**
+
+- repository/docs/exposition.md, Overview already states the known universal upper bound as an input; §6 repeats it with the new terminology.
+- Buhrman–de Wolf survey, §§2–4, introduces polynomial degree, certificate complexity and block sensitivity before using their relationships; it is a structural comparator, not a source for the later quartic theorem.
+
+## ES-026 · medium · lean_link
+
+**Location:** exposition, 7. What the Lean development checks.
+**Exact Markdown quotation** (source line 268):
+
+> The theorem has also been proved in the Lean proof assistant
+
+**Finding.** Every theorem link in this paragraph opens a Challenge file whose displayed proof is sorry. These are intentionally separate statement specifications, not the proof submission, but §7 never explains that convention or links directly to the adjacent Solution file. A reader new to Lean can mistake the visible placeholders for admitted proofs of the advertised result.
+
+**Reader impact.** A strong student can follow the algebra yet reasonably conclude that the proof contains holes when the first formal link displays sorry. This obscures the useful distinction between a checked specification and its independently compiled solution.
+
+**Suggested direction.** Explain the statement-placeholder convention briefly and give a clearly labelled route to the existing Solution and comparison configuration. Do not remove the honest statement links or imply that the Challenge is itself a proof.
+
+**Evidence.**
+
+- repository/lean/QuarticCorpus/Unconditional/Challenge.lean, lines 326–341: four theorem statements ending in sorry
+- repository/lean/QuarticCorpus/Unconditional/Solution.lean, lines 17–41: corresponding proof wrappers
+- repository/lean/QuarticCorpus/Unconditional/comparator.json: separate challenge_module and solution_module
+
+## ES-027 · medium · lean_link
+
+**Location:** exposition, 7. What the Lean development checks.
+**Exact Markdown quotation** (source line 272):
+
+> the amplifier that returns the full good state
+
+**Finding.** The selected line range for this link is 17–20, which ends at let M := iterationBound γ. It shows the theorem name and hypotheses, but none of the returned-state equality, probability guarantees or query bound advertised by the link. Existence of the range is not a check that it lands on the relevant assertion.
+
+**Reader impact.** Readers of the amplitude-amplification literature and students comparing the state claim with the source must search a much longer dependent type to discover what was actually stated.
+
+**Suggested direction.** Extend the existing link to the complete statement, or provide focused ranges for the returned-state factorisation and the cost/success clauses. Describe the highlighted clause in ordinary mathematical terms.
+
+**Evidence.**
+
+- repository/docs/exposition.md, reference definition cmp-amplifier: #L17-L20
+- repository/lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean, lines 25–29 (cost), 37–38 (factorisation), 39–48 (probability guarantees)
+- LINK_MAP.json and repository/docs/lean_links.json mark this range valid solely as a location
+
+## ES-028 · medium · lean_link
+
+**Location:** exposition, 7. What the Lean development checks.
+**Exact Markdown quotation** (source line 270):
+
+> The file is short enough to answer that in one sitting.
+
+**Finding.** The proposed semantic audit is presented as a short reading task, but the selected ranges for R, Q, F and alphaTot often show an alias or infimum rather than its mathematical conditions. RLe, QLe, queryCap, WinsAt and UniversalPower carry the crucial correctness, quantifier and winner clauses outside the highlighted ranges. No plain-language route through those dependencies is given for a student who has not learned Lean.
+
+**Reader impact.** A student can count 343 lines without being able to check the intended query model. Researchers who care about exact model fidelity need to inspect the quantifier order and success predicate, not only the printed names.
+
+**Suggested direction.** Add a compact reading guide that identifies the existing predicates carrying the algorithm-before-input quantifiers, all-branch cap, success threshold and four winner conditions; link those ranges. Keep syntax instruction optional. The same guide can explain why bounded-depth randomized algorithms reduce to finite mixtures of finitely many deterministic trees, as the record already does.
+
+**Evidence.**
+
+- repository/lean/QuarticCorpus/Unconditional/Challenge.lean: RLe lines 62–65; queryCap 109–116; QLe 133–137; WinsAt 262–272; UniversalPower 311–315
+- Current def-R range 71–74, def-Q 139–140, def-F 280–285 and def-alpha 317–318 omit these underlying predicates
+- repository/docs/reasoning_record.md, §§2.1–2.7 already explains the model and quantifier translations
+- repository/docs/reasoning_record.md, §2.2: grouping arbitrary random seeds by their induced finite-depth decision tree; supplied Buhrman–de Wolf survey, §3.2.
+
+## ES-029 · medium · lean_link
+
+**Location:** exposition, 4. The quantum algorithm: a tournament — returned-state aside.
+**Exact Markdown quotation** (source line 191):
+
+> The rotation argument in the box above shows that the full normalised good state is returned (record §5.5).
+
+**Finding.** The destination for the mathematical returned-state argument is mislocated. Record §5.5 discusses formal correspondence and the state specification; the actual Grover geometry, endpoint cases, first-success register routing and full mathematical proof are in §5.1. This finding concerns the location of the argument, not the pending formal status identified in the packet instructions.
+
+**Reader impact.** A student who stops at this subtle state-versus-label distinction is sent into implementation/evidence discussion instead of the promised proof.
+
+**Suggested direction.** Direct the mathematical claim to record §5.1, using its existing upper-grover-geometry and upper-returned-register anchors. Reserve §5.5 for the formal correspondence, with a separate label if retained.
+
+**Evidence.**
+
+- repository/docs/reasoning_record.md, §5.1, anchors upper-grover-geometry, upper-amplification-proof and upper-returned-register
+- repository/docs/reasoning_record.md, §5.5 heading Formal correspondence and the remaining state specification
+
+## ES-030 · medium · lean_link
+
+**Location:** exposition, Overview.
+**Exact Markdown quotation** (source line 48):
+
+> Full proofs of every step are in the [long reasoning record]
+
+**Finding.** There is one link to the start of the 389 KB reasoning record on the mutable main branch. The many subsequent record § references are plain text, despite stable passage anchors being present in the record. The numbered sections do exist, but the reader has to search the whole record and cannot tell which revision the prose citation describes.
+
+**Reader impact.** A student needing only the circuit construction, capped simulator or amplification proof loses the local reading path exactly where the exposition becomes difficult. Literature experts checking a delicate claim face the same avoidable search.
+
+**Suggested direction.** Link each substantive proof destination to an existing passage anchor at the revision supplying the reviewed argument. Preserve readable section numbers for print readers.
+
+**Evidence.**
+
+- repository/docs/exposition.md, line 48 is the sole link to reasoning_record.md; later record §3.4, §5.4, §6.4 and §6.1 references are unlinked
+- repository/docs/reasoning_record.md contains stable anchors including upper-explicit-log6, upper-amplification-proof and numerous CL-* anchors
+- LINK_MAP.json confirms only the unanchored main-branch record URL among exposition links
+
+## ES-031 · low · wasted
+
+**Location:** exposition, 1. Three eight-bit inputs — census paragraph.
+**Exact Markdown quotation** (source line 73; PDF page 3):
+
+> All $256$ inputs can be classified by hand.
+
+**Finding.** The full parity census delays the construction after the three explicit inputs have already established the intended one-sided-promise distinction. None of the later board, tournament or planted-pair calculations uses the multiplicities 8,96,48,96,8 or the counts 104,48,104. Unlike the main examples, this substantial calculation is not marked optional.
+
+**Reader impact.** Forrelation specialists may enjoy the sanity check, but a student on the main learning path needs to understand why the promise must be certified rather than enumerate the entire tiny domain.
+
+**Suggested direction.** Retain the three fully calculated inputs in the main text and make the complete census an optional check or exercise with its existing derivation. Keep the warning that the tiny instance does not witness the asymptotic lower bound.
+
+**Evidence.**
+
+- repository/docs/exposition.md, §1 last paragraph and subsequent use of a-plus, a-zero and a-minus in §2.
+- exemplars/expository.md, short questions and §7.4 answers separate checks of understanding from the uninterrupted proof route.
+
+## ES-032 · low · notation
+
+**Location:** exposition, 3. The general partial function.
+**Exact Markdown quotation** (source line 122):
+
+> Let $S$ count successes among $\rho$ independent trials
+
+**Finding.** The earlier collision problem is reduced but remains in three useful-to-remember symbols: S is a trial-success count here and a circuit size immediately afterwards; W is the Walsh matrix in §§1/3 and the total tournament weight in §4; K is the local-test count and later the minimax convex hull. These objects occur close enough together that students have to reset their meanings while following the same argument.
+
+**Reader impact.** Researchers can infer the scope from context, but students already managing addresses, pointers and query budgets should not have to infer whether a remembered symbol is a matrix, a set or a number.
+
+**Suggested direction.** Reserve the main construction and query-budget symbols; rename the temporary random count and convex set, and distinguish the Walsh matrix from total weight. No global notation expansion is needed.
+
+**Evidence.**
+
+- repository/docs/exposition.md, §1 definition of W; §3 repetition box and exact circuit; §4 Weights instead of an order; §5 minimax box.
+
+## ES-033 · keep · keep
+
+**Location:** exposition, Overview.
+**Exact Markdown quotation** (source line 25):
+
+> **The reason for four, in one line.**
+
+**Finding.** The revised opening now states the theorem, shows the m-times-L versus square-root-m arithmetic, supplies the historical exponent sequence, and maps each example to its job. This addresses the predecessor's missing frame. The central idea is visible before the student encounters the large input definition.
+
+**Reader impact.** Readers of the cited separation literature can locate the contribution immediately, while students know why the subsequent promise, certificate, tournament and planting examples are being introduced.
+
+**Suggested direction.** Preserve this compact frame and the map of examples. When refining the text, keep heuristic approximate equalities visibly subordinate to the stated upper and lower bounds, and keep detailed fixed-k quantifier work in its dedicated section.
+
+**Evidence.**
+
+- repository/docs/exposition.md, Overview; paper/extracted.md, §§1.1–1.2; supplied cheat-sheet paper, introduction and §3.1.
+
+## ES-034 · keep · keep
+
+**Location:** exposition, 1. Three eight-bit inputs.
+**Exact Markdown quotation** (source line 71):
+
+> It succeeds with certainty on both $a^+$ and $a^-$.
+
+**Finding.** The common second block makes all three values easy to check, and the negative example exposes the exact distinction needed later: the quantum projection test can accept outside the promise while the domain certificate must reject. Independent enumeration reproduces all five numerator multiplicities and the 104/48/104 promise partition.
+
+**Reader impact.** Forrelation and cheat-sheet readers will value a convention check that does actual work in the totalization argument. Students can calculate it without relying on black-box asymptotics.
+
+**Suggested direction.** Keep the three-input contrast and its explicit later connection to the domain bit. Retain the small-size caveat that L_{2,4}=0 and no lower-bound evidence comes from this toy.
+
+**Evidence.**
+
+- Current exposition §1, the Wg computation and the full numerator distribution.
+- Current exposition §2, The domain bit is needed.
+- Independent ordinary enumeration in checks/exact_examples.json.
+
+## ES-035 · keep · keep
+
+**Location:** exposition, 2. One column, then four.
+**Exact Markdown quotation** (source line 103):
+
+> A function that checked only value bits would accept this board.
+
+**Finding.** The changed board isolates one condition cleanly: the candidate has correct gate equations, matching value bits, an all-one column and successful outward pointers, but its first domain output is zero. This is an unusually effective counterexample because it shows why local consistency alone does not certify the promise.
+
+**Reader impact.** Cheat-sheet and circuit-certificate readers will recognize the distinction immediately, and students get a concrete reason for storing two output bits instead of accepting the design as arbitrary.
+
+**Suggested direction.** Keep the one-condition change and the explicit consequence F=0. It should remain close to the transcript definition and local-test list.
+
+**Evidence.**
+
+- Current exposition §2, Transcripts, The domain bit is needed and Local tests.
+- repository/docs/reasoning_record.md §4.4, AC-tests and the finite-board local-test discussion.
+
+## ES-036 · keep · keep
+
+**Location:** exposition, 4. The quantum algorithm: a tournament.
+**Exact Markdown quotation** (source line 143):
+
+> A column that dominates the comparisons is only a candidate
+
+**Finding.** The single-pointer change gives a concrete false positive for comparison search: column 1 still defeats every rival by the tie rule or its remaining pointers, yet one exact certificate test fails and F=0. It makes the final verification logically necessary instead of presenting it as an unexplained cleanup step.
+
+**Reader impact.** Minimum-finding and tournament readers will see why a dominance guarantee is insufficient here; students can check the winning condition and comparison rule separately.
+
+**Suggested direction.** Preserve this counterexample and its placement before the search analysis. Keep the role of the smaller-index tie rule explicit.
+
+**Evidence.**
+
+- Current exposition §4, Beating every rival is not winning.
+- Current exposition §2, original zero positions and local tests.
+
+## ES-037 · keep · keep
+
+**Location:** exposition, 5. The classical lower bound: a planted pair.
+**Exact Markdown quotation** (source line 233):
+
+> the probability of being right **and** staying within the caps
+
+**Finding.** The one-instance AND example is correct and sharply separates the joint event from the conditional event: success and a light run have probability 1/3, while success conditioned on being light is 1. This is precisely the trap that the capped simulator avoids, and the later displayed joint-event inequality respects it.
+
+**Reader impact.** Shaltiel/Drucker readers will see the right conditioning boundary; students who know elementary conditional probability can verify the failure before confronting the adaptive proof.
+
+**Suggested direction.** Keep this example and keep the word and visible in the subsequent event bound. Avoid weakening the contrast by an earlier sentence that informally conditions on a column being light.
+
+**Evidence.**
+
+- Current exposition §5, Why the event must be joint and The simulator.
+- repository/docs/reasoning_record.md §6.5, CL-conditioning-counterexample and CL-joint-event.
+
+## ES-038 · keep · keep
+
+**Location:** exposition, 2. One column, then four — Figure 2 caption.
+**Exact Markdown quotation** (source line 97; PDF page 4):
+
+> The dashed pointer from column 3's own true cell lands on a one, as every pointer into column 1 must.
+
+**Finding.** Figure 2 is an effective working figure, not decoration: the red outward pointers establish the winner while the dashed reverse pointer visibly explains why no rival can disqualify its all-one string. Its labels agree with the nearby computed board. This is a substantial resolution of the earlier absence of figures.
+
+**Reader impact.** The cited pointer-function and search readers can recover the invariant quickly, and students can match the named positions to actual bits before reading the comparison argument.
+
+**Suggested direction.** Preserve the same concrete board, exact bit positions, contrasting outgoing and reverse pointer, and close placement beside its calculation. Maintain this standard when adjusting figure size.
+
+**Evidence.**
+
+- repository/docs/exposition.pdf p.4, Figure 2, visually inspected; §2 board values and §4 winner-dominance argument.
+- All 13 exposition PDF pages were visually inspected: no missing rendered figures, visible clipping, overlapped text, raw Markdown, or obvious margin overrun was observed.
+
+## ES-039 · keep · keep
+
+**Location:** exposition, 6. Exponent four, and the order of quantifiers — fixed-k warning.
+**Exact Markdown quotation** (source line 262; PDF page 11):
+
+> for each fixed $k$, the condition $t\ge2^k$ holds for all large $t$
+
+**Finding.** The simple counterexample makes the nonuniformity issue concrete and immediately returns to the correct order: choose the target exponent, then one k, then let m grow. It explains why the constants depending on k cannot be ignored without expanding the scope to a growing-k result.
+
+**Reader impact.** Experts in asymptotic separations recognize the quantifier distinction, and the student receives a checkable example of the precise tempting mistake.
+
+**Suggested direction.** Keep this example and the adjacent k=2 versus k=3 observation. They give the asymptotic calculation a genuine changed case with no extra technical machinery.
+
+**Evidence.**
+
+- repository/docs/exposition.md, §6 and Overview quantifier paragraph; exposition.pdf p.11.
+
+## ES-040 · keep · lean_link
+
+**Location:** exposition, 7. What the Lean development checks.
+**Exact Markdown quotation** (source line 268):
+
+> with the quantum bound in the form $C\sqrt m\,(\log_2 m)^b$ for some exponent $b$
+
+**Finding.** This qualification correctly distinguishes the directly configured family statement from the displayed exposition bound with logarithmic exponent six. The selected theorem uses one existentially chosen circuit for both upper and lower bounds. The four theorem names listed here match the actual comparator configuration exactly.
+
+**Reader impact.** Readers of the separation literature can see what the checked endpoint says without transferring comparison credit to a stronger constant-level formulation or to every implementation lemma.
+
+**Suggested direction.** Keep the explicit existential exponent, the integer lower-bound form and the same-circuit qualification. Retain direct links to these four configured statements when simplifying the prose.
+
+**Evidence.**
+
+- repository/lean/QuarticCorpus/Unconditional/Challenge.lean, lines 328–334
+- repository/lean/QuarticCorpus/Unconditional/comparator.json, theorem_names
+- repository/corpus/comparator_map.json, Unconditional challenge configurations and the Checked.theorem_one_one block
+
+## ES-041 · keep · lean_link
+
+**Location:** exposition, 7. What the Lean development checks.
+**Exact Markdown quotation** (source line 270):
+
+> do these definitions mean $R$, $Q$ and the function intended?
+
+**Finding.** The exposition explicitly retains the distinction between proof checking and whether the chosen definitions express the intended mathematics. It also says that the Forrelation proof follows a separate route and has not had human review. These are material boundaries, not generic disclaimers.
+
+**Reader impact.** Students learn what a formal check establishes, while experts can assess the specification and unusual proof route without being told that agreement between files supplies a human mathematical review.
+
+**Suggested direction.** Preserve these boundaries while adding the concrete reading aids above. Do not replace them with broad claims that every line of the exposition is independently verified.
+
+**Evidence.**
+
+- repository/docs/exposition.md, §7 second paragraph
+- repository/docs/reasoning_record.md, §2.8: challenges mechanically share maintained definitions; comparison establishes conformity, not intended meaning
+- repository/corpus/comparator_map.json, boundary and credit_vocabulary
+

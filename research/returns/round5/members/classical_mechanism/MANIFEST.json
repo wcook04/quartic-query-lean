@@ -1,0 +1,77 @@
+{
+  "packet": "classical_mechanism_return",
+  "hash_algorithm": "SHA-256",
+  "scope": "Every other file in this return; this manifest excludes itself.",
+  "members": [
+    {
+      "path": "README.md",
+      "bytes": 3125,
+      "sha256": "be32198d04d63eee0a5e95c9ecd556099c85b479e8d0e7445696aa42c3c788d4"
+    },
+    {
+      "path": "checks/finite_checks.json",
+      "bytes": 4071,
+      "sha256": "8e4fbb553338fce2abe7caf455f7837df535c2ee9c510b60d5d9f418494394c0"
+    },
+    {
+      "path": "checks/finite_examples.py",
+      "bytes": 3991,
+      "sha256": "172a9137b5609c13473ad00d2d3582703c58be62c80d3f4a2df924890e739b27"
+    },
+    {
+      "path": "checks/input_integrity.json",
+      "bytes": 936,
+      "sha256": "7a2e7217f15926d31e1ff9ca12e4a61e01d5ed0a2d61b515c79700246c81edc4"
+    },
+    {
+      "path": "checks/link_checks.json",
+      "bytes": 11823,
+      "sha256": "07affffab3fba0da76284478329f92b01587d4beaf0100c55e3b1dce46761eca"
+    },
+    {
+      "path": "checks/quote_validation.json",
+      "bytes": 5421,
+      "sha256": "d391261743c35832332d3fa1da7bc286db460e4b5b62ed9a32826d7db60bfab1"
+    },
+    {
+      "path": "checks/validation.json",
+      "bytes": 1052,
+      "sha256": "c8d80406761a841b0690a4489764a5c364f85a9b3dda59df905b36d5a81ceb6c"
+    },
+    {
+      "path": "checks/verify_return.py",
+      "bytes": 4779,
+      "sha256": "b80541437138d4be5203e28aef4d12dbae7064c6e3f4b257263e6549733d5be1"
+    },
+    {
+      "path": "citations.json",
+      "bytes": 7744,
+      "sha256": "8e7edbcf2c03335c2cd36cb975b1f5378292793e74c6dcea3b206a63b6f33c9f"
+    },
+    {
+      "path": "findings.json",
+      "bytes": 63089,
+      "sha256": "9eab4c70864aef3f0537f61e70ce49077264a816afd5e3ace04a9bbfa3292da6"
+    },
+    {
+      "path": "findings.md",
+      "bytes": 49449,
+      "sha256": "69d5fe29215d9999ac12183d26f9ebc6454d801c2d3f42a6d69de72e358e19b3"
+    },
+    {
+      "path": "review_notes.md",
+      "bytes": 9937,
+      "sha256": "b32080b40d236b1b5947013c1f4a1318daa0c08dc3fb7e9168192b123d676efd"
+    },
+    {
+      "path": "source_coverage.md",
+      "bytes": 10656,
+      "sha256": "40ed67b3de2af0b39ee59ededcdc89520d014cb73c5c0a0697360bf0c1663e5c"
+    },
+    {
+      "path": "verdict.md",
+      "bytes": 3230,
+      "sha256": "252fc71d161621c9b08961598868deb257cc74f315866c9ade5355373ab27f93"
+    }
+  ]
+}

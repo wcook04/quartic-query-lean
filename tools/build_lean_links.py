@@ -19,6 +19,9 @@ Outputs:
   - in each paper, the block of reference definitions between the markers
     `<!-- lean-links -->` and `<!-- /lean-links -->`, holding exactly the labels
     that paper uses.
+  - in each paper, every link into docs/reasoning_record.md rewritten to the same
+    pinned commit, so a reader reaches the record text the paper was written
+    against; an anchor missing at that commit is an error.
 
 A target whose file is absent at the pinned commit is linked to the same lines on
 `main` from the working tree and marked "pinned": false; --check reports these.
@@ -49,6 +52,10 @@ REPOSITORY = "https://github.com/wcook04/quartic-query-lean"
 COMMIT = "659b571510ed501a8fbfb11a82c83549cab42441"
 BEGIN, END = "<!-- lean-links -->", "<!-- /lean-links -->"
 USE = re.compile(r"\]\[([A-Za-z0-9][A-Za-z0-9-]*)\]")
+# A paper's links into the long record, which are pinned to COMMIT like the Lean links.
+RECORD = "docs/reasoning_record.md"
+RECORD_LINK = re.compile(re.escape(REPOSITORY) + r"/blob/([0-9a-f]{40}|main)/" + re.escape(RECORD)
+                         + r"#([A-Za-z0-9_.:-]+)")
 
 UNCONDITIONAL = "lean/QuarticCorpus/Unconditional/Challenge.lean"
 Q = "QuarticQuery."
@@ -59,6 +66,10 @@ CITATIONS = {
     "statement-file": ("the statement file", UNCONDITIONAL, None),
     "statement-config": ("the Comparator configuration of the four theorems",
                          "lean/QuarticCorpus/Unconditional/comparator.json", None),
+    "statement-receipt": ("the recorded paranoid Comparator run of the four theorems",
+                          "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json", None),
+    "statement-solution": ("the proofs Comparator checks against the statement file",
+                           "lean/QuarticCorpus/Unconditional/Solution.lean", None),
     "def-partial": ("partial Boolean functions", UNCONDITIONAL, [Q + "PartialBool"]),
     "def-totalise": ("totalisation", UNCONDITIONAL, [Q + "totalise"]),
     "def-tree": ("decision trees and their depth", UNCONDITIONAL,
@@ -80,9 +91,13 @@ CITATIONS = {
     "def-realises": ("exact circuits for P", UNCONDITIONAL, [Q + "CircuitRealises"]),
     "def-bitloc": ("the input bits of a column", UNCONDITIONAL, [Q + "BitLoc"]),
     "def-wins": ("the winning condition", UNCONDITIONAL, [Q + "WinsAt"]),
-    "def-F": ("the definition of F", UNCONDITIONAL, [Q + "Fkm"]),
+    "def-F": ("the definition of F", UNCONDITIONAL, [Q + "addressedF", Q + "Fkm"]),
     "def-comparison": ("the unused comparison predicate", UNCONDITIONAL,
                        [Q + "Tournament.IsComparison"]),
+    "def-output-mass": ("the output probability of a quantum algorithm", UNCONDITIONAL,
+                        [Q + "project", Q + "AdaptiveProgram.outputMass"]),
+    "def-gate": ("gate consistency", UNCONDITIONAL, [Q + "GateConsistent"]),
+    "def-pointer": ("pointer decoding", UNCONDITIONAL, [Q + "readPointerBit", Q + "pointerEquiv"]),
     "def-L": ("the definition of L", UNCONDITIONAL, [Q + "Lvalue"]),
     "def-G": ("the definition of G", UNCONDITIONAL, [Q + "Gvalue"]),
     "def-bansal-sinha": ("the Forrelation hardness statement", UNCONDITIONAL,
@@ -99,7 +114,7 @@ CITATIONS = {
     "thm-forrelation": ("the Forrelation lower bound", UNCONDITIONAL,
                         [Q + "Checked.forrelation_lower_bound"]),
     # Other compared statements.
-    "cmp-lemma22": ("the four parts of Lemma 2.2", "lean/QuarticCorpus/Construction/Challenge.lean",
+    "cmp-lemma22": ("four facts about winners", "lean/QuarticCorpus/Construction/Challenge.lean",
                     None),
     "cmp-lemma22-full": ("Lemma 2.2 as one statement",
                          "lean/QuarticCorpus/Independent/ConstructionFull/Challenge.lean",
@@ -111,9 +126,20 @@ CITATIONS = {
     "cmp-amplifier": ("bounded amplification returning the good state",
                       "lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean",
                       [Q + "Upper.uniformOpaqueAmplifier"]),
+    "amplifier-config": ("the Comparator configuration of the amplifier statement",
+                         "lean/QuarticCorpus/Independent/UniformAmplifier/comparator.json", None),
+    "amplifier-solution": ("the proof checked against the amplifier statement",
+                           "lean/QuarticCorpus/Independent/UniformAmplifier/Solution.lean", None),
     "cmp-direct-product": ("the direct product with independent randomness",
                            "lean/QuarticCorpus/Independent/RealizedCaps/Challenge.lean",
                            [Q + "direct_product_external_finite_realized_caps"]),
+    "direct-product-config": ("the Comparator configuration of the direct-product statement",
+                              "lean/QuarticCorpus/Independent/RealizedCaps/comparator.json", None),
+    "def-compliant": ("success together with respecting the caps",
+                      "lean/QuarticQuery/LowerBound/RealizedCaps.lean", [Q + "compliantSuccess"]),
+    "def-hit": ("the hitting probability and expected count",
+                "lean/QuarticCorpus/Independent/Eq19/Spec.lean",
+                [Q + "Independent.Eq19.hitProbability", Q + "Independent.Eq19.expectedCount"]),
     "cmp-zero-cost": ("zero-cost characterisation of D, R and Q",
                       "lean/QuarticCorpus/Independent/ModelZero/Challenge.lean",
                       [Q + "Independent.ModelZero.checked_zero_query_characterization"]),
@@ -128,6 +154,10 @@ CITATIONS = {
                                 [Q + "forrelation_lower_uniform_sharp"]),
     "src-budget": ("the explicit quantum budget", "lean/QuarticQuery/Upper/Bound.lean",
                    [Q + "Upper.budget_le"]),
+    "src-budget-exponential": ("the quantum bound with constant 2^53 k 2^(10k)",
+                               "lean/QuarticQuery/Upper/Bound.lean", [Q + "Upper.Q_Fkm_le_exponential"]),
+    "src-amplify-measured": ("bounded amplification of the measured label",
+                             "lean/QuarticQuery/Upper/Amplify.lean", [Q + "Upper.Samples.amplify"]),
     "src-per-time": ("the per-time event", "lean/QuarticQuery/Paper/ClassicalPlanted.lean",
                      [Q + "Paper.eq_21"]),
     "src-zero-two": ("the bound 2G/m^2", "lean/QuarticQuery/Paper/ClassicalPlanted.lean",
@@ -186,10 +216,30 @@ def statement_end(block):
     """Last line of a theorem's statement (its proof is not linked); a definition's last line."""
     if block["kind"] not in ("theorem", "lemma"):
         return block["line_end"]
-    cut = block["text"].find(":=")
+    cut = proof_start(block["text"])
     if cut < 0:
         return block["line_end"]
     return block["line_start"] + block["text"][:cut].count("\n")
+
+
+def proof_start(text):
+    """Offset of the `:=` that begins a theorem's proof, or -1.
+
+    A statement can itself contain `let x := e` or `have h := e` bindings, so the
+    proof begins at the first `:=` outside brackets whose line has not opened such
+    a binding before it.
+    """
+    depth = 0
+    for index, char in enumerate(text):
+        if char in "([{⟨":
+            depth += 1
+        elif char in ")]}⟩":
+            depth -= 1
+        elif text.startswith(":=", index) and depth == 0:
+            line = text[text.rfind("\n", 0, index) + 1:index]
+            if not re.search(r"(^|[\s(;])(let|have)\s", line):
+                return index
+    return -1
 
 
 def build():
@@ -258,8 +308,28 @@ def paper_block(text, links, paper):
     return "\n".join(lines)
 
 
+def record_anchors(text):
+    """Explicit anchors and Pandoc heading identifiers of the record."""
+    found = set(re.findall(r"<a\s+(?:id|name)=\"([^\"]+)\"", text)) | set(re.findall(r"\{#([^}\s]+)", text))
+    for heading in re.findall(r"(?m)^#{1,6}\s+(.+?)\s*(?:\{[^}]*\})?$", text):
+        found.add(re.sub(r"[^\w\- ]", "", heading.strip().lower()).replace(" ", "-"))
+    return found
+
+
+def pin_record_links(text, paper):
+    """Point every record link at COMMIT, failing if its anchor is absent there."""
+    _, record = at_commit(RECORD)
+    if record is None:
+        raise SystemExit(f"{RECORD} is absent at {COMMIT[:12]}")
+    known = record_anchors(record)
+    missing = sorted({m.group(2) for m in RECORD_LINK.finditer(text)} - known)
+    if missing:
+        raise SystemExit(f"{paper}: record anchors absent at {COMMIT[:12]}: {', '.join(missing)}")
+    return RECORD_LINK.sub(lambda m: f"{REPOSITORY}/blob/{COMMIT}/{RECORD}#{m.group(2)}", text)
+
+
 def updated_paper(paper, links):
-    text = (ROOT / paper).read_text(encoding="utf-8")
+    text = pin_record_links((ROOT / paper).read_text(encoding="utf-8"), paper)
     pattern = re.compile(re.escape(BEGIN) + r".*?" + re.escape(END), re.S)
     body = pattern.sub("", text)
     block = paper_block(body, links, paper)

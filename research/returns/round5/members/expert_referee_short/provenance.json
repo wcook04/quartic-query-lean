@@ -1,0 +1,73 @@
+{
+  "schema": "quartic-round5-referee-return-provenance-v1",
+  "review_date_utc": "2026-11-03",
+  "packet": "expert_referee_short",
+  "campaign": "round5",
+  "input_archive": {
+    "filename": "quartic_r5_expert_referee_short.zip",
+    "bytes": 12269539,
+    "sha256": "79c365af64561f7da263791977f676343c1c202de9ed823ccabcae94dd6aaf22",
+    "zip_members": 90,
+    "uncompressed_bytes": 16693029,
+    "crc_check": "passed during input intake",
+    "safe_member_paths": "checked during input intake",
+    "duplicate_member_paths": "none",
+    "symlinks": "none"
+  },
+  "supplementary_attachment": {
+    "filename": "Pasted text(20261103-030536).txt",
+    "bytes": 5502019,
+    "sha256": "ff07a77387545a85a24b6d4a7e91e5f57a24c698a17f52577149c8bf67a2ac22",
+    "use": "Indexed and selectively sampled for task/version context; not read end-to-end or treated as current mathematical authority."
+  },
+  "repository_commit": "752826a36192b25dc08e364a070eb03eb95dbc85",
+  "commit_interpretation": "Member hashes bind the exact working bytes; the commit is provenance only.",
+  "input_manifest": {
+    "path": "manifest.json",
+    "sha256": "71b5ba0036c5a43459fce760688582e8b4123365f7ca15f2a0b0d8319e720fb9",
+    "verified_members": 88,
+    "all_listed_bytes_and_sha256": "passed"
+  },
+  "assignment": {
+    "path": "READ_ME_FIRST.md",
+    "sha256": "be559c662e4f8afbe17ca60d3fbd92a8b61a9acc5ad00c6ddcb940717dddbaff",
+    "matches_manifest_request_sha256": true
+  },
+  "source_paper": "OpenAI preprint PDF SHA-256 a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e",
+  "source_status": {
+    "acceptance_gate": "not applied: the record was edited after its accepted review and the corpus was regenerated; these hashes bind the packet to the exact bytes supplied.",
+    "drafts": {
+      "repository/docs/expert_companion.bib": "c458193dd5c1f5c2af5d33191101f6ee97dcfc691b50a7209c51665bf4baa002",
+      "repository/docs/expert_companion.md": "7af8ec78b3114f2e21ec7d4da667a45f3be4aa67c73ba51838d9fac9a5af7d50",
+      "repository/docs/expert_companion.pdf": "c8b37b18504969243395f08dfe0147d551ffa0faa5ba420949150df53a33f121",
+      "repository/docs/exposition.bib": "2ebc69e6769feb7782e71f3bf80850cc3719083fd611c0c239ada59228a19a0c",
+      "repository/docs/exposition.md": "3991d23ca802e1dd50e8c9217abf869035bac04c5febd5bd40bddf5f71de4dce",
+      "repository/docs/exposition.pdf": "16c85a0f3e063eeb709a7824dc551305d84cb7b09a62c897cecd2bb06c4fb15e"
+    },
+    "record": {
+      "accepted_review_record_sha256": "c2b6f11a7a4b3f318ebf419a9959c1d154f8e2b74e3ec02a8e25fb92ba9cfd25",
+      "changed_lines": 2,
+      "markdown_matches_accepted_review": false,
+      "markdown_sha256": "1b677c780734209fd36fc206a17e4262f9124e290f84736e9573db8f1f88a986",
+      "pdf_rendered_from": "the accepted Markdown, as last changed at commit 0f382d3bd2aa6fac3c1c11e92b517351538e3348",
+      "pdf_sha256": "40bc5c71e61de0fb7b38707b9938e796ad69e0ea2868d7b9eb80e43b7518c7dd",
+      "since_pdf_diff": "repository/docs/reasoning_record.since_pdf.diff"
+    },
+    "repository_commit": "752826a36192b25dc08e364a070eb03eb95dbc85",
+    "schema": "quartic-round5-source-status-v1",
+    "status": "unreviewed working drafts"
+  },
+  "source_status_file_sha256": "f2fb062ec7345678c0b5093f88bcc5dab9c33e7d54f2f2ec2aefe038d16e14fb",
+  "review_boundaries": {
+    "critique_only": true,
+    "original_files_modified": false,
+    "manuscript_rewritten": false,
+    "new_theorems_or_formalization_requested": false,
+    "lean_build_run": false,
+    "comparator_run": false,
+    "pending_completion_claims_taken_as_stated": true,
+    "current_record_markdown_authoritative": true
+  },
+  "return_manifest": "MANIFEST.json",
+  "return_integrity_note": "The return manifest hashes all other return files. It cannot hash itself or the containing ZIP. ZIP CRC and extraction/hash checks were performed separately on the final archive."
+}

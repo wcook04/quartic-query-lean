@@ -1,0 +1,56 @@
+{
+  "schema": "quartic-r5-local-claim-review-v1",
+  "overall_assessment": "The tournament-row finding is substantive and defensible as a medium local error. The diagonal quantifier is defensible only as a low-priority notation correction: context supplies the intended rival restriction, so it should not be described as a theorem/proof failure.",
+  "reviewed_sources": [
+    "repository/docs/expert_companion.md section 3, Table 1 and its introduction",
+    "repository/docs/exposition.md section 4, lines 135–149",
+    "repository/docs/reasoning_record.md sections 5.2 and 5.3, comparison model and winner dominance",
+    "paper/extracted.md section 3 introduction and section 3.2 comparison assumptions"
+  ],
+  "independent_checks": {
+    "cycle_matrix": [
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        0
+      ]
+    ],
+    "off_diagonal_complementarity": true,
+    "diagonal_zero": true,
+    "every_off_diagonal_comparison_is_deterministic": true,
+    "contains_cycle_a_to_b_to_c_to_a": true,
+    "interpretation": "This is an exact oracle for a fixed directed tournament. Its directed cycle excludes a consistent total order, not a tournament. A comparison whose success probability is exactly one half has no positive bias toward either fixed edge orientation."
+  },
+  "scope": "Review of two specified local claims only. No new proof or manuscript text is proposed. No Lean or Comparator run was made. No headline mathematical theorem is challenged.",
+  "related_findings": [
+    "LR-008",
+    "LR-036"
+  ],
+  "source_locators": [
+    {
+      "finding_id": "LR-008",
+      "path": "repository/docs/expert_companion.md",
+      "line": 115,
+      "section": "3. Where a natural shortcut fails, Table 1, row 2"
+    },
+    {
+      "finding_id": "LR-036",
+      "path": "repository/docs/exposition.md",
+      "lines": [
+        139,
+        141
+      ],
+      "section": "4. The quantum algorithm: a tournament — Comparing two columns"
+    }
+  ]
+}

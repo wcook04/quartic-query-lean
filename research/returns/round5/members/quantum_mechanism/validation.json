@@ -1,0 +1,648 @@
+{
+  "schema": "quartic-round5-quantum-return-validation-v1",
+  "packet": "quantum_mechanism",
+  "finding_count": 38,
+  "severity_counts": {
+    "high": 3,
+    "medium": 19,
+    "low": 4,
+    "keep": 12
+  },
+  "category_counts": {
+    "error": 3,
+    "missing": 3,
+    "unclear": 7,
+    "credit": 3,
+    "misplaced": 1,
+    "lean_link": 7,
+    "wasted": 2,
+    "keep": 12
+  },
+  "local_mathematical_statement_or_example_errors": [
+    "QM-001",
+    "QM-003",
+    "QM-004"
+  ],
+  "input_integrity": {
+    "archive": "quartic_r5_quantum_mechanism.zip",
+    "archive_sha256": "7d4695b44f4ee79cda630ec015a15766fe43b977c523fb489cd74105fbc79a32",
+    "archive_bytes": 6135595,
+    "archive_members": 75,
+    "crc_passed": true,
+    "manifest_members_checked": 73,
+    "all_manifest_member_hashes_and_sizes_match": true,
+    "request_hash_matches": true,
+    "all_six_draft_hashes_match": true,
+    "current_record_hash_matches": true,
+    "source_status_copied_unchanged": true
+  },
+  "quotes": [
+    {
+      "id": "QM-001",
+      "word_count": 8,
+      "exact_matches": [
+        {
+          "member": "repository/docs/exposition.md",
+          "line": 172,
+          "sha256": "3991d23ca802e1dd50e8c9217abf869035bac04c5febd5bd40bddf5f71de4dce"
+        }
+      ]
+    },
+    {
+      "id": "QM-002",
+      "word_count": 9,
+      "exact_matches": [
+        {
+          "member": "repository/docs/exposition.md",
+          "line": 149,
+          "sha256": "3991d23ca802e1dd50e8c9217abf869035bac04c5febd5bd40bddf5f71de4dce"
+        }
+      ]
+    },
+    {
+      "id": "QM-003",
+      "word_count": 9,
+      "exact_matches": [
+        {
+          "member": "repository/docs/expert_companion.md",
+          "line": 115,
+          "sha256": "7af8ec78b3114f2e21ec7d4da667a45f3be4aa67c73ba51838d9fac9a5af7d50"
+        }
+      ]
+    },
+    {
+      "id": "QM-004",
+      "word_count": 6,
+      "exact_matches": [
+        {
+          "member": "repository/docs/exposition.md",
+          "line": 141,
+          "sha256": "3991d23ca802e1dd50e8c9217abf869035bac04c5febd5bd40bddf5f71de4dce"
+        }
+      ]
+    },
+    {
+      "id": "QM-005",
+      "word_count": 10,
+      "exact_matches": [
+        {
+          "member": "repository/docs/exposition.md",
+          "line": 149,
+          "sha256": "3991d23ca802e1dd50e8c9217abf869035bac04c5febd5bd40bddf5f71de4dce"
+        }
+      ]
+    },
+    {
+      "id": "QM-006",
+      "word_count": 11,
+      "exact_matches": [
+        {
+          "member": "repository/docs/exposition.md",
+          "line": 168,
+          "sha256": "3991d23ca802e1dd50e8c9217abf869035bac04c5febd5bd40bddf5f71de4dce"
+        }
+      ]
+    },
+    {
+      "id": "QM-007",
+      "word_count": 11,
+      "exact_matches": [
+        {
+          "member": "repository/docs/exposition.md",
+          "line": 172,
+          "sha256": "3991d23ca802e1dd50e8c9217abf869035bac04c5febd5bd40bddf5f71de4dce"
+        }
+      ]
+    },
+    {
+      "id": "QM-008",
+      "word_count": 14,
+      "exact_matches": [
+        {
+          "member": "repository/docs/exposition.md",
+          "line": 191,
+          "sha256": "3991d23ca802e1dd50e8c9217abf869035bac04c5febd5bd40bddf5f71de4dce"
+        }
+      ]
+    },
+    {
+      "id": "QM-009",
+      "word_count": 9,
+      "exact_matches": [
+        {
+          "member": "repository/docs/expert_companion.md",
+          "line": 151,
+          "sha256": "7af8ec78b3114f2e21ec7d4da667a45f3be4aa67c73ba51838d9fac9a5af7d50"
+        }
+      ]
+    },
+    {
+      "id": "QM-010",
+      "word_count": 9,
+      "exact_matches": [
+        {
+          "member": "repository/docs/expert_companion.md",
+          "line": 144,
+          "sha256": "7af8ec78b3114f2e21ec7d4da667a45f3be4aa67c73ba51838d9fac9a5af7d50"
+        }
+      ]
+    },
+    {
+      "id": "QM-011",
+      "word_count": 8,
+      "exact_matches": [
+        {
+          "member": "repository/docs/expert_companion.md",
+          "line": 164,
+          "sha256": "7af8ec78b3114f2e21ec7d4da667a45f3be4aa67c73ba51838d9fac9a5af7d50"
+        }
+      ]
+    },
+    {
+      "id": "QM-012",
+      "word_count": 6,
+      "exact_matches": [
+        {
+          "member": "repository/docs/expert_companion.md",
+          "line": 166,
+          "sha256": "7af8ec78b3114f2e21ec7d4da667a45f3be4aa67c73ba51838d9fac9a5af7d50"
+        }
+      ]
+    },
+    {
+      "id": "QM-013",
+      "word_count": 12,
+      "exact_matches": [
+        {
+          "member": "repository/docs/exposition.md",
+          "line": 158,
+          "sha256": "3991d23ca802e1dd50e8c9217abf869035bac04c5febd5bd40bddf5f71de4dce"
+        }
+      ]
+    },
+    {
+      "id": "QM-014",
+      "word_count": 4,
+      "exact_matches": [
+        {
+          "member": "repository/docs/expert_companion.md",
+          "line": 131,
+          "sha256": "7af8ec78b3114f2e21ec7d4da667a45f3be4aa67c73ba51838d9fac9a5af7d50"
+        }
+      ]
+    },
+    {
+      "id": "QM-015",
+      "word_count": 12,
+      "exact_matches": [
+        {
+          "member": "repository/docs/expert_companion.md",
+          "line": 46,
+          "sha256": "7af8ec78b3114f2e21ec7d4da667a45f3be4aa67c73ba51838d9fac9a5af7d50"
+        }
+      ]
+    },
+    {
+      "id": "QM-016",
+      "word_count": 10,
+      "exact_matches": [
+        {
+          "member": "repository/docs/expert_companion.md",
+          "line": 46,
+          "sha256": "7af8ec78b3114f2e21ec7d4da667a45f3be4aa67c73ba51838d9fac9a5af7d50"
+        }
+      ]
+    },
+    {
+      "id": "QM-017",
+      "word_count": 9,
+      "exact_matches": [
+        {
+          "member": "repository/docs/exposition.md",
+          "line": 276,
+          "sha256": "3991d23ca802e1dd50e8c9217abf869035bac04c5febd5bd40bddf5f71de4dce"
+        }
+      ]
+    },
+    {
+      "id": "QM-018",
+      "word_count": 6,
+      "exact_matches": [
+        {
+          "member": "repository/docs/expert_companion.md",
+          "line": 131,
+          "sha256": "7af8ec78b3114f2e21ec7d4da667a45f3be4aa67c73ba51838d9fac9a5af7d50"
+        }
+      ]
+    },
+    {
+      "id": "QM-019",
+      "word_count": 20,
+      "exact_matches": [
+        {
+          "member": "repository/docs/expert_companion.md",
+          "line": 131,
+          "sha256": "7af8ec78b3114f2e21ec7d4da667a45f3be4aa67c73ba51838d9fac9a5af7d50"
+        }
+      ]
+    },
+    {
+      "id": "QM-020",
+      "word_count": 12,
+      "exact_matches": [
+        {
+          "member": "repository/docs/expert_companion.md",
+          "line": 283,
+          "sha256": "7af8ec78b3114f2e21ec7d4da667a45f3be4aa67c73ba51838d9fac9a5af7d50"
+        }
+      ]
+    },
+    {
+      "id": "QM-021",
+      "word_count": 18,
+      "exact_matches": [
+        {
+          "member": "repository/docs/exposition.md",
+          "line": 191,
+          "sha256": "3991d23ca802e1dd50e8c9217abf869035bac04c5febd5bd40bddf5f71de4dce"
+        }
+      ]
+    },
+    {
+      "id": "QM-022",
+      "word_count": 5,
+      "exact_matches": [
+        {
+          "member": "repository/docs/expert_companion.md",
+          "line": 160,
+          "sha256": "7af8ec78b3114f2e21ec7d4da667a45f3be4aa67c73ba51838d9fac9a5af7d50"
+        }
+      ]
+    },
+    {
+      "id": "QM-023",
+      "word_count": 7,
+      "exact_matches": [
+        {
+          "member": "repository/docs/expert_companion.md",
+          "line": 131,
+          "sha256": "7af8ec78b3114f2e21ec7d4da667a45f3be4aa67c73ba51838d9fac9a5af7d50"
+        }
+      ]
+    },
+    {
+      "id": "QM-024",
+      "word_count": 6,
+      "exact_matches": [
+        {
+          "member": "repository/docs/exposition.md",
+          "line": 184,
+          "sha256": "3991d23ca802e1dd50e8c9217abf869035bac04c5febd5bd40bddf5f71de4dce"
+        }
+      ]
+    },
+    {
+      "id": "QM-025",
+      "word_count": 5,
+      "exact_matches": [
+        {
+          "member": "repository/docs/expert_companion.md",
+          "line": 131,
+          "sha256": "7af8ec78b3114f2e21ec7d4da667a45f3be4aa67c73ba51838d9fac9a5af7d50"
+        }
+      ]
+    },
+    {
+      "id": "QM-026",
+      "word_count": 8,
+      "exact_matches": [
+        {
+          "member": "repository/docs/exposition.md",
+          "line": 188,
+          "sha256": "3991d23ca802e1dd50e8c9217abf869035bac04c5febd5bd40bddf5f71de4dce"
+        }
+      ]
+    },
+    {
+      "id": "QM-027",
+      "word_count": 13,
+      "exact_matches": [
+        {
+          "member": "repository/docs/expert_companion.md",
+          "line": 135,
+          "sha256": "7af8ec78b3114f2e21ec7d4da667a45f3be4aa67c73ba51838d9fac9a5af7d50"
+        }
+      ]
+    },
+    {
+      "id": "QM-028",
+      "word_count": 6,
+      "exact_matches": [
+        {
+          "member": "repository/docs/expert_companion.md",
+          "line": 153,
+          "sha256": "7af8ec78b3114f2e21ec7d4da667a45f3be4aa67c73ba51838d9fac9a5af7d50"
+        }
+      ]
+    },
+    {
+      "id": "QM-029",
+      "word_count": 11,
+      "exact_matches": [
+        {
+          "member": "repository/docs/expert_companion.md",
+          "line": 160,
+          "sha256": "7af8ec78b3114f2e21ec7d4da667a45f3be4aa67c73ba51838d9fac9a5af7d50"
+        }
+      ]
+    },
+    {
+      "id": "QM-030",
+      "word_count": 17,
+      "exact_matches": [
+        {
+          "member": "repository/docs/exposition.md",
+          "line": 143,
+          "sha256": "3991d23ca802e1dd50e8c9217abf869035bac04c5febd5bd40bddf5f71de4dce"
+        }
+      ]
+    },
+    {
+      "id": "QM-031",
+      "word_count": 12,
+      "exact_matches": [
+        {
+          "member": "repository/docs/expert_companion.md",
+          "line": 131,
+          "sha256": "7af8ec78b3114f2e21ec7d4da667a45f3be4aa67c73ba51838d9fac9a5af7d50"
+        }
+      ]
+    },
+    {
+      "id": "QM-032",
+      "word_count": 10,
+      "exact_matches": [
+        {
+          "member": "repository/docs/exposition.md",
+          "line": 162,
+          "sha256": "3991d23ca802e1dd50e8c9217abf869035bac04c5febd5bd40bddf5f71de4dce"
+        }
+      ]
+    },
+    {
+      "id": "QM-033",
+      "word_count": 8,
+      "exact_matches": [
+        {
+          "member": "repository/docs/exposition.md",
+          "line": 179,
+          "sha256": "3991d23ca802e1dd50e8c9217abf869035bac04c5febd5bd40bddf5f71de4dce"
+        }
+      ]
+    },
+    {
+      "id": "QM-034",
+      "word_count": 11,
+      "exact_matches": [
+        {
+          "member": "repository/docs/exposition.md",
+          "line": 103,
+          "sha256": "3991d23ca802e1dd50e8c9217abf869035bac04c5febd5bd40bddf5f71de4dce"
+        }
+      ]
+    },
+    {
+      "id": "QM-035",
+      "word_count": 6,
+      "exact_matches": [
+        {
+          "member": "repository/docs/expert_companion.md",
+          "line": 309,
+          "sha256": "7af8ec78b3114f2e21ec7d4da667a45f3be4aa67c73ba51838d9fac9a5af7d50"
+        }
+      ]
+    },
+    {
+      "id": "QM-036",
+      "word_count": 15,
+      "exact_matches": [
+        {
+          "member": "repository/docs/expert_companion.md",
+          "line": 322,
+          "sha256": "7af8ec78b3114f2e21ec7d4da667a45f3be4aa67c73ba51838d9fac9a5af7d50"
+        }
+      ]
+    },
+    {
+      "id": "QM-037",
+      "word_count": 7,
+      "exact_matches": [
+        {
+          "member": "repository/docs/expert_companion.md",
+          "line": 317,
+          "sha256": "7af8ec78b3114f2e21ec7d4da667a45f3be4aa67c73ba51838d9fac9a5af7d50"
+        }
+      ]
+    },
+    {
+      "id": "QM-038",
+      "word_count": 15,
+      "exact_matches": [
+        {
+          "member": "repository/docs/expert_companion.md",
+          "line": 29,
+          "sha256": "7af8ec78b3114f2e21ec7d4da667a45f3be4aa67c73ba51838d9fac9a5af7d50"
+        }
+      ]
+    }
+  ],
+  "finite_source_spot_checks": {
+    "meaning": "Reproductions of existing source examples, not new theorem proofs or formal verification.",
+    "deterministic_cycle_is_a_fixed_complementary_tournament": true,
+    "exposition_first_pivot_total_weights": [
+      "0",
+      "2",
+      "2",
+      "2"
+    ],
+    "exposition_first_step_expected_total_weight": "3/2",
+    "exposition_m4_error_bound": "583/192000",
+    "record_fractional_next_pivot_probabilities": [
+      "11999/23999",
+      "12000/23999"
+    ],
+    "zero_weight_history_is_present_in_exposition_example": true
+  },
+  "formal_execution": {
+    "lean_compilation_performed": false,
+    "comparator_performed": false,
+    "external_kernel_run_performed": false
+  },
+  "source_mutation": "None. Review files only.",
+  "cited_record_anchors_checked": [
+    "upper-amplification-proof",
+    "upper-amplification-statement",
+    "upper-bounded-error-comparison",
+    "upper-comparison-law",
+    "upper-comparison-model",
+    "upper-coupling",
+    "upper-cyclic-example",
+    "upper-explicit-log6",
+    "upper-finite-budget",
+    "upper-grover-trial",
+    "upper-ideal-process",
+    "upper-oracle-access",
+    "upper-purpose",
+    "upper-quantum-tournament",
+    "upper-returned-register",
+    "upper-small-probability",
+    "upper-stage-law",
+    "upper-stage-state",
+    "upper-tournament-cost",
+    "upper-verification-proof",
+    "upper-verifier",
+    "upper-weight-drift",
+    "upper-winner-dominates"
+  ],
+  "sampled_links": [
+    {
+      "ref": "cmp-amplifier",
+      "member": "repository/lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean",
+      "exists": true,
+      "range": [
+        17,
+        20
+      ],
+      "range_exists": true,
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/main/lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean#L17-L20"
+    },
+    {
+      "ref": "cmp-direct-product",
+      "member": "repository/lean/QuarticCorpus/Independent/RealizedCaps/Challenge.lean",
+      "exists": true,
+      "range": [
+        18,
+        25
+      ],
+      "range_exists": true,
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/main/lean/QuarticCorpus/Independent/RealizedCaps/Challenge.lean#L18-L25"
+    },
+    {
+      "ref": "def-adaptive",
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "exists": true,
+      "range": [
+        101,
+        107
+      ],
+      "range_exists": true,
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L101-L107"
+    },
+    {
+      "ref": "def-oracle",
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "exists": true,
+      "range": [
+        89,
+        94
+      ],
+      "range_exists": true,
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L89-L94"
+    },
+    {
+      "ref": "def-querycap",
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "exists": true,
+      "range": [
+        109,
+        116
+      ],
+      "range_exists": true,
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L109-L116"
+    },
+    {
+      "ref": "def-QLe",
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "exists": true,
+      "range": [
+        133,
+        137
+      ],
+      "range_exists": true,
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L133-L137"
+    },
+    {
+      "ref": "def-Q",
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "exists": true,
+      "range": [
+        139,
+        140
+      ],
+      "range_exists": true,
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L139-L140"
+    },
+    {
+      "ref": "thm-headline",
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "exists": true,
+      "range": [
+        328,
+        334
+      ],
+      "range_exists": true,
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L328-L334"
+    },
+    {
+      "ref": "thm-all",
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "exists": true,
+      "range": [
+        326,
+        340
+      ],
+      "range_exists": true,
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L326-L340"
+    },
+    {
+      "ref": "src-budget",
+      "member": "repository/lean/QuarticQuery/Upper/Bound.lean",
+      "exists": true,
+      "range": [
+        86,
+        90
+      ],
+      "range_exists": true,
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticQuery/Upper/Bound.lean#L86-L90"
+    },
+    {
+      "ref": "src-constants",
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionFamily.lean",
+      "exists": true,
+      "range": [
+        28,
+        40
+      ],
+      "range_exists": true,
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticQuery/Paper/ConstructionFamily.lean#L28-L40"
+    },
+    {
+      "ref": "statement-config",
+      "member": "repository/lean/QuarticCorpus/Unconditional/comparator.json",
+      "exists": true,
+      "range": [
+        1,
+        12
+      ],
+      "range_exists": true,
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/comparator.json",
+      "configured_targets": [
+        "QuarticQuery.Checked.alpha_tot_eq_four",
+        "QuarticQuery.Checked.theorem_one_one",
+        "QuarticQuery.Checked.cubic_bound_fails",
+        "QuarticQuery.Checked.forrelation_lower_bound"
+      ]
+    }
+  ],
+  "link_check_scope": "Local target/range existence; semantic defects are reported in findings. No assertion that all remote URLs were fetched or that an existing range necessarily shows the desired statement."
+}

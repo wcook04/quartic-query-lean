@@ -88,6 +88,17 @@ class RoundFiveTests(unittest.TestCase):
         with self.assertRaisesRegex(FileExistsError, "new output folder"):
             MODULE.build_batch(list(MODULE.JOBS), self.dest, **self.options)
 
+    def test_figures_with_bracketed_captions_and_their_sources_enter_the_packet(self):
+        # Three round-five figures were missing because their captions held `X[1]`.
+        self.write("docs/exposition.md", "# Exposition\n\n![Board: $X_2[1]=0$.](figures/board.svg){width=100%}\n")
+        self.write("docs/figures/board.svg", "<svg/>")
+        self.write("docs/figures/board.tex", "% tikz")
+        names = MODULE.figure_sources(self.root)
+        self.assertEqual(names, ["docs/figures/board.svg", "docs/figures/board.tex", "docs/figures/column.svg"])
+        files = MODULE.inputs("exposition_for_students", **self.options)
+        self.assertIn("repository/docs/figures/board.svg", files)
+        self.assertIn("repository/docs/figures/board.tex", files)
+
     def test_private_sources_reader_file_and_annex_metadata_are_excluded(self):
         packet = MODULE.prepare("long_record_navigation", **self.options)
         blobs = b"".join(packet["data"].values()) + packet["request"].encode()

@@ -1,0 +1,72 @@
+{
+  "schema": "quartic-round5-return-manifest-v1",
+  "algorithm": "sha256",
+  "scope": "Every other regular file in this return; excludes this manifest and the enclosing ZIP.",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 2856,
+      "sha256": "0a04886e04beb5f9b3c9ec3ba299c831e358beb79683b565260976b56479afb1"
+    },
+    {
+      "path": "checks/check_examples.py",
+      "bytes": 9755,
+      "sha256": "ea14b15d48ce9784c7e0d12eaaade1ee222abc957ebe2508ae7d5abb0dd5f79b"
+    },
+    {
+      "path": "checks/example_checks.json",
+      "bytes": 6714,
+      "sha256": "41806256614f101e4723fe4e457ed6e55ae5e7e1d5d7741abc51ab2d77a39955"
+    },
+    {
+      "path": "checks/local_link_audit.json",
+      "bytes": 63938,
+      "sha256": "f40c7ec75d17bb3a89afc2a3451189b9f2bbadc6d25614b9fba7bc7fbb15d9c1"
+    },
+    {
+      "path": "checks/pdf_review.json",
+      "bytes": 2669,
+      "sha256": "79236154521cb84c78873d635f14cbfa81507a58e51018a9f6700ec381c53812"
+    },
+    {
+      "path": "checks/validate_return.py",
+      "bytes": 14253,
+      "sha256": "816e354bb9098398150b453a40480addc3d1a70640048ba37bdba68dcfee85fa"
+    },
+    {
+      "path": "checks/validation.json",
+      "bytes": 6861,
+      "sha256": "e74ec8b7c2e221b876cea053b76ed4f187568b814d64696cb4b72d7300199840"
+    },
+    {
+      "path": "earlier_review_followup.md",
+      "bytes": 6393,
+      "sha256": "b3cf25365125fbc642b64f543af88b144d0d605c4532faf307375c38f588050f"
+    },
+    {
+      "path": "findings.json",
+      "bytes": 76605,
+      "sha256": "087ca605763fb13954b7a220defb30e92a90e761ef38ba1a83bd6cad1b154805"
+    },
+    {
+      "path": "findings.md",
+      "bytes": 61434,
+      "sha256": "2eb273fc6b61e5cdabfe28927135e2472c01de15f0b4f8337d329228bdc49a71"
+    },
+    {
+      "path": "provenance.json",
+      "bytes": 3895,
+      "sha256": "3612a497a11e383164bcd8b8832b5ee9560fda2923f9cfb4ca21551b98e01343"
+    },
+    {
+      "path": "sources_and_scope.md",
+      "bytes": 15415,
+      "sha256": "350f150f6f3ff92fa029cde811bf67aeba5c89a970cfc390c5f614685dfde91d"
+    },
+    {
+      "path": "verdict.md",
+      "bytes": 3412,
+      "sha256": "93a31160c0f731dd8ddd41d60b01a190a8aa9e2cb05e1a92ff6486b2d07a909a"
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "schema": "quartic-round5-pdf-navigation-audit-v1",
+  "method": "Existing PDFs inspected using pypdf annotation objects and PyMuPDF text/outlines; selected pages rasterized with PyMuPDF and visually inspected. No manuscript PDF regenerated.",
+  "record": {
+    "pages": 116,
+    "pdf_outline_entries": 79,
+    "explicit_markdown_ids": 339,
+    "explicit_ids_present_as_named_pdf_destinations": 0,
+    "markdown_internal_link_occurrences": 199,
+    "annotation_action_counts": {
+      "/URI": 130,
+      "/GoToR": 7
+    },
+    "remote_pdf_links": [
+      {
+        "pdf_page": 3,
+        "target": "../research/returns/funnel/2_short_expert_paper/.pdf",
+        "exists_relative_to_pdf": false
+      },
+      {
+        "pdf_page": 3,
+        "target": "../research/returns/funnel/3_examples_first_exposition/.pdf",
+        "exists_relative_to_pdf": false
+      },
+      {
+        "pdf_page": 21,
+        "target": "../research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks/.pdf",
+        "exists_relative_to_pdf": false
+      },
+      {
+        "pdf_page": 44,
+        "target": "../research/returns/round3/members/04_addressed_construction/.pdf",
+        "exists_relative_to_pdf": false
+      },
+      {
+        "pdf_page": 44,
+        "target": "../research/returns/round3/members/04_addressed_construction/.pdf",
+        "exists_relative_to_pdf": false
+      },
+      {
+        "pdf_page": 87,
+        "target": "../research/returns/round3/members/08_reviewed/quartic_r3_08_return/checks/.pdf",
+        "exists_relative_to_pdf": false
+      },
+      {
+        "pdf_page": 87,
+        "target": "../research/returns/round3/members/08_reviewed/quartic_r3_08_return/checks/.pdf",
+        "exists_relative_to_pdf": false
+      }
+    ],
+    "visually_inspected_pages": [
+      3,
+      13,
+      35,
+      51,
+      77,
+      90,
+      108,
+      116
+    ]
+  },
+  "expert": {
+    "pages": 13,
+    "literal_heading_markers": [
+      {
+        "page": 7,
+        "text": "covers arbitrary independent randomness. ### 5.2 Planting a winner"
+      },
+      {
+        "page": 8,
+        "text": "same induction with |𝑈| + 1 in place of |𝑈|. ### 5.4 The planted cell"
+      }
+    ],
+    "missing_outline_headings": [
+      "5.2 Planting a winner",
+      "5.4 The planted cell"
+    ],
+    "visually_inspected_pages": [
+      8
+    ]
+  },
+  "exposition": {
+    "pages": 13,
+    "visually_inspected_pages": [
+      4,
+      8,
+      9
+    ]
+  },
+  "exemplar": {
+    "pages": 76,
+    "annotation_action_counts": {
+      "/URI": 317,
+      "/GoTo": 42
+    },
+    "all_internal_actions_have_named_destination": true,
+    "visually_inspected_pages": [
+      2
+    ]
+  },
+  "limits": "Local PDF structure was inspected; actual clicks in every external PDF reader and network availability were not tested.",
+  "related_findings": [
+    "LR-001",
+    "LR-006",
+    "LR-011",
+    "LR-012",
+    "LR-029"
+  ]
+}

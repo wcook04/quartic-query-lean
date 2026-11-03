@@ -1,0 +1,1634 @@
+{
+  "packet": "long_record_navigation",
+  "source_sha256": {
+    "repository/docs/expert_companion.bib": "c458193dd5c1f5c2af5d33191101f6ee97dcfc691b50a7209c51665bf4baa002",
+    "repository/docs/expert_companion.md": "7af8ec78b3114f2e21ec7d4da667a45f3be4aa67c73ba51838d9fac9a5af7d50",
+    "repository/docs/expert_companion.pdf": "c8b37b18504969243395f08dfe0147d551ffa0faa5ba420949150df53a33f121",
+    "repository/docs/exposition.bib": "2ebc69e6769feb7782e71f3bf80850cc3719083fd611c0c239ada59228a19a0c",
+    "repository/docs/exposition.md": "3991d23ca802e1dd50e8c9217abf869035bac04c5febd5bd40bddf5f71de4dce",
+    "repository/docs/exposition.pdf": "16c85a0f3e063eeb709a7824dc551305d84cb7b09a62c897cecd2bb06c4fb15e"
+  },
+  "findings": [
+    {
+      "id": "LR-001",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "Appendix B. Mathematical statement catalogue",
+        "quote": "a direct link to its proof or explanation",
+        "pdf_page": 90
+      },
+      "severity": "high",
+      "category": "structure",
+      "finding": "The catalogue promises a direct proof link, but the supplied 116-page PDF loses the record's internal link layer. All 199 explicit Markdown fragment links are present in the current source; PDF annotation inspection finds no internal GoTo or Named link annotations anywhere. On PDF page 3 the eight-row dependency map is plain text, and the catalogue's Argument entries on pages 91 onward are likewise not clickable. The PDF does have 79 outline entries, which help at section level but do not replace the claim-level links. The supplied Markdown/PDF text difference affects one evidence paragraph, not these anchors.",
+      "reader_impact": "A query-complexity reader using the PDF must search manually through a book-length record instead of following the promised supporting argument. This defeats the principal function assigned to the catalogue.",
+      "suggested_direction": "Preserve the existing proof anchors in the PDF renderer and verify actual clickable destinations for the dependency map and representative catalogue entries. Keep the section outline as an additional route.",
+      "evidence": [
+        "repository/docs/reasoning_record.md:104–113, 4216, 4235–4319; all fragment links inspected programmatically",
+        "repository/docs/reasoning_record.pdf: pages 3, 90–91; all 116 pages inspected for link annotations; 79 outline entries",
+        "SOURCE_STATUS.json and repository/docs/reasoning_record.since_pdf.diff"
+      ]
+    },
+    {
+      "id": "LR-002",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "1.1. Certificates that disqualify every other candidate — Dependencies and proof recovery",
+        "quote": "The earlier [short expert draft]",
+        "pdf_page": 3
+      },
+      "severity": "high",
+      "category": "structure",
+      "finding": "Seven PDF link annotations turn source-directory destinations into nonexistent files ending in '/.pdf'. The two advisory-draft links on page 3 target 2_short_expert_paper/.pdf and 3_examples_first_exposition/.pdf. The exact-example/checker links on pages 21, 44 (twice) and 87 (twice) have the same defect. Their source directories may be represented in the packet, but none of these seven PDF files exists. This is a different failure from a Markdown directory being an unsuitable reading destination.",
+      "reader_impact": "Readers who follow a supporting example or an evidence check encounter an impossible file target even after extracting the complete packet; the successful source-path inventory does not establish PDF usability.",
+      "suggested_direction": "Link to the existing named document, script or result inside each directory, and ensure the PDF retains that exact target. Test rendered link actions, including external file destinations, rather than only source-path existence.",
+      "evidence": [
+        "repository/docs/reasoning_record.md:115; exact example/checker directory links in §§3.5, 4.3 and A.2",
+        "repository/docs/reasoning_record.pdf: seven GoToR annotations on pages 3, 21, 44 and 87",
+        "manifest.json; input packet filesystem inventory"
+      ]
+    },
+    {
+      "id": "LR-003",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "5.2 Planting a winner; also 5.4 The planted cell",
+        "quote": "### 5.2 Planting a winner",
+        "pdf_page": 7
+      },
+      "severity": "high",
+      "category": "structure",
+      "finding": "Two central lower-bound headings render literally inside the preceding paragraphs: '### 5.2 Planting a winner' on PDF page 7 and '### 5.4 The planted cell' on page 8. Both are absent from the PDF outline, although 5.1, 5.3 and 5.5 appear. In the current Markdown these two headings immediately follow prose without a separating blank line. Consequently the mathematical stages used to orient the reader and send them into record §6 are visually and electronically missing.",
+      "reader_impact": "Drucker/Shaltiel and separation readers cannot scan or bookmark the planting and simulator stages as actual subsections; readers see unexplained Markdown syntax in the finished PDF.",
+      "suggested_direction": "Restore the paragraph boundaries required by the rendering pipeline, render again, and confirm both headings appear as headings and outline entries. No prose rewrite is needed.",
+      "evidence": [
+        "repository/docs/expert_companion.md:182–185 and 211–214",
+        "repository/docs/expert_companion.pdf: pages 7–8, literal heading text and outline inventory"
+      ]
+    },
+    {
+      "id": "LR-004",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "5.5 The contradiction and the constants",
+        "quote": "Full proof: [record §6]"
+      },
+      "severity": "high",
+      "category": "structure",
+      "finding": "The link advertised as the full proof of record §6 lands at #CL-discrepancy in §6.6. Its first sentence combines (18), (19), and (22), which were proved in §§6.3–6.5. It therefore presents the final assembly before the hard law, coupled experiment, independence identity, or simulator that justify it. The anchor exists; the destination is too late for the promised task.",
+      "reader_impact": "Readers of the cheat-sheet and direct-product literature need to check the novel planted-input reduction. They must work backwards through three unlinked equation references from this landing.",
+      "suggested_direction": "Make the broad full-proof link start at the existing lower-bound interface or generic theorem, and retain a separately labelled link to the discrepancy/floor calculation. Link the three component displays from the assembly.",
+      "evidence": [
+        {
+          "source": "repository/docs/expert_companion.md",
+          "locator": "§5.5, line 239",
+          "detail": "Destination is reasoning_record.md#CL-discrepancy."
+        },
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§6.6, lines 3644–3651",
+          "detail": "Landing begins by combining displays (18), (19), and (22)."
+        },
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§§6.2–6.5; #CL-entry-interface, #CL-generic-statement, #CL-first-difference, #CL-erased-zero-identity, #CL-joint-event",
+          "detail": "Existing supporting arguments can supply precise destinations."
+        }
+      ]
+    },
+    {
+      "id": "LR-005",
+      "paper": "exposition",
+      "locator": {
+        "section": "Overview",
+        "quote": "Full proofs of every step are in the [long reasoning record]"
+      },
+      "severity": "high",
+      "category": "missing",
+      "finding": "The exposition offers only one Markdown link to the record, with no fragment. Its seven substantive record-section mentions are plain text: §3.4, §§3.6–3.15, §5.4, §5.5, §6.4, and §6.1 twice. A reader following any of these details has to return to the overview link and search the full record. The overview also illustrates the notation with “record §6.5 below”, although the simulator passage below has no such citation.",
+      "reader_impact": "Students and experts using examples as entry points cannot move directly from a circuit count, search cap, or independence warning to its proof. This defeats the stated division of work between short exposition and long record.",
+      "suggested_direction": "Turn the existing section mentions into precise argument links; add the intended simulator link to the simulator paragraph. Keep a general overview link for readers who want the complete record.",
+      "evidence": [
+        {
+          "source": "repository/docs/exposition.md",
+          "locator": "lines 48, 125, 131, 188, 191, 218, 227, 229, 235–242",
+          "detail": "Eight literal record-section mentions include one illustrative mention and seven substantive mentions; the simulator paragraph lacks its promised §6.5 reference."
+        },
+        {
+          "source": "LINK_MAP.json",
+          "locator": "links filtered by member=repository/docs/reasoning_record.md",
+          "detail": "Only the unanchored overview URL originates from exposition.md."
+        }
+      ]
+    },
+    {
+      "id": "LR-006",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "1.1 Certificates that disqualify every other candidate",
+        "quote": "The earlier [short expert draft]"
+      },
+      "severity": "high",
+      "category": "structure",
+      "finding": "The only explicit companion-return links in the record lead to preserved, explicitly unrefreshed funnel submissions. There is no link to the current expert_companion.md or exposition.md, and none at the three incoming argument destinations. An arriving reader can recover the proof but cannot return to the current argument through the document itself.",
+      "reader_impact": "Any cited-literature reader navigating between the companion and proof record risks opening an obsolete advisory draft, particularly when the proof is opened in a fresh tab or from a PDF.",
+      "suggested_direction": "Provide current companion destinations and a short return route at major proof landings. Keep the preserved submissions under clearly separated historical provenance.",
+      "evidence": [
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§1.1, line 115",
+          "detail": "Links go to ../research/returns/funnel/2_short_expert_paper/ and 3_examples_first_exposition/ and say they have not been refreshed."
+        },
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "#upper-ideal-process, #CL-discrepancy, #forr_target",
+          "detail": "No companion-return link is supplied at these incoming destinations."
+        },
+        {
+          "source": "exemplars/long-reasoning-record.md",
+          "locator": "opening lines 31–54",
+          "detail": "Exemplar identifies the roles of its companion and exposition, but is not itself evidence that a return-link implementation exists."
+        }
+      ]
+    },
+    {
+      "id": "LR-007",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "2.7. What the formal models establish",
+        "quote": "The complete declaration `theorem_1_1_unconditional` packages"
+      },
+      "severity": "high",
+      "category": "lean_link",
+      "finding": "The long record explains the implementation theorem but supplies no direct route to the actual compared statement. Across the entire current Markdown there is no reference to Challenge.lean, Solution.lean, comparator.json, comparator_map.json, lean_links.json or the Checked namespace. The central claim therefore sends a reader into historical correspondence and a receipt inventory before they can discover which type was compared. The exact entry point already exists and is used well by the short companion.",
+      "reader_impact": "Query-complexity experts checking the meaning of the formal theorem need the public definitions and exact target before proof internals or historical execution details. They cannot reproduce the short companion’s statement-first inspection from this record alone.",
+      "suggested_direction": "Add a short central-claim route using the existing Unconditional Challenge, its four configured targets, Solution forwarding names and source-bound comparison receipt; make the same route reachable from Theorem 1.1 and its catalogue row. Reuse existing material rather than adding formalisation.",
+      "evidence": [
+        {
+          "path": "repository/docs/reasoning_record.md",
+          "lines": [
+            414,
+            433
+          ]
+        },
+        {
+          "path": "repository/docs/expert_companion.md",
+          "lines": [
+            281,
+            322
+          ]
+        },
+        {
+          "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+          "lines": [
+            326,
+            340
+          ]
+        },
+        {
+          "path": "repository/lean/QuarticCorpus/Unconditional/comparator.json",
+          "lines": [
+            4,
+            8
+          ]
+        },
+        {
+          "path": "repository/lean/QuarticCorpus/Unconditional/Solution.lean",
+          "lines": [
+            18,
+            40
+          ]
+        }
+      ]
+    },
+    {
+      "id": "LR-008",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "Appendix A. Checking the statement",
+        "quote": "and [its parts][cmp-lemma22]"
+      },
+      "severity": "high",
+      "category": "lean_link",
+      "finding": "The auxiliary link is mislabelled. It opens the Construction challenge, whose four configured targets are winner uniqueness, transcript uniqueness, the absence of an incoming zero at a winner and the winner’s outgoing-zero property. These are useful construction facts, but they are not the test-count, local-test equivalence and adaptive/coherent evaluation clauses of printed Lemma 2.2. The adjacent link to construction_lemma_2_2_with_support does cover the complete evaluator statement, so the problem is the description of this second link, not a missing proof.",
+      "reader_impact": "Readers comparing the preprint’s local-test lemma with its formal counterpart will mistake auxiliary facts for the lemma’s actual clauses and waste time reconciling incompatible statements.",
+      "suggested_direction": "Describe the four targets by their real roles and reserve the Lemma 2.2 label for the existing full construction target. Align the reader_name in lean_links.json with that distinction.",
+      "evidence": [
+        {
+          "path": "repository/docs/expert_companion.md",
+          "lines": [
+            319,
+            322
+          ]
+        },
+        {
+          "path": "repository/docs/lean_links.json",
+          "key": "links.cmp-lemma22"
+        },
+        {
+          "path": "repository/lean/QuarticCorpus/Construction/Challenge.lean",
+          "lines": [
+            326,
+            342
+          ]
+        },
+        {
+          "path": "repository/corpus/comparator_map.json",
+          "key": "challenges[path=lean/QuarticCorpus/Construction/Challenge.lean].configurations[0].theorem_names"
+        },
+        {
+          "path": "paper/extracted.md",
+          "lines": [
+            264,
+            292
+          ],
+          "detail": "Printed Lemma 2.2 and proof; no four numbered parts matching those auxiliary targets."
+        }
+      ]
+    },
+    {
+      "id": "LR-009",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "4. The quantum upper bound",
+        "quote": "the amplified procedure returns the original register in the normalised successful state"
+      },
+      "severity": "high",
+      "category": "lean_link",
+      "finding": "The Lean-statement link highlights only lines 17–20 of UniformAmplifier/Challenge.lean, ending at the first let-binding. It does not highlight the returned-register factorization, success probability or circuit-cap clauses that the sentence asks the reader to inspect. Those clauses are present later in the same declaration. A line-range-exists check cannot detect this failure.",
+      "reader_impact": "Amplitude-amplification readers are specifically checking preservation of the successful state; the highlight omits the claim that distinguishes this endpoint from a success-probability estimate.",
+      "suggested_direction": "Extend the target range through the complete theorem statement, particularly lines 23–52, and identify the factorization and cap clauses. This finding concerns the supplied declaration’s range, not the acknowledged parallel rebuild.",
+      "evidence": [
+        {
+          "path": "repository/docs/expert_companion.md",
+          "lines": [
+            129,
+            131
+          ]
+        },
+        {
+          "path": "repository/docs/lean_links.json",
+          "key": "links.cmp-amplifier.lines",
+          "value": [
+            17,
+            20
+          ]
+        },
+        {
+          "path": "repository/lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean",
+          "lines": [
+            17,
+            52
+          ],
+          "detail": "Cap at 25–29; factorization at 37–38; success mass and guarantees at 39–48."
+        }
+      ]
+    },
+    {
+      "id": "LR-010",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "Appendix A. Checking the statement",
+        "quote": "[Lemma 2.2 of the preprint][cmp-lemma22-full]"
+      },
+      "severity": "high",
+      "category": "lean_link",
+      "finding": "The full-construction link highlights lines 14–41, stopping at let _ := instZ in the middle of an existential quantifier. The coherent indexed evaluator and physical query bound are in lines 42–60, outside the advertised range. The highlighted first half instead gives substantial space to the extra essential-coordinate diagnostic. This weakens the exact statement-audit route for the delicate superposed-index clause.",
+      "reader_impact": "Readers of the local-test and coherent-access argument need the same-index circuit, arbitrary superposition and physical cap together; the current highlight omits all three.",
+      "suggested_direction": "Link through line 60 and distinguish the added support diagnostic from the printed lemma’s conclusion. Point a reader directly to the coherent clause when that is the reason for the link.",
+      "evidence": [
+        {
+          "path": "repository/docs/expert_companion.md",
+          "lines": [
+            320,
+            320
+          ]
+        },
+        {
+          "path": "repository/docs/lean_links.json",
+          "key": "links.cmp-lemma22-full.lines",
+          "value": [
+            14,
+            41
+          ]
+        },
+        {
+          "path": "repository/lean/QuarticCorpus/Independent/ConstructionFull/Challenge.lean",
+          "lines": [
+            14,
+            60
+          ]
+        },
+        {
+          "path": "repository/docs/reasoning_record.md",
+          "lines": [
+            2155,
+            2159
+          ]
+        }
+      ]
+    },
+    {
+      "id": "LR-011",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "1.1 Where this sits",
+        "quote": "which Bansal and Sinha and Sherstov, Storozhenko and Wu proved"
+      },
+      "severity": "high",
+      "category": "credit",
+      "finding": "The antecedent is specifically Aaronson–Ambainis's k-fold Forrelation conjecture, so this sentence credits SSW with the explicit Walsh-promise result. SSW prove the optimal separation for random-orthogonal rorrelation; Bansal–Sinha prove it for the explicit Forrelation promise. The companion's §6 phrase 'Sherstov, Storozhenko and Wu prove a sharper bound' repeats the ambiguity. The long record correctly distinguishes SSW's Fourier-growth theorem from the separate transfer to this promise in §3.16.",
+      "reader_impact": "The authors of the Forrelation, rorrelation and Fourier-growth papers will recognize this as a substantive attribution conflation. A reader following the companion into the record encounters two different accounts of which theorem is imported.",
+      "suggested_direction": "Separate the common optimal-separation milestone from the specific Forrelation theorem. In §6 identify the sharper object as the Fourier-growth theorem and retain the record’s explicit transfer and scope qualification.",
+      "evidence": [
+        {
+          "source": "repository/docs/expert_companion.md",
+          "locator": "§1.1, line 46; §6, line 243"
+        },
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§3.16, external Fourier comparison, especially the paragraph after (F60)"
+        },
+        {
+          "source": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/extracted.md",
+          "locator": "Introduction, “Independent Work of Sherstov, Storozhenko and Wu,” lines 221–227"
+        },
+        {
+          "source": "https://arxiv.org/html/2008.10223v4",
+          "locator": "§§1.1–1.2, Theorem 1.1; §1.8, especially the distinction between explicit Forrelation and random orthogonal matrices"
+        }
+      ]
+    },
+    {
+      "id": "LR-012",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "Appendix B. Mathematical statement catalogue — introduction",
+        "quote": "the maintained ledger's literal claim text, including its plain-text notation",
+        "pdf_page": 90
+      },
+      "severity": "medium",
+      "category": "notation",
+      "finding": "The source explains why it preserves ledger text, but the resulting reader-facing catalogue prints raw notation such as 'P:D->{0,1}', 'O_x|i,b,z>' and 'alpha_tot = inf{alpha >= 0 ...}' over roughly twenty pages. The opaque row names are its most prominent labels. On page 91, even the basic oracle and promise definitions are less legible than their versions in §2. Exact machine-text preservation and a navigable mathematical index are different requirements; retaining the former need not dictate the typography of the latter.",
+      "reader_impact": "An expert checking a formal claim must decode the ledger notation and then leave the catalogue to recover the actual mathematical statement. It is especially costly when comparing a compound claim against a Lean type.",
+      "suggested_direction": "Keep the immutable literal wording in the existing machine-readable evidence, and make the reading index lead with mathematical names and a compact correctly typeset statement or a precise link to it. Preserve IDs as secondary identifiers.",
+      "evidence": [
+        "repository/docs/reasoning_record.md:4220, 4245, 4269, 4293 and catalogue headings",
+        "repository/docs/reasoning_record.pdf: pages 91–110; page 91 visually inspected"
+      ]
+    },
+    {
+      "id": "LR-013",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "3. Where a natural shortcut fails — Table 1, fixed-tournament row",
+        "quote": "Treat comparisons as bounded-error queries to a fixed tournament"
+      },
+      "severity": "medium",
+      "category": "error",
+      "finding": "The directed three-cycle offered in this row is not a counterexample to the stated shortcut: a deterministic cyclic tournament is still a fixed tournament and its comparisons have zero error. A cycle rules out a consistent total order. The separate example in the same row, an unbiased comparison with probability exactly 1/2, does witness the absence of a bounded-error answer to a fixed comparison bit. The exposition correctly assigns the cycle the narrower role of excluding an ordering. This is an error in the counterexample's description, not a counterexample to Proposition 3 or the separation theorem.",
+      "reader_impact": "Quantum search and tournament experts will notice that nontransitivity and an undefined reliable Boolean comparison are different obstructions. Combining them weakens the otherwise useful shortcut table.",
+      "suggested_direction": "Separate the two obstructions in the row labels or retain only the matching witness for each claim. Reuse the record/exposition explanations already present; no new example is needed.",
+      "evidence": [
+        "repository/docs/expert_companion.md:115, Table 1",
+        "repository/docs/exposition.md:145–161, cycle excludes an ordering and weights use no transitivity",
+        "repository/docs/reasoning_record.md:§5.2, opening comparison hypotheses and ideal-process identity"
+      ]
+    },
+    {
+      "id": "LR-014",
+      "paper": "both",
+      "locator": {
+        "section": "expert §3 Table 1, selected-column row; exposition §5, independence example",
+        "quote": "then choose $I$ uniformly among columns where a zero was found"
+      },
+      "severity": "medium",
+      "category": "missing",
+      "finding": "The abbreviated counterexample leaves I undefined when the queried positions contain no zero, an event of probability (3/4)^4 = 81/256. The exposition says 'whenever there are any' but likewise does not specify the complementary branch. Uniformity of I's marginal requires a completed, symmetric selection rule. The full record already supplies it: choose uniformly among all four columns if no zero was found. Its computation of 175/256 is sound with that rule.",
+      "reader_impact": "A probability or direct-product reader reconstructing this diagnostic cannot verify the claimed marginal law from the shortened rule alone. This is exactly the independence distinction the example is meant to teach.",
+      "suggested_direction": "Retain the no-discovery branch when abbreviating the example, and link the counterexample directly to the existing complete experiment at #CL-selection-independence-example.",
+      "evidence": [
+        "repository/docs/expert_companion.md:117; repository/docs/exposition.md:220",
+        "repository/docs/reasoning_record.md:3448–3456, especially the explicit fallback at line 3452"
+      ]
+    },
+    {
+      "id": "LR-015",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "4.2 A tournament with probabilistic comparisons",
+        "quote": "Full proof: [record §5.2]"
+      },
+      "severity": "medium",
+      "category": "structure",
+      "finding": "The tournament full-proof link starts at #upper-ideal-process, after the comparison model, coherent-access hypothesis, definitions of T and epsilon, and dominant-row hypothesis. The linked passage immediately uses a_ij and T. It is an argument start, but not the start of the proposition it is meant to support.",
+      "reader_impact": "Quantum-search and tournament readers checking a delicate all-input cap need the exact comparison interface before the weight process; a jump into the middle forces an upward search.",
+      "suggested_direction": "Point the full-proof link at the existing #upper-comparison-model or add an adjacent statement-level destination, while keeping #upper-ideal-process for a specifically labelled weight-process link.",
+      "evidence": [
+        {
+          "source": "repository/docs/expert_companion.md",
+          "locator": "§4.2, line 160",
+          "detail": "Full-proof destination is #upper-ideal-process."
+        },
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§5.2, lines 2314–2353",
+          "detail": "Model and parameter/hypothesis setup occurs above the target."
+        },
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§5.2, lines 2356–2366",
+          "detail": "The target starts with weights and uses the preceding definitions."
+        }
+      ]
+    },
+    {
+      "id": "LR-016",
+      "paper": "exposition",
+      "locator": {
+        "section": "4. The quantum algorithm: a tournament",
+        "quote": "The rotation argument in the box above shows that the full normalised good state is returned (record §5.5)."
+      },
+      "severity": "medium",
+      "category": "structure",
+      "finding": "This mathematical-proof citation names §5.5, which is the formal-correspondence and state-specification section. The ordinary rotation proof, routing argument, and successful-register interpretation are in §5.1. The stated destination mixes the proof being requested with a different kind of evidence discussion.",
+      "reader_impact": "Amplitude-amplification readers seeking the successful-state argument are diverted to implementation correspondence and must infer where the ordinary proof lives.",
+      "suggested_direction": "Cite the existing #upper-amplification-proof and #upper-returned-register arguments for this sentence; reserve §5.5 for explicit questions about the formal statement.",
+      "evidence": [
+        {
+          "source": "repository/docs/exposition.md",
+          "locator": "§4, line 191",
+          "detail": "The full-state mathematical claim cites record §5.5."
+        },
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§5.1, #upper-amplification-proof and #upper-returned-register",
+          "detail": "The ordinary proof and routing argument are here."
+        },
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§5.5 heading and #upper-current-formal-scope",
+          "detail": "This section has a formal-correspondence purpose. This finding makes no claim about completion of the concurrent Lean work."
+        }
+      ]
+    },
+    {
+      "id": "LR-017",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "1. The result",
+        "quote": "The exponent six, the constant $1/400$ and the threshold come from explicit counting in the companion reasoning record"
+      },
+      "severity": "medium",
+      "category": "missing",
+      "finding": "The explicit refinements of the headline theorem are attributed through a general Record2026 bibliography entry and section prose, while the precise derivations already have anchors. The construction and exponent discussion likewise lack direct ordinary-proof links. The three inline record links cover only the tournament, classical assembly, and Forrelation supplier.",
+      "reader_impact": "A specialist checking what the companion adds to the preprint needs to distinguish the derivation of six, the floor coefficient, and the fixed-k exponent limit without searching the full record or reading Lean first.",
+      "suggested_direction": "Use the existing anchors for the explicit query budget, floors, construction equivalence, and quotient argument where those claims are introduced. Keep the bibliography entry for identifying the work.",
+      "evidence": [
+        {
+          "source": "repository/docs/expert_companion.md",
+          "locator": "§1, line 29; §§2 and 7; bibliography Record2026",
+          "detail": "The record citation is bibliographic; Record2026 URL has no fragment."
+        },
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "#upper-explicit-log6, #CL-floors, #AC-local-equivalence, #ROOT-RATIO",
+          "detail": "Exact existing proof destinations are available."
+        },
+        {
+          "source": "LINK_MAP.json",
+          "locator": "all record-bound rows",
+          "detail": "Only three inline incoming record links originate from the expert companion."
+        }
+      ]
+    },
+    {
+      "id": "LR-018",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "2.8 Execution evidence and checks of meaning",
+        "quote": "Theorem and equation numbers refer to the OpenAI preprint; section numbers refer to this record unless another source is named."
+      },
+      "severity": "medium",
+      "category": "notation",
+      "finding": "This global numbering convention is too broad for the actual document. Many displays have record-local labels (F1–F60, (4.1)–(4.19), (6.1)–(6.11), (7.1)–(7.4)), while other displays keep preprint numbers such as (18)–(23). The explicit statement that equation numbers refer to the preprint is therefore not a reliable lookup rule.",
+      "reader_impact": "Readers comparing the companion, source preprint and record must know which document owns a displayed number. The present rule sends them to the wrong numbering system for substantial parts of the argument.",
+      "suggested_direction": "State the distinction between retained preprint numbers and record-local labels at the start, and keep the mapping visible at the small number of interfaces where both systems are used.",
+      "evidence": [
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§2.8, line 431",
+          "detail": "The blanket convention."
+        },
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§4.2, display (4.3); §6.1, display (6.4); §6.3, display (18)",
+          "detail": "The first two are record-local labels; the latter retains a preprint number."
+        },
+        {
+          "source": "repository/docs/expert_companion.md",
+          "locator": "§1, line 29",
+          "detail": "The companion already marks preprint-equivalent displays with P, offering a clear distinction to preserve."
+        }
+      ]
+    },
+    {
+      "id": "LR-019",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "4.8 Attribution and formal correspondence",
+        "quote": "The frozen packet includes a source-bound successful root-build receipt for the cited declarations."
+      },
+      "severity": "medium",
+      "category": "register",
+      "finding": "The local formal-correspondence paragraphs repeatedly narrate old packet labels, matching sets of 124 hashes, returned-review activity, headers that predate receipts, and later integration runs. Related material appears again in §§2.8, 3.5, 5.5, 6.7, and 7.3. This historical bookkeeping obscures the short local question: what exact statement is built or compared, under what hypotheses?",
+      "reader_impact": "Researchers who know the mathematics but are new to the project must learn its intake history before they can assess the formal claim. Repetition also makes the reader reconcile several narrative snapshots.",
+      "suggested_direction": "Centralize historical run and source-binding details in the evidence appendix or linked evidence record. At each mathematical endpoint retain the exact statement, its premises, its evidence category, and a direct destination for that evidence.",
+      "evidence": [
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§4.8, lines 2155–2159",
+          "detail": "Current local discussion includes mathematical scope and a long historical run paragraph."
+        },
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§§2.8, 3.5 Formal support and source scope, 5.5, 6.7, 7.3",
+          "detail": "Repeated evidence-history passages."
+        },
+        {
+          "source": "exemplars/long-reasoning-record.md",
+          "locator": "opening route; §§12–13",
+          "detail": "The exemplar announces a mathematical route and collects formal statements and source checks in terminal sections; its proof status is not evidence about this theorem."
+        }
+      ]
+    },
+    {
+      "id": "LR-020",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "4.4 The local tests",
+        "quote": "run `python3 examples/check_example.py` to reproduce the output"
+      },
+      "severity": "medium",
+      "category": "missing",
+      "finding": "The record supplies a reproduction command and links its containing historical return directory, but examples/check_example.py is absent from the supplied reading closure. The packet contains the JSON circuit, board and output, so the numerical result can be inspected but this exact command cannot be followed using only the stated packet.",
+      "reader_impact": "Readers auditing the concrete construction may believe they have the complete executable check, then discover the crucial entry point is unavailable. A directory link is a poor locator for the promised check.",
+      "suggested_direction": "Add a direct, versioned link to the already-existing checker named by the command and include that file in the reading closure; identify the working directory explicitly. Do not present stored output alone as a fresh execution.",
+      "evidence": [
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§4.4, line 2056",
+          "detail": "Reproduction command and directory link."
+        },
+        {
+          "source": "repository/research/returns/round3/members/04_addressed_construction/examples/",
+          "locator": "Packaged members",
+          "detail": "circuit.json, board.json and output.json are present; check_example.py is not."
+        },
+        {
+          "source": "READING_LINK_CLOSURE.json",
+          "locator": "addressed-construction entries",
+          "detail": "The closure follows the linked data and directory files, not this inline command target."
+        }
+      ]
+    },
+    {
+      "id": "LR-021",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "6.1 A direct product with a separate query cap on each input",
+        "quote": "**The proof with unnormalized weights.**"
+      },
+      "severity": "medium",
+      "category": "structure",
+      "finding": "One subsection contains the main conditional-value proof, arbitrary-information reduction, a truncation corollary, a two-input counterexample, a second weighted proof, normalization identity, planted-use interface, and source/evidence discussion. Existing paragraph anchors distinguish them, but the visible heading structure does not. A citation to §6.1 leaves several substantially different reader tasks under one heading.",
+      "reader_impact": "Drucker/Shaltiel readers may want the fair-product statement or the proof-route comparison; students may want the cap counterexample. Both must scan a long section to choose the intended task.",
+      "suggested_direction": "Promote the existing mathematical divisions to visible named subheadings and link to those divisions. Make the second proof and normalization comparison an explicitly optional route without removing them.",
+      "evidence": [
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§6.1, lines 2849–3285",
+          "detail": "The entire multi-purpose subsection."
+        },
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "#CL-direct-product-statement, #CL-joint-cap, #CL-adaptive-example, #CL-weighted-values, #CL-normalization, #CL-planted-interface",
+          "detail": "Existing boundaries already identify the needed subdivision."
+        },
+        {
+          "source": "repository/docs/exposition.md",
+          "locator": "§5, lines 227–229",
+          "detail": "Both the proof and independence warning cite only §6.1."
+        }
+      ]
+    },
+    {
+      "id": "LR-022",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "5.2 A tournament with probabilistic comparisons",
+        "quote": "We give the induction used by that Boolean continuation"
+      },
+      "severity": "medium",
+      "category": "misplaced",
+      "finding": "After the list guarantee and cost finish Proposition 3.2, the section starts a separate recursive proof for an older Boolean continuation. It is mathematically explained, but there is no visible subsection break or shortcut for a reader who followed the companion solely to check the list theorem. The historical implementation route extends the landing beyond its intended result.",
+      "reader_impact": "Quantum-search readers must decide whether this further induction is another premise of the list proposition or only an explanation of a separate implementation endpoint.",
+      "suggested_direction": "Place this existing proof in a clearly named optional implementation-route subsection or appendix, and let the completed list proof point directly to §5.3. Preserve the extra verifier-error explanation.",
+      "evidence": [
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§5.2, #upper-tournament-cost, lines 2537–2549",
+          "detail": "Proposition 3.2 is already concluded."
+        },
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "#upper-tournament-evidence and #upper-continuation-induction, lines 2570–2605",
+          "detail": "A separate Boolean-continuation route follows before §5.3."
+        },
+        {
+          "source": "repository/docs/expert_companion.md",
+          "locator": "§4.2",
+          "detail": "The incoming full-proof link is supporting the list-returning proposition."
+        }
+      ]
+    },
+    {
+      "id": "LR-023",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "6.4 Discoveries and the erased zero",
+        "quote": "**An expectation-cost refinement.**"
+      },
+      "severity": "medium",
+      "category": "misplaced",
+      "finding": "The reference-path refinement is explicitly unnecessary for Proposition 4.2, but it sits between the erased-zero estimate and the planted-cell simulator, in the main lower-bound path. Alongside the early/late proof and a second search induction, this produces three consecutive routes to a term whose required bound is already established.",
+      "reader_impact": "A reader of the short proof checking why the two hit probabilities are small has to separate required estimates from optional sharper constants before reaching the simulator, the other delicate step.",
+      "suggested_direction": "Keep the required erased-zero proof in the primary route and make the alternative/refined estimates an explicitly optional adjacent subsection or appendix, with precise links for readers comparing proof routes.",
+      "evidence": [
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§6.4, #CL-early-late, #CL-zero-worlds, #CL-zero-average, #CL-zero-optional",
+          "detail": "Three proof routes/levels of strength are consecutive."
+        },
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§6.4 final sentence; §6.5 heading",
+          "detail": "The text says Proposition 4.2 needs neither the refinement nor an optimality assertion, then begins the simulator."
+        }
+      ]
+    },
+    {
+      "id": "LR-024",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "7. The optimal exponent",
+        "quote": "For completeness, the lower estimate follows from the two nested floors without an asymptotic convention."
+      },
+      "severity": "medium",
+      "category": "wasted",
+      "finding": "The elementary floor calculation and induction 4t^2 <= 2^t are reproved immediately after §6.6 has given the complete same calculation. Section 7 needs the resulting family bounds and their common circuit, not another derivation of the coefficient 1/400. The exponent argument itself is also substantially rehearsed in §1, although the opening summary is useful.",
+      "reader_impact": "Experts arriving for the quotient and quantifier order must pass elementary material they have just seen, diluting the purpose of the exponent destination.",
+      "suggested_direction": "Keep the complete floor proof at #CL-floors, cite it when collecting (7.1), and preserve the detailed quotient/quantifier argument in §§7.1–7.2. Keep the brief mechanism in §1 without its full repeated proof.",
+      "evidence": [
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§6.6, #CL-floors, lines 3722–3752",
+          "detail": "Complete induction and both floor inequalities."
+        },
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§7, lines 3834–3838",
+          "detail": "The same argument is repeated."
+        },
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§1, #R3-01-QUANTIFIERS; §§7.1–7.2",
+          "detail": "Useful overview and full proof can have clearer separate roles."
+        }
+      ]
+    },
+    {
+      "id": "LR-025",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "6. The classical lower bound",
+        "quote": "Independent instances remain hard to solve together when each has its own"
+      },
+      "severity": "medium",
+      "category": "structure",
+      "finding": "The classical chapter begins with the full direct-product development and reaches its generic lower-bound target only in §6.3. The proof’s two-event plan and the role of the simulator are easier to locate in the later interface than at the chapter entrance. The opening paragraph explains a lemma, not the mL lower-bound argument for which the reader came.",
+      "reader_impact": "Cheat-sheet and lower-bound specialists need the precise reduction target and dependency outline before choosing whether to inspect the standard fair-product proof or proceed to the new planted construction.",
+      "suggested_direction": "Move the existing generic lower-bound statement and short two-event interface to the chapter entrance, then offer direct routes to the erased-zero proof, simulator, and separate direct-product proof. Preserve the direct-product details as the supporting route.",
+      "evidence": [
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§6.1, lines 2849–3285",
+          "detail": "Full auxiliary development precedes the chapter target."
+        },
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§6.2, #CL-entry-interface; §6.3, #CL-generic-statement and #CL-first-difference",
+          "detail": "The existing target and two-event outline can serve as the entry interface."
+        }
+      ]
+    },
+    {
+      "id": "LR-026",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "5.2 Planting a winner",
+        "quote": "The two coupled inputs."
+      },
+      "severity": "medium",
+      "category": "figure",
+      "finding": "Three image sources referenced by the current Markdown are absent from the supplied packet: expert_planted.svg, exposition/fig2_board.svg, and exposition/fig4_planted.svg. None appears in LINK_MAP, whose problem_count is zero. The illustrations are present in the supplied PDFs, so this is an incomplete source/link closure, not a claim that the rendered papers lack the figures.",
+      "reader_impact": "Readers trying to reproduce the document or inspect the construction and planting diagrams from Markdown cannot resolve the local image targets, despite an apparently clean link report.",
+      "suggested_direction": "Include the already-used three SVG sources and validate the image references alongside ordinary links. Record PDF appearance and editable source availability as separate checks.",
+      "evidence": [
+        {
+          "source": "repository/docs/expert_companion.md",
+          "locator": "§5.2, line 187",
+          "detail": "The caption links figures/expert_planted.svg."
+        },
+        {
+          "source": "repository/docs/exposition.md",
+          "locator": "§2, line 97; §5, line 205",
+          "detail": "Captions link figures/exposition/fig2_board.svg and fig4_planted.svg."
+        },
+        {
+          "source": "LINK_MAP.json",
+          "locator": "problem_count and image rows",
+          "detail": "These three image references are not listed."
+        },
+        {
+          "source": "supplied PDF inspection",
+          "locator": "expert companion Figure 2; exposition Figures 2 and 4",
+          "detail": "The separate PDF inspection confirms the figures are rendered; no source files can be recovered from their presence alone."
+        }
+      ]
+    },
+    {
+      "id": "LR-027",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "3.16. Literature comparison and the scope of the conclusion; formal validation passage",
+        "quote": "the recorded ordinary and paranoid Unconditional Comparator receipts explicitly list it."
+      },
+      "severity": "medium",
+      "category": "lean_link",
+      "finding": "This sentence literally matches the old receipts’ declaration lists, but those lists combine configured wrapper names with implementation names scanned from proofs. The actually configured target is QuarticQuery.Checked.forrelation_lower_bound; QuarticQuery.ForrelationLower.bansalSinhaLower is the implementation used by its Solution. The correction in §2.8 explicitly distinguishes these kinds of credit, but this landing paragraph does not. A reader can still infer direct comparison of the implementation from the receipt list.",
+      "reader_impact": "Forrelation specialists auditing this independent proof need to know exactly which public statement was checked. The wording reintroduces the very target-versus-wrapper ambiguity the current record has otherwise corrected.",
+      "suggested_direction": "Name and link the configured target and identify the implementation as the proof supplier. Apply the corrected §2.8 vocabulary at the local Forrelation evidence paragraph, without changing the mathematical claim.",
+      "evidence": [
+        {
+          "path": "repository/docs/reasoning_record.md",
+          "lines": [
+            1761,
+            1763
+          ]
+        },
+        {
+          "path": "repository/docs/reasoning_record.md",
+          "lines": [
+            448,
+            450
+          ]
+        },
+        {
+          "path": "repository/lean/QuarticCorpus/Unconditional/comparator.json",
+          "lines": [
+            4,
+            8
+          ]
+        },
+        {
+          "path": "repository/lean/QuarticCorpus/Unconditional/Solution.lean",
+          "lines": [
+            38,
+            40
+          ]
+        },
+        {
+          "path": "repository/corpus/comparator_map.json",
+          "key": "challenges[path=lean/QuarticCorpus/Unconditional/Challenge.lean].configurations[0].latest_receipt.declaration_scope",
+          "value": "historical_configured_plus_scanned"
+        }
+      ]
+    },
+    {
+      "id": "LR-028",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "Appendix B. Mathematical statement catalogue",
+        "quote": "The exhaustive declaration inventory belongs to the [correspondence record](reasoning_record_correspondence.json)"
+      },
+      "severity": "medium",
+      "category": "lean_link",
+      "finding": "The catalogue gives the statement and argument links, but none of its central rows displays the exact declaration, comparison target or a compact evidence status. The advertised formal-correspondence route therefore ends at a 7,350,008-byte JSON file containing both historical and current observations. For example, the Lemma 2.1 row links only to its ordinary ingredient bundle and references; the complete bundle is built, while only the fixed-k lower-bound wrapper is a configured headline target. The reader must recover that distinction elsewhere.",
+      "reader_impact": "Experts following one claim should be able to tell whether its full conjunction, only an endpoint, or only a component has formal support. Aggregate counts of exact, stronger and partial rows do not answer this local question.",
+      "suggested_direction": "Keep the exhaustive sidecar, but add a compact declaration-and-status entry for each central row and an explicit pointer to the relevant source/configuration. Use the existing evidence distinctions, including wrapper-mediated credit; do not promote adjacent components.",
+      "evidence": [
+        {
+          "path": "repository/docs/reasoning_record.md",
+          "lines": [
+            4216,
+            4220
+          ]
+        },
+        {
+          "path": "repository/docs/reasoning_record.md",
+          "lines": [
+            4483,
+            4493
+          ]
+        },
+        {
+          "path": "repository/docs/reasoning_record.md",
+          "lines": [
+            1774,
+            1781
+          ]
+        },
+        {
+          "path": "repository/docs/reasoning_record_correspondence.json",
+          "key": "current_catalogue_snapshot.rows[id=lem-2.1]"
+        },
+        {
+          "path": "repository/lean/QuarticCorpus/Unconditional/comparator.json",
+          "lines": [
+            4,
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "id": "LR-029",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "5.1 A direct product with separate caps",
+        "quote": "Lean proves Lemma 4 with coins and side information drawn from an arbitrary finite probability space"
+      },
+      "severity": "medium",
+      "category": "lean_link",
+      "finding": "The linked type is expressed using compliantSuccess and has no cap premise on the family of trees T. It bounds the mass of success together with respecting the realised per-input caps; Lemma 4 is the all-branches-capped specialization. The draft explains joint-event versus conditional probability later in the proof, but the Lean link does not explain this difference in formulation or direct the reader to the definition of compliantSuccess.",
+      "reader_impact": "Direct-product readers checking that side information and caps are modelled correctly encounter an apparently missing hypothesis. They must guess whether compliantSuccess is a joint event or a conditioned probability—the distinction this paper rightly treats as delicate.",
+      "suggested_direction": "Identify the linked endpoint as the success-and-cap-compliance statement and explain the existing all-branches specialization. Link the already-existing definition needed to read that type. No new theorem or new check is requested.",
+      "evidence": [
+        {
+          "path": "repository/docs/expert_companion.md",
+          "lines": [
+            174,
+            182
+          ]
+        },
+        {
+          "path": "repository/lean/QuarticCorpus/Independent/RealizedCaps/Challenge.lean",
+          "lines": [
+            18,
+            25
+          ]
+        },
+        {
+          "path": "repository/docs/reasoning_record.md",
+          "lines": [
+            3051,
+            3075
+          ],
+          "detail": "Existing joint-event corollary provides the mathematical distinction."
+        }
+      ]
+    },
+    {
+      "id": "LR-030",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "7. The exponent; one explicit sequence remark",
+        "quote": "the [quantum budget][src-budget] it uses is built in Lean but has not been compared."
+      },
+      "severity": "medium",
+      "category": "lean_link",
+      "finding": "The growing-k remark requires the explicit dependence 2^53 k 2^(10k), but src-budget highlights only budget_le, whose conclusion contains the opaque budgetConst k and an implementation budget. The same file already contains Q_Fkm_le_exponential, which states exactly the numerical complexity estimate used in the remark. The current link makes the reader reconstruct a stronger claim from an intermediate counting bound.",
+      "reader_impact": "Readers checking the order of quantifiers and uniformity in k need the visible k-dependence; a fixed-k-looking constant at the destination obscures the essential hypothesis of the remark.",
+      "suggested_direction": "Use the existing Q_Fkm_le_exponential statement as the primary destination, with budget_le and budgetConst_le_exponential as optional supporting steps. Preserve the explicit built-only qualification.",
+      "evidence": [
+        {
+          "path": "repository/docs/expert_companion.md",
+          "lines": [
+            272,
+            277
+          ]
+        },
+        {
+          "path": "repository/docs/lean_links.json",
+          "key": "links.src-budget.lines",
+          "value": [
+            86,
+            90
+          ]
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Upper/Bound.lean",
+          "lines": [
+            67,
+            90
+          ]
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Upper/Bound.lean",
+          "lines": [
+            286,
+            296
+          ]
+        }
+      ]
+    },
+    {
+      "id": "LR-031",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "Appendix A. Checking the statement",
+        "quote": "The challenge file and the solution are compiled separately."
+      },
+      "severity": "medium",
+      "category": "lean_link",
+      "finding": "The reader is sent to a Challenge file containing four intentional sorry placeholders, while the paragraph also says unfinished proofs are rejected. The text never explains that these holes belong only to the specification and are not the accepted Solution proofs, and it does not link the paired Solution beside the statement. The distinction is obvious to the repository’s tooling authors but not to the stated query-complexity audience.",
+      "reader_impact": "A mathematically knowledgeable reader new to Lean can reasonably see an admitted theorem where the paper has promised a checked proof. That avoidable ambiguity interrupts the strongest part of the formal-inspection route.",
+      "suggested_direction": "Briefly identify specification holes and link the paired Solution and configured target list. Keep the explanation at the statement/proof distinction rather than adding a tutorial on Comparator internals.",
+      "evidence": [
+        {
+          "path": "repository/docs/expert_companion.md",
+          "lines": [
+            320,
+            322
+          ]
+        },
+        {
+          "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+          "lines": [
+            326,
+            341
+          ]
+        },
+        {
+          "path": "repository/lean/QuarticCorpus/Unconditional/Solution.lean",
+          "lines": [
+            18,
+            40
+          ]
+        },
+        {
+          "path": "repository/lean/QuarticCorpus/Unconditional/comparator.json",
+          "lines": [
+            4,
+            11
+          ]
+        }
+      ]
+    },
+    {
+      "id": "LR-032",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "5.5. Formal correspondence and the remaining state specification",
+        "quote": "The formal upper bound follows the same progression as the ordinary proof"
+      },
+      "severity": "medium",
+      "category": "lean_link",
+      "finding": "The paragraph begins one narrative of formal support, then lists the newer tensor/list wrappers, while the later dependency paragraph says the headline proof uses the older measured/Boolean route and does not reach those wrappers. Both facts can be true, and the record correctly states them, but a reader checking the short paper’s list-output proof has to infer which line of support proves the endpoint and which separately reconstructs its exposition.",
+      "reader_impact": "Quantum-query readers need to distinguish an independently built explanatory theorem from the actual dependency route of the headline result. Long prose with implementation names makes that distinction slower than the mathematics requires.",
+      "suggested_direction": "Present the existing endpoint dependency route and the separately built explanatory list/tensor route side by side, with exact target and source links. Keep the current statement that the measured-label route suffices; do not ask for a new formal proof.",
+      "evidence": [
+        {
+          "path": "repository/docs/reasoning_record.md",
+          "lines": [
+            2806,
+            2814
+          ]
+        },
+        {
+          "path": "repository/docs/reasoning_record_correspondence.json",
+          "key": "returned_correspondence[return=05_quantum_upper].records",
+          "detail": "Complete quantumTournament type and its recorded headline_reached=false observation."
+        },
+        {
+          "path": "repository/corpus/comparator_map.json",
+          "key": "challenges[path=lean/QuarticCorpus/Tournament/Challenge.lean].configurations",
+          "detail": "Positive target list contains only Checked.expected_weight_eq and Checked.expected_weight_le_half."
+        }
+      ]
+    },
+    {
+      "id": "LR-033",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "6. The Forrelation lower bound",
+        "quote": "along a path that is Gaussian in the first block only"
+      },
+      "severity": "medium",
+      "category": "unclear",
+      "finding": "The interpolated object is described inaccurately. In the record, the law of every Gaussian layer remains fixed; the parameter multiplies only the first block of the conditional sign biases. The displayed path is not a changing Gaussian law in one block. That distinction is exactly what makes differentiation a finite-polynomial calculation rather than covariance interpolation.",
+      "reader_impact": "Bansal–Sinha and Gaussian-interpolation readers can infer the wrong analytic operation before following the proof link. The record then has to undo that inference at (F14)–(F17).",
+      "suggested_direction": "Name the first block of sign biases as the object being scaled, and point to (F14)–(F17). Preserve the record’s explanation that no Gaussian covariance is differentiated.",
+      "evidence": [
+        {
+          "source": "repository/docs/expert_companion.md",
+          "locator": "§6, line 250"
+        },
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§3.9, (F14)–(F15); §3.10, (F17) and the paragraph after (F22)"
+        },
+        {
+          "source": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/extracted.md",
+          "locator": "§1.3 overview, especially multidimensional Gaussian interpolation and the later transformed integration-by-parts discussion; used as a contrast, not as authority for the record’s new path"
+        }
+      ]
+    },
+    {
+      "id": "LR-034",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "1.1. Certificates that disqualify every other candidate",
+        "quote": "Together they give a lower budget of order $mL$"
+      },
+      "severity": "medium",
+      "category": "history",
+      "finding": "The mechanism overview gives the two new scales but does not connect them to the earlier cubic bottleneck. The companion now gives the 5/2, 8/3 and 3 milestones and the AND–OR/cheat-sheet arithmetic; the long record provides neither that short orientation nor a link to it. Its later attribution paragraphs identify ingredients but do not explain what changed in the attainable exponent.",
+      "reader_impact": "Cheat-sheet and optimal-partial-separation readers consulting the long record independently have to reconstruct why the separate column arrays and candidate comparisons improve the previous total-function route.",
+      "suggested_direction": "Add a short historical bridge or a direct route to the already written companion §1.1. Reuse the existing comparison rather than reproducing another full historical section.",
+      "evidence": [
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§1.1, lines 87–99; §4.8 supplies ingredient credit but not the previous-exponent comparison"
+        },
+        {
+          "source": "repository/docs/expert_companion.md",
+          "locator": "§1.1, milestone table and cheat-sheet arithmetic, lines 34–46"
+        },
+        {
+          "source": "paper/extracted.md",
+          "locator": "§1.1 Historical context, printed p. 2"
+        },
+        {
+          "source": "literature/quartic-ref-02-separations-in-query-complexity-using-chea/extracted.md",
+          "locator": "Introduction result discussion and §3.1 Intuition; the partial-to-total cubic consequence and certificate-checking cost"
+        }
+      ]
+    },
+    {
+      "id": "LR-035",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "5. Quantum evaluation on every input",
+        "quote": "The organization into candidate generation, comparison and certificate checking also appears in Ben-David and Kothari"
+      },
+      "severity": "medium",
+      "category": "credit",
+      "finding": "The local comparison paragraph lists Ben-David–Kothari, minimum finding and king finding, but omits Ambainis–Iraids–Kokainis; Appendix C also has no entry for that work. The source preprint explicitly identifies both recent certificate-complexity constructions as particularly relevant, and the current companion now credits both. The detailed destination consequently has a narrower account of the immediate antecedents than the short paper.",
+      "reader_impact": "Readers from the recent certificate-versus-query literature lose one of the closest comparisons at the point where the record explains what the fractional-weight method adds.",
+      "suggested_direction": "Carry over the already established AIK attribution and provide an edition-specific locator. Keep the distinction that its classical measure is certificate complexity and that its source-finding algorithm is not the present fractional-weight theorem.",
+      "evidence": [
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§5, paragraph beginning with the quoted phrase; Appendix C bibliography"
+        },
+        {
+          "source": "repository/docs/expert_companion.md",
+          "locator": "§1.1, line 46; expert_companion.bib entry AIK2026"
+        },
+        {
+          "source": "paper/extracted.md",
+          "locator": "§1.1, final paragraph, printed p. 2"
+        },
+        {
+          "source": "https://arxiv.org/html/2609.11664v2",
+          "locator": "§4 Main algorithmic ideas, source in a directed complete graph; §6.1 overview. Version 2 has the title “Near-Optimal Separations of Certificate Complexity from Randomized and Quantum Query Complexity”."
+        }
+      ]
+    },
+    {
+      "id": "LR-036",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "3.16. Literature comparison and the scope of the conclusion — The displayed comparison in Bansal–Sinha §5.4",
+        "quote": "Fix the version before making the comparison."
+      },
+      "severity": "medium",
+      "category": "misplaced",
+      "finding": "The main Forrelation route pauses for an archive hash, physical TeX line numbers, a disputed logarithmic comparison, its replacement estimate and a separate reciprocal-error discussion. The local algebra and version restriction are precise, but this forensic note appears before the complete ingredient statement that the construction needs. It attracts more attention than its role in the separation warrants.",
+      "reader_impact": "Bansal–Sinha readers deserve the exact local qualification, while experts checking the quartic construction need to see immediately that its independent lower-bound proof does not depend on adjudicating these displays.",
+      "suggested_direction": "Retain the technical derivation and exact edition identity in a dedicated source note or appendix. Leave a neutral, short pointer at the literature implication (F4)–(F5), preserving the explicit statement that this is not a counterexample to the cited theorem.",
+      "evidence": [
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§3.16, lines 1646–1693, (F52)–(F55); §3.6, (F4)–(F5)"
+        },
+        {
+          "source": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.tar.gz",
+          "locator": "main.tex physical lines 1173, 1180–1184; read directly from the supplied archive"
+        },
+        {
+          "source": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.tar.gz",
+          "locator": "SHA-256 f48a3225662484d12e19bf03412478cf87a388f7c2e33c69a4d7f2078202e015; independently recomputed and matches the record"
+        }
+      ]
+    },
+    {
+      "id": "LR-037",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "3.16. Literature comparison and the scope of the conclusion — The sharper external Fourier comparison",
+        "quote": "Here is the transfer, to specify exactly what is being compared."
+      },
+      "severity": "medium",
+      "category": "misplaced",
+      "finding": "The optional route from the external SSW Fourier theorem to (F60) occupies another extended derivation between the completed fixed-parameter proof and the complete ingredient in §3.17. It changes the error parameter and permits powers of two, while the construction uses the fixed-error power-of-four interface. The distinctions are stated accurately, but only after the reader has carried the extra route through (F57)–(F60).",
+      "reader_impact": "A specialist following the short paper’s proof link has to keep a second, more general theorem and a different evidence boundary active although neither is needed for the total-function argument.",
+      "suggested_direction": "Place the complete required ingredient before this optional comparison, or move the comparison to a clearly marked appendix while preserving its anchor and full proof. State the two routes’ different roles where the reader chooses between them.",
+      "evidence": [
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§3.15 establishes (F3); §3.16, lines 1695–1755, (F56)–(F60); §3.17 supplies the construction interface"
+        },
+        {
+          "source": "https://arxiv.org/html/2008.10223v4",
+          "locator": "§4.5 Fourier-weight result; §1.8 distinguishes the underlying separation from Bansal–Sinha. The record’s transfer is separate ordinary mathematics, not a theorem quoted from SSW."
+        }
+      ]
+    },
+    {
+      "id": "LR-038",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "3.3. The quantum promise algorithm, including amplification and coherence — An explicit error bound",
+        "quote": "Markov's inequality itself follows by integrating"
+      },
+      "severity": "medium",
+      "category": "wasted",
+      "finding": "The decoder proof expands the elementary proof of Markov’s inequality and numerical exponential-series estimates in the same reading path as the genuinely delicate retained-workspace construction. Those details are sufficient but disproportionately prominent for the stated literature-expert audience.",
+      "reader_impact": "Quantum-query and Forrelation researchers already know fixed-count error reduction; they need the exact output law, the all-input cap and why the entire workspace is retained. The present ordering makes that contract harder to find.",
+      "suggested_direction": "Keep the precise repetition count and tail bounds in the local contract. Move elementary scalar justifications to a subordinate proof note, allowing readers to proceed directly to the coherent state and its measured law.",
+      "evidence": [
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§3.3, “An explicit error bound,” lines 596–639; retained-state construction follows at lines 643–691"
+        },
+        {
+          "source": "paper/extracted.md",
+          "locator": "Proof of Lemma 2.1(ii), printed p. 4: fixed repetitions and retained measurement registers"
+        },
+        {
+          "source": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/extracted.md",
+          "locator": "§1.2, Theorem 1.3/Corollary 1.4 discussion: amplification is treated as standard"
+        }
+      ]
+    },
+    {
+      "id": "LR-039",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "3.12. Indistinguishability of shallow trees",
+        "quote": "For comparison with the previous draft, (F33) immediately implies its coarser estimate"
+      },
+      "severity": "medium",
+      "category": "misplaced",
+      "finding": "The core proof displays the obsolete coarse bound (F34) immediately after the bound actually used in the numerical assembly. Its stated purpose is comparison with a previous draft, and its remaining mathematical consumer is the historical threshold in Appendix D. This is revision history inserted into the active proof.",
+      "reader_impact": "Readers checking the current constants can mistake the much looser coefficient for a second necessary stage and spend time reconciling two estimates that do not both feed the current threshold.",
+      "suggested_direction": "Keep (F33) in the proof and relocate (F34), its short derivation and its old-threshold dependency together to Appendix D. Preserve a stable reference so no existing citation loses its target.",
+      "evidence": [
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§3.12, (F33)–(F34), lines 1364–1395; §3.15 uses (F33); Appendix D opens by naming (F34)"
+        }
+      ]
+    },
+    {
+      "id": "LR-040",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "3.16. Literature comparison and the scope of the conclusion — The displayed comparison in Bansal–Sinha §5.4",
+        "quote": "Write $\\alpha=1-1/k$, $L=\\log(kN)$, and $h=k(k-1)$."
+      },
+      "severity": "medium",
+      "category": "notation",
+      "finding": "The source-comparison paragraph reuses L for a logarithm after L has denoted the hard query cap throughout the construction. There are additional cross-section collisions: N is the integer Walsh numerator before becoming the external paper’s block length, q is a repetition count before q(x) denotes a square root, and the companion’s ell=log_2(m) becomes ell=k−1 in §3.9. Each local definition is present, but deep-link readers have to discard the symbol meanings they brought with them.",
+      "reader_impact": "Readers tracing the claimed m·L classical cost or translating the cited source’s parameters are especially vulnerable to carrying the wrong meaning into the next calculation.",
+      "suggested_direction": "Keep the construction’s budget and length symbols stable across reading destinations. Give the source-comparison symbols a distinct notation or a compact translation table, and avoid reusing the repetition-count symbol for the analytic helper.",
+      "evidence": [
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§3.1, definition of L; §3.2, N(z); §3.3, repetition count q; §3.8, (F9); §3.9, “Write ell=k−1”; §3.16, line 1656"
+        },
+        {
+          "source": "repository/docs/expert_companion.md",
+          "locator": "§1, ell=log_2(m); §§2 and 5, L as query budget"
+        }
+      ]
+    },
+    {
+      "id": "LR-041",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "3.10. Moving the derivative through the blocks",
+        "quote": "The same index $b$ enters and leaves the middle block."
+      },
+      "severity": "medium",
+      "category": "figure",
+      "finding": "The three-block derivation already isolates the right example, but its spatial relationship is conveyed only through stacked formulas. The repeated-index cancellation, independent Gaussian layers and accumulated weights are difficult to inspect simultaneously in (F18)–(F22). The record has no accompanying figure for this mechanism.",
+      "reader_impact": "Forrelation and Fourier-analysis readers need to verify exactly which block a derivative enters, which Gaussian layer a weight depends on, and why the return derivative vanishes.",
+      "suggested_direction": "Use the existing k=3 calculation to add a small diagram of the two Gaussian layers and three sign-bias blocks, with the derivative path and zero repeated derivative indicated. Keep the full formulas as the proof; the diagram should identify their existing objects, not introduce a different argument.",
+      "evidence": [
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§§3.9–3.10, (F14), (F18)–(F22)"
+        },
+        {
+          "source": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/extracted.md",
+          "locator": "§1.3 uses k=3 before general k; §3 Figure 1 states the distribution explicitly; cited as structural practice, not as a diagram to copy"
+        }
+      ]
+    },
+    {
+      "id": "LR-042",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "Appendix B.10 The universal upper bound; thm-A.1",
+        "quote": "**Argument:** [§7.3](#ROOT-APPENDIX-INTRO)"
+      },
+      "severity": "low",
+      "category": "structure",
+      "finding": "The displayed §7.3 argument label points to the introduction of Appendix A, not §7.3. The fragment exists, so existence-only link validation reports success while the printed section reference is wrong.",
+      "reader_impact": "Readers checking the universal upper bound from the catalogue cannot trust the section label and may search an unrelated formal-correspondence section.",
+      "suggested_direction": "Correct the label to the actual Appendix A destination and include label-versus-target consistency in editorial link review.",
+      "evidence": [
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "Appendix B, thm-A.1, line 5711",
+          "detail": "Mismatched label."
+        },
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "Appendix A, #ROOT-APPENDIX-INTRO, line 3922",
+          "detail": "Actual destination."
+        },
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§7.3, line 3906",
+          "detail": "The section named in the label is elsewhere."
+        }
+      ]
+    },
+    {
+      "id": "LR-043",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "2.6. Exact small examples — Two-bit OR and the endpoint 2/3",
+        "quote": "The inclusive threshold is material."
+      },
+      "severity": "keep",
+      "category": "keep",
+      "finding": "Keep this finite example as a model-checking destination. It explains a convention with a concrete consequence: the one-query mixture attains success exactly 2/3, a strict threshold would change its randomized cost, and fixed-length fair-coin sampling cannot realize the required one-third weights. The distinction is relevant to the formal model rather than ornamental background. The nearby off-promise/identity and XOR examples likewise test changes that ordinary build success would not detect.",
+      "reader_impact": "Readers auditing R and Q need a reason to inspect exact threshold, promise and coin conventions. These small examples provide one without requiring them to read the formal proof.",
+      "suggested_direction": "Retain the examples behind a clearly signposted model-audit route and link that route from the statement checklist. Preserve the distinction between ordinary example proofs and separate formal checks.",
+      "evidence": [
+        "repository/docs/reasoning_record.md:298–373",
+        "repository/docs/expert_companion.md:Appendix A, Five things to check"
+      ]
+    },
+    {
+      "id": "LR-044",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "Appendix A.6. The quartic estimate and its formal routes",
+        "quote": "The first route is the one used by the recorded headline proof;"
+      },
+      "severity": "keep",
+      "category": "keep",
+      "finding": "Keep the explicit separation of the three universal-bound routes. The table gives coefficients 20736, 1500625 and 19600 with their different block-sensitivity and spectral ingredients, and the following paragraph identifies which route the headline proof actually uses. It also says that these constants do not claim a sharp universal constant. This is much more informative than attaching a generic 'formalized' label to Appendix A.",
+      "reader_impact": "Adversary-method and sensitivity-theorem readers can distinguish the reconstructed argument from the dependency route used by the checked endpoint, and need not infer a false claim of identical proofs.",
+      "suggested_direction": "Retain the route table and the adjacent dependency explanation when moving detailed execution history elsewhere. Give it a direct entry from the upper-endpoint summary.",
+      "evidence": [
+        "repository/docs/reasoning_record.md:4180–4210, especially the three-route table",
+        "repository/docs/reasoning_record.pdf: pages 89–90; page 90 visually inspected"
+      ]
+    },
+    {
+      "id": "LR-045",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "1.1 Certificates that disqualify every other candidate",
+        "quote": "**Dependencies and proof recovery.**"
+      },
+      "severity": "keep",
+      "category": "keep",
+      "finding": "A real roadmap is present. It separates the Forrelation supplier from construction, quantum evaluation, planted lower bound, exponent, and universal upper bound, and explicitly gives the bypass from §§3.1–3.5 to §3.17 for readers who do not need the hardness reconstruction. This resolves the earlier absence-of-roadmap complaint.",
+      "reader_impact": "Experts can choose a proof route according to the ingredient they want to inspect instead of treating the record as compulsory sequential reading.",
+      "suggested_direction": "Retain this dependency map and its explicit skip route; extend it with current companion return links and chapter-level interfaces rather than replacing it with provenance.",
+      "evidence": [
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§1.1, lines 97–113",
+          "detail": "Dependency prose and eight-row linked map."
+        },
+        {
+          "source": "exemplars/long-reasoning-record.md",
+          "locator": "opening lines 31–54; §2.1",
+          "detail": "Comparable clear separation of the primary mathematical route from formal checking."
+        }
+      ]
+    },
+    {
+      "id": "LR-046",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "3.6 The statement and the proof",
+        "quote": "The positive yes condition matters: a large negative value is outside the promise."
+      },
+      "severity": "keep",
+      "category": "keep",
+      "finding": "The Forrelation full-proof destination is locally usable: it reintroduces k, t, m, the Walsh normalization, the one-sided promise, worst-case cap convention, and the exact target before giving a proof map. It does not land in the catalogue or an audit table.",
+      "reader_impact": "Forrelation specialists can check that the supplier matches the construction’s promise immediately; readers entering from the short paper need not reconstruct the definitions from another chapter.",
+      "suggested_direction": "Preserve this statement-first landing and the proof-spine paragraph. Use the same interface pattern for the tournament and classical proof destinations.",
+      "evidence": [
+        {
+          "source": "repository/docs/expert_companion.md",
+          "locator": "§6, line 260",
+          "detail": "Incoming link to #forr_target."
+        },
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§3.6, #forr_target and #forr_proof_spine, lines 869–939",
+          "detail": "Definitions, target, and argument outline are supplied locally."
+        }
+      ]
+    },
+    {
+      "id": "LR-047",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "5.2 A tournament with probabilistic comparisons",
+        "quote": "No independence among these stage failures is needed."
+      },
+      "severity": "keep",
+      "category": "keep",
+      "finding": "The coupling argument states the real and ideal marginal laws, bounds failure only before the dominant vertex has been selected, and explains why later failure cannot remove an existing list entry. These are the delicate points that distinguish this argument from a casual union bound.",
+      "reader_impact": "Quantum-search specialists can see precisely why history-dependent failure probabilities do not invalidate the list guarantee and why exact successful-label sampling is required.",
+      "suggested_direction": "Keep the complete coupling proof together and give it a direct task-specific link in addition to the broader tournament proof link.",
+      "evidence": [
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§5.2, #upper-stage-law, #upper-quantum-tournament, #upper-coupling, lines 2434–2448 and 2496–2534",
+          "detail": "Exact conditional law and stopping point of failure accounting."
+        },
+        {
+          "source": "repository/docs/expert_companion.md",
+          "locator": "§4.2, line 160",
+          "detail": "The short proof correctly summarizes these points."
+        }
+      ]
+    },
+    {
+      "id": "LR-048",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "6.5 A capped simulator for the planted cell",
+        "quote": "The event remains inside the probability."
+      },
+      "severity": "keep",
+      "category": "keep",
+      "finding": "The simulator is capped on every input before any success analysis; the nonheavy-and-correct event is included in its unconditional success event. The adjacent AND example exhibits the failure of the conditional shortcut. This is a strong local explanation of the lower bound’s most easily misread reduction.",
+      "reader_impact": "Direct-product readers can verify that the argument does not condition away its independence or hardness hypotheses, while students have an exact finite counterexample to the tempting alternative.",
+      "suggested_direction": "Preserve the simulator, joint-event inclusion, and counterexample as one linked argument. Make this destination reachable directly from both shorter papers.",
+      "evidence": [
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§6.5, #CL-simulator, #CL-joint-event, #CL-conditioning-counterexample",
+          "detail": "The valid reduction and failed shortcut are adjacent."
+        },
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§6.4, #CL-erased-zero-identity and #CL-selection-independence-example",
+          "detail": "The companion independence warning is also precisely supported."
+        }
+      ]
+    },
+    {
+      "id": "LR-049",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "1. The result",
+        "quote": "the explicit constants $6$ and $1/400$ are proved by a [separate theorem][src-constants]"
+      },
+      "severity": "keep",
+      "category": "keep",
+      "finding": "The draft now distinguishes the compared existential-logarithmic/floor-form family statement from the stronger named-family constants theorem. The supplied Challenge and Solution use one circuit witness for both bounds, and ConstructionFamily.lean states the constants for the same named circuit. This is a successful correction of the earlier evidence overreach.",
+      "reader_impact": "Specialists can see exactly what the four headline comparisons certify without mistaking explicit refinements for the configured type.",
+      "suggested_direction": "Retain this distinction and make the long record’s local claim entries equally easy to inspect.",
+      "evidence": [
+        {
+          "path": "repository/docs/expert_companion.md",
+          "lines": [
+            29,
+            31
+          ]
+        },
+        {
+          "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+          "lines": [
+            328,
+            334
+          ]
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Paper/ConstructionFamily.lean",
+          "lines": [
+            28,
+            40
+          ]
+        }
+      ]
+    },
+    {
+      "id": "LR-050",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "6.7. Formal correspondence",
+        "quote": "even a complete conjunction theorem for (19) does not formalize the early/late proof"
+      },
+      "severity": "keep",
+      "category": "keep",
+      "finding": "The record correctly separates the exact erased-zero identity and bound from the proof route used to establish them. It distinguishes the two whole-display wrappers and does not transfer comparison credit between them. The independent product-law target also exposes the independence of the planting index in its own definitions.",
+      "reader_impact": "Classical lower-bound readers can check the endpoint while retaining the distinction between the paper’s early/late argument and the stronger finite-world induction.",
+      "suggested_direction": "Keep these scope distinctions when shortening the evidence material; preserve links to both the mathematical argument and the exact compared conjunction.",
+      "evidence": [
+        {
+          "path": "repository/docs/reasoning_record.md",
+          "lines": [
+            3784,
+            3801
+          ]
+        },
+        {
+          "path": "repository/lean/QuarticCorpus/Independent/Eq19/Challenge.lean",
+          "lines": [
+            19,
+            24
+          ]
+        },
+        {
+          "path": "repository/lean/QuarticQuery/Paper/Eq19Whole.lean",
+          "lines": [
+            26,
+            35
+          ]
+        },
+        {
+          "path": "repository/corpus/receipts/comparator-round3-eq19-direct-2026-11-02T204814950389+0000.json",
+          "key": "declarations"
+        },
+        {
+          "path": "repository/corpus/receipts/comparator-round3-eq19-independent-2026-11-02T204814950389+0000.json",
+          "key": "declarations"
+        }
+      ]
+    },
+    {
+      "id": "LR-051",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "2.8. Execution evidence and checks of meaning",
+        "quote": "a positive comparison of the deliberately shared bad specification is evidence of agreement, not of a correct model."
+      },
+      "severity": "keep",
+      "category": "keep",
+      "finding": "The shared-impossible-premise example gives a concrete, correctly limited explanation of why agreement with a specification is not semantic fidelity. The corresponding receipt marks the control as accepted_shared_bad_spec_blind_spot, leaves credited paper declarations empty, and explicitly denies that it is a semantic correctness certificate.",
+      "reader_impact": "Experts considering the formalisation’s trust boundary receive a meaningful counterexample rather than a generic assurance that checking is independent.",
+      "suggested_direction": "Preserve the example and the separation of source presence, build, comparison and mathematical interpretation; move run-history detail out of the main mathematical path if needed.",
+      "evidence": [
+        {
+          "path": "repository/docs/reasoning_record.md",
+          "lines": [
+            440,
+            446
+          ]
+        },
+        {
+          "path": "repository/lean/QuarticCorpus/Independent/Controls/SharedAudit.lean",
+          "detail": "Concrete bad comparison predicate cannot realize the expected matrix."
+        },
+        {
+          "path": "repository/corpus/receipts/comparator-round3-shared-bad-spec-blindness-2026-11-02T204814950389+0000.json",
+          "keys": [
+            "negative_control",
+            "declarations",
+            "is_semantic_correctness_certificate"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "LR-052",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "3.5. A complete check of the smallest nontrivial instance",
+        "quote": "the circuit correctly reports that the promise fails."
+      },
+      "severity": "keep",
+      "category": "keep",
+      "finding": "The paired positive, zero and negative Forrelation examples make the one-sided promise operational: the negative extreme has the same projection probability as the positive extreme, yet the exact circuit rejects it. This explains why decoding and certificate verification have different jobs.",
+      "reader_impact": "The original Forrelation authors and readers checking the totalization can see the potential sign/promise mismatch without reading code or trusting a verbal assurance.",
+      "suggested_direction": "Keep the three-row table and its explicit link to the later certificate check. Preserve the sign convention and the clear separation between the finite census and parameterized proofs.",
+      "evidence": [
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§3.5, three examples and the paragraph immediately following the table"
+        },
+        {
+          "source": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/extracted.md",
+          "locator": "§1.1, one-sided promise in equation (1.3)"
+        },
+        {
+          "source": "paper/extracted.md",
+          "locator": "§2.1, equations (3)–(4) and distinct purposes of quantum algorithm and exact circuit"
+        }
+      ]
+    },
+    {
+      "id": "LR-053",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "3.10. Moving the derivative through the blocks",
+        "quote": "Higher uniform degrees remain in this expression."
+      },
+      "severity": "keep",
+      "category": "keep",
+      "finding": "The record explicitly distinguishes an order-k derivative at a biased point from a truncation to uniform Fourier level k. The k=3 calculation, general invariant and formula (F24) expose the delicate mechanism and prevent an attractive but false shortcut.",
+      "reader_impact": "Bansal–Sinha, Girish–Tal–Wu and SSW readers can compare methods without mistakenly concluding that the proof has discarded the higher levels required by the earlier uniform-Fourier analysis.",
+      "suggested_direction": "Keep this explanation adjacent to the derivative identity and preserve a direct link from any short-paper account of the alternative Forrelation route.",
+      "evidence": [
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§3.10, (F18)–(F24)"
+        },
+        {
+          "source": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/extracted.md",
+          "locator": "§1.3 overview and the discussion of Fourier levels k through k(k−1)"
+        },
+        {
+          "source": "https://arxiv.org/html/2103.11604v2",
+          "locator": "§1.3, ordinary decision-tree martingale overview and Lemma 1.9; only this selected passage was read"
+        }
+      ]
+    },
+    {
+      "id": "LR-054",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "3.14. Error reduction and inputs outside the promise",
+        "quote": "Thus no correctness assertion is made on an unpromised input."
+      },
+      "severity": "keep",
+      "category": "keep",
+      "finding": "The pointwise acceptance inequalities and exceptional-mass term in (F41)–(F42) explain why constant-error correctness alone is insufficient for the hard distribution. This is the kind of delicate step the long record should expose in full.",
+      "reader_impact": "Experts checking the lower bound can see precisely how the exponentially small positive-promise mass and off-promise inputs are handled, rather than inferring that the two distributions are supported on opposite promise classes.",
+      "suggested_direction": "Keep the pointwise inequalities, the uniform exceptional-mass term and the explanation of amplification together; keep this separate from elementary tail-bound algebra.",
+      "evidence": [
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§3.13, (F39), and §3.14, (F40)–(F42)"
+        },
+        {
+          "source": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/extracted.md",
+          "locator": "§3, promise-mass statement; §5.4, amplification before the final indistinguishability contradiction"
+        }
+      ]
+    },
+    {
+      "id": "LR-055",
+      "paper": "reasoning_record",
+      "locator": {
+        "section": "3.16. Literature comparison and the scope of the conclusion",
+        "quote": "SSW's rorrelation distribution theorem"
+      },
+      "severity": "keep",
+      "category": "keep",
+      "finding": "The long record properly refuses to transfer random-orthogonal distribution theorems to the explicit Walsh promise. It identifies the external SSW input as the Fourier theorem alone and proves the additional comparison separately. Its distinction between Kewen Wu and Pei Wu also avoids conflating two different antecedents.",
+      "reader_impact": "The authors of the competing lower-bound approaches can tell which parts of their work are used and which are merely compared.",
+      "suggested_direction": "Preserve this scope statement when relocating the optional comparison and use the same distinction in the short companion’s credit sentences.",
+      "evidence": [
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§3.16, paragraph after (F60), and the opening credit paragraph"
+        },
+        {
+          "source": "https://arxiv.org/html/2008.10223v4",
+          "locator": "§§1.1–1.2 and §1.8"
+        },
+        {
+          "source": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/extracted.md",
+          "locator": "Introduction, independent-work discussion, lines 221–227"
+        }
+      ]
+    }
+  ]
+}

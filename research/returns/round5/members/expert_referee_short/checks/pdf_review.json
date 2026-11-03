@@ -1,0 +1,73 @@
+{
+  "schema": "quartic-round5-pdf-review-v1",
+  "method": "Rasterized supplied PDFs for read-only visual inspection; inspected text and annotations with PyMuPDF. No manuscript PDF was rebuilt.",
+  "pdfs": [
+    {
+      "path": "repository/docs/expert_companion.pdf",
+      "sha256": "c8b37b18504969243395f08dfe0147d551ffa0faa5ba420949150df53a33f121",
+      "pages": 13,
+      "all_pages_rasterized": true,
+      "rasterization": "Poppler pdftoppm; maximum dimension 1250 pixels",
+      "all_pages_visually_inspected_in_contact_sheets": true,
+      "additional_larger_resolution_pages": [
+        1,
+        3,
+        5,
+        8,
+        10,
+        11
+      ],
+      "pdf_link_annotations": 129,
+      "word_boxes_outside_physical_page": 0,
+      "word_box_limit": "Physical-page bounds only; not a complete typography or margin-quality guarantee."
+    },
+    {
+      "path": "repository/docs/exposition.pdf",
+      "sha256": "16c85a0f3e063eeb709a7824dc551305d84cb7b09a62c897cecd2bb06c4fb15e",
+      "pages": 13,
+      "all_pages_rasterized": true,
+      "rasterization": "Poppler pdftoppm; maximum dimension 1000 pixels",
+      "all_pages_visually_inspected_in_contact_sheets": true,
+      "additional_larger_resolution_pages": [],
+      "pdf_link_annotations": 67
+    }
+  ],
+  "confirmed_findings": [
+    {
+      "finding": "ER-024",
+      "source": "repository/docs/expert_companion.pdf",
+      "pages": [
+        7,
+        8
+      ],
+      "observation": "The strings ### 5.2 Planting a winner and ### 5.4 The planted cell print inside preceding prose. Both lack a preceding blank line in current Markdown. Confirmed visually and by PDF text extraction."
+    },
+    {
+      "finding": "ER-025",
+      "missing_source": "repository/docs/figures/expert_planted.svg",
+      "rendered_in": "repository/docs/expert_companion.pdf",
+      "page": 8,
+      "figure_visible": true
+    },
+    {
+      "finding": "ER-025",
+      "missing_source": "repository/docs/figures/exposition/fig2_board.svg",
+      "rendered_in": "repository/docs/exposition.pdf",
+      "page": 4,
+      "figure_visible": true
+    },
+    {
+      "finding": "ER-025",
+      "missing_source": "repository/docs/figures/exposition/fig4_planted.svg",
+      "rendered_in": "repository/docs/exposition.pdf",
+      "page": 9,
+      "figure_visible": true
+    }
+  ],
+  "limits": [
+    "No comprehensive visual audit of the long-record PDF.",
+    "No live remote-link validity is inferred from PDF annotations.",
+    "Absence of an SVG from the source ZIP is distinct from absence of the rendered figure.",
+    "Contact-sheet inspection does not establish the correctness of all mathematical content."
+  ]
+}

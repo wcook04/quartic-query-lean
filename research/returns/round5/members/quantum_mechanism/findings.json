@@ -1,0 +1,711 @@
+{
+  "packet": "quantum_mechanism",
+  "source_sha256": {
+    "repository/docs/expert_companion.bib": "c458193dd5c1f5c2af5d33191101f6ee97dcfc691b50a7209c51665bf4baa002",
+    "repository/docs/expert_companion.md": "7af8ec78b3114f2e21ec7d4da667a45f3be4aa67c73ba51838d9fac9a5af7d50",
+    "repository/docs/expert_companion.pdf": "c8b37b18504969243395f08dfe0147d551ffa0faa5ba420949150df53a33f121",
+    "repository/docs/exposition.bib": "2ebc69e6769feb7782e71f3bf80850cc3719083fd611c0c239ada59228a19a0c",
+    "repository/docs/exposition.md": "3991d23ca802e1dd50e8c9217abf869035bac04c5febd5bd40bddf5f71de4dce",
+    "repository/docs/exposition.pdf": "16c85a0f3e063eeb709a7824dc551305d84cb7b09a62c897cecd2bb06c4fb15e"
+  },
+  "findings": [
+    {
+      "id": "QM-001",
+      "paper": "exposition",
+      "locator": {
+        "section": "4. The quantum algorithm: a tournament — Sampling a pivot quantumly",
+        "quote": "Each stage fails with probability at most $\\varepsilon$",
+        "pdf_page": 7
+      },
+      "severity": "high",
+      "category": "error",
+      "finding": "This probability bound is false without the missing history restriction. It holds at an agreed history before the genuine winner has entered the list, because before selection the proof guarantees W/m >= 1/(2m) uniformly over the relevant histories. The text’s own deterministic four-column table sends every weight to zero if the first pivot is column 1. If one attempts another sampler at that history, its success probability is zero and it fails with probability one. Later failure is harmless, as the next clause says, but it is not bounded by epsilon. This is a local quantifier error in the exposition, not a counterexample to the upper-bound theorem.",
+      "reader_impact": "The bounded-amplification and probabilistic-search readers will notice that the success-threshold hypothesis has been applied beyond its scope; students learn a false uniform guarantee and cannot reconstruct the stopped coupling.",
+      "suggested_direction": "Restrict the guarantee to histories before the winner is listed, and explain the existing conditional-on-the-past coupling rather than an unconditional stage union bound. Retain the observation that later termination cannot remove a recorded candidate.",
+      "evidence": [
+        "paper/extracted.md, §3.2, proof of Proposition 3.2, paragraph beginning “Until i* is first selected” (printed p.9).",
+        "repository/docs/reasoning_record.md, §5.2, #upper-coupling: “At those later histories ... the sampler need not have failure probability at most epsilon.”",
+        "repository/docs/exposition.md, §4, cycled-board table, pivot 1 gives W=0."
+      ]
+    },
+    {
+      "id": "QM-002",
+      "paper": "exposition",
+      "locator": {
+        "section": "4. The quantum algorithm: a tournament — Weights instead of an order",
+        "quote": "A stage chooses a pivot $p$ with probability $w_p/W$",
+        "pdf_page": 6
+      },
+      "severity": "high",
+      "category": "missing",
+      "finding": "The exposition never defines what the ideal process does at W=0, nor explicitly says that a reported sampler failure stops the real process and returns its existing list. The displayed toy table immediately reaches W=0 after pivot 1, so “After T stages” otherwise invokes an undefined next distribution 0/0. The same omission obscures termination on zero-inputs and what happens if the list is empty. The companion, preprint and record all supply these rules.",
+      "reader_impact": "A student trying to execute the example encounters an undefined operation on an ordinary branch. Quantum-search readers cannot read a complete all-input, fixed-cap algorithm from this section alone.",
+      "suggested_direction": "Include the existing absorbing-zero convention for the ideal process and the real sampler’s stop-and-return-current-list rule. Specify the eventual Boolean output when no candidate accepts; do not introduce a retry-until-success loop.",
+      "evidence": [
+        "paper/extracted.md, §3.2, proof of Proposition 3.2, equations (12)–(15) and their surrounding instructions; §3.3, “Output one if any listed candidate is accepted.”",
+        "repository/docs/reasoning_record.md, §5.2, #upper-ideal-process and #upper-quantum-tournament; §5.3, #upper-verifier (the empty list produces zero).",
+        "repository/docs/expert_companion.md, §4.2, Ideal process and Exact sampling."
+      ]
+    },
+    {
+      "id": "QM-003",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "3. Where a natural shortcut fails — Table 1, row 2",
+        "quote": "Treat comparisons as bounded-error queries to a fixed tournament"
+      },
+      "severity": "high",
+      "category": "error",
+      "finding": "The deterministic three-cycle offered in this row is not a counterexample to the stated shortcut. A directed three-cycle is itself a fixed tournament, and its exact comparisons have zero error. The alternative example of a comparison at probability 1/2 does obstruct bounded-error access to either fixed orientation. The current row conflates absence of a total order with absence of a uniformly bounded-error orientation. This is a local error in the explanation, not a failure of Proposition 3.",
+      "reader_impact": "King-finding researchers work with cyclic fixed tournaments; they will immediately see that their model already permits the purported counterexample. The conflation makes the novelty claim unreliable.",
+      "suggested_direction": "Separate the two obstructions in the existing discussion: cycles defeat an order-based minimum-finding argument; a missing probability gap defeats uniformly bounded-error access to fixed edge directions. Use the already supplied examples under the appropriate claim.",
+      "evidence": [
+        "repository/docs/expert_companion.md, §3 Table 1 row 2 and §4.2 equation (8).",
+        "repository/docs/reasoning_record.md, §5.2 #upper-comparison-model and #upper-bounded-error-comparison.",
+        "paper/extracted.md, §3 opening and Proposition 3.2: fixed-tournament antecedents are distinguished from unpromised comparison probabilities.",
+        "literature/quartic-lit-hoyer-mosca-dewolf-quantum-search-bounded-error/extracted.md, §1 paragraph beginning “More precisely”: fixed Boolean values f_i and algorithms correct with probability at least 9/10."
+      ]
+    },
+    {
+      "id": "QM-004",
+      "paper": "exposition",
+      "locator": {
+        "section": "4. The quantum algorithm: a tournament — Comparing two columns",
+        "quote": "So $a_{i^\\star j}\\ge1-\\varepsilon$ for every $j$",
+        "pdf_page": 6
+      },
+      "severity": "medium",
+      "category": "error",
+      "finding": "The literal quantifier includes j=i*, but the immediately preceding definition sets a_ii=0 and epsilon<1. The intended statement is for every rival j different from i*. The surrounding prose makes the intent recoverable and the rest of the proof uses only comparisons before the winner itself is selected, so this is a local statement error rather than a failure of the argument.",
+      "reader_impact": "A careful student or referee encounters an avoidable contradiction between the displayed convention and the claimed dominant row.",
+      "suggested_direction": "Exclude the diagonal in this dominance sentence, matching the precise proposition and the companion.",
+      "evidence": [
+        "paper/extracted.md, Proposition 3.2, equation (11), and §3.3 dominance display both state j≠i*.",
+        "repository/docs/expert_companion.md, §4.2, Proposition 3."
+      ]
+    },
+    {
+      "id": "QM-005",
+      "paper": "exposition",
+      "locator": {
+        "section": "4. The quantum algorithm: a tournament — Weights instead of an order",
+        "quote": "Keep a weight $w_i$ for each column, starting at $w_i=1$",
+        "pdf_page": 6
+      },
+      "severity": "medium",
+      "category": "unclear",
+      "finding": "The imperative presents the weights as data maintained by the actual quantum algorithm. They are analytical quantities defined from the unknown input-dependent comparison probabilities; the implementation never estimates or numerically stores them. The later preparation equation realizes the desired distribution implicitly, but this essential distinction is not said. The companion states it explicitly.",
+      "reader_impact": "Students may attribute free access to a_ij or to an exact weight table, defeating the central query-model point. Readers of quantum minimum finding will ask where the probabilities are learned and charged.",
+      "suggested_direction": "Identify the first process as ideal analysis. Explain that the physical algorithm maintains the pivot list without numerically maintaining the weights, and realizes the weighted law using fresh comparison workspaces. Keep the existing product formula as the bridge.",
+      "evidence": [
+        "paper/extracted.md, §3.2, immediately after (12): “The weights only define this ideal process; the algorithm will not compute them numerically.”",
+        "repository/docs/expert_companion.md, §4.2, Exact sampling: “The algorithm never computes the weights.”",
+        "repository/docs/reasoning_record.md, §5.2, #upper-stage-state and #upper-tournament-cost."
+      ]
+    },
+    {
+      "id": "QM-006",
+      "paper": "exposition",
+      "locator": {
+        "section": "4. The quantum algorithm: a tournament — Sampling a pivot quantumly",
+        "quote": "The comparisons are independent, and different values of $i$ are orthogonal",
+        "pdf_page": 7
+      },
+      "severity": "medium",
+      "category": "unclear",
+      "finding": "The independence is conditional on a fixed oracle input, fixed pivot history, and fixed candidate index i. Unconditionally the comparison outcomes share the candidate register and need not be independent. The current wording suppresses the conditioning that permits multiplying the a_ip terms. Fresh registers give a tensor product within each i-block; orthogonality of different i-blocks is the separate reason their probability masses add.",
+      "reader_impact": "Students can conflate independence of repeated uses of a circuit with independence of input data or of all comparison outcomes. Quantum-search readers need the conditional tensor-product assertion to justify the exact label law.",
+      "suggested_direction": "Qualify the independence precisely and distinguish the two operations already present in the proof: multiply probabilities inside a fixed-i block, then sum orthogonal label blocks. No additional independence hypothesis on the input is needed.",
+      "evidence": [
+        "paper/extracted.md, §3.2, equation (15), “Conditional on i” and the paragraph after the display.",
+        "repository/docs/reasoning_record.md, §5.2, #upper-stage-law, especially its final paragraph about a fixed oracle input."
+      ]
+    },
+    {
+      "id": "QM-007",
+      "paper": "exposition",
+      "locator": {
+        "section": "4. The quantum algorithm: a tournament — Sampling a pivot quantumly",
+        "quote": "Amplitude amplification turns this into a sample in about $\\sqrt{m/W}$ preparations.",
+        "pdf_page": 7
+      },
+      "severity": "medium",
+      "category": "unclear",
+      "finding": "This success-probability-dependent cost is juxtaposed with a different procedure: the fixed-threshold, fixed-cap sampler with gamma=1/(2m). The sampler actually analyzed below has an O(sqrt(m) log(1/epsilon)) cap independent of the unknown W. The phrase does not say whether sqrt(m/W) is an intuition, an expected-cost theorem, or the bound of the implemented capped routine; it also drops the error-reduction factor. For W=m the stated fixed mixture can still choose Theta(sqrt(m)) Grover iterations, so it does not have an all-branch O(sqrt(m/W)) cap.",
+      "reader_impact": "Authors of BBHT and BHMT will distinguish success-sensitive expected costs from uniform capped amplification; students could conclude the algorithm knows W or stops according to it.",
+      "suggested_direction": "Label the success-sensitive scaling as intuition if retained, and give the actual fixed-threshold cap at the point where the procedure is selected. Point to the box for the exact-label and all-input guarantees.",
+      "evidence": [
+        "repository/docs/exposition.md, §4, Standard proof: amplification with a fixed cap, J=ceil(10/sqrt(gamma)) and the fixed trial count.",
+        "paper/extracted.md, Lemma 3.1 and §3.2 final cost paragraph.",
+        "repository/docs/reasoning_record.md, §5.1 #upper-grover-trial and §5.2 #upper-tournament-cost."
+      ]
+    },
+    {
+      "id": "QM-008",
+      "paper": "exposition",
+      "locator": {
+        "section": "4. The quantum algorithm: a tournament — Remark: a returned state versus a measured label",
+        "quote": "the final projector is block-diagonal in those retained labels, so no cross terms arise.",
+        "pdf_page": 8
+      },
+      "severity": "medium",
+      "category": "unclear",
+      "finding": "The remark conflates two distinct register roles. The labels carrying law w_i/W are the measured pivot indices. The retained decoded-address labels inside each coherent comparison are what make its measurement probabilities agree with the classical pointer description by block-diagonal projection. Those address labels do not generally have the pivot law. Saying “those retained labels” after “each pivot and candidate” leaves unclear which projector, which labels, and which stage are meant. Once a pivot is actually measured, cross-term cancellation is not the issue between histories.",
+      "reader_impact": "Readers of amplitude amplification need to know what remains coherent and what has been measured; students may infer that the search needs coherent pivot histories or that every decoded label has law w_i/W.",
+      "suggested_direction": "Move the short orthogonality explanation to the comparison construction, name the decoded-address registers there, and keep the later optional remark focused on the stronger returned-subsystem claim versus the measured-pivot interface actually used.",
+      "evidence": [
+        "paper/extracted.md, §3.3, paragraph “These operations prepare a comparison state ... The decoded addresses remain in their registers”.",
+        "repository/docs/reasoning_record.md, §5.3, #upper-comparison-law, and §5.2 #upper-quantum-tournament.",
+        "repository/docs/expert_companion.md, §4.1, decoded labels in orthogonal registers."
+      ]
+    },
+    {
+      "id": "QM-009",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "4.2 A tournament with probabilistic comparisons — Ideal process",
+        "quote": "cycles among losers only make the weights fall faster"
+      },
+      "severity": "medium",
+      "category": "unclear",
+      "finding": "This asserts a comparative acceleration that the displayed calculation does not establish or define. For a fixed weight vector, the conditional expectation is exactly (W²−Σ_i w_i²)/(2W) for every complementary comparison table; it has no dependence on how the off-diagonal orientations form cycles. The point proved is tolerance of arbitrary cycles, not a faster rate caused by them.",
+      "reader_impact": "Minimum-finding and tournament readers will try to identify the comparison process relative to which “faster” is claimed. The sentence gives the drift identity an extra consequence that is neither needed nor proved.",
+      "suggested_direction": "Use the existing equality to explain why no order or transitivity is required, and remove the unsupported comparative claim. No additional theorem is needed.",
+      "evidence": [
+        "repository/docs/expert_companion.md, §4.2 equation (8).",
+        "repository/docs/reasoning_record.md, §5.2 #upper-weight-drift: calculation applies equally to deterministic, cyclic and fractional comparisons.",
+        "paper/extracted.md, §3.2 final paragraph after Proposition 3.2: complementarity alone yields equation (13)."
+      ]
+    },
+    {
+      "id": "QM-010",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "4.2 A tournament with probabilistic comparisons — Proposition 3",
+        "quote": "Let a coherent comparison with cost $c$ satisfy (7)."
+      },
+      "severity": "medium",
+      "category": "unclear",
+      "finding": "The proposition compresses the circuit-access hypothesis more than the subsequent construction can safely bear. The sampler uses the comparison coherently controlled by both candidate indices, reverses the whole preparation, and invokes the same bounded-cost routine on every oracle input. Equation (7) records only off-diagonal complementarity; the diagonal convention and uniform controlled reversible access are carried over informally from the application.",
+      "reader_impact": "Quantum-query readers checking the proposition as a reusable statement need to know what the algorithm is granted before accepting the tensor-product preparation and its inverse. Separate pairwise routines with small query cost are not, without the stated uniform interface, the advertised input to that construction.",
+      "suggested_direction": "Make the existing input interface explicit in the proposition, using the preprint’s controlled-index and retained-workspace hypothesis and the existing a_ii=0 convention. This is a statement clarification; do not add formalisation work.",
+      "evidence": [
+        "paper/extracted.md, Proposition 3.2: comparison circuit controlled by two indices, reversible with all workspace retained, at most c≥1 bit queries.",
+        "repository/docs/reasoning_record.md, §5.2 #upper-comparison-model; §5.4 #upper-oracle-access."
+      ]
+    },
+    {
+      "id": "QM-011",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "4.3 Verification and the query count",
+        "quote": "Decode its address afresh. At that fixed address,"
+      },
+      "severity": "medium",
+      "category": "unclear",
+      "finding": "The phrase “fixed address” silently performs a measurement that is explicit in the preprint and record. The comparison decoder was deliberately coherent and retained its labels, so at this exact transition the reader must know that verification uses a fresh measured address and exact tests conditional on that address. The accept/reject rule after the failed-test search is likewise left implicit.",
+      "reader_impact": "Quantum-query readers may otherwise read the verifier as acting coherently across decoded addresses and wonder which conditional argument justifies the stated one-sided error. This is an algorithm-description ambiguity, not a missing correctness proof.",
+      "suggested_direction": "Name the existing fresh address measurement and the rule that finding a failed test rejects while failure to find one accepts. Point to the all-address local-test dichotomy already proved in §2.",
+      "evidence": [
+        "paper/extracted.md, §3.3 paragraph beginning “For each listed column”: decode and measure the address afresh; reject on a failed test, otherwise accept.",
+        "repository/docs/reasoning_record.md, §5.3 #upper-verifier and #upper-verification-proof.",
+        "repository/docs/expert_companion.md, §2 Local tests: a nonwinning column fails some test at every address."
+      ]
+    },
+    {
+      "id": "QM-012",
+      "paper": "both",
+      "locator": {
+        "section": "Expert companion 4.3 Verification and the query count; exposition 4. The quantum algorithm: a tournament — The count",
+        "quote": "and the $T$ verifications cost less."
+      },
+      "severity": "medium",
+      "category": "missing",
+      "finding": "Both papers explicitly multiply the tournament factors for the exponent-six bound but leave the total verification contribution implicit. The companion says that all T verifications cost less; the exposition displays a per-candidate test cost and then gives the tournament constants. Each verifier also pays for a fresh address decoder. The existing record already separates the two contributions and bounds the total verification cost by O_k(sqrt(m) ell^5), below the deliberately loose overall O_k(sqrt(m) ell^6). This is an omitted accounting step, not a failed asymptotic estimate.",
+      "reader_impact": "A referee checking the explicit headline exponent and a student reproducing its derivation must both reconstruct a second budget. The shorter argument should visibly account for the whole algorithm.",
+      "suggested_direction": "Add the existing verifier contribution to the count, including fresh decoding, or provide a compact budget table referring exactly to #upper-finite-budget and #upper-explicit-log6. Use the record’s coarse O_k(√m ℓ⁵) verifier total to finish the displayed ℓ⁶ budget; do not seek a new bound.",
+      "evidence": [
+        "repository/docs/reasoning_record.md, §5.4 #upper-finite-budget: B_{k,t}=tournament term + T[2a+2N(2M_1+1)c_0].",
+        "repository/docs/reasoning_record.md, §5.4 #upper-explicit-log6: one verifier O_k(2^t(2t)^4), at most O(2t) verifiers.",
+        "repository/docs/expert_companion.md, §2 local tests K=O_k(mℓ³), §4.3 failed-test search cost.",
+        "repository/docs/exposition.md, §4 The count, beginning “Verifying one candidate costs”: the at-most-T multiplier and fresh decoder are not visibly totalled before the exponent-six conclusion."
+      ]
+    },
+    {
+      "id": "QM-013",
+      "paper": "exposition",
+      "locator": {
+        "section": "4. The quantum algorithm: a tournament — Weights instead of an order",
+        "quote": "Each pivot has probability $1/4$, so the expected new total is $3/2$.",
+        "pdf_page": 7
+      },
+      "severity": "medium",
+      "category": "missing",
+      "finding": "The board and first-update table successfully teach cycles, but all displayed weights remain 0 or 1. They therefore illustrate deterministic elimination, not the fractional-weight sampling law that is new here. No numerical example shows a nonuniform conditional next-pivot law surviving amplification. The record already contains exactly that example; there is no need for a new construction. The current deterministic board is valid and should not be described as erroneous.",
+      "reader_impact": "Students can reproduce the cycle while still missing why arbitrary intermediate comparison probabilities require soft weights and why preserving the entire conditional label law matters.",
+      "suggested_direction": "After the deterministic board, use or directly link one existing fractional update from the record’s four-candidate example, including its conditional next-pivot probabilities. Mark it as an abstract comparison example rather than claiming it is the same addressed board.",
+      "evidence": [
+        "repository/docs/reasoning_record.md, §5.2, #upper-cyclic-example: weights (11999/12000,0,0,1), total 23999/12000, conditional probabilities 11999/23999 and 12000/23999.",
+        "repository/docs/exposition.md, §4, cycled-board table and Sampling a pivot quantumly."
+      ]
+    },
+    {
+      "id": "QM-014",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "4. The quantum upper bound — Lemma 2 citations",
+        "quote": "[@BBHT1998, Lemma 2; @BHMT2002]"
+      },
+      "severity": "medium",
+      "category": "credit",
+      "finding": "The bare BHMT citation does not tell the reader which classical amplitude-amplification assertion is imported. The relevant ingredients are the invariant two-dimensional action and successful-component formula; BHMT’s unknown-success QSearch theorem is an expected-cost procedure and is not itself the bounded all-branch wrapper stated here. The record already makes this distinction precisely.",
+      "reader_impact": "Authors of the amplification sources will distinguish the geometry, the unknown-success expected-cost algorithm and the truncation needed for a worst-case cap. A nonspecific citation lets those three roles run together.",
+      "suggested_direction": "Give the existing exact geometry locator (BHMT §2, Lemma 1 and equation (8)) and identify the bounded trial wrapper as the preprint’s Lemma 3.1 formulation. Preserve BBHT §4, Lemma 2 for the averaging identity; do not cite amplitude estimation as the supplier.",
+      "evidence": [
+        "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/extracted.md, §2 Lemma 1, equation (8), Theorem 3 (expected number of applications; runs forever at zero success).",
+        "literature/quartic-ref-11-tight-bounds-on-quantum-searching/extracted.md, §4 Lemma 2 and Theorem 3.",
+        "repository/docs/reasoning_record.md, §5.1 #upper-amplification-statement explicitly distinguishes expected-cost sources from the all-branch construction.",
+        "https://arxiv.org/abs/quant-ph/0005055 — bibliographic/abstract verification only."
+      ]
+    },
+    {
+      "paper": "expert_companion",
+      "locator": {
+        "section": "1.1 Where this sits — comparison-search antecedents",
+        "quote": "relates to quantum minimum finding [@DH1996] and king finding in tournaments [@MPS2023]"
+      },
+      "severity": "medium",
+      "category": "credit",
+      "finding": "The sentence names the two antecedents but leaves their distinct hypotheses and outputs implicit. Dürr–Høyer uses ordered values and a decreasing rank. Mande–Paraashar–Saurabh uses a fixed directed tournament, permits cycles, and returns a king; its coherent sampling marks a deterministic surviving set. Here the guarantee is membership of a dominant candidate in a short list under fractional comparison probabilities. That is the useful comparison for this readership, especially because Table 1 currently conflates cycles with absence of a fixed tournament.",
+      "reader_impact": "The cited minimum-finding and king-finding authors need to see what their methods already allow and which hypothesis is lost. A broad relationship statement makes the new role of fractional weights harder to identify.",
+      "suggested_direction": "Give a compact hypothesis-and-output comparison at the existing citation, with exact theorem/section locators. Preserve the distinction between deterministic cycles, an ordered rank, and arbitrary comparison probabilities; do not add a survey.",
+      "evidence": [
+        "literature/quartic-ref-14-a-quantum-algorithm-for-finding-the-minimu/extracted.md, §§1–2, Theorem 1 and Lemmas 1–2: ordered table values and rank-based threshold sampling.",
+        "literature/quartic-ref-18-randomized-and-quantum-query-complexities/extracted.md, §1.1 Definition 1.1; §1.2.2, second bullet; §4 Observation 4.1, Lemma 4.2 and Theorem 4.4 (arXiv v1).",
+        "MPS published version, Definition 1, Observation 16, Lemma 17 and Theorem 19; https://doi.org/10.4230/LIPIcs.FSTTCS.2023.30. Theorem 19 and the arXiv-v1 Theorem 4.4 are edition-specific locators, not contradictory theorem numbers.",
+        "paper/extracted.md, §1.1 comparison-search paragraph and §3.2 Proposition 3.2; repository/docs/reasoning_record.md, #upper-purpose and #upper-comparison-model."
+      ],
+      "id": "QM-015"
+    },
+    {
+      "paper": "expert_companion",
+      "locator": {
+        "section": "1.1 Where this sits — recent comparison-based constructions",
+        "quote": "the preprint singles out the comparison-based separations of certificate complexity"
+      },
+      "severity": "medium",
+      "category": "credit",
+      "finding": "This reports that two 2026 papers were cited without identifying the concrete mechanisms being compared. Ben-David–Kothari's Lemma 5 makes a virtual candidate list, resolves each edge by exact local checks, finds a candidate through SINK/king finding, and verifies it. Ambainis–Iraids–Kokainis §6 defines a fixed candidate set U(W), searches it with variable-time membership tests, and controls approximate implementations of fixed edge directions. Neither is simply the arbitrary-probability sampler proved here. The draft correctly names certificate complexity, but should explicitly prevent a reader from mistaking those near-quartic C-versus-Q results for the present R-versus-Q separation.",
+      "reader_impact": "The cited 2026 authors would recognise their contribution more readily from the operation inherited and the guarantee changed than from the phrase that the preprint 'singles out' their work.",
+      "suggested_direction": "Replace the indirect bibliographic description with a brief mapping of the existing mechanisms and their limits, citing BDK §3/Lemma 5 and AIK §6.1–6.2/FindSource. Keep C, R and Q distinct and do not imply that the fractional stochastic lemma was already supplied by either source.",
+      "evidence": [
+        "literature/quartic-ref-09-randomized-query-complexity-can-beat-certi/extracted.md, 'Quantum algorithm', Lemma 5 and its three named stages; §1 Theorem 1.",
+        "literature/quartic-ref-05-near-optimal-separations-of-certificate-co/extracted.md, §1; §6.1 equations (3)–(5), Lemma 6.1; §6.2 Lemmas 6.2–6.3 and fixed-versus-approximate membership circuits.",
+        "https://arxiv.org/abs/2609.15063v1 and https://arxiv.org/abs/2609.11664v2: primary edition metadata verified; detailed mechanism assessed from the supplied full texts.",
+        "paper/extracted.md, §1.1 last paragraph explicitly distinguishes certificate complexity from the classical measure R."
+      ],
+      "id": "QM-016"
+    },
+    {
+      "paper": "exposition",
+      "locator": {
+        "section": "Note on preparation — substantive attribution of the comparison method",
+        "quote": "The comparison viewpoint has relatives in quantum minimum finding"
+      },
+      "severity": "medium",
+      "category": "misplaced",
+      "finding": "The quantum comparison antecedents appear only in the preparation note after the mathematical exposition. Section 4 teaches the replacement for minimum/king finding without a local citation explaining that minimum finding assumes an order, king finding already permits deterministic cycles, and the new complication is arbitrary loser–loser probabilities. The note is where a reader expects authorship and AI-use information, not the main attribution of the mechanism.",
+      "reader_impact": "Students miss the distinction between a standard search tool and the particular tournament argument, while cited researchers have to reach the preparation disclosure to learn where their work fits.",
+      "suggested_direction": "Move the mathematical relationship and precise source locators into a short reading note in §4, keeping the preparation note for provenance. Include the existing Høyer–Mosca–de Wolf distinction from the record if mentioning bounded-error search; do not add a full historical survey.",
+      "evidence": [
+        "repository/docs/exposition.md, §4 and Note on preparation; the DH1996/MPS2023/BDK2026/AIK2026 in-text citations occur in the latter.",
+        "repository/docs/reasoning_record.md, #upper-purpose and #upper-bounded-error-comparison already supply the relevant distinctions.",
+        "literature/quartic-lit-hoyer-mosca-dewolf-quantum-search-bounded-error/extracted.md, §1 second paragraph and §3: algorithms approximate fixed Boolean values with a uniform success gap.",
+        "Source locators for DH, MPS, BDK and AIK are provided in sources_and_scope.md."
+      ],
+      "id": "QM-017"
+    },
+    {
+      "id": "QM-018",
+      "paper": "both",
+      "locator": {
+        "section": "Expert companion §4. The quantum upper bound, Lemma 2 proof sketch; exposition §7. What the Lean development checks",
+        "quote": "within the stated cap ([Lean statement][cmp-amplifier])"
+      },
+      "severity": "medium",
+      "category": "lean_link",
+      "finding": "The shared cmp-amplifier link highlights only lines 17–20 of the challenge: the declaration name, scalar hypotheses and `let M`. The type continues through line 52. In particular, the highlighted range does not display the circuit cap (28–29), the designated-register factorization (37–38), the exact success mass (39–40), or the success guarantee (47–48). The link therefore passes a range-exists check while failing the promised quick statement audit.",
+      "reader_impact": "Readers checking the stronger amplification specification cannot see its retained-state conclusion or cost from the advertised exact-lines link; these are precisely the distinctions the discussion asks them to inspect.",
+      "suggested_direction": "Extend the highlight to the complete theorem type, and identify the cap, factorization and probability clauses in the accompanying reading aid. This requires only repairing the route to the existing statement.",
+      "evidence": [
+        "repository/docs/expert_companion.md:131 and reference cmp-amplifier at 343; repository/docs/exposition.md:272 and reference at 284.",
+        "repository/lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean:17–52; the linked range is 17–20.",
+        "repository/docs/lean_links.json, links.cmp-amplifier.lines = [17,20]; LINK_MAP.json reports the range valid because these lines exist, not because they contain the complete type."
+      ]
+    },
+    {
+      "id": "QM-019",
+      "paper": "both",
+      "locator": {
+        "section": "Expert companion §4. The quantum upper bound, final sentence after Lemma 2",
+        "quote": "The upper bound below uses only the law of the measured label, which the formal development of Theorem 1 proves."
+      },
+      "severity": "medium",
+      "category": "lean_link",
+      "finding": "The formal claim actually used by the algorithm has no declaration link, while the immediately preceding, stronger full-state assertion does. A reader cannot follow this sentence to the measured sampling law, its zero-success behavior, or the implementation that reaches the headline proof. The record already distinguishes `Samples.amplify`, the coherent sampling wrapper, the list wrapper and the older Boolean continuation, so this is a navigation omission rather than a missing proof.",
+      "reader_impact": "Amplitude-amplification and quantum-query readers need to tell which state/label interface is sufficient and which implementation the final cap depends on; otherwise they must search several implementations for a conclusion that the prose presents as settled.",
+      "suggested_direction": "Give a direct route to the existing measured-law declaration and to its mathematical interpretation in the record. Identify its evidence level without transferring comparison credit from the stronger amplifier or the headline wrapper.",
+      "evidence": [
+        "repository/docs/expert_companion.md:131; repository/docs/exposition.md:191–192 and 272.",
+        "repository/docs/reasoning_record.md §5.2, anchors upper-quantum-tournament (2496 onward) and upper-coupling (2519 onward): the finite output law and the condition on success mass.",
+        "repository/docs/reasoning_record.md §5.5, anchor upper-current-formal-scope: `Samples.amplify` is the measured Runs interface; `quantum_amplify_samples` and `quantumTournament` are different wrappers; the specified headline dependency root uses the measured/Boolean route."
+      ]
+    },
+    {
+      "id": "QM-020",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "Appendix A. Checking the statement, introductory paragraph and object table",
+        "quote": "This appendix lists everything a reader must read to answer that question."
+      },
+      "severity": "medium",
+      "category": "lean_link",
+      "finding": "The table links quantum program syntax, the query cap and QLe, but omits the program probability semantics `AdaptiveProgram.outputMass` and the projector it uses. Those definitions determine what “succeeds with probability at least 2/3” means; syntax and a syntactic cost bound alone do not establish that interpretation. The definitions themselves are present and readable, so the omission is in the proposed audit route.",
+      "reader_impact": "A specialist auditing the formal quantum model needs to inspect the squared-norm output rule and the sum of the two unnormalised measured branches. Omitting them from a supposedly complete reading list hides the most direct check that Q denotes the intended Born-rule success criterion.",
+      "suggested_direction": "Add the existing output-mass and projection definitions to the audit map, with their precise lines and a short identification of their probabilistic role. Do not expand the proof-assistant tutorial.",
+      "evidence": [
+        "repository/docs/expert_companion.md:283–297: object table has def-adaptive, def-querycap, def-QLe and def-Q but no outputMass or project link.",
+        "repository/lean/QuarticCorpus/Unconditional/Challenge.lean:96–99 (`project`), 118–126 (`AdaptiveProgram.outputMass`), 133–137 (`QLe`).",
+        "repository/corpus/comparator_map.json, declarations.QuarticQuery.AdaptiveProgram.outputMass: identifies the semantics and a record correspondence; no primary gloss is supplied there."
+      ]
+    },
+    {
+      "id": "QM-021",
+      "paper": "exposition",
+      "locator": {
+        "section": "§4. The quantum algorithm: a tournament, “Remark: a returned state versus a measured label”",
+        "quote": "The rotation argument in the box above shows that the full normalised good state is returned (record §5.5)."
+      },
+      "severity": "medium",
+      "category": "lean_link",
+      "finding": "The reference offered for the full returned-state argument points to §5.5, the formal-correspondence discussion. The actual fresh-trial, first-success routing and designated-output-subsystem argument is in §5.1, particularly upper-returned-register. This is a proof-location defect, independent of the status of the newly integrated amplifier.",
+      "reader_impact": "A reader trying to distinguish a pure reduced state from the whole enlarged workspace is taken to evidence accounting instead of the mathematical explanation that settles that distinction.",
+      "suggested_direction": "Point the mathematical assertion to §5.1’s existing returned-register anchor; keep any formal-evidence pointer separate and clearly labelled.",
+      "evidence": [
+        "repository/docs/exposition.md:191.",
+        "repository/docs/reasoning_record.md:2278 and 2294–2308, anchor upper-returned-register: routing the first successful original register and absorbing history phases into the auxiliary factor.",
+        "repository/docs/reasoning_record.md:2802 onward, §5.5. Formal correspondence and the remaining state specification."
+      ]
+    },
+    {
+      "id": "QM-022",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "4.2 A tournament with probabilistic comparisons — Coupling",
+        "quote": "conditional on the entire past"
+      },
+      "severity": "medium",
+      "category": "lean_link",
+      "finding": "The paragraph correctly recognises history-dependent failure, but its only full-proof link lands at the start of the ideal process rather than at the coupling or exact sampler law. The genuinely delicate step is constructing a coupling with the correct real marginal (1−f(L))w_i/W, not merely using a union bound. That construction is supplied in the record but is unnecessarily hard to reach from this sentence.",
+      "reader_impact": "A specialist specifically checking adaptive failure probabilities must navigate past the drift, the dominant-weight estimate, state preparation and the worked example before reaching the supporting argument.",
+      "suggested_direction": "Keep the short expert-level paragraph and link its exact-law and coupling assertions directly to the existing #upper-quantum-tournament and #upper-coupling anchors. No replacement proof is needed in the companion.",
+      "evidence": [
+        "repository/docs/expert_companion.md, §4.2 final link targets #upper-ideal-process.",
+        "repository/docs/reasoning_record.md, §5.2 #upper-quantum-tournament gives Pr[label i]=(1−f(L))w_i/W; #upper-coupling constructs the Bernoulli/pivot coupling and charges disagreement only before the winner is selected."
+      ]
+    },
+    {
+      "id": "QM-023",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "4. The quantum upper bound — Lemma 2 sketch",
+        "quote": "A trial uses $j=0$ with probability $1/2$"
+      },
+      "severity": "low",
+      "category": "wasted",
+      "finding": "The numerical trial recipe, its 9/40 success constant and the implementation-status sentence occupy most of the proof sketch before the new tournament argument starts. The specialist reader needs the bounded all-branch interface and exact conditional state law here; the mixture constants and physical-register certification can be checked at the existing full proof and statement links.",
+      "reader_impact": "BHMT/BBHT readers already know the two-dimensional geometry. Requiring them to follow the trial arithmetic before seeing the fractional-weight mechanism spends attention on the standard part of the proof.",
+      "suggested_direction": "Keep the precise bounded-amplification lemma and the brief reason the successful state is unchanged; move or shorten the numerical recipe and separate the Lean-status sentence from the mathematical flow. Retain a direct locator to the full existing construction.",
+      "evidence": [
+        "repository/docs/reasoning_record.md, §5.1 #upper-grover-trial, #upper-small-probability and #upper-amplification-proof contain the complete numerical recipe.",
+        "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/extracted.md, §2 Lemma 1 and equation (8).",
+        "literature/quartic-ref-11-tight-bounds-on-quantum-searching/extracted.md, §4 Lemma 2."
+      ]
+    },
+    {
+      "id": "QM-024",
+      "paper": "exposition",
+      "locator": {
+        "section": "4. The quantum algorithm: a tournament — The count",
+        "quote": "at most $24001\\cdot2t$ trials per stage",
+        "pdf_page": 8
+      },
+      "severity": "low",
+      "category": "wasted",
+      "finding": "The numerical constant 24001 and the exact rational error check 583/192000 consume attention without teaching the dependence that produces the exponent. The useful improvement over the predecessor is the decomposition into stages, repetitions, comparisons and verification; the constants themselves do not clarify it. Meanwhile the genuinely delicate history-conditioned coupling is compressed to one sentence.",
+      "reader_impact": "Students must decide which numbers to remember; these arbitrary generous constants can obscure the structural reason that only polylogarithmic overhead is paid.",
+      "suggested_direction": "Keep the derivation of the logarithmic exponent and the all-branch cap, but move the exact constant ledger and rational checksum to the existing record or a clearly optional numerical note. Spend the saved space on the stopped-coupling explanation.",
+      "evidence": [
+        "repository/docs/exposition.md, §4, Verification and The count.",
+        "repository/docs/reasoning_record.md, §5.4, #upper-explicit-log6 already preserves every exact constant."
+      ]
+    },
+    {
+      "id": "QM-025",
+      "paper": "both",
+      "locator": {
+        "section": "Expert companion §4. The quantum upper bound, Lemma 2 proof sketch",
+        "quote": "and Comparator accepts that statement."
+      },
+      "severity": "low",
+      "category": "lean_link",
+      "finding": "The amplification acceptance claim links only its Challenge type. The sole comparison configuration linked in the papers and reproduced in Appendix A names exactly the four headline targets, not uniformOpaqueAmplifier. Even treating the new acceptance claim as settled, the reader is not given the route to its own configuration/solution pair. This finding does not infer failure or absence of a run.",
+      "reader_impact": "A reader who wants to reproduce the supplementary state theorem can inadvertently run the headline check and learn nothing about the assertion being inspected.",
+      "suggested_direction": "Attach the existing supplementary theorem’s configuration and solution route to its statement or the evidence reading aid; label the Appendix A command as the headline-bundle check. Keep the prose free of a long run log.",
+      "evidence": [
+        "repository/docs/expert_companion.md:131 and 324–330; repository/docs/exposition.md:270–272.",
+        "repository/lean/QuarticCorpus/Unconditional/comparator.json: theorem_names contains alpha_tot_eq_four, theorem_one_one, cubic_bound_fails and forrelation_lower_bound only.",
+        "repository/lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean:3–8: this is a separate authored agreement target, importing maintained circuit/state vocabulary.",
+        "repository/docs/lean_links.json, cmp-amplifier: declaration/type link is present, but no corresponding configuration is supplied in this entry. The present audit assumes the working-draft acceptance statement, as the brief requests."
+      ]
+    },
+    {
+      "id": "QM-026",
+      "paper": "exposition",
+      "locator": {
+        "section": "§4. The quantum algorithm: a tournament, “The count”",
+        "quote": "with $C_k$ depending only on $k$ (record §5.4)."
+      },
+      "severity": "low",
+      "category": "lean_link",
+      "finding": "The explicit budget is referred to by plain section text, while the only general record link opens the start of a 389-kilobyte Markdown file. The record already has distinct anchors for the finite budget, its log-six simplification and physical compilation. A section-number reference makes the detailed arithmetic and the constant’s dependence unnecessarily hard to reach.",
+      "reader_impact": "Readers following the unusual displayed exponent six must manually search the long record rather than arrive at the promised calculation; this loses the benefit of the existing fine-grained anchors.",
+      "suggested_direction": "Turn this reference into a direct link to upper-explicit-log6, with a nearby route to upper-finite-budget if needed. Apply the same direct-anchor convention to substantive quantum cross-references.",
+      "evidence": [
+        "repository/docs/exposition.md:48 gives a top-of-record link and explains the plain “record §…” convention; line 188 gives the budget reference.",
+        "repository/docs/reasoning_record.md:2746 onward, upper-finite-budget; 2777 onward, upper-explicit-log6.",
+        "Both target anchors were independently located in the supplied current Markdown; no new supporting argument is requested."
+      ]
+    },
+    {
+      "id": "QM-027",
+      "paper": "both",
+      "locator": {
+        "section": "Expert companion 4.1 Comparisons; exposition 4. The quantum algorithm: a tournament — Comparing two columns",
+        "quote": "For an unordered pair $\\{i,j\\}$, sort the indices and run one fixed circuit:"
+      },
+      "severity": "keep",
+      "category": "keep",
+      "finding": "This is the right reason for complementarity. The draft ties opposite reported orientations to one designated circuit and retains decoded labels so the classical mixture description remains valid. It also proves dominance using only the true winner’s decoder, allowing every rival address to be off promise.",
+      "reader_impact": "Quantum-query and tournament readers can audit both complementarity and the off-promise guarantee without an unjustified common deterministic orientation.",
+      "suggested_direction": "Preserve this logic and the separation between exact complementarity and high-probability dominance when tightening the exposition.",
+      "evidence": [
+        "repository/docs/expert_companion.md, §4.1 equation (7) and the following dominance paragraph.",
+        "paper/extracted.md, §3.3.",
+        "repository/docs/reasoning_record.md, §5.3 #upper-comparison-law and #upper-winner-dominates.",
+        "repository/docs/exposition.md, §4 Comparing two columns: the same unordered-pair rule and outward-pointer argument. The diagonal qualification is a separate local correction."
+      ]
+    },
+    {
+      "id": "QM-028",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "4.2 A tournament with probabilistic comparisons — Exact sampling",
+        "quote": "The algorithm never computes the weights."
+      },
+      "severity": "keep",
+      "category": "keep",
+      "finding": "The draft exposes the nonclassical implementation at exactly the right point: weights define an analysis, while fresh comparison workspaces give the product of probabilities and amplification preserves the conditional measured-label distribution. This prevents the hidden assumption that the unknown a_ij are numerically estimated.",
+      "reader_impact": "Amplitude-amplification and query-complexity readers can see why the implementation pays for comparisons rather than for learning the comparison matrix.",
+      "suggested_direction": "Keep the tensor-product display, the joint success-and-label mass and the explicit statement that numerical weights are never computed.",
+      "evidence": [
+        "repository/docs/expert_companion.md, §4.2 equation (9) and following paragraph.",
+        "repository/docs/reasoning_record.md, §5.2 #upper-stage-state and #upper-stage-law."
+      ]
+    },
+    {
+      "id": "QM-029",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "4.2 A tournament with probabilistic comparisons — Coupling",
+        "quote": "and a failure after $i^\\star$ is listed does not remove it."
+      },
+      "severity": "keep",
+      "category": "keep",
+      "finding": "The coupling paragraph correctly charges sampler failure only before the dominant candidate has been listed and allows failure probabilities to depend on the entire history. Later low-success histories do not spoil list membership. This is a well-resolved delicate point from the earlier review.",
+      "reader_impact": "Referees of adaptive quantum algorithms need precisely this restriction; an unconditional per-stage failure claim would be false once the dominant weight has been killed.",
+      "suggested_direction": "Preserve the pre-selection qualification and this later-failure observation, together with the all-input cost claim.",
+      "evidence": [
+        "repository/docs/expert_companion.md, §4.2 Coupling.",
+        "repository/docs/reasoning_record.md, §5.2 #upper-coupling.",
+        "paper/extracted.md, §3.2 coupling paragraph."
+      ]
+    },
+    {
+      "id": "QM-030",
+      "paper": "both",
+      "locator": {
+        "section": "Exposition 4. The quantum algorithm: a tournament — Beating every rival is not winning; expert companion 3. Table 1 and 4.3 Verification",
+        "quote": "A column that dominates the comparisons is only a candidate, and the final verification is logically necessary.",
+        "pdf_page": 6
+      },
+      "severity": "keep",
+      "category": "keep",
+      "finding": "The one-pointer modification in the exposition and its shorter Table 1 counterpart in the companion give a concrete zero-input with a comparison-dominant column. They establish that a comparison winner is only a candidate. The local-test dichotomy then makes verification sound at every address, including meaningless addresses produced off promise. This is a useful resolved issue, not a redundant example.",
+      "reader_impact": "King-finding readers and students alike can otherwise mistake a comparison search result for a certificate that F=1. The present example directly prevents that mistake.",
+      "suggested_direction": "Keep the counterexample and the separate one-sided verification analysis; retain the fresh measured-address clarification recommended above.",
+      "evidence": [
+        "repository/docs/expert_companion.md, §3 Table 1 row 3, §2 Local tests and §4.3.",
+        "repository/docs/reasoning_record.md, §5.3 #upper-verification-proof.",
+        "repository/docs/exposition.md, §2 winning conditions and §4 one-pointer modification.",
+        "paper/extracted.md, §3.3, final candidate verification and Proposition 3.3."
+      ]
+    },
+    {
+      "id": "QM-031",
+      "paper": "both",
+      "locator": {
+        "section": "Expert companion 4. The quantum upper bound — Lemma 2 sketch; exposition 4. returned-state remark and 7. What the Lean development checks",
+        "quote": "The upper bound below uses only the law of the measured label"
+      },
+      "severity": "keep",
+      "category": "keep",
+      "finding": "The draft now distinguishes the exact label law consumed by the separation from the stronger retained-state assertion. That separation is mathematically appropriate and prevents a full-state theorem from being mistaken for an additional premise of the query bound.",
+      "reader_impact": "Amplitude-amplification experts care about designated output registers and density operators; query-complexity experts need to know exactly what the proof actually consumes.",
+      "suggested_direction": "Keep the distinction between the measured-label law used by the bound and the stronger designated-register statement. Link each assertion to its own interface and evidence level.",
+      "evidence": [
+        "repository/docs/expert_companion.md, §4 Lemma 2 sketch.",
+        "repository/docs/reasoning_record.md, §5.1 #upper-returned-register explains the mathematical subsystem distinction; historical formal-status paragraphs are not used as current build evidence.",
+        "repository/docs/exposition.md, §4 returned-state remark and §7 final paragraph: the separation uses measured labels.",
+        "repository/lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean:37–48 states the stronger factorization and success assertions separately."
+      ]
+    },
+    {
+      "id": "QM-032",
+      "paper": "exposition",
+      "locator": {
+        "section": "4. The quantum algorithm: a tournament — Weights instead of an order",
+        "quote": "No transitivity and no margin away from $1/2$ is used.",
+        "pdf_page": 7
+      },
+      "severity": "keep",
+      "category": "keep",
+      "finding": "The cycle figure, update table, and paired-term drift identity now appear together. The exact 3/2 first-step expectation is checked against the general formula, making the absence of a hidden order tangible. This is a substantial resolution of the earlier no-figure and unsignposted-mechanism criticisms.",
+      "reader_impact": "King-finding and minimum-finding readers can immediately locate the algebraic replacement for an ordering assumption; students can check every term in one small example.",
+      "suggested_direction": "Keep the cycle diagram, the comparison-probability convention, and the drift equality together. Any additional fractional example should extend rather than replace this accessible entry point.",
+      "evidence": [
+        "repository/docs/exposition.md, §4, Figure 3, first-update table and displayed drift identity; PDF pp.6–7 visually inspected.",
+        "paper/extracted.md, §3.2, equation (13)."
+      ]
+    },
+    {
+      "id": "QM-033",
+      "paper": "exposition",
+      "locator": {
+        "section": "4. The quantum algorithm: a tournament — Standard proof: amplification with a fixed cap",
+        "quote": "The cap does not depend on knowing $p$",
+        "pdf_page": 7
+      },
+      "severity": "keep",
+      "category": "keep",
+      "finding": "The boxed construction explicitly separates success guarantees from cost guarantees: the number of trials and iteration counts are capped for every p and every branch, including inputs without a winner. It also explains that a successful amplification preserves the marked-label law. These are the two properties the surrounding argument actually needs; the text no longer relies silently on an expected-time search theorem.",
+      "reader_impact": "BBHT and BHMT readers can recognize the source of the rotation calculation and see why the application uses a capped variant. Students are told why totality changes the runtime obligation.",
+      "suggested_direction": "Preserve this contract even if the constant arithmetic is shortened. Keep the exact conditional-label law and input-independent cap in the main logical chain.",
+      "evidence": [
+        "repository/docs/exposition.md, §4, amplification box, PDF p.7 visually inspected.",
+        "paper/extracted.md, §3.1, Lemma 3.1.",
+        "repository/docs/reasoning_record.md, §5.1, #upper-amplification-statement and #upper-amplification-proof."
+      ]
+    },
+    {
+      "id": "QM-034",
+      "paper": "exposition",
+      "locator": {
+        "section": "2. One column, then four — The domain bit is needed",
+        "quote": "A function that checked only value bits would accept this board."
+      },
+      "severity": "keep",
+      "category": "keep",
+      "finding": "The changed-domain-bit board gives the later verifier a precise purpose: accepting an off-promise input is not repaired merely by checking a proposed answer value. Together with the “nonwinner fails ... at every address” conclusion, it establishes why a meaningless decoded label on a total zero-input remains safely checkable.",
+      "reader_impact": "Experts concerned with totalization can inspect the exact promise safeguard; students can see why the domain output is necessary rather than decorative circuit bookkeeping.",
+      "suggested_direction": "Preserve this counterexample and explicitly recall its “every address” consequence when explaining zero-input verification.",
+      "evidence": [
+        "repository/docs/exposition.md, §2, The domain bit is needed and Local tests.",
+        "paper/extracted.md, Lemma 2.2 and the consequences immediately following it."
+      ]
+    },
+    {
+      "id": "QM-035",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "Appendix A. Checking the statement, immediately after the four theorem list",
+        "quote": "The exponent $b$ is existential here."
+      },
+      "severity": "keep",
+      "category": "keep",
+      "finding": "The distinction between the compared existential exponent and the stronger explicit log-six/1/400 family theorem is now stated accurately and linked to the relevant types. This resolves a serious previous risk of attributing stronger constants to the headline comparison.",
+      "reader_impact": "A formal-query-complexity reader can separate the ordinary displayed estimate, the built stronger theorem and the precise compared statement without reverse-engineering the implementation.",
+      "suggested_direction": "Preserve this distinction and the two exact statement links as the prose is shortened.",
+      "evidence": [
+        "repository/docs/expert_companion.md:31, 309 and the source reference definitions thm-headline/src-constants.",
+        "repository/lean/QuarticCorpus/Unconditional/Challenge.lean:328–334: b is existential, and the lower bound is Gvalue < R.",
+        "repository/lean/QuarticQuery/Paper/ConstructionFamily.lean:30–40: the same named circuit has exponent 6 and lower-bound constant 1/400."
+      ]
+    },
+    {
+      "id": "QM-036",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "Appendix A. Checking the statement, “What it does not establish”",
+        "quote": "both sides come from one specification, so a modelling error shared by both would pass."
+      },
+      "severity": "keep",
+      "category": "keep",
+      "finding": "The statement makes the correct residual trust boundary explicit: comparison establishes agreement on a type built from a specification, not that the specification faithfully models the intended mathematics. It also refuses to transfer comparison credit to unconfigured theorems.",
+      "reader_impact": "Readers familiar with proof assistants can understand why the definitions still deserve inspection and why source presence or a nearby passing wrapper is insufficient.",
+      "suggested_direction": "Keep this caveat close to the exact theorem/configuration links; it is useful mathematical evidence guidance, not disposable provenance.",
+      "evidence": [
+        "repository/docs/expert_companion.md:320–322.",
+        "repository/lean/QuarticCorpus/Unconditional/comparator.json and Solution.lean: the four named theorem interfaces and permitted axioms are explicit.",
+        "repository/corpus/comparator_map.json, credit_vocabulary: direct target, statement dependency and historical wrapper credit are expressly separated."
+      ]
+    },
+    {
+      "id": "QM-037",
+      "paper": "both",
+      "locator": {
+        "section": "Expert companion Appendix A. Checking the statement, “Five things to check”, item 5",
+        "quote": "with one $\\mathcal C$ for both bounds."
+      },
+      "severity": "keep",
+      "category": "keep",
+      "finding": "The main formal statement route now uses the actual configured Checked theorem names and exposes the same-circuit quantifier order. A source-level check of Challenge, Solution and comparator.json confirms that the four links name the configured targets rather than implementation declarations merely appearing in their proofs.",
+      "reader_impact": "The reader can rule out a mismatch between the easy quantum family and the hard classical family at the statement level, without reading the large proof development.",
+      "suggested_direction": "Retain the quantifier-order check and the exact four-target route; do not replace it with an unqualified “Lean checked” badge.",
+      "evidence": [
+        "repository/docs/expert_companion.md:299–317; repository/docs/exposition.md:268–270.",
+        "repository/lean/QuarticCorpus/Unconditional/Challenge.lean:328–334 and Solution.lean:22–28: a single existential circuit C occurs in both complexity inequalities.",
+        "repository/lean/QuarticCorpus/Unconditional/comparator.json: exactly the four Checked declarations linked by thm-all/thm-headline/thm-cubic/thm-forrelation.",
+        "repository/corpus/comparator_map.json: challenge entries label these four declarations as direct configured targets, while separately labelling joins to their implementation proofs as historical wrapper-mediated credit."
+      ]
+    },
+    {
+      "paper": "expert_companion",
+      "locator": {
+        "section": "1. The result — display-number convention, applied in §4",
+        "quote": "Displays that match a display of the preprint carry its number after the letter P."
+      },
+      "severity": "keep",
+      "category": "keep",
+      "finding": "The companion now gives the quantum identities their preprint counterparts: equation (7) carries P10, the drift identity (8) carries P13, and the tensor preparation (9) carries P15. These labels are present in the rendered PDF as well as the Markdown. This is a useful resolution of the earlier cross-reference complaint.",
+      "reader_impact": "A referee can compare the compressed quantum argument with the source without searching for renumbered formulas.",
+      "suggested_direction": "Preserve the P-number convention and maintain it when rearranging the quantum section. Combine it with the existing exact record anchors for prose arguments.",
+      "evidence": [
+        "repository/docs/expert_companion.md, §§1 and 4.1–4.2, displays (7)–(9).",
+        "repository/docs/expert_companion.pdf, page 6: visually inspected labels (7) P10, (8) P13 and (9) P15; all 14 P labels were also matched to extracted PDF text.",
+        "paper/extracted.md, §3.2 equations (10), (13), (15)."
+      ],
+      "id": "QM-038"
+    }
+  ]
+}

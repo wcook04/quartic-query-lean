@@ -1,0 +1,1042 @@
+{
+  "packet": "long_record_navigation",
+  "source_sha256": {
+    "repository/docs/expert_companion.bib": "c458193dd5c1f5c2af5d33191101f6ee97dcfc691b50a7209c51665bf4baa002",
+    "repository/docs/expert_companion.md": "7af8ec78b3114f2e21ec7d4da667a45f3be4aa67c73ba51838d9fac9a5af7d50",
+    "repository/docs/expert_companion.pdf": "c8b37b18504969243395f08dfe0147d551ffa0faa5ba420949150df53a33f121",
+    "repository/docs/exposition.bib": "2ebc69e6769feb7782e71f3bf80850cc3719083fd611c0c239ada59228a19a0c",
+    "repository/docs/exposition.md": "3991d23ca802e1dd50e8c9217abf869035bac04c5febd5bd40bddf5f71de4dce",
+    "repository/docs/exposition.pdf": "16c85a0f3e063eeb709a7824dc551305d84cb7b09a62c897cecd2bb06c4fb15e"
+  },
+  "scope": {
+    "task": "Claim-to-formal-evidence navigation audit, not proof verification or manuscript rewrite.",
+    "read_current_markdown": "Record §§1, 2.7–2.8, 3.15–3.18, 4.8, substantial §5 including theorem interfaces and §5.5, substantial §6 including direct-product routes and §6.7, §7.3, Appendix A.6, and central Appendix B rows; expert companion substantially, especially §1, §§4–7 and Appendix A; exposition §7.",
+    "read_lean": "Unconditional Challenge, Solution and configuration in full; Construction Challenge concluding types; ConstructionFull Challenge full type and source wrapper; ConstructionFamily in full; Upper/Bound endpoint and constant declarations; ForrelationLower/Uniform endpoint/threshold passages; ClassicalPlanted equation(19)/(21) declarations and proof bodies; Eq19Whole, Eq19Complete and Independent Eq19 Challenge in full; newest UniformAmplifier, RealizedCaps, ModelZero and Degree target types; all 47 lean_links entries checked for local range availability.",
+    "read_evidence": "All positive target/configuration summaries in comparator_map; central declaration/claim joins; actual root receipt name membership and selected source hashes; all supplied Comparator receipt metadata; current catalogue rows for 13 central claims; selected complete printed quantum tournament types; sidecar snapshot convention.",
+    "sampled_only": "Long record outside the specified passages; source modules absent from the packet were inspected only through supplied type summaries where stated. No PDF visual inspection by this subreview; no literature claims added beyond supplied record locators.",
+    "not_performed": [
+      "Lean compilation",
+      "Comparator execution",
+      "PDF rendering",
+      "fresh native type extraction",
+      "network verification of GitHub target availability"
+    ],
+    "expressly_excluded": "No finding on whether the new amplifier, arbitrary-information transport, zero-cost/degree checks or sharper zero-search build/comparison has completed. Those are accepted as stated for editorial review per READ_ME_FIRST.",
+    "mathematical_error_claim": "None. The high findings are formal-link semantics and reader navigation, not counterexamples to the theorem."
+  },
+  "claim_trace": [
+    {
+      "id": "CE-01",
+      "claim": "Theorem 1.1: alphaTot=4, universal quartic bound, and same-circuit eventual floor family",
+      "record_passages": [
+        "ROOT-RESULT",
+        "ROOT-EVIDENCE-CONVENTION",
+        "ROOT-EXPONENT-CORRESPONDENCE"
+      ],
+      "declarations": [
+        "QuarticQuery.Checked.theorem_one_one",
+        "QuarticQuery.theorem_1_1_unconditional"
+      ],
+      "source_basis": [
+        "Unconditional/Challenge.lean:328–334 and Solution.lean read directly",
+        "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json"
+      ],
+      "comparison_evidence": {
+        "configured_target": "QuarticQuery.Checked.theorem_one_one",
+        "configuration": "repository/lean/QuarticCorpus/Unconditional/comparator.json",
+        "receipt": "repository/corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
+        "observed_status": "passed; paranoid=true"
+      },
+      "boundary": "The target uses existential S,A,b,t0 and one circuit per t for both bounds. It does not state b=6, coefficient 1/400, or explicit threshold 13669k². Receipt examined, no fresh execution. The Challenge/Solution/config bytes match their recorded root hashes."
+    },
+    {
+      "id": "CE-02",
+      "claim": "The explicit real-power family with b=6 and coefficient 1/400",
+      "record_passages": [
+        "ROOT-RESULT",
+        "ROOT-FAMILY-ASSEMBLY",
+        "ROOT-EXPONENT-CORRESPONDENCE"
+      ],
+      "declarations": [
+        "QuarticQuery.Paper.construction_family_named",
+        "QuarticQuery.Paper.construction_equation_two"
+      ],
+      "source_basis": [
+        "repository/lean/QuarticQuery/Paper/ConstructionFamily.lean:30–40,60–80 read directly",
+        "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json"
+      ],
+      "comparison_evidence": {
+        "configured_target": null,
+        "observed_status": "built declaration listed in root receipt; no named comparison recorded for these declarations"
+      },
+      "boundary": "Named forrCircuit, eventual t0, positive constants, and both inequalities are in the same type. Ordinary floor removal relates this to the headline. The explicit 13669k² threshold is an ordinary specialization in record §3.15; do not silently put it in this Lean type."
+    },
+    {
+      "id": "CE-03",
+      "claim": "Construction: winner uniqueness and outward-pointer properties",
+      "record_passages": [
+        "AC-interface",
+        "AC-evidence"
+      ],
+      "declarations": [
+        "QuarticQuery.Checked.winsAt_unique",
+        "QuarticQuery.Checked.existsUnique_gateConsistent",
+        "QuarticQuery.Checked.winner_no_incoming_zero",
+        "QuarticQuery.Checked.winner_finds_zero"
+      ],
+      "source_basis": [
+        "repository/lean/QuarticCorpus/Construction/Challenge.lean:326–342 read directly",
+        "repository/corpus/comparator_map.json"
+      ],
+      "comparison_evidence": {
+        "configuration": "lean/QuarticCorpus/Construction/comparator.json (recorded in map)",
+        "receipt": "repository/corpus/receipts/comparator-Construction-2026-11-02T205620278544+0000.json",
+        "observed_status": "passed; configured targets recovered from comparator map"
+      },
+      "boundary": "These four statements are construction helpers, not the two full parts of Lemma 2.2. Their Challenge bytes match the map hash. The dedicated Construction configuration itself is not supplied in the packet; its names are recorded in the map and receipt."
+    },
+    {
+      "id": "CE-04",
+      "claim": "Lemma 2.2: all tests, count, adaptive depth, arbitrary-index coherence and cap, with support diagnostic",
+      "record_passages": [
+        "CL-local-tests",
+        "CL-local-equivalence",
+        "CL-coherent-tests",
+        "AC-evidence"
+      ],
+      "declarations": [
+        "QuarticQuery.Paper.construction_lemma_2_2_with_support"
+      ],
+      "source_basis": [
+        "repository/lean/QuarticCorpus/Independent/ConstructionFull/Challenge.lean:14–60 read directly",
+        "repository/lean/QuarticQuery/Paper/ConstructionFull.lean read directly",
+        "repository/corpus/comparator_map.json"
+      ],
+      "comparison_evidence": {
+        "configured_target": "QuarticQuery.Paper.construction_lemma_2_2_with_support",
+        "receipt": "repository/corpus/receipts/comparator-round3-construction-support-2026-11-02T204814950389+0000.json",
+        "observed_status": "passed"
+      },
+      "boundary": "The full type includes CircuitRealises and circuit-size premises. The support clause strengthens the printed lemma. Challenge imports maintained vocabulary and is not an independent semantic model. Linked excerpt currently omits the latter half of this type."
+    },
+    {
+      "id": "CE-05",
+      "claim": "Forrelation ingredient conjunction, including coherent decoder and exact circuit",
+      "record_passages": [
+        "forr_bundle"
+      ],
+      "declarations": [
+        "QuarticQuery.Paper.construction_lemma_2_1_complete",
+        "QuarticQuery.Paper.construction_lemma_2_1_ii_complete"
+      ],
+      "source_basis": [
+        "repository/docs/reasoning_record_correspondence.json/current_catalogue_snapshot/rows[id=lem-2.1] and rows[id=lem-2.1.ii] inspected",
+        "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json"
+      ],
+      "comparison_evidence": {
+        "configured_target": null,
+        "observed_status": "root receipt lists the declarations; catalogue records no named comparison for these conjunctions"
+      },
+      "boundary": "Complete source files are not included in this packet; source/type information was read in the supplied correspondence, not freshly compiled. Record §3.17 correctly distinguishes generic compiled 2qk count and ordinary qk phase construction; it also distinguishes eventual formal threshold from explicit ordinary threshold."
+    },
+    {
+      "id": "CE-06",
+      "claim": "Forrelation fixed-k lower bound Lvalue<R(P)",
+      "record_passages": [
+        "forr_target",
+        "forr_validation_scope",
+        "forr_bundle"
+      ],
+      "declarations": [
+        "QuarticQuery.Checked.forrelation_lower_bound",
+        "QuarticQuery.ForrelationLower.bansalSinhaLower"
+      ],
+      "source_basis": [
+        "Unconditional/Challenge.lean:305–309,340 and Solution.lean:38–41 read directly",
+        "repository/corpus/comparator_map.json"
+      ],
+      "comparison_evidence": {
+        "configured_target": "QuarticQuery.Checked.forrelation_lower_bound",
+        "configuration": "repository/lean/QuarticCorpus/Unconditional/comparator.json",
+        "receipt": "repository/corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
+        "observed_status": "passed; paranoid=true"
+      },
+      "boundary": "BansalSinhaLower is a proposition, proved by the solution; it is not an open assumption of this target. Configured target is the Checked wrapper. Its type has an existential threshold, unlike the separate uniform theorem."
+    },
+    {
+      "id": "CE-07",
+      "claim": "Uniform numerical Forrelation bound 2/18225 with 15k+2<=2t",
+      "record_passages": [
+        "forr_uniform_assembly",
+        "forr_threshold",
+        "forr_validation_scope"
+      ],
+      "declarations": [
+        "QuarticQuery.forrelation_lower_uniform_sharp"
+      ],
+      "source_basis": [
+        "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean:527–533 read directly",
+        "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json"
+      ],
+      "comparison_evidence": {
+        "configured_target": null,
+        "observed_status": "source bytes match root receipt; declaration listed; no named Comparator target in supplied map"
+      },
+      "boundary": "The k,t dimension restriction and natural logarithm are explicit in the source. The record labels the 13669k² specialization and external Fourier comparison as ordinary deductions. These are not the same type as the fixed-k compared target."
+    },
+    {
+      "id": "CE-08",
+      "claim": "Bounded amplification with the full normalized successful register",
+      "record_passages": [
+        "upper-amplification-statement",
+        "upper-amplification-proof"
+      ],
+      "declarations": [
+        "QuarticQuery.Upper.uniformOpaqueAmplifier"
+      ],
+      "source_basis": [
+        "repository/lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean:17–52 read directly",
+        "expert_companion §4; exposition §7"
+      ],
+      "comparison_evidence": {
+        "observed_status": "new comparison accepted as stated for editorial review under READ_ME_FIRST; execution status not audited"
+      },
+      "boundary": "Type visibly contains input-independent selector V, query-cap clause and retainedProduct factorization with exact mass. Older record formal-gap discussion is excluded from findings under the packet rule about the parallel rebuild. Highlighted link 17–20 is incomplete even though the target exists."
+    },
+    {
+      "id": "CE-09",
+      "claim": "Tournament drift identity and halving",
+      "record_passages": [
+        "upper-weight-drift"
+      ],
+      "declarations": [
+        "QuarticQuery.Checked.expected_weight_eq",
+        "QuarticQuery.Checked.expected_weight_le_half"
+      ],
+      "source_basis": [
+        "repository/corpus/comparator_map.json/challenges[path=lean/QuarticCorpus/Tournament/Challenge.lean]",
+        "repository/corpus/receipts/comparator-Tournament-2026-11-02T210431678518+0000.json"
+      ],
+      "comparison_evidence": {
+        "configured_targets": [
+          "QuarticQuery.Checked.expected_weight_eq",
+          "QuarticQuery.Checked.expected_weight_le_half"
+        ],
+        "observed_status": "passed, according to supplied receipt and map"
+      },
+      "boundary": "The relevant Challenge is not supplied; comparison scope read from metadata, not source reinspection. These drift targets do not by themselves compare the bounded-list sampler or entire quantum upper bound."
+    },
+    {
+      "id": "CE-10",
+      "claim": "Tournament bounded-list witness, membership law, and 6072 cost bound",
+      "record_passages": [
+        "upper-tournament-cost",
+        "upper-tournament-evidence",
+        "upper-current-formal-scope"
+      ],
+      "declarations": [
+        "QuarticQuery.Paper.quantumTournament",
+        "QuarticQuery.Paper.quantumTournament_list",
+        "QuarticQuery.Paper.quantumTournament_cost"
+      ],
+      "source_basis": [
+        "repository/docs/reasoning_record_correspondence.json/returned_correspondence[return=05_quantum_upper]/records[passage=upper-tournament-cost or upper-tournament-evidence]/complete_lean_types (complete source and printed types read)",
+        "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json"
+      ],
+      "comparison_evidence": {
+        "configured_target": null,
+        "observed_status": "built names listed in root receipt; no exact-name comparison supplied"
+      },
+      "boundary": "Quantifier order chooses law and cap before x and dominant s; list membership is not an oracle given to the algorithm. The record distinguishes the list wrapper from the older Boolean continuation used by the headline proof. Original module bytes are not supplied; reviewed printed types were read."
+    },
+    {
+      "id": "CE-11",
+      "claim": "Decoding, comparison, verification and fixed-k quantum budget",
+      "record_passages": [
+        "upper-section-interface",
+        "upper-finite-budget",
+        "upper-asymptotic-bound",
+        "upper-explicit-log6",
+        "upper-current-formal-scope"
+      ],
+      "declarations": [
+        "QuarticQuery.Paper.quantumDecode_correct",
+        "QuarticQuery.Paper.quantumComparison_state",
+        "QuarticQuery.Paper.quantumWinner_dominates",
+        "QuarticQuery.Paper.quantumVerify",
+        "QuarticQuery.Paper.quantumError_bound",
+        "QuarticQuery.Upper.Fkm_forrCircuit_QLe",
+        "QuarticQuery.Upper.Q_Fkm_le",
+        "QuarticQuery.Upper.budget_le"
+      ],
+      "source_basis": [
+        "repository/lean/QuarticQuery/Upper/Bound.lean:87–90,272–280 read directly",
+        "repository/docs/reasoning_record_correspondence.json/returned_correspondence[return=05_quantum_upper]",
+        "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json"
+      ],
+      "comparison_evidence": {
+        "configured_target": null,
+        "observed_status": "recorded build support, no own named comparison for these helpers"
+      },
+      "boundary": "All-input cap survives off promise; correctness only uses promises where stated. Final Bound source was read; earlier decoder/verification relationships were sampled via record and correspondence. No blanket independent re-audit of all physical proof modules is claimed."
+    },
+    {
+      "id": "CE-12",
+      "claim": "Explicit growth of the quantum budget in k",
+      "record_passages": [
+        "upper-explicit-log6"
+      ],
+      "declarations": [
+        "QuarticQuery.Upper.budgetConst_le_exponential",
+        "QuarticQuery.Upper.Q_Fkm_le_exponential"
+      ],
+      "source_basis": [
+        "repository/lean/QuarticQuery/Upper/Bound.lean:67–68,287–290 read directly",
+        "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json"
+      ],
+      "comparison_evidence": {
+        "configured_target": null,
+        "observed_status": "names listed in the root-build receipt; source hash matches; no named comparison in supplied map"
+      },
+      "boundary": "These existing declarations expose 2^53 k 2^(10k); budget_le alone does not. The explicit sequence deduction is separately labelled ordinary mathematics in the short draft."
+    },
+    {
+      "id": "CE-13",
+      "claim": "Separately capped direct product and jointly independent external randomness",
+      "record_passages": [
+        "CL-direct-product-statement",
+        "CL-weighted-values",
+        "CL-weighted-product",
+        "CL-independent-information",
+        "CL-literature-and-verification"
+      ],
+      "declarations": [
+        "QuarticQuery.direct_product",
+        "QuarticQuery.direct_product_average",
+        "QuarticQuery.direct_product_randomized",
+        "QuarticQuery.Paper.classical_direct_product_average",
+        "QuarticQuery.direct_product_external_finite_realized_caps"
+      ],
+      "source_basis": [
+        "repository/docs/reasoning_record_correspondence.json/current_catalogue_snapshot/rows[id=lem-4.1]",
+        "repository/lean/QuarticCorpus/Independent/RealizedCaps/Challenge.lean:18–27 read directly",
+        "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json"
+      ],
+      "comparison_evidence": {
+        "observed_status": "older finite helpers listed in root receipt; newest finite realized-cap target accepted as stated for editorial review; new execution status excluded"
+      },
+      "boundary": "The new target quantifies a finite external seed and bounds successful compliant paths. Ordinary finite-behaviour aggregation explains arbitrary independent randomness. No new pushforward theorem or formalization request is made here; per README, parallel comparison status is outside findings."
+    },
+    {
+      "id": "CE-14",
+      "claim": "Equation (19): hit probability equals EZ/m and is <=4G/m²",
+      "record_passages": [
+        "CL-early-late",
+        "CL-zero-worlds",
+        "CL-zero-average",
+        "CL-formal-scope"
+      ],
+      "declarations": [
+        "QuarticQuery.Paper.eq19_whole",
+        "QuarticQuery.Paper.eq_19_complete",
+        "QuarticQuery.Independent.Eq19.checked_eq19"
+      ],
+      "source_basis": [
+        "repository/lean/QuarticQuery/Paper/Eq19Whole.lean and Eq19Complete.lean read directly",
+        "repository/lean/QuarticCorpus/Independent/Eq19/Challenge.lean read directly"
+      ],
+      "comparison_evidence": {
+        "configured_targets": [
+          "QuarticQuery.Paper.eq19_whole",
+          "QuarticQuery.Independent.Eq19.checked_eq19"
+        ],
+        "receipts": [
+          "repository/corpus/receipts/comparator-round3-eq19-direct-2026-11-02T204814950389+0000.json",
+          "repository/corpus/receipts/comparator-round3-eq19-independent-2026-11-02T204814950389+0000.json"
+        ],
+        "observed_status": "passed for those two; eq_19_complete has build support only"
+      },
+      "boundary": "Both clauses are in each complete type, with normalized nonnegative μ and a tree-depth cap. The m=2^ℓ interface includes m=4^t. No hardness premise is needed. Alternative zero-search proof route is separate from early/late derivation."
+    },
+    {
+      "id": "CE-15",
+      "claim": "Simulator joint-event bound, cell bound and classical eventual lower bound",
+      "record_passages": [
+        "CL-simulator",
+        "CL-discrepancy",
+        "CL-concrete-lower",
+        "CL-formal-scope"
+      ],
+      "declarations": [
+        "QuarticQuery.Paper.eq_21",
+        "QuarticQuery.Paper.prop_4_2",
+        "QuarticQuery.Paper.prop_4_2_forrCircuit",
+        "QuarticQuery.Checked.addressed_lower_bound"
+      ],
+      "source_basis": [
+        "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean:342–348 read directly",
+        "repository/docs/reasoning_record_correspondence.json/current_catalogue_snapshot/rows[id=prop-4.2] and rows[id=prop-4.2-generic]",
+        "repository/corpus/comparator_map.json",
+        "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json"
+      ],
+      "comparison_evidence": {
+        "configured_target": "QuarticQuery.Checked.addressed_lower_bound (generic conditional endpoint only)",
+        "receipt": "repository/corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
+        "observed_status": "generic endpoint compared; per-time helper and eventual wrappers built without own named comparison"
+      },
+      "boundary": "Per-time event is under the original law, not conditioned on nonheavy. Generic hardness premises remain in that theorem; unconditional eventual wrappers discharge Forrelation separately. Full Section4 source is absent, so its type summary comes from correspondence."
+    },
+    {
+      "id": "CE-16",
+      "claim": "Exponent ratio, exclusion of all smaller powers, and alphaTot=4",
+      "record_passages": [
+        "ROOT-RATIO",
+        "ROOT-NO-SMALLER",
+        "ROOT-EXPONENT-CORRESPONDENCE"
+      ],
+      "declarations": [
+        "QuarticQuery.Paper.classical_Fkm_ratio",
+        "QuarticQuery.exists_nat_exponent",
+        "QuarticQuery.not_universalPower_of_family",
+        "QuarticQuery.alphaTot_eq_four_of",
+        "QuarticQuery.Checked.alpha_tot_eq_four",
+        "QuarticQuery.Checked.cubic_bound_fails"
+      ],
+      "source_basis": [
+        "repository/docs/reasoning_record_correspondence.json/current_catalogue_snapshot/rows[id=claim-exponent-ratio]",
+        "repository/lean/QuarticCorpus/Unconditional/Challenge.lean:326,336–338 read directly",
+        "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json"
+      ],
+      "comparison_evidence": {
+        "configured_targets": [
+          "QuarticQuery.Checked.alpha_tot_eq_four",
+          "QuarticQuery.Checked.cubic_bound_fails"
+        ],
+        "receipt": "repository/corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
+        "observed_status": "endpoint targets passed; explicit quotient helper built, not separately compared"
+      },
+      "boundary": "Fixed k is chosen after alpha, then t grows; no shared threshold in k is inferred from the fixed-k endpoint. Intermediate binder discharge and the distinct growing-k remark remain separate questions."
+    },
+    {
+      "id": "CE-17",
+      "claim": "Universal quartic upper bound and the Appendix A proof routes",
+      "record_passages": [
+        "R3-A-RESULT",
+        "R3-A-ASSEMBLY",
+        "R3-A-FORMAL"
+      ],
+      "declarations": [
+        "QuarticQuery.Checked.universal_quartic_bound",
+        "QuarticQuery.universalPower_four",
+        "QuarticQuery.Paper.appendixA_theoremA1",
+        "QuarticQuery.R_le_D_le_one_add_Q_pow_four"
+      ],
+      "source_basis": [
+        "repository/corpus/comparator_map.json",
+        "repository/docs/reasoning_record_correspondence.json/current_catalogue_snapshot/rows[id=thm-A.1]",
+        "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json"
+      ],
+      "comparison_evidence": {
+        "configured_target": "QuarticQuery.Checked.universal_quartic_bound",
+        "receipt": "repository/corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
+        "observed_status": "universal membership endpoint compared; appendix-specific helpers built without separate exact-name comparison"
+      },
+      "boundary": "The record clearly distinguishes complexitylib coefficient 20736, literal appendix coefficient 1500625 and hybrid coefficient 19600. The compared membership proposition does not certify each intermediate appendix statement. Relevant implementation files are not supplied; metadata and record were inspected."
+    }
+  ],
+  "lean_link_range_audit": [
+    {
+      "id": "cmp-amplifier",
+      "path": "repository/lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean",
+      "range": [
+        17,
+        20
+      ],
+      "pinned": false,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "theorem uniformOpaqueAmplifier",
+      "semantic_issue": "Selected lines stop before the conclusion; full type continues to line 52."
+    },
+    {
+      "id": "cmp-degree",
+      "path": "repository/lean/QuarticCorpus/Independent/Degree/Challenge.lean",
+      "range": [
+        14,
+        20
+      ],
+      "pinned": false,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "theorem checked_degree_conventions {n : ℕ} (f : (Fin n → Bool) → Bool) :"
+    },
+    {
+      "id": "cmp-direct-product",
+      "path": "repository/lean/QuarticCorpus/Independent/RealizedCaps/Challenge.lean",
+      "range": [
+        18,
+        25
+      ],
+      "pinned": false,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "theorem direct_product_external_finite_realized_caps"
+    },
+    {
+      "id": "cmp-eq11",
+      "path": "repository/lean/QuarticCorpus/Independent/Eq19/Challenge.lean",
+      "range": [
+        19,
+        24
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "theorem checked_eq19 {κ : Type} [Fintype κ] [DecidableEq κ]"
+    },
+    {
+      "id": "cmp-lemma22",
+      "path": "repository/lean/QuarticCorpus/Construction/Challenge.lean",
+      "range": null,
+      "pinned": true,
+      "local_exists": true,
+      "semantic_issue": "Target contains construction helper theorems, not complete Lemma 2.2 parts."
+    },
+    {
+      "id": "cmp-lemma22-full",
+      "path": "repository/lean/QuarticCorpus/Independent/ConstructionFull/Challenge.lean",
+      "range": [
+        14,
+        41
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "theorem construction_lemma_2_2_with_support {k t : ℕ}",
+      "semantic_issue": "Selected lines omit coherent/physical clauses; full type continues to line 60."
+    },
+    {
+      "id": "cmp-negative",
+      "path": "repository/lean/QuarticCorpus/Negative",
+      "range": null,
+      "pinned": true,
+      "local_exists": false,
+      "boundary": "Directory target is not included in this packet; no inference that public GitHub target is broken."
+    },
+    {
+      "id": "cmp-zero-cost",
+      "path": "repository/lean/QuarticCorpus/Independent/ModelZero/Challenge.lean",
+      "range": [
+        11,
+        14
+      ],
+      "pinned": false,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "theorem checked_zero_query_characterization {ι : Type} [Fintype ι] (f : PartialBool ι) :"
+    },
+    {
+      "id": "def-F",
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "range": [
+        280,
+        285
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "/-- `F_{k,m}` for `m = 4 ^ t`: `ℓ = log₂ m = 2t` and `r = ⌈20 log₂ m⌉ = 40t`."
+    },
+    {
+      "id": "def-G",
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "range": [
+        302,
+        303
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "/-- `G = ⌊mL/100⌋`, equation (17). -/"
+    },
+    {
+      "id": "def-L",
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "range": [
+        297,
+        300
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "/-- `L = ⌊m^(1-1/k) / (log₂ m)²⌋`, equation (5). -/"
+    },
+    {
+      "id": "def-P",
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "range": [
+        175,
+        182
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "/-- Equation (4) with `δ = 2^(-5k)`, written as the exact integer tests of"
+    },
+    {
+      "id": "def-Q",
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "range": [
+        139,
+        140
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "noncomputable def Q {ι : Type} [Fintype ι] (f : PartialBool ι) : ℕ :="
+    },
+    {
+      "id": "def-QLe",
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "range": [
+        133,
+        137
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "def QLe {ι : Type} [Fintype ι] (f : PartialBool ι) (budget : ℕ) : Prop :="
+    },
+    {
+      "id": "def-R",
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "range": [
+        71,
+        74
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "/-- Randomized query complexity. `sInf ∅ = 0` in `ℕ`, so every lower bound is"
+    },
+    {
+      "id": "def-RLe",
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "range": [
+        62,
+        65
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "/-- Error at most 1/3 on every promised input within `budget` queries. -/"
+    },
+    {
+      "id": "def-adaptive",
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "range": [
+        101,
+        107
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "/-- Finite classical control over unitary steps, oracle calls and binary"
+    },
+    {
+      "id": "def-alpha",
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "range": [
+        317,
+        318
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "/-- `α_tot`, equation (1). -/"
+    },
+    {
+      "id": "def-bansal-sinha",
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "range": [
+        305,
+        309
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "/-- The external input of Lemma 2.1(i): the Bansal–Sinha randomized lower bound"
+    },
+    {
+      "id": "def-basis",
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "range": [
+        84,
+        87
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "abbrev Basis (ι : Type) (workspace : ℕ) := ι × Bool × Fin (workspace + 1)"
+    },
+    {
+      "id": "def-bitloc",
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "range": [
+        232,
+        238
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "/-- The four kinds of input bit: the strings `X_i`; the strings `A_{i,h}`; the"
+    },
+    {
+      "id": "def-circuit",
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "range": [
+        190,
+        199
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "structure Gate (ι : Type) (earlier : ℕ) where"
+    },
+    {
+      "id": "def-comparison",
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "range": [
+        289,
+        293
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "/-- Equation (10): comparison probabilities are complementary, and no candidate"
+    },
+    {
+      "id": "def-numerator",
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "range": [
+        160,
+        166
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "/-- `N = z₁ᵀ W D_{z₂} W ⋯ W D_{z_k} (1, …, 1)ᵀ`, expanded over paths. -/"
+    },
+    {
+      "id": "def-oracle",
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "range": [
+        89,
+        94
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "/-- `O_x |i, b, z⟩ = |i, b ⊕ x_i, z⟩`. The oracle is an involution, so"
+    },
+    {
+      "id": "def-partial",
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "range": [
+        18,
+        19
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "/-- `none` marks an input outside the promise. -/"
+    },
+    {
+      "id": "def-querycap",
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "range": [
+        109,
+        116
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "/-- The query cap is syntactic: it bounds every branch on every input, including"
+    },
+    {
+      "id": "def-randomized",
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "range": [
+        46,
+        60
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "/-- A finite mixture of decision trees. Every tree in the mixture has positive"
+    },
+    {
+      "id": "def-realises",
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "range": [
+        215,
+        221
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "/-- Lemma 2.1(iii): `d = 1` iff the function is defined, and `d = 1` implies"
+    },
+    {
+      "id": "def-totalise",
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "range": [
+        21,
+        22
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "def totalise {ι : Type} (f : TotalBool ι) : PartialBool ι :="
+    },
+    {
+      "id": "def-tree",
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "range": [
+        33,
+        44
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "inductive QueryTree (ι : Type) where"
+    },
+    {
+      "id": "def-universal",
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "range": [
+        311,
+        315
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "/-- The membership condition of equation (1). -/"
+    },
+    {
+      "id": "def-wins",
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "range": [
+        262,
+        272
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "/-- Column `i` is a winner with true address `s`: `X_i` is all ones, every"
+    },
+    {
+      "id": "src-budget",
+      "path": "repository/lean/QuarticQuery/Upper/Bound.lean",
+      "range": [
+        86,
+        90
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "/-- Ledger: claim-tournament-cost, prop-3.3. The query count of the algorithm. -/",
+      "semantic_issue": "For the growing-k remark, source line range lacks explicit dependence on k; use existing lines 67–68 and 287–290."
+    },
+    {
+      "id": "src-constants",
+      "path": "repository/lean/QuarticQuery/Paper/ConstructionFamily.lean",
+      "range": [
+        28,
+        40
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "/-- Ledger: eq-2. Stronger explicit version: the same named circuit satisfies"
+    },
+    {
+      "id": "src-forrelation-uniform",
+      "path": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+      "range": [
+        525,
+        532
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "/-- For every `k ≥ 2` and `m = 4^t ≥ 2^(15k+2)`, the uniform lower bound"
+    },
+    {
+      "id": "src-per-time",
+      "path": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+      "range": [
+        340,
+        348
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "/-- Ledger: eq-21. The paper's per-column, per-time joint-event inequality under"
+    },
+    {
+      "id": "src-reach",
+      "path": "repository/lean/scripts/Reach.lean",
+      "range": null,
+      "pinned": true,
+      "local_exists": true
+    },
+    {
+      "id": "src-zero-successor",
+      "path": "repository/lean/QuarticQuery/LowerBound/Planted/ZeroSearchSuccessor.lean",
+      "range": [
+        17,
+        22
+      ],
+      "pinned": false,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "theorem zero_search_sum_successor (e : α → ι) (he : Function.Injective e) (c : ι → Bool)"
+    },
+    {
+      "id": "src-zero-two",
+      "path": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+      "range": [
+        213,
+        219
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "/-- Ledger: eq-19. The source's stronger coefficient two, now averaged also over"
+    },
+    {
+      "id": "statement-config",
+      "path": "repository/lean/QuarticCorpus/Unconditional/comparator.json",
+      "range": null,
+      "pinned": true,
+      "local_exists": true
+    },
+    {
+      "id": "statement-file",
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "range": null,
+      "pinned": true,
+      "local_exists": true
+    },
+    {
+      "id": "thm-all",
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "range": [
+        326,
+        340
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "theorem alpha_tot_eq_four : alphaTot = 4 := by"
+    },
+    {
+      "id": "thm-alpha",
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "range": [
+        326,
+        326
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "theorem alpha_tot_eq_four : alphaTot = 4 := by"
+    },
+    {
+      "id": "thm-cubic",
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "range": [
+        336,
+        338
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "theorem cubic_bound_fails :"
+    },
+    {
+      "id": "thm-forrelation",
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "range": [
+        340,
+        340
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "theorem forrelation_lower_bound : BansalSinhaLower := by"
+    },
+    {
+      "id": "thm-headline",
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "range": [
+        328,
+        334
+      ],
+      "pinned": true,
+      "local_exists": true,
+      "range_within_file": true,
+      "first_selected_line": "theorem theorem_one_one :"
+    }
+  ],
+  "selected_source_hash_checks": [
+    {
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "sha256": "c88be0b70754cb6f93448694002a16e1eb6a25135fa71648d4651f01104e399d",
+      "matches_supplied_root_receipt": true
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Unconditional/Solution.lean",
+      "sha256": "19725ad42b615a8881db00417ee6375c8982b0de08e618f06f901fe4db2e2cd3",
+      "matches_supplied_root_receipt": true
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Unconditional/comparator.json",
+      "sha256": "fbaaee77d1b1a3daff788267ec15963ea06a6340a219a2da890c8c9642998dd7",
+      "matches_supplied_root_receipt": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Paper/ConstructionFamily.lean",
+      "sha256": "b7e1203086e38c00b964355ac71537a7fc5be7053d537ccd56cba8017cdd085a",
+      "matches_supplied_root_receipt": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Upper/Bound.lean",
+      "sha256": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303",
+      "matches_supplied_root_receipt": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+      "sha256": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+      "matches_supplied_root_receipt": true
+    },
+    {
+      "path": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+      "sha256": "d6bc1f4399394810fca63abdaadd67a420616371c501ab978841898f2bda049c",
+      "matches_supplied_root_receipt": true
+    }
+  ],
+  "schema": "quartic-round5-formal-claim-trace-v1",
+  "related_findings": [
+    "LR-002",
+    "LR-005",
+    "LR-013",
+    "LR-014",
+    "LR-015",
+    "LR-032",
+    "LR-043",
+    "LR-044",
+    "LR-045"
+  ]
+}

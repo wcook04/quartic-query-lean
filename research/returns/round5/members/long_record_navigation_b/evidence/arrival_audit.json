@@ -1,0 +1,1679 @@
+{
+  "schema": "quartic-r5-arrival-audit-v1",
+  "packet": "long_record_navigation",
+  "methodology": {
+    "read_fully": [
+      "READ_ME_FIRST.md",
+      "LINK_MAP.json",
+      "READING_LINK_CLOSURE.json",
+      "SOURCE_STATUS.json"
+    ],
+    "read_by_targeted_passage": [
+      "All link and image references in the current expert companion and exposition; all four record arrivals and their prerequisite/end-point passages; record sections 1.1, 3.6, 3.15, 5.2, 6.1, 6.4–6.7, 7.3; companion shortcut table, quantum-count passage and lower-bound section; exposition proof-locator passages."
+    ],
+    "mechanical_scope": "Independently enumerated direct inline links and reference definitions with balanced label brackets, verified all record anchor IDs and all direct internal fragment references, and resolved every listed reading-closure target against the extracted packet.",
+    "not_done": [
+      "No remote GitHub existence/content verification by this subreview.",
+      "No PDF rendering or visual audit by this subreview; handled separately by the main review.",
+      "No Lean compilation, Comparator execution or manuscript modifications."
+    ]
+  },
+  "summary": {
+    "link_map_destinations": 74,
+    "actual_direct_destinations": 77,
+    "unmapped_destinations": 3,
+    "record_incoming_links": 4,
+    "record_explicit_unique_anchors": 339,
+    "record_internal_fragment_links": 199,
+    "record_internal_fragment_links_resolve": true,
+    "reading_closure_entries": 78,
+    "reading_closure_all_resolve": true
+  },
+  "arrivals": [
+    {
+      "link_map_index": 1,
+      "line": 160,
+      "label": "record §5.2",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/main/docs/reasoning_record.md#upper-ideal-process",
+      "image": false,
+      "method": "inline",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true,
+      "fragment": "upper-ideal-process",
+      "record_target_line": 2356,
+      "record_section": "5.2. A tournament with probabilistic comparisons",
+      "anchor_verified": true,
+      "url_revision": "main",
+      "return_link_to_current_origin_found": false,
+      "landing_kind": "start of the ideal-weight subargument within section 5.2",
+      "semantic_assessment": "The target is real mathematical reasoning, not an evidence table. It begins by defining weights and pivots and continues through drift, retained-state sampling, coupling and the query cap. It starts after the comparison interface and the definitions of T and epsilon.",
+      "self_containment": "Partial. a_ij, complementarity, the coherent access cap c, T, epsilon and dominance are supplied 38 lines earlier in #upper-comparison-model and #upper-tournament-parameters. The expert companion supplies them, but the landing passage itself does not.",
+      "supporting_existing_anchors": [
+        "upper-comparison-model",
+        "upper-tournament-parameters",
+        "upper-stage-state",
+        "upper-stage-law",
+        "upper-coupling",
+        "upper-tournament-cost"
+      ],
+      "requested_route": "Preserve the exact ideal-process anchor, but label that scope honestly; provide a route to the complete section interface when promising the full proposition."
+    },
+    {
+      "link_map_index": 2,
+      "line": 239,
+      "label": "record §6",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/main/docs/reasoning_record.md#CL-discrepancy",
+      "image": false,
+      "method": "inline",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true,
+      "fragment": "CL-discrepancy",
+      "record_target_line": 3644,
+      "record_section": "6.6. The discrepancy contradiction and the floors",
+      "anchor_verified": true,
+      "url_revision": "main",
+      "return_link_to_current_origin_found": false,
+      "landing_kind": "end-stage assembly and numerical contradiction in section 6.6",
+      "semantic_assessment": "The label promises record section 6, but the landing starts by combining equations (18), (19), and (22), whose proofs occur earlier. It bypasses the separately capped product, planted coupling, erased-zero identity and capped simulator. It displays the 4G/m^2 and 2G/m^2 bounds, while the companion uses 2G/(m(m+1)); the record contains that refinement earlier at #CL-zero-optional.",
+      "self_containment": "Insufficient for a whole-lower-bound proof arrival. The target assumes Y^(0), Y^(1), T, m, L, G and r, together with the three input inequalities. It is useful as an assembly locator.",
+      "supporting_existing_anchors": [
+        "CL-direct-product-statement",
+        "CL-entry-interface",
+        "CL-first-difference",
+        "CL-erased-zero-identity",
+        "CL-zero-optional",
+        "CL-simulator",
+        "CL-joint-event",
+        "CL-cell-union",
+        "CL-floors"
+      ],
+      "requested_route": "Distinguish the full proof entry from the final assembly. Link the pivotal inequalities and the sharper zero-search passage at their actual existing anchors."
+    },
+    {
+      "link_map_index": 3,
+      "line": 260,
+      "label": "record §§3.6–3.15",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/main/docs/reasoning_record.md#forr_target",
+      "image": false,
+      "method": "inline",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true,
+      "fragment": "forr_target",
+      "record_target_line": 869,
+      "record_section": "3.6. The statement and the proof",
+      "anchor_verified": true,
+      "url_revision": "main",
+      "return_link_to_current_origin_found": false,
+      "landing_kind": "self-contained theorem and normalization at section 3.6",
+      "semantic_assessment": "This is the strongest of the four arrivals. It resets k, t, m, the normalized Walsh product, the one-sided promise, error and query-cap convention, and the precise target. A proof-spine overview follows before technical sections 3.7–3.15.",
+      "self_containment": "Good for a reader checking the full Forrelation ingredient. A reader checking only the uniform estimate (16) still needs to find #forr_uniform_assembly in section 3.15.",
+      "supporting_existing_anchors": [
+        "forr_proof_spine",
+        "forr_uniform_assembly",
+        "forr_threshold"
+      ],
+      "requested_route": "Keep this full-argument entry. Add the existing section-3.15 locator when specifically citing the quantitative uniform estimate."
+    },
+    {
+      "link_map_index": 51,
+      "line": 48,
+      "label": "long reasoning record",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/main/docs/reasoning_record.md",
+      "image": false,
+      "method": "inline",
+      "from": "repository/docs/exposition.md",
+      "in_supplied_link_map": true,
+      "fragment": "",
+      "record_target_line": 1,
+      "record_section": "A nearly quartic separation between randomized and quantum queries: a complete reasoning record",
+      "anchor_verified": true,
+      "url_revision": "main",
+      "return_link_to_current_origin_found": false,
+      "landing_kind": "document top and result statement",
+      "semantic_assessment": "The exposition has one global link, which arrives at the attribution notice and Theorem 1.1. A dependency table appears later in section 1.1. Every subsequent prose locator to the record is plain text, so readers looking for a specific explanation must navigate from this entry manually.",
+      "self_containment": "The result page is understandable, but it is not a destination for a particular missing proof.",
+      "supporting_existing_anchors": [
+        "record-dependencies",
+        "forr_circuit",
+        "forr_target",
+        "upper-explicit-log6",
+        "upper-returned-register",
+        "CL-erased-zero-identity",
+        "CL-direct-product-statement",
+        "CL-simulator",
+        "R3-A-RESULT"
+      ],
+      "requested_route": "Keep the overview link and make the existing in-text proof locators resolve to their exact passages."
+    }
+  ],
+  "unmapped_destinations": [
+    {
+      "line": 187,
+      "label": "The two coupled inputs. They differ only at the erased zero $X_I[J_I]$ and inside the cell $B_{I,s_I}$; the address inputs, drawn from $\\mu$, are the same in both.",
+      "url": "figures/expert_planted.svg",
+      "image": true,
+      "method": "inline",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": false,
+      "resolved_member": "repository/docs/figures/expert_planted.svg",
+      "target_exists": false
+    },
+    {
+      "line": 97,
+      "label": "The four-column board. Column 1 wins at address 10: its pointers reach $X_2[1]=X_3[2]=X_4[3]=0$. The dashed pointer from column 3's own true cell lands on a one, as every pointer into column 1 must.",
+      "url": "figures/exposition/fig2_board.svg",
+      "image": true,
+      "method": "inline",
+      "from": "repository/docs/exposition.md",
+      "in_supplied_link_map": false,
+      "resolved_member": "repository/docs/figures/exposition/fig2_board.svg",
+      "target_exists": false
+    },
+    {
+      "line": 205,
+      "label": "The planted pair on the board of Section 2, with $I=1$ and $J=(4,1,2,3)$. The two inputs differ only at $X_1[4]$ and in the cell $B_{1,10}$.",
+      "url": "figures/exposition/fig4_planted.svg",
+      "image": true,
+      "method": "inline",
+      "from": "repository/docs/exposition.md",
+      "in_supplied_link_map": false,
+      "resolved_member": "repository/docs/figures/exposition/fig4_planted.svg",
+      "target_exists": false
+    }
+  ],
+  "all_actual_destinations": [
+    {
+      "line": 52,
+      "label": "Column $i^\\star$ is the winner: $X_{i^\\star}$ is all ones, and the cell selected by the answers to its $r$ Forrelation instances points to a zero in every other column. No pointer from any other column can find a zero in $X_{i^\\star}$, whatever address that column computes.",
+      "url": "figures/expert_column.svg",
+      "image": true,
+      "method": "inline",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 160,
+      "label": "record §5.2",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/main/docs/reasoning_record.md#upper-ideal-process",
+      "image": false,
+      "method": "inline",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 187,
+      "label": "The two coupled inputs. They differ only at the erased zero $X_I[J_I]$ and inside the cell $B_{I,s_I}$; the address inputs, drawn from $\\mu$, are the same in both.",
+      "url": "figures/expert_planted.svg",
+      "image": true,
+      "method": "inline",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": false
+    },
+    {
+      "line": 239,
+      "label": "record §6",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/main/docs/reasoning_record.md#CL-discrepancy",
+      "image": false,
+      "method": "inline",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 260,
+      "label": "record §§3.6–3.15",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/main/docs/reasoning_record.md#forr_target",
+      "image": false,
+      "method": "inline",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 343,
+      "label": "cmp-amplifier",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/main/lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean#L17-L20",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 344,
+      "label": "cmp-degree",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/main/lean/QuarticCorpus/Independent/Degree/Challenge.lean#L14-L20",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 345,
+      "label": "cmp-direct-product",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/main/lean/QuarticCorpus/Independent/RealizedCaps/Challenge.lean#L18-L25",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 346,
+      "label": "cmp-eq11",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Independent/Eq19/Challenge.lean#L19-L24",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 347,
+      "label": "cmp-lemma22",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Construction/Challenge.lean",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 348,
+      "label": "cmp-lemma22-full",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Independent/ConstructionFull/Challenge.lean#L14-L41",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 349,
+      "label": "cmp-negative",
+      "url": "https://github.com/wcook04/quartic-query-lean/tree/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Negative",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 350,
+      "label": "cmp-zero-cost",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/main/lean/QuarticCorpus/Independent/ModelZero/Challenge.lean#L11-L14",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 351,
+      "label": "def-F",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L280-L285",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 352,
+      "label": "def-G",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L302-L303",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 353,
+      "label": "def-L",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L297-L300",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 354,
+      "label": "def-P",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L175-L182",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 355,
+      "label": "def-Q",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L139-L140",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 356,
+      "label": "def-QLe",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L133-L137",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 357,
+      "label": "def-R",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L71-L74",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 358,
+      "label": "def-RLe",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L62-L65",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 359,
+      "label": "def-adaptive",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L101-L107",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 360,
+      "label": "def-alpha",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L317-L318",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 361,
+      "label": "def-bansal-sinha",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L305-L309",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 362,
+      "label": "def-basis",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L84-L87",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 363,
+      "label": "def-bitloc",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L232-L238",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 364,
+      "label": "def-circuit",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L190-L199",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 365,
+      "label": "def-comparison",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L289-L293",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 366,
+      "label": "def-numerator",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L160-L166",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 367,
+      "label": "def-oracle",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L89-L94",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 368,
+      "label": "def-partial",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L18-L19",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 369,
+      "label": "def-querycap",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L109-L116",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 370,
+      "label": "def-randomized",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L46-L60",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 371,
+      "label": "def-realises",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L215-L221",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 372,
+      "label": "def-totalise",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L21-L22",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 373,
+      "label": "def-tree",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L33-L44",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 374,
+      "label": "def-universal",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L311-L315",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 375,
+      "label": "def-wins",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L262-L272",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 376,
+      "label": "src-budget",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticQuery/Upper/Bound.lean#L86-L90",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 377,
+      "label": "src-constants",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticQuery/Paper/ConstructionFamily.lean#L28-L40",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 378,
+      "label": "src-forrelation-uniform",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticQuery/ForrelationLower/Uniform.lean#L525-L532",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 379,
+      "label": "src-per-time",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticQuery/Paper/ClassicalPlanted.lean#L340-L348",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 380,
+      "label": "src-reach",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/scripts/Reach.lean",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 381,
+      "label": "src-zero-successor",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/main/lean/QuarticQuery/LowerBound/Planted/ZeroSearchSuccessor.lean#L17-L22",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 382,
+      "label": "src-zero-two",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticQuery/Paper/ClassicalPlanted.lean#L213-L219",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 383,
+      "label": "statement-config",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/comparator.json",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 384,
+      "label": "statement-file",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 385,
+      "label": "thm-all",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L326-L340",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 386,
+      "label": "thm-alpha",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L326",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 387,
+      "label": "thm-cubic",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L336-L338",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 388,
+      "label": "thm-forrelation",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L340",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 389,
+      "label": "thm-headline",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L328-L334",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/expert_companion.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 48,
+      "label": "long reasoning record",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/main/docs/reasoning_record.md",
+      "image": false,
+      "method": "inline",
+      "from": "repository/docs/exposition.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 85,
+      "label": "One column of $F_{k,m}$. The answers to the $r$ address inputs select one of $2^r$ cells; the cell at the true address certifies those answers and points to a zero in every other column.",
+      "url": "figures/exposition/fig1_column.svg",
+      "image": true,
+      "method": "inline",
+      "from": "repository/docs/exposition.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 97,
+      "label": "The four-column board. Column 1 wins at address 10: its pointers reach $X_2[1]=X_3[2]=X_4[3]=0$. The dashed pointer from column 3's own true cell lands on a one, as every pointer into column 1 must.",
+      "url": "figures/exposition/fig2_board.svg",
+      "image": true,
+      "method": "inline",
+      "from": "repository/docs/exposition.md",
+      "in_supplied_link_map": false
+    },
+    {
+      "line": 147,
+      "label": "Comparisons on the board with cycled loser pointers. An arrow $i\\to j$ means that $i$ beats $j$. The winner beats everyone; the three losers form a cycle.",
+      "url": "figures/exposition/fig3_tournament.svg",
+      "image": true,
+      "method": "inline",
+      "from": "repository/docs/exposition.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 205,
+      "label": "The planted pair on the board of Section 2, with $I=1$ and $J=(4,1,2,3)$. The two inputs differ only at $X_1[4]$ and in the cell $B_{1,10}$.",
+      "url": "figures/exposition/fig4_planted.svg",
+      "image": true,
+      "method": "inline",
+      "from": "repository/docs/exposition.md",
+      "in_supplied_link_map": false
+    },
+    {
+      "line": 268,
+      "label": "public repository",
+      "url": "https://github.com/wcook04/quartic-query-lean",
+      "image": false,
+      "method": "inline",
+      "from": "repository/docs/exposition.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 284,
+      "label": "cmp-amplifier",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/main/lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean#L17-L20",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/exposition.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 285,
+      "label": "cmp-direct-product",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/main/lean/QuarticCorpus/Independent/RealizedCaps/Challenge.lean#L18-L25",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/exposition.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 286,
+      "label": "def-F",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L280-L285",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/exposition.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 287,
+      "label": "def-P",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L175-L182",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/exposition.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 288,
+      "label": "def-Q",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L139-L140",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/exposition.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 289,
+      "label": "def-R",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L71-L74",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/exposition.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 290,
+      "label": "def-adaptive",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L101-L107",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/exposition.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 291,
+      "label": "def-alpha",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L317-L318",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/exposition.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 292,
+      "label": "def-circuit",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L190-L199",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/exposition.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 293,
+      "label": "def-oracle",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L89-L94",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/exposition.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 294,
+      "label": "def-randomized",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L46-L60",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/exposition.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 295,
+      "label": "def-tree",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L33-L44",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/exposition.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 296,
+      "label": "statement-config",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/comparator.json",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/exposition.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 297,
+      "label": "statement-file",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/exposition.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 298,
+      "label": "thm-all",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L326-L340",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/exposition.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 299,
+      "label": "thm-alpha",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L326",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/exposition.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 300,
+      "label": "thm-cubic",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L336-L338",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/exposition.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 301,
+      "label": "thm-forrelation",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L340",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/exposition.md",
+      "in_supplied_link_map": true
+    },
+    {
+      "line": 302,
+      "label": "thm-headline",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/752826a36192b25dc08e364a070eb03eb95dbc85/lean/QuarticCorpus/Unconditional/Challenge.lean#L328-L334",
+      "image": false,
+      "method": "reference_definition",
+      "from": "repository/docs/exposition.md",
+      "in_supplied_link_map": true
+    }
+  ],
+  "unlinked_exposition_proof_locators": [
+    {
+      "from": "repository/docs/exposition.md",
+      "line": 125,
+      "locator": "record §3.4",
+      "appropriate_existing_anchors": [
+        "forr_circuit",
+        "forr_circuit_size"
+      ],
+      "purpose": "Exact circuit and gate count"
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "line": 131,
+      "locator": "record §§3.6–3.15",
+      "appropriate_existing_anchors": [
+        "forr_target"
+      ],
+      "purpose": "Forrelation hardness"
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "line": 188,
+      "locator": "record §5.4",
+      "appropriate_existing_anchors": [
+        "upper-explicit-log6"
+      ],
+      "purpose": "Logarithmic exponent six"
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "line": 191,
+      "locator": "record §5.5",
+      "appropriate_existing_anchors": [
+        "upper-amplification-statement",
+        "upper-returned-register"
+      ],
+      "purpose": "Successful-state proof: current section number 5.5 points to evidence discussion; ordinary proof belongs to 5.1"
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "line": 218,
+      "locator": "record §6.4",
+      "appropriate_existing_anchors": [
+        "CL-erased-zero-identity",
+        "CL-early-late"
+      ],
+      "purpose": "Erased-zero identity and expectation bound"
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "line": 227,
+      "locator": "record §6.1",
+      "appropriate_existing_anchors": [
+        "CL-direct-product-statement",
+        "CL-product-law",
+        "CL-conditional-values",
+        "CL-supermartingale"
+      ],
+      "purpose": "Separately capped product proof"
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "line": 229,
+      "locator": "record §6.1",
+      "appropriate_existing_anchors": [
+        "CL-independent-information",
+        "CL-adaptive-example"
+      ],
+      "purpose": "Independence and separate-cap qualifications"
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "line": 264,
+      "locator": "record Appendix A",
+      "appropriate_existing_anchors": [
+        "R3-A-RESULT"
+      ],
+      "purpose": "Known universal quartic bound"
+    }
+  ],
+  "reading_closure_checks": [
+    {
+      "index": 0,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../research/returns/funnel/2_short_expert_paper/",
+      "target": "repository/research/returns/funnel/2_short_expert_paper",
+      "kind": "directory",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 1,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../research/returns/funnel/3_examples_first_exposition/",
+      "target": "repository/research/returns/funnel/3_examples_first_exposition",
+      "kind": "directory",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 2,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../research/returns/round3/members/01_models_evidence/model_contract.json",
+      "target": "repository/research/returns/round3/members/01_models_evidence/model_contract.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 3,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../research/returns/round3/members/01_models_evidence/correspondence.json",
+      "target": "repository/research/returns/round3/members/01_models_evidence/correspondence.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 4,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "reasoning_record_review.json",
+      "target": "repository/docs/reasoning_record_review.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 5,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../lean/QuarticCorpus/Independent/Semantics.lean",
+      "target": "repository/lean/QuarticCorpus/Independent/Semantics.lean",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 6,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../lean/QuarticCorpus/Independent/SemanticMutations.lean",
+      "target": "repository/lean/QuarticCorpus/Independent/SemanticMutations.lean",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 7,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../lean/QuarticCorpus/Independent/Controls/SharedAudit.lean",
+      "target": "repository/lean/QuarticCorpus/Independent/Controls/SharedAudit.lean",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 8,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../corpus/receipts/lean-build-round3-targeted-2026-11-02T204814950389+0000.json",
+      "target": "repository/corpus/receipts/lean-build-round3-targeted-2026-11-02T204814950389+0000.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 9,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../corpus/receipts/comparator-round3-construction-support-2026-11-02T204814950389+0000.json",
+      "target": "repository/corpus/receipts/comparator-round3-construction-support-2026-11-02T204814950389+0000.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 10,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../corpus/receipts/comparator-round3-eq19-independent-2026-11-02T204814950389+0000.json",
+      "target": "repository/corpus/receipts/comparator-round3-eq19-independent-2026-11-02T204814950389+0000.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 11,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../corpus/receipts/comparator-round3-eq19-direct-2026-11-02T204814950389+0000.json",
+      "target": "repository/corpus/receipts/comparator-round3-eq19-direct-2026-11-02T204814950389+0000.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 12,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../corpus/receipts/comparator-round3-eq19-missing-equality-2026-11-02T204814950389+0000.json",
+      "target": "repository/corpus/receipts/comparator-round3-eq19-missing-equality-2026-11-02T204814950389+0000.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 13,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../corpus/receipts/comparator-round3-threshold-mutation-2026-11-02T204814950389+0000.json",
+      "target": "repository/corpus/receipts/comparator-round3-threshold-mutation-2026-11-02T204814950389+0000.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 14,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../corpus/receipts/comparator-round3-shared-bad-spec-blindness-2026-11-02T204814950389+0000.json",
+      "target": "repository/corpus/receipts/comparator-round3-shared-bad-spec-blindness-2026-11-02T204814950389+0000.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 15,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+      "target": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 16,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../corpus/receipts/comparator-Foundations-2026-11-02T205755119082+0000.json",
+      "target": "repository/corpus/receipts/comparator-Foundations-2026-11-02T205755119082+0000.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 17,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../corpus/receipts/comparator-Construction-2026-11-02T205620278544+0000.json",
+      "target": "repository/corpus/receipts/comparator-Construction-2026-11-02T205620278544+0000.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 18,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../corpus/receipts/comparator-Tournament-2026-11-02T210431678518+0000.json",
+      "target": "repository/corpus/receipts/comparator-Tournament-2026-11-02T210431678518+0000.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 19,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
+      "target": "repository/corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 20,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../corpus/receipts/comparator-Unconditional-2026-11-02T211003816536+0000.json",
+      "target": "repository/corpus/receipts/comparator-Unconditional-2026-11-02T211003816536+0000.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 21,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
+      "target": "repository/corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 22,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../corpus/native_extractions/round3/README.md",
+      "target": "repository/corpus/native_extractions/round3/README.md",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 23,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks/",
+      "target": "repository/research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks",
+      "kind": "directory",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 24,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/correspondence.json",
+      "target": "repository/research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/correspondence.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 25,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/LEAN_GAPS.md",
+      "target": "repository/research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/LEAN_GAPS.md",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 26,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "reasoning_record_correspondence.json",
+      "target": "repository/docs/reasoning_record_correspondence.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 27,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../research/returns/round3/members/04_addressed_construction/examples/circuit.json",
+      "target": "repository/research/returns/round3/members/04_addressed_construction/examples/circuit.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 28,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../research/returns/round3/members/04_addressed_construction/examples/board.json",
+      "target": "repository/research/returns/round3/members/04_addressed_construction/examples/board.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 29,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../research/returns/round3/members/04_addressed_construction/examples/output.json",
+      "target": "repository/research/returns/round3/members/04_addressed_construction/examples/output.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 30,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../research/returns/round3/members/04_addressed_construction/",
+      "target": "repository/research/returns/round3/members/04_addressed_construction",
+      "kind": "directory",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 31,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../research/returns/round3/members/04_addressed_construction/correspondence.json",
+      "target": "repository/research/returns/round3/members/04_addressed_construction/correspondence.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 32,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../research/returns/round3/members/04_addressed_construction/evidence/lean_audit.json",
+      "target": "repository/research/returns/round3/members/04_addressed_construction/evidence/lean_audit.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 33,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../lean/QuarticQuery/Paper/ConstructionFull.lean",
+      "target": "repository/lean/QuarticQuery/Paper/ConstructionFull.lean",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 34,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../research/returns/round3/members/05_quantum_upper/LEAN_GAPS.md",
+      "target": "repository/research/returns/round3/members/05_quantum_upper/LEAN_GAPS.md",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 35,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../research/returns/round3/members/06_direct_product/worked_example.md",
+      "target": "repository/research/returns/round3/members/06_direct_product/worked_example.md",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 36,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../research/returns/round3/members/06_direct_product/correspondence.json",
+      "target": "repository/research/returns/round3/members/06_direct_product/correspondence.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 37,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../research/returns/round3/members/06_direct_product/lean_types.json",
+      "target": "repository/research/returns/round3/members/06_direct_product/lean_types.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 38,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../research/returns/round3/members/06_direct_product/LEAN_GAPS.md",
+      "target": "repository/research/returns/round3/members/06_direct_product/LEAN_GAPS.md",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 39,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../research/returns/round3/members/07_planted_lower_bound/checks/planted_example.py",
+      "target": "repository/research/returns/round3/members/07_planted_lower_bound/checks/planted_example.py",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 40,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../research/returns/round3/members/07_planted_lower_bound/checks/planted_example.json",
+      "target": "repository/research/returns/round3/members/07_planted_lower_bound/checks/planted_example.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 41,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../research/returns/round3/members/09_evidence_backend/checks/eq19_independence_control.py",
+      "target": "repository/research/returns/round3/members/09_evidence_backend/checks/eq19_independence_control.py",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 42,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../research/returns/round3/members/07_planted_lower_bound/checks/planted_example.py",
+      "target": "repository/research/returns/round3/members/07_planted_lower_bound/checks/planted_example.py",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 43,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../research/returns/round3/members/07_planted_lower_bound/correspondence.json",
+      "target": "repository/research/returns/round3/members/07_planted_lower_bound/correspondence.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 44,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "reasoning_record_correspondence.json",
+      "target": "repository/docs/reasoning_record_correspondence.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 45,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../lean/QuarticQuery/Paper/Eq19Whole.lean",
+      "target": "repository/lean/QuarticQuery/Paper/Eq19Whole.lean",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 46,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../lean/QuarticQuery/Paper/Eq19Complete.lean",
+      "target": "repository/lean/QuarticQuery/Paper/Eq19Complete.lean",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 47,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../lean/QuarticCorpus/Independent/Eq19/Spec.lean",
+      "target": "repository/lean/QuarticCorpus/Independent/Eq19/Spec.lean",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 48,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../lean/QuarticCorpus/Independent/Eq19/Bridge.lean",
+      "target": "repository/lean/QuarticCorpus/Independent/Eq19/Bridge.lean",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 49,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../research/returns/round3/members/08_reviewed/quartic_r3_08_return/checks/",
+      "target": "repository/research/returns/round3/members/08_reviewed/quartic_r3_08_return/checks",
+      "kind": "directory",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 50,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../research/returns/round3/members/08_reviewed/quartic_r3_08_return/correspondence.json",
+      "target": "repository/research/returns/round3/members/08_reviewed/quartic_r3_08_return/correspondence.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 51,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "reasoning_record_correspondence.json",
+      "target": "repository/docs/reasoning_record_correspondence.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 52,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "reasoning_record_review.json",
+      "target": "repository/docs/reasoning_record_review.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 53,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../research/returns/funnel/1_long_reasoning_record/reasoning-record.md#ROOT-CATALOGUE-INTRO",
+      "target": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true,
+      "fragment": "ROOT-CATALOGUE-INTRO",
+      "fragment_exists": true
+    },
+    {
+      "index": 54,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "../research/adjudication/round3_appendix_audit.json",
+      "target": "repository/research/adjudication/round3_appendix_audit.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 55,
+      "from": "repository/docs/reasoning_record.md",
+      "link": "reasoning_record.bib",
+      "target": "repository/docs/reasoning_record.bib",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 56,
+      "from": "repository/corpus/native_extractions/round3/README.md",
+      "link": "../../../research/adjudication/round3_formal.json",
+      "target": "repository/research/adjudication/round3_formal.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 57,
+      "from": "repository/corpus/native_extractions/round3/README.md",
+      "link": "eq19-report.json",
+      "target": "repository/corpus/native_extractions/round3/eq19-report.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 58,
+      "from": "repository/corpus/native_extractions/round3/README.md",
+      "link": "eq19-graph.json",
+      "target": "repository/corpus/native_extractions/round3/eq19-graph.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 59,
+      "from": "repository/corpus/native_extractions/round3/README.md",
+      "link": "eq19-selected.json",
+      "target": "repository/corpus/native_extractions/round3/eq19-selected.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 60,
+      "from": "repository/corpus/native_extractions/round3/README.md",
+      "link": "eq19-inspection.json",
+      "target": "repository/corpus/native_extractions/round3/eq19-inspection.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 61,
+      "from": "repository/corpus/native_extractions/round3/README.md",
+      "link": "eq19-build.json",
+      "target": "repository/corpus/native_extractions/round3/eq19-build.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 62,
+      "from": "repository/corpus/native_extractions/round3/README.md",
+      "link": "eq19-views.json",
+      "target": "repository/corpus/native_extractions/round3/eq19-views.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 63,
+      "from": "repository/corpus/native_extractions/round3/README.md",
+      "link": "eq19-stored-views.json",
+      "target": "repository/corpus/native_extractions/round3/eq19-stored-views.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 64,
+      "from": "repository/corpus/native_extractions/round3/README.md",
+      "link": "eq19-independent-report.json",
+      "target": "repository/corpus/native_extractions/round3/eq19-independent-report.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 65,
+      "from": "repository/corpus/native_extractions/round3/README.md",
+      "link": "eq19-independent-graph.json",
+      "target": "repository/corpus/native_extractions/round3/eq19-independent-graph.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 66,
+      "from": "repository/corpus/native_extractions/round3/README.md",
+      "link": "eq19-independent-selected.json",
+      "target": "repository/corpus/native_extractions/round3/eq19-independent-selected.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 67,
+      "from": "repository/corpus/native_extractions/round3/README.md",
+      "link": "eq19-independent-inspection.json",
+      "target": "repository/corpus/native_extractions/round3/eq19-independent-inspection.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 68,
+      "from": "repository/corpus/native_extractions/round3/README.md",
+      "link": "eq19-independent-build.json",
+      "target": "repository/corpus/native_extractions/round3/eq19-independent-build.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 69,
+      "from": "repository/corpus/native_extractions/round3/README.md",
+      "link": "eq19-independent-views.json",
+      "target": "repository/corpus/native_extractions/round3/eq19-independent-views.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 70,
+      "from": "repository/corpus/native_extractions/round3/README.md",
+      "link": "eq19-independent-stored-views.json",
+      "target": "repository/corpus/native_extractions/round3/eq19-independent-stored-views.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 71,
+      "from": "repository/corpus/native_extractions/round3/README.md",
+      "link": "semantics-report.json",
+      "target": "repository/corpus/native_extractions/round3/semantics-report.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 72,
+      "from": "repository/corpus/native_extractions/round3/README.md",
+      "link": "semantics-graph.json",
+      "target": "repository/corpus/native_extractions/round3/semantics-graph.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 73,
+      "from": "repository/corpus/native_extractions/round3/README.md",
+      "link": "semantics-selected.json",
+      "target": "repository/corpus/native_extractions/round3/semantics-selected.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 74,
+      "from": "repository/corpus/native_extractions/round3/README.md",
+      "link": "semantics-inspection.json",
+      "target": "repository/corpus/native_extractions/round3/semantics-inspection.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 75,
+      "from": "repository/corpus/native_extractions/round3/README.md",
+      "link": "semantics-build.json",
+      "target": "repository/corpus/native_extractions/round3/semantics-build.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 76,
+      "from": "repository/corpus/native_extractions/round3/README.md",
+      "link": "semantics-views.json",
+      "target": "repository/corpus/native_extractions/round3/semantics-views.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    },
+    {
+      "index": 77,
+      "from": "repository/corpus/native_extractions/round3/README.md",
+      "link": "semantics-stored-views.json",
+      "target": "repository/corpus/native_extractions/round3/semantics-stored-views.json",
+      "kind": "file",
+      "exists": true,
+      "resolved_path_matches": true
+    }
+  ],
+  "related_findings": [
+    "LR-003",
+    "LR-004",
+    "LR-006",
+    "LR-009",
+    "LR-016",
+    "LR-017",
+    "LR-018",
+    "LR-019",
+    "LR-020",
+    "LR-037",
+    "LR-038"
+  ]
+}

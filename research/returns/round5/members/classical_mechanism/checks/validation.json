@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "review_date": "2026-11-03",
+  "scope": "Deliverable content checks. Final archive CRC, member hashes and extraction are checked separately by the included verifier and the packaging run.",
+  "findings_count": 34,
+  "severity_counts": {
+    "high": 3,
+    "medium": 14,
+    "low": 6,
+    "keep": 11
+  },
+  "source_sha256_exact_copy": true,
+  "source_draft_hashes_checked": 6,
+  "quoted_locators_exact": true,
+  "quoted_locator_count": 34,
+  "quoted_locator_word_limit": 25,
+  "readable_mirror_matches": true,
+  "finite_example_results_reproduced": true,
+  "python_scripts_syntax_valid": true,
+  "markdown_finding_references_valid": true,
+  "verdict_word_count": 417,
+  "sampled_lean_references": 14,
+  "sampled_lean_ranges_exist_and_match": true,
+  "lean_execution_performed": false,
+  "comparator_execution_performed": false,
+  "manuscript_sources_modified": false,
+  "mathematical_scope": "Classical passages and existing examples inspected; not an independent audit of the complete quantum or analytic Forrelation proofs."
+}

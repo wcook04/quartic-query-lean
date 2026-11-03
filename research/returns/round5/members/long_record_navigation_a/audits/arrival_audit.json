@@ -1,0 +1,1434 @@
+{
+  "schema": "quartic-r5-arrival-audit-v1",
+  "scope": "All four record-bound rows in supplied LINK_MAP independently resolved against packaged current Markdown. This is not a live-site test.",
+  "record_sha256": "1b677c780734209fd36fc206a17e4262f9124e290f84736e9573db8f1f88a986",
+  "incoming_links": [
+    {
+      "from": "repository/docs/expert_companion.md",
+      "source_lines": [
+        160
+      ],
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/main/docs/reasoning_record.md#upper-ideal-process",
+      "member": "repository/docs/reasoning_record.md",
+      "fragment": "upper-ideal-process",
+      "file_exists_rechecked": true,
+      "anchor_exists_rechecked": true,
+      "actual_destination": {
+        "line": 2356,
+        "heading": "5.2. A tournament with probabilistic comparisons"
+      },
+      "semantic_assessment": "mechanically_valid_but_missing_local_setup",
+      "explanation": "The target begins the ideal weight process, after the comparison-model and T/epsilon setup. It supports the proof after reading upward, but is not the proposition start.",
+      "return_to_current_companion_found": false,
+      "existing_alternative_or_supplementary_anchors": [
+        {
+          "anchor": "upper-comparison-model",
+          "line": 2314,
+          "heading": "5.2. A tournament with probabilistic comparisons"
+        },
+        {
+          "anchor": "upper-coupling",
+          "line": 2519,
+          "heading": "5.2. A tournament with probabilistic comparisons"
+        }
+      ],
+      "revision": "main",
+      "live_url_checked": false
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "source_lines": [
+        239
+      ],
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/main/docs/reasoning_record.md#CL-discrepancy",
+      "member": "repository/docs/reasoning_record.md",
+      "fragment": "CL-discrepancy",
+      "file_exists_rechecked": true,
+      "anchor_exists_rechecked": true,
+      "actual_destination": {
+        "line": 3644,
+        "heading": "6.6. The discrepancy contradiction and the floors"
+      },
+      "semantic_assessment": "mechanically_valid_but_late_assembly",
+      "explanation": "The target begins by combining three earlier displays. It is useful for the final contradiction/floors but is an inadequate destination labelled full record §6.",
+      "return_to_current_companion_found": false,
+      "existing_alternative_or_supplementary_anchors": [
+        {
+          "anchor": "CL-entry-interface",
+          "line": 3288,
+          "heading": "6.2. The hard distribution and the hidden address"
+        },
+        {
+          "anchor": "CL-generic-statement",
+          "line": 3341,
+          "heading": "6.3. Coupled zero and one inputs"
+        },
+        {
+          "anchor": "CL-first-difference",
+          "line": 3411,
+          "heading": "6.3. Coupled zero and one inputs"
+        },
+        {
+          "anchor": "CL-erased-zero-identity",
+          "line": 3432,
+          "heading": "6.4. Discoveries and the erased zero"
+        },
+        {
+          "anchor": "CL-joint-event",
+          "line": 3611,
+          "heading": "6.5. A capped simulator for the planted cell"
+        }
+      ],
+      "revision": "main",
+      "live_url_checked": false
+    },
+    {
+      "from": "repository/docs/expert_companion.md",
+      "source_lines": [
+        260
+      ],
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/main/docs/reasoning_record.md#forr_target",
+      "member": "repository/docs/reasoning_record.md",
+      "fragment": "forr_target",
+      "file_exists_rechecked": true,
+      "anchor_exists_rechecked": true,
+      "actual_destination": {
+        "line": 869,
+        "heading": "3.6. The statement and the proof"
+      },
+      "semantic_assessment": "mechanically_valid_and_good_statement_first_arrival",
+      "explanation": "The target reintroduces the exact promise and cap convention, states the supplied Forrelation theorem, and immediately offers a proof outline.",
+      "return_to_current_companion_found": false,
+      "existing_alternative_or_supplementary_anchors": [
+        {
+          "anchor": "forr_target",
+          "line": 869,
+          "heading": "3.6. The statement and the proof"
+        },
+        {
+          "anchor": "forr_proof_spine",
+          "line": 935,
+          "heading": "3.6. The statement and the proof"
+        }
+      ],
+      "revision": "main",
+      "live_url_checked": false
+    },
+    {
+      "from": "repository/docs/exposition.md",
+      "source_lines": [
+        48
+      ],
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/main/docs/reasoning_record.md",
+      "member": "repository/docs/reasoning_record.md",
+      "fragment": null,
+      "file_exists_rechecked": true,
+      "anchor_exists_rechecked": null,
+      "actual_destination": {
+        "line": 1,
+        "heading": "A nearly quartic separation between randomized and quantum queries: a complete reasoning record"
+      },
+      "semantic_assessment": "mechanically_valid_overview_only",
+      "explanation": "The unanchored link reaches the title and theorem; useful for the whole record, inefficient for the seven substantive local proof references.",
+      "return_to_current_companion_found": false,
+      "existing_alternative_or_supplementary_anchors": [
+        {
+          "anchor": "record-dependencies",
+          "line": 101,
+          "heading": "1.1. Certificates that disqualify every other candidate"
+        }
+      ],
+      "revision": "main",
+      "live_url_checked": false
+    }
+  ],
+  "counts": {
+    "record_bound_link_map_rows": 4,
+    "anchor_bound_incoming_links": 3,
+    "incoming_links_with_missing_anchors": 0,
+    "exposition_plain_record_section_mentions": 8,
+    "exposition_substantive_plain_record_mentions": 7,
+    "record_internal_fragment_links_rechecked": 199,
+    "record_missing_internal_anchors": 0,
+    "simple_section_label_mismatches": 1
+  },
+  "exposition_plain_record_references": [
+    {
+      "line": 48,
+      "text": "record §6.5",
+      "hyperlinked": false,
+      "role": "overview notation example"
+    },
+    {
+      "line": 125,
+      "text": "record §3.4",
+      "hyperlinked": false,
+      "role": "substantive proof reference"
+    },
+    {
+      "line": 131,
+      "text": "record §§3.6–3.15",
+      "hyperlinked": false,
+      "role": "substantive proof reference"
+    },
+    {
+      "line": 188,
+      "text": "record §5.4",
+      "hyperlinked": false,
+      "role": "substantive proof reference"
+    },
+    {
+      "line": 191,
+      "text": "record §5.5",
+      "hyperlinked": false,
+      "role": "substantive proof reference"
+    },
+    {
+      "line": 218,
+      "text": "record §6.4",
+      "hyperlinked": false,
+      "role": "substantive proof reference"
+    },
+    {
+      "line": 227,
+      "text": "record §6.1",
+      "hyperlinked": false,
+      "role": "substantive proof reference"
+    },
+    {
+      "line": 229,
+      "text": "record §6.1",
+      "hyperlinked": false,
+      "role": "substantive proof reference"
+    }
+  ],
+  "internal_label_mismatches": [
+    {
+      "line": 5711,
+      "label": "§7.3",
+      "anchor": "ROOT-APPENDIX-INTRO",
+      "actual_destination": {
+        "line": 3922,
+        "heading": "Appendix A. The universal quartic bound"
+      }
+    }
+  ],
+  "record_internal_link_checks": [
+    {
+      "line": 106,
+      "label": "§2",
+      "anchor": "ROOT-PARTIAL",
+      "anchor_exists": true
+    },
+    {
+      "line": 107,
+      "label": "§§3.1–3.5",
+      "anchor": "forr_definition",
+      "anchor_exists": true
+    },
+    {
+      "line": 107,
+      "label": "§3.17",
+      "anchor": "forr_bundle",
+      "anchor_exists": true
+    },
+    {
+      "line": 108,
+      "label": "§§3.6–3.16",
+      "anchor": "forr_target",
+      "anchor_exists": true
+    },
+    {
+      "line": 109,
+      "label": "§4",
+      "anchor": "AC-interface",
+      "anchor_exists": true
+    },
+    {
+      "line": 110,
+      "label": "§5",
+      "anchor": "upper-purpose",
+      "anchor_exists": true
+    },
+    {
+      "line": 111,
+      "label": "§6",
+      "anchor": "CL-direct-product-statement",
+      "anchor_exists": true
+    },
+    {
+      "line": 112,
+      "label": "§7",
+      "anchor": "ROOT-FAMILY-ASSEMBLY",
+      "anchor_exists": true
+    },
+    {
+      "line": 112,
+      "label": "Appendix A",
+      "anchor": "R3-A-RESULT",
+      "anchor_exists": true
+    },
+    {
+      "line": 113,
+      "label": "Appendix B",
+      "anchor": "ROOT-CATALOGUE-INTRO",
+      "anchor_exists": true
+    },
+    {
+      "line": 377,
+      "label": "Appendix B",
+      "anchor": "ROOT-CATALOGUE-INTRO",
+      "anchor_exists": true
+    },
+    {
+      "line": 431,
+      "label": "Appendix B",
+      "anchor": "ROOT-CATALOGUE-INTRO",
+      "anchor_exists": true
+    },
+    {
+      "line": 1631,
+      "label": "the historical-threshold derivation in Appendix D",
+      "anchor": "forr_historical_threshold",
+      "anchor_exists": true
+    },
+    {
+      "line": 1788,
+      "label": "Appendix C",
+      "anchor": "ROOT-REFERENCES",
+      "anchor_exists": true
+    },
+    {
+      "line": 4235,
+      "label": "§2",
+      "anchor": "ROOT-LOGS",
+      "anchor_exists": true
+    },
+    {
+      "line": 4247,
+      "label": "§2.1",
+      "anchor": "ROOT-PARTIAL",
+      "anchor_exists": true
+    },
+    {
+      "line": 4259,
+      "label": "§2.1",
+      "anchor": "ROOT-PARTIAL",
+      "anchor_exists": true
+    },
+    {
+      "line": 4259,
+      "label": "§2.2",
+      "anchor": "R3-01-CLASSICAL",
+      "anchor_exists": true
+    },
+    {
+      "line": 4271,
+      "label": "§2.3",
+      "anchor": "ROOT-ORACLE",
+      "anchor_exists": true
+    },
+    {
+      "line": 4283,
+      "label": "§2.3",
+      "anchor": "ROOT-ORACLE",
+      "anchor_exists": true
+    },
+    {
+      "line": 4283,
+      "label": "§2.4",
+      "anchor": "R3-01-ADAPTIVE",
+      "anchor_exists": true
+    },
+    {
+      "line": 4295,
+      "label": "§1",
+      "anchor": "ROOT-RESULT",
+      "anchor_exists": true
+    },
+    {
+      "line": 4307,
+      "label": "§1",
+      "anchor": "ROOT-RESULT",
+      "anchor_exists": true
+    },
+    {
+      "line": 4307,
+      "label": "§1.1",
+      "anchor": "ROOT-ARCHITECTURE",
+      "anchor_exists": true
+    },
+    {
+      "line": 4307,
+      "label": "§7",
+      "anchor": "ROOT-FAMILY-ASSEMBLY",
+      "anchor_exists": true
+    },
+    {
+      "line": 4319,
+      "label": "§1",
+      "anchor": "ROOT-RESULT",
+      "anchor_exists": true
+    },
+    {
+      "line": 4319,
+      "label": "§1.1",
+      "anchor": "ROOT-ARCHITECTURE",
+      "anchor_exists": true
+    },
+    {
+      "line": 4319,
+      "label": "§2.7",
+      "anchor": "ROOT-EVIDENCE-CONVENTION",
+      "anchor_exists": true
+    },
+    {
+      "line": 4319,
+      "label": "§7",
+      "anchor": "ROOT-FAMILY-ASSEMBLY",
+      "anchor_exists": true
+    },
+    {
+      "line": 4319,
+      "label": "§7.2",
+      "anchor": "ROOT-NO-SMALLER",
+      "anchor_exists": true
+    },
+    {
+      "line": 4331,
+      "label": "§1",
+      "anchor": "ROOT-RESULT",
+      "anchor_exists": true
+    },
+    {
+      "line": 4331,
+      "label": "§7.2",
+      "anchor": "ROOT-NO-SMALLER",
+      "anchor_exists": true
+    },
+    {
+      "line": 4331,
+      "label": "§1",
+      "anchor": "R3-01-QUANTIFIERS",
+      "anchor_exists": true
+    },
+    {
+      "line": 4347,
+      "label": "§3.1",
+      "anchor": "forr_definition",
+      "anchor_exists": true
+    },
+    {
+      "line": 4359,
+      "label": "§3.1",
+      "anchor": "forr_definition",
+      "anchor_exists": true
+    },
+    {
+      "line": 4359,
+      "label": "§3.18",
+      "anchor": "forr_references",
+      "anchor_exists": true
+    },
+    {
+      "line": 4371,
+      "label": "§3.1",
+      "anchor": "forr_definition",
+      "anchor_exists": true
+    },
+    {
+      "line": 4371,
+      "label": "§3.18",
+      "anchor": "forr_references",
+      "anchor_exists": true
+    },
+    {
+      "line": 4383,
+      "label": "§3.1",
+      "anchor": "forr_definition",
+      "anchor_exists": true
+    },
+    {
+      "line": 4395,
+      "label": "§3.6",
+      "anchor": "forr_bs_translation",
+      "anchor_exists": true
+    },
+    {
+      "line": 4395,
+      "label": "§3.18",
+      "anchor": "forr_references",
+      "anchor_exists": true
+    },
+    {
+      "line": 4407,
+      "label": "§3.15",
+      "anchor": "forr_threshold",
+      "anchor_exists": true
+    },
+    {
+      "line": 4407,
+      "label": "§3.16",
+      "anchor": "forr_attribution",
+      "anchor_exists": true
+    },
+    {
+      "line": 4407,
+      "label": "§3.17",
+      "anchor": "forr_bundle",
+      "anchor_exists": true
+    },
+    {
+      "line": 4407,
+      "label": "§3.18",
+      "anchor": "forr_references",
+      "anchor_exists": true
+    },
+    {
+      "line": 4419,
+      "label": "§3.3",
+      "anchor": "forr_quantum",
+      "anchor_exists": true
+    },
+    {
+      "line": 4431,
+      "label": "§3.3",
+      "anchor": "forr_quantum",
+      "anchor_exists": true
+    },
+    {
+      "line": 4431,
+      "label": "§3.17",
+      "anchor": "forr_bundle",
+      "anchor_exists": true
+    },
+    {
+      "line": 4431,
+      "label": "§5.3",
+      "anchor": "upper-decode",
+      "anchor_exists": true
+    },
+    {
+      "line": 4431,
+      "label": "§5.3",
+      "anchor": "upper-decode-cost",
+      "anchor_exists": true
+    },
+    {
+      "line": 4431,
+      "label": "§3.3",
+      "anchor": "forr_coherent",
+      "anchor_exists": true
+    },
+    {
+      "line": 4443,
+      "label": "§3.2",
+      "anchor": "forr_integer",
+      "anchor_exists": true
+    },
+    {
+      "line": 4455,
+      "label": "§3.2",
+      "anchor": "forr_integer",
+      "anchor_exists": true
+    },
+    {
+      "line": 4467,
+      "label": "§3.4",
+      "anchor": "forr_circuit",
+      "anchor_exists": true
+    },
+    {
+      "line": 4479,
+      "label": "§3.4",
+      "anchor": "forr_circuit",
+      "anchor_exists": true
+    },
+    {
+      "line": 4479,
+      "label": "§3.17",
+      "anchor": "forr_bundle",
+      "anchor_exists": true
+    },
+    {
+      "line": 4479,
+      "label": "§3.4",
+      "anchor": "forr_circuit_size",
+      "anchor_exists": true
+    },
+    {
+      "line": 4491,
+      "label": "§3.17",
+      "anchor": "forr_bundle",
+      "anchor_exists": true
+    },
+    {
+      "line": 4491,
+      "label": "§3.18",
+      "anchor": "forr_references",
+      "anchor_exists": true
+    },
+    {
+      "line": 4507,
+      "label": "§4.1",
+      "anchor": "CL-transcripts",
+      "anchor_exists": true
+    },
+    {
+      "line": 4519,
+      "label": "§4.2",
+      "anchor": "CL-layout",
+      "anchor_exists": true
+    },
+    {
+      "line": 4531,
+      "label": "§4",
+      "anchor": "CL-construction-context",
+      "anchor_exists": true
+    },
+    {
+      "line": 4531,
+      "label": "§4.2",
+      "anchor": "CL-layout",
+      "anchor_exists": true
+    },
+    {
+      "line": 4543,
+      "label": "§4.1",
+      "anchor": "CL-transcripts",
+      "anchor_exists": true
+    },
+    {
+      "line": 4555,
+      "label": "§4.2",
+      "anchor": "CL-address-winner",
+      "anchor_exists": true
+    },
+    {
+      "line": 4567,
+      "label": "§4",
+      "anchor": "CL-construction-context",
+      "anchor_exists": true
+    },
+    {
+      "line": 4567,
+      "label": "§4.2",
+      "anchor": "CL-address-winner",
+      "anchor_exists": true
+    },
+    {
+      "line": 4579,
+      "label": "§4.2",
+      "anchor": "CL-address-winner",
+      "anchor_exists": true
+    },
+    {
+      "line": 4591,
+      "label": "§4",
+      "anchor": "CL-construction-context",
+      "anchor_exists": true
+    },
+    {
+      "line": 4591,
+      "label": "§4.2",
+      "anchor": "CL-address-winner",
+      "anchor_exists": true
+    },
+    {
+      "line": 4603,
+      "label": "§4.2",
+      "anchor": "CL-unique",
+      "anchor_exists": true
+    },
+    {
+      "line": 4615,
+      "label": "§4.2",
+      "anchor": "CL-fidelity",
+      "anchor_exists": true
+    },
+    {
+      "line": 4627,
+      "label": "§4.4",
+      "anchor": "CL-local-tests",
+      "anchor_exists": true
+    },
+    {
+      "line": 4627,
+      "label": "§5.3",
+      "anchor": "upper-verifier",
+      "anchor_exists": true
+    },
+    {
+      "line": 4639,
+      "label": "§4.4",
+      "anchor": "CL-local-tests",
+      "anchor_exists": true
+    },
+    {
+      "line": 4639,
+      "label": "§4.4",
+      "anchor": "CL-local-equivalence",
+      "anchor_exists": true
+    },
+    {
+      "line": 4639,
+      "label": "§5.3",
+      "anchor": "upper-verifier",
+      "anchor_exists": true
+    },
+    {
+      "line": 4651,
+      "label": "§4.4",
+      "anchor": "CL-local-tests",
+      "anchor_exists": true
+    },
+    {
+      "line": 4651,
+      "label": "§4.6",
+      "anchor": "CL-coherent-tests",
+      "anchor_exists": true
+    },
+    {
+      "line": 4651,
+      "label": "§5.3",
+      "anchor": "upper-verification-proof",
+      "anchor_exists": true
+    },
+    {
+      "line": 4663,
+      "label": "§4.6",
+      "anchor": "CL-coherent-tests",
+      "anchor_exists": true
+    },
+    {
+      "line": 4675,
+      "label": "§4.4",
+      "anchor": "CL-dichotomy",
+      "anchor_exists": true
+    },
+    {
+      "line": 4687,
+      "label": "§4.2",
+      "anchor": "CL-fidelity",
+      "anchor_exists": true
+    },
+    {
+      "line": 4703,
+      "label": "§5.1",
+      "anchor": "upper-grover-trial",
+      "anchor_exists": true
+    },
+    {
+      "line": 4715,
+      "label": "§5.1",
+      "anchor": "upper-grover-geometry",
+      "anchor_exists": true
+    },
+    {
+      "line": 4727,
+      "label": "§5.1",
+      "anchor": "upper-small-probability",
+      "anchor_exists": true
+    },
+    {
+      "line": 4739,
+      "label": "§5.1",
+      "anchor": "upper-average-exact",
+      "anchor_exists": true
+    },
+    {
+      "line": 4739,
+      "label": "§5.1",
+      "anchor": "upper-small-probability",
+      "anchor_exists": true
+    },
+    {
+      "line": 4751,
+      "label": "§5.1",
+      "anchor": "upper-amplification-statement",
+      "anchor_exists": true
+    },
+    {
+      "line": 4751,
+      "label": "§5.1",
+      "anchor": "upper-amplification-proof",
+      "anchor_exists": true
+    },
+    {
+      "line": 4767,
+      "label": "§5.2",
+      "anchor": "upper-comparison-model",
+      "anchor_exists": true
+    },
+    {
+      "line": 4779,
+      "label": "§5.2",
+      "anchor": "upper-comparison-model",
+      "anchor_exists": true
+    },
+    {
+      "line": 4779,
+      "label": "§5.3",
+      "anchor": "upper-comparison-law",
+      "anchor_exists": true
+    },
+    {
+      "line": 4791,
+      "label": "§5.2",
+      "anchor": "upper-tournament-parameters",
+      "anchor_exists": true
+    },
+    {
+      "line": 4803,
+      "label": "§5.2",
+      "anchor": "upper-tournament-parameters",
+      "anchor_exists": true
+    },
+    {
+      "line": 4815,
+      "label": "§5.2",
+      "anchor": "upper-ideal-process",
+      "anchor_exists": true
+    },
+    {
+      "line": 4827,
+      "label": "§5.2",
+      "anchor": "upper-ideal-process",
+      "anchor_exists": true
+    },
+    {
+      "line": 4839,
+      "label": "§5.2",
+      "anchor": "upper-weight-drift",
+      "anchor_exists": true
+    },
+    {
+      "line": 4851,
+      "label": "§5.2",
+      "anchor": "upper-weight-drift",
+      "anchor_exists": true
+    },
+    {
+      "line": 4863,
+      "label": "§5.2",
+      "anchor": "upper-dominant-weight",
+      "anchor_exists": true
+    },
+    {
+      "line": 4875,
+      "label": "§5.2",
+      "anchor": "upper-dominant-weight",
+      "anchor_exists": true
+    },
+    {
+      "line": 4887,
+      "label": "§5.2",
+      "anchor": "upper-stage-state",
+      "anchor_exists": true
+    },
+    {
+      "line": 4887,
+      "label": "§5.2",
+      "anchor": "upper-quantum-tournament",
+      "anchor_exists": true
+    },
+    {
+      "line": 4899,
+      "label": "§5.2",
+      "anchor": "upper-stage-state",
+      "anchor_exists": true
+    },
+    {
+      "line": 4899,
+      "label": "§5.2",
+      "anchor": "upper-tournament-evidence",
+      "anchor_exists": true
+    },
+    {
+      "line": 4911,
+      "label": "§5.2",
+      "anchor": "upper-stage-law",
+      "anchor_exists": true
+    },
+    {
+      "line": 4911,
+      "label": "§5.2",
+      "anchor": "upper-tournament-evidence",
+      "anchor_exists": true
+    },
+    {
+      "line": 4923,
+      "label": "§5.2",
+      "anchor": "upper-coupling",
+      "anchor_exists": true
+    },
+    {
+      "line": 4923,
+      "label": "§5.2",
+      "anchor": "upper-tournament-evidence",
+      "anchor_exists": true
+    },
+    {
+      "line": 4923,
+      "label": "§5.2",
+      "anchor": "upper-continuation-induction",
+      "anchor_exists": true
+    },
+    {
+      "line": 4935,
+      "label": "§5.2",
+      "anchor": "upper-tournament-cost",
+      "anchor_exists": true
+    },
+    {
+      "line": 4935,
+      "label": "§5.4",
+      "anchor": "upper-finite-budget",
+      "anchor_exists": true
+    },
+    {
+      "line": 4947,
+      "label": "§5",
+      "anchor": "upper-purpose",
+      "anchor_exists": true
+    },
+    {
+      "line": 4947,
+      "label": "§5.2",
+      "anchor": "upper-comparison-model",
+      "anchor_exists": true
+    },
+    {
+      "line": 4947,
+      "label": "§5.2",
+      "anchor": "upper-tournament-cost",
+      "anchor_exists": true
+    },
+    {
+      "line": 4947,
+      "label": "§5.2",
+      "anchor": "upper-tournament-evidence",
+      "anchor_exists": true
+    },
+    {
+      "line": 4963,
+      "label": "§5.3",
+      "anchor": "upper-decode",
+      "anchor_exists": true
+    },
+    {
+      "line": 4975,
+      "label": "§5.3",
+      "anchor": "upper-decode-cost",
+      "anchor_exists": true
+    },
+    {
+      "line": 4987,
+      "label": "§5.3",
+      "anchor": "upper-comparator",
+      "anchor_exists": true
+    },
+    {
+      "line": 4999,
+      "label": "§5.3",
+      "anchor": "upper-comparator",
+      "anchor_exists": true
+    },
+    {
+      "line": 4999,
+      "label": "§5.3",
+      "anchor": "upper-comparison-law",
+      "anchor_exists": true
+    },
+    {
+      "line": 5011,
+      "label": "§5.3",
+      "anchor": "upper-winner-dominates",
+      "anchor_exists": true
+    },
+    {
+      "line": 5023,
+      "label": "§5.3",
+      "anchor": "upper-verifier",
+      "anchor_exists": true
+    },
+    {
+      "line": 5035,
+      "label": "§5.3",
+      "anchor": "upper-verification-proof",
+      "anchor_exists": true
+    },
+    {
+      "line": 5047,
+      "label": "§5.2",
+      "anchor": "upper-continuation-induction",
+      "anchor_exists": true
+    },
+    {
+      "line": 5047,
+      "label": "§5.3",
+      "anchor": "upper-total-error",
+      "anchor_exists": true
+    },
+    {
+      "line": 5059,
+      "label": "§5.4",
+      "anchor": "upper-oracle-access",
+      "anchor_exists": true
+    },
+    {
+      "line": 5059,
+      "label": "§5.4",
+      "anchor": "upper-read-compiler",
+      "anchor_exists": true
+    },
+    {
+      "line": 5071,
+      "label": "§5",
+      "anchor": "upper-purpose",
+      "anchor_exists": true
+    },
+    {
+      "line": 5071,
+      "label": "§5.4",
+      "anchor": "upper-finite-budget",
+      "anchor_exists": true
+    },
+    {
+      "line": 5071,
+      "label": "§5.4",
+      "anchor": "upper-asymptotic-bound",
+      "anchor_exists": true
+    },
+    {
+      "line": 5071,
+      "label": "§5.4",
+      "anchor": "upper-explicit-log6",
+      "anchor_exists": true
+    },
+    {
+      "line": 5087,
+      "label": "§6.1",
+      "anchor": "CL-product-law",
+      "anchor_exists": true
+    },
+    {
+      "line": 5099,
+      "label": "§6.1",
+      "anchor": "CL-conditional-values",
+      "anchor_exists": true
+    },
+    {
+      "line": 5111,
+      "label": "§6.1",
+      "anchor": "CL-conditional-values",
+      "anchor_exists": true
+    },
+    {
+      "line": 5123,
+      "label": "§6.1",
+      "anchor": "CL-supermartingale",
+      "anchor_exists": true
+    },
+    {
+      "line": 5135,
+      "label": "§6.1",
+      "anchor": "CL-supermartingale",
+      "anchor_exists": true
+    },
+    {
+      "line": 5147,
+      "label": "§6.1",
+      "anchor": "CL-direct-product-statement",
+      "anchor_exists": true
+    },
+    {
+      "line": 5147,
+      "label": "§6.1",
+      "anchor": "CL-supermartingale",
+      "anchor_exists": true
+    },
+    {
+      "line": 5147,
+      "label": "§6.1",
+      "anchor": "CL-weighted-values",
+      "anchor_exists": true
+    },
+    {
+      "line": 5147,
+      "label": "§6.1",
+      "anchor": "CL-weighted-product",
+      "anchor_exists": true
+    },
+    {
+      "line": 5147,
+      "label": "§6.1",
+      "anchor": "CL-independent-information",
+      "anchor_exists": true
+    },
+    {
+      "line": 5159,
+      "label": "§6.2",
+      "anchor": "CL-minimax",
+      "anchor_exists": true
+    },
+    {
+      "line": 5171,
+      "label": "§6.2",
+      "anchor": "CL-address-guess",
+      "anchor_exists": true
+    },
+    {
+      "line": 5187,
+      "label": "§6.3",
+      "anchor": "CL-generic-statement",
+      "anchor_exists": true
+    },
+    {
+      "line": 5199,
+      "label": "§6.3",
+      "anchor": "CL-dummy",
+      "anchor_exists": true
+    },
+    {
+      "line": 5211,
+      "label": "§6.3",
+      "anchor": "CL-planted",
+      "anchor_exists": true
+    },
+    {
+      "line": 5223,
+      "label": "§6.3",
+      "anchor": "CL-planted",
+      "anchor_exists": true
+    },
+    {
+      "line": 5235,
+      "label": "§6.3",
+      "anchor": "CL-first-difference",
+      "anchor_exists": true
+    },
+    {
+      "line": 5247,
+      "label": "§6.4",
+      "anchor": "CL-early-late",
+      "anchor_exists": true
+    },
+    {
+      "line": 5247,
+      "label": "§6.4",
+      "anchor": "CL-erased-zero-identity",
+      "anchor_exists": true
+    },
+    {
+      "line": 5259,
+      "label": "§6.4",
+      "anchor": "CL-early-late",
+      "anchor_exists": true
+    },
+    {
+      "line": 5271,
+      "label": "§6.4",
+      "anchor": "CL-early-late",
+      "anchor_exists": true
+    },
+    {
+      "line": 5283,
+      "label": "§6.4",
+      "anchor": "CL-early-late",
+      "anchor_exists": true
+    },
+    {
+      "line": 5283,
+      "label": "§6.4",
+      "anchor": "CL-zero-worlds",
+      "anchor_exists": true
+    },
+    {
+      "line": 5283,
+      "label": "§6.4",
+      "anchor": "CL-zero-average",
+      "anchor_exists": true
+    },
+    {
+      "line": 5295,
+      "label": "§6.5",
+      "anchor": "CL-heavy",
+      "anchor_exists": true
+    },
+    {
+      "line": 5307,
+      "label": "§6.5",
+      "anchor": "CL-heavy",
+      "anchor_exists": true
+    },
+    {
+      "line": 5319,
+      "label": "§6.5",
+      "anchor": "CL-simulator",
+      "anchor_exists": true
+    },
+    {
+      "line": 5331,
+      "label": "§6.5",
+      "anchor": "CL-simulator",
+      "anchor_exists": true
+    },
+    {
+      "line": 5331,
+      "label": "§6.5",
+      "anchor": "CL-joint-event",
+      "anchor_exists": true
+    },
+    {
+      "line": 5343,
+      "label": "§6.5",
+      "anchor": "CL-cell-union",
+      "anchor_exists": true
+    },
+    {
+      "line": 5355,
+      "label": "§6.6",
+      "anchor": "CL-discrepancy",
+      "anchor_exists": true
+    },
+    {
+      "line": 5367,
+      "label": "§6.6",
+      "anchor": "CL-tail-numeric",
+      "anchor_exists": true
+    },
+    {
+      "line": 5379,
+      "label": "§6.6",
+      "anchor": "CL-tail-numeric",
+      "anchor_exists": true
+    },
+    {
+      "line": 5391,
+      "label": "§6.6",
+      "anchor": "CL-concrete-lower",
+      "anchor_exists": true
+    },
+    {
+      "line": 5403,
+      "label": "§7",
+      "anchor": "ROOT-FAMILY-ASSEMBLY",
+      "anchor_exists": true
+    },
+    {
+      "line": 5403,
+      "label": "§6.6",
+      "anchor": "CL-concrete-lower",
+      "anchor_exists": true
+    },
+    {
+      "line": 5415,
+      "label": "§6.3",
+      "anchor": "CL-generic-statement",
+      "anchor_exists": true
+    },
+    {
+      "line": 5415,
+      "label": "§6.6",
+      "anchor": "CL-randomized-contradiction",
+      "anchor_exists": true
+    },
+    {
+      "line": 5431,
+      "label": "§7",
+      "anchor": "ROOT-FAMILY-ASSEMBLY",
+      "anchor_exists": true
+    },
+    {
+      "line": 5431,
+      "label": "§6.6",
+      "anchor": "CL-floors",
+      "anchor_exists": true
+    },
+    {
+      "line": 5443,
+      "label": "§7.1",
+      "anchor": "ROOT-RATIO",
+      "anchor_exists": true
+    },
+    {
+      "line": 5443,
+      "label": "§1",
+      "anchor": "R3-01-QUANTIFIERS",
+      "anchor_exists": true
+    },
+    {
+      "line": 5455,
+      "label": "§7.2",
+      "anchor": "ROOT-NO-SMALLER",
+      "anchor_exists": true
+    },
+    {
+      "line": 5471,
+      "label": "§2.1",
+      "anchor": "ROOT-PARTIAL",
+      "anchor_exists": true
+    },
+    {
+      "line": 5471,
+      "label": "§2.2",
+      "anchor": "R3-01-CLASSICAL",
+      "anchor_exists": true
+    },
+    {
+      "line": 5483,
+      "label": "§A.1",
+      "anchor": "ROOT-DEGREE-BLOCK",
+      "anchor_exists": true
+    },
+    {
+      "line": 5495,
+      "label": "§A.1",
+      "anchor": "ROOT-DEGREE-BLOCK",
+      "anchor_exists": true
+    },
+    {
+      "line": 5507,
+      "label": "§A.2",
+      "anchor": "ROOT-ADVERSARY-PERRON",
+      "anchor_exists": true
+    },
+    {
+      "line": 5519,
+      "label": "§A.2",
+      "anchor": "ROOT-ADVERSARY-PERRON",
+      "anchor_exists": true
+    },
+    {
+      "line": 5531,
+      "label": "§A.2",
+      "anchor": "ROOT-ADVERSARY-PROGRESS",
+      "anchor_exists": true
+    },
+    {
+      "line": 5543,
+      "label": "§A.2",
+      "anchor": "ROOT-ADVERSARY-PROGRESS",
+      "anchor_exists": true
+    },
+    {
+      "line": 5555,
+      "label": "§A.2",
+      "anchor": "ROOT-ADVERSARY-FINAL",
+      "anchor_exists": true
+    },
+    {
+      "line": 5567,
+      "label": "§A.2",
+      "anchor": "ROOT-ADVERSARY-PROGRESS",
+      "anchor_exists": true
+    },
+    {
+      "line": 5567,
+      "label": "§A.2",
+      "anchor": "ROOT-ADVERSARY-FINAL",
+      "anchor_exists": true
+    },
+    {
+      "line": 5579,
+      "label": "§A.3",
+      "anchor": "ROOT-BS-LAMBDA",
+      "anchor_exists": true
+    },
+    {
+      "line": 5591,
+      "label": "§A.3",
+      "anchor": "ROOT-BS-LAMBDA",
+      "anchor_exists": true
+    },
+    {
+      "line": 5603,
+      "label": "§A.3",
+      "anchor": "ROOT-BS-LAMBDA",
+      "anchor_exists": true
+    },
+    {
+      "line": 5615,
+      "label": "§A.3",
+      "anchor": "ROOT-BS-LAMBDA",
+      "anchor_exists": true
+    },
+    {
+      "line": 5627,
+      "label": "§A.4",
+      "anchor": "ROOT-HUANG-RESTRICTION",
+      "anchor_exists": true
+    },
+    {
+      "line": 5639,
+      "label": "§A.4",
+      "anchor": "ROOT-HUANG-SPECTRUM",
+      "anchor_exists": true
+    },
+    {
+      "line": 5651,
+      "label": "§A.4",
+      "anchor": "ROOT-HUANG-SPECTRUM",
+      "anchor_exists": true
+    },
+    {
+      "line": 5663,
+      "label": "§A.4",
+      "anchor": "ROOT-HUANG-SPECTRUM",
+      "anchor_exists": true
+    },
+    {
+      "line": 5675,
+      "label": "§A.4",
+      "anchor": "ROOT-HUANG-SPECTRUM",
+      "anchor_exists": true
+    },
+    {
+      "line": 5687,
+      "label": "§A.5",
+      "anchor": "ROOT-MONOMIAL-TREE",
+      "anchor_exists": true
+    },
+    {
+      "line": 5699,
+      "label": "§A.5",
+      "anchor": "ROOT-MONOMIAL-TREE",
+      "anchor_exists": true
+    },
+    {
+      "line": 5711,
+      "label": "§7.3",
+      "anchor": "ROOT-APPENDIX-INTRO",
+      "anchor_exists": true
+    },
+    {
+      "line": 5711,
+      "label": "§A.6",
+      "anchor": "ROOT-QUARTIC-UPPER",
+      "anchor_exists": true
+    }
+  ],
+  "current_companion_return_links": {
+    "expert_companion.md": false,
+    "exposition.md": false,
+    "historical_return_directory_links_at_record_line": 115
+  },
+  "source_closure_observation": {
+    "command": "python3 examples/check_example.py",
+    "record_line": 2056,
+    "expected_member": "repository/research/returns/round3/members/04_addressed_construction/examples/check_example.py",
+    "member_present": false,
+    "scope": "absence from this packet only; no assertion about full remote repository"
+  },
+  "not_checked_in_this_audit": [
+    "External URL availability",
+    "GitHub HTML behavior",
+    "PDF click targets",
+    "Lean declarations and Comparator outcomes"
+  ],
+  "other_return_audits": {
+    "PDF destinations": "audits/pdf_navigation_audit.json",
+    "Lean declarations and recorded evidence": "audits/claim_evidence_trace.json"
+  }
+}

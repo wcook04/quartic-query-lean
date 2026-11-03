@@ -1,0 +1,305 @@
+{
+  "packet": "long_record_navigation",
+  "accessed": "2026-11-03",
+  "scope": {
+    "read_fully": [
+      "READ_ME_FIRST.md",
+      "reasoning_record.md §3.1–§3.18",
+      "reasoning_record.md Appendix C"
+    ],
+    "other_current_text_read": [
+      "reasoning_record.md §§1–1.1, §4.8, §5 introduction and §5.1",
+      "Selected §6.1 opening and Appendix D beginning/end",
+      "expert_companion.md abstract, §§1–2 and §6; relevant bibliography entries",
+      "paper/extracted.md abstract, §§1–2.1"
+    ],
+    "status": "Review and source comparison only. No Lean builds, Comparator runs, attached scripts, theorem formalization or manuscript edits were performed by this reviewer.",
+    "version_rule": "Current manuscript Markdown is authoritative. Paper/extraction/HTML theorem numbers are not assumed interchangeable. Source reading is sampled unless expressly identified as complete.",
+    "scope_note": "This source register describes the literature-comparison reading. The complete combined review scope is in review_scope.md."
+  },
+  "manuscript_evidence": [
+    {
+      "path": "repository/docs/reasoning_record.md",
+      "sha256": "1b677c780734209fd36fc206a17e4262f9124e290f84736e9573db8f1f88a986"
+    },
+    {
+      "path": "repository/docs/expert_companion.md",
+      "sha256": "7af8ec78b3114f2e21ec7d4da667a45f3be4aa67c73ba51838d9fac9a5af7d50"
+    },
+    {
+      "path": "repository/docs/expert_companion.bib",
+      "sha256": "c458193dd5c1f5c2af5d33191101f6ee97dcfc691b50a7209c51665bf4baa002"
+    }
+  ],
+  "sources": [
+    {
+      "id": "OPENAI2026",
+      "bibliography": "OpenAI. A Nearly Quartic Separation Between Randomized and Quantum Query Complexity. Preprint, October 5, 2026.",
+      "version": "Supplied October 5, 2026 preprint; cited repository commit 4eaee875.",
+      "primary_urls": [
+        "https://github.com/openai/math/blob/4eaee875/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf"
+      ],
+      "inspected": [
+        "Supplied paper/extracted.md: abstract; §§1, 1.1 Historical context, 1.2, 1.3, and 2.1.",
+        "Additional statement comparison: Lemma 2.2, Lemma 3.1, Propositions 3.2–3.3 and Lemma 4.1, using the supplied extraction.",
+        "The proof of Lemma 2.2 was inspected for the construction-link finding; no complete preprint proof audit is claimed."
+      ],
+      "supports": [
+        "Historical 5/2, 8/3 and cubic milestones; comparison with certificate-complexity constructions of Ben-David–Kothari and Ambainis–Iraids–Kokainis; the preprint’s stated one-sided Forrelation promise and squared-amplitude quantum test."
+      ],
+      "limitations": [
+        "The pinned GitHub PDF URL was taken from the supplied record; the same remote bytes were not independently downloaded. Reading was of the supplied extraction, not a full-paper proof audit."
+      ],
+      "local_evidence": [
+        {
+          "path": "paper/source.pdf",
+          "sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e"
+        },
+        {
+          "path": "paper/extracted.md",
+          "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a"
+        }
+      ],
+      "finding_ids": [
+        "LR-034",
+        "LR-035",
+        "LR-052"
+      ],
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": "ABK2019v2",
+      "bibliography": "Scott Aaronson, Shalev Ben-David, Robin Kothari. Separations in Query Complexity Using Cheat Sheets. STOC 2016, pp. 863–876; inspected arXiv:1511.01937v2 (July 9, 2019).",
+      "version": "arXiv:1511.01937v2, not an unspecified STOC/journal text.",
+      "primary_urls": [
+        "https://arxiv.org/abs/1511.01937v2",
+        "https://arxiv.org/pdf/1511.01937v2"
+      ],
+      "inspected": [
+        "Supplied extraction: introduction, lines 1–46; overview, lines 1327–1350; §3.1 and opening of §3.2, lines 1411–1465; §6.1 and opening of §6.2, lines 1683–1778.",
+        "Primary arXiv abstract/version metadata inspected online."
+      ],
+      "supports": [
+        "The cheat-sheet addressing and certificate-verification mechanism; rejection of unpromised entries; the 5/2 separation and the cubic total-function consequence of optimal partial separations; the split between computing an address and checking its certificate."
+      ],
+      "limitations": [
+        "Sampled sections, not the whole paper. Supplied extraction theorem numbering differs from printed numbering: record locators are Definitions 14–15 in §6.1, pp. 20–21, and Lemma 17 in §6.2, p. 22. The extraction should not be cited as though those printed numbers were preserved."
+      ],
+      "local_evidence": [
+        {
+          "path": "literature/quartic-ref-02-separations-in-query-complexity-using-chea/extracted.md",
+          "sha256": "39745f19fdbaad3fd6542cee69cd8fdabe02771f975e676aa2e375a208873e32"
+        },
+        {
+          "path": "literature/quartic-ref-02-separations-in-query-complexity-using-chea/source.pdf",
+          "sha256": "64380c861d0e0296a53c998a0109d62bf446529414001f8e46615991b558e4bc"
+        }
+      ],
+      "finding_ids": [
+        "LR-034"
+      ],
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": "BS2020v3",
+      "bibliography": "Nikhil Bansal, Makrand Sinha. k-Forrelation Optimally Separates Quantum and Classical Query Complexity. STOC 2021, pp. 1303–1316; inspected arXiv:2008.07003v3 (November 17, 2020).",
+      "version": "arXiv:2008.07003v3. Source-level comparison is specifically to the supplied TeX archive, whose SHA-256 is recorded below.",
+      "primary_urls": [
+        "https://arxiv.org/abs/2008.07003v3",
+        "https://arxiv.org/pdf/2008.07003v3",
+        "https://arxiv.org/src/2008.07003v3"
+      ],
+      "inspected": [
+        "Supplied extraction: §1.1 promise and quantum proposition; §1.2 main results; selected §1.3 overview and independent-work discussion (including lines 149–235); §5.4, lines 1006–1023.",
+        "The explicit independent-work distinction between Forrelation and non-explicit rorrelation at extracted lines 221–227 was read.",
+        "Supplied source.tar.gz was opened as data; main.tex lines 1168–1186 were read, including lines 1173 and 1180–1184 cited by the record. No source code or attached scripts were executed.",
+        "Primary arXiv abstract/comments/version metadata inspected online."
+      ],
+      "supports": [
+        "Bansal–Sinha establish the explicit Walsh k-Forrelation lower bound; their paper distinguishes SSW’s independent random-orthogonal rorrelation result.",
+        "The supplied version’s final summation lines are the actual source of the record’s logarithm/exponent comparison. The record’s source hash and cited TeX lines agree with the supplied archive.",
+        "The original covariance-interpolation method is a useful contrast for describing the record’s fixed Gaussian law and first-block sign-bias interpolation."
+      ],
+      "limitations": [
+        "Sections 3–4 were not read in full. The source-level check is version-specific and does not establish that the cited paper’s main theorem is false. No claim is made about all subsequent corrected presentations or journal versions."
+      ],
+      "local_evidence": [
+        {
+          "path": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/extracted.md",
+          "sha256": "cf1477e44353bbb796581002e8cacef3199e8e153d43f075fc8047c2934de952"
+        },
+        {
+          "path": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.pdf",
+          "sha256": "afe53c8bd918d07590f29a947ef044453db73959043135082d1a3c29b2863a35"
+        },
+        {
+          "path": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.tar.gz",
+          "sha256": "f48a3225662484d12e19bf03412478cf87a388f7c2e33c69a4d7f2078202e015"
+        }
+      ],
+      "finding_ids": [
+        "LR-011",
+        "LR-033",
+        "LR-036",
+        "LR-037",
+        "LR-055"
+      ],
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": "BHMT2000v1",
+      "bibliography": "Gilles Brassard, Peter Høyer, Michele Mosca, Alain Tapp. Quantum Amplitude Amplification and Estimation. Contemporary Mathematics 305 (2002), pp. 53–74; inspected arXiv:quant-ph/0005055v1 (May 15, 2000).",
+      "version": "arXiv:quant-ph/0005055v1 as supplied.",
+      "primary_urls": [
+        "https://arxiv.org/abs/quant-ph/0005055v1",
+        "https://arxiv.org/pdf/quant-ph/0005055v1"
+      ],
+      "inspected": [
+        "Supplied extraction §2, lines 21–155: two-dimensional amplification geometry, Lemma 1, equation (8), Theorem 2, and the QSearch/Theorem 3 unknown-success procedure.",
+        "Primary arXiv abstract/version metadata inspected online."
+      ],
+      "supports": [
+        "The successful component after amplitude amplification remains the same normalized successful component; unknown-success expected cost is not by itself a worst-case query cap. These are background checks for reading the record, not a claim that a new defect was found."
+      ],
+      "limitations": [
+        "The amplitude-estimation Theorem 12 was not read. No complete paper read or independent verification of the record’s entire quantum search algorithm is claimed."
+      ],
+      "local_evidence": [
+        {
+          "path": "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/extracted.md",
+          "sha256": "9fd98e35695c4bf763e4faa35ac146b18c74c3caf0dee24e3e208923aff71a86"
+        },
+        {
+          "path": "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/source.pdf",
+          "sha256": "badedce80b0fe53e6cd93f915ce79c9680e375bb6565f83d2f572bc4114b0278"
+        }
+      ],
+      "finding_ids": [],
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": "DRUCKER2014v2",
+      "bibliography": "Andrew Drucker. Improved Direct Product Theorems for Randomized Query Complexity. Computational Complexity 21(2) (2012), pp. 197–244; inspected arXiv:1005.0644v2 (May 9, 2014).",
+      "version": "arXiv:1005.0644v2 as supplied, distinguished from the journal publication year.",
+      "primary_urls": [
+        "https://arxiv.org/abs/1005.0644v2",
+        "https://arxiv.org/pdf/1005.0644v2"
+      ],
+      "inspected": [
+        "Supplied extraction §1.3 methods, lines 71–82; §2.1 models, lines 95–106; §3 main direct-product proof, lines 140–201, including the concluding fair-algorithm specialization.",
+        "Primary arXiv abstract/version metadata inspected online."
+      ],
+      "supports": [
+        "Transcript cylinder factorization, per-instance optimum continuation values and the fair separate-cap specialization used to orient the record’s posterior argument."
+      ],
+      "limitations": [
+        "The remainder of the paper was not read. This reading does not convert a fair separate-cap result into a global-budget direct-product theorem and does not verify a claim about the earliest origin of every ingredient."
+      ],
+      "local_evidence": [
+        {
+          "path": "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/extracted.md",
+          "sha256": "de4e25127079b849cc18984031442ed939d6c24467d1bd67faaa466f8e17e29a"
+        },
+        {
+          "path": "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/source.pdf",
+          "sha256": "6a67da06a0f07d0f86bb6389b7143314cade50294e2c0c454f3cc9853643faff"
+        }
+      ],
+      "finding_ids": [],
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": "SSW2023v4",
+      "bibliography": "Alexander A. Sherstov, Andrey A. Storozhenko, Pei Wu. An Optimal Separation of Randomized and Quantum Query Complexity. SIAM Journal on Computing 52(2) (2023), pp. 525–567; inspected arXiv:2008.10223v4 (January 29, 2023).",
+      "version": "arXiv:2008.10223v4 HTML and abstract metadata.",
+      "primary_urls": [
+        "https://arxiv.org/abs/2008.10223v4",
+        "https://arxiv.org/html/2008.10223v4",
+        "https://arxiv.org/pdf/2008.10223v4"
+      ],
+      "inspected": [
+        "Primary HTML §§1.1–1.3, especially Theorem 1.1 and the uniformly random orthogonal matrix; §1.8 Independent work, especially the explicit-versus-random distinction.",
+        "Selected §4.5 Fourier-growth corollaries and their short proofs: HTML Corollaries 4.12 and 4.13, rendered lines 1007–1040; the latter extends the range from {-1,0,1} to [-1,1] by convexity.",
+        "Short §1.9, §5.1 and §5.3 context passages were sampled, not their full proofs.",
+        "Root reviewer also inspected the primary PDF introduction, including §§1.1–1.2 and §1.8. This does not add a full proof audit."
+      ],
+      "supports": [
+        "Distinguishes random-orthogonal rorrelation from explicit Walsh Forrelation, and separates the query-separation result from the reusable Fourier-growth theorem."
+      ],
+      "limitations": [
+        "The whole paper and the complete rorrelation proof were not read. The provided record cites printed PDF Corollaries 4.14–4.15, pp. 35–36; that PDF numbering was not independently inspected here, so the independently read HTML locators are recorded explicitly."
+      ],
+      "local_evidence": [],
+      "finding_ids": [
+        "LR-011",
+        "LR-037",
+        "LR-040",
+        "LR-055"
+      ],
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": "GTW2021v2",
+      "bibliography": "Uma Girish, Avishay Tal, Kewen Wu. Fourier Growth of Parity Decision Trees. CCC 2021, 39:1–39:36; inspected arXiv:2103.11604v2 (May 13, 2021).",
+      "version": "arXiv:2103.11604v2 HTML and abstract metadata.",
+      "primary_urls": [
+        "https://arxiv.org/abs/2103.11604v2",
+        "https://arxiv.org/html/2103.11604v2"
+      ],
+      "inspected": [
+        "Primary abstract; selected introductory method discussion; §1.3 ordinary-decision-tree discussion, Lemma 1.9 and footnote 2 concerning a bad-event stopping/truncation argument."
+      ],
+      "supports": [
+        "The random-walk/recursive-increment perspective is a credited antecedent to the record’s Fourier-growth organization; conditioning a martingale on a future good event is not the same as a stopped process."
+      ],
+      "limitations": [
+        "The parity-decision-tree proof was not read in full, and the paper’s parity result is not imported as an ordinary-tree theorem without identifying the specialization."
+      ],
+      "local_evidence": [],
+      "finding_ids": [
+        "LR-053",
+        "LR-055"
+      ],
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": "AIK2026v2",
+      "bibliography": "Andris Ambainis, Jānis Iraids, Martins Kokainis. Near-Optimal Separations of Certificate Complexity from Randomized and Quantum Query Complexity. arXiv:2609.11664v2 (September 17, 2026).",
+      "version": "Inspected v2. The arXiv metadata lists a newer v3 dated October 5, 2026; v3 was not inspected.",
+      "primary_urls": [
+        "https://arxiv.org/abs/2609.11664v2",
+        "https://arxiv.org/html/2609.11664v2",
+        "https://arxiv.org/abs/2609.11664v1"
+      ],
+      "inspected": [
+        "Primary v2 abstract and selected introduction; §4 Main algorithmic ideas, rendered lines 251–274, including the directed complete graph and source-finding comparison; short context at the start of §5 and selected §6.1 snippets.",
+        "v1 abstract/title metadata was checked to distinguish the earlier title A Near-Quartic Separation Between Certificate Complexity and Quantum Query Complexity. v1 full text was not retrieved."
+      ],
+      "supports": [
+        "Candidate generation, comparisons in a directed complete graph and checking a satisfying block are related antecedent ideas already credited by the supplied preprint and short companion. The comparison is about mechanisms and certificate-complexity work, not a claim that AIK supplies the current randomized-versus-quantum theorem."
+      ],
+      "limitations": [
+        "No complete algorithm/proof audit. The companion bibliography already uses the inspected v2 title; a stale-title finding would be wrong. Latest-version coverage is not claimed."
+      ],
+      "local_evidence": [],
+      "finding_ids": [
+        "LR-035"
+      ],
+      "accessed": "2026-11-03"
+    }
+  ],
+  "explicitly_not_read": [
+    {
+      "source": "Yao minimax primary source",
+      "reason": "Cited by the packet, but no original Yao paper was retrieved or read in this review; no direct-source read is claimed."
+    },
+    {
+      "source": "AIK arXiv:2609.11664v3",
+      "reason": "Its existence/date was observed in primary metadata; substantive reading was of v2."
+    },
+    {
+      "source": "Girish–Servedio, Forrelation Is Extremally Hard, ITCS 2026",
+      "reason": "Primary search results were encountered, but the paper was not used to support any finding and was not reviewed."
+    }
+  ]
+}

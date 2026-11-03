@@ -10,9 +10,9 @@
  },
  "inputs": {
   "corpus/lean_dependencies.json": "1bc253fd3f3f86245e538bb71dd99d321fdb575cee596fede6bc46babbffe06c",
-  "corpus/statements.json": "df710f3a52591b43ee72ec8b9384bf1b79d7ec2f68169972577ca7d1e61fda3a",
-  "docs/reasoning_record.md": "1b677c780734209fd36fc206a17e4262f9124e290f84736e9573db8f1f88a986",
-  "docs/reasoning_record_correspondence.json": "d131067d63db5cb035daa27574f13fdd297e9eedf0f4d1865e331457a6816a02",
+  "corpus/statements.json": "1a1bfce5c5c522d8055a40b555307f4e44e3cd6190c728bc74dd580afce71847",
+  "docs/reasoning_record.md": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155",
+  "docs/reasoning_record_correspondence.json": "ac392466f7629b6987230d930a7e2e09ed815373488748a8b797eb1cdc246aed",
   "lean/QuarticCorpus/Construction/Challenge.lean": "d554e5a96889c4c9c3aa6bd3231f984fa7cf695aa103ebcd092ac2c7a08240b1",
   "lean/QuarticCorpus/Construction/Solution.lean": "63cfe11442f76eb9b0f1b579e2a925a19fc9312f870e8480bfbf3eacfb9bb9de",
   "lean/QuarticCorpus/Construction/comparator.json": "c18c76b87a777251e70ec3f55c5704be82d52dbba0220e5adb2cf3063709dd78",
@@ -85,9 +85,9 @@
  },
  "record": {
   "path": "docs/reasoning_record.md",
-  "sha256": "1b677c780734209fd36fc206a17e4262f9124e290f84736e9573db8f1f88a986",
-  "passages_verified": 289,
-  "passages_in_correspondence": 289,
+  "sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155",
+  "passages_verified": 295,
+  "passages_in_correspondence": 295,
   "passage_hash_mismatches": []
  },
  "dependency_export": {
@@ -98,7 +98,7 @@
   "challenge_files": 16,
   "challenge_blocks": 318,
   "distinct_declarations": 94,
-  "blocks_with_record_passage": 232,
+  "blocks_with_record_passage": 234,
   "blocks_with_statement_id": 22,
   "blocks_with_direct_statement_tie": 3,
   "blocks_by_comparison_credit": {
@@ -106,9 +106,9 @@
    "not_in_any_configured_statement": 145,
    "statement_dependency": 139
   },
-  "distinct_declarations_with_record_passage": 64,
+  "distinct_declarations_with_record_passage": 66,
   "distinct_declarations_with_statement_id": 22,
-  "distinct_declarations_with_primary_gloss": 36,
+  "distinct_declarations_with_primary_gloss": 39,
   "gaps_no_record_passage": [
    "QuarticQuery.Address",
    "QuarticQuery.BitLoc",
@@ -128,8 +128,6 @@
    "QuarticQuery.Independent.RealLeaves.Compare.growth",
    "QuarticQuery.Paper.construction_decoder_sharp",
    "QuarticQuery.Tournament.IsComparison",
-   "QuarticQuery.Upper.uniformOpaqueAmplifier",
-   "QuarticQuery.direct_product_external_finite_realized_caps",
    "QuarticQuery.pointerEquiv",
    "QuarticQuery.predecessorValue",
    "QuarticQuery.readA",
@@ -2337,15 +2335,15 @@
       "QuarticQuery.Paper.construction_lemma_2_2_with_support"
      ],
      "latest_receipt": {
-      "receipt": "corpus/receipts/comparator-round3-construction-support-2026-11-02T204814950389+0000.json",
-      "receipt_sha256": "3aeff212198af1b70da7d8abdbed1be4a2bdadbac64e25204386e9dd43bffff5",
-      "ran_at": "2026-11-02T20:48:14.950389+00:00",
+      "receipt": "corpus/receipts/comparator-round3-construction-support-2026-11-03T120058951138+0000.json",
+      "receipt_sha256": "12202b0ee31d1d5b5bb5efad6b68fdf5c5d566ab6a4c48dd2ea496719076d01e",
+      "ran_at": "2026-11-03T12:01:45.159761+00:00",
       "status": "passed",
-      "currentness": "stale",
-      "declaration_scope": "historical_configured_plus_scanned"
+      "currentness": "current",
+      "declaration_scope": "configured_theorem_names_only"
      },
-     "current_positive_receipts": 0,
-     "receipts_recorded": 1
+     "current_positive_receipts": 1,
+     "receipts_recorded": 2
     }
    ],
    "imported_trust_surface": {
@@ -2393,12 +2391,12 @@
        "lean/QuarticCorpus/Independent/ConstructionFull/comparator.json"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-round3-construction-support-2026-11-02T204814950389+0000.json",
-       "receipt_sha256": "3aeff212198af1b70da7d8abdbed1be4a2bdadbac64e25204386e9dd43bffff5",
-       "ran_at": "2026-11-02T20:48:14.950389+00:00",
+       "receipt": "corpus/receipts/comparator-round3-construction-support-2026-11-03T120058951138+0000.json",
+       "receipt_sha256": "12202b0ee31d1d5b5bb5efad6b68fdf5c5d566ab6a4c48dd2ea496719076d01e",
+       "ran_at": "2026-11-03T12:01:45.159761+00:00",
        "status": "passed",
-       "currentness": "stale",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "currentness": "current",
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     }
@@ -2422,16 +2420,16 @@
       "Round3.SharedBadSpec.vacuous_claim"
      ],
      "latest_receipt": {
-      "receipt": "corpus/receipts/comparator-round3-shared-bad-spec-blindness-2026-11-02T204814950389+0000.json",
-      "receipt_sha256": "8fb69f54ed9ad733fcb13350ebe630529eeaa4308b143e7afe58d7eea0322934",
-      "ran_at": "2026-11-02T20:48:14.950389+00:00",
+      "receipt": "corpus/receipts/comparator-round3-shared-bad-spec-blindness-2026-11-03T120058951138+0000.json",
+      "receipt_sha256": "dd077da63e19f22cdf3c1fed4b2aa135f5739eb12fcad3ce9b54ec4d88c3d981",
+      "ran_at": "2026-11-03T12:09:25.293681+00:00",
       "status": "passed",
-      "currentness": "stale",
+      "currentness": "current",
       "declaration_scope": "historical_configured_plus_scanned",
       "negative_control": "accepted_shared_bad_spec_blind_spot"
      },
      "current_positive_receipts": 0,
-     "receipts_recorded": 1
+     "receipts_recorded": 2
     }
    ],
    "imported_trust_surface": {
@@ -2485,16 +2483,16 @@
       "Round3.ThresholdSpec.threshold_lower_bound"
      ],
      "latest_receipt": {
-      "receipt": "corpus/receipts/comparator-round3-threshold-mutation-2026-11-02T204814950389+0000.json",
-      "receipt_sha256": "44f2151e0b9a8d609f36915498bc46c701db799523bbb308d190288a6501d8aa",
-      "ran_at": "2026-11-02T20:48:14.950389+00:00",
+      "receipt": "corpus/receipts/comparator-round3-threshold-mutation-2026-11-03T120058951138+0000.json",
+      "receipt_sha256": "408d76dfb53459462b0b6c642e902151f2444de06b3a78688be9819738044e94",
+      "ran_at": "2026-11-03T12:07:50.505618+00:00",
       "status": "passed",
-      "currentness": "stale",
+      "currentness": "current",
       "declaration_scope": "historical_configured_plus_scanned",
       "negative_control": "rejected_as_expected"
      },
      "current_positive_receipts": 0,
-     "receipts_recorded": 1
+     "receipts_recorded": 2
     }
    ],
    "imported_trust_surface": {
@@ -2718,15 +2716,15 @@
       "QuarticQuery.Independent.Eq19.checked_eq19"
      ],
      "latest_receipt": {
-      "receipt": "corpus/receipts/comparator-round3-eq19-independent-2026-11-02T204814950389+0000.json",
-      "receipt_sha256": "afbd4075268b9eb58e018b5ffd1af68eca9dd56eb21f86fc31658f586a75587d",
-      "ran_at": "2026-11-02T20:48:14.950389+00:00",
+      "receipt": "corpus/receipts/comparator-round3-eq19-independent-2026-11-03T120058951138+0000.json",
+      "receipt_sha256": "5047df9ff09b9879b830837974afc001a1ca8d1fe8ee3f61e2c3236301bded61",
+      "ran_at": "2026-11-03T12:03:07.004349+00:00",
       "status": "passed",
-      "currentness": "stale",
-      "declaration_scope": "historical_configured_plus_scanned"
+      "currentness": "current",
+      "declaration_scope": "configured_theorem_names_only"
      },
-     "current_positive_receipts": 0,
-     "receipts_recorded": 1
+     "current_positive_receipts": 1,
+     "receipts_recorded": 2
     },
     {
      "path": "lean/QuarticCorpus/Independent/Eq19/negative-inequality-only.json",
@@ -2736,16 +2734,16 @@
       "QuarticQuery.Independent.Eq19.checked_eq19"
      ],
      "latest_receipt": {
-      "receipt": "corpus/receipts/comparator-round3-eq19-missing-equality-2026-11-02T204814950389+0000.json",
-      "receipt_sha256": "4482d8d522ea517638a112a88d16f8902830ae10dd52917ef5dc0a225f9951f3",
-      "ran_at": "2026-11-02T20:48:14.950389+00:00",
+      "receipt": "corpus/receipts/comparator-round3-eq19-missing-equality-2026-11-03T120058951138+0000.json",
+      "receipt_sha256": "8e27b717931d076b3322942dc0f97e4d694f5fd9cde2e7d8ef8421b4ab93b2b4",
+      "ran_at": "2026-11-03T12:06:20.222790+00:00",
       "status": "passed",
-      "currentness": "stale",
+      "currentness": "current",
       "declaration_scope": "historical_configured_plus_scanned",
       "negative_control": "rejected_as_expected"
      },
      "current_positive_receipts": 0,
-     "receipts_recorded": 1
+     "receipts_recorded": 2
     }
    ],
    "imported_trust_surface": {
@@ -2774,12 +2772,12 @@
        "lean/QuarticCorpus/Independent/Eq19/negative-inequality-only.json"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-round3-eq19-independent-2026-11-02T204814950389+0000.json",
-       "receipt_sha256": "afbd4075268b9eb58e018b5ffd1af68eca9dd56eb21f86fc31658f586a75587d",
-       "ran_at": "2026-11-02T20:48:14.950389+00:00",
+       "receipt": "corpus/receipts/comparator-round3-eq19-independent-2026-11-03T120058951138+0000.json",
+       "receipt_sha256": "5047df9ff09b9879b830837974afc001a1ca8d1fe8ee3f61e2c3236301bded61",
+       "ran_at": "2026-11-03T12:03:07.004349+00:00",
        "status": "passed",
-       "currentness": "stale",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "currentness": "current",
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     }
@@ -2803,15 +2801,15 @@
       "QuarticQuery.Paper.eq19_whole"
      ],
      "latest_receipt": {
-      "receipt": "corpus/receipts/comparator-round3-eq19-direct-2026-11-02T204814950389+0000.json",
-      "receipt_sha256": "44b0085528d930660cecd70324ab180da10333b223ffedd5a4e07db77aa2a0f5",
-      "ran_at": "2026-11-02T20:48:14.950389+00:00",
+      "receipt": "corpus/receipts/comparator-round3-eq19-direct-2026-11-03T120058951138+0000.json",
+      "receipt_sha256": "88f69675e2a9da0fc774c490597e1fa98e9fda4f0be506f045f65eef417ae482",
+      "ran_at": "2026-11-03T12:04:46.392586+00:00",
       "status": "passed",
-      "currentness": "stale",
-      "declaration_scope": "historical_configured_plus_scanned"
+      "currentness": "current",
+      "declaration_scope": "configured_theorem_names_only"
      },
-     "current_positive_receipts": 0,
-     "receipts_recorded": 1
+     "current_positive_receipts": 1,
+     "receipts_recorded": 2
     }
    ],
    "imported_trust_surface": {
@@ -2857,12 +2855,12 @@
        "lean/QuarticCorpus/Independent/Eq19/whole-comparator.json"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-round3-eq19-direct-2026-11-02T204814950389+0000.json",
-       "receipt_sha256": "44b0085528d930660cecd70324ab180da10333b223ffedd5a4e07db77aa2a0f5",
-       "ran_at": "2026-11-02T20:48:14.950389+00:00",
+       "receipt": "corpus/receipts/comparator-round3-eq19-direct-2026-11-03T120058951138+0000.json",
+       "receipt_sha256": "88f69675e2a9da0fc774c490597e1fa98e9fda4f0be506f045f65eef417ae482",
+       "ran_at": "2026-11-03T12:04:46.392586+00:00",
        "status": "passed",
-       "currentness": "stale",
-       "declaration_scope": "historical_configured_plus_scanned"
+       "currentness": "current",
+       "declaration_scope": "configured_theorem_names_only"
       }
      }
     }
@@ -5728,15 +5726,15 @@
       "QuarticQuery.Checked.forrelation_lower_bound"
      ],
      "latest_receipt": {
-      "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-      "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-      "ran_at": "2026-11-03T03:30:42.571917+00:00",
+      "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+      "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+      "ran_at": "2026-11-03T12:17:35.042729+00:00",
       "status": "passed",
       "currentness": "current",
       "declaration_scope": "configured_theorem_names_only"
      },
-     "current_positive_receipts": 1,
-     "receipts_recorded": 6
+     "current_positive_receipts": 2,
+     "receipts_recorded": 7
     }
    ],
    "imported_trust_surface": {
@@ -5763,9 +5761,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -5789,9 +5787,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -5816,9 +5814,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -5842,9 +5840,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -5891,9 +5889,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -5918,9 +5916,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -5945,9 +5943,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -5972,9 +5970,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -5999,9 +5997,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6026,9 +6024,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6053,9 +6051,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6091,9 +6089,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6128,9 +6126,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6154,9 +6152,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6180,9 +6178,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6206,9 +6204,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6232,9 +6230,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6258,9 +6256,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6284,9 +6282,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6310,9 +6308,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6336,9 +6334,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6362,9 +6360,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6387,9 +6385,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6412,9 +6410,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6437,9 +6435,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6462,9 +6460,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6487,9 +6485,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6512,9 +6510,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6548,9 +6546,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6572,9 +6570,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6596,9 +6594,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6620,9 +6618,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6644,9 +6642,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6668,9 +6666,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6692,9 +6690,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6716,9 +6714,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6740,9 +6738,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6764,9 +6762,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6788,9 +6786,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6812,9 +6810,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6836,9 +6834,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6860,9 +6858,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6884,9 +6882,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6908,9 +6906,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6932,9 +6930,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6968,9 +6966,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -6992,9 +6990,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -7016,9 +7014,9 @@
        "QuarticQuery.Checked.forrelation_lower_bound"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -7041,9 +7039,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -7066,9 +7064,9 @@
        "QuarticQuery.Checked.theorem_one_one"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -7088,9 +7086,9 @@
        "lean/QuarticCorpus/Unconditional/comparator.json"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -7110,9 +7108,9 @@
        "lean/QuarticCorpus/Unconditional/comparator.json"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -7132,9 +7130,9 @@
        "lean/QuarticCorpus/Unconditional/comparator.json"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -7154,9 +7152,9 @@
        "lean/QuarticCorpus/Unconditional/comparator.json"
       ],
       "latest_receipt": {
-       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
-       "receipt_sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
-       "ran_at": "2026-11-03T03:30:42.571917+00:00",
+       "receipt": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+       "receipt_sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+       "ran_at": "2026-11-03T12:17:35.042729+00:00",
        "status": "passed",
        "currentness": "current",
        "declaration_scope": "configured_theorem_names_only"
@@ -7185,8 +7183,8 @@
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
      "passage_sha256": "c115aa5ff867d5656f2e934b0245dd70b4c15e5ee69012c9eae593b12ad57070",
      "passage_lines": [
-      209,
-      257
+      245,
+      293
      ]
     }
    ],
@@ -7211,8 +7209,8 @@
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
      "passage_sha256": "c115aa5ff867d5656f2e934b0245dd70b4c15e5ee69012c9eae593b12ad57070",
      "passage_lines": [
-      209,
-      257
+      245,
+      293
      ]
     }
    ],
@@ -7237,8 +7235,8 @@
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
      "passage_sha256": "c115aa5ff867d5656f2e934b0245dd70b4c15e5ee69012c9eae593b12ad57070",
      "passage_lines": [
-      209,
-      257
+      245,
+      293
      ]
     }
    ],
@@ -7273,23 +7271,34 @@
    "statement_ids": [],
    "record_references": [
     {
+     "anchor": "forr_validation_scope",
+     "join": "backtick_mention",
+     "alias": "BansalSinhaLower",
+     "passage_claims": [],
+     "passage_sha256": "fc029b72b20770204a1ab4c7f05c852a76ba7fe6c5a194938d80ca104d89b4ef",
+     "passage_lines": [
+      1701,
+      1705
+     ]
+    },
+    {
      "anchor": "CL-forrelation-input",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/07_planted_lower_bound/correspondence.json",
      "passage_sha256": "ae39d5946ef06027c351aa929fcfe212637d782b78d382a4dd60dbb1037c567b",
      "passage_lines": [
-      3705,
-      3720
+      3696,
+      3711
      ]
     },
     {
      "anchor": "ROOT-EVIDENCE-CONVENTION",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
-     "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
+     "passage_sha256": "2141078393f3946eb5531582ad4cd7cb7dce5d9415447e65b365494ff4940dce",
      "passage_lines": [
-      374,
-      454
+      410,
+      482
      ]
     },
     {
@@ -7298,12 +7307,20 @@
      "source": "research/returns/round3/members/03_forrelation_lower_bound/correspondence.json",
      "passage_sha256": "b9437857fa977e24f7b03e7329a4c69d98744b7d76579b2b2241c2593c13ce4a",
      "passage_lines": [
-      870,
-      912
+      933,
+      975
      ]
     }
    ],
-   "primary_gloss": null,
+   "primary_gloss": {
+    "anchor": "forr_validation_scope",
+    "join": "backtick_mention",
+    "passage_sha256": "fc029b72b20770204a1ab4c7f05c852a76ba7fe6c5a194938d80ca104d89b4ef",
+    "line_start": 1702,
+    "line_end": 1702,
+    "excerpt_sha256": "90827ee5a6af98d69c37147d428f0c6ea3ef8ad947d5d2db4d26dae86dd2bdf0",
+    "excerpt": "Finally, the mathematical statements have distinct formal and evidential scopes. The fixed-$k$ statement (F3) with an eventual threshold is the configured Unconditional target `QuarticQuery.Checked.forrelation_lower_bound`, whose type is the hardness statement `BansalSinhaLower` ([§2.9](#checked-statements)). Its solution forwards to the implementation theorem `QuarticQuery.ForrelationLower.bansalSinhaLower`, which supplies the proof; Comparator compares the configured target, and the implementation receives no separate comparison credit. The sharper restricted endpoint (F43) is also already present as QuarticQuery.forrelation_lower_uniform_sharp: it is explicitly listed in the recorded root-build receipt, has an accepted focused Uniform build, and its elaborated type and standard axiom list are printed in the successful reviewed audit. It is **not** listed in Comparator. Older prose calling this endpoint merely proposed is superseded by those source-matched records."
+   },
    "gap": null
   },
   "QuarticQuery.Basis": {
@@ -7324,8 +7341,8 @@
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
      "passage_sha256": "78987b8ee20979dd59f28cb91683b3588986570cbbf0aed524d8e4751de8aa25",
      "passage_lines": [
-      185,
-      206
+      221,
+      242
      ]
     }
    ],
@@ -7349,10 +7366,10 @@
      "join": "backtick_mention",
      "alias": "BitInput",
      "passage_claims": [],
-     "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
+     "passage_sha256": "2141078393f3946eb5531582ad4cd7cb7dce5d9415447e65b365494ff4940dce",
      "passage_lines": [
-      374,
-      454
+      410,
+      482
      ]
     },
     {
@@ -7361,17 +7378,17 @@
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
      "passage_sha256": "8ed2f2ce6ac17fbe72cf845bf649dc94cdef850663c7b5e880e7d0b6e6dd0ea7",
      "passage_lines": [
-      125,
-      133
+      161,
+      169
      ]
     }
    ],
    "primary_gloss": {
     "anchor": "ROOT-EVIDENCE-CONVENTION",
     "join": "backtick_mention",
-    "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
-    "line_start": 379,
-    "line_end": 379,
+    "passage_sha256": "2141078393f3946eb5531582ad4cd7cb7dce5d9415447e65b365494ff4940dce",
+    "line_start": 415,
+    "line_end": 415,
     "excerpt_sha256": "1f05b3fd72bacedd5f653978866b9ad8480c5ed98949a2a90d4b8274e4e0fc29",
     "excerpt": "**The partial function and its domain.** For a finite coordinate type $I$, the formal object `PartialBool I` is the function type `BitInput I → Option Bool`. A defined value records both membership in the promise and the required answer. An undefined value imposes no correctness requirement. This is the domain-and-value description of §2.1, with no assumption of totality. The operation `totalise` embeds a total Boolean function into this type by defining its value everywhere. It is that embedding, rather than an arbitrary completion of a partial function, which appears in the total-function separation statements."
    },
@@ -7440,8 +7457,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "8b87e572b5d6d5ef2bc1b8949d6a3807862cc9609cb12cb91aeb616f9d9bdae5",
      "passage_lines": [
-      136,
-      182
+      172,
+      218
      ]
     },
     {
@@ -7451,8 +7468,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "8aea5ba8f8965ba7f15482f4df88fa065505408bf81e7589064c0eca8b76e282",
      "passage_lines": [
-      5466,
-      5473
+      5457,
+      5464
      ]
     }
    ],
@@ -7461,8 +7478,8 @@
     "join": "statement_claim",
     "statement_id": "def-D",
     "passage_sha256": "8b87e572b5d6d5ef2bc1b8949d6a3807862cc9609cb12cb91aeb616f9d9bdae5",
-    "line_start": 151,
-    "line_end": 157,
+    "line_start": 187,
+    "line_end": 193,
     "excerpt_sha256": "ee1a7380dd95aea4c7c41c24eafda0026f9ebf93868d06aed065aa2752885b17",
     "excerpt": "The predicate $D_{\\leq}(f,q)$, written `DLe f q` in Lean, means that there is one tree $T$ of depth at most $q$ with $T(x)=f(x)$ for every $x\\in\\mathcal D$. Define\n\n\\[\nD(f)=\\min\\{q\\in\\mathbb N:D_{\\leq}(f,q)\\}.\n\\]\n\nA randomized program is a finite list of trees $T_1,\\ldots,T_s$ with real weights $p_j>0$ and $\\sum_jp_j=1$. It selects $j$ independently of the input and runs $T_j$. Its depth is $\\max_j\\operatorname{depth}(T_j)$, and its success probability on a promised input is $\\sum_{j:T_j(x)=f(x)}p_j$. Positive weights merely discard entries of probability zero; the normalization forces $s\\geq1$."
    },
@@ -7516,8 +7533,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "c115aa5ff867d5656f2e934b0245dd70b4c15e5ee69012c9eae593b12ad57070",
      "passage_lines": [
-      209,
-      257
+      245,
+      293
      ]
     },
     {
@@ -7527,8 +7544,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "281ad9418e4c29ee080665c6d1529b5c7b6f84c9c0be3d7bc54a9d09c6099938",
      "passage_lines": [
-      4278,
-      4285
+      4269,
+      4276
      ]
     }
    ],
@@ -7537,8 +7554,8 @@
     "join": "statement_claim",
     "statement_id": "def-Q",
     "passage_sha256": "c115aa5ff867d5656f2e934b0245dd70b4c15e5ee69012c9eae593b12ad57070",
-    "line_start": 234,
-    "line_end": 256,
+    "line_start": 270,
+    "line_end": 292,
     "excerpt_sha256": "524276ae8bcab329ea377f403f225f484cb35b3413f4f9e2cb190df964762194",
     "excerpt": "The predicate `QLe f q` is the following disjunction:\n\n\\[\n\\begin{split}\n&\\bigl[\\exists b\\in\\{0,1\\}\\ \\forall x\\in\\mathcal D,\\ f(x)=b\\bigr]\\\\\n&\\quad\\lor\\\n\\bigl[\\exists w,\\psi_0,A:\\ \\|\\psi_0\\|=1,\\ \n  \\operatorname{cap}(A)\\leq q,\\ \n  \\forall x\\in\\mathcal D,\\ M_A(x,\\psi_0,f(x))\\geq2/3\\bigr].\n\\end{split}\n\\]\n\nEvery existential choice in the second clause precedes the input quantifier. The first clause permits a constant answer with no query register. It is redundant when a nonempty query register is available, but necessary for the source representation when $I=\\varnothing$: there is then one possible input and no unit vector in the zero-dimensional indexed query space. Every partial Boolean function on that singleton input set is constant on its promise, including an empty promise. The clause therefore supplies exactly the expected zero-query behavior.\n\nDefine $Q(f)=\\min\\{q\\in\\mathbb N:\\text{`QLe f q'}\\}$. To see that this minimum exists, simulate a deterministic tree. On a nonempty coordinate set, prepare the basis state for its next query with answer bit zero, query once, measure the answer bit, and follow the corresponding child. Each child has its own input-independent basis permutation preparing its next coordinate. The classical history is already encoded by the program branch. Induction on the tree gives the same output and no larger cap. Constant trees, including those on empty coordinates, use the first clause. Hence\n\n\\[\nQ(f)\\leq D(f)\\leq |I|,\n\\qquad\nQ(f)\\leq q\\iff\\text{`QLe f q'}.\n\\]\n\nAs in the classical case, nonemptiness and monotonicity of admissible budgets justify the source's natural-number infimum."
    },
@@ -7575,8 +7592,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "c115aa5ff867d5656f2e934b0245dd70b4c15e5ee69012c9eae593b12ad57070",
      "passage_lines": [
-      209,
-      257
+      245,
+      293
      ]
     },
     {
@@ -7586,8 +7603,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "281ad9418e4c29ee080665c6d1529b5c7b6f84c9c0be3d7bc54a9d09c6099938",
      "passage_lines": [
-      4278,
-      4285
+      4269,
+      4276
      ]
     }
    ],
@@ -7596,8 +7613,8 @@
     "join": "statement_claim",
     "statement_id": "def-Q",
     "passage_sha256": "c115aa5ff867d5656f2e934b0245dd70b4c15e5ee69012c9eae593b12ad57070",
-    "line_start": 234,
-    "line_end": 256,
+    "line_start": 270,
+    "line_end": 292,
     "excerpt_sha256": "524276ae8bcab329ea377f403f225f484cb35b3413f4f9e2cb190df964762194",
     "excerpt": "The predicate `QLe f q` is the following disjunction:\n\n\\[\n\\begin{split}\n&\\bigl[\\exists b\\in\\{0,1\\}\\ \\forall x\\in\\mathcal D,\\ f(x)=b\\bigr]\\\\\n&\\quad\\lor\\\n\\bigl[\\exists w,\\psi_0,A:\\ \\|\\psi_0\\|=1,\\ \n  \\operatorname{cap}(A)\\leq q,\\ \n  \\forall x\\in\\mathcal D,\\ M_A(x,\\psi_0,f(x))\\geq2/3\\bigr].\n\\end{split}\n\\]\n\nEvery existential choice in the second clause precedes the input quantifier. The first clause permits a constant answer with no query register. It is redundant when a nonempty query register is available, but necessary for the source representation when $I=\\varnothing$: there is then one possible input and no unit vector in the zero-dimensional indexed query space. Every partial Boolean function on that singleton input set is constant on its promise, including an empty promise. The clause therefore supplies exactly the expected zero-query behavior.\n\nDefine $Q(f)=\\min\\{q\\in\\mathbb N:\\text{`QLe f q'}\\}$. To see that this minimum exists, simulate a deterministic tree. On a nonempty coordinate set, prepare the basis state for its next query with answer bit zero, query once, measure the answer bit, and follow the corresponding child. Each child has its own input-independent basis permutation preparing its next coordinate. The classical history is already encoded by the program branch. Induction on the tree gives the same output and no larger cap. Constant trees, including those on empty coordinates, use the first clause. Hence\n\n\\[\nQ(f)\\leq D(f)\\leq |I|,\n\\qquad\nQ(f)\\leq q\\iff\\text{`QLe f q'}.\n\\]\n\nAs in the classical case, nonemptiness and monotonicity of admissible budgets justify the source's natural-number infimum."
    },
@@ -7651,8 +7668,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "8b87e572b5d6d5ef2bc1b8949d6a3807862cc9609cb12cb91aeb616f9d9bdae5",
      "passage_lines": [
-      136,
-      182
+      172,
+      218
      ]
     },
     {
@@ -7662,8 +7679,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "db704087f41bb4b1db36ab11e351e75569d0575d10fc9bb0c3f2b5c4bfe7f771",
      "passage_lines": [
-      4254,
-      4261
+      4245,
+      4252
      ]
     }
    ],
@@ -7672,8 +7689,8 @@
     "join": "statement_claim",
     "statement_id": "def-R",
     "passage_sha256": "8b87e572b5d6d5ef2bc1b8949d6a3807862cc9609cb12cb91aeb616f9d9bdae5",
-    "line_start": 160,
-    "line_end": 181,
+    "line_start": 196,
+    "line_end": 217,
     "excerpt_sha256": "0c14ae9a8389608feaafd7eeb84b5d6c744d431dbf57b3537f255217e718b4b3",
     "excerpt": "Write $R_{\\leq}(f,q)$, or `RLe f q`, for the existence of such a mixture with depth at most $q$ and success at least $2/3$ on every promised input. The randomized complexity is\n\n\\[\nR(f)=\\min\\left\\{q\\in\\mathbb N:\\\n\\exists(p_j,T_j)_{j=1}^s\\quad\n\\begin{array}{l}\np_j>0,\\quad \\sum_jp_j=1,\\quad \\operatorname{depth}(T_j)\\leq q\\ \\text{for every }j,\\\\[2pt]\n\\displaystyle \\sum_{j:T_j(x)=f(x)}p_j\\geq\\frac23\\ \\text{for every }x\\in\\mathcal D\n\\end{array}\\right\\}.\n\\]\n\nThis is the distribution-over-trees convention in [Buhrman and de Wolf, §§3.1–3.2, printed pp. 5–6][BDW02]. For fixed $I$ and $q$, there are finitely many trees of depth at most $q$: at depth zero there are two leaves, and a larger tree chooses a coordinate and two smaller trees. Fixing all random choices of a capped randomized algorithm selects one such tree; grouping outcomes that select the same tree gives a finite mixture. Conversely, a finite distribution can be selected with finitely many biased coin choices before reading the input. These observations preserve the cap and pointwise success probabilities. They use the allowed arbitrary real biases; a separate restriction to a bounded number of fair coin flips requires care at an exact error threshold.\n\nThe minima exist. Query all coordinates once, then output the prescribed value on the promise and any bit elsewhere. This tree has depth at most $|I|$, including when $I$ is empty. A tree is also a one-element randomized mixture. The admissible budgets are therefore nonempty upward-closed subsets of $\\mathbb N$, giving\n\n\\[\nR(f)\\leq q\\iff R_{\\leq}(f,q),\\qquad\nD(f)\\leq q\\iff D_{\\leq}(f,q),\\qquad\nR(f)\\leq D(f)\\leq |I|.\n\\]\n\nIn the source these minima are natural-number infima. The read-all witness is what makes them minima of nonempty sets; the value assigned to an empty infimum does no work. The constructor-by-constructor translation to complexitylib's `DecisionTree` preserves both evaluation and depth, and gives the exact equality `D_totalise_eq_complexity` for total functions."
    },
@@ -7710,8 +7727,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "8b87e572b5d6d5ef2bc1b8949d6a3807862cc9609cb12cb91aeb616f9d9bdae5",
      "passage_lines": [
-      136,
-      182
+      172,
+      218
      ]
     },
     {
@@ -7721,8 +7738,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "db704087f41bb4b1db36ab11e351e75569d0575d10fc9bb0c3f2b5c4bfe7f771",
      "passage_lines": [
-      4254,
-      4261
+      4245,
+      4252
      ]
     }
    ],
@@ -7731,8 +7748,8 @@
     "join": "statement_claim",
     "statement_id": "def-R",
     "passage_sha256": "8b87e572b5d6d5ef2bc1b8949d6a3807862cc9609cb12cb91aeb616f9d9bdae5",
-    "line_start": 160,
-    "line_end": 181,
+    "line_start": 196,
+    "line_end": 217,
     "excerpt_sha256": "0c14ae9a8389608feaafd7eeb84b5d6c744d431dbf57b3537f255217e718b4b3",
     "excerpt": "Write $R_{\\leq}(f,q)$, or `RLe f q`, for the existence of such a mixture with depth at most $q$ and success at least $2/3$ on every promised input. The randomized complexity is\n\n\\[\nR(f)=\\min\\left\\{q\\in\\mathbb N:\\\n\\exists(p_j,T_j)_{j=1}^s\\quad\n\\begin{array}{l}\np_j>0,\\quad \\sum_jp_j=1,\\quad \\operatorname{depth}(T_j)\\leq q\\ \\text{for every }j,\\\\[2pt]\n\\displaystyle \\sum_{j:T_j(x)=f(x)}p_j\\geq\\frac23\\ \\text{for every }x\\in\\mathcal D\n\\end{array}\\right\\}.\n\\]\n\nThis is the distribution-over-trees convention in [Buhrman and de Wolf, §§3.1–3.2, printed pp. 5–6][BDW02]. For fixed $I$ and $q$, there are finitely many trees of depth at most $q$: at depth zero there are two leaves, and a larger tree chooses a coordinate and two smaller trees. Fixing all random choices of a capped randomized algorithm selects one such tree; grouping outcomes that select the same tree gives a finite mixture. Conversely, a finite distribution can be selected with finitely many biased coin choices before reading the input. These observations preserve the cap and pointwise success probabilities. They use the allowed arbitrary real biases; a separate restriction to a bounded number of fair coin flips requires care at an exact error threshold.\n\nThe minima exist. Query all coordinates once, then output the prescribed value on the promise and any bit elsewhere. This tree has depth at most $|I|$, including when $I$ is empty. A tree is also a one-element randomized mixture. The admissible budgets are therefore nonempty upward-closed subsets of $\\mathbb N$, giving\n\n\\[\nR(f)\\leq q\\iff R_{\\leq}(f,q),\\qquad\nD(f)\\leq q\\iff D_{\\leq}(f,q),\\qquad\nR(f)\\leq D(f)\\leq |I|.\n\\]\n\nIn the source these minima are natural-number infima. The read-all witness is what makes them minima of nonempty sets; the value assigned to an empty infimum does no work. The constructor-by-constructor translation to complexitylib's `DecisionTree` preserves both evaluation and depth, and gives the exact equality `D_totalise_eq_complexity` for total functions."
    },
@@ -7769,8 +7786,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "66b9cd0868588d30f1d1e5f798343b4ad8cf133b0dccba59a7872b1dab012dbc",
      "passage_lines": [
-      3342,
-      3361
+      3326,
+      3345
      ]
     },
     {
@@ -7780,8 +7797,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "d87cb643d9a4f1344a42c5ab79028f4f7758876c14759a29f66dcc492bb1f9c8",
      "passage_lines": [
-      5410,
-      5417
+      5401,
+      5408
      ]
     }
    ],
@@ -7790,8 +7807,8 @@
     "join": "statement_claim",
     "statement_id": "prop-4.2-generic",
     "passage_sha256": "66b9cd0868588d30f1d1e5f798343b4ad8cf133b0dccba59a7872b1dab012dbc",
-    "line_start": 3349,
-    "line_end": 3354,
+    "line_start": 3333,
+    "line_end": 3338,
     "excerpt_sha256": "020e769f0c2b324856c65ee8c3006d5cee31abd4281829ba808a837d2d1db401",
     "excerpt": "\\[\nR(F_{P,C,m})>\\left\\lfloor\\frac{mL}{100}\\right\\rfloor.\n\\]\nCircuit size is irrelevant to this implication.\n\nDefine the budget"
    },
@@ -7826,10 +7843,10 @@
      "join": "statement_claim",
      "statement_id": "thm-1.1",
      "via": "solution_proof_reference",
-     "passage_sha256": "2375e9b5b0bf69905c17343641768ada640b843f9a0472aea870556bdac11a08",
+     "passage_sha256": "f3a2aa384f09275a4295f7a13e18c05715caa4ee496c242fcdf8bbb2a488701a",
      "passage_lines": [
-      8,
-      46
+      30,
+      68
      ]
     },
     {
@@ -7839,8 +7856,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "972323de3cc0c505e54bb69eb877a8ebb1f3985da8c0d2e26f88978ea0324c3d",
      "passage_lines": [
-      4314,
-      4321
+      4305,
+      4312
      ]
     }
    ],
@@ -7848,9 +7865,9 @@
     "anchor": "ROOT-RESULT",
     "join": "statement_claim",
     "statement_id": "thm-1.1",
-    "passage_sha256": "2375e9b5b0bf69905c17343641768ada640b843f9a0472aea870556bdac11a08",
-    "line_start": 29,
-    "line_end": 35,
+    "passage_sha256": "f3a2aa384f09275a4295f7a13e18c05715caa4ee496c242fcdf8bbb2a488701a",
+    "line_start": 51,
+    "line_end": 57,
     "excerpt_sha256": "9283b0daabaa7c8fb66a9694b713273ee0728de503abfdc8624268127817e295",
     "excerpt": "**Theorem 1.1 (OpenAI).** The optimal power is $\\alpha_{\\mathrm{tot}}=4$. More precisely, there is an absolute constant $C>0$ such that every total Boolean function satisfies\n\n\\[\nR(f)\\leq C(1+Q(f))^4.\n\\]\n\nFor each fixed integer $k\\geq2$, there are positive constants $c_k,C_k,b_k$, a threshold $m_0(k)$, and total Boolean functions $F_{k,m}$, defined for all powers of four $m\\geq m_0(k)$, for which"
    },
@@ -7885,10 +7902,10 @@
      "join": "statement_claim",
      "statement_id": "thm-1.1",
      "via": "solution_proof_reference",
-     "passage_sha256": "2375e9b5b0bf69905c17343641768ada640b843f9a0472aea870556bdac11a08",
+     "passage_sha256": "f3a2aa384f09275a4295f7a13e18c05715caa4ee496c242fcdf8bbb2a488701a",
      "passage_lines": [
-      8,
-      46
+      30,
+      68
      ]
     },
     {
@@ -7898,8 +7915,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "972323de3cc0c505e54bb69eb877a8ebb1f3985da8c0d2e26f88978ea0324c3d",
      "passage_lines": [
-      4314,
-      4321
+      4305,
+      4312
      ]
     }
    ],
@@ -7907,9 +7924,9 @@
     "anchor": "ROOT-RESULT",
     "join": "statement_claim",
     "statement_id": "thm-1.1",
-    "passage_sha256": "2375e9b5b0bf69905c17343641768ada640b843f9a0472aea870556bdac11a08",
-    "line_start": 29,
-    "line_end": 35,
+    "passage_sha256": "f3a2aa384f09275a4295f7a13e18c05715caa4ee496c242fcdf8bbb2a488701a",
+    "line_start": 51,
+    "line_end": 57,
     "excerpt_sha256": "9283b0daabaa7c8fb66a9694b713273ee0728de503abfdc8624268127817e295",
     "excerpt": "**Theorem 1.1 (OpenAI).** The optimal power is $\\alpha_{\\mathrm{tot}}=4$. More precisely, there is an absolute constant $C>0$ such that every total Boolean function satisfies\n\n\\[\nR(f)\\leq C(1+Q(f))^4.\n\\]\n\nFor each fixed integer $k\\geq2$, there are positive constants $c_k,C_k,b_k$, a threshold $m_0(k)$, and total Boolean functions $F_{k,m}$, defined for all powers of four $m\\geq m_0(k)$, for which"
    },
@@ -7944,10 +7961,10 @@
      "join": "statement_claim",
      "statement_id": "cor-cubic-refuted",
      "via": "solution_proof_reference",
-     "passage_sha256": "0314cf8be62a2db804159f90464b5c0d1259432b8b200073a50d69233748444b",
+     "passage_sha256": "53d02afdff061bff613acd8e8a83c21adfb34e18b3ff1ba96b81a3de875d1e18",
      "passage_lines": [
-      49,
-      83
+      71,
+      99
      ]
     },
     {
@@ -7957,8 +7974,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "a20d1fa6e099bf687df0444c5b9eea96fe254d209e2d5e08bfdd24d41ab2e160",
      "passage_lines": [
-      4326,
-      4333
+      4317,
+      4324
      ]
     }
    ],
@@ -7966,9 +7983,9 @@
     "anchor": "R3-01-QUANTIFIERS",
     "join": "statement_claim",
     "statement_id": "cor-cubic-refuted",
-    "passage_sha256": "0314cf8be62a2db804159f90464b5c0d1259432b8b200073a50d69233748444b",
-    "line_start": 75,
-    "line_end": 82,
+    "passage_sha256": "53d02afdff061bff613acd8e8a83c21adfb34e18b3ff1ba96b81a3de875d1e18",
+    "line_start": 91,
+    "line_end": 98,
     "excerpt_sha256": "96ece72a6aa3988be090e856d3158447f14215031a5a9957ae59e07e377b3f16",
     "excerpt": "Already $k=3$ gives $4-2/k=10/3>3$, so\n\n\\[\n\\neg\\exists C\\in\\mathbb R\\ \\forall n\\geq1\\\n\\forall f:\\{0,1\\}^n\\to\\{0,1\\},\\qquad R(f)\\leq C Q(f)^3.\n\\]\n\nThis refutes [Aaronson et al., Conjecture 2, §7, printed p. 20 of arXiv v1][ABKRT2020]. Replacing $C$ by $\\max(C,1)$ would turn such a bound into a universal shifted cubic bound, already excluded above."
    },
@@ -8003,10 +8020,10 @@
      "join": "statement_claim",
      "statement_id": "cor-cubic-refuted",
      "via": "solution_proof_reference",
-     "passage_sha256": "0314cf8be62a2db804159f90464b5c0d1259432b8b200073a50d69233748444b",
+     "passage_sha256": "53d02afdff061bff613acd8e8a83c21adfb34e18b3ff1ba96b81a3de875d1e18",
      "passage_lines": [
-      49,
-      83
+      71,
+      99
      ]
     },
     {
@@ -8016,8 +8033,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "a20d1fa6e099bf687df0444c5b9eea96fe254d209e2d5e08bfdd24d41ab2e160",
      "passage_lines": [
-      4326,
-      4333
+      4317,
+      4324
      ]
     }
    ],
@@ -8025,9 +8042,9 @@
     "anchor": "R3-01-QUANTIFIERS",
     "join": "statement_claim",
     "statement_id": "cor-cubic-refuted",
-    "passage_sha256": "0314cf8be62a2db804159f90464b5c0d1259432b8b200073a50d69233748444b",
-    "line_start": 75,
-    "line_end": 82,
+    "passage_sha256": "53d02afdff061bff613acd8e8a83c21adfb34e18b3ff1ba96b81a3de875d1e18",
+    "line_start": 91,
+    "line_end": 98,
     "excerpt_sha256": "96ece72a6aa3988be090e856d3158447f14215031a5a9957ae59e07e377b3f16",
     "excerpt": "Already $k=3$ gives $4-2/k=10/3>3$, so\n\n\\[\n\\neg\\exists C\\in\\mathbb R\\ \\forall n\\geq1\\\n\\forall f:\\{0,1\\}^n\\to\\{0,1\\},\\qquad R(f)\\leq C Q(f)^3.\n\\]\n\nThis refutes [Aaronson et al., Conjecture 2, §7, printed p. 20 of arXiv v1][ABKRT2020]. Replacing $C$ by $\\max(C,1)$ would turn such a bound into a universal shifted cubic bound, already excluded above."
    },
@@ -8064,8 +8081,19 @@
      "via": "solution_proof_reference",
      "passage_sha256": "f1cd930c3cb36066a77091824d7349e22d4df303e024fb7aa7b0e26611a5fc0c",
      "passage_lines": [
-      4502,
-      4509
+      4493,
+      4500
+     ]
+    },
+    {
+     "anchor": "history-construction-evidence",
+     "join": "backtick_mention",
+     "alias": "Checked.existsUnique_gateConsistent",
+     "passage_claims": [],
+     "passage_sha256": "e7c768cf689f9e93d21005e6593c4f6a676c55820875206a73109d92fdc1e1a5",
+     "passage_lines": [
+      6116,
+      6118
      ]
     }
    ],
@@ -8074,8 +8102,8 @@
     "join": "statement_claim",
     "statement_id": "def-transcript",
     "passage_sha256": "f1cd930c3cb36066a77091824d7349e22d4df303e024fb7aa7b0e26611a5fc0c",
-    "line_start": 4505,
-    "line_end": 4507,
+    "line_start": 4496,
+    "line_end": 4498,
     "excerpt_sha256": "764cec09b9ac5d4aaab629edaae0b22a2fc3eea5ec91fb29c03e471c18ab9787",
     "excerpt": "> For a fixed circuit, a transcript assigns a proposed bit to each non-input gate, including output gates. Input-wire values are not copied; they are read from the actual input.\n\n**Argument:** [§4.1](#CL-transcripts)."
    },
@@ -8144,10 +8172,10 @@
      "join": "statement_claim",
      "statement_id": "eq-2",
      "via": "solution_proof_reference",
-     "passage_sha256": "2375e9b5b0bf69905c17343641768ada640b843f9a0472aea870556bdac11a08",
+     "passage_sha256": "f3a2aa384f09275a4295f7a13e18c05715caa4ee496c242fcdf8bbb2a488701a",
      "passage_lines": [
-      8,
-      46
+      30,
+      68
      ]
     },
     {
@@ -8157,8 +8185,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "ec735504635e589142fc837c2a970ce29766017c67747f2f7420290ba1f62614",
      "passage_lines": [
-      4302,
-      4309
+      4293,
+      4300
      ]
     }
    ],
@@ -8166,11 +8194,11 @@
     "anchor": "ROOT-RESULT",
     "join": "statement_claim",
     "statement_id": "eq-2",
-    "passage_sha256": "2375e9b5b0bf69905c17343641768ada640b843f9a0472aea870556bdac11a08",
-    "line_start": 38,
-    "line_end": 45,
-    "excerpt_sha256": "798e995ce3050549a5553e63c43183b80b95ee964129e95e2ceec21d1c46a6e6",
-    "excerpt": "\\[\nQ(F_{k,m})\\leq C_k\\sqrt m\\,(\\log_2 m)^{b_k},\n\\qquad\nR(F_{k,m})\\geq c_k\\frac{m^{2-1/k}}{(\\log_2 m)^2}.\n\\tag{2}\n\\]\n\nThe two inequalities concern the **same function** at each pair $(k,m)$. In the supplied development, one specified circuit family gives $b_k=6$ and permits $c_k=1/400$, after increasing the threshold. Its correspondence with the preprint and the recorded formal evidence are given in §§2.7–2.8."
+    "passage_sha256": "f3a2aa384f09275a4295f7a13e18c05715caa4ee496c242fcdf8bbb2a488701a",
+    "line_start": 60,
+    "line_end": 67,
+    "excerpt_sha256": "e1ba83d5e19665b04ea83749611eb057f9f43ef2cfff084ea4f1c05d9a24a2c2",
+    "excerpt": "\\[\nQ(F_{k,m})\\leq C_k\\sqrt m\\,(\\log_2 m)^{b_k},\n\\qquad\nR(F_{k,m})\\geq c_k\\frac{m^{2-1/k}}{(\\log_2 m)^2}.\n\\tag{2}\n\\]\n\nThe two inequalities concern the **same function** at each pair $(k,m)$. In the supplied development, one specified circuit family gives $b_k=6$ and permits $c_k=1/400$, after increasing the threshold. Its correspondence with the preprint and the recorded formal evidence are given in §§2.7–2.9; [§2.9](#checked-statements) lists the checked formal statements and their status."
    },
    "gap": null
   },
@@ -8205,8 +8233,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "b9437857fa977e24f7b03e7329a4c69d98744b7d76579b2b2241c2593c13ce4a",
      "passage_lines": [
-      870,
-      912
+      933,
+      975
      ]
     },
     {
@@ -8216,8 +8244,19 @@
      "via": "solution_proof_reference",
      "passage_sha256": "4257338c1c6889afbd12a6956c9e44e2e2fbd35f057f0131d5c594e067cf71e1",
      "passage_lines": [
-      4402,
-      4409
+      4393,
+      4400
+     ]
+    },
+    {
+     "anchor": "forr_validation_scope",
+     "join": "backtick_mention",
+     "alias": "QuarticQuery.Checked.forrelation_lower_bound",
+     "passage_claims": [],
+     "passage_sha256": "fc029b72b20770204a1ab4c7f05c852a76ba7fe6c5a194938d80ca104d89b4ef",
+     "passage_lines": [
+      1701,
+      1705
      ]
     }
    ],
@@ -8226,8 +8265,8 @@
     "join": "statement_claim",
     "statement_id": "lem-2.1.i",
     "passage_sha256": "b9437857fa977e24f7b03e7329a4c69d98744b7d76579b2b2241c2593c13ce4a",
-    "line_start": 904,
-    "line_end": 911,
+    "line_start": 967,
+    "line_end": 974,
     "excerpt_sha256": "63910358f743e85eed8010179835aa4217d042fd2fa24a29004f5239b85f4382",
     "excerpt": "\\[\nR(P_{k,4^t})>\nL_{k,4^t},\\qquad\nL_{k,m}=\\left\\lfloor\\frac{m^{1-1/k}}{(\\log_2m)^2}\\right\\rfloor.\n\\tag{F3}\n\\]\n\nThis is the lower-bound assertion of OpenAI's Lemma 2.1(i), with exactly its normalization and promise [OpenAI2026, §2.1, pp. 3–4]. The proof below supplies the explicit sufficient choice $t_0(k)=13669k^2$. All analytic logarithms below are natural; the logarithm in $L_{k,m}$ is base two."
    },
@@ -8262,10 +8301,10 @@
      "join": "statement_claim",
      "statement_id": "thm-1.1",
      "via": "solution_proof_reference",
-     "passage_sha256": "2375e9b5b0bf69905c17343641768ada640b843f9a0472aea870556bdac11a08",
+     "passage_sha256": "f3a2aa384f09275a4295f7a13e18c05715caa4ee496c242fcdf8bbb2a488701a",
      "passage_lines": [
-      8,
-      46
+      30,
+      68
      ]
     },
     {
@@ -8275,8 +8314,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "972323de3cc0c505e54bb69eb877a8ebb1f3985da8c0d2e26f88978ea0324c3d",
      "passage_lines": [
-      4314,
-      4321
+      4305,
+      4312
      ]
     }
    ],
@@ -8284,9 +8323,9 @@
     "anchor": "ROOT-RESULT",
     "join": "statement_claim",
     "statement_id": "thm-1.1",
-    "passage_sha256": "2375e9b5b0bf69905c17343641768ada640b843f9a0472aea870556bdac11a08",
-    "line_start": 29,
-    "line_end": 35,
+    "passage_sha256": "f3a2aa384f09275a4295f7a13e18c05715caa4ee496c242fcdf8bbb2a488701a",
+    "line_start": 51,
+    "line_end": 57,
     "excerpt_sha256": "9283b0daabaa7c8fb66a9694b713273ee0728de503abfdc8624268127817e295",
     "excerpt": "**Theorem 1.1 (OpenAI).** The optimal power is $\\alpha_{\\mathrm{tot}}=4$. More precisely, there is an absolute constant $C>0$ such that every total Boolean function satisfies\n\n\\[\nR(f)\\leq C(1+Q(f))^4.\n\\]\n\nFor each fixed integer $k\\geq2$, there are positive constants $c_k,C_k,b_k$, a threshold $m_0(k)$, and total Boolean functions $F_{k,m}$, defined for all powers of four $m\\geq m_0(k)$, for which"
    },
@@ -8321,10 +8360,10 @@
      "join": "statement_claim",
      "statement_id": "thm-1.1",
      "via": "solution_proof_reference",
-     "passage_sha256": "2375e9b5b0bf69905c17343641768ada640b843f9a0472aea870556bdac11a08",
+     "passage_sha256": "f3a2aa384f09275a4295f7a13e18c05715caa4ee496c242fcdf8bbb2a488701a",
      "passage_lines": [
-      8,
-      46
+      30,
+      68
      ]
     },
     {
@@ -8334,8 +8373,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "972323de3cc0c505e54bb69eb877a8ebb1f3985da8c0d2e26f88978ea0324c3d",
      "passage_lines": [
-      4314,
-      4321
+      4305,
+      4312
      ]
     }
    ],
@@ -8343,9 +8382,9 @@
     "anchor": "ROOT-RESULT",
     "join": "statement_claim",
     "statement_id": "thm-1.1",
-    "passage_sha256": "2375e9b5b0bf69905c17343641768ada640b843f9a0472aea870556bdac11a08",
-    "line_start": 29,
-    "line_end": 35,
+    "passage_sha256": "f3a2aa384f09275a4295f7a13e18c05715caa4ee496c242fcdf8bbb2a488701a",
+    "line_start": 51,
+    "line_end": 57,
     "excerpt_sha256": "9283b0daabaa7c8fb66a9694b713273ee0728de503abfdc8624268127817e295",
     "excerpt": "**Theorem 1.1 (OpenAI).** The optimal power is $\\alpha_{\\mathrm{tot}}=4$. More precisely, there is an absolute constant $C>0$ such that every total Boolean function satisfies\n\n\\[\nR(f)\\leq C(1+Q(f))^4.\n\\]\n\nFor each fixed integer $k\\geq2$, there are positive constants $c_k,C_k,b_k$, a threshold $m_0(k)$, and total Boolean functions $F_{k,m}$, defined for all powers of four $m\\geq m_0(k)$, for which"
    },
@@ -8380,10 +8419,10 @@
      "join": "statement_claim",
      "statement_id": "thm-A.1",
      "via": "solution_proof_reference",
-     "passage_sha256": "e4cccac569dd022de7c3b90d6986a41ad4821d9a904372f4df9e9ebd6ecf09da",
+     "passage_sha256": "d0f42f0ab37f2473cf5725850bfb7dc35522278222fa78cc794df32876b198c9",
      "passage_lines": [
-      5706,
-      5713
+      5697,
+      5704
      ]
     }
    ],
@@ -8391,11 +8430,11 @@
     "anchor": "CAT-thm-A.1",
     "join": "statement_claim",
     "statement_id": "thm-A.1",
-    "passage_sha256": "e4cccac569dd022de7c3b90d6986a41ad4821d9a904372f4df9e9ebd6ecf09da",
-    "line_start": 5709,
-    "line_end": 5711,
-    "excerpt_sha256": "58e6975888f9bd5ca465aad35b9dd289140fe0a277fa9a190d18f8d3d8634efa",
-    "excerpt": "> Every total Boolean function satisfies R(f) <= D(f) = O((1+Q(f))^4), with an absolute constant.\n\n**Argument:** [§7.3](#ROOT-APPENDIX-INTRO), [§A.6](#ROOT-QUARTIC-UPPER)."
+    "passage_sha256": "d0f42f0ab37f2473cf5725850bfb7dc35522278222fa78cc794df32876b198c9",
+    "line_start": 5700,
+    "line_end": 5702,
+    "excerpt_sha256": "67bb0e89cbb1a38b81f862f976b4f6f6218a422283a0735c429228156fac627a",
+    "excerpt": "> Every total Boolean function satisfies R(f) <= D(f) = O((1+Q(f))^4), with an absolute constant.\n\n**Argument:** [Appendix A](#ROOT-APPENDIX-INTRO), [§A.6](#ROOT-QUARTIC-UPPER)."
    },
    "gap": null
   },
@@ -8430,8 +8469,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "290bd644cb5656e968a133e64595539f90fad6f4d277881209c609fdf641043a",
      "passage_lines": [
-      2656,
-      2668
+      2587,
+      2599
      ]
     },
     {
@@ -8441,8 +8480,19 @@
      "via": "solution_proof_reference",
      "passage_sha256": "ebb7c906c2abf58f90168c9ad01915c1db077774e8c4ec8218ba12456ea59b47",
      "passage_lines": [
-      5006,
-      5013
+      4997,
+      5004
+     ]
+    },
+    {
+     "anchor": "history-construction-evidence",
+     "join": "backtick_mention",
+     "alias": "Checked.winner_finds_zero",
+     "passage_claims": [],
+     "passage_sha256": "e7c768cf689f9e93d21005e6593c4f6a676c55820875206a73109d92fdc1e1a5",
+     "passage_lines": [
+      6116,
+      6118
      ]
     }
    ],
@@ -8451,8 +8501,8 @@
     "join": "statement_claim",
     "statement_id": "claim-winner-dominates",
     "passage_sha256": "290bd644cb5656e968a133e64595539f90fad6f4d277881209c609fdf641043a",
-    "line_start": 2663,
-    "line_end": 2667,
+    "line_start": 2594,
+    "line_end": 2598,
     "excerpt_sha256": "0f25e649c4da77abefd1d936adbf1e303994ec7c44930cefb47b4aa1f3336503",
     "excerpt": "$$\na_{i^\\star j}\\geq1-\\varepsilon\\qquad(j\\ne i^\\star).\n$$\n\nThis proof uses no correctness assertion for a nonwinning column's decoder. It also explains why independently amplifying an assumed comparison bias would have been unjustified: the available guarantee is a strong one-sided property of a true winner, while other pairs may have arbitrary probabilities. Only the true winner's decoder correctness is used. The two deterministic facts are that it cannot be disqualified and that its true-address pointers disqualify every opponent."
    },
@@ -8489,8 +8539,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "290bd644cb5656e968a133e64595539f90fad6f4d277881209c609fdf641043a",
      "passage_lines": [
-      2656,
-      2668
+      2587,
+      2599
      ]
     },
     {
@@ -8500,8 +8550,19 @@
      "via": "solution_proof_reference",
      "passage_sha256": "ebb7c906c2abf58f90168c9ad01915c1db077774e8c4ec8218ba12456ea59b47",
      "passage_lines": [
-      5006,
-      5013
+      4997,
+      5004
+     ]
+    },
+    {
+     "anchor": "history-construction-evidence",
+     "join": "backtick_mention",
+     "alias": "Checked.winner_no_incoming_zero",
+     "passage_claims": [],
+     "passage_sha256": "e7c768cf689f9e93d21005e6593c4f6a676c55820875206a73109d92fdc1e1a5",
+     "passage_lines": [
+      6116,
+      6118
      ]
     }
    ],
@@ -8510,8 +8571,8 @@
     "join": "statement_claim",
     "statement_id": "claim-winner-dominates",
     "passage_sha256": "290bd644cb5656e968a133e64595539f90fad6f4d277881209c609fdf641043a",
-    "line_start": 2663,
-    "line_end": 2667,
+    "line_start": 2594,
+    "line_end": 2598,
     "excerpt_sha256": "0f25e649c4da77abefd1d936adbf1e303994ec7c44930cefb47b4aa1f3336503",
     "excerpt": "$$\na_{i^\\star j}\\geq1-\\varepsilon\\qquad(j\\ne i^\\star).\n$$\n\nThis proof uses no correctness assertion for a nonwinning column's decoder. It also explains why independently amplifying an assumed comparison bias would have been unjustified: the available guarantee is a strong one-sided property of a true winner, while other pairs may have arbitrary probabilities. Only the true winner's decoder correctness is used. The two deterministic facts are that it cannot be disqualified and that its true-address pointers disqualify every opponent."
    },
@@ -8557,8 +8618,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "b306f6bc0efbeba058fd59129d767b51ddcde437af0c5c6250644ca49f439e28",
      "passage_lines": [
-      4586,
-      4593
+      4577,
+      4584
      ]
     },
     {
@@ -8568,8 +8629,19 @@
      "via": "solution_proof_reference",
      "passage_sha256": "85c144d7424080329e8be1a188f7959c7fd0ee7cca63e6f79a753a0d739c4fe8",
      "passage_lines": [
-      4598,
-      4605
+      4589,
+      4596
+     ]
+    },
+    {
+     "anchor": "history-construction-evidence",
+     "join": "backtick_mention",
+     "alias": "Checked.winsAt_unique",
+     "passage_claims": [],
+     "passage_sha256": "e7c768cf689f9e93d21005e6593c4f6a676c55820875206a73109d92fdc1e1a5",
+     "passage_lines": [
+      6116,
+      6118
      ]
     }
    ],
@@ -8578,8 +8650,8 @@
     "join": "statement_claim",
     "statement_id": "def-F",
     "passage_sha256": "b306f6bc0efbeba058fd59129d767b51ddcde437af0c5c6250644ca49f439e28",
-    "line_start": 4589,
-    "line_end": 4591,
+    "line_start": 4580,
+    "line_end": 4582,
     "excerpt_sha256": "d686b5cba8982cf7fcb646f94f479340d060485b3829f59e655a6833a1a1b977",
     "excerpt": "> F_{k,m}(y)=1 if some column of y is a winner, else 0. It is a total Boolean function on all input bit strings.\n\n**Argument:** [§4](#CL-construction-context), [§4.2](#CL-address-winner)."
    },
@@ -8617,10 +8689,10 @@
      "join": "backtick_mention",
      "alias": "CircuitRealises",
      "passage_claims": [],
-     "passage_sha256": "81a22020063903ad1013479dc5493119337d57900f13d91e01560e9ebed63570",
+     "passage_sha256": "480512260ce3c5826ba0fbb08a2cd2df7301c5813ff4067370b5814367f10844",
      "passage_lines": [
-      2154,
-      2160
+      2097,
+      2103
      ]
     },
     {
@@ -8629,8 +8701,8 @@
      "source": "research/returns/round3/members/04_addressed_construction/correspondence.json",
      "passage_sha256": "61bb1740893010b77d3a39e11036030c22102ee3e7e821b2fde4a589d504ca17",
      "passage_lines": [
-      1804,
-      1815
+      1747,
+      1758
      ]
     },
     {
@@ -8639,8 +8711,8 @@
      "source": "research/returns/round3/members/07_planted_lower_bound/correspondence.json",
      "passage_sha256": "37c16886782016d704ff02b88e62dba3bb5bb1112562d6b0aa6d01c7b2d4b807",
      "passage_lines": [
-      3289,
-      3301
+      3273,
+      3285
      ]
     },
     {
@@ -8649,17 +8721,17 @@
      "source": "research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/correspondence.json",
      "passage_sha256": "920db8f3040a1cb246693fc8c8b2edaa8300e497034612b0cf7846d420a2968c",
      "passage_lines": [
-      769,
-      805
+      842,
+      878
      ]
     }
    ],
    "primary_gloss": {
     "anchor": "AC-evidence",
     "join": "backtick_mention",
-    "passage_sha256": "81a22020063903ad1013479dc5493119337d57900f13d91e01560e9ebed63570",
-    "line_start": 2155,
-    "line_end": 2155,
+    "passage_sha256": "480512260ce3c5826ba0fbb08a2cd2df7301c5813ff4067370b5814367f10844",
+    "line_start": 2098,
+    "line_end": 2098,
     "excerpt_sha256": "bfb929f73cd25c0e113c3b7af8c23f3ce7b8dff154b1f23a4938740f1596016c",
     "excerpt": "The exact source declarations and complete types are recorded in [correspondence.json](../research/returns/round3/members/04_addressed_construction/correspondence.json) and [evidence/lean_audit.json](../research/returns/round3/members/04_addressed_construction/evidence/lean_audit.json). In particular, `QuarticQuery.gateConsistent_iff_eq_circuitEval` gives (4.2), `QuarticQuery.winsAt_unique` gives pair uniqueness, and `QuarticQuery.winsAt_iff_localTests` gives (4.12) under `CircuitRealises C P`. The semantic bridge `QuarticQuery.winsAt_iff_paperWinsAt` has no such premise because both sides already refer to the partial function."
    },
@@ -8698,8 +8770,8 @@
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
      "passage_sha256": "c115aa5ff867d5656f2e934b0245dd70b4c15e5ee69012c9eae593b12ad57070",
      "passage_lines": [
-      209,
-      257
+      245,
+      293
      ]
     }
    ],
@@ -8723,10 +8795,10 @@
      "join": "backtick_mention",
      "alias": "D",
      "passage_claims": [],
-     "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
+     "passage_sha256": "2141078393f3946eb5531582ad4cd7cb7dce5d9415447e65b365494ff4940dce",
      "passage_lines": [
-      374,
-      454
+      410,
+      482
      ]
     },
     {
@@ -8735,17 +8807,17 @@
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
      "passage_sha256": "8b87e572b5d6d5ef2bc1b8949d6a3807862cc9609cb12cb91aeb616f9d9bdae5",
      "passage_lines": [
-      136,
-      182
+      172,
+      218
      ]
     }
    ],
    "primary_gloss": {
     "anchor": "ROOT-EVIDENCE-CONVENTION",
     "join": "backtick_mention",
-    "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
-    "line_start": 381,
-    "line_end": 381,
+    "passage_sha256": "2141078393f3946eb5531582ad4cd7cb7dce5d9415447e65b365494ff4940dce",
+    "line_start": 417,
+    "line_end": 417,
     "excerpt_sha256": "e7a1b5ae6c2f09dd31a3f92efbe09fbf7b8187ae3ff9143ada5b7229dd4b3a0d",
     "excerpt": "**One algorithm and a global cap.** The predicates `DLe`, `RLe` and `QLe` take a partial Boolean function and a natural-number budget; `D`, `R` and `Q` are natural-number complexities. In the classical cases, the witness is one decision tree or one mixture of trees, with a global depth cap and correctness on all defined inputs. In the quantum case, the witness is either the explicitly constant-on-promise alternative or one normalized initial state and one capped program, chosen before the input. This includes the constant and empty-promise cases without selecting an algorithm separately for each input. None of these definitions assumes a lower-bound theorem or any property of Forrelation."
    },
@@ -8773,8 +8845,8 @@
      ],
      "passage_sha256": "8b87e572b5d6d5ef2bc1b8949d6a3807862cc9609cb12cb91aeb616f9d9bdae5",
      "passage_lines": [
-      136,
-      182
+      172,
+      218
      ]
     },
     {
@@ -8782,10 +8854,10 @@
      "join": "backtick_mention",
      "alias": "DLe",
      "passage_claims": [],
-     "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
+     "passage_sha256": "2141078393f3946eb5531582ad4cd7cb7dce5d9415447e65b365494ff4940dce",
      "passage_lines": [
-      374,
-      454
+      410,
+      482
      ]
     },
     {
@@ -8794,8 +8866,8 @@
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
      "passage_sha256": "8b87e572b5d6d5ef2bc1b8949d6a3807862cc9609cb12cb91aeb616f9d9bdae5",
      "passage_lines": [
-      136,
-      182
+      172,
+      218
      ]
     },
     {
@@ -8804,8 +8876,8 @@
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
      "passage_sha256": "8ed2f2ce6ac17fbe72cf845bf649dc94cdef850663c7b5e880e7d0b6e6dd0ea7",
      "passage_lines": [
-      125,
-      133
+      161,
+      169
      ]
     }
    ],
@@ -8813,8 +8885,8 @@
     "anchor": "R3-01-CLASSICAL",
     "join": "backtick_mention",
     "passage_sha256": "8b87e572b5d6d5ef2bc1b8949d6a3807862cc9609cb12cb91aeb616f9d9bdae5",
-    "line_start": 150,
-    "line_end": 151,
+    "line_start": 186,
+    "line_end": 187,
     "excerpt_sha256": "932269a86557d9cb258eff5eb4f06af058b56b85efe2983f9e15b31242c8844b",
     "excerpt": "<!-- claim:def-D -->\nThe predicate $D_{\\leq}(f,q)$, written `DLe f q` in Lean, means that there is one tree $T$ of depth at most $q$ with $T(x)=f(x)$ for every $x\\in\\mathcal D$. Define"
    },
@@ -8838,8 +8910,8 @@
      "source": "research/returns/round3/members/07_planted_lower_bound/correspondence.json",
      "passage_sha256": "37c16886782016d704ff02b88e62dba3bb5bb1112562d6b0aa6d01c7b2d4b807",
      "passage_lines": [
-      3289,
-      3301
+      3273,
+      3285
      ]
     }
    ],
@@ -8907,10 +8979,10 @@
      "anchor": "ROOT-FAMILY-ASSEMBLY",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/08_reviewed/quartic_r3_08_return/correspondence.json",
-     "passage_sha256": "aa41ad70cd2cc309119646ae8bfc29c696fcf148b6e7d2d3e13d77361f4974b4",
+     "passage_sha256": "8106997eeb5e968e7404fec1a40e4f6f0034ce5b619938b98d7eb86ce6c3a832",
      "passage_lines": [
-      3810,
-      3839
+      3803,
+      3828
      ]
     }
    ],
@@ -8949,7 +9021,7 @@
      "statement_id": "eq-19",
      "relation": "stronger",
      "review_evidence": "current",
-     "comparison_credit": "none",
+     "comparison_credit": "direct",
      "join": "statement_tie"
     }
    ],
@@ -8961,8 +9033,8 @@
      "via": "statement_tie",
      "passage_sha256": "c4aa62727b94c3765c995a3ccab48aa3523add055cebc17e37f9a4d944942771",
      "passage_lines": [
-      3461,
-      3494
+      3445,
+      3478
      ]
     },
     {
@@ -8972,8 +9044,8 @@
      "via": "statement_tie",
      "passage_sha256": "c8d364f4c124c941a74e70ff44bde31f376ff9dc456b7e55839ed513d9af473d",
      "passage_lines": [
-      5278,
-      5285
+      5269,
+      5276
      ]
     }
    ],
@@ -8982,8 +9054,8 @@
     "join": "statement_claim",
     "statement_id": "eq-19",
     "passage_sha256": "c4aa62727b94c3765c995a3ccab48aa3523add055cebc17e37f9a4d944942771",
-    "line_start": 3487,
-    "line_end": 3493,
+    "line_start": 3471,
+    "line_end": 3477,
     "excerpt_sha256": "1bffb3f9e6dbfb8709edad8df8806e5489412f7aed089203d928d0b28e9b23bc",
     "excerpt": "\\[\n\\Pr[T\\text{ on }Y^{(0)}\\text{ queries }X_I[J_I]]\n=\\frac{\\mathbb EZ}{m}\n\\le\\frac{4G}{m^2}.\n\\tag{19}\n\\]\nThe equality, the endpoint bound, and this early/late derivation are distinct assertions. The supplied Lean evidence supports the first two through separate declarations; the endpoint's formal proof uses the alternative argument below."
    },
@@ -9057,10 +9129,10 @@
      "join": "backtick_mention",
      "alias": "Lvalue",
      "passage_claims": [],
-     "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
+     "passage_sha256": "2141078393f3946eb5531582ad4cd7cb7dce5d9415447e65b365494ff4940dce",
      "passage_lines": [
-      374,
-      454
+      410,
+      482
      ]
     },
     {
@@ -9069,18 +9141,18 @@
      "source": "research/returns/round3/members/07_planted_lower_bound/correspondence.json",
      "passage_sha256": "ae39d5946ef06027c351aa929fcfe212637d782b78d382a4dd60dbb1037c567b",
      "passage_lines": [
-      3705,
-      3720
+      3696,
+      3711
      ]
     },
     {
      "anchor": "ROOT-FAMILY-ASSEMBLY",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/08_reviewed/quartic_r3_08_return/correspondence.json",
-     "passage_sha256": "aa41ad70cd2cc309119646ae8bfc29c696fcf148b6e7d2d3e13d77361f4974b4",
+     "passage_sha256": "8106997eeb5e968e7404fec1a40e4f6f0034ce5b619938b98d7eb86ce6c3a832",
      "passage_lines": [
-      3810,
-      3839
+      3803,
+      3828
      ]
     },
     {
@@ -9089,17 +9161,17 @@
      "source": "research/returns/round3/members/03_forrelation_lower_bound/correspondence.json",
      "passage_sha256": "b9437857fa977e24f7b03e7329a4c69d98744b7d76579b2b2241c2593c13ce4a",
      "passage_lines": [
-      870,
-      912
+      933,
+      975
      ]
     }
    ],
    "primary_gloss": {
     "anchor": "ROOT-EVIDENCE-CONVENTION",
     "join": "backtick_mention",
-    "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
-    "line_start": 422,
-    "line_end": 427,
+    "passage_sha256": "2141078393f3946eb5531582ad4cd7cb7dce5d9415447e65b365494ff4940dce",
+    "line_start": 458,
+    "line_end": 463,
     "excerpt_sha256": "d1048e2024e42a6e901fb6eb02019bcf428f80077c6be79881f8a1ab38a24b86",
     "excerpt": "The parameter-free `alphaTot_eq_four_unconditional` gives the exponent alone. The cubic refutation states that there is no common real constant $C$ for which\n\\[\n \\bigl(R(\\operatorname{totalise}f)\\bigr)_{\\mathbb R}\n \\le C\\bigl(Q(\\operatorname{totalise}f)\\bigr)_{\\mathbb R}^{3}\n\\]\nfor every $n\\ge1$ and total $f$ on $\\operatorname{Fin}(n)$. The universal upper endpoint `universalPower_four` proves `UniversalPower 4`; the headline proof uses the imported complexity-library route described in Appendix A. These are unconditional declarations. By contrast, `family_bounds` retains the premise `Lvalue k t < R (P k t)` in its lower-bound clause, and `theorem_1_1` has the explicit parameter `h : BansalSinhaLower`. Citing either of those conditional suppliers alone does not remove its hypothesis. A restriction such as $k\\ge2$ and an unproved lower-bound assumption play different mathematical roles, and their actual types preserve that difference."
    },
@@ -9123,8 +9195,8 @@
      "source": "research/returns/round3/members/03_forrelation_lower_bound/correspondence.json",
      "passage_sha256": "b9437857fa977e24f7b03e7329a4c69d98744b7d76579b2b2241c2593c13ce4a",
      "passage_lines": [
-      870,
-      912
+      933,
+      975
      ]
     }
    ],
@@ -9161,21 +9233,21 @@
      "statement_id": "lem-2.2.i",
      "relation": "stronger",
      "review_evidence": "current",
-     "comparison_credit": "none",
+     "comparison_credit": "direct",
      "join": "statement_tie"
     },
     {
      "statement_id": "lem-2.2.ii",
      "relation": "stronger",
      "review_evidence": "current",
-     "comparison_credit": "none",
+     "comparison_credit": "direct",
      "join": "statement_tie"
     },
     {
      "statement_id": "lem-2.2",
      "relation": "stronger",
      "review_evidence": "current",
-     "comparison_credit": "none",
+     "comparison_credit": "direct",
      "join": "statement_tie"
     }
    ],
@@ -9187,8 +9259,8 @@
      "via": "statement_tie",
      "passage_sha256": "b34d4fc0738cea4ee8acdb18c28b3f43e19022ed807434d508a83319074d7695",
      "passage_lines": [
-      4634,
-      4641
+      4625,
+      4632
      ]
     },
     {
@@ -9198,8 +9270,8 @@
      "via": "statement_tie",
      "passage_sha256": "4185a5ab7768f21b8f6b5736d5bfcf5fc308dd8c26c92373e5962f45314fa59f",
      "passage_lines": [
-      4646,
-      4653
+      4637,
+      4644
      ]
     },
     {
@@ -9209,8 +9281,8 @@
      "via": "statement_tie",
      "passage_sha256": "114797e87f7c8eb6bd8d384c68cf87c32c62539acda1b590de06d9a7684c5862",
      "passage_lines": [
-      4658,
-      4665
+      4649,
+      4656
      ]
     }
    ],
@@ -9219,8 +9291,8 @@
     "join": "statement_claim",
     "statement_id": "lem-2.2.i",
     "passage_sha256": "b34d4fc0738cea4ee8acdb18c28b3f43e19022ed807434d508a83319074d7695",
-    "line_start": 4637,
-    "line_end": 4639,
+    "line_start": 4628,
+    "line_end": 4630,
     "excerpt_sha256": "3f1b0a32c35ac5681e5f44161602231c656b8a770ae962a2437c587f07743e00",
     "excerpt": "> For every input y and (i,s) in [m] x {0,1}^r: i wins at s iff all K_{k,m} tests pass, namely (a) X_i[b]=1 for each b; (b) for each j != i, X_j[p_{i,s,j}]=0; (c) for each h and each non-input gate, the claimed value equals the gate function of its predecessors, read from the transcript or from A_{i,h}; (d) for each h, claimed d=1 and claimed b=s_h. Each test is computed by a deterministic adaptive bit-query decision tree of depth at most max(3,l+1), which is l+1 for m>=4: a pointer test reads l pointer bits, then the one target bit they select, while gate tests read at most three fixed bits. A pointer test is not a function of a small fixed set of bits: it can depend on all l+m pointer and target coordinates.\n\n**Argument:** [§4.4](#CL-local-tests), [§4.4](#CL-local-equivalence), [§5.3](#upper-verifier)."
    },
@@ -9241,7 +9313,7 @@
      "statement_id": "eq-19",
      "relation": "stronger",
      "review_evidence": "current",
-     "comparison_credit": "none",
+     "comparison_credit": "direct",
      "join": "statement_tie"
     }
    ],
@@ -9253,8 +9325,8 @@
      "via": "statement_tie",
      "passage_sha256": "c4aa62727b94c3765c995a3ccab48aa3523add055cebc17e37f9a4d944942771",
      "passage_lines": [
-      3461,
-      3494
+      3445,
+      3478
      ]
     },
     {
@@ -9264,8 +9336,8 @@
      "via": "statement_tie",
      "passage_sha256": "c8d364f4c124c941a74e70ff44bde31f376ff9dc456b7e55839ed513d9af473d",
      "passage_lines": [
-      5278,
-      5285
+      5269,
+      5276
      ]
     },
     {
@@ -9275,8 +9347,8 @@
      "passage_claims": [],
      "passage_sha256": "c4d9a8bbac8218797f039964fb7f617b5df9c12236f61aa2a9cdd3827bc5e973",
      "passage_lines": [
-      3781,
-      3805
+      3772,
+      3796
      ]
     }
    ],
@@ -9285,8 +9357,8 @@
     "join": "statement_claim",
     "statement_id": "eq-19",
     "passage_sha256": "c4aa62727b94c3765c995a3ccab48aa3523add055cebc17e37f9a4d944942771",
-    "line_start": 3487,
-    "line_end": 3493,
+    "line_start": 3471,
+    "line_end": 3477,
     "excerpt_sha256": "1bffb3f9e6dbfb8709edad8df8806e5489412f7aed089203d928d0b28e9b23bc",
     "excerpt": "\\[\n\\Pr[T\\text{ on }Y^{(0)}\\text{ queries }X_I[J_I]]\n=\\frac{\\mathbb EZ}{m}\n\\le\\frac{4G}{m^2}.\n\\tag{19}\n\\]\nThe equality, the endpoint bound, and this early/late derivation are distinct assertions. The supplied Lean evidence supports the first two through separate declarations; the endpoint's formal proof uses the alternative argument below."
    },
@@ -9311,8 +9383,8 @@
      "passage_claims": [],
      "passage_sha256": "8ed2f2ce6ac17fbe72cf845bf649dc94cdef850663c7b5e880e7d0b6e6dd0ea7",
      "passage_lines": [
-      125,
-      133
+      161,
+      169
      ]
     },
     {
@@ -9320,10 +9392,10 @@
      "join": "backtick_mention",
      "alias": "PartialBool",
      "passage_claims": [],
-     "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
+     "passage_sha256": "2141078393f3946eb5531582ad4cd7cb7dce5d9415447e65b365494ff4940dce",
      "passage_lines": [
-      374,
-      454
+      410,
+      482
      ]
     },
     {
@@ -9332,8 +9404,8 @@
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
      "passage_sha256": "8ed2f2ce6ac17fbe72cf845bf649dc94cdef850663c7b5e880e7d0b6e6dd0ea7",
      "passage_lines": [
-      125,
-      133
+      161,
+      169
      ]
     }
    ],
@@ -9341,8 +9413,8 @@
     "anchor": "ROOT-PARTIAL",
     "join": "backtick_mention",
     "passage_sha256": "8ed2f2ce6ac17fbe72cf845bf649dc94cdef850663c7b5e880e7d0b6e6dd0ea7",
-    "line_start": 128,
-    "line_end": 128,
+    "line_start": 164,
+    "line_end": 164,
     "excerpt_sha256": "abccb912aac6601ed3bdf0c60646d69fd9a120dd620cfabd9b894f893c89289c",
     "excerpt": "Let $I$ be a finite set of coordinates and put $\\mathcal X_I=\\{0,1\\}^I$. A partial Boolean function is a domain $\\mathcal D\\subseteq\\mathcal X_I$ together with a map $f:\\mathcal D\\to\\{0,1\\}$. Equivalently, it is a map from $\\mathcal X_I$ to $\\{\\mathrm{none},\\mathrm{some}(0),\\mathrm{some}(1)\\}$: `none` means that no correctness requirement is imposed at that input. This is the source type `PartialBool I`. Taking the defined inputs as the domain and their unique Boolean labels as the values reverses the translation."
    },
@@ -9366,8 +9438,8 @@
      "source": "research/returns/round3/members/03_forrelation_lower_bound/correspondence.json",
      "passage_sha256": "b9437857fa977e24f7b03e7329a4c69d98744b7d76579b2b2241c2593c13ce4a",
      "passage_lines": [
-      870,
-      912
+      933,
+      975
      ]
     }
    ],
@@ -9391,10 +9463,10 @@
      "join": "backtick_mention",
      "alias": "Q",
      "passage_claims": [],
-     "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
+     "passage_sha256": "2141078393f3946eb5531582ad4cd7cb7dce5d9415447e65b365494ff4940dce",
      "passage_lines": [
-      374,
-      454
+      410,
+      482
      ]
     },
     {
@@ -9403,27 +9475,27 @@
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
      "passage_sha256": "c115aa5ff867d5656f2e934b0245dd70b4c15e5ee69012c9eae593b12ad57070",
      "passage_lines": [
-      209,
-      257
+      245,
+      293
      ]
     },
     {
      "anchor": "ROOT-FAMILY-ASSEMBLY",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/08_reviewed/quartic_r3_08_return/correspondence.json",
-     "passage_sha256": "aa41ad70cd2cc309119646ae8bfc29c696fcf148b6e7d2d3e13d77361f4974b4",
+     "passage_sha256": "8106997eeb5e968e7404fec1a40e4f6f0034ce5b619938b98d7eb86ce6c3a832",
      "passage_lines": [
-      3810,
-      3839
+      3803,
+      3828
      ]
     }
    ],
    "primary_gloss": {
     "anchor": "ROOT-EVIDENCE-CONVENTION",
     "join": "backtick_mention",
-    "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
-    "line_start": 381,
-    "line_end": 381,
+    "passage_sha256": "2141078393f3946eb5531582ad4cd7cb7dce5d9415447e65b365494ff4940dce",
+    "line_start": 417,
+    "line_end": 417,
     "excerpt_sha256": "e7a1b5ae6c2f09dd31a3f92efbe09fbf7b8187ae3ff9143ada5b7229dd4b3a0d",
     "excerpt": "**One algorithm and a global cap.** The predicates `DLe`, `RLe` and `QLe` take a partial Boolean function and a natural-number budget; `D`, `R` and `Q` are natural-number complexities. In the classical cases, the witness is one decision tree or one mixture of trees, with a global depth cap and correctness on all defined inputs. In the quantum case, the witness is either the explicitly constant-on-promise alternative or one normalized initial state and one capped program, chosen before the input. This includes the constant and empty-promise cases without selecting an algorithm separately for each input. None of these definitions assumes a lower-bound theorem or any property of Forrelation."
    },
@@ -9451,8 +9523,8 @@
      ],
      "passage_sha256": "c115aa5ff867d5656f2e934b0245dd70b4c15e5ee69012c9eae593b12ad57070",
      "passage_lines": [
-      209,
-      257
+      245,
+      293
      ]
     },
     {
@@ -9460,10 +9532,10 @@
      "join": "backtick_mention",
      "alias": "QLe",
      "passage_claims": [],
-     "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
+     "passage_sha256": "2141078393f3946eb5531582ad4cd7cb7dce5d9415447e65b365494ff4940dce",
      "passage_lines": [
-      374,
-      454
+      410,
+      482
      ]
     },
     {
@@ -9472,18 +9544,18 @@
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
      "passage_sha256": "c115aa5ff867d5656f2e934b0245dd70b4c15e5ee69012c9eae593b12ad57070",
      "passage_lines": [
-      209,
-      257
+      245,
+      293
      ]
     },
     {
      "anchor": "ROOT-FAMILY-ASSEMBLY",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/08_reviewed/quartic_r3_08_return/correspondence.json",
-     "passage_sha256": "aa41ad70cd2cc309119646ae8bfc29c696fcf148b6e7d2d3e13d77361f4974b4",
+     "passage_sha256": "8106997eeb5e968e7404fec1a40e4f6f0034ce5b619938b98d7eb86ce6c3a832",
      "passage_lines": [
-      3810,
-      3839
+      3803,
+      3828
      ]
     },
     {
@@ -9492,8 +9564,8 @@
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
      "passage_sha256": "8ed2f2ce6ac17fbe72cf845bf649dc94cdef850663c7b5e880e7d0b6e6dd0ea7",
      "passage_lines": [
-      125,
-      133
+      161,
+      169
      ]
     }
    ],
@@ -9501,8 +9573,8 @@
     "anchor": "R3-01-ADAPTIVE",
     "join": "backtick_mention",
     "passage_sha256": "c115aa5ff867d5656f2e934b0245dd70b4c15e5ee69012c9eae593b12ad57070",
-    "line_start": 233,
-    "line_end": 234,
+    "line_start": 269,
+    "line_end": 270,
     "excerpt_sha256": "9e9bd63e73e60e7511d64754f98a1dc70d7779c5389f37b6a1c71ca7356453cf",
     "excerpt": "<!-- claim:def-Q -->\nThe predicate `QLe f q` is the following disjunction:"
    },
@@ -9526,8 +9598,8 @@
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
      "passage_sha256": "8b87e572b5d6d5ef2bc1b8949d6a3807862cc9609cb12cb91aeb616f9d9bdae5",
      "passage_lines": [
-      136,
-      182
+      172,
+      218
      ]
     }
    ],
@@ -9552,8 +9624,8 @@
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
      "passage_sha256": "8b87e572b5d6d5ef2bc1b8949d6a3807862cc9609cb12cb91aeb616f9d9bdae5",
      "passage_lines": [
-      136,
-      182
+      172,
+      218
      ]
     }
    ],
@@ -9578,8 +9650,8 @@
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
      "passage_sha256": "8b87e572b5d6d5ef2bc1b8949d6a3807862cc9609cb12cb91aeb616f9d9bdae5",
      "passage_lines": [
-      136,
-      182
+      172,
+      218
      ]
     }
    ],
@@ -9603,10 +9675,10 @@
      "join": "backtick_mention",
      "alias": "R",
      "passage_claims": [],
-     "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
+     "passage_sha256": "2141078393f3946eb5531582ad4cd7cb7dce5d9415447e65b365494ff4940dce",
      "passage_lines": [
-      374,
-      454
+      410,
+      482
      ]
     },
     {
@@ -9615,18 +9687,18 @@
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
      "passage_sha256": "8b87e572b5d6d5ef2bc1b8949d6a3807862cc9609cb12cb91aeb616f9d9bdae5",
      "passage_lines": [
-      136,
-      182
+      172,
+      218
      ]
     },
     {
      "anchor": "ROOT-FAMILY-ASSEMBLY",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/08_reviewed/quartic_r3_08_return/correspondence.json",
-     "passage_sha256": "aa41ad70cd2cc309119646ae8bfc29c696fcf148b6e7d2d3e13d77361f4974b4",
+     "passage_sha256": "8106997eeb5e968e7404fec1a40e4f6f0034ce5b619938b98d7eb86ce6c3a832",
      "passage_lines": [
-      3810,
-      3839
+      3803,
+      3828
      ]
     },
     {
@@ -9635,17 +9707,17 @@
      "source": "research/returns/round3/members/03_forrelation_lower_bound/correspondence.json",
      "passage_sha256": "b9437857fa977e24f7b03e7329a4c69d98744b7d76579b2b2241c2593c13ce4a",
      "passage_lines": [
-      870,
-      912
+      933,
+      975
      ]
     }
    ],
    "primary_gloss": {
     "anchor": "ROOT-EVIDENCE-CONVENTION",
     "join": "backtick_mention",
-    "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
-    "line_start": 381,
-    "line_end": 381,
+    "passage_sha256": "2141078393f3946eb5531582ad4cd7cb7dce5d9415447e65b365494ff4940dce",
+    "line_start": 417,
+    "line_end": 417,
     "excerpt_sha256": "e7a1b5ae6c2f09dd31a3f92efbe09fbf7b8187ae3ff9143ada5b7229dd4b3a0d",
     "excerpt": "**One algorithm and a global cap.** The predicates `DLe`, `RLe` and `QLe` take a partial Boolean function and a natural-number budget; `D`, `R` and `Q` are natural-number complexities. In the classical cases, the witness is one decision tree or one mixture of trees, with a global depth cap and correctness on all defined inputs. In the quantum case, the witness is either the explicitly constant-on-promise alternative or one normalized initial state and one capped program, chosen before the input. This includes the constant and empty-promise cases without selecting an algorithm separately for each input. None of these definitions assumes a lower-bound theorem or any property of Forrelation."
    },
@@ -9673,8 +9745,8 @@
      ],
      "passage_sha256": "8b87e572b5d6d5ef2bc1b8949d6a3807862cc9609cb12cb91aeb616f9d9bdae5",
      "passage_lines": [
-      136,
-      182
+      172,
+      218
      ]
     },
     {
@@ -9682,10 +9754,10 @@
      "join": "backtick_mention",
      "alias": "RLe",
      "passage_claims": [],
-     "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
+     "passage_sha256": "2141078393f3946eb5531582ad4cd7cb7dce5d9415447e65b365494ff4940dce",
      "passage_lines": [
-      374,
-      454
+      410,
+      482
      ]
     },
     {
@@ -9694,18 +9766,18 @@
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
      "passage_sha256": "8b87e572b5d6d5ef2bc1b8949d6a3807862cc9609cb12cb91aeb616f9d9bdae5",
      "passage_lines": [
-      136,
-      182
+      172,
+      218
      ]
     },
     {
      "anchor": "ROOT-FAMILY-ASSEMBLY",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/08_reviewed/quartic_r3_08_return/correspondence.json",
-     "passage_sha256": "aa41ad70cd2cc309119646ae8bfc29c696fcf148b6e7d2d3e13d77361f4974b4",
+     "passage_sha256": "8106997eeb5e968e7404fec1a40e4f6f0034ce5b619938b98d7eb86ce6c3a832",
      "passage_lines": [
-      3810,
-      3839
+      3803,
+      3828
      ]
     },
     {
@@ -9714,8 +9786,8 @@
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
      "passage_sha256": "8ed2f2ce6ac17fbe72cf845bf649dc94cdef850663c7b5e880e7d0b6e6dd0ea7",
      "passage_lines": [
-      125,
-      133
+      161,
+      169
      ]
     },
     {
@@ -9724,8 +9796,8 @@
      "source": "research/returns/round3/members/03_forrelation_lower_bound/correspondence.json",
      "passage_sha256": "b9437857fa977e24f7b03e7329a4c69d98744b7d76579b2b2241c2593c13ce4a",
      "passage_lines": [
-      870,
-      912
+      933,
+      975
      ]
     }
    ],
@@ -9733,8 +9805,8 @@
     "anchor": "R3-01-CLASSICAL",
     "join": "backtick_mention",
     "passage_sha256": "8b87e572b5d6d5ef2bc1b8949d6a3807862cc9609cb12cb91aeb616f9d9bdae5",
-    "line_start": 159,
-    "line_end": 160,
+    "line_start": 195,
+    "line_end": 196,
     "excerpt_sha256": "6afb328c628d32c0041bb399037deab168556999adf7de7406ce13ce3e583b3a",
     "excerpt": "<!-- claim:def-R -->\nWrite $R_{\\leq}(f,q)$, or `RLe f q`, for the existence of such a mixture with depth at most $q$ and success at least $2/3$ on every promised input. The randomized complexity is"
    },
@@ -9758,8 +9830,8 @@
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
      "passage_sha256": "8b87e572b5d6d5ef2bc1b8949d6a3807862cc9609cb12cb91aeb616f9d9bdae5",
      "passage_lines": [
-      136,
-      182
+      172,
+      218
      ]
     }
    ],
@@ -9784,8 +9856,8 @@
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
      "passage_sha256": "8b87e572b5d6d5ef2bc1b8949d6a3807862cc9609cb12cb91aeb616f9d9bdae5",
      "passage_lines": [
-      136,
-      182
+      172,
+      218
      ]
     }
    ],
@@ -9810,8 +9882,8 @@
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
      "passage_sha256": "8b87e572b5d6d5ef2bc1b8949d6a3807862cc9609cb12cb91aeb616f9d9bdae5",
      "passage_lines": [
-      136,
-      182
+      172,
+      218
      ]
     }
    ],
@@ -9836,8 +9908,8 @@
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
      "passage_sha256": "78987b8ee20979dd59f28cb91683b3588986570cbbf0aed524d8e4751de8aa25",
      "passage_lines": [
-      185,
-      206
+      221,
+      242
      ]
     }
    ],
@@ -9862,8 +9934,8 @@
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
      "passage_sha256": "8ed2f2ce6ac17fbe72cf845bf649dc94cdef850663c7b5e880e7d0b6e6dd0ea7",
      "passage_lines": [
-      125,
-      133
+      161,
+      169
      ]
     }
    ],
@@ -9902,20 +9974,20 @@
      "join": "backtick_mention",
      "alias": "UniversalPower",
      "passage_claims": [],
-     "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
+     "passage_sha256": "2141078393f3946eb5531582ad4cd7cb7dce5d9415447e65b365494ff4940dce",
      "passage_lines": [
-      374,
-      454
+      410,
+      482
      ]
     },
     {
      "anchor": "ROOT-FAMILY-ASSEMBLY",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/08_reviewed/quartic_r3_08_return/correspondence.json",
-     "passage_sha256": "aa41ad70cd2cc309119646ae8bfc29c696fcf148b6e7d2d3e13d77361f4974b4",
+     "passage_sha256": "8106997eeb5e968e7404fec1a40e4f6f0034ce5b619938b98d7eb86ce6c3a832",
      "passage_lines": [
-      3810,
-      3839
+      3803,
+      3828
      ]
     },
     {
@@ -9924,27 +9996,27 @@
      "source": "research/returns/round3/members/08_reviewed/quartic_r3_08_return/correspondence.json",
      "passage_sha256": "adf0b7666be7176bff8357f954a45a937f8e9964eb5b0a5b5e0bfac01ebef0fd",
      "passage_lines": [
-      3887,
-      3904
+      3876,
+      3893
      ]
     },
     {
      "anchor": "ROOT-RESULT",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
-     "passage_sha256": "2375e9b5b0bf69905c17343641768ada640b843f9a0472aea870556bdac11a08",
+     "passage_sha256": "f3a2aa384f09275a4295f7a13e18c05715caa4ee496c242fcdf8bbb2a488701a",
      "passage_lines": [
-      8,
-      46
+      30,
+      68
      ]
     }
    ],
    "primary_gloss": {
     "anchor": "ROOT-EVIDENCE-CONVENTION",
     "join": "backtick_mention",
-    "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
-    "line_start": 412,
-    "line_end": 412,
+    "passage_sha256": "2141078393f3946eb5531582ad4cd7cb7dce5d9415447e65b365494ff4940dce",
+    "line_start": 448,
+    "line_end": 448,
     "excerpt_sha256": "fd18e8ba0ed310c5d3f4b68a95cbfde4d003d1a4070eeda61b7982223de6996a",
     "excerpt": "**The family and the universal exponent.** `UniversalPower` is a predicate on real exponents, and the formal `alphaTot` is the infimum of the exponents satisfying it. Its quantifiers range over total Boolean functions on $\\operatorname{Fin}(n)$, with $n\\ge1$ and exponent $\\alpha\\ge0$, as in (1). The finite-constant and infimum formulations are explicitly related by the source wrappers. No Forrelation hypothesis belongs to this definition."
    },
@@ -9961,9 +10033,31 @@
    },
    "solution_proof_references": [],
    "statement_ids": [],
-   "record_references": [],
-   "primary_gloss": null,
-   "gap": "no_record_passage"
+   "record_references": [
+    {
+     "anchor": "upper-missing-physical-state",
+     "join": "backtick_mention",
+     "alias": "Upper.uniformOpaqueAmplifier",
+     "passage_claims": [
+      "r3-q-physical-state-bridge"
+     ],
+     "passage_sha256": "11439a9f6c92deba9b94595798226da51cdb657f19022b8d170c9077568976ca",
+     "passage_lines": [
+      2755,
+      2782
+     ]
+    }
+   ],
+   "primary_gloss": {
+    "anchor": "upper-missing-physical-state",
+    "join": "backtick_mention",
+    "passage_sha256": "11439a9f6c92deba9b94595798226da51cdb657f19022b8d170c9077568976ca",
+    "line_start": 2781,
+    "line_end": 2781,
+    "excerpt_sha256": "88117997e719e784c8eb3702bd912f063ed249489268e7bd56fbd936ba206c39",
+    "excerpt": "The ordinary fresh-trial/routing argument in §5.1 supplies the mathematical construction. The round-four integration added `Upper.uniformOpaqueAmplifier`, accepted by Comparator: for one selector gate chosen before every opaque unitary, it states the retained-factor identity and the exact success mass, with the zero-mass, $p/2$ and $1-\\eta$ clauses and a logical cap. The basis change from a general fixed projector to a coordinate predicate and the literal flag/Hadamard identification remain unproved, so no source-bound Lean theorem of the full physical type displayed above is claimed. In particular, the coherent composition can retain a copy of a successful output label in auxiliary registers, and the measured compilation route reads a complete basis label. A proof of the displayed factorization, or an equivalent output-subsystem theorem after a specified uncomputation, is still needed before promoting the physical wrapper to the full state claim. This missing formal bridge is not an extra assumption in the proof of Proposition 3.3: that proof uses only measured labels, whose law is already supplied by the compiled route."
+   },
+   "gap": null
   },
   "QuarticQuery.WinsAt": {
    "kind": "def",
@@ -9983,8 +10077,8 @@
      "source": "research/returns/round3/members/07_planted_lower_bound/correspondence.json",
      "passage_sha256": "37c16886782016d704ff02b88e62dba3bb5bb1112562d6b0aa6d01c7b2d4b807",
      "passage_lines": [
-      3289,
-      3301
+      3273,
+      3285
      ]
     }
    ],
@@ -10009,8 +10103,8 @@
      "source": "research/returns/round3/members/04_addressed_construction/correspondence.json",
      "passage_sha256": "5912f2a55be5aec040fc237beff7080a2564c273dfd9cfb93162e43507b02542",
      "passage_lines": [
-      1894,
-      1910
+      1837,
+      1853
      ]
     },
     {
@@ -10019,8 +10113,8 @@
      "source": "research/returns/round3/members/07_planted_lower_bound/correspondence.json",
      "passage_sha256": "37c16886782016d704ff02b88e62dba3bb5bb1112562d6b0aa6d01c7b2d4b807",
      "passage_lines": [
-      3289,
-      3301
+      3273,
+      3285
      ]
     }
    ],
@@ -10044,39 +10138,39 @@
      "join": "backtick_mention",
      "alias": "alphaTot",
      "passage_claims": [],
-     "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
+     "passage_sha256": "2141078393f3946eb5531582ad4cd7cb7dce5d9415447e65b365494ff4940dce",
      "passage_lines": [
-      374,
-      454
+      410,
+      482
      ]
     },
     {
      "anchor": "ROOT-FAMILY-ASSEMBLY",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/08_reviewed/quartic_r3_08_return/correspondence.json",
-     "passage_sha256": "aa41ad70cd2cc309119646ae8bfc29c696fcf148b6e7d2d3e13d77361f4974b4",
+     "passage_sha256": "8106997eeb5e968e7404fec1a40e4f6f0034ce5b619938b98d7eb86ce6c3a832",
      "passage_lines": [
-      3810,
-      3839
+      3803,
+      3828
      ]
     },
     {
      "anchor": "ROOT-RESULT",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
-     "passage_sha256": "2375e9b5b0bf69905c17343641768ada640b843f9a0472aea870556bdac11a08",
+     "passage_sha256": "f3a2aa384f09275a4295f7a13e18c05715caa4ee496c242fcdf8bbb2a488701a",
      "passage_lines": [
-      8,
-      46
+      30,
+      68
      ]
     }
    ],
    "primary_gloss": {
     "anchor": "ROOT-EVIDENCE-CONVENTION",
     "join": "backtick_mention",
-    "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
-    "line_start": 412,
-    "line_end": 412,
+    "passage_sha256": "2141078393f3946eb5531582ad4cd7cb7dce5d9415447e65b365494ff4940dce",
+    "line_start": 448,
+    "line_end": 448,
     "excerpt_sha256": "fd18e8ba0ed310c5d3f4b68a95cbfde4d003d1a4070eeda61b7982223de6996a",
     "excerpt": "**The family and the universal exponent.** `UniversalPower` is a predicate on real exponents, and the formal `alphaTot` is the infimum of the exponents satisfying it. Its quantifiers range over total Boolean functions on $\\operatorname{Fin}(n)$, with $n\\ge1$ and exponent $\\alpha\\ge0$, as in (1). The finite-constant and infimum formulations are explicitly related by the source wrappers. No Forrelation hypothesis belongs to this definition."
    },
@@ -10100,8 +10194,8 @@
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
      "passage_sha256": "78987b8ee20979dd59f28cb91683b3588986570cbbf0aed524d8e4751de8aa25",
      "passage_lines": [
-      185,
-      206
+      221,
+      242
      ]
     }
    ],
@@ -10126,8 +10220,8 @@
      "source": "research/returns/round3/members/03_forrelation_lower_bound/correspondence.json",
      "passage_sha256": "b9437857fa977e24f7b03e7329a4c69d98744b7d76579b2b2241c2593c13ce4a",
      "passage_lines": [
-      870,
-      912
+      933,
+      975
      ]
     }
    ],
@@ -10145,9 +10239,29 @@
    },
    "solution_proof_references": [],
    "statement_ids": [],
-   "record_references": [],
-   "primary_gloss": null,
-   "gap": "no_record_passage"
+   "record_references": [
+    {
+     "anchor": "CL-literature-and-verification",
+     "join": "backtick_mention",
+     "alias": "QuarticQuery.direct_product_external_finite_realized_caps",
+     "passage_claims": [],
+     "passage_sha256": "1cf3bcda714d64a0df22c17912251c31fd8b5b358ea846f4329cea752e473f81",
+     "passage_lines": [
+      3230,
+      3268
+     ]
+    }
+   ],
+   "primary_gloss": {
+    "anchor": "CL-literature-and-verification",
+    "join": "backtick_mention",
+    "passage_sha256": "1cf3bcda714d64a0df22c17912251c31fd8b5b358ea846f4329cea752e473f81",
+    "line_start": 3257,
+    "line_end": 3267,
+    "excerpt_sha256": "ef0408f4196d0b5331e76d37859a36fa38aff93c147c853d8045e67169262abd",
+    "excerpt": "The round-four integration added the endpoint\n`QuarticQuery.direct_product_external_finite_realized_caps`, accepted by\nComparator. It covers a finite seed space with arbitrary nonnegative weights\nsumming to one, each seed selecting an initially uncapped tree, and bounds the\nweighted joint event that every instance is answered correctly and no\ninstance exceeds its cap of $L$ queries by $\\beta^r$. Arbitrary measurable\nexternal randomness is handled by the ordinary finite-behavior reduction above,\nnot by a Lean theorem. The arbitrary-information reduction, the generic\njoint-event truncation corollary and the combined identity (6.11) are ordinary\ndeductions supplied here. The worked example is a separate exact finite\ncalculation. This reconstruction has received no human mathematical review."
+   },
+   "gap": null
   },
   "QuarticQuery.forrelationDenominator": {
    "kind": "def",
@@ -10167,8 +10281,8 @@
      "source": "research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/correspondence.json",
      "passage_sha256": "5c670ca68dc3a35a0caf51bea9f1d88b7e85f23da8a2b6f51b8d97d1285caafc",
      "passage_lines": [
-      522,
-      556
+      595,
+      629
      ]
     }
    ],
@@ -10193,8 +10307,8 @@
      "source": "research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/correspondence.json",
      "passage_sha256": "5c670ca68dc3a35a0caf51bea9f1d88b7e85f23da8a2b6f51b8d97d1285caafc",
      "passage_lines": [
-      522,
-      556
+      595,
+      629
      ]
     }
    ],
@@ -10219,8 +10333,8 @@
      "source": "research/returns/round3/members/03_forrelation_lower_bound/correspondence.json",
      "passage_sha256": "b9437857fa977e24f7b03e7329a4c69d98744b7d76579b2b2241c2593c13ce4a",
      "passage_lines": [
-      870,
-      912
+      933,
+      975
      ]
     }
    ],
@@ -10275,8 +10389,8 @@
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
      "passage_sha256": "78987b8ee20979dd59f28cb91683b3588986570cbbf0aed524d8e4751de8aa25",
      "passage_lines": [
-      185,
-      206
+      221,
+      242
      ]
     }
    ],
@@ -10301,8 +10415,8 @@
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
      "passage_sha256": "8ed2f2ce6ac17fbe72cf845bf649dc94cdef850663c7b5e880e7d0b6e6dd0ea7",
      "passage_lines": [
-      125,
-      133
+      161,
+      169
      ]
     }
    ],
@@ -10386,10 +10500,10 @@
      "join": "backtick_mention",
      "alias": "reindex",
      "passage_claims": [],
-     "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
+     "passage_sha256": "2141078393f3946eb5531582ad4cd7cb7dce5d9415447e65b365494ff4940dce",
      "passage_lines": [
-      374,
-      454
+      410,
+      482
      ]
     },
     {
@@ -10398,17 +10512,17 @@
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
      "passage_sha256": "acfafcc4e43461e8969b31a96f8438bbbb4bebea7870e41e1e9f0a0a585191f6",
      "passage_lines": [
-      260,
-      294
+      296,
+      330
      ]
     }
    ],
    "primary_gloss": {
     "anchor": "ROOT-EVIDENCE-CONVENTION",
     "join": "backtick_mention",
-    "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
-    "line_start": 383,
-    "line_end": 387,
+    "passage_sha256": "2141078393f3946eb5531582ad4cd7cb7dce5d9415447e65b365494ff4940dce",
+    "line_start": 419,
+    "line_end": 423,
     "excerpt_sha256": "b9ca599c5ebfc416ce0e1e505db4f034350efddc766515554cd3f054fb47b34e",
     "excerpt": "For every finite Boolean promise the read-all construction gives\n\\[\n R(f)\\le D(f),\\qquad Q(f)\\le D(f),\\qquad D(f)\\le |I|.\n\\]\nAn equivalence $e:I\\simeq J$ simply renames the coordinates. The three complexities of `reindex e f` equal the corresponding complexities of $f$. These statements concern arbitrary finite promises: their only ordinary premises are the specified finite coordinate types and, for renaming, the equivalence. The results `D_le_iff`, `R_le_iff` and `Q_le_iff` connect the numerical complexities to the budget predicates. The uniform choice and global cap remain inside those predicates; they cannot be discarded when applying the numerical inequalities."
    },
@@ -10433,8 +10547,8 @@
      "passage_claims": [],
      "passage_sha256": "8ed2f2ce6ac17fbe72cf845bf649dc94cdef850663c7b5e880e7d0b6e6dd0ea7",
      "passage_lines": [
-      125,
-      133
+      161,
+      169
      ]
     },
     {
@@ -10442,10 +10556,10 @@
      "join": "backtick_mention",
      "alias": "totalise",
      "passage_claims": [],
-     "passage_sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78",
+     "passage_sha256": "2141078393f3946eb5531582ad4cd7cb7dce5d9415447e65b365494ff4940dce",
      "passage_lines": [
-      374,
-      454
+      410,
+      482
      ]
     },
     {
@@ -10454,8 +10568,8 @@
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
      "passage_sha256": "8ed2f2ce6ac17fbe72cf845bf649dc94cdef850663c7b5e880e7d0b6e6dd0ea7",
      "passage_lines": [
-      125,
-      133
+      161,
+      169
      ]
     }
    ],
@@ -10463,8 +10577,8 @@
     "anchor": "ROOT-PARTIAL",
     "join": "backtick_mention",
     "passage_sha256": "8ed2f2ce6ac17fbe72cf845bf649dc94cdef850663c7b5e880e7d0b6e6dd0ea7",
-    "line_start": 132,
-    "line_end": 132,
+    "line_start": 168,
+    "line_end": 168,
     "excerpt_sha256": "9bab083aa31c83aecec569c5daa64fedcd6d3b616236056a641bccef5dacea29",
     "excerpt": "The source operation `totalise` embeds an **already total** function $g:\\mathcal X_I\\to\\{0,1\\}$ by sending $x$ to `some (g x)`. It does not complete a partial function by replacing `none` with false. When a read-all algorithm needs an output off promise, it may choose false there; that is a choice of algorithm, not a change to $f$. The translation and its correctness conditions are proved by the domain wrappers in `Paper/ConstructionModels.lean`."
    },
@@ -10488,8 +10602,8 @@
      "source": "research/returns/round3/members/03_forrelation_lower_bound/correspondence.json",
      "passage_sha256": "b9437857fa977e24f7b03e7329a4c69d98744b7d76579b2b2241c2593c13ce4a",
      "passage_lines": [
-      870,
-      912
+      933,
+      975
      ]
     }
    ],

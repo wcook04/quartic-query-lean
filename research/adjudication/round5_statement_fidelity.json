@@ -1,0 +1,449 @@
+{
+  "schema": "quartic-round5-statement-fidelity-v1",
+  "reviewer": "ai:claude-opus-5-5 (independent statement-fidelity pass), 3 November 2026",
+  "scope": "Every label in tools/build_lean_links.py CITATIONS whose target is a theorem (thm-, cmp-, src-), with the def-* targets they depend on. Sources read at the working tree of /Users/willcook/src/quartic-query-lean (HEAD 9a0a5cd; links pinned to 659b571). Paper statements from research/intake/statement_ledger.json (preprint extraction) and as used in docs/expert_companion.md and docs/exposition.md. Lean was not run; olean presence was inspected only. Prior evidence consulted: corpus/ties.json, docs/statement_fidelity_review.md, research/adjudication/round4_formal.md.",
+  "items": [
+    {
+      "label": "thm-all",
+      "declaration": "QuarticQuery.Checked.{alpha_tot_eq_four, theorem_one_one, cubic_bound_fails, forrelation_lower_bound}",
+      "file": "lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "lines": [326, 341],
+      "cited_for": "The four compared theorems: alpha_tot = 4, the family statement of Theorem 1.1, failure of R <= C Q^3, and the Forrelation hardness (5).",
+      "relation": "same",
+      "differences": ["See the four individual items; the bundle adds nothing beyond them."],
+      "hidden_premises": [],
+      "agrees_with_prior_review": true,
+      "confidence": "high",
+      "notes": "comparator.json names exactly these four theorems and permits only propext, Quot.sound, Classical.choice. The recorded paranoid run (corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json) is untracked in git at review time and was run unsandboxed."
+    },
+    {
+      "label": "thm-alpha",
+      "declaration": "QuarticQuery.Checked.alpha_tot_eq_four",
+      "file": "lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "lines": [326, 327],
+      "cited_for": "alpha_tot = 4 (Theorem 1.1, first sentence), with alpha_tot the infimum of exponents in equation (1).",
+      "relation": "same",
+      "differences": [
+        "alphaTot is sInf over reals; sInf of the empty set is 0 in Mathlib, so alphaTot = 4 by itself already forces the set to be nonempty and is not a vacuous reading."
+      ],
+      "hidden_premises": [],
+      "agrees_with_prior_review": true,
+      "confidence": "high",
+      "notes": "UniversalPower matches equation (1): alpha >= 0, one C > 0 for every n >= 1 and every total f on Fin n, R(f) <= C (1+Q(f))^alpha with rpow. The extra requirement C > 0 is harmless since C can be enlarged."
+    },
+    {
+      "label": "thm-headline",
+      "declaration": "QuarticQuery.Checked.theorem_one_one",
+      "file": "lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "lines": [328, 334],
+      "cited_for": "Theorem 1.1: alpha_tot = 4, R = O((1+Q)^4) for every total f, and equation (2) for each fixed k >= 2 with the same F_{k,m} in both bounds.",
+      "relation": "same",
+      "differences": [
+        "Quantifier order is forall k >= 2, exists S, A > 0, b, t0, forall t >= max(1, t0), exists circuit C: k is fixed before m = 4^t grows, the constants depend only on k, and one circuit C (hence one F_{k,m}) serves both bounds. This is the paper's order.",
+        "The polylog exponent b is existential (the paper's b_k is also existential; the companion and exposition state b = 6, which is only in src-constants).",
+        "The lower bound is the exact floor form floor(mL/100) < R(F) of Proposition 4.2, not the c_k m^{2-1/k}/log^2 m form of (2). For t >= 8 the floor form implies the latter with c_k = 1/400 by an elementary step, so on the R side this is at least as strong as (2), not a weakening.",
+        "The circuit realising P is existential, with a size bound S m (2t)^2. The paper's C_{k,m} is also only asserted to exist (Lemma 2.1(iii)), so this matches; the named circuit forrCircuit appears only in the uncompared src-constants.",
+        "Adds the circuit-size conjunct, which (2) does not state."
+      ],
+      "hidden_premises": [],
+      "agrees_with_prior_review": true,
+      "confidence": "high",
+      "notes": "No Bansal-Sinha hypothesis remains: the conditional route of earlier rounds is replaced by ForrelationLower.bansalSinhaLower. R and Q are the standard bounded-error worst-case measures (see definition_checks). Prior tie for theorem_1_1_unconditional is 'exact'; I agree."
+    },
+    {
+      "label": "thm-cubic",
+      "declaration": "QuarticQuery.Checked.cubic_bound_fails",
+      "file": "lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "lines": [336, 338],
+      "cited_for": "Refutation of ABKRT Conjecture 2: no C with R(f) <= C Q(f)^3 for all total f.",
+      "relation": "same",
+      "differences": [
+        "Uses Q^3, not (1+Q)^3. Functions with Q = 0 are constant and have R = 0 (cmp-zero-cost), so including them changes nothing; the statement is equivalent to the paper's form restricted to Q >= 1.",
+        "C ranges over all reals; negative C only makes the bound easier to refute, which is harmless."
+      ],
+      "hidden_premises": [],
+      "agrees_with_prior_review": true,
+      "confidence": "high",
+      "notes": "Also implied by thm-alpha (UniversalPower is upward closed in alpha because 1+Q >= 1), but stated and compared separately."
+    },
+    {
+      "label": "thm-forrelation",
+      "declaration": "QuarticQuery.Checked.forrelation_lower_bound (BansalSinhaLower)",
+      "file": "lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "lines": [340, 341],
+      "cited_for": "Lemma 2.1(i) / companion (5): for fixed k >= 2 and all large powers of four m, floor(m^{1-1/k}/(log2 m)^2) < R(P_{k,m}).",
+      "relation": "same",
+      "differences": [
+        "States exactly Lemma 2.1(i) in the form the paper consumes, with a k-dependent unspecified threshold t0(k).",
+        "It is strictly weaker than Bansal and Sinha's Corollary 1.4 (R(P) = Omega(k^{-29} (m/log(km))^{1-1/k})): BS implies it for each fixed k, not conversely. The definition's name BansalSinhaLower can suggest the published theorem; it is the consumed consequence.",
+        "P is the exact promise of (4) with delta = 2^{-5k}, threshold delta/2 and error 1/3; the integer tests match Phi >= delta and |Phi| <= delta/2 exactly."
+      ],
+      "hidden_premises": [],
+      "agrees_with_prior_review": true,
+      "confidence": "high",
+      "notes": "Proved without hypothesis by the local alternative route (ForrelationLower/Main.lean:525). No human has reviewed that proof; this pass judged only the statement."
+    },
+    {
+      "label": "cmp-lemma22",
+      "declaration": "QuarticQuery.Checked.{winsAt_unique, existsUnique_gateConsistent, winner_no_incoming_zero, winner_finds_zero}",
+      "file": "lean/QuarticCorpus/Construction/Challenge.lean",
+      "lines": [326, 342],
+      "cited_for": "Companion Table 2 row 'Lemma 2.2 | four facts | compared | Partial'; CITATIONS reader name 'the four parts of Lemma 2.2'.",
+      "relation": "different",
+      "differences": [
+        "None of the four states any part of Lemma 2.2. Lemma 2.2(i) is 'i wins at s iff all K local tests pass, each a function of O(log m) bits'; (ii) is the O(log m)-query exact and coherent evaluation of each test. Neither appears here.",
+        "winsAt_unique is the paper's Corollary (at most one winner), strengthened to uniqueness of the address too.",
+        "existsUnique_gateConsistent is the transcript-uniqueness fact of Section 1.3 (one gate-consistent transcript per input).",
+        "winner_no_incoming_zero and winner_finds_zero are the Boolean halves of the Section 3.3 'winner dominates' claim; the second is a direct projection of the fourth conjunct of WinsAt, and the first follows from X_i = 1^m alone."
+      ],
+      "hidden_premises": [],
+      "agrees_with_prior_review": false,
+      "confidence": "high",
+      "notes": "corpus/ties.json files these under cor-unique-winner, def-transcript, def-F and claim-winner-dominates, not under lem-2.2, so the companion row and the CITATIONS reader name disagree with the repository's own ties. The full Lemma 2.2 is cmp-lemma22-full. Recommended wording: 'related structural facts (unique winner and address, unique transcript, winner-dominance in Boolean form)', not 'Lemma 2.2, partial'."
+    },
+    {
+      "label": "cmp-lemma22-full",
+      "declaration": "QuarticQuery.Paper.construction_lemma_2_2_with_support",
+      "file": "lean/QuarticCorpus/Independent/ConstructionFull/Challenge.lean",
+      "lines": [14, 60],
+      "cited_for": "Lemma 2.2 (i) and (ii) as one statement.",
+      "relation": "stronger",
+      "differences": [
+        "(i): PaperWinsAt (P k t) C x i s iff every localTest passes, on every input; each test computed exactly by a decision tree of depth <= 2t+1 = l+1 (explicit form of O(log m)).",
+        "Exact test count m + (m-1) + 40t(S+2) = K and the bound K <= (42+20A) m (2t)^3.",
+        "Essential-coordinate clause: every pointer bit and every target-column bit of each pointer test is shown to matter (an input pair differing only there changes the test).",
+        "(ii): a coherent operator over all test indices in superposition, IsCirc with max(3, 2t+1) reads, compiled to a physical AdaptiveProgram continuation with cap 2(2t+1) + next.queryCap on the actual bit oracle.",
+        "The coherent clause guarantees only that every basis state in the support carries the correct test value; it does not assert that workspace is restored (garbage may remain, entangled with the index e). The paper's 'evaluated coherently' plausibly means clean computation; the Lean form is what the upper bound consumes (Samples allows garbage)."
+      ],
+      "hidden_premises": [
+        "Hypotheses: 1 <= t, C realises P k t, and C.size <= A m (2t)^2. These are the properties Lemma 2.1(iii) supplies; no hardness premise."
+      ],
+      "agrees_with_prior_review": true,
+      "confidence": "medium",
+      "notes": "Uses internal vocabulary (Loc, TestIndex, localTest, PaperWinsAt, IsCirc, sigmaOp) imported from the library, not a self-contained statement file; its meaning depends on those definitions, which I read (Construction/LocalTests.lean:129-200, 318-325; Upper/Circuit.lean:342-347). Medium only because of the garbage point."
+    },
+    {
+      "label": "cmp-eq11",
+      "declaration": "QuarticQuery.Independent.Eq19.checked_eq19",
+      "file": "lean/QuarticCorpus/Independent/Eq19/Challenge.lean",
+      "lines": [19, 24],
+      "cited_for": "Companion (11) / preprint (19): Pr[T queries X_I[J_I]] = E Z / m <= 4G/m^2 for a depth-G tree on the dummy input.",
+      "relation": "stronger",
+      "differences": [
+        "Holds for every m = 2^l (not only powers of four), every probability weight mu on all of {0,1}^kappa (not required to live on dom P), and any r, S.",
+        "Stated for deterministic trees; the randomized case is the usual averaging, as in the paper.",
+        "Both the identity and the 4G/m^2 bound are in one conjunction; the product law of A, J and I is written out explicitly in Spec.lean."
+      ],
+      "hidden_premises": [],
+      "agrees_with_prior_review": true,
+      "confidence": "high",
+      "notes": "Spec.lean shares the project's tree, path and depth interfaces; the challenge is not fully self-contained but does not import the proof module."
+    },
+    {
+      "label": "cmp-negative",
+      "declaration": "QuarticCorpus/Negative/*.lean (five rejected solutions)",
+      "file": "lean/QuarticCorpus/Negative",
+      "lines": [1, 1],
+      "cited_for": "Five deliberately wrong solutions are rejected 'in the same setup'.",
+      "relation": "different",
+      "differences": [
+        "These are Comparator controls, not mathematical statements. The configurations (e.g. WeakenedConclusion.json) target the Tournament challenge (expected_weight_eq, expected_weight_le_half), not the Unconditional statement file."
+      ],
+      "hidden_premises": [],
+      "agrees_with_prior_review": null,
+      "confidence": "high",
+      "notes": "'Same setup' is true of the tool and options, but a reader may infer the five were run against the four headline theorems; they were not."
+    },
+    {
+      "label": "cmp-amplifier",
+      "declaration": "QuarticQuery.Upper.uniformOpaqueAmplifier",
+      "file": "lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean",
+      "lines": [17, 52],
+      "cited_for": "Bounded amplification (preprint Lemma 3.1; companion Lemma 2) in its coherent form.",
+      "relation": "stronger",
+      "differences": [
+        "One selector isometry V is chosen before every opaque unitary U and every input type, so the procedure is uniform in A.",
+        "Success component equals a product of an auxiliary vector with A's normalised good state (the paper says 'the good state up to global phase'); exact success mass 1 - trialFail^N; failure at most eta when p >= gamma; certain failure when p = 0; and mass at least p/2 when p > 0.",
+        "Cost is N((2(M-1)+1) n) reads of the circuit for A, M = ceil(10/sqrt(gamma)), N = ceil(log(1/eta)/log(40/31)): the explicit form of O(gamma^{-1/2} log(1/eta)).",
+        "gamma is not restricted to <= 1/2 (more general than the paper).",
+        "Narrower setting: success is a predicate S on basis labels of a finite register, not an arbitrary projector. The reduction (conjugate by a fixed basis change) is routine but not proved in Lean."
+      ],
+      "hidden_premises": [],
+      "agrees_with_prior_review": true,
+      "confidence": "medium",
+      "notes": "Costs are counted in IsCirc reads, not in bitOracle queries; the physical compilation is elsewhere (each read costs two queries). Not on the headline's path: Q_Fkm_le uses Samples.amplify. The exposition's 'stronger conclusion, narrower setting' is accurate."
+    },
+    {
+      "label": "cmp-direct-product",
+      "declaration": "QuarticQuery.direct_product_external_finite_realized_caps",
+      "file": "lean/QuarticCorpus/Independent/RealizedCaps/Challenge.lean",
+      "lines": [18, 25],
+      "cited_for": "Direct product with independent randomness (preprint Lemma 4.1; companion Lemma 4): r independent instances, at most L queries to each, success at most beta^r.",
+      "relation": "stronger",
+      "differences": [
+        "Conclusion bounds the joint event 'all r answers correct AND the run complied with every per-instance cap L on this input', for algorithms that need not be capped at all. For a capped algorithm compliance always holds, so this implies the paper's form.",
+        "Randomness and side information independent of the instances range over a finite seed space with real weights; the paper allows arbitrary independent extra information. The general case reduces to this by conditioning, an ordinary argument not formalised.",
+        "Compliance is the recursive predicate actualComplies, which is not proved equal to the count condition actualCount <= L in Lean (mathematically it is).",
+        "mu is any nonnegative weight on all inputs, not required to sum to one or to live on dom P; off-domain mass counts as failure."
+      ],
+      "hidden_premises": [
+        "The hardness premise 'every depth-L tree has mu-success <= beta' is a hypothesis, exactly as in the paper's Lemma 4.1."
+      ],
+      "agrees_with_prior_review": true,
+      "confidence": "high",
+      "notes": "RealizedCaps.lean still carries the docstring 'NEW SOURCE CANDIDATE, not native-compiled', although round4_formal.md records a successful build and an olean newer than the source exists."
+    },
+    {
+      "label": "cmp-zero-cost",
+      "declaration": "QuarticQuery.Independent.ModelZero.checked_zero_query_characterization",
+      "file": "lean/QuarticCorpus/Independent/ModelZero/Challenge.lean",
+      "lines": [11, 15],
+      "cited_for": "Model sanity check: D, R and Q are 0 exactly on functions constant on their promise.",
+      "relation": "different",
+      "differences": [
+        "Not a paper claim; a calibration of the definitions. It matches the standard models (a depth-zero mixture cannot output both labels with probability 2/3)."
+      ],
+      "hidden_premises": [],
+      "agrees_with_prior_review": null,
+      "confidence": "high",
+      "notes": "LabelsAgree is stated independently of DLe, RLe, QLe and ConstantOnPromise, and allows empty promises."
+    },
+    {
+      "label": "cmp-degree",
+      "declaration": "QuarticQuery.Independent.Degree.checked_degree_conventions",
+      "file": "lean/QuarticCorpus/Independent/Degree/Challenge.lean",
+      "lines": [14, 21],
+      "cited_for": "Appendix A degree convention: deg f is the degree of the unique multilinear representation, unchanged by input or output sign encodings.",
+      "relation": "same",
+      "differences": [
+        "For each of the four bit/sign encodings there is a unique real coefficient vector representing f, and complexitylib's degree is at most d iff all its coefficients above size d vanish."
+      ],
+      "hidden_premises": [],
+      "agrees_with_prior_review": null,
+      "confidence": "high",
+      "notes": "Ties the imported Cslib.QueryComplexity.degree to the paper's definition, which matters because UniversalPower 4 rests on complexitylib."
+    },
+    {
+      "label": "src-constants",
+      "declaration": "QuarticQuery.Paper.construction_family_named",
+      "file": "lean/QuarticQuery/Paper/ConstructionFamily.lean",
+      "lines": [30, 40],
+      "cited_for": "Equation (2) with b_k = 6 and c_k = 1/400 for one named circuit (built, not compared).",
+      "relation": "stronger",
+      "differences": [
+        "Named circuit forrCircuit with explicit size constant forrConstant k; Q(F) <= budgetConst(k) sqrt(m) (log2 m)^6 and (1/400) m^{2-1/k}/(log2 m)^2 <= R(F), the same F in both.",
+        "Indexed as k = l+1 with 2 <= l+1.",
+        "The threshold t0 is existential (max of the Forrelation threshold and 8). The explicit threshold t >= 13669 k^2 stated in the companion is a paper-side deduction from (16); no Lean theorem states it."
+      ],
+      "hidden_premises": [],
+      "agrees_with_prior_review": true,
+      "confidence": "high",
+      "notes": "The file's docstring says 'Status: unelaborated. No Lean or Lake executable was available', which contradicts the papers' 'built'. An olean exists and the module is in the root import closure through Paper/Section2, but the source mtime (Nov 2 23:04) is later than the olean (Nov 2 17:37). Content appears unchanged since commit 31e17de; confirm with a build before calling it built."
+    },
+    {
+      "label": "src-forrelation-uniform",
+      "declaration": "QuarticQuery.forrelation_lower_uniform_sharp",
+      "file": "lean/QuarticQuery/ForrelationLower/Uniform.lean",
+      "lines": [527, 532],
+      "cited_for": "Companion (16): for m = 4^t and 15k+2 <= 2t, R(P_{k,m}) > (2/18225) m^{1-1/k}/(k^2 ln(4km)).",
+      "relation": "same",
+      "differences": [
+        "Exactly (16). Relative to the preprint it is not a paper claim: it implies (5) for each fixed k and is uniform in k. Against Bansal-Sinha Corollary 1.4 it is incomparable: better k-dependence (k^-2 against k^-29), worse logarithm (ln(4km) to the first power against (log km)^{1-1/k})."
+      ],
+      "hidden_premises": [],
+      "agrees_with_prior_review": null,
+      "confidence": "high",
+      "notes": "The file's module docstring still quotes the coarse constant 2332800; the sharp theorem is the cited one. No tie in corpus/ties.json."
+    },
+    {
+      "label": "src-budget",
+      "declaration": "QuarticQuery.Upper.budget_le",
+      "file": "lean/QuarticQuery/Upper/Bound.lean",
+      "lines": [87, 90],
+      "cited_for": "'the explicit quantum budget' (in CITATIONS; not used by either paper at present).",
+      "relation": "different",
+      "differences": [
+        "An arithmetic inequality on the internal counting function budget(...) <= budgetConst k 2^t (2t)^6. It says nothing about Q directly; the statement about Q is Upper.Q_Fkm_le."
+      ],
+      "hidden_premises": ["1 <= t; C.size <= forrConstant k m (2t)^2."],
+      "agrees_with_prior_review": true,
+      "confidence": "high",
+      "notes": "If a paper cites it for a bound on Q, link Q_Fkm_le instead."
+    },
+    {
+      "label": "src-budget-exponential",
+      "declaration": "QuarticQuery.Upper.Q_Fkm_le_exponential",
+      "file": "lean/QuarticQuery/Upper/Bound.lean",
+      "lines": [287, 290],
+      "cited_for": "Companion Remark: Q(F_{k,m}) <= 2^53 k 2^{10k} sqrt(m) l^6.",
+      "relation": "same",
+      "differences": [
+        "Exactly the remark's bound, for the named circuit forrCircuit, every t >= 1 and every k = l+1 >= 1. Not a preprint claim (the preprint fixes k)."
+      ],
+      "hidden_premises": [],
+      "agrees_with_prior_review": null,
+      "confidence": "high",
+      "notes": "Built, not compared."
+    },
+    {
+      "label": "src-amplify-measured",
+      "declaration": "QuarticQuery.Upper.Samples.amplify",
+      "file": "lean/QuarticQuery/Upper/Amplify.lean",
+      "lines": [346, 351],
+      "cited_for": "The measured-label form of Lemma 3.1 that the quantum upper bound uses.",
+      "relation": "weaker",
+      "differences": [
+        "Conclusion is a classical output law: none with probability f(x) <= eta when success mass >= gamma, f = 1 when mass is 0, otherwise label b with probability proportional to the sampler's law. The good state |g> itself is not stated.",
+        "Applies to samplers given as IsCirc circuits with coordinate success labels, not black-box A with a general projector.",
+        "Cap trialCount(eta) * 2(2 iterationBound(gamma) + 1) n queries, with Runs compiling to a real AdaptiveProgram; gamma, eta only required positive."
+      ],
+      "hidden_premises": [],
+      "agrees_with_prior_review": true,
+      "confidence": "high",
+      "notes": "Sufficient for the upper bound, which measures labels at once. Companion 'Partial' and exposition 'fixes the label law and not the state' are accurate."
+    },
+    {
+      "label": "src-per-time",
+      "declaration": "QuarticQuery.Paper.eq_21",
+      "file": "lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+      "lines": [342, 348],
+      "cited_for": "Companion (12) / preprint (21): Pr[i not heavy and the t-th query lies in B_{i,s_i}] <= (2/3)^r under the original dummy law.",
+      "relation": "same",
+      "differences": [
+        "beta is fixed at 2/3 and time t is zero-based and unrestricted; the event is the joint event, with no conditioning on nonheaviness, as the paper requires."
+      ],
+      "hidden_premises": [
+        "mu supported on dom P and every depth-L tree has mu-success <= 2/3: the paper's minimax-derived hypothesis on mu, stated as a premise exactly as in the paper's proof."
+      ],
+      "agrees_with_prior_review": true,
+      "confidence": "high",
+      "notes": "Prior tie 'exact'."
+    },
+    {
+      "label": "src-zero-two",
+      "declaration": "QuarticQuery.Paper.erasedZero_le_two",
+      "file": "lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+      "lines": [215, 219],
+      "cited_for": "'the bound 2G/m^2' (in CITATIONS; not used by either paper at present).",
+      "relation": "stronger",
+      "differences": [
+        "Erased-zero probability <= 2G/m^2, half the paper's 4G/m^2, for every probability mu and m = 2^l."
+      ],
+      "hidden_premises": [],
+      "agrees_with_prior_review": true,
+      "confidence": "high",
+      "notes": "Prior review (statement_fidelity_review.md finding 5) checked the constant 2 is correct and tight."
+    },
+    {
+      "label": "src-zero-successor",
+      "declaration": "QuarticQuery.zero_search_sum_successor",
+      "file": "lean/QuarticQuery/LowerBound/Planted/ZeroSearchSuccessor.lean",
+      "lines": [17, 22],
+      "cited_for": "The charging inequality behind the refinement 2G/(m(m+1)) in companion section 5.3.",
+      "relation": "weaker",
+      "differences": [
+        "A deterministic counting inequality (|U|+1) * #found <= 2 * #queries to the planted block, over any finite set U of worlds. No probability statement and no 2G/(m(m+1)) bound is derived in Lean."
+      ],
+      "hidden_premises": [],
+      "agrees_with_prior_review": true,
+      "confidence": "high",
+      "notes": "The file still opens with 'UNCOMPILED ADVISORY CANDIDATE. No Lean binary is installed', contradicting round4_formal.md (built) and the papers ('built'); an olean newer than the source exists."
+    },
+    {
+      "label": "src-reach",
+      "declaration": "lean/scripts/Reach.lean (script)",
+      "file": "lean/scripts/Reach.lean",
+      "lines": [1, 1],
+      "cited_for": "The dependency printer used to list the checked closure.",
+      "relation": "different",
+      "differences": ["A tool, not a mathematical statement."],
+      "hidden_premises": [],
+      "agrees_with_prior_review": null,
+      "confidence": "high",
+      "notes": ""
+    }
+  ],
+  "definition_checks": [
+    {
+      "label": "def-R / def-RLe / def-randomized / def-tree",
+      "lines": [33, 74],
+      "verdict": "standard",
+      "notes": "R is the least t with a finite mixture of decision trees, positive real weights summing to 1, every tree in the support of depth <= t (repeats charged), correct with probability >= 2/3 on every promised input. On finite index types this is the standard worst-case bounded-error randomized query complexity (finitely many trees of bounded depth). sInf of an empty set would give 0, but the read-all tree makes the set nonempty."
+    },
+    {
+      "label": "def-Q / def-QLe / def-adaptive / def-querycap / def-oracle / def-basis",
+      "lines": [84, 140],
+      "verdict": "standard",
+      "notes": "Workspace w, initial unit state psi0 and program A are all chosen before x; the input enters only through the bit oracle |i,b,z> -> |i, b xor x_i, z>. Unitary steps are isometries of a finite-dimensional space (hence unitary); measurements are binary projections onto sets of basis states, with classical branching; any projector reduces to these by a fixed unitary. queryCap is syntactic, the maximum over every branch, so it bounds every input including unpromised ones. The ConstantOnPromise disjunct only matters for an empty index type. No way to make Q smaller or larger than the standard Q_{1/3} was found; the earlier review's check that D <= 20736 Q^4 is proved over this model supports that the model is not too strong."
+    },
+    {
+      "label": "def-totalise",
+      "lines": [21, 22],
+      "verdict": "correct",
+      "notes": "some (f x) everywhere, so F_{k,m} is total and R, Q of totalise f are the total-function measures."
+    },
+    {
+      "label": "def-numerator / def-P",
+      "lines": [148, 182],
+      "verdict": "matches (3), (4)",
+      "notes": "N is z1^T W D_{z2} W ... W D_{zk} 1 expanded over paths, with W the unnormalised Walsh-Hadamard matrix and bit true as sign -1; M = m (sqrt m)^{k-1}; 2^{5k} N >= M iff Phi >= delta, and 2^{5k+1} |N| <= M iff |Phi| <= delta/2. Disjoint; large negative Phi is outside the promise, as in the paper."
+    },
+    {
+      "label": "def-circuit / def-realises",
+      "lines": [190, 221],
+      "verdict": "matches Lemma 2.1(iii)",
+      "notes": "Fan-in two over strictly earlier gates (acyclic), constant-false wire for constants, transcripts one bit per stored gate; CircuitRealises requires d = 1 iff promised and d = 1 implies b = P on every input."
+    },
+    {
+      "label": "def-bitloc / def-wins / def-F",
+      "lines": [234, 285],
+      "verdict": "matches Section 2.2",
+      "notes": "Four disjoint kinds of bit; each column has its own 2^r cells, pointers to every j != i via a bijection of l-bit strings, one transcript per h. WinsAt is X_i = 1^m, f(A_{i,h}) = s_h for all h, gate-consistent transcripts at cell s, and outward pointers to zeros; the transcript conjunct is equivalent to 'correct transcript' by uniqueness. l = 2t and r = 40t = ceil(20 log2 m) exactly. The circuit is a parameter of Fkm, so 'F_{k,m}' in the compared theorem is F for an existentially chosen realising circuit."
+    },
+    {
+      "label": "def-L / def-G",
+      "lines": [298, 303],
+      "verdict": "matches (5), (17)",
+      "notes": "L = floor(m^{1-1/k}/(log2 m)^2) with Real.logb 2; G = floor(mL/100) by natural division."
+    },
+    {
+      "label": "def-bansal-sinha",
+      "lines": [308, 309],
+      "verdict": "matches Lemma 2.1(i); name overstates",
+      "notes": "A Prop, now proved, not a hypothesis of any compared theorem. Its content is the consumed consequence (5), weaker than the published Bansal-Sinha bound."
+    },
+    {
+      "label": "def-universal / def-alpha",
+      "lines": [312, 318],
+      "verdict": "matches (1)",
+      "notes": "alpha >= 0, one C > 0 for all n >= 1 and all total f, rpow of 1+Q. alphaTot = sInf; nonemptiness is proved inside thm-headline, and alphaTot = 4 alone also excludes the empty case."
+    },
+    {
+      "label": "def-comparison",
+      "lines": [291, 293],
+      "verdict": "unused",
+      "notes": "Not referenced by any of the four theorems; harmless."
+    },
+    {
+      "label": "def-compliant",
+      "lines": [113, 120],
+      "verdict": "as described",
+      "notes": "In LowerBound/RealizedCaps.lean: weighted mass of tuples U where the run actually complies with caps c and every answer is correct; joint event, not conditional."
+    },
+    {
+      "label": "def-hit",
+      "lines": [66, 76],
+      "verdict": "as described",
+      "notes": "In Independent/Eq19/Spec.lean: explicit product law over independent A (mu per string), J (uniform per column) and I (uniform); Z counts distinct discovered columns."
+    }
+  ],
+  "open_questions": [
+    "Paper overstatement: docs/expert_companion.md Table 2 lists cmp-lemma22 as 'Lemma 2.2 | four facts | Partial', and tools/build_lean_links.py names the label 'the four parts of Lemma 2.2'. None of the four theorems is a part of Lemma 2.2; corpus/ties.json files them under other rows. Rename and re-row them.",
+    "Mild understatement in docs/exposition.md section 7: it calls the floor form floor(mL/100) < R a 'weakening' of the 1/400 form; for t >= 8 it implies the 1/400 form, so only the existential b is a weakening against the overview's stated constants.",
+    "docs/expert_companion.md says the five wrong solutions are rejected 'in the same setup'; they target the Tournament challenge, not the four compared theorems. Say which challenge.",
+    "Status text in sources contradicts 'built' in the papers: ConstructionFamily.lean ('Status: unelaborated'), ZeroSearchSuccessor.lean ('UNCOMPILED ADVISORY CANDIDATE'), RealizedCaps.lean ('not native-compiled'). Oleans exist for all three, but ConstructionFamily.lean's mtime is later than its olean. A fresh build receipt for these modules would settle it; the docstrings should be updated either way.",
+    "Lemma 2.2(ii) coherent clause in cmp-lemma22-full: the Lean statement does not say the workspace is restored after evaluation. Is the paper's 'coherently' meant to include clean uncomputation? If yes, the Lean clause is weaker on that point (harmless for the proof, which uses samplers that allow garbage).",
+    "docs/expert_companion.md uses link labels def-output-mass, def-gate and def-pointer that are absent from CITATIONS in the current tools/build_lean_links.py; the link build should fail on them until they are added.",
+    "The headline's 'explicitly specified F_{k,m}' (companion Theorem 1) is explicit only in src-constants (named forrCircuit), which is built but not compared; the compared theorem quantifies over some realising circuit. Mathematically equivalent in strength, but a reader comparing statements should be told."
+  ]
+}

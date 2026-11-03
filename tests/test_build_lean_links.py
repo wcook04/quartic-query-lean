@@ -30,6 +30,12 @@ class LeanLinksTests(unittest.TestCase):
     def test_theorem_link_stops_at_statement(self):
         self.assertEqual(MODULE.locate(SOURCE, ["Top.size_pos"], "x"), (7, 8))
 
+    def test_statement_let_binding_does_not_end_the_statement(self):
+        # The amplifier link once stopped at `let M := ...`, hiding every conclusion.
+        source = ("theorem amp (g : Nat) :\n    let M := g + 1\n    (f : Nat → Nat) (x : Nat) →\n"
+                  "    f (x + M) = f (M + x) := by\n  intro M f x\n  rw [Nat.add_comm]\n")
+        self.assertEqual(MODULE.locate(source, ["amp"], "x"), (1, 4))
+
     def test_definition_link_covers_doc_and_body(self):
         self.assertEqual(MODULE.locate(SOURCE, ["Top.size"], "x"), (3, 5))
 

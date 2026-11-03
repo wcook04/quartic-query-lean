@@ -1,0 +1,1201 @@
+{
+  "packet": "expert_referee_short",
+  "source_sha256": {
+    "repository/docs/expert_companion.bib": "c458193dd5c1f5c2af5d33191101f6ee97dcfc691b50a7209c51665bf4baa002",
+    "repository/docs/expert_companion.md": "7af8ec78b3114f2e21ec7d4da667a45f3be4aa67c73ba51838d9fac9a5af7d50",
+    "repository/docs/expert_companion.pdf": "c8b37b18504969243395f08dfe0147d551ffa0faa5ba420949150df53a33f121",
+    "repository/docs/exposition.bib": "2ebc69e6769feb7782e71f3bf80850cc3719083fd611c0c239ada59228a19a0c",
+    "repository/docs/exposition.md": "3991d23ca802e1dd50e8c9217abf869035bac04c5febd5bd40bddf5f71de4dce",
+    "repository/docs/exposition.pdf": "16c85a0f3e063eeb709a7824dc551305d84cb7b09a62c897cecd2bb06c4fb15e"
+  },
+  "findings": [
+    {
+      "id": "ER-001",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "1.1 Where this sits",
+        "quote": "which Bansal and Sinha and Sherstov, Storozhenko and Wu proved",
+        "pdf_page": 2
+      },
+      "severity": "high",
+      "category": "credit",
+      "finding": "The antecedent of \"which\" is the conjecture that the explicit k-fold Forrelation problem achieves the optimal partial separation. Bansal–Sinha proved that statement for the Walsh matrix and the specified one-sided promise. Sherstov–Storozhenko–Wu proved the same optimal separation through k-fold Rorrelation with a random orthogonal matrix. Their total-function consequence is correctly shared credit; this sentence incorrectly assigns the explicit-Walsh conjecture to both papers.",
+      "reader_impact": "The authors of both optimal-separation papers deliberately distinguish their constructions. Conflating them obscures why the present function can use an explicit exact Walsh circuit.",
+      "suggested_direction": "Separate credit for the optimal partial-separation exponent from credit for hardness of the explicit Walsh promise used here. Keep the independent total-function result in the history table.",
+      "evidence": [
+        {
+          "source": "literature/quartic-ref-23-an-optimal-separation-of-randomized-and-qu/source.pdf",
+          "locator": "§1.2, Theorem 1.1, PDF p. 3; §1.8, PDF p. 10",
+          "support": "Theorem 1.1 quantifies over a uniformly random orthogonal U. Section 1.8 explicitly distinguishes Bansal–Sinha’s explicit Forrelation/Rorrelation construction from the random choice used in SSW.",
+          "url": "https://arxiv.org/abs/2008.10223v4"
+        },
+        {
+          "source": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.pdf",
+          "locator": "§1.1, Theorem 1.3 and Corollary 1.4, PDF p. 4",
+          "support": "The theorem uses the explicit normalized Hadamard matrix and delta=2^(-5k).",
+          "url": "https://arxiv.org/abs/2008.07003v3"
+        }
+      ]
+    },
+    {
+      "id": "ER-002",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "3. Where a natural shortcut fails; Table 1, row 2",
+        "quote": "Treat comparisons as bounded-error queries to a fixed tournament",
+        "pdf_page": 5
+      },
+      "severity": "high",
+      "category": "error",
+      "finding": "The deterministic three-cycle offered as the first counterexample does not refute the shortcut. It is already an exact fixed tournament, and its comparison queries have zero error. Nontransitivity and failure of bounded-error access to a fixed Boolean predicate are different issues. The alternative example of a pair at probability 1/2 does illustrate the missing bias guarantee.",
+      "reader_impact": "Tournament and bounded-error quantum-search researchers will notice that a tournament need not be transitive. A false counterexample undermines a table presented as a reliable guide to the delicate steps.",
+      "suggested_direction": "Remove the deterministic cycle as a counterexample to this particular shortcut, or distinguish its role in rejecting total-order assumptions from the no-margin obstruction. Keep the existing probability-1/2 example.",
+      "evidence": [
+        {
+          "source": "paper/extracted.md",
+          "locator": "§3, introductory paragraph; §3.2, (10)–(13)",
+          "support": "The preprint distinguishes arbitrary nonwinner probabilities from ordinary bounded-error access to a fixed tournament; complementarity does not impose transitivity."
+        },
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§5.2, upper-comparison-model and upper-ideal-process",
+          "support": "Certain cycles are explicitly permitted by the comparison model."
+        },
+        {
+          "source": "Mande–Paraashar–Saurabh (2023), official publisher abstract",
+          "locator": "Abstract and definition of a tournament",
+          "support": "The problem is posed on arbitrary orientations of complete graphs; transitivity is not a premise.",
+          "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.FSTTCS.2023.30"
+        }
+      ]
+    },
+    {
+      "id": "ER-003",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "Appendix A. Checking the statement — What Comparator establishes",
+        "quote": "and [its parts][cmp-lemma22]",
+        "pdf_page": 12
+      },
+      "severity": "high",
+      "category": "lean_link",
+      "finding": "The link for the parts of Lemma 2.2 points to the wrong bundle. Construction/Challenge.lean has four targets: winner uniqueness, transcript uniqueness, absence of an incoming zero, and existence of an outgoing zero. These are useful construction facts, but none states the local-test count, shallow evaluation, or coherent evaluation asserted in Lemma 2.2. The separate ConstructionFull link does state those properties. The current wording therefore assigns the wrong mathematical meaning to a real comparison target.",
+      "reader_impact": "A reader of the pointer-function or quantum-query papers who follows the link to check coherent certificate verification will instead see four ancillary facts and cannot reconcile the assurance with the claimed lemma.",
+      "suggested_direction": "Use the actual existing target for the local-test lemma, and label the four ancillary targets by the properties they really establish. This is a link/description correction, not a request for new formalisation.",
+      "evidence": [
+        {
+          "source": "repository/lean/QuarticCorpus/Construction/Challenge.lean",
+          "locator": "L326–L341",
+          "support": "The four theorem statements are winsAt_unique, existsUnique_gateConsistent, winner_no_incoming_zero and winner_finds_zero."
+        },
+        {
+          "source": "repository/corpus/comparator_map.json",
+          "locator": "challenges[path=lean/QuarticCorpus/Construction/Challenge.lean].configurations[0].theorem_names",
+          "support": "Confirms that those four declarations are the configured targets."
+        },
+        {
+          "source": "paper/extracted.md",
+          "locator": "§2.2, Lemma 2.2, printed p. 6",
+          "support": "Lemma concerns K local tests, exact O(log m) queries and coherent evaluation with superposed test indices."
+        },
+        {
+          "source": "repository/lean/QuarticCorpus/Independent/ConstructionFull/Challenge.lean",
+          "locator": "L14–L60",
+          "support": "Existing target contains the relevant test count, depth and coherent-evaluation statements."
+        }
+      ]
+    },
+    {
+      "id": "ER-004",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "6. The Forrelation lower bound",
+        "quote": "while the derivative bound caps it",
+        "pdf_page": 10
+      },
+      "severity": "high",
+      "category": "missing",
+      "finding": "The summary moves from a solver amplified to error ε to the depth threshold in (16) without identifying the amplified tree depth. In the record, the original cap D becomes padded depth d=50kD+1. That O(k) amplification cost supplies part of the k² denominator and is essential to the advertised uniform constant. The displayed derivative estimate is a bound for depth d, not directly for the original solver cap.",
+      "reader_impact": "Bansal–Sinha and Girish–Tal–Wu readers checking the quantitative transfer cannot reconstruct the numerical claim from the stated chain, despite the surrounding emphasis on explicit constants.",
+      "suggested_direction": "If the quantitative sketch remains, identify the original and amplified depths and point to the existing assembly at record §3.15. Otherwise move the quantitative derivation to that record and keep only the precise input/output statement here.",
+      "evidence": [
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§3.15, (F43)–(F49), especially preceding (F46)",
+          "support": "Uses τ=25k, ε=(8/9)^(25k), and d=50kD+1 before bounding the derivative expression."
+        },
+        {
+          "source": "repository/docs/expert_companion.md",
+          "locator": "§6, derivative display and acceptance-gap paragraph",
+          "support": "Uses d in one display but never relates d to the cap of the solver being contradicted."
+        }
+      ]
+    },
+    {
+      "id": "ER-005",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "3. Where a natural shortcut fails; Table 1, row 4",
+        "quote": "choose $I$ uniformly among columns where a zero was found",
+        "pdf_page": 5
+      },
+      "severity": "medium",
+      "category": "error",
+      "finding": "The experiment does not define I when none of the four queries finds a zero, an event of probability (3/4)^4=81/256. Consequently the uniform-marginal assertion and unconditional 175/256 probability are not justified by the rule as printed. The supporting record includes the omitted rule: choose uniformly among all four columns in this case.",
+      "reader_impact": "Probability and query-complexity readers cannot reproduce the claimed joint law from the table without completing the experiment themselves.",
+      "suggested_direction": "Include the existing no-discovery branch or attach an exact link to the complete experiment while making clear that a fallback is part of the rule.",
+      "evidence": [
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§6.4, CL-selection-independence-example",
+          "support": "Explicitly includes uniform selection among all four columns when no zero is discovered, then computes 1−(3/4)^4=175/256."
+        },
+        {
+          "source": "checks/example_checks.json",
+          "locator": "uniform-marginal planting calculation",
+          "support": "Exact enumeration gives 81/256 for the undefined branch and 175/256 after restoring the record’s uniform fallback."
+        }
+      ]
+    },
+    {
+      "id": "ER-006",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "7. The exponent; Remark (one explicit sequence)",
+        "quote": "For $2\\le k\\le t$ and $t\\ge32$",
+        "pdf_page": 10
+      },
+      "severity": "medium",
+      "category": "error",
+      "finding": "The ensuing inference of the randomized lower bound from (16) omits the hypothesis 15k+2≤2t. The numerical assertion 2≤X≤m can hold under the displayed assumptions, but hardness L<R(P) follows from (16) only in its stated dimension range. For instance k=t satisfies the written range and violates that hypothesis. The subsequently chosen square-root schedule does satisfy it, so this does not refute the final sequence.",
+      "reader_impact": "Forrelation experts checking uniformity in k will distinguish bounds on the number X from the conditions under which X is a proved lower bound.",
+      "suggested_direction": "Carry the dimension hypothesis through the general intermediate inference, or apply the inference only after the displayed schedule has supplied that hypothesis. Do not present this as a failure of the final asymptotic result.",
+      "evidence": [
+        {
+          "source": "repository/docs/expert_companion.md",
+          "locator": "§6, immediately before (16)",
+          "support": "The companion itself states the necessary dimension condition."
+        },
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§3.15, Proposition (F43) and proof (F44)",
+          "support": "The condition controls the exceptional uniform mass and is used in the proof."
+        }
+      ]
+    },
+    {
+      "id": "ER-007",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "4.2 A tournament with probabilistic comparisons",
+        "quote": "cycles among losers only make the weights fall faster",
+        "pdf_page": 6
+      },
+      "severity": "medium",
+      "category": "unclear",
+      "finding": "The sentence asserts a monotonic benefit from cycles that the displayed identity does not establish. At a fixed weight vector, the conditional expected new weight is (W²−Σw_i²)/(2W), independently of the orientations or comparison probabilities satisfying complementarity. The argument establishes robustness to cycles; it does not specify or prove a comparison in which a cyclic process contracts faster than an acyclic one. This is an unsupported explanatory claim, not a defect in the drift identity or the theorem.",
+      "reader_impact": "Readers of quantum minimum and king finding will parse this as a comparison between cyclic and transitive instances rather than a statement of robustness.",
+      "suggested_direction": "State the demonstrated robustness to cycles without a comparative speed claim.",
+      "evidence": [
+        {
+          "source": "repository/docs/expert_companion.md",
+          "locator": "§4.2, equation (8)",
+          "support": "Its right-hand side contains no edge orientations."
+        },
+        {
+          "source": "paper/extracted.md",
+          "locator": "§3.2, equation (13) and concluding paragraph",
+          "support": "The source claims no order/transitivity is used and complementarity yields the drift."
+        }
+      ]
+    },
+    {
+      "id": "ER-008",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "6. The Forrelation lower bound",
+        "quote": "Sherstov, Storozhenko and Wu prove a sharper bound",
+        "pdf_page": 9
+      },
+      "severity": "medium",
+      "category": "credit",
+      "finding": "\"A sharper bound\" has no specified object or parameter regime, and its placement reads as a direct stronger lower bound for the same P_{k,m}. The record is more careful: its §3.16 uses SSW’s Fourier-growth corollary as an external ingredient and then derives a separate Walsh comparison bound through random restrictions and the record’s own Gaussian argument. That deduction is not SSW’s Rorrelation lower-bound theorem. SSW themselves describe the two original lower bounds as incomparable, because their k and logarithmic dependencies trade off.",
+      "reader_impact": "Forrelation and Fourier-growth readers need to distinguish a theorem being cited from a new consequence derived using it; otherwise they cannot check the claimed improvement or its dependence on k.",
+      "suggested_direction": "Name the sharper Fourier-growth theorem and identify the record’s transfer as a deduction if it is worth retaining; link to #forr_ssw_comparison. Otherwise remove this unspecific comparison from the short paper. Do not turn it into a claim that the main construction is invalid.",
+      "evidence": [
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§3.16, “The sharper external Fourier comparison”, anchor forr_ssw_comparison, (F56)–(F60)",
+          "support": "The record explicitly identifies the external Fourier theorem, proves its transfer, and says neither Tal’s nor SSW’s Rorrelation distribution theorem is being transferred."
+        },
+        {
+          "source": "literature/quartic-ref-23-an-optimal-separation-of-randomized-and-qu/source.pdf",
+          "locator": "§1.8, PDF p. 10; Corollaries 4.14–4.15, printed pp. 35–36",
+          "support": "Section 1.8 compares k^-29/log^(1-1/k) with k^-1/log^(2-1/k) and states the results are incomparable; the Fourier result is the separately relevant input.",
+          "url": "https://arxiv.org/abs/2008.10223v4"
+        }
+      ]
+    },
+    {
+      "id": "ER-009",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "1.1 Where this sits",
+        "quote": "comparison-based separations of certificate complexity by Ben-David and Kothari",
+        "pdf_page": 2
+      },
+      "severity": "medium",
+      "category": "credit",
+      "finding": "The closest algorithmic predecessors are named but not compared at the mechanism level. Ben-David–Kothari, Lemma 5, explicitly builds a fixed tournament from locally checked candidate claims, uses sink/king finding, and then verifies the candidate; AIK’s FindSource maintains candidates that beat all previously selected pivots in a fixed directed graph. The present fractional-weight sampler’s extra task is to retain that idea when loser comparisons have arbitrary probabilities. The draft makes that distinction against HMW but does not attach it to these more immediate sources.",
+      "reader_impact": "The certificate-complexity authors and tournament-search readers will want the exact inherited algorithmic pattern and the precise extension, not only a list of related titles. This also explains why a near-quartic C-versus-Q result did not already settle R-versus-Q.",
+      "suggested_direction": "Add exact Lemma 5 / §6 Algorithm 4 locators and one compact mechanism comparison, identifying C as the measure separated in those papers and the absence of a fixed edge predicate here. Do not add a general survey.",
+      "evidence": [
+        {
+          "source": "literature/quartic-ref-09-randomized-query-complexity-can-beat-certi/extracted.md",
+          "locator": "§3, “Quantum algorithm”, Lemma 5, especially the second and third stages",
+          "support": "A fixed orientation can be queried exactly at logarithmic bit cost, followed by certificate verification.",
+          "url": "https://arxiv.org/abs/2609.15063v1"
+        },
+        {
+          "source": "literature/quartic-ref-05-near-optimal-separations-of-certificate-co/source.pdf",
+          "locator": "§6.1, Algorithm 4 and equations (3)–(4), printed p. 12; Lemma 6.1, printed p. 13",
+          "support": "FindSource tracks vertices beating the stored list; comparisons approximate fixed graph edges, unlike arbitrary off-promise probabilities.",
+          "url": "https://arxiv.org/abs/2609.11664v2"
+        },
+        {
+          "source": "paper/extracted.md",
+          "locator": "§3 introduction, printed p. 7",
+          "support": "The preprint identifies the extra feature beyond fixed-tournament comparison algorithms."
+        }
+      ]
+    },
+    {
+      "id": "ER-010",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "1.1 Where this sits",
+        "quote": "the direct outward pointers used here are discussed by Ambainis et al.",
+        "pdf_page": 2
+      },
+      "severity": "medium",
+      "category": "credit",
+      "finding": "The source discusses the exact direct-pointer alternative but immediately explains why it is unsuitable in its large-alphabet construction: putting all m−1 outgoing pointers in one symbol makes the alphabet exponential. Leaving out that caveat makes the historical comparison sound effortless and misses the question its authors would ask about the bit-query implementation here.",
+      "reader_impact": "Pointer-function readers need to know why their previously discussed alternative is usable in this construction. The answer is already in §2: separately stored bit fields and access to one chosen pointer cost ell+1 queries, rather than revealing one exponential-alphabet symbol.",
+      "suggested_direction": "Give the exact §1.3 “Use of a balanced tree” locator and briefly connect the old encoding caveat to the present bit-field access and local-test count. Keep this as explanation of the existing construction, not an additional result.",
+      "evidence": [
+        {
+          "source": "literature/quartic-ref-04-separations-in-query-complexity-based-on-p/source.pdf",
+          "locator": "§1.3, “Use of a balanced tree”, PDF/printed p. 6, final paragraph",
+          "support": "It explicitly discusses direct pointers to every unmarked column and states the exponential-alphabet obstruction.",
+          "url": "https://arxiv.org/abs/1506.04719v3"
+        },
+        {
+          "source": "repository/docs/expert_companion.md",
+          "locator": "§2, “The total function” and “Local tests”",
+          "support": "Each pointer is an ell-bit field; one pointer test costs ell+1 input-bit queries."
+        },
+        {
+          "source": "paper/extracted.md",
+          "locator": "§3.3, final paragraph, printed p. 10",
+          "support": "The preprint explicitly explains ordinary bit queries for superposed accesses and pointers."
+        }
+      ]
+    },
+    {
+      "id": "ER-011",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "1.2 The idea",
+        "quote": "it must invest about $L$ queries",
+        "pdf_page": 3
+      },
+      "severity": "medium",
+      "category": "unclear",
+      "finding": "The overview presents address investment in a constant fraction of columns as compulsory for a classical distinguisher. There is another permitted route: searching X-strings for the erased zero. The actual proof excludes that route separately, at scale m², and uses L≤m to leave mL as the relevant obstruction. A distinguisher that reads all X bits need not invest anything in addresses.",
+      "reader_impact": "Cheat-sheet and pointer-function readers will immediately ask whether the all-one column can be found from X alone. Omitting that competing route makes the informal lower-bound argument sound stronger than the one proved.",
+      "suggested_direction": "Mention both detectable changes in the overview and explain that the erased-zero route costs enough in the regime L≤m; reserve the detailed estimates for §5.",
+      "evidence": [
+        {
+          "source": "paper/extracted.md",
+          "locator": "§4.2, (18)–(23)",
+          "support": "Separates erased-zero detection and filled-cell detection."
+        },
+        {
+          "source": "repository/docs/expert_companion.md",
+          "locator": "§§5.2–5.5, (10)–(14)",
+          "support": "The companion itself proves both terms."
+        }
+      ]
+    },
+    {
+      "id": "ER-012",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "1. The result; Theorem 1",
+        "quote": "for every $t\\ge13669\\,k^2$",
+        "pdf_page": 1
+      },
+      "severity": "medium",
+      "category": "structure",
+      "finding": "The first theorem foregrounds a large nonoptimal threshold and coefficient 1/400 before the reader has seen the construction. Those constants are not the compared headline statement and are not needed for the exponent-four conclusion. This makes the central result look dependent on arithmetic refinements that later sections say are deliberately loose.",
+      "reader_impact": "Total-function separation researchers seek the exponent and the mechanism first; formal-methods readers must then undo the initial identification with OpenAI Theorem 1.1 and distinguish the stronger built-only form.",
+      "suggested_direction": "Give the source theorem and its quantifiers priority; place the existing explicit specialization beside its derivation or in the statement appendix, preserving the honest evidence distinction.",
+      "evidence": [
+        {
+          "source": "paper/extracted.md",
+          "locator": "Theorem 1.1",
+          "support": "States c_k,C_k,b_k and sufficiently large m."
+        },
+        {
+          "source": "repository/docs/expert_companion.md",
+          "locator": "§1, paragraph following (2); Appendix A",
+          "support": "Explicitly distinguishes the numerical refinements from the compared theorem."
+        }
+      ]
+    },
+    {
+      "id": "ER-013",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "6. The Forrelation lower bound",
+        "quote": "by a different and shorter route",
+        "pdf_page": 9
+      },
+      "severity": "medium",
+      "category": "misplaced",
+      "finding": "This section shifts from the new total-function mechanism to a second technical narrative involving an unspecified Gaussian chain, reflections, integration by parts, biased derivatives, a stopped martingale and explicit constants. It is neither enough to audit that proof nor necessary to understand the total-function separation, since the section begins by saying that only the standard fixed-k consequence is needed.",
+      "reader_impact": "The cited Forrelation authors know the external theorem; other experts are forced to parse a compressed analytic proof whose actual definitions remain elsewhere. The separation narrative stalls between the classical bound and the exponent conclusion.",
+      "suggested_direction": "Move the analytic route and constants to the already existing record; retain here the exact prerequisite, the formal proof-route distinction and a direct locator. Preserve the indication that the planted law is not promise-supported.",
+      "evidence": [
+        {
+          "source": "paper/extracted.md",
+          "locator": "§2.1, Lemma 2.1(i)",
+          "support": "The preprint imports only the fixed-k consequence."
+        },
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§§3.6–3.15",
+          "support": "Contains the definitions and full analytic argument that the compact sketch presupposes."
+        },
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§3.18 Sources for the Forrelation argument",
+          "support": "Already separates the Gaussian antecedents, modified interpolation, martingale and comparison route."
+        }
+      ]
+    },
+    {
+      "id": "ER-014",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "7. The exponent; Remark (one explicit sequence)",
+        "quote": "**Remark** (one explicit sequence)**.**",
+        "pdf_page": 10
+      },
+      "severity": "medium",
+      "category": "misplaced",
+      "finding": "The remark becomes a separate quantitative derivation with a new schedule, explicit budget 2^53 k2^(10k), a new epsilon function and several numerical thresholds. It is not needed for α_tot=4 and undercuts the preceding clean fixed-parameter argument. The packet specifically asks whether the earlier growing-k material has become a short, explicit remark; it is explicit but remains substantial.",
+      "reader_impact": "Experts finishing the argument must decide whether these additional unformalized details are part of the claimed contribution. They dilute the already complete exponent conclusion.",
+      "suggested_direction": "Reduce this location to the existing scope statement and move its derivation to the record; do not add a new theorem or enlarge the formalization task.",
+      "evidence": [
+        {
+          "source": "repository/docs/expert_companion.md",
+          "locator": "§7, first paragraph",
+          "support": "Already proves α_tot=4 with fixed k."
+        },
+        {
+          "source": "paper/extracted.md",
+          "locator": "§5",
+          "support": "Uses the fixed-k quantifier order only."
+        }
+      ]
+    },
+    {
+      "id": "ER-015",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "5.3 The erased zero",
+        "quote": "The preprint's early-and-late count gives $4G/m^2$",
+        "pdf_page": 8
+      },
+      "severity": "medium",
+      "category": "wasted",
+      "finding": "The mechanism has been established once the exact hit identity and any adequate O(G/m²) bound are clear, but the subsection then compares three coefficients, two alternative formal proof routes and their evidence status. This draws attention away from independence of the planted index, which is the delicate condition the main proof uses.",
+      "reader_impact": "Direct-product and lower-bound readers need to follow how the two detection events are controlled, not track every stronger local coefficient during the proof.",
+      "suggested_direction": "Keep one sufficient derivation and the exact identity in the main flow; collect the existing sharper endpoints and declaration-level distinctions in the formal appendix or long record.",
+      "evidence": [
+        {
+          "source": "paper/extracted.md",
+          "locator": "§4.2, equation (19)",
+          "support": "The original 4G/m² bound suffices."
+        },
+        {
+          "source": "repository/docs/expert_companion.md",
+          "locator": "§5.5, (14)",
+          "support": "Any displayed version leaves a large constant margin below 1/3."
+        }
+      ]
+    },
+    {
+      "id": "ER-016",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "4. The quantum upper bound — Lemma 2, proof sketch",
+        "quote": "the amplified procedure returns the original register in the normalised successful state",
+        "pdf_page": 5
+      },
+      "severity": "medium",
+      "category": "lean_link",
+      "finding": "The linked highlight for the full-state amplifier stops after the theorem name, hypotheses and the first let-binding (L17–L20), before any conclusion. The retained-state conclusion is at L37–L38, exact success mass at L39–L40 and high-success guarantee at L47–L48. A second occurrence of the same endpoint-selection defect is the ConstructionFull link, which stops at L41 although the coherent-evaluation conclusion continues through L60. Both line ranges exist, so the supplied link checker reports them valid, but neither highlight contains the complete statement it advertises.",
+      "reader_impact": "Quantum-query readers are being asked to inspect a specific retained-state/coherence claim; the highlighted source omits precisely the clause they need to check.",
+      "suggested_direction": "Extend each link to the end of the complete declaration type, or give separate links to the exact relevant conjuncts. Validate semantic coverage of a highlight in addition to whether its line numbers exist.",
+      "evidence": [
+        {
+          "source": "repository/lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean",
+          "locator": "L17–L52",
+          "support": "Advertised highlight is only L17–L20; substantive retained-state, cap and success conclusions follow."
+        },
+        {
+          "source": "repository/lean/QuarticCorpus/Independent/ConstructionFull/Challenge.lean",
+          "locator": "L38–L60",
+          "support": "Current cmp-lemma22-full highlight ends at L41, within the witness binders, before the coherent evaluator and physical-program clauses."
+        },
+        {
+          "source": "repository/docs/lean_links.json",
+          "locator": "links.cmp-amplifier.lines and links.cmp-lemma22-full.lines",
+          "support": "Records [17,20] and [14,41]."
+        },
+        {
+          "source": "LINK_MAP.json",
+          "locator": "corresponding line_range_valid entries",
+          "support": "Both are syntactically valid ranges; that does not check statement coverage."
+        }
+      ]
+    },
+    {
+      "id": "ER-017",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "7. The exponent — Remark (one explicit sequence)",
+        "quote": "the [quantum budget][src-budget] it uses is built in Lean but has not been compared.",
+        "pdf_page": 10
+      },
+      "severity": "medium",
+      "category": "lean_link",
+      "finding": "The uniform quantum estimate in the remark depends on the explicit coefficient 2^53 k 2^(10k), but the linked lines state only budget_le with an unspecified budgetConst k and a circuit-size premise. The supplied file already contains the exact claimed endpoint Q_Fkm_le_exponential. The current link obscures the dependence on k at the one place where that dependence is essential.",
+      "reader_impact": "Forrelation readers checking the growing-k deduction need the uniform coefficient, not the fixed-k budget theorem with a hidden constant.",
+      "suggested_direction": "Point this occurrence to Q_Fkm_le_exponential (L286–L290), optionally also to budgetConst_le_exponential (L66–L68). Preserve the built-only qualification.",
+      "evidence": [
+        {
+          "source": "repository/lean/QuarticQuery/Upper/Bound.lean",
+          "locator": "L86–L90",
+          "support": "Current src-budget endpoint: budget_le with budgetConst k."
+        },
+        {
+          "source": "repository/lean/QuarticQuery/Upper/Bound.lean",
+          "locator": "L66–L68 and L286–L290",
+          "support": "Existing exponential-envelope and Q endpoint explicitly contain 2^53 k 2^(10k)."
+        }
+      ]
+    },
+    {
+      "id": "ER-018",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "Appendix A. Checking the statement — object table",
+        "quote": "This appendix lists everything a reader must read to answer that question.",
+        "pdf_page": 11
+      },
+      "severity": "medium",
+      "category": "lean_link",
+      "finding": "The advertised audit list skips the definition that makes quantum success a probability: AdaptiveProgram.outputMass and its projector are not linked or explained. The QLe row says that the program succeeds with probability at least 2/3, but the source expresses that through outputMass. Checking only the linked program constructors, oracle and cap cannot distinguish correct Born-rule semantics from an incorrectly renormalised branching definition.",
+      "reader_impact": "Query-complexity experts checking the formal statement need to inspect the actual acceptance law, especially because the representation uses adaptive measurement branches and unnormalised states.",
+      "suggested_direction": "Add a compact pointer to outputMass and project, with the existing interpretation of squared norms and addition of disjoint branch masses; route further explanation to record §§2.3–2.4.",
+      "evidence": [
+        {
+          "source": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+          "locator": "L96–L99 and L118–L126",
+          "support": "project and AdaptiveProgram.outputMass define the measurement and output probability semantics."
+        },
+        {
+          "source": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+          "locator": "L133–L137",
+          "support": "QLe invokes A.outputMass, which the appendix reading table does not link."
+        },
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§§2.3–2.4, anchors ROOT-ORACLE and R3-01-ADAPTIVE",
+          "support": "Already explains unnormalised branches, squared norm and the normalization identity."
+        }
+      ]
+    },
+    {
+      "id": "ER-019",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "Appendix A. Checking the statement — object table",
+        "quote": "Unitaries fixed before the input, oracle calls, and binary measurements of sets of basis states, with classical branching.",
+        "pdf_page": 11
+      },
+      "severity": "medium",
+      "category": "lean_link",
+      "finding": "The appendix describes the bespoke adaptive quantum representation but gives no route to the existing argument that it agrees with the usual fixed-query model at the same cap. Similarly, the finite-mixture convention and the minima defining R and Q are glossed without a link to the existing finite-behaviour and read-all arguments. These are modelling questions, which the appendix explicitly makes the reader responsible for, rather than missing Lean proofs.",
+      "reader_impact": "Authors using the standard quantum query model need to know why the formal cost can be substituted into the known universal quartic bound. They should not have to search a long record for the bridge that the development already contains.",
+      "suggested_direction": "Give a short cross-reference to record §§2.2–2.5, especially the cap-preserving deferred-measurement statement; keep those proofs in the long record.",
+      "evidence": [
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§2.2, anchor R3-01-CLASSICAL",
+          "support": "Finite tree behaviours recover arbitrary capped randomness; a read-all tree proves the admissible budget set is nonempty."
+        },
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§2.4, anchor R3-01-ADAPTIVE",
+          "support": "The classical simulation gives Q ≤ D and a nonempty set of admissible caps."
+        },
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§2.5, anchor R3-01-BRIDGES",
+          "support": "States acceptance-mass-preserving deferred measurement at exactly T controlled phase queries and the converse."
+        }
+      ]
+    },
+    {
+      "id": "ER-020",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "Appendix A. Checking the statement — object table",
+        "quote": "[Input bits][def-bitloc], [winning][def-wins], [$F_{k,m}$][def-F]",
+        "pdf_page": 11
+      },
+      "severity": "medium",
+      "category": "lean_link",
+      "finding": "The F link highlights only Fkm, the specialization of addressedF. The Boolean conversion that says the function is true exactly when a winning pair exists is in addressedF at L274–L278 and is not linked in the audit table. Other decisive semantic steps, including GateConsistent and the physical pointer decoder, likewise sit between the highlighted items. The table is useful as an index but is not yet the promised complete reading route.",
+      "reader_impact": "A pointer-function reader tracing the mathematical winner predicate into a total Boolean function has to find an unlisted definition and reconstruct the last semantic step manually.",
+      "suggested_direction": "Include addressedF in the F target and provide a small number of dependency links for gate consistency and physical pointer decoding; do not expand into a separate proof exposition.",
+      "evidence": [
+        {
+          "source": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+          "locator": "L274–L285",
+          "support": "addressedF is the existential winner predicate converted to Bool; Fkm only specializes it."
+        },
+        {
+          "source": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+          "locator": "L201–L213 and L249–L272",
+          "support": "predecessorValue, GateConsistent, pointer-bit reading and pointerEquiv carry semantics used by WinsAt."
+        },
+        {
+          "source": "repository/docs/lean_links.json",
+          "locator": "links.def-F.lines",
+          "support": "Current highlight is [280,285], omitting addressedF."
+        }
+      ]
+    },
+    {
+      "id": "ER-021",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "5.1 A direct product with separate caps",
+        "quote": "Lean proves Lemma 4 with coins and side information drawn from an arbitrary finite probability space jointly independent of the inputs",
+        "pdf_page": 7
+      },
+      "severity": "medium",
+      "category": "lean_link",
+      "finding": "The linked target states a weighted bound on compliantSuccess, not an explicitly displayed bound on the success probability of a tree with every-branch cap hypotheses. That is compatible with, and can be stronger than, Lemma 4, but the paper does not explain how the imported compliantSuccess quantity encodes the joint success-and-cap event or how universal compliance recovers Lemma 4. The critical independence condition is represented by seed weights outside the input average rather than by a named independence hypothesis. A reader cannot see that correspondence from the linked eight-line type alone.",
+      "reader_impact": "Readers of Shaltiel and Drucker will look directly for the cap event and the product-law/independence condition; hiding both inside an unlinked definition makes the formal assurance harder to assess than the ordinary proof.",
+      "suggested_direction": "Add a brief mathematical gloss of compliantSuccess and a direct link to its existing definition or supporting record passage. Identify how independent seed averaging and the every-branch cap specialize the displayed target to Lemma 4.",
+      "evidence": [
+        {
+          "source": "repository/lean/QuarticCorpus/Independent/RealizedCaps/Challenge.lean",
+          "locator": "L18–L25",
+          "support": "Conclusion is ∑ω w ω * compliantSuccess f μ (T ω) (fun _ => L) ≤ β^r; the definition of compliantSuccess is imported at L3."
+        },
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§6.1, anchors CL-joint-cap and CL-weighted-product",
+          "support": "Existing discussion distinguishes success jointly with compliance from success conditional on a cheap event."
+        }
+      ]
+    },
+    {
+      "id": "ER-022",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "Appendix A. Checking the statement — What Comparator establishes",
+        "quote": "The challenge file and the solution are compiled separately.",
+        "pdf_page": 12
+      },
+      "severity": "medium",
+      "category": "lean_link",
+      "finding": "The prose explains comparison but never links the Solution.lean side and never tells a newcomer why all four headline declarations in the linked Challenge.lean end in sorry. Those holes are intentional specification placeholders, not incomplete proofs, but a reader following the main link has to infer that distinction. The packet supplies the adjacent solution, so this is a navigation omission rather than an evidence gap.",
+      "reader_impact": "A complexity researcher newly checking Lean may stop at the first sorry and conclude that the central theorem is unfinished, exactly when the appendix intends to make the proof certificate easy to inspect.",
+      "suggested_direction": "Briefly identify the challenge as the specification with intentional placeholders and link the proof-bearing solution at the same revision; keep implementation identifiers out of running prose.",
+      "evidence": [
+        {
+          "source": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+          "locator": "L326–L341",
+          "support": "The four specification declarations have intentional sorry bodies."
+        },
+        {
+          "source": "repository/lean/QuarticCorpus/Unconditional/Solution.lean",
+          "locator": "L16–L42",
+          "support": "The four proof wrappers refer to proof-bearing implementation declarations."
+        },
+        {
+          "source": "repository/lean/QuarticCorpus/Unconditional/comparator.json",
+          "locator": "challenge_module, solution_module and theorem_names",
+          "support": "Names the two modules and exact four comparison targets."
+        }
+      ]
+    },
+    {
+      "id": "ER-023",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "Appendix A. Checking the statement — What Comparator establishes",
+        "quote": "The run used Comparator's paranoid mode",
+        "pdf_page": 12
+      },
+      "severity": "medium",
+      "category": "lean_link",
+      "finding": "The claim about an actual accepted paranoid run points readers to a target configuration and source examples, but no direct link to the recorded run supporting that execution claim. A configuration establishes what was requested; a theorem source establishes what was stated; neither is the actual run record. The supplied comparator map contains an exact receipt path for the Unconditional bundle, so the existing evidence can be made discoverable without adding internal bookkeeping to the paper.",
+      "reader_impact": "Experts assessing a machine-checked result need to separate the type being audited from the fact that the stated checker was run on it. The current appendix states that distinction well in principle but does not complete the navigation to the execution evidence.",
+      "suggested_direction": "Attach one plain-language link to the existing source-bound run record or its human-readable evidence summary, including the recorded revision and checker mode. This asks for a link, not a new run or an objection to the exempted in-progress additions.",
+      "evidence": [
+        {
+          "source": "repository/corpus/comparator_map.json",
+          "locator": "challenges[path=lean/QuarticCorpus/Unconditional/Challenge.lean].configurations[0].latest_receipt",
+          "support": "Contains an exact recorded receipt filename, hash, time and passed status."
+        },
+        {
+          "source": "repository/lean/QuarticCorpus/Unconditional/comparator.json",
+          "locator": "entire file",
+          "support": "Contains modules, target names and permitted axioms, but no executed-run status or paranoid-mode evidence."
+        },
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§2.8, paragraph Current global verification",
+          "support": "Already links the separate paranoid check to corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json."
+        }
+      ]
+    },
+    {
+      "id": "ER-024",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "5.4 The planted cell; also 5.2 Planting a winner",
+        "quote": "### 5.4 The planted cell",
+        "pdf_page": 8
+      },
+      "severity": "medium",
+      "category": "structure",
+      "finding": "Two intended subsection headings render as literal Markdown inside the preceding paragraph: \"### 5.2 Planting a winner\" on PDF page 7 and \"### 5.4 The planted cell\" on page 8. In the current source neither heading has a blank line before it. The PDF therefore loses two important divisions of the classical proof even though the source section inventory looks correct.",
+      "reader_impact": "A lower-bound reader scanning for the planted pair or the capped simulator sees raw formatting syntax and misses the intended entry point to each argument.",
+      "suggested_direction": "Restore the paragraph/heading block boundaries required by the rendering pipeline and regenerate the PDF. Check the two headings visually; do not infer success from the Markdown heading inventory.",
+      "evidence": [
+        {
+          "source": "repository/docs/expert_companion.md",
+          "locator": "L181–L183 and L210–L212",
+          "support": "Both headings immediately follow nonblank prose lines."
+        },
+        {
+          "source": "repository/docs/expert_companion.pdf",
+          "locator": "PDF pp. 7–8",
+          "support": "Rendered pages and extracted PDF text both contain the literal three hash signs within prose."
+        }
+      ]
+    },
+    {
+      "id": "ER-025",
+      "paper": "both",
+      "locator": {
+        "section": "Expert §5.2 Planting a winner, Figure 2; exposition Figures 2 and 4",
+        "quote": "The two coupled inputs.",
+        "pdf_page": 8
+      },
+      "severity": "medium",
+      "category": "figure",
+      "finding": "The supplied Markdown references three figure sources absent from the ZIP: repository/docs/figures/expert_planted.svg, repository/docs/figures/exposition/fig2_board.svg and repository/docs/figures/exposition/fig4_planted.svg. All three figures are visible in the supplied PDFs, so this is a source-package omission, not a missing rendered figure. LINK_MAP.json omits these destinations and still reports zero problems; an independent used-destination scan finds 77 links rather than its 74. All three omitted captions contain nested square brackets.",
+      "reader_impact": "The paired-input diagram is one of the most useful aids to the argument, but a reader opening or rebuilding the supplied Markdown cannot recover it from this packet. The zero-problem link report gives false reassurance about source completeness.",
+      "suggested_direction": "Include the three existing source assets and make the link check include destinations following captions with nested brackets. Preserve the current PDF figures; no redrawing or new mathematical content is needed.",
+      "evidence": [
+        {
+          "source": "repository/docs/expert_companion.md",
+          "locator": "§5.2, image destination figures/expert_planted.svg",
+          "support": "The source reference exists, but the archive has no corresponding member."
+        },
+        {
+          "source": "repository/docs/exposition.md",
+          "locator": "§2 Figure 2 and §5 Figure 4",
+          "support": "The board and planted-pair SVG destinations are likewise absent."
+        },
+        {
+          "source": "LINK_MAP.json",
+          "locator": "problem_count and all recorded destinations",
+          "support": "Reports zero problems while excluding the three missing destinations."
+        },
+        {
+          "source": "checks/local_link_audit.json",
+          "locator": "missing_members and omitted_by_LINK_MAP",
+          "support": "Independent scan retained in this return; checks local supplied bytes, not live remote availability."
+        },
+        {
+          "source": "repository/docs/expert_companion.pdf",
+          "locator": "PDF p. 8; exposition PDF pp. 4 and 9",
+          "support": "Visual inspection confirms the three figures are already embedded in the PDFs."
+        }
+      ]
+    },
+    {
+      "id": "ER-026",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "2. The construction — The total function",
+        "quote": "for each $s\\in\\{0,1\\}^r$ a cell $B_{i,s}$"
+      },
+      "severity": "medium",
+      "category": "missing",
+      "finding": "The formal headline quantifies over functions on n bits, but the construction never states its total bit length in terms of the column parameter m. The size of the separate arrays is central to both the inherited cheat-sheet idea and the pointer-encoding comparison. The exposition already gives the exact count n=m[m+rkm+2^r((m−1)ell+rS)] and the consequence O_k(m^22(log m)^3). Including that existing count would remove any ambiguity about m counting columns rather than input bits.",
+      "reader_impact": "Cheat-sheet and pointer-function readers routinely track the size and alphabet of the totalization. They should not have to reconstruct the physical input size while checking that all accesses are bit queries.",
+      "suggested_direction": "State or directly cross-reference the existing bit-count formula alongside the layout, with m identified as the number of columns. Keep computational running time separate from query cost and do not seek a smaller construction.",
+      "evidence": [
+        {
+          "source": "repository/docs/exposition.md",
+          "locator": "§3, final paragraph before §4",
+          "support": "Contains the exact input count and the O_k(m^22(log m)^3) bound."
+        },
+        {
+          "source": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+          "locator": "L232–L238, BitLoc",
+          "support": "The four coordinate families match the terms in the already supplied count."
+        }
+      ]
+    },
+    {
+      "id": "ER-027",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "3. Where a natural shortcut fails",
+        "quote": "in the companion record or in its review material",
+        "pdf_page": 4
+      },
+      "severity": "medium",
+      "category": "missing",
+      "finding": "The table promises that every counterexample is checked, but gives only the section where the correct argument is used, rather than an exact source for each example or its finite calculation. \"Review material\" is not an actionable locator. The omitted fallback in row 4 illustrates why source-level locators matter.",
+      "reader_impact": "Readers cannot quickly verify the numerical examples that are supposed to improve precision; they must search a long record or unspecified review material.",
+      "suggested_direction": "Add exact locators to the existing examples/checks, and distinguish a self-contained calculation printed here from one only present in review material. Do not turn the short paper into a dump of checks.",
+      "evidence": [
+        {
+          "source": "repository/docs/expert_companion.md",
+          "locator": "§3, Table 1 and following paragraph",
+          "support": "Only row 7 receives an explicit algorithm immediately below the table."
+        },
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§6.4, CL-selection-independence-example",
+          "support": "Provides a concrete supporting anchor for row 4."
+        }
+      ]
+    },
+    {
+      "id": "ER-028",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "1.1 Where this sits",
+        "quote": "The cheat-sheet arithmetic shows why the earlier route stopped at the cube.",
+        "pdf_page": 2
+      },
+      "severity": "low",
+      "category": "history",
+      "finding": "The opening sentence can suggest a broader ceiling than the following calculation establishes. The paragraph itself correctly analyzes the AND–OR instantiation and says \"the same choice\"; it does not explicitly assert a universal impossibility theorem. ABK’s quoted statement supplies a positive cubic construction conditional on an optimal partial separation. The useful editorial correction is to keep the scope of the opening sentence as narrow as the calculation.",
+      "reader_impact": "Cheat-sheet authors will distinguish what this instantiation obtains by improving its partial-function input from what the framework could ever obtain. More explicit scoping would prevent a reader from inferring a general barrier.",
+      "suggested_direction": "Scope the explanation to that instantiation and to improving its partial-function ingredient. Preserve the useful m′ and certificate-cost calculation, without making it a general no-go claim.",
+      "evidence": [
+        {
+          "source": "literature/quartic-ref-02-separations-in-query-complexity-using-chea/source.pdf",
+          "locator": "Introduction, Theorem 1 and following paragraph; §3.1, printed pp. 9–10",
+          "support": "ABK gives the 5/2 construction and says an optimal partial separation would boost it to cubic in a black-box manner; §3.1 analyzes AND_m′ composed with OR_m′.",
+          "url": "https://arxiv.org/abs/1511.01937v2"
+        },
+        {
+          "source": "paper/extracted.md",
+          "locator": "§1.1 and §1.2, printed pp. 2–3",
+          "support": "The preprint describes the historical sequence and the new per-column charging mechanism without claiming a no-go theorem for all cheat sheets."
+        }
+      ]
+    },
+    {
+      "id": "ER-029",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "1.1 Where this sits",
+        "quote": "descends from the pointer functions of Göös, Pitassi and Watson",
+        "pdf_page": 2
+      },
+      "severity": "low",
+      "category": "history",
+      "finding": "The pointer lineage is now credited, but the reader is never told that the pointer-function work had already achieved a nearly quartic D-versus-Q separation. This is the relevant neighboring result that helps distinguish the new randomized lower bound from the earlier deterministic one.",
+      "reader_impact": "Authors of the pointer-function and quartic-upper-bound papers will recognize the missing distinction immediately. A single clause would place the new result more exactly without lengthening the history substantially.",
+      "suggested_direction": "Mention the existing deterministic-versus-quantum quartic separation when introducing the pointer lineage, retaining the R-versus-Q table as the main historical thread.",
+      "evidence": [
+        {
+          "source": "literature/quartic-ref-04-separations-in-query-complexity-based-on-p/source.pdf",
+          "locator": "Abstract; §1.1, main-results list; §3, deterministic complexity separation",
+          "support": "The source constructs an almost fourth-power D-versus-Q separation.",
+          "url": "https://arxiv.org/abs/1506.04719v3"
+        },
+        {
+          "source": "literature/quartic-ref-03-degree-vs-approximate-degree-and-quantum-i/source.pdf",
+          "locator": "Introduction, PDF p. 2, equation (3) and Theorem 2",
+          "support": "ABKRT explicitly says its quartic universal upper bound matches the earlier pointer-function deterministic separation.",
+          "url": "https://arxiv.org/abs/2010.12629v1"
+        },
+        {
+          "source": "paper/extracted.md",
+          "locator": "§1.1, printed p. 2",
+          "support": "The preprint makes this distinction explicitly."
+        }
+      ]
+    },
+    {
+      "id": "ER-030",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "Abstract",
+        "quote": "a 343-line statement file that imports only Mathlib",
+        "pdf_page": 1
+      },
+      "severity": "low",
+      "category": "register",
+      "finding": "The abstract ends with a source-file line count and the unexplained names Comparator and Mathlib, after already stating the result and mechanism well. Those implementation details are useful in Appendix A but make the abstract finish on checking machinery. The adjacent promise to present the argument \"at the level an expert will want to check\" is self-assessment rather than mathematical information.",
+      "reader_impact": "The cited-literature audience wants the contribution and the mechanism from the abstract; readers unfamiliar with the formal tooling are forced to interpret product names before the paper has introduced them.",
+      "suggested_direction": "Keep the result, prior-best comparison and separate-array/comparison mechanism in the abstract. Move the line count and checker-specific detail to Appendix A, where they already have a clear role; remove the self-assessment.",
+      "evidence": [
+        {
+          "source": "repository/docs/expert_companion.md",
+          "locator": "YAML abstract; Appendix A opening and What Comparator establishes",
+          "support": "The abstract repeats procedural details that are explained more usefully in the appendix."
+        },
+        {
+          "source": "paper/extracted.md",
+          "locator": "Abstract and §1.2",
+          "support": "The source preprint leads with the result and query-model scope, then develops the mechanism in the introduction."
+        }
+      ]
+    },
+    {
+      "id": "ER-031",
+      "paper": "exposition",
+      "locator": {
+        "section": "4. The quantum algorithm: a tournament; winner-comparison paragraph",
+        "quote": "for every $j$, whatever the rival's address inputs are",
+        "pdf_page": 6
+      },
+      "severity": "low",
+      "category": "error",
+      "finding": "The displayed winner-comparison guarantee omits j≠i★. The preceding paragraph explicitly sets a_ii=0, so the literal claim for every j is false at j=i★ because ε<1. The intended guarantee for every rival is correct and is stated with the exclusion in the preprint and expert companion. This is a local quantifier slip, not a failure of the tournament argument.",
+      "reader_impact": "A student following the diagonal convention or a tournament researcher checking the hypotheses encounters an immediate contradiction between consecutive paragraphs.",
+      "suggested_direction": "Restrict the quantifier to rival columns j≠i★, consistently with the already stated theorem. Treat this as a small secondary correction.",
+      "evidence": [
+        {
+          "source": "repository/docs/exposition.md",
+          "locator": "§4, Comparing two columns",
+          "support": "Explicitly sets a_ii=0."
+        },
+        {
+          "source": "paper/extracted.md",
+          "locator": "§3.2, Proposition 3.2, equation (11)",
+          "support": "States the dominance condition only for j≠i★."
+        },
+        {
+          "source": "repository/docs/expert_companion.md",
+          "locator": "§4.1 Comparisons",
+          "support": "Correctly includes j≠i★."
+        }
+      ]
+    },
+    {
+      "id": "ER-032",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "4.1 Comparisons",
+        "quote": "whatever the rival's address inputs",
+        "pdf_page": 6
+      },
+      "severity": "keep",
+      "category": "keep",
+      "finding": "The two deterministic facts are stated cleanly: an all-one winner can never be disqualified, and its correctly decoded address disqualifies every rival. This establishes the guarantee without any correctness assumption on the rival decoder.",
+      "reader_impact": "Pointer-function and quantum-search experts can see exactly why off-promise rivals do not compromise totality.",
+      "suggested_direction": "Preserve this argument and its location immediately before the abstract tournament lemma; avoid replacing it by a generic claim that address decoding is reliable.",
+      "evidence": [
+        {
+          "source": "paper/extracted.md",
+          "locator": "§3.3",
+          "support": "Uses the same one-sided winner argument."
+        },
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§5.3, upper-winner-dominates",
+          "support": "Expands the logical dependence explicitly."
+        }
+      ]
+    },
+    {
+      "id": "ER-033",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "5.1 A direct product with separate caps",
+        "quote": "zero-weight branches need no division",
+        "pdf_page": 7
+      },
+      "severity": "keep",
+      "category": "keep",
+      "finding": "The unnormalized value recursion provides a short complete explanation of why adaptive interleaving still admits a product bound. It avoids unnecessary conditional-probability notation and handles zero-mass branches naturally.",
+      "reader_impact": "Drucker and Shaltiel readers can recognize the capped direct-product mechanism and verify the induction quickly.",
+      "suggested_direction": "Keep this proof, the all-branch cap and joint-independence qualification. Credit it as the proof route used here without suggesting that the cited global-budget theorems are identical statements.",
+      "evidence": [
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§6.1, unnormalized product induction and CL-normalization",
+          "support": "Explains the relation to the conditional-value proof."
+        },
+        {
+          "source": "paper/extracted.md",
+          "locator": "§4.1, Lemma 4.1",
+          "support": "Proves the same capped target by the conditional supermartingale route."
+        },
+        {
+          "source": "Drucker, arXiv:1005.0644v2",
+          "locator": "§1.3, printed pp. 6–7; Lemmas 3.1–3.2, printed pp. 11–12",
+          "support": "Explains the fair per-instance-cap proof and the product posterior/value process; this is distinct from the paper’s stronger total-budget theorem.",
+          "url": "https://arxiv.org/pdf/1005.0644v2"
+        }
+      ]
+    },
+    {
+      "id": "ER-034",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "5.4 The planted cell",
+        "quote": "This bounds a joint event under the original law.",
+        "pdf_page": 9
+      },
+      "severity": "keep",
+      "category": "keep",
+      "finding": "The simulator fixes a column and time, stops before exceeding the cap, and uses containment of the nonheavy-hit event in simulator success. The text expressly refuses to condition the hard distribution on nonheaviness.",
+      "reader_impact": "Adaptive-query lower-bound experts will see that the rare-event conditioning trap has been resolved rather than hidden behind a direct-product citation.",
+      "suggested_direction": "Preserve the simulator, the quantifiers i and τ, and the joint-event sentence in the main paper. They deserve more prominence than the refinements of numerical constants.",
+      "evidence": [
+        {
+          "source": "paper/extracted.md",
+          "locator": "§4.2, simulator preceding (21)",
+          "support": "Gives the same joint-event reduction."
+        },
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§6.5, capped simulator",
+          "support": "Expands why conditioning on the cap is not legitimate."
+        }
+      ]
+    },
+    {
+      "id": "ER-035",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "7. The exponent",
+        "quote": "The order of quantifiers is:",
+        "pdf_page": 10
+      },
+      "severity": "keep",
+      "category": "keep",
+      "finding": "The proof specifies α, then a fixed k, then its constants and threshold, then m→∞, and correctly warns that a fixed k excludes only powers below 4−2/k. This is the necessary scope for the optimal-infimum result and avoids claiming an exact fourth-power separation.",
+      "reader_impact": "Authors of the earlier near-cubic separations can identify precisely what has been settled and what has not.",
+      "suggested_direction": "Keep this concise argument and the explicit distinction from R=Ω(Q^4); retain it as the endpoint of the main mathematical narrative.",
+      "evidence": [
+        {
+          "source": "paper/extracted.md",
+          "locator": "§5, proof of Theorem 1.1",
+          "support": "Uses the same order of choices."
+        },
+        {
+          "source": "repository/docs/reasoning_record.md",
+          "locator": "§§7.1–7.2",
+          "support": "Separately explains strict exponent gaps and the infimum."
+        }
+      ]
+    },
+    {
+      "id": "ER-036",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "1. The result",
+        "quote": "The upper bound $R(f)\\le D(f)=O(Q(f)^4)$ for total $f$ is due to Aaronson, Ben-David, Kothari, Rao and Tal",
+        "pdf_page": 1
+      },
+      "severity": "keep",
+      "category": "keep",
+      "finding": "The upper-bound attribution correctly separates ABKRT’s quantum consequence from Huang’s sensitivity theorem, and the Theorem 2 / Conjecture 2 locators are correct in the supplied PDF. This fixes the prior tendency to blur the older universal bound with the new separation.",
+      "reader_impact": "The sensitivity and quantum-query authors receive credit for the exact result proved, and readers can verify why the new lower-bound family settles the exponent.",
+      "suggested_direction": "Keep the attribution and the theorem/conjecture distinction, even if the opening is shortened.",
+      "evidence": [
+        {
+          "source": "literature/quartic-ref-03-degree-vs-approximate-degree-and-quantum-i/source.pdf",
+          "locator": "Theorem 2, PDF p. 2; Conjecture 2, PDF p. 20",
+          "support": "Theorem 2 states D=O(Q^4); Conjecture 2 states R=O(Q^3).",
+          "url": "https://arxiv.org/abs/2010.12629v1"
+        },
+        {
+          "source": "literature/quartic-ref-17-induced-subgraphs-of-hypercubes-and-a-proo/source.pdf",
+          "locator": "Theorems 1.1 and 1.4; §2",
+          "support": "Huang proves the induced-cube and degree/sensitivity statements used in ABKRT.",
+          "url": "https://arxiv.org/abs/1907.00847v2"
+        }
+      ]
+    },
+    {
+      "id": "ER-037",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "1.1 Where this sits",
+        "quote": "Improved partial separations then gave $8/3-o(1)$ and $3-o(1)$",
+        "pdf_page": 2
+      },
+      "severity": "keep",
+      "category": "keep",
+      "finding": "The total-function sequence 5/2, 8/3−o(1), and 3−o(1), with independent credit to both 2021 approaches at the cubic stage, is now correct. The AND–OR/certificate-cost explanation usefully relates the numbers rather than offering a bare list.",
+      "reader_impact": "Readers from the cheat-sheet, Tal, and optimal-partial-separation papers can see exactly how their results fit into the development and what ingredient the new construction changes.",
+      "suggested_direction": "Preserve the sequence and the cost comparison while correcting the explicit-Forrelation attribution and narrowing the cubic-barrier wording.",
+      "evidence": [
+        {
+          "source": "literature/quartic-ref-02-separations-in-query-complexity-using-chea/source.pdf",
+          "locator": "Theorem 1, Introduction; §3.1",
+          "support": "Provides the 5/2 separation and black-box cubic consequence.",
+          "url": "https://arxiv.org/abs/1511.01937v2"
+        },
+        {
+          "source": "literature/quartic-ref-26-towards-optimal-separations-between-quantu/source.pdf",
+          "locator": "Introduction, “Application: Power-(2+2/3) Separations for Total Boolean Functions”, printed pp. 2–3",
+          "support": "Derives the 8/3−o(1) total-function separation through cheat sheets.",
+          "url": "https://arxiv.org/abs/1912.12561v1"
+        },
+        {
+          "source": "literature/quartic-ref-23-an-optimal-separation-of-randomized-and-qu/source.pdf",
+          "locator": "§1.3, Theorem 1.5, PDF p. 4",
+          "support": "States the 3−o(1) total-function consequence.",
+          "url": "https://arxiv.org/abs/2008.10223v4"
+        },
+        {
+          "source": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.pdf",
+          "locator": "Corollary 1.5, PDF p. 4",
+          "support": "States the independent explicit total-function cubic consequence.",
+          "url": "https://arxiv.org/abs/2008.07003v3"
+        }
+      ]
+    },
+    {
+      "id": "ER-038",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "1.1 Where this sits",
+        "quote": "it needs every comparison to compute a fixed predicate with bounded error",
+        "pdf_page": 2
+      },
+      "severity": "keep",
+      "category": "keep",
+      "finding": "The explanation of why bounded-error search cannot simply be invoked on arbitrary loser-comparison probabilities is accurate and worth keeping. It identifies a missing hypothesis instead of treating error reduction as a universal repair.",
+      "reader_impact": "Quantum-search readers immediately understand the distinction between a noisy implementation of a fixed bit and a procedure whose off-promise acceptance probability may be arbitrary.",
+      "suggested_direction": "Keep this distinction next to the tournament mechanism, and preserve the fixed-predicate qualification when shortening the related-work discussion.",
+      "evidence": [
+        {
+          "source": "external primary source: Høyer–Mosca–de Wolf",
+          "locator": "§1, arXiv PDF pp. 1–2",
+          "support": "The problem is defined by fixed Boolean values f_i, each computed with bounded two-sided error.",
+          "url": "https://arxiv.org/pdf/quant-ph/0304052"
+        },
+        {
+          "source": "paper/extracted.md",
+          "locator": "§3 introduction, printed p. 7",
+          "support": "The preprint says that no uniform gap from 1/2 exists for nonwinner comparisons."
+        }
+      ]
+    },
+    {
+      "id": "ER-039",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "1. The result — formalisation qualification",
+        "quote": "that is built but has not been compared.",
+        "pdf_page": 2
+      },
+      "severity": "keep",
+      "category": "lean_link",
+      "finding": "The companion now cleanly separates the compared family statement from the stronger explicit constants theorem. The linked headline has an existential logarithmic exponent and floor-form lower bound; the linked constants theorem has b=6 and coefficient 1/400 for the same named circuit. That distinction is important and is stated again in the appendix without suggesting that one kind of evidence substitutes for the other.",
+      "reader_impact": "Experts can distinguish the published mathematical statement from the exact type independently compared, without being asked to understand the project's internal status vocabulary.",
+      "suggested_direction": "Keep this precise qualification when shortening the paper, and preserve the same-circuit requirement in both descriptions.",
+      "evidence": [
+        {
+          "source": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+          "locator": "L328–L334",
+          "support": "Compared type has existential b and Gvalue < R for one circuit C."
+        },
+        {
+          "source": "repository/lean/QuarticQuery/Paper/ConstructionFamily.lean",
+          "locator": "L28–L40",
+          "support": "Explicit theorem states b=6 and 1/400 for one forrCircuit."
+        }
+      ]
+    },
+    {
+      "id": "ER-040",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "Appendix A. Checking the statement — What it does not establish",
+        "quote": "both sides come from one specification, so a modelling error shared by both would pass.",
+        "pdf_page": 12
+      },
+      "severity": "keep",
+      "category": "lean_link",
+      "finding": "This is the right limitation to put next to the Comparator assurance. The appendix does not confuse proof/type agreement with independent semantic validation of R, Q or the construction, and it names the remaining human task in mathematical terms.",
+      "reader_impact": "Authors of the cited mathematics can judge precisely what formal agreement adds and what conceptual responsibility remains with them.",
+      "suggested_direction": "Preserve this sentence and keep it close to the description of the checker, even if the procedural detail is shortened.",
+      "evidence": [
+        {
+          "source": "repository/lean/QuarticCorpus/Unconditional/Solution.lean",
+          "locator": "L3 and theorem declarations",
+          "support": "Solution imports the maintained statement vocabulary; the challenge separately restates the specification."
+        },
+        {
+          "source": "repository/corpus/comparator_map.json",
+          "locator": "boundary and credit_vocabulary",
+          "support": "The map explicitly distinguishes configured targets and textual wrapper associations from semantic review."
+        }
+      ]
+    },
+    {
+      "id": "ER-041",
+      "paper": "expert_companion",
+      "locator": {
+        "section": "Appendix A. Checking the statement — Five things to check",
+        "quote": "with one $\\mathcal C$ for both bounds.",
+        "pdf_page": 11
+      },
+      "severity": "keep",
+      "category": "lean_link",
+      "finding": "The appendix accurately translates the quantifier order and makes the common-circuit witness explicit. Its four headline links name the configured Checked wrappers, rather than merely pointing to implementation lemmas whose comparison status could be inferred incorrectly.",
+      "reader_impact": "Query-complexity readers can rule out the serious mistake of taking the two bounds on different functions, and can locate the exact four declarations subject to comparison.",
+      "suggested_direction": "Keep the plain mathematical names, exact target links and same-circuit condition as the core of the quick audit route.",
+      "evidence": [
+        {
+          "source": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+          "locator": "L328–L334",
+          "support": "∀ k ∃ S,A,b,t₀ ∀ t ∃ C, with both cost bounds inside the same existential witness."
+        },
+        {
+          "source": "repository/lean/QuarticCorpus/Unconditional/comparator.json",
+          "locator": "theorem_names",
+          "support": "The four displayed Checked declarations are exactly the four configured targets."
+        }
+      ]
+    }
+  ]
+}

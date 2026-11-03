@@ -1,0 +1,276 @@
+{
+  "schema": "quartic-round5-finite-example-checks-v1",
+  "scope": "Exact finite calculations for examples already printed in the supplied draft/record. Not a Lean or Comparator run, not a new theorem proof, and not evidence for unenumerated sizes.",
+  "arithmetic": "Python fractions.Fraction; integer enumeration only",
+  "checks": [
+    {
+      "locator": "expert_companion §3, Table 1 row 1",
+      "kind": "exact evaluation of the existing finite example",
+      "k": 2,
+      "m": 4,
+      "sign_vectors": [
+        [
+          -1,
+          1,
+          1,
+          1
+        ],
+        [
+          -1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "integer_numerator": -8,
+      "phi": "-1/1",
+      "projection_success": "1/1",
+      "delta": "1/1024",
+      "inside_promise": false,
+      "matches_printed_numeric_claim": true
+    },
+    {
+      "locator": "expert_companion §3, Table 1 row 4; record §6.4, CL-selection-independence-example",
+      "kind": "enumeration of existing experiment with the record's stated fallback",
+      "input_worlds": 256,
+      "no_discovery_worlds": 81,
+      "probability_where_table_rule_is_undefined": "81/256",
+      "fallback": "If no zero is discovered, choose I uniformly among all four columns, as in the record.",
+      "corrected_marginal_I": [
+        "1/4",
+        "1/4",
+        "1/4",
+        "1/4"
+      ],
+      "expected_discovered_columns": "1/1",
+      "hit_probability_for_independent_uniform_I": "1/4",
+      "hit_probability_with_record_fallback": "175/256",
+      "matches_printed_numeric_claim_after_restoring_omitted_branch": true
+    },
+    {
+      "locator": "expert_companion §3, Table 1 row 5",
+      "kind": "enumeration of existing shared-coin strategy and all one-query single-instance trees",
+      "input_and_coin_worlds": 32,
+      "correct_worlds": 20,
+      "guess_on_no_compute_branch": [
+        0,
+        0
+      ],
+      "one_instance_success_under_all_branch_cap_one": "1/2",
+      "expected_queries_per_instance": [
+        "1/1",
+        "1/1"
+      ],
+      "maximum_queries_per_instance": [
+        2,
+        2
+      ],
+      "joint_success": "5/8",
+      "beta_squared": "1/4",
+      "matches_printed_numeric_claim": true
+    },
+    {
+      "locator": "expert_companion §3, Table 1 row 6",
+      "kind": "enumeration of existing zero-query side-information example",
+      "input_worlds": 4,
+      "correct_worlds": 2,
+      "side_information": "S=X XOR Y",
+      "output": "(0,S)",
+      "all_joint_masses_of_S_with_X": [
+        "1/4",
+        "1/4",
+        "1/4",
+        "1/4"
+      ],
+      "all_joint_masses_of_S_with_Y": [
+        "1/4",
+        "1/4",
+        "1/4",
+        "1/4"
+      ],
+      "S_independent_of_X_separately": true,
+      "S_independent_of_Y_separately": true,
+      "S_deterministic_nonconstant_function_of_joint_tuple": true,
+      "joint_success": "1/2",
+      "beta_squared": "1/4",
+      "matches_printed_numeric_claim": true
+    },
+    {
+      "locator": "expert_companion §3, Table 1 row 7 and its following algorithm paragraph",
+      "kind": "enumeration of existing adaptive strategy, charging its repeated query",
+      "input_worlds": 16,
+      "capped_worlds": 8,
+      "correct_and_capped_worlds": 5,
+      "all_correct_worlds": 9,
+      "one_instance_success_under_cap_one": "3/4",
+      "probability_caps_respected": "1/2",
+      "joint_correct_and_capped": "5/16",
+      "conditional_correct_given_capped": "5/8",
+      "beta_squared": "9/16",
+      "matches_printed_numeric_claim": true,
+      "enumeration": [
+        {
+          "A": "00",
+          "B": "00",
+          "query_counts": [
+            1,
+            1
+          ],
+          "capped": true,
+          "correct": true
+        },
+        {
+          "A": "00",
+          "B": "01",
+          "query_counts": [
+            1,
+            1
+          ],
+          "capped": true,
+          "correct": true
+        },
+        {
+          "A": "00",
+          "B": "10",
+          "query_counts": [
+            2,
+            1
+          ],
+          "capped": false,
+          "correct": true
+        },
+        {
+          "A": "00",
+          "B": "11",
+          "query_counts": [
+            2,
+            1
+          ],
+          "capped": false,
+          "correct": false
+        },
+        {
+          "A": "01",
+          "B": "00",
+          "query_counts": [
+            1,
+            1
+          ],
+          "capped": true,
+          "correct": true
+        },
+        {
+          "A": "01",
+          "B": "01",
+          "query_counts": [
+            1,
+            1
+          ],
+          "capped": true,
+          "correct": true
+        },
+        {
+          "A": "01",
+          "B": "10",
+          "query_counts": [
+            2,
+            1
+          ],
+          "capped": false,
+          "correct": true
+        },
+        {
+          "A": "01",
+          "B": "11",
+          "query_counts": [
+            2,
+            1
+          ],
+          "capped": false,
+          "correct": false
+        },
+        {
+          "A": "10",
+          "B": "00",
+          "query_counts": [
+            2,
+            1
+          ],
+          "capped": false,
+          "correct": true
+        },
+        {
+          "A": "10",
+          "B": "01",
+          "query_counts": [
+            1,
+            1
+          ],
+          "capped": true,
+          "correct": true
+        },
+        {
+          "A": "10",
+          "B": "10",
+          "query_counts": [
+            2,
+            1
+          ],
+          "capped": false,
+          "correct": true
+        },
+        {
+          "A": "10",
+          "B": "11",
+          "query_counts": [
+            1,
+            1
+          ],
+          "capped": true,
+          "correct": false
+        },
+        {
+          "A": "11",
+          "B": "00",
+          "query_counts": [
+            2,
+            1
+          ],
+          "capped": false,
+          "correct": false
+        },
+        {
+          "A": "11",
+          "B": "01",
+          "query_counts": [
+            1,
+            1
+          ],
+          "capped": true,
+          "correct": false
+        },
+        {
+          "A": "11",
+          "B": "10",
+          "query_counts": [
+            2,
+            1
+          ],
+          "capped": false,
+          "correct": false
+        },
+        {
+          "A": "11",
+          "B": "11",
+          "query_counts": [
+            1,
+            1
+          ],
+          "capped": true,
+          "correct": false
+        }
+      ]
+    }
+  ],
+  "result": "All numeric outcomes match. The planting table requires its existing record fallback to define the experiment on every outcome."
+}

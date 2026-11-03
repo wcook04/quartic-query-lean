@@ -5,6 +5,18 @@
  "commit": "659b571510ed501a8fbfb11a82c83549cab42441",
  "boundary": "Reading aid: plain names and line links for Lean objects cited in docs/expert_companion.md and docs/exposition.md. Line ranges are read from the pinned commit; an entry with \"pinned\": false points at main and must be re-pinned once its file is committed. No Lean or Comparator run is implied by an entry.",
  "links": {
+  "amplifier-config": {
+   "reader_name": "the Comparator configuration of the amplifier statement",
+   "path": "lean/QuarticCorpus/Independent/UniformAmplifier/comparator.json",
+   "pinned": true,
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Independent/UniformAmplifier/comparator.json"
+  },
+  "amplifier-solution": {
+   "reader_name": "the proof checked against the amplifier statement",
+   "path": "lean/QuarticCorpus/Independent/UniformAmplifier/Solution.lean",
+   "pinned": true,
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Independent/UniformAmplifier/Solution.lean"
+  },
   "cmp-amplifier": {
    "reader_name": "bounded amplification returning the good state",
    "path": "lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean",
@@ -14,9 +26,9 @@
    ],
    "lines": [
     17,
-    20
+    52
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean#L17-L20",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean#L17-L52",
    "comparator": {
     "credit": [
      "direct"
@@ -90,7 +102,7 @@
    }
   },
   "cmp-lemma22": {
-   "reader_name": "the four parts of Lemma 2.2",
+   "reader_name": "four facts about winners",
    "path": "lean/QuarticCorpus/Construction/Challenge.lean",
    "pinned": true,
    "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Construction/Challenge.lean"
@@ -104,9 +116,9 @@
    ],
    "lines": [
     14,
-    41
+    60
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Independent/ConstructionFull/Challenge.lean#L14-L41",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Independent/ConstructionFull/Challenge.lean#L14-L60",
    "comparator": {
     "credit": [
      "direct"
@@ -148,13 +160,14 @@
    "path": "lean/QuarticCorpus/Unconditional/Challenge.lean",
    "pinned": true,
    "declarations": [
+    "QuarticQuery.addressedF",
     "QuarticQuery.Fkm"
    ],
    "lines": [
-    280,
+    274,
     285
    ],
-   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L280-L285",
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L274-L285",
    "comparator": {
     "credit": [
      "statement_dependency"
@@ -460,6 +473,54 @@
     ]
    }
   },
+  "def-compliant": {
+   "reader_name": "success together with respecting the caps",
+   "path": "lean/QuarticQuery/LowerBound/RealizedCaps.lean",
+   "pinned": true,
+   "declarations": [
+    "QuarticQuery.compliantSuccess"
+   ],
+   "lines": [
+    111,
+    120
+   ],
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticQuery/LowerBound/RealizedCaps.lean#L111-L120"
+  },
+  "def-gate": {
+   "reader_name": "gate consistency",
+   "path": "lean/QuarticCorpus/Unconditional/Challenge.lean",
+   "pinned": true,
+   "declarations": [
+    "QuarticQuery.GateConsistent"
+   ],
+   "lines": [
+    208,
+    213
+   ],
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L208-L213",
+   "comparator": {
+    "credit": [
+     "statement_dependency"
+    ],
+    "configurations": [
+     "lean/QuarticCorpus/Unconditional/comparator.json"
+    ]
+   }
+  },
+  "def-hit": {
+   "reader_name": "the hitting probability and expected count",
+   "path": "lean/QuarticCorpus/Independent/Eq19/Spec.lean",
+   "pinned": true,
+   "declarations": [
+    "QuarticQuery.Independent.Eq19.hitProbability",
+    "QuarticQuery.Independent.Eq19.expectedCount"
+   ],
+   "lines": [
+    65,
+    76
+   ],
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Independent/Eq19/Spec.lean#L65-L76"
+  },
   "def-numerator": {
    "reader_name": "the Forrelation numerator",
    "path": "lean/QuarticCorpus/Unconditional/Challenge.lean",
@@ -502,6 +563,28 @@
     ]
    }
   },
+  "def-output-mass": {
+   "reader_name": "the output probability of a quantum algorithm",
+   "path": "lean/QuarticCorpus/Unconditional/Challenge.lean",
+   "pinned": true,
+   "declarations": [
+    "QuarticQuery.project",
+    "QuarticQuery.AdaptiveProgram.outputMass"
+   ],
+   "lines": [
+    96,
+    126
+   ],
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L96-L126",
+   "comparator": {
+    "credit": [
+     "statement_dependency"
+    ],
+    "configurations": [
+     "lean/QuarticCorpus/Unconditional/comparator.json"
+    ]
+   }
+  },
   "def-partial": {
    "reader_name": "partial Boolean functions",
    "path": "lean/QuarticCorpus/Unconditional/Challenge.lean",
@@ -514,6 +597,28 @@
     19
    ],
    "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L18-L19",
+   "comparator": {
+    "credit": [
+     "statement_dependency"
+    ],
+    "configurations": [
+     "lean/QuarticCorpus/Unconditional/comparator.json"
+    ]
+   }
+  },
+  "def-pointer": {
+   "reader_name": "pointer decoding",
+   "path": "lean/QuarticCorpus/Unconditional/Challenge.lean",
+   "pinned": true,
+   "declarations": [
+    "QuarticQuery.readPointerBit",
+    "QuarticQuery.pointerEquiv"
+   ],
+   "lines": [
+    249,
+    260
+   ],
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean#L249-L260",
    "comparator": {
     "credit": [
      "statement_dependency"
@@ -674,6 +779,25 @@
     ]
    }
   },
+  "direct-product-config": {
+   "reader_name": "the Comparator configuration of the direct-product statement",
+   "path": "lean/QuarticCorpus/Independent/RealizedCaps/comparator.json",
+   "pinned": true,
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Independent/RealizedCaps/comparator.json"
+  },
+  "src-amplify-measured": {
+   "reader_name": "bounded amplification of the measured label",
+   "path": "lean/QuarticQuery/Upper/Amplify.lean",
+   "pinned": true,
+   "declarations": [
+    "QuarticQuery.Upper.Samples.amplify"
+   ],
+   "lines": [
+    345,
+    352
+   ],
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticQuery/Upper/Amplify.lean#L345-L352"
+  },
   "src-budget": {
    "reader_name": "the explicit quantum budget",
    "path": "lean/QuarticQuery/Upper/Bound.lean",
@@ -686,6 +810,19 @@
     90
    ],
    "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticQuery/Upper/Bound.lean#L86-L90"
+  },
+  "src-budget-exponential": {
+   "reader_name": "the quantum bound with constant 2^53 k 2^(10k)",
+   "path": "lean/QuarticQuery/Upper/Bound.lean",
+   "pinned": true,
+   "declarations": [
+    "QuarticQuery.Upper.Q_Fkm_le_exponential"
+   ],
+   "lines": [
+    286,
+    290
+   ],
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticQuery/Upper/Bound.lean#L286-L290"
   },
   "src-constants": {
    "reader_name": "Theorem 1 with the constants 6 and 1/400",
@@ -769,6 +906,18 @@
    "path": "lean/QuarticCorpus/Unconditional/Challenge.lean",
    "pinned": true,
    "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Challenge.lean"
+  },
+  "statement-receipt": {
+   "reader_name": "the recorded paranoid Comparator run of the four theorems",
+   "path": "corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+   "pinned": false,
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/main/corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json"
+  },
+  "statement-solution": {
+   "reader_name": "the proofs Comparator checks against the statement file",
+   "path": "lean/QuarticCorpus/Unconditional/Solution.lean",
+   "pinned": true,
+   "url": "https://github.com/wcook04/quartic-query-lean/blob/659b571510ed501a8fbfb11a82c83549cab42441/lean/QuarticCorpus/Unconditional/Solution.lean"
   },
   "thm-all": {
    "reader_name": "the four compared theorems",

@@ -1,0 +1,69 @@
+{
+  "scope": "Independent ordinary finite enumeration; no Lean or Comparator execution.",
+  "forrelation_numerators": {
+    "-8": 8,
+    "-4": 96,
+    "0": 48,
+    "4": 96,
+    "8": 8
+  },
+  "named_phi": {
+    "a_plus": "1",
+    "a_zero": "0",
+    "a_minus": "-1"
+  },
+  "promise_counts": {
+    "one": 104,
+    "zero": 48,
+    "undefined": 104
+  },
+  "board_bits_with_S_180": 5936,
+  "local_tests_with_S_180": 371,
+  "cycle_new_weights": {
+    "1": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "2": [
+      1,
+      0,
+      0,
+      1
+    ],
+    "3": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "4": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  "cycle_expected_new_weight": "3/2",
+  "AND_two_instances": {
+    "inputs": 16,
+    "capped": 8,
+    "correct_and_capped": 5,
+    "joint_success": "5/16",
+    "conditional_success": "5/8",
+    "product_bound": "9/16"
+  },
+  "independent_selection": {
+    "expected_discoveries": "1",
+    "independent_hit": "1/4",
+    "dependent_hit": "175/256",
+    "no_discovery_probability": "81/256"
+  },
+  "error_at_m_4": {
+    "T": 12,
+    "epsilon": "1/12000",
+    "total": "583/192000"
+  },
+  "not_checked": "Existence/count of the claimed 180-gate circuit; the board/test counts above are conditional arithmetic on S=180."
+}

@@ -2,7 +2,7 @@
   "schema": "quartic_integrated_reasoning_correspondence_v1",
   "created_utc": "2026-11-02T19:47:11.861336+00:00",
   "record_path": "docs/reasoning_record.md",
-  "record_sha256": "1b677c780734209fd36fc206a17e4262f9124e290f84736e9573db8f1f88a986",
+  "record_sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155",
   "baseline": {
     "path": "research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
     "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff"
@@ -442,50 +442,50 @@
   "passages": [
     {
       "id": "ROOT-RESULT",
-      "line_start": 8,
-      "line_end": 46,
+      "line_start": 30,
+      "line_end": 68,
       "claims": [
         "eq-1",
         "thm-1.1",
         "eq-2"
       ],
-      "sha256": "2375e9b5b0bf69905c17343641768ada640b843f9a0472aea870556bdac11a08"
+      "sha256": "f3a2aa384f09275a4295f7a13e18c05715caa4ee496c242fcdf8bbb2a488701a"
     },
     {
       "id": "R3-01-QUANTIFIERS",
-      "line_start": 49,
-      "line_end": 83,
+      "line_start": 71,
+      "line_end": 99,
       "claims": [
         "claim-exponent-ratio",
         "cor-cubic-refuted"
       ],
-      "sha256": "0314cf8be62a2db804159f90464b5c0d1259432b8b200073a50d69233748444b"
+      "sha256": "53d02afdff061bff613acd8e8a83c21adfb34e18b3ff1ba96b81a3de875d1e18"
     },
     {
       "id": "ROOT-ARCHITECTURE",
-      "line_start": 86,
-      "line_end": 98,
+      "line_start": 102,
+      "line_end": 114,
       "claims": [],
       "sha256": "7a29a378587d848447c362a83c9865e3b2cc86754def0c29e90612a1338e86a8"
     },
     {
       "id": "ROOT-LOGS",
-      "line_start": 120,
-      "line_end": 122,
+      "line_start": 143,
+      "line_end": 145,
       "claims": [],
       "sha256": "59e1e79f3580ebf89ec657cca6872cd3404c05c6649163bfa2271ca317f5cb2c"
     },
     {
       "id": "ROOT-PARTIAL",
-      "line_start": 125,
-      "line_end": 133,
+      "line_start": 161,
+      "line_end": 169,
       "claims": [],
       "sha256": "8ed2f2ce6ac17fbe72cf845bf649dc94cdef850663c7b5e880e7d0b6e6dd0ea7"
     },
     {
       "id": "R3-01-CLASSICAL",
-      "line_start": 136,
-      "line_end": 182,
+      "line_start": 172,
+      "line_end": 218,
       "claims": [
         "def-D",
         "def-R"
@@ -494,8 +494,8 @@
     },
     {
       "id": "ROOT-ORACLE",
-      "line_start": 185,
-      "line_end": 206,
+      "line_start": 221,
+      "line_end": 242,
       "claims": [
         "def-query-oracle"
       ],
@@ -503,8 +503,8 @@
     },
     {
       "id": "R3-01-ADAPTIVE",
-      "line_start": 209,
-      "line_end": 257,
+      "line_start": 245,
+      "line_end": 293,
       "claims": [
         "ROOT-MASS",
         "def-Q"
@@ -513,64 +513,64 @@
     },
     {
       "id": "R3-01-BRIDGES",
-      "line_start": 260,
-      "line_end": 294,
+      "line_start": 296,
+      "line_end": 330,
       "claims": [],
       "sha256": "acfafcc4e43461e8969b31a96f8438bbbb4bebea7870e41e1e9f0a0a585191f6"
     },
     {
       "id": "R3-01-ZERO",
-      "line_start": 297,
-      "line_end": 310,
+      "line_start": 333,
+      "line_end": 346,
       "claims": [],
       "sha256": "92ec6303d84ee9c07ba01eece6abfe95ed08ea6e2592fe9e1086dae0b5ad580c"
     },
     {
       "id": "R3-01-IDENTITY",
-      "line_start": 313,
-      "line_end": 319,
+      "line_start": 349,
+      "line_end": 355,
       "claims": [],
       "sha256": "f75c7012c2f47d24f9ba80c7000d125dad91a810049e0366e5e31c8021c70218"
     },
     {
       "id": "R3-01-OR",
-      "line_start": 322,
-      "line_end": 341,
+      "line_start": 358,
+      "line_end": 377,
       "claims": [],
       "sha256": "9d6dda29c5628b87c9c6c265a023c23db9bf4340808c3e371a215f023be64e17"
     },
     {
       "id": "R3-01-OFFPROMISE",
-      "line_start": 344,
-      "line_end": 346,
+      "line_start": 380,
+      "line_end": 382,
       "claims": [],
       "sha256": "b4a705ba08c403e77064459d06711c71d6133041082a1a25b7445a98b45cc9c5"
     },
     {
       "id": "R3-01-PARITY",
-      "line_start": 349,
-      "line_end": 371,
+      "line_start": 385,
+      "line_end": 407,
       "claims": [],
       "sha256": "e0058bbe371845a8dddd790acbe30a47db21e1cc83dd83caad40bd2cf518e05f"
     },
     {
       "id": "ROOT-EVIDENCE-CONVENTION",
-      "line_start": 374,
-      "line_end": 454,
+      "line_start": 410,
+      "line_end": 482,
       "claims": [],
-      "sha256": "ebf34dab62f451469b8bd6ce066b94e7f0ebd402ac1029570bde24ed43560d78"
+      "sha256": "2141078393f3946eb5531582ad4cd7cb7dce5d9415447e65b365494ff4940dce"
     },
     {
       "id": "forr_scope",
-      "line_start": 459,
-      "line_end": 464,
+      "line_start": 523,
+      "line_end": 528,
       "claims": [],
       "sha256": "502eeabb65bc1329768dbfa61670ff6c1cafeff16fb708dde69b489cd8d79733"
     },
     {
       "id": "forr_definition",
-      "line_start": 467,
-      "line_end": 519,
+      "line_start": 540,
+      "line_end": 592,
       "claims": [
         "def-walsh-sign",
         "NEW-FOR-01",
@@ -582,8 +582,8 @@
     },
     {
       "id": "forr_integer",
-      "line_start": 522,
-      "line_end": 556,
+      "line_start": 595,
+      "line_end": 629,
       "claims": [
         "claim-N-phi",
         "claim-integer-tests"
@@ -592,8 +592,8 @@
     },
     {
       "id": "forr_quantum",
-      "line_start": 559,
-      "line_end": 591,
+      "line_start": 632,
+      "line_end": 664,
       "claims": [
         "claim-proj-prob"
       ],
@@ -601,17 +601,17 @@
     },
     {
       "id": "forr_repetition",
-      "line_start": 594,
-      "line_end": 633,
+      "line_start": 667,
+      "line_end": 706,
       "claims": [
         "NEW-FOR-02"
       ],
-      "sha256": "0e73af633ec434c6a3354ab4e0c392aed178250144b459b8d1e8f0ab0b09aa87"
+      "sha256": "46d9c41c1e2f2bc0a5c1f30734248039b2c09d95db7e94b29c16f094727742a4"
     },
     {
       "id": "forr_coherent",
-      "line_start": 636,
-      "line_end": 690,
+      "line_start": 709,
+      "line_end": 763,
       "claims": [
         "R3-FOR-COHERENT-LAW",
         "NEW-FOR-28",
@@ -621,8 +621,8 @@
     },
     {
       "id": "forr_circuit",
-      "line_start": 693,
-      "line_end": 713,
+      "line_start": 766,
+      "line_end": 786,
       "claims": [
         "NEW-FOR-03",
         "claim-circuit-size"
@@ -631,8 +631,8 @@
     },
     {
       "id": "forr_boolean_arithmetic",
-      "line_start": 716,
-      "line_end": 738,
+      "line_start": 789,
+      "line_end": 811,
       "claims": [
         "NEW-FOR-04"
       ],
@@ -640,8 +640,8 @@
     },
     {
       "id": "forr_final_signs",
-      "line_start": 741,
-      "line_end": 766,
+      "line_start": 814,
+      "line_end": 839,
       "claims": [
         "NEW-FOR-05"
       ],
@@ -649,8 +649,8 @@
     },
     {
       "id": "forr_circuit_size",
-      "line_start": 769,
-      "line_end": 805,
+      "line_start": 842,
+      "line_end": 878,
       "claims": [
         "NEW-FOR-29",
         "R3-FOR-CIRCUIT-SIZE",
@@ -660,8 +660,8 @@
     },
     {
       "id": "forr_small_instance",
-      "line_start": 808,
-      "line_end": 854,
+      "line_start": 881,
+      "line_end": 927,
       "claims": [
         "R3-FOR-THREE-EXAMPLES",
         "NEW-FOR-26"
@@ -670,15 +670,15 @@
     },
     {
       "id": "forr_current_evidence",
-      "line_start": 857,
-      "line_end": 865,
+      "line_start": 6104,
+      "line_end": 6110,
       "claims": [],
-      "sha256": "37684cb28a133036d309e3fab5234b3583487bf33848c3a48976f11ade41fea3"
+      "sha256": "70897bf9abdf2e2adc7c14a79d0918853e9afa26c103ae2f15f7c8a6c13206d2"
     },
     {
       "id": "forr_target",
-      "line_start": 870,
-      "line_end": 912,
+      "line_start": 933,
+      "line_end": 975,
       "claims": [
         "eq-3",
         "eq-4",
@@ -688,24 +688,24 @@
     },
     {
       "id": "forr_bs_translation",
-      "line_start": 915,
-      "line_end": 933,
+      "line_start": 978,
+      "line_end": 996,
       "claims": [
         "claim-bs-to-L"
       ],
-      "sha256": "0d653c1324d428fe5640e2fb4a03e248de1a5e77b6b3888e7055a94cdb1f0a3a"
+      "sha256": "21b727b8f126d12928ab4cdeb47a7424855e5c12159605fede4ed7553b4755df"
     },
     {
       "id": "forr_proof_spine",
-      "line_start": 936,
-      "line_end": 940,
+      "line_start": 999,
+      "line_end": 1003,
       "claims": [],
       "sha256": "d3692e1372853a98999b25a94b3b45091d263ff4865a308d00fcb4be4f41ef6e"
     },
     {
       "id": "forr_cube",
-      "line_start": 945,
-      "line_end": 1001,
+      "line_start": 1008,
+      "line_end": 1064,
       "claims": [
         "NEW-FOR-06",
         "NEW-FOR-07"
@@ -714,8 +714,8 @@
     },
     {
       "id": "forr_stein",
-      "line_start": 1006,
-      "line_end": 1066,
+      "line_start": 1069,
+      "line_end": 1129,
       "claims": [
         "NEW-FOR-08",
         "r2-sharp-kernel",
@@ -726,8 +726,8 @@
     },
     {
       "id": "forr_distribution",
-      "line_start": 1071,
-      "line_end": 1111,
+      "line_start": 1134,
+      "line_end": 1174,
       "claims": [
         "NEW-FOR-11",
         "NEW-FOR-12"
@@ -736,8 +736,8 @@
     },
     {
       "id": "forr_identity",
-      "line_start": 1116,
-      "line_end": 1127,
+      "line_start": 1179,
+      "line_end": 1190,
       "claims": [
         "r3-forr-polynomial-interpolation"
       ],
@@ -745,8 +745,8 @@
     },
     {
       "id": "forr_three_blocks",
-      "line_start": 1130,
-      "line_end": 1175,
+      "line_start": 1193,
+      "line_end": 1238,
       "claims": [
         "r2-sharp-worked-chain"
       ],
@@ -754,8 +754,8 @@
     },
     {
       "id": "forr_path_formula",
-      "line_start": 1178,
-      "line_end": 1221,
+      "line_start": 1241,
+      "line_end": 1284,
       "claims": [
         "NEW-FOR-13",
         "r2-sharp-worked-chain"
@@ -764,8 +764,8 @@
     },
     {
       "id": "forr_tree_growth",
-      "line_start": 1226,
-      "line_end": 1258,
+      "line_start": 1289,
+      "line_end": 1321,
       "claims": [
         "r2-sharp-growth",
         "NEW-FOR-14"
@@ -774,8 +774,8 @@
     },
     {
       "id": "forr_tree_leaves",
-      "line_start": 1261,
-      "line_end": 1274,
+      "line_start": 1324,
+      "line_end": 1337,
       "claims": [
         "NEW-FOR-27"
       ],
@@ -783,8 +783,8 @@
     },
     {
       "id": "forr_tree_stopping",
-      "line_start": 1277,
-      "line_end": 1336,
+      "line_start": 1340,
+      "line_end": 1399,
       "claims": [
         "NEW-FOR-15",
         "NEW-FOR-16",
@@ -794,8 +794,8 @@
     },
     {
       "id": "forr_tree_derivative",
-      "line_start": 1339,
-      "line_end": 1362,
+      "line_start": 1402,
+      "line_end": 1425,
       "claims": [
         "NEW-FOR-18"
       ],
@@ -803,18 +803,17 @@
     },
     {
       "id": "forr_advantage",
-      "line_start": 1367,
-      "line_end": 1395,
+      "line_start": 1430,
+      "line_end": 1445,
       "claims": [
-        "r2-sharp-advantage",
-        "NEW-FOR-19"
+        "r2-sharp-advantage"
       ],
-      "sha256": "5145711a2a8506fb3939533a2949a0bc2bd262be659688a3cd8c1c7a88e4149a"
+      "sha256": "770b2b2c9d09ebfd56795f574b62652dbbdd144c12fe1c3380d3227ecab5586e"
     },
     {
       "id": "forr_moments",
-      "line_start": 1400,
-      "line_end": 1474,
+      "line_start": 1450,
+      "line_end": 1524,
       "claims": [
         "NEW-FOR-20",
         "NEW-FOR-21",
@@ -824,8 +823,8 @@
     },
     {
       "id": "forr_amplification",
-      "line_start": 1479,
-      "line_end": 1490,
+      "line_start": 1529,
+      "line_end": 1540,
       "claims": [
         "NEW-FOR-23"
       ],
@@ -833,8 +832,8 @@
     },
     {
       "id": "forr_promise_gap",
-      "line_start": 1493,
-      "line_end": 1516,
+      "line_start": 1543,
+      "line_end": 1566,
       "claims": [
         "NEW-FOR-24"
       ],
@@ -842,8 +841,8 @@
     },
     {
       "id": "forr_uniform_assembly",
-      "line_start": 1521,
-      "line_end": 1598,
+      "line_start": 1571,
+      "line_end": 1648,
       "claims": [
         "r2-sharp-original-constant"
       ],
@@ -851,8 +850,8 @@
     },
     {
       "id": "forr_threshold",
-      "line_start": 1601,
-      "line_end": 1632,
+      "line_start": 1651,
+      "line_end": 1682,
       "claims": [
         "r3-forr-explicit-fixed-threshold"
       ],
@@ -860,36 +859,36 @@
     },
     {
       "id": "forr_credit",
-      "line_start": 1638,
-      "line_end": 1644,
+      "line_start": 1688,
+      "line_end": 1694,
       "claims": [],
-      "sha256": "903b97f2164a818977daf5f6cedbf8f3980f1d06f4e14b3b36d5800f500710ed"
+      "sha256": "a62d97302abbcfb2237f2a745ed8a38c0331503519c304a23e3e38c03b74e95b"
     },
     {
       "id": "forr_bs_mismatch",
-      "line_start": 1649,
-      "line_end": 1693,
+      "line_start": 5967,
+      "line_end": 6011,
       "claims": [],
-      "sha256": "92938378b773643fb1a25d88c7965f384be42d1295566be7229d3de2e1a5c401"
+      "sha256": "a02c346ea3195a402a9ae99cdbb15580b605d95ff48eab6e22378bb35b1243f1"
     },
     {
       "id": "forr_ssw_comparison",
-      "line_start": 1698,
-      "line_end": 1757,
+      "line_start": 6016,
+      "line_end": 6075,
       "claims": [],
       "sha256": "73f9a60b27c9ca7e03d20b366c2c72fe00a3fff11af5c569b7997f2fc70f7caf"
     },
     {
       "id": "forr_validation_scope",
-      "line_start": 1760,
-      "line_end": 1764,
+      "line_start": 1701,
+      "line_end": 1705,
       "claims": [],
-      "sha256": "ce32516791ba1f8acf7c0b244ec8ae0132ae6d756dd4963086ec4dacfdc42bab"
+      "sha256": "fc029b72b20770204a1ab4c7f05c852a76ba7fe6c5a194938d80ca104d89b4ef"
     },
     {
       "id": "forr_bundle",
-      "line_start": 1769,
-      "line_end": 1782,
+      "line_start": 1710,
+      "line_end": 1723,
       "claims": [
         "lem-2.1"
       ],
@@ -897,29 +896,29 @@
     },
     {
       "id": "forr_references",
-      "line_start": 1787,
-      "line_end": 1789,
+      "line_start": 1728,
+      "line_end": 1730,
       "claims": [],
-      "sha256": "818d95d1d3ab8445f5458f876c9990192f590b5e97ebd81b4acbca0d93dd63e5"
+      "sha256": "5aa44fa3a24ae9b6dea20055d596f5142d2e492b9855b02a74e28fa5c9463d1b"
     },
     {
       "id": "AC-interface",
-      "line_start": 1795,
-      "line_end": 1799,
+      "line_start": 1738,
+      "line_end": 1742,
       "claims": [],
       "sha256": "2e2564f4164b07bb002e59f94104a907557fbcd230ef08102bbc64c05d83848e"
     },
     {
       "id": "AC-circuit",
-      "line_start": 1804,
-      "line_end": 1815,
+      "line_start": 1747,
+      "line_end": 1758,
       "claims": [],
       "sha256": "61bb1740893010b77d3a39e11036030c22102ee3e7e821b2fde4a589d504ca17"
     },
     {
       "id": "AC-transcripts",
-      "line_start": 1819,
-      "line_end": 1835,
+      "line_start": 1762,
+      "line_end": 1778,
       "claims": [
         "NCL-transcript-characterization"
       ],
@@ -927,141 +926,141 @@
     },
     {
       "id": "AC-layout",
-      "line_start": 1841,
-      "line_end": 1862,
+      "line_start": 1784,
+      "line_end": 1805,
       "claims": [],
       "sha256": "02d57b6c3cc89e282179a06442ea2272e1ac3c49b92186d58e8d7e62ba8a4c2f"
     },
     {
       "id": "AC-winner",
-      "line_start": 1867,
-      "line_end": 1890,
+      "line_start": 1810,
+      "line_end": 1833,
       "claims": [],
       "sha256": "f168d222e0d9002ca16f51bcaa93f18c5739f8a15bcda1cf9c0c44f3fb8b44a6"
     },
     {
       "id": "AC-total-unique",
-      "line_start": 1894,
-      "line_end": 1910,
+      "line_start": 1837,
+      "line_end": 1853,
       "claims": [],
       "sha256": "5912f2a55be5aec040fc237beff7080a2564c273dfd9cfb93162e43507b02542"
     },
     {
       "id": "AC-example-promise",
-      "line_start": 1915,
-      "line_end": 1943,
+      "line_start": 1858,
+      "line_end": 1886,
       "claims": [],
       "sha256": "5d7f3b31ab64ed5857aef4d1b6376043e26e9d35c74d79b930a566a65b03c966"
     },
     {
       "id": "AC-example-board",
-      "line_start": 1946,
-      "line_end": 1968,
+      "line_start": 1889,
+      "line_end": 1911,
       "claims": [],
       "sha256": "c8401a79b5674be65f591b30eddf126951960a5707fbd6b042b58219908c12a4"
     },
     {
       "id": "AC-tests",
-      "line_start": 1974,
-      "line_end": 2009,
+      "line_start": 1917,
+      "line_end": 1952,
       "claims": [],
       "sha256": "024ef6fb5462faca357e0a8c3a934555a46a18b2c91776d8e891729c246d60ee"
     },
     {
       "id": "AC-local-equivalence",
-      "line_start": 2013,
-      "line_end": 2033,
+      "line_start": 1956,
+      "line_end": 1976,
       "claims": [],
       "sha256": "501bebee7369141e0c23062e36cb4de65ef8fa15d5f9c39507f5fce28ddc4aee"
     },
     {
       "id": "AC-dichotomy",
-      "line_start": 2037,
-      "line_end": 2039,
+      "line_start": 1980,
+      "line_end": 1982,
       "claims": [],
       "sha256": "588ba2f142b78926a6b4e689d7d829af55874837f648d620e01460b63ea1b1a7"
     },
     {
       "id": "AC-example-tests",
-      "line_start": 2042,
-      "line_end": 2057,
+      "line_start": 1985,
+      "line_end": 2000,
       "claims": [],
-      "sha256": "4bec5cc4de11e1b7a6c84efe84827673742575096983b29c52b71fe67dfdfe30"
+      "sha256": "aee65efdee1fe01e2124826657c6c3c5c99e63c4f0d89701c00f1cfef8769f33"
     },
     {
       "id": "AC-pointer-support",
-      "line_start": 2062,
-      "line_end": 2068,
+      "line_start": 2005,
+      "line_end": 2011,
       "claims": [],
       "sha256": "11ec687d6cb513e4bfc31a8d0d1e85ef5b9842c38d97d4bc348b26008fb61c75"
     },
     {
       "id": "AC-coherent",
-      "line_start": 2074,
-      "line_end": 2089,
+      "line_start": 2017,
+      "line_end": 2032,
       "claims": [],
       "sha256": "9c8e3d545ceddf33abf2b0c8c02389fd296552a67f758b0a62282ec20d00a2a6"
     },
     {
       "id": "AC-clean-oracle",
-      "line_start": 2092,
-      "line_end": 2103,
+      "line_start": 2035,
+      "line_end": 2046,
       "claims": [],
       "sha256": "a94c8b1b870a37faf79683cf154730865cc31be7b8804ab9e7443f243bea1bd9"
     },
     {
       "id": "AC-uniform-sampler",
-      "line_start": 2106,
-      "line_end": 2108,
+      "line_start": 2049,
+      "line_end": 2051,
       "claims": [],
       "sha256": "4987c7effd2e11f12100035a172dfd18af0443b56ff6d3a65ea312df8d971420"
     },
     {
       "id": "AC-comparison",
-      "line_start": 2113,
-      "line_end": 2142,
+      "line_start": 2056,
+      "line_end": 2085,
       "claims": [],
       "sha256": "8ce77c26a24ef0ea38db5022a60acbcb7ee635bfe24ce77370c0bb51fef39013"
     },
     {
       "id": "AC-attribution",
-      "line_start": 2147,
-      "line_end": 2151,
+      "line_start": 2090,
+      "line_end": 2094,
       "claims": [],
       "sha256": "ff690c41c99456eff62a2787c9d786b84db72e1a1231299c10690a66a43e820d"
     },
     {
       "id": "AC-evidence",
-      "line_start": 2154,
-      "line_end": 2160,
+      "line_start": 2097,
+      "line_end": 2103,
       "claims": [],
-      "sha256": "81a22020063903ad1013479dc5493119337d57900f13d91e01560e9ebed63570"
+      "sha256": "480512260ce3c5826ba0fbb08a2cd2df7301c5813ff4067370b5814367f10844"
     },
     {
       "id": "upper-section-interface",
-      "line_start": 2166,
-      "line_end": 2172,
+      "line_start": 2111,
+      "line_end": 2117,
       "claims": [],
       "sha256": "2ed82463bc378830d42c18ffdb4f21fc9a391f3130ace5b584543ea5f3a65654"
     },
     {
       "id": "upper-purpose",
-      "line_start": 2176,
-      "line_end": 2183,
+      "line_start": 2121,
+      "line_end": 2128,
       "claims": [],
-      "sha256": "3adc716c2a0da7599460de8666388fd04f7f81cc277b3a0d3ae5b29e57071e1a"
+      "sha256": "b1da156d2eb67e762c07637f25ca8d4cdafb1a3e678726ad133215aa0a78c628"
     },
     {
       "id": "upper-amplification-statement",
-      "line_start": 2190,
-      "line_end": 2195,
+      "line_start": 2135,
+      "line_end": 2140,
       "claims": [],
       "sha256": "4e9a3b0714eafbc3e6b2457129e3b7a8d64241e9246ad510f4a4c1afb7c6b46b"
     },
     {
       "id": "upper-grover-geometry",
-      "line_start": 2198,
-      "line_end": 2217,
+      "line_start": 2143,
+      "line_end": 2162,
       "claims": [
         "claim-grover-state"
       ],
@@ -1069,8 +1068,8 @@
     },
     {
       "id": "upper-grover-trial",
-      "line_start": 2220,
-      "line_end": 2234,
+      "line_start": 2165,
+      "line_end": 2179,
       "claims": [
         "def-grover-trial"
       ],
@@ -1078,8 +1077,8 @@
     },
     {
       "id": "upper-average-exact",
-      "line_start": 2237,
-      "line_end": 2249,
+      "line_start": 2182,
+      "line_end": 2194,
       "claims": [
         "new-upper-average-exact"
       ],
@@ -1087,8 +1086,8 @@
     },
     {
       "id": "upper-small-probability",
-      "line_start": 2252,
-      "line_end": 2271,
+      "line_start": 2197,
+      "line_end": 2216,
       "claims": [
         "claim-sin2theta",
         "eq-9"
@@ -1097,8 +1096,8 @@
     },
     {
       "id": "upper-amplification-proof",
-      "line_start": 2274,
-      "line_end": 2292,
+      "line_start": 2219,
+      "line_end": 2237,
       "claims": [
         "new-upper-call-cap"
       ],
@@ -1106,8 +1105,8 @@
     },
     {
       "id": "upper-returned-register",
-      "line_start": 2295,
-      "line_end": 2308,
+      "line_start": 2240,
+      "line_end": 2253,
       "claims": [
         "r3-q-labels-do-not-determine-state"
       ],
@@ -1115,8 +1114,8 @@
     },
     {
       "id": "upper-comparison-model",
-      "line_start": 2315,
-      "line_end": 2327,
+      "line_start": 2265,
+      "line_end": 2277,
       "claims": [
         "eq-10"
       ],
@@ -1124,15 +1123,15 @@
     },
     {
       "id": "upper-bounded-error-comparison",
-      "line_start": 2330,
-      "line_end": 2332,
+      "line_start": 2280,
+      "line_end": 2282,
       "claims": [],
       "sha256": "58f87345c45d8facfb170ea1ae5496efd40317d0390693e1cce5cc57552a0182"
     },
     {
       "id": "upper-tournament-parameters",
-      "line_start": 2336,
-      "line_end": 2354,
+      "line_start": 2286,
+      "line_end": 2304,
       "claims": [
         "def-T-eps",
         "eq-11"
@@ -1141,8 +1140,8 @@
     },
     {
       "id": "upper-ideal-process",
-      "line_start": 2357,
-      "line_end": 2367,
+      "line_start": 2309,
+      "line_end": 2319,
       "claims": [
         "eq-12"
       ],
@@ -1150,8 +1149,8 @@
     },
     {
       "id": "upper-weight-drift",
-      "line_start": 2370,
-      "line_end": 2390,
+      "line_start": 2322,
+      "line_end": 2342,
       "claims": [
         "eq-13",
         "claim-expected-WT"
@@ -1160,8 +1159,8 @@
     },
     {
       "id": "upper-dominant-weight",
-      "line_start": 2393,
-      "line_end": 2418,
+      "line_start": 2345,
+      "line_end": 2370,
       "claims": [
         "claim-weight-lb",
         "eq-14"
@@ -1170,8 +1169,8 @@
     },
     {
       "id": "upper-stage-state",
-      "line_start": 2421,
-      "line_end": 2432,
+      "line_start": 2373,
+      "line_end": 2384,
       "claims": [
         "eq-15"
       ],
@@ -1179,8 +1178,8 @@
     },
     {
       "id": "upper-stage-law",
-      "line_start": 2435,
-      "line_end": 2449,
+      "line_start": 2387,
+      "line_end": 2401,
       "claims": [
         "claim-success-prob"
       ],
@@ -1188,8 +1187,8 @@
     },
     {
       "id": "upper-cyclic-example",
-      "line_start": 2452,
-      "line_end": 2493,
+      "line_start": 2404,
+      "line_end": 2445,
       "claims": [
         "r3-q-cyclic-example"
       ],
@@ -1197,8 +1196,8 @@
     },
     {
       "id": "upper-quantum-tournament",
-      "line_start": 2497,
-      "line_end": 2517,
+      "line_start": 2449,
+      "line_end": 2469,
       "claims": [
         "new-upper-sampler-law"
       ],
@@ -1206,8 +1205,8 @@
     },
     {
       "id": "upper-coupling",
-      "line_start": 2520,
-      "line_end": 2535,
+      "line_start": 2472,
+      "line_end": 2487,
       "claims": [
         "claim-coupling"
       ],
@@ -1215,8 +1214,8 @@
     },
     {
       "id": "upper-tournament-cost",
-      "line_start": 2538,
-      "line_end": 2550,
+      "line_start": 2490,
+      "line_end": 2502,
       "claims": [
         "claim-tournament-cost"
       ],
@@ -1224,8 +1223,8 @@
     },
     {
       "id": "upper-padded-tournament-budget",
-      "line_start": 2553,
-      "line_end": 2567,
+      "line_start": 2505,
+      "line_end": 2519,
       "claims": [
         "r2-quantum-tournament-budget-6072"
       ],
@@ -1233,33 +1232,33 @@
     },
     {
       "id": "upper-tournament-evidence",
-      "line_start": 2571,
-      "line_end": 2584,
+      "line_start": 2523,
+      "line_end": 2536,
       "claims": [
         "r2-quantum-coherent-list-witness"
       ],
-      "sha256": "8b1767d002e90fd80106992ca84a9db169184571157cc49adc0a650ed6e19cc5"
+      "sha256": "ddc419dff768499ef93b5e23499ba8b2a370970b979abe50d2363270ba13507b"
     },
     {
       "id": "upper-continuation-induction",
-      "line_start": 2587,
-      "line_end": 2606,
+      "line_start": 2789,
+      "line_end": 2808,
       "claims": [
         "new-upper-continuation-bound"
       ],
-      "sha256": "5c64407e0aca97e65e04a54768dc88395887431544461db3749bab6494153681"
+      "sha256": "4f6ed56af382cd336d3538690a503694281b760404a58e2158817d571d72f302"
     },
     {
       "id": "upper-decode",
-      "line_start": 2613,
-      "line_end": 2618,
+      "line_start": 2544,
+      "line_end": 2549,
       "claims": [],
       "sha256": "612a4a9a9752f5a78569d687b2a32b8444dab8171ff2cb2dd4806a9afd91c988"
     },
     {
       "id": "upper-decode-cost",
-      "line_start": 2621,
-      "line_end": 2637,
+      "line_start": 2552,
+      "line_end": 2568,
       "claims": [
         "claim-decode-cost"
       ],
@@ -1267,22 +1266,22 @@
     },
     {
       "id": "upper-comparator",
-      "line_start": 2640,
-      "line_end": 2645,
+      "line_start": 2571,
+      "line_end": 2576,
       "claims": [],
       "sha256": "12db16431c73da701405a98165c379f1bb60fd719d8eba550de8b699362f1807"
     },
     {
       "id": "upper-comparison-law",
-      "line_start": 2648,
-      "line_end": 2653,
+      "line_start": 2579,
+      "line_end": 2584,
       "claims": [],
       "sha256": "70e5a6f1481f1f53bf8bab00635d9afe436a0d70a4c1cc48f0c48597d94b986c"
     },
     {
       "id": "upper-winner-dominates",
-      "line_start": 2656,
-      "line_end": 2668,
+      "line_start": 2587,
+      "line_end": 2599,
       "claims": [
         "claim-winner-dominates"
       ],
@@ -1290,8 +1289,8 @@
     },
     {
       "id": "upper-verifier",
-      "line_start": 2671,
-      "line_end": 2683,
+      "line_start": 2602,
+      "line_end": 2614,
       "claims": [
         "def-K"
       ],
@@ -1299,8 +1298,8 @@
     },
     {
       "id": "upper-verification-proof",
-      "line_start": 2686,
-      "line_end": 2702,
+      "line_start": 2617,
+      "line_end": 2633,
       "claims": [
         "claim-verify"
       ],
@@ -1308,8 +1307,8 @@
     },
     {
       "id": "upper-total-error",
-      "line_start": 2705,
-      "line_end": 2720,
+      "line_start": 2636,
+      "line_end": 2651,
       "claims": [
         "claim-error"
       ],
@@ -1317,22 +1316,22 @@
     },
     {
       "id": "upper-oracle-access",
-      "line_start": 2727,
-      "line_end": 2734,
+      "line_start": 2658,
+      "line_end": 2665,
       "claims": [],
       "sha256": "cfcc2401bf2595e1109f5c5a5c7eec195191b50ad120151e7a910fb6a5fb9104"
     },
     {
       "id": "upper-read-compiler",
-      "line_start": 2737,
-      "line_end": 2744,
+      "line_start": 2668,
+      "line_end": 2675,
       "claims": [],
       "sha256": "e84308b2e3f1c9480d0ca38992d82fae893470ff79a296152c6b40aa0f3e50ad"
     },
     {
       "id": "upper-finite-budget",
-      "line_start": 2747,
-      "line_end": 2761,
+      "line_start": 2678,
+      "line_end": 2692,
       "claims": [
         "new-upper-finite-budget"
       ],
@@ -1340,8 +1339,8 @@
     },
     {
       "id": "upper-asymptotic-bound",
-      "line_start": 2764,
-      "line_end": 2775,
+      "line_start": 2695,
+      "line_end": 2706,
       "claims": [
         "prop-3.3"
       ],
@@ -1349,8 +1348,8 @@
     },
     {
       "id": "upper-explicit-log6",
-      "line_start": 2778,
-      "line_end": 2797,
+      "line_start": 2709,
+      "line_end": 2728,
       "claims": [
         "new-upper-log6"
       ],
@@ -1358,24 +1357,24 @@
     },
     {
       "id": "upper-current-formal-scope",
-      "line_start": 2803,
-      "line_end": 2815,
+      "line_start": 2734,
+      "line_end": 2752,
       "claims": [],
-      "sha256": "71788fba65202a1c33fc60d72dca8c69ad036f44cec32f510e51a2e575c4b29c"
+      "sha256": "db00bf42224f69d52c8918461a4fc6b4bc15bff10a310939b15f1674c57fb8ab"
     },
     {
       "id": "upper-missing-physical-state",
-      "line_start": 2818,
-      "line_end": 2845,
+      "line_start": 2755,
+      "line_end": 2782,
       "claims": [
         "r3-q-physical-state-bridge"
       ],
-      "sha256": "5be18474f0dde44ecad5a7515f99f5a7c339f12298faf5daeae94decfb4ad893"
+      "sha256": "11439a9f6c92deba9b94595798226da51cdb657f19022b8d170c9077568976ca"
     },
     {
       "id": "CL-direct-product-statement",
-      "line_start": 2852,
-      "line_end": 2883,
+      "line_start": 2826,
+      "line_end": 2857,
       "claims": [
         "lem-4.1"
       ],
@@ -1383,17 +1382,17 @@
     },
     {
       "id": "CL-product-law",
-      "line_start": 2886,
-      "line_end": 2928,
+      "line_start": 2862,
+      "line_end": 2904,
       "claims": [
         "claim-product-law"
       ],
-      "sha256": "e2ec94425a90b7aa695f42dac9ca955983917779eacbe6ab1aab65da19914973"
+      "sha256": "f1f608701a5b8ccfa6668d87eb3620eaceb458505b5635ee00414d4306701ffe"
     },
     {
       "id": "CL-conditional-values",
-      "line_start": 2931,
-      "line_end": 2977,
+      "line_start": 2907,
+      "line_end": 2953,
       "claims": [
         "def-value-V",
         "eq-16"
@@ -1402,8 +1401,8 @@
     },
     {
       "id": "CL-supermartingale",
-      "line_start": 2980,
-      "line_end": 3023,
+      "line_start": 2956,
+      "line_end": 2999,
       "claims": [
         "claim-supermartingale",
         "claim-final-bound"
@@ -1412,15 +1411,15 @@
     },
     {
       "id": "CL-independent-information",
-      "line_start": 3026,
-      "line_end": 3049,
+      "line_start": 3002,
+      "line_end": 3025,
       "claims": [],
       "sha256": "4757b6d6d05f0576908155671b0eeb22eded4b4275ed5a4fc3d6571755dd2653"
     },
     {
       "id": "CL-joint-cap",
-      "line_start": 3052,
-      "line_end": 3082,
+      "line_start": 3030,
+      "line_end": 3060,
       "claims": [
         "NCL-joint-cap"
       ],
@@ -1428,26 +1427,26 @@
     },
     {
       "id": "CL-adaptive-example",
-      "line_start": 3085,
-      "line_end": 3135,
+      "line_start": 3065,
+      "line_end": 3115,
       "claims": [
         "NCL-adaptive-cap-example"
       ],
-      "sha256": "b5272fbd414d0e16c20de4f3db3eac3109c3091e5f2387cf68a449f61035abed"
+      "sha256": "18f7dfffbc83b7e0888fc644759b793a92a368b9fc6347f63588a187da63befd"
     },
     {
       "id": "CL-weighted-values",
-      "line_start": 3138,
-      "line_end": 3170,
+      "line_start": 3120,
+      "line_end": 3152,
       "claims": [
         "NCL-weighted-value"
       ],
-      "sha256": "37c8e5b20970eb6021c8553263f9be665977930becd0bdaab913f45063b7d24f"
+      "sha256": "0b7c6309a7eb58a5d23c12c40a8dad6a745b33eda51c0798b6a1d8c1d06b10b7"
     },
     {
       "id": "CL-weighted-product",
-      "line_start": 3173,
-      "line_end": 3198,
+      "line_start": 3155,
+      "line_end": 3180,
       "claims": [
         "NCL-weighted-product"
       ],
@@ -1455,8 +1454,8 @@
     },
     {
       "id": "CL-normalization",
-      "line_start": 3201,
-      "line_end": 3221,
+      "line_start": 3183,
+      "line_end": 3203,
       "claims": [
         "NCL-product-normalization"
       ],
@@ -1464,29 +1463,29 @@
     },
     {
       "id": "CL-planted-interface",
-      "line_start": 3224,
-      "line_end": 3241,
+      "line_start": 3208,
+      "line_end": 3225,
       "claims": [],
-      "sha256": "56faaec5ee26df4fd8b896e062d3c721ed3cebcfb16cca392f4c3a16a4bbaa64"
+      "sha256": "74ccdae4118a1a6177a44e26e9afda972df73cd2ac530325c4838a6186ce8146"
     },
     {
       "id": "CL-literature-and-verification",
-      "line_start": 3244,
-      "line_end": 3284,
+      "line_start": 3230,
+      "line_end": 3268,
       "claims": [],
-      "sha256": "cce0b7bd354d42c12f7a98c665ab18f2aae7e3308c9f47543aa925c3b3447ee1"
+      "sha256": "1cf3bcda714d64a0df22c17912251c31fd8b5b358ea846f4329cea752e473f81"
     },
     {
       "id": "CL-entry-interface",
-      "line_start": 3289,
-      "line_end": 3301,
+      "line_start": 3273,
+      "line_end": 3285,
       "claims": [],
       "sha256": "37c16886782016d704ff02b88e62dba3bb5bb1112562d6b0aa6d01c7b2d4b807"
     },
     {
       "id": "CL-minimax",
-      "line_start": 3304,
-      "line_end": 3325,
+      "line_start": 3288,
+      "line_end": 3309,
       "claims": [
         "claim-minimax-mu",
         "NCL-strict-hard-distribution"
@@ -1495,8 +1494,8 @@
     },
     {
       "id": "CL-address-guess",
-      "line_start": 3328,
-      "line_end": 3337,
+      "line_start": 3312,
+      "line_end": 3321,
       "claims": [
         "claim-address-guess"
       ],
@@ -1504,8 +1503,8 @@
     },
     {
       "id": "CL-generic-statement",
-      "line_start": 3342,
-      "line_end": 3361,
+      "line_start": 3326,
+      "line_end": 3345,
       "claims": [
         "prop-4.2-generic",
         "eq-17"
@@ -1514,8 +1513,8 @@
     },
     {
       "id": "CL-dummy",
-      "line_start": 3364,
-      "line_end": 3377,
+      "line_start": 3348,
+      "line_end": 3361,
       "claims": [
         "def-dummy"
       ],
@@ -1523,8 +1522,8 @@
     },
     {
       "id": "CL-planted",
-      "line_start": 3380,
-      "line_end": 3391,
+      "line_start": 3364,
+      "line_end": 3375,
       "claims": [
         "claim-Y-values",
         "def-planted"
@@ -1533,15 +1532,15 @@
     },
     {
       "id": "CL-tiny-planted-example",
-      "line_start": 3394,
-      "line_end": 3409,
+      "line_start": 3378,
+      "line_end": 3393,
       "claims": [],
       "sha256": "82faf91531aa32d994d57f5f3a42ccaabd05b626210ad50fee1a09691463b143"
     },
     {
       "id": "CL-first-difference",
-      "line_start": 3412,
-      "line_end": 3428,
+      "line_start": 3396,
+      "line_end": 3412,
       "claims": [
         "eq-18"
       ],
@@ -1549,8 +1548,8 @@
     },
     {
       "id": "CL-erased-zero-identity",
-      "line_start": 3433,
-      "line_end": 3446,
+      "line_start": 3417,
+      "line_end": 3430,
       "claims": [
         "def-Z"
       ],
@@ -1558,15 +1557,15 @@
     },
     {
       "id": "CL-selection-independence-example",
-      "line_start": 3449,
-      "line_end": 3457,
+      "line_start": 3433,
+      "line_end": 3441,
       "claims": [],
-      "sha256": "0d3711ce9a2d391e914930d7ab1c80e254f6ef2183e15927a57d7b3a27b91d2a"
+      "sha256": "786cd7d06819aa62d35c46cfd0834f9f8a28349c0a7c853c934ee670946e1b23"
     },
     {
       "id": "CL-early-late",
-      "line_start": 3461,
-      "line_end": 3494,
+      "line_start": 3445,
+      "line_end": 3478,
       "claims": [
         "claim-uniform-zero",
         "claim-EZ",
@@ -1576,8 +1575,8 @@
     },
     {
       "id": "CL-zero-worlds",
-      "line_start": 3497,
-      "line_end": 3519,
+      "line_start": 3485,
+      "line_end": 3507,
       "claims": [
         "NCL-zero-worlds"
       ],
@@ -1585,8 +1584,8 @@
     },
     {
       "id": "CL-zero-average",
-      "line_start": 3522,
-      "line_end": 3534,
+      "line_start": 3510,
+      "line_end": 3522,
       "claims": [
         "NCL-erased-zero-two"
       ],
@@ -1594,8 +1593,8 @@
     },
     {
       "id": "CL-zero-optional",
-      "line_start": 3537,
-      "line_end": 3553,
+      "line_start": 3525,
+      "line_end": 3541,
       "claims": [
         "NCL-erased-zero-mplusone"
       ],
@@ -1603,8 +1602,8 @@
     },
     {
       "id": "CL-heavy",
-      "line_start": 3558,
-      "line_end": 3567,
+      "line_start": 3546,
+      "line_end": 3555,
       "claims": [
         "def-heavy",
         "eq-20"
@@ -1613,8 +1612,8 @@
     },
     {
       "id": "CL-simulator",
-      "line_start": 3570,
-      "line_end": 3577,
+      "line_start": 3558,
+      "line_end": 3565,
       "claims": [
         "def-simulator"
       ],
@@ -1625,28 +1624,28 @@
       "line_start": 3580,
       "line_end": 3609,
       "claims": [],
-      "sha256": "edd35f4d31cc031fc1611c124c60ab310d32f4319e18cf779d82f3457270e716"
+      "sha256": "ebaf4d2c19a98413719199106e7427a7638b34ec10d1ac77d6e4a4fa97ef5178"
     },
     {
       "id": "CL-joint-event",
-      "line_start": 3612,
-      "line_end": 3621,
+      "line_start": 3568,
+      "line_end": 3577,
       "claims": [
         "eq-21"
       ],
-      "sha256": "219ae5681d908a0271fcb914d86c6ccd9a30a5c067c4059cd921ef432c169e9d"
+      "sha256": "3982a26d1b48b403c5178e01aaf79f4afcf93f8b540b6b0f4932ef0644b26cb3"
     },
     {
       "id": "CL-conditioning-counterexample",
-      "line_start": 3624,
-      "line_end": 3628,
+      "line_start": 3613,
+      "line_end": 3617,
       "claims": [],
-      "sha256": "d89e624ac6fb26ca6a62bf11843cb57d60730058373d8462aa4353f38395ecd4"
+      "sha256": "b169c2eed492c9212e2cbc9022563a2cd63475d10124dcde6a54e8a0bb42f1df"
     },
     {
       "id": "CL-cell-union",
-      "line_start": 3631,
-      "line_end": 3640,
+      "line_start": 3620,
+      "line_end": 3629,
       "claims": [
         "eq-22"
       ],
@@ -1654,8 +1653,8 @@
     },
     {
       "id": "CL-discrepancy",
-      "line_start": 3645,
-      "line_end": 3661,
+      "line_start": 3636,
+      "line_end": 3652,
       "claims": [
         "eq-23",
         "new-r2-planted-gap-absolute-two",
@@ -1665,8 +1664,8 @@
     },
     {
       "id": "CL-tail-numeric",
-      "line_start": 3664,
-      "line_end": 3693,
+      "line_start": 3655,
+      "line_end": 3684,
       "claims": [
         "claim-tail",
         "claim-numeric"
@@ -1675,22 +1674,22 @@
     },
     {
       "id": "CL-randomized-contradiction",
-      "line_start": 3696,
-      "line_end": 3702,
+      "line_start": 3687,
+      "line_end": 3693,
       "claims": [],
       "sha256": "a1e11b9a1680032307b9893ed124a20d56e4150befe9845c5fe3bf928c12428e"
     },
     {
       "id": "CL-forrelation-input",
-      "line_start": 3705,
-      "line_end": 3720,
+      "line_start": 3696,
+      "line_end": 3711,
       "claims": [],
       "sha256": "ae39d5946ef06027c351aa929fcfe212637d782b78d382a4dd60dbb1037c567b"
     },
     {
       "id": "CL-floors",
-      "line_start": 3723,
-      "line_end": 3753,
+      "line_start": 3714,
+      "line_end": 3744,
       "claims": [
         "claim-floor",
         "NCL-explicit-floor"
@@ -1699,8 +1698,8 @@
     },
     {
       "id": "CL-concrete-lower",
-      "line_start": 3756,
-      "line_end": 3776,
+      "line_start": 3747,
+      "line_end": 3767,
       "claims": [
         "prop-4.2",
         "cor-R-omega"
@@ -1709,127 +1708,127 @@
     },
     {
       "id": "CL-formal-scope",
-      "line_start": 3781,
-      "line_end": 3805,
+      "line_start": 3772,
+      "line_end": 3796,
       "claims": [],
       "sha256": "c4d9a8bbac8218797f039964fb7f617b5df9c12236f61aa2a9cdd3827bc5e973"
     },
     {
       "id": "ROOT-FAMILY-ASSEMBLY",
-      "line_start": 3810,
-      "line_end": 3839,
+      "line_start": 3803,
+      "line_end": 3828,
       "claims": [],
-      "sha256": "aa41ad70cd2cc309119646ae8bfc29c696fcf148b6e7d2d3e13d77361f4974b4"
+      "sha256": "8106997eeb5e968e7404fec1a40e4f6f0034ce5b619938b98d7eb86ce6c3a832"
     },
     {
       "id": "ROOT-RATIO",
-      "line_start": 3844,
-      "line_end": 3882,
+      "line_start": 3833,
+      "line_end": 3871,
       "claims": [],
       "sha256": "192afefc5f807f3ab97fb012c0a0e81c19549839a28ab8152d0c29e222ab704e"
     },
     {
       "id": "ROOT-NO-SMALLER",
-      "line_start": 3887,
-      "line_end": 3904,
+      "line_start": 3876,
+      "line_end": 3893,
       "claims": [],
       "sha256": "adf0b7666be7176bff8357f954a45a937f8e9964eb5b0a5b5e0bfac01ebef0fd"
     },
     {
       "id": "ROOT-EXPONENT-CORRESPONDENCE",
-      "line_start": 3909,
-      "line_end": 3917,
+      "line_start": 3898,
+      "line_end": 3906,
       "claims": [],
-      "sha256": "f8d6c45a2c673d4723a1e0df3dea483771fc83ec7cf6b90c606f25450a64ec10"
+      "sha256": "4a54fd879cf28d7a3a629983a3f87ad6744d09806bf6d94222b598fd31d6478b"
     },
     {
       "id": "R3-A-RESULT",
-      "line_start": 3924,
-      "line_end": 3934,
+      "line_start": 3915,
+      "line_end": 3925,
       "claims": [],
       "sha256": "4672d04cd69132844f72ecd3b2fae0f736068ec19e258becce356d762ba1f4a3"
     },
     {
       "id": "R3-A-DEFINITIONS",
-      "line_start": 3940,
-      "line_end": 3963,
+      "line_start": 3931,
+      "line_end": 3954,
       "claims": [],
       "sha256": "6ae03106172f32d335d0e47cfbbf27491dd334b57ceb5ddd41618c257ed8ad94"
     },
     {
       "id": "R3-A-ADVERSARY",
-      "line_start": 3971,
-      "line_end": 4045,
+      "line_start": 3962,
+      "line_end": 4036,
       "claims": [],
       "sha256": "acf650cf28d2b452b6c4fc0eb2c99ca5c58a726f0cbebb5568f41af5e3c973db"
     },
     {
       "id": "R3-A-PARITY-PREFACTOR",
-      "line_start": 4048,
-      "line_end": 4083,
+      "line_start": 4039,
+      "line_end": 4074,
       "claims": [],
       "sha256": "c65e86c983a53c1934fa5b87af5f30cd4892750a72ae332a43f3efe6e17ad504"
     },
     {
       "id": "R3-A-STAR",
-      "line_start": 4089,
-      "line_end": 4102,
+      "line_start": 4080,
+      "line_end": 4093,
       "claims": [],
       "sha256": "e47d08bfa1e8fb9df416ecf98df364475b1aef0e18e4d691c142f3186bd70283"
     },
     {
       "id": "R3-A-SPECTRAL",
-      "line_start": 4105,
-      "line_end": 4112,
+      "line_start": 4096,
+      "line_end": 4103,
       "claims": [],
       "sha256": "10030bf9a8f5963b62c724e6ee1ff518b4e0608ac0ca6774ca883508ee651bbe"
     },
     {
       "id": "R3-A-FACE",
-      "line_start": 4118,
-      "line_end": 4135,
+      "line_start": 4109,
+      "line_end": 4126,
       "claims": [],
       "sha256": "6a072e148247345bedd79a10bab9257dc1d5c8a545887f47373b89f30b21e0e0"
     },
     {
       "id": "R3-A-HUANG",
-      "line_start": 4139,
-      "line_end": 4159,
+      "line_start": 4130,
+      "line_end": 4150,
       "claims": [],
       "sha256": "8d1438e14a8cbbbe5715f003049d039900c7640fcf129ab53853ae5c26784f2b"
     },
     {
       "id": "R3-A-MIDRIJANIS",
-      "line_start": 4165,
-      "line_end": 4178,
+      "line_start": 4156,
+      "line_end": 4169,
       "claims": [],
       "sha256": "c82651c3e3c9b4ac5e37be880bfe820c72860e63cd9e42c5563d32e5b7cba99b"
     },
     {
       "id": "R3-A-ASSEMBLY",
-      "line_start": 4184,
-      "line_end": 4201,
+      "line_start": 4175,
+      "line_end": 4192,
       "claims": [],
       "sha256": "d8acb743ccc31db464d41c7c7e3365f84b9a082b124dd6cfdc9054a2aa0fcd5a"
     },
     {
       "id": "R3-A-FORMAL",
-      "line_start": 4204,
-      "line_end": 4210,
+      "line_start": 4195,
+      "line_end": 4199,
       "claims": [],
-      "sha256": "20b708bcd47617ff5e1688545cf53876b1e9d835871f7256ce1ceaef58d5a3c2"
+      "sha256": "aa74b262a395f256dc48e9a62535fb4d1e9e7e30aa41e7ba52ba52d5132541c0"
     },
     {
       "id": "ROOT-CATALOGUE-INTRO",
-      "line_start": 4215,
-      "line_end": 4221,
+      "line_start": 4206,
+      "line_end": 4212,
       "claims": [],
-      "sha256": "f0243c49d95046ad6b96465f411b5f62e3568548de35ed94e09ce639a4993e41"
+      "sha256": "99d458fccef2bc6d15c414c4ccbf9f7ff0db6906c8ce0d2e2e16afee0c2244d6"
     },
     {
       "id": "CAT-def-log-convention",
-      "line_start": 4230,
-      "line_end": 4237,
+      "line_start": 4221,
+      "line_end": 4228,
       "claims": [
         "def-log-convention"
       ],
@@ -1837,8 +1836,8 @@
     },
     {
       "id": "CAT-def-partial-query",
-      "line_start": 4242,
-      "line_end": 4249,
+      "line_start": 4233,
+      "line_end": 4240,
       "claims": [
         "def-partial-query"
       ],
@@ -1846,8 +1845,8 @@
     },
     {
       "id": "CAT-def-R",
-      "line_start": 4254,
-      "line_end": 4261,
+      "line_start": 4245,
+      "line_end": 4252,
       "claims": [
         "def-R"
       ],
@@ -1855,8 +1854,8 @@
     },
     {
       "id": "CAT-def-query-oracle",
-      "line_start": 4266,
-      "line_end": 4273,
+      "line_start": 4257,
+      "line_end": 4264,
       "claims": [
         "def-query-oracle"
       ],
@@ -1864,8 +1863,8 @@
     },
     {
       "id": "CAT-def-Q",
-      "line_start": 4278,
-      "line_end": 4285,
+      "line_start": 4269,
+      "line_end": 4276,
       "claims": [
         "def-Q"
       ],
@@ -1873,8 +1872,8 @@
     },
     {
       "id": "CAT-eq-1",
-      "line_start": 4290,
-      "line_end": 4297,
+      "line_start": 4281,
+      "line_end": 4288,
       "claims": [
         "eq-1"
       ],
@@ -1882,8 +1881,8 @@
     },
     {
       "id": "CAT-eq-2",
-      "line_start": 4302,
-      "line_end": 4309,
+      "line_start": 4293,
+      "line_end": 4300,
       "claims": [
         "eq-2"
       ],
@@ -1891,8 +1890,8 @@
     },
     {
       "id": "CAT-thm-1.1",
-      "line_start": 4314,
-      "line_end": 4321,
+      "line_start": 4305,
+      "line_end": 4312,
       "claims": [
         "thm-1.1"
       ],
@@ -1900,8 +1899,8 @@
     },
     {
       "id": "CAT-cor-cubic-refuted",
-      "line_start": 4326,
-      "line_end": 4333,
+      "line_start": 4317,
+      "line_end": 4324,
       "claims": [
         "cor-cubic-refuted"
       ],
@@ -1909,8 +1908,8 @@
     },
     {
       "id": "CAT-def-walsh-sign",
-      "line_start": 4342,
-      "line_end": 4349,
+      "line_start": 4333,
+      "line_end": 4340,
       "claims": [
         "def-walsh-sign"
       ],
@@ -1918,8 +1917,8 @@
     },
     {
       "id": "CAT-eq-3",
-      "line_start": 4354,
-      "line_end": 4361,
+      "line_start": 4345,
+      "line_end": 4352,
       "claims": [
         "eq-3"
       ],
@@ -1927,8 +1926,8 @@
     },
     {
       "id": "CAT-eq-4",
-      "line_start": 4366,
-      "line_end": 4373,
+      "line_start": 4357,
+      "line_end": 4364,
       "claims": [
         "eq-4"
       ],
@@ -1936,8 +1935,8 @@
     },
     {
       "id": "CAT-eq-5",
-      "line_start": 4378,
-      "line_end": 4385,
+      "line_start": 4369,
+      "line_end": 4376,
       "claims": [
         "eq-5"
       ],
@@ -1945,8 +1944,8 @@
     },
     {
       "id": "CAT-claim-bs-to-L",
-      "line_start": 4390,
-      "line_end": 4397,
+      "line_start": 4381,
+      "line_end": 4388,
       "claims": [
         "claim-bs-to-L"
       ],
@@ -1954,8 +1953,8 @@
     },
     {
       "id": "CAT-lem-2.1.i",
-      "line_start": 4402,
-      "line_end": 4409,
+      "line_start": 4393,
+      "line_end": 4400,
       "claims": [
         "lem-2.1.i"
       ],
@@ -1963,8 +1962,8 @@
     },
     {
       "id": "CAT-claim-proj-prob",
-      "line_start": 4414,
-      "line_end": 4421,
+      "line_start": 4405,
+      "line_end": 4412,
       "claims": [
         "claim-proj-prob"
       ],
@@ -1972,8 +1971,8 @@
     },
     {
       "id": "CAT-lem-2.1.ii",
-      "line_start": 4426,
-      "line_end": 4433,
+      "line_start": 4417,
+      "line_end": 4424,
       "claims": [
         "lem-2.1.ii"
       ],
@@ -1981,8 +1980,8 @@
     },
     {
       "id": "CAT-claim-N-phi",
-      "line_start": 4438,
-      "line_end": 4445,
+      "line_start": 4429,
+      "line_end": 4436,
       "claims": [
         "claim-N-phi"
       ],
@@ -1990,8 +1989,8 @@
     },
     {
       "id": "CAT-claim-integer-tests",
-      "line_start": 4450,
-      "line_end": 4457,
+      "line_start": 4441,
+      "line_end": 4448,
       "claims": [
         "claim-integer-tests"
       ],
@@ -1999,8 +1998,8 @@
     },
     {
       "id": "CAT-claim-circuit-size",
-      "line_start": 4462,
-      "line_end": 4469,
+      "line_start": 4453,
+      "line_end": 4460,
       "claims": [
         "claim-circuit-size"
       ],
@@ -2008,8 +2007,8 @@
     },
     {
       "id": "CAT-lem-2.1.iii",
-      "line_start": 4474,
-      "line_end": 4481,
+      "line_start": 4465,
+      "line_end": 4472,
       "claims": [
         "lem-2.1.iii"
       ],
@@ -2017,8 +2016,8 @@
     },
     {
       "id": "CAT-lem-2.1",
-      "line_start": 4486,
-      "line_end": 4493,
+      "line_start": 4477,
+      "line_end": 4484,
       "claims": [
         "lem-2.1"
       ],
@@ -2026,8 +2025,8 @@
     },
     {
       "id": "CAT-def-transcript",
-      "line_start": 4502,
-      "line_end": 4509,
+      "line_start": 4493,
+      "line_end": 4500,
       "claims": [
         "def-transcript"
       ],
@@ -2035,8 +2034,8 @@
     },
     {
       "id": "CAT-eq-6",
-      "line_start": 4514,
-      "line_end": 4521,
+      "line_start": 4505,
+      "line_end": 4512,
       "claims": [
         "eq-6"
       ],
@@ -2044,8 +2043,8 @@
     },
     {
       "id": "CAT-def-column-layout",
-      "line_start": 4526,
-      "line_end": 4533,
+      "line_start": 4517,
+      "line_end": 4524,
       "claims": [
         "def-column-layout"
       ],
@@ -2053,8 +2052,8 @@
     },
     {
       "id": "CAT-def-eval-transcript",
-      "line_start": 4538,
-      "line_end": 4545,
+      "line_start": 4529,
+      "line_end": 4536,
       "claims": [
         "def-eval-transcript"
       ],
@@ -2062,8 +2061,8 @@
     },
     {
       "id": "CAT-eq-7",
-      "line_start": 4550,
-      "line_end": 4557,
+      "line_start": 4541,
+      "line_end": 4548,
       "claims": [
         "eq-7"
       ],
@@ -2071,8 +2070,8 @@
     },
     {
       "id": "CAT-eq-8",
-      "line_start": 4562,
-      "line_end": 4569,
+      "line_start": 4553,
+      "line_end": 4560,
       "claims": [
         "eq-8"
       ],
@@ -2080,8 +2079,8 @@
     },
     {
       "id": "CAT-def-winner",
-      "line_start": 4574,
-      "line_end": 4581,
+      "line_start": 4565,
+      "line_end": 4572,
       "claims": [
         "def-winner"
       ],
@@ -2089,8 +2088,8 @@
     },
     {
       "id": "CAT-def-F",
-      "line_start": 4586,
-      "line_end": 4593,
+      "line_start": 4577,
+      "line_end": 4584,
       "claims": [
         "def-F"
       ],
@@ -2098,8 +2097,8 @@
     },
     {
       "id": "CAT-cor-unique-winner",
-      "line_start": 4598,
-      "line_end": 4605,
+      "line_start": 4589,
+      "line_end": 4596,
       "claims": [
         "cor-unique-winner"
       ],
@@ -2107,8 +2106,8 @@
     },
     {
       "id": "CAT-def-win-at-address",
-      "line_start": 4610,
-      "line_end": 4617,
+      "line_start": 4601,
+      "line_end": 4608,
       "claims": [
         "def-win-at-address"
       ],
@@ -2116,8 +2115,8 @@
     },
     {
       "id": "CAT-def-K",
-      "line_start": 4622,
-      "line_end": 4629,
+      "line_start": 4613,
+      "line_end": 4620,
       "claims": [
         "def-K"
       ],
@@ -2125,8 +2124,8 @@
     },
     {
       "id": "CAT-lem-2.2.i",
-      "line_start": 4634,
-      "line_end": 4641,
+      "line_start": 4625,
+      "line_end": 4632,
       "claims": [
         "lem-2.2.i"
       ],
@@ -2134,8 +2133,8 @@
     },
     {
       "id": "CAT-lem-2.2.ii",
-      "line_start": 4646,
-      "line_end": 4653,
+      "line_start": 4637,
+      "line_end": 4644,
       "claims": [
         "lem-2.2.ii"
       ],
@@ -2143,8 +2142,8 @@
     },
     {
       "id": "CAT-lem-2.2",
-      "line_start": 4658,
-      "line_end": 4665,
+      "line_start": 4649,
+      "line_end": 4656,
       "claims": [
         "lem-2.2"
       ],
@@ -2152,8 +2151,8 @@
     },
     {
       "id": "CAT-cor-local-dichotomy",
-      "line_start": 4670,
-      "line_end": 4677,
+      "line_start": 4661,
+      "line_end": 4668,
       "claims": [
         "cor-local-dichotomy"
       ],
@@ -2161,8 +2160,8 @@
     },
     {
       "id": "CAT-claim-winner-fidelity",
-      "line_start": 4682,
-      "line_end": 4689,
+      "line_start": 4673,
+      "line_end": 4680,
       "claims": [
         "claim-winner-fidelity"
       ],
@@ -2170,8 +2169,8 @@
     },
     {
       "id": "CAT-def-grover-trial",
-      "line_start": 4698,
-      "line_end": 4705,
+      "line_start": 4689,
+      "line_end": 4696,
       "claims": [
         "def-grover-trial"
       ],
@@ -2179,8 +2178,8 @@
     },
     {
       "id": "CAT-claim-grover-state",
-      "line_start": 4710,
-      "line_end": 4717,
+      "line_start": 4701,
+      "line_end": 4708,
       "claims": [
         "claim-grover-state"
       ],
@@ -2188,8 +2187,8 @@
     },
     {
       "id": "CAT-claim-sin2theta",
-      "line_start": 4722,
-      "line_end": 4729,
+      "line_start": 4713,
+      "line_end": 4720,
       "claims": [
         "claim-sin2theta"
       ],
@@ -2197,8 +2196,8 @@
     },
     {
       "id": "CAT-eq-9",
-      "line_start": 4734,
-      "line_end": 4741,
+      "line_start": 4725,
+      "line_end": 4732,
       "claims": [
         "eq-9"
       ],
@@ -2206,8 +2205,8 @@
     },
     {
       "id": "CAT-lem-3.1",
-      "line_start": 4746,
-      "line_end": 4753,
+      "line_start": 4737,
+      "line_end": 4744,
       "claims": [
         "lem-3.1"
       ],
@@ -2215,8 +2214,8 @@
     },
     {
       "id": "CAT-def-aij",
-      "line_start": 4762,
-      "line_end": 4769,
+      "line_start": 4753,
+      "line_end": 4760,
       "claims": [
         "def-aij"
       ],
@@ -2224,8 +2223,8 @@
     },
     {
       "id": "CAT-eq-10",
-      "line_start": 4774,
-      "line_end": 4781,
+      "line_start": 4765,
+      "line_end": 4772,
       "claims": [
         "eq-10"
       ],
@@ -2233,8 +2232,8 @@
     },
     {
       "id": "CAT-def-T-eps",
-      "line_start": 4786,
-      "line_end": 4793,
+      "line_start": 4777,
+      "line_end": 4784,
       "claims": [
         "def-T-eps"
       ],
@@ -2242,8 +2241,8 @@
     },
     {
       "id": "CAT-eq-11",
-      "line_start": 4798,
-      "line_end": 4805,
+      "line_start": 4789,
+      "line_end": 4796,
       "claims": [
         "eq-11"
       ],
@@ -2251,8 +2250,8 @@
     },
     {
       "id": "CAT-def-ideal-process",
-      "line_start": 4810,
-      "line_end": 4817,
+      "line_start": 4801,
+      "line_end": 4808,
       "claims": [
         "def-ideal-process"
       ],
@@ -2260,8 +2259,8 @@
     },
     {
       "id": "CAT-eq-12",
-      "line_start": 4822,
-      "line_end": 4829,
+      "line_start": 4813,
+      "line_end": 4820,
       "claims": [
         "eq-12"
       ],
@@ -2269,8 +2268,8 @@
     },
     {
       "id": "CAT-eq-13",
-      "line_start": 4834,
-      "line_end": 4841,
+      "line_start": 4825,
+      "line_end": 4832,
       "claims": [
         "eq-13"
       ],
@@ -2278,8 +2277,8 @@
     },
     {
       "id": "CAT-claim-expected-WT",
-      "line_start": 4846,
-      "line_end": 4853,
+      "line_start": 4837,
+      "line_end": 4844,
       "claims": [
         "claim-expected-WT"
       ],
@@ -2287,8 +2286,8 @@
     },
     {
       "id": "CAT-claim-weight-lb",
-      "line_start": 4858,
-      "line_end": 4865,
+      "line_start": 4849,
+      "line_end": 4856,
       "claims": [
         "claim-weight-lb"
       ],
@@ -2296,8 +2295,8 @@
     },
     {
       "id": "CAT-eq-14",
-      "line_start": 4870,
-      "line_end": 4877,
+      "line_start": 4861,
+      "line_end": 4868,
       "claims": [
         "eq-14"
       ],
@@ -2305,8 +2304,8 @@
     },
     {
       "id": "CAT-construct-sampler",
-      "line_start": 4882,
-      "line_end": 4889,
+      "line_start": 4873,
+      "line_end": 4880,
       "claims": [
         "construct-sampler"
       ],
@@ -2314,8 +2313,8 @@
     },
     {
       "id": "CAT-eq-15",
-      "line_start": 4894,
-      "line_end": 4901,
+      "line_start": 4885,
+      "line_end": 4892,
       "claims": [
         "eq-15"
       ],
@@ -2323,8 +2322,8 @@
     },
     {
       "id": "CAT-claim-success-prob",
-      "line_start": 4906,
-      "line_end": 4913,
+      "line_start": 4897,
+      "line_end": 4904,
       "claims": [
         "claim-success-prob"
       ],
@@ -2332,8 +2331,8 @@
     },
     {
       "id": "CAT-claim-coupling",
-      "line_start": 4918,
-      "line_end": 4925,
+      "line_start": 4909,
+      "line_end": 4916,
       "claims": [
         "claim-coupling"
       ],
@@ -2341,8 +2340,8 @@
     },
     {
       "id": "CAT-claim-tournament-cost",
-      "line_start": 4930,
-      "line_end": 4937,
+      "line_start": 4921,
+      "line_end": 4928,
       "claims": [
         "claim-tournament-cost"
       ],
@@ -2350,8 +2349,8 @@
     },
     {
       "id": "CAT-prop-3.2",
-      "line_start": 4942,
-      "line_end": 4949,
+      "line_start": 4933,
+      "line_end": 4940,
       "claims": [
         "prop-3.2"
       ],
@@ -2359,8 +2358,8 @@
     },
     {
       "id": "CAT-def-decode",
-      "line_start": 4958,
-      "line_end": 4965,
+      "line_start": 4949,
+      "line_end": 4956,
       "claims": [
         "def-decode"
       ],
@@ -2368,8 +2367,8 @@
     },
     {
       "id": "CAT-claim-decode-cost",
-      "line_start": 4970,
-      "line_end": 4977,
+      "line_start": 4961,
+      "line_end": 4968,
       "claims": [
         "claim-decode-cost"
       ],
@@ -2377,8 +2376,8 @@
     },
     {
       "id": "CAT-def-comparison",
-      "line_start": 4982,
-      "line_end": 4989,
+      "line_start": 4973,
+      "line_end": 4980,
       "claims": [
         "def-comparison"
       ],
@@ -2386,8 +2385,8 @@
     },
     {
       "id": "CAT-claim-comparison-state",
-      "line_start": 4994,
-      "line_end": 5001,
+      "line_start": 4985,
+      "line_end": 4992,
       "claims": [
         "claim-comparison-state"
       ],
@@ -2395,8 +2394,8 @@
     },
     {
       "id": "CAT-claim-winner-dominates",
-      "line_start": 5006,
-      "line_end": 5013,
+      "line_start": 4997,
+      "line_end": 5004,
       "claims": [
         "claim-winner-dominates"
       ],
@@ -2404,8 +2403,8 @@
     },
     {
       "id": "CAT-def-verify",
-      "line_start": 5018,
-      "line_end": 5025,
+      "line_start": 5009,
+      "line_end": 5016,
       "claims": [
         "def-verify"
       ],
@@ -2413,8 +2412,8 @@
     },
     {
       "id": "CAT-claim-verify",
-      "line_start": 5030,
-      "line_end": 5037,
+      "line_start": 5021,
+      "line_end": 5028,
       "claims": [
         "claim-verify"
       ],
@@ -2422,8 +2421,8 @@
     },
     {
       "id": "CAT-claim-error",
-      "line_start": 5042,
-      "line_end": 5049,
+      "line_start": 5033,
+      "line_end": 5040,
       "claims": [
         "claim-error"
       ],
@@ -2431,8 +2430,8 @@
     },
     {
       "id": "CAT-claim-coherent-access",
-      "line_start": 5054,
-      "line_end": 5061,
+      "line_start": 5045,
+      "line_end": 5052,
       "claims": [
         "claim-coherent-access"
       ],
@@ -2440,8 +2439,8 @@
     },
     {
       "id": "CAT-prop-3.3",
-      "line_start": 5066,
-      "line_end": 5073,
+      "line_start": 5057,
+      "line_end": 5064,
       "claims": [
         "prop-3.3"
       ],
@@ -2449,8 +2448,8 @@
     },
     {
       "id": "CAT-claim-product-law",
-      "line_start": 5082,
-      "line_end": 5089,
+      "line_start": 5073,
+      "line_end": 5080,
       "claims": [
         "claim-product-law"
       ],
@@ -2458,8 +2457,8 @@
     },
     {
       "id": "CAT-def-value-V",
-      "line_start": 5094,
-      "line_end": 5101,
+      "line_start": 5085,
+      "line_end": 5092,
       "claims": [
         "def-value-V"
       ],
@@ -2467,8 +2466,8 @@
     },
     {
       "id": "CAT-eq-16",
-      "line_start": 5106,
-      "line_end": 5113,
+      "line_start": 5097,
+      "line_end": 5104,
       "claims": [
         "eq-16"
       ],
@@ -2476,8 +2475,8 @@
     },
     {
       "id": "CAT-claim-supermartingale",
-      "line_start": 5118,
-      "line_end": 5125,
+      "line_start": 5109,
+      "line_end": 5116,
       "claims": [
         "claim-supermartingale"
       ],
@@ -2485,8 +2484,8 @@
     },
     {
       "id": "CAT-claim-final-bound",
-      "line_start": 5130,
-      "line_end": 5137,
+      "line_start": 5121,
+      "line_end": 5128,
       "claims": [
         "claim-final-bound"
       ],
@@ -2494,8 +2493,8 @@
     },
     {
       "id": "CAT-lem-4.1",
-      "line_start": 5142,
-      "line_end": 5149,
+      "line_start": 5133,
+      "line_end": 5140,
       "claims": [
         "lem-4.1"
       ],
@@ -2503,8 +2502,8 @@
     },
     {
       "id": "CAT-claim-minimax-mu",
-      "line_start": 5154,
-      "line_end": 5161,
+      "line_start": 5145,
+      "line_end": 5152,
       "claims": [
         "claim-minimax-mu"
       ],
@@ -2512,8 +2511,8 @@
     },
     {
       "id": "CAT-claim-address-guess",
-      "line_start": 5166,
-      "line_end": 5173,
+      "line_start": 5157,
+      "line_end": 5164,
       "claims": [
         "claim-address-guess"
       ],
@@ -2521,8 +2520,8 @@
     },
     {
       "id": "CAT-eq-17",
-      "line_start": 5182,
-      "line_end": 5189,
+      "line_start": 5173,
+      "line_end": 5180,
       "claims": [
         "eq-17"
       ],
@@ -2530,8 +2529,8 @@
     },
     {
       "id": "CAT-def-dummy",
-      "line_start": 5194,
-      "line_end": 5201,
+      "line_start": 5185,
+      "line_end": 5192,
       "claims": [
         "def-dummy"
       ],
@@ -2539,8 +2538,8 @@
     },
     {
       "id": "CAT-def-planted",
-      "line_start": 5206,
-      "line_end": 5213,
+      "line_start": 5197,
+      "line_end": 5204,
       "claims": [
         "def-planted"
       ],
@@ -2548,8 +2547,8 @@
     },
     {
       "id": "CAT-claim-Y-values",
-      "line_start": 5218,
-      "line_end": 5225,
+      "line_start": 5209,
+      "line_end": 5216,
       "claims": [
         "claim-Y-values"
       ],
@@ -2557,8 +2556,8 @@
     },
     {
       "id": "CAT-eq-18",
-      "line_start": 5230,
-      "line_end": 5237,
+      "line_start": 5221,
+      "line_end": 5228,
       "claims": [
         "eq-18"
       ],
@@ -2566,8 +2565,8 @@
     },
     {
       "id": "CAT-def-Z",
-      "line_start": 5242,
-      "line_end": 5249,
+      "line_start": 5233,
+      "line_end": 5240,
       "claims": [
         "def-Z"
       ],
@@ -2575,8 +2574,8 @@
     },
     {
       "id": "CAT-claim-uniform-zero",
-      "line_start": 5254,
-      "line_end": 5261,
+      "line_start": 5245,
+      "line_end": 5252,
       "claims": [
         "claim-uniform-zero"
       ],
@@ -2584,8 +2583,8 @@
     },
     {
       "id": "CAT-claim-EZ",
-      "line_start": 5266,
-      "line_end": 5273,
+      "line_start": 5257,
+      "line_end": 5264,
       "claims": [
         "claim-EZ"
       ],
@@ -2593,8 +2592,8 @@
     },
     {
       "id": "CAT-eq-19",
-      "line_start": 5278,
-      "line_end": 5285,
+      "line_start": 5269,
+      "line_end": 5276,
       "claims": [
         "eq-19"
       ],
@@ -2602,8 +2601,8 @@
     },
     {
       "id": "CAT-def-heavy",
-      "line_start": 5290,
-      "line_end": 5297,
+      "line_start": 5281,
+      "line_end": 5288,
       "claims": [
         "def-heavy"
       ],
@@ -2611,8 +2610,8 @@
     },
     {
       "id": "CAT-eq-20",
-      "line_start": 5302,
-      "line_end": 5309,
+      "line_start": 5293,
+      "line_end": 5300,
       "claims": [
         "eq-20"
       ],
@@ -2620,8 +2619,8 @@
     },
     {
       "id": "CAT-def-simulator",
-      "line_start": 5314,
-      "line_end": 5321,
+      "line_start": 5305,
+      "line_end": 5312,
       "claims": [
         "def-simulator"
       ],
@@ -2629,8 +2628,8 @@
     },
     {
       "id": "CAT-eq-21",
-      "line_start": 5326,
-      "line_end": 5333,
+      "line_start": 5317,
+      "line_end": 5324,
       "claims": [
         "eq-21"
       ],
@@ -2638,8 +2637,8 @@
     },
     {
       "id": "CAT-eq-22",
-      "line_start": 5338,
-      "line_end": 5345,
+      "line_start": 5329,
+      "line_end": 5336,
       "claims": [
         "eq-22"
       ],
@@ -2647,8 +2646,8 @@
     },
     {
       "id": "CAT-eq-23",
-      "line_start": 5350,
-      "line_end": 5357,
+      "line_start": 5341,
+      "line_end": 5348,
       "claims": [
         "eq-23"
       ],
@@ -2656,8 +2655,8 @@
     },
     {
       "id": "CAT-claim-tail",
-      "line_start": 5362,
-      "line_end": 5369,
+      "line_start": 5353,
+      "line_end": 5360,
       "claims": [
         "claim-tail"
       ],
@@ -2665,8 +2664,8 @@
     },
     {
       "id": "CAT-claim-numeric",
-      "line_start": 5374,
-      "line_end": 5381,
+      "line_start": 5365,
+      "line_end": 5372,
       "claims": [
         "claim-numeric"
       ],
@@ -2674,8 +2673,8 @@
     },
     {
       "id": "CAT-prop-4.2",
-      "line_start": 5386,
-      "line_end": 5393,
+      "line_start": 5377,
+      "line_end": 5384,
       "claims": [
         "prop-4.2"
       ],
@@ -2683,8 +2682,8 @@
     },
     {
       "id": "CAT-cor-R-omega",
-      "line_start": 5398,
-      "line_end": 5405,
+      "line_start": 5389,
+      "line_end": 5396,
       "claims": [
         "cor-R-omega"
       ],
@@ -2692,8 +2691,8 @@
     },
     {
       "id": "CAT-prop-4.2-generic",
-      "line_start": 5410,
-      "line_end": 5417,
+      "line_start": 5401,
+      "line_end": 5408,
       "claims": [
         "prop-4.2-generic"
       ],
@@ -2701,8 +2700,8 @@
     },
     {
       "id": "CAT-claim-floor",
-      "line_start": 5426,
-      "line_end": 5433,
+      "line_start": 5417,
+      "line_end": 5424,
       "claims": [
         "claim-floor"
       ],
@@ -2710,8 +2709,8 @@
     },
     {
       "id": "CAT-claim-exponent-ratio",
-      "line_start": 5438,
-      "line_end": 5445,
+      "line_start": 5429,
+      "line_end": 5436,
       "claims": [
         "claim-exponent-ratio"
       ],
@@ -2719,8 +2718,8 @@
     },
     {
       "id": "CAT-claim-no-smaller-exponent",
-      "line_start": 5450,
-      "line_end": 5457,
+      "line_start": 5441,
+      "line_end": 5448,
       "claims": [
         "claim-no-smaller-exponent"
       ],
@@ -2728,8 +2727,8 @@
     },
     {
       "id": "CAT-def-D",
-      "line_start": 5466,
-      "line_end": 5473,
+      "line_start": 5457,
+      "line_end": 5464,
       "claims": [
         "def-D"
       ],
@@ -2737,8 +2736,8 @@
     },
     {
       "id": "CAT-def-deg",
-      "line_start": 5478,
-      "line_end": 5485,
+      "line_start": 5469,
+      "line_end": 5476,
       "claims": [
         "def-deg"
       ],
@@ -2746,8 +2745,8 @@
     },
     {
       "id": "CAT-def-bs",
-      "line_start": 5490,
-      "line_end": 5497,
+      "line_start": 5481,
+      "line_end": 5488,
       "claims": [
         "def-bs"
       ],
@@ -2755,8 +2754,8 @@
     },
     {
       "id": "CAT-def-Gamma-i",
-      "line_start": 5502,
-      "line_end": 5509,
+      "line_start": 5493,
+      "line_end": 5500,
       "claims": [
         "def-Gamma-i"
       ],
@@ -2764,8 +2763,8 @@
     },
     {
       "id": "CAT-claim-perron",
-      "line_start": 5514,
-      "line_end": 5521,
+      "line_start": 5505,
+      "line_end": 5512,
       "claims": [
         "claim-perron"
       ],
@@ -2773,8 +2772,8 @@
     },
     {
       "id": "CAT-def-adv-progress",
-      "line_start": 5526,
-      "line_end": 5533,
+      "line_start": 5517,
+      "line_end": 5524,
       "claims": [
         "def-adv-progress"
       ],
@@ -2782,8 +2781,8 @@
     },
     {
       "id": "CAT-claim-per-query",
-      "line_start": 5538,
-      "line_end": 5545,
+      "line_start": 5529,
+      "line_end": 5536,
       "claims": [
         "claim-per-query"
       ],
@@ -2791,8 +2790,8 @@
     },
     {
       "id": "CAT-claim-final-overlap",
-      "line_start": 5550,
-      "line_end": 5557,
+      "line_start": 5541,
+      "line_end": 5548,
       "claims": [
         "claim-final-overlap"
       ],
@@ -2800,8 +2799,8 @@
     },
     {
       "id": "CAT-lem-A.2",
-      "line_start": 5562,
-      "line_end": 5569,
+      "line_start": 5553,
+      "line_end": 5560,
       "claims": [
         "lem-A.2"
       ],
@@ -2809,17 +2808,17 @@
     },
     {
       "id": "CAT-def-Sf",
-      "line_start": 5574,
-      "line_end": 5581,
+      "line_start": 5565,
+      "line_end": 5572,
       "claims": [
         "def-Sf"
       ],
-      "sha256": "47c6172857d226595fe2b05151cc74ca134994ebb8731bdad6a46e5d74a296e4"
+      "sha256": "3c22aea4c46957a6b48a8ba45f037da112a3aa5b3a59dc92a9d4054534794c0f"
     },
     {
       "id": "CAT-lem-A.3.bs",
-      "line_start": 5586,
-      "line_end": 5593,
+      "line_start": 5577,
+      "line_end": 5584,
       "claims": [
         "lem-A.3.bs"
       ],
@@ -2827,8 +2826,8 @@
     },
     {
       "id": "CAT-lem-A.3.lambda",
-      "line_start": 5598,
-      "line_end": 5605,
+      "line_start": 5589,
+      "line_end": 5596,
       "claims": [
         "lem-A.3.lambda"
       ],
@@ -2836,8 +2835,8 @@
     },
     {
       "id": "CAT-lem-A.3",
-      "line_start": 5610,
-      "line_end": 5617,
+      "line_start": 5601,
+      "line_end": 5608,
       "claims": [
         "lem-A.3"
       ],
@@ -2845,8 +2844,8 @@
     },
     {
       "id": "CAT-claim-restrict-parity",
-      "line_start": 5622,
-      "line_end": 5629,
+      "line_start": 5613,
+      "line_end": 5620,
       "claims": [
         "claim-restrict-parity"
       ],
@@ -2854,8 +2853,8 @@
     },
     {
       "id": "CAT-def-huang",
-      "line_start": 5634,
-      "line_end": 5641,
+      "line_start": 5625,
+      "line_end": 5632,
       "claims": [
         "def-huang"
       ],
@@ -2863,8 +2862,8 @@
     },
     {
       "id": "CAT-claim-huang-spectrum",
-      "line_start": 5646,
-      "line_end": 5653,
+      "line_start": 5637,
+      "line_end": 5644,
       "claims": [
         "claim-huang-spectrum"
       ],
@@ -2872,8 +2871,8 @@
     },
     {
       "id": "CAT-claim-interlace",
-      "line_start": 5658,
-      "line_end": 5665,
+      "line_start": 5649,
+      "line_end": 5656,
       "claims": [
         "claim-interlace"
       ],
@@ -2881,8 +2880,8 @@
     },
     {
       "id": "CAT-lem-A.4",
-      "line_start": 5670,
-      "line_end": 5677,
+      "line_start": 5661,
+      "line_end": 5668,
       "claims": [
         "lem-A.4"
       ],
@@ -2890,8 +2889,8 @@
     },
     {
       "id": "CAT-claim-round-block",
-      "line_start": 5682,
-      "line_end": 5689,
+      "line_start": 5673,
+      "line_end": 5680,
       "claims": [
         "claim-round-block"
       ],
@@ -2899,8 +2898,8 @@
     },
     {
       "id": "CAT-lem-A.5",
-      "line_start": 5694,
-      "line_end": 5701,
+      "line_start": 5685,
+      "line_end": 5692,
       "claims": [
         "lem-A.5"
       ],
@@ -2908,35 +2907,78 @@
     },
     {
       "id": "CAT-thm-A.1",
-      "line_start": 5706,
-      "line_end": 5713,
+      "line_start": 5697,
+      "line_end": 5704,
       "claims": [
         "thm-A.1"
       ],
-      "sha256": "e4cccac569dd022de7c3b90d6986a41ad4821d9a904372f4df9e9ebd6ecf09da"
+      "sha256": "d0f42f0ab37f2473cf5725850bfb7dc35522278222fa78cc794df32876b198c9"
     },
     {
       "id": "ROOT-REFERENCES",
-      "line_start": 5718,
-      "line_end": 5833,
+      "line_start": 5711,
+      "line_end": 5830,
       "claims": [],
-      "sha256": "66f0015a3fb4cc7565e7f245d96951a277bf1d5612c5cfc4254e5751de814679"
+      "sha256": "f6d90257b46f154609a9138ee0ad80574e37a195df7624fc35eeb4e19d310636"
     },
     {
       "id": "forr_historical_threshold",
-      "line_start": 5869,
-      "line_end": 5919,
+      "line_start": 5867,
+      "line_end": 5931,
       "claims": [
-        "NEW-FOR-25"
+        "NEW-FOR-25",
+        "NEW-FOR-19"
       ],
-      "sha256": "7adbe22abacb1b88b4dc6441e8e9db2be2dfd09669371130c3f39153e23c77e4"
+      "sha256": "4ebb58b276c701a4dd6fee1e54c28dab2d60215233c1aa75091b6ba007ad1bd9"
     },
     {
       "id": "forr_historical_closure",
-      "line_start": 5922,
-      "line_end": 5945,
+      "line_start": 5934,
+      "line_end": 5957,
       "claims": [],
-      "sha256": "68b25072a0ff8dfd7f206f979fdabb8dddcac89c38d9c095afb1f7ce92ceea1d"
+      "sha256": "3fbd8637e06b9896143c7ad495b4394e9ac3aacb8c89ae4be4d1194bdf659e85"
+    },
+    {
+      "id": "history-evidence-convention",
+      "line_start": 6085,
+      "line_end": 6097,
+      "claims": [],
+      "sha256": "8a7cfd7709f20e329ab436d1767873af54149ebb9604221a315aa4a1f51de3d5"
+    },
+    {
+      "id": "history-construction-evidence",
+      "line_start": 6116,
+      "line_end": 6118,
+      "claims": [],
+      "sha256": "e7c768cf689f9e93d21005e6593c4f6a676c55820875206a73109d92fdc1e1a5"
+    },
+    {
+      "id": "history-upper-evidence",
+      "line_start": 6123,
+      "line_end": 6125,
+      "claims": [],
+      "sha256": "870d707c6b3b64c703db78400b9aced9d19a40453dc743014779487d1bfc9f09"
+    },
+    {
+      "id": "history-direct-product-evidence",
+      "line_start": 6130,
+      "line_end": 6143,
+      "claims": [],
+      "sha256": "ca9c422aafa24d7dfb4ca983b9ad4e16f9dbced3cc50dd795221575b38bbfa19"
+    },
+    {
+      "id": "history-exponent-evidence",
+      "line_start": 6148,
+      "line_end": 6150,
+      "claims": [],
+      "sha256": "f71037740f08323f86fe847a6a5a07b11959144ca8d17a42c80ed56b396f2808"
+    },
+    {
+      "id": "history-appendix-a-evidence",
+      "line_start": 6153,
+      "line_end": 6155,
+      "claims": [],
+      "sha256": "120db1cecf13763c5dc78ca9b586721026f1ee68b7dc6a3ae3b7f4584d196fa5"
     }
   ],
   "catalogue_source": {
@@ -114850,7 +114892,7 @@
       }
     ]
   },
-  "bibliography_sha256": "8204d03bbc81e9fa06d029293c512621a51525ff297e576e884593cf819dc1d2",
+  "bibliography_sha256": "89c47ffefcfe6216ee5c7a78861dd2c62013087470ab0976029edcfab89d6491",
   "maintained_source_additions": [
     {
       "path": "lean/QuarticQuery/Paper/Eq19Whole.lean",

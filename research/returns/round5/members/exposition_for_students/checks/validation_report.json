@@ -1,0 +1,61 @@
+{
+  "schema": "quartic-student-review-validation-v1",
+  "phase": "pre-packaging source, content and finite-arithmetic verification",
+  "checked_utc": "2026-11-03T03:20:32.101622+00:00",
+  "status": "PASS",
+  "input_zip": {
+    "filename": "quartic_r5_exposition_for_students.zip",
+    "bytes": 6749687,
+    "sha256": "35c1076819fbad9ac31fa2c6baa6a2f6eaa4d09e1f1f2e0ee1132c36d12b2331",
+    "crc": "PASS",
+    "members": 71,
+    "manifest_members_checked": 69,
+    "extracted_source_bytes_unchanged": true,
+    "request_hash_match": true
+  },
+  "draft_hashes": {
+    "count": 6,
+    "exact_object_copied": true,
+    "hashes_match_source_bytes": true
+  },
+  "findings": {
+    "count": 41,
+    "all_quotes_exact": true,
+    "all_quotes_at_most_25_words": true,
+    "max_quote_words": 21,
+    "all_source_line_ranges_match": true,
+    "severities": {
+      "high": 7,
+      "medium": 23,
+      "low": 2,
+      "keep": 9
+    }
+  },
+  "finite_enumeration": {
+    "recomputed": true,
+    "matches_saved_json": true,
+    "arithmetic": "exact integers and Fraction",
+    "S_180": "assumed, not a verified gate netlist"
+  },
+  "local_link_inventory": {
+    "distinct_destinations": 25,
+    "supplied_map_exposition_entries": 23,
+    "missing_assets": [
+      "figures/exposition/fig2_board.svg",
+      "figures/exposition/fig4_planted.svg"
+    ],
+    "scope": "Local byte/range inspection, not an HTTP availability test."
+  },
+  "visual_review": {
+    "exposition_pdf_pages_inspected": 13,
+    "rendered_numbered_figures_present": 4,
+    "new_pdf_typesetting": false
+  },
+  "not_performed": [
+    "Lean compilation",
+    "Comparator execution",
+    "Independent asymptotic proof verification",
+    "Execution of a 180-gate circuit"
+  ],
+  "archive_note": "This report precedes ZIP creation. verify_return.py separately validates CRC, members and payload hashes of the completed ZIP."
+}

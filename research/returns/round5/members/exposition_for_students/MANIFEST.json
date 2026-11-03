@@ -1,0 +1,65 @@
+{
+  "schema": "quartic-student-review-return-v1",
+  "created_date": "2026-11-03",
+  "packet": "exposition_for_students",
+  "source_zip_sha256": "35c1076819fbad9ac31fa2c6baa6a2f6eaa4d09e1f1f2e0ee1132c36d12b2331",
+  "hash_algorithm": "SHA-256",
+  "note": "Every return file except this manifest is listed. This is an integrity inventory, not a proof certification.",
+  "files": [
+    {
+      "member": "README.md",
+      "bytes": 3492,
+      "sha256": "2fd433f6f240c25dd519d10834e5ff3dd233c1d1d3b3d22a9a2ebd9aade46bb8"
+    },
+    {
+      "member": "checks/check_examples.py",
+      "bytes": 4618,
+      "sha256": "db4fb49de068c5d102b9e3a3b6ce254d1325e65c302de7dbe4542a36ed99a5f9"
+    },
+    {
+      "member": "checks/exact_examples.json",
+      "bytes": 1274,
+      "sha256": "d52568acfb91a423d1f767a27f2308a1c0555063901b6b0feb2ef1e797864102"
+    },
+    {
+      "member": "checks/link_audit.json",
+      "bytes": 16868,
+      "sha256": "984a0a124313b16649618ef198ae8594a4040ed3542e73ee41fb1cb7584211b0"
+    },
+    {
+      "member": "checks/validation_report.json",
+      "bytes": 1875,
+      "sha256": "c276cafea9dc9ceb7a18345ee27f5b87c25af91123f611f0d5d98113c3ea1ab1"
+    },
+    {
+      "member": "findings.json",
+      "bytes": 67332,
+      "sha256": "6490df01b5f30030fa4bed1bc3c4ff095320d494cb3df26d6e0a26ca630acad6"
+    },
+    {
+      "member": "findings.md",
+      "bytes": 58920,
+      "sha256": "de6c711c5949ba77b3d1feb2beae533cc98a5fa90ec3ad6cdcfff3eef19ad54a"
+    },
+    {
+      "member": "prior_review_followup.md",
+      "bytes": 5135,
+      "sha256": "4493bb99691107925c6aa21bb9bb7c7aba72b515891dea7004055edc0ac49477"
+    },
+    {
+      "member": "sources_and_coverage.md",
+      "bytes": 13055,
+      "sha256": "819bf4e49d59f133abf5a72c5bcc2854d436eb2d1fb426cb16b9e457a8ec2088"
+    },
+    {
+      "member": "verdict.md",
+      "bytes": 3063,
+      "sha256": "b90b548ef0d3b2f05668e3c85da4e58cd6ff7b0e900d4c41e926b8d59155edd6"
+    },
+    {
+      "member": "verify_return.py",
+      "bytes": 8674,
+      "sha256": "c79c8d928c45c984f317feea31116cd659b5262fc843fd0dcd586a6f534bc11d"
+    }
+  ]
+}

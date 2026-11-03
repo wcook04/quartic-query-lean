@@ -1,0 +1,191 @@
+{
+  "schema": "quartic-r5-pdf-navigation-inspection-v1",
+  "method": "PyMuPDF outline and link-action inspection on every page of the four supplied PDFs; selected pages rendered to PNG and visually inspected. No manuscript PDF was regenerated.",
+  "page_numbers": "One-based physical PDF pages.",
+  "documents": [
+    {
+      "path": "repository/docs/reasoning_record.pdf",
+      "sha256": "40bc5c71e61de0fb7b38707b9938e796ad69e0ea2868d7b9eb80e43b7518c7dd",
+      "pages": 116,
+      "outline_entries": 79,
+      "link_counts": {
+        "URI": 75,
+        "GoToR": 7,
+        "Launch": 55
+      },
+      "internal_GoTo_or_Named_count": 0
+    },
+    {
+      "path": "repository/docs/expert_companion.pdf",
+      "sha256": "c8b37b18504969243395f08dfe0147d551ffa0faa5ba420949150df53a33f121",
+      "pages": 13,
+      "outline_entries": 18,
+      "link_counts": {
+        "Named": 41,
+        "URI": 88
+      },
+      "internal_GoTo_or_Named_count": 41
+    },
+    {
+      "path": "repository/docs/exposition.pdf",
+      "sha256": "16c85a0f3e063eeb709a7824dc551305d84cb7b09a62c897cecd2bb06c4fb15e",
+      "pages": 13,
+      "outline_entries": 10,
+      "link_counts": {
+        "Named": 35,
+        "URI": 32
+      },
+      "internal_GoTo_or_Named_count": 35
+    },
+    {
+      "path": "exemplars/qaoa-sk/long/reasoning-record.pdf",
+      "sha256": "4678e0f16e26ed8bf0058823b426c142db889e6c4c06868001b4f10b91ee0beb",
+      "pages": 76,
+      "outline_entries": 58,
+      "link_counts": {
+        "URI": 317,
+        "Named": 42
+      },
+      "internal_GoTo_or_Named_count": 42
+    }
+  ],
+  "record_internal_markdown_fragment_links": 199,
+  "record_internal_markdown_missing_destinations": 0,
+  "record_invalid_external_file_actions": [
+    {
+      "pdf_page": 3,
+      "action": "GoToR",
+      "target": "../research/returns/funnel/2_short_expert_paper/.pdf",
+      "resolved_from": "repository/docs/reasoning_record.pdf",
+      "target_file_exists_in_packet": false
+    },
+    {
+      "pdf_page": 3,
+      "action": "GoToR",
+      "target": "../research/returns/funnel/3_examples_first_exposition/.pdf",
+      "resolved_from": "repository/docs/reasoning_record.pdf",
+      "target_file_exists_in_packet": false
+    },
+    {
+      "pdf_page": 21,
+      "action": "GoToR",
+      "target": "../research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks/.pdf",
+      "resolved_from": "repository/docs/reasoning_record.pdf",
+      "target_file_exists_in_packet": false
+    },
+    {
+      "pdf_page": 44,
+      "action": "GoToR",
+      "target": "../research/returns/round3/members/04_addressed_construction/.pdf",
+      "resolved_from": "repository/docs/reasoning_record.pdf",
+      "target_file_exists_in_packet": false
+    },
+    {
+      "pdf_page": 44,
+      "action": "GoToR",
+      "target": "../research/returns/round3/members/04_addressed_construction/.pdf",
+      "resolved_from": "repository/docs/reasoning_record.pdf",
+      "target_file_exists_in_packet": false
+    },
+    {
+      "pdf_page": 87,
+      "action": "GoToR",
+      "target": "../research/returns/round3/members/08_reviewed/quartic_r3_08_return/checks/.pdf",
+      "resolved_from": "repository/docs/reasoning_record.pdf",
+      "target_file_exists_in_packet": false
+    },
+    {
+      "pdf_page": 87,
+      "action": "GoToR",
+      "target": "../research/returns/round3/members/08_reviewed/quartic_r3_08_return/checks/.pdf",
+      "resolved_from": "repository/docs/reasoning_record.pdf",
+      "target_file_exists_in_packet": false
+    }
+  ],
+  "expert_missing_outline_headings": [
+    {
+      "heading": "5.2 Planting a winner",
+      "pdf_page": 7,
+      "literal_markdown_heading_in_body": true
+    },
+    {
+      "heading": "5.4 The planted cell",
+      "pdf_page": 8,
+      "literal_markdown_heading_in_body": true
+    }
+  ],
+  "image_source_inventory": [
+    {
+      "source": "repository/docs/expert_companion.md",
+      "line": 52,
+      "target": "figures/expert_column.svg",
+      "exists": true
+    },
+    {
+      "source": "repository/docs/expert_companion.md",
+      "line": 187,
+      "target": "figures/expert_planted.svg",
+      "exists": false
+    },
+    {
+      "source": "repository/docs/exposition.md",
+      "line": 85,
+      "target": "figures/exposition/fig1_column.svg",
+      "exists": true
+    },
+    {
+      "source": "repository/docs/exposition.md",
+      "line": 97,
+      "target": "figures/exposition/fig2_board.svg",
+      "exists": false
+    },
+    {
+      "source": "repository/docs/exposition.md",
+      "line": 147,
+      "target": "figures/exposition/fig3_tournament.svg",
+      "exists": true
+    },
+    {
+      "source": "repository/docs/exposition.md",
+      "line": 205,
+      "target": "figures/exposition/fig4_planted.svg",
+      "exists": false
+    }
+  ],
+  "visually_inspected_pages": {
+    "repository/docs/reasoning_record.pdf": [
+      3,
+      12,
+      51,
+      64,
+      90,
+      91
+    ],
+    "repository/docs/expert_companion.pdf": [
+      5,
+      7,
+      8
+    ],
+    "repository/docs/exposition.pdf": [
+      4,
+      8,
+      9
+    ],
+    "exemplars/qaoa-sk/long/reasoning-record.pdf": [
+      2,
+      69
+    ]
+  },
+  "finding_ids": [
+    "LR-001",
+    "LR-002",
+    "LR-003",
+    "LR-012",
+    "LR-026"
+  ],
+  "limits": [
+    "This is not a visual line-by-line inspection of all PDF pages or a claim that every external website is reachable.",
+    "The record PDF has the previously disclosed source-version difference. Its absence of internal link annotations is a separate observed property.",
+    "Missing SVG files are a defect in the supplied source closure; the corresponding figures are present in the supplied PDFs."
+  ]
+}

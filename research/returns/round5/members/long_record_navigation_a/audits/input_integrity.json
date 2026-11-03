@@ -1,0 +1,49 @@
+{
+  "source_status_matches": [
+    {
+      "path": "repository/docs/expert_companion.bib",
+      "matches": true
+    },
+    {
+      "path": "repository/docs/expert_companion.md",
+      "matches": true
+    },
+    {
+      "path": "repository/docs/expert_companion.pdf",
+      "matches": true
+    },
+    {
+      "path": "repository/docs/exposition.bib",
+      "matches": true
+    },
+    {
+      "path": "repository/docs/exposition.md",
+      "matches": true
+    },
+    {
+      "path": "repository/docs/exposition.pdf",
+      "matches": true
+    },
+    {
+      "path": "repository/docs/reasoning_record.md",
+      "matches": true
+    },
+    {
+      "path": "repository/docs/reasoning_record.pdf",
+      "matches": true
+    }
+  ],
+  "manifest_members_checked": 160,
+  "manifest_failures": [],
+  "request_hash_matches": true,
+  "input_archive": {
+    "filename": "quartic_r5_long_record_navigation.zip",
+    "bytes": 8488019,
+    "sha256": "1ba7b1337f45fcb641918038825fb64cb6981cfce5c2da6ea3f45d858b8f5803",
+    "zip_member_count": 162,
+    "uncompressed_bytes": 36092634,
+    "crc_test_failed_member": null
+  },
+  "input_modified": false,
+  "meaning": "Agreement with supplied hashes establishes identity and transfer integrity, not mathematical correctness or a fresh Lean build."
+}

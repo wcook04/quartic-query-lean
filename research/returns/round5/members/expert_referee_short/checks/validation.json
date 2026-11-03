@@ -1,0 +1,342 @@
+{
+  "schema": "quartic-round5-return-validation-v1",
+  "status": "passed",
+  "packet": "expert_referee_short",
+  "return_integrity": {
+    "manifest_files_verified": 13,
+    "utf8_text_files": 14,
+    "json_documents_parsed": 7,
+    "duplicate_keys": "none",
+    "unsafe_or_duplicate_member_paths": "none"
+  },
+  "findings": {
+    "count": 41,
+    "severity_counts": {
+      "critical": 0,
+      "high": 4,
+      "medium": 23,
+      "low": 4,
+      "keep": 10
+    },
+    "schema": "passed",
+    "ids_and_severity_order": "passed",
+    "quote_word_limit": "passed",
+    "readable_mirror": "passed",
+    "cross_references": "passed",
+    "evidence_entries": 103,
+    "distinct_external_evidence_urls": 12,
+    "verdict_words": 442
+  },
+  "original_source": {
+    "status": "passed",
+    "draft_hashes": 6,
+    "record_hashes": 2,
+    "input_manifest_members": 88,
+    "assignment_hash": "passed",
+    "source_sha256_object_exact": true,
+    "exact_current_quotes": [
+      {
+        "id": "ER-001",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 10
+      },
+      {
+        "id": "ER-002",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 9
+      },
+      {
+        "id": "ER-003",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 3
+      },
+      {
+        "id": "ER-004",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 6
+      },
+      {
+        "id": "ER-005",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 10
+      },
+      {
+        "id": "ER-006",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 6
+      },
+      {
+        "id": "ER-007",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 9
+      },
+      {
+        "id": "ER-008",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 8
+      },
+      {
+        "id": "ER-009",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 9
+      },
+      {
+        "id": "ER-010",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 12
+      },
+      {
+        "id": "ER-011",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 6
+      },
+      {
+        "id": "ER-012",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 3
+      },
+      {
+        "id": "ER-013",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 6
+      },
+      {
+        "id": "ER-014",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 4
+      },
+      {
+        "id": "ER-015",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 6
+      },
+      {
+        "id": "ER-016",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 12
+      },
+      {
+        "id": "ER-017",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 14
+      },
+      {
+        "id": "ER-018",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 12
+      },
+      {
+        "id": "ER-019",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 18
+      },
+      {
+        "id": "ER-020",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 4
+      },
+      {
+        "id": "ER-021",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 21
+      },
+      {
+        "id": "ER-022",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 9
+      },
+      {
+        "id": "ER-023",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 6
+      },
+      {
+        "id": "ER-024",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 5
+      },
+      {
+        "id": "ER-025",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 4
+      },
+      {
+        "id": "ER-026",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 6
+      },
+      {
+        "id": "ER-027",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 9
+      },
+      {
+        "id": "ER-028",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 12
+      },
+      {
+        "id": "ER-029",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 10
+      },
+      {
+        "id": "ER-030",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 8
+      },
+      {
+        "id": "ER-031",
+        "matched_markdown": [
+          "exposition"
+        ],
+        "words": 9
+      },
+      {
+        "id": "ER-032",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 5
+      },
+      {
+        "id": "ER-033",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 5
+      },
+      {
+        "id": "ER-034",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 9
+      },
+      {
+        "id": "ER-035",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 5
+      },
+      {
+        "id": "ER-036",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 17
+      },
+      {
+        "id": "ER-037",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 8
+      },
+      {
+        "id": "ER-038",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 12
+      },
+      {
+        "id": "ER-039",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 8
+      },
+      {
+        "id": "ER-040",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 15
+      },
+      {
+        "id": "ER-041",
+        "matched_markdown": [
+          "expert_companion"
+        ],
+        "words": 7
+      }
+    ],
+    "distinct_evidence_files_present": 26,
+    "evidence_line_ranges_within_files": 22,
+    "limit": "Range existence and source binding do not mechanically establish semantic support."
+  },
+  "finite_examples": {
+    "status": "passed",
+    "examples": 5,
+    "arithmetic": "exact rational and integer",
+    "limit": "Finite examples only; not a proof of a general theorem."
+  },
+  "execution_boundary": {
+    "lean_build_run": false,
+    "comparator_run": false,
+    "original_input_code_executed": false,
+    "network_used_by_validator": false
+  }
+}

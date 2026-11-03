@@ -6657,11 +6657,11 @@
     "open_assumptions": [],
     "note": "Contains physical-coordinate essential witnesses for every valid candidate, rival test and q as well as exact all-input test equivalence and adaptive depth; additional coherent and count clauses strengthen this row. Loc is definitionally BitLoc at (2t,40t); constructionPointerLoc is injective, so all ℓ+m q values denote distinct physical coordinates.",
     "build_evidence": "current",
-    "comparison_evidence": "stale",
+    "comparison_evidence": "current",
     "wrapper_comparison_evidence": "not_run",
-    "comparison_credit": "none",
+    "comparison_credit": "direct",
     "built": true,
-    "compared": false,
+    "compared": true,
     "reached": false
    }
   ],
@@ -6670,7 +6670,7 @@
    "formal_statement": "stronger",
    "formal_origin": "ours",
    "build": "built_at_pin",
-   "comparator": "not_run",
+   "comparator": "compared",
    "conditional": false,
    "assumption_declaration": "QuarticQuery.Paper.construction_lemma_2_2_with_support",
    "premises": [
@@ -6966,11 +6966,11 @@
     "open_assumptions": [],
     "note": "Contains test-index superposition evaluation, exact outputs and a physical continuation compiler with explicit 2(2t+1) query cap, plus support, count and classical clauses. Loc is definitionally BitLoc at (2t,40t); constructionPointerLoc is injective, so all ℓ+m q values denote distinct physical coordinates.",
     "build_evidence": "current",
-    "comparison_evidence": "stale",
+    "comparison_evidence": "current",
     "wrapper_comparison_evidence": "not_run",
-    "comparison_credit": "none",
+    "comparison_credit": "direct",
     "built": true,
-    "compared": false,
+    "compared": true,
     "reached": false
    }
   ],
@@ -6979,11 +6979,11 @@
    "formal_statement": "stronger",
    "formal_origin": "ours",
    "build": "built_at_pin",
-   "comparator": "not_run",
+   "comparator": "compared",
    "conditional": false,
-   "assumption_declaration": "QuarticQuery.Paper.construction_lemma_2_2_complete",
+   "assumption_declaration": "QuarticQuery.Paper.construction_lemma_2_2_with_support",
    "premises": [
-    "t >= 1; C realizes P k t; C.size <= A*mValue t*(2*t)^2 with A fixed for k."
+    "t ≥ 1; C realizes P k t; C.size ≤ A*mValue t*(2t)^2 with A fixed for k."
    ],
    "open_assumptions": [],
    "route": "same",
@@ -7130,11 +7130,11 @@
     "open_assumptions": [],
     "note": "Conjoins the essential physical-coordinate witnesses with the entire older complete theorem, hence covers corrected i and ii together with explicit count, size and physical cap. Loc is definitionally BitLoc at (2t,40t); constructionPointerLoc is injective, so all ℓ+m q values denote distinct physical coordinates.",
     "build_evidence": "current",
-    "comparison_evidence": "stale",
+    "comparison_evidence": "current",
     "wrapper_comparison_evidence": "not_run",
-    "comparison_credit": "none",
+    "comparison_credit": "direct",
     "built": true,
-    "compared": false,
+    "compared": true,
     "reached": false
    }
   ],
@@ -7143,7 +7143,7 @@
    "formal_statement": "stronger",
    "formal_origin": "ours",
    "build": "built_at_pin",
-   "comparator": "not_run",
+   "comparator": "compared",
    "conditional": false,
    "assumption_declaration": "QuarticQuery.Paper.construction_lemma_2_2_with_support",
    "premises": [
@@ -17192,11 +17192,11 @@
     "open_assumptions": [],
     "note": "This single type states hit probability = E Z/m and hit probability ≤ 4G/m²; equality turns the second clause into the displayed chained bound. It allows m=2^ℓ, and uses the alternative finite-world bound.",
     "build_evidence": "current",
-    "comparison_evidence": "stale",
+    "comparison_evidence": "current",
     "wrapper_comparison_evidence": "not_run",
-    "comparison_credit": "none",
+    "comparison_credit": "direct",
     "built": true,
-    "compared": false,
+    "compared": true,
     "reached": false
    },
    {
@@ -17224,12 +17224,12 @@
     ],
     "open_assumptions": [],
     "note": "The independently specified product-law hitProbability and expectedCount state the complete equality and bound for m=2^ℓ; the bridge maps the explicitly defined dummy experiment and distinct-discovery count to the maintained formulation. It still shares coordinate, tree, path and depth interfaces.",
-    "build_evidence": "stale",
-    "comparison_evidence": "stale",
+    "build_evidence": "current",
+    "comparison_evidence": "current",
     "wrapper_comparison_evidence": "not_run",
-    "comparison_credit": "none",
-    "built": false,
-    "compared": false,
+    "comparison_credit": "direct",
+    "built": true,
+    "compared": true,
     "reached": false
    }
   ],
@@ -17238,9 +17238,9 @@
    "formal_statement": "stronger",
    "formal_origin": "ours",
    "build": "built_at_pin",
-   "comparator": "not_run",
+   "comparator": "compared",
    "conditional": false,
-   "assumption_declaration": "QuarticQuery.Paper.eq_19_complete",
+   "assumption_declaration": "QuarticQuery.Paper.eq19_whole",
    "premises": [
     "Nonnegative normalized address-data distribution; tree depth≤G."
    ],
