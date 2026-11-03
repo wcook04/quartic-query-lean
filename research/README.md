@@ -21,6 +21,9 @@ The ten [round-three returns](returns/round3/README.md) have source-specific
 [construction review](adjudication/round3_construction.md),
 [evidence backend](adjudication/round3_backend.md), and
 [complete claim-appendix audit](adjudication/round3_appendix_audit.md).
+The [round-four backend decisions](adjudication/round4_backend.md) cover
+comparison credit, the Comparator reading map, PDF navigation and the deferred
+publication adapter.
 The maintained manuscript is now [the long reasoning record](../docs/reasoning_record.md);
 returned manuscript bytes remain unchanged.
 

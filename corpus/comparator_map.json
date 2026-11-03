@@ -118,6 +118,7 @@
     "Mathlib"
    ],
    "imports_project_modules": false,
+   "imports_outside_dependency_export": [],
    "configurations": [
     {
      "path": "lean/QuarticCorpus/Construction/comparator.json",
@@ -1091,6 +1092,7 @@
     "Mathlib"
    ],
    "imports_project_modules": false,
+   "imports_outside_dependency_export": [],
    "configurations": [
     {
      "path": "lean/QuarticCorpus/Foundations/comparator.json",
@@ -2292,6 +2294,7 @@
     "QuarticQuery.Paper.ConstructionPointerSupport"
    ],
    "imports_project_modules": true,
+   "imports_outside_dependency_export": [],
    "configurations": [
     {
      "path": "lean/QuarticCorpus/Independent/ConstructionFull/comparator.json",
@@ -2376,6 +2379,7 @@
     "Mathlib"
    ],
    "imports_project_modules": false,
+   "imports_outside_dependency_export": [],
    "configurations": [
     {
      "path": "lean/QuarticCorpus/Independent/Controls/shared_blind_spot.json",
@@ -2438,6 +2442,7 @@
     "Mathlib"
    ],
    "imports_project_modules": false,
+   "imports_outside_dependency_export": [],
    "configurations": [
     {
      "path": "lean/QuarticCorpus/Independent/Controls/threshold_mutation.json",
@@ -2500,6 +2505,9 @@
     "QuarticCorpus.Independent.Eq19.Spec"
    ],
    "imports_project_modules": true,
+   "imports_outside_dependency_export": [
+    "QuarticCorpus.Independent.Eq19.Spec"
+   ],
    "configurations": [
     {
      "path": "lean/QuarticCorpus/Independent/Eq19/comparator.json",
@@ -2584,6 +2592,7 @@
     "QuarticQuery.Paper.ClassicalPlanted"
    ],
    "imports_project_modules": true,
+   "imports_outside_dependency_export": [],
    "configurations": [
     {
      "path": "lean/QuarticCorpus/Independent/Eq19/whole-comparator.json",
@@ -2666,6 +2675,7 @@
     "Mathlib"
    ],
    "imports_project_modules": false,
+   "imports_outside_dependency_export": [],
    "configurations": [
     {
      "path": "lean/QuarticCorpus/Separation/comparator.json",
@@ -4268,6 +4278,7 @@
     "Mathlib"
    ],
    "imports_project_modules": false,
+   "imports_outside_dependency_export": [],
    "configurations": [
     {
      "path": "lean/QuarticCorpus/Negative/ChangedDefinition.json",
@@ -5089,6 +5100,7 @@
     "Mathlib"
    ],
    "imports_project_modules": false,
+   "imports_outside_dependency_export": [],
    "configurations": [
     {
      "path": "lean/QuarticCorpus/Unconditional/comparator.json",

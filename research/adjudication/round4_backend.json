@@ -1,0 +1,109 @@
+{
+  "schema": "round4-backend-adjudication-v1",
+  "date": "2026-11-03",
+  "base_commit": "9d17016",
+  "source_returns": {
+    "06_corpus_fidelity": "research/returns/round4/members/06_corpus_fidelity/quartic_r4_06_return",
+    "07_publication_backend": "research/returns/round4/members/07_publication_backend/quartic_r4_07_publication_backend_return",
+    "08_adversarial_audit": "research/returns/round4/members/08_adversarial_audit/quartic_r4_08_return"
+  },
+  "scope": "Python corpus builder, Comparator reading map and record renderer. No Lean build, Comparator run, semantic review, record prose or PDF acceptance.",
+  "decisions": [
+    {
+      "id": "comparison_credit_scope",
+      "source": "06 review_notes.md section 3; proposed_adjudication.json action 1; coverage_disposition.json warnings",
+      "decision": "adopted",
+      "owner": "tools/build_corpus.py",
+      "verified": {
+        "positive_comparator_receipts": 20,
+        "receipts_with_declaration_scope": 0,
+        "receipts_with_bound_unchanged_config": 15,
+        "legacy_unbound_receipts": 5,
+        "method": "Read each receipt's --config path and source_hashes; compared the recorded config hash with the current file and its theorem_names with the receipt declarations."
+      },
+      "result": {
+        "before": {"compared": 12, "not_run": 109},
+        "after": {"compared": 4, "wrapper_mediated_historical": 8, "not_run": 109},
+        "direct_rows": ["lem-2.2", "lem-2.2.i", "lem-2.2.ii", "eq-19"],
+        "wrapper_mediated_rows": ["def-R", "def-Q", "def-D", "thm-1.1", "cor-cubic-refuted", "lem-2.1.i", "cor-unique-winner", "prop-4.2-generic"],
+        "agrees_with_return_06": true
+      },
+      "preserved": "All receipts unchanged.",
+      "consequences": [
+        "docs/reasoning_record.md line 450 says 12 rows have qualifying comparison evidence; the record bytes are unchanged and need revision by the designated author.",
+        "The accepted review gate's reviewed_files hash for corpus/statements.json (a83236b6...) no longer matches; the Lean source snapshot 43f007e0... is unchanged. A new acceptance is required before building further round-four packets."
+      ],
+      "not_integrated": "Return 06 Lean additions and proposed tie changes (def-deg, zero-query, real leaves, thm-A.1 relation) need a Lean build and review."
+    },
+    {
+      "id": "comparator_reading_map",
+      "decision": "implemented",
+      "owner": "tools/build_comparator_map.py",
+      "output": "corpus/comparator_map.json",
+      "checked_by": "make check-generated; tests/test_build_comparator_map.py",
+      "coverage": {
+        "challenge_files": 10,
+        "challenge_blocks": 311,
+        "distinct_declarations": 87,
+        "blocks_with_record_passage": 232,
+        "distinct_declarations_with_record_passage": 64,
+        "distinct_declarations_with_primary_gloss": 36,
+        "blocks_with_statement_id": 22,
+        "blocks_with_direct_statement_tie": 3,
+        "blocks_by_comparison_credit": {"direct": 27, "statement_dependency": 139, "not_in_any_configured_statement": 145},
+        "gaps_no_record_passage": 23,
+        "record_passages_verified": 289
+      },
+      "boundary": "Glosses are exact record excerpts. Backtick-mention and wrapper proof-text joins are textual. Dependency closure uses the recorded native export, falling back to statement identifiers; imports outside the export are listed."
+    },
+    {
+      "id": "pdf_navigation",
+      "source": "07 tools/render_reasoning_record.py and checks/check_pdf_navigation.py; 08 source_audit/evidence/pdf_navigation.lua and render_navigation_repair.py",
+      "decision": "merged",
+      "owner": "tools/render_reasoning_record.py",
+      "taken_from_07": "\\hypertarget plus \\phantomsection\\label at each authored anchor",
+      "taken_from_08": "Anchor-only paragraph collapse; explicit directory-link table",
+      "rejected": [
+        "08 hypertarget-only destinations: an actual render with local Pandoc 3.9 left all 199 \\hyperref links undefined.",
+        "08 target checks/recheck_forrelation_circuit.py: absent here; the original exact_example_checker.py exists and is used.",
+        "07 --portable-local-links and --engine xelatex: not needed for this checkout."
+      ],
+      "verified_by_running": {
+        "tools": {"pandoc": "3.9.0.2", "engine": "tectonic"},
+        "record_sha256": "c2b6f11a7a4b3f318ebf419a9959c1d154f8e2b74e3ec02a8e25fb92ba9cfd25",
+        "record_unchanged": true,
+        "pages": 116,
+        "authored_anchors_as_destinations": "339/339",
+        "goto_actions": 199,
+        "invalid_goto": 0,
+        "gotor_actions": 0,
+        "uri_actions": 137,
+        "missing_local_targets": 0,
+        "words_outside_page": 0,
+        "layout_diagnostics": [],
+        "per_page_text_vs_accepted_pdf": "equal except one glyph position on page 116",
+        "visual_inspection": "page 3 image only",
+        "pdf_location": "outside the checkout; PDF bytes differ per render (embedded timestamps)",
+        "accepted_pdf_unchanged": "docs/reasoning_record.pdf 40bc5c71..."
+      },
+      "regression_test": "tests/test_render_reasoning_record.py"
+    },
+    {
+      "id": "publication_adapter",
+      "source": "07 source/repository/tools/build_publication_bundle.py",
+      "decision": "deferred",
+      "reasons": [
+        "Reads packet-only REVIEW_GATE.json and EVIDENCE_SNAPSHOT.json and refuses changed reviewed files; corpus/statements.json no longer matches the preserved gate after the credit reclassification.",
+        "Requires lean-exposition and jsonschema; repository tools are standard-library only.",
+        "Authored mappings are not_reviewed drafts and the historical companions are being replaced by rounds 02 and 03.",
+        "Does not carry direct versus wrapper-mediated credit or the reading map."
+      ],
+      "run_here": false,
+      "revisit_when": "The record and corpus are re-accepted; then source comparison credit and block-to-passage joins from the corpus and reading map."
+    }
+  ],
+  "validation": {
+    "make_check": "passed",
+    "lean_or_comparator_run": false
+  }
+}

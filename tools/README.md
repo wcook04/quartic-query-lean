@@ -33,7 +33,8 @@ Authored HTML anchors become PDF destinations (`\hypertarget` plus `\label`, so
 both Pandoc link forms resolve), and the five directory links name reviewed
 files instead of nonexistent `<dir>/.pdf` targets. The render stops on an
 unreviewed directory link, an anchorless internal link, a missing destination or
-an undefined LaTeX reference.
+an undefined LaTeX reference. The [round-four backend adjudication](../research/adjudication/round4_backend.md)
+records how the two returned repairs were merged.
 
 ## Check the repository
 
