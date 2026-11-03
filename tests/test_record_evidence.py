@@ -107,6 +107,7 @@ class ComparatorTests(unittest.TestCase):
     def test_guard_deferral_writes_no_receipt(self):
         with patch.object(COMPARATOR, "source_hashes", return_value={"a": "same"}), \
                 patch.object(COMPARATOR, "comparator", return_value=(["lake", "comparator"], 75, "queued")), \
+                patch.object(COMPARATOR, "compared_declarations", return_value=["A.checked"]), \
                 patch.object(COMPARATOR, "write") as write:
             self.assertFalse(COMPARATOR.run_bundle(Path("Bundle/comparator.json"), False))
             self.assertFalse(COMPARATOR.run_negative(Path("WeakenedConclusion.json")))
