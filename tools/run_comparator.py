@@ -15,7 +15,6 @@ import hashlib
 import json
 import os
 from pathlib import Path
-import re
 import subprocess
 import sys
 
@@ -42,11 +41,21 @@ def git_head():
                           capture_output=True, text=True).stdout.strip()
 
 
-def wrapped(config):
-    """Return the checked theorems and the proved theorems they restate."""
+def compared_declarations(config):
+    """Return exactly the configured theorem targets, never proof-text mentions.
+
+    Comparator compares these declarations' types. A theorem mentioned in a
+    wrapper proof can be specialized, occur in an unrelated helper, or even be
+    mentioned only in a comment. Such text does not establish that the theorem
+    itself was compared. Record an implementation alias only through a separate
+    reviewed/type-checked correspondence, or compare its own name directly.
+    """
     names = json.loads(config.read_text(encoding="utf-8"))["theorem_names"]
-    solution = (config.parent / "Solution.lean").read_text(encoding="utf-8")
-    return names + re.findall(r"^\s*exact (QuarticQuery\.\S+)", solution, re.M)
+    if (not isinstance(names, list)
+            or not all(isinstance(name, str) and name.strip() for name in names)
+            or len(names) != len(set(names))):
+        raise ValueError(f"{config}: theorem_names must be a list of distinct nonempty names")
+    return names
 
 
 def comparator(config, paranoid):
@@ -82,14 +91,15 @@ def write(receipt):
 def run_bundle(config, paranoid):
     name = config.parent.name
     before = source_hashes(ROOT)
+    declarations = compared_declarations(config)
     command, code, log = comparator(config, paranoid)
     if code == 75 or DEFERRED in log:
         print(f"{name}: deferred by the shared build lock, nothing judged")
         return False
-    declarations = wrapped(config)
     unchanged = before == source_hashes(ROOT)
     write(stamp(name, command, "passed" if code == 0 and unchanged else "failed", log,
                 {"declarations": declarations, "paranoid": paranoid, "exit_code": code,
+                 "declaration_scope": "configured_theorem_names_only",
                  "source_hashes": before, "source_changed_during_run": not unchanged}))
     print(f"{name}: exit {code}")
     if code:

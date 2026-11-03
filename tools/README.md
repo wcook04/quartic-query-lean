@@ -65,6 +65,16 @@ during execution. The hashes bind local source and dependency pins, not the
 bytes of external dependency checkouts. These are local verification runs, not
 fresh-clone reproducibility certificates.
 
+New Comparator receipts list only the configuration's `theorem_names` as
+compared declarations. A source theorem used by a wrapper is not itself a
+configured comparison target. Earlier receipts also inferred implementation
+names by scanning `exact QuarticQuery.*` lines; that scan can include comments,
+unrelated helpers or specializations. Keep those receipts intact, and treat
+their extra names as wrapper-mediated historical claims requiring a separate
+type correspondence. To obtain direct comparison evidence for a source theorem,
+configure that theorem's own name in an independently compiled challenge and
+solution. Changing the producer does not rerun a historical comparison.
+
 ## Build research packets
 
 [build_research_packets.py](build_research_packets.py) produces three ZIPs:

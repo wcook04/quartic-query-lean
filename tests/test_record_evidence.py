@@ -116,7 +116,7 @@ class ComparatorTests(unittest.TestCase):
         config = Path("Bundle/comparator.json")
         with patch.object(COMPARATOR, "source_hashes", side_effect=[{"a": "before"}, {"a": "after"}]), \
                 patch.object(COMPARATOR, "comparator", return_value=(["lake", "comparator"], 0, "ok")), \
-                patch.object(COMPARATOR, "wrapped", return_value=["A.checked"]), \
+                patch.object(COMPARATOR, "compared_declarations", return_value=["A.checked"]), \
                 patch.object(COMPARATOR, "git_head", return_value="commit-id"), \
                 patch.object(COMPARATOR, "stamp", side_effect=lambda n, c, s, l, extra: {"status": s, **extra}), \
                 patch.object(COMPARATOR, "write") as write:
