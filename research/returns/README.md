@@ -55,3 +55,8 @@ decisions and corrections remain under [adjudication](../adjudication/).
 The ten [round-three snapshots](round3/README.md) preserve original archive
 members and pasted inputs as advisory evidence. Their manifest records original
 archive and member hashes; decisions belong under [adjudication](../adjudication/).
+
+## Round-four returns
+
+The seven [round-four returns](round4/README.md) are bound by hash in their
+[intake manifest](round4/intake.json); their originals and members stay local.

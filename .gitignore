@@ -7,3 +7,7 @@ __pycache__/
 
 # Local session continuity packet; custody hash is in the intake manifest.
 research/returns/round3/attachments/input_10.txt
+
+# Round-four originals and extracted members stay local; intake.json binds them.
+research/returns/round4/archives/
+research/returns/round4/members/
