@@ -55,6 +55,7 @@ Freeze the intended Lean inputs before recording evidence:
 | `python3 tools/record_evidence.py` | Builds `QuarticQuery`, then records its compiled dependency closure and a source-bound build receipt. |
 | `python3 tools/run_comparator.py` | Runs each bundle and negative control and writes receipts. |
 | `python3 tools/build_corpus.py` | Regenerates the corpus from the ledger, ties and receipts. |
+| `python3 tools/build_comparator_map.py` | Regenerates `corpus/comparator_map.json`, the Challenge-to-record reading map. Run after the corpus. |
 
 [build_challenges.py](build_challenges.py) keeps a challenge and its solution in
 agreement by construction. A negative control counts only when Comparator rejects it

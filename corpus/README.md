@@ -14,6 +14,7 @@ graph schema, and the statement text is the join key for everything else.
 | `statements.json` | Generated | Statements, hashes and separate evidence fields. |
 | `evidence-graph.json` | Generated | The same statements in the graph schema. |
 | `coverage.json` | Generated | A count for each evidence field. |
+| `comparator_map.json` | Generated | Each Comparator Challenge split into declaration blocks, joined to statement IDs, quoted record passages and the latest receipt. |
 
 The evidence fields answer separate questions, and none of them implies another:
 
@@ -74,6 +75,24 @@ premise does not make an otherwise matching theorem conditional. An explicit
 hardness assumption absent from the target statement does. Legacy `hypotheses`
 remain conservative until reviewed; the availability of a proof elsewhere does
 not silently remove a binder from the cited declaration.
+
+## Reading a Challenge
+
+Comparator trusts each `Challenge.lean`: its configured theorem statements and
+every definition they depend on. [build_comparator_map.py](../tools/build_comparator_map.py)
+writes `comparator_map.json`, which lists every block of every Challenge used by a
+configuration with its line range and SHA-256. Each declaration carries its corpus
+statement IDs, the reasoning-record passages that state or mention it, and a
+`primary_gloss` quoted exactly from one of them with the passage and excerpt
+hashes. A declaration with no passage is marked as a gap rather than glossed.
+
+A block's `comparison.credit` is `direct` for a configured theorem name,
+`statement_dependency` for a definition a configured statement depends on, and
+`not_in_any_configured_statement` for displayed vocabulary that no configured
+statement uses. Statement IDs reached through a wrapper's proof text keep the
+corpus tie's `wrapper_mediated_historical` credit. Joins by backtick mention or
+proof text are textual and labelled; challenges that import project modules
+report the imported declarations their statements depend on.
 
 ## Producers and inputs
 

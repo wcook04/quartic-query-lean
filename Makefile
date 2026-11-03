@@ -11,6 +11,7 @@ check-layout:
 check-generated:
 	python3 tools/build_challenges.py --check
 	python3 tools/build_corpus.py --check
+	python3 tools/build_comparator_map.py --check
 
 check-tests:
 	python3 -m unittest discover -s tests -p 'test_*.py'
