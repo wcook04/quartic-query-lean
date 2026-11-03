@@ -100,4 +100,31 @@ cd lean && lake build QuarticQuery
 python3 tools/run_comparator.py
 ```
 
+## Reproducing the formal checks
+
+The two papers link to Lean sources pinned at commit
+`e9dfefbf11e6d1f380f122caa2349d4be78f2c1f`. The recorded Comparator run of the
+headline bundle ([its receipt](corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json))
+was made at commit `9a0a5cdace28594058f6df59b9b2e45a9e7c1a4f`, in Comparator's
+`--paranoid` mode and without a sandboxing tool (`--inadvisably-no-sandbox`).
+The `lean/` directory is byte-identical at the two commits and at every later
+commit up to the papers' current revision, so the run covers the linked sources.
+The toolchain is `leanprover/lean4:v4.36.0-rc2` and Mathlib is pinned at
+`69552756cd8a2d2d48763cf7279fd814d6a1224d`.
+
+From `lean/`:
+
+```sh
+lake build QuarticQuery
+lake comparator --config QuarticCorpus/Unconditional/comparator.json --paranoid
+lake env lean --run scripts/Reach.lean QuarticQuery.Checked.theorem_one_one
+```
+
+Add `--inadvisably-no-sandbox` to the Comparator command to reproduce the
+recorded unsandboxed run. The last command prints the `QuarticQuery`
+declarations in the dependency closure of the headline theorem: it traverses the
+types and bodies of all constants the theorem reaches, in every namespace, and
+displays the project projection, keeping one witness path for each edge that
+passes through hidden constants.
+
 Licensed under [Apache-2.0](LICENSE).

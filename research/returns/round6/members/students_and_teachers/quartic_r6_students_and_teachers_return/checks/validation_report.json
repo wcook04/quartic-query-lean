@@ -1,0 +1,165 @@
+{
+  "schema": "quartic-r6-return-validation-v1",
+  "status": "passed",
+  "mode": "manifested_directory",
+  "scope": "Extracted review-directory structure, internal consistency, finite checks, and the explicitly performed byte checks.",
+  "final_return_zip_validation": "not_performed_by_this_script",
+  "formal_build_or_comparator_run": "not_performed",
+  "checks": [
+    {
+      "name": "report_destination",
+      "status": "passed",
+      "detail": {
+        "writing_report": true,
+        "inside_return": false,
+        "manifest_must_be_generated_after_report": false
+      }
+    },
+    {
+      "name": "required_files",
+      "status": "passed",
+      "detail": {
+        "required_files": 20,
+        "report_to_be_created_by_this_run": []
+      }
+    },
+    {
+      "name": "parse_all_json",
+      "status": "passed",
+      "detail": {
+        "json_files_parsed": 9
+      }
+    },
+    {
+      "name": "findings_schema",
+      "status": "passed",
+      "detail": {
+        "total": 43,
+        "by_paper": {
+          "exposition": 35,
+          "expert_companion": 6,
+          "reasoning_record": 2
+        },
+        "by_severity": {
+          "high": 6,
+          "medium": 22,
+          "keep": 11,
+          "low": 4
+        },
+        "by_kind": {
+          "missing": 4,
+          "overweighted": 3,
+          "unclear": 9,
+          "underweighted": 7,
+          "keep": 11,
+          "question": 5,
+          "misplaced": 1,
+          "evidence_presentation": 3
+        }
+      }
+    },
+    {
+      "name": "source_hash_metadata",
+      "status": "passed",
+      "detail": {
+        "draft_hashes": 6,
+        "record_hash": "consistent",
+        "meaning": "Metadata consistency; source bytes require --source-zip."
+      }
+    },
+    {
+      "name": "quote_inventory",
+      "status": "passed",
+      "detail": {
+        "quote_inventory_entries": 43,
+        "meaning": "Internal consistency; source occurrence counts require --source-zip."
+      }
+    },
+    {
+      "name": "findings_markdown_consistency",
+      "status": "passed",
+      "detail": {
+        "matching_rows": 43
+      }
+    },
+    {
+      "name": "questions_index_and_markdown",
+      "status": "passed",
+      "detail": {
+        "questions": 20,
+        "indexed_findings": [
+          "SX-004",
+          "SX-019",
+          "SX-030",
+          "SX-009",
+          "SX-001",
+          "SX-031",
+          "SX-042",
+          "SX-003",
+          "SX-011",
+          "SX-024",
+          "SX-028",
+          "SX-020",
+          "SX-005",
+          "SX-014",
+          "SX-026",
+          "SX-007",
+          "SX-022",
+          "SX-033",
+          "SX-040",
+          "SX-041"
+        ]
+      }
+    },
+    {
+      "name": "method_findings_schema",
+      "status": "passed",
+      "detail": {
+        "method_findings": 9
+      }
+    },
+    {
+      "name": "method_markdown_consistency",
+      "status": "passed",
+      "detail": {
+        "matching_rows": 9
+      }
+    },
+    {
+      "name": "exact_examples_fresh_run",
+      "status": "passed",
+      "detail": {
+        "fresh_execution": "passed",
+        "stored_results_match": true,
+        "scope": "Exact finite illustrations only; no Lean, Comparator, or asymptotic proof verification."
+      }
+    },
+    {
+      "name": "return_file_manifest",
+      "status": "passed",
+      "detail": {
+        "files_hashed": 20,
+        "excluded_self": "MANIFEST.sha256",
+        "final_return_archive_checked": false
+      }
+    },
+    {
+      "name": "original_packet_hashes_and_quotes",
+      "status": "passed",
+      "detail": {
+        "source_archive": "quartic_r6_students_and_teachers.zip",
+        "source_archive_sha256": "0cdd1b3351c9dd34bb56e224d950ed125c484d4bdf60b865e30d7813ce49374f",
+        "source_archive_crc": "passed",
+        "original_manifest_members_hashed": 293,
+        "draft_hashes_verified": 6,
+        "record_hash_verified": true,
+        "exact_finding_quotes_and_lines": 43,
+        "exact_method_quotes_and_lines": 9,
+        "scope": "This is validation of the original source ZIP, not the final return ZIP."
+      }
+    }
+  ],
+  "summary": {
+    "passed": 13
+  }
+}

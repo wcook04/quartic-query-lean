@@ -1,0 +1,662 @@
+{
+ "paper": "expert_companion",
+ "round": 6,
+ "manuscript": "docs/expert_companion.md",
+ "manuscript_commit": "9bdd443",
+ "operator_directives": [
+  "papers look like normal TCS papers: no hashes, commands, receipts or review-status ledgers in the PDF; bureaucracy to repository metadata or the long record",
+  "weight mathematical-exposition findings above evidence presentation; sentence-level line edit of the whole paper is the main deliverable"
+ ],
+ "rows": [
+  {
+   "finding_id": "FX002",
+   "panel": "formal_methods_readers",
+   "cluster": "C01-edition-metadata",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Verified: the code block says commit 659b571, links pin e9dfefb, the Unconditional receipt records a run at 9a0a5cd; git diff shows lean/ byte-identical across 659b571..HEAD, so the sentence equating them is false as written though no check is affected. Operator directive: no hashes, toolchains or commands in the paper.",
+   "planned_change": "Fix by removal: delete the \"Reproducing the check\" paragraph and code block. Destination: repository README / record Appendix F, stating links at e9dfefb, recorded run at 9a0a5cd, lean/ unchanged between them."
+  },
+  {
+   "finding_id": "QX-006",
+   "panel": "quantum_experts",
+   "cluster": "C01-edition-metadata",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Verified: the code block says commit 659b571, links pin e9dfefb, the Unconditional receipt records a run at 9a0a5cd; git diff shows lean/ byte-identical across 659b571..HEAD, so the sentence equating them is false as written though no check is affected. Operator directive: no hashes, toolchains or commands in the paper.",
+   "planned_change": "Fix by removal: delete the \"Reproducing the check\" paragraph and code block. Destination: repository README / record Appendix F, stating links at e9dfefb, recorded run at 9a0a5cd, lean/ unchanged between them."
+  },
+  {
+   "finding_id": "CX014",
+   "panel": "classical_experts",
+   "cluster": "C01-edition-metadata",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Verified: the code block says commit 659b571, links pin e9dfefb, the Unconditional receipt records a run at 9a0a5cd; git diff shows lean/ byte-identical across 659b571..HEAD, so the sentence equating them is false as written though no check is affected. Operator directive: no hashes, toolchains or commands in the paper.",
+   "planned_change": "Fix by removal: delete the \"Reproducing the check\" paragraph and code block. Destination: repository README / record Appendix F, stating links at e9dfefb, recorded run at 9a0a5cd, lean/ unchanged between them."
+  },
+  {
+   "finding_id": "SX-041",
+   "panel": "students_and_teachers",
+   "cluster": "C01-edition-metadata",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Verified: the code block says commit 659b571, links pin e9dfefb, the Unconditional receipt records a run at 9a0a5cd; git diff shows lean/ byte-identical across 659b571..HEAD, so the sentence equating them is false as written though no check is affected. Operator directive: no hashes, toolchains or commands in the paper.",
+   "planned_change": "Fix by removal: delete the \"Reproducing the check\" paragraph and code block. Destination: repository README / record Appendix F, stating links at e9dfefb, recorded run at 9a0a5cd, lean/ unchanged between them."
+  },
+  {
+   "finding_id": "FX012",
+   "panel": "formal_methods_readers",
+   "cluster": "C01-edition-metadata",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Reach.lean prints the public QuarticQuery projection of the closure (types and bodies traversed in all namespaces, one hidden-path witness per edge); \"the closure the kernel checked\" overstates.",
+   "planned_change": "Fix by removal with the reproduction block; wherever the command survives (README), describe it as a projection."
+  },
+  {
+   "finding_id": "QX-027",
+   "panel": "quantum_experts",
+   "cluster": "C02-appendix-size",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Appendix A is 2.35 pp, more than §4; most rows are auxiliary. Operator directive confirms.",
+   "planned_change": "Replace Appendix A by a ~0.7-page section \"The formal statement\" (plan §3, New §8): what the Lean statement says in mathematical prose, the modelling choices that matter, mathematically relevant differences, one repository link. Object table, Table 2, Comparator account, review paragraph and reproduction block move to record §2.9 / README."
+  },
+  {
+   "finding_id": "CX013",
+   "panel": "classical_experts",
+   "cluster": "C02-appendix-size",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Appendix A exceeds the classical proof; a normal paper carries a short formal-scope section. Operator directive confirms.",
+   "planned_change": "Replace Appendix A by a ~0.7-page section \"The formal statement\" (plan §3, New §8): what the Lean statement says in mathematical prose, the modelling choices that matter, mathematically relevant differences, one repository link. Object table, Table 2, Comparator account, review paragraph and reproduction block move to record §2.9 / README."
+  },
+  {
+   "finding_id": "FX009",
+   "panel": "formal_methods_readers",
+   "cluster": "C02-appendix-size",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "move_to_record",
+   "reason": "Verified: UniformAmplifier, RealizedCaps, ConstructionFull challenges import maintained QuarticQuery modules; only Unconditional and Construction are Mathlib-only. True but evidence bookkeeping, excluded from the paper by directive.",
+   "planned_change": "Record §2.9 states per bundle whether definitions are Mathlib-only or imported. Paper says only that the headline statement file imports only Mathlib."
+  },
+  {
+   "finding_id": "FX010",
+   "panel": "formal_methods_readers",
+   "cluster": "C02-appendix-size",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "move_to_record",
+   "reason": "Correct pointer, but the \"What it does not establish\" paragraph is a disclaimer the directive removes; record §2.8 (#evidence-checks) already contains the shared-specification control.",
+   "planned_change": "Delete the paragraph; no change needed in record beyond keeping §2.8."
+  },
+  {
+   "finding_id": "FX017",
+   "panel": "formal_methods_readers",
+   "cluster": "C02-appendix-size",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Directive: drop review-status disclaimers. The sentence \"No person has yet reviewed this Lean proof\" is removed rather than expanded into a review invitation.",
+   "planned_change": "Fix by removal of §6 last paragraph; the formal section links the uniform Forrelation theorem plainly."
+  },
+  {
+   "finding_id": "FX019",
+   "panel": "formal_methods_readers",
+   "cluster": "C02-appendix-size",
+   "quote_verified": true,
+   "validity": "keep_confirmed",
+   "disposition": "keep",
+   "reason": "The challenge/solution split is what makes a file of placeholders meaningful; one sentence is normal (exemplar does similar).",
+   "planned_change": "Compress to one sentence in the formal section: statement file holds definitions and statements only; Comparator checks that the separately compiled proofs have exactly these statements, using only the standard axioms."
+  },
+  {
+   "finding_id": "FX003",
+   "panel": "formal_methods_readers",
+   "cluster": "C03-formal-semantics",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Single link lands at R3-01-BRIDGES (§2.5) though the sentence also promises the §2.2 finite-mixture argument (anchor R3-01-CLASSICAL).",
+   "planned_change": "In the formal section, link \"finite mixtures of trees\" to record §2.2 and \"fixed query sequence with measurements deferred\" to record §2.5 separately."
+  },
+  {
+   "finding_id": "FX005",
+   "panel": "formal_methods_readers",
+   "cluster": "C03-formal-semantics",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Verified in Challenge.lean: R and Q are sInf of Nat sets and sInf of the empty set is 0, so an upper bound on Q would be vacuous if no budget were admissible; record §2.2 (line ~209) and §2.4 (~284) give the read-all witnesses. This is a real modelling point, not bookkeeping.",
+   "planned_change": "One clause in the formal section: the sets defining R and Q are nonempty because reading every bit is an admissible algorithm (record §§2.2, 2.4), and the set defining alpha_tot is nonempty because the theorem also proves the power bound with exponent four."
+  },
+  {
+   "finding_id": "FX011",
+   "panel": "formal_methods_readers",
+   "cluster": "C03-formal-semantics",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Verified: compliantSuccess uses recursive actualComplies; actualCount docstring says equivalence is an ordinary argument. The difference is a mathematical scope difference of Lemma 4 and stays in plain prose.",
+   "planned_change": "Formal section: Lemma 4 is formalised for finitely many weighted seeds, with the caps as a recursive compliance condition on the tree; reduction from arbitrary independent randomness and identification with per-input query counts are ordinary arguments (record §6.1)."
+  },
+  {
+   "finding_id": "FX018",
+   "panel": "formal_methods_readers",
+   "cluster": "C03-formal-semantics",
+   "quote_verified": true,
+   "validity": "keep_confirmed",
+   "disposition": "keep",
+   "reason": "Mixed-scope description of the direct-product endpoint is correct.",
+   "planned_change": "Keep in the FX011 sentence (broader event, narrower randomness); never collapse to one adjective. Full table goes to record."
+  },
+  {
+   "finding_id": "SX-040",
+   "panel": "students_and_teachers",
+   "cluster": "C03-formal-semantics",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Printed Lemma 2 already returns the successful state, so \"stronger conclusion (the returned state)\" names no difference. Round-5 review: uniformOpaqueAmplifier is uniform in A with exact success mass, restricted to success tests on basis labels.",
+   "planned_change": "Formal section: the amplifier is formalised for one procedure fixed before the preparation, with exact success mass, for success tests on basis labels. Coordination: correct the same row in record §2.9."
+  },
+  {
+   "finding_id": "QX-002",
+   "panel": "quantum_experts",
+   "cluster": "C07-quantum-contracts",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Line 147 \"full form of the lemma, with the original register returned\" overstates: record §5.5 says the physical returned-state wrapper is unproved; the compared theorem is the opaque retained-factor form.",
+   "planned_change": "Delete the Lean sentence from §4; keep and sharpen \"The upper bound uses only the law of the measured label\" at the point of use; precise formal form stated once in the formal section (SX-040 wording)."
+  },
+  {
+   "finding_id": "FX007",
+   "panel": "formal_methods_readers",
+   "cluster": "C03-formal-semantics",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "move_to_record",
+   "reason": "Correct: headline roots reach the Boolean continuation (tournament then verification returning one bit); the list theorem is built separately (record §5.5 table). Same algorithm, different packaging; not needed by a reader of the mathematics.",
+   "planned_change": "No paper change beyond the formal section stating the Lean statement of Theorem 1; record §5.5/§5.6 already carry the route table."
+  },
+  {
+   "finding_id": "FX020",
+   "panel": "formal_methods_readers",
+   "cluster": "C03-formal-semantics",
+   "quote_verified": true,
+   "validity": "keep_confirmed",
+   "disposition": "keep",
+   "reason": "The formal statement of Theorem 1 has an existential log exponent and the floor-form lower bound; that is mathematical content of the statement.",
+   "planned_change": "Move from §1 (line 31) to the formal section, in plain words without \"compared/built\"; §1 keeps one sentence pointing there."
+  },
+  {
+   "finding_id": "CX001",
+   "panel": "classical_experts",
+   "cluster": "C04-direct-product-choice",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Checked against Drucker arXiv:1005.0644v2 Thm 1.1 (extracted.md l.145): with T=L, k=r, eps=1/3, alpha=3/r<=3/40 the total budget is exactly L and the bound is (2^{1/r}·2/3)^r = 2(2/3)^r; Drucker states the results apply to partial functions; the simulator has total cap L and independent side information, so the theorem applies. In (14) the guessing term becomes 2G beta^r <= 2/(100 m^8), so 6/100 survives. The current clause \"while his headline theorem assumes one global budget\" wrongly suggests the global theorem is unusable.",
+   "planned_change": "§5.1: replace the clause by: Drucker's Theorem 1.1 with total budget L (T=L, eps=1/3, alpha=3/r) already gives 2 beta^r for the simulator of §5.4, and the factor 2 is absorbed in (14); we follow the preprint's separate-cap form because it gives beta^r exactly and has the short proof below. Coordination: same remark in record CL-literature-and-verification and CL-address-guess."
+  },
+  {
+   "finding_id": "CX039",
+   "panel": "classical_experts",
+   "cluster": "C04-direct-product-choice",
+   "quote_verified": true,
+   "validity": "keep_confirmed",
+   "disposition": "keep",
+   "reason": "Shaltiel/Drucker attribution is precise.",
+   "planned_change": "Keep the qualified attribution; the CX001 sentence augments it."
+  },
+  {
+   "finding_id": "CX040",
+   "panel": "classical_experts",
+   "cluster": "C04-direct-product-choice",
+   "quote_verified": true,
+   "validity": "keep_confirmed",
+   "disposition": "keep",
+   "reason": "The unnormalised-weight proof handles zero-mass branches without full-support assumptions and is short.",
+   "planned_change": "Keep the proof in §5.1."
+  },
+  {
+   "finding_id": "SX-038",
+   "panel": "students_and_teachers",
+   "cluster": "C04-direct-product-choice",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Reader cannot see why unnormalised measures are used.",
+   "planned_change": "One clause: working with unnormalised measures avoids conditioning on branches of probability zero; record §6.1 gives the conditional-value proof."
+  },
+  {
+   "finding_id": "CX002",
+   "panel": "classical_experts",
+   "cluster": "C05-predecessor-tradeoff",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Verified in ABBLSS (ref-04 l.222-289): the D-vs-Q function uses back pointers that make it easy for zero-error randomized algorithms; a variant without back pointers is hard for Monte Carlo algorithms but uses a balanced tree. The current paragraph does not say why these did not give R vs Q.",
+   "planned_change": "§1.3: one sentence naming the back-pointer tradeoff and the Monte-Carlo-hard variant, then: here a zero of X_j carries no pointer, and the certificate that disqualifies other columns sits behind the hard address of the winning column. Exact exponents of ABBLSS variants to be checked in ref-04 before writing; state none not checked."
+  },
+  {
+   "finding_id": "CX006",
+   "panel": "classical_experts",
+   "cluster": "C05-predecessor-tradeoff",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Juxtaposition reads as if binary encoding alone removes the alphabet problem; the actual gain is that a comparison reads only the one l-bit field pointing into its rival while verification checks all m-1 fields by Grover search over K tests.",
+   "planned_change": "Rewrite the last sentence of the §1.3 lineage paragraph accordingly."
+  },
+  {
+   "finding_id": "CX015",
+   "panel": "classical_experts",
+   "cluster": "C05-predecessor-tradeoff",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "\"this route\" is broader than the displayed AND-OR recipe the arithmetic covers.",
+   "planned_change": "§1.1: \"The cheat-sheet arithmetic shows why the AND–OR recipe of [ABK] stops at the cube.\""
+  },
+  {
+   "finding_id": "QX-016",
+   "panel": "quantum_experts",
+   "cluster": "C05-predecessor-tradeoff",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Verified Tal (ref-26 l.149-177): partial separation N^{2/3-o(1)} plugged into the cheat-sheet conversion gives 2+2/3.",
+   "planned_change": "§1.1: state the conversion once: a partial g with polylog Q and R(g)=n^{c} gives R=Q^{2+c}; c=1/2 Forrelation, c=2/3-o(1) Tal, c=1-o(1) BS/SSW. Replaces the separate 5/2 and cube sentences (net shorter)."
+  },
+  {
+   "finding_id": "CX031",
+   "panel": "classical_experts",
+   "cluster": "C05-predecessor-tradeoff",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Verified: Ben-David, arXiv:1506.08106, gives degree 2.5 and conditional degree 3; later subsumed by ABK.",
+   "planned_change": "Add Ben-David 2015 to the 5/2 row (\"Ben-David; then ABK\"). New bib entry BenDavid2015."
+  },
+  {
+   "finding_id": "QX-005",
+   "panel": "quantum_experts",
+   "cluster": "C06-tournament-mechanism",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "AIK keep candidates beating every pivot (an indicator); Prop 3 replaces it by the product of comparison probabilities, and only the winner is guaranteed to keep its mass. This is the mathematical heart and is implicit.",
+   "planned_change": "Opening of §4.2: one sentence relating AIK's surviving set to the weights w_i = prod_b a_{i rho_b}; §1.3 sentence shortened to point there."
+  },
+  {
+   "finding_id": "QX-013",
+   "panel": "quantum_experts",
+   "cluster": "C06-tournament-mechanism",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Output contract (list length and cap unconditional, containment conditional, verification decides) is stated but its reason is not.",
+   "planned_change": "After Prop 3: the list has at most T entries on every input; it contains i* when a winner exists; since verifying a candidate costs O(sqrt K), listing suffices and no king need be identified."
+  },
+  {
+   "finding_id": "QX-015",
+   "panel": "quantum_experts",
+   "cluster": "C06-tournament-mechanism",
+   "quote_verified": true,
+   "validity": "partially_valid",
+   "disposition": "decline",
+   "reason": "The suggested mechanism (why BDK/AIK C-vs-Q functions do not give R vs Q) was not verified; AIK's functions have R1 = Theta(sqrt C), the opposite direction, and an unverified explanation would be invented prior-art analysis. §1.3 already separates the measures.",
+   "planned_change": "None."
+  },
+  {
+   "finding_id": "QX-019",
+   "panel": "quantum_experts",
+   "cluster": "C06-tournament-mechanism",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "§4 enters through standard amplification geometry; a specialist needs the contract, not the rotation.",
+   "planned_change": "Keep Lemma 2 as a stated contract (cap on every branch, exact conditional state, failure bounds); cut the Sketch to two sentences citing BHMT/BBHT with record §5.1 link; §4 opening sentence names the tournament as the new step."
+  },
+  {
+   "finding_id": "QX-021",
+   "panel": "quantum_experts",
+   "cluster": "C06-tournament-mechanism",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "The ell^6 expansion is loose bookkeeping.",
+   "planned_change": "Compress §4.3 second paragraph to two sentences: per-stage and per-verification costs, total O_k(sqrt m ell^6), record §5.4."
+  },
+  {
+   "finding_id": "QX-039",
+   "panel": "quantum_experts",
+   "cluster": "C06-tournament-mechanism",
+   "quote_verified": true,
+   "validity": "keep_confirmed",
+   "disposition": "keep",
+   "reason": "Exact sampling display and w_i/m to w_i/W law are the mechanism.",
+   "planned_change": "Keep display (9) and the mass computation; add that the successful label is measured and becomes the next pivot (QX-010 analogue)."
+  },
+  {
+   "finding_id": "CX053",
+   "panel": "classical_experts",
+   "cluster": "C06-tournament-mechanism",
+   "quote_verified": true,
+   "validity": "keep_confirmed",
+   "disposition": "keep",
+   "reason": "Exact sampling display and w_i/m to w_i/W law are the mechanism.",
+   "planned_change": "Keep display (9) and the mass computation; add that the successful label is measured and becomes the next pivot (QX-010 analogue)."
+  },
+  {
+   "finding_id": "QX-040",
+   "panel": "quantum_experts",
+   "cluster": "C06-tournament-mechanism",
+   "quote_verified": true,
+   "validity": "keep_confirmed",
+   "disposition": "keep",
+   "reason": "Stopped coupling conditioned on the whole past is essential.",
+   "planned_change": "Keep verbatim in substance."
+  },
+  {
+   "finding_id": "QX-038",
+   "panel": "quantum_experts",
+   "cluster": "C06-tournament-mechanism",
+   "quote_verified": true,
+   "validity": "keep_confirmed",
+   "disposition": "keep",
+   "reason": "Winner-only argument against arbitrary rival inputs.",
+   "planned_change": "Keep in §1.2 and §4.1."
+  },
+  {
+   "finding_id": "QX-009",
+   "panel": "quantum_experts",
+   "cluster": "C07-quantum-contracts",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Record §3.3 (l.762) notes the (1+Phi)/2 interference test is different but not why projection is used; the answer is that any bounded-error decoder on the promise suffices because the domain is certified by the circuit.",
+   "planned_change": "§2 (ii): one clause: the sign-sensitive interference test with acceptance (1+Phi)/2 would serve equally; any decoder with bounded error on the promise suffices because (iii) certifies the domain."
+  },
+  {
+   "finding_id": "QX-014",
+   "panel": "quantum_experts",
+   "cluster": "C07-quantum-contracts",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Size S matters only through K, hence through the O(sqrt K) verification cost; existence of an exact circuit is a separate requirement.",
+   "planned_change": "§2 local tests: add \"so the circuit size enters the quantum bound only through sqrt K\"."
+  },
+  {
+   "finding_id": "CX011",
+   "panel": "classical_experts",
+   "cluster": "C07-quantum-contracts",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "The explicit Walsh form matters because (iii) needs an exact nearly linear circuit for promise and value; the credit paragraph does not connect this.",
+   "planned_change": "§1.3 credit paragraph: one clause that the construction uses the explicit form because it also needs (iii)."
+  },
+  {
+   "finding_id": "CX037",
+   "panel": "classical_experts",
+   "cluster": "C07-quantum-contracts",
+   "quote_verified": true,
+   "validity": "keep_confirmed",
+   "disposition": "keep",
+   "reason": "All-address failure of non-winners gives total-input soundness.",
+   "planned_change": "Keep; keep the link to §4.3."
+  },
+  {
+   "finding_id": "CX010",
+   "panel": "classical_experts",
+   "cluster": "C08-classical-charge",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "The decisive operation (a cell query names an address before contents are read) appears only in §5.4; the §1.2 heuristic says \"Reading the cell needs that column's address\" which reads as a per-run necessity.",
+   "planned_change": "Rewrite §1.2 classical paragraph: a run of G queries makes more than L address queries in at most G/L columns; in any other column a query to the true cell names all r answers with at most L queries, which Lemma 4 allows with probability beta^r per query. §5.4 opening sentence states the operation before the simulator."
+  },
+  {
+   "finding_id": "CX021",
+   "panel": "classical_experts",
+   "cluster": "C08-classical-charge",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "mu at §5 is the minimax law on the promise, not the rounded-Gaussian planted law of §6 (which has off-promise mass).",
+   "planned_change": "§5 opening: \"(a law supplied by minimax and supported on the promise; it is not the planted law of §6)\"."
+  },
+  {
+   "finding_id": "CX030",
+   "panel": "classical_experts",
+   "cluster": "C08-classical-charge",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Parameter roles implicit.",
+   "planned_change": "§5.5: one sentence: r=20 ell makes beta^r beat the union over G times, m gives the unknown-column factor, 1/100 and 20 are slack."
+  },
+  {
+   "finding_id": "CX032",
+   "panel": "classical_experts",
+   "cluster": "C08-classical-charge",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Verified: Ben-David 2015 (l.71) uses one random zero per column with a marked zero; \"a second channel\" is unattributed.",
+   "planned_change": "§5.2: credit the hidden-zero matrix to Ben-David [BenDavid2015] beside the ABK credit."
+  },
+  {
+   "finding_id": "CX041",
+   "panel": "classical_experts",
+   "cluster": "C08-classical-charge",
+   "quote_verified": true,
+   "validity": "keep_confirmed",
+   "disposition": "keep",
+   "reason": "Load-bearing and correct.",
+   "planned_change": "Keep through compression."
+  },
+  {
+   "finding_id": "CX045",
+   "panel": "classical_experts",
+   "cluster": "C08-classical-charge",
+   "quote_verified": true,
+   "validity": "keep_confirmed",
+   "disposition": "keep",
+   "reason": "Load-bearing and correct.",
+   "planned_change": "Keep through compression."
+  },
+  {
+   "finding_id": "CX035",
+   "panel": "classical_experts",
+   "cluster": "C08-classical-charge",
+   "quote_verified": true,
+   "validity": "keep_confirmed",
+   "disposition": "keep",
+   "reason": "Load-bearing and correct.",
+   "planned_change": "Keep through compression."
+  },
+  {
+   "finding_id": "CX038",
+   "panel": "classical_experts",
+   "cluster": "C08-classical-charge",
+   "quote_verified": true,
+   "validity": "keep_confirmed",
+   "disposition": "keep",
+   "reason": "Load-bearing and correct.",
+   "planned_change": "Keep through compression."
+  },
+  {
+   "finding_id": "QX-018",
+   "panel": "quantum_experts",
+   "cluster": "C09-shortcut-table",
+   "quote_verified": true,
+   "validity": "partially_valid",
+   "disposition": "fix",
+   "reason": "All panels value the rows (SX-037, FMR weighting keep all eight); the problem is front-loaded detail, not the table.",
+   "planned_change": "Keep all eight rows in §3; cut the row-7 explanation paragraph (record CL-conditioning-counterexample and §6.1 already hold it); one sentence saying rows 1–3 concern §4 and rows 4–7 §5."
+  },
+  {
+   "finding_id": "CX023",
+   "panel": "classical_experts",
+   "cluster": "C09-shortcut-table",
+   "quote_verified": true,
+   "validity": "partially_valid",
+   "disposition": "fix",
+   "reason": "Same as QX-018.",
+   "planned_change": "Same change; tighten row wording."
+  },
+  {
+   "finding_id": "SX-037",
+   "panel": "students_and_teachers",
+   "cluster": "C09-shortcut-table",
+   "quote_verified": true,
+   "validity": "keep_confirmed",
+   "disposition": "keep",
+   "reason": "Exact shortcut-to-counterexample matching.",
+   "planned_change": "Keep."
+  },
+  {
+   "finding_id": "CX017",
+   "panel": "classical_experts",
+   "cluster": "C10-growing-k",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "move_to_record",
+   "reason": "Remark packs a second schedule into one paragraph; record §7.2 explicitly calls a k=k(t) schedule \"a separate result\" and has no derivation (QX-003). I rechecked the arithmetic: R(F)>mL/100>=mX/200 gives the 1822500 constant, and a numeric sweep t=80..5000 and up to 1e8 confirms R_lb >= Q_ub^{4-eps(ell)}.",
+   "planned_change": "Companion keeps a three-sentence remark: why uniform control is needed, the schedule k=floor(sqrt(t/20)) and the result with eps(ell), still no R=Omega(Q^4); derivation (X in [2,m], L=floor(X), 1822500 bound, log comparison) moves to new record §7.4 with a link. Coordination with record owner."
+  },
+  {
+   "finding_id": "FX015",
+   "panel": "formal_methods_readers",
+   "cluster": "C10-growing-k",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "move_to_record",
+   "reason": "Remark packs a second schedule into one paragraph; record §7.2 explicitly calls a k=k(t) schedule \"a separate result\" and has no derivation (QX-003). I rechecked the arithmetic: R(F)>mL/100>=mX/200 gives the 1822500 constant, and a numeric sweep t=80..5000 and up to 1e8 confirms R_lb >= Q_ub^{4-eps(ell)}.",
+   "planned_change": "Companion keeps a three-sentence remark: why uniform control is needed, the schedule k=floor(sqrt(t/20)) and the result with eps(ell), still no R=Omega(Q^4); derivation (X in [2,m], L=floor(X), 1822500 bound, log comparison) moves to new record §7.4 with a link. Coordination with record owner."
+  },
+  {
+   "finding_id": "SX-039",
+   "panel": "students_and_teachers",
+   "cluster": "C10-growing-k",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "move_to_record",
+   "reason": "Remark packs a second schedule into one paragraph; record §7.2 explicitly calls a k=k(t) schedule \"a separate result\" and has no derivation (QX-003). I rechecked the arithmetic: R(F)>mL/100>=mX/200 gives the 1822500 constant, and a numeric sweep t=80..5000 and up to 1e8 confirms R_lb >= Q_ub^{4-eps(ell)}.",
+   "planned_change": "Companion keeps a three-sentence remark: why uniform control is needed, the schedule k=floor(sqrt(t/20)) and the result with eps(ell), still no R=Omega(Q^4); derivation (X in [2,m], L=floor(X), 1822500 bound, log comparison) moves to new record §7.4 with a link. Coordination with record owner."
+  },
+  {
+   "finding_id": "CX012",
+   "panel": "classical_experts",
+   "cluster": "C11-forrelation-supplier",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "A reader must assemble BS k^-29 bound and (16) themselves; round-5 review says (16) has better k-dependence and worse log power.",
+   "planned_change": "§6: one sentence comparing (16) with BS (better power of k, worse power of the logarithm) and saying (5) suffices for Theorem 1 while (16) serves the growing-k remark. SSW variable-error comparison stays in record."
+  },
+  {
+   "finding_id": "CX048",
+   "panel": "classical_experts",
+   "cluster": "C11-forrelation-supplier",
+   "quote_verified": true,
+   "validity": "keep_confirmed",
+   "disposition": "keep",
+   "reason": "Correct credit / off-promise warning.",
+   "planned_change": "Keep."
+  },
+  {
+   "finding_id": "CX046",
+   "panel": "classical_experts",
+   "cluster": "C11-forrelation-supplier",
+   "quote_verified": true,
+   "validity": "keep_confirmed",
+   "disposition": "keep",
+   "reason": "Correct credit / off-promise warning.",
+   "planned_change": "Keep."
+  },
+  {
+   "finding_id": "QX-017",
+   "panel": "quantum_experts",
+   "cluster": "C12-opening-value",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Abstract sells explicit constants ahead of the mechanism.",
+   "planned_change": "Abstract last sentence: \"This companion gives the argument in full, including the failure of natural shortcuts; the constants are explicit.\" §1 constants paragraph shortened."
+  },
+  {
+   "finding_id": "SX-036",
+   "panel": "students_and_teachers",
+   "cluster": "C12-opening-value",
+   "quote_verified": true,
+   "validity": "partially_valid",
+   "disposition": "fix",
+   "reason": "Expert paper must stand alone; a pointer to the worked-example companion is normal and costs one clause.",
+   "planned_change": "§1.4: shorten to two sentences and cite the exposition as the companion working the construction on a four-column example (new bib entry)."
+  },
+  {
+   "finding_id": "CX034",
+   "panel": "classical_experts",
+   "cluster": "C12-opening-value",
+   "quote_verified": true,
+   "validity": "keep_confirmed",
+   "disposition": "keep",
+   "reason": "Load-bearing and correct.",
+   "planned_change": "Keep through compression."
+  },
+  {
+   "finding_id": "QX-052",
+   "panel": "quantum_experts",
+   "cluster": "C12-opening-value",
+   "quote_verified": true,
+   "validity": "keep_confirmed",
+   "disposition": "keep",
+   "reason": "Load-bearing and correct.",
+   "planned_change": "Keep through compression."
+  },
+  {
+   "finding_id": "CX049",
+   "panel": "classical_experts",
+   "cluster": "C12-opening-value",
+   "quote_verified": true,
+   "validity": "keep_confirmed",
+   "disposition": "keep",
+   "reason": "Load-bearing and correct.",
+   "planned_change": "Keep through compression."
+  },
+  {
+   "finding_id": "CX033",
+   "panel": "classical_experts",
+   "cluster": "C12-opening-value",
+   "quote_verified": true,
+   "validity": "keep_confirmed",
+   "disposition": "keep",
+   "reason": "Load-bearing and correct.",
+   "planned_change": "Keep through compression."
+  },
+  {
+   "finding_id": "FX021",
+   "panel": "formal_methods_readers",
+   "cluster": "C13-bit-accounting",
+   "quote_verified": true,
+   "validity": "keep_confirmed",
+   "disposition": "keep",
+   "reason": "Bit-level pointer accounting at point of use.",
+   "planned_change": "Keep in §4.3."
+  }
+ ]
+}

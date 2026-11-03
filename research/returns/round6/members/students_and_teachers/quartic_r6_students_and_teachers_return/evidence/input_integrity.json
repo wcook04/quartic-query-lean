@@ -1,0 +1,2101 @@
+{
+  "check_date_utc": "2026-11-03",
+  "status": "pass",
+  "archive": {
+    "filename": "quartic_r6_students_and_teachers.zip",
+    "bytes": 21279111,
+    "sha256": "0cdd1b3351c9dd34bb56e224d950ed125c484d4bdf60b865e30d7813ce49374f",
+    "zip_member_count": 295,
+    "file_member_count": 295,
+    "crc_check": "pass",
+    "safe_relative_paths": true,
+    "unique_case_insensitive_paths": true,
+    "no_symlinks": true
+  },
+  "manifest": {
+    "filename": "manifest.json",
+    "sha256": "eb16938a4886cec73a7a51b86c1750f64ce4f59513a1c9f69652b619f882fb8d",
+    "verified_members": 293,
+    "all_member_hashes_and_sizes_match": true,
+    "all_extracted_members_unchanged": true,
+    "archive_files_outside_manifest": [
+      {
+        "member": "READ_ME_FIRST.md",
+        "bytes": 26303,
+        "sha256": "6aa419a0cbf1add4ecb14515c35d3ff1f24abf180a106590375735d8e24eb216"
+      },
+      {
+        "member": "manifest.json",
+        "bytes": 103322,
+        "sha256": "eb16938a4886cec73a7a51b86c1750f64ce4f59513a1c9f69652b619f882fb8d"
+      }
+    ]
+  },
+  "source_status": {
+    "draft_hashes_match": true,
+    "record_markdown_hash_matches": true,
+    "repository_commit": "9bdd443ce9b5e2fa5a83d63e0bcb0d87fbed298a",
+    "interpretation": "Member hashes bind the exact working bytes; the commit is provenance only."
+  },
+  "members": [
+    {
+      "member": "LINK_MAP.json",
+      "bytes": 70895,
+      "sha256": "8084a688dec6466cf01c01e066a8f53af743a0e12e353687ff6290bf243c4344",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "SOURCE_STATUS.json",
+      "bytes": 1567,
+      "sha256": "1f8066c23d205b4126e2f4054d0bb8130b4ae3b18d2be3708f745a0d20ead4e0",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "exemplars/expository.md",
+      "bytes": 67972,
+      "sha256": "67d89307e8131e8c2ca1f21749dce062218534d1ac25d4c5860f2500e234e33f",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "exemplars/long-reasoning-record.md",
+      "bytes": 278844,
+      "sha256": "a19893f62d1211681ed0cb9cbb8bb454214d97f231f6a6d091b6f198fca35a89",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "exemplars/qaoa-sk/expository/main.pdf",
+      "bytes": 141918,
+      "sha256": "e7febe1f6024919226ef911a7bc9f0b42226de508fff0f654ad3c7fe93d6890d",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "exemplars/qaoa-sk/long/reasoning-record.pdf",
+      "bytes": 467346,
+      "sha256": "4678e0f16e26ed8bf0058823b426c142db889e6c4c06868001b4f10b91ee0beb",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "exemplars/qaoa-sk/short/paper.pdf",
+      "bytes": 137846,
+      "sha256": "6a4ede39bd2e7da612fb0f0a46f6f5ffc3180bea7613286689c2632bae2e058c",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "exemplars/short-paper.md",
+      "bytes": 59587,
+      "sha256": "4b34070c1152369eec9bef536de51f8929c68f3a851f291e962a0c51a3b31ebb",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/arxiv-2103-11604/extracted.md",
+      "bytes": 129018,
+      "sha256": "55c19ab29df4e7b5953d1dd73d295a69b8fe3519b5aa2294aadcfbf8faf053b3",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/arxiv-2103-11604/source.tar.gz",
+      "bytes": 42311,
+      "sha256": "fa4612c9d0a67d270124efda9bb87903a71a330a9662b8c1c844167b4de836c8",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-aaronson-ambainis-bogdanov-quantum-vs-classical/extracted.md",
+      "bytes": 19169,
+      "sha256": "ee25526229fe5ffc64e1a27ec580beca10bdb1e154bcc263153ab14c40b96386",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-aaronson-ambainis-bogdanov-quantum-vs-classical/source.pdf",
+      "bytes": 635190,
+      "sha256": "c46d29d8b7d5f18a8427d1f9b2ae8a129ec79933598ebefbf668bfd1949afe7b",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-aaronson-quantum-implications-of-huangs-sensitivity/extracted.md",
+      "bytes": 105691,
+      "sha256": "3adf6b1d1f6d64995ff0628824ecd06baa37a207e0c4910ffe879c81d852209a",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-aaronson-quantum-implications-of-huangs-sensitivity/source.tar.gz",
+      "bytes": 23227,
+      "sha256": "340fd58cd96592c77a8da1897b91b45e66714c8ce9e4b750fd5dbc43a006074f",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-ambainis-iraids-kokainis-certificate-v3/extracted.md",
+      "bytes": 146724,
+      "sha256": "e0a89e48b31155794adfad410de3cb2ec7393a82de3ff040dbfff5f5e58712a6",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-ambainis-iraids-kokainis-certificate-v3/source.tar.gz",
+      "bytes": 43929,
+      "sha256": "6704d6d884cef7b06d3e9eba87fe9e8cfcfe40dc959ebffdd93f584f94524305",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-bansal-sinha-qip2021-slides/extracted.md",
+      "bytes": 39434,
+      "sha256": "a84de973ff7ea8ee9af57472b8d32d22804e6b5f148e73ce0b6511b50248519a",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-bansal-sinha-qip2021-slides/source.pdf",
+      "bytes": 1327615,
+      "sha256": "e430ef045d651b21134bcaf7c5d62723a6b809613ee5c702f6492138954395de",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-beame-kornerup-whitmeyer-quantum-direct-products/extracted.md",
+      "bytes": 238573,
+      "sha256": "e9cea9f251268fbf28e5e1844be212800d24b4905063f5bae7981e88b9f759fa",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-beame-kornerup-whitmeyer-quantum-direct-products/source.tar.gz",
+      "bytes": 240237,
+      "sha256": "82551889c93460a579592d65702b054b14f2677a75b0ba1f341156fe82380b44",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-ben-david-a-super-grover-separation/extracted.md",
+      "bytes": 16298,
+      "sha256": "364f32dc5944ab95423b7e2e4c8d587df886aebdcdd41d1e87bbb7f67921e10a",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-ben-david-a-super-grover-separation/source.tex",
+      "bytes": 17260,
+      "sha256": "d2968f44fab184c7a6ac93fb3cc711aece603ae4b3b5ea07ed582e8bb01d6184",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-bravyi-classical-algorithms-for-forrelation/extracted.md",
+      "bytes": 167717,
+      "sha256": "5c4841904fe5b933bc4361003b8322c705764081e67b5250fdba76d9c05d04b1",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-bravyi-classical-algorithms-for-forrelation/source.tar.gz",
+      "bytes": 66732,
+      "sha256": "0c146fc53a254ad9b5886309ef8b671367fa5cade73ceae8454db87bff1b3159",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-buhrman-dewolf-decision-tree-survey/extracted.md",
+      "bytes": 64480,
+      "sha256": "dd267ba1128aa08201558e63b5be431e11b9855b11cf0ac2f46216676ae2e8d8",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-buhrman-dewolf-decision-tree-survey/source.pdf",
+      "bytes": 328683,
+      "sha256": "7002019660c498b652611acf5cdbe264ea9c4a139f8f4da6e82e12822e5d9122",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-canonne-chen-mestre-quantumly-fast-classically-forrious/extracted.md",
+      "bytes": 132723,
+      "sha256": "26daa36da23b57be38d89c19f0c2c6e0b281107369cdde50a29d0e1d93bfb634",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-canonne-chen-mestre-quantumly-fast-classically-forrious/source.tar.gz",
+      "bytes": 40773,
+      "sha256": "7e04187b685c6d9e81e3a68096a1d91bb180a28bd8658afaba42d6edd0c1f8df",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-dewolf-quantum-computing-lecture-notes/extracted.md",
+      "bytes": 709914,
+      "sha256": "57b133972c5e26ceb41d46e49a77a52ef1b03e0ee522ca1534dd6e48547f7dd5",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-dewolf-quantum-computing-lecture-notes/source.tar.gz",
+      "bytes": 399313,
+      "sha256": "2ffd080924542b6de1409a1dbd73efcb85e99bc0d3cc2daac5e3eeba84ef2535",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-girish-forrelation-is-extremally-hard/extracted.md",
+      "bytes": 101141,
+      "sha256": "e6d2880813575219bc1b86900037aa4cbcab43d9c0b772cec4e70ccc3a697b0c",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-girish-forrelation-is-extremally-hard/source.tar.gz",
+      "bytes": 40061,
+      "sha256": "1c3025b76eae52a4a6cd2483bf04aa9285f430b785dfcd2adb48bee1c7667108",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-girish-forrelation-is-extremally-hard/supplements/itcs-2026-publisher.pdf",
+      "bytes": 976486,
+      "sha256": "6ddca758ad889faed006ef129078304b710326bd1a860e6128bbad9743ef8426",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-girish-fourier-spectrum-of-noisy-quantum-algorithms/extracted.md",
+      "bytes": 282691,
+      "sha256": "ee1b8342ea2646d04fc2229a8bbb8d399b084445c068eeadcd3fccd55afbc9f7",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-girish-fourier-spectrum-of-noisy-quantum-algorithms/source.tar.gz",
+      "bytes": 92754,
+      "sha256": "ce2ec4436ead0951d268720972e85b6ef07ff3837efb154ad432aaa48e14094a",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-hoyer-lee-spalek-negative-weights/extracted.md",
+      "bytes": 94640,
+      "sha256": "bc351d0bc6f4147137e4240faace5849cfeff1f743caaa95cfc3bcb4a4863469",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-hoyer-lee-spalek-negative-weights/source.pdf",
+      "bytes": 327152,
+      "sha256": "45a0ed9c6122452c70db57da2356434ffba87389238eb11d0f3ae502842befad",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-hoyer-mosca-dewolf-quantum-search-bounded-error/extracted.md",
+      "bytes": 25624,
+      "sha256": "cb04695fcd47585c3989bd3fcb37cfa4d332d691e27763b567d36e5ed976c04b",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-hoyer-mosca-dewolf-quantum-search-bounded-error/source.tar.gz",
+      "bytes": 10689,
+      "sha256": "05d60dca2deb862e7d43848b4dc181422ab62dcc14b6a0e92e19db8c7a2e0907",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-montanaro-quantum-search-with-advice/extracted.md",
+      "bytes": 51512,
+      "sha256": "68261dd8be58129e0013d841e1401e93378d307bb6da12c26bc6ce35136bf4f8",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-montanaro-quantum-search-with-advice/source.pdf",
+      "bytes": 206101,
+      "sha256": "16d93e88d00b4b160e47e13081c310632fc06cd065ad0a3535234163752c86bb",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-nisan-szegedy-degree-of-boolean-functions/extracted.md",
+      "bytes": 27716,
+      "sha256": "0358b65bbbdabfd7db138b333f3d242bd6cf191da58a42fbb8c8672f22bced8b",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-nisan-szegedy-degree-of-boolean-functions/source.pdf",
+      "bytes": 738161,
+      "sha256": "059743f397f0a148e9117ee2f7762bd9a73b80b023c033ffca1e5fae6c2f9abe",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-wu-xor-forrelation-stochastic-calculus/extracted.md",
+      "bytes": 28390,
+      "sha256": "5419cd2ca7909b87772609567250b52af2e2cc9f1e5f5f141b6b14c1453356e2",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-wu-xor-forrelation-stochastic-calculus/source.tar.gz",
+      "bytes": 12815,
+      "sha256": "245fed2f5f294dff3ef3a24324ee9104d7914c18268a756ba89b3aa2a19f858a",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-wu-xor-forrelation-stochastic-calculus/supplements/stacs-2022-publisher.pdf",
+      "bytes": 788256,
+      "sha256": "c63da92c72e788efb2f7a66d1c0244f6582390e39c3da25949857dd663618050",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-zhang-shao-cyclic-forrelation/extracted.md",
+      "bytes": 75294,
+      "sha256": "5be94604e386e9036ec48077d2b47dd8214d4cc7fb299738ef9a43b5f5abda8e",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-lit-zhang-shao-cyclic-forrelation/source.tar.gz",
+      "bytes": 29319,
+      "sha256": "af391f6d5162d912272d84ab14e12fddaccec3a4d57cdc34c3b8ab7bf9e339fc",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-01-forrelation-a-problem-that-optimally-separ/extracted.md",
+      "bytes": 226240,
+      "sha256": "3d4e3dc004cfcc018ddd31bc1d750395b31ab84b9accffd4b764db7f6934c8ab",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-01-forrelation-a-problem-that-optimally-separ/source.pdf",
+      "bytes": 569568,
+      "sha256": "c27966b5b6cf12d61e3877f6ac23b48c9a21fe0a86e6b96ef527b02503e4e1fe",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-02-separations-in-query-complexity-using-chea/extracted.md",
+      "bytes": 145399,
+      "sha256": "39745f19fdbaad3fd6542cee69cd8fdabe02771f975e676aa2e375a208873e32",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-02-separations-in-query-complexity-using-chea/source.pdf",
+      "bytes": 393155,
+      "sha256": "64380c861d0e0296a53c998a0109d62bf446529414001f8e46615991b558e4bc",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-02-separations-in-query-complexity-using-chea/source.tar.gz",
+      "bytes": 38431,
+      "sha256": "8b878b7b4c67206924b8cc32e586c5ad1ec918ffcb60d665b7ea26dddaffa5ff",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-03-degree-vs-approximate-degree-and-quantum-i/extracted.md",
+      "bytes": 162182,
+      "sha256": "fe50f27a93597951aa0e9577d0315a2b4dcdf022122604139232a952d144aa8f",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-03-degree-vs-approximate-degree-and-quantum-i/source.pdf",
+      "bytes": 827322,
+      "sha256": "445a34b0653042ad482bd95bc2c333d476df7ade6ce5d9ec45714f5b249e39ab",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-03-degree-vs-approximate-degree-and-quantum-i/source.tar.gz",
+      "bytes": 38484,
+      "sha256": "b5ba1f3805fe2027b148ddcd64bc2689fa1a22265cfc3f5c5901d9d5b0c3897c",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-04-separations-in-query-complexity-based-on-p/extracted.md",
+      "bytes": 82924,
+      "sha256": "30eacb1b152e26be43fb8f656b065c1ae6e1a25782eb0fcc13c544e246baacd2",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-04-separations-in-query-complexity-based-on-p/source.pdf",
+      "bytes": 313343,
+      "sha256": "1b7803487ac696b1f8d81ee7bc26d55ed7a3c4ff4b78928faa269b71358fe66c",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-04-separations-in-query-complexity-based-on-p/source.tar.gz",
+      "bytes": 33228,
+      "sha256": "21e2427ccdf2794bdb9d1154bf4a81ca665589680bf478413020829dca0c2c5d",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-05-near-optimal-separations-of-certificate-co/extracted.md",
+      "bytes": 135540,
+      "sha256": "255c569bbdecd97061d871d6eec603ff565c132c5cd653c1c5a255c0fb25df19",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-05-near-optimal-separations-of-certificate-co/source.pdf",
+      "bytes": 556093,
+      "sha256": "f1dded462ff8114378d9070ac78114df71934d0030fdddad2c714c286f0798b6",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/extracted.md",
+      "bytes": 181861,
+      "sha256": "cf1477e44353bbb796581002e8cacef3199e8e153d43f075fc8047c2934de952",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.pdf",
+      "bytes": 986784,
+      "sha256": "afe53c8bd918d07590f29a947ef044453db73959043135082d1a3c29b2863a35",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.tar.gz",
+      "bytes": 213572,
+      "sha256": "f48a3225662484d12e19bf03412478cf87a388f7c2e33c69a4d7f2078202e015",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/supplements/stoc-2021-proceedings.pdf",
+      "bytes": 1097172,
+      "sha256": "b3102c80c39e118a4d7fda9bf4b97a1b0f8e0b6a96af7eb5f1dac00ab8fc8d38",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-08-quantum-lower-bounds-by-polynomials/extracted.md",
+      "bytes": 71183,
+      "sha256": "4ffe8f91258469b79c1bfcb4a7ce2a430e34c1b3c512044a52ddde472460c238",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-08-quantum-lower-bounds-by-polynomials/source.pdf",
+      "bytes": 215459,
+      "sha256": "afec116657493976b70df7dcb8b174c8c0be55a9337d9e035afd5f1fc4d9cd4c",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-09-randomized-query-complexity-can-beat-certi/extracted.md",
+      "bytes": 21711,
+      "sha256": "cbf6c2cb2ad61204992be29ca9cd54a7c2204ecaf78e541da3bfbf8c2de1e98c",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-09-randomized-query-complexity-can-beat-certi/source.pdf",
+      "bytes": 325090,
+      "sha256": "ba61287bc2555ce5ffe739e8308b9087c1d0743a683565d4b922a179bd6149c0",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-09-randomized-query-complexity-can-beat-certi/source.tar.gz",
+      "bytes": 9556,
+      "sha256": "e98075e9beeecedbe020b275ac5f2617a0873e547ad4629352aac740cbbe015c",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-10-strengths-and-weaknesses-of-quantum-comput/extracted.md",
+      "bytes": 58193,
+      "sha256": "3bee219d6293662eef3b05ae4ee50a6278789660b6549e417cacd46fba552acd",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-10-strengths-and-weaknesses-of-quantum-comput/source.pdf",
+      "bytes": 234713,
+      "sha256": "7ade70e376984bcf3ee1770cd3b7670633d02d24afa680039b9058c2e1f8c76e",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-11-tight-bounds-on-quantum-searching/extracted.md",
+      "bytes": 59793,
+      "sha256": "5f3d4a8f2e6038392ea75490bafdf58150e3d8b2a76c063841cc158531233c8b",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-11-tight-bounds-on-quantum-searching/source.pdf",
+      "bytes": 185341,
+      "sha256": "badd64e3db8079ee2428fc9f869e202d584412b0a003be64464437019d252fde",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/extracted.md",
+      "bytes": 88358,
+      "sha256": "9fd98e35695c4bf763e4faa35ac146b18c74c3caf0dee24e3e208923aff71a86",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/source.pdf",
+      "bytes": 295305,
+      "sha256": "badedce80b0fe53e6cd93f915ce79c9680e375bb6565f83d2f572bc4114b0278",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/source.tex",
+      "bytes": 88081,
+      "sha256": "6964cdcef75d28ecd31246b2f354dd5738c0d6607fe81394b29fc9d42293a5d6",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/extracted.md",
+      "bytes": 121771,
+      "sha256": "de4e25127079b849cc18984031442ed939d6c24467d1bd67faaa466f8e17e29a",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/source.pdf",
+      "bytes": 405185,
+      "sha256": "6a67da06a0f07d0f86bb6389b7143314cade50294e2c0c454f3cc9853643faff",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/source.tex",
+      "bytes": 131397,
+      "sha256": "7defbc5925e9554768cf5bab0ab548188d5d264075cfc1f00891544b5aec782d",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/supplements/supplied-2014.pdf",
+      "bytes": 413936,
+      "sha256": "c01932c63e62a314d18cd59b8f55066f2cb9cd426ce6dfa69aa996f1594a2459",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-14-a-quantum-algorithm-for-finding-the-minimu/extracted.md",
+      "bytes": 13129,
+      "sha256": "aea6cb99d149fad7a304712f71d4e91403483a1d9bd4e1d2eea5a26c87adf662",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-14-a-quantum-algorithm-for-finding-the-minimu/source.pdf",
+      "bytes": 77176,
+      "sha256": "ff5c2ff71415e22f0ddf799b31e9b82d1990db9c1fc9d62ea2aabea5907e06cf",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-15-deterministic-communication-vs-partition-n/extracted.md",
+      "bytes": 51578,
+      "sha256": "d1ae0d9eeb4c112d5109a9d01ff2b2b12fdc3fbe21c043f463f6bffc033ae873",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-15-deterministic-communication-vs-partition-n/source.pdf",
+      "bytes": 710143,
+      "sha256": "ab57c3fb4fb3fe9932a04f9197300244903aca9085760d24679859b5b342489b",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-16-a-fast-quantum-mechanical-algorithm-for-da/extracted.md",
+      "bytes": 51760,
+      "sha256": "db53148f6af7f24548366e3fe5c7fbc660a1b060341fda513422038d1b3d9f53",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-16-a-fast-quantum-mechanical-algorithm-for-da/source.pdf",
+      "bytes": 67338,
+      "sha256": "630528f5297271288797900dffc9ae2a8e14854759b54d87f6bb7b75c5b770db",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-17-induced-subgraphs-of-hypercubes-and-a-proo/extracted.md",
+      "bytes": 18451,
+      "sha256": "e84394f6e0af85b50ab5d8ead86afb5327b1249a9eefea200e0f7465a6ca0e4a",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-17-induced-subgraphs-of-hypercubes-and-a-proo/source.pdf",
+      "bytes": 108376,
+      "sha256": "9193d2dac7b3f6b6a84270884c6143913ae5a0ba9bf3db19273f9703db0ed6a2",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-18-randomized-and-quantum-query-complexities/extracted.md",
+      "bytes": 73135,
+      "sha256": "9bb40ca6b3959ddf37cfd50768b6f4f210a66e2c0536ece3548834cbfa45e6ac",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-18-randomized-and-quantum-query-complexities/source.pdf",
+      "bytes": 281082,
+      "sha256": "2bc8e533bc6728d75561bae841c49758ac14661d37e6476ecb339c17a5d5cd53",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-19-exact-quantum-query-complexity-for-total-b/extracted.md",
+      "bytes": 15162,
+      "sha256": "f5842cf5ed481a3dedec06383e7d9e843dbcb67dc2917cef8e1f3e7f3185fe17",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-19-exact-quantum-query-complexity-for-total-b/source.pdf",
+      "bytes": 115109,
+      "sha256": "0cdb580bd48d513b33a1c65bd27faa361bd2e4ebaceff29bbf24b16586e4ab21",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-22-towards-proving-strong-direct-product-theo/extracted.md",
+      "bytes": 52339,
+      "sha256": "1713dc1cac7a31a4daa12f10ae21bfbdf8e5ab2443f25053843035a2a185e929",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-22-towards-proving-strong-direct-product-theo/source.pdf",
+      "bytes": 191585,
+      "sha256": "70248ab80df12ff9fab1b2708a2fda7947bf6f22c44db5f7713e6252aaad2436",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-23-an-optimal-separation-of-randomized-and-qu/extracted.md",
+      "bytes": 160328,
+      "sha256": "5196d6af0153637376a40d23afb3275e921b8e55b4d2b584c2a35071c1788ba2",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-23-an-optimal-separation-of-randomized-and-qu/source.pdf",
+      "bytes": 534209,
+      "sha256": "bafc286d1955c4b26a05af69f078b6f08acf6f9cb353cf1a787a6aacf441d325",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-23-an-optimal-separation-of-randomized-and-qu/source.tar.gz",
+      "bytes": 139349,
+      "sha256": "f16324a919208b0c7699615e76f7ac8ef5738e8061fc968796c8a463c9e4e46f",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-24-all-quantum-adversary-methods-are-equivale/extracted.md",
+      "bytes": 61222,
+      "sha256": "43f9491ab7facbddd2c4d9549c8b31babe805405d718658eb285876d0605c200",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-24-all-quantum-adversary-methods-are-equivale/source.pdf",
+      "bytes": 198345,
+      "sha256": "24006189a0397c2517ecff25b33d499ea955dc19ef7c6429e96f50bd5de3270b",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-24-all-quantum-adversary-methods-are-equivale/supplements/toc-2006-supplied.pdf",
+      "bytes": 232179,
+      "sha256": "c7b946356a14102eef38037b32520b3e40f87896b8140dbcdac02a6969e20ee1",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-25-graph-properties-and-circular-functions-ho/extracted.md",
+      "bytes": 51095,
+      "sha256": "d619dedcf5e1438177e72d02941c0d5e73501dc68f089ae1895d89bf6b6741c1",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-25-graph-properties-and-circular-functions-ho/source.pdf",
+      "bytes": 318085,
+      "sha256": "f1690f3380a8b78c1896a153e2951906039bb8a3553881bad4da4760e2e35ff6",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-26-towards-optimal-separations-between-quantu/extracted.md",
+      "bytes": 143811,
+      "sha256": "33da3989bdd2b058b6bb525ad7d23db513e9a5de363d4ec7c23fed37dffa180a",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "literature/quartic-ref-26-towards-optimal-separations-between-quantu/source.pdf",
+      "bytes": 412315,
+      "sha256": "01a6417eaf8ec0cbc84b0f3be169bf2535673ad2885e6676352d2685c2296ef1",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "paper/extracted.md",
+      "bytes": 64021,
+      "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "paper/source.pdf",
+      "bytes": 433829,
+      "sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "previous_round/dispositions/expert_companion.json",
+      "bytes": 42699,
+      "sha256": "4269318915bc55643be2dc0fa1003437e78332040025d6ba04f7bf5d73a740d6",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "previous_round/dispositions/exposition.json",
+      "bytes": 26713,
+      "sha256": "fcd6d47de4a45e9db2f9eac93cc828ddb7dcfdbb7eafc5ff99d0238462ba55c3",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "previous_round/dispositions/reasoning_record.json",
+      "bytes": 23780,
+      "sha256": "42382a95eb3f0b3066a097a6b32b84f7428b38931b80608bbaf71e1dd0852a15",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "previous_round/round5_record_passage_audit.md",
+      "bytes": 4531,
+      "sha256": "08f5675a9dfbf071382ca17bbc5b68b56030a8f1df007161fe4c111cc0d8ce9b",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "previous_round/round5_reviews.md",
+      "bytes": 4406,
+      "sha256": "cb4f419a552781b4bd06f49d5b67c3a63973f6dca155d538093799404dec59a1",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "previous_round/round5_statement_fidelity.json",
+      "bytes": 31576,
+      "sha256": "72108a94b6f75d229a1ea185d1e472a4098b03662935287f41156661ba22b58d",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "previous_round/round5_statement_fidelity.md",
+      "bytes": 6789,
+      "sha256": "6dcef5a074517ccb5ca09a4ddbe8faf0bbba66741ecc6abe821f695923ab2349",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "previous_round/verdicts/classical_mechanism.md",
+      "bytes": 3230,
+      "sha256": "252fc71d161621c9b08961598868deb257cc74f315866c9ade5355373ab27f93",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "previous_round/verdicts/expert_referee_short.md",
+      "bytes": 3412,
+      "sha256": "93a31160c0f731dd8ddd41d60b01a190a8aa9e2cb05e1a92ff6486b2d07a909a",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "previous_round/verdicts/exposition_for_students.md",
+      "bytes": 3063,
+      "sha256": "b90b548ef0d3b2f05668e3c85da4e58cd6ff7b0e900d4c41e926b8d59155edd6",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "previous_round/verdicts/long_record_navigation_a.md",
+      "bytes": 3303,
+      "sha256": "c5dae16018e57ecce5160461b4c3dfe3eece8b6f52f85627d3103f7b928bbea1",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "previous_round/verdicts/long_record_navigation_b.md",
+      "bytes": 3483,
+      "sha256": "865acbf9c94fced828352da02e48a3c6e405fd3c0074549110adf474cb971654",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "previous_round/verdicts/quantum_mechanism.md",
+      "bytes": 3559,
+      "sha256": "c27ed13c61927d26653ddad0b6dc1a20a0283291d8c35fddce974041d2ef2688",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "reader_principles.md",
+      "bytes": 3955,
+      "sha256": "32a405467a0f201339dfc564beeea676bd28c050d1ef6c1350f52c029c090441",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/comparator_map.json",
+      "bytes": 391819,
+      "sha256": "2a3f924cbdc27e82f9ca08a6fda7070c30fc1a9d24bb007a6a6396086ecd33b9",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/native_extractions/round3/README.md",
+      "bytes": 1960,
+      "sha256": "5a925c1908aaf7747fbaec0443df8971465c3031d87b49e2ff0131af014b54b3",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/native_extractions/round3/eq19-build.json",
+      "bytes": 16552,
+      "sha256": "704955f21182ee8a2d5273be9df2e1e38d72a759a753ec6fdb0ea51793ebf441",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/native_extractions/round3/eq19-graph.json",
+      "bytes": 1052645,
+      "sha256": "bc1470ba09fab77ff93b2f37cb7b708cb407fdd3ec47549d336787395dedf27e",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/native_extractions/round3/eq19-independent-build.json",
+      "bytes": 16574,
+      "sha256": "92a6c78765fae24b003580394e1953fcba21f75841675696c35cf2eda0dbad62",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/native_extractions/round3/eq19-independent-graph.json",
+      "bytes": 1249409,
+      "sha256": "4c767dd857de6d72fb02899117a9c59768b495e06e8080652ffe3cc35ee5aed2",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/native_extractions/round3/eq19-independent-inspection.json",
+      "bytes": 1638954,
+      "sha256": "b9422424e27cb6e8074ba29f850899af60f257bba0452388a17b408ee35823d4",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/native_extractions/round3/eq19-independent-report.json",
+      "bytes": 614752,
+      "sha256": "d7119bb57200170876fa37acffcb4df2068818697aa4794bb5e75027df8ee180",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/native_extractions/round3/eq19-independent-selected.json",
+      "bytes": 1245440,
+      "sha256": "e9afb8e731d340502a6f5602fae6928709c809604e3b4dbd415f1d7df7a69b85",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/native_extractions/round3/eq19-independent-stored-views.json",
+      "bytes": 1602,
+      "sha256": "e77c4aa4613a82f477c8041fad031cbfcfec1404a324f7d67b8cfe80bca2ab13",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/native_extractions/round3/eq19-independent-views.json",
+      "bytes": 5160,
+      "sha256": "ed743d16eb17f2a88bb4866408ddbcdc4f4fd08a656fe869bf69f85ddf0e2f50",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/native_extractions/round3/eq19-inspection.json",
+      "bytes": 1422911,
+      "sha256": "8637570b4cc0e6dccb3639263c258489e029b180510ebb50bd22bb45c8f367f4",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/native_extractions/round3/eq19-report.json",
+      "bytes": 525766,
+      "sha256": "d4d671e517468337626ada49ade21be360fbbc5afa4b5a1fdf24a08323fc85fb",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/native_extractions/round3/eq19-selected.json",
+      "bytes": 1049676,
+      "sha256": "71ff7624f52d2d0bd2101bf9d7a81f097bc373ffc3a1322679a0e195d3696ca7",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/native_extractions/round3/eq19-stored-views.json",
+      "bytes": 1565,
+      "sha256": "cb7907b7c46f66706d18d29dfab0e7c005f7932d69e0bbbd00d8acec3932f0bd",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/native_extractions/round3/eq19-views.json",
+      "bytes": 4965,
+      "sha256": "fd6b643ca4cd6299b71902a28c36f8c70779ea9594570996ed674163f9f3717c",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/native_extractions/round3/semantics-build.json",
+      "bytes": 16582,
+      "sha256": "0b2415177c546a8e5fd1eec7e34bb1f007d9baee3bfae83094377b2b59bde901",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/native_extractions/round3/semantics-graph.json",
+      "bytes": 1375026,
+      "sha256": "84dd5d93826e9ea9034576e9531f58df0c3342bd10de42f1bc6b74c9d1d3a473",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/native_extractions/round3/semantics-inspection.json",
+      "bytes": 1787092,
+      "sha256": "8485c5a1c99ca7b6f1bcb5a75f995d39a8029bd99b02f1d2148c291663c7d79f",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/native_extractions/round3/semantics-report.json",
+      "bytes": 706812,
+      "sha256": "0c8cc4c4f579c00c14bd81236f6328312f1b549b301ad32241024d077f3fcb76",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/native_extractions/round3/semantics-selected.json",
+      "bytes": 1372100,
+      "sha256": "4af3006f03204a67e38ffd81057694964743ed0b2d1ffb476149c7c426532156",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/native_extractions/round3/semantics-stored-views.json",
+      "bytes": 1591,
+      "sha256": "b36fe989714c8a6a4e289126743a734c6be853287f2c84f9a3ec8d5c4f3e97ba",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/native_extractions/round3/semantics-views.json",
+      "bytes": 5713,
+      "sha256": "f46ad29f3a9d45fcd6ae596f5709d48fbed4e22a971db8ab9c04b310789fc6d0",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Construction-2026-11-02T205620278544+0000.json",
+      "bytes": 19201,
+      "sha256": "8a887de4f77b256fceb77bd635c381510e7d068075f42c465f866dcf12ff312d",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Foundations-2026-11-02T205755119082+0000.json",
+      "bytes": 19349,
+      "sha256": "bd6d1bd41a27bc2b3d114fa3be0d011beed67556c964eb49d68e5a6238611647",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Separation-2026-11-02T210108868598+0000.json",
+      "bytes": 19388,
+      "sha256": "b9a1915fa304989b17962e6e4c1f237d1216a81c9361b66d0b318562925b4a2c",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Tournament-2026-11-02T210431678518+0000.json",
+      "bytes": 18948,
+      "sha256": "9f7e857ff90d731b18b5e0344d029534d74a3d5f0c33e4156640e66d3e296367",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Unconditional-2026-11-02T211003816536+0000.json",
+      "bytes": 19234,
+      "sha256": "cbf7fe163b8014802dec471b0eec8e2b0786a050541a3dc40e6c4a1cd8207ee6",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Unconditional-2026-11-02T212245429608+0000.json",
+      "bytes": 19249,
+      "sha256": "c2cac5f6dd5a4655c22f37449fef67486075b4057234b2a798e1da35ae8f98b2",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json",
+      "bytes": 28173,
+      "sha256": "0b921d5a86c5887405932f9e3c55f263b00160ce2051fdb0c0d07c74445ecc67",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+      "bytes": 28188,
+      "sha256": "872f0affd60307b25cc5772e7248c070cc4f6b7a5776b1523d3ee0db9a328182",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-round3-construction-support-2026-11-02T204814950389+0000.json",
+      "bytes": 18948,
+      "sha256": "3aeff212198af1b70da7d8abdbed1be4a2bdadbac64e25204386e9dd43bffff5",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-round3-eq19-direct-2026-11-02T204814950389+0000.json",
+      "bytes": 18908,
+      "sha256": "44b0085528d930660cecd70324ab180da10333b223ffedd5a4e07db77aa2a0f5",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-round3-eq19-independent-2026-11-02T204814950389+0000.json",
+      "bytes": 18920,
+      "sha256": "afbd4075268b9eb58e018b5ffd1af68eca9dd56eb21f86fc31658f586a75587d",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-round3-eq19-missing-equality-2026-11-02T204814950389+0000.json",
+      "bytes": 18985,
+      "sha256": "4482d8d522ea517638a112a88d16f8902830ae10dd52917ef5dc0a225f9951f3",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-round3-shared-bad-spec-blindness-2026-11-02T204814950389+0000.json",
+      "bytes": 19350,
+      "sha256": "8fb69f54ed9ad733fcb13350ebe630529eeaa4308b143e7afe58d7eea0322934",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-round3-threshold-mutation-2026-11-02T204814950389+0000.json",
+      "bytes": 19039,
+      "sha256": "44f2151e0b9a8d609f36915498bc46c701db799523bbb308d190288a6501d8aa",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-round4-decoder-sharp-2026-11-03T023317151864+0000.json",
+      "bytes": 28062,
+      "sha256": "51402c42079aead71c1cd9ae0c6823e7e5679dccc0219adb48c7cf4b892b7a37",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-round4-degree-conventions-2026-11-03T023317151864+0000.json",
+      "bytes": 28074,
+      "sha256": "b3dc0d6dced3cefc2480783e54e9f77a023731c976b37e819f36dc1573b3ab77",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-round4-degree-missing-uniqueness-2026-11-03T023317151864+0000.json",
+      "bytes": 28216,
+      "sha256": "5867583f60bbc6ed997edccdd4b3a5af13428da508ee1e1cfb75b92d5ef05eda",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-round4-model-zero-2026-11-03T023317151864+0000.json",
+      "bytes": 28081,
+      "sha256": "178af6c351fe6bef172ca0d41ac90bf02e9886df3ba3fc94d8ecb741b41e34ab",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-round4-model-zero-classical-only-2026-11-03T023317151864+0000.json",
+      "bytes": 28227,
+      "sha256": "9dd9b1870729e8cb3e443a881f3aae2cffcda22e151e5d0a836ab16d6275be37",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-round4-real-leaves-2026-11-03T023317151864+0000.json",
+      "bytes": 28122,
+      "sha256": "6d1e041d06eac96bcf840d4d3c9d4e41ba108917fb24bd37c46925681bcf7796",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-round4-real-leaves-zero-only-2026-11-03T023317151864+0000.json",
+      "bytes": 28199,
+      "sha256": "94e2243863bd9fc7e75d3fc503a547228342788f08e7afb71aea8305a1406363",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-round4-realized-caps-capped-premise-2026-11-03T023317151864+0000.json",
+      "bytes": 28220,
+      "sha256": "d3a659de2f636ce83076379504ae0aec9164c6dacd2e1a86e0e1ec073d3b3bda",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-round4-realized-caps-external-2026-11-03T023317151864+0000.json",
+      "bytes": 28083,
+      "sha256": "2cb16f20fc3b6bc192984afb156eae54dde09ee9bc3837d1b8e2cb9cad12e01f",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/receipts/comparator-round4-uniform-amplifier-2026-11-03T023317151864+0000.json",
+      "bytes": 28066,
+      "sha256": "ac624f30928989fdde290b582f9fdd4d72b408ea3e3eae4d5444a29e52401513",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/receipts/lean-build-root-2026-11-02T205500674428+0000.json",
+      "bytes": 133003,
+      "sha256": "e66335d221495326007987df74c0b1a426f35e29c6f91d701ea308b990772711",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/receipts/lean-build-round3-targeted-2026-11-02T204814950389+0000.json",
+      "bytes": 20669,
+      "sha256": "5b4371ab2c5e4ea6672fb3cfc3e6a9fb5edc5ed4f4c67970391521e8334ac1d5",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/receipts/lean-build-round4-targeted-2026-11-03T023317151864+0000.json",
+      "bytes": 32603,
+      "sha256": "6fedd9f58f7c1c8eb15f98af1843b204d3901ad7a2736bf2af31cd78bbf516a4",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/statements.json",
+      "bytes": 816203,
+      "sha256": "1a1bfce5c5c522d8055a40b555307f4e44e3cd6190c728bc74dd580afce71847",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/corpus/ties.json",
+      "bytes": 282065,
+      "sha256": "d413a2efa8b916a67d42c12f717014e0b49a2d82b418edc116b4111d83094db0",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/docs/expert_companion.bib",
+      "bytes": 7319,
+      "sha256": "c458193dd5c1f5c2af5d33191101f6ee97dcfc691b50a7209c51665bf4baa002",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/docs/expert_companion.md",
+      "bytes": 57688,
+      "sha256": "2033aa7f8f74a9c8cbc7f839f3599897f6f029c1a44b97f703532be13e9f1b86",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/docs/expert_companion.pdf",
+      "bytes": 195790,
+      "sha256": "80a73f713a5690053d0564e0b4d54dfd50659388becab0b1495d19804b28b196",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/docs/exposition.bib",
+      "bytes": 6367,
+      "sha256": "0a388c76c11b0d61370f860bc5653280c4a27c9700fdff3037fe0fbbea5744d3",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/docs/exposition.md",
+      "bytes": 52540,
+      "sha256": "96c93a7a3efb3fb1421088ed5ff875cd52f4f2cd10b60ec3f6547c981a8f7152",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/docs/exposition.pdf",
+      "bytes": 208847,
+      "sha256": "24bef89eccb8684b46a3b2e4b7ae937db8011dc9581991bdd9009d97827dc08d",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/docs/figures/expert_column.svg",
+      "bytes": 138950,
+      "sha256": "e849ea7137eb888054a1a090dacf1c907b8ee6e4d732fcdb951fc980229f6a55",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/docs/figures/expert_column.tex",
+      "bytes": 3896,
+      "sha256": "47d8857141c196c35c923be589817af5e14554718c44201c017c9abb72dadafa",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/docs/figures/expert_planted.svg",
+      "bytes": 147196,
+      "sha256": "06c99eac70d3da692fa54c4baff8d47382340d0e1516c24428ee2f7b5c142eeb",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/docs/figures/expert_planted.tex",
+      "bytes": 2710,
+      "sha256": "8ef8a2ff269cffeaa7021e81a395183c28784e05ea413ce7063699ce4365aa24",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/docs/figures/exposition/fig1_column.svg",
+      "bytes": 143423,
+      "sha256": "ff631923733eddc06d6fabf955af9ecbc07cb9aa5122d589ae40c8f74702d87e",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/docs/figures/exposition/fig1_column.tex",
+      "bytes": 3671,
+      "sha256": "32ad9115e67b442ab9b6df16af6cf2a4f68f7f448935f18a9e79e1b673d01fcb",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/docs/figures/exposition/fig2_board.svg",
+      "bytes": 71972,
+      "sha256": "378d5d60807a8ab87904bf9c46eefd62c119506100f10949ebffaba42955a9ab",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/docs/figures/exposition/fig2_board.tex",
+      "bytes": 1636,
+      "sha256": "b07957d1341efed364feafe0cc80931ac2e9f7bfee03b021d9eee5cb843be8b7",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/docs/figures/exposition/fig3_tournament.svg",
+      "bytes": 75309,
+      "sha256": "97ae2ab603d6dd62f2d89adfe137ce46661a2818043902e3264f97ead9572c02",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/docs/figures/exposition/fig3_tournament.tex",
+      "bytes": 1180,
+      "sha256": "4a92ba8c0f6a1a1fd9c6a29363e588b7c4a78879ebd78252ec18aa1a4be8e61f",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/docs/figures/exposition/fig4_planted.svg",
+      "bytes": 146948,
+      "sha256": "e03946b4ab3153e7f4497aec9c3eea095e406f0956e5850284f8db378717784f",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/docs/figures/exposition/fig4_planted.tex",
+      "bytes": 2080,
+      "sha256": "f8445d31674da22de65ce034b2678e116f8532d306a3d1d27cf4cd4919c3583b",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/docs/lean_links.json",
+      "bytes": 31026,
+      "sha256": "b788bee03ed96d74cb46ba5d2b768d2bd04610385c2af26aa2425b5b79257d99",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/docs/reasoning_record.bib",
+      "bytes": 19648,
+      "sha256": "89c47ffefcfe6216ee5c7a78861dd2c62013087470ab0976029edcfab89d6491",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/docs/reasoning_record.md",
+      "bytes": 416963,
+      "sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/docs/reasoning_record.pdf",
+      "bytes": 635801,
+      "sha256": "90002cf40eea95af7cf65885e6a75ca8e118fccae61601687fc68746927bc098",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/docs/reasoning_record.since_pdf.diff",
+      "bytes": 130526,
+      "sha256": "3b2f3ea7c64fe7743e38f54812dc82488039cef046243720044e6eb72a204ad9",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/docs/reasoning_record_correspondence.json",
+      "bytes": 7351268,
+      "sha256": "ac392466f7629b6987230d930a7e2e09ed815373488748a8b797eb1cdc246aed",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/docs/reasoning_record_review.json",
+      "bytes": 23598,
+      "sha256": "f725a9ea36e0fe5bc16313c700c3ec24af9ff5e4f15487819c7bf38f0f90d13f",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/docs/statement_evidence_contract.md",
+      "bytes": 7694,
+      "sha256": "a72d2788536ddad29fc2616868bb33382e8f4bdff65c96225b9560a1f201f4ea",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Construction/Challenge.lean",
+      "bytes": 14460,
+      "sha256": "d554e5a96889c4c9c3aa6bd3231f984fa7cf695aa103ebcd092ac2c7a08240b1",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Independent/ConstructionFull/Challenge.lean",
+      "bytes": 3163,
+      "sha256": "1f190d9ed12e73a663ca9672be3063cc568d14045fcc00b1d49a89ca5d295645",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Independent/Controls/SharedAudit.lean",
+      "bytes": 1046,
+      "sha256": "9ad375fc24f21757beba1e6b538e72db4d3749cd1816f949076e92cd4389299f",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Independent/Degree/Challenge.lean",
+      "bytes": 873,
+      "sha256": "0b8bceccd3720e505e8bcd7d119b5ebeeed516aceb1e4f9b5f1bc231f0f5d042",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Independent/Eq19/Bridge.lean",
+      "bytes": 2936,
+      "sha256": "a4884c8d671eac839f2854399fc85128771a06037a3325119d0dbe6eee7163fa",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Independent/Eq19/Challenge.lean",
+      "bytes": 864,
+      "sha256": "2baac26612cdbfe04ac88cb2267502da9531a7df20758af3a66158a22c03e47c",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Independent/Eq19/Spec.lean",
+      "bytes": 3124,
+      "sha256": "66a5248637ebd495ca5d5cba3fcfcaf64bffe5d129531bf1abb40ff8f37c60ff",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Independent/ModelZero/Challenge.lean",
+      "bytes": 464,
+      "sha256": "363f3b543f55eca2c22e1bfea6ae45e4a5b529288efca2c61b58c427c77792e6",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Independent/RealizedCaps/Challenge.lean",
+      "bytes": 994,
+      "sha256": "8b1af3e9570bcb1b60c3e396f8a52efdd0b011c067b91e1fce98f2965a73e3c3",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Independent/RealizedCaps/comparator.json",
+      "bytes": 350,
+      "sha256": "5be33feac6f95ea59db34a99a551d7a2b892cb3c74ef10bb6e3845b8d5ac9696",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Independent/SemanticMutations.lean",
+      "bytes": 2807,
+      "sha256": "fd4b9ca0312bdcacffb4cbe689df03ffc4433675c72592f98c17a08d073c4b03",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Independent/Semantics.lean",
+      "bytes": 7344,
+      "sha256": "dc0dac69644c1c92a383208f91b70930d0e8934ff4d124a077a4ce27b55d23d6",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean",
+      "bytes": 2410,
+      "sha256": "f316137f32ce485df316e49d14941187256366377c16f45e944cf5098b5b1411",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Independent/UniformAmplifier/Solution.lean",
+      "bytes": 135,
+      "sha256": "1bcbace57d7a3fec0cf7fa3e4267f51d562b5c9e9d1e757b37319e6a0eb3bb8e",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Independent/UniformAmplifier/comparator.json",
+      "bytes": 342,
+      "sha256": "1b113af11a015a0da613415f94bd532b4731cf7c365e0866ad61038dbbcb9af0",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "bytes": 14163,
+      "sha256": "c88be0b70754cb6f93448694002a16e1eb6a25135fa71648d4651f01104e399d",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Unconditional/Solution.lean",
+      "bytes": 1378,
+      "sha256": "19725ad42b615a8881db00417ee6375c8982b0de08e618f06f901fe4db2e2cd3",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/lean/QuarticCorpus/Unconditional/comparator.json",
+      "bytes": 435,
+      "sha256": "fbaaee77d1b1a3daff788267ec15963ea06a6340a219a2da890c8c9642998dd7",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+      "bytes": 33291,
+      "sha256": "d6bc1f4399394810fca63abdaadd67a420616371c501ab978841898f2bda049c",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/lean/QuarticQuery/LowerBound/Planted/ZeroSearchSuccessor.lean",
+      "bytes": 5726,
+      "sha256": "9be14d5f906d8e40a2864d0099ff01ced62ae492c2fa7fd5c3686dd04d454a29",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/lean/QuarticQuery/LowerBound/RealizedCaps.lean",
+      "bytes": 6945,
+      "sha256": "395ba4cf6a76a5a5c60639ef09be43de2e723b8378335b2700c5f88af28b4861",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+      "bytes": 28360,
+      "sha256": "b86c310788efd04527ce9977e6f1cb660cd6b2b6825dcb151ab33f1b94497c2f",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionFamily.lean",
+      "bytes": 3674,
+      "sha256": "b7e1203086e38c00b964355ac71537a7fc5be7053d537ccd56cba8017cdd085a",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/ConstructionFull.lean",
+      "bytes": 3593,
+      "sha256": "6e1d5e93d723edc703e34ee590e764402712129193337389ba43f7d0a63b2ebe",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/Eq19Complete.lean",
+      "bytes": 1478,
+      "sha256": "1b5de65cb6b83b57393626282352eebd2f69dd0cd96914535e26bae0937b6cb2",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Paper/Eq19Whole.lean",
+      "bytes": 1303,
+      "sha256": "c6f294ab9565c8a1e03b0cb2f9d8e17cb7d6e731f9fa67b30b18e396a93d74d1",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Upper/Amplify.lean",
+      "bytes": 15215,
+      "sha256": "49e808cc6acbb47ad066b1dcf33ac8d47da2f28d88c51d537564e6591eb0d9e1",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/lean/QuarticQuery/Upper/Bound.lean",
+      "bytes": 14147,
+      "sha256": "83a35b2e5d6d9095ce6a194c0a6c5938d1ce2ebdc0aaf577e9ff8a519a771303",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/lean/README.md",
+      "bytes": 6109,
+      "sha256": "b5420d7c96d700e7991750ec2876b075c46e90ee2bce536fbabec0d691a21024",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/lean/lake-manifest.json",
+      "bytes": 3874,
+      "sha256": "d670a8101d900b62e17a1d51c8b1b36fd60919bcad472700b0a5e1c0b38b104d",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/lean/lakefile.toml",
+      "bytes": 329,
+      "sha256": "255abcc3c689d0258d4cea520447fdc8da26e26a191331aa95559b2fb4818647",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/lean/lean-toolchain",
+      "bytes": 29,
+      "sha256": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/lean/scripts/Reach.lean",
+      "bytes": 4648,
+      "sha256": "44ce6c1ace1e3914109b959c5d3466f00eba4090621d73d3b3ee2626be1f796b",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/adjudication/round3_appendix_audit.json",
+      "bytes": 983208,
+      "sha256": "43ce2df90fc4b5a7ee448db7fd611bdef77aa2c30ce4ca235cfeac46aa0cab97",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/adjudication/round3_formal.json",
+      "bytes": 51236,
+      "sha256": "87e981e356c1d1defe596362c0f7092e70320e8ce7a0c4281c7d9b27dd25874d",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/adjudication/round4_formal.json",
+      "bytes": 57371,
+      "sha256": "86812aef2fe3a46b7954407667087ffbe88228e1f551f69e97b6b8ff4c02b990",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/adjudication/round4_formal.md",
+      "bytes": 10377,
+      "sha256": "edc2f1910de283d71e81ae909c998416f4e8726868a96b5ebf5903a686afae1b",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/adjudication/round5_statement_fidelity.md",
+      "bytes": 6789,
+      "sha256": "6dcef5a074517ccb5ca09a4ddbe8faf0bbba66741ecc6abe821f695923ab2349",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
+      "bytes": 353091,
+      "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/funnel/2_short_expert_paper/LEAN_GAPS.md",
+      "bytes": 30327,
+      "sha256": "bca6f9c9f8170fa51db18e1d56bb83d961ea422868877f499b3e5f7829462246",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/funnel/2_short_expert_paper/NEW_STATEMENTS.json",
+      "bytes": 41345,
+      "sha256": "491a2e6a0ec6d44a9c3e8504ae117ecbb9fff65875a541313b6404612e1f499f",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/funnel/2_short_expert_paper/SOURCE_AUDIT.md",
+      "bytes": 18312,
+      "sha256": "4c38697e22d7ba49cd31e92b37bf8a7118e311c0a8d7ed183f250fb0d894a8ae",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/funnel/2_short_expert_paper/STATEMENT_CHANGES.json",
+      "bytes": 6943,
+      "sha256": "3ccd637bfb97b5d4968e738e511dc073a9d1b7a0e8c30db4b2490917bb4568ef",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/funnel/2_short_expert_paper/STYLE_RULES.json",
+      "bytes": 9098,
+      "sha256": "3bf3f377387541fd269922d54815768442671e23d004301fd4605308a81d3094",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/funnel/2_short_expert_paper/correspondence.json",
+      "bytes": 25175,
+      "sha256": "e79fa0fc3c2c6850df9cb7d0eb07420508dc7162c7ef8a62be1f3c878651ae86",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/funnel/2_short_expert_paper/paper.md",
+      "bytes": 51114,
+      "sha256": "d74bef7d77eb5dd96a8fe5b6ba5f3cb4a105fd62d76ad5e730ad26f2ae15f277",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/funnel/2_short_expert_paper/paper.pdf",
+      "bytes": 126236,
+      "sha256": "d9d6feaa62e889666f4b2a54d4eaac14357575f2ec625098f6a1ea4626c90d1a",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/funnel/2_short_expert_paper/referee_report.md",
+      "bytes": 13067,
+      "sha256": "bd78bc96a8a7ac26cdf01a37c379df8d615253a323ecd918917f3ad4d1d9eeb9",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/funnel/2_short_expert_paper/references.bib",
+      "bytes": 6704,
+      "sha256": "363398df48da8a466e479df70f194b2b2b1ab546eb26c3b4c878e159490a0389",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/funnel/3_examples_first_exposition/LEAN_GAPS.md",
+      "bytes": 36438,
+      "sha256": "710fa7bf012dc356d22f8eb72395f24daae5ede575a74f36b28392e080d7ff8c",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/funnel/3_examples_first_exposition/NEW_STATEMENTS.json",
+      "bytes": 34938,
+      "sha256": "03f6cab9eed48e7dfe3b134d0c60ef33a49975b9bb75e5a3b0be0379196a0e0f",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/funnel/3_examples_first_exposition/STATEMENT_CHANGES.json",
+      "bytes": 756,
+      "sha256": "2f9c742548fd853f7f108c0f48973d430947bcc0ab10d2a9f37f907a0a149250",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/funnel/3_examples_first_exposition/correspondence.json",
+      "bytes": 19308,
+      "sha256": "c25ba8c945ec8a7340b5526ff91d6930b5d04f933efcd51fe4fa31a7e9cd4d72",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/funnel/3_examples_first_exposition/examples_output.txt",
+      "bytes": 24768,
+      "sha256": "0775d34f5b8e38654bd0a157df8441dabf46c72474e4f72c06c0844353f88675",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/funnel/3_examples_first_exposition/exposition.md",
+      "bytes": 59773,
+      "sha256": "99360e133b3114f90528b40833d2bdc9d18194d427f21cf322a336af4683ed0f",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/funnel/3_examples_first_exposition/figures.md",
+      "bytes": 29876,
+      "sha256": "74a5bc36208eaeb61e83a7dbae58d29440dd72b45a9d550f42ea05773a16caa7",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/funnel/3_examples_first_exposition/references.bib",
+      "bytes": 6445,
+      "sha256": "4b621c82af16f662bd31021e7529da2ebb68b2a8e744b33c67961e7a1f899ff0",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/round3/members/01_models_evidence/correspondence.json",
+      "bytes": 485104,
+      "sha256": "fb5d1e5bcbbb1e10f628b659650a029dfe695d4361b725d60b42bd0979ce30f7",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/round3/members/01_models_evidence/model_contract.json",
+      "bytes": 402091,
+      "sha256": "e98400e0deb46d9dd36847fc4490b285de2d39139ee840e4181cd95704e47d7e",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/LEAN_GAPS.md",
+      "bytes": 14723,
+      "sha256": "1a7e6a89122798589dcead9b8a1161418002457e63194606cf010a34f39f3a6f",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks/audit_evidence.py",
+      "bytes": 10513,
+      "sha256": "ee8bfbed24a1ebbecfe0acd6638cf6344c20be9fa22aa1ec1b7e12a3ddbd0256",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks/exact_example_checker.py",
+      "bytes": 13180,
+      "sha256": "fe5fa5d77ee4f8454c61eac66d37324342e5e93d4fc5f54bee0aeb2c8de60a7b",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks/exact_example_results.json",
+      "bytes": 3897,
+      "sha256": "a73d66055fa1f45a1f82b0de81bd5ce99072714e4e986b8527af800f20863429",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks/pdf_header.tex",
+      "bytes": 84,
+      "sha256": "9817af5f1cbe1ae754962776f5f5a9cd94c5cda1243a4844fb4810544261e468",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks/pdf_layout.lua",
+      "bytes": 908,
+      "sha256": "fa01ab1345f461ecea15aba9bd4855b55c4683797dbd4040348b045d47557253",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks/render_section.py",
+      "bytes": 701,
+      "sha256": "f52c6ae0ee39915ccce36953afd00c76071f19bb43d6407651694c61032edaab",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks/validate_return.py",
+      "bytes": 13751,
+      "sha256": "50beb37a8c73150dd52f2594955bba45a13dcb82aee9d151326edd54f3c86fe2",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/correspondence.json",
+      "bytes": 407724,
+      "sha256": "a006370b0382672749f13dd1c2bbf39c3864445fad83e5f0e660da779a5b49bd",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/round3/members/04_addressed_construction/README.md",
+      "bytes": 4163,
+      "sha256": "7b140fa57886c02cc238fb071ed4ffae18503f3bb7191c4df7abdea5b2aa4abd",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/round3/members/04_addressed_construction/correspondence.json",
+      "bytes": 263584,
+      "sha256": "26679b8e9493dc08903409feef64b7c0a8f8903fce6e27ce6f1a43c1aa6b36f8",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/round3/members/04_addressed_construction/evidence/lean_audit.json",
+      "bytes": 159597,
+      "sha256": "db2d81ef3cfc470304e5d65c4f80092479b7d107f65c31042f55d4b2e24e539a",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/round3/members/04_addressed_construction/examples/board.json",
+      "bytes": 9363,
+      "sha256": "5ddac453327ec30841d2eb2e8b921c29f953bc75b0555a7a81e84ce3e9c99c83",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/round3/members/04_addressed_construction/examples/check_example.py",
+      "bytes": 21834,
+      "sha256": "79abb067288f08831a68256a213cfc88c3e702cb3b6ad99139f2c66f2eb0b0f4",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/round3/members/04_addressed_construction/examples/circuit.json",
+      "bytes": 28090,
+      "sha256": "0f84ef8db3526a5d166307846bf4ef3d9268ad60c8a1e5353005fac9885a0004",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/round3/members/04_addressed_construction/examples/output.json",
+      "bytes": 15742,
+      "sha256": "b129476e9a98cb4f81a0e803f69f2c44f08435b45785060e36fdcb5ca506808d",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/round3/members/05_quantum_upper/LEAN_GAPS.md",
+      "bytes": 25835,
+      "sha256": "1437c5743a755507c735bbf6b4eca03df503d93b0825144cc8e91ff771852401",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/round3/members/06_direct_product/LEAN_GAPS.md",
+      "bytes": 9833,
+      "sha256": "93175e747b38a7c489f17832fcc07af64ce7a785492f792ad480b6c39e466aa1",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/round3/members/06_direct_product/correspondence.json",
+      "bytes": 157378,
+      "sha256": "c047db54a8ed37320fd869450f7e0bec5ccd0639abb1e8b695e542511f998726",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/round3/members/06_direct_product/lean_types.json",
+      "bytes": 165645,
+      "sha256": "20630ec207236ab246512be7c20cd7be2048e84389bce42cd566c2b13c3381ba",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/round3/members/06_direct_product/worked_example.md",
+      "bytes": 3915,
+      "sha256": "c285af6635cb41820de5790f601215cb25884cbc659b2dfdb0935e1fd04a3320",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/round3/members/07_planted_lower_bound/checks/planted_example.json",
+      "bytes": 9514,
+      "sha256": "86d7cf806a4a0a114e7d3bfeab1cad0858714eac1adf1cfd9979c7aa8210c776",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/round3/members/07_planted_lower_bound/checks/planted_example.py",
+      "bytes": 15601,
+      "sha256": "a46d828bf0a0238e447bab597dd1fcfff65a69f3d2b4561265d4e11706d77a99",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/round3/members/07_planted_lower_bound/correspondence.json",
+      "bytes": 325364,
+      "sha256": "49ee3ebbb8a527b30e55e6b110854f5ab34f27841394aa6f3d961ee75b128911",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/round3/members/08_reviewed/quartic_r3_08_return/checks/exact_checks.json",
+      "bytes": 7841,
+      "sha256": "8c5a2cfbd27f6826eda4f7ea61f15b8560ea9d9be60474861eba766970af5ce5",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/round3/members/08_reviewed/quartic_r3_08_return/checks/exact_checks.py",
+      "bytes": 9167,
+      "sha256": "15b5a040bd47a6db61b6f09ab42f6076b1505608d5afc590bb99207b75ee369a",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/round3/members/08_reviewed/quartic_r3_08_return/checks/validate_return.py",
+      "bytes": 7791,
+      "sha256": "fb151f8fdbb1df6260947f19ef85a6ab6be4cf563326043dc73b82f6ba2b5880",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/round3/members/08_reviewed/quartic_r3_08_return/checks/validation_result.json",
+      "bytes": 708,
+      "sha256": "251583011c3847dd5cd9e2148752db66946db74e20d5fbe7f5fb41cc0d9afbdd",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/round3/members/08_reviewed/quartic_r3_08_return/correspondence.json",
+      "bytes": 934006,
+      "sha256": "a1c719846abc2633df593021344dd2edb2a00dd20fa6bc04298bb9e02e6b4758",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/research/returns/round3/members/09_evidence_backend/checks/eq19_independence_control.py",
+      "bytes": 2039,
+      "sha256": "9957d5e4cceec84d79b02a79544d7c83f926cb8ff9f0826f9aa0245342286b72",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "repository/tools/return_checks/round4_formal.py",
+      "bytes": 8736,
+      "sha256": "5c4082eb7f124d79925cf4a8be14dbcb48ba73b6276aa6c3116afac64aef3a13",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "skills/README.md",
+      "bytes": 8145,
+      "sha256": "5bca3790678a017ae00c708ee979dd01bcd6548307cf0dc1e558a23827de7193",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "skills/long-to-short/SKILL.md",
+      "bytes": 16195,
+      "sha256": "611d9684d84aa2c4db8345a15e26d1b257350fb4186a820b67f1b19d4d388148",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    },
+    {
+      "member": "skills/record-to-expository/SKILL.md",
+      "bytes": 18853,
+      "sha256": "2182adc22fe75054c91780f5664c3781f1c7cfc6eb829e16c064f66cfcd561e0",
+      "manifest_match": true,
+      "extracted_copy_match": true
+    }
+  ],
+  "scope": "These checks establish file integrity and exact supplied bytes, not mathematical correctness or receipt validity.",
+  "context_attachment": {
+    "filename": "Pasted text(20261103-133916).txt",
+    "bytes": 4196888,
+    "sha256": "c8c4b6172cfca7ce8ab09e878e48034984a54d0903195bef96920fd4e81085d4",
+    "lines": 43398,
+    "use": "Historical context: indexed requests and packet-building portions sampled; not treated as current source authority or claimed fully read."
+  }
+}

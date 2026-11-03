@@ -1,0 +1,422 @@
+{
+  "returns": [
+    {
+      "id": "quantum_experts",
+      "archive": {
+        "source": "quartic_r6_quantum_experts_return.zip",
+        "preserved": "archives/quartic_r6_quantum_experts_return.zip",
+        "bytes": 114905,
+        "sha256": "ce65edb39fe9d91e9b7e1584096edc92301abf713257b482b2ac0b54ab8dc65f"
+      },
+      "members_root": "members/quantum_experts",
+      "members": [
+        {
+          "path": "README.md",
+          "bytes": 4156,
+          "sha256": "e0d54d3e31f5b299ce898aeca3f372b09e731eda27b635ffb40a46d183e04f11"
+        },
+        {
+          "path": "assessment.md",
+          "bytes": 14592,
+          "sha256": "2d93691da2cecc86b6858509e6756592624a223b39062f5e4bf83ad627033744"
+        },
+        {
+          "path": "checks/page_estimates.json",
+          "bytes": 11693,
+          "sha256": "8589f01f3757f4780acc48e408f06ffaab38a69b1508f567b88291eb80ce7d43"
+        },
+        {
+          "path": "checks/payload_validation.json",
+          "bytes": 1009,
+          "sha256": "f43b62d6ff31828977380676e3343f5d9a39b7bcae1539459ea0c9278eb8f105"
+        },
+        {
+          "path": "checks/questions_index.json",
+          "bytes": 13397,
+          "sha256": "91cefdcbbe2a796d47ec99a3c0fe0f38becb4cf9c9f6c83892feec42123d241f"
+        },
+        {
+          "path": "checks/review_statistics.json",
+          "bytes": 471,
+          "sha256": "23cf70e5dc590f0dcc11f44af3e0b710e3da8f647af6982a6123a31ad4f51331"
+        },
+        {
+          "path": "checks/source_provenance.json",
+          "bytes": 2726,
+          "sha256": "a22539da7b5ad96fe40c8e91d624877bfb7f47251be9cb0ebbc4024174782d89"
+        },
+        {
+          "path": "checks/validate_return.py",
+          "bytes": 12467,
+          "sha256": "bf46122af33df3610262f29483a634e94f0a0b552e83abbb588b55ffaf8240a6"
+        },
+        {
+          "path": "component_inventory.md",
+          "bytes": 34004,
+          "sha256": "c354d352ecda87d482491ab11840dba12641670f9fc35c75716467be548a96dd"
+        },
+        {
+          "path": "findings.json",
+          "bytes": 100203,
+          "sha256": "31f654047fcae0c099f7a1d5b8f810b2786139292d431e753f86b095849dc593"
+        },
+        {
+          "path": "findings.md",
+          "bytes": 74560,
+          "sha256": "a5e3de93679010572cbea78520b4d1f7b551bfe382242dcc76a7eb70189bd27a"
+        },
+        {
+          "path": "manifest.json",
+          "bytes": 2721,
+          "sha256": "24b03be1ec95a13850df4bc804970ae5a96501936069a8fdc20a6e9bc565a3b2"
+        },
+        {
+          "path": "method_findings.json",
+          "bytes": 5087,
+          "sha256": "6a52f16c57d1ea8294fb45635900517d9afee4af424eae558af0e46bb107e7f1"
+        },
+        {
+          "path": "questions.md",
+          "bytes": 9041,
+          "sha256": "42ac2f21ff49babf7322275aac70a55df2fc2f6db5414a8b9094bf8de354e307"
+        },
+        {
+          "path": "reader_principles.md",
+          "bytes": 5393,
+          "sha256": "a23093b1d7aabb0d83c16635fa5fe2b25cc12f8d5387863c31e71e4962c1a554"
+        },
+        {
+          "path": "reading_coverage.json",
+          "bytes": 35860,
+          "sha256": "85a69a2c5a3defdb44b267be5178e6e10a1e4c8c8edd97b0495f6283da41f236"
+        },
+        {
+          "path": "sources_read.md",
+          "bytes": 19458,
+          "sha256": "7236d589d1452049403b945d6b885a1426d603a4ea302617b91d7cfffed9e6cd"
+        },
+        {
+          "path": "verdict.md",
+          "bytes": 3011,
+          "sha256": "c23d45e36c4974f35a170283ba44934f3a000643056233455d990bb5d2bbae8f"
+        },
+        {
+          "path": "weighting.md",
+          "bytes": 10258,
+          "sha256": "90ff205c1ebc57e24505102080c503febf47680f8a35ca6b1f487ff0077db830"
+        }
+      ]
+    },
+    {
+      "id": "classical_experts",
+      "archive": {
+        "source": "quartic_r6_classical_experts_return.zip",
+        "preserved": "archives/quartic_r6_classical_experts_return.zip",
+        "bytes": 104614,
+        "sha256": "ca014ded454a99331c38581ee71c799f4cb8cff06d33c305ba9561b8ef36c456"
+      },
+      "members_root": "members/classical_experts",
+      "members": [
+        {
+          "path": "README.md",
+          "bytes": 3449,
+          "sha256": "0e1588de01b09de58aad09a97db52d7a6f6259c7eb3498bdfbd3a4ff46d4179d"
+        },
+        {
+          "path": "checks/page_weighting.json",
+          "bytes": 15284,
+          "sha256": "e21f232f982f5821170c2f51572acb37a89469a8ef56a710303744f0644decb0"
+        },
+        {
+          "path": "checks/quotation_checks.json",
+          "bytes": 8661,
+          "sha256": "a483fab5e63fdbe7d098a6fc056b79fa45c6d24ac1a47c5a2f261270255ce42f"
+        },
+        {
+          "path": "checks/source_bindings.json",
+          "bytes": 2928,
+          "sha256": "7cd17cba2f355e6ea1c779c7dde0dce1eb5cf9208e346510416a51c0a8bacc31"
+        },
+        {
+          "path": "checks/validation.json",
+          "bytes": 1843,
+          "sha256": "a72d236746ae2432e9ffb05da3f7c991cc687aff87f7357db8c4206f7c059da4"
+        },
+        {
+          "path": "direct_product_comparison.md",
+          "bytes": 11701,
+          "sha256": "67677dc5f3a02a68b3b3c68431e45f08d240db1b90461ae93e4fd22373805bba"
+        },
+        {
+          "path": "findings.json",
+          "bytes": 97147,
+          "sha256": "a56d9f7ecc2dbdb6f4572aaf99ed31b6e81cdfd7cc3dcc724ab900871f2b9e3c"
+        },
+        {
+          "path": "findings.md",
+          "bytes": 82741,
+          "sha256": "f7ac7cc04d9391cb6149bed4e2a4b50f09d4f2a7a6951a7a7c31bddb1fa1d1e2"
+        },
+        {
+          "path": "manifest.json",
+          "bytes": 2642,
+          "sha256": "00a43e9126de778de8ea9c07e5b5c345d098b68cc5234af3a3de4fbe3cb697c6"
+        },
+        {
+          "path": "method_findings.json",
+          "bytes": 11276,
+          "sha256": "7917ac0eadade630c4f86a294afd2720474bb9c3904c191f28844a83b49b49aa"
+        },
+        {
+          "path": "questions.md",
+          "bytes": 10550,
+          "sha256": "b31cbfda4a674030c5715d4956a9d8770216902eec77a374e6daad60f5c7af9c"
+        },
+        {
+          "path": "reader_principles_assessment.md",
+          "bytes": 4137,
+          "sha256": "eae3e55482d576d319717ea9ed597a9e22e51b4b07f296ee881f109489072a0b"
+        },
+        {
+          "path": "research_scope.md",
+          "bytes": 16326,
+          "sha256": "900047f71e97fda1188eb00888458171c46d9ff31462db84713ee5bd6869d5b6"
+        },
+        {
+          "path": "section_purpose.md",
+          "bytes": 41053,
+          "sha256": "c2cef1063018d9c4705558858cf9f3bcbfa742fcb315c9cd07c07042ae2f9d8f"
+        },
+        {
+          "path": "verdict.md",
+          "bytes": 3383,
+          "sha256": "a78a3e30b97d83f1d348022ccd7ce79ff021f15844b85f7ba0bc4f1c878373a3"
+        },
+        {
+          "path": "verify.py",
+          "bytes": 4360,
+          "sha256": "139a6c322bec83e8cb3e27cc5d7d6fa8549b7ebfdd1f2f54be1197876403ad9d"
+        },
+        {
+          "path": "weighting.md",
+          "bytes": 11066,
+          "sha256": "1cdabd22992cd759295379de7b9dfa79caf71e1e90788e73a79de3ce43effe99"
+        }
+      ]
+    },
+    {
+      "id": "formal_methods_readers",
+      "archive": {
+        "source": "quartic_r6_formal_methods_readers_return.zip",
+        "preserved": "archives/quartic_r6_formal_methods_readers_return.zip",
+        "bytes": 83430,
+        "sha256": "a8d98ed801bbdea14391061e480888c0ebb6f5af115bbc5268f9e2d95c424f28"
+      },
+      "members_root": "members/formal_methods_readers",
+      "members": [
+        {
+          "path": "MANIFEST.json",
+          "bytes": 2645,
+          "sha256": "3c3980a73258c60d8a466caf79efad54601f5d764f357469e744374c0bf3a7e2"
+        },
+        {
+          "path": "README.md",
+          "bytes": 4481,
+          "sha256": "1e83108e713a6e5db8f6c404a57b24175af291dd2c6fdfdd368b0af353e4d3a8"
+        },
+        {
+          "path": "SHA256SUMS.txt",
+          "bytes": 1280,
+          "sha256": "dfcaf36e916ce3bc11f1338de98cef59eb9e25a736c6010b368499d22aa53768"
+        },
+        {
+          "path": "audit/page_allocation_measurements.json",
+          "bytes": 7258,
+          "sha256": "3d55cf3dc737a14996ab1c33b1630aa512cc6c28f10a8dafebb758fb69e4d32f"
+        },
+        {
+          "path": "audit/record_wordshares.json",
+          "bytes": 2799,
+          "sha256": "152eec8c0d3ad14e36cfc8f4c867fac8e00c7375a3743b01fd3c2c1b3d47d9e4"
+        },
+        {
+          "path": "audit/source_integrity.json",
+          "bytes": 906,
+          "sha256": "1f9375bfb4f4a010e6a473b974ab3281f85e9e6d3c1ac1748af9988c00d9326d"
+        },
+        {
+          "path": "audit/validate_return.py",
+          "bytes": 10199,
+          "sha256": "f1b295e059bc5d595288b3665aab6ea8330a608a9e5ea27e103de86728e870de"
+        },
+        {
+          "path": "audit/validation_report.json",
+          "bytes": 1331,
+          "sha256": "a0b6bf2ca1a2cca617886967254e4945622af0dd248359b2013fdd28525f11e4"
+        },
+        {
+          "path": "findings.json",
+          "bytes": 85565,
+          "sha256": "0bfff225fc003343286c54c84b548e1fdabef542a984f49ca888f494728fd05b"
+        },
+        {
+          "path": "findings.md",
+          "bytes": 65114,
+          "sha256": "885b751fae56a7f88bcd2479663c55bf790424254f33da2e93be0c42cc30a08e"
+        },
+        {
+          "path": "method_findings.json",
+          "bytes": 14905,
+          "sha256": "9ecec660fdf4232c0a062c0ff1a9dae35b4f56deb54146f8d82072562df2d9c3"
+        },
+        {
+          "path": "principles.md",
+          "bytes": 6653,
+          "sha256": "6ade361a462436356203642f8de59096faefcd8753f55e37158d346dd26a40c5"
+        },
+        {
+          "path": "questions.md",
+          "bytes": 9948,
+          "sha256": "7022ee776f1e822759475a93f5675457d9b5198b0320db34df857dcb62fe6673"
+        },
+        {
+          "path": "reader_interface.md",
+          "bytes": 10414,
+          "sha256": "35e134161fa4013d71651095141a6f8494baa8d3bcf3e2dba00526b1e398990f"
+        },
+        {
+          "path": "sources.md",
+          "bytes": 15964,
+          "sha256": "0408dd560fbbd5cbe855713993364230396ccaf7a55908ee720891ce329fe8ce"
+        },
+        {
+          "path": "verdict.md",
+          "bytes": 3237,
+          "sha256": "29007709afaad5c13ad0045f166c1121a18f5e55980616b3073f42b880da1cf6"
+        },
+        {
+          "path": "weighting.md",
+          "bytes": 21958,
+          "sha256": "c45d326e66fdc1572dd6a21679d252534c10b6aa47db76962e0659368d77fd4d"
+        }
+      ]
+    },
+    {
+      "id": "students_and_teachers",
+      "archive": {
+        "source": "quartic_r6_students_and_teachers_return.zip",
+        "preserved": "archives/quartic_r6_students_and_teachers_return.zip",
+        "bytes": 115854,
+        "sha256": "d29401e1ef32ab4f68035786e662f4a362a8d12fd06a76c38c93899dbc34d4a2"
+      },
+      "members_root": "members/students_and_teachers",
+      "members": [
+        {
+          "path": "quartic_r6_students_and_teachers_return/MANIFEST.sha256",
+          "bytes": 1760,
+          "sha256": "32b0b3406ea5a7f3fc26d42829a290ee1ffbf7a6b451cbf79b439dcf4de82c86"
+        },
+        {
+          "path": "quartic_r6_students_and_teachers_return/README.md",
+          "bytes": 2913,
+          "sha256": "527094c5df57b34f9c0085603817ad5bd6f119de4fd35b5cd9af6f5f085930d3"
+        },
+        {
+          "path": "quartic_r6_students_and_teachers_return/checks/exact_examples.py",
+          "bytes": 6618,
+          "sha256": "8ac4600157bc9fdc09352d6afdbeb26668ad5f03796b892d6eb8f7cdad722c46"
+        },
+        {
+          "path": "quartic_r6_students_and_teachers_return/checks/exact_examples_results.json",
+          "bytes": 2430,
+          "sha256": "78957fa68a394606dbb01d0aa059761936ce22a7e12d35b9b6c08e821ac551a8"
+        },
+        {
+          "path": "quartic_r6_students_and_teachers_return/checks/validate_return.py",
+          "bytes": 27584,
+          "sha256": "32fb2155f4a791b89b292510c1530b6a18717454aa5c953ea625a4a81128f668"
+        },
+        {
+          "path": "quartic_r6_students_and_teachers_return/checks/validation_report.json",
+          "bytes": 4145,
+          "sha256": "288ebc5eb26023217fd6d0b6836d4c17920394d00236a2a3cc216bb652c3bf2c"
+        },
+        {
+          "path": "quartic_r6_students_and_teachers_return/coverage.md",
+          "bytes": 19735,
+          "sha256": "8300e121964f656036751c48cca615d30aafcda51ed0ffe830393c89ca878c4d"
+        },
+        {
+          "path": "quartic_r6_students_and_teachers_return/evidence/input_integrity.json",
+          "bytes": 82286,
+          "sha256": "03dc6fed690479587a4cc19af0a6f7a5cfe8c8c89cc34d6f939ad7363af483a0"
+        },
+        {
+          "path": "quartic_r6_students_and_teachers_return/evidence/input_source_status.json",
+          "bytes": 1567,
+          "sha256": "1f8066c23d205b4126e2f4054d0bb8130b4ae3b18d2be3708f745a0d20ead4e0"
+        },
+        {
+          "path": "quartic_r6_students_and_teachers_return/evidence/page_measurements.json",
+          "bytes": 5003,
+          "sha256": "bbeae934faddde760c7792e3597b8665a1937e79afec92b7a6531c4cbc323668"
+        },
+        {
+          "path": "quartic_r6_students_and_teachers_return/evidence/questions_index.json",
+          "bytes": 11340,
+          "sha256": "53e71ddf14d965f35b42b0b8afcebe954ad6ace574f4886087f93beb1c808cd0"
+        },
+        {
+          "path": "quartic_r6_students_and_teachers_return/evidence/quote_inventory.json",
+          "bytes": 13307,
+          "sha256": "710dc65acd769228603ea1d4dfce0550d82e93268d912be1dc48f6ee2d270c31"
+        },
+        {
+          "path": "quartic_r6_students_and_teachers_return/findings.json",
+          "bytes": 82484,
+          "sha256": "cb638bdde98c287af84681efce6f52563f5e17317cda0c6be81173dbbfe3f2ce"
+        },
+        {
+          "path": "quartic_r6_students_and_teachers_return/findings.md",
+          "bytes": 57571,
+          "sha256": "c52a3ece2d7c95519e0e3c02aa1d6224a8c8ef70d91c32d6cf833f2a6343f3a4"
+        },
+        {
+          "path": "quartic_r6_students_and_teachers_return/method_findings.json",
+          "bytes": 10111,
+          "sha256": "9541797715546016ab0c93dd2eb7849bf576b02693463d1f688582e955752826"
+        },
+        {
+          "path": "quartic_r6_students_and_teachers_return/method_findings.md",
+          "bytes": 7350,
+          "sha256": "c1b2f985744ce4c4214ef8915aa2d3810a5801325d32b595759ce8039b31248d"
+        },
+        {
+          "path": "quartic_r6_students_and_teachers_return/questions.md",
+          "bytes": 7865,
+          "sha256": "6c63c16799d9e566c36dabc909b1b8af52edacfd8fb5826a0eee89f5f89359c2"
+        },
+        {
+          "path": "quartic_r6_students_and_teachers_return/reader_principles_audit.md",
+          "bytes": 7607,
+          "sha256": "9043f95d49f9ca06b9145158b2d249e4a5ff78425b1188f4b32b7d1ec2f9c5ef"
+        },
+        {
+          "path": "quartic_r6_students_and_teachers_return/sources_read.md",
+          "bytes": 18469,
+          "sha256": "cb551f75c92f500a2dbada9e6cf69ffb6a17984e21b6d0bbefc04471ea74293c"
+        },
+        {
+          "path": "quartic_r6_students_and_teachers_return/verdict.md",
+          "bytes": 3270,
+          "sha256": "7d91ed12c060ec17f87ba3618559e95bc5fad6822a270d353e230bf36035a9f5"
+        },
+        {
+          "path": "quartic_r6_students_and_teachers_return/weighting.md",
+          "bytes": 10056,
+          "sha256": "543d0bc765975e6609252bb25f52fb1037535c98c3d7417bea386683582f609c"
+        }
+      ]
+    }
+  ]
+}

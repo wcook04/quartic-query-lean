@@ -1,0 +1,1456 @@
+{
+  "packet": "quantum_experts",
+  "source_sha256": {
+    "repository/docs/expert_companion.bib": "c458193dd5c1f5c2af5d33191101f6ee97dcfc691b50a7209c51665bf4baa002",
+    "repository/docs/expert_companion.md": "2033aa7f8f74a9c8cbc7f839f3599897f6f029c1a44b97f703532be13e9f1b86",
+    "repository/docs/expert_companion.pdf": "80a73f713a5690053d0564e0b4d54dfd50659388becab0b1495d19804b28b196",
+    "repository/docs/exposition.bib": "0a388c76c11b0d61370f860bc5653280c4a27c9700fdff3037fe0fbbea5744d3",
+    "repository/docs/exposition.md": "96c93a7a3efb3fb1421088ed5ff875cd52f4f2cd10b60ec3f6547c981a8f7152",
+    "repository/docs/exposition.pdf": "24bef89eccb8684b46a3b2e4b7ae937db8011dc9581991bdd9009d97827dc08d"
+  },
+  "record_source": {
+    "accepted_review_record_sha256": "c2b6f11a7a4b3f318ebf419a9959c1d154f8e2b74e3ec02a8e25fb92ba9cfd25",
+    "changed_lines": 694,
+    "markdown_matches_accepted_review": false,
+    "markdown_sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155",
+    "pdf_rendered_from": "the accepted Markdown, as last changed at commit 0f382d3bd2aa6fac3c1c11e92b517351538e3348",
+    "pdf_sha256": "90002cf40eea95af7cf65885e6a75ca8e118fccae61601687fc68746927bc098",
+    "since_pdf_diff": "repository/docs/reasoning_record.since_pdf.diff"
+  },
+  "repository_commit": "9bdd443ce9b5e2fa5a83d63e0bcb0d87fbed298a",
+  "review_date": "2026-11-03",
+  "scope": "Source-assisted expert-reader panel review. Perspectives are constructed from cited papers; no opinions are attributed to real researchers. Advice only; no manuscripts or skills modified; no new theorems, bounds or formalization requested.",
+  "evidence_boundary": "All three current Markdown documents were covered in full across the review team, expert companion first. The original preprint was read in full. Literature coverage is recorded individually in sources_read.md and reading_coverage.json. The historical trace was sampled. No Lean/Comparator execution was rerun and no human mathematical review is claimed.",
+  "mathematical_error_assessment": "No mathematical error in the current drafts was demonstrated by this pass. This is not a complete independent verification of every proof or every external theorem.",
+  "panel": [
+    {
+      "id": "P-FORR",
+      "anchored_paper": "Aaronson–Ambainis, Forrelation, supplied arXiv:1411.5729v1, §3.2 / Proposition 6",
+      "source_ids": [
+        "S-AA",
+        "S-BS"
+      ],
+      "already_knows": "Phase/Hadamard query algorithms, signed interference versus projection probabilities, promise correctness, coherent repetition and query conventions.",
+      "reading_priority": "Why this decoder and exact circuit are chosen, and how their different contracts enter the total function."
+    },
+    {
+      "id": "P-LOWER",
+      "anchored_paper": "Bansal–Sinha, k-Forrelation, supplied arXiv:2008.07003v3, Introduction and §5.4",
+      "source_ids": [
+        "S-BS"
+      ],
+      "already_knows": "One-sided explicit Walsh–Hadamard Forrelation; rounded Gaussian chains, transformed integration by parts, Fourier-growth inputs and fixed-k consequences.",
+      "reading_priority": "Separate the imported theorem from the altered supplier reconstruction, its uniform bound and its optional role."
+    },
+    {
+      "id": "P-AMP",
+      "anchored_paper": "Brassard–Høyer–Mosca–Tapp, Quantum amplitude amplification and estimation, supplied v1, §2",
+      "source_ids": [
+        "S-BHMT",
+        "S-BBHT"
+      ],
+      "already_knows": "Grover-plane geometry, preservation of the successful direction, randomized iteration counts, expected versus fixed-cap search.",
+      "reading_priority": "All-input stopping, exact conditional label law, and the precise representation of a returned-state guarantee."
+    },
+    {
+      "id": "P-ROBUST",
+      "anchored_paper": "Høyer–Mosca–de Wolf, Quantum search on bounded-error inputs, supplied extraction, §§1–3",
+      "source_ids": [
+        "S-HMW"
+      ],
+      "already_knows": "Search with coherent bounded-error evaluators of fixed predicates, retained workspace, error reduction and final verification.",
+      "reading_priority": "Why loser comparisons lack a uniform orientation margin and why winner-only correctness suffices."
+    },
+    {
+      "id": "P-MIN",
+      "anchored_paper": "Dürr–Høyer, A quantum algorithm for finding the minimum, supplied arXiv v2, Theorem 1 and Lemmas 1–2",
+      "source_ids": [
+        "S-DH"
+      ],
+      "already_knows": "Rank-based progress, sampling improving elements, expected-cost analysis and an imposed timeout.",
+      "reading_priority": "What replaces rank and transitivity, and which proof details deserve attention before the familiar search machinery."
+    },
+    {
+      "id": "P-KING",
+      "anchored_paper": "Mande–Paraashar–Saurabh, Randomized and quantum query complexities of finding a king in a tournament, supplied v1 and published §4",
+      "source_ids": [
+        "S-MPS"
+      ],
+      "already_knows": "Fixed edge-oracle tournaments, common-neighbourhood sampling, pivots and the unconditional king-finding search relation.",
+      "reading_priority": "Hard-set versus weighted survival, conditional list containment versus a king output, and exact sampling."
+    },
+    {
+      "id": "P-CERT",
+      "anchored_paper": "Ambainis–Iraids–Kokainis, certificate separations, supplied arXiv:2609.11664v2, §6; Ben-David–Kothari, supplied arXiv:2609.15063v1",
+      "source_ids": [
+        "S-AIK",
+        "S-BDK"
+      ],
+      "already_knows": "Candidate claims, fixed-graph source/sink search, approximate membership in U(W), variable-time sampling, certificate complexity versus R and Q.",
+      "reading_priority": "The operational connection to product weights and why distributed address hardness adds an R lower bound."
+    },
+    {
+      "id": "P-SEP",
+      "anchored_paper": "Aaronson–Ben-David–Kothari, Separations in query complexity using cheat sheets, supplied v2, §3.1",
+      "source_ids": [
+        "S-ABK",
+        "S-TAL",
+        "S-SSW"
+      ],
+      "already_knows": "Cheat-sheet totalization, AND–OR composition, certificate checking and conversion of partial separations into total ones.",
+      "reading_priority": "The 5/2→8/3→3 arithmetic, the change in the outer construction, common witnesses and fixed-k quantifiers."
+    },
+    {
+      "id": "P-FOURIER",
+      "anchored_paper": "Girish–Tal–Wu, Fourier growth of parity decision trees, supplied arXiv:2103.11604, Introduction and technical overview",
+      "source_ids": [
+        "S-GTW",
+        "S-SSW",
+        "S-BS"
+      ],
+      "already_knows": "Decision-tree martingales, contracted derivative arrays, biased expansions and Fourier-growth comparisons.",
+      "reading_priority": "Which supplier arguments are reconstructed, what is retained from the cited methods and which level comparisons are valid."
+    },
+    {
+      "id": "P-MODEL",
+      "anchored_paper": "Høyer–Mosca–de Wolf, §2 query model, with de Wolf lecture notes Chapters 2 and 7 as the instructional comparator",
+      "source_ids": [
+        "S-HMW",
+        "S-DW"
+      ],
+      "already_knows": "Input-independent unitaries, bit-oracle access, measurement, reversible preparation and query rather than gate complexity.",
+      "reading_priority": "A quick semantic route from the displayed theorem to the actual oracle, cap, probability, quantifiers and formal statement."
+    }
+  ],
+  "findings": [
+    {
+      "id": "QX-001",
+      "paper": "exposition",
+      "perspective": "P-MODEL",
+      "locator": {
+        "section": "§7, last sentence",
+        "quote": "No recorded statement review yet covers the four compared theorems or these two statements",
+        "path": "repository/docs/exposition.md",
+        "line": 269,
+        "source_sha256": "96c93a7a3efb3fb1421088ed5ff875cd52f4f2cd10b60ec3f6547c981a8f7152"
+      },
+      "kind": "evidence_presentation",
+      "severity": "high",
+      "finding": "The exposition says no statement review covers the headline and two auxiliary results, but the supplied round-five statement-fidelity report explicitly reviews all of them. The expert companion now cites that report. This is a stale evidence-status sentence, not a missing proof check.",
+      "why_it_matters": "A reader deciding what still needs human scrutiny receives incompatible accounts of which comparison of statements has already been performed.",
+      "suggested_direction": "Reconcile this sentence with the exact supplied review and edition. Keep its machine-generated character separate from the still-absent independent human review; no fresh Lean run is needed for this correction.",
+      "evidence": [
+        "previous_round/round5_statement_fidelity.md, The four compared theorems and Other cited results: all four headline targets, uniformOpaqueAmplifier, Samples.amplify and the finite-seed direct-product endpoint.",
+        "repository/docs/expert_companion.md, Appendix A, paragraph after Table 2: review of every cited statement, made without a person."
+      ],
+      "review_key": "QX-E01",
+      "prior_round_relation": "ES-028/029 and QM-019 addressed reading routes; this is a new inconsistency in the review status after integration."
+    },
+    {
+      "id": "QX-002",
+      "paper": "expert_companion",
+      "perspective": "P-AMP",
+      "locator": {
+        "section": "4 The quantum upper bound",
+        "quote": "Lean proves this label law and also the full form of the lemma",
+        "path": "repository/docs/expert_companion.md",
+        "line": 147,
+        "source_sha256": "2033aa7f8f74a9c8cbc7f839f3599897f6f029c1a44b97f703532be13e9f1b86"
+      },
+      "kind": "evidence_presentation",
+      "severity": "medium",
+      "finding": "Which representation does “full form” mean here: the real retained-factor theorem for an opaque preparation, or a complete physical bit-oracle wrapper with a designated returned subsystem? The former is present and compared; record §5.5 expressly withholds the latter. The first compact claim needs that distinction.",
+      "why_it_matters": "The current record correctly says the remaining physical-state specification is not an assumption of the final upper bound. Delaying that role distinction can make a stronger auxiliary contract look like a gap in the sufficient measured-label route.",
+      "suggested_direction": "Qualify the representation at this first claim and route the reader directly to the existing abstract/physical distinction in record §5.5. State that the measured-label interface suffices for the headline theorem. Request no new formalization and do not reopen the supplied execution receipts.",
+      "evidence": [
+        "Current record §5.5, #upper-current-formal-scope: bounded_amplification, Samples.amplify and quantum_amplify_samples have different interfaces.",
+        "Current record #upper-missing-physical-state, final paragraph: uniformOpaqueAmplifier is compared but no full physical factorization theorem is claimed.",
+        "Current expert Appendix A Table 2, Lemma 2 rows; prior statement-fidelity review."
+      ],
+      "prior_round_relation": "QM-018/019/025 repaired links and separated state and label statements. The remaining issue is abstraction-level wording at the first full-form claim, not failure of the recorded comparisons.",
+      "review_key": "QL04",
+      "additional_locators": [
+        {
+          "section": "§5.5 Formal correspondence and the remaining state specification",
+          "quote": "the remaining full-state specification is not an extra assumption of the final upper bound.",
+          "path": "repository/docs/reasoning_record.md",
+          "line": 2749,
+          "source_sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155"
+        }
+      ],
+      "cross_document_scope": "The primary quote identifies the finding; additional locators show the same issue or preserve recommendation elsewhere. The paper field names the primary document."
+    },
+    {
+      "id": "QX-003",
+      "paper": "reasoning_record",
+      "perspective": "P-SEP",
+      "locator": {
+        "section": "§7.2 Excluding all smaller universal powers",
+        "quote": "A family with a quantitative schedule \\(k=k(t)\\) requires additional uniform estimates and is a separate result.",
+        "path": "repository/docs/reasoning_record.md",
+        "line": 3892,
+        "source_sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155"
+      },
+      "kind": "missing",
+      "severity": "high",
+      "finding": "The current companion §7 now gives a quantitative growing-k schedule using its uniform supplier and the explicit exponential quantum constant. Where is the detailed recovery of that existing remark in the document described as the complete reasoning record?",
+      "why_it_matters": "The record's fixed-k proof is correct and sufficient for α_tot=4. But a reader following the newer short-paper remark cannot recover its schedule, conditions and scope from this endpoint, which still only says that such a result is separate.",
+      "suggested_direction": "Cross-link and document the existing companion remark and its already-named uniform ingredients in the record's appropriate optional route. Keep the fixed-k theorem path unchanged and do not request a new theorem, stronger bound, or formalization.",
+      "evidence": [
+        "Current record §§1 and 7, especially line 3892; current expert_companion.md §7, line 283.",
+        "Current companion explicitly uses Q(F_{k,m})≤2^53 k·2^{10k}√mℓ^6 and k=⌊√(t/20)⌋.",
+        "SSW Introduction §1.2 and §1.9, supplied lines 55–64 and 202, carefully distinguishes fixed query count from growing-parameter separations."
+      ],
+      "review_key": "QX819",
+      "prior_round_relation": "No matching fixed finding was reissued."
+    },
+    {
+      "id": "QX-004",
+      "paper": "reasoning_record",
+      "perspective": "P-LOWER",
+      "locator": {
+        "section": "Reading guide; §1.1 Dependencies and proof recovery",
+        "quote": "Forrelation ingredient: promise, decoder and circuit",
+        "path": "repository/docs/reasoning_record.md",
+        "line": 19,
+        "source_sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155"
+      },
+      "kind": "overweighted",
+      "severity": "high",
+      "finding": "The first route calls §§3.6–3.15 required, whereas §1.1 and the three-property preview explicitly permit accepting the hardness supplier and continuing to §4. Which route should a quantum specialist actually follow? The first guide also sends its complete-proof route through the known universal-bound reconstruction.",
+      "why_it_matters": "The opening instruction can send a reader through roughly fourteen historical PDF pages of supplier recovery before the new totalization, despite the improved skip routes farther down. It makes completeness look like a requirement to read everything.",
+      "suggested_direction": "Make the first guide distinguish a first pass through the new mechanism from full dependency recovery. Keep the already-present supplier preview, stable anchors, full proof, and Appendix A; reconcile rather than add another route table.",
+      "evidence": [
+        "Current record lines 14–23, 121–134, 518–539 and §3.17.",
+        "Bansal–Sinha, supplied arXiv v3, Introduction / Theorem 1.3 and Corollary 1.4 (extracted lines 52–84) supplies the standard partial-function input.",
+        "The current record explicitly permits accepting property 1 and continuing to §4."
+      ],
+      "review_key": "QX801",
+      "prior_round_relation": "R5 LR-006, LR-007 (navigation_b), LR-016 and LR-037 added useful routes/preview. This is an inconsistency between those successful additions and the unchanged 'Required' column, not a claim that routes are absent."
+    },
+    {
+      "id": "QX-005",
+      "paper": "expert_companion",
+      "perspective": "P-CERT",
+      "locator": {
+        "section": "1.3 What is new",
+        "quote": "keep the candidates that beat every pivot selected so far",
+        "path": "repository/docs/expert_companion.md",
+        "line": 69,
+        "source_sha256": "2033aa7f8f74a9c8cbc7f839f3599897f6f029c1a44b97f703532be13e9f1b86"
+      },
+      "kind": "underweighted",
+      "severity": "medium",
+      "finding": "The closest antecedent is named correctly, but its mathematical relation to the new process remains implicit. A reader of AIK would ask: is the essential replacement the hard membership indicator of U(W) by the soft product of actual comparison probabilities, together with a distinguished candidate whose mass survives?",
+      "why_it_matters": "The reader must reconstruct the conceptual step from the related-work paragraph and the later weight update. This is the main reason for that expert to read the companion, and deserves more space than the amplifier constants.",
+      "suggested_direction": "Connect the existing AIK candidate-set invariant to the existing product-weight invariant at the introduction to Proposition 3. Explain the roles of fixed membership, fractional mass and the winner guarantee. Keep the attribution and do not assert a general new theorem beyond the supplied proposition.",
+      "evidence": [
+        "AIK2026 v2, §6.1, equations (3)–(4), printed p.12: U(W) consists of vertices defeating every previous pivot; §6.2, equations (8)–(10), pp.14–15: bounded point probabilities and candidate-set shrinkage.",
+        "Current record §5.2, #upper-ideal-process and #upper-stage-law.",
+        "Current expert §1.3 accurately distinguishes fixed intended edges from arbitrary loser probabilities."
+      ],
+      "prior_round_relation": "QM-015/016 were fixed by adding the antecedents and accurate hypotheses. This finding concerns the explanatory connection after that fix, not absence or misattribution of those antecedents.",
+      "review_key": "QL01"
+    },
+    {
+      "id": "QX-006",
+      "review_key": "ROOT-REV",
+      "paper": "expert_companion",
+      "perspective": "P-MODEL",
+      "locator": {
+        "section": "Appendix A, Reproducing the check",
+        "quote": "the commit the links point to",
+        "path": "repository/docs/expert_companion.md",
+        "line": 351,
+        "source_sha256": "2033aa7f8f74a9c8cbc7f839f3599897f6f029c1a44b97f703532be13e9f1b86"
+      },
+      "kind": "evidence_presentation",
+      "severity": "medium",
+      "finding": "The reproduction paragraph equates its first-line commit with the link revision, but the comment names 659b571 and the pinned source links use e9dfefbf11e6d1f380f122caa2349d4be78f2c1f.",
+      "why_it_matters": "A reader reproducing the stated reading route cannot tell whether the comment denotes a recorded execution, linked source or current packet snapshot. This is a local provenance inconsistency; it is not evidence that a proof or comparison failed.",
+      "suggested_direction": "Correct the obsolete equation of revisions and label recorded-run, linked-source and packet revisions by role. Use existing source/status information; no new receipt execution is requested.",
+      "evidence": [
+        "Current expert Appendix A lines 351–357 and generated link definitions from line 371 onward; the cmp-amplifier link alone establishes the different pinned revision.",
+        "SOURCE_STATUS.json records packet repository_commit 9bdd443ce9b5e2fa5a83d63e0bcb0d87fbed298a. Different documentary revisions can legitimately coexist."
+      ],
+      "prior_round_relation": "New current-text finding; not a repeated round-five defect."
+    },
+    {
+      "id": "QX-007",
+      "paper": "exposition",
+      "perspective": "P-MODEL",
+      "locator": {
+        "section": "§7, auxiliary amplifier",
+        "quote": "has a stronger conclusion than Section 4 states",
+        "path": "repository/docs/exposition.md",
+        "line": 269,
+        "source_sha256": "96c93a7a3efb3fb1421088ed5ff875cd52f4f2cd10b60ec3f6547c981a8f7152"
+      },
+      "kind": "unclear",
+      "severity": "medium",
+      "finding": "Section 4 now explicitly states that each successful outcome returns g itself and gives a p-independent finite procedure. Calling the auxiliary Lean result stronger because it returns the original good state obscures which additional precision is intended, particularly exact success mass and an explicit retained-register specification.",
+      "why_it_matters": "The headline relation is hard to assess, especially because the paragraph also states a narrower class of success projectors.",
+      "suggested_direction": "Compare components separately: what the current ordinary lemma already asserts, the measured-label law used downstream, exact success mass, explicit retained-register specification, and the narrower finite basis-predicate setting. No new formalisation is needed.",
+      "evidence": [
+        "repository/docs/exposition.md §4 Amplification with a fixed cap: every successful outcome returns g itself.",
+        "repository/lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean, uniformOpaqueAmplifier.",
+        "previous_round/round5_statement_fidelity.md Other cited results, coherent and measured amplifier rows."
+      ],
+      "review_key": "QX-E11",
+      "prior_round_relation": "ES-024 moved the separate returned-state remark to §7, but §4 still states the returned-state conclusion; assess the relation after integration."
+    },
+    {
+      "id": "QX-008",
+      "paper": "reasoning_record",
+      "perspective": "P-AMP",
+      "locator": {
+        "section": "§2.9 The checked statements",
+        "quote": "no review; partial by construction",
+        "path": "repository/docs/reasoning_record.md",
+        "line": 508,
+        "source_sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155"
+      },
+      "kind": "evidence_presentation",
+      "severity": "high",
+      "finding": "The current entry table calls uniformOpaqueAmplifier unreviewed/partial, labels the uniform Forrelation endpoint unreviewed against a catalogue row, and marks the constants theorem's review noncurrent. The current companion and the supplied round-five statement-fidelity review already give substantive relation judgments for these declarations. Is 'no review' only a frozen corpus field or a claim about the present packet?",
+      "why_it_matters": "This is the first formal trust checkpoint. A reader can mistake an old ledger status for an unresolved mathematical or statement-fidelity problem and then find a different verdict in Appendix A of the companion.",
+      "suggested_direction": "Separate execution status, frozen corpus-review status, and current independent statement-fidelity judgment in the existing table. Reconcile the existing supplied judgments and keep their dates/scopes; do not rerun receipts or promise new formalization.",
+      "evidence": [
+        "Current record §2.9 lines 498–514, especially uniformOpaqueAmplifier, forrelation_lower_uniform_sharp and construction_family_named rows.",
+        "Current expert_companion.md Appendix A, Table 2, lines 335–345.",
+        "previous_round/round5_statement_fidelity.md rows for uniformOpaqueAmplifier (line 23), direct_product_external_finite_realized_caps (line 25), construction_family_named (line 27), and forrelation_lower_uniform_sharp (line 28)."
+      ],
+      "review_key": "QX804",
+      "prior_round_relation": "R5 LR-007/LR-028 successfully created the table; the issue is inconsistent time/scope labels in its present contents, not an absent index or missing receipts."
+    },
+    {
+      "id": "QX-009",
+      "paper": "expert_companion",
+      "perspective": "P-FORR",
+      "locator": {
+        "section": "2 The construction, property (ii)",
+        "quote": "measures the projection onto $u$, which succeeds with probability $\\Phi^2$",
+        "path": "repository/docs/expert_companion.md",
+        "line": 99,
+        "source_sha256": "2033aa7f8f74a9c8cbc7f839f3599897f6f029c1a44b97f703532be13e9f1b86"
+      },
+      "kind": "question",
+      "severity": "medium",
+      "finding": "Why choose the squared projection experiment rather than the familiar sign-sensitive interference experiment with probability (1+Phi)/2 and ceil(k/2) queries? The record answers which experiment is used, but the short paper leaves a Forrelation expert to discover that explanation separately.",
+      "why_it_matters": "The negative-Phi example and the exact domain circuitry can look like an artefact of an unnecessarily sign-blind decoder. A signed promised decoder would still not certify the exact promise on all inputs; that is the useful distinction.",
+      "suggested_direction": "Expose the existing record comparison at the first projection experiment. Explain the role of following the preprint’s simple fixed-k decoder and preserve the independent obligation of exact domain certification. Do not propose or analyze a new decoder.",
+      "evidence": [
+        "Current record §3.3 final paragraph, #forr_coherent: AA Proposition 6 versus the projection experiment.",
+        "AA2018, §3.2, Figure 1 and Proposition 6; Bansal–Sinha Proposition 1.2, read directly in the supplied extraction.",
+        "OpenAI supplied preprint §2.1, Lemma 2.1(ii)–(iii), pp.4–5."
+      ],
+      "prior_round_relation": "New reader-value finding; does not repeat a repaired round-five mathematical defect.",
+      "review_key": "QL05",
+      "additional_locators": [
+        {
+          "section": "§1, projection experiment",
+          "quote": "It succeeds with certainty on both $a^+$ and $a^-$.",
+          "path": "repository/docs/exposition.md",
+          "line": 74,
+          "source_sha256": "96c93a7a3efb3fb1421088ed5ff875cd52f4f2cd10b60ec3f6547c981a8f7152"
+        }
+      ],
+      "cross_document_scope": "The primary quote identifies the finding; additional locators show the same issue or preserve recommendation elsewhere. The paper field names the primary document."
+    },
+    {
+      "id": "QX-010",
+      "paper": "exposition",
+      "perspective": "P-MODEL",
+      "locator": {
+        "section": "§4, Sampling a pivot quantumly",
+        "quote": "On success the algorithm appends that column and continues;",
+        "path": "repository/docs/exposition.md",
+        "line": 179,
+        "source_sha256": "96c93a7a3efb3fb1421088ed5ff875cd52f4f2cd10b60ec3f6547c981a8f7152"
+      },
+      "kind": "unclear",
+      "severity": "medium",
+      "finding": "This is where the coherent preparation becomes a classical pivot history, but the exposition does not explicitly say that the successful index is measured. Retaining decoder registers within a trial and measuring pivots between trials have different roles.",
+      "why_it_matters": "The reader can confuse coherence required for A and A^-1 with a requirement to keep the whole adaptive tournament coherent, making the later measured-label theorem appear insufficient.",
+      "suggested_direction": "Make the existing measurement boundary explicit and explain that fresh preparations use the resulting classical pivot list. Preserve coherence inside each amplification call.",
+      "evidence": [
+        "repository/docs/reasoning_record.md §5.2, upper-stage-state and upper-quantum-tournament: fixes a classical pivot list and says to measure the index on success.",
+        "literature/quartic-lit-dewolf-quantum-computing-lecture-notes/extracted.md Chapter 7, Amplitude amplification: the inverse requires a unitary preparation."
+      ],
+      "review_key": "QX-E07",
+      "prior_round_relation": "QM-008/ES-003 explain retained workspace within comparisons. This identifies the distinct between-stage boundary."
+    },
+    {
+      "id": "QX-011",
+      "paper": "exposition",
+      "perspective": "P-AMP",
+      "locator": {
+        "section": "§4, end of ideal-process example",
+        "quote": "the next pivot is the winner with probability $(1-\\varepsilon)/(2-\\varepsilon)$",
+        "path": "repository/docs/exposition.md",
+        "line": 171,
+        "source_sha256": "96c93a7a3efb3fb1421088ed5ff875cd52f4f2cd10b60ec3f6547c981a8f7152"
+      },
+      "kind": "underweighted",
+      "severity": "medium",
+      "finding": "The added fractional example supplies the conditional pivot probability but omits the associated unamplified success mass. The reader must connect the example to the sampler without seeing both quantities at once.",
+      "why_it_matters": "The central distinction between obtaining any sample and the conditional distribution of that sample is stated abstractly rather than executed on the running numbers.",
+      "suggested_direction": "Use the record’s existing W/4=23999/48000 calculation alongside 11999/23999 and 12000/23999 to connect this example to the sampler. Identify it as an abstract comparison-table example, as the record does.",
+      "evidence": [
+        "repository/docs/reasoning_record.md §5.2 upper-cyclic-example: W=23999/12000, unamplified success W/4, and both conditional probabilities; explicitly not a full addressed-certificate input."
+      ],
+      "review_key": "QX-E08",
+      "prior_round_relation": "QM-013 added the conditional probability. This identifies its remaining missing connection to sample availability; no new example is requested."
+    },
+    {
+      "id": "QX-012",
+      "paper": "exposition",
+      "perspective": "P-ROBUST",
+      "locator": {
+        "section": "4 The quantum algorithm: a tournament",
+        "quote": "If the winner wins only with probability $1-\\varepsilon$",
+        "path": "repository/docs/exposition.md",
+        "line": 171,
+        "source_sha256": "96c93a7a3efb3fb1421088ed5ff875cd52f4f2cd10b60ec3f6547c981a8f7152"
+      },
+      "kind": "underweighted",
+      "severity": "medium",
+      "finding": "The current fractional variant is useful, but it changes only the winner’s comparisons; loser–loser comparisons in the displayed example remain deterministic. What should a reader look at to understand the distinct permission for an unbiased loser pair, which is the obstruction to directly using bounded-error fixed-predicate search?",
+      "why_it_matters": "The cycle demonstrates lack of an order, and the trailing variant demonstrates nonuniform weights. Neither example by itself identifies the no-margin loser case, so an expert may remember the corrected caveat without seeing how the same drift and sampler tolerate it.",
+      "suggested_direction": "Keep both existing examples and distinguish their jobs explicitly from the no-margin hypothesis. Tie the existing loser-probability discussion to the general product and drift formulas, which already cover probability one half; do not claim a cycle establishes the bounded-error obstruction or request a new construction.",
+      "evidence": [
+        "Current exposition §4 ideal-process table and fractional sentence.",
+        "Current record §5.2 #upper-cyclic-example: weights (11999/12000,0,0,1) and conditional probabilities 11999/23999,12000/23999.",
+        "HMW2003 §1 and §3 assume bounded-error access to fixed predicates."
+      ],
+      "prior_round_relation": "QM-013 added the fractional variant and QM-003/017 correctly separated cycles from no-margin comparisons. This is weighting of the corrected material, not a request to restore those fixes.",
+      "review_key": "QL06"
+    },
+    {
+      "id": "QX-013",
+      "paper": "expert_companion",
+      "perspective": "P-KING",
+      "locator": {
+        "section": "4.2 A tournament with probabilistic comparisons",
+        "quote": "returns at most $T$ candidates",
+        "path": "repository/docs/expert_companion.md",
+        "line": 160,
+        "source_sha256": "2033aa7f8f74a9c8cbc7f839f3599897f6f029c1a44b97f703532be13e9f1b86"
+      },
+      "kind": "question",
+      "severity": "medium",
+      "finding": "Why is the reusable interface a short list rather than the single source or king returned by the closest search algorithms, and what guarantee survives when no dominant candidate exists?",
+      "why_it_matters": "The reader should not equate a list-membership guarantee conditional on dominance with the total search relation KING. This also explains why terminal sampler failure is harmless after selection and why verification is a separate obligation.",
+      "suggested_direction": "Make the comparison of output contracts explicit beside Proposition 3 or its antecedent comparison: list length and cap are unconditional, containment is conditional, and the final exact tests decide F. Use the already proved contract rather than promise a general king finder.",
+      "evidence": [
+        "MPS2023, supplied arXiv v1, Definition 1.1 and Theorem 1.2; published Theorem 19 and Algorithm 4, pp.30:11–30:13.",
+        "AIK2026 v2, Algorithm 4 and Lemma 6.6, pp.12,15–16: last selected vertex is the source on a positive input.",
+        "Current expert §4.3; current record #upper-tournament-statement, #upper-quantum-tournament and #upper-verification-proof."
+      ],
+      "prior_round_relation": "New reader-value finding; does not repeat a repaired round-five mathematical defect.",
+      "review_key": "QL02"
+    },
+    {
+      "id": "QX-014",
+      "paper": "expert_companion",
+      "perspective": "P-FORR",
+      "locator": {
+        "section": "2 The construction, property (iii)",
+        "quote": "An exact fan-in-two Boolean circuit",
+        "path": "repository/docs/expert_companion.md",
+        "line": 101,
+        "source_sha256": "2033aa7f8f74a9c8cbc7f839f3599897f6f029c1a44b97f703532be13e9f1b86"
+      },
+      "kind": "question",
+      "severity": "medium",
+      "finding": "Which part of the quantum speedup needs the nearly linear circuit size, as opposed to merely the existence of an exact domain-and-value circuit? This is the reason the specialist should care about the circuit construction at all.",
+      "why_it_matters": "Without connecting S to the number K of local checks and hence the verification cost, the explicit integer arithmetic and circuit size can look like formalization detail unrelated to the quantum mechanism.",
+      "suggested_direction": "At the circuit property or local-test count, point to the existing dependency S to K to the cost of verifying the short list. Keep the exact domain requirement separate from the quantitative size requirement; leave the gate arithmetic in the record.",
+      "evidence": [
+        "Current expert §2 property (iii), K=m+(m-1)+r(S+2), and §4.3 verification.",
+        "Current record §3.4 and §5.4 #upper-finite-budget.",
+        "OpenAI supplied preprint Lemma 2.1(iii), Lemma 2.2 and Proposition 3.3."
+      ],
+      "prior_round_relation": "New reader-value finding; does not repeat a repaired round-five mathematical defect.",
+      "review_key": "QL13"
+    },
+    {
+      "id": "QX-015",
+      "paper": "expert_companion",
+      "perspective": "P-CERT",
+      "locator": {
+        "section": "1.3 What is new",
+        "quote": "both separate certificate complexity $C$ from $R$ and $Q$",
+        "path": "repository/docs/expert_companion.md",
+        "line": 69,
+        "source_sha256": "2033aa7f8f74a9c8cbc7f839f3599897f6f029c1a44b97f703532be13e9f1b86"
+      },
+      "kind": "underweighted",
+      "severity": "medium",
+      "finding": "The measure distinction is correctly stated, but the comparison would be more informative if it showed why the nearby quartic C-versus-Q result did not already give the present R-versus-Q exponent. The missing ingredient is randomized address hardness across many candidate columns.",
+      "why_it_matters": "Readers need to place the new randomized lower bound against a construction that already has sqrt(n) quantum cost and n^2 certificate complexity. Naming the changed letter alone does not identify the changed obstruction.",
+      "suggested_direction": "Use the already published parameter comparison from BDK Theorem 1, and connect it to the existing mL charge in this construction. Do not add a new theorem or claim a general limit on the certificate-complexity approach.",
+      "evidence": [
+        "BDK2026 supplied text, Theorem 1: C=Omega(n^2), R=tilde O(n), Q=tilde O(sqrt n), with Lemmas 3 and 5.",
+        "AIK2026 v2 introduction, pp.1–2, distinguishes certificate, randomized and quantum measures.",
+        "Current expert §1.2 and §§5.2–5.4 explain the independent addressing cost."
+      ],
+      "prior_round_relation": "QM-015/016 added correct antecedent credit and identified C as the classical measure. This asks for a quantitative mechanism comparison beyond that repaired attribution.",
+      "review_key": "QL12"
+    },
+    {
+      "id": "QX-016",
+      "review_key": "ROOT-HISTORY",
+      "paper": "expert_companion",
+      "perspective": "P-SEP",
+      "locator": {
+        "section": "§1.1 The history",
+        "quote": "Improved partial separations then gave $8/3-o(1)$ and $3-o(1)$ in this framework",
+        "path": "repository/docs/expert_companion.md",
+        "line": 44,
+        "source_sha256": "2033aa7f8f74a9c8cbc7f839f3599897f6f029c1a44b97f703532be13e9f1b86"
+      },
+      "kind": "underweighted",
+      "severity": "medium",
+      "finding": "The 5/2 and 3 calculations are explicit, but the 8/3 step is only named. Which partial-hardness exponent changes at that step, and which outer cost stays the same?",
+      "why_it_matters": "The history table otherwise looks like a sequence of improved numbers. This reader wants to see why improving the partial supplier reached the cube, whereas the new per-column addressing changes the outer bottleneck.",
+      "suggested_direction": "Complete the existing parameter comparison with the intermediate c=2/3-o(1) row of the cited 2+c conversion. Distinguish this particular cheat-sheet route from a universal impossibility claim about all cheat-sheet constructions.",
+      "evidence": [
+        "ABK supplied v2, §3.1, composition with AND–OR and certificate checking.",
+        "Tal supplied v1, Introduction / total-function application: partial exponent c yields the cited total exponent 2+c.",
+        "Current expert §1.1 already derives the endpoint c=1/2 and c=1 cases; preserve those repairs."
+      ],
+      "prior_round_relation": "New current-text finding; not a repeated round-five defect."
+    },
+    {
+      "id": "QX-017",
+      "review_key": "ROOT-CONSTANTS",
+      "paper": "expert_companion",
+      "perspective": "P-MIN",
+      "locator": {
+        "section": "Abstract and §1, explicit refinements",
+        "quote": "This companion gives the argument with explicit constants",
+        "path": "repository/docs/expert_companion.md",
+        "line": 9,
+        "source_sha256": "2033aa7f8f74a9c8cbc7f839f3599897f6f029c1a44b97f703532be13e9f1b86"
+      },
+      "kind": "overweighted",
+      "severity": "medium",
+      "finding": "Are the explicit constants a primary reason this audience should read the companion? The opening advertises them and immediately lists 6, 1/400 and 13669 k², before the reader has evaluated the weighted-comparison mechanism.",
+      "why_it_matters": "These are useful quantitative recoverability facts, but they are deliberately nonoptimal and do not explain the improvement from the cubic route. Their current emphasis competes with the document’s strongest contribution as an explanation.",
+      "suggested_direction": "Keep the precise refinements and their built/compared distinctions in an accessible quantitative route. Rank the weighted sampler, stopped coupling and distributed classical address cost ahead of the numerical constants in the statement of reader value.",
+      "evidence": [
+        "Current expert abstract, §1 paragraph beginning The proofs below, §4.3 and §6.",
+        "DH supplied v2 presents the task and algorithm before its rank/cost calculation; this is a functional comparison, not a universal page-length rule."
+      ],
+      "prior_round_relation": "New current-text finding; not a repeated round-five defect."
+    },
+    {
+      "id": "QX-018",
+      "review_key": "ROOT-SHORTCUT",
+      "paper": "expert_companion",
+      "perspective": "P-MIN",
+      "locator": {
+        "section": "§3 Where a natural shortcut fails",
+        "quote": "Each row of Table 1 is a step a reader may be tempted to simplify",
+        "path": "repository/docs/expert_companion.md",
+        "line": 120,
+        "source_sha256": "2033aa7f8f74a9c8cbc7f839f3599897f6f029c1a44b97f703532be13e9f1b86"
+      },
+      "kind": "misplaced",
+      "severity": "medium",
+      "finding": "Does the reader need all eight counterexamples before entering the quantum proof? Rows 4–7 and the detailed conditioning example concern lower-bound objects whose role has not yet been developed.",
+      "why_it_matters": "The table contains valuable corrected material, but a quantum reader is asked to switch to planting, per-instance caps and conditional hardness at the moment they want the probabilistic comparison algorithm.",
+      "suggested_direction": "Keep the quantum warnings at their first use and route the classical rows to §5 or their existing record destinations. Preserve the counterexamples and their repaired hypotheses; reduce front-loaded interruption rather than delete safeguards.",
+      "evidence": [
+        "Current expert Table 1, rows 1–8, and the following sixteen-input conditioning calculation.",
+        "Current exposition §5 places the cap and independence examples beside the simulator obligations."
+      ],
+      "prior_round_relation": "Round five repaired several of these examples. Their correctness is accepted here; this concerns placement of the repaired table."
+    },
+    {
+      "id": "QX-019",
+      "paper": "expert_companion",
+      "perspective": "P-AMP",
+      "locator": {
+        "section": "4 The quantum upper bound",
+        "quote": "with a fixed-cap amplifier, a comparison of two columns",
+        "path": "repository/docs/expert_companion.md",
+        "line": 139,
+        "source_sha256": "2033aa7f8f74a9c8cbc7f839f3599897f6f029c1a44b97f703532be13e9f1b86"
+      },
+      "kind": "misplaced",
+      "severity": "medium",
+      "finding": "The quantum section enters through a standard amplification lemma and its proof before exposing the comparison theorem. A specialist already knows the two-dimensional Grover analysis; their first question is what replaces a fixed comparison predicate and which sampling contract the new drift argument consumes.",
+      "why_it_matters": "The ordering makes the familiar tool appear to carry the novelty and postpones the reason to care about its exact conditional law.",
+      "suggested_direction": "Give the tournament interface and its need for law-preserving capped sampling before the optional geometric proof, or provide a clearly marked specialist path from the lemma contract directly to §4.2. Retain the all-input cap and exact-law clauses. In the complete record, preserve the full proof but label the standard rotation and scalar derivations as optional recovery after the precise contract.",
+      "evidence": [
+        "BHMT2000 v1, §2, Lemma 1 and equation (8), pp.5–7, supplies the standard successful-component geometry.",
+        "MPS2023 §1.2.2 introduces the algorithm by obstacles in sampling and counting before its Grover preliminaries.",
+        "Current expert Lemma 2 and §4.2."
+      ],
+      "prior_round_relation": "New reader-value finding; does not repeat a repaired round-five mathematical defect.",
+      "review_key": "QL03",
+      "additional_locators": [
+        {
+          "section": "§5.1 Amplification with a fixed stopping time",
+          "quote": "We give OpenAI's bounded construction in full.",
+          "path": "repository/docs/reasoning_record.md",
+          "line": 2139,
+          "source_sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155"
+        }
+      ],
+      "cross_document_scope": "The primary quote identifies the finding; additional locators show the same issue or preserve recommendation elsewhere. The paper field names the primary document."
+    },
+    {
+      "id": "QX-020",
+      "paper": "exposition",
+      "perspective": "P-AMP",
+      "locator": {
+        "section": "4 The quantum algorithm: a tournament, Amplification with a fixed cap",
+        "quote": "a trial succeeds with probability at least $9/40$",
+        "path": "repository/docs/exposition.md",
+        "line": 181,
+        "source_sha256": "96c93a7a3efb3fb1421088ed5ff875cd52f4f2cd10b60ec3f6547c981a8f7152"
+      },
+      "kind": "overweighted",
+      "severity": "medium",
+      "finding": "The standard amplifier’s numerical trial constants occupy more attention than their role requires in this examples-first route. The payoff is a cap for all inputs plus the unchanged conditional label law, not the number 9/40 or the logarithm of 40/31.",
+      "why_it_matters": "The reader must parse fresh constants immediately after the novel sampling/coupling mechanism and before verification, interrupting the mechanism they are trying to retain.",
+      "suggested_direction": "Keep the contract and the invariant good component in the main path; make numerical repetition arithmetic a clearly optional pointer to record §5.1. Reuse the freed space for the existing fractional sampling example.",
+      "evidence": [
+        "Current exposition §4 amplifier paragraph.",
+        "BHMT2000 §2 and BBHT1996 §4 give the standard geometry and averaging ingredients.",
+        "Current record #upper-grover-trial through #upper-amplification-proof contains the exact constants."
+      ],
+      "prior_round_relation": "New reader-value finding; does not repeat a repaired round-five mathematical defect.",
+      "review_key": "QL07",
+      "additional_locators": [
+        {
+          "section": "§4, Amplification with a fixed cap",
+          "quote": "a trial succeeds with probability at least $9/40$ whenever $p\\ge\\gamma$",
+          "path": "repository/docs/exposition.md",
+          "line": 181,
+          "source_sha256": "96c93a7a3efb3fb1421088ed5ff875cd52f4f2cd10b60ec3f6547c981a8f7152"
+        }
+      ],
+      "cross_document_scope": "The primary quote identifies the finding; additional locators show the same issue or preserve recommendation elsewhere. The paper field names the primary document."
+    },
+    {
+      "id": "QX-021",
+      "paper": "expert_companion",
+      "perspective": "P-KING",
+      "locator": {
+        "section": "4.3 Verification and the query count",
+        "quote": "Nothing below depends on the logarithmic exponent.",
+        "path": "repository/docs/expert_companion.md",
+        "line": 182,
+        "source_sha256": "2033aa7f8f74a9c8cbc7f839f3599897f6f029c1a44b97f703532be13e9f1b86"
+      },
+      "kind": "overweighted",
+      "severity": "medium",
+      "finding": "Across the three documents, the deliberately loose exponent-six arithmetic receives more first-pass attention than its role requires. The actual decoder, inverse, sampler and verification ledger matters; the expanded scalar relaxation does not drive the separation.",
+      "why_it_matters": "It obscures the relevant economy: cheap comparisons generate only logarithmically many candidates, then verification is paid only for those candidates. It can also invite unhelpful attention to an unoptimized logarithmic exponent.",
+      "suggested_direction": "Keep the complete finite query budget, the fixed-k independence from m and the all-input cap. Give the expansion to exponent six a clearly marked recovery destination; do not replace the stated bound or request a sharper one.",
+      "evidence": [
+        "Current expert §4.2 cost and §4.3 two paragraphs.",
+        "Current record §5.4 #upper-finite-budget, #upper-asymptotic-bound and #upper-explicit-log6."
+      ],
+      "prior_round_relation": "QM-012 correctly completed the query count. This finding preserves that visible total while reconsidering the amount of loose numerical relaxation in a specialist route.",
+      "review_key": "QL08",
+      "additional_locators": [
+        {
+          "section": "5.4 Coherent access and the query cap",
+          "quote": "We give the size arithmetic to make the independence of $C_k$ from $t$ explicit.",
+          "path": "repository/docs/reasoning_record.md",
+          "line": 2719,
+          "source_sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155"
+        },
+        {
+          "section": "§5.4 The explicit logarithmic exponent six",
+          "quote": "exactly the source's deliberately loose constant",
+          "path": "repository/docs/reasoning_record.md",
+          "line": 2725,
+          "source_sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155"
+        },
+        {
+          "section": "§4, The count",
+          "quote": "The exponent six is an artefact of this deliberately loose count.",
+          "path": "repository/docs/exposition.md",
+          "line": 189,
+          "source_sha256": "96c93a7a3efb3fb1421088ed5ff875cd52f4f2cd10b60ec3f6547c981a8f7152"
+        }
+      ],
+      "cross_document_scope": "The primary quote identifies the finding; additional locators show the same issue or preserve recommendation elsewhere. The paper field names the primary document."
+    },
+    {
+      "id": "QX-022",
+      "paper": "exposition",
+      "perspective": "P-SEP",
+      "locator": {
+        "section": "Overview, after one-line arithmetic",
+        "quote": "locating it inside one column means naming an address, which costs $L$ queries there.",
+        "path": "repository/docs/exposition.md",
+        "line": 32,
+        "source_sha256": "96c93a7a3efb3fb1421088ed5ff875cd52f4f2cd10b60ec3f6547c981a8f7152"
+      },
+      "kind": "unclear",
+      "severity": "medium",
+      "finding": "This intuition can still be read as a per-run necessity to learn the address before visiting its cell. Section 5 now correctly allows a lucky guess and bounds a joint event involving a cheap run and a true-cell query.",
+      "why_it_matters": "The opening mechanism is remembered as stronger than the actual lower-bound mechanism, even though the later probability argument is correct.",
+      "suggested_direction": "Carry the probability-aware qualification from Section 5 into the opening intuition while retaining the m·L versus √m arithmetic.",
+      "evidence": [
+        "repository/docs/exposition.md §5, The true cell and The simulator: guessed addresses and the joint event are explicit."
+      ],
+      "review_key": "QX-E03",
+      "prior_round_relation": "CM-003/ES-004 repaired Section 5. This is an incomplete propagation to the Overview, not an error in the corrected proof."
+    },
+    {
+      "id": "QX-023",
+      "paper": "exposition",
+      "perspective": "P-MODEL",
+      "locator": {
+        "section": "Overview, intended audience",
+        "quote": "a graduate student who knows the query models above",
+        "path": "repository/docs/exposition.md",
+        "line": 26,
+        "source_sha256": "96c93a7a3efb3fb1421088ed5ff875cd52f4f2cd10b60ec3f6547c981a8f7152"
+      },
+      "kind": "unclear",
+      "severity": "medium",
+      "finding": "The announced prerequisite is a query-model definition, while the sampler assumes reversible computation, retained workspaces, product states and amplitude amplification. Which operations should the reader already be able to execute?",
+      "why_it_matters": "A student may understand the eight-bit arithmetic yet stall at the sampler; an expert cannot tell which tutorial material they may safely skip.",
+      "suggested_direction": "Give a short operational prerequisite or precise optional prerequisite route. Do not expand the article into a quantum-computing tutorial.",
+      "evidence": [
+        "literature/quartic-lit-dewolf-quantum-computing-lecture-notes/extracted.md, Chapter 2 Quantum circuits and Chapter 7 Grover/Amplitude amplification.",
+        "skills/record-to-expository/SKILL.md, Preconditions and inputs: graduate level is not an operational prerequisite ladder."
+      ],
+      "review_key": "QX-E04",
+      "prior_round_relation": "No matching repaired finding is reissued."
+    },
+    {
+      "id": "QX-024",
+      "paper": "exposition",
+      "perspective": "P-MIN",
+      "locator": {
+        "section": "Overview, example map",
+        "quote": "The four-column board (Figure 2)",
+        "path": "repository/docs/exposition.md",
+        "line": 43,
+        "source_sha256": "96c93a7a3efb3fb1421088ed5ff875cd52f4f2cd10b60ec3f6547c981a8f7152"
+      },
+      "kind": "overweighted",
+      "severity": "medium",
+      "finding": "The Overview occupies about 1.81 page equivalents including title material; the first concrete example begins late on page 2. The theorem, payoffs paragraph, mechanism, history, cheat-sheet arithmetic and eight-row example map partly duplicate route information.",
+      "why_it_matters": "The reader gets a strong reason to read but waits too long to operate on the concrete object; the additional previews buy less than a worked sampler connection.",
+      "suggested_direction": "Compress overlapping route descriptions while preserving the theorem, mechanism and antecedent arithmetic. Reallocate space rather than add pages.",
+      "evidence": [
+        "repository/docs/exposition.pdf pp. 1–2; §1 heading p. 2 at y≈639.66 on an 841.89-point page, measured from PDF text geometry.",
+        "skills/record-to-expository/SKILL.md, Model the reader and frame the result: about a page before examples."
+      ],
+      "review_key": "QX-E05",
+      "prior_round_relation": "No matching repaired finding is reissued."
+    },
+    {
+      "id": "QX-025",
+      "paper": "exposition",
+      "perspective": "P-FORR",
+      "locator": {
+        "section": "§2, board size and transcripts",
+        "quote": "The board has $4(4+16+4(6+360))=5936$ bits.",
+        "path": "repository/docs/exposition.md",
+        "line": 104,
+        "source_sha256": "96c93a7a3efb3fb1421088ed5ff875cd52f4f2cd10b60ec3f6547c981a8f7152"
+      },
+      "kind": "overweighted",
+      "severity": "low",
+      "finding": "What explanatory work does the exact 5936-bit total do beyond the gate count 180 and test count 371? Exact certificate semantics, local-test cost and scaling carry the quantum argument.",
+      "why_it_matters": "A specialist can mistake an implementation-size audit for the central proof parameter.",
+      "suggested_direction": "Keep the reproducible counts and checker destination as supporting material; prioritize what the domain/value tests certify and why K has the required growth.",
+      "evidence": [
+        "repository/docs/exposition.md §2 Transcripts and Local tests; §3 final paragraph: the general input-size formula and K scaling already serve the asymptotic purpose."
+      ],
+      "review_key": "QX-E06",
+      "prior_round_relation": "No matching repaired finding is reissued."
+    },
+    {
+      "id": "QX-026",
+      "paper": "exposition",
+      "perspective": "P-MODEL",
+      "locator": {
+        "section": "§7, audit reading route",
+        "quote": "Five definitions carry the content.",
+        "path": "repository/docs/exposition.md",
+        "line": 265,
+        "source_sha256": "96c93a7a3efb3fb1421088ed5ff875cd52f4f2cd10b60ec3f6547c981a8f7152"
+      },
+      "kind": "overweighted",
+      "severity": "medium",
+      "finding": "The essential model audit and four target statements are packed into a long paragraph, then followed by detailed stronger auxiliary forms. The oracle, all-branch cap, success measurement and headline quantifiers are harder to find than in the expert appendix.",
+      "why_it_matters": "This is the most likely stopping point for a reader who has followed the proof and wants a quick semantic audit.",
+      "suggested_direction": "Give the essential route visible structure and route detailed auxiliary comparisons to the existing expert appendix or record. Preserve the shared-modelling-error warning and precise theorem links.",
+      "evidence": [
+        "repository/docs/expert_companion.md Appendix A, Object/Meaning table and Five things to check.",
+        "repository/docs/exposition.pdf §7 pp. 12–13, about 0.87 page equivalents."
+      ],
+      "review_key": "QX-E12",
+      "prior_round_relation": "No matching repaired finding is reissued."
+    },
+    {
+      "id": "QX-027",
+      "review_key": "ROOT-APPENDIX",
+      "paper": "expert_companion",
+      "perspective": "P-MODEL",
+      "locator": {
+        "section": "Appendix A, opening audit promise",
+        "quote": "This appendix lists everything a reader must read to answer that question.",
+        "path": "repository/docs/expert_companion.md",
+        "line": 287,
+        "source_sha256": "2033aa7f8f74a9c8cbc7f839f3599897f6f029c1a44b97f703532be13e9f1b86"
+      },
+      "kind": "overweighted",
+      "severity": "medium",
+      "finding": "Which entries are needed for a first semantic check of Theorem 1, and which describe auxiliary comparisons? The appendix occupies about 2.35 of the supplied 14 pages, more than the entire quantum upper-bound section.",
+      "why_it_matters": "The definition map and five checks are unusually useful. Presenting all auxiliary relations and reproduction detail at equal priority can make that useful short route feel as large as the new algorithm itself.",
+      "suggested_direction": "Preserve the oracle/cap/probability map, common-circuit quantifiers and theorem actually used. Visibly subordinate auxiliary stronger-state, refined-constant and diagnostic entries to their existing exact destinations, without hiding any restriction of a used theorem.",
+      "evidence": [
+        "Current expert Appendix A, object table, four targets, five checks, Table 2 and reproduction block.",
+        "Page geometry of the supplied expert PDF: Appendix A about 2.35 page equivalents, §4 about 1.82. These are layout estimates, not human-reading measurements."
+      ],
+      "prior_round_relation": "New current-text finding; not a repeated round-five defect."
+    },
+    {
+      "id": "QX-028",
+      "paper": "reasoning_record",
+      "perspective": "P-FORR",
+      "locator": {
+        "section": "§4.2 Columns and their selected cells",
+        "quote": "Column $i$ contains the following disjoint blocks of input bits.",
+        "path": "repository/docs/reasoning_record.md",
+        "line": 1796,
+        "source_sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155"
+      },
+      "kind": "missing",
+      "severity": "medium",
+      "finding": "How many physical input bits does this total function have? This standalone definition introduces m columns and 2^r separately stored cells per column but does not give the total n at this definition, although the companion already gives n=m[m+rkm+2^r((m−1)ℓ+rS)]=O_k(m^22ℓ^3).",
+      "why_it_matters": "A query-complexity reader needs to know immediately that m is not the total input length, and that neither address space nor certificate storage is being supplied by an implicit oracle.",
+      "suggested_direction": "Reuse or link the existing companion §2 input-size accounting at the layout definition. Explain its role in connecting the structured function to an ordinary n-bit function; no new asymptotic result is needed.",
+      "evidence": [
+        "Current record §4.2, lines 1785–1804; §7.2 reindexes the finite coordinate set without the count.",
+        "Current expert_companion.md §2, line 110 contains the exact formula and polynomial size bound.",
+        "Aaronson–Ambainis, supplied arXiv v1, Introduction pp. 1–2 (extracted lines 47–85), explicitly distinguishes oracle models and input-size conventions."
+      ],
+      "review_key": "QX802",
+      "prior_round_relation": "No matching fixed finding was reissued."
+    },
+    {
+      "id": "QX-029",
+      "paper": "reasoning_record",
+      "perspective": "P-ROBUST",
+      "locator": {
+        "section": "§2.5 Renaming coordinates and deferring measurements",
+        "quote": "The deferred-measurement bridge has a more specific guarantee than a statement that measurements may be postponed.",
+        "path": "repository/docs/reasoning_record.md",
+        "line": 307,
+        "source_sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155"
+      },
+      "kind": "underweighted",
+      "severity": "medium",
+      "finding": "Can the fast model-audit route identify the exact boundary of this bridge before its construction: all-input acceptance masses for all starting vectors, a fixed sequence of controlled phase queries, and no final-state identity?",
+      "why_it_matters": "The intended reader already knows deferred measurement. Their genuine question is whether this formal model matches the ordinary bit-query model and whether a later retained-state use asks for more. The contract is present, but scattered across a technical induction, §§2.7–2.9 and §5.5.",
+      "suggested_direction": "Expose the existing bridge contract and the existing bit-query conversion together in the model navigation. Leave the isometry-extension induction available as recovery. Do not imply that acceptance-law equivalence proves preservation of the physical output subsystem.",
+      "evidence": [
+        "Current record §2.5 lines 307–330 and §5.4 coherent-access/compiler discussion.",
+        "Høyer–Mosca–de Wolf, supplied source, §2 (extracted line 21): fixed input-independent gates, ordinary bit oracle, output obtained from a designated final subsystem.",
+        "Current companion Appendix A already offers a compact statement-model index that can be reused."
+      ],
+      "review_key": "QX803",
+      "prior_round_relation": "No matching fixed finding was reissued."
+    },
+    {
+      "id": "QX-030",
+      "paper": "reasoning_record",
+      "perspective": "P-FORR",
+      "locator": {
+        "section": "§3.4 The exact Boolean circuit",
+        "quote": "Arithmetic using fan-in-two gates.",
+        "path": "repository/docs/reasoning_record.md",
+        "line": 790,
+        "source_sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155"
+      },
+      "kind": "overweighted",
+      "severity": "medium",
+      "finding": "Can readers accept the exact domain/value circuit contract and its size bound before deciding whether to read the ripple-carry gate accounting? The main reason this classical circuit is present is to make certificate checking local, not to provide the quantum decoder.",
+      "why_it_matters": "The arithmetic consumes several pages before the total construction is introduced. A quantum reader may confuse gate-size certification with the cost of running a circuit coherently or with the query complexity of promise recognition.",
+      "suggested_direction": "Keep the exact two-output contract, signed endpoint handling, and O_k(m log²m) size statement visible. Offer the butterfly and gate-level arithmetic as proof recovery, with a forward pointer to how S enters K and verification.",
+      "evidence": [
+        "Current record §§3.2–3.4 and §5.3; §5 entry lines 2113–2115 explains the use of S in the test count.",
+        "Aaronson–Ambainis §3.2, supplied extracted lines 659–708, concerns the quantum alternating-phase experiment; the record's exact domain circuit serves a different construction role."
+      ],
+      "review_key": "QX813",
+      "prior_round_relation": "R5 compressed the elementary amplification derivation in §3.3; this concerns remaining gate-accounting weight in §3.4, not a request to remove endpoint correctness."
+    },
+    {
+      "id": "QX-031",
+      "paper": "reasoning_record",
+      "perspective": "P-FORR",
+      "locator": {
+        "section": "§3.5 A complete check of the smallest nontrivial instance",
+        "quote": "We can count all $16^2=256$ inputs without relying on a computer.",
+        "path": "repository/docs/reasoning_record.md",
+        "line": 909,
+        "source_sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155"
+      },
+      "kind": "overweighted",
+      "severity": "low",
+      "finding": "The three-row table already demonstrates the decisive phenomenon: a negative off-promise input has projection probability one while the exact circuit rejects its domain. Does a first-pass reader also need the full 256-input census before seeing a total column?",
+      "why_it_matters": "The census is a useful semantic audit but adds little to the algorithmic reason the domain bit is necessary. The chapter-level route currently invites reading all of §§3.1–3.5.",
+      "suggested_direction": "Keep the three contrasting inputs in the primary route and label the full census and checker comparison as optional audit material, preserving their existing argument and locator.",
+      "evidence": [
+        "Current record §3.5 lines 897–926.",
+        "Aaronson–Ambainis §3.2 and Bansal–Sinha Introduction, supplied extracted lines 25–38, separate the promise definition from the quantum acceptance statistic."
+      ],
+      "review_key": "QX814",
+      "prior_round_relation": "R5 LR-052 kept the examples. Preserve the table and the audit; change their priority, not their mathematical content."
+    },
+    {
+      "id": "QX-032",
+      "paper": "reasoning_record",
+      "perspective": "P-LOWER",
+      "locator": {
+        "section": "§3.8 Gaussian and Stein identities",
+        "quote": "Formula (F9) makes a different choice, so its resulting distribution and moment bounds are proved here.",
+        "path": "repository/docs/reasoning_record.md",
+        "line": 1128,
+        "source_sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155"
+      },
+      "kind": "question",
+      "severity": "medium",
+      "finding": "Why choose the algebraic truncation in (F9) instead of the Gaussian-CDF truncation used by Bansal–Sinha? The text carefully says that the resulting distribution is different and reproves its moments, but does not explain the design benefit the reader should look for.",
+      "why_it_matters": "An expert in the source proof sees a substantial alteration and needs a reason to invest in its new kernel identities and constants. Reproving the changed object establishes validity; it does not itself explain the choice.",
+      "suggested_direction": "State the documented mathematical or implementation reason for this existing choice, if there is one, and identify which later estimates it simplifies. If the choice was just convenient, say so without making a priority or novelty claim.",
+      "evidence": [
+        "Current record §3.8, line 1128, and §3.16 lines 1689–1693.",
+        "Bansal–Sinha, §1.2 'Improving δ to 2^{-O(k)}', supplied extracted lines 203–219, explicitly motivates the truncation by constant-variance rounding and the usable transformed integration-by-parts identity."
+      ],
+      "review_key": "QX815",
+      "prior_round_relation": "No matching fixed finding was reissued."
+    },
+    {
+      "id": "QX-033",
+      "paper": "reasoning_record",
+      "perspective": "P-LOWER",
+      "locator": {
+        "section": "§3.16 Literature comparison and the scope of the conclusion",
+        "quote": "The algebraic function (F9) used here defines a different hard distribution.",
+        "path": "repository/docs/reasoning_record.md",
+        "line": 1689,
+        "source_sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155"
+      },
+      "kind": "misplaced",
+      "severity": "medium",
+      "finding": "The source-to-reconstruction comparison is excellent but arrives after the whole long supplier proof. Can a reader see at its entrance which pieces are the published theorem, which proof method is reused, and which concrete distribution/derivative route is reconstructed here?",
+      "why_it_matters": "The combination of different truncation, first-block interpolation and an ordinary-tree martingale can otherwise look like either a literal transcription or an unexplained claim to a new lower-bound method.",
+      "suggested_direction": "Bring a compact version of the existing comparison to the §3.6 proof spine and leave full credit/pinpoints in §3.16. Preserve the explicit statement that the review establishes neither priority nor novelty.",
+      "evidence": [
+        "Current record §3.6 #forr_proof_spine, §3.8 line 1128, §3.16 lines 1689–1693.",
+        "Bansal–Sinha supplied introduction/overview, lines 104–229; Girish–Tal–Wu §1.3, lines 127–159; Sherstov–Storozhenko–Wu §1.8–1.9, lines 184–202."
+      ],
+      "review_key": "QX816",
+      "prior_round_relation": "R5 corrected BS/SSW attribution and moved comparisons to Appendix E. Those corrections should stay; this asks for an early summary of the distinction already made."
+    },
+    {
+      "id": "QX-034",
+      "paper": "reasoning_record",
+      "perspective": "P-LOWER",
+      "locator": {
+        "section": "§6.6 The discrepancy contradiction and the floors",
+        "quote": "The separate source audit of Bansal–Sinha v3 §5.4 concerns the displayed comparison at source lines 1180–1181:",
+        "path": "repository/docs/reasoning_record.md",
+        "line": 3710,
+        "source_sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155"
+      },
+      "kind": "misplaced",
+      "severity": "medium",
+      "finding": "Why reopen the version-specific logarithmic defect in the final assembly of the classical lower bound? The exact source line numbers and exponent difference repeat the forensic material already isolated in Appendix E.",
+      "why_it_matters": "At this stage the proof consumes only the fixed-k supplier established in §3. Reopening a source dispute breaks the short path from the generic planting theorem to the displayed family bound and can suggest that the current assembly still depends on resolving it.",
+      "suggested_direction": "Keep the fixed-k hypothesis and original-source credit at this use site; route the version-specific audit to the existing Appendix E. Do not delete the audit or imply a counterexample to the published theorem.",
+      "evidence": [
+        "Current record §6.6 #CL-forrelation-input, lines 3697–3710; Appendix E #forr_bs_mismatch.",
+        "Bansal–Sinha supplied v3 final proof §5.4, extracted lines 1015–1019, is the exact displayed comparison under discussion."
+      ],
+      "review_key": "QX818",
+      "prior_round_relation": "R5 LR-036/LR-028 moved the main forensic discussion out of §3.16. This is a remaining duplicate at a different current use site, not a repetition of the fixed §3.16 complaint."
+    },
+    {
+      "id": "QX-035",
+      "paper": "reasoning_record",
+      "perspective": "P-LOWER",
+      "locator": {
+        "section": "§3.16 Formal and evidential scopes",
+        "quote": "Older prose calling this endpoint merely proposed is superseded by those source-matched records.",
+        "path": "repository/docs/reasoning_record.md",
+        "line": 1702,
+        "source_sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155"
+      },
+      "kind": "overweighted",
+      "severity": "low",
+      "finding": "Does the specialist need the history of proposed status, root-build receipt, focused build, elaborated-type audit, recomputed hashes and later native execution at the end of the supplier proof, after §2.9 has already promised an authoritative current index?",
+      "why_it_matters": "The current mathematical/formal boundary is useful; repeated explanations of how old descriptions were superseded require the reader to reconstruct the project's chronology.",
+      "suggested_direction": "Keep the current declaration, its actual mathematical relation and its comparison/build category at this endpoint. Consolidate historical reconciliation and source-byte chronology into the already-existing Appendix F and current status index.",
+      "evidence": [
+        "Current record §3.16 lines 1702–1704, §2.9 and Appendix F.",
+        "previous_round/round5_statement_fidelity.md already gives the current uniform-estimate relation."
+      ],
+      "review_key": "QX821",
+      "prior_round_relation": "R5 LR-019 substantially improved this by moving chronology. This identifies the remaining historical sentences, rather than asserting that all history is still in the proof."
+    },
+    {
+      "id": "QX-036",
+      "paper": "reasoning_record",
+      "perspective": "P-AMP",
+      "locator": {
+        "section": "5.1 Amplification with a fixed stopping time",
+        "quote": "BHMT's Theorem 12 concerns amplitude estimation",
+        "path": "repository/docs/reasoning_record.md",
+        "line": 2139,
+        "source_sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155"
+      },
+      "kind": "misplaced",
+      "severity": "low",
+      "finding": "The sentence correcting a citation to BHMT Theorem 12 reads like a response to a historical referee mistake, although the surrounding current argument cites the appropriate geometry and averaging results.",
+      "why_it_matters": "A first-time reader has no reason to suspect Theorem 12 is being invoked. The corrective aside increases the sense of accumulated review history inside a mathematical proof.",
+      "suggested_direction": "Keep the correct pinpoint citations in the proof and reserve the rejected-citation history for the existing execution or source-comparison apparatus if it must be retained.",
+      "evidence": [
+        "Current record §5.1 opening citation paragraph.",
+        "BHMT2000 §2 Lemma 1/equation (8), and §4 Theorem 12.",
+        "Current record Appendix C already explains the editions and relevant locators."
+      ],
+      "prior_round_relation": "New reader-value finding; does not repeat a repaired round-five mathematical defect.",
+      "review_key": "QL09"
+    },
+    {
+      "id": "QX-037",
+      "paper": "reasoning_record",
+      "perspective": "P-AMP",
+      "locator": {
+        "section": "§5.6 Optional: the Boolean continuation used by the formal headline",
+        "quote": "This subsection is not needed for Proposition 3.2 or 3.3.",
+        "path": "repository/docs/reasoning_record.md",
+        "line": 2786,
+        "source_sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155"
+      },
+      "kind": "unclear",
+      "severity": "medium",
+      "finding": "Optional for which reader? The subsection is optional for the ordinary mathematical proof, but it explains the acceptance guarantee of the actual implementation reached by the headline roots. The opening's unqualified optional label can send a formal auditor past the one route they came to inspect.",
+      "why_it_matters": "Two valid notions of proof route coexist. A specialist verifying the theorem and a reader checking the exact compiled derivation have different stopping points.",
+      "suggested_direction": "Qualify the existing route labels by reading goal and link directly from the headline-route row in §5.5. Keep the induction here rather than restoring it to the middle of the list proof.",
+      "evidence": [
+        "Current record §5.5 route table and §5.6 lines 2784–2807.",
+        "Current record explicitly identifies tournament_runs as reached by the headline roots."
+      ],
+      "review_key": "QX806",
+      "prior_round_relation": "R5 LR-022/LR-024 intentionally moved this induction out of §5.2. That was an improvement; this asks for audience-specific labeling, not reversal.",
+      "additional_locators": [
+        {
+          "section": "5.6 Optional: the Boolean continuation used by the formal headline",
+          "quote": "This subsection is not needed for Proposition 3.2 or 3.3.",
+          "path": "repository/docs/reasoning_record.md",
+          "line": 2786,
+          "source_sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155"
+        }
+      ],
+      "cross_document_scope": "The primary quote identifies the finding; additional locators show the same issue or preserve recommendation elsewhere. The paper field names the primary document."
+    },
+    {
+      "id": "QX-038",
+      "paper": "expert_companion",
+      "perspective": "P-ROBUST",
+      "locator": {
+        "section": "§1.2 The key mechanism; developed in §4.1 Comparisons",
+        "quote": "whatever the rival's address inputs",
+        "path": "repository/docs/expert_companion.md",
+        "line": 61,
+        "source_sha256": "2033aa7f8f74a9c8cbc7f839f3599897f6f029c1a44b97f703532be13e9f1b86"
+      },
+      "kind": "keep",
+      "severity": "keep",
+      "finding": "Preserve the winner-only correctness argument. The true winner cannot be disqualified under any decoded rival label, and its own correct address supplies the zero that disqualifies that rival.",
+      "why_it_matters": "This is the semantic bridge that makes a partial-function decoder safe inside a total-function algorithm. It explains the outward direction of the pointers in the language a quantum algorithm designer needs.",
+      "suggested_direction": "Keep the local two-direction argument together with the coherent comparison contract and its link; do not replace it with an assertion that all comparisons can be amplified.",
+      "evidence": [
+        "Current expert §4.1; record #upper-winner-dominates.",
+        "HMW2003 fixed-predicate bounded-error hypothesis is different."
+      ],
+      "prior_round_relation": "Preserve the successful QM-027 correction and its current exact hypotheses.",
+      "review_key": "QL14"
+    },
+    {
+      "id": "QX-039",
+      "paper": "expert_companion",
+      "perspective": "P-AMP",
+      "locator": {
+        "section": "4.2 A tournament with probabilistic comparisons, Exact sampling",
+        "quote": "The algorithm never computes the weights.",
+        "path": "repository/docs/expert_companion.md",
+        "line": 169,
+        "source_sha256": "2033aa7f8f74a9c8cbc7f839f3599897f6f029c1a44b97f703532be13e9f1b86"
+      },
+      "kind": "keep",
+      "severity": "keep",
+      "finding": "Preserve the exact construction of the desired law from fresh comparison workspaces. The displayed success-and-label mass explains how physical queries realize the analytical weights without estimating them.",
+      "why_it_matters": "This is substantially more valuable to the target community than a generic appeal to quantum search: it exposes the input-dependent preparation, inverse availability and exact conditional law in one place.",
+      "suggested_direction": "Keep the tensor display and the w_i/m to w_i/W calculation visible, with fixed input and history stated. Preserve the parallel fixed-input/history explanation in the exposition and record.",
+      "evidence": [
+        "Current expert equation (9) and surrounding paragraph.",
+        "Current record #upper-stage-state and #upper-stage-law.",
+        "MPS2023 §1.2.2 and In-Sample use exact membership and uniform conditional sampling, making this weighted analogue intelligible."
+      ],
+      "prior_round_relation": "Preserve QM-028 and the successful clarification that weights are analytical.",
+      "review_key": "QL15",
+      "additional_locators": [
+        {
+          "section": "§4, product law",
+          "quote": "The comparisons then act on separate fresh registers",
+          "path": "repository/docs/exposition.md",
+          "line": 173,
+          "source_sha256": "96c93a7a3efb3fb1421088ed5ff875cd52f4f2cd10b60ec3f6547c981a8f7152"
+        },
+        {
+          "section": "§5.2 The quantum sampler",
+          "quote": "This exact conditional law is essential:",
+          "path": "repository/docs/reasoning_record.md",
+          "line": 2453,
+          "source_sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155"
+        }
+      ],
+      "cross_document_scope": "The primary quote identifies the finding; additional locators show the same issue or preserve recommendation elsewhere. The paper field names the primary document."
+    },
+    {
+      "id": "QX-040",
+      "paper": "expert_companion",
+      "perspective": "P-KING",
+      "locator": {
+        "section": "4.2 A tournament with probabilistic comparisons, Coupling",
+        "quote": "a failure after $i^\\star$ is listed does not remove it",
+        "path": "repository/docs/expert_companion.md",
+        "line": 176,
+        "source_sha256": "2033aa7f8f74a9c8cbc7f839f3599897f6f029c1a44b97f703532be13e9f1b86"
+      },
+      "kind": "keep",
+      "severity": "keep",
+      "finding": "Preserve the stopped coupling exactly where it is. The proof only needs the sampler guarantee before the winner has appeared; later histories may have arbitrarily small or zero mass.",
+      "why_it_matters": "This distinguishes an unconditional query cap from a conditional per-stage success bound, and makes the behavior on zero inputs and late failure coherent.",
+      "suggested_direction": "Keep the conditioning on the entire past and the stopping event. Do not simplify it to independent failures with probability epsilon at every stage. Preserve its exposition and record counterparts as well.",
+      "evidence": [
+        "Current expert §4.2 Coupling.",
+        "Current record #upper-coupling."
+      ],
+      "prior_round_relation": "Preserve the completed QM-001/002 and QM-029 repairs rather than repeat them as open defects.",
+      "review_key": "QL16",
+      "additional_locators": [
+        {
+          "section": "§4, stopped coupling",
+          "quote": "stopping cannot remove a listed column.",
+          "path": "repository/docs/exposition.md",
+          "line": 179,
+          "source_sha256": "96c93a7a3efb3fb1421088ed5ff875cd52f4f2cd10b60ec3f6547c981a8f7152"
+        },
+        {
+          "section": "§5.2 Coupling",
+          "quote": "This argument deliberately stops charging failures after $s$ has appeared.",
+          "path": "repository/docs/reasoning_record.md",
+          "line": 2486,
+          "source_sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155"
+        }
+      ],
+      "cross_document_scope": "The primary quote identifies the finding; additional locators show the same issue or preserve recommendation elsewhere. The paper field names the primary document."
+    },
+    {
+      "id": "QX-041",
+      "paper": "reasoning_record",
+      "perspective": "P-AMP",
+      "locator": {
+        "section": "5.4 Coherent access and the query cap",
+        "quote": "It does not provide a bound on the number of elementary gates or the amount of workspace",
+        "path": "repository/docs/reasoning_record.md",
+        "line": 2674,
+        "source_sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155"
+      },
+      "kind": "keep",
+      "severity": "keep",
+      "finding": "Preserve the distinction between an ordinary bit-query bound and a circuit-time or space bound, together with the concrete two-query controlled-read construction.",
+      "why_it_matters": "The enormous addressed array can otherwise suggest that uncharged pointer access or QRAM is hidden in the model. The physical oracle explanation resolves a real expert objection.",
+      "suggested_direction": "Keep the oracle, pointer, inverse and control accounting available in one direct reading route; a brief pointer from the short papers is enough.",
+      "evidence": [
+        "Current record #upper-oracle-access and #upper-read-compiler.",
+        "HMW2003 §2 defines the same bit oracle and input-independent unitaries.",
+        "AIK2026 v2 Lemma 6.5 and §6.4 similarly distinguish reversible implementations and all-input query caps."
+      ],
+      "prior_round_relation": "New reader-value finding; does not repeat a repaired round-five mathematical defect.",
+      "review_key": "QL18"
+    },
+    {
+      "id": "QX-042",
+      "paper": "reasoning_record",
+      "perspective": "P-ROBUST",
+      "locator": {
+        "section": "3.3 The quantum promise algorithm, including amplification and coherence",
+        "quote": "Retain every address, flag, and count register.",
+        "path": "repository/docs/reasoning_record.md",
+        "line": 732,
+        "source_sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155"
+      },
+      "kind": "keep",
+      "severity": "keep",
+      "finding": "Preserve the constructive retained-register account of error reduction. It shows that the classical binomial output law and the unitary used under later superposition refer to the same preparation.",
+      "why_it_matters": "For a quantum specialist, matching a convenient classical analysis to an actual reversible subroutine is a meaningful composability check, particularly on off-promise inputs.",
+      "suggested_direction": "Keep the state formula and its orthogonal-flag explanation available from the decoder claim. Permit specialists to skip elementary tail-bound arithmetic without hiding this interface.",
+      "evidence": [
+        "Current record #forr_coherent and #forr_repetition.",
+        "HMW2003 §3 Fact 2 constructs coherent error reduction with retained workspace; BHMT2000 §2 requires a preparation and inverse."
+      ],
+      "prior_round_relation": "New reader-value finding; does not repeat a repaired round-five mathematical defect.",
+      "review_key": "QL20"
+    },
+    {
+      "id": "QX-043",
+      "paper": "exposition",
+      "perspective": "P-FORR",
+      "locator": {
+        "section": "§1, scope of small example",
+        "quote": "the example checks conventions only.",
+        "path": "repository/docs/exposition.md",
+        "line": 76,
+        "source_sha256": "96c93a7a3efb3fb1421088ed5ff875cd52f4f2cd10b60ec3f6547c981a8f7152"
+      },
+      "kind": "keep",
+      "severity": "keep",
+      "finding": "The tiny instance is explicitly separated from asymptotic hardness, with the concrete reason L_{2,4}=0. Preserve that scope statement with the three sign patterns.",
+      "why_it_matters": "An expert can value the exact example without mistaking its census or the four-column board for evidence of the large-m lower bound.",
+      "suggested_direction": "Keep the scope boundary even if the exact census is shortened.",
+      "evidence": [
+        "repository/docs/exposition.md §1 final paragraph and §6 k=2 versus k=3."
+      ],
+      "review_key": "QX-E13",
+      "prior_round_relation": "No matching repaired finding is reissued."
+    },
+    {
+      "id": "QX-044",
+      "paper": "exposition",
+      "perspective": "P-FORR",
+      "locator": {
+        "section": "§2, The domain bit is needed",
+        "quote": "A function that checked only value bits would accept this board.",
+        "path": "repository/docs/exposition.md",
+        "line": 108,
+        "source_sha256": "96c93a7a3efb3fb1421088ed5ff875cd52f4f2cd10b60ec3f6547c981a8f7152"
+      },
+      "kind": "keep",
+      "severity": "keep",
+      "finding": "The changed board isolates the domain bit’s logical role while preserving true gate transcripts and consistent value bits. This is the best bridge from a promise problem to the total function.",
+      "why_it_matters": "The reader sees that correct local evaluations alone do not certify promise membership.",
+      "suggested_direction": "Keep the mutation and exact failing test, and keep this semantic lesson distinct from the chosen decoder’s sign blindness.",
+      "evidence": [
+        "repository/docs/exposition.md §2 changed board and Local tests: the candidate fails exactly the domain test."
+      ],
+      "review_key": "QX-E14",
+      "prior_round_relation": "No matching repaired finding is reissued."
+    },
+    {
+      "id": "QX-045",
+      "paper": "exposition",
+      "perspective": "P-ROBUST",
+      "locator": {
+        "section": "§4, Beating every rival is not winning",
+        "quote": "A column that dominates the comparisons is only a candidate",
+        "path": "repository/docs/exposition.md",
+        "line": 146,
+        "source_sha256": "96c93a7a3efb3fb1421088ed5ff875cd52f4f2cd10b60ec3f6547c981a8f7152"
+      },
+      "kind": "keep",
+      "severity": "keep",
+      "finding": "The single moved pointer proves that even perfect dominance does not imply a valid certificate. Its placement before the tournament analysis is effective.",
+      "why_it_matters": "It prevents the comparison-search output from being mistaken for a decision procedure and explains why verification survives.",
+      "suggested_direction": "Keep the example and return to it in verification; do not compress verification into an unexplained routine.",
+      "evidence": [
+        "repository/docs/exposition.md §4 moved-pointer example and Verification."
+      ],
+      "review_key": "QX-E16",
+      "prior_round_relation": "Preserves ES-036/QM-030.",
+      "additional_locators": [
+        {
+          "section": "4 The quantum algorithm: a tournament",
+          "quote": "A column that dominates the comparisons is only a candidate",
+          "path": "repository/docs/exposition.md",
+          "line": 146,
+          "source_sha256": "96c93a7a3efb3fb1421088ed5ff875cd52f4f2cd10b60ec3f6547c981a8f7152"
+        }
+      ],
+      "cross_document_scope": "The primary quote identifies the finding; additional locators show the same issue or preserve recommendation elsewhere. The paper field names the primary document."
+    },
+    {
+      "id": "QX-046",
+      "paper": "exposition",
+      "perspective": "P-SEP",
+      "locator": {
+        "section": "§6, quantifier counterexample",
+        "quote": "the condition $t\\ge2^k$ holds for all large $t$",
+        "path": "repository/docs/exposition.md",
+        "line": 259,
+        "source_sha256": "96c93a7a3efb3fb1421088ed5ff875cd52f4f2cd10b60ec3f6547c981a8f7152"
+      },
+      "kind": "keep",
+      "severity": "keep",
+      "finding": "The quantifier warning is short, exact and connected to why every fixed k gives an exponent below four. It earns its place for specialists as well as students.",
+      "why_it_matters": "It prevents fixed-k asymptotics from silently becoming a growing-k assertion and distinguishes exponent optimality from a literal Ω(Q^4) witness.",
+      "suggested_direction": "Keep the choose-α, then-k, then-m order and the k=3 cubic-refutation check; optional uniform-k details elsewhere should not displace it.",
+      "evidence": [
+        "repository/docs/expert_companion.md §7 main argument and separate growing-k remark."
+      ],
+      "review_key": "QX-E18",
+      "prior_round_relation": "No matching repaired finding is reissued."
+    },
+    {
+      "id": "QX-047",
+      "paper": "reasoning_record",
+      "perspective": "P-ROBUST",
+      "locator": {
+        "section": "§5.2 Bounded-error comparison discussion",
+        "quote": "its probability may be $1/2$, or arbitrarily close to $1/2$.",
+        "path": "repository/docs/reasoning_record.md",
+        "line": 2281,
+        "source_sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155"
+      },
+      "kind": "keep",
+      "severity": "keep",
+      "finding": "Preserve the precise reason bounded-error search does not immediately turn loser comparisons into a fixed tournament: there need not be any orientation computed with a uniform bias.",
+      "why_it_matters": "This is the exact objection an HMW-background reader will raise. It distinguishes an imperfect-oracle search result with different hypotheses from the different interface used here without diminishing the earlier result.",
+      "suggested_direction": "Keep this distinction beside the comparison model and keep the final exact-test search separate. It is a high-value explanation, not optional historical context.",
+      "evidence": [
+        "Current record §5.2 lines 2279–2282.",
+        "Høyer–Mosca–de Wolf, §1 and §3 (supplied extracted lines 5, 41) assumes each underlying Boolean f_i has a bounded-error evaluator.",
+        "Current record §5.2 allows probabilities at and arbitrarily near one half."
+      ],
+      "review_key": "QX808",
+      "prior_round_relation": "Comparison antecedents were already corrected in R5. This is a preserve recommendation, not a renewed missing-credit complaint."
+    },
+    {
+      "id": "QX-048",
+      "paper": "reasoning_record",
+      "perspective": "P-FORR",
+      "locator": {
+        "section": "§5.4 Coherent access and the query cap",
+        "quote": "We can now state an exact finite budget before simplifying it asymptotically.",
+        "path": "repository/docs/reasoning_record.md",
+        "line": 2680,
+        "source_sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155"
+      },
+      "kind": "keep",
+      "severity": "keep",
+      "finding": "Preserve B_{k,t} and the interpretation of its two brackets. This is the strongest compact answer to whether every decoder, controlled comparison, inverse, padded stage, and candidate verification is being charged.",
+      "why_it_matters": "A bit-query expert can audit the actual algorithm before accepting logarithmic simplification, including malformed inputs where successful sampling or promise correctness is unavailable.",
+      "suggested_direction": "Keep the exact integer budget close to the algorithm and state each conversion factor once. Use it as the authoritative source for the shorter documents' resource discussion.",
+      "evidence": [
+        "Current record §5.4 #upper-finite-budget, lines 2680–2695.",
+        "Høyer–Mosca–de Wolf §2, supplied extracted line 21, fixes the ordinary bit-query model against which this accounting can be read.",
+        "Current record §5.4 then states all random branches and off-promise inputs obey the same budget."
+      ],
+      "review_key": "QX811",
+      "prior_round_relation": "No matching fixed finding was reissued."
+    },
+    {
+      "id": "QX-049",
+      "paper": "reasoning_record",
+      "perspective": "P-FOURIER",
+      "locator": {
+        "section": "§3.10 Moving the derivative through the blocks",
+        "quote": "Order $k$ at a biased point does not mean degree $k$ under the uniform measure.",
+        "path": "repository/docs/reasoning_record.md",
+        "line": 1271,
+        "source_sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155"
+      },
+      "kind": "keep",
+      "severity": "keep",
+      "finding": "Keep this warning and its displayed expansion. It prevents the most likely specialist misreading of the first-block interpolation: that higher uniform Fourier levels have somehow been discarded.",
+      "why_it_matters": "This is essential to fair comparison with Bansal–Sinha's levels k through k(k−1), SSW's all-level growth bound, and GTW's coefficient-array induction.",
+      "suggested_direction": "Retain the exact distinction in the supplier route and in any summary of its relationship to prior methods.",
+      "evidence": [
+        "Current record §3.10, lines 1271–1284, equation (F24).",
+        "Bansal–Sinha overview, supplied lines 178–199, explains which biased Fourier levels arise in its different proof.",
+        "Girish–Tal–Wu §1.3, supplied lines 127–159, develops contracted coefficient arrays; SSW Introduction lines 122–139 states its all-level theorem."
+      ],
+      "review_key": "QX817",
+      "prior_round_relation": "R5 LR-053 preserved the derivative explanation. This is a specific reason it remains valuable to this panel."
+    },
+    {
+      "id": "QX-050",
+      "paper": "reasoning_record",
+      "perspective": "P-ROBUST",
+      "locator": {
+        "section": "§4.5 A shallow lookup can have large support",
+        "quote": "The original preprint already describes the adaptive lookup and requires no correction at this point",
+        "path": "repository/docs/reasoning_record.md",
+        "line": 2010,
+        "source_sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155"
+      },
+      "kind": "keep",
+      "severity": "keep",
+      "finding": "Preserve the separation between adaptive depth and essential-coordinate support, together with this attribution sentence.",
+      "why_it_matters": "It prevents readers from treating a pointer lookup as a fixed small-support oracle, while also preventing the local formal diagnostic from being advertised as a correction to OpenAI's construction.",
+      "suggested_direction": "Keep the diagnostic on the model-audit route and preserve the exact statement of what the expanded formal wrapper adds. The main algorithm only needs the shallow adaptive/coherent evaluation bound.",
+      "evidence": [
+        "Current record §§4.5 and 4.8; especially lines 2006–2010 and 2100.",
+        "Current record Lemma 2.2 discussion distinguishes the original count/depth clauses from the extra essential-coordinate test."
+      ],
+      "review_key": "QX820",
+      "prior_round_relation": "R5 statement-fidelity corrections already made this distinction. It is a feature to retain, not an unresolved mathematical objection."
+    },
+    {
+      "id": "QX-051",
+      "paper": "reasoning_record",
+      "perspective": "P-FORR",
+      "locator": {
+        "section": "§4.2 Totality and uniqueness",
+        "quote": "No undefined partial-function value has to be supplied.",
+        "path": "repository/docs/reasoning_record.md",
+        "line": 1846,
+        "source_sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155"
+      },
+      "kind": "keep",
+      "severity": "keep",
+      "finding": "Keep the semantic definition of totality before local circuit verification, and keep the distinction that exact circuit realization is needed for the evaluator, not to make the winner predicate total or unique.",
+      "why_it_matters": "This directly answers the concern that a partial decoder smuggles a promise into the final function. It also keeps off-promise arbitrary decoder behaviour separate from the total mathematical predicate.",
+      "suggested_direction": "Protect this short explanation and the one-line pointer contradiction as the construction's main conceptual checkpoint, even if implementation detail is moved.",
+      "evidence": [
+        "Current record §4.2 lines 1818–1852; §5.3 winner protection and final verification.",
+        "Bansal–Sinha supplied Introduction lines 25–30 defines a genuinely partial promise; the present totalization has to account for every other input."
+      ],
+      "review_key": "QX822",
+      "prior_round_relation": "This is a current strength; no claim is made that earlier totality fixes remain unresolved."
+    },
+    {
+      "id": "QX-052",
+      "review_key": "ROOT-SAME",
+      "paper": "expert_companion",
+      "perspective": "P-SEP",
+      "locator": {
+        "section": "§1 and §7, common circuit",
+        "quote": "with one circuit $\\mathcal C$ serving both bounds",
+        "path": "repository/docs/expert_companion.md",
+        "line": 31,
+        "source_sha256": "2033aa7f8f74a9c8cbc7f839f3599897f6f029c1a44b97f703532be13e9f1b86"
+      },
+      "kind": "keep",
+      "severity": "keep",
+      "finding": "Preserve the explicit insistence that the upper and lower bounds use the same exact circuit and therefore the same total function.",
+      "why_it_matters": "Separately existential witnesses would not establish the claimed separation. This small qualification does more mathematical work than many of the scalar refinements and is easy to lose while shortening.",
+      "suggested_direction": "Keep the common-witness statement at the theorem and exponent assembly, and retain the corresponding quantified family statement in Appendix A.",
+      "evidence": [
+        "Current expert §1, §7 and Appendix A family theorem / fifth check.",
+        "Current record §§4.2 and 7; current exposition §5 closing paragraph."
+      ],
+      "prior_round_relation": "This is a successful current safeguard, not an unresolved prior defect."
+    }
+  ]
+}

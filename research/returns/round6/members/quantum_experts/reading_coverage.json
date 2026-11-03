@@ -1,0 +1,513 @@
+{
+  "review_date": "2026-11-03",
+  "coverage_definition": "Coverage combines the primary reviewer and three complementary review lenses. A full supplied-text read means the supplied text/extraction was read, not that every theorem was independently reproved or every original PDF page visually inspected.",
+  "literature_counts": {
+    "focused_reading": 11,
+    "supplied_not_read": 28,
+    "full_supplied_text": 3
+  },
+  "documents": [
+    {
+      "path": "repository/docs/expert_companion.md",
+      "coverage": "full_current_markdown",
+      "notes": "Read first; full substantive text and relevant/generated link definitions inspected across the review."
+    },
+    {
+      "path": "repository/docs/exposition.md",
+      "coverage": "full_current_markdown",
+      "notes": "Full text, captions, examples, remarks and links covered; concentrated independent checks on §4 and §7."
+    },
+    {
+      "path": "repository/docs/reasoning_record.md",
+      "coverage": "full_current_markdown",
+      "notes": "Full sequential read of lines 1–6159 by the long-record lens, including every catalogue row and Appendices A–F; primary reviewer independently inspected key bridges, quantum passages, lower-bound subtleties and endpoint comparisons."
+    },
+    {
+      "path": "paper/extracted.md",
+      "coverage": "full_supplied_text",
+      "notes": "All 972 lines of the original 19-page preprint extraction read by the primary reviewer."
+    },
+    {
+      "path": "reader_principles.md",
+      "coverage": "full_supplied_text",
+      "notes": "All fourteen principles assessed individually in reader_principles.md in this return."
+    },
+    {
+      "path": "skills/README.md; skills/long-to-short/SKILL.md; skills/record-to-expository/SKILL.md",
+      "coverage": "full_supplied_text",
+      "notes": "Read as objects of review. One narrow method tension survives challenge; several candidate defects were rejected because the rules already cover them."
+    },
+    {
+      "path": "previous_round/round5_reviews.md; previous_round/round5_statement_fidelity.md; previous_round/round5_record_passage_audit.md",
+      "coverage": "full_supplied_text_across_team",
+      "notes": "Integration/fidelity material read. Previous dispositions were checked: full exposition and record dispositions by their lenses; quantum-mechanism and candidate-specific expert dispositions by the primary/quantum reviewers. No claim that every historical review file was read."
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean",
+      "coverage": "full_statement_file_read",
+      "notes": "Used to check retained-factor/logical-cap wording. Other Lean definitions and links were inspected selectively; implementation proofs and receipt execution were not revalidated."
+    }
+  ],
+  "historical_trace": {
+    "filename": "Pasted text(20261103-133914-2).txt",
+    "bytes": 4196888,
+    "sha256": "c8c4b6172cfca7ce8ab09e878e48034984a54d0903195bef96920fd4e81085d4",
+    "coverage": "sampled_historical_context",
+    "notes": "Full-file searches/indexing plus first 160 lines and selected integration/review spans (including lines 8890–8970 and 9030–9073). The 43,409-line trace was not read sequentially in full and is not the authority for current manuscript wording."
+  },
+  "pdf_inspection": {
+    "expert_companion": "14-page supplied PDF: text/heading geometry, all-page thumbnail contact sheet, detailed visual inspection of pages 5 and 12.",
+    "exposition": "14-page supplied PDF: text/heading geometry, all-page thumbnail contact sheet, detailed visual inspection of pages 7 and 8.",
+    "reasoning_record": "125-page supplied historical PDF: page count and heading/text geometry only. It is not rendered from the current Markdown.",
+    "rendering_scope": "Existing PDF pages were rasterized for inspection. No manuscript PDF was regenerated, and no all-page full-resolution layout audit is claimed."
+  },
+  "literature": [
+    {
+      "source_id": "S-AA",
+      "description_as_listed_in_packet": "Aaronson–Ambainis, Forrelation (SICOMP 2018); arXiv:1411.5729v1.",
+      "path": "literature/quartic-ref-01-forrelation-a-problem-that-optimally-separ/extracted.md",
+      "sha256": "3d4e3dc004cfcc018ddd31bc1d750395b31ab84b9accffd4b764db7f6934c8ab",
+      "coverage": "focused_reading",
+      "passages_read": "Introduction / main k-fold results; discussion of questions and methods; §3.2 Figure 1 and Proposition 6 read directly (supplied extracted lines 1–105, 187–244, 410–530, 659–735). Not a full read of the 60-page edition.",
+      "role": "Signed interference, one-sided promise, model conventions and choice of decoder.",
+      "primary_url": "https://arxiv.org/abs/1411.5729v1"
+    },
+    {
+      "source_id": "S-ABK",
+      "description_as_listed_in_packet": "Aaronson–Ben-David–Kothari, Separations in query complexity using cheat sheets (STOC 2016); arXiv:1511.01937v2.",
+      "path": "literature/quartic-ref-02-separations-in-query-complexity-using-chea/extracted.md",
+      "sha256": "39745f19fdbaad3fd6542cee69cd8fdabe02771f975e676aa2e375a208873e32",
+      "coverage": "focused_reading",
+      "passages_read": "Introduction and result positioning, §3.1 composition/certificate-checking passage and selected surrounding explanation (extracted lines 1–165, 1327–1352, 1411–1487 selectively). Not the full cheat-sheet paper.",
+      "role": "The balanced AND–OR composition and 5/2-to-3 cost arithmetic; introductory structure.",
+      "primary_url": "https://arxiv.org/abs/1511.01937v2"
+    },
+    {
+      "source_id": "UNREAD-03",
+      "description_as_listed_in_packet": "Aaronson–Ben-David–Kothari–Rao–Tal, Degree vs. approximate degree and quantum implications of Huang's sensitivity theorem (STOC 2021); arXiv:2010.12629v1.",
+      "path": "literature/quartic-ref-03-degree-vs-approximate-degree-and-quantum-i/extracted.md",
+      "sha256": "fe50f27a93597951aa0e9577d0315a2b4dcdf022122604139232a952d144aa8f",
+      "coverage": "supplied_not_read",
+      "passages_read": "Present in the packet; not independently read for this review. Presence or citation in the drafts is not a reading claim.",
+      "role": "No independent mathematical claim in this review rests on an uninspected passage of this source.",
+      "primary_url": null
+    },
+    {
+      "source_id": "UNREAD-04",
+      "description_as_listed_in_packet": "Ambainis–Balodis–Belovs–Lee–Santha–Smotrovs, Separations in query complexity based on pointer functions (JACM 2017); arXiv:1506.04719v3.",
+      "path": "literature/quartic-ref-04-separations-in-query-complexity-based-on-p/extracted.md",
+      "sha256": "30eacb1b152e26be43fb8f656b065c1ae6e1a25782eb0fcc13c544e246baacd2",
+      "coverage": "supplied_not_read",
+      "passages_read": "Present in the packet; not independently read for this review. Presence or citation in the drafts is not a reading claim.",
+      "role": "No independent mathematical claim in this review rests on an uninspected passage of this source.",
+      "primary_url": null
+    },
+    {
+      "source_id": "S-AIK",
+      "description_as_listed_in_packet": "Ambainis–Iraids–Kokainis, Near-optimal separations of certificate complexity from randomized and quantum query complexity (2026); arXiv:2609.11664v2.",
+      "path": "literature/quartic-ref-05-near-optimal-separations-of-certificate-co/extracted.md",
+      "sha256": "255c569bbdecd97061d871d6eec603ff565c132c5cd653c1c5a255c0fb25df19",
+      "coverage": "focused_reading",
+      "passages_read": "Introduction / results; §§6.1–6.4 in detail; preceding stopping-cap discussion sampled. Uses the supplied v2; v3 is a separately supplied, unread edition.",
+      "role": "Fixed-graph U(W), variable-time membership sampling, source output and certificate measures.",
+      "primary_url": "https://arxiv.org/abs/2609.11664v2"
+    },
+    {
+      "source_id": "S-BS",
+      "description_as_listed_in_packet": "Bansal–Sinha, k-Forrelation optimally separates quantum and classical query complexity (STOC 2021); arXiv:2008.07003v3; STOC proceedings PDF in supplements/.",
+      "path": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/extracted.md",
+      "sha256": "cf1477e44353bbb796581002e8cacef3199e8e153d43f075fc8047c2934de952",
+      "coverage": "focused_reading",
+      "passages_read": "Entire Introduction, results and detailed overview (extracted lines 1–233); final theorem/corollary proof and adjacent biased-basis end (1000–1038). Proposition 1.2 read directly. Not a full Gaussian/Fourier proof audit.",
+      "role": "Explicit Walsh–Hadamard one-sided promise, signed experiment, fixed-k supplier, altered truncation and quantitative comparison.",
+      "primary_url": "https://arxiv.org/abs/2008.07003v3"
+    },
+    {
+      "source_id": "S-BDK",
+      "description_as_listed_in_packet": "Ben-David–Kothari, Randomized query complexity can beat certificate complexity (2026); arXiv:2609.15063v1.",
+      "path": "literature/quartic-ref-09-randomized-query-complexity-can-beat-certi/extracted.md",
+      "sha256": "cbf6c2cb2ad61204992be29ca9cd54a7c2204ecaf78e541da3bfbf8c2de1e98c",
+      "coverage": "full_supplied_text",
+      "passages_read": "Complete supplied six-page text, including Theorem 1, construction, Lemmas 2–5 and acknowledgments.",
+      "role": "C,R,Q parameter distinction; exact candidate comparisons, virtual list and final verification.",
+      "primary_url": "https://arxiv.org/abs/2609.15063v1"
+    },
+    {
+      "source_id": "UNREAD-08",
+      "description_as_listed_in_packet": "Bennett–Bernstein–Brassard–Vazirani, Strengths and weaknesses of quantum computing (SICOMP 1997); arXiv:quant-ph/9701001v1.",
+      "path": "literature/quartic-ref-10-strengths-and-weaknesses-of-quantum-comput/extracted.md",
+      "sha256": "3bee219d6293662eef3b05ae4ee50a6278789660b6549e417cacd46fba552acd",
+      "coverage": "supplied_not_read",
+      "passages_read": "Present in the packet; not independently read for this review. Presence or citation in the drafts is not a reading claim.",
+      "role": "No independent mathematical claim in this review rests on an uninspected passage of this source.",
+      "primary_url": null
+    },
+    {
+      "source_id": "S-BBHT",
+      "description_as_listed_in_packet": "Boyer–Brassard–Høyer–Tapp, Tight bounds on quantum searching (1998); arXiv:quant-ph/9605034v1.",
+      "path": "literature/quartic-ref-11-tight-bounds-on-quantum-searching/extracted.md",
+      "sha256": "5f3d4a8f2e6038392ea75490bafdf58150e3d8b2a76c063841cc158531233c8b",
+      "coverage": "focused_reading",
+      "passages_read": "§4, Lemma 2 / Theorem 3, unknown-solution and timeout discussion; nearby multiple-solution material.",
+      "role": "Randomized iteration counts and capped amplification.",
+      "primary_url": "https://arxiv.org/abs/quant-ph/9605034v1"
+    },
+    {
+      "source_id": "S-BHMT",
+      "description_as_listed_in_packet": "Brassard–Høyer–Mosca–Tapp, Quantum amplitude amplification and estimation (2002); arXiv:quant-ph/0005055v1.",
+      "path": "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/extracted.md",
+      "sha256": "9fd98e35695c4bf763e4faa35ac146b18c74c3caf0dee24e3e208923aff71a86",
+      "coverage": "focused_reading",
+      "passages_read": "Introduction and §2 through Theorem 4 statement (extracted lines 1–165), including Lemma 1 and equation (8); endpoint cases and exact-success subsection sampled; concluding remarks lines 600–638.",
+      "role": "Good-direction preservation, expected versus fixed costs, and what quantum specialists already know.",
+      "primary_url": "https://arxiv.org/abs/quant-ph/0005055v1"
+    },
+    {
+      "source_id": "UNREAD-11",
+      "description_as_listed_in_packet": "Drucker, Improved direct product theorems for randomized query complexity (Comput. Complexity 2012); arXiv:1005.0644v2; journal-era PDF in supplements/.",
+      "path": "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/extracted.md",
+      "sha256": "de4e25127079b849cc18984031442ed939d6c24467d1bd67faaa466f8e17e29a",
+      "coverage": "supplied_not_read",
+      "passages_read": "Present in the packet; not independently read for this review. Presence or citation in the drafts is not a reading claim.",
+      "role": "No independent mathematical claim in this review rests on an uninspected passage of this source.",
+      "primary_url": null
+    },
+    {
+      "source_id": "S-DH",
+      "description_as_listed_in_packet": "Dürr–Høyer, A quantum algorithm for finding the minimum (1996); arXiv:quant-ph/9607014v2.",
+      "path": "literature/quartic-ref-14-a-quantum-algorithm-for-finding-the-minimu/extracted.md",
+      "sha256": "aea6cb99d149fad7a304712f71d4e91403483a1d9bd4e1d2eea5a26c87adf662",
+      "coverage": "full_supplied_text",
+      "passages_read": "Complete supplied revised two-page note, including theorem, algorithm, rank proof, timeout and final remarks.",
+      "role": "Ordered-threshold invariant; allocation of proof explanation.",
+      "primary_url": "https://arxiv.org/abs/quant-ph/9607014v2"
+    },
+    {
+      "source_id": "UNREAD-13",
+      "description_as_listed_in_packet": "Göös–Pitassi–Watson, Deterministic communication vs. partition number (FOCS 2015); ECCC TR15-050.",
+      "path": "literature/quartic-ref-15-deterministic-communication-vs-partition-n/extracted.md",
+      "sha256": "d1ae0d9eeb4c112d5109a9d01ff2b2b12fdc3fbe21c043f463f6bffc033ae873",
+      "coverage": "supplied_not_read",
+      "passages_read": "Present in the packet; not independently read for this review. Presence or citation in the drafts is not a reading claim.",
+      "role": "No independent mathematical claim in this review rests on an uninspected passage of this source.",
+      "primary_url": null
+    },
+    {
+      "source_id": "UNREAD-14",
+      "description_as_listed_in_packet": "Grover, A fast quantum mechanical algorithm for database search (STOC 1996); arXiv:quant-ph/9605043.",
+      "path": "literature/quartic-ref-16-a-fast-quantum-mechanical-algorithm-for-da/extracted.md",
+      "sha256": "db53148f6af7f24548366e3fe5c7fbc660a1b060341fda513422038d1b3d9f53",
+      "coverage": "supplied_not_read",
+      "passages_read": "Present in the packet; not independently read for this review. Presence or citation in the drafts is not a reading claim.",
+      "role": "No independent mathematical claim in this review rests on an uninspected passage of this source.",
+      "primary_url": null
+    },
+    {
+      "source_id": "UNREAD-15",
+      "description_as_listed_in_packet": "Huang, Induced subgraphs of hypercubes and a proof of the sensitivity conjecture (Annals 2019); arXiv:1907.00847v2.",
+      "path": "literature/quartic-ref-17-induced-subgraphs-of-hypercubes-and-a-proo/extracted.md",
+      "sha256": "e84394f6e0af85b50ab5d8ead86afb5327b1249a9eefea200e0f7465a6ca0e4a",
+      "coverage": "supplied_not_read",
+      "passages_read": "Present in the packet; not independently read for this review. Presence or citation in the drafts is not a reading claim.",
+      "role": "No independent mathematical claim in this review rests on an uninspected passage of this source.",
+      "primary_url": null
+    },
+    {
+      "source_id": "S-MPS",
+      "description_as_listed_in_packet": "Mande–Paraashar–Saurabh, Randomized and quantum query complexities of finding a king in a tournament (FSTTCS 2023); arXiv:2308.02472v1.",
+      "path": "literature/quartic-ref-18-randomized-and-quantum-query-complexities/extracted.md",
+      "sha256": "9bb40ca6b3959ddf37cfd50768b6f4f210a66e2c0536ece3548834cbfa45e6ac",
+      "coverage": "focused_reading",
+      "passages_read": "Introduction, definitions and quantum overview; §4 algorithm/theorem material. Published Theorem 19 and surrounding Algorithm 4 proof were also inspected through the official publisher.",
+      "role": "Fixed tournaments, exact neighbourhood sampling and unconditional king output.",
+      "primary_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.FSTTCS.2023.30"
+    },
+    {
+      "source_id": "UNREAD-17",
+      "description_as_listed_in_packet": "Shaltiel, Towards proving strong direct product theorems (Comput. Complexity 2003); ECCC TR01-009.",
+      "path": "literature/quartic-ref-22-towards-proving-strong-direct-product-theo/extracted.md",
+      "sha256": "1713dc1cac7a31a4daa12f10ae21bfbdf8e5ab2443f25053843035a2a185e929",
+      "coverage": "supplied_not_read",
+      "passages_read": "Present in the packet; not independently read for this review. Presence or citation in the drafts is not a reading claim.",
+      "role": "No independent mathematical claim in this review rests on an uninspected passage of this source.",
+      "primary_url": null
+    },
+    {
+      "source_id": "S-SSW",
+      "description_as_listed_in_packet": "Sherstov–Storozhenko–Wu, An optimal separation of randomized and quantum query complexity (SICOMP 2023); arXiv:2008.10223v4.",
+      "path": "literature/quartic-ref-23-an-optimal-separation-of-randomized-and-qu/extracted.md",
+      "sha256": "5196d6af0153637376a40d23afb3275e921b8e55b4d2b584c2a35071c1788ba2",
+      "coverage": "focused_reading",
+      "passages_read": "Full Introduction / stated results / method comparisons (extracted lines 1–203); concluding separation derivation and acknowledgments (956–1038). Fourier theorem proof not read in full.",
+      "role": "Rorrelation versus explicit Walsh input; all-level growth; fixed and growing query counts; totalization application.",
+      "primary_url": "https://arxiv.org/abs/2008.10223v4"
+    },
+    {
+      "source_id": "S-TAL",
+      "description_as_listed_in_packet": "Tal, Towards optimal separations between quantum and randomized query complexities (FOCS 2020); arXiv:1912.12561v1.",
+      "path": "literature/quartic-ref-26-towards-optimal-separations-between-quantu/extracted.md",
+      "sha256": "33da3989bdd2b058b6bb525ad7d23db513e9a5de363d4ec7c23fed37dffa180a",
+      "coverage": "focused_reading",
+      "passages_read": "Introduction, main results and application to total functions (extracted lines 1–180); overview structure/section positions inspected. Not a full proof read.",
+      "role": "Intermediate partial exponent and the 8/3 total separation in the cited framework.",
+      "primary_url": "https://arxiv.org/abs/1912.12561v1"
+    },
+    {
+      "source_id": "S-GTW",
+      "description_as_listed_in_packet": "Girish–Tal–Wu, Fourier growth of parity decision trees (CCC 2021); arXiv:2103.11604.",
+      "path": "literature/arxiv-2103-11604/extracted.md",
+      "sha256": "55c19ab29df4e7b5953d1dd73d295a69b8fe3519b5aa2294aadcfbf8faf053b3",
+      "coverage": "focused_reading",
+      "passages_read": "Full Introduction / main results / technical overview / related work (extracted lines 1–204), including the standard-tree martingale argument and Lemma 9 in the overview; final section ending lines 885–904 sampled. Full parity/noisy proofs not audited.",
+      "role": "Source relationship of coefficient-array martingales and biased-derivative arguments.",
+      "primary_url": "https://arxiv.org/abs/2103.11604"
+    },
+    {
+      "source_id": "UNREAD-21",
+      "description_as_listed_in_packet": "Girish–Servedio, Forrelation is extremally hard (ITCS 2026); arXiv:2508.02514v1; ITCS publisher PDF in supplements/.",
+      "path": "literature/quartic-lit-girish-forrelation-is-extremally-hard/extracted.md",
+      "sha256": "e6d2880813575219bc1b86900037aa4cbcab43d9c0b772cec4e70ccc3a697b0c",
+      "coverage": "supplied_not_read",
+      "passages_read": "Present in the packet; not independently read for this review. Presence or citation in the drafts is not a reading claim.",
+      "role": "No independent mathematical claim in this review rests on an uninspected passage of this source.",
+      "primary_url": null
+    },
+    {
+      "source_id": "S-HMW",
+      "description_as_listed_in_packet": "Høyer–Mosca–de Wolf, Quantum search on bounded-error inputs (ICALP 2003); arXiv:quant-ph/0304052.",
+      "path": "literature/quartic-lit-hoyer-mosca-dewolf-quantum-search-bounded-error/extracted.md",
+      "sha256": "cb04695fcd47585c3989bd3fcb37cfa4d332d691e27763b567d36e5ed976c04b",
+      "coverage": "full_supplied_text",
+      "passages_read": "Complete supplied extraction, introduction through model, algorithm, analysis, applications, conclusion and references (lines 1–163).",
+      "role": "Fixed-predicate correctness margin, coherent evaluator and ordinary query model.",
+      "primary_url": "https://arxiv.org/abs/quant-ph/0304052"
+    },
+    {
+      "source_id": "UNREAD-23",
+      "description_as_listed_in_packet": "Høyer–Lee–Špalek, Negative weights make adversaries stronger (STOC 2007); arXiv:quant-ph/0611054.",
+      "path": "literature/quartic-lit-hoyer-lee-spalek-negative-weights/extracted.md",
+      "sha256": "bc351d0bc6f4147137e4240faace5849cfeff1f743caaa95cfc3bcb4a4863469",
+      "coverage": "supplied_not_read",
+      "passages_read": "Present in the packet; not independently read for this review. Presence or citation in the drafts is not a reading claim.",
+      "role": "No independent mathematical claim in this review rests on an uninspected passage of this source.",
+      "primary_url": null
+    },
+    {
+      "source_id": "UNREAD-24",
+      "description_as_listed_in_packet": "Buhrman–de Wolf, Complexity measures and decision tree complexity: a survey (Theoretical Computer Science 2002); supplied author PDF.",
+      "path": "literature/quartic-lit-buhrman-dewolf-decision-tree-survey/extracted.md",
+      "sha256": "dd267ba1128aa08201558e63b5be431e11b9855b11cf0ac2f46216676ae2e8d8",
+      "coverage": "supplied_not_read",
+      "passages_read": "Present in the packet; not independently read for this review. Presence or citation in the drafts is not a reading claim.",
+      "role": "No independent mathematical claim in this review rests on an uninspected passage of this source.",
+      "primary_url": null
+    },
+    {
+      "source_id": "UNREAD-25",
+      "description_as_listed_in_packet": "Midrijanis, Exact quantum query complexity for total Boolean functions (2004); arXiv:quant-ph/0403168v2.",
+      "path": "literature/quartic-ref-19-exact-quantum-query-complexity-for-total-b/extracted.md",
+      "sha256": "f5842cf5ed481a3dedec06383e7d9e843dbcb67dc2917cef8e1f3e7f3185fe17",
+      "coverage": "supplied_not_read",
+      "passages_read": "Present in the packet; not independently read for this review. Presence or citation in the drafts is not a reading claim.",
+      "role": "No independent mathematical claim in this review rests on an uninspected passage of this source.",
+      "primary_url": null
+    },
+    {
+      "source_id": "UNREAD-26",
+      "description_as_listed_in_packet": "Nisan–Szegedy, On the degree of Boolean functions as real polynomials (Comput. Complexity 1994); Comput. Complexity 4:301–313, journal PDF.",
+      "path": "literature/quartic-lit-nisan-szegedy-degree-of-boolean-functions/extracted.md",
+      "sha256": "0358b65bbbdabfd7db138b333f3d242bd6cf191da58a42fbb8c8672f22bced8b",
+      "coverage": "supplied_not_read",
+      "passages_read": "Present in the packet; not independently read for this review. Presence or citation in the drafts is not a reading claim.",
+      "role": "No independent mathematical claim in this review rests on an uninspected passage of this source.",
+      "primary_url": null
+    },
+    {
+      "source_id": "S-DW",
+      "description_as_listed_in_packet": "de Wolf, Quantum computing: lecture notes; arXiv:1907.09415v6.",
+      "path": "literature/quartic-lit-dewolf-quantum-computing-lecture-notes/extracted.md",
+      "sha256": "57b133972c5e26ceb41d46e49a77a52ef1b03e0ee522ca1534dd6e48547f7dd5",
+      "coverage": "focused_reading",
+      "passages_read": "Chapter 2 quantum computation / circuits, including measurement and inversion; Chapter 7 search, Grover and amplitude amplification sections. Other chapters not read.",
+      "role": "Operational prerequisites and comparison with textbook exposition of standard material.",
+      "primary_url": "https://arxiv.org/abs/1907.09415v6"
+    },
+    {
+      "source_id": "UNREAD-28",
+      "description_as_listed_in_packet": "Bansal–Sinha, k-Forrelation optimally separates quantum and classical query complexity, QIP 2021 talk slides; conference slides.",
+      "path": "literature/quartic-lit-bansal-sinha-qip2021-slides/extracted.md",
+      "sha256": "a84de973ff7ea8ee9af57472b8d32d22804e6b5f148e73ce0b6511b50248519a",
+      "coverage": "supplied_not_read",
+      "passages_read": "Present in the packet; not independently read for this review. Presence or citation in the drafts is not a reading claim.",
+      "role": "No independent mathematical claim in this review rests on an uninspected passage of this source.",
+      "primary_url": null
+    },
+    {
+      "source_id": "UNREAD-29",
+      "description_as_listed_in_packet": "Beame–Kornerup–Whitmeyer, quantum direct product theorems (2026); arXiv:2609.26678v2.",
+      "path": "literature/quartic-lit-beame-kornerup-whitmeyer-quantum-direct-products/extracted.md",
+      "sha256": "e9cea9f251268fbf28e5e1844be212800d24b4905063f5bae7981e88b9f759fa",
+      "coverage": "supplied_not_read",
+      "passages_read": "Present in the packet; not independently read for this review. Presence or citation in the drafts is not a reading claim.",
+      "role": "No independent mathematical claim in this review rests on an uninspected passage of this source.",
+      "primary_url": null
+    },
+    {
+      "source_id": "UNREAD-30",
+      "description_as_listed_in_packet": "Beals–Buhrman–Cleve–Mosca–de Wolf, Quantum lower bounds by polynomials (JACM 2001); supplied PDF.",
+      "path": "literature/quartic-ref-08-quantum-lower-bounds-by-polynomials/extracted.md",
+      "sha256": "4ffe8f91258469b79c1bfcb4a7ce2a430e34c1b3c512044a52ddde472460c238",
+      "coverage": "supplied_not_read",
+      "passages_read": "Present in the packet; not independently read for this review. Presence or citation in the drafts is not a reading claim.",
+      "role": "No independent mathematical claim in this review rests on an uninspected passage of this source.",
+      "primary_url": null
+    },
+    {
+      "source_id": "UNREAD-31",
+      "description_as_listed_in_packet": "Špalek–Szegedy, All quantum adversary methods are equivalent (Theory of Computing 2006); journal PDF.",
+      "path": "literature/quartic-ref-24-all-quantum-adversary-methods-are-equivale/extracted.md",
+      "sha256": "43f9491ab7facbddd2c4d9549c8b31babe805405d718658eb285876d0605c200",
+      "coverage": "supplied_not_read",
+      "passages_read": "Present in the packet; not independently read for this review. Presence or citation in the drafts is not a reading claim.",
+      "role": "No independent mathematical claim in this review rests on an uninspected passage of this source.",
+      "primary_url": null
+    },
+    {
+      "source_id": "UNREAD-32",
+      "description_as_listed_in_packet": "Sun–Yao, Graph properties and circular functions: how low can quantum query complexity go?; supplied PDF.",
+      "path": "literature/quartic-ref-25-graph-properties-and-circular-functions-ho/extracted.md",
+      "sha256": "d619dedcf5e1438177e72d02941c0d5e73501dc68f089ae1895d89bf6b6741c1",
+      "coverage": "supplied_not_read",
+      "passages_read": "Present in the packet; not independently read for this review. Presence or citation in the drafts is not a reading claim.",
+      "role": "No independent mathematical claim in this review rests on an uninspected passage of this source.",
+      "primary_url": null
+    },
+    {
+      "source_id": "UNREAD-33",
+      "description_as_listed_in_packet": "Aaronson–Ambainis–Bogdanov–Yeung, On quantum versus classical query complexity; ECCC TR21-115 rev. 2.",
+      "path": "literature/quartic-lit-aaronson-ambainis-bogdanov-quantum-vs-classical/extracted.md",
+      "sha256": "ee25526229fe5ffc64e1a27ec580beca10bdb1e154bcc263153ab14c40b96386",
+      "coverage": "supplied_not_read",
+      "passages_read": "Present in the packet; not independently read for this review. Presence or citation in the drafts is not a reading claim.",
+      "role": "No independent mathematical claim in this review rests on an uninspected passage of this source.",
+      "primary_url": null
+    },
+    {
+      "source_id": "UNREAD-34",
+      "description_as_listed_in_packet": "Aaronson–Ben-David–Kothari–Rao–Tal, quantum implications of Huang's sensitivity theorem (LaTeX source); arXiv source.",
+      "path": "literature/quartic-lit-aaronson-quantum-implications-of-huangs-sensitivity/extracted.md",
+      "sha256": "3adf6b1d1f6d64995ff0628824ecd06baa37a207e0c4910ffe879c81d852209a",
+      "coverage": "supplied_not_read",
+      "passages_read": "Present in the packet; not independently read for this review. Presence or citation in the drafts is not a reading claim.",
+      "role": "No independent mathematical claim in this review rests on an uninspected passage of this source.",
+      "primary_url": null
+    },
+    {
+      "source_id": "UNREAD-35",
+      "description_as_listed_in_packet": "Ambainis–Iraids–Kokainis, certificate complexity separations, later edition; arXiv v3 source.",
+      "path": "literature/quartic-lit-ambainis-iraids-kokainis-certificate-v3/extracted.md",
+      "sha256": "e0a89e48b31155794adfad410de3cb2ec7393a82de3ff040dbfff5f5e58712a6",
+      "coverage": "supplied_not_read",
+      "passages_read": "Present in the packet; not independently read for this review. Presence or citation in the drafts is not a reading claim.",
+      "role": "No independent mathematical claim in this review rests on an uninspected passage of this source.",
+      "primary_url": null
+    },
+    {
+      "source_id": "UNREAD-36",
+      "description_as_listed_in_packet": "Ben-David, A super-Grover separation between randomized and quantum query complexities; arXiv source.",
+      "path": "literature/quartic-lit-ben-david-a-super-grover-separation/extracted.md",
+      "sha256": "364f32dc5944ab95423b7e2e4c8d587df886aebdcdd41d1e87bbb7f67921e10a",
+      "coverage": "supplied_not_read",
+      "passages_read": "Present in the packet; not independently read for this review. Presence or citation in the drafts is not a reading claim.",
+      "role": "No independent mathematical claim in this review rests on an uninspected passage of this source.",
+      "primary_url": null
+    },
+    {
+      "source_id": "UNREAD-37",
+      "description_as_listed_in_packet": "Bravyi–Gosset–Grier–Schaeffer, Classical algorithms for Forrelation; arXiv source.",
+      "path": "literature/quartic-lit-bravyi-classical-algorithms-for-forrelation/extracted.md",
+      "sha256": "5c4841904fe5b933bc4361003b8322c705764081e67b5250fdba76d9c05d04b1",
+      "coverage": "supplied_not_read",
+      "passages_read": "Present in the packet; not independently read for this review. Presence or citation in the drafts is not a reading claim.",
+      "role": "No independent mathematical claim in this review rests on an uninspected passage of this source.",
+      "primary_url": null
+    },
+    {
+      "source_id": "UNREAD-38",
+      "description_as_listed_in_packet": "Canonne–Chen–Mestre, Quantumly fast and classically forrious; arXiv source.",
+      "path": "literature/quartic-lit-canonne-chen-mestre-quantumly-fast-classically-forrious/extracted.md",
+      "sha256": "26daa36da23b57be38d89c19f0c2c6e0b281107369cdde50a29d0e1d93bfb634",
+      "coverage": "supplied_not_read",
+      "passages_read": "Present in the packet; not independently read for this review. Presence or citation in the drafts is not a reading claim.",
+      "role": "No independent mathematical claim in this review rests on an uninspected passage of this source.",
+      "primary_url": null
+    },
+    {
+      "source_id": "UNREAD-39",
+      "description_as_listed_in_packet": "Girish et al., Fourier spectrum of noisy quantum algorithms; arXiv source.",
+      "path": "literature/quartic-lit-girish-fourier-spectrum-of-noisy-quantum-algorithms/extracted.md",
+      "sha256": "ee1b8342ea2646d04fc2229a8bbb8d399b084445c068eeadcd3fccd55afbc9f7",
+      "coverage": "supplied_not_read",
+      "passages_read": "Present in the packet; not independently read for this review. Presence or citation in the drafts is not a reading claim.",
+      "role": "No independent mathematical claim in this review rests on an uninspected passage of this source.",
+      "primary_url": null
+    },
+    {
+      "source_id": "UNREAD-40",
+      "description_as_listed_in_packet": "Montanaro, Quantum search with advice (TQC 2010); supplied PDF.",
+      "path": "literature/quartic-lit-montanaro-quantum-search-with-advice/extracted.md",
+      "sha256": "68261dd8be58129e0013d841e1401e93378d307bb6da12c26bc6ce35136bf4f8",
+      "coverage": "supplied_not_read",
+      "passages_read": "Present in the packet; not independently read for this review. Presence or citation in the drafts is not a reading claim.",
+      "role": "No independent mathematical claim in this review rests on an uninspected passage of this source.",
+      "primary_url": null
+    },
+    {
+      "source_id": "UNREAD-41",
+      "description_as_listed_in_packet": "Wu, XOR lemmas for Forrelation by stochastic calculus; arXiv source.",
+      "path": "literature/quartic-lit-wu-xor-forrelation-stochastic-calculus/extracted.md",
+      "sha256": "5419cd2ca7909b87772609567250b52af2e2cc9f1e5f5f141b6b14c1453356e2",
+      "coverage": "supplied_not_read",
+      "passages_read": "Present in the packet; not independently read for this review. Presence or citation in the drafts is not a reading claim.",
+      "role": "No independent mathematical claim in this review rests on an uninspected passage of this source.",
+      "primary_url": null
+    },
+    {
+      "source_id": "UNREAD-42",
+      "description_as_listed_in_packet": "Zhang–Shao, cyclic Forrelation; arXiv source.",
+      "path": "literature/quartic-lit-zhang-shao-cyclic-forrelation/extracted.md",
+      "sha256": "5be94604e386e9036ec48077d2b47dd8214d4cc7fb299738ef9a43b5f5abda8e",
+      "coverage": "supplied_not_read",
+      "passages_read": "Present in the packet; not independently read for this review. Presence or citation in the drafts is not a reading claim.",
+      "role": "No independent mathematical claim in this review rests on an uninspected passage of this source.",
+      "primary_url": null
+    }
+  ],
+  "cited_but_not_supplied": [
+    {
+      "source": "Yao, Probabilistic computations: toward a unified measure of complexity",
+      "locator": "FOCS 1977, pp. 222–227; preprint ref. [27]",
+      "coverage": "cited_only_not_read"
+    },
+    {
+      "source": "Nisan, CREW PRAMs and decision trees",
+      "locator": "SIAM J. Comput. 20(6):999–1007, 1991; preprint ref. [20]",
+      "coverage": "cited_only_not_read"
+    },
+    {
+      "source": "Barnum–Saks–Szegedy, Quantum query complexity and semidefinite programming",
+      "locator": "CCC 2003, pp. 179–193; preprint ref. [7]",
+      "coverage": "cited_only_not_read"
+    }
+  ],
+  "not_performed": [
+    "No Lean build",
+    "No Comparator run",
+    "No kernel replay",
+    "No new theorem, stronger bound or formalization",
+    "No manuscript or skill edits",
+    "No human reader study",
+    "No exhaustive literature/priority proof"
+  ],
+  "external_verification": "Primary arXiv and publisher pages were consulted for edition identity and selected interfaces. Mathematical assessment relies chiefly on the exact supplied editions. AIK v2 remains the comparison edition despite a newer v3. No byte-identity claim is made between all local texts and current remote files."
+}

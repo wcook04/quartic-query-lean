@@ -1,0 +1,20 @@
+# Assessment against the supplied reader principles
+
+The criteria are taken from reader_principles.md. The judgments below concern this edition and this simulated classical panel. “Met” is not a claim of measured human comprehension.
+
+| Principle | Assessment | Located reason | Findings |
+|---|---|---|---|
+| 1. Context before detail | Mostly met | Expert §1 and exposition Overview give the theorem, mL versus square-root mechanism and history. The remaining need is an operation-level predecessor comparison, not another long introduction. | CX002, CX006, CX015 |
+| 2. Purpose and route first | Partly met | The record has a reading guide and useful later bypasses, but they disagree about the required Forrelation route; the full models and known upper endpoint are also over-prescribed for this audience. | CX003, CX018, CX019 |
+| 3. One concrete object | Met, with a reset problem | Exposition §§1–2 give signed inputs and a visible board. Figure 4 must identify which data are resampled when that board illustrates a hard distribution. | CX009, CX036, CX050 |
+| 4. Name before notation; explain hypotheses | Mostly met | Domain bits, losing inputs, all-input caps and same-circuit conditions have purposes. The entry to the classical law can better distinguish minimax μ from the analytic off-promise planted law. | CX021, CX037, CX043, CX048 |
+| 5. Explain relationships | Partly met | The physical sampler explains the ideal weights. The cell-query location naming the answer vector and the selective pointer operation deserve equal prominence. | CX006, CX010, CX053 |
+| 6. Evidence at point of need | Partly met | The examples and theorem links are useful. The exhaustive companion appendix and frontloaded shortcut table compete with their own local uses. | CX013, CX023, CX028 |
+| 7. Paper versus formal statement | Substantially met | The companion’s fidelity table distinguishes same/stronger/partial, existential constants, returned state and finite seeds. The exposition’s “neither” sentence obscures which guarantee is used. | CX020, CX043 |
+| 8. Provenance of relationships | Partly met | Edition-specific comparisons and historical/current catalogue fields are distinguished. The reproduction commit sentence conflicts with the linked snapshot. | CX014, CX052, CX054 |
+| 9. Contribution and credit | Mostly met | The explicit Walsh/rorrelation distinction and inherited planted-array method are good. Predecessor variants and the limited scope of the cubic recipe deserve precision; precursor credit is low priority. | CX002, CX015, CX031, CX032, CX038, CX046 |
+| 10. Distinguish what was checked | Inconsistent across documents | The companion distinguishes builds, comparison, statement review and absence of human review. The exposition and record retain obsolete review-absence claims. No fresh execution audit is needed to identify that conflict. | CX004, CX020 |
+| 11. Each encounter stands alone | Mostly met for the short documents | Each short text introduces its objects. The exposition’s reused board and the record’s route map create avoidable cross-context reconstruction. | CX003, CX009 |
+| 12. Judge by what a reader can do | Supported by worked checks; human test unperformed | The examples let a reader reject an unpromised certificate, identify a cycled loser relation and follow both difference channels. This report records predicted expert stalls, not observed human learning or a user study. | CX034–CX037, CX050, CX053 |
+| 13. Demonstrate an advantage | Partly met | The total construction’s benefits are visible, but the direct-product route’s exactness should be compared with the adequate global theorem at actual parameters. The second proof and growing-k refinement need their reader payoff stated. | CX001, CX005, CX017 |
+| 14. Explanation versus dependency scope | Mostly met, route needs repair | The three-part Forrelation interface and same-circuit conclusion correctly connect the suppliers to the total function. A full independent supplier proof should not silently become the required explanation of the new construction. | CX003, CX011, CX043, CX049 |

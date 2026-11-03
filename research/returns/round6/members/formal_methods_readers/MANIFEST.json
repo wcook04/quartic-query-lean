@@ -1,0 +1,86 @@
+{
+  "schema": "quartic-r6-return-manifest-v1",
+  "algorithm": "SHA-256",
+  "scope": "All payload files; MANIFEST.json and SHA256SUMS.txt exclude themselves to avoid self-reference.",
+  "excluded": [
+    "MANIFEST.json",
+    "SHA256SUMS.txt"
+  ],
+  "files": [
+    {
+      "path": "README.md",
+      "size_bytes": 4481,
+      "sha256": "1e83108e713a6e5db8f6c404a57b24175af291dd2c6fdfdd368b0af353e4d3a8"
+    },
+    {
+      "path": "audit/page_allocation_measurements.json",
+      "size_bytes": 7258,
+      "sha256": "3d55cf3dc737a14996ab1c33b1630aa512cc6c28f10a8dafebb758fb69e4d32f"
+    },
+    {
+      "path": "audit/record_wordshares.json",
+      "size_bytes": 2799,
+      "sha256": "152eec8c0d3ad14e36cfc8f4c867fac8e00c7375a3743b01fd3c2c1b3d47d9e4"
+    },
+    {
+      "path": "audit/source_integrity.json",
+      "size_bytes": 906,
+      "sha256": "1f9375bfb4f4a010e6a473b974ab3281f85e9e6d3c1ac1748af9988c00d9326d"
+    },
+    {
+      "path": "audit/validate_return.py",
+      "size_bytes": 10199,
+      "sha256": "f1b295e059bc5d595288b3665aab6ea8330a608a9e5ea27e103de86728e870de"
+    },
+    {
+      "path": "audit/validation_report.json",
+      "size_bytes": 1331,
+      "sha256": "a0b6bf2ca1a2cca617886967254e4945622af0dd248359b2013fdd28525f11e4"
+    },
+    {
+      "path": "findings.json",
+      "size_bytes": 85565,
+      "sha256": "0bfff225fc003343286c54c84b548e1fdabef542a984f49ca888f494728fd05b"
+    },
+    {
+      "path": "findings.md",
+      "size_bytes": 65114,
+      "sha256": "885b751fae56a7f88bcd2479663c55bf790424254f33da2e93be0c42cc30a08e"
+    },
+    {
+      "path": "method_findings.json",
+      "size_bytes": 14905,
+      "sha256": "9ecec660fdf4232c0a062c0ff1a9dae35b4f56deb54146f8d82072562df2d9c3"
+    },
+    {
+      "path": "principles.md",
+      "size_bytes": 6653,
+      "sha256": "6ade361a462436356203642f8de59096faefcd8753f55e37158d346dd26a40c5"
+    },
+    {
+      "path": "questions.md",
+      "size_bytes": 9948,
+      "sha256": "7022ee776f1e822759475a93f5675457d9b5198b0320db34df857dcb62fe6673"
+    },
+    {
+      "path": "reader_interface.md",
+      "size_bytes": 10414,
+      "sha256": "35e134161fa4013d71651095141a6f8494baa8d3bcf3e2dba00526b1e398990f"
+    },
+    {
+      "path": "sources.md",
+      "size_bytes": 15964,
+      "sha256": "0408dd560fbbd5cbe855713993364230396ccaf7a55908ee720891ce329fe8ce"
+    },
+    {
+      "path": "verdict.md",
+      "size_bytes": 3237,
+      "sha256": "29007709afaad5c13ad0045f166c1121a18f5e55980616b3073f42b880da1cf6"
+    },
+    {
+      "path": "weighting.md",
+      "size_bytes": 21958,
+      "sha256": "c45d326e66fdc1572dd6a21679d252534c10b6aa47db76962e0659368d77fd4d"
+    }
+  ]
+}

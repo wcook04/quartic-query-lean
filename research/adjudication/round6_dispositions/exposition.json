@@ -1,0 +1,797 @@
+{
+ "document": "docs/exposition.md",
+ "source_head": "9bdd443",
+ "round": 6,
+ "adjudicator": "Claude (Opus 5.5), 3 November 2026",
+ "operator_direction": "Will, 3 Nov 2026: papers should read like the literature; no hashes, commands, receipts or review-status statements in the paper; metadata belongs outside the PDF; priority is sentence-level writing quality. Evidence-presentation findings are therefore fixed by removal.",
+ "rows": [
+  {
+   "finding_id": "SX-004",
+   "panel": "students_and_teachers",
+   "cluster": "C1_classical_heuristic",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "The Overview sentence reads as a per-run obligation to learn the address; §5 allows a lucky guess and bounds a joint event. Checked: the proof needs heavy (>L address queries) columns to be a constant fraction, from G/(mL) in the gap bound.",
+   "planned_change": "Overview 'reason for four' paragraph (line 32): replace the address sentence with the two ways of telling the pair apart (find the erased zero, query the filled cell), note that a cell's position names r hard answers, and that guessing or under-paying succeeds with probability at most (2/3)^r, so the algorithm must spend about L queries in a constant fraction of columns."
+  },
+  {
+   "finding_id": "QX-022",
+   "panel": "quantum_experts",
+   "cluster": "C1_classical_heuristic",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Duplicate of SX-004.",
+   "planned_change": "Same edit as SX-004."
+  },
+  {
+   "finding_id": "CX007",
+   "panel": "classical_experts",
+   "cluster": "C1_classical_heuristic",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Duplicate of SX-004; also correct that line 26 says 'almost every column' where the argument gives a constant fraction (heavy in roughly a third of the columns is forced by G/(mL) >= 1/3 - o(1)).",
+   "planned_change": "Same edit as SX-004; line 26 payoff 'in almost every column' -> 'in a constant fraction of the columns'."
+  },
+  {
+   "finding_id": "SX-001",
+   "panel": "students_and_teachers",
+   "cluster": "C2_reader_and_route",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "The sampler uses amplitude amplification with an unknown success probability, reversible computation with retained workspace, and conditioning along an adaptive decision-tree history; 'knows the query models' does not name these.",
+   "planned_change": "Overview audience sentence: name the operations assumed (Grover search and amplitude amplification, running a reversible circuit backwards, Yao's principle, conditional probability along a decision tree) and point to de Wolf's lecture notes, ch. 7 (new bib entry)."
+  },
+  {
+   "finding_id": "QX-023",
+   "panel": "quantum_experts",
+   "cluster": "C2_reader_and_route",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Duplicate of SX-001.",
+   "planned_change": "Same edit as SX-001."
+  },
+  {
+   "finding_id": "SX-002",
+   "panel": "students_and_teachers",
+   "cluster": "C2_reader_and_route",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Recovering constants is a poor headline outcome; the mechanism (address names a simultaneous prediction) is the teachable point. Constants stay in the text.",
+   "planned_change": "Overview outcomes: replace 'rederive the classical bound with its constants' with 'explain why a classical algorithm must pay for an address in a constant fraction of columns'."
+  },
+  {
+   "finding_id": "QX-024",
+   "panel": "quantum_experts",
+   "cluster": "C2_reader_and_route",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Overview is ~1.8 pages; payoffs paragraph, history and the nine-line example map partly repeat each other.",
+   "planned_change": "Compress the 'Who this is for' paragraph by about a third; merge example-map rows to six (one §2 row, one §5 lower-bound-examples row); target 1.45 pages.",
+   "execution_note": "Executed by removing the example-map table and compressing the opening; roadmap paragraph names the examples."
+  },
+  {
+   "finding_id": "SX-007",
+   "panel": "students_and_teachers",
+   "cluster": "C2_reader_and_route",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "A lecturer needs a quantum-only and a classical-only route; the sections already support them.",
+   "planned_change": "Reading paragraph (line 51): one sentence giving the two routes (Overview, §§1-4, 6 accepting §5's statement; Overview, §§1-3, 5, 6 accepting §4's statement)."
+  },
+  {
+   "finding_id": "SX-008",
+   "panel": "students_and_teachers",
+   "cluster": "C2_reader_and_route",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "The companion is not named; one clause fixes it.",
+   "planned_change": "Same paragraph: 'a shorter account for specialists, with comparisons to earlier constructions, is the expert companion'. Coordinate wording with companion owner."
+  },
+  {
+   "finding_id": "SX-009",
+   "panel": "students_and_teachers",
+   "cluster": "C3_experiment_vs_decoder",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Checked exactly: input 1111 1000 has Phi=1/2, is a one-input, and one projection succeeds with probability 1/4. The three showcased inputs give 1,0,1 and hide why §3 repeats.",
+   "planned_change": "§1 paragraph at line 74: call it the projection experiment; add one sentence with 1111 1000 (Phi=1/2, success 1/4), so a single run does not decide and §3 repeats it; §3 'cheap quantum decoder' opens by naming the §1 experiment."
+  },
+  {
+   "finding_id": "SX-010",
+   "panel": "students_and_teachers",
+   "cluster": "C3_experiment_vs_decoder",
+   "quote_verified": true,
+   "validity": "partly_valid",
+   "disposition": "decline",
+   "reason": "The sentence is already scoped to 'a quantum test'; a short scope clause is worth it because a sign-sensitive test (Bansal-Sinha Prop. 1.2, acceptance (1+Phi)/2) separates a+ from a-, yet any test still fails on unpromised Phi just below delta, so the domain-bit lesson stands.",
+   "planned_change": "Line 76: 'this test cannot tell...'; optional half-sentence naming the sign-sensitive test and why the exact domain check is still needed. Drop first if over budget.",
+   "execution_note": "Dropped at execution for page budget; the scoped 'this test' sentence and the Section 2 domain bit carry the lesson."
+  },
+  {
+   "finding_id": "SX-011",
+   "panel": "students_and_teachers",
+   "cluster": "C4_parameters_and_resets",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "r's purpose (make a guessed address exponentially unlikely, enough to union-bound over all G queries, while keeping decoding polylogarithmic and 2^r polynomial) appears only at §5's end.",
+   "planned_change": "§2 attribution paragraph (line 94): one sentence of purpose at r=20 log2 m, citing the m^-10 used in §5."
+  },
+  {
+   "finding_id": "SX-012",
+   "panel": "students_and_teachers",
+   "cluster": "C4_parameters_and_resets",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "The board shrinks r to 2 and has L=0; which statements transfer is left implicit.",
+   "planned_change": "§2 'Four columns' opening: one sentence: definitions of winning, local tests and comparisons are unchanged; r and the hardness are not, so the board illustrates definitions and comparisons, not either bound. Recall it at §5's Figure 4."
+  },
+  {
+   "finding_id": "SX-024",
+   "panel": "students_and_teachers",
+   "cluster": "C4_parameters_and_resets",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Figure 4 keeps the geometry but resamples address inputs from mu (fig4_planted.tex labels A_{i,h}~mu) and blanks cells; column 2 of Figure 2 had an unpromised input.",
+   "planned_change": "§5 'The pair' last sentences and Figure 4 caption: say what is reused (layout, pointers of the planted cell, zeros J) and what is reset (address inputs drawn from mu, other cells blank); at m=4 there is no hard mu, so the picture shows the coupling only."
+  },
+  {
+   "finding_id": "CX009",
+   "panel": "classical_experts",
+   "cluster": "C4_parameters_and_resets",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Duplicate of SX-024.",
+   "planned_change": "Same edit as SX-024."
+  },
+  {
+   "finding_id": "SX-014",
+   "panel": "students_and_teachers",
+   "cluster": "C5_local_tests",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Readers should run one test before the total 371. Checked on Figure 2: pointer test p_{1,10,2} reads 2 pointer bits (00 -> position 1) then X_2[1]=0, 3 queries = l+1; a gate test reads one proposed gate value and two predecessor values.",
+   "planned_change": "§2 'Local tests': trace one pointer test and one gate test with their bit reads; state that the circuit is fixed and public and only the proposed gate values are input bits."
+  },
+  {
+   "finding_id": "QX-025",
+   "panel": "quantum_experts",
+   "cluster": "C5_local_tests",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "The 5936 total does no work in §2. It is an instance of §3's input-size formula n (checked: 4[4+16+4(6+360)]=5936), and the record does not repeat it.",
+   "planned_change": "Move the 5936 sentence to §3 as the board instance of the formula for n."
+  },
+  {
+   "finding_id": "CX028",
+   "panel": "classical_experts",
+   "cluster": "C5_local_tests",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Same concern as QX-025; the 180-gate fact stays as the existence of an exact circuit.",
+   "planned_change": "Keep '180 gates' in one clause; move 5936 to §3; nothing else removed."
+  },
+  {
+   "finding_id": "FX016",
+   "panel": "formal_methods_readers",
+   "cluster": "C5_local_tests",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Say plainly that the checker is a short Python script with exact arithmetic, separate from the general proofs.",
+   "planned_change": "§2 Transcripts: 'a short script that checks every count on this board is linked from record §4.4'."
+  },
+  {
+   "finding_id": "SX-019",
+   "panel": "students_and_teachers",
+   "cluster": "C6_sampler_worked_row",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "The main stall. Checked exactly on the cycled board: after pivot 2, weights (1,0,0,1); joint success-and-column masses (1/4,0,0,1/4); success 1/2 >= gamma=1/8; conditional law (1/2,0,0,1/2); at p=1/2 every Grover count leaves success at 1/2, so amplification changes nothing here; on this board every projection succeeds with probability 0 or 1, so decoders and comparisons are exact.",
+   "planned_change": "New paragraph after 'Sampling a pivot quantumly' display: one stage on the cycled board carried from preparation through success flag, masses, conditional law, amplification and the measured pivot; then verification of the resulting list (column 1 accepted, 2 and 4 fail own-string tests). The next stage is posed as a question (Q2)."
+  },
+  {
+   "finding_id": "QX-011",
+   "panel": "quantum_experts",
+   "cluster": "C6_sampler_worked_row",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "move_to_record",
+   "reason": "The fractional variant gives the conditional law without the success mass; record gives 23999/48000 (checked).",
+   "planned_change": "Attach the success mass 23999/48000 to the fractional sentence at line 171, or drop that sentence if the exact worked row makes it redundant (executor's choice by page budget; prefer keeping it with both numbers).",
+   "execution_note": "At execution the exact epsilon-free stage on the actual board replaced the fractional variant; its numbers remain at record #upper-cyclic-example."
+  },
+  {
+   "finding_id": "QX-012",
+   "panel": "quantum_experts",
+   "cluster": "C6_sampler_worked_row",
+   "quote_verified": true,
+   "validity": "partly_valid",
+   "disposition": "already_resolved",
+   "reason": "Line 167 already says no transitivity and no margin from 1/2 is used, and line 152 says loser comparisons can be exactly 1/2. The text does not claim the cycle shows the bounded-error obstruction.",
+   "planned_change": "None beyond keeping both sentences through the line edit."
+  },
+  {
+   "finding_id": "QX-010",
+   "panel": "quantum_experts",
+   "cluster": "C6_sampler_worked_row",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "The measurement that turns the coherent preparation into a classical pivot is implicit.",
+   "planned_change": "Line 179: 'On success, measure the column register; the outcome is the next pivot, a classical value used by later stages.'"
+  },
+  {
+   "finding_id": "SX-016",
+   "panel": "students_and_teachers",
+   "cluster": "C6_sampler_worked_row",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "The sampler compares i with every pivot, including i itself; the record sets that outcome to 'lose' without a query.",
+   "planned_change": "One clause at the sampler: a self-comparison reports a loss without querying, which is a_ii=0, so a listed column is never sampled again."
+  },
+  {
+   "finding_id": "SX-020",
+   "panel": "students_and_teachers",
+   "cluster": "C6_sampler_worked_row",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Four failure events (decoder error inside a_ij, sampler failure before the winner is listed, omission of the winner, false acceptance) are bounded in different places.",
+   "planned_change": "Rewrite the 'Adding up' sentence of Verification as one sentence naming each event and its bound; keep the stopping rule and the before-winner scope."
+  },
+  {
+   "finding_id": "SX-022",
+   "panel": "students_and_teachers",
+   "cluster": "C7_amplifier_numerics",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "9/40 and ln(40/31) are correct (checked: worst trial success is about 0.246 >= 9/40 over p >= gamma), but they do no work on the first reading.",
+   "planned_change": "'Amplification with a fixed cap': keep the contract (good state returned, cap on every branch independent of p, failure <= eta when p >= gamma, certain failure at p=0) and the BHMT/BBHT citations; send the trial recipe and constants to record §5.1 in one clause. Save about 5 lines."
+  },
+  {
+   "finding_id": "QX-020",
+   "panel": "quantum_experts",
+   "cluster": "C7_amplifier_numerics",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Duplicate of SX-022.",
+   "planned_change": "Same edit."
+  },
+  {
+   "finding_id": "CX024",
+   "panel": "classical_experts",
+   "cluster": "C7_amplifier_numerics",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Duplicate of SX-022.",
+   "planned_change": "Same edit."
+  },
+  {
+   "finding_id": "SX-023",
+   "panel": "students_and_teachers",
+   "cluster": "C8_minimax",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "The convex-separation sketch interrupts the first paragraph of §5.",
+   "planned_change": "§5 opening: keep Yao's principle and the property of mu; replace the parenthesis with a link to record §6.2."
+  },
+  {
+   "finding_id": "CX022",
+   "panel": "classical_experts",
+   "cluster": "C8_minimax",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Duplicate of SX-023.",
+   "planned_change": "Same edit."
+  },
+  {
+   "finding_id": "SX-025",
+   "panel": "students_and_teachers",
+   "cluster": "C9_conditioning_cues",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Counting every visit to the true cell overcounts first differences (filled bits can equal blank ones); harmless, but say so.",
+   "planned_change": "Half-sentence after the first-difference display."
+  },
+  {
+   "finding_id": "SX-026",
+   "panel": "students_and_teachers",
+   "cluster": "C9_conditioning_cues",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Residual uniformity holds given the whole dummy transcript because cells are blank and other fields are independent of J_i; the reader must currently infer this.",
+   "planned_change": "One clause in 'The erased zero' inequality sentence."
+  },
+  {
+   "finding_id": "SX-027",
+   "panel": "students_and_teachers",
+   "cluster": "C9_conditioning_cues",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Checked: uniform AND on four inputs gives 3/4 with one query; uniform on {01,10,11} gives 2/3. The laws differ and the text does not say so.",
+   "planned_change": "Name the law at each AND example ('uniform on all four inputs', 'uniform on the three promised inputs')."
+  },
+  {
+   "finding_id": "SX-028",
+   "panel": "students_and_teachers",
+   "cluster": "C9_conditioning_cues",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "A positive history is cheap inside the box. Checked on the separate-cap AND example: after reading U_1's first bit, V_1 becomes 1 (bit 0) or 1/2 (bit 1), V_2 stays 3/4, and the average 1/2*3/4+1/2*3/8 = 9/16 equals the starting product.",
+   "planned_change": "One sentence in the direct-product box giving this history, its E_h sets and the averaged product."
+  },
+  {
+   "finding_id": "SX-030",
+   "panel": "students_and_teachers",
+   "cluster": "C10_simulator_budgets",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Second stall. Checked: a total of L queries to a column's address inputs is at most L on each, so the separate-cap lemma applies; it would allow rL, so nothing is lost. Three budgets: G for the whole run, L per column total (heaviness, simulator abort), L per instance (lemma).",
+   "planned_change": "§5 'The simulator': one sentence setting out the three budgets and the implication, tied to heavy columns and the abort rule."
+  },
+  {
+   "finding_id": "SX-031",
+   "panel": "students_and_teachers",
+   "cluster": "C10_simulator_budgets",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Verified: record §6.5 trace returns to a four-column XOR toy with L=1, zero-based positions and beta=1/2.",
+   "planned_change": "At the record link: 'which uses a four-column XOR toy with L=1 and positions numbered from 0'."
+  },
+  {
+   "finding_id": "FX025",
+   "panel": "formal_methods_readers",
+   "cluster": "C11_exponent_step",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Checked: for alpha<0, replacing Q by its upper bound in (1+Q)^alpha reverses the inequality (e.g. R=100, Q=4, Q_up=9, alpha=-1 gives 500 < 1000), and the displayed bound can fail. The definition already restricts to alpha >= 0, so this is a local missing hypothesis; theorem unaffected.",
+   "planned_change": "§6 line 253: 'Fix 0 <= alpha < 4'. Also (own finding AJ-01) state there that the floor step needs t >= 8 (checked: L_{2,m} >= 1 first at t=8)."
+  },
+  {
+   "finding_id": "SX-003",
+   "panel": "students_and_teachers",
+   "cluster": "C12_questions",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "No task lets the reader try the outcomes before seeing answers. Following the exemplar's question/answer layout, pose four changed cases, answers at the end.",
+   "planned_change": "Insert Questions 1-4 (domain-bit board test counts; next sampler stage; two-query erased zero; k for alpha=3.5) at their sections; add 'Answers to the questions' after §7. Answers verified (see plan)."
+  },
+  {
+   "finding_id": "QX-001",
+   "panel": "quantum_experts",
+   "cluster": "C13_formal_section",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Verified false: research/adjudication/round5_statement_fidelity.md (3 Nov 2026, an AI review, no Lean run) covers all four theorems, uniformOpaqueAmplifier and the finite direct product. Per operator direction the paper carries no review-status statements; correct by removal, not by substituting another status claim.",
+   "planned_change": "Delete the sentence. Review status lives in the repository and record."
+  },
+  {
+   "finding_id": "CX004",
+   "panel": "classical_experts",
+   "cluster": "C13_formal_section",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Duplicate of QX-001; record §2.9 rows are the record owner's matter.",
+   "planned_change": "Delete the sentence; flag record §2.9 to the record owner."
+  },
+  {
+   "finding_id": "FX001",
+   "panel": "formal_methods_readers",
+   "cluster": "C13_formal_section",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Duplicate of QX-001; binding freshness and reviewer identity are repository metadata.",
+   "planned_change": "Delete the sentence."
+  },
+  {
+   "finding_id": "QX-007",
+   "panel": "quantum_experts",
+   "cluster": "C13_formal_section",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "move_to_record",
+   "reason": "The 'stronger' label is poorly specified (§4 already returns g; the added content is uniformity in the preparation and exact success mass). The auxiliary amplifier paragraph leaves the paper.",
+   "planned_change": "Remove the auxiliary-results paragraph; comparison stays in record/expert appendix."
+  },
+  {
+   "finding_id": "CX020",
+   "panel": "classical_experts",
+   "cluster": "C13_formal_section",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "move_to_record",
+   "reason": "The 'neither' referent is unclear; the paragraph is removed.",
+   "planned_change": "Removed with the auxiliary paragraph."
+  },
+  {
+   "finding_id": "FX008",
+   "panel": "formal_methods_readers",
+   "cluster": "C13_formal_section",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "move_to_record",
+   "reason": "Same as CX020.",
+   "planned_change": "Removed."
+  },
+  {
+   "finding_id": "SX-035",
+   "panel": "students_and_teachers",
+   "cluster": "C13_formal_section",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "move_to_record",
+   "reason": "Same as CX020.",
+   "planned_change": "Removed."
+  },
+  {
+   "finding_id": "SX-033",
+   "panel": "students_and_teachers",
+   "cluster": "C13_formal_section",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "A first formal reading needs one concrete thing to look at. Verified: WinsAt (Challenge.lean L262-272) has the four conjuncts of §2, the second requiring each address input to be promised with value s_h; on §2's changed board this conjunct fails for (2,00).",
+   "planned_change": "§7 rewritten as one short paragraph: the theorem is formalised in Lean; one statement file defines R, Q, the function and the four theorems; suggest checking the winning condition against §2's changed board; note the one mathematical difference (log power left unspecified)."
+  },
+  {
+   "finding_id": "QX-026",
+   "panel": "quantum_experts",
+   "cluster": "C13_formal_section",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Same remedy as SX-033.",
+   "planned_change": "Same edit."
+  },
+  {
+   "finding_id": "FX014",
+   "panel": "formal_methods_readers",
+   "cluster": "C13_formal_section",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Same remedy as SX-033.",
+   "planned_change": "Same edit."
+  },
+  {
+   "finding_id": "FX004",
+   "panel": "formal_methods_readers",
+   "cluster": "C13_formal_section",
+   "quote_verified": true,
+   "validity": "partly_valid",
+   "disposition": "fix",
+   "reason": "One link to the record passages explaining why these definitions agree with the usual query models is normal; no further bridge discussion in the paper.",
+   "planned_change": "One link phrase in the §7 paragraph to record §§2.2-2.5."
+  },
+  {
+   "finding_id": "FX006",
+   "panel": "formal_methods_readers",
+   "cluster": "C13_formal_section",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "move_to_record",
+   "reason": "The constant-on-promise branch is a Lean representation detail; record §2.4 explains it.",
+   "planned_change": "None in the paper."
+  },
+  {
+   "finding_id": "FX013",
+   "panel": "formal_methods_readers",
+   "cluster": "C13_formal_section",
+   "quote_verified": true,
+   "validity": "partly_valid",
+   "disposition": "decline",
+   "reason": "Relation provenance (editorial mapping vs configured comparison vs dependency) is backend metadata; operator direction keeps it out of the paper. The sentence 'Each link opens the exact lines' is removed with the rewrite.",
+   "planned_change": "None in paper; backend fields are repository work, not this revision."
+  },
+  {
+   "finding_id": "FX048",
+   "panel": "formal_methods_readers",
+   "cluster": "C13_formal_section",
+   "quote_verified": true,
+   "validity": "partly_valid",
+   "disposition": "decline",
+   "reason": "Execution isolation is a property of the run records; operator direction removes trust taxonomy from the paper. The companion appendix and repository keep the local-run qualification.",
+   "planned_change": "None in paper."
+  },
+  {
+   "finding_id": "SX-034",
+   "panel": "students_and_teachers",
+   "cluster": "C13_formal_section",
+   "quote_verified": true,
+   "validity": "keep_endorsed",
+   "disposition": "keep",
+   "reason": "Keep one plain sentence that the reader's question is whether the definitions say what is intended; this is ordinary and useful.",
+   "planned_change": "Retain in shortened form."
+  },
+  {
+   "finding_id": "SX-005",
+   "panel": "students_and_teachers",
+   "cluster": "C14_history",
+   "quote_verified": true,
+   "validity": "valid",
+   "disposition": "fix",
+   "reason": "Verified in ABK §3.1: AND-OR is composed in because its small certificates make domain membership cheap to certify. One clause explains the old cost; here membership is certified by a circuit transcript checked only for a few final candidates.",
+   "planned_change": "One clause in 'The same arithmetic' paragraph; coordinate with companion CX015 scope."
+  },
+  {
+   "finding_id": "SX-006",
+   "panel": "students_and_teachers",
+   "cluster": "K_keep",
+   "quote_verified": true,
+   "validity": "keep_endorsed",
+   "disposition": "keep",
+   "reason": "Cubic-versus-quartic arithmetic stays.",
+   "planned_change": "Keep through line edit."
+  },
+  {
+   "finding_id": "SX-013",
+   "panel": "students_and_teachers",
+   "cluster": "K_keep",
+   "quote_verified": true,
+   "validity": "keep_endorsed",
+   "disposition": "keep",
+   "reason": "Domain-bit board stays and is recalled at verification.",
+   "planned_change": "Keep; becomes Question 1's base."
+  },
+  {
+   "finding_id": "SX-015",
+   "panel": "students_and_teachers",
+   "cluster": "K_keep",
+   "quote_verified": true,
+   "validity": "keep_endorsed",
+   "disposition": "keep",
+   "reason": "Three-fact interface stays.",
+   "planned_change": "Keep."
+  },
+  {
+   "finding_id": "SX-017",
+   "panel": "students_and_teachers",
+   "cluster": "K_keep",
+   "quote_verified": true,
+   "validity": "keep_endorsed",
+   "disposition": "keep",
+   "reason": "Moved-pointer dominating nonwinner stays before the analysis.",
+   "planned_change": "Keep."
+  },
+  {
+   "finding_id": "SX-018",
+   "panel": "students_and_teachers",
+   "cluster": "K_keep",
+   "quote_verified": true,
+   "validity": "keep_endorsed",
+   "disposition": "keep",
+   "reason": "Pivot table beside the drift identity stays.",
+   "planned_change": "Keep."
+  },
+  {
+   "finding_id": "SX-021",
+   "panel": "students_and_teachers",
+   "cluster": "K_keep",
+   "quote_verified": true,
+   "validity": "keep_endorsed",
+   "disposition": "keep",
+   "reason": "Harmless failure after the winner is listed stays.",
+   "planned_change": "Keep."
+  },
+  {
+   "finding_id": "SX-029",
+   "panel": "students_and_teachers",
+   "cluster": "K_keep",
+   "quote_verified": true,
+   "validity": "keep_endorsed",
+   "disposition": "keep",
+   "reason": "Three-input AND joint-event example stays.",
+   "planned_change": "Keep; name its law (SX-027)."
+  },
+  {
+   "finding_id": "SX-032",
+   "panel": "students_and_teachers",
+   "cluster": "K_keep",
+   "quote_verified": true,
+   "validity": "keep_endorsed",
+   "disposition": "keep",
+   "reason": "Quantifier warning and t>=2^k example stay.",
+   "planned_change": "Keep; Question 4 exercises it."
+  },
+  {
+   "finding_id": "QX-043",
+   "panel": "quantum_experts",
+   "cluster": "K_keep",
+   "quote_verified": true,
+   "validity": "keep_endorsed",
+   "disposition": "keep",
+   "reason": "L_{2,4}=0 scope sentence stays.",
+   "planned_change": "Keep."
+  },
+  {
+   "finding_id": "QX-044",
+   "panel": "quantum_experts",
+   "cluster": "K_keep",
+   "quote_verified": true,
+   "validity": "keep_endorsed",
+   "disposition": "keep",
+   "reason": "Domain-bit mutation stays.",
+   "planned_change": "Keep."
+  },
+  {
+   "finding_id": "QX-045",
+   "panel": "quantum_experts",
+   "cluster": "K_keep",
+   "quote_verified": true,
+   "validity": "keep_endorsed",
+   "disposition": "keep",
+   "reason": "Dominance counterexample stays.",
+   "planned_change": "Keep."
+  },
+  {
+   "finding_id": "QX-046",
+   "panel": "quantum_experts",
+   "cluster": "K_keep",
+   "quote_verified": true,
+   "validity": "keep_endorsed",
+   "disposition": "keep",
+   "reason": "Quantifier counterexample stays.",
+   "planned_change": "Keep."
+  },
+  {
+   "finding_id": "CX036",
+   "panel": "classical_experts",
+   "cluster": "K_keep",
+   "quote_verified": true,
+   "validity": "keep_endorsed",
+   "disposition": "keep",
+   "reason": "Domain-bit board stays.",
+   "planned_change": "Keep."
+  },
+  {
+   "finding_id": "CX043",
+   "panel": "classical_experts",
+   "cluster": "K_keep",
+   "quote_verified": true,
+   "validity": "keep_endorsed",
+   "disposition": "keep",
+   "reason": "Same-circuit sentence stays.",
+   "planned_change": "Keep."
+  },
+  {
+   "finding_id": "CX050",
+   "panel": "classical_experts",
+   "cluster": "K_keep",
+   "quote_verified": true,
+   "validity": "keep_endorsed",
+   "disposition": "keep",
+   "reason": "Three inputs and L=0 limitation stay.",
+   "planned_change": "Keep."
+  },
+  {
+   "finding_id": "FX022",
+   "panel": "formal_methods_readers",
+   "cluster": "K_keep",
+   "quote_verified": true,
+   "validity": "keep_endorsed",
+   "disposition": "keep",
+   "reason": "Convention-only label and negative input stay.",
+   "planned_change": "Keep."
+  },
+  {
+   "finding_id": "FX023",
+   "panel": "formal_methods_readers",
+   "cluster": "K_keep",
+   "quote_verified": true,
+   "validity": "keep_endorsed",
+   "disposition": "keep",
+   "reason": "Joint event, counterexample and stopping rule stay together.",
+   "planned_change": "Keep."
+  },
+  {
+   "finding_id": "FX024",
+   "panel": "formal_methods_readers",
+   "cluster": "K_keep",
+   "quote_verified": true,
+   "validity": "keep_endorsed",
+   "disposition": "keep",
+   "reason": "Quantifier order stays.",
+   "planned_change": "Keep."
+  }
+ ],
+ "own_findings": [
+  {
+   "id": "AJ-01",
+   "where": "§6 and §7",
+   "finding": "§7 says the floor form implies the 1/400 form 'once t>=8 (Section 6)', but §6 says only 'all large m'. Checked: L_{2,m}>=1 first at t=8.",
+   "planned_change": "State t>=8 in §6; §7 no longer needs it after the rewrite."
+  },
+  {
+   "id": "AJ-02",
+   "where": "§1 census sentence",
+   "finding": "'Sorting all 256 inputs by the parity of the second block' does not explain itself; the census numbers are right (checked 104/48/104; Phi takes values 0, ±1/2, ±1).",
+   "planned_change": "'Of all 256 inputs, 104 are one-inputs, 48 zero-inputs and 104 unpromised.'"
+  },
+  {
+   "id": "AJ-03",
+   "where": "Note on preparation",
+   "finding": "'neither has yet had independent human review' is a review-status statement the operator has removed from scope.",
+   "planned_change": "Ordinary acknowledgement: theorem and construction are OpenAI's; prepared with AI assistance under the author's direction."
+  }
+ ],
+ "counts": {
+  "fix": 43,
+  "decline": 3,
+  "move_to_record": 6,
+  "already_resolved": 1,
+  "keep": 19
+ },
+ "execution": {
+  "date": "2026-11-03",
+  "pages": 14,
+  "make_check": "pass (226 tests, 2 skipped)",
+  "lean_links_check": "pass",
+  "answers_script": "scratchpad/expo/answers.py, all exact",
+  "register_expository_profile": {
+   "status_vocab_rate": [
+    12.61,
+    5.5
+   ],
+   "meta_narration_rate": [
+    1.83,
+    -0.69
+   ],
+   "negation_rate": [
+    1.14,
+    0.43
+   ],
+   "let_open_share": [
+    -1.21,
+    -0.07
+   ],
+   "we_rate": [
+    -1.99,
+    -1.54
+   ],
+   "triad_rate": [
+    1.49,
+    2.22
+   ]
+  },
+  "math_statement_changes": [
+   "Section 6: added 0<=alpha (FX025)",
+   "Section 6: explicit t>=8 for the floor step (AJ-01)"
+  ],
+  "record_handoff": "research/adjudication/round6_plans/exposition_to_record.md"
+ }
+}

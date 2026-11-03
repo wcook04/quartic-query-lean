@@ -1,0 +1,181 @@
+{
+  "packet": "classical_experts",
+  "scope": "These review the supplied writing method as a source artifact. They do not invoke that method to rewrite the manuscripts or modify installed skills. Most recommendations make existing rules operational; they are not claims that reader modeling, evidence boundaries or optional routes were absent from the method.",
+  "method_findings": [
+    {
+      "id": "CX-M01",
+      "rule": {
+        "source_path": "skills/long-to-short/SKILL.md",
+        "section": "Reference the Lean and Comparator evidence",
+        "quote": "When a Comparator challenge exists, end the short paper with a one-page",
+        "line": 163
+      },
+      "weakness": "The one-page instruction is coupled to a complete object map, theorem list, fidelity table, modeling choices and reproduction record. The current appendix exceeds the classical proof in page share.",
+      "suggested_rule_change": "Distinguish the minimum statement-checking entry from the complete reference inventory. Require a budget decision and an existing destination for details; keep all material necessary to assess the central model and quantifiers.",
+      "instance_findings": [
+        "CX013"
+      ],
+      "transfer_limit": "The exact one-page target is local to the chosen format; the transferable issue is competing mandatory inventories within a declared attention budget.",
+      "action": "Advice only; no skill or source file changed."
+    },
+    {
+      "id": "CX-M02",
+      "rule": {
+        "source_path": "skills/long-to-short/SKILL.md",
+        "section": "Procedure 5",
+        "quote": "Compare alternative proofs by hypotheses and exact conclusions",
+        "line": 132
+      },
+      "weakness": "The method already asks for a comparison, but the current direct-product discussion compares general statement shapes without testing the alternative at the actual downstream cap.",
+      "suggested_rule_change": "For a claimed need for a specialized lemma, instantiate the closest existing theorem at the application’s actual parameters and check whether its loss fits the already chosen slack. Explain the selected proof’s distinct value even if the weaker imported theorem suffices.",
+      "instance_findings": [
+        "CX001",
+        "CX005"
+      ],
+      "transfer_limit": "This calls for checking an existing application, not searching for a stronger theorem or replacing a sound full proof automatically.",
+      "action": "Advice only; no skill or source file changed."
+    },
+    {
+      "id": "CX-M03",
+      "rule": {
+        "source_path": "skills/long-to-short/SKILL.md",
+        "section": "Model the reader and find the one point, item 3",
+        "quote": "Say what stopped the previous method and what the new idea changes.",
+        "line": 60
+      },
+      "weakness": "A useful explanation of one recipe’s cost can be read as a barrier for an entire framework. The cheat-sheet stopping language does not explicitly separate those scopes.",
+      "suggested_rule_change": "Name the predecessor variant or recipe and the cost inequality actually analyzed. Distinguish an exhibited bottleneck from a general impossibility statement; use operational comparisons where the old literature contains different tradeoffs.",
+      "instance_findings": [
+        "CX002",
+        "CX006",
+        "CX015"
+      ],
+      "transfer_limit": "Do not require a new barrier theorem. The transferable lesson is scope; the particular exponent three belongs to this instance.",
+      "action": "Advice only; no skill or source file changed."
+    },
+    {
+      "id": "CX-M04",
+      "rule": {
+        "source_path": "skills/record-to-expository/SKILL.md",
+        "section": "Procedure 3, optional routes",
+        "quote": "Make an optional reading route usable at its departure point.",
+        "line": 147
+      },
+      "weakness": "The later Forrelation bypass is usable, but the opening table still calls the bypassed material required. The method’s local departure check does not by itself enforce agreement among route descriptions.",
+      "suggested_rule_change": "Check every opening map against later bypasses and return points. For each audience, distinguish imported-result, independent-proof and evidence-audit routes while preserving complete proofs and their stable locations.",
+      "instance_findings": [
+        "CX003",
+        "CX018",
+        "CX019"
+      ],
+      "transfer_limit": "This does not imply that every supporting proof is optional for every reader. Prerequisites must still be available at each jump.",
+      "action": "Advice only; no skill or source file changed."
+    },
+    {
+      "id": "CX-M05",
+      "rule": {
+        "source_path": "skills/long-to-short/SKILL.md",
+        "section": "Procedure 6",
+        "quote": "Reconcile the shared statements in both directions:",
+        "line": 137
+      },
+      "weakness": "The rule is sound but insufficiently concrete about negative evidence claims. A newly recorded review was reflected in one document while “no review” remained in others.",
+      "suggested_rule_change": "When evidence status changes, search the shared documents for absence and currency claims as well as theorem statements. Bind each claim to its evidence kind and snapshot, and reconcile reproduction prose with the actual link pins. Do not promote AI review to human review or receipt acceptance to semantic agreement.",
+      "instance_findings": [
+        "CX004",
+        "CX014",
+        "CX020"
+      ],
+      "transfer_limit": "This is enforcement of an existing reconciliation rule. It does not authorize a new receipt audit when the task explicitly supplies receipt status.",
+      "action": "Advice only; no skill or source file changed."
+    },
+    {
+      "id": "CX-M06",
+      "rule": {
+        "source_path": "skills/record-to-expository/SKILL.md",
+        "section": "Procedure 2, example reuse",
+        "quote": "Show the operation, what changes and what stays fixed.",
+        "line": 109
+      },
+      "weakness": "The running board makes total-input pathologies concrete, then returns as an illustration of a promised random hard pair. Its geometry is reused while its probability law and cell contents change.",
+      "suggested_rule_change": "When reusing a random or promised example, explicitly track the domain regime, sampling law, conditioning and initialized cells as active objects. State the reset at the reuse point; retaining a drawing’s geometry does not retain its earlier data.",
+      "instance_findings": [
+        "CX009"
+      ],
+      "transfer_limit": "Only restore assumptions that changed. Do not add a generic restatement of all definitions every time an example reappears.",
+      "action": "Advice only; no skill or source file changed."
+    },
+    {
+      "id": "CX-M07",
+      "rule": {
+        "source_path": "skills/README.md",
+        "section": "Worked instances, Quartic query separation",
+        "quote": "value of a short table of natural shortcuts that fail",
+        "line": 86
+      },
+      "weakness": "A successful repair from an earlier round has become a frontloaded collection of eight differently important pitfalls. The method’s instance note does not rank their value to a new audience.",
+      "suggested_rule_change": "For each proposed counterexample or safeguard, identify the first inference it protects and whether this audience is likely to make that mistake. Keep a small central diagnostic table only when it aids the main mechanism; attach other safeguards at their use or retain them as reference.",
+      "instance_findings": [
+        "CX023"
+      ],
+      "transfer_limit": "This is a selection rule, not a ban on counterexamples. The current corrected examples should survive where they teach a necessary distinction.",
+      "action": "Advice only; no skill or source file changed."
+    },
+    {
+      "id": "CX-M08",
+      "rule": {
+        "source_path": "skills/long-to-short/SKILL.md",
+        "section": "Procedure 7, stronger estimates",
+        "quote": "If a stronger estimate serves a later use, say why that use needs its margin",
+        "line": 145
+      },
+      "weakness": "The current bound comparisons are careful but dispersed; readers must reconstruct k dependence, logarithmic powers, error, domain and evidence class across several locations.",
+      "suggested_rule_change": "When calling one estimate stronger or choosing among routes, compare the parameters actually varied by the reader in one common vocabulary. Identify the main theorem’s sufficient contract separately from optional uniform or variable-error refinements.",
+      "instance_findings": [
+        "CX012",
+        "CX017",
+        "CX025",
+        "CX027"
+      ],
+      "transfer_limit": "Do not demand one giant table for every paper or remove all constants. The comparison should contain only dimensions that change the judgment of sufficiency or strength.",
+      "action": "Advice only; no skill or source file changed."
+    },
+    {
+      "id": "CX-M09",
+      "rule": {
+        "source_path": "skills/record-to-expository/SKILL.md",
+        "section": "Model the reader, optional standard proofs",
+        "quote": "Put standard proofs this reader can skip (minimax, concentration,",
+        "line": 80
+      },
+      "weakness": "The skill already tells writers to separate optional standard proofs, yet a detailed minimax parenthesis and amplification recipe remain on the compulsory narrative route.",
+      "suggested_rule_change": "After applying the audience model, inspect every retained supplier proof in sequence. Keep its exact consumed contract visible; make the proof optional only when the declared reader can proceed without it, and test that the next construction-specific inference is recoverable.",
+      "instance_findings": [
+        "CX022",
+        "CX024"
+      ],
+      "transfer_limit": "Classical experts may still need the nonstandard physical sampler interface. Familiarity with amplitude amplification does not justify omitting exact label preservation or all-input caps.",
+      "action": "Advice only; no skill or source file changed."
+    },
+    {
+      "id": "CX-M10",
+      "rule": {
+        "source_path": "skills/long-to-short/SKILL.md",
+        "section": "Reader model and page allocation",
+        "quote": "Allocate pages from this model:",
+        "line": 68
+      },
+      "weakness": "The skills already urge reader-based selection, but accumulated repair detail can keep expanding the short account while the intended reader remains unchanged.",
+      "suggested_rule_change": "At each revision, compare current section shares with the reader task, state which existing material funds an addition, and distinguish preservation in the long record from compulsory reading in the short route. Use actual rendered spans when available and label text-load proxies honestly.",
+      "instance_findings": [
+        "CX005",
+        "CX013",
+        "CX019",
+        "CX028",
+        "CX029"
+      ],
+      "transfer_limit": "These findings motivate an attention-allocation check, not a universal page count or a claim that fewer words always improve comprehension.",
+      "action": "Advice only; no skill or source file changed."
+    }
+  ]
+}

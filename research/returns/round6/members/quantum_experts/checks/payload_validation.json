@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "packet": "quantum_experts",
+  "manifest_checked": true,
+  "content_only_phase": false,
+  "required_files_present": true,
+  "all_payload_json_parsed": true,
+  "schemas_and_cross_references": "passed",
+  "utf8_and_control_characters": "passed",
+  "findings": 52,
+  "keep_findings": 15,
+  "panel_perspectives": 10,
+  "questions": 20,
+  "exact_quote_locators": 65,
+  "literature_counts": {
+    "focused_reading": 11,
+    "supplied_not_read": 28,
+    "full_supplied_text": 3
+  },
+  "verdict_words": 395,
+  "source_checks": {
+    "status": "passed",
+    "kind": "extracted_source_directory",
+    "manifest_members_checked": 293,
+    "draft_files_checked": 6,
+    "current_record_and_historical_pdf_hashes_checked": true,
+    "exact_draft_quotes_checked": 65,
+    "method_quotes_checked": 1,
+    "literature_entry_hashes_checked": 42
+  },
+  "verification_scope": "Archive/document/source identity checks only; not a mathematical proof verification or a fresh Lean/Comparator execution."
+}

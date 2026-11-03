@@ -1,0 +1,79 @@
+{
+  "schema": "quantum-experts-return-manifest-v1",
+  "algorithm": "SHA-256",
+  "excluded": "manifest.json (a file cannot contain its own ordinary cryptographic digest)",
+  "files": {
+    "README.md": {
+      "bytes": 4156,
+      "sha256": "e0d54d3e31f5b299ce898aeca3f372b09e731eda27b635ffb40a46d183e04f11"
+    },
+    "assessment.md": {
+      "bytes": 14592,
+      "sha256": "2d93691da2cecc86b6858509e6756592624a223b39062f5e4bf83ad627033744"
+    },
+    "checks/page_estimates.json": {
+      "bytes": 11693,
+      "sha256": "8589f01f3757f4780acc48e408f06ffaab38a69b1508f567b88291eb80ce7d43"
+    },
+    "checks/payload_validation.json": {
+      "bytes": 1009,
+      "sha256": "f43b62d6ff31828977380676e3343f5d9a39b7bcae1539459ea0c9278eb8f105"
+    },
+    "checks/questions_index.json": {
+      "bytes": 13397,
+      "sha256": "91cefdcbbe2a796d47ec99a3c0fe0f38becb4cf9c9f6c83892feec42123d241f"
+    },
+    "checks/review_statistics.json": {
+      "bytes": 471,
+      "sha256": "23cf70e5dc590f0dcc11f44af3e0b710e3da8f647af6982a6123a31ad4f51331"
+    },
+    "checks/source_provenance.json": {
+      "bytes": 2726,
+      "sha256": "a22539da7b5ad96fe40c8e91d624877bfb7f47251be9cb0ebbc4024174782d89"
+    },
+    "checks/validate_return.py": {
+      "bytes": 12467,
+      "sha256": "bf46122af33df3610262f29483a634e94f0a0b552e83abbb588b55ffaf8240a6"
+    },
+    "component_inventory.md": {
+      "bytes": 34004,
+      "sha256": "c354d352ecda87d482491ab11840dba12641670f9fc35c75716467be548a96dd"
+    },
+    "findings.json": {
+      "bytes": 100203,
+      "sha256": "31f654047fcae0c099f7a1d5b8f810b2786139292d431e753f86b095849dc593"
+    },
+    "findings.md": {
+      "bytes": 74560,
+      "sha256": "a5e3de93679010572cbea78520b4d1f7b551bfe382242dcc76a7eb70189bd27a"
+    },
+    "method_findings.json": {
+      "bytes": 5087,
+      "sha256": "6a52f16c57d1ea8294fb45635900517d9afee4af424eae558af0e46bb107e7f1"
+    },
+    "questions.md": {
+      "bytes": 9041,
+      "sha256": "42ac2f21ff49babf7322275aac70a55df2fc2f6db5414a8b9094bf8de354e307"
+    },
+    "reader_principles.md": {
+      "bytes": 5393,
+      "sha256": "a23093b1d7aabb0d83c16635fa5fe2b25cc12f8d5387863c31e71e4962c1a554"
+    },
+    "reading_coverage.json": {
+      "bytes": 35860,
+      "sha256": "85a69a2c5a3defdb44b267be5178e6e10a1e4c8c8edd97b0495f6283da41f236"
+    },
+    "sources_read.md": {
+      "bytes": 19458,
+      "sha256": "7236d589d1452049403b945d6b885a1426d603a4ea302617b91d7cfffed9e6cd"
+    },
+    "verdict.md": {
+      "bytes": 3011,
+      "sha256": "c23d45e36c4974f35a170283ba44934f3a000643056233455d990bb5d2bbae8f"
+    },
+    "weighting.md": {
+      "bytes": 10258,
+      "sha256": "90ff205c1ebc57e24505102080c503febf47680f8a35ca6b1f487ff0077db830"
+    }
+  }
+}

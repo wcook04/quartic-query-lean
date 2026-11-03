@@ -1,0 +1,96 @@
+{
+  "packet": "quantum_experts",
+  "method_findings": [
+    {
+      "id": "MQX-001",
+      "method_file": "skills/record-to-expository/SKILL.md",
+      "locator": {
+        "section": "Model the reader and frame the result; closing formal half-page",
+        "quote": "In the closing formal half-page, label each linked result as the same as,",
+        "line": 100,
+        "path": "skills/record-to-expository/SKILL.md",
+        "source_sha256": "2182adc22fe75054c91780f5664c3781f1c7cfc6eb829e16c064f66cfcd561e0"
+      },
+      "finding": "The exposition rule asks the closing half-page to label each linked result, while the short-paper rule asks a one-page appendix to hold a broad model/target/fidelity/reproduction inventory. General routing rules exist, but these specific prescriptions do not state which obligation yields when auxiliary results expand the inventory.",
+      "why_it_matters": "The current exposition’s dense closing paragraph and the companion’s roughly 2.35-page appendix illustrate the tension. This is a source-assisted editorial diagnosis, not demonstrated causal evidence that the skill caused every excess.",
+      "rule_to_change": "Clarify the priority within the existing evidence-routing rule: the short audit route must locally expose the headline theorem and every restriction of its used dependencies; supplementary results may carry a concise relation plus an exact existing destination for the full componentwise comparison. Treat page counts as planning targets, not permission to omit material hypotheses.",
+      "current_draft_evidence": [
+        "QX-026",
+        "QX-027"
+      ],
+      "boundary": "Do not hide material restrictions of the theorem used. Only supplementary detail may be routed away.",
+      "severity": "medium",
+      "classification": "specific rule-priority tension",
+      "existing_rules_acknowledged": [
+        "The skills already require a named reader, one point, page allocation, exact source comparison, omission destinations and bidirectional reconciliation of evidence labels. This recommendation does not duplicate those requirements."
+      ]
+    }
+  ],
+  "not_promoted_to_method_defects": [
+    {
+      "candidate": "Union of all cited audiences",
+      "disposition": "Application issue, not a new method defect",
+      "reason": "The intended-reader, principal-contribution, one-point and page-allocation rules already require prioritization.",
+      "related_findings": [
+        "QX-023",
+        "QX-004"
+      ]
+    },
+    {
+      "candidate": "Overloaded opening",
+      "disposition": "Application issue; optional prioritization example only",
+      "reason": "The method already says about a page, few lines of history, and replace/reorder before adding. Repetition does not establish that the method caused it.",
+      "related_findings": [
+        "QX-024",
+        "QX-017"
+      ]
+    },
+    {
+      "candidate": "Stale review-status sentences",
+      "disposition": "Cross-document integration failure",
+      "reason": "Long-to-short Procedure 6 explicitly requires resolving differing evidence labels from source and receipts. Negative absence claims fall under that existing obligation.",
+      "related_findings": [
+        "QX-001",
+        "QX-008",
+        "QX-006"
+      ]
+    },
+    {
+      "candidate": "Single stronger/weaker label",
+      "disposition": "Application issue; optional formatting clarification",
+      "reason": "The current method already requires saying what exactly differs. Mixed/incomparable labels can help express that existing requirement.",
+      "related_findings": [
+        "QX-007",
+        "QX-002"
+      ]
+    },
+    {
+      "candidate": "Chosen-decoder limitation presented as intrinsic",
+      "disposition": "Application of existing source-comparison and example-scope rules",
+      "reason": "Alternative-proof comparison and the explanation of what a representation obscures already cover this distinction.",
+      "related_findings": [
+        "QX-009"
+      ]
+    },
+    {
+      "candidate": "Growing-k deduction absent from the complete recovery route",
+      "disposition": "Application of the existing bidirectional-reconciliation rule",
+      "reason": "The skill already says to read the full-proof destination and reconcile changes in both directions.",
+      "related_findings": [
+        "QX-003"
+      ]
+    },
+    {
+      "candidate": "Stopped-process, product-law and cost-accounting failures",
+      "disposition": "Repaired in the current drafts; preserve the fixes",
+      "reason": "Neither manuscript nor method should be criticized as though the previous round had not happened.",
+      "related_findings": [
+        "QX-039",
+        "QX-040",
+        "QX-048"
+      ]
+    }
+  ],
+  "scope": "All three supplied method files were read as review sources. No skill files were edited. The assignment’s advice-only boundaries control this deliverable.",
+  "evidence_limit": "One narrow rule-priority tension survives peer challenge. No controlled human reading experiment or causal evaluation of the method was performed."
+}

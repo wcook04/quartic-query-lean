@@ -1,0 +1,57 @@
+{
+  "status": "PASS",
+  "scope": "Artifact integrity, source bindings, exact locators and small displayed arithmetic only. Not a Lean run, Comparator run, formal-proof audit or certification of the mathematical theorem.",
+  "input_archive_crc": "PASS",
+  "input_manifest_files_verified": 293,
+  "input_sources_unchanged": "PASS",
+  "required_files": [
+    "findings.json",
+    "method_findings.json",
+    "questions.md",
+    "verdict.md",
+    "weighting.md"
+  ],
+  "packet": "classical_experts",
+  "draft_hash_object_exact_copy": "PASS",
+  "findings": 54,
+  "finding_ids_unique_and_contiguous": "PASS",
+  "finding_classifications": {
+    "credit": 2,
+    "evidence_presentation": 2,
+    "keep": 22,
+    "misplaced": 3,
+    "overweighted": 7,
+    "question": 7,
+    "unclear": 6,
+    "underweighted": 5
+  },
+  "severity_counts": {
+    "high": 6,
+    "keep": 22,
+    "low": 7,
+    "medium": 19
+  },
+  "panel_perspectives": 11,
+  "exact_current_markdown_quotations": 54,
+  "largest_quotation_word_count": 22,
+  "record_pdf_page_inferences": 0,
+  "ranked_questions": 20,
+  "method_findings_with_exact_source_rules": 10,
+  "reader_principles_assessed": 14,
+  "verdict_words": 485,
+  "verdict_word_budget": 500,
+  "readable_and_json_findings_agree": "PASS",
+  "markdown_heading_and_table_structure": "PASS",
+  "proposed_page_budgets": {
+    "expert_companion": 14,
+    "exposition": 14,
+    "record_expert_route_equivalent": 45
+  },
+  "drucker_factor_two_arithmetic": "PASS",
+  "zip_crc": "PASS",
+  "zip_safe_unique_names": "PASS",
+  "zip_extract_and_byte_comparison": "PASS",
+  "portable_verifier_after_extraction": "PASS",
+  "standard_unzip_test": "PASS",
+  "manifest_note": "manifest.json hashes every other file and excludes itself to avoid a circular digest. The final archive checks are repeated after this report and manifest are written."
+}

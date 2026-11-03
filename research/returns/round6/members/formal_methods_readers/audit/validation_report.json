@@ -1,0 +1,34 @@
+{
+  "schema": "quartic-r6-return-validation-v1",
+  "validation_date_utc": "2026-11-03",
+  "ok": true,
+  "checks": {
+    "required_files": 5,
+    "findings": 48,
+    "panel_perspectives": 6,
+    "preservation_findings": 18,
+    "severity_counts": {
+      "high": 5,
+      "keep": 18,
+      "low": 5,
+      "medium": 20
+    },
+    "method_findings": 9,
+    "ranked_questions": 20,
+    "verdict_words": 429,
+    "source_hashes_verified": 8,
+    "finding_quotes_verified_against_original_packet": 48,
+    "method_quotes_verified_against_original_packet": 18,
+    "original_packet_provided": true,
+    "manifest_payload_files_verified": 15,
+    "zip_crc_paths_and_contents_verified": true
+  },
+  "input_manifest_members_verified": 293,
+  "source_sha256_is_exact_drafts_copy": true,
+  "fresh_zip_extraction_byte_equal_to_payload": true,
+  "zip_safe_unique_non_symlink_paths": true,
+  "utf8_json_parsing_and_required_fields": true,
+  "final_manifest_rebuilt_and_rechecked_after_report_written": true,
+  "verification_scope": "File integrity, required report structure, exact quotations, source identity and packaging. No theorem, Lean, Comparator or semantic-review execution is implied.",
+  "self_reference_note": "The archive digest is not embedded in the archive. Payload checksums omit MANIFEST.json and SHA256SUMS.txt themselves."
+}

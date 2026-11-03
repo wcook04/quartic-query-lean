@@ -1,0 +1,89 @@
+# Round six: statement fidelity of the revised papers
+
+Reviewer: Claude (Opus 5.5), 3 November 2026. Read-only pass over the uncommitted revisions of `docs/expert_companion.md` and `docs/exposition.md`. Each sentence that describes a formal statement was compared with the Lean source. `lean/` is byte-identical between the pinned commit `e9dfefb` and the working tree (`git diff --quiet e9dfefb -- lean/` succeeds), so the line numbers below hold at both. The listed mathematical sentences were checked step by step. Lean was not run. Prior pass: `round5_statement_fidelity.md`.
+
+Verdicts: **exact**; **paper weaker** (the paper says less than Lean, which is fine); **overstates**; **misdescribes**. A **link** row flags a wrong or dead link target and does not judge the statement.
+
+## Expert companion
+
+| # | Sentence (abridged) | Lean locus | Verdict | Note |
+|:--|:--|:--|:--|:--|
+| E1 | §8: "Theorem 1 and the failure of the cubic bound are formalised in Lean 4 with Mathlib" | `Unconditional/Challenge.lean` L326–339 | exact | |
+| E2 | §8: "The statement file imports only Mathlib" | `Unconditional/Challenge.lean` L5 `public import Mathlib` (its only import) | exact | The claim is made only about the statement file. `Solution.lean` imports `QuarticQuery.Statement` and `QuarticQuery.Results.Unconditional`, and the Independent challenges import `QuarticQuery.*`. Neither paper says otherwise. |
+| E3 | §8: the file "contains the definitions of §§1–2 and the statements of four theorems" | Challenge L13–318 (definitions), L326–341 (theorems) | exact | The file also defines `Tournament.IsComparison`, `Lvalue`, `Gvalue` and `BansalSinhaLower`. "Contains" does not mean "only". |
+| E4 | §8: the four theorems are α_tot=4, the family of Theorem 1, the failure of every bound R(f)≤C Q(f)³, and "(5) beyond some threshold" | L326; L328–334; L336–338; L340 with `BansalSinhaLower` at L308–309 | exact | The cubic theorem has no +1 and lets C be any real. That is the form the paper names. `BansalSinhaLower` is ∀k≥2 ∃t₀ ∀t≥t₀, Lvalue k t < R(P k t), which is (5) beyond a threshold. |
+| E5 | §8: Comparator checks "exactly these statements and use only Lean's standard axioms (propositional extensionality, quotient soundness and choice)" | `Unconditional/comparator.json`: four `theorem_names`, `permitted_axioms` = propext, Quot.sound, Classical.choice | exact | |
+| E6 | §8: finite mixture with positive weights; unitaries fixed before the input; access only through O_x; caps count oracle calls on every branch; success ≥2/3 on every promised input | `RandomizedProgram` L48–54 (`weight_pos`, `weight_sum`); `RLe` L63–65; `bitOracle` L89–94; `AdaptiveProgram` L101–107; `queryCap` L109–116; `QLe` L130–134 | exact (paper slightly weaker) | The description leaves out two things. The program may also make binary projective measurements with classical branching (L107). `QLe` has a second alternative, `ConstantOnPromise` (L124–125), which needs no program. Neither changes the meaning, because on a nonempty coordinate type a constant answer has a zero-query program. |
+| E7 | §8: "The sets defining R and Q are nonempty because reading every bit is an admissible algorithm …; the set defining α_tot is nonempty because the formal Theorem 1 also proves the power bound with exponent four" | `R` L71–74 (its doc comment says the same); `Q` L139–140; `UniversalPower 4` is the second conjunct at L329 | exact | The definitions themselves do not assume the sets are nonempty, and the paper does not say they do. For an empty coordinate type, `Q`'s set is nonempty through `ConstantOnPromise` rather than through reading every bit. That case does not occur in the theorems. `sInf` on ℝ also needs the set to be bounded below, which the conjunct `0 ≤ α` (L313) gives. |
+| E8 | §8: "quantifies as ∀k≥2 ∃S,A,b,t₀ ∀t≥max(1,t₀) ∃C" | L330–331 | exact | Lean also requires 0<A. |
+| E9 | §8: "One circuit C realising P_{k,4^t}, of size at most S m(2t)², serves both Q(F)≤A 2^t(2t)^b and ⌊mL/100⌋<R(F)" | L331–334; `Gvalue` L303 is ℕ division, so it is the floor; `Lvalue` L298–300 is ⌊m^{1−1/k}/(log₂m)²⌋₊ with power 2 | exact | log₂m = `Real.logb 2 (mValue t)` = 2t. The circuit is existential at each t, after the constants. |
+| E10 | §8: "Its logarithmic exponent b is existential, and its lower bound is the floor form (15), which gives the form in (2) once t≥8" | L330 `∃ … (b : ℕ)`; the conversion is `rpow_le_of_Gvalue_lt hk h8` in `Paper/ConstructionFamily.lean` L47–54 | exact | The t≥8 conversion is checked mathematically under M3 below. |
+| E11 | §8: "The constants b=6 and 1/400 are proved in a separate theorem for a named circuit" | `construction_family_named`, `Paper/ConstructionFamily.lean` L28–40, for `forrCircuit` | exact | Its threshold is existential (`max t₀ 8` with t₀ from `bansalSinhaLower`). No Lean theorem states t≥13669k², and the paper does not claim one. |
+| E12 | §8: "Lean also proves the uniform bound (16)" | `forrelation_lower_uniform_sharp`, `ForrelationLower/Uniform.lean` L527–532 | exact | The hypotheses are k≥2 and 15k+2≤2t, and the constant 2/18225 and ln(4km) match (16). |
+| E13 | §8: the amplification lemma "is proved for one procedure fixed before the preparation, for success flags that test basis labels: it returns the successful state of A tensored with an auxiliary vector, with the exact success mass" | `Independent/UniformAmplifier/Challenge.lean` L17–52: `∃ V` (L23) precedes `∀ U` (L30); `S : Z → Bool` (L18); `coordProj … ψ = retainedProduct ξ A.goodState` (L37–38); `‖…‖² = 1 − A.trialFail M ^ N` (L39–40) | exact (paper weaker) | Lean also gives the circuit-cost clause (L25–29), zero output when p=0, gain at least p/2, and failure at most η when p≥γ. |
+| E14 | §8: "The upper bound uses only its law of the measured label" | `Upper.Samples.amplify`, `Upper/Amplify.lean` L345–352; used at `Upper/Tournament.lean` L402 | **misdescribes** | "its" makes the measured law a consequence of the lemma just described (`uniformOpaqueAmplifier`, built on `finalB`, `Upper/FinalB.lean` L26). `Samples.amplify` is a separate theorem about a separate implementation (`Samples.attempts`, L247), which measures a label and resets. `Paper/QuantumAmplification.lean` L17–20 says "No statement here identifies those two output interfaces." The upper bound does use only the measured form. |
+| E15 | §8: the direct product lemma "is proved for finitely many weighted random seeds" | `Independent/RealizedCaps/Challenge.lean` L18–25: `[Fintype Ω]`, `w ω ≥ 0`, `∑ w = 1` | exact | The weight μ on single inputs is any nonnegative function (`hμ`), and the hardness hypothesis is stated for deterministic trees of depth ≤L. Lean is slightly more general than the paper here. |
+| E16 | §8: it "bounds the probability of success together with [compliance], a recursive condition on the tree that encodes the caps, and so it also covers trees that exceed them" | Statement: Challenge L25, `compliantSuccess … (fun _ => L) ≤ β^r`. Predicate: `OutTree.actualComplies`, `LowerBound/RealizedCaps.lean` L52–61. Joint quantity: `compliantSuccess` L111–120 | exact; **link** | The content is right. The link `def-compliant` (L111–120) points to `compliantSuccess`, the weighted joint event, and not to the recursive condition the sentence names, which is `actualComplies` at L50–61. |
+| E17 | §8: "The reduction from arbitrary independent randomness to finitely many seeds and the identification of compliance with per-input query counts are ordinary arguments (§6.1 and Appendix G.8)" | `actualCount` L101–107 is defined, and its doc comment points to the ordinary proof of equivalence; no Lean theorem identifies the two | exact; **link** | The anchor `#CL-direct-product-formal` does not exist in the record at the pinned commit `e9dfefb` (it does in the working tree). |
+| E18 | §8: "Appendix G.4 of the record lists every formal statement cited here together with its relation to the printed one" | working-tree record, G.4 table | exact in the working tree; **link** | Every declaration the companion cites appears in the working-tree G.4. At `e9dfefb` the anchor `#checked-statements` is §2.9 "The checked statements", so the label "G.4" and that target disagree until the pin moves. |
+| E19 | §6: "A second proof, which the Lean formalisation follows, gives a bound uniform in k" | `ForrelationLower/Main.lean` L525 (`bansalSinhaLower`, the compared target's proof); `Uniform.lean` imports `Main` and proves (16); method files `Walk.lean`, `Stein.lean` | exact | The compared fixed-k target is proved by the fixed-parameter instance of that method, not by way of (16). The sentence does not say otherwise. |
+| E20 | §7 remark: "the explicit quantum bound Q(F_{k,m})≤2^53 k 2^{10k}√m ℓ^6" | `Q_Fkm_le_exponential`, `Upper/Bound.lean` L287–290 (k=l+1, every t≥1, named circuit) | exact | The bound is for `forrCircuit`. (15) holds for every realising circuit, so both bounds concern the same function. |
+| E21 | §7 remark: ε(ℓ)=8√(10/ℓ)+(56 log₂ℓ+508)/ℓ, "(record §7.3)" | none (ordinary mathematics) | **overstates relative to the cited source** | The constant 508 is true (M2 below). The cited record §7.3 (`docs/reasoning_record.md`, passage `ROOT-GROWING-K`) proves 514 and defines ε with 514. The sharpening is only in `round6_plans/expert_to_record_2.md`, not in the record. The anchor `#ROOT-GROWING-K` also does not exist at `e9dfefb`. |
+
+## Exposition
+
+| # | Sentence (abridged) | Lean locus | Verdict | Note |
+|:--|:--|:--|:--|:--|
+| X1 | §7: "The theorem has also been proved in the Lean proof assistant" | Challenge L326–335 with `Solution.lean` | exact | |
+| X2 | §7: "Every definition it needs sits in a single statement file …, which imports only Mathlib" | Challenge L5 | exact | Mathlib's own definitions (ℝ, `EuclideanSpace`, `Real.rpow`, `sInf`) are imported, as "imports only Mathlib" says. |
+| X3 | §7: R "is defined through finite random mixtures of decision trees" | L33–44, L46–60, L71–74 | exact | |
+| X4 | §7: Q is "the least query cap, taken over every measurement branch, of a quantum program that reaches the input only through the bit oracle" | `Q` L139–140, `QLe` L130–134, `queryCap` L109–116, `bitOracle` L89–94 | exact (paper slightly weaker) | The ≥2/3 requirement is left implicit, as for R. The `ConstantOnPromise` alternative is not mentioned (see E6). Because `QLe` is monotone in the budget, "least budget" and "least cap of a successful program" agree. |
+| X5 | §7: the file defines F_{k,m} "by the winning condition of Section 2", and α_tot | `WinsAt` L262–272, `addressedF`/`Fkm` L274–285, `alphaTot` L317–318 | exact | F takes the circuit as a parameter, as the exposition's §2 "Fix a circuit C" says. |
+| X6 | §7: "It states four theorems. Three say what the statements above say: α_tot=4, the failure of every bound R≤C Q³, and the Forrelation bound of Section 3" | L326, L336–338, L340 | exact | The exposition's §3 hardness statement ("for fixed k and all sufficiently large m, R(P)>L_{k,m}") is `BansalSinhaLower` word for word. |
+| X7 | §7: "The fourth is the family theorem for some exact circuit realising P, with the classical bound in the form ⌊mL/100⌋<R and the power of the logarithm in the quantum bound left unspecified" | L328–334 | exact (paper weaker) | The theorem also contains α_tot=4, `UniversalPower 4` and the circuit-size bound. |
+| X8 | §7: "An independent checker confirms that the proofs establish exactly these statements" | `Unconditional/comparator.json` | exact (paper weaker) | The checker also restricts the axioms. |
+| X9 | §7: the second clause of the winning condition "asks that every address input be promised with the value the address names" | `WinsAt` second conjunct, L267: `∀ h, f (readA x i h) = some (s h)` | exact | |
+
+## Mathematical sentences
+
+**M1. Expert §5.1, Drucker remark. Correct.** The source is Drucker's Theorem 1.1 in the extracted text (l. 34, restated l. 145). If Suc_{T,μ}(f) ≤ 1−ε, then for 0<α≤1 every algorithm making αεTk queries on k independent μ-inputs succeeds with probability at most (2^{αε}(1−ε))^k. Here k=r, T=L, ε=1/3 (so 1−ε=β=2/3) and α=3/r. Then α≤1 because r=40t≥40. The total budget is αεTk=(3/r)(1/3)L r=L, which is the simulator's total cap. The bound is (2^{1/r}β)^r=2β^r. Drucker's hypothesis concerns randomized T-query algorithms. It follows from the hypothesis on deterministic trees of depth ≤L by averaging. He states that partial functions are covered (l. 69), and the simulator's independent side information can be fixed by convexity. Absorption into (14): with G≤m²/100 and β^r≤m^{−10}, the term 2Gβ^r is at most m^{−8}/50 ≤ 1/100, and 4G/m² ≤ 4/100 and G/(mL) ≤ 1/100, so the total is still ≤6/100. "Lemmas 3.1–3.2, specialised at the end of his §3": §3 holds the fortune lemma (W(*ⁿ)≤1−ε, the supermartingale step) and the conditional-independence lemma, and l. 200 adapts the proof to fair algorithms. Caps of at most T per input never trigger the clipped fortune, which gives the product bound. Correct.
+
+**M2. Expert §7 remark, growing k with constant 508. True; not supported by the cited section.** Each step of `expert_to_record_2.md` was rechecked:
+- (7.5) gives B = ℓ/2+10k+53+log₂k+6log₂ℓ, and (7.6) gives A = (2−1/k)ℓ−log₂(1822500 k² ln 4km). The constant 1822500 = 200·18225/2 is right, and R>⌊mL/100⌋ with R an integer gives R>mL/100 ≥ mX/200.
+- 4B−A = 40k+ℓ/k+212+6log₂k+log₂1822500+log₂ln(4km)+24log₂ℓ.
+- With x=√(ℓ/40), the identity 40k+40x²/k−80x = 40(x−k)²/k holds, and this is <40/k ≤ 20 because 0≤x−k<1 and k≥2. Also 80x = 2√(40ℓ).
+- 6log₂k ≤ 3log₂ℓ−3log₂40, where 3log₂40 = 15.966. log₂1822500 = 20.797. And ln(4km) ≤ ℓ when k≤2t/15.
+- The sum is 2√(40ℓ)+28log₂ℓ+236.84, so 2(4B−A)/ℓ ≤ 8√(10/ℓ)+(56log₂ℓ+473.7)/ℓ. This proves 474 and hence 508.
+- The case split (4B≤A, or B≥ℓ/2) and the facts Q,R≥1 (F_t is not constant) are right.
+- The side conditions hold: k=⌊√(t/20)⌋≥2 at t≥80, 15k+2≤2t, and t≥32.
+
+However, record §7.3 in the working tree still bounds 40k+ℓ/k by 2√(40ℓ)+40 and states ε with **514**. The record's own plan (`round6_plans/reasoning_record.md` l. 173) says "The expert companion should either cite 514 or derive 508."
+
+**M3. Expert §5.5 and exposition §6, t≥8. Correct.** For k≥2 and t≥8: 4t² ≤ 2^t (equality at t=8, and 2^t/t² increases from there), and 2^t = m^{1/2} ≤ m^{1−1/k}. So x ≥ 1 and ⌊x⌋ ≥ x/2. Next, mL ≥ 4⁸ ≥ 200, so ⌊mL/100⌋ ≥ mL/100−1 ≥ mL/200 ≥ m^{2−1/k}/(400ℓ²). The exposition's "Both are at least 1 once t≥8, since …" justifies only the first quantity. The second, mL/100 ≥ m/100 ≥ 1, is immediate but not stated.
+
+**M4. Expert §7 and exposition §6, "Fix 0≤α<4". Correct.** The condition e = 2−1/k−α/2 > 0 is equivalent to k > 2/(4−α). For α≥0, (1+Q)^α is monotone in Q, and 1+C_k√m ℓ⁶ ≤ (1+C_k)√m ℓ⁶. The ratio is ≥ c·m^e/ℓ^{2+6α} → ∞, so every α<4 lies outside the set and α_tot ≥ 4. For α=3, k=3 is the least admissible k. The exposition's "k=2 gives exactly the cube" is loose: k=2 gives exponent 3 only up to logarithmic factors, which favour Q, so it does not even give R ≥ Q³.
+
+**M5. Expert, the "+1" after (1). True; the stated reason is incomplete.** With C_α>0 the right side is C_α(1+Q)^α ≥ C_α > 0, so "keeps the right side positive" is literally true. It suggests, though, that the bound would fail at Q=0 without the one. It would not. Q(f)=0 exactly when f is constant (`Independent/ModelZero/Challenge.lean` L11–14, compared), and then R(f)=0. For Q≥1, (1+Q)^α ≤ 2^α Q^α. So the one changes nothing, including α_tot, and only avoids writing 0^α. Round five recorded the same equivalence for the cubic theorem.
+
+## Required corrections
+
+1. **E14 (misdescribes).** Replace "The upper bound uses only its [law of the measured label][src-amplify-measured]." with:
+   > "The upper bound uses a separate measured form, for a procedure that measures the label and resets its workspace, which fixes the [law of the measured label][src-amplify-measured]; Lean does not identify the two procedures."
+
+2. **E21 (overstates the cited source).** Do one of the following:
+   - (a) Keep 508 and land the sharpened step of `round6_plans/expert_to_record_2.md` in record §7.3: replace "40k+ℓ/k ≤ 40(x−1)+40x²/(x−1) = 80x+40/(x−1) ≤ 2√(40ℓ)+40" with "40k+ℓ/k−80x = 40(x−k)²/k < 20, so 40k+ℓ/k ≤ 2√(40ℓ)+20". Then change the record's sum to "…+237" and its ε to 508 (or 474).
+   - (b) Change the companion to "(56\log_2\ell+514)/\ell".
+
+3. **Pinned record links (E17, E18, E21).** `#ROOT-GROWING-K` and `#CL-direct-product-formal` are absent at `e9dfefb`, and `#checked-statements` is §2.9 there, not G.4. Bump `COMMIT` in `tools/build_lean_links.py` to a commit containing the revised record and regenerate. `lean/` links are unaffected because `lean/` is unchanged.
+
+4. **E16 (link).** Point `def-compliant` at `lean/QuarticQuery/LowerBound/RealizedCaps.lean#L50-L61` (`OutTree.actualComplies`). Alternatively, keep L111–120 and change the link text to "the joint event of success and [compliance]".
+
+## Optional precision edits (no current error)
+
+- M5, after (1). Replace "and the added one keeps the right side positive when $Q(f)=0$" with:
+  > "and the added one only avoids $0^\alpha$: $Q(f)=0$ holds exactly for constant $f$, for which $R(f)=0$, and $(1+Q)^\alpha\le2^\alpha Q^\alpha$ when $Q\ge1$, so it does not change $\alpha_{\rm tot}$."
+- M3, exposition §6. Replace "Both are at least $1$ once $t\ge8$, since then $m^{1-1/k}/(\log_2 m)^2\ge2^t/(4t^2)\ge1$." with:
+  > "Both are at least $1$ once $t\ge8$, since then $m^{1-1/k}/(\log_2 m)^2\ge2^t/(4t^2)\ge1$, so $L\ge1$ and $mL/100\ge m/100\ge1$."
+- M4, exposition §6. Replace "$k=2$ gives exactly the cube" with:
+  > "$k=2$ gives the exponent $3$ only up to logarithmic factors, which does not refute it".
+- E6/X4: optionally add "and binary measurements with classical branching" after "unitaries fixed before the input".

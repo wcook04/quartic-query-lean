@@ -1,0 +1,262 @@
+[
+  {
+    "priority": 1,
+    "finding_id": "QX-005",
+    "question": "What changes operationally when the old candidate-set invariant becomes a product of actual comparison probabilities?",
+    "locator": {
+      "section": "1.3 What is new",
+      "quote": "keep the candidates that beat every pivot selected so far",
+      "path": "repository/docs/expert_companion.md",
+      "line": 69,
+      "source_sha256": "2033aa7f8f74a9c8cbc7f839f3599897f6f029c1a44b97f703532be13e9f1b86"
+    },
+    "purpose": "Please connect the existing hard-set and soft-weight descriptions, including the fact that binary probabilities recover membership indicators. Keep the algorithms’ different sampling and output contracts distinct."
+  },
+  {
+    "priority": 2,
+    "finding_id": "QX-002",
+    "question": "Which formal representation is meant by the first claim that the full amplifier lemma is proved?",
+    "locator": {
+      "section": "4 The quantum upper bound",
+      "quote": "Lean proves this label law and also the full form of the lemma",
+      "path": "repository/docs/expert_companion.md",
+      "line": 147,
+      "source_sha256": "2033aa7f8f74a9c8cbc7f839f3599897f6f029c1a44b97f703532be13e9f1b86"
+    },
+    "purpose": "Identify the opaque retained-factor theorem, the physical measured-label route actually used, and the remaining stronger physical-subsystem boundary. No additional formalization is requested."
+  },
+  {
+    "priority": 3,
+    "finding_id": "QX-001",
+    "question": "Why does the exposition still say that no statement review exists?",
+    "locator": {
+      "section": "§7, last sentence",
+      "quote": "No recorded statement review yet covers the four compared theorems or these two statements",
+      "path": "repository/docs/exposition.md",
+      "line": 269,
+      "source_sha256": "96c93a7a3efb3fb1421088ed5ff875cd52f4f2cd10b60ec3f6547c981a8f7152"
+    },
+    "purpose": "Reconcile the current wording with the supplied round-five fidelity review, and preserve the distinction between machine review and absent human review. The record’s frozen status labels need the same date/scope clarity."
+  },
+  {
+    "priority": 4,
+    "finding_id": "QX-003",
+    "question": "Where can a reader recover the companion’s existing growing-k remark in the complete record?",
+    "locator": {
+      "section": "§7.2 Excluding all smaller universal powers",
+      "quote": "A family with a quantitative schedule \\(k=k(t)\\) requires additional uniform estimates and is a separate result.",
+      "path": "repository/docs/reasoning_record.md",
+      "line": 3892,
+      "source_sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155"
+    },
+    "purpose": "Point to or incorporate that existing ordinary deduction and its uniform inputs in an optional route; do not alter the sufficient fixed-k theorem path."
+  },
+  {
+    "priority": 5,
+    "finding_id": "QX-004",
+    "question": "Which reading route is actually required for a specialist deciding whether the new mechanism works?",
+    "locator": {
+      "section": "Reading guide; §1.1 Dependencies and proof recovery",
+      "quote": "Forrelation ingredient: promise, decoder and circuit",
+      "path": "repository/docs/reasoning_record.md",
+      "line": 19,
+      "source_sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155"
+    },
+    "purpose": "Reconcile the opening Required labels with the later permission to accept the Forrelation supplier and skip to the total construction."
+  },
+  {
+    "priority": 6,
+    "finding_id": "QX-029",
+    "question": "What exactly does the standard-model bridge preserve, and what does it not preserve?",
+    "locator": {
+      "section": "§2.5 Renaming coordinates and deferring measurements",
+      "quote": "The deferred-measurement bridge has a more specific guarantee than a statement that measurements may be postponed.",
+      "path": "repository/docs/reasoning_record.md",
+      "line": 307,
+      "source_sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155"
+    },
+    "purpose": "Expose all-input acceptance masses, query-cap conversion and input-independent operations together. Acceptance-law equivalence is not itself physical final-state identity."
+  },
+  {
+    "priority": 7,
+    "finding_id": "QX-010",
+    "question": "At precisely which step is a successful pivot measured?",
+    "locator": {
+      "section": "§4, Sampling a pivot quantumly",
+      "quote": "On success the algorithm appends that column and continues;",
+      "path": "repository/docs/exposition.md",
+      "line": 179,
+      "source_sha256": "96c93a7a3efb3fb1421088ed5ff875cd52f4f2cd10b60ec3f6547c981a8f7152"
+    },
+    "purpose": "Distinguish retained coherent workspace inside one amplification call from the classical pivot history used by the next call."
+  },
+  {
+    "priority": 8,
+    "finding_id": "QX-011",
+    "question": "Can the running fractional example show sample availability and conditional label probabilities side by side?",
+    "locator": {
+      "section": "§4, end of ideal-process example",
+      "quote": "the next pivot is the winner with probability $(1-\\varepsilon)/(2-\\varepsilon)$",
+      "path": "repository/docs/exposition.md",
+      "line": 171,
+      "source_sha256": "96c93a7a3efb3fb1421088ed5ff875cd52f4f2cd10b60ec3f6547c981a8f7152"
+    },
+    "purpose": "The record already has W/4=23999/48000 and the two conditional fractions. Bring that existing connection to the exposition and preserve its abstract-comparison scope."
+  },
+  {
+    "priority": 9,
+    "finding_id": "QX-013",
+    "question": "Why does the reusable tournament return a list, and what remains guaranteed without a dominant candidate?",
+    "locator": {
+      "section": "4.2 A tournament with probabilistic comparisons",
+      "quote": "returns at most $T$ candidates",
+      "path": "repository/docs/expert_companion.md",
+      "line": 160,
+      "source_sha256": "2033aa7f8f74a9c8cbc7f839f3599897f6f029c1a44b97f703532be13e9f1b86"
+    },
+    "purpose": "Separate unconditional cap/list length, conditional winner containment and final verification, rather than leaving the reader to identify this with KING."
+  },
+  {
+    "priority": 10,
+    "finding_id": "QX-012",
+    "question": "Which example shows nontransitivity, and which hypothesis permits a loser pair with no bias at all?",
+    "locator": {
+      "section": "4 The quantum algorithm: a tournament",
+      "quote": "If the winner wins only with probability $1-\\varepsilon$",
+      "path": "repository/docs/exposition.md",
+      "line": 171,
+      "source_sha256": "96c93a7a3efb3fb1421088ed5ff875cd52f4f2cd10b60ec3f6547c981a8f7152"
+    },
+    "purpose": "The existing cycle and fractional-winner variant have different jobs. Connect the no-margin permission to the general drift/sampling formulas; do not invent another construction."
+  },
+  {
+    "priority": 11,
+    "finding_id": "QX-014",
+    "question": "Why does the nearly linear exact circuit size matter to the quantum upper bound?",
+    "locator": {
+      "section": "2 The construction, property (iii)",
+      "quote": "An exact fan-in-two Boolean circuit",
+      "path": "repository/docs/expert_companion.md",
+      "line": 101,
+      "source_sha256": "2033aa7f8f74a9c8cbc7f839f3599897f6f029c1a44b97f703532be13e9f1b86"
+    },
+    "purpose": "Make the existing S→K→short-list verification dependency explicit, independently of the logical need for an exact domain bit."
+  },
+  {
+    "priority": 12,
+    "finding_id": "QX-015",
+    "question": "Why does the nearby quartic certificate-versus-quantum separation not settle this randomized-versus-quantum problem?",
+    "locator": {
+      "section": "1.3 What is new",
+      "quote": "both separate certificate complexity $C$ from $R$ and $Q$",
+      "path": "repository/docs/expert_companion.md",
+      "line": 69,
+      "source_sha256": "2033aa7f8f74a9c8cbc7f839f3599897f6f029c1a44b97f703532be13e9f1b86"
+    },
+    "purpose": "Use the already published C,R,Q parameter comparison to identify the extra per-column address-hardness cost."
+  },
+  {
+    "priority": 13,
+    "finding_id": "QX-016",
+    "question": "Which parameter changed between 5/2, 8/3 and 3, and which outer cost did not?",
+    "locator": {
+      "section": "§1.1 The history",
+      "quote": "Improved partial separations then gave $8/3-o(1)$ and $3-o(1)$ in this framework",
+      "path": "repository/docs/expert_companion.md",
+      "line": 44,
+      "source_sha256": "2033aa7f8f74a9c8cbc7f839f3599897f6f029c1a44b97f703532be13e9f1b86"
+    },
+    "purpose": "Complete the existing 2+c arithmetic with the intermediate partial exponent. Do not turn the limit of this cited route into a universal barrier theorem."
+  },
+  {
+    "priority": 14,
+    "finding_id": "QX-009",
+    "question": "Why use the squared projection experiment rather than the familiar signed interference experiment here?",
+    "locator": {
+      "section": "2 The construction, property (ii)",
+      "quote": "measures the projection onto $u$, which succeeds with probability $\\Phi^2$",
+      "path": "repository/docs/expert_companion.md",
+      "line": 99,
+      "source_sha256": "2033aa7f8f74a9c8cbc7f839f3599897f6f029c1a44b97f703532be13e9f1b86"
+    },
+    "purpose": "This is a method-choice question. The ceil(k/2) count is for one signed experiment, not a complete bounded-error decoder for shrinking thresholds. Either promised decoder still leaves exact domain certification as a separate task."
+  },
+  {
+    "priority": 15,
+    "finding_id": "QX-022",
+    "question": "Can the opening address-cost intuition explicitly allow a lucky guess?",
+    "locator": {
+      "section": "Overview, after one-line arithmetic",
+      "quote": "locating it inside one column means naming an address, which costs $L$ queries there.",
+      "path": "repository/docs/exposition.md",
+      "line": 32,
+      "source_sha256": "96c93a7a3efb3fb1421088ed5ff875cd52f4f2cd10b60ec3f6547c981a8f7152"
+    },
+    "purpose": "The corrected lower-bound proof already controls a joint cheap-run/true-cell-query event; the Overview should not imply a deterministic per-run requirement to learn the address."
+  },
+  {
+    "priority": 16,
+    "finding_id": "QX-028",
+    "question": "Where is the ordinary input length n made explicit at the long record’s construction definition?",
+    "locator": {
+      "section": "§4.2 Columns and their selected cells",
+      "quote": "Column $i$ contains the following disjoint blocks of input bits.",
+      "path": "repository/docs/reasoning_record.md",
+      "line": 1796,
+      "source_sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155"
+    },
+    "purpose": "Reuse the companion’s existing formula so that m columns, stored address cells and ordinary bit access cannot be confused."
+  },
+  {
+    "priority": 17,
+    "finding_id": "QX-032",
+    "question": "What motivated the supplier reconstruction’s algebraic truncation?",
+    "locator": {
+      "section": "§3.8 Gaussian and Stein identities",
+      "quote": "Formula (F9) makes a different choice, so its resulting distribution and moment bounds are proved here.",
+      "path": "repository/docs/reasoning_record.md",
+      "line": 1128,
+      "source_sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155"
+    },
+    "purpose": "Explain the documented convenience of the existing choice, if any, and the later estimate it serves. No new proof or novelty claim is requested."
+  },
+  {
+    "priority": 18,
+    "finding_id": "QX-007",
+    "question": "In which components is the auxiliary amplifier stronger, narrower or simply the same as the current prose?",
+    "locator": {
+      "section": "§7, auxiliary amplifier",
+      "quote": "has a stronger conclusion than Section 4 states",
+      "path": "repository/docs/exposition.md",
+      "line": 269,
+      "source_sha256": "96c93a7a3efb3fb1421088ed5ff875cd52f4f2cd10b60ec3f6547c981a8f7152"
+    },
+    "purpose": "Section 4 already returns the good state. Compare uniformity, exact mass, retained register and admissible success predicates separately."
+  },
+  {
+    "priority": 19,
+    "finding_id": "QX-027",
+    "question": "What is the shortest complete semantic route through Appendix A for Theorem 1?",
+    "locator": {
+      "section": "Appendix A, opening audit promise",
+      "quote": "This appendix lists everything a reader must read to answer that question.",
+      "path": "repository/docs/expert_companion.md",
+      "line": 287,
+      "source_sha256": "2033aa7f8f74a9c8cbc7f839f3599897f6f029c1a44b97f703532be13e9f1b86"
+    },
+    "purpose": "Preserve essential definitions and restrictions; distinguish the theorem’s used route from supplementary diagnostics and stronger auxiliary contracts."
+  },
+  {
+    "priority": 20,
+    "finding_id": "QX-006",
+    "question": "Which revision does the reproduction block mean to name?",
+    "locator": {
+      "section": "Appendix A, Reproducing the check",
+      "quote": "the commit the links point to",
+      "path": "repository/docs/expert_companion.md",
+      "line": 351,
+      "source_sha256": "2033aa7f8f74a9c8cbc7f839f3599897f6f029c1a44b97f703532be13e9f1b86"
+    },
+    "purpose": "Its explicit claim about the linked commit conflicts with the current link strings. Distinguish execution, linked-source and packet revisions using the existing evidence."
+  }
+]

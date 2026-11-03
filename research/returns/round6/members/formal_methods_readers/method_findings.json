@@ -1,0 +1,214 @@
+{
+  "scope": "Recommendations for the supplied general writing method. No skill or manuscript has been changed. Each finding quotes an existing method rule and current-document evidence.",
+  "findings": [
+    {
+      "id": "MF01",
+      "title": "Record relation by assumptions, conclusion and transport, rather than one adjective",
+      "rule_status": "underspecified",
+      "severity": "high",
+      "method_locator": {
+        "file": "skills/long-to-short/SKILL.md",
+        "quote": "whether its\n  formal statement is the same as the printed claim, stronger, or weaker",
+        "line": 181
+      },
+      "document_evidence": {
+        "file": "repository/docs/expert_companion.md",
+        "quote": "Stronger conclusion (the returned state); success must be a test on basis labels",
+        "line": 338
+      },
+      "finding": "The existing rule asks for differences, which is good, but its three-way headline relation invites a single ordering where neither statement globally implies the other. The amplifier has a stronger conclusion in a narrower setting; the realized-cap direct product has a stronger event conclusion with finite seeds and a different compliance predicate. These are comparisons of separate axes, plus ordinary transports.",
+      "suggested_rule_change": "Retain the existing fidelity table, but require separate entries for domain/assumptions, conclusion, representation, and any ordinary transport used to compare them. Permit mixed or incomparable until the transport is stated. Do not use Same for a fixed printed construction if the formal result chooses a circuit existentially without saying what identifies the two.",
+      "transfer_test": "Apply to the SK exemplar: distinguish full support from positive density and the scalar conclusion from a circuit theorem. A stronger conclusion in a restricted setting must not become an unconditional stronger badge.",
+      "related_findings": [
+        "FX018",
+        "FX030"
+      ]
+    },
+    {
+      "id": "MF02",
+      "title": "Turn the fifteen-minute promise into an audit task with a stopping point",
+      "rule_status": "unsupported effort heuristic",
+      "severity": "high",
+      "method_locator": {
+        "file": "skills/long-to-short/SKILL.md",
+        "quote": "whether the\nstatement was encoded correctly in about fifteen minutes",
+        "line": 164
+      },
+      "document_evidence": {
+        "file": "repository/docs/expert_companion.md",
+        "quote": "This appendix lists everything a reader must read to answer that question.",
+        "line": 287
+      },
+      "finding": "The appendix names 343 lines, model translations, four target types, separate constants, and several independent comparisons. This makes an excellent starting map but does not establish that a reader can settle standard-model adequacy in fifteen minutes. A quick check and a complete semantic review are different tasks.",
+      "suggested_rule_change": "Specify the bounded task: identify the configured targets, reconstruct one quantifier order, locate an ordinary bridge, and decide which semantic question remains. Record an actual timed unaided attempt if making an empirical timing claim; otherwise describe a proposed audit route without claiming the reader can certify all definitions that quickly.",
+      "transfer_test": "Ask two roles to perform the same route: a Lean reviewer unfamiliar with quantum queries and a query theorist unfamiliar with Lean. Their failure points should guide scope; no new formal theorem is required.",
+      "related_findings": [
+        "FX017",
+        "FX028"
+      ]
+    },
+    {
+      "id": "MF03",
+      "title": "Bind an evidence encounter to one complete edition",
+      "rule_status": "existing rule needs stronger cross-artifact enforcement",
+      "severity": "high",
+      "method_locator": {
+        "file": "skills/long-to-short/SKILL.md",
+        "quote": "at an\nimmutable commit with a pinned line range",
+        "line": 156
+      },
+      "document_evidence": {
+        "file": "repository/docs/expert_companion.md",
+        "quote": "# commit 659b571, toolchain leanprover/lean4:v4.36.0-rc2, Mathlib 69552756cd8a",
+        "line": 354
+      },
+      "finding": "Declaration-link pinning is already required, but the surrounding reproduction comment still names 659b571 while the generated Lean links target e9dfefbf. Source status also identifies a stale record PDF. This is an edition-coherence problem; no conclusion about failed formal checks follows.",
+      "suggested_rule_change": "Treat the reading edition, source pin, evidence receipt, review binding and PDF source hash as one published set. Validate mutual consistency after link regeneration. Keep the latest live index available separately, but mark it as live rather than silently substituting it for edition evidence.",
+      "transfer_test": "Change a source pin without changing any theorem text and verify that all human-facing version statements and PDF/mapping freshness labels either update together or explicitly retain a historical role.",
+      "related_findings": [
+        "FX002",
+        "FX033"
+      ]
+    },
+    {
+      "id": "MF04",
+      "title": "Model reviewer roles as well as the authors of cited papers",
+      "rule_status": "audience rule too narrow",
+      "severity": "medium",
+      "method_locator": {
+        "file": "skills/long-to-short/SKILL.md",
+        "quote": "The readers of a short paper are the authors of the\n   works it cites and builds on.",
+        "line": 48
+      },
+      "document_evidence": {
+        "file": "repository/docs/expert_companion.md",
+        "quote": "Its definitions follow in file order, each linked to its lines.",
+        "line": 287
+      },
+      "finding": "The bibliography calibrates mathematical novelty well, but a formal reviewer has a different first task: inspect specifications, imports, quantifiers and equivalence bridges. File order is useful for a maintainer and less useful to a sceptical reader tracing one headline. One universal reader model cannot choose both routes.",
+      "suggested_rule_change": "Keep the cited-literature model for scientific exposition, then add a distinct role/task model when the artifact offers formal assurance. Give that role an optional route and do not inflate the main proof into a formalisation report.",
+      "transfer_test": "For another subject, compare the domain specialist, library maintainer and sceptical statement reviewer. Identify one common statement and one different next action, without inventing opinions of named people.",
+      "related_findings": [
+        "FX003",
+        "FX031"
+      ]
+    },
+    {
+      "id": "MF05",
+      "title": "Replace fixed evidence page quotas with a justified reading budget",
+      "rule_status": "internal tension",
+      "severity": "medium",
+      "method_locator": {
+        "file": "skills/record-to-expository/SKILL.md",
+        "quote": "collect the formal correspondences in a closing half-page",
+        "line": 84
+      },
+      "document_evidence": {
+        "file": "repository/docs/exposition.md",
+        "quote": "Two further results are proved in Lean and accepted by Comparator against their own statements.",
+        "line": 269
+      },
+      "finding": "The closing section carries four headline claims, two mixed-scope auxiliary results and distinctions among human review, automated statement review, build and comparison. It occupies about 0.9 page in the supplied 14-page PDF, while the expert audit occupies about 2.35 pages despite the one-page instruction. The amount is not itself a defect; the fixed quota encourages dense paragraph packing.",
+      "suggested_rule_change": "Make the visible budget follow the reader task. Keep the exposition summary brief and route details to one stable evidence destination; use a task-oriented table where multiple claim relations would otherwise be buried in a paragraph. Assess total reallocation rather than rewarding added pages.",
+      "transfer_test": "Compare a one-target elementary theorem and a multi-model theorem. The amount of evidence prose should change with the semantic decisions a reader must make, while the mathematical teaching route remains primary.",
+      "related_findings": [
+        "FX014",
+        "FX032"
+      ]
+    },
+    {
+      "id": "MF06",
+      "title": "Do not treat a wrong correspondence link as harmless",
+      "rule_status": "epistemic claim needs correction",
+      "severity": "high",
+      "method_locator": {
+        "file": "skills/README.md",
+        "quote": "so its failure is an unhelpful link, not false content.",
+        "line": 123
+      },
+      "document_evidence": {
+        "file": "repository/docs/reasoning_record.md",
+        "quote": "It is not another compilation or comparison result.",
+        "line": 472
+      },
+      "finding": "The source display can remain literal while a wrong edge still tells the reader that the wrong theorem supports a claim, or that a built declaration was compared. That is a potentially substantive misrepresentation of support. The record correctly distinguishes dependency extraction from execution, but the general method understates why provenance labels matter.",
+      "suggested_rule_change": "Describe correspondence errors as possible semantic misattributions. Every displayed relation should state its kind, direction, endpoints, source editions and review status. Make absence of support visible without converting it into a claim that the theorem is false.",
+      "transfer_test": "Present a dependency edge, a prose-to-type mapping and a Comparator-identity relation with identical endpoint labels. Check that the interface still lets the reader distinguish their evidential force.",
+      "related_findings": [
+        "FX013",
+        "FX012"
+      ]
+    },
+    {
+      "id": "MF07",
+      "title": "Keep paper proof routes and formal dependency routes separate at the local lemma",
+      "rule_status": "existing boundary needs route-level application",
+      "severity": "high",
+      "method_locator": {
+        "file": "skills/long-to-short/SKILL.md",
+        "quote": "do not transfer a formal check to an alternative ordinary argument.",
+        "line": 136
+      },
+      "document_evidence": {
+        "file": "repository/docs/expert_companion.md",
+        "quote": "the form Theorem 1 uses",
+        "line": 339
+      },
+      "finding": "The method contains the right prohibition, and expert §4 already says that its upper bound uses the measured-label law. The separately compared retained-state interface has narrower assumptions described in the appendix, while the record distinguishes another formal continuation route. The remaining methodological need is to connect these route distinctions consistently at the local use, without implying that an auxiliary comparison certifies every displayed version of the lemma.",
+      "suggested_rule_change": "When two routes share a lemma name, identify beside the mathematical use which interface is needed, and in the evidence destination which route the headline proof actually depends on. Reuse the existing dependency extraction; do not require new formalisation or duplicate full proofs.",
+      "transfer_test": "In the SK exemplar, verify that the full-support and scalar formal statements do not silently serve as a formal proof of QAOA circuit convergence. Compare the route needed by the exposition with the route actually extracted.",
+      "related_findings": [
+        "FX007",
+        "FX045"
+      ]
+    },
+    {
+      "id": "MF08",
+      "title": "Use one existing semantic control as a worked statement audit",
+      "rule_status": "method lacks a concrete audit exercise",
+      "severity": "medium",
+      "method_locator": {
+        "file": "skills/long-to-short/SKILL.md",
+        "quote": "the few modelling choices a reader should check",
+        "line": 175
+      },
+      "document_evidence": {
+        "file": "repository/docs/reasoning_record.md",
+        "quote": "Two modules can agree on the resulting vacuous assertion",
+        "line": 479
+      },
+      "finding": "Listing modelling choices and negative Comparator controls leaves the reader to invent a semantic test. The record already has an excellent shared-bad-specification example and independently specified finite controls, but the short audit route mostly lists definitions. A sceptic needs to see how the intended mathematics can fail while two formal types still agree.",
+      "suggested_rule_change": "Add a selectable worked audit using an already available finite control: read its mathematical expected answer, locate the definition, identify the mutation that changes it, and state the limited conclusion. Keep it optional in the exposition and do not imply that a passing example proves general equivalence.",
+      "transfer_test": "Carry the decision criterion to a theorem with an existing boundary example: would a nearby easier formal statement change the example? If no suitable example exists, record that limitation instead of proposing formalisation work as an editorial requirement.",
+      "related_findings": [
+        "FX010",
+        "FX040"
+      ]
+    },
+    {
+      "id": "MF09",
+      "title": "Separate content freshness, binding freshness and reviewer identity",
+      "rule_status": "review-status rule needs finer distinctions",
+      "severity": "high",
+      "method_locator": {
+        "file": "skills/long-to-short/SKILL.md",
+        "quote": "whether that\n  relation was reviewed against the current sources",
+        "line": 184
+      },
+      "document_evidence": {
+        "file": "repository/docs/exposition.md",
+        "quote": "No recorded statement review yet covers the four compared theorems or these two statements",
+        "line": 269
+      },
+      "finding": "A review may exist for the relevant text while its corpus tie remains historical, and a review can be automated with no human review. The current short documents present these facts differently. A single reviewed/unreviewed flag cannot express the distinction without making an absolute absence claim that other packet files contradict.",
+      "suggested_rule_change": "Require the status account to state separately that a review exists, what bytes/statement it covers, whether the binding is current, and whether it was human or automated. Propagate a new review fact into all reader summaries without upgrading stale corpus bindings.",
+      "transfer_test": "Create a source-preserving move, a text edit and a new automated review in a worked scenario. Each should change only its appropriate status, and a human-review field should remain unperformed unless a person actually reviewed it.",
+      "related_findings": [
+        "FX001",
+        "FX027"
+      ]
+    }
+  ],
+  "packet": "formal_methods_readers",
+  "schema": "quartic-r6-method-review-v1"
+}

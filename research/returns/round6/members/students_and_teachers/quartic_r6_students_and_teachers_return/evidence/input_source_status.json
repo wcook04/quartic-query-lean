@@ -1,0 +1,23 @@
+{
+  "acceptance_gate": "not applied: the record was edited after its accepted review and the corpus was regenerated; these hashes bind the packet to the exact bytes supplied.",
+  "drafts": {
+    "repository/docs/expert_companion.bib": "c458193dd5c1f5c2af5d33191101f6ee97dcfc691b50a7209c51665bf4baa002",
+    "repository/docs/expert_companion.md": "2033aa7f8f74a9c8cbc7f839f3599897f6f029c1a44b97f703532be13e9f1b86",
+    "repository/docs/expert_companion.pdf": "80a73f713a5690053d0564e0b4d54dfd50659388becab0b1495d19804b28b196",
+    "repository/docs/exposition.bib": "0a388c76c11b0d61370f860bc5653280c4a27c9700fdff3037fe0fbbea5744d3",
+    "repository/docs/exposition.md": "96c93a7a3efb3fb1421088ed5ff875cd52f4f2cd10b60ec3f6547c981a8f7152",
+    "repository/docs/exposition.pdf": "24bef89eccb8684b46a3b2e4b7ae937db8011dc9581991bdd9009d97827dc08d"
+  },
+  "record": {
+    "accepted_review_record_sha256": "c2b6f11a7a4b3f318ebf419a9959c1d154f8e2b74e3ec02a8e25fb92ba9cfd25",
+    "changed_lines": 694,
+    "markdown_matches_accepted_review": false,
+    "markdown_sha256": "2c9971d12b85ba98ff647568c85f9d07a6a11959171cfa3ea60bf6e55d105155",
+    "pdf_rendered_from": "the accepted Markdown, as last changed at commit 0f382d3bd2aa6fac3c1c11e92b517351538e3348",
+    "pdf_sha256": "90002cf40eea95af7cf65885e6a75ca8e118fccae61601687fc68746927bc098",
+    "since_pdf_diff": "repository/docs/reasoning_record.since_pdf.diff"
+  },
+  "repository_commit": "9bdd443ce9b5e2fa5a83d63e0bcb0d87fbed298a",
+  "schema": "quartic-round5-source-status-v1",
+  "status": "unreviewed working drafts"
+}
