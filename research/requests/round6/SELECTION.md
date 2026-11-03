@@ -1,0 +1,3 @@
+# Round-six packet selection
+
+Four expert-emulation critique packets on the round-five revisions of the three documents. Each panel reads as a community of cited-literature authors (quantum algorithms; randomized lower bounds and separations; formal methods and sceptics; students and teachers), asks why each part exists, and judges weighting against what that community knows and wants. Every packet carries the three documents and their PDFs, the long record's link closure, the preprint, the community's literature, the general writing skills, principles distilled from outside readers of AI-produced mathematics, and the previous round's verdicts, dispositions, fidelity review and passage audit.
