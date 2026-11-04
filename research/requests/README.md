@@ -25,3 +25,10 @@ were the source. Commands and external-input requirements live in the
 paper, with chronological sentence-level review, full round-eight feedback and
 revision decisions, and fresh source-bound PDFs. Build with
 [build_round9_packets.py](../../tools/build_round9_packets.py).
+
+[Round ten](round10/SELECTION.md) reviews the three revised papers against an
+ambitious literature-based writing standard, from sentence-level understanding
+to whole-paper structure. A prospective first pass is frozen before historical
+feedback or comparison literature is opened. Complete round-nine returns and
+dispositions support the later audit; there are no finding quotas. Build with
+[build_round10_packets.py](../../tools/build_round10_packets.py).

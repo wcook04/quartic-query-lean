@@ -204,7 +204,7 @@ def link_targets(text):
     text = re.sub(r"(?ms)^(`{3,}|~{3,}).*?^\1[^\n]*$", "", text)
     text = re.sub(r"`[^`\n]+`", "", text)
     targets = [m.group(1).strip("<>") for m in repository_checks.LINK.finditer(text)]
-    targets += [m.group(1) or m.group(2) for m in re.finditer(r"(?m)^ {0,3}\[[^\]\n]+\]:\s*(?:<([^>\n]+)>|(\S+))", text)]
+    targets += [m.group(1) or m.group(2) for m in re.finditer(r"(?m)^ {0,3}\[(?!\^)[^\]\n]+\]:\s*(?:<([^>\n]+)>|(\S+))", text)]
     targets += re.findall(r"<(https?://[^>\s]+)>", text)
     return targets
 

@@ -317,7 +317,7 @@ def linked_sources(root, selected):
         text = source.read_text(encoding="utf-8")
         targets = [match.group(1).strip("<>") for match in repository_checks.LINK.finditer(text)]
         targets += [match.group(1) or match.group(2) for match in re.finditer(
-            r"(?m)^ {0,3}\[[^\]\n]+\]:\s*(?:<([^>\n]+)>|(\S+))", text)]
+            r"(?m)^ {0,3}\[(?!\^)[^\]\n]+\]:\s*(?:<([^>\n]+)>|(\S+))", text)]
         for target in targets:
             try:
                 url = urlsplit(target)
@@ -470,7 +470,7 @@ def context_link_report(data):
         text = re.sub(r"`[^`\n]+`", "", text)
         targets = [m.group(1).strip("<>") for m in repository_checks.LINK.finditer(text)]
         targets += [m.group(1) or m.group(2) for m in re.finditer(
-            r"(?m)^ {0,3}\[[^\]\n]+\]:\s*(?:<([^>\n]+)>|(\S+))", text)]
+            r"(?m)^ {0,3}\[(?!\^)[^\]\n]+\]:\s*(?:<([^>\n]+)>|(\S+))", text)]
         for target in targets:
             url = urlsplit(target)
             if url.scheme or url.netloc or not url.path:

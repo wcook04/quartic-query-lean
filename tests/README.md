@@ -35,3 +35,9 @@ silently relying on another checkout.
 [test_build_round9_packets.py](test_build_round9_packets.py) checks all three
 lead-paper requests, complete previous-round inputs, sentence-audit obligations
 and rejection of stale, incomplete or changed native render receipts.
+
+[test_build_round10_packets.py](test_build_round10_packets.py) checks complete
+original-return custody (including scripts and JSONL), nested decisions and
+rebased links, exact Git-pinned method and code exports, source-bound
+supplementary full texts, citation coverage and immutable destinations. Temporary
+Git and custody fixtures exercise these guards without private annex inputs.

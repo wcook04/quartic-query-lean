@@ -54,7 +54,8 @@ class RoundNineTests(unittest.TestCase):
             (root / 'docs').mkdir(parents=True)
             (root / 'research').mkdir()
             generated = folder / 'generated'; generated.mkdir()
-            original = ('[contract](statement_evidence_contract.md#scope)\n'
+            original = ('[^note]: The guide is evidence, not a claim of review.\n'
+                        '[contract](statement_evidence_contract.md#scope)\n'
                         '[decisions](../research/decisions.json)\n'
                         '[reference][guide]\n[guide]: <other%20guide.md#details>\n'
                         '[local](#section) [web](https://example.org/guide)\n')
@@ -71,6 +72,7 @@ class RoundNineTests(unittest.TestCase):
             self.assertIn('../repository/docs/statement_evidence_contract.md#scope', relocated)
             self.assertIn('<../repository/docs/other%20guide.md#details>', relocated)
             self.assertIn('[local](#section) [web](https://example.org/guide)', relocated)
+            self.assertIn('[^note]: The guide is evidence, not a claim of review.', relocated)
             self.assertIn('repository/docs/detail.md', files)
             for member, (path, _, _) in files.items():
                 if path.suffix != '.md':

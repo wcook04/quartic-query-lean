@@ -141,3 +141,8 @@ papers, proof-link destinations and writing method consume those decisions.
 The [round-nine returns](returns/round9/README.md) extend the review to all three
 maintained manuscripts. Their [revision account](adjudication/round9_revision.md)
 links individual decisions, source correspondence and editorial validation.
+
+The [round-ten requests](requests/round10/SELECTION.md) ask for complete
+chronological reviews of those revised papers, followed by literature-grounded
+improvement advice. They include the full round-nine returns and dispositions
+and aim beyond regression repair toward exceptionally well-written mathematics.

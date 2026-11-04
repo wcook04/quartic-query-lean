@@ -13,6 +13,57 @@ the local originals are present. A public clone without those local custody
 files cannot complete this verification. See the [returns guide](../research/returns/README.md#round-seven-returns)
 for the advisory inventory and custody boundary.
 
+[build_round10_packets.py](build_round10_packets.py) builds the three current
+chronological improvement reviews. Every packet carries all 42 retained query
+literature sources, the preprint, the required supplementary mathematical
+editions and six complete writing references, the exact merged writing-method
+closure, and the full Lake-pinned Complexitylib source. The
+[reviewed citation map](../research/requests/round10/citation_coverage.json)
+covers every bibliography entry and Appendix C; its generated coverage report
+separates original editions, alternatives and inaccessible originals.
+
+```sh
+python3 tools/build_round10_packets.py --annexes /path/to/annexes \
+  --paper-annex /path/to/annexes/openai-math-284-quartic-query-separation \
+  --expert-pdf /path/to/fresh-render/expert/expert_companion.pdf \
+  --exposition-pdf /path/to/fresh-render/exposition/exposition.pdf \
+  --record-pdf /path/to/fresh-render/record/reasoning_record.pdf \
+  --lean-exposition /path/to/merged-lean-exposition-checkout \
+  --supplementary-literature /path/to/supplement/manifest.json \
+  --complexitylib /path/to/pinned-complexitylib-checkout \
+  --dest /path/to/new-round10-batch
+python3 tools/check_packets.py /path/to/new-round10-batch
+```
+
+The writing-method checkout must contain revision
+`7bc9ef5d253d23527c6ccbd759c2eb24c0243ac7`; selected bytes must match that commit.
+The `--complexitylib` checkout must contain the Lake-pinned revision; if omitted,
+the builder reads `lean/.lake/packages/complexitylib`. It exports tracked Git
+bytes and never runs submitted or dependency scripts. All three PDFs require
+current native `render.json` receipts beside them, with visual inspection
+recorded separately. The three original round-nine ZIPs and every submitted
+member, including ignored scripts and JSONL, must exist at the paths in the
+[intake inventory](../research/returns/round9/intake.json) and match its hashes.
+A public clone without those local originals cannot build this campaign.
+
+The required supplementary manifest has schema
+`quartic-round10-supplementary-literature-v1` and a `sources` array. Each source
+names `id`, `role` (`query-literature` or `writing-literature`), `title`,
+`source_url`, `edition`, `edition_relation`, `citation_keys` and `files`.
+Each file specifies its manifest-relative `path`, archive `member`, `bytes` and
+`sha256`; provide a complete original PDF/TeX archive and an `extracted*.md` or
+`extracted*.txt` full-text copy. Archive members belong under `literature/` or
+`writing_literature/` according to the role. The citation map owns the required
+source IDs. An earlier primary edition must remain labelled as earlier.
+
+Omit `--dest` to validate inputs without publishing ZIPs. Use `TMPDIR` on an
+appropriate scratch volume for the complete source exports. Existing batch
+directories are refused, and source hashes are checked again before publication.
+The generated `LITERATURE_COVERAGE.json`, `METHOD_PROVENANCE.json`,
+`CODE_SOURCE_PROVENANCE.json` and native render receipts identify exactly what
+was supplied; none claims a new proof build, mathematical review or reader test.
+See the [selection](../research/requests/round10/SELECTION.md) for the assignment.
+
 [build_round9_packets.py](build_round9_packets.py) builds three improvement-only
 review packets, one each for the expert companion, exposition and full record.
 It adds a chronological sentence audit, line-numbered reading copies, complete

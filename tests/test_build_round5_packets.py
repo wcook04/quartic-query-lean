@@ -121,6 +121,31 @@ class RoundFiveTests(unittest.TestCase):
         finally:
             MODULE.READER_LEAKS = original
 
+    def test_footnote_prose_is_not_a_reference_url_but_its_links_are_followed(self):
+        text = ('# Companion\nSee the claim[^detail] and [the reference][guide].\n'
+                '[^detail]: The optional improvement is in [the proof](detail.md#proof).\n'
+                '  [^second]: Another sentence is ordinary footnote prose.\n'
+                '[guide]: <reference.md#scope> "Reference title"\n')
+        self.write('docs/expert_companion.md', text)
+        self.write('docs/detail.md', '# Proof\n')
+        self.write('docs/reference.md', '# Scope\n')
+        targets = MODULE.link_targets(text)
+        self.assertIn('detail.md#proof', targets)
+        self.assertIn('reference.md#scope', targets)
+        self.assertNotIn('The', targets)
+        self.assertNotIn('Another', targets)
+        members, _ = MODULE.resolve_draft_links(self.root)
+        self.assertIn('repository/docs/detail.md', members)
+        self.assertIn('repository/docs/reference.md', members)
+        closure, _ = MODULE.round4.linked_sources(self.root, {
+            'repository/docs/expert_companion.md': (self.root / 'docs/expert_companion.md', 'draft')})
+        self.assertIn('repository/docs/detail.md', closure)
+        self.assertIn('repository/docs/reference.md', closure)
+        context = {'methods/lean-exposition/docs/example.md': text.encode(),
+                   'methods/lean-exposition/docs/detail.md': b'# Proof',
+                   'methods/lean-exposition/docs/reference.md': b'# Scope'}
+        MODULE.round4.context_link_report(context)
+
     def test_link_map_resolves_targets_and_flags_reader_visible_defects(self):
         _, report = MODULE.resolve_draft_links(self.root)
         rows = {row["link"]: row for row in report["links"]}

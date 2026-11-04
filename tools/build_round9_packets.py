@@ -68,7 +68,7 @@ def add_local_writing_method(files, root, generated):
         files.setdefault(name, (base.safe_source(path), role, 'repository:' + name.split('/', 1)[1]))
 
     text = source.read_text(encoding='utf-8')
-    references = re.compile(r'(?m)^ {0,3}\[[^\]\n]+\]:\s*(<[^>\n]+>|\S+)')
+    references = re.compile(r'(?m)^ {0,3}\[(?!\^)[^\]\n]+\]:\s*(<[^>\n]+>|\S+)')
     replacements = []
     for pattern in (base.repository_checks.LINK, references):
         for match in pattern.finditer(text):
