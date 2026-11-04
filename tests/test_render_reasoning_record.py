@@ -91,6 +91,16 @@ class FilterTests(unittest.TestCase):
         self.assertIn("https://example.org/dir/", tex)
         self.assertNotIn("<a id", tex)
 
+    def test_sibling_paper_links_open_the_online_paper_from_a_pdf(self):
+        with tempfile.TemporaryDirectory() as folder:
+            folder = Path(folder)
+            source = folder / "paper.md"
+            source.write_text("Read [the companion](expert_companion.md#32-a-tournament-with-probabilistic-comparisons) and [the exposition](exposition.md).\n")
+            tex = latex(source, folder)
+        self.assertIn("https://github.com/wcook04/quartic-query-lean/blob/main/docs/expert_companion.md", tex)
+        self.assertIn("https://github.com/wcook04/quartic-query-lean/blob/main/docs/exposition.md", tex)
+        self.assertNotIn(r"\href{expert_companion.md", tex)
+
     def test_actual_record_reaches_every_anchor_without_changing_its_bytes(self):
         before = hashlib.sha256(RECORD.read_bytes()).hexdigest()
         correspondence = json.loads((ROOT / "docs/reasoning_record_correspondence.json").read_text())

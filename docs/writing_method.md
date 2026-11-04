@@ -301,3 +301,10 @@ candidate selection from certificate verification. Their different hypotheses
 and classical complexity measures remain explicit. Existing public authoring
 and transition guidance already requires these choices; the local evidence
 records application without claiming a new general rule or measured learning gain.
+
+The rendered-boundary acceptance rule was merged upstream in [writing-method
+revision 47](https://github.com/wcook04/lean-exposition/pull/47), at
+`1424d4bb52c05f34d607666ccd264a45471ede2c`. It strengthens the existing owners
+for authoring, reader review and graph-to-long reconstruction. The [transfer
+record](../research/adjudication/reader_method.json) records the applied cases
+and exception.

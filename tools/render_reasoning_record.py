@@ -190,6 +190,13 @@ end
 
 function Link(el)
   if not FORMAT:match("latex") then return nil end
+  -- Relative sibling Markdown links work on GitHub but not in a downloaded PDF.
+  local sibling = el.target:match("^(expert_companion%.md.*)$") or
+                  el.target:match("^(exposition%.md.*)$")
+  if sibling then
+    el.target = "https://github.com/wcook04/quartic-query-lean/blob/main/docs/" .. sibling
+    return el
+  end
   local replacement = directory_targets[el.target]
   if replacement then
     el.target = replacement

@@ -1,0 +1,40 @@
+{
+  "schema": "quartic-reader-method-v1",
+  "upstream_pr": "https://github.com/wcook04/lean-exposition/pull/47",
+  "merged_commit": "1424d4bb52c05f34d607666ccd264a45471ede2c",
+  "owners": [
+    "docs/authoring.md",
+    "docs/reader-review.md",
+    "skills/graph-to-long/SKILL.md"
+  ],
+  "lesson": "An existing prohibition was insufficient: inspect the actual rendered text, including long-account appendices, and evaluate traceability at a linked theorem index. Preserve mathematical scope and separate specifications from substantial proofs.",
+  "cases": [
+    {
+      "path": "/Users/willcook/src/plectis-erdos-integration/docs/papers/full-text/erdos-257-mersenne-support-subseries.md",
+      "sha256": "37beed6af1038beb2d901a5af22a86980a7f2bc5c27c8c40e26a524ee6a247ca",
+      "observation": "The verification concordance gives readable mathematical entries and links to separate evidence.",
+      "kind": "transfer"
+    },
+    {
+      "path": "/Users/willcook/src/lean-exposition-reader-boundary/papers/qaoa-sk/expository/main.md",
+      "sha256": "c17d1e4e497443c153dbfaed9967804be060f37981ee446a2f3daf79a50f2f7a",
+      "observation": "The exposition begins with its mathematical problem and a worked model; implementation evidence is not an introductory prerequisite.",
+      "kind": "transfer"
+    },
+    {
+      "path": "/Users/willcook/src/lean-exposition-reader-boundary/papers/architecture/paper.md",
+      "sha256": "69eeb4efb294d1340e92633d62b24c8f0756d0232f8d3e596954c7f2aadef5c1",
+      "observation": "Exception: checking and evidence architecture are the paper subject, so their mechanisms belong in its explanation.",
+      "kind": "exception"
+    }
+  ],
+  "validation": {
+    "tests_run": 710,
+    "skipped": 2,
+    "failures": 0,
+    "layout": "pass",
+    "links": "pass",
+    "ci": "all six reported checks passed before merge"
+  },
+  "limitations": "Editorial transfer observations, not measured reader-comprehension results."
+}

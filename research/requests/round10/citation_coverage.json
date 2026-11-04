@@ -193,7 +193,7 @@
   "scope": "Source-reviewed mapping of every entry in the three maintained bibliographies and Appendix C. The builder checks current bibliography/source hashes and records actual packaged coverage; availability does not establish mathematical reading or exact-edition equivalence.",
   "bibliographies": {
     "docs/expert_companion.bib": {
-      "sha256": "191b58a78a4d04fdd2093af8c5a1f512b0c165587286b8217959b4582008eb16",
+      "sha256": "ed057910ece50b901646eb9cbf98d9c1178ce65dbbea6743fd5e90283b173aef",
       "entry_count": 26
     },
     "docs/exposition.bib": {
@@ -516,9 +516,9 @@
       "paper": "expert_companion",
       "citation_key": "Record2026",
       "bibliography_path": "docs/expert_companion.bib",
-      "bibtex_entry": "@misc{Record2026,\n  author = {Cook, Will},\n  title = {OpenAI’s Nearly Quartic Query Separation: A Complete Proof Reconstruction},\n  year = {2026},\n  url = {https://github.com/wcook04/quartic-query-lean/blob/d34580e91d9c32e06194edbdb428e6e280ffba57/docs/reasoning_record.md},\n}",
+      "bibtex_entry": "@misc{Record2026,\n  author = {Cook, Will},\n  title = {OpenAI’s Nearly Quartic Query Separation: A Complete Proof Reconstruction},\n  year = {2026},\n  url = {https://github.com/wcook04/quartic-query-lean/blob/62171e839337f3d61b7fc9c0e9e024565d20325e/docs/reasoning_record.md},\n}",
       "cited_urls": [
-        "https://github.com/wcook04/quartic-query-lean/blob/d34580e91d9c32e06194edbdb428e6e280ffba57/docs/reasoning_record.md"
+        "https://github.com/wcook04/quartic-query-lean/blob/62171e839337f3d61b7fc9c0e9e024565d20325e/docs/reasoning_record.md"
       ],
       "annex_slugs": [],
       "repository_source": "repository/docs/reasoning_record.md",
@@ -560,9 +560,9 @@
       "paper": "expert_companion",
       "citation_key": "Exposition2026",
       "bibliography_path": "docs/expert_companion.bib",
-      "bibtex_entry": "@misc{Exposition2026,\n  author = {Cook, Will},\n  title = {Why {OpenAI}'s Query Separation Is Nearly Quartic: An Examples-First Explanation of the Optimal Randomized--Quantum Exponent},\n  year = {2026},\n  url = {https://github.com/wcook04/quartic-query-lean/blob/bf2f2ba21549d79b034d5755c8f0c61242365139/docs/exposition.md},\n}",
+      "bibtex_entry": "@misc{Exposition2026,\n  author = {Cook, Will},\n  title = {Why {OpenAI}'s Query Separation Is Nearly Quartic: An Examples-First Explanation of the Optimal Randomized--Quantum Exponent},\n  year = {2026},\n  url = {https://github.com/wcook04/quartic-query-lean/blob/9a5e1f707ad3c01fb87b772372cb48a337585ff9/docs/exposition.md},\n}",
       "cited_urls": [
-        "https://github.com/wcook04/quartic-query-lean/blob/bf2f2ba21549d79b034d5755c8f0c61242365139/docs/exposition.md"
+        "https://github.com/wcook04/quartic-query-lean/blob/9a5e1f707ad3c01fb87b772372cb48a337585ff9/docs/exposition.md"
       ],
       "annex_slugs": [],
       "repository_source": "repository/docs/exposition.md",

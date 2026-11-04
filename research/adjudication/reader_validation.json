@@ -1,0 +1,790 @@
+{
+  "schema": "quartic-reader-validation-v1",
+  "baseline": "071ce02",
+  "source_hashes": {
+    "docs/expert_companion.md": "6a578d5bf454e8899a708f5b87c28ad51be2e45bf23f4d58920976d460687551",
+    "docs/expert_companion.bib": "ed057910ece50b901646eb9cbf98d9c1178ce65dbbea6743fd5e90283b173aef",
+    "docs/exposition.md": "03bbaa85e54c4fd9e9b79b09075ef50fa837cc4abab9c19e49bdbc452fc3cd7d",
+    "docs/exposition.bib": "c4cbe1d7ff2f6b5f767b869e0ec2437d382f2d192e702671400ad5e5cffecc98",
+    "docs/reasoning_record.md": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f",
+    "docs/reasoning_record.bib": "9c0d076952df454670fbf5f510ebc04b2be5b1605e779a9594fbe20600f4f8a5",
+    "docs/proof_index.md": "ded81e1d6d41bbe8ab49175f8f3d0de6b653b4470de38f93d62a435c76450bbd",
+    "docs/proof_index_intro.md": "a2e820ee6979360ee9eac09211f66d8dec4a31eb2dcfd9172e9a5e6a78e7d696",
+    "docs/verification_details.md": "6ba66b0d023c9ef7565e92667760f07ad4b4d8df9dec71ade8ecf3cb43fa1fb5",
+    "docs/lean_links.json": "0cff50709a46a5589f5e5bad66f2bdfe2d4972306f74af0d7e948a13ff5b830a",
+    "docs/reasoning_record_correspondence.json": "280e1badcbeb883cc601f1b0dc8ad0e89821664f8caf2d27d669922671366698",
+    "corpus/comparator_map.json": "9d0a734c1016603edb3fa5d16b616c6674924207cc4b519f02c84fbac31bb112"
+  },
+  "checks": {
+    "make_check": {
+      "result": "OK",
+      "tests_run": 267,
+      "skipped": 2,
+      "log_sha256": "6421c0ac149262187b806965e9749ddcbf13839f53475dce8b556891e9c959da"
+    },
+    "finite_examples": {
+      "small_walsh_numerator_census": {
+        "-8": 8,
+        "-4": 96,
+        "0": 48,
+        "4": 96,
+        "8": 8
+      },
+      "domain_counts": {
+        "one": 104,
+        "zero": 48,
+        "undefined": 104
+      },
+      "schedule_error_bounds": {
+        "80": 7.737674833210577,
+        "184": 3.996259505321989,
+        "1184": 0.9994906961242345,
+        "3261": 0.49994450511619015
+      },
+      "scope": "Exact enumeration checks the finite example; floating-point schedule evaluations are descriptive and do not prove asymptotic claims."
+    },
+    "lean_sources_changed": false,
+    "lean_or_comparator_executed": false,
+    "review_decisions": 44,
+    "sequential_review_inputs": 12,
+    "annex_files_hash_matched": 100,
+    "exact_current_local_git_crosslinks": 49,
+    "record_preservation": {
+      "anchors": {
+        "baseline": 370,
+        "current_across_paper_and_supplement": 401,
+        "removed": 0
+      },
+      "claims": {
+        "baseline": 261,
+        "current_across_paper_and_supplement": 261,
+        "removed": 0
+      },
+      "passages": {
+        "baseline": 299,
+        "current_across_paper_and_supplement": 300,
+        "removed": 0
+      },
+      "equation_tags": {
+        "baseline": 119,
+        "current_across_paper_and_supplement": 119,
+        "removed": 0
+      }
+    },
+    "final_pdf_link_repair_pixel_comparison": {
+      "comparison": "Contact-sheet PNG byte comparison against the already inspected prior render before online sibling-link repair",
+      "changed_sheets": [],
+      "all_equal": true
+    },
+    "original_feedback_byte_identity": 12,
+    "render_log_overflow_missing_glyph_or_undefined_reference_errors": 0
+  },
+  "pdfs": {
+    "expert": {
+      "path": "/Users/willcook/Downloads/quartic_reading_edition_20261104/expert/expert_companion.pdf",
+      "sha256": "692d9c3098b5ca3cc8749fd5ae094a7644dbd2fedb65755e55e7ac6aa16b5e90",
+      "pages": 18,
+      "render_receipt_sha256": "9db7a74cfe857a40d939ca16b936a50bf7a134bf583d183d560174226e246b9a",
+      "render_inputs_current": true,
+      "contact_sheets_inspected": [
+        {
+          "path": "/Volumes/Demo Take Media/quartic_reading_edition_20261104/expert/inspection/sheet-001.png",
+          "pages": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "sha256": "75969c556971790d81ff6a95624dbd6a9b2914d2b80b4bd0f3ac812075487b33"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_reading_edition_20261104/expert/inspection/sheet-007.png",
+          "pages": [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "sha256": "09c25f6784a73c7c242683ae659dbb4dc8bdcfa13ff1b256cd7a8d7a0411bff7"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_reading_edition_20261104/expert/inspection/sheet-013.png",
+          "pages": [
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "sha256": "7d6523398fc15f94a7ad53b10dd827b61e130fd7020a80a64c098f14eb53c3b6"
+        }
+      ],
+      "full_size_pages_inspected": [
+        7,
+        12,
+        17
+      ],
+      "link_kinds": {
+        "4": 49,
+        "2": 62
+      },
+      "internal_links_with_valid_page_targets": 49,
+      "printed_administration_scan": [],
+      "visual_scope": "All pages at contact-sheet size and the listed pages at readable size. Final link-only rebuilds checked against inspected page images. This is layout review, not a new full-proof review."
+    },
+    "exposition": {
+      "path": "/Users/willcook/Downloads/quartic_reading_edition_20261104/exposition/exposition.pdf",
+      "sha256": "0cfe74ba7ee39f4221ee167448b9de2608308fa1e65ed9170037ef76e97ccdd0",
+      "pages": 27,
+      "render_receipt_sha256": "f43b8f2fadf89eb87a8d5685d10082c0d51a27b7f1038728fbe3454a00b649f5",
+      "render_inputs_current": true,
+      "contact_sheets_inspected": [
+        {
+          "path": "/Volumes/Demo Take Media/quartic_reading_edition_20261104/exposition/inspection/sheet-001.png",
+          "pages": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "sha256": "24185c130b5a2cf5e15579e4095a7c60d33d15fe34650f776871ad57dcd3aa2b"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_reading_edition_20261104/exposition/inspection/sheet-007.png",
+          "pages": [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "sha256": "8b1c06f76dff5f9a7afd4c229dd424772a5e40302f689c9159964a2a7c308fdd"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_reading_edition_20261104/exposition/inspection/sheet-013.png",
+          "pages": [
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "sha256": "fc30dad541de1efe7c8dd998a7d3e7fb67709cce6a908a592063f17db171e313"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_reading_edition_20261104/exposition/inspection/sheet-019.png",
+          "pages": [
+            19,
+            20,
+            21,
+            22,
+            23,
+            24
+          ],
+          "sha256": "a3041c12fec35cdb63860ef7fbcecd7232e3d501e829745bbde0b4ec3916e324"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_reading_edition_20261104/exposition/inspection/sheet-025.png",
+          "pages": [
+            25,
+            26,
+            27
+          ],
+          "sha256": "26bfca0fdf3972d9e0cd1f89b6244dd981595b1a26d87074e7de7aaa349f79a7"
+        }
+      ],
+      "full_size_pages_inspected": [
+        6,
+        13,
+        16,
+        17,
+        19,
+        20
+      ],
+      "link_kinds": {
+        "4": 50,
+        "2": 33
+      },
+      "internal_links_with_valid_page_targets": 50,
+      "printed_administration_scan": [],
+      "visual_scope": "All pages at contact-sheet size and the listed pages at readable size. Final link-only rebuilds checked against inspected page images. This is layout review, not a new full-proof review."
+    },
+    "record": {
+      "path": "/Users/willcook/Downloads/quartic_reading_edition_20261104/record/reasoning_record.pdf",
+      "sha256": "ea062b9929865ad23f1b56afc69a6ebc84717a1857eb3f8ab168466d257bafa3",
+      "pages": 94,
+      "render_receipt_sha256": "5b9a7c2ac2db337251ec0d360513c4616be391dbb23acfdea3e5209ac5eb3e25",
+      "render_inputs_current": true,
+      "contact_sheets_inspected": [
+        {
+          "path": "/Volumes/Demo Take Media/quartic_reading_edition_20261104/record/inspection/sheet-001.png",
+          "pages": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "sha256": "00e7968801be1c38b34c997d78a63d869dd36ed2fd052a73f4b67375fe0ac40d"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_reading_edition_20261104/record/inspection/sheet-013.png",
+          "pages": [
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24
+          ],
+          "sha256": "3fed3f10edb1fb07dca94b21eeb3855f442307c29804816b5e73670fcaf7f359"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_reading_edition_20261104/record/inspection/sheet-025.png",
+          "pages": [
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36
+          ],
+          "sha256": "29653591b431ba792254642d209ca29674e9da8ce3324510dc925dda5f5e9004"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_reading_edition_20261104/record/inspection/sheet-037.png",
+          "pages": [
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48
+          ],
+          "sha256": "79c31dd4761388aa6f8aca679e4269ab28b3cb04970ab97162f55d87443df646"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_reading_edition_20261104/record/inspection/sheet-049.png",
+          "pages": [
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60
+          ],
+          "sha256": "9c93c2ed7eb422f01a501ca9c23ca1453b44fe68a7227fe6c16fba05f850f78b"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_reading_edition_20261104/record/inspection/sheet-061.png",
+          "pages": [
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72
+          ],
+          "sha256": "6e13f489c85dd55745edfe6a2d1108cd8b99f419d42f4cb87f00d731c3f3cfa0"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_reading_edition_20261104/record/inspection/sheet-073.png",
+          "pages": [
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84
+          ],
+          "sha256": "ef255e78b86b09f35bb402e3083687df23c8560815a86f196515fad19ca3e4a6"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_reading_edition_20261104/record/inspection/sheet-085.png",
+          "pages": [
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94
+          ],
+          "sha256": "f2380833795e08db1eb283583c254b031c0d0309f54699f5acf6eaedce45c532"
+        }
+      ],
+      "full_size_pages_inspected": [
+        1,
+        16,
+        60,
+        69,
+        73,
+        89
+      ],
+      "link_kinds": {
+        "2": 89,
+        "4": 83
+      },
+      "internal_links_with_valid_page_targets": 83,
+      "printed_administration_scan": [],
+      "visual_scope": "All pages at contact-sheet size and the listed pages at readable size. Final link-only rebuilds checked against inspected page images. This is layout review, not a new full-proof review."
+    }
+  },
+  "source_links": [
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "R3-01-BRIDGES",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "forr_quantum",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "forr_circuit",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "forr_quantum",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "forr_quantum",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "forr_circuit",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "CL-local-tests",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "CL-coherent-tests",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "upper-tournament-statement",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "CL-minimax",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "CL-simulator-example",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "CL-conditioning-counterexample",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "CL-floors",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "CL-zero-optional",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "forr_small_instance",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "upper-cyclic-example",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "CL-selection-independence-example",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "CL-independent-information",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "CL-conditioning-counterexample",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "CL-adaptive-example",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "ROOT-GROWING-K",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "upper-small-probability",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "upper-returned-register",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "CL-weighted-values",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "CL-literature-and-verification",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "forr_uniform_assembly",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "forr_threshold",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "ROOT-GROWING-K",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "ROOT-GROWING-K",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "ROOT-GROWING-K",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "forr_stein",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "forr_credit",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/exposition.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": null,
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/exposition.md",
+      "commit": "54358fbe7f0939355522703dbe3ba784dfd5e4f6",
+      "path": "docs/expert_companion.md",
+      "anchor": null,
+      "sha256": "6a578d5bf454e8899a708f5b87c28ad51be2e45bf23f4d58920976d460687551"
+    },
+    {
+      "from": "docs/exposition.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "forr_small_instance",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/exposition.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "forr_circuit",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/exposition.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "forr_target",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/exposition.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "AC-coherent",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/exposition.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "CL-minimax",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/exposition.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "CL-early-late",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/exposition.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "CL-conditioning-counterexample",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/exposition.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "CL-simulator-example",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/exposition.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "ROOT-GROWING-K",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/exposition.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "R3-A-RESULT",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/exposition.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "upper-explicit-log6",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/exposition.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "upper-grover-trial",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/exposition.md",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "AC-example-promise",
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/expert_companion.bib",
+      "commit": "62171e839337f3d61b7fc9c0e9e024565d20325e",
+      "path": "docs/reasoning_record.md",
+      "anchor": null,
+      "sha256": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f"
+    },
+    {
+      "from": "docs/expert_companion.bib",
+      "commit": "9a5e1f707ad3c01fb87b772372cb48a337585ff9",
+      "path": "docs/exposition.md",
+      "anchor": null,
+      "sha256": "03bbaa85e54c4fd9e9b79b09075ef50fa837cc4abab9c19e49bdbc452fc3cd7d"
+    }
+  ],
+  "source_link_scope": "Short-paper cross-links bind exact committed Markdown. The human theorem index and the long PDF sibling-paper links intentionally use canonical main URLs; formal source destinations remain pinned by the machine-readable registry. Native receipts bind bibliography, figures and PDF.",
+  "receiving_repairs": [
+    "Converted six PDF sibling Markdown file links to online paper destinations.",
+    "Restored external expert Appendix E after record appendix renumbering.",
+    "Restored k>=2 in index uniform estimate.",
+    "Corrected concatenated TeX command and duplicated author attribution.",
+    "Preserved historical finite-check pointers in the supplementary reference.",
+    "Corrected source-local passage excerpts after relocation.",
+    "Reused maintained figure and style in the complete reconstruction.",
+    "Allowed the tall planted figure to float and kept the independent-planting heading with its example."
+  ],
+  "limitations": [
+    "Four sequential assessments per paper are not independent reviews; no new blind prospective reader test.",
+    "Annex verification checks bytes, not a fresh reading of every retained work. Changed mathematical passages and primary source dependencies were read within the scope documented in reader_revision.md.",
+    "No fresh full mathematical audit, Lean build or Comparator execution.",
+    "Physical retained-state correspondence remains explicitly limited."
+  ],
+  "method_propagation": {
+    "schema": "quartic-reader-method-v1",
+    "upstream_pr": "https://github.com/wcook04/lean-exposition/pull/47",
+    "merged_commit": "1424d4bb52c05f34d607666ccd264a45471ede2c",
+    "owners": [
+      "docs/authoring.md",
+      "docs/reader-review.md",
+      "skills/graph-to-long/SKILL.md"
+    ],
+    "lesson": "An existing prohibition was insufficient: inspect the actual rendered text, including long-account appendices, and evaluate traceability at a linked theorem index. Preserve mathematical scope and separate specifications from substantial proofs.",
+    "cases": [
+      {
+        "path": "/Users/willcook/src/plectis-erdos-integration/docs/papers/full-text/erdos-257-mersenne-support-subseries.md",
+        "sha256": "37beed6af1038beb2d901a5af22a86980a7f2bc5c27c8c40e26a524ee6a247ca",
+        "observation": "The verification concordance gives readable mathematical entries and links to separate evidence.",
+        "kind": "transfer"
+      },
+      {
+        "path": "/Users/willcook/src/lean-exposition-reader-boundary/papers/qaoa-sk/expository/main.md",
+        "sha256": "c17d1e4e497443c153dbfaed9967804be060f37981ee446a2f3daf79a50f2f7a",
+        "observation": "The exposition begins with its mathematical problem and a worked model; implementation evidence is not an introductory prerequisite.",
+        "kind": "transfer"
+      },
+      {
+        "path": "/Users/willcook/src/lean-exposition-reader-boundary/papers/architecture/paper.md",
+        "sha256": "69eeb4efb294d1340e92633d62b24c8f0756d0232f8d3e596954c7f2aadef5c1",
+        "observation": "Exception: checking and evidence architecture are the paper subject, so their mechanisms belong in its explanation.",
+        "kind": "exception"
+      }
+    ],
+    "validation": {
+      "tests_run": 710,
+      "skipped": 2,
+      "failures": 0,
+      "layout": "pass",
+      "links": "pass",
+      "ci": "all six reported checks passed before merge"
+    },
+    "limitations": "Editorial transfer observations, not measured reader-comprehension results."
+  }
+}

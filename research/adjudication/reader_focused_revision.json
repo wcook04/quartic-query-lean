@@ -2,7 +2,7 @@
   "schema_version": 1,
   "revision": "reader_focused_revision",
   "baseline_commit": "071ce02",
-  "status": "authored_source_frozen_pending_receiving_review",
+  "status": "accepted_after_receiving_source_binding_and_pdf_review",
   "feedback_authority": "Twelve sequential advisory readings; later explicit withdrawals govern earlier claims. The user’s instruction to keep administrative evidence outside PDFs governs presentation.",
   "reading_scope": {
     "reviews": "All twelve preserved review files read in bounded chunks, with truncated intervals revisited.",
@@ -687,5 +687,20 @@
       "issue": "Removing literal QLe syntax concatenated TeX iff with q.",
       "repair": "Inserted the required space in \\iff q; searched command names in changed prose, with no other concatenated command found."
     }
-  ]
+  ],
+  "final_source_sha256": {
+    "docs/expert_companion.md": "6a578d5bf454e8899a708f5b87c28ad51be2e45bf23f4d58920976d460687551",
+    "docs/expert_companion.bib": "ed057910ece50b901646eb9cbf98d9c1178ce65dbbea6743fd5e90283b173aef",
+    "docs/exposition.md": "03bbaa85e54c4fd9e9b79b09075ef50fa837cc4abab9c19e49bdbc452fc3cd7d",
+    "docs/exposition.bib": "c4cbe1d7ff2f6b5f767b869e0ec2437d382f2d192e702671400ad5e5cffecc98",
+    "docs/reasoning_record.md": "999ceb272bbcd835c33723ddf46f69b55be77fc4219cc5ae5ed222dc29b45e5f",
+    "docs/reasoning_record.bib": "9c0d076952df454670fbf5f510ebc04b2be5b1605e779a9594fbe20600f4f8a5",
+    "docs/proof_index.md": "ded81e1d6d41bbe8ab49175f8f3d0de6b653b4470de38f93d62a435c76450bbd",
+    "docs/proof_index_intro.md": "a2e820ee6979360ee9eac09211f66d8dec4a31eb2dcfd9172e9a5e6a78e7d696",
+    "docs/verification_details.md": "6ba66b0d023c9ef7565e92667760f07ad4b4d8df9dec71ade8ecf3cb43fa1fb5",
+    "docs/lean_links.json": "0cff50709a46a5589f5e5bad66f2bdfe2d4972306f74af0d7e948a13ff5b830a",
+    "docs/reasoning_record_correspondence.json": "280e1badcbeb883cc601f1b0dc8ad0e89821664f8caf2d27d669922671366698",
+    "corpus/comparator_map.json": "9d0a734c1016603edb3fa5d16b616c6674924207cc4b519f02c84fbac31bb112"
+  },
+  "receiving_validation": "research/adjudication/reader_validation.json"
 }

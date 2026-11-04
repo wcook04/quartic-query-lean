@@ -62,3 +62,7 @@ A source scan excluding URLs, HTML markers and generated link definitions found 
 The papers, bibliographies, authored index introduction and supplement were frozen for the parent to bind, render and inspect. Final PDF acceptance, metadata, link targets, figure/table adjacency, source-map adaptation, register comparison and regression checks are receiving tasks. This author note does not claim them complete, a fresh Lean build, external referee validation or measured reader comprehension. No commit was made by the manuscript author.
 
 Receiving rendering also caught a missing TeX command separator after the replacement of literal quantum-budget code by prose. The expression now reads `\iff q`; a scan of command names in changed prose found no similar concatenation. The correction was made before final binding.
+
+## Receiving acceptance
+
+The final PDFs contain 18 specialist, 27 exposition and 94 reconstruction pages. All pages were inspected at contact-sheet size, with selected changed pages inspected at readable size. [Validation](reader_validation.json) binds the exact sources, render inputs, internal destinations, printed-text scan, preserved anchors and mathematical markers, and 44 review decisions. `make check` ran 267 tests with two skips and no failures. All 100 retained annex files matched their recorded versions. No Lean source changed and no new Lean or Comparator execution is claimed. The [method refinement](reader_method.json) was merged upstream as PR 47 after 710 tests (two skips), link/layout checks and CI.
