@@ -1,0 +1,109 @@
+{
+  "schema": "quartic-paper-purpose-validation-v1",
+  "date": "2026-11-04",
+  "baseline": "8195cc0",
+  "record_source_commit": "11fc9a44ded573d6354245d1195eef74ffc28c1a",
+  "source_hashes": {
+    "docs/expert_companion.md": "7df8b7ec2c6ca45324e611b9645e0a3429e1b4c572270f3bee51427b5440397e",
+    "docs/expert_companion.bib": "0c700973b1d46be4537ad81c5abf64d866f6f24b8a1e0f52f75826764706070b",
+    "docs/exposition.md": "e08ae2ad9d6ea27e823173c0b1c7039b44c1b7d28244f27a0f7aa7340fe783b9",
+    "docs/exposition.bib": "c4cbe1d7ff2f6b5f767b869e0ec2437d382f2d192e702671400ad5e5cffecc98",
+    "docs/reasoning_record.md": "21cb1705c2463e5b063c6682fe56760ea92fb3490a7c26a3c49e6bd62bc58331",
+    "docs/reasoning_record.bib": "9c0d076952df454670fbf5f510ebc04b2be5b1605e779a9594fbe20600f4f8a5"
+  },
+  "pdfs": {
+    "expert_companion": {
+      "pages": 19,
+      "pdf_sha256": "d2b8fd2168e4f2b6730bc793de5f10c064c2041b3886a5a0c332fa307961ba2b",
+      "render_receipt_sha256": "4f96d9986046a8d970de85739e86216cd4fd588426cd15908566fee4b765be8c",
+      "render_inputs_current": true,
+      "pdf_link_kinds": {
+        "4": 49,
+        "2": 63
+      },
+      "invalid_or_local_pdf_links": [],
+      "outline_entries": 33,
+      "printed_audit_clutter_matches": [],
+      "pixel_identity_after_final_link_pin": true,
+      "visual_review": "all pages inspected in contact sheets; selected figures, tables, proofs and changed page breaks inspected at readable size"
+    },
+    "exposition": {
+      "pages": 27,
+      "pdf_sha256": "c163bf51414eeb79c358a83881fd2413149dadf8ae505ff1a91d2ff226734307",
+      "render_receipt_sha256": "86da71d2e8e959466528de0f97e028fca00dc7e131b06a2703fdc6a91bda35fd",
+      "render_inputs_current": true,
+      "pdf_link_kinds": {
+        "4": 50,
+        "2": 30
+      },
+      "invalid_or_local_pdf_links": [],
+      "outline_entries": 27,
+      "printed_audit_clutter_matches": [],
+      "pixel_identity_after_final_link_pin": true,
+      "visual_review": "all pages inspected in contact sheets; selected figures, tables, proofs and changed page breaks inspected at readable size"
+    },
+    "reasoning_record": {
+      "pages": 96,
+      "pdf_sha256": "81c3b3e9cee2a48f4b87177c49ac40a1b220f347cc34b26ae879919008d17df2",
+      "render_receipt_sha256": "59ac19ceeeca3558a1253c2ae9eaa1b8e348eaaea623ceb3eaea89fee5375d86",
+      "render_inputs_current": true,
+      "pdf_link_kinds": {
+        "2": 93,
+        "4": 70
+      },
+      "invalid_or_local_pdf_links": [],
+      "outline_entries": 74,
+      "printed_audit_clutter_matches": [],
+      "pixel_identity_after_final_link_pin": "record unchanged since accepted render",
+      "visual_review": "all pages inspected in contact sheets; selected figures, tables, proofs and changed page breaks inspected at readable size"
+    }
+  },
+  "repository_checks": {
+    "command": "make check",
+    "exit_code": 0,
+    "tests_run": 267,
+    "skipped": 2,
+    "failures": 0,
+    "log_sha256": "be5de3e705f539ee252e00aa30744e440bde4eeb8d92bf7f09ac32b323ba0edb"
+  },
+  "preservation_report": "paper_purpose_preservation.json",
+  "literature_and_language_review": "paper_purpose_revision.md#literature-grounded-language-review",
+  "register_evidence": {
+    "directory": "/Volumes/Demo Take Media/quartic_paper_purpose_20261104/register",
+    "sha256": {
+      "specialist-tex-profile.json": "2341e23b8b0e1aa4f60d76315ac32118de8c0759bb701172c39cc02bfb4e63bd",
+      "teaching-tex-profile.json": "67c07ee4683e8376a17d2001ad18da10b76870787551e8881fc4fba92c62bb45",
+      "record-tex-profile.json": "37d15fbce0e4ce8f4dd7b90f3a970ae5799fba57e095d17a1b443de175bdb288",
+      "expert_companion-comparison.json": "6c086589fbaeb892e56c81d3e283cf9d6f65e381992a26543fcf4cf3f9572f14",
+      "exposition-comparison.json": "7b01c6ef2a3e55446fe17fbd9d49733eca04df3d5eb230080b684d65d32b69b6",
+      "reasoning_record-comparison.json": "1a4995021c87213d2712148742e07503183781bf96a755fa28856ca5faf7b2a9",
+      "expert_companion-main-comparison.json": "e8fe28f5f1f70d386536a072cc283c90891dc75e60157c10fadf7344a60037e5",
+      "exposition-main-comparison.json": "cf40a414ae70e479fcd2de3eacf7b1599ef6c5e391cf431eb9106975d05374cc"
+    },
+    "limits": [
+      "Descriptive prose diagnostics, not a quality score.",
+      "TeX comparisons used after extracted-PDF paragraph artifacts were detected.",
+      "Extended research papers are not a representative corpus of complete reconstruction records.",
+      "Main-route and whole-manuscript profiles are distinct."
+    ]
+  },
+  "upstream": {
+    "repository": "wcook04/lean-exposition",
+    "pull_requests": [
+      48,
+      49
+    ],
+    "merged_commit": "1e6fe1845c33fc87af0ba809a0e0873672f47b99",
+    "local_tests_run": 710,
+    "skipped": 2,
+    "failures": 0,
+    "hosted_checks": "passed",
+    "fresh_clone_install_layout_links_minimal_cli": "passed"
+  },
+  "boundaries": [
+    "Lean theorem sources unchanged; no Lean rebuild claimed.",
+    "Editorial source-assisted review and page inspection, not independent mathematical refereeing or observed reader learning.",
+    "Renderer receipts retain their automatic pending-review status; this separate report records subsequent page inspection.",
+    "PDF navigation checks cover resolved internal targets and absence of local-file actions; they do not certify every external scholarly website."
+  ]
+}

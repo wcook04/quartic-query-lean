@@ -1,6 +1,6 @@
 {
   "schema": "quartic-round10-citation-coverage-v1",
-  "repository_head_at_observation": "ee03ae8509024fe1127f545241ba5d08787b5046",
+  "repository_head_at_observation": "11fc9a44ded573d6354245d1195eef74ffc28c1a",
   "counts": {
     "bibliography_occurrences": 79,
     "unique_citation_keys": 49,
@@ -193,7 +193,7 @@
   "scope": "Source-reviewed mapping of every entry in the three maintained bibliographies and Appendix C. The builder checks current bibliography/source hashes and records actual packaged coverage; availability does not establish mathematical reading or exact-edition equivalence.",
   "bibliographies": {
     "docs/expert_companion.bib": {
-      "sha256": "bff02c43cdcd3de48e1d2d2b7a8e50b5514474d9f86838e77593f526a2afef9d",
+      "sha256": "0c700973b1d46be4537ad81c5abf64d866f6f24b8a1e0f52f75826764706070b",
       "entry_count": 26
     },
     "docs/exposition.bib": {
@@ -516,13 +516,13 @@
       "paper": "expert_companion",
       "citation_key": "Record2026",
       "bibliography_path": "docs/expert_companion.bib",
-      "bibtex_entry": "@misc{Record2026,\n  author = {Cook, Will},\n  title = {OpenAI’s Nearly Quartic Query Separation: A Complete Proof Reconstruction},\n  year = {2026},\n  url = {https://github.com/wcook04/quartic-query-lean/blob/62171e839337f3d61b7fc9c0e9e024565d20325e/docs/reasoning_record.md},\n}",
+      "bibtex_entry": "@misc{Record2026,\n  author = {Cook, Will},\n  title = {OpenAI’s Nearly Quartic Query Separation: A Complete Proof Reconstruction},\n  year = {2026},\n  url = {https://github.com/wcook04/quartic-query-lean/blob/11fc9a44ded573d6354245d1195eef74ffc28c1a/docs/reasoning_record.md},\n}",
       "cited_urls": [
-        "https://github.com/wcook04/quartic-query-lean/blob/62171e839337f3d61b7fc9c0e9e024565d20325e/docs/reasoning_record.md"
+        "https://github.com/wcook04/quartic-query-lean/blob/11fc9a44ded573d6354245d1195eef74ffc28c1a/docs/reasoning_record.md"
       ],
       "annex_slugs": [],
       "repository_source": "repository/docs/reasoning_record.md",
-      "edition_note": "Source-pinned 4f8286795ff2eb1c4dd03e616a1b998b05727a88; internal companion edition refreshed in follow-up editorial revision.",
+      "edition_note": "Internal proof record pinned to 11fc9a44ded573d6354245d1195eef74ffc28c1a; external literature editions unchanged.",
       "supplementary_source_ids": [],
       "primary_annex_status": "repository_source_reference",
       "coverage_status": "repository_source_supplied"
@@ -2657,5 +2657,10 @@
   "reader_editorial_rebind": {
     "baseline": "071ce02",
     "decision": "AIK v3 separately mapped for the inspected comparison; BDK v1 pinned; current bibliography/source bytes rebound without changing the sent R10 archives."
+  },
+  "paper_purpose_editorial_rebind": {
+    "baseline": "8195cc0",
+    "record_source_commit": "11fc9a44ded573d6354245d1195eef74ffc28c1a",
+    "decision": "Current bibliography bytes, internal record entry, record bytes and relocated reference entries rebound after the reader-purpose revision. Original review archives and external source editions remain unchanged."
   }
 }

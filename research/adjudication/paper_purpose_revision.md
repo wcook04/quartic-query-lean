@@ -211,3 +211,13 @@ overview and a four-row planting table split across pages. The existing reviewed
 citation map is rebound to the current bibliography and references; the two small
 reading units receive space reservations and are re-rendered. These repairs
 change neither the argument nor the imported literature editions.
+
+## Final reading edition
+
+The [final validation](paper_purpose_validation.json) binds the 19-page specialist
+companion, 27-page exposition and 96-page complete record to their source bytes.
+All pages were inspected in contact sheets, with figures, tables and changed
+reading transitions checked at readable size. Final link pinning left every
+short-paper page pixel-identical to the inspected render. Repository checks ran
+267 tests with two skips and no failures. No Lean theorem source changed and no
+Lean rebuild or independent mathematical refereeing is claimed.
