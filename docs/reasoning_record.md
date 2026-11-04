@@ -167,7 +167,7 @@ Unqualified logarithms in the construction are base two. Natural logarithms are 
 - **(1), (2):** §1, displayed with the same numbers.
 - **(3)–(5):** §3.1; (3) and (4) are restated as (F1) and (F2) in §8.5, and (5) defines $L_{k,m}$ in (F3).
 - **(6)–(8):** §4.2, in the layout and the winning condition (4.5).
-- **(9):** §5.1, the averaged success bound.
+- **(9):** §5.6, the averaged success bound.
 - **(10)–(15):** §5.2, the comparison model, dominance, weight process and stage state.
 - **(16):** §6.1, as local display (6.4).
 - **(17)–(23):** §§6.3–6.6, displayed with the same numbers.
@@ -343,7 +343,7 @@ ZP'_xJH_b\psi=LH_bP_xH_b\psi=LO_x\psi.
 
 The remaining $T-1$ queries run the continuation. The output case allows both measurement continuations to be padded to the same $T$, so structural induction gives the displayed mass identity with exactly $T$ queries. This padding preserves acceptance mass; the source does not require a completed branch's state to remain unchanged.
 
-This is the [fixed-sequence normal form][src-fixed-sequence] of the formalization. It preserves the accepting mass for all inputs and all starting vectors and says nothing about final states, so a later computation that needs a retained workspace requires a separate argument (§5.1). Conversely, a finite bit-query sequence followed by a binary basis measurement is already a finite adaptive program: write its gates and queries as successive constructors. This general bridge connects the formal model to the fixed-sequence model used by the Lean dependency proving the universal upper bound. The independent printed derivation is in [Appendix A](#R3-A-RESULT), and [Appendix G.9](#R3-A-ROUTES) compares the three routes. The finite examples of §2.6 only illustrate the model conventions.
+This is the [fixed-sequence normal form][src-fixed-sequence] of the formalization. It preserves the accepting mass for all inputs and all starting vectors and says nothing about final states, so a later computation that needs a retained workspace requires a separate argument (§5.6). Conversely, a finite bit-query sequence followed by a binary basis measurement is already a finite adaptive program: write its gates and queries as successive constructors. This general bridge connects the formal model to the fixed-sequence model used by the Lean dependency proving the universal upper bound. The independent printed derivation is in [Appendix A](#R3-A-RESULT), and [Appendix G.9](#R3-A-ROUTES) compares the three routes. The finite examples of §2.6 only illustrate the model conventions.
 <!-- /passage:R3-01-BRIDGES -->
 
 <a id="R3-01-ZERO"></a>
@@ -932,19 +932,34 @@ We measure complexity only by the number of calls to the ordinary input bit orac
 2. For each listed column, decode and measure a fresh address, with error at most $\varepsilon$ if its instances are promised. Fix that address for the entire check. Search its $K$ exact local tests for a failure, with parameters $(\gamma,\eta)=(1/K,\varepsilon)$.
 3. If this defect search reports no failure, output $1$ and stop. If every listed candidate supplies a detected defect, output $0$; the empty list also yields $0$.
 
-The search in step 2 can miss a defect with probability at most $\varepsilon$, but a genuine winning address has no defect to find. These are operational instructions on every input, not instructions to condition on a promised history. Sections 5.1–5.4 prove the sampler, comparison and verifier contracts; §5.5 proves the sequential continuation guarantee.
+The search in step 2 can miss a defect with probability at most $\varepsilon$, but a genuine winning address has no defect to find. These are operational instructions on every input, not instructions to condition on a promised history.
 
-A reader familiar with amplitude amplification can first read the [contract of Lemma 3.1](#upper-amplification-statement), then the [tournament](#upper-tournament-statement) and [verifier](#upper-verifier). The rest of §5.1 proves the predetermined query cap and exact successful-state assertion used in those steps.
+Section 5.1 states the amplification contract. Sections 5.2–5.5 use its measured-output consequence to prove the tournament and the complete evaluator bound. Section 5.6 then gives the full amplification proof, including the stronger assertion about a retained output subsystem.
 <!-- /passage:upper-purpose -->
 
 
 ### 5.1. Amplification with a predetermined query cap
 
 
+<a id="upper-label-contract"></a>
+<!-- passage:upper-label-contract -->
+**The measured-output contract used by the evaluator.** Fix $0<\gamma\le1/2$ and $0<\eta<1/2$. Suppose a reversible preparation $A$ records a success flag and a label in finite registers, retaining all its workspace. For a fixed input, let $p_b$ be the probability of success with label $b$, and put $p=\sum_b p_b$. A bounded amplifier returns failure $\bot$ or a label, with one failure probability $f\in[0,1]$ such that
+\[
+\begin{aligned}
+\Pr[\bot]&=f, &\Pr[b]&=(1-f)\frac{p_b}{p}\quad(p>0),\\
+p\ge\gamma&\Longrightarrow f\le\eta, &p=0&\Longrightarrow f=1.
+\end{aligned}
+\]
+For $p>0$ the procedure below has $f<1$, so the conditional label law is exactly $p_b/p$. Its cap on every branch is $O(\gamma^{-1/2}\ln(1/\eta))$ calls to $A,A^{-1}$, also when $p<\gamma$. The success test reads the stored flag without queries. The procedure is fixed by the parameters and register interface before the input is supplied.
+
+The tournament uses $p_b=w_b/m$; verification uses a successful label to name a failed local test. Both uses consume this measured law. The following stronger statement also identifies the successful quantum state. Its proof is in [§5.6](#upper-grover-geometry); the evaluator analysis may continue directly at [§5.2](#upper-tournament-statement).
+
+<!-- /passage:upper-label-contract -->
+
 <a id="upper-amplification-statement"></a>
 <!-- passage:upper-amplification-statement -->
 
-**Lemma 3.1 (bounded amplification).** Fix real numbers $0<\gamma\leq1/2$ and $0<\eta<1/2$, a finite register interface, and a success subspace whose projector, reflection and measurement are available without input queries. These choices are independent of the unknown input. There is one procedure, depending only on these choices and using $A,A^{-1}$ as black boxes, with the following guarantees for every unitary preparation $A$ and every fixed input oracle. Let $p$ be the probability that measuring $A|0\rangle$ in the success subspace succeeds. Only uncontrolled calls to $A$ and $A^{-1}$ are required; the [coherent implementation](#upper-returned-register) puts control on fixed reflections.
+**Lemma 3.1 (OpenAI; bounded amplification with a retained state).** Fix real numbers $0<\gamma\leq1/2$ and $0<\eta<1/2$, a finite register interface, and a success subspace whose projector, reflection and measurement are available without input queries. These choices are independent of the unknown input. There is one procedure, depending only on these choices and using $A,A^{-1}$ as black boxes, with the following guarantees for every unitary preparation $A$ and every fixed input oracle. Let $p$ be the probability that measuring $A|0\rangle$ in the success subspace succeeds. Only uncontrolled calls to $A$ and $A^{-1}$ are required; the [coherent implementation](#upper-returned-register) puts control on fixed reflections.
 
 - The procedure returns failure or a state. On every successful return, one designated subsystem, with the same full register interface as $A$, contains the normalized success component of $A|0\rangle$, up to global phase. This subsystem includes the preparation's original workspace; trial records occupy separate auxiliary registers.
 - If $p\geq\gamma$, the failure probability is at most $\eta$. If $p=0$, the procedure fails with certainty.
@@ -952,145 +967,15 @@ A reader familiar with amplitude amplification can first read the [contract of L
 
 This is the successful-state assertion of OpenAI's Lemma 3.1. In both applications below, the success subspace is specified by a stored Boolean flag; any input-dependent work needed to compute that flag is already charged to $A$.
 
-We need a fixed bound on every branch, which is stronger than a bound on the expected cost. Boyer, Brassard, Høyer, and Tapp analyze a random number of Grover iterations when the number of solutions is unknown [BBHT1996, arXiv v1, §4, Lemma 2 and Theorem 3, pp. 3–4](https://arxiv.org/abs/quant-ph/9605034v1), and Brassard, Høyer, Mosca, and Tapp extend the underlying two dimensional analysis to arbitrary preparation algorithms [BHMT2000, arXiv v1, §2, Lemma 1 and equation (8), pp. 5–7](https://arxiv.org/abs/quant-ph/0005055v1). BBHT also discusses a timeout for the no-solution case. The contract needed here combines an all-branch cap with the exact conditional successful state of an arbitrary preparation, so we give OpenAI's bounded construction in full.
+We need a fixed bound on every branch, which is stronger than a bound on the expected cost. Boyer, Brassard, Høyer, and Tapp analyze a random number of Grover iterations when the number of solutions is unknown [BBHT1996, arXiv v1, §4, Lemma 2 and Theorem 3, pp. 3–4](https://arxiv.org/abs/quant-ph/9605034v1), and Brassard, Høyer, Mosca, and Tapp extend the underlying two dimensional analysis to arbitrary preparation algorithms [BHMT2000, arXiv v1, §2, Lemma 1 and equation (8), pp. 5–7](https://arxiv.org/abs/quant-ph/0005055v1). BBHT also discusses a timeout for the no-solution case. The contract needed here combines an all-branch cap with the exact conditional successful state of an arbitrary preparation, so §5.6 gives OpenAI's bounded construction in full.
 <!-- /passage:upper-amplification-statement -->
 
-<a id="upper-grover-geometry"></a>
-<!-- passage:upper-grover-geometry -->
-
-Let $\Pi$ be the orthogonal projection onto the success subspace, let $\psi=A|0\rangle$, and let $p=\|\Pi\psi\|^2$. First suppose $0<p<1$, and define $g=\Pi\psi/\sqrt p$ and $b=(I-\Pi)\psi/\sqrt{1-p}$. Orthogonality of the two projection ranges gives orthonormal vectors $g,b$, and normalization of $\psi$ gives $\psi=\sqrt p\,g+\sqrt{1-p}\,b$. There is a unique $\theta\in(0,\pi/2)$ with $\sin\theta=\sqrt p$, and its cosine is $\sqrt{1-p}$.
-
-The success reflection is $S_\chi=I-2\Pi$, available without queries by the fixed-interface assumption, and the reflection about the reference state is $S_0=I-2|0\rangle\langle0|$. We take the Grover iterate
-\[
-G=-AS_0A^{-1}S_\chi.
-\]
-Its minus sign is a global phase and so costs no queries. Conjugating $S_0$ by $A$ gives $I-2|\psi\rangle\langle\psi|$, hence $G=(2|\psi\rangle\langle\psi|-I)S_\chi$. Both factors preserve the span of $g,b$. In the ordered basis $(g,b)$, $S_\chi$ changes the sign of the first coordinate. Multiplying it by the reflection about $\psi$ gives
-\[
-[G]_{(g,b)}=
-\begin{pmatrix}
-\cos(2\theta)&\sin(2\theta)\\
--\sin(2\theta)&\cos(2\theta)
-\end{pmatrix}.
-\]
-
-By the addition formulas, applying this matrix to a vector with coordinates $(\sin\alpha,\cos\alpha)$ gives $(\sin(\alpha+2\theta),\cos(\alpha+2\theta))$. Induction on the nonnegative integer $j$, starting at $\alpha=\theta$, therefore gives the state and success formula:
-
-<!-- claim:claim-grover-state -->
-$$
-G^j\psi
- =\sin((2j+1)\theta)g+\cos((2j+1)\theta)b,
-\qquad
-\Pr[\text{success after }j]=\sin^2((2j+1)\theta).
-$$
-
-Projection onto success removes the $b$ term, so whenever success has nonzero probability the normalized result is $g$ or $-g$. This conclusion concerns the whole workspace, including any registers in which $A$ has recorded intermediate data, and so it is stronger than a statement about the probability of a success flag alone.
-
-At $p=0$ the state lies in the failure subspace, where the success reflection fixes it; since the reflection about $\psi$ also fixes $\psi$, every iterate has zero success probability. At $p=1$ the success reflection sends $\psi$ to $-\psi$, so every iterate remains a scalar multiple of $\psi$ in the success subspace. Both endpoint cases are thus settled without normalizing a zero component.
-<!-- /passage:upper-grover-geometry -->
-
-<a id="upper-grover-trial"></a>
-<!-- passage:upper-grover-trial -->
-
-This is the trial-count construction used in [Appendix A.3 of the exposition](exposition.md#amplification-schedule). Here the successful-state geometry precedes it and the averaged failure bound follows it.
-
-The procedure has two integer parameters: the iteration-range size $M$ within one trial, and the maximum number $N$ of fresh trials. Use natural logarithms in the second expression:
-
-<!-- claim:def-grover-trial -->
-$$
-M=\left\lceil\frac{10}{\sqrt\gamma}\right\rceil,
-\qquad
-N=\left\lceil\frac{\ln(1/\eta)}{\ln(40/31)}\right\rceil.
-$$
-
-In one trial we set $j=0$ with probability $1/2$ and otherwise, with the remaining probability $1/2$, choose $j$ uniformly from $0,\ldots,M-1$; we then prepare $\psi$, apply $G^j$, and measure success. We run at most $N$ such trials on freshly initialized registers, stop at the first success, and return failure if none succeeds. Equivalently, each iteration count $j<M$ receives probability $1/(2M)$ and zero receives an additional $1/2$, so the distribution is finite and fixed before any access to the input. The zero-iteration half protects preparations that already succeed often; the randomized iterations handle small success probabilities without risking a fixed overshoot. More iterations need not increase success monotonically.
-
-One preparation followed by $j$ iterates uses $2j+1$ calls to $A$ or $A^{-1}$, and the elementary reflections $S_0$ and $S_\chi$ add no further calls to $A$ or $A^{-1}$. As $j<M$, a trial makes at most $2M-1$ calls; the formal construction charges the convenient upper bound $2M+1$. Stopping after $N$ trials therefore gives a syntactic cap that holds for every input and every sequence of outcomes, with no success assumption.
-<!-- /passage:upper-grover-trial -->
-
-<a id="upper-average-exact"></a>
-<!-- passage:upper-average-exact -->
-
-We control the randomized iteration count by the exact averaging identity of Boyer, Brassard, Høyer and Tapp [BBHT1996, §4, Lemma 2, p. 3], which strengthens the inequality in OpenAI's equation (9):
-
-<!-- claim:new-upper-average-exact -->
-$$
-\frac1M\sum_{j=0}^{M-1}\sin^2((2j+1)\theta)
- =\frac12-\frac{\sin(4M\theta)}{4M\sin(2\theta)}
- \quad(M\geq1,\ \sin(2\theta)\ne0).
-$$
-
-To prove it, we write $\sin^2 u=(1-\cos(2u))/2$. The difference between $\sin(4(j+1)\theta)$ and $\sin(4j\theta)$ is $2\sin(2\theta)\cos((4j+2)\theta)$, so summing this equality over $j=0,\ldots,M-1$ cancels every interior sine term and leaves $\sin(4M\theta)$. Dividing by the nonzero $2\sin(2\theta)$ gives the sum of the cosine terms, and substituting it into the sum of the squared sines and dividing by $M$ proves the identity. Multiplying through by $\sin(2\theta)$ gives a division-free identity that holds also at the endpoints; we use the displayed quotient only when its denominator is nonzero.
-<!-- /passage:upper-average-exact -->
-
-<a id="upper-small-probability"></a>
-<!-- passage:upper-small-probability -->
-
-Suppose now that $\gamma\leq p\leq1/2$. The sine addition formula and the definitions of $\theta,g,b$ give:
-
-<!-- claim:claim-sin2theta -->
-$$
-\sin(2\theta)=2\sqrt{p(1-p)}\geq\sqrt\gamma.
-$$
-
-Indeed, $1-p\geq1/2$, so the square of the left side is $4p(1-p)\geq2p\geq\gamma$, and both sides are nonnegative. Since $M\geq10/\sqrt\gamma$, we obtain $M\sin(2\theta)\geq10$. Because every sine has absolute value at most one, the exact average above implies the slightly weaker equation (9) of the paper, which suffices:
-
-<!-- claim:eq-9 -->
-$$
-\frac1M\sum_{j=0}^{M-1}\sin^2((2j+1)\theta)
-\geq\frac12-\frac{1}{2M|\sin(2\theta)|}
-\geq\frac9{20}.
-$$
-
-Thus the half of the trial that chooses a uniform iteration count contributes at least $9/40$ to its success probability. If instead $p\geq1/2$, the half that chooses zero iterations contributes at least $p/2\geq1/4\geq9/40$. Since these two cases cover every $p\geq\gamma$, including $p=1$, a trial fails with probability at most $31/40$ whenever the promise $p\geq\gamma$ holds.
-<!-- /passage:upper-small-probability -->
-
-<a id="upper-amplification-proof"></a>
-<!-- passage:upper-amplification-proof -->
-
-For a fixed oracle input, each fresh trial has the same failure probability $f$, and the fresh choices and registers make the failures independent. Hence the probability of $N$ failures is $f^N\leq(31/40)^N\leq\eta$, where the last inequality follows by taking logarithms, since $N\ln(40/31)\geq\ln(1/\eta)$. If $p=0$, the endpoint argument above gives $f=1$, hence certain failure.
-
-On a successful branch, the state of the successful trial is $g$ up to global phase, whatever its iteration count. Earlier failed trials occupy separate registers, which we may discard once their outcomes are recorded or keep, since in either case the designated output register is in the pure state $g$ up to phase. Mixing over iteration counts and over the index of the first successful trial leaves the density operator $|g\rangle\langle g|$ unchanged, so conditioning on success introduces no bias into any measurement of that output state. This proves every correctness clause of Lemma 3.1.
-
-**Optional constant accounting.** Readers needing only the call order may continue at the [returned-register proof](#upper-returned-register). The padded product charged by the implementation satisfies the following bound:
-
-<!-- claim:new-upper-call-cap -->
-$$
-\operatorname{calls}(\gamma,\eta)
-\leq N(2M+1)
-\leq138\,\gamma^{-1/2}\ln(1/\eta).
-$$
-
-For $x\geq1$, the derivative of $\ln x-2(x-1)/(x+1)$ is $(x-1)^2/(x(x+1)^2)\geq0$, and the expression vanishes at one; at $x=40/31$ this gives $\ln(40/31)\geq18/71\geq1/4$. Also $\ln2=\int_1^2u^{-1}\,du\geq1/2$, and consequently $N\leq4\ln(1/\eta)+1\leq6\ln(1/\eta)$. Since $M\leq10/\sqrt\gamma+1$ and $\sqrt\gamma\leq1$, we have $2M+1\leq23/\sqrt\gamma$, and multiplying the two bounds gives 138. The estimates are uniform, so the bound holds on every run, including runs whose success probability is small.
-
-A positive original success probability also makes the conditioning legitimate, because the zero-iteration half of each trial succeeds with probability at least $p/2>0$ and $N\geq1$; thus the total success probability is positive whenever $p>0$. At $p=0$ we assert certain failure and make no conditional-state assertion about a null event.
-<!-- /passage:upper-amplification-proof -->
-
-<a id="upper-returned-register"></a>
-<!-- passage:upper-returned-register -->
-We now interpret the retained registers. On a successful measured history, we route the entire original register of the first successful trial to a fixed output register, whose state is $g$ up to phase. The earlier unsuccessful registers, the iteration-count records and the chosen trial index are additional registers, and keeping all of them leaves the pure reduced state $|g\rangle\langle g|$ of the output register unchanged. If the history is retained coherently, the phase of each history can be absorbed into its auxiliary amplitude: after the fixed routing, the unnormalized successful component factors as $g\otimes\xi$, with $\|\xi\|^2$ equal to the success probability. This is a statement about a designated subsystem; it does not identify the whole enlarged workspace with the smaller vector $g$.
-
-A coherent implementation may run all $N$ trial registers and then route the first success, keeping the same padded cap, and it calls the preparation unitary only without control. To control a Grover iterate, we apply $A$ and $A^{-1}$ unconditionally, control only the fixed reflections $S_0,S_\chi$, and apply the minus sign as a phase on the true control. Writing $C(U)=|0\rangle\langle0|\otimes I+|1\rangle\langle1|\otimes U$ and $Z_c=|0\rangle\langle0|-|1\rangle\langle1|$, the controlled product is
-\[
-(Z_c\otimes I)(I\otimes A)C(S_0)(I\otimes A^{-1})C(S_\chi)
-=|0\rangle\langle0|\otimes I+|1\rangle\langle1|\otimes G.
-\]
-On a false control the reflections are identities and $AA^{-1}=I$; on a true control the product is $G$. The iteration-count record therefore controls only input-independent gates. Every trial has a fixed schedule of preparation calls, and its success projection can be recorded coherently in an auxiliary flag. After routing, the common factor $g$ on every successful history gives the stated factorization, and the first trial alone gives total success probability at least $p/2$ when $p>0$.
-
-<!-- claim:r3-q-labels-do-not-determine-state -->
-The successful-state assertion needs more than equality of label distributions. Write $|\pm\rangle=(|0\rangle\pm|1\rangle)/\sqrt2$. The vectors
-$$
- |+\rangle\otimes|0\rangle
- \quad\hbox{and}\quad
- \frac{|0\rangle|0\rangle+|1\rangle|1\rangle}{\sqrt2}
-$$
-give the same uniform computational-basis distribution on the first register. In the first vector that register is in the pure state $|+\rangle$, and in the second it has density matrix $I/2$, so measuring it in the $\{|+\rangle,|-\rangle\}$ basis distinguishes the two laws: the probability of $+$ is respectively $1$ and $1/2$. The example shows why the formal successful-label theorem certifies less than the full successful-state assertion, which the ordinary proof of Lemma 3.1 just given establishes.
-<!-- /passage:upper-returned-register -->
-
+\Needspace{18\baselineskip}
 
 ### 5.2. A tournament with probabilistic comparisons
 
 <a id="upper-tournament-statement"></a>
-**Proposition 3.2 (probabilistic-comparison tournament).**
+**Proposition 3.2 (OpenAI; probabilistic-comparison tournament).**
 
 **Comparison interface.** Let $m\ge2$, and for each unordered pair of distinct vertices let one designated comparison circuit be available coherently, including under control of the pair's indices, with a cap of $c\ge1$ bit queries for the circuit and for its inverse. Let $a_{ij}$ be the probability that $i$ wins against $j$, with $a_{ii}=0$, so that $a_{ij}+a_{ji}=1$ for $i\ne j$ (equation (10)); the comparisons may be intransitive, and their error need not be bounded.
 
@@ -1146,7 +1031,7 @@ Only the conclusion of the theorem below is conditional on this property of $s$.
 <!-- /passage:upper-tournament-parameters -->
 
 <a id="upper-ideal-process"></a>
-*Proof of [Proposition 3.2](#upper-tournament-statement).* Fix the comparison table and parameters just stated. The weights below are analytical quantities of the proof, unavailable to the algorithm. Return to [§3.2 of the specialist companion](expert_companion.md#32-a-tournament-with-probabilistic-comparisons).
+*Proof of [Proposition 3.2](#upper-tournament-statement).* Fix the comparison table and parameters just stated. The weights below are analytical quantities of the proof, unavailable to the algorithm.
 
 <!-- passage:upper-ideal-process -->
 
@@ -1308,7 +1193,7 @@ Amplification preserves this entire conditional law, including the fractional lo
 
 We apply Lemma 3.1 to this preparation with $\gamma=1/(2m)$ and $\eta=\varepsilon$. On reported failure we stop and return the current list; on success we measure the index, append it to the list, and proceed, stopping after at most $T$ appended indices. These instructions define the real sampler for every input and every history, whether or not a dominant vertex exists.
 
-Conditioned on success, the amplified state is the normalized success component of the unamplified preparation, so its measured index has exactly the distribution $w_i/W$. The ideal weight calculation needs this exact conditional law; a lower bound on the chance of obtaining some successful index would be too weak. When $W=0$ the unamplified success probability is zero, and Lemma 3.1 reports failure with certainty.
+The measured-output contract in §5.1 gives exactly the conditional index law $w_i/W$ on success. The ideal weight calculation needs this exact conditional law; a lower bound on the chance of obtaining some successful index would be too weak. When $W=0$ the unamplified success probability is zero, and Lemma 3.1 reports failure with certainty.
 
 **The transition law at an active history.** For a pivot list $L$ with $|L|<T$, write $f(L)$ for the sampler's failure probability. Its exact kernel is
 
@@ -1393,6 +1278,8 @@ The sampler is chosen before both $x$ and $s$, so it operates without knowing wh
 
 
 **Comparison with earlier search procedures.** The same organization into candidate generation, comparison and certificate checking appears in Ben-David and Kothari [BDK2026, §3, Lemma 5, pp. 3–5] and in Ambainis, Iraids and Kokainis [AIK2026, arXiv v2]; the preprint cites these two certificate-complexity separations as recent work whose comparison-based viewpoint is particularly relevant [OpenAI2026, §1.1, p. 2]. Their comparison concerns certificate complexity $C$, the number of bits in a certificate, rather than randomized query complexity $R$, the cost of a bounded-error algorithm, and they search for a distinguished column by a procedure different from the fractional-weight theorem proved here. Dürr and Høyer's minimum-finding algorithm uses ordered table values and a decreasing rank [DH1999, Theorem 1 and Lemmas 1–2, pp. 1–2], and Mande, Paraashar and Saurabh give a quantum algorithm for finding a king with exact edge-direction queries [MPS2023, Theorem 19, §4, pp. 30:11–30:13]. These are antecedents and comparisons; the fractional-weight argument we follow is the one in OpenAI's Proposition 3.2. In particular, the available comparisons need not be bounded-error evaluations of any fixed orientation.
+
+Readers arriving from the [specialist companion may return to its §3.2](expert_companion.md#32-a-tournament-with-probabilistic-comparisons).
 
 ### 5.3. Decoding, comparison, and verification
 
@@ -1659,6 +1546,142 @@ Subtracting the common upper bound from $B$ yields exactly the desired lower bou
 At the empty history with $n=T_0=T$, the ideal estimate gives $I_T([])\leq2m/2^T$, and expanding the product in the lower bound and discarding its nonnegative cross term gives $R_T([])\geq1-2m/2^T-T\varepsilon-\varepsilon$. This is the [acceptance guarantee of the formal tournament][src-tournament-runs], and it accounts for that theorem's additional verifier error. For a list-membership event, we use the perfect indicator $v(i)=\mathbf1_{\{i=s\}}$, in this analysis only; the same induction then starts from $1-I_0(L)$ without the factor $1-\varepsilon$ and yields $1-I_n(L)-n\varepsilon$, which is the list guarantee with no extra verifier error. This indicator is an analytical choice and is never supplied to the sampler as an oracle.
 <!-- /passage:upper-continuation-induction -->
 
+### 5.6. Proof of bounded amplification and the retained-state assertion
+
+We prove Lemma 3.1, including the measured-output contract used in §§5.2–5.5. The first part proves the trial law and all-branch cap; the final part identifies a designated retained subsystem.
+
+<a id="upper-grover-geometry"></a>
+<!-- passage:upper-grover-geometry -->
+
+Let $\Pi$ be the orthogonal projection onto the success subspace, let $\psi=A|0\rangle$, and let $p=\|\Pi\psi\|^2$. First suppose $0<p<1$, and define $g=\Pi\psi/\sqrt p$ and $b=(I-\Pi)\psi/\sqrt{1-p}$. Orthogonality of the two projection ranges gives orthonormal vectors $g,b$, and normalization of $\psi$ gives $\psi=\sqrt p\,g+\sqrt{1-p}\,b$. There is a unique $\theta\in(0,\pi/2)$ with $\sin\theta=\sqrt p$, and its cosine is $\sqrt{1-p}$.
+
+The success reflection is $S_\chi=I-2\Pi$, available without queries by the fixed-interface assumption, and the reflection about the reference state is $S_0=I-2|0\rangle\langle0|$. We take the Grover iterate
+\[
+G=-AS_0A^{-1}S_\chi.
+\]
+Its minus sign is a global phase and so costs no queries. Conjugating $S_0$ by $A$ gives $I-2|\psi\rangle\langle\psi|$, hence $G=(2|\psi\rangle\langle\psi|-I)S_\chi$. Both factors preserve the span of $g,b$. In the ordered basis $(g,b)$, $S_\chi$ changes the sign of the first coordinate. Multiplying it by the reflection about $\psi$ gives
+\[
+[G]_{(g,b)}=
+\begin{pmatrix}
+\cos(2\theta)&\sin(2\theta)\\
+-\sin(2\theta)&\cos(2\theta)
+\end{pmatrix}.
+\]
+
+By the addition formulas, applying this matrix to a vector with coordinates $(\sin\alpha,\cos\alpha)$ gives $(\sin(\alpha+2\theta),\cos(\alpha+2\theta))$. Induction on the nonnegative integer $j$, starting at $\alpha=\theta$, therefore gives the state and success formula:
+
+<!-- claim:claim-grover-state -->
+$$
+G^j\psi
+ =\sin((2j+1)\theta)g+\cos((2j+1)\theta)b,
+\qquad
+\Pr[\text{success after }j]=\sin^2((2j+1)\theta).
+$$
+
+Projection onto success removes the $b$ term, so whenever success has nonzero probability the normalized result is $g$ or $-g$. This conclusion concerns the whole workspace, including any registers in which $A$ has recorded intermediate data, and so it is stronger than a statement about the probability of a success flag alone.
+
+At $p=0$ the state lies in the failure subspace, where the success reflection fixes it; since the reflection about $\psi$ also fixes $\psi$, every iterate has zero success probability. At $p=1$ the success reflection sends $\psi$ to $-\psi$, so every iterate remains a scalar multiple of $\psi$ in the success subspace. Both endpoint cases are thus settled without normalizing a zero component.
+<!-- /passage:upper-grover-geometry -->
+
+<a id="upper-grover-trial"></a>
+<!-- passage:upper-grover-trial -->
+
+This is the trial-count construction used in [Appendix A.3 of the exposition](exposition.md#amplification-schedule). Here the successful-state geometry precedes it and the averaged failure bound follows it.
+
+The procedure has two integer parameters: the iteration-range size $M$ within one trial, and the maximum number $N$ of fresh trials. Use natural logarithms in the second expression:
+
+<!-- claim:def-grover-trial -->
+$$
+M=\left\lceil\frac{10}{\sqrt\gamma}\right\rceil,
+\qquad
+N=\left\lceil\frac{\ln(1/\eta)}{\ln(40/31)}\right\rceil.
+$$
+
+In one trial we set $j=0$ with probability $1/2$ and otherwise, with the remaining probability $1/2$, choose $j$ uniformly from $0,\ldots,M-1$; we then prepare $\psi$, apply $G^j$, and measure success. We run at most $N$ such trials on freshly initialized registers, stop at the first success, and return failure if none succeeds. Equivalently, each iteration count $j<M$ receives probability $1/(2M)$ and zero receives an additional $1/2$, so the distribution is finite and fixed before any access to the input. The zero-iteration half protects preparations that already succeed often; the randomized iterations handle small success probabilities without risking a fixed overshoot. More iterations need not increase success monotonically.
+
+One preparation followed by $j$ iterates uses $2j+1$ calls to $A$ or $A^{-1}$, and the elementary reflections $S_0$ and $S_\chi$ add no further calls to $A$ or $A^{-1}$. As $j<M$, a trial makes at most $2M-1$ calls; the formal construction charges the convenient upper bound $2M+1$. Stopping after $N$ trials therefore gives a syntactic cap that holds for every input and every sequence of outcomes, with no success assumption.
+<!-- /passage:upper-grover-trial -->
+
+<a id="upper-average-exact"></a>
+<!-- passage:upper-average-exact -->
+
+We control the randomized iteration count by the exact averaging identity of Boyer, Brassard, Høyer and Tapp [BBHT1996, §4, Lemma 2, p. 3], which strengthens the inequality in OpenAI's equation (9):
+
+<!-- claim:new-upper-average-exact -->
+$$
+\frac1M\sum_{j=0}^{M-1}\sin^2((2j+1)\theta)
+ =\frac12-\frac{\sin(4M\theta)}{4M\sin(2\theta)}
+ \quad(M\geq1,\ \sin(2\theta)\ne0).
+$$
+
+To prove it, we write $\sin^2 u=(1-\cos(2u))/2$. The difference between $\sin(4(j+1)\theta)$ and $\sin(4j\theta)$ is $2\sin(2\theta)\cos((4j+2)\theta)$, so summing this equality over $j=0,\ldots,M-1$ cancels every interior sine term and leaves $\sin(4M\theta)$. Dividing by the nonzero $2\sin(2\theta)$ gives the sum of the cosine terms, and substituting it into the sum of the squared sines and dividing by $M$ proves the identity. Multiplying through by $\sin(2\theta)$ gives a division-free identity that holds also at the endpoints; we use the displayed quotient only when its denominator is nonzero.
+<!-- /passage:upper-average-exact -->
+
+<a id="upper-small-probability"></a>
+<!-- passage:upper-small-probability -->
+
+Suppose now that $\gamma\leq p\leq1/2$. The sine addition formula and the definitions of $\theta,g,b$ give:
+
+<!-- claim:claim-sin2theta -->
+$$
+\sin(2\theta)=2\sqrt{p(1-p)}\geq\sqrt\gamma.
+$$
+
+Indeed, $1-p\geq1/2$, so the square of the left side is $4p(1-p)\geq2p\geq\gamma$, and both sides are nonnegative. Since $M\geq10/\sqrt\gamma$, we obtain $M\sin(2\theta)\geq10$. Because every sine has absolute value at most one, the exact average above implies the slightly weaker equation (9) of the paper, which suffices:
+
+<!-- claim:eq-9 -->
+$$
+\frac1M\sum_{j=0}^{M-1}\sin^2((2j+1)\theta)
+\geq\frac12-\frac{1}{2M|\sin(2\theta)|}
+\geq\frac9{20}.
+$$
+
+Thus the half of the trial that chooses a uniform iteration count contributes at least $9/40$ to its success probability. If instead $p\geq1/2$, the half that chooses zero iterations contributes at least $p/2\geq1/4\geq9/40$. Since these two cases cover every $p\geq\gamma$, including $p=1$, a trial fails with probability at most $31/40$ whenever the promise $p\geq\gamma$ holds.
+<!-- /passage:upper-small-probability -->
+
+<a id="upper-amplification-proof"></a>
+<!-- passage:upper-amplification-proof -->
+
+For a fixed oracle input, each fresh trial has the same failure probability $f$, and the fresh choices and registers make the failures independent. Hence the probability of $N$ failures is $f^N\leq(31/40)^N\leq\eta$, where the last inequality follows by taking logarithms, since $N\ln(40/31)\geq\ln(1/\eta)$. If $p=0$, the endpoint argument above gives $f=1$, hence certain failure.
+
+On a successful branch, the state of the successful trial is $g$ up to global phase, whatever its iteration count. Earlier failed trials occupy separate registers, which we may discard once their outcomes are recorded or keep, since in either case the designated output register is in the pure state $g$ up to phase. Mixing over iteration counts and over the index of the first successful trial leaves the density operator $|g\rangle\langle g|$ unchanged, so conditioning on success introduces no bias into any measurement of that output state. This proves every correctness clause of Lemma 3.1.
+
+**Optional constant accounting.** Readers needing only the measured-output contract may continue at §6; the [returned-register proof](#upper-returned-register) establishes the stronger subsystem assertion. The padded product charged by the implementation satisfies the following bound:
+
+<!-- claim:new-upper-call-cap -->
+$$
+\operatorname{calls}(\gamma,\eta)
+\leq N(2M+1)
+\leq138\,\gamma^{-1/2}\ln(1/\eta).
+$$
+
+For $x\geq1$, the derivative of $\ln x-2(x-1)/(x+1)$ is $(x-1)^2/(x(x+1)^2)\geq0$, and the expression vanishes at one; at $x=40/31$ this gives $\ln(40/31)\geq18/71\geq1/4$. Also $\ln2=\int_1^2u^{-1}\,du\geq1/2$, and consequently $N\leq4\ln(1/\eta)+1\leq6\ln(1/\eta)$. Since $M\leq10/\sqrt\gamma+1$ and $\sqrt\gamma\leq1$, we have $2M+1\leq23/\sqrt\gamma$, and multiplying the two bounds gives 138. The estimates are uniform, so the bound holds on every run, including runs whose success probability is small.
+
+A positive original success probability also makes the conditioning legitimate, because the zero-iteration half of each trial succeeds with probability at least $p/2>0$ and $N\geq1$; thus the total success probability is positive whenever $p>0$. At $p=0$ we assert certain failure and make no conditional-state assertion about a null event.
+<!-- /passage:upper-amplification-proof -->
+
+<a id="upper-returned-register"></a>
+<!-- passage:upper-returned-register -->
+**Strengthening from labels to a retained state.** We now interpret the retained registers. On a successful measured history, we route the entire original register of the first successful trial to a fixed output register, whose state is $g$ up to phase. The earlier unsuccessful registers, the iteration-count records and the chosen trial index are additional registers, and keeping all of them leaves the pure reduced state $|g\rangle\langle g|$ of the output register unchanged. If the history is retained coherently, the phase of each history can be absorbed into its auxiliary amplitude: after the fixed routing, the unnormalized successful component factors as $g\otimes\xi$, with $\|\xi\|^2$ equal to the success probability. This is a statement about a designated subsystem; it does not identify the whole enlarged workspace with the smaller vector $g$.
+
+A coherent implementation may run all $N$ trial registers and then route the first success, keeping the same padded cap, and it calls the preparation unitary only without control. To control a Grover iterate, we apply $A$ and $A^{-1}$ unconditionally, control only the fixed reflections $S_0,S_\chi$, and apply the minus sign as a phase on the true control. Writing $C(U)=|0\rangle\langle0|\otimes I+|1\rangle\langle1|\otimes U$ and $Z_c=|0\rangle\langle0|-|1\rangle\langle1|$, the controlled product is
+\[
+(Z_c\otimes I)(I\otimes A)C(S_0)(I\otimes A^{-1})C(S_\chi)
+=|0\rangle\langle0|\otimes I+|1\rangle\langle1|\otimes G.
+\]
+On a false control the reflections are identities and $AA^{-1}=I$; on a true control the product is $G$. The iteration-count record therefore controls only input-independent gates. Every trial has a fixed schedule of preparation calls, and its success projection can be recorded coherently in an auxiliary flag. After routing, the common factor $g$ on every successful history gives the stated factorization, and the first trial alone gives total success probability at least $p/2$ when $p>0$.
+
+<!-- claim:r3-q-labels-do-not-determine-state -->
+The successful-state assertion needs more than equality of label distributions. Write $|\pm\rangle=(|0\rangle\pm|1\rangle)/\sqrt2$. The vectors
+$$
+ |+\rangle\otimes|0\rangle
+ \quad\hbox{and}\quad
+ \frac{|0\rangle|0\rangle+|1\rangle|1\rangle}{\sqrt2}
+$$
+give the same uniform computational-basis distribution on the first register. In the first vector that register is in the pure state $|+\rangle$, and in the second it has density matrix $I/2$, so measuring it in the $\{|+\rangle,|-\rangle\}$ basis distinguishes the two laws: the probability of $+$ is respectively $1$ and $1/2$. The example shows why the formal successful-label theorem certifies less than the full successful-state assertion, which the ordinary proof of Lemma 3.1 just given establishes.
+<!-- /passage:upper-returned-register -->
+
+
 ## 6. The classical lower bound
 
 We prove the randomized lower bound of Proposition 4.2 by planting a winner in a uniformly random column.
@@ -1673,6 +1696,8 @@ This is the generic lower bound of [§6.3](#CL-generic-statement), and taking th
 ```{=latex}
 \begin{samepage}
 ```
+
+The planted pair has only two possible places of first disagreement. On the dummy board every column has one hidden zero and all certificate cells are blank. An independent uniform column $I$ is changed by erasing its zero and filling its true addressed cell. The two executions agree until one of those locations is queried. A query to the cell names all its hard address answers, even if the algorithm merely guessed its position. The direct product will bound this prediction; the simulator makes its cap valid on every run.
 
 We fix a deterministic tree of depth at most $G$ and argue in four steps.
 
@@ -2779,7 +2804,7 @@ The schedule is $k(t)=\lfloor\sqrt{t/20}\rfloor$ for $t\ge80$. With $\ell=2t$, w
 R(F_t)\ge Q(F_t)^{4-\varepsilon(\ell)},\qquad
 \varepsilon(\ell)=8\sqrt{10/\ell}+\frac{56\log_2\ell+508}{\ell}\longrightarrow0.
 \]
-This uses the allowance $L=\lfloor X\rfloor$ from the uniform estimate (F43), defined below, rather than the smaller fixed-$k$ allowance of §6.6. Consequently its hardness condition is $15k+2\le2t$, not $t\ge13669k^2$.
+This uses the allowance $L=\lfloor X\rfloor$ from the uniform estimate (F43), defined below, rather than the smaller fixed-$k$ allowance of §6.6. Consequently its hardness condition is $15k+2\le2t$, not $t\ge13669k^2$. The schedule begins at $t=80$ to satisfy the finite hypotheses; the exponent estimate need not be informative there. When $\varepsilon(\ell)\ge4$, the power bound follows just from $R,Q\ge1$. Its nearly quartic content is the limit $\varepsilon(\ell)\to0$.
 
 On the quantum side, the useful scale is $C_k\le2^{53}k2^{10k}$. Its exponential factor contributes $40k$ to $4\log_2Q$, which will be balanced against the classical loss $\ell/k$. To verify this envelope, expand the constant $C_k$ of §5.4:
 \[
@@ -3267,6 +3292,8 @@ The direct proof constructs two distributions on the whole sign cube: the unifor
 
 Two moment estimates turn this expectation comparison into a promise lower bound. Since neither distribution is supported entirely on the promise, we first amplify the algorithm and bound its behavior on unpromised inputs only by the interval $[0,1]$. The same estimates give a uniform numerical lower bound, and comparing it with $L_{k,m}$ proves (F3).
 
+Before tracking constants, the decisive scale is $m^{-(k-1)/2}d^{k/2}$: the $k-1$ Walsh edges supply the first factor, and the tree derivative estimate supplies the second. For fixed $k$, balancing these powers gives $d=m^{1-1/k}$. The remaining work is to prove the derivative estimate at the biases actually produced by the Gaussian construction, and to turn a difference of means into a promise-solving contradiction.
+
 The analytic dependencies are: the path identity (F22) and derivative estimate (F25) give the shallow-tree bound (F33); the moment estimates (F36) and (F39), with promise error reduction, give the acceptance gap (F42); comparing that gap with (F33) yields the uniform bound (F43).
 
 The architecture is due to Bansal and Sinha, who round a chain of correlated Gaussian vectors to signs and use an integration-by-parts identity for the bounded biases [BansalSinha2021, §3 and Lemma 4.3]. We control the derivatives along the decision tree by the martingale method of Girish, Tal and Wu (arXiv:2103.11604v2, §1.3 and Lemma 1.9). Our proof departs from Bansal and Sinha's in two choices. First, the truncation (F9), a smooth bounded bias transform with values in $(-1/2,1/2)$, replaces their shifted Gaussian distribution function; its identity $\varphi=x\Psi-\Psi'$ in (F10) involves only algebraic functions, so the moment and kernel bounds of §§8.7–8.12 have explicit elementary constants and Owen's $T$ function never appears. Second, the first-block interpolation produces one raw derivative of order $k$ per labelled block, whereas Bansal and Sinha bound Fourier weights at every level from $k$ to $k(k-1)$ [BansalSinha2021, Theorem 3.2]; as (F24) shows, the higher uniform Fourier levels remain inside those raw derivatives. Section 8.15 gives the detailed credit.
@@ -3337,7 +3364,7 @@ Here $J$ is a set of distinct coordinates, and $\partial_J$ means one derivative
 
 <a id="forr_stein"></a>
 <!-- passage:forr_stein -->
-We need bounded biases and an integration-by-parts identity that removes them one at a time. To this end, we put
+The rounded signs must have valid means bounded away from $\pm1$, so the tree estimate can apply uniformly. At the same time, Gaussian integration by parts must move a bias factor along a Walsh edge without creating an uncontrolled derivative term. The pair below meets both requirements: $|\varphi|\le1/2$, the identity $\varphi=x\Psi-\Psi'$ cancels that term, and the product $\Psi\varphi'$ has the uniform bound used on each edge. These are the properties needed from the choice, which we now verify. Put
 
 <!-- claim:NEW-FOR-08 -->
 \[
@@ -3556,6 +3583,8 @@ For example, the monomial $g(z)=\prod_{i\in T}z_i$ with $|T|=k+1$ has $\partial_
 <!-- /passage:forr_path_formula -->
 
 ### 8.10. Derivative growth along a decision tree
+
+Equation (F24) rules out simply using the degree-$k$ Fourier coefficients at zero. We bound the derivatives directly under the independent biased law.
 
 The interpolation asks us to bound a sum of absolute mixed derivatives. We first allow arbitrary coefficients of magnitude at most one, represent their signed derivative sum by the terminal value of a process along the tree, and bound that process uniformly. Choosing the coefficients to match the derivative signs at the end then recovers the desired absolute sum.
 
@@ -4737,7 +4766,7 @@ Section 4 constructs one total function from a circuit and explains every local 
 
 ### B.4. Amplification and the returned state
 
-Section 5.1 gives the state calculation and bounded fresh-trial procedure. The [amplification theorem for abstract procedures][src-amplification] matches the abstract amplification assertion, including its successful state and cap. The implemented upper bound uses a physical label-law theorem. Those two statements do not supply the missing identification of a designated physical output subsystem; Appendix G.7 states that stronger target completely. Thus an exact abstract tie for Lemma 3.1 must not be read as closing the physical-state bridge. Trial parameters, mixture and recursion have separate formal suppliers.
+Section 5.6 gives the state calculation and bounded fresh-trial procedure. The [amplification theorem for abstract procedures][src-amplification] matches the abstract amplification assertion, including its successful state and cap. The implemented upper bound uses a physical label-law theorem. Those two statements do not supply the missing identification of a designated physical output subsystem; Appendix G.7 states that stronger target completely. Thus an exact abstract tie for Lemma 3.1 must not be read as closing the physical-state bridge. Trial parameters, mixture and recursion have separate formal suppliers.
 
 #### def-grover-trial
 
@@ -4747,7 +4776,7 @@ Section 5.1 gives the state calculation and bounded fresh-trial procedure. The [
 
 > M = ceil(10/sqrt(gamma)). A trial picks with probability 1/2 l=0, and with probability 1/2 a uniform l in {0,...,M-1}, applies l Grover iterations to A|0>, and measures the success bit. The procedure runs ceil(log(1/eta)/log(40/31)) trials with fresh registers, stopping at the first success.
 
-**Argument:** [§5.1](#upper-grover-trial).
+**Argument:** [§5.6](#upper-grover-trial).
 
 <!-- /passage:CAT-def-grover-trial -->
 
@@ -4759,7 +4788,7 @@ Section 5.1 gives the state calculation and bounded fresh-trial procedure. The [
 
 > For 0<p<1 write A|0>=sin(theta)|g>+cos(theta)|b>, 0<theta<pi/2, with g,b normalized in the successful and unsuccessful subspaces. After l Grover iterations the state is sin((2l+1)theta)|g>+cos((2l+1)theta)|b>. Hence measuring success yields |g> up to global phase, independently of l.
 
-**Argument:** [§5.1](#upper-grover-geometry).
+**Argument:** [§5.6](#upper-grover-geometry).
 
 <!-- /passage:CAT-claim-grover-state -->
 
@@ -4771,7 +4800,7 @@ Section 5.1 gives the state calculation and bounded fresh-trial procedure. The [
 
 > If gamma<=p<=1/2 then sin(2theta)=2 sqrt(p(1-p)) >= sqrt(gamma).
 
-**Argument:** [§5.1](#upper-small-probability).
+**Argument:** [§5.6](#upper-small-probability).
 
 <!-- /passage:CAT-claim-sin2theta -->
 
@@ -4783,7 +4812,7 @@ Section 5.1 gives the state calculation and bounded fresh-trial procedure. The [
 
 > If gamma<=p<=1/2 and M=ceil(10/sqrt(gamma)), then (1/M) sum_{l=0}^{M-1} sin^2((2l+1)theta) >= 1/2 - 1/(2M|sin 2theta|) >= 9/20.
 
-**Argument:** [§5.1](#upper-average-exact), [§5.1](#upper-small-probability).
+**Argument:** [§5.6](#upper-average-exact), [§5.6](#upper-small-probability).
 
 <!-- /passage:CAT-eq-9 -->
 
@@ -4795,7 +4824,7 @@ Section 5.1 gives the state calculation and bounded fresh-trial procedure. The [
 
 > For 0<gamma<=1/2 and 0<eta<1/2 there is a single procedure, black-box in A and A^{-1} and with call counts depending only on gamma and eta, using O(gamma^{-1/2} log(1/eta)) calls for every p and on every branch, such that for every state preparation A with a success bit, success probability p and, if p>0, normalized successful state |g>: it reports failure or produces a successful outcome; conditional on success the output is |g> up to global phase; if p>=gamma, failure probability <=eta; if p=0 it always reports failure.
 
-**Argument:** [§5.1](#upper-amplification-statement), [§5.1](#upper-amplification-proof).
+**Argument:** [§5.1](#upper-amplification-statement), [§5.6](#upper-amplification-proof).
 
 <!-- /passage:CAT-lem-3.1 -->
 
@@ -5827,7 +5856,7 @@ The editions and theorem locators below are those assessed in the retained secti
 
 <a id="ref-BBHT1996"></a>
 
-- **BBHT1996.** Boyer, Michel and Brassard, Gilles and Høyer, Peter and Tapp, Alain. *Tight Bounds on Quantum Searching*. 1996. [Version record](https://arxiv.org/abs/quant-ph/9605034v1). Inspected arXiv v1. Section 4, Lemma 2, printed page 3: exact average for a random number of Grover iterations. Theorem 3 and subsequent timeout discussion, page 4: unknown-number expected-time search. The fixed capped construction is proved separately in §5.1. Journal version: Fortschritte der Physik 46 (1998); its pagination is not used for these locators.
+- **BBHT1996.** Boyer, Michel and Brassard, Gilles and Høyer, Peter and Tapp, Alain. *Tight Bounds on Quantum Searching*. 1996. [Version record](https://arxiv.org/abs/quant-ph/9605034v1). Inspected arXiv v1. Section 4, Lemma 2, printed page 3: exact average for a random number of Grover iterations. Theorem 3 and subsequent timeout discussion, page 4: unknown-number expected-time search. The fixed capped construction is proved separately in §5.6. Journal version: Fortschritte der Physik 46 (1998); its pagination is not used for these locators.
 
 <a id="ref-DH1999"></a>
 
@@ -6376,7 +6405,7 @@ The [compared exponent theorem][thm-alpha] states exactly $\alpha_{\mathrm{tot}}
 <a id="formal-separation-family"></a>
 #### The separation family
 
-The [compared separation theorem][thm-headline] is exact for catalogue claim thm-1.1. It gives $\lfloor mL/100\rfloor<R(F_{k,m})$ and $Q\le A\,2^t(2t)^b$, with $b$ existential and one circuit per size. This implies (2) by the floor calculation of §6.6; it does not state $b=6$ or the coefficient $1/400$. The ordinary assembly is in [§7](#ROOT-FAMILY-ASSEMBLY).
+The [compared separation theorem][thm-headline] is exact for catalogue claim thm-1.1. Its type is a conjunction: $\alpha_{\rm tot}=4$, the universal power-four bound, and a fixed-parameter separating family. In its family clause it gives $\lfloor mL/100\rfloor<R(F_{k,m})$ and $Q\le A\,2^t(2t)^b$, with $b$ existential and one circuit per size. This implies (2) by the floor calculation of §6.6; it does not state $b=6$ or the coefficient $1/400$. The ordinary assembly is in [§7](#ROOT-FAMILY-ASSEMBLY).
 
 #### Failure of a cubic bound
 
@@ -6399,7 +6428,7 @@ Separate compilation has these different source boundaries; it is not a uniform 
 <a id="formal-named-family"></a>
 #### Explicit constants for the named family
 
-The [named-family theorem][src-constants] proves Equation (2) with $b_k=6$, coefficient $1/400$ and a circuit-size bound. It is built and axiom-audited, but not configured for comparison. The 2 November corpus and the 3 November textual review both judge it stronger than (2), because it fixes explicit constants for the named circuit. Its threshold remains existential: no Lean theorem states $t\ge13669k^2$. The file header’s “Status: unelaborated” describes its original authoring environment, before the recorded build and axiom audit; it is not the current checking status. The later evidence is identified above and in the [round-four formal adjudication](../research/adjudication/round4_formal.md). See [§6.6](#CL-floors), [Appendix G.9](#ROOT-EXPONENT-CORRESPONDENCE).
+The [named-family theorem][src-constants] proves Equation (2) with $b_k=6$, coefficient $1/400$ and a circuit-size bound. It is built and axiom-audited, but not configured for comparison. The 2 November corpus and the 3 November textual review both judge it stronger than (2), because it fixes explicit constants for the named circuit. Its threshold remains existential: no Lean theorem states $t\ge13669k^2$. The file header’s “Status: unelaborated” describes its original authoring environment, before the recorded build and axiom audit; it is not the current checking status. The [2 November source-bound build receipt](../corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json) includes this exact declaration; its separate axiom-audit and comparison status are recorded in the [round-four formal adjudication](../research/adjudication/round4_formal.md). See [§6.6](#CL-floors), [Appendix G.9](#ROOT-EXPONENT-CORRESPONDENCE).
 
 #### The existential form of Equation (2)
 
@@ -6431,7 +6460,7 @@ The [local certificate theorem][src-construction-full] was compared in its own b
 
 #### Abstract bounded amplification
 
-The [abstract amplification theorem][src-amplification] is built and the corpus judges it exact for Lemma 3.1 in its abstract procedure semantics. That semantics neither compiles to the bit-query model nor identifies a returned subsystem. The textual review did not cover it. See [§5.1](#upper-amplification-proof).
+The [abstract amplification theorem][src-amplification] is built and the corpus judges it exact for Lemma 3.1 in its abstract procedure semantics. That semantics neither compiles to the bit-query model nor identifies a returned subsystem. The textual review did not cover it. See [§5.6](#upper-amplification-proof).
 
 #### Amplification returning the successful state
 
@@ -6439,7 +6468,7 @@ The [retained-state amplification theorem][src-opaque-amplifier] was compared on
 
 #### Amplification of measured labels
 
-The [measured-label amplification theorem][src-amplify-measured] is built. The corpus judges it partial for Lemma 3.1, and the textual review judges it weaker: it gives the cap, failure bounds and measured-label law without the state. This is the form used by the proof of Theorem 1.1. See [§5.1](#upper-amplification-proof).
+The [measured-label amplification theorem][src-amplify-measured] is built. The corpus judges it partial for Lemma 3.1, and the textual review judges it weaker: it gives the cap, failure bounds and measured-label law without the state. This is the form used by the proof of Theorem 1.1. See [§5.6](#upper-amplification-proof).
 
 #### Direct products with finite averaging
 
@@ -6512,7 +6541,7 @@ The proof of Proposition 3.3 in Theorem 1.1 uses only the law of the measured la
 <a id="upper-current-formal-scope"></a>
 <!-- passage:upper-current-formal-scope -->
 
-Two formal routes accompany the ordinary proof of §§5.1–5.4, and they have different roles.
+Two formal routes accompany the ordinary proof of §§5.1–5.6, and they have different roles.
 
 **Measured labels and Boolean continuation.** The measured-label amplifier, the tournament continuation and the numerical quantum bound prove the acceptance law of §5.5 and its final budget. This is the route used by the headline proof roots.
 
@@ -6569,7 +6598,7 @@ Here $M=\lceil10/\sqrt\gamma\rceil$ and $N=\lceil\ln(1/\eta)/\ln(40/31)\rceil$ a
 
 To express the preprint's black-box uniformity, the underlying program with slots for $A$ and $A^{-1}$ must be fixed by $\gamma,\eta$ and the register/query interface before the preparation oracle is supplied. Its branches, $M,N$ and cap cannot depend on $p_x$. The auxiliary space, routing and all non-oracle gates are input-independent. An equivalent adaptive formulation gives the same normalized original-register state, up to phase, on every positive-mass successful history. The finite-coordinate version and an explicitly uncompiled proposed interface are in the [quantum gap record](../research/returns/round3/members/05_quantum_upper/LEAN_GAPS.md).
 
-The ordinary fresh-trial/routing argument in §5.1 supplies the mathematical construction. The round-four integration added the [amplifier for opaque preparations][cmp-amplifier], accepted by Comparator: for one selector gate chosen before every opaque unitary, it states the retained-factor identity and the exact success mass, with the zero-mass, $p/2$ and $1-\eta$ clauses and a logical cap. The basis change from a general fixed projector to a coordinate predicate and the literal flag/Hadamard identification remain unproved, so no source-bound Lean theorem of the full physical type displayed above is claimed. In particular, the coherent composition can retain a copy of a successful output label in auxiliary registers, and the measured compilation route reads a complete basis label. What remains is the physical transport and uncomputation statement: after the chosen compiler and any copied labels, the designated physical output subsystem must still have the abstract successful factor $g_x$. The accepted opaque identity alone does not identify that subsystem. This bridge is needed before promoting the physical wrapper to the full state claim. This missing formal bridge is not an extra assumption in the proof of Proposition 3.3: that proof uses only measured labels, whose law is already supplied by the compiled route.
+The ordinary fresh-trial/routing argument in §5.6 supplies the mathematical construction. The round-four integration added the [amplifier for opaque preparations][cmp-amplifier], accepted by Comparator: for one selector gate chosen before every opaque unitary, it states the retained-factor identity and the exact success mass, with the zero-mass, $p/2$ and $1-\eta$ clauses and a logical cap. The basis change from a general fixed projector to a coordinate predicate and the literal flag/Hadamard identification remain unproved, so no source-bound Lean theorem of the full physical type displayed above is claimed. In particular, the coherent composition can retain a copy of a successful output label in auxiliary registers, and the measured compilation route reads a complete basis label. What remains is the physical transport and uncomputation statement: after the chosen compiler and any copied labels, the designated physical output subsystem must still have the abstract successful factor $g_x$. The accepted opaque identity alone does not identify that subsystem. This bridge is needed before promoting the physical wrapper to the full state claim. This missing formal bridge is not an extra assumption in the proof of Proposition 3.3: that proof uses only measured labels, whose law is already supplied by the compiled route.
 <!-- /passage:upper-missing-physical-state -->
 
 ### G.8. The classical lower bound
