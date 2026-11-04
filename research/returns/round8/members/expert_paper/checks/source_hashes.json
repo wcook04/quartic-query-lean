@@ -1,0 +1,42 @@
+{
+  "source_sha256": {
+    "repository/docs/expert_companion.bib": "147f5dbc2423dd33a015fc72e363c43f21d2c6557ea2bccbf7427ced85f67593",
+    "repository/docs/expert_companion.md": "43b588711035c54dc5140fb43e7865eaf6a71d929737467db358727dc04002eb",
+    "repository/docs/expert_companion.pdf": "592107a3861577afbba2c68035cd2c5f49a9a0b36f0c5a27f3dc64158fb81597",
+    "repository/docs/exposition.bib": "3179567b4b927795cb95e7d6b4343434ae8e02601ae70de8c538f00448a802e2",
+    "repository/docs/exposition.md": "8824b8fc612730de9fac81a5c65f64f51bf74662577f43132375dd5c04e0e8a9",
+    "repository/docs/exposition.pdf": "51dba8d915c3fd795b5692bd5f98f5e2a8119a8ef74412c8c9a052fa70d0b8ba"
+  },
+  "checks": {
+    "repository/docs/expert_companion.bib": {
+      "expected": "147f5dbc2423dd33a015fc72e363c43f21d2c6557ea2bccbf7427ced85f67593",
+      "actual": "147f5dbc2423dd33a015fc72e363c43f21d2c6557ea2bccbf7427ced85f67593",
+      "match": true
+    },
+    "repository/docs/expert_companion.md": {
+      "expected": "43b588711035c54dc5140fb43e7865eaf6a71d929737467db358727dc04002eb",
+      "actual": "43b588711035c54dc5140fb43e7865eaf6a71d929737467db358727dc04002eb",
+      "match": true
+    },
+    "repository/docs/expert_companion.pdf": {
+      "expected": "592107a3861577afbba2c68035cd2c5f49a9a0b36f0c5a27f3dc64158fb81597",
+      "actual": "592107a3861577afbba2c68035cd2c5f49a9a0b36f0c5a27f3dc64158fb81597",
+      "match": true
+    },
+    "repository/docs/exposition.bib": {
+      "expected": "3179567b4b927795cb95e7d6b4343434ae8e02601ae70de8c538f00448a802e2",
+      "actual": "3179567b4b927795cb95e7d6b4343434ae8e02601ae70de8c538f00448a802e2",
+      "match": true
+    },
+    "repository/docs/exposition.md": {
+      "expected": "8824b8fc612730de9fac81a5c65f64f51bf74662577f43132375dd5c04e0e8a9",
+      "actual": "8824b8fc612730de9fac81a5c65f64f51bf74662577f43132375dd5c04e0e8a9",
+      "match": true
+    },
+    "repository/docs/exposition.pdf": {
+      "expected": "51dba8d915c3fd795b5692bd5f98f5e2a8119a8ef74412c8c9a052fa70d0b8ba",
+      "actual": "51dba8d915c3fd795b5692bd5f98f5e2a8119a8ef74412c8c9a052fa70d0b8ba",
+      "match": true
+    }
+  }
+}

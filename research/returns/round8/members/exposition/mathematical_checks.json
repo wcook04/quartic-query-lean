@@ -1,0 +1,122 @@
+{
+  "scope": "Exact arithmetic and finite enumeration performed with a fresh reviewer-authored script after reading. These corroborate the examples; they are not Lean, Comparator, the supplied finite circuit checker, or a full proof certification.",
+  "input_executables_run": false,
+  "results": [
+    {
+      "check": "Four displayed Forrelation amplitudes",
+      "values": {
+        "01111000": "1",
+        "01001000": "0",
+        "10001000": "-1",
+        "11111000": "1/2"
+      },
+      "result": "passed"
+    },
+    {
+      "check": "Question 1 address-by-address failed-test count",
+      "failed_tests": {
+        "00": 1,
+        "01": 2,
+        "10": 2,
+        "11": 3
+      },
+      "result": "passed"
+    },
+    {
+      "check": "Question 2 cyclic pivots 2 then 4",
+      "final_weights": [
+        "1",
+        "0",
+        "0",
+        "0"
+      ],
+      "preparation_success": "1/4",
+      "next_label_given_success": 1,
+      "one_iteration": "sin^2(3*pi/6)=1",
+      "second_iteration": "sin^2(5*pi/6)=1/4",
+      "result": "passed"
+    },
+    {
+      "check": "Abstract fractional matrix after pivot 2",
+      "weights": [
+        "1",
+        "0",
+        "2/3",
+        "1/4"
+      ],
+      "total_weight": "23/12",
+      "preparation_success": "23/48",
+      "conditional_labels": [
+        "12/23",
+        "0",
+        "8/23",
+        "3/23"
+      ],
+      "result": "passed"
+    },
+    {
+      "check": "Erased-zero counterexample and Question 3",
+      "enumeration": {
+        "1": {
+          "independent_hit": "1/4",
+          "dependent_hit": "175/256",
+          "zero_configurations": 256
+        },
+        "2": {
+          "independent_hit": "1/2",
+          "dependent_hit": "15/16",
+          "zero_configurations": 256
+        }
+      },
+      "result": "passed"
+    },
+    {
+      "check": "XOR simulator and Question 4",
+      "equally_likely_inputs": 16,
+      "original_light_event": "1/8",
+      "original_total_predictor_success": "1/4",
+      "new_a0_stopped_branch": "1/8",
+      "modified_full_light_event": "1/4",
+      "whole_run_note": "If the a=0 branch subsequently reads c, it is heavy; its earlier cell query does not count in the whole-run light event.",
+      "result": "passed"
+    },
+    {
+      "check": "Question 5 fixed-parameter endpoint",
+      "k4_threshold": "7/2",
+      "k4_excludes": "Every alpha strictly less than 7/2; this ratio calculation does not exclude alpha=7/2.",
+      "k5_gap_at_alpha_7_over_2": "1/20",
+      "result": "passed"
+    }
+  ],
+  "exercise_attempt_provenance": {
+    "MATH": "All five attempted before supplied answers; see separate MATH log.",
+    "UG": "All five attempts recorded before supplied answers; original attempt records follow.",
+    "PHYS": "All five attempted before supplied answers; see separate PHYS log.",
+    "TEACH": "Answer-exposed recomputation; not a blind attempt."
+  },
+  "original_ug_attempts": {
+    "scope": "Root simulated UG pass: attempts recorded after reading questions, before reading Answers section; not a human user study.",
+    "attempts": [
+      {
+        "question": 1,
+        "attempt": "At address 00: first domain test fails; at 01: first domain and second value; at 10: first domain and first value; at 11: first domain and both value tests. All other tests pass."
+      },
+      {
+        "question": 2,
+        "attempt": "After pivot 2 then 4 on the cycled board weights become (1,0,0,0). Preparation p=1/4; successful next pivot 1. theta=pi/6, so one Grover iterate gives sin^2(3theta)=1."
+      },
+      {
+        "question": 3,
+        "attempt": "Two fixed distinct positions per column: independent I hit with probability 1/2. Adaptively chosen found-zero I hit when at least one zero was found: 1-(1/2)^4=15/16."
+      },
+      {
+        "question": 4,
+        "attempt": "On a=0, an early cell guess at time 3 contributes if the full run remains light; stopping at the cell query ensures that. Its successful event a=0,b=0,c=d has probability 1/8. Together with original a=1,b=0,c=d event 1/8, total light true-cell probability 1/4. If it subsequently reads c it becomes heavy and is not counted."
+      },
+      {
+        "question": 5,
+        "attempt": "k=4 excludes every alpha<3.5, so alpha_tot>=3.5, but this argument does not itself exclude alpha=3.5. Need k>4, i.e. any integer k>=5; k=5 gives d=1/20."
+      }
+    ]
+  }
+}

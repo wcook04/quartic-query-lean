@@ -70,3 +70,57 @@ route applies to the record as to the companions. A raw-identifier paragraph
 is not an adequate repair for a cramped table. The round-seven correction
 reopens the rejected G.4 acceptance and requires the receiving editor to
 inspect the repaired pages and link destinations.
+
+## Round-eight refinements
+
+The [round-eight dispositions](../research/adjudication/round8_synthesis.json)
+separate preserved strengths, applied changes and suggestions not adopted. The
+original [returns](../research/returns/round8/README.md) retain every reader's
+perspective and qualifications. They are simulated reviews, not a human study.
+The lecturer's answer-exposed recomputation is useful for checking answers but
+is not a cold attempt. No fresh reader-learning result is inferred from revision.
+
+At each example, identify the input, legal domain, required output and charged
+resource. A unique-mark search outputs an index; deciding OR under that same
+promise is constant. Name changes of board or supplier when they occur, then
+reuse those names. Put detailed differences between a teaching example and a
+finite checker at the checker's landing passage, with a short local scope notice.
+
+Test a difficult operation by reconstructing its state, transformation, retained
+data, inverse and measured output. For this revision, the two-pivot state and
+reflection conjugation make those operations visible. A nearby changed case
+should test the repair: the second fractional pivot tests multiplication into
+existing weights, a second Grover iteration tests overshoot, and a later target
+query tests whole-run lightness. Keep the solutions separate. Optional reading
+routes carry explicit conclusions to their rejoin point and have appropriate
+questions; the combined teach-back requires both routes.
+
+A law-preserving contract must name the procedure, conditioning event and output.
+A reusable reduction must state its finite objects, circuit semantics, inherited
+parameters and caps locally. Preserve the parameter order in navigation too:
+finish the sufficient fixed-parameter proof before an optional uniform refinement.
+Attribute the inherited theorem, reconstructed constants and borrowed analytic
+ingredients separately, without inferring independent priority.
+
+For each proof link, identify its task: statement, derivation, worked execution,
+source declaration or audit. Open the delivered edition at the anchor and check
+that the reader can perform the promised task from there. A constant envelope
+needs its derivation, not just an earlier count; a simulator example needs its
+trace, not just its definition. Record the edition behind readable link text.
+
+Use a genre-matched, edition-bound subset for any numerical register comparison,
+and record extraction checks before trusting its numbers. Whole-document counts
+and a broad literature shelf have different roles. This revision makes no new
+numerical register comparison. Author lists, necessary case splits, quantifiers
+and negated false implications are functional prose, not automatic style faults.
+Paragraph boundaries follow changes of mathematical task; approximate length
+heuristics do not override a complete contract or induction step.
+
+Inspect page transitions as well as isolated figures. Give each figure one
+reading operation, check it at final size, and move long explanations to the
+caption rather than shrinking the labels. Preserve counterexamples according to
+the mistaken inference they prevent. Record deliberate retention as a decision,
+not as an unperformed edit or a claim that every reviewer suggestion was adopted.
+
+When renumbering a local lemma, update its internal references separately from
+locators in cited sources; a new local number never renumbers the source theorem.

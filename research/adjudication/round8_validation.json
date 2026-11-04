@@ -1,0 +1,109 @@
+{
+  "intake": [
+    {
+      "panel": "expert_paper",
+      "members_verified": 13,
+      "archive_sha256": "bb66b6c9e678599d0ccf1334ccdd7f33602467634746c6712dd20e3e6f846988"
+    },
+    {
+      "panel": "exposition",
+      "members_verified": 10,
+      "archive_sha256": "fc6f0a79ace7903deb4cabed34546919a0c56c02142fbe13e7262b4f0d7c611c"
+    }
+  ],
+  "baseline_sources_verified": {
+    "docs/expert_companion.bib": "147f5dbc2423dd33a015fc72e363c43f21d2c6557ea2bccbf7427ced85f67593",
+    "docs/expert_companion.md": "43b588711035c54dc5140fb43e7865eaf6a71d929737467db358727dc04002eb",
+    "docs/exposition.bib": "3179567b4b927795cb95e7d6b4343434ae8e02601ae70de8c538f00448a802e2",
+    "docs/exposition.md": "8824b8fc612730de9fac81a5c65f64f51bf74662577f43132375dd5c04e0e8a9"
+  },
+  "dispositions": {
+    "manuscript": 448,
+    "method": 40,
+    "counts": {
+      "applied": 252,
+      "retained": 155,
+      "not_adopted": 41
+    }
+  },
+  "exact_checks": {
+    "second_fractional_pivot": {
+      "weights": [
+        "1",
+        "0",
+        "4/15",
+        "0"
+      ],
+      "success": "19/60",
+      "conditional_law": [
+        "15/19",
+        "0",
+        "4/19",
+        "0"
+      ]
+    },
+    "xor_exhaustive_16_inputs": {
+      "old_light_event": "1/8",
+      "new_branch": "1/8",
+      "new_total": "1/4",
+      "simulator_success": "1/4"
+    },
+    "grover_quarter_success": {
+      "theta": "pi/6",
+      "one_iteration": "sin(3*pi/6)^2=1",
+      "two_iterations": "sin(5*pi/6)^2=1/4"
+    }
+  },
+  "formal_source_diff": "",
+  "semantic_link_audit": [
+    {
+      "task": "full decoder",
+      "destination": "forr_quantum",
+      "decision": "Read target; promised operation begins here."
+    },
+    {
+      "task": "complete tournament proof",
+      "destination": "upper-tournament-statement",
+      "decision": "Read target; promised operation begins here."
+    },
+    {
+      "task": "uniform exponential constant",
+      "destination": "ROOT-GROWING-K",
+      "decision": "Read target; promised operation begins here."
+    },
+    {
+      "task": "simulator execution",
+      "destination": "CL-simulator-example",
+      "decision": "Read target; promised operation begins here."
+    },
+    {
+      "task": "bounded trial counts",
+      "destination": "upper-grover-trial",
+      "decision": "Read target; promised operation begins here."
+    },
+    {
+      "task": "finite circuit shared data",
+      "destination": "AC-example-tests",
+      "decision": "Read target; promised operation begins here."
+    },
+    {
+      "task": "unnormalised direct product recurrence",
+      "destination": "CL-weighted-values",
+      "decision": "Read target; promised operation begins here."
+    }
+  ],
+  "scope": "Editorial and exact finite checks only; no new Lean/Comparator execution or human-reader evidence.",
+  "record_rebind": "research/adjudication/round8_record_rebind.json",
+  "checks": {
+    "make_check": {
+      "tests": 238,
+      "skipped": 2,
+      "result": "passed"
+    },
+    "lean_source_unchanged_from": "9b8ca55",
+    "index_layout": "passed",
+    "preserved_return_whitespace": "Original exposition reading_log.md has an extra blank line at EOF; retained byte-for-byte. Authored files pass diff --check.",
+    "lean_source_unchanged_from_comparator_receipt": "9a0a5cdace28594058f6df59b9b2e45a9e7c1a4f"
+  },
+  "overview_rebind": "research/adjudication/round8_overview_rebind.json"
+}

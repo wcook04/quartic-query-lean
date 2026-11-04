@@ -1,0 +1,130 @@
+{
+  "status": "passed",
+  "input_zip": {
+    "name": "quartic_r8_exposition.zip",
+    "bytes": 10315742,
+    "sha256": "7536994e907437f61d1e20b5bffde3815819fbaf08d96ae102354a7abc3145ec",
+    "crc": "passed",
+    "safe_member_paths": true,
+    "duplicate_members": false,
+    "members": 408
+  },
+  "draft_hashes": {
+    "checked": 6,
+    "result": "passed"
+  },
+  "record_hashes": {
+    "checked": 2,
+    "result": "passed"
+  },
+  "feedback": {
+    "findings": 240,
+    "unique_ids": true,
+    "exact_current_quotes": 240,
+    "max_quote_words": 21,
+    "unique_quoted_phrases": 202,
+    "by_perspective": {
+      "MATH": 62,
+      "UG": 62,
+      "PHYS": 56,
+      "TEACH": 60
+    },
+    "by_severity": {
+      "medium": 107,
+      "keep": 76,
+      "low": 46,
+      "high": 11
+    },
+    "schema_checks": "passed"
+  },
+  "method": {
+    "items": 20,
+    "exact_current_locators_checked": 35,
+    "result": "passed"
+  },
+  "sources": {
+    "scope_records": 67,
+    "status_values": "read or skimmed, always with scope; some works recur by reviewer"
+  },
+  "pdf_review": {
+    "document": "repository/docs/exposition.pdf",
+    "rendered_pages": 20,
+    "visually_inspected_pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "other_full_pdfs_visually_reviewed": false
+  },
+  "mathematical_checks": {
+    "groups": 7,
+    "result": "passed",
+    "full_theorem_certification": false
+  },
+  "scope_limits": [
+    "No Lean compilation or Comparator execution.",
+    "No supplied executable run.",
+    "No actual human reader study.",
+    "No complete companion or reasoning-record proof audit.",
+    "TEACH exercise analysis was answer-exposed.",
+    "Live pinned repository targets were not independently fetched."
+  ],
+  "required_payload_files_present": true,
+  "verdict_words": 667,
+  "input_manifest": {
+    "members_checked": 406,
+    "byte_counts": "passed",
+    "sha256": "passed",
+    "request_sha256": "passed",
+    "exceptions": "manifest.json is self-excluded; READ_ME_FIRST.md is bound by request_sha256."
+  },
+  "attachments": [
+    {
+      "name": "quartic_r8_exposition.zip",
+      "sha256": "7536994e907437f61d1e20b5bffde3815819fbaf08d96ae102354a7abc3145ec"
+    },
+    {
+      "name": "Pasted text(20261103-214809).txt",
+      "sha256": "1c27f21ba857324af9a7b22106ae3e0f35e5f7fa466198fc98b4980c4ac9a211"
+    }
+  ],
+  "payload_text_checks": {
+    "all_json_utf8_parse": "passed",
+    "all_markdown_utf8_decode": "passed",
+    "referenced_finding_ids": "passed",
+    "control_characters": "passed",
+    "verdict_word_limit": 750
+  },
+  "archive": {
+    "result": "passed",
+    "tests": [
+      "Python zipfile.testzip CRC check",
+      "Independent unzip -t command",
+      "Fresh extraction and exact byte comparison for every payload",
+      "SHA-256 and byte-count comparison against manifest.json",
+      "No duplicate, absolute, traversal or symlink members"
+    ],
+    "compression": "standard ZIP_DEFLATED",
+    "root_layout": "ten ordinary files at ZIP root",
+    "encrypted": false,
+    "manifest_self_excluded": true,
+    "archive_hash_omitted_from_payload": "The enclosing archive cannot contain its own stable hash."
+  }
+}

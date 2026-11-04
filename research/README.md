@@ -132,3 +132,8 @@ The two `returns/adjudication*` files now live under `adjudication/`, separating
 maintained decisions from submitted reviews. Their contents are unchanged.
 Existing packet member names are retained by the builders, so packet instructions
 and historical manifests continue to refer to the same archive paths.
+
+The [round-eight returns](returns/round8/README.md) have
+[finding-by-finding dispositions](adjudication/round8_synthesis.json) and
+[revision and validation notes](adjudication/round8_revision.md). The maintained
+papers, proof-link destinations and writing method consume those decisions.

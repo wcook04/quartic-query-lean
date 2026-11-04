@@ -11,8 +11,8 @@
  "inputs": {
   "corpus/lean_dependencies.json": "1bc253fd3f3f86245e538bb71dd99d321fdb575cee596fede6bc46babbffe06c",
   "corpus/statements.json": "1a1bfce5c5c522d8055a40b555307f4e44e3cd6190c728bc74dd580afce71847",
-  "docs/reasoning_record.md": "337e45c2363cb4b2f954bda4629aa6561cbae8f8c100fabb01435ae6657235f2",
-  "docs/reasoning_record_correspondence.json": "181c8c6c2d711546cf233604ba659ef8a1f4e43a24aa1f25411e50dffa6170b3",
+  "docs/reasoning_record.md": "1e109c2d34321f4522a52552d273ce3373d769e5f8617aaa6ca5d5eadcbe0bd9",
+  "docs/reasoning_record_correspondence.json": "f74995f700e9d7f9efdeb4fc2bd2f06ac29e09c70dcea731e4eb2f01719bda33",
   "lean/QuarticCorpus/Construction/Challenge.lean": "d554e5a96889c4c9c3aa6bd3231f984fa7cf695aa103ebcd092ac2c7a08240b1",
   "lean/QuarticCorpus/Construction/Solution.lean": "63cfe11442f76eb9b0f1b579e2a925a19fc9312f870e8480bfbf3eacfb9bb9de",
   "lean/QuarticCorpus/Construction/comparator.json": "c18c76b87a777251e70ec3f55c5704be82d52dbba0220e5adb2cf3063709dd78",
@@ -85,7 +85,7 @@
  },
  "record": {
   "path": "docs/reasoning_record.md",
-  "sha256": "337e45c2363cb4b2f954bda4629aa6561cbae8f8c100fabb01435ae6657235f2",
+  "sha256": "1e109c2d34321f4522a52552d273ce3373d769e5f8617aaa6ca5d5eadcbe0bd9",
   "passages_verified": 298,
   "passages_in_correspondence": 298,
   "passage_hash_mismatches": []
@@ -7277,8 +7277,8 @@
      "passage_claims": [],
      "passage_sha256": "c750c78be2eaf7af4c3c4fed46f51abb1a244413714ae8372121ca46ac71212e",
      "passage_lines": [
-      6089,
-      6161
+      6093,
+      6165
      ]
     },
     {
@@ -7288,8 +7288,8 @@
      "passage_claims": [],
      "passage_sha256": "ef21ef814ac87aa53861dbcdd5ed79c74128497de42d5644b243f68c63d3545f",
      "passage_lines": [
-      6270,
-      6281
+      6274,
+      6285
      ]
     },
     {
@@ -7298,8 +7298,8 @@
      "source": "research/returns/round3/members/07_planted_lower_bound/correspondence.json",
      "passage_sha256": "1c48377cfea742003ad67f338df9ea3c80a574407caf616d4c0ff9e729218c63",
      "passage_lines": [
-      3596,
-      3611
+      3600,
+      3615
      ]
     },
     {
@@ -7308,8 +7308,8 @@
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
      "passage_sha256": "c750c78be2eaf7af4c3c4fed46f51abb1a244413714ae8372121ca46ac71212e",
      "passage_lines": [
-      6089,
-      6161
+      6093,
+      6165
      ]
     },
     {
@@ -7327,8 +7327,8 @@
     "anchor": "ROOT-EVIDENCE-CONVENTION",
     "join": "lean_link_mention",
     "passage_sha256": "c750c78be2eaf7af4c3c4fed46f51abb1a244413714ae8372121ca46ac71212e",
-    "line_start": 6135,
-    "line_end": 6140,
+    "line_start": 6139,
+    "line_end": 6144,
     "excerpt_sha256": "fc3b775a09ba2ea0a09d92bb9eee47a02ec0b6d70a166182a7895138fe9ade02",
     "excerpt": "The parameter-free [unconditional exponent theorem][src-alpha] gives the exponent alone. The cubic refutation states that there is no common real constant $C$ for which\n\\[\n \\bigl(R(\\operatorname{totalise}f)\\bigr)_{\\mathbb R}\n \\le C\\bigl(Q(\\operatorname{totalise}f)\\bigr)_{\\mathbb R}^{3}\n\\]\nfor every $n\\ge1$ and total $f$ on $\\operatorname{Fin}(n)$. The universal upper endpoint, the [universal quartic power bound][src-universal-power], proves the universal power bound at exponent four; the headline proof uses the imported complexity-library route described in Appendix A. These are unconditional declarations. By contrast, the [conditional family bounds][src-family-conditional] retain the premise $L<R(P_{k,4^t})$, with $L$ the [lower-bound value][def-L] at $m=4^t$, in their lower-bound clause, and the [conditional form of Theorem 1.1][src-theorem-conditional] takes the [Forrelation hardness statement][def-bansal-sinha] as an explicit hypothesis. Citing either of those conditional suppliers alone does not remove its hypothesis. A restriction such as $k\\ge2$ and an unproved lower-bound assumption play different mathematical roles, and their actual types preserve that difference."
    },
@@ -7379,8 +7379,8 @@
      "passage_claims": [],
      "passage_sha256": "c750c78be2eaf7af4c3c4fed46f51abb1a244413714ae8372121ca46ac71212e",
      "passage_lines": [
-      6089,
-      6161
+      6093,
+      6165
      ]
     },
     {
@@ -7398,8 +7398,8 @@
     "anchor": "ROOT-EVIDENCE-CONVENTION",
     "join": "lean_link_mention",
     "passage_sha256": "c750c78be2eaf7af4c3c4fed46f51abb1a244413714ae8372121ca46ac71212e",
-    "line_start": 6092,
-    "line_end": 6092,
+    "line_start": 6096,
+    "line_end": 6096,
     "excerpt_sha256": "d4ecb19097988435df037ac46e102b6b4b28844e54b699c2de1abb5eca86a1a7",
     "excerpt": "**The partial function and its domain.** For a finite coordinate type $I$, a formal [partial Boolean function][def-partial] on $I$ is a function from [bit inputs][def-bit-input] on $I$ to optional Boolean values. A defined value records both membership in the promise and the required answer. An undefined value imposes no correctness requirement. This is the domain-and-value description of §2.1, with no assumption of totality. [Totalisation][def-totalise] embeds a total Boolean function into this type by defining its value everywhere. It is that embedding, rather than an arbitrary completion of a partial function, which appears in the total-function separation statements."
    },
@@ -7479,8 +7479,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "8aea5ba8f8965ba7f15482f4df88fa065505408bf81e7589064c0eca8b76e282",
      "passage_lines": [
-      5346,
-      5353
+      5350,
+      5357
      ]
     },
     {
@@ -7491,8 +7491,8 @@
      "passage_claims": [],
      "passage_sha256": "02dba3cb72bbd481c199f959d37bbbcced96c9e303678967db0dacdb02e8aee7",
      "passage_lines": [
-      5976,
-      5988
+      5980,
+      5992
      ]
     }
    ],
@@ -7567,8 +7567,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "281ad9418e4c29ee080665c6d1529b5c7b6f84c9c0be3d7bc54a9d09c6099938",
      "passage_lines": [
-      4156,
-      4163
+      4160,
+      4167
      ]
     },
     {
@@ -7579,8 +7579,8 @@
      "passage_claims": [],
      "passage_sha256": "02dba3cb72bbd481c199f959d37bbbcced96c9e303678967db0dacdb02e8aee7",
      "passage_lines": [
-      5976,
-      5988
+      5980,
+      5992
      ]
     }
    ],
@@ -7638,8 +7638,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "281ad9418e4c29ee080665c6d1529b5c7b6f84c9c0be3d7bc54a9d09c6099938",
      "passage_lines": [
-      4156,
-      4163
+      4160,
+      4167
      ]
     }
    ],
@@ -7714,8 +7714,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "db704087f41bb4b1db36ab11e351e75569d0575d10fc9bb0c3f2b5c4bfe7f771",
      "passage_lines": [
-      4132,
-      4139
+      4136,
+      4143
      ]
     },
     {
@@ -7726,8 +7726,8 @@
      "passage_claims": [],
      "passage_sha256": "02dba3cb72bbd481c199f959d37bbbcced96c9e303678967db0dacdb02e8aee7",
      "passage_lines": [
-      5976,
-      5988
+      5980,
+      5992
      ]
     }
    ],
@@ -7785,8 +7785,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "db704087f41bb4b1db36ab11e351e75569d0575d10fc9bb0c3f2b5c4bfe7f771",
      "passage_lines": [
-      4132,
-      4139
+      4136,
+      4143
      ]
     }
    ],
@@ -7833,8 +7833,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "8a70d153a3dc386023df183c8889954efdb0ba4ac3ac57316f64985f8ce6a9c3",
      "passage_lines": [
-      3225,
-      3249
+      3229,
+      3253
      ]
     },
     {
@@ -7844,8 +7844,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "9f8d005b34ba05b19a2dc7b53e2e950a131285310054c179448c540b33ecb2b7",
      "passage_lines": [
-      5288,
-      5297
+      5292,
+      5301
      ]
     }
    ],
@@ -7854,8 +7854,8 @@
     "join": "statement_claim",
     "statement_id": "prop-4.2-generic",
     "passage_sha256": "8a70d153a3dc386023df183c8889954efdb0ba4ac3ac57316f64985f8ce6a9c3",
-    "line_start": 3232,
-    "line_end": 3237,
+    "line_start": 3236,
+    "line_end": 3241,
     "excerpt_sha256": "30a46659c3db3c47c24c5cefb24aa03134ebc2e4c85c38d70170b756d11b72a0",
     "excerpt": "\\[\nR(F_{P,C,m})>\\left\\lfloor\\frac{mL}{100}\\right\\rfloor.\n\\]\nThe implication holds whatever the size of the circuit. Thus the classical lower bound pays for the hardness of the address inputs, not for the length of the certificates.\n\nDefine the budget"
    },
@@ -7903,8 +7903,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "3ffa8788abd7ecdc9b86da3342ce9ba77c4c8339d08a73fbf89d93e97ef543d6",
      "passage_lines": [
-      4192,
-      4199
+      4196,
+      4203
      ]
     }
    ],
@@ -7962,8 +7962,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "3ffa8788abd7ecdc9b86da3342ce9ba77c4c8339d08a73fbf89d93e97ef543d6",
      "passage_lines": [
-      4192,
-      4199
+      4196,
+      4203
      ]
     }
    ],
@@ -8021,8 +8021,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "a20d1fa6e099bf687df0444c5b9eea96fe254d209e2d5e08bfdd24d41ab2e160",
      "passage_lines": [
-      4204,
-      4211
+      4208,
+      4215
      ]
     }
    ],
@@ -8080,8 +8080,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "a20d1fa6e099bf687df0444c5b9eea96fe254d209e2d5e08bfdd24d41ab2e160",
      "passage_lines": [
-      4204,
-      4211
+      4208,
+      4215
      ]
     }
    ],
@@ -8128,8 +8128,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "f1cd930c3cb36066a77091824d7349e22d4df303e024fb7aa7b0e26611a5fc0c",
      "passage_lines": [
-      4380,
-      4387
+      4384,
+      4391
      ]
     },
     {
@@ -8140,8 +8140,8 @@
      "passage_claims": [],
      "passage_sha256": "ee2d7aa780c3e33b695a93744543cfa218514b28af7641e95e31c42db2574447",
      "passage_lines": [
-      6007,
-      6009
+      6011,
+      6013
      ]
     }
    ],
@@ -8150,8 +8150,8 @@
     "join": "statement_claim",
     "statement_id": "def-transcript",
     "passage_sha256": "f1cd930c3cb36066a77091824d7349e22d4df303e024fb7aa7b0e26611a5fc0c",
-    "line_start": 4383,
-    "line_end": 4385,
+    "line_start": 4387,
+    "line_end": 4389,
     "excerpt_sha256": "764cec09b9ac5d4aaab629edaae0b22a2fc3eea5ec91fb29c03e471c18ab9787",
     "excerpt": "> For a fixed circuit, a transcript assigns a proposed bit to each non-input gate, including output gates. Input-wire values are not copied; they are read from the actual input.\n\n**Argument:** [§4.1](#CL-transcripts)."
    },
@@ -8233,8 +8233,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "ec735504635e589142fc837c2a970ce29766017c67747f2f7420290ba1f62614",
      "passage_lines": [
-      4180,
-      4187
+      4184,
+      4191
      ]
     }
    ],
@@ -8292,8 +8292,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "4257338c1c6889afbd12a6956c9e44e2e2fbd35f057f0131d5c594e067cf71e1",
      "passage_lines": [
-      4280,
-      4287
+      4284,
+      4291
      ]
     },
     {
@@ -8303,8 +8303,8 @@
      "passage_claims": [],
      "passage_sha256": "ef21ef814ac87aa53861dbcdd5ed79c74128497de42d5644b243f68c63d3545f",
      "passage_lines": [
-      6270,
-      6281
+      6274,
+      6285
      ]
     }
    ],
@@ -8362,8 +8362,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "3ffa8788abd7ecdc9b86da3342ce9ba77c4c8339d08a73fbf89d93e97ef543d6",
      "passage_lines": [
-      4192,
-      4199
+      4196,
+      4203
      ]
     }
    ],
@@ -8421,8 +8421,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "3ffa8788abd7ecdc9b86da3342ce9ba77c4c8339d08a73fbf89d93e97ef543d6",
      "passage_lines": [
-      4192,
-      4199
+      4196,
+      4203
      ]
     }
    ],
@@ -8469,8 +8469,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "d0f42f0ab37f2473cf5725850bfb7dc35522278222fa78cc794df32876b198c9",
      "passage_lines": [
-      5586,
-      5593
+      5590,
+      5597
      ]
     }
    ],
@@ -8479,8 +8479,8 @@
     "join": "statement_claim",
     "statement_id": "thm-A.1",
     "passage_sha256": "d0f42f0ab37f2473cf5725850bfb7dc35522278222fa78cc794df32876b198c9",
-    "line_start": 5589,
-    "line_end": 5591,
+    "line_start": 5593,
+    "line_end": 5595,
     "excerpt_sha256": "67bb0e89cbb1a38b81f862f976b4f6f6218a422283a0735c429228156fac627a",
     "excerpt": "> Every total Boolean function satisfies R(f) <= D(f) = O((1+Q(f))^4), with an absolute constant.\n\n**Argument:** [Appendix A](#ROOT-APPENDIX-INTRO), [§A.6](#ROOT-QUARTIC-UPPER)."
    },
@@ -8517,8 +8517,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "904179bda2166c61680991da03ba70bc21c2ae072630d6db6fc69380be3628d8",
      "passage_lines": [
-      2529,
-      2541
+      2533,
+      2545
      ]
     },
     {
@@ -8528,8 +8528,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "ebb7c906c2abf58f90168c9ad01915c1db077774e8c4ec8218ba12456ea59b47",
      "passage_lines": [
-      4884,
-      4891
+      4888,
+      4895
      ]
     },
     {
@@ -8540,8 +8540,8 @@
      "passage_claims": [],
      "passage_sha256": "ee2d7aa780c3e33b695a93744543cfa218514b28af7641e95e31c42db2574447",
      "passage_lines": [
-      6007,
-      6009
+      6011,
+      6013
      ]
     }
    ],
@@ -8550,8 +8550,8 @@
     "join": "statement_claim",
     "statement_id": "claim-winner-dominates",
     "passage_sha256": "904179bda2166c61680991da03ba70bc21c2ae072630d6db6fc69380be3628d8",
-    "line_start": 2536,
-    "line_end": 2540,
+    "line_start": 2540,
+    "line_end": 2544,
     "excerpt_sha256": "650a2ba017ed5349d53ea06abfae89fb56de79c9175d5e8a4f887051fe5c60ac",
     "excerpt": "$$\na_{i^\\star j}\\geq1-\\varepsilon\\qquad(j\\ne i^\\star).\n$$\n\nThe proof uses the correctness of the true winner's decoder and two deterministic facts: the winner cannot be disqualified, and its true-address pointers disqualify every opponent. Nothing is assumed about a nonwinning column's decoder. This is also why amplifying an assumed comparison bias would be unjustified: the available guarantee is a strong one-sided property of a true winner, while other pairs may have arbitrary probabilities."
    },
@@ -8588,8 +8588,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "904179bda2166c61680991da03ba70bc21c2ae072630d6db6fc69380be3628d8",
      "passage_lines": [
-      2529,
-      2541
+      2533,
+      2545
      ]
     },
     {
@@ -8599,8 +8599,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "ebb7c906c2abf58f90168c9ad01915c1db077774e8c4ec8218ba12456ea59b47",
      "passage_lines": [
-      4884,
-      4891
+      4888,
+      4895
      ]
     },
     {
@@ -8611,8 +8611,8 @@
      "passage_claims": [],
      "passage_sha256": "ee2d7aa780c3e33b695a93744543cfa218514b28af7641e95e31c42db2574447",
      "passage_lines": [
-      6007,
-      6009
+      6011,
+      6013
      ]
     }
    ],
@@ -8621,8 +8621,8 @@
     "join": "statement_claim",
     "statement_id": "claim-winner-dominates",
     "passage_sha256": "904179bda2166c61680991da03ba70bc21c2ae072630d6db6fc69380be3628d8",
-    "line_start": 2536,
-    "line_end": 2540,
+    "line_start": 2540,
+    "line_end": 2544,
     "excerpt_sha256": "650a2ba017ed5349d53ea06abfae89fb56de79c9175d5e8a4f887051fe5c60ac",
     "excerpt": "$$\na_{i^\\star j}\\geq1-\\varepsilon\\qquad(j\\ne i^\\star).\n$$\n\nThe proof uses the correctness of the true winner's decoder and two deterministic facts: the winner cannot be disqualified, and its true-address pointers disqualify every opponent. Nothing is assumed about a nonwinning column's decoder. This is also why amplifying an assumed comparison bias would be unjustified: the available guarantee is a strong one-sided property of a true winner, while other pairs may have arbitrary probabilities."
    },
@@ -8668,8 +8668,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "b306f6bc0efbeba058fd59129d767b51ddcde437af0c5c6250644ca49f439e28",
      "passage_lines": [
-      4464,
-      4471
+      4468,
+      4475
      ]
     },
     {
@@ -8679,8 +8679,8 @@
      "via": "solution_proof_reference",
      "passage_sha256": "85c144d7424080329e8be1a188f7959c7fd0ee7cca63e6f79a753a0d739c4fe8",
      "passage_lines": [
-      4476,
-      4483
+      4480,
+      4487
      ]
     },
     {
@@ -8691,8 +8691,8 @@
      "passage_claims": [],
      "passage_sha256": "ee2d7aa780c3e33b695a93744543cfa218514b28af7641e95e31c42db2574447",
      "passage_lines": [
-      6007,
-      6009
+      6011,
+      6013
      ]
     }
    ],
@@ -8701,8 +8701,8 @@
     "join": "statement_claim",
     "statement_id": "def-F",
     "passage_sha256": "b306f6bc0efbeba058fd59129d767b51ddcde437af0c5c6250644ca49f439e28",
-    "line_start": 4467,
-    "line_end": 4469,
+    "line_start": 4471,
+    "line_end": 4473,
     "excerpt_sha256": "d686b5cba8982cf7fcb646f94f479340d060485b3829f59e655a6833a1a1b977",
     "excerpt": "> F_{k,m}(y)=1 if some column of y is a winner, else 0. It is a total Boolean function on all input bit strings.\n\n**Argument:** [§4](#CL-construction-context), [§4.2](#CL-address-winner)."
    },
@@ -8742,8 +8742,8 @@
      "passage_claims": [],
      "passage_sha256": "3ed37e5735e799b8b40d66ff912d5c2a33c4fa53e26bd5e73bb0efa44156e420",
      "passage_lines": [
-      6286,
-      6292
+      6290,
+      6296
      ]
     },
     {
@@ -8762,8 +8762,8 @@
      "source": "research/returns/round3/members/07_planted_lower_bound/correspondence.json",
      "passage_sha256": "30ce478bf88d2982863f15b01ca68f0786f07470650988a88d7d892618aef670",
      "passage_lines": [
-      3172,
-      3184
+      3176,
+      3188
      ]
     },
     {
@@ -8781,8 +8781,8 @@
     "anchor": "AC-evidence",
     "join": "lean_link_mention",
     "passage_sha256": "3ed37e5735e799b8b40d66ff912d5c2a33c4fa53e26bd5e73bb0efa44156e420",
-    "line_start": 6287,
-    "line_end": 6287,
+    "line_start": 6291,
+    "line_end": 6291,
     "excerpt_sha256": "f5c26700b2058c16a71f4914b321f118e162b01c9eed4eeb5be1d945f3c2174b",
     "excerpt": "The exact source declarations and complete types are recorded in [correspondence.json](../research/returns/round3/members/04_addressed_construction/correspondence.json) and [evidence/lean_audit.json](../research/returns/round3/members/04_addressed_construction/evidence/lean_audit.json). In particular, the [identification of consistent transcripts with true evaluations][src-transcript] gives (4.2), the [uniqueness of the winning pair][src-winner-unique] gives pair uniqueness, and the [description of winning by the local tests][src-winner-tests] gives (4.12) under the premise that $C$ [computes $P$ exactly][def-realises]. The [semantic bridge to the paper's winning condition][src-winner-paper] has no such premise because both sides already refer to the partial function."
    },
@@ -8848,8 +8848,8 @@
      "passage_claims": [],
      "passage_sha256": "c750c78be2eaf7af4c3c4fed46f51abb1a244413714ae8372121ca46ac71212e",
      "passage_lines": [
-      6089,
-      6161
+      6093,
+      6165
      ]
     },
     {
@@ -8867,8 +8867,8 @@
     "anchor": "ROOT-EVIDENCE-CONVENTION",
     "join": "lean_link_mention",
     "passage_sha256": "c750c78be2eaf7af4c3c4fed46f51abb1a244413714ae8372121ca46ac71212e",
-    "line_start": 6094,
-    "line_end": 6094,
+    "line_start": 6098,
+    "line_end": 6098,
     "excerpt_sha256": "c18960d80d3e1ef51f708fc55e8e29a2e70ede6b9998cc16db1ac1c594fce3d2",
     "excerpt": "**One algorithm and a global cap.** The [deterministic][def-DLe], [randomized][def-RLe] and [quantum][def-QLe] budget tests take a partial Boolean function and a natural-number budget; the complexities [$D$][def-D], [$R$][def-R] and [$Q$][def-Q] are natural numbers. In the classical cases, the witness is one decision tree or one mixture of trees, with a global depth cap and correctness on all defined inputs. In the quantum case, the witness is either the explicitly constant-on-promise alternative or one normalized initial state and one capped program, chosen before the input. This includes the constant and empty-promise cases without selecting an algorithm separately for each input. None of these definitions assumes a lower-bound theorem or any property of Forrelation."
    },
@@ -8907,8 +8907,8 @@
      "passage_claims": [],
      "passage_sha256": "c750c78be2eaf7af4c3c4fed46f51abb1a244413714ae8372121ca46ac71212e",
      "passage_lines": [
-      6089,
-      6161
+      6093,
+      6165
      ]
     },
     {
@@ -8961,8 +8961,8 @@
      "source": "research/returns/round3/members/07_planted_lower_bound/correspondence.json",
      "passage_sha256": "30ce478bf88d2982863f15b01ca68f0786f07470650988a88d7d892618aef670",
      "passage_lines": [
-      3172,
-      3184
+      3176,
+      3188
      ]
     }
    ],
@@ -9032,8 +9032,8 @@
      "source": "research/returns/round3/members/08_reviewed/quartic_r3_08_return/correspondence.json",
      "passage_sha256": "426c7c1ba427f3efb9c1a28ff69551fa9dda9ab1c55755d1e6f6450c955552f3",
      "passage_lines": [
-      3675,
-      3700
+      3679,
+      3704
      ]
     }
    ],
@@ -9084,8 +9084,8 @@
      "via": "statement_tie",
      "passage_sha256": "a2022a9f4b5552ceee848c8ece7600c01424f7599315c099ccefcef636042e92",
      "passage_lines": [
-      3349,
-      3382
+      3353,
+      3386
      ]
     },
     {
@@ -9095,8 +9095,8 @@
      "via": "statement_tie",
      "passage_sha256": "c8d364f4c124c941a74e70ff44bde31f376ff9dc456b7e55839ed513d9af473d",
      "passage_lines": [
-      5156,
-      5163
+      5160,
+      5167
      ]
     }
    ],
@@ -9105,8 +9105,8 @@
     "join": "statement_claim",
     "statement_id": "eq-19",
     "passage_sha256": "a2022a9f4b5552ceee848c8ece7600c01424f7599315c099ccefcef636042e92",
-    "line_start": 3375,
-    "line_end": 3381,
+    "line_start": 3379,
+    "line_end": 3385,
     "excerpt_sha256": "fdaca710c96690a8896b19879c9c805d0164388cee0735d084315a92134a5585",
     "excerpt": "\\[\n\\Pr[T\\text{ on }Y^{(0)}\\text{ queries }X_I[J_I]]\n=\\frac{\\mathbb EZ}{m}\n\\le\\frac{4G}{m^2}.\n\\tag{19}\n\\]\nThe identity and the search estimate prove separate parts of (19). [Appendix G.8](#CL-formal-scope) records which formal declarations establish them and which proof route they use."
    },
@@ -9182,8 +9182,8 @@
      "passage_claims": [],
      "passage_sha256": "c750c78be2eaf7af4c3c4fed46f51abb1a244413714ae8372121ca46ac71212e",
      "passage_lines": [
-      6089,
-      6161
+      6093,
+      6165
      ]
     },
     {
@@ -9192,8 +9192,8 @@
      "source": "research/returns/round3/members/07_planted_lower_bound/correspondence.json",
      "passage_sha256": "1c48377cfea742003ad67f338df9ea3c80a574407caf616d4c0ff9e729218c63",
      "passage_lines": [
-      3596,
-      3611
+      3600,
+      3615
      ]
     },
     {
@@ -9202,8 +9202,8 @@
      "source": "research/returns/round3/members/08_reviewed/quartic_r3_08_return/correspondence.json",
      "passage_sha256": "426c7c1ba427f3efb9c1a28ff69551fa9dda9ab1c55755d1e6f6450c955552f3",
      "passage_lines": [
-      3675,
-      3700
+      3679,
+      3704
      ]
     },
     {
@@ -9221,8 +9221,8 @@
     "anchor": "ROOT-EVIDENCE-CONVENTION",
     "join": "lean_link_mention",
     "passage_sha256": "c750c78be2eaf7af4c3c4fed46f51abb1a244413714ae8372121ca46ac71212e",
-    "line_start": 6135,
-    "line_end": 6140,
+    "line_start": 6139,
+    "line_end": 6144,
     "excerpt_sha256": "fc3b775a09ba2ea0a09d92bb9eee47a02ec0b6d70a166182a7895138fe9ade02",
     "excerpt": "The parameter-free [unconditional exponent theorem][src-alpha] gives the exponent alone. The cubic refutation states that there is no common real constant $C$ for which\n\\[\n \\bigl(R(\\operatorname{totalise}f)\\bigr)_{\\mathbb R}\n \\le C\\bigl(Q(\\operatorname{totalise}f)\\bigr)_{\\mathbb R}^{3}\n\\]\nfor every $n\\ge1$ and total $f$ on $\\operatorname{Fin}(n)$. The universal upper endpoint, the [universal quartic power bound][src-universal-power], proves the universal power bound at exponent four; the headline proof uses the imported complexity-library route described in Appendix A. These are unconditional declarations. By contrast, the [conditional family bounds][src-family-conditional] retain the premise $L<R(P_{k,4^t})$, with $L$ the [lower-bound value][def-L] at $m=4^t$, in their lower-bound clause, and the [conditional form of Theorem 1.1][src-theorem-conditional] takes the [Forrelation hardness statement][def-bansal-sinha] as an explicit hypothesis. Citing either of those conditional suppliers alone does not remove its hypothesis. A restriction such as $k\\ge2$ and an unproved lower-bound assumption play different mathematical roles, and their actual types preserve that difference."
    },
@@ -9310,8 +9310,8 @@
      "via": "statement_tie",
      "passage_sha256": "b34d4fc0738cea4ee8acdb18c28b3f43e19022ed807434d508a83319074d7695",
      "passage_lines": [
-      4512,
-      4519
+      4516,
+      4523
      ]
     },
     {
@@ -9321,8 +9321,8 @@
      "via": "statement_tie",
      "passage_sha256": "4185a5ab7768f21b8f6b5736d5bfcf5fc308dd8c26c92373e5962f45314fa59f",
      "passage_lines": [
-      4524,
-      4531
+      4528,
+      4535
      ]
     },
     {
@@ -9332,8 +9332,8 @@
      "via": "statement_tie",
      "passage_sha256": "114797e87f7c8eb6bd8d384c68cf87c32c62539acda1b590de06d9a7684c5862",
      "passage_lines": [
-      4536,
-      4543
+      4540,
+      4547
      ]
     },
     {
@@ -9343,8 +9343,8 @@
      "passage_claims": [],
      "passage_sha256": "3ed37e5735e799b8b40d66ff912d5c2a33c4fa53e26bd5e73bb0efa44156e420",
      "passage_lines": [
-      6286,
-      6292
+      6290,
+      6296
      ]
     }
    ],
@@ -9353,8 +9353,8 @@
     "join": "statement_claim",
     "statement_id": "lem-2.2.i",
     "passage_sha256": "b34d4fc0738cea4ee8acdb18c28b3f43e19022ed807434d508a83319074d7695",
-    "line_start": 4515,
-    "line_end": 4517,
+    "line_start": 4519,
+    "line_end": 4521,
     "excerpt_sha256": "3f1b0a32c35ac5681e5f44161602231c656b8a770ae962a2437c587f07743e00",
     "excerpt": "> For every input y and (i,s) in [m] x {0,1}^r: i wins at s iff all K_{k,m} tests pass, namely (a) X_i[b]=1 for each b; (b) for each j != i, X_j[p_{i,s,j}]=0; (c) for each h and each non-input gate, the claimed value equals the gate function of its predecessors, read from the transcript or from A_{i,h}; (d) for each h, claimed d=1 and claimed b=s_h. Each test is computed by a deterministic adaptive bit-query decision tree of depth at most max(3,l+1), which is l+1 for m>=4: a pointer test reads l pointer bits, then the one target bit they select, while gate tests read at most three fixed bits. A pointer test is not a function of a small fixed set of bits: it can depend on all l+m pointer and target coordinates.\n\n**Argument:** [§4.4](#CL-local-tests), [§4.4](#CL-local-equivalence), [§5.3](#upper-verifier)."
    },
@@ -9387,8 +9387,8 @@
      "via": "statement_tie",
      "passage_sha256": "a2022a9f4b5552ceee848c8ece7600c01424f7599315c099ccefcef636042e92",
      "passage_lines": [
-      3349,
-      3382
+      3353,
+      3386
      ]
     },
     {
@@ -9398,8 +9398,8 @@
      "via": "statement_tie",
      "passage_sha256": "c8d364f4c124c941a74e70ff44bde31f376ff9dc456b7e55839ed513d9af473d",
      "passage_lines": [
-      5156,
-      5163
+      5160,
+      5167
      ]
     },
     {
@@ -9409,8 +9409,8 @@
      "passage_claims": [],
      "passage_sha256": "02dba3cb72bbd481c199f959d37bbbcced96c9e303678967db0dacdb02e8aee7",
      "passage_lines": [
-      5976,
-      5988
+      5980,
+      5992
      ]
     },
     {
@@ -9420,8 +9420,8 @@
      "passage_claims": [],
      "passage_sha256": "5b702701d98a8dfed02d8debe8e44589830e2e6bf353b48942373b4d4a4acf3c",
      "passage_lines": [
-      6384,
-      6411
+      6388,
+      6415
      ]
     }
    ],
@@ -9430,8 +9430,8 @@
     "join": "statement_claim",
     "statement_id": "eq-19",
     "passage_sha256": "a2022a9f4b5552ceee848c8ece7600c01424f7599315c099ccefcef636042e92",
-    "line_start": 3375,
-    "line_end": 3381,
+    "line_start": 3379,
+    "line_end": 3385,
     "excerpt_sha256": "fdaca710c96690a8896b19879c9c805d0164388cee0735d084315a92134a5585",
     "excerpt": "\\[\n\\Pr[T\\text{ on }Y^{(0)}\\text{ queries }X_I[J_I]]\n=\\frac{\\mathbb EZ}{m}\n\\le\\frac{4G}{m^2}.\n\\tag{19}\n\\]\nThe identity and the search estimate prove separate parts of (19). [Appendix G.8](#CL-formal-scope) records which formal declarations establish them and which proof route they use."
    },
@@ -9456,8 +9456,8 @@
      "passage_claims": [],
      "passage_sha256": "c750c78be2eaf7af4c3c4fed46f51abb1a244413714ae8372121ca46ac71212e",
      "passage_lines": [
-      6089,
-      6161
+      6093,
+      6165
      ]
     },
     {
@@ -9475,8 +9475,8 @@
     "anchor": "ROOT-EVIDENCE-CONVENTION",
     "join": "lean_link_mention",
     "passage_sha256": "c750c78be2eaf7af4c3c4fed46f51abb1a244413714ae8372121ca46ac71212e",
-    "line_start": 6092,
-    "line_end": 6092,
+    "line_start": 6096,
+    "line_end": 6096,
     "excerpt_sha256": "d4ecb19097988435df037ac46e102b6b4b28844e54b699c2de1abb5eca86a1a7",
     "excerpt": "**The partial function and its domain.** For a finite coordinate type $I$, a formal [partial Boolean function][def-partial] on $I$ is a function from [bit inputs][def-bit-input] on $I$ to optional Boolean values. A defined value records both membership in the promise and the required answer. An undefined value imposes no correctness requirement. This is the domain-and-value description of §2.1, with no assumption of totality. [Totalisation][def-totalise] embeds a total Boolean function into this type by defining its value everywhere. It is that embedding, rather than an arbitrary completion of a partial function, which appears in the total-function separation statements."
    },
@@ -9527,8 +9527,8 @@
      "passage_claims": [],
      "passage_sha256": "c750c78be2eaf7af4c3c4fed46f51abb1a244413714ae8372121ca46ac71212e",
      "passage_lines": [
-      6089,
-      6161
+      6093,
+      6165
      ]
     },
     {
@@ -9547,8 +9547,8 @@
      "source": "research/returns/round3/members/08_reviewed/quartic_r3_08_return/correspondence.json",
      "passage_sha256": "426c7c1ba427f3efb9c1a28ff69551fa9dda9ab1c55755d1e6f6450c955552f3",
      "passage_lines": [
-      3675,
-      3700
+      3679,
+      3704
      ]
     }
    ],
@@ -9556,8 +9556,8 @@
     "anchor": "ROOT-EVIDENCE-CONVENTION",
     "join": "lean_link_mention",
     "passage_sha256": "c750c78be2eaf7af4c3c4fed46f51abb1a244413714ae8372121ca46ac71212e",
-    "line_start": 6094,
-    "line_end": 6094,
+    "line_start": 6098,
+    "line_end": 6098,
     "excerpt_sha256": "c18960d80d3e1ef51f708fc55e8e29a2e70ede6b9998cc16db1ac1c594fce3d2",
     "excerpt": "**One algorithm and a global cap.** The [deterministic][def-DLe], [randomized][def-RLe] and [quantum][def-QLe] budget tests take a partial Boolean function and a natural-number budget; the complexities [$D$][def-D], [$R$][def-R] and [$Q$][def-Q] are natural numbers. In the classical cases, the witness is one decision tree or one mixture of trees, with a global depth cap and correctness on all defined inputs. In the quantum case, the witness is either the explicitly constant-on-promise alternative or one normalized initial state and one capped program, chosen before the input. This includes the constant and empty-promise cases without selecting an algorithm separately for each input. None of these definitions assumes a lower-bound theorem or any property of Forrelation."
    },
@@ -9596,8 +9596,8 @@
      "passage_claims": [],
      "passage_sha256": "c750c78be2eaf7af4c3c4fed46f51abb1a244413714ae8372121ca46ac71212e",
      "passage_lines": [
-      6089,
-      6161
+      6093,
+      6165
      ]
     },
     {
@@ -9616,8 +9616,8 @@
      "source": "research/returns/round3/members/08_reviewed/quartic_r3_08_return/correspondence.json",
      "passage_sha256": "426c7c1ba427f3efb9c1a28ff69551fa9dda9ab1c55755d1e6f6450c955552f3",
      "passage_lines": [
-      3675,
-      3700
+      3679,
+      3704
      ]
     },
     {
@@ -9739,8 +9739,8 @@
      "passage_claims": [],
      "passage_sha256": "c750c78be2eaf7af4c3c4fed46f51abb1a244413714ae8372121ca46ac71212e",
      "passage_lines": [
-      6089,
-      6161
+      6093,
+      6165
      ]
     },
     {
@@ -9759,8 +9759,8 @@
      "source": "research/returns/round3/members/08_reviewed/quartic_r3_08_return/correspondence.json",
      "passage_sha256": "426c7c1ba427f3efb9c1a28ff69551fa9dda9ab1c55755d1e6f6450c955552f3",
      "passage_lines": [
-      3675,
-      3700
+      3679,
+      3704
      ]
     },
     {
@@ -9778,8 +9778,8 @@
     "anchor": "ROOT-EVIDENCE-CONVENTION",
     "join": "lean_link_mention",
     "passage_sha256": "c750c78be2eaf7af4c3c4fed46f51abb1a244413714ae8372121ca46ac71212e",
-    "line_start": 6094,
-    "line_end": 6094,
+    "line_start": 6098,
+    "line_end": 6098,
     "excerpt_sha256": "c18960d80d3e1ef51f708fc55e8e29a2e70ede6b9998cc16db1ac1c594fce3d2",
     "excerpt": "**One algorithm and a global cap.** The [deterministic][def-DLe], [randomized][def-RLe] and [quantum][def-QLe] budget tests take a partial Boolean function and a natural-number budget; the complexities [$D$][def-D], [$R$][def-R] and [$Q$][def-Q] are natural numbers. In the classical cases, the witness is one decision tree or one mixture of trees, with a global depth cap and correctness on all defined inputs. In the quantum case, the witness is either the explicitly constant-on-promise alternative or one normalized initial state and one capped program, chosen before the input. This includes the constant and empty-promise cases without selecting an algorithm separately for each input. None of these definitions assumes a lower-bound theorem or any property of Forrelation."
    },
@@ -9818,8 +9818,8 @@
      "passage_claims": [],
      "passage_sha256": "c750c78be2eaf7af4c3c4fed46f51abb1a244413714ae8372121ca46ac71212e",
      "passage_lines": [
-      6089,
-      6161
+      6093,
+      6165
      ]
     },
     {
@@ -9838,8 +9838,8 @@
      "source": "research/returns/round3/members/08_reviewed/quartic_r3_08_return/correspondence.json",
      "passage_sha256": "426c7c1ba427f3efb9c1a28ff69551fa9dda9ab1c55755d1e6f6450c955552f3",
      "passage_lines": [
-      3675,
-      3700
+      3679,
+      3704
      ]
     },
     {
@@ -10038,8 +10038,8 @@
      "passage_claims": [],
      "passage_sha256": "c750c78be2eaf7af4c3c4fed46f51abb1a244413714ae8372121ca46ac71212e",
      "passage_lines": [
-      6089,
-      6161
+      6093,
+      6165
      ]
     },
     {
@@ -10048,8 +10048,8 @@
      "source": "research/returns/round3/members/08_reviewed/quartic_r3_08_return/correspondence.json",
      "passage_sha256": "426c7c1ba427f3efb9c1a28ff69551fa9dda9ab1c55755d1e6f6450c955552f3",
      "passage_lines": [
-      3675,
-      3700
+      3679,
+      3704
      ]
     },
     {
@@ -10058,8 +10058,8 @@
      "source": "research/returns/round3/members/08_reviewed/quartic_r3_08_return/correspondence.json",
      "passage_sha256": "1177fabdfc2edcd2623d7d99ec236e87a4b67c9dcfa04d85cceb977134ff382b",
      "passage_lines": [
-      3748,
-      3765
+      3752,
+      3769
      ]
     },
     {
@@ -10077,8 +10077,8 @@
     "anchor": "ROOT-EVIDENCE-CONVENTION",
     "join": "lean_link_mention",
     "passage_sha256": "c750c78be2eaf7af4c3c4fed46f51abb1a244413714ae8372121ca46ac71212e",
-    "line_start": 6125,
-    "line_end": 6125,
+    "line_start": 6129,
+    "line_end": 6129,
     "excerpt_sha256": "87680fcfd2f672a3668556a08c7cc3c343ce4190913f3f8d0dae931a6ac72921",
     "excerpt": "**The family and the universal exponent.** The [universal power bound][def-universal] is a predicate on real exponents, and the [formal optimal exponent][def-alpha] is the infimum of the exponents satisfying it. Its quantifiers range over total Boolean functions on $\\operatorname{Fin}(n)$, with $n\\ge1$ and exponent $\\alpha\\ge0$, as in (1). The finite-constant and infimum formulations are explicitly related by the source wrappers. No Forrelation hypothesis belongs to this definition."
    },
@@ -10105,8 +10105,8 @@
      ],
      "passage_sha256": "067919513039996ba00c35f22c403cfcb5bfb5af74a4262c9178e10f0a2670ce",
      "passage_lines": [
-      6319,
-      6346
+      6323,
+      6350
      ]
     }
    ],
@@ -10114,8 +10114,8 @@
     "anchor": "upper-missing-physical-state",
     "join": "lean_link_mention",
     "passage_sha256": "067919513039996ba00c35f22c403cfcb5bfb5af74a4262c9178e10f0a2670ce",
-    "line_start": 6345,
-    "line_end": 6345,
+    "line_start": 6349,
+    "line_end": 6349,
     "excerpt_sha256": "930e9af995f2c7f3f735c3557e982ad9da72c2d11a9bae28583d13b8a0d5b84e",
     "excerpt": "The ordinary fresh-trial/routing argument in §5.1 supplies the mathematical construction. The round-four integration added the [amplifier for opaque preparations][cmp-amplifier], accepted by Comparator: for one selector gate chosen before every opaque unitary, it states the retained-factor identity and the exact success mass, with the zero-mass, $p/2$ and $1-\\eta$ clauses and a logical cap. The basis change from a general fixed projector to a coordinate predicate and the literal flag/Hadamard identification remain unproved, so no source-bound Lean theorem of the full physical type displayed above is claimed. In particular, the coherent composition can retain a copy of a successful output label in auxiliary registers, and the measured compilation route reads a complete basis label. What remains is the physical transport and uncomputation statement: after the chosen compiler and any copied labels, the designated physical output subsystem must still have the abstract successful factor $g_x$. The accepted opaque identity alone does not identify that subsystem. This bridge is needed before promoting the physical wrapper to the full state claim. This missing formal bridge is not an extra assumption in the proof of Proposition 3.3: that proof uses only measured labels, whose law is already supplied by the compiled route."
    },
@@ -10139,8 +10139,8 @@
      "source": "research/returns/round3/members/07_planted_lower_bound/correspondence.json",
      "passage_sha256": "30ce478bf88d2982863f15b01ca68f0786f07470650988a88d7d892618aef670",
      "passage_lines": [
-      3172,
-      3184
+      3176,
+      3188
      ]
     }
    ],
@@ -10175,8 +10175,8 @@
      "source": "research/returns/round3/members/07_planted_lower_bound/correspondence.json",
      "passage_sha256": "30ce478bf88d2982863f15b01ca68f0786f07470650988a88d7d892618aef670",
      "passage_lines": [
-      3172,
-      3184
+      3176,
+      3188
      ]
     }
    ],
@@ -10202,8 +10202,8 @@
      "passage_claims": [],
      "passage_sha256": "c750c78be2eaf7af4c3c4fed46f51abb1a244413714ae8372121ca46ac71212e",
      "passage_lines": [
-      6089,
-      6161
+      6093,
+      6165
      ]
     },
     {
@@ -10212,8 +10212,8 @@
      "source": "research/returns/round3/members/08_reviewed/quartic_r3_08_return/correspondence.json",
      "passage_sha256": "426c7c1ba427f3efb9c1a28ff69551fa9dda9ab1c55755d1e6f6450c955552f3",
      "passage_lines": [
-      3675,
-      3700
+      3679,
+      3704
      ]
     },
     {
@@ -10231,8 +10231,8 @@
     "anchor": "ROOT-EVIDENCE-CONVENTION",
     "join": "lean_link_mention",
     "passage_sha256": "c750c78be2eaf7af4c3c4fed46f51abb1a244413714ae8372121ca46ac71212e",
-    "line_start": 6125,
-    "line_end": 6125,
+    "line_start": 6129,
+    "line_end": 6129,
     "excerpt_sha256": "87680fcfd2f672a3668556a08c7cc3c343ce4190913f3f8d0dae931a6ac72921",
     "excerpt": "**The family and the universal exponent.** The [universal power bound][def-universal] is a predicate on real exponents, and the [formal optimal exponent][def-alpha] is the infimum of the exponents satisfying it. Its quantifiers range over total Boolean functions on $\\operatorname{Fin}(n)$, with $n\\ge1$ and exponent $\\alpha\\ge0$, as in (1). The finite-constant and infimum formulations are explicitly related by the source wrappers. No Forrelation hypothesis belongs to this definition."
    },
@@ -10309,8 +10309,8 @@
      "passage_claims": [],
      "passage_sha256": "99907598e94df01513676965f0c6a4e9ec59c876c8cb875e3e54d30e94aac8cf",
      "passage_lines": [
-      6351,
-      6381
+      6355,
+      6385
      ]
     }
    ],
@@ -10318,8 +10318,8 @@
     "anchor": "CL-direct-product-formal",
     "join": "lean_link_mention",
     "passage_sha256": "99907598e94df01513676965f0c6a4e9ec59c876c8cb875e3e54d30e94aac8cf",
-    "line_start": 6363,
-    "line_end": 6380,
+    "line_start": 6367,
+    "line_end": 6384,
     "excerpt_sha256": "25946ac1ddc46658a6d55ae2f5a45737c6d41d12ffd7d0641172b43d0de14dfa",
     "excerpt": "The round-four integration added the\n[direct product on the cap event][cmp-direct-product] as an endpoint, accepted by\nComparator. It covers a finite seed space with arbitrary nonnegative weights\nsumming to one, each seed selecting an initially uncapped tree, and bounds the\nweighted joint event that every instance is answered correctly and no\ninstance exceeds its cap of $L$ queries by $\\beta^r$. [Compliance with the caps][src-complies] is\na recursive predicate, which follows the path taken on the\ngiven input and decrements the cap of each queried instance. The observable\n[query count][src-count], the number of queries that path makes to each instance,\nis defined separately, and the equivalence of the two descriptions is not a\nLean theorem. It is the ordinary induction on the tree: at a query to instance\n$h$ the predicate requires a positive remaining cap and then lowers it by one,\nso it holds exactly when the path queries each $h$ at most $c_h$ times. Arbitrary measurable\nexternal randomness is handled by the ordinary [finite-behavior reduction in §6.1](#CL-independent-information),\nnot by a Lean theorem. The arbitrary-information reduction, the generic\njoint-event truncation corollary and the combined identity (6.11) are ordinary\ndeductions supplied here. The worked example is a separate exact finite\ncalculation."
    },
@@ -10564,8 +10564,8 @@
      "passage_claims": [],
      "passage_sha256": "c750c78be2eaf7af4c3c4fed46f51abb1a244413714ae8372121ca46ac71212e",
      "passage_lines": [
-      6089,
-      6161
+      6093,
+      6165
      ]
     },
     {
@@ -10583,8 +10583,8 @@
     "anchor": "ROOT-EVIDENCE-CONVENTION",
     "join": "lean_link_mention",
     "passage_sha256": "c750c78be2eaf7af4c3c4fed46f51abb1a244413714ae8372121ca46ac71212e",
-    "line_start": 6096,
-    "line_end": 6100,
+    "line_start": 6100,
+    "line_end": 6104,
     "excerpt_sha256": "e470f10b5402749c3aa80fa7aae82f2bed5fd8abd1b7c18ae6e6d46b1924c8c2",
     "excerpt": "For every finite Boolean promise the read-all construction gives\n\\[\n R(f)\\le D(f),\\qquad Q(f)\\le D(f),\\qquad D(f)\\le |I|.\n\\]\nAn equivalence $e:I\\simeq J$ simply renames the coordinates. After [renaming the coordinates][def-reindex] of $f$ by $e$, each of the three complexities is unchanged. These statements concern arbitrary finite promises: their only ordinary premises are the specified finite coordinate types and, for renaming, the equivalence. The [classical][src-le-iff-classical] and [quantum][src-le-iff-quantum] equivalences between complexity bounds and budget tests connect the numerical complexities to the budget predicates. The uniform choice and global cap remain inside those predicates; they cannot be discarded when applying the numerical inequalities."
    },
@@ -10609,8 +10609,8 @@
      "passage_claims": [],
      "passage_sha256": "c750c78be2eaf7af4c3c4fed46f51abb1a244413714ae8372121ca46ac71212e",
      "passage_lines": [
-      6089,
-      6161
+      6093,
+      6165
      ]
     },
     {
@@ -10628,8 +10628,8 @@
     "anchor": "ROOT-EVIDENCE-CONVENTION",
     "join": "lean_link_mention",
     "passage_sha256": "c750c78be2eaf7af4c3c4fed46f51abb1a244413714ae8372121ca46ac71212e",
-    "line_start": 6092,
-    "line_end": 6092,
+    "line_start": 6096,
+    "line_end": 6096,
     "excerpt_sha256": "d4ecb19097988435df037ac46e102b6b4b28844e54b699c2de1abb5eca86a1a7",
     "excerpt": "**The partial function and its domain.** For a finite coordinate type $I$, a formal [partial Boolean function][def-partial] on $I$ is a function from [bit inputs][def-bit-input] on $I$ to optional Boolean values. A defined value records both membership in the promise and the required answer. An undefined value imposes no correctness requirement. This is the domain-and-value description of §2.1, with no assumption of totality. [Totalisation][def-totalise] embeds a total Boolean function into this type by defining its value everywhere. It is that embedding, rather than an arbitrary completion of a partial function, which appears in the total-function separation statements."
    },

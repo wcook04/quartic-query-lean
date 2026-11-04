@@ -83,9 +83,7 @@ HEADER = r"""
 HEADER_EXTRA = {
     "expert": r"""\usepackage{newunicodechar}
 \newunicodechar{≥}{\ensuremath{\geq}}
-% Break reference URLs only after a slash or hyphen (pandoc loads xurl,
-% which otherwise breaks inside words).
-\AtBeginDocument{\def\UrlBreaks{\do\/\do-}\def\UrlBigBreaks{\do\:}}
+% Keep Pandoc/xurl line-breaking for long identifiers.
 \AtBeginDocument{\graphicspath{{@OUT@/}}}
 """,
     "exposition": r"""\usepackage[skins,breakable]{tcolorbox}
@@ -96,12 +94,20 @@ HEADER_EXTRA = {
   top=4pt, bottom=4pt, toptitle=2pt, bottomtitle=2pt,
   fonttitle=\small\bfseries, coltitle=black, colbacktitle=boxframe!22,
   title={#1}, fontupper=\small, before upper={\setlength{\parskip}{4pt}}}
-\makeatletter\renewcommand{\fps@figure}{htbp}\makeatother
+\usepackage{float}
+\makeatletter\renewcommand{\fps@figure}{H}\makeatother
 """,
 }
 
 # Keep short tables whole: ask for room before a table of at most twelve rows.
 LUA_TABLE = r"""
+function Link(el)
+  if pandoc.utils.stringify(el.content) == el.target and el.target:match("^https://github.com/") then
+    local path = el.target:match("/([^/]+)$") or "source"
+    el.content = {pandoc.Str("Source: " .. path)}
+  end
+  return el
+end
 function Table(el)
   local rows = 0
   for _, body in ipairs(el.bodies) do rows = rows + #body.body end

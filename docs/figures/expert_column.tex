@@ -11,7 +11,7 @@
 \begin{tikzpicture}[
   font=\small,
   bit/.style={draw=black!60, minimum width=4.4mm, minimum height=4.4mm,
-              inner sep=0pt, font=\scriptsize},
+              inner sep=0pt, font=\footnotesize},
   >={Stealth[length=2.2mm]}]
 % ---- the strings X_j, drawn as rows of m = 8 bits -----------------------
 \newcommand{\strip}[4]{% y, label, zero position (0 = none), name
@@ -36,12 +36,12 @@
 \begin{scope}[shift={(8.0,2.6)}]
   \foreach \h/\lab in {0/{A_{i^\star\!,1}},1/{A_{i^\star\!,2}},3/{A_{i^\star\!,r}}} {
     \node[draw=addr, fill=addr!8, minimum width=11mm, minimum height=6mm,
-          font=\scriptsize] (A\h) at (1.35*\h,0) {$\lab$};}
+          font=\footnotesize] (A\h) at (1.35*\h,0) {$\lab$};}
   \node at (2*1.35,0) {$\cdots$};
   \node[font=\footnotesize, addr, anchor=south] at (1.35*1.5+0.4,0.38)
-    {$r=20\log_2 m$ disjoint address blocks for $P_{k,m}$ ($km$ bits each)};
+    {$r$ address inputs};
   \node[font=\footnotesize, addr] (s) at (1.35*1.5,-1.15)
-    {address $s_{i^\star}=\bigl(P(A_{i^\star\!,1}),\dots,P(A_{i^\star\!,r})\bigr)\in\{0,1\}^r$};
+    {address $s_{i^\star}$: answers to these inputs};
   \foreach \h in {0,1,3} \draw[->, addr] (A\h.south) -- (A\h.south |- s.north);
 \end{scope}
 % ---- the cell array B_{i*,s}, s in {0,1}^r ------------------------------
@@ -57,7 +57,7 @@
   \node[anchor=west] at (5.85,0) {$\cdots$};
   \draw[decorate, decoration={brace, mirror, amplitude=4pt}, black!70]
     ($(cell0.south west)+(0,-0.08)$) -- ($(cell11.south east)+(0,-0.08)$)
-    node[midway, below=4pt, font=\scriptsize, black!80]
+    node[midway, below=4pt, font=\footnotesize, black!80]
     {one cell $B_{i^\star\!,s}$ for each of the $2^r$ addresses $s$};
 \end{scope}
 \draw[->, addr, thick] (s.south) -- (cell7.north);

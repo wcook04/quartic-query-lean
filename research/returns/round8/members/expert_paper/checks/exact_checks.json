@@ -1,0 +1,65 @@
+{
+  "A1_negative_forrelation": {
+    "phi": "-1",
+    "projection_probability": "1",
+    "status": "pass"
+  },
+  "section3_2_fractional_sampling": {
+    "weights": [
+      "1",
+      "0",
+      "2/3",
+      "1/4"
+    ],
+    "W": "23/12",
+    "success_probability": "23/48",
+    "conditional_law": [
+      "12/23",
+      "0",
+      "8/23",
+      "3/23"
+    ],
+    "status": "pass"
+  },
+  "A4_uniform_not_independent": {
+    "dependent_hit": "175/256",
+    "independent_hit": "1/4",
+    "I_marginal": [
+      "1/4",
+      "1/4",
+      "1/4",
+      "1/4"
+    ],
+    "status": "pass"
+  },
+  "A5_expected_caps": {
+    "joint_success": "5/8",
+    "separate_cap_bound": "1/4",
+    "status": "pass"
+  },
+  "A6_side_information": {
+    "joint_success": "1/2",
+    "independent_bound": "1/4",
+    "status": "pass"
+  },
+  "A7_joint_vs_conditional": {
+    "compliant_inputs": 8,
+    "correct_and_compliant_inputs": 5,
+    "total_inputs": 16,
+    "joint": "5/16",
+    "conditional": "5/8",
+    "beta_squared": "9/16",
+    "status": "pass"
+  },
+  "record7_3_constant_envelope": {
+    "N": 5707107503019240,
+    "2_to_53": 9007199254740992,
+    "status": "pass"
+  },
+  "fixed_k_threshold_coefficient": {
+    "four_times_13669": 54676,
+    "comparison_coefficient": 54675,
+    "status": "pass"
+  },
+  "scope": "Fresh exact finite checks of displayed examples and two integer constants only; not a proof of asymptotic theorems, a Lean build, a Comparator run, or a novelty certification."
+}

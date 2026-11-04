@@ -70,3 +70,11 @@ manuscript findings, method findings and claim journeys with their original
 fields. These are advisory observations, including simulated reader perspectives,
 not independent human reviews or proof verification. The original archives and
 submitted scripts remain local; decisions belong under [adjudication](../adjudication/).
+
+## Round-eight returns
+
+The [two round-eight returns](round8/README.md) preserve 448 manuscript findings
+and 40 method findings. Their [intake](round8/intake.json) binds the original
+bytes; [dispositions](../adjudication/round8_synthesis.json) and
+[revision notes](../adjudication/round8_revision.md) identify what changed in the
+maintained papers and what was deliberately retained.

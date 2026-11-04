@@ -12,7 +12,7 @@ later change.
 | [Expert companion](expert_companion.md) | The result and its decisive proof for readers of the cited query-complexity literature. |
 | [Exposition](exposition.md) | A teaching route through the objects, operations and main inferences. |
 | [Long reasoning record](reasoning_record.md) | Full mathematical arguments and formal-statement audit, with a [bibliography](reasoning_record.bib), [correspondence](reasoning_record_correspondence.json) and [version-bound review](reasoning_record_review.json). |
-| [Writing method](writing_method.md) | The current three-document method and its round-seven application; [method findings and transfer trials](../research/adjudication/round7_method_revision.md). |
+| [Writing method](writing_method.md) | The current three-document method and its round-seven and round-eight applications; [method findings and transfer trials](../research/adjudication/round7_method_revision.md). |
 | [Statement evidence contract](statement_evidence_contract.md) | Rules for relating printed statements, Lean declarations and recorded checks. |
 | [Statement fidelity review](statement_fidelity_review.md) | Independent AI reading of the conditional development at `efc70f3`; it did not run Lean. Preserve its findings as a record of that revision. |
 | [Forrelation lower-bound blueprint](forrelation_lower_bound_blueprint.md) | The implementation route and its development notes. Its status passages reflect the stages at which they were written. |
@@ -34,3 +34,9 @@ tracks current finding dispositions, with focused
 The short and examples-first manuscripts under `research/returns/funnel/` are
 historical inputs. Current manuscripts are linked above; their review scope
 comes from their edition-bound records, not the historical funnel verdicts.
+
+The [round-eight revision](../research/adjudication/round8_revision.md) applies
+the specialist and teaching returns to both papers, their shared proof routes
+and the writing method. Its [finding dispositions](../research/adjudication/round8_synthesis.json)
+preserve the distinction between applied advice, retained strengths and declined
+suggestions. The original reviews remain edition-bound.

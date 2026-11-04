@@ -141,9 +141,9 @@ The ingredients below identify what each part of the construction needs and wher
 **Formal statements.** Compare a claim with its Lean type; see [Appendix G](#formal-appendix).
 
 <a id="record-reading-routes"></a>
-Two shorter accounts of the argument link into this record: the [specialist companion](expert_companion.md), whose §§3–5 summarize the quantum tournament, the planted lower bound and the Forrelation supplier, and the [examples-first exposition](exposition.md), which works through eight-bit inputs and a four-column board before the general proofs. Each proof they cite opens with the statement it proves, for instance Forrelation hardness at [§3.6](#forr_target), the tournament at [§5.2](#upper-tournament-statement) and the classical lower bound at [§6](#classical-overview).
+Two shorter accounts of the argument link into this record: the [specialist companion](expert_companion.md), whose §§3–5 give the quantum tournament, the planted lower bound and the completed fixed-parameter deduction, with the uniform Forrelation refinement separately in §6, and the [examples-first exposition](exposition.md), which works through eight-bit inputs and a four-column board before the general proofs. Each proof they cite opens with the statement it proves, for instance Forrelation hardness at [§3.6](#forr_target), the tournament at [§5.2](#upper-tournament-statement) and the classical lower bound at [§6](#classical-overview).
 
-Before this construction the best separation for total functions was $R=Q^{3-o(1)}$. The cheat sheets of [Aaronson, Ben-David and Kothari][ABK2019], combined with an optimal partial separation for Forrelation, give the cube, and Aaronson, Ben-David, Kothari, Rao and Tal conjectured that the cube is optimal. The specialist companion's §1.1 describes the earlier exponents $5/2$, $8/3-o(1)$ and $3-o(1)$ and the cheat-sheet arithmetic that stops at three. The present construction changes the classical side of that arithmetic. Each column carries its own certificate array addressed by $r$ hard Forrelation instances, so the classical lower bound grows to order $mL$ with $L\approx m^{1-1/k}$, while the quantum cost stays near $\sqrt m$.
+Before this construction the best separation for total functions was $R=Q^{3-o(1)}$. The cheat sheets of [Aaronson, Ben-David and Kothari][ABK2019], combined with an optimal partial separation for Forrelation, give the cube, and Aaronson, Ben-David, Kothari, Rao and Tal conjectured that the cube is optimal. The specialist companion's §1.2 describes the earlier exponents $5/2$, $8/3-o(1)$ and $3-o(1)$ and the cheat-sheet arithmetic that stops at three. The present construction changes the classical side of that arithmetic. Each column carries its own certificate array addressed by $r$ hard Forrelation instances, so the classical lower bound grows to order $mL$ with $L\approx m^{1-1/k}$, while the quantum cost stays near $\sqrt m$.
 
 
 ## 2. Models, promises and query budgets
@@ -1907,6 +1907,8 @@ It follows that a winning column passes all tests at its unique true address and
 
 <a id="AC-example-tests"></a>
 <!-- passage:AC-example-tests -->
+The circuit and gate numbering below also serve the examples-first exposition. Its board uses amplitudes $+1$ and $-1$, whereas the preserved checker's board uses $+1/2$ and $-1/2$. The 256-input circuit truth table, gate identities and local-test rules transfer unchanged; the board-specific decoder probabilities do not. Return to the [exposition, Section 2](exposition.md#2-one-column-then-four) after inspecting these tests.
+
 On the four-column board, the supplied finite circuit has $S=180$ non-input gates, and in zero-based numbering its domain and value outputs are gates 178 and 179. Each candidate therefore has
 
 $$
@@ -2089,6 +2091,8 @@ At $p=0$ the state lies in the failure subspace, where the success reflection fi
 
 <a id="upper-grover-trial"></a>
 <!-- passage:upper-grover-trial -->
+
+This is the trial-count construction used in the [exposition, Section 4](exposition.md#4-the-quantum-algorithm-a-tournament); the successful-state geometry precedes it and the averaged failure bound follows it.
 
 For one amplification trial, choose the following two integers, with natural logarithms in the second expression:
 

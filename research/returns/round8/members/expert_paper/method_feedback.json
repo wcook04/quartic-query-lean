@@ -1,0 +1,538 @@
+{
+  "packet": "quartic_r8_expert_paper",
+  "scope": "Advice about the supplied writing method; no skill, manuscript, repository, or formal proof was modified.",
+  "overall_judgment": "Most needed decisions are already present in the active skills. Improve enforcement and artifact-level checks before adding more general rules.",
+  "measurement_scope": "Inspected the supplied profile metadata and measurements; did not rerun the profiler or inspect every source extraction in its 42-document shelf.",
+  "feedback": [
+    {
+      "id": "M01",
+      "title": "Make page allocation respond to the declared contribution",
+      "category": "enforce_existing_rule",
+      "rule_or_skill": [
+        "skills/long-to-short/SKILL.md: Model the reader and find the one point",
+        "RG-02",
+        "RG-14"
+      ],
+      "problem": "The method already requires additions to displace existing material, but successive repairs have accumulated into an introduction that explains the old AND–OR recipe before the new function and into an optional analytic section before the main conclusion. A complete line-edit log can coexist with an expensive reading route.",
+      "instances": [
+        {
+          "paper": "expert_companion",
+          "section": "1.1",
+          "quote": "In their construction a partial function $g$ on $n$ bits"
+        },
+        {
+          "paper": "expert_companion",
+          "section": "5",
+          "quote": "Its purpose here is to give an explicit sufficient threshold,"
+        }
+      ],
+      "what_the_method_should_do_instead": "Before a revision is accepted, identify the next mathematical operation the intended reader must perform, and mark every paragraph needed for it. For every added explanation, record whether it repairs that operation, supports an optional route, or repeats an existing job. Relocate material whose role is optional rather than treating local correctness as sufficient reason to keep it on the main route.",
+      "review_test": "For quartic, trace Theorem 1 through §§2–4 and the fixed-k deduction without using the uniform refinement. As a transfer probe, use the supplied SK abstract to separate the support/density objective from the later QAOA application; the opening was sampled, not the full SK proof audited.",
+      "limit_or_exception": "A new missing inference may require more pages. Do not impose net shortening or a fixed page budget.",
+      "evidence_class": "editorial and source-navigation review; not a human-reader experiment"
+    },
+    {
+      "id": "M02",
+      "title": "Check the semantic entry point of every proof link",
+      "category": "enforce_existing_rule",
+      "rule_or_skill": [
+        "skills/long-to-short/SKILL.md: Procedure 4",
+        "skills/long-to-short/SKILL.md: Report the formal verification",
+        "RG-06"
+      ],
+      "problem": "The current skill explicitly says that a promised full proof must open at its start, but the exported link check proves existence and anchor resolution. In the lead paper a longer tournament proof opens after its statement, drift argument, and sampling law.",
+      "instances": [
+        {
+          "paper": "expert_companion",
+          "section": "3.2",
+          "quote": "A longer version of this proof is in"
+        },
+        {
+          "paper": "reasoning_record",
+          "section": "5.2",
+          "anchor": "upper-quantum-tournament",
+          "actual_start": "upper-tournament-statement"
+        }
+      ],
+      "what_the_method_should_do_instead": "Treat a proof reference as a small contract: the proposition promised, its hypotheses, the missing inference, the landing anchor, and the return point. Open the anchor in the delivered edition and attempt the missing inference starting there. Retain the existing anchor-existence check, but do not call it a completed reading route.",
+      "review_test": "Follow expert §3.2 to #upper-quantum-tournament; compare it with #upper-tournament-statement and #upper-ideal-process. The same check applies in another field when a density theorem link lands after the regularity hypotheses.",
+      "limit_or_exception": "A link to a specific calculation should land at that calculation, not at the start of a chapter.",
+      "evidence_class": "editorial and source-navigation review; not a human-reader experiment"
+    },
+    {
+      "id": "M03",
+      "title": "Match quantitative link labels to the quantity actually derived there",
+      "category": "enforce_existing_rule",
+      "rule_or_skill": [
+        "skills/long-to-short/SKILL.md: Procedure 4",
+        "RG-07",
+        "RG-23"
+      ],
+      "problem": "The §3.3 link labelled explicit count in record §5.4 is used to assert the exponential envelope 2^53 k 2^(10k). The record first displays that envelope and its numerical domination in §7.3. The statement is supported, but the immediate destination does not finish the advertised calculation.",
+      "instances": [
+        {
+          "paper": "expert_companion",
+          "section": "3.3",
+          "quote": "The [explicit count in record §5.4]"
+        },
+        {
+          "paper": "reasoning_record",
+          "section": "7.3",
+          "anchor": "ROOT-GROWING-K"
+        }
+      ],
+      "what_the_method_should_do_instead": "For a reference that promises a constant, threshold, error bound, or complexity count, verify that the destination supplies that exact expression, rather than only ingredients from which it can be derived elsewhere. Distinguish a foundational budget from its later numerical simplification in the link label.",
+      "review_test": "Compare #upper-explicit-log6 with #ROOT-GROWING-K. For transfer, check a cited tail estimate against the constant actually used downstream rather than accepting a chapter-level match.",
+      "limit_or_exception": "Do not repeat full arithmetic in the short paper when a precise reference suffices.",
+      "evidence_class": "editorial and source-navigation review; not a human-reader experiment"
+    },
+    {
+      "id": "M04",
+      "title": "Route example requests to examples",
+      "category": "enforce_existing_rule",
+      "rule_or_skill": [
+        "skills/long-to-short/SKILL.md: Procedure 4",
+        "reader_principles.md: 5 and 12",
+        "RG-13"
+      ],
+      "problem": "The sentence promising a small simulator trace points to the general simulator definition, while the worked trace has its own nearby anchor. This is less severe than a missing proof, but it imposes a needless search precisely when the reader has asked for help.",
+      "instances": [
+        {
+          "paper": "expert_companion",
+          "section": "4.4",
+          "quote": "The record traces this simulator on a small example"
+        },
+        {
+          "paper": "reasoning_record",
+          "section": "6.5",
+          "anchor": "CL-simulator",
+          "example_anchor": "CL-simulator-example"
+        }
+      ],
+      "what_the_method_should_do_instead": "Classify each cross-document link by reader task—statement, proof, worked example, source declaration, or audit—and select the target for that task. A correct section number is only the beginning of this check.",
+      "review_test": "Open the §4.4 link and ask whether the first visible content is the promised trace. Repeat on one explanation-to-example link in a different manuscript.",
+      "limit_or_exception": "A few preparatory lines can be necessary; the goal is not to force every link to an isolated display.",
+      "evidence_class": "editorial and source-navigation review; not a human-reader experiment"
+    },
+    {
+      "id": "M05",
+      "title": "Use a declared research-paper subset for numerical register comparisons",
+      "category": "refine_measurement_workflow",
+      "rule_or_skill": [
+        "skills/register/SKILL.md: Steps 1 and 3",
+        "RG-01",
+        "skills/register-stage.md: Extending the rules"
+      ],
+      "problem": "The supplied profile has 42 document entries and is reused for all three draft measurements. Its labels include QIP slides, a survey, lecture notes, and two entries for the AIK certificate-complexity work. The metadata records paths and word counts but not a resolved per-work edition policy. This is useful context, but it does not implement the skill’s declared genre/edition-matched baseline.",
+      "instances": [
+        {
+          "file": "register/profile.json",
+          "locators": [
+            "documents: quartic-lit-bansal-sinha-qip2021-slides",
+            "documents: quartic-lit-dewolf-quantum-computing-lecture-notes",
+            "documents: quartic-lit-ambainis-iraids-kokainis-certificate-v3",
+            "documents: quartic-ref-05-near-optimal-separations-of-certificate-co"
+          ]
+        },
+        {
+          "file": "register/measurement.txt",
+          "locator": "corpus: cited literature (n=42 documents) for expert, exposition, and record"
+        }
+      ],
+      "what_the_method_should_do_instead": "Keep this wide shelf as context. Add a small declared subset for the specialist article and identify each work’s edition and sampled prose region. Compare teaching prose with teaching prose when the source shelf supports it. Check the two AIK entries before deciding whether they duplicate weight; the labels alone do not establish their exact byte relationship.",
+      "review_test": "Publish the membership list for each comparison and verify that slides are excluded from paragraph-length targets. Report the result as unavailable if the relevant extraction cannot be checked.",
+      "limit_or_exception": "Do not claim that recomputing the median improves the paper. It only makes the diagnostic comparison interpretable.",
+      "evidence_class": "editorial and source-navigation review; not a human-reader experiment"
+    },
+    {
+      "id": "M06",
+      "title": "Separate the argument from its evidence section when interpreting metrics",
+      "category": "refine_measurement_workflow",
+      "rule_or_skill": [
+        "skills/register/SKILL.md: Step 3",
+        "RG-20",
+        "RG-21"
+      ],
+      "problem": "The largest expert outlier is status vocabulary. Its nominated specimens are mostly the formal statement and AI-use material that the current rules deliberately collect at the end. The measurement detects those words but does not by itself show that verification interrupts the proof.",
+      "instances": [
+        {
+          "file": "register/measurement.txt",
+          "locator": "expert status_vocab_rate 7.12; specimens at draft lines 326, 328, 336"
+        },
+        {
+          "paper": "expert_companion",
+          "section": "7",
+          "quote": "Comparator checks the separately compiled"
+        }
+      ],
+      "what_the_method_should_do_instead": "Report region-specific descriptive values or explicitly state which section dominates a flag. Make the editorial question whether the reader can understand the theorem/formal-theorem relation, rather than whether the document contains a sufficiently low count of tool names.",
+      "review_test": "Inspect the opening, mathematical body, formal section, and references separately. Confirm that any proposed deletion preserves the distinction between the existential family theorem and the explicit-circuit bound.",
+      "limit_or_exception": "A short evidence section can still be too dense; regionalising the metric does not excuse unclear prose.",
+      "evidence_class": "editorial and source-navigation review; not a human-reader experiment"
+    },
+    {
+      "id": "M07",
+      "title": "Do not let named authors become ornamental-triad evidence",
+      "category": "refine_detector_interpretation",
+      "rule_or_skill": [
+        "RG-19",
+        "skills/register/SKILL.md: Step 4"
+      ],
+      "problem": "The triad detector nominates lists of authors and a useful declaration of which inputs are cited. RG-19 now expressly exempts author names and exhaustive mathematical cases. The operational report should make this exception visible so a later writer does not trim credit to improve a number.",
+      "instances": [
+        {
+          "file": "register/measurement.txt",
+          "locator": "expert triad_rate specimens: Aaronson, Ben-David and Kothari; Göös, Pitassi and Watson; Ambainis, Iraids and Kokainis"
+        },
+        {
+          "paper": "expert_companion",
+          "section": "1.3",
+          "quote": "Addressing a certificate by the answers to hard partial instances"
+        }
+      ],
+      "what_the_method_should_do_instead": "Annotate nominated spans with their role before making an edit: authorship, exhaustive objects, necessary proof inputs, or ornamental cadence. Keep the first three unless a separate comprehension problem justifies change.",
+      "review_test": "A reviewer should be able to explain why an author list was kept despite the flag and why a genuinely overloaded sentence was split.",
+      "limit_or_exception": "Do not hide an overloaded attribution sentence from human review merely because it contains names.",
+      "evidence_class": "editorial and source-navigation review; not a human-reader experiment"
+    },
+    {
+      "id": "M08",
+      "title": "Let dependency units override the approximate paragraph-size heuristic",
+      "category": "refine_existing_rule",
+      "rule_or_skill": [
+        "RG-10",
+        "RG-02"
+      ],
+      "problem": "RG-10 combines the right principle—length follows dependency—with an approximate 120-token ceiling. The local-test and product-induction paragraphs have several distinct operations, but splitting them into mechanically uniform short blocks would preserve the same problem in another form.",
+      "instances": [
+        {
+          "paper": "expert_companion",
+          "section": "2",
+          "quote": "The output tests are additional to the consistency tests at the output gates:"
+        },
+        {
+          "paper": "expert_companion",
+          "section": "4.1",
+          "quote": "At a leaf the correct weight factorises."
+        }
+      ],
+      "what_the_method_should_do_instead": "Use semantic boundaries first: definition, invariant, induction step, consequence. Treat the length threshold only as a prompt to inspect whether more than one of these jobs has been packed together. A long necessary contract can remain intact; a short vague paragraph can still need expansion.",
+      "review_test": "Ask whether a reader can recover each operation without jumping backward across a paragraph split. Use both a mathematical definition and a proof step as probes.",
+      "limit_or_exception": "The advice is not to make every paragraph long or to enforce a new numerical length target.",
+      "evidence_class": "editorial and source-navigation review; not a human-reader experiment"
+    },
+    {
+      "id": "M09",
+      "title": "State the probability space in contracts, not only in surrounding prose",
+      "category": "enforce_existing_rule",
+      "rule_or_skill": [
+        "RG-11",
+        "RG-16",
+        "RG-17",
+        "skills/long-to-short/SKILL.md: Procedure 2"
+      ],
+      "problem": "Lemma 2’s formal prose says the successful label has its original law under A. The surrounding text and proof correctly mean the law conditional on A’s success. Since a later reduction uses that exact law, the contract itself should carry the conditioning.",
+      "instances": [
+        {
+          "paper": "expert_companion",
+          "section": "3; Lemma 2",
+          "quote": "Conditional on success, the label has exactly its original law under $\\mathcal A$."
+        }
+      ],
+      "what_the_method_should_do_instead": "When a lemma preserves a law or observable, name the procedure, conditioning event, and output being preserved in the statement. Recheck shortened phrases such as original, same, correct, and independent against those objects.",
+      "review_test": "Read only the lemma statement and ask what distribution a downstream user may substitute. Compare with §4.4, where the joint event is already explicit.",
+      "limit_or_exception": "Do not restore an unnecessary state-preservation claim when the application uses only a measured label law.",
+      "evidence_class": "editorial and source-navigation review; not a human-reader experiment"
+    },
+    {
+      "id": "M10",
+      "title": "Preserve parameter order through both proofs and navigation",
+      "category": "enforce_existing_rule",
+      "rule_or_skill": [
+        "RG-05",
+        "RG-15",
+        "skills/long-to-short/SKILL.md: Procedure 2 and 7"
+      ],
+      "problem": "The fixed-k and growing-k mathematics is now separated correctly in individual statements. The reading route still makes the explicit fixed-k threshold and the later uniform schedule feel like one common substitution, although the growing schedule uses the generic lower bound with another hardness value.",
+      "instances": [
+        {
+          "paper": "expert_companion",
+          "section": "6",
+          "quote": "The quantifiers come in the order:"
+        },
+        {
+          "paper": "expert_companion",
+          "section": "6; Remark",
+          "quote": "Bound (16), the generic lower bound (15), and the"
+        }
+      ],
+      "what_the_method_should_do_instead": "For each parameter-changing remark, identify the exact estimates it imports and which previously defined quantities it reselects. Keep the main fixed-parameter conclusion accessible before optional uniform estimates. One sentence naming the changed input to a generic lemma can prevent an invalid substitution without reproducing the calculation.",
+      "review_test": "Check that a reader does not try to apply t≥13669k² to k=floor(sqrt(t/20)). The actual route is §7.3 with a different L. For transfer, distinguish a fixed-time estimate from a theorem requiring uniformity in time.",
+      "limit_or_exception": "This is a reading-route clarification, not a request for a stronger bound or another formal theorem.",
+      "evidence_class": "editorial and source-navigation review; not a human-reader experiment"
+    },
+    {
+      "id": "M11",
+      "title": "Distinguish a supplied theorem from a quantitative reconstruction",
+      "category": "enforce_existing_rule",
+      "rule_or_skill": [
+        "RG-07",
+        "reader_principles.md: 9",
+        "skills/long-to-short/SKILL.md: The history"
+      ],
+      "problem": "The main theorem and its two separation analyses are rightly credited to OpenAI. Section 5 then presents an improved parameter dependence obtained with a changed truncation. A reader needs to know whether that passage is an imported theorem, a reproduced estimate, or a quantitative reconstruction, without being pushed toward an unverified novelty claim.",
+      "instances": [
+        {
+          "paper": "expert_companion",
+          "section": "1",
+          "quote": "The theorem, construction and two analyses are OpenAI's."
+        },
+        {
+          "paper": "expert_companion",
+          "section": "5",
+          "quote": "It uses a different algebraic truncation, so the required moment estimates are proved afresh."
+        },
+        {
+          "paper": "reasoning_record",
+          "section": "3.16",
+          "anchor": "forr_credit"
+        }
+      ],
+      "what_the_method_should_do_instead": "Maintain a contribution statement for each substantive branch: inherited result, reproduced proof, new-to-this-reconstruction calculation, and independent priority status. Bring only the distinctions that affect the specialist’s assessment into the paper. The detailed source comparison remains in the record.",
+      "review_test": "Compare the introduction’s contribution sentence with §5 and record §3.16. The record already says its bounded searches establish neither priority nor novelty; do not promote the quantitative estimate beyond that evidence.",
+      "limit_or_exception": "A reconstruction may contain valuable calculations without claiming a new separation theorem.",
+      "evidence_class": "editorial and source-navigation review; not a human-reader experiment"
+    },
+    {
+      "id": "M12",
+      "title": "Test figures with one specific reading operation at final size",
+      "category": "enforce_existing_rule",
+      "rule_or_skill": [
+        "RG-26",
+        "reader_principles.md: 3, 5, 12"
+      ],
+      "problem": "The current figures are structurally better and no longer have the reported crossing label. Some explanatory labels remain around 6–7 points. Figure 1 also uses eight visible bit boxes without explicitly marking them schematic, and Figure 2’s repeated distribution labels rely on the caption to express reuse of one draw.",
+      "instances": [
+        {
+          "paper": "expert_companion",
+          "section": "Figure 1",
+          "pdf_page": 3
+        },
+        {
+          "paper": "expert_companion",
+          "section": "Figure 2",
+          "pdf_page": 9
+        }
+      ],
+      "what_the_method_should_do_instead": "Choose the operation a reader should perform from the picture: find the selected cell and its outward pointers, or identify precisely what changes under planting. Inspect the complete page at intended size and then check caption, coordinate cardinalities, and information available to the algorithm. Reassign long labels to full-width prose when that makes the operation easier.",
+      "review_test": "Have the reviewer name the two changed locations in Figure 2 without zooming and explain whether the address blocks are shared. Check the main label font separately from its mathematical subscripts.",
+      "limit_or_exception": "No universal minimum font size or mandatory diagram style is proposed; legibility and semantic fidelity decide.",
+      "evidence_class": "editorial and source-navigation review; not a human-reader experiment"
+    },
+    {
+      "id": "M13",
+      "title": "Select appendix counterexamples by the mistake they prevent",
+      "category": "enforce_existing_rule",
+      "rule_or_skill": [
+        "skills/long-to-short/SKILL.md: What they already know",
+        "RG-13",
+        "RG-15"
+      ],
+      "problem": "Appendix A is now readable, but it still treats eight pitfalls as parallel obligations. A specialist is much more likely to make the wrong conditioning or off-promise-comparison substitution than to forget that a fixed-parameter threshold is not uniform. Successful formatting does not settle selection.",
+      "instances": [
+        {
+          "paper": "expert_companion",
+          "section": "Appendix A",
+          "quote": "The following examples show why the hypotheses used above cannot simply be dropped."
+        }
+      ],
+      "what_the_method_should_do_instead": "For each counterexample, record the exact plausible mistaken inference and the paper location it protects. Keep high-risk construction-specific examples near their uses or in the short appendix; route elementary general cautions to the record if the audience does not need them.",
+      "review_test": "Compare A.1, A.3, and A.7 with A.8 for the named specialist audience. For a teaching exposition the ranking may differ.",
+      "limit_or_exception": "Do not delete a counterexample merely because its computation is elementary; it may block a subtle misuse.",
+      "evidence_class": "editorial and source-navigation review; not a human-reader experiment"
+    },
+    {
+      "id": "M14",
+      "title": "Keep concise formal-statement differences while reducing implementation vocabulary",
+      "category": "enforce_existing_rule",
+      "rule_or_skill": [
+        "RG-20",
+        "reader_principles.md: 7 and 10",
+        "skills/long-to-short/SKILL.md: Report the formal verification"
+      ],
+      "problem": "Section 7 now uses natural-language links and correctly distinguishes the existential family theorem from the fixed-circuit constants. Its last paragraph still asks a query-complexity reader to interpret measured/reset implementations, finite weighted seeds, recursive compliance, and ordinary bridges all at once.",
+      "instances": [
+        {
+          "paper": "expert_companion",
+          "section": "7",
+          "quote": "Two auxiliary interfaces merit distinction."
+        },
+        {
+          "paper": "expert_companion",
+          "section": "7",
+          "quote": "It states an existential logarithmic exponent and the floor lower bound (15)."
+        }
+      ],
+      "what_the_method_should_do_instead": "Retain differences that alter the theorem a reader is entitled to claim. For each further implementation distinction, ask whether it changes the current proof interface; if it does, explain that consequence in mathematical terms, and otherwise link to the existing audit. The number of paragraphs is not itself the acceptance test.",
+      "review_test": "A reader should be able to say whether exponent six is supplied by the compared headline or a separate theorem and whether Lemma 4’s full randomness interface is literally the finite-seed declaration.",
+      "limit_or_exception": "Never obtain brevity by implying that an endpoint check verifies every printed proof step.",
+      "evidence_class": "editorial and source-navigation review; not a human-reader experiment"
+    },
+    {
+      "id": "M15",
+      "title": "Keep source editions and bibliography metadata separate from citation existence",
+      "category": "enforce_existing_rule",
+      "rule_or_skill": [
+        "RG-07",
+        "skills/source-to-graph/SKILL.md",
+        "skills/long-to-short/SKILL.md: Procedure 7"
+      ],
+      "problem": "A citation key resolving is insufficient when a lemma number is edition-dependent. BBHT’s §4 Lemma 2 is available in the arXiv edition; the bibliographic entry names the journal. Its page range also disagrees with the publisher metadata while agreeing with the arXiv journal-reference field.",
+      "instances": [
+        {
+          "paper": "expert_companion",
+          "section": "3; Lemma 2 proof",
+          "quote": "[@BBHT1998, §4, Lemma 2]"
+        },
+        {
+          "file": "repository/docs/expert_companion.bib",
+          "locator": "BBHT1998 pages=493--506"
+        }
+      ],
+      "what_the_method_should_do_instead": "Record the edition actually used for a precise locator. When authoritative metadata disagree, preserve the discrepancy in the editorial record and prefer the publisher for the journal citation; do not turn a metadata correction into a mathematical error. Keep immutable URLs behind short visible labels.",
+      "review_test": "Check the cited lemma in the arXiv text and the journal page range on the publisher page separately. Reuse this test for theorem renumbering in any field.",
+      "limit_or_exception": "No mass renumbering is justified by a citation title alone.",
+      "evidence_class": "editorial and source-navigation review; not a human-reader experiment"
+    },
+    {
+      "id": "M16",
+      "title": "Use prior reviews as regression evidence without recycling their diagnoses",
+      "category": "enforce_existing_rule",
+      "rule_or_skill": [
+        "RG-02",
+        "skills/README.md: Where reader feedback goes",
+        "READ_ME_FIRST.md: previous_round boundary"
+      ],
+      "problem": "The previous round has repaired real defects: high-success amplification, complementary comparison probabilities, full-history coupling, joint-event language, and the prose-table layout. A large requested finding count creates a risk that a new reviewer reports those old defects as if they were still present.",
+      "instances": [
+        {
+          "file": "previous_round/round7_quantum_audit.md",
+          "scope": "repaired amplification and coupling interfaces"
+        },
+        {
+          "file": "previous_round/round7_classical_audit.md",
+          "scope": "joint event and simulator accounting"
+        },
+        {
+          "paper": "expert_companion",
+          "section": "Appendix A",
+          "quote": "## Appendix A. Simplifications that fail"
+        }
+      ],
+      "what_the_method_should_do_instead": "Read the current passage before the old diagnosis. Mark a previous item as repaired, persistent, or changed in consequence. Promote a repaired feature to a keep finding when it protects an important inference, and make any new complaint identify what still costs the reader.",
+      "review_test": "Reject any finding that asks the current text to add a condition it already states. Check each locator against the current hash-bound draft.",
+      "limit_or_exception": "An earlier acceptance is not conclusive; a fix can have a new bad consequence that deserves a new finding.",
+      "evidence_class": "editorial and source-navigation review; not a human-reader experiment"
+    },
+    {
+      "id": "M17",
+      "title": "Keep exemplar use local and version-aware",
+      "category": "enforce_existing_rule",
+      "rule_or_skill": [
+        "RG-01",
+        "skills/register/SKILL.md: Step 2",
+        "skills/README.md: Worked instances"
+      ],
+      "problem": "The supplied SK exemplar has useful object-first and mechanism-first passages, but also places an AI-assistance statement above its abstract. The current quartic method places fuller AI disclosure at the end. A writer copying the exemplar’s whole structure would inherit an older local choice rather than the active rule.",
+      "instances": [
+        {
+          "file": "exemplars/short-paper.md",
+          "scope": "opening through Theorem 1; sampled",
+          "quote": "**AI assistance.** Will Cook directed the work."
+        },
+        {
+          "file": "register/REGISTER_RULES.md",
+          "locator": "RG-24"
+        }
+      ],
+      "what_the_method_should_do_instead": "Attach the purpose and version to each exemplar use. Cite the particular explanatory move being borrowed rather than treating the entire example as a normative template. Resolve a conflict using the current rule’s stated purpose and the target reader’s task.",
+      "review_test": "Borrow the SK passage’s identification of a single inequality used twice, then explicitly decide whether its separate QAOA objective and disclosure placement belong in the new paper.",
+      "limit_or_exception": "This is a candidate transfer lesson from sampled openings, not a review of the SK theorem or a request to revise that separate project.",
+      "evidence_class": "editorial and source-navigation review; not a human-reader experiment"
+    },
+    {
+      "id": "M18",
+      "title": "Expose the complete interface of an already proved generic reduction",
+      "category": "enforce_existing_rule",
+      "rule_or_skill": [
+        "skills/long-to-short/SKILL.md: Procedure 1–4",
+        "RG-05",
+        "RG-14",
+        "reader_principles.md: 4, 5, 12"
+      ],
+      "problem": "A construction initially given for one supplier becomes generic in the proof, but the inherited parameters and semantic circuit conditions remain distributed across the earlier definition. A specialist cannot extract the useful reduction with confidence.",
+      "instances": [
+        {
+          "paper": "expert_companion",
+          "section": "4, generic lower bound",
+          "quote": "Write $F_{P,\\mathcal C,m}$ for the construction of §2 with these choices."
+        }
+      ],
+      "what_the_method_should_do_instead": "At the point of reuse, expose the exact existing interface: finite input objects, semantic hypotheses, resource bounds, inherited parameters and conclusion. Give an important reusable statement a stable label. Distinguish properties used by each reduction, such as circuit correctness versus circuit size.",
+      "review_test": "Ask a reader to instantiate the displayed generic lower bound without importing a Forrelation-specific input length or forgetting r=20 log_2 m and 1≤L≤m.",
+      "limit_or_exception": "This is not a request to prove a broader theorem or to duplicate the construction in full.",
+      "evidence_class": "editorial contract analysis of the supplied proof"
+    },
+    {
+      "id": "M19",
+      "title": "Audit transformation verbs against their quantitative losses",
+      "category": "enforce_existing_rule",
+      "rule_or_skill": [
+        "skills/long-to-short/SKILL.md: Procedure 2 and 7",
+        "RG-07",
+        "reader_principles.md: 4, 9, 14"
+      ],
+      "problem": "A sentence saying that a framework turns any separation into another one can erase the verification costs that the following calculation carefully restores. Local algebra may be right while the sentence advertises a stronger black-box guarantee.",
+      "instances": [
+        {
+          "paper": "expert_companion",
+          "section": "1.1",
+          "quote": "the AND–OR recipe stops at the cube"
+        }
+      ],
+      "what_the_method_should_do_instead": "For verbs such as turns, yields, preserves and stops, identify the input assumptions, output guarantee and losses. Separate construction of a total object from preservation of a useful separation. When a parameter balance is called a limitation, briefly justify that balance and keep the claim scoped to the analyzed recipe.",
+      "review_test": "Check whether the paragraph itself explains why the chosen inner dimension is the relevant balance, and whether its broad transformation sentence carries the same assumptions.",
+      "limit_or_exception": "A historical paragraph need not reproduce a full general transformation theorem. A narrow accurate claim is sufficient.",
+      "evidence_class": "source comparison and scope analysis"
+    },
+    {
+      "id": "M20",
+      "title": "Pair diagnostic counterexamples with one positive execution of the central reduction",
+      "category": "method_refinement",
+      "rule_or_skill": [
+        "skills/long-to-short/SKILL.md: Procedure 3–5",
+        "reader_principles.md: 5, 7, 12",
+        "RG-14"
+      ],
+      "problem": "Cumulative review can produce a rich appendix showing why hypotheses are necessary while the reader still has not executed the main reduction once. The classical simulator has an existing positive trace, but the main paper routes away from it and its link starts at the definition.",
+      "instances": [
+        {
+          "paper": "expert_companion",
+          "section": "4.4",
+          "quote": "The position of a query already names an address"
+        }
+      ],
+      "what_the_method_should_do_instead": "Select an example by the operation a reader must perform: choose the fixed parameters, run the relevant branch, identify the output and test the event inclusion. If the example is delegated, link to that execution itself. Balance counterexamples against the positive operation they are supposed to protect.",
+      "review_test": "Using the existing toy, have the reader identify a reached true-cell branch and an abort/default branch, and explain why light hit is contained in predictor success rather than equal to it.",
+      "limit_or_exception": "Do not require an example for every standard lemma or invent a new theorem to justify an illustration.",
+      "evidence_class": "reader-operation analysis; not a human-user study"
+    }
+  ],
+  "preserve": [
+    "The measurement is explicitly descriptive, not a quality gate or z-score.",
+    "The rules already protect mathematical negations, exact quantifiers, attribution, and successful prose.",
+    "The current table rule distinguishes compact comparisons from prose trapped in narrow cells.",
+    "Source correctness, a formal build, a statement comparison, and human review remain separate kinds of evidence.",
+    "No change quota, finding quota, or word-count reduction establishes reader comprehension."
+  ]
+}

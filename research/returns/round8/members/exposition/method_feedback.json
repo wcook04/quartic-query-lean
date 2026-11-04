@@ -1,0 +1,632 @@
+{
+  "perspective": "TEACH",
+  "review_scope": "The supplied method already contains strong controls for most observed problems. Entries classify enforcement, interpretation, packaging or narrowly scoped refinements; none claims that an existing explicit requirement is absent. Source and finding locators were checked during integration; one draft misdescription of the checker as a normalization/circuit change was corrected to the actual difference in named input strings.",
+  "rules_modified": false,
+  "human_learning_study_performed": false,
+  "method_feedback": [
+    {
+      "id": "MF001",
+      "rule_or_skill": "skills/register/SKILL.md, Procedures 1, 3 and 7; register/REGISTER_RULES.md RG-01",
+      "classification": "packaging_mismatch",
+      "title": "Export the actual genre-matched baseline alongside broad context",
+      "instances": [],
+      "additional_evidence": [
+        "register/profile.json names cited literature and lists 42 documents, including the QIP slides and two certificate-complexity editions.",
+        "previous_round/round7_exposition_revision.md, Register measurement and paragraph review, explicitly reports a different four-primary-source comparison and gives its numbers."
+      ],
+      "problem": "The method already requires genre matching, a declared edition and prose-region matching. The packet exports a broad mixed profile as its measurement context without carrying the distinct matched comparison that the revision account says was used. A reviewer cannot readily tell which numbers guided which editorial choices. This is not evidence that the writer never used matched sources.",
+      "general_advice": "Give each exported measurement a role: primary matched comparison, whole-document context or broad shelf context. Ship its declared documents, editions, prose scopes and exclusions with it; retain the broad profile only under its own role.",
+      "boundary": "Do not discard research papers as qualitative comparisons, and do not force a common numerical target on exposition and research prose.",
+      "verification_task": "A receiving reviewer should be able to reproduce the declared comparator membership from the packet without inferring it from old prose notes.",
+      "evidence_kind": "Agent editorial analysis; proposed method refinement, not a measured learning effect."
+    },
+    {
+      "id": "MF002",
+      "rule_or_skill": "skills/register/SKILL.md, Procedure 3; register/REGISTER_RULES.md RG-01",
+      "classification": "enforcement_gap",
+      "title": "Record extraction quality and provenance before trusting lexical measurements",
+      "instances": [],
+      "additional_evidence": [
+        "The supplied Buhrman–de Wolf extracted.md repeatedly loses c, including its title and ordinary words.",
+        "The profile includes that survey label with 8,662 prose words and 511 sentences, but does not bind the measured extraction to the supplied damaged bytes."
+      ],
+      "problem": "The existing rule already says to inspect extraction and exclude damaged text. The available artifacts do not show whether this survey was measured from a clean edition or from the damaged extraction. Its presence is therefore a reason to withhold confident lexical interpretation, not proof that the exported scores are numerically wrong.",
+      "general_advice": "Attach a text-source identifier and a short pass/fail extraction check to each numeric-baseline member. Check a beginning, a mathematically dense passage and a prose passage against the original; quarantine corrupted text or label affected features unavailable.",
+      "boundary": "A reading copy with imperfect OCR can still support a carefully checked mathematical comparison. The gate applies to measurements dependent on its tokens, segmentation or punctuation.",
+      "verification_task": "From the exported profile, determine exactly which bytes produced a member’s counts and whether a damaged source was excluded or repaired.",
+      "evidence_kind": "Agent editorial analysis; proposed method refinement, not a measured learning effect."
+    },
+    {
+      "id": "MF003",
+      "rule_or_skill": "skills/register/SKILL.md, Procedure 4; register/REGISTER_RULES.md RG-02",
+      "classification": "enforcement_gap",
+      "title": "A paragraph log must distinguish jobs, not merely enumerate paragraphs",
+      "instances": [
+        {
+          "finding_id": "EX192",
+          "paper": "exposition",
+          "locator": {
+            "section": "2. One column, then four — attribution paragraph",
+            "quote": "They used about $10\\log n$ copies; we take $r=20\\log_2m$.",
+            "pdf_page": 4
+          }
+        },
+        {
+          "finding_id": "EX228",
+          "paper": "exposition",
+          "locator": {
+            "section": "5. The classical lower bound — proof-box paragraphs",
+            "quote": "Fix the coins and side information.",
+            "pdf_page": 15
+          }
+        }
+      ],
+      "additional_evidence": [
+        "The prior revision paragraph log repeats the same broad job and decision for many consecutive paragraphs in each section; Section 2 repeatedly receives the construction job and Section 5 the capped-event job."
+      ],
+      "problem": "The required whole-document pass is present, but a repeated generic label does not expose that the attribution paragraph handles several tasks or that the proof box switches from conditioning to optimization to a leaf estimate. This is a limitation of the recorded diagnostic evidence, not a claim that the paragraphs were never read.",
+      "general_advice": "For consequential paragraphs, record the local question entering the paragraph, the new operation or fact established, and the next step that consumes it. A keep decision can be brief when the passage already supplies that transition.",
+      "boundary": "Do not inflate the log into a second manuscript or demand a change to every paragraph. The aim is to distinguish the difficult transitions and legitimate keeps.",
+      "verification_task": "Ask a second editor to identify the precise difficulty and intended reader benefit from the log alone for three distant paragraphs.",
+      "evidence_kind": "Agent editorial analysis; proposed method refinement, not a measured learning effect."
+    },
+    {
+      "id": "MF004",
+      "rule_or_skill": "skills/record-to-expository/SKILL.md, Model the reader and frame the result; register/REGISTER_RULES.md RG-04 and RG-05; reader_principles.md 2–3",
+      "classification": "enforcement_gap",
+      "title": "Audit the cumulative opening before the first learner action",
+      "instances": [
+        {
+          "finding_id": "EX181",
+          "paper": "exposition",
+          "locator": {
+            "section": "Introduction — opening and route",
+            "quote": "We explain the construction through a four-column example",
+            "pdf_page": 1
+          }
+        },
+        {
+          "finding_id": "EX184",
+          "paper": "exposition",
+          "locator": {
+            "section": "Introduction — prerequisites",
+            "quote": "This account assumes finite-dimensional linear algebra, elementary conditional probability and asymptotic notation.",
+            "pdf_page": 2
+          }
+        }
+      ],
+      "additional_evidence": [
+        "The skill already permits an informal theorem first and explicitly rejects a page quota forcing all notation and history before one operation."
+      ],
+      "problem": "The current opening now contains a concrete query task, but the full family theorem, infimum, exponent calculations and route still precede the eight-bit operation. Compliance sentence by sentence does not establish that the sequence is usable by the named newcomer.",
+      "general_advice": "Read the opening as a single experience and count unresolved roles the reader must carry until the first operation. Put prerequisites before the burden they explain; preserve immediate credit and an easy-to-find exact theorem while moving technical precision to where its parameters have jobs.",
+      "boundary": "Do not postpone a theorem merely because it contains formulas. A mathematically experienced audience may understand its quantifiers immediately, and the exact statement must remain accessible.",
+      "verification_task": "Before consulting later sections, ask the declared reader to name the next concrete operation and explain why it advances the headline question.",
+      "evidence_kind": "Agent editorial analysis; proposed method refinement, not a measured learning effect."
+    },
+    {
+      "id": "MF005",
+      "rule_or_skill": "skills/record-to-expository/SKILL.md, Procedures 2 and 4; register/REGISTER_RULES.md RG-11 and RG-13",
+      "classification": "refinement_of_existing_check",
+      "title": "Track the required output when examples change problem type",
+      "instances": [
+        {
+          "finding_id": "EX182",
+          "paper": "exposition",
+          "locator": {
+            "section": "Introduction — promised search example",
+            "quote": "search promised exactly one $1$ excludes the all-zero input",
+            "pdf_page": 1
+          }
+        }
+      ],
+      "additional_evidence": [
+        "The promise example contrasts unique-item search with Boolean OR without naming the index output."
+      ],
+      "problem": "The active-object checks cover domains, laws and normalizations, but a simple introductory example can change from decision to search while preserving the same input bits. This is easy to miss because each named task is standard in isolation.",
+      "general_advice": "For each teaching example, record input, legal domain, required output and charged resource. When one changes, identify the change before using the example to explain a definition or comparison.",
+      "boundary": "Do not turn every example into a formal four-field template in the paper. A short sentence is often enough; the detailed check belongs in the review record.",
+      "verification_task": "Restrict the example to its stated promise and ask whether its Boolean output is still nonconstant. If not, explain whether an output relation or index has replaced it.",
+      "evidence_kind": "Agent editorial analysis; proposed method refinement, not a measured learning effect."
+    },
+    {
+      "id": "MF006",
+      "rule_or_skill": "skills/record-to-expository/SKILL.md, prerequisite ladder and Procedure 8; reader_principles.md 5 and 12; register/REGISTER_RULES.md RG-16",
+      "classification": "enforcement_gap",
+      "title": "Test reconstruction of the operation, not presence of its vocabulary",
+      "instances": [
+        {
+          "finding_id": "EX189",
+          "paper": "exposition",
+          "locator": {
+            "section": "1. Three eight-bit inputs — registers",
+            "quote": "a position register $j$, an answer bit $b$, and a workspace label $w$"
+          }
+        },
+        {
+          "finding_id": "EX208",
+          "paper": "exposition",
+          "locator": {
+            "section": "4. The quantum algorithm — reversible comparison",
+            "quote": "Because the decoded labels are never erased, branches with different labels stay orthogonal"
+          }
+        }
+      ],
+      "additional_evidence": [
+        "The reversible-comparison paragraph now mentions retained labels, orthogonality, branch control, fresh workspaces and inverses; the missing-ingredient complaint from older rounds is therefore fixed."
+      ],
+      "problem": "A list of correctly named operations can satisfy a term audit while still requiring the lecturer to invent the state transformation. The operation ladder is already in the skill; the acceptance test needs to reach beyond whether every term can be found.",
+      "general_advice": "For a difficult implementation bridge, ask the reviewer to sketch the actual input/state, one transformation, retained data, inverse and measured output. Use a small transformation or figure when that reveals the relationship more directly than further prose qualifications.",
+      "boundary": "Do not require elementary demonstrations of operations already included in the declared prerequisites. Do not infer coherent-state correctness from an output distribution alone.",
+      "verification_task": "Give the reviewer the actual column-comparison inputs and ask which register holds each label before and after uncomputation, and why the desired conditional law survives.",
+      "evidence_kind": "Agent editorial analysis; proposed method refinement, not a measured learning effect."
+    },
+    {
+      "id": "MF007",
+      "rule_or_skill": "skills/record-to-expository/SKILL.md, Procedure 2 and active-object return checks; reader_principles.md 3",
+      "classification": "refinement_of_existing_check",
+      "title": "Review the cumulative cost of correctly announced example resets",
+      "instances": [
+        {
+          "finding_id": "EX191",
+          "paper": "exposition",
+          "locator": {
+            "section": "1. Three eight-bit inputs — scope of the toy",
+            "quote": "so it gives no positive-budget separation here."
+          }
+        },
+        {
+          "finding_id": "EX223",
+          "paper": "exposition",
+          "locator": {
+            "section": "5. The classical lower bound — realized picture",
+            "quote": "the address inputs are now samples from $\\mu$",
+            "pdf_page": 14
+          }
+        },
+        {
+          "finding_id": "EX226",
+          "paper": "exposition",
+          "locator": {
+            "section": "5. The classical lower bound — counterexample density",
+            "quote": "Both hypotheses are needed."
+          }
+        },
+        {
+          "finding_id": "EX231",
+          "paper": "exposition",
+          "locator": {
+            "section": "5. The classical lower bound — simulator toy indexing",
+            "quote": "numbers columns from $0$."
+          }
+        }
+      ],
+      "additional_evidence": [
+        "The current text announces L=0 in the toy, the switch to μ in the planted picture, several distinct AND laws and zero-based indexing in the XOR example."
+      ],
+      "problem": "The resets are no longer silent. Their number can still displace the local goal: the reader repeatedly changes law, function, index convention and asymptotic status while trying to understand one reduction. Another warning sentence would not solve that.",
+      "general_advice": "After checking each reset for correctness, read all examples in sequence and ask which can share a stable object and which supplier details can become optional. Use short role cues when returning to the main construction; restore only what changed.",
+      "boundary": "Do not force one running toy to satisfy incompatible hypotheses or pretend a tiny instance witnesses an asymptotic separation. Some new examples are indispensable because they isolate different false implications.",
+      "verification_task": "After each return, ask the reader to state the current function, probability law, charged query set and local question without looking back several pages.",
+      "evidence_kind": "Agent editorial analysis; proposed method refinement, not a measured learning effect."
+    },
+    {
+      "id": "MF008",
+      "rule_or_skill": "skills/record-to-expository/SKILL.md, Procedure 6; reader_principles.md 12–13",
+      "classification": "enforcement_gap",
+      "title": "Retarget tasks to the operation that the revision newly teaches",
+      "instances": [
+        {
+          "finding_id": "EX199",
+          "paper": "exposition",
+          "locator": {
+            "section": "2. One column, then four — circuit consistency task",
+            "quote": "A false transcript cannot satisfy every gate equation, by the induction above."
+          }
+        },
+        {
+          "finding_id": "EX212",
+          "paper": "exposition",
+          "locator": {
+            "section": "4. The quantum algorithm — fractional example",
+            "quote": "The sampler does not choose uniformly among positive weights."
+          }
+        },
+        {
+          "finding_id": "EX224",
+          "paper": "exposition",
+          "locator": {
+            "section": "5. The classical lower bound — erased-zero exercise",
+            "quote": "With two fixed positions queried per column"
+          }
+        },
+        {
+          "finding_id": "EX232",
+          "paper": "exposition",
+          "locator": {
+            "section": "5. The classical lower bound — Question 4 stopping condition",
+            "quote": "if the run stops after the cell query?"
+          }
+        }
+      ],
+      "additional_evidence": [
+        "The prose adds actual gate checks, fractional weights, adaptive-prefix conditioning and an explicit whole-run lightness distinction. The corresponding questions mostly test a domain bit, zero-or-one weights, fixed positions and the stopped branch."
+      ],
+      "problem": "All five numbered questions are now correct. Correctness alone does not show they assess the newest and hardest explanation. The skill already directs retargeting when the proof route changes, so the issue is enforcing that link in the revision record.",
+      "general_advice": "Map each claimed teaching repair to a short task requiring that operation. Prefer a nearby changed case that makes a tempting shortcut fail, with a justified answer separate from the prompt.",
+      "boundary": "Initial practice with the same outcome is useful. Do not replace every exercise with a trick, and do not add enough exercises to overwhelm the reading route.",
+      "verification_task": "For each revised hard paragraph, identify which existing question would fail if a learner understood only the old simpler operation.",
+      "evidence_kind": "Agent editorial analysis; proposed method refinement, not a measured learning effect."
+    },
+    {
+      "id": "MF009",
+      "rule_or_skill": "skills/record-to-expository/SKILL.md, Procedure 6; register/REGISTER_RULES.md RG-13 and RG-25",
+      "classification": "enforcement_gap",
+      "title": "Use a changed iteration to make overshoot operational",
+      "instances": [
+        {
+          "finding_id": "EX215",
+          "paper": "exposition",
+          "locator": {
+            "section": "4. The quantum algorithm — overshoot",
+            "quote": "too many iterations can rotate past the success direction."
+          }
+        }
+      ],
+      "additional_evidence": [
+        "Question 2 reaches p=1/4 and one iteration gives success one. The same worked formula gives success 1/4 after a second iteration.",
+        "de Wolf, Quantum Computing, Exercise 6 (2011), Question 1a–b asks for intermediate/final states after one and then two Grover iterations: https://homepages.cwi.nl/~rdewolf/qc11-ex6.pdf"
+      ],
+      "problem": "The overshoot warning is correct but remains something a learner can repeat without calculating. The present parameters already supply the most economical counterexample to monotonic improvement.",
+      "general_advice": "When a text warns that repeating a procedure can undo progress, use a nearby changed repetition count to require the learner to see that failure. Preserve all other conditions so the consequence is attributable to the changed operation.",
+      "boundary": "This is a teaching task using existing equations, not a new theorem or a demand for a general algorithm analysis.",
+      "verification_task": "Without being told the method, ask the learner to compute the second iteration and explain why success can fall despite a useful first iteration.",
+      "evidence_kind": "Agent editorial analysis; proposed method refinement, not a measured learning effect."
+    },
+    {
+      "id": "MF010",
+      "rule_or_skill": "skills/record-to-expository/SKILL.md, Procedure 3; register/REGISTER_RULES.md RG-06",
+      "classification": "enforcement_gap",
+      "title": "Match optional routes to the final task",
+      "instances": [
+        {
+          "finding_id": "EX187",
+          "paper": "exposition",
+          "locator": {
+            "section": "Introduction — optional routes",
+            "quote": "A reader interested in quantum algorithms can take Section 5's bound as given"
+          }
+        },
+        {
+          "finding_id": "EX237",
+          "paper": "exposition",
+          "locator": {
+            "section": "6. Exponent four — synthesis task",
+            "quote": "Before leaving the argument, try to explain it using the two examples."
+          }
+        }
+      ],
+      "additional_evidence": [
+        "The introduction authorizes skipping either quantum or classical proof; the final teach-back asks for both mechanisms."
+      ],
+      "problem": "The route can be navigationally correct yet make an impossible assessment demand. The skill already says to name each route’s objective and test it using only the promised prerequisites.",
+      "general_advice": "For every optional jump, list the conclusion carried forward and the tasks the reader is expected to complete afterward. Provide route-specific success criteria where a full synthesis needs material one route skips.",
+      "boundary": "Do not duplicate the full skipped argument in the route guide. It is legitimate for a reader who accepts an imported bound to understand its role without reconstructing its proof.",
+      "verification_task": "Execute each declared route with the skipped pages hidden, then try its final task and record the first unavailable dependency.",
+      "evidence_kind": "Agent editorial analysis; proposed method refinement, not a measured learning effect."
+    },
+    {
+      "id": "MF011",
+      "rule_or_skill": "skills/record-to-expository/SKILL.md, Procedure 8; skills/register/SKILL.md, Procedure 7",
+      "classification": "review_provenance_requirement_already_present",
+      "title": "Preserve answer exposure and assistance in the review evidence",
+      "instances": [],
+      "additional_evidence": [
+        "This TEACH review accidentally saw answer text in an initial structural search before recomputing the questions. It is explicitly labeled answer-exposed. The parent reviewer performed a distinct blind attempt."
+      ],
+      "problem": "The existing method already requires recording hints and answer access. Multi-agent synthesis can still erase that distinction when several correct computations are merged into a generic claim that the panel solved the tasks independently.",
+      "general_advice": "Carry per-attempt provenance through the merged review: document version, question, answer visibility, help received, response and whether it preceded diagnosis. Keep exposed recomputation useful for correctness, but separate from evidence of cold comprehension.",
+      "boundary": "Do not discard assisted attempts or pretend a reread can become blind again. They can diagnose a passage even when they cannot test its original sequence.",
+      "verification_task": "The final report should let a reader identify exactly which attempt, if any, supports a claim of unassisted reconstruction.",
+      "evidence_kind": "Agent editorial analysis; proposed method refinement, not a measured learning effect."
+    },
+    {
+      "id": "MF012",
+      "rule_or_skill": "skills/record-to-expository/SKILL.md, Procedures 3 and 9; register/REGISTER_RULES.md RG-06",
+      "classification": "enforcement_gap",
+      "title": "Validate the promised landing task, not only anchor existence",
+      "instances": [
+        {
+          "finding_id": "EX216",
+          "paper": "exposition",
+          "locator": {
+            "section": "4. The quantum algorithm — bounded amplification destination",
+            "quote": "gives the trial counts."
+          }
+        }
+      ],
+      "additional_evidence": [
+        "The amplification link targets upper-amplification-proof, while the M,N trial-count definitions are earlier under upper-grover-trial in record §5.1."
+      ],
+      "problem": "An existing anchor can land too late for the action the link promises. A syntactic link audit does not establish that the destination is a usable entry point.",
+      "general_advice": "Follow each proof link as a reader carrying only the source paragraph. Check the first target paragraph for undefined upstream symbols and whether the promised statement, trial count or calculation is actually at or after the landing.",
+      "boundary": "A link may intentionally target a proof rather than its statement when the source supplies the full contract. Do not move every link to the top of a long section.",
+      "verification_task": "Open the stated destination without scrolling upward; determine whether its first introduced quantities can be interpreted from the source and landing alone.",
+      "evidence_kind": "Agent editorial analysis; proposed method refinement, not a measured learning effect."
+    },
+    {
+      "id": "MF013",
+      "rule_or_skill": "skills/register/SKILL.md, Procedure 6; skills/record-to-expository/SKILL.md, Procedure 9; register/REGISTER_RULES.md RG-26",
+      "classification": "enforcement_gap",
+      "title": "Include argument continuity in rendered-page review",
+      "instances": [
+        {
+          "finding_id": "EX222",
+          "paper": "exposition",
+          "locator": {
+            "section": "5. The classical lower bound — Figure 4 and proof flow",
+            "quote": "The planted pair on the four-column board",
+            "pdf_page": 14
+          }
+        }
+      ],
+      "additional_evidence": [
+        "Current PDF Figure 4 floats to page 14 inside the erased-zero conditioning paragraph, which begins on page 13."
+      ],
+      "problem": "The drawing and caption can be correct and legible while their placement breaks the reader’s active inference. Geometric fit checks do not detect this disruption.",
+      "general_advice": "Read page transitions in argument order after every layout change. Keep a figure close to its first explanatory use and avoid inserting it between a conditional setup and the sentence that consumes it.",
+      "boundary": "Some page breaks are unavoidable. The aim is to preserve the most consequential local inferential unit, not to require every paragraph on one page.",
+      "verification_task": "Starting at the previous page’s final paragraph, read continuously through the figure and following text; identify whether a pronoun, condition or unfinished sentence must be reconstructed across the interruption.",
+      "evidence_kind": "Agent editorial analysis; proposed method refinement, not a measured learning effect."
+    },
+    {
+      "id": "MF014",
+      "rule_or_skill": "skills/register/SKILL.md, Procedure 6; register/REGISTER_RULES.md RG-26",
+      "classification": "enforcement_gap_and_preservation",
+      "title": "Resolve page density without repeating a rejected visual format",
+      "instances": [
+        {
+          "finding_id": "EX183",
+          "paper": "exposition",
+          "locator": {
+            "section": "Introduction — optimal exponent display",
+            "quote": "\\text{some constant }C\\text{ gives }",
+            "pdf_page": 1
+          }
+        },
+        {
+          "finding_id": "EX194",
+          "paper": "exposition",
+          "locator": {
+            "section": "2. One column, then four — Figure 1",
+            "quote": "The strings of all columns, and the address inputs and cells of a winning column",
+            "pdf_page": 4
+          }
+        },
+        {
+          "finding_id": "EX209",
+          "paper": "exposition",
+          "locator": {
+            "section": "4. The quantum algorithm — Figure 3 placement",
+            "quote": "Comparisons on the board with cycled loser pointers.",
+            "pdf_page": 9
+          }
+        }
+      ],
+      "additional_evidence": [
+        "Figure 3 occupies its own current PDF page 9 with substantial whitespace; Figure 1 labels and the opening infimum are small. The prior-round operator rejection concerns long prose tables, and the rule expressly permits compact useful tables."
+      ],
+      "problem": "Shrinking a figure until it fits can trade whitespace for unreadable labels; replacing prose by narrow table cells repeats an explicitly rejected design. The current problem is size and placement, not a missing table.",
+      "general_advice": "Evaluate figure labels and mathematics at intended reading size, then adjust placement, width or display line breaks while preserving semantic grouping. Keep compact comparison tables when they actually help, but do not prescribe them as a default cure.",
+      "boundary": "Neither a table ban nor a requirement to fill every page follows from the user’s preference. Sparse space can be acceptable if it protects a useful figure at readable size.",
+      "verification_task": "Compare the revised page at normal size with the adjacent argument and verify that the smallest meaningful label is readable without zooming.",
+      "evidence_kind": "Agent editorial analysis; proposed method refinement, not a measured learning effect."
+    },
+    {
+      "id": "MF015",
+      "rule_or_skill": "skills/register/SKILL.md, Procedure 4; register/REGISTER_RULES.md RG-10; skills/record-to-expository/SKILL.md, supplier-proof framing",
+      "classification": "enforcement_gap",
+      "title": "Optional proof boxes still need a teaching sequence",
+      "instances": [
+        {
+          "finding_id": "EX227",
+          "paper": "exposition",
+          "locator": {
+            "section": "5. The classical lower bound — optional proof",
+            "quote": "Let $q_h(\\tau)$ count the queries",
+            "pdf_page": 15
+          }
+        },
+        {
+          "finding_id": "EX228",
+          "paper": "exposition",
+          "locator": {
+            "section": "5. The classical lower bound — proof-box paragraphs",
+            "quote": "Fix the coins and side information.",
+            "pdf_page": 15
+          }
+        }
+      ],
+      "additional_evidence": [
+        "The direct-product proof box combines product conditioning, remaining-query values, the AND calculation, nonincreasing product expectation and the leaf bound in two large paragraphs."
+      ],
+      "problem": "The optional label tells a reader when to skip but does not make the chosen route teachable. A nominal token threshold or simply shorter sentences would not reveal the proof’s operations.",
+      "general_advice": "Split at changes of mathematical task and introduce an abstract optimization quantity with the available small calculation when that calculation actually explains it. Leave the theorem contract visible outside the box.",
+      "boundary": "Do not turn every lemma into a lesson if its operations are already prerequisites. Long paragraphs are acceptable when they sustain one coherent derivation.",
+      "verification_task": "Ask a reader to name the proof’s invariant, its one-step justification and its leaf comparison; check whether each can be located as a distinct piece of the printed argument.",
+      "evidence_kind": "Agent editorial analysis; proposed method refinement, not a measured learning effect."
+    },
+    {
+      "id": "MF016",
+      "rule_or_skill": "skills/register/SKILL.md, Procedures 3 and 5; register/REGISTER_RULES.md RG-16, RG-17, RG-19 and RG-25",
+      "classification": "measurement_interpretation",
+      "title": "Annotate functional reasons for flagged features",
+      "instances": [
+        {
+          "finding_id": "EX185",
+          "paper": "exposition",
+          "locator": {
+            "section": "Introduction — worst-case caps",
+            "quote": "including branches on which the answer is wrong.",
+            "pdf_page": 1
+          }
+        },
+        {
+          "finding_id": "EX221",
+          "paper": "exposition",
+          "locator": {
+            "section": "5. The classical lower bound — hard law",
+            "quote": "one distribution defeats **all** capped deterministic trees"
+          }
+        },
+        {
+          "finding_id": "EX230",
+          "paper": "exposition",
+          "locator": {
+            "section": "5. The classical lower bound — three budgets",
+            "quote": "Three budgets are in play."
+          }
+        },
+        {
+          "finding_id": "EX233",
+          "paper": "exposition",
+          "locator": {
+            "section": "5. The classical lower bound — event inclusion",
+            "quote": "The implication goes one way"
+          }
+        }
+      ],
+      "additional_evidence": [
+        "The exported exposition report flags status vocabulary, semicolons, questions, negation, paragraph length, triads and low we-rate against the mixed corpus.",
+        "The current text uses cap and domain distinctions, counterexamples, author lists, actual exercises and the three-budget interface."
+      ],
+      "problem": "Some flags locate dense prose, but many marked tokens perform mathematical work. The rules already forbid optimizing a rate or deleting a necessary negation; the exported report should make that preservation judgment visible.",
+      "general_advice": "Annotate representative flagged spans by function—quantifier, failed implication, attribution, independent cases, assessment or true padding—and connect an edit only to a located difficulty. Report metrics descriptively after preserving the mathematical job.",
+      "boundary": "Do not declare every high rate harmless merely because some occurrences are necessary. Dense proof-box paragraphs remain worth revisiting even when their words are justified.",
+      "verification_task": "For each proposed deletion caused by a flag, state what information is lost and why the revised passage still enables the same operation.",
+      "evidence_kind": "Agent editorial analysis; proposed method refinement, not a measured learning effect."
+    },
+    {
+      "id": "MF017",
+      "rule_or_skill": "register/REGISTER_RULES.md RG-20, RG-23 and RG-25; reader_principles.md 6–8",
+      "classification": "refinement_of_placement",
+      "title": "Keep evidence scope exact without interrupting the taught operation",
+      "instances": [
+        {
+          "finding_id": "EX196",
+          "paper": "exposition",
+          "locator": {
+            "section": "2. One column, then four — linked finite circuit",
+            "quote": "That checker tests the circuit on all 256 inputs",
+            "pdf_page": 5
+          }
+        }
+      ],
+      "additional_evidence": [
+        "The linked checker evaluates the same 180-gate small circuit. Its named board uses different positive and negative strings, with amplitudes ±1/2 instead of the exposition board’s ±1; the current text explicitly discloses this difference."
+      ],
+      "problem": "The mathematical distinction is necessary when offering the checker as evidence. Its repeated explanation can nevertheless interrupt the first local-gate lesson. Correct evidence scope and readable sequence are compatible if the warning is placed at the evidence handoff.",
+      "general_advice": "Keep a short local scope sentence sufficient to prevent a false inference, then place detailed correspondence between examples at the destination readers open to inspect the evidence.",
+      "boundary": "Do not hide a hypothesis or a difference that changes the main mathematical claim. Moving a warning is justified only when the lesson does not consume the compared implementation as an unqualified input.",
+      "verification_task": "A reader staying in the exposition should understand the gate check correctly; a reader opening the checker should immediately see the exact relationship between the two examples.",
+      "evidence_kind": "Agent editorial analysis; proposed method refinement, not a measured learning effect."
+    },
+    {
+      "id": "MF018",
+      "rule_or_skill": "skills/record-to-expository/SKILL.md, Procedures 1, 3 and 6; register/REGISTER_RULES.md RG-05 and RG-08",
+      "classification": "refinement_of_weighting",
+      "title": "Distinguish mechanism-critical scales from loose arithmetic on the reading route",
+      "instances": [
+        {
+          "finding_id": "EX220",
+          "paper": "exposition",
+          "locator": {
+            "section": "4. The quantum algorithm — loose logarithms",
+            "quote": "The exponent six is an artefact of this loose count."
+          }
+        },
+        {
+          "finding_id": "EX235",
+          "paper": "exposition",
+          "locator": {
+            "section": "6. Exponent four — floor paragraph",
+            "quote": "Both quantities tend to infinity for fixed $k$"
+          }
+        },
+        {
+          "finding_id": "EX236",
+          "paper": "exposition",
+          "locator": {
+            "section": "6. Exponent four — endpoint question",
+            "quote": "What does $k=4$ prove about $\\alpha_{\\rm tot}$?"
+          }
+        }
+      ],
+      "additional_evidence": [
+        "The exact r, gamma and cap roles determine why the algorithms work; the loose logarithmic power six and routine floor estimates are needed for a precise family statement but teach a different level of detail."
+      ],
+      "problem": "Preserving every constant does not require giving every constant the same narrative weight. The current count is correct, yet the final mechanism can be obscured by routine arithmetic at the payoff.",
+      "general_advice": "Retain exact quantitative statements and their accessible derivations, while identifying which scale makes the construction work and which is slack in the displayed estimate. Let the main route return promptly to the strict exponent gap.",
+      "boundary": "Do not drop constants needed for a probability threshold, interchange fixed and growing parameters, or use approximate notation to hide an endpoint issue.",
+      "verification_task": "Ask the learner which constants could change without changing the mechanism and why k must be fixed before taking m large.",
+      "evidence_kind": "Agent editorial analysis; proposed method refinement, not a measured learning effect."
+    },
+    {
+      "id": "MF019",
+      "rule_or_skill": "skills/record-to-expository/SKILL.md, Procedures 6 and 8; reader_principles.md 12–14",
+      "classification": "enforcement_gap",
+      "title": "Give a reconstruction criterion for the final promised payoff",
+      "instances": [
+        {
+          "finding_id": "EX237",
+          "paper": "exposition",
+          "locator": {
+            "section": "6. Exponent four — synthesis task",
+            "quote": "Before leaving the argument, try to explain it using the two examples."
+          }
+        }
+      ],
+      "additional_evidence": [
+        "The final teach-back names the two examples but, unlike the five numbered tasks, has no separate answer criteria."
+      ],
+      "problem": "A fluent summary can name interference, cheat sheets and hidden addresses while omitting the two proof-bearing reductions. The method asks for a response at the promised payoff, so the criterion should make substantive reconstruction observable.",
+      "general_advice": "Provide a short separate criterion tied to operations and assumptions, not preferred wording: what is sampled, what is kept, why verification works, which joint event is bounded, and which quantifier order yields the claimed exponent.",
+      "boundary": "Do not turn an open explanatory question into a rigid phrase-matching test. Multiple correct reconstructions may use different examples and orders.",
+      "verification_task": "Compare the response with the criterion and identify the last justified inference, rather than accepting a recognizable list of technical nouns.",
+      "evidence_kind": "Agent editorial analysis; proposed method refinement, not a measured learning effect."
+    },
+    {
+      "id": "MF020",
+      "rule_or_skill": "skills/record-to-expository/SKILL.md, Procedure 9; register/REGISTER_RULES.md RG-06 and RG-20; reader_principles.md 8 and 11",
+      "classification": "packaging_refinement",
+      "title": "Make overview and proof links refer to one intended edition",
+      "instances": [
+        {
+          "finding_id": "EX240",
+          "paper": "exposition",
+          "locator": {
+            "section": "Introduction — companion links",
+            "quote": "[long reasoning record](https://github.com/wcook04/quartic-query-lean/blob/main/docs/reasoning_record.md)"
+          }
+        }
+      ],
+      "additional_evidence": [
+        "The introductory companion link uses the mutable main branch; section-specific proof links use c16d5deb2545f1e32a45eb4fa841ebffcdf403a3. No present disagreement between those editions was established by this review."
+      ],
+      "problem": "A future classroom reader may follow two editions of the companion without realizing it. Valid current links do not guarantee stable correspondence between example-reset warnings and later text.",
+      "general_advice": "Resolve overview and specific destinations to the intended edition behind ordinary link text, and carry the edition binding in the packet or source metadata.",
+      "boundary": "Do not print hashes or repository bookkeeping in the paper. A deliberate live-document link can remain live when that is its declared purpose.",
+      "verification_task": "Compare all routes to the same companion and verify that they intentionally address the same edition or clearly declare their different purposes.",
+      "evidence_kind": "Agent editorial analysis; proposed method refinement, not a measured learning effect."
+    }
+  ],
+  "packet": "exposition",
+  "source_sha256": {
+    "repository/docs/expert_companion.bib": "147f5dbc2423dd33a015fc72e363c43f21d2c6557ea2bccbf7427ced85f67593",
+    "repository/docs/expert_companion.md": "43b588711035c54dc5140fb43e7865eaf6a71d929737467db358727dc04002eb",
+    "repository/docs/expert_companion.pdf": "592107a3861577afbba2c68035cd2c5f49a9a0b36f0c5a27f3dc64158fb81597",
+    "repository/docs/exposition.bib": "3179567b4b927795cb95e7d6b4343434ae8e02601ae70de8c538f00448a802e2",
+    "repository/docs/exposition.md": "8824b8fc612730de9fac81a5c65f64f51bf74662577f43132375dd5c04e0e8a9",
+    "repository/docs/exposition.pdf": "51dba8d915c3fd795b5692bd5f98f5e2a8119a8ef74412c8c9a052fa70d0b8ba"
+  }
+}

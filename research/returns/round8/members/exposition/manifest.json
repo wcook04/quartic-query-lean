@@ -1,0 +1,52 @@
+{
+  "format": "sha256-content-manifest-v1",
+  "packet": "exposition",
+  "members": [
+    {
+      "name": "README.md",
+      "bytes": 3466,
+      "sha256": "65c556db9a6c50a8e9bb3ffb2701ac45e5ffd86f5c74c67122a784945873f1ec"
+    },
+    {
+      "name": "feedback.json",
+      "bytes": 268630,
+      "sha256": "73926be2584bea2d3721c242e5ad53cefa2ce9991b9b01e038e476bff55e20bb"
+    },
+    {
+      "name": "feedback_by_document.md",
+      "bytes": 22777,
+      "sha256": "b1c19cfee81a39ff0fcf2e2e2978ea142e165ec75f9d2dfb3989c98d5617d358"
+    },
+    {
+      "name": "literature_comparison.md",
+      "bytes": 20772,
+      "sha256": "e33d9ffc5c8c1b7a12652e688041309408b8d453a1bcc83b2f783e690096f7fd"
+    },
+    {
+      "name": "mathematical_checks.json",
+      "bytes": 4386,
+      "sha256": "81784b9406a1b684d8cf13f15b18ebb3cb2e522c92fb604db8e75b542dbcef46"
+    },
+    {
+      "name": "method_feedback.json",
+      "bytes": 42515,
+      "sha256": "901be78160e6f5ab2b425cf98e96b783f2208a5299aba10b3af18f43525f5371"
+    },
+    {
+      "name": "reading_log.md",
+      "bytes": 98849,
+      "sha256": "9d051ce87b3a5adf99381e2d24c9ea6267d6f5b450f001a69db030ec4cfad6af"
+    },
+    {
+      "name": "validation.json",
+      "bytes": 3304,
+      "sha256": "adbb9eac2f9f0febec718ddb9fb6397cee57c11d802e5824f75e86fb657e03c6"
+    },
+    {
+      "name": "verdict.md",
+      "bytes": 4809,
+      "sha256": "a471b7aff059009e251c10b2e7b0df82262d6bc7c6218677624e1618aa2602a5"
+    }
+  ],
+  "self_exclusion": "manifest.json is excluded from its own list. All other archive members are listed."
+}
