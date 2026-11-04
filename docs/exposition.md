@@ -25,7 +25,7 @@ For the classical lower bound, we hide a winner in an independently chosen colum
 
 Section 1 supplies three eight-bit inputs. Section 2 uses them to build a four-column board and a false certificate, showing why the promise must be checked. Section 3 states the partial-function properties needed at large sizes. Sections 4 and 5 develop the quantum and classical arguments on these examples; Section 6 combines their bounds. The small board illustrates the operations, not the large-size hardness theorem.
 
-Three deeper results are accepted inputs: Forrelation hardness, finite minimax and the universal quartic upper bound. We teach the quantum operations used by the construction. Background is available in Buhrman and de Wolf's survey [-@BuhrmanDeWolf2002, §3] and de Wolf's notes [-@deWolf2026, chapters 1, 2 and 7]. For a shorter route, take one of Sections 4 and 5's bounds as an input: the quantum route develops Questions 1–2, the classical route Questions 1, 3–4. Both rejoin at Section 6 and Question 5. The [long reasoning record](https://github.com/wcook04/quartic-query-lean/blob/79d996f8f09bae7baa335f73bc11106d251af07e/docs/reasoning_record.md) gives full proofs; the [expert companion](https://github.com/wcook04/quartic-query-lean/blob/6f2b765639a6a5fdc57cf2ff6ea848e20fd9ce93/docs/expert_companion.md) gives the specialist reconstruction and literature comparisons.
+Three deeper results are accepted inputs: Forrelation hardness, finite minimax and the universal quartic upper bound. We teach the quantum operations used by the construction. Background is available in Buhrman and de Wolf's survey [-@BuhrmanDeWolf2002, §3] and de Wolf's notes [-@deWolf2026, chapters 1, 2 and 7]. For a shorter route, take one of Sections 4 and 5's bounds as an input: the quantum route develops Questions 1–2, the classical route Questions 1, 3–4. Both rejoin at Section 6 and Question 5. The [long reasoning record](https://github.com/wcook04/quartic-query-lean/blob/79d996f8f09bae7baa335f73bc11106d251af07e/docs/reasoning_record.md) gives full proofs; the [expert companion](https://github.com/wcook04/quartic-query-lean/blob/d7274d658a8c8069801bfcb582ba7d737d9f92d3/docs/expert_companion.md) gives the specialist reconstruction and literature comparisons.
 
 # 1. Three eight-bit inputs
 
@@ -317,6 +317,8 @@ A coherent test evaluation works on a superposition of test labels. It computes 
 
 A nonwinner fails some test at **every** address, even a meaningless label decoded off promise. An input-independent unitary prepares the uniform state on the $K$ test labels at no query cost. The uniform preparation over tests therefore finds a violation with probability at least $1/K$. Amplifying with threshold $1/K$ and failure parameter $\varepsilon$ bounds false acceptance by $\varepsilon$. On the domain-bit board in Section 2, candidate $(2,00)$ fails exactly its first domain test; that one violation suffices. The dominating nonwinner from this section similarly fails a pointer test. The winner at its correctly decoded address has no violations, so the violation search certainly fails and the verifier accepts it.
 
+\Needspace{14\baselineskip}
+
 **Error budget.** Fix the input. The two rows below are alternative cases.
 
 | Input | Events that can cause a wrong answer | Upper-bound charges |
@@ -356,6 +358,8 @@ $$
 \le\Pr(\text{erased zero hit})+\Pr(\text{true cell visited}),
 $$
 where both events refer to the run on the dummy input. (Counting every visit to the true cell overcounts, since a filled bit may equal its blank value; that only weakens the bound.)
+
+\Needspace{16\baselineskip}
 
 **Three charges.** Call a column **heavy** if the whole dummy run makes more than $L$ queries, in total, to its $r$ address inputs, and **light** otherwise. Queries after a cell visit still count: being below the threshold when that visit occurs does not make the whole run light. The first-difference bound is therefore controlled by these three events of the dummy run. They may overlap; only upper bounds are needed.
 
