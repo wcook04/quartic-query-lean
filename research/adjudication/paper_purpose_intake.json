@@ -1,0 +1,35 @@
+{
+  "baseline": "8195cc0",
+  "date": "2026-11-04",
+  "scope": "Four user-supplied text records, preserved byte for byte. The first three contain successive advisory readings, not four independently verified referee reports. The fourth supplies prior context.",
+  "inputs": [
+    {
+      "role": "expert",
+      "attachment_id": "f2695c22-53b0-43fc-b9f1-46c20bdd3612",
+      "preserved": "research/returns/paper_purpose_expert.md",
+      "sha256": "16d429aada3c022ffbbb372fdce9d03c9161f40ff8a96c1a4890543414cbca5b",
+      "bytes": 77378
+    },
+    {
+      "role": "exposition",
+      "attachment_id": "33cf31e3-ce09-4e88-9941-ec970524be6c",
+      "preserved": "research/returns/paper_purpose_exposition.md",
+      "sha256": "f37f2ddf8a8e0f6813231ea3c7e1fcacaa9cb5ef53eeecf11beb11615dc24c1f",
+      "bytes": 87060
+    },
+    {
+      "role": "record",
+      "attachment_id": "ec3a68cc-e78c-422b-97af-fd5bcb937b26",
+      "preserved": "research/returns/paper_purpose_record.md",
+      "sha256": "d91046c31b825f0f9dbafa2c9d53b4e35b0a6a911c768e0ebe97be2d5d2a51ca",
+      "bytes": 91807
+    },
+    {
+      "role": "context",
+      "attachment_id": "19464dd9-3fcd-409e-af1c-564b81526a74",
+      "preserved": "research/returns/paper_purpose_context.md",
+      "sha256": "cfb3edea5f53e4ea0cb7c1aa650586c55ec244a6415434335a23f754ad87d8ba",
+      "bytes": 40398
+    }
+  ]
+}

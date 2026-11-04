@@ -308,3 +308,29 @@ revision 47](https://github.com/wcook04/lean-exposition/pull/47), at
 for authoring, reader review and graph-to-long reconstruction. The [transfer
 record](../research/adjudication/reader_method.json) records the applied cases
 and exception.
+
+## Purpose of the three papers
+
+The shared [paper-type ontology](https://github.com/wcook04/lean-exposition/blob/1e6fe1845c33fc87af0ba809a0e0873672f47b99/docs/authoring.md#what-makes-each-kind-of-paper-good)
+defines the intended deliverables beyond this example: the specialist paper
+makes its decisive ideas assessable, the exposition gives its reader command
+of the mechanism, and the complete record makes the selected argument
+reconstructible. The three writing skills consume these purposes at entry, and
+the [whole-paper review](https://github.com/wcook04/lean-exposition/blob/1e6fe1845c33fc87af0ba809a0e0873672f47b99/docs/reader-review.md#judge-the-whole-paper-against-its-purpose)
+uses them at acceptance. This refinement was merged in
+[PR 48](https://github.com/wcook04/lean-exposition/pull/48).
+
+The [local revision account](../research/adjudication/paper_purpose_revision.md)
+records how those purposes changed selection, sequence and endings in all three
+papers, including rejected suggestions and transfer checks. Local repairs and
+passing consistency tests do not by themselves establish an excellent reading
+experience. The delivered PDF must be judged as an argument at its declared
+prerequisite level. Ratings do not replace that judgment.
+
+The [literature and language requirement](https://github.com/wcook04/lean-exposition/blob/1e6fe1845c33fc87af0ba809a0e0873672f47b99/docs/authoring.md#mathematical-register-and-literature-grounded-prose)
+is part of those purposes, not a separate cosmetic target. It requires established
+terminology, actual source-passage comparisons and a bounded humanizer audit
+that preserves mathematical meaning. The register stage, all three authoring
+skills and reader review consume it. [PR 49](https://github.com/wcook04/lean-exposition/pull/49)
+also makes the opening, argument and ending deliverables explicit for each
+paper type and requires accumulated feedback to inform their selection.

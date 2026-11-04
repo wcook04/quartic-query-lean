@@ -61,3 +61,8 @@ uses three sequential reassessment transcripts and direct comparisons with the
 retained literature, including the two newly supplied source archives.
 
 The [reader-focused revision](../research/adjudication/reader_revision.md) applies the latest twelve assessments while separating the printed mathematics from the technical reference material.
+
+The [paper-purpose revision](../research/adjudication/paper_purpose_revision.md)
+recomposes all three accounts around their distinct reader tasks and carries
+those purposes into the shared writing method. Original review conversations
+and their adjudication remain outside the mathematical reading path.

@@ -1,0 +1,129 @@
+{
+  "schema": "quartic-paper-preservation-v1",
+  "baseline": "8195cc0",
+  "checks": {
+    "docs/expert_companion.md": {
+      "html_anchors": {
+        "baseline": 0,
+        "current": 0,
+        "removed": [],
+        "added": []
+      },
+      "pandoc_anchors": {
+        "baseline": 1,
+        "current": 1,
+        "removed": [],
+        "added": []
+      },
+      "equation_tags": {
+        "baseline": 16,
+        "current": 16,
+        "removed": [],
+        "added": []
+      },
+      "passages": {
+        "baseline": 0,
+        "current": 0,
+        "removed": [],
+        "added": []
+      },
+      "claims": {
+        "baseline": 0,
+        "current": 0,
+        "removed": [],
+        "added": []
+      },
+      "display_equations": {
+        "baseline": 37,
+        "current": 36,
+        "removed": [
+          "w=5k+3+t(k+1),\\qquadm=4^t,\\quad\\ell=2t.",
+          "S=6w\\bigl((k+1)m+5k+t(k+1)+4\\bigr)+(k-1)tm(12w+1)+7."
+        ],
+        "added": [
+          "X_j[p_{i^\\star,s_{i^\\star},j}]=0,\\qquadX_{i^\\star}[p_{j,s,i^\\star}]=1."
+        ]
+      }
+    },
+    "docs/exposition.md": {
+      "html_anchors": {
+        "baseline": 0,
+        "current": 0,
+        "removed": [],
+        "added": []
+      },
+      "pandoc_anchors": {
+        "baseline": 21,
+        "current": 21,
+        "removed": [],
+        "added": []
+      },
+      "equation_tags": {
+        "baseline": 0,
+        "current": 0,
+        "removed": [],
+        "added": []
+      },
+      "passages": {
+        "baseline": 0,
+        "current": 0,
+        "removed": [],
+        "added": []
+      },
+      "claims": {
+        "baseline": 0,
+        "current": 0,
+        "removed": [],
+        "added": []
+      },
+      "display_equations": {
+        "baseline": 41,
+        "current": 42,
+        "removed": [],
+        "added": [
+          "(X_1,X_2,X_3,X_4)=(1111,\\0111,\\1011,\\1101)."
+        ]
+      }
+    },
+    "docs/reasoning_record.md": {
+      "html_anchors": {
+        "baseline": 222,
+        "current": 222,
+        "removed": [],
+        "added": []
+      },
+      "pandoc_anchors": {
+        "baseline": 0,
+        "current": 0,
+        "removed": [],
+        "added": []
+      },
+      "equation_tags": {
+        "baseline": 119,
+        "current": 119,
+        "removed": [],
+        "added": []
+      },
+      "passages": {
+        "baseline": 160,
+        "current": 160,
+        "removed": [],
+        "added": []
+      },
+      "claims": {
+        "baseline": 139,
+        "current": 139,
+        "removed": [],
+        "added": []
+      },
+      "display_equations": {
+        "baseline": 88,
+        "current": 88,
+        "removed": [],
+        "added": []
+      }
+    }
+  },
+  "interpretation": "Marker and display preservation is a structural check, not mathematical certification. The two removed expert circuit displays remain in the record; new displays make existing arguments explicit.",
+  "lean_source_changes": false
+}

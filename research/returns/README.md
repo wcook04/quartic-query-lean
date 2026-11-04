@@ -96,3 +96,14 @@ archive hash. The two later returns add 197 preserved files; their custody and e
 ## Successive reader assessments
 
 The twelve `reader_expert_*`, `reader_exposition_*` and `reader_record_*` text files preserve four successive assessments of each revised paper. The [intake record](../adjudication/reader_revision_intake.json) identifies the original bytes; the [revision](../adjudication/reader_revision.md) records decisions. Later retractions qualify earlier criticism; these are advisory readings, not independent proof certifications.
+
+## Paper-purpose revision
+
+The three `paper_purpose_expert.md`, `paper_purpose_exposition.md` and
+`paper_purpose_record.md` files preserve the next supplied review conversations;
+`paper_purpose_context.md` preserves the accompanying continuation context.
+The [intake](../adjudication/paper_purpose_intake.json) binds their original bytes.
+These conversations include successive reconsiderations and an extracted-formula
+criticism that must be checked against the actual source. The
+[revision account](../adjudication/paper_purpose_revision.md) separates the
+adjudicated changes from the reviewers' proposed edits and scores.
