@@ -27,7 +27,7 @@
     \else
       \node[onebit] (x#1-\c) at (#2+0.46*\c-0.23,0) {1};
     \fi}
-  \node[font=\scriptsize, align=center, addr, anchor=north] (adr#1)
+  \node[font=\small, align=center, addr, anchor=north] (adr#1)
     at (#2+0.92,-0.38) {#7};
   \foreach \s/\k in {00/0,01/1,10/2,11/3} {
     \node[cell] (#1c\s) at (#2+0.92,-1.62-0.5*\k) {$B_{#1,\s}$};}

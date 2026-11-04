@@ -24,18 +24,18 @@
 \strip{-0.6}{$X_{i^\star}$}{0}{w}
 \draw[win, thick, rounded corners=2pt] ($(w1.south west)+(-0.06,-0.06)$)
    rectangle ($(w8.north east)+(0.06,0.06)$);
-\node[win, font=\footnotesize, anchor=north, align=center] at (1.75,-0.95)
-  {all ones: no incoming pointer finds a zero};
+\node[win, font=\small, anchor=north, align=center] at (1.75,-0.95)
+  {all ones};
 % ---- the winner's address instances -------------------------------------
 \begin{scope}[shift={(6.9,3.0)}]
   \foreach \h/\lab in {0/{A_{i^\star\!,1}},1/{A_{i^\star\!,2}},3/{A_{i^\star\!,r}}} {
     \node[draw=addr, fill=addr!8, minimum width=11mm, minimum height=6mm,
-          font=\footnotesize] (A\h) at (1.35*\h,0) {$\lab$};}
+          font=\small] (A\h) at (1.35*\h,0) {$\lab$};}
   \node at (2*1.35,0) {$\cdots$};
-  \node[font=\footnotesize, addr, anchor=south] at (1.35*1.5,0.36)
+  \node[font=\small, addr, anchor=south] at (1.35*1.5,0.36)
     {$r$ address inputs};
-  \node[font=\footnotesize, addr] (s) at (1.35*1.5,-1.05)
-    {$r$-bit address $s$: answers to these inputs};
+  \node[font=\small, addr] (s) at (1.35*1.5,-1.05)
+    {$r$-bit address $s$};
   \foreach \h in {0,1,3} \draw[->, addr] (A\h.south) -- (A\h.south |- s.north);
 \end{scope}
 % ---- the cell array B_{i*,s}, s in {0,1}^r ------------------------------
@@ -49,18 +49,17 @@
             minimum height=6mm, inner sep=0pt] (cell\c) at (0.48*\c,0) {};
     \fi}
   \node[anchor=west] at (5.55,0) {$\cdots$};
-  \node[font=\footnotesize, black!80, anchor=west, align=left] at (6.1,0)
+  \node[font=\small, black!80, anchor=west, align=left] at (6.1,0)
     {$2^r$ cells,\\one per address};
 \end{scope}
 \draw[->, addr, thick] (s.south -| cell4.north) -- (cell4.north);
 % ---- what the selected cell holds ---------------------------------------
-\node[draw=win, fill=win!5, rounded corners=2pt, align=left, font=\footnotesize,
+\node[draw=win, fill=win!5, rounded corners=2pt, align=left, font=\small,
       anchor=north west, text width=68mm] (content) at (5.3,-0.35)
-  {the cell at the true address holds\\
-   \textbullet\ $r$ transcripts of an exact circuit for $P_{k,m}$,\\
-   \phantom{\textbullet\ }certifying each bit of $s$;\\
-   \textbullet\ one $\ell=\log_2 m$-bit row pointer $p_{i^\star\!,s,j}$ into each\\
-   \phantom{\textbullet\ }other column $j$, naming a zero};
+  {cell at the true address:\\
+   \textbullet\ $r$ exact-circuit transcripts;\\
+   \textbullet\ one $\ell$-bit pointer to a zero\\
+   \phantom{\textbullet\ }in each other column};
 \draw[win] (cell4.south) -- (cell4.south |- content.north);
 % ---- outward pointers, routed through the lanes between the blocks ------
 % The lane nearest the box serves the top row, so no two pointers cross.

@@ -34,7 +34,7 @@
         \node[bit, fill=one] (#2\row-\c) at (#1+0.46*\c-0.23,\y) {1};
       \fi}
     \node[draw=addr, fill=addr!10, minimum width=9mm, minimum height=4.3mm,
-          inner sep=0pt, font=\footnotesize] at (#1+2.46,\y) {$\sim\!\mu^{\otimes r}$};
+          inner sep=0pt, font=\footnotesize] at (#1+2.46,\y) {$A_i$};
     \foreach \c in {1,...,5} {
       \ifnum#3=1 \ifnum\row=3 \ifnum\c=3
         \node[cell, fill=win!20, draw=win, very thick] (#2cell) at (#1+2.86+0.5*\c,\y) {};
@@ -44,15 +44,20 @@
     \node[font=\scriptsize] at (#1+5.71,\y) {$\cdots$};
   }
   \node[font=\footnotesize, black!70] at (#1+0.92,-0.15) {$X_i$};
-  \node[font=\footnotesize, addr] at (#1+2.55,-0.15) {same $A_i$};
+  \node[font=\footnotesize, addr] at (#1+2.55,-0.15) {address inputs};
   \node[font=\footnotesize, black!70] at (#1+4.61,-0.15) {cells $B_{i,s}$};
 }
 \panel{0}{d}{0}
 \panel{7.4}{p}{1}
 \node[font=\small\bfseries, anchor=west] at (-0.4,0.42) {dummy input $Y^{(0)}$: $F=0$};
 \node[font=\small\bfseries, anchor=west] at (7.0,0.42) {planted input $Y^{(1)}$: $F=1$};
+% One draw of the address data, reused in both coupled inputs.
+\node[font=\footnotesize, addr, align=center] (shared) at (6.25,-3.5)
+  {one sampled array $A\sim\mu^{\otimes mr}$\\same realization in both panels};
+\draw[addr, ->] (shared.west) -| (2.46,-3.02);
+\draw[addr, ->] (shared.east) -| (9.86,-3.02);
 % legend for the two changed locations
-\node[win, font=\small, anchor=north west, align=left] at (7.1,-3.15)
-  {changed: $X_I[J_I]$ and $B_{I,s_I}$};
+\node[win, font=\small, anchor=north west, align=left] at (7.1,-4.1)
+  {changed: $X_I[J_I]$ and $B_{I,s_I}$\\filled cell: transcripts and pointers $J_j$};
 \end{tikzpicture}
 \end{document}
