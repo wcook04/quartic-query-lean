@@ -1,0 +1,30 @@
+{
+  "schema": "quartic-round10-further-publication-v1",
+  "status": "pushed_and_remote_source_bytes_verified",
+  "published_validation_commit": "df2c222",
+  "sources": [
+    {
+      "path": "docs/reasoning_record.md",
+      "ref": "d34580e91d9c32e06194edbdb428e6e280ffba57",
+      "git_blob": "5affd90036c4be664652d9d233c6323c6b9d7b80",
+      "remote_url": "https://github.com/wcook04/quartic-query-lean/blob/d34580e91d9c32e06194edbdb428e6e280ffba57/docs/reasoning_record.md",
+      "whole_bytes_match": true
+    },
+    {
+      "path": "docs/expert_companion.md",
+      "ref": "6f5cf685e4d12b9a5df1950ad3fb035f1b2ee88f",
+      "git_blob": "a7053ce567ef45ddb0fcf1e7d7671794c143e154",
+      "remote_url": "https://github.com/wcook04/quartic-query-lean/blob/6f5cf685e4d12b9a5df1950ad3fb035f1b2ee88f/docs/expert_companion.md",
+      "whole_bytes_match": true
+    },
+    {
+      "path": "docs/exposition.md",
+      "ref": "bf2f2ba21549d79b034d5755c8f0c61242365139",
+      "git_blob": "a3344c1e36583410f46edd636684430936421cb6",
+      "remote_url": "https://github.com/wcook04/quartic-query-lean/blob/bf2f2ba21549d79b034d5755c8f0c61242365139/docs/exposition.md",
+      "whole_bytes_match": true
+    }
+  ],
+  "validation": "research/adjudication/round10_further_validation.json",
+  "boundary": "GitHub connector returned exact full base64 source contents and Git blob identifiers matching local pinned sources. PDF identities are bound separately by native render receipts."
+}
