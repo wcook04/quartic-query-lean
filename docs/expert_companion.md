@@ -23,6 +23,8 @@ $$
 $$
 The constant is uniform in $n$ and $f$; the added one includes constant functions.
 
+\Needspace{10\baselineskip}
+
 **Theorem 1** (OpenAI's separation [@OpenAI2026, Theorem 1.1], with reconstructed constants)**.** $\alpha_{\rm tot}=4$. For each integer $k\ge2$ there is a constant $C_k>0$ such that, for all sufficiently large powers of four $m$, the total function $F_{k,m}$ defined in §2 satisfies, with $\ell=\log_2m$,
 $$
 Q(F_{k,m})\le C_k\sqrt m\,\ell^6
