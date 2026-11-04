@@ -31,3 +31,7 @@ Test modules mirror the commands they exercise:
 Use temporary directories for test outputs. Tests of private external inputs
 must identify their prerequisites; they cannot establish a portable build by
 silently relying on another checkout.
+
+[test_build_round9_packets.py](test_build_round9_packets.py) checks all three
+lead-paper requests, complete previous-round inputs, sentence-audit obligations
+and rejection of stale, incomplete or changed native render receipts.

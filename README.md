@@ -41,6 +41,10 @@ what is already known. No person has reviewed it yet.
   complete argument and its source correspondence. Its review sidecar identifies
   the assessed edition; the original returned drafts remain immutable evidence.
 
+The [round-nine review campaign](research/requests/round9/SELECTION.md) asks for
+chronological, sentence-by-sentence improvement feedback on each of the three
+papers, using fresh PDFs and the complete round-eight feedback and decisions.
+
 ## What is checked, and what that means
 
 | Layer | State |

@@ -13,6 +13,31 @@ the local originals are present. A public clone without those local custody
 files cannot complete this verification. See the [returns guide](../research/returns/README.md#round-seven-returns)
 for the advisory inventory and custody boundary.
 
+[build_round9_packets.py](build_round9_packets.py) builds three improvement-only
+review packets, one each for the expert companion, exposition and full record.
+It adds a chronological sentence audit, line-numbered reading copies, complete
+round-eight text/JSON returns and revision notes, the local method refinements,
+and fresh register measurements. See the [selection](../research/requests/round9/SELECTION.md).
+Render all three PDFs first. Each must have its renderer's `render.json` beside
+it; the builder rejects stale PDFs and changed render inputs. Hash validation
+does not replace page-image inspection.
+
+```sh
+python3 tools/render_papers.py --output-dir /path/to/fresh-render
+python3 tools/render_reasoning_record.py --output-dir /path/to/fresh-render/record
+python3 tools/build_round9_packets.py --annexes /path/to/annexes \
+  --paper-annex /path/to/annexes/openai-math-284-quartic-query-separation \
+  --expert-pdf /path/to/fresh-render/expert/expert_companion.pdf \
+  --exposition-pdf /path/to/fresh-render/exposition/exposition.pdf \
+  --record-pdf /path/to/fresh-render/record/reasoning_record.pdf \
+  --lean-exposition /path/to/lean-exposition --dest /path/to/new-batch
+python3 tools/check_packets.py /path/to/new-batch
+```
+
+Outputs stay outside the checkout; use a volume that satisfies the renderer's
+space reserve. The command reuses the frozen round-eight writer and existing
+link/private-name checks. Nothing is sent. Omit `--dest` for input validation.
+
 [build_round8_packets.py](build_round8_packets.py) builds two feedback packets,
 one per short paper: specialist referees of the expert companion, and newcomers
 and teachers reading the exposition. It reuses the round-seven machinery, including

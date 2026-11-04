@@ -146,14 +146,14 @@ def sanitize_register(data, measurements, patterns, referenced_ids=()):
     return result
 
 
-def build_register(lean_exposition, annexes, out):
+def build_register(lean_exposition, annexes, out, title="Round seven: writing"):
     """Run the lean-exposition register stage on the frozen drafts against the quartic literature."""
     sys.path.insert(0, str(Path(lean_exposition) / "src"))
     from lean_exposition import register  # noqa: E402
     literature = sorted(str(annexes / slug / "extracted.md") for slug in base.CATALOG
                         if (annexes / slug / "extracted.md").is_file())
     drafts = {stage: str(ROOT / path) for stage, path in DRAFT_STAGES.items()}
-    register.build_packet_inputs(drafts, literature, str(out), "Round seven: writing", job="")
+    register.build_packet_inputs(drafts, literature, str(out), title, job="")
     rules_path = out / "register/register_rules.json"
     data = json.loads(rules_path.read_text(encoding="utf-8"))
     measurements = json.loads((out / "register/measurement.json").read_text(encoding="utf-8"))

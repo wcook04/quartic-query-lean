@@ -130,7 +130,12 @@ def index_text(audit, status, frozen):
     return "\n".join(lines)
 
 
-def build_batch(jobs, dest, **options):
+def build_batch(jobs, dest, *, campaign=None, literature=None, cited_only=None, index_renderer=None, **options):
+    campaign = campaign or CAMPAIGN
+    literature = literature or LITERATURE
+    cited_only = cited_only or CITED_ONLY_BY_JOB
+    index_renderer = index_renderer or index_text
+    round_number = campaign.removeprefix("round")
     dest, root = Path(dest).resolve(), options["root"].resolve()
     if dest == root or root in dest.parents:
         raise ValueError("output must be outside the repository")
@@ -140,9 +145,9 @@ def build_batch(jobs, dest, **options):
     frozen = base.batch_digest(packets)
     dest.parent.mkdir(parents=True, exist_ok=True)
     audit = []
-    with tempfile.TemporaryDirectory(prefix=".quartic-r8-", dir=dest.parent) as staging:
+    with tempfile.TemporaryDirectory(prefix=f".quartic-r{round_number}-", dir=dest.parent) as staging:
         for job, packet in packets.items():
-            path = Path(staging) / f"quartic_r8_{job}.zip"
+            path = Path(staging) / f"quartic_r{round_number}_{job}.zip"
             base.previous.write_archive(path, packet)
             name, count = base.check_packets.audit(path)
             with zipfile.ZipFile(path) as archive:
@@ -150,16 +155,16 @@ def build_batch(jobs, dest, **options):
             audit.append({"job": job, "archive": path.name, "bytes": path.stat().st_size,
                           "sha256": base.digest(path.read_bytes()), "payload_members": count,
                           "request_sha256": packet["manifest"]["request_sha256"],
-                          "literature_present": LITERATURE[job], "literature_cited_only": CITED_ONLY_BY_JOB[job],
+                          "literature_present": literature[job], "literature_cited_only": cited_only[job],
                           "checker": "passed"})
         if base.batch_digest(base.prepare_batch(jobs, **options)) != frozen:
             raise ValueError("inputs changed during packaging; build again")
         status = json.loads(next(iter(packets.values()))["data"]["SOURCE_STATUS.json"])
         (Path(staging) / "batch-audit.json").write_bytes(base.encoded({
-            "schema": "quartic-round8-batch-audit-v1", "status": "passed", "freeze_digest": frozen,
+            "schema": f"quartic-{campaign}-batch-audit-v1", "status": "passed", "freeze_digest": frozen,
             "jobs": list(jobs), "source_status": status, "archives": audit,
             "built_utc": datetime.datetime.now(datetime.timezone.utc).isoformat()}))
-        (Path(staging) / "INDEX.md").write_text(index_text(audit, status, frozen), encoding="utf-8")
+        (Path(staging) / "INDEX.md").write_text(index_renderer(audit, status, frozen), encoding="utf-8")
         dest.mkdir()
         for path in Path(staging).iterdir():
             os.link(path, dest / path.name)

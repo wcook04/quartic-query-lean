@@ -20,3 +20,8 @@ each. Builders combine these sources into each ZIP's `READ_ME_FIRST.md`.
 Edit the sources here and rebuild. Do not edit an already generated ZIP as if it
 were the source. Commands and external-input requirements live in the
 [maintenance guide](../../tools/README.md).
+
+[Round nine](round9/SELECTION.md) has three improvement-only packets, one per
+paper, with chronological sentence-level review, full round-eight feedback and
+revision decisions, and fresh source-bound PDFs. Build with
+[build_round9_packets.py](../../tools/build_round9_packets.py).

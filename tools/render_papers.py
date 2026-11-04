@@ -14,6 +14,8 @@ paper, DIR is that paper's folder.
 """
 
 import argparse
+import hashlib
+import json
 from pathlib import Path
 import shutil
 import subprocess
@@ -247,8 +249,20 @@ def pandoc_command(paper, out, figdir, tex):
             *COLOURS, "-o", str(tex)]
 
 
+def input_hashes(paper):
+    name = "expert_companion" if paper == "expert" else "exposition"
+    folder, figures = FIGURES[paper]
+    paths = [DOCS / f"{name}.md", DOCS / f"{name}.bib", Path(__file__)]
+    paths += [folder / f"{figure}.tex" for figure in figures]
+    if (folder / "style.tex").is_file():
+        paths.append(folder / "style.tex")
+    return {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
+
+
 def render(paper, out):
+    before = input_hashes(paper)
     out.mkdir(parents=True, exist_ok=True)
+    (out / "render.json").write_text(json.dumps({"status": "rendering", "inputs": before}) + "\n")
     figdir = build_figures(paper, out)
     (out / "header.tex").write_text(
         HEADER + HEADER_EXTRA[paper].replace("@OUT@", str(out)))
@@ -270,6 +284,11 @@ def render(paper, out):
         cwd=out if paper == "exposition" else None, log=out / "tectonic.log")
     if paper == "expert":
         shutil.copy(tectonic_out / f"{name}.pdf", out / f"{name}.pdf")
+    if input_hashes(paper) != before:
+        raise RuntimeError("paper inputs changed during rendering")
+    receipt = {"schema": "quartic-paper-render-v1", "status": "rendered_requires_visual_review",
+               "inputs": before, "pdf_sha256": hashlib.sha256((out / f"{name}.pdf").read_bytes()).hexdigest()}
+    (out / "render.json").write_text(json.dumps(receipt, indent=2) + "\n")
     print(out / f"{name}.pdf")
 
 

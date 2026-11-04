@@ -124,3 +124,29 @@ not as an unperformed edit or a claim that every reviewer suggestion was adopted
 
 When renumbering a local lemma, update its internal references separately from
 locators in cited sources; a new local number never renumbers the source theorem.
+
+## Chronological first-encounter review
+
+For round nine, review the reader's accumulating understanding in publication
+order, sentence by sentence. Before proceeding, record what the earlier text
+makes available, the new inference or prerequisite, the unresolved question and
+the expected next step. Later knowledge cannot erase an earlier difficulty;
+append its resolving location. Log searches, link detours and answer exposure.
+This applies to displays, captions, tables, footnotes and appendices as well as
+prose. It supplements proof checking and thematic editing, which can otherwise
+hide dependencies by assembling information from distant sections.
+
+Freeze the first-pass log before reading old reviews or checking the literature.
+Then verify proposed criticisms against the current text and sources. Require a
+specific reader cost and repair direction, not praise, obligatory balance or a
+repeated complaint counted several times. Keep sentence-level coverage separate
+from improvement findings; an empty issue list is not a perfection verdict.
+A numerical target is a prompt for thoroughness, never a reason to fabricate a
+fault. Declare unreviewed ranges rather than claiming completeness from volume.
+
+An AI model's chronological audit is a simulation, not an observation of a new
+human reader. It must disclose prior familiarity and cannot create independent
+blind readers by adopting several perspectives in the same context. This is a
+new review procedure to test, not evidence that reader comprehension improved.
+The [round-nine protocol](../research/requests/round9/chronological_reading.md)
+defines the reading-state and coverage records used to assess it.
