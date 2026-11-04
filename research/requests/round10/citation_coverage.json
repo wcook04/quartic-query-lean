@@ -193,7 +193,7 @@
   "scope": "Source-reviewed mapping of every entry in the three maintained bibliographies and Appendix C. The builder checks current bibliography/source hashes and records actual packaged coverage; availability does not establish mathematical reading or exact-edition equivalence.",
   "bibliographies": {
     "docs/expert_companion.bib": {
-      "sha256": "0c700973b1d46be4537ad81c5abf64d866f6f24b8a1e0f52f75826764706070b",
+      "sha256": "b6e1c8477e516998d27b02085871b137393e952bdcbabab0a7c9d6773d4c00a0",
       "entry_count": 26
     },
     "docs/exposition.bib": {
@@ -2622,7 +2622,7 @@
     "source": "Lake-pinned tracked Git source; no compilation claim"
   },
   "edition_boundary": "A supplied older or different edition is not the exact cited edition. Supplementary metadata identifies the retrieved publisher/revision copies and remaining exceptions. Primary extracted.md is not automatically the text of a distinct supplementary PDF.",
-  "record_sha256": "21cb1705c2463e5b063c6682fe56760ea92fb3490a7c26a3c49e6bd62bc58331",
+  "record_sha256": "c8c457bbe40c9aa55d6f8500399b74e62a526b5b5fb7ce72c3a2c23fb10dd16f",
   "retrieval_observations": {
     "date": "2026-11-04",
     "Yao1977": "Original not retrieved: DOI 10.1109/SFCS.1977.24 redirects to IEEE document 4567946 with JavaScript verification; direct PDF request returned HTTP 418.",
@@ -2662,5 +2662,16 @@
     "baseline": "8195cc0",
     "record_source_commit": "11fc9a44ded573d6354245d1195eef74ffc28c1a",
     "decision": "Current bibliography bytes, internal record entry, record bytes and relocated reference entries rebound after the reader-purpose revision. Original review archives and external source editions remain unchanged."
+  },
+  "composition_editorial_rebind": {
+    "baseline": "d71775a",
+    "record_source_commit": "9cdcc94df84355f0ac4cd47a4a8b9c688c243041",
+    "previous_record_sha256": "21cb1705c2463e5b063c6682fe56760ea92fb3490a7c26a3c49e6bd62bc58331",
+    "previous_bibliography_hashes": {
+      "docs/expert_companion.bib": "0c700973b1d46be4537ad81c5abf64d866f6f24b8a1e0f52f75826764706070b",
+      "docs/exposition.bib": "c4cbe1d7ff2f6b5f767b869e0ec2437d382f2d192e702671400ad5e5cffecc98",
+      "docs/reasoning_record.bib": "9c0d076952df454670fbf5f510ebc04b2be5b1605e779a9594fbe20600f4f8a5"
+    },
+    "decision": "Internal record links and current source hashes rebound after proof relocation. External literature editions, reference entries, coverage judgments and sent review archives are unchanged."
   }
 }

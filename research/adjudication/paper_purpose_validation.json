@@ -105,5 +105,106 @@
     "Editorial source-assisted review and page inspection, not independent mathematical refereeing or observed reader learning.",
     "Renderer receipts retain their automatic pending-review status; this separate report records subsequent page inspection.",
     "PDF navigation checks cover resolved internal targets and absence of local-file actions; they do not certify every external scholarly website."
-  ]
+  ],
+  "composition_revision_after_d71775a": {
+    "baseline": "d71775a",
+    "record_source_commit": "9cdcc94df84355f0ac4cd47a4a8b9c688c243041",
+    "upstream_method_commit": "527796f16da916e20ac55717a8c4d6d8c886d5dd",
+    "upstream_pull_request": "https://github.com/wcook04/lean-exposition/pull/50",
+    "papers": {
+      "expert": {
+        "source": "docs/expert_companion.md",
+        "source_sha256": "07010de0cfdadeb62ed974fa07c603609773a94177cb7754c6951c944740f30a",
+        "pdf": "/Users/willcook/Downloads/quartic_reader_revision_20261104/expert/expert_companion.pdf",
+        "pdf_sha256": "4b55680229214ac87dc8f4a0f9e38773eb18bd4a468d5f4d37edc7fa581993ac",
+        "pages": 19,
+        "pdf_links": 109,
+        "invalid_internal_destinations": [],
+        "printed_paths_or_hashes": [],
+        "visual_review": "all pages inspected; changed transitions reinspected after final render"
+      },
+      "exposition": {
+        "source": "docs/exposition.md",
+        "source_sha256": "562ef3aab30c1007bf736bb8aeafc092fd0e6ba3fad955b4c633481504b8c95c",
+        "pdf": "/Users/willcook/Downloads/quartic_reader_revision_20261104/exposition/exposition.pdf",
+        "pdf_sha256": "be5edbc5da318a68378b009a1589ff0ab8b8ee794ff2aab0e8d6fccd1c0ae350",
+        "pages": 28,
+        "pdf_links": 85,
+        "invalid_internal_destinations": [],
+        "printed_paths_or_hashes": [],
+        "visual_review": "all pages inspected; changed transitions reinspected after final render"
+      },
+      "record": {
+        "source": "docs/reasoning_record.md",
+        "source_sha256": "c8c457bbe40c9aa55d6f8500399b74e62a526b5b5fb7ce72c3a2c23fb10dd16f",
+        "pdf": "/Users/willcook/Downloads/quartic_reader_revision_20261104/record/reasoning_record.pdf",
+        "pdf_sha256": "645e274d052c5d36967b62bb878d5435755d327f6010fa371f4dd8766e1b382b",
+        "pages": 95,
+        "pdf_links": 160,
+        "invalid_internal_destinations": [],
+        "printed_paths_or_hashes": [],
+        "visual_review": "all pages inspected; changed transitions reinspected after final render"
+      }
+    },
+    "preservation": {
+      "expert_companion": {
+        "display_count": 36,
+        "displays_byte_identical_multiset": true,
+        "anchors": 0,
+        "markers": 0,
+        "pandoc_anchors": {
+          "previous": 1,
+          "current": 1,
+          "added": [],
+          "removed": []
+        }
+      },
+      "exposition": {
+        "display_count": 42,
+        "displays_byte_identical_multiset": true,
+        "anchors": 0,
+        "markers": 0,
+        "pandoc_anchors": {
+          "previous": 21,
+          "current": 23,
+          "added": [
+            "decoder-repetitions",
+            "exact-certification"
+          ],
+          "removed": []
+        }
+      },
+      "reasoning_record": {
+        "display_count": 312,
+        "displays_byte_identical_multiset": true,
+        "anchors": 222,
+        "markers": 459,
+        "pandoc_anchors": {
+          "previous": 0,
+          "current": 0,
+          "added": [],
+          "removed": []
+        }
+      },
+      "lean_sources_unchanged": true
+    },
+    "validation": {
+      "project_tests": {
+        "run": 267,
+        "skipped": 2,
+        "failures": 0
+      },
+      "upstream_tests": {
+        "run": 710,
+        "skipped": 2,
+        "failures": 0
+      },
+      "upstream_editable_install": "passed",
+      "upstream_minimal_cli": "passed",
+      "upstream_layout_and_links": "passed",
+      "project_generated_layout_and_links": "passed",
+      "proof_link_builder": "passed, 156 labels"
+    },
+    "evidence_boundary": "Agent editorial reading, rendered inspection and internal validation. No new Lean build, independent mathematical refereeing, measured reader comprehension or numerical quality rating."
+  }
 }
