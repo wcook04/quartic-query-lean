@@ -288,7 +288,7 @@ The simulator receives all of $Y^{(0)}$ outside $A_{i,1},\dots,A_{i,r}$ as free 
 
 Run $\mathcal T$, answering other queries from the free information and querying the target $A_{i,h}$ directly. Abort before an $(L+1)$-st target query in total. If time $\tau$ is reached and its query is in $B_{i,s}$, output $s$ before reading the cell. On abort, earlier termination of $\mathcal T$, or any other query form, output a fixed vector.
 
-The [trace in record §6.5](https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/docs/reasoning_record.md#CL-simulator-example) uses a different supplier, total two-bit XOR, with zero-based labels. It shows the two clocks and a later target query that makes an earlier visit belong to a terminal-heavy run.
+The [trace in record §6.5](https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/docs/reasoning_record.md#CL-simulator-example) uses a different supplier, total two-bit XOR, with zero-based labels. It shows the two clocks and stopping before the second target query.
 
 The predictor has total target cap $L$, hence cap $L$ on each block, so Lemma 5 bounds its success by $\beta^r$. If the terminal count $\lambda_i\le L$, every prefix also uses at most $L$ target queries. Thus whenever the original run is light and its $\tau$-th query is in $B_{i,s_i}$, the simulator reaches that query and outputs $s_i$. For fixed $i,\tau$, averaging the original target product law and independent outside dummy data gives
 $$
