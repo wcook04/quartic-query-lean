@@ -2,8 +2,8 @@
   "schema": "quartic-round10-citation-coverage-v1",
   "repository_head_at_observation": "a47aa0f344bd5f8e7633f6c8488047f4de765e48",
   "counts": {
-    "bibliography_occurrences": 78,
-    "unique_citation_keys": 48,
+    "bibliography_occurrences": 79,
+    "unique_citation_keys": 49,
     "appendix_c_entries": 29,
     "round6_literature_sources": 42,
     "round6_sources_with_original_and_text": 42,
@@ -82,7 +82,7 @@
     },
     {
       "citation_key": "BBHT1996",
-      "exact_appendix_entry": "Boyer, Michel and Brassard, Gilles and Høyer, Peter and Tapp, Alain. *Tight Bounds on Quantum Searching*. 1996. [Version record](https://arxiv.org/abs/quant-ph/9605034v1). Inspected arXiv v1. Section 4, Lemma 2, printed page 3: exact average for a random number of Grover iterations. Theorem 3 and subsequent timeout discussion, page 4: unknown-number expected-time search. The fixed capped construction is proved separately in §5.1. Journal version: Fortschritte der Physik 46 (1998); its pagination is not used for these locators.",
+      "exact_appendix_entry": "Boyer, Michel and Brassard, Gilles and Høyer, Peter and Tapp, Alain. *Tight Bounds on Quantum Searching*. 1996. [Version record](https://arxiv.org/abs/quant-ph/9605034v1). Inspected arXiv v1. Section 4, Lemma 2, printed page 3: exact average for a random number of Grover iterations. Theorem 3 and subsequent timeout discussion, page 4: unknown-number expected-time search. The fixed capped construction is proved separately in §5.6. Journal version: Fortschritte der Physik 46 (1998); its pagination is not used for these locators.",
       "matching_bib_entry_present": true
     },
     {
@@ -164,12 +164,12 @@
   "scope": "Source-reviewed mapping of every entry in the three maintained bibliographies and Appendix C. The builder checks current bibliography/source hashes and records actual packaged coverage; availability does not establish mathematical reading or exact-edition equivalence.",
   "bibliographies": {
     "docs/expert_companion.bib": {
-      "sha256": "24f106300a306ffd884aa973ce763963f1158de653a24b5262ee3d1a5723dfe2",
+      "sha256": "10b46ab1e52823adcd093caa5c03be82a94da3a4cf0ddf8c4b9a003620cd24bf",
       "entry_count": 26
     },
     "docs/exposition.bib": {
-      "sha256": "76ab8492f33bb8136150d54ef2b12e3ea434d48186ad3d39624e8079eb2630eb",
-      "entry_count": 23
+      "sha256": "c4cbe1d7ff2f6b5f767b869e0ec2437d382f2d192e702671400ad5e5cffecc98",
+      "entry_count": 24
     },
     "docs/reasoning_record.bib": {
       "sha256": "89c47ffefcfe6216ee5c7a78861dd2c62013087470ab0976029edcfab89d6491",
@@ -487,9 +487,9 @@
       "paper": "expert_companion",
       "citation_key": "Record2026",
       "bibliography_path": "docs/expert_companion.bib",
-      "bibtex_entry": "@misc{Record2026,\n  author = {Cook, Will},\n  title = {A Nearly Quartic Separation between Randomized and Quantum Queries: A Complete Reasoning Record},\n  year = {2026},\n  url = {https://github.com/wcook04/quartic-query-lean/blob/79d996f8f09bae7baa335f73bc11106d251af07e/docs/reasoning_record.md},\n  note = {Source edition 79d996f8f09b}\n}",
+      "bibtex_entry": "@misc{Record2026,\n  author = {Cook, Will},\n  title = {A Nearly Quartic Separation between Randomized and Quantum Queries: A Complete Reasoning Record},\n  year = {2026},\n  url = {https://github.com/wcook04/quartic-query-lean/blob/d34580e91d9c32e06194edbdb428e6e280ffba57/docs/reasoning_record.md},\n  note = {Source edition d34580e91d9c}\n}",
       "cited_urls": [
-        "https://github.com/wcook04/quartic-query-lean/blob/79d996f8f09bae7baa335f73bc11106d251af07e/docs/reasoning_record.md"
+        "https://github.com/wcook04/quartic-query-lean/blob/d34580e91d9c32e06194edbdb428e6e280ffba57/docs/reasoning_record.md"
       ],
       "annex_slugs": [],
       "repository_source": "repository/docs/reasoning_record.md",
@@ -531,9 +531,9 @@
       "paper": "expert_companion",
       "citation_key": "Exposition2026",
       "bibliography_path": "docs/expert_companion.bib",
-      "bibtex_entry": "@misc{Exposition2026,\n  author = {Cook, Will},\n  title = {Why {OpenAI}'s Query Separation Is Nearly Quartic: An Examples-First Explanation of the Optimal Randomized--Quantum Exponent},\n  year = {2026},\n  url = {https://github.com/wcook04/quartic-query-lean/blob/41244d6eb9043470bc5b630b112cdf1671a3ecd8/docs/exposition.md},\n  note = {Source edition 41244d6eb904}\n}",
+      "bibtex_entry": "@misc{Exposition2026,\n  author = {Cook, Will},\n  title = {Why {OpenAI}'s Query Separation Is Nearly Quartic: An Examples-First Explanation of the Optimal Randomized--Quantum Exponent},\n  year = {2026},\n  url = {https://github.com/wcook04/quartic-query-lean/blob/bf2f2ba21549d79b034d5755c8f0c61242365139/docs/exposition.md},\n  note = {Source edition bf2f2ba21549}\n}",
       "cited_urls": [
-        "https://github.com/wcook04/quartic-query-lean/blob/41244d6eb9043470bc5b630b112cdf1671a3ecd8/docs/exposition.md"
+        "https://github.com/wcook04/quartic-query-lean/blob/bf2f2ba21549d79b034d5755c8f0c61242365139/docs/exposition.md"
       ],
       "annex_slugs": [],
       "repository_source": "repository/docs/exposition.md",
@@ -781,9 +781,9 @@
       "paper": "exposition",
       "citation_key": "BDK2026",
       "bibliography_path": "docs/exposition.bib",
-      "bibtex_entry": "@misc{BDK2026,\n  author = {Ben-David, Shalev and Kothari, Robin},\n  title = {Randomized Query Complexity Can Beat Certificate Complexity},\n  year = {2026},\n  note = {arXiv:2609.15063},\n  url = {https://arxiv.org/abs/2609.15063}\n}",
+      "bibtex_entry": "@misc{BDK2026,\n  author = {Ben-David, Shalev and Kothari, Robin},\n  title = {Randomized Query Complexity Can Beat Certificate Complexity},\n  year = {2026},\n  note = {arXiv:2609.15063v1},\n  url = {https://arxiv.org/abs/2609.15063v1}\n}",
       "cited_urls": [
-        "https://arxiv.org/abs/2609.15063"
+        "https://arxiv.org/abs/2609.15063v1"
       ],
       "annex_slugs": [
         "quartic-ref-09-randomized-query-complexity-can-beat-certi"
@@ -806,6 +806,22 @@
         "quartic-lit-ambainis-iraids-kokainis-certificate-v3"
       ],
       "edition_note": "Both arXivv2 PDF andv3 TeX originals+text retained; expert bib namesv3, record bib namesv2. Choose the edition corresponding to the actual locator.",
+      "supplementary_source_ids": [],
+      "primary_annex_status": "original_and_extracted_text_available",
+      "coverage_status": "original_and_extracted_text_available"
+    },
+    {
+      "paper": "exposition",
+      "citation_key": "AIK2026v3",
+      "bibliography_path": "docs/exposition.bib",
+      "bibtex_entry": "@misc{AIK2026v3,\n  author = {Ambainis, Andris and Iraids, J{\\=a}nis and Kokainis, Martins},\n  title = {Near-Optimal Separations of Certificate Complexity from Randomized and Quantum Query Complexity},\n  year = {2026},\n  note = {arXiv:2609.11664v3},\n  url = {https://arxiv.org/abs/2609.11664v3}\n}",
+      "cited_urls": [
+        "https://arxiv.org/abs/2609.11664v3"
+      ],
+      "annex_slugs": [
+        "quartic-lit-ambainis-iraids-kokainis-certificate-v3"
+      ],
+      "edition_note": "Supplied arXiv 2609.11664v3 source archive is byte-identical to the retained v3 annex; §§4 and 6.1 support the fixed-graph comparison. Distinct from the v2 antecedent cited by the original preprint; no theorem imported into the fractional-weight argument.",
       "supplementary_source_ids": [],
       "primary_annex_status": "original_and_extracted_text_available",
       "coverage_status": "original_and_extracted_text_available"
@@ -2579,7 +2595,7 @@
     "source": "Lake-pinned tracked Git source; no compilation claim"
   },
   "edition_boundary": "A supplied older or different edition is not the exact cited edition. Supplementary metadata identifies the retrieved publisher/revision copies and remaining exceptions. Primary extracted.md is not automatically the text of a distinct supplementary PDF.",
-  "record_sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a",
+  "record_sha256": "10a4c5bb8a7def39f54668d8e9329aa7d450247e4b0200cc721b13ed3b5b4c6e",
   "retrieval_observations": {
     "date": "2026-11-04",
     "Yao1977": "Original not retrieved: DOI 10.1109/SFCS.1977.24 redirects to IEEE document 4567946 with JavaScript verification; direct PDF request returned HTTP 418.",
@@ -2606,5 +2622,9 @@
     "previous_record_sha256": "120c181f579c5229daf675ec2a29ea7571876758e86f0b9c31d35220fe4cae47",
     "reason": "Reordered record and revised companion source pins/printed edition notes; Appendix C remains byte-identical to baseline. No external source coverage expanded; sent packets immutable.",
     "revision_account": "research/adjudication/round10_remaining_revision.md"
+  },
+  "further_editorial_rebind": {
+    "baseline": "f1b1231cfe3dc444ca6961a78c0400fbe505cd9e",
+    "decision": "AIK v3 separately mapped for the inspected comparison; BDK v1 pinned; current bibliography/source bytes rebound without changing the sent R10 archives."
   }
 }

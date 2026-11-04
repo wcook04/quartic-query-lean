@@ -1,0 +1,75 @@
+{
+  "schema": "quartic-r10-further-literature-comparison-v1",
+  "baseline": "f1b1231cfe3dc444ca6961a78c0400fbe505cd9e",
+  "annex_integrity": "round10_further_annex_integrity.json",
+  "supplied_archive_identity": {
+    "arXiv-2609.11664v3": "byte-identical to annex quartic-lit-ambainis-iraids-kokainis-certificate-v3/source.tar.gz",
+    "arXiv-2609.15063v1": "byte-identical to annex quartic-ref-09-randomized-query-complexity-can-beat-certi/source.tar.gz"
+  },
+  "sources": [
+    {
+      "id": "AIK-v3",
+      "path": "/Volumes/Demo Take Media/quartic_round10_further_20261104/supplied_sources/arXiv-2609.11664v3/main.tex",
+      "sha256": "2c44e0005cc32eeb78f1f51c3ad97306828edc8b4e0a1ed4c6518db65ac536f7",
+      "passages_read": "Introduction; §4 (lines 361–398); §6.1 (557–630); §6.3 (675–718)",
+      "observation": "The source property is proved before search machinery. FindSource states all exits and its budget, then defines the shrinking candidate set. Analysis-only and implemented stopping rules are distinguished.",
+      "application": "Place the comparison invariant before implementation; expose the measured-output contract before stronger state geometry; preserve total caps and exact laws.",
+      "boundary": "Fixed directed graph and variable-time search differ from the fractional-comparison mechanism. Existing AIK v2 citation is a separate edition; v3 read here does not silently replace it."
+    },
+    {
+      "id": "BDK-v1",
+      "path": "/Volumes/Demo Take Media/quartic_round10_further_20261104/supplied_sources/arXiv-2609.15063v1/main.tex",
+      "sha256": "543d774ac907d7c676c9f98779dc80c9e7a237021aa526093049e263b2ded9b2",
+      "passages_read": "Abstract/introduction; §2 through §3 and start of §4 (lines 76–225)",
+      "observation": "The cumulative proposal encoding is justified by the operation it makes cheap; a concrete sequence precedes the formal definition. The algorithm has candidate generation, elimination and verification stages.",
+      "application": "Motivate address bits and certificate tests through their operations, and make candidate selection versus verification explicit.",
+      "boundary": "Certificate complexity is a different classical measure. Do not import its theorem or sporting vocabulary into this proof."
+    },
+    {
+      "id": "OpenAI-preprint",
+      "path": "/Users/willcook/src/ai_workflow/annexes/openai-math-284-quartic-query-separation/extracted.md",
+      "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+      "passages_read": "Abstract, §1.1–1.2 (1–112); §3.2 ideal-process proof (353–410)",
+      "observation": "The supplied original already attributes predecessor constructions and states the arbitrary-comparison law, complementary probabilities, drift and winner survival.",
+      "application": "Retain original mathematical credit; distinguish reconstruction and explicit presentation from invention of the central mechanism.",
+      "boundary": "Selected original passages only, not an independent full reproof."
+    },
+    {
+      "id": "ABK-cheat-sheets-v2",
+      "path": "/Users/willcook/src/ai_workflow/annexes/quartic-ref-02-separations-in-query-complexity-using-chea/extracted.md",
+      "sha256": "39745f19fdbaad3fd6542cee69cd8fdabe02771f975e676aa2e375a208873e32",
+      "passages_read": "Overview of techniques, randomized versus quantum subsection (1327–1339)",
+      "observation": "The construction is motivated by why naively extending a partial function fails, then why answers can index hidden certificates.",
+      "application": "Explain why hidden addresses are needed before their detailed encoding; preserve the off-promise obstruction.",
+      "boundary": "Extraction has damaged math/front matter; comparison concerns the prose dependency and problem sequence, not typographic imitation or theorem transfer."
+    },
+    {
+      "id": "Knuth-Larrabee-Roberts",
+      "path": "/Users/willcook/src/ai_workflow/annexes/knuth-mathematical-writing/extracted.md",
+      "sha256": "18afa1384daa525dd248387ab914e5c152a03406962b8d01452166932773e6be",
+      "passages_read": "§1 items 4–5, 10–17, printed pp.1–3; §10 printed pp.20–21",
+      "observation": "Motivation and reader state govern sequencing; equations need connected prose, and algorithm descriptions can expose invariants. The authors caution against superficial imitation.",
+      "application": "Review transitions and invariant statements in the revised passages; keep hypotheses with reusable statements.",
+      "boundary": "Selected passages only; no named-author style imitation or measured learning claim."
+    },
+    {
+      "id": "Su-2020",
+      "path": "/Volumes/Demo Take Media/quartic_round10_further_20261104/supplied_sources/writing_literature/su-mathematical-writing-2020/extracted.md",
+      "sha256": "3578bbd0f91a4b65390e28f2bfac64f0737c1df39350ddc9b3dfa91e9887aac1",
+      "passages_read": "Entire three-page handout, especially worked distance problem and §2",
+      "observation": "Useful exposition selects consequential algebra, states the problem and its constraints, and checks whether every stated assumption is used.",
+      "application": "Choose small operations for the exposition and decisive dependencies for the expert paper; remove repeated inventory where it obstructs the argument.",
+      "boundary": "Student-solution guidance is adapted to audience, not treated as a universal research-paper template."
+    },
+    {
+      "id": "Childs-2025",
+      "path": "/Volumes/Demo Take Media/quartic_round10_further_20261104/supplied_sources/writing_literature/childs-quantum-algorithms-2025/extracted.md",
+      "sha256": "cc8d1e80ddc38938d89a037c2ddd289f3d0b7105a8f75d5b1e2a5579c625f351",
+      "passages_read": "§1.4, printed pp.2–3",
+      "observation": "Reversible maps retain their inputs and intermediate values; copying an answer and undoing work gives a clean controlled output. Efficient in-place evaluation needs extra assumptions.",
+      "application": "Preserve registers, inverse operations and the distinction between a label-output contract and the whole successful state.",
+      "boundary": "Reversible computation comparison only; not proof of the manuscript amplifier or physical-state formal correspondence."
+    }
+  ],
+  "coverage_boundary": "100 retained files from 43 annex sources were hash-checked. Only the passages listed here and in the manuscript author review were substantively compared; an integrity audit is not full literature reading. No new historical priority claim is inferred."
+}

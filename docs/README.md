@@ -53,3 +53,7 @@ That account covers the first return. The [remaining R10 assimilation](../resear
 The [follow-up editorial revision](../research/adjudication/round10_followup_revision.md)
 applies a further expert-paper assessment to both shorter accounts, with separate
 decisions for their readers. The subsequently received exposition review is adjudicated separately in the complete R10 assimilation.
+
+The [further R10 refinement](../research/adjudication/round10_further_revision.md)
+uses three sequential reassessment transcripts and direct comparisons with the
+retained literature, including the two newly supplied source archives.

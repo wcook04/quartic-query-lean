@@ -52,3 +52,19 @@ has no exact reviewed-PDF identifier. Its scores are editorial judgments.
 The [remaining revision account](../../adjudication/round10_remaining_revision.md)
 separates current decisions from the original review observations, including
 stale prior-round locators and optional structural suggestions.
+
+## Further sequential assessments
+
+The [further intake](further_intake.json) preserves complete sequential
+reassessments of the [expert paper](further_expert_feedback.md),
+[exposition](further_exposition_feedback.md) and
+[record](further_record_feedback.md). Later reassessments qualify and withdraw
+some earlier criticisms; these are one evolving review per paper, not independent
+endorsements. No reviewed-PDF digest was supplied.
+
+The two supplied arXiv source archives match the retained AIK v3 and Ben-David–Kothari
+v1 annex archives byte for byte. The [literature comparison](../../adjudication/round10_further_literature.json)
+records actual passage readings separately from the
+[annex integrity check](../../adjudication/round10_further_annex_integrity.json).
+The [revision account](../../adjudication/round10_further_revision.md) owns the
+resulting manuscript decisions.

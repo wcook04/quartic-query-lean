@@ -248,7 +248,7 @@ class RoundTenTests(unittest.TestCase):
         coverage = json.loads(source.read_bytes())
         self.assertNotIn('/Users/', source.read_text())
         self.assertNotIn('/tmp/', source.read_text())
-        self.assertEqual(78, len(coverage['citations']))
+        self.assertEqual(79, len(coverage['citations']))
         self.assertEqual(29, len(coverage['appendix_c_entries']))
         for row in coverage['citations']:
             if row.get('supplementary_source_ids'):

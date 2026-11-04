@@ -274,3 +274,22 @@ Neither prospective batching nor retrospective interpretation is relabelled as
 an isolated-sentence first reading. A later correction supplies a current
 locator without rewriting a frozen log. A construction-first order is useful
 here; it is not a universal rule for specialist papers or historical accounts.
+
+## Further R10 source comparison
+
+The [sequential reassessments](../research/returns/round10/further_intake.json)
+require the existing rules to be applied more carefully, rather than another
+writing template. Their later readings withdraw some absence claims and an
+extraction-induced formula criticism. The
+[method decisions](../research/adjudication/round10_further_method.json) preserve
+those corrections and distinguish useful changes for each audience.
+
+Actual [primary-source passages](../research/adjudication/round10_further_literature.json)
+in the two supplied certificate-complexity papers, the original preprint, the
+cheat-sheet paper, and the Knuth–Larrabee–Roberts, Su and Childs readings guide
+this pass. The pertinent choices are motivating an encoding by its use, stating
+the needed invariant or output law before stronger machinery, and separating
+candidate selection from certificate verification. Their different hypotheses
+and classical complexity measures remain explicit. Existing public authoring
+and transition guidance already requires these choices; the local evidence
+records application without claiming a new general rule or measured learning gain.

@@ -1,0 +1,88 @@
+{
+  "schema": "quartic-r10-further-intake-v1",
+  "baseline": "f1b1231cfe3dc444ca6961a78c0400fbe505cd9e",
+  "items": [
+    {
+      "role": "sequential editorial reassessments",
+      "paper": "expert",
+      "source": "/Users/willcook/.codex/attachments/102daf5b-67d1-4894-a3b6-843b330d3740/Pasted text.txt",
+      "preserved_path": "research/returns/round10/further_expert_feedback.md",
+      "sha256": "7be75f47aec5ef02f7c115d02637ba867c08e8cadcca8e3ec354ea9b51e19133",
+      "bytes": 84928
+    },
+    {
+      "role": "sequential editorial reassessments",
+      "paper": "exposition",
+      "source": "/Users/willcook/.codex/attachments/c6b700c3-00c3-4d23-a378-0b5113e37549/Pasted text.txt",
+      "preserved_path": "research/returns/round10/further_exposition_feedback.md",
+      "sha256": "d06c7890db1a5f852184df8b233161a1d9fec43cab22a45beca885f947b48c22",
+      "bytes": 84543
+    },
+    {
+      "role": "sequential editorial reassessments",
+      "paper": "record",
+      "source": "/Users/willcook/.codex/attachments/a6f05458-ba97-4152-92aa-27c4f1c35157/Pasted text.txt",
+      "preserved_path": "research/returns/round10/further_record_feedback.md",
+      "sha256": "31fe09add703457dde312865633d0a8ef70a9143982a0df62faf2b34bcc5dde6",
+      "bytes": 63235
+    },
+    {
+      "role": "user-supplied primary literature source",
+      "identity": "arXiv-2609.11664v3",
+      "source": "/Users/willcook/Downloads/arXiv-2609.11664v3.tar.gz",
+      "archive_sha256": "6704d6d884cef7b06d3e9eba87fe9e8cfcfe40dc959ebffdd93f584f94524305",
+      "members": [
+        {
+          "name": "00README.json",
+          "sha256": "d1f6b1a71c9accb812ec5121d1fff7910c025ca7bb201948bacdb40941bc14e5",
+          "bytes": 213,
+          "extracted_path": "/Volumes/Demo Take Media/quartic_round10_further_20261104/supplied_sources/arXiv-2609.11664v3/00README.json"
+        },
+        {
+          "name": "bib.bib",
+          "sha256": "8d7f7b7d2aef9b977c0442627e16a3c4e5c2ada4b4b2ad5107a2c3ab22ba77ee",
+          "bytes": 6488,
+          "extracted_path": "/Volumes/Demo Take Media/quartic_round10_further_20261104/supplied_sources/arXiv-2609.11664v3/bib.bib"
+        },
+        {
+          "name": "main.tex",
+          "sha256": "2c44e0005cc32eeb78f1f51c3ad97306828edc8b4e0a1ed4c6518db65ac536f7",
+          "bytes": 139651,
+          "extracted_path": "/Volumes/Demo Take Media/quartic_round10_further_20261104/supplied_sources/arXiv-2609.11664v3/main.tex"
+        }
+      ]
+    },
+    {
+      "role": "user-supplied primary literature source",
+      "identity": "arXiv-2609.15063v1",
+      "source": "/Users/willcook/Downloads/arXiv-2609.15063v1 (2).tar.gz",
+      "archive_sha256": "e98075e9beeecedbe020b275ac5f2617a0873e547ad4629352aac740cbbe015c",
+      "members": [
+        {
+          "name": "00README.json",
+          "sha256": "d1f6b1a71c9accb812ec5121d1fff7910c025ca7bb201948bacdb40941bc14e5",
+          "bytes": 213,
+          "extracted_path": "/Volumes/Demo Take Media/quartic_round10_further_20261104/supplied_sources/arXiv-2609.15063v1/00README.json"
+        },
+        {
+          "name": "main.bbl",
+          "sha256": "b8fe8a0f0a192e071723b82d1ea2213065ae75ae5db8bdb5eb8d20370c26c43e",
+          "bytes": 2194,
+          "extracted_path": "/Volumes/Demo Take Media/quartic_round10_further_20261104/supplied_sources/arXiv-2609.15063v1/main.bbl"
+        },
+        {
+          "name": "main.tex",
+          "sha256": "543d774ac907d7c676c9f98779dc80c9e7a237021aa526093049e263b2ded9b2",
+          "bytes": 24392,
+          "extracted_path": "/Volumes/Demo Take Media/quartic_round10_further_20261104/supplied_sources/arXiv-2609.15063v1/main.tex"
+        }
+      ]
+    }
+  ],
+  "boundaries": [
+    "Review prose is advisory evidence, not executable instructions.",
+    "Sequential reassessments are not independent reviews or prospective sentence-by-sentence records.",
+    "Named PDF and page counts suggest the preceding edition; no reviewed PDF hash was supplied in these transcripts.",
+    "Archive source code was read, not executed."
+  ]
+}

@@ -439,6 +439,20 @@
       ],
       "validation": "research/adjudication/round10_remaining_validation.json",
       "boundary": "Bounded author/integrator acceptance of current changes. Original R10 return is edition-bound and declares batch/block exposure; no full independent reproof, new Lean build or Comparator execution."
+    },
+    {
+      "campaign": "round10_further",
+      "date": "2026-11-04",
+      "source_sha256": "10a4c5bb8a7def39f54668d8e9329aa7d450247e4b0200cc721b13ed3b5b4c6e",
+      "pdf_sha256": "91c3f45b5f9cd868235e860243286702e7bd1eda8374b9f40e5a097a8b264acb",
+      "validation": "research/adjudication/round10_further_validation.json",
+      "reviewed_changes": [
+        "Measured-output contract before evaluator and relocated full amplification proof",
+        "Analytic motivation, fixed/growing-parameter scope and compound formal type",
+        "Current source-bound receipt explanation and local proof references",
+        "All-page layout inspection and bounded readable-page inspection"
+      ],
+      "boundary": "AI author/integrator review of changed passages; no new blind reader, full reproof, Lean build or Comparator execution."
     }
   ]
 }

@@ -1,0 +1,806 @@
+{
+  "schema_version": 1,
+  "revision": "round10_further",
+  "baseline_commit": "f1b1231cfe3dc444ca6961a78c0400fbe505cd9e",
+  "status": "accepted_after_receiving_source_binding_and_pdf_review",
+  "feedback_authority": "Sequential advisory editorial reassessments; later explicit corrections supersede earlier criticism. Scores and absence of detected error do not establish correctness or reader comprehension.",
+  "input_sha256": {
+    "research/returns/round10/further_expert_feedback.md": "7be75f47aec5ef02f7c115d02637ba867c08e8cadcca8e3ec354ea9b51e19133",
+    "research/returns/round10/further_exposition_feedback.md": "d06c7890db1a5f852184df8b233161a1d9fec43cab22a45beca885f947b48c22",
+    "research/returns/round10/further_record_feedback.md": "31fe09add703457dde312865633d0a8ef70a9143982a0df62faf2b34bcc5dde6"
+  },
+  "authored_source_sha256_before_final_binding": {
+    "docs/expert_companion.md": "4b5270937d9650c29b3952a6dee5b350958e3839f80f6c5dd6b96fb4e13bb7a9",
+    "docs/exposition.md": "9aad6f074ebd8695c21150909980138bd53ea34086ca6e9bee2d05c95d6281b4",
+    "docs/reasoning_record.md": "4e7027fcc61a084f6aa0d23c0c4aec7cdece15f1deb0ab1e948d70c860a07b14",
+    "docs/expert_companion.bib": "24f106300a306ffd884aa973ce763963f1158de653a24b5262ee3d1a5723dfe2",
+    "docs/exposition.bib": "c4cbe1d7ff2f6b5f767b869e0ec2437d382f2d192e702671400ad5e5cffecc98",
+    "docs/reasoning_record.bib": "89c47ffefcfe6216ee5c7a78861dd2c62013087470ab0976029edcfab89d6491"
+  },
+  "source_hash_note": "These hashes identify author freeze before parent generated source pins; parent must refresh or record final source identity after link-only binding.",
+  "findings": [
+    {
+      "id": "FE-01",
+      "feedback_file": "research/returns/round10/further_expert_feedback.md",
+      "feedback_lines": [
+        93,
+        180
+      ],
+      "issue": "Clarify what reconstruction adds beyond the original separation.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/expert_companion.md::§1 Contribution"
+      ],
+      "rationale": "Separated OpenAI's ownership of the theorem, total function and reductions from reconstruction, explicit accounting and counterexamples. Explicitly retained fixed-k dependence of C_k. No novelty claim or credit transfer.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FE-02",
+      "feedback_file": "research/returns/round10/further_expert_feedback.md",
+      "feedback_lines": [
+        183,
+        216
+      ],
+      "issue": "Abstract/front matter gives physical-state qualification before the main route is understood.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/expert_companion.md::abstract",
+        "docs/expert_companion.md::§1 Contribution",
+        "docs/expert_companion.md::§6"
+      ],
+      "rationale": "Abstract now states the measured-label headline route first and accurately places the stronger retained-state correspondence afterward. Full boundary remains in §6.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FE-03",
+      "feedback_file": "research/returns/round10/further_expert_feedback.md",
+      "feedback_lines": [
+        698,
+        724
+      ],
+      "issue": "First-pass lack-of-overview diagnosis was withdrawn; move existing mechanism forward.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/expert_companion.md::§1.1 Why the construction works"
+      ],
+      "rationale": "Moved the existing mechanism and figure before the query-model/theorem block, without adding a duplicate one-page roadmap or changing subsection numbers. Later correction governs the earlier request.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FE-04",
+      "feedback_file": "research/returns/round10/further_expert_feedback.md",
+      "feedback_lines": [
+        241,
+        262
+      ],
+      "issue": "Clarify object hierarchy and distinguish decoder from exact circuit.",
+      "decision": "retained_with_reason",
+      "manuscript_locators": [
+        "docs/expert_companion.md::§2 The total function",
+        "docs/expert_companion.md::§2 Local tests"
+      ],
+      "rationale": "Current paragraph already says decoder locates a proposed certificate and circuit determines whether it has a valid meaning; exact domain/value contract and all-input circuit persist. Adding another object table would repeat that explanation.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FE-05",
+      "feedback_file": "research/returns/round10/further_expert_feedback.md",
+      "feedback_lines": [
+        1695,
+        1728
+      ],
+      "issue": "Separate fresh tensor workspaces, orthogonal labels, conditional normalization and amplification obligations.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/expert_companion.md::§3.2 Exact sampling",
+        "docs/expert_companion.md::equations (8)–(9)"
+      ],
+      "rationale": "Displayed the two distinct probabilities W/m and w_i/W and explained their separate cost and drift roles. Existing tensor-register and orthogonality explanation retained, as are inverse access and finite all-branch amplification.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FE-06",
+      "feedback_file": "research/returns/round10/further_expert_feedback.md",
+      "feedback_lines": [
+        397,
+        450
+      ],
+      "issue": "Make the fractional example/table easier to read and possibly add a trace.",
+      "decision": "partially_incorporated",
+      "manuscript_locators": [
+        "docs/expert_companion.md::§3.2 fractional comparison table",
+        "docs/expert_companion.md::§4.4"
+      ],
+      "rationale": "Added existing Needspace guard for table adjacency. Kept the teaching trace in the record/exposition, with its exact destination, because the final reassessment advises against broad examples-first expansion of the expert account.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FE-07",
+      "feedback_file": "research/returns/round10/further_expert_feedback.md",
+      "feedback_lines": [
+        450,
+        464
+      ],
+      "issue": "Explain the predictor before implementation, especially fixed query time.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/expert_companion.md::§4.4 The planted cell"
+      ],
+      "rationale": "Explained that fixing time yields one prediction and the time union is taken afterward. Retained two clocks, total target cap, default output and joint-event proof.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FE-08",
+      "feedback_file": "research/returns/round10/further_expert_feedback.md",
+      "feedback_lines": [
+        369,
+        397
+      ],
+      "issue": "Expand formal verification into a formal-methods contribution.",
+      "decision": "partially_incorporated",
+      "manuscript_locators": [
+        "docs/expert_companion.md::§6"
+      ],
+      "rationale": "Defined build, axiom audit and statement comparison locally; retained linked exact models/receipts and full audit in record G. Did not turn the specialist mathematical companion into a second formal-methods record.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FE-09",
+      "feedback_file": "research/returns/round10/further_expert_feedback.md",
+      "feedback_lines": [
+        1265,
+        1306
+      ],
+      "issue": "Make formal scope and retained-state boundary legible.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/expert_companion.md::§6 evidence map and exact-name paragraph"
+      ],
+      "rationale": "Exact endpoint identities remain recoverable through namespace plus separate basenames; this also fixes a receiving-render overflow. Compared family, built constants, ordinary growing-k deduction and missing physical subsystem correspondence remain distinct.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FE-10",
+      "feedback_file": "research/returns/round10/further_expert_feedback.md",
+      "feedback_lines": [
+        2245,
+        2293
+      ],
+      "issue": "Expose substantial imported/deferred proof obligations and avoid claiming all constants explicit.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/expert_companion.md::§1 paragraph after Theorem 1",
+        "docs/expert_companion.md::§2 circuit sketch",
+        "docs/expert_companion.md::Appendix E"
+      ],
+      "rationale": "Added compact local-proof/import map. Exact circuit gate derivation remains precisely linked to record §8.3; analytic input to optional refinement remains record §8.14. C_k is explicitly left dependent on k; six and 1/400 are the stated choices.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FE-11",
+      "feedback_file": "research/returns/round10/further_expert_feedback.md",
+      "feedback_lines": [
+        2422,
+        2492
+      ],
+      "issue": "Separate uniform Forrelation input from growing-parameter deduction.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/expert_companion.md::Appendix E Uniform analytic input",
+        "docs/expert_companion.md::Appendix E Deduction from the uniform input"
+      ],
+      "rationale": "Named the two existing obligations separately. Kept full admissibility, same-circuit and unbounded-Q arguments, and the distinction from fixed-k theorem.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FE-12",
+      "feedback_file": "research/returns/round10/further_expert_feedback.md",
+      "feedback_lines": [
+        698,
+        724
+      ],
+      "issue": "Add more figures and a full-page roadmap.",
+      "decision": "superseded",
+      "manuscript_locators": [
+        "docs/expert_companion.md::§1.1",
+        "docs/expert_companion.md::§1.2 final roadmap"
+      ],
+      "rationale": "Later return reduces this recommendation. Existing figure, forward mechanism and local bridges perform the task without a new visual or a page quota.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FE-13",
+      "feedback_file": "research/returns/round10/further_expert_feedback.md",
+      "feedback_lines": [
+        1475,
+        1759
+      ],
+      "issue": "Possible flaws in probabilistic comparisons, exact sampling or biased hard answer bits.",
+      "decision": "retained_with_reason",
+      "manuscript_locators": [
+        "docs/expert_companion.md::§3.1–3.2",
+        "docs/expert_companion.md::§4.1"
+      ],
+      "rationale": "Later adversarial pass found no decisive error. Complementarity is a single pair experiment law, not fixed edge orientation; weights are analytical; exact conditional law is required; the hard law already includes constant predictors and does not require unbiased answers. These are retained mathematical distinctions, not repaired theorems.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FE-14",
+      "feedback_file": "research/returns/round10/further_expert_feedback.md",
+      "feedback_lines": [
+        1766,
+        2017
+      ],
+      "issue": "Possible flaws in direct product, planting independence and lightness conditioning.",
+      "decision": "retained_with_reason",
+      "manuscript_locators": [
+        "docs/expert_companion.md::§4.1–4.4",
+        "docs/expert_companion.md::Appendix A.4–A.7",
+        "docs/expert_companion.md::Appendix D"
+      ],
+      "rationale": "Later assessment endorses the existing unnormalized recurrence, dummy-run first-difference coupling, independent planting and joint-event cap argument. No new proof or changed law was inserted.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FE-15",
+      "feedback_file": "research/returns/round10/further_expert_feedback.md",
+      "feedback_lines": [
+        2169,
+        2252
+      ],
+      "issue": "Review elementary constants and fixed/growing-k schedule.",
+      "decision": "retained_with_reason",
+      "manuscript_locators": [
+        "docs/expert_companion.md::Theorem 1",
+        "docs/expert_companion.md::§5",
+        "docs/expert_companion.md::Appendix E"
+      ],
+      "rationale": "Existing exact inequalities retained; no main-theorem all-constants-explicit claim. The fixed-k argument and optional uniform argument have different allowances. Numerical and symbol extraction concerns do not authorize changing the square-root schedule.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FE-16",
+      "feedback_file": "research/returns/round10/further_expert_feedback.md",
+      "feedback_lines": [
+        2513,
+        2551
+      ],
+      "issue": "Scores and stronger independent verification claims.",
+      "decision": "rejected_with_reason",
+      "manuscript_locators": [
+        "docs/expert_companion.md::disclosure and §6"
+      ],
+      "rationale": "Scores remain advisory editorial opinions. This revision does not claim independent Lean execution, full external proof audit, human reading or a measured comprehension improvement.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FX-01",
+      "feedback_file": "research/returns/round10/further_exposition_feedback.md",
+      "feedback_lines": [
+        890,
+        920
+      ],
+      "issue": "Overview absent and examples excessive: later reassessment withdraws both diagnoses.",
+      "decision": "superseded",
+      "manuscript_locators": [
+        "docs/exposition.md::Introduction",
+        "docs/exposition.md::§§1–5 examples"
+      ],
+      "rationale": "Retained existing overview and all mathematical examples. No duplicate roadmap or quota-driven deletion; local sequencing is revised instead.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FX-02",
+      "feedback_file": "research/returns/round10/further_exposition_feedback.md",
+      "feedback_lines": [
+        920,
+        984
+      ],
+      "issue": "Motivate the first Forrelation calculation before its matrix machinery.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/exposition.md::§1 opening"
+      ],
+      "rationale": "Two hard answers selecting cell 10 or 00 give the calculation a concrete purpose before Walsh notation. The three sample inputs then represent 1, 0 and unpromised roles.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FX-03",
+      "feedback_file": "research/returns/round10/further_exposition_feedback.md",
+      "feedback_lines": [
+        987,
+        1071
+      ],
+      "issue": "Explain the construction parameters and why local verification matters.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/exposition.md::§2 General layout",
+        "docs/exposition.md::§2 Local certification"
+      ],
+      "rationale": "Explained logarithmic r as simultaneous small guess probability and polynomial cell array, fixed k as hardness parameter, and small circuit as cheap-test requirement. Named the exact all-input local-certification equivalence without altering its tests.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FX-04",
+      "feedback_file": "research/returns/round10/further_exposition_feedback.md",
+      "feedback_lines": [
+        987,
+        1071
+      ],
+      "issue": "Move optional gate-index census off the main teaching route.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/exposition.md::#circuit-check, Appendix A.4"
+      ],
+      "rationale": "Moved the entire 180-gate/371-test census intact, including precise board-transfer boundary and source link. Main route retains actual local gate example, total K and short pointer to appendix.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FX-05",
+      "feedback_file": "research/returns/round10/further_exposition_feedback.md",
+      "feedback_lines": [
+        1071,
+        1085
+      ],
+      "issue": "Main theorem arrives too late.",
+      "decision": "superseded",
+      "manuscript_locators": [
+        "docs/exposition.md::§3 Theorem"
+      ],
+      "rationale": "Second pass retracts this as a general criticism. Preserved theorem after construction; qualitative result remains in opening. Added same-fixed-circuit sentence immediately after displayed theorem.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FX-06",
+      "feedback_file": "research/returns/round10/further_exposition_feedback.md",
+      "feedback_lines": [
+        1100,
+        1250
+      ],
+      "issue": "Make quantum argument milestones visible.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/exposition.md::§§4.1–4.4"
+      ],
+      "rationale": "Introduced four substantive subheadings: comparisons, ideal weight drift, exact sampler, verification. No full proof was cut or renumbered at top-level.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FX-07",
+      "feedback_file": "research/returns/round10/further_exposition_feedback.md",
+      "feedback_lines": [
+        1970,
+        2028
+      ],
+      "issue": "Name the tournament guarantee and exact successful-label law.",
+      "decision": "partially_incorporated",
+      "manuscript_locators": [
+        "docs/exposition.md::§4.3 Exact successful-label law",
+        "docs/exposition.md::§4.3 tournament guarantee"
+      ],
+      "rationale": "Named conclusions at the end of the calculations with reversible/coherently controlled interface, finite list, dominant probability and failure guarantee explicit. Kept comparison complementarity and concrete query count in their existing adjacent derivations rather than duplicating the specialist proposition as a large box.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FX-08",
+      "feedback_file": "research/returns/round10/further_exposition_feedback.md",
+      "feedback_lines": [
+        1436,
+        1499
+      ],
+      "issue": "Explain capped predictor event before simulator instructions.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/exposition.md::§5 joint-event inclusion"
+      ],
+      "rationale": "Displayed the one-way inclusion before the simulator. Original law, default outputs, total target cap, separate caps and global clock are retained; removed a redundant inline restatement after the proof.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FX-09",
+      "feedback_file": "research/returns/round10/further_exposition_feedback.md",
+      "feedback_lines": [
+        2050,
+        2052
+      ],
+      "issue": "Make the direct-product contract a visible lemma.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/exposition.md::§5 Lemma (direct product with separate caps)",
+        "docs/exposition.md::Appendix B"
+      ],
+      "rationale": "Promoted existing full statement label to Lemma; independence, side information and per-run separate caps unchanged. Full proof stays in Appendix B.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FX-10",
+      "feedback_file": "research/returns/round10/further_exposition_feedback.md",
+      "feedback_lines": [
+        1436,
+        1499
+      ],
+      "issue": "Retain but mark the detailed XOR trace as optional.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/exposition.md::§5 Optional trace of the two clocks",
+        "docs/exposition.md::#question-4"
+      ],
+      "rationale": "Existing trace and exercise remain mathematically intact and now have an explicit optional study cue. Its different supplier and zero-based labels stay visible.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FX-11",
+      "feedback_file": "research/returns/round10/further_exposition_feedback.md",
+      "feedback_lines": [
+        1504,
+        1569
+      ],
+      "issue": "End the argument with a conceptual return to the board.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/exposition.md::§6 paragraph before Combined explanation"
+      ],
+      "rationale": "Added synthesis connecting winner survival, delayed verification, independent planting and guessed address prediction. It follows exact quantifier proof, and retains the imported upper-bound half.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FX-12",
+      "feedback_file": "research/returns/round10/further_exposition_feedback.md",
+      "feedback_lines": [
+        2068,
+        2077
+      ],
+      "issue": "Update stale ConstructionFamily Lean header.",
+      "decision": "partially_incorporated",
+      "manuscript_locators": [
+        "docs/exposition.md::§7",
+        "docs/reasoning_record.md::#formal-named-family"
+      ],
+      "rationale": "Literal source-comment edit declined: parent verified unchanged source hash has later build/axiom evidence. Added explicit historical-comment/current-receipt navigation at source-link landing. No Lean changed and no Comparator credit transferred from file inclusion.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FX-13",
+      "feedback_file": "research/returns/round10/further_exposition_feedback.md",
+      "feedback_lines": [
+        2080,
+        2141
+      ],
+      "issue": "Cite supplied AIK/BDK related constructions.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/exposition.md::§2 related certificate complexity",
+        "docs/exposition.md::§4.2",
+        "docs/exposition.bib::AIK2026v3 and BDK2026"
+      ],
+      "rationale": "Cited supplied AIK v3 for fixed-edge invariant/search and BDK v1 for R-versus-certificate complexity. Kept historical AIK v2 entry distinct; stated neither related result is an input to this R–Q theorem. Parent independently verified archive/annex equality.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FX-14",
+      "feedback_file": "research/returns/round10/further_exposition_feedback.md",
+      "feedback_lines": [
+        2152,
+        2314
+      ],
+      "issue": "Introduce four named formal objects and consolidate estimates.",
+      "decision": "partially_incorporated",
+      "manuscript_locators": [
+        "docs/exposition.md::Local certification, Exact successful-label law, tournament guarantee, direct-product lemma",
+        "docs/exposition.md::§3 Theorem"
+      ],
+      "rationale": "Added useful milestones without forcing four duplicated proposition boxes. Existing final discrepancy display and cost appendix remain sufficient; exact constants stay loose, not optimized.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FX-15",
+      "feedback_file": "research/returns/round10/further_exposition_feedback.md",
+      "feedback_lines": [
+        1740,
+        2050
+      ],
+      "issue": "Possible problems in signed Forrelation, off-promise decoder, tensor probabilities and cap distinction.",
+      "decision": "retained_with_reason",
+      "manuscript_locators": [
+        "docs/exposition.md::§§1–5"
+      ],
+      "rationale": "Third reading withdrew any decisive-error suggestion. Phi versus Phi², genuine-winner comparison inclusion, retained workspaces, inverse, exact conditional label law and distinct clocks are essential and preserved.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FX-16",
+      "feedback_file": "research/returns/round10/further_exposition_feedback.md",
+      "feedback_lines": [
+        2382,
+        2515
+      ],
+      "issue": "Reduce prerequisites or technical detail wholesale.",
+      "decision": "rejected_with_reason",
+      "manuscript_locators": [
+        "docs/exposition.md::Introduction and optional routes"
+      ],
+      "rationale": "Kept declared linear-algebra/probability audience and precise accepted inputs. Later review rejects wholesale simplification. New motivation and optional detail cues repair pacing without changing audience or making a hand-waving proof.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FR-01",
+      "feedback_file": "research/returns/round10/further_record_feedback.md",
+      "feedback_lines": [
+        598,
+        605
+      ],
+      "issue": "Earlier weak-opening/navigation/history-overload criticisms revised.",
+      "decision": "superseded",
+      "manuscript_locators": [
+        "docs/reasoning_record.md::opening and Reading guide",
+        "docs/reasoning_record.md::Appendices F–G"
+      ],
+      "rationale": "Retained current argument-led architecture, examples and separate history/audit appendices. No second record or mass shortening.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FR-02",
+      "feedback_file": "research/returns/round10/further_record_feedback.md",
+      "feedback_lines": [
+        625,
+        650
+      ],
+      "issue": "Preserve query models but consider a compact definition table.",
+      "decision": "retained_with_reason",
+      "manuscript_locators": [
+        "docs/reasoning_record.md::§2"
+      ],
+      "rationale": "The existing model sections and dependency navigation provide exact reusable definitions. A second definition table would duplicate quantifiers and caps; no mathematical model was simplified.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FR-03",
+      "feedback_file": "research/returns/round10/further_record_feedback.md",
+      "feedback_lines": [
+        930,
+        1010
+      ],
+      "issue": "State minimal measured-output contract before stronger retained-state proof.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/reasoning_record.md::#upper-label-contract",
+        "docs/reasoning_record.md::§5.6"
+      ],
+      "rationale": "Added exact finite measured-label law and all-branch cap in §5.1, then preserved original full-strength Lemma3.1. Moved complete geometry, schedule, averaging, cap and retained-register proof intact to §5.6. Tournament now invokes measured contract explicitly.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FR-04",
+      "feedback_file": "research/returns/round10/further_record_feedback.md",
+      "feedback_lines": [
+        273,
+        292
+      ],
+      "issue": "Explain planted changes before long direct-product proof.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/reasoning_record.md::§6 classical-overview"
+      ],
+      "rationale": "Added short preview of dummy board, independent planted column, two changed locations and address prediction before §6.1. Full planting and direct-product proofs remain in their existing sections and anchors.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FR-05",
+      "feedback_file": "research/returns/round10/further_record_feedback.md",
+      "feedback_lines": [
+        1271,
+        1348
+      ],
+      "issue": "Motivate algebraic bounded-bias Gaussian pair by requirements.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/reasoning_record.md::#forr_stein"
+      ],
+      "rationale": "Explained valid bounded means, integration-by-parts cancellation and controlled edge factor before displaying phi/Psi. Existing exact derivative identities and bounds prove those properties. No historical discovery narrative.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FR-06",
+      "feedback_file": "research/returns/round10/further_record_feedback.md",
+      "feedback_lines": [
+        1350,
+        1367
+      ],
+      "issue": "Make biased derivative obstruction visible before martingale machinery.",
+      "decision": "partially_incorporated",
+      "manuscript_locators": [
+        "docs/reasoning_record.md::#forr_path_formula, (F24)",
+        "docs/reasoning_record.md::§8.10 opening"
+      ],
+      "rationale": "Existing F24 and degree-(k+1) monomial already demonstrate the obstruction. Retained them, added one short bridge into the biased tree proof, and rejected a duplicate Fourier expansion paragraph during author review.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FR-07",
+      "feedback_file": "research/returns/round10/further_record_feedback.md",
+      "feedback_lines": [
+        1371,
+        1416
+      ],
+      "issue": "Present scale m^{-(k-1)/2}d^{k/2} before exact constants.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/reasoning_record.md::#forr_proof_spine"
+      ],
+      "rationale": "Moved the reader-facing power balance into the proof spine while retaining exact F33 and its original local explanation. Identified Walsh-edge and derivative factors; no changed quantitative estimate.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FR-08",
+      "feedback_file": "research/returns/round10/further_record_feedback.md",
+      "feedback_lines": [
+        1100,
+        1260
+      ],
+      "issue": "Apparent contradiction between fixed-k threshold and growing-k schedule.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/reasoning_record.md::#ROOT-GROWING-K"
+      ],
+      "rationale": "Mathematical objection withdrawn: §7.3 already uses uniform X allowance, not fixed L_{k,m}. Preserved both schedules and added early distinction between finite admissibility at t=80 and asymptotic usefulness when epsilon tends to zero.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FR-09",
+      "feedback_file": "research/returns/round10/further_record_feedback.md",
+      "feedback_lines": [
+        1545,
+        1574
+      ],
+      "issue": "Extracted radical looked like k=floor(sqrt(t)/20) or floor(t/20).",
+      "decision": "rejected_with_reason",
+      "manuscript_locators": [
+        "docs/reasoning_record.md::#ROOT-GROWING-K",
+        "docs/expert_companion.md::Appendix E"
+      ],
+      "rationale": "Reviewer checks typeset radical scope and withdraws contradiction. Source is floor(sqrt(t/20)), consistent with balancing 40k and ell/k and k>=2 at t>=80. No formula edit.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FR-10",
+      "feedback_file": "research/returns/round10/further_record_feedback.md",
+      "feedback_lines": [
+        1421,
+        1456
+      ],
+      "issue": "Distinguish headline measured/Boolean route from separate list and retained-state routes.",
+      "decision": "retained_with_reason",
+      "manuscript_locators": [
+        "docs/reasoning_record.md::#upper-current-formal-scope"
+      ],
+      "rationale": "Existing named paragraphs already make these two routes explicit. Retained exact dependency and built-versus-compared boundaries; new §5.1/§5.6 ordering makes ordinary contract match this hierarchy. No new dependency diagram needed.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FR-11",
+      "feedback_file": "research/returns/round10/further_record_feedback.md",
+      "feedback_lines": [
+        1462,
+        1470
+      ],
+      "issue": "Clarify partial alpha theorem versus exact compound separation theorem.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/reasoning_record.md::#formal-separation-family"
+      ],
+      "rationale": "Read Challenge.lean theorem_one_one full type: alphaTot=4 AND UniversalPower4 AND same-circuit family. Added all three clauses before explaining family inequalities. Alpha-only statement remains partial relative to compound catalogue claim; no formal mismatch found.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FR-12",
+      "feedback_file": "research/returns/round10/further_record_feedback.md",
+      "feedback_lines": [
+        1462,
+        1466
+      ],
+      "issue": "Separate ordinary mathematical completeness from formal coverage.",
+      "decision": "retained_with_reason",
+      "manuscript_locators": [
+        "docs/reasoning_record.md::Reading guide Complete proof",
+        "docs/reasoning_record.md::Appendix G.4"
+      ],
+      "rationale": "Full proof route explicitly continues through supplier §8 and universal-bound Appendix A; explicit threshold ordinary-only and formal state bridge incomplete remain stated. Did not turn ordinary completeness into total formal coverage.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FR-13",
+      "feedback_file": "research/returns/round10/further_record_feedback.md",
+      "feedback_lines": [
+        904,
+        913
+      ],
+      "issue": "Add formal author/date/version block.",
+      "decision": "retained_with_reason",
+      "manuscript_locators": [
+        "docs/reasoning_record.md::Authorship and review",
+        "docs/reasoning_record.md::Appendix G source edition"
+      ],
+      "rationale": "Existing opening authorship/disclosure and source-bound edition in formal audit retained. No extra metadata block needed to understand the mathematical route; parent owns final source pins.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FR-14",
+      "feedback_file": "research/returns/round10/further_record_feedback.md",
+      "feedback_lines": [
+        1617,
+        1621
+      ],
+      "issue": "Remove interrupting cross-paper returns and repeated accounting.",
+      "decision": "partially_incorporated",
+      "manuscript_locators": [
+        "docs/reasoning_record.md::#upper-ideal-process",
+        "docs/reasoning_record.md::end of §5.2",
+        "docs/reasoning_record.md::§5.6 Optional constant accounting"
+      ],
+      "rationale": "Moved expert return link from proof start to section end. Kept accounting required for explicit cap, already marked optional. No proof equations or finite exits removed.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FR-15",
+      "feedback_file": "research/returns/round10/further_record_feedback.md",
+      "feedback_lines": [
+        1473,
+        1576
+      ],
+      "issue": "Small numerical checks and absence of detected contradiction.",
+      "decision": "retained_with_reason",
+      "manuscript_locators": [
+        "docs/reasoning_record.md::§§5–8"
+      ],
+      "rationale": "Exact drift, 6072 padded budget, fixed/growing parameter formulas and other cited checks retained. Spot checks are not independent verification of all inequalities, source proofs or Lean executions.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    },
+    {
+      "id": "FR-16",
+      "feedback_file": "research/returns/round10/further_record_feedback.md",
+      "feedback_lines": [
+        523,
+        550
+      ],
+      "issue": "New diagram, parameter table, broad revision programme and scores.",
+      "decision": "rejected_with_reason",
+      "manuscript_locators": [
+        "docs/reasoning_record.md::Reading guide and dependency index"
+      ],
+      "rationale": "Later reassessments supersede broad overhaul. Existing dependency index and bounded evaluator provide navigation; source hierarchy improved locally without invented visual or numerical score target.",
+      "verification": "Author source comparison; final rendering and binding owned by receiving parent."
+    }
+  ],
+  "source_sensitive_audit": {
+    "unchanged_claims": "No theorem inequality, parameter schedule, assumption, failure/default behavior, query-model convention or evidence status promoted.",
+    "exact_sources_read": [
+      "lean/QuarticCorpus/Unconditional/Challenge.lean::theorem_one_one full conjunction",
+      "lean/QuarticQuery/Paper/ConstructionFamily.lean::construction_family_named and historical header",
+      "docs/reasoning_record_correspondence.json::named theorem exact type, source hash, built, axiom-audit, no exact-name Comparator target",
+      "corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json::passed and source/declaration inventory",
+      "AIK supplied v3 main.tex::§4 source invariant, §6.1 FindSource and §6.3 capped versus analysis-only stopping",
+      "BDK supplied v1 main.tex::§2 cumulative-sum encoding, malformed-card totality, §3 candidate/elimination/verification"
+    ],
+    "caps_and_events": "Preserved (gamma,eta)=(1/(2m),epsilon) sampler and (1/K,epsilon) verifier; finite horizon/default exits; inverse and retained workspace; probability law on successful labels; original product law and joint light-visit event; same-circuit family.",
+    "quantitative_boundaries": "Six and 1/400 are explicit reconstruction choices; C_k remains fixed-parameter dependent. Uniform F43 supplies a different allowance in growing-k argument. Explicit13669k² threshold remains ordinary-only.",
+    "source_numbers": "No external paper section/theorem locators remapped. Only explicitly local amplification-proof section references change5.1→5.6.",
+    "preservation_check": "Counter comparison with baseline: zero existing explicit anchors, claim markers, passage delimiters or equation tags lost; new upper-label-contract anchor and passage only. No non-whitespace control characters.",
+    "literature_audit_owner": "round10_further_literature.json and round10_further_annex_integrity.json (parent receiving owner)",
+    "validation_limit": "Author reviewed changed and adjacent proof/source passages; not a fresh line-by-line independent verification of whole analytic proof or a fresh Lean/Comparator run. Parent owns rendered acceptance and repository checks."
+  },
+  "remaining_receiving_checks": [
+    "Rebuild correspondence with new passage and relocated proof positions.",
+    "Rebind immutable record/exposition/expert sources in dependency order.",
+    "Inspect all final PDFs, especially expert §6 identifiers/table and fractional table; exposition §4 headings, A.4/B anchors and new bibliography entries; record §5.1 contract and §5.6 proof start.",
+    "Refresh final source hashes after generated-link-only binding."
+  ],
+  "final_source_sha256": {
+    "docs/expert_companion.md": "c5189d21b08e352f4fbb4191350d4f22aadce7bd93325b58e3548a17afcfe894",
+    "docs/expert_companion.bib": "10b46ab1e52823adcd093caa5c03be82a94da3a4cf0ddf8c4b9a003620cd24bf",
+    "docs/exposition.md": "4d7dc9abb33848bd94678de266eb442acd196859eddcddefa1ecf17d14b7a0b7",
+    "docs/exposition.bib": "c4cbe1d7ff2f6b5f767b869e0ec2437d382f2d192e702671400ad5e5cffecc98",
+    "docs/reasoning_record.md": "10a4c5bb8a7def39f54668d8e9329aa7d450247e4b0200cc721b13ed3b5b4c6e",
+    "docs/reasoning_record.bib": "89c47ffefcfe6216ee5c7a78861dd2c62013087470ab0976029edcfab89d6491"
+  },
+  "receiving_validation": "research/adjudication/round10_further_validation.json"
+}

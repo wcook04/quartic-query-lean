@@ -1,0 +1,66 @@
+{
+  "schema": "quartic-r10-further-method-v1",
+  "status": "existing_rules_applied_and_receiving_review_complete",
+  "upstream_base_commit": "6c7226e4c5512795c381a661a9c2777f4a2ef1cd",
+  "owners": {
+    "docs/authoring.md": "414b678d64c7c70a063edbdb606fc40a623e9a12369ba250eae6d6daa3db71a0",
+    "docs/reader-review.md": "b793e7e7c4644a118e55a8c702c22ec8e282c5f019561a0863ee01b2ec2f2289",
+    "skills/long-to-short/SKILL.md": "aab5e5dd929010bb2d6ebc5488c1c40a7587240e142045cb064fc83647b69d48",
+    "skills/record-to-expository/SKILL.md": "d2a102cf26a5da788922d22766fbd2d85f12fbc4b227e79953272c8f485f23b2",
+    "skills/graph-to-long/SKILL.md": "9f5a2fbe67dc1e5d8180286bad295c5f3f1f74ef979f3aee522d4e00bc244e1f"
+  },
+  "decisions": [
+    {
+      "difficulty": "Repeated reassessment revises earlier claims and creates duplicated recommendations.",
+      "owner": "docs/authoring.md; docs/reader-review.md",
+      "existing_rule": "Group by the underlying inference, preserve withdrawals and source-assisted diagnosis, never count agreeing reports as mathematical evidence.",
+      "application": "Read each full sequence; keep withdrawn sqrt/existing-content criticisms distinct from remaining navigation concerns."
+    },
+    {
+      "difficulty": "More opening evidence detail can obstruct the mechanism it is meant to justify.",
+      "owner": "skills/long-to-short/SKILL.md",
+      "existing_rule": "Rank opening obligations by the reader next decision; each addition displaces material; exact evidence belongs beside its scope.",
+      "application": "Reorder existing expert explanation and replace overloaded contribution prose; do not add another generic roadmap."
+    },
+    {
+      "difficulty": "Naming an address or amplifier does not teach the operation the learner must perform.",
+      "owner": "skills/record-to-expository/SKILL.md",
+      "existing_rule": "Work backward from consequential uses; teach a small operation before using it, and preserve the chosen audience.",
+      "application": "Concrete answer-vector to certificate-cell operation and reusable conclusions through the quantum route."
+    },
+    {
+      "difficulty": "A strong state-level proof can precede the weaker measured-output contract its consumer needs.",
+      "owner": "docs/authoring.md; skills/graph-to-long/SKILL.md",
+      "existing_rule": "Assess full route and entry shortcuts separately; defer derivations only after stating and locating all contracts.",
+      "application": "State exact measured-label law and all-input cap before detailed successful-state geometry; preserve both proofs."
+    },
+    {
+      "difficulty": "A source link may display an old status comment even though later receipts have narrower recorded passes.",
+      "owner": "docs/reader-review.md",
+      "existing_rule": "Bind status to exact sources and individual declaration checks, preserve historical editions and explicit limits.",
+      "application": "Verify the historical header and current correspondence; clarify at the paper landing. Do not relabel unchanged source or receipt inventory as fresh execution."
+    },
+    {
+      "difficulty": "Possessing an annex or being sent a duplicate archive may be mistaken for new source comparison.",
+      "owner": "docs/authoring.md",
+      "existing_rule": "Do not equate access with reading; match edition and mathematical setting; retain the passage and decision it informed.",
+      "application": "Hash-compare both supplied archives to annex originals; record seven bounded primary-source comparisons separately from the 100-file integrity audit."
+    }
+  ],
+  "propagation_decision": "already_propagated_verified: the existing public owners explicitly require these decisions; no new universal rule or duplicate checklist is warranted. Apply the rules to the papers and preserve this task-specific evidence in the existing review owner.",
+  "limits": [
+    "No human comprehension or independent mathematical correctness measurement.",
+    "Scores and requested page/table quotas are not acceptance criteria.",
+    "A fixed-graph source theorem is not imported into the fractional-comparison argument."
+  ],
+  "source_status_inspection": {
+    "path": "lean/QuarticQuery/Paper/ConstructionFamily.lean",
+    "sha256": "b7e1203086e38c00b964355ac71537a7fc5be7053d537ccd56cba8017cdd085a",
+    "receipt": "corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json",
+    "receipt_sha256": "bc11e3fec8581f89ce56b110bf76db2469abea4b7be00fa476f9d2cee9455c2e",
+    "declaration_present": "QuarticQuery.Paper.construction_family_named",
+    "status": "passed",
+    "interpretation": "Historical source header and later declaration-listed build receipt reconciled; no new execution or named-theorem comparison claimed."
+  },
+  "validation": "research/adjudication/round10_further_validation.json"
+}

@@ -154,3 +154,8 @@ individual dispositions and writing-method propagation. The later exposition and
 The [follow-up editorial revision](adjudication/round10_followup_revision.md)
 applies a later informal expert assessment to both shorter accounts, preserving
 the different reader tasks and the limits of that feedback.
+
+The [further R10 refinement](adjudication/round10_further_revision.md) applies
+three sequential reassessment transcripts. Its
+[literature comparison](adjudication/round10_further_literature.json) distinguishes
+passages actually read from the separate annex integrity audit.
