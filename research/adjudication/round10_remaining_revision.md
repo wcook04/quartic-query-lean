@@ -90,7 +90,7 @@ implementation of its calculations.
 
 ## Delivery and validation
 
-All 264 repository tests passed (two skipped). The writing-method change passed 710 tests (two skipped), layout/link checks and CI. Final PDFs have 19 expert pages, 26 exposition pages and 140 record pages.
+Repository checks passed: 264 tests ran, with two skipped. The writing-method checks passed: 710 tests ran, with two skipped; layout/link checks and CI also passed. Final PDFs have 19 expert pages, 26 exposition pages and 140 record pages.
 
 Final PDF hashes, render-input bindings, inspected pages, repository checks,
 finite checks, source links and source editions are recorded in
@@ -99,3 +99,7 @@ finite checks, source links and source editions are recorded in
 exposition and reasoning record. No Lean theorem or source file changed, and no
 new Lean or Comparator execution is claimed. Editorial improvements and finite
 checks do not independently certify the entire mathematics.
+
+The [publication receipt](round10_remaining_publication.json) confirms that the
+three cited source versions are available on GitHub and match the current
+manuscript Markdown bytes.

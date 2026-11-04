@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-04",
+  "publication_commit": "a022c3b83149ef9e77a2569f026cb6d52f7ebecf",
+  "remote_main_at_verification": "a022c3b83149ef9e77a2569f026cb6d52f7ebecf",
+  "verification_method": "GitHub connector fetched complete base64 contents at each cited commit. Decoded-equivalent base64 bytes equal the maintained local Markdown; returned Git blob IDs also equal the local Git objects. git ls-remote independently confirms the publication commit on origin/main.",
+  "manuscripts": [
+    {
+      "path": "docs/reasoning_record.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "git_blob_sha": "8e547f081b1eefaf88525c94d93b6855c753b2cd",
+      "github_url": "https://github.com/wcook04/quartic-query-lean/blob/79d996f8f09bae7baa335f73bc11106d251af07e/docs/reasoning_record.md",
+      "github_content_matches_current_local_bytes": true
+    },
+    {
+      "path": "docs/exposition.md",
+      "commit": "41244d6eb9043470bc5b630b112cdf1671a3ecd8",
+      "git_blob_sha": "2b9f09e43c61e19304a4f89a76b652a6a155f39b",
+      "github_url": "https://github.com/wcook04/quartic-query-lean/blob/41244d6eb9043470bc5b630b112cdf1671a3ecd8/docs/exposition.md",
+      "github_content_matches_current_local_bytes": true
+    },
+    {
+      "path": "docs/expert_companion.md",
+      "commit": "d7274d658a8c8069801bfcb582ba7d737d9f92d3",
+      "git_blob_sha": "2ef7947604b2e0bf71a55f7efc6e4c92cf32aade",
+      "github_url": "https://github.com/wcook04/quartic-query-lean/blob/d7274d658a8c8069801bfcb582ba7d737d9f92d3/docs/expert_companion.md",
+      "github_content_matches_current_local_bytes": true
+    }
+  ],
+  "writing_method": {
+    "pull_request": "https://github.com/wcook04/lean-exposition/pull/46",
+    "merge_commit": "6c7226e4c5512795c381a661a9c2777f4a2ef1cd"
+  },
+  "boundaries": [
+    "The pins identify manuscript Markdown bytes; PDF and bibliography inputs have separate hashes in the validation receipt.",
+    "Publication verifies source availability and identity, not mathematical correctness."
+  ]
+}

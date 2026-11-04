@@ -278,7 +278,7 @@
         },
         {
           "from_page": 19,
-          "label": "𝑐afterw\nAnswer",
+          "label": "\ud835\udc50afterw\nAnswer",
           "to_page": 22,
           "named_destination": "section*.26"
         },
@@ -290,7 +290,7 @@
         },
         {
           "from_page": 21,
-          "label": "Which 𝑘m\n(Answer",
+          "label": "Which \ud835\udc58m\n(Answer",
           "to_page": 22,
           "named_destination": "section*.27"
         },
@@ -1017,6 +1017,7 @@
       "expert": "d7274d6",
       "exposition": "41244d6"
     },
-    "remote_verification": "Performed after the scoped publication commit; see separate publication receipt."
+    "remote_verification": "passed: round10_remaining_publication.json; complete GitHub contents match current Markdown bytes at all three cited commits",
+    "publication_commit": "a022c3b83149ef9e77a2569f026cb6d52f7ebecf"
   }
 }
