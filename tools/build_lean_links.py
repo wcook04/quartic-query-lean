@@ -57,7 +57,7 @@ SCHEMA = "quartic-lean-links-v1"
 REPOSITORY = "https://github.com/wcook04/quartic-query-lean"
 # The commit the papers describe. Every pinned link resolves against this tree.
 COMMIT = "8357f268732746d1575e05e7de8c888e20ad3793"
-RECORD_COMMIT = "d34580e91d9c32e06194edbdb428e6e280ffba57"
+RECORD_COMMIT = "62171e839337f3d61b7fc9c0e9e024565d20325e"
 INDEX_COMMIT = "main"
 BEGIN, END = "<!-- lean-links -->", "<!-- /lean-links -->"
 USE = re.compile(r"\]\[([A-Za-z0-9][A-Za-z0-9-]*)\]")
