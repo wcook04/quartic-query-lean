@@ -204,3 +204,10 @@ Against the writer's pre-language snapshot, all 36 specialist, 42 exposition and
 312 record displays were byte-identical, with passage, claim and explicit anchor
 markers preserved. [The baseline preservation check](paper_purpose_preservation.json)
 separately compares this complete revision with the published starting edition.
+
+Final checks caught a stale current-bibliography digest after the record link was
+pinned, and page inspection found a figure interrupting the four-step proof
+overview and a four-row planting table split across pages. The existing reviewed
+citation map is rebound to the current bibliography and references; the two small
+reading units receive space reservations and are re-rendered. These repairs
+change neither the argument nor the imported literature editions.

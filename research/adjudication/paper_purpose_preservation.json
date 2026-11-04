@@ -43,6 +43,12 @@
         "added": [
           "X_j[p_{i^\\star,s_{i^\\star},j}]=0,\\qquadX_{i^\\star}[p_{j,s,i^\\star}]=1."
         ]
+      },
+      "tex_display_equations": {
+        "baseline": 0,
+        "current": 0,
+        "removed": [],
+        "added": []
       }
     },
     "docs/exposition.md": {
@@ -83,6 +89,12 @@
         "added": [
           "(X_1,X_2,X_3,X_4)=(1111,\\0111,\\1011,\\1101)."
         ]
+      },
+      "tex_display_equations": {
+        "baseline": 0,
+        "current": 0,
+        "removed": [],
+        "added": []
       }
     },
     "docs/reasoning_record.md": {
@@ -121,6 +133,16 @@
         "current": 88,
         "removed": [],
         "added": []
+      },
+      "tex_display_equations": {
+        "baseline": 221,
+        "current": 224,
+        "removed": [],
+        "added": [
+          "k(t)=\\left\\lfloor\\sqrt{\\frac{t}{20}}\\right\\rfloor,\\qquadt\\ge80.",
+          "\\frac{\\partial}{\\partialU_a}F_{0a}(w_s)=s\\varphi'(U_a)\\underbrace{F_{0a,0a}(w_s)}_{0}+\\sum_bH_{b,a}\\varphi'(V_b)F_{0a,1b}(w_s).",
+          "h_g'(s)=\\sum_{a,b}H_{b,a}\\mathbbE\\!\\left[\\Psi(U_a)\\varphi'(V_b)F_{0a,1b}(w_s)\\right]."
+        ]
       }
     }
   },

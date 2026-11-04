@@ -1658,6 +1658,8 @@ Write $Y^{(0)}$ for the dummy input, $Y^{(1)}$ for its planted partner, $J_i$ fo
 
 ![The two possible first differences. The dummy board has one zero in every column and blank cells. Planting column $I=3$ erases its zero and fills its true cell. The address inputs have the same realization in both panels; their common hard law $\mu$ is supplied in §6.2. The four-column picture illustrates the coupling, not the large-size hardness estimate.](figures/expert_planted.svg){width=100%}
 
+\Needspace{15\baselineskip}
+
 We fix a deterministic tree of depth at most $G$ and argue in four steps.
 
 1. We couple an input with one hidden zero per column to a planted input in which a uniformly random column $I$ wins, and the tree can distinguish the two only by querying the erased zero or the planted cell ([first difference (18)](#CL-first-difference)).
@@ -2076,6 +2078,8 @@ F_{P,C,m}(Y^{(1)})=1.
 <a id="CL-tiny-planted-example"></a>
 <!-- passage:CL-tiny-planted-example -->
 **A four-column instance.** To illustrate the planting operation, we temporarily take \(m=4\), \(r=2\) and \(P(a,b)=a\mathbin{\mathrm{xor}}b\) on all two-bit inputs, computed by a two-gate circuit whose domain output is \(1\) and whose value output is \(a\mathbin{\mathrm{xor}}b\), so that its transcript is \((1,P(a,b))\). This toy is an instance of the generic addressed construction, with later example query budget $4$; it is neither a Forrelation instance nor a choice satisfying $r=40t$ and $G=\lfloor mL/100\rfloor$. Rows and columns carry zero-based labels in this example. Adding one to a row or column label translates it to the convention of §4; the pointer words here encode $0,1,2,3$ directly. The same toy continues at the [capped simulator trace](#CL-simulator-example).
+
+\Needspace{12\baselineskip}
 
 We choose the zero positions and strings as follows.
 
@@ -4021,6 +4025,8 @@ A deterministic tree is a randomized algorithm whose distribution is concentrate
 <!-- /passage:R3-A-ASSEMBLY -->
 
 
+\Needspace{12\baselineskip}
+
 ## Conclusion
 
 The proof joins two uses of the same certificate. Outward pointers give a true winner reliable comparisons without requiring valid rival certificates. Complementarity then makes the total surviving weight contract, and coherent sampling reproduces the exact law behind that contraction. Verification is paid only for a short list, so its cost adds to the search cost.
@@ -4226,6 +4232,8 @@ queries $A_0=a$, then queries $B_a=t$, and, if $a\neq t$, queries $A_0$
 again; in every case it outputs $(0,0)$. Its second query is chosen adaptively, and
 the repeated query spends budget without gaining information. The cap event
 is $E=\{a=t\}$.
+
+\Needspace{16\baselineskip}
 
 Each row of the following table has probability $1/4$; its compatible
 inputs form the rectangle $\{A:A_0=a\}\times\{B:B_a=t\}$, so its
