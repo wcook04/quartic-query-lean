@@ -230,3 +230,22 @@ is preserved with that limit; it is not relabelled as isolated-unit reading.
 For a future strict pass, the public review procedure now requires persisting
 each encounter before revealing the next semantic unit, including generated
 references at their delivered position.
+
+## Follow-up: one review, two audiences
+
+The [informal expert assessment](../research/returns/round10/followup_editorial_feedback.md)
+asks for a clearer contribution, motivation before technical machinery, and
+visible identification of external appendices. Those are already requirements
+of the public transition skills. This pass repairs their application: inspect
+the opening as a continuous reading experience and read references without
+following their hyperlinks. The assessment's scores and suggested roadmap length
+are editorial advice, not acceptance thresholds.
+
+Its transfer to the exposition is a separate authoring decision. The expert
+reader needs the decisive mechanism and complete contracts; the learner needs
+the worked operations that make those contracts usable. Preserve the latter
+when reducing the former's implementation detail. The [method record](../research/adjudication/round10_followup_method.json)
+tests this distinction on the SK papers and on the architectural companion and
+consumer guide. The existing public authoring guide now checks the reading task
+and retained content separately for each receiving account. These are editorial
+checks, not a new review of the exposition or measured gains in understanding.

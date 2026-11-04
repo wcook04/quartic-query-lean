@@ -12,7 +12,7 @@ later change.
 | [Expert companion](expert_companion.md) | The result and its decisive proof for readers of the cited query-complexity literature. |
 | [Exposition](exposition.md) | A teaching route through the objects, operations and main inferences. |
 | [Long reasoning record](reasoning_record.md) | Full mathematical arguments and formal-statement audit, with a [bibliography](reasoning_record.bib), [correspondence](reasoning_record_correspondence.json) and [version-bound review](reasoning_record_review.json). |
-| [Writing method](writing_method.md) | The current three-document method and its successive revision applications; [latest method findings and transfer trials](../research/adjudication/round9_method_revision.json). |
+| [Writing method](writing_method.md) | The current three-document method and its successive revision applications; [latest method findings and transfer trials](../research/adjudication/round10_followup_method.json). |
 | [Statement evidence contract](statement_evidence_contract.md) | Rules for relating printed statements, Lean declarations and recorded checks. |
 | [Statement fidelity review](statement_fidelity_review.md) | Independent AI reading of the conditional development at `efc70f3`; it did not run Lean. Preserve its findings as a record of that revision. |
 | [Forrelation lower-bound blueprint](forrelation_lower_bound_blueprint.md) | The implementation route and its development notes. Its status passages reflect the stages at which they were written. |
@@ -49,3 +49,7 @@ only the source edition it actually assessed.
 The [round-ten expert revision](../research/adjudication/round10_revision.md)
 reorders the specialist argument and repairs its affected record destinations.
 This is assimilation of one return; the other two R10 reviews remain pending.
+
+The [follow-up editorial revision](../research/adjudication/round10_followup_revision.md)
+applies a further expert-paper assessment to both shorter accounts, with separate
+decisions for their readers. It does not replace the pending exposition review.

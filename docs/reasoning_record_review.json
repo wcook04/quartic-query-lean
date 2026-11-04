@@ -414,6 +414,17 @@
       ],
       "validation": "research/adjudication/round10_validation.json",
       "boundary": "Bounded author/integrator editorial acceptance; earlier full-record review applies only to its own recorded edition; R10 full-record return pending."
+    },
+    {
+      "campaign": "round10_followup_editorial",
+      "date": "2026-11-04",
+      "source_sha256": "120c181f579c5229daf675ec2a29ea7571876758e86f0b9c31d35220fe4cae47",
+      "pdf_sha256": "61512593494f5578a2e76fd26eeef6bdebd2e30c84154d65b4cff20bdf245fd5",
+      "reviewed_changes": [
+        "Expert reading-route locator changed from Section 6 to Appendix E; no marked proof passage changed."
+      ],
+      "validation": "research/adjudication/round10_followup_validation.json",
+      "boundary": "Bounded navigation and page-5 inspection; earlier full reviews remain edition-bound; full R10 record review pending."
     }
   ]
 }

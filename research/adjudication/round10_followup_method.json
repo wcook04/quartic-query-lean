@@ -1,0 +1,63 @@
+{
+  "schema": "quartic-round10-followup-method-v1",
+  "status": "refined",
+  "owner": "docs/authoring.md",
+  "owner_repository": "wcook04/lean-exposition",
+  "rule": "Transfer the diagnosed reader difficulty; choose and check the repair separately for each audience.",
+  "trigger": "One companion review is used to revise differently purposed accounts.",
+  "action": "Name the reading task and material that must survive in each account; check the revised passages rather than copy cuts.",
+  "reason": "A compressed specialist proof can cite an operation that a teaching route must demonstrate.",
+  "observable_check": "Per-manuscript disposition names the operation the reader can now perform and the retained essential content.",
+  "exception": "Shared mathematical corrections must reach every affected claim regardless of audience; one review gives no coverage of another paper.",
+  "existing_rules_reapplied": [
+    "long-to-short already requires early mechanism and distinction of reconstruction from new theorem",
+    "long-to-short already requires visible companion-and-section labels without hyperlinks",
+    "record-to-expository already requires framing before examples and teaching unfamiliar operations"
+  ],
+  "transfer_checks": [
+    {
+      "case": "SK short paper versus exposition",
+      "source_locators": [
+        "short abstract and section 1",
+        "expository opening and section 1 probability-density calculation"
+      ],
+      "decision": "A request to reduce prerequisite detail would remove routine probability teaching from a specialist route, but preserve the density/expectation operation for the exposition reader. Both openings retain original proof attribution.",
+      "kind": "source-grounded author assessment; no manuscript edit or reader experiment claimed"
+    },
+    {
+      "case": "Architecture companion versus executable consumer guide",
+      "source_locators": [
+        "architecture opening and section 1",
+        "docs/bundle-consumers.md Choose the entry for your question and Start with the authored support theorem"
+      ],
+      "decision": "A request for a clearer reason to use multiple accounts can use a reader journey in the companion; the consumer guide must retain exact assemble/check/query commands so its reader can perform that journey. Do not copy a narrative-only cut into executable instructions.",
+      "kind": "source-grounded author assessment; no manuscript edit or reader experiment claimed"
+    }
+  ],
+  "negative_case": "Do not move essential model restrictions or proof assumptions to appendices merely because one expert review asks for fewer details. In SK, zero-field pure-model scope and distinction of full support from positive density remain load-bearing.",
+  "inspected_source_hashes": {
+    "papers/qaoa-sk/short/paper.md": "0cab99e62e04475d45ef7ab47579feee2be323ae8b9c4108d1e26adbd1ba36a2",
+    "papers/qaoa-sk/expository/main.md": "c17d1e4e497443c153dbfaed9967804be060f37981ee446a2f3daf79a50f2f7a",
+    "papers/architecture/paper.md": "69eeb4efb294d1340e92633d62b24c8f0756d0232f8d3e596954c7f2aadef5c1",
+    "docs/bundle-consumers.md": "2e11194f80bd54ad380f43c064537c94c6b8c9d2675dd48a743ee17a27d636d6"
+  },
+  "measurement_boundary": "Editorial decision checks only; no demonstrated learning effect or numerical quality improvement.",
+  "owner_commit": "bfad719ae5f144a38848edde25a04cc02d961de9",
+  "owner_sha256": "1409c59bdf012890a0943ba5e8944234f78a89d83fbcc5422a08e0b13e4329a8",
+  "upstream_pr": "https://github.com/wcook04/lean-exposition/pull/45",
+  "upstream_status": "Merged",
+  "validation": {
+    "tests_run": 710,
+    "skips": 2,
+    "result": "OK",
+    "layout": "working and staged pass",
+    "local_links": "pass",
+    "minimal_validate_inspect": "pass"
+  },
+  "merge_commit": "181651db04ad6d392db8d7b35198058067bb51c0",
+  "hosted_ci": {
+    "run_id": 41869628568,
+    "conclusion": "success",
+    "checked_head": "bfad719ae5f144a38848edde25a04cc02d961de9"
+  }
+}

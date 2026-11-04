@@ -1,0 +1,303 @@
+{
+  "schema": "quartic-round10-followup-validation-v1",
+  "baseline": "aa2a08fd27bdaa616cbd9edee0283efece9b26ef",
+  "source_hashes": {
+    "docs/expert_companion.md": "a0d6fa0aae0222509c5a14aa6559285aaade9880ceacaafdd385e7abd56336c6",
+    "docs/exposition.md": "8eb8a5c82a14ee07da5d244f5acb1ab720bece9db2ca6bec8791b61fadc3293c",
+    "docs/reasoning_record.md": "120c181f579c5229daf675ec2a29ea7571876758e86f0b9c31d35220fe4cae47",
+    "docs/expert_companion.bib": "0a9ba97cb1114017764682c0d73f7f86d6ca8a26a8c5f0415057b5c914f1a33e",
+    "docs/exposition.bib": "76ab8492f33bb8136150d54ef2b12e3ea434d48186ad3d39624e8079eb2630eb",
+    "docs/reasoning_record.bib": "89c47ffefcfe6216ee5c7a78861dd2c62013087470ab0976029edcfab89d6491"
+  },
+  "checks": {
+    "make_check": {
+      "result": "OK",
+      "tests_run": 261,
+      "skipped": 2
+    },
+    "finite_examples": {
+      "kind": "finite checks, not formal proofs",
+      "forrelation": {
+        "m": 4,
+        "k": 2,
+        "inputs_checked": 256,
+        "result": "exact integer thresholds and Walsh orthogonality agree"
+      },
+      "tournament": {
+        "m": 6,
+        "T": 4,
+        "eps": "1/100",
+        "histories": 360,
+        "drift_instances": 157,
+        "expected_final_weight": "4505947942664514688034906363713407667657262243608462016246243788608996363078621949915372863439429075453658220185026952064063536967167358460010888571493815822389/113836898544623900724026082252343568836120209522500288116675146887284967415377066549413780826571230937978898336497842496620101493811426082649680002462831371775000",
+        "winner_miss_probability": "3706161382631314488208282010424750381265680692541017795180624556509019206557166595949609663024874288532677675558235519490589988324530000000000000/98483207339522274998429747742349294215241142895458082546405290309502645478426865326681098433034696914242069750137947577560328050535677654269829107",
+        "result": "passed exactly"
+      },
+      "capped_product": [
+        {
+          "function": "AND",
+          "copies": 1,
+          "per_copy_cap": 1,
+          "optimal_success": "3/4",
+          "beta_power": "3/4"
+        },
+        {
+          "function": "AND",
+          "copies": 2,
+          "per_copy_cap": 1,
+          "optimal_success": "9/16",
+          "beta_power": "9/16"
+        },
+        {
+          "function": "AND",
+          "copies": 3,
+          "per_copy_cap": 1,
+          "optimal_success": "27/64",
+          "beta_power": "27/64"
+        },
+        {
+          "function": "XOR",
+          "copies": 1,
+          "per_copy_cap": 1,
+          "optimal_success": "1/2",
+          "beta_power": "1/2"
+        },
+        {
+          "function": "XOR",
+          "copies": 2,
+          "per_copy_cap": 1,
+          "optimal_success": "1/4",
+          "beta_power": "1/4"
+        },
+        {
+          "function": "XOR",
+          "copies": 3,
+          "per_copy_cap": 1,
+          "optimal_success": "1/8",
+          "beta_power": "1/8"
+        },
+        {
+          "conditioning_counterexample": "AND, uniform two-bit input",
+          "unconditional_optimal_one_query_success": "3/4",
+          "adaptive_algorithm_success_given_nonheavy": "1",
+          "joint_nonheavy_and_success_probability": "1/2",
+          "conclusion": "conditioning on nonheavy invalidates the beta bound"
+        }
+      ]
+    },
+    "lean_sources_changed": false,
+    "lean_or_comparator_executed": false
+  },
+  "pdfs": {
+    "expert": {
+      "path": "/Users/willcook/Downloads/quartic_round10_followup_20261104/expert/expert_companion.pdf",
+      "sha256": "795d7f1a3be3d9b3040a5f2e40b32d4d8f87854451f23f639e0675476121cfaf",
+      "pages": 18,
+      "render_receipt_sha256": "1694e96e0ae2c4d923136d5445062e295e33b1f781182d49ce23cb285052c840",
+      "contact_sheets_inspected": [
+        {
+          "path": "/Volumes/Demo Take Media/quartic_round10_followup_20261104/expert/inspection/sheet-001.png",
+          "pages": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "sha256": "7739e165a582e665541fcd6c59429c365887865d6eeb825d96c8d8afe1601b06"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_round10_followup_20261104/expert/inspection/sheet-007.png",
+          "pages": [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "sha256": "82278d1b350942a955a6cd388da730a98eb9b4c6d135a408d1b449d6310935d2"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_round10_followup_20261104/expert/inspection/sheet-013.png",
+          "pages": [
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "sha256": "823c5129bc795a3d59d457160b6e75840513f0e95a138a172dfbb34146f0720f"
+        }
+      ],
+      "full_size_pages_inspected": [
+        1,
+        2,
+        11,
+        17,
+        18
+      ],
+      "visual_result": "No clipping, overlap, broken notation or misplaced scope identified at stated inspection scope."
+    },
+    "exposition": {
+      "path": "/Users/willcook/Downloads/quartic_round10_followup_20261104/exposition/exposition.pdf",
+      "sha256": "4aefda2e2c4fb6ad8c4b3293032dc28bbb66be58d54810b8491335068d26654b",
+      "pages": 25,
+      "render_receipt_sha256": "f317704145fe15efa0d29c07d4f6b257b496139c546cf976178dff52c87c912b",
+      "contact_sheets_inspected": [
+        {
+          "path": "/Volumes/Demo Take Media/quartic_round10_followup_20261104/exposition/inspection/sheet-001.png",
+          "pages": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "sha256": "a42e7f636a2bc20dd0a672af177d7874e4b145a7ed3605a85268484496f02e9f"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_round10_followup_20261104/exposition/inspection/sheet-007.png",
+          "pages": [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "sha256": "ed023013604e1b483fe0dc9f059a275c9b1d655c4fc65b5fcf73a340c8864656"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_round10_followup_20261104/exposition/inspection/sheet-013.png",
+          "pages": [
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "sha256": "f32cd00508bb2b314b1cd29e08c24e2d7947a7933f9b8f3e0cd955ddedf79045"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_round10_followup_20261104/exposition/inspection/sheet-019.png",
+          "pages": [
+            19,
+            20,
+            21,
+            22,
+            23,
+            24
+          ],
+          "sha256": "0129b2719f9efff3b8566553bac35f4148b95bb3addb4bb8dfaab6801674be87"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_round10_followup_20261104/exposition/inspection/sheet-025.png",
+          "pages": [
+            25
+          ],
+          "sha256": "66246fe00b433556de94b4f603e619090fce47ffa3b40f1bbbdade13f6f9ba51"
+        }
+      ],
+      "full_size_pages_inspected": [
+        1,
+        20,
+        21,
+        23,
+        24
+      ],
+      "visual_result": "No clipping, overlap, broken notation or misplaced scope identified at stated inspection scope."
+    },
+    "record": {
+      "path": "/Users/willcook/Downloads/quartic_round10_followup_20261104/record/reasoning_record.pdf",
+      "sha256": "61512593494f5578a2e76fd26eeef6bdebd2e30c84154d65b4cff20bdf245fd5",
+      "pages": 139,
+      "render_receipt_sha256": "0b121966e3ffd662dc82289dbda5afd632a462417d0ed884589120c7a43528c0",
+      "contact_sheets_inspected": [],
+      "full_size_pages_inspected": [
+        5
+      ],
+      "visual_result": "No clipping, overlap, broken notation or misplaced scope identified at stated inspection scope."
+    }
+  },
+  "record_pixel_comparison": {
+    "baseline_pdf": "/Volumes/Demo Take Media/quartic_round10_revised_20261104/record/reasoning_record.pdf",
+    "pages": 139,
+    "changed_pixel_pages": [
+      5
+    ],
+    "unchanged_pixel_pages": 138
+  },
+  "link_binding": "round10_followup_link_binding.json",
+  "record_passage_rebind": "round10_followup_record_rebind.json",
+  "inspection_scope": "All 18 expert and 25 exposition pages in contact sheets; full-size pages listed below. Record page 5 inspected; other 138 pages pixel-identical to prior accepted render. No blind-reader or human-comprehension claim.",
+  "validation_repairs": [
+    "Initial layout check reached the new README before its revision account had been written; completed the owned evidence files before final validation."
+  ],
+  "register": {
+    "method_commit": "bfad719ae5f144a38848edde25a04cc02d961de9",
+    "baseline_edition": "aa2a08f",
+    "comparisons": {
+      "expert": {
+        "report": "/Users/willcook/Downloads/quartic_round10_followup_20261104/validation/expert-comparison.json",
+        "sha256": "53de4c8e3080c3e6646839b79f50edac41e4e018abd97695149a9b2c0b8a24ce",
+        "features": {
+          "sent_len_mean": {
+            "before": 16.46088794926004,
+            "after": 16.45054945054945
+          },
+          "para_len_mean": {
+            "before": 74.32038834951456,
+            "after": 73.54
+          },
+          "status_vocab_rate": {
+            "before": 8.332136187329407,
+            "after": 9.549388242315727
+          }
+        }
+      },
+      "exposition": {
+        "report": "/Users/willcook/Downloads/quartic_round10_followup_20261104/validation/exposition-comparison.json",
+        "sha256": "7c9691cd967870a05e495c302752853b42c714fb59fa20f35579fac7c13e8fe9",
+        "features": {
+          "sent_len_mean": {
+            "before": 16.320781032078102,
+            "after": 16.07182320441989
+          },
+          "para_len_mean": {
+            "before": 84.58088235294117,
+            "after": 82.8768115942029
+          },
+          "status_vocab_rate": {
+            "before": 4.835039817974971,
+            "after": 5.339435545385202
+          }
+        }
+      }
+    },
+    "boundaries": [
+      "Whole-document counts are pointers to prose, not quality scores.",
+      "Expert profile: ABK arXiv v2, pointer-functions arXiv v3, and original OpenAI October 5 2026 preprint.",
+      "Teaching profile: one de Wolf August 2026 lecture-note source; zero empirical IQR means floored distances have no population interpretation.",
+      "Buhrman/de Wolf survey excluded because extraction drops letters.",
+      "ABK extraction omits front matter; pointer-function extraction has damaged math macros. Their prose counts are provisional diagnostic context, not reliable abstract or mathematical-content comparison.",
+      "Source openings inspected in PDF and extracted text; targeted construction/measurement passages inspected. No full fresh literature review claimed."
+    ],
+    "decisions": [
+      "Retain status terms that state attribution/formal scope; do not delete them to improve a detector rate.",
+      "Keep teaching operations and exact cap/conditioning distinctions even when they lengthen the route.",
+      "Opening and proof-order edits judged by their reader tasks, not by reducing total pages."
+    ],
+    "source_hashes": {
+      "quartic-ref-02-separations-in-query-complexity-using-chea/extracted.md": "39745f19fdbaad3fd6542cee69cd8fdabe02771f975e676aa2e375a208873e32",
+      "quartic-lit-buhrman-dewolf-decision-tree-survey/extracted.md": "dd267ba1128aa08201558e63b5be431e11b9855b11cf0ac2f46216676ae2e8d8",
+      "quartic-ref-04-separations-in-query-complexity-based-on-p/extracted.md": "30eacb1b152e26be43fb8f656b065c1ae6e1a25782eb0fcc13c544e246baacd2",
+      "quartic-lit-dewolf-quantum-computing-lecture-notes/extracted.md": "57b133972c5e26ceb41d46e49a77a52ef1b03e0ee522ca1534dd6e48547f7dd5",
+      "openai/extracted.md": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a"
+    }
+  }
+}

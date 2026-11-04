@@ -1,0 +1,773 @@
+{
+  "schema": "quartic-round10-followup-dispositions-v1",
+  "source": "research/returns/round10/followup_editorial_feedback.md",
+  "source_sha256": "983f1f1752dda0d9a7428c78b0fb4a6d44e5d67831b7e79fecb8b92ffd55e56e",
+  "baseline_revision": "aa2a08fd27bdaa616cbd9edee0283efece9b26ef",
+  "source_scope": "User-supplied informal assessment of the expert paper. Reviewer’s PDF edition is not hash-identified. No exposition review was received; its decisions below are audience-specific editorial transfer.",
+  "authorship_scope": "Manuscript source revision and source-level self-review. No new theorem, Lean build, Comparator execution, human learning result or independent blind review claimed.",
+  "manuscript_sha256": {
+    "docs/expert_companion.md": "a0d6fa0aae0222509c5a14aa6559285aaade9880ceacaafdd385e7abd56336c6",
+    "docs/exposition.md": "8eb8a5c82a14ee07da5d244f5acb1ab720bece9db2ca6bec8791b61fadc3293c"
+  },
+  "hash_scope": "Final manuscript bytes after exact-edition link binding; author snapshot retained separately.",
+  "findings": [
+    {
+      "id": "F10-001",
+      "source_quote": "The biggest problem is conceptual compression.",
+      "expert": {
+        "status": "applied",
+        "decision": "Replace the abstract’s premature truncation/original-law description with the search-versus-hidden-address contrast; keep exact laws in §3 and §4.",
+        "rationale": "The abstract now identifies what the algorithms accomplish before naming their technical contracts. Exact sampling and a capped prediction remain visible as the two reconstructed arguments.",
+        "locators": [
+          {
+            "path": "docs/expert_companion.md",
+            "section": "Abstract",
+            "quote": "quantum comparisons find a short list of possible winning columns before checking their certificates",
+            "line": 9
+          },
+          {
+            "path": "docs/expert_companion.md",
+            "section": "4.4",
+            "quote": "This bounds a joint event under the original law.",
+            "line": 252
+          }
+        ]
+      },
+      "exposition": {
+        "status": "applied_by_audience_transfer",
+        "decision": "Replace the introductory frame with a short query example and a certificate-search explanation; move the full optimal-exponent quantifier definition to §6, where it is used.",
+        "rationale": "The teaching reader first learns the access model and the mathematical job. The early theorem keeps its fixed-k quantifiers and both explicit bounds; the full infimum and uniform-constant argument remain intact later.",
+        "locators": [
+          {
+            "path": "docs/exposition.md",
+            "section": "Introduction",
+            "quote": "**Why a fourth power is possible.**",
+            "line": 20
+          },
+          {
+            "path": "docs/exposition.md",
+            "section": "6",
+            "quote": "The same constant $C$ must work for all of them;",
+            "line": 433
+          }
+        ]
+      }
+    },
+    {
+      "id": "F10-002",
+      "source_quote": "Explain in the first half-page exactly what OpenAI established, what this companion reconstructs, and what the formalization additionally establishes.",
+      "expert": {
+        "status": "applied",
+        "decision": "State the attribution, two reconstructed mechanisms and formalization’s role in the abstract and opening paragraph.",
+        "rationale": "Formalization is described as proof of precise mathematical statements, not a new discovery of the separation or blanket certification of every printed inference.",
+        "locators": [
+          {
+            "path": "docs/expert_companion.md",
+            "section": "Abstract",
+            "quote": "OpenAI proved that the optimal polynomial exponent",
+            "line": 9
+          },
+          {
+            "path": "docs/expert_companion.md",
+            "section": "1",
+            "quote": "This companion reconstructs the two mechanisms",
+            "line": 14
+          }
+        ]
+      },
+      "exposition": {
+        "status": "applied_by_audience_transfer",
+        "decision": "State OpenAI’s theorem, this exposition’s teaching task and the role of the accompanying Lean development before the query example.",
+        "rationale": "The reader knows why the paper exists without first meeting formal declarations or a verification inventory.",
+        "locators": [
+          {
+            "path": "docs/exposition.md",
+            "section": "Introduction",
+            "quote": "The theorem and construction are OpenAI's; our task is to make the two algorithms' very different access to that board understandable.",
+            "line": 12
+          }
+        ]
+      }
+    },
+    {
+      "id": "F10-003",
+      "source_quote": "For a reconstruction, the provenance should be unmistakable from the title itself.",
+      "expert": {
+        "status": "applied",
+        "decision": "Retitle the paper Reconstructing OpenAI’s nearly quartic query separation.",
+        "rationale": "The title identifies both the theorem’s provenance and the present contribution. The subtitle names the bounds and formalization; no discovery priority is transferred.",
+        "locators": [
+          {
+            "path": "docs/expert_companion.md",
+            "section": "Metadata",
+            "quote": "title: \"Reconstructing OpenAI’s nearly quartic query separation\"",
+            "line": 2
+          }
+        ]
+      },
+      "exposition": {
+        "status": "applied_by_audience_transfer",
+        "decision": "Retitle the teaching article Why OpenAI’s query separation is nearly quartic.",
+        "rationale": "A why-title retains the explanatory purpose while making attribution explicit. The subtitle identifies the optimal randomized–quantum exponent.",
+        "locators": [
+          {
+            "path": "docs/exposition.md",
+            "section": "Metadata",
+            "quote": "title: \"Why OpenAI’s query separation is nearly quartic\"",
+            "line": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "F10-004",
+      "source_quote": "Add a genuinely intuitive proof roadmap.",
+      "expert": {
+        "status": "applied",
+        "decision": "Replace the existing formal-object-heavy overview with the column/certificate task, cheap comparisons before checks, independent planting and prediction of guessed addresses.",
+        "rationale": "This is replacement and reordering, not an additional roadmap. High-probability comparisons and the fixed-k cost scales remain qualified; the exact syntax follows in §2.",
+        "locators": [
+          {
+            "path": "docs/expert_companion.md",
+            "section": "1.1",
+            "quote": "### 1.1 Why the construction works",
+            "line": 36
+          },
+          {
+            "path": "docs/expert_companion.md",
+            "section": "1.1",
+            "quote": "Guesses are covered too: every proposed cell position names a candidate answer to all the address problems.",
+            "line": 42
+          }
+        ]
+      },
+      "exposition": {
+        "status": "applied_by_audience_transfer",
+        "decision": "Use a separate teaching preview that explains what a certificate is, why a winner beats a rival with high probability, and how the classical factor m arises.",
+        "rationale": "The preview prepares the existing four-column example rather than copying the expert overview. It does not present that small board as an asymptotic hardness instance.",
+        "locators": [
+          {
+            "path": "docs/exposition.md",
+            "section": "Introduction",
+            "quote": "A certificate is stored evidence that can be checked by reading input bits.",
+            "line": 20
+          },
+          {
+            "path": "docs/exposition.md",
+            "section": "Introduction",
+            "quote": "The small board illustrates the operations, not the large-size hardness theorem.",
+            "line": 34
+          }
+        ]
+      }
+    },
+    {
+      "id": "F10-005",
+      "source_quote": "The text should explicitly say Appendix G of the reasoning record.",
+      "expert": {
+        "status": "applied",
+        "decision": "Name the reasoning record in every visible external appendix label; preserve direct destinations for the classical and quantum model translations.",
+        "rationale": "An offline reader can distinguish this PDF’s Appendices A–E from the separate record’s Appendix G. The §2.2 and §2.5 translations have separate links, not one link promising two landings.",
+        "locators": [
+          {
+            "path": "docs/expert_companion.md",
+            "section": "6",
+            "quote": "Appendix G.3–G.4 of the reasoning record",
+            "line": 310
+          },
+          {
+            "path": "docs/expert_companion.md",
+            "section": "6",
+            "quote": "Section 2.5 of the reasoning record",
+            "line": 312
+          }
+        ]
+      },
+      "exposition": {
+        "status": "applied_by_audience_transfer",
+        "decision": "Name the reasoning record in its Appendix A and G links and identify the expert’s growing-family result as Appendix E.",
+        "rationale": "The teaching paper’s new local appendices remain unambiguous. Local count/proof links point to explicit anchors; the uniform refinement remains outside the selected teaching route.",
+        "locators": [
+          {
+            "path": "docs/exposition.md",
+            "section": "6",
+            "quote": "Appendix A of the reasoning record",
+            "line": 449
+          },
+          {
+            "path": "docs/exposition.md",
+            "section": "7",
+            "quote": "Appendix G.4 of the reasoning record",
+            "line": 459
+          },
+          {
+            "path": "docs/exposition.md",
+            "section": "6",
+            "quote": "Appendix E of the expert companion",
+            "line": 445
+          }
+        ]
+      }
+    },
+    {
+      "id": "F10-006",
+      "source_quote": "Keep the crucial hypotheses and proofs, but move more constants, implementation details, and verification bookkeeping into supporting material.",
+      "expert": {
+        "status": "applied_selectively",
+        "decision": "Compress the standard decoder and integer-circuit sketches and shorten formal bookkeeping; retain the exact main bounds, sampler and predictor contracts, and compact result map.",
+        "rationale": "Specialists can use the exact decoder/circuit interfaces and follow record proofs for the arithmetic. The arbitrary loser laws, inverse access, finite caps, original-law event inclusion and evidence distinctions are load-bearing and were retained.",
+        "locators": [
+          {
+            "path": "docs/expert_companion.md",
+            "section": "2",
+            "quote": "*Decoder sketch.*",
+            "line": 80
+          },
+          {
+            "path": "docs/expert_companion.md",
+            "section": "2",
+            "quote": "*Circuit sketch.*",
+            "line": 84
+          },
+          {
+            "path": "docs/expert_companion.md",
+            "section": "6",
+            "quote": "| Printed result | Formal endpoint and recorded evidence |",
+            "line": 302
+          }
+        ]
+      },
+      "exposition": {
+        "status": "applied_selectively",
+        "decision": "Keep locally taught quantum operations and worked examples in the body; move the full query-count arithmetic and historical AND–OR calculation to Appendix A, and the optional direct-product proof to Appendix B.",
+        "rationale": "The body still totals the two sources of cost and states the exact product lemma. The operations a newcomer must learn, including retained registers, the amplification rotation, two clocks and event inclusion, remain in place. Only optional derivations and historical comparison move.",
+        "locators": [
+          {
+            "path": "docs/exposition.md",
+            "section": "4",
+            "quote": "These costs add.",
+            "line": 316
+          },
+          {
+            "path": "docs/exposition.md",
+            "section": "Appendix A",
+            "quote": "## A.1 Counting the quantum queries",
+            "line": 487
+          },
+          {
+            "path": "docs/exposition.md",
+            "section": "Appendix A",
+            "quote": "## A.2 Why the balanced AND–OR recipe stops at a cube",
+            "line": 511
+          },
+          {
+            "path": "docs/exposition.md",
+            "section": "Appendix B",
+            "quote": "# Appendix B. The separate-cap direct product",
+            "line": 519
+          }
+        ]
+      }
+    },
+    {
+      "id": "F10-007",
+      "source_quote": "The optional uniform refinement in §6 interrupts the natural progression from the headline theorem to its formal verification.",
+      "expert": {
+        "status": "applied",
+        "decision": "Move the full uniform refinement unchanged in mathematical content to Appendix E; formal correspondence becomes §6 directly after the fixed-k proof.",
+        "rationale": "The main theorem needs fixed k. The stronger scheduled-family deduction remains available with its dimension conditions, new allowance, uniform quantum constant, analytic provenance and separate evidence status.",
+        "locators": [
+          {
+            "path": "docs/expert_companion.md",
+            "section": "6",
+            "quote": "## 6. The formal statement",
+            "line": 298
+          },
+          {
+            "path": "docs/expert_companion.md",
+            "section": "Appendix E",
+            "quote": "## Appendix E. One family approaching four",
+            "line": 438
+          }
+        ]
+      },
+      "exposition": {
+        "status": "retained_with_navigation_update",
+        "decision": "Keep the teaching article’s existing fixed-k endpoint; update its optional uniform-family destination to expert Appendix E.",
+        "rationale": "Adding the full uniform argument would expand the teaching target. The existing example of invalid growing-k substitution and Question 5 retain the quantifier lesson.",
+        "locators": [
+          {
+            "path": "docs/exposition.md",
+            "section": "6",
+            "quote": "All constants, including $C_k$",
+            "line": 445
+          },
+          {
+            "path": "docs/exposition.md",
+            "section": "6",
+            "quote": "**Question 5 (uniform constants and endpoint powers).**",
+            "line": 447
+          }
+        ]
+      }
+    },
+    {
+      "id": "F10-008",
+      "source_quote": "The paper also mixes three purposes: explaining OpenAI's theorem, providing a detailed proof reconstruction, and reporting Lean verification.",
+      "expert": {
+        "status": "applied",
+        "decision": "Give the reconstruction the main mathematical route and place its formal statement map immediately after completion.",
+        "rationale": "The record owns detailed derivations and evidence; the expert paper retains the distinctions needed to interpret its actual theorem. Formal support for an endpoint is not promoted into support for every prose proof step.",
+        "locators": [
+          {
+            "path": "docs/expert_companion.md",
+            "section": "1",
+            "quote": "The accompanying Lean formalization proves the optimal-exponent statement",
+            "line": 14
+          },
+          {
+            "path": "docs/expert_companion.md",
+            "section": "6",
+            "quote": "These distinctions concern the scope of formal support",
+            "line": 314
+          }
+        ]
+      },
+      "exposition": {
+        "status": "applied_by_audience_transfer",
+        "decision": "Keep formal statement reading as an optional closing extension; simplify its family/evidence account and preserve the board-to-Lean clause exercise.",
+        "rationale": "The teaching reader can finish the mathematics without reading Lean, while the extension uses the familiar domain-bit board to make the formal clause intelligible.",
+        "locators": [
+          {
+            "path": "docs/exposition.md",
+            "section": "7",
+            "quote": "**Optional statement-reading extension.**",
+            "line": 455
+          },
+          {
+            "path": "docs/exposition.md",
+            "section": "7",
+            "quote": "Lean checks proofs of the formal statements; Comparator checks their agreement",
+            "line": 461
+          }
+        ]
+      }
+    },
+    {
+      "id": "F10-009",
+      "source_quote": "Appendix A anticipates natural but invalid simplifications.",
+      "expert": {
+        "status": "retained",
+        "decision": "Retain all existing counterexamples, including their construction-scope qualifications.",
+        "rationale": "These are useful explanations of necessary hypotheses, not decorative technical detail. No simplification removes the finite-cap, conditioning, independence or fixed-parameter warnings.",
+        "locators": [
+          {
+            "path": "docs/expert_companion.md",
+            "section": "Appendix A",
+            "quote": "## Appendix A. Simplifications that fail",
+            "line": 324
+          }
+        ]
+      },
+      "exposition": {
+        "status": "applied_selectively",
+        "decision": "Retain changed-case questions and counterexamples; add the already-established R(P)=L=1 scope qualifier to the terminal-lightness toy.",
+        "rationale": "The expert and record had that qualifier, while the teaching paper did not yet carry it. This bounded cross-document repair keeps the toy’s hard-law premise and explains why it is not the final strict-L<R(P) construction.",
+        "locators": [
+          {
+            "path": "docs/exposition.md",
+            "section": "5",
+            "quote": "This toy illustrates conditioning: it meets the one-query hard-law premise",
+            "line": 361
+          },
+          {
+            "path": "docs/exposition.md",
+            "section": "5",
+            "quote": "**Question 4 (two clocks and the capped event).**",
+            "line": 395
+          }
+        ]
+      }
+    }
+  ],
+  "advisory_constraints": [
+    {
+      "source_quote": "Overall, I’d give it about 8/10 for technical mathematical writing.",
+      "decision": "Retain as the reviewer’s subjective assessment; do not use the score, claimed complete reading or readiness rating as independent mathematical verification or a measured reader outcome."
+    },
+    {
+      "source_quote": "in approximately 250 words",
+      "decision": "Use a bounded intuitive preview, replacing existing opening prose. No word quota determines the proof content, and no 9/10 target is claimed."
+    }
+  ],
+  "register_review": {
+    "method_checkout": "/Users/willcook/src/lean-exposition-quartic-r10",
+    "skills": [
+      "skills/long-to-short/SKILL.md",
+      "skills/record-to-expository/SKILL.md",
+      "skills/register/SKILL.md"
+    ],
+    "scope": "Source-level review of revised passages and retained mathematical/teaching units, using the current stage skills and prior manuscript knowledge. Paragraph decisions below are grouped where adjacent paragraphs perform one mathematical task. This is not a fabricated pre-edit paragraph census or an independent cold-reader outcome.",
+    "paragraph_decisions": [
+      {
+        "locator": {
+          "path": "docs/expert_companion.md",
+          "section": "Abstract",
+          "quote": "OpenAI proved that",
+          "line": 9
+        },
+        "job": "State result, cost pair, reconstruction and formalization scope.",
+        "attention": "Premature original-law and truncation terminology demanded the planting setup.",
+        "decision": "Rewritten around search and hidden addresses; no stronger bounds added."
+      },
+      {
+        "locator": {
+          "path": "docs/expert_companion.md",
+          "section": "1",
+          "quote": "OpenAI's nearly quartic construction",
+          "line": 14
+        },
+        "job": "Establish provenance and distinguish the paper’s two proof explanations from formalization.",
+        "attention": "Reader previously met pointers before knowing the paper’s role.",
+        "decision": "Rewritten; exact theorem and model paragraph retained."
+      },
+      {
+        "locator": {
+          "path": "docs/expert_companion.md",
+          "section": "1.1",
+          "quote": "Think of $m$ columns",
+          "line": 38
+        },
+        "job": "Explain the input’s purpose before formal fields.",
+        "attention": "Full X/A/B notation delayed the reason for the construction.",
+        "decision": "Replaced overview object inventory with certificate role; definitions remain in §2."
+      },
+      {
+        "locator": {
+          "path": "docs/expert_companion.md",
+          "section": "1.1",
+          "quote": "Quantumly, checking a column",
+          "line": 40
+        },
+        "job": "Explain why comparison reduces query cost.",
+        "attention": "Risk of an unconditional correctness gloss for a probabilistic decoder.",
+        "decision": "Retained high-probability qualification and separate final verification."
+      },
+      {
+        "locator": {
+          "path": "docs/expert_companion.md",
+          "section": "1.1",
+          "quote": "Classically, start with one zero",
+          "line": 42
+        },
+        "job": "Explain hidden planting and why guesses count.",
+        "attention": "Technical joint-event language belonged after the simulator.",
+        "decision": "Rewritten in operations; exact law and cap argument retained at §4.4."
+      },
+      {
+        "locator": {
+          "path": "docs/expert_companion.md",
+          "section": "1.2",
+          "quote": "Ben-David's totalization",
+          "line": 50
+        },
+        "job": "Place old and new cost pairs at the same supplier scale.",
+        "attention": "Historical arithmetic must not turn a recipe ceiling into a framework impossibility.",
+        "decision": "Retained the matched comparison and its restricted scope."
+      },
+      {
+        "locator": {
+          "path": "docs/expert_companion.md",
+          "section": "2",
+          "quote": "*Decoder sketch.*",
+          "line": 80
+        },
+        "job": "Explain the statistic, threshold, retained workspace and off-promise cap.",
+        "attention": "Standard concentration and alternative-decoder detail interrupted the construction.",
+        "decision": "Compressed with exact record destination; circuit promise test retained separately."
+      },
+      {
+        "locator": {
+          "path": "docs/expert_companion.md",
+          "section": "2",
+          "quote": "*Circuit sketch.*",
+          "line": 84
+        },
+        "job": "Explain why exact promise certification has near-linear size.",
+        "attention": "Integer threshold implementation was more detail than the short-paper route needed.",
+        "decision": "Compressed to integer arithmetic, transform layers and word width; complete record destination retained."
+      },
+      {
+        "locator": {
+          "path": "docs/expert_companion.md",
+          "section": "3.2",
+          "quote": "For deterministic comparisons",
+          "line": 130
+        },
+        "job": "State the new comparator contract and weighted law.",
+        "attention": "These are central steps, so further compression could hide arbitrary loser probabilities.",
+        "decision": "Retained weight interpretation, exact w_i/m identity, complete amplifier interface, example, coupling and rebuilding count."
+      },
+      {
+        "locator": {
+          "path": "docs/expert_companion.md",
+          "section": "4.4",
+          "quote": "Let $\\lambda_i$ count all queries",
+          "line": 237
+        },
+        "job": "Separate heavy columns and build an all-input capped predictor.",
+        "attention": "Whole-run lightness cannot be replaced by conditioning or a prefix cap.",
+        "decision": "Retained all operational steps, joint-event inclusion, original law and cancellation of m."
+      },
+      {
+        "locator": {
+          "path": "docs/expert_companion.md",
+          "section": "5",
+          "quote": "Fix $0\\le\\alpha<4$",
+          "line": 292
+        },
+        "job": "Close the exponent proof with correct parameter order.",
+        "attention": "No source simplification should substitute a growing parameter.",
+        "decision": "Retained the complete quotient argument; uniform refinement moved out of its continuation."
+      },
+      {
+        "locator": {
+          "path": "docs/expert_companion.md",
+          "section": "6",
+          "quote": "The Lean development proves",
+          "line": 300
+        },
+        "job": "Identify formal endpoints and actual differences.",
+        "attention": "Table’s evidence distinctions are useful; long source-history paragraphs delayed reading.",
+        "decision": "Retained compact map, shortened surrounding inventory, named external record in every appendix link."
+      },
+      {
+        "locator": {
+          "path": "docs/expert_companion.md",
+          "section": "Appendices A–D",
+          "quote": "## Appendix A. Simplifications that fail",
+          "line": 324
+        },
+        "job": "Preserve failures, attribution and full subroutine proofs.",
+        "attention": "Movement of uniform section changes navigation but not these arguments.",
+        "decision": "Retained complete content and checked internal theorem references."
+      },
+      {
+        "locator": {
+          "path": "docs/expert_companion.md",
+          "section": "Appendix E",
+          "quote": "## Appendix E. One family approaching four",
+          "line": 438
+        },
+        "job": "Derive one explicit growing-parameter family.",
+        "attention": "This is a second payoff with extra uniform prerequisites.",
+        "decision": "Moved the whole argument after the main paper; no condition or constant removed."
+      },
+      {
+        "locator": {
+          "path": "docs/exposition.md",
+          "section": "Introduction",
+          "quote": "OpenAI proved that",
+          "line": 12
+        },
+        "job": "State theorem, provenance and teaching objective before the example.",
+        "attention": "A query primer alone did not tell the reader what this account contributes.",
+        "decision": "Reordered around the result and concrete reader task."
+      },
+      {
+        "locator": {
+          "path": "docs/exposition.md",
+          "section": "Introduction",
+          "quote": "**What a query costs.**",
+          "line": 16
+        },
+        "job": "Teach the charged operation with four bits.",
+        "attention": "Keep the familiar operation without repeating multiple benchmark problems.",
+        "decision": "Retained the concrete OR query trace and model cost; shortened background."
+      },
+      {
+        "locator": {
+          "path": "docs/exposition.md",
+          "section": "Introduction",
+          "quote": "Write $R(f)$ and $Q(f)$",
+          "line": 18
+        },
+        "job": "Define error, budget, totality and promise.",
+        "attention": "These are prerequisites, not optional technical details.",
+        "decision": "Retained all-input/all-branch cap and excluded-input convention."
+      },
+      {
+        "locator": {
+          "path": "docs/exposition.md",
+          "section": "Introduction",
+          "quote": "**Why a fourth power is possible.**",
+          "line": 20
+        },
+        "job": "Explain certificates before hard addresses and classical prediction.",
+        "attention": "The opening previously mixed precise quantifier apparatus with a first encounter.",
+        "decision": "Replaced, not appended, an audience-specific preview and delayed infimum notation to its use."
+      },
+      {
+        "locator": {
+          "path": "docs/exposition.md",
+          "section": "1–2",
+          "quote": "# 1. Three eight-bit inputs",
+          "line": 38
+        },
+        "job": "Teach promise signs, projection, board, transcript and local-test operations.",
+        "attention": "These calculations are the preparation that permits the later proof.",
+        "decision": "Retained worked inputs, figures, domain-bit board, exact gates and Question 1."
+      },
+      {
+        "locator": {
+          "path": "docs/exposition.md",
+          "section": "3",
+          "quote": "# 3. The general partial function",
+          "line": 154
+        },
+        "job": "Supply decoder, exact circuit and hardness at the required scope.",
+        "attention": "Imported hardness must not be mistaken for an inference from the small picture.",
+        "decision": "Retained its explicit conditions and source; no new proof claim."
+      },
+      {
+        "locator": {
+          "path": "docs/exposition.md",
+          "section": "4",
+          "quote": "**An ideal process.**",
+          "line": 222
+        },
+        "job": "Derive expected halving with the cycled board before exact sampling.",
+        "attention": "A weight is not a posterior probability that the column wins.",
+        "decision": "Retained explanation, absorption rule, calculation, expectation bound and missing-winner argument."
+      },
+      {
+        "locator": {
+          "path": "docs/exposition.md",
+          "section": "4",
+          "quote": "**Sampling a pivot.**",
+          "line": 244
+        },
+        "job": "Teach why fresh workspaces produce w_i/m.",
+        "attention": "The newcomer needs tensor product and orthogonality operations, unlike the specialist.",
+        "decision": "Retained complete construction and two examples."
+      },
+      {
+        "locator": {
+          "path": "docs/exposition.md",
+          "section": "4",
+          "quote": "**Amplification with a fixed cap.**",
+          "line": 266
+        },
+        "job": "Teach the rotation, invariant label law and finite schedule.",
+        "attention": "A generic citation would not permit the reader to solve overshoot exercise.",
+        "decision": "Retained matrices, full inverse, randomized iteration schedule and Question 2."
+      },
+      {
+        "locator": {
+          "path": "docs/exposition.md",
+          "section": "4",
+          "quote": "**The count.**",
+          "line": 310
+        },
+        "job": "Show why costs add rather than multiply.",
+        "attention": "Detailed logarithmic envelopes obscured the search advantage after the algorithm.",
+        "decision": "Replace body arithmetic with two counted contributions and exact final bound; full count remains A.1."
+      },
+      {
+        "locator": {
+          "path": "docs/exposition.md",
+          "section": "5",
+          "quote": "**The pair.**",
+          "line": 328
+        },
+        "job": "Explain independent planting with a first-difference event.",
+        "attention": "Figure geometry is not the same hard sample as the earlier fixed board.",
+        "decision": "Retained sampling law, scope reset, figure, early/late proof and independence exercise."
+      },
+      {
+        "locator": {
+          "path": "docs/exposition.md",
+          "section": "5",
+          "quote": "**The simulator.**",
+          "line": 363
+        },
+        "job": "Make the two clocks, stop-before-read rule and event inclusion executable.",
+        "attention": "This is the classical teaching objective and cannot move to supporting material.",
+        "decision": "Retained operational steps, XOR trace and changed-query question."
+      },
+      {
+        "locator": {
+          "path": "docs/exposition.md",
+          "section": "5",
+          "quote": "**Why the hypotheses matter.**",
+          "line": 406
+        },
+        "job": "Show failures of pooled caps and separate independence.",
+        "attention": "Removing the generic proof should not remove its meaningful assumptions.",
+        "decision": "Retained counterexamples and exact lemma on main route; moved only optional proof to B."
+      },
+      {
+        "locator": {
+          "path": "docs/exposition.md",
+          "section": "6",
+          "quote": "# 6. Exponent four, and the order of quantifiers",
+          "line": 425
+        },
+        "job": "Turn the bounds into a uniform-exponent conclusion.",
+        "attention": "Full infimum definition is useful here rather than before the board.",
+        "decision": "Moved the definition here; retained quotient proof, threshold example, exercise and combined explanation."
+      },
+      {
+        "locator": {
+          "path": "docs/exposition.md",
+          "section": "7",
+          "quote": "# 7. The statement in Lean",
+          "line": 453
+        },
+        "job": "Read one formal clause using the domain-bit board.",
+        "attention": "Verification inventory should not become a second mathematical lesson.",
+        "decision": "Retained concrete reading task and statement-strength differences, shortened metadata into exact record links."
+      },
+      {
+        "locator": {
+          "path": "docs/exposition.md",
+          "section": "Answers and supporting appendices",
+          "quote": "# Answers to the questions",
+          "line": 463
+        },
+        "job": "Let readers check changed-case reasoning and recover optional calculations.",
+        "attention": "Answer locations and rejoin points must survive relocation.",
+        "decision": "Retained all exercise solutions; moved complete count/history/product proof under explicit anchors; removed duplicate AI disclosure while retaining the original footnote."
+      }
+    ],
+    "comparison_owner": "Parent ran audience-specific profiles and baseline comparisons; exact outputs /tmp/quartic-followup-register/expert-comparison.json and exposition-comparison.json. Parent owns final validation retention.",
+    "reported_diagnostics": "Parent reports expert mean sentence length 16.46→16.45 and exposition 16.32→16.07. Status-vocabulary and semicolon specimens often carry attribution, formal scope or a distinction between coins and measurements; no automatic removals follow. Teaching comparison’s single lecture-note reference has zero IQR with detector floors; flagged-feature counts are not quality scores.",
+    "literature_reading_boundary": "The revising author used retained manuscript sources and scoped R10 literature comparisons, not a fresh complete reading of every benchmark work. Parent’s extraction/profile inspection is separately owned. No claims about new primary-source reading are inferred from a comparison run.",
+    "render_acceptance": "Receiving editor inspected all expert/exposition contact sheets and full-size changed openings, formal-scope and relocated appendices; exact artifacts in round10_followup_validation.json."
+  },
+  "source_checks": {
+    "git_diff_check": "passed before source freeze",
+    "citation_keys": "Every baseline citation key retained in each revised manuscript.",
+    "expert_equations": "All tags (1)–(16) retained; (16) now in Appendix E.",
+    "local_anchors": "Every explicit local link resolves to an explicit current anchor.",
+    "record_anchors": "Every linked reasoning-record anchor exists in the current local record; parent owns immutable-byte rebind verification.",
+    "offline_appendix_labels": "All visible links to appendices of the reasoning record name that document.",
+    "mathematical_checks": "Re-read exact headline/family challenge statements and named-circuit explicit bounds; checked high-probability qualifiers, original-law joint event, all-branch caps, uniform-family conditions and fixed-k quantifier order against current manuscript/record. No Lean source edited."
+  },
+  "dependent_changes_for_parent": {
+    "status": "completed",
+    "evidence": "round10_followup_validation.json and round10_followup_link_binding.json"
+  },
+  "deliberate_retentions": [
+    "Exact primary theorem and same-function bounds",
+    "Complete stochastic sampler/coupling and capped predictor proof",
+    "All existing counterexamples and worked teaching questions",
+    "Teaching amplitude-amplification derivation and two-clock trace",
+    "Distinct compared/built/ordinary-deduction scope",
+    "Strong single-family result retained in expert Appendix E"
+  ],
+  "author_snapshot_manuscript_sha256": {
+    "docs/expert_companion.md": "a0d6fa0aae0222509c5a14aa6559285aaade9880ceacaafdd385e7abd56336c6",
+    "docs/exposition.md": "8eb8a5c82a14ee07da5d244f5acb1ab720bece9db2ca6bec8791b61fadc3293c"
+  }
+}

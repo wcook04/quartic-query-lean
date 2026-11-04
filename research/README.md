@@ -151,3 +151,7 @@ The first [round-ten return](returns/round10/README.md) is the expert review.
 Its [revision account](adjudication/round10_revision.md) tracks manuscript changes,
 individual dispositions and writing-method propagation. The exposition and
 reasoning-record reviews have not yet arrived.
+
+The [follow-up editorial revision](adjudication/round10_followup_revision.md)
+applies a later informal expert assessment to both shorter accounts, preserving
+the different reader tasks and the limits of that feedback.

@@ -24,3 +24,9 @@ not a human comprehension study or a new Lean/Comparator run.
 The [revision account](../../adjudication/round10_revision.md) and its individual
 dispositions own the maintained decisions. Historical R9 decisions and original
 R10 observations remain immutable; new decisions can supersede them explicitly.
+
+A subsequent [informal editorial assessment](followup_editorial_feedback.md)
+concerns the expert PDF. Its [intake receipt](followup_intake.json) records the
+missing exact-edition identifier and the reviewer's stated scope. It is not a
+second full R10 return. The [follow-up revision account](../../adjudication/round10_followup_revision.md)
+tracks its distinct application to the expert paper and exposition.
