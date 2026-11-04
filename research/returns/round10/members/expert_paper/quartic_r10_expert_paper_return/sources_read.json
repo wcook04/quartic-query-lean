@@ -1,0 +1,661 @@
+{
+  "schema": "quartic-r10-sources-read-v1",
+  "review_date": "2026-11-04",
+  "purpose": "Actual reading scopes and edition identities, not a bibliography-as-reading claim. Source IDs are portable citation keys used throughout this return. Paths refer to the input packet.",
+  "sources": [
+    {
+      "id": "Q-S01",
+      "title": "Expert companion",
+      "path": "repository/docs/expert_companion.md",
+      "sha256": "8c29b8d9a4adbc7b93fbe50f1cbb6d27afb11f0afd44172342bdfb1c3a42cc8d",
+      "edition": "Packet round 10; SHA-bound working draft, November 2026",
+      "url": null,
+      "status": "read_selected_passages",
+      "scope": "Primary source passages seen in inherited frozen reading; reread quantum mechanisms and citation claims in Sections 1–3, Section 7, Appendix A.1–A.3. No blind-reader claim.",
+      "visual_pages": [],
+      "notes": [],
+      "reader": "quantum verification specialist, after freeze"
+    },
+    {
+      "id": "Q-S02",
+      "title": "Expert companion bibliography",
+      "path": "repository/docs/expert_companion.bib",
+      "sha256": "31702a7b39b12b775005b311544b69a1d3e0544d669a009a6a80c56e235cca6a",
+      "edition": "Round-10 supplied bibliography",
+      "url": null,
+      "status": "read_selected_passages",
+      "scope": "All entries read for identities, editions and locators; listing a work is not counted as reading that work.",
+      "visual_pages": [],
+      "notes": [],
+      "reader": "quantum verification specialist, after freeze"
+    },
+    {
+      "id": "Q-S03",
+      "title": "OpenAI, A Nearly Quartic Separation Between Randomized and Quantum Query Complexity",
+      "path": "paper/extracted.md",
+      "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+      "edition": "5 October 2026 preprint, cited repository revision 4eaee875",
+      "url": "https://github.com/openai/math/blob/4eaee875/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf",
+      "status": "read_selected_passages",
+      "scope": "Section 3.1–3.3, printed pp.7–10; extracted lines304–516. Read bounded amplification, weighted tournament, coupling, column comparison, verification and physical bit-query access.",
+      "visual_pages": [],
+      "notes": [],
+      "reader": "quantum verification specialist, after freeze"
+    },
+    {
+      "id": "Q-S04",
+      "title": "Brassard–Høyer–Mosca–Tapp, Quantum Amplitude Amplification and Estimation",
+      "path": "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/extracted.md",
+      "sha256": "9fd98e35695c4bf763e4faa35ac146b18c74c3caf0dee24e3e208923aff71a86",
+      "edition": "arXiv:quant-ph/0005055v1; journal/book citation 2002",
+      "url": "https://arxiv.org/pdf/quant-ph/0005055v1",
+      "status": "read_selected_passages",
+      "scope": "Section 2 through Theorem 3/QSearch, extracted lines21–155; read operator, invariant subspace, good-state formula, endpoints and unknown-probability expected-cost algorithm.",
+      "visual_pages": [],
+      "notes": [],
+      "reader": "quantum verification specialist, after freeze"
+    },
+    {
+      "id": "Q-S05",
+      "title": "Boyer–Brassard–Høyer–Tapp, Tight Bounds on Quantum Searching",
+      "path": "literature/quartic-ref-11-tight-bounds-on-quantum-searching/source.pdf",
+      "sha256": "badd64e3db8079ee2428fc9f869e202d584412b0a003be64464437019d252fde",
+      "edition": "arXiv:quant-ph/9605034v1, submitted 23 May 1996; PDF draft dated 10 May 1996; distinct from 1998 journal citation",
+      "url": "https://arxiv.org/pdf/quant-ph/9605034v1",
+      "status": "read_selected_passages",
+      "scope": "Section 4, Lemmas 1–2 and complete averaged-probability calculation, printed p.3. Extracted two-column text checked against original rendered page.",
+      "visual_pages": [
+        3
+      ],
+      "notes": [
+        "No publisher-pagination criticism inferred from the arXiv metadata."
+      ],
+      "reader": "quantum verification specialist, after freeze"
+    },
+    {
+      "id": "Q-S06",
+      "title": "Aaronson–Ambainis, Forrelation",
+      "path": "literature/quartic-ref-01-forrelation-a-problem-that-optimally-separ/source.pdf",
+      "sha256": "c27966b5b6cf12d61e3877f6ac23b48c9a21fe0a86e6b96ef527b02503e4e1fe",
+      "edition": "arXiv:1411.5729v1; journal citation SICOMP 2018",
+      "url": "https://arxiv.org/pdf/1411.5729v1",
+      "status": "read_selected_passages",
+      "scope": "Section 3.2, Figure 1, paragraph before Proposition 6, Proposition 6 and its complete proof, printed pp.13–14; extracted lines646–738.",
+      "visual_pages": [
+        13,
+        14
+      ],
+      "notes": [],
+      "reader": "quantum verification specialist, after freeze"
+    },
+    {
+      "id": "Q-S07",
+      "title": "Ambainis–Iraids–Kokainis, Near-Optimal Separations of Certificate Complexity from Randomized and Quantum Query Complexity",
+      "path": "literature/quartic-lit-ambainis-iraids-kokainis-certificate-v3/extracted.md",
+      "sha256": "e0a89e48b31155794adfad410de3cb2ec7393a82de3ff040dbfff5f5e58712a6",
+      "edition": "arXiv:2609.11664v3, revised 5 October 2026; date checked against primary arXiv metadata",
+      "url": "https://arxiv.org/abs/2609.11664v3",
+      "status": "read_selected_passages",
+      "scope": "Section 6.1 overview and candidate set/update, fixed graph and direction-test contract, extracted lines306–355, read fully. Later FindSource cost/implementation passage lines397–436 read; not the complete variable-time proof.",
+      "visual_pages": [],
+      "notes": [
+        "Algorithm pseudocode extraction in the overview is damaged; no exact pseudocode claim relies on it. Candidate-set equations and prose are intact."
+      ],
+      "reader": "quantum verification specialist, after freeze"
+    },
+    {
+      "id": "Q-S08",
+      "title": "Mande–Paraashar–Saurabh, Randomized and Quantum Query Complexities of Finding a King in a Tournament",
+      "path": "literature/mps-fsttcs2023-published/source.pdf",
+      "sha256": "c2501b7a53ad9328ff3214d6de2dfb2cbb2370523eda94b32ab9eb1c864c0f29",
+      "edition": "FSTTCS 2023, LIPIcs284, article30, published edition",
+      "url": "https://doi.org/10.4230/LIPIcs.FSTTCS.2023.30",
+      "status": "read_selected_passages",
+      "scope": "Intro definition/model and Section4 Theorem19 proof, printed pp.30:11–30:12; Algorithm4 inspected visually on p.30:13. Read adjacent Lemma18 interface, not all supporting sampling proofs.",
+      "visual_pages": [
+        13
+      ],
+      "notes": [],
+      "reader": "quantum verification specialist, after freeze"
+    },
+    {
+      "id": "Q-S09",
+      "title": "Høyer–Mosca–de Wolf, Quantum Search on Bounded-Error Inputs",
+      "path": "literature/quartic-lit-hoyer-mosca-dewolf-quantum-search-bounded-error/extracted.md",
+      "sha256": "cb04695fcd47585c3989bd3fcb37cfa4d332d691e27763b567d36e5ed976c04b",
+      "edition": "arXiv:quant-ph/0304052 supplied source extraction; ICALP2003 citation",
+      "url": "https://arxiv.org/abs/quant-ph/0304052",
+      "status": "read_selected_passages",
+      "scope": "Introduction, query-model definition, Section3 Facts1–2 and setup of the amplify/error-reduce process; extracted lines1–60. Not a full reproof of its optimal search algorithm.",
+      "visual_pages": [],
+      "notes": [],
+      "reader": "quantum verification specialist, after freeze"
+    },
+    {
+      "id": "Q-S10",
+      "title": "Ambainis et al., Separations in Query Complexity Based on Pointer Functions",
+      "path": "literature/quartic-ref-04-separations-in-query-complexity-based-on-p/extracted.md",
+      "sha256": "30eacb1b152e26be43fb8f656b065c1ae6e1a25782eb0fcc13c544e246baacd2",
+      "edition": "Supplied arXiv:1506.04719 manuscript; JACM2017 citation",
+      "url": "https://arxiv.org/abs/1506.04719",
+      "status": "read_selected_passages",
+      "scope": "Section1.3 technique discussion: back pointers, totalization, balanced trees and rejected direct-pointer-symbol alternative; extracted lines211–295. Only prose/model comparison used where mathematical extraction is damaged.",
+      "visual_pages": [],
+      "notes": [],
+      "reader": "quantum verification specialist, after freeze"
+    },
+    {
+      "id": "Q-S11",
+      "title": "Aaronson–Ben-David–Kothari, Separations in Query Complexity Using Cheat Sheets",
+      "path": "literature/quartic-ref-02-separations-in-query-complexity-using-chea/extracted.md",
+      "sha256": "39745f19fdbaad3fd6542cee69cd8fdabe02771f975e676aa2e375a208873e32",
+      "edition": "Supplied arXiv:1511.01937v2; STOC2016 citation",
+      "url": "https://arxiv.org/abs/1511.01937v2",
+      "status": "read_selected_passages",
+      "scope": "Introduction through summary of results, extracted lines1–84. Read promise-totalization motivation and advertised cubic boost. Composition proof in Section3 was not independently read by this scout.",
+      "visual_pages": [],
+      "notes": [],
+      "reader": "quantum verification specialist, after freeze"
+    },
+    {
+      "id": "Q-S12",
+      "title": "Ben-David–Kothari, Randomized Query Complexity Can Beat Certificate Complexity",
+      "path": "literature/quartic-ref-09-randomized-query-complexity-can-beat-certi/extracted.md",
+      "sha256": "cbf6c2cb2ad61204992be29ca9cd54a7c2204ecaf78e541da3bfbf8c2de1e98c",
+      "edition": "Supplied arXiv:2609.15063v1, 2026",
+      "url": "https://arxiv.org/abs/2609.15063v1",
+      "status": "read_selected_passages",
+      "scope": "Construction, Lemmas2–3 and Section3 Lemma5 algorithm description, extracted lines11–112; Lemma4 proof not substantively reviewed because truncated output. Fixed comparison orientation, candidate elimination and final verification read.",
+      "visual_pages": [],
+      "notes": [
+        "This source reverses arrow orientation when calling its task SINK; that convention is not imported into the companion."
+      ],
+      "reader": "quantum verification specialist, after freeze"
+    },
+    {
+      "id": "Q-S13",
+      "title": "Yassine Hamoudi, A Brief Introduction to Quantum Query Complexity",
+      "path": null,
+      "sha256": null,
+      "edition": "Author-hosted PDF, title-page update 24 April 2026",
+      "url": "https://yassine-hamoudi.github.io/files/publications/QueryComplexity.pdf",
+      "status": "read_selected_passages",
+      "scope": "Title page, introduction and Section1.1 through the binary/phase query definitions, printed pp.1–4, via primary PDF web extraction. Beyond-annex source; not read cover to cover.",
+      "visual_pages": [],
+      "notes": [],
+      "reader": "quantum verification specialist, after freeze"
+    },
+    {
+      "id": "Q-S14",
+      "title": "Pragya Arora and Udit Kumar, Quantum Query Complexity of Tournament Solutions",
+      "path": null,
+      "sha256": null,
+      "edition": "arXiv:2610.39702v1, submitted 29 October 2026",
+      "url": "https://arxiv.org/pdf/2610.39702v1",
+      "status": "read_selected_passages",
+      "scope": "Title/abstract and intro/results, definition of fixed-edge tournament and solutions, Section6.1 (Lemma6.1 and complete Theorem6.2 proof), printed pp.11–12, via primary PDF and HTML. Beyond-annex source; other bounds not verified.",
+      "visual_pages": [],
+      "notes": [
+        "Publication date and identity checked using current system1 search plus primary arXiv metadata.",
+        "The result assumes coherent access to fixed edge directions, not arbitrary quantum comparison probabilities."
+      ],
+      "reader": "quantum verification specialist, after freeze"
+    },
+    {
+      "id": "Q-S15",
+      "title": "Reasoning record: selected quantum destinations",
+      "path": "repository/docs/reasoning_record.md",
+      "sha256": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+      "edition": "Current packaged round10 file; not verified against public pinned revision 8357f268",
+      "url": null,
+      "status": "read_selected_passages",
+      "scope": "Section2.5 lines310–346; Section3.3 lines554–684; local-tests/coherent-test destinations lines1857–1998; bounded amplification and retained output lines2157–2218; tournament statement, exact-label/coupling/cost destinations lines2224–2246 and2440–2505; formal-route/physical-state scope lines6492–6540. Lines3730–3795 also displayed while resolving a locator; not counted as a full lower-bound review.",
+      "visual_pages": [],
+      "notes": [
+        "Packet LINK_MAP.json reports that public commit 8357f268732746d1575e05e7de8c888e20ad3793 differs from the packaged record. Local content checks do not certify the pinned public edition or a live hyperlink round trip."
+      ],
+      "reader": "quantum verification specialist, after freeze"
+    },
+    {
+      "id": "Q-S16",
+      "title": "Uniform opaque amplifier statement",
+      "path": "repository/lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean",
+      "sha256": "f316137f32ce485df316e49d14941187256366377c16f45e944cf5098b5b1411",
+      "edition": "Supplied Lean file identified by the recorded SHA; public pin not independently resolved",
+      "url": null,
+      "status": "read_selected_passages",
+      "scope": "Entire 56-line statement file read, including explicit specification sorry; no claim that reading a statement is proof validation.",
+      "visual_pages": [],
+      "notes": [],
+      "reader": "quantum verification specialist, after freeze"
+    },
+    {
+      "id": "Q-S17",
+      "title": "Measured-label amplifier source",
+      "path": "repository/lean/QuarticQuery/Upper/Amplify.lean",
+      "sha256": "49e808cc6acbb47ad066b1dcf33ac8d47da2f28d88c51d537564e6591eb0d9e1",
+      "edition": "Supplied Lean file identified by the recorded SHA; public pin not independently resolved",
+      "url": null,
+      "status": "read_selected_passages",
+      "scope": "Lines315–359, including Samples.amplify statement and local proof; no Lean execution or whole-module verification.",
+      "visual_pages": [],
+      "notes": [],
+      "reader": "quantum verification specialist, after freeze"
+    },
+    {
+      "path": "repository/docs/expert_companion.md",
+      "edition": "packet lead manuscript",
+      "read_status": "sequential informed reread",
+      "line_ranges": [
+        [
+          85,
+          140
+        ],
+        [
+          213,
+          331
+        ],
+        [
+          333,
+          391
+        ],
+        [
+          431,
+          463
+        ]
+      ],
+      "scope_and_limits": "Sections 2, 4, 5, 6, then A.4–A.8 in that order; exact findings later cross-checked against frozen units.",
+      "urls": [],
+      "sha256": "8c29b8d9a4adbc7b93fbe50f1cbb6d27afb11f0afd44172342bdfb1c3a42cc8d",
+      "bytes": 67332,
+      "id": "CL-expert-companion",
+      "reader": "classical specialist, informed second perspective and subsequent verification"
+    },
+    {
+      "path": "repository/docs/reasoning_record.md",
+      "edition": "Packaged current record; different from the linked 8357 edition.",
+      "read_status": "proof-body inspection",
+      "line_ranges": [
+        [
+          688,
+          803
+        ],
+        [
+          854,
+          1642
+        ],
+        [
+          2828,
+          2867
+        ],
+        [
+          3012,
+          3035
+        ],
+        [
+          3072,
+          3124
+        ],
+        [
+          3150,
+          3268
+        ],
+        [
+          3287,
+          3313
+        ],
+        [
+          3438,
+          3502
+        ],
+        [
+          3548,
+          3662
+        ],
+        [
+          3690,
+          3800
+        ],
+        [
+          3902,
+          3970
+        ],
+        [
+          6542,
+          6577
+        ]
+      ],
+      "scope_and_limits": "Read selected supplied passages in full at these scopes; did not read the entire record. Conditional-value alternative at lines 2869–3011 was not fully revalidated; the unnormalised proof was inspected. The quantum algorithm itself was not independently revalidated.",
+      "urls": [],
+      "sha256": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+      "bytes": 495284,
+      "id": "CL-current-record",
+      "reader": "classical specialist, informed second perspective and subsequent verification"
+    },
+    {
+      "path": "paper/extracted.md",
+      "edition": "OpenAI, A Nearly Quartic Separation Between Randomized and Quantum Query Complexity, October 5, 2026.",
+      "read_status": "selected source proof read",
+      "line_ranges": [
+        [
+          1,
+          18
+        ],
+        [
+          522,
+          699
+        ]
+      ],
+      "scope_and_limits": "Header; §§4.1–4.2 and the opening of §5, printed pp. 11–13. Checked product, capped-simulator and erasure source jobs; not the full paper.",
+      "urls": [],
+      "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+      "bytes": 64021,
+      "id": "CL-original-preprint",
+      "reader": "classical specialist, informed second perspective and subsequent verification"
+    },
+    {
+      "path": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/extracted.md",
+      "edition": "arXiv:2008.07003v3; STOC 2021 locators specified by the supplied bibliography.",
+      "read_status": "selected primary passages read",
+      "line_ranges": [
+        [
+          1,
+          84
+        ],
+        [
+          365,
+          451
+        ],
+        [
+          490,
+          500
+        ]
+      ],
+      "scope_and_limits": "Definition, theorem and corollary; §3 distribution and proof outline; §4.3 integration-by-parts statement and opening. Overview lines 104–155 were partly seen and search hits skimmed; not counted as complete. The full published lower-bound proof was not revalidated. The extraction numbers some theorem labels differently from the original.",
+      "urls": [
+        "https://arxiv.org/abs/2008.07003v3",
+        "https://doi.org/10.1145/3406325.3451040"
+      ],
+      "sha256": "cf1477e44353bbb796581002e8cacef3199e8e153d43f075fc8047c2934de952",
+      "bytes": 181861,
+      "id": "CL-bansal-sinha",
+      "reader": "classical specialist, informed second perspective and subsequent verification"
+    },
+    {
+      "path": "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/extracted.md",
+      "edition": "arXiv:1005.0644v2, author text essentially matching Computational Complexity 21(2), 197–244 (2012).",
+      "read_status": "selected primary proof read",
+      "line_ranges": [
+        [
+          1,
+          85
+        ],
+        [
+          125,
+          200
+        ]
+      ],
+      "scope_and_limits": "Average-case theorem, methods, partial-domain extension, §3 continuation values, transcript independence, product potential, and fair-tree remark. Lines 86–124 are not claimed read completely. Corresponding source.tex lines 213–220 were checked for the edition note.",
+      "urls": [
+        "https://arxiv.org/abs/1005.0644v2",
+        "https://doi.org/10.1007/s00037-012-0043-7"
+      ],
+      "sha256": "de4e25127079b849cc18984031442ed939d6c24467d1bd67faaa466f8e17e29a",
+      "bytes": 121771,
+      "id": "CL-drucker",
+      "reader": "classical specialist, informed second perspective and subsequent verification"
+    },
+    {
+      "path": "literature/gtw-ccc2021-published/extracted.md",
+      "edition": "CCC 2021 published LIPIcs 200, article 39, pp. 39:1–39:36.",
+      "read_status": "selected technical overview read",
+      "line_ranges": [
+        [
+          351,
+          550
+        ]
+      ],
+      "scope_and_limits": "Ordinary decision-tree overview §1.3 and Lemma 9, pp. 39:6–39:8; stopping warning in footnote 2 at lines 523–525; opening parity discussion through line 550. Not the complete later proof.",
+      "urls": [
+        "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.CCC.2021.39",
+        "https://drops.dagstuhl.de/storage/00lipics/lipics-vol200-ccc2021/LIPIcs.CCC.2021.39/LIPIcs.CCC.2021.39.pdf"
+      ],
+      "sha256": "3ab2196db98f9b8ea0ab89a297003f4a496006560111233a99b99701c7194001",
+      "bytes": 178910,
+      "id": "CL-girish-tal-wu",
+      "reader": "classical specialist, informed second perspective and subsequent verification"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+      "edition": "supplied source tree only",
+      "read_status": "theorem statement/source inspection",
+      "line_ranges": [
+        [
+          495,
+          679
+        ]
+      ],
+      "scope_and_limits": "Sharp uniform theorem, legacy coarse endpoint and floor statements, explicit-threshold endpoint. No build or dependency proof audit; no immutable-revision comparison.",
+      "urls": [],
+      "sha256": "d6bc1f4399394810fca63abdaadd67a420616371c501ab978841898f2bda049c",
+      "bytes": 33291,
+      "id": "CL-uniform-lean",
+      "reader": "classical specialist, informed second perspective and subsequent verification"
+    },
+    {
+      "path": null,
+      "edition": "Author-hosted 43-page manuscript associated with FOCS 2025; arXiv:2512.08268 submitted 9 December 2025. Not asserted byte-identical to the published proceedings.",
+      "urls": [
+        "https://cs.uwaterloo.ca/~eblais/assets/pdf/direct_product_theorems.pdf",
+        "https://arxiv.org/abs/2512.08268",
+        "https://doi.org/10.1109/FOCS63196.2025.00038"
+      ],
+      "read_status": "Primary source beyond the annex; selected passages",
+      "read_scope": "Author PDF abstract, contents, introduction and §§1.1–1.3 through the tensorization overview (retrieval lines 0–528); §3.1 interfaces (lines 1221–1320, printed p. 17); selected opening of §4 (lines 1610–1667). Read via web extraction; no complete tensorization proof revalidation.",
+      "relevant_passages": "§1.3, pp. 6–8: measure, motivation, Lemma 5 and embedding overview. §3.1: interfaces before the consequence.",
+      "use_boundary": "Expository comparison only. The complexity measure differs from the exact separate-cap contract.",
+      "id": "CL-bd-blais-dpt2025",
+      "reader": "classical specialist, informed second perspective and subsequent verification"
+    },
+    {
+      "path": null,
+      "edition": "Author-hosted 59-page ACM-template manuscript, September 2023, with template publication metadata. arXiv:2002.10802 is a bibliographic antecedent, not an assertion of edition identity.",
+      "urls": [
+        "https://cs.uwaterloo.ca/~eblais/assets/pdf/minimax.pdf",
+        "https://arxiv.org/abs/2002.10802"
+      ],
+      "read_status": "Primary source beyond the annex; introduction",
+      "read_scope": "Author PDF introduction, printed pp. 1–3, and beginning of principal interface; retrieval lines 0–259, including §§1.1–1.2 opening. No later minimax proof revalidation.",
+      "relevant_passages": "The introduction separates fixed-cost hardness from balanced and small-bias guarantees.",
+      "use_boundary": "Clarifies the ordinary minimax guarantee. The stronger theorem is unnecessary here.",
+      "id": "CL-bd-blais-minimax",
+      "reader": "classical specialist, informed second perspective and subsequent verification"
+    },
+    {
+      "id": "ROOT-LEAD",
+      "title": "Expert companion: complete primary source pass",
+      "path": "repository/docs/expert_companion.md",
+      "sha256": "8c29b8d9a4adbc7b93fbe50f1cbb6d27afb11f0afd44172342bdfb1c3a42cc8d",
+      "status": "complete_source_read_with_protocol_departures",
+      "scope": "Title through Appendix A and terminal link definitions, lines 2–478; 585 source units. Frozen block-level logging, with exact departures in coverage.json.",
+      "edition": "Supplied R10 draft; hash bound",
+      "url": null,
+      "reader": "root reviewer"
+    },
+    {
+      "id": "ROOT-PDF",
+      "title": "Expert companion: rendered editorial inspection",
+      "path": "repository/docs/expert_companion.pdf",
+      "sha256": "4cf95ae890234852ca08837f31671f8fae01ff59d807feb58eca03ff96abbb8a",
+      "status": "all_18_pages_visually_inspected",
+      "scope": "Pages 1–18 at readable size after the second perspective completed; all 26 reference entries on pages 15–16 read after freeze.",
+      "edition": "Supplied R10 rendered PDF",
+      "url": null,
+      "reader": "root reviewer"
+    },
+    {
+      "id": "ROOT-OPENAI-INTRO",
+      "title": "OpenAI original preprint: introductory comparison",
+      "path": "paper/extracted.md",
+      "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+      "status": "selected_passages_read",
+      "scope": "Extracted lines 1–115; introduction and theorem/cost context. Other proof scopes are Q-S03 and CL-original-preprint.",
+      "edition": "October 5, 2026 preprint",
+      "url": "https://github.com/openai/math/blob/4eaee875/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf",
+      "reader": "root reviewer"
+    },
+    {
+      "id": "ROOT-KLR",
+      "title": "Knuth–Larrabee–Roberts, Mathematical Writing",
+      "path": "writing_literature/knuth-larrabee-roberts-mathematical-writing/source.pdf",
+      "sha256": "646072129e5c74443447d5de1f8343626bcb7cdefb97758721d3ec15d044f5e0",
+      "status": "selected_passages_read",
+      "scope": "PDF pages 4–5 (printed 2–3), §1 including items 5 and 10–14; PDF pages 22–23 (printed 20–21), §10 on algorithm description. Extracted from supplied PDF; not the whole report.",
+      "edition": "Stanford report based on the 1987 course",
+      "url": "https://www-cs-faculty.stanford.edu/~knuth/papers/cs1193.pdf",
+      "reader": "root reviewer"
+    },
+    {
+      "id": "ROOT-SU",
+      "title": "Francis Su, Guidelines for Good Mathematical Writing",
+      "path": "writing_literature/su-mathematical-writing-2020/source.pdf",
+      "sha256": "b1ece2b233160479c49237bda4b8928cec1a946db90e939afd463e082f4ebd02",
+      "status": "complete_three_page_handout_read",
+      "scope": "All three pages, including audience-sensitive omission and active assumptions.",
+      "edition": "Updated August 18, 2020",
+      "url": "https://math.hmc.edu/su/wp-content/uploads/sites/10/2020/08/Guidelines-for-Good-Mathematical-Writing.pdf",
+      "reader": "root reviewer"
+    },
+    {
+      "id": "ROOT-CHILDS",
+      "title": "Andrew Childs, Lecture Notes on Quantum Algorithms",
+      "path": "writing_literature/childs-quantum-algorithms-2025/source.pdf",
+      "sha256": "6e3a32f0aede35e954d665c909fec41f716b955f041957e723e2724ae3efabd1",
+      "status": "selected_passages_read",
+      "scope": "PDF pages 10–11 (printed 2–3), §1.4 reversible computation; adjacent material displayed but no whole-chapter claim.",
+      "edition": "April 17, 2025 notes",
+      "url": "https://www.cs.umd.edu/~amchilds/qa/qa.pdf",
+      "reader": "root reviewer"
+    },
+    {
+      "id": "ROOT-AMBAINIS",
+      "title": "Andris Ambainis, Understanding Quantum Algorithms via Query Complexity",
+      "path": "writing_literature/ambainis-query-survey-1712.06349v1/source.pdf",
+      "sha256": "6d2bfa659d7d29617635627ec6ab998b984cec6b5c8ef5cca8db69e226f40f80",
+      "status": "selected_passages_read",
+      "scope": "PDF pages 9–12, §4 pointer construction and §5 cheat-sheet opening; different construction and historical bounds.",
+      "edition": "arXiv:1712.06349v1, 2017",
+      "url": "https://arxiv.org/pdf/1712.06349v1",
+      "reader": "root reviewer"
+    },
+    {
+      "id": "ROOT-LONG-TO-SHORT",
+      "title": "Attached long-to-short writing skill",
+      "path": "skills/long-to-short/SKILL.md",
+      "sha256": "e8193f7e58a9b2d208644fe6a318bed2f8e5bad4ead5331d9a76ed1f54cc8dba",
+      "status": "complete_read_after_freeze",
+      "scope": "All 313 lines; treated as review-method evidence, not authority to rewrite manuscripts.",
+      "edition": "Supplied pin 7bc9ef5d253d23527c6ccbd759c2eb24c0243ac7",
+      "url": null,
+      "reader": "root reviewer"
+    },
+    {
+      "id": "ROOT-QUARTIC-METHOD",
+      "title": "Attached quartic writing method",
+      "path": "skills/quartic-writing-method.md",
+      "sha256": "1c7d3136e55604f181df482cf1d23edbe88d2db952068812ae26536779e2793d",
+      "status": "complete_read_after_freeze",
+      "scope": "All 210 lines; current evidence used to assess application of existing rules.",
+      "edition": "Supplied writing-method pin",
+      "url": null,
+      "reader": "root reviewer"
+    },
+    {
+      "id": "ROOT-AUTHORING",
+      "title": "Attached authoring guidance",
+      "path": "docs/authoring.md",
+      "sha256": "69444d73788fbd28f6142911abcb0c2c88c570409c8418a5f9f6217a92303f13",
+      "status": "selected_passages_read",
+      "scope": "Lines 503–611: prospective review, mathematical/source/reader checks, comparisons and layout scope.",
+      "edition": "Supplied writing-method pin",
+      "url": null,
+      "reader": "root reviewer"
+    },
+    {
+      "id": "ROOT-LITERATURE-STANDARD",
+      "title": "Literature standard",
+      "path": "literature_standard.md",
+      "sha256": "d3f18c9af96467b72ba76c9ca1661bd8dc78b150ee2b5ece545ae26dee2a806c",
+      "status": "complete_read_after_freeze",
+      "scope": "Complete supplied standard; source availability is separated from source reading.",
+      "edition": "R10 packet",
+      "url": null,
+      "reader": "root reviewer"
+    },
+    {
+      "id": "ROOT-RECORD-DEPENDENCIES",
+      "title": "Current record: selected cross-document checks",
+      "path": "repository/docs/reasoning_record.md",
+      "sha256": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+      "status": "selected_passages_read",
+      "scope": "Lines 136–158, 3620–3648 and 6350–6395; baseline motivation, terminal-lightness counterexample and evidence-status landing. Other specialist scopes are separately recorded.",
+      "edition": "Packaged current record, not independently verified pinned 8357 body",
+      "url": null,
+      "reader": "root reviewer"
+    },
+    {
+      "id": "ROOT-CONSTRUCTION-FAMILY",
+      "title": "Fixed-circuit family source header",
+      "path": "repository/lean/QuarticQuery/Paper/ConstructionFamily.lean",
+      "sha256": "b7e1203086e38c00b964355ac71537a7fc5be7053d537ccd56cba8017cdd085a",
+      "status": "source_inspection_only",
+      "scope": "Lines 1–48, including undated unelaborated header. No build executed.",
+      "edition": "Packaged source",
+      "url": null,
+      "reader": "root reviewer"
+    },
+    {
+      "id": "ROOT-UNCONDITIONAL-STATEMENT",
+      "title": "Unconditional headline statement",
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "sha256": "c88be0b70754cb6f93448694002a16e1eb6a25135fa71648d4651f01104e399d",
+      "status": "source_inspection_only",
+      "scope": "Lines 276–345; source statement inspection, not execution or formal proof audit.",
+      "edition": "Packaged source",
+      "url": null,
+      "reader": "root reviewer"
+    }
+  ],
+  "bibliography_scope": "All 26 rendered expert-paper entries read and bibliography identities checked; this does not imply the 26 works were read. No claim that all 42 supplied literature sources were reviewed.",
+  "availability_limits": [
+    {
+      "work": "Yao 1977",
+      "status": "Exact full text unavailable in packet; no claim of reading it."
+    },
+    {
+      "work": "Nisan 1991",
+      "status": "Exact full text unavailable in packet; no claim of reading it."
+    },
+    {
+      "work": "BSS 2003",
+      "status": "Exact cited 2003 edition unavailable; supplied earlier 2002 version is an edition mismatch, not silently substituted as the cited text."
+    },
+    {
+      "work": "Remaining literature annex",
+      "status": "Available metadata and selected supplied sources only; unlisted source bodies are not claimed read."
+    }
+  ],
+  "source_access_boundary": "41 lead links to the reasoning record use revision 8357f268732746d1575e05e7de8c888e20ad3793 and differ from current packaged bytes according to LINK_MAP.json. Local proof reading verifies only the supplied current edition. Direct web access to the pinned body was unavailable. See evidence/attached_context_review.json for the narrower pin-only rebind reconstruction.",
+  "external_primary_sources_beyond_annex": [
+    "Q-S13",
+    "Q-S14",
+    "CL-bd-blais-dpt2025",
+    "CL-bd-blais-minimax"
+  ],
+  "not_executed": [
+    "Lean builds",
+    "Comparator",
+    "submitted reviewer scripts",
+    "historical edit or publish instructions"
+  ]
+}

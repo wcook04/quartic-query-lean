@@ -1,0 +1,762 @@
+{
+  "packet": "expert_paper",
+  "campaign": "round10",
+  "schema": "quartic-r10-review-feedback-v1",
+  "source_sha256": {
+    "repository/docs/expert_companion.bib": "31702a7b39b12b775005b311544b69a1d3e0544d669a009a6a80c56e235cca6a",
+    "repository/docs/expert_companion.md": "8c29b8d9a4adbc7b93fbe50f1cbb6d27afb11f0afd44172342bdfb1c3a42cc8d",
+    "repository/docs/expert_companion.pdf": "4cf95ae890234852ca08837f31671f8fae01ff59d807feb58eca03ff96abbb8a",
+    "repository/docs/exposition.bib": "76ab8492f33bb8136150d54ef2b12e3ea434d48186ad3d39624e8079eb2630eb",
+    "repository/docs/exposition.md": "e034aae7c7a74529656a84289b41767bcc4f06cbe1a3d2926fc8a01f918918b8",
+    "repository/docs/exposition.pdf": "784683dc467eb43ee540b7ff0f2a7536747cc9f984a9e8eb02dafccc7247e354",
+    "repository/docs/reasoning_record.bib": "89c47ffefcfe6216ee5c7a78861dd2c62013087470ab0976029edcfab89d6491",
+    "repository/docs/reasoning_record.md": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+    "repository/docs/reasoning_record.pdf": "4122ef4f803437bf68093a0b0b1bdbccae64004ff0747eecd6a54ee50f9769a7"
+  },
+  "panel": "Specialist referees and an exacting editor; simulated perspectives, sequential primary/re-read/editor stages; shared-context limitations disclosed.",
+  "review_date": "2026-11-04",
+  "sources_read": [
+    "Q-S01",
+    "Q-S02",
+    "Q-S03",
+    "Q-S04",
+    "Q-S05",
+    "Q-S06",
+    "Q-S07",
+    "Q-S08",
+    "Q-S09",
+    "Q-S10",
+    "Q-S11",
+    "Q-S12",
+    "Q-S13",
+    "Q-S14",
+    "Q-S15",
+    "Q-S16",
+    "Q-S17",
+    "CL-expert-companion",
+    "CL-current-record",
+    "CL-original-preprint",
+    "CL-bansal-sinha",
+    "CL-drucker",
+    "CL-girish-tal-wu",
+    "CL-uniform-lean",
+    "CL-bd-blais-dpt2025",
+    "CL-bd-blais-minimax",
+    "ROOT-LEAD",
+    "ROOT-PDF",
+    "ROOT-OPENAI-INTRO",
+    "ROOT-KLR",
+    "ROOT-SU",
+    "ROOT-CHILDS",
+    "ROOT-AMBAINIS",
+    "ROOT-LONG-TO-SHORT",
+    "ROOT-QUARTIC-METHOD",
+    "ROOT-AUTHORING",
+    "ROOT-LITERATURE-STANDARD",
+    "ROOT-RECORD-DEPENDENCIES",
+    "ROOT-CONSTRUCTION-FAMILY",
+    "ROOT-UNCONDITIONAL-STATEMENT"
+  ],
+  "findings_count": 15,
+  "severity_meaning": "Severity reflects the consequence for this specialist reading task. No critical or high-severity mathematical error is asserted. Priorities are ranked separately.",
+  "feedback": [
+    {
+      "key": "ABSTRACT",
+      "paper": "expert_companion",
+      "source_path": "repository/docs/expert_companion.md",
+      "perspective": "editor, informed third perspective",
+      "locator": {
+        "section": "Abstract",
+        "quote": "A classical algorithm must spend order $m$ times a query allowance below the hardness of one partial instance",
+        "line_start": 9,
+        "line_end": 9
+      },
+      "unit_id": "XP10-U0011",
+      "kind": "prose",
+      "severity": "medium",
+      "feedback": "The abstract presents the quantum scale explicitly but describes the classical scale through an unspecified allowance. An expert can recognize the two mechanisms without yet seeing the arithmetic that makes the exponent four.",
+      "why_it_matters": "The most portable statement of this result is the paired scale m^(2-1/k) versus sqrt(m). The allowance formulation makes the reader recover that comparison later, while spending abstract space on a technical reduction parameter.",
+      "advice": "Replace the allowance description with the fixed-k classical scale alongside the quantum scale, suppressing logarithms consistently. Keep the two reconstruction tasks and OpenAI attribution. Move construction details that do not help interpret that pair to the overview; do not add a second miniature proof or a replacement abstract.",
+      "available_before": [
+        "The abstract claims exponent four and names survival sampling and a capped address predictor."
+      ],
+      "missing_bridge": "An explicit cost pair connecting the construction to the opening exponent claim.",
+      "confidence": 0.94,
+      "history_status": "New refinement of applied repairs. The present allowance wording implements XP9-003; the cost-pair suggestion does not reopen an absence of scope or contribution.",
+      "mathematical_status": "Editorial recommendation; no false mathematical conclusion alleged.",
+      "later_resolution": {
+        "unit_id": "XP10-U0075",
+        "locator": "L48–50; full estimates at L24–32",
+        "effect": "The body supplies the missing cost pair; this is an abstract-selection opportunity, not an absent theorem."
+      },
+      "outside_source": [
+        "ROOT-OPENAI-INTRO",
+        "ROOT-SU"
+      ],
+      "id": "XP10-001",
+      "priority_rank": 10,
+      "prior_finding_ids": [
+        "XP9-003",
+        "XP9-001",
+        "XP9-004",
+        "XP9-002"
+      ]
+    },
+    {
+      "key": "INTRO_ROUTE",
+      "paper": "expert_companion",
+      "source_path": "repository/docs/expert_companion.md",
+      "perspective": "editor, informed third perspective",
+      "locator": {
+        "section": "1.2–1.3",
+        "quote": "### 1.2 Earlier separations",
+        "line_start": 53,
+        "line_end": 53
+      },
+      "unit_id": "XP10-U0078",
+      "kind": "structure",
+      "severity": "medium",
+      "feedback": "After the mechanism overview, two substantial prior-work subsections delay the exact construction until the bottom of PDF page 4. The optimization in the parameter a and the sequence of comparison models serve different tasks, but both must be held before the new predicate is available.",
+      "why_it_matters": "The paper promises a reconstruction of two particular reductions. The old/new cost comparison helps explain that promise; the full older-recipe optimization and model catalogue need not all precede the objects used in those comparisons.",
+      "advice": "Retain the matched old/new cost pair and immediate credit near the overview. Move the detailed optimization of the older AND–OR recipe to a short related-work appendix or the record. Put detailed pointer-field and comparison-contract distinctions immediately after the corresponding new construction/comparator, or in a compact related-work section. Preserve the fact that the cubic ceiling concerns the analyzed balanced recipe, not every cheat-sheet construction.",
+      "available_before": [
+        "Blank-cell input and independent planted index; erased-zero coupling has probability Z/m."
+      ],
+      "missing_bridge": "Earlier access to the exact new input and predicate, with prior-work detail encountered when its comparison object is available.",
+      "confidence": 0.94,
+      "history_status": "New architecture for the older-recipe calculation, and renewed broader relocation alternatives for XP9-028/031. Those recorded applied decisions made narrower local reorganizations. Preserve the optimization and matched cost pair explicitly requested by XP9-025/027.",
+      "mathematical_status": "Editorial recommendation; no false mathematical conclusion alleged.",
+      "affected_locators": [
+        {
+          "source_path": "repository/docs/expert_companion.md",
+          "line_start": 53,
+          "line_end": 83
+        },
+        {
+          "source_path": "repository/docs/expert_companion.md",
+          "line_start": 85,
+          "line_end": 140
+        }
+      ],
+      "dependency_constraints": [
+        "Keep the cost pair at a common supplier dimension.",
+        "Keep the original authors and the fixed-order versus probabilistic-comparison distinction.",
+        "Define the complete total predicate before relying on its local tests.",
+        "Do not turn the old recipe calculation into an impossibility claim about a framework."
+      ],
+      "acceptance_check": "Read the opening through the winning predicate without a literature detour; then recover why the earlier matched cost pair gives a cube and the new pair approaches four. Every moved source claim still has its exact citation.",
+      "outside_source": [
+        "ROOT-AMBAINIS",
+        "ROOT-OPENAI-INTRO",
+        "ROOT-SU"
+      ],
+      "id": "XP10-002",
+      "priority_rank": 1,
+      "prior_finding_ids": [
+        "XP9-025",
+        "XP9-027",
+        "XP9-028",
+        "XP9-031"
+      ]
+    },
+    {
+      "key": "RECORD_BASELINE",
+      "paper": "reasoning_record",
+      "source_path": "repository/docs/reasoning_record.md",
+      "perspective": "editor, informed third perspective",
+      "locator": {
+        "section": "Reasoning record §1, linked comparison motivation",
+        "quote": "The present construction changes the classical side of that arithmetic.",
+        "line_start": 152,
+        "line_end": 152
+      },
+      "unit_id": "XP10-U0096",
+      "kind": "funnel",
+      "severity": "medium",
+      "feedback": "The record immediately follows its discussion of the older cheat-sheet arithmetic by saying that the classical cost grows to mL while the quantum cost stays near sqrt(m). At the matched supplier scale used by the expert companion, the old quantum-upper/randomized-lower scales are approximately (m,m²R(P)) and the new scales are (sqrt(m),mR(P)), with logarithmic factors suppressed. Both certified scales change; these are not claims of equality for the actual complexities.",
+      "why_it_matters": "A reader following the companion into its explanatory record receives a different account of the exponent gain. The issue is the baseline of the comparison, not the final lower bound.",
+      "advice": "Align record L152 with the matched pair in expert L67, or explicitly name a different baseline that makes grows/stays valid. Reconsider the retained disposition of RR9-014 using the actual two cost pairs. The current expert comparison itself need not be altered.",
+      "available_before": [
+        "Expert §1.2 has stated both matched-supplier cost pairs.",
+        "The supporting record is consulted retrospectively."
+      ],
+      "missing_bridge": "A named common baseline for the comparative verbs grows and stays.",
+      "confidence": 0.98,
+      "history_status": "Unresolved supporting-document comparison; challenge to a retained R9 disposition.",
+      "mathematical_status": "Explanatory comparison needs repair; no failure of the separation theorem or its cost bounds established.",
+      "unit_relation": "XP10-U0096 is the lead-paper dependency trigger; the affected current passage is in the supporting record.",
+      "prior_finding_ids": [
+        "RR9-014"
+      ],
+      "affected_locators": [
+        {
+          "source_path": "repository/docs/expert_companion.md",
+          "line_start": 67,
+          "line_end": 67
+        }
+      ],
+      "id": "XP10-003",
+      "priority_rank": 5
+    },
+    {
+      "key": "RECENT_COMPARISON",
+      "paper": "expert_companion",
+      "source_path": "repository/docs/expert_companion.md",
+      "perspective": "literature verification",
+      "locator": {
+        "section": "1.3 Relation to earlier constructions",
+        "quote": "Other comparison models have different contracts: minimum finding assumes a total order",
+        "line_start": 81,
+        "line_end": 81
+      },
+      "unit_id": "XP10-U0119",
+      "kind": "credit",
+      "severity": "low",
+      "feedback": "A recent primary paper offers a closer comparison to the find-then-verify shape: Arora–Kumar (29 October 2026), §6.1, finds a king and verifies a Condorcet winner. Its oracle still supplies fixed edge directions.",
+      "why_it_matters": "This makes the distinguishing assumption easier to state: arbitrary probabilities between losing candidates, rather than find-then-verify as a general design.",
+      "advice": "During the related-work edit, consider substituting this closer fixed-edge comparison for a distant example, with a short explicit oracle distinction. Treat it as an optional current-literature update; it is not a missing premise or a priority objection, and need not lengthen the introduction.",
+      "available_before": [
+        "The preceding paragraph distinguishes fixed-edge candidate sets from products of arbitrary comparison probabilities and states the halving and exact-sampling jobs."
+      ],
+      "missing_bridge": "A close contemporary example with the same search/verification shape and a different oracle contract.",
+      "confidence": 0.85,
+      "history_status": "Newly assessed current-edition opportunity; not established as a regression.",
+      "mathematical_status": "Editorial recommendation; no false mathematical conclusion alleged.",
+      "outside_source": [
+        "Q-S14"
+      ],
+      "id": "XP10-004",
+      "priority_rank": 14
+    },
+    {
+      "key": "PDF_SCOPE",
+      "paper": "expert_companion",
+      "source_path": "repository/docs/expert_companion.md",
+      "perspective": "editor, informed third perspective",
+      "locator": {
+        "section": "2 and 4.2, rendered scope qualifiers",
+        "quote": "and undefined otherwise; in particular a large negative $\\Phi$ lies outside the promise.",
+        "line_start": 98,
+        "line_end": 98
+      },
+      "unit_id": "XP10-U0135",
+      "kind": "figure",
+      "severity": "medium",
+      "feedback": "Two rendered transitions separate a qualification from the formula it governs. Equation (4) ends page 4 while undefined otherwise begins page 5. More seriously, Figure 2 floats between equation (10) at the foot of page 10 and the statement that both discovery probabilities use the dummy run, below the figure on page 11.",
+      "why_it_matters": "The promise domain and the probability law are mathematical scope. A large intervening figure can make a reader inspect the coupling formula before its law has been fixed locally.",
+      "advice": "Keep the complete promise definition with its undefined-otherwise clause. Put the dummy-run convention into the coupling lead-in or inside the display explanation before the float, and keep that small unit together. Re-render after the structural edits; do not impose a one-page rule on whole proofs.",
+      "available_before": [
+        "Overview and prior-work comparison; no exact Forrelation promise or local test list yet."
+      ],
+      "missing_bridge": "Physical adjacency of each displayed claim and its scope condition.",
+      "confidence": 0.99,
+      "history_status": "Newly assessed current-edition opportunity; not established as a regression.",
+      "mathematical_status": "Editorial recommendation; no false mathematical conclusion alleged.",
+      "affected_locators": [
+        {
+          "source_path": "repository/docs/expert_companion.md",
+          "line_start": 93,
+          "line_end": 98,
+          "pdf_pages": [
+            4,
+            5
+          ]
+        },
+        {
+          "source_path": "repository/docs/expert_companion.md",
+          "line_start": 254,
+          "line_end": 262,
+          "pdf_pages": [
+            10,
+            11
+          ]
+        }
+      ],
+      "acceptance_check": "At normal reading size, (4) and its complete domain clause can be read together; (10) identifies the dummy-run law before any intervening float.",
+      "pdf_pages": [
+        4,
+        5,
+        10,
+        11
+      ],
+      "id": "XP10-005",
+      "priority_rank": 7,
+      "dependency_constraints": [
+        "Keep the scope conditions attached without changing the promise or probability law.",
+        "Recheck the two transitions after any structural reflow."
+      ]
+    },
+    {
+      "key": "PUNCTUATION",
+      "paper": "expert_companion",
+      "source_path": "repository/docs/expert_companion.md",
+      "perspective": "editor, informed third perspective",
+      "locator": {
+        "section": "2, property (i)",
+        "quote": "[@BansalSinha2021, Corollary 1.4] Their dimension",
+        "line_start": 105,
+        "line_end": 105
+      },
+      "unit_id": "XP10-U0140",
+      "kind": "prose",
+      "severity": "low",
+      "feedback": "The citation is followed by Their dimension without sentence-ending punctuation.",
+      "why_it_matters": "It joins two distinct statements and is visible in the rendered property (i) on page 5.",
+      "advice": "Insert a full stop after the citation. Keep the dimension clarification.",
+      "available_before": [
+        "Forrelation statistic Phi and asymmetric promise thresholds delta, delta/2; large negative values are unpromised."
+      ],
+      "missing_bridge": "A sentence boundary between the hardness citation and the parameter translation.",
+      "confidence": 1.0,
+      "history_status": "Newly assessed current-edition opportunity; not established as a regression.",
+      "mathematical_status": "Editorial recommendation; no false mathematical conclusion alleged.",
+      "id": "XP10-006",
+      "priority_rank": 13
+    },
+    {
+      "key": "LAYERS",
+      "paper": "expert_companion",
+      "source_path": "repository/docs/expert_companion.md",
+      "perspective": "randomized-lower-bound specialist, parameter audit",
+      "locator": {
+        "section": "2, exact circuit sketch",
+        "quote": "There are $O(\\ell)$ transform layers",
+        "line_start": 115,
+        "line_end": 115
+      },
+      "unit_id": "XP10-U0157",
+      "kind": "prose",
+      "severity": "low",
+      "feedback": "The sketch counts transform layers without naming the k−1 separate Walsh transforms. Fixed-k asymptotics make the sentence defensible, but the later uniform refinement asks the reader to track k explicitly.",
+      "why_it_matters": "The paper already has the exact dependence available; making it visible prevents the layer count from being read as uniform in k.",
+      "advice": "Say that each of the k−1 Walsh transforms has ell butterfly layers, or use O(k ell) for the total. Retain the explanation of the two logarithmic factors.",
+      "available_before": [
+        "Projection trials recover promised values but do not detect promise membership."
+      ],
+      "missing_bridge": "The number of transforms as well as the depth of one transform.",
+      "confidence": 0.98,
+      "history_status": "Newly assessed current-edition opportunity; not established as a regression.",
+      "mathematical_status": "No incorrect circuit-size bound established; the current record supports S≤200(k+1)²m ell².",
+      "outside_source": [
+        "CL-current-record"
+      ],
+      "id": "XP10-007",
+      "priority_rank": 12
+    },
+    {
+      "key": "AMPLIFIER_ORDER",
+      "paper": "expert_companion",
+      "source_path": "repository/docs/expert_companion.md",
+      "perspective": "quantum-algorithm verification and editor",
+      "locator": {
+        "section": "3, Lemma 2 and the tournament proof",
+        "quote": "The sampling step uses the following bounded form of amplitude amplification.",
+        "line_start": 146,
+        "line_end": 146
+      },
+      "unit_id": "XP10-U0193",
+      "kind": "structure",
+      "severity": "medium",
+      "feedback": "The generic finite amplification schedule arrives before the comparator and the exact success-and-label mass w_i/m that explain why this law-preserving interface is needed.",
+      "why_it_matters": "The reader must retain the random iteration schedule before seeing the construction-specific object it acts on. The companion can make its decisive invariant the center of this proof route.",
+      "advice": "Present complementary comparisons, the ideal weight update and the fresh-register w_i/m identity first. State the exact bounded amplifier interface at that use; move its existing finite-schedule proof to an appendix or after the tournament proof. Keep exact sampling, early-stop coupling and rebuilding cost contiguous. If keeping the proof inline, compress only the standard rotation discussion, not the cutoff or law-preservation clauses.",
+      "available_before": [
+        "Exact local checks have O(ell) cost; checking every candidate in an outer search is expensive."
+      ],
+      "missing_bridge": "The concrete conditional distribution whose preservation motivates the amplifier contract.",
+      "confidence": 0.94,
+      "history_status": "Direct reconsideration of a retained structural suggestion. The recorded decision defended a reusable lemma before the tournament; the present alternative splits the local contract from its implementation and is supported by the current encounter C15.",
+      "mathematical_status": "Editorial recommendation; no false mathematical conclusion alleged.",
+      "affected_locators": [
+        {
+          "source_path": "repository/docs/expert_companion.md",
+          "line_start": 144,
+          "line_end": 195
+        }
+      ],
+      "dependency_constraints": [
+        "Keep a procedure independent of unknown p.",
+        "Keep the all-branch cap, p=0 and p=1 cases, and behavior below gamma.",
+        "Keep exact conditional label law, inverse access and fresh-register construction.",
+        "BHMT Theorem 3/QSearch is expected-cost and cannot replace this contract without a cutoff."
+      ],
+      "acceptance_check": "The reader reaches w_i/m before the detailed M/trial schedule, can state the precise bounded sampler interface, and follows its coupling and T² cost without an intervening implementation detour.",
+      "outside_source": [
+        "Q-S03",
+        "Q-S04",
+        "Q-S05",
+        "ROOT-KLR"
+      ],
+      "id": "XP10-008",
+      "priority_rank": 2,
+      "prior_finding_ids": [
+        "XP9-058"
+      ]
+    },
+    {
+      "key": "WEIGHT_EXAMPLE",
+      "paper": "expert_companion",
+      "source_path": "repository/docs/expert_companion.md",
+      "perspective": "editor, informed third perspective",
+      "locator": {
+        "section": "3.2, fractional four-candidate example",
+        "quote": "After pivot $2$, the weights are $(1,0,2/3,1/4)$.",
+        "line_start": 191,
+        "line_end": 191
+      },
+      "unit_id": "XP10-U0272",
+      "kind": "example",
+      "severity": "low",
+      "feedback": "The example places two weight vectors, two preparation probabilities and two conditional laws in one prose paragraph. The arithmetic is correct; the repeated objects are harder to compare than they need to be.",
+      "why_it_matters": "The reader task is to see multiplication into existing weights and the difference between success probability W/m and the normalized label law.",
+      "advice": "Replace the numeric prose with a compact table: pivot history, unnormalised weights, W/m, conditional label law. Include the initial state only if it helps the comparison. Retain one sentence showing (2/3)(2/5)=4/15 and the explicit statement that this is an abstract comparison example, not a realized four-column Boolean instance. Retain the defining comparator data: a_1j=1 for j≠1, a_23=1/3, a_24=3/4, a_34=2/5, complementary reverse probabilities and zero diagonal.",
+      "available_before": [
+        "Success-and-label mass is w_i/m and amplified conditional labels follow w_i/W."
+      ],
+      "missing_bridge": "A side-by-side view of the two normalization operations already computed.",
+      "confidence": 0.94,
+      "history_status": "New presentation improvement after applied arithmetic and ideal/actual-law repairs; those repairs remain resolved.",
+      "mathematical_status": "Editorial recommendation; no false mathematical conclusion alleged.",
+      "affected_locators": [
+        {
+          "source_path": "repository/docs/expert_companion.md",
+          "line_start": 191,
+          "line_end": 195
+        }
+      ],
+      "acceptance_check": "A reader can identify which quantity is an preparation success probability and which is a next-pivot distribution, and can reproduce the second weight update without searching through prose.",
+      "outside_source": [
+        "ROOT-SU"
+      ],
+      "id": "XP10-009",
+      "priority_rank": 11,
+      "prior_finding_ids": [
+        "XP9-081",
+        "XP9-073",
+        "XP9-082"
+      ],
+      "dependency_constraints": [
+        "Retain the comparator data and product arithmetic.",
+        "Label W/m as preparation success, distinct from amplified success and conditional label law.",
+        "Preserve the ideal/actual early-stop distinction at L193."
+      ]
+    },
+    {
+      "key": "CLASSICAL_ORDER",
+      "paper": "expert_companion",
+      "source_path": "repository/docs/expert_companion.md",
+      "perspective": "editor, informed third perspective",
+      "locator": {
+        "section": "4.1 through 4.4",
+        "quote": "A reader may temporarily take the lemma's contract, continue to the simulator in §4.4,",
+        "line_start": 226,
+        "line_end": 226
+      },
+      "unit_id": "XP10-U0324",
+      "kind": "structure",
+      "severity": "medium",
+      "feedback": "The text explicitly offers a forward jump from the direct-product proof to its simulator application. The ordinary reading route still presents the full value-function induction and an alternative global-budget theorem before the planted input and capped predictor are concrete.",
+      "why_it_matters": "The hard part specific to this construction is turning one proposed query into an unconditional capped predictor. Showing that use first explains exactly why the separate-cap theorem and independent side information are the needed contract.",
+      "advice": "Keep Lemma 5’s precise statement before the application. Follow with planting, erasure and the capped simulator/joint-event inclusion; place the full unnormalised proof after that application or in an appendix. Move the optional Drucker global-budget substitution with the lemma discussion. Preserve a direct return route to the time union and its cancellation of m.",
+      "available_before": [
+        "Finite minimax supplies mu with success <=2/3 for every L-query deterministic tree."
+      ],
+      "missing_bridge": "The application that makes each product-lemma hypothesis necessary.",
+      "confidence": 0.94,
+      "history_status": "New architectural consequence of an applied navigation repair. The current text supplies XP9-097’s detour and return point; the proposal makes that optional reading order the default, preserving the complete contract and checked Drucker substitution.",
+      "mathematical_status": "Editorial recommendation; no false mathematical conclusion alleged.",
+      "affected_locators": [
+        {
+          "source_path": "repository/docs/expert_companion.md",
+          "line_start": 224,
+          "line_end": 246
+        },
+        {
+          "source_path": "repository/docs/expert_companion.md",
+          "line_start": 248,
+          "line_end": 311
+        }
+      ],
+      "dependency_constraints": [
+        "State mu, beta, per-block all-branch caps and joint independence before invoking the lemma.",
+        "Define the dummy law and the target column/time before constructing the predictor.",
+        "Keep the original-law joint event distinct from conditioning on lightness.",
+        "Retain the product proof and source credit at a usable destination."
+      ],
+      "acceptance_check": "The default route from Proposition 4 to the three discrepancy terms has no advised forward detour; a reader can name the predictor output, its charged clock, the exact event inclusion and the role of independent outside data.",
+      "outside_source": [
+        "CL-drucker",
+        "CL-bd-blais-dpt2025",
+        "ROOT-KLR"
+      ],
+      "id": "XP10-010",
+      "priority_rank": 3,
+      "prior_finding_ids": [
+        "XP9-097",
+        "XP9-098",
+        "XP9-106"
+      ]
+    },
+    {
+      "key": "CONDITIONING_LINK",
+      "paper": "expert_companion",
+      "source_path": "repository/docs/expert_companion.md",
+      "perspective": "randomized-lower-bound specialist",
+      "locator": {
+        "section": "4.4 and Appendix A.7",
+        "quote": "Conditioning on $i$ not being heavy would change the law of the address inputs",
+        "line_start": 298,
+        "line_end": 298
+      },
+      "unit_id": "XP10-U0411",
+      "kind": "funnel",
+      "severity": "medium",
+      "feedback": "The warning points to Appendix A.7, but that appendix explicitly studies a different per-block compliance event. Its enumeration is correct. The current record already has a smaller example for the exact terminal-nonheavy selection event.",
+      "why_it_matters": "Following the link currently adds a translation between two cap events precisely where the reader is being warned not to change the event or its probability law.",
+      "advice": "After settling the cited record edition, link the warning directly to #CL-conditioning-counterexample (current record L3639–3644). Either retarget A.7 to that event or describe it as a related compliance warning. Label the existing toy’s scope correctly: it satisfies the hard-law premise but has R(P)=L=1, so it is not an instance of the final strict L<R(P) construction.",
+      "available_before": [
+        "Simulator has independent outside dummy data and stops before query L+1 to target inputs."
+      ],
+      "missing_bridge": "An example of the same terminal-lightness event used in the displayed joint-event bound.",
+      "confidence": 0.99,
+      "history_status": "Newly assessed current-edition opportunity; not established as a regression.",
+      "mathematical_status": "The warning is true, Appendix A.7 is numerically correct, and no error in the capped-simulator proof was established.",
+      "affected_locators": [
+        {
+          "source_path": "repository/docs/expert_companion.md",
+          "line_start": 453,
+          "line_end": 459
+        },
+        {
+          "source_path": "repository/docs/reasoning_record.md",
+          "line_start": 3639,
+          "line_end": 3644
+        }
+      ],
+      "outside_source": [
+        "CL-current-record"
+      ],
+      "id": "XP10-011",
+      "priority_rank": 6
+    },
+    {
+      "key": "UNIFORM_ROUTE",
+      "paper": "expert_companion",
+      "source_path": "repository/docs/expert_companion.md",
+      "perspective": "editor, informed third perspective",
+      "locator": {
+        "section": "6. Optional uniform refinement",
+        "quote": "## 6. Optional uniform refinement",
+        "line_start": 344,
+        "line_end": 344
+      },
+      "unit_id": "XP10-U0450",
+      "kind": "structure",
+      "severity": "medium",
+      "feedback": "The optional section has two different reader tasks: use an explicit uniform hardness estimate to choose a growing parameter, and reconstruct its Gaussian/interpolation proof. The present analytic sketch introduces derivative propagation and stopped martingales before the displayed one-family payoff, and delegates the derivative and moment bounds to the record. Its placement makes the main route alternate between using the interface and explaining its implementation.",
+      "why_it_matters": "The fixed-k theorem is already complete. Readers continuing for the stronger family should be able to see the new uniform inputs and the k(t) balance directly; readers auditing the analytic estimate need its exact full-proof destination.",
+      "advice": "Make the main route state (16) with all conditions, link its first announcement directly to the current record’s #forr_uniform_assembly, and immediately derive the new allowance and growing-family consequence. Recall once that 2^(10k)=delta^(-2) comes from the chosen projection decoder, while the circuit dependence is polynomial in k. Retain a short mechanism paragraph or move the longer analytic sketch after the consequence/to the record. If that analytic reconstruction is instead a principal contribution, declare that choice and give its objects a fuller treatment rather than compressing both tasks together.",
+      "available_before": [
+        "Cited fixed-k hardness dominates m^(1-1/k)/ell^2 eventually."
+      ],
+      "missing_bridge": "A clear choice between using the uniform interface and teaching its analytic proof.",
+      "confidence": 0.94,
+      "history_status": "New section-level ordering and local-use clarification. The prior budget, range, consequence and decoder-dependence repairs are present. A direct F43 link is a new navigation suggestion; XP9-134 concerned F33, not F43.",
+      "mathematical_status": "Editorial recommendation; no false mathematical conclusion alleged.",
+      "affected_locators": [
+        {
+          "source_path": "repository/docs/expert_companion.md",
+          "line_start": 344,
+          "line_end": 391
+        }
+      ],
+      "dependency_constraints": [
+        "Keep 15k+2≤2t and the separate lower-size conditions.",
+        "Use the new allowance floor(X), not the earlier fixed-k eventual threshold.",
+        "Keep the same F_k,m in both bounds and an explicit uniform quantum envelope.",
+        "Keep the promise-correctness/off-promise-law bridge and all full derivations available at exact destinations.",
+        "The abstract’s single-family claim still needs this uniform route even though alpha_tot=4 does not."
+      ],
+      "acceptance_check": "Starting at §6, a reader can identify which quantities vary, find the exact uniform theorem at the first link, derive the k/t versus 1/k balance, and locate the full analytic argument without mistaking it for the minimax law of §4.",
+      "outside_source": [
+        "CL-current-record",
+        "CL-bansal-sinha",
+        "CL-girish-tal-wu",
+        "ROOT-SU"
+      ],
+      "id": "XP10-012",
+      "priority_rank": 4,
+      "prior_finding_ids": [
+        "XP9-133",
+        "XP9-139",
+        "XP9-140",
+        "XP9-141",
+        "XP9-142",
+        "XP9-143",
+        "XP9-091",
+        "XP9-092",
+        "XP9-039"
+      ]
+    },
+    {
+      "key": "FORMAL_MAPPING",
+      "paper": "expert_companion",
+      "source_path": "repository/docs/expert_companion.md",
+      "perspective": "editor, informed third perspective",
+      "locator": {
+        "section": "7. The formal statement",
+        "quote": "The compared family theorem supplies, for each fixed $k$, constants and a threshold,",
+        "line_start": 399,
+        "line_end": 399
+      },
+      "unit_id": "XP10-U0507",
+      "kind": "evidence_presentation",
+      "severity": "medium",
+      "feedback": "The section alternates among compared headlines, separately built explicit constants, ordinary deductions, and two different amplifier correspondences in several linked prose paragraphs. These are parallel distinctions rather than successive proof steps.",
+      "why_it_matters": "A mathematical reader wants to answer which printed statement has which formal endpoint and which recorded check. The present prose requires holding those pairings across many links.",
+      "advice": "Use one compact result-to-endpoint/evidence mapping for the headline, explicit constants, uniform estimate and growing-family deduction. Keep the existential-versus-explicit difference and current check scope in short cells; leave model-bridge explanations in prose and detailed receipts in the record. A table should replace existing inventory prose, not duplicate it or introduce long narrow paragraphs.",
+      "available_before": [
+        "Statement/proof comparison and model bridges are identified with historical receipt boundaries."
+      ],
+      "missing_bridge": "A directly visible correspondence between each result and its distinct evidence scope.",
+      "confidence": 0.91,
+      "history_status": "New synthesis of already applied scope distinctions. A compact mapping must preserve the substantive XP9-144–154 distinctions; it does not itself resolve the separate XP9-149 header issue.",
+      "mathematical_status": "Editorial recommendation; no false mathematical conclusion alleged.",
+      "affected_locators": [
+        {
+          "source_path": "repository/docs/expert_companion.md",
+          "line_start": 393,
+          "line_end": 403
+        }
+      ],
+      "acceptance_check": "A reader can locate the explicit 6 and 1/400 statement, distinguish it from the compared existential family, and identify the ordinary growing-family deduction without following more than one audit link.",
+      "outside_source": [
+        "ROOT-LONG-TO-SHORT"
+      ],
+      "id": "XP10-013",
+      "priority_rank": 9,
+      "prior_finding_ids": [
+        "XP9-151"
+      ],
+      "dependency_constraints": [
+        "Distinguish existential compared statements from separately built explicit statements and ordinary deductions.",
+        "Keep measured-label law, candidate-list formulation and additional physical-state correspondence separate.",
+        "Keep the finite-seed cap-compliance translation available; do not turn the map into another technical proof."
+      ]
+    },
+    {
+      "key": "SOURCE_STATUS",
+      "paper": "expert_companion",
+      "source_path": "repository/docs/expert_companion.md",
+      "perspective": "historical disposition and source-interface audit",
+      "locator": {
+        "section": "7, fixed-circuit source destination",
+        "quote": "recorded build and axiom-audit evidence but are outside the configured comparison bundle",
+        "line_start": 399,
+        "line_end": 399
+      },
+      "unit_id": "XP10-U0510",
+      "kind": "evidence_presentation",
+      "severity": "medium",
+      "feedback": "The current expert prose accurately distinguishes build/axiom evidence from comparison, but the linked fixed-circuit file still begins with an undated Status: unelaborated comment. The expert route does not explicitly reconcile that comment; the exposition’s formal-scope passage does.",
+      "why_it_matters": "A reader following the exact proof source receives an apparently current status inconsistent with the prose they just read. This leaves part of XP9-149’s requested repair unresolved.",
+      "advice": "Date and label the stale header as historical in the maintained source, or provide an explicit current-status reconciliation at the named-family landing passage used by the expert paper. Update only the source/status presentation authorized in the next revision; no fresh theorem or formalization is requested here.",
+      "available_before": [
+        "Statement/proof comparison and model bridges are identified with historical receipt boundaries."
+      ],
+      "missing_bridge": "An explicit chronological relation between the old unelaborated header and the later recorded build evidence.",
+      "confidence": 0.98,
+      "history_status": "Partly unresolved R9 applied disposition; the manuscript evidence boundary is repaired, the clicked source-status presentation remains.",
+      "mathematical_status": "No failed Lean theorem or missing proof inferred from a stale comment. No new build was run.",
+      "prior_finding_ids": [
+        "XP9-149"
+      ],
+      "affected_locators": [
+        {
+          "source_path": "repository/lean/QuarticQuery/Paper/ConstructionFamily.lean",
+          "line_start": 9,
+          "line_end": 11
+        },
+        {
+          "source_path": "repository/docs/reasoning_record.md",
+          "line_start": 6380,
+          "line_end": 6382
+        },
+        {
+          "source_path": "repository/docs/exposition.md",
+          "line_start": 494,
+          "line_end": 494
+        }
+      ],
+      "id": "XP10-014",
+      "priority_rank": 8
+    },
+    {
+      "key": "AI_DISCLOSURE",
+      "paper": "expert_companion",
+      "source_path": "repository/docs/expert_companion.md",
+      "perspective": "editor, informed third perspective",
+      "locator": {
+        "section": "Use of AI tools",
+        "quote": "Will Cook directed the reconstruction; AI systems drafted the text and Lean proofs and performed the recorded checks.",
+        "line_start": 407,
+        "line_end": 407
+      },
+      "unit_id": "XP10-U0521",
+      "kind": "prose",
+      "severity": "low",
+      "feedback": "This sentence repeats the first-page AI-assistance footnote verbatim, and the next sentence repeats source credit already stated in the introduction.",
+      "why_it_matters": "The second disclosure does not add a new role, limitation or source. It consumes a separate heading at the transition into the references.",
+      "advice": "Choose one canonical assistance disclosure, preserving Will Cook’s stated direction role and the roles of the systems. Retain OpenAI attribution where the theorem and construction enter. Use the other location only if it contributes different information required by the eventual venue.",
+      "available_before": [
+        "Formal scope is subdivided by theorem, interface and evidence type."
+      ],
+      "missing_bridge": "A distinct function for the second disclosure.",
+      "confidence": 0.94,
+      "history_status": "New consequence of a recorded remedy: the retained decision explicitly added a first-page footnote while retaining the disclosure. Consolidation concerns resulting duplication, not the previously declined conditional author-responsibility assertion.",
+      "mathematical_status": "Editorial recommendation; no false mathematical conclusion alleged.",
+      "affected_locators": [
+        {
+          "source_path": "repository/docs/expert_companion.md",
+          "line_start": 14,
+          "line_end": 14
+        },
+        {
+          "source_path": "repository/docs/expert_companion.md",
+          "line_start": 405,
+          "line_end": 407
+        }
+      ],
+      "id": "XP10-015",
+      "priority_rank": 15,
+      "prior_finding_ids": [
+        "XP9-156"
+      ]
+    }
+  ],
+  "impact_order": [
+    "XP10-002",
+    "XP10-008",
+    "XP10-010",
+    "XP10-012",
+    "XP10-003",
+    "XP10-011",
+    "XP10-005",
+    "XP10-014",
+    "XP10-013",
+    "XP10-001",
+    "XP10-009",
+    "XP10-007",
+    "XP10-006",
+    "XP10-004",
+    "XP10-015"
+  ],
+  "not_claimed": [
+    "Human reader outcomes",
+    "Fresh Lean or Comparator execution",
+    "Full audit of every supplied literature source",
+    "Verification of the distinct immutable linked reasoning-record body"
+  ],
+  "supporting_document_finding_count": 1,
+  "sources_read_file": "sources_read.json"
+}

@@ -19,13 +19,15 @@ Outputs:
   - in each manuscript, the block of reference definitions between the markers
     `<!-- lean-links -->` and `<!-- /lean-links -->`, holding exactly the labels
     that manuscript uses.
-  - in each shorter paper, every link into docs/reasoning_record.md rewritten to the same
-    pinned commit, so a reader reaches the record text the paper was written
+  - in each shorter paper and its bibliography, links into docs/reasoning_record.md rewritten to
+    RECORD_COMMIT, so a reader reaches the record text the paper was written
     against; an anchor missing at that commit is an error.
 
 A target whose file is absent at the pinned commit is linked to the same lines on
 `main` from the working tree and marked "pinned": false; --check reports these.
-Bump COMMIT once those files are committed. Labels are read from `][label]` uses in
+Bump COMMIT once those files are committed. Bump RECORD_COMMIT after committing
+the revised record; this does not change its own Lean links or source bytes.
+Labels are read from `][label]` uses in
 the manuscripts; an unknown label is an error.
 
     python3 tools/build_lean_links.py [--check]
@@ -46,13 +48,15 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "docs/lean_links.json"
 COMPARATOR_MAP = ROOT / "corpus/comparator_map.json"
 PAPERS = ["docs/expert_companion.md", "docs/exposition.md", "docs/reasoning_record.md"]
+RECORD_BIBLIOGRAPHIES = ["docs/expert_companion.bib"]
 SCHEMA = "quartic-lean-links-v1"
 REPOSITORY = "https://github.com/wcook04/quartic-query-lean"
 # The commit the papers describe. Every pinned link resolves against this tree.
 COMMIT = "8357f268732746d1575e05e7de8c888e20ad3793"
+RECORD_COMMIT = "cbd9bad1b00d0dcdde3c57ab096bb39037fe8c97"
 BEGIN, END = "<!-- lean-links -->", "<!-- /lean-links -->"
 USE = re.compile(r"\]\[([A-Za-z0-9][A-Za-z0-9-]*)\]")
-# A paper's links into the long record, which are pinned to COMMIT like the Lean links.
+# The record edition is independent of the Lean source edition.
 RECORD = "docs/reasoning_record.md"
 RECORD_LINK = re.compile(re.escape(REPOSITORY) + r"/blob/([0-9a-f]{40}|main)/" + re.escape(RECORD)
                          + r"(?:#([A-Za-z0-9_.:-]+))?(?=[\s)<>\]}]|$)")
@@ -371,17 +375,18 @@ def git(*args):
     return subprocess.run(["git", *args], cwd=ROOT, capture_output=True, text=True)
 
 
-def at_commit(path):
-    """The kind ('blob' or 'tree') and file text of path at COMMIT, or (None, None)."""
-    kind = git("cat-file", "-t", f"{COMMIT}:{path}")
+def at_commit(path, commit=None):
+    """The kind and file text at the selected revision, or (None, None)."""
+    commit = COMMIT if commit is None else commit
+    kind = git("cat-file", "-t", f"{commit}:{path}")
     if kind.returncode:
         return None, None
     kind = kind.stdout.strip()
     if kind != "blob":
         return kind, None
-    shown = git("show", f"{COMMIT}:{path}")
+    shown = git("show", f"{commit}:{path}")
     if shown.returncode:
-        raise SystemExit(f"cannot read {path} at {COMMIT}: {shown.stderr.strip()}")
+        raise SystemExit(f"cannot read {path} at {commit}: {shown.stderr.strip()}")
     return kind, shown.stdout
 
 
@@ -515,15 +520,15 @@ def record_anchors(text):
 
 
 def pin_record_links(text, paper):
-    """Point every record link at COMMIT, failing if its anchor is absent there."""
-    _, record = at_commit(RECORD)
+    """Point record links at their own edition and check anchors in those bytes."""
+    _, record = at_commit(RECORD, RECORD_COMMIT)
     if record is None:
-        raise SystemExit(f"{RECORD} is absent at {COMMIT[:12]}")
+        raise SystemExit(f"{RECORD} is absent at {RECORD_COMMIT[:12]}")
     known = record_anchors(record)
     missing = sorted({m.group(2) for m in RECORD_LINK.finditer(text) if m.group(2)} - known)
     if missing:
-        raise SystemExit(f"{paper}: record anchors absent at {COMMIT[:12]}: {', '.join(missing)}")
-    return RECORD_LINK.sub(lambda m: f"{REPOSITORY}/blob/{COMMIT}/{RECORD}"
+        raise SystemExit(f"{paper}: record anchors absent at {RECORD_COMMIT[:12]}: {', '.join(missing)}")
+    return RECORD_LINK.sub(lambda m: f"{REPOSITORY}/blob/{RECORD_COMMIT}/{RECORD}"
                            + (f"#{m.group(2)}" if m.group(2) else ""), text)
 
 
@@ -548,6 +553,9 @@ def main():
     outputs = {OUTPUT: render(registry)}
     for paper in PAPERS:
         outputs[ROOT / paper] = updated_paper(paper, registry["links"])
+    for bibliography in RECORD_BIBLIOGRAPHIES:
+        outputs[ROOT / bibliography] = pin_record_links(
+            (ROOT / bibliography).read_text(encoding="utf-8"), bibliography)
     if unpinned:
         print(f"lean links not pinned to {COMMIT[:12]} (file absent there): {', '.join(unpinned)}",
               file=sys.stderr)

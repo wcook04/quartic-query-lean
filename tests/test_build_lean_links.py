@@ -93,6 +93,20 @@ class LeanLinksTests(unittest.TestCase):
         with self.assertRaises(SystemExit):
             MODULE.paper_block("see [x][nope]\n", {}, "p")
 
+    def test_record_revision_is_independent_of_lean_revision(self):
+        record_commit = "b" * 40
+        url = f"{MODULE.REPOSITORY}/blob/{MODULE.COMMIT}/{MODULE.RECORD}#new-proof"
+        with mock.patch.object(MODULE, "RECORD_COMMIT", record_commit), \
+                mock.patch.object(MODULE, "at_commit", return_value=("blob", '<a id="new-proof"></a>')) as read:
+            result = MODULE.pin_record_links(url, "paper")
+            read.assert_called_once_with(MODULE.RECORD, record_commit)
+            self.assertIn(f"/blob/{record_commit}/", result)
+            self.assertNotIn(MODULE.COMMIT, result)
+        with mock.patch.object(MODULE, "RECORD_COMMIT", record_commit), \
+                mock.patch.object(MODULE, "at_commit", return_value=("blob", '<a id="other"></a>')):
+            with self.assertRaisesRegex(SystemExit, "new-proof"):
+                MODULE.pin_record_links(url, "paper")
+
     def test_registry_is_current_and_pinned_links_name_the_commit(self):
         registry, _ = MODULE.build()
         self.assertEqual(MODULE.render(registry), MODULE.OUTPUT.read_text(encoding="utf-8"))
@@ -108,6 +122,9 @@ class LeanLinksTests(unittest.TestCase):
         for paper in MODULE.PAPERS:
             text = (ROOT / paper).read_text(encoding="utf-8")
             self.assertEqual(MODULE.updated_paper(paper, registry["links"]), text, paper)
+        for bibliography in MODULE.RECORD_BIBLIOGRAPHIES:
+            text = (ROOT / bibliography).read_text(encoding="utf-8")
+            self.assertEqual(MODULE.pin_record_links(text, bibliography), text, bibliography)
 
 
 if __name__ == "__main__":

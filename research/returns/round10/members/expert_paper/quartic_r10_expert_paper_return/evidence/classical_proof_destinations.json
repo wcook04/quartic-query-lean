@@ -1,0 +1,296 @@
+{
+  "edition_boundary": {
+    "record_edition_inspected": "packaged current record only",
+    "linked_revision": "8357f268732746d1575e05e7de8c888e20ad3793",
+    "linked_revision_body_independently_read": false,
+    "packet_evidence": "LINK_MAP.json reports pinned_differs_from_packaged=true for expert-companion record links",
+    "consequence": "Do not promote supplied-edition support to immutable-link verification; proposed anchors need an edition that contains them."
+  },
+  "policy": "Anchor existence alone is not proof support. Entries record inspection of the claimed job in supplied material. Immutable linked version remains unverified here.",
+  "links": [
+    {
+      "expert_line": 222,
+      "anchor_or_target": "CL-minimax",
+      "advertised_job": "Finite minimax hard law at the chosen cap",
+      "inspected_line_ranges": [
+        [
+          3287,
+          3313
+        ]
+      ],
+      "status_in_supplied_edition": "supported",
+      "check_detail": "Exact-cap law; no balanced-label assumption.",
+      "inspected_source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "expert_line": 244,
+      "anchor_or_target": "CL-weighted-values",
+      "advertised_job": "Exact separate-cap beta^r product bound via unnormalised recurrence",
+      "inspected_line_ranges": [
+        [
+          3152,
+          3237
+        ]
+      ],
+      "status_in_supplied_edition": "supported",
+      "check_detail": "Read the induction and restricted-measure recurrence.",
+      "inspected_source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "expert_line": 246,
+      "anchor_or_target": "CL-literature-and-verification",
+      "advertised_job": "Drucker substitution gives 2 beta^r",
+      "inspected_line_ranges": [
+        [
+          3242,
+          3268
+        ]
+      ],
+      "status_in_supplied_edition": "supported",
+      "check_detail": "Also checked the source theorem and partial-domain extension.",
+      "inspected_source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "expert_line": 291,
+      "anchor_or_target": "CL-simulator-example",
+      "advertised_job": "Worked capped trace and possible extra default success",
+      "inspected_line_ranges": [
+        [
+          3603,
+          3636
+        ]
+      ],
+      "status_in_supplied_edition": "supported",
+      "check_detail": "Supports event inclusion, not equality.",
+      "inspected_source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "expert_line": 298,
+      "anchor_or_target": "Appendix A.7",
+      "advertised_job": "Terminal-lightness conditioning warning",
+      "inspected_line_ranges": [
+        [
+          453,
+          459
+        ]
+      ],
+      "status_in_supplied_edition": "related example, not exact event",
+      "check_detail": "The companion appendix distinguishes per-block compliance from terminal lightness. The exact current-record target is at lines 3639–3644.",
+      "inspected_source_path": "repository/docs/expert_companion.md"
+    },
+    {
+      "expert_line": 329,
+      "anchor_or_target": "CL-floors",
+      "advertised_job": "Fixed-k floor and size arithmetic",
+      "inspected_line_ranges": [
+        [
+          3746,
+          3800
+        ]
+      ],
+      "status_in_supplied_edition": "supported",
+      "check_detail": "t >= 8 is sufficient for the rounding factors.",
+      "inspected_source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "expert_line": 331,
+      "anchor_or_target": "CL-zero-optional",
+      "advertised_job": "Sharper erasure expectation-cost bound",
+      "inspected_line_ranges": [
+        [
+          3548,
+          3565
+        ]
+      ],
+      "status_in_supplied_edition": "supported",
+      "check_detail": "No optimal worst-case success curve or supplied formal endpoint is claimed.",
+      "inspected_source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "expert_line": 346,
+      "anchor_or_target": "forr_target",
+      "advertised_job": "Uniform inequality (16) announcement",
+      "inspected_line_ranges": [
+        [
+          854,
+          899
+        ],
+        [
+          1512,
+          1590
+        ]
+      ],
+      "status_in_supplied_edition": "supported elsewhere; landing indirect",
+      "check_detail": "The current landing states the fixed-k target. Uniform F43 is at #forr_uniform_assembly.",
+      "inspected_source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "expert_line": 351,
+      "anchor_or_target": "forr_threshold",
+      "advertised_job": "Explicit sufficient threshold 13669 k²",
+      "inspected_line_ranges": [
+        [
+          1592,
+          1624
+        ]
+      ],
+      "status_in_supplied_edition": "supported",
+      "check_detail": "Ordinary specialization of F43; no optimal first-dimension claim.",
+      "inspected_source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "expert_line": 353,
+      "anchor_or_target": "forr_distribution",
+      "advertised_job": "Correlated rounded Gaussian law",
+      "inspected_line_ranges": [
+        [
+          1061,
+          1107
+        ]
+      ],
+      "status_in_supplied_edition": "supported",
+      "check_detail": "Different law from minimax mu; off-promise mass allowed.",
+      "inspected_source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "expert_line": 353,
+      "anchor_or_target": "forr_stein",
+      "advertised_job": "Algebraic bias kernel and integration by parts",
+      "inspected_line_ranges": [
+        [
+          996,
+          1060
+        ]
+      ],
+      "status_in_supplied_edition": "supported",
+      "check_detail": "Identities checked algebraically; bias differs from Bansal–Sinha.",
+      "inspected_source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "expert_line": 355,
+      "anchor_or_target": "forr_advantage",
+      "advertised_job": "Depth-d shallow-tree estimate F33",
+      "inspected_line_ranges": [
+        [
+          1220,
+          1388
+        ]
+      ],
+      "status_in_supplied_edition": "supported",
+      "check_detail": "Derivative growth, stopped process and assembly read.",
+      "inspected_source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "expert_line": 372,
+      "anchor_or_target": "forr_uniform_assembly",
+      "advertised_job": "119/144 versus 7/12 margins and coefficient 2/18225",
+      "inspected_line_ranges": [
+        [
+          1470,
+          1590
+        ]
+      ],
+      "status_in_supplied_edition": "supported",
+      "check_detail": "Amplification, pointwise bridge, padding and constants checked.",
+      "inspected_source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "expert_line": 374,
+      "anchor_or_target": "forr_credit",
+      "advertised_job": "Borrowed methods versus reconstructed estimates",
+      "inspected_line_ranges": [
+        [
+          1626,
+          1642
+        ]
+      ],
+      "status_in_supplied_edition": "supported in the inspected source comparisons",
+      "check_detail": "Bansal–Sinha §3 and integration-by-parts statement, and the GTW overview, were checked. No priority adjudication.",
+      "inspected_source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "expert_line": 380,
+      "anchor_or_target": "ROOT-GROWING-K",
+      "advertised_job": "X floor admissibility and uniform quantum envelope",
+      "inspected_line_ranges": [
+        [
+          3902,
+          3944
+        ]
+      ],
+      "status_in_supplied_edition": "supported",
+      "check_detail": "Quantum constant arithmetic checked; full quantum algorithm not reproved.",
+      "inspected_source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "expert_line": 391,
+      "anchor_or_target": "ROOT-GROWING-K",
+      "advertised_job": "Schedule and finite exponent loss",
+      "inspected_line_ranges": [
+        [
+          3946,
+          3970
+        ]
+      ],
+      "status_in_supplied_edition": "supported",
+      "check_detail": "No fixed-k asymptotic substitution; unboundedness of Q justified.",
+      "inspected_source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "expert_line": 437,
+      "anchor_or_target": "CL-selection-independence-example",
+      "advertised_job": "Uniform marginal does not replace independent column selection",
+      "inspected_line_ranges": [
+        [
+          3456,
+          3465
+        ]
+      ],
+      "status_in_supplied_edition": "supported",
+      "check_detail": "Finite example algebra and law checked; linked checker not executed.",
+      "inspected_source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "expert_line": 449,
+      "anchor_or_target": "CL-independent-information",
+      "advertised_job": "Joint independence required for auxiliary information",
+      "inspected_line_ranges": [
+        [
+          3012,
+          3035
+        ]
+      ],
+      "status_in_supplied_edition": "supported",
+      "check_detail": "Parity counterexample and finite-mixture argument checked.",
+      "inspected_source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "expert_line": 459,
+      "anchor_or_target": "CL-adaptive-example",
+      "advertised_job": "Per-block compliance conditioning example",
+      "inspected_line_ranges": [
+        [
+          3072,
+          3124
+        ]
+      ],
+      "status_in_supplied_edition": "supported",
+      "check_detail": "Exact enumeration executed independently.",
+      "inspected_source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "expert_line": 463,
+      "anchor_or_target": "ROOT-GROWING-K",
+      "advertised_job": "Need uniformity before letting k grow",
+      "inspected_line_ranges": [
+        [
+          3902,
+          3970
+        ]
+      ],
+      "status_in_supplied_edition": "supported",
+      "check_detail": "A.8 is a logical warning; the growing family satisfies the new conditions.",
+      "inspected_source_path": "repository/docs/reasoning_record.md"
+    }
+  ]
+}

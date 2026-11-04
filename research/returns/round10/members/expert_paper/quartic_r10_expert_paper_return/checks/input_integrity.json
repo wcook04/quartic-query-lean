@@ -1,0 +1,635 @@
+{
+  "schema": "quartic-r10-intake-metadata-audit-v1",
+  "audit_utc": "2026-11-04T13:33:11.554567+00:00",
+  "scope": "Metadata and integrity only; no manuscript, historical review, literature, writing-method or transcript prose was read during this audit. No submitted script or build was executed.",
+  "source_archive": {
+    "filename": "quartic_r10_expert_paper.zip",
+    "bytes": 65106294,
+    "sha256": "60f48603e8aa79668fb0df84d9d2739f039446c177792d80f8404d3873b88e76"
+  },
+  "repository_commit": "0d977710556f304ce70fa200cbf36b9beecb78e8",
+  "zip": {
+    "member_count": 6176,
+    "file_count": 6176,
+    "directory_count": 0,
+    "uncompressed_bytes": 194443958,
+    "compressed_payload_bytes": 63467214,
+    "crc_first_failure": null,
+    "duplicate_member_names": [],
+    "unsafe_member_names": [],
+    "symlink_members": [],
+    "encrypted_members": [],
+    "compression_methods": {
+      "8": 6176
+    }
+  },
+  "manifest": {
+    "schema_fields": [
+      "campaign",
+      "drafts",
+      "interpretation",
+      "literature_cited_only",
+      "literature_present",
+      "members",
+      "packet",
+      "record",
+      "repository_commit",
+      "request_sha256",
+      "source_paper",
+      "title"
+    ],
+    "entry_count": 6174,
+    "unique_member_count": 6174,
+    "entry_duplicates": [],
+    "extracted_hash_and_size_failures": [],
+    "archive_hash_and_size_failures": [],
+    "unlisted_archive_members": [
+      "READ_ME_FIRST.md",
+      "manifest.json"
+    ],
+    "listed_but_missing_from_archive": [],
+    "extracted_and_archive_entries_verified": 6174,
+    "manifest_sha256": "0751cb551caa3f344f6837bd91cb656bc6eb6cafe993298af3b2b43b63b39810",
+    "request_member_hash_matches": true,
+    "unlisted_members_explanation": "READ_ME_FIRST.md is independently bound by manifest.request_sha256; manifest.json does not list itself."
+  },
+  "draft_bindings": {
+    "count": 9,
+    "all_match": true,
+    "checks": [
+      {
+        "member": "repository/docs/expert_companion.bib",
+        "expected_sha256": "31702a7b39b12b775005b311544b69a1d3e0544d669a009a6a80c56e235cca6a",
+        "actual_sha256": "31702a7b39b12b775005b311544b69a1d3e0544d669a009a6a80c56e235cca6a",
+        "bytes": 8347,
+        "matches": true,
+        "matches_manifest_draft": true
+      },
+      {
+        "member": "repository/docs/expert_companion.md",
+        "expected_sha256": "8c29b8d9a4adbc7b93fbe50f1cbb6d27afb11f0afd44172342bdfb1c3a42cc8d",
+        "actual_sha256": "8c29b8d9a4adbc7b93fbe50f1cbb6d27afb11f0afd44172342bdfb1c3a42cc8d",
+        "bytes": 67332,
+        "matches": true,
+        "matches_manifest_draft": true
+      },
+      {
+        "member": "repository/docs/expert_companion.pdf",
+        "expected_sha256": "4cf95ae890234852ca08837f31671f8fae01ff59d807feb58eca03ff96abbb8a",
+        "actual_sha256": "4cf95ae890234852ca08837f31671f8fae01ff59d807feb58eca03ff96abbb8a",
+        "bytes": 206998,
+        "matches": true,
+        "matches_manifest_draft": true
+      },
+      {
+        "member": "repository/docs/exposition.bib",
+        "expected_sha256": "76ab8492f33bb8136150d54ef2b12e3ea434d48186ad3d39624e8079eb2630eb",
+        "actual_sha256": "76ab8492f33bb8136150d54ef2b12e3ea434d48186ad3d39624e8079eb2630eb",
+        "bytes": 7208,
+        "matches": true,
+        "matches_manifest_draft": true
+      },
+      {
+        "member": "repository/docs/exposition.md",
+        "expected_sha256": "e034aae7c7a74529656a84289b41767bcc4f06cbe1a3d2926fc8a01f918918b8",
+        "actual_sha256": "e034aae7c7a74529656a84289b41767bcc4f06cbe1a3d2926fc8a01f918918b8",
+        "bytes": 86052,
+        "matches": true,
+        "matches_manifest_draft": true
+      },
+      {
+        "member": "repository/docs/exposition.pdf",
+        "expected_sha256": "784683dc467eb43ee540b7ff0f2a7536747cc9f984a9e8eb02dafccc7247e354",
+        "actual_sha256": "784683dc467eb43ee540b7ff0f2a7536747cc9f984a9e8eb02dafccc7247e354",
+        "bytes": 262455,
+        "matches": true,
+        "matches_manifest_draft": true
+      },
+      {
+        "member": "repository/docs/reasoning_record.bib",
+        "expected_sha256": "89c47ffefcfe6216ee5c7a78861dd2c62013087470ab0976029edcfab89d6491",
+        "actual_sha256": "89c47ffefcfe6216ee5c7a78861dd2c62013087470ab0976029edcfab89d6491",
+        "bytes": 19648,
+        "matches": true,
+        "matches_manifest_draft": true
+      },
+      {
+        "member": "repository/docs/reasoning_record.md",
+        "expected_sha256": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+        "actual_sha256": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+        "bytes": 495284,
+        "matches": true,
+        "matches_manifest_draft": true
+      },
+      {
+        "member": "repository/docs/reasoning_record.pdf",
+        "expected_sha256": "4122ef4f803437bf68093a0b0b1bdbccae64004ff0747eecd6a54ee50f9769a7",
+        "actual_sha256": "4122ef4f803437bf68093a0b0b1bdbccae64004ff0747eecd6a54ee50f9769a7",
+        "bytes": 716506,
+        "matches": true,
+        "matches_manifest_draft": true
+      }
+    ]
+  },
+  "source_status_metadata": {
+    "status": "unreviewed working drafts",
+    "acceptance_gate": "not applied: these hashes bind the packet to the exact bytes supplied; no human review of these editions is claimed.",
+    "record": {
+      "accepted_review_record_sha256": "c2b6f11a7a4b3f318ebf419a9959c1d154f8e2b74e3ec02a8e25fb92ba9cfd25",
+      "markdown_matches_accepted_review": false,
+      "markdown_sha256": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+      "pdf_rendered_from": "the current Markdown at repository commit 0d977710556f304ce70fa200cbf36b9beecb78e8",
+      "pdf_sha256": "4122ef4f803437bf68093a0b0b1bdbccae64004ff0747eecd6a54ee50f9769a7"
+    },
+    "writing_method": "7bc9ef5d253d23527c6ccbd759c2eb24c0243ac7",
+    "source_status_sha256": "a91f81249be2f04a3c1aca2fb554879814af79d4b0a539593ad7eddcf8995839",
+    "previous_round_intake_hash_matches": true
+  },
+  "render_bindings": {
+    "documents": [
+      {
+        "document": "expert_companion",
+        "pdf_member": "repository/docs/expert_companion.pdf",
+        "pdf_sha256_matches": true,
+        "inputs": [
+          {
+            "declared_input": "docs/expert_companion.bib",
+            "expected_sha256": "31702a7b39b12b775005b311544b69a1d3e0544d669a009a6a80c56e235cca6a",
+            "available_exact_paths": [
+              "repository/docs/expert_companion.bib"
+            ],
+            "matching_hash_paths": [
+              "repository/docs/expert_companion.bib"
+            ],
+            "exact_path_checks": [
+              {
+                "member": "repository/docs/expert_companion.bib",
+                "matches": true
+              }
+            ],
+            "status": "matched_exact_path"
+          },
+          {
+            "declared_input": "docs/expert_companion.md",
+            "expected_sha256": "8c29b8d9a4adbc7b93fbe50f1cbb6d27afb11f0afd44172342bdfb1c3a42cc8d",
+            "available_exact_paths": [
+              "repository/docs/expert_companion.md"
+            ],
+            "matching_hash_paths": [
+              "repository/docs/expert_companion.md"
+            ],
+            "exact_path_checks": [
+              {
+                "member": "repository/docs/expert_companion.md",
+                "matches": true
+              }
+            ],
+            "status": "matched_exact_path"
+          },
+          {
+            "declared_input": "docs/figures/expert_column.tex",
+            "expected_sha256": "2b04f8d05910d176ac8a5f3c581baa98fef0d994385aca4dc1e3e7dd950026eb",
+            "available_exact_paths": [
+              "repository/docs/figures/expert_column.tex"
+            ],
+            "matching_hash_paths": [
+              "repository/docs/figures/expert_column.tex"
+            ],
+            "exact_path_checks": [
+              {
+                "member": "repository/docs/figures/expert_column.tex",
+                "matches": true
+              }
+            ],
+            "status": "matched_exact_path"
+          },
+          {
+            "declared_input": "docs/figures/expert_planted.tex",
+            "expected_sha256": "7765359db5724588a2459ab5d68b33dd3a744049f2a973269a85f7752dc339f8",
+            "available_exact_paths": [
+              "repository/docs/figures/expert_planted.tex"
+            ],
+            "matching_hash_paths": [
+              "repository/docs/figures/expert_planted.tex"
+            ],
+            "exact_path_checks": [
+              {
+                "member": "repository/docs/figures/expert_planted.tex",
+                "matches": true
+              }
+            ],
+            "status": "matched_exact_path"
+          },
+          {
+            "declared_input": "tools/render_papers.py",
+            "expected_sha256": "e3b311d62d401f0dc58b178a9efa213f44ac7d270b3e4fd16bfb8d1550edefb7",
+            "available_exact_paths": [
+              "repository/tools/render_papers.py"
+            ],
+            "matching_hash_paths": [
+              "repository/tools/render_papers.py"
+            ],
+            "exact_path_checks": [
+              {
+                "member": "repository/tools/render_papers.py",
+                "matches": true
+              }
+            ],
+            "status": "matched_exact_path"
+          }
+        ],
+        "visual_acceptance_claim": "separate human/agent page inspection; not established by these hashes"
+      },
+      {
+        "document": "exposition",
+        "pdf_member": "repository/docs/exposition.pdf",
+        "pdf_sha256_matches": true,
+        "inputs": [
+          {
+            "declared_input": "docs/exposition.bib",
+            "expected_sha256": "76ab8492f33bb8136150d54ef2b12e3ea434d48186ad3d39624e8079eb2630eb",
+            "available_exact_paths": [
+              "repository/docs/exposition.bib"
+            ],
+            "matching_hash_paths": [
+              "repository/docs/exposition.bib"
+            ],
+            "exact_path_checks": [
+              {
+                "member": "repository/docs/exposition.bib",
+                "matches": true
+              }
+            ],
+            "status": "matched_exact_path"
+          },
+          {
+            "declared_input": "docs/exposition.md",
+            "expected_sha256": "e034aae7c7a74529656a84289b41767bcc4f06cbe1a3d2926fc8a01f918918b8",
+            "available_exact_paths": [
+              "repository/docs/exposition.md"
+            ],
+            "matching_hash_paths": [
+              "repository/docs/exposition.md"
+            ],
+            "exact_path_checks": [
+              {
+                "member": "repository/docs/exposition.md",
+                "matches": true
+              }
+            ],
+            "status": "matched_exact_path"
+          },
+          {
+            "declared_input": "docs/figures/exposition/fig1_column.tex",
+            "expected_sha256": "38b7ffa995a54c1450d8c81eee1972102af2d055b3df1df74e6d5a30afd608f7",
+            "available_exact_paths": [
+              "repository/docs/figures/exposition/fig1_column.tex"
+            ],
+            "matching_hash_paths": [
+              "repository/docs/figures/exposition/fig1_column.tex"
+            ],
+            "exact_path_checks": [
+              {
+                "member": "repository/docs/figures/exposition/fig1_column.tex",
+                "matches": true
+              }
+            ],
+            "status": "matched_exact_path"
+          },
+          {
+            "declared_input": "docs/figures/exposition/fig2_board.tex",
+            "expected_sha256": "b07957d1341efed364feafe0cc80931ac2e9f7bfee03b021d9eee5cb843be8b7",
+            "available_exact_paths": [
+              "repository/docs/figures/exposition/fig2_board.tex"
+            ],
+            "matching_hash_paths": [
+              "repository/docs/figures/exposition/fig2_board.tex"
+            ],
+            "exact_path_checks": [
+              {
+                "member": "repository/docs/figures/exposition/fig2_board.tex",
+                "matches": true
+              }
+            ],
+            "status": "matched_exact_path"
+          },
+          {
+            "declared_input": "docs/figures/exposition/fig3_tournament.tex",
+            "expected_sha256": "8d7f225f7003d9e0fc9687ab733f78ae91a98913f3efb0a68735c9043a2385c3",
+            "available_exact_paths": [
+              "repository/docs/figures/exposition/fig3_tournament.tex"
+            ],
+            "matching_hash_paths": [
+              "repository/docs/figures/exposition/fig3_tournament.tex"
+            ],
+            "exact_path_checks": [
+              {
+                "member": "repository/docs/figures/exposition/fig3_tournament.tex",
+                "matches": true
+              }
+            ],
+            "status": "matched_exact_path"
+          },
+          {
+            "declared_input": "docs/figures/exposition/fig4_planted.tex",
+            "expected_sha256": "78158ce0e8e219ef3ab71f5027143a9ad0627e348f43c1326abf87037687ed70",
+            "available_exact_paths": [
+              "repository/docs/figures/exposition/fig4_planted.tex"
+            ],
+            "matching_hash_paths": [
+              "repository/docs/figures/exposition/fig4_planted.tex"
+            ],
+            "exact_path_checks": [
+              {
+                "member": "repository/docs/figures/exposition/fig4_planted.tex",
+                "matches": true
+              }
+            ],
+            "status": "matched_exact_path"
+          },
+          {
+            "declared_input": "docs/figures/exposition/style.tex",
+            "expected_sha256": "b63231827c3f07218f2004beba07a62deba4d7bef1ef1b12c7d8dbb425b34380",
+            "available_exact_paths": [],
+            "matching_hash_paths": [],
+            "status": "not_supplied_at_declared_path_or_hash"
+          },
+          {
+            "declared_input": "tools/render_papers.py",
+            "expected_sha256": "e3b311d62d401f0dc58b178a9efa213f44ac7d270b3e4fd16bfb8d1550edefb7",
+            "available_exact_paths": [
+              "repository/tools/render_papers.py"
+            ],
+            "matching_hash_paths": [
+              "repository/tools/render_papers.py"
+            ],
+            "exact_path_checks": [
+              {
+                "member": "repository/tools/render_papers.py",
+                "matches": true
+              }
+            ],
+            "status": "matched_exact_path"
+          }
+        ],
+        "visual_acceptance_claim": "separate human/agent page inspection; not established by these hashes"
+      },
+      {
+        "document": "reasoning_record",
+        "pdf_member": "repository/docs/reasoning_record.pdf",
+        "pdf_sha256_matches": true,
+        "inputs": [
+          {
+            "declared_input": "docs/reasoning_record.md",
+            "expected_sha256": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+            "available_exact_paths": [
+              "repository/docs/reasoning_record.md"
+            ],
+            "matching_hash_paths": [
+              "repository/docs/reasoning_record.md"
+            ],
+            "exact_path_checks": [
+              {
+                "member": "repository/docs/reasoning_record.md",
+                "matches": true
+              }
+            ],
+            "status": "matched_exact_path"
+          },
+          {
+            "declared_input": "research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks/pdf_header.tex",
+            "expected_sha256": "9817af5f1cbe1ae754962776f5f5a9cd94c5cda1243a4844fb4810544261e468",
+            "available_exact_paths": [
+              "repository/research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks/pdf_header.tex"
+            ],
+            "matching_hash_paths": [
+              "repository/research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks/pdf_header.tex"
+            ],
+            "exact_path_checks": [
+              {
+                "member": "repository/research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks/pdf_header.tex",
+                "matches": true
+              }
+            ],
+            "status": "matched_exact_path"
+          },
+          {
+            "declared_input": "research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks/pdf_layout.lua",
+            "expected_sha256": "fa01ab1345f461ecea15aba9bd4855b55c4683797dbd4040348b045d47557253",
+            "available_exact_paths": [
+              "repository/research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks/pdf_layout.lua"
+            ],
+            "matching_hash_paths": [
+              "repository/research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks/pdf_layout.lua"
+            ],
+            "exact_path_checks": [
+              {
+                "member": "repository/research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks/pdf_layout.lua",
+                "matches": true
+              }
+            ],
+            "status": "matched_exact_path"
+          },
+          {
+            "declared_input": "research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks/render_section.py",
+            "expected_sha256": "f52c6ae0ee39915ccce36953afd00c76071f19bb43d6407651694c61032edaab",
+            "available_exact_paths": [
+              "repository/research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks/render_section.py"
+            ],
+            "matching_hash_paths": [
+              "repository/research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks/render_section.py"
+            ],
+            "exact_path_checks": [
+              {
+                "member": "repository/research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks/render_section.py",
+                "matches": true
+              }
+            ],
+            "status": "matched_exact_path"
+          },
+          {
+            "declared_input": "tools/render_reasoning_record.py",
+            "expected_sha256": "1c46bf4047f4f2d9ecc93bd8369c0fd7f1c3d4ca693197a4cc6ed01e383bb901",
+            "available_exact_paths": [
+              "repository/tools/render_reasoning_record.py"
+            ],
+            "matching_hash_paths": [
+              "repository/tools/render_reasoning_record.py"
+            ],
+            "exact_path_checks": [
+              {
+                "member": "repository/tools/render_reasoning_record.py",
+                "matches": true
+              }
+            ],
+            "status": "matched_exact_path"
+          }
+        ],
+        "visual_acceptance_claim": "separate human/agent page inspection; not established by these hashes"
+      }
+    ],
+    "all_pdf_hashes_match": true,
+    "input_status_counts": {
+      "matched_exact_path": 17,
+      "not_supplied_at_declared_path_or_hash": 1
+    },
+    "limitation": "Verified metadata binds the supplied bytes to the declared inputs/PDF digests. No rendering was rerun; this does not prove those input bytes generated the PDFs, or establish visual correctness."
+  },
+  "pdf_metadata": [
+    {
+      "member": "repository/docs/expert_companion.pdf",
+      "pages": 18,
+      "encrypted": false,
+      "page_sizes_points": [
+        {
+          "width": 595.28,
+          "height": 841.89,
+          "pages": 18
+        }
+      ],
+      "metadata": {
+        "/Creator": "LaTeX via pandoc",
+        "/Producer": "xdvipdfmx (0.1)",
+        "/CreationDate": "D:20261104124332-00'00'"
+      },
+      "content_inspected": false
+    },
+    {
+      "member": "repository/docs/exposition.pdf",
+      "pages": 24,
+      "encrypted": false,
+      "page_sizes_points": [
+        {
+          "width": 595.28,
+          "height": 841.89,
+          "pages": 24
+        }
+      ],
+      "metadata": {
+        "/Creator": "LaTeX via pandoc",
+        "/Producer": "xdvipdfmx (0.1)",
+        "/CreationDate": "D:20261104124333-00'00'"
+      },
+      "content_inspected": false
+    },
+    {
+      "member": "repository/docs/reasoning_record.pdf",
+      "pages": 139,
+      "encrypted": false,
+      "page_sizes_points": [
+        {
+          "width": 612.0,
+          "height": 792.0,
+          "pages": 139
+        }
+      ],
+      "metadata": {
+        "/Creator": "LaTeX via pandoc",
+        "/Producer": "xdvipdfmx (0.1)",
+        "/CreationDate": "D:20261104124331-00'00'"
+      },
+      "content_inspected": false
+    },
+    {
+      "member": "paper/source.pdf",
+      "pages": 19,
+      "encrypted": false,
+      "page_sizes_points": [
+        {
+          "width": 612.0,
+          "height": 792.0,
+          "pages": 19
+        }
+      ],
+      "metadata": {
+        "/Producer": "pdfTeX-1.40.29",
+        "/Creator": "LaTeX with hyperref",
+        "/CreationDate": "D:20261005000000Z",
+        "/ModDate": "D:20261005000000Z"
+      },
+      "content_inspected": false
+    }
+  ],
+  "transcript_structural_inventory": {
+    "filename": "Pasted text(20261104-132939).txt",
+    "bytes": 977681,
+    "characters": 976955,
+    "lines": 1096,
+    "sha256": "c20d068c485d3982566eb559f9e0e612fee89cf1f4034b3ff513abd860b7a0ea",
+    "native_items_parsed": 954,
+    "item_kind_counts": {
+      "UserMessage": 5,
+      "AgentMessage": 62,
+      "CommandExecution": 485,
+      "SubAgentActivity": 246,
+      "FileChange": 8,
+      "Extension": 26,
+      "Reasoning": 113,
+      "ContextCompaction": 2,
+      "McpToolCall": 7
+    },
+    "parse_errors": [],
+    "snapshot_metadata": [
+      {
+        "schema": "codex_native_v1",
+        "schema_version": 1,
+        "item_count": 377,
+        "mode": "detailed",
+        "source_kind": "rollout_jsonl",
+        "session_id": "01a1a67a-e6b4-7eb2-a6a5-ef6141eebc9e",
+        "sha256": "176eb30344787c525d8a634198db3873f7386d588d24fb8a2fedd75dc3de07e3",
+        "source_sha256": "74d8810cbf197611dc19df4a8fed40b18288ddc7651bed02c762e3c2641c689d"
+      },
+      {
+        "schema": "codex_native_v1",
+        "schema_version": 1,
+        "item_count": 194,
+        "mode": "detailed",
+        "source_kind": "rollout_jsonl",
+        "session_id": "01a1a67c-f018-7e63-83ec-732636ed05ef",
+        "sha256": "16c1f25ac5c840d54043c79524c0850f9ebeef24e699720cc96c6fef7525d471",
+        "source_sha256": "a99399235459c0a3f1258a528d1c1ab87b0b9a56716ffc3e63922149a4e59566"
+      },
+      {
+        "schema": "codex_native_v1",
+        "schema_version": 1,
+        "item_count": 143,
+        "mode": "detailed",
+        "source_kind": "rollout_jsonl",
+        "session_id": "01a1a67d-2520-7ea3-9efb-32f8258cc7a2",
+        "sha256": "5e619a2fc4b973ef21549ee04f4d8a52bd678b376c1cd0aff9bdcce6490d2eec",
+        "source_sha256": "e54560762b94b6607717b71a6edfa390c7ab9ebe3e52e10107bca02223ace461"
+      },
+      {
+        "schema": "codex_native_v1",
+        "schema_version": 1,
+        "item_count": 147,
+        "mode": "detailed",
+        "source_kind": "rollout_jsonl",
+        "session_id": "01a1a67d-6323-7541-9321-a6b1c61afe1b",
+        "sha256": "56fc1cc3fdf39ba59c4abd0209ef0e3bad2d62acde35a335f50f4d50abd97ace",
+        "source_sha256": "2d5184649902ea1256043a5bb3cda5eb5a62984c4469db481e2efdef5457ba4c"
+      },
+      {
+        "schema": "codex_native_v1",
+        "schema_version": 1,
+        "item_count": 93,
+        "mode": "detailed",
+        "source_kind": "rollout_jsonl",
+        "session_id": "01a1a6a2-edb3-7e42-a153-287b343247fa",
+        "sha256": "83bcaec457951b33b33a65b4abe835080e552e789a293ef4d0745e0993864093",
+        "source_sha256": "ae02c3c0f4f70a2651d1805d1e8767967ccebaa987c1d3110c9fb77af3a6faf4"
+      }
+    ],
+    "evidence_ref_objects": 291,
+    "omitted_chars_objects": 291,
+    "reported_omitted_chars_total": 4688521,
+    "content_reviewed": false,
+    "limitation": "Only JSON envelope/type/count/truncation metadata was inspected; user/agent prose, commands and outputs were not substantively read.",
+    "snapshot_count": 5,
+    "snapshot_declared_items_total": 954,
+    "snapshot_declared_items_match_parsed": true
+  },
+  "overall_integrity_pass": true,
+  "source_paper_hash_matches_manifest_description": true
+}

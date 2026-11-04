@@ -1,0 +1,96 @@
+{
+  "schema": "quartic-r10-method-feedback-v1",
+  "packet": "expert_paper",
+  "method_changes_applied": false,
+  "feedback": [
+    {
+      "id": "MF10-001",
+      "rule_or_skill": "chronological_reading.md: record before moving on",
+      "judgment": "existing-rule execution improvement",
+      "current_evidence": [
+        "coverage.json",
+        "freeze.json"
+      ],
+      "failure_mechanism": "The interface exposed bounded blocks; captions remained object-level and rendered bibliography was deferred. This cannot certify a strict one-unit-at-a-time publication-order encounter.",
+      "proposed_general_change": "For a future strict pass, reveal one semantic unit at a time, persist each row before revealing the next, and include generated references at their publication position. When that was not done, retain the original evidence and disclose the exact departure, as here."
+    },
+    {
+      "id": "MF10-002",
+      "rule_or_skill": "quartic writing method: delegate a precise proof job",
+      "judgment": "existing-rule application",
+      "current_evidence": [
+        "XP10-011",
+        "evidence/classical_verification_checks.json"
+      ],
+      "failure_mechanism": "A counterexample can be correct yet answer a neighboring event. A.7 conditions on per-block compliance, while the prose warning names terminal aggregate lightness.",
+      "proposed_general_change": "Validate the event, probability law, quantifiers and budget convention at the destination, not only the topic. Label related examples as related; use an exact-event destination when available."
+    },
+    {
+      "id": "MF10-003",
+      "rule_or_skill": "long-to-short: interfaces before implementations",
+      "judgment": "existing-rule application",
+      "current_evidence": [
+        "XP10-008",
+        "XP10-010",
+        "XP10-012"
+      ],
+      "failure_mechanism": "Generic implementation detail arrives before the construction-specific quantity that gives it a job. A forward-reading detour repairs navigation without settling the default route.",
+      "proposed_general_change": "Compare the default dependency order with the author-suggested detour. Keep a complete local contract, then its application; relocate implementation only when the application remains checkable and the proof remains accessible."
+    },
+    {
+      "id": "MF10-004",
+      "rule_or_skill": "docs/authoring.md: mathematical scope and rendered layout",
+      "judgment": "existing-rule application",
+      "current_evidence": [
+        "XP10-005",
+        "evidence/pdf_inspection.json"
+      ],
+      "failure_mechanism": "A float lies between a coupling display and the convention identifying its probability law. Source adjacency alone misses this reading cost.",
+      "proposed_general_change": "After rendering, inspect each display together with its active assumptions, especially across floats and page breaks. Keep the small formula-plus-scope unit together rather than enforcing whole-proof page rules."
+    },
+    {
+      "id": "MF10-005",
+      "rule_or_skill": "source correspondence and recorded formal evidence",
+      "judgment": "existing-rule application",
+      "current_evidence": [
+        "XP10-014",
+        "previous_round_audit.json"
+      ],
+      "failure_mechanism": "A precise narrative distinguishes compared and separately built claims, while a clicked source retains an undated earlier status. Readers cannot infer which chronology controls.",
+      "proposed_general_change": "Date historical status statements or reconcile them at the actual landing point. Keep source presence, build, axiom audit and comparison as distinct evidence; no fresh execution is implied by narrative repair."
+    },
+    {
+      "id": "MF10-006",
+      "rule_or_skill": "cross-document motivation and matched comparisons",
+      "judgment": "existing-rule application",
+      "current_evidence": [
+        "XP10-003"
+      ],
+      "failure_mechanism": "Comparative verbs carry an unstated baseline across documents. The record’s grows/stays account differs from the lead’s explicit matched cost pairs.",
+      "proposed_general_change": "Check old and new Q and R against the same supplier parameter before using grows, stays or improves. If the comparison changes baseline, name it locally."
+    },
+    {
+      "id": "MF10-007",
+      "rule_or_skill": "revision dispositions and current locators",
+      "judgment": "existing-rule application",
+      "current_evidence": [
+        "previous_round_audit.json: historical_locator_defects"
+      ],
+      "failure_mechanism": "Seven historical current-locator rows contain literal matches that do not establish the finding-specific repair. A generic phrase can be present in an unrelated discussion.",
+      "proposed_general_change": "Validate a disposition locator semantically against the original request and affected dependency. Record narrower repairs and reasonable retained alternatives honestly; substring presence is not closure evidence."
+    },
+    {
+      "id": "MF10-008",
+      "rule_or_skill": "literature standard: editions and truthful reading scope",
+      "judgment": "existing-rule application",
+      "current_evidence": [
+        "sources_read.json",
+        "evidence/attached_context_review.json"
+      ],
+      "failure_mechanism": "An available source, cited source and inspected source edition can differ. The packet’s current record is not the pinned body, and some cited historical editions are missing.",
+      "proposed_general_change": "Record the exact edition and passage actually read, separate metadata checks from proof reading, and avoid treating a successful anchor check as verification of a different edition. Preserve source-access limits without converting them into unsupported mathematical allegations."
+    }
+  ],
+  "new_rules_proposed": [],
+  "scope": "Advice on application and execution of existing review/writing rules; no skill or manuscript was rewritten."
+}

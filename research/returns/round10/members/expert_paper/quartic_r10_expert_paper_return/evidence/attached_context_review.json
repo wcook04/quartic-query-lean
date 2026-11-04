@@ -1,0 +1,346 @@
+{
+  "schema": "quartic-r10-transcript-context-audit-v1",
+  "reviewed_utc": "2026-11-04T14:03:11.386617+00:00",
+  "stage": "retrospective; after the root reviewer froze the independent chronological first pass",
+  "source_attachment": "Pasted text(20261104-132939).txt",
+  "source_inventory": {
+    "filename": "Pasted text(20261104-132939).txt",
+    "bytes": 977681,
+    "characters": 976955,
+    "lines": 1096,
+    "sha256": "c20d068c485d3982566eb559f9e0e612fee89cf1f4034b3ff513abd860b7a0ea",
+    "native_items_parsed": 954,
+    "item_kind_counts": {
+      "UserMessage": 5,
+      "AgentMessage": 62,
+      "CommandExecution": 485,
+      "SubAgentActivity": 246,
+      "FileChange": 8,
+      "Extension": 26,
+      "Reasoning": 113,
+      "ContextCompaction": 2,
+      "McpToolCall": 7
+    },
+    "parse_errors": [],
+    "snapshot_metadata": [
+      {
+        "schema": "codex_native_v1",
+        "schema_version": 1,
+        "item_count": 377,
+        "mode": "detailed",
+        "source_kind": "rollout_jsonl",
+        "session_id": "01a1a67a-e6b4-7eb2-a6a5-ef6141eebc9e",
+        "sha256": "176eb30344787c525d8a634198db3873f7386d588d24fb8a2fedd75dc3de07e3",
+        "source_sha256": "74d8810cbf197611dc19df4a8fed40b18288ddc7651bed02c762e3c2641c689d"
+      },
+      {
+        "schema": "codex_native_v1",
+        "schema_version": 1,
+        "item_count": 194,
+        "mode": "detailed",
+        "source_kind": "rollout_jsonl",
+        "session_id": "01a1a67c-f018-7e63-83ec-732636ed05ef",
+        "sha256": "16c1f25ac5c840d54043c79524c0850f9ebeef24e699720cc96c6fef7525d471",
+        "source_sha256": "a99399235459c0a3f1258a528d1c1ab87b0b9a56716ffc3e63922149a4e59566"
+      },
+      {
+        "schema": "codex_native_v1",
+        "schema_version": 1,
+        "item_count": 143,
+        "mode": "detailed",
+        "source_kind": "rollout_jsonl",
+        "session_id": "01a1a67d-2520-7ea3-9efb-32f8258cc7a2",
+        "sha256": "5e619a2fc4b973ef21549ee04f4d8a52bd678b376c1cd0aff9bdcce6490d2eec",
+        "source_sha256": "e54560762b94b6607717b71a6edfa390c7ab9ebe3e52e10107bca02223ace461"
+      },
+      {
+        "schema": "codex_native_v1",
+        "schema_version": 1,
+        "item_count": 147,
+        "mode": "detailed",
+        "source_kind": "rollout_jsonl",
+        "session_id": "01a1a67d-6323-7541-9321-a6b1c61afe1b",
+        "sha256": "56fc1cc3fdf39ba59c4abd0209ef0e3bad2d62acde35a335f50f4d50abd97ace",
+        "source_sha256": "2d5184649902ea1256043a5bb3cda5eb5a62984c4469db481e2efdef5457ba4c"
+      },
+      {
+        "schema": "codex_native_v1",
+        "schema_version": 1,
+        "item_count": 93,
+        "mode": "detailed",
+        "source_kind": "rollout_jsonl",
+        "session_id": "01a1a6a2-edb3-7e42-a153-287b343247fa",
+        "sha256": "83bcaec457951b33b33a65b4abe835080e552e789a293ef4d0745e0993864093",
+        "source_sha256": "ae02c3c0f4f70a2651d1805d1e8767967ccebaa987c1d3110c9fb77af3a6faf4"
+      }
+    ],
+    "evidence_ref_objects": 291,
+    "omitted_chars_objects": 291,
+    "reported_omitted_chars_total": 4688521,
+    "snapshot_count": 5,
+    "snapshot_declared_items_total": 954,
+    "snapshot_declared_items_match_parsed": true
+  },
+  "reading_scope": {
+    "native_envelopes_parsed": 954,
+    "all_five_user_messages_read": true,
+    "substantive_reading": "Selected final messages, relevant R9 assimilation/R10 construction commands and accessible outputs, custody/status summaries, and exact pin-rebind sequence. This is not a full line-by-line reading of all commands, all visible reasoning summaries or all 954 item bodies.",
+    "omitted_evidence": "291 evidence_ref objects point to fuller material absent from the attachment. The 4,688,521 reported omitted characters are a sum over fields and may overlap; they are not an independently measured count of distinct unavailable source characters.",
+    "no_remote_historical_environment_access": true,
+    "transcript_commands_executed": false,
+    "historical_instructions_control_current_task": false
+  },
+  "historical_state": {
+    "last_historical_user_request": "Literature context clarification following the request to build R10 review packets.",
+    "reported_last_commit": "0d977710556f304ce70fa200cbf36b9beecb78e8",
+    "reported_manuscript_revision_commit": "a47aa0f344bd5f8e7633f6c8488047f4de765e48",
+    "reported_link_pin": "8357f268732746d1575e05e7de8c888e20ad3793",
+    "current_application": "Conduct the R10 expert review, include concrete supported improvements, audit historical decisions without deference, and preserve the independent first-pass boundary. Historical edit/push instructions confer no present authorization. Historical aspirational finding counts do not override the current packet's no-quota rule."
+  },
+  "inspected_historical_events": [
+    {
+      "attachment_line": 6,
+      "session_id": "01a1a67a-e6b4-7eb2-a6a5-ef6141eebc9e",
+      "native_id": "01a1a67b-e433-7da2-87cc-033a20c05792",
+      "native_kind": "UserMessage",
+      "source_record_index": 16,
+      "reading_status": "inspected accessible item text/output",
+      "supports": "Earlier compact packet authorized an R9 assimilation and push in that historical session. It described the chronological first-pass method and earlier numerical aspirations. This is historical context, not present authorization."
+    },
+    {
+      "attachment_line": 44,
+      "session_id": "01a1a67a-e6b4-7eb2-a6a5-ef6141eebc9e",
+      "native_id": "01a1a67e-38a7-7a03-b8d8-34838dd58b9e",
+      "native_kind": "UserMessage",
+      "source_record_index": 130,
+      "reading_status": "inspected accessible item text/output",
+      "supports": "Historical user explicitly requested grounding writing style in the literature."
+    },
+    {
+      "attachment_line": 238,
+      "session_id": "01a1a67a-e6b4-7eb2-a6a5-ef6141eebc9e",
+      "native_id": "msg_0733c64fd7e8027a016aeb2aa77ff887d2ae749b538ae1dd98",
+      "native_kind": "AgentMessage",
+      "source_record_index": 1113,
+      "reading_status": "inspected accessible item text/output",
+      "supports": "Historical completion message reported revised manuscripts at a47aa0f, 538 finding and 48 method dispositions, merged writing guidance, 248 tests with two skips, unchanged Lean and 18/24/139 PDF pages. These are reported prior results, not current executions."
+    },
+    {
+      "attachment_line": 240,
+      "session_id": "01a1a67a-e6b4-7eb2-a6a5-ef6141eebc9e",
+      "native_id": "01a1a6a0-06fb-7723-ac6a-1d58f51db26c",
+      "native_kind": "UserMessage",
+      "source_record_index": 1125,
+      "reading_status": "inspected accessible item text/output",
+      "supports": "Latest substantive historical work request was to build three R10 packets from revised papers and updated guidance, preserving chronological sentence-by-sentence review, concrete improvements, complete R9 returns and dispositions, and ambitious literature-based writing standards."
+    },
+    {
+      "attachment_line": 276,
+      "session_id": "01a1a67a-e6b4-7eb2-a6a5-ef6141eebc9e",
+      "native_id": "01a1a6a6-4794-7621-8fc3-2d26f1e6b4e2",
+      "native_kind": "UserMessage",
+      "source_record_index": 1332,
+      "reading_status": "inspected accessible item text/output",
+      "supports": "Historical user additionally required cited literature to be present in reviewers' context."
+    },
+    {
+      "attachment_line": 278,
+      "session_id": "01a1a67a-e6b4-7eb2-a6a5-ef6141eebc9e",
+      "native_id": "01a1a6a6-64bd-7a52-8b96-4d6c23443397",
+      "native_kind": "UserMessage",
+      "source_record_index": 1338,
+      "reading_status": "inspected accessible item text/output",
+      "supports": "Last historical user message asked whether the relevant literature was already in the annex."
+    },
+    {
+      "attachment_line": 417,
+      "session_id": "01a1a67a-e6b4-7eb2-a6a5-ef6141eebc9e",
+      "native_id": "msg_0733c64fd7e8027a016aeb3310e22887d2af0cb29b2f66771c",
+      "native_kind": "AgentMessage",
+      "source_record_index": 2136,
+      "reading_status": "inspected accessible item text/output",
+      "supports": "Final historical completion reported the three R10 packets, 42 annex plus 13 supplementary sources, explicit Yao/Nisan/exact-BSS edition gaps, 260 tests with two skips, 72 independent checks, and pushed main 0d97771. The present review independently verified only the supplied expert packet and specified local evidence."
+    },
+    {
+      "attachment_line": 628,
+      "session_id": "01a1a67c-f018-7e63-83ec-732636ed05ef",
+      "native_id": "msg_0d067f50f1ce1972016aeb2e2b34a887d28eff7827e25c392d",
+      "native_kind": "AgentMessage",
+      "source_record_index": 1381,
+      "reading_status": "inspected accessible item text/output",
+      "supports": "Historical R10 request integration retained all literature and coverage inventories as post-freeze resources and reported manuscript sources unchanged."
+    },
+    {
+      "attachment_line": 632,
+      "session_id": "01a1a67c-f018-7e63-83ec-732636ed05ef",
+      "native_id": "msg_0d067f50f1ce1972016aeb2ebd9f6887d29277b0b6e709ce61",
+      "native_kind": "AgentMessage",
+      "source_record_index": 1400,
+      "reading_status": "inspected accessible item text/output",
+      "supports": "Builder prose was corrected to avoid a changing supplementary-source count."
+    },
+    {
+      "attachment_line": 791,
+      "session_id": "01a1a67d-2520-7ea3-9efb-32f8258cc7a2",
+      "native_id": "msg_082a469a4b601a15016aeb2fb7372487d2b3794d2d217f9b34",
+      "native_kind": "AgentMessage",
+      "source_record_index": 877,
+      "reading_status": "inspected accessible item text/output",
+      "supports": "Historical independent request audit reported 13 supplementary sources and 26 hash-checked files."
+    },
+    {
+      "attachment_line": 809,
+      "session_id": "01a1a67d-2520-7ea3-9efb-32f8258cc7a2",
+      "native_id": "msg_082a469a4b601a15016aeb32b8f3a487d2936556e43befb70b",
+      "native_kind": "AgentMessage",
+      "source_record_index": 970,
+      "reading_status": "inspected accessible item text/output",
+      "supports": "Historical final independent audit reported 72 checks and 6,174 bound payloads per packet. Present intake independently confirms 6,174 manifest payload hashes for the supplied expert packet."
+    },
+    {
+      "attachment_line": 952,
+      "session_id": "01a1a67d-6323-7541-9321-a6b1c61afe1b",
+      "native_id": "msg_07267ffc0b0b473c016aeb2cbf878c87d2a83fd2452cb908c3",
+      "native_kind": "AgentMessage",
+      "source_record_index": 630,
+      "reading_status": "inspected accessible item text/output",
+      "supports": "Historical writing-standard author reported six inspected primary-source comparisons, no finding quota, post-freeze use, and merged method pin 7bc9ef5d253d23527c6ccbd759c2eb24c0243ac7."
+    },
+    {
+      "attachment_line": 985,
+      "session_id": "01a1a67d-6323-7541-9321-a6b1c61afe1b",
+      "native_id": "msg_07267ffc0b0b473c016aeb2df95f1887d2b973c84f3a2066d2",
+      "native_kind": "AgentMessage",
+      "source_record_index": 801,
+      "reading_status": "inspected accessible item text/output",
+      "supports": "An intermediate literature inventory had 12 sources; it was not the final state."
+    },
+    {
+      "attachment_line": 993,
+      "session_id": "01a1a67d-6323-7541-9321-a6b1c61afe1b",
+      "native_id": "msg_07267ffc0b0b473c016aeb2eba861887d299839de7fe8de847",
+      "native_kind": "AgentMessage",
+      "source_record_index": 844,
+      "reading_status": "inspected accessible item text/output",
+      "supports": "Addition of exact GTW arXiv v2 raised the final historical supplementary inventory to 13 sources, keeping it distinct from the CCC edition."
+    },
+    {
+      "attachment_line": 1056,
+      "session_id": "01a1a6a2-edb3-7e42-a153-287b343247fa",
+      "native_id": "msg_0d09abf8d35ecd88016aeb2f1c35a087d28fb521c2746d11ba",
+      "native_kind": "AgentMessage",
+      "source_record_index": 386,
+      "reading_status": "inspected accessible item text/output",
+      "supports": "Historical builder completion described complete R9 custody, recursive dispositions, literature coverage, method closure and render freshness; it did not itself perform a production build."
+    },
+    {
+      "attachment_line": 1095,
+      "session_id": "01a1a6a2-edb3-7e42-a153-287b343247fa",
+      "native_id": "msg_0d09abf8d35ecd88016aeb31770eb087d28f1367e21ea2cfa4",
+      "native_kind": "AgentMessage",
+      "source_record_index": 636,
+      "reading_status": "inspected accessible item text/output",
+      "supports": "Historical exact-input dry run reported freeze digest 5baf3dad96449b83cf4712d6de89e3ab5972aac72e2de4e70aa0d7ea1ca9ebef and narrowly scoped footnote, symlink and bibliography fixes. These are historical reports, not recreated runs."
+    }
+  ],
+  "pinned_record_analysis": {
+    "classification": "evidence-scope limitation; no demonstrated stale mathematical statement or broken anchor",
+    "lead_record_link_count": 41,
+    "lead_record_links_declared_pinned_different": 41,
+    "lead_lean_link_count": 12,
+    "lead_lean_links_declared_pinned_different": 0,
+    "pinned_revision_available_meaning": "A preserved builder assertion supporting anchor availability; not delivery of the exact linked historical file body or proof that all present surrounding text matches it.",
+    "historical_sequence": [
+      {
+        "attachment_line": 555,
+        "session_id": "01a1a67c-f018-7e63-83ec-732636ed05ef",
+        "native_id": "exec-9df9de74-9190-46be-be53-d41defa4c645",
+        "native_kind": "CommandExecution",
+        "source_record_index": 907,
+        "reading_status": "complete command and exposed output head/tail only",
+        "supports": "After commit 62868cb, integration rebound source links from b8db532 to HEAD and regenerated the record/link metadata. The visible command is complete, but its output has 4,854 omitted characters."
+      },
+      {
+        "attachment_line": 558,
+        "session_id": "01a1a67c-f018-7e63-83ec-732636ed05ef",
+        "native_id": "exec-f6118bbd-4ae5-40a6-a7cc-57e293255c74",
+        "native_kind": "CommandExecution",
+        "source_record_index": 924,
+        "reading_status": "inspected accessible item text/output",
+        "supports": "Accessible output shows the expert simulator-trace description before its correction, while record and generated files were modified in the working tree."
+      },
+      {
+        "attachment_line": 560,
+        "session_id": "01a1a67c-f018-7e63-83ec-732636ed05ef",
+        "native_id": "exec-94b2ee86-969a-4e9b-a6de-df8c19cdeabc",
+        "native_kind": "CommandExecution",
+        "source_record_index": 933,
+        "reading_status": "inspected accessible item text/output",
+        "supports": "Commit 8357f26 changed exactly one expert manuscript line to say the model trace stops before the second target query. This item shows the full command and successful commit output; it does not show a newly committed record body."
+      },
+      {
+        "attachment_line": 563,
+        "session_id": "01a1a67c-f018-7e63-83ec-732636ed05ef",
+        "native_id": "exec-fa313bc7-fa0b-42fb-8c33-07d9b9ee0290",
+        "native_kind": "CommandExecution",
+        "source_record_index": 959,
+        "reading_status": "complete command and exposed output head/tail only",
+        "supports": "Visible output begins with the 8357 source pin and ends in a generated-link diff; most of the intermediate diff is omitted."
+      },
+      {
+        "attachment_line": 565,
+        "session_id": "01a1a67c-f018-7e63-83ec-732636ed05ef",
+        "native_id": "exec-24e820fd-77ec-4cc1-a2ff-66929fd6d045",
+        "native_kind": "CommandExecution",
+        "source_record_index": 969,
+        "reading_status": "inspected accessible item text/output",
+        "supports": "The command replaces 62868cb with current HEAD in selected documents, then runs record and link regeneration. Accessible output says 298 moved, zero reworded, zero added twice. The overall item status is failed, so this item alone is not a successful validation certificate."
+      },
+      {
+        "attachment_line": 594,
+        "session_id": "01a1a67c-f018-7e63-83ec-732636ed05ef",
+        "native_id": "exec-18162301-7389-4da5-a505-9e085ec5928a",
+        "native_kind": "CommandExecution",
+        "source_record_index": 1189,
+        "reading_status": "inspected accessible item text/output",
+        "supports": "Historical final staging included revised manuscripts, provenance, all R9 returns and individual dispositions. It does not expose a full semantic diff of the staged record."
+      },
+      {
+        "attachment_line": 361,
+        "session_id": "01a1a67a-e6b4-7eb2-a6a5-ef6141eebc9e",
+        "native_id": "exec-8179e118-c40e-44ee-a9e9-daac01abb3dd",
+        "native_kind": "CommandExecution",
+        "source_record_index": 1873,
+        "reading_status": "inspected accessible item text/output",
+        "supports": "Accessible command/output identifies both local and remote a47aa0f and an empty docs/lean diff against a47aa0f at that stage."
+      },
+      {
+        "attachment_line": 401,
+        "session_id": "01a1a67a-e6b4-7eb2-a6a5-ef6141eebc9e",
+        "native_id": "exec-87893bce-3b83-4dde-9301-67a712decb17",
+        "native_kind": "CommandExecution",
+        "source_record_index": 2062,
+        "reading_status": "inspected accessible item text/output",
+        "supports": "Later accessible command/output identifies remote 0d977710 and an empty docs/lean diff against a47aa0f at the end of packet preparation."
+      }
+    ],
+    "independently_reproduced_final_rebind": {
+      "current_record_sha256": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+      "historical_rebind_before_sha256": "0caa84c3a8b17590256a6c2b19f600eeaab8624d712274d9fe0fe213347efb5f",
+      "operation": "Replace the 127 exact occurrences of 8357f268732746d1575e05e7de8c888e20ad3793 in the packaged record by 62868cb1e35b5037a870cc692d5cdca97365a931.",
+      "occurrences": 127,
+      "result_sha256": "0caa84c3a8b17590256a6c2b19f600eeaab8624d712274d9fe0fe213347efb5f",
+      "matches_preserved_before_hash": true,
+      "meaning": "The final before/after record rebind differs only by this exact commit-string replacement. This independently supports a metadata explanation for that final step."
+    },
+    "old_record_hashes_searched_in_manifest": [
+      "0caa84c3a8b17590256a6c2b19f600eeaab8624d712274d9fe0fe213347efb5f",
+      "457fe87d5dfab4e3dd47d6dc6b98103f26389bb173b8132b08557e426701f457",
+      "7f4b4e0a550f2e181798a315c1cc4b4f1719d53351a4d6166bc79aaabbaa0dee"
+    ],
+    "old_record_hash_matching_members": [],
+    "exact_linked_record_body_located_in_packet": false,
+    "remaining_boundary": "The pre-final-rebind body is not itself established as the committed record at 8357. That commit changed only the expert file, while integration already held modified record/link files. The exact 8357 record body was not retrieved here. Root reported raw/GitHub fetch failures. All current substantive proof-navigation judgments therefore concern the packaged record unless explicitly supported by exposed historical text.",
+    "recommended_handling": "State this scope limit in the return. Do not invent a stale-proof or broken-anchor finding. Supplying a hash-bound copy of the exact linked record edition would remove the remaining inspection ambiguity."
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "stage": "retrospective technical verification after frozen primary pass",
+  "timestamp": "2026-11-04T13:57:41.547754+00:00",
+  "role": "technical verification and literature scout; not a new blinded simulated reader",
+  "coverage": {
+    "lead": [
+      "§§1–3",
+      "§7 quantum model/formal-scope passages",
+      "Appendix A.1–A.3"
+    ],
+    "excluded": [
+      "Full lower-bound and uniform Forrelation proof verification assigned to another agent",
+      "Full codebase semantics, Lean recompilation, Comparator execution",
+      "Whole-source claims for any cited paper beyond explicit scopes in sources_read.json"
+    ],
+    "primary_pdf_layout": "Root owns all lead-PDF visual inspection; this scout inspected four original-source pages only."
+  },
+  "checks": [
+    {
+      "id": "Q-V01",
+      "topic": "Projection decoder and asymmetric promise",
+      "locators": "expert lines87–115; record554–684; AA §3.2 pp.13–14",
+      "outcome": "No defect substantiated",
+      "evidence": "Projection success is Phi^2. On the actual promise its means are <=delta^2/4 and >=delta^2; multiplicative concentration yields O(delta^-2 log(1/eta)) trials. Large negative Phi is outside the promise, so using a squared statistic is consistent with decoding and insufficient for domain testing. Exact domain membership is supplied by the separate circuit. Figure1 itself is the k-query projection circuit: its final Hadamards followed by the zero outcome are equivalent to projection onto the uniform state used in the lead. Proposition6 explicitly modifies that circuit with a control qubit to obtain the interference statistic. Original source images were reopened to confirm this exact attribution."
+    },
+    {
+      "id": "Q-V02",
+      "topic": "Coherent local tests",
+      "locators": "expert lines134–140; record1857–1998",
+      "outcome": "Current packaged destination supplies the advertised content; cited pinned edition not independently verified",
+      "evidence": "Gate consistency uses the true input predecessors and at most three reads; pointer checks use ell+1 adaptive reads. The record retains answers, computes indices reversibly, and explicitly loads/uses/unloads a temporary bit for a two-ordinary-query controlled read. It supplies arbitrary-index coherent action, not merely uniform-sampling behavior."
+    },
+    {
+      "id": "Q-V03",
+      "topic": "Capped amplification and conditional law",
+      "locators": "expert148–154; preprint§3.1; BHMT§2; BBHT§4Lemma2",
+      "outcome": "No defect substantiated",
+      "evidence": "The good component is invariant up to a scalar under every Grover iteration. BBHT gives average success 1/2-sin(4Mtheta)/(4M sin(2theta)); M>=10/sqrt(gamma), gamma<=p<=1/2 yields at least19/40, so the weaker9/20 used here is valid. Mixing a direct trial covers p>=1/2. A fixed number of trials gives both the failure bound and all-branch cap; stopping on first success preserves conditional labels."
+    },
+    {
+      "id": "Q-V04",
+      "topic": "Complementarity and off-promise comparison",
+      "locators": "expert158–167; preprint§3.3",
+      "outcome": "No defect substantiated",
+      "evidence": "Canonical ordering makes the two named orientations the two outcomes of the same circuit; retained address controls keep decoded alternatives orthogonal. A winning column points to a rival zero when decoded correctly, while no rival pointer can find a zero in the all-one winning column. No promise is needed on the rival."
+    },
+    {
+      "id": "Q-V05",
+      "topic": "Weighted drift and exact sampler",
+      "locators": "expert171–189; record2224–2246 and2440–2459",
+      "outcome": "No defect substantiated",
+      "evidence": "The identity pairs off-diagonal terms using a_ij+a_ji=1 and removes diagonal terms using a_ii=0. Fresh comparison workspaces give product success probabilities at fixed i; orthogonal i registers add masses. Conditioning yields w_i/W without estimating any probability."
+    },
+    {
+      "id": "Q-V06",
+      "topic": "Early stopping and ideal coupling",
+      "locators": "expert193–195; record2462–2493",
+      "outcome": "Current packaged destination supplies the advertised content; cited pinned edition not independently verified",
+      "evidence": "At a shared history before the winner appears, its weight exceeds1/2. The real successful transition is (1-f(h))w_i/W; this permits a coupling with an independent stopping coin and ideal pivot at that history. At most T opportunities contribute T epsilon, without assuming history-independent failure. Later failure cannot remove a recorded winner."
+    },
+    {
+      "id": "Q-V07",
+      "topic": "All-input verification",
+      "locators": "expert199–205; recordlocal-equivalence/coherent-tests; preprint§3.3",
+      "outcome": "No defect substantiated",
+      "evidence": "Every nonwinner has a failed exact test at every address; fresh decoding therefore cannot create a false certificate that passes all tests. Defect search is exact when it reports a defect and may miss a defect with probability at most epsilon. A true winning address has no failing test. History-conditional false acceptance and the zero/one-input union bounds are valid."
+    },
+    {
+      "id": "Q-V08",
+      "topic": "Logarithmic accounting",
+      "locators": "expert207–211",
+      "outcome": "No defect substantiated",
+      "evidence": "c=O_k(ell log ell), T=O(ell), K=O_k(m ell^3) give tournament cost O_k(sqrt(m) ell^3(log ell)^2) and verification cost O_k(sqrt(m) ell^(7/2)log ell), both bounded by the displayed ell^6 envelope for ell>=2. This verifies the algebraic combination, not every absolute constant in the uniform2^53 envelope."
+    },
+    {
+      "id": "Q-V09",
+      "topic": "Formal measured law versus full retained-state claim",
+      "locators": "expert401; record6492–6540; UniformAmplifier/Challenge17–52; Amplify345–359",
+      "outcome": "Scope distinction substantiated by current packaged text and supplied statements; cited pin not independently resolved",
+      "evidence": "The record expressly says the headline root consumes the compiled measured-label law and Boolean continuation, while the list/tensor wrappers are separate. It identifies a remaining physical-subsystem transport for the stronger general-projector state assertion and says this is not a premise of the final upper bound. No fresh build, Comparator execution or dependency rerun was performed."
+    },
+    {
+      "id": "Q-V10",
+      "topic": "Comparison-literature contracts",
+      "locators": "expert71–81; AIK§6.1; MPSTheorem19/Algorithm4; HMW§1–3; BDKLemma5; ABBLSS§1.3",
+      "outcome": "No misattribution substantiated in inspected claims",
+      "evidence": "AIK has candidate sets in a fixed graph and bounded-error direction tests; MPS queries fixed edge directions; HMW searches a fixed Boolean predicate through noisy evaluations; BDK constructs a fixed orientation then verifies. ABBLSS discusses back-pointer random access and an exponential-alphabet direct-pointer alternative. None of these inspected contracts alone supplies the arbitrary-probability interface here."
+    },
+    {
+      "id": "Q-V11",
+      "topic": "Four-candidate arithmetic and AppendixA.1–A.3",
+      "locators": "expert191,421–429",
+      "outcome": "No defect substantiated",
+      "evidence": "After pivot2, weights (1,0,2/3,1/4) sum to23/12, giving23/48 preparation success and (12,0,8,3)/23 conditional labels. After pivot4 the product2/3*2/5=4/15 gives19/60 and (15,0,4,0)/19. The negative Walsh example computes Phi=-1. The smallest-index all-one column wins all pairwise ties independently of address-decoding errors, yet its corrupted selected pointer prevents it from being a valid winner."
+    }
+  ],
+  "candidate_findings": 2,
+  "summary": "No substantiated mathematical error in the checked quantum mechanisms. Main advice concerns ordering the interface/implementation around w_i/m; one optional current-literature update is offered separately.",
+  "limits": [
+    "Source text and static theorem statements are not executed proof evidence.",
+    "All record locators in this report refer to the current packaged reasoning_record.md. LINK_MAP.json says the cited 8357f268 revision differs from that file. This scout has not inspected the cited historical bytes or verified a live public link round trip.",
+    "The absolute uniform quantum coefficient was not independently rederived by this scout.",
+    "Bib entries for unread works were not counted as substantive reading.",
+    "Web screenshot calls returned text markers; source visual claims rely on local Poppler PNGs actually viewed."
+  ]
+}

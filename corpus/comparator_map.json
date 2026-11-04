@@ -11,8 +11,8 @@
  "inputs": {
   "corpus/lean_dependencies.json": "1bc253fd3f3f86245e538bb71dd99d321fdb575cee596fede6bc46babbffe06c",
   "corpus/statements.json": "1a1bfce5c5c522d8055a40b555307f4e44e3cd6190c728bc74dd580afce71847",
-  "docs/reasoning_record.md": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
-  "docs/reasoning_record_correspondence.json": "3dfb8a21d74e3a5b070ac780e50f0dedf3c0af36c3a365c97e030ed2657aa65a",
+  "docs/reasoning_record.md": "8f5d43ecb713f93217b7f7905e0dc004bef06dde4e01fd831133b5ee8d60f30e",
+  "docs/reasoning_record_correspondence.json": "67a483816e55583974c8bd380ceb5f2cb0dd4608f597fc51a132bb8c8a061b65",
   "lean/QuarticCorpus/Construction/Challenge.lean": "d554e5a96889c4c9c3aa6bd3231f984fa7cf695aa103ebcd092ac2c7a08240b1",
   "lean/QuarticCorpus/Construction/Solution.lean": "63cfe11442f76eb9b0f1b579e2a925a19fc9312f870e8480bfbf3eacfb9bb9de",
   "lean/QuarticCorpus/Construction/comparator.json": "c18c76b87a777251e70ec3f55c5704be82d52dbba0220e5adb2cf3063709dd78",
@@ -85,7 +85,7 @@
  },
  "record": {
   "path": "docs/reasoning_record.md",
-  "sha256": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+  "sha256": "8f5d43ecb713f93217b7f7905e0dc004bef06dde4e01fd831133b5ee8d60f30e",
   "passages_verified": 298,
   "passages_in_correspondence": 298,
   "passage_hash_mismatches": []
@@ -7288,8 +7288,8 @@
      "passage_claims": [],
      "passage_sha256": "207601e0e6debd8a0f32823b2f0e315a1adacd91fe9e1ee176ac2571498ce908",
      "passage_lines": [
-      6464,
-      6475
+      6465,
+      6476
      ]
     },
     {
@@ -8303,8 +8303,8 @@
      "passage_claims": [],
      "passage_sha256": "207601e0e6debd8a0f32823b2f0e315a1adacd91fe9e1ee176ac2571498ce908",
      "passage_lines": [
-      6464,
-      6475
+      6465,
+      6476
      ]
     }
    ],
@@ -8742,8 +8742,8 @@
      "passage_claims": [],
      "passage_sha256": "3ed37e5735e799b8b40d66ff912d5c2a33c4fa53e26bd5e73bb0efa44156e420",
      "passage_lines": [
-      6480,
-      6486
+      6481,
+      6487
      ]
     },
     {
@@ -8781,8 +8781,8 @@
     "anchor": "AC-evidence",
     "join": "lean_link_mention",
     "passage_sha256": "3ed37e5735e799b8b40d66ff912d5c2a33c4fa53e26bd5e73bb0efa44156e420",
-    "line_start": 6481,
-    "line_end": 6481,
+    "line_start": 6482,
+    "line_end": 6482,
     "excerpt_sha256": "f5c26700b2058c16a71f4914b321f118e162b01c9eed4eeb5be1d945f3c2174b",
     "excerpt": "The exact source declarations and complete types are recorded in [correspondence.json](../research/returns/round3/members/04_addressed_construction/correspondence.json) and [evidence/lean_audit.json](../research/returns/round3/members/04_addressed_construction/evidence/lean_audit.json). In particular, the [identification of consistent transcripts with true evaluations][src-transcript] gives (4.2), the [uniqueness of the winning pair][src-winner-unique] gives pair uniqueness, and the [description of winning by the local tests][src-winner-tests] gives (4.12) under the premise that $C$ [computes $P$ exactly][def-realises]. The [semantic bridge to the paper's winning condition][src-winner-paper] has no such premise because both sides already refer to the partial function."
    },
@@ -9343,8 +9343,8 @@
      "passage_claims": [],
      "passage_sha256": "3ed37e5735e799b8b40d66ff912d5c2a33c4fa53e26bd5e73bb0efa44156e420",
      "passage_lines": [
-      6480,
-      6486
+      6481,
+      6487
      ]
     }
    ],
@@ -9420,8 +9420,8 @@
      "passage_claims": [],
      "passage_sha256": "0827c38575aa3377b8221f0965dfc13a351ded1dfc013fe889648e84bcdeeea4",
      "passage_lines": [
-      6580,
-      6609
+      6581,
+      6610
      ]
     }
    ],
@@ -10105,8 +10105,8 @@
      ],
      "passage_sha256": "03db918f2fa79c7b5716f7c2fa975dd4c30aaaae3cccc4075a64243206732c4d",
      "passage_lines": [
-      6513,
-      6540
+      6514,
+      6541
      ]
     }
    ],
@@ -10114,8 +10114,8 @@
     "anchor": "upper-missing-physical-state",
     "join": "lean_link_mention",
     "passage_sha256": "03db918f2fa79c7b5716f7c2fa975dd4c30aaaae3cccc4075a64243206732c4d",
-    "line_start": 6539,
-    "line_end": 6539,
+    "line_start": 6540,
+    "line_end": 6540,
     "excerpt_sha256": "930e9af995f2c7f3f735c3557e982ad9da72c2d11a9bae28583d13b8a0d5b84e",
     "excerpt": "The ordinary fresh-trial/routing argument in §5.1 supplies the mathematical construction. The round-four integration added the [amplifier for opaque preparations][cmp-amplifier], accepted by Comparator: for one selector gate chosen before every opaque unitary, it states the retained-factor identity and the exact success mass, with the zero-mass, $p/2$ and $1-\\eta$ clauses and a logical cap. The basis change from a general fixed projector to a coordinate predicate and the literal flag/Hadamard identification remain unproved, so no source-bound Lean theorem of the full physical type displayed above is claimed. In particular, the coherent composition can retain a copy of a successful output label in auxiliary registers, and the measured compilation route reads a complete basis label. What remains is the physical transport and uncomputation statement: after the chosen compiler and any copied labels, the designated physical output subsystem must still have the abstract successful factor $g_x$. The accepted opaque identity alone does not identify that subsystem. This bridge is needed before promoting the physical wrapper to the full state claim. This missing formal bridge is not an extra assumption in the proof of Proposition 3.3: that proof uses only measured labels, whose law is already supplied by the compiled route."
    },
@@ -10309,8 +10309,8 @@
      "passage_claims": [],
      "passage_sha256": "2edefe31f42faa73ee590ecde1bc7ea466f54937084271f9aee63ff25f57fece",
      "passage_lines": [
-      6545,
-      6577
+      6546,
+      6578
      ]
     }
    ],
@@ -10318,8 +10318,8 @@
     "anchor": "CL-direct-product-formal",
     "join": "lean_link_mention",
     "passage_sha256": "2edefe31f42faa73ee590ecde1bc7ea466f54937084271f9aee63ff25f57fece",
-    "line_start": 6557,
-    "line_end": 6567,
+    "line_start": 6558,
+    "line_end": 6568,
     "excerpt_sha256": "2a9dbae1d262f34cc5422e4843a79d09dd77bf5c31e8ed01ac165c0f8b37e56f",
     "excerpt": "The round-four integration added the\n[direct product on the cap event][cmp-direct-product] as an endpoint, accepted by\nComparator. It covers a finite seed space with arbitrary nonnegative weights\nsumming to one, each seed selecting an initially uncapped tree, and bounds the\nweighted joint event that every instance is answered correctly and no\ninstance exceeds its cap of $L$ queries by $\\beta^r$. [Compliance with the caps][src-complies] is\na recursive predicate, which follows the path taken on the\ngiven input and decrements the cap of each queried instance. The observable\n[query count][src-count], the number of queries that path makes to each instance,\nis defined separately, and the equivalence of the two descriptions is not a\nLean theorem."
    },

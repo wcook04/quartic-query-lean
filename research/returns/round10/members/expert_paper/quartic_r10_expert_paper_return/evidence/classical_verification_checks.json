@@ -1,0 +1,134 @@
+{
+  "overall": "The scoped proofs survived inspection; no fatal mathematical fault established.",
+  "checks": [
+    {
+      "id": "CL-C01",
+      "topic": "Separate-cap direct product",
+      "status": "No mathematical failure found.",
+      "argument_checked": "Subprobability-value recurrence; induction on remaining caps; finite independent mixtures.",
+      "record_lines": [
+        [
+          3012,
+          3035
+        ],
+        [
+          3152,
+          3237
+        ]
+      ],
+      "limit": "The alternative conditional-value proof was not fully read."
+    },
+    {
+      "id": "CL-C02",
+      "topic": "Capped simulator",
+      "status": "No mathematical failure found.",
+      "argument_checked": "Aggregate abort before query L+1; output before cell bit; independent outside input; joint-event inclusion; union and averaging.",
+      "record_lines": [
+        [
+          3567,
+          3662
+        ]
+      ],
+      "limit": "Current packaged record only."
+    },
+    {
+      "id": "CL-C03",
+      "topic": "Erasure",
+      "status": "No mathematical failure found.",
+      "argument_checked": "Prefix uniformity, early/late charge and independent selected-column identity; optional all-one-path cost refinement.",
+      "record_lines": [
+        [
+          3438,
+          3502
+        ],
+        [
+          3548,
+          3565
+        ]
+      ],
+      "limit": "No optimal budget curve claimed."
+    },
+    {
+      "id": "CL-C04",
+      "topic": "Conditioning toys",
+      "status": "Counts verified; navigation advice.",
+      "argument_checked": "A.7 per-block event versus the exact record nonheavy toy; R(P)=L scope.",
+      "executed_check": "finite_check_results.json",
+      "limit": "Toys not claimed to be members of the final construction."
+    },
+    {
+      "id": "CL-C05",
+      "topic": "Uniform path identity",
+      "status": "No mathematical failure found.",
+      "argument_checked": "Algebraic Stein identity, first-block interpolation, one coordinate per block, and retained higher Fourier levels.",
+      "record_lines": [
+        [
+          996,
+          1219
+        ]
+      ],
+      "limit": "Ordinary proof inspection; no formal rebuild."
+    },
+    {
+      "id": "CL-C06",
+      "topic": "Derivative growth",
+      "status": "No mathematical failure found.",
+      "argument_checked": "Biased centred characters, contracted arrays, predictable increments, stopping before a large increment, and tail integration.",
+      "record_lines": [
+        [
+          1220,
+          1388
+        ]
+      ],
+      "limit": "Methodological comparison with GTW overview only."
+    },
+    {
+      "id": "CL-C07",
+      "topic": "Uniform moments and promise bridge",
+      "status": "No mathematical failure found.",
+      "argument_checked": "Jensen bound for positive kernel products, marginal second moments, uniform second moment, and pointwise off-promise inequalities.",
+      "record_lines": [
+        [
+          1389,
+          1511
+        ]
+      ],
+      "limit": "No assumed promise support for nu1."
+    },
+    {
+      "id": "CL-C08",
+      "topic": "Uniform assembly",
+      "status": "Constant identities and margin verified.",
+      "argument_checked": "O(k) amplification; D=0 case; d=50kD+1; padding absorption; 119/144 versus 7/12; coefficient 2/18225.",
+      "record_lines": [
+        [
+          1512,
+          1624
+        ]
+      ],
+      "executed_check": "finite_check_results.json",
+      "limit": "Executable checks cover arithmetic only."
+    },
+    {
+      "id": "CL-C09",
+      "topic": "Growing family",
+      "status": "No mathematical failure found.",
+      "argument_checked": "New allowance L=floor(X); X>=2; X<m; strict integer-complexity floor; Q-envelope arithmetic; k-floor balance; nonvacuity.",
+      "record_lines": [
+        [
+          3902,
+          3970
+        ]
+      ],
+      "limit": "The uniform quantum algorithm is taken from separate verification; only propagation of its constants was checked here."
+    }
+  ],
+  "artifact_checks": "All finding quotes matched exact frozen-unit text and contain at most 25 whitespace-separated words.",
+  "edition_boundary": {
+    "record_edition_inspected": "packaged current record only",
+    "linked_revision": "8357f268732746d1575e05e7de8c888e20ad3793",
+    "linked_revision_body_independently_read": false,
+    "packet_evidence": "LINK_MAP.json reports pinned_differs_from_packaged=true for expert-companion record links",
+    "consequence": "Do not promote supplied-edition support to immutable-link verification; proposed anchors need an edition that contains them."
+  }
+}

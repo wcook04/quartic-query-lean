@@ -1,0 +1,64 @@
+{
+  "schema": "quartic-r10-return-validation-v1",
+  "status": "passed",
+  "date_utc": "2026-11-04T14:26:47.768442+00:00",
+  "source_and_schema_verification": {
+    "status": "passed",
+    "checks_passed": 5114,
+    "failures": [],
+    "files": 34,
+    "manifested_files": 33,
+    "json_files": 19,
+    "jsonl_files": 3,
+    "frozen_units": 585,
+    "findings": 15,
+    "later_annotations": 41,
+    "sources": 40,
+    "source_bindings_checked": 45,
+    "original_source_check": true,
+    "network_or_external_execution": false
+  },
+  "archive_validation": {
+    "crc": "passed",
+    "safe_unique_paths": "passed",
+    "encryption": "none",
+    "members": 34,
+    "byte_identical_extraction": "passed",
+    "extracted_verifier": {
+      "status": "passed",
+      "checks_passed": 4469,
+      "failures": [],
+      "files": 34,
+      "manifested_files": 33,
+      "json_files": 19,
+      "jsonl_files": 3,
+      "frozen_units": 585,
+      "findings": 15,
+      "later_annotations": 41,
+      "sources": 40,
+      "source_bindings_checked": 0,
+      "original_source_check": false,
+      "network_or_external_execution": false
+    }
+  },
+  "finite_checks": {
+    "status": "passed",
+    "count": 11,
+    "portable_recomputation": "Matched saved finite_math_results.json exactly."
+  },
+  "scope": [
+    "All return files are covered by the manifest except the manifest itself.",
+    "Frozen evidence hashes match freeze.json.",
+    "All 585 frozen quotes and all 15 finding quotes match the supplied source ranges.",
+    "All recorded local source hashes were compared with supplied bytes.",
+    "ZIP CRC, safe unique paths and byte-identical clean extraction were checked.",
+    "The verifier was executed from the clean extraction with no original packet dependency."
+  ],
+  "sequence": "This receipt was included in the final manifest and archive, which were then verified again. The external packaging result records the final archive digest; a ZIP cannot contain its own stable digest.",
+  "not_certified": [
+    "Mathematical theorem truth by exhaustive execution",
+    "Fresh Lean or Comparator success",
+    "Exact pinned historical record body",
+    "Independent human comprehension"
+  ]
+}

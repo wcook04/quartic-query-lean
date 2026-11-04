@@ -1,0 +1,158 @@
+{
+  "schema": "quartic-round10-intake-validation-v1",
+  "archive_crc": "pass",
+  "members": 34,
+  "manifest_complete": true,
+  "member_hashes": "pass",
+  "frozen_first_pass_hashes": "pass",
+  "current_source_bindings": [
+    {
+      "path": "docs/expert_companion.bib",
+      "sha256": "31702a7b39b12b775005b311544b69a1d3e0544d669a009a6a80c56e235cca6a"
+    },
+    {
+      "path": "docs/expert_companion.md",
+      "sha256": "8c29b8d9a4adbc7b93fbe50f1cbb6d27afb11f0afd44172342bdfb1c3a42cc8d"
+    },
+    {
+      "path": "docs/exposition.bib",
+      "sha256": "76ab8492f33bb8136150d54ef2b12e3ea434d48186ad3d39624e8079eb2630eb"
+    },
+    {
+      "path": "docs/exposition.md",
+      "sha256": "e034aae7c7a74529656a84289b41767bcc4f06cbe1a3d2926fc8a01f918918b8"
+    },
+    {
+      "path": "docs/reasoning_record.bib",
+      "sha256": "89c47ffefcfe6216ee5c7a78861dd2c62013087470ab0976029edcfab89d6491"
+    },
+    {
+      "path": "docs/reasoning_record.md",
+      "sha256": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07"
+    }
+  ],
+  "findings": 15,
+  "method_findings": 8,
+  "limits": [
+    "One expert return only; supporting manuscripts inspected at selected passages by reviewer.",
+    "Review declares bounded multi-sentence reveals, caption-level units and later bibliography inspection; not strict single-unit prospective exposure.",
+    "Hashes verify retained bytes, not cognitive timing or independent human understanding.",
+    "No new Lean or Comparator execution."
+  ],
+  "finite_math_replay": {
+    "script_sha256": "be5dab447a8767ed9dc738fbab9cf11cd3368f6bc92f6a949dc41aa97c038e8a",
+    "script_inspection": "Complete source read before execution; only finite arithmetic/enumeration and an explicit output file.",
+    "results": {
+      "status": "passed",
+      "checks": [
+        {
+          "name": "A.7 exact enumeration",
+          "passed": true,
+          "details": {
+            "inputs": 16,
+            "compliant": 8,
+            "correct_and_compliant": 5,
+            "correct": 9,
+            "joint_success": "5/16",
+            "conditional_success": "5/8",
+            "one_instance_bound_squared": "9/16"
+          }
+        },
+        {
+          "name": "Record terminal-lightness example",
+          "passed": true,
+          "details": {
+            "domain": [
+              "01",
+              "10",
+              "11"
+            ],
+            "L": 1,
+            "best_one_query_success": "2/3",
+            "light_probability": "1/3",
+            "joint_success": "1/3",
+            "success_given_light": "1",
+            "capped_simulator_success": "2/3",
+            "scope": "Exact cap-event warning; not claimed to satisfy the full final construction or L<R(P)."
+          }
+        },
+        {
+          "name": "Amplification base",
+          "passed": true,
+          "details": {
+            "integer_comparison": "18*8**25 < 9**25"
+          }
+        },
+        {
+          "name": "Uniform coefficient",
+          "passed": true,
+          "details": {
+            "identity": "800*(2/18225)=(8/27)^2"
+          }
+        },
+        {
+          "name": "Kernel-moment cancellation",
+          "passed": true,
+          "details": {
+            "identity": "(3/16)*(8/27)=1/18"
+          }
+        },
+        {
+          "name": "Gap margin",
+          "passed": true,
+          "details": {
+            "lower_gap_coefficient": "119/144",
+            "upper_gap_coefficient": "7/12",
+            "positive_difference": "35/144"
+          }
+        },
+        {
+          "name": "Padding absorption",
+          "passed": true,
+          "details": {
+            "inequality": "50/49 < (9/8)^2"
+          }
+        },
+        {
+          "name": "Floor-size base",
+          "passed": true,
+          "details": {
+            "t": 8,
+            "4t^2": 256,
+            "2^t": 256,
+            "m": 65536
+          }
+        },
+        {
+          "name": "Uniform allowance-size base",
+          "passed": true,
+          "details": {
+            "t": 32,
+            "left": 4294967296,
+            "right": 21233664
+          }
+        },
+        {
+          "name": "Uniform quantum envelope coefficient",
+          "passed": true,
+          "details": {
+            "expanded_coefficient": 5707107503019240,
+            "envelope": 9007199254740992
+          }
+        },
+        {
+          "name": "Sharper-erasure algebra",
+          "passed": true,
+          "details": {
+            "checked_m": "1..64",
+            "scope": "Finite sanity check; general identity is established symbolically in the report."
+          }
+        }
+      ],
+      "limitations": [
+        "Only finite examples and explicit constants are executed.",
+        "The general probabilistic and analytic arguments were reviewed in prose, not formally recompiled."
+      ]
+    }
+  }
+}

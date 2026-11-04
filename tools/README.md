@@ -189,7 +189,14 @@ Freeze the intended Lean inputs before recording evidence:
 | `python3 tools/run_comparator.py` | Runs each bundle and negative control and writes receipts. |
 | `python3 tools/build_corpus.py` | Regenerates the corpus from the ledger, ties and receipts. |
 | `python3 tools/build_comparator_map.py` | Regenerates `corpus/comparator_map.json`, the Challenge-to-record reading map. Run after the corpus. |
-| `python3 tools/build_lean_links.py` | Regenerates `docs/lean_links.json` and the Lean link definitions at the end of the expert companion, the exposition and the reasoning record: a plain name and pinned GitHub line link for each cited declaration. Bump its `COMMIT` when the papers describe a new commit. |
+| `python3 tools/build_lean_links.py` | Regenerates `docs/lean_links.json` and the Lean link definitions at the end of the expert companion, the exposition and the reasoning record. `COMMIT` selects Lean sources; `RECORD_COMMIT` independently selects the record edition for shorter-paper and bibliography links. |
+
+After revising the record, run `rebind_record_passages.py --report PATH` and
+`build_comparator_map.py`. Commit the record, then update `RECORD_COMMIT` and
+run `build_lean_links.py`. Read the exact linked body before accepting the
+destinations; anchor existence alone does not establish the promised proof.
+Separating these pins lets an editorial record revision preserve its Lean links
+and match the linked edition byte for byte. Re-render affected reading copies.
 
 [build_challenges.py](build_challenges.py) keeps a challenge and its solution in
 agreement by construction. A negative control counts only when Comparator rejects it

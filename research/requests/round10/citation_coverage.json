@@ -164,7 +164,7 @@
   "scope": "Source-reviewed mapping of every entry in the three maintained bibliographies and Appendix C. The builder checks current bibliography/source hashes and records actual packaged coverage; availability does not establish mathematical reading or exact-edition equivalence.",
   "bibliographies": {
     "docs/expert_companion.bib": {
-      "sha256": "31702a7b39b12b775005b311544b69a1d3e0544d669a009a6a80c56e235cca6a",
+      "sha256": "8bbd430c3ff6730c93ccf0ea853f0f1151c97e60e60510653d608f54ff4bb928",
       "entry_count": 26
     },
     "docs/exposition.bib": {
@@ -487,13 +487,13 @@
       "paper": "expert_companion",
       "citation_key": "Record2026",
       "bibliography_path": "docs/expert_companion.bib",
-      "bibtex_entry": "@misc{Record2026,\n  author = {Cook, Will},\n  title = {A Nearly Quartic Separation between Randomized and Quantum Queries: A Complete Reasoning Record},\n  year = {2026},\n  url = {https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/docs/reasoning_record.md}\n}",
+      "bibtex_entry": "@misc{Record2026,\n  author = {Cook, Will},\n  title = {A Nearly Quartic Separation between Randomized and Quantum Queries: A Complete Reasoning Record},\n  year = {2026},\n  url = {https://github.com/wcook04/quartic-query-lean/blob/cbd9bad1b00d0dcdde3c57ab096bb39037fe8c97/docs/reasoning_record.md}\n}",
       "cited_urls": [
-        "https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/docs/reasoning_record.md"
+        "https://github.com/wcook04/quartic-query-lean/blob/cbd9bad1b00d0dcdde3c57ab096bb39037fe8c97/docs/reasoning_record.md"
       ],
       "annex_slugs": [],
       "repository_source": "repository/docs/reasoning_record.md",
-      "edition_note": "Source-pinned8357f268732746d1575e05e7de8c888e20ad3793; already included as lead/supporting manuscript.",
+      "edition_note": "Source-pinnedcbd9bad1b00d0dcdde3c57ab096bb39037fe8c97; already included as lead/supporting manuscript.",
       "supplementary_source_ids": [],
       "primary_annex_status": "repository_source_reference",
       "coverage_status": "repository_source_supplied"
@@ -2579,7 +2579,7 @@
     "source": "Lake-pinned tracked Git source; no compilation claim"
   },
   "edition_boundary": "A supplied older or different edition is not the exact cited edition. Supplementary metadata identifies the retrieved publisher/revision copies and remaining exceptions. Primary extracted.md is not automatically the text of a distinct supplementary PDF.",
-  "record_sha256": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+  "record_sha256": "8f5d43ecb713f93217b7f7905e0dc004bef06dde4e01fd831133b5ee8d60f30e",
   "retrieval_observations": {
     "date": "2026-11-04",
     "Yao1977": "Original not retrieved: DOI 10.1109/SFCS.1977.24 redirects to IEEE document 4567946 with JavaScript verification; direct PDF request returned HTTP 418.",
@@ -2587,5 +2587,12 @@
     "BSS2003": "Exact CCC 2003 conference edition not retrieved. Complete 2002 primary author report is supplied separately; no byte or pagination identity is asserted.",
     "five_requested_mathematical_editions": "Retrieved; required supplemental IDs identify GPW revision, MPS publisher paper, Huang journal paper, BBCMW author journal manuscript and GTW publisher paper. Supplementary manifest records exact file hashes and edition distinctions.",
     "gtw_arxiv_v2": "Exact arXiv:2103.11604v2 retrieved in addition to the separate CCC 2021 publisher edition; both required source IDs preserve edition and locator distinctions."
+  },
+  "editorial_rebind": {
+    "date": "2026-11-04",
+    "reason": "R10 expert assimilation updates the internal record citation to the exact revised body. External literature editions and coverage judgments are unchanged; the sent R10 ZIPs remain immutable.",
+    "previous_expert_bibliography_sha256": "31702a7b39b12b775005b311544b69a1d3e0544d669a009a6a80c56e235cca6a",
+    "previous_record_sha256": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+    "revision_account": "research/adjudication/round10_revision.md"
   }
 }

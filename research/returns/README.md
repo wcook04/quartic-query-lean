@@ -86,3 +86,9 @@ The [three round-nine returns](round9/README.md) preserve 538 manuscript finding
 [intake manifest](round9/intake.json) preserves their original identities;
 [the revision account](../adjudication/round9_revision.md) maps the findings to
 current manuscript decisions and validation.
+
+## Round ten
+
+The [expert return](round10/README.md) is preserved with all 34 members and its
+archive hash. The other two requested reviews remain pending. Maintained
+[decisions](../adjudication/round10_revision.md) are separate from submitted advice.

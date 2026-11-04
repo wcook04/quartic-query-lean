@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-04",
+  "source_status": {
+    "acceptance_gate": "not applied: these hashes bind the packet to the exact bytes supplied; no human review of these editions is claimed.",
+    "drafts": {
+      "repository/docs/expert_companion.bib": "31702a7b39b12b775005b311544b69a1d3e0544d669a009a6a80c56e235cca6a",
+      "repository/docs/expert_companion.md": "8c29b8d9a4adbc7b93fbe50f1cbb6d27afb11f0afd44172342bdfb1c3a42cc8d",
+      "repository/docs/expert_companion.pdf": "4cf95ae890234852ca08837f31671f8fae01ff59d807feb58eca03ff96abbb8a",
+      "repository/docs/exposition.bib": "76ab8492f33bb8136150d54ef2b12e3ea434d48186ad3d39624e8079eb2630eb",
+      "repository/docs/exposition.md": "e034aae7c7a74529656a84289b41767bcc4f06cbe1a3d2926fc8a01f918918b8",
+      "repository/docs/exposition.pdf": "784683dc467eb43ee540b7ff0f2a7536747cc9f984a9e8eb02dafccc7247e354",
+      "repository/docs/reasoning_record.bib": "89c47ffefcfe6216ee5c7a78861dd2c62013087470ab0976029edcfab89d6491",
+      "repository/docs/reasoning_record.md": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+      "repository/docs/reasoning_record.pdf": "4122ef4f803437bf68093a0b0b1bdbccae64004ff0747eecd6a54ee50f9769a7"
+    },
+    "previous_round_intake_sha256": "ec7b106bdd007e039760c2c5541249c73789f064118954a6fb6914cb27dd5b6d",
+    "record": {
+      "accepted_review_record_sha256": "c2b6f11a7a4b3f318ebf419a9959c1d154f8e2b74e3ec02a8e25fb92ba9cfd25",
+      "markdown_matches_accepted_review": false,
+      "markdown_sha256": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+      "pdf_rendered_from": "the current Markdown at repository commit 0d977710556f304ce70fa200cbf36b9beecb78e8",
+      "pdf_sha256": "4122ef4f803437bf68093a0b0b1bdbccae64004ff0747eecd6a54ee50f9769a7"
+    },
+    "repository_commit": "0d977710556f304ce70fa200cbf36b9beecb78e8",
+    "schema": "quartic-round10-source-status-v1",
+    "status": "unreviewed working drafts",
+    "writing_method": "7bc9ef5d253d23527c6ccbd759c2eb24c0243ac7"
+  },
+  "files": [
+    {
+      "name": "Pasted text(20261104-132939).txt",
+      "bytes": 977681,
+      "sha256": "c20d068c485d3982566eb559f9e0e612fee89cf1f4034b3ff513abd860b7a0ea"
+    },
+    {
+      "name": "quartic_r10_expert_paper.zip",
+      "bytes": 65106294,
+      "sha256": "60f48603e8aa79668fb0df84d9d2739f039446c177792d80f8404d3873b88e76"
+    }
+  ],
+  "locator_convention": "repository/... and paper/... refer to members of the input packet, not files included in this review ZIP. Quoted excerpts and unit locations are bound to their recorded hashes."
+}

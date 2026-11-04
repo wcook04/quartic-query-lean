@@ -146,3 +146,8 @@ The [round-ten requests](requests/round10/SELECTION.md) ask for complete
 chronological reviews of those revised papers, followed by literature-grounded
 improvement advice. They include the full round-nine returns and dispositions
 and aim beyond regression repair toward exceptionally well-written mathematics.
+
+The first [round-ten return](returns/round10/README.md) is the expert review.
+Its [revision account](adjudication/round10_revision.md) tracks manuscript changes,
+individual dispositions and writing-method propagation. The exposition and
+reasoning-record reviews have not yet arrived.

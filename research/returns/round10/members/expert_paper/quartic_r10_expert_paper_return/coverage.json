@@ -1,0 +1,288 @@
+{
+  "schema": "quartic-r10-final-coverage-v1",
+  "source_sha256": {
+    "repository/docs/expert_companion.bib": "31702a7b39b12b775005b311544b69a1d3e0544d669a009a6a80c56e235cca6a",
+    "repository/docs/expert_companion.md": "8c29b8d9a4adbc7b93fbe50f1cbb6d27afb11f0afd44172342bdfb1c3a42cc8d",
+    "repository/docs/expert_companion.pdf": "4cf95ae890234852ca08837f31671f8fae01ff59d807feb58eca03ff96abbb8a",
+    "repository/docs/exposition.bib": "76ab8492f33bb8136150d54ef2b12e3ea434d48186ad3d39624e8079eb2630eb",
+    "repository/docs/exposition.md": "e034aae7c7a74529656a84289b41767bcc4f06cbe1a3d2926fc8a01f918918b8",
+    "repository/docs/exposition.pdf": "784683dc467eb43ee540b7ff0f2a7536747cc9f984a9e8eb02dafccc7247e354",
+    "repository/docs/reasoning_record.bib": "89c47ffefcfe6216ee5c7a78861dd2c62013087470ab0976029edcfab89d6491",
+    "repository/docs/reasoning_record.md": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+    "repository/docs/reasoning_record.pdf": "4122ef4f803437bf68093a0b0b1bdbccae64004ff0747eecd6a54ee50f9769a7"
+  },
+  "status": "complete_lead_source_and_pdf_inspection_with_explicit_protocol_and_external_verification_limits",
+  "freeze_reference": "freeze.json",
+  "frozen_evidence_files": {
+    "first_pass/sentence_audit.jsonl": "29d80e25dcfae8a502af9169f033ed31fd4bc7c7fb04f81e0f4b2b5c10192970",
+    "first_pass/reading_log.md": "355a7abdd39124a409ab04656f8fed2f8779f9fb9918a9f408b3b5b20f7c1d74",
+    "first_pass/coverage.json": "70da7228e4987fc64a6daee46d1021a5776440601dbc82b542c8b5e6e997a0c8"
+  },
+  "first_reviewed_locator": {
+    "unit_id": "XP10-U0001",
+    "line": 2
+  },
+  "last_reviewed_locator": {
+    "unit_id": "XP10-U0585",
+    "line": 478
+  },
+  "sections": [
+    {
+      "heading": "## 1. Introduction",
+      "line_start": 12,
+      "line_end": 35
+    },
+    {
+      "heading": "### 1.1 Overview of the construction",
+      "line_start": 36,
+      "line_end": 52
+    },
+    {
+      "heading": "### 1.2 Earlier separations",
+      "line_start": 53,
+      "line_end": 68
+    },
+    {
+      "heading": "### 1.3 Relation to earlier constructions",
+      "line_start": 69,
+      "line_end": 84
+    },
+    {
+      "heading": "## 2. The Forrelation promise and the total function",
+      "line_start": 85,
+      "line_end": 141
+    },
+    {
+      "heading": "## 3. The quantum upper bound",
+      "line_start": 142,
+      "line_end": 155
+    },
+    {
+      "heading": "### 3.1 Comparing two columns",
+      "line_start": 156,
+      "line_end": 168
+    },
+    {
+      "heading": "### 3.2 A tournament with probabilistic comparisons",
+      "line_start": 169,
+      "line_end": 196
+    },
+    {
+      "heading": "### 3.3 Verification and the query count",
+      "line_start": 197,
+      "line_end": 212
+    },
+    {
+      "heading": "## 4. The randomized lower bound",
+      "line_start": 213,
+      "line_end": 223
+    },
+    {
+      "heading": "### 4.1 A direct product with separate caps",
+      "line_start": 224,
+      "line_end": 247
+    },
+    {
+      "heading": "### 4.2 Planting a winner",
+      "line_start": 248,
+      "line_end": 263
+    },
+    {
+      "heading": "### 4.3 The erased zero",
+      "line_start": 264,
+      "line_end": 280
+    },
+    {
+      "heading": "### 4.4 The planted cell",
+      "line_start": 281,
+      "line_end": 313
+    },
+    {
+      "heading": "### 4.5 The contradiction and the constants",
+      "line_start": 314,
+      "line_end": 332
+    },
+    {
+      "heading": "## 5. Completing the fixed-parameter proof",
+      "line_start": 333,
+      "line_end": 343
+    },
+    {
+      "heading": "## 6. Optional uniform refinement",
+      "line_start": 344,
+      "line_end": 392
+    },
+    {
+      "heading": "## 7. The formal statement",
+      "line_start": 393,
+      "line_end": 404
+    },
+    {
+      "heading": "## Use of AI tools",
+      "line_start": 405,
+      "line_end": 408
+    },
+    {
+      "heading": "## References",
+      "line_start": 409,
+      "line_end": 414
+    },
+    {
+      "heading": "## Appendix A. Simplifications that fail",
+      "line_start": 415,
+      "line_end": 418
+    },
+    {
+      "heading": "### A.1 The projection statistic does not test the promise",
+      "line_start": 419,
+      "line_end": 422
+    },
+    {
+      "heading": "### A.2 Comparisons need not describe an order or fixed orientation",
+      "line_start": 423,
+      "line_end": 426
+    },
+    {
+      "heading": "### A.3 A dominant column need not win",
+      "line_start": 427,
+      "line_end": 430
+    },
+    {
+      "heading": "### A.4 A uniform marginal choice need not be independent",
+      "line_start": 431,
+      "line_end": 438
+    },
+    {
+      "heading": "### A.5 Expected caps do not give the direct-product bound",
+      "line_start": 439,
+      "line_end": 446
+    },
+    {
+      "heading": "### A.6 Separate independence does not imply joint independence",
+      "line_start": 447,
+      "line_end": 450
+    },
+    {
+      "heading": "### A.7 Conditioning on compliance changes the success probability",
+      "line_start": 451,
+      "line_end": 460
+    },
+    {
+      "heading": "### A.8 Fixed-parameter thresholds do not justify a growing parameter",
+      "line_start": 461,
+      "line_end": 478
+    }
+  ],
+  "frozen_units": 585,
+  "frozen_unit_counts": {
+    "title": 1,
+    "subtitle": 1,
+    "metadata": 4,
+    "sentence": 510,
+    "heading": 29,
+    "footnote": 1,
+    "display": 37,
+    "figure": 2
+  },
+  "retrospective_classification_counts": {
+    "title": 1,
+    "subtitle": 1,
+    "metadata": 4,
+    "sentence": 506,
+    "heading": 29,
+    "footnote": 1,
+    "display": 37,
+    "figure": 2,
+    "proof_end": 2,
+    "bibliography_placeholder": 1,
+    "link_definitions": 1
+  },
+  "segmentation_limits": [
+    "585 is a count of source units, not 585 sentences.",
+    "Figure captions were recorded as whole objects; their component sentences were not individually logged prospectively.",
+    "Four mechanical type corrections are retrospective only: two proof-end symbols, bibliography placeholder, terminal link-definition block.",
+    "Actual generated reference entries were absent from Markdown and read after freeze. They are not silently added as first-pass rows."
+  ],
+  "pdf_pages_inspected": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+  ],
+  "pdf_inspection_file": "evidence/pdf_inspection.json",
+  "bibliography": {
+    "rendered_entries_read": 26,
+    "pdf_pages": [
+      15,
+      16
+    ],
+    "stage": "after freeze, third editorial perspective",
+    "whole_source_reading_inferred": false
+  },
+  "perspectives": [
+    {
+      "number": 1,
+      "role": "quantum-algorithms specialist, primary full-source encounter",
+      "reader": "root",
+      "coverage": "Title through references placeholder, all Appendix A, link definitions; complete source in seven ordered blocks.",
+      "independent_blind_reader": false,
+      "prior_exposure": "Opening historical summary of the separately attached transcript was visible during intake; no individual prior findings or dispositions were read.",
+      "evidence": "first_pass/reading_log.md"
+    },
+    {
+      "number": 2,
+      "role": "randomized lower-bound specialist, informed reread",
+      "reader": "classical specialist",
+      "coverage": "§§2,4,5,6,A.4–A.8 in that order, after freeze; completion notified before third perspective.",
+      "independent_blind_reader": false,
+      "evidence": "evidence/classical_perspective.json"
+    },
+    {
+      "number": 3,
+      "role": "editor, informed review",
+      "reader": "root",
+      "coverage": "All 18 PDF pages in order after the second perspective; targeted source and dependency rereads, prior findings and writing comparisons.",
+      "independent_blind_reader": false
+    }
+  ],
+  "parallel_work": "After freeze, separate source/proof verification and historical intake work could run in parallel. These are not represented as additional blind or serial first encounters.",
+  "detours_during_primary_pass": [],
+  "retrospective_detours": [
+    "Current record proof destinations in sources_read.json.",
+    "Supplied and beyond-annex primary literature in sources_read.json.",
+    "R9 original findings, dispositions and selected transcript events in previous_round_audit.json and evidence/attached_context_review.json."
+  ],
+  "exercise_attempts": [],
+  "answer_exposure": "Worked examples had their answers visible; no independent hidden-answer exercise performance claimed.",
+  "protocol_departures": [
+    "Tool blocks expose several later sentences simultaneously; per-unit observations committed in source order before the next block, not single-sentence reveal.",
+    "Figure captions recorded as complete non-prose objects, not additionally segmented caption sentences.",
+    "Generated bibliography placeholder and terminal link-definition block mechanically labelled sentence; retrospective segmentation correction will be separate.",
+    "Opening historical summary of the separately attached transcript was visible during intake; no individual prior findings or dispositions were read."
+  ],
+  "coverage_limits": [
+    "The first-pass procedure is prospective at block boundaries, not strictly before visibility of each next sentence.",
+    "No exact pinned 8357 reasoning-record body or live hyperlink round trip was verified.",
+    "The exposition and 139-page reasoning record received targeted dependency checks, not complete manuscript/PDF reviews.",
+    "All 166 XP9 primary findings and nine selected supporting findings were substantively inspected; 363 other EX9/RR9 primary findings are explicitly uninspected.",
+    "Historical method findings were checked for identity/disposition coverage, not all independently re-adjudicated.",
+    "Sources_read.json states passage-level literature coverage; not every supplied bibliography source was read.",
+    "No fresh Lean build, Comparator run, or human review is claimed."
+  ],
+  "continuation_locator": null,
+  "continuation_note": "No unread lead-body section remains. Any additional work would address the listed supporting-edition or protocol limits, not continue a skipped lead section."
+}

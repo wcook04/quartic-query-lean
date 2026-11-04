@@ -1,0 +1,690 @@
+{
+  "schema": "quartic-round10-expert-manuscript-dispositions-v1",
+  "paper": "expert_companion",
+  "baseline_revision": "0d977710556f304ce70fa200cbf36b9beecb78e8",
+  "source_review": "research/returns/round10/members/expert_paper/quartic_r10_expert_paper_return/feedback.json",
+  "source_review_sha256": "1676ae95fc991c4a7b9b414db1acf1f5007af7491862398f8a0b0da090800c70",
+  "scope": "Sole round-ten expert return, all 15 findings individually adjudicated and final rendered changes inspected. Exact source bindings and repository validation are recorded separately. No fresh Lean/Comparator run or human review is claimed.",
+  "dispositions": [
+    {
+      "id": "XP10-001",
+      "paper": "expert_companion",
+      "source": "research/returns/round10/members/expert_paper/quartic_r10_expert_paper_return/feedback.json",
+      "baseline_locator": {
+        "section": "Abstract",
+        "quote": "A classical algorithm must spend order $m$ times a query allowance below the hardness of one partial instance",
+        "line_start": 9,
+        "line_end": 9
+      },
+      "prior_finding_ids": [
+        "XP9-003",
+        "XP9-001",
+        "XP9-004",
+        "XP9-002"
+      ],
+      "status": "applied",
+      "decision": "Replace the below-hardness allowance description in the abstract with the paired fixed-k query scales; retain the two reconstructed mechanisms and immediate attribution.",
+      "rationale": "The same-function pair in Theorem 1 supplies the exponent comparison. The uniform-family consequence remains separately qualified by uniform estimates, and no actual equality of complexities is inferred from either bound.",
+      "current_locators": [
+        {
+          "path": "docs/expert_companion.md",
+          "section": "Abstract",
+          "quote": "R(F_{k,m})=\\widetilde\\Omega_k(m^{2-1/k})",
+          "line_start": 9,
+          "line_end": 9
+        },
+        {
+          "path": "docs/expert_companion.md",
+          "section": "Abstract",
+          "quote": "We reconstruct two steps in the proof.",
+          "line_start": 9,
+          "line_end": 9
+        }
+      ],
+      "source_checks": [
+        "Theorem 1, Equation (2); record §7 fixed-k and growing-k deductions."
+      ],
+      "remaining_acceptance_checks": [],
+      "author_pending_acceptance_checks": [
+        "Inspect opening page after render."
+      ],
+      "integrating_acceptance": "Parent read the affected source and inspected final contact sheets plus full-size changed units; exact record body binding is in round10_link_binding.json. No new theorem validation inferred."
+    },
+    {
+      "id": "XP10-002",
+      "paper": "expert_companion",
+      "source": "research/returns/round10/members/expert_paper/quartic_r10_expert_paper_return/feedback.json",
+      "baseline_locator": {
+        "section": "1.2–1.3",
+        "quote": "### 1.2 Earlier separations",
+        "line_start": 53,
+        "line_end": 53
+      },
+      "prior_finding_ids": [
+        "XP9-025",
+        "XP9-027",
+        "XP9-028",
+        "XP9-031"
+      ],
+      "status": "applied",
+      "decision": "Replace the long introductory genealogy with the matched old/new cost comparison and immediate antecedent credit. Preserve the complete AND–OR optimization, pointer distinctions and comparison models in Appendix B; keep the closest fixed-edge survivor-set distinction at the weighted sampler.",
+      "rationale": "The reader reaches the actual predicate before detailed alternative constructions. The cubic ceiling is explicitly limited to the balanced recipe and its analysis; the general cheat-sheet framework is not claimed to have a cubic impossibility theorem.",
+      "current_locators": [
+        {
+          "path": "docs/expert_companion.md",
+          "section": "1.2 What changes from earlier constructions",
+          "quote": "At a matched supplier scale",
+          "line_start": 55,
+          "line_end": 55
+        },
+        {
+          "path": "docs/expert_companion.md",
+          "section": "Appendix B.1",
+          "quote": "### B.1 The balanced AND–OR recipe",
+          "line_start": 417,
+          "line_end": 417
+        },
+        {
+          "path": "docs/expert_companion.md",
+          "section": "3.2 A tournament with probabilistic comparisons",
+          "quote": "That algorithm has bounded-error access to fixed edge directions.",
+          "line_start": 137,
+          "line_end": 137
+        }
+      ],
+      "source_checks": [
+        "Existing expert §§1.2–1.3 source text and cited roles; record opening; all original citation keys retained."
+      ],
+      "remaining_acceptance_checks": [],
+      "author_pending_acceptance_checks": [
+        "Inspect introduction length and Appendix B reading route."
+      ],
+      "integrating_acceptance": "Parent read the affected source and inspected final contact sheets plus full-size changed units; exact record body binding is in round10_link_binding.json. No new theorem validation inferred."
+    },
+    {
+      "id": "XP10-003",
+      "paper": "reasoning_record",
+      "source": "research/returns/round10/members/expert_paper/quartic_r10_expert_paper_return/feedback.json",
+      "baseline_locator": {
+        "section": "Reasoning record §1, linked comparison motivation",
+        "quote": "The present construction changes the classical side of that arithmetic.",
+        "line_start": 152,
+        "line_end": 152
+      },
+      "prior_finding_ids": [
+        "RR9-014"
+      ],
+      "status": "applied",
+      "decision": "Correct the record to state both matched pairs and identify the quantum square-root reduction.",
+      "rationale": "The former statement that the classical lower bound grows while the quantum cost stays near square root m compared unlike baselines. At the same supplier scale the old bounds are Q~m, R lower bound~m²R(P), and the new bounds are Q~sqrt(m), R lower bound~mR(P). This supersedes the earlier retained treatment of RR9-014 on this particular comparison.",
+      "current_locators": [
+        {
+          "path": "docs/reasoning_record.md",
+          "section": "1, reading routes and earlier separations",
+          "quote": "Both comparison scales decrease; the square-root reduction in the quantum cost changes the exponent comparison.",
+          "line_start": 152,
+          "line_end": 152
+        }
+      ],
+      "source_checks": [
+        "Expert Appendix B.1 retained AND–OR optimization; old expert §1.2 matched pair; record opening sentence."
+      ],
+      "remaining_acceptance_checks": [],
+      "author_pending_acceptance_checks": [],
+      "integrating_acceptance": "Parent read the affected source and inspected final contact sheets plus full-size changed units; exact record body binding is in round10_link_binding.json. No new theorem validation inferred."
+    },
+    {
+      "id": "XP10-004",
+      "paper": "expert_companion",
+      "source": "research/returns/round10/members/expert_paper/quartic_r10_expert_paper_return/feedback.json",
+      "baseline_locator": {
+        "section": "1.3 Relation to earlier constructions",
+        "quote": "Other comparison models have different contracts: minimum finding assumes a total order",
+        "line_start": 81,
+        "line_end": 81
+      },
+      "prior_finding_ids": [],
+      "status": "retained",
+      "decision": "Do not add the optional Arora–Kumar citation in this revision; retain the existing comparison-model account in Appendix B and the fixed-edge distinction at §3.2.",
+      "rationale": "This is an optional contemporary comparison, not a missing premise or correction. The retained account already distinguishes search followed by verification from the specific arbitrary-probability sampling contract. Adding another current paper would need direct inspection of its primary edition and a bibliography change; the donor’s reading is recorded evidence, not this reviser’s primary-source verification. The revised introduction is shorter without depending on that additional comparison.",
+      "current_locators": [
+        {
+          "path": "docs/expert_companion.md",
+          "section": "3.2",
+          "quote": "That algorithm has bounded-error access to fixed edge directions.",
+          "line_start": 137,
+          "line_end": 137
+        },
+        {
+          "path": "docs/expert_companion.md",
+          "section": "Appendix B.3",
+          "quote": "### B.3 Comparison contracts",
+          "line_start": 437,
+          "line_end": 437
+        }
+      ],
+      "source_checks": [
+        "R10 literature_comparison.md, Arora–Kumar paragraph: donor reports arXiv:2610.39702v1 §6.1; that source was not independently read during this revision.",
+        "Existing MPS, AIK and BDK contract distinctions were preserved rather than strengthened."
+      ],
+      "remaining_acceptance_checks": [],
+      "author_pending_acceptance_checks": [],
+      "integrating_acceptance": "Parent read the affected source and inspected final contact sheets plus full-size changed units; exact record body binding is in round10_link_binding.json. No new theorem validation inferred."
+    },
+    {
+      "id": "XP10-005",
+      "paper": "expert_companion",
+      "source": "research/returns/round10/members/expert_paper/quartic_r10_expert_paper_return/feedback.json",
+      "baseline_locator": {
+        "section": "2 and 4.2, rendered scope qualifiers",
+        "quote": "and undefined otherwise; in particular a large negative $\\Phi$ lies outside the promise.",
+        "line_start": 98,
+        "line_end": 98
+      },
+      "prior_finding_ids": [],
+      "status": "applied",
+      "decision": "Move the undefined-otherwise clause before the promise display and the dummy-law qualification before Equation (10). Final PDF pages 3 and 9 keep both qualifiers with their formulas.",
+      "rationale": "Both qualifications now arrive before the formulas they govern, so neither depends on a following paragraph surviving a page break or float. The source change implements the semantic repair; actual adjacency must be accepted on the rendered pages.",
+      "current_locators": [
+        {
+          "path": "docs/expert_companion.md",
+          "section": "2, Equation (4)",
+          "quote": "is undefined outside the following two cases:",
+          "line_start": 69,
+          "line_end": 69
+        },
+        {
+          "path": "docs/expert_companion.md",
+          "section": "4.2, Equation (10)",
+          "quote": "Computing both query-event probabilities below on the dummy run",
+          "line_start": 217,
+          "line_end": 217
+        }
+      ],
+      "source_checks": [
+        "Complete promise cases remain unchanged; Eq. (10) still bounds original dummy-run query events; existing tools/render_papers.py shared style and table handling inspected."
+      ],
+      "remaining_acceptance_checks": [],
+      "author_pending_acceptance_checks": [
+        "Render and inspect the entire promise-definition unit and the coupling lead-in/display at final size; parent owns this final check."
+      ],
+      "integrating_acceptance": "Parent read the affected source and inspected final contact sheets plus full-size changed units; exact record body binding is in round10_link_binding.json. No new theorem validation inferred."
+    },
+    {
+      "id": "XP10-006",
+      "paper": "expert_companion",
+      "source": "research/returns/round10/members/expert_paper/quartic_r10_expert_paper_return/feedback.json",
+      "baseline_locator": {
+        "section": "2, property (i)",
+        "quote": "[@BansalSinha2021, Corollary 1.4] Their dimension",
+        "line_start": 105,
+        "line_end": 105
+      },
+      "prior_finding_ids": [],
+      "status": "applied",
+      "decision": "Insert the missing full stop after the Bansal–Sinha citation.",
+      "rationale": "This separates the cited lower bound from the dimension convention without changing either.",
+      "current_locators": [
+        {
+          "path": "docs/expert_companion.md",
+          "section": "2(i)",
+          "quote": "[@BansalSinha2021, Corollary 1.4]. Their dimension",
+          "line_start": 81,
+          "line_end": 81
+        }
+      ],
+      "source_checks": [
+        "Citation locator and dimension statement preserved."
+      ],
+      "remaining_acceptance_checks": [],
+      "author_pending_acceptance_checks": [],
+      "integrating_acceptance": "Parent read the affected source and inspected final contact sheets plus full-size changed units; exact record body binding is in round10_link_binding.json. No new theorem validation inferred."
+    },
+    {
+      "id": "XP10-007",
+      "paper": "expert_companion",
+      "source": "research/returns/round10/members/expert_paper/quartic_r10_expert_paper_return/feedback.json",
+      "baseline_locator": {
+        "section": "2, exact circuit sketch",
+        "quote": "There are $O(\\ell)$ transform layers",
+        "line_start": 115,
+        "line_end": 115
+      },
+      "prior_finding_ids": [],
+      "status": "applied",
+      "decision": "State that each of the k−1 Walsh transforms has ell butterfly layers.",
+      "rationale": "The previous O(ell) phrase was readable only with fixed k hidden. The revised sentence exposes the number of transforms while retaining the O_k(ell) integer width and both logarithmic factors.",
+      "current_locators": [
+        {
+          "path": "docs/expert_companion.md",
+          "section": "2(iii), circuit sketch",
+          "quote": "Each of the $k-1$ Walsh transforms has $\\ell$ butterfly layers",
+          "line_start": 91,
+          "line_end": 91
+        }
+      ],
+      "source_checks": [
+        "Equation (3) has k−1 Walsh factors; existing integer circuit sketch and record §3.4."
+      ],
+      "remaining_acceptance_checks": [],
+      "author_pending_acceptance_checks": [],
+      "integrating_acceptance": "Parent read the affected source and inspected final contact sheets plus full-size changed units; exact record body binding is in round10_link_binding.json. No new theorem validation inferred."
+    },
+    {
+      "id": "XP10-008",
+      "paper": "expert_companion",
+      "source": "research/returns/round10/members/expert_paper/quartic_r10_expert_paper_return/feedback.json",
+      "baseline_locator": {
+        "section": "3, Lemma 2 and the tournament proof",
+        "quote": "The sampling step uses the following bounded form of amplitude amplification.",
+        "line_start": 146,
+        "line_end": 146
+      },
+      "prior_finding_ids": [
+        "XP9-058"
+      ],
+      "status": "applied",
+      "decision": "Place complementary comparisons, the ideal weight process and the fresh-register w_i/m identity before the bounded amplifier contract. Move the complete finite schedule proof to Appendix C.",
+      "rationale": "The sampler’s mathematical task is now visible before its implementation. Exact measured-label law, p=0 behavior, unknown success probability, inverse access and the all-branch cap are preserved. Coupling and the rebuilding sum remain contiguous after the contract. Local numbering follows the new order: tournament Proposition 2, amplifier Lemma 3; the external OpenAI locators retain their original numbers.",
+      "current_locators": [
+        {
+          "path": "docs/expert_companion.md",
+          "section": "3.2, exact sampling",
+          "quote": "the success-and-label mass is $m^{-1}\\prod_ba_{i\\rho_b}=w_i/m$",
+          "line_start": 153,
+          "line_end": 153
+        },
+        {
+          "path": "docs/expert_companion.md",
+          "section": "3.2",
+          "quote": "**Lemma 3**",
+          "line_start": 164,
+          "line_end": 164
+        },
+        {
+          "path": "docs/expert_companion.md",
+          "section": "Appendix C",
+          "quote": "## Appendix C. The bounded amplifier",
+          "line_start": 443,
+          "line_end": 443
+        }
+      ],
+      "source_checks": [
+        "Full original amplifier and tournament proofs; record upper-tournament-statement and upper-small-probability; Lean Upper/Amplify.lean::Samples.amplify statement."
+      ],
+      "remaining_acceptance_checks": [],
+      "author_pending_acceptance_checks": [
+        "Inspect table/lemma/coupling page flow; no fresh formal execution claimed."
+      ],
+      "integrating_acceptance": "Parent read the affected source and inspected final contact sheets plus full-size changed units; exact record body binding is in round10_link_binding.json. No new theorem validation inferred."
+    },
+    {
+      "id": "XP10-009",
+      "paper": "expert_companion",
+      "source": "research/returns/round10/members/expert_paper/quartic_r10_expert_paper_return/feedback.json",
+      "baseline_locator": {
+        "section": "3.2, fractional four-candidate example",
+        "quote": "After pivot $2$, the weights are $(1,0,2/3,1/4)$.",
+        "line_start": 191,
+        "line_end": 191
+      },
+      "prior_finding_ids": [
+        "XP9-081",
+        "XP9-073",
+        "XP9-082"
+      ],
+      "status": "applied",
+      "decision": "Replace the fractional-weight prose with a two-row table separating weights, preparation success and conditional labels.",
+      "rationale": "All defining comparator probabilities and the multiplication 2/3×2/5=4/15 are retained. The table makes the two distinct normalizations comparable and explicitly remains an abstract comparator example.",
+      "current_locators": [
+        {
+          "path": "docs/expert_companion.md",
+          "section": "3.2, four-candidate example",
+          "quote": "| Pivot history | Weights",
+          "line_start": 157,
+          "line_end": 157
+        },
+        {
+          "path": "docs/expert_companion.md",
+          "section": "3.2, four-candidate example",
+          "quote": "no realization by the four-column Boolean example is assumed.",
+          "line_start": 162,
+          "line_end": 162
+        }
+      ],
+      "source_checks": [
+        "Exact rational recomputation: weights sum to 23/12 and 19/15, hence W/4=23/48 and 19/60, normalized laws as printed."
+      ],
+      "remaining_acceptance_checks": [],
+      "author_pending_acceptance_checks": [
+        "Inspect width, fraction legibility and header wrapping using the existing table renderer."
+      ],
+      "integrating_acceptance": "Parent read the affected source and inspected final contact sheets plus full-size changed units; exact record body binding is in round10_link_binding.json. No new theorem validation inferred."
+    },
+    {
+      "id": "XP10-010",
+      "paper": "expert_companion",
+      "source": "research/returns/round10/members/expert_paper/quartic_r10_expert_paper_return/feedback.json",
+      "baseline_locator": {
+        "section": "4.1 through 4.4",
+        "quote": "A reader may temporarily take the lemma's contract, continue to the simulator in §4.4,",
+        "line_start": 226,
+        "line_end": 226
+      },
+      "prior_finding_ids": [
+        "XP9-097",
+        "XP9-098",
+        "XP9-106"
+      ],
+      "status": "applied",
+      "decision": "Keep the full separate-cap lemma before planting and the simulator; move the complete unnormalised proof and optional Drucker alternative to Appendix D.",
+      "rationale": "The original product law, every-branch separate caps and joint independence remain explicit at first use. The original-law event inclusion, time union and cancellation of m stay in the main argument. Appendix D has a return route to Equation (12) and its time union.",
+      "current_locators": [
+        {
+          "path": "docs/expert_companion.md",
+          "section": "4.1",
+          "quote": "**Lemma 5**",
+          "line_start": 205,
+          "line_end": 205
+        },
+        {
+          "path": "docs/expert_companion.md",
+          "section": "4.4",
+          "quote": "This bounds a joint event under the original law.",
+          "line_start": 259,
+          "line_end": 259
+        },
+        {
+          "path": "docs/expert_companion.md",
+          "section": "Appendix D",
+          "quote": "## Appendix D. The separate-cap product bound",
+          "line_start": 453,
+          "line_end": 453
+        }
+      ],
+      "source_checks": [
+        "Record CL-weighted-values, CL-weighted-product, CL-simulator and CL-joint-event; RealizedCaps comparison statement; original expert proof relocated intact."
+      ],
+      "remaining_acceptance_checks": [],
+      "author_pending_acceptance_checks": [
+        "Inspect application flow and Appendix D return navigation."
+      ],
+      "integrating_acceptance": "Parent read the affected source and inspected final contact sheets plus full-size changed units; exact record body binding is in round10_link_binding.json. No new theorem validation inferred."
+    },
+    {
+      "id": "XP10-011",
+      "paper": "expert_companion",
+      "source": "research/returns/round10/members/expert_paper/quartic_r10_expert_paper_return/feedback.json",
+      "baseline_locator": {
+        "section": "4.4 and Appendix A.7",
+        "quote": "Conditioning on $i$ not being heavy would change the law of the address inputs",
+        "line_start": 298,
+        "line_end": 298
+      },
+      "prior_finding_ids": [],
+      "status": "applied",
+      "decision": "Link the conditioning warning directly to the terminal-lightness counterexample. Add that toy before the distinct compliance example in A.7 and state its strict-construction limitation in both paper and record.",
+      "rationale": "The exact event matters: aggregate terminal lightness and separate per-block compliance are not identical. Uniform AND on {01,10,11} satisfies the one-query hard-law bound, but R(P)=L=1; it illustrates conditioning failure without instantiating strict L<R(P). The one-query randomized algorithm is given explicitly to justify that boundary.",
+      "current_locators": [
+        {
+          "path": "docs/expert_companion.md",
+          "section": "4.4",
+          "quote": "terminal-lightness example",
+          "line_start": 259,
+          "line_end": 259
+        },
+        {
+          "path": "docs/expert_companion.md",
+          "section": "Appendix A.7",
+          "quote": "This toy satisfies Lemma 5's hard-law premise",
+          "line_start": 401,
+          "line_end": 401
+        },
+        {
+          "path": "docs/reasoning_record.md",
+          "section": "6.5",
+          "quote": "This meets the separate-cap lemma’s hard-law premise",
+          "line_start": 3643,
+          "line_end": 3643,
+          "anchor": "CL-conditioning-counterexample"
+        }
+      ],
+      "source_checks": [
+        "Current record CL-conditioning-counterexample and CL-adaptive-example; exact three-input probabilities checked algebraically; parent separately reports a finite toy rerun."
+      ],
+      "remaining_acceptance_checks": [],
+      "author_pending_acceptance_checks": [
+        "Final immutable record pin must contain CL-conditioning-counterexample and the corrected scope paragraph."
+      ],
+      "integrating_acceptance": "Parent read the affected source and inspected final contact sheets plus full-size changed units; exact record body binding is in round10_link_binding.json. No new theorem validation inferred."
+    },
+    {
+      "id": "XP10-012",
+      "paper": "expert_companion",
+      "source": "research/returns/round10/members/expert_paper/quartic_r10_expert_paper_return/feedback.json",
+      "baseline_locator": {
+        "section": "6. Optional uniform refinement",
+        "quote": "## 6. Optional uniform refinement",
+        "line_start": 344,
+        "line_end": 344
+      },
+      "prior_finding_ids": [
+        "XP9-133",
+        "XP9-139",
+        "XP9-140",
+        "XP9-141",
+        "XP9-142",
+        "XP9-143",
+        "XP9-091",
+        "XP9-092",
+        "XP9-039"
+      ],
+      "status": "applied",
+      "decision": "State the uniform estimate with k≥2, t≥1 and its dimension condition, link directly to its assembly, then derive the new allowance and growing-family consequence. Replace the extended analytic sketch with a short mechanism paragraph and exact record routes.",
+      "rationale": "This section’s principal job is the single-family deduction. The record already contains the complete analytic argument, including the law, moments, stopped derivative estimate and numerical contradiction. The exponential decoder factor is recalled beside the uniform quantum bound; polynomial circuit dependence and the distinction from the minimax law are retained.",
+      "current_locators": [
+        {
+          "path": "docs/expert_companion.md",
+          "section": "6, Equation (16)",
+          "quote": "uniform theorem in record §3.15",
+          "line_start": 307,
+          "line_end": 307
+        },
+        {
+          "path": "docs/expert_companion.md",
+          "section": "6, growing family",
+          "quote": "Its exponential factor $2^{10k}=\\delta^{-2}$",
+          "line_start": 325,
+          "line_end": 325
+        },
+        {
+          "path": "docs/expert_companion.md",
+          "section": "6, analytic mechanism",
+          "quote": "The analytic input to (16) compares the uniform law",
+          "line_start": 331,
+          "line_end": 331
+        }
+      ],
+      "source_checks": [
+        "Record forr_uniform_assembly, forr_threshold, ROOT-GROWING-K and forr_credit; ForrelationLower/Uniform.lean::forrelation_lower_uniform_sharp."
+      ],
+      "remaining_acceptance_checks": [],
+      "author_pending_acceptance_checks": [
+        "Final record pin must resolve the uniform theorem and proof; inspect statement-to-consequence page flow."
+      ],
+      "integrating_acceptance": "Parent read the affected source and inspected final contact sheets plus full-size changed units; exact record body binding is in round10_link_binding.json. No new theorem validation inferred."
+    },
+    {
+      "id": "XP10-013",
+      "paper": "expert_companion",
+      "source": "research/returns/round10/members/expert_paper/quartic_r10_expert_paper_return/feedback.json",
+      "baseline_locator": {
+        "section": "7. The formal statement",
+        "quote": "The compared family theorem supplies, for each fixed $k$, constants and a threshold,",
+        "line_start": 399,
+        "line_end": 399
+      },
+      "prior_finding_ids": [
+        "XP9-151"
+      ],
+      "status": "applied",
+      "decision": "Replace endpoint inventory prose with a five-row result/evidence map and retain model and subroutine correspondence in prose.",
+      "rationale": "The map distinguishes the compared existential family, built explicit constants, separately built uniform estimate and ordinary growing-family deduction. It does not transfer the headline Comparator status to the explicit statements, physical-state correspondence or growing-parameter calculation.",
+      "current_locators": [
+        {
+          "path": "docs/expert_companion.md",
+          "section": "7",
+          "quote": "| Printed result | Formal endpoint and recorded evidence |",
+          "line_start": 337,
+          "line_end": 337
+        },
+        {
+          "path": "docs/expert_companion.md",
+          "section": "7",
+          "quote": "The upper-bound implementation needs the [exact measured-label law]",
+          "line_start": 349,
+          "line_end": 349
+        }
+      ],
+      "source_checks": [
+        "Unconditional challenge alphaTot, family, cubic and Forrelation statements; ConstructionFamily.lean::construction_family_named; Uniform.lean::forrelation_lower_uniform_sharp; record Appendix G.4, G.7–G.9."
+      ],
+      "remaining_acceptance_checks": [],
+      "author_pending_acceptance_checks": [
+        "Inspect table density and line wrapping; parent binds final source links."
+      ],
+      "integrating_acceptance": "Parent read the affected source and inspected final contact sheets plus full-size changed units; exact record body binding is in round10_link_binding.json. No new theorem validation inferred."
+    },
+    {
+      "id": "XP10-014",
+      "paper": "expert_companion",
+      "source": "research/returns/round10/members/expert_paper/quartic_r10_expert_paper_return/feedback.json",
+      "baseline_locator": {
+        "section": "7, fixed-circuit source destination",
+        "quote": "recorded build and axiom-audit evidence but are outside the configured comparison bundle",
+        "line_start": 399,
+        "line_end": 399
+      },
+      "prior_finding_ids": [
+        "XP9-149"
+      ],
+      "status": "applied",
+      "decision": "Reconcile the historical unelaborated header at a dedicated named-family landing anchor in the record and link it explicitly from the expert formal-scope section.",
+      "rationale": "This uses the reviewer’s authorized landing-passage alternative. The Lean file remains byte-identical, preserving existing proof-receipt scope. The record states that the header describes the original authoring environment and that later recorded build/axiom evidence governs the current status; no new build or comparison is claimed.",
+      "current_locators": [
+        {
+          "path": "docs/reasoning_record.md",
+          "section": "Appendix G.4, Explicit constants for the named family",
+          "quote": "The file header’s “Status: unelaborated” describes its original authoring environment",
+          "line_start": 6383,
+          "line_end": 6383,
+          "anchor": "formal-named-family"
+        },
+        {
+          "path": "docs/expert_companion.md",
+          "section": "7",
+          "quote": "named-family landing passage",
+          "line_start": 345,
+          "line_end": 345
+        }
+      ],
+      "source_checks": [
+        "Actual ConstructionFamily.lean header and construction_family_named theorem; current record G.4; round-four formal adjudication and later evidence references."
+      ],
+      "remaining_acceptance_checks": [],
+      "author_pending_acceptance_checks": [
+        "Final immutable record pin must contain #formal-named-family."
+      ],
+      "integrating_acceptance": "Parent read the affected source and inspected final contact sheets plus full-size changed units; exact record body binding is in round10_link_binding.json. No new theorem validation inferred."
+    },
+    {
+      "id": "XP10-015",
+      "paper": "expert_companion",
+      "source": "research/returns/round10/members/expert_paper/quartic_r10_expert_paper_return/feedback.json",
+      "baseline_locator": {
+        "section": "Use of AI tools",
+        "quote": "Will Cook directed the reconstruction; AI systems drafted the text and Lean proofs and performed the recorded checks.",
+        "line_start": 407,
+        "line_end": 407
+      },
+      "prior_finding_ids": [
+        "XP9-156"
+      ],
+      "status": "applied",
+      "decision": "Keep the first-page AI-assistance footnote as the canonical disclosure and remove the duplicated end section.",
+      "rationale": "The retained disclosure preserves Will Cook’s direction role and the systems’ drafting/proof/checking roles. OpenAI attribution remains at the theorem and construction entry; repository and record routes remain in §7.",
+      "current_locators": [
+        {
+          "path": "docs/expert_companion.md",
+          "section": "1, first-page footnote",
+          "quote": "AI assistance: Will Cook directed the reconstruction; AI systems drafted the text and Lean proofs and performed the recorded checks.",
+          "line_start": 14,
+          "line_end": 14
+        },
+        {
+          "path": "docs/expert_companion.md",
+          "section": "7",
+          "quote": "The repository [@Repo2026] and reasoning record [@Record2026] contain the sources and full correspondence.",
+          "line_start": 353,
+          "line_end": 353
+        }
+      ],
+      "source_checks": [
+        "Identical original disclosure texts compared; no new personal responsibility or human review assertion added."
+      ],
+      "remaining_acceptance_checks": [],
+      "author_pending_acceptance_checks": [
+        "Inspect first-page footnote and transition to references."
+      ],
+      "integrating_acceptance": "Parent read the affected source and inspected final contact sheets plus full-size changed units; exact record body binding is in round10_link_binding.json. No new theorem validation inferred."
+    }
+  ],
+  "status_counts": {
+    "applied": 14,
+    "retained": 1
+  },
+  "mathematical_paper_review": {
+    "object": "docs/expert_companion.md with bounded corrections in docs/reasoning_record.md",
+    "genre_and_target_reader": "Specialist reconstruction for query-complexity researchers who know standard amplification and distributional lower bounds; the new construction and its exact sampling/capping contracts remain central.",
+    "contribution_type": "Expository reconstruction of OpenAI’s theorem and construction, with existing explicit constants and formal correspondence; no new proof result asserted.",
+    "headline_claim_and_evidence_class": "alpha_tot=4, fixed-k separating bounds, and separately justified growing family. Existing formal endpoints and ordinary deductions retain their distinct evidence.",
+    "internal_dependency_map": "Total predicate and cheap local tests → complementary comparator → ideal survival weights → exact success mass → bounded exact-law amplifier → coupling and verification; original hard product law → planting → erased-zero estimate → capped predictor → joint-event inclusion → union/averaging → discrepancy.",
+    "concrete_simplification_attempt_and_outcome": "Moved full generic subroutine proofs out of the main path while retaining complete contracts at their first use and direct appendix return routes. Routed the optional analytic reconstruction to its existing full record and kept the uniform theorem-to-payoff chain in the paper.",
+    "short_long_transfer_locators": [
+      "expert §1.2 / record opening matched baseline",
+      "expert §4.4 and A.7 / record #CL-conditioning-counterexample",
+      "expert §6 / record #forr_uniform_assembly and #ROOT-GROWING-K",
+      "expert §7 / record #formal-named-family"
+    ],
+    "compressed_claim_occurrences_and_post_edit_scope_check": "Abstract paired scales checked against unchanged Eq. (2); all sixteen numbered displays retained in order; external OpenAI citation locators retained despite local statement renumbering; all original citation keys remain.",
+    "citation_role_checks": "Existing attribution and cited theorem roles preserved. Donor literature comparisons used as editorial evidence, not claimed as the reviser’s complete primary-source review. Optional Arora–Kumar addition retained out of scope for direct-source verification.",
+    "lean_statement_correspondence_and_validation_refs": "Inspected exact Unconditional challenge endpoints, named-family explicit statement, sharp uniform statement, Samples.amplify measured-label law and RealizedCaps contract. No Lean files edited; prior build and comparison receipts remain separate from prose review.",
+    "first_time_reader_house_jargon_scan": "No new house terminology introduced; ordinary weight, query cap, terminal lightness and conditional label law name the actual objects.",
+    "one_use_symbol_scan": "No new one-use symbol introduced; the weight table reuses established notation.",
+    "cold_reader_confusion_and_disposition": "No fresh independent blind reader. The R10 recorded confusions guide the structural rewrite; source-level sequential review checks definition-before-use, fixed-law scope and appendix return routes without claiming measured reader improvement.",
+    "version_bound_review_coverage_and_omissions": "Expert original and revised source, affected record passages, exact formal endpoint statements and the sole return read. Record’s full 6,000+ line body and all cited original literature were not newly re-audited. Exposition source remains unchanged because the identified repairs do not require another revision to that reader’s route.",
+    "rendered_release_checks": "Pending parent render and visual acceptance. Existing tools/render_papers.py typography, longtable style and small-table needspace implementation were inspected and reused; no new rendering implementation or figure was authored.",
+    "deliberate_non_changes": [
+      "Lean proofs and mathematical hypotheses",
+      "existing bibliography entries",
+      "examples-first exposition content",
+      "optional Arora–Kumar bibliography expansion",
+      "explicit physical-state correspondence limitation"
+    ]
+  },
+  "author_validation": [
+    "git diff --check passed on owned source edits",
+    "All 16 equation tags retained in order",
+    "All original citation keys retained",
+    "OpenAI theorem/lemma/proposition citation locators checked against baseline",
+    "Every expert reasoning-record anchor exists in current local record; final immutable-pin verification pending"
+  ],
+  "remaining_integration": [],
+  "final_source_sha256": {
+    "docs/expert_companion.md": "2d0e6fcca42dfc9de5601b0de123d35d3d5470be86c17a46903aaf99f2035efe",
+    "docs/reasoning_record.md": "8f5d43ecb713f93217b7f7905e0dc004bef06dde4e01fd831133b5ee8d60f30e",
+    "docs/exposition.md": "644b0f55d6f59232aa5621914c0d8c33bda28a147df4ba0a3d0a1fb703090938",
+    "docs/expert_companion.bib": "8bbd430c3ff6730c93ccf0ea853f0f1151c97e60e60510653d608f54ff4bb928"
+  },
+  "final_validation": "research/adjudication/round10_validation.json"
+}

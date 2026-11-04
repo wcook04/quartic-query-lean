@@ -1,0 +1,112 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "name": "A.7 exact enumeration",
+      "passed": true,
+      "details": {
+        "inputs": 16,
+        "compliant": 8,
+        "correct_and_compliant": 5,
+        "correct": 9,
+        "joint_success": "5/16",
+        "conditional_success": "5/8",
+        "one_instance_bound_squared": "9/16"
+      }
+    },
+    {
+      "name": "Record terminal-lightness example",
+      "passed": true,
+      "details": {
+        "domain": [
+          "01",
+          "10",
+          "11"
+        ],
+        "L": 1,
+        "best_one_query_success": "2/3",
+        "light_probability": "1/3",
+        "joint_success": "1/3",
+        "success_given_light": "1",
+        "capped_simulator_success": "2/3",
+        "scope": "Exact cap-event warning; not claimed to satisfy the full final construction or L<R(P)."
+      }
+    },
+    {
+      "name": "Amplification base",
+      "passed": true,
+      "details": {
+        "integer_comparison": "18*8**25 < 9**25"
+      }
+    },
+    {
+      "name": "Uniform coefficient",
+      "passed": true,
+      "details": {
+        "identity": "800*(2/18225)=(8/27)^2"
+      }
+    },
+    {
+      "name": "Kernel-moment cancellation",
+      "passed": true,
+      "details": {
+        "identity": "(3/16)*(8/27)=1/18"
+      }
+    },
+    {
+      "name": "Gap margin",
+      "passed": true,
+      "details": {
+        "lower_gap_coefficient": "119/144",
+        "upper_gap_coefficient": "7/12",
+        "positive_difference": "35/144"
+      }
+    },
+    {
+      "name": "Padding absorption",
+      "passed": true,
+      "details": {
+        "inequality": "50/49 < (9/8)^2"
+      }
+    },
+    {
+      "name": "Floor-size base",
+      "passed": true,
+      "details": {
+        "t": 8,
+        "4t^2": 256,
+        "2^t": 256,
+        "m": 65536
+      }
+    },
+    {
+      "name": "Uniform allowance-size base",
+      "passed": true,
+      "details": {
+        "t": 32,
+        "left": 4294967296,
+        "right": 21233664
+      }
+    },
+    {
+      "name": "Uniform quantum envelope coefficient",
+      "passed": true,
+      "details": {
+        "expanded_coefficient": 5707107503019240,
+        "envelope": 9007199254740992
+      }
+    },
+    {
+      "name": "Sharper-erasure algebra",
+      "passed": true,
+      "details": {
+        "checked_m": "1..64",
+        "scope": "Finite sanity check; general identity is established symbolically in the report."
+      }
+    }
+  ],
+  "limitations": [
+    "Only finite examples and explicit constants are executed.",
+    "The general probabilistic and analytic arguments were reviewed in prose, not formally recompiled."
+  ]
+}

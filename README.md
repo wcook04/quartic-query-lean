@@ -135,3 +135,7 @@ displays the project projection, keeping one witness path for each edge that
 passes through hidden constants.
 
 Licensed under [Apache-2.0](LICENSE).
+
+The [round-ten expert revision](research/adjudication/round10_revision.md) acts on
+the first R10 return. Its evidence and dispositions are separate from the two
+supporting-paper reviews still pending.

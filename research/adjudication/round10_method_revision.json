@@ -1,0 +1,226 @@
+{
+  "schema": "quartic-round10-method-revision-v1",
+  "received_review": "expert_paper",
+  "observations": [
+    {
+      "id": "MF10-001",
+      "disposition": "applied_existing_owner_refinement",
+      "rationale": "The interface exposed bounded blocks; captions remained object-level and rendered bibliography was deferred. This cannot certify a strict one-unit-at-a-time publication-order encounter.",
+      "owner": "docs/reader-review.md",
+      "locator": "strict prospective pass",
+      "action": "Expose one semantic unit and persist before next; disclose block exposures.",
+      "transfer_trials": [
+        {
+          "case": "Frozen R10 log declares seven blocks; no retrospective certification of isolation.",
+          "outcome": "source-grounded editorial assessment"
+        },
+        {
+          "case": "Rendered bibliography has publication position but no source sentences; include it as its own reading unit.",
+          "outcome": "source-grounded editorial assessment"
+        }
+      ],
+      "exception": "A bounded retrospective proof audit need not use isolated reveal.",
+      "scope": "Author application checks, not measured reader learning.",
+      "owner_line": 62,
+      "owner_sha256": "b793e7e7c4644a118e55a8c702c22ec8e282c5f019561a0863ee01b2ec2f2289"
+    },
+    {
+      "id": "MF10-002",
+      "disposition": "applied_existing_owner_refinement",
+      "rationale": "A counterexample can be correct yet answer a neighboring event. A.7 conditions on per-block compliance, while the prose warning names terminal aggregate lightness.",
+      "owner": "skills/long-to-short/SKILL.md",
+      "locator": "exact event, probability law",
+      "action": "Match the omitted inference, not only its topic.",
+      "transfer_trials": [
+        {
+          "case": "A.7 compliance probability 1/2 and conditional correctness 5/8 differ from the target aggregate-lightness event.",
+          "outcome": "source-grounded editorial assessment"
+        },
+        {
+          "case": "Record AND example has light probability 1/3, conditional correctness 1, unconditional capped success 2/3; it addresses the exact selection error.",
+          "outcome": "source-grounded editorial assessment"
+        }
+      ],
+      "exception": "The toy need not meet L<R(P) to refute the conditional inference; say its limited job.",
+      "scope": "Author application checks, not measured reader learning.",
+      "owner_line": 147,
+      "owner_sha256": "aab5e5dd929010bb2d6ebc5488c1c40a7587240e142045cb064fc83647b69d48"
+    },
+    {
+      "id": "MF10-003",
+      "disposition": "applied_existing_owner_refinement",
+      "rationale": "Generic implementation detail arrives before the construction-specific quantity that gives it a job. A forward-reading detour repairs navigation without settling the default route.",
+      "owner": "skills/long-to-short/SKILL.md",
+      "locator": "default order",
+      "action": "Try complete contract, application, then accessible implementation.",
+      "transfer_trials": [
+        {
+          "case": "Quantum sampler mass gives the capped amplifier a task before its generic proof.",
+          "outcome": "source-grounded editorial assessment"
+        },
+        {
+          "case": "Classical separate-cap contract gives planting and the fixed-time simulator a task before the product proof.",
+          "outcome": "source-grounded editorial assessment"
+        }
+      ],
+      "exception": "SK short paper \u00a7\u00a72\u20134 retains curvature mechanism because it is the chosen contribution; do not automatically move it behind the optimization application.",
+      "scope": "Author application checks, not measured reader learning.",
+      "owner_line": 135,
+      "owner_sha256": "aab5e5dd929010bb2d6ebc5488c1c40a7587240e142045cb064fc83647b69d48"
+    },
+    {
+      "id": "MF10-004",
+      "disposition": "applied_existing_owner_refinement",
+      "rationale": "A float lies between a coupling display and the convention identifying its probability law. Source adjacency alone misses this reading cost.",
+      "owner": "docs/authoring.md",
+      "locator": "Inspect a display together",
+      "action": "Keep display and its active law/domain visible across floats and page boundaries.",
+      "transfer_trials": [
+        {
+          "case": "Expert coupling law is moved before its display and planted figure.",
+          "outcome": "source-grounded editorial assessment"
+        },
+        {
+          "case": "Forrelation undefined-otherwise promise clause belongs with its definition.",
+          "outcome": "source-grounded editorial assessment"
+        }
+      ],
+      "exception": "A long proof may span pages; whole-proof same-page constraints are not the rule.",
+      "scope": "Author application checks, not measured reader learning.",
+      "owner_line": 613,
+      "owner_sha256": "f10c570f693e36f6a967bb18f5fb33846bd682a750d7b722cbe000a5c43a69e5"
+    },
+    {
+      "id": "MF10-005",
+      "disposition": "applied_existing_owner_refinement",
+      "rationale": "A precise narrative distinguishes compared and separately built claims, while a clicked source retains an undated earlier status. Readers cannot infer which chronology controls.",
+      "owner": "docs/authoring.md",
+      "locator": "source landing point",
+      "action": "Reconcile preparation-time status and later receipts at the actual clicked destination.",
+      "transfer_trials": [
+        {
+          "case": "Named-family header says unelaborated, but later record identifies build/axiom evidence; the revised landing must explain chronology.",
+          "outcome": "source-grounded editorial assessment"
+        },
+        {
+          "case": "Exposition already explains that history next to the same family, so retain it rather than add another disclosure.",
+          "outcome": "source-grounded editorial assessment"
+        }
+      ],
+      "exception": "An immutable historical source remains unchanged; a current landing can explain it, and no fresh build is inferred.",
+      "scope": "Author application checks, not measured reader learning.",
+      "owner_line": 592,
+      "owner_sha256": "f10c570f693e36f6a967bb18f5fb33846bd682a750d7b722cbe000a5c43a69e5"
+    },
+    {
+      "id": "MF10-006",
+      "disposition": "applied_existing_owner_refinement",
+      "rationale": "Comparative verbs carry an unstated baseline across documents. The record\u2019s grows/stays account differs from the lead\u2019s explicit matched cost pairs.",
+      "owner": "docs/authoring.md",
+      "locator": "same input scale",
+      "action": "Compare both costs at one supplier scale or explicitly change baseline.",
+      "transfer_trials": [
+        {
+          "case": "Quartic record old pair (m,m\u00b2R(P)) and new pair (sqrt(m),mR(P)) show both scales decrease at fixed m.",
+          "outcome": "source-grounded editorial assessment"
+        },
+        {
+          "case": "SK model paragraph names Gaussian variance 1/2 normalization and why expected maximum is unchanged; baseline reminder already present, so retain.",
+          "outcome": "source-grounded editorial assessment"
+        }
+      ],
+      "exception": "Comparing exponent ratios is legitimate without claiming either absolute cost grew; no boilerplate baseline sentence needed after every substitution.",
+      "scope": "Author application checks, not measured reader learning.",
+      "owner_line": 261,
+      "owner_sha256": "f10c570f693e36f6a967bb18f5fb33846bd682a750d7b722cbe000a5c43a69e5"
+    },
+    {
+      "id": "MF10-007",
+      "disposition": "applied_existing_owner_refinement",
+      "rationale": "Seven historical current-locator rows contain literal matches that do not establish the finding-specific repair. A generic phrase can be present in an unrelated discussion.",
+      "owner": "docs/authoring.md",
+      "locator": "read its current locator",
+      "action": "A disposition locator must perform the requested inference.",
+      "transfer_trials": [
+        {
+          "case": "XP9-149 source-status repair must include chronology, not merely a build/comparison distinction.",
+          "outcome": "source-grounded editorial assessment"
+        },
+        {
+          "case": "RR9-014 retained baseline must be compared with expert matched cost pair; phrase presence cannot justify retaining grows/stays.",
+          "outcome": "source-grounded editorial assessment"
+        }
+      ],
+      "exception": "A deliberately retained alternative can close a finding with a reason, without pretending the reviewer wording landed.",
+      "scope": "Author application checks, not measured reader learning.",
+      "owner_line": 148,
+      "owner_sha256": "f10c570f693e36f6a967bb18f5fb33846bd682a750d7b722cbe000a5c43a69e5"
+    },
+    {
+      "id": "MF10-008",
+      "disposition": "applied_existing_owner_refinement",
+      "rationale": "An available source, cited source and inspected source edition can differ. The packet\u2019s current record is not the pinned body, and some cited historical editions are missing.",
+      "owner": "docs/authoring.md",
+      "locator": "exact edition at the destination",
+      "action": "Separate current source, pinned body and metadata checks.",
+      "transfer_trials": [
+        {
+          "case": "Record link binding split from Lean pin, so record revision can match committed working bytes without self-rebinding churn.",
+          "outcome": "source-grounded editorial assessment"
+        },
+        {
+          "case": "SK scalar-value review pins Model lines for ordered N then T limits; the neighboring same-topic finite approximation is not a uniform diagonal result.",
+          "outcome": "source-grounded editorial assessment"
+        }
+      ],
+      "exception": "Unavailable exact body limits verification scope; it does not establish a mathematical defect.",
+      "scope": "Author application checks, not measured reader learning.",
+      "owner_line": 589,
+      "owner_sha256": "f10c570f693e36f6a967bb18f5fb33846bd682a750d7b722cbe000a5c43a69e5"
+    }
+  ],
+  "upstream": {
+    "repository": "https://github.com/wcook04/lean-exposition",
+    "base_commit": "7bc9ef5d253d23527c6ccbd759c2eb24c0243ac7",
+    "branch": "codex/quartic-r10-writing-method",
+    "owners": [
+      "docs/authoring.md",
+      "docs/reader-review.md",
+      "skills/long-to-short/SKILL.md"
+    ],
+    "publication": "branch_pushed_pr_open",
+    "commit": "7e533681f43ac95ee8f395621624466161fd8909",
+    "pull_request": "https://github.com/wcook04/lean-exposition/pull/45",
+    "validation": {
+      "tests": 710,
+      "skipped": 2,
+      "layout": "working and index passed",
+      "local_links": "passed",
+      "isolated_install": "passed",
+      "minimal_validate_inspect": "passed",
+      "source_audit": "passed",
+      "ci": "queued: Check run 41862440918",
+      "ci_url": "https://github.com/wcook04/lean-exposition/actions/runs/41862440918"
+    },
+    "merge_note": "Auto-merge unavailable in repository; PR remains open pending hosted checks. No repository setting changed.",
+    "implementation_urls": {
+      "docs/authoring.md": "https://github.com/wcook04/lean-exposition/blob/7e533681f43ac95ee8f395621624466161fd8909/docs/authoring.md",
+      "docs/reader-review.md": "https://github.com/wcook04/lean-exposition/blob/7e533681f43ac95ee8f395621624466161fd8909/docs/reader-review.md",
+      "skills/long-to-short/SKILL.md": "https://github.com/wcook04/lean-exposition/blob/7e533681f43ac95ee8f395621624466161fd8909/skills/long-to-short/SKILL.md"
+    }
+  },
+  "source_readings": [
+    "R10 method feedback, first-pass coverage/freeze, feedback and historical audit",
+    "Quartic expert \u00a7\u00a71\u20137 and A.7; record baseline, CL-conditioning-counterexample and Appendix G landing",
+    "lean-exposition current authoring/review/long-to-short owners",
+    "lean-exposition papers/qaoa-sk/short/paper.md model and proof architecture",
+    "lean-exposition papers/qaoa-sk/source-review/scalar-value-interface.md normalization and ordered-limit scope"
+  ],
+  "not_adopted": [
+    "No new independent human-review claim",
+    "No universal implementation-last ordering",
+    "No whole-proof same-page rule",
+    "No finding quotas or lexical thresholds",
+    "No new duplicate private writing doctrine"
+  ]
+}

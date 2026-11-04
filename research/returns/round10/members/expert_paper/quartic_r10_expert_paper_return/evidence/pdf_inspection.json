@@ -1,0 +1,107 @@
+{
+  "schema": "quartic-r10-pdf-inspection-v1",
+  "source": "repository/docs/expert_companion.pdf",
+  "sha256": "4cf95ae890234852ca08837f31671f8fae01ff59d807feb58eca03ff96abbb8a",
+  "stage": "third informed editor perspective, after primary freeze and second perspective completion",
+  "method": "All pages rendered and visually inspected at readable size; page text used for local source alignment.",
+  "pages": [
+    {
+      "page": 1,
+      "status": "visually_inspected",
+      "notes": "Title, abstract, contribution and theorem fit; both reconstruction contributions already stated. No missing-first-page-contribution finding."
+    },
+    {
+      "page": 2,
+      "status": "visually_inspected",
+      "notes": "Figure 1 address labels and winning-column cell relation readable; historical address-label issue not revived."
+    },
+    {
+      "page": 3,
+      "status": "visually_inspected",
+      "notes": "Earlier-separation optimization and relation-to-construction discussion inspected."
+    },
+    {
+      "page": 4,
+      "status": "visually_inspected",
+      "notes": "Construction opening; promise display (4) reaches page bottom. Its undefined-otherwise clause continues on page 5."
+    },
+    {
+      "page": 5,
+      "status": "visually_inspected",
+      "notes": "Promise completion, properties and total predicate inspected. Missing punctuation after the hardness citation visible."
+    },
+    {
+      "page": 6,
+      "status": "visually_inspected",
+      "notes": "Section 3 heading and T,epsilon opening remain together; finite amplification proof inspected."
+    },
+    {
+      "page": 7,
+      "status": "visually_inspected",
+      "notes": "Comparator and ideal weighted tournament inspected; no clipping established."
+    },
+    {
+      "page": 8,
+      "status": "visually_inspected",
+      "notes": "State-preparation identity and fractional example inspected; table proposal concerns comparison effort, not incorrect arithmetic."
+    },
+    {
+      "page": 9,
+      "status": "visually_inspected",
+      "notes": "Final verification/query count and start of classical reduction inspected."
+    },
+    {
+      "page": 10,
+      "status": "visually_inspected",
+      "notes": "Product/planting route and equation (10) inspected. Dummy-law qualification is separated by the Figure 2 float."
+    },
+    {
+      "page": 11,
+      "status": "visually_inspected",
+      "notes": "Figure 2 same-address connector, changed coordinates and filled payload readable. Dummy-run convention below the figure. Two-clock paragraph remains together."
+    },
+    {
+      "page": 12,
+      "status": "visually_inspected",
+      "notes": "Erasure/address simulator, time union and classical closure inspected."
+    },
+    {
+      "page": 13,
+      "status": "visually_inspected",
+      "notes": "Fixed-parameter closure and optional uniform analytic section inspected."
+    },
+    {
+      "page": 14,
+      "status": "visually_inspected",
+      "notes": "Uniform consequence and formal-statement opening inspected."
+    },
+    {
+      "page": 15,
+      "status": "visually_inspected",
+      "notes": "Formal evidence distinctions and disclosure inspected; reference entries 1–9 read."
+    },
+    {
+      "page": 16,
+      "status": "visually_inspected",
+      "notes": "Reference entries 10–26 read; Appendix A begins."
+    },
+    {
+      "page": 17,
+      "status": "visually_inspected",
+      "notes": "Appendix counterexamples inspected; no hidden-answer attempt claimed."
+    },
+    {
+      "page": 18,
+      "status": "visually_inspected",
+      "notes": "Remaining compliance/growing-parameter counterexamples inspected; no clipping established."
+    }
+  ],
+  "findings": [
+    "XP10-005",
+    "XP10-006",
+    "XP10-009",
+    "XP10-013",
+    "XP10-015"
+  ],
+  "limits": "No full visual inspection of supporting exposition/record PDFs; no post-edit PDF exists because advice only was requested."
+}

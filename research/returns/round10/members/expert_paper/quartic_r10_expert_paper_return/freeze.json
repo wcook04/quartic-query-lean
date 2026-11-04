@@ -1,0 +1,44 @@
+{
+  "schema": "quartic-r10-first-pass-freeze-v1",
+  "stage_boundary": "Primary source-order reading finished; no other manuscript, prior individual finding/disposition, writing-method passage, or comparison-literature passage opened. Subsequent work is retrospective.",
+  "timestamp": "2026-11-04T13:42:06.669103+00:00",
+  "source_sha256": {
+    "repository/docs/expert_companion.bib": "31702a7b39b12b775005b311544b69a1d3e0544d669a009a6a80c56e235cca6a",
+    "repository/docs/expert_companion.md": "8c29b8d9a4adbc7b93fbe50f1cbb6d27afb11f0afd44172342bdfb1c3a42cc8d",
+    "repository/docs/expert_companion.pdf": "4cf95ae890234852ca08837f31671f8fae01ff59d807feb58eca03ff96abbb8a",
+    "repository/docs/exposition.bib": "76ab8492f33bb8136150d54ef2b12e3ea434d48186ad3d39624e8079eb2630eb",
+    "repository/docs/exposition.md": "e034aae7c7a74529656a84289b41767bcc4f06cbe1a3d2926fc8a01f918918b8",
+    "repository/docs/exposition.pdf": "784683dc467eb43ee540b7ff0f2a7536747cc9f984a9e8eb02dafccc7247e354",
+    "repository/docs/reasoning_record.bib": "89c47ffefcfe6216ee5c7a78861dd2c62013087470ab0976029edcfab89d6491",
+    "repository/docs/reasoning_record.md": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+    "repository/docs/reasoning_record.pdf": "4122ef4f803437bf68093a0b0b1bdbccae64004ff0747eecd6a54ee50f9769a7"
+  },
+  "files": {
+    "first_pass/sentence_audit.jsonl": "29d80e25dcfae8a502af9169f033ed31fd4bc7c7fb04f81e0f4b2b5c10192970",
+    "first_pass/reading_log.md": "355a7abdd39124a409ab04656f8fed2f8779f9fb9918a9f408b3b5b20f7c1d74",
+    "first_pass/coverage.json": "70da7228e4987fc64a6daee46d1021a5776440601dbc82b542c8b5e6e997a0c8"
+  },
+  "status": "source_pass_complete_with_declared_limits",
+  "first_locator": {
+    "unit_id": "XP10-U0001",
+    "line": 2
+  },
+  "last_locator": {
+    "unit_id": "XP10-U0585",
+    "line": 478
+  },
+  "unreviewed_ranges": [
+    "Rendered bibliography entries; Markdown contains only a placeholder.",
+    "All PDF visual pages.",
+    "All external proof and literature destinations."
+  ],
+  "prior_exposure": "Opening historical summary of the separately attached transcript was visible during intake; no individual prior findings or dispositions were read.",
+  "detours": [],
+  "procedure": "Seven bounded blocks were displayed and read in order. Hand-authored reader-facing unit observations were appended before opening the next block. The three files are now frozen; no later knowledge will be backfilled. Hashes document immutability, not independent evidence of cognition or timing.",
+  "protocol_departures": [
+    "Tool blocks expose several later sentences simultaneously; per-unit observations committed in source order before the next block, not single-sentence reveal.",
+    "Figure captions recorded as complete non-prose objects, not additionally segmented caption sentences.",
+    "Generated bibliography placeholder and terminal link-definition block mechanically labelled sentence; retrospective segmentation correction will be separate.",
+    "Opening historical summary of the separately attached transcript was visible during intake; no individual prior findings or dispositions were read."
+  ]
+}

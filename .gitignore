@@ -1,4 +1,8 @@
 .DS_Store
+
+# Round-ten originals and submitted programs remain local; intake.json binds every byte.
+research/returns/round10/archives/
+research/returns/round10/members/**/*.py
 .lake/
 /build/
 __pycache__/

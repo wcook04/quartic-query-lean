@@ -1,0 +1,822 @@
+{
+  "schema": "quartic-round10-editorial-validation-v1",
+  "date": "2026-11-04",
+  "baseline": "0d977710556f304ce70fa200cbf36b9beecb78e8",
+  "scope": "One expert return; supporting reviews pending. Mathematical and rendered-source acceptance by AI author and integrating agent, not independent human review.",
+  "manuscript_findings": {
+    "applied": 14,
+    "retained": 1,
+    "total": 15
+  },
+  "method_observations": 8,
+  "tests": {
+    "command": "make check",
+    "status": "passed",
+    "count": 261,
+    "skipped": 2,
+    "log_sha256": "e66643da077e1eee79607b3168ab1c3d90d79c17525781ffd94232ed4cdf54ad",
+    "scope": "Repository layout, generated freshness and Python tools; not a Lean build."
+  },
+  "focused_link_tests": {
+    "count": 12,
+    "result": "passed"
+  },
+  "finite_checks": {
+    "count": 11,
+    "result": "passed",
+    "receipt": "round10_intake_validation.json"
+  },
+  "lean_source_changes": false,
+  "new_lean_or_comparator_run": false,
+  "bibliographies_changed": "expert_companion.bib: record edition URL only",
+  "rendered_pdfs": {
+    "expert": {
+      "pages": 18,
+      "pdf_sha256": "eba9fa7fd254aef3da0521786a1736d405826ae7269f37349c29ea97348f31e9",
+      "external_links": 77,
+      "outside_page": [],
+      "output": "/Users/willcook/Downloads/quartic_round10_revised_20261104/expert/expert_companion.pdf",
+      "render_receipt": {
+        "schema": "quartic-paper-render-v1",
+        "status": "rendered_requires_visual_review",
+        "inputs": {
+          "docs/expert_companion.md": "2d0e6fcca42dfc9de5601b0de123d35d3d5470be86c17a46903aaf99f2035efe",
+          "docs/expert_companion.bib": "8bbd430c3ff6730c93ccf0ea853f0f1151c97e60e60510653d608f54ff4bb928",
+          "tools/render_papers.py": "e3b311d62d401f0dc58b178a9efa213f44ac7d270b3e4fd16bfb8d1550edefb7",
+          "docs/figures/expert_column.tex": "2b04f8d05910d176ac8a5f3c581baa98fef0d994385aca4dc1e3e7dd950026eb",
+          "docs/figures/expert_planted.tex": "7765359db5724588a2459ab5d68b33dd3a744049f2a973269a85f7752dc339f8"
+        },
+        "pdf_sha256": "eba9fa7fd254aef3da0521786a1736d405826ae7269f37349c29ea97348f31e9"
+      },
+      "inspection": {
+        "pdf": "/Volumes/Demo Take Media/quartic_round10_revised_20261104/expert/expert_companion.pdf",
+        "pdf_sha256": "eba9fa7fd254aef3da0521786a1736d405826ae7269f37349c29ea97348f31e9",
+        "pages": 18,
+        "contact_sheets": [
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round10_revised_20261104/expert/inspection/sheet-001.png",
+            "pages": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "sha256": "57464d0658ffbb0147fcabf62db7c71e70f5cd4b3fab2b15e8f5b8f2dde5f6e8"
+          },
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round10_revised_20261104/expert/inspection/sheet-007.png",
+            "pages": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "sha256": "cc2dd5a5e6d709a1cbef9e9543681309c96eabbe4de7ce09eca38a0a7a1ceed4"
+          },
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round10_revised_20261104/expert/inspection/sheet-013.png",
+            "pages": [
+              13,
+              14,
+              15,
+              16,
+              17,
+              18
+            ],
+            "sha256": "224be976ce3426e473015263c83854b05d036ffcbb4842adfe4a0ca1abb53acf"
+          }
+        ],
+        "full_size_pages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18
+        ],
+        "purpose": "Exact-final-PDF raster generation; visual acceptance recorded separately."
+      },
+      "visual_acceptance": {
+        "contact_sheet_pages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18
+        ],
+        "full_size_pages": [
+          3,
+          7,
+          9,
+          12,
+          16,
+          18
+        ],
+        "result": "No clipping or new layout defect observed. Source scope and final formula adjacency checked for expert; all changed record passages inspected at full size. Exposition pixels match prior edition."
+      },
+      "final_link_only_rerender": "Every page has identical extracted text and rendered pixels to the already inspected R10 PDF; hyperlink targets updated and checked."
+    },
+    "exposition": {
+      "pages": 24,
+      "pdf_sha256": "02c574137024cd85a2a638239f84685a1d06d5d5bf48c8a9e239010cd939f1b1",
+      "external_links": 35,
+      "outside_page": [],
+      "text_unchanged_by_link_rebind": true,
+      "pixels_unchanged_by_link_rebind": true,
+      "output": "/Users/willcook/Downloads/quartic_round10_revised_20261104/exposition/exposition.pdf",
+      "render_receipt": {
+        "schema": "quartic-paper-render-v1",
+        "status": "rendered_requires_visual_review",
+        "inputs": {
+          "docs/exposition.md": "644b0f55d6f59232aa5621914c0d8c33bda28a147df4ba0a3d0a1fb703090938",
+          "docs/exposition.bib": "76ab8492f33bb8136150d54ef2b12e3ea434d48186ad3d39624e8079eb2630eb",
+          "tools/render_papers.py": "e3b311d62d401f0dc58b178a9efa213f44ac7d270b3e4fd16bfb8d1550edefb7",
+          "docs/figures/exposition/fig1_column.tex": "38b7ffa995a54c1450d8c81eee1972102af2d055b3df1df74e6d5a30afd608f7",
+          "docs/figures/exposition/fig2_board.tex": "b07957d1341efed364feafe0cc80931ac2e9f7bfee03b021d9eee5cb843be8b7",
+          "docs/figures/exposition/fig3_tournament.tex": "8d7f225f7003d9e0fc9687ab733f78ae91a98913f3efb0a68735c9043a2385c3",
+          "docs/figures/exposition/fig4_planted.tex": "78158ce0e8e219ef3ab71f5027143a9ad0627e348f43c1326abf87037687ed70",
+          "docs/figures/exposition/style.tex": "b63231827c3f07218f2004beba07a62deba4d7bef1ef1b12c7d8dbb425b34380"
+        },
+        "pdf_sha256": "02c574137024cd85a2a638239f84685a1d06d5d5bf48c8a9e239010cd939f1b1"
+      },
+      "inspection": {
+        "pdf": "/Volumes/Demo Take Media/quartic_round10_revised_20261104/exposition/exposition.pdf",
+        "pdf_sha256": "02c574137024cd85a2a638239f84685a1d06d5d5bf48c8a9e239010cd939f1b1",
+        "pages": 24,
+        "contact_sheets": [
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round10_revised_20261104/exposition/inspection/sheet-001.png",
+            "pages": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "sha256": "40436bcdc1e9a4caf8b153ff2273184216df582ae9ceecd3755ca604c8b223c4"
+          },
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round10_revised_20261104/exposition/inspection/sheet-007.png",
+            "pages": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "sha256": "ce38bbc0ccbda374f41d763c442722927fd2b1a5ab04b2fe1f2f0ff269dc9274"
+          },
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round10_revised_20261104/exposition/inspection/sheet-013.png",
+            "pages": [
+              13,
+              14,
+              15,
+              16,
+              17,
+              18
+            ],
+            "sha256": "a9523c03c24e399bc7cf137c57053ad82d4fa4bc2414e890ae06d6335bbffbe9"
+          },
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round10_revised_20261104/exposition/inspection/sheet-019.png",
+            "pages": [
+              19,
+              20,
+              21,
+              22,
+              23,
+              24
+            ],
+            "sha256": "6df5b96e7d67a2d1983677dc5d31fdf174936b29356c3260b7fee24c05013737"
+          }
+        ],
+        "full_size_pages": [
+          1,
+          5,
+          10,
+          16,
+          18,
+          22,
+          23,
+          24
+        ],
+        "purpose": "Exact-final-PDF raster generation; visual acceptance recorded separately."
+      },
+      "visual_acceptance": {
+        "contact_sheet_pages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24
+        ],
+        "full_size_pages": [],
+        "result": "No clipping or new layout defect observed. Source scope and final formula adjacency checked for expert; all changed record passages inspected at full size. Exposition pixels match prior edition."
+      },
+      "final_link_only_rerender": "Every page has identical extracted text and rendered pixels to the already inspected R10 PDF; hyperlink targets updated and checked."
+    },
+    "record": {
+      "pages": 139,
+      "pdf_sha256": "ce344e2c1aca00142a4891adffa2ea6050f8350d95c6f30ed487125880ee7d20",
+      "external_links": 274,
+      "outside_page": [],
+      "output": "/Users/willcook/Downloads/quartic_round10_revised_20261104/record/reasoning_record.pdf",
+      "render_receipt": {
+        "schema": "quartic-reasoning-record-render-v1",
+        "source": "/Users/willcook/src/quartic-query-lean/docs/reasoning_record.md",
+        "navigation": {
+          "authored_anchors": 367,
+          "internal_links": 359,
+          "directory_links_retargeted": {
+            "../research/returns/funnel/2_short_expert_paper/": "../research/returns/funnel/2_short_expert_paper/paper.md",
+            "../research/returns/funnel/3_examples_first_exposition/": "../research/returns/funnel/3_examples_first_exposition/exposition.md",
+            "../research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks/": "../research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks/exact_example_checker.py",
+            "../research/returns/round3/members/04_addressed_construction/": "../research/returns/round3/members/04_addressed_construction/README.md",
+            "../research/returns/round3/members/08_reviewed/quartic_r3_08_return/checks/": "../research/returns/round3/members/08_reviewed/quartic_r3_08_return/checks/exact_checks.py"
+          },
+          "latex_hypertargets": 367,
+          "pdf_named_destinations": 1273
+        },
+        "renderer_sha256": "1c46bf4047f4f2d9ecc93bd8369c0fd7f1c3d4ca693197a4cc6ed01e383bb901",
+        "source_sha256": "8f5d43ecb713f93217b7f7905e0dc004bef06dde4e01fd831133b5ee8d60f30e",
+        "reader": "markdown+tex_math_dollars+tex_math_single_backslash+pipe_tables+raw_tex-blank_before_header-superscript-subscript",
+        "ast_counts": {
+          "Header": 250,
+          "Str": 54600,
+          "Space": 53681,
+          "Para": 1477,
+          "Math": 3498,
+          "InlineMath": 3181,
+          "Link": 670,
+          "Strong": 274,
+          "RawInline": 1357,
+          "SoftBreak": 1322,
+          "RawBlock": 238,
+          "DisplayMath": 317,
+          "BulletList": 31,
+          "Plain": 372,
+          "Table": 15,
+          "AlignDefault": 357,
+          "ColWidth": 53,
+          "AlignRight": 26,
+          "OrderedList": 4,
+          "Decimal": 4,
+          "Period": 4,
+          "Emph": 47,
+          "ColWidthDefault": 16,
+          "Code": 19,
+          "AlignCenter": 4,
+          "BlockQuote": 121
+        },
+        "citation_ids": [],
+        "citeproc": false,
+        "explicit_bibliographies": {},
+        "layout_sources": {
+          "/Users/willcook/src/quartic-query-lean/research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks/render_section.py": "f52c6ae0ee39915ccce36953afd00c76071f19bb43d6407651694c61032edaab",
+          "/Users/willcook/src/quartic-query-lean/research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks/pdf_header.tex": "9817af5f1cbe1ae754962776f5f5a9cd94c5cda1243a4844fb4810544261e468",
+          "/Users/willcook/src/quartic-query-lean/research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks/pdf_layout.lua": "fa01ab1345f461ecea15aba9bd4855b55c4683797dbd4040348b045d47557253"
+        },
+        "adaptation": [
+          "Tectonic replaces unavailable XeLaTeX; original Pandoc layout filter and header reused.",
+          "Both dollar and single-backslash TeX math are parsed as math.",
+          "Latin Modern default text and the original DejaVu Sans Mono font file are selected through TeX packages.",
+          "Submitted Code break treatment extends to all identifiers and source-type spans without changing text.",
+          "Catalogue quotations and their Argument backlinks are kept together; one-line backlinks do not inherit generic bold-paragraph Needspace.",
+          "Comparison tables retain their font size and gain scoped row spacing to separate multiline cells.",
+          "Catalogue entry headings receive a consistent external gap; the quartic-route comparison reserves a larger horizontal gutter.",
+          "Section-specific Needspace and seven-column widths remain the submitted layout.",
+          "Headings immediately after HTML anchors/comments are recognized without source rewriting.",
+          "Authored HTML anchors become PDF destinations and reviewed directory links name files (round-four 07/08 merge)."
+        ],
+        "tools": {
+          "pandoc": {
+            "path": "/opt/homebrew/bin/pandoc",
+            "version": "pandoc 3.9.0.2\nFeatures: +server +lua\nScripting engine: Lua 5.4\nUser data directory: /Users/willcook/.local/share/pandoc\nCopyright (C) 2006-2025 John MacFarlane. Web:  https://pandoc.org\nThis is free software; see the source for copying conditions. There is no\nwarranty, not even for merchantability or fitness for a particular purpose."
+          },
+          "tectonic": {
+            "path": "/opt/homebrew/bin/tectonic",
+            "version": "tectonic 0.15.0Tectonic 0.15.0"
+          }
+        },
+        "visual_acceptance": "pending_page_image_review",
+        "status": "rendered_requires_visual_review",
+        "pandoc_command": [
+          "/opt/homebrew/bin/pandoc",
+          "/Users/willcook/src/quartic-query-lean/docs/reasoning_record.md",
+          "--from=markdown+tex_math_dollars+tex_math_single_backslash+pipe_tables+raw_tex-blank_before_header-superscript-subscript",
+          "--standalone",
+          "--to=latex",
+          "--lua-filter=/Volumes/Demo Take Media/quartic_round10_revised_20261104/record/render-sch6pm9z/pdf_layout.lua",
+          "--lua-filter=/Volumes/Demo Take Media/quartic_round10_revised_20261104/record/render-sch6pm9z/pdf_navigation.lua",
+          "--include-in-header=/Volumes/Demo Take Media/quartic_round10_revised_20261104/record/render-sch6pm9z/pdf_header.tex",
+          "-V",
+          "monofont=DejaVuSansMono.ttf",
+          "-V",
+          "fontsize=11pt",
+          "-V",
+          "geometry:margin=24mm",
+          "-V",
+          "colorlinks=true",
+          "-V",
+          "urlcolor=blue",
+          "-o",
+          "/Volumes/Demo Take Media/quartic_round10_revised_20261104/record/render-sch6pm9z/reasoning_record.tex"
+        ],
+        "tectonic_command": [
+          "/opt/homebrew/bin/tectonic",
+          "--keep-logs",
+          "--keep-intermediates",
+          "--outdir",
+          "/Volumes/Demo Take Media/quartic_round10_revised_20261104/record/render-sch6pm9z",
+          "/Volumes/Demo Take Media/quartic_round10_revised_20261104/record/render-sch6pm9z/reasoning_record.tex"
+        ],
+        "pdfinfo": "Creator:         LaTeX via pandoc\nProducer:        xdvipdfmx (0.1)\nCreationDate:    Wed Nov  4 15:52:59 2026 GMT\nCustom Metadata: no\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           139\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       717296 bytes\nOptimized:       no\nPDF version:     1.5\n",
+        "page_box_check": {
+          "pages": 139,
+          "words": 68825,
+          "outside_page": []
+        },
+        "layout_diagnostics": [],
+        "pdf": "/Volumes/Demo Take Media/quartic_round10_revised_20261104/record/reasoning_record.pdf",
+        "pdf_sha256": "ce344e2c1aca00142a4891adffa2ea6050f8350d95c6f30ed487125880ee7d20",
+        "source_unchanged": true
+      },
+      "inspection": {
+        "pdf": "/Volumes/Demo Take Media/quartic_round10_revised_20261104/record/reasoning_record.pdf",
+        "pdf_sha256": "ce344e2c1aca00142a4891adffa2ea6050f8350d95c6f30ed487125880ee7d20",
+        "pages": 139,
+        "contact_sheets": [
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round10_revised_20261104/record/inspection/sheet-001.png",
+            "pages": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "sha256": "151c8808209a7d982abdc63f83d24a24ad8c994f06de0c21d72a25471f958a66"
+          },
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round10_revised_20261104/record/inspection/sheet-013.png",
+            "pages": [
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24
+            ],
+            "sha256": "0e1c0a6f7050513888a748961010d6c5853ae34d8e33c832b15d0bd38ace29b9"
+          },
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round10_revised_20261104/record/inspection/sheet-025.png",
+            "pages": [
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36
+            ],
+            "sha256": "ae33b462804f8902bdf21f653e1c42ac21cf7ada5b407628d18e6afd1e03eb1b"
+          },
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round10_revised_20261104/record/inspection/sheet-037.png",
+            "pages": [
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48
+            ],
+            "sha256": "be0e93c148754ccd7fed2aee04c3efc9ff51451b8773f531168d5c6b9ef60e8e"
+          },
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round10_revised_20261104/record/inspection/sheet-049.png",
+            "pages": [
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60
+            ],
+            "sha256": "8a5f97ca8bb1f3d8ec775351c5ac2e77181290dcf5de1468009274f8a2f9de48"
+          },
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round10_revised_20261104/record/inspection/sheet-061.png",
+            "pages": [
+              61,
+              62,
+              63,
+              64,
+              65,
+              66,
+              67,
+              68,
+              69,
+              70,
+              71,
+              72
+            ],
+            "sha256": "9d1a4a5b7fdcbef938a48fc8b4a992d1bd3352595fb8649dcca0be6a954d5697"
+          },
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round10_revised_20261104/record/inspection/sheet-073.png",
+            "pages": [
+              73,
+              74,
+              75,
+              76,
+              77,
+              78,
+              79,
+              80,
+              81,
+              82,
+              83,
+              84
+            ],
+            "sha256": "a2f192ecd0d4688597b863b2a35e7d1bdbc6d8195e0b88d22b07b408c598d39b"
+          },
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round10_revised_20261104/record/inspection/sheet-085.png",
+            "pages": [
+              85,
+              86,
+              87,
+              88,
+              89,
+              90,
+              91,
+              92,
+              93,
+              94,
+              95,
+              96
+            ],
+            "sha256": "1aa748ebc8a576b22a832cbc9e1efc83a143701ccb4320dac58823f1542c2335"
+          },
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round10_revised_20261104/record/inspection/sheet-097.png",
+            "pages": [
+              97,
+              98,
+              99,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108
+            ],
+            "sha256": "0b8ec16adccaab3d6cbd162d5f57d81f0e311b7dbf5a267371f8b559814f8231"
+          },
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round10_revised_20261104/record/inspection/sheet-109.png",
+            "pages": [
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116,
+              117,
+              118,
+              119,
+              120
+            ],
+            "sha256": "9d58061c7cdd923fb974acac18906eea570b67bdf900ce1de84f3bbd1d14dbb0"
+          },
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round10_revised_20261104/record/inspection/sheet-121.png",
+            "pages": [
+              121,
+              122,
+              123,
+              124,
+              125,
+              126,
+              127,
+              128,
+              129,
+              130,
+              131,
+              132
+            ],
+            "sha256": "cebbccbd8fbb35c04cebc59ca7df55e95e3645d7a903be5f915288ed9d6a9f6e"
+          },
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round10_revised_20261104/record/inspection/sheet-133.png",
+            "pages": [
+              133,
+              134,
+              135,
+              136,
+              137,
+              138,
+              139
+            ],
+            "sha256": "0fdb588ed8fcf1d4d5555da907edb10a5358d46eedc37a8365d196ebcc652c02"
+          }
+        ],
+        "full_size_pages": [
+          5,
+          78,
+          130
+        ],
+        "purpose": "Exact-final-PDF raster generation; visual acceptance recorded separately."
+      },
+      "visual_acceptance": {
+        "contact_sheet_pages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89,
+          90,
+          91,
+          92,
+          93,
+          94,
+          95,
+          96,
+          97,
+          98,
+          99,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          106,
+          107,
+          108,
+          109,
+          110,
+          111,
+          112,
+          113,
+          114,
+          115,
+          116,
+          117,
+          118,
+          119,
+          120,
+          121,
+          122,
+          123,
+          124,
+          125,
+          126,
+          127,
+          128,
+          129,
+          130,
+          131,
+          132,
+          133,
+          134,
+          135,
+          136,
+          137,
+          138,
+          139
+        ],
+        "full_size_pages": [
+          5,
+          78,
+          130
+        ],
+        "result": "No clipping or new layout defect observed. Source scope and final formula adjacency checked for expert; all changed record passages inspected at full size. Exposition pixels match prior edition."
+      }
+    }
+  },
+  "source_hashes": {
+    "docs/expert_companion.md": "2d0e6fcca42dfc9de5601b0de123d35d3d5470be86c17a46903aaf99f2035efe",
+    "docs/exposition.md": "644b0f55d6f59232aa5621914c0d8c33bda28a147df4ba0a3d0a1fb703090938",
+    "docs/reasoning_record.md": "8f5d43ecb713f93217b7f7905e0dc004bef06dde4e01fd831133b5ee8d60f30e",
+    "docs/reasoning_record_correspondence.json": "67a483816e55583974c8bd380ceb5f2cb0dd4608f597fc51a132bb8c8a061b65",
+    "tools/build_lean_links.py": "bbb3a168124d167178fa9ef456eb1ae16a9c7ac5d98c6f38350942d8f26dd2ae",
+    "tests/test_build_lean_links.py": "91bbd54f6d02e6a5a41347f4d579137000b64991235819d03a6ad1edbfe19e5f",
+    "docs/expert_companion.bib": "8bbd430c3ff6730c93ccf0ea853f0f1151c97e60e60510653d608f54ff4bb928",
+    "tests/test_render_reasoning_record.py": "adf7cfdbe6924226777e0ce6a74a3d4bd11b19088471a2ae091bc80c7a058d1b",
+    "research/requests/round10/citation_coverage.json": "a64617ebf51203d11d7c895708ab7f55db8e1423621db51519f56c9fb57bb97c"
+  },
+  "validation_repairs": [
+    {
+      "observation": "Initial generated-map check and two tests detected stale record correspondence after the edited passage.",
+      "action": "Ran rebind_record_passages.py and build_comparator_map.py, then repeated make check.",
+      "scope": "Rebound editorial source mappings only; retained original reviewed editions."
+    },
+    {
+      "observation": "Rendered-record regression fixture expected 366 anchors; the new named-family destination makes 367.",
+      "action": "Updated both exact navigation counts and asserted the new formal-named-family anchor; retained all existing navigation checks.",
+      "scope": "Expected content census changed; no renderer behavior was weakened."
+    },
+    {
+      "observation": "Final cross-reference audit found the bibliography still cited the earlier record and the exposition still linked the earlier expert companion.",
+      "action": "Extended the existing pin generator/check to the expert bibliography and rebound the exposition to the committed revised expert source. Rerendered both reading copies. Refreshed the existing citation coverage source hash and the single internal Record2026 row; no external source-coverage judgment changed.",
+      "scope": "Citation targets only; literature entries and exposition prose unchanged."
+    }
+  ],
+  "source_review": {
+    "author": "Astra manuscript author, individual dispositions and authoring receipt in round10_expert_dispositions.json",
+    "integrator": "Read full affected quantum/classical/uniform/formal routes and record edits; checked finite toy, moved lemma contracts, exact destinations and final source locators.",
+    "limitations": "No new full independent proof audit or prospective reader trial."
+  },
+  "status": "passed",
+  "render_navigation_tests": {
+    "count": 7,
+    "result": "passed"
+  },
+  "record_correspondence": {
+    "passages": 298,
+    "changed_marked_passages": [
+      "CL-conditioning-counterexample"
+    ],
+    "hash_mismatches": [],
+    "report": "round10_record_rebind.json"
+  },
+  "publication": {
+    "record_commit": "cbd9bad1b00d0dcdde3c57ab096bb39037fe8c97",
+    "expert_commit": "9d9c444fa65ff78f05e5b7178fbce8375e828a52",
+    "method_pr": "https://github.com/wcook04/lean-exposition/pull/45",
+    "method_state": "open; hosted checks queued; local checks passed"
+  }
+}

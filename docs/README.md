@@ -45,3 +45,7 @@ The [round-nine revision](../research/adjudication/round9_revision.md) revises a
 three accounts from the preserved returns, with individual decisions and
 literature-grounded editorial choices. Each earlier review continues to describe
 only the source edition it actually assessed.
+
+The [round-ten expert revision](../research/adjudication/round10_revision.md)
+reorders the specialist argument and repairs its affected record destinations.
+This is assimilation of one return; the other two R10 reviews remain pending.

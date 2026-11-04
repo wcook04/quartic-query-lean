@@ -208,3 +208,25 @@ now retains the source writing guide at its repository path and rebases the
 compatibility copy's links, including their packaged dependency closure. A link
 that works beside the source may fail after relocation; the original round-nine
 packets remain immutable evidence of what was actually sent.
+
+## Round-ten expert-return application
+
+The first R10 return contributes 15 manuscript findings and eight method
+observations. The [method dispositions](../research/adjudication/round10_method_revision.json)
+apply them to the existing public authoring, reader-review and long-to-short
+owners. The [revision account](../research/adjudication/round10_revision.md)
+records the actual manuscript changes; the other two R10 reviews remain pending.
+
+This pass tests the default reading order against the suggested detours: keep a
+complete finite contract, apply it to the construction-specific quantity, then
+supply the generic implementation at a precise destination. The exact event,
+law and cap must survive that move. The record comparison uses matched supplier
+scales, and its counterexample states which inference it refutes. Formula scope
+is checked across rendered floats, not only adjacent source lines. These are
+applications of existing rules, not measured gains in reader understanding.
+
+The return's first pass exposed bounded blocks of sentences. Its frozen record
+is preserved with that limit; it is not relabelled as isolated-unit reading.
+For a future strict pass, the public review procedure now requires persisting
+each encounter before revealing the next semantic unit, including generated
+references at their delivered position.
