@@ -90,6 +90,19 @@ class RecordTests(unittest.TestCase):
         self.assertIn("QuarticQuery.R", mentions)
         self.assertNotIn("QuarticQuery.Checked.R", mentions)
 
+    def test_supplement_excerpt_uses_its_own_path_and_lines(self):
+        correspondence = self.correspondence()
+        for row in correspondence["passages"]:
+            row["path"] = "docs/verification_details.md"
+        passages, _ = MODULE.record_passages(self.RECORD, correspondence, "docs/verification_details.md")
+        start, stop = passages["A"]["claim_segments"]["def-R"]
+        quoted = MODULE.excerpt("unrelated main paper", passages["A"], start, stop)
+        self.assertEqual(quoted["path"], "docs/verification_details.md")
+        self.assertEqual(self.RECORD.splitlines()[quoted["line_start"] - 1], "Claim text.")
+        wrong, errors = MODULE.record_passages(self.RECORD, correspondence)
+        self.assertEqual(wrong, {})
+        self.assertEqual(errors, ["A", "B"])
+
     def test_lean_reference_links_mention_their_registry_declarations(self):
         passages = {"A": {"body": "The [definition of R][def-R] and [the receipt][statement-receipt] [x][nope]."}}
         mentions = MODULE.link_mentions(passages, ["QuarticQuery.R", "QuarticQuery.Q"])
@@ -117,12 +130,13 @@ class GeneratedMapTests(unittest.TestCase):
             self.assertEqual(direct, configured, challenge["path"])
 
     def test_glosses_are_exact_record_excerpts(self):
-        lines = self.record.split("\n")
         for name, declaration in self.map["declarations"].items():
             gloss = declaration["primary_gloss"]
             if gloss is None:
                 continue
-            self.assertIn(gloss["excerpt"], self.record, name)
+            source = (ROOT / gloss.get("path", "docs/reasoning_record.md")).read_text()
+            lines = source.split("\n")
+            self.assertIn(gloss["excerpt"], source, name)
             self.assertEqual(hashlib.sha256(gloss["excerpt"].encode()).hexdigest(), gloss["excerpt_sha256"])
             self.assertIn(gloss["excerpt"].split("\n")[0], lines[gloss["line_start"] - 1], name)
 

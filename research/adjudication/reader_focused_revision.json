@@ -1,0 +1,691 @@
+{
+  "schema_version": 1,
+  "revision": "reader_focused_revision",
+  "baseline_commit": "071ce02",
+  "status": "authored_source_frozen_pending_receiving_review",
+  "feedback_authority": "Twelve sequential advisory readings; later explicit withdrawals govern earlier claims. The user’s instruction to keep administrative evidence outside PDFs governs presentation.",
+  "reading_scope": {
+    "reviews": "All twelve preserved review files read in bounded chunks, with truncated intervals revisited.",
+    "mathematical_sources": "Current changed passages and their proof dependencies; exact family, uniform-bound and headline Lean types; gate-cost definitions; existing small census and analytic invariants. No claim of rereading every unchanged proof or the whole annex in this pass.",
+    "methods": "Mathematical reasoning precedes exposition. Portable deep guides were read in the preceding pass and applied here; current graph-to-long owner was refreshed. Parent owns matched register, external exemplar adaptation, source binding and final PDF inspection."
+  },
+  "input_sha256": {
+    "research/returns/reader_expert_01.md": "fee62704bac07909ce78d92dd9a33d355cea0c42add53275b0ab193245ad6e60",
+    "research/returns/reader_expert_02.md": "fe11106f02a16c035ebafa65d40f9203158f98e21f41062f935ecff2a8bfc6a3",
+    "research/returns/reader_expert_03.md": "25192932870c65608ca01c09a6ca9d785deeb048ed0f42352c0f23ab5456ac97",
+    "research/returns/reader_expert_04.md": "8844c49aeef343796c2e5d366dcec4085725a7bc2cb67b69f439f4c6b0813819",
+    "research/returns/reader_exposition_01.md": "f2cb5a8ee0190e2232aeae65aa536417d0fbc2e93890c1b458ee311692dafbe6",
+    "research/returns/reader_exposition_02.md": "540a73a089191f558c87ba9512a355ac1527d4a25f0ec7a705ea7fb2a6a6c778",
+    "research/returns/reader_exposition_03.md": "5d823aa23d50d268654d13eb942f02cce6e63222acd066515754f8599d696c51",
+    "research/returns/reader_exposition_04.md": "f8a4b5da82fe43dfc2051ad363a568c35db8945a991553da36b09dc794eb6a93",
+    "research/returns/reader_record_01.md": "aa9acd664841c62a23ba681e6e0cd672dcb9915ddee71f9da96aa5d7593eee2b",
+    "research/returns/reader_record_02.md": "d1968ef433b201072acb896d5067b55f94549073e42606f6d7b86a8948ff6557",
+    "research/returns/reader_record_03.md": "803320e9ee1e38610cfbeff481047f1f603a4d802020ecae341a6c94c7c97295",
+    "research/returns/reader_record_04.md": "c07462fa3183231122f0d06a3913e9c48c2d143b15d20e8273a156cde06ab778"
+  },
+  "authored_freeze_sha256": {
+    "docs/expert_companion.md": "cf288c89e290075b82e8a165f2420411412a25e6f6c1a1057fe81c3d84c5b51c",
+    "docs/exposition.md": "a3151872c41d8cc7bc448f9bfff3cc22dc2f8c50ea0a43de0b3ab7c4b3511bd1",
+    "docs/reasoning_record.md": "8f856a63d3ebbeda4288d9243362081cb2974499e47ab48643277acbe1760b36",
+    "docs/expert_companion.bib": "191b58a78a4d04fdd2093af8c5a1f512b0c165587286b8217959b4582008eb16",
+    "docs/exposition.bib": "c4cbe1d7ff2f6b5f767b869e0ec2437d382f2d192e702671400ad5e5cffecc98",
+    "docs/reasoning_record.bib": "9c0d076952df454670fbf5f510ebc04b2be5b1605e779a9594fbe20600f4f8a5",
+    "docs/proof_index_intro.md": "a2e820ee6979360ee9eac09211f66d8dec4a31eb2dcfd9172e9a5e6a78e7d696",
+    "docs/verification_details.md": "6ba66b0d023c9ef7565e92667760f07ad4b4d8df9dec71ade8ecf3cb43fa1fb5"
+  },
+  "hash_note": "Author freeze before parent final pin, index, layout and bibliography binding. Receiving agent records final identities separately.",
+  "findings": [
+    {
+      "id": "READ-01",
+      "feedback_sources": [
+        "research/returns/reader_expert_01.md",
+        "research/returns/reader_expert_02.md",
+        "research/returns/reader_expert_03.md",
+        "research/returns/reader_expert_04.md",
+        "research/returns/reader_exposition_04.md",
+        "research/returns/reader_record_01.md",
+        "research/returns/reader_record_02.md",
+        "research/returns/reader_record_03.md",
+        "research/returns/reader_record_04.md"
+      ],
+      "issue": "Remove administrative verification history from the mathematical reading path.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/expert_companion.md::§6",
+        "docs/exposition.md::§7",
+        "docs/reasoning_record.md::opening and former Appendices B/F/G"
+      ],
+      "rationale": "Explicit user direction resolves the conflict with earlier requests for larger formal-status tables. Parent preserved catalogue and audit appendices in verification_details.md before removal. Natural mathematical scope remains in each paper; exact identifiers, checks and history are external."
+    },
+    {
+      "id": "READ-02",
+      "feedback_sources": [
+        "research/returns/reader_expert_01.md",
+        "research/returns/reader_expert_03.md",
+        "research/returns/reader_record_01.md",
+        "research/returns/reader_record_03.md",
+        "research/returns/reader_record_04.md"
+      ],
+      "issue": "Provide readable theorem links that reach proofs as well as placeholder specifications.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/proof_index_intro.md::Main results and proof routes"
+      ],
+      "rationale": "Fourteen authored entries pair natural statements with specification and src-* implementation links. Parent owns generated full directory, pinned URLs, tool evidence and receiving validation. A source link alone is not a checking result."
+    },
+    {
+      "id": "READ-03",
+      "feedback_sources": [
+        "research/returns/reader_expert_01.md",
+        "research/returns/reader_expert_02.md",
+        "research/returns/reader_expert_03.md",
+        "research/returns/reader_record_01.md",
+        "research/returns/reader_record_03.md",
+        "research/returns/reader_record_04.md"
+      ],
+      "issue": "Distinguish original contribution, reconstruction and quantitative choices.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/expert_companion.md::abstract and §1 Contribution",
+        "docs/reasoning_record.md::title, abstract and opening",
+        "docs/exposition.md::Introduction"
+      ],
+      "rationale": "OpenAI retains credit for theorem, function and two reductions. Reconstruction and uniform analytic parameter control precede subordinate constants. No priority claim for the uniform estimate or novel separation is added."
+    },
+    {
+      "id": "READ-04",
+      "feedback_sources": [
+        "research/returns/reader_expert_01.md",
+        "research/returns/reader_expert_02.md",
+        "research/returns/reader_expert_03.md"
+      ],
+      "issue": "Expand specialist formalization section to two pages.",
+      "decision": "declined_in_light_of_later_correction",
+      "manuscript_locators": [
+        "docs/expert_companion.md::§6"
+      ],
+      "rationale": "Later feedback retracts a categorical expansion. User explicitly requests mathematical prose and external evidence. A concise route comparison is useful; another evidence table or Lean syntax lesson would defeat the requested reading experience."
+    },
+    {
+      "id": "READ-05",
+      "feedback_sources": [
+        "research/returns/reader_expert_02.md",
+        "research/returns/reader_expert_03.md",
+        "research/returns/reader_expert_04.md"
+      ],
+      "issue": "Move whole-state correspondence out of the abstract without hiding its boundary.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/expert_companion.md::abstract and §6",
+        "docs/exposition.md::§7",
+        "docs/proof_index_intro.md::retained-state distinction"
+      ],
+      "rationale": "Abstract leads with the mechanisms. Main formalization notes say measured-label law plus verification suffices for the Boolean headline; identification of the designated full physical successful subsystem remains a separate problem."
+    },
+    {
+      "id": "READ-06",
+      "feedback_sources": [
+        "research/returns/reader_expert_01.md",
+        "research/returns/reader_expert_02.md",
+        "research/returns/reader_expert_03.md"
+      ],
+      "issue": "Make the actual exact circuit and its size less dependent on the record.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/expert_companion.md::§2 Circuit construction"
+      ],
+      "rationale": "Read the current record gate ledger and Circuit.lean cost definitions. Added signed word width, transform cost, full gate-count expression and the 337(k+1)^2mt^2 to 200(k+1)^2m ell^2 estimate. Domain/value convention, fan-in and same-circuit requirement unchanged."
+    },
+    {
+      "id": "READ-07",
+      "feedback_sources": [
+        "research/returns/reader_expert_01.md",
+        "research/returns/reader_expert_02.md"
+      ],
+      "issue": "Show the averaged rotation estimate in the bounded amplifier.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/expert_companion.md::Appendix C"
+      ],
+      "rationale": "Added exact average 1/2-sin(4Mtheta)/(4M sin(2theta)) and sin(2theta)>=sqrt(2gamma), giving the conservative 9/20 bound. Repaired malformed nested citation. Direct branch p>=1/2, p=0 exit, fresh trials, first-success law and fixed cap retained."
+    },
+    {
+      "id": "READ-08",
+      "feedback_sources": [
+        "research/returns/reader_expert_02.md",
+        "research/returns/reader_expert_03.md"
+      ],
+      "issue": "Alleged incorrect square-root schedule.",
+      "decision": "withdrawn_no_mathematical_change",
+      "manuscript_locators": [
+        "docs/expert_companion.md::Appendix E",
+        "docs/reasoning_record.md::ROOT-GROWING-K"
+      ],
+      "rationale": "The source is floor(sqrt(t/20)), not floor(sqrt(t)/20). Later review explicitly retracts the objection. No parameter, threshold or proof formula was changed."
+    },
+    {
+      "id": "READ-09",
+      "feedback_sources": [
+        "research/returns/reader_expert_02.md",
+        "research/returns/reader_expert_03.md",
+        "research/returns/reader_expert_04.md"
+      ],
+      "issue": "Supply missing floor arithmetic for the coefficient 1/1822500.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/expert_companion.md::Appendix E"
+      ],
+      "rationale": "Use integer R>floor(mL/100) to obtain R>mL/100, and X>=2 to obtain L=floor(X)>=X/2. This gives R>mX/200 directly. The review proposed an unnecessary stronger floor inequality and m>=200 condition; neither was imported."
+    },
+    {
+      "id": "READ-10",
+      "feedback_sources": [
+        "research/returns/reader_expert_04.md"
+      ],
+      "issue": "Clarify that the minimax hard law is not part of the function definition.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/expert_companion.md::§4 opening"
+      ],
+      "rationale": "Added a sentence identifying mu as a lower-bound witness, with independent samples hiding addresses. The function remains an explicit total Boolean predicate independent of this choice."
+    },
+    {
+      "id": "READ-11",
+      "feedback_sources": [
+        "research/returns/reader_expert_01.md",
+        "research/returns/reader_expert_04.md"
+      ],
+      "issue": "Add another roadmap, parameter table and practical interpretation.",
+      "decision": "retained_with_reason",
+      "manuscript_locators": [
+        "docs/expert_companion.md::§1.1, §2 and §3 opening"
+      ],
+      "rationale": "Existing mechanism precedes the theorem and object definitions explain parameter roles; new circuit arithmetic supplies the missing local derivation. Additional equal-weight maps would duplicate the reading path. Query cost versus free computation/workspace is already explicit."
+    },
+    {
+      "id": "READ-12",
+      "feedback_sources": [
+        "research/returns/reader_expert_01.md",
+        "research/returns/reader_expert_03.md",
+        "research/returns/reader_expert_04.md"
+      ],
+      "issue": "Preserve heavy/light partition, exact law, finite caps and error charges.",
+      "decision": "retained_with_reason",
+      "manuscript_locators": [
+        "docs/expert_companion.md::§§3–4"
+      ],
+      "rationale": "These were already mathematically explicit. No algorithm, distribution, default output, cap or error allocation was changed. Counterexamples remain in Appendix A rather than interrupting the main proof."
+    },
+    {
+      "id": "READ-13",
+      "feedback_sources": [
+        "research/returns/reader_expert_04.md",
+        "research/returns/reader_record_04.md"
+      ],
+      "issue": "State that uniform control gives an explicit schedule and rate beyond a diagonal sequence.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/reasoning_record.md::ROOT-GROWING-K",
+        "docs/expert_companion.md::Appendix E"
+      ],
+      "rationale": "Record now distinguishes the easy existential diagonal consequence from the explicit k(t) schedule and epsilon rate. The specialist appendix already identifies the uniform input and rate; its arithmetic is now local."
+    },
+    {
+      "id": "READ-14",
+      "feedback_sources": [
+        "research/returns/reader_exposition_01.md",
+        "research/returns/reader_exposition_02.md",
+        "research/returns/reader_exposition_03.md",
+        "research/returns/reader_exposition_04.md"
+      ],
+      "issue": "Explain the meaning of the optimal exponent before using it.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/exposition.md::Introduction"
+      ],
+      "rationale": "Added natural-language infimum definition and the distinction between powers approaching four and an exact fourth-power family. Full quantified definition remains in §6."
+    },
+    {
+      "id": "READ-15",
+      "feedback_sources": [
+        "research/returns/reader_exposition_01.md",
+        "research/returns/reader_exposition_02.md",
+        "research/returns/reader_exposition_03.md",
+        "research/returns/reader_exposition_04.md"
+      ],
+      "issue": "Add a one-page preliminary proof map.",
+      "decision": "declined_in_light_of_later_correction",
+      "manuscript_locators": [
+        "docs/exposition.md::Introduction"
+      ],
+      "rationale": "The fourth reading discourages another long overview. Existing two-mechanism opening is retained; added local design explanations rather than another list of objects before examples."
+    },
+    {
+      "id": "READ-16",
+      "feedback_sources": [
+        "research/returns/reader_exposition_02.md",
+        "research/returns/reader_exposition_03.md",
+        "research/returns/reader_exposition_04.md",
+        "research/returns/reader_record_04.md"
+      ],
+      "issue": "Connect the eight-bit examples to the full possible values of Forrelation.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/exposition.md::§1",
+        "docs/reasoning_record.md::forr_small_instance"
+      ],
+      "rationale": "Added the exact set {-1,-1/2,0,1/2,1} and the promise classification, linking the existing full census. Record count 8,96,48,96,8 and 104 one/48 zero/104 unpromised retained. Parent independently enumerated it; no asymptotic hardness claim follows from this finite calculation."
+    },
+    {
+      "id": "READ-17",
+      "feedback_sources": [
+        "research/returns/reader_exposition_02.md",
+        "research/returns/reader_exposition_03.md",
+        "research/returns/reader_exposition_04.md"
+      ],
+      "issue": "Bridge the Walsh-vector calculation to Boolean transcripts.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/exposition.md::§2 From the Walsh calculation to a Boolean certificate"
+      ],
+      "rationale": "Two exact butterfly layers send (-1,1,1,1) to (0,-2,2,0) then (2,-2,-2,-2). Binary arithmetic gates compute the numerator and promise tests; transcripts permit local checking. No new circuit or gate-count claim was invented."
+    },
+    {
+      "id": "READ-18",
+      "feedback_sources": [
+        "research/returns/reader_exposition_01.md",
+        "research/returns/reader_exposition_02.md",
+        "research/returns/reader_exposition_03.md",
+        "research/returns/reader_exposition_04.md"
+      ],
+      "issue": "Explain why a huge certificate array does not make quantum verification expensive.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/exposition.md::§2 Local tests"
+      ],
+      "rationale": "After K=2m-1+r(S+2), explicitly note absence of 2^r: all tests refer to a known selected cell. Verification does not search the other cells."
+    },
+    {
+      "id": "READ-19",
+      "feedback_sources": [
+        "research/returns/reader_exposition_02.md",
+        "research/returns/reader_exposition_03.md",
+        "research/returns/reader_exposition_04.md"
+      ],
+      "issue": "Explain the choice of logarithmic address length and biased hard answers.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/exposition.md::§2 General layout",
+        "docs/exposition.md::§5.1"
+      ],
+      "rationale": "Existing polynomial-array explanation now includes (2/3)^r<=m^-10 under the hard law, instead of suggesting uniform answer bits. Mu is a law on promised inputs; its answer bits need not be uniform. The finite union and G cap remain proved in §5."
+    },
+    {
+      "id": "READ-20",
+      "feedback_sources": [
+        "research/returns/reader_exposition_03.md",
+        "research/returns/reader_exposition_04.md"
+      ],
+      "issue": "Distinguish perfect tiny examples from an inexpensive general decoder.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/exposition.md::§1 Projection experiment",
+        "docs/exposition.md::§3 Cheap quantum decoder"
+      ],
+      "rationale": "Explain that near-threshold probabilities are small and close; repetition depends strongly on k but not m. Existing explicit Chernoff trial count remains; no unverified numerical trial total added."
+    },
+    {
+      "id": "READ-21",
+      "feedback_sources": [
+        "research/returns/reader_exposition_01.md",
+        "research/returns/reader_exposition_02.md",
+        "research/returns/reader_exposition_03.md",
+        "research/returns/reader_exposition_04.md"
+      ],
+      "issue": "Move classical detours out of the proof before its conclusion.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/exposition.md::§5.1 and §5.2"
+      ],
+      "rationale": "The reduction now runs from planting through the three charges, capped predictor, time union and contradiction without the independence example, conditional AND example, XOR trace or hypothesis counterexamples interrupting it. Those remain immediately afterward in §5.2, with all question/answer anchors preserved."
+    },
+    {
+      "id": "READ-22",
+      "feedback_sources": [
+        "research/returns/reader_exposition_02.md",
+        "research/returns/reader_exposition_03.md",
+        "research/returns/reader_exposition_04.md"
+      ],
+      "issue": "State the desired joint-event inclusion before applying the direct product.",
+      "decision": "retained_and_repositioned",
+      "manuscript_locators": [
+        "docs/exposition.md::§5.1 Heavy and light true-cell visits and simulator"
+      ],
+      "rationale": "Removing the intervening AND detour places the event inclusion next to the lemma and simulator. Explicitly say the application keeps the original law and never conditions on lightness. Stop-before-read, defaults and aggregate/per-instance budget distinction remain."
+    },
+    {
+      "id": "READ-23",
+      "feedback_sources": [
+        "research/returns/reader_exposition_01.md",
+        "research/returns/reader_exposition_02.md",
+        "research/returns/reader_exposition_03.md"
+      ],
+      "issue": "Reorder the quantum presentation as contract before implementation.",
+      "decision": "retained_with_reason",
+      "manuscript_locators": [
+        "docs/exposition.md::§4.2–§4.4"
+      ],
+      "rationale": "Current source already gives ideal weight contraction, a named exact-law/cap sampler contract, retained-register preparation, finite amplification and final coupling in that order. Another abstract proposition would duplicate it. Halving uses complementarity; winner survival uses dominance, with both calculations retained."
+    },
+    {
+      "id": "READ-24",
+      "feedback_sources": [
+        "research/returns/reader_exposition_03.md",
+        "research/returns/reader_exposition_04.md"
+      ],
+      "issue": "Move the fractional comparison calculation before tensor notation.",
+      "decision": "retained_with_reason",
+      "manuscript_locators": [
+        "docs/exposition.md::§4.3 fractional example and Question 2"
+      ],
+      "rationale": "The existing fractional worked calculation and follow-on exercise are adjacent to the general successful-label formula. Retaining their order preserves the exercise as retrieval rather than giving its second-pivot answer before the question. Tensor factorization, orthogonal labels and normalization remain explicit."
+    },
+    {
+      "id": "READ-25",
+      "feedback_sources": [
+        "research/returns/reader_exposition_02.md",
+        "research/returns/reader_exposition_04.md"
+      ],
+      "issue": "Move the certificate-complexity literature detour out of construction.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/exposition.md::Appendix A.2"
+      ],
+      "rationale": "Moved the BDK comparison from §2 to the earlier-construction appendix. Retained its narrow statement about randomized evaluation versus certificate complexity and its distinct role from the R–Q theorem."
+    },
+    {
+      "id": "READ-26",
+      "feedback_sources": [
+        "research/returns/reader_exposition_01.md",
+        "research/returns/reader_exposition_03.md",
+        "research/returns/reader_exposition_04.md"
+      ],
+      "issue": "Give exact toy input and local-test counts without archival implementation prose.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/exposition.md::Appendix A.4"
+      ],
+      "rationale": "Retained the 180-gate, 371-test circuit and exact numbering, added 5936-bit board count, and explicitly distinguished toy r=2 from r=40 at m=4 in the asymptotic definition. Replaced checker-history prose by a mathematical construction link."
+    },
+    {
+      "id": "READ-27",
+      "feedback_sources": [
+        "research/returns/reader_exposition_01.md",
+        "research/returns/reader_exposition_02.md",
+        "research/returns/reader_exposition_04.md"
+      ],
+      "issue": "Replace code-reading exercise and evidence appendix inside teaching paper.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/exposition.md::§7"
+      ],
+      "rationale": "Removed intentional-sorry discussion, raw option-valued code and dated header reconciliation. Natural winning-condition/family/exponent links and the mathematically relevant formal scope remain."
+    },
+    {
+      "id": "READ-28",
+      "feedback_sources": [
+        "research/returns/reader_exposition_03.md",
+        "research/returns/reader_exposition_04.md"
+      ],
+      "issue": "Reorder existing figures or add more visual aids.",
+      "decision": "retained_with_reason",
+      "manuscript_locators": [
+        "docs/exposition.md::Figures 1–4"
+      ],
+      "rationale": "Existing schematic then concrete board sequence and figure references are internally coherent. No new figure was required to repair the identified conceptual gaps. Parent handles actual rendering and adjacency, including reused Needspace guards."
+    },
+    {
+      "id": "READ-29",
+      "feedback_sources": [
+        "research/returns/reader_exposition_01.md",
+        "research/returns/reader_exposition_02.md",
+        "research/returns/reader_exposition_03.md"
+      ],
+      "issue": "Add exercise difficulty tiers or a second final synthesis.",
+      "decision": "retained_with_reason",
+      "manuscript_locators": [
+        "docs/exposition.md::Questions 1–5 and Combined explanation"
+      ],
+      "rationale": "Existing optional trace heading and route choices already distinguish basic and technical reading. All retrieval questions, answers and rubric remain; no claim of unaided reader success or additional checklist was added."
+    },
+    {
+      "id": "READ-30",
+      "feedback_sources": [
+        "research/returns/reader_record_01.md",
+        "research/returns/reader_record_02.md",
+        "research/returns/reader_record_03.md",
+        "research/returns/reader_record_04.md"
+      ],
+      "issue": "Preserve complete mathematical core while making contribution hierarchy clearer.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/reasoning_record.md::opening, §§3–8 and Appendix A"
+      ],
+      "rationale": "Later readings oppose indiscriminate proof cuts. Complete circuit, direct product, capped quantum/classical reductions, Gaussian proof and universal upper-bound argument remain. The principal reduction in PDF content is the separately preserved catalogue and audit history."
+    },
+    {
+      "id": "READ-31",
+      "feedback_sources": [
+        "research/returns/reader_record_04.md"
+      ],
+      "issue": "Distinguish analytic distributions from the promise-supported minimax law.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/reasoning_record.md::forr_bundle"
+      ],
+      "rationale": "Added the chain nu0/nu1 on whole cube → R(P)>L → finite minimax mu on the promise → independent planted addresses. The Gaussian samples are never directly planted."
+    },
+    {
+      "id": "READ-32",
+      "feedback_sources": [
+        "research/returns/reader_record_04.md"
+      ],
+      "issue": "Expose overall, single-instance and simulator query budgets together.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/reasoning_record.md::§6 opening before §6.1"
+      ],
+      "rationale": "Added concise prose identifying L, G=floor(mL/100), terminal column lightness and the simulator aggregate cap, which implies every per-instance cap. A table was unnecessary for four connected sentences."
+    },
+    {
+      "id": "READ-33",
+      "feedback_sources": [
+        "research/returns/reader_record_01.md",
+        "research/returns/reader_record_02.md",
+        "research/returns/reader_record_03.md",
+        "research/returns/reader_record_04.md"
+      ],
+      "issue": "Promote the strongest uniform analytic result before its long proof.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/reasoning_record.md::forr_proof_spine and forr_uniform_assembly"
+      ],
+      "rationale": "Added the exact uniform inequality with its dimension condition at §8.5, without moving the existing statement/proof anchor or claim marker in §8.14. Its implication to the fixed-k threshold and explicit schedule is stated."
+    },
+    {
+      "id": "READ-34",
+      "feedback_sources": [
+        "research/returns/reader_record_02.md",
+        "research/returns/reader_record_03.md",
+        "research/returns/reader_record_04.md"
+      ],
+      "issue": "Make the analytic proof invariants easier to locate.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/reasoning_record.md::forr_proof_spine, forr_distribution, forr_path_formula"
+      ],
+      "rationale": "The opening identifies uniform endpoint, one derivative per block, adaptive biased-tree bound and promise-gap conversion. A named uniform-endpoint lemma states the zeroing invariant; the existing path induction receives a mathematical heading. Full equations and proofs remain."
+    },
+    {
+      "id": "READ-35",
+      "feedback_sources": [
+        "research/returns/reader_record_01.md",
+        "research/returns/reader_record_02.md",
+        "research/returns/reader_record_03.md"
+      ],
+      "issue": "Motivate the bounded bias transform and stopped martingale.",
+      "decision": "retained_with_reason",
+      "manuscript_locators": [
+        "docs/reasoning_record.md::forr_stein and §8.10"
+      ],
+      "rationale": "Current source already motivates bounded biases, phi=xPsi-Psi prime, controlled edge factors and stopping before an uncontrolled increment. The earlier revision supplied these paragraphs. Retained them rather than repeating another purpose checklist or changing the transform."
+    },
+    {
+      "id": "READ-36",
+      "feedback_sources": [
+        "research/returns/reader_record_03.md",
+        "research/returns/reader_record_04.md"
+      ],
+      "issue": "Give ordinary-versus-formal proof-route differences near the front.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/reasoning_record.md::opening",
+        "docs/proof_index_intro.md::quantum and universal-bound entries"
+      ],
+      "rationale": "The opening identifies the measured-label and complexity-library routes. Full retained-state proof remains §5.6 and ordinary star-adversary proof Appendix A. Natural index entries retain separate formal coverage without suggesting line-by-line formalization of the printed route."
+    },
+    {
+      "id": "READ-37",
+      "feedback_sources": [
+        "research/returns/reader_record_01.md",
+        "research/returns/reader_record_03.md",
+        "research/returns/reader_record_04.md"
+      ],
+      "issue": "Add a construction figure and a Gaussian-chain diagram.",
+      "decision": "partially_incorporated",
+      "manuscript_locators": [
+        "docs/reasoning_record.md::between §4.2 and §4.3"
+      ],
+      "rationale": "Reused actual expert_column.svg with a mathematical caption explaining outward pointers and malformed rivals. No suitable existing Gaussian-chain implementation was found in this author scope; the existing three-block calculation and newly exposed invariant carry that explanation. No placeholder diagram or visual quota."
+    },
+    {
+      "id": "READ-38",
+      "feedback_sources": [
+        "research/returns/reader_record_01.md",
+        "research/returns/reader_record_02.md",
+        "research/returns/reader_record_03.md"
+      ],
+      "issue": "Remove source-error controversy from opening guidance.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/reasoning_record.md::Reading guide and Appendix D"
+      ],
+      "rationale": "Opening no longer directs readers first to a disputed displayed step. Technical comparisons remain optional and explicitly do not refute cited surrounding theorems or enter the main proof."
+    },
+    {
+      "id": "READ-39",
+      "feedback_sources": [
+        "research/returns/reader_record_01.md",
+        "research/returns/reader_record_02.md",
+        "research/returns/reader_record_03.md",
+        "research/returns/reader_record_04.md"
+      ],
+      "issue": "Make references scholarly and move hashes/source-line inventories outside the PDF.",
+      "decision": "incorporated",
+      "manuscript_locators": [
+        "docs/reasoning_record.md::Appendix B",
+        "docs/reasoning_record.bib",
+        "docs/expert_companion.bib"
+      ],
+      "rationale": "Natural authors replace raw bibliography keys, exact editions/theorem locators remain, and hash/read-history/source-file notes are removed. Parent preserved original reference prose externally. Source pins remain hidden in URLs and will be refreshed by parent."
+    },
+    {
+      "id": "READ-40",
+      "feedback_sources": [
+        "research/returns/reader_record_01.md",
+        "research/returns/reader_record_03.md",
+        "research/returns/reader_record_04.md"
+      ],
+      "issue": "Improve title, author/date and PDF distribution links/metadata.",
+      "decision": "partially_incorporated_parent_receiving",
+      "manuscript_locators": [
+        "docs/reasoning_record.md::front matter",
+        "all three papers::links"
+      ],
+      "rationale": "New reconstruction title, author/date and abstract are authored. Parent owns renderer metadata, typography, externalizing relative links and final URL binding; author does not claim those checks complete."
+    },
+    {
+      "id": "READ-41",
+      "feedback_sources": [
+        "research/returns/reader_record_03.md",
+        "research/returns/reader_record_04.md"
+      ],
+      "issue": "Update stale historical source header to match current checking evidence.",
+      "decision": "not_a_Lean_change",
+      "manuscript_locators": [
+        "docs/proof_index_intro.md",
+        "docs/verification_details.md"
+      ],
+      "rationale": "No Lean source changes in this reader pass. Historical header/current receipt distinction is preserved externally rather than explained inside a paper. Named-circuit build evidence is not promoted to its own statement comparison."
+    },
+    {
+      "id": "READ-42",
+      "feedback_sources": [
+        "research/returns/reader_record_04.md"
+      ],
+      "issue": "Add numerical examples of the schedule’s initially weak exponent guarantee.",
+      "decision": "retained_with_reason",
+      "manuscript_locators": [
+        "docs/reasoning_record.md::ROOT-GROWING-K"
+      ],
+      "rationale": "The section already says t=80 is finite admissibility, epsilon>=4 is trivial, and asymptotic content is epsilon→0. Added the explicit-rate-versus-diagonal distinction but did not insert a table of astronomically large parameters; parent independently checked the cited arithmetic."
+    },
+    {
+      "id": "READ-43",
+      "feedback_sources": [
+        "research/returns/reader_record_01.md",
+        "research/returns/reader_record_02.md"
+      ],
+      "issue": "Add another conclusion and compress the detailed quantum accounting.",
+      "decision": "retained_with_reason",
+      "manuscript_locators": [
+        "docs/reasoning_record.md::§5.4, §7.2, §7.3 and §8.15"
+      ],
+      "rationale": "The final fixed-k and growing-k conclusions already state their reach, while the record’s purpose requires recoverable finite accounting. No gate/query ledger or successful-state proof is discarded merely for length. Administrative material is what was relocated."
+    },
+    {
+      "id": "READ-44",
+      "feedback_sources": [
+        "research/returns/reader_record_01.md",
+        "research/returns/reader_record_03.md",
+        "research/returns/reader_record_04.md"
+      ],
+      "issue": "Treat reviewer scores and no-error verdict as acceptance evidence.",
+      "decision": "declined",
+      "manuscript_locators": [
+        "research/adjudication/reader_focused_revision.json"
+      ],
+      "rationale": "Scores are editorial opinions, not proof validation or comprehension evidence. Reviewers’ positive finite calculations are distinguished from full Gaussian proof verification. No blind or human referee validation is claimed."
+    }
+  ],
+  "source_checks": {
+    "git_diff_check": "passed on owned manuscript/bibliography paths at author freeze",
+    "anchors": "No lost explicit anchor in either shorter paper; record plus preserved supplement contains all baseline explicit anchors, passage IDs and claim IDs. No duplicate passage IDs. Claim markers already repeat between catalogue and proof by design.",
+    "math": "Exact finite caps, failure/default exits, conditional label law, one-circuit definition, fixed/growing-k split and original-law joint cap event preserved. Square-root objection withdrawn, not repaired.",
+    "limits": "No Lean change or new Lean build claimed; no full proof revalidation; parent final render, links, generated maps and regression checks pending."
+  },
+  "receiving_corrections": [
+    {
+      "issue": "An external specialist Appendix E locator was overbroadly remapped as local Appendix D.",
+      "repair": "Restored expert Appendix E in record-reading-routes before renewed freeze."
+    },
+    {
+      "issue": "Uniform theorem summary must state integer parameters and k>=2.",
+      "repair": "Added integers k>=2,t>=0 to proof-index introductory entry before renewed freeze."
+    },
+    {
+      "issue": "Removing literal QLe syntax concatenated TeX iff with q.",
+      "repair": "Inserted the required space in \\iff q; searched command names in changed prose, with no other concatenated command found."
+    }
+  ]
+}

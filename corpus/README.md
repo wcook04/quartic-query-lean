@@ -84,7 +84,9 @@ writes `comparator_map.json`, which lists every block of every Challenge used by
 configuration with its line range and SHA-256. Each declaration carries its corpus
 statement IDs, the reasoning-record passages that state or mention it, and a
 `primary_gloss` quoted exactly from one of them with the passage and excerpt
-hashes. A declaration with no passage is marked as a gap rather than glossed.
+hashes. Each passage carries its source path and local line numbers: mathematical
+arguments remain in the reconstruction, while the catalogue and historical
+verification record live in the linked supplement. A declaration with no passage is marked as a gap rather than glossed.
 
 A block's `comparison.credit` is `direct` for a configured theorem name,
 `statement_dependency` for a definition a configured statement depends on, and

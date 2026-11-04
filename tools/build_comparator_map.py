@@ -197,7 +197,7 @@ def closure(roots, edges, local_edges):
 
 # ------------------------------------------------------------- record passages
 
-def record_passages(record_text, correspondence):
+def record_passages(record_text, correspondence, source_path="docs/reasoning_record.md"):
     """Return verified passages keyed by anchor, with claim segments and line numbers."""
     expected = {p["id"]: p for p in correspondence["passages"]}
     passages, mismatched = {}, []
@@ -205,7 +205,8 @@ def record_passages(record_text, correspondence):
         anchor, body = found.group(1), found.group(2)
         start_line = record_text.count("\n", 0, found.start(2)) + 1
         digest = sha256(body)
-        if anchor not in expected or expected[anchor]["sha256"] != digest:
+        if (anchor not in expected or expected[anchor]["sha256"] != digest
+                or expected[anchor].get("path", "docs/reasoning_record.md") != source_path):
             mismatched.append(anchor)
             continue
         claims = {}
@@ -213,7 +214,7 @@ def record_passages(record_text, correspondence):
         for n, marker in enumerate(markers):
             stop = markers[n + 1].start() if n + 1 < len(markers) else len(body)
             claims.setdefault(marker.group(1), (marker.end(), stop))
-        passages[anchor] = {"body": body, "body_offset": found.start(2), "line_start": start_line,
+        passages[anchor] = {"body": body, "path": source_path, "body_offset": found.start(2), "line_start": start_line,
                             "line_end": record_text.count("\n", 0, found.end(2)) + 1,
                             "sha256": digest, "claims": expected[anchor]["claims"],
                             "claim_segments": claims}
@@ -228,9 +229,9 @@ def excerpt(record_text, passage, start, stop):
     while stop > start and body[stop - 1].isspace():
         stop -= 1
     text = body[start:stop]
-    first = passage["body_offset"] + start
-    return {"line_start": record_text.count("\n", 0, first) + 1,
-            "line_end": record_text.count("\n", 0, first + len(text)) + 1,
+    return {"path": passage.get("path", "docs/reasoning_record.md"),
+            "line_start": passage["line_start"] + body.count("\n", 0, start),
+            "line_end": passage["line_start"] + body.count("\n", 0, stop),
             "excerpt_sha256": sha256(text), "excerpt": text}
 
 
@@ -335,7 +336,18 @@ def build():
     record_bytes = RECORD.read_bytes()
     record_text = record_bytes.decode("utf-8")
     correspondence = json.loads(CORRESPONDENCE.read_text(encoding="utf-8"))
-    passages, mismatched = record_passages(record_text, correspondence)
+    passages, mismatched = {}, []
+    record_sources = correspondence.get("sources", {rel(RECORD): sha256(record_bytes)})
+    for source_path, digest in record_sources.items():
+        source = (ROOT / source_path).read_bytes()
+        if sha256(source) != digest:
+            raise ValueError(f"stale correspondence source: {source_path}")
+        found, errors = record_passages(source.decode("utf-8"), correspondence, source_path)
+        if set(found) & set(passages):
+            raise ValueError("duplicate passage across record sources")
+        passages.update(found)
+        mismatched.extend(errors)
+    mismatched.extend(set(p["id"] for p in correspondence["passages"]) - set(passages))
     dependencies = json.loads(DEPENDENCIES.read_text(encoding="utf-8"))
     edges = dependencies["edges"]
     known = set(dependencies["declared"]) | set(edges)
@@ -356,6 +368,7 @@ def build():
 
     challenges, declarations = [], {}
     inputs = {rel(p): sha256(p.read_bytes()) for p in (STATEMENT, RECORD, CORRESPONDENCE, STATEMENTS, DEPENDENCIES)}
+    inputs.update(record_sources)
     for path in sorted({config["challenge"] for config in configs}):
         file = ROOT / path
         text = file.read_text(encoding="utf-8")
@@ -484,6 +497,7 @@ def build():
                 seen.add(key)
                 passage = passages[reference["anchor"]]
                 unique.append({**reference, "passage_sha256": passage["sha256"],
+                               "path": passage["path"],
                                "passage_lines": [passage["line_start"], passage["line_end"]]})
         info["record_references"] = unique
         info["primary_gloss"] = primary_gloss(record_text, passages, unique, mentions.get(name, {}),
@@ -507,6 +521,7 @@ def build():
         },
         "inputs": dict(sorted(inputs.items())),
         "record": {"path": rel(RECORD), "sha256": sha256(record_bytes),
+                   "sources": record_sources,
                    "passages_verified": len(passages), "passages_in_correspondence": len(correspondence["passages"]),
                    "passage_hash_mismatches": sorted(mismatched)},
         "dependency_export": {"path": rel(DEPENDENCIES),

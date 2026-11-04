@@ -16,6 +16,7 @@ paper, DIR is that paper's folder.
 import argparse
 import hashlib
 import json
+import re
 from pathlib import Path
 import shutil
 import subprocess
@@ -105,8 +106,7 @@ HEADER_EXTRA = {
 LUA_TABLE = r"""
 function Link(el)
   if pandoc.utils.stringify(el.content) == el.target and el.target:match("^https://github.com/") then
-    local path = el.target:match("/([^/]+)$") or "source"
-    el.content = {pandoc.Str("Source: " .. path)}
+    el.content = {pandoc.Str("Online source")}
   end
   return el
 end
@@ -217,7 +217,7 @@ def run(argv, cwd=None, log=None):
     return result
 
 
-def build_figures(paper, out):
+def build_figures(paper, out, *, write_svg=True):
     """Compile the paper's figures into out/figures and write SVGs beside the sources."""
     source, names = FIGURES[paper]
     figdir = out / "figures"
@@ -228,7 +228,8 @@ def build_figures(paper, out):
             shutil.copy(source / "style.tex", figdir)
         run(["tectonic", "--outdir", str(figdir), str(figdir / f"{name}.tex")],
             cwd=figdir, log=figdir / f"{name}.log")
-        run(["pdftocairo", "-svg", str(figdir / f"{name}.pdf"), str(source / f"{name}.svg")])
+        if write_svg:
+            run(["pdftocairo", "-svg", str(figdir / f"{name}.pdf"), str(source / f"{name}.svg")])
     return figdir
 
 
@@ -280,6 +281,15 @@ def render(paper, out):
         tex, name = out / "exposition.tex", "exposition"
         workdir, tectonic_out = DOCS, out
     run(pandoc_command(paper, out, figdir, tex), cwd=workdir, log=out / "pandoc.log")
+    if paper == "exposition":
+        # The tall planted-pair diagram needs a float: forcing it in place
+        # strands half a page between the reduction setup and its argument.
+        text = tex.read_text()
+        text, count = re.subn(r"\\begin\{figure\}(?=\s*\\centering\s*\\includegraphics[^\n]*fig4_planted\.pdf)",
+                              lambda _: r"\begin{figure}[!t]", text)
+        if count != 1:
+            raise RuntimeError("expected one maintained planted-pair figure")
+        tex.write_text(text)
     run(["tectonic", "--keep-logs", "--outdir", str(tectonic_out), str(tex)],
         cwd=out if paper == "exposition" else None, log=out / "tectonic.log")
     if paper == "expert":

@@ -47,13 +47,18 @@ import build_comparator_map  # noqa: E402
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "docs/lean_links.json"
 COMPARATOR_MAP = ROOT / "corpus/comparator_map.json"
-PAPERS = ["docs/expert_companion.md", "docs/exposition.md", "docs/reasoning_record.md"]
+PAPERS = ["docs/expert_companion.md", "docs/exposition.md", "docs/reasoning_record.md",
+          "docs/verification_details.md"]
+PROOF_INDEX = ROOT / "docs/proof_index.md"
+INDEX_INTRO = ROOT / "docs/proof_index_intro.md"
+SUPPLEMENT = "docs/verification_details.md"
 RECORD_BIBLIOGRAPHIES = ["docs/expert_companion.bib"]
 SCHEMA = "quartic-lean-links-v1"
 REPOSITORY = "https://github.com/wcook04/quartic-query-lean"
 # The commit the papers describe. Every pinned link resolves against this tree.
 COMMIT = "8357f268732746d1575e05e7de8c888e20ad3793"
 RECORD_COMMIT = "d34580e91d9c32e06194edbdb428e6e280ffba57"
+INDEX_COMMIT = "main"
 BEGIN, END = "<!-- lean-links -->", "<!-- /lean-links -->"
 USE = re.compile(r"\]\[([A-Za-z0-9][A-Za-z0-9-]*)\]")
 # The record edition is independent of the Lean source edition.
@@ -499,6 +504,20 @@ def render(value):
     return json.dumps(value, indent=1, ensure_ascii=False) + "\n"
 
 
+def reader_index(links):
+    """Human projection of the same source registry; no new verification claims."""
+    intro = INDEX_INTRO.read_text(encoding="utf-8").rstrip()
+    intro = re.sub(r"\[([^\]]+)\]\[([A-Za-z0-9-]+)\]",
+                   lambda m: f"[{m.group(1)}]({links[m.group(2)]['url']})", intro)
+    lines = [intro, "", "The [machine-readable index](lean_links.json) and "
+             "[statement correspondence](../corpus/comparator_map.json) retain exact identifiers and checks.", ""]
+    for label, entry in links.items():
+        lines += [f'<a id="{label}"></a>',
+                  f"### {entry['reader_name'][0].upper() + entry['reader_name'][1:]}", "",
+                  f"[Read the source]({entry['url']})", ""]
+    return "\n".join(lines)
+
+
 def paper_block(text, links, paper):
     # Every `][label]` use needs a definition: from the registry, or written by hand
     # elsewhere in the paper.
@@ -526,15 +545,22 @@ def pin_record_links(text, paper):
         raise SystemExit(f"{RECORD} is absent at {RECORD_COMMIT[:12]}")
     known = record_anchors(record)
     missing = sorted({m.group(2) for m in RECORD_LINK.finditer(text) if m.group(2)} - known)
+    relocated = set()
     if missing:
-        raise SystemExit(f"{paper}: record anchors absent at {RECORD_COMMIT[:12]}: {', '.join(missing)}")
-    return RECORD_LINK.sub(lambda m: f"{REPOSITORY}/blob/{RECORD_COMMIT}/{RECORD}"
+        _, supplement = at_commit(SUPPLEMENT, INDEX_COMMIT)
+        relocated = set(missing) & record_anchors(supplement or "")
+        missing = sorted(set(missing) - relocated)
+        if missing:
+            raise SystemExit(f"{paper}: record anchors absent at {RECORD_COMMIT[:12]}: {', '.join(missing)}")
+    return RECORD_LINK.sub(lambda m: f"{REPOSITORY}/blob/"
+                           + (f"{INDEX_COMMIT}/{SUPPLEMENT}" if m.group(2) in relocated
+                              else f"{RECORD_COMMIT}/{RECORD}")
                            + (f"#{m.group(2)}" if m.group(2) else ""), text)
 
 
 def updated_paper(paper, links):
     text = (ROOT / paper).read_text(encoding="utf-8")
-    if paper != RECORD:
+    if paper not in (RECORD, SUPPLEMENT):
         text = pin_record_links(text, paper)
     pattern = re.compile(re.escape(BEGIN) + r".*?" + re.escape(END), re.S)
     body = pattern.sub("", text)
@@ -551,6 +577,8 @@ def main():
     args = parser.parse_args()
     registry, unpinned = build()
     outputs = {OUTPUT: render(registry)}
+    if INDEX_INTRO.exists():
+        outputs[PROOF_INDEX] = reader_index(registry["links"])
     for paper in PAPERS:
         outputs[ROOT / paper] = updated_paper(paper, registry["links"])
     for bibliography in RECORD_BIBLIOGRAPHIES:

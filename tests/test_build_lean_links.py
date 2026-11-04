@@ -29,6 +29,18 @@ end Top
 
 
 class LeanLinksTests(unittest.TestCase):
+    def test_reader_index_resolves_natural_names_to_the_registry(self):
+        with tempfile.TemporaryDirectory() as folder:
+            intro = Path(folder) / "intro.md"
+            intro.write_text("# Results\n\nThe [family theorem][family].\n\n## Source directory\n")
+            links = {"family": {"reader_name": "the family theorem", "url": "https://example.org/pinned/proof#L4-L9"}}
+            with mock.patch.object(MODULE, "INDEX_INTRO", intro):
+                rendered = MODULE.reader_index(links)
+            self.assertIn("[family theorem](https://example.org/pinned/proof#L4-L9)", rendered)
+            self.assertIn('<a id="family"></a>', rendered)
+            self.assertEqual(rendered.count("## Source directory"), 1)
+            self.assertIn("lean_links.json", rendered)
+
     def test_theorem_link_stops_at_statement(self):
         self.assertEqual(MODULE.locate(SOURCE, ["Top.size_pos"], "x"), (7, 8))
 

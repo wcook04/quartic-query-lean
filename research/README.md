@@ -159,3 +159,8 @@ The [further R10 refinement](adjudication/round10_further_revision.md) applies
 three sequential reassessment transcripts. Its
 [literature comparison](adjudication/round10_further_literature.json) distinguishes
 passages actually read from the separate annex integrity audit.
+
+The [reader-focused revision](adjudication/reader_revision.md) applies twelve
+sequential assessments and the requested separation of mathematical reading
+from verification evidence. The original feedback is retained in `returns/`;
+individual decisions and final validation belong to the linked revision account.

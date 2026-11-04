@@ -92,3 +92,7 @@ current manuscript decisions and validation.
 The [expert return](round10/README.md) is preserved with all 34 members and its
 archive hash. The two later returns add 197 preserved files; their custody and edition limits are recorded in the same guide. Maintained
 [decisions](../adjudication/round10_revision.md) are separate from submitted advice.
+
+## Successive reader assessments
+
+The twelve `reader_expert_*`, `reader_exposition_*` and `reader_record_*` text files preserve four successive assessments of each revised paper. The [intake record](../adjudication/reader_revision_intake.json) identifies the original bytes; the [revision](../adjudication/reader_revision.md) records decisions. Later retractions qualify earlier criticism; these are advisory readings, not independent proof certifications.

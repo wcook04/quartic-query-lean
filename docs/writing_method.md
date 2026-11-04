@@ -50,12 +50,12 @@ learning.
 
 Report formalisation with readable links and a precise statement of any
 material mathematical difference. Put declaration-level comparisons, ordinary
-transport, execution receipts and their limits in the record's statement audit.
+transport, execution receipts and their limits in the linked verification reference.
 An endpoint correspondence does not certify every step of the printed proof.
 The [statement evidence contract](statement_evidence_contract.md) governs those
 claims; a one-page appendix quota does not.
 
-The record's formal appendix is still a reading surface. Use full-width
+The linked verification reference is itself a reading surface. Use full-width
 scholarly paragraphs for explanations of hypotheses, transport and checking
 scope. Keep a table when its entries are compact, genuinely comparative and
 readable at the final size. Inspect wrapping and density, not only whether
@@ -70,6 +70,14 @@ route applies to the record as to the companions. A raw-identifier paragraph
 is not an adequate repair for a cramped table. The round-seven correction
 reopens the rejected G.4 acceptance and requires the receiving editor to
 inspect the repaired pages and link destinations.
+
+## Current reading-edition boundary
+
+The papers carry the mathematics. The proof index carries natural-language summaries and links to substantive formal proofs; machine-readable mappings retain identifiers, paths, versions and checks. Historical verification material lives in its own reference, not in printed appendices added by default.
+
+Apply reviewer requests for traceability at the appropriate destination. A request for exact theorem names, source hashes or run history is usually a request to improve the linked index. Keep only the mathematical model, theorem scope and genuine correspondence limitation in the paper. Check actual rendered text for leaked filenames, hashes, declaration names and workflow labels; clickable destinations can preserve them without printing them. A source-only index or a wrapper ending in a placeholder statement does not answer a reader looking for the proof: provide both the specification and the substantive implementation, labelled by role.
+
+This corrects a failure to apply the existing upstream rule, rather than inventing a new writing principle. The expert paper and long account are two applications; a reproducibility or systems paper is an exception when the checking process itself is the subject.
 
 ## Round-eight refinements
 

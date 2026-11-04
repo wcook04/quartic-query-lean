@@ -75,6 +75,8 @@ Appendix A. Lemma 4.1 uses an induction on sub-distributions in place of the
 supermartingale. [The contract](docs/statement_evidence_contract.md) explains how
 statements and proofs stay aligned as derivations improve.
 
+The [proof index](docs/proof_index.md) gives readable mathematical descriptions and links to the formal statements and their proofs. The [verification reference](docs/verification_details.md) keeps the detailed checking history outside the papers.
+
 ## Repository map
 
 | Path | Purpose |

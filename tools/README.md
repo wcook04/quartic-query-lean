@@ -189,7 +189,7 @@ Freeze the intended Lean inputs before recording evidence:
 | `python3 tools/run_comparator.py` | Runs each bundle and negative control and writes receipts. |
 | `python3 tools/build_corpus.py` | Regenerates the corpus from the ledger, ties and receipts. |
 | `python3 tools/build_comparator_map.py` | Regenerates `corpus/comparator_map.json`, the Challenge-to-record reading map. Run after the corpus. |
-| `python3 tools/build_lean_links.py` | Regenerates `docs/lean_links.json` and the Lean link definitions at the end of the expert companion, the exposition and the reasoning record. `COMMIT` selects Lean sources; `RECORD_COMMIT` independently selects the record edition for shorter-paper and bibliography links. |
+| `python3 tools/build_lean_links.py` | Regenerates the human-readable `docs/proof_index.md` from its authored introduction, `docs/lean_links.json`, and the Lean link definitions at the end of the expert companion, the exposition, reasoning record and verification reference. `COMMIT` selects Lean sources; `RECORD_COMMIT` independently selects the record edition for shorter-paper and bibliography links. |
 
 After revising the record, run `rebind_record_passages.py --report PATH` and
 `build_comparator_map.py`. Commit the record, then update `RECORD_COMMIT` and
@@ -460,3 +460,5 @@ equality and changed threshold cases must be rejected with their intended
 diagnostics; an unrelated build failure does not count. Outcomes and the
 remaining evidence boundaries are in the
 [formal adjudication](../research/adjudication/round3_formal.md).
+
+The passage rebinder and Comparator map read both the mathematical account and its verification reference. Each passage and excerpt retains its actual file path and local line range. Moving an appendix changes its location, not its mathematical or checking status.

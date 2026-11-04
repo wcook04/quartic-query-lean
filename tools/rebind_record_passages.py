@@ -2,7 +2,9 @@
 """Rebind docs/reasoning_record_correspondence.json to an edited record.
 
 The correspondence binds every `<!-- passage:ID -->` body of the record by line
-range and SHA-256, and binds the whole record and its bibliography by hash. After
+range and SHA-256, and binds the whole record and its bibliography by hash.
+Passages relocated into the verification supplement retain their identities,
+with the owning file and its local lines recorded explicitly. After
 an editorial revision this recomputes those bindings. It never changes which
 claims the record carries: an existing passage keeps its reviewed claim list,
 except that a claim whose `<!-- claim:ID -->` marker the revision moved into
@@ -25,6 +27,7 @@ from build_comparator_map import CLAIM, PASSAGE  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 RECORD = ROOT / "docs/reasoning_record.md"
+SUPPLEMENT = ROOT / "docs/verification_details.md"
 BIB = ROOT / "docs/reasoning_record.bib"
 CORRESPONDENCE = ROOT / "docs/reasoning_record_correspondence.json"
 
@@ -41,17 +44,22 @@ def main():
     data = json.loads(CORRESPONDENCE.read_text(encoding="utf-8"))
     old = {p["id"]: p for p in data["passages"]}
     found = {}
-    for match in PASSAGE.finditer(text):
-        ident, body = match.group(1), match.group(2)
-        if ident in found:
-            raise SystemExit(f"duplicate passage {ident}")
-        found[ident] = {"id": ident,
-                        "line_start": text.count("\n", 0, match.start(2)) + 1,
-                        "line_end": text.count("\n", 0, match.end(2)) + 1,
-                        "claims": old[ident]["claims"] if ident in old else [],
-                        "sha256": sha256(body)}
-    markers = {ident: {m.group(1) for m in CLAIM.finditer(body.group(2))}
-               for body in PASSAGE.finditer(text) for ident in [body.group(1)]}
+    sources = {RECORD: text}
+    if SUPPLEMENT.exists():
+        sources[SUPPLEMENT] = SUPPLEMENT.read_text(encoding="utf-8")
+    markers = {}
+    for source, source_text in sources.items():
+        for match in PASSAGE.finditer(source_text):
+            ident, body = match.group(1), match.group(2)
+            if ident in found:
+                raise SystemExit(f"duplicate passage {ident}")
+            found[ident] = {"id": ident,
+                            "path": source.relative_to(ROOT).as_posix(),
+                            "line_start": source_text.count("\n", 0, match.start(2)) + 1,
+                            "line_end": source_text.count("\n", 0, match.end(2)) + 1,
+                            "claims": old[ident]["claims"] if ident in old else [],
+                            "sha256": sha256(body)}
+            markers[ident] = {m.group(1) for m in CLAIM.finditer(body)}
     moved = []
     for ident, passage in found.items():
         for claim in list(passage["claims"]):
@@ -81,6 +89,7 @@ def main():
                   "text_changed passages were reworded and their earlier review covered other words."),
     }
     data["passages"] = [found[i] for i in order]
+    data["sources"] = {p.relative_to(ROOT).as_posix(): sha256(s) for p, s in sources.items()}
     data["record_sha256"] = report["record_sha256"]["after"]
     data["bibliography_sha256"] = report["bibliography_sha256"]["after"]
     CORRESPONDENCE.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

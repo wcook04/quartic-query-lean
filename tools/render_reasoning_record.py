@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render the maintained reasoning record using the preserved round-three layout.
+"""Render the complete reconstruction using the maintained mathematical-paper style.
 
 Requires Pandoc, Tectonic and Poppler. Render only a frozen manuscript; no source
 edits or bibliography rewriting occur. Authored HTML anchors become PDF
@@ -17,6 +17,7 @@ import shutil
 import subprocess
 import tempfile
 import xml.etree.ElementTree as ET
+from render_papers import HEADER, COLOURS, FIGURES, build_figures
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -216,6 +217,20 @@ def write_filters(stage):
     return [layout, navigation]
 
 
+def maintained_figures(nodes, source):
+    images = {node["c"][2][0] for node in nodes if node.get("t") == "Image"}
+    figure_groups = {}
+    for image in images:
+        file = (source.parent / image).resolve()
+        matches = [(kind, folder, names) for kind, (folder, names) in FIGURES.items()
+                   if file.parent == folder and file.stem in names and file.suffix == ".svg"]
+        if len(matches) != 1:
+            raise ValueError(f"record figure needs a maintained figure source: {image}")
+        kind, folder, names = matches[0]
+        figure_groups[kind] = (folder, names)
+    return images, figure_groups
+
+
 def navigation_inputs(ast, source):
     """Check anchors and links before rendering; refuse an unreviewed directory link."""
     nodes = list(walk(ast))
@@ -307,6 +322,7 @@ def main():
         parser.error("Pandoc citation nodes found: supply --bibliography or manuscript bibliography metadata")
     try:
         navigation = navigation_inputs(ast, source)
+        images, figure_groups = maintained_figures(nodes, source)
     except ValueError as error:
         parser.error(str(error))
     receipt = {
@@ -320,6 +336,7 @@ def main():
         "layout_sources": {str(LAYOUT / name): digest(LAYOUT / name)
                            for name in ("render_section.py", "pdf_header.tex", "pdf_layout.lua")},
         "adaptation": ["Tectonic replaces unavailable XeLaTeX; original Pandoc layout filter and header reused.",
+                       "Shared short-paper typography, muted link colours and maintained certificate-column figure are reused.",
                        "Both dollar and single-backslash TeX math are parsed as math.",
                        "Latin Modern default text and the original DejaVu Sans Mono font file are selected through TeX packages.",
                        "Submitted Code break treatment extends to all identifiers and source-type spans without changing text.",
@@ -333,6 +350,12 @@ def main():
                   for name, path in binaries.items() if name in {"pandoc", "tectonic"}},
         "visual_acceptance": "pending_page_image_review",
     }
+    # Reuse the companion papers' actual style and TikZ sources, and bind them.
+    receipt["layout_sources"][str(ROOT / "tools/render_papers.py")] = digest(ROOT / "tools/render_papers.py")
+    for folder, names in figure_groups.values():
+        for path in [folder / (name + ".tex") for name in names] + [folder / "style.tex"]:
+            if path.exists():
+                receipt["layout_sources"][str(path)] = digest(path)
     if args.preflight_only:
         print(json.dumps(receipt, indent=2))
         return 0
@@ -348,10 +371,20 @@ def main():
         stage = Path(temporary)
         shutil.copyfile(LAYOUT / "pdf_header.tex", stage / "pdf_header.tex")
         write_filters(stage)
+        image_paths = {}
+        for kind in figure_groups:
+            compiled = build_figures(kind, output / kind, write_svg=False)
+            for image in images:
+                if (source.parent / image).resolve().parent == FIGURES[kind][0]:
+                    image_paths[image] = str(compiled / (Path(image).stem + ".pdf"))
+        image_filter = stage / "pdf_images.lua"
+        entries = ",\n".join(f"[{json.dumps(k)}] = {json.dumps(v)}" for k, v in image_paths.items())
+        image_filter.write_text("local paths = {" + entries + "}\nfunction Image(el)\n"
+                                "  el.src = paths[el.src] or el.src\n  return el\nend\n")
         # A text subscript occurs outside math in a retained source title. Keep
         # its printed meaning using LaTeX's actual subscript command.
         with (stage / "pdf_header.tex").open("a") as handle:
-            handle.write("\n\\usepackage{newunicodechar}\n"
+            handle.write(HEADER + "\n\\usepackage{newunicodechar}\n"
                          "\\usepackage{etoolbox}\n"
                          "\\emergencystretch=6em\n"
                          "\\AtBeginEnvironment{quote}{\\sloppy}\n"
@@ -364,10 +397,11 @@ def main():
         argv = [binaries["pandoc"], source, "--from=" + READER, "--standalone", "--to=latex",
                 "--lua-filter=" + str(stage / "pdf_layout.lua"),
                 "--lua-filter=" + str(stage / "pdf_navigation.lua"),
+                "--lua-filter=" + str(image_filter),
                 "--include-in-header=" + str(stage / "pdf_header.tex"),
                 "-V", "monofont=DejaVuSansMono.ttf",
                 "-V", "fontsize=11pt", "-V", "geometry:margin=24mm",
-                "-V", "colorlinks=true", "-V", "urlcolor=blue", "-o", tex]
+                *COLOURS, "-o", tex]
         if citations:
             argv.append("--citeproc")
         for bibliography in bibliographies:
