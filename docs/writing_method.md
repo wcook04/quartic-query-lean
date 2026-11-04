@@ -24,7 +24,7 @@ Open with the mathematical task, the result's scope and its decisive mechanism.
 Give credit where a result or construction enters. Introduce detailed historical
 parameter calculations and refined constants when the objects make them useful.
 In the exposition, work an actual small transition before requiring the general
-operation; retain a familiar supplier's contract and send optional numerical
+operation; state the needed partial-function properties and send optional numerical
 derivations to their exact record destination. Expansion is justified by a
 missing inference, and relocation by a change in reader task. Neither length
 nor the number of revised sentences measures success.
@@ -334,3 +334,32 @@ that preserves mathematical meaning. The register stage, all three authoring
 skills and reader review consume it. [PR 49](https://github.com/wcook04/lean-exposition/pull/49)
 also makes the opening, argument and ending deliverables explicit for each
 paper type and requires accumulated feedback to inform their selection.
+
+## Composition after accumulated revisions
+
+The next revision applies lean-exposition's shared composition rule at
+`527796f`, extending the existing three-paper purposes rather than introducing
+another rubric. The application and transfer cases are recorded in
+[the revision decisions](../research/adjudication/paper_purpose_revision.md#composition-revision-after-d71775a).
+
+At a difficult transition, identify the question already established by the
+argument and the fact that answers it. Distinguish that fact from the derivation
+of an implementation guarantee. Keep the decisive inference at its use; give
+a supporting derivation an exact statement and a reachable proof destination.
+In the specialist paper this protects the reduction. In the exposition it
+protects the operation the reader must learn. In the complete record it preserves
+a continuous argument while retaining every substantial proof.
+
+Apply this distinction to the actual text. The conditional sampling calculation
+belongs in the teaching argument, while its repetition-count derivation can
+follow in the supporting calculations. The classical simulator needs the exact
+capped direct-product lemma before applying it; the lemma's proof can follow the
+simulator. A proof must stay nearby when comparing its mechanism with the first
+proof is itself the paper's purpose. Relocation is not a general preference for
+appendices.
+
+After moving a proof, read through its next use and its return instruction.
+Check local section numbers separately from locators in cited papers. Inspect
+page transitions and preserve a short theorem, algorithm or parameter table as
+a reading unit when the layout allows. A successful link check cannot detect
+a direction that now sends the reader to the wrong stage of the argument.

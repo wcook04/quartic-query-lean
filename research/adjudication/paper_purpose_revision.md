@@ -221,3 +221,80 @@ reading transitions checked at readable size. Final link pinning left every
 short-paper page pixel-identical to the inspected render. Repository checks ran
 267 tests with two skips and no failures. No Lean theorem source changed and no
 Lean rebuild or independent mathematical refereeing is claimed.
+
+## Composition revision after d71775a
+
+This is a further authoring pass over the published 19/27/96-page edition,
+requested on 4 November 2026. The earlier validation above remains evidence for
+that earlier edition. This pass is agent editorial work, not independent human
+refereeing, measured reader learning, or a numerical quality rating.
+
+The supplied reviews were treated as diagnoses of reader difficulties. The
+specialist needed a shorter route through the two reductions; the learner needed
+the sampling operation before its implementation; the record needed a continuous
+classical proof and a clearer reason for the martingale calculation. The
+fixed-parameter threshold and the exponent of the displayed nested-search
+construction were retained, for the mathematical reasons already recorded above.
+
+### Decisions in the three accounts
+
+| Passage | Reader task and decision |
+| --- | --- |
+| Specialist opening and §3 | State what the reconstruction explains; consolidate repeated forecasts of the tournament proof. Keep the halving identity and exact conditional law locally assessable. |
+| Specialist §4 | Put the direct-product guarantee beside its use and explain why a cell query predicts the address. Retain the whole-run event and the simulator's two counters. |
+| Specialist appendices | Move the fractional-weight table and formal correspondence discussion out of the main reductions. Preserve their calculations and exact qualifications. |
+| Exposition §3 | State the decoder and exact-circuit guarantees before their arithmetic. Move the Chernoff calculation and circuit-length accounting intact to Appendix A. |
+| Exposition §4 | Consolidate the conditional sampling argument into a lemma. Give the plane-rotation proof before reversible preparation and finite repetition caps. Preserve fresh trials and the zero-success case. |
+| Exposition §5 and appendices | Keep the verifier's guarantee in the main proof; place full controlled-query bookkeeping with the oracle implementation. Move the projection exercise and formal-proof navigation after the central argument. |
+| Record §5 and Appendix E | Keep the exact amplification statement with its consumers; retain the full all-branch-cap and retained-state proofs in Appendix E. Preserve the alternative acceptance-probability induction there. |
+| Record §6 | Order the proof by hard law, coupled inputs, erased-zero estimate, capped simulator, direct-product proof and final contradiction. State the direct-product lemma at the simulator's use. |
+| Record §§8.9–8.10 | Name the common random bias before summing path derivatives. Explain revealed centered monomials, fresh-query increments, stopping, and the terminal polynomial's representation of a signed derivative sum. |
+| Retained material | Keep the concrete boards, transcript induction, query-model conventions, independent side information, original-law joint events, fixed/growing-parameter distinction, source comparisons, and exact error bounds. These prevent specific mathematical misreadings. |
+
+The sequential page review covered all three accounts, including appendices,
+references and captions. It led to local repairs: a split short theorem, a
+figure interrupting the specialist's proof, a split simulator procedure, a split
+finite-parameter table, and stale reading directions after relocation. No visual
+asset was invented; the existing renderer and figures were reused.
+
+### Literature and language
+
+The pass reopened Aaronson–Ben-David–Kothari's technique overview (§1.2,
+arXiv:1511.01937v2), Ben-David–Kothari's abstract and concrete function definition
+(arXiv:2609.15063v1, retained TeX lines 86–123), and
+Ambainis–Iraids–Kokainis's quantum procedure and candidate invariant
+(arXiv:2609.11664v3, retained TeX lines 557–585). Their relevant practices are
+concrete: make the certification problem motivate the array; define what an
+algorithm returns before estimating its cost; give the invariant next to the
+procedure. The revision adapts these practices without borrowing sentences or
+assuming that matching a named author's voice establishes quality.
+
+Before/after register comparisons use the previous edition's retained TeX
+profiles, with the same genre limitations: two related research papers for the
+specialist and record, one de Wolf lecture-note source for the exposition.
+PDF extraction was used only for qualitative reading. The comparisons and
+baseline manuscripts are retained with the delivered PDFs under `register/`.
+Sentence-length movement is small; the substantive changes concern order and
+allocation. Flagged semicolons separating algorithm steps and negations that
+state off-promise or conditioning restrictions were deliberately retained.
+The profiler's apparatus and stock-lexicon rates are zero in both editions;
+these results do not measure mathematical understanding.
+
+### Propagation and transfer
+
+The existing shared authoring ontology, reader review, and all three transition
+skills are updated in lean-exposition commit `527796f`, based on merged PR 49.
+They distinguish the decisive inference, the guarantee needed at its use, and
+the derivation implementing that guarantee. They also require a reverse outline
+when successive revisions have accumulated repeated explanations, and a reading
+of the actual PDF transition after relocation.
+
+Two differently shaped applications test that distinction. In the teaching
+paper, the sampling-law proof stays in the main argument while the Chernoff and
+integer-circuit accounting move to supporting calculations. In the long record,
+the probability-space construction comes before the simulator; the exact
+product bound appears at the simulator and its complete proof follows. The
+exception is equally concrete: moving the plane-rotation argument out of this
+exposition would hide the operation the paper promises to teach. Likewise, a
+paper whose contribution is a comparison of two proofs should keep those proofs
+adjacent. This is editorial transfer evidence, not a reader study.

@@ -11,7 +11,7 @@ link-citations: true
 
 OpenAI proved that four is the optimal power relating randomized and quantum query complexity of total Boolean functions [@OpenAI2026, Theorem 1.1].[^ai] This exposition explains the construction through a four-column board. The difficulty is to hide a certificate from a classical algorithm without making a quantum algorithm pay for a full certificate check at every candidate. The solution separates comparison from verification.
 
-We assume finite-dimensional linear algebra, elementary conditional probability and asymptotic notation. We will develop the quantum operations needed for the argument. The aim is to understand how the same input permits a quantum search of cost about $\sqrt m$ but forces nearly $m^2$ classical queries.
+The intended reader knows finite-dimensional linear algebra, conditional probability and asymptotic notation, and is comfortable following algorithms and their error estimates. We develop the quantum operations used here, starting with an eight-bit calculation. By the end, the reader should be able to derive the tournament’s sampling law, carry out the classical prediction reduction, and explain why their costs approach a fourth-power separation.
 
 **What a query costs.** Suppose four hidden bits are $0010$, and we want to know whether any is $1$. Reading positions $1$, $2$ and $3$ answers yes after three queries; the same procedure needs four queries on $0000$. A query reads one input bit. Computation between queries, memory and the choice of the next position are free. A randomized algorithm may use coins; a quantum algorithm may apply the bit-reading operation to a superposition of positions. Section 1 gives that linear-algebra rule. We count calls to this access operation, not the time to build an oracle or perform the intervening computation.
 
@@ -80,7 +80,7 @@ Before applying the final $H$, measuring whether the displayed state lies along 
 $$
 \bigl|u^{\mathsf T}D_{z_1}HD_{z_2}u\bigr|^2=\Phi^2.
 $$
-A final $H$ sends $u$ to $|00\rangle$, so measuring the computational basis and asking for outcome $00$ performs this test. We call that event projection success, distinct from correctly decoding $P$. This **projection experiment** uses two queries. On $a^+$, $a^0$, $a^-$ its success probabilities are $1$, $0$, $1$. It distinguishes the two promised examples perfectly. Near the promise thresholds, however, the two success probabilities are small and close. Repeated trials separate them, with a cost depending strongly on $k$ but not on the block length $m$. This is the sense in which the decoder will be cheap. **Projection check.** For $1111\,1000$, calculate the signed amplitude $\Phi$ and then the projection probability. These are different quantities. The [answer](#answer-projection) is separated from the attempt. Section 3 repeats the experiment to separate the two sides of the promise.
+A final $H$ sends $u$ to $|00\rangle$, so measuring the computational basis and asking for outcome $00$ performs this test. We call that event projection success, distinct from correctly decoding $P$. This **projection experiment** uses two queries. On $a^+$, $a^0$, $a^-$ its success probabilities are $1$, $0$, $1$. It distinguishes the two promised examples perfectly. Near the promise thresholds, however, the two success probabilities are small and close. Repeated trials separate them, with a cost depending strongly on $k$ but not on the block length $m$. This is the sense in which the decoder will be cheap. Section 3 repeats the experiment to separate the two sides of the promise.
 
 The experiment accepts $a^-$ with certainty, just as it accepts $a^+$. This is allowed for $P$, whose promise excludes $a^-$. It matters as soon as $P$ sits inside a total function, which must answer on every input: there a cheap quantum test may accept an input that an exact certificate has to reject.
 
@@ -165,18 +165,7 @@ $$
 $$
 and $P_{k,m}$ is $1$ when $\Phi\ge\delta$, $0$ when $|\Phi|\le\delta/2$, and undefined otherwise [@BansalSinha2021]. Since $H$ and each $D_z$ preserve length, $|\Phi|\le1$.
 
-*A cheap quantum decoder.* For any requested error $0<\eta<1/2$, the projection experiment of Section 1 extends to every $k$. Phase kickback uses one query per sign diagonal, so a trial uses $k$ queries and has projection probability $p=\Phi^2$. On the promise, either $p\ge c=\delta^2$ or $p\le c/4$. Start each trial in fresh registers and repeat independently
-$$
-\rho=\lceil16c^{-1}\ln(1/\eta)\rceil
-$$
-times; accept if at least $\rho c/2$ projections succeed. We use the following standard Chernoff estimates for the number $Z$ of successes in these independent Bernoulli trials:
-
-| Promised case | Wrong decision | Tail bound used |
-| --- | --- | --- |
-| $p\ge c$ | $Z<\rho c/2$ | At most $\exp(-\rho c/8)$, hence at most $\exp(-\rho c/16)$. |
-| $p\le c/4$ | $Z\ge\rho c/2$ | At most $\exp(-\rho c/16)$, by the upper tail at $p=c/4$ and monotonicity. |
-
-Thus each error is at most $\eta$. The cap is $k\rho=O_k(\log(1/\eta))$ on every input. The subscript permits constants depending on $k$, here including $c^{-1}=2^{10k}$: cheap means fixed $k$ and growing $m$. Section 4 will retain the trial outcomes coherently instead of measuring them; their measurement probabilities and independence remain the same.
+*A cheap quantum decoder.* The projection experiment extends to $k$ sign blocks using $k$ queries per trial, with success probability $\Phi^2$. Repetition distinguishes the two promised ranges with error at most $\eta$, using $O_k(\log(1/\eta))$ queries on every input, for $0<\eta<1/2$. The constant includes $2^{10k}$: the cost is independent of $m$ only when $k$ is fixed. Retaining the trial outcomes instead of measuring them gives the reversible preparation used in Section 4. [Appendix A.5](#decoder-repetitions) derives the repetition count and tail bounds.
 
 \Needspace{9\baselineskip}
 
@@ -186,15 +175,15 @@ S\le200(k+1)^2m(\log_2m)^2
 $$
 gates, that outputs $(1,P(a))$ on promised inputs and $(0,0)$ otherwise. Its purpose is exact certification, including the promise test. Its near-linear size matters because the verifier will search $rS$ gate tests.
 
-The circuit uses integer arithmetic. The two factors $1/\sqrt m$ in $u$ and the $k-1$ internal Walsh factors give $\Phi=N/2^{t(k+1)}$ for an integer $N$. A fast Walsh transform recursively transforms two half-size vectors, then adds and subtracts their corresponding entries. These split-and-combine steps compute the numerator using additions and subtractions, and integer comparisons decide the two thresholds exactly. For example, $\Phi\ge2^{-5k}$ is equivalent to $2^{5k}N\ge2^{t(k+1)}$; the small-value test is $2^{5k+1}|N|\le2^{t(k+1)}$. Words of $O(k\log m)$ bits suffice, including the threshold shifts. The [record's circuit construction](https://github.com/wcook04/quartic-query-lean/blob/11fc9a44ded573d6354245d1195eef74ffc28c1a/docs/reasoning_record.md#forr_circuit) gives the arithmetic and gate count. The quantum verifier checks a stored computation of this circuit; it does not run the entire circuit on each candidate.
+The circuit computes the signed numerator of $\Phi$ by fast Walsh transforms, then tests the promise by exact integer comparisons. [Appendix A.6](#exact-certification) gives the arithmetic. The verifier checks local equations in a stored evaluation; it does not run the whole circuit.
 
 *Classical hardness.* For fixed $k$ and all sufficiently large $m$,
 $$
 R(P_{k,m})>L_{k,m}=\left\lfloor\frac{m^{1-1/k}}{(\log_2m)^2}\right\rfloor .
 $$
-This is the consequence of the randomized lower bound of Bansal and Sinha for this one-sided promise [-@BansalSinha2021, Theorem 1.3 and Corollary 1.4]. For fixed $k$, the source bound is at least a positive constant depending on $k$ times $m^{1-1/k}/(\log_2(km))^{1-1/k}$. Dividing this by the unfloored expression for $L_{k,m}$ gives a factor of order $(\log m)^{1+1/k}$, which tends to infinity and absorbs the constant. We take the hardness theorem as an input to this exposition. A shallow decision tree chooses each next bit from the earlier answers and stops within its query budget. Minimax turns its hardness into a distribution of hidden samples; the algorithm may know that law without being given the sampled bits. The underlying distinction is between a global correlation, detected by the interference experiment, and the small amount of evidence available to a shallow classical decision tree. Proving that distinction requires the analytic argument in [record §8.5–§8.15](https://github.com/wcook04/quartic-query-lean/blob/11fc9a44ded573d6354245d1195eef74ffc28c1a/docs/reasoning_record.md#forr_target); the picture alone is not a lower-bound proof.
+This follows from Bansal and Sinha’s lower bound for this promise [-@BansalSinha2021, Theorem 1.3 and Corollary 1.4]; the comparison of logarithmic factors is in Appendix A.6. We accept their hardness theorem as an input. The projection experiment detects a global correlation between the sign blocks. The lower bound proves that a classical decision tree cannot detect it with few bit queries, even when the tree chooses those queries adaptively. That assertion needs the analytic proof in [record §§8.5–8.15](https://github.com/wcook04/quartic-query-lean/blob/11fc9a44ded573d6354245d1195eef74ffc28c1a/docs/reasoning_record.md#forr_target); the geometric description alone does not prove it.
 
-A column contains $m$ string bits, $rkm$ address-input bits, and $2^r$ cells, each containing $(m-1)\ell$ pointer bits and $rS$ transcript bits. Thus the general function has $n=m\bigl[m+rkm+2^r((m-1)\ell+rS)\bigr]$ input bits, which is $O_k(m^{22}(\log m)^3)$ since $2^r=m^{20}$. Thus the total input length is polynomial in $m$, although much larger than $m$. The three bracketed contributions are the column string, its address inputs, and its cell array. Here $n$ is the actual input length; $m$ controls the displayed query bounds. The comparison is between $R$ and $Q$ for this one function, with the same circuit; neither bound counts the time to read or allocate the whole input.
+These three properties serve different parts of the argument. The decoder locates cells during quantum comparisons. The circuit makes each proposed certificate checkable by few queries per gate. The classical lower bound makes each address answer hard to predict. With $r=20\log_2m$ such answers, the board has polynomial input length in $m$ (Appendix A.6), and the resulting bounds are as follows.
 
 **Theorem** [@OpenAI2026, Theorem 1.1]. The optimal exponent is $\alpha_{\rm tot}=4$. More concretely, for every fixed integer $k\ge2$, the construction gives total functions $F_{k,m}$ and a constant $C_k>0$ such that, for all sufficiently large powers of four $m$,
 $$
@@ -291,15 +280,9 @@ $$
 $$
 The joint masses of success and each label are $(1/4,0,1/6,1/16)$. Dividing by $23/48$ gives the conditional pivot law $(12/23,0,8/23,3/23)$. The sampler does not choose uniformly among positive weights. These numbers are computed for the analysis; the quantum procedure obtains their law by running the comparisons themselves.
 
-**Why the preparation is reversible.** The comparison runs as a reversible circuit. A deterministic bit $f(z)$ can be recorded by $|z,b\rangle\mapsto|z,b\oplus f(z)\rangle$, an invertible map. Here $z$ includes the decoder labels and the trial registers from which they were computed. To see why retaining them matters, suppose two orthogonal label-and-workspace states occur with amplitudes $\sqrt p$ and $\sqrt{1-p}$, and the comparison rule gives outputs $1$ and $0$. Copying that rule into a fresh flag gives
-$$
-\bigl(\sqrt p\,|z_0\rangle+\sqrt{1-p}\,|z_1\rangle\bigr)|0\rangle
-\longmapsto
-\sqrt p\,|z_0\rangle|1\rangle+\sqrt{1-p}\,|z_1\rangle|0\rangle.
-$$
-Measuring the flag gives $1$ with probability $p$: the retained labels distinguish the branches, so their squared amplitudes add as in the classical experiment. The same reasoning sums over all decoder outcomes. During forward preparation we retain every trial, count, label and pointer-read answer; no would-be measurement is performed. The full inverse later undoes the flag computation, pointer reads and decoder preparations in reverse order. It acts on all these registers and has the same query cost. Retention during preparation and uncomputation by the full inverse are compatible.
+**Conditional sampling lemma.** Amplitude amplification changes the probability of success but preserves the distribution of labels conditional on success. The same is true for a mixture of iteration counts and for fresh trials stopped at the first success.
 
-**Amplification with a fixed cap.** A single preparation may rarely succeed. Amplitude amplification can raise its chance of success with a suitable choice of iteration counts. Every iteration preserves the conditional pivot law whenever success has nonzero probability. Here is the linear-algebra reason [@BHMT2002, Lemma 1; @deWolf2026, chapter 7]. Write $q$ for the preparation's success probability, to distinguish it from a pivot label. For $0<q<1$, write the entire prepared state as
+*Proof.* Write $q$ for the preparation's success probability. For $0<q<1$, decompose its entire state into success and failure components [@BHMT2002, Lemma 1; @deWolf2026, chapter 7]:
 $$
 \sqrt q\,g+\sqrt{1-q}\,b
  =\sin\theta\,g+\cos\theta\,b,
@@ -312,11 +295,17 @@ Read the product right to left: undo $A$, reflect about the starting basis vecto
 $$
 \sin((2v+1)\theta)\,g+\cos((2v+1)\theta)\,b.
 $$
-The coefficient of $g$ changes, but the relative label probabilities inside $g$ do not. Consequently, whenever success is reported, measuring just the column register gives the same conditional law as before amplification. A possible global sign of $g$ does not affect that law.
+The coefficient of $g$ changes; the relative label probabilities inside $g$ do not. Every successful trial therefore has the same label distribution, including when its successful component has the opposite global sign. Fresh initialization makes the next trial independent of previous failures. Mixing iteration counts and conditioning on which trial first succeeds consequently mixes identical label distributions. For $q=0$ no trial succeeds; for $q=1$ every trial has the original label law. $\square$
 
-Since $q$ is unknown, we cannot choose the best rotation count: too many iterations can rotate past the success direction. A bounded randomized choice of iteration counts avoids this problem [@BBHT1998, Lemma 2]. We use the following form: for $0<\gamma\le1/2$ and $0<\eta<1/2$, the routine has a cap of $O(\gamma^{-1/2}\log(1/\eta))$ calls to the preparation and its inverse, preserves the conditional label law on success, and fails with probability at most $\eta$ whenever $q\ge\gamma$. If $q=0$, it reports failure with certainty; if $q=1$, every trial succeeds, as in the first uniform-pivot stage. The cap applies for every $q$, including $0<q<\gamma$, where no success guarantee is required. The routine uses a bounded mixture of iteration counts and stops at the first successful fresh trial. [Appendix A.3](#amplification-schedule) gives the explicit schedule and the constant success estimate it uses.
+**Why the preparation is reversible.** The comparison runs as a reversible circuit. A deterministic bit $f(z)$ can be recorded by $|z,b\rangle\mapsto|z,b\oplus f(z)\rangle$, an invertible map. Here $z$ includes the decoder labels and the trial registers from which they were computed. To see why retaining them matters, suppose two orthogonal label-and-workspace states occur with amplitudes $\sqrt p$ and $\sqrt{1-p}$, and the comparison rule gives outputs $1$ and $0$. Copying that rule into a fresh flag gives
+$$
+\bigl(\sqrt p\,|z_0\rangle+\sqrt{1-p}\,|z_1\rangle\bigr)|0\rangle
+\longmapsto
+\sqrt p\,|z_0\rangle|1\rangle+\sqrt{1-p}\,|z_1\rangle|0\rangle.
+$$
+Measuring the flag gives $1$ with probability $p$: the retained labels distinguish the branches, so their squared amplitudes add as in the classical experiment. The same reasoning sums over all decoder outcomes. During forward preparation we retain every trial, count, label and pointer-read answer; no would-be measurement is performed. The full inverse later undoes the flag computation, pointer reads and decoder preparations in reverse order. It acts on all these registers and has the same query cost. Retention during preparation and uncomputation by the full inverse are compatible.
 
-**Exact successful-label law.** Every successful trial, for every chosen $v$, has the same normalized good state $g$ up to a global sign. Fresh initialization makes previous failures independent of the next trial. Mixing iteration counts, and then conditioning on which trial first succeeds, therefore mixes identical label distributions. The successful output of this capped routine has exactly the required pivot law.
+**Obtaining success within a fixed cap.** Since $q$ is unknown, we cannot choose the best rotation count: too many iterations can rotate past the success direction. A bounded randomized choice avoids this problem [@BBHT1998, Lemma 2]. For $0<\gamma\le1/2$ and $0<\eta<1/2$, the schedule in [Appendix A.3](#amplification-schedule) uses $O(\gamma^{-1/2}\log(1/\eta))$ calls to the preparation and its inverse and fails with probability at most $\eta$ whenever $q\ge\gamma$. Its cap holds for every $q$, including $q<\gamma$, where no success guarantee is required. The conditional sampling lemma shows that its first successful trial supplies exactly the pivot law needed by the tournament.
 
 On the cycled board after the pivot list $(2)$, $q=1/2$ and $\theta=\pi/4$, so $\sin^2((2v+1)\pi/4)=1/2$ for every $v$. No single trial improves its success probability; $N$ fresh trials nevertheless fail with probability $2^{-N}$. Question 2 in Appendix D gives a case in which one iteration does improve it.
 
@@ -334,7 +323,7 @@ Return to the cycled board after the pivot list $(2)$. If the next measured pivo
 
 Finally we check each listed column. Decode its address afresh with error at most $\varepsilon/r$ per instance, hence at most $\varepsilon$ for a promised whole address, and measure it. Then search for a failing local test among the $K$ tests of Section 2. The pivot sampler's success appends a candidate; here the search's success flag instead means **a violation was found**, so it rejects the candidate. If no violation is found, accept the candidate; output $1$ if any candidate is accepted, and $0$ otherwise, including when the list is empty.
 
-A coherent test evaluation works on a superposition of test labels. It computes the next input position reversibly and retains earlier answers. To implement a read that is active only on some branches, query $x_j$ into a temporary bit, conditionally copy it to the answer bit, then query $j$ again to clear the temporary bit. This uses two ordinary oracle calls; on an inactive branch the answer and temporary bits are both restored. Padding to a common number of these controlled reads therefore has a fixed cap even in superposition. Running the computation backwards then restores its workspace. This implements the same tests using $O(\ell+1)$ bit queries per evaluation; [record §4.6](https://github.com/wcook04/quartic-query-lean/blob/11fc9a44ded573d6354245d1195eef74ffc28c1a/docs/reasoning_record.md#AC-coherent) gives the controlled implementation. No full transcript is read during a single test.
+The local tests admit reversible evaluation on a superposition of test labels, using $O(\ell+1)$ bit queries per test. The implementation in Appendix A.1 retains earlier answers and clears its workspace on reversal; it never reads a full transcript to check one gate.
 
 A nonwinner fails some test at **every** address, even a meaningless label decoded off promise. An input-independent unitary prepares the uniform state on the $K$ test labels at no query cost. The uniform preparation over tests therefore finds a violation with probability at least $1/K$. Amplifying with threshold $1/K$ and failure parameter $\varepsilon$ bounds false acceptance by $\varepsilon$. On the domain-bit board in Section 2, candidate $(2,00)$ fails exactly its first domain test; that one violation suffices. The dominating nonwinner from this section similarly fails a pointer test. The winner at its correctly decoded address has no violations, so the violation search certainly fails and the verifier accepts it.
 
@@ -367,7 +356,7 @@ The earlier balanced AND–OR cheat-sheet recipe reaches at most a cubic exponen
 
 Start with one zero in every column and blank certificate cells. Erasing one zero and filling one correctly addressed cell creates a winner. If the changed column is chosen independently and uniformly, a small classical query budget has little chance of encountering either change. Bounding visits to the cell requires a separate argument: an algorithm can try arbitrary addresses, so we must bound guesses as well as learned answers. This is why we need one input distribution that makes every inexpensive address predictor fail.
 
-We now show that $R(F_{k,m})>\lfloor mL/100\rfloor$. Fix $k$, let $m$ be sufficiently large, and put $L=L_{k,m}<R(P)$, with $1\le L\le m$. By Yao's minimax principle [-@Yao1977] in its finite form, there is a distribution $\mu$ on promised inputs of $P$ under which every deterministic algorithm making at most $L$ queries is correct with probability at most $2/3$ ([record §6.2](https://github.com/wcook04/quartic-query-lean/blob/11fc9a44ded573d6354245d1195eef74ffc28c1a/docs/reasoning_record.md#CL-minimax) proves the finite form: regard promised inputs as rows and capped trees as columns of a zero-one correctness matrix, and seek one distribution on rows whose average is at most $2/3$ in every column). The quantifier matters: one distribution defeats **all** capped deterministic trees, rather than a different distribution for each tree. Minimax converts worst-case hardness against randomized algorithms into this common hard law. An algorithm correct on every promised input would also be correct on average under it. The law need not be uniform or efficiently samplable. Even knowing it would not reveal which hidden sample was drawn.
+We now show that $R(F_{k,m})>\lfloor mL/100\rfloor$. Fix $k$, let $m$ be sufficiently large, and put $L=L_{k,m}<R(P)$, with $1\le L\le m$. By Yao's minimax principle [-@Yao1977] in its finite form, there is a distribution $\mu$ on promised inputs of $P$ under which every deterministic algorithm making at most $L$ queries is correct with probability at most $2/3$ ([record §6.1](https://github.com/wcook04/quartic-query-lean/blob/11fc9a44ded573d6354245d1195eef74ffc28c1a/docs/reasoning_record.md#CL-minimax) proves the finite form: regard promised inputs as rows and capped trees as columns of a zero-one correctness matrix, and seek one distribution on rows whose average is at most $2/3$ in every column). The quantifier matters: one distribution defeats **all** capped deterministic trees, rather than a different distribution for each tree. Minimax converts worst-case hardness against randomized algorithms into this common hard law. An algorithm correct on every promised input would also be correct on average under it. The law need not be uniform or efficiently samplable. Even knowing it would not reveal which hidden sample was drawn.
 
 ## 5.1 The reduction
 
@@ -402,7 +391,7 @@ $$
 $$
 To bound $\mathbb EZ$, condition on the entire transcript prefix immediately before the next query, including earlier queries to every field. The cells are blank and the other fields are independent of the zero positions. Fixing an observed prefix constrains a zero only by the string bits already read: any two unread zero locations yield the same recorded answers and hence the same deterministic choices. An undiscovered zero is therefore uniform among its column's unread positions. Before its first discovery, a new query in a column with fewer than $m/2$ distinct positions read therefore finds its zero with probability at most $2/m$, giving at most $2G/m$ such discoveries in expectation. A repeat query makes no new discovery.
 
-For the remaining, late discoveries, charge the already spent reads rather than a conditional probability. Each needs $m/2$ queries in its column, which happens in at most $2G/m$ columns: charge $m/2$ distinct string reads to each such column, from the same total budget $G$ ([record §6.4](https://github.com/wcook04/quartic-query-lean/blob/11fc9a44ded573d6354245d1195eef74ffc28c1a/docs/reasoning_record.md#CL-early-late)).
+For the remaining, late discoveries, charge the already spent reads rather than a conditional probability. Each needs $m/2$ queries in its column, which happens in at most $2G/m$ columns: charge $m/2$ distinct string reads to each such column, from the same total budget $G$ ([record §6.3](https://github.com/wcook04/quartic-query-lean/blob/11fc9a44ded573d6354245d1195eef74ffc28c1a/docs/reasoning_record.md#CL-early-late)).
 
 **The true cell.** The algorithm need not compute $s_I$ to reach $B_{I,s_I}$: it may guess an address or visit many cells. But a query in the true cell names, by its position alone, all $r$ hard answers $s_I$. Write a cell-bit coordinate as $(i,s,u)$: column $i$, cell label $s$, and bit offset $u$ within that cell. Parsing this chosen coordinate outputs $s$ without reading any input. Choosing the position is free; following a stored pointer is different because its bits must first be read. This proposed address is correct exactly on the true-cell event, and that is what we show to be unlikely.
 
@@ -420,6 +409,8 @@ $$
 This inclusion keeps the original independent input law. We construct the predictor so that it agrees with the dummy run on the event on the left and stops safely on every other run.
 
 The simulation uses three query budgets. The dummy algorithm makes at most $G$ queries in all. The simulator makes at most $L$ queries to column $i$'s address inputs in total, which is also the threshold for heaviness. The direct product asks for at most $L$ queries to each of the $r$ instances. The second implies the third, since a total of $L$ is at most $L$ on each instance (the direct product would even allow $rL$). The predictor must return an address on every run, including runs where the original tree spends too much. We therefore prescribe a fixed default output on abort or failure to reach the selected query. Correct defaults only enlarge the event that will upper-bound a true-cell visit.
+
+\Needspace{19\baselineskip}
 
 **The simulator.** Fix a column $i$ and a global dummy-query time $j\le G$. The hidden data are its address tuple $(A_{i,1},\ldots,A_{i,r})$. Give the simulator all zero positions, all other columns' address inputs, and the blank cells. These are jointly independent of the hidden tuple, and answer every query outside it. Let $q$ count only forwarded queries to the hidden tuple; global time $t$ counts all simulated queries.
 
@@ -486,21 +477,17 @@ The matching upper bound $D(f)=O(Q(f)^4)$ for every total $f$ [@ABKRT2020], and 
 
 Return to the four-column board. Quantumly, a valid certificate makes its column survive comparisons even against malformed rivals; the algorithm pays to verify only the retained list. Classically, the blank board reveals neither the independently chosen planted column nor its certificate address. Visiting that cell, even by a guess, predicts the hard answers. Increasing the board preserves these two mechanisms while Forrelation supplies the growing classical cost. The fourth power comes from their different access costs to the same input.
 
-# 7. Following the formal proofs
-
-The [theorem index](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md) connects the mathematical statements to their Lean definitions and proofs. Start with the [winning condition](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md#def-wins): the domain-bit board fails precisely because one of its address inputs is not promised. The [family theorem](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md#thm-headline) uses one circuit for both complexities, and the [explicit bounds](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md#src-constants) give the six and $1/400$ printed here.
-
-The formal quantum argument uses the exact probability law of the measured candidate, followed by verification. That law is what the Boolean algorithm needs. The stronger assertion about retaining the whole successful physical state has a separate correspondence still to be formalized; the headline result does not assume it. The [optimal-exponent theorem](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md#thm-alpha) combines the separating family with a formal proof of the universal quartic bound. The index explains these proof routes and gives their precise scope.
-
 [^ai]: The theorem and construction are OpenAI's. This exposition and its Lean development were prepared with AI systems under the author's direction.
 
-# Appendix A. Query counts and the earlier recipe {.unnumbered}
+# Appendix A. Supporting calculations {.unnumbered}
 
 []{#quantum-query-count}
 
 ## A.1 Counting the quantum queries
 
 The main quantum argument in Section 4 uses the following count. It charges the same comparisons and local tests on every branch; early stopping can only reduce the cost.
+
+A coherent test evaluation works on a superposition of test labels. It computes the next input position reversibly and retains earlier answers. To implement a read that is active only on some branches, query $x_j$ into a temporary bit, conditionally copy it to the answer bit, then query $j$ again to clear the temporary bit. This uses two ordinary oracle calls; on an inactive branch the answer and temporary bits are both restored. Padding to a common number of these controlled reads therefore has a fixed cap even in superposition. Running the computation backwards then restores its workspace. This implements the same tests using $O(\ell+1)$ bit queries per evaluation; [record §4.6](https://github.com/wcook04/quartic-query-lean/blob/11fc9a44ded573d6354245d1195eef74ffc28c1a/docs/reasoning_record.md#AC-coherent) gives the controlled implementation. No full transcript is read during a single test.
 
 **The count.** Early stopping and randomized iteration counts make the number of queries depend on the run. The caps are fixed in advance and hold on every input and branch. A comparison uses $O_k(r\log(r/\varepsilon))$ queries for its decoders and $O(\ell+1)$ for its pointers, including the constant overhead of a reversible implementation. We count the tournament first, then verification.
 
@@ -544,13 +531,41 @@ R_{A0}=\begin{pmatrix}-\cos2\theta&\sin2\theta\\\sin2\theta&\cos2\theta\end{pmat
 $$
 Their product $R_{A0}S=\left(\begin{smallmatrix}\cos2\theta&\sin2\theta\\-\sin2\theta&\cos2\theta\end{smallmatrix}\right)$ sends $(\sin\theta,\cos\theta)$ to $(\sin3\theta,\cos3\theta)$. This calculation gives the rotation formula used in Section 4.3. It changes the total successful amplitude, leaving the normalized successful state unchanged.
 
-Section 4 needs both a cap on every input and the unchanged conditional label law. The [bounded amplification proof in record §5.6](https://github.com/wcook04/quartic-query-lean/blob/11fc9a44ded573d6354245d1195eef74ffc28c1a/docs/reasoning_record.md#upper-grover-trial) gives the guarantee for this explicit schedule. Set $M=\lceil10/\sqrt\gamma\rceil$ and $N=\lceil\ln(1/\eta)/\ln(40/31)\rceil$. In each fresh trial use zero iterations with probability $1/2$, and otherwise choose $v$ uniformly from $0,\ldots,M-1$. Stop at the first success, or after $N$ failures. Each trial uses at most $2M+1$ calls to $A$ or $A^{-1}$, so $N(2M+1)$ is an all-input cap. The record proves that each trial succeeds with probability at least $9/40$ when $q\ge\gamma$; we use that averaged trigonometric estimate here.
+Section 4 needs both a cap on every input and the unchanged conditional label law. The [bounded amplification proof in record Appendix E.2](https://github.com/wcook04/quartic-query-lean/blob/11fc9a44ded573d6354245d1195eef74ffc28c1a/docs/reasoning_record.md#upper-grover-trial) gives the guarantee for this explicit schedule. Set $M=\lceil10/\sqrt\gamma\rceil$ and $N=\lceil\ln(1/\eta)/\ln(40/31)\rceil$. In each fresh trial use zero iterations with probability $1/2$, and otherwise choose $v$ uniformly from $0,\ldots,M-1$. Stop at the first success, or after $N$ failures. Each trial uses at most $2M+1$ calls to $A$ or $A^{-1}$, so $N(2M+1)$ is an all-input cap. The record proves that each trial succeeds with probability at least $9/40$ when $q\ge\gamma$; we use that averaged trigonometric estimate here.
 
 \Needspace{8\baselineskip}
 
 ## A.4 The small circuit and its local tests
 
 []{#circuit-check}*Optional circuit census.* The [explicit circuit in the reconstruction, §4.3](https://github.com/wcook04/quartic-query-lean/blob/11fc9a44ded573d6354245d1195eef74ffc28c1a/docs/reasoning_record.md#AC-example-promise) has $S=180$ non-input gates, so each candidate has $K=4+3+2(180+2)=371$ tests. In its zero-based numbering, the NOT and OR gates illustrated in Section 2 are gates $1$ and $2$, their input bits are $6$ and $7$, and the domain and value outputs are gates $178$ and $179$. Every cell contains $6$ pointer bits and $360$ transcript bits. With four cells in each of four columns, the full board has $4[4+16+4(6+360)]=5936$ input bits. Only one cell enters the tests for a given candidate. This toy uses $r=2$; the separation family uses $r=40$ when $m=4$, and its classical lower bound requires much larger $m$.
+
+[]{#decoder-repetitions}
+
+## A.5 Repeating the projection experiment
+
+ For any requested error $0<\eta<1/2$, the projection experiment of Section 1 extends to every $k$. Phase kickback uses one query per sign diagonal, so a trial uses $k$ queries and has projection probability $p=\Phi^2$. On the promise, either $p\ge c=\delta^2$ or $p\le c/4$. Start each trial in fresh registers and repeat independently
+$$
+\rho=\lceil16c^{-1}\ln(1/\eta)\rceil
+$$
+times; accept if at least $\rho c/2$ projections succeed. We use the following standard Chernoff estimates for the number $Z$ of successes in these independent Bernoulli trials:
+
+| Promised case | Wrong decision | Tail bound used |
+| --- | --- | --- |
+| $p\ge c$ | $Z<\rho c/2$ | At most $\exp(-\rho c/8)$, hence at most $\exp(-\rho c/16)$. |
+| $p\le c/4$ | $Z\ge\rho c/2$ | At most $\exp(-\rho c/16)$, by the upper tail at $p=c/4$ and monotonicity. |
+
+Thus each error is at most $\eta$. The cap is $k\rho=O_k(\log(1/\eta))$ on every input. The subscript permits constants depending on $k$, here including $c^{-1}=2^{10k}$: cheap means fixed $k$ and growing $m$. Section 4 will retain the trial outcomes coherently instead of measuring them; their measurement probabilities and independence remain the same.
+
+[]{#exact-certification}
+
+## A.6 Exact certification and the input size
+
+The circuit uses integer arithmetic. The two factors $1/\sqrt m$ in $u$ and the $k-1$ internal Walsh factors give $\Phi=N/2^{t(k+1)}$ for an integer $N$. A fast Walsh transform recursively transforms two half-size vectors, then adds and subtracts their corresponding entries. These split-and-combine steps compute the numerator using additions and subtractions, and integer comparisons decide the two thresholds exactly. For example, $\Phi\ge2^{-5k}$ is equivalent to $2^{5k}N\ge2^{t(k+1)}$; the small-value test is $2^{5k+1}|N|\le2^{t(k+1)}$. Words of $O(k\log m)$ bits suffice, including the threshold shifts. The [record's circuit construction](https://github.com/wcook04/quartic-query-lean/blob/11fc9a44ded573d6354245d1195eef74ffc28c1a/docs/reasoning_record.md#forr_circuit) gives the arithmetic and gate count. The quantum verifier checks a stored computation of this circuit; it does not run the entire circuit on each candidate.
+
+**The hardness allowance.** This is the consequence of the randomized lower bound of Bansal and Sinha for this one-sided promise [-@BansalSinha2021, Theorem 1.3 and Corollary 1.4]. For fixed $k$, the source bound is at least a positive constant depending on $k$ times $m^{1-1/k}/(\log_2(km))^{1-1/k}$. Dividing this by the unfloored expression for $L_{k,m}$ gives a factor of order $(\log m)^{1+1/k}$, which tends to infinity and absorbs the constant.
+
+**Input length.** A column contains $m$ string bits, $rkm$ address-input bits, and $2^r$ cells, each containing $(m-1)\ell$ pointer bits and $rS$ transcript bits. Thus the general function has $n=m\bigl[m+rkm+2^r((m-1)\ell+rS)\bigr]$ input bits, which is $O_k(m^{22}(\log m)^3)$ since $2^r=m^{20}$. Thus the total input length is polynomial in $m$, although much larger than $m$. The three bracketed contributions are the column string, its address inputs, and its cell array. Here $n$ is the actual input length; $m$ controls the displayed query bounds. The comparison is between $R$ and $Q$ for this one function, with the same circuit; neither bound counts the time to read or allocate the whole input.
+
 
 \Needspace{8\baselineskip}
 
@@ -591,7 +606,7 @@ The identity $\Pr(\text{erased zero hit})=\mathbb EZ/m$ needs $I$ to be independ
 
 ### Lightness is a joint event
 
-**Why the event must be joint.** A run that stays light behaves like a capped algorithm, but it need not succeed with probability at most $\beta^r$ given that it stays light. Take $P=\text{AND}$ on the three promised inputs $01,10,11$, uniformly; any one-query algorithm is right with probability at most $\beta=2/3$. Read the first bit, output $0$ if it is $0$, and otherwise read the second bit. This algorithm stays within one query exactly on input $01$, where it is right, so its success given that it stays light is $1$. The true statement concerns the joint event: being right **and** staying within the caps has probability $1/3\le\beta$. This toy illustrates conditioning: it meets the one-query hard-law premise but has $R(P)=L=1$, so it does not instantiate the strict $L<R(P)$ regime of our construction ([reasoning record §6.5](https://github.com/wcook04/quartic-query-lean/blob/11fc9a44ded573d6354245d1195eef74ffc28c1a/docs/reasoning_record.md#CL-conditioning-counterexample)).
+**Why the event must be joint.** A run that stays light behaves like a capped algorithm, but it need not succeed with probability at most $\beta^r$ given that it stays light. Take $P=\text{AND}$ on the three promised inputs $01,10,11$, uniformly; any one-query algorithm is right with probability at most $\beta=2/3$. Read the first bit, output $0$ if it is $0$, and otherwise read the second bit. This algorithm stays within one query exactly on input $01$, where it is right, so its success given that it stays light is $1$. The true statement concerns the joint event: being right **and** staying within the caps has probability $1/3\le\beta$. This toy illustrates conditioning: it meets the one-query hard-law premise but has $R(P)=L=1$, so it does not instantiate the strict $L<R(P)$ regime of our construction ([reasoning record §6.4](https://github.com/wcook04/quartic-query-lean/blob/11fc9a44ded573d6354245d1195eef74ffc28c1a/docs/reasoning_record.md#CL-conditioning-counterexample)).
 
 ### Two clocks in a capped simulation
 
@@ -625,6 +640,8 @@ The first branch gives the light true-cell event exactly when $a=1,b=0,c=d$, wit
 
 These questions revisit the board, the weighted sampler and the capped predictor. The examples in Appendix C supply the independent-planting and two-clock setups. The answers follow the questions.
 
+**Projection check.** For $1111\,1000$, calculate the signed amplitude $\Phi$ and then the projection probability. These are different quantities. The [answer](#answer-projection) is separated from the attempt.
+
 []{#question-1}**Question 1 (promise certification).** On the domain-bit board of Section 2, make one row for each of column $2$'s four addresses. In each row name the domain and value outputs that fail and count them; no gate indices are required. ([Answer](#answer-1).)
 
 []{#question-2}**Question 2 (conditional sampling and overshoot).** On the cycled board of Section 4.1, extend the pivot list $(2)$ by the measured pivot $4$. Find the new weights, the success probability of a preparation and the next pivot. Starting from a fresh preparation each time, compare one iteration total with two iterations total. An iteration uses the entire preparation and its inverse, not one bit query. In a separate calculation, continue the fractional matrix example with pivot $4$: find the joint success masses and conditional label law. Multiply the current weights by the comparison probabilities; do not restart from all ones. ([Answer](#answer-2).)
@@ -655,6 +672,12 @@ These questions revisit the board, the weighted sampler and the capped predictor
 
 []{#answer-combined}**Combined-explanation rubric (guided feedback).** For the quantum route, derive the successful label law from fresh comparison registers, then explain why randomized iteration counts and first-success retries preserve it. A rival cannot point to a zero in an all-one winning column, whatever label its decoder returns. Retaining every measured pivot lets final verification recover a winner after a later sampling failure. For the classical route, partition the board into the hidden target tuple and jointly independent supplied data, give the stop-before-read rule and total default output, and show that a whole-run light visit is a subset of the capped predictor's success event; the converse need not hold. To recover the scale, take an integer budget $G\le c\,mL$. The three charges are at most $4cL/m\le4c$, $c$, and $c\,mL\,m^{-10}\le c/m^8$, using $L\le m$. For each fixed column, union over query times contributes $G$; averaging the uniform independent $I$ contributes $(1/m)\sum_{i=1}^m$, which cancels $m$. This gives $4c+c+c/m^8$, and $c=1/100$ makes it less than $1/3$. Finally choose the exponent, fix $k$, and grow $m$ through powers of four. This rules out every exponent below four. The imported universal bound makes four admissible. Using this rubric while explaining is guided practice, not an unaided test.
 
+
+# Appendix E. Following the formal proofs {.unnumbered}
+
+The [theorem index](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md) connects the mathematical statements to their Lean definitions and proofs. Start with the [winning condition](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md#def-wins): the domain-bit board fails precisely because one of its address inputs is not promised. The [family theorem](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md#thm-headline) uses one circuit for both complexities, and the [explicit bounds](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md#src-constants) give the six and $1/400$ printed here.
+
+The formal quantum argument uses the exact probability law of the measured candidate, followed by verification. That law is what the Boolean algorithm needs. The stronger assertion about retaining the whole successful physical state has a separate correspondence still to be formalized; the headline result does not assume it. The [optimal-exponent theorem](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md#thm-alpha) combines the separating family with a formal proof of the universal quartic bound. The index explains these proof routes and gives their precise scope.
 
 # References {.unnumbered}
 

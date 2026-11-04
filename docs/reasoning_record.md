@@ -13,7 +13,7 @@ The proof has two branches after one total function is constructed. Section 3 st
 
 For the construction and its two algorithms, read §§1–7. For the complete proof, continue with §8 and Appendix A: this route assumes finite-dimensional linear algebra, elementary real analysis and probability, and the standard Gaussian density, but no specialized query-complexity theorem. The Gaussian integration and martingale estimates are proved locally. Readers concerned chiefly with the query conventions can begin with §2 and its exact OR and parity examples.
 
-Appendix B collects alternative proofs and examples for the classical lower bound. Appendices C–D contain an alternative threshold calculation and technical comparisons with other Forrelation estimates; these supplements are not needed for the main proof. References and source editions follow the appendices. AI assistance is described at the [end of the paper](#ai-disclosure).
+Appendix B collects alternative proofs and examples for the classical lower bound. Appendices C–D contain an alternative threshold calculation and technical comparisons with other Forrelation estimates. Appendix E proves the bounded amplification lemma used in §5 and gives the alternative induction used by the formal quantum argument. References and source editions follow the appendices. AI assistance is described at the [end of the paper](#ai-disclosure).
 
 ## 1. The theorem and the construction
 
@@ -120,15 +120,15 @@ Unqualified logarithms in the construction are base two. Natural logarithms are 
 <!-- /passage:ROOT-LOGS -->
 
 <a id="record-numbering"></a>
-**Numbering.** Theorem, lemma and proposition numbers are the preprint's; section numbers are this record's. Thus Lemma 4.1 is discussed in §6.1, not in this record's §4.1. A display label that is a bare integer, (1), (2) and (17)–(23), is the preprint's equation number, and so are the equation numbers (3)–(16) cited in prose. Labels with a prefix are local to this record: (F1)–(F60) in §8 and Appendix D, (4.1)–(4.19) in §4, (6.1)–(6.7) in §6.1 and (6.8)–(6.11) in Appendix B, (7.1)–(7.6) in §7, (A.1)–(A.11) in Appendix A and (H1)–(H3) in Appendix C. Section numbers refer to this record unless another source is named. The preprint's displays are found here as follows.
+**Numbering.** Theorem, lemma and proposition numbers are the preprint's; section numbers are this record's. Thus Lemma 4.1 is discussed in §6.5, not in this record's §4.1. A display label that is a bare integer, (1), (2) and (17)–(23), is the preprint's equation number, and so are the equation numbers (3)–(16) cited in prose. Labels with a prefix are local to this record: (F1)–(F60) in §8 and Appendix D, (4.1)–(4.19) in §4, (6.1)–(6.7) in §§6.4–6.5 and (6.8)–(6.11) in Appendix B, (7.1)–(7.6) in §7, (A.1)–(A.11) in Appendix A and (H1)–(H3) in Appendix C. Section numbers refer to this record unless another source is named. The preprint's displays are found here as follows.
 
 - **(1), (2):** §1, displayed with the same numbers.
 - **(3)–(5):** §3.1; (3) and (4) are restated as (F1) and (F2) in §8.5, and (5) defines $L_{k,m}$ in (F3).
 - **(6)–(8):** §4.2, in the layout and the winning condition (4.5).
-- **(9):** §5.6, the averaged success bound.
+- **(9):** §E.2, the averaged success bound.
 - **(10)–(15):** §5.2, the comparison model, dominance, weight process and stage state.
-- **(16):** §6.1, as local display (6.4).
-- **(17)–(23):** §§6.3–6.6, displayed with the same numbers.
+- **(16):** §6.5, as local display (6.4).
+- **(17)–(23):** §§6.2–6.6, displayed with the same numbers.
 
 <a id="ROOT-PARTIAL"></a>
 <!-- passage:ROOT-PARTIAL -->
@@ -301,7 +301,7 @@ ZP'_xJH_b\psi=LH_bP_xH_b\psi=LO_x\psi.
 
 The remaining $T-1$ queries run the continuation. The output case allows both measurement continuations to be padded to the same $T$, so structural induction gives the displayed mass identity with exactly $T$ queries. This padding preserves acceptance mass; the source does not require a completed branch's state to remain unchanged.
 
-This is the [fixed-sequence normal form][src-fixed-sequence] of the formalization. It preserves the accepting mass for all inputs and all starting vectors and says nothing about final states, so a later computation that needs a retained workspace requires a separate argument (§5.6). Conversely, a finite bit-query sequence followed by a binary basis measurement is already a finite adaptive program: write its gates and queries as successive constructors. This general bridge connects the formal model to the fixed-sequence model used by the Lean dependency proving the universal upper bound. The independent printed derivation is in [Appendix A](#R3-A-RESULT). The finite examples of §2.6 only illustrate the model conventions.
+This is the [fixed-sequence normal form][src-fixed-sequence] of the formalization. It preserves the accepting mass for all inputs and all starting vectors and says nothing about final states, so a later computation that needs a retained workspace requires a separate argument (§E.2). Conversely, a finite bit-query sequence followed by a binary basis measurement is already a finite adaptive program: write its gates and queries as successive constructors. This general bridge connects the formal model to the fixed-sequence model used by the Lean dependency proving the universal upper bound. The independent printed derivation is in [Appendix A](#R3-A-RESULT). The finite examples of §2.6 only illustrate the model conventions.
 <!-- /passage:R3-01-BRIDGES -->
 
 <a id="R3-01-ZERO"></a>
@@ -320,7 +320,7 @@ Each example below tests one convention against a plausible misreading.
 
 **Two-bit parity.** The cap counts every query; $D=R=2$ and $Q=1$.
 
-The construction is tested in the same way later: §8.4 shows why the circuit needs its domain bit, §4.3 works a four-column board, §5.2 gives a cyclic tournament, §6.1 an adaptive direct-product example and §6.5 the difference between a joint and a conditional event.
+The construction is tested in the same way later: §8.4 shows why the circuit needs its domain bit, §4.3 works a four-column board, §5.2 gives a cyclic tournament, §6.5 an adaptive direct-product example and §6.4 the difference between a joint and a conditional event.
 
 **Zero queries.** For a finite coordinate set,
 
@@ -614,11 +614,9 @@ and let $F(y)=0$ otherwise. This defines a total Boolean function, since (4.5) i
 Totality and uniqueness follow from the semantic definition (4.5) alone; the exact realization property (4.1) enters only in the verification procedure.
 <!-- /passage:AC-total-unique -->
 
-![The selected cell of the all-one winning column certifies its address and points to a zero in each rival. A rival's address may be unpromised, but no pointer into the winner can reach a zero. Bit-strip lengths are schematic.](figures/expert_column.svg){width=90%}
-
 ### 4.3. A four-column instance
 
-This board illustrates promise certification and winner dominance. The later [XOR board in §6.3](#CL-tiny-planted-example) illustrates planting, and its [trace in §6.5](#CL-simulator-example) illustrates truncation at a query cap. The examples use different partial functions and local row conventions; their numerical decoder laws are not interchangeable.
+This board illustrates promise certification and winner dominance. The later [XOR board in §6.2](#CL-tiny-planted-example) illustrates planting, and its [trace in §6.4](#CL-simulator-example) illustrates truncation at a query cap. The examples use different partial functions and local row conventions; their numerical decoder laws are not interchangeable.
 
 <a id="AC-example-promise"></a>
 <!-- passage:AC-example-promise -->
@@ -886,7 +884,7 @@ We measure complexity only by the number of calls to the ordinary input bit orac
 
 The search in step 2 can miss a defect with probability at most $\varepsilon$, but a genuine winning address has no defect to find. These are operational instructions on every input, not instructions to condition on a promised history.
 
-Section 5.1 states the amplification contract. Sections 5.2–5.5 use its measured-output consequence to prove the tournament and the complete evaluator bound. Section 5.6 then gives the full amplification proof, including the stronger assertion about a retained output subsystem.
+Section 5.1 states the amplification lemma. Sections 5.2–5.4 use its measured-output guarantee to construct the tournament, verify the candidates and bound the query cost. Appendix E.2 proves the lemma, including its stronger retained-state assertion; Appendix E.1 gives the alternative acceptance-probability induction used by the formal proof.
 <!-- /passage:upper-purpose -->
 
 
@@ -911,7 +909,7 @@ p\ge\gamma&\Longrightarrow f\le\eta, &p=0&\Longrightarrow f=1.
 \]
 For $p>0$ the procedure below has $f<1$, so the conditional label law is exactly $p_b/p$. Its cap on every branch is $O(\gamma^{-1/2}\ln(1/\eta))$ calls to $A,A^{-1}$, also when $p<\gamma$. The success test reads the stored flag without queries. The procedure is fixed by the parameters and register interface before the input is supplied.
 
-The tournament uses $p_b=w_b/m$; verification uses a successful label to name a failed local test. Both applications use this measured label law. The following stronger statement also identifies the successful quantum state. Its proof is in [§5.6](#upper-grover-geometry); the evaluator analysis may continue directly at [§5.2](#upper-tournament-statement).
+The tournament uses $p_b=w_b/m$; verification uses a successful label to name a failed local test. Both applications use this measured label law. The following stronger statement also identifies the successful quantum state. Its proof is in [§E.2](#upper-grover-geometry); the evaluator analysis may continue directly at [§5.2](#upper-tournament-statement).
 
 <!-- /passage:upper-label-contract -->
 
@@ -926,7 +924,7 @@ The tournament uses $p_b=w_b/m$; verification uses a successful label to name a 
 
 This is the successful-state assertion of OpenAI's Lemma 3.1. In both applications below, the success subspace is specified by a stored Boolean flag; any input-dependent work needed to compute that flag is already charged to $A$.
 
-We need a fixed bound on every branch, which is stronger than a bound on the expected cost. Boyer, Brassard, Høyer, and Tapp analyze a random number of Grover iterations when the number of solutions is unknown [Boyer, Brassard, Høyer and Tapp (1996), arXiv v1, §4, Lemma 2 and Theorem 3, pp. 3–4](https://arxiv.org/abs/quant-ph/9605034v1), and Brassard, Høyer, Mosca, and Tapp extend the underlying two dimensional analysis to arbitrary preparation algorithms [Brassard, Høyer, Mosca and Tapp (2000), arXiv v1, §2, Lemma 1 and equation (8), pp. 5–7](https://arxiv.org/abs/quant-ph/0005055v1). BBHT also discusses a timeout for the no-solution case. The contract needed here combines an all-branch cap with the exact conditional successful state of an arbitrary preparation, so §5.6 gives OpenAI's bounded construction in full.
+We need a fixed bound on every branch, which is stronger than a bound on the expected cost. Boyer, Brassard, Høyer, and Tapp analyze a random number of Grover iterations when the number of solutions is unknown [Boyer, Brassard, Høyer and Tapp (1996), arXiv v1, §4, Lemma 2 and Theorem 3, pp. 3–4](https://arxiv.org/abs/quant-ph/9605034v1), and Brassard, Høyer, Mosca, and Tapp extend the underlying two dimensional analysis to arbitrary preparation algorithms [Brassard, Høyer, Mosca and Tapp (2000), arXiv v1, §2, Lemma 1 and equation (8), pp. 5–7](https://arxiv.org/abs/quant-ph/0005055v1). BBHT also discusses a timeout for the no-solution case. The contract needed here combines an all-branch cap with the exact conditional successful state of an arbitrary preparation, so §E.2 gives OpenAI's bounded construction in full.
 <!-- /passage:upper-amplification-statement -->
 
 \Needspace{18\baselineskip}
@@ -1231,7 +1229,7 @@ $$
  \sum_{L:\,s\in L}\lambda_x(L)
  \geq1-\frac{2m}{2^T}-T\varepsilon.
 $$
-The sampler is chosen before both $x$ and $s$, so it operates without knowing which vertex is dominant, and the indicator of membership of a particular $s$ appears only in the analysis. This is the bounded-list form of Proposition 3.2. Decoding and verification follow in §5.3, and [§5.5](#upper-continuation-induction) analyzes the variant used by the Lean proof, which verifies the listed candidates in sequence.
+The sampler is chosen before both $x$ and $s$, so it operates without knowing which vertex is dominant, and the indicator of membership of a particular $s$ appears only in the analysis. This is the bounded-list form of Proposition 3.2. Decoding and verification follow in §5.3, and [§E.1](#upper-continuation-induction) analyzes the variant used by the Lean proof, which verifies the listed candidates in sequence.
 <!-- /passage:upper-tournament-evidence -->
 
 
@@ -1395,6 +1393,8 @@ An amplification call is one preparation or its inverse; convert calls to ordina
 
 The finite budget uses the following parameters; the first four count logical operations, before the two-query compilation factor.
 
+\Needspace{17\baselineskip}
+
 | Symbol | Definition | Role |
 | --- | --- | --- |
 | $q$ | $\lceil16\delta^{-2}\ln(r/\varepsilon)\rceil$ | Forrelation repetitions for error $\varepsilon/r$ |
@@ -1458,189 +1458,6 @@ This completes the quantum half of the family bounds, with the same chosen circu
 
 
 
-### 5.5. Sequential verification of the listed candidates
-
-The proofs of Propositions 3.2 and 3.3 above are complete without this subsection. The Lean proof of Theorem 1.1 packages the same tournament and sequential verification as a Boolean continuation: its external result is one acceptance bit, rather than the intermediate list. The distinction is in the output and proof interface, not in whether candidates are verified sequentially. The induction below proves the acceptance guarantee directly from the measured-label law.
-
-<a id="upper-continuation-induction"></a>
-<!-- passage:upper-continuation-induction -->
-
-For this Boolean continuation, we give the induction in full, so that the difference in its statement has a complete mathematical explanation. At the fixed input, let $v(i)\in[0,1]$ be the full fresh verifier acceptance probability for candidate $i$, averaging both its newly decoded address and its local-test search, and let $V(L)$ be the probability that at least one fresh verification of a member of $L$ accepts. Sequential verification gives $V([])=0$ and $V(i::L)=v(i)+(1-v(i))V(L)$. Here $i::L$ puts the newest entry first, whereas §5.2 writes pivots in chronological order. Fresh independent verifier outcomes give
-\[
-V(L)=1-\prod_{i\in L}(1-v(i)),
-\]
-where entries are counted with their multiplicities. Thus both this probability and the weight product are invariant under permutation, so the two storage conventions give the same quantities. From this recursion, $0\leq V(L)\leq1$; if $s\in L$, then $V(L)\geq v(s)$; and if all $v(i)\leq\varepsilon$, then $V(L)\leq|L|\varepsilon$. Each assertion follows by induction on the list, or equivalently by the union bound for the verifier outcomes.
-
-Let $R_n(L)$ be the acceptance probability with $n$ tournament stages still available after history $L$. The recursion is
-\[
-\begin{aligned}
-R_0(L)&=V(L),\\
-R_n(L)&=f(L)V(L)+(1-f(L))\sum_i\frac{w_i}{W}R_{n-1}(i::L)
-&& (n>0,\ W>0),\\
-R_n(L)&=V(L) &&(n>0,\ W=0).
-\end{aligned}
-\]
-The two terms for positive $W$ are immediate sampler failure followed by verification, and a successful pivot followed by continuation. At $W=0$ the guaranteed $f(L)=1$ forces the third line. For positive $W$, the weights in the sum are nonnegative and sum to one. It follows inductively that $R_n(L)\in[0,1]$. If all $v(i)\leq\varepsilon$, the same recursion gives $R_n(L)\leq(|L|+n)\varepsilon$, because an immediate stop has bound $|L|\varepsilon$, each successful successor has bound $(|L|+1+n-1)\varepsilon$, and a convex combination preserves the larger bound.
-
-For the lower bound, let $I_n(L)$ be the probability that $s$ is absent after $n$ further ideal stages. Suppose that $0\leq\varepsilon\leq1$, that $s$ is dominant, that $v(s)\geq1-\varepsilon$, and that a total horizon $T_0$ satisfies $T_0\varepsilon<1/2$. Suppose also that $f(L)\leq\varepsilon$ for every history of length at most $T_0$ missing $s$, and $f(L)=1$ whenever $W=0$. The inductive assertion is
-
-<!-- claim:new-upper-continuation-bound -->
-$$
-R_n(L)\geq(1-\varepsilon)\bigl(1-I_n(L)-n\varepsilon\bigr)
-\qquad(|L|+n\leq T_0).
-$$
-
-At $n=0$, if $s$ is in $L$, the right side is $1-\varepsilon$, which is at most $V(L)$; otherwise $I_0(L)=1$ and the right side is zero. For a positive number of stages, a history that already contains $s$ keeps it after every pivot and at every stopping point, so induction in the recursion gives $R_n(L)\geq v(s)\geq1-\varepsilon$, which suffices because the right side is at most $1-\varepsilon$.
-
-For a history missing $s$, its dominant weight is at least $1-|L|\varepsilon>1/2$, so $W>0$. Since the ideal miss probability is the weighted mean of the successor miss probabilities, averaging the inductive lower bounds at successors gives a lower bound $B=(1-\varepsilon)(1-I_n(L)-(n-1)\varepsilon)$ for the successful continuation, and since the immediate-stop term is nonnegative, $R_n(L)\geq(1-f(L))B$. We always have $B\leq1-\varepsilon$, even when $B$ is negative. The sign cases give
-\[
-f(L)B\le
-\begin{cases}
-\varepsilon B\le\varepsilon(1-\varepsilon),&B\ge0,\\
-0\le\varepsilon(1-\varepsilon),&B<0.
-\end{cases}
-\]
-Subtracting the common upper bound from $B$ yields exactly the desired lower bound with $n\varepsilon$. The induction thus holds whether or not the failure probabilities at different histories are equal or independent.
-
-At the empty history with $n=T_0=T$, the ideal estimate gives $I_T([])\leq2m/2^T$, and expanding the product in the lower bound and discarding its nonnegative cross term gives $R_T([])\geq1-2m/2^T-T\varepsilon-\varepsilon$. This is the [acceptance guarantee of the formal tournament][src-tournament-runs], and it accounts for that theorem's additional verifier error. For a list-membership event, we use the perfect indicator $v(i)=\mathbf1_{\{i=s\}}$, in this analysis only; the same induction then starts from $1-I_0(L)$ without the factor $1-\varepsilon$ and yields $1-I_n(L)-n\varepsilon$, which is the list guarantee with no extra verifier error. This indicator is an analytical choice and is never supplied to the sampler as an oracle.
-<!-- /passage:upper-continuation-induction -->
-
-### 5.6. Proof of bounded amplification and the retained-state assertion
-
-We prove Lemma 3.1, including the measured-output contract used in §§5.2–5.5. The first part proves the trial law and all-branch cap; the final part identifies a designated retained subsystem.
-
-<a id="upper-grover-geometry"></a>
-<!-- passage:upper-grover-geometry -->
-
-Let $\Pi$ be the orthogonal projection onto the success subspace, let $\psi=A|0\rangle$, and let $p=\|\Pi\psi\|^2$. First suppose $0<p<1$, and define $g=\Pi\psi/\sqrt p$ and $b=(I-\Pi)\psi/\sqrt{1-p}$. Orthogonality of the two projection ranges gives orthonormal vectors $g,b$, and normalization of $\psi$ gives $\psi=\sqrt p\,g+\sqrt{1-p}\,b$. There is a unique $\theta\in(0,\pi/2)$ with $\sin\theta=\sqrt p$, and its cosine is $\sqrt{1-p}$.
-
-The success reflection is $S_\chi=I-2\Pi$, available without queries by the fixed-interface assumption, and the reflection about the reference state is $S_0=I-2|0\rangle\langle0|$. We take the Grover iterate
-\[
-G=-AS_0A^{-1}S_\chi.
-\]
-Its minus sign is a global phase and so costs no queries. Conjugating $S_0$ by $A$ gives $I-2|\psi\rangle\langle\psi|$, hence $G=(2|\psi\rangle\langle\psi|-I)S_\chi$. Both factors preserve the span of $g,b$. In the ordered basis $(g,b)$, $S_\chi$ changes the sign of the first coordinate. Multiplying it by the reflection about $\psi$ gives
-\[
-[G]_{(g,b)}=
-\begin{pmatrix}
-\cos(2\theta)&\sin(2\theta)\\
--\sin(2\theta)&\cos(2\theta)
-\end{pmatrix}.
-\]
-
-By the addition formulas, applying this matrix to a vector with coordinates $(\sin\alpha,\cos\alpha)$ gives $(\sin(\alpha+2\theta),\cos(\alpha+2\theta))$. Induction on the nonnegative integer $j$, starting at $\alpha=\theta$, therefore gives the state and success formula:
-
-<!-- claim:claim-grover-state -->
-$$
-G^j\psi
- =\sin((2j+1)\theta)g+\cos((2j+1)\theta)b,
-\qquad
-\Pr[\text{success after }j]=\sin^2((2j+1)\theta).
-$$
-
-Projection onto success removes the $b$ term, so whenever success has nonzero probability the normalized result is $g$ or $-g$. This conclusion concerns the whole workspace, including any registers in which $A$ has recorded intermediate data, and so it is stronger than a statement about the probability of a success flag alone.
-
-At $p=0$ the state lies in the failure subspace, where the success reflection fixes it; since the reflection about $\psi$ also fixes $\psi$, every iterate has zero success probability. At $p=1$ the success reflection sends $\psi$ to $-\psi$, so every iterate remains a scalar multiple of $\psi$ in the success subspace. Both endpoint cases are thus settled without normalizing a zero component.
-<!-- /passage:upper-grover-geometry -->
-
-<a id="upper-grover-trial"></a>
-<!-- passage:upper-grover-trial -->
-
-This is the trial-count construction used in [Appendix A.3 of the exposition](exposition.md#amplification-schedule). Here the successful-state geometry precedes it and the averaged failure bound follows it.
-
-The procedure has two integer parameters: the iteration-range size $M$ within one trial, and the maximum number $N$ of fresh trials. Use natural logarithms in the second expression:
-
-<!-- claim:def-grover-trial -->
-$$
-M=\left\lceil\frac{10}{\sqrt\gamma}\right\rceil,
-\qquad
-N=\left\lceil\frac{\ln(1/\eta)}{\ln(40/31)}\right\rceil.
-$$
-
-In one trial we set $j=0$ with probability $1/2$ and otherwise, with the remaining probability $1/2$, choose $j$ uniformly from $0,\ldots,M-1$; we then prepare $\psi$, apply $G^j$, and measure success. We run at most $N$ such trials on freshly initialized registers, stop at the first success, and return failure if none succeeds. Equivalently, each iteration count $j<M$ receives probability $1/(2M)$ and zero receives an additional $1/2$, so the distribution is finite and fixed before any access to the input. The zero-iteration half protects preparations that already succeed often; the randomized iterations handle small success probabilities without risking a fixed overshoot. More iterations need not increase success monotonically.
-
-One preparation followed by $j$ iterates uses $2j+1$ calls to $A$ or $A^{-1}$, and the elementary reflections $S_0$ and $S_\chi$ add no further calls to $A$ or $A^{-1}$. As $j<M$, a trial makes at most $2M-1$ calls; the formal construction charges the convenient upper bound $2M+1$. Stopping after $N$ trials therefore gives a syntactic cap that holds for every input and every sequence of outcomes, with no success assumption.
-<!-- /passage:upper-grover-trial -->
-
-<a id="upper-average-exact"></a>
-<!-- passage:upper-average-exact -->
-
-We control the randomized iteration count by the exact averaging identity of Boyer, Brassard, Høyer and Tapp [Boyer, Brassard, Høyer and Tapp (1996), §4, Lemma 2, p. 3], which strengthens the inequality in OpenAI's equation (9):
-
-<!-- claim:new-upper-average-exact -->
-$$
-\frac1M\sum_{j=0}^{M-1}\sin^2((2j+1)\theta)
- =\frac12-\frac{\sin(4M\theta)}{4M\sin(2\theta)}
- \quad(M\geq1,\ \sin(2\theta)\ne0).
-$$
-
-To prove it, we write $\sin^2 u=(1-\cos(2u))/2$. The difference between $\sin(4(j+1)\theta)$ and $\sin(4j\theta)$ is $2\sin(2\theta)\cos((4j+2)\theta)$, so summing this equality over $j=0,\ldots,M-1$ cancels every interior sine term and leaves $\sin(4M\theta)$. Dividing by the nonzero $2\sin(2\theta)$ gives the sum of the cosine terms, and substituting it into the sum of the squared sines and dividing by $M$ proves the identity. Multiplying through by $\sin(2\theta)$ gives a division-free identity that holds also at the endpoints; we use the displayed quotient only when its denominator is nonzero.
-<!-- /passage:upper-average-exact -->
-
-<a id="upper-small-probability"></a>
-<!-- passage:upper-small-probability -->
-
-Suppose now that $\gamma\leq p\leq1/2$. The sine addition formula and the definitions of $\theta,g,b$ give:
-
-<!-- claim:claim-sin2theta -->
-$$
-\sin(2\theta)=2\sqrt{p(1-p)}\geq\sqrt\gamma.
-$$
-
-Indeed, $1-p\geq1/2$, so the square of the left side is $4p(1-p)\geq2p\geq\gamma$, and both sides are nonnegative. Since $M\geq10/\sqrt\gamma$, we obtain $M\sin(2\theta)\geq10$. Because every sine has absolute value at most one, the exact average above implies the slightly weaker equation (9) of the paper, which suffices:
-
-<!-- claim:eq-9 -->
-$$
-\frac1M\sum_{j=0}^{M-1}\sin^2((2j+1)\theta)
-\geq\frac12-\frac{1}{2M|\sin(2\theta)|}
-\geq\frac9{20}.
-$$
-
-Thus the half of the trial that chooses a uniform iteration count contributes at least $9/40$ to its success probability. If instead $p\geq1/2$, the half that chooses zero iterations contributes at least $p/2\geq1/4\geq9/40$. Since these two cases cover every $p\geq\gamma$, including $p=1$, a trial fails with probability at most $31/40$ whenever the promise $p\geq\gamma$ holds.
-<!-- /passage:upper-small-probability -->
-
-<a id="upper-amplification-proof"></a>
-<!-- passage:upper-amplification-proof -->
-
-For a fixed oracle input, each fresh trial has the same failure probability $f$, and the fresh choices and registers make the failures independent. Hence the probability of $N$ failures is $f^N\leq(31/40)^N\leq\eta$, where the last inequality follows by taking logarithms, since $N\ln(40/31)\geq\ln(1/\eta)$. If $p=0$, the endpoint argument above gives $f=1$, hence certain failure.
-
-On a successful branch, the state of the successful trial is $g$ up to global phase, whatever its iteration count. Earlier failed trials occupy separate registers, which we may discard once their outcomes are recorded or keep, since in either case the designated output register is in the pure state $g$ up to phase. Mixing over iteration counts and over the index of the first successful trial leaves the density operator $|g\rangle\langle g|$ unchanged, so conditioning on success introduces no bias into any measurement of that output state. This proves every correctness clause of Lemma 3.1.
-
-**Optional constant accounting.** Readers needing only the measured-output contract may continue at §6; the [returned-register proof](#upper-returned-register) establishes the stronger subsystem assertion. The padded product charged by the implementation satisfies the following bound:
-
-<!-- claim:new-upper-call-cap -->
-$$
-\operatorname{calls}(\gamma,\eta)
-\leq N(2M+1)
-\leq138\,\gamma^{-1/2}\ln(1/\eta).
-$$
-
-For $x\geq1$, the derivative of $\ln x-2(x-1)/(x+1)$ is $(x-1)^2/(x(x+1)^2)\geq0$, and the expression vanishes at one; at $x=40/31$ this gives $\ln(40/31)\geq18/71\geq1/4$. Also $\ln2=\int_1^2u^{-1}\,du\geq1/2$, and consequently $N\leq4\ln(1/\eta)+1\leq6\ln(1/\eta)$. Since $M\leq10/\sqrt\gamma+1$ and $\sqrt\gamma\leq1$, we have $2M+1\leq23/\sqrt\gamma$, and multiplying the two bounds gives 138. The estimates are uniform, so the bound holds on every run, including runs whose success probability is small.
-
-A positive original success probability also makes the conditioning legitimate, because the zero-iteration half of each trial succeeds with probability at least $p/2>0$ and $N\geq1$; thus the total success probability is positive whenever $p>0$. At $p=0$ we assert certain failure and make no conditional-state assertion about a null event.
-<!-- /passage:upper-amplification-proof -->
-
-<a id="upper-returned-register"></a>
-<!-- passage:upper-returned-register -->
-**Strengthening from labels to a retained state.** We now interpret the retained registers. On a successful measured history, we route the entire original register of the first successful trial to a fixed output register, whose state is $g$ up to phase. The earlier unsuccessful registers, the iteration-count records and the chosen trial index are additional registers, and keeping all of them leaves the pure reduced state $|g\rangle\langle g|$ of the output register unchanged. If the history is retained coherently, the phase of each history can be absorbed into its auxiliary amplitude: after the fixed routing, the unnormalized successful component factors as $g\otimes\xi$, with $\|\xi\|^2$ equal to the success probability. This is a statement about a designated subsystem; it does not identify the whole enlarged workspace with the smaller vector $g$.
-
-A coherent implementation may run all $N$ trial registers and then route the first success, keeping the same padded cap, and it calls the preparation unitary only without control. To control a Grover iterate, we apply $A$ and $A^{-1}$ unconditionally, control only the fixed reflections $S_0,S_\chi$, and apply the minus sign as a phase on the true control. Writing $C(U)=|0\rangle\langle0|\otimes I+|1\rangle\langle1|\otimes U$ and $Z_c=|0\rangle\langle0|-|1\rangle\langle1|$, the controlled product is
-\[
-(Z_c\otimes I)(I\otimes A)C(S_0)(I\otimes A^{-1})C(S_\chi)
-=|0\rangle\langle0|\otimes I+|1\rangle\langle1|\otimes G.
-\]
-On a false control the reflections are identities and $AA^{-1}=I$; on a true control the product is $G$. The iteration-count record therefore controls only input-independent gates. Every trial has a fixed schedule of preparation calls, and its success projection can be recorded coherently in an auxiliary flag. After routing, the common factor $g$ on every successful history gives the stated factorization, and the first trial alone gives total success probability at least $p/2$ when $p>0$.
-
-<!-- claim:r3-q-labels-do-not-determine-state -->
-The successful-state assertion needs more than equality of label distributions. Write $|\pm\rangle=(|0\rangle\pm|1\rangle)/\sqrt2$. The vectors
-$$
- |+\rangle\otimes|0\rangle
- \quad\hbox{and}\quad
- \frac{|0\rangle|0\rangle+|1\rangle|1\rangle}{\sqrt2}
-$$
-give the same uniform computational-basis distribution on the first register. In the first vector that register is in the pure state $|+\rangle$, and in the second it has density matrix $I/2$, so measuring it in the $\{|+\rangle,|-\rangle\}$ basis distinguishes the two laws: the probability of $+$ is respectively $1$ and $1/2$. The example shows why the formal successful-label theorem certifies less than the full successful-state assertion, which the ordinary proof of Lemma 3.1 just given establishes.
-<!-- /passage:upper-returned-register -->
-
-
 ## 6. The classical lower bound
 
 We prove the randomized lower bound of Proposition 4.2 by planting a winner in a uniformly random column.
@@ -1650,13 +1467,13 @@ The argument gives a generic bound. Let $m=4^t$ with $t\ge1$, put $r=40t$, let $
 \[
 R(F_{P,C,m})>G=\left\lfloor\frac{mL}{100}\right\rfloor.
 \]
-This is the generic lower bound of [§6.3](#CL-generic-statement), and taking the Forrelation function with $L=L_{k,m}$ yields Proposition 4.2 in [§6.6](#CL-concrete-lower).
+This is the generic lower bound of [§6.2](#CL-generic-statement), and taking the Forrelation function with $L=L_{k,m}$ yields Proposition 4.2 in [§6.6](#CL-concrete-lower).
 
 The planted pair has only two possible places of first disagreement. On the dummy board every column has one hidden zero and all certificate cells are blank. An independent uniform column $I$ is changed by erasing its zero and filling its true addressed cell. The two executions agree until one of those locations is queried. A query to the cell names all its hard address answers, even if the algorithm merely guessed its position. The direct product will bound this prediction; the simulator makes its cap valid on every run.
 
-Write $Y^{(0)}$ for the dummy input, $Y^{(1)}$ for its planted partner, $J_i$ for the zero row of column $i$, and $s_i$ for its true address. The construction of §6.3 changes only the selected zero and cell.
+Write $Y^{(0)}$ for the dummy input, $Y^{(1)}$ for its planted partner, $J_i$ for the zero row of column $i$, and $s_i$ for its true address. The construction of §6.2 changes only the selected zero and cell.
 
-![The two possible first differences. The dummy board has one zero in every column and blank cells. Planting column $I=3$ erases its zero and fills its true cell. The address inputs have the same realization in both panels; their common hard law $\mu$ is supplied in §6.2. The four-column picture illustrates the coupling, not the large-size hardness estimate.](figures/expert_planted.svg){width=100%}
+![The two possible first differences. The dummy board has one zero in every column and blank cells. Planting column $I=3$ erases its zero and fills its true cell. The address inputs have the same realization in both panels; their common hard law $\mu$ is supplied in §6.1. The four-column picture illustrates the coupling, not the large-size hardness estimate.](figures/expert_planted.svg){width=100%}
 
 \Needspace{15\baselineskip}
 
@@ -1667,13 +1484,227 @@ We fix a deterministic tree of depth at most $G$ and argue in four steps.
 3. By a capped simulator and the direct product, for any fixed column and query time, the joint event that the column is nonheavy and that this query visits its true cell has probability at most $(2/3)^r$ ([simulator and (21)](#CL-simulator)); columns that receive more queries are rare (20).
 4. Together the three bounds are less than $1/3$, contradicting bounded error ([assembly](#CL-discrepancy)).
 
-We begin in §6.1 with the direct product that the simulator uses. A reader taking Lemma 4.1 as given can pass directly from its [statement](#CL-direct-product-statement) to its [planted-use interface](#CL-planted-interface), then continue at [§6.2](#CL-entry-interface). (Readers arriving from the [specialist companion](expert_companion.md) return to its §4.)
+We first choose the common hard law (§6.1) and construct the coupled inputs (§6.2). The zero estimate follows in §6.3. Section 6.4 converts a cell visit into a capped prediction and states the direct-product lemma it needs; §6.5 proves that lemma. Section 6.6 then assembles the discrepancy bound. Readers using the product lemma as an input may pass from §6.4 to §6.6; readers arriving from the [specialist companion](expert_companion.md) return to its §4.
 
 The budgets have different jobs. The allowance $L$ expresses hardness of one partial-function input. The tree attacking the total function has overall cap $G=\lfloor mL/100\rfloor$. A column is light when its whole address tuple receives at most $L$ queries in that run. The simulator enforces this last, aggregate cap even on runs that would exceed it. In particular, it makes at most $L$ queries to each individual address input, as required by the direct-product lemma below.
 
-### 6.1. A direct product with a separate query cap on each input
+### 6.1. The hard distribution and the hidden address
 
-#### Statement
+<a id="CL-entry-interface"></a>
+<!-- passage:CL-entry-interface -->
+**Local recap for the lower bound.** Let \(P:D\to\{0,1\}\), where \(D\subseteq\{0,1\}^{n}\), and let \(C\) be a finite fan-in-two Boolean circuit with a domain output, which is one exactly on \(D\), and a value output, which on \(D\) equals \(P\). A circuit transcript records the values of all non-input gates, and topological evaluation supplies a unique transcript satisfying all gate checks.
+
+For \(m=4^t\), \(t\ge1\), put \(\ell=\log_2m=2t\) and \(r=40t=20\log_2m\). Each of the \(m\) columns contains an \(m\)-bit string \(X_i\), \(r\) strings \(A_{i,1},\ldots,A_{i,r}\) of length \(n\), and a separate certificate cell \(B_{i,s}\) for each \(s\in\{0,1\}^{r}\). Each cell contains a transcript for every \(A_{i,h}\) and an \(\ell\)-bit pointer into each other column, and every pointer encoding names a row, since there are exactly \(2^\ell=m\) rows. When the \(A\)-strings of column \(i\) are promised, its true address is
+\[
+s_i=(P(A_{i,1}),\ldots,P(A_{i,r})).
+\]
+The total function \(F=F_{P,C,m}\) equals one exactly when some column \(i\) is all ones, all its \(A\)-strings are promised, and \(B_{i,s_i}\) contains correct transcripts and pointers to zeros in every other column.
+
+The address-and-certificate mechanism goes back to the cheat sheets of Aaronson, Ben-David and Kothari [Aaronson, Ben-David and Kothari (2016; revised 2019), §6.1, Definitions 14–15, and §6.2, Lemma 17, pp. 20–22](https://arxiv.org/pdf/1511.01937v2), whose Lemma 17 gives upper bounds for their cheat-sheet function; the proof below handles the separate arrays and outward pointers of the present function.
+<!-- /passage:CL-entry-interface -->
+
+<a id="CL-minimax"></a>
+<!-- passage:CL-minimax -->
+Assume that \(L\) is a nonnegative integer and \(L<R(P)\), where \(R\) is defined with a query cap on every execution and success at least \(2/3\) on every promised input. Then the domain \(D\) is nonempty, since an empty promise has zero-query complexity.
+
+The worst-case lower bound says that no mixture of shallow trees succeeds on every promised input. Planting needs the quantifiers in the other order: one input law under which every shallow tree fails often enough. We choose this law only after fixing $P$ and $L$; it may depend on both. Finite convex separation supplies it:
+<!-- claim:claim-minimax-mu -->
+\[
+\exists\mu\text{ on }D\quad
+\forall T\text{ with }\operatorname{depth}(T)\le L,\qquad
+\Pr_{x\sim\mu}[T(x)=P(x)]\le\frac23.
+\]
+
+The minimax step has a finite proof. There are finitely many depth-\(L\) trees on \(n\) coordinates; for each such tree let \(a_T\in\mathbb R^D\) be its vector of correctness indicators, and let \(K\) be the convex hull of these vectors. Equivalently, form the finite payoff matrix with trees as rows, promised inputs as columns and correctness indicators as entries. A row mixture gives its vector of per-input success probabilities, and $K$ consists of exactly those vectors. Each point of \(K\) is the success vector of a randomized mixture of depth-\(L\) trees, so by hypothesis \(K\) is disjoint from the closed orthant \(H=[2/3,\infty)^D\).
+
+For \(a\in K\), the nearest point of \(H\) has coordinates \(c_x=\max(a_x,2/3)\). By compactness of \(K\) we choose a pair \(a,c\) of minimum distance, which is positive by disjointness. We set \(v=c-a\), so that \(v_x\ge0\), \(v\ne0\), and \(c_x=2/3\) whenever \(v_x>0\). For \(b\in K\), the point \(a+\theta(b-a)\) stays in \(K\) for \(0\le\theta\le1\). The squared distance \(\|c-a-\theta(b-a)\|^2\) is therefore minimized at \(\theta=0\) on this segment. Its right derivative gives
+\[
+-2v\cdot(b-a)\ge0,\qquad v\cdot(b-a)\le0.
+\]
+Consequently,
+<!-- claim:NCL-strict-hard-distribution -->
+\[
+v\cdot b\le v\cdot a
+=v\cdot c-\|v\|^2
+=\frac23\sum_xv_x-\|v\|^2.
+\]
+The weights \(\mu(x)=v_x/\sum_yv_y\) form a probability distribution, and dividing the preceding inequality by the positive denominator proves the required bound, with a strict positive margin common to all the trees. The argument is finite and self-contained; the hard measure used in the analytic proof of Forrelation hardness plays no role in it.
+<!-- /passage:CL-minimax -->
+
+### 6.2. Coupled zero and one inputs
+
+<a id="CL-generic-statement"></a>
+<!-- passage:CL-generic-statement -->
+**Generic lower bound.** Let \(m=4^t\), \(t\ge1\), and \(r=40t\). Let \(P:D\to\{0,1\}\) be a partial Boolean function on a finite set of input coordinates, let \(C\) realize its promise and value, and let \(F_{P,C,m}\) be the addressed function just described. If
+\[
+1\le L\le m,\qquad L<R(P),
+\]
+then
+<!-- claim:prop-4.2-generic -->
+\[
+R(F_{P,C,m})>\left\lfloor\frac{mL}{100}\right\rfloor.
+\]
+The implication holds whatever the size of the circuit. Thus the classical lower bound pays for the hardness of the address inputs, not for the length of the certificates.
+
+Define the budget
+<!-- claim:eq-17 -->
+\[
+G=\left\lfloor\frac{mL}{100}\right\rfloor
+\tag{17}
+\]
+and fix a deterministic tree \(T\) of depth at most \(G\), together with the hard distribution \(\mu\) of §6.1. We construct both input distributions on one probability space.
+
+The zero positions $J_1,\ldots,J_m$ are independent uniform rows. They are available to the target-column simulator because they are independent of all target address strings. The address strings $A_{i,h}$ are independent samples from the one-input hard law $\mu$: the simulator receives the other columns' strings, but must query the target strings.
+
+True addresses and evaluated transcripts are deterministic functions of those strings. Neither the target address nor its transcript is supplied. The planted column $I$ is uniform and independent of the entire dummy input; it enters only in the final average over columns. The filled cell is derived from $I$, its true address, its evaluation transcripts and the zero positions. The simulator itself runs on the blank dummy cells.
+
+<!-- /passage:CL-generic-statement -->
+
+<a id="CL-dummy"></a>
+<!-- passage:CL-dummy -->
+For each column \(i\), we choose \(J_i\) independently and uniformly from its \(m\) rows, and in the dummy input \(Y^{(0)}\) we put
+<!-- claim:def-dummy -->
+\[
+X_i[j]=
+\begin{cases}
+0,&j=J_i,\\
+1,&j\ne J_i.
+\end{cases}
+\]
+Independently, we draw every \(A_{i,h}\) from \(\mu\) and fill every bit of every cell \(B_{i,s}\) with zero, so the blank cells reveal neither a zero location nor any value of \(P\).
+
+All these probability spaces are finite, so expectations are finite sums with product weights. For example, the erased-zero identity in §6.3 first fixes all dummy data and then averages the independent uniform column $I$; the simulator in §6.4 similarly fixes data independent of its target strings. In both cases we fix the other coordinates and average the remaining independent variable. Resampling a coordinate from its original law preserves the expectation, because summing first over the old coordinate gives a factor one and leaves the sum over its replacement.
+<!-- /passage:CL-dummy -->
+
+<a id="CL-planted"></a>
+<!-- passage:CL-planted -->
+Next we choose \(I\) uniformly from the \(m\) columns, independently of the entire dummy input, and obtain the planted input \(Y^{(1)}\) by replacing \(X_I\) by \(1^m\) and filling only \(B_{I,s_I}\). This cell receives the evaluation transcript of \(C\) on \(A_{I,h}\) in its \(h\)-th transcript field, and its pointer into column \(j\ne I\) receives the value \(J_j\). Since every \(A_{i,h}\) is promised, all true addresses exist.
+
+Every dummy column has a zero, while column \(I\) of the planted input meets every winning condition. Thus
+<!-- claim:claim-Y-values -->
+\[
+F_{P,C,m}(Y^{(0)})=0,\qquad
+F_{P,C,m}(Y^{(1)})=1.
+\]
+(If the finite sums are taken over the whole input cube with \(\mu=0\) outside \(D\), as in the Lean formulation, the second assertion is needed only at sample points of positive weight.)
+<!-- claim:def-planted -->
+<!-- /passage:CL-planted -->
+
+<a id="CL-tiny-planted-example"></a>
+<!-- passage:CL-tiny-planted-example -->
+**A four-column instance.** To illustrate the planting operation, we temporarily take \(m=4\), \(r=2\) and \(P(a,b)=a\mathbin{\mathrm{xor}}b\) on all two-bit inputs, computed by a two-gate circuit whose domain output is \(1\) and whose value output is \(a\mathbin{\mathrm{xor}}b\), so that its transcript is \((1,P(a,b))\). This toy is an instance of the generic addressed construction, with later example query budget $4$; it is neither a Forrelation instance nor a choice satisfying $r=40t$ and $G=\lfloor mL/100\rfloor$. Rows and columns carry zero-based labels in this example. Adding one to a row or column label translates it to the convention of §4; the pointer words here encode $0,1,2,3$ directly. The same toy continues at the [capped simulator trace](#CL-simulator-example).
+
+\Needspace{12\baselineskip}
+
+We choose the zero positions and strings as follows.
+
+| Column \(i\) | \(J_i\) | \(X_i\) in \(Y^{(0)}\) | \(A_{i,1}\) | \(A_{i,2}\) | \(s_i\) |
+|---|---:|---|---|---|---|
+| 0 | 2 | \(1101\) | \(00\) | \(01\) | \(01\) |
+| 1 | 0 | \(0111\) | \(10\) | \(11\) | \(10\) |
+| 2 | 3 | \(1110\) | \(10\) | \(11\) | \(10\) |
+| 3 | 1 | \(1011\) | \(01\) | \(10\) | \(11\) |
+
+We plant column \(I=1\). Its string becomes \(1111\), and cell \(B_{1,10}\) receives transcripts \((1,1)\) and \((1,0)\) together with pointers into columns \(0,2,3\) with values \(2,3,1\), encoded as \(10,11,01\). These point to the displayed zeros, so the planted input has value one; all other cells remain blank.
+
+<!-- /passage:CL-tiny-planted-example -->
+
+<a id="CL-first-difference"></a>
+<!-- passage:CL-first-difference -->
+The two coupled inputs can differ only at \(X_I[J_I]\) and inside \(B_{I,s_I}\). Until \(T\) receives different answers on the two inputs, its histories coincide, and so do its next query and stopping decision. Hence, if the dummy execution never queries a differing bit, the two executions end at the same leaf.
+
+Since the outputs are Boolean,
+\[
+\left|\mathbb E T(Y^{(1)})-\mathbb E T(Y^{(0)})\right|
+\le\mathbb E\left|T(Y^{(1)})-T(Y^{(0)})\right|
+=\Pr[T(Y^{(1)})\ne T(Y^{(0)})].
+\]
+The preceding first-difference implication and a union bound therefore give
+<!-- claim:eq-18 -->
+\[
+\begin{aligned}
+\left|\Pr[T(Y^{(1)})=1]-\Pr[T(Y^{(0)})=1]\right|
+&\le
+\Pr[T\text{ on }Y^{(0)}\text{ queries }X_I[J_I]]\\
+&\quad+
+\Pr[T\text{ on }Y^{(0)}\text{ queries a bit of }B_{I,s_I}].
+\end{aligned}
+\tag{18}
+\]
+Inequality (18) is the absolute-value form of the preprint's one-sided first-difference comparison. Its second term counts any visit to the cell, which bounds the event of seeing a changed cell bit (some planted bits can equal their blank values). Every event on the right concerns the dummy run, whose law is independent of \(I\).
+<!-- /passage:CL-first-difference -->
+
+### 6.3. Discoveries and the erased zero
+
+<a id="CL-erased-zero-identity"></a>
+<!-- passage:CL-erased-zero-identity -->
+Let \(Z\) count the columns whose unique zero is queried during the complete dummy run:
+<!-- claim:def-Z -->
+\[
+Z=\sum_{i=1}^{m}
+\mathbf1\{T\text{ on }Y^{(0)}\text{ queries }X_i[J_i]\}.
+\]
+Repeated queries to a discovered zero still contribute only one to \(Z\). This count is distinct from the product potential used in §6.5. Once all the dummy data are fixed, \(Z\) is fixed, and exactly \(Z\) of the \(m\) possible choices of \(I\) select a discovered zero. Averaging over \(I\) and then over the dummy data, we obtain the identity
+\[
+\Pr[T\text{ on }Y^{(0)}\text{ queries }X_I[J_I]]
+=\frac{\mathbb EZ}{m}.
+\]
+The identity uses only the independence and uniformity of \(I\) (it holds at every depth and for every \(P\)), and a separate search estimate will bound its right-hand side.
+<!-- /passage:CL-erased-zero-identity -->
+
+<a id="CL-selection-independence-example"></a>
+<!-- passage:CL-selection-independence-example -->
+**Independence of the selected column.** Take four columns with independent uniform zero locations, and query row zero in every column. (This finite example has budget four; it is not the asymptotic choice $G=\lfloor mL/100\rfloor$.) Each query finds a zero with probability $1/4$, so $\mathbb EZ=1$, and an independent uniform column $I$ is hit with probability $1/4=\mathbb EZ/4$.
+
+Now we change only the rule for selecting $I$: after the queries, choose uniformly among the columns where a zero was found, or uniformly among all four if no zero was found (an event of probability $(3/4)^4=81/256$). Symmetry under column permutations still gives $\Pr[I=i]=1/4$ for every $i$, yet the selected zero is now hit exactly when at least one discovery occurred, which has probability
+\[
+1-(3/4)^4=\frac{175}{256}>\frac14.
+\]
+Thus the identity in (19) needs more than a uniform marginal law for $I$: it needs independence from the whole dummy run.
+<!-- /passage:CL-selection-independence-example -->
+
+
+<a id="CL-early-late"></a>
+<!-- passage:CL-early-late -->
+Before the zero in a column has been discovered, its conditional location is uniform among that column's unqueried rows. To handle adaptivity, we fix a positive-probability transcript prefix. As in the transcript-cylinder argument of §6.5, a deterministic tree follows that prefix exactly on the inputs satisfying its recorded query answers (induction over the prefix gives both implications). Here the prefix event therefore gives separate constraints on the independent \(J_i\)'s and \(A\)-strings; the blank $B$ cells are fixed and constrain neither. For an undiscovered \(J_i\), the constraints exclude only the distinct rows already queried, and the blank cells add none. Therefore, if \(u\) rows remain,
+<!-- claim:claim-uniform-zero -->
+\[
+\Pr[J_i=j\mid\text{that prefix}]
+=
+\begin{cases}
+1/u,&j\text{ is unqueried in column }i,\\
+0,&j\text{ was queried there}.
+\end{cases}
+\]
+Here \(u>0\) because the prefix has positive probability, and a repeated query excludes nothing new.
+
+Call a discovery early when fewer than \(m/2\) distinct positions of its column were queried beforehand. At a query that can make an early discovery, more than \(m/2\) positions remain, so its conditional discovery probability is at most \(2/m\); a repeated query makes no new discovery. Let $E_q$ indicate that query $q$ is the first zero discovery in its column and that fewer than $m/2$ distinct rows of that column were tested beforehand; set $E_q=0$ after a branch stops. Conditional on the pre-query history, $\mathbb E[E_q\mid\text{history}]\le2/m$. Summing over the deterministic horizon $q=1,\ldots,G$ gives $\mathbb E\sum_qE_q\le2G/m$.
+
+Every late discovery belongs to a column that receives at least \(m/2\) queries. Since the column query counts sum to at most \(G\), every execution has at most \(2G/m\) such columns, each contributing at most one discovery. Writing \(Z=Z_{\mathrm{early}}+Z_{\mathrm{late}}\), we obtain
+<!-- claim:claim-EZ -->
+\[
+\mathbb EZ_{\mathrm{early}}\le\frac{2G}{m},
+\qquad
+Z_{\mathrm{late}}\le\frac{2G}{m},
+\qquad
+\mathbb EZ\le\frac{4G}{m}.
+\]
+Combined with the selection identity, this proves the full display of the preprint:
+<!-- claim:eq-19 -->
+\[
+\Pr[T\text{ on }Y^{(0)}\text{ queries }X_I[J_I]]
+=\frac{\mathbb EZ}{m}
+\le\frac{4G}{m^2}.
+\tag{19}
+\]
+The identity and the search estimate prove separate parts of (19): the first uses independent selection, the second the cost of discovering zeros.
+<!-- /passage:CL-early-late -->
+
+Equation (19) is sufficient for the contradiction below. The stronger search estimate used by the formal endpoint and an expectation-cost variant are proved after that contradiction in [Appendix B.2](#CL-zero-worlds).
+
+### 6.4. A capped simulator for the planted cell
+
+A query to a certificate cell specifies its address before reading a bit of the cell. We will regard that address as a prediction of the $r$ hidden answers. The following lemma bounds one such prediction; its proof is in §6.5.
 
 <a id="CL-direct-product-statement"></a>
 <!-- passage:CL-direct-product-statement -->
@@ -1702,7 +1733,7 @@ run, counting repeated queries, then
 \tag{6.1}
 \]
 
-The later simulator uses the [cap-event corollary](#CL-joint-cap): success together with respecting all caps has probability at most $\beta^r$, even for an original algorithm not capped on every run. Stopping before the first excess query reduces that joint event to this lemma.
+The simulator below uses the [cap-event corollary](#CL-joint-cap): success together with respecting all caps has probability at most $\beta^r$, even for an original algorithm not capped on every run. Stopping before the first excess query reduces that joint event to this lemma.
 
 Lemma 4.1 is stated in [OpenAI, §4.1, Lemma 4.1, pp. 11–12][OpenAI2026].
 Its one-input hypothesis concerns every bounded-depth strategy under one
@@ -1712,7 +1743,107 @@ remaining allowance. (The case $L=0$ allows only constant guesses, and if
 $r=0$ the answer vector is empty and the bound reads $1\leq1$.)
 <!-- /passage:CL-direct-product-statement -->
 
-#### Proof of Lemma 4.1 by conditional values
+<a id="CL-address-guess"></a>
+<!-- passage:CL-address-guess -->
+Apply Lemma 4.1 to independent \(U_1,\ldots,U_r\sim\mu\): if an algorithm makes at most \(L\) queries to each \(U_h\) on every execution, then
+<!-- claim:claim-address-guess -->
+\[
+\Pr[\widehat s=(P(U_1),\ldots,P(U_r))]\le(2/3)^r.
+\]
+The bits $P(U_h)$ need not be unbiased: their unpredictability is supplied by the one-input success bound under $\mu$, not by uniformity of these labels. The algorithm may interleave its queries and use side information jointly independent of the whole tuple, since fixing that information and its random coins preserves the input law and the deterministic bound can then be averaged.
+
+This is the per-input-capped direct product proved in §6.5. Its [source comparison](#CL-literature-and-verification) gives Drucker's alternative global-budget theorem and its quantitative substitution; the present argument assumes no further direct-product result.
+<!-- /passage:CL-address-guess -->
+
+
+
+<a id="CL-heavy"></a>
+<!-- passage:CL-heavy -->
+Let \(N_i\) be the number of queries made during the complete dummy run to the strings \(A_{i,1},\ldots,A_{i,r}\), counting repetitions, and call column \(i\) heavy when \(N_i>L\). Since \(\sum_iN_i\le G\), at most \(G/L\) columns are heavy, and \(I\) remains uniform conditional on the dummy run. Thus
+<!-- claim:def-heavy -->
+<!-- claim:eq-20 -->
+\[
+\Pr[I\text{ is heavy}]\le\frac{G}{mL}.
+\tag{20}
+\]
+The threshold bounds the total number of queries to all \(r\) strings of a column, so in particular a nonheavy run uses at most \(L\) queries to each of those strings.
+<!-- /passage:CL-heavy -->
+
+<a id="CL-simulator"></a>
+<!-- passage:CL-simulator -->
+Fix a column \(i\) and a time \(q\in\{1,\ldots,G\}\). The simulator's queried inputs are the \(r\) strings of that column, and we give it the independent outside data: every \(J_j\), all the \(A\)-strings of the other columns, and the fixed blank cells. It receives no target string, target address or target transcript as side information. In particular, revealing $J_i$ is harmless: the simulator predicts the vector of partial-function values, and all zero locations are jointly independent of those target strings.
+
+There are two counters: the original tree clock counts every proposed query, whereas the charged counter counts only target-string oracle calls. The simulator runs \(T\) on the dummy input up to its proposed \(q\)-th query. A default output can itself be correct, so the proof below needs containment in the simulator-success event, not equality of events. It answers every outside query from the supplied data, and it answers a query to one of the target strings by making the corresponding oracle query, charged against one shared counter; it aborts before that counter would exceed \(L\). If time \(q\) is reached and the proposed query is to \(B_{i,s}\), it outputs \(s\). If the simulated run terminates or aborts, or proposes a different kind of coordinate, it outputs a fixed vector. The proposed cell's address is read off the run itself, without a query to the cell's contents.
+<!-- claim:def-simulator -->
+
+For every possible tuple of target inputs, this simulator makes at most \(L\) target queries in total, so it satisfies each of the \(r\) separate caps in Lemma 4.1 (also on branches where the original tree would eventually make column \(i\) heavy). Because the outside data are jointly independent of the target tuple, the simulator's unconditional success is at most \((2/3)^r\).
+<!-- /passage:CL-simulator -->
+
+<a id="CL-joint-event"></a>
+<!-- passage:CL-joint-event -->
+With the general parameters and the hard distribution of §6.1, suppose the complete dummy run makes column \(i\) nonheavy and proposes a query in \(B_{i,s_i}\) at time \(q\). Then every preceding prefix uses at most \(L\) target queries, so the simulator follows the original run without aborting and outputs \(s_i\). Hence the joint event is contained in the simulator's success event:
+<!-- claim:eq-21 -->
+\[
+\Pr[i\text{ is nonheavy and query }q\text{ lies in }B_{i,s_i}]
+\le(2/3)^r.
+\tag{21}
+\]
+Nonheaviness enters as part of the event inside the probability, so the target inputs keep their original distribution. The simulator never tests whether the complete run is nonheavy: that stronger event implies the needed prefix cap and is chosen to match the complete-run heavy-column bound (20).
+<!-- /passage:CL-joint-event -->
+
+<a id="CL-simulator-example"></a>
+<!-- passage:CL-simulator-example -->
+A toy instance illustrates the reduction just proved. We return to the four-column XOR example of [§6.2](#CL-tiny-planted-example) and take \(L=1\), with both target strings independently uniform. Readers coming from the examples-first exposition should note two differences from its four-column board: here \(P\) is the total function \(a\mathbin{\mathrm{xor}}b\) on two bits, so every address is defined and only the planting and the cap are illustrated, and rows and columns are numbered from \(0\). Consider a four-query tree that first reads \(X_0[0]\), then the first bit \(a\) of \(A_{1,1}\). If \(a=1\), its third query is \(X_2[1]\); if \(a=0\), its third query is the first bit of \(A_{1,2}\). Its fourth query reads the first transcript's domain bit in \(B_{1,(a,0)}\), and it outputs that bit.
+
+In the displayed planted configuration the target first bit is \(1\), and the simulator for \(i=1,q=4\) behaves as follows.
+
+| Original time | Proposed query | Answer source | Target calls used | Simulator action |
+| ---: | --- | --- | ---: | --- |
+| 1 | $X_0[0]$ | Outside data: $1$ | 0 | Continue |
+| 2 | First bit of $A_{1,1}$ | Target oracle: $1$ | 1 | Continue |
+| 3 | $X_2[1]$ | Outside data: $1$ | 1 | Continue |
+| 4 | Domain bit in $B_{1,10}$ | No cell answer read | 1 | Output address $10$ |
+
+At time four the original tree receives \(0\) on the dummy input and \(1\) on the displayed planted input, while the simulator uses the blank dummy data and stops before that answer. On the other branch, \(a=0\), it aborts before the second target query at time three. Thus the cap is enforced during each execution, with no retrospective selection of the cheap ones.
+
+The joint-event and simulator-success probabilities follow directly from the target strings $(a,b)$ and $(c,d)$. On the nonheavy branch $a=1$, the proposed address $(1,0)$ is true exactly when $b=0$ and $c=d$, an event of probability $1/8$. On $a=0$ the simulator truncates and defaults to $(0,0)$; correctness again requires $b=0$ and $c=d$, contributing another $1/8$. Thus the simulator succeeds with probability $1/4$. For uniform two-bit XOR, a one-query algorithm succeeds with probability at most $1/2$, so \(1/4=(1/2)^2\) is the relevant two-input bound.
+
+
+We can also average over the zero locations. The tree always queries $X_0[0]$ and queries $X_2[1]$ only when $a=1$. Those two columns are distinct, so their contributions to $\mathbb EZ$ are $1/4$ and $(1/2)(1/4)$. Hence
+\[
+\mathbb EZ=\frac38,\qquad
+\Pr[\text{erased-zero hit}]=\frac3{32}=\frac{\mathbb EZ}{4}.
+\]
+These identities use the four independent uniform zero positions and a uniform independent choice of $I$. The true-cell and simulator probabilities remain $1/8$ and $1/4$, as calculated above.
+<!-- /passage:CL-simulator-example -->
+
+
+<a id="CL-conditioning-counterexample"></a>
+<!-- passage:CL-conditioning-counterexample -->
+The examples isolate different effects of conditioning. The adaptive example in [Appendix B.3](#CL-adaptive-example) shows how a union of transcript rectangles can lose its product law. The preceding simulator has extra success from its default output. The following example shows how conditioning on the nonheavy event in (21) selects inputs that are easier to solve. On the promised two-bit inputs \(\{01,10,11\}\), let \(P\) be AND and let \(\mu\) be uniform. Every one-query algorithm has success at most \(2/3\): after either coordinate is queried, one answer identifies a unique input and the other leaves two equally likely, oppositely labelled inputs.
+
+Consider the tree that queries the first bit, stops with the correct output \(0\) on the answer-zero branch, and queries the second bit on the answer-one branch. With cap \(L=1\), the complete original run is nonheavy exactly on input \(01\), so its conditional success given nonheaviness is \(1\). A simulator that aborts before the second query and defaults to \(0\) has unconditional success \(2/3\), while correct-and-nonheavy has probability \(1/3\). Thus the unconditional bound holds, while the conditional bound would read \(1\le2/3\), which is false. This meets the separate-cap lemma’s hard-law premise, but $R(P)=L=1$: choose a coordinate uniformly, output $0$ after a $0$, and output $1$ with probability $2/3$ after a $1$. The success probability is $2/3$ on each promised input; no zero-query algorithm can achieve it on both labels. Thus the toy illustrates conditioning on terminal lightness, not the strict $L<R(P)$ regime of the final construction.
+<!-- /passage:CL-conditioning-counterexample -->
+
+<a id="CL-cell-union"></a>
+<!-- passage:CL-cell-union -->
+If the dummy run visits the true cell of a nonheavy column \(i\), one of its at most \(G\) query times witnesses that visit, so a union bound of (21) over the times gives probability at most \(G(2/3)^r\) for each fixed \(i\). We average over the independent uniform \(I\) and then add (20):
+<!-- claim:eq-22 -->
+\[
+\Pr[T\text{ on }Y^{(0)}\text{ queries a bit of }B_{I,s_I}]
+\le\frac{G}{mL}+G(2/3)^r.
+\tag{22}
+\]
+To see the cancellation, let $E_{iq}$ be the joint event in (21). The contribution from nonheavy columns is bounded by
+\[
+\frac1m\sum_{i=1}^m\sum_{q=1}^G\Pr(E_{iq})
+\le\frac1m\sum_{i=1}^mG(2/3)^r=G(2/3)^r.
+\]
+
+A union bound tolerates repeated cell visits, and when \(G=0\) the union of query-time events is empty.
+<!-- /passage:CL-cell-union -->
+
+### 6.5. Proof of the separate-cap direct product
 
 <a id="CL-product-law"></a>
 <!-- passage:CL-product-law -->
@@ -1919,7 +2050,7 @@ of Lemma 4.1 supply no such estimate, as the [adaptive example in Appendix B.3](
 
 <a id="CL-planted-interface"></a>
 <!-- passage:CL-planted-interface -->
-In §6.5 a simulator fixes the dummy data outside a target column and treats
+In §6.4 a simulator fixes the dummy data outside a target column and treats
 that column's $r$ partial-function inputs as independent samples from the
 hard law. It stops before its $(L+1)$-st target query in total,
 which implies the separate allowance $L$ for every target input. Its
@@ -1931,7 +2062,7 @@ If the original dummy run is nonheavy and its proposed query at a fixed
 time visits the true-address cell, the simulator reaches that query without
 truncation and outputs its address, so the joint event is contained in
 simulator success. This gives the fixed-time bound used in equation (21) of
-the preprint, and §6.5 then takes a union over query times. The hard input
+the preprint, and §6.4 then takes a union over query times. The hard input
 law is never conditioned on nonheaviness, and the queries made at different
 times may be dependent.
 <!-- /passage:CL-planted-interface -->
@@ -1943,7 +2074,7 @@ The alternative [unnormalized proof in Appendix B.1](#CL-weighted-values) gives 
 
 <a id="CL-literature-and-verification"></a>
 <!-- passage:CL-literature-and-verification -->
-The proof in §6.1 follows the conditional-value argument of
+The proof in §6.5 follows the conditional-value argument of
 [OpenAI, §4.1][OpenAI2026], which builds on
 [Drucker, arXiv:1005.0644v2, §1.3, Lemmas 3.1–3.2 on printed pp. 11–12,
 and the last paragraph of §3 on p. 13][Drucker2012]. Drucker's Theorem 1.1
@@ -1959,326 +2090,10 @@ input-law conventions, and the vector-output claim for the present hard law
 is proved above.
 <!-- /passage:CL-literature-and-verification -->
 
-### 6.2. The hard distribution and the hidden address
-
-<a id="CL-entry-interface"></a>
-<!-- passage:CL-entry-interface -->
-**Local recap for the lower bound.** Let \(P:D\to\{0,1\}\), where \(D\subseteq\{0,1\}^{n}\), and let \(C\) be a finite fan-in-two Boolean circuit with a domain output, which is one exactly on \(D\), and a value output, which on \(D\) equals \(P\). A circuit transcript records the values of all non-input gates, and topological evaluation supplies a unique transcript satisfying all gate checks.
-
-For \(m=4^t\), \(t\ge1\), put \(\ell=\log_2m=2t\) and \(r=40t=20\log_2m\). Each of the \(m\) columns contains an \(m\)-bit string \(X_i\), \(r\) strings \(A_{i,1},\ldots,A_{i,r}\) of length \(n\), and a separate certificate cell \(B_{i,s}\) for each \(s\in\{0,1\}^{r}\). Each cell contains a transcript for every \(A_{i,h}\) and an \(\ell\)-bit pointer into each other column, and every pointer encoding names a row, since there are exactly \(2^\ell=m\) rows. When the \(A\)-strings of column \(i\) are promised, its true address is
-\[
-s_i=(P(A_{i,1}),\ldots,P(A_{i,r})).
-\]
-The total function \(F=F_{P,C,m}\) equals one exactly when some column \(i\) is all ones, all its \(A\)-strings are promised, and \(B_{i,s_i}\) contains correct transcripts and pointers to zeros in every other column.
-
-The lower bound compares an input with one zero in every column against an input in which one column's zero is erased and its true cell is filled. To tell them apart, a query algorithm must encounter one of those changes. The erased zero is hidden by the independent choice of the column, and the filled cell by the difficulty of predicting an entire vector of partial-function values.
-
-The address-and-certificate mechanism goes back to the cheat sheets of Aaronson, Ben-David and Kothari [Aaronson, Ben-David and Kothari (2016; revised 2019), §6.1, Definitions 14–15, and §6.2, Lemma 17, pp. 20–22](https://arxiv.org/pdf/1511.01937v2), whose Lemma 17 gives upper bounds for their cheat-sheet function; the proof below handles the separate arrays and outward pointers of the present function.
-<!-- /passage:CL-entry-interface -->
-
-<a id="CL-minimax"></a>
-<!-- passage:CL-minimax -->
-Assume that \(L\) is a nonnegative integer and \(L<R(P)\), where \(R\) is defined with a query cap on every execution and success at least \(2/3\) on every promised input. Then the domain \(D\) is nonempty, since an empty promise has zero-query complexity.
-
-The worst-case lower bound says that no mixture of shallow trees succeeds on every promised input. Planting needs the quantifiers in the other order: one input law under which every shallow tree fails often enough. We choose this law only after fixing $P$ and $L$; it may depend on both. Finite convex separation supplies it:
-<!-- claim:claim-minimax-mu -->
-\[
-\exists\mu\text{ on }D\quad
-\forall T\text{ with }\operatorname{depth}(T)\le L,\qquad
-\Pr_{x\sim\mu}[T(x)=P(x)]\le\frac23.
-\]
-
-The minimax step has a finite proof. There are finitely many depth-\(L\) trees on \(n\) coordinates; for each such tree let \(a_T\in\mathbb R^D\) be its vector of correctness indicators, and let \(K\) be the convex hull of these vectors. Equivalently, form the finite payoff matrix with trees as rows, promised inputs as columns and correctness indicators as entries. A row mixture gives its vector of per-input success probabilities, and $K$ consists of exactly those vectors. Each point of \(K\) is the success vector of a randomized mixture of depth-\(L\) trees, so by hypothesis \(K\) is disjoint from the closed orthant \(H=[2/3,\infty)^D\).
-
-For \(a\in K\), the nearest point of \(H\) has coordinates \(c_x=\max(a_x,2/3)\). By compactness of \(K\) we choose a pair \(a,c\) of minimum distance, which is positive by disjointness. We set \(v=c-a\), so that \(v_x\ge0\), \(v\ne0\), and \(c_x=2/3\) whenever \(v_x>0\). For \(b\in K\), the point \(a+\theta(b-a)\) stays in \(K\) for \(0\le\theta\le1\). The squared distance \(\|c-a-\theta(b-a)\|^2\) is therefore minimized at \(\theta=0\) on this segment. Its right derivative gives
-\[
--2v\cdot(b-a)\ge0,\qquad v\cdot(b-a)\le0.
-\]
-Consequently,
-<!-- claim:NCL-strict-hard-distribution -->
-\[
-v\cdot b\le v\cdot a
-=v\cdot c-\|v\|^2
-=\frac23\sum_xv_x-\|v\|^2.
-\]
-The weights \(\mu(x)=v_x/\sum_yv_y\) form a probability distribution, and dividing the preceding inequality by the positive denominator proves the required bound, with a strict positive margin common to all the trees. The argument is finite and self-contained; the hard measure used in the analytic proof of Forrelation hardness plays no role in it.
-<!-- /passage:CL-minimax -->
-
-<a id="CL-address-guess"></a>
-<!-- passage:CL-address-guess -->
-We apply Lemma 4.1 of §6.1 to independent \(U_1,\ldots,U_r\sim\mu\): if an algorithm makes at most \(L\) queries to each \(U_h\) on every execution, then
-<!-- claim:claim-address-guess -->
-\[
-\Pr[\widehat s=(P(U_1),\ldots,P(U_r))]\le(2/3)^r.
-\]
-The bits $P(U_h)$ need not be unbiased: their unpredictability is supplied by the one-input success bound under $\mu$, not by uniformity of these labels. The algorithm may interleave its queries and use side information jointly independent of the whole tuple, since fixing that information and its random coins preserves the input law and the deterministic bound can then be averaged.
-
-This is the per-input-capped direct product proved in §6.1. Its [source comparison](#CL-literature-and-verification) gives Drucker's alternative global-budget theorem and its quantitative substitution; the present argument assumes no further direct-product result.
-<!-- /passage:CL-address-guess -->
-
-### 6.3. Coupled zero and one inputs
-
-<a id="CL-generic-statement"></a>
-<!-- passage:CL-generic-statement -->
-**Generic lower bound.** Let \(m=4^t\), \(t\ge1\), and \(r=40t\). Let \(P:D\to\{0,1\}\) be a partial Boolean function on a finite set of input coordinates, let \(C\) realize its promise and value, and let \(F_{P,C,m}\) be the addressed function just described. If
-\[
-1\le L\le m,\qquad L<R(P),
-\]
-then
-<!-- claim:prop-4.2-generic -->
-\[
-R(F_{P,C,m})>\left\lfloor\frac{mL}{100}\right\rfloor.
-\]
-The implication holds whatever the size of the circuit. Thus the classical lower bound pays for the hardness of the address inputs, not for the length of the certificates.
-
-Define the budget
-<!-- claim:eq-17 -->
-\[
-G=\left\lfloor\frac{mL}{100}\right\rfloor
-\tag{17}
-\]
-and fix a deterministic tree \(T\) of depth at most \(G\), together with the hard distribution \(\mu\) of §6.2. We construct both input distributions on one probability space.
-
-The zero positions $J_1,\ldots,J_m$ are independent uniform rows. They are available to the target-column simulator because they are independent of all target address strings. The address strings $A_{i,h}$ are independent samples from the one-input hard law $\mu$: the simulator receives the other columns' strings, but must query the target strings.
-
-True addresses and evaluated transcripts are deterministic functions of those strings. Neither the target address nor its transcript is supplied. The planted column $I$ is uniform and independent of the entire dummy input; it enters only in the final average over columns. The filled cell is derived from $I$, its true address, its evaluation transcripts and the zero positions. The simulator itself runs on the blank dummy cells.
-
-<!-- /passage:CL-generic-statement -->
-
-<a id="CL-dummy"></a>
-<!-- passage:CL-dummy -->
-For each column \(i\), we choose \(J_i\) independently and uniformly from its \(m\) rows, and in the dummy input \(Y^{(0)}\) we put
-<!-- claim:def-dummy -->
-\[
-X_i[j]=
-\begin{cases}
-0,&j=J_i,\\
-1,&j\ne J_i.
-\end{cases}
-\]
-Independently, we draw every \(A_{i,h}\) from \(\mu\) and fill every bit of every cell \(B_{i,s}\) with zero, so the blank cells reveal neither a zero location nor any value of \(P\).
-
-All these probability spaces are finite, so expectations are finite sums with product weights. For example, the erased-zero identity in §6.4 first fixes all dummy data and then averages the independent uniform column $I$; the simulator in §6.5 similarly fixes data independent of its target strings. In both cases we fix the other coordinates and average the remaining independent variable. Resampling a coordinate from its original law preserves the expectation, because summing first over the old coordinate gives a factor one and leaves the sum over its replacement.
-<!-- /passage:CL-dummy -->
-
-<a id="CL-planted"></a>
-<!-- passage:CL-planted -->
-Next we choose \(I\) uniformly from the \(m\) columns, independently of the entire dummy input, and obtain the planted input \(Y^{(1)}\) by replacing \(X_I\) by \(1^m\) and filling only \(B_{I,s_I}\). This cell receives the evaluation transcript of \(C\) on \(A_{I,h}\) in its \(h\)-th transcript field, and its pointer into column \(j\ne I\) receives the value \(J_j\). Since every \(A_{i,h}\) is promised, all true addresses exist.
-
-Every dummy column has a zero, while column \(I\) of the planted input meets every winning condition. Thus
-<!-- claim:claim-Y-values -->
-\[
-F_{P,C,m}(Y^{(0)})=0,\qquad
-F_{P,C,m}(Y^{(1)})=1.
-\]
-(If the finite sums are taken over the whole input cube with \(\mu=0\) outside \(D\), as in the Lean formulation, the second assertion is needed only at sample points of positive weight.)
-<!-- claim:def-planted -->
-<!-- /passage:CL-planted -->
-
-<a id="CL-tiny-planted-example"></a>
-<!-- passage:CL-tiny-planted-example -->
-**A four-column instance.** To illustrate the planting operation, we temporarily take \(m=4\), \(r=2\) and \(P(a,b)=a\mathbin{\mathrm{xor}}b\) on all two-bit inputs, computed by a two-gate circuit whose domain output is \(1\) and whose value output is \(a\mathbin{\mathrm{xor}}b\), so that its transcript is \((1,P(a,b))\). This toy is an instance of the generic addressed construction, with later example query budget $4$; it is neither a Forrelation instance nor a choice satisfying $r=40t$ and $G=\lfloor mL/100\rfloor$. Rows and columns carry zero-based labels in this example. Adding one to a row or column label translates it to the convention of §4; the pointer words here encode $0,1,2,3$ directly. The same toy continues at the [capped simulator trace](#CL-simulator-example).
-
-\Needspace{12\baselineskip}
-
-We choose the zero positions and strings as follows.
-
-| Column \(i\) | \(J_i\) | \(X_i\) in \(Y^{(0)}\) | \(A_{i,1}\) | \(A_{i,2}\) | \(s_i\) |
-|---|---:|---|---|---|---|
-| 0 | 2 | \(1101\) | \(00\) | \(01\) | \(01\) |
-| 1 | 0 | \(0111\) | \(10\) | \(11\) | \(10\) |
-| 2 | 3 | \(1110\) | \(10\) | \(11\) | \(10\) |
-| 3 | 1 | \(1011\) | \(01\) | \(10\) | \(11\) |
-
-We plant column \(I=1\). Its string becomes \(1111\), and cell \(B_{1,10}\) receives transcripts \((1,1)\) and \((1,0)\) together with pointers into columns \(0,2,3\) with values \(2,3,1\), encoded as \(10,11,01\). These point to the displayed zeros, so the planted input has value one; all other cells remain blank.
-
-<!-- /passage:CL-tiny-planted-example -->
-
-<a id="CL-first-difference"></a>
-<!-- passage:CL-first-difference -->
-The two coupled inputs can differ only at \(X_I[J_I]\) and inside \(B_{I,s_I}\). Until \(T\) receives different answers on the two inputs, its histories coincide, and so do its next query and stopping decision. Hence, if the dummy execution never queries a differing bit, the two executions end at the same leaf.
-
-Since the outputs are Boolean,
-\[
-\left|\mathbb E T(Y^{(1)})-\mathbb E T(Y^{(0)})\right|
-\le\mathbb E\left|T(Y^{(1)})-T(Y^{(0)})\right|
-=\Pr[T(Y^{(1)})\ne T(Y^{(0)})].
-\]
-The preceding first-difference implication and a union bound therefore give
-<!-- claim:eq-18 -->
-\[
-\begin{aligned}
-\left|\Pr[T(Y^{(1)})=1]-\Pr[T(Y^{(0)})=1]\right|
-&\le
-\Pr[T\text{ on }Y^{(0)}\text{ queries }X_I[J_I]]\\
-&\quad+
-\Pr[T\text{ on }Y^{(0)}\text{ queries a bit of }B_{I,s_I}].
-\end{aligned}
-\tag{18}
-\]
-Inequality (18) is the absolute-value form of the preprint's one-sided first-difference comparison. Its second term counts any visit to the cell, which bounds the event of seeing a changed cell bit (some planted bits can equal their blank values). Every event on the right concerns the dummy run, whose law is independent of \(I\).
-<!-- /passage:CL-first-difference -->
-
-### 6.4. Discoveries and the erased zero
-
-<a id="CL-erased-zero-identity"></a>
-<!-- passage:CL-erased-zero-identity -->
-Let \(Z\) count the columns whose unique zero is queried during the complete dummy run:
-<!-- claim:def-Z -->
-\[
-Z=\sum_{i=1}^{m}
-\mathbf1\{T\text{ on }Y^{(0)}\text{ queries }X_i[J_i]\}.
-\]
-Repeated queries to a discovered zero still contribute only one to \(Z\). Here $Z$ counts discoveries; the product potential called $Z$ in §6.1 is no longer in use. Once all the dummy data are fixed, \(Z\) is fixed, and exactly \(Z\) of the \(m\) possible choices of \(I\) select a discovered zero. Averaging over \(I\) and then over the dummy data, we obtain the identity
-\[
-\Pr[T\text{ on }Y^{(0)}\text{ queries }X_I[J_I]]
-=\frac{\mathbb EZ}{m}.
-\]
-The identity uses only the independence and uniformity of \(I\) (it holds at every depth and for every \(P\)), and a separate search estimate will bound its right-hand side.
-<!-- /passage:CL-erased-zero-identity -->
-
-<a id="CL-selection-independence-example"></a>
-<!-- passage:CL-selection-independence-example -->
-**Independence of the selected column.** Take four columns with independent uniform zero locations, and query row zero in every column. (This finite example has budget four; it is not the asymptotic choice $G=\lfloor mL/100\rfloor$.) Each query finds a zero with probability $1/4$, so $\mathbb EZ=1$, and an independent uniform column $I$ is hit with probability $1/4=\mathbb EZ/4$.
-
-Now we change only the rule for selecting $I$: after the queries, choose uniformly among the columns where a zero was found, or uniformly among all four if no zero was found (an event of probability $(3/4)^4=81/256$). Symmetry under column permutations still gives $\Pr[I=i]=1/4$ for every $i$, yet the selected zero is now hit exactly when at least one discovery occurred, which has probability
-\[
-1-(3/4)^4=\frac{175}{256}>\frac14.
-\]
-Thus the identity in (19) needs more than a uniform marginal law for $I$: it needs independence from the whole dummy run.
-<!-- /passage:CL-selection-independence-example -->
-
-
-<a id="CL-early-late"></a>
-<!-- passage:CL-early-late -->
-Before the zero in a column has been discovered, its conditional location is uniform among that column's unqueried rows. To handle adaptivity, we fix a positive-probability transcript prefix. As in the transcript-cylinder argument of §6.1, a deterministic tree follows that prefix exactly on the inputs satisfying its recorded query answers (induction over the prefix gives both implications). Here the prefix event therefore gives separate constraints on the independent \(J_i\)'s and \(A\)-strings; the blank $B$ cells are fixed and constrain neither. For an undiscovered \(J_i\), the constraints exclude only the distinct rows already queried, and the blank cells add none. Therefore, if \(u\) rows remain,
-<!-- claim:claim-uniform-zero -->
-\[
-\Pr[J_i=j\mid\text{that prefix}]
-=
-\begin{cases}
-1/u,&j\text{ is unqueried in column }i,\\
-0,&j\text{ was queried there}.
-\end{cases}
-\]
-Here \(u>0\) because the prefix has positive probability, and a repeated query excludes nothing new.
-
-Call a discovery early when fewer than \(m/2\) distinct positions of its column were queried beforehand. At a query that can make an early discovery, more than \(m/2\) positions remain, so its conditional discovery probability is at most \(2/m\); a repeated query makes no new discovery. Let $E_q$ indicate that query $q$ is the first zero discovery in its column and that fewer than $m/2$ distinct rows of that column were tested beforehand; set $E_q=0$ after a branch stops. Conditional on the pre-query history, $\mathbb E[E_q\mid\text{history}]\le2/m$. Summing over the deterministic horizon $q=1,\ldots,G$ gives $\mathbb E\sum_qE_q\le2G/m$.
-
-Every late discovery belongs to a column that receives at least \(m/2\) queries. Since the column query counts sum to at most \(G\), every execution has at most \(2G/m\) such columns, each contributing at most one discovery. Writing \(Z=Z_{\mathrm{early}}+Z_{\mathrm{late}}\), we obtain
-<!-- claim:claim-EZ -->
-\[
-\mathbb EZ_{\mathrm{early}}\le\frac{2G}{m},
-\qquad
-Z_{\mathrm{late}}\le\frac{2G}{m},
-\qquad
-\mathbb EZ\le\frac{4G}{m}.
-\]
-Combined with the selection identity, this proves the full display of the preprint:
-<!-- claim:eq-19 -->
-\[
-\Pr[T\text{ on }Y^{(0)}\text{ queries }X_I[J_I]]
-=\frac{\mathbb EZ}{m}
-\le\frac{4G}{m^2}.
-\tag{19}
-\]
-The identity and the search estimate prove separate parts of (19): the first uses independent selection, the second the cost of discovering zeros.
-<!-- /passage:CL-early-late -->
-
-Equation (19) is sufficient for the contradiction below. The stronger search estimate used by the formal endpoint and an expectation-cost variant are proved after that contradiction in [Appendix B.2](#CL-zero-worlds).
-
-### 6.5. A capped simulator for the planted cell
-
-<a id="CL-heavy"></a>
-<!-- passage:CL-heavy -->
-Let \(N_i\) be the number of queries made during the complete dummy run to the strings \(A_{i,1},\ldots,A_{i,r}\), counting repetitions, and call column \(i\) heavy when \(N_i>L\). Since \(\sum_iN_i\le G\), at most \(G/L\) columns are heavy, and \(I\) remains uniform conditional on the dummy run. Thus
-<!-- claim:def-heavy -->
-<!-- claim:eq-20 -->
-\[
-\Pr[I\text{ is heavy}]\le\frac{G}{mL}.
-\tag{20}
-\]
-The threshold bounds the total number of queries to all \(r\) strings of a column, so in particular a nonheavy run uses at most \(L\) queries to each of those strings.
-<!-- /passage:CL-heavy -->
-
-<a id="CL-simulator"></a>
-<!-- passage:CL-simulator -->
-Fix a column \(i\) and a time \(q\in\{1,\ldots,G\}\). The simulator's queried inputs are the \(r\) strings of that column, and we give it the independent outside data: every \(J_j\), all the \(A\)-strings of the other columns, and the fixed blank cells. It receives no target string, target address or target transcript as side information. In particular, revealing $J_i$ is harmless: the simulator predicts the vector of partial-function values, and all zero locations are jointly independent of those target strings.
-
-There are two counters: the original tree clock counts every proposed query, whereas the charged counter counts only target-string oracle calls. The simulator runs \(T\) on the dummy input up to its proposed \(q\)-th query. A default output can itself be correct, so the proof below needs containment in the simulator-success event, not equality of events. It answers every outside query from the supplied data, and it answers a query to one of the target strings by making the corresponding oracle query, charged against one shared counter; it aborts before that counter would exceed \(L\). If time \(q\) is reached and the proposed query is to \(B_{i,s}\), it outputs \(s\). If the simulated run terminates or aborts, or proposes a different kind of coordinate, it outputs a fixed vector. The proposed cell's address is read off the run itself, without a query to the cell's contents.
-<!-- claim:def-simulator -->
-
-For every possible tuple of target inputs, this simulator makes at most \(L\) target queries in total, so it satisfies each of the \(r\) separate caps in Lemma 4.1 (also on branches where the original tree would eventually make column \(i\) heavy). Because the outside data are jointly independent of the target tuple, the simulator's unconditional success is at most \((2/3)^r\).
-<!-- /passage:CL-simulator -->
-
-<a id="CL-joint-event"></a>
-<!-- passage:CL-joint-event -->
-With the general parameters and the hard distribution of §6.2, suppose the complete dummy run makes column \(i\) nonheavy and proposes a query in \(B_{i,s_i}\) at time \(q\). Then every preceding prefix uses at most \(L\) target queries, so the simulator follows the original run without aborting and outputs \(s_i\). Hence the joint event is contained in the simulator's success event:
-<!-- claim:eq-21 -->
-\[
-\Pr[i\text{ is nonheavy and query }q\text{ lies in }B_{i,s_i}]
-\le(2/3)^r.
-\tag{21}
-\]
-Nonheaviness enters as part of the event inside the probability, so the target inputs keep their original distribution. The simulator never tests whether the complete run is nonheavy: that stronger event implies the needed prefix cap and is chosen to match the complete-run heavy-column bound (20).
-<!-- /passage:CL-joint-event -->
-
-<a id="CL-simulator-example"></a>
-<!-- passage:CL-simulator-example -->
-A toy instance illustrates the reduction just proved. We return to the four-column XOR example of [§6.3](#CL-tiny-planted-example) and take \(L=1\), with both target strings independently uniform. Readers coming from the examples-first exposition should note two differences from its four-column board: here \(P\) is the total function \(a\mathbin{\mathrm{xor}}b\) on two bits, so every address is defined and only the planting and the cap are illustrated, and rows and columns are numbered from \(0\). Consider a four-query tree that first reads \(X_0[0]\), then the first bit \(a\) of \(A_{1,1}\). If \(a=1\), its third query is \(X_2[1]\); if \(a=0\), its third query is the first bit of \(A_{1,2}\). Its fourth query reads the first transcript's domain bit in \(B_{1,(a,0)}\), and it outputs that bit.
-
-In the displayed planted configuration the target first bit is \(1\), and the simulator for \(i=1,q=4\) behaves as follows.
-
-| Original time | Proposed query | Answer source | Target calls used | Simulator action |
-| ---: | --- | --- | ---: | --- |
-| 1 | $X_0[0]$ | Outside data: $1$ | 0 | Continue |
-| 2 | First bit of $A_{1,1}$ | Target oracle: $1$ | 1 | Continue |
-| 3 | $X_2[1]$ | Outside data: $1$ | 1 | Continue |
-| 4 | Domain bit in $B_{1,10}$ | No cell answer read | 1 | Output address $10$ |
-
-At time four the original tree receives \(0\) on the dummy input and \(1\) on the displayed planted input, while the simulator uses the blank dummy data and stops before that answer. On the other branch, \(a=0\), it aborts before the second target query at time three. Thus the cap is enforced during each execution, with no retrospective selection of the cheap ones.
-
-The joint-event and simulator-success probabilities follow directly from the target strings $(a,b)$ and $(c,d)$. On the nonheavy branch $a=1$, the proposed address $(1,0)$ is true exactly when $b=0$ and $c=d$, an event of probability $1/8$. On $a=0$ the simulator truncates and defaults to $(0,0)$; correctness again requires $b=0$ and $c=d$, contributing another $1/8$. Thus the simulator succeeds with probability $1/4$. For uniform two-bit XOR, a one-query algorithm succeeds with probability at most $1/2$, so \(1/4=(1/2)^2\) is the relevant two-input bound.
-
-
-We can also average over the zero locations. The tree always queries $X_0[0]$ and queries $X_2[1]$ only when $a=1$. Those two columns are distinct, so their contributions to $\mathbb EZ$ are $1/4$ and $(1/2)(1/4)$. Hence
-\[
-\mathbb EZ=\frac38,\qquad
-\Pr[\text{erased-zero hit}]=\frac3{32}=\frac{\mathbb EZ}{4}.
-\]
-These identities use the four independent uniform zero positions and a uniform independent choice of $I$. The true-cell and simulator probabilities remain $1/8$ and $1/4$, as calculated above.
-<!-- /passage:CL-simulator-example -->
-
-
-<a id="CL-conditioning-counterexample"></a>
-<!-- passage:CL-conditioning-counterexample -->
-The examples isolate different effects of conditioning. The adaptive example in [Appendix B.3](#CL-adaptive-example) shows how a union of transcript rectangles can lose its product law. The preceding simulator has extra success from its default output. The following example shows how conditioning on the nonheavy event in (21) selects inputs that are easier to solve. On the promised two-bit inputs \(\{01,10,11\}\), let \(P\) be AND and let \(\mu\) be uniform. Every one-query algorithm has success at most \(2/3\): after either coordinate is queried, one answer identifies a unique input and the other leaves two equally likely, oppositely labelled inputs.
-
-Consider the tree that queries the first bit, stops with the correct output \(0\) on the answer-zero branch, and queries the second bit on the answer-one branch. With cap \(L=1\), the complete original run is nonheavy exactly on input \(01\), so its conditional success given nonheaviness is \(1\). A simulator that aborts before the second query and defaults to \(0\) has unconditional success \(2/3\), while correct-and-nonheavy has probability \(1/3\). Thus the unconditional bound holds, while the conditional bound would read \(1\le2/3\), which is false. This meets the separate-cap lemma’s hard-law premise, but $R(P)=L=1$: choose a coordinate uniformly, output $0$ after a $0$, and output $1$ with probability $2/3$ after a $1$. The success probability is $2/3$ on each promised input; no zero-query algorithm can achieve it on both labels. Thus the toy illustrates conditioning on terminal lightness, not the strict $L<R(P)$ regime of the final construction.
-<!-- /passage:CL-conditioning-counterexample -->
-
-<a id="CL-cell-union"></a>
-<!-- passage:CL-cell-union -->
-If the dummy run visits the true cell of a nonheavy column \(i\), one of its at most \(G\) query times witnesses that visit, so a union bound of (21) over the times gives probability at most \(G(2/3)^r\) for each fixed \(i\). We average over the independent uniform \(I\) and then add (20):
-<!-- claim:eq-22 -->
-\[
-\Pr[T\text{ on }Y^{(0)}\text{ queries a bit of }B_{I,s_I}]
-\le\frac{G}{mL}+G(2/3)^r.
-\tag{22}
-\]
-To see the cancellation, let $E_{iq}$ be the joint event in (21). The contribution from nonheavy columns is bounded by
-\[
-\frac1m\sum_{i=1}^m\sum_{q=1}^G\Pr(E_{iq})
-\le\frac1m\sum_{i=1}^mG(2/3)^r=G(2/3)^r.
-\]
-
-A union bound tolerates repeated cell visits, and when \(G=0\) the union of query-time events is empty.
-<!-- /passage:CL-cell-union -->
-
 ### 6.6. The discrepancy contradiction and the floors
 
 <a id="CL-discrepancy"></a>
-To finish the proof of the generic lower bound stated in [§6](#classical-overview), recall that the first-difference bound (18) was proved in [§6.3](#CL-first-difference), the erased-zero bound (19) in [§6.4](#CL-erased-zero-identity), and the planted-cell bound (22) in [§6.5](#CL-heavy) from the capped simulator and the joint event (21). The budget is $G=\lfloor mL/100\rfloor$ with $1\le L\le m$ and $L<R(P)$.
+To finish the proof of the generic lower bound stated in [§6](#classical-overview), recall that the first-difference bound (18) was proved in [§6.2](#CL-first-difference), the erased-zero bound (19) in [§6.3](#CL-erased-zero-identity), and the planted-cell bound (22) in [§6.4](#CL-heavy) from the capped simulator and the joint event (21). The budget is $G=\lfloor mL/100\rfloor$ with $1\le L\le m$ and $L<R(P)$.
 
 <!-- passage:CL-discrepancy -->
 Combining (18), (19) and (22), we obtain an absolute-value strengthening of the preprint's one-sided discrepancy estimate with the same right-hand side:
@@ -3188,7 +3003,7 @@ Conditional on all the Gaussian vectors, we draw signs independently with these 
 \tag{F15}
 \]
 
-The endpoint coordinates have bias of magnitude at most $1/2$ and the middle coordinates at most $1/4$, so the product weights in (F6) show that $\nu_s$ is a probability distribution on the entire finite cube. The analytic comparison law is $\nu_1$; it need not be supported on promised inputs. After this section proves a complexity lower bound, the finite minimax argument in [§6.2](#CL-minimax) supplies a separate law $\mu$ supported on promised inputs for the planting construction.
+The endpoint coordinates have bias of magnitude at most $1/2$ and the middle coordinates at most $1/4$, so the product weights in (F6) show that $\nu_s$ is a probability distribution on the entire finite cube. The analytic comparison law is $\nu_1$; it need not be supported on promised inputs. After this section proves a complexity lower bound, the finite minimax argument in [§6.1](#CL-minimax) supplies a separate law $\mu$ supported on promised inputs for the planting construction.
 
 **Lemma (uniform endpoint).** The law $\nu_0$ is uniform on the full sign cube.
 
@@ -3309,7 +3124,7 @@ Since $h_g$ is a polynomial, the mean value theorem supplies one common $s_*\in(
 \tag{F23}
 \]
 
-The parameter may depend on $g$, but every path in (F22) shares it, which lets us bound the sum of absolute derivatives at one bias before taking the Gaussian average.
+For each Gaussian realization, all paths in (F22) are evaluated at the same bias $w_{s_*}(U)$. Thus a uniform bound on the derivative sum applies before the Gaussian average. The mean-value parameter may depend on $g$; it does not vary from path to path.
 
 A derivative of order $k$ at a biased point can carry uniform Fourier degrees above $k$, as we see by expanding (F6) in uniform Fourier characters:
 
@@ -3330,7 +3145,7 @@ For example, the monomial $g(z)=\prod_{i\in T}z_i$ with $|T|=k+1$ has $\partial_
 
 Equation (F24) rules out simply using the degree-$k$ Fourier coefficients at zero. We bound the derivatives directly under the independent biased law.
 
-The interpolation asks us to bound a sum of absolute mixed derivatives. We first allow arbitrary coefficients of magnitude at most one, represent their signed derivative sum by the terminal value of a process along the tree, and bound that process uniformly. Choosing the coefficients to match the derivative signs at the end then recovers the desired absolute sum.
+A depth-$d$ tree sees at most $d$ coordinates. Under the biased product law, a centered monomial containing an unqueried coordinate has mean zero even after the leaf is known. We therefore track only the monomials whose coordinates have all been revealed. A fresh query completes new monomials by multiplying an already known expression by one fresh centered sign. This gives the martingale increment below. We bound its size by induction on the degree, stopping before a lower-degree expression becomes too large. Choosing the coefficients to match the derivative signs then bounds their absolute sum.
 
 <a id="forr_tree_growth"></a>
 <!-- passage:forr_tree_growth -->
@@ -3386,12 +3201,14 @@ The same observation gives the identity we use at leaves. A monomial involving a
 \tag{F28}
 \]
 
-Equivalently, the right side is the sum, over reachable leaves, of each leaf's cylinder probability times its output and the terminal value of $Y_r^c$. Each leaf probability is the product of the answer probabilities at its distinct queried coordinates, with one factor per distinct coordinate however often it is queried. A zero-probability leaf contributes zero, so this finite-sum proof conditions only on events of positive probability.
+By (F8), the left side is $\sum_{|J|=r}c(J)\partial_JF_g(\mu)$. Thus a bound on the terminal polynomial controls a signed sum of derivatives, even though the tree has seen at most $d$ of the $n$ coordinates.
+
+The right side is the sum, over reachable leaves, of each leaf's cylinder probability times its output and the terminal value of $Y_r^c$. Each leaf probability is the product of the answer probabilities at its distinct queried coordinates, with one factor per distinct coordinate however often it is queried. A zero-probability leaf contributes zero, so this finite-sum proof conditions only on events of positive probability.
 <!-- /passage:forr_tree_leaves -->
 
 <a id="forr_tree_stopping"></a>
 <!-- passage:forr_tree_stopping -->
-To control (F26) along the tree, we need a maximal estimate. If a centered random variable $W$ lies in $[-B,B]$, convexity of the exponential gives
+The increment in (F27) is centered, but its size contains the random lower-degree expression $Y_{r-1}^{c^q}$. We cannot apply a bounded-increment estimate until that expression is controlled. We first prove the estimate for a deterministically bounded increment, then enforce such a bound by stopping. If a centered random variable $W$ lies in $[-B,B]$, convexity of the exponential gives
 
 <!-- claim:NEW-FOR-15 -->
 \[
@@ -4049,7 +3866,7 @@ The lower bound in §6 is complete with its conditional-value direct product and
 
 Let $P:D\to\{0,1\}$ be a finite partial Boolean function. As in Lemma 4.1, $\mu$ is a law on $D$ for which every depth-$L$ tree has success at most $\beta$; the goal is to bound simultaneous success on $r$ independent inputs with separate caps $L$.
 
-Section 6.1 proves the direct product by conditional continuation values. This proof uses induction on unnormalized weights. It avoids dividing by the mass of a history, so impossible branches contribute zero automatically, and the identity (6.11) at its end shows that the two proofs compute the same quantity. The Lean proof of (6.10) follows this second route.
+Section 6.5 proves the direct product by conditional continuation values. This proof uses induction on unnormalized weights. It avoids dividing by the mass of a history, so impossible branches contribute zero automatically, and the identity (6.11) at its end shows that the two proofs compute the same quantity. The Lean proof of (6.10) follows this second route.
 
 <a id="CL-weighted-values"></a>
 <!-- passage:CL-weighted-values -->
@@ -4141,7 +3958,7 @@ no advantage.
 
 ### B.2. Alternative search estimates
 
-These refinements are optional for Proposition 4.2. Keep the dummy input of §6.3: the $m$ zero locations are independent and uniform, the address data are independent of them, and the cells are blank. The selected column $I$ is uniform and independent of the complete dummy run, so its erased zero is hit with probability $\mathbb EZ/m$. All costs below count queries to the $X$ strings, including repeated queries; the run has at most $G$ queries in total.
+These refinements are optional for Proposition 4.2. Keep the dummy input of §6.2: the $m$ zero locations are independent and uniform, the address data are independent of them, and the cells are blank. The selected column $I$ is uniform and independent of the complete dummy run, so its erased zero is hit with probability $\mathbb EZ/m$. All costs below count queries to the $X$ strings, including repeated queries; the run has at most $G$ queries in total.
 
 <a id="CL-zero-worlds"></a>
 <!-- passage:CL-zero-worlds -->
@@ -4206,12 +4023,12 @@ Scanning one column without repetition until its zero is found attains the first
 #### Alternative: a single global budget
 
 Drucker's Theorem 1.1 can replace the separate-cap lemma in the planted reduction. This is a comparison of two sufficient inputs, not an additional step of our proof. For this comparison, assume a law $\mu$ under which every randomized algorithm of
-depth $L$ succeeds with probability at most $2/3$; §6.2 constructs such a law after $L<R(P)$ is fixed. Take $T=L$,
+depth $L$ succeeds with probability at most $2/3$; §6.1 constructs such a law after $L<R(P)$ is fixed. Take $T=L$,
 $\varepsilon=1/3$, Drucker’s repetition parameter $k=r$ (distinct from the Forrelation parameter), and $\alpha=3/r\le3/40$. Then the global budget
 $\alpha\varepsilon Tk$ is $L$, and the theorem bounds by
 $(2^{1/r}\cdot2/3)^r=2(2/3)^r$ the probability that an algorithm with total
 cap $L$ answers all of $r$ independent inputs from $\mu$. The simulator of
-§6.5 is such an algorithm once its side information, which is jointly
+§6.4 is such an algorithm once its side information, which is jointly
 independent of the $r$ target strings, is fixed. The guessing term
 $G(2/3)^r$ of §6.6 would then become $2G(2/3)^r\le2/(100m^8)$, and the total
 there would remain at most $6/100$: for $m\ge4$, $2/(100m^8)\le1/100$, so this term plus $4/100$ and $1/100$ is at most $6/100$. We use the separate-cap form (6.1)
@@ -4489,6 +4306,191 @@ R_{(1-\eta)/2}(P_{k,m})
 
 The extension from powers of four to powers of two in this ordinary calculation uses only the existence of the normalized Walsh matrix; it is not an extension of the frozen Lean definition. After taking the $2/k$ power, the binomial estimate supplies a factor of $k$ that cancels the order-$k/\eta^2$ amplification cost. The elementary derivative bound also carries its own factor of $k$, explaining its larger loss. Tal's earlier Fourier-growth work provides historical context, but its random-orthogonal distribution and “good matrix” hypothesis are not a theorem for the explicit Walsh promise [Tal (2019), §§5.1–5.2, Theorem 5.1 and Definition 5.5, pp. 13–14]. Neither that distribution theorem nor SSW's rorrelation distribution theorem is being transferred here. The only external mathematical input to (F60), beyond the proof above, is (F56).
 <!-- /passage:forr_ssw_comparison -->
+
+## Appendix E. Supporting quantum proofs
+
+### E.1. Acceptance probability of sequential verification
+
+Propositions 3.2 and 3.3 were proved in §§5.2–5.4. The Lean proof of Theorem 1.1 packages the same tournament and sequential verification as a Boolean continuation: its external result is one acceptance bit, rather than the intermediate list. The distinction is in the output and proof interface, not in whether candidates are verified sequentially. The induction below proves the acceptance guarantee directly from the measured-label law.
+
+<a id="upper-continuation-induction"></a>
+<!-- passage:upper-continuation-induction -->
+
+Fix the input. Let $v(i)\in[0,1]$ be the full fresh verifier acceptance probability for candidate $i$, averaging both its newly decoded address and its local-test search, and let $V(L)$ be the probability that at least one fresh verification of a member of $L$ accepts. Sequential verification gives $V([])=0$ and $V(i::L)=v(i)+(1-v(i))V(L)$. Here $i::L$ puts the newest entry first, whereas §5.2 writes pivots in chronological order. Fresh independent verifier outcomes give
+\[
+V(L)=1-\prod_{i\in L}(1-v(i)),
+\]
+where entries are counted with their multiplicities. Thus both this probability and the weight product are invariant under permutation, so the two storage conventions give the same quantities. From this recursion, $0\leq V(L)\leq1$; if $s\in L$, then $V(L)\geq v(s)$; and if all $v(i)\leq\varepsilon$, then $V(L)\leq|L|\varepsilon$. Each assertion follows by induction on the list, or equivalently by the union bound for the verifier outcomes.
+
+Let $R_n(L)$ be the acceptance probability with $n$ tournament stages still available after history $L$. The recursion is
+\[
+\begin{aligned}
+R_0(L)&=V(L),\\
+R_n(L)&=f(L)V(L)+(1-f(L))\sum_i\frac{w_i}{W}R_{n-1}(i::L)
+&& (n>0,\ W>0),\\
+R_n(L)&=V(L) &&(n>0,\ W=0).
+\end{aligned}
+\]
+The two terms for positive $W$ are immediate sampler failure followed by verification, and a successful pivot followed by continuation. At $W=0$ the guaranteed $f(L)=1$ forces the third line. For positive $W$, the weights in the sum are nonnegative and sum to one. It follows inductively that $R_n(L)\in[0,1]$. If all $v(i)\leq\varepsilon$, the same recursion gives $R_n(L)\leq(|L|+n)\varepsilon$, because an immediate stop has bound $|L|\varepsilon$, each successful successor has bound $(|L|+1+n-1)\varepsilon$, and a convex combination preserves the larger bound.
+
+For the lower bound, let $I_n(L)$ be the probability that $s$ is absent after $n$ further ideal stages. Suppose that $0\leq\varepsilon\leq1$, that $s$ is dominant, that $v(s)\geq1-\varepsilon$, and that a total horizon $T_0$ satisfies $T_0\varepsilon<1/2$. Suppose also that $f(L)\leq\varepsilon$ for every history of length at most $T_0$ missing $s$, and $f(L)=1$ whenever $W=0$. The inductive assertion is
+
+<!-- claim:new-upper-continuation-bound -->
+$$
+R_n(L)\geq(1-\varepsilon)\bigl(1-I_n(L)-n\varepsilon\bigr)
+\qquad(|L|+n\leq T_0).
+$$
+
+At $n=0$, if $s$ is in $L$, the right side is $1-\varepsilon$, which is at most $V(L)$; otherwise $I_0(L)=1$ and the right side is zero. For a positive number of stages, a history that already contains $s$ keeps it after every pivot and at every stopping point, so induction in the recursion gives $R_n(L)\geq v(s)\geq1-\varepsilon$, which suffices because the right side is at most $1-\varepsilon$.
+
+For a history missing $s$, its dominant weight is at least $1-|L|\varepsilon>1/2$, so $W>0$. Since the ideal miss probability is the weighted mean of the successor miss probabilities, averaging the inductive lower bounds at successors gives a lower bound $B=(1-\varepsilon)(1-I_n(L)-(n-1)\varepsilon)$ for the successful continuation, and since the immediate-stop term is nonnegative, $R_n(L)\geq(1-f(L))B$. We always have $B\leq1-\varepsilon$, even when $B$ is negative. The sign cases give
+\[
+f(L)B\le
+\begin{cases}
+\varepsilon B\le\varepsilon(1-\varepsilon),&B\ge0,\\
+0\le\varepsilon(1-\varepsilon),&B<0.
+\end{cases}
+\]
+Subtracting the common upper bound from $B$ yields exactly the desired lower bound with $n\varepsilon$. The induction thus holds whether or not the failure probabilities at different histories are equal or independent.
+
+At the empty history with $n=T_0=T$, the ideal estimate gives $I_T([])\leq2m/2^T$, and expanding the product in the lower bound and discarding its nonnegative cross term gives $R_T([])\geq1-2m/2^T-T\varepsilon-\varepsilon$. This is the [acceptance guarantee of the formal tournament][src-tournament-runs], and it accounts for that theorem's additional verifier error. For a list-membership event, we use the perfect indicator $v(i)=\mathbf1_{\{i=s\}}$, in this analysis only; the same induction then starts from $1-I_0(L)$ without the factor $1-\varepsilon$ and yields $1-I_n(L)-n\varepsilon$, which is the list guarantee with no extra verifier error. This indicator is an analytical choice and is never supplied to the sampler as an oracle.
+<!-- /passage:upper-continuation-induction -->
+
+### E.2. Proof of bounded amplification and the retained-state assertion
+
+We prove Lemma 3.1, including the measured-output contract used in §§5.2–5.4 and Appendix E.1. The first part proves the trial law and all-branch cap; the final part identifies a designated retained subsystem.
+
+<a id="upper-grover-geometry"></a>
+<!-- passage:upper-grover-geometry -->
+
+Let $\Pi$ be the orthogonal projection onto the success subspace, let $\psi=A|0\rangle$, and let $p=\|\Pi\psi\|^2$. First suppose $0<p<1$, and define $g=\Pi\psi/\sqrt p$ and $b=(I-\Pi)\psi/\sqrt{1-p}$. Orthogonality of the two projection ranges gives orthonormal vectors $g,b$, and normalization of $\psi$ gives $\psi=\sqrt p\,g+\sqrt{1-p}\,b$. There is a unique $\theta\in(0,\pi/2)$ with $\sin\theta=\sqrt p$, and its cosine is $\sqrt{1-p}$.
+
+The success reflection is $S_\chi=I-2\Pi$, available without queries by the fixed-interface assumption, and the reflection about the reference state is $S_0=I-2|0\rangle\langle0|$. We take the Grover iterate
+\[
+G=-AS_0A^{-1}S_\chi.
+\]
+Its minus sign is a global phase and so costs no queries. Conjugating $S_0$ by $A$ gives $I-2|\psi\rangle\langle\psi|$, hence $G=(2|\psi\rangle\langle\psi|-I)S_\chi$. Both factors preserve the span of $g,b$. In the ordered basis $(g,b)$, $S_\chi$ changes the sign of the first coordinate. Multiplying it by the reflection about $\psi$ gives
+\[
+[G]_{(g,b)}=
+\begin{pmatrix}
+\cos(2\theta)&\sin(2\theta)\\
+-\sin(2\theta)&\cos(2\theta)
+\end{pmatrix}.
+\]
+
+By the addition formulas, applying this matrix to a vector with coordinates $(\sin\alpha,\cos\alpha)$ gives $(\sin(\alpha+2\theta),\cos(\alpha+2\theta))$. Induction on the nonnegative integer $j$, starting at $\alpha=\theta$, therefore gives the state and success formula:
+
+<!-- claim:claim-grover-state -->
+$$
+G^j\psi
+ =\sin((2j+1)\theta)g+\cos((2j+1)\theta)b,
+\qquad
+\Pr[\text{success after }j]=\sin^2((2j+1)\theta).
+$$
+
+Projection onto success removes the $b$ term, so whenever success has nonzero probability the normalized result is $g$ or $-g$. This conclusion concerns the whole workspace, including any registers in which $A$ has recorded intermediate data, and so it is stronger than a statement about the probability of a success flag alone.
+
+At $p=0$ the state lies in the failure subspace, where the success reflection fixes it; since the reflection about $\psi$ also fixes $\psi$, every iterate has zero success probability. At $p=1$ the success reflection sends $\psi$ to $-\psi$, so every iterate remains a scalar multiple of $\psi$ in the success subspace. Both endpoint cases are thus settled without normalizing a zero component.
+<!-- /passage:upper-grover-geometry -->
+
+<a id="upper-grover-trial"></a>
+<!-- passage:upper-grover-trial -->
+
+This is the trial-count construction used in [Appendix A.3 of the exposition](exposition.md#amplification-schedule). Here the successful-state geometry precedes it and the averaged failure bound follows it.
+
+The procedure has two integer parameters: the iteration-range size $M$ within one trial, and the maximum number $N$ of fresh trials. Use natural logarithms in the second expression:
+
+<!-- claim:def-grover-trial -->
+$$
+M=\left\lceil\frac{10}{\sqrt\gamma}\right\rceil,
+\qquad
+N=\left\lceil\frac{\ln(1/\eta)}{\ln(40/31)}\right\rceil.
+$$
+
+In one trial we set $j=0$ with probability $1/2$ and otherwise, with the remaining probability $1/2$, choose $j$ uniformly from $0,\ldots,M-1$; we then prepare $\psi$, apply $G^j$, and measure success. We run at most $N$ such trials on freshly initialized registers, stop at the first success, and return failure if none succeeds. Equivalently, each iteration count $j<M$ receives probability $1/(2M)$ and zero receives an additional $1/2$, so the distribution is finite and fixed before any access to the input. The zero-iteration half protects preparations that already succeed often; the randomized iterations handle small success probabilities without risking a fixed overshoot. More iterations need not increase success monotonically.
+
+One preparation followed by $j$ iterates uses $2j+1$ calls to $A$ or $A^{-1}$, and the elementary reflections $S_0$ and $S_\chi$ add no further calls to $A$ or $A^{-1}$. As $j<M$, a trial makes at most $2M-1$ calls; the formal construction charges the convenient upper bound $2M+1$. Stopping after $N$ trials therefore gives a syntactic cap that holds for every input and every sequence of outcomes, with no success assumption.
+<!-- /passage:upper-grover-trial -->
+
+<a id="upper-average-exact"></a>
+<!-- passage:upper-average-exact -->
+
+We control the randomized iteration count by the exact averaging identity of Boyer, Brassard, Høyer and Tapp [Boyer, Brassard, Høyer and Tapp (1996), §4, Lemma 2, p. 3], which strengthens the inequality in OpenAI's equation (9):
+
+<!-- claim:new-upper-average-exact -->
+$$
+\frac1M\sum_{j=0}^{M-1}\sin^2((2j+1)\theta)
+ =\frac12-\frac{\sin(4M\theta)}{4M\sin(2\theta)}
+ \quad(M\geq1,\ \sin(2\theta)\ne0).
+$$
+
+To prove it, we write $\sin^2 u=(1-\cos(2u))/2$. The difference between $\sin(4(j+1)\theta)$ and $\sin(4j\theta)$ is $2\sin(2\theta)\cos((4j+2)\theta)$, so summing this equality over $j=0,\ldots,M-1$ cancels every interior sine term and leaves $\sin(4M\theta)$. Dividing by the nonzero $2\sin(2\theta)$ gives the sum of the cosine terms, and substituting it into the sum of the squared sines and dividing by $M$ proves the identity. Multiplying through by $\sin(2\theta)$ gives a division-free identity that holds also at the endpoints; we use the displayed quotient only when its denominator is nonzero.
+<!-- /passage:upper-average-exact -->
+
+<a id="upper-small-probability"></a>
+<!-- passage:upper-small-probability -->
+
+Suppose now that $\gamma\leq p\leq1/2$. The sine addition formula and the definitions of $\theta,g,b$ give:
+
+<!-- claim:claim-sin2theta -->
+$$
+\sin(2\theta)=2\sqrt{p(1-p)}\geq\sqrt\gamma.
+$$
+
+Indeed, $1-p\geq1/2$, so the square of the left side is $4p(1-p)\geq2p\geq\gamma$, and both sides are nonnegative. Since $M\geq10/\sqrt\gamma$, we obtain $M\sin(2\theta)\geq10$. Because every sine has absolute value at most one, the exact average above implies the slightly weaker equation (9) of the paper, which suffices:
+
+<!-- claim:eq-9 -->
+$$
+\frac1M\sum_{j=0}^{M-1}\sin^2((2j+1)\theta)
+\geq\frac12-\frac{1}{2M|\sin(2\theta)|}
+\geq\frac9{20}.
+$$
+
+Thus the half of the trial that chooses a uniform iteration count contributes at least $9/40$ to its success probability. If instead $p\geq1/2$, the half that chooses zero iterations contributes at least $p/2\geq1/4\geq9/40$. Since these two cases cover every $p\geq\gamma$, including $p=1$, a trial fails with probability at most $31/40$ whenever the promise $p\geq\gamma$ holds.
+<!-- /passage:upper-small-probability -->
+
+<a id="upper-amplification-proof"></a>
+<!-- passage:upper-amplification-proof -->
+
+For a fixed oracle input, each fresh trial has the same failure probability $f$, and the fresh choices and registers make the failures independent. Hence the probability of $N$ failures is $f^N\leq(31/40)^N\leq\eta$, where the last inequality follows by taking logarithms, since $N\ln(40/31)\geq\ln(1/\eta)$. If $p=0$, the endpoint argument above gives $f=1$, hence certain failure.
+
+On a successful branch, the state of the successful trial is $g$ up to global phase, whatever its iteration count. Earlier failed trials occupy separate registers, which we may discard once their outcomes are recorded or keep, since in either case the designated output register is in the pure state $g$ up to phase. Mixing over iteration counts and over the index of the first successful trial leaves the density operator $|g\rangle\langle g|$ unchanged, so conditioning on success introduces no bias into any measurement of that output state. This proves every correctness clause of Lemma 3.1.
+
+**An explicit cap constant.** The following calculation gives a constant for the cap in §5.1. The [returned-register proof](#upper-returned-register) then establishes the stronger subsystem assertion. The padded product charged by the implementation satisfies the following bound:
+
+<!-- claim:new-upper-call-cap -->
+$$
+\operatorname{calls}(\gamma,\eta)
+\leq N(2M+1)
+\leq138\,\gamma^{-1/2}\ln(1/\eta).
+$$
+
+For $x\geq1$, the derivative of $\ln x-2(x-1)/(x+1)$ is $(x-1)^2/(x(x+1)^2)\geq0$, and the expression vanishes at one; at $x=40/31$ this gives $\ln(40/31)\geq18/71\geq1/4$. Also $\ln2=\int_1^2u^{-1}\,du\geq1/2$, and consequently $N\leq4\ln(1/\eta)+1\leq6\ln(1/\eta)$. Since $M\leq10/\sqrt\gamma+1$ and $\sqrt\gamma\leq1$, we have $2M+1\leq23/\sqrt\gamma$, and multiplying the two bounds gives 138. The estimates are uniform, so the bound holds on every run, including runs whose success probability is small.
+
+A positive original success probability also makes the conditioning legitimate, because the zero-iteration half of each trial succeeds with probability at least $p/2>0$ and $N\geq1$; thus the total success probability is positive whenever $p>0$. At $p=0$ we assert certain failure and make no conditional-state assertion about a null event.
+<!-- /passage:upper-amplification-proof -->
+
+<a id="upper-returned-register"></a>
+<!-- passage:upper-returned-register -->
+**Strengthening from labels to a retained state.** We now interpret the retained registers. On a successful measured history, we route the entire original register of the first successful trial to a fixed output register, whose state is $g$ up to phase. The earlier unsuccessful registers, the iteration-count records and the chosen trial index are additional registers, and keeping all of them leaves the pure reduced state $|g\rangle\langle g|$ of the output register unchanged. If the history is retained coherently, the phase of each history can be absorbed into its auxiliary amplitude: after the fixed routing, the unnormalized successful component factors as $g\otimes\xi$, with $\|\xi\|^2$ equal to the success probability. This is a statement about a designated subsystem; it does not identify the whole enlarged workspace with the smaller vector $g$.
+
+A coherent implementation may run all $N$ trial registers and then route the first success, keeping the same padded cap, and it calls the preparation unitary only without control. To control a Grover iterate, we apply $A$ and $A^{-1}$ unconditionally, control only the fixed reflections $S_0,S_\chi$, and apply the minus sign as a phase on the true control. Writing $C(U)=|0\rangle\langle0|\otimes I+|1\rangle\langle1|\otimes U$ and $Z_c=|0\rangle\langle0|-|1\rangle\langle1|$, the controlled product is
+\[
+(Z_c\otimes I)(I\otimes A)C(S_0)(I\otimes A^{-1})C(S_\chi)
+=|0\rangle\langle0|\otimes I+|1\rangle\langle1|\otimes G.
+\]
+On a false control the reflections are identities and $AA^{-1}=I$; on a true control the product is $G$. The iteration-count record therefore controls only input-independent gates. Every trial has a fixed schedule of preparation calls, and its success projection can be recorded coherently in an auxiliary flag. After routing, the common factor $g$ on every successful history gives the stated factorization, and the first trial alone gives total success probability at least $p/2$ when $p>0$.
+
+<!-- claim:r3-q-labels-do-not-determine-state -->
+The successful-state assertion needs more than equality of label distributions. Write $|\pm\rangle=(|0\rangle\pm|1\rangle)/\sqrt2$. The vectors
+$$
+ |+\rangle\otimes|0\rangle
+ \quad\hbox{and}\quad
+ \frac{|0\rangle|0\rangle+|1\rangle|1\rangle}{\sqrt2}
+$$
+give the same uniform computational-basis distribution on the first register. In the first vector that register is in the pure state $|+\rangle$, and in the second it has density matrix $I/2$, so measuring it in the $\{|+\rangle,|-\rangle\}$ basis distinguishes the two laws: the probability of $+$ is respectively $1$ and $1/2$. The example shows why the formal successful-label theorem certifies less than the full successful-state assertion, which the ordinary proof of Lemma 3.1 just given establishes.
+<!-- /passage:upper-returned-register -->
+
 
 ## References
 
