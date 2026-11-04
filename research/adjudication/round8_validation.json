@@ -98,12 +98,66 @@
     "make_check": {
       "tests": 238,
       "skipped": 2,
-      "result": "passed"
+      "result": "passed",
+      "edition": "Final source and link-pinned edition",
+      "seconds": 104.837
     },
     "lean_source_unchanged_from": "9b8ca55",
     "index_layout": "passed",
     "preserved_return_whitespace": "Original exposition reading_log.md has an extra blank line at EOF; retained byte-for-byte. Authored files pass diff --check.",
     "lean_source_unchanged_from_comparator_receipt": "9a0a5cdace28594058f6df59b9b2e45a9e7c1a4f"
   },
-  "overview_rebind": "research/adjudication/round8_overview_rebind.json"
+  "overview_rebind": "research/adjudication/round8_overview_rebind.json",
+  "source_edition": "b8db5326715e5a4ce6996cde0768b92b5fcd5177",
+  "link_rebind": "research/adjudication/round8_link_rebind.json",
+  "final_source_hashes": {
+    "docs/expert_companion.md": "7fddfa0c37f7d038ba58adde4e7685263f3ba7733d0fd87a8a3eea4ce653f8ab",
+    "docs/expert_companion.bib": "03a8022966eb3427bc41a1b70cca58f8822fdbe1dd28b1b287486402e91f6b2f",
+    "docs/exposition.md": "ce1887b35542c06e98132ac843f12eb78e9c4c224e7fb49f8da96255c21b240e",
+    "docs/exposition.bib": "4d5e850843df803c15df72578e35fdb86694035dba684ee21b1ca6ee48a9efa9",
+    "docs/reasoning_record.md": "7f4b4e0a550f2e181798a315c1cc4b4f1719d53351a4d6166bc79aaabbaa0dee",
+    "docs/reasoning_record.bib": "89c47ffefcfe6216ee5c7a78861dd2c62013087470ab0976029edcfab89d6491"
+  },
+  "renders": [
+    {
+      "path": "expert/expert_companion.pdf",
+      "sha256": "d1411a1a366af792e22bc5ecf270ade27fda32cee4e170fb89a35ff46d7bd230",
+      "pages": 16,
+      "outside_page_words": 0,
+      "inspection": "All page contact sheets plus full-size changed figures, calculations, exercises and formal-statement pages; final link repin is pixel-identical to inspected render."
+    },
+    {
+      "path": "exposition/exposition.pdf",
+      "sha256": "753ec16d015fdf3ee5217ae386a21c6dc8b407f178f2bcbbd0fad38ce0df9c00",
+      "pages": 21,
+      "outside_page_words": 0,
+      "inspection": "All page contact sheets plus full-size changed figures, calculations, exercises and formal-statement pages; final link repin is pixel-identical to inspected render."
+    },
+    {
+      "path": "record/reasoning_record.pdf",
+      "sha256": "1ebc09b9486ba8452f564208a736e021794b5ee5d2f51eb31c8c969e80da30c8",
+      "pages": 132,
+      "layout_diagnostics": [],
+      "page_box_check": {
+        "pages": 132,
+        "words": 65431,
+        "outside_page": []
+      },
+      "navigation": {
+        "authored_anchors": 365,
+        "internal_links": 327,
+        "directory_links_retargeted": {
+          "../research/returns/funnel/2_short_expert_paper/": "../research/returns/funnel/2_short_expert_paper/paper.md",
+          "../research/returns/funnel/3_examples_first_exposition/": "../research/returns/funnel/3_examples_first_exposition/exposition.md",
+          "../research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks/": "../research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks/exact_example_checker.py",
+          "../research/returns/round3/members/04_addressed_construction/": "../research/returns/round3/members/04_addressed_construction/README.md",
+          "../research/returns/round3/members/08_reviewed/quartic_r3_08_return/checks/": "../research/returns/round3/members/08_reviewed/quartic_r3_08_return/checks/exact_checks.py"
+        },
+        "latex_hypertargets": 365,
+        "pdf_named_destinations": 1256
+      },
+      "inspection": "All page contact sheets plus changed passages at full size. Final render differs from inspected pages only on page 5 (corrected specialist section reference), inspected again at full size."
+    }
+  ],
+  "render_storage_recovery": "Final record rerender moved to mounted media volume after internal-drive 8 GiB reserve guard stopped it; guard unchanged."
 }

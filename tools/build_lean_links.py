@@ -49,7 +49,7 @@ PAPERS = ["docs/expert_companion.md", "docs/exposition.md", "docs/reasoning_reco
 SCHEMA = "quartic-lean-links-v1"
 REPOSITORY = "https://github.com/wcook04/quartic-query-lean"
 # The commit the papers describe. Every pinned link resolves against this tree.
-COMMIT = "c16d5deb2545f1e32a45eb4fa841ebffcdf403a3"
+COMMIT = "b8db5326715e5a4ce6996cde0768b92b5fcd5177"
 BEGIN, END = "<!-- lean-links -->", "<!-- /lean-links -->"
 USE = re.compile(r"\]\[([A-Za-z0-9][A-Za-z0-9-]*)\]")
 # A paper's links into the long record, which are pinned to COMMIT like the Lean links.

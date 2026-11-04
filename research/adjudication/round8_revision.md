@@ -75,7 +75,11 @@ and review of prose are not a replacement for a fresh formal build or human revi
 The [validation record](round8_validation.json) binds intake integrity, reviewed
 baseline hashes, all finding dispositions, exact finite calculations, proof-link
 destinations and final render evidence. `make check` checks layout, generators
-and Python tests; staged layout is checked with `make check-index`.
+and Python tests: the final run passed 238 tests with two skips. Staged layout
+passes `make check-index`. The final PDFs have 16, 21 and 132 pages respectively;
+all pages were inspected in contact sheets, with changed material inspected at
+reading size. The final generated-link update is pixel-identical except for
+the corrected section number on record page 5, which was inspected again.
 
 The first generation check detected stale line coordinates in the comparison
 map after the record edit. The comparison-map regression also required rebinding
@@ -88,6 +92,10 @@ the operator's cache or installed tooling. Temporary string-escaping damage to
 a new vector display was caught in source readback and repaired before acceptance.
 A local-lemma renumbering also touched its external source locator; the source
 number was restored and the writing method now distinguishes those two edits.
+
+The final record rerender hit the renderer's 8 GiB free-space guard on the
+internal drive. Rendering moved to the mounted media volume with more than
+2 TiB free; the guard and unrelated files were left unchanged.
 
 Render review examines complete page contact sheets and full-size changed
 figures, matrix/sampler displays, amplification, exercises and formal-statement

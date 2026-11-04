@@ -83,7 +83,7 @@ $$
 P(z)=1\ \text{ if }\Phi(z)\ge\delta,\qquad P(z)=0\ \text{ if }|\Phi(z)|\le\delta/2,
 \tag{4}
 $$
-and undefined otherwise; in particular a large negative $\Phi$ lies outside the promise. Hardness hides an address, quantum decoding reads it cheaply, and an exact circuit certifies it even on unpromised inputs. We use three properties of $P$, which we cite from [@OpenAI2026, Lemma 2.1]; properties (ii) and (iii) are proved in §§[3.3](https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/docs/reasoning_record.md#forr_quantum) and [3.4](https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/docs/reasoning_record.md#forr_circuit) of the record.
+and undefined otherwise; in particular a large negative $\Phi$ lies outside the promise. Hardness hides an address, quantum decoding reads it cheaply, and an exact circuit certifies it even on unpromised inputs. We use three properties of $P$, which we cite from [@OpenAI2026, Lemma 2.1]; properties (ii) and (iii) are proved in §§[3.3](https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/docs/reasoning_record.md#forr_quantum) and [3.4](https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/docs/reasoning_record.md#forr_circuit) of the record.
 
 (i) For fixed $k$ and all large $m$, with $L=\bigl\lfloor m^{1-1/k}/\ell^2\bigr\rfloor$,
 $$
@@ -113,7 +113,7 @@ K=m+(m-1)+r(S+2)=O_k(m\ell^3)
 $$
 tests: $m$ tests $X_i[y]=1$, $m-1$ pointer tests, one consistency test per gate of each transcript, and two output tests per transcript (domain bit $1$, value bit $s_h$). The output tests are additional to the consistency tests at the output gates: consistency determines their values, while the two tests enforce the required domain and answer. Induction in topological order shows that a gate-consistent transcript is the true evaluation, so the output tests say that $P(A_{i,h})$ is defined and equals $s_h$. Thus every test passes at $(i,s_i)$ when $i$ wins, and when $i$ does not win some test fails at $(i,s)$ for every address $s$.
 
-A gate test reads the proposed output and its at most two predecessors: a predecessor is read from the address input if it is an input wire, and from the transcript otherwise. It checks the fixed Boolean gate equation. The enumeration of tests and wire locations is fixed and query-free. A gate test makes at most three queries and a pointer test $\ell+1$ adaptive queries, and every test can be evaluated coherently, with its index in superposition, at a constant-factor overhead (record §§[4.4](https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/docs/reasoning_record.md#CL-local-tests)–[4.6](https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/docs/reasoning_record.md#CL-coherent-tests)). The circuit size enters the quantum bound only through the cost $\sqrt K$ of verification (§3.3).
+A gate test reads the proposed output and its at most two predecessors: a predecessor is read from the address input if it is an input wire, and from the transcript otherwise. It checks the fixed Boolean gate equation. The enumeration of tests and wire locations is fixed and query-free. A gate test makes at most three queries and a pointer test $\ell+1$ adaptive queries, and every test can be evaluated coherently, with its index in superposition, at a constant-factor overhead (record §§[4.4](https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/docs/reasoning_record.md#CL-local-tests)–[4.6](https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/docs/reasoning_record.md#CL-coherent-tests)). The circuit size enters the quantum bound only through the cost $\sqrt K$ of verification (§3.3).
 
 ## 3. The quantum upper bound
 
@@ -125,7 +125,7 @@ The sampling step uses the following bounded form of amplitude amplification. It
 
 *Proof.* The case $p=0$ cannot yield success. For $0<p<1$, write $\mathcal A|0\rangle=\sin\theta\,|g\rangle+\cos\theta\,|b\rangle$, with $|g\rangle$ the normalised successful component. Grover iterations change only the two coefficients, so a successful measurement always leaves $|g\rangle$ up to global phase [@BHMT2002, §2, Lemma 1]. A trial chooses with probability $1/2$ a direct measurement and with probability $1/2$ a uniformly random number of Grover iterations up to $O(\gamma^{-1/2})$. The direct branch also covers the endpoint $p=1$, without a normalized failure component. It handles $p\ge1/2$; the averaged Grover probability is bounded below by a constant for $\gamma\le p\le1/2$ [@BBHT1998, arXiv v1, §4, Lemma 2]. A fixed $O(\log(1/\eta))$ number of fresh trials gives the claimed cap and failure bound. Stopping at the first success therefore preserves its conditional label law. $\square$
 
-The cutoff gives a worst-case bound even when $p<\gamma$. The untruncated QSearch routine of [@BHMT2002, Theorem 3] instead gives an expected-cost guarantee. The numerical trial estimate and the retained-state version are in [§5.1 of the record](https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/docs/reasoning_record.md#upper-small-probability); the tournament uses only the measured label law.
+The cutoff gives a worst-case bound even when $p<\gamma$. The untruncated QSearch routine of [@BHMT2002, Theorem 3] instead gives an expected-cost guarantee. The numerical trial estimate and the retained-state version are in [§5.1 of the record](https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/docs/reasoning_record.md#upper-small-probability); the tournament uses only the measured label law.
 
 ### 3.1 Comparing two columns
 
@@ -162,7 +162,7 @@ For example, in an abstract four-candidate comparison let candidate $1$ defeat a
 
 *Coupling.* Until $i^\star$ is drawn, $W/m\ge1/(2m)$, so at every such history the stage fails with probability at most $\varepsilon$ and otherwise draws a pivot with the ideal law. The failure probabilities may depend on the history, so we couple the two processes stage by stage, conditional on the entire past. This adds at most $T\varepsilon$ to the miss probability, and a failure after $i^\star$ is listed does not remove it.
 
-With $n$ previous pivots, rebuilding their comparison history in each preparation means a stage costs $O(c(n+1)\sqrt m\log(1/\varepsilon))$ queries whether or not a dominant candidate exists, where $n+1$ harmlessly covers the empty history, and summing over $n<T$ proves the proposition. A longer version of this proof is in [§5.2 of the record](https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/docs/reasoning_record.md#upper-tournament-statement).
+With $n$ previous pivots, rebuilding their comparison history in each preparation means a stage costs $O(c(n+1)\sqrt m\log(1/\varepsilon))$ queries whether or not a dominant candidate exists, where $n+1$ harmlessly covers the empty history, and summing over $n<T$ proves the proposition. A longer version of this proof is in [§5.2 of the record](https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/docs/reasoning_record.md#upper-tournament-statement).
 
 ### 3.3 Verification and the query count
 
@@ -174,7 +174,7 @@ One comparison costs $c=O_k(\ell\log\ell)$ queries, so Proposition 3 costs $O(c\
 $$
 O_k\bigl(T\ell\log\ell+T\sqrt K\,\ell\log T\bigr).
 $$
-Since $T=O(\ell)$ and $K=O_k(m\ell^3)$, both costs are at most $C_k\sqrt m\,\ell^6$. This deliberately loose common bound holds on every input and branch. The [uniform simplification in record §7.3](https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/docs/reasoning_record.md#ROOT-GROWING-K) gives $C_k\le2^{53}k\,2^{10k}$; the exponent argument needs only that $C_k$ is fixed when $k$ is fixed.
+Since $T=O(\ell)$ and $K=O_k(m\ell^3)$, both costs are at most $C_k\sqrt m\,\ell^6$. This deliberately loose common bound holds on every input and branch. The [uniform simplification in record §7.3](https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/docs/reasoning_record.md#ROOT-GROWING-K) gives $C_k\le2^{53}k\,2^{10k}$; the exponent argument needs only that $C_k$ is fixed when $k$ is fixed.
 
 ## 4. The randomized lower bound
 
@@ -205,7 +205,7 @@ $$
 $$
 The unchanged factors can be taken outside the sum precisely because the law is a product. Initially every factor is at most $\beta$. We fix the coins and side information, apply this bound, and average. $\square$
 
-The [weighted-value proof in the record](https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/docs/reasoning_record.md#CL-weighted-values) gives the same unnormalised recurrence. We use this separate-cap form for its exact factor $\beta^r$ and short proof. Per-path allowances go back to Shaltiel's fair trees, for XOR advantage under uniform inputs [@Shaltiel2003]; Drucker's Lemmas 3.1–3.2 and the fair specialisation at the end of §3 give the product bound used here [@Drucker2012]. The caps must hold on every branch, and side information must be jointly independent of the inputs (Appendices A.5–A.6).
+The [weighted-value proof in the record](https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/docs/reasoning_record.md#CL-weighted-values) gives the same unnormalised recurrence. We use this separate-cap form for its exact factor $\beta^r$ and short proof. Per-path allowances go back to Shaltiel's fair trees, for XOR advantage under uniform inputs [@Shaltiel2003]; Drucker's Lemmas 3.1–3.2 and the fair specialisation at the end of §3 give the product bound used here [@Drucker2012]. The caps must hold on every branch, and side information must be jointly independent of the inputs (Appendices A.5–A.6).
 
 Drucker's global-budget Theorem 1.1 would also suffice. The simulator below has total cap $L$, and substituting Drucker's parameters $T=L$, error $1/3$ and $\alpha=3/r$ gives $2\beta^r$. The extra factor two still leaves the discrepancy below $1/3$.
 
@@ -264,7 +264,7 @@ $$
 \Pr[\mathcal T\text{ queries }B_{I,s_I}]\le\frac G{mL}+G\beta^r.
 \tag{13}
 $$
-The record traces this simulator on a small example ([§6.5](https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/docs/reasoning_record.md#CL-simulator-example)).
+The record traces this simulator on a small example ([§6.5](https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/docs/reasoning_record.md#CL-simulator-example)).
 
 ### 4.5 The contradiction and the constants
 
@@ -279,7 +279,7 @@ R(F_{P,\mathcal C,m})>\Bigl\lfloor\frac{mL}{100}\Bigr\rfloor.
 \tag{15}
 $$
 
-For $P=P_{k,m}$ take $L$ from (5). The floors lose only constants: once (5) holds and $t\ge8$, (15) gives $R(F_{k,m})\ge m^{2-1/k}/(400\ell^2)$. The full rounding calculation is in [record §6.6](https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/docs/reasoning_record.md#CL-discrepancy). The exponent loss $1/k$ and the denominator $\ell^2$ come from the selected Forrelation hardness scale; the address length absorbs the union over query times without another power loss. The optional improvement of the erased-zero probability to $2G/[m(m+1)]$ is given in [record §6.4](https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/docs/reasoning_record.md#CL-zero-optional).
+For $P=P_{k,m}$ take $L$ from (5). The floors lose only constants: once (5) holds and $t\ge8$, (15) gives $R(F_{k,m})\ge m^{2-1/k}/(400\ell^2)$. The full rounding calculation is in [record §6.6](https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/docs/reasoning_record.md#CL-discrepancy). The exponent loss $1/k$ and the denominator $\ell^2$ come from the selected Forrelation hardness scale; the address length absorbs the union over query times without another power loss. The optional improvement of the erased-zero probability to $2G/[m(m+1)]$ is given in [record §6.4](https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/docs/reasoning_record.md#CL-zero-optional).
 
 ## 5. Completing the fixed-parameter proof
 
@@ -294,12 +294,12 @@ so no $C_\alpha$ in (1) exists. With the upper bound of [@ABKRT2021], $\alpha_{\
 
 ## 6. Optional uniform refinement
 
-The reconstruction in [record §§3.6–3.15](https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/docs/reasoning_record.md#forr_target) gives a further estimate with explicit dependence on $k$: for $m=4^t$ and $15k+2\le2t$,
+The reconstruction in [record §§3.6–3.15](https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/docs/reasoning_record.md#forr_target) gives a further estimate with explicit dependence on $k$: for $m=4^t$ and $15k+2\le2t$,
 $$
 R(P_{k,m})>\frac{2}{18225}\,\frac{m^{1-1/k}}{k^2\ln(4km)}.
 \tag{16}
 $$
-The estimate has different parameter dependence from the cited bound; its value here is explicit uniform control, not a claim of dominance or priority. Its purpose here is to give an explicit sufficient threshold, $t\ge13669k^2$, for (5), and to permit the growing-$k$ family below. The comparison and threshold calculation are in [record §3.15](https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/docs/reasoning_record.md#forr_threshold).
+The estimate has different parameter dependence from the cited bound; its value here is explicit uniform control, not a claim of dominance or priority. Its purpose here is to give an explicit sufficient threshold, $t\ge13669k^2$, for (5), and to permit the growing-$k$ family below. The comparison and threshold calculation are in [record §3.15](https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/docs/reasoning_record.md#forr_threshold).
 
 The proof of (16) compares the uniform law $\mathcal U$ with a correlated law $\nu_1$, which can have off-promise mass and is not the minimax law $\mu$ of §4. It is built from the Gaussian-pair chain of Bansal and Sinha [@BansalSinha2021, §3]. It uses a different algebraic truncation, so the required moment estimates are proved afresh. A stopped-martingale argument bounds derivatives of a decision tree's multilinear extension, following the ordinary-tree method of Girish, Tal and Wu [@GTW2021, §1.3 and Lemma 9]. Together these give, for the acceptance function $A$ of a depth-$d$ decision tree, where $d\ge1$,
 $$
@@ -318,25 +318,25 @@ $$
 \mathbb E_{\nu_1}A-\mathbb E_{\mathcal U}A
 \ge(1-\eta)(a_k-\delta)-\eta-\frac4{m\delta^2}.
 $$
-This displays the positive signal, error and uniform-law leakage in the same inequality. Constant error would swamp the exponentially small signal. Repetition reduces $\eta$ below $a_k/18$ using $O(k)$ runs; the dimension condition in (16) controls the leakage. The lower gap then contradicts the shallow-tree bound, yielding (16). The full assembly is in [record §§3.14–3.15](https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/docs/reasoning_record.md#forr_promise_gap).
+This displays the positive signal, error and uniform-law leakage in the same inequality. Constant error would swamp the exponentially small signal. Repetition reduces $\eta$ below $a_k/18$ using $O(k)$ runs; the dimension condition in (16) controls the leakage. The lower gap then contradicts the shallow-tree bound, yielding (16). The full assembly is in [record §§3.14–3.15](https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/docs/reasoning_record.md#forr_promise_gap).
 
-The source comparison in [record §3.16](https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/docs/reasoning_record.md#forr_credit) identifies the borrowed ingredients and the estimates reconstructed here.
+The source comparison in [record §3.16](https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/docs/reasoning_record.md#forr_credit) identifies the borrowed ingredients and the estimates reconstructed here.
 
 **Remark** (one family approaching four)**.** A growing choice of $k$ needs uniform estimates; fixed-$k$ thresholds alone do not suffice (Appendix A.8). Bound (16), the generic lower bound (15), and the [explicit quantum estimate][src-budget-exponential] supply them. For sufficiently large $t$, taking $k=\lfloor\sqrt{t/20}\rfloor$ gives a single family $F_t=F_{k,4^t}$ with
 $$
 R(F_t)\ge Q(F_t)^{4-o(1)}.
 $$
-This choice balances the classical exponent loss of order $1/k$ against the quantum overhead of order $k/t$ from $2^{10k}$. The calculation, including a finite error term in the exponent, is in [record §7.3](https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/docs/reasoning_record.md#ROOT-GROWING-K). Its force is asymptotic; the argument does not give $R=\Omega(Q^4)$.
+This choice balances the classical exponent loss of order $1/k$ against the quantum overhead of order $k/t$ from $2^{10k}$. The calculation, including a finite error term in the exponent, is in [record §7.3](https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/docs/reasoning_record.md#ROOT-GROWING-K). Its force is asymptotic; the argument does not give $R=\Omega(Q^4)$.
 
 ## 7. The formal statement
 
 The Lean development proves [$\alpha_{\rm tot}=4$][thm-alpha], [the separating family][thm-headline], [failure of the cubic bound][thm-cubic], and [eventual Forrelation hardness][thm-forrelation] without open mathematical hypotheses. Their [statement file][statement-file] imports only Mathlib. Comparator checks the separately compiled [proofs][statement-solution] against these statements using Lean's standard axioms. The universal quartic upper bound is included, through complexitylib [@Complexitylib2026].
 
-The definitions use the error and all-branch caps of §1. The two model bridges identify a capped randomized algorithm with a finite mixture of trees ([record §2.2](https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/docs/reasoning_record.md#R3-01-CLASSICAL)) and an adaptive quantum algorithm with a fixed query sequence having the same output law ([record §2.5](https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/docs/reasoning_record.md#R3-01-BRIDGES)). These identifications preserve the query cap and the output law.
+The definitions use the error and all-branch caps of §1. The two model bridges identify a capped randomized algorithm with a finite mixture of trees ([record §2.2](https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/docs/reasoning_record.md#R3-01-CLASSICAL)) and an adaptive quantum algorithm with a fixed query sequence having the same output law ([record §2.5](https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/docs/reasoning_record.md#R3-01-BRIDGES)). These identifications preserve the query cap and the output law.
 
 The compared family theorem supplies, for each fixed $k$, constants and a threshold, then one circuit for each sufficiently large $m$ that serves both complexity bounds. It states an existential logarithmic exponent and the floor lower bound (15). A [separate theorem for the fixed explicit circuit][src-constants] gives the choices $6$ and $1/400$ in (2). Lean also proves the [uniform estimate (16)][src-forrelation-uniform].
 
-Two auxiliary interfaces merit distinction. The formal upper bound uses a sampler that measures its output label and resets the workspace; its [exact conditional label law][src-amplify-measured] is the form needed in Lemma 2. A separate result [retains the successful state][cmp-amplifier], for success tests on basis labels. The formal [direct product result][cmp-direct-product] bounds [success together with cap compliance][def-compliant] for finitely many weighted random seeds. The record proves in ordinary mathematics that arbitrary independent randomness reduces to finite seeds and that recursive cap compliance is equivalent to the per-input counts used in Lemma 5 ([record §6.1 and Appendix G.8](https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/docs/reasoning_record.md#CL-direct-product-formal)). The complete statement correspondence and checking details are in [record Appendix G](https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/docs/reasoning_record.md#checked-statements).
+Two auxiliary interfaces merit distinction. The formal upper bound uses a sampler that measures its output label and resets the workspace; its [exact conditional label law][src-amplify-measured] is the form needed in Lemma 2. A separate result [retains the successful state][cmp-amplifier], for success tests on basis labels. The formal [direct product result][cmp-direct-product] bounds [success together with cap compliance][def-compliant] for finitely many weighted random seeds. The record proves in ordinary mathematics that arbitrary independent randomness reduces to finite seeds and that recursive cap compliance is equivalent to the per-input counts used in Lemma 5 ([record §6.1 and Appendix G.8](https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/docs/reasoning_record.md#CL-direct-product-formal)). The complete statement correspondence and checking details are in [record Appendix G](https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/docs/reasoning_record.md#checked-statements).
 
 ## Use of AI tools
 
@@ -354,11 +354,11 @@ The examples protect three inferences: A.1–A.3 concern construction and verifi
 
 ### A.1 The projection statistic does not test the promise
 
-Take $k=2$, $m=4$ and $z_1=z_2=(-1,1,1,1)$. Then $\Phi=-1$, so $\Phi^2=1$, yet $z$ lies outside the promise. The projection experiment therefore cannot supply the domain bit required in §2 (iii). The complete calculation is in [record §3.5](https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/docs/reasoning_record.md#forr_small_instance).
+Take $k=2$, $m=4$ and $z_1=z_2=(-1,1,1,1)$. Then $\Phi=-1$, so $\Phi^2=1$, yet $z$ lies outside the promise. The projection experiment therefore cannot supply the domain bit required in §2 (iii). The complete calculation is in [record §3.5](https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/docs/reasoning_record.md#forr_small_instance).
 
 ### A.2 Comparisons need not describe an order or fixed orientation
 
-A deterministic three-cycle of losers is a fixed tournament with no total order. If two losers instead defeat each other with probability $1/2$, this comparator's output law is not bounded-error access to either fixed orientation. The tournament of §3.2 accommodates both cases because it uses the exact comparison probabilities. See [record §5.2](https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/docs/reasoning_record.md#upper-cyclic-example).
+A deterministic three-cycle of losers is a fixed tournament with no total order. If two losers instead defeat each other with probability $1/2$, this comparator's output law is not bounded-error access to either fixed orientation. The tournament of §3.2 accommodates both cases because it uses the exact comparison probabilities. See [record §5.2](https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/docs/reasoning_record.md#upper-cyclic-example).
 
 ### A.3 A dominant column need not win
 
@@ -370,7 +370,7 @@ Query row $1$ of four columns. Choose $I$ uniformly among columns whose zero was
 $$
 1-(3/4)^4=\frac{175}{256}>\frac{\mathbb EZ}{m}=\frac14.
 $$
-Thus the identity in §4.3 requires independence of $I$ from the whole dummy run. The computation is in [record §6.4](https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/docs/reasoning_record.md#CL-selection-independence-example).
+Thus the identity in §4.3 requires independence of $I$ from the whole dummy run. The computation is in [record §6.4](https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/docs/reasoning_record.md#CL-selection-independence-example).
 
 ### A.5 Expected caps do not give the direct-product bound
 
@@ -382,7 +382,7 @@ The separate caps in §4.1 must therefore hold on every branch.
 
 ### A.6 Separate independence does not imply joint independence
 
-Let $P(x)=x$ on one fair bit and take query cap zero. For independent fair inputs $X,Y$, the side information $S=X\oplus Y$ is independent of each input separately. Given $S$, answering $(0,S)$ succeeds with probability $1/2$, although the product of the two one-instance optima is $1/4$. Lemma 5 consequently requires side information jointly independent of the entire input tuple. See [record §6.1](https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/docs/reasoning_record.md#CL-independent-information).
+Let $P(x)=x$ on one fair bit and take query cap zero. For independent fair inputs $X,Y$, the side information $S=X\oplus Y$ is independent of each input separately. Given $S$, answering $(0,S)$ succeeds with probability $1/2$, although the product of the two one-instance optima is $1/4$. Lemma 5 consequently requires side information jointly independent of the entire input tuple. See [record §6.1](https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/docs/reasoning_record.md#CL-independent-information).
 
 ### A.7 Conditioning on compliance changes the success probability
 
@@ -392,24 +392,24 @@ $$
 \qquad
 \Pr[\text{success}\mid\text{compliance}]=\frac58>\beta^2.
 $$
-The first probability is the joint event bounded in §4.4. Replacing it by the conditional probability invalidates the argument. The full trace is in [record §6.1](https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/docs/reasoning_record.md#CL-adaptive-example).
+The first probability is the joint event bounded in §4.4. Replacing it by the conditional probability invalidates the argument. The full trace is in [record §6.1](https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/docs/reasoning_record.md#CL-adaptive-example).
 
 ### A.8 Fixed-parameter thresholds do not justify a growing parameter
 
 The condition $t\ge2^k$ holds eventually for every fixed $k$, yet fails for every $t$ when $k=t$. The growing-$k$ family in §6 therefore uses estimates uniform in $k$, rather than substituting a varying parameter into an eventual fixed-$k$ statement.
 
 <!-- lean-links -->
-[cmp-amplifier]: https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean#L17-L52
-[cmp-direct-product]: https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/lean/QuarticCorpus/Independent/RealizedCaps/Challenge.lean#L18-L25
-[def-compliant]: https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/lean/QuarticQuery/LowerBound/RealizedCaps.lean#L111-L120
-[src-amplify-measured]: https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/lean/QuarticQuery/Upper/Amplify.lean#L345-L352
-[src-budget-exponential]: https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/lean/QuarticQuery/Upper/Bound.lean#L286-L290
-[src-constants]: https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/lean/QuarticQuery/Paper/ConstructionFamily.lean#L28-L40
-[src-forrelation-uniform]: https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/lean/QuarticQuery/ForrelationLower/Uniform.lean#L525-L532
-[statement-file]: https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/lean/QuarticCorpus/Unconditional/Challenge.lean
-[statement-solution]: https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/lean/QuarticCorpus/Unconditional/Solution.lean
-[thm-alpha]: https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/lean/QuarticCorpus/Unconditional/Challenge.lean#L326
-[thm-cubic]: https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/lean/QuarticCorpus/Unconditional/Challenge.lean#L336-L338
-[thm-forrelation]: https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/lean/QuarticCorpus/Unconditional/Challenge.lean#L340
-[thm-headline]: https://github.com/wcook04/quartic-query-lean/blob/c16d5deb2545f1e32a45eb4fa841ebffcdf403a3/lean/QuarticCorpus/Unconditional/Challenge.lean#L328-L334
+[cmp-amplifier]: https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean#L17-L52
+[cmp-direct-product]: https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/lean/QuarticCorpus/Independent/RealizedCaps/Challenge.lean#L18-L25
+[def-compliant]: https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/lean/QuarticQuery/LowerBound/RealizedCaps.lean#L111-L120
+[src-amplify-measured]: https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/lean/QuarticQuery/Upper/Amplify.lean#L345-L352
+[src-budget-exponential]: https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/lean/QuarticQuery/Upper/Bound.lean#L286-L290
+[src-constants]: https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/lean/QuarticQuery/Paper/ConstructionFamily.lean#L28-L40
+[src-forrelation-uniform]: https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/lean/QuarticQuery/ForrelationLower/Uniform.lean#L525-L532
+[statement-file]: https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/lean/QuarticCorpus/Unconditional/Challenge.lean
+[statement-solution]: https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/lean/QuarticCorpus/Unconditional/Solution.lean
+[thm-alpha]: https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/lean/QuarticCorpus/Unconditional/Challenge.lean#L326
+[thm-cubic]: https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/lean/QuarticCorpus/Unconditional/Challenge.lean#L336-L338
+[thm-forrelation]: https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/lean/QuarticCorpus/Unconditional/Challenge.lean#L340
+[thm-headline]: https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/lean/QuarticCorpus/Unconditional/Challenge.lean#L328-L334
 <!-- /lean-links -->
